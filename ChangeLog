@@ -1,3 +1,11 @@
+2020-11-25  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.tex (\image): Call \makevalueexpandable.  Remove
+	outdated code for macro expansion.
+	
+	Christopher Dimech reported that @value does not work inside
+	@image.
+
 2020-11-21  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	Remove newline at start of @macro argument

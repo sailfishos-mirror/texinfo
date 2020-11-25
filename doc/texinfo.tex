@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2020-11-21.08}
+\def\texinfoversion{2020-11-25.18}
 %
 % Copyright 1985, 1986, 1988, 1990-2020 Free Software Foundation, Inc.
 %
@@ -9513,7 +9513,7 @@ might help (with 'rm \jobname.?? \jobname.??s')%
 \def\imagexxx#1,#2,#3,#4,#5,#6\finish{\begingroup
   \catcode`\^^M = 5     % in case we're inside an example
   \normalturnoffactive  % allow _ et al. in names
-  \def\xprocessmacroarg{\eatspaces}% in case we are being used via a macro
+  \makevalueexpandable
   % If the image is by itself, center it.
   \ifvmode
     \imagevmodetrue
