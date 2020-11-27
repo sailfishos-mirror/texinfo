@@ -3411,12 +3411,16 @@ sub _convert_xref_commands($$$$)
     my $reference = $name;
     my $book_reference = '';
     if (!$self->in_string() and $href ne '') {
-      # class to distiguish links to Texinfo manuals from other links
-      my $class = $self->_attribute_class('a', 'texi-manual');
+      # attribute to distiguish links to Texinfo manuals from other links
+      # and to provide manual name of target
+      my $attribute = '';
+      if ($file) {
+        $attribute = "data-manual=\"".$self->protect_text($file)."\" ";
+      }
       if ($name ne '') {
-        $reference = "$class href=\"$href\">$name</a>";
+        $reference = "<a ${attribute}href=\"$href\">$name</a>";
       } elsif ($book ne '') {
-        $book_reference = "$class href=\"$href\">$book</a>"; 
+        $book_reference = "<a ${attribute}href=\"$href\">$book</a>";
       }
     }
     if ($cmdname eq 'pxref') {

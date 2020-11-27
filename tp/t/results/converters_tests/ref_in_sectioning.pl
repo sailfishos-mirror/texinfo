@@ -2545,7 +2545,7 @@ $result_converted{'html_text'}->{'ref_in_sectioning'} = '
 <p>
  &nbsp; </p>
 </div>
-<span id="for-example-node-_0028node_0029-_0028Top_0029"></span><h1 class="top">for example <a href="#node">See <a class="texi-manual" href="file name.html#node">title</a> in <cite>Manual</cite>.</a> (see <a href="#node">See <a class="texi-manual" href="file name.html#node">title</a> in <cite>Manual</cite>.</a>) (see <cite><a class="texi-manual" href="file.html#Top">Manual</a></cite>)</h1>
+<span id="for-example-node-_0028node_0029-_0028Top_0029"></span><h1 class="top">for example <a href="#node">See <a data-manual="file name" href="file name.html#node">title</a> in <cite>Manual</cite>.</a> (see <a href="#node">See <a data-manual="file name" href="file name.html#node">title</a> in <cite>Manual</cite>.</a>) (see <cite><a data-manual="file" href="file.html#Top">Manual</a></cite>)</h1>
 
 
 <h2 class="contents-heading">Table of Contents</h2>
@@ -2553,21 +2553,21 @@ $result_converted{'html_text'}->{'ref_in_sectioning'} = '
 <div class="contents">
 
 <ul class="no-bullet">
-  <li><a id="toc-node_002e" href="#node">1 See <a class="texi-manual" href="file name.html#node">title</a> in <cite>Manual</cite>.</a></li>
-  <li><a id="toc-node-just-node" href="#chap">2 <a href="#node">See <a class="texi-manual" href="file name.html#node">title</a> in <cite>Manual</cite>.</a> just node</a>
+  <li><a id="toc-node_002e" href="#node">1 See <a data-manual="file name" href="file name.html#node">title</a> in <cite>Manual</cite>.</a></li>
+  <li><a id="toc-node-just-node" href="#chap">2 <a href="#node">See <a data-manual="file name" href="file name.html#node">title</a> in <cite>Manual</cite>.</a> just node</a>
   <ul class="no-bullet">
     <li><a id="toc-node-node_002c-crossref-arg2" href="#node-node_002c-crossref-arg2">2.1 <a href="#node">cross ref name</a>  node, crossref arg2</a></li>
     <li><a id="toc-node-code-node_002c-samptitle-arg3" href="#node-code-node_002c-samptitle-arg3">2.2 <a href="#node">&lsquo;<samp>title</samp>&rsquo;</a>  code node, samptitle arg3</a></li>
-    <li><a id="toc-node-code-node_002c-file-name" href="#node-code-node_002c-file-name">2.3 <a class="texi-manual" href="file name.html#node">(file name)<code>node</code></a> code node, file name</a></li>
+    <li><a id="toc-node-code-node_002c-file-name" href="#node-code-node_002c-file-name">2.3 <a data-manual="file name" href="file name.html#node">(file name)<code>node</code></a> code node, file name</a></li>
     <li><a id="toc-node-node-and-manual" href="#node-node-and-manual">2.4 &lsquo;node&rsquo; in <cite>Manual</cite> node and manual</a></li>
     <li><a id="toc-Top-Top-and-manual" href="#Top-Top-and-manual">2.5 <cite>Manual</cite> Top and manual</a></li>
     <li><a id="toc-Manual-no-node-just-manual" href="#Manual-no-node-just-manual">2.6 <cite>Manual</cite> no node just manual</a></li>
-    <li><a id="toc-file-name-no-node-just-file-name" href="#file-name-no-node-just-file-name">2.7 <a class="texi-manual" href="file name.html#Top">(file name)</a> no node just file name</a></li>
-    <li><a id="toc-a-inforef-a-b-c" href="#a-inforef-a-b-c">2.8 See <a class="texi-manual" href="c.html#a">(c)b</a> inforef a b c</a></li>
-    <li><a id="toc-_0028Top_0029-pxref-Top-file-name_002c-spaces" href="#g_t_0028Top_0029-pxref-Top-file-name_002c-spaces">2.9 (see <a class="texi-manual" href="file name.html#Top">(file name)Top</a>) pxref Top file name, spaces</a></li>
-    <li><a id="toc-_0028file-name_0029-pxref-file-name-only_002c-spaces" href="#g_t_0028file-name_0029-pxref-file-name-only_002c-spaces">2.10 (see <a class="texi-manual" href="file name.html#Top">(file name)</a>) pxref file name only, spaces</a></li>
-    <li><a id="toc-Top_002c-xref-Top-filename-only_002c-no-spaces" href="#Top_002c-xref-Top-filename-only_002c-no-spaces">2.11 See <a class="texi-manual" href="filename.html#Top">(filename)Top</a>, xref Top filename only, no spaces</a></li>
-    <li><a id="toc-filename_002e-xref-filename-only_002c-no-spaces" href="#filename_002e-xref-filename-only_002c-no-spaces">2.12 See <a class="texi-manual" href="filename.html#Top">(filename)</a>. xref filename only, no spaces</a></li>
+    <li><a id="toc-file-name-no-node-just-file-name" href="#file-name-no-node-just-file-name">2.7 <a data-manual="file name" href="file name.html#Top">(file name)</a> no node just file name</a></li>
+    <li><a id="toc-a-inforef-a-b-c" href="#a-inforef-a-b-c">2.8 See <a data-manual="c" href="c.html#a">(c)b</a> inforef a b c</a></li>
+    <li><a id="toc-_0028Top_0029-pxref-Top-file-name_002c-spaces" href="#g_t_0028Top_0029-pxref-Top-file-name_002c-spaces">2.9 (see <a data-manual="file name" href="file name.html#Top">(file name)Top</a>) pxref Top file name, spaces</a></li>
+    <li><a id="toc-_0028file-name_0029-pxref-file-name-only_002c-spaces" href="#g_t_0028file-name_0029-pxref-file-name-only_002c-spaces">2.10 (see <a data-manual="file name" href="file name.html#Top">(file name)</a>) pxref file name only, spaces</a></li>
+    <li><a id="toc-Top_002c-xref-Top-filename-only_002c-no-spaces" href="#Top_002c-xref-Top-filename-only_002c-no-spaces">2.11 See <a data-manual="filename" href="filename.html#Top">(filename)Top</a>, xref Top filename only, no spaces</a></li>
+    <li><a id="toc-filename_002e-xref-filename-only_002c-no-spaces" href="#filename_002e-xref-filename-only_002c-no-spaces">2.12 See <a data-manual="filename" href="filename.html#Top">(filename)</a>. xref filename only, no spaces</a></li>
   </ul></li>
 </ul>
 </div>
@@ -2577,34 +2577,34 @@ $result_converted{'html_text'}->{'ref_in_sectioning'} = '
 <p>
  &nbsp; </p>
 </div>
-<span id="node_002e"></span><h2 class="chapter">1 See <a class="texi-manual" href="file name.html#node">title</a> in <cite>Manual</cite>.</h2>
+<span id="node_002e"></span><h2 class="chapter">1 See <a data-manual="file name" href="file name.html#node">title</a> in <cite>Manual</cite>.</h2>
 
 <hr>
 <span id="chap"></span><div class="header">
 <p>
  &nbsp; </p>
 </div>
-<span id="node-just-node"></span><h2 class="chapter">2 <a href="#node">See <a class="texi-manual" href="file name.html#node">title</a> in <cite>Manual</cite>.</a> just node</h2>
+<span id="node-just-node"></span><h2 class="chapter">2 <a href="#node">See <a data-manual="file name" href="file name.html#node">title</a> in <cite>Manual</cite>.</a> just node</h2>
 
 <ul class="section-toc">
 <li><a href="#node-node_002c-crossref-arg2" accesskey="1"><a href="#node">cross ref name</a>  node, crossref arg2</a></li>
 <li><a href="#node-code-node_002c-samptitle-arg3" accesskey="2"><a href="#node">&lsquo;<samp>title</samp>&rsquo;</a>  code node, samptitle arg3</a></li>
-<li><a href="#node-code-node_002c-file-name" accesskey="3"><a class="texi-manual" href="file name.html#node">(file name)<code>node</code></a> code node, file name</a></li>
+<li><a href="#node-code-node_002c-file-name" accesskey="3"><a data-manual="file name" href="file name.html#node">(file name)<code>node</code></a> code node, file name</a></li>
 <li><a href="#node-node-and-manual" accesskey="4">&lsquo;node&rsquo; in <cite>Manual</cite> node and manual</a></li>
 <li><a href="#Top-Top-and-manual" accesskey="5"><cite>Manual</cite> Top and manual</a></li>
 <li><a href="#Manual-no-node-just-manual" accesskey="6"><cite>Manual</cite> no node just manual</a></li>
-<li><a href="#file-name-no-node-just-file-name" accesskey="7"><a class="texi-manual" href="file name.html#Top">(file name)</a> no node just file name</a></li>
-<li><a href="#a-inforef-a-b-c" accesskey="8">See <a class="texi-manual" href="c.html#a">(c)b</a> inforef a b c</a></li>
-<li><a href="#g_t_0028Top_0029-pxref-Top-file-name_002c-spaces" accesskey="9">(see <a class="texi-manual" href="file name.html#Top">(file name)Top</a>) pxref Top file name, spaces</a></li>
-<li><a href="#g_t_0028file-name_0029-pxref-file-name-only_002c-spaces">(see <a class="texi-manual" href="file name.html#Top">(file name)</a>) pxref file name only, spaces</a></li>
-<li><a href="#Top_002c-xref-Top-filename-only_002c-no-spaces">See <a class="texi-manual" href="filename.html#Top">(filename)Top</a>, xref Top filename only, no spaces</a></li>
-<li><a href="#filename_002e-xref-filename-only_002c-no-spaces">See <a class="texi-manual" href="filename.html#Top">(filename)</a>. xref filename only, no spaces</a></li>
+<li><a href="#file-name-no-node-just-file-name" accesskey="7"><a data-manual="file name" href="file name.html#Top">(file name)</a> no node just file name</a></li>
+<li><a href="#a-inforef-a-b-c" accesskey="8">See <a data-manual="c" href="c.html#a">(c)b</a> inforef a b c</a></li>
+<li><a href="#g_t_0028Top_0029-pxref-Top-file-name_002c-spaces" accesskey="9">(see <a data-manual="file name" href="file name.html#Top">(file name)Top</a>) pxref Top file name, spaces</a></li>
+<li><a href="#g_t_0028file-name_0029-pxref-file-name-only_002c-spaces">(see <a data-manual="file name" href="file name.html#Top">(file name)</a>) pxref file name only, spaces</a></li>
+<li><a href="#Top_002c-xref-Top-filename-only_002c-no-spaces">See <a data-manual="filename" href="filename.html#Top">(filename)Top</a>, xref Top filename only, no spaces</a></li>
+<li><a href="#filename_002e-xref-filename-only_002c-no-spaces">See <a data-manual="filename" href="filename.html#Top">(filename)</a>. xref filename only, no spaces</a></li>
 </ul>
 <span id="node-node_002c-crossref-arg2"></span><h3 class="section">2.1 <a href="#node">cross ref name</a>  node, crossref arg2</h3>
 
 <span id="node-code-node_002c-samptitle-arg3"></span><h3 class="section">2.2 <a href="#node">&lsquo;<samp>title</samp>&rsquo;</a>  code node, samptitle arg3</h3>
 
-<span id="node-code-node_002c-file-name"></span><h3 class="section">2.3 <a class="texi-manual" href="file name.html#node">(file name)<code>node</code></a> code node, file name</h3>
+<span id="node-code-node_002c-file-name"></span><h3 class="section">2.3 <a data-manual="file name" href="file name.html#node">(file name)<code>node</code></a> code node, file name</h3>
 
 <span id="node-node-and-manual"></span><h3 class="section">2.4 &lsquo;node&rsquo; in <cite>Manual</cite> node and manual</h3>
 
@@ -2612,17 +2612,17 @@ $result_converted{'html_text'}->{'ref_in_sectioning'} = '
 
 <span id="Manual-no-node-just-manual"></span><h3 class="section">2.6 <cite>Manual</cite> no node just manual</h3>
 
-<span id="file-name-no-node-just-file-name"></span><h3 class="section">2.7 <a class="texi-manual" href="file name.html#Top">(file name)</a> no node just file name</h3>
+<span id="file-name-no-node-just-file-name"></span><h3 class="section">2.7 <a data-manual="file name" href="file name.html#Top">(file name)</a> no node just file name</h3>
 
-<span id="a-inforef-a-b-c"></span><h3 class="section">2.8 See <a class="texi-manual" href="c.html#a">(c)b</a> inforef a b c</h3>
+<span id="a-inforef-a-b-c"></span><h3 class="section">2.8 See <a data-manual="c" href="c.html#a">(c)b</a> inforef a b c</h3>
 
-<span id="g_t_0028Top_0029-pxref-Top-file-name_002c-spaces"></span><h3 class="section">2.9 (see <a class="texi-manual" href="file name.html#Top">(file name)Top</a>) pxref Top file name, spaces</h3>
+<span id="g_t_0028Top_0029-pxref-Top-file-name_002c-spaces"></span><h3 class="section">2.9 (see <a data-manual="file name" href="file name.html#Top">(file name)Top</a>) pxref Top file name, spaces</h3>
 
-<span id="g_t_0028file-name_0029-pxref-file-name-only_002c-spaces"></span><h3 class="section">2.10 (see <a class="texi-manual" href="file name.html#Top">(file name)</a>) pxref file name only, spaces</h3>
+<span id="g_t_0028file-name_0029-pxref-file-name-only_002c-spaces"></span><h3 class="section">2.10 (see <a data-manual="file name" href="file name.html#Top">(file name)</a>) pxref file name only, spaces</h3>
 
-<span id="Top_002c-xref-Top-filename-only_002c-no-spaces"></span><h3 class="section">2.11 See <a class="texi-manual" href="filename.html#Top">(filename)Top</a>, xref Top filename only, no spaces</h3>
+<span id="Top_002c-xref-Top-filename-only_002c-no-spaces"></span><h3 class="section">2.11 See <a data-manual="filename" href="filename.html#Top">(filename)Top</a>, xref Top filename only, no spaces</h3>
 
-<span id="filename_002e-xref-filename-only_002c-no-spaces"></span><h3 class="section">2.12 See <a class="texi-manual" href="filename.html#Top">(filename)</a>. xref filename only, no spaces</h3>
+<span id="filename_002e-xref-filename-only_002c-no-spaces"></span><h3 class="section">2.12 See <a data-manual="filename" href="filename.html#Top">(filename)</a>. xref filename only, no spaces</h3>
 
 <hr>
 ';

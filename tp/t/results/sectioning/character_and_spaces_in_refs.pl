@@ -2017,11 +2017,11 @@ Next: <a href="#other-nodes" accesskey="n" rel="next">Chapter with nodes</a> &nb
 
 <span id="Testing-distant-nodes"></span><h4 class="subheading">Testing distant nodes</h4>
 
-<p><a class="texi-manual" href="manual.html#a-node">(manual)a  node</a>
-<a class="texi-manual" href="manual.html#g_t_003a">(manual):</a>
-<a class="texi-manual" href="manual.html#Top">(manual)top</a>
-<a class="texi-manual" href="texinfo.html#Cross-References">(texinfo)Cross References</a>
-<a class="texi-manual" href="doc.html#node">(../manual/doc)node</a>
+<p><a data-manual="manual" href="manual.html#a-node">(manual)a  node</a>
+<a data-manual="manual" href="manual.html#g_t_003a">(manual):</a>
+<a data-manual="manual" href="manual.html#Top">(manual)top</a>
+<a data-manual="texinfo" href="texinfo.html#Cross-References">(texinfo)Cross References</a>
+<a data-manual="../manual/doc" href="doc.html#node">(../manual/doc)node</a>
 </p>
 <span id="Testing-local-nodes"></span><h4 class="subheading">Testing local nodes</h4>
 

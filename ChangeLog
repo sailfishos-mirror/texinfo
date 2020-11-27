@@ -1,5 +1,13 @@
 2020-11-25  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	data-manual attribute
+
+	* tp/Texinfo/Convert/HTML.pm (_convert_xref_commands):
+	Set data-manual attribute instead of class="texi-manual"
+	on links to other Texinfo manuals.
+
+2020-11-25  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.tex (\image): Call \makevalueexpandable.  Remove
 	outdated code for macro expansion.
 	
