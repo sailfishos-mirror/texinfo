@@ -15076,17 +15076,6 @@ hypothetical user @samp{me}'s @file{mylib} directory, and finally in
 the system directories.  (A leading, trailing, or doubled @samp{:}
 indicates searching the system directories at that point.)
 
-On MS-DOS/MS-Windows, you'd do this like this (note the use of the @samp{;}
-character as directory separator, instead of @samp{:}):
-
-@example
-set TEXINPUTS=.;d:/home/me/mylib;c:
-@end example
-
-@noindent
-It is customary for DOS/Windows users to put such commands in the
-@file{autoexec.bat} file, or in the Windows registry.
-
 
 @node Overfull hboxes
 @section Overfull ``hboxes''
@@ -17523,47 +17512,8 @@ Info where to look by setting the @code{INFOPATH} environment variable
 in your shell startup file.  This works with both the Emacs and
 standalone Info readers.
 
-Specifically, if you use a Bourne-compatible shell such as @code{sh}
-or @code{bash} for your shell command interpreter, you set the
-@code{INFOPATH} environment variable in the @file{.profile}
-initialization file; but if you use @code{csh} or @code{tcsh}, you set
-the variable in the @file{.cshrc} initialization file.  On
-MS-DOS/MS-Windows systems, you must set @code{INFOPATH} in your
-@file{autoexec.bat} file or in the registry.  Each type of shell uses
-a different syntax.
-
-@itemize @bullet
-@item
-In a @file{.cshrc} file, you could set the @code{INFOPATH}
-variable as follows:
-
-@smallexample
-setenv INFOPATH .:~/info:/usr/local/emacs/info
-@end smallexample
-
-@item
-In a @file{.profile} file, you would achieve the same effect by writing:
-
-@smallexample
-INFOPATH=.:$HOME/info:/usr/local/emacs/info
-export INFOPATH
-@end smallexample
-
-@item
-@pindex autoexec.bat
-In a @file{autoexec.bat} file, you write this command (note the
-use of @samp{;} as the directory separator, and a different syntax for
-using values of other environment variables):
-
-@smallexample
-set INFOPATH=.;%HOME%/info;c:/usr/local/emacs/info
-@end smallexample
-@end itemize
-
-@noindent
-The @samp{.} indicates the current directory as usual.  Emacs uses the
-@code{INFOPATH} environment variable to initialize the value of Emacs's
-own @code{Info-directory-list} variable.  The standalone Info reader
+Emacs uses the @code{INFOPATH} environment variable to initialize the value of
+Emacs's own @code{Info-directory-list} variable.  The standalone Info reader
 merges any files named @file{dir} in any directory listed in the
 @env{INFOPATH} variable into a single menu presented to you in the node
 called @samp{(dir)Top}.
