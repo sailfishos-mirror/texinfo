@@ -37,7 +37,6 @@ use Texinfo::Parser;
 use Texinfo::Convert::Text;
 use Texinfo::Convert::Texinfo;
 use Texinfo::Structuring;
-use Texinfo::Transformations;
 use Texinfo::Convert::Plaintext;
 use Texinfo::Convert::Info;
 use Texinfo::Convert::HTML;
@@ -810,6 +809,8 @@ sub test($$)
                                                      $index_names);
   }
   if ($parser_options->{'SIMPLE_MENU'}) {
+    # require instead of use for speed when this module is not needed
+    require Texinfo::Transformations;
     $parser->Texinfo::Transformations::set_menus_to_simple_menu();
   }
 

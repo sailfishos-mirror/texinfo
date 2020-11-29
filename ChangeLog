@@ -1,5 +1,9 @@
 2020-11-29  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* tp/t/test_utils.pm: require instead of use Texinfo::Transformations.
+
+2020-11-29  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	Upgrade libintl-perl to 1.32
 	
 	* tp/maintain/lib/libintl-perl,
