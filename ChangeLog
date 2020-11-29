@@ -1,5 +1,10 @@
 2020-11-29  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi: Change @smallexample to @example in many
+	places.
+
+2020-11-29  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	Update manual for command deprecations
 	
 	* doc/texinfo.texi (@unnumbered @appendix): Discourage @centerchap.

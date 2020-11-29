@@ -8303,14 +8303,14 @@ node for the @file{Footnotes} node is
 Here is how the first footnote in this manual looks after being
 formatted for Info in the separate node style:
 
-@smallexample
+@example
 @group
 File: texinfo.info  Node: Overview-Footnotes, Up: Overview
 
 (1) The first syllable of "Texinfo" is pronounced like "speck", not
 "hex". @dots{}
 @end group
-@end smallexample
+@end example
 @end itemize
 
 Unless your document has long and important footnotes (as in, say,
@@ -8683,7 +8683,7 @@ into the table of contents.  Precede the chapter heading with an
 
 For example:
 
-@smallexample
+@example
 @group
 @@node Variable Index
 @@unnumbered Variable Index
@@ -8697,7 +8697,7 @@ For example:
 
 @@printindex cp
 @end group
-@end smallexample
+@end example
 
 If you have more than one index, we recommend placing the concept index last.
 
@@ -8714,9 +8714,9 @@ readers can use this to go to the exact line of an entry, not just the
 containing node.  (Older Info readers will just go to the node.)
 Here's an example:
 
-@smallexample
+@example
 * First index entry:   Top.   (line  7)
-@end smallexample
+@end example
 
 @noindent The actual number of spaces is variable, to right-justify
 the line number; it's been reduced here to make the line fit in the
@@ -17619,25 +17619,25 @@ Info directory file, and use @code{@@dircategory} to specify which part
 of the Info directory to put it in.  Here is how these commands are used
 in this manual:
 
-@smallexample
+@example
 @@dircategory Texinfo documentation system
 @@direntry
 * Texinfo: (texinfo).           The GNU documentation format.
 * install-info: (texinfo)Invoking install-info. @dots{}
 @dots{}
 @@end direntry
-@end smallexample
+@end example
 
 Here's what this produces in the Info file:
 
-@smallexample
+@example
 INFO-DIR-SECTION Texinfo documentation system
 START-INFO-DIR-ENTRY
 * Texinfo: (texinfo).           The GNU documentation format.
 * install-info: (texinfo)Invoking install-info. @dots{}
 @dots{}
 END-INFO-DIR-ENTRY
-@end smallexample
+@end example
 
 @noindent
 The @code{install-info} program sees these lines in the Info file, and
@@ -18747,14 +18747,14 @@ being one of: @code{mono}, @code{node}, @code{section},
 references can occur only in the @var{urlprefix}.  For example (used
 in the canonical @file{htmlxref.cnf}):
 
-@smallexample
+@example
 G = http://www.gnu.org
 GS = $@{G@}/software
 hello mono    $@{GS@}/hello/manual/hello.html
 hello chapter $@{GS@}/hello/manual/html_chapter/
 hello section $@{GS@}/hello/manual/html_section/
 hello node    $@{GS@}/hello/manual/html_node/
-@end smallexample
+@end example
 
 @cindex monolithic manuals, for HTML cross-references
 If the keyword is @code{mono}, @var{urlprefix} gives the host,
@@ -18773,12 +18773,12 @@ url will be used, etc.  However, if a manual is not available in that
 form, anything that is available can be used.  Here is the search
 order for each style:
 
-@smallexample
+@example
 node    @result{} node,    section, chapter, mono
 section @result{} section, chapter, node,    mono
 chapter @result{} chapter, section, node,    mono
 mono    @result{} mono,    chapter, section, node
-@end smallexample
+@end example
 
 @opindex --node-files@r{, and HTML cross-references}
 These section- and chapter-level cross-manual references can succeed
