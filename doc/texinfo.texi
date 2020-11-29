@@ -3672,8 +3672,10 @@ just as with @code{@@chapter}.
 Texinfo also provides a command @code{@@centerchap}, which is analogous
 to @code{@@unnumbered}, but centers its argument in the printed and HTML
 outputs.  This kind of stylistic choice is not usually offered by
-Texinfo.  It may be suitable for short documents.
+Texinfo.
 @c but the Hacker's Dictionary wanted it, before they quit Texinfo.
+You are recommended not to use this command, as
+it may be removed in future releases of Texinfo.
 
 @cindex DocBook and prefatory sections
 @cindex Preface, etc., and DocBook
@@ -4872,11 +4874,9 @@ manuals or general web pages, keep working.
 @cindex References using @code{@@inforef}
 
 @code{@@inforef} is used for making cross-references to Info
-documents---even from a printed manual.  This might be because you
-want to refer to conditional @code{@@ifinfo} text
-(@pxref{Conditionals}), or because printed output is not available
-(perhaps because there is no Texinfo source), among other
-possibilities.
+documents---even from a printed manual.  This was originally
+used for Info files that were not generated from any Texinfo source.
+The command is now obsolete and should not be used.
 
 The command takes either two or three arguments, in the following
 order:
@@ -7078,10 +7078,9 @@ a fixed-width font, and everything else uses the regular font.
 They also have the same behavior in other respects---whether filling
 is done and whether margins are narrowed.
 
-As a general rule, a printed document looks better if you use only one
-of (for instance) @code{@@example} or @code{@@smallexample}
-consistently within a chapter.
-
+As a general rule, it's better to just use the regular
+commands (such as @code{@@example} instead of @code{@@smallexample}),
+unless you have a good reason for it.
 
 
 
@@ -13762,19 +13761,16 @@ character) @samp{-}.
 
 @anchor{definfoenclose}@c old name
 @cindex Highlighting, customized
-@cindex Customized highlighting
 @findex definfoenclose
 
 An @code{@@definfoenclose} command may be used to define a
 highlighting command for all the non-@TeX{} output formats.  A command
 defined using @code{@@definfoenclose} marks text by enclosing it in
-strings that precede and follow the text.  You can use this to get
-closer control of your output.
+strings that precede and follow the text.
 
-Presumably, if you define a command with @code{@@definfoenclose}, you
-will create a corresponding command for @TeX{}, either in
-@file{texinfo.tex}, @file{texinfo.cnf}, or within an @samp{@@iftex} or
-@samp{@@tex} in your document.
+In practice, there is little use for this command, and we do not
+recommend you use it.  Support for @code{@@definfoenclose} may be
+removed in future releases of Texinfo.
 
 Write a @code{@@definfoenclose} command at the beginning of a line
 followed by three comma-separated arguments.  The first argument to
@@ -13788,11 +13784,6 @@ delimiter is required.  If you do not want a start delimiter but do
 want an end delimiter, you must follow the command name with two
 commas in a row; otherwise, the end delimiter string you intended will
 naturally be (mis)interpreted as the start delimiter string.
-
-If you do a @code{@@definfoenclose} on the name of a predefined
-command (such as @code{@@emph}, @code{@@strong}, @code{@@t}, or
-@code{@@i}), the enclosure definition will override the built-in
-definition.  We don't recommend this.
 
 An enclosure command defined this way takes one argument in braces,
 since it is intended for new markup commands (@pxref{Marking Text}).
