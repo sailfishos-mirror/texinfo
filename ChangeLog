@@ -1,5 +1,9 @@
 2020-11-29  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* texindex/ti.twjr: Add missing } in menu.
+
+2020-11-29  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* tp/t/test_utils.pm: require instead of use Texinfo::Transformations.
 
 2020-11-29  Gavin Smith  <gavinsmith0123@gmail.com>

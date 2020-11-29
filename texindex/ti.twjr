@@ -127,7 +127,7 @@ files produced by the @file{texinfo.tex} file.
                                    characters.
 * fatal::                          Printing fatal errors.
 * is@dots{} functions::            Checking character types.
-* make_regexp::                    Make a regexp to match @TeX{ control
+* make_regexp::                    Make a regexp to match @TeX{} control
                                    sequences.
 * escape::                         Escaping backslashes for strings.
 * min::                            Get the minimum of two numbers.
