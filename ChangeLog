@@ -1,5 +1,14 @@
 2020-11-29  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	Revise in line with GNU Coding Standards
+	
+	* doc/texinfo.texi: Change "filename" to "file name" and
+	avoid using "path" or "pathname".
+	(Format with texi2dvi): Remove advice on running texi2dvi
+	under MS-DOS.
+
+2020-11-29  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (Preparing for TeX, Other Info Directories):
 	Remove explanations of how to set environment variables in various
 	shells.

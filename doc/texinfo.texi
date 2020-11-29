@@ -8031,7 +8031,7 @@ subsequent DocBook processor is supposed to choose the appropriate one.)
 
 @item
 For Info and HTML output, @code{makeinfo} uses the optional fifth
-argument @var{extension} to @code{@@image} for the filename extension,
+argument @var{extension} to @code{@@image} for the file extension,
 if it is specified and the file is found.  Any leading period should
 be included in @var{extension}.  For example:
 
@@ -13980,7 +13980,7 @@ cases).  For those who like to know the gory details, the actual
 @end example
 
 As far as we've been able to tell, the trailing integer flags only
-occur in conjunction with a filename, so that is reflected in the
+occur in conjunction with a file name, so that is reflected in the
 regular expression.
 
 As an example, the following is a syntactically valid @samp{#line}
@@ -13990,7 +13990,7 @@ directive, meaning line 1 of @file{/usr/include/stdio.h}:
 @hashchar{} 1 "/usr/include/stdio.h" 2 3 4
 @end example
 
-Unfortunately, the quoted filename (@samp{"..."}) has to be optional,
+Unfortunately, the quoted file name (@samp{"..."}) has to be optional,
 because M4 (especially) can often generate @samp{#line} directives
 within a single file.  Since the @samp{line} is also optional, the
 result is that lines might match which you wouldn't expect, e.g.,
@@ -14400,11 +14400,8 @@ prompt$ @kbd{texi2dvi foo.texi}
 prompt$ @kbd{texi2pdf foo.texi}
 @end example
 
-As shown in this example, the input filenames to @code{texi2dvi} and
+As shown in this example, the file names given to @code{texi2dvi} and
 @code{texi2pdf} must include any extension, such as @samp{.texi}.
-(Under MS-DOS and perhaps in other circumstances, you may need to run
-@samp{sh texi2dvi foo.texi} instead of relying on the operating system
-to invoke the shell on the @samp{texi2dvi} script.)
 
 For a list of all the options, run @samp{texi2dvi --help}.  Some of the
 options are discussed below.
@@ -14517,7 +14514,7 @@ not required, and the DVI output is identical.
 same, but we still run @command{pdfetex} to cater to ancient @TeX{}
 installations.)
 
-@cindex filename recorder for @TeX{}
+@cindex file recorder for @TeX{}
 @cindex @samp{\openout} line in log file
 @command{texi2dvi} attempts to detect auxiliary files output by @TeX{}, 
 either by using the @option{-recorder} option, or by scanning for 
@@ -15299,11 +15296,11 @@ This option now does nothing, but remains for compatibility.  (It used
 to ensure that @@-commands in node names were expanded throughout the
 document, especially @code{@@value}.  This is now done by default.)
 
-@item --conf-dir=@var{path}
-@opindex --conf-dir=@var{path}
-Prepend @var{path} to the directory search list for finding
+@item --conf-dir=@var{dir}
+@opindex --conf-dir=@var{dir}
+Prepend @var{dir} to the directory search list for finding
 customization files that may be loaded with @option{--init-file} (see
-below).  The @var{path} value can be a single directory, or a list of
+below).  The @var{dir} value can be a single directory, or a list of
 several directories separated by the usual path separator character
 (@samp{:} on Unix-like systems, @samp{;} on Windows). @c @xref{Loading
 @c Init Files}.
@@ -15428,12 +15425,12 @@ is split into one output file per Texinfo source node, and the split
 output is written into a subdirectory based on the name of the
 top-level Info file.  @xref{Generating HTML}.
 
-@item -I @var{path}
-@opindex -I @var{path}
-Append @var{path} to the directory search list for finding files that
+@item -I @var{dir}
+@opindex -I @var{dir}
+Append @var{dir} to the directory search list for finding files that
 are included using the @code{@@include} command.  By default,
-@code{texi2any} searches only the current directory.  If @var{path} is
-not given, the current directory is appended.  The @var{path} value
+@code{texi2any} searches only the current directory.  If @var{dir} is
+not given, the current directory is appended.  The @var{dir} value
 can be a single directory or a list of several directories separated
 by the usual path separator character (@samp{:} on Unix-like systems,
 @samp{;} on Windows).
@@ -16149,9 +16146,8 @@ In general, you should set @code{BEFORE_OVERVIEW} if
 @code{AFTER_OVERVIEW} is set, and you should set
 @code{BEFORE_TOC_LINES} if @code{AFTER_TOC_LINES} is set.
 
-
 @item BASEFILENAME_LENGTH
-The maximum length of the base filenames; default 245.
+The maximum length of a base file name; default 245.
 Changing this would make cross-manual references to such long node
 names invalid (@pxref{HTML Xref Link Basics}).
 
@@ -16297,7 +16293,7 @@ at @code{JS_WEBLABELS_FILE}, and link to it in the HTML output files.
 Only do this if actually referencing JavaScript files (either with
 @code{HTML_MATH} set to @samp{mathjax}, or when using the experimental
 JS browsing interface when @code{INFO_JS_DIR} is set).  With this
-setting, @code{JS_WEBLABELS_FILE} must be a relative path.
+setting, @code{JS_WEBLABELS_FILE} must be a relative file name.
 
 With the value @samp{reference}, link to the labels
 file given by @code{JS_WEBLABELS_FILE} in the output, and do not
@@ -17385,7 +17381,7 @@ For Info to work, the @file{info} directory must contain a file that
 serves as a top-level directory for the Info system.  By convention,
 this file is called @file{dir}.  (You can find the location of this file
 within Emacs by typing @kbd{C-h i} to enter Info and then typing
-@kbd{C-x C-f} to see the pathname to the @file{info} directory.)
+@kbd{C-x C-f} to see the location of the @file{info} directory.)
 
 The @file{dir} file is itself an Info file.  It contains the top-level
 menu for all the Info files in the system.  The menu looks like
@@ -17472,7 +17468,7 @@ ways to specify its location:
 
 @enumerate
 @item
-Write the pathname in the @file{dir} file as the second part of the menu.
+Write the file name in the @file{dir} file as the second part of the menu.
 
 @item
 Specify the Info directory name in the @code{INFOPATH} environment
@@ -17845,7 +17841,7 @@ Otherwise the alternate syntax is used.
 @end enumerate
 
 When the heuristic fails because your section title starts with a
-hyphen, or it happens to be a filename that can be opened, the syntax
+hyphen, or it happens to be a file that can be opened, the syntax
 should be changed to @samp{--regex=@var{regex} --section=@var{sec}
 --add-once}.
 
@@ -18075,7 +18071,7 @@ per Texinfo source @code{@@node}.
 Each output file name is the node name with spaces replaced by
 @samp{-}'s and special characters changed to @samp{_} followed by
 their code point in hex (@pxref{HTML Xref}).  This is to make it
-portable and easy to use as a filename.  In the unusual case of two
+portable and easy to use as a file name.  In the unusual case of two
 different nodes having the same name after this treatment, they are
 written consecutively to the same file, with HTML anchors so each can
 be referred to independently.
@@ -18316,7 +18312,7 @@ the directory is @file{./} (or just the empty string), and the file is
 @end itemize
 
 @vindex BASEFILENAME_LENGTH
-Another rule, that only holds for filenames, is that base filenames
+Another rule, that only holds for file names, is that base file names
 are truncated to 245 characters, to allow for an extension to be
 appended and still comply with the 255-character limit which is common
 to many filesystems.  Although technically this can be changed with
@@ -18324,7 +18320,7 @@ the @code{BASEFILENAME_LENGTH} customization variable (@pxref{Other
 Customization Variables}), doing so would make cross-manual references
 to such nodes invalid.
 
-Any directory part in the filename argument of the source cross
+Any directory part in the file name argument of the source cross
 reference command is ignored.  Thus, @code{@@xref@{,,,../foo@}} and
 @code{@@xref@{,,,foo@}} both use @samp{foo} as the manual name.  This
 is because any such attempted hardwiring of the directory is very
@@ -18354,7 +18350,7 @@ actually present in.  @xref{HTML Xref Mismatch}.
 
 As mentioned in the previous section, the key part of the HTML cross
 reference algorithm is the conversion of node names in the Texinfo
-source into strings suitable for XHTML identifiers and filenames.  The
+source into strings suitable for XHTML identifiers and file names.  The
 restrictions are similar for each: plain ASCII letters, numbers, and
 the @samp{-} and @samp{_} characters are all that can be used.
 (Although HTML anchors can contain most characters, XHTML is more
@@ -20002,7 +19998,7 @@ Generate the degree symbol.  @xref{@code{@@textdegree}}.
 Only allowed in a heading or footing.  Stands for, respectively, the
 number and name of the current chapter (in the format `Chapter 1:
 Title'), the current chapter name only, the current chapter number
-only, the filename, the current page number, and the title of the
+only, the file name, the current page number, and the title of the
 document, respectively.  @xref{Custom Headings, , How to Make Your Own
 Headings}.
 
@@ -23630,7 +23626,7 @@ text>} is descriptive text.
 In both forms the @t{<id>} refers to a node or anchor, in the same way
 as a reference in the node information line does (@pxref{Info Format
 Regular Nodes}).  The optional parenthesized @samp{<infofile>} is the
-filename of the manual being referenced, and the @t{<nodename>} is the
+name of the manual being referenced, and the @t{<nodename>} is the
 node or anchor within that manual,
 
 The second form has a descriptive label.  A cross-reference in this form
