@@ -1,3 +1,14 @@
+2020-11-29  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	Upgrade libintl-perl to 1.32
+	
+	* tp/maintain/lib/libintl-perl,
+	* tp/maintain/lib/README: Upgrade to libintl-perl-1.32
+	* TODO: Update.
+	
+	* tp/Texinfo/Report.pm (gdt): Set and restore LC_MESSAGES
+	when callling gettext.
+
 2020-11-25  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	data-manual attribute
