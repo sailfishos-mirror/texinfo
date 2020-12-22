@@ -1,5 +1,10 @@
 2020-12-22  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/Report.pm (gdt): Try to set locale from a list
+	so that more can be easily added.
+
+2020-12-22  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	Remove warning for @menu seen before first @node.
 
 	* tp/Texinfo/ParserNonXS.pm (_parse_texi),

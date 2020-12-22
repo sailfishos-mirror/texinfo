@@ -1,7 +1,6 @@
 # Report.pm: prepare error messages and translate strings.
 #
-# Copyright 2010, 2011, 2012, 2014, 2015, 2016, 2017, 2018 Free Software 
-# Foundation, Inc.
+# Copyright 2010-2020 Free Software Foundation, Inc.
 # 
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -249,8 +248,11 @@ sub gdt($$;$$)
   # when the tests are run), due to the fix for
   #   https://rt.cpan.org/Public/Bug/Display.html?id=81315
   # Translation is not done if LC_MESSAGES is "C" or "POSIX".
-  # This may not work if the locale named here doesn't exist.
-  POSIX::setlocale(LC_MESSAGES, 'en_US.UTF-8');
+  # This may not work if a locale named here doesn't exist on the system.
+  for my $try ('en_US.UTF-8', 'en_US') {
+    my $locale = POSIX::setlocale(LC_MESSAGES, $try);
+    last if $locale;
+  }
 
   Locale::Messages::textdomain($strings_textdomain);
 
