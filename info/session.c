@@ -3101,8 +3101,7 @@ forward_move_node_structure (WINDOW *window, int behaviour)
            "Next:" pointer, use that. */
         if (window->node->next)
           {
-            info_handle_pointer ("Next", window);
-            return 0;
+            return !info_handle_pointer ("Next", window);
           }
 
         /* Okay, there wasn't a "Next:" for this node.  Move "Up:" until we
@@ -3138,7 +3137,8 @@ forward_move_node_structure (WINDOW *window, int behaviour)
 
                   /* This node has a "Next" pointer, and it is not the
                      same as the first menu item found in this node. */
-                  info_handle_pointer ("Next", window);
+                  if (!info_handle_pointer ("Next", window))
+                    return 1;
 
                   /* Don't include intermediate nodes in the window's
                      history.  */
@@ -3211,14 +3211,16 @@ backward_move_node_structure (WINDOW *window, int behaviour)
           else if (window->node->prev
               && !strcmp(window->node->prev, window->node->up))
             {
-              info_handle_pointer ("Up", window);
+              if (!info_handle_pointer ("Up", window))
+                return 1;
             }
           /* Otherwise, go to 'Prev' node and go down the last entry
              in the menus as far as possible. */
           else if (window->node->prev)
             {
               int starting_hist_index = window->hist_index;
-              info_handle_pointer ("Prev", window);
+              if (!info_handle_pointer ("Prev", window))
+                return 1;
               if (!(window->node->flags & N_IsIndex))
                 {
                   while (1)
@@ -3236,10 +3238,16 @@ backward_move_node_structure (WINDOW *window, int behaviour)
                 }
             }
           else /* 'Up' but no 'Prev' */
-            info_handle_pointer ("Up", window);
+            {
+              if (!info_handle_pointer ("Up", window))
+                return 1;
+            }
         }
       else if (window->node->prev) /* 'Prev' but no 'Up' */
-        info_handle_pointer ("Prev", window);
+        {
+          if (!info_handle_pointer ("Prev", window))
+            return 1;
+        }
       else
         {
           info_error ("%s", _("No 'Prev' or 'Up' for this node within this document"));

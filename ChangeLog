@@ -1,5 +1,12 @@
 2020-12-22  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* info/session.c (forward_move_node_structure)
+	(backward_move_node_structure): Check return value from
+	info_handle_pointer.  Otherwise an infinity loop can result
+	from malformed input.  Report from Nathaniel Beaver.
+
+2020-12-22  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	Fix info fuzzing error.
 	
 	* info/info-utils.c (copy_input_to_output): Avoid pointer
