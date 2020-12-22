@@ -1,6 +1,6 @@
 /* info-utils.c -- miscellanous.
 
-   Copyright 1993-2019 Free Software Foundation, Inc.
+   Copyright 1993-2020 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -988,22 +988,16 @@ copy_input_to_output (long n)
 
               if (anchor_to_adjust)
                 {
-                  char *first_anchor = input_start
-                             + (*anchor_to_adjust)->nodestart - node_offset;
+                  /* Check there is an anchor in the input. */
+                  long first_anchor =
+                    (*anchor_to_adjust)->nodestart - node_offset;
 
-                  /* If there is an anchor in the input: */
-                  if (first_anchor < inptr + bytes_left)
+                  if (first_anchor < 0)
+                    anchor_to_adjust = 0; /* error in input file */
+                  else if (first_anchor < (inptr-input_start) + bytes_left)
                     {
                       /* Convert enough to pass the first anchor in input. */
-                      bytes_to_convert = first_anchor - inptr + 1;
-
-                      /* Shouldn't happen because we should have already
-                         have adjusted this anchor. */
-                      if (bytes_to_convert < 0)
-                        {
-                          anchor_to_adjust = 0; /* Abandon anchor adjustment.*/
-                          bytes_to_convert = bytes_left;
-                        }
+                      bytes_to_convert = first_anchor - (inptr-input_start) + 1;
                     }
                 }
 
