@@ -1,5 +1,17 @@
 2020-12-22  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	Remove warning for @menu seen before first @node.
+
+	* tp/Texinfo/ParserNonXS.pm (_parse_texi),
+	* tp/Texinfo/XS/parsetexi/handle_commands.c (handle_block_command):
+	Remove warning for @menu seen before first @node.
+
+	This warning would be output incorrectly when texi2any --pdf
+	was run if the @top node was in an @ifnottex block.  Report from
+	Matt Wette 2020-11-29.
+
+2020-12-22  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	texi2dvi stop on first error
 
 	* util/texi2dvi: Stop on first error.  Changes the behaviour that

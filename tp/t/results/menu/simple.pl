@@ -597,26 +597,7 @@ new comment
 After menu.
 ';
 
-$result_errors{'simple'} = [
-  {
-    'error_line' => ':4: @menu seen before first @node
-',
-    'file_name' => '',
-    'line_nr' => 4,
-    'macro' => '',
-    'text' => '@menu seen before first @node',
-    'type' => 'error'
-  },
-  {
-    'error_line' => ':4: perhaps your @top node should be wrapped in @ifnottex rather than @ifinfo?
-',
-    'file_name' => '',
-    'line_nr' => 4,
-    'macro' => '',
-    'text' => 'perhaps your @top node should be wrapped in @ifnottex rather than @ifinfo?',
-    'type' => 'error'
-  }
-];
+$result_errors{'simple'} = [];
 
 
 $result_floats{'simple'} = {};

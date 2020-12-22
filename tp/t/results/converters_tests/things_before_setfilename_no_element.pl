@@ -1254,24 +1254,6 @@ Anchor in footnote
 
 $result_errors{'things_before_setfilename_no_element'} = [
   {
-    'error_line' => 'things_before_setfilename_no_element.texi:34: @menu seen before first @node
-',
-    'file_name' => 'things_before_setfilename_no_element.texi',
-    'line_nr' => 34,
-    'macro' => '',
-    'text' => '@menu seen before first @node',
-    'type' => 'error'
-  },
-  {
-    'error_line' => 'things_before_setfilename_no_element.texi:34: perhaps your @top node should be wrapped in @ifnottex rather than @ifinfo?
-',
-    'file_name' => 'things_before_setfilename_no_element.texi',
-    'line_nr' => 34,
-    'macro' => '',
-    'text' => 'perhaps your @top node should be wrapped in @ifnottex rather than @ifinfo?',
-    'type' => 'error'
-  },
-  {
     'error_line' => 'things_before_setfilename_no_element.texi:38: warning: entry for index `cp\' outside of any node
 ',
     'file_name' => 'things_before_setfilename_no_element.texi',

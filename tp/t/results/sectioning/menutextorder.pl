@@ -1624,24 +1624,6 @@ $result_menus{'menutextorder'}{'menu_child'}{'menu_up'} = $result_menus{'menutex
 
 $result_errors{'menutextorder'} = [
   {
-    'error_line' => ':1: @menu seen before first @node
-',
-    'file_name' => '',
-    'line_nr' => 1,
-    'macro' => '',
-    'text' => '@menu seen before first @node',
-    'type' => 'error'
-  },
-  {
-    'error_line' => ':1: perhaps your @top node should be wrapped in @ifnottex rather than @ifinfo?
-',
-    'file_name' => '',
-    'line_nr' => 1,
-    'macro' => '',
-    'text' => 'perhaps your @top node should be wrapped in @ifnottex rather than @ifinfo?',
-    'type' => 'error'
-  },
-  {
     'error_line' => ':13: warning: node next for `onesub1\' is `onesub2\' in sectioning but not in menu
 ',
     'file_name' => '',

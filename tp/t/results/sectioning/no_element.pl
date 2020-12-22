@@ -825,24 +825,6 @@ float anchor.
 
 $result_errors{'no_element'} = [
   {
-    'error_line' => ':28: @menu seen before first @node
-',
-    'file_name' => '',
-    'line_nr' => 28,
-    'macro' => '',
-    'text' => '@menu seen before first @node',
-    'type' => 'error'
-  },
-  {
-    'error_line' => ':28: perhaps your @top node should be wrapped in @ifnottex rather than @ifinfo?
-',
-    'file_name' => '',
-    'line_nr' => 28,
-    'macro' => '',
-    'text' => 'perhaps your @top node should be wrapped in @ifnottex rather than @ifinfo?',
-    'type' => 'error'
-  },
-  {
     'error_line' => ':32: warning: entry for index `cp\' outside of any node
 ',
     'file_name' => '',

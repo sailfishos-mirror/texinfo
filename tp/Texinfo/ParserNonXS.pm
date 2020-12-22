@@ -1,6 +1,6 @@
 # Parser.pm: parse texinfo code into a tree.
 #
-# Copyright 2010-2019 Free Software Foundation, Inc.
+# Copyright 2010-2020 Free Software Foundation, Inc.
 # 
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -4675,14 +4675,6 @@ sub _parse_texi($;$)
                       $self->line_warn(__("\@menu in invalid context"), 
                                        $line_nr);
                     }
-                  }
-                } elsif ($command ne 'direntry') {
-                  if ($self->{'FORMAT_MENU'} eq 'menu') {
-                    $self->line_error(sprintf(__("\@%s seen before first \@node"), 
-                                              $command), $line_nr);
-                    $self->line_error(__(
-      "perhaps your \@top node should be wrapped in \@ifnottex rather than \@ifinfo?"), 
-                                  $line_nr);
                   }
                 }
               }

@@ -1001,24 +1001,6 @@ $result_errors{'before_node_and_section'} = [
     'macro' => '',
     'text' => 'entry for index `cp\' outside of any node',
     'type' => 'warning'
-  },
-  {
-    'error_line' => ':7: @menu seen before first @node
-',
-    'file_name' => '',
-    'line_nr' => 7,
-    'macro' => '',
-    'text' => '@menu seen before first @node',
-    'type' => 'error'
-  },
-  {
-    'error_line' => ':7: perhaps your @top node should be wrapped in @ifnottex rather than @ifinfo?
-',
-    'file_name' => '',
-    'line_nr' => 7,
-    'macro' => '',
-    'text' => 'perhaps your @top node should be wrapped in @ifnottex rather than @ifinfo?',
-    'type' => 'error'
   }
 ];
 

@@ -267,24 +267,6 @@ table line
 
 $result_errors{'table_not_closed_in_menu_description'} = [
   {
-    'error_line' => ':1: @menu seen before first @node
-',
-    'file_name' => '',
-    'line_nr' => 1,
-    'macro' => '',
-    'text' => '@menu seen before first @node',
-    'type' => 'error'
-  },
-  {
-    'error_line' => ':1: perhaps your @top node should be wrapped in @ifnottex rather than @ifinfo?
-',
-    'file_name' => '',
-    'line_nr' => 1,
-    'macro' => '',
-    'text' => 'perhaps your @top node should be wrapped in @ifnottex rather than @ifinfo?',
-    'type' => 'error'
-  },
-  {
     'error_line' => ':2: warning: @table should only appear at the beginning of a line
 ',
     'file_name' => '',

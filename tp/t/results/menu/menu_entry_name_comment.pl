@@ -689,26 +689,7 @@ $result_texts{'menu_entry_name_comment'} = '* a: (f)b
 * a: (f)b3c.c,    d
 ';
 
-$result_errors{'menu_entry_name_comment'} = [
-  {
-    'error_line' => ':1: @menu seen before first @node
-',
-    'file_name' => '',
-    'line_nr' => 1,
-    'macro' => '',
-    'text' => '@menu seen before first @node',
-    'type' => 'error'
-  },
-  {
-    'error_line' => ':1: perhaps your @top node should be wrapped in @ifnottex rather than @ifinfo?
-',
-    'file_name' => '',
-    'line_nr' => 1,
-    'macro' => '',
-    'text' => 'perhaps your @top node should be wrapped in @ifnottex rather than @ifinfo?',
-    'type' => 'error'
-  }
-];
+$result_errors{'menu_entry_name_comment'} = [];
 
 
 $result_floats{'menu_entry_name_comment'} = {};

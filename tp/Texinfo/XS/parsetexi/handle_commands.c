@@ -1,5 +1,5 @@
 /* handle_commands.c -- what to do when a command name is first read */
-/* Copyright 2010-2019 Free Software Foundation, Inc.
+/* Copyright 2010-2020 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -1014,17 +1014,6 @@ handle_block_command (ELEMENT *current, char **line_inout,
                       /* Add to array of menus for current node.  Currently
                          done in Perl code. */
                     }
-                }
-              else if (cmd != CM_direntry)
-                {
-                  if (conf.show_menu)
-                    {
-                      line_error ("@%s seen before first @node",
-                                  command_name(cmd));
-                      line_error ("perhaps your @top node should be "
-                                  "wrapped in @ifnottex rather than @ifinfo?");
-                    }
-                  // 4810 unassociated menus
                 }
             }
 

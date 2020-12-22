@@ -946,24 +946,6 @@ $result_sectioning{'placed_things_before_element'}{'section_childs'}[0]{'section
 
 $result_errors{'placed_things_before_element'} = [
   {
-    'error_line' => ':24: @menu seen before first @node
-',
-    'file_name' => '',
-    'line_nr' => 24,
-    'macro' => '',
-    'text' => '@menu seen before first @node',
-    'type' => 'error'
-  },
-  {
-    'error_line' => ':24: perhaps your @top node should be wrapped in @ifnottex rather than @ifinfo?
-',
-    'file_name' => '',
-    'line_nr' => 24,
-    'macro' => '',
-    'text' => 'perhaps your @top node should be wrapped in @ifnottex rather than @ifinfo?',
-    'type' => 'error'
-  },
-  {
     'error_line' => ':28: warning: entry for index `cp\' outside of any node
 ',
     'file_name' => '',
