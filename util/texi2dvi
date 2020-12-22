@@ -885,11 +885,8 @@ make_tex_cmd ()
   # Tell TeX to allow running external executables
   test -n "$shell_escape" && tex_cmd="$tex_cmd $shell_escape"
 
-  # Run without interaction.
-  # \batchmode does not show terminal output at all, so we don't
-  # want that.  And even in batch mode, TeX insists on having input
-  # from the user.  Close its stdin to make it impossible.
-  tex_cmd="$tex_cmd </dev/null '${escape}nonstopmode'"
+  # Run without interaction, stopping at the first error.
+  tex_cmd="$tex_cmd </dev/null"
 }
 
 

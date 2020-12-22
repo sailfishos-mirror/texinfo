@@ -1,3 +1,12 @@
+2020-12-22  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	texi2dvi stop on first error
+
+	* util/texi2dvi: Stop on first error.  Changes the behaviour that
+	has been current since change on 2019-03-31.
+	Request from Marius Hofert 2020-12-09.
+	* NEWS: Mention.
+
 2020-11-29  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	Revise in line with GNU Coding Standards

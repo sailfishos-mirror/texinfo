@@ -42,6 +42,9 @@ See the manual for detailed information.
 * info
   . support compressed dir files
 
+* texi2dvi
+  . stop on first error in input file
+
 * texinfo.tex
   . put logical page numbers into PDF's ('page labels')
   . put chapter numbers in the PDF outline
