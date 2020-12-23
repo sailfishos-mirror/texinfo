@@ -1,3 +1,7 @@
+2020-12-23  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/XS/README: Remove long-obsolete file.
+
 2020-12-22  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* info/session.c (forward_move_node_structure)
