@@ -4079,8 +4079,8 @@ the current context, or incidental to it; use cross-references to
 provide access to such information.  Also, an online help system or a
 reference manual is not like a novel; few read such documents in
 sequence from beginning to end.  Instead, people look up what they
-need.  For this reason, such creations should contain many cross
-references to help readers find other information that they may not
+need.  For this reason, such creations should contain many
+cross-references to help readers find other information that they may not
 have read.
 
 In a printed manual, a cross-reference results in a page reference,
@@ -4128,8 +4128,7 @@ Additionally, there are commands to produce references to documents
 outside the Texinfo system.  The @code{@@cite} command is used
 to make references to books and manuals.  @code{@@url} produces
 a @acronym{URL}, for example a reference to a page on the World
-Wide Web.  @code{@@inforef} is used to make a reference to an Info
-file for which there is no printed manual.
+Wide Web.
 
 
 @node Cross Reference Parts
@@ -17872,21 +17871,48 @@ the project mailing lists and elsewhere.
 @table @asis
 @item Why when I run @samp{info @var{foo}} do I get the same output as @samp{man @var{foo}}?
 
-Check that the Info manuals are installed.  Not all GNU/Linux distributions
-install all the Info manuals by default.
+Check that the Info manuals are installed.  Not all GNU/Linux
+distributions install all the Info manuals by default.  This is
+regrettable, as often the Info manual provides more information than
+the provided man page.
 
 @item Why not use HTML instead of Info?
 
-Manuals are rarely written in the Info format itself, but are generated
-from Texinfo source by the @command{texi2any} program.
+Manuals are rarely written in the Info format itself, but are
+generated from Texinfo source by the @command{texi2any} program.
 @command{texi2any} can generate HTML as well as Info from Texinfo
-source.  
+source. You can also access and download HTML manuals from the GNU
+website (@uref{https://www.gnu.org/manual/manual.html}).  Additionally,
+some GNU/Linux distributions provide packages for the installation
+of HTML manuals.
+
+Info still has some advantages over HTML for locally installed
+documentation.  The Info browsers support index lookup and support
+for links between locally installed manuals in multiple locations.
+It's important to have documentation installed locally on your machine
+rather than relying on the Internet; this makes accessing documentation
+more reliable, and ensures it matches installed versions of packages.
+It's hoped that support for browsing locally installed Texinfo
+documentation in some form of HTML can be improved in the future.
+
 
 @item Why provide the command-line @command{info} program when it is not very good?
 
-@command{info} has index lookup and mouse scrolling support, unlike
-@command{pinfo}.  It can also be configured to color cross-references
-and search results, as well as change the default key bindings.
+@command{info} has had improvements over time, so perhaps give
+it another go.  It can be configured to change the default key
+bindings, as well as change the color of cross-references and search
+results, and to enable mouse scrolling support.  You should not
+need to be experienced with the Emacs editor to use @command{info}.
+(Some recommend another program called @command{pinfo}, but this
+lacks in important features like index lookup.)
+
+Some prefer to be able to scroll through the entire manual at once (as
+happens with man pages), rather than being limited to a single `node'
+of content at once.  Of course, there is no accounting for taste,
+but a single, unstructured block of text becomes more awkward as a
+manual becomes longer and more complicated.  (However, if you really
+want to, you can view an info manual all at once in the @command{less}
+pager with @samp{info @var{foo} | less}.)
 
 @item Why do I have `see' appearing in front of all of my links?
 
@@ -17908,7 +17934,7 @@ If you really want a plain link in HTML output without affecting other
 output formats, you could create a macro with conditional definitions for
 each output format.
 
-@item Lines containing links appear mysteriously short.
+@item Why do lines containing links appear mysteriously short?
 
 This due to Emacs (or @command{info} with @code{hide-note-references}
 set to @samp{On}) hiding @samp{*note} strings, as mentioned above.

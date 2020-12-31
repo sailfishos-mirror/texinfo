@@ -1,3 +1,11 @@
+2020-12-31  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	Manual revisions
+
+	* doc/texinfo.texi (References): cross reference -> cross-reference
+	(Cross Reference Commands): rm reference to @inforef
+	(Info Format FAQ): Revise and extend.
+
 2020-12-27  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* TODO: Update some items from (now-closed) bug tracker on Savannah.
