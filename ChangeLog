@@ -1,5 +1,13 @@
 2020-12-31  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	Document INFO_JS_DIR.
+	
+	* TODO,
+	* doc/texinfo.texi (HTML Customization Variables):
+	Document INFO_JS_DIR.
+
+2020-12-31  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	Manual revisions
 
 	* doc/texinfo.texi (References): cross reference -> cross-reference
