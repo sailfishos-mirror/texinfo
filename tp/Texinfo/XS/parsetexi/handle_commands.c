@@ -556,7 +556,7 @@ handle_line_command (ELEMENT *current, char **line_inout,
 
           if (cmd == CM_subentry)
             {
-              int level = 1;
+              long level = 1;
               ELEMENT *parent = current->parent;
 
               if (!(command_flags(parent) & CF_index_entry_command)
@@ -571,7 +571,7 @@ handle_line_command (ELEMENT *current, char **line_inout,
                 {
                   KEY_PAIR *k = lookup_extra (parent, "level");
                   if (k && k->value)
-                    level = (int) k->value + 1;
+                    level = (long) k->value + 1;
                 }
               add_extra_integer (misc, "level", level);
               if (level > 2)

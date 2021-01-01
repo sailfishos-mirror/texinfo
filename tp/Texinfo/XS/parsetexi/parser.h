@@ -204,7 +204,7 @@ void add_extra_def_info (ELEMENT *e, char *key, DEF_INFO *value);
 void add_extra_float_type (ELEMENT *e, char *key, EXTRA_FLOAT_TYPE *value);
 void add_extra_string (ELEMENT *e, char *key, char *value);
 void add_extra_string_dup (ELEMENT *e, char *key, char *value);
-void add_extra_integer (ELEMENT *e, char *key, int value);
+void add_extra_integer (ELEMENT *e, char *key, long value);
 KEY_PAIR *lookup_extra (ELEMENT *e, char *key);
 
 /* In menus.c */

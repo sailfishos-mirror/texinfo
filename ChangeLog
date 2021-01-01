@@ -1,3 +1,11 @@
+2021-01-01  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	Avoid compiler warning
+
+	* tp/Texinfo/XS/parsetexi/extra.c (add_extra_integer)
+	* tp/Texinfo/XS/parsetexi/api.c (element_to_perl_hash): Use
+	wider integer type to avoid compiler warning.
+
 2020-12-31  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	Document INFO_JS_DIR.
