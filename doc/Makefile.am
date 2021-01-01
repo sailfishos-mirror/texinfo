@@ -86,7 +86,7 @@ gendocs_envvars = GENDOCS_TEMPLATE_DIR=$(gendocs_templates)
 gendocs_email = bug-texinfo@gnu.org
 gendocs_dir_url = /manual/
 gendocs_invoke = env $(gendocs_envvars) $(gendocs) --email $(gendocs_email) \
-  --html '-c TOP_NODE_UP_URL=$(gendocs_dir_url)'
+  --html '-c HTML_MATH=mathjax -c MATHJAX_SCRIPT=../../tex-svg.js -c MATHJAX_SOURCE=../../mathjax-instructions.html -c TOP_NODE_UP_URL=$(gendocs_dir_url)'
 # A nice side effect of using --html is to eliminate the fancy css default;
 # otherwise, we could use gendocs_template_min.
 #

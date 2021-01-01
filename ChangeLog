@@ -1,5 +1,9 @@
 2021-01-01  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/Makefile.am (wwwdoc-build): Add options for using MathJax.
+
+2021-01-01  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	CFLAGS for XS module checks
 
 	* tp/Texinfo/XS/configure.ac: Set CFLAGS and LDFLAGS before
