@@ -1,5 +1,10 @@
 2021-01-01  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* configure.ac: Print informative message if we
+	are not going to try to build XS modules.
+
+2021-01-01  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	Avoid compiler warning
 
 	* tp/Texinfo/XS/parsetexi/extra.c (add_extra_integer)

@@ -361,6 +361,10 @@ subdirs=tp/Texinfo/XS
 ( _AC_OUTPUT_SUBDIRS ) || enable_xs=no
 subdirs=$save_subdirs
 
+if test $enable_xs = no; then
+  AC_MSG_NOTICE([building Perl extension (XS) modules will be disabled])
+fi
+
 if test $enable_xs = check; then
   AC_MSG_CHECKING([whether we can build Perl extension (XS) modules])
   AC_MSG_RESULT([])
