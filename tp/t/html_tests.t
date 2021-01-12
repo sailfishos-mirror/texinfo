@@ -258,7 +258,38 @@ In top.
 
 @contents
 
-', {}, {'CONTENTS_OUTPUT_LOCATION' => 'after_title'}]
+', {}, {'CONTENTS_OUTPUT_LOCATION' => 'after_title'}],
+['example_class',
+'@example perl
+foreach my $unclosed_file (keys(%unclosed_files)) @{
+  if (!close($unclosed_files@{$unclosed_file@})) @{
+    warn(sprintf(__("%s: error on closing %s: %s\n"),
+                     $real_command_name, $unclosed_file, $!));
+    $error_count++;
+    _exit($error_count, \@@opened_files);
+  @}
+@}
+@end example
+'],
+['example_multi_class',
+'@example C++ , gothic, purple, embed
+void StateManager::deallocate() @{
+    if(buffer) @{
+        delete [] buffer;
+        buffer = NULL;
+    @}
+    if(tmp_state) @{
+        delete [] tmp_state;
+        tmp_state = NULL;
+    @}
+    if(in_state) @{
+        delete [] in_state;
+        in_state = NULL;
+    @}
+@} 
+@end example
+']
+
 );
 
 my @test_cases_text = (

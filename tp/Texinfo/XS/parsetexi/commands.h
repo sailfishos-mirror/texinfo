@@ -1,5 +1,5 @@
 /* commands.h - declarations for commands.c */
-/* Copyright 2010-2019 Free Software Foundation, Inc.
+/* Copyright 2010-2020 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -105,6 +105,7 @@ void wipe_user_commands (void);
 #define BLOCK_raw -2
 #define BLOCK_multitable -3
 #define BLOCK_region -4
+#define BLOCK_variadic -5
 
 /* Types of brace command (CF_brace). */
 #define BRACE_context -1 /* Can enclose paragraph breaks. */

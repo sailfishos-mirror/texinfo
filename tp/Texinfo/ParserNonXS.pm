@@ -4683,9 +4683,12 @@ sub _parse_texi($;$)
                  'contents' => [],
                  'parent' => $current } ];
               
-              $current->{'remaining_args'} = $block_commands{$command} -1 
-                if ($block_commands{$command} =~ /^\d+$/ 
-                    and $block_commands{$command} -1 > 0);
+              if ($block_commands{$command} =~ /^\d+$/ 
+                  and $block_commands{$command} - 1 > 0) {
+                $current->{'remaining_args'} = $block_commands{$command} - 1;
+              } elsif ($block_commands{$command} eq 'variadic') {
+                $current->{'remaining_args'} = -1; # unlimited args
+              }
               $current = $current->{'args'}->[-1];
               push @{$self->{'context_stack'}}, 'line' 
                 unless ($def_commands{$command});

@@ -2587,12 +2587,17 @@ sub _convert_preformatted_command($$$$)
   if ($cmdname eq 'menu') {
     $html_menu_entry_index = 0;
   } elsif ($cmdname eq 'example') {
-    if ($command->{'args'}
-          and $command->{'args'}->[0]
-          and $command->{'args'}->[0]->{'contents'}
-          and $command->{'args'}->[0]->{'contents'}->[0]
-          and $command->{'args'}->[0]->{'contents'}->[0]->{'text'}) {
-      $extra_class =  $command->{'args'}->[0]->{'contents'}->[0]->{'text'};
+    if ($command->{'args'}) {
+      for my $e (@{$command->{'args'}}) {
+        if ($e->{'contents'}
+            and $e->{'contents'}->[0]) {
+          my $t = $e->{'contents'}->[0]->{'text'};
+          if (defined($t)) {
+            $extra_class .= "$t ";
+          }
+        }
+      }
+      chop $extra_class; # remove final space
     }
   } elsif ($cmdname eq 'lisp') {
     $cmdname = 'example';

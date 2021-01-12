@@ -857,6 +857,7 @@ foreach my $preformatted_command(
   $preformatted_commands{$preformatted_command} = 1;
   $preformatted_code_commands{$preformatted_command} = 1;
 }
+$block_commands{'example'} = 'variadic'; # unlimited arguments
 
 foreach my $preformatted_command(
     'display', 'smalldisplay', 'format', 'smallformat') {
@@ -898,10 +899,10 @@ $block_commands{'ifcommandnotdefined'} = 'conditional';
 
 # 'macro' ?
 foreach my $block_command_one_arg('table', 'ftable', 'vtable',
-  'itemize', 'enumerate', 'quotation', 'smallquotation', 'example') {
+  'itemize', 'enumerate', 'quotation', 'smallquotation') {
   $block_commands{$block_command_one_arg} = 1;
   $block_item_commands{$block_command_one_arg} = 1 
-    unless ($block_command_one_arg =~ /quotation|example/);
+    unless ($block_command_one_arg =~ /quotation/);
 }
 
 $block_commands{'float'} = 2;

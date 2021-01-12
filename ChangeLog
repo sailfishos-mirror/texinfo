@@ -1,3 +1,23 @@
+2021-01-01  Gavin Smith  <gavinsmith0123@gmail.com> and
+            Patrice Dumas  <pertusus@free.fr>
+
+	Separate @example args with commas.
+
+	* tp/Texinfo/XS/parsetexi/command_data.txt: Use BLOCK_variadic
+	for @example.
+	* tp/Texinfo/XS/parsetexi/handle_commands.c (handle_block_commands):
+	Start remaining args counter at -1 for BLOCK_variadic.
+
+	* tp/Texinfo/Common.pm (%block_commands):
+	Use 'variadic' for 'example'.
+	* tp/Texinfo/ParserNonXS.pm (_parse_texi) <variadic block command>:
+	Set remaining_args value to -1.
+
+	* tp/Texinfo/Convert/HTML.pm (_convert_preformatted_command):
+	Concatenate any arguments to example with intervening spaces.
+	
+	* tp/t/html_tests.t (example_class, example_multi_class): New tests.
+
 2021-01-01  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* doc/Makefile.am (wwwdoc-build): Add options for using MathJax.

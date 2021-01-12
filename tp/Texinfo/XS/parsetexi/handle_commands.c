@@ -1032,6 +1032,11 @@ handle_block_command (ELEMENT *current, char **line_inout,
                               current,
                               command_data (current->cmd).data - 1);
               }
+            else if (command_data (current->cmd).data == BLOCK_variadic)
+              {
+                /* Unlimited args */
+                counter_push (&count_remaining_args, current, -1);
+              }
 
             current = bla;
             if (!(command_data(cmd).flags & CF_def))
