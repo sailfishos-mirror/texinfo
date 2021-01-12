@@ -10,11 +10,12 @@ See the manual for detailed information.
 ------------------------------------------------------------------------------
 
 * Language:
-  . new paper size @bsixpaper
+  . @example takes an argument to specify the language
   . mark these commands as deprecated, not to be used:
     @centerchap, @definfoenclose, @refill, @inforef.
   . completely remove @setcontentsaftertitlepage and
     @setshortcontentsaftertitlepage
+  . new paper size @bsixpaper
 
 * texi2any
   . should be faster as Perl XS parser is enabled by default

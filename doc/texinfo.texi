@@ -6531,25 +6531,13 @@ possible.  @xref{@code{@@small@dots{}}}.
 @cindex Examples, formatting them
 @cindex Formatting examples
 
-The @code{@@example} environment is used to indicate an example that
-is not part of the running text, such as computer input or output.
+The @code{@@example} environment is used to indicate
+computer input or output that is not part of the running text. If you
+want to embed code fragments within sentences, use the @code{@@code}
+command or its relatives instead (@pxref{@code{@@code}}).
+
 Write an @code{@@example} command at the beginning of a line by
-itself.  Mark the end of the example with an @code{@@end example}
-command, also written at the beginning of a line by itself.
-
-An @code{@@example} environment has the following characteristics:
-
-@itemize
-@item Each line in the input file is a line in the output; that is,
-the source text is not filled as it normally is.
-@item Extra spaces and blank lines are significant.
-@item The output is indented.
-@item The output uses a fixed-width font.
-@item Texinfo commands @emph{are} expanded; if you want the output to
-be the input verbatim, use the @code{@@verbatim} environment instead
-(@pxref{@code{@@verbatim}}).
-@end itemize
-
+itself.  Mark the end of the block with @code{@@end example}.
 For example,
 
 @example
@@ -6567,19 +6555,12 @@ cp foo @var{dest1}; \
  cp foo @var{dest2}
 @end example
 
-The lines containing @code{@@example} and @code{@@end example} will
-disappear from the output.  To make the output look good, you should
-put a blank line before the @code{@@example} and another blank line
-after the @code{@@end example}.  Blank lines inside the beginning
-@code{@@example} and the ending @code{@@end example}, on the other
-hand, do appear in the output.
-
-@quotation Caution
-Do not use tabs in the lines of an example!  (Or anywhere else in
-Texinfo, except in verbatim environments.)  @TeX{} treats tabs as
-single spaces, and that is not what they look like.  In Emacs, you can
-use @kbd{M-x untabify} to convert tabs in a region to multiple spaces.
-@end quotation
+The output uses a fixed-width font and is indented.  Each line
+in the input file is a line in the output; that is, the source
+text is not filled.  Extra spaces and blank lines are significant.
+Texinfo commands @emph{are} expanded; if you want the output to be
+the input verbatim, use the @code{@@verbatim} environment instead
+(@pxref{@code{@@verbatim}}).
 
 Examples are often, logically speaking, ``in the middle'' of a
 paragraph, and the text that continues afterwards should not be
@@ -6587,12 +6568,26 @@ indented, as in the example above.  The @code{@@noindent} command
 prevents a piece of text from being indented as if it were a new
 paragraph (@pxref{@code{@@noindent}}).
 
-If you want to embed code fragments within sentences, instead of
-displaying them, use the @code{@@code} command or its relatives
-(@pxref{@code{@@code}}).
+If you wish to use the normal roman font for a code comment, you can
+use the @code{@@r} command (@pxref{Fonts}).
 
-If you wish to write a ``comment'' on a line of an example in the
-normal roman font, you can use the @code{@@r} command (@pxref{Fonts}).
+You may optionally give arguments to the @code{@@example} command,
+separated by commas if there is more than one.  In the HTML output,
+any such arguments are output as class names.  This may be useful for
+adding syntax highlighting to manuals for code samples.  We recommend
+that when you give multiple arguments to @code{@@example}, you
+use the first argument to specify the language of the code (e.g.@:
+@samp{C}, @samp{lisp}, @samp{Cplusplus}).  You may find uses for other
+arguments, such as providing a formatting hint or marking code samples
+for extraction and further processing, but for now nothing definitive
+is recommended.  Perhaps this will change in future Texinfo releases.
+
+@quotation Caution
+Do not use tabs in the lines of an example!  (Or anywhere else in
+Texinfo, except in verbatim environments.)  @TeX{} treats tabs as
+single spaces, and that is not what they look like.
+@end quotation
+
 
 
 @node @code{@@verbatim}
@@ -6674,20 +6669,26 @@ See also @ref{@code{@@verbatiminclude}}.
 @findex lisp
 @cindex Lisp example
 
-The @code{@@lisp} command is used for Lisp code.  It is synonymous
-with the @code{@@example} command.
+The @code{@@lisp} command is used for Lisp code:
 
-@lisp
-This is an example of text written between an
-@code{@@lisp} command and an @code{@@end lisp} command.
-@end lisp
+@example
+@@lisp
+Example lisp code
+@@end lisp
+@end example
 
-Use @code{@@lisp} instead of @code{@@example} to preserve information
-regarding the nature of the example.  This is useful, for example, if
-you write a function that evaluates only and all the Lisp code in a
-Texinfo file.  Then you can use the Texinfo file as a Lisp
-library.  Mark the end of @code{@@lisp} with @code{@@end lisp} on a line
-by itself.
+@noindent This is synonymous with the following:
+
+@example
+@@example lisp
+Example lisp code
+@@end example
+@end example
+
+Use @code{@@lisp} to preserve information regarding the nature of
+the example.  This is useful, for example, if you write a function
+that evaluates only and all the Lisp code in a Texinfo file.  Then you
+can use the Texinfo file as a Lisp library.
 
 
 @node @code{@@display}

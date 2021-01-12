@@ -1,3 +1,8 @@
+2021-01-12  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* NEWS, doc/texinfo.texi (@example): Document that @example
+	can take an argument.
+
 2021-01-12  Gavin Smith  <gavinsmith0123@gmail.com> and
             Patrice Dumas  <pertusus@free.fr>
 
