@@ -1,3 +1,9 @@
+2021-01-13  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/XS/xspara.c (two_spaces_only): Split out function
+	for clarity.
+	(xspara_add_text): Copy some code to each case of an if statement.
+
 2021-01-12  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* NEWS, doc/texinfo.texi (@example): Document that @example
