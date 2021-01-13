@@ -1,5 +1,18 @@
 2021-01-13  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	Simply paragraph formatter.
+	
+	* tp/Texinfo/XS/xspara.c (two_spaces_only): Remove function.
+	(xspara_add_text): Simply use two spaces at the end of a
+	sentence, rather than processing space characters from the input.
+	This has a potential change to the output if exotic spaces were used.
+	* tp/Texinfo/Convert/ParagraphNonXS.pm (add_text): The same.
+	* tp/Texinfo/XS/xspara.c (xspara_add_text): Do not continue the loop
+	after this, as this can rarely lead to calls to xspara__cut_line
+	or xspara__end_line being missed later on in the loop body.
+
+2021-01-13  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/XS/xspara.c (two_spaces_only): Split out function
 	for clarity.
 	(xspara_add_text): Copy some code to each case of an if statement.

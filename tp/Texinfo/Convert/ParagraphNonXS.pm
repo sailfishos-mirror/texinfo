@@ -375,12 +375,9 @@ sub add_text($$)
               and !$paragraph->{'frenchspacing'}
               and !$paragraph->{'unfilled'}) {
             if (length($paragraph->{'space'}) >= 1 or length($spaces) > 1) {
-              # more than one space, we can make sure tht there are only 
+              # more than one space, we can make sure that there are only 
               # 2 spaces
-              my $all_spaces = substr($paragraph->{'space'} . $spaces, 0, 2);
-              $all_spaces =~ s/[\n\r]/ /g;
-              $all_spaces .= ' ' x (2 - length($all_spaces));
-              $paragraph->{'space'} = $all_spaces;
+              $paragraph->{'space'} = '  ';
             } else {
               # if there is only one space, we let it accumulate
               my $new_space = $spaces;
