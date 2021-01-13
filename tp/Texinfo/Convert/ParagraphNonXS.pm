@@ -311,7 +311,6 @@ sub set_space_protection($$;$$$$)
   if ($space_protection) {
     _add_next($paragraph, '');
   }
-  return '';
 }
 
 # Wrap $TEXT, returning the wrapped text, taking into account the current state 

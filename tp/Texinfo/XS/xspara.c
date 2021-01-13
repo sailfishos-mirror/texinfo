@@ -1,5 +1,4 @@
-/* Copyright 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2018 Free Software
-   Foundation, Inc.
+/* Copyright 2010-2021 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -804,7 +803,7 @@ xspara_allow_end_sentence (void)
 }
 
 /* -1 in a parameter means leave that value as it is. */
-char *
+void
 xspara_set_space_protection (int protect_spaces,
                              int ignore_columns,
                              int keep_end_lines,
@@ -867,7 +866,7 @@ xspara_set_space_protection (int protect_spaces,
        }
    }
 
- return ""; /* TODO: Check if we can remove this. */
+ return;
 }
 
 /*****************************************************************/

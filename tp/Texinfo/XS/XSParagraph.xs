@@ -13,7 +13,7 @@
 
 MODULE = Texinfo::Convert::Paragraph PACKAGE = Texinfo::Convert::Paragraph PREFIX = xspara_
 
-#  Copyright 2010-2019 Free Software Foundation, Inc.
+#  Copyright 2010-2020 Free Software Foundation, Inc.
 #
 #  This program is free software: you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
@@ -228,7 +228,7 @@ xspara_allow_end_sentence (paragraph)
 # Optional parameters are IGNORE_COLUMNS, KEEP_END_LINES, FRENCHSPACING,
 # DOUBLE_WIDTH_NO_BREAK.
 # Pass them to the C function as -1 if not given or undef.
-char *
+void
 xspara_set_space_protection (paragraph, space_protection_in, ...)
         SV *paragraph
         SV * space_protection_in
@@ -274,9 +274,7 @@ xspara_set_space_protection (paragraph, space_protection_in, ...)
           }
 
         xspara_set_state (paragraph);
-        RETVAL = xspara_set_space_protection
+        xspara_set_space_protection
           (space_protection, ignore_columns, keep_end_lines,
            french_spacing, double_width_no_break);
-    OUTPUT:
-        RETVAL
 

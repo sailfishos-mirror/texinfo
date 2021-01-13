@@ -1689,12 +1689,12 @@ sub _convert($$)
         add_end_sentence($formatter->{'container'}, 1);
       } elsif ($command eq 'tie') {
         $formatter->{'w'}++;
-        $result .= set_space_protection($formatter->{'container'}, 1, undef)
+        set_space_protection($formatter->{'container'}, 1, undef)
           if ($formatter->{'w'} == 1);
         $result .= _count_added($self, $formatter->{'container'}, 
                        add_text($formatter->{'container'}, $text));
         $formatter->{'w'}--;
-        $result .= set_space_protection($formatter->{'container'}, 0, undef)
+        set_space_protection($formatter->{'container'}, 0, undef)
           if ($formatter->{'w'} == 0);
       } else {
         $result .= _count_added($self, $formatter->{'container'}, 
@@ -1775,7 +1775,7 @@ sub _convert($$)
       }
       if ($command eq 'w') {
         $formatter->{'w'}++;
-        $result .=  set_space_protection($formatter->{'container'}, 1,undef)
+        set_space_protection($formatter->{'container'}, 1,undef)
           if ($formatter->{'w'} == 1);
       }
       my ($text_before, $text_after);
@@ -1820,7 +1820,7 @@ sub _convert($$)
          if ($text_after ne '');
       if ($command eq 'w') {
         $formatter->{'w'}--;
-        $result .=  set_space_protection($formatter->{'container'},0,undef)
+        set_space_protection($formatter->{'container'},0,undef)
           if ($formatter->{'w'} == 0);
       }
       if ($code_style_commands{$command}) {
@@ -2016,14 +2016,14 @@ sub _convert($$)
         if ($self->{'document_context'}->[-1]->{'in_multitable'}) {
           $in_multitable = 1;
           $formatter->{'w'}++;
-          $result .= set_space_protection($formatter->{'container'},1,undef)
+          set_space_protection($formatter->{'container'}, 1, undef)
             if ($formatter->{'w'} == 1);
         }
         # Disallow breaks in runs of Chinese text in node names, because a 
         # break would be normalized to a single space by the Info reader, and 
         # the node wouldn't be found.
         set_space_protection($formatter->{'container'},
-                    undef,undef,undef,undef,1); # double_width_no_break
+                    undef, undef, undef, undef, 1);
 
         if ($command eq 'xref') {
           $result = _convert($self, {'contents' => [{'text' => '*Note '}]});
@@ -2194,7 +2194,7 @@ sub _convert($$)
 
         if ($in_multitable) {
           $formatter->{'w'}--;
-          $result .=  set_space_protection($formatter->{'container'},0,undef)
+          set_space_protection($formatter->{'container'}, 0, undef)
             if ($formatter->{'w'} == 0);
         }
         set_space_protection($formatter->{'container'},
@@ -3047,8 +3047,7 @@ sub _convert($$)
 
     } elsif ($root->{'type'} eq 'frenchspacing') {
       push @{$formatter->{'frenchspacing_stack'}}, 'on';
-      set_space_protection($formatter->{'container'}, undef,
-        undef,undef,1);
+      set_space_protection($formatter->{'container'}, undef, undef, undef, 1);
     } elsif ($root->{'type'} eq '_code') {
       if (!$formatter->{'font_type_stack'}->[-1]->{'monospace'}) {
         push @{$formatter->{'font_type_stack'}}, {'monospace' => 1};
@@ -3056,8 +3055,7 @@ sub _convert($$)
         $formatter->{'font_type_stack'}->[-1]->{'monospace'}++;
       }
       push @{$formatter->{'frenchspacing_stack'}}, 'on';
-      set_space_protection($formatter->{'container'},undef,
-        undef,undef,1);
+      set_space_protection($formatter->{'container'}, undef, undef, undef, 1);
     } elsif ($root->{'type'} eq 'bracketed') {
       $result .= _count_added($self, $formatter->{'container'}, 
                    add_text($formatter->{'container'}, '{'));
@@ -3086,8 +3084,8 @@ sub _convert($$)
       pop @{$formatter->{'frenchspacing_stack'}};
       my $frenchspacing = 0;
       $frenchspacing = 1 if ($formatter->{'frenchspacing_stack'}->[-1] eq 'on');
-      set_space_protection($formatter->{'container'},undef,
-        undef, undef, $frenchspacing);
+      set_space_protection($formatter->{'container'}, undef,
+                           undef, undef, $frenchspacing);
     } elsif ($root->{'type'} eq '_code') {
       $formatter->{'font_type_stack'}->[-1]->{'monospace'}--;
       pop @{$formatter->{'font_type_stack'}}
@@ -3095,8 +3093,8 @@ sub _convert($$)
       pop @{$formatter->{'frenchspacing_stack'}};
       my $frenchspacing = 0;
       $frenchspacing = 1 if ($formatter->{'frenchspacing_stack'}->[-1] eq 'on');
-      set_space_protection($formatter->{'container'},undef,
-        undef, undef, $frenchspacing);
+      set_space_protection($formatter->{'container'}, undef,
+                           undef, undef, $frenchspacing);
     } elsif ($root->{'type'} eq 'bracketed') {
       $result .= _count_added($self, $formatter->{'container'}, 
                                      add_text($formatter->{'container'}, '}'));

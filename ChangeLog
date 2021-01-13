@@ -1,5 +1,13 @@
 2021-01-13  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	void return type for set_space_protection
+
+	* tp/Texinfo/Convert/ParagraphNonXS.pm (set_space_protection):
+	Do not return an empty string.  Callers updated.
+	* tp/Texinfo/XS/xspara.c (xspara_set_space_protection): The same.
+
+2021-01-13  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	No line counting for set_space_protection.
 	
 	* tp/Texinfo/Convert/Plaintext.pm (_convert): Do not wrap
