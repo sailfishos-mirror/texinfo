@@ -545,7 +545,17 @@ in a reuglar para @sortas{foo}. @code{inside another @sortas{command}}.
 @printindex cp
 ', {'test_formats' => ['plaintext', 'docbook', 'html']}
 ],
+['w_lines_count',
+'@node Top
+@top
 
+xzcompilationxdmbufferxmsubsequentmxCtxaxxmcommandsmadvancemfrommthere.  
+@w{@code{C-u}} starts again from the beginning
+
+@findex compilation-next-error
+Compilation mode also defines the keys @key{SPC} and @key{DEL} to
+
+@printindex fn']
 );
 
 my $encoding_index_text = '

@@ -1,5 +1,15 @@
 2021-01-13  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	No line counting for set_space_protection.
+	
+	* tp/Texinfo/Convert/Plaintext.pm (_convert): Do not wrap
+	any calls to set_space_protection with _count_added as
+	set_space_protection does not reset the line counter and
+	this can lead line numbers in index entries to be too high.
+	* tp/t/09indices.t (w_lines_count): New test.
+
+2021-01-13  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	Simply paragraph formatter.
 	
 	* tp/Texinfo/XS/xspara.c (two_spaces_only): Remove function.

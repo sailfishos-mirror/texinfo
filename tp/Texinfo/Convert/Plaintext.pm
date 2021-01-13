@@ -1689,14 +1689,12 @@ sub _convert($$)
         add_end_sentence($formatter->{'container'}, 1);
       } elsif ($command eq 'tie') {
         $formatter->{'w'}++;
-        $result .= _count_added($self, $formatter->{'container'},
-            set_space_protection($formatter->{'container'}, 1, undef))
+        $result .= set_space_protection($formatter->{'container'}, 1, undef)
           if ($formatter->{'w'} == 1);
         $result .= _count_added($self, $formatter->{'container'}, 
                        add_text($formatter->{'container'}, $text));
         $formatter->{'w'}--;
-        $result .= _count_added($self, $formatter->{'container'},
-            set_space_protection($formatter->{'container'}, 0, undef))
+        $result .= set_space_protection($formatter->{'container'}, 0, undef)
           if ($formatter->{'w'} == 0);
       } else {
         $result .= _count_added($self, $formatter->{'container'}, 
@@ -1777,8 +1775,7 @@ sub _convert($$)
       }
       if ($command eq 'w') {
         $formatter->{'w'}++;
-        $result .= _count_added($self, $formatter->{'container'},
-            set_space_protection($formatter->{'container'}, 1,undef))
+        $result .=  set_space_protection($formatter->{'container'}, 1,undef)
           if ($formatter->{'w'} == 1);
       }
       my ($text_before, $text_after);
@@ -1823,8 +1820,7 @@ sub _convert($$)
          if ($text_after ne '');
       if ($command eq 'w') {
         $formatter->{'w'}--;
-        $result .= _count_added($self, $formatter->{'container'},
-            set_space_protection($formatter->{'container'},0,undef))
+        $result .=  set_space_protection($formatter->{'container'},0,undef)
           if ($formatter->{'w'} == 0);
       }
       if ($code_style_commands{$command}) {
@@ -2020,9 +2016,8 @@ sub _convert($$)
         if ($self->{'document_context'}->[-1]->{'in_multitable'}) {
           $in_multitable = 1;
           $formatter->{'w'}++;
-          $result .= _count_added($self, $formatter->{'container'},
-            set_space_protection($formatter->{'container'},1,undef))
-          if ($formatter->{'w'} == 1);
+          $result .= set_space_protection($formatter->{'container'},1,undef)
+            if ($formatter->{'w'} == 1);
         }
         # Disallow breaks in runs of Chinese text in node names, because a 
         # break would be normalized to a single space by the Info reader, and 
@@ -2199,8 +2194,7 @@ sub _convert($$)
 
         if ($in_multitable) {
           $formatter->{'w'}--;
-          $result .= _count_added($self, $formatter->{'container'},
-              set_space_protection($formatter->{'container'},0,undef))
+          $result .=  set_space_protection($formatter->{'container'},0,undef)
             if ($formatter->{'w'} == 0);
         }
         set_space_protection($formatter->{'container'},
