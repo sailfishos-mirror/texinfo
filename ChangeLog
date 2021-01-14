@@ -1,3 +1,7 @@
+2021-01-14  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* tp/t/paragraph.t: Update calls to set_space_protection.
+
 2021-01-13  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	void return type for set_space_protection
