@@ -510,7 +510,10 @@ sub _setup_conf($$$)
   if (defined($conf)) {
     foreach my $key (keys(%$conf)) {
       if (exists($parser_default_configuration{$key})) {
-        if ($key ne 'values' and ref($conf->{$key})) {
+        if ($key eq 'info') {
+          # merge hashes prefering values from $conf
+          $parser->{'info'} = { %{$parser->{'info'}}, %{$conf->{'info'}} };
+        } elsif ($key ne 'values' and ref($conf->{$key})) {
           $parser->{$key} = dclone($conf->{$key});
         } else {
           $parser->{$key} = $conf->{$key};

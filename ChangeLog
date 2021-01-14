@@ -1,5 +1,12 @@
 2021-01-14  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/ParserNonXS.pm (_setup_conf): Merge 'info' hash
+	from conf rather than replacing with it.  Otherwise giving
+	--no-validate flag to texi2any led to character encoding differences
+	in the output.
+
+2021-01-14  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* tp/t/paragraph.t: Update calls to set_space_protection.
 
 2021-01-13  Gavin Smith  <gavinsmith0123@gmail.com>
