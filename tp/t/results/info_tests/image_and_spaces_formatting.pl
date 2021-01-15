@@ -1076,7 +1076,7 @@ ddddddddddddd This is an image words. text eeeeeeeeeeeeeee This is an image word
 
    AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBBBBBBB
 This is an image words.
-   Text. This is an image words.  This is an image words..
+   Text.  This is an image words.  This is an image words..
 
 
 

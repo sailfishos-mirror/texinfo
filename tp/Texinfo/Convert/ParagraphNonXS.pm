@@ -200,22 +200,6 @@ sub _add_next($;$$$)
     }
     $word =~ s/\x08//g;
 
-    if (!defined($paragraph->{'word'})) {
-      $paragraph->{'word'} = '';
-      $paragraph->{'last_char'} = '';
-      if ($paragraph->{'end_sentence'} 
-           and $paragraph->{'end_sentence'} > 0
-           and !$paragraph->{'frenchspacing'}
-           and $paragraph->{'counter'} != 0 and $paragraph->{'space'}) {
-        # do not double space if there are leading spaces in word
-        if ($word !~ /^\s/) {
-          #$paragraph->{'space'} = '  ';
-          $paragraph->{'space'} .= ' ' x (2 - length($paragraph->{'space'}));
-        }
-        delete $paragraph->{'end_sentence'};
-      }
-    }
-    
     $paragraph->{'word'} .= $word;
 
     if (!$transparent) {
@@ -373,16 +357,7 @@ sub add_text($$)
               and $paragraph->{'end_sentence'} > 0
               and !$paragraph->{'frenchspacing'}
               and !$paragraph->{'unfilled'}) {
-            if (length($paragraph->{'space'}) >= 1 or length($spaces) > 1) {
-              # more than one space, we can make sure that there are only 
-              # 2 spaces
-              $paragraph->{'space'} = '  ';
-            } else {
-              # if there is only one space, we let it accumulate
-              my $new_space = $spaces;
-              $new_space =~ s/^[\n\r]/ /;
-              $paragraph->{'space'} = $new_space;
-            }
+            $paragraph->{'space'} = '  ';
           } else {
             # Only save the first space
             if ($paragraph->{'unfilled'}

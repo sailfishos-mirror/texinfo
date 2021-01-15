@@ -665,40 +665,6 @@ xspara__add_next (TEXT *result, char *word, int word_len, int transparent)
       disinhibit = 1;
     }
 
-  if (state.word.end == 0 && !state.invisible_pending_word)
-    {
-      /* Check if we are at the end of a sentence and if we need to
-         output two spaces after the full stop.  If so, check if the
-         word we are given begins with whitespace.  If it doesn't,
-         double the pending space.
-
-         We checked above if there was a pending word because if there
-         was, it is due to be output after the end-sentence whitespace,
-         not the string that was passed as an argument to this function.  
-       */
-      state.last_letter = L'\0';
-
-      if (state.counter != 0 && state.space.end > 0
-          && state.end_sentence == 1 && !state.french_spacing)
-        {
-          wchar_t wc;
-          size_t char_len;
-
-          char_len = mbrtowc (&wc, word, word_len, NULL);
-          if ((long) char_len > 0 && !iswspace (wc))
-            {
-              /* Make the pending space up to two spaces. */
-              while (state.space_counter < 2)
-                {
-                  text_append_n (&state.space, " ", 1);
-                  state.space_counter++;
-                }
-            }
-
-          state.end_sentence = -2;
-        }
-    }
-
   text_append_n (&state.word, word, word_len);
   if (word_len == 0 && word)
     state.invisible_pending_word = 1;
@@ -863,15 +829,6 @@ xspara_set_space_protection (int protect_spaces,
             "a @w{}" at end of paragraph -> "a ", not "a". */
 
          state.invisible_pending_word = 1;
-
-         /* make sure the space is doubled as it may not be done later */
-         if (state.end_sentence == 1
-              && (state.counter != 0 || state.unfilled))
-           {
-             state.space.end = 0;
-             text_append_n (&state.space, "  ", 2);
-             state.space_counter = 2;
-           }
        }
    }
 
@@ -954,36 +911,9 @@ xspara_add_text (char *text)
                       && !state.french_spacing
                       && !state.unfilled)
                     {
-                      wchar_t q_char;
-                      size_t q_len;
-
-                      /* Check if the next character is whitespace as well. */
-                      q_len = mbrtowc (&q_char,
-                                       p + char_len, len - char_len,
-                                       NULL);
-
-                      /* If we have an existing pending space, or if we have
-                         at least two whitespace characters in a row,
-                         truncate to at most 2 spaces. */
-                      if (state.space_counter >= 1
-                          || (long) q_len > 0 && iswspace (q_char))
-                        {
-                          state.space.end = 0;
-                          text_append_n (&state.space, "  ", 2);
-                          state.space_counter = 2;
-                        }
-                      else
-                        {
-                          /* Otherwise, an extra space is added
-                             in _add_next. */
-                          state.space.end = 0;
-                          state.space_counter = 0;
-                          if (*p == '\n' || *p == '\r')
-                            text_append_n (&state.space, " ", 1);
-                          else
-                            text_append_n (&state.space, p, char_len);
-                          state.space_counter++;
-                        }
+                      state.space.end = 0;
+                      text_append_n (&state.space, "  ", 2);
+                      state.space_counter = 2;
                     }
                   else /* Not at end of sentence. */
                     {

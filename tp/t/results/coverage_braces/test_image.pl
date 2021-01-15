@@ -4100,7 +4100,7 @@ In text [alt î-le..  a
 <"%@  < & @ % " ].
 
    Insertcopying
-   Text in copying. [f@i--le..  a@<"%@  < & @ % " ]
+   Text in copying.  [f@i--le..  a@<"%@  < & @ % " ]
 
    In text [alt î-le..  a
 <"%@  < & @ % " ].

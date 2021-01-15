@@ -119,7 +119,7 @@ $result_floats{'image_in_paragraph'} = {};
 
 
 
-$result_converted{'plaintext'}->{'image_in_paragraph'} = 'Para. Text for image out of paragraph..  After image.
+$result_converted{'plaintext'}->{'image_in_paragraph'} = 'Para.  Text for image out of paragraph..  After image.
 ';
 
 

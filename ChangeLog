@@ -1,5 +1,19 @@
 2021-01-15  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	Simply end-of-sentence handling.
+	
+	* Texinfo/XS/xspara.c (xspara_add_text): Always double the end of
+	sentence space here when it has to be doubled, rather than
+	sometimes relying on it being done later in xspara_add_next.  This
+	is simpler and more reliable.
+	(xspara__add_next, xspara_set_space_protection): Don't handle
+	end of sentence spaces.
+
+	* tp/Texinfo/Convert/ParagraphNonXS.pm (add_text, _add_next):
+	The same.
+
+2021-01-15  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	end of sentence space for set_space_protection
 	
 	* tp/Texinfo/XS/xspara.c (xspara_set_space_protection):

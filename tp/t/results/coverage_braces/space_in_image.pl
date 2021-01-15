@@ -161,7 +161,7 @@ $result_floats{'space_in_image'} = {};
 
 
 
-$result_converted{'plaintext'}->{'space_in_image'} = 'An image text before paragraph.. Another image text, in paragraph..
+$result_converted{'plaintext'}->{'space_in_image'} = 'An image text before paragraph..  Another image text, in paragraph..
 ';
 
 
