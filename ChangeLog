@@ -1,3 +1,11 @@
+2021-01-15  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	end of sentence space for set_space_protection
+	
+	* tp/Texinfo/XS/xspara.c (xspara_set_space_protection):
+	Double end-of-sentence space if at end of sentence.
+	* tp/t/03coverage_braces.t (w_end_sentence): New test.
+
 2021-01-14  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/ParserNonXS.pm (_setup_conf): Merge 'info' hash

@@ -160,6 +160,8 @@ begin and end quotations: @w{@t{`@w{}`@dots{}\'@w{}\'}}.  This
 convention should be followed in Texinfo files.  TeX converts
 two single quotes to left- and right-hand doubled.
 '],
+['w_end_sentence',
+'a. @w{b}'],
 ['test_image',
 '@macro files-char
 @image{f@@i--le@/.@.  a@@<"%@@@verb{:  < & @ % " :} ,,,,.ext@@i--le@/.@.  a@@<"%@@@verb{:  < & @ % " :}}

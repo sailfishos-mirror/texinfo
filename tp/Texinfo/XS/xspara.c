@@ -863,6 +863,15 @@ xspara_set_space_protection (int protect_spaces,
             "a @w{}" at end of paragraph -> "a ", not "a". */
 
          state.invisible_pending_word = 1;
+
+         /* make sure the space is doubled as it may not be done later */
+         if (state.end_sentence == 1
+              && (state.counter != 0 || state.unfilled))
+           {
+             state.space.end = 0;
+             text_append_n (&state.space, "  ", 2);
+             state.space_counter = 2;
+           }
        }
    }
 
