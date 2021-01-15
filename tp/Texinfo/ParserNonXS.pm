@@ -1804,9 +1804,21 @@ sub _next_text($$)
       }
       return ($new_text->[0], $new_text->[1]);
     } elsif ($input->{'fh'}) {
+      my $input_error = 0;
+      local $SIG{__WARN__} = sub {
+        my $message = shift;
+        print STDERR "input error: $message";
+        $input_error = 1;
+      };
       my $fh = $input->{'fh'};
       my $line = <$fh>;
       if (defined($line)) {
+        if ($input_error) {
+          # possible encoding error.  attempt to recover by stripping out
+          # non-ASCII bytes.  there may not be that many in the file.
+          Encode::_utf8_off($line);
+          $line =~ s/[\x80-\xFF]//g;
+        }
         # add an end of line if there is none at the end of file
         if (eof($fh) and $line !~ /\n/) {
           $line .= "\n";
