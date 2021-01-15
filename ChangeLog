@@ -1,5 +1,10 @@
 2021-01-15  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/XS/parsetexi/handle_commands.c (handle_block_command)
+	<BLOCK_variadic>: Start counter at -2 rather than -1.
+
+2021-01-15  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	Attempt to recover from input encoding errors.
 	
 	* tp/Texinfo/ParserNonXS.pm (_next_text): Trap input errors

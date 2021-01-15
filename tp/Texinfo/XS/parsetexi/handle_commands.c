@@ -1035,7 +1035,7 @@ handle_block_command (ELEMENT *current, char **line_inout,
             else if (command_data (current->cmd).data == BLOCK_variadic)
               {
                 /* Unlimited args */
-                counter_push (&count_remaining_args, current, -1);
+                counter_push (&count_remaining_args, current, -2);
               }
 
             current = bla;
