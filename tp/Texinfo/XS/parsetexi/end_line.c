@@ -506,7 +506,7 @@ parse_line_command_args (ELEMENT *line_command)
               goto defindex_reserved;
 
           if (index_by_name (name))
-            goto defindex_reserved;
+            { free (name); break; }
         }
 
         add_index (name, cmd == CM_defcodeindex ? 1 : 0);
