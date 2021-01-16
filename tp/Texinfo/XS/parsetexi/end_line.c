@@ -496,6 +496,8 @@ parse_line_command_args (ELEMENT *line_command)
            files being overwritten by the files read by texindex. */
         {
           static char *forbidden_index_names[] = {
+            "cp", "fn", "ky", "pg", "tp", "vr",
+            "cps", "fns", "kys", "pgs", "tps", "vrs",
             "info", "ps", "pdf", "htm", "html",
             "log", "aux", "dvi", "texi", "txi",
             "texinfo", "tex", "bib", 0
