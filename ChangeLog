@@ -1,5 +1,11 @@
 2021-01-16  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/XS/parsetexi/separator.c (handle_close_brace) <@U>
+	Correct argument check.
+	* tp/t/02coverage.t (invalid_U): Add another use of @U.
+
+2021-01-16  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/XS/parsetexi/end_line.c (parse_line_command_args)
 	<@defindex>: No warning if index already exists (to match the
 	Perl code).

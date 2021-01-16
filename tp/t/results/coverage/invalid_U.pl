@@ -207,6 +207,32 @@ $result_trees{'invalid_U'} = {
               'contents' => [
                 {
                   'parent' => {},
+                  'text' => 'FFFD'
+                }
+              ],
+              'parent' => {},
+              'type' => 'brace_command_arg'
+            }
+          ],
+          'cmdname' => 'U',
+          'contents' => [],
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 2,
+            'macro' => ''
+          },
+          'parent' => {}
+        },
+        {
+          'parent' => {},
+          'text' => ' '
+        },
+        {
+          'args' => [
+            {
+              'contents' => [
+                {
+                  'parent' => {},
                   'text' => 'wxyz'
                 }
               ],
@@ -271,15 +297,19 @@ $result_trees{'invalid_U'}{'contents'}[0]{'contents'}[15]{'args'}[0]{'contents'}
 $result_trees{'invalid_U'}{'contents'}[0]{'contents'}[15]{'args'}[0]{'parent'} = $result_trees{'invalid_U'}{'contents'}[0]{'contents'}[15];
 $result_trees{'invalid_U'}{'contents'}[0]{'contents'}[15]{'parent'} = $result_trees{'invalid_U'}{'contents'}[0];
 $result_trees{'invalid_U'}{'contents'}[0]{'contents'}[16]{'parent'} = $result_trees{'invalid_U'}{'contents'}[0];
+$result_trees{'invalid_U'}{'contents'}[0]{'contents'}[17]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'invalid_U'}{'contents'}[0]{'contents'}[17]{'args'}[0];
+$result_trees{'invalid_U'}{'contents'}[0]{'contents'}[17]{'args'}[0]{'parent'} = $result_trees{'invalid_U'}{'contents'}[0]{'contents'}[17];
+$result_trees{'invalid_U'}{'contents'}[0]{'contents'}[17]{'parent'} = $result_trees{'invalid_U'}{'contents'}[0];
+$result_trees{'invalid_U'}{'contents'}[0]{'contents'}[18]{'parent'} = $result_trees{'invalid_U'}{'contents'}[0];
 $result_trees{'invalid_U'}{'contents'}[0]{'parent'} = $result_trees{'invalid_U'};
 
 $result_texis{'invalid_U'} = '@U@U{} @U{z} @U{abc} @U{9999999999999} @U{110000} @U{10FFFF}
-@U{ 0023 } @U{ wxyz }
+@U{ 0023 } @U{FFFD} @U{ wxyz }
 ';
 
 
 $result_texts{'invalid_U'} = ' z abc 9999999999999 110000 10FFFF
-0023 wxyz
+0023 FFFD wxyz
 ';
 
 $result_errors{'invalid_U'} = [
@@ -353,22 +383,22 @@ $result_floats{'invalid_U'} = {};
 
 
 
-$result_converted{'plaintext'}->{'invalid_U'} = 'U+z ઼ U+9999999999999 U+110000 U+10FFFF # U+wxyz
+$result_converted{'plaintext'}->{'invalid_U'} = 'U+z ઼ U+9999999999999 U+110000 U+10FFFF # � U+wxyz
 ';
 
 
 $result_converted{'html_text'}->{'invalid_U'} = '<p> &#xz; &#xabc; &#x9999999999999; &#x110000; &#x10FFFF;
-&#x0023; &#xwxyz;
+&#x0023; &#xFFFD; &#xwxyz;
 </p>';
 
 
 $result_converted{'xml'}->{'invalid_U'} = '<para><U></U> <U>z</U> <U>abc</U> <U>9999999999999</U> <U>110000</U> <U>10FFFF</U>
-<U spaces=" ">0023 </U> <U spaces=" ">wxyz </U>
+<U spaces=" ">0023 </U> <U>FFFD</U> <U spaces=" ">wxyz </U>
 </para>';
 
 
 $result_converted{'docbook'}->{'invalid_U'} = '<para> &#xz; &#xabc; &#x9999999999999; &#x110000; &#x10FFFF;
-&#x0023; &#xwxyz;
+&#x0023; &#xFFFD; &#xwxyz;
 </para>';
 
 $result_converted_errors{'docbook'}->{'invalid_U'} = [

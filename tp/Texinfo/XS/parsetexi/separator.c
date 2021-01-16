@@ -441,15 +441,15 @@ handle_close_brace (ELEMENT *current, char **line_inout)
                 }
               else
                 {
-                  int val;
-                  int ret = sscanf (arg, "%d", &val);
+                  unsigned long int val;
+                  int ret = sscanf (arg, "%lx", &val);
                   if (ret != 1)
                     {
                       debug ("hex sscanf failed %s", arg);
                       /* unknown error.  possibly argument is too large
                          for an int. */
                     }
-                  if (ret != 1 || val > 0x10FFF)
+                  if (ret != 1 || val > 0x10FFFF)
                     {
                       line_error
                        ("argument for @U exceeds Unicode maximum 0x10FFFF: %s",
