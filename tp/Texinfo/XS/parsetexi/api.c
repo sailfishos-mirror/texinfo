@@ -289,6 +289,7 @@ element_to_perl_hash (ELEMENT *e)
       || e->cmd == CM_macro
       || e->cmd == CM_multitable
       || e->type == ET_menu_entry_name
+      || e->type == ET_menu_entry_description
       || e->type == ET_brace_command_arg
       || e->type == ET_brace_command_context
       || e->type == ET_block_line_arg

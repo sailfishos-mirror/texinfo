@@ -327,7 +327,8 @@ close_current (ELEMENT *current,
             abort ();
 
           /* Remove empty menu_comment */
-          if (current->contents.number == 0)
+          if (current->type == ET_menu_comment
+              && current->contents.number == 0)
             {
               current = current->parent;
               destroy_element (pop_element_from_contents (current));

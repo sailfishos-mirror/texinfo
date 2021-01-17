@@ -1589,7 +1589,8 @@ sub _close_current($$$;$$)
                             $line_nr, $current);
       }
       # close empty menu_comment
-      if (!@{$current->{'contents'}}) {
+      if ($current->{'type'} eq 'menu_comment'
+          and !@{$current->{'contents'}}) {
         pop @{$current->{'parent'}->{'contents'}};
       }
     } elsif ($current->{'type'} eq 'line_arg'

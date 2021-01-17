@@ -1,3 +1,16 @@
+2021-01-17  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	Handle malformed menu.
+
+	* tp/Texinfo/ParserNonXS.pm (_close_current),
+	* tp/Texinfo/XS/parsetexi/close.c (close_current): Do not
+	attempt to remove an empty menu_entry_description element
+	from the contents.  It may not be in the contents but in the
+	args instead, and also referenced elsewhere as an "extra" element.
+	* tp/Texinfo/XS/parsetexi/api.c (element_to_perl_hash): Always
+	create contents array for ET_menu_entry_description.
+	* tp/t/10menu.t (menu_node_unterminated): New test.
+
 2021-01-16  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/XS/parsetexi/handle_commands.c (handle_block_command)

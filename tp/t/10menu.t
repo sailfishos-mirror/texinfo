@@ -474,7 +474,16 @@ my @test_invalid = (
 @end menu
 
 @node aaa
-']
+'],
+['menu_node_unterminated',
+'@node Top
+
+@menu
+* Example: Examples of Login Verification Functions
+@end menu
+'],
+
+
 );
 
 foreach my $test (@test_cases) {
