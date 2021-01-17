@@ -715,7 +715,8 @@ inlinefmtifelse_done:
         }
     }
 
-  counter_dec (&count_remaining_args);
+  if (counter_value (&count_remaining_args, current) != COUNTER_VARIADIC)
+    counter_dec (&count_remaining_args);
   new_arg = new_element (type);
   add_to_element_args (current, new_arg);
   current = new_arg;

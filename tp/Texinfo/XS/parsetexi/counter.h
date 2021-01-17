@@ -1,5 +1,5 @@
 /* counter.h - definitions for counter.c */
-/* Copyright 2015-2019 Free Software Foundation, Inc.
+/* Copyright 2015-2020 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -26,3 +26,7 @@ void counter_pop (COUNTER *c);
 void counter_inc (COUNTER *c);
 void counter_dec (COUNTER *c);
 int counter_value (COUNTER *c, ELEMENT *e);
+
+/* A large positive number used to represent an unlimited number of remaining
+   arguments. */
+#define COUNTER_VARIADIC 32767

@@ -1,5 +1,12 @@
 2021-01-16  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/XS/parsetexi/handle_commands.c (handle_block_command)
+	<BLOCK_variadic>: Use a constant to represent unlimited args.
+	* tp/Texinfo/XS/parsetexi/separator.c (handle_comma): Do not
+	decrement counter if its value is this constant.
+
+2021-01-16  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/XS/parsetexi/end_line.c (parse_line_command_args):
 	Give warnings if try to redefine one of the predefined indices.
 
