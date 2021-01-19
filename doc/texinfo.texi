@@ -8552,7 +8552,7 @@ You can use the @code{@@sortas} command mentioned earlier with any or
 all of the three parts of an entry to cause them to sort differently
 than they would by default.
 
-@findex @@seeentry
+@findex seeentry
 Second, you may provide an index entry that points to another,
 using the @code{@@seeentry} (``see entry'') command. For example:
 
@@ -8564,7 +8564,7 @@ Such an entry should be unique in your document; the idea is to
 redirect the reader to the other entry where they will find all
 the information they are looking for.
 
-@findex @@seealso
+@findex seealso
 Finally, you may provide a ``see also'' entry using the @code{@@seealso}
 command. These entries go along with regular entries, and are grouped
 together with them in the final printed index. For example:

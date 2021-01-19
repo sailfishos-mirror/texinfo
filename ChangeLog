@@ -1,5 +1,10 @@
 2021-01-19  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.texi (Advanced Indexing): Remove @ from
+	@findex entries for seeentry and seealso.
+
+2021-01-19  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	Fix @seealso XS difference
 
 	* tp/Texinfo/XS/parsetexi/parser.c (parse_texi): Isolate
