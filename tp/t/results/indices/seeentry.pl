@@ -129,7 +129,7 @@ $result_trees{'seeentry'} = {
               'node' => {},
               'number' => 1
             },
-            'seeentry' => 'bbb',
+            'seeentry' => {},
             'spaces_before_argument' => ' '
           },
           'line_nr' => {
@@ -196,7 +196,7 @@ $result_trees{'seeentry'} = {
               'node' => {},
               'number' => 1
             },
-            'seealso' => 'ccc',
+            'seealso' => {},
             'spaces_before_argument' => ' '
           },
           'line_nr' => {
@@ -238,6 +238,7 @@ $result_trees{'seeentry'}{'contents'}[2]{'contents'}[1]{'extra'}{'index_entry'}{
 $result_trees{'seeentry'}{'contents'}[2]{'contents'}[1]{'extra'}{'index_entry'}{'content'} = $result_trees{'seeentry'}{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'};
 $result_trees{'seeentry'}{'contents'}[2]{'contents'}[1]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'seeentry'}{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'};
 $result_trees{'seeentry'}{'contents'}[2]{'contents'}[1]{'extra'}{'index_entry'}{'node'} = $result_trees{'seeentry'}{'contents'}[1];
+$result_trees{'seeentry'}{'contents'}[2]{'contents'}[1]{'extra'}{'seeentry'} = $result_trees{'seeentry'}{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[2];
 $result_trees{'seeentry'}{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'seeentry'}{'contents'}[2];
 $result_trees{'seeentry'}{'contents'}[2]{'contents'}[2]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'seeentry'}{'contents'}[2]{'contents'}[2]{'args'}[0]{'contents'}[0]{'args'}[0];
 $result_trees{'seeentry'}{'contents'}[2]{'contents'}[2]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'seeentry'}{'contents'}[2]{'contents'}[2]{'args'}[0]{'contents'}[0];
@@ -249,6 +250,7 @@ $result_trees{'seeentry'}{'contents'}[2]{'contents'}[2]{'extra'}{'index_entry'}{
 $result_trees{'seeentry'}{'contents'}[2]{'contents'}[2]{'extra'}{'index_entry'}{'content'} = $result_trees{'seeentry'}{'contents'}[2]{'contents'}[2]{'args'}[0]{'contents'};
 $result_trees{'seeentry'}{'contents'}[2]{'contents'}[2]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'seeentry'}{'contents'}[2]{'contents'}[2]{'args'}[0]{'contents'};
 $result_trees{'seeentry'}{'contents'}[2]{'contents'}[2]{'extra'}{'index_entry'}{'node'} = $result_trees{'seeentry'}{'contents'}[1];
+$result_trees{'seeentry'}{'contents'}[2]{'contents'}[2]{'extra'}{'seealso'} = $result_trees{'seeentry'}{'contents'}[2]{'contents'}[2]{'args'}[0]{'contents'}[0];
 $result_trees{'seeentry'}{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'seeentry'}{'contents'}[2];
 $result_trees{'seeentry'}{'contents'}[2]{'parent'} = $result_trees{'seeentry'};
 

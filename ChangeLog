@@ -1,5 +1,16 @@
 2021-01-19  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	"seeentry" and "seealso" extra elements
+
+	* tp/Texinfo/ParserNonXS.pm (_parse_texi),
+	* Texinfo/XS/parsetexi/separator.c (handle_close_brace):
+	Do not convert @seeentry or @seealso commands to strings.
+	Save references to them as extra elements.  This allows
+	more reliable checking of whether these commands were present.
+	* Texinfo/Convert/DocBook.pm (_index_entry): Accomodate change.
+
+2021-01-19  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/XS/parsetexi/Parsetexi.pm:
 	Remove a pointless comment.
 

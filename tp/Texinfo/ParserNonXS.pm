@@ -5097,12 +5097,16 @@ sub _parse_texi($;$)
             } elsif ($in_index_commands{$current->{'parent'}->{'cmdname'}}) {
               my $command = $current->{'parent'}->{'cmdname'};
 
-              my ($arg, $superfluous_arg) = _convert_to_text($current);
-              if (defined($arg)) {
-                my $index_element = $current->{'parent'}->{'parent'}->{'parent'};
-                if ($index_element
-                    and _is_index_element($self, $index_element)) {
-                  $index_element->{'extra'}->{$command} = $arg;
+              my $index_element = $current->{'parent'}->{'parent'}->{'parent'};
+              if ($index_element
+                  and _is_index_element($self, $index_element)) {
+                if ($command eq 'sortas') {
+                  my ($arg, $superfluous_arg) = _convert_to_text($current);
+                  if (defined($arg)) {
+                    $index_element->{'extra'}->{$command} = $arg;
+                  }
+                } else {
+                  $index_element->{'extra'}->{$command} = $current->{'parent'};
                 }
               }
             }

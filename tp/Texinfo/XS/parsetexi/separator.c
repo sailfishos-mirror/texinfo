@@ -472,22 +472,30 @@ handle_close_brace (ELEMENT *current, char **line_inout)
                || current->parent->cmd == CM_seeentry
                || current->parent->cmd == CM_seealso)
         {
-          int superfluous_arg;
-          char *arg = convert_to_text (current, &superfluous_arg);
-
-          if (arg && *arg)
+          ELEMENT *index_elt;
+          if (current->parent->parent
+              && current->parent->parent->parent
+              && ((command_flags(current->parent->parent->parent)
+                    & CF_index_entry_command)
+                  || current->parent->parent->parent->cmd == CM_subentry))
             {
-              ELEMENT *index_elt;
-              if (current->parent->parent
-                  && current->parent->parent->parent
-                  && ((command_flags(current->parent->parent->parent)
-                        & CF_index_entry_command)
-                      || current->parent->parent->parent->cmd == CM_subentry))
+              index_elt = current->parent->parent->parent;
+              if (current->parent->cmd == CM_sortas)
                 {
-                  index_elt = current->parent->parent->parent;
-                  add_extra_string (index_elt,
-                                    command_name(current->parent->cmd),
-                                    arg);
+                  int superfluous_arg;
+                  char *arg = convert_to_text (current, &superfluous_arg);
+                  if (arg && *arg)
+                    {
+                      add_extra_string (index_elt,
+                                        command_name(current->parent->cmd),
+                                        arg);
+                    }
+                }
+              else
+                {
+                  add_extra_element (index_elt,
+                                     command_name(current->parent->cmd),
+                                     current->parent);
                 }
             }
         }

@@ -427,15 +427,14 @@ sub _index_entry($$)
       $result .= "</$level>";
       $level = "tertiary";
     }
-
     if ($index_entry->{'command'}->{'extra'}->{'seeentry'}) {
       $result .= "<see>";
-      $result .= $index_entry->{'command'}->{'extra'}->{'seeentry'};
+      $result .= $self->_convert({'contents' => $index_entry->{'command'}->{'extra'}->{'seeentry'}->{'args'}});
       $result .= "</see>";
     }
     if ($index_entry->{'command'}->{'extra'}->{'seealso'}) {
       $result .= "<seealso>";
-      $result .= $index_entry->{'command'}->{'extra'}->{'seealso'};
+      $result .= $self->_convert({'contents' => $index_entry->{'command'}->{'extra'}->{'seealso'}->{'args'}});
       $result .= "</seealso>";
     }
 
