@@ -4100,9 +4100,14 @@ sub _parse_texi($;$)
             and $current->{'contents'}->[-1]->{'text'}) {
           $current->{'contents'}->[-1]->{'text'} =~ s/(\s+)$//;
           if ($1 ne '') {
-            my $new_spaces = { 'text' => $1, 'parent' => $current,
-              'type' => 'empty_spaces_before_argument' };
-            push @{$current->{'contents'}}, $new_spaces;
+            if ($current->{'contents'}->[-1]->{'text'} eq '') {
+              $current->{'contents'}->[-1]->{'text'} = $1;
+              $current->{'contents'}->[-1]->{'type'} = 'empty_spaces_before_argument';
+            } else {
+              my $new_spaces = { 'text' => $1, 'parent' => $current,
+                'type' => 'empty_spaces_before_argument' };
+              push @{$current->{'contents'}}, $new_spaces;
+            }
           }
         }
 

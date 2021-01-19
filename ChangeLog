@@ -1,3 +1,16 @@
+2021-01-19  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	Fix @seealso XS difference
+
+	* tp/Texinfo/XS/parsetexi/parser.c (parse_texi): Isolate
+	space before @seealso as was done for other commands that
+	could occur in an index entry.
+	* tp/Texinfo/Common.pm (%in_index_commands): Add 'subentry'.
+	* tp/Texinfo/ParserNonXS.pm (_parse_texi): Do not leave an
+	empty text element if isolating spaces from a text element that
+	was all spaces to start with.
+	* tp/t/09indices.t (seealso_duplicate): New test.
+
 2021-01-17  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	Handle malformed menu.

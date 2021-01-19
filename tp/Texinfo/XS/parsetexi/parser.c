@@ -1661,6 +1661,7 @@ value_invalid:
 
       if ((cmd == CM_sortas
            || cmd == CM_seeentry
+           || cmd == CM_seealso
            || cmd == CM_subentry)
           && current->contents.number > 0
           && last_contents_child(current)->text.end > 0)

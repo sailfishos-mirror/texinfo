@@ -573,7 +573,7 @@ foreach my $in_heading_command ('thischapter', 'thischaptername',
 
 # only valid in index entries
 our %in_index_commands;
-foreach my $in_index_command ('sortas', 'seeentry', 'seealso') {
+foreach my $in_index_command ('sortas', 'seeentry', 'seealso', 'subentry') {
   $in_index_commands{$in_index_command} = 1;
 }
 
