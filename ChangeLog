@@ -1,3 +1,10 @@
+2021-01-20  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	Handle Latin-15 encoding in XS parser
+	
+	* tp/Texinfo/XS/parsetexi/input.c (convert_to_utf8): Support
+	ISO-8859-15 encoding.  (Used for GNU screen manual.)
+
 2021-01-19  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	"seeentry" and "seealso" extra elements

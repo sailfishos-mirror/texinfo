@@ -34,6 +34,7 @@ enum input_type { IN_file, IN_text };
 enum character_encoding {
     ce_latin1,
     ce_latin2,
+    ce_latin15,
     ce_utf8,
     ce_shiftjis
 };
@@ -114,6 +115,7 @@ new_line (void)
 
 static iconv_t iconv_from_latin1 = (iconv_t) 0;
 static iconv_t iconv_from_latin2;
+static iconv_t iconv_from_latin15;
 static iconv_t iconv_from_shiftjis;
 
 /* Run iconv using text buffer as output buffer. */
@@ -159,20 +161,15 @@ convert_to_utf8 (char *s, char *encoding)
      file, then we'd have to keep track of which strings needed the UTF-8 flag
      and which didn't. */
 
-  /* Could and check for malformed input: see
-     <http://savannah.gnu.org/bugs/?42896>. */
-
   if (iconv_from_latin1 == (iconv_t) 0)
     {
       /* Initialize the conversion for the first time. */
       iconv_from_latin1 = iconv_open ("UTF-8", "ISO-8859-1");
       if (iconv_from_latin1 == (iconv_t) -1)
         {
-          abort ();
-
-          /* big trouble.  if we do return it unconverted, we will have to
-             remember not to set the UTF-8 flags on the Perl strings, otherwise
-             Perl will choke. */
+          /* Danger: this will cause problems if the input is not in UTF-8
+             as the Perl strings that are created are flagged as
+             being UTF-8. */
           return s;
         }
     }
@@ -183,9 +180,14 @@ convert_to_utf8 (char *s, char *encoding)
       if (iconv_from_latin2 == (iconv_t) -1)
         iconv_from_latin2 = iconv_from_latin1;
     }
+  if (iconv_from_latin15 == (iconv_t) 0)
+    {
+      iconv_from_latin15 = iconv_open ("UTF-8", "ISO-8859-15");
+      if (iconv_from_latin15 == (iconv_t) -1)
+        iconv_from_latin15 = iconv_from_latin1;
+    }
   if (iconv_from_shiftjis == (iconv_t) 0)
     {
-      /* Initialize the conversion for the first time. */
       iconv_from_shiftjis = iconv_open ("UTF-8", "SHIFT-JIS");
       if (iconv_from_shiftjis == (iconv_t) -1)
         iconv_from_shiftjis = iconv_from_latin1;
@@ -198,6 +200,8 @@ convert_to_utf8 (char *s, char *encoding)
     enc = ce_utf8;
   else if (!strcmp (encoding, "iso-8859-2"))
     enc = ce_latin2;
+  else if (!strcmp (encoding, "iso-8859-15"))
+    enc = ce_latin15;
   else if (!strcmp (encoding, "shift_jis"))
     enc = ce_shiftjis;
 
@@ -211,6 +215,9 @@ convert_to_utf8 (char *s, char *encoding)
       break;
     case ce_latin2:
       our_iconv = iconv_from_latin2;
+      break;
+    case ce_latin15:
+      our_iconv = iconv_from_latin15;
       break;
     case ce_shiftjis:
       our_iconv = iconv_from_shiftjis;
@@ -249,7 +256,6 @@ convert_to_utf8 (char *s, char *encoding)
 
   free (s);
   t.text[t.end] = '\0';
-  //fprintf (stderr, "CONVERTED STRING IS <<%s>>", t.text);
   return strdup (t.text);
 }
 
@@ -310,7 +316,7 @@ next_text (void)
           return new;
 
           break;
-        case IN_file: // 1911
+        case IN_file:
           input_file = input_stack[input_number - 1].file;
           status = getline (&line, &n, input_file);
           if (status != -1)
