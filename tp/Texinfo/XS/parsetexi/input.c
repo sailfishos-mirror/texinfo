@@ -50,12 +50,24 @@ typedef struct {
                     into lines. */
 } INPUT;
 
-static char *input_encoding;
+enum character_encoding input_encoding;
 
 void
 set_input_encoding (char *encoding)
 {
-  input_encoding = encoding;
+  if (!strcasecmp (encoding, "utf-8"))
+    input_encoding = ce_utf8;
+  else if (!strcmp (encoding, "iso-8859-1")
+          || !strcmp (encoding, "us-ascii"))
+    input_encoding = ce_latin1;
+  else if (!strcmp (encoding, "iso-8859-2"))
+    input_encoding = ce_latin2;
+  else if (!strcmp (encoding, "iso-8859-15"))
+    input_encoding = ce_latin15;
+  else if (!strcmp (encoding, "shift_jis"))
+    input_encoding = ce_shiftjis;
+  else
+    fprintf (stderr, "warning: unhandled encoding %s\n", encoding);
 }
 
 
@@ -113,7 +125,7 @@ new_line (void)
 }
 
 
-static iconv_t iconv_from_latin1 = (iconv_t) 0;
+static iconv_t iconv_from_latin1;
 static iconv_t iconv_from_latin2;
 static iconv_t iconv_from_latin15;
 static iconv_t iconv_from_shiftjis;
@@ -143,10 +155,10 @@ text_buffer_iconv (TEXT *buf, iconv_t iconv_state,
 }
 
 
-
-/* Return conversion of S according to ENCODING.  This function frees S. */
+/* Return conversion of S according to input_encoding.  This function
+   frees S. */
 static char *
-convert_to_utf8 (char *s, char *encoding)
+convert_to_utf8 (char *s)
 {
   iconv_t our_iconv;
   static TEXT t;
@@ -161,51 +173,17 @@ convert_to_utf8 (char *s, char *encoding)
      file, then we'd have to keep track of which strings needed the UTF-8 flag
      and which didn't. */
 
+  /* Initialize conversions for the first time. */
   if (iconv_from_latin1 == (iconv_t) 0)
-    {
-      /* Initialize the conversion for the first time. */
       iconv_from_latin1 = iconv_open ("UTF-8", "ISO-8859-1");
-      if (iconv_from_latin1 == (iconv_t) -1)
-        {
-          /* Danger: this will cause problems if the input is not in UTF-8
-             as the Perl strings that are created are flagged as
-             being UTF-8. */
-          return s;
-        }
-    }
   if (iconv_from_latin2 == (iconv_t) 0)
-    {
-      /* Initialize the conversion for the first time. */
       iconv_from_latin2 = iconv_open ("UTF-8", "ISO-8859-2");
-      if (iconv_from_latin2 == (iconv_t) -1)
-        iconv_from_latin2 = iconv_from_latin1;
-    }
   if (iconv_from_latin15 == (iconv_t) 0)
-    {
       iconv_from_latin15 = iconv_open ("UTF-8", "ISO-8859-15");
-      if (iconv_from_latin15 == (iconv_t) -1)
-        iconv_from_latin15 = iconv_from_latin1;
-    }
   if (iconv_from_shiftjis == (iconv_t) 0)
-    {
       iconv_from_shiftjis = iconv_open ("UTF-8", "SHIFT-JIS");
-      if (iconv_from_shiftjis == (iconv_t) -1)
-        iconv_from_shiftjis = iconv_from_latin1;
-    }
 
-  enc = ce_latin1;
-  if (!encoding)
-    ;
-  else if (!strcmp (encoding, "utf-8"))
-    enc = ce_utf8;
-  else if (!strcmp (encoding, "iso-8859-2"))
-    enc = ce_latin2;
-  else if (!strcmp (encoding, "iso-8859-15"))
-    enc = ce_latin15;
-  else if (!strcmp (encoding, "shift_jis"))
-    enc = ce_shiftjis;
-
-  switch (enc)
+  switch (input_encoding)
     {
     case ce_utf8:
       return s; /* no conversion required. */
@@ -222,6 +200,14 @@ convert_to_utf8 (char *s, char *encoding)
     case ce_shiftjis:
       our_iconv = iconv_from_shiftjis;
       break;
+    }
+
+  if (our_iconv == (iconv_t) -1)
+    {
+      /* In case the converter couldn't be initialised.
+         Danger: this will cause problems if the input is not in UTF-8 as
+         the Perl strings that are created are flagged as being UTF-8. */
+      return s;
     }
 
   t.end = 0;
@@ -339,7 +325,7 @@ next_text (void)
               i->line_nr.line_nr++;
               line_nr = i->line_nr;
 
-              return convert_to_utf8 (line, input_encoding);
+              return convert_to_utf8 (line);
             }
           free (line); line = 0;
           break;

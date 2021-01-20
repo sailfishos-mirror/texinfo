@@ -1,5 +1,13 @@
 2021-01-20  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/XS/parsetexi/input.c (set_input_encoding): Save
+	the encoding as an enum value rather than as a string.  Give
+	a warning message if the encoding is unknown.
+	(convert_to_utf8): Use this value instead of checking the string.
+	Return string unaltered if conversion couldn't be initialized.
+
+2021-01-20  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	Handle Latin-15 encoding in XS parser
 	
 	* tp/Texinfo/XS/parsetexi/input.c (convert_to_utf8): Support
