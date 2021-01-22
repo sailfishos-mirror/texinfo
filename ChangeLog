@@ -1,3 +1,9 @@
+2021-01-22  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/XS/parsetexi/api.c (element_to_perl_hash):
+	Create an empty contents array for an empty paragraph.
+	* tp/t/08misc_commands.t (noindent_empty_para): New test.
+
 2021-01-20  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/XS/parsetexi/input.c (set_input_encoding): Save

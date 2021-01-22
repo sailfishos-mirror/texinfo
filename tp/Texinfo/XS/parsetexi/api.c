@@ -272,9 +272,9 @@ element_to_perl_hash (ELEMENT *e)
       /* TODO: Same optimizations as for 'type'. */
     }
 
-  /* TODO sort out all these special cases.
-     Makes no sense to have 'contents' created for glyph commands like
-     @arrow{}, @image, or for accent commands. */
+  /* A lot of special cases for when an empty contents array should be
+     created.  Largely by trial and error to match the Perl code.  Some of
+     them don't make sense, like @arrow{}, @image, or for accent commands. */
   if (e->contents.number > 0
       || e->type == ET_text_root
       || e->type == ET_root_line
@@ -299,6 +299,7 @@ element_to_perl_hash (ELEMENT *e)
       || e->type == ET_elided
       || e->type == ET_elided_block
       || e->type == ET_preformatted
+      || e->type == ET_paragraph
       || (command_flags(e) & CF_root)
       || (command_data(e->cmd).flags & CF_brace
           && (command_data(e->cmd).data >= 0
