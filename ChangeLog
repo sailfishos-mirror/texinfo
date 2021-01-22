@@ -1,5 +1,10 @@
 2021-01-22  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/XS/parsetexi/parser.c (register_global_command):
+	Fix equivalence of @summarycontents to @shortcontents.
+
+2021-01-22  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/XS/parsetexi/api.c (build_global_info2):
 	Remove handling of @setcontentsaftertitlepage and
 	@setshortcontentsaftertitlepage.

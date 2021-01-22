@@ -159,6 +159,8 @@ int
 register_global_command (ELEMENT *current)
 {
   enum command_id cmd = current->cmd;
+  if (cmd == CM_summarycontents)
+    cmd = CM_shortcontents;
 
   if (command_data(cmd).flags & CF_global)
     {
@@ -214,8 +216,6 @@ register_global_command (ELEMENT *current)
     {
       ELEMENT **where = 0;
 
-      if (cmd == CM_shortcontents)
-        cmd = CM_summarycontents;
       if (!current->line_nr.line_nr)
         current->line_nr = line_nr;
       switch (cmd)
