@@ -916,8 +916,6 @@ build_global_info2 (void)
   BUILD_GLOBAL_UNIQ(titlepage);
   BUILD_GLOBAL_UNIQ(top);
   BUILD_GLOBAL_UNIQ(documentdescription);
-  BUILD_GLOBAL_UNIQ(setcontentsaftertitlepage);
-  BUILD_GLOBAL_UNIQ(setshortcontentsaftertitlepage);
   BUILD_GLOBAL_UNIQ(pagesizes);
   BUILD_GLOBAL_UNIQ(fonttextsize);
   BUILD_GLOBAL_UNIQ(footnotestyle);

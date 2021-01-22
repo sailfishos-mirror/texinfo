@@ -44,8 +44,6 @@ typedef struct GLOBAL_INFO {
     ELEMENT *top;
     ELEMENT *setfilename;
     ELEMENT *documentdescription;
-    ELEMENT *setcontentsaftertitlepage;
-    ELEMENT *setshortcontentsaftertitlepage;
     ELEMENT *pagesizes;
     ELEMENT *fonttextsize;
     ELEMENT *footnotestyle;
