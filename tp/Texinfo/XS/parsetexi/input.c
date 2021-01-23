@@ -1,4 +1,4 @@
-/* Copyright 2010-2019 Free Software Foundation, Inc.
+/* Copyright 2010-2020 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -129,6 +129,7 @@ static iconv_t iconv_from_latin1;
 static iconv_t iconv_from_latin2;
 static iconv_t iconv_from_latin15;
 static iconv_t iconv_from_shiftjis;
+static iconv_t iconv_validate_utf8;
 
 /* Run iconv using text buffer as output buffer. */
 size_t
@@ -167,26 +168,28 @@ convert_to_utf8 (char *s)
   enum character_encoding enc;
 
   /* Convert from @documentencoding to UTF-8.
-       It might be possible not to convert to UTF-8 and use an 8-bit encoding
+     It might be possible not to convert to UTF-8 and use an 8-bit encoding
      throughout, but then we'd have to not set the UTF-8 flag on the Perl 
      strings in api.c.  If multiple character encodings were used in a single 
      file, then we'd have to keep track of which strings needed the UTF-8 flag
      and which didn't. */
 
   /* Initialize conversions for the first time. */
+  if (iconv_validate_utf8 == (iconv_t) 0)
+    iconv_validate_utf8 = iconv_open ("UTF-8", "UTF-8");
   if (iconv_from_latin1 == (iconv_t) 0)
-      iconv_from_latin1 = iconv_open ("UTF-8", "ISO-8859-1");
+    iconv_from_latin1 = iconv_open ("UTF-8", "ISO-8859-1");
   if (iconv_from_latin2 == (iconv_t) 0)
-      iconv_from_latin2 = iconv_open ("UTF-8", "ISO-8859-2");
+    iconv_from_latin2 = iconv_open ("UTF-8", "ISO-8859-2");
   if (iconv_from_latin15 == (iconv_t) 0)
-      iconv_from_latin15 = iconv_open ("UTF-8", "ISO-8859-15");
+    iconv_from_latin15 = iconv_open ("UTF-8", "ISO-8859-15");
   if (iconv_from_shiftjis == (iconv_t) 0)
-      iconv_from_shiftjis = iconv_open ("UTF-8", "SHIFT-JIS");
+    iconv_from_shiftjis = iconv_open ("UTF-8", "SHIFT-JIS");
 
   switch (input_encoding)
     {
     case ce_utf8:
-      return s; /* no conversion required. */
+      our_iconv = iconv_validate_utf8;
       break;
     case ce_latin1:
       our_iconv = iconv_from_latin1;
@@ -229,13 +232,19 @@ convert_to_utf8 (char *s)
         /* Success: all of input converted. */
         break;
 
+      if (bytes_left == 0)
+        break;
+
       switch (errno)
         {
         case E2BIG:
           text_alloc (&t, t.space + 20);
           break;
+        case EILSEQ:
         default:
-          abort ();
+          fprintf(stderr, "encoding error at byte 0x%2x (line %d)\n",
+                          *(unsigned char *)inptr, line_nr.line_nr);
+          inptr++; bytes_left--;
           break;
         }
     }
