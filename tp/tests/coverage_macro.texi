@@ -324,6 +324,42 @@ e--xample  some
    text
 @end example
 
+@example first arg
+example one arg
+@end example
+
+@example first arg, second arg
+example two args
+@end example
+
+@example first arg, second arg, third arg
+example three args
+@end example
+
+@example first arg, second arg, third arg, fourth arg
+example four args
+@end example
+
+@example first arg, second arg, third arg, fourth arg, fifth arg
+example five args
+@end example
+
+@example something @'e @TeX{}
+The something @'e @TeX{} is here.
+@end example
+
+@example @@ at the end of line @
+A @@ at the end of the @@example line.
+@end example
+
+@example ,,,,,,
+example with empty args
+@end example
+
+@example ,,,nonempty,,,
+example with empty and non empty args mix
+@end example
+
 @smallexample
 s--mallexample
 @end smallexample

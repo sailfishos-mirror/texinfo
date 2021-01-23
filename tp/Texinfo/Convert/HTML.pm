@@ -2588,6 +2588,7 @@ sub _convert_preformatted_command($$$$)
     $html_menu_entry_index = 0;
   } elsif ($cmdname eq 'example') {
     if ($command->{'args'}) {
+      $extra_class = '';
       for my $e (@{$command->{'args'}}) {
         if ($e->{'contents'}
             and $e->{'contents'}->[0]) {

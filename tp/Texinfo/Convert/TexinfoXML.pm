@@ -328,6 +328,8 @@ our %commands_args_elements = (
   'inforef' => ['inforefnodename', 'inforefrefname', 'inforefinfoname'],
   'image' => ['imagefile', 'imagewidth', 'imageheight', 
               'alttext', 'imageextension'],
+  # * means that the previous element is variadic, ie can appear indefinitely
+  'example' => ['examplelanguage', 'examplearg', '*'],
   'quotation' => ['quotationtype'],
   'float' => ['floattype', 'floatname'],
   'itemize' => ['itemprepend'],
@@ -1321,7 +1323,20 @@ sub _convert($$;$)
         if ($root->{'args'}) {
           if ($commands_args_elements{$root->{'cmdname'}}) {
             my $arg_index = 0;
-            foreach my $element (@{$commands_args_elements{$root->{'cmdname'}}}) {
+            my $variadic_element = undef;
+            while (defined($commands_args_elements{$root->{'cmdname'}}->[$arg_index])
+                   or defined($variadic_element)) {
+              my $element;
+              if (defined($variadic_element)) {
+                $element = $variadic_element;
+              } else {
+                if ($commands_args_elements{$root->{'cmdname'}}->[$arg_index] eq '*') {
+                  $variadic_element = $commands_args_elements{$root->{'cmdname'}}->[$arg_index-1];
+                  $element = $variadic_element;
+                } else {
+                  $element = $commands_args_elements{$root->{'cmdname'}}->[$arg_index];
+                }
+              }
               if (defined($root->{'args'}->[$arg_index])) {
                 my $in_code;
                  $in_code = 1

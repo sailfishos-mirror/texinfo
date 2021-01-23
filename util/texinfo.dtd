@@ -558,9 +558,14 @@
 <!ELEMENT documentdescription (%block;)*>
 <!ATTLIST documentdescription
           %spacesblockattr;>
-<!ELEMENT example      (%block; | exdent)*>
+<!ELEMENT example      (examplelanguage?, examplearg*, (%block; | exdent)*)>
 <!ATTLIST example
           %spacesblockattr;>
+<!ELEMENT examplelanguage (#PCDATA | %Inline.line;)*>
+<!ELEMENT examplearg (#PCDATA | %Inline.line;)*>
+<!ATTLIST examplearg
+          %spacesattr;>
+
 <!ELEMENT smallexample (%block; | exdent)*>
 <!ATTLIST smallexample
           %spacesblockattr;>

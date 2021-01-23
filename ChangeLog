@@ -1,3 +1,13 @@
+2021-01-23  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/TexinfoXML.pm (%commands_args_elements)
+	(_convert), tp/t/xml_tests.t, tests/coverage_macro.texi, 
+	util/texinfo.dtd, util/txixml2texi.pl: add support for @example
+	multiple arguments in TexinfoXML output.  Update xml @example tests.
+	* tp/Texinfo/Convert/HTML.pm (_convert_preformatted_command):
+	always initialize $extra_class.
+	* configure.ac (TEXINFO_DTD_VERSION): Increase to '6.7dev'.
+
 2021-01-23  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	KOI8 support
@@ -15,6 +25,11 @@
 	encoding is not declared and the input is actually Latin-1.
 	Handle conversion errors by advancing in input stream rather
 	than dumping core.
+
+2021-01-23  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/t/20preformatted.t: change name of test with example
+	and add test with @display now that @example accepts arguments.
 
 2021-01-22  Gavin Smith  <gavinsmith0123@gmail.com>
 

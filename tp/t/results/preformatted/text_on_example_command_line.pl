@@ -453,10 +453,10 @@ $result_converted{'docbook'}->{'text_on_example_command_line'} = '
 ';
 
 
-$result_converted{'xml'}->{'text_on_example_command_line'} = '<example spaces=" " endspaces=" ">
+$result_converted{'xml'}->{'text_on_example_command_line'} = '<example spaces=" " endspaces=" "><examplelanguage>text on line</examplelanguage>
 </example>
 
-<example spaces=" " endspaces=" ">
+<example spaces=" " endspaces=" "><examplelanguage>text on line followed by text</examplelanguage>
 <pre xml:space="preserve">normal text
 </pre></example>
 
