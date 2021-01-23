@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!DOCTYPE texinfo PUBLIC "-//GNU//DTD TexinfoML V6.6//EN" "http://www.gnu.org/software/texinfo/dtd/6.6/texinfo.dtd">
+<!DOCTYPE texinfo PUBLIC "-//GNU//DTD TexinfoML V6.7dev//EN" "http://www.gnu.org/software/texinfo/dtd/6.7dev/texinfo.dtd">
 <texinfo xml:lang="en">
 <filename file="formatting.xml"></filename>
 <preamble>\input texinfo @c -*-texinfo-*-
@@ -345,6 +345,42 @@ something, other thing
 @example
 e--xample  some
    text
+@end example
+
+@example first arg
+example one arg
+@end example
+
+@example first arg, second arg
+example two args
+@end example
+
+@example first arg, second arg, third arg
+example three args
+@end example
+
+@example first arg, second arg, third arg, fourth arg
+example four args
+@end example
+
+@example first arg, second arg, third arg, fourth arg, fifth arg
+example five args
+@end example
+
+@example something @'e @TeX{}
+The something @'e @TeX{} is here.
+@end example
+
+@example @@ at the end of line @
+A @@ at the end of the @@example line.
+@end example
+
+@example ,,,,,,
+example with empty args
+@end example
+
+@example ,,,nonempty,,,
+example with empty and non empty args mix
 @end example
 
 @smallexample
@@ -1084,6 +1120,39 @@ After clickstyle &result;
    text
 </pre></example>
 
+<example spaces=" " endspaces=" "><examplelanguage>first arg</examplelanguage>
+<pre xml:space="preserve">example one arg
+</pre></example>
+
+<example spaces=" " endspaces=" "><examplelanguage>first arg</examplelanguage><examplearg spaces=" ">second arg</examplearg>
+<pre xml:space="preserve">example two args
+</pre></example>
+
+<example spaces=" " endspaces=" "><examplelanguage>first arg</examplelanguage><examplearg spaces=" ">second arg</examplearg><examplearg spaces=" ">third arg</examplearg>
+<pre xml:space="preserve">example three args
+</pre></example>
+
+<example spaces=" " endspaces=" "><examplelanguage>first arg</examplelanguage><examplearg spaces=" ">second arg</examplearg><examplearg spaces=" ">third arg</examplearg><examplearg spaces=" ">fourth arg</examplearg>
+<pre xml:space="preserve">example four args
+</pre></example>
+
+<example spaces=" " endspaces=" "><examplelanguage>first arg</examplelanguage><examplearg spaces=" ">second arg</examplearg><examplearg spaces=" ">third arg</examplearg><examplearg spaces=" ">fourth arg</examplearg><examplearg spaces=" ">fifth arg</examplearg>
+<pre xml:space="preserve">example five args
+</pre></example>
+
+<example spaces=" " endspaces=" "><examplelanguage>something <accent type="acute" bracketed="off">e</accent> &tex;</examplelanguage>
+<pre xml:space="preserve">The something <accent type="acute" bracketed="off">e</accent> &tex; is here.
+</pre></example>
+
+<example spaces=" " endspaces=" "><examplelanguage>&arobase; at the end of line <spacecmd type="nl"/></examplelanguage><pre xml:space="preserve">A &arobase; at the end of the &arobase;example line.
+</pre></example>
+
+<example spaces=" " endspaces=" "><pre xml:space="preserve">example with empty args
+</pre></example>
+
+<example spaces=" " endspaces=" "><examplearg>nonempty</examplearg><pre xml:space="preserve">example with empty and non empty args mix
+</pre></example>
+
 <smallexample endspaces=" ">
 <pre xml:space="preserve">s--mallexample
 </pre></smallexample>
@@ -1813,6 +1882,39 @@ After clickstyle &result;
 <example endspaces=" ">
 <pre xml:space="preserve">e--xample  some
    text
+</pre></example>
+
+<example spaces=" " endspaces=" "><examplelanguage>first arg</examplelanguage>
+<pre xml:space="preserve">example one arg
+</pre></example>
+
+<example spaces=" " endspaces=" "><examplelanguage>first arg</examplelanguage><examplearg spaces=" ">second arg</examplearg>
+<pre xml:space="preserve">example two args
+</pre></example>
+
+<example spaces=" " endspaces=" "><examplelanguage>first arg</examplelanguage><examplearg spaces=" ">second arg</examplearg><examplearg spaces=" ">third arg</examplearg>
+<pre xml:space="preserve">example three args
+</pre></example>
+
+<example spaces=" " endspaces=" "><examplelanguage>first arg</examplelanguage><examplearg spaces=" ">second arg</examplearg><examplearg spaces=" ">third arg</examplearg><examplearg spaces=" ">fourth arg</examplearg>
+<pre xml:space="preserve">example four args
+</pre></example>
+
+<example spaces=" " endspaces=" "><examplelanguage>first arg</examplelanguage><examplearg spaces=" ">second arg</examplearg><examplearg spaces=" ">third arg</examplearg><examplearg spaces=" ">fourth arg</examplearg><examplearg spaces=" ">fifth arg</examplearg>
+<pre xml:space="preserve">example five args
+</pre></example>
+
+<example spaces=" " endspaces=" "><examplelanguage>something <accent type="acute" bracketed="off">e</accent> &tex;</examplelanguage>
+<pre xml:space="preserve">The something <accent type="acute" bracketed="off">e</accent> &tex; is here.
+</pre></example>
+
+<example spaces=" " endspaces=" "><examplelanguage>&arobase; at the end of line <spacecmd type="nl"/></examplelanguage><pre xml:space="preserve">A &arobase; at the end of the &arobase;example line.
+</pre></example>
+
+<example spaces=" " endspaces=" "><pre xml:space="preserve">example with empty args
+</pre></example>
+
+<example spaces=" " endspaces=" "><examplearg>nonempty</examplearg><pre xml:space="preserve">example with empty and non empty args mix
 </pre></example>
 
 <smallexample endspaces=" ">
@@ -2546,6 +2648,39 @@ After clickstyle &result;
    text
 </pre></example>
 
+<example spaces=" " endspaces=" "><examplelanguage>first arg</examplelanguage>
+<pre xml:space="preserve">example one arg
+</pre></example>
+
+<example spaces=" " endspaces=" "><examplelanguage>first arg</examplelanguage><examplearg spaces=" ">second arg</examplearg>
+<pre xml:space="preserve">example two args
+</pre></example>
+
+<example spaces=" " endspaces=" "><examplelanguage>first arg</examplelanguage><examplearg spaces=" ">second arg</examplearg><examplearg spaces=" ">third arg</examplearg>
+<pre xml:space="preserve">example three args
+</pre></example>
+
+<example spaces=" " endspaces=" "><examplelanguage>first arg</examplelanguage><examplearg spaces=" ">second arg</examplearg><examplearg spaces=" ">third arg</examplearg><examplearg spaces=" ">fourth arg</examplearg>
+<pre xml:space="preserve">example four args
+</pre></example>
+
+<example spaces=" " endspaces=" "><examplelanguage>first arg</examplelanguage><examplearg spaces=" ">second arg</examplearg><examplearg spaces=" ">third arg</examplearg><examplearg spaces=" ">fourth arg</examplearg><examplearg spaces=" ">fifth arg</examplearg>
+<pre xml:space="preserve">example five args
+</pre></example>
+
+<example spaces=" " endspaces=" "><examplelanguage>something <accent type="acute" bracketed="off">e</accent> &tex;</examplelanguage>
+<pre xml:space="preserve">The something <accent type="acute" bracketed="off">e</accent> &tex; is here.
+</pre></example>
+
+<example spaces=" " endspaces=" "><examplelanguage>&arobase; at the end of line <spacecmd type="nl"/></examplelanguage><pre xml:space="preserve">A &arobase; at the end of the &arobase;example line.
+</pre></example>
+
+<example spaces=" " endspaces=" "><pre xml:space="preserve">example with empty args
+</pre></example>
+
+<example spaces=" " endspaces=" "><examplearg>nonempty</examplearg><pre xml:space="preserve">example with empty and non empty args mix
+</pre></example>
+
 <smallexample endspaces=" ">
 <pre xml:space="preserve">s--mallexample
 </pre></smallexample>
@@ -3269,6 +3404,39 @@ After clickstyle &result;
 </pre><example endspaces=" ">
 <pre xml:space="preserve">e--xample  some
    text
+</pre></example>
+<pre xml:space="preserve">
+</pre><example spaces=" " endspaces=" "><examplelanguage>first arg</examplelanguage>
+<pre xml:space="preserve">example one arg
+</pre></example>
+<pre xml:space="preserve">
+</pre><example spaces=" " endspaces=" "><examplelanguage>first arg</examplelanguage><examplearg spaces=" ">second arg</examplearg>
+<pre xml:space="preserve">example two args
+</pre></example>
+<pre xml:space="preserve">
+</pre><example spaces=" " endspaces=" "><examplelanguage>first arg</examplelanguage><examplearg spaces=" ">second arg</examplearg><examplearg spaces=" ">third arg</examplearg>
+<pre xml:space="preserve">example three args
+</pre></example>
+<pre xml:space="preserve">
+</pre><example spaces=" " endspaces=" "><examplelanguage>first arg</examplelanguage><examplearg spaces=" ">second arg</examplearg><examplearg spaces=" ">third arg</examplearg><examplearg spaces=" ">fourth arg</examplearg>
+<pre xml:space="preserve">example four args
+</pre></example>
+<pre xml:space="preserve">
+</pre><example spaces=" " endspaces=" "><examplelanguage>first arg</examplelanguage><examplearg spaces=" ">second arg</examplearg><examplearg spaces=" ">third arg</examplearg><examplearg spaces=" ">fourth arg</examplearg><examplearg spaces=" ">fifth arg</examplearg>
+<pre xml:space="preserve">example five args
+</pre></example>
+<pre xml:space="preserve">
+</pre><example spaces=" " endspaces=" "><examplelanguage>something <accent type="acute" bracketed="off">e</accent> &tex;</examplelanguage>
+<pre xml:space="preserve">The something <accent type="acute" bracketed="off">e</accent> &tex; is here.
+</pre></example>
+<pre xml:space="preserve">
+</pre><example spaces=" " endspaces=" "><examplelanguage>&arobase; at the end of line <spacecmd type="nl"/></examplelanguage><pre xml:space="preserve">A &arobase; at the end of the &arobase;example line.
+</pre></example>
+<pre xml:space="preserve">
+</pre><example spaces=" " endspaces=" "><pre xml:space="preserve">example with empty args
+</pre></example>
+<pre xml:space="preserve">
+</pre><example spaces=" " endspaces=" "><examplearg>nonempty</examplearg><pre xml:space="preserve">example with empty and non empty args mix
 </pre></example>
 <pre xml:space="preserve">
 </pre><smallexample endspaces=" ">

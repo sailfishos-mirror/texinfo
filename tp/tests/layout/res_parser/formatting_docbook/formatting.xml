@@ -288,6 +288,24 @@ After clickstyle &#8658;
 <screen>e--xample  some
    text
 </screen>
+<screen>example one arg
+</screen>
+<screen>example two args
+</screen>
+<screen>example three args
+</screen>
+<screen>example four args
+</screen>
+<screen>example five args
+</screen>
+<screen>The something &#233; &tex; is here.
+</screen>
+<screen>A @ at the end of the @example line.
+</screen>
+<screen>example with empty args
+</screen>
+<screen>example with empty and non empty args mix
+</screen>
 <screen>s--mallexample
 </screen>
 <literallayout>d&#8211;isplay
@@ -904,6 +922,24 @@ After clickstyle &#8658;
 </para></entry></row></tbody></tgroup></informaltable>
 <screen>e--xample  some
    text
+</screen>
+<screen>example one arg
+</screen>
+<screen>example two args
+</screen>
+<screen>example three args
+</screen>
+<screen>example four args
+</screen>
+<screen>example five args
+</screen>
+<screen>The something &#233; &tex; is here.
+</screen>
+<screen>A @ at the end of the @example line.
+</screen>
+<screen>example with empty args
+</screen>
+<screen>example with empty and non empty args mix
 </screen>
 <screen>s--mallexample
 </screen>
@@ -1523,6 +1559,24 @@ After clickstyle &#8658;
 <screen>e--xample  some
    text
 </screen>
+<screen>example one arg
+</screen>
+<screen>example two args
+</screen>
+<screen>example three args
+</screen>
+<screen>example four args
+</screen>
+<screen>example five args
+</screen>
+<screen>The something &#233; &tex; is here.
+</screen>
+<screen>A @ at the end of the @example line.
+</screen>
+<screen>example with empty args
+</screen>
+<screen>example with empty and non empty args mix
+</screen>
 <screen>s--mallexample
 </screen>
 <literallayout>d&#8211;isplay
@@ -2141,6 +2195,24 @@ After clickstyle &#8658;
 <screen>e--xample  some
    text
 </screen>
+<screen>example one arg
+</screen>
+<screen>example two args
+</screen>
+<screen>example three args
+</screen>
+<screen>example four args
+</screen>
+<screen>example five args
+</screen>
+<screen>The something &#233; &tex; is here.
+</screen>
+<screen>A @ at the end of the @example line.
+</screen>
+<screen>example with empty args
+</screen>
+<screen>example with empty and non empty args mix
+</screen>
 <screen>s--mallexample
 </screen>
 <literallayout>d&#8211;isplay
@@ -2758,6 +2830,24 @@ After clickstyle &#8658;
 <screen>e--xample  some
    text
 </screen>
+<screen>example one arg
+</screen>
+<screen>example two args
+</screen>
+<screen>example three args
+</screen>
+<screen>example four args
+</screen>
+<screen>example five args
+</screen>
+<screen>The something &#233; &tex; is here.
+</screen>
+<screen>A @ at the end of the @example line.
+</screen>
+<screen>example with empty args
+</screen>
+<screen>example with empty and non empty args mix
+</screen>
 <screen>s--mallexample
 </screen>
 <literallayout>d&#8211;isplay
@@ -3368,6 +3458,24 @@ After clickstyle &#8658;
 </screen></entry></row></tbody></tgroup></informaltable><screen>
 </screen><screen>e--xample  some
    text
+</screen><screen>
+</screen><screen>example one arg
+</screen><screen>
+</screen><screen>example two args
+</screen><screen>
+</screen><screen>example three args
+</screen><screen>
+</screen><screen>example four args
+</screen><screen>
+</screen><screen>example five args
+</screen><screen>
+</screen><screen>The something &#233; &tex; is here.
+</screen><screen>
+</screen><screen>A @ at the end of the @example line.
+</screen><screen>
+</screen><screen>example with empty args
+</screen><screen>
+</screen><screen>example with empty and non empty args mix
 </screen><screen>
 </screen><screen>s--mallexample
 </screen><screen>
