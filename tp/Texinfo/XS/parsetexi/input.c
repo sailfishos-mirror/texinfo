@@ -36,7 +36,9 @@ enum character_encoding {
     ce_latin2,
     ce_latin15,
     ce_utf8,
-    ce_shiftjis
+    ce_shiftjis,
+    ce_koi8r,
+    ce_koi8u
 };
 
 typedef struct {
@@ -66,6 +68,10 @@ set_input_encoding (char *encoding)
     input_encoding = ce_latin15;
   else if (!strcmp (encoding, "shift_jis"))
     input_encoding = ce_shiftjis;
+  else if (!strcmp (encoding, "koi8-r"))
+    input_encoding = ce_koi8r;
+  else if (!strcmp (encoding, "koi8-u"))
+    input_encoding = ce_koi8u;
   else
     fprintf (stderr, "warning: unhandled encoding %s\n", encoding);
 }
@@ -129,6 +135,8 @@ static iconv_t iconv_from_latin1;
 static iconv_t iconv_from_latin2;
 static iconv_t iconv_from_latin15;
 static iconv_t iconv_from_shiftjis;
+static iconv_t iconv_from_koi8u;
+static iconv_t iconv_from_koi8r;
 static iconv_t iconv_validate_utf8;
 
 /* Run iconv using text buffer as output buffer. */
@@ -185,6 +193,10 @@ convert_to_utf8 (char *s)
     iconv_from_latin15 = iconv_open ("UTF-8", "ISO-8859-15");
   if (iconv_from_shiftjis == (iconv_t) 0)
     iconv_from_shiftjis = iconv_open ("UTF-8", "SHIFT-JIS");
+  if (iconv_from_koi8r == (iconv_t) 0)
+    iconv_from_koi8r = iconv_open ("UTF-8", "KOI8-R");
+  if (iconv_from_koi8u == (iconv_t) 0)
+    iconv_from_koi8u = iconv_open ("UTF-8", "KOI8-U");
 
   switch (input_encoding)
     {

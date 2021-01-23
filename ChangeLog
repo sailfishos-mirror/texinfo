@@ -1,5 +1,13 @@
 2021-01-23  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	KOI8 support
+
+	* tp/Texinfo/XS/parsetexi/input.c (set_input_encoding)
+	(convert_to_utf8): Support KOI8-R and KOI8-U, as these are
+	documented to be supported.
+
+2021-01-23  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	Validate UTF-8 input
 
 	* tp/Texinfo/XS/parsetexi/input.c (convert_to_utf8): Use
