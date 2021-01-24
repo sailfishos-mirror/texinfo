@@ -19,6 +19,7 @@ Css: center { margin-top:1em; margin-bottom:1em; }
 Css: td center { margin-top:0em; margin-bottom:0em; }
 Css: .Canvas { position:relative; }
 Css: img.math{vertical-align:middle;}
+Css: div.par-math-display, div.math-display{text-align:center;}
 Css: .obeylines-h,.obeylines-v {white-space: nowrap; }
 Css: div.obeylines-v p { margin-top:0; margin-bottom:0; }
 Css: .overline{ text-decoration:overline; }
