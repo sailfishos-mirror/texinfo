@@ -3,6 +3,11 @@
 	* tp/Texinfo/Convert/HTML.pm (_attribute_class,
 	_convert_preformatted_command): pass extra classes as an array
 	instead of a string.
+	* tp/Texinfo/Convert/HTML.pm (_attribute_class, _protect_class_name):
+	protect spaces in _attribute_class extra_classes.
+	* tp/Texinfo/Convert/HTML.pm (_convert_preformatted_command):
+	use Texinfo::Convert::NodeNameNormalization::convert to convert
+	@example arguments to text.
 
 2021-01-24  Patrice Dumas  <pertusus@free.fr>
 

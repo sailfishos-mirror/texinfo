@@ -2589,13 +2589,12 @@ sub _convert_preformatted_command($$$$)
   } elsif ($cmdname eq 'example') {
     if ($command->{'args'}) {
       $extra_classes = [];
-      for my $e (@{$command->{'args'}}) {
-        if ($e->{'contents'}
-            and $e->{'contents'}->[0]) {
-          my $t = $e->{'contents'}->[0]->{'text'};
-          if (defined($t)) {
-            push @$extra_classes, $t;
-          }
+      for my $example_arg (@{$command->{'args'}}) {
+        # convert or remove all @-commands, using simple ascii and unicode 
+        # characters
+        my $converted_arg = Texinfo::Convert::NodeNameNormalization::convert($example_arg);
+        if ($converted_arg ne '') {
+          push @$extra_classes, $converted_arg;
         }
       }
     }
@@ -7646,6 +7645,17 @@ sub _convert_contents($$$)
   return $content_formatted;
 }
 
+#my $characters_replaced_from_class_names = quotemeta('[](),~#:/\\@+=!;.,?* ');
+# FIXME not clear what character should be allowed and which ones replaced besides space
+my $characters_replaced_from_class_names = quotemeta(' ');
+sub _protect_class_name($$)
+{
+  my $self = shift;
+  my $class_name = shift;
+  $class_name =~ s/[$characters_replaced_from_class_names]/-/g;
+  return $self->protect_text($class_name);
+}
+
 # $extra_classes should be an array reference or undef
 sub _attribute_class($$$;$)
 {
@@ -7670,7 +7680,7 @@ sub _attribute_class($$$;$)
   }
   my $extra_class_str = '';
   if (defined($extra_classes)) {
-    $extra_class_str = ' '.join(' ', @$extra_classes);
+    $extra_class_str = ' '.join(' ', map {$self->_protect_class_name($_)} @$extra_classes);
   }
   return "<$element class=\"$class$extra_class_str\"$style";
 }
