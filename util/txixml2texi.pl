@@ -274,7 +274,7 @@ while ($reader->read) {
         }
       }
     } elsif (exists($Texinfo::Common::brace_commands{$name})) {
-      print "\@${name}{";
+      print "\@${name}\{";
       if ($name eq 'verb' and $reader->hasAttributes() 
           and defined($reader->getAttribute('delimiter'))) {
         print $reader->getAttribute('delimiter');
