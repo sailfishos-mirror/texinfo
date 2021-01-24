@@ -107,6 +107,13 @@ our %commands_formatting = (
            'rbracechar'   => 'rbracechar',
            'backslashchar' => 'backslashchar',
            'hashchar'      => 'hashchar',
+           # in Texinfo::Convert::Converter::default_xml_commands_formatting,
+           # guillemotleft and guillemotright are mapped to laquo and raquo,
+           # but guillemetleft and guillemetright are also mapped to those
+           # entities.  To make sure that it is possible to go back to the
+           # @-command from the entity, we use specific entities here
+           'guillemotleft'   => 'guillemotleft',
+           'guillemotright'  => 'guillemotright',
 );
 
 # use default XML formatting to complete the hash, removing XML
