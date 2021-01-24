@@ -2582,27 +2582,26 @@ sub _convert_preformatted_command($$$$)
   my $cmdname = shift;
   my $command = shift;
   my $content = shift;
-  my $extra_class;
+  my $extra_classes;
 
   if ($cmdname eq 'menu') {
     $html_menu_entry_index = 0;
   } elsif ($cmdname eq 'example') {
     if ($command->{'args'}) {
-      $extra_class = '';
+      $extra_classes = [];
       for my $e (@{$command->{'args'}}) {
         if ($e->{'contents'}
             and $e->{'contents'}->[0]) {
           my $t = $e->{'contents'}->[0]->{'text'};
           if (defined($t)) {
-            $extra_class .= "$t ";
+            push @$extra_classes, $t;
           }
         }
       }
-      chop $extra_class; # remove final space
     }
   } elsif ($cmdname eq 'lisp') {
     $cmdname = 'example';
-    $extra_class = 'lisp';
+    $extra_classes = ['lisp'];
   }
 
   if ($content ne '' and !$self->in_string()) {
@@ -2613,7 +2612,7 @@ sub _convert_preformatted_command($$$$)
         return $content."\n";
       }
     } else {
-      return $self->_attribute_class('div', $cmdname, $extra_class).">\n".$content.'</div>'."\n";
+      return $self->_attribute_class('div', $cmdname, $extra_classes).">\n".$content.'</div>'."\n";
     }
   } else {
     return $content;
@@ -7647,12 +7646,13 @@ sub _convert_contents($$$)
   return $content_formatted;
 }
 
+# $extra_classes should be an array reference or undef
 sub _attribute_class($$$;$)
 {
   my $self = shift;
   my $element = shift;
   my $class = shift;
-  my $extra_class = shift;
+  my $extra_classes = shift;
 
   if (!defined($class) or $class eq '' or $self->get_conf('NO_CSS')) {
     if ($element eq 'span') {
@@ -7668,9 +7668,11 @@ sub _attribute_class($$$;$)
       and defined($self->{'css_map'}->{"$element.$class"})) {
     $style = ' style="'.$self->{'css_map'}->{"$element.$class"}.'"';
   }
-  $extra_class = $extra_class ?
-                   ' '.$self->protect_text($extra_class) : '';
-  return "<$element class=\"$class$extra_class\"$style";
+  my $extra_class_str = '';
+  if (defined($extra_classes)) {
+    $extra_class_str = ' '.join(' ', @$extra_classes);
+  }
+  return "<$element class=\"$class$extra_class_str\"$style";
 }
 
 sub _protect_space($$)
