@@ -288,8 +288,25 @@ void StateManager::deallocate() @{
     @}
 @} 
 @end example
-']
+'],
+['example_empty_arguments',
+'@example ,,,,,,
+example with empty args
+@end example
 
+@example , ,,  ,,, 
+example with empty args with spaces
+@end example
+
+@example ,,,nonempty,,,
+example with empty and non empty args mix
+@end example
+'],
+['example_at_commands_arguments',
+'@example some  thing @^e @TeX{} @exclamdown{} @code{---} @enddots{} !_- _---_ < " & @ @comma{},@@,0
+example with @@-commands and other special characters
+@end example
+'],
 );
 
 my @test_cases_text = (

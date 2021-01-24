@@ -7680,7 +7680,10 @@ sub _attribute_class($$$;$)
   }
   my $extra_class_str = '';
   if (defined($extra_classes)) {
-    $extra_class_str = ' '.join(' ', map {$self->_protect_class_name($_)} @$extra_classes);
+    my $extra_class_conversion = join(' ', map {$self->_protect_class_name($_)} @$extra_classes);
+    if ($extra_class_conversion ne '') {
+      $extra_class_str = ' '.$extra_class_conversion;
+    }
   }
   return "<$element class=\"$class$extra_class_str\"$style";
 }

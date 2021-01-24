@@ -1,5 +1,10 @@
 2021-01-24  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_attribute_class): ignore an empty
+	extra classes expansion result string.
+
+2021-01-24  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_attribute_class,
 	_convert_preformatted_command): pass extra classes as an array
 	instead of a string.
