@@ -1,5 +1,11 @@
 2021-01-24  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/init/highlight_examples.pm: add an init file that does syntax 
+	highlighting for @example with language argument using
+	source-highlight.
+
+2021-01-24  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_attribute_class): ignore an empty
 	extra classes expansion result string.
 
