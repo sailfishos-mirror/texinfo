@@ -1,4 +1,4 @@
-# highlight_examples.pm: interface to source-highlight for @example syntax highlighting
+# highlight_syntax.pm: interface to source-highlight for syntax highlighting
 #
 #    Copyright (C) 2020 Free Software Foundation, Inc.
 #
@@ -33,6 +33,8 @@ my %languages_extensions = (
   'texinfo' => 'texi',
 );
 
+texinfo_add_valid_option('HIGHLIGHT_SYNTAX_DEFAULT');
+
 texinfo_register_handler('structure', \&highlight_process);
 
 texinfo_register_command_formatting('example', \&highlight_preformatted_command);
@@ -44,23 +46,37 @@ my %languages = ();
 my %commands = ();
 my $highlight_out_dir;
 
-sub _get_language($$) 
+sub _get_language($$$)
 {
+  my $self = shift;
   my $cmdname = shift;
   my $command = shift;
+
   my $language;
+  my $converted_language;
+
   if ($cmdname eq 'example') {
     if ($command->{'args'} and scalar(@{$command->{'args'}}) > 0) {
-      my $converted_language = Texinfo::Convert::NodeNameNormalization::convert($command->{'args'}->[0]);
-      if ($converted_language ne '') {
-        if (defined($languages_name_mapping{$converted_language})) {
-          $language = $languages_name_mapping{$converted_language};
-        } else {
-          $language = $converted_language;
-        }
+      $converted_language = Texinfo::Convert::NodeNameNormalization::convert($command->{'args'}->[0]);
+      if ($converted_language eq '') {
+        $converted_language = undef;
       }
     }
   }
+
+  if (not defined($converted_language) and defined($self)) {
+    my $default_highlight_language = $self->get_conf('HIGHLIGHT_SYNTAX_DEFAULT');
+    if (defined($default_highlight_language)) {
+      $converted_language = $default_highlight_language;
+    }
+  }
+
+  if (defined($converted_language) and defined($languages_name_mapping{$converted_language})) {
+    $language = $languages_name_mapping{$converted_language};
+  } else {
+    $language = $converted_language;
+  }
+
   return $language;
 }
 
@@ -83,7 +99,7 @@ sub highlight_process($$)
   foreach my $cmdname (@highlighted_commands) {
     if (scalar(@{$collected_commands->{$cmdname}}) > 0) {
       foreach my $root (@{$collected_commands->{$cmdname}}) {
-        my $language = _get_language($cmdname, $root);
+        my $language = _get_language($self, $cmdname, $root);
         if (defined($language)) {
           if (not exists($languages{$language})) {
             $languages{$language} = {
@@ -94,7 +110,6 @@ sub highlight_process($$)
           my $counter = $languages{$language}->{'counter'};
           $languages{$language}->{'commands'}->[$counter-1] = [$root, $cmdname];
           $commands{$cmdname}->{'input_counter'}++;
-          
         }
       }
     }
@@ -118,7 +133,7 @@ sub highlight_process($$)
     # program
     my $rfile = $languages{$language}->{'rfile'};
     unless (open (HIGHLIGHT_LANG_IN, ">$rfile")) {
-      $self->document_warn(sprintf(__("highlight_examples.pm: could not open %s: %s"), 
+      $self->document_warn(sprintf(__("highlight_syntax.pm: could not open %s: %s"),
                                       $rfile, $!));
       return 0;
     }
@@ -136,7 +151,7 @@ sub highlight_process($$)
           and $tree->{'contents'}->[0]->{'type'} eq 'empty_line_after_command') {
         shift @{$tree->{'contents'}};
       }
-      if ($tree->{'contents'}->[-1]->{'cmdname'} 
+      if ($tree->{'contents'}->[-1]->{'cmdname'}
           and $tree->{'contents'}->[-1]->{'cmdname'} eq 'end') {
         pop @{$tree->{'contents'}};
       }
@@ -164,51 +179,61 @@ sub highlight_process($$)
     my $cmd = "source-highlight --src-lang=$language --out-format=html5 -i '$rfile' -o '$html_result_file' --line-range=$option_line_range_str --range-separator='$range_separator'";
 
     if (system($cmd)) {
-      $self->document_error(sprintf(__("highlight: command did not succeed: %s"), 
+      $self->document_error(sprintf(__("highlight_syntax.pm: command did not succeed: %s"),
                                   $cmd));
       return 0;
     }
 
+    my $language_fragments_nr = $languages{$language}->{'counter'};
     # extract highlighted fragments
     unless (open (HIGHLIGHT_LANG_OUT, $html_result_file)) {
-      $self->document_warn(sprintf(__("highlight_examples.pm: could not open %s: %s"),
+      $self->document_warn(sprintf(__("highlight_syntax.pm: could not open %s: %s"),
                                   $html_result_file, $!));
       return 0;
     }
     my $got_count = 0;
-    my $count = 0;
     my $line;
+    my $text;
+    my $separators_count = 0;
     while ($line = <HIGHLIGHT_LANG_OUT>) {
       #print STDERR "$html_result_file: while $line";
       if ($line =~ /$range_separator/) {
-        $count++;
-        my $root_command = $languages{$language}->{'commands'}->[$count-1];
-        my $root = $root_command->[0];
-        my $command = $root_command->[1];
-        my $text = '';
-        my $end_found = 0;
-        while ($line = <HIGHLIGHT_LANG_OUT>) {
-          #print STDERR "while search $count $line";
-          if ($line =~ /$range_separator/) {
-            $got_count++;
-            $commands{$command}->{'results'}->{$root} = $text;
-            $end_found = 1;
-            last;
-          } else {
-            $text .= $line;
-          }
+        $separators_count++;
+        if (defined($text)) {
+          $got_count++;
+          my $root_command = $languages{$language}->{'commands'}->[$got_count-1];
+          my $root = $root_command->[0];
+          my $command = $root_command->[1];
+          $commands{$command}->{'results'}->{$root} = $text;
+          $text = undef;
         }
-        unless ($end_found) {
-          $self->document_warn(sprintf(__(
-                     "highlight_examples.pm: %s: end of \@%s item %d not found"), 
-                                      $language, $command, $count));
+        print STDERR "$language $got_count $language_fragments_nr \n";
+        if ($got_count < $language_fragments_nr) {
+          $text = '';
+        }
+      } else {
+        if (defined($text)) {
+          $text .= $line;
         }
       }
     }
+    if ($separators_count != $language_fragments_nr +1) {
+      $self->document_warn(sprintf(__(
+         "highlight_syntax.pm: %s: %d separators; expected %d, the number of fragments +1"),
+                            $language, $separators_count, $language_fragments_nr+1));
+    }
+    if (defined($text) and $text ne '') {
+      my $root_command = $languages{$language}->{'commands'}->[$got_count-1];
+      my $root = $root_command->[0];
+      my $command = $root_command->[1];
+      $self->document_warn(sprintf(__(
+                 "highlight_syntax.pm: %s: end of \@%s item %d not found"),
+                                  $language, $command, $got_count));
+    }
     if ($got_count != $languages{$language}->{'counter'}) {
       $self->document_warn(sprintf(__(
-         "highlight_examples.pm: %s: processing produced %d items in HTML; expected %d, the number found in the document"), 
-                            $language, $got_count, $languages{$language}->{'counter'}));
+         "highlight_syntax.pm: %s: processing produced %d items in HTML; expected %d, the number found in the document"),
+                            $language, $got_count, $language_fragments_nr));
     }
     close (HIGHLIGHT_LANG_OUT);
   }
@@ -222,12 +247,12 @@ sub highlight_preformatted_command($$)
   my $command = shift;
   my $content = shift;
 
-  my $language = _get_language($cmdname, $command);
+  my $language = _get_language($self, $cmdname, $command);
   if (exists ($commands{$cmdname}->{'results'}->{$command})
       and defined($commands{$cmdname}->{'results'}->{$command})) {
     if (not defined($language)) {
       $self->document_warn(sprintf(__(
-                       "highlight_examples.pm: output has HTML item for \@%s but no language %s"),
+                       "highlight_syntax.pm: output has HTML item for \@%s but no language %s"),
                                   $cmdname, $command));
     } else {
 
@@ -255,7 +280,7 @@ sub highlight_preformatted_command($$)
       if ($cmdname eq 'example' and $command->{'args'}) {
         $extra_classes = [];
         for my $example_arg (@{$command->{'args'}}) {
-          # convert or remove all @-commands, using simple ascii and unicode 
+          # convert or remove all @-commands, using simple ascii and unicode
           # characters
           my $converted_arg = Texinfo::Convert::NodeNameNormalization::convert($example_arg);
           if ($converted_arg ne '') {
@@ -273,7 +298,7 @@ sub highlight_preformatted_command($$)
     }
   } elsif (defined($language)) {
     $self->document_warn(sprintf(__(
-                       "highlight_examples.pm: output has no HTML item for \@%s %s %s"),
+                       "highlight_syntax.pm: output has no HTML item for \@%s %s %s"),
                                   $cmdname, $language, $command));
   }
   return &{$self->default_commands_conversion($cmdname)}($self, $cmdname, $command, $content);

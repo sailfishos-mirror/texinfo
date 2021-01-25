@@ -395,6 +395,13 @@ sub get_conf($) {
   }
 }
 
+# to dynamically add options from init files
+sub texinfo_add_valid_option($)
+{
+  my $option = shift;
+  return Texinfo::Common::add_valid_option($option);
+}
+
 }
 # back in main program namespace
 

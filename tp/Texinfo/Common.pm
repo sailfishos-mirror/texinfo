@@ -375,6 +375,16 @@ sub valid_option($)
   return $valid_options{$option};
 }
 
+sub add_valid_option($)
+{
+  my $option = shift;
+  if ($option =~ /^[A-Z][A-Z_]{2,}$/) {
+    $valid_options{$option} = 1;
+    return 1;
+  }
+  return 0;
+}
+
 my %customization_variable_classes = (
   'document_settable_at_commands' => [ sort(keys(%document_settable_at_commands)) ],
   'document_settable_unique_at_commands' => [ sort(keys(%document_settable_unique_at_commands)) ],
