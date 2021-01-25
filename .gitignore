@@ -170,6 +170,8 @@ tp/Makefile.onetst
 tp/Makefile.docstr
 tp/Makefile.tres
 
+tp/maintain/lib/libintl-perl/blib/**
+
 tp/t/results/**/out_*
 tp/t/results/**/*.new
 
