@@ -1,3 +1,9 @@
+2021-01-25  Eli Zaretskii  <eliz@gnu.org>
+
+	* info/pcterm.c (w32_kbd_read): Avoid gratuitous flickering of the
+	MS-Windows console if screen-buffer size-change events are sent
+	without any change in the screen dimensions.
+
 2021-01-24  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/init/highlight_examples.pm: add an init file that does syntax 
