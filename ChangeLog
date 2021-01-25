@@ -1,3 +1,8 @@
+2021-01-25  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/init/highlight_examples.pm: use --out-format=html5 to be more
+	in line with the type of HTML produced by texi2any.
+
 2021-01-25  Eli Zaretskii  <eliz@gnu.org>
 
 	* info/pcterm.c (w32_kbd_read): Avoid gratuitous flickering of the

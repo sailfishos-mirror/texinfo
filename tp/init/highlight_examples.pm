@@ -161,7 +161,7 @@ sub highlight_process($$)
       push @option_line_ranges, '"'.$line_range->[0].'-'.$line_range->[1].'"';
     }
     my $option_line_range_str = join(',', @option_line_ranges);
-    my $cmd = "source-highlight --src-lang=$language --out-format=html -i '$rfile' -o '$html_result_file' --line-range=$option_line_range_str --range-separator='$range_separator'";
+    my $cmd = "source-highlight --src-lang=$language --out-format=html5 -i '$rfile' -o '$html_result_file' --line-range=$option_line_range_str --range-separator='$range_separator'";
 
     if (system($cmd)) {
       $self->document_error(sprintf(__("highlight: command did not succeed: %s"), 
