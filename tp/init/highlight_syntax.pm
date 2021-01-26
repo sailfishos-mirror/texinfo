@@ -157,6 +157,9 @@ sub highlight_process($$)
       }
       my $text = Texinfo::Convert::Text::convert($tree, {'code' => 1,
                               Texinfo::Common::_convert_text_options($self)});
+      # make sure that the text ends with a newline
+      chomp ($text);
+      $text .= "\n";
       # count the number of record separator $/
       my $buffer = $text;
       my $text_lines_nr = ( $buffer =~ s|$/||g );
@@ -207,7 +210,7 @@ sub highlight_process($$)
           $commands{$command}->{'results'}->{$root} = $text;
           $text = undef;
         }
-        print STDERR "$language $got_count $language_fragments_nr \n";
+        #print STDERR "$language $got_count $language_fragments_nr \n";
         if ($got_count < $language_fragments_nr) {
           $text = '';
         }
@@ -256,6 +259,8 @@ sub highlight_preformatted_command($$)
                                   $cmdname, $command));
     } else {
 
+      $commands{$cmdname}->{'output_counter'}++;
+
       if ($self->in_string()) {
         return $content;
       }
@@ -289,7 +294,6 @@ sub highlight_preformatted_command($$)
         }
       }
 
-      $commands{$cmdname}->{'output_counter'}++;
       my $result_content = $commands{$cmdname}->{'results'}->{$command};
 
       $result_content =~ s/^\n/\n\n/; # a newline immediately after a <pre> is ignored.
@@ -300,6 +304,7 @@ sub highlight_preformatted_command($$)
     $self->document_warn(sprintf(__(
                        "highlight_syntax.pm: output has no HTML item for \@%s %s %s"),
                                   $cmdname, $language, $command));
+    #print STDERR "$content\n";
   }
   return &{$self->default_commands_conversion($cmdname)}($self, $cmdname, $command, $content);
 }

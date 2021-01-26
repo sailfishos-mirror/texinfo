@@ -1,3 +1,8 @@
+2021-01-26  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/init/highlight_syntax.pm (highlight_process): make sure that
+	the text fragment to be highlighted ends with a newline.
+
 2021-01-25  Patrice Dumas  <pertusus@free.fr>
 
 	* Texinfo/Common.pm (add_valid_option), texi2any.pl
