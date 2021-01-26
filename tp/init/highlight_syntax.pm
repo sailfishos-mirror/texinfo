@@ -46,6 +46,34 @@ my %languages = ();
 my %commands = ();
 my $highlight_out_dir;
 
+my %highlighted_languages_list;
+
+sub _get_highlighted_languages($)
+{
+  my $self = shift;
+
+  my $cmd = 'source-highlight --lang-list';
+  if (not(open(HIGHLIGHT_LANG_LIST, '-|', $cmd))) {
+    $self->document_warn(sprintf(__(
+                         'highlight_syntax.pm: command failed: %s'), $cmd));
+    return 0;
+  }
+  my $line;
+  while (defined($line = <HIGHLIGHT_LANG_LIST>)) {
+    chomp($line);
+    if ($line =~ /^([A-Za-z0-9_\-]+) =/) {
+       my $language = $1;
+       $highlighted_languages_list{$language} = 1;
+    } else {
+      $self->document_warn(sprintf(__(
+                         'highlight_syntax.pm: %s: %s: cannot parse language line'), 
+                          $cmd, $line));
+    }
+  }
+  close(HIGHLIGHT_LANG_LIST);
+  return 1;
+}
+
 sub _get_language($$$)
 {
   my $self = shift;
@@ -77,7 +105,11 @@ sub _get_language($$$)
     $language = $converted_language;
   }
 
-  return $language;
+  if ($highlighted_languages_list{$language}) {
+    return $language;
+  } else {
+    return undef;
+  }
 }
 
 sub highlight_process($$)
@@ -87,6 +119,8 @@ sub highlight_process($$)
 
   return 1 if (defined($self->get_conf('OUTFILE'))
         and $Texinfo::Common::null_device_file{$self->get_conf('OUTFILE')});
+
+  return 0 if (not _get_highlighted_languages($self));
 
   my $document_name = $self->{'document_name'};
   my $highlight_basename = "${document_name}_highlight";
