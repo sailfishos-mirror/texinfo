@@ -105,6 +105,12 @@ my %region_commands = %Texinfo::Common::region_commands;
 my %context_brace_commands = %Texinfo::Common::context_brace_commands;
 my %letter_no_arg_commands = %Texinfo::Common::letter_no_arg_commands;
 
+my %small_alias;
+for my $cmd ('example', 'display', 'format', 'lisp', 'quotation',
+             'indentedblock') {
+  $small_alias{'small'.$cmd} = $cmd;
+};
+
 foreach my $def_command (keys(%def_commands)) {
   $formatting_misc_commands{$def_command} = 1 if ($misc_commands{$def_command});
 }
@@ -1122,7 +1128,12 @@ $preformatted_commands_context{'verbatim'} = 1;
 
 my %pre_class_commands;
 foreach my $preformatted_command (keys(%preformatted_commands_context)) {
-  $pre_class_commands{$preformatted_command} = $preformatted_command;
+  # no class for the @small* variants
+  if ($small_alias{$preformatted_command}) {
+    $pre_class_commands{$preformatted_command} = $small_alias{$preformatted_command};
+  } else {
+    $pre_class_commands{$preformatted_command} = $preformatted_command;
+  }
 }
 $pre_class_commands{'menu'} = 'menu-preformatted';
 $pre_class_types{'menu_comment'} = 'menu-comment';
@@ -2584,6 +2595,11 @@ sub _convert_preformatted_command($$$$)
   my $content = shift;
   my $extra_classes;
 
+  # this is mainly for classes as there are purprosely no classes 
+  # for small*
+  $cmdname = $small_alias{$cmdname}
+    if $small_alias{$cmdname};
+
   if ($cmdname eq 'menu') {
     $html_menu_entry_index = 0;
   } elsif ($cmdname eq 'example') {
@@ -2630,6 +2646,10 @@ sub _convert_indented_command($$$$)
   my $command = shift;
   my $content = shift;
 
+  # no class for @small* variants
+  $cmdname = $small_alias{$cmdname}
+    if $small_alias{$cmdname};
+  
   if ($content ne '' and !$self->in_string()) {
     if ($self->get_conf('COMPLEX_FORMAT_IN_TABLE')) {
       return _indent_with_table ($content);
@@ -3031,6 +3051,9 @@ sub _convert_quotation_command($$$$$)
   my $args = shift;
   my $content = shift;
 
+  #$cmdname = $small_alias{$cmdname}
+  #  if $small_alias{$cmdname};
+  
   my $attribution = '';
   if ($command->{'extra'} and $command->{'extra'}->{'authors'}) {
     foreach my $author (@{$command->{'extra'}->{'authors'}}) {
@@ -3754,6 +3777,13 @@ sub _convert_informative_command($$$$)
 foreach my $informative_command (@informative_global_commands) {
   $default_commands_conversion{$informative_command} 
     = \&_convert_informative_command;
+}
+
+# associate same formatting function for @small* command
+# as for the associated @-command
+foreach my $small_command (keys(%small_alias)) {
+  $default_commands_conversion{$small_command}
+    = $default_commands_conversion{$small_alias{$small_command}};
 }
 
 # Keys are tree element types, values are function references to convert
@@ -7716,12 +7746,6 @@ sub _protect_space($$)
 # Convert tree element $ROOT, and return HTML text for the output files.
 sub _convert($$;$);
 
-my %small_alias;
-for my $cmd ('example', 'display', 'format', 'lisp', 'quotation',
-             'indentedblock') {
-  $small_alias{'small'.$cmd} = $cmd;
-};
-
 sub _convert($$;$)
 {
   my $self = shift;
@@ -7808,8 +7832,6 @@ sub _convert($$;$)
       and $root->{'cmdname'} and $root->{'cmdname'} =~ /index$/) {
       $command_name = 'cindex';
     }
-    $command_name = $small_alias{$command_name}
-      if $small_alias{$command_name};
     if ($root_commands{$command_name}) {
       $self->{'current_root_command'} = $root;
     }

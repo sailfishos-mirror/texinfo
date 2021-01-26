@@ -1,5 +1,14 @@
 2021-01-26  Patrice Dumas  <pertusus@free.fr>
 
+	* Texinfo/Convert/HTML.pm (%pre_class_commands,
+	_convert_preformatted_command, _convert_indented_command,
+	_convert_quotation_command, _convert): do not alias @small*
+	commands in _convert() but in formatting functions, such that
+	the information is not lost and corresponds to the parsing
+	tree.  Alias @small* in %pre_class_commands too.
+
+2021-01-26  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/init/highlight_syntax.pm (_get_highlighted_languages,
 	%highlighted_languages_list, _get_language, highlight_process):
 	In _get_highlighted_languages() call 'source-highlight --lang-list'
