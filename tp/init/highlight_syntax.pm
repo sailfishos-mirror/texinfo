@@ -155,9 +155,9 @@ sub highlight_process($$)
     } else {
       $suffix = $language
     }
-    $languages{$language}->{'basename'} = ${highlight_basename} . "_${language}",
-    $languages{$language}->{'basefile'} = $languages{$language}->{'basename'} . ".$suffix";
-    $languages{$language}->{'html_file'} = $languages{$language}->{'basename'} . '.html';
+    my $language_base = ${highlight_basename} . "_${language}";
+    $languages{$language}->{'basefile'} = $language_base . "_input.$suffix";
+    $languages{$language}->{'html_file'} = $language_base . '_output.html';
     $languages{$language}->{'rfile'} = File::Spec->catfile($highlight_out_dir,
                                 $languages{$language}->{'basefile'});
     $languages{$language}->{'r_html_file'} = File::Spec->catfile($highlight_out_dir,
