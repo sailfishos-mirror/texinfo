@@ -1,5 +1,12 @@
 2021-01-26  Patrice Dumas  <pertusus@free.fr>
 
+	* Texinfo/Convert/HTML.pm (_convert_preformatted_command):
+	no extra class based on argument expansion for @smallexample
+	as we would prefer if users did not use that @-command.
+	From Gavin.
+
+2021-01-26  Patrice Dumas  <pertusus@free.fr>
+
 	* Texinfo/Convert/HTML.pm (%pre_class_commands,
 	_convert_preformatted_command, _convert_indented_command,
 	_convert_quotation_command, _convert): do not alias @small*

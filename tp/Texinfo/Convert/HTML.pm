@@ -2597,8 +2597,12 @@ sub _convert_preformatted_command($$$$)
 
   # this is mainly for classes as there are purprosely no classes 
   # for small*
-  $cmdname = $small_alias{$cmdname}
-    if $small_alias{$cmdname};
+  my $main_cmdname;
+  if ($small_alias{$cmdname}) {
+    $main_cmdname = $small_alias{$cmdname};
+  } else {
+    $main_cmdname = $cmdname;
+  }
 
   if ($cmdname eq 'menu') {
     $html_menu_entry_index = 0;
@@ -2614,8 +2618,8 @@ sub _convert_preformatted_command($$$$)
         }
       }
     }
-  } elsif ($cmdname eq 'lisp') {
-    $cmdname = 'example';
+  } elsif ($main_cmdname eq 'lisp') {
+    $main_cmdname = 'example';
     $extra_classes = ['lisp'];
   }
 
@@ -2627,7 +2631,7 @@ sub _convert_preformatted_command($$$$)
         return $content."\n";
       }
     } else {
-      return $self->_attribute_class('div', $cmdname, $extra_classes).">\n".$content.'</div>'."\n";
+      return $self->_attribute_class('div', $main_cmdname, $extra_classes).">\n".$content.'</div>'."\n";
     }
   } else {
     return $content;
