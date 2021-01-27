@@ -113,7 +113,8 @@ dist_init_DATA = \
  init/chm.pm \
  init/html32.pm \
  init/tex4ht.pm \
- init/latex2html.pm
+ init/latex2html.pm \
+ init/highlight_syntax.pm
 
 test_files = \
  t/README \
