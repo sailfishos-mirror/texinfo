@@ -1,5 +1,15 @@
 2021-01-31  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	Rename node to avoid .
+
+	* doc/texinfo.texi (@small..., small): Rename node to "small"
+	as periods in the node name are iffy.  Update or remove references to
+	this node.
+	
+	'info texinfo smallexample' gave the error: Cannot find node '@small'
+
+2021-01-31  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	Encoding error message in standard format
 
 	* tp/Texinfo/ParserNonXS.pm (_next_text),

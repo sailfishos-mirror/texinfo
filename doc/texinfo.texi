@@ -299,7 +299,7 @@ Quotations and Examples
 * @code{@@verbatim}::                   Writing a verbatim example.
 * @code{@@verbatiminclude}::            Including a file verbatim.
 * @code{@@lisp}::                       Illustrating Lisp code.
-* @code{@@small@dots{}}::                   Examples in a smaller font.
+* small::                       Examples in a smaller font.
 * @code{@@display}::                    Writing an example in the current font.
 * @code{@@format}::                     Writing an example without narrowed margins.
 * @code{@@exdent}::                     Undo indentation on a line.
@@ -6313,7 +6313,7 @@ beginning of that line, and with only one space between the
 * @code{@@noindent}::                   Preventing paragraph indentation.
 * @code{@@indent}::                     Forcing paragraph indentation.
 * @code{@@cartouche}::                  Drawing rounded rectangles around text.
-* @code{@@small@dots{}}::                   Examples in a smaller font.
+* small::                       Examples in a smaller font.
 @end menu
 
 
@@ -6485,11 +6485,6 @@ hacking.
 @author Richard Stallman
 @end quotation
 
-@findex smallquotation
-Texinfo also provides a command @code{@@smallquotation}, which is just
-like @code{@@quotation} but uses a smaller font size where possible.
-@xref{@code{@@small@dots{}}}.
-
 
 @node @code{@@indentedblock}
 @section @code{@@indentedblock}: Indented text blocks
@@ -6516,11 +6511,6 @@ This is written in the Texinfo source as:
 This is an example ...
 @@end indentedblock
 @end example
-
-@findex smallindentedblock
-Texinfo also provides a command @code{@@smallindentedblock}, which is
-just like @code{@@indentedblock} but uses a smaller font size where
-possible.  @xref{@code{@@small@dots{}}}.
 
 
 @node @code{@@example}
@@ -6709,11 +6699,6 @@ and an @code{@@end display} command.  The @code{@@display} command
 indents the text, but does not fill it.
 @end display
 
-@findex smalldisplay
-Texinfo also provides the environment @code{@@smalldisplay}, which is
-like @code{@@display} but uses a smaller font size.
-@xref{@code{@@small@dots{}}}.
-
 
 @node @code{@@format}
 @section @code{@@format}: Examples Using the Full Line Width
@@ -6731,11 +6716,6 @@ and an @code{@@end format} command.  As you can see
 from this example,
 the @code{@@format} command does not fill the text.
 @end format
-
-@findex smallformat
-Texinfo also provides the environment @code{@@smallformat}, which is
-like @code{@@format} but uses a smaller font size.
-@xref{@code{@@small@dots{}}}.
 
 
 @node @code{@@exdent}
@@ -7027,10 +7007,9 @@ Info, you'll see the @code{@@cartouche} had no effect):
 
 @code{@@cartouche} also implies @code{@@group} (@pxref{@code{@@group}}).
 
-@node @code{@@small@dots{}}
+@node small
 @section @code{@@small@dots{}} Block Commands
 
-@anchor{small}@c old name
 @findex smallexample
 @findex smallformat
 @findex smalllisp
@@ -19913,35 +19892,35 @@ in Info.  @xref{Fonts}.
 @item @@smallbook
 Cause @TeX{} to produce a printed manual in a 7 by 9.25 inch format
 rather than the regular 8.5 by 11 inch format.
-@xref{@code{@@smallbook}}.  Also, see @ref{@code{@@small@dots{}}}.
+@xref{@code{@@smallbook}}.  Also, see @ref{small}.
 
 @item @@smalldisplay
 Begin a kind of example.  Like @code{@@display}, but use a smaller
 font size where possible.  Pair with @code{@@end smalldisplay}.
-@xref{@code{@@small@dots{}}}.
+@xref{small}.
 
 @item @@smallexample
 Begin an example.  Like @code{@@example}, but use a smaller font size
 where possible.  Pair with @code{@@end smallexample}.
-@xref{@code{@@small@dots{}}}.
+@xref{small}.
 
 @item @@smallformat
 Begin a kind of example.  Like @code{@@format}, but use a smaller font
 size where possible.  Pair with @code{@@end smallformat}.
-@xref{@code{@@small@dots{}}}.
+@xref{small}.
 
 @item @@smallindentedblock
 Like @code{@@indentedblock}, but use a smaller font size where
 possible.  Pair with @code{@@end smallindentedblock}.
-@xref{@code{@@small@dots{}}}.
+@xref{small}.
 
 @item @@smalllisp
 Begin an example of Lisp code.  Same as @code{@@smallexample}.  Pair
-with @code{@@end smalllisp}.  @xref{@code{@@small@dots{}}}.
+with @code{@@end smalllisp}.  @xref{small}.
 
 @item @@smallquotation
 Like @code{@@quotation}, but use a smaller font size where possible.
-Pair with @code{@@end smallquotation}.  @xref{@code{@@small@dots{}}}.
+Pair with @code{@@end smallquotation}.  @xref{small}.
 
 @item @@sortas @{@var{key}@}
 Used in the arguments to index commands to give a string by which the 
@@ -23083,9 +23062,6 @@ If you write the @code{@@smallbook} command between the
 start-of-header and end-of-header lines, the Texinfo mode @TeX{}
 region formatting command, @code{texinfo-tex-region}, will format the
 region in ``small'' book size (@pxref{Start of Header}).
-
-@xref{@code{@@small@dots{}}}, for information about commands that make
-it easier to produce examples for a smaller manual.
 
 @xref{Format with @command{texi2dvi}}, and @ref{Preparing for @TeX{}},
 for other ways to format with @code{@@smallbook} that do not require
