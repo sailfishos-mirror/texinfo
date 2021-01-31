@@ -1,5 +1,10 @@
 2021-01-31  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* info/display.c (hl_ref_rendition): Use bold for active link
+	rather than no underline.
+
+2021-01-31  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	@set txiindexhyphenignore for parsetexi
 
 	* tp/Texinfo/XS/parsetexi/api.c (build_global_info): Set
