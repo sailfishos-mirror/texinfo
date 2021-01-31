@@ -1,5 +1,13 @@
 2021-01-31  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	Encoding error message in standard format
+
+	* tp/Texinfo/ParserNonXS.pm (_next_text),
+	* tp/Texinfo/XS/parsetexi/input.c (convert_to_utf8): File name
+	and line number in error message.
+
+2021-01-31  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* info/display.c (hl_ref_rendition): Use bold for active link
 	rather than no underline.
 

@@ -1808,7 +1808,8 @@ sub _next_text($$)
       my $input_error = 0;
       local $SIG{__WARN__} = sub {
         my $message = shift;
-        print STDERR "input error: $message";
+        print STDERR "$input->{'name'}" . ":"
+               . ($input->{'line_nr'} + 1) . ": input error: $message";
         $input_error = 1;
       };
       my $fh = $input->{'fh'};

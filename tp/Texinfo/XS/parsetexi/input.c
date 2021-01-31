@@ -254,8 +254,8 @@ convert_to_utf8 (char *s)
           break;
         case EILSEQ:
         default:
-          fprintf(stderr, "encoding error at byte 0x%2x (line %d)\n",
-                          *(unsigned char *)inptr, line_nr.line_nr);
+          fprintf(stderr, "%s:%d: encoding error at byte 0x%2x\n",
+            line_nr.file_name, line_nr.line_nr, *(unsigned char *)inptr);
           inptr++; bytes_left--;
           break;
         }
