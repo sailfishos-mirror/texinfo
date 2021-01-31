@@ -516,6 +516,18 @@ in a reuglar para @sortas{foo}. @code{inside another @sortas{command}}.
 
 @printindex SK
 '],
+['transparent_sort_chars',
+'@set txiindexhyphenignore
+
+@node Top
+@top
+
+@cindex @code{--version}, for @command{install-info}
+@cindex Source file format
+@cindex Semantic markup
+
+@printindex cp
+'],
 ['subentries',
 '@node Top
 @top

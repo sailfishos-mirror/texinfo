@@ -198,6 +198,16 @@ sub get_parser_info {
   $self->{'info'} = $GLOBAL_INFO;
   $self->{'extra'} = $GLOBAL_INFO2;
 
+  # Propagate these settings from 'info' hash to 'values' hash.
+  # The 'values' hash is not otherwise used.  Maybe we should use
+  # the 'info' hash for this instead in the pure Perl code.
+  for my $txi_flag ('txiindexatsignignore', 'txiindexbackslashignore',
+                    'txiindexhyphenignore', 'txiindexlessthanignore') {
+    if ($self->{'info'}->{$txi_flag}) {
+      $self->{'values'}->{$txi_flag} = 1;
+    }
+  }
+
   _get_errors ($self);
   Texinfo::Common::complete_indices ($self);
 }

@@ -677,7 +677,6 @@ clear_value (char *name)
     }
 }
 
-/* Look for a value the name of which is LEN bytes at NAME */
 char *
 fetch_value (char *name)
 {

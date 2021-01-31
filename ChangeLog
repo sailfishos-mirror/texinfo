@@ -1,3 +1,15 @@
+2021-01-31  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	@set txiindexhyphenignore for parsetexi
+
+	* tp/Texinfo/XS/parsetexi/api.c (build_global_info): Set
+	'txiindexhyphenignore' and others on 'info' hash.
+	* tp/Texinfo/XS/parsetexi/Parsetexi.pm (get_parser_info):
+	Copy settings from 'info' to 'values' hash.
+	* tp/Texinfo/XS/parsetexi/macro.c (fetch_value): Remove out
+	of date comment.
+	* tp/t/09indices.t (transparent_sort_chars): New test.
+
 2021-01-27  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Makefile.am (dist_init_DATA): install init/highlight_syntax.pm.

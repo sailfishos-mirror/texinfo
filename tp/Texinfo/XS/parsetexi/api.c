@@ -884,6 +884,17 @@ build_global_info (void)
       hv_store (hv, "novalidate", strlen ("novalidate"),
                 newSVpv ("1", 0), 0);
     }
+
+  char *txi_flags[] = { "txiindexatsignignore", "txiindexbackslashignore",
+    "txiindexhyphenignore", "txiindexlessthanignore", 0};
+  char **p;
+
+  for (p = txi_flags; (*p); p++)
+    {
+      if (fetch_value (*p))
+        hv_store (hv, *p, strlen (*p), newSVpv ("1", 0), 0);
+    }
+
   return hv;
 }
 
