@@ -4877,8 +4877,7 @@ $result_converted{'html'}->{'complex_float'} = '<!DOCTYPE html PUBLIC "-//W3C//D
 <link href="#Top" rel="start" title="Top">
 <style type="text/css">
 <!--
-*[id]:hover > a.copiable-anchor {visibility: visible}
-a.copiable-anchor {padding-left: 0.5em; visibility: hidden; text-decoration: none; line-height: 0em}
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
 a.summary-letter {text-decoration: none}
 blockquote.indentedblock {margin-right: 0em}
 div.display {margin-left: 3.2em}
@@ -4891,6 +4890,7 @@ pre.menu-preformatted {font-family: serif}
 span.nolinebreak {white-space: nowrap}
 span.roman {font-family: initial; font-weight: normal}
 span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -4916,7 +4916,7 @@ An example 2.
 
 <p>A table 2.
 </p><dl compact="compact">
-<dt><em>truc 2</em></dt>
+<dt><span><em>truc 2</em></span></dt>
 <dd><p>line 2
 </p></dd>
 </dl>
@@ -4955,7 +4955,7 @@ A footnote 2.
 </p>
 <p>A table.
 </p><dl compact="compact">
-<dt><em>truc</em></dt>
+<dt><span><em>truc</em></span></dt>
 <dd><p>line
 </p></dd>
 </dl>
@@ -4986,7 +4986,7 @@ An example.
 <span id="Anchor-in-caption"></span>
 <p>A table.
 </p><dl compact="compact">
-<dt><em>truc</em></dt>
+<dt><span><em>truc</em></span></dt>
 <dd><p>line
 </p></dd>
 </dl>
@@ -5036,7 +5036,7 @@ An example 2.
 
 <p>A table 2.
 </p><dl compact="compact">
-<dt><em>truc 2</em></dt>
+<dt><span><em>truc 2</em></span></dt>
 <dd><p>line 2
 </p></dd>
 </dl>

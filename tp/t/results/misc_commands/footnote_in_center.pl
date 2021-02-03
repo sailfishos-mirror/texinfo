@@ -341,7 +341,7 @@ shows an important feature of the centered text.
 </p>
 <div class="example">
 <dl compact="compact">
-<dt><tt>item</tt></dt>
+<dt><span><tt>item</tt></span></dt>
 <dd><pre class="example">line
 </pre></dd>
 </dl>

@@ -552,13 +552,13 @@ $result_converted{'plaintext'}->{'symbol_after_command'} = '. dot
 
 
 $result_converted{'html_text'}->{'symbol_after_command'} = '<dl compact="compact">
-<dt>. dot</dt>
-<dt>, comma</dt>
-<dt>@ @</dt>
-<dt>{ {</dt>
-<dt>! exclam</dt>
-<dt>&rdquo; quotes</dt>
-<dt>: colon</dt>
+<dt><span>. dot</span></dt>
+<dt><span>, comma</span></dt>
+<dt><span>@ @</span></dt>
+<dt><span>{ {</span></dt>
+<dt><span>! exclam</span></dt>
+<dt><span>&rdquo; quotes</span></dt>
+<dt><span>: colon</span></dt>
 </dl>
 
 <p>@. {, @@ ?, !: @{ @&rdquo; @:

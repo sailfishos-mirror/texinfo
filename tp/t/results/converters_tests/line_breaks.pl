@@ -603,8 +603,7 @@ $result_converted{'html'}->{'line_breaks'} = '<!DOCTYPE html PUBLIC "-//W3C//DTD
 <meta name="distribution" content="global">
 <style type="text/css">
 <!--
-*[id]:hover > a.copiable-anchor {visibility: visible}
-a.copiable-anchor {padding-left: 0.5em; visibility: hidden; text-decoration: none; line-height: 0em}
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
 a.summary-letter {text-decoration: none}
 blockquote.indentedblock {margin-right: 0em}
 div.display {margin-left: 3.2em}
@@ -617,6 +616,7 @@ pre.menu-preformatted {font-family: serif}
 span.nolinebreak {white-space: nowrap}
 span.roman {font-family: initial; font-weight: normal}
 span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -632,8 +632,8 @@ ul.no-bullet {list-style: none}
 <div align="center">in center <br> line break
 </div>
 <dl compact="compact">
-<dt><strong>with break <br> after</strong></dt>
-<dt><strong>withx breakx <br> afterx</strong></dt>
+<dt><span><strong>with break <br> after</strong></span></dt>
+<dt><span><strong>withx breakx <br> afterx</strong></span></dt>
 <dd><p>Text
 </p></dd>
 </dl>

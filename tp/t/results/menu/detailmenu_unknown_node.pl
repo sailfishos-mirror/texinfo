@@ -342,8 +342,7 @@ $result_converted{'html'}->{'detailmenu_unknown_node'} = '<!DOCTYPE html PUBLIC 
 <link href="#Top" rel="start" title="Top">
 <style type="text/css">
 <!--
-*[id]:hover > a.copiable-anchor {visibility: visible}
-a.copiable-anchor {padding-left: 0.5em; visibility: hidden; text-decoration: none; line-height: 0em}
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
 a.summary-letter {text-decoration: none}
 blockquote.indentedblock {margin-right: 0em}
 div.display {margin-left: 3.2em}
@@ -356,6 +355,7 @@ pre.menu-preformatted {font-family: serif}
 span.nolinebreak {white-space: nowrap}
 span.roman {font-family: initial; font-weight: normal}
 span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
 ul.no-bullet {list-style: none}
 -->
 </style>

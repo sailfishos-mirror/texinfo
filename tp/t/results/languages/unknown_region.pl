@@ -385,8 +385,7 @@ $result_converted{'html'}->{'unknown_region'} = '<!DOCTYPE html PUBLIC "-//W3C//
 <link href="#Top" rel="start" title="Top">
 <style type="text/css">
 <!--
-*[id]:hover > a.copiable-anchor {visibility: visible}
-a.copiable-anchor {padding-left: 0.5em; visibility: hidden; text-decoration: none; line-height: 0em}
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
 a.summary-letter {text-decoration: none}
 blockquote.indentedblock {margin-right: 0em}
 div.display {margin-left: 3.2em}
@@ -399,6 +398,7 @@ pre.menu-preformatted {font-family: serif}
 span.nolinebreak {white-space: nowrap}
 span.roman {font-family: initial; font-weight: normal}
 span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -411,7 +411,7 @@ ul.no-bullet {list-style: none}
 <span id="Top"></span><h1 class="node-heading">Top</h1>
 
 <dl class="def">
-<dt id="index-BBB-of-AAA">Variable d\'instance de AAA&nbsp;: <strong>BBB</strong> <em>CCC</em><a href=\'#index-BBB-of-AAA\' class=\'copiable-anchor\'>&para;</a></dt>
+<dt id="index-BBB-of-AAA"><span>Variable d\'instance de AAA&nbsp;: <strong>BBB</strong> <em>CCC</em><a href=\'#index-BBB-of-AAA\' class=\'copiable-anchor\'> &para;</a></span></dt>
 </dl>
 <hr>
 

@@ -536,8 +536,7 @@ $result_converted{'html'}->{'space_in_def_for_index'} = '<!DOCTYPE html PUBLIC "
 <link href="#Top" rel="index" title="Top">
 <style type="text/css">
 <!--
-*[id]:hover > a.copiable-anchor {visibility: visible}
-a.copiable-anchor {padding-left: 0.5em; visibility: hidden; text-decoration: none; line-height: 0em}
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
 a.summary-letter {text-decoration: none}
 blockquote.indentedblock {margin-right: 0em}
 div.display {margin-left: 3.2em}
@@ -550,6 +549,7 @@ pre.menu-preformatted {font-family: serif}
 span.nolinebreak {white-space: nowrap}
 span.roman {font-family: initial; font-weight: normal}
 span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -561,8 +561,8 @@ ul.no-bullet {list-style: none}
 <span id="Top"></span><h1 class="node-heading">Top</h1>
 
 <dl class="def">
-<dt id="index-name"><span class="category">Category: </span><strong>name</strong> <em>argument argument2...</em><a href=\'#index-name\' class=\'copiable-anchor\'>&para;</a></dt>
-<dt id="index-AAA2"><span class="category">AAA1: </span><strong>AAA2</strong> <em>arg3</em><a href=\'#index-AAA2\' class=\'copiable-anchor\'>&para;</a></dt>
+<dt id="index-name"><span class="category">Category: </span><span><strong>name</strong> <em>argument argument2...</em><a href=\'#index-name\' class=\'copiable-anchor\'> &para;</a></span></dt>
+<dt id="index-AAA2"><span class="category">AAA1: </span><span><strong>AAA2</strong> <em>arg3</em><a href=\'#index-AAA2\' class=\'copiable-anchor\'> &para;</a></span></dt>
 </dl>
 
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Top_fn_letter-A"><b>A</b></a>

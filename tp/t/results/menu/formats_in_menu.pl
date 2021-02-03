@@ -1027,8 +1027,7 @@ $result_converted{'html'}->{'formats_in_menu'} = '<!DOCTYPE html PUBLIC "-//W3C/
 <link href="#Top" rel="start" title="Top">
 <style type="text/css">
 <!--
-*[id]:hover > a.copiable-anchor {visibility: visible}
-a.copiable-anchor {padding-left: 0.5em; visibility: hidden; text-decoration: none; line-height: 0em}
+a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
 a.summary-letter {text-decoration: none}
 blockquote.indentedblock {margin-right: 0em}
 div.display {margin-left: 3.2em}
@@ -1041,6 +1040,7 @@ pre.menu-preformatted {font-family: serif}
 span.nolinebreak {white-space: nowrap}
 span.roman {font-family: initial; font-weight: normal}
 span.sansserif {font-family: sans-serif; font-weight: normal}
+span:hover a.copiable-anchor {visibility: visible}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -1054,7 +1054,7 @@ ul.no-bullet {list-style: none}
 <table class="menu" border="0" cellspacing="0">
 <tr><td align="left" valign="top">&bull; <a href="gcc.html#Top" accesskey="1">(gcc)</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">text
 <dl compact="compact">
-<dt>item</dt>
+<dt><span>item</span></dt>
 <dd><pre class="menu-preformatted">* table line::
 </pre></dd>
 </dl>

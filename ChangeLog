@@ -1,3 +1,15 @@
+2021-03-02  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	Copiable anchors tweaks
+	
+	* tp/Texinfo/Convert/HTML.pm
+	(_convert_item_command, _convert_def_line_type, %css_map):
+	Wrap <a> for copiable anchor in a <span> to avoid it flickering
+	when mouse pointer moves over page.
+	(_get_copiable_anchor, %css_map) Precede it with a space character
+	rather than using CSS to get space before it, as this looks
+	slightly better in Lynx.
+
 2021-01-31  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	Rename node to avoid .

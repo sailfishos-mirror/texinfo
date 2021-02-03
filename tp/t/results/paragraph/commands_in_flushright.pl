@@ -1563,8 +1563,8 @@ $result_converted{'html_text'}->{'commands_in_flushright'} = '
 </li></ol>
 
 <dl compact="compact">
-<dt><em>table item</em></dt>
-<dt><em>table itemx</em></dt>
+<dt><span><em>table item</em></span></dt>
+<dt><span><em>table itemx</em></span></dt>
 <dd><p align="right">Table text
 </p>
 <p align="right">Text.

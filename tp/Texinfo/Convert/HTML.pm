@@ -1116,9 +1116,14 @@ my %css_map = (
      'span.nolinebreak'   => 'white-space: nowrap',
      'kbd'                => 'font-style: oblique',
 
-     'a.copiable-anchor'
-=> 'padding-left: 0.5em; visibility: hidden; text-decoration: none; line-height: 0em',
-     '*[id]:hover > a.copiable-anchor'         => 'visibility: visible',
+     # The anchor element is wrapped in a <span> rather than a block level
+     # element to avoid it appearing unless the mouse pointer is directly
+     # over the text, as it is annoying for anchors to flicker when
+     # you are moving your pointer elsewhere. "line-height: 0em" stops the
+     # invisible text from changing vertical spacing.
+     'a.copiable-anchor' => 'visibility: hidden; '
+                           .'text-decoration: none; line-height: 0em',
+     'span:hover a.copiable-anchor'         => 'visibility: visible',
 );
 
 $css_map{'pre.format'} = $css_map{'pre.display'};
@@ -3247,7 +3252,7 @@ sub _convert_item_command($$$$)
         $index_id = '';
       }
     
-      return "<dt${index_id}>$result$anchor</dt>\n";
+      return "<dt${index_id}><span>$result$anchor</span></dt>\n";
     } else {
       return '';
     }
@@ -4431,9 +4436,9 @@ sub _convert_def_line_type($$$$)
                             .">$category_result</span>";
     }
     my $anchor = $self->_get_copiable_anchor($index_id);
-    return "<dt$index_label>"
-             .$category_result.$self->convert_tree({'type' => '_code',
-                               'contents' => [$tree]}) . "$anchor</dt>\n";
+    return "<dt$index_label>".$category_result
+              ."<span>".$self->convert_tree({'type' => '_code',
+                           'contents' => [$tree]}) . "$anchor</span></dt>\n";
   } else {
     my $category_prepared = '';
     if ($command->{'extra'} and $command->{'extra'}->{'def_parsed_hash'}
@@ -4479,7 +4484,7 @@ sub _get_copiable_anchor {
   my ($self, $id) = @_;
   my $result = '';
   if ($id and $self->get_conf('COPIABLE_ANCHORS')) {
-    $result = "<a href='#$id' class='copiable-anchor'>&para;</a>";
+    $result = "<a href='#$id' class='copiable-anchor'> &para;</a>";
   }
   return $result;
 }
