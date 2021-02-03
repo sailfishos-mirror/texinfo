@@ -527,7 +527,7 @@ handle_close_brace (ELEMENT *current, char **line_inout)
       add_to_element_contents (current, e);
       goto funexit;
     }
-  /* context brace command (e.g. @footnote) */
+  /* context brace command (e.g. @footnote) when there is a paragraph inside */
   else if (current_context() == ct_footnote
            || current_context() == ct_caption
            || current_context() == ct_shortcaption
@@ -542,6 +542,7 @@ handle_close_brace (ELEMENT *current, char **line_inout)
           (void) pop_context ();
           debug ("CLOSING(context command)");
           closed_command = current->parent->cmd;
+          counter_pop (&count_remaining_args);
 
           register_global_command (current->parent);
           current = current->parent->parent;

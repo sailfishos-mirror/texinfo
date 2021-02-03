@@ -1,5 +1,13 @@
 2021-02-03  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	Fix argument counting for nested @footnote.
+	
+	* tp/Texinfo/XS/parsetexi/separator.c (handle_close_brace)
+	<context brace commands>: Pop the remaining args counter.
+	* tp/t/55conditionals.t (inlinefmtifelse_nesting): New test.
+
+2021-02-03  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	"Inline" command nesting
 
 	* tp/Texinfo/ParserNonXS.pm (%default_valid_nestings),
