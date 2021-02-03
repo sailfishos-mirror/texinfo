@@ -1,5 +1,15 @@
 2021-02-03  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	"Inline" command nesting
+
+	* tp/Texinfo/ParserNonXS.pm (%default_valid_nestings),
+	* tp/Texinfo/XS/parsetexi/parser.c (check_valid_nesting):
+	Allow anything inside an inline command like @inlinefmt.
+	
+	The ccd2cue manual nested @footnote inside of @inlinefmtifelse.
+
+2021-02-03  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	Copiable anchors tweaks
 	
 	* tp/Texinfo/Convert/HTML.pm

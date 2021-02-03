@@ -214,7 +214,6 @@ my %in_index_commands         = %Texinfo::Common::in_index_commands;
 my %explained_commands        = %Texinfo::Common::explained_commands;
 my %inline_format_commands    = %Texinfo::Common::inline_format_commands;
 my %inline_commands           = %Texinfo::Common::inline_commands;
-my %inline_conditional_commands = %Texinfo::Common::inline_conditional_commands;
 my %all_commands              = %Texinfo::Common::all_commands;
 
 # equivalence between a @set flag and an @@-command
@@ -394,7 +393,7 @@ delete $simple_text_commands{'exdent'};
 foreach my $command (keys (%brace_commands)) {
   if ($brace_commands{$command} =~ /\d/
       and $brace_commands{$command} > 0
-      and !$inline_conditional_commands{$command}) {
+      and !$inline_commands{$command}) {
     $simple_text_commands{$command} = 1;
   }
 }
