@@ -51,7 +51,7 @@ new_macro (char *name, ELEMENT *macro)
           macro_list = realloc (macro_list,
                                 (macro_space += 5) * sizeof (MACRO));
           if (!macro_list)
-            abort ();
+            fatal ("realloc failed");
         }
       new = add_texinfo_command (name);
       m = &macro_list[macro_number];
@@ -90,8 +90,8 @@ parse_macro_command_line (enum command_id cmd, char **line_inout,
   macro->line_nr = line_nr;
 
   add_extra_string (macro, "arg_line", strdup (line));
-  /* TODO: This extra value isn't used much, so is a candidate for
-     simplification. */
+  /* Note this extra value isn't used much, so it might be possible
+     to get rid of it. */
 
   line += strspn (line, whitespace_chars);
   name = read_command_name (&line);
@@ -143,7 +143,7 @@ parse_macro_command_line (enum command_id cmd, char **line_inout,
       if (!*q)
         {
           /* End of string reached before closing brace. */
-          abort ();
+          goto check_trailing;
         }
 
       /* Disregard trailing whitespace. */
@@ -331,7 +331,7 @@ expand_macro_arguments (ELEMENT *macro, char **line_inout, enum command_id cmd)
                                       (1+(arg_space += 5)) * sizeof (char *));
                   /* Include space for terminating null element. */
                   if (!arg_list)
-                    abort ();
+                    fatal ("realloc failed");
                 }
               if (arg.space > 0)
                 arg_list[arg_number++] = arg.text;
@@ -418,9 +418,8 @@ expand_macro_body (MACRO *macro_record, char *arguments[], TEXT *expanded)
           bs = strchr (ptext, '\\');
           if (!bs)
             {
-              // TODO: error - malformed
+              /* malformed input - unpaired backslash */
               return;
-              abort ();
             }
 
           *bs = '\0';
@@ -507,7 +506,7 @@ handle_macro (ELEMENT *current, char **line_inout, enum command_id cmd)
 
   macro_record = lookup_macro (cmd);
   if (!macro_record)
-    abort ();
+    fatal ("no macro record");
   macro = macro_record->element;
 
   /* Get number of args. - 1 for the macro name. */

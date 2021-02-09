@@ -1,4 +1,4 @@
-/* Copyright 2010-2019 Free Software Foundation, Inc.
+/* Copyright 2010-2021 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -20,8 +20,7 @@
 #include <stdarg.h>
 #include <stdio.h>
 
-#include "tree_types.h"
-#include "errors.h"
+#include "parser.h"
 #include "input.h"
 #include "text.h"
 
@@ -41,7 +40,8 @@ line_error_internal (enum error_type type, LINE_NR *cmd_line_nr,
 {
   char *message;
   vasprintf (&message, gettext(format), v);
-  if (!message) abort ();
+  if (!message) fatal ("vasprintf failed");
+
   if (error_number == error_space)
     {
       error_list = realloc (error_list,

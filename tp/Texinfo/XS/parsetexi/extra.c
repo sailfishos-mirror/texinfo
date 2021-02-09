@@ -35,7 +35,7 @@ add_extra_key (ELEMENT *e, char *key, ELEMENT *value,
           e->extra = realloc (e->extra,
                               (e->extra_space += 5) * sizeof (KEY_PAIR));
           if (!e->extra)
-            abort ();
+            fatal ("realloc failed");
         }
       e->extra_number++;
     }

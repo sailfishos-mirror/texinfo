@@ -117,7 +117,7 @@ handle_open_brace (ELEMENT *current, char **line_inout)
               push_context (ct_math);
               break;
             default:
-              abort ();
+              fatal ("no context for command");
             }
 
           {
@@ -405,7 +405,7 @@ handle_close_brace (ELEMENT *current, char **line_inout)
           if (current->parent->cmd == CM_inlineraw)
             {
               if (ct_inlineraw != pop_context ())
-                abort ();
+                fatal ("expected inlineraw context");
             }
           if (current->parent->args.number == 0
               || current->parent->args.list[0]->contents.number == 0)

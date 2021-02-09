@@ -324,7 +324,7 @@ handle_line_command (ELEMENT *current, char **line_inout,
         {
           if (cmd != CM_bye)
             {
-              /* Something to do with document_root and text_root. */
+              /* Use document_root when we have nodes or sections. */
               ELEMENT *new_root = new_element (ET_document_root);
               add_to_element_contents (new_root, current);
               current = new_root;
@@ -334,7 +334,7 @@ handle_line_command (ELEMENT *current, char **line_inout,
         {
           current = current->parent;
           if (!current)
-            abort ();
+            fatal ("no parent element");
         }
     }
 
@@ -613,11 +613,11 @@ handle_line_command (ELEMENT *current, char **line_inout,
               base_name = strdup (base_name);
               base_len = strlen (base_name);
               if (base_name[base_len - 1] != 'x')
-                abort ();
+                fatal ("no x at end of def command name");
               base_name[base_len - 1] = '\0';
               base_command = lookup_command (base_name);
               if (base_command == CM_NONE)
-                abort ();
+                fatal ("no def base command");
               add_extra_string (misc, "def_command", base_name);
 
               after_paragraph = check_no_text (current);
@@ -907,7 +907,7 @@ handle_block_command (ELEMENT *current, char **line_inout,
             destroy_element (pop_element_from_contents (menu));
 
           if (pop_context () != ct_preformatted)
-            abort ();
+            fatal ("preformatted context expected");
           if (menu->type == ET_menu_entry)
             menu = menu->parent;
           current = menu;

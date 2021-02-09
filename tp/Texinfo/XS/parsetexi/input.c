@@ -24,10 +24,9 @@
 #include <errno.h>
 #include <sys/stat.h>
 
-#include "tree_types.h"
+#include "parser.h"
 #include "input.h"
 #include "text.h"
-#include "commands.h"
 
 enum input_type { IN_file, IN_text };
 
@@ -351,7 +350,7 @@ next_text (void)
           free (line); line = 0;
           break;
         default:
-          abort ();
+          fatal ("unknown input source type");
         }
 
       /* Top input source failed.  Pop it and try the next one. */
@@ -382,7 +381,7 @@ input_push (char *text, char *macro, char *filename, int line_number)
       input_space++; input_space *= 1.5;
       input_stack = realloc (input_stack, input_space * sizeof (INPUT));
       if (!input_stack)
-        abort ();
+        fatal ("realloc failed");
     }
 
   input_stack[input_number].type = IN_text;
@@ -418,7 +417,7 @@ save_string (char *string)
           small_strings = realloc (small_strings, small_strings_space
                                    * sizeof (char *));
           if (!small_strings)
-            abort ();
+            fatal ("realloc failed");
         }
       small_strings[small_strings_num++] = ret;
     }
@@ -564,7 +563,7 @@ input_push_file (char *filename)
     {
       input_stack = realloc (input_stack, (input_space += 5) * sizeof (INPUT));
       if (!input_stack)
-        abort ();
+        fatal ("realloc failed");
     }
 
   /* Strip off a leading directory path. */

@@ -521,7 +521,7 @@ element_to_perl_hash (ELEMENT *e)
               break;
               }
             default:
-              abort ();
+              fatal ("unknown extra type");
               break;
             }
         }
@@ -758,7 +758,7 @@ build_single_index_data (INDEX *i)
           if (!e->content->hv)
             {
               if (e->content->parent)
-                abort (); /* element should not be in-tree */
+                fatal ("index element should not be in-tree");
               element_to_perl_hash (e->content);
             }
           contents_array = hv_fetch (e->content->hv,

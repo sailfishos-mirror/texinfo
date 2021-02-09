@@ -2,7 +2,7 @@
    declarations for close.c, end_line.c, debug.c, separator.c, parser.c, 
    multitable.c, extra.c and menu.c. */
 
-/* Copyright 2010-2020 Free Software Foundation, Inc.
+/* Copyright 2010-2021 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -157,6 +157,8 @@ int is_end_current_command (ELEMENT *current, char **line,
 void set_documentlanguage (char *);
 void set_novalidate (int value);
 char *element_type_name (ELEMENT *e);
+void fatal (char *);
+void bug (char *);
 
 /* Return values */
 #define GET_A_NEW_LINE 0

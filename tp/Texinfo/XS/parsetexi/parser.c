@@ -24,13 +24,24 @@
 #include "input.h"
 
 
-/* Utility functions */
-
 const char *whitespace_chars = " \t\f\r\n";
 const char *digit_chars = "0123456789";
 
 // [^\S\r\n] in Perl
 const char *whitespace_chars_except_newline = " \t\f";
+
+
+void bug (char *message)
+{
+  fprintf (stderr, "texi2any (XS parser): bug: %s\n", message);
+  abort ();
+}
+
+void fatal (char *message)
+{
+  bug (message);
+  abort ();
+}
 
 /* Check if the contents of S2 appear at S1). */
 int
@@ -113,7 +124,7 @@ push_conditional_stack (enum command_id cond)
                                    (conditional_space += 5)
                                    * sizeof (enum command_id));
       if (!conditional_stack)
-        abort ();
+        fatal ("realloc failed");
     }
   conditional_stack[conditional_number++] = cond;
 }
@@ -543,7 +554,7 @@ merge_text (ELEMENT *current, char *text)
         {
           additional = malloc (leading_spaces + 1);
           if (!additional)
-            abort ();
+            fatal ("malloc failed");
           memcpy (additional, text, leading_spaces);
           additional[leading_spaces] = '\0';
         }
@@ -1188,7 +1199,7 @@ superfluous_arg:
               ELEMENT *popped;
               popped = pop_element_from_contents (current);
               if (popped->cmd != end_cmd)
-                abort(); //error
+                fatal ("command mismatch for ignored block");
 
               /* Ignore until end of line */
               if (!strchr (line, '\n'))

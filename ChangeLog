@@ -1,3 +1,15 @@
+2021-02-09  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	Wrap or remove calls to abort in XS parser
+
+	* tp/Texinfo/XS/parsetexi/parser.c (bug, fatal): New functions.
+	* tp/Texinfo/XS/parsetexi: Use them throughout instead of calling
+	abort, in order to give informative error messages.
+	* tp/Texinfo/XS/parsetexi/end_line.c (end_line):
+	Add code to deal with no description in menu entry.
+	* tp/Texinfo/XS/parsetexi/macro.c (parse_macro_command_line):
+	Do not abort on missing backslash in macro body.
+
 2021-02-03  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	Fix argument counting for nested @footnote.

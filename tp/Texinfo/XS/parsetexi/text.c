@@ -19,7 +19,7 @@
 #include <stdio.h>
 #include <stdarg.h>
 
-#include "tree_types.h"
+#include "parser.h"
 #include "text.h"
 
 /* Make sure there are LEN free bytes. */
@@ -36,7 +36,7 @@ text_alloc (TEXT *t, size_t len)
       t->space *= 2;
       t->text = realloc (t->text, t->space);
       if (!t->text)
-        abort ();
+        fatal ("realloc failed");
     }
 }
 
