@@ -1,5 +1,5 @@
 # DO NOT EDIT! GENERATED AUTOMATICALLY!
-# Copyright (C) 2002-2020 Free Software Foundation, Inc.
+# Copyright (C) 2002-2021 Free Software Foundation, Inc.
 #
 # This file is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -55,6 +55,7 @@ AC_DEFUN([gl_EARLY],
   # Code from module close:
   # Code from module double-slash-root:
   # Code from module dup2:
+  # Code from module dynarray:
   # Code from module errno:
   # Code from module error:
   # Code from module exitfail:
@@ -383,12 +384,15 @@ AC_DEFUN([gl_INIT],
   fi
   gl_WCHAR_MODULE_INDICATOR([wcwidth])
   gl_XALLOC
+  gl_MODULE_INDICATOR([xalloc])
+  gl_MODULE_INDICATOR([xalloc-die])
   gl_gnulib_enabled_attribute=false
   gl_gnulib_enabled_btowc=false
   gl_gnulib_enabled_37f71b604aa9c54446783d80f42fe547=false
   gl_gnulib_enabled_cloexec=false
   gl_gnulib_enabled_close=false
   gl_gnulib_enabled_dup2=false
+  gl_gnulib_enabled_dynarray=false
   gl_gnulib_enabled_fcntl=false
   gl_gnulib_enabled_43fe87a341d9b4b93c47c3ad819a5239=false
   gl_gnulib_enabled_fstat=false
@@ -497,6 +501,13 @@ AC_DEFUN([gl_INIT],
       if test $REPLACE_DUP2 = 1; then
         func_gl_gnulib_m4code_676220fa4366efa9bdbfccf11a857c07
       fi
+    fi
+  }
+  func_gl_gnulib_m4code_dynarray ()
+  {
+    if ! $gl_gnulib_enabled_dynarray; then
+      gl_gnulib_enabled_dynarray=true
+      func_gl_gnulib_m4code_21ee726a3540c09237a8e70c0baf7467
     fi
   }
   func_gl_gnulib_m4code_fcntl ()
@@ -662,6 +673,7 @@ AC_DEFUN([gl_INIT],
         AC_LIBOBJ([malloc])
       fi
       gl_STDLIB_MODULE_INDICATOR([malloc-posix])
+      gl_MODULE_INDICATOR([malloc-posix])
       gl_gnulib_enabled_ef455225c00f5049c808c2eda3e76866=true
     fi
   }
@@ -990,10 +1002,16 @@ AC_DEFUN([gl_INIT],
     func_gl_gnulib_m4code_stat
   fi
   if test $ac_use_included_regex = yes; then
+    func_gl_gnulib_m4code_attribute
+  fi
+  if test $ac_use_included_regex = yes; then
     func_gl_gnulib_m4code_btowc
   fi
   if test $ac_use_included_regex = yes; then
     func_gl_gnulib_m4code_37f71b604aa9c54446783d80f42fe547
+  fi
+  if test $ac_use_included_regex = yes; then
+    func_gl_gnulib_m4code_dynarray
   fi
   if test $ac_use_included_regex = yes; then
     func_gl_gnulib_m4code_intprops
@@ -1004,7 +1022,7 @@ AC_DEFUN([gl_INIT],
   if test $ac_use_included_regex = yes; then
     func_gl_gnulib_m4code_21ee726a3540c09237a8e70c0baf7467
   fi
-  if test "$ac_cv_gnu_library_2_1:$ac_use_included_regex" = no:yes; then
+  if test $ac_use_included_regex = yes; then
     func_gl_gnulib_m4code_lock
   fi
   if test $ac_use_included_regex = yes; then
@@ -1035,6 +1053,7 @@ AC_DEFUN([gl_INIT],
   AM_CONDITIONAL([gl_GNULIB_ENABLED_cloexec], [$gl_gnulib_enabled_cloexec])
   AM_CONDITIONAL([gl_GNULIB_ENABLED_close], [$gl_gnulib_enabled_close])
   AM_CONDITIONAL([gl_GNULIB_ENABLED_dup2], [$gl_gnulib_enabled_dup2])
+  AM_CONDITIONAL([gl_GNULIB_ENABLED_dynarray], [$gl_gnulib_enabled_dynarray])
   AM_CONDITIONAL([gl_GNULIB_ENABLED_fcntl], [$gl_gnulib_enabled_fcntl])
   AM_CONDITIONAL([gl_GNULIB_ENABLED_43fe87a341d9b4b93c47c3ad819a5239], [$gl_gnulib_enabled_43fe87a341d9b4b93c47c3ad819a5239])
   AM_CONDITIONAL([gl_GNULIB_ENABLED_fstat], [$gl_gnulib_enabled_fstat])
@@ -1232,6 +1251,7 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/cloexec.h
   lib/close.c
   lib/dup2.c
+  lib/dynarray.h
   lib/errno.in.h
   lib/error.c
   lib/error.h
@@ -1280,6 +1300,13 @@ AC_DEFUN([gl_FILE_LIST], [
   lib/locale.in.h
   lib/localeconv.c
   lib/malloc.c
+  lib/malloc/dynarray-skeleton.c
+  lib/malloc/dynarray.h
+  lib/malloc/dynarray_at_failure.c
+  lib/malloc/dynarray_emplace_enlarge.c
+  lib/malloc/dynarray_finalize.c
+  lib/malloc/dynarray_resize.c
+  lib/malloc/dynarray_resize_clear.c
   lib/malloca.c
   lib/malloca.h
   lib/mbchar.c
@@ -1417,7 +1444,6 @@ AC_DEFUN([gl_FILE_LIST], [
   m4/getdtablesize.m4
   m4/getopt.m4
   m4/getprogname.m4
-  m4/glibc21.m4
   m4/gnulib-common.m4
   m4/host-cpu-c-abi.m4
   m4/iconv.m4

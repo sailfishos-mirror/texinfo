@@ -1,6 +1,6 @@
 ## DO NOT EDIT! GENERATED AUTOMATICALLY!
 ## Process this file with automake to produce Makefile.in.
-# Copyright (C) 2002-2020 Free Software Foundation, Inc.
+# Copyright (C) 2002-2021 Free Software Foundation, Inc.
 #
 # This file is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -475,8 +475,15 @@ stdio.h: stdio.in.h $(top_builddir)/config.status $(CXXDEFS_H) $(ARG_NONNULL_H) 
 	      -e 's/@''GNULIB_VPRINTF_POSIX''@/$(GNULIB_VPRINTF_POSIX)/g' \
 	      -e 's/@''GNULIB_VSNPRINTF''@/$(GNULIB_VSNPRINTF)/g' \
 	      -e 's/@''GNULIB_VSPRINTF_POSIX''@/$(GNULIB_VSPRINTF_POSIX)/g' \
+	      -e 's/@''GNULIB_MDA_FCLOSEALL''@/$(GNULIB_MDA_FCLOSEALL)/g' \
+	      -e 's/@''GNULIB_MDA_FDOPEN''@/$(GNULIB_MDA_FDOPEN)/g' \
+	      -e 's/@''GNULIB_MDA_FILENO''@/$(GNULIB_MDA_FILENO)/g' \
+	      -e 's/@''GNULIB_MDA_GETW''@/$(GNULIB_MDA_GETW)/g' \
+	      -e 's/@''GNULIB_MDA_PUTW''@/$(GNULIB_MDA_PUTW)/g' \
+	      -e 's/@''GNULIB_MDA_TEMPNAM''@/$(GNULIB_MDA_TEMPNAM)/g' \
 	      < $(srcdir)/stdio.in.h | \
-	  sed -e 's|@''HAVE_DECL_FPURGE''@|$(HAVE_DECL_FPURGE)|g' \
+	  sed -e 's|@''HAVE_DECL_FCLOSEALL''@|$(HAVE_DECL_FCLOSEALL)|g' \
+	      -e 's|@''HAVE_DECL_FPURGE''@|$(HAVE_DECL_FPURGE)|g' \
 	      -e 's|@''HAVE_DECL_FSEEKO''@|$(HAVE_DECL_FSEEKO)|g' \
 	      -e 's|@''HAVE_DECL_FTELLO''@|$(HAVE_DECL_FTELLO)|g' \
 	      -e 's|@''HAVE_DECL_GETDELIM''@|$(HAVE_DECL_GETDELIM)|g' \
@@ -600,6 +607,8 @@ string.h: string.in.h $(top_builddir)/config.status $(CXXDEFS_H) $(ARG_NONNULL_H
 	      -e 's/@''GNULIB_SIGDESCR_NP''@/$(GNULIB_SIGDESCR_NP)/g' \
 	      -e 's/@''GNULIB_STRSIGNAL''@/$(GNULIB_STRSIGNAL)/g' \
 	      -e 's/@''GNULIB_STRVERSCMP''@/$(GNULIB_STRVERSCMP)/g' \
+	      -e 's/@''GNULIB_MDA_MEMCCPY''@/$(GNULIB_MDA_MEMCCPY)/g' \
+	      -e 's/@''GNULIB_MDA_STRDUP''@/$(GNULIB_MDA_STRDUP)/g' \
 	      < $(srcdir)/string.in.h | \
 	  sed -e 's|@''HAVE_EXPLICIT_BZERO''@|$(HAVE_EXPLICIT_BZERO)|g' \
 	      -e 's|@''HAVE_FFSL''@|$(HAVE_FFSL)|g' \
@@ -625,6 +634,7 @@ string.h: string.in.h $(top_builddir)/config.status $(CXXDEFS_H) $(ARG_NONNULL_H
 	      -e 's|@''HAVE_SIGDESCR_NP''@|$(HAVE_SIGDESCR_NP)|g' \
 	      -e 's|@''HAVE_DECL_STRSIGNAL''@|$(HAVE_DECL_STRSIGNAL)|g' \
 	      -e 's|@''HAVE_STRVERSCMP''@|$(HAVE_STRVERSCMP)|g' \
+	      -e 's|@''REPLACE_FFSLL''@|$(REPLACE_FFSLL)|g' \
 	      -e 's|@''REPLACE_MEMCHR''@|$(REPLACE_MEMCHR)|g' \
 	      -e 's|@''REPLACE_MEMMEM''@|$(REPLACE_MEMMEM)|g' \
 	      -e 's|@''REPLACE_STPNCPY''@|$(REPLACE_STPNCPY)|g' \
@@ -781,6 +791,7 @@ wchar.h: wchar.in.h $(top_builddir)/config.status $(CXXDEFS_H) $(ARG_NONNULL_H) 
 	      -e 's/@''GNULIB_WCSTOK''@/$(GNULIB_WCSTOK)/g' \
 	      -e 's/@''GNULIB_WCSWIDTH''@/$(GNULIB_WCSWIDTH)/g' \
 	      -e 's/@''GNULIB_WCSFTIME''@/$(GNULIB_WCSFTIME)/g' \
+	      -e 's/@''GNULIB_MDA_WCSDUP''@/$(GNULIB_MDA_WCSDUP)/g' \
 	      < $(srcdir)/wchar.in.h | \
 	  sed -e 's|@''HAVE_WINT_T''@|$(HAVE_WINT_T)|g' \
 	      -e 's|@''HAVE_BTOWC''@|$(HAVE_BTOWC)|g' \
@@ -823,6 +834,7 @@ wchar.h: wchar.in.h $(top_builddir)/config.status $(CXXDEFS_H) $(ARG_NONNULL_H) 
 	      -e 's|@''HAVE_WCSWIDTH''@|$(HAVE_WCSWIDTH)|g' \
 	      -e 's|@''HAVE_WCSFTIME''@|$(HAVE_WCSFTIME)|g' \
 	      -e 's|@''HAVE_DECL_WCTOB''@|$(HAVE_DECL_WCTOB)|g' \
+	      -e 's|@''HAVE_DECL_WCSDUP''@|$(HAVE_DECL_WCSDUP)|g' \
 	      -e 's|@''HAVE_DECL_WCWIDTH''@|$(HAVE_DECL_WCWIDTH)|g' \
 	  | \
 	  sed -e 's|@''REPLACE_MBSTATE_T''@|$(REPLACE_MBSTATE_T)|g' \
