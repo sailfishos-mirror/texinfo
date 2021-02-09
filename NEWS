@@ -52,7 +52,7 @@ See the manual for detailed information.
   . new Finnish translation
 
 * Distribution
-  . autoconf 2.71, automake 1.16.3
+  . autoconf 2.71, automake 1.16.3, gettext 0.21
 
 
 6.7 (23 September 2019)

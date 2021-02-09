@@ -1,3 +1,14 @@
+2021-02-09  gettextize  <bug-gnu-gettext@gnu.org>
+
+	* gnulib/m4/gettext.m4: Upgrade to gettext-0.21.
+	* gnulib/m4/iconv.m4: Upgrade to gettext-0.21.
+	* gnulib/m4/intlmacosx.m4: Upgrade to gettext-0.21.
+	* gnulib/m4/lib-link.m4: Upgrade to gettext-0.21.
+	* gnulib/m4/nls.m4: Upgrade to gettext-0.21.
+	* gnulib/m4/po.m4: Upgrade to gettext-0.21.
+	* gnulib/m4/progtest.m4: Upgrade to gettext-0.21.
+	* configure.ac (AM_GNU_GETTEXT_VERSION): Bump to 0.21.
+
 2021-02-09  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	Wrap or remove calls to abort in XS parser
