@@ -1,3 +1,15 @@
+2021-02-10  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	Do not call pclose on non-pipe.
+
+	* install-info/install-info.c (readfile): Only
+	call pclose if compression_program is set.  Suggestion from
+	Hans-Bernhard Bröker.  Remove an incomprehensible comment.
+	(open_possibly_compressed_file):  Revise main comment for function.
+	Only fseek back to start of stream if not reading from a pipe.
+	
+	Barath Aron reported that install-info hung on Threos OS.
+
 2021-02-09  gettextize  <bug-gnu-gettext@gnu.org>
 
 	* gnulib/m4/gettext.m4: Upgrade to gettext-0.21.
