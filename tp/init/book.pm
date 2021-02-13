@@ -164,9 +164,27 @@ sub book_convert_heading_command($$$$$)
     $result .= $content if (defined($content));
     return $result;
   }
+  my $section = $command->{'extra'}->{'associated_section'};
+  my $node;
+  if ($section) {
+      my $level = $section->{'level'};
+      $result .= join('', $self->close_registered_sections_level($level));
+      $self->register_opened_section_level($level, "</div>\n");
+  } else {
+      $node = $command->{'extra'}->{'associated_node'};
+  }
+  $result .= '<div';
+  if ($section) {
+      $result .= ' class="'.$section->{'cmdname'}.'"';
+  } elsif ($node) {
+      $result .= ' class="node"';
+  } else {
+      $result .= " class=\"$cmdname\"";
+  }
   my $element_id = $self->command_id($command);
-  $result .= "<a name=\"$element_id\"></a>\n"
-    if (defined($element_id) and $element_id ne '');
+  $result .= " id=\"$element_id\""
+      if (defined($element_id) and $element_id ne '');
+  $result .= ">\n";
 
   print STDERR "Process $command "
         .Texinfo::Structuring::_print_root_command_texi($command)."\n"
@@ -238,6 +256,7 @@ sub book_convert_heading_command($$$$$)
     $result .= "</ul>\n";
   }
   $result .= $content if (defined($content));
+  $result .= '</div>' if (! $section);
   return $result;
 }
 

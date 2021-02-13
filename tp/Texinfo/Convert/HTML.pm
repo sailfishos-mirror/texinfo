@@ -2464,6 +2464,7 @@ sub _convert_heading_command($$$$$)
   my $element_id = $self->command_id($command);
   $result .= " id=\"$element_id\""
       if (defined($element_id) and $element_id ne '');
+  $result .= ">\n";
 
   print STDERR "Process $command "
         .Texinfo::Structuring::_print_root_command_texi($command)."\n"
@@ -2475,7 +2476,6 @@ sub _convert_heading_command($$$$$)
       and $command->{'parent'}->{'type'} eq 'element') {
     $element = $command->{'parent'};
   }
-  $result .= ">\n";
   if ($element) {
     $result .= &{$self->{'format_element_header'}}($self, $cmdname, 
                                             $command, $element);
