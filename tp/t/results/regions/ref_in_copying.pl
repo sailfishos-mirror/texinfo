@@ -698,11 +698,13 @@ ul.no-bullet {list-style: none}
 
 <body lang="en">
 
-<span id="Top"></span><div class="header">
+<div class="top" id="Top">
+<div class="header">
 <p>
 Next: <a href="#GFDL" accesskey="n" rel="next">GFDL</a> &nbsp; </p>
 </div>
-<span id="top"></span><h1 class="top">top</h1>
+<div class="node" id="top">
+<h1 class="top">top</h1>
 
 <p><a href="#GFDL">GFDL</a>
 </p>
@@ -710,14 +712,18 @@ Next: <a href="#GFDL" accesskey="n" rel="next">GFDL</a> &nbsp; </p>
 <ul class="section-toc">
 <li><a href="#GFDL" accesskey="1">GFDL</a></li>
 </ul>
-<hr>
-<span id="GFDL"></span><div class="header">
+</div><hr>
+<div class="chapter" id="GFDL">
+<div class="header">
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>
-<span id="GFDL-1"></span><h2 class="chapter">1 GFDL</h2>
+<div class="node" id="GFDL-1">
+<h2 class="chapter">1 GFDL</h2>
 
-<hr>
+</div><hr>
+</div>
+</div>
 
 
 

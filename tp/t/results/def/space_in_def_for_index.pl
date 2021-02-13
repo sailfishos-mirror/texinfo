@@ -558,7 +558,8 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<span id="Top"></span><h1 class="node-heading">Top</h1>
+<div class="node" id="Top">
+<h1 class="node-heading">Top</h1>
 
 <dl class="def">
 <dt id="index-name"><span class="category">Category: </span><span><strong>name</strong> <em>argument argument2...</em><a href=\'#index-name\' class=\'copiable-anchor\'> &para;</a></span></dt>
@@ -585,7 +586,7 @@ ul.no-bullet {list-style: none}
 <a class="summary-letter" href="#Top_fn_letter-N"><b>N</b></a>
  &nbsp; 
 </td></tr></table>
-<hr>
+</div><hr></div>
 
 
 

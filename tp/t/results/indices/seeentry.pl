@@ -345,8 +345,10 @@ End:
 $result_converted{'plaintext'}->{'seeentry'} = '';
 
 
-$result_converted{'html_text'}->{'seeentry'} = '<span id="Top"></span><span id="SEC_Top"></span>
-<hr>
+$result_converted{'html_text'}->{'seeentry'} = '<div class="top" id="Top">
+<div class="node" id="SEC_Top">
+
+</div><hr></div>
 ';
 
 1;

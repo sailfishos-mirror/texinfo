@@ -642,22 +642,27 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<span id="Top"></span><div class="header">
+<div class="top" id="Top">
+<div class="header">
 <p>
 Next: <a href="#part-node-after-top" accesskey="n" rel="next">part node after top</a> &nbsp; </p>
 </div>
-<span id="top"></span><h1 class="top">top</h1>
+<div class="node" id="top">
+<h1 class="top">top</h1>
 
 
-<hr>
-<span id="part-node-after-top"></span><div class="header">
+</div><hr>
+<div class="node" id="part-node-after-top">
+<div class="header">
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>
 <h4 class="node-heading">part node after top</h4>
-<span id="part"></span><h1 class="part">part</h1>
+</div><div class="part" id="part">
+<h1 class="part">part</h1>
 <hr>
-<hr>
+</div><hr>
+</div>
 
 
 

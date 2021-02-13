@@ -693,15 +693,18 @@ ul.no-bullet {list-style: none}
 
 <body lang="en">
 
-<span id="Top"></span><div class="header">
+<div class="top" id="Top">
+<div class="header">
 <p>
 Next: <a href="#g_t_0028manual_0029-name" accesskey="n" rel="next">(manual) name</a> &nbsp; </p>
 </div>
-<span id="top"></span><h1 class="top">top</h1>
+<div class="node" id="top">
+<h1 class="top">top</h1>
 
 
-<hr>
-<span id="g_t_0028manual_0029-name"></span><div class="header">
+</div><hr>
+<div class="node" id="g_t_0028manual_0029-name">
+<div class="header">
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>
@@ -709,7 +712,8 @@ Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" ac
 
 <span id="g_t_0028manual2_0029-name2"></span>
 <p><a href="#g_t_0028manual2_0029-name2">(manual2) name2</a>.
-</p><hr>
+</p></div><hr>
+</div>
 
 
 

@@ -371,15 +371,18 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<span id="chapter"></span><h2 class="chapter">1 chapter</h2>
+<div class="chapter" id="chapter">
+<h2 class="chapter">1 chapter</h2>
 
-<span id="part"></span><h1 class="part">part</h1>
+</div><div class="part" id="part">
+<h1 class="part">part</h1>
 <hr>
 
 <ul class="section-toc">
 <li><a href="#chapter-2" accesskey="1">chapter 2</a></li>
 </ul>
-<span id="chapter-2"></span><h2 class="chapter">2 chapter 2</h2>
+</div><div class="chapter" id="chapter-2">
+<h2 class="chapter">2 chapter 2</h2>
 
 <span id="SEC_Contents"></span>
 <h2 class="contents-heading">Table of Contents</h2>
@@ -395,7 +398,7 @@ ul.no-bullet {list-style: none}
 </ul>
 </div>
 
-<hr>
+</div><hr></div>
 
 
 

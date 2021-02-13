@@ -741,11 +741,13 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<span id="Top"></span><div class="header">
+<div class="top" id="Top">
+<div class="header">
 <p>
 Next: <a href="#chapter" accesskey="n" rel="next">Chap</a> &nbsp; </p>
 </div>
-<span id="Top-1"></span><h1 class="top">Top</h1>
+<div class="node" id="Top-1">
+<h1 class="top">Top</h1>
 
 <p>In top node<a id="DOCF1" href="#FOOT1"><sup>1</sup></a>
 </p>
@@ -753,15 +755,19 @@ Next: <a href="#chapter" accesskey="n" rel="next">Chap</a> &nbsp; </p>
 <ul class="section-toc">
 <li><a href="#chapter" accesskey="1">Chap</a></li>
 </ul>
-<hr>
-<span id="chapter"></span><div class="header">
+</div><hr>
+<div class="chapter" id="chapter">
+<div class="header">
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
-<span id="Chap"></span><h2 class="chapter">1 Chap</h2>
+<div class="node" id="Chap">
+<h2 class="chapter">1 Chap</h2>
 
 <p><a href="#Anchor-in-footnote">Anchor in footnote</a>.
-</p><hr>
+</p></div><hr>
+</div>
+</div>
 
 
 

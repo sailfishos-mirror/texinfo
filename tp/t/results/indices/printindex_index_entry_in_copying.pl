@@ -1407,11 +1407,13 @@ xftable xitem
 
 
 $result_converted{'html_text'}->{'printindex_index_entry_in_copying'} = '
-<span id="Top"></span><div class="header">
+<div class="top" id="Top">
+<div class="header">
 <p>
  &nbsp; [<a href="#Top" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="top"></span><h1 class="top">top</h1>
+<div class="node" id="top">
+<h1 class="top">top</h1>
 
 <p>Top.
 </p>
@@ -1463,12 +1465,14 @@ $result_converted{'html_text'}->{'printindex_index_entry_in_copying'} = '
 <ul class="section-toc">
 <li><a href="#chapter" accesskey="1">Chapter</a></li>
 </ul>
-<hr>
-<span id="chapter"></span><div class="header">
+</div><hr>
+<div class="chapter" id="chapter">
+<div class="header">
 <p>
  &nbsp; [<a href="#Top" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Chapter"></span><h2 class="chapter">1 Chapter</h2>
+<div class="node" id="Chapter">
+<h2 class="chapter">1 Chapter</h2>
 
 
 <span id="index-copying-Copying-this-document"></span>
@@ -1545,7 +1549,7 @@ $result_converted{'html_text'}->{'printindex_index_entry_in_copying'} = '
  &nbsp; 
 </td></tr></table>
 
-<hr>
+</div><hr>
 ';
 
 1;

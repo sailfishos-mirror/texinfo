@@ -366,20 +366,22 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<span id="Top"></span><div class="header">
+<div class="node" id="Top">
+<div class="header">
 <p>
 Next: <a href="#Top" accesskey="n" rel="next">ToP</a> &nbsp; </p>
 </div>
 <h1 class="node-heading">ToP</h1>
 
-<hr>
+</div><hr>
+<div class="node">
 <div class="header">
 <p>
  &nbsp; </p>
 </div>
 
 <p>.
-</p><hr>
+</p></div><hr>
 
 
 

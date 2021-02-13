@@ -474,7 +474,8 @@ ul.no-bullet {list-style: none}
 
 <body lang="en">
 
-<span id="Top"></span>
+<div class="node" id="Top">
+
 
 
 <p>This is ifnothtml text.
@@ -488,7 +489,7 @@ ul.no-bullet {list-style: none}
 
 <p>This is ifnottex text.
 </p>
-<hr>
+</div><hr></div>
 <p><font size="-1">
   This document was generated on <em>a sunny day</em> using <a href="http://www.gnu.org/software/texinfo/"><em>texi2any</em></a>.
 </font></p>

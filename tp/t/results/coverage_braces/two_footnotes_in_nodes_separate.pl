@@ -876,11 +876,13 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<span id="Top"></span><div class="header">
+<div class="top" id="Top">
+<div class="header">
 <p>
 Next: <a href="#chapter" accesskey="n" rel="next">chapter</a> &nbsp; </p>
 </div>
-<span id="g_t2-footnotes-in-2-nodes"></span><h1 class="top">2 footnotes in 2 nodes</h1>
+<div class="node" id="g_t2-footnotes-in-2-nodes">
+<h1 class="top">2 footnotes in 2 nodes</h1>
 
 <p>A<a id="DOCF1" href="#FOOT1"><sup>1</sup></a>
 </p>
@@ -890,18 +892,22 @@ Next: <a href="#chapter" accesskey="n" rel="next">chapter</a> &nbsp; </p>
 <ul class="section-toc">
 <li><a href="#chapter" accesskey="1">chapter</a></li>
 </ul>
-<hr>
-<span id="chapter"></span><div class="header">
+</div><hr>
+<div class="chapter" id="chapter">
+<div class="header">
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">2 footnotes in 2 nodes</a>, Up: <a href="#Top" accesskey="u" rel="up">2 footnotes in 2 nodes</a> &nbsp; </p>
 </div>
-<span id="chapter-1"></span><h2 class="chapter">1 chapter</h2>
+<div class="node" id="chapter-1">
+<h2 class="chapter">1 chapter</h2>
 
 <p>C<a id="DOCF3" href="#FOOT3"><sup>3</sup></a>
 </p>
 <p>D<a id="DOCF4" href="#FOOT4"><sup>4</sup></a>
 </p>
-<hr>
+</div><hr>
+</div>
+</div>
 
 
 
@@ -1012,11 +1018,13 @@ C(1) (*note chapter-Footnote-1::)
 ';
 
 
-$result_converted{'html_text'}->{'two_footnotes_in_nodes_separate'} = '<span id="Top"></span><div class="header">
+$result_converted{'html_text'}->{'two_footnotes_in_nodes_separate'} = '<div class="top" id="Top">
+<div class="header">
 <p>
  &nbsp; </p>
 </div>
-<span id="g_t2-footnotes-in-2-nodes"></span><h1 class="top">2 footnotes in 2 nodes</h1>
+<div class="node" id="g_t2-footnotes-in-2-nodes">
+<h1 class="top">2 footnotes in 2 nodes</h1>
 
 <p>A<a id="DOCF1" href="#FOOT1"><sup>1</sup></a>
 </p>
@@ -1026,18 +1034,20 @@ $result_converted{'html_text'}->{'two_footnotes_in_nodes_separate'} = '<span id=
 <ul class="section-toc">
 <li><a href="#chapter" accesskey="1">chapter</a></li>
 </ul>
-<hr>
-<span id="chapter"></span><div class="header">
+</div><hr>
+<div class="chapter" id="chapter">
+<div class="header">
 <p>
  &nbsp; </p>
 </div>
-<span id="chapter-1"></span><h2 class="chapter">1 chapter</h2>
+<div class="node" id="chapter-1">
+<h2 class="chapter">1 chapter</h2>
 
 <p>C<a id="DOCF3" href="#FOOT3"><sup>3</sup></a>
 </p>
 <p>D<a id="DOCF4" href="#FOOT4"><sup>4</sup></a>
 </p>
-<hr>
+</div><hr>
 ';
 
 1;

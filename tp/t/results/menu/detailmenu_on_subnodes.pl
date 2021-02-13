@@ -1973,11 +1973,13 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<span id="Top"></span><div class="header">
+<div class="top" id="Top">
+<div class="header">
 <p>
 Next: <a href="#chapter" accesskey="n" rel="next">chapter</a> &nbsp; </p>
 </div>
-<span id="top"></span><h1 class="top">top</h1>
+<div class="node" id="top">
+<h1 class="top">top</h1>
 
 <table class="menu" border="0" cellspacing="0">
 <tr><td align="left" valign="top">&bull; <a href="#chapter" accesskey="1">chapter</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
@@ -1998,31 +2000,39 @@ Next: <a href="#chapter" accesskey="n" rel="next">chapter</a> &nbsp; </p>
 </td></tr>
 </table>
 
-<hr>
-<span id="chapter"></span><div class="header">
+</div><hr>
+<div class="chapter" id="chapter">
+<div class="header">
 <p>
 Next: <a href="#chapter-2" accesskey="n" rel="next">chapter 2</a>, Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>
-<span id="chapter-1"></span><h2 class="chapter">1 chapter</h2>
+<div class="node" id="chapter-1">
+<h2 class="chapter">1 chapter</h2>
 
 <table class="menu" border="0" cellspacing="0">
 <tr><td align="left" valign="top">&bull; <a href="#section" accesskey="1">section</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 </table>
 
-<hr>
-<span id="section"></span><div class="header">
+</div><hr>
+<div class="section" id="section">
+<div class="header">
 <p>
 Up: <a href="#chapter" accesskey="u" rel="up">chapter</a> &nbsp; </p>
 </div>
-<span id="section-1"></span><h3 class="section">1.1 section</h3>
+<div class="node" id="section-1">
+<h3 class="section">1.1 section</h3>
 
-<hr>
-<span id="chapter-2"></span><div class="header">
+</div><hr>
+</div>
+</div>
+<div class="chapter" id="chapter-2">
+<div class="header">
 <p>
 Previous: <a href="#chapter" accesskey="p" rel="prev">chapter</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>
-<span id="chapter-2-1"></span><h2 class="chapter">2 chapter 2</h2>
+<div class="node" id="chapter-2-1">
+<h2 class="chapter">2 chapter 2</h2>
 
 <table class="menu" border="0" cellspacing="0">
 <tr><td align="left" valign="top">&bull; <a href="#section-chap-2" accesskey="1">section chap 2</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
@@ -2031,20 +2041,28 @@ Previous: <a href="#chapter" accesskey="p" rel="prev">chapter</a>, Up: <a href="
 </td></tr>
 </table>
 
-<hr>
-<span id="section-chap-2"></span><div class="header">
+</div><hr>
+<div class="section" id="section-chap-2">
+<div class="header">
 <p>
 Next: <a href="#unnumberedsec" accesskey="n" rel="next">unnumberedsec</a>, Up: <a href="#chapter-2" accesskey="u" rel="up">chapter 2</a> &nbsp; </p>
 </div>
-<span id="section-chap-2-1"></span><h3 class="section">2.1 section chap 2</h3>
+<div class="node" id="section-chap-2-1">
+<h3 class="section">2.1 section chap 2</h3>
 
-<hr>
-<span id="unnumberedsec"></span><div class="header">
+</div><hr>
+</div>
+<div class="unnumberedsec" id="unnumberedsec">
+<div class="header">
 <p>
 Previous: <a href="#section-chap-2" accesskey="p" rel="prev">section chap 2</a>, Up: <a href="#chapter-2" accesskey="u" rel="up">chapter 2</a> &nbsp; </p>
 </div>
-<span id="unnumberedsec-1"></span><h3 class="unnumberedsec">unnumberedsec</h3>
-<hr>
+<div class="node" id="unnumberedsec-1">
+<h3 class="unnumberedsec">unnumberedsec</h3>
+</div><hr>
+</div>
+</div>
+</div>
 
 
 

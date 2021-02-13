@@ -716,26 +716,33 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<span id="a-node"></span><div class="header">
+<div class="unnumbered" id="a-node">
+<div class="header">
 <p>
 Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a> &nbsp; </p>
 </div>
-<span id="unnumbered"></span><h2 class="unnumbered">unnumbered</h2>
+<div class="node" id="unnumbered">
+<h2 class="unnumbered">unnumbered</h2>
 
 <p>in unnumbered
 </p>
-<span id="top-section"></span><h2 class="unnumbered">top section</h2>
+</div><div class="top" id="top-section">
+<h2 class="unnumbered">top section</h2>
 <p>Top section
 </p>
-<hr>
-<span id="second"></span><div class="header">
+</div><hr>
+</div>
+<div class="chapter" id="second">
+<div class="header">
 <p>
 Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a> &nbsp; </p>
 </div>
-<span id="Chapter"></span><h2 class="chapter">1 Chapter</h2>
+<div class="node" id="Chapter">
+<h2 class="chapter">1 Chapter</h2>
 
 <p>Text of chapter
-</p><hr>
+</p></div><hr>
+</div>
 
 
 

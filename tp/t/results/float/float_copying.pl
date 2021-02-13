@@ -1635,11 +1635,13 @@ ul.no-bullet {list-style: none}
 
 <body lang="en">
 
-<span id="Top"></span><div class="header">
+<div class="top" id="Top">
+<div class="header">
 <p>
 Next: <a href="#Copying-and-floats" accesskey="n" rel="next">Copying and floats</a> &nbsp; [<a href="#Copying-and-floats" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Top-1"></span><h1 class="top">Top</h1>
+<div class="node" id="Top-1">
+<h1 class="top">Top</h1>
 
 
 <div class="float"><span id="public-domain"></span>
@@ -1656,12 +1658,14 @@ the author abandon his copyright.
 <ul class="section-toc">
 <li><a href="#Copying-and-floats" accesskey="1">Copying and floats</a></li>
 </ul>
-<hr>
-<span id="Copying-and-floats"></span><div class="header">
+</div><hr>
+<div class="appendix" id="Copying-and-floats">
+<div class="header">
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Copying-and-floats" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Copying-and-floats-1"></span><h2 class="appendix">Appendix A Copying and floats</h2>
+<div class="node" id="Copying-and-floats-1">
+<h2 class="appendix">Appendix A Copying and floats</h2>
 
 
 <div class="float"><span id="public-domain"></span>
@@ -1724,7 +1728,7 @@ the author abandon his copyright.
 <a class="summary-letter" href="#Copying-and-floats_fn_letter-P"><b>P</b></a>
  &nbsp; 
 </td></tr></table>
-<div class="footnote">
+</div><div class="footnote">
 <hr>
 <h4 class="footnotes-heading">Footnotes</h4>
 
@@ -1760,6 +1764,8 @@ the author abandon his copyright.
 </p>
 </div>
 <hr>
+</div>
+</div>
 
 
 

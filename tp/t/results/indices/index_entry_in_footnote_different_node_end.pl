@@ -654,7 +654,8 @@ $result_converted{'plaintext'}->{'index_entry_in_footnote_different_node_end'} =
 ';
 
 
-$result_converted{'html_text'}->{'index_entry_in_footnote_different_node_end'} = '<span id="Top"></span><div class="header">
+$result_converted{'html_text'}->{'index_entry_in_footnote_different_node_end'} = '<div class="node" id="Top">
+<div class="header">
 <p>
  &nbsp; [<a href="#First" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -663,8 +664,9 @@ $result_converted{'html_text'}->{'index_entry_in_footnote_different_node_end'} =
 
 <p>Top node<a id="DOCF1" href="#FOOT1"><sup>1</sup></a>
 </p>
-<hr>
-<span id="First"></span><div class="header">
+</div><hr>
+<div class="node" id="First">
+<div class="header">
 <p>
  &nbsp; [<a href="#First" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -690,7 +692,7 @@ $result_converted{'html_text'}->{'index_entry_in_footnote_different_node_end'} =
 <a class="summary-letter" href="#t_h_cp_letter-I"><b>I</b></a>
  &nbsp; 
 </td></tr></table>
-<div class="footnote">
+</div><div class="footnote">
 <hr>
 <h4 class="footnotes-heading">Footnotes</h4>
 

@@ -1158,7 +1158,8 @@ ul.no-bullet {list-style: none}
 
 <body lang="en">
 
-<span id="Top"></span><div class="header">
+<div class="node" id="Top">
+<div class="header">
 <p>
 Next: <a href="#NODE" accesskey="n" rel="next"><small>NODE</small></a> &nbsp; </p>
 </div>
@@ -1178,8 +1179,9 @@ MENU-EXAMPLE COMMENT
 </pre></div>
 </th></tr></table>
 
-<hr>
-<span id="NODE"></span><div class="header">
+</div><hr>
+<div class="node" id="NODE">
+<div class="header">
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
@@ -1194,7 +1196,7 @@ EXAMPLE COMMENT
 </pre></td></tr></table>
 </div>
 
-<hr>
+</div><hr>
 
 
 

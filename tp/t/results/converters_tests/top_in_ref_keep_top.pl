@@ -4354,7 +4354,8 @@ $result_floats{'top_in_ref_keep_top'} = {};
 
 
 
-$result_converted{'html_text'}->{'top_in_ref_keep_top'} = '<span id="Top"></span><h1 class="node-heading">Top</h1>
+$result_converted{'html_text'}->{'top_in_ref_keep_top'} = '<div class="node" id="Top">
+<h1 class="node-heading">Top</h1>
 
 <p><code>@ref{Top,cross ref name}</code> <a href="#Top">cross ref name</a>
 <code>@ref{Top,,title}</code> <a href="#Top">title</a>
@@ -4390,7 +4391,7 @@ $result_converted{'html_text'}->{'top_in_ref_keep_top'} = '<span id="Top"></span
 <code>@inforef{Top}</code> See &lsquo;Top&rsquo;
 <code>@inforef{Top, cross ref name}</code> See &lsquo;cross ref name&rsquo;
 <code>@inforef{Top,,file name}</code> See <a data-manual="file name" href="file name.html#Top">(file name)Top</a>
-</p><hr>
+</p></div><hr></div>
 ';
 
 1;

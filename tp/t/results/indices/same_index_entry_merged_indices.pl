@@ -740,7 +740,9 @@ $result_converted{'plaintext'}->{'same_index_entry_merged_indices'} = 'Text.
 
 
 $result_converted{'html_text'}->{'same_index_entry_merged_indices'} = '
-<span id="Top"></span><span id="SEC_Top"></span>
+<div class="top" id="Top">
+<div class="node" id="SEC_Top">
+
 <p>Text.
 </p>
 <dl class="def">
@@ -767,7 +769,7 @@ $result_converted{'html_text'}->{'same_index_entry_merged_indices'} = '
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#t_h_fn_letter-M"><b>M</b></a>
  &nbsp; 
 </td></tr></table>
-<hr>
+</div><hr></div>
 ';
 
 1;

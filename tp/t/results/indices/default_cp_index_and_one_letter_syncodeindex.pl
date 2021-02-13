@@ -374,7 +374,8 @@ $result_converted{'plaintext'}->{'default_cp_index_and_one_letter_syncodeindex'}
 ';
 
 
-$result_converted{'html_text'}->{'default_cp_index_and_one_letter_syncodeindex'} = '<span id="Top"></span><h1 class="node-heading">Top</h1>
+$result_converted{'html_text'}->{'default_cp_index_and_one_letter_syncodeindex'} = '<div class="node" id="Top">
+<h1 class="node-heading">Top</h1>
 
 
 <span id="index-_002d_002dcindex"></span>
@@ -392,7 +393,7 @@ $result_converted{'html_text'}->{'default_cp_index_and_one_letter_syncodeindex'}
 </table>
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#t_h_fn_symbol-1"><b>-</b></a>
 </td></tr></table>
-<hr>
+</div><hr></div>
 ';
 
 1;

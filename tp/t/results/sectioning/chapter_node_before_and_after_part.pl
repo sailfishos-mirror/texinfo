@@ -664,15 +664,18 @@ ul.no-bullet {list-style: none}
 
 <body lang="en">
 
-<span id="Top"></span><div class="header">
+<div class="chapter" id="Top">
+<div class="header">
 <p>
 Next: <a href="#after" accesskey="n" rel="next">chapter 2</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<span id="chapter"></span><h2 class="chapter">1 chapter</h2>
+<div class="node" id="chapter">
+<h2 class="chapter">1 chapter</h2>
 
 
-<hr>
-<span id="part"></span><div class="header">
+</div><hr>
+<div class="part" id="part">
+<div class="header">
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">chapter</a>, Up: <a href="#Top" accesskey="u" rel="up">chapter</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
@@ -682,7 +685,10 @@ Previous: <a href="#Top" accesskey="p" rel="prev">chapter</a>, Up: <a href="#Top
 <ul class="section-toc">
 <li><a href="#after" accesskey="1">chapter 2</a></li>
 </ul>
-<span id="after"></span><span id="chapter-2"></span><h2 class="chapter">2 chapter 2</h2>
+</div></div>
+<div class="chapter" id="after">
+<div class="node" id="chapter-2">
+<h2 class="chapter">2 chapter 2</h2>
 
 <span id="SEC_Contents"></span>
 <h2 class="contents-heading">Table of Contents</h2>
@@ -698,7 +704,8 @@ Previous: <a href="#Top" accesskey="p" rel="prev">chapter</a>, Up: <a href="#Top
 </ul>
 </div>
 
-<hr>
+</div><hr>
+</div>
 
 
 

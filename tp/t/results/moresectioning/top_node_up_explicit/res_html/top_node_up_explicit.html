@@ -36,7 +36,8 @@ ul.no-bullet {list-style: none}
 <body lang="en">
 
 
-<span id="Top"></span><table class="header" cellpadding="1" cellspacing="1" border="0">
+<div class="top" id="Top">
+<table class="header" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[ &lt; ]</td>
 <td valign="middle" align="left">[<a href="#Chap" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
@@ -44,7 +45,8 @@ ul.no-bullet {list-style: none}
 <td valign="middle" align="left">[Index]</td>
 <td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<span id="The-top"></span><h1 class="top">The top</h1>
+<div class="node" id="The-top">
+<h1 class="top">The top</h1>
 
 <p>Just a top node.
 </p>
@@ -53,8 +55,9 @@ ul.no-bullet {list-style: none}
 </td></tr>
 </table>
 
-<hr size="6">
-<span id="Chap"></span><table class="header" cellpadding="1" cellspacing="1" border="0">
+</div><hr size="6">
+<div class="chapter" id="Chap">
+<table class="header" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#Top" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="#Top" title="Previous section in reading order"> &lt; </a>]</td>
 <td valign="middle" align="left">[<a href="#Top" title="Up section"> Up </a>]</td>
@@ -69,12 +72,15 @@ ul.no-bullet {list-style: none}
 <td valign="middle" align="left">[Index]</td>
 <td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<span id="A-chapter"></span><h1 class="chapter">1 A chapter</h1>
+<div class="node" id="A-chapter">
+<h1 class="chapter">1 A chapter</h1>
 
 <p>Without the chapter, no up node from top is generated.
 </p>
-<hr size="6">
-<span id="SEC_About"></span>
+</div><hr size="6">
+</div>
+</div>
+<div class="About_element" id="SEC_About">
 <table class="header" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[Contents]</td>
@@ -183,7 +189,7 @@ ul.no-bullet {list-style: none}
   </li>
 </ul>
 
-<hr>
+</div><hr>
 <p><font size="-1">
   This document was generated on <em>a sunny day</em> using <a href="http://www.gnu.org/software/texinfo/"><em>texi2any</em></a>.
 </font></p>

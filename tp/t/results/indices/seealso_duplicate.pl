@@ -446,7 +446,8 @@ $result_converted{'plaintext'}->{'seealso_duplicate'} = '* Menu:
 ';
 
 
-$result_converted{'html_text'}->{'seealso_duplicate'} = '<span id="Top"></span><h1 class="node-heading">Top</h1>
+$result_converted{'html_text'}->{'seealso_duplicate'} = '<div class="node" id="Top">
+<h1 class="node-heading">Top</h1>
 
 <span id="index-awk"></span>
 <span id="index-awk-1"></span>
@@ -465,7 +466,7 @@ $result_converted{'html_text'}->{'seealso_duplicate'} = '<span id="Top"></span><
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#t_h_cp_letter-A"><b>A</b></a>
  &nbsp; 
 </td></tr></table>
-<hr>
+</div><hr></div>
 ';
 
 1;

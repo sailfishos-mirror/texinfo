@@ -1202,7 +1202,8 @@ $result_converted{'plaintext'}->{'at_commands_in_raw'} = '<b>in b(1).</b>
 ';
 
 
-$result_converted{'html_text'}->{'at_commands_in_raw'} = '<span id="Top"></span><h1 class="node-heading">Top</h1>
+$result_converted{'html_text'}->{'at_commands_in_raw'} = '<div class="node" id="Top">
+<h1 class="node-heading">Top</h1>
 
 
 <b>in b<a id="DOCF1" href="#FOOT1"><sup>1</sup></a>.</b>
@@ -1247,7 +1248,7 @@ $result_converted{'html_text'}->{'at_commands_in_raw'} = '<span id="Top"></span>
 </p>
 <p>Macros that should not be defined: . with arg.
 </p>
-<div class="footnote">
+</div><div class="footnote">
 <hr>
 <h4 class="footnotes-heading">Footnotes</h4>
 
@@ -1256,7 +1257,7 @@ $result_converted{'html_text'}->{'at_commands_in_raw'} = '<span id="Top"></span>
 <h5><a id="FOOT2" href="#DOCF2">(2)</a></h5>
 <p>second footnote</p>
 </div>
-<hr>
+<hr></div>
 ';
 
 

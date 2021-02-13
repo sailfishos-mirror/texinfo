@@ -960,7 +960,8 @@ $result_converted{'plaintext'}->{'test_deftypefnnewline'} = ' -- Function:
 
 $result_converted{'html_text'}->{'test_deftypefnnewline'} = '
 
-<span id="Top"></span><h1 class="node-heading">Top</h1>
+<div class="node" id="Top">
+<h1 class="node-heading">Top</h1>
 <dl class="def">
 <dt id="index-name"><span class="category">Function:<br> </span><span><em>data-type</em><br> <strong>name</strong> <em>arguments...</em><a href=\'#index-name\' class=\'copiable-anchor\'> &para;</a></span></dt>
 <dd><p>aaa
@@ -981,7 +982,7 @@ $result_converted{'html_text'}->{'test_deftypefnnewline'} = '
 <dt id="index-arg2"><span class="category">fun2: </span><span><strong>arg2</strong><a href=\'#index-arg2\' class=\'copiable-anchor\'> &para;</a></span></dt>
 <dd><p>fff2
 </p></dd></dl>
-<hr>
+</div><hr></div>
 ';
 
 

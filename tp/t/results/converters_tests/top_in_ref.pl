@@ -4392,7 +4392,8 @@ name)Top::
 ';
 
 
-$result_converted{'html_text'}->{'top_in_ref'} = '<span id="Top"></span><h1 class="node-heading">Top</h1>
+$result_converted{'html_text'}->{'top_in_ref'} = '<div class="node" id="Top">
+<h1 class="node-heading">Top</h1>
 
 <p><code>@ref{Top,cross ref name}</code> <a href="#Top">cross ref name</a>
 <code>@ref{Top,,title}</code> <a href="#Top">title</a>
@@ -4428,7 +4429,7 @@ $result_converted{'html_text'}->{'top_in_ref'} = '<span id="Top"></span><h1 clas
 <code>@inforef{Top}</code> 
 <code>@inforef{Top, cross ref name}</code> See &lsquo;cross ref name&rsquo;
 <code>@inforef{Top,,file name}</code> See <a data-manual="file name" href="file name.html#Top">(file name)Top</a>
-</p><hr>
+</p></div><hr></div>
 ';
 
 

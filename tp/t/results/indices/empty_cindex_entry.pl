@@ -153,8 +153,9 @@ End:
 $result_converted{'plaintext'}->{'empty_cindex_entry'} = '';
 
 
-$result_converted{'html_text'}->{'empty_cindex_entry'} = '<span id="Top"></span><h1 class="node-heading">Top</h1>
-<hr>
+$result_converted{'html_text'}->{'empty_cindex_entry'} = '<div class="node" id="Top">
+<h1 class="node-heading">Top</h1>
+</div><hr></div>
 ';
 
 1;

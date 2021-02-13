@@ -367,7 +367,9 @@ ul.no-bullet {list-style: none}
 
 <body lang="fr">
 
-<span id="Top"></span><span id="top"></span><h1 class="top">top</h1>
+<div class="top" id="Top">
+<div class="node" id="top">
+<h1 class="top">top</h1>
 
 <span id="SEC_Contents"></span>
 <h2 class="contents-heading">Table des mati&egrave;res</h2>
@@ -379,9 +381,11 @@ ul.no-bullet {list-style: none}
 </ul>
 </div>
 
-<span id="dernier"></span><h2 class="appendix">Annexe A dernier</h2>
+</div><div class="appendix" id="dernier">
+<h2 class="appendix">Annexe A dernier</h2>
 
-<hr>
+</div><hr></div>
+</div>
 
 
 

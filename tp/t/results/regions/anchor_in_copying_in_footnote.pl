@@ -505,7 +505,8 @@ ul.no-bullet {list-style: none}
 
 <body lang="en">
 
-<span id="Top"></span><h1 class="node-heading">Top</h1>
+<div class="node" id="Top">
+<h1 class="node-heading">Top</h1>
 
 
 <p>Copying<a id="DOCF1" href="#FOOT1"><sup>1</sup></a>.
@@ -517,7 +518,7 @@ ul.no-bullet {list-style: none}
 
 <p>See <a href="#Copying-footnote">Copying footnote</a>.
 </p>
-<div class="footnote">
+</div><div class="footnote">
 <hr>
 <h4 class="footnotes-heading">Footnotes</h4>
 
@@ -528,7 +529,7 @@ ul.no-bullet {list-style: none}
 <p>In footnote.
 <span id="Copying-footnote"></span></p>
 </div>
-<hr>
+<hr></div>
 
 
 

@@ -330,9 +330,10 @@ ul.no-bullet {list-style: none}
 
 <hr>
 
-<span id="Top"></span><h1 class="node-heading">Top</h1>
+<div class="node" id="Top">
+<h1 class="node-heading">Top</h1>
 
-<hr>
+</div><hr></div>
 
 
 

@@ -562,22 +562,24 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<span id="Top"></span><div class="header">
+<div class="node" id="Top">
+<div class="header">
 <p>
 Next: <a href="#node" accesskey="n" rel="next">&lsquo;<samp>node</samp>&rsquo;</a> &nbsp; </p>
 </div>
 <h1 class="node-heading">Top</h1>
 
 
-<hr>
-<span id="node"></span><div class="header">
+</div><hr>
+<div class="node" id="node">
+<div class="header">
 <p>
 Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
 <h4 class="node-heading">&lsquo;<samp>node</samp>&rsquo;</h4>
 
 <p>See <a href="#node">&lsquo;<samp>node</samp>&rsquo;</a>.
-</p><hr>
+</p></div><hr>
 
 
 

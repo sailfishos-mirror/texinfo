@@ -365,12 +365,16 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<span id="Top"></span>
-<span id="part"></span><h1 class="part">part</h1>
+<div class="top" id="Top">
+
+<div class="part" id="part">
+<h1 class="part">part</h1>
 <hr>
 
-<span id="top"></span><h1 class="top">top</h1>
-<hr>
+</div><div class="node" id="top">
+<h1 class="top">top</h1>
+</div><hr></div>
+</div>
 
 
 

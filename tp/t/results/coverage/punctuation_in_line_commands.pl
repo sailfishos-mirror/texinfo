@@ -1203,7 +1203,9 @@ top! After punc
 
 
 $result_converted{'html_text'}->{'punctuation_in_line_commands'} = '
-<span id="node_0021-After-punc"></span><span id="top_0021-After-punc"></span><h1 class="top">top! After punc</h1>
+<div class="top" id="node_0021-After-punc">
+<div class="node" id="top_0021-After-punc">
+<h1 class="top">top! After punc</h1>
 
 <dl compact="compact">
 <dt><span>item! After punc</span></dt>
@@ -1229,8 +1231,9 @@ $result_converted{'html_text'}->{'punctuation_in_line_commands'} = '
 
 <span id="index-index_0021-After-punc"></span>
 
-<span id="heading_0021-After-punc"></span><h3 class="heading">heading! After punc</h3>
-
+<div class="heading" id="heading_0021-After-punc">
+<h3 class="heading">heading! After punc</h3>
+</div>
 <h1 class="titlefont">titlefont! After punc</h1>
 
 <div align="center">center! After punc
@@ -1250,7 +1253,7 @@ $result_converted{'html_text'}->{'punctuation_in_line_commands'} = '
 </td></tr></table>
 
 
-<hr>
+</div><hr></div>
 ';
 
 

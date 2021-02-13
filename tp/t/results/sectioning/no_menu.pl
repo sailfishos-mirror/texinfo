@@ -577,37 +577,49 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<span id="Top"></span><div class="header">
+<div class="top" id="Top">
+<div class="header">
 <p>
  &nbsp; </p>
 </div>
-<span id="SEC_Top"></span>
+<div class="node" id="SEC_Top">
+
 <ul class="section-toc">
 <li><a href="#c1" accesskey="1">c1</a></li>
 <li><a href="#c2" accesskey="2">c2</a></li>
 <li><a href="#c3" accesskey="3">c3</a></li>
 </ul>
-<hr>
-<span id="c1"></span><div class="header">
+</div><hr>
+<div class="chapter" id="c1">
+<div class="header">
 <p>
 Next: <a href="#c2" accesskey="n" rel="next">c2</a> &nbsp; </p>
 </div>
-<span id="c1-1"></span><h2 class="chapter">1 c1</h2>
+<div class="node" id="c1-1">
+<h2 class="chapter">1 c1</h2>
 
-<hr>
-<span id="c2"></span><div class="header">
+</div><hr>
+</div>
+<div class="chapter" id="c2">
+<div class="header">
 <p>
 Next: <a href="#c3" accesskey="n" rel="next">c3</a>, Previous: <a href="#c1" accesskey="p" rel="prev">c1</a> &nbsp; </p>
 </div>
-<span id="c2-1"></span><h2 class="chapter">2 c2</h2>
+<div class="node" id="c2-1">
+<h2 class="chapter">2 c2</h2>
 
-<hr>
-<span id="c3"></span><div class="header">
+</div><hr>
+</div>
+<div class="chapter" id="c3">
+<div class="header">
 <p>
 Previous: <a href="#c2" accesskey="p" rel="prev">c2</a> &nbsp; </p>
 </div>
-<span id="c3-1"></span><h2 class="chapter">3 c3</h2>
-<hr>
+<div class="node" id="c3-1">
+<h2 class="chapter">3 c3</h2>
+</div><hr>
+</div>
+</div>
 
 
 

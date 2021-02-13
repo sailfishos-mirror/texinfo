@@ -837,13 +837,16 @@ Text 1
 
 
 $result_converted{'html_text'}->{'comment_space_command_on_line'} = '
-<span id="Top"></span><span id="top-element-"></span><h1 class="top">top element&nbsp;</h1>
+<div class="top" id="Top">
+<div class="node" id="top-element-">
+<h1 class="top">top element&nbsp;</h1>
 
 
 <span id="index-index-entry--"></span>
 
-<span id="Heading--"></span><h3 class="heading">Heading &nbsp;</h3>
-
+<div class="heading" id="Heading--">
+<h3 class="heading">Heading &nbsp;</h3>
+</div>
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#t_h_cp_letter-I"><b>I</b></a>
  &nbsp; 
 </td></tr></table>
@@ -863,7 +866,7 @@ $result_converted{'html_text'}->{'comment_space_command_on_line'} = '
 </p><div class="float-caption"><p><strong>Text 1
 </strong></p></div></div>
 
-<hr>
+</div><hr></div>
 ';
 
 

@@ -4048,7 +4048,8 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<span id="Top"></span><h1 class="node-heading">Top</h1>
+<div class="node" id="Top">
+<h1 class="node-heading">Top</h1>
 <dl class="def">
 <dt id="index-d_002d_002defvr_005fname"><span class="category">c--ategory: </span><span><strong>d--efvr_name</strong><a href=\'#index-d_002d_002defvr_005fname\' class=\'copiable-anchor\'> &para;</a></span></dt>
 <dd><p>d&ndash;efvr
@@ -4139,8 +4140,9 @@ ul.no-bullet {list-style: none}
 <dd><p>d&ndash;eftypemethod
 </p></dd></dl>
 
-<span id="Functions"></span><h3 class="heading">Functions</h3>
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Top_fn_letter-D"><b>D</b></a>
+<div class="heading" id="Functions">
+<h3 class="heading">Functions</h3>
+</div><table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Top_fn_letter-D"><b>D</b></a>
  &nbsp; 
 </td></tr></table>
 <table class="index-fn" border="0">
@@ -4162,8 +4164,9 @@ ul.no-bullet {list-style: none}
  &nbsp; 
 </td></tr></table>
 
-<span id="Types"></span><h3 class="heading">Types</h3>
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Top_tp_letter-D"><b>D</b></a>
+<div class="heading" id="Types">
+<h3 class="heading">Types</h3>
+</div><table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Top_tp_letter-D"><b>D</b></a>
  &nbsp; 
 </td></tr></table>
 <table class="index-tp" border="0">
@@ -4177,8 +4180,9 @@ ul.no-bullet {list-style: none}
  &nbsp; 
 </td></tr></table>
 
-<span id="Variables"></span><h3 class="heading">Variables</h3>
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Top_vr_letter-D"><b>D</b></a>
+<div class="heading" id="Variables">
+<h3 class="heading">Variables</h3>
+</div><table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Top_vr_letter-D"><b>D</b></a>
  &nbsp; 
 </td></tr></table>
 <table class="index-vr" border="0">
@@ -4198,7 +4202,7 @@ ul.no-bullet {list-style: none}
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Top_vr_letter-D"><b>D</b></a>
  &nbsp; 
 </td></tr></table>
-<hr>
+</div><hr></div>
 
 
 

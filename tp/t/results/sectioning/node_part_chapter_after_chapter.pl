@@ -1108,11 +1108,13 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<span id="Top"></span><div class="header">
+<div class="top" id="Top">
+<div class="header">
 <p>
 Next: <a href="#chapter-node" accesskey="n" rel="next">chapter node</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<span id="top"></span><h1 class="top">top</h1>
+<div class="node" id="top">
+<h1 class="top">top</h1>
 
 
 <span id="SEC_Contents"></span>
@@ -1132,28 +1134,36 @@ Next: <a href="#chapter-node" accesskey="n" rel="next">chapter node</a> &nbsp; [
 </ul>
 </div>
 
-<hr>
-<span id="chapter-node"></span><div class="header">
+</div><hr>
+<div class="chapter" id="chapter-node">
+<div class="header">
 <p>
 Next: <a href="#part-chapter-node" accesskey="n" rel="next">chapter with part node</a>, Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 
-<span id="chapter-node-1"></span><h2 class="chapter">1 chapter node</h2>
+<div class="node" id="chapter-node-1">
+<h2 class="chapter">1 chapter node</h2>
 
-<hr>
-<span id="part-chapter-node"></span><div class="header">
+</div><hr>
+</div>
+<div class="chapter" id="part-chapter-node">
+<div class="header">
 <p>
 Previous: <a href="#chapter-node" accesskey="p" rel="prev">chapter node</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<span id="part"></span><h1 class="part">part</h1>
+<div class="part" id="part">
+<h1 class="part">part</h1>
 <hr>
 
 <ul class="section-toc">
 <li><a href="#part-chapter-node" accesskey="1">chapter with part node</a></li>
 </ul>
-<span id="chapter-with-part-node"></span><h2 class="chapter">2 chapter with part node</h2>
+</div><div class="node" id="chapter-with-part-node">
+<h2 class="chapter">2 chapter with part node</h2>
 
-<hr>
+</div><hr>
+</div>
+</div>
 
 
 

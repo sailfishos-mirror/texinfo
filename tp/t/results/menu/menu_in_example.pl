@@ -763,7 +763,8 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<span id="Top"></span><h1 class="node-heading">Top</h1>
+<div class="node" id="Top">
+<h1 class="node-heading">Top</h1>
 
 <div class="example">
 <table class="menu" border="0" cellspacing="0"><tr><td>
@@ -784,7 +785,7 @@ ul.no-bullet {list-style: none}
 
 </pre></td></tr></table>
 </div>
-<hr>
+</div><hr></div>
 
 
 

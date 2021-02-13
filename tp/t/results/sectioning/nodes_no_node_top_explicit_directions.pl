@@ -636,7 +636,8 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<span id="first"></span><div class="header">
+<div class="node" id="first">
+<div class="header">
 <p>
 Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a> &nbsp; </p>
 </div>
@@ -644,14 +645,15 @@ Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a> &nbsp; </p>
 <p>first node
 </p>
 
-<hr>
-<span id="second-node"></span><div class="header">
+</div><hr>
+<div class="node" id="second-node">
+<div class="header">
 <p>
 Previous: <a href="#first" accesskey="p" rel="prev">first</a>, Up: <a href="#first" accesskey="u" rel="up">first</a> &nbsp; </p>
 </div>
 <h4 class="node-heading">second node</h4>
 <p>second node
-</p><hr>
+</p></div><hr>
 
 
 

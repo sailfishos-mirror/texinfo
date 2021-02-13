@@ -444,12 +444,15 @@ ul.no-bullet {list-style: none}
 <body lang="en">
 <h1 class="settitle" align="center">@title <small>HTML</small> <code>test</code></h1>
 
-<span id="Top"></span><span id="Top-of-_0040title-HTML-test"></span><h1 class="top">Top of @title <small>HTML</small> <code>test</code></h1>
+<div class="top" id="Top">
+<div class="node" id="Top-of-_0040title-HTML-test">
+<h1 class="top">Top of @title <small>HTML</small> <code>test</code></h1>
 
 <p>Top.
 </p>
 <p>Second paragraph.
-</p><hr>
+</p></div><hr></div>
+</div>
 
 
 

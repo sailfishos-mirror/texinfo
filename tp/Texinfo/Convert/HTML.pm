@@ -2402,6 +2402,31 @@ sub _default_element_header($$$$)
   return $result;
 }
 
+sub register_opened_section_level($$$)
+{
+  my $self = shift;
+  my $level = shift;
+  my $close = shift;
+  while (@{$self->{'pending_closes'}} < $level) {
+      push(@{$self->{'pending_closes'}}, "");
+  }
+  push(@{$self->{'pending_closes'}}, $close);
+}
+
+sub close_registered_sections_level($$)
+{
+  my $self = shift;
+  my $level = shift;
+  my @closed_elements;
+  my $result = '';
+  while (@{$self->{'pending_closes'}} > $level) {
+      my $close = pop @{$self->{'pending_closes'}};
+      push(@closed_elements, $close)
+        if ($close);
+  }
+  return @closed_elements;
+}
+
 sub _convert_heading_command($$$$$)
 {
   my $self = shift;
@@ -2419,9 +2444,26 @@ sub _convert_heading_command($$$$$)
     return $result;
   }
 
+  my $section = $command->{'extra'}->{'associated_section'};
+  my $node;
+  if ($section) {
+      my $level = $section->{'level'};
+      $result .= join('', $self->close_registered_sections_level($level));
+      $self->register_opened_section_level($level, "</div>\n");
+  } else {
+      $node = $command->{'extra'}->{'associated_node'};
+  }
+  $result .= '<div';
+  if ($section) {
+      $result .= ' class="'.$section->{'cmdname'}.'"';
+  } elsif ($node) {
+      $result .= ' class="node"';
+  } else {
+      $result .= " class=\"$cmdname\"";
+  }
   my $element_id = $self->command_id($command);
-  $result .= "<span id=\"$element_id\"></span>"
-    if (defined($element_id) and $element_id ne '');
+  $result .= " id=\"$element_id\""
+      if (defined($element_id) and $element_id ne '');
 
   print STDERR "Process $command "
         .Texinfo::Structuring::_print_root_command_texi($command)."\n"
@@ -2433,6 +2475,7 @@ sub _convert_heading_command($$$$$)
       and $command->{'parent'}->{'type'} eq 'element') {
     $element = $command->{'parent'};
   }
+  $result .= ">\n";
   if ($element) {
     $result .= &{$self->{'format_element_header'}}($self, $cmdname, 
                                             $command, $element);
@@ -2514,7 +2557,7 @@ sub _convert_heading_command($$$$$)
                        eq 'inline')))) {
     $result .= _mini_toc($self, $command);
   }
-
+  $result .= '</div>' if (! $section);
   return $result;
 }
 
@@ -4662,16 +4705,18 @@ sub _convert_element_type($$$$)
 
   if ($element->{'extra'}->{'special_element'}) {
     $special_element = $element->{'extra'}->{'special_element'};
+    $result .= join('', $self->close_registered_sections_level(0));
     my $id = $self->command_id($element);
+    $result .= "<div class=\"${special_element}_element\"";
     if ($id ne '') {
-      $result .= "<span id=\"$id\"></span>\n";
+      $result .= " id=\"$id\"";
     }
+    $result .= ">\n";
     if ($self->get_conf('HEADERS') 
         # first in page
         or $self->{'counter_in_file'}->{$element->{'filename'}} == 1) {
       $result .= &{$self->{'format_navigation_header'}}($self, 
                  $self->get_conf('MISC_BUTTONS'), undef, $element);
-      
     }
     my $heading = $self->command_text($element);
     my $element_name = $element->{'extra'}->{'special_element'};
@@ -4691,13 +4736,13 @@ sub _convert_element_type($$$$)
     if ($special_element_body eq '') {
       return '';
     }
-    $result .= $special_element_body;
+    $result .= $special_element_body . '</div>';
   } elsif (!$element->{'element_prev'}) {
     $result .= $self->_print_title();
     if (!$element->{'element_next'}) {
       # only one element
       my $foot_text = &{$self->{'format_footnotes_text'}}($self);
-      return $result.$content.$foot_text.$self->get_conf('DEFAULT_RULE')."\n";
+      return $result.$content.$foot_text.$self->get_conf('DEFAULT_RULE')."</div>\n";
     }
   }
   $result .= $content unless ($special_element);
@@ -5127,6 +5172,7 @@ sub converter_initialize($)
 
   $self->{'document_context'} = [];
   $self->{'multiple_pass'} = [];
+  $self->{'pending_closes'} = [];
   $self->_new_document_context('_toplevel_context');
 
   if ($self->get_conf('SPLIT') and $self->get_conf('SPLIT') ne 'chapter'
@@ -6494,10 +6540,11 @@ sub _default_program_string($)
 sub _default_end_file($)
 {
   my $self = shift;
+  my $closing_sections_text = join('', $self->close_registered_sections_level(0));
   my $program_text = '';
   if ($self->get_conf('PROGRAM_NAME_IN_FOOTER')) {
     my $program_string = &{$self->{'format_program_string'}}($self);
-    $program_text = "<p><font size=\"-1\">
+    $program_text .= "<p><font size=\"-1\">
   $program_string
 </font></p>";
   }
@@ -6515,7 +6562,7 @@ sub _default_end_file($)
 .'</small></a>';
   }
 
-  return "$program_text
+  return "${closing_sections_text}${program_text}
 
 $pre_body_close
 </body>

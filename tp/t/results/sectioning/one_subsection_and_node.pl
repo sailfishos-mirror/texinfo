@@ -228,8 +228,11 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<span id="one-node"></span><span id="The-subsection"></span><h4 class="subsection">1 The subsection</h4>
-<hr>
+<div class="subsection" id="one-node">
+<div class="node" id="The-subsection">
+<h4 class="subsection">1 The subsection</h4>
+</div><hr></div>
+</div>
 
 
 

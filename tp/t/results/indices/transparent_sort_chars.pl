@@ -473,7 +473,9 @@ $result_converted{'plaintext'}->{'transparent_sort_chars'} = '* Menu:
 
 
 $result_converted{'html_text'}->{'transparent_sort_chars'} = '
-<span id="Top"></span><span id="SEC_Top"></span>
+<div class="top" id="Top">
+<div class="node" id="SEC_Top">
+
 <span id="index-_002d_002dversion_002c-for-install_002dinfo"></span>
 <span id="index-Source-file-format"></span>
 <span id="index-Semantic-markup"></span>
@@ -499,7 +501,7 @@ $result_converted{'html_text'}->{'transparent_sort_chars'} = '
 <a class="summary-letter" href="#t_h_cp_letter-V"><b>V</b></a>
  &nbsp; 
 </td></tr></table>
-<hr>
+</div><hr></div>
 ';
 
 1;

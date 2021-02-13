@@ -653,7 +653,9 @@ $result_converted{'plaintext'}->{'subentries'} = '* Menu:
 ';
 
 
-$result_converted{'html_text'}->{'subentries'} = '<span id="Top"></span><span id="SEC_Top"></span>
+$result_converted{'html_text'}->{'subentries'} = '<div class="top" id="Top">
+<div class="node" id="SEC_Top">
+
 <span id="index-aa"></span>
 <span id="index-bb"></span>
 <span id="index-ddd"></span>
@@ -693,7 +695,7 @@ $result_converted{'html_text'}->{'subentries'} = '<span id="Top"></span><span id
 <a class="summary-letter" href="#t_h_cp_letter-G"><b>G</b></a>
  &nbsp; 
 </td></tr></table>
-<hr>
+</div><hr></div>
 ';
 
 1;

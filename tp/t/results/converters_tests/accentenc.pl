@@ -3296,7 +3296,9 @@ should be e\': è è
 
 
 $result_converted{'html_text'}->{'accentenc'} = '
-<span id="Top"></span><span id="top"></span><h1 class="top">top</h1>
+<div class="top" id="Top">
+<div class="node" id="top">
+<h1 class="top">top</h1>
 
 <p>should be e&lsquo;: &egrave; &egrave;
 </p>
@@ -3371,7 +3373,7 @@ $result_converted{'html_text'}->{'accentenc'} = '
 <p>should be dotless j^: &#309;
 </p>
 <p>should be dotless j&quot;: j"
-</p><hr>
+</p></div><hr></div>
 ';
 
 

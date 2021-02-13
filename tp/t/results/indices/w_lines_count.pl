@@ -439,7 +439,9 @@ $result_converted{'plaintext'}->{'w_lines_count'} = 'xzcompilationxdmbufferxmsub
 ';
 
 
-$result_converted{'html_text'}->{'w_lines_count'} = '<span id="Top"></span><span id="SEC_Top"></span>
+$result_converted{'html_text'}->{'w_lines_count'} = '<div class="top" id="Top">
+<div class="node" id="SEC_Top">
+
 <p>xzcompilationxdmbufferxmsubsequentmxCtxaxxmcommandsmadvancemfrommthere.  
 <code><span class="nolinebreak">C-u</span></code><!-- /@w --> starts again from the beginning
 </p>
@@ -459,7 +461,7 @@ $result_converted{'html_text'}->{'w_lines_count'} = '<span id="Top"></span><span
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#t_h_fn_letter-C"><b>C</b></a>
  &nbsp; 
 </td></tr></table>
-<hr>
+</div><hr></div>
 ';
 
 1;

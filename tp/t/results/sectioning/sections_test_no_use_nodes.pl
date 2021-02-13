@@ -761,7 +761,8 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<span id="top"></span><div class="header">
+<div class="top" id="top">
+<div class="header">
 <p>
 Next: <a href="#chapter-in-part" accesskey="n" rel="next">chapter in part</a> &nbsp; </p>
 </div>
@@ -770,8 +771,9 @@ Next: <a href="#chapter-in-part" accesskey="n" rel="next">chapter in part</a> &n
 <ul class="section-toc">
 <li><a href="#chapter" accesskey="1">chapter</a></li>
 </ul>
-<hr>
-<span id="chapter"></span><div class="header">
+</div><hr>
+<div class="chapter" id="chapter">
+<div class="header">
 <p>
  Up : <a href="#top" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>
@@ -780,8 +782,9 @@ Next: <a href="#chapter-in-part" accesskey="n" rel="next">chapter in part</a> &n
 <ul class="section-toc">
 <li><a href="#section" accesskey="1">section</a></li>
 </ul>
-<hr>
-<span id="section"></span><div class="header">
+</div><hr>
+<div class="section" id="section">
+<div class="header">
 <p>
  Up : <a href="#chapter" accesskey="u" rel="up">chapter</a> &nbsp; </p>
 </div>
@@ -790,8 +793,9 @@ Next: <a href="#chapter-in-part" accesskey="n" rel="next">chapter in part</a> &n
 <ul class="section-toc">
 <li><a href="#subsection" accesskey="1">subsection</a></li>
 </ul>
-<hr>
-<span id="subsection"></span><div class="header">
+</div><hr>
+<div class="subsection" id="subsection">
+<div class="header">
 <p>
  Up : <a href="#section" accesskey="u" rel="up">section</a> &nbsp; </p>
 </div>
@@ -800,15 +804,17 @@ Next: <a href="#chapter-in-part" accesskey="n" rel="next">chapter in part</a> &n
 <ul class="section-toc">
 <li><a href="#subsubsection" accesskey="1">subsubsection</a></li>
 </ul>
-<hr>
-<span id="subsubsection"></span><div class="header">
+</div><hr>
+<div class="subsubsection" id="subsubsection">
+<div class="header">
 <p>
  Up : <a href="#subsection" accesskey="u" rel="up">subsection</a> &nbsp; </p>
 </div>
 <h4 class="subsubsection">1.1.1.1 subsubsection</h4>
 
-<hr>
-<span id="part"></span><div class="header">
+</div><hr>
+<div class="part" id="part">
+<div class="header">
 <p>
 Next: <a href="#second-chapter-in-part" accesskey="n" rel="next">second chapter in part</a> &nbsp; </p>
 </div>
@@ -820,24 +826,28 @@ Next: <a href="#second-chapter-in-part" accesskey="n" rel="next">second chapter 
 <li><a href="#second-chapter-in-part" accesskey="2">second chapter in part</a></li>
 <li><a href="#unnumbered" accesskey="3">unnumbered</a></li>
 </ul>
-<span id="chapter-in-part"></span><h2 class="chapter">2 chapter in part</h2>
+</div><div class="chapter" id="chapter-in-part">
+<h2 class="chapter">2 chapter in part</h2>
 
-<hr>
-<span id="second-chapter-in-part"></span><div class="header">
+</div><hr>
+<div class="chapter" id="second-chapter-in-part">
+<div class="header">
 <p>
 Next: <a href="#unnumbered" accesskey="n" rel="next">unnumbered</a>, Prev: <a href="#chapter-in-part" accesskey="p" rel="prev">chapter in part</a>,  Up : <a href="#chapter-in-part" accesskey="u" rel="up">chapter in part</a> &nbsp; </p>
 </div>
 <h2 class="chapter">3 second chapter in part</h2>
 
-<hr>
-<span id="unnumbered"></span><div class="header">
+</div><hr>
+<div class="unnumbered" id="unnumbered">
+<div class="header">
 <p>
 Prev: <a href="#second-chapter-in-part" accesskey="p" rel="prev">second chapter in part</a>,  Up : <a href="#chapter-in-part" accesskey="u" rel="up">chapter in part</a> &nbsp; </p>
 </div>
 <h2 class="unnumbered">unnumbered</h2>
 
-<hr>
-<span id="appendix"></span><div class="header">
+</div><hr>
+<div class="appendix" id="appendix">
+<div class="header">
 <p>
 Prev: <a href="#chapter-in-part" accesskey="p" rel="prev">chapter in part</a> &nbsp; </p>
 </div>
@@ -846,13 +856,14 @@ Prev: <a href="#chapter-in-part" accesskey="p" rel="prev">chapter in part</a> &n
 <ul class="section-toc">
 <li><a href="#appendixsec" accesskey="1">appendixsec</a></li>
 </ul>
-<hr>
-<span id="appendixsec"></span><div class="header">
+</div><hr>
+<div class="appendixsec" id="appendixsec">
+<div class="header">
 <p>
  Up : <a href="#appendix" accesskey="u" rel="up">appendix</a> &nbsp; </p>
 </div>
 <h3 class="appendixsec">A.1 appendixsec</h3>
-<hr>
+</div><hr>
 
 
 

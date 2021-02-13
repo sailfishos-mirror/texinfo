@@ -235,13 +235,14 @@ ggg : Top.
 ';
 
 
-$result_converted{'html_text'}->{'verb_in_xref'} = '<span id="Top"></span><h1 class="node-heading">Top</h1>
+$result_converted{'html_text'}->{'verb_in_xref'} = '<div class="node" id="Top">
+<h1 class="node-heading">Top</h1>
 
 <p>See <a href="#Top"><tt>with
 verb
 
 ggg </tt></a>.
-</p><hr>
+</p></div><hr></div>
 ';
 
 1;

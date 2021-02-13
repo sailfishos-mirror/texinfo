@@ -3217,7 +3217,9 @@ $result_floats{'accentenc_enable_encoding'} = {};
 
 
 $result_converted{'html_text'}->{'accentenc_enable_encoding'} = '
-<span id="Top"></span><span id="top"></span><h1 class="top">top</h1>
+<div class="top" id="Top">
+<div class="node" id="top">
+<h1 class="top">top</h1>
 
 <p>should be e&lsquo;: è è
 </p>
@@ -3292,7 +3294,7 @@ $result_converted{'html_text'}->{'accentenc_enable_encoding'} = '
 <p>should be dotless j^: &#309;
 </p>
 <p>should be dotless j&quot;: j"
-</p><hr>
+</p></div><hr></div>
 ';
 
 1;

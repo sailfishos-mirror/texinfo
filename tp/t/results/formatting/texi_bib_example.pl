@@ -5680,7 +5680,8 @@ ul.no-bullet {list-style: none}
 
 
 
-<span id="Top"></span><table class="header" cellpadding="1" cellspacing="1" border="0">
+<div class="top" id="Top">
+<table class="header" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[ &lt; ]</td>
 <td valign="middle" align="left">[<a href="#Introduction" title="Next section in reading order"> &gt; </a>]</td>
 <td valign="middle" align="left"> &nbsp; </td>
@@ -5688,7 +5689,8 @@ ul.no-bullet {list-style: none}
 <td valign="middle" align="left">[Index]</td>
 <td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<span id="Top-1"></span><h1 class="top">Top</h1>
+<div class="node" id="Top-1">
+<h1 class="top">Top</h1>
 
 <table class="menu" border="0" cellspacing="0">
 <tr><td align="left" valign="top"><a href="#Introduction">1 Introduction</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
@@ -5699,8 +5701,9 @@ ul.no-bullet {list-style: none}
 
 </pre></th></tr></table>
 
-<hr size="6">
-<span id="Introduction"></span><table class="header" cellpadding="1" cellspacing="1" border="0">
+</div><hr size="6">
+<div class="chapter" id="Introduction">
+<table class="header" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#Top" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="#Top" title="Previous section in reading order"> &lt; </a>]</td>
 <td valign="middle" align="left">[<a href="#Top" title="Up section"> Up </a>]</td>
@@ -5715,15 +5718,18 @@ ul.no-bullet {list-style: none}
 <td valign="middle" align="left">[Index]</td>
 <td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<span id="Introduction-1"></span><h1 class="chapter">1 Introduction</h1>
+<div class="node" id="Introduction-1">
+<h1 class="chapter">1 Introduction</h1>
 
 <p>The ability of a documentation format to make cross references to a
 bibliography, a feature of LaTeX (See item [LaTeX2e] in <a href="#References">LaTeX2e</a>.)
 , isn&rsquo;t
 currently supported in Texinfo.
 </p>
-<hr>
-<span id="References"></span><table class="header" cellpadding="1" cellspacing="1" border="0">
+</div><hr>
+</div>
+<div class="chapter" id="References">
+<table class="header" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#Introduction" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
 <td valign="middle" align="left">[<a href="#Introduction" title="Previous section in reading order"> &lt; </a>]</td>
 <td valign="middle" align="left">[<a href="#Top" title="Up section"> Up </a>]</td>
@@ -5738,7 +5744,8 @@ currently supported in Texinfo.
 <td valign="middle" align="left">[Index]</td>
 <td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<span id="References-1"></span><h1 class="chapter">2 References</h1>
+<div class="node" id="References-1">
+<h1 class="chapter">2 References</h1>
 
 <ul class="no-bullet">
 <li> <span id="LaTeX2e"></span>[LaTeX2e]
@@ -5748,7 +5755,9 @@ Massachusetts, 1994.
 
 </li></ul>
 
-<hr>
+</div><hr>
+</div>
+</div>
 <p><font size="-1">
   This document was generated on <em>a sunny day</em> using <a href="http://www.gnu.org/software/texinfo/"><em>texi2any</em></a>.
 </font></p>

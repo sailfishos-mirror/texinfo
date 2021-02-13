@@ -402,7 +402,9 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<span id="Top"></span><span id="SEC_Top"></span>
+<div class="top" id="Top">
+<div class="node" id="SEC_Top">
+
 <span id="index-aaaA"></span>
 
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Top_cp_letter-A"><b>A</b></a>
@@ -418,7 +420,8 @@ ul.no-bullet {list-style: none}
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Top_cp_letter-A"><b>A</b></a>
  &nbsp; 
 </td></tr></table>
-<hr>
+</div><hr></div>
+</div>
 
 
 
@@ -468,7 +471,9 @@ $result_converted{'plaintext'}->{'subentry_and_sortas'} = '* Menu:
 ';
 
 
-$result_converted{'html_text'}->{'subentry_and_sortas'} = '<span id="Top"></span><span id="SEC_Top"></span>
+$result_converted{'html_text'}->{'subentry_and_sortas'} = '<div class="top" id="Top">
+<div class="node" id="SEC_Top">
+
 <span id="index-aaaA"></span>
 
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#t_h_cp_letter-A"><b>A</b></a>
@@ -484,7 +489,7 @@ $result_converted{'html_text'}->{'subentry_and_sortas'} = '<span id="Top"></span
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#t_h_cp_letter-A"><b>A</b></a>
  &nbsp; 
 </td></tr></table>
-<hr>
+</div><hr></div>
 ';
 
 1;

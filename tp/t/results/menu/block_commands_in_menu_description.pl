@@ -862,7 +862,9 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<span id="Top"></span><span id="top"></span><h1 class="top">top</h1>
+<div class="top" id="Top">
+<div class="node" id="top">
+<h1 class="top">top</h1>
 
 <table class="menu" border="0" cellspacing="0">
 <tr><td align="left" valign="top">&bull; <a href="manual.html#Top" accesskey="1">(manual)</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
@@ -889,7 +891,8 @@ Text.
 <pre class="verbatim">
 </pre></td></tr>
 </table>
-<hr>
+</div><hr></div>
+</div>
 
 
 

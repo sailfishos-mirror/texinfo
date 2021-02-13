@@ -4899,11 +4899,13 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<span id="Top"></span><div class="header">
+<div class="top" id="Top">
+<div class="header">
 <p>
 Next: <a href="#chapter" accesskey="n" rel="next">A chapter</a> &nbsp; </p>
 </div>
-<span id="Test-floats"></span><h1 class="top">Test floats</h1>
+<div class="node" id="Test-floats">
+<h1 class="top">Test floats</h1>
 
 <p>A list of floats at the beginning.
 </p><dl class="listoffloats">
@@ -5015,12 +5017,14 @@ A footnote.
 <ul class="section-toc">
 <li><a href="#chapter" accesskey="1">A chapter</a></li>
 </ul>
-<hr>
-<span id="chapter"></span><div class="header">
+</div><hr>
+<div class="chapter" id="chapter">
+<div class="header">
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">Test floats</a>, Up: <a href="#Top" accesskey="u" rel="up">Test floats</a> &nbsp; </p>
 </div>
-<span id="A-chapter"></span><h2 class="chapter">1 A chapter</h2>
+<div class="node" id="A-chapter">
+<h2 class="chapter">1 A chapter</h2>
 
 <div class="float"><span id="float-with-a-lot-of-features-and-no-shortcaption"></span>
 
@@ -5065,7 +5069,7 @@ A footnote 2.
 </p></div></div>
 <p>See <a href="#text-with-a-lot-of-features">Text 1</a>.
 </p>
-<div class="footnote">
+</div><div class="footnote">
 <hr>
 <h4 class="footnotes-heading">Footnotes</h4>
 
@@ -5079,6 +5083,8 @@ A footnote 2.
 <p>footnote Text with features caption 2</p>
 </div>
 <hr>
+</div>
+</div>
 
 
 

@@ -2574,7 +2574,8 @@ Image description""\\.
 ';
 
 
-$result_converted{'html_text'}->{'image_formatting'} = '<span id="Top"></span><h1 class="node-heading">Top</h1>
+$result_converted{'html_text'}->{'image_formatting'} = '<div class="node" id="Top">
+<h1 class="node-heading">Top</h1>
 
 <p><code>@image{f--ile}</code> <img src="f--ile.png" alt="f--ile">
 <code>@image{f--ile,l--i}</code> <img src="f--ile.png" alt="f--ile">
@@ -2602,7 +2603,7 @@ $result_converted{'html_text'}->{'image_formatting'} = '<span id="Top"></span><h
 
 <p>in para
 <img src="f--ile.png" alt="a very long alt argument that could span more than one line who knows">.
-</p><hr>
+</p></div><hr></div>
 ';
 
 $result_converted_errors{'html_text'}->{'image_formatting'} = [
