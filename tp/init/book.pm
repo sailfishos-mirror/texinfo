@@ -89,7 +89,7 @@ sub book_print_up_toc($$)
   return $result;
 }
 
-sub book_navigation_header($$$$)
+sub book_format_navigation_header($$$$)
 {
   my $self = shift;
   my $buttons = shift;
@@ -106,17 +106,17 @@ sub book_navigation_header($$$$)
       and $self->{'counter_in_file'}->{$element->{'filename'}} == 1) {
     
     return book_print_up_toc($self, $element->{'extra'}->{'section'}) .
-       &{$self->default_formatting_function('navigation_header')}($self,
+       &{$self->default_formatting_function('format_navigation_header')}($self,
                                  $buttons, $cmdname, $command);
 
   } else {
-    return &{$self->default_formatting_function('navigation_header')}($self, 
+    return &{$self->default_formatting_function('format_navigation_header')}($self, 
              $buttons, $cmdname, $command);
   }
 }
 
-texinfo_register_formatting_function('navigation_header', 
-                                     \&book_navigation_header);
+texinfo_register_formatting_function('format_navigation_header', 
+                                     \&book_format_navigation_header);
 
 sub book_print_sub_toc($$$);
 

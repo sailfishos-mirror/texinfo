@@ -1936,7 +1936,7 @@ sub _convert_U_command($$$$)
 }
 $default_commands_conversion{'U'} = \&_convert_U_command;
 
-sub _default_comment($$) {
+sub _default_format_comment($$) {
   my $self = shift;
   my $text = shift;
   return $self->xml_comment(' '.$text);
@@ -1948,7 +1948,7 @@ sub protect_text($$) {
   return &{$self->{'format_protect_text'}}($self, $text);
 }
 
-sub _default_protect_text($$) {
+sub _default_format_protect_text($$) {
   my $self = shift;
   my $text = shift;
   my $result = $self->xml_protect_text($text);
@@ -1956,7 +1956,7 @@ sub _default_protect_text($$) {
   return $result;
 }
 
-sub _default_heading_text($$$$$)
+sub _default_format_heading_text($$$$$)
 {
   my $self = shift;
   my $cmdname = shift;
@@ -2057,7 +2057,7 @@ sub _default_panel_button_dynamic_direction_footer($$)
 # how to create IMG tag
 # this is only used in html, and only if ICONS is set and the button
 # is active.
-sub _default_button_icon_img($$$;$)
+sub _default_format_button_icon_img($$$;$)
 {
   my $self = shift;
   my $button = shift;
@@ -2106,7 +2106,7 @@ foreach my $node_directions ('NodeNext', 'NodePrev', 'NodeUp') {
   $html_default_node_directions{$node_directions} = 1;
 }
 
-sub _default_button_formatting($$)
+sub _default_format_button($$)
 {
   my $self = shift;
   my $button = shift;
@@ -2249,7 +2249,7 @@ sub _default_button_formatting($$)
   return ($active, $passive, $need_delimiter);
 }
 
-sub _default_navigation_header_panel($$$$;$)
+sub _default_format_navigation_header_panel($$$$;$)
 {
   my $self = shift;
   my $buttons = shift;
@@ -2312,7 +2312,7 @@ sub _default_navigation_header_panel($$$$;$)
   return $result;
 }
 
-sub _default_navigation_header($$$$)
+sub _default_format_navigation_header($$$$)
 {
   my $self = shift;
   my $buttons = shift;
@@ -2339,7 +2339,7 @@ sub _default_navigation_header($$$$)
   return $result;
 }
 
-sub _default_element_header($$$$)
+sub _default_format_element_header($$$$)
 {
   my $self = shift;
   my $cmdname = shift;
@@ -4637,7 +4637,7 @@ sub _contents_shortcontents_in_title($)
 }
 
 # Convert @titlepage.  Falls back to simpletitle.
-sub _default_titlepage($)
+sub _default_format_titlepage($)
 {
   my $self = shift;
 
@@ -4751,7 +4751,7 @@ sub _convert_element_type($$$$)
   return $result;
 }
 
-sub _default_element_footer($$$$)
+sub _default_format_element_footer($$$$)
 {
   my $self = shift;
   my $type = shift;
@@ -4868,28 +4868,27 @@ sub _new_document_context($$)
           };
 }
 
-# Functions accessed with e.g. 'format_heading_text' for 'heading_text'.
+# Functions accessed with e.g. 'format_heading_text'.
 my %default_formatting_references = (
-     'heading_text' => \&_default_heading_text,
-     'comment' => \&_default_comment,
-     'protect_text' => \&_default_protect_text,
-     'css_lines' => \&_default_css_lines,
-     'begin_file' => \&_default_begin_file, 
-     'node_redirection_page' => \&_default_node_redirection_page, 
-     'end_file' => \&_default_end_file, 
-     'special_element_body' => \&_default_special_element_body, 
-     'footnotes_text' => \&_default_footnotes_text, 
-     'program_string' => \&_default_program_string, 
-     'titlepage' => \&_default_titlepage, 
-     'navigation_header' => \&_default_navigation_header, 
-     'navigation_header_panel' => \&_default_navigation_header_panel, 
-     'element_header' => \&_default_element_header,
-     'element_footer' => \&_default_element_footer,
-     'button' => \&_default_button_formatting, 
-     'button_icon_img' => \&_default_button_icon_img, 
-     'external_href' => \&_default_external_href, 
-     'contents' => \&_default_contents,
-     'frame_files' => \&_default_frame_files,
+     'format_heading_text' => \&_default_format_heading_text,
+     'format_comment' => \&_default_format_comment,
+     'format_protect_text' => \&_default_format_protect_text,
+     'format_css_lines' => \&_default_format_css_lines,
+     'format_begin_file' => \&_default_format_begin_file, 
+     'format_node_redirection_page' => \&_default_format_node_redirection_page, 
+     'format_end_file' => \&_default_format_end_file, 
+     'format_special_element_body' => \&_default_format_special_element_body, 
+     'format_footnotes_text' => \&_default_format_footnotes_text, 
+     'format_program_string' => \&_default_format_program_string, 
+     'format_titlepage' => \&_default_format_titlepage, 
+     'format_navigation_header' => \&_default_format_navigation_header, 
+     'format_navigation_header_panel' => \&_default_format_navigation_header_panel, 
+     'format_element_header' => \&_default_format_element_header,
+     'format_element_footer' => \&_default_format_element_footer,
+     'format_button' => \&_default_format_button, 
+     'format_button_icon_img' => \&_default_format_button_icon_img, 
+     'format_contents' => \&_default_format_contents,
+     'format_frame_files' => \&_default_format_frame_files,
 );
 
 sub _use_entity_is_entity($$)
@@ -5162,10 +5161,10 @@ sub converter_initialize($)
     $self->{'default_formatting_functions'}->{$formatting_reference}
        = $default_formatting_references{$formatting_reference};
     if (defined($Texinfo::Config::texinfo_formatting_references{$formatting_reference})) {
-      $self->{"format_".$formatting_reference} 
+      $self->{$formatting_reference} 
        =  $Texinfo::Config::texinfo_formatting_references{$formatting_reference};
     } else {
-      $self->{"format_".$formatting_reference} 
+      $self->{$formatting_reference} 
        = $default_formatting_references{$formatting_reference};
     }
   }
@@ -5205,7 +5204,7 @@ sub _normalized_to_id($)
   return $id;
 }
 
-sub _default_css_lines ($)
+sub _default_format_css_lines($)
 {
   my $self = shift;
 
@@ -6240,7 +6239,7 @@ foreach my $no_number_type ('text', 'tree', 'string') {
 # the table of content when frames are used.  That call would result
 # for instance from _element_direction being called from _get_links,
 # itself called from 'format_begin_file' which, in the default case
-# points to _default_begin_file.
+# points to _default_format_begin_file.
 # TODO are there other cases?
 sub _element_direction($$$$;$)
 {
@@ -6385,7 +6384,7 @@ sub _mini_toc
   return $result;
 }
 
-sub _default_contents($$;$$)
+sub _default_format_contents($$;$$)
 {
   my $self = shift;
   my $cmdname = shift;
@@ -6521,7 +6520,7 @@ sub _default_contents($$;$$)
   return $result;
 }
 
-sub _default_program_string($)
+sub _default_format_program_string($)
 {
   my $self = shift;
   if (defined($self->get_conf('PROGRAM'))
@@ -6537,7 +6536,7 @@ sub _default_program_string($)
   }
 }
 
-sub _default_end_file($)
+sub _default_format_end_file($)
 {
   my $self = shift;
   my $closing_sections_text = join('', $self->close_registered_sections_level(0));
@@ -6736,7 +6735,7 @@ sub _get_links ($$$)
   return $links;
 }
 
-sub _default_begin_file($$$)
+sub _default_format_begin_file($$$)
 {
   my $self = shift;
   my $filename = shift;
@@ -6775,7 +6774,7 @@ $after_body_open";
   return $result;
 }
 
-sub _default_node_redirection_page($$)
+sub _default_format_node_redirection_page($$)
 {
   my $self = shift;
   my $command = shift;
@@ -6817,7 +6816,7 @@ $after_body_open
   return $result;
 }
 
-sub _default_footnotes_text($)
+sub _default_format_footnotes_text($)
 {
   my $self = shift;
   return '' if (!$foot_lines);
@@ -6837,7 +6836,7 @@ sub _default_footnotes_text($)
   return $result;
 }
 
-sub _default_special_element_body($$$)
+sub _default_format_special_element_body($$$)
 {
   my $self = shift;
   my $special_type = shift;
@@ -7005,7 +7004,7 @@ __("cannot use absolute path or URL `%s' for JS_WEBLABELS_FILE when generating w
   }
 }
 
-sub _default_frame_files($)
+sub _default_format_frame_files($)
 {
   my $self = shift;
 

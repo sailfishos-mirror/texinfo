@@ -51,9 +51,9 @@ set_from_init_file('SHOW_TITLE', 0);
 
 # footer
 
-texinfo_register_formatting_function('element_footer' , \&singular_footer);
+texinfo_register_formatting_function('format_element_footer' , \&singular_format_footer);
 
-sub singular_footer($$$$)
+sub singular_format_footer($$$$)
 {
   my $self = shift;
   my $type = shift;
@@ -95,15 +95,15 @@ sub singular_footer($$$$)
     return $result;
   }
 
-  return &{$self->default_formatting_function('element_footer')}($self,
+  return &{$self->default_formatting_function('format_element_footer')}($self,
                                             $type, $element, $content);
 }
 
 
-texinfo_register_formatting_function('end_file' , \&singular_end_file);
+texinfo_register_formatting_function('format_end_file' , \&singular_format_end_file);
 
 # footer of page
-sub singular_end_file($)
+sub singular_format_end_file($)
 {
   my $self = shift;
   my $pre_body_close = $self->get_conf('PRE_BODY_CLOSE');

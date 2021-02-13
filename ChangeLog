@@ -1,3 +1,13 @@
+2021-02-14  Patrice Dumas  <pertusus@free.fr>
+
+	* Texinfo/Convert/HTML.pm (%default_formatting_references, 
+	converter_initialize, _default_*), init/book.pm, 
+	init/chm.pm, init/html32.pm, t/init/mini_ker_t2h.init, 
+	t/init/t2h_singular.init: use format_ in formatting functions 
+	strings and in formatting function names, to make clearer
+	that the references called through the converter with format_
+	in the key point to the same functions.  Report from Gavin.
+
 2021-02-13  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/init/book.pm (book_convert_heading_command): update with

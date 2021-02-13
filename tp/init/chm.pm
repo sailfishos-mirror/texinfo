@@ -50,9 +50,9 @@ set_from_init_file('footnotestyle', 'end');
 set_from_init_file('USE_NODES', 0);
 
 use vars qw(%commands_formatting);
-texinfo_register_formatting_function('end_file', \&chm_end_file);
-texinfo_register_formatting_function('navigation_header', \&chm_noop);
-texinfo_register_formatting_function('navigation_header_panel', \&chm_noop);
+texinfo_register_formatting_function('format_end_file', \&chm_format_end_file);
+texinfo_register_formatting_function('format_navigation_header', \&chm_noop);
+texinfo_register_formatting_function('format_navigation_header_panel', \&chm_noop);
 
 my %chm_languages = (
     'en'         => '0x409 English (United States)',
@@ -174,7 +174,7 @@ foreach my $thing ('OE', 'oe', 'euro') {
     = $Texinfo::Convert::Unicode::unicode_entities{$thing};
 }
 
-sub chm_end_file($)
+sub chm_format_end_file($)
 {
   my $self = shift;
   my $pre_body_close = $self->get_conf('PRE_BODY_CLOSE');
