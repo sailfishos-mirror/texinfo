@@ -354,7 +354,7 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<span id="SEC_Contents"></span>
+<div class="Contents_element" id="SEC_Contents">
 <h2 class="contents-heading">Table of Contents</h2>
 
 <div class="contents">
@@ -363,7 +363,7 @@ ul.no-bullet {list-style: none}
   <li><a id="toc-the-chap" href="#the-chap">1 the chap</a></li>
 </ul>
 </div>
-
+</div>
 <hr>
 
 <p>Some text before top

@@ -337,7 +337,7 @@ ul.no-bullet {list-style: none}
 <body lang="en">
 <div class="top" id="top">
 <h1 class="top">top</h1>
-<span id="SEC_Contents"></span>
+<div class="Contents_element" id="SEC_Contents">
 <h2 class="contents-heading">Table of Contents</h2>
 
 <div class="contents">
@@ -350,8 +350,8 @@ ul.no-bullet {list-style: none}
   </ul></li>
 </ul>
 </div>
-
-<span id="SEC_Overview"></span>
+</div>
+<div class="Overview_element" id="SEC_Overview">
 <h2 class="shortcontents-heading">Short Table of Contents</h2>
 
 <div class="shortcontents">
@@ -360,7 +360,7 @@ ul.no-bullet {list-style: none}
 <li><a id="stoc-_005f" href="#toc-_005f">_</a></li>
 </ul>
 </div>
-
+</div>
 </div><div class="chapter" id="g_t0">
 <h2 class="chapter">1 0</h2>
 </div><div class="unnumbered" id="g_t_005f">

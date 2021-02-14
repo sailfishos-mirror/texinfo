@@ -944,7 +944,7 @@ Next: <a href="#Unn" accesskey="n" rel="next">Unn</a> &nbsp; [<a href="#SEC_Cont
 </p>
 
 
-<span id="SEC_Contents"></span>
+<div class="Contents_element" id="SEC_Contents">
 <h2 class="contents-heading">Table of Contents</h2>
 
 <div class="contents">
@@ -956,7 +956,7 @@ Next: <a href="#Unn" accesskey="n" rel="next">Unn</a> &nbsp; [<a href="#SEC_Cont
   </ul></li>
 </ul>
 </div>
-
+</div>
 </div><hr>
 <div class="unnumbered" id="Unn">
 <div class="header">

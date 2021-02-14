@@ -3777,15 +3777,15 @@ sub _contents_inline_element($$$)
 
   my $content = &{$self->{'format_contents'}}($self, $cmdname, $command);
   if ($content) {
-    my $result = '';
     my $element_name = $contents_command_element_name{$cmdname};
     my $special_element 
       = $self->special_element($element_name);
     my $heading;
+    my $result = "<div class=\"${element_name}_element\"";
     if ($special_element) {
       my $id = $self->command_id($special_element);
       if ($id ne '') {
-        $result .= "<span id=\"$id\"></span>\n";
+        $result .= " id=\"$id\"";
       }
       $heading = $self->command_text($special_element);
     } else {
@@ -3794,10 +3794,11 @@ sub _contents_inline_element($$$)
       $heading 
         = $self->convert_tree ($self->get_conf('SPECIAL_ELEMENTS_NAME')->{$element_name});
     }
+    $result .= ">\n";
     my $class = $self->get_conf('SPECIAL_ELEMENTS_CLASS')->{$element_name};
     $result .= &{$self->{'format_heading_text'}}($self, $class.'-heading', 
                        $heading, $self->get_conf('CHAPTER_HEADER_LEVEL'))."\n";
-    $result .= $content . "\n";
+    $result .= $content . "</div>\n";
     return $result;
   }
   return '';

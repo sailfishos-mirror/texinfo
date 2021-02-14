@@ -8095,7 +8095,7 @@ Next: <a href="#chapter" accesskey="n" rel="next">chapter</a> &nbsp; [<a href="#
 <p>Menu:
 </p>
 
-<span id="SEC_Contents"></span>
+<div class="Contents_element" id="SEC_Contents">
 <h2 class="contents-heading">Table of Contents</h2>
 
 <div class="contents">
@@ -8158,7 +8158,7 @@ Next: <a href="#chapter" accesskey="n" rel="next">chapter</a> &nbsp; [<a href="#
   </ul></li>
 </ul>
 </div>
-
+</div>
 </div><hr>
 <div class="chapter" id="chapter">
 <div class="header">

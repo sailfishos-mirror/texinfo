@@ -766,7 +766,7 @@ Previous: <a href="#Top" accesskey="p" rel="prev">top section</a>, Up: <a href="
 
 <p>section.
 </p>
-<span id="SEC_Contents"></span>
+<div class="Contents_element" id="SEC_Contents">
 <h2 class="contents-heading">Table of Contents</h2>
 
 <div class="contents">
@@ -778,7 +778,7 @@ Previous: <a href="#Top" accesskey="p" rel="prev">top section</a>, Up: <a href="
   </ul></li>
 </ul>
 </div>
-
+</div>
 </div><hr>
 </div>
 </div>

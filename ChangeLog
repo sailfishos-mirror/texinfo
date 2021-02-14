@@ -1,5 +1,11 @@
 2021-02-14  Patrice Dumas  <pertusus@free.fr>
 
+	* Texinfo/Convert/HTML.pm (_contents_inline_element):
+	Put inline contents elements in a <div>.  Report from 
+	Per Bothner.
+
+2021-02-14  Patrice Dumas  <pertusus@free.fr>
+
 	* Texinfo/Convert/HTML.pm (%default_formatting_references, 
 	converter_initialize, _default_*), init/book.pm, 
 	init/chm.pm, init/html32.pm, t/init/mini_ker_t2h.init, 

@@ -371,7 +371,7 @@ ul.no-bullet {list-style: none}
 <div class="node" id="top">
 <h1 class="top">top</h1>
 
-<span id="SEC_Contents"></span>
+<div class="Contents_element" id="SEC_Contents">
 <h2 class="contents-heading">Table des mati&egrave;res</h2>
 
 <div class="contents">
@@ -380,7 +380,7 @@ ul.no-bullet {list-style: none}
   <li><a id="toc-dernier" href="#dernier">Annexe A dernier</a></li>
 </ul>
 </div>
-
+</div>
 </div><div class="appendix" id="dernier">
 <h2 class="appendix">Annexe A dernier</h2>
 

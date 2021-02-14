@@ -5032,7 +5032,7 @@ Next: <a href="#chapter" accesskey="n" rel="next">chapter</a> &nbsp; [<a href="#
 </p>
 
 
-<span id="SEC_Contents"></span>
+<div class="Contents_element" id="SEC_Contents">
 <h2 class="contents-heading">Table of Contents</h2>
 
 <div class="contents">
@@ -5052,8 +5052,8 @@ Next: <a href="#chapter" accesskey="n" rel="next">chapter</a> &nbsp; [<a href="#
   <li><a id="toc-chapter-2" href="#chapter2" rel="index">chapter 2</a></li>
 </ul>
 </div>
-
-<span id="SEC_Overview"></span>
+</div>
+<div class="Overview_element" id="SEC_Overview">
 <h2 class="shortcontents-heading">Short Table of Contents</h2>
 
 <div class="shortcontents">
@@ -5062,7 +5062,7 @@ Next: <a href="#chapter" accesskey="n" rel="next">chapter</a> &nbsp; [<a href="#
 <li><a id="stoc-chapter-2" href="#toc-chapter-2" rel="index">chapter 2</a></li>
 </ul>
 </div>
-
+</div>
 </div><hr>
 <div class="chapter" id="chapter">
 <div class="header">

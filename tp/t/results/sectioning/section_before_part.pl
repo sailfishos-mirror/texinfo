@@ -246,7 +246,7 @@ ul.no-bullet {list-style: none}
 <h1 class="part">part</h1>
 <hr>
 
-<span id="SEC_Contents"></span>
+<div class="Contents_element" id="SEC_Contents">
 <h2 class="contents-heading">Table of Contents</h2>
 
 <div class="contents">
@@ -256,7 +256,7 @@ ul.no-bullet {list-style: none}
 
 </ul>
 </div>
-
+</div>
 </div><hr></div>
 
 

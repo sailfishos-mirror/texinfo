@@ -1117,7 +1117,7 @@ Next: <a href="#chapter-node" accesskey="n" rel="next">chapter node</a> &nbsp; [
 <h1 class="top">top</h1>
 
 
-<span id="SEC_Contents"></span>
+<div class="Contents_element" id="SEC_Contents">
 <h2 class="contents-heading">Table of Contents</h2>
 
 <div class="contents">
@@ -1133,7 +1133,7 @@ Next: <a href="#chapter-node" accesskey="n" rel="next">chapter node</a> &nbsp; [
 
 </ul>
 </div>
-
+</div>
 </div><hr>
 <div class="chapter" id="chapter-node">
 <div class="header">

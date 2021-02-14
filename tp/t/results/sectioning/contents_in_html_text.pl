@@ -330,6 +330,7 @@ $result_converted{'html_text'}->{'contents_in_html_text'} = '<div class="top" id
 </div><div class="chapter" id="Chap2">
 <h2 class="chapter">2 Chap2</h2>
 
+<div class="Overview_element">
 <h2 class="shortcontents-heading">Short Table of Contents</h2>
 
 <div class="shortcontents">
@@ -338,7 +339,8 @@ $result_converted{'html_text'}->{'contents_in_html_text'} = '<div class="top" id
 <li><a id="stoc-Chap2" href="#toc-Chap2">2 Chap2</a></li>
 </ul>
 </div>
-
+</div>
+<div class="Contents_element">
 <h2 class="contents-heading">Table of Contents</h2>
 
 <div class="contents">
@@ -351,7 +353,7 @@ $result_converted{'html_text'}->{'contents_in_html_text'} = '<div class="top" id
   <li><a id="toc-Chap2" href="#Chap2">2 Chap2</a></li>
 </ul>
 </div>
-
+</div>
 </div><hr></div>
 ';
 
