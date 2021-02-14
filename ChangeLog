@@ -1,4 +1,9 @@
-2021-02-10  Gavin Smith  <gavinsmith0123@gmail.com>
+2021-02-14  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* tp/maintain/regenerate_cmd_tests.sh: Remove code that
+	was supposed to print diffs (ineffective since 2018-09-01).
+
+2021-02-14  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* tp/tests/run_parser_all.sh: Print diffs for test failure.
 
