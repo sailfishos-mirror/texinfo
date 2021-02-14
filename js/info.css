@@ -2,14 +2,19 @@
 | Sub pages  |
 `-----------*/
 
+body.in-iframe, div[node]#index {
+    padding: 0px 0.5em 0px 1em;
+}
+
 div[node] {
     left: 25%;
     width: 75%;
+    box-sizing: border-box;
     height: auto;
     top: 0pt;
     bottom: 0pt;
     position: absolute;
-    overflow: hidden;
+    overflow: auto;
 }
 
 div[node][hidden] {
@@ -17,8 +22,8 @@ div[node][hidden] {
 }
 
 /* Non-iframed main page */
-div[node]#index {
-    overflow: auto
+body.in-iframe {
+    margin: 0px;
 }
 
 /* Iframed sub pages */
