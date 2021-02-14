@@ -353,7 +353,9 @@ while read line; do
         diff $DIFF_A_OPTION $DIFF_U_OPTION -r "$res_dir_used" "${outdir}$dir" 2>>$logfile > "$testdir/$diffs_dir/$diff_base.diff"
         dif_ret=$?
         if [ $dif_ret != 0 ]; then
-          echo "D: $testdir/$diffs_dir/$diff_base.diff"
+          echo "D: $testdir/$diffs_dir/$diff_base.diff (printed below)"
+          cat "$testdir/$diffs_dir/$diff_base.diff"
+          echo "D: $testdir/$diffs_dir/$diff_base.diff (printed above)"
           return_code=1
         else
           rm "$testdir/$diffs_dir/$diff_base.diff"

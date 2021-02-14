@@ -1,3 +1,7 @@
+2021-02-10  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* tp/tests/run_parser_all.sh: Print diffs for test failure.
+
 2021-02-14  Patrice Dumas  <pertusus@free.fr>
 
 	* Texinfo/Convert/HTML.pm (_contents_inline_element):
