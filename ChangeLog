@@ -1,5 +1,10 @@
 2021-02-14  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* tp/tests/run_parser_all.sh: Print stderr for test error.
+	* TODO: Remove item.
+
+2021-02-14  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* tp/maintain/regenerate_cmd_tests.sh: Remove code that
 	was supposed to print diffs (ineffective since 2018-09-01).
 

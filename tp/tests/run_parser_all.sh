@@ -365,7 +365,9 @@ while read line; do
       fi
     else
       echo "failed with status $ret" >>$logfile
-      echo "F: ${outdir}$dir/$basename.2"
+      echo "F: ${outdir}$dir/$basename.2 (printed below)"
+      cat "${outdir}$dir/$basename.2"
+      echo "F: ${outdir}$dir/$basename.2 (printed above)"
       return_code=1
     fi
   done
