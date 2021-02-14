@@ -315,20 +315,16 @@ $result_floats{'contents_in_html_text'} = {};
 
 
 
-$result_converted{'html_text'}->{'contents_in_html_text'} = '<div class="top" id="top">
-<h1 class="top">top</h1>
+$result_converted{'html_text'}->{'contents_in_html_text'} = '<span id="top"></span><h1 class="top">top</h1>
 
-</div><div class="chapter" id="Chap1">
-<h2 class="chapter">1 Chap1</h2>
+<span id="Chap1"></span><h2 class="chapter">1 Chap1</h2>
 
 <ul class="section-toc">
 <li><a href="#Sec-1" accesskey="1">Sec 1</a></li>
 </ul>
-</div><div class="section" id="Sec-1">
-<h3 class="section">1.1 Sec 1</h3>
+<span id="Sec-1"></span><h3 class="section">1.1 Sec 1</h3>
 
-</div><div class="chapter" id="Chap2">
-<h2 class="chapter">2 Chap2</h2>
+<span id="Chap2"></span><h2 class="chapter">2 Chap2</h2>
 
 <div class="Overview_element">
 <h2 class="shortcontents-heading">Short Table of Contents</h2>
@@ -354,7 +350,7 @@ $result_converted{'html_text'}->{'contents_in_html_text'} = '<div class="top" id
 </ul>
 </div>
 </div>
-</div><hr></div>
+<hr></div>
 ';
 
 1;

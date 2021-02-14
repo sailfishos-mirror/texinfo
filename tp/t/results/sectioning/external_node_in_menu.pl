@@ -848,33 +848,30 @@ ul.no-bullet {list-style: none}
 <p>
 Next: <a href="#nchapter1" accesskey="n" rel="next">chap1</a> &nbsp; </p>
 </div>
-<div class="node" id="top">
-<h1 class="top">top</h1>
+<span id="top"></span><h1 class="top">top</h1>
 
 
 <ul class="section-toc">
 <li><a href="#nchapter1" accesskey="1">chap1</a></li>
 <li><a href="#nchapter2" accesskey="2">chap2</a></li>
 </ul>
-</div><hr>
+<hr>
 <div class="chapter" id="nchapter1">
 <div class="header">
 <p>
 Next: <a href="#nchapter2" accesskey="n" rel="next">chap2</a>, Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>
-<div class="node" id="chap1">
-<h2 class="chapter">1 chap1</h2>
+<span id="chap1"></span><h2 class="chapter">1 chap1</h2>
 
-</div><hr>
+<hr>
 </div>
 <div class="chapter" id="nchapter2">
 <div class="header">
 <p>
 Previous: <a href="#nchapter1" accesskey="p" rel="prev">chap1</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>
-<div class="node" id="chap2">
-<h2 class="chapter">2 chap2</h2>
-</div><hr>
+<span id="chap2"></span><h2 class="chapter">2 chap2</h2>
+<hr>
 </div>
 </div>
 

@@ -8243,8 +8243,7 @@ ul.no-bullet {list-style: none}
 <p>
 Next: <a href="#chapter" accesskey="n" rel="next">A chapter</a> &nbsp; </p>
 </div>
-<div class="node" id="Test-floats">
-<h1 class="top">Test floats</h1>
+<span id="Test-floats"></span><h1 class="top">Test floats</h1>
 
 <div class="float"><span id="text-with-a-lot-of-features"></span>
 
@@ -8299,14 +8298,13 @@ Next: <a href="#chapter" accesskey="n" rel="next">A chapter</a> &nbsp; </p>
 <li><a href="#Appendix-for-float" accesskey="4">Appendix for float</a></li>
 <li><a href="#list-of-floats" accesskey="5">list of floats</a></li>
 </ul>
-</div><hr>
+<hr>
 <div class="chapter" id="chapter">
 <div class="header">
 <p>
 Next: <a href="#Unnumbered" accesskey="n" rel="next">Unnumbered</a>, Previous: <a href="#Top" accesskey="p" rel="prev">Test floats</a>, Up: <a href="#Top" accesskey="u" rel="up">Test floats</a> &nbsp; </p>
 </div>
-<div class="node" id="A-chapter">
-<h2 class="chapter">1 A chapter</h2>
+<span id="A-chapter"></span><h2 class="chapter">1 A chapter</h2>
 
 <div class="float"><span id="text-in-chapter"></span>
 <p>Text in chapter
@@ -8337,14 +8335,13 @@ Next: <a href="#Unnumbered" accesskey="n" rel="next">Unnumbered</a>, Previous: <
 <ul class="section-toc">
 <li><a href="#section" accesskey="1">A section</a></li>
 </ul>
-</div><hr>
+<hr>
 <div class="section" id="section">
 <div class="header">
 <p>
 Up: <a href="#chapter" accesskey="u" rel="up">A chapter</a> &nbsp; </p>
 </div>
-<div class="node" id="A-section">
-<h3 class="section">1.1 A section</h3>
+<span id="A-section"></span><h3 class="section">1.1 A section</h3>
 
 <div class="float"><span id="text-in-section"></span>
 
@@ -8352,7 +8349,7 @@ Up: <a href="#chapter" accesskey="u" rel="up">A chapter</a> &nbsp; </p>
 </p>
 <div class="float-caption"><p><strong>Text 1.3
 </strong></p></div></div>
-</div><hr>
+<hr>
 </div>
 </div>
 <div class="unnumbered" id="Unnumbered">
@@ -8360,8 +8357,7 @@ Up: <a href="#chapter" accesskey="u" rel="up">A chapter</a> &nbsp; </p>
 <p>
 Next: <a href="#Chapter-with-unnumbsubsec" accesskey="n" rel="next">Chapter with unnumbsubsec</a>, Previous: <a href="#chapter" accesskey="p" rel="prev">A chapter</a>, Up: <a href="#Top" accesskey="u" rel="up">Test floats</a> &nbsp; </p>
 </div>
-<div class="node" id="Unnumbered-1">
-<h2 class="unnumbered">Unnumbered</h2>
+<span id="Unnumbered-1"></span><h2 class="unnumbered">Unnumbered</h2>
 
 <div class="float"><span id="unnumbered-float"></span>
 <p>unnum
@@ -8377,14 +8373,13 @@ Next: <a href="#Chapter-with-unnumbsubsec" accesskey="n" rel="next">Chapter with
 <ul class="section-toc">
 <li><a href="#Section-within-unnumbered" accesskey="1">Section within unnumbered</a></li>
 </ul>
-</div><hr>
+<hr>
 <div class="section" id="Section-within-unnumbered">
 <div class="header">
 <p>
 Up: <a href="#Unnumbered" accesskey="u" rel="up">Unnumbered</a> &nbsp; </p>
 </div>
-<div class="node" id="Section-within-unnumbered-1">
-<h3 class="section">Section within unnumbered</h3>
+<span id="Section-within-unnumbered-1"></span><h3 class="section">Section within unnumbered</h3>
 
 
 <div class="float"><span id="Section-within-unnumbered-float"></span>
@@ -8392,7 +8387,7 @@ Up: <a href="#Unnumbered" accesskey="u" rel="up">Unnumbered</a> &nbsp; </p>
 </p>
 
 <div class="float-caption"><p><strong>Text 6: </strong>C Section within unnumbered</p></div></div>
-</div><hr>
+<hr>
 </div>
 </div>
 <div class="chapter" id="Chapter-with-unnumbsubsec">
@@ -8400,8 +8395,7 @@ Up: <a href="#Unnumbered" accesskey="u" rel="up">Unnumbered</a> &nbsp; </p>
 <p>
 Next: <a href="#Appendix-for-float" accesskey="n" rel="next">Appendix for float</a>, Previous: <a href="#Unnumbered" accesskey="p" rel="prev">Unnumbered</a>, Up: <a href="#Top" accesskey="u" rel="up">Test floats</a> &nbsp; </p>
 </div>
-<div class="node" id="Chapter-with-unnumbsubsec-1">
-<h2 class="chapter">2 Chapter with unnumbsubsec</h2>
+<span id="Chapter-with-unnumbsubsec-1"></span><h2 class="chapter">2 Chapter with unnumbsubsec</h2>
 
 <div class="float"><span id="Chapter-with-subsec-float"></span>
 <p>Chap
@@ -8411,14 +8405,13 @@ Next: <a href="#Appendix-for-float" accesskey="n" rel="next">Appendix for float<
 <ul class="section-toc">
 <li><a href="#unnumbered-sec" accesskey="1">unnumbered sec</a></li>
 </ul>
-</div><hr>
+<hr>
 <div class="unnumberedsec" id="unnumbered-sec">
 <div class="header">
 <p>
 Up: <a href="#Chapter-with-unnumbsubsec" accesskey="u" rel="up">Chapter with unnumbsubsec</a> &nbsp; </p>
 </div>
-<div class="node" id="unnumbered-sec-1">
-<h3 class="unnumberedsec">unnumbered sec</h3>
+<span id="unnumbered-sec-1"></span><h3 class="unnumberedsec">unnumbered sec</h3>
 
 <div class="float"><span id="unnumbered-sec-float"></span>
 <p>Chap
@@ -8431,7 +8424,7 @@ Up: <a href="#Chapter-with-unnumbsubsec" accesskey="u" rel="up">Chapter with unn
 
 
 <div class="float-caption"><p><strong>2.1: </strong>C No type in unnumbered subsec in chapter</p></div></div>
-</div><hr>
+<hr>
 </div>
 </div>
 <div class="appendix" id="Appendix-for-float">
@@ -8439,8 +8432,7 @@ Up: <a href="#Chapter-with-unnumbsubsec" accesskey="u" rel="up">Chapter with unn
 <p>
 Next: <a href="#list-of-floats" accesskey="n" rel="next">list of floats</a>, Previous: <a href="#Chapter-with-unnumbsubsec" accesskey="p" rel="prev">Chapter with unnumbsubsec</a>, Up: <a href="#Top" accesskey="u" rel="up">Test floats</a> &nbsp; </p>
 </div>
-<div class="node" id="Appendix-for-float-1">
-<h2 class="appendix">Appendix A Appendix for float</h2>
+<span id="Appendix-for-float-1"></span><h2 class="appendix">Appendix A Appendix for float</h2>
 
 <div class="float"><span id="appendix-sec-float"></span>
 
@@ -8448,15 +8440,14 @@ Next: <a href="#list-of-floats" accesskey="n" rel="next">list of floats</a>, Pre
 </p>
 
 <div class="float-caption"><p><strong>Text A.1: </strong>C appendix sec float</p></div></div>
-</div><hr>
+<hr>
 </div>
 <div class="unnumbered" id="list-of-floats">
 <div class="header">
 <p>
 Previous: <a href="#Appendix-for-float" accesskey="p" rel="prev">Appendix for float</a>, Up: <a href="#Top" accesskey="u" rel="up">Test floats</a> &nbsp; </p>
 </div>
-<div class="node" id="list-of-floats-1">
-<h2 class="unnumbered">list of floats</h2>
+<span id="list-of-floats-1"></span><h2 class="unnumbered">list of floats</h2>
 
 <p>See <a href="#text-in-section">Text 1.3</a>.
 And (see <a href="#text-in-chapter">Text 1.1</a>).
@@ -8488,7 +8479,7 @@ See <a href="#text-with-a-lot-of-features">Text 1</a>.
 <dt><a href="#theoreme">th&eacute;or&egrave;me 1.1</a></dt><dd><p>C A th&eacute;or&egrave;me</p></dd>
 </dl>
 
-</div><hr>
+<hr>
 </div>
 </div>
 

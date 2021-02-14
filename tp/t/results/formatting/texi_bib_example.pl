@@ -5689,8 +5689,7 @@ ul.no-bullet {list-style: none}
 <td valign="middle" align="left">[Index]</td>
 <td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<div class="node" id="Top-1">
-<h1 class="top">Top</h1>
+<span id="Top-1"></span><h1 class="top">Top</h1>
 
 <table class="menu" border="0" cellspacing="0">
 <tr><td align="left" valign="top"><a href="#Introduction">1 Introduction</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
@@ -5701,7 +5700,7 @@ ul.no-bullet {list-style: none}
 
 </pre></th></tr></table>
 
-</div><hr size="6">
+<hr size="6">
 <div class="chapter" id="Introduction">
 <table class="header" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#Top" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
@@ -5718,15 +5717,14 @@ ul.no-bullet {list-style: none}
 <td valign="middle" align="left">[Index]</td>
 <td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<div class="node" id="Introduction-1">
-<h1 class="chapter">1 Introduction</h1>
+<span id="Introduction-1"></span><h1 class="chapter">1 Introduction</h1>
 
 <p>The ability of a documentation format to make cross references to a
 bibliography, a feature of LaTeX (See item [LaTeX2e] in <a href="#References">LaTeX2e</a>.)
 , isn&rsquo;t
 currently supported in Texinfo.
 </p>
-</div><hr>
+<hr>
 </div>
 <div class="chapter" id="References">
 <table class="header" cellpadding="1" cellspacing="1" border="0">
@@ -5744,8 +5742,7 @@ currently supported in Texinfo.
 <td valign="middle" align="left">[Index]</td>
 <td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<div class="node" id="References-1">
-<h1 class="chapter">2 References</h1>
+<span id="References-1"></span><h1 class="chapter">2 References</h1>
 
 <ul class="no-bullet">
 <li> <span id="LaTeX2e"></span>[LaTeX2e]
@@ -5755,7 +5752,7 @@ Massachusetts, 1994.
 
 </li></ul>
 
-</div><hr>
+<hr>
 </div>
 </div>
 <p><font size="-1">

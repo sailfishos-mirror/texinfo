@@ -216,9 +216,8 @@ ul.no-bullet {list-style: none}
 <body lang="en">
 <blockquote>
 
-<div class="heading" id="in-quotation-_0040-heading">
-<h3 class="heading">in quotation @ <em>heading</em></h3>
-</div>
+<span id="in-quotation-_0040-heading"></span><h3 class="heading">in quotation @ <em>heading</em></h3>
+
 </blockquote>
 
 

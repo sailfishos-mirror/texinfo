@@ -459,8 +459,7 @@ ul.no-bullet {list-style: none}
 <body lang="en">
 
 
-<div class="node" id="Top">
-<h1 class="node-heading">Top</h1>
+<span id="Top"></span><h1 class="node-heading">Top</h1>
 
 
 <p>Copying.
@@ -472,7 +471,7 @@ ul.no-bullet {list-style: none}
 
 <p>See <a href="#Copying-information">Copying information</a>.
 </p>
-</div><hr></div>
+<hr></div>
 
 
 

@@ -455,8 +455,7 @@ ul.no-bullet {list-style: none}
 
 <body lang="en">
 <div class="top" id="Top">
-<div class="node" id="top">
-<h1 class="top">top</h1>
+<span id="top"></span><h1 class="top">top</h1>
 
 <p>Text
 </p>
@@ -465,7 +464,7 @@ ul.no-bullet {list-style: none}
 <tr><td align="left" valign="top">&bull; <a href="#An-anchor" accesskey="1">An anchor</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">menu entry pointing to the anchor.
 </td></tr>
 </table>
-</div><hr></div>
+<hr></div>
 </div>
 
 

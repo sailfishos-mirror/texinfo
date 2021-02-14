@@ -154,11 +154,10 @@ F(1).
 ';
 
 
-$result_converted{'html_text'}->{'footnote_no_node'} = '<div class="top" id="top">
-<h1 class="top">top</h1>
+$result_converted{'html_text'}->{'footnote_no_node'} = '<span id="top"></span><h1 class="top">top</h1>
 
 <p>F<a id="DOCF1" href="#FOOT1"><sup>1</sup></a>.
-</p></div><div class="footnote">
+</p><div class="footnote">
 <hr>
 <h4 class="footnotes-heading">Footnotes</h4>
 

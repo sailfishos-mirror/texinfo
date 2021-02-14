@@ -1300,8 +1300,7 @@ $result_converted{'html_text'}->{'printindex_index_entry_in_copying_no_insertcop
 <p>
  &nbsp; </p>
 </div>
-<div class="node" id="top">
-<h1 class="top">top</h1>
+<span id="top"></span><h1 class="top">top</h1>
 
 <p>Top.
 </p>
@@ -1309,14 +1308,13 @@ $result_converted{'html_text'}->{'printindex_index_entry_in_copying_no_insertcop
 <ul class="section-toc">
 <li><a href="#chapter" accesskey="1">Chapter</a></li>
 </ul>
-</div><hr>
+<hr>
 <div class="chapter" id="chapter">
 <div class="header">
 <p>
  &nbsp; </p>
 </div>
-<div class="node" id="Chapter">
-<h2 class="chapter">1 Chapter</h2>
+<span id="Chapter"></span><h2 class="chapter">1 Chapter</h2>
 
 
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#t_h_fn_letter-C"><b>C</b></a>
@@ -1349,7 +1347,7 @@ $result_converted{'html_text'}->{'printindex_index_entry_in_copying_no_insertcop
  &nbsp; 
 </td></tr></table>
 
-</div><hr>
+<hr>
 ';
 
 1;

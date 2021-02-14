@@ -769,8 +769,7 @@ $result_converted{'plaintext'}->{'printindex_merged_indices_code_style'} = '* Me
 ';
 
 
-$result_converted{'html_text'}->{'printindex_merged_indices_code_style'} = '<div class="node" id="Top">
-<h1 class="node-heading">Top</h1>
+$result_converted{'html_text'}->{'printindex_merged_indices_code_style'} = '<span id="Top"></span><h1 class="node-heading">Top</h1>
 
 
 
@@ -823,7 +822,7 @@ $result_converted{'html_text'}->{'printindex_merged_indices_code_style'} = '<div
 <a class="summary-letter" href="#t_h_fn_letter-V"><b>V</b></a>
  &nbsp; 
 </td></tr></table>
-</div><hr></div>
+<hr></div>
 ';
 
 

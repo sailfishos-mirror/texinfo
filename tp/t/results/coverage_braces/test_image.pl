@@ -3947,8 +3947,7 @@ ul.no-bullet {list-style: none}
 <body lang="en">
 
 
-<div class="node" id="Top">
-<h1 class="node-heading">Top</h1>
+<span id="Top"></span><h1 class="node-heading">Top</h1>
 
 <img src="f@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; .ext@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; " alt="f@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; ">
 
@@ -3987,7 +3986,7 @@ In text [ alt <b>&icirc;&ndash;le..</b>  a
 &lt;&quot;%@  &lt; &amp; @ % &quot; ">.</p></dd>
 </dl>
 
-</div><hr></div>
+<hr></div>
 
 
 
@@ -4186,8 +4185,7 @@ $result_converted_errors{'plaintext'}->{'test_image'} = [
 
 $result_converted{'html_text'}->{'test_image'} = '
 
-<div class="node" id="Top">
-<h1 class="node-heading">Top</h1>
+<span id="Top"></span><h1 class="node-heading">Top</h1>
 
 <img src="f@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; .ext@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; " alt="f@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; ">
 
@@ -4226,7 +4224,7 @@ In text [ alt <b>&icirc;&ndash;le..</b>  a
 &lt;&quot;%@  &lt; &amp; @ % &quot; ">.</p></dd>
 </dl>
 
-</div><hr></div>
+<hr></div>
 ';
 
 $result_converted_errors{'html_text'}->{'test_image'} = [

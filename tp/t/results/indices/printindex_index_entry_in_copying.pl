@@ -1412,8 +1412,7 @@ $result_converted{'html_text'}->{'printindex_index_entry_in_copying'} = '
 <p>
  &nbsp; [<a href="#Top" title="Index" rel="index">Index</a>]</p>
 </div>
-<div class="node" id="top">
-<h1 class="top">top</h1>
+<span id="top"></span><h1 class="top">top</h1>
 
 <p>Top.
 </p>
@@ -1465,14 +1464,13 @@ $result_converted{'html_text'}->{'printindex_index_entry_in_copying'} = '
 <ul class="section-toc">
 <li><a href="#chapter" accesskey="1">Chapter</a></li>
 </ul>
-</div><hr>
+<hr>
 <div class="chapter" id="chapter">
 <div class="header">
 <p>
  &nbsp; [<a href="#Top" title="Index" rel="index">Index</a>]</p>
 </div>
-<div class="node" id="Chapter">
-<h2 class="chapter">1 Chapter</h2>
+<span id="Chapter"></span><h2 class="chapter">1 Chapter</h2>
 
 
 <span id="index-copying-Copying-this-document"></span>
@@ -1549,7 +1547,7 @@ $result_converted{'html_text'}->{'printindex_index_entry_in_copying'} = '
  &nbsp; 
 </td></tr></table>
 
-</div><hr>
+<hr>
 ';
 
 1;

@@ -4912,8 +4912,7 @@ ul.no-bullet {list-style: none}
 <p>
 Next: <a href="#chapter" accesskey="n" rel="next">chapter</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Top" title="Index" rel="index">Index</a>]</p>
 </div>
-<div class="node" id="Top-section">
-<h1 class="top">Top section</h1>
+<span id="Top-section"></span><h1 class="top">Top section</h1>
 
 
 
@@ -5063,14 +5062,13 @@ Next: <a href="#chapter" accesskey="n" rel="next">chapter</a> &nbsp; [<a href="#
 </ul>
 </div>
 </div>
-</div><hr>
+<hr>
 <div class="chapter" id="chapter">
 <div class="header">
 <p>
 Next: <a href="#chapter2" accesskey="n" rel="next">chapter 2</a>, Previous: <a href="#Top" accesskey="p" rel="prev">Top section</a>, Up: <a href="#Top" accesskey="u" rel="up">Top section</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Top" title="Index" rel="index">Index</a>]</p>
 </div>
-<div class="node" id="chapter-1">
-<h2 class="chapter">1 chapter</h2>
+<span id="chapter-1"></span><h2 class="chapter">1 chapter</h2>
 
 <p><a id="DOCF1" href="#FOOT1"><sup>1</sup></a>
 </p>
@@ -5078,27 +5076,25 @@ Next: <a href="#chapter2" accesskey="n" rel="next">chapter 2</a>, Previous: <a h
 <ul class="section-toc">
 <li><a href="#s_002d_002dect_002cion" accesskey="1">A section</a></li>
 </ul>
-</div><hr>
+<hr>
 <div class="section" id="s_002d_002dect_002cion">
 <div class="header">
 <p>
 Up: <a href="#chapter" accesskey="u" rel="up">chapter</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Top" title="Index" rel="index">Index</a>]</p>
 </div>
-<div class="node" id="A-section">
-<h3 class="section">1.1 A section</h3>
+<span id="A-section"></span><h3 class="section">1.1 A section</h3>
 
 
 <ul class="section-toc">
 <li><a href="#subsection" accesskey="1">subsection</a></li>
 </ul>
-</div><hr>
+<hr>
 <div class="subsection" id="subsection">
 <div class="header">
 <p>
 Up: <a href="#s_002d_002dect_002cion" accesskey="u" rel="up">A section</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Top" title="Index" rel="index">Index</a>]</p>
 </div>
-<div class="node" id="subsection-1">
-<h4 class="subsection">1.1.1 subsection</h4>
+<span id="subsection-1"></span><h4 class="subsection">1.1.1 subsection</h4>
 
 
 <span id="anchor"></span>
@@ -5106,26 +5102,24 @@ Up: <a href="#s_002d_002dect_002cion" accesskey="u" rel="up">A section</a> &nbsp
 <li><a href="#subsubsection-_0060_0060simple_002ddouble_002d_002d" accesskey="1">subsubsection &ldquo;simple-double&ndash;</a></li>
 <li><a href="#subsubsection-three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027" accesskey="2">three&mdash;four&mdash;-&rdquo;</a></li>
 </ul>
-</div><hr>
+<hr>
 <div class="subsubsection" id="subsubsection-_0060_0060simple_002ddouble_002d_002d">
 <div class="header">
 <p>
 Next: <a href="#subsubsection-three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027" accesskey="n" rel="next">three&mdash;four&mdash;-&rdquo;</a>, Up: <a href="#subsection" accesskey="u" rel="up">subsection</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Top" title="Index" rel="index">Index</a>]</p>
 </div>
-<div class="node" id="subsubsection-_0060_0060simple_002ddouble_002d_002d-1">
-<h4 class="subsubsection">1.1.1.1 subsubsection &ldquo;simple-double&ndash;</h4>
+<span id="subsubsection-_0060_0060simple_002ddouble_002d_002d-1"></span><h4 class="subsubsection">1.1.1.1 subsubsection &ldquo;simple-double&ndash;</h4>
 
-</div><hr>
+<hr>
 </div>
 <div class="subsubsection" id="subsubsection-three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027">
 <div class="header">
 <p>
 Previous: <a href="#subsubsection-_0060_0060simple_002ddouble_002d_002d" accesskey="p" rel="prev">subsubsection &ldquo;simple-double&ndash;</a>, Up: <a href="#subsection" accesskey="u" rel="up">subsection</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Top" title="Index" rel="index">Index</a>]</p>
 </div>
-<div class="node" id="three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027">
-<h4 class="subsubsection">1.1.1.2 three&mdash;four&mdash;-&rdquo;</h4>
+<span id="three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027"></span><h4 class="subsubsection">1.1.1.2 three&mdash;four&mdash;-&rdquo;</h4>
 
-</div><hr>
+<hr>
 </div>
 </div>
 </div>
@@ -5135,8 +5129,7 @@ Previous: <a href="#subsubsection-_0060_0060simple_002ddouble_002d_002d" accessk
 <p>
 Previous: <a href="#chapter" accesskey="p" rel="prev">chapter</a>, Up: <a href="#Top" accesskey="u" rel="up">Top section</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Top" title="Index" rel="index">Index</a>]</p>
 </div>
-<div class="node" id="chapter-2">
-<h2 class="centerchap" align="center">chapter 2</h2>
+<span id="chapter-2"></span><h2 class="centerchap" align="center">chapter 2</h2>
 
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#chapter2_cp_symbol-1"><b>.</b></a>
  &nbsp; 
@@ -5213,7 +5206,7 @@ Previous: <a href="#chapter" accesskey="p" rel="prev">chapter</a>, Up: <a href="
  &nbsp; 
 </td></tr></table>
 
-</div><div class="footnote">
+<div class="footnote">
 <hr>
 <h4 class="footnotes-heading">Footnotes</h4>
 

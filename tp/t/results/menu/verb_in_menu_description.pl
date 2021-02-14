@@ -464,8 +464,7 @@ ul.no-bullet {list-style: none}
 
 <body lang="en">
 <div class="top" id="Top">
-<div class="node" id="top">
-<h1 class="top">top</h1>
+<span id="top"></span><h1 class="top">top</h1>
 
 <table class="menu" border="0" cellspacing="0">
 <tr><td align="left" valign="top">&bull; <a href="manual.html#Top" accesskey="1">(manual)</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
@@ -476,7 +475,7 @@ ul.no-bullet {list-style: none}
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
 
 </pre></th></tr></table>
-</div><hr></div>
+<hr></div>
 </div>
 
 

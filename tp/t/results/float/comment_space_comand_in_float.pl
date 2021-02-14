@@ -426,8 +426,7 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<div class="node" id="Top">
-<h1 class="node-heading">Top</h1>
+<span id="Top"></span><h1 class="node-heading">Top</h1>
 
 <div class="float"><span id="label--"></span>
 <p>Float
@@ -436,7 +435,7 @@ ul.no-bullet {list-style: none}
 <dl class="listoffloats">
 <dt><a href="#label--">Text &nbsp; 1</a></dt><dd></dd>
 </dl>
-</div><hr></div>
+<hr></div>
 
 
 

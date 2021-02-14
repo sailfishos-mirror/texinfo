@@ -918,8 +918,7 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<div class="node" id="Top">
-<h1 class="node-heading">Top</h1>
+<span id="Top"></span><h1 class="node-heading">Top</h1>
 
 <table class="menu" border="0" cellspacing="0">
 <tr><td align="left" valign="top">&bull; <a href="f.html#a_003a" accesskey="1">(f)a:</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
@@ -933,7 +932,7 @@ ul.no-bullet {list-style: none}
 <tr><td align="left" valign="top">&bull; <a href="f.html#node-n" accesskey="5">name</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">d3
 </td></tr>
 </table>
-</div><hr></div>
+<hr></div>
 
 
 

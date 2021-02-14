@@ -331,11 +331,10 @@ ul.no-bullet {list-style: none}
 <body lang="fr">
 
 <div class="top" id="Top">
-<div class="node" id="top-error_002d_002d_003e">
-<h1 class="top">top erreur&rarr;</h1>
+<span id="top-error_002d_002d_003e"></span><h1 class="top">top erreur&rarr;</h1>
 
 <p>erreur&rarr;
-</p></div><hr></div>
+</p><hr></div>
 </div>
 
 

@@ -267,17 +267,14 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<div class="chapter" id="chap">
-<h2 class="chapter">1 chap</h2>
+<span id="chap"></span><h2 class="chapter">1 chap</h2>
 
-</div><div class="chapter" id="chap2">
-<h2 class="chapter">2 chap2</h2>
+<span id="chap2"></span><h2 class="chapter">2 chap2</h2>
 
 <ul class="section-toc">
 <li><a href="#sec" accesskey="1">sec</a></li>
 </ul>
-</div><div class="section" id="sec">
-<h3 class="section">2.1 sec</h3>
+<span id="sec"></span><h3 class="section">2.1 sec</h3>
 
 <div class="Overview_element" id="SEC_Overview">
 <h2 class="shortcontents-heading">Short Table of Contents</h2>
@@ -290,7 +287,7 @@ ul.no-bullet {list-style: none}
 </ul>
 </div>
 </div>
-</div><hr></div>
+<hr></div>
 
 
 

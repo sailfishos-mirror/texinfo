@@ -449,17 +449,14 @@ ul.no-bullet {list-style: none}
 
 <body lang="en">
 
-<div class="node" id="Top">
-<h1 class="node-heading">Top</h1>
+<span id="Top"></span><h1 class="node-heading">Top</h1>
 
 
-<div class="heading" id="in-copying-_0040-heading">
-<h3 class="heading">in copying @ <em>heading</em></h3>
-</div><span id="index-copying-cindex-copying"></span>
+<span id="in-copying-_0040-heading"></span><h3 class="heading">in copying @ <em>heading</em></h3>
+<span id="index-copying-cindex-copying"></span>
 
-<div class="subheading" id="second-in-copying-_0040-subheading">
-<h4 class="subheading">second in copying @ <em>subheading</em></h4>
-</div></div><hr></div>
+<span id="second-in-copying-_0040-subheading"></span><h4 class="subheading">second in copying @ <em>subheading</em></h4>
+<hr></div>
 
 
 

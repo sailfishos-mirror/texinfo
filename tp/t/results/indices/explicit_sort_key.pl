@@ -998,8 +998,7 @@ $result_converted{'plaintext'}->{'explicit_sort_key'} = 'in a reuglar para.  \'i
 
 
 $result_converted{'html_text'}->{'explicit_sort_key'} = '<div class="top" id="Top">
-<div class="node" id="SEC_Top">
-
+<span id="SEC_Top"></span>
 
 <span id="index-Abbbbbbb-_0028first_0029"></span>
 <span id="index-Baaaaaaa-_0028second_0029"></span>
@@ -1041,7 +1040,7 @@ $result_converted{'html_text'}->{'explicit_sort_key'} = '<div class="top" id="To
 <a class="summary-letter" href="#t_h_SK_letter-B"><b>B</b></a>
  &nbsp; 
 </td></tr></table>
-</div><hr></div>
+<hr></div>
 ';
 
 1;

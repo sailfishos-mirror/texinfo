@@ -461,8 +461,7 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<div class="top" id="top">
-<div class="header">
+<span id="top"></span><div class="header">
 <p>
  &nbsp; [<a href="#chap" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -471,9 +470,8 @@ ul.no-bullet {list-style: none}
 <ul class="section-toc">
 <li><a href="#chap" accesskey="1">chap</a></li>
 </ul>
-</div><hr>
-<div class="chapter" id="chap">
-<div class="header">
+<hr>
+<span id="chap"></span><div class="header">
 <p>
  Up : <a href="#top" accesskey="u" rel="up">top</a> &nbsp; [<a href="#chap" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -482,9 +480,8 @@ ul.no-bullet {list-style: none}
 <ul class="section-toc">
 <li><a href="#sec" accesskey="1">sec</a></li>
 </ul>
-</div><hr>
-<div class="section" id="sec">
-<div class="header">
+<hr>
+<span id="sec"></span><div class="header">
 <p>
  Up : <a href="#chap" accesskey="u" rel="up">chap</a> &nbsp; [<a href="#chap" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -504,7 +501,7 @@ ul.no-bullet {list-style: none}
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#sec_cp_letter-E"><b>E</b></a>
  &nbsp; 
 </td></tr></table>
-</div><hr>
+<hr>
 
 
 

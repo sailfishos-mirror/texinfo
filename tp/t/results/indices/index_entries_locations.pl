@@ -543,8 +543,7 @@ $result_converted{'plaintext'}->{'index_entries_locations'} = 'Initial paragraph
 
 
 $result_converted{'html_text'}->{'index_entries_locations'} = '
-<div class="node" id="Top">
-<h1 class="node-heading">Top</h1>
+<span id="Top"></span><h1 class="node-heading">Top</h1>
 
 <p>Initial paragraph.
 </p>
@@ -584,7 +583,7 @@ end paragraph.
 <a class="summary-letter" href="#t_h_cp_letter-L"><b>L</b></a>
  &nbsp; 
 </td></tr></table>
-</div><hr></div>
+<hr></div>
 ';
 
 1;

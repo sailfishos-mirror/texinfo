@@ -577,20 +577,18 @@ ul.no-bullet {list-style: none}
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>
-<div class="node" id="section">
-<h3 class="section">1 section</h3>
+<span id="section"></span><h3 class="section">1 section</h3>
 
-</div><hr>
+<hr>
 </div>
 <div class="top" id="Top">
 <div class="header">
 <p>
 Next: <a href="#section-node" accesskey="n" rel="next">section</a> &nbsp; </p>
 </div>
-<div class="node" id="top">
-<h3 class="unnumberedsec">top</h3>
+<span id="top"></span><h3 class="unnumberedsec">top</h3>
 
-</div><hr>
+<hr>
 </div>
 
 

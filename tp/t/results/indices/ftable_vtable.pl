@@ -923,8 +923,7 @@ _var3_
 
 
 $result_converted{'html_text'}->{'ftable_vtable'} = '
-<div class="node" id="Top">
-<h1 class="node-heading">Top</h1>
+<span id="Top"></span><h1 class="node-heading">Top</h1>
 
 <dl compact="compact">
 <dt id=\'index-function1\'><span><em>function1</em><a href=\'#index-function1\' class=\'copiable-anchor\'> &para;</a></span></dt>
@@ -977,7 +976,7 @@ $result_converted{'html_text'}->{'ftable_vtable'} = '
  &nbsp; 
 </td></tr></table>
 
-</div><hr></div>
+<hr></div>
 ';
 
 1;

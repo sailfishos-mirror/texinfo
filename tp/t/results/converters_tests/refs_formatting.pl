@@ -4465,8 +4465,7 @@ title: (file name)(pman)anode. \'@ref{(pman)anode,,,file name,manual}\'
 
 
 $result_converted{'html_text'}->{'refs_formatting'} = '<div class="chapter" id="chapter">
-<div class="node" id="chapter-1">
-<h2 class="chapter">1 chapter</h2>
+<span id="chapter-1"></span><h2 class="chapter">1 chapter</h2>
 
 <p><code>@ref{chapter,cross ref name}</code> <a href="#chapter">cross ref name</a>
 <code>@ref{chapter,,title}</code> <a href="#chapter">title</a>
@@ -4502,7 +4501,7 @@ $result_converted{'html_text'}->{'refs_formatting'} = '<div class="chapter" id="
 <code>@inforef{chapter}</code> See &lsquo;chapter&rsquo;
 <code>@inforef{chapter, cross ref name}</code> See &lsquo;cross ref name&rsquo;
 <code>@inforef{chapter,,file name}</code> See <a data-manual="file name" href="file name.html#chapter">(file name)chapter</a>
-</p></div><hr></div>
+</p><hr></div>
 ';
 
 

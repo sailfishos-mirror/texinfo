@@ -1046,13 +1046,11 @@ ul.no-bullet {list-style: none}
 <p>
 Next: <a href="#chapter-node" accesskey="n" rel="next">chapter</a> &nbsp; </p>
 </div>
-<div class="node" id="top">
-<h1 class="top">top</h1>
+<span id="top"></span><h1 class="top">top</h1>
 
 
-</div><hr>
-<div class="part" id="Part-1">
-<div class="header">
+<hr>
+<span id="Part-1"></span><div class="header">
 <p>
 Next: <a href="#appendix-node" accesskey="n" rel="next">Appendix</a>, Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>
@@ -1062,20 +1060,18 @@ Next: <a href="#appendix-node" accesskey="n" rel="next">Appendix</a>, Previous: 
 <ul class="section-toc">
 <li><a href="#chapter-node" accesskey="1">chapter</a></li>
 </ul>
-</div><div class="chapter" id="chapter-node">
-<div class="node" id="chapter">
-<h2 class="chapter">1 chapter</h2>
+<div class="chapter" id="chapter-node">
+<span id="chapter"></span><h2 class="chapter">1 chapter</h2>
 
-</div><hr>
+<hr>
 </div>
 <div class="appendix" id="appendix-node">
 <div class="header">
 <p>
 Previous: <a href="#chapter-node" accesskey="p" rel="prev">chapter</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>
-<div class="node" id="Appendix">
-<h2 class="appendix">Appendix A Appendix</h2>
-</div><hr>
+<span id="Appendix"></span><h2 class="appendix">Appendix A Appendix</h2>
+<hr>
 </div>
 </div>
 

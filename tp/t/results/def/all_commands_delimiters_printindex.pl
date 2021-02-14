@@ -16030,8 +16030,7 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<div class="node" id="Top">
-<h1 class="node-heading">Top</h1>
+<span id="Top"></span><h1 class="node-heading">Top</h1>
 <dl class="def">
 <dt id="index-forward_002d_002dchar"><span class="category">Command: </span><span><strong><var>forward--char</var></strong> <em><var>nchars</var> argument2 argument3         (arg in brace, [something <var>in v--ar</var>, <b>in, b</b> , comma a<var>pref</var> p]) last</em><a href=\'#index-forward_002d_002dchar\' class=\'copiable-anchor\'> &para;</a></span></dt>
 </dl>
@@ -16220,9 +16219,8 @@ ul.no-bullet {list-style: none}
 <dt id="index-fun_005fname1"><span class="category">var then code: </span><span><em>ret_type1</em> <strong>fun_name1</strong> <em><var>A1</var> <code>A2</code> <var>A3</var> <code>A4</code></em><a href=\'#index-fun_005fname1\' class=\'copiable-anchor\'> &para;</a></span></dt>
 </dl>
 
-<div class="heading" id="Functions">
-<h3 class="heading">Functions</h3>
-</div><table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Top_fn_symbol-1"><b>)</b></a>
+<span id="Functions"></span><h3 class="heading">Functions</h3>
+<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Top_fn_symbol-1"><b>)</b></a>
  &nbsp; 
 <a class="summary-letter" href="#Top_fn_symbol-2"><b>,</b></a>
  &nbsp; 
@@ -16311,9 +16309,8 @@ ul.no-bullet {list-style: none}
  &nbsp; 
 </td></tr></table>
 
-<div class="heading" id="Types">
-<h3 class="heading">Types</h3>
-</div><table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Top_tp_letter-A"><b>A</b></a>
+<span id="Types"></span><h3 class="heading">Types</h3>
+<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Top_tp_letter-A"><b>A</b></a>
  &nbsp; 
 <a class="summary-letter" href="#Top_tp_letter-P"><b>P</b></a>
  &nbsp; 
@@ -16336,9 +16333,8 @@ ul.no-bullet {list-style: none}
  &nbsp; 
 </td></tr></table>
 
-<div class="heading" id="Variables">
-<h3 class="heading">Variables</h3>
-</div><table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Top_vr_letter-A"><b>A</b></a>
+<span id="Variables"></span><h3 class="heading">Variables</h3>
+<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Top_vr_letter-A"><b>A</b></a>
  &nbsp; 
 <a class="summary-letter" href="#Top_vr_letter-B"><b>B</b></a>
  &nbsp; 
@@ -16379,7 +16375,7 @@ ul.no-bullet {list-style: none}
 <a class="summary-letter" href="#Top_vr_letter-F"><b>F</b></a>
  &nbsp; 
 </td></tr></table>
-</div><hr></div>
+<hr></div>
 
 
 

@@ -712,28 +712,26 @@ ul.no-bullet {list-style: none}
 <p>
 Next: <a href="#chap" accesskey="n" rel="next">chap</a> &nbsp; </p>
 </div>
-<div class="node" id="top">
-<h1 class="top">top</h1>
+<span id="top"></span><h1 class="top">top</h1>
 
 
 <ul class="section-toc">
 <li><a href="#chap" accesskey="1">chapter</a></li>
 </ul>
-</div><hr>
+<hr>
 <div class="chapter" id="chap">
 <div class="header">
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
-<div class="node" id="chapter">
-<h2 class="chapter">1 chapter</h2>
+<span id="chapter"></span><h2 class="chapter">1 chapter</h2>
 
 
 <p>See <a href="#chap">chapter</a>.
 </p>
 
 <p>See <a href="#chap">chap</a>.
-</p></div><hr>
+</p><hr>
 </div>
 </div>
 

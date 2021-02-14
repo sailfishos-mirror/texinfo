@@ -948,8 +948,7 @@ $result_converted{'plaintext'}->{'empty_string_index_entry'} = '\'\'
 ';
 
 
-$result_converted{'html_text'}->{'empty_string_index_entry'} = '<div class="node" id="Top">
-<h1 class="node-heading">Top</h1>
+$result_converted{'html_text'}->{'empty_string_index_entry'} = '<span id="Top"></span><h1 class="node-heading">Top</h1>
 
 <span id="index-"></span>
 
@@ -962,7 +961,7 @@ $result_converted{'html_text'}->{'empty_string_index_entry'} = '<div class="node
 <dt id="index--3"><span class="category">Function: </span><span><strong><!-- /@w --></strong> <em> </em><a href=\'#index--3\' class=\'copiable-anchor\'> &para;</a></span></dt>
 </dl>
 
-</div><hr></div>
+<hr></div>
 ';
 
 1;

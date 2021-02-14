@@ -973,8 +973,7 @@ ul.no-bullet {list-style: none}
 <body lang="pt">
 
 
-<div class="node" id="Top">
-<h1 class="node-heading">Top</h1>
+<span id="Top"></span><h1 class="node-heading">Top</h1>
 
 <dl class="def">
 <dt id="index-BBB-of-fr"><span>Variable d\'instance de fr&nbsp;: <strong>BBB</strong> <em>CCC</em><a href=\'#index-BBB-of-fr\' class=\'copiable-anchor\'> &para;</a></span></dt>
@@ -992,7 +991,7 @@ ul.no-bullet {list-style: none}
 <dl class="def">
 <dt id="index-copying-a-of-copying"><span>Variável de instância da copying: <strong>a</strong> <em>b</em><a href=\'#index-copying-a-of-copying\' class=\'copiable-anchor\'> &para;</a></span></dt>
 </dl>
-</div><hr></div>
+<hr></div>
 
 
 

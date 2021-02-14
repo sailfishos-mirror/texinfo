@@ -568,9 +568,8 @@ File &rarr; Open.
 </p>
 <span id="index-index-entry-_0060_0060in-text_0027_0027-LaTeX"></span>
 
-<div class="majorheading" id="majorheading-in-b">
-<h2 class="majorheading">majorheading <b>in b</b></h2>
-</div>';
+<span id="majorheading-in-b"></span><h2 class="majorheading">majorheading <b>in b</b></h2>
+';
 
 
 $result_converted{'xml'}->{'commands'} = '<para>&arobase; &tex; <spacecmd type="nl"/><accent type="uml" bracketed="off">e</accent> <accent type="circ"><dotless>i</dotless></accent> <accent type="tilde">a</accent> <accent type="ring" spaces=" ">a</accent>

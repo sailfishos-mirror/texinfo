@@ -750,17 +750,15 @@ $result_converted{'plaintext'}->{'index_entry_before_node'} = 'Para.
 ';
 
 
-$result_converted{'html_text'}->{'index_entry_before_node'} = '<div class="node" id="Top">
-<div class="header">
+$result_converted{'html_text'}->{'index_entry_before_node'} = '<span id="Top"></span><div class="header">
 <p>
  &nbsp; [<a href="#second" title="Index" rel="index">Index</a>]</p>
 </div>
 <h1 class="node-heading">Top</h1>
 
 
-</div><hr>
-<div class="node" id="first">
-<div class="header">
+<hr>
+<span id="first"></span><div class="header">
 <p>
  &nbsp; [<a href="#second" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -770,9 +768,8 @@ $result_converted{'html_text'}->{'index_entry_before_node'} = '<div class="node"
 </p>
 <span id="index-lone-entry"></span>
 
-</div><hr>
-<div class="node" id="second">
-<div class="header">
+<hr>
+<span id="second"></span><div class="header">
 <p>
  &nbsp; [<a href="#second" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -791,7 +788,7 @@ $result_converted{'html_text'}->{'index_entry_before_node'} = '<div class="node"
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#t_h_cp_letter-L"><b>L</b></a>
  &nbsp; 
 </td></tr></table>
-</div><hr>
+<hr>
 ';
 
 1;

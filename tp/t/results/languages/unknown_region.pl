@@ -408,13 +408,12 @@ ul.no-bullet {list-style: none}
 
 <body lang="fr_NOWHERE">
 
-<div class="node" id="Top">
-<h1 class="node-heading">Top</h1>
+<span id="Top"></span><h1 class="node-heading">Top</h1>
 
 <dl class="def">
 <dt id="index-BBB-of-AAA"><span>Variable d\'instance de AAA&nbsp;: <strong>BBB</strong> <em>CCC</em><a href=\'#index-BBB-of-AAA\' class=\'copiable-anchor\'> &para;</a></span></dt>
 </dl>
-</div><hr></div>
+<hr></div>
 
 
 

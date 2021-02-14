@@ -516,8 +516,7 @@ $result_converted{'plaintext'}->{'syncodeindex_to_plain'} = 'cp index.
 
 
 $result_converted{'html_text'}->{'syncodeindex_to_plain'} = '
-<div class="node" id="Top">
-<h1 class="node-heading">Top</h1>
+<span id="Top"></span><h1 class="node-heading">Top</h1>
 
 <span id="index-_002d_002dk1"></span>
 <span id="index-_002d_002dv"></span>
@@ -549,7 +548,7 @@ $result_converted{'html_text'}->{'syncodeindex_to_plain'} = '
 </table>
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#t_h_vr_symbol-1"><b>-</b></a>
 </td></tr></table>
-</div><hr></div>
+<hr></div>
 ';
 
 1;

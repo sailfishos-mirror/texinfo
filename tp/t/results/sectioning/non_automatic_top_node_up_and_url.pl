@@ -925,18 +925,16 @@ ul.no-bullet {list-style: none}
 <p>
 Next: <a href="#first" accesskey="n" rel="next">first</a>, Up: <a href="http://www.gnu.org/manual/" accesskey="u" rel="up">@acronym{GNU, @acronym{GNU}\'s Not Unix} manuals</a> &nbsp; </p>
 </div>
-<div class="node" id="internal-top-node-up">
-<h1 class="top">internal top node up</h1>
+<span id="internal-top-node-up"></span><h1 class="top">internal top node up</h1>
 
 
-</div><hr>
-<div class="node" id="first">
-<div class="header">
+<hr>
+<span id="first"></span><div class="header">
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">internal top node up</a> &nbsp; </p>
 </div>
 <h4 class="node-heading">first</h4>
-</div><hr>
+<hr>
 </div>
 
 

@@ -171,14 +171,12 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<div class="unnumbered" id="U">
-<h2 class="unnumbered">U</h2>
+<span id="U"></span><h2 class="unnumbered">U</h2>
 <ul class="section-toc">
 <li><a href="#S" accesskey="1">S</a></li>
 </ul>
-</div><div class="section" id="S">
-<h3 class="section">S</h3>
-</div><hr></div>
+<span id="S"></span><h3 class="section">S</h3>
+<hr></div>
 
 
 

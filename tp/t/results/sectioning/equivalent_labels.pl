@@ -701,8 +701,7 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<div class="node" id="Top">
-<h1 class="node-heading">Top</h1>
+<span id="Top"></span><h1 class="node-heading">Top</h1>
 
 <span id="anch"></span><p>.
 </p>
@@ -710,7 +709,7 @@ ul.no-bullet {list-style: none}
 <p>In float
 </p><div class="float-caption"><p><strong>truc 1
 </strong></p></div></div>
-</div><hr></div>
+<hr></div>
 
 
 

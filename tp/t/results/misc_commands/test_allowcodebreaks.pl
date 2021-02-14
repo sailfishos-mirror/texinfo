@@ -2737,8 +2737,7 @@ Out of code -- out-of-code. \'1aaa\' \'2aaa-\' \'-3bbb\' \'4aaa-bbb\'  \' 5aaa-b
 ';
 
 
-$result_converted{'html_text'}->{'test_allowcodebreaks'} = '<div class="node" id="Top">
-<h1 class="node-heading">Top</h1>
+$result_converted{'html_text'}->{'test_allowcodebreaks'} = '<span id="Top"></span><h1 class="node-heading">Top</h1>
 
 
 
@@ -2784,7 +2783,7 @@ anc-hor<span id="A-node2"></span></samp>&rsquo;
 <div class="example">
 <pre class="example"><code>in-example</code>
 </pre></div>
-</div><hr></div>
+<hr></div>
 ';
 
 1;

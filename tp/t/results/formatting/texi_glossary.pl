@@ -1619,8 +1619,7 @@ ul.no-bullet {list-style: none}
 <td valign="middle" align="left">[Index]</td>
 <td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<div class="node" id="Top-1">
-<h1 class="top">Top</h1>
+<span id="Top-1"></span><h1 class="top">Top</h1>
 
 <table class="menu" border="0" cellspacing="0">
 <tr><td align="left" valign="top"><a href="#glossary">1 glossary</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
@@ -1632,7 +1631,7 @@ ul.no-bullet {list-style: none}
 <a href="#id2">name2</a>
  is quite specific
 </p>
-</div><hr size="6">
+<hr size="6">
 <div class="chapter" id="glossary">
 <table class="header" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#Top" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
@@ -1649,13 +1648,12 @@ ul.no-bullet {list-style: none}
 <td valign="middle" align="left">[Index]</td>
 <td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<div class="node" id="glossary-1">
-<h1 class="chapter">1 glossary</h1>
+<span id="glossary-1"></span><h1 class="chapter">1 glossary</h1>
 
 <p>name2 <span id="id2"></span>text2
 </p>
 
-</div><hr>
+<hr>
 </div>
 </div>
 <p><font size="-1">

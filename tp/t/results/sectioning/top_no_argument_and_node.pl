@@ -210,8 +210,7 @@ ul.no-bullet {list-style: none}
 
 <body lang="en">
 <div class="top" id="start">
-<div class="node" id="SEC_Top">
-</div><hr></div>
+<span id="SEC_Top"></span><hr></div>
 </div>
 
 

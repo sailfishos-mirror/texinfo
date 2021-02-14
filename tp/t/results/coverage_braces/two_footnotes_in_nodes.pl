@@ -845,8 +845,7 @@ ul.no-bullet {list-style: none}
 <p>
 Next: <a href="#chapter" accesskey="n" rel="next">chapter</a> &nbsp; </p>
 </div>
-<div class="node" id="g_t2-footnotes-in-2-nodes">
-<h1 class="top">2 footnotes in 2 nodes</h1>
+<span id="g_t2-footnotes-in-2-nodes"></span><h1 class="top">2 footnotes in 2 nodes</h1>
 
 <p>A<a id="DOCF1" href="#FOOT1"><sup>1</sup></a>
 </p>
@@ -856,20 +855,19 @@ Next: <a href="#chapter" accesskey="n" rel="next">chapter</a> &nbsp; </p>
 <ul class="section-toc">
 <li><a href="#chapter" accesskey="1">chapter</a></li>
 </ul>
-</div><hr>
+<hr>
 <div class="chapter" id="chapter">
 <div class="header">
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">2 footnotes in 2 nodes</a>, Up: <a href="#Top" accesskey="u" rel="up">2 footnotes in 2 nodes</a> &nbsp; </p>
 </div>
-<div class="node" id="chapter-1">
-<h2 class="chapter">1 chapter</h2>
+<span id="chapter-1"></span><h2 class="chapter">1 chapter</h2>
 
 <p>C<a id="DOCF3" href="#FOOT3"><sup>3</sup></a>
 </p>
 <p>D<a id="DOCF4" href="#FOOT4"><sup>4</sup></a>
 </p>
-</div><div class="footnote">
+<div class="footnote">
 <hr>
 <h4 class="footnotes-heading">Footnotes</h4>
 
@@ -1008,8 +1006,7 @@ $result_converted{'html_text'}->{'two_footnotes_in_nodes'} = '<div class="top" i
 <p>
  &nbsp; </p>
 </div>
-<div class="node" id="g_t2-footnotes-in-2-nodes">
-<h1 class="top">2 footnotes in 2 nodes</h1>
+<span id="g_t2-footnotes-in-2-nodes"></span><h1 class="top">2 footnotes in 2 nodes</h1>
 
 <p>A<a id="DOCF1" href="#FOOT1"><sup>1</sup></a>
 </p>
@@ -1019,20 +1016,19 @@ $result_converted{'html_text'}->{'two_footnotes_in_nodes'} = '<div class="top" i
 <ul class="section-toc">
 <li><a href="#chapter" accesskey="1">chapter</a></li>
 </ul>
-</div><hr>
+<hr>
 <div class="chapter" id="chapter">
 <div class="header">
 <p>
  &nbsp; </p>
 </div>
-<div class="node" id="chapter-1">
-<h2 class="chapter">1 chapter</h2>
+<span id="chapter-1"></span><h2 class="chapter">1 chapter</h2>
 
 <p>C<a id="DOCF3" href="#FOOT3"><sup>3</sup></a>
 </p>
 <p>D<a id="DOCF4" href="#FOOT4"><sup>4</sup></a>
 </p>
-</div><div class="footnote">
+<div class="footnote">
 <hr>
 <h4 class="footnotes-heading">Footnotes</h4>
 

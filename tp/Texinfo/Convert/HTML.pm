@@ -2444,27 +2444,22 @@ sub _convert_heading_command($$$$$)
     return $result;
   }
 
-  my $section = $command->{'extra'}->{'associated_section'};
-  my $node;
-  if ($section) {
-      my $level = $section->{'level'};
-      $result .= join('', $self->close_registered_sections_level($level));
-      $self->register_opened_section_level($level, "</div>\n");
-  } else {
-      $node = $command->{'extra'}->{'associated_node'};
-  }
-  $result .= '<div';
-  if ($section) {
-      $result .= ' class="'.$section->{'cmdname'}.'"';
-  } elsif ($node) {
-      $result .= ' class="node"';
-  } else {
-      $result .= " class=\"$cmdname\"";
-  }
   my $element_id = $self->command_id($command);
-  $result .= " id=\"$element_id\""
-      if (defined($element_id) and $element_id ne '');
-  $result .= ">\n";
+  my $section = $command->{'extra'}->{'associated_section'};
+  if ($cmdname eq 'node' and $section) {
+    my $level = $section->{'level'};
+    $result .= join('', $self->close_registered_sections_level($level));
+    $self->register_opened_section_level($level, "</div>\n");
+
+    $result .= '<div class="' . $section->{'cmdname'} . '"';
+
+    $result .= " id=\"$element_id\""
+        if (defined($element_id) and $element_id ne '');
+    $result .= ">\n";
+  } else {
+    $result .= "<span id=\"$element_id\"></span>"
+        if (defined($element_id) and $element_id ne '');
+  }
 
   print STDERR "Process $command "
         .Texinfo::Structuring::_print_root_command_texi($command)."\n"
@@ -2557,7 +2552,6 @@ sub _convert_heading_command($$$$$)
                        eq 'inline')))) {
     $result .= _mini_toc($self, $command);
   }
-  $result .= '</div>' if (! $section);
   return $result;
 }
 

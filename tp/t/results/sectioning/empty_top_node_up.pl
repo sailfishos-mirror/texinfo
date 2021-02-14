@@ -465,18 +465,16 @@ ul.no-bullet {list-style: none}
 <p>
 Next: <a href="#first" accesskey="n" rel="next">first</a> &nbsp; </p>
 </div>
-<div class="node" id="empty-top-node-up">
-<h1 class="top">empty top node up</h1>
+<span id="empty-top-node-up"></span><h1 class="top">empty top node up</h1>
 
 
-</div><hr>
-<div class="node" id="first">
-<div class="header">
+<hr>
+<span id="first"></span><div class="header">
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">empty top node up</a>, Up: <a href="#Top" accesskey="u" rel="up">empty top node up</a> &nbsp; </p>
 </div>
 <h4 class="node-heading">first</h4>
-</div><hr>
+<hr>
 </div>
 
 

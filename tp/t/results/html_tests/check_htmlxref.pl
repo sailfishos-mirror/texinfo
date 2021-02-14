@@ -855,21 +855,19 @@ ul.no-bullet {list-style: none}
 <p>
 Next: <a href="no_existing_no_manual_direction.html#Top" accesskey="n" rel="next">(../there/no_existing_no_manual_direction)</a>, Previous: <a href="#first" accesskey="p" rel="prev">first</a>, Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a> &nbsp; </p>
 </div>
-<div class="node" id="top">
-<h1 class="top">top</h1>
+<span id="top"></span><h1 class="top">top</h1>
 
 <p><a data-manual="no_existing_no_manual.info" href="no_existing_no_manual.html#a">(no_existing_no_manual.info)c</a>
 <a data-manual="no_existing_no_manual.info" href="no_existing_no_manual.html#a">(no_existing_no_manual.info)c</a>
 </p>
 
-</div><hr>
-<div class="node" id="first">
-<div class="header">
+<hr>
+<span id="first"></span><div class="header">
 <p>
 Next: <a href="no_existing_no_manual.html#Top" accesskey="n" rel="next">(no_existing_no_manual.info)</a> &nbsp; </p>
 </div>
 <h4 class="node-heading">first</h4>
-</div><hr>
+<hr>
 </div>
 
 

@@ -645,8 +645,7 @@ i~=
 
 $result_converted{'html_text'}->{'weird_accents'} = '
 <div class="top" id="Top">
-<div class="node" id="top">
-<h1 class="top">top</h1>
+<span id="top"></span><h1 class="top">top</h1>
 
 <p>&#297;=
 </p>
@@ -657,7 +656,7 @@ $result_converted{'html_text'}->{'weird_accents'} = '
 <p>.r`^
 </p>
 <p>r`\'=
-</p></div><hr></div>
+</p><hr></div>
 ';
 
 

@@ -847,17 +847,15 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<div class="node" id="Top">
-<div class="header">
+<span id="Top"></span><div class="header">
 <p>
 Next: <a href="#second-node" accesskey="n" rel="next">second node</a> &nbsp; </p>
 </div>
 <h1 class="node-heading">Top</h1>
 <p>Top node
 </p>
-</div><hr>
-<div class="node" id="second-node">
-<div class="header">
+<hr>
+<span id="second-node"></span><div class="header">
 <p>
 Next: <a href="#third-node" accesskey="n" rel="next">third node</a>, Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
@@ -865,14 +863,13 @@ Next: <a href="#third-node" accesskey="n" rel="next">third node</a>, Previous: <
 
 <p>second node
 </p>
-</div><hr>
-<div class="node" id="third-node">
-<div class="header">
+<hr>
+<span id="third-node"></span><div class="header">
 <p>
 Previous: <a href="#second-node" accesskey="p" rel="prev">second node</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
 <h4 class="node-heading">third node</h4>
-</div><hr>
+<hr>
 
 
 

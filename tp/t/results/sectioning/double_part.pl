@@ -901,18 +901,15 @@ ul.no-bullet {list-style: none}
 <p>
 Next: <a href="#node-chapter" accesskey="n" rel="next">chapter after 2 parts</a> &nbsp; </p>
 </div>
-<div class="node" id="top">
-<h1 class="top">top</h1>
+<span id="top"></span><h1 class="top">top</h1>
 
 
-</div><div class="part" id="part-first">
-<h1 class="part">part first</h1>
+<span id="part-first"></span><h1 class="part">part first</h1>
 <hr>
 
 <p>Text part first.
-</p></div><hr>
-<div class="part" id="part-second">
-<div class="header">
+</p><hr>
+<span id="part-second"></span><div class="header">
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>
@@ -923,11 +920,10 @@ Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" ac
 <ul class="section-toc">
 <li><a href="#node-chapter" accesskey="1">chapter after 2 parts</a></li>
 </ul>
-</div><div class="chapter" id="node-chapter">
-<div class="node" id="chapter-after-2-parts">
-<h2 class="chapter">1 chapter after 2 parts</h2>
+<div class="chapter" id="node-chapter">
+<span id="chapter-after-2-parts"></span><h2 class="chapter">1 chapter after 2 parts</h2>
 
-</div><hr>
+<hr>
 </div>
 </div>
 

@@ -298,8 +298,7 @@ $result_converted{'plaintext'}->{'index_entry_in_footnote'} = 'Top node(1)
 ';
 
 
-$result_converted{'html_text'}->{'index_entry_in_footnote'} = '<div class="node" id="Top">
-<h1 class="node-heading">Top</h1>
+$result_converted{'html_text'}->{'index_entry_in_footnote'} = '<span id="Top"></span><h1 class="node-heading">Top</h1>
 
 <p>Top node<a id="DOCF1" href="#FOOT1"><sup>1</sup></a>
 </p>
@@ -316,7 +315,7 @@ $result_converted{'html_text'}->{'index_entry_in_footnote'} = '<div class="node"
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#t_h_cp_letter-I"><b>I</b></a>
  &nbsp; 
 </td></tr></table>
-</div><div class="footnote">
+<div class="footnote">
 <hr>
 <h4 class="footnotes-heading">Footnotes</h4>
 

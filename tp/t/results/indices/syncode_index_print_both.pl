@@ -504,8 +504,7 @@ $result_converted{'plaintext'}->{'syncode_index_print_both'} = 'Print fn
 
 
 $result_converted{'html_text'}->{'syncode_index_print_both'} = '
-<div class="node" id="Top">
-<h1 class="node-heading">Top</h1>
+<span id="Top"></span><h1 class="node-heading">Top</h1>
 
 <span id="index-c_002d_002d_002doncept"></span>
 <span id="index-f_002d_002d_002dun"></span>
@@ -537,7 +536,7 @@ $result_converted{'html_text'}->{'syncode_index_print_both'} = '
  &nbsp; 
 </td></tr></table>
 
-</div><hr></div>
+<hr></div>
 ';
 
 1;

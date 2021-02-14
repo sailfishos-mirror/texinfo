@@ -4925,8 +4925,7 @@ ul.no-bullet {list-style: none}
 <td valign="middle" align="left">[<a href="#Top" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="#SEC_About" title="A propos (page d&rsquo;aide)"> ? </a>]</td>
 </tr></table>
-<div class="node" id="Top-section">
-<h1 class="top">Top section</h1>
+<span id="Top-section"></span><h1 class="top">Top section</h1>
 
 <table class="menu" border="0" cellspacing="0">
 <tr><td align="left" valign="top"><a href="#chapter">1 chapter</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top"></td></tr>
@@ -5054,7 +5053,7 @@ Menu comment
 </p>
 
 
-</div><hr size="6">
+<hr size="6">
 <div class="chapter" id="chapter">
 <table class="header" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#Top" title="D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent"> &lt;&lt; </a>]</td>
@@ -5071,8 +5070,7 @@ Menu comment
 <td valign="middle" align="left">[<a href="#Top" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="#SEC_About" title="A propos (page d&rsquo;aide)"> ? </a>]</td>
 </tr></table>
-<div class="node" id="chapter-1">
-<h1 class="chapter">1 chapter</h1>
+<span id="chapter-1"></span><h1 class="chapter">1 chapter</h1>
 
 <p><a id="DOCF1" href="#FOOT1"><sup>1</sup></a>
 </p>
@@ -5088,7 +5086,7 @@ Menu comment
 </pre></td></tr></table>
 </div>
 
-</div><hr>
+<hr>
 <div class="section" id="s_002d_002dect_002cion">
 <table class="header" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#chapter" title="D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent"> &lt;&lt; </a>]</td>
@@ -5105,8 +5103,7 @@ Menu comment
 <td valign="middle" align="left">[<a href="#Top" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="#SEC_About" title="A propos (page d&rsquo;aide)"> ? </a>]</td>
 </tr></table>
-<div class="node" id="A-section">
-<h2 class="section">1.1 A section</h2>
+<span id="A-section"></span><h2 class="section">1.1 A section</h2>
 
 <table class="menu" border="0" cellspacing="0">
 <tr><td align="left" valign="top"><a href="#subsection">1.1.1 subsection</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
@@ -5121,7 +5118,7 @@ Menu comment
 </td></tr>
 </table>
 
-</div><hr>
+<hr>
 <div class="subsection" id="subsection">
 <table class="header" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#chapter" title="D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent"> &lt;&lt; </a>]</td>
@@ -5138,8 +5135,7 @@ Menu comment
 <td valign="middle" align="left">[<a href="#Top" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="#SEC_About" title="A propos (page d&rsquo;aide)"> ? </a>]</td>
 </tr></table>
-<div class="node" id="subsection-1">
-<h3 class="subsection">1.1.1 subsection</h3>
+<span id="subsection-1"></span><h3 class="subsection">1.1.1 subsection</h3>
 
 <table class="menu" border="0" cellspacing="0">
 <tr><td align="left" valign="top"><a href="#subsubsection-_0060_0060simple_002ddouble_002d_002d">1.1.1.1 subsubsection &ldquo;simple-double&ndash;</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
@@ -5149,7 +5145,7 @@ Menu comment
 </table>
 
 <span id="anchor"></span>
-</div><hr>
+<hr>
 <div class="subsubsection" id="subsubsection-_0060_0060simple_002ddouble_002d_002d">
 <table class="header" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#chapter" title="D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent"> &lt;&lt; </a>]</td>
@@ -5166,10 +5162,9 @@ Menu comment
 <td valign="middle" align="left">[<a href="#Top" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="#SEC_About" title="A propos (page d&rsquo;aide)"> ? </a>]</td>
 </tr></table>
-<div class="node" id="subsubsection-_0060_0060simple_002ddouble_002d_002d-1">
-<h4 class="subsubsection">1.1.1.1 subsubsection &ldquo;simple-double&ndash;</h4>
+<span id="subsubsection-_0060_0060simple_002ddouble_002d_002d-1"></span><h4 class="subsubsection">1.1.1.1 subsubsection &ldquo;simple-double&ndash;</h4>
 
-</div><hr>
+<hr>
 </div>
 <div class="subsubsection" id="subsubsection-three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027">
 <table class="header" cellpadding="1" cellspacing="1" border="0">
@@ -5187,10 +5182,9 @@ Menu comment
 <td valign="middle" align="left">[<a href="#Top" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="#SEC_About" title="A propos (page d&rsquo;aide)"> ? </a>]</td>
 </tr></table>
-<div class="node" id="three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027">
-<h4 class="subsubsection">1.1.1.2 three&mdash;four&mdash;-&rdquo;</h4>
+<span id="three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027"></span><h4 class="subsubsection">1.1.1.2 three&mdash;four&mdash;-&rdquo;</h4>
 
-</div><hr>
+<hr>
 </div>
 </div>
 </div>
@@ -5211,8 +5205,7 @@ Menu comment
 <td valign="middle" align="left">[<a href="#Top" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="#SEC_About" title="A propos (page d&rsquo;aide)"> ? </a>]</td>
 </tr></table>
-<div class="node" id="chapter-2">
-<h1 class="centerchap" align="center">chapter 2</h1>
+<span id="chapter-2"></span><h1 class="centerchap" align="center">chapter 2</h1>
 
 <table><tr><th valign="top">Aller &agrave;: &nbsp; </th><td><a class="summary-letter" href="#chapter-2_cp_symbol-1"><b>.</b></a>
  &nbsp; 
@@ -5289,7 +5282,7 @@ Menu comment
  &nbsp; 
 </td></tr></table>
 
-</div><hr>
+<hr>
 </div>
 </div>
 <p><font size="-1">

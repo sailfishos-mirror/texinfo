@@ -1197,15 +1197,14 @@ ul.no-bullet {list-style: none}
 <span id="index-index-entry"></span>
 
 <div class="top" id="Top">
-<div class="node" id="top-section">
-<h1 class="top">top section</h1>
+<span id="top-section"></span><h1 class="top">top section</h1>
 
 <p>Ref to anchor
 <a href="#An-anchor">An anchor</a>
 </p>
 <p>Ref to footnote anchor
 <a href="#Anchor-in-footnote">Anchor in footnote</a>
-</p></div><div class="footnote">
+</p><div class="footnote">
 <hr>
 <h4 class="footnotes-heading">Footnotes</h4>
 

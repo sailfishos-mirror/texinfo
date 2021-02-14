@@ -369,19 +369,17 @@ ul.no-bullet {list-style: none}
 <p>Some text before top
 </p>
 <div class="top" id="Top">
-<div class="node" id="top">
-<h1 class="top">top</h1>
+<span id="top"></span><h1 class="top">top</h1>
 
 <p>In top.
 </p>
 <ul class="section-toc">
 <li><a href="#the-chap" accesskey="1">the chap</a></li>
 </ul>
-</div><div class="chapter" id="the-chap">
-<h2 class="chapter">1 the chap</h2>
+<span id="the-chap"></span><h2 class="chapter">1 the chap</h2>
 
 
-</div><hr></div>
+<hr></div>
 </div>
 
 

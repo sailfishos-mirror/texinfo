@@ -229,16 +229,14 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<div class="part" id="part">
-<h1 class="part">part</h1>
+<span id="part"></span><h1 class="part">part</h1>
 <hr>
 
 <ul class="section-toc">
 <li><a href="#chapter" accesskey="1">chapter</a></li>
 </ul>
-</div><div class="chapter" id="chapter">
-<h2 class="chapter">1 chapter</h2>
-</div><hr></div>
+<span id="chapter"></span><h2 class="chapter">1 chapter</h2>
+<hr></div>
 
 
 

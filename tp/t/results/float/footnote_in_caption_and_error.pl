@@ -448,8 +448,7 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<div class="node" id="Top">
-<h1 class="node-heading">Top</h1>
+<span id="Top"></span><h1 class="node-heading">Top</h1>
 
 <dl class="listoffloats">
 <dt><a href="#label">fl 1</a></dt><dd><p>in caption<a id="t_hlistoffloats_DOCF1_1" href="#t_hlistoffloats_FOOT1_1"><sup>1</sup></a></p></dd>
@@ -458,7 +457,7 @@ ul.no-bullet {list-style: none}
 <div class="float"><span id="label"></span>
 <p>In float.
 </p>
-<div class="float-caption"><p><strong>fl 1: </strong>in caption<a id="DOCF1" href="#FOOT1"><sup>2</sup></a></p></div></div></div><div class="footnote">
+<div class="float-caption"><p><strong>fl 1: </strong>in caption<a id="DOCF1" href="#FOOT1"><sup>2</sup></a></p></div></div><div class="footnote">
 <hr>
 <h4 class="footnotes-heading">Footnotes</h4>
 

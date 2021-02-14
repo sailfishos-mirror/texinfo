@@ -1772,8 +1772,7 @@ $result_converted{'plaintext'}->{'def_syn_indices'} = 'definedx truc after
 
 $result_converted{'html_text'}->{'def_syn_indices'} = '
 
-<div class="node" id="Top">
-<h1 class="node-heading">Top</h1>
+<span id="Top"></span><h1 class="node-heading">Top</h1>
 
 <p>definedx truc
 after
@@ -1867,7 +1866,7 @@ after
 <a class="summary-letter" href="#t_h_fn_letter-I"><b>I</b></a>
  &nbsp; 
 </td></tr></table>
-</div><hr></div>
+<hr></div>
 ';
 
 1;

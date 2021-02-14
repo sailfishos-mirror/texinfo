@@ -317,14 +317,13 @@ $result_converted{'plaintext'}->{'empty_index_entry'} = ' -- :
 ';
 
 
-$result_converted{'html_text'}->{'empty_index_entry'} = '<div class="node" id="Top">
-<h1 class="node-heading">Top</h1>
+$result_converted{'html_text'}->{'empty_index_entry'} = '<span id="Top"></span><h1 class="node-heading">Top</h1>
 
 <dl class="def">
 <dt><span class="category">: </span><span><strong></strong></span></dt>
 </dl>
 
-</div><hr></div>
+<hr></div>
 ';
 
 1;

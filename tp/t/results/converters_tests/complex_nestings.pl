@@ -1438,8 +1438,7 @@ $result_converted{'plaintext'}->{'complex_nestings'} = '     deffs
 ';
 
 
-$result_converted{'html_text'}->{'complex_nestings'} = '<div class="node" id="Top">
-<h1 class="node-heading">Top</h1>
+$result_converted{'html_text'}->{'complex_nestings'} = '<span id="Top"></span><h1 class="node-heading">Top</h1>
 
 <div class="example">
 <pre class="example">deffs
@@ -1473,7 +1472,7 @@ explanation
 <pre class="example">
 
 </pre></div>
-</div><hr></div>
+<hr></div>
 ';
 
 

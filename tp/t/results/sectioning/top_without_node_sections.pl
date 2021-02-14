@@ -490,19 +490,17 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<div class="top" id="top-section">
-<h1 class="top">top section</h1>
+<span id="top-section"></span><h1 class="top">top section</h1>
 <p>Top section
 </p>
 <ul class="section-toc">
 <li><a href="#second" accesskey="1">Chapter</a></li>
 </ul>
-</div><div class="chapter" id="second">
-<div class="node" id="Chapter">
-<h2 class="chapter">1 Chapter</h2>
+<div class="chapter" id="second">
+<span id="Chapter"></span><h2 class="chapter">1 Chapter</h2>
 
 <p>Text of chapter
-</p></div><hr></div>
+</p><hr></div>
 </div>
 
 
