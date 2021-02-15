@@ -377,8 +377,7 @@ $result_converted{'html_text'}->{'index_entry_in_preformatted'} = '<span id="Top
 
 <span id="index-other"></span>text2
 <span id="index-last"></span></pre></div>
-<hr></div>
-';
+<hr>';
 
 
 $result_converted{'xml'}->{'index_entry_in_preformatted'} = '<node name="Top" spaces=" "><nodename>Top</nodename></node>

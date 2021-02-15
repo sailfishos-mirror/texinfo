@@ -3986,8 +3986,7 @@ In text [ alt <b>&icirc;&ndash;le..</b>  a
 &lt;&quot;%@  &lt; &amp; @ % &quot; ">.</p></dd>
 </dl>
 
-<hr></div>
-
+<hr>
 
 
 </body>
@@ -4224,8 +4223,7 @@ In text [ alt <b>&icirc;&ndash;le..</b>  a
 &lt;&quot;%@  &lt; &amp; @ % &quot; ">.</p></dd>
 </dl>
 
-<hr></div>
-';
+<hr>';
 
 $result_converted_errors{'html_text'}->{'test_image'} = [
   {

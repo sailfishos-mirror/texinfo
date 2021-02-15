@@ -240,8 +240,7 @@ ul.no-bullet {list-style: none}
 <hr>
 
 <span id="top"></span><h1 class="top">top</h1>
-<hr></div>
-
+<hr>
 
 
 </body>

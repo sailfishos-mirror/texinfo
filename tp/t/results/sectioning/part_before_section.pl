@@ -205,8 +205,7 @@ $result_converted{'html_text'}->{'part_before_section'} = '<span id="part"></spa
 <li><a href="#section" accesskey="1">section</a></li>
 </ul>
 <span id="section"></span><h2 class="chapter">1 section</h2>
-<hr></div>
-';
+<hr>';
 
 
 $result_converted{'xml'}->{'part_before_section'} = '<part spaces=" "><sectiontitle>part</sectiontitle>

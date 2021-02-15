@@ -370,8 +370,7 @@ ul.no-bullet {list-style: none}
 <tr><td align="left" valign="top">&bull; unknown:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 </table>
-<hr></div>
-
+<hr>
 
 
 </body>

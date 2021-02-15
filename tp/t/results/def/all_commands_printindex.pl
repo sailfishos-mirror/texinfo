@@ -4198,8 +4198,7 @@ ul.no-bullet {list-style: none}
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Top_vr_letter-D"><b>D</b></a>
  &nbsp; 
 </td></tr></table>
-<hr></div>
-
+<hr>
 
 
 </body>

@@ -501,7 +501,6 @@ ul.no-bullet {list-style: none}
 
 <p>Text of chapter
 </p><hr></div>
-</div>
 
 
 

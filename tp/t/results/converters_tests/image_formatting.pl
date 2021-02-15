@@ -2602,8 +2602,7 @@ $result_converted{'html_text'}->{'image_formatting'} = '<span id="Top"></span><h
 
 <p>in para
 <img src="f--ile.png" alt="a very long alt argument that could span more than one line who knows">.
-</p><hr></div>
-';
+</p><hr>';
 
 $result_converted_errors{'html_text'}->{'image_formatting'} = [
   {

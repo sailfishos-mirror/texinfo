@@ -134,8 +134,7 @@ ul.no-bullet {list-style: none}
 <body lang="en">
 <span id="SEC_Top"></span>
 <p>A.
-</p><hr></div>
-
+</p><hr>
 
 
 </body>

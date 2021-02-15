@@ -506,8 +506,7 @@ This is html text.
 
 <p>This is ifnottex text.
 </p>
-<hr></div>
-<p><font size="-1">
+<hr><p><font size="-1">
   This document was generated on <em>a sunny day</em> using <a href="http://www.gnu.org/software/texinfo/"><em>texi2any</em></a>.
 </font></p>
 

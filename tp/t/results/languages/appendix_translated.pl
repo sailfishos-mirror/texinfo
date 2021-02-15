@@ -383,7 +383,6 @@ ul.no-bullet {list-style: none}
 <span id="dernier"></span><h2 class="appendix">Annexe A dernier</h2>
 
 <hr></div>
-</div>
 
 
 

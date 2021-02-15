@@ -250,8 +250,7 @@ ul.no-bullet {list-style: none}
 <table class="menu" border="0" cellspacing="0">
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">* a
 </pre></th></tr></table>
-<hr></div>
-
+<hr>
 
 
 </body>

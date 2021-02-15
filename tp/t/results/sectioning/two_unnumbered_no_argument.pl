@@ -170,8 +170,7 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<hr></div>
-
+<hr>
 
 
 </body>

@@ -236,8 +236,7 @@ ul.no-bullet {list-style: none}
 <li><a href="#chapter" accesskey="1">chapter</a></li>
 </ul>
 <span id="chapter"></span><h2 class="chapter">1 chapter</h2>
-<hr></div>
-
+<hr>
 
 
 </body>

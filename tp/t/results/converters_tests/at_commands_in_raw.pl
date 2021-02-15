@@ -1256,8 +1256,7 @@ $result_converted{'html_text'}->{'at_commands_in_raw'} = '<span id="Top"></span>
 <h5><a id="FOOT2" href="#DOCF2">(2)</a></h5>
 <p>second footnote</p>
 </div>
-<hr></div>
-';
+<hr>';
 
 
 $result_converted{'xml'}->{'at_commands_in_raw'} = '<node name="Top" spaces=" "><nodename>Top</nodename></node>

@@ -241,7 +241,6 @@ $result_converted{'html_text'}->{'verb_in_xref'} = '<span id="Top"></span><h1 cl
 verb
 
 ggg </tt></a>.
-</p><hr></div>
-';
+</p><hr>';
 
 1;

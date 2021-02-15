@@ -1866,7 +1866,6 @@ after
 <a class="summary-letter" href="#t_h_fn_letter-I"><b>I</b></a>
  &nbsp; 
 </td></tr></table>
-<hr></div>
-';
+<hr>';
 
 1;

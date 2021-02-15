@@ -364,8 +364,7 @@ ul.no-bullet {list-style: none}
 <p>anchor ref <span id="ref"></span>.
 </p>
 <p>ref to ref <a href="#ref">ref</a>.
-</p><hr></div>
-
+</p><hr>
 
 
 </body>

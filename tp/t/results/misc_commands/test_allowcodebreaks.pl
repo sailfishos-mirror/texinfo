@@ -2783,7 +2783,6 @@ anc-hor<span id="A-node2"></span></samp>&rsquo;
 <div class="example">
 <pre class="example"><code>in-example</code>
 </pre></div>
-<hr></div>
-';
+<hr>';
 
 1;

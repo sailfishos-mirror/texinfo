@@ -4736,8 +4736,11 @@ sub _convert_element_type($$$$)
     $result .= $self->_print_title();
     if (!$element->{'element_next'}) {
       # only one element
-      my $foot_text = &{$self->{'format_footnotes_text'}}($self);
-      return $result.$content.$foot_text.$self->get_conf('DEFAULT_RULE')."</div>\n";
+      $result .= $content;
+      $result .= &{$self->{'format_footnotes_text'}}($self);
+      $result .= $self->get_conf('DEFAULT_RULE');
+      $result .= join('', $self->close_registered_sections_level(0));
+      return $result;
     }
   }
   $result .= $content unless ($special_element);

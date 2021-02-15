@@ -244,8 +244,7 @@ $result_converted{'html_text'}->{'footnote_no_number'} = '<span id="Top"></span>
 <h5><a id="FOOT2" href="#DOCF2">(*)</a></h5>
 <p>Footnote 2.</p>
 </div>
-<hr></div>
-';
+<hr>';
 
 
 $result_converted{'xml'}->{'footnote_no_number'} = '<node name="Top" spaces=" "><nodename>Top</nodename></node>

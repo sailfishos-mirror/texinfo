@@ -350,7 +350,6 @@ $result_converted{'html_text'}->{'contents_in_html_text'} = '<span id="top"></sp
 </ul>
 </div>
 </div>
-<hr></div>
-';
+<hr>';
 
 1;

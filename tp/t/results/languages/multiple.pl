@@ -991,8 +991,7 @@ ul.no-bullet {list-style: none}
 <dl class="def">
 <dt id="index-copying-a-of-copying"><span>Variável de instância da copying: <strong>a</strong> <em>b</em><a href=\'#index-copying-a-of-copying\' class=\'copiable-anchor\'> &para;</a></span></dt>
 </dl>
-<hr></div>
-
+<hr>
 
 
 </body>

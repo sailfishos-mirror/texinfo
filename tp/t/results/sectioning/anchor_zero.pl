@@ -275,8 +275,7 @@ ul.no-bullet {list-style: none}
 <span id="g_t0"></span><p>.
 </p>
 <p>See <a href="#g_t0">0</a>.
-</p><hr></div>
-
+</p><hr>
 
 
 </body>

@@ -243,8 +243,7 @@ $result_converted{'html_text'}->{'no_empty_line_between_headings'} = '<span id="
 <li><a href="#Section" accesskey="1">Section</a></li>
 </ul>
 <span id="Section"></span><h3 class="section">1.1 Section</h3>
-<hr></div>
-';
+<hr>';
 
 
 $result_converted{'docbook'}->{'no_empty_line_between_headings'} = '<chapter label="">

@@ -413,8 +413,7 @@ ul.no-bullet {list-style: none}
 <dl class="def">
 <dt id="index-BBB-of-AAA"><span>Variable d\'instance de AAA&nbsp;: <strong>BBB</strong> <em>CCC</em><a href=\'#index-BBB-of-AAA\' class=\'copiable-anchor\'> &para;</a></span></dt>
 </dl>
-<hr></div>
-
+<hr>
 
 
 </body>

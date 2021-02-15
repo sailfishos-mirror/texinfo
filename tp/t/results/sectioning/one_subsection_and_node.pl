@@ -231,7 +231,6 @@ ul.no-bullet {list-style: none}
 <div class="subsection" id="one-node">
 <span id="The-subsection"></span><h4 class="subsection">1 The subsection</h4>
 <hr></div>
-</div>
 
 
 

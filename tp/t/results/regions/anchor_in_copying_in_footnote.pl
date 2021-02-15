@@ -528,8 +528,7 @@ ul.no-bullet {list-style: none}
 <p>In footnote.
 <span id="Copying-footnote"></span></p>
 </div>
-<hr></div>
-
+<hr>
 
 
 </body>

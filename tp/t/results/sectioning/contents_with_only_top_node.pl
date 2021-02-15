@@ -176,8 +176,7 @@ ul.no-bullet {list-style: none}
 
 <span id="Top"></span><h1 class="node-heading">Top</h1>
 
-<hr></div>
-
+<hr>
 
 
 </body>

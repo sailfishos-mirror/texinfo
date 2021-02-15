@@ -314,8 +314,7 @@ ul.no-bullet {list-style: none}
 <p>Top node
 </p>
 <h1 class="titlefont">Title titlefont</h1>
-<hr></div>
-
+<hr>
 
 
 </body>

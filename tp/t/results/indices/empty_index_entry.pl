@@ -323,7 +323,6 @@ $result_converted{'html_text'}->{'empty_index_entry'} = '<span id="Top"></span><
 <dt><span class="category">: </span><span><strong></strong></span></dt>
 </dl>
 
-<hr></div>
-';
+<hr>';
 
 1;

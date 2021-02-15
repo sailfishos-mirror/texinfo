@@ -709,8 +709,7 @@ ul.no-bullet {list-style: none}
 <p>In float
 </p><div class="float-caption"><p><strong>truc 1
 </strong></p></div></div>
-<hr></div>
-
+<hr>
 
 
 </body>

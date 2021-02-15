@@ -981,8 +981,7 @@ $result_converted{'html_text'}->{'test_deftypefnnewline'} = '
 <dt id="index-arg2"><span class="category">fun2: </span><span><strong>arg2</strong><a href=\'#index-arg2\' class=\'copiable-anchor\'> &para;</a></span></dt>
 <dd><p>fff2
 </p></dd></dl>
-<hr></div>
-';
+<hr>';
 
 
 $result_converted{'xml'}->{'test_deftypefnnewline'} = '

@@ -4428,8 +4428,7 @@ $result_converted{'html_text'}->{'top_in_ref'} = '<span id="Top"></span><h1 clas
 <code>@inforef{Top}</code> 
 <code>@inforef{Top, cross ref name}</code> See &lsquo;cross ref name&rsquo;
 <code>@inforef{Top,,file name}</code> See <a data-manual="file name" href="file name.html#Top">(file name)Top</a>
-</p><hr></div>
-';
+</p><hr>';
 
 
 $result_converted{'xml'}->{'top_in_ref'} = '<node name="Top" spaces=" "><nodename>Top</nodename></node>

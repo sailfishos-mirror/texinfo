@@ -802,8 +802,7 @@ ul.no-bullet {list-style: none}
 <li><a href="#appendixsec" accesskey="1">appendixsec</a></li>
 </ul>
 <span id="appendixsec"></span><h3 class="appendixsec">A.1 appendixsec</h3>
-<hr></div>
-
+<hr>
 
 
 </body>

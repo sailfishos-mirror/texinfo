@@ -4390,7 +4390,6 @@ $result_converted{'html_text'}->{'top_in_ref_keep_top'} = '<span id="Top"></span
 <code>@inforef{Top}</code> See &lsquo;Top&rsquo;
 <code>@inforef{Top, cross ref name}</code> See &lsquo;cross ref name&rsquo;
 <code>@inforef{Top,,file name}</code> See <a data-manual="file name" href="file name.html#Top">(file name)Top</a>
-</p><hr></div>
-';
+</p><hr>';
 
 1;

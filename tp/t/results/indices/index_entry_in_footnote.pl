@@ -324,7 +324,6 @@ $result_converted{'html_text'}->{'index_entry_in_footnote'} = '<span id="Top"></
 <span id="index-index-entry-in-footnote"></span>
 </p>
 </div>
-<hr></div>
-';
+<hr>';
 
 1;

@@ -1149,8 +1149,7 @@ ul.no-bullet {list-style: none}
 <a href="#An-anchor">An anchor</a>
 </p>
 </div>
-<hr></div>
-
+<hr>
 
 
 </body>

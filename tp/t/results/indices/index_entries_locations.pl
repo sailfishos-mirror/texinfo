@@ -583,7 +583,6 @@ end paragraph.
 <a class="summary-letter" href="#t_h_cp_letter-L"><b>L</b></a>
  &nbsp; 
 </td></tr></table>
-<hr></div>
-';
+<hr>';
 
 1;

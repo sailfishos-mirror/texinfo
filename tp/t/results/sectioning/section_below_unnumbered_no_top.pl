@@ -176,8 +176,7 @@ ul.no-bullet {list-style: none}
 <li><a href="#S" accesskey="1">S</a></li>
 </ul>
 <span id="S"></span><h3 class="section">S</h3>
-<hr></div>
-
+<hr>
 
 
 </body>

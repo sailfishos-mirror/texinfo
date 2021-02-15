@@ -822,8 +822,7 @@ $result_converted{'html_text'}->{'printindex_merged_indices_code_style'} = '<spa
 <a class="summary-letter" href="#t_h_fn_letter-V"><b>V</b></a>
  &nbsp; 
 </td></tr></table>
-<hr></div>
-';
+<hr>';
 
 
 $result_converted{'xml'}->{'printindex_merged_indices_code_style'} = '<node name="Top" spaces=" "><nodename>Top</nodename></node>

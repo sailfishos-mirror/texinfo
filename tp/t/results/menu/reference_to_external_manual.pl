@@ -338,8 +338,7 @@ ul.no-bullet {list-style: none}
 <tr><td align="left" valign="top">&bull; <a href="info.html#Top" accesskey="1">(info)</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 </table>
-<hr></div>
-
+<hr>
 
 
 </body>

@@ -360,7 +360,6 @@ ul.no-bullet {list-style: none}
 
 <p>a sunny day.
 </p><hr></div>
-</div>
 
 
 

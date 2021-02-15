@@ -456,8 +456,7 @@ ul.no-bullet {list-style: none}
 <span id="index-copying-cindex-copying"></span>
 
 <span id="second-in-copying-_0040-subheading"></span><h4 class="subheading">second in copying @ <em>subheading</em></h4>
-<hr></div>
-
+<hr>
 
 
 </body>

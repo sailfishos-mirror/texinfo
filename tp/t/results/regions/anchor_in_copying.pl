@@ -471,8 +471,7 @@ ul.no-bullet {list-style: none}
 
 <p>See <a href="#Copying-information">Copying information</a>.
 </p>
-<hr></div>
-
+<hr>
 
 
 </body>

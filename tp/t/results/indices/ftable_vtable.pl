@@ -976,7 +976,6 @@ $result_converted{'html_text'}->{'ftable_vtable'} = '
  &nbsp; 
 </td></tr></table>
 
-<hr></div>
-';
+<hr>';
 
 1;

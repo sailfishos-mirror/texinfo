@@ -536,7 +536,6 @@ $result_converted{'html_text'}->{'syncode_index_print_both'} = '
  &nbsp; 
 </td></tr></table>
 
-<hr></div>
-';
+<hr>';
 
 1;

@@ -16375,8 +16375,7 @@ ul.no-bullet {list-style: none}
 <a class="summary-letter" href="#Top_vr_letter-F"><b>F</b></a>
  &nbsp; 
 </td></tr></table>
-<hr></div>
-
+<hr>
 
 
 </body>

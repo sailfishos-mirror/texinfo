@@ -392,7 +392,6 @@ $result_converted{'html_text'}->{'default_cp_index_and_one_letter_syncodeindex'}
 </table>
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#t_h_fn_symbol-1"><b>-</b></a>
 </td></tr></table>
-<hr></div>
-';
+<hr>';
 
 1;

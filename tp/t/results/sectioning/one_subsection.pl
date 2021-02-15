@@ -124,8 +124,7 @@ ul.no-bullet {list-style: none}
 
 <body lang="en">
 <span id="The-subsection"></span><h4 class="subsection">1 The subsection</h4>
-<hr></div>
-
+<hr>
 
 
 </body>

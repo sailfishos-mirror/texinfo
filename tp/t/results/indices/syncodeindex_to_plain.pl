@@ -548,7 +548,6 @@ $result_converted{'html_text'}->{'syncodeindex_to_plain'} = '
 </table>
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#t_h_vr_symbol-1"><b>-</b></a>
 </td></tr></table>
-<hr></div>
-';
+<hr>';
 
 1;
