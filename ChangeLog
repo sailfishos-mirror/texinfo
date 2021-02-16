@@ -1,5 +1,18 @@
 2021-02-16  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	Pre-release fixes
+
+	* configure.ac: Add dist-xz option.  Change TEXINFO_DTD_VERSION to
+	6.8.
+	* util/txicmdlist, util/txicustomvars: require Texinfo::ModulePath
+	so that Locale::Messages can be found from Texinfo::Common.
+	* tp/Texinfo/Common.pm: Make @variable_string_settables accessible
+	outside of file.
+	* doc/refcard/txivarcheck, util/txicustomvars:
+	Fix to account for changes in manual and in Texinfo::Common.
+
+2021-02-16  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* tp/tests/run_parser_all.sh (check_latex2html_and_tex4ht):
 	Do not use 'continue' inside a function inside a loop.  Report
 	from Vitezslav Crhon.

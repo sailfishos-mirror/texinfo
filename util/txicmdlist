@@ -1,5 +1,5 @@
 #!/usr/bin/env perl
-# Copyright 2011-2019 Free Software Foundation, Inc.
+# Copyright 2011-2021 Free Software Foundation, Inc.
 # 
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -22,6 +22,10 @@ BEGIN {
   (my $mydir = $0) =~ s,/[^/]+$,,;
   chomp (my $tpdir = `cd $mydir/../tp && pwd`);
   unshift (@INC, $tpdir);
+
+  $ENV{top_srcdir} = "$tpdir/..";
+  require Texinfo::ModulePath;
+  Texinfo::ModulePath::init(undef, undef);
 }
 
 use Texinfo::Common;

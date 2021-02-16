@@ -224,7 +224,7 @@ my @command_line_settables = (
 # all are lower cased in texi2any.pl
 my @parser_options = map {uc($_)} (keys(%default_parser_state_configuration));
 
-my @variable_string_settables = (
+our @variable_string_settables = (
 'AFTER_ABOUT',
 'AFTER_BODY_OPEN',
 'AFTER_OVERVIEW',

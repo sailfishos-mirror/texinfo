@@ -82,11 +82,11 @@ sub read_refman {
     if (/^\@node Customization Variables for \@\@/) {
       # in this node we have a bare of bare @-commands which have cust.vars.
       while (<FILE>) {
-        last if /^\@smallexample/;
+        last if /^\@example/;
       }
       my $atcmds = "";
       while (<FILE>) {
-        last if /^\@end smallexample/;
+        last if /^\@end example/;
         s/\@\@//g;  # the variable names don't start with @
         $atcmds .= $_;
       }
@@ -125,9 +125,8 @@ sub read_tp {
   open (FILE) || die "open($FILE) failed: $!";
   while (<FILE>) {
     chomp;
-    my ($var,$where) = split (/\t/);
-    next if ($where eq 'variable_other_settables'
-             || $where eq 'parser_options');
+
+    $var = $_;
     next if $var eq "OUTPUT_PERL_ENCODING";  # not for users
     next if $var eq "HTMLXREF";  # not documented
     
