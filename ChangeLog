@@ -1,5 +1,12 @@
 2021-02-16  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	Fix for make po-check
+
+	* tp/t/html_tests.t (example_class): Change test to avoid false
+	positive with "make po-check".
+
+2021-02-16  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	Fix for make ccheck
 
 	* doc/refcard/txirefcard.tex: Update to 6.8, 2021.  Remove

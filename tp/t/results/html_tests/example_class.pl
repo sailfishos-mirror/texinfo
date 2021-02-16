@@ -72,7 +72,7 @@ $result_trees{'example_class'} = {
             },
             {
               'parent' => {},
-              'text' => '    warn(sprintf(__("%s: error on closing %s: %s\\n"),
+              'text' => '    warn(sprintf("%s: error on closing %s: %s\\n",
 '
             },
             {
@@ -202,7 +202,7 @@ $result_trees{'example_class'}{'contents'}[0]{'parent'} = $result_trees{'example
 $result_texis{'example_class'} = '@example perl
 foreach my $unclosed_file (keys(%unclosed_files)) @{
   if (!close($unclosed_files@{$unclosed_file@})) @{
-    warn(sprintf(__("%s: error on closing %s: %s\\n"),
+    warn(sprintf("%s: error on closing %s: %s\\n",
                      $real_command_name, $unclosed_file, $!));
     $error_count++;
     _exit($error_count, \\@@opened_files);
@@ -214,7 +214,7 @@ foreach my $unclosed_file (keys(%unclosed_files)) @{
 
 $result_texts{'example_class'} = 'foreach my $unclosed_file (keys(%unclosed_files)) {
   if (!close($unclosed_files{$unclosed_file})) {
-    warn(sprintf(__("%s: error on closing %s: %s\\n"),
+    warn(sprintf("%s: error on closing %s: %s\\n",
                      $real_command_name, $unclosed_file, $!));
     $error_count++;
     _exit($error_count, \\@opened_files);
@@ -267,7 +267,7 @@ ul.no-bullet {list-style: none}
 <div class="example perl">
 <pre class="example">foreach my $unclosed_file (keys(%unclosed_files)) {
   if (!close($unclosed_files{$unclosed_file})) {
-    warn(sprintf(__(&quot;%s: error on closing %s: %s\\n&quot;),
+    warn(sprintf(&quot;%s: error on closing %s: %s\\n&quot;,
                      $real_command_name, $unclosed_file, $!));
     $error_count++;
     _exit($error_count, \\@opened_files);

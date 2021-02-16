@@ -263,7 +263,7 @@ In top.
 '@example perl
 foreach my $unclosed_file (keys(%unclosed_files)) @{
   if (!close($unclosed_files@{$unclosed_file@})) @{
-    warn(sprintf(__("%s: error on closing %s: %s\n"),
+    warn(sprintf("%s: error on closing %s: %s\n",
                      $real_command_name, $unclosed_file, $!));
     $error_count++;
     _exit($error_count, \@@opened_files);
