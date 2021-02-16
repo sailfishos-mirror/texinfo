@@ -144,23 +144,33 @@ program.  All the usual Texinfo output formats are possible.
 Steps for making a release (pretest or official):
 
 - When close to official release:
+
 check at latest automake/autoconf/gettext version, and mention in NEWS
 (to upgrade gettext, run
   gettextize -f --po-dir=po --po-dir=po_document
 after installing new version of gettext)
 
-special pleading with bug-texinfo / beebe / platform-testers to try.
-check OpenCSW build reports at
-  https://buildfarm.opencsw.org/buildbot/waterfall?category=texinfo
+# Under the top level, and also under tp/Texinfo/XS, which uses
+# a separate gnulib import.
+gnulib-tool --add-import
+
 try groff.texinfo from groff source repo.
 process doc/texinfo-tex-test.texi with TeX and check that output is good.
+check for C compiler warnings by configuring with -Wall (not all have to 
+be fixed)
+Have a look at the output of "git status -u" to check for files that
+  should be tracked in git or ignored.
+make po-check             # update po/POTFILES.in as needed
+util/srclist-txi          # for pretest, to sync files with other sources
 
-- First checks:
+
+- Final (easy) checks:
+
+check OpenCSW build reports at
+  https://buildfarm.opencsw.org/buildbot/waterfall?category=texinfo
 Ensure texinfo.tex, texi2dvi, and htmlxref.cnf are updated on ftp.gnu.org.
 Ensure TXI_XLATE in doc/Makefile.am matches actual file list.
 Check that LINGUAS under po and po_document match actual file list.
-Have a look at the output of "git status -u" to check for files that
-  should be tracked in git or ignored.
 Check that TEXINFO_DTD_VERSION has been updated to the next version in
   configure.ac if the DTD has been modified since the last release.
   See comments in configure.ac, and run (at the top level) make dtd-check.
@@ -171,15 +181,11 @@ Update copyright years in many files for release; best to grep -r for
   the previous year.  See also ChangeLog entries for "copyright years".
   No need (though it's ok) to change every source file at once, just the
   ones relevant to --version calls, etc., such as texindex.awk and info.c.
-make po-check             # update po/POTFILES.in as needed
-check for C compiler warnings by configuring with -Wall (not all have to 
-be fixed)
 
-# Under the top level, and also under tp/Texinfo/XS, which uses
-# a separate gnulib import.
-gnulib-tool --add-import
+after uploading distribution,
+pretest announcement -> bug-texinfo / beebe / platform-testers to try.
+bcc coordinator@translationproject.org.
 
-util/srclist-txi          # for pretest, to sync files with other sources
 
 - Official releases only:
 version and date in NEWS.
@@ -254,9 +260,6 @@ followed by cvs rm -f.  Likewise, check for added files with
 cvs -qn update, followed by cvs add.  When done, run cvs commit.
 
 #  Official releases only: Contact root@tug.org to update texinfo at tug.org
-
-#  For pretest release, send announcement to bug-texinfo and
-bcc coordinator@translationproject.org.
 
 #  For official releases:
 send announcement to info-gnu,
