@@ -7014,6 +7014,8 @@ Info, you'll see the @code{@@cartouche} had no effect):
 @findex smallformat
 @findex smalllisp
 @findex smallquotation
+@findex smalldisplay
+@findex smallindentedblock
 @cindex Small examples
 @cindex Examples in smaller fonts
 @cindex Quotations in smaller fonts

@@ -1,5 +1,14 @@
 2021-02-16  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	Fix for make ccheck
+
+	* doc/refcard/txirefcard.tex: Update to 6.8, 2021.  Remove
+	@setfilename line from mandatory file beginning.  Add @displaymath.
+	* doc/texinfo.texi (small): Add index entries for @smalldisplay
+	and @smallindentedblock.
+
+2021-02-16  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	Pre-release fixes
 
 	* configure.ac: Add dist-xz option.  Change TEXINFO_DTD_VERSION to
