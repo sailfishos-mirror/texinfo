@@ -1,3 +1,9 @@
+2021-02-16  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* tp/tests/run_parser_all.sh (check_latex2html_and_tex4ht):
+	Do not use 'continue' inside a function inside a loop.  Report
+	from Vitezslav Crhon.
+
 2021-02-15  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/Convert/HTML.pm (_convert_element_type):

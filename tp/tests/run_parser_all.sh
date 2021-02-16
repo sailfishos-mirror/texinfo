@@ -46,7 +46,7 @@ check_latex2html_and_tex4ht ()
       if echo "$remaining" | grep '[-]init mediawiki.pm' >/dev/null; then
        if test "$no_html2wiki" = 'yes' ; then
          echo "S: (no html2wiki) $current"
-         continue 2
+         return 1
        fi
       fi
     fi
