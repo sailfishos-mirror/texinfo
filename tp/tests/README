@@ -97,6 +97,21 @@ can't be used for updating.  Instead, the Makefile's copy-tests and
 copy-tex-html targets do it directly.
 
 
+Testsuite and document strings translations
+===========================================
+
+At least one test, layout/formatting_fr_icons, depends heavily on
+the translation of strings that can be translated and incorporated in
+output documents.  The translations are in the po_document directory.
+These translations are managed by the translation project and only
+updated for the release.  They may lag behind the changes in code,
+which may be problematic for test results.  The translations in
+po_document should never be changed, as they will be overwritten by
+the translation project.  If the translations need to be modified
+for the test results, a filter script should be used instead.  An
+example of such a script can be seen in po_document/fix-translations.sh.
+
+
 TeX4ht and LaTeX2HTML tests
 ===========================
 The tex4ht and latex2HTML related tests are not run automatically, as
