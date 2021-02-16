@@ -122,7 +122,7 @@ po-check:
 	  # with no space or lparen; the other alternative matches the	\
 	  # usual function calls, e.g., _("..."), with or without space.\
 	  grep -E -l							\
-	    '\b[^$$]N?__?"|\b(N?__?|gdt|gettext *)\([^)"]*("|$$)'	\
+	    '\b[^$$]N?__?"|\b(N?__?|gdt|gettext|line_error|line_error_ext|line_warn|command_error|command_warn) *\([^)"]*("|$$)'	\
 	    $$files | sort -u > $@-2;					\
 	  diff -u $@-1 $@-2 || exit 1;					\
 	  rm -f $@-1 $@-2;						\
