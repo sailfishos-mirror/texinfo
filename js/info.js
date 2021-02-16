@@ -29,7 +29,8 @@
     EXT: ".html",
     INDEX_NAME: "index.html",
     INDEX_ID: "index",
-    MAIN_ANCHORS: ["Top", "SEC_Contents"],
+    CONTENTS_ID: "SEC_Contents",
+    MAIN_ANCHORS: ["Top"],
     WARNING_TIMEOUT: 3000,
     SCREEN_MIN_WIDTH: 700,
 
@@ -680,14 +681,19 @@
     `----------------------------*/
 
     function
-    Sidebar ()
+    Sidebar (contents_node)
     {
       this.element = document.createElement ("div");
       this.element.setAttribute ("id", "slider");
       var div = document.createElement ("div");
       div.classList.add ("toc-sidebar");
-      var toc = document.querySelector (".contents");
+      var toc = document.querySelector ("#SEC_Contents");
       toc.remove ();
+
+      contents_node.appendChild(toc.cloneNode(true));
+
+      /* Remove table of contents header.  */
+      toc = toc.querySelector(".contents"); // skip ToC header
 
       /* Move contents of <body> into a a fresh <div> to let the components
          treat the index page like other iframe page.  */
@@ -701,9 +707,6 @@
       div$.appendChild (nav);
       div.appendChild (div$);
       this.element.appendChild (div);
-
-      /* Remove table of contents header.  */
-      document.querySelector (".contents-heading").remove ();
     }
 
     /* Render 'sidebar' according to STATE which is a new state. */
@@ -746,6 +749,7 @@
       this.element.appendChild (div);
       if (linkid_contains_index (pageid))
         load_page (pageid);
+      return div;
     };
 
     Pages.prototype.render = function render (state) {
@@ -872,8 +876,8 @@
         }
 
       /* Create iframe if necessary unless the div is refering to the Index
-         page.  */
-      if ((pageid === config.INDEX_ID) && visible)
+         or Contents page.  */
+      if (pageid === config.INDEX_ID || pageid === config.CONTENTS_ID)
         {
           div.removeAttribute ("hidden");
           /* Unlike iframes, Elements are unlikely to be scrollable (CSSOM
@@ -959,7 +963,7 @@
     function
     post_message (pageid, msg)
     {
-      if (pageid === config.INDEX_ID)
+      if (pageid === config.INDEX_ID || pageid === config.CONTENTS_ID)
         window.postMessage (msg, "*");
       else
         {
@@ -1018,7 +1022,7 @@
             {
               var link = linkid_split (state.current);
               var elem = document.getElementById (link.pageid);
-              if (link.pageid !== config.INDEX_ID)
+              if (link.pageid !== config.INDEX_ID && link.pageid !== config.CONTENTS_ID)
                 elem.querySelector ("iframe").focus ();
               else
                 {
@@ -1030,9 +1034,10 @@
             }
         }
       };
-
-      components.add (new Pages (index_div));
-      components.add (new Sidebar ());
+      var pages = new Pages (index_div);
+      components.add (pages);
+      var contents_node = pages.add_div(config.CONTENTS_ID);
+      components.add (new Sidebar (contents_node));
       components.add (new Help_page ());
       components.add (new Minibuffer ());
       components.add (new Echo_area ());
@@ -1167,7 +1172,7 @@
       }
 
       var ul = elem.querySelector ("ul");
-      if (linkid === config.INDEX_ID)
+      if (linkid === config.INDEX_ID || linkid === config.CONTENTS_ID)
         {
           hide_grand_child_nodes (ul);
           res = document.getElementById(linkid);
@@ -1378,6 +1383,8 @@
                   && !external_manual_url_p (href))
               {
                 var linkid = href_hash (href) || config.INDEX_ID;
+                if (linkid === "index.SEC_Contents")
+                    linkid = config.CONTENTS_ID;
                 store.dispatch (actions.set_current_url (linkid));
                 event.preventDefault ();
                 event.stopPropagation ();

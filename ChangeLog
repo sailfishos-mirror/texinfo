@@ -1,3 +1,9 @@
+2021-02-16  Per Bothner  <per@bothner.com>
+
+	* js/info.js: Fix [Contents] link by creating a fresh page-node for
+	the ToC.  This is done by cloning the ToC from the index.html.
+	Cloning is needed because the same table is used for the Sidebar.
+
 2021-02-16  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	srclist-txi fixes
