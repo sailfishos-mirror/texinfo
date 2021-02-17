@@ -1160,8 +1160,7 @@
       function
       find_current (elem)
       {
-        /* XXX: No template literals for IE compatibility.  */
-        if (elem.matches ("a[href=\"" + url + "\"]"))
+        if (elem.localName === "a" && link_href(elem) == url)
           {
             elem.setAttribute ("toc-current", "yes");
             var sib = elem.nextElementSibling;
