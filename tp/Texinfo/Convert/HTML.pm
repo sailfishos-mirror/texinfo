@@ -16,12 +16,22 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 #
-# Formatting functions, registered in %default_types_conversion
-# should not have side effects, such that users can overrides
-# them independently without risking unwanted results.  Also in
-# formatting functions, the state of the converter should only
-# be accessed through functions, such as in_math, in_preformatted,
-# preformatted_classes_stack and similar functions.
+# There are three categories of formatting functions that can be
+# replaced by the user, together with the hash with default functions:
+#  * command tree element formatting functions registered in
+#    %default_commands_conversion
+#  * type tree element (element without @-command) formatting
+#    functions, registered in %default_types_conversion
+#  * other formatting functions, registered in
+#    %default_formatting_references
+#
+# The functions used in the default case for all the functions
+# that may be replaced should not have side effects, such that
+# users can overrides them independently without risking unwanted
+# results.  Also in formatting functions, the state of the
+# converter should only be accessed through functions, such
+# as in_math, in_preformatted, preformatted_classes_stack and
+# similar functions.
 #
 # In most formatting functions, the case where $self->in_string() is
 # true should be handled explicitely and the simplest formatting should be
@@ -244,7 +254,7 @@ sub in_align($)
 #
 # Returns a hash that may have these keys set:
 # 'target': A unique string representing the target.  Used as argument to 
-#           'id' attribute inside <a>.
+#           'id' attribute.
 # 'node_filename', 'section_filename',
 # 'misc_filename', 'filename'.  Possibly others.
 #
@@ -462,6 +472,8 @@ my %contents_command_element_name = (
   'summarycontents' => 'Overview',
 );
 
+# Return string for linking to $CONTENTS_OR_SHORTCONTENTS associated
+# element from $COMMAND with <a href>
 sub command_contents_href($$$$)
 {
   my $self = shift;
@@ -675,6 +687,8 @@ sub get_value($$)
   }
 }
 
+# This function should be used in formatting functions when some
+# Texinfo tree need to be converted.
 sub convert_tree_new_formatting_context($$;$$)
 {
   my $self = shift;
@@ -1154,7 +1168,9 @@ delete $css_map{"div.lisp"}; # output as div.example instead
 
 $css_map{"blockquote.indentedblock"} = 'margin-right: 0em';
 
-# types that are in code style in the default case
+# types that are in code style in the default case.  '_code' is not
+# a type that can appear in the tree built from Texinfo code, it is used
+# to format a tree fragment as if it was in a @code @-command.
 my %default_code_types = (
  '_code' => 1,
 );
@@ -1187,8 +1203,11 @@ foreach my $explained_command (keys(%explained_commands)) {
      = [['normal'], ['string']];
 }
 
-# Default for the function references used for the formatting
-# of commands.
+# Return the default for the function references used for
+# the formatting of commands, in case a user still wants to call
+# default @-commands formatting functions when replacing functions,
+# using code along
+# &{$self->default_commands_conversion($cmdname)}($self, $cmdname, $command, $content)
 my %default_commands_conversion;
 
 sub default_commands_conversion($$)
@@ -1220,21 +1239,18 @@ sub converter_global_commands($)
   return @informative_global_commands;
 }
 
-#my %ignored_misc_commands;
 foreach my $misc_command (keys(%misc_commands)) {
-#  $ignored_misc_commands{$misc_command} = 1 
   $default_commands_conversion{$misc_command} = undef
     unless ($kept_misc_commands{$misc_command});
 }
 
 foreach my $ignored_brace_commands ('caption', 'shortcaption', 
   'hyphenation', 'sortas') {
-  #$ignored_commands{$ignored_brace_commands} = 1;
   $default_commands_conversion{$ignored_brace_commands} = undef;
 }
 
 # commands that leads to advancing the paragraph number.  This is mostly
-#used to determine the first line, in fact.
+# used to determine the first line, in fact.
 my %advance_paragraph_count_commands;
 foreach my $command (keys(%block_commands)) {
   next if ($menu_commands{$command} 
@@ -1244,14 +1260,16 @@ foreach my $command (keys(%block_commands)) {
 
 foreach my $ignored_block_commands ('ignore', 'macro', 'rmacro', 'copying',
   'documentdescription', 'titlepage', 'direntry') {
-  #$ignored_commands{$ignored_block_commands} = 1;
   $default_commands_conversion{$ignored_block_commands} = undef;
 };
 
 # Formatting of commands without args
 
 # The hash holding the defaults for the formatting of
-# most commands without args 
+# most commands without args.  It has three contexts as keys,
+# 'normal' in normal text, 'preformatted' in @example and similar
+# commands, and 'string' for contexts where HTML elements should not
+# be used.
 my %default_commands_formatting;
 
 foreach my $command (keys(%{$Texinfo::Convert::Converter::default_xml_commands_formatting{'normal'}})) {
@@ -1271,13 +1289,6 @@ my %default_commands_translation;
 #if (0) {
 #  my $not_existing;
 #  $not_existing->gdt('error--&gt;');
-#}
-
-#foreach my $command (keys(%{$default_commands_formatting{'normal'}})) {
-#  $default_commands_formatting{'preformatted'}->{$command} = 
-#     $default_commands_formatting{'normal'}->{$command};
-#  $default_commands_formatting{'string'}->{$command} =
-#     $default_commands_formatting{'normal'}->{$command};
 #}
 
 $default_commands_formatting{'normal'}->{'enddots'} 
@@ -3835,7 +3846,8 @@ foreach my $small_command (keys(%small_alias)) {
 
 # Keys are tree element types, values are function references to convert
 # elements of that type.  Can be overridden with
-# Texinfo::Config::texinfo_types_conversion.
+# Texinfo::Config::texinfo_types_conversion, setup by
+# Texinfo::Config::texinfo_register_type_formatting()
 my %default_types_conversion;
 
 sub default_types_conversion($$)
@@ -7213,6 +7225,11 @@ my $default_priority = 'default';
 {
 package Texinfo::Config;
 
+# Note that these variables are available for the Texinfo modules
+# but, in general should not be accessed directly by the users who
+# customize formatting and should use the associated functions,
+# such as texinfo_register_handler(), texinfo_register_formatting_function(),
+# texinfo_register_command_formatting() or texinfo_register_type_formatting().
 use vars qw(%texinfo_default_stage_handlers %texinfo_formatting_references
             %texinfo_commands_conversion %texinfo_types_conversion);
 
