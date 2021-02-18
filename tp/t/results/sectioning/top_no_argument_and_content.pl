@@ -108,6 +108,8 @@ $result_converted{'html'}->{'top_no_argument_and_content'} = '<!DOCTYPE html PUB
 <meta name="keywords" content="Untitled Document">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
 <style type="text/css">
 <!--
 a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}

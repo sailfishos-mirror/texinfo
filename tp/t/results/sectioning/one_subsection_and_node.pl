@@ -203,6 +203,8 @@ $result_converted{'html'}->{'one_subsection_and_node'} = '<!DOCTYPE html PUBLIC 
 <meta name="keywords" content="Untitled Document">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
 <link href="#one-node" rel="start" title="one node">
 <style type="text/css">
 <!--

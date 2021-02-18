@@ -417,6 +417,8 @@ $result_converted{'html'}->{'titles'} = '<!DOCTYPE html PUBLIC "-//W3C//DTD HTML
 <meta name="keywords" content="@title HTML test">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
 <link href="#Top" rel="start" title="Top">
 <style type="text/css">
 <!--

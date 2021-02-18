@@ -417,6 +417,8 @@ $result_converted{'html'}->{'top_without_node_nodes'} = '<!DOCTYPE html PUBLIC "
 <meta name="keywords" content="top section">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
 <link href="#second" rel="start" title="second">
 <style type="text/css">
 <!--

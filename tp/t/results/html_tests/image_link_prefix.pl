@@ -62,6 +62,8 @@ $result_converted{'html'}->{'image_link_prefix'} = '<!DOCTYPE html PUBLIC "-//W3
 <meta name="keywords" content="Untitled Document">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
 <style type="text/css">
 <!--
 a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}

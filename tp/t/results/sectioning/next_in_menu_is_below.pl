@@ -1220,6 +1220,8 @@ $result_converted{'html'}->{'next_in_menu_is_below'} = '<!DOCTYPE html PUBLIC "-
 <meta name="keywords" content="top">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
 <link href="#Top" rel="start" title="Top">
 <style type="text/css">
 <!--

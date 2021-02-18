@@ -214,6 +214,8 @@ $result_converted{'html'}->{'section_before_part'} = '<!DOCTYPE html PUBLIC "-//
 <meta name="keywords" content="Untitled Document">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
 <link href="#SEC_Contents" rel="contents" title="Table of Contents">
 <style type="text/css">
 <!--

@@ -904,6 +904,8 @@ $result_converted{'html'}->{'section_below_unnumbered'} = '<!DOCTYPE html PUBLIC
 <meta name="keywords" content="Top">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
 <link href="#Top" rel="start" title="Top">
 <link href="#SEC_Contents" rel="contents" title="Table of Contents">
 <style type="text/css">

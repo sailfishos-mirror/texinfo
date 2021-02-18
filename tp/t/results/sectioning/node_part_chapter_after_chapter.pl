@@ -1082,6 +1082,8 @@ $result_converted{'html'}->{'node_part_chapter_after_chapter'} = '<!DOCTYPE html
 <meta name="keywords" content="top">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
 <link href="#Top" rel="start" title="Top">
 <link href="#SEC_Contents" rel="contents" title="Table of Contents">
 <style type="text/css">

@@ -304,6 +304,8 @@ $result_converted{'html'}->{'command_translated'} = '<!DOCTYPE html PUBLIC "-//W
 <meta name="keywords" content="top erreur&rarr;">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
 <link href="#Top" rel="start" title="Top">
 <style type="text/css">
 <!--

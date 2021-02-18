@@ -543,6 +543,8 @@ $result_converted{'html'}->{'top_node_up_url'} = '<!DOCTYPE html PUBLIC "-//W3C/
 <meta name="keywords" content="internal top node up">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
 <link href="#Top" rel="start" title="Top">
 <link href="http://www.gnu.org/manual/" rel="up" title="@acronym{GNU, @acronym{GNU}\'s Not Unix} manuals">
 <style type="text/css">

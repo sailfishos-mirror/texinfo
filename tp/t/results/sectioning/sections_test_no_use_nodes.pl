@@ -736,6 +736,8 @@ $result_converted{'html'}->{'sections_test_no_use_nodes'} = '<!DOCTYPE html PUBL
 <meta name="keywords" content="top">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
 <link href="#top" rel="start" title="top">
 <style type="text/css">
 <!--

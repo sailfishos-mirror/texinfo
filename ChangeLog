@@ -1,5 +1,11 @@
 2021-02-18  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/Convert/HTML.pm (_default_format_begin_file):
+	Add viewport declaration as was already output for node
+	redirection pages.  Report from Per Bothner.
+
+2021-02-18  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/XS/parsetexi: Add include guards to all header files.
 
 2021-02-17  Per Bothner  <per@bothner.com>

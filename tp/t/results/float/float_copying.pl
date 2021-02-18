@@ -1608,6 +1608,8 @@ the author abandon his copyright.
 <meta name="keywords" content="Top">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
 <link href="#Top" rel="start" title="Top">
 <link href="#Copying-and-floats" rel="index" title="Copying and floats">
 <style type="text/css">

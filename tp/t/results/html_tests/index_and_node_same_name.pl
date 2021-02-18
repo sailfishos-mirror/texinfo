@@ -260,6 +260,8 @@ $result_converted{'html'}->{'index_and_node_same_name'} = '<!DOCTYPE html PUBLIC
 <meta name="keywords" content="top">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
 <link href="#index-node" rel="start" title="index node">
 <link href="#index-node" rel="index" title="index node">
 <style type="text/css">

@@ -851,6 +851,8 @@ $result_converted{'html'}->{'two_footnotes_in_nodes_separate'} = '<!DOCTYPE html
 <meta name="keywords" content="2 footnotes in 2 nodes">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
 <link href="#Top" rel="start" title="Top">
 <style type="text/css">
 <!--

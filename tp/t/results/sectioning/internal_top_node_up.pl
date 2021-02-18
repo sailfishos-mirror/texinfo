@@ -543,6 +543,8 @@ $result_converted{'html'}->{'internal_top_node_up'} = '<!DOCTYPE html PUBLIC "-/
 <meta name="keywords" content="internal top node up">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
 <link href="#Top" rel="start" title="Top">
 <style type="text/css">
 <!--

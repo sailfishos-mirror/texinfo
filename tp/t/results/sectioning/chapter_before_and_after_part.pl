@@ -346,6 +346,8 @@ $result_converted{'html'}->{'chapter_before_and_after_part'} = '<!DOCTYPE html P
 <meta name="keywords" content="Untitled Document">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
 <link href="#SEC_Contents" rel="contents" title="Table of Contents">
 <style type="text/css">
 <!--

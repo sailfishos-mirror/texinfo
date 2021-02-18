@@ -6774,6 +6774,8 @@ $description
 <meta name=\"keywords\" content=\"$title\">
 <meta name=\"resource-type\" content=\"document\">
 <meta name=\"distribution\" content=\"global\">${generator}$date
+<meta name=\"viewport\" content=\"width=device-width,initial-scale=1\">
+
 ${links}$css_lines
 $extra_head
 </head>

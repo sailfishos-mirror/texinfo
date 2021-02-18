@@ -876,6 +876,8 @@ $result_converted{'html'}->{'double_node_anchor_float'} = '<!DOCTYPE html PUBLIC
 <meta name="keywords" content="Untitled Document">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
 <link href="#node1" rel="start" title="node1">
 <style type="text/css">
 <!--

@@ -376,6 +376,8 @@ $result_converted{'html'}->{'subentry_and_sortas'} = '<!DOCTYPE html PUBLIC "-//
 <meta name="keywords" content="Untitled Document">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
 <link href="#Top" rel="start" title="Top">
 <link href="#Top" rel="index" title="Top">
 <style type="text/css">

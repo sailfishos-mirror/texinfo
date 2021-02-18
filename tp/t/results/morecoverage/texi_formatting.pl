@@ -4879,6 +4879,8 @@ $result_converted{'html'}->{'texi_formatting'} = '<!DOCTYPE html PUBLIC "-//W3C/
 <meta name="keywords" content="title &ndash;a">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
 <link href="#Top" rel="start" title="Top">
 <link href="#Top" rel="index" title="Top">
 <link href="#SEC_Contents" rel="contents" title="Table of Contents">

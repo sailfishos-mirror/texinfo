@@ -773,6 +773,8 @@ $result_converted{'html'}->{'shortcontents'} = '<!DOCTYPE html PUBLIC "-//W3C//D
 <meta name="keywords" content="top">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
 <style type="text/css">
 <!--
 a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
