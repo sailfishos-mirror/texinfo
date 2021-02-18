@@ -1,5 +1,21 @@
 2021-02-18  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	Fix compiler warnings.
+	
+	* tp/Texinfo/XS/XSParagraph.xs (xspara_new): Remove code
+	setting an unused variable.  It appears that we are not
+	blessing the return value into a class after all.
+	* tp/Texinfo/XS/parsetexi/handle_commands.c (handle_line_command):
+	Parentheses around assignment in conditional.
+	* tp/Texinfo/XS/parsetexi/input.c (text_buffer_iconv): Handle
+	KOI8 cases in switch statement.
+	* tp/Texinfo/XS/parsetexi/macro.c (parse_macro_command_line):
+	Remove unused label.
+
+	Report from Per Bothner.
+
+2021-02-18  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	Reform parsetexi header files
 
 	* tp/Texinfo/XS/parsetexi: Make header files include the other

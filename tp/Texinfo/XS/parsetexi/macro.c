@@ -207,7 +207,6 @@ check_trailing:
     }
   //line += strlen (line); /* Discard rest of line. */
 
-funexit:
   *line_inout = line;
   return macro;
 }

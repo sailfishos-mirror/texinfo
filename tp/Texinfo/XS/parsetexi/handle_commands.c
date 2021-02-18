@@ -530,7 +530,7 @@ handle_line_command (ELEMENT *current, char **line_inout,
       if (cmd == CM_item_LINE || cmd == CM_itemx)
         {
           ELEMENT *parent;
-          if (parent = item_line_parent (current))
+          if ((parent = item_line_parent (current)))
             {
               debug ("ITEM_LINE");
               current = parent;

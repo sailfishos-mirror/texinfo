@@ -46,7 +46,6 @@ SV *
 xspara_new (class, ...)
         SV * class
     PREINIT:
-        HV *pkg;
         HV *conf = 0;
         int id;
     CODE:
@@ -58,9 +57,8 @@ xspara_new (class, ...)
           }
         id = xspara_new (conf);
 
-        /* Create a blessed integer, which the other functions
+        /* Create an integer, which the other functions
            need as their first argument. */
-        pkg = gv_stashpv ("Texinfo::Convert::Paragraph", 0);
         RETVAL = newSViv (id);
     OUTPUT:
         RETVAL

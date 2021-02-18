@@ -169,7 +169,7 @@ text_buffer_iconv (TEXT *buf, iconv_t iconv_state,
 static char *
 convert_to_utf8 (char *s)
 {
-  iconv_t our_iconv;
+  iconv_t our_iconv = (iconv_t) -1;
   static TEXT t;
   ICONV_CONST char *inptr; size_t bytes_left;
   size_t iconv_ret;
@@ -214,6 +214,12 @@ convert_to_utf8 (char *s)
       break;
     case ce_shiftjis:
       our_iconv = iconv_from_shiftjis;
+      break;
+    case ce_koi8r:
+      our_iconv = iconv_from_koi8r;
+      break;
+    case ce_koi8u:
+      our_iconv = iconv_from_koi8u;
       break;
     }
 
