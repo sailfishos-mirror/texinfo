@@ -1,4 +1,6 @@
 /* input.h - declarations for input.c */
+#ifndef INPUT_H
+#define INPUT_H
 
 char *new_line (void);
 char *next_text (void);
@@ -22,3 +24,4 @@ void free_small_strings (void);
 extern LINE_NR line_nr;
 
 extern int input_number;
+#endif

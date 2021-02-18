@@ -1,4 +1,6 @@
 /* counter.h - definitions for counter.c */
+#ifndef COUNTER_H
+#define COUNTER_H
 /* Copyright 2015-2020 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
@@ -30,3 +32,5 @@ int counter_value (COUNTER *c, ELEMENT *e);
 /* A large positive number used to represent an unlimited number of remaining
    arguments. */
 #define COUNTER_VARIADIC 32767
+
+#endif

@@ -1,4 +1,6 @@
 /* context_stack.h - declarations for context_stack.c */
+#ifndef CONTEXT_STACK_H
+#define CONTEXT_STACK_H
 /* Copyright 2010-2019 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
@@ -49,3 +51,4 @@ ELEMENT *current_region (void);
 enum command_id current_region_cmd (void);
 
 void reset_region_stack (void);
+#endif

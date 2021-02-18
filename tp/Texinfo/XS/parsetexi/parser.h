@@ -2,6 +2,8 @@
    declarations for close.c, end_line.c, debug.c, separator.c, parser.c, 
    multitable.c, extra.c and menu.c. */
 
+#ifndef PARSER_H
+#define PARSER_H
 /* Copyright 2010-2021 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
@@ -210,3 +212,4 @@ KEY_PAIR *lookup_extra (ELEMENT *e, char *key);
 /* In menus.c */
 int handle_menu (ELEMENT **current_inout, char **line_inout);
 ELEMENT *enter_menu_entry_node (ELEMENT *current);
+#endif

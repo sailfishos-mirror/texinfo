@@ -1,4 +1,6 @@
 /* text.h - declarations for text.c */
+#ifndef TEXT_H
+#define TEXT_H
 /* Copyright 2014, 2015 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
@@ -22,3 +24,4 @@ void text_alloc (TEXT *t, size_t len);
 void text_reset (TEXT *t);
 
 #define text_base(t) ((t)->space ? (t)->text : (char *) 0)
+#endif

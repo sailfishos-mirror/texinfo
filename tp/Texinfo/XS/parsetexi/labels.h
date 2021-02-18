@@ -1,4 +1,6 @@
 /* labels.h - declarations for labels.c */
+#ifndef LABELS_H
+#define LABELS_H
 /* Copyright 2010-2019 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
@@ -35,3 +37,4 @@ extern size_t internal_xref_space;
 
 void remember_internal_xref (ELEMENT *element);
 void reset_internal_xrefs (void);
+#endif

@@ -1,4 +1,6 @@
 /* commands.h - declarations for commands.c */
+#ifndef COMMANDS_H
+#define COMMANDS_H
 /* Copyright 2010-2020 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
@@ -112,3 +114,5 @@ void wipe_user_commands (void);
 #define BRACE_accent -2
 #define BRACE_style -3
 #define BRACE_other -4
+
+#endif

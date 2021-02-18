@@ -1,4 +1,6 @@
 /* macro.h - declarations for macro.c */
+#ifndef MACRO_H
+#define MACRO_H
 /* Copyright 2010-2019 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
@@ -42,3 +44,4 @@ void clear_value (char *name);
 INFO_ENCLOSE *lookup_infoenclose (enum command_id cmd);
 void add_infoenclose (enum command_id cmd, char *begin, char *end);
 
+#endif
