@@ -17,7 +17,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "parser.h"
+#include "errors.h"
+#include "tree.h"
 
 //int element_counter;
 

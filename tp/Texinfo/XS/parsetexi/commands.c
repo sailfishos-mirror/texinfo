@@ -18,7 +18,9 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "parser.h"
+#include "command_ids.h"
+#include "commands.h"
+#include "errors.h"
 
 #include "command_data.c"
 

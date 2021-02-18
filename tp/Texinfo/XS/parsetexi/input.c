@@ -24,9 +24,10 @@
 #include <errno.h>
 #include <sys/stat.h>
 
-#include "parser.h"
+#include "errors.h"
 #include "input.h"
 #include "text.h"
+#include "commands.h"
 
 enum input_type { IN_file, IN_text };
 

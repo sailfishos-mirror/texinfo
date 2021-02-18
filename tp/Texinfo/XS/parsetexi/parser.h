@@ -159,8 +159,6 @@ int is_end_current_command (ELEMENT *current, char **line,
 void set_documentlanguage (char *);
 void set_novalidate (int value);
 char *element_type_name (ELEMENT *e);
-void fatal (char *);
-void bug (char *);
 
 /* Return values */
 #define GET_A_NEW_LINE 0

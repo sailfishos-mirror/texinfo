@@ -2,6 +2,8 @@
 #ifndef INDICES_H
 #define INDICES_H
 
+#include "tree_types.h"
+
 extern INDEX **index_names;
 
 void init_index_commands (void);

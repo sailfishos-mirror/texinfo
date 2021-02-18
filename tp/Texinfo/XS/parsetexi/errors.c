@@ -20,9 +20,22 @@
 #include <stdarg.h>
 #include <stdio.h>
 
-#include "parser.h"
+#include "errors.h"
 #include "input.h"
 #include "text.h"
+
+void bug (char *message)
+{
+  fprintf (stderr, "texi2any (XS parser): bug: %s\n", message);
+  abort ();
+}
+
+void fatal (char *message)
+{
+  bug (message);
+  abort ();
+}
+
 
 typedef struct {
     char *message;

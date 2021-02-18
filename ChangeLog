@@ -1,5 +1,17 @@
 2021-02-18  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	Reform parsetexi header files
+
+	* tp/Texinfo/XS/parsetexi: Make header files include the other
+	headers that they need.
+	* tp/Texinfo/XS/parsetexi/command_data.awk,
+	* tp/Texinfo/XS/parsetexi/element_types.awk: Output include guards
+	in generated headers.
+	* tp/Texinfo/XS/parsetexi/parser.c,
+	* tp/Texinfo/XS/parsetexi/errors.c: (bug, fatal): Move to errors.c.
+
+2021-02-18  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/Convert/HTML.pm (_default_format_begin_file):
 	Add viewport declaration as was already output for node
 	redirection pages.  Report from Per Bothner.

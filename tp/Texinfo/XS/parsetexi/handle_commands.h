@@ -2,6 +2,8 @@
 #ifndef HANDLE_COMMANDS_H
 #define HANDLE_COMMANDS_H
 
+#include "tree_types.h"
+
 ELEMENT *handle_other_command (ELEMENT *current, char **line_inout,
                      enum command_id cmd_id, int *status);
 ELEMENT *handle_line_command (ELEMENT *current, char **line_inout,

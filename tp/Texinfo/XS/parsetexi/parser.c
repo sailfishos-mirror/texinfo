@@ -30,19 +30,6 @@ const char *digit_chars = "0123456789";
 // [^\S\r\n] in Perl
 const char *whitespace_chars_except_newline = " \t\f";
 
-
-void bug (char *message)
-{
-  fprintf (stderr, "texi2any (XS parser): bug: %s\n", message);
-  abort ();
-}
-
-void fatal (char *message)
-{
-  bug (message);
-  abort ();
-}
-
 /* Check if the contents of S2 appear at S1). */
 int
 looking_at (char *s1, char *s2)

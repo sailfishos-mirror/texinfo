@@ -15,7 +15,9 @@
 
 #include <config.h>
 
+#include "counter.h"
 #include "parser.h"
+
 
 void
 counter_push (COUNTER *c, ELEMENT *elt, int num)

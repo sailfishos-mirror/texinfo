@@ -2,6 +2,11 @@
 #ifndef ERRORS_H
 #define ERRORS_H
 
+#include "tree_types.h"
+
+void fatal (char *);
+void bug (char *);
+
 enum error_type { error, warning };
 
 void line_error (char *format, ...);

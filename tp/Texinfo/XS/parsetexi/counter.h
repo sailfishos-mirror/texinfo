@@ -1,7 +1,10 @@
 /* counter.h - definitions for counter.c */
 #ifndef COUNTER_H
 #define COUNTER_H
-/* Copyright 2015-2020 Free Software Foundation, Inc.
+
+#include "tree_types.h"
+
+/* Copyright 2015-2021 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -15,6 +18,8 @@
 
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>. */
+
+#include "tree_types.h"
 
 typedef struct {
     int *values; /* Array of values. */
