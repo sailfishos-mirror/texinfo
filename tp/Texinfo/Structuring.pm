@@ -400,6 +400,32 @@ sub _check_menu_entry($$$)
   }
 }
 
+sub _check_referenced_nodes
+{
+  my ($self, $top_node) = @_;
+
+  my %referenced_nodes = ($top_node => 1);
+  foreach my $node (@{$self->{'nodes'}}) {
+    # gather referenced nodes based on node pointers
+    foreach my $direction (@node_directions) {
+      if ($node->{'node_'.$direction}
+          and not $node->{'node_'.$direction}->{'extra'}->{'manual_content'}) {
+        $referenced_nodes{$node->{'node_'.$direction}} = 1;
+      }
+    }
+    if ($node->{'menu_up_hash'}) {
+      $referenced_nodes{$node} = 1;
+    }
+  }
+  foreach my $node (@{$self->{'nodes'}}) {
+    if (not exists($referenced_nodes{$node})) {
+      $self->line_warn(sprintf(__("node `%s' unreferenced"),
+          node_extra_to_texi($node->{'extra'})),
+           $node->{'line_nr'});
+    }
+  }
+}
+
 # set node and menu directions, and check consistency
 sub nodes_tree($)
 {
@@ -491,7 +517,6 @@ sub nodes_tree($)
 
   # Go through all the nodes and set directions.
   $top_node = $self->{'nodes'}->[0] if (!$top_node);
-  my %referenced_nodes = ($top_node => 1);
   foreach my $node (@{$self->{'nodes'}}) {
     my $automatic_directions = 
       (scalar(@{$node->{'extra'}->{'nodes_manuals'}}) == 1);
@@ -635,16 +660,6 @@ sub nodes_tree($)
         }
       }
     }
-    # gather referenced nodes based on node pointers
-    foreach my $direction (@node_directions) {
-      if ($node->{'node_'.$direction}
-          and not $node->{'node_'.$direction}->{'extra'}->{'manual_content'}) {
-        $referenced_nodes{$node->{'node_'.$direction}} = 1;
-      }
-    }
-    if ($node->{'menu_up_hash'}) {
-      $referenced_nodes{$node} = 1;
-    }
 
     # check for node up / menu up mismatch
     if ($self->get_conf('CHECK_NORMAL_MENU_STRUCTURE')
@@ -675,13 +690,7 @@ sub nodes_tree($)
       # FIXME check that node_up is not an external node (except for Top)?
     }
   }
-  foreach my $node (@{$self->{'nodes'}}) {
-    if (not exists($referenced_nodes{$node})){
-      $self->line_warn(sprintf(__("node `%s' unreferenced"),
-          node_extra_to_texi($node->{'extra'})),
-           $node->{'line_nr'});
-    }
-  }
+  _check_referenced_nodes($self, $top_node);
   $self->{'structuring'}->{'top_node'} = $top_node;
   return $top_node;
 }

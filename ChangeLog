@@ -1,5 +1,11 @@
 2021-02-20  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/Structuring.pm (_check_referenced_nodes):
+	New function to centralize code for checking referenced nodes.
+	(nodes_tree): Call it.
+
+2021-02-20  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	No footer for several nodes in a file.
 
 	* tp/Texinfo/Convert/HTML.pm (_default_format_element_footer):
