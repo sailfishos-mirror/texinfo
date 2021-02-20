@@ -1,5 +1,9 @@
 2021-02-20  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo-tex-test.texi (~[]"_|<>$#&%+\) Add example.
+
+2021-02-20  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* README-hacking: Add advice on using git.
 
 2021-02-20  Gavin Smith  <gavinsmith0123@gmail.com>

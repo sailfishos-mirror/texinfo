@@ -1634,6 +1634,11 @@ For PDF output, check the bookmarks pane in the reader.
 This section should be called ``@{ @} @@ @{ @} @arrow{} @@ @{''.
 
 
+@section ~[]"_|<>$#&%+\
+
+This section should be called @code{~[]"_|<>$#&%+\} (in Roman type).
+
+
 
 @chapter PDF link colours
 
