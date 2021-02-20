@@ -1,3 +1,8 @@
+2021-02-20  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Structuring.pm (elements_file_directions):
+	add FirstInFile* directions for every element.
+
 2021-02-20  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/Structuring.pm (_check_referenced_nodes):

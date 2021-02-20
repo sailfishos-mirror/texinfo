@@ -1040,12 +1040,23 @@ sub elements_file_directions($$)
   my $elements = shift;
   return if (!$elements or !@$elements);
 
+  my $current_filename;
+  my $first_element_in_file;
+  # need to gather the directions before the FirstInFile* directions
+  # are added to the first element in the file.
+  my @first_element_in_file_directions;
   foreach my $element (@$elements) {
     my $directions;
     my $filename;
     if (defined($element->{'filename'})) {
       $filename = $element->{'filename'};
       my $current_element = $element;
+      if (not defined($current_filename)
+          or $filename ne $current_filename) {
+        $first_element_in_file = $element;
+        @first_element_in_file_directions = keys %{$element->{'extra'}->{'directions'}};
+        $current_filename = $filename;
+      }
       while ($current_element->{'element_prev'}) {
         $current_element = $current_element->{'element_prev'};
         if (defined($current_element->{'filename'})) {
@@ -1068,6 +1079,15 @@ sub elements_file_directions($$)
         } else {
           last;
         }
+      }
+    }
+    # set the directions of the first elements in file, to
+    # be used in footers for example
+    if (defined($first_element_in_file)) {
+      foreach my $first_in_file_direction
+                (@first_element_in_file_directions) {
+        $element->{'extra'}->{'directions'}->{'FirstInFile'.$first_in_file_direction}
+          = $first_element_in_file->{'extra'}->{'directions'}->{$first_in_file_direction};
       }
     }
   }
@@ -1889,6 +1909,11 @@ The next top level element.
 In the directions reference described above for C<elements_directions>, sets
 the I<PrevFile> and C<NextFile> directions to the elements in previous and
 following files.  
+
+It also sets C<FirstInFile*> directions for all the elements by using
+the directions of the first element in file.  So, for example, 
+C<FirstInFileNodeNext> is the next node of the first element in
+the file of each element.
 
 The API for association of pages/elements to files is not defined yet.
 
