@@ -1,5 +1,20 @@
 2021-02-20  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	Fix display of _ in section name.
+
+	* doc/texinfo.tex (\setupdatafile): Read aux file giving
+	_ | < and > catcode "active".
+
+	* doc/texinfo-tex-test.texi (~[]"_|<>$#&%+\) Add a test
+	of a cross-reference.
+	
+	Werner Lemberg reported that an underscore in a section title
+	would be printed as a dot accent when using
+	"@xrefautomaticsectiontitle on".
+
+
+2021-02-20  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo-tex-test.texi (~[]"_|<>$#&%+\) Add example.
 
 2021-02-20  Gavin Smith  <gavinsmith0123@gmail.com>

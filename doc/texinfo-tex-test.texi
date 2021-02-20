@@ -1634,9 +1634,15 @@ For PDF output, check the bookmarks pane in the reader.
 This section should be called ``@{ @} @@ @{ @} @arrow{} @@ @{''.
 
 
+@node Special characters
 @section ~[]"_|<>$#&%+\
 
 This section should be called @code{~[]"_|<>$#&%+\} (in Roman type).
+
+@xrefautomaticsectiontitle on
+@xref{Special characters} is a cross-reference using
+@code{@@xrefautomaticsectiontitle on}.
+@xrefautomaticsectiontitle off
 
 
 
