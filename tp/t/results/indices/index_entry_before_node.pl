@@ -788,7 +788,6 @@ $result_converted{'html_text'}->{'index_entry_before_node'} = '<span id="Top"></
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#t_h_cp_letter-L"><b>L</b></a>
  &nbsp; 
 </td></tr></table>
-<hr>
 ';
 
 1;

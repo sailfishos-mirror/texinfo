@@ -23230,7 +23230,6 @@ Previous: <a href="#gH-3rd" accesskey="p" rel="prev"><sub>g</sub>H 3<sup>rd</sup
 </p>
 </div>
 </div>
-<hr>
 
 
 

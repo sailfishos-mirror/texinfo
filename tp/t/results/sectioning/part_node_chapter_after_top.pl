@@ -1070,7 +1070,6 @@ Next: <a href="#a-node-after-part" accesskey="n" rel="next">a node after part</a
 <span id="chapter-1"></span><h2 class="chapter">1 chapter</h2>
 </div>
 </div>
-<hr>
 
 
 

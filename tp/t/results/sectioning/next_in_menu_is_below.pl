@@ -1293,7 +1293,6 @@ Previous: <a href="#section" accesskey="p" rel="prev">section</a>, Up: <a href="
 </div>
 </div>
 </div>
-<hr>
 
 
 

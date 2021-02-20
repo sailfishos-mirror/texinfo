@@ -579,8 +579,7 @@ Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 <h4 class="node-heading">&lsquo;<samp>node</samp>&rsquo;</h4>
 
 <p>See <a href="#node">&lsquo;<samp>node</samp>&rsquo;</a>.
-</p><hr>
-
+</p>
 
 
 </body>

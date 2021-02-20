@@ -1228,7 +1228,6 @@ Previous: <a href="#chapter-1" accesskey="p" rel="prev">chapter c1</a>, Up: <a h
 <span id="chapter-c2"></span><h2 class="chapter">2 chapter c2</h2>
 </div>
 </div>
-<hr>
 
 
 

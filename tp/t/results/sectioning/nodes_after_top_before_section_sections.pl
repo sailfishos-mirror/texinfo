@@ -862,7 +862,6 @@ Previous: <a href="#second-node" accesskey="p" rel="prev">second node</a>, Up: <
 </div>
 <span id="subsection"></span><h4 class="subsection">1 subsection</h4>
 </div>
-<hr>
 
 
 

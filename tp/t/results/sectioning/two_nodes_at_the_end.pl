@@ -1067,7 +1067,6 @@ Previous: <a href="#node-after-chapter-1" accesskey="p" rel="prev">node after ch
 <h4 class="node-heading">node after chapter 2</h4>
 </div>
 </div>
-<hr>
 
 
 

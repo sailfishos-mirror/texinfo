@@ -4789,16 +4789,12 @@ sub _default_format_element_footer($$$$)
                      and $self->element_is_top($element->{'element_next'}));
   my $next_is_special = (defined($element->{'element_next'})
     and $element->{'element_next'}->{'extra'}->{'special_element'});
-  # no 'parent' defined happens if there are no pages, and there are elements 
-  # which should only happen when called with $self->{'output_file'} 
-  # set to ''.
+
   my $end_page = (!$element->{'element_next'}
        or (defined($element->{'filename'}) 
            and $element->{'filename'} ne $element->{'element_next'}->{'filename'}
            and $self->{'file_counters'}->{$element->{'filename'}} == 1));
-  #my $end_page = (!$element->{'element_next'}
-  #     or (defined($element->{'parent'}) 
-  #         and $element->{'parent'} ne $element->{'element_next'}->{'parent'}));
+
   my $is_special = $element->{'extra'}->{'special_element'};
 
   if (($end_page or $next_is_top or $next_is_special or $is_top)
@@ -4813,40 +4809,55 @@ sub _default_format_element_footer($$$$)
     $result .= join('', $self->close_registered_sections_level(0));
   }
 
-  my $rule = '';
-  my $buttons;
-  my $maybe_in_page;
-  if (($is_top or $is_special)
-      and ($self->get_conf('SPLIT') or !$self->get_conf('MONOLITHIC'))
-      and ($end_page 
-         and ($self->get_conf('HEADERS') 
-              or ($self->get_conf('SPLIT') and $self->get_conf('SPLIT') ne 'node')))) {
-    if ($is_top) {
-      $buttons = $self->get_conf('TOP_BUTTONS');
-    } else {
-      $buttons = $self->get_conf('MISC_BUTTONS');
-    }
-  } elsif ($end_page and $self->get_conf('SPLIT') eq 'section') {
-    $buttons = $self->get_conf('SECTION_FOOTER_BUTTONS');
-  } elsif ($end_page and $self->get_conf('SPLIT') eq 'chapter') {
-    $buttons = $self->get_conf('CHAPTER_BUTTONS');
-  } elsif ($self->get_conf('SPLIT') eq 'node') {
-    if ($self->get_conf('HEADERS')) {
-      my $no_footer_word_count;
-      if ($self->get_conf('WORDS_IN_PAGE')) {
-        my @cnt = split(/\W*\s+\W*/, $content);
-        if (scalar(@cnt) < $self->get_conf('WORDS_IN_PAGE')) {
-          $no_footer_word_count = 1;
-        }
-      }
-      $buttons = $self->get_conf('NODE_FOOTER_BUTTONS')
-         unless ($no_footer_word_count);
-    }
-  } else {
-    $maybe_in_page = 1;
+  # No footer navigation panel if there is more than one node in the
+  # output file.
+  my $do_buttons = 0;
+  if ($end_page
+      and $self->{'elements_in_file_count'}->{$element->{'filename'}} == 1) {
+    $do_buttons = 1;
   }
 
-  if ($maybe_in_page or $is_top or $is_special
+  my $rule = '';
+  my $buttons;
+
+  if ($do_buttons) {
+    if (($is_top or $is_special)
+        and ($self->get_conf('SPLIT') or !$self->get_conf('MONOLITHIC'))
+        and (($self->get_conf('HEADERS') 
+                or ($self->get_conf('SPLIT') and $self->get_conf('SPLIT') ne 'node')))) {
+      if ($is_top) {
+        $buttons = $self->get_conf('TOP_BUTTONS');
+      } else {
+        $buttons = $self->get_conf('MISC_BUTTONS');
+      }
+    } elsif ($self->get_conf('SPLIT') eq 'section') {
+      $buttons = $self->get_conf('SECTION_FOOTER_BUTTONS');
+    } elsif ($self->get_conf('SPLIT') eq 'chapter') {
+      $buttons = $self->get_conf('CHAPTER_BUTTONS');
+    } elsif ($self->get_conf('SPLIT') eq 'node') {
+      if ($self->get_conf('HEADERS')) {
+        my $no_footer_word_count;
+        if ($self->get_conf('WORDS_IN_PAGE')) {
+          my @cnt = split(/\W*\s+\W*/, $content);
+          if (scalar(@cnt) < $self->get_conf('WORDS_IN_PAGE')) {
+            $no_footer_word_count = 1;
+          }
+        }
+        $buttons = $self->get_conf('NODE_FOOTER_BUTTONS')
+           unless ($no_footer_word_count);
+      }
+    }
+  }
+  # FIXME the following condition is almost a duplication of end_page 
+  # except that the file counter needs not be 1
+  if ((!$element->{'element_next'}
+       or (defined($element->{'filename'})
+           and $element->{'filename'} ne $element->{'element_next'}->{'filename'}))
+      and $self->get_conf('footnotestyle') eq 'end') {
+    $result .= &{$self->{'format_footnotes_text'}}($self);
+  }
+
+  if (!$buttons or $is_top or $is_special
      or ($end_page and ($self->get_conf('SPLIT') eq 'chapter'
                        or $self->get_conf('SPLIT') eq 'section'))
      or ($self->get_conf('SPLIT') eq 'node' and $self->get_conf('HEADERS'))) {
@@ -4858,18 +4869,7 @@ sub _default_format_element_footer($$$$)
     $rule = $self->get_conf('BIG_RULE');
   }
 
-  # FIXME the following condition is almost a duplication of end_page 
-  # except that the file counter needs not be 1
-  if ((!$element->{'element_next'}
-       or (defined($element->{'filename'})
-           and $element->{'filename'} ne $element->{'element_next'}->{'filename'}))
-      and $self->get_conf('footnotestyle') eq 'end') {
-    $result .= &{$self->{'format_footnotes_text'}}($self);
-  }
-  if (!$self->get_conf('PROGRAM_NAME_IN_FOOTER') 
-      and !$buttons and !$maybe_in_page) {
-    # no rule in that case
-  } else {
+  if ($buttons or !$end_page or $self->get_conf('PROGRAM_NAME_IN_FOOTER')) {
     $result .= "$rule\n" if ($rule);
   }
   if ($buttons) {

@@ -1196,7 +1196,6 @@ EXAMPLE COMMENT
 </pre></td></tr></table>
 </div>
 
-<hr>
 
 
 

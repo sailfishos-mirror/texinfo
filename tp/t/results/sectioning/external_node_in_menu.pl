@@ -875,7 +875,6 @@ Previous: <a href="#nchapter1" accesskey="p" rel="prev">chap1</a>, Up: <a href="
 <span id="chap2"></span><h2 class="chapter">2 chap2</h2>
 </div>
 </div>
-<hr>
 
 
 

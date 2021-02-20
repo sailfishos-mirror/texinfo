@@ -417,7 +417,6 @@ Next: <a href="#subnode" accesskey="n" rel="next">subnode</a> &nbsp; </p>
 Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
 <h4 class="node-heading">subnode</h4>
-<hr>
 
 
 

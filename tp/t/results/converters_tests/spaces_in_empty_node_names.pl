@@ -989,8 +989,7 @@ $result_converted{'html_text'}->{'spaces_in_empty_node_names'} = '<span id="Top"
 <p>&lsquo;<tt>  </tt>&rsquo;
 </p>
 <p>&lsquo;&nbsp;&nbsp;<!-- /@w -->&rsquo;
-</p><hr>
-';
+</p>';
 
 
 $result_converted{'xml'}->{'spaces_in_empty_node_names'} = '<node name="Top" spaces=" "><nodename>Top</nodename></node>

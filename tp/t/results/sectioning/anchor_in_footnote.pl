@@ -738,7 +738,6 @@ Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" ac
 <span id="Anchor-in-footnote"></span>.
 </p>
 </div>
-<hr>
 
 
 

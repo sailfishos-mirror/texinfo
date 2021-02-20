@@ -477,7 +477,6 @@ Previous: <a href="#Top" accesskey="p" rel="prev">empty top node up</a>, Up: <a 
 </div>
 <h4 class="node-heading">first</h4>
 </div>
-<hr>
 
 
 

@@ -1849,7 +1849,6 @@ $result_converted{'html_text'}->{'some_at_commands_in_ref_nodes'} = '
 <p>see <a data-manual="manual" href="manual.html#a-strong-ref-with-SC_002c-a-i-trema-_00ef_002c-a-dotless-i-trema-_00ef-_1e14-and-exclamdown-_00a1">(manual)a <strong>strong</strong> ref with <small>SC</small>, a i trema &iuml;, a dotless i trema &iuml; &#274;` and exclamdown &iexcl;</a>.
 </p></div>
 </div>
-<hr>
 ';
 
 

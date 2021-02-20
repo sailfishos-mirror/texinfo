@@ -5217,7 +5217,6 @@ Previous: <a href="#chapter" accesskey="p" rel="prev">chapter</a>, Up: <a href="
 <h5><a id="FOOT1" href="#DOCF1">(1)</a></h5>
 <p>in footnote</p>
 </div>
-<hr>
 
 
 

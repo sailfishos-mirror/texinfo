@@ -774,7 +774,6 @@ Next: <a href="#Last-with-spaces" accesskey="n" rel="next">Last with spaces</a>,
 Previous: <a href="#Test-title" accesskey="p" rel="prev">Test               title</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
 <h4 class="node-heading">Last with spaces</h4>
-<hr>
 
 
 

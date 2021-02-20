@@ -713,7 +713,6 @@ Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" ac
 <span id="g_t_0028manual2_0029-name2"></span>
 <p><a href="#g_t_0028manual2_0029-name2">(manual2) name2</a>.
 </p></div>
-<hr>
 
 
 

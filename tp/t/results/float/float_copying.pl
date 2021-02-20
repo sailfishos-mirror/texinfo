@@ -1765,7 +1765,6 @@ the author abandon his copyright.
 <p>see <a href="#Copying-and-floats">Copying and floats</a>.
 </p>
 </div>
-<hr>
 
 
 

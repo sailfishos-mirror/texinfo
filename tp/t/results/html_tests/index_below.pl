@@ -509,7 +509,6 @@ ul.no-bullet {list-style: none}
 </div>
 </div>
 </div>
-<hr>
 
 
 

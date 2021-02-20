@@ -735,7 +735,6 @@ Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" ac
 <p>See <a href="#chap">chap</a>.
 </p></div>
 </div>
-<hr>
 
 
 

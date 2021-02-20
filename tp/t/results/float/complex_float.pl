@@ -5084,7 +5084,6 @@ A footnote 2.
 <h5><a id="FOOT3" href="#DOCF3">(4)</a></h5>
 <p>footnote Text with features caption 2</p>
 </div>
-<hr>
 
 
 

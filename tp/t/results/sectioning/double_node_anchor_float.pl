@@ -937,7 +937,6 @@ ul.no-bullet {list-style: none}
 <p>
  &nbsp; </p>
 </div>
-<hr>
 
 
 

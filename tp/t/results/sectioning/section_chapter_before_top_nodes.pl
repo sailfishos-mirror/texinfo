@@ -920,7 +920,6 @@ Next: <a href="#chapter-node" accesskey="n" rel="next">chapter</a> &nbsp; </p>
 
 
 </div>
-<hr>
 
 
 

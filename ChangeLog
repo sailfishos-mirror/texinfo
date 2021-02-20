@@ -1,5 +1,23 @@
 2021-02-20  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	No footer for several nodes in a file.
+
+	* tp/Texinfo/Convert/HTML.pm (_default_format_element_footer):
+	Do not output the element footer if there is more than one node
+	in the output file, using the 'elements_in_file_count' hash.
+
+	These changes lead to a few changes as to whether a rule
+	is output at the end of a file but the output appeared
+	acceptable in the cases I checked.
+
+	Per Bothner reported that the footer would
+	be relative to the last node output in the file for
+	--split=section, while it would make more sense to have this
+	relative to the first node output in the file.  As this is
+	not possible to do just now, just omit it.
+
+2021-02-20  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	Fix display of _ in section name.
 
 	* doc/texinfo.tex (\setupdatafile): Read aux file giving

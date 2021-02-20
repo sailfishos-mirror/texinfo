@@ -8483,7 +8483,6 @@ See <a href="#text-with-a-lot-of-features">Text 1</a>.
 
 </div>
 </div>
-<hr>
 
 
 

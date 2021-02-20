@@ -876,7 +876,6 @@ Prev: <a href="#chapter-in-part" accesskey="p" rel="prev">chapter in part</a> &n
 </div>
 </div>
 </div>
-<hr>
 
 
 

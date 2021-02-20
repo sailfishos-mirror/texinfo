@@ -769,7 +769,6 @@ Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" ac
 </ul>
 <span id="chapter"></span><h2 class="chapter">1 chapter</h2>
 </div>
-<hr>
 
 
 

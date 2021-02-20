@@ -884,7 +884,6 @@ Next: <a href="#second" accesskey="n" rel="next">second</a>, Previous: <a href="
 Previous: <a href="#first" accesskey="p" rel="prev">first</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
 <h4 class="node-heading">second</h4>
-<hr>
 
 
 

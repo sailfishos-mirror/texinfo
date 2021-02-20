@@ -2058,7 +2058,6 @@ Previous: <a href="#section-chap-2" accesskey="p" rel="prev">section chap 2</a>,
 </div>
 </div>
 </div>
-<hr>
 
 
 

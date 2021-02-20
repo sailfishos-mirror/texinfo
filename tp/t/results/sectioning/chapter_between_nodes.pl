@@ -782,7 +782,6 @@ Previous: <a href="#Top" accesskey="p" rel="prev">top section</a>, Up: <a href="
 </div>
 </div>
 </div>
-<hr>
 
 
 

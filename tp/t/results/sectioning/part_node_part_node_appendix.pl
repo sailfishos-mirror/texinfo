@@ -1159,7 +1159,6 @@ Previous: <a href="#chapter-node" accesskey="p" rel="prev">chapter</a>, Up: <a h
 <span id="Appendix"></span><h2 class="appendix">Appendix A Appendix</h2>
 </div>
 </div>
-<hr>
 
 
 

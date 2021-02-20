@@ -743,7 +743,6 @@ Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a> &nbsp; </p>
 
 <p>Text of chapter
 </p></div>
-<hr>
 
 
 

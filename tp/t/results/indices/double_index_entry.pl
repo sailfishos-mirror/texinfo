@@ -694,7 +694,6 @@ $result_converted{'html_text'}->{'double_index_entry'} = '<span id="Top"></span>
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#t_h_cp_letter-A"><b>A</b></a>
  &nbsp; 
 </td></tr></table>
-<hr>
 ';
 
 1;

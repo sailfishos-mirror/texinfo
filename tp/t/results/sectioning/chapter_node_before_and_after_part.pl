@@ -706,7 +706,6 @@ Previous: <a href="#Top" accesskey="p" rel="prev">chapter</a>, Up: <a href="#Top
 </div>
 </div>
 </div>
-<hr>
 
 
 

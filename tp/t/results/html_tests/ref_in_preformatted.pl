@@ -486,7 +486,6 @@ node name</a>
  &nbsp; </p>
 </div>
 <h4 class="node-heading">nnn the node name</h4>
-<hr>
 ';
 
 1;

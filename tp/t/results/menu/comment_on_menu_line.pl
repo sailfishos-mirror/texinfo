@@ -485,7 +485,6 @@ Previous: <a href="#Top" accesskey="p" rel="prev">first</a>, Up: <a href="#Top" 
 </div>
 <h4 class="node-heading">first</h4>
 </div>
-<hr>
 
 
 

@@ -586,7 +586,6 @@ Previous: <a href="#Top" accesskey="p" rel="prev">internal top node up</a>, Up: 
 </div>
 <h4 class="node-heading">first</h4>
 </div>
-<hr>
 
 
 

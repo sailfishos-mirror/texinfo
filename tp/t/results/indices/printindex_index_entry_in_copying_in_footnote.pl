@@ -961,7 +961,6 @@ $result_converted{'html_text'}->{'printindex_index_entry_in_copying_in_footnote'
 <span id="index-copying-Copying-this-document"></span>
 </p>
 </div>
-<hr>
 ';
 
 1;

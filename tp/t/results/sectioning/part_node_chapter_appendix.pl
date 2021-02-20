@@ -878,7 +878,6 @@ Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" ac
 <h2 class="appendix">Appendix A Appendix</h2>
 </div>
 </div>
-<hr>
 
 
 

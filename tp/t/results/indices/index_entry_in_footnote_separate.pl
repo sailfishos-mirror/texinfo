@@ -726,7 +726,6 @@ $result_converted{'html_text'}->{'index_entry_in_footnote_separate'} = '<span id
 <a class="summary-letter" href="#t_h_cp_letter-I"><b>I</b></a>
  &nbsp; 
 </td></tr></table>
-<hr>
 ';
 
 1;

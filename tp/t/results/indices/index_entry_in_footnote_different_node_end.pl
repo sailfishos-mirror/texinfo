@@ -704,7 +704,6 @@ $result_converted{'html_text'}->{'index_entry_in_footnote_different_node_end'} =
 </p>
 <span id="index-counting-entry"></span>
 </div>
-<hr>
 ';
 
 1;

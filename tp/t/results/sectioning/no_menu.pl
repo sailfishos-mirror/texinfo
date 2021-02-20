@@ -617,7 +617,6 @@ Previous: <a href="#c2" accesskey="p" rel="prev">c2</a> &nbsp; </p>
 <span id="c3-1"></span><h2 class="chapter">3 c3</h2>
 </div>
 </div>
-<hr>
 
 
 

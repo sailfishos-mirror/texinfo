@@ -860,7 +860,6 @@ Previous: <a href="#second-node" accesskey="p" rel="prev">second node</a>, Up: <
 </div>
 <span id="chapter"></span><h2 class="chapter">1 chapter</h2>
 </div>
-<hr>
 
 
 

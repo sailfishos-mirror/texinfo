@@ -381,8 +381,7 @@ Next: <a href="#Top" accesskey="n" rel="next">ToP</a> &nbsp; </p>
 </div>
 
 <p>.
-</p><hr>
-
+</p>
 
 
 </body>

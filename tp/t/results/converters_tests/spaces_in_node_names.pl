@@ -1087,8 +1087,7 @@ $result_converted{'html_text'}->{'spaces_in_node_names'} = '<span id="Top"></spa
 <p><a href="#b-">b<tt>  </tt></a>
 </p>
 <p><a href="#c-">c&nbsp;&nbsp;<!-- /@w --></a>
-</p><hr>
-';
+</p>';
 
 
 $result_converted{'xml'}->{'spaces_in_node_names'} = '<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">a<spacecmd type="spc"/><spacecmd type="spc"/></nodenext></node>

@@ -653,8 +653,7 @@ Previous: <a href="#first" accesskey="p" rel="prev">first</a>, Up: <a href="#fir
 </div>
 <h4 class="node-heading">second node</h4>
 <p>second node
-</p><hr>
-
+</p>
 
 
 </body>

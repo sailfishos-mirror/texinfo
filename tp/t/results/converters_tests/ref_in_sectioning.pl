@@ -2655,7 +2655,6 @@ $result_converted{'html_text'}->{'ref_in_sectioning'} = '
 </div>
 </div>
 </div>
-<hr>
 ';
 
 

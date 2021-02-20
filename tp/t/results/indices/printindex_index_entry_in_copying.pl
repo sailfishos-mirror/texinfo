@@ -1549,7 +1549,6 @@ $result_converted{'html_text'}->{'printindex_index_entry_in_copying'} = '
 
 </div>
 </div>
-<hr>
 ';
 
 1;

@@ -1163,7 +1163,6 @@ Previous: <a href="#chapter-node" accesskey="p" rel="prev">chapter node</a>, Up:
 <span id="chapter-with-part-node"></span><h2 class="chapter">2 chapter with part node</h2>
 
 </div>
-<hr>
 
 
 
