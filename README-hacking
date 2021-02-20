@@ -1,6 +1,6 @@
 This file describes the development environment for Texinfo.
 
-  Copyright 2002-2019 Free Software Foundation, Inc.
+  Copyright 2002-2021 Free Software Foundation, Inc.
 
   Copying and distribution of this file, with or without modification,
   are permitted in any medium without royalty provided the copyright
@@ -61,10 +61,55 @@ once, because of rules to create man pages under the man/ directory.
 "make dist" will fail if the use of Perl XS extension modules is 
 disabled and there is no Makefile in the XSParagraph subdirectory.
 
+
+Using git
+---------
+
+This section is if you have write access to the git repository.
+
+Usually commits to the git repository should include a ChangeLog
+entry.  Please follow the existing style (the GNU Coding Standards
+has a guide).
+
+You can automatically use the contents of the most recent ChangeLog
+entry with a git commit hook .git/hooks/prepare-commit-msg
+
+------------------------------------
+#!/bin/sh
+
+# $1 - file that contains commit log message
+# $2 - source of commit message
+
+outfile="$1"
+
+case $2 in
+  message|template|merge|squash|commit)
+    ;;
+  *)
+   # Use latest ChangeLog entry as commit message
+   sed -n -e '1,/^\w*$/d' -e '/^[^      ]/q' -e '{s/^   //;p}' ChangeLog  >"$outfile"
+;;
+esac
+------------------------------------
+
+When unable to push commits due to other commits being made, please
+use "git pull --rebase" (the default for "git pull" complicates the
+git history).  To deal with conflicts in the ChangeLog, you should
+install the git-merge-changelog program.
+
+You can get better output from "git diff" for Texinfo files by putting
+the following section in your .gitconfig file:
+
+[diff "texinfo"]
+        xfuncname = "^(@node .*)$"
+
+This shows which node each change occurred in.
+
+
 Gnulib
 ------
 
-This distribution also uses Gnulib (http://www.gnu.org/software/gnulib)
+This distribution uses Gnulib (http://www.gnu.org/software/gnulib)
 to share common files.  Gnulib files used in Texinfo are checked in to
 the repository.  If you get automake/conf/etc. errors from ./autogen.sh,
 please try getting a checkout of gnulib (in a separate directory from

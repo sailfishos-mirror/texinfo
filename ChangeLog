@@ -1,5 +1,9 @@
 2021-02-20  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* README-hacking: Add advice on using git.
+
+2021-02-20  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.tex (\refx): Remove useless second argument
 	which is nearly always empty.
 
