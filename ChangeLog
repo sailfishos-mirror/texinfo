@@ -1,3 +1,8 @@
+2021-02-20  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.tex (\refx): Remove useless second argument
+	which is nearly always empty.
+
 2021-02-20  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/HTML.pm (_convert_heading_command):
