@@ -859,8 +859,8 @@ Next: <a href="#third-node" accesskey="n" rel="next">chapter</a>, Previous: <a h
 Previous: <a href="#second-node" accesskey="p" rel="prev">second node</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
 <span id="chapter"></span><h2 class="chapter">1 chapter</h2>
-<hr>
 </div>
+<hr>
 
 
 

@@ -198,14 +198,18 @@ $result_directions_text{'part_before_section'} = 'element: @section section
 ';
 
 
-$result_converted{'html_text'}->{'part_before_section'} = '<span id="part"></span><h1 class="part">part</h1>
+$result_converted{'html_text'}->{'part_before_section'} = '<div class="part" id="part">
+<h1 class="part">part</h1>
 <hr>
 
 <ul class="section-toc">
 <li><a href="#section" accesskey="1">section</a></li>
 </ul>
-<span id="section"></span><h2 class="chapter">1 section</h2>
-<hr>';
+<div class="section" id="section">
+<h2 class="chapter">1 section</h2>
+<hr></div>
+</div>
+';
 
 
 $result_converted{'xml'}->{'part_before_section'} = '<part spaces=" "><sectiontitle>part</sectiontitle>

@@ -1132,7 +1132,8 @@ ul.no-bullet {list-style: none}
 
 <span id="index-index-entry"></span>
 
-<span id="section"></span><h3 class="section">1 section</h3>
+<div class="section" id="section">
+<h3 class="section">1 section</h3>
 
 <p>Ref to anchor
 <a href="#An-anchor">An anchor</a>
@@ -1151,7 +1152,8 @@ ul.no-bullet {list-style: none}
 <a href="#An-anchor">An anchor</a>
 </p>
 </div>
-<hr>
+<hr></div>
+
 
 
 </body>

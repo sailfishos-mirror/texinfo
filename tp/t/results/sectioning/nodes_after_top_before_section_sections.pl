@@ -861,8 +861,8 @@ Next: <a href="#third-node" accesskey="n" rel="next">subsection</a>, Previous: <
 Previous: <a href="#second-node" accesskey="p" rel="prev">second node</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
 <span id="subsection"></span><h4 class="subsection">1 subsection</h4>
-<hr>
 </div>
+<hr>
 
 
 

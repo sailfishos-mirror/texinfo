@@ -1547,6 +1547,8 @@ $result_converted{'html_text'}->{'printindex_index_entry_in_copying'} = '
  &nbsp; 
 </td></tr></table>
 
+</div>
+</div>
 <hr>
 ';
 

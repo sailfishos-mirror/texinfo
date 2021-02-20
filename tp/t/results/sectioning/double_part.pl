@@ -906,12 +906,16 @@ Next: <a href="#node-chapter" accesskey="n" rel="next">chapter after 2 parts</a>
 <span id="top"></span><h1 class="top">top</h1>
 
 
-<span id="part-first"></span><h1 class="part">part first</h1>
+</div>
+<div class="part" id="part-first">
+<h1 class="part">part first</h1>
 <hr>
 
 <p>Text part first.
 </p><hr>
-<span id="part-second"></span><div class="header">
+</div>
+<div class="part" id="part-second">
+<div class="header">
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>
@@ -925,9 +929,9 @@ Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" ac
 <div class="chapter" id="node-chapter">
 <span id="chapter-after-2-parts"></span><h2 class="chapter">1 chapter after 2 parts</h2>
 
+</div>
+</div>
 <hr>
-</div>
-</div>
 
 
 

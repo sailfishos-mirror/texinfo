@@ -444,7 +444,8 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<span id="top-section"></span><h1 class="top">top section</h1>
+<div class="top" id="top-section">
+<h1 class="top">top section</h1>
 <p>Top section
 </p>
 <ul class="section-toc">
@@ -455,6 +456,7 @@ ul.no-bullet {list-style: none}
 
 <p>Text of chapter
 </p><hr></div>
+</div>
 
 
 

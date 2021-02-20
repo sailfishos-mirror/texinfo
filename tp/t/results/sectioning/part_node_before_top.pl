@@ -669,18 +669,20 @@ Next: <a href="#Top" accesskey="n" rel="next">top</a>, Previous: <a href="#Top" 
 </div>
 <h4 class="node-heading">part node before top</h4>
 <hr>
-<span id="part"></span><div class="header">
+<div class="part" id="part">
+<div class="header">
 <p>
 Next: <a href="#part-node-before-top" accesskey="n" rel="next">part node before top</a> &nbsp; </p>
 </div>
 <h1 class="part">part</h1>
 <hr>
 
+</div>
 <div class="top" id="Top">
 <span id="top"></span><h1 class="top">top</h1>
 
-<hr>
 </div>
+<hr>
 
 
 

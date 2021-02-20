@@ -1347,6 +1347,8 @@ $result_converted{'html_text'}->{'printindex_index_entry_in_copying_no_insertcop
  &nbsp; 
 </td></tr></table>
 
+</div>
+</div>
 <hr>
 ';
 

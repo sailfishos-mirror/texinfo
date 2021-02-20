@@ -1289,11 +1289,11 @@ Next: <a href="#subsection" accesskey="n" rel="next">subsection</a>, Up: <a href
 Previous: <a href="#section" accesskey="p" rel="prev">section</a>, Up: <a href="#section" accesskey="u" rel="up">section</a> &nbsp; </p>
 </div>
 <span id="subsection-1"></span><h4 class="subsection">1.1.1 subsection</h4>
+</div>
+</div>
+</div>
+</div>
 <hr>
-</div>
-</div>
-</div>
-</div>
 
 
 

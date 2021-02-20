@@ -5208,6 +5208,8 @@ Previous: <a href="#chapter" accesskey="p" rel="prev">chapter</a>, Up: <a href="
  &nbsp; 
 </td></tr></table>
 
+</div>
+</div>
 <div class="footnote">
 <hr>
 <h4 class="footnotes-heading">Footnotes</h4>
@@ -5216,8 +5218,6 @@ Previous: <a href="#chapter" accesskey="p" rel="prev">chapter</a>, Up: <a href="
 <p>in footnote</p>
 </div>
 <hr>
-</div>
-</div>
 
 
 

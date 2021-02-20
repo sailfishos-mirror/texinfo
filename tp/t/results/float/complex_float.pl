@@ -5069,6 +5069,8 @@ A footnote 2.
 </p></div></div>
 <p>See <a href="#text-with-a-lot-of-features">Text 1</a>.
 </p>
+</div>
+</div>
 <div class="footnote">
 <hr>
 <h4 class="footnotes-heading">Footnotes</h4>
@@ -5083,8 +5085,6 @@ A footnote 2.
 <p>footnote Text with features caption 2</p>
 </div>
 <hr>
-</div>
-</div>
 
 
 

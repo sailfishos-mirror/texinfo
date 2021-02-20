@@ -675,7 +675,9 @@ Next: <a href="#after" accesskey="n" rel="next">chapter 2</a> &nbsp; [<a href="#
 
 
 <hr>
-<span id="part"></span><div class="header">
+</div>
+<div class="part" id="part">
+<div class="header">
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">chapter</a>, Up: <a href="#Top" accesskey="u" rel="up">chapter</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
@@ -685,7 +687,6 @@ Previous: <a href="#Top" accesskey="p" rel="prev">chapter</a>, Up: <a href="#Top
 <ul class="section-toc">
 <li><a href="#after" accesskey="1">chapter 2</a></li>
 </ul>
-</div>
 <div class="chapter" id="after">
 <span id="chapter-2"></span><h2 class="chapter">2 chapter 2</h2>
 
@@ -703,8 +704,9 @@ Previous: <a href="#Top" accesskey="p" rel="prev">chapter</a>, Up: <a href="#Top
 </ul>
 </div>
 </div>
-<hr>
 </div>
+</div>
+<hr>
 
 
 

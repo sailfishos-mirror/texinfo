@@ -1728,6 +1728,8 @@ the author abandon his copyright.
 <a class="summary-letter" href="#Copying-and-floats_fn_letter-P"><b>P</b></a>
  &nbsp; 
 </td></tr></table>
+</div>
+</div>
 <div class="footnote">
 <hr>
 <h4 class="footnotes-heading">Footnotes</h4>
@@ -1764,8 +1766,6 @@ the author abandon his copyright.
 </p>
 </div>
 <hr>
-</div>
-</div>
 
 
 

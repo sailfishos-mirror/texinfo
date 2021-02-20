@@ -869,8 +869,8 @@ Next: <a href="no_existing_no_manual_direction.html#Top" accesskey="n" rel="next
 Next: <a href="no_existing_no_manual.html#Top" accesskey="n" rel="next">(no_existing_no_manual.info)</a> &nbsp; </p>
 </div>
 <h4 class="node-heading">first</h4>
-<hr>
 </div>
+<hr>
 
 
 

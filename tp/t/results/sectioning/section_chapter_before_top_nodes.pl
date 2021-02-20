@@ -919,8 +919,8 @@ Next: <a href="#chapter-node" accesskey="n" rel="next">chapter</a> &nbsp; </p>
 <span id="top"></span><h3 class="unnumberedsec">top</h3>
 
 
-<hr>
 </div>
+<hr>
 
 
 

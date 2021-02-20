@@ -5284,9 +5284,9 @@ Menu comment
  &nbsp; 
 </td></tr></table>
 
+</div>
+</div>
 <hr>
-</div>
-</div>
 <p><font size="-1">
   Ce document a &eacute;t&eacute; g&eacute;n&eacute;r&eacute; le <em>a sunny day</em>.
 </font></p>

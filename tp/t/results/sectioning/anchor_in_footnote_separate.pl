@@ -765,9 +765,9 @@ Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" ac
 <span id="Chap"></span><h2 class="chapter">1 Chap</h2>
 
 <p><a href="#Anchor-in-footnote">Anchor in footnote</a>.
-</p><hr>
+</p></div>
 </div>
-</div>
+<hr>
 
 
 

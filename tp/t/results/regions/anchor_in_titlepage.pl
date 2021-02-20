@@ -390,11 +390,13 @@ ul.no-bullet {list-style: none}
 
 <body lang="en">
 
-<span id="top"></span><h1 class="top">top</h1>
+<div class="top" id="top">
+<h1 class="top">top</h1>
 <span id="Top"></span><h1 class="node-heading">Top</h1>
 
 <p>See <a href="#in-titlepage">in titlepage</a>.
-</p><hr>
+</p><hr></div>
+
 
 
 </body>

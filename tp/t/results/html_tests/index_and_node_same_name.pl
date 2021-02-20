@@ -288,7 +288,8 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<span id="top"></span><h1 class="top">top</h1>
+<div class="top" id="top">
+<h1 class="top">top</h1>
 <span id="index-node"></span><h4 class="node-heading">index node</h4>
 
 <span id="index-node-1"></span>
@@ -306,7 +307,8 @@ ul.no-bullet {list-style: none}
  &nbsp; 
 </td></tr></table>
 
-<hr>
+<hr></div>
+
 
 
 </body>

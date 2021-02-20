@@ -8481,9 +8481,9 @@ See <a href="#text-with-a-lot-of-features">Text 1</a>.
 <dt><a href="#theoreme">th&eacute;or&egrave;me 1.1</a></dt><dd><p>C A th&eacute;or&egrave;me</p></dd>
 </dl>
 
+</div>
+</div>
 <hr>
-</div>
-</div>
 
 
 

@@ -946,6 +946,8 @@ $result_converted{'html_text'}->{'printindex_index_entry_in_copying_in_footnote'
 </td></tr></table>
 
 
+</div>
+</div>
 <div class="footnote">
 <hr>
 <h4 class="footnotes-heading">Footnotes</h4>

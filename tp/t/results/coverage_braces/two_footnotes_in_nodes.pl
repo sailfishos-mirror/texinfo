@@ -869,6 +869,8 @@ Previous: <a href="#Top" accesskey="p" rel="prev">2 footnotes in 2 nodes</a>, Up
 </p>
 <p>D<a id="DOCF4" href="#FOOT4"><sup>4</sup></a>
 </p>
+</div>
+</div>
 <div class="footnote">
 <hr>
 <h4 class="footnotes-heading">Footnotes</h4>
@@ -891,8 +893,6 @@ Previous: <a href="#Top" accesskey="p" rel="prev">2 footnotes in 2 nodes</a>, Up
 <p>para2</p>
 </div>
 <hr>
-</div>
-</div>
 
 
 
@@ -1030,6 +1030,8 @@ $result_converted{'html_text'}->{'two_footnotes_in_nodes'} = '<div class="top" i
 </p>
 <p>D<a id="DOCF4" href="#FOOT4"><sup>4</sup></a>
 </p>
+</div>
+</div>
 <div class="footnote">
 <hr>
 <h4 class="footnotes-heading">Footnotes</h4>

@@ -584,8 +584,8 @@ Next: <a href="#first" accesskey="n" rel="next">first</a> &nbsp; </p>
 Previous: <a href="#Top" accesskey="p" rel="prev">internal top node up</a>, Up: <a href="#Top" accesskey="u" rel="up">internal top node up</a> &nbsp; </p>
 </div>
 <h4 class="node-heading">first</h4>
-<hr>
 </div>
+<hr>
 
 
 

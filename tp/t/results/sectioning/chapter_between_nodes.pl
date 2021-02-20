@@ -748,7 +748,8 @@ Next: <a href="#section-node" accesskey="n" rel="next">section</a> &nbsp; [<a hr
 <p>Top node
 </p>
 
-<span id="Chapter"></span><h2 class="chapter">1 Chapter</h2>
+<div class="chapter" id="Chapter">
+<h2 class="chapter">1 Chapter</h2>
 
 <p>In chapter
 </p>
@@ -778,9 +779,10 @@ Previous: <a href="#Top" accesskey="p" rel="prev">top section</a>, Up: <a href="
 </ul>
 </div>
 </div>
+</div>
+</div>
+</div>
 <hr>
-</div>
-</div>
 
 
 

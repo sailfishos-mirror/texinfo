@@ -241,9 +241,12 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<span id="section"></span><h3 class="section">1 section</h3>
+<div class="section" id="section">
+<h3 class="section">1 section</h3>
 
-<span id="part"></span><h1 class="part">part</h1>
+</div>
+<div class="part" id="part">
+<h1 class="part">part</h1>
 <hr>
 
 <div class="Contents_element" id="SEC_Contents">
@@ -257,7 +260,8 @@ ul.no-bullet {list-style: none}
 </ul>
 </div>
 </div>
-<hr>
+<hr></div>
+
 
 
 </body>

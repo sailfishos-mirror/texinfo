@@ -5754,9 +5754,9 @@ Massachusetts, 1994.
 
 </li></ul>
 
+</div>
+</div>
 <hr>
-</div>
-</div>
 <p><font size="-1">
   This document was generated on <em>a sunny day</em> using <a href="http://www.gnu.org/software/texinfo/"><em>texi2any</em></a>.
 </font></p>

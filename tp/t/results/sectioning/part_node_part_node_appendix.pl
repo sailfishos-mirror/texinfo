@@ -1126,7 +1126,9 @@ Next: <a href="#chapter-node" accesskey="n" rel="next">chapter</a> &nbsp; </p>
 
 
 <hr>
-<span id="Part-1"></span><div class="header">
+</div>
+<div class="part" id="Part-1">
+<div class="header">
 <p>
 Next: <a href="#appendix-node" accesskey="n" rel="next">Appendix</a>, Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>
@@ -1140,7 +1142,10 @@ Next: <a href="#appendix-node" accesskey="n" rel="next">Appendix</a>, Previous: 
 <span id="chapter"></span><h2 class="chapter">1 chapter</h2>
 
 <hr>
-<span id="Part-Appendix"></span><div class="header">
+</div>
+</div>
+<div class="part" id="Part-Appendix">
+<div class="header">
 <p>
 Previous: <a href="#chapter-node" accesskey="p" rel="prev">chapter</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>
@@ -1150,12 +1155,11 @@ Previous: <a href="#chapter-node" accesskey="p" rel="prev">chapter</a>, Up: <a h
 <ul class="section-toc">
 <li><a href="#appendix-node" accesskey="1">Appendix</a></li>
 </ul>
-</div>
 <div class="appendix" id="appendix-node">
 <span id="Appendix"></span><h2 class="appendix">Appendix A Appendix</h2>
+</div>
+</div>
 <hr>
-</div>
-</div>
 
 
 

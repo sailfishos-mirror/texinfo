@@ -382,9 +382,11 @@ ul.no-bullet {list-style: none}
 </ul>
 </div>
 </div>
-<span id="dernier"></span><h2 class="appendix">Annexe A dernier</h2>
+<div class="appendix" id="dernier">
+<h2 class="appendix">Annexe A dernier</h2>
 
 <hr></div>
+</div>
 
 
 

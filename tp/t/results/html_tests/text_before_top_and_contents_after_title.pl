@@ -378,10 +378,12 @@ ul.no-bullet {list-style: none}
 <ul class="section-toc">
 <li><a href="#the-chap" accesskey="1">the chap</a></li>
 </ul>
-<span id="the-chap"></span><h2 class="chapter">1 the chap</h2>
+<div class="chapter" id="the-chap">
+<h2 class="chapter">1 the chap</h2>
 
 
 <hr></div>
+</div>
 
 
 

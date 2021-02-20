@@ -781,7 +781,9 @@ Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a> &nbsp; </p>
 
 <p>in unnumbered
 </p>
-<span id="top-section"></span><h2 class="unnumbered">top section</h2>
+</div>
+<div class="top" id="top-section">
+<h2 class="unnumbered">top section</h2>
 <p>Top section
 </p>
 <hr>
@@ -794,8 +796,8 @@ Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a> &nbsp; </p>
 <span id="Chapter"></span><h2 class="chapter">1 Chapter</h2>
 
 <p>Text of chapter
-</p><hr>
-</div>
+</p></div>
+<hr>
 
 
 

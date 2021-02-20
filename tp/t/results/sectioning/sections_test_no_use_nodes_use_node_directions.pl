@@ -763,7 +763,8 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<span id="top"></span><div class="header">
+<div class="top" id="top">
+<div class="header">
 <p>
  &nbsp; </p>
 </div>
@@ -773,7 +774,8 @@ ul.no-bullet {list-style: none}
 <li><a href="#chapter" accesskey="1">chapter</a></li>
 </ul>
 <hr>
-<span id="chapter"></span><div class="header">
+<div class="chapter" id="chapter">
+<div class="header">
 <p>
  &nbsp; </p>
 </div>
@@ -783,7 +785,8 @@ ul.no-bullet {list-style: none}
 <li><a href="#section" accesskey="1">section</a></li>
 </ul>
 <hr>
-<span id="section"></span><div class="header">
+<div class="section" id="section">
+<div class="header">
 <p>
  &nbsp; </p>
 </div>
@@ -793,7 +796,8 @@ ul.no-bullet {list-style: none}
 <li><a href="#subsection" accesskey="1">subsection</a></li>
 </ul>
 <hr>
-<span id="subsection"></span><div class="header">
+<div class="subsection" id="subsection">
+<div class="header">
 <p>
  &nbsp; </p>
 </div>
@@ -803,14 +807,21 @@ ul.no-bullet {list-style: none}
 <li><a href="#subsubsection" accesskey="1">subsubsection</a></li>
 </ul>
 <hr>
-<span id="subsubsection"></span><div class="header">
+<div class="subsubsection" id="subsubsection">
+<div class="header">
 <p>
  &nbsp; </p>
 </div>
 <h4 class="subsubsection">1.1.1.1 subsubsection</h4>
 
 <hr>
-<span id="part"></span><div class="header">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="part" id="part">
+<div class="header">
 <p>
  &nbsp; </p>
 </div>
@@ -822,24 +833,31 @@ ul.no-bullet {list-style: none}
 <li><a href="#second-chapter-in-part" accesskey="2">second chapter in part</a></li>
 <li><a href="#unnumbered" accesskey="3">unnumbered</a></li>
 </ul>
-<span id="chapter-in-part"></span><h2 class="chapter">2 chapter in part</h2>
+<div class="chapter" id="chapter-in-part">
+<h2 class="chapter">2 chapter in part</h2>
 
 <hr>
-<span id="second-chapter-in-part"></span><div class="header">
+</div>
+<div class="chapter" id="second-chapter-in-part">
+<div class="header">
 <p>
  &nbsp; </p>
 </div>
 <h2 class="chapter">3 second chapter in part</h2>
 
 <hr>
-<span id="unnumbered"></span><div class="header">
+</div>
+<div class="unnumbered" id="unnumbered">
+<div class="header">
 <p>
  &nbsp; </p>
 </div>
 <h2 class="unnumbered">unnumbered</h2>
 
 <hr>
-<span id="appendix"></span><div class="header">
+</div>
+<div class="appendix" id="appendix">
+<div class="header">
 <p>
  &nbsp; </p>
 </div>
@@ -849,11 +867,15 @@ ul.no-bullet {list-style: none}
 <li><a href="#appendixsec" accesskey="1">appendixsec</a></li>
 </ul>
 <hr>
-<span id="appendixsec"></span><div class="header">
+<div class="appendixsec" id="appendixsec">
+<div class="header">
 <p>
  &nbsp; </p>
 </div>
 <h3 class="appendixsec">A.1 appendixsec</h3>
+</div>
+</div>
+</div>
 <hr>
 
 

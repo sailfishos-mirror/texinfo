@@ -1065,9 +1065,9 @@ Next: <a href="#node-after-chapter-2" accesskey="n" rel="next">node after chapte
 Previous: <a href="#node-after-chapter-1" accesskey="p" rel="prev">node after chapter 1</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>
 <h4 class="node-heading">node after chapter 2</h4>
+</div>
+</div>
 <hr>
-</div>
-</div>
 
 
 

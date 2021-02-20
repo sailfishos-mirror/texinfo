@@ -721,9 +721,9 @@ Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" ac
 </div>
 <span id="GFDL-1"></span><h2 class="chapter">1 GFDL</h2>
 
+</div>
+</div>
 <hr>
-</div>
-</div>
 
 
 

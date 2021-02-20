@@ -980,10 +980,10 @@ Up: <a href="#Unn" accesskey="u" rel="up">Unn</a> &nbsp; [<a href="#SEC_Contents
 
 <p>Should be unnumbered.
 </p>
+</div>
+</div>
+</div>
 <hr>
-</div>
-</div>
-</div>
 
 
 

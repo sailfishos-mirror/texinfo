@@ -2428,6 +2428,9 @@ sub close_registered_sections_level($$)
 {
   my $self = shift;
   my $level = shift;
+  if (not defined($level)) {
+    cluck 'close_registered_sections_level $level not defined';
+  }
   my @closed_elements;
   my $result = '';
   while (@{$self->{'pending_closes'}} > $level) {
@@ -2456,8 +2459,17 @@ sub _convert_heading_command($$$$$)
   }
 
   my $element_id = $self->command_id($command);
-  my $section = $command->{'extra'}->{'associated_section'};
-  if ($cmdname eq 'node' and $section) {
+  my $section;
+  if ($cmdname eq 'node' and $command->{'extra'}->{'associated_section'}) {
+    $section = $command->{'extra'}->{'associated_section'};
+  } elsif ($cmdname ne 'node'
+           and not $command->{'extra'}->{'associated_node'}
+           # to avoid *heading* @-commands
+           and $Texinfo::Common::root_commands{$cmdname}) {
+    $section = $command;
+  }
+
+  if ($section) {
     my $level = $section->{'level'};
     $result .= join('', $self->close_registered_sections_level($level));
     $self->register_opened_section_level($level, "</div>\n");
@@ -2504,6 +2516,9 @@ sub _convert_heading_command($$$$$)
   } elsif (defined $command->{'level'}) {
     $heading_level = $command->{'level'};
   } else {
+    # for *heading* @-commands which do not have a level
+    # in the document as they are not associated with the
+    # sectioning tree, but still have a $heading_level
     $heading_level = Texinfo::Structuring::section_level($command);
   }
 
@@ -4794,6 +4809,9 @@ sub _default_format_element_footer($$$$)
 </tr>
 </table>"."\n";
   }
+  if ($end_page) {
+    $result .= join('', $self->close_registered_sections_level(0));
+  }
 
   my $rule = '';
   my $buttons;
@@ -6549,7 +6567,6 @@ sub _default_format_program_string($)
 sub _default_format_end_file($)
 {
   my $self = shift;
-  my $closing_sections_text = join('', $self->close_registered_sections_level(0));
   my $program_text = '';
   if ($self->get_conf('PROGRAM_NAME_IN_FOOTER')) {
     my $program_string = &{$self->{'format_program_string'}}($self);
@@ -6571,7 +6588,7 @@ sub _default_format_end_file($)
 .'</small></a>';
   }
 
-  return "${closing_sections_text}${program_text}
+  return "${program_text}
 
 $pre_body_close
 </body>
