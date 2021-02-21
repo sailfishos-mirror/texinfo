@@ -1356,6 +1356,19 @@ my @test_cases = (
 @node @:
 @node @asis{ }
 '],
+['node_referenced_in_ref',
+'@node Top
+
+@menu
+* first level node::
+@end menu
+
+@ref{second level node}.
+
+@node first level node
+
+@node second level node
+'],
 ['empty_refs',
 '@xref{@:}.
 @xref{@asis{ }}.

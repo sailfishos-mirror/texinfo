@@ -417,6 +417,25 @@ sub _check_referenced_nodes
       $referenced_nodes{$node} = 1;
     }
   }
+
+  # consider nodes in @*ref commands to be referenced
+  my $labels = $self->labels_information();
+  my $refs = $self->internal_references_information();
+  if (defined($refs)) {
+    foreach my $ref (@$refs) {
+      my $node_arg = $ref->{'extra'}{'node_argument'};
+      if ($node_arg->{'node_content'}) {
+        my $normalized =
+           Texinfo::Convert::NodeNameNormalization::normalize_node(
+              {'contents' => $node_arg->{'node_content'} });
+        my $node_target = $labels->{$normalized};
+        if ($node_target) {
+          $referenced_nodes{$node_target} = 1;
+        }
+      }
+    }
+  }
+
   foreach my $node (@{$self->{'nodes'}}) {
     if (not exists($referenced_nodes{$node})) {
       $self->line_warn(sprintf(__("node `%s' unreferenced"),
