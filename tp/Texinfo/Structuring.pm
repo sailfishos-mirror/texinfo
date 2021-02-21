@@ -463,9 +463,6 @@ sub nodes_tree($)
   # differently; at least, there are no error messages for them.
   #
   foreach my $node (@{$self->{'nodes'}}) {
-    if ($node->{'extra'}->{'normalized'} eq 'Top') {
-      $top_node = $node;
-    }
     if ($node->{'menus'}) {
       if (@{$node->{'menus'}} > 1) {
         foreach my $menu (@{$node->{'menus'}}[1 .. $#{$node->{'menus'}}]) {
@@ -535,8 +532,10 @@ sub nodes_tree($)
   }
 
   # Go through all the nodes and set directions.
-  $top_node = $self->{'nodes'}->[0] if (!$top_node);
   foreach my $node (@{$self->{'nodes'}}) {
+    if ($node->{'extra'}->{'normalized'} eq 'Top') {
+      $top_node = $node;
+    }
     my $automatic_directions = 
       (scalar(@{$node->{'extra'}->{'nodes_manuals'}}) == 1);
 
@@ -616,6 +615,13 @@ sub nodes_tree($)
           $node->{'node_next'} = $node->{'menu_child'};
           if (!$node->{'menu_child'}->{'extra'}->{'manual_content'}) {
             $node->{'menu_child'}->{'node_prev'} = $node;
+          }
+        } else {
+          foreach my $first_non_top_node (@{$self->{'nodes'}}) {
+            if ($first_non_top_node ne $node) {
+              $node->{'node_next'} = $first_non_top_node;
+              last;
+            }
           }
         }
       }
@@ -709,10 +715,11 @@ sub nodes_tree($)
       # FIXME check that node_up is not an external node (except for Top)?
     }
   }
+  $top_node = $self->{'nodes'}->[0] if (!$top_node);
+  $self->{'structuring'}->{'top_node'} = $top_node;
   if ($self->get_conf('FORMAT_MENU') ne 'sectiontoc') {
     _check_referenced_nodes($self, $top_node);
   }
-  $self->{'structuring'}->{'top_node'} = $top_node;
   return $top_node;
 }
 

@@ -505,8 +505,52 @@ $result_nodes{'character_and_spaces_in_node'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
+  },
+  'node_next' => {
+    'cmdname' => 'node',
+    'extra' => {
+      'normalized' => 'other-nodes',
+      'spaces_before_argument' => ' '
+    },
+    'node_next' => {
+      'cmdname' => 'node',
+      'extra' => {
+        'normalized' => '_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e',
+        'spaces_before_argument' => ' '
+      },
+      'node_next' => {
+        'cmdname' => 'node',
+        'extra' => {
+          'normalized' => '_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e',
+          'spaces_before_argument' => ' '
+        },
+        'node_next' => {
+          'cmdname' => 'node',
+          'extra' => {
+            'normalized' => 'local-node',
+            'spaces_before_argument' => '  '
+          },
+          'node_prev' => {},
+          'node_up' => {}
+        },
+        'node_prev' => {},
+        'node_up' => {}
+      },
+      'node_prev' => {},
+      'node_up' => {}
+    },
+    'node_prev' => {},
+    'node_up' => {}
   }
 };
+$result_nodes{'character_and_spaces_in_node'}{'node_next'}{'node_next'}{'node_next'}{'node_next'}{'node_prev'} = $result_nodes{'character_and_spaces_in_node'}{'node_next'}{'node_next'}{'node_next'};
+$result_nodes{'character_and_spaces_in_node'}{'node_next'}{'node_next'}{'node_next'}{'node_next'}{'node_up'} = $result_nodes{'character_and_spaces_in_node'}{'node_next'};
+$result_nodes{'character_and_spaces_in_node'}{'node_next'}{'node_next'}{'node_next'}{'node_prev'} = $result_nodes{'character_and_spaces_in_node'}{'node_next'}{'node_next'};
+$result_nodes{'character_and_spaces_in_node'}{'node_next'}{'node_next'}{'node_next'}{'node_up'} = $result_nodes{'character_and_spaces_in_node'}{'node_next'};
+$result_nodes{'character_and_spaces_in_node'}{'node_next'}{'node_next'}{'node_prev'} = $result_nodes{'character_and_spaces_in_node'}{'node_next'};
+$result_nodes{'character_and_spaces_in_node'}{'node_next'}{'node_next'}{'node_up'} = $result_nodes{'character_and_spaces_in_node'}{'node_next'};
+$result_nodes{'character_and_spaces_in_node'}{'node_next'}{'node_prev'} = $result_nodes{'character_and_spaces_in_node'};
+$result_nodes{'character_and_spaces_in_node'}{'node_next'}{'node_up'} = $result_nodes{'character_and_spaces_in_node'};
 
 $result_menus{'character_and_spaces_in_node'} = {
   'cmdname' => 'node',
@@ -526,7 +570,7 @@ $result_floats{'character_and_spaces_in_node'} = {};
 $result_converted{'info'}->{'character_and_spaces_in_node'} = 'This is , produced from .
 
 
-File: ,  Node: Top,  Up: (dir)
+File: ,  Node: Top,  Next: other nodes,  Up: (dir)
 
 
 File: ,  Node: other nodes,  Next: !_"#$%&\'()*+-.,  Prev: Top,  Up: Top
@@ -544,10 +588,10 @@ File: ,  Node: local node,  Prev: /;<=>?[\\]^_`|~,  Up: other nodes
 
 Tag Table:
 Node: Top27
-Node: other nodes61
-Node: !_"#$%&\'()*+-.136
-Node: /;<=>?[\\]^_`|~230
-Node: local node323
+Node: other nodes81
+Node: !_"#$%&\'()*+-.156
+Node: /;<=>?[\\]^_`|~250
+Node: local node343
 
 End Tag Table
 
@@ -599,7 +643,7 @@ ul.no-bullet {list-style: none}
 
 <span id="Top"></span><div class="header">
 <p>
- &nbsp; </p>
+Next: <a href="#other-nodes" accesskey="n" rel="next">other nodes</a> &nbsp; </p>
 </div>
 <h1 class="node-heading">Top</h1>
 <hr>

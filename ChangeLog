@@ -1,5 +1,10 @@
 2021-02-21  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (nodes_tree): use first non Top node
+	for Top node next if there is no menu information.
+
+2021-02-21  Patrice Dumas  <pertusus@free.fr>
+
 	use first section in file direction for footer if split at section or
 	chapter
 

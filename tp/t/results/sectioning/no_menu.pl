@@ -477,8 +477,63 @@ $result_nodes{'no_menu'} = {
     },
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
+  },
+  'node_next' => {
+    'cmdname' => 'node',
+    'extra' => {
+      'associated_section' => {
+        'cmdname' => 'chapter',
+        'extra' => {
+          'spaces_before_argument' => ' '
+        },
+        'level' => 1,
+        'number' => 1
+      },
+      'normalized' => 'c1',
+      'spaces_before_argument' => ' '
+    },
+    'node_next' => {
+      'cmdname' => 'node',
+      'extra' => {
+        'associated_section' => {
+          'cmdname' => 'chapter',
+          'extra' => {
+            'spaces_before_argument' => ' '
+          },
+          'level' => 1,
+          'number' => 2
+        },
+        'normalized' => 'c2',
+        'spaces_before_argument' => ' '
+      },
+      'node_next' => {
+        'cmdname' => 'node',
+        'extra' => {
+          'associated_section' => {
+            'cmdname' => 'chapter',
+            'extra' => {
+              'spaces_before_argument' => ' '
+            },
+            'level' => 1,
+            'number' => 3
+          },
+          'normalized' => 'c3',
+          'spaces_before_argument' => ' '
+        },
+        'node_prev' => {},
+        'node_up' => {}
+      },
+      'node_prev' => {},
+      'node_up' => {}
+    },
+    'node_up' => {}
   }
 };
+$result_nodes{'no_menu'}{'node_next'}{'node_next'}{'node_next'}{'node_prev'} = $result_nodes{'no_menu'}{'node_next'}{'node_next'};
+$result_nodes{'no_menu'}{'node_next'}{'node_next'}{'node_next'}{'node_up'} = $result_nodes{'no_menu'};
+$result_nodes{'no_menu'}{'node_next'}{'node_next'}{'node_prev'} = $result_nodes{'no_menu'}{'node_next'};
+$result_nodes{'no_menu'}{'node_next'}{'node_next'}{'node_up'} = $result_nodes{'no_menu'};
+$result_nodes{'no_menu'}{'node_next'}{'node_up'} = $result_nodes{'no_menu'};
 
 $result_menus{'no_menu'} = {
   'cmdname' => 'node',
@@ -498,7 +553,7 @@ $result_floats{'no_menu'} = {};
 $result_converted{'info'}->{'no_menu'} = 'This is , produced from .
 
 
-File: ,  Node: Top,  Up: (dir)
+File: ,  Node: Top,  Next: c1,  Up: (dir)
 
 * Menu:
 
@@ -528,9 +583,9 @@ File: ,  Node: c3,  Prev: c2,  Up: Top
 
 Tag Table:
 Node: Top27
-Node: c192
-Node: c2145
-Node: c3209
+Node: c1103
+Node: c2156
+Node: c3220
 
 End Tag Table
 
@@ -582,7 +637,7 @@ ul.no-bullet {list-style: none}
 <div class="top" id="Top">
 <div class="header">
 <p>
- &nbsp; </p>
+Next: <a href="#c1" accesskey="n" rel="next">c1</a> &nbsp; </p>
 </div>
 <span id="SEC_Top"></span>
 <ul class="section-toc">
