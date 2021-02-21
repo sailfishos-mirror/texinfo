@@ -526,6 +526,7 @@ $result_nodes{'no_menu'} = {
       'node_prev' => {},
       'node_up' => {}
     },
+    'node_prev' => {},
     'node_up' => {}
   }
 };
@@ -533,6 +534,7 @@ $result_nodes{'no_menu'}{'node_next'}{'node_next'}{'node_next'}{'node_prev'} = $
 $result_nodes{'no_menu'}{'node_next'}{'node_next'}{'node_next'}{'node_up'} = $result_nodes{'no_menu'};
 $result_nodes{'no_menu'}{'node_next'}{'node_next'}{'node_prev'} = $result_nodes{'no_menu'}{'node_next'};
 $result_nodes{'no_menu'}{'node_next'}{'node_next'}{'node_up'} = $result_nodes{'no_menu'};
+$result_nodes{'no_menu'}{'node_next'}{'node_prev'} = $result_nodes{'no_menu'};
 $result_nodes{'no_menu'}{'node_next'}{'node_up'} = $result_nodes{'no_menu'};
 
 $result_menus{'no_menu'} = {
@@ -562,7 +564,7 @@ File: ,  Node: Top,  Next: c1,  Up: (dir)
 * c3::
 
 
-File: ,  Node: c1,  Next: c2,  Up: Top
+File: ,  Node: c1,  Next: c2,  Prev: Top,  Up: Top
 
 1 c1
 ****
@@ -584,8 +586,8 @@ File: ,  Node: c3,  Prev: c2,  Up: Top
 Tag Table:
 Node: Top27
 Node: c1103
-Node: c2156
-Node: c3220
+Node: c2168
+Node: c3232
 
 End Tag Table
 

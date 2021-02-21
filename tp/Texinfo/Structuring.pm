@@ -611,15 +611,20 @@ sub nodes_tree($)
         }
       } else {
         # Special case for Top node.
+        # use first menu entry if available as next for Top
         if ($node->{'menu_child'}) {
           $node->{'node_next'} = $node->{'menu_child'};
           if (!$node->{'menu_child'}->{'extra'}->{'manual_content'}) {
             $node->{'menu_child'}->{'node_prev'} = $node;
           }
         } else {
+          # use the first non top node as next for Top
           foreach my $first_non_top_node (@{$self->{'nodes'}}) {
             if ($first_non_top_node ne $node) {
               $node->{'node_next'} = $first_non_top_node;
+              if (scalar(@{$first_non_top_node->{'extra'}->{'nodes_manuals'}}) == 1) {
+                $first_non_top_node->{'node_prev'} = $node;
+              }
               last;
             }
           }
