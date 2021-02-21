@@ -1,3 +1,9 @@
+2021-02-21  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/Structuring.pm (nodes_tree):
+	Only call _check_referenced_nodes if FORMAT_MENU is not
+	"sectiontoc".  From Patrice.
+
 2021-02-21  Patrice Dumas  <pertusus@free.fr>
 
 	* p/Texinfo/Structuring.pm (_check_referenced_nodes):

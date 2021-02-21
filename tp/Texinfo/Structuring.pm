@@ -709,7 +709,9 @@ sub nodes_tree($)
       # FIXME check that node_up is not an external node (except for Top)?
     }
   }
-  _check_referenced_nodes($self, $top_node);
+  if ($self->get_conf('FORMAT_MENU') ne 'sectiontoc') {
+    _check_referenced_nodes($self, $top_node);
+  }
   $self->{'structuring'}->{'top_node'} = $top_node;
   return $top_node;
 }
