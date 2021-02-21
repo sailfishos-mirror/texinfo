@@ -793,143 +793,6 @@ my %BUTTONS_EXAMPLE =
     );
 
 
-my (%BUTTONS_TEXT, %BUTTONS_GOTO, %BUTTONS_NAME, %SPECIAL_ELEMENTS_NAME);
-
-sub _translate_names($)
-{
-  my $self = shift;
-  #print STDERR "encoding_name: ".$self->get_conf('OUTPUT_ENCODING_NAME')." documentlanguage: ".$self->get_conf('documentlanguage')."\n";
-
-
-  %BUTTONS_TEXT = (
-     'Top',         $self->gdt('Top'),
-     'Contents',    $self->gdt('Contents'),
-     'Overview',    $self->gdt('Overview'),
-     'Index',       $self->gdt('Index'),
-     ' ',           ' &nbsp; ',
-     'This',        $self->gdt('current'),
-     'Back',        ' &lt; ',
-     'FastBack',    ' &lt;&lt; ',
-     'Prev',        $self->gdt('Prev'),
-     'Up',          $self->gdt(' Up '),
-     'Next',        $self->gdt('Next'),
-     #'NodeUp',      $self->gdt('Node up'),
-     'NodeUp',      $self->gdt('Up'),
-     #'NodeNext',    $self->gdt('Next node'),
-     'NodeNext',    $self->gdt('Next'),
-     #'NodePrev',    $self->gdt('Previous node'),
-     'NodePrev',    $self->gdt('Previous'),
-     'NodeForward', $self->gdt('Forward node'),
-     'NodeBack',    $self->gdt('Back node'),
-     'Forward',     ' &gt; ',
-     'FastForward', ' &gt;&gt; ',
-     'About',       ' ? ',
-     'First',       ' |&lt; ',
-     'Last',        ' &gt;| ',
-     'NextFile',    $self->gdt('Next file'),
-     'PrevFile',    $self->gdt('Previous file'),
-  );
-
-  #%BUTTONS_TEXT = %NAVIGATION_TEXT;
-
-  %BUTTONS_GOTO = (
-     'Top',         $self->gdt('Cover (top) of document'),
-     'Contents',    $self->gdt('Table of contents'),
-     'Overview',    $self->gdt('Short table of contents'),
-     'Index',       $self->gdt('Index'),
-     'This',        $self->gdt('Current section'),
-     'Back',        $self->gdt('Previous section in reading order'),
-     'FastBack',    $self->gdt('Beginning of this chapter or previous chapter'),
-     'Prev',        $self->gdt('Previous section on same level'),
-     'Up',          $self->gdt('Up section'),
-     'Next',        $self->gdt('Next section on same level'),
-     'NodeUp',      $self->gdt('Up node'),
-     'NodeNext',    $self->gdt('Next node'),
-     'NodePrev',    $self->gdt('Previous node'),
-     'NodeForward', $self->gdt('Next node in node reading order'),
-     'NodeBack',    $self->gdt('Previous node in node reading order'),
-     'Forward',     $self->gdt('Next section in reading order'),
-     'FastForward', $self->gdt('Next chapter'),
-     'About' ,      $self->gdt('About (help)'),
-     'First',       $self->gdt('First section in reading order'),
-     'Last',        $self->gdt('Last section in reading order'),
-     'NextFile',    $self->gdt('Forward section in next file'),
-     'PrevFile',    $self->gdt('Back section in previous file'),
-  );
-
-  %BUTTONS_NAME = (
-     'Top',         $self->gdt('Top'),
-     'Contents',    $self->gdt('Contents'),
-     'Overview',    $self->gdt('Overview'),
-     'Index',       $self->gdt('Index'),
-     ' ',           ' ',
-     'This',        $self->gdt('This'),
-     'Back',        $self->gdt('Back'),
-     'FastBack',    $self->gdt('FastBack'),
-     'Prev',        $self->gdt('Prev'),
-     'Up',          $self->gdt('Up'),
-     'Next',        $self->gdt('Next'),
-     'NodeUp',      $self->gdt('NodeUp'),
-     'NodeNext',    $self->gdt('NodeNext'),
-     'NodePrev',    $self->gdt('NodePrev'),
-     'NodeForward', $self->gdt('NodeForward'),
-     'NodeBack',    $self->gdt('NodeBack'),
-     'Forward',     $self->gdt('Forward'),
-     'FastForward', $self->gdt('FastForward'),
-     'About',       $self->gdt('About'),
-     'First',       $self->gdt('First'),
-     'Last',        $self->gdt('Last'),
-     'NextFile',    $self->gdt('NextFile'),
-     'PrevFile',    $self->gdt('PrevFile'),
-  );
-
-  %SPECIAL_ELEMENTS_NAME = (
-    'About'       => $self->gdt('About This Document'),
-    'Contents'    => $self->gdt('Table of Contents'),
-    'Overview'    => $self->gdt('Short Table of Contents'),
-    'Footnotes'   => $self->gdt('Footnotes'),
-  );
-
-  # delete the tree and formatted results for special elements 
-  # such that they are redone with the new tree when needed.
-  foreach my $special_element (keys (%SPECIAL_ELEMENTS_NAME)) {
-    if ($self->{'special_elements_types'}->{$special_element} and
-        $self->{'targets'}->{$self->{'special_elements_types'}->{$special_element}}) {
-      my $target 
-        = $self->{'targets'}->{$self->{'special_elements_types'}->{$special_element}};
-      foreach my $key ('text', 'string', 'tree') {
-        delete $target->{$key};
-      }
-    }
-  }
-  
-  foreach my $hash (\%BUTTONS_TEXT, \%BUTTONS_GOTO, \%BUTTONS_NAME) {
-    foreach my $button (keys (%$hash)) {
-      if (ref($hash->{$button})) {
-        $hash->{$button} = $self->convert_tree_new_formatting_context(
-                                       $hash->{$button}, "button $button");
-      }
-    }
-  }
-  if ($self->{'commands_translation'}) {
-    my %translated_commands;
-    foreach my $context ('normal', 'preformatted', 'string') {
-      foreach my $command (keys(%{$self->{'commands_translation'}->{$context}})) {
-        $translated_commands{$command} = 1; 
-        delete $self->{'commands_formatting'}->{$context}->{$command};
-        if (defined($self->{'commands_translation'}->{$context}->{$command})) {
-          $self->{'commands_formatting'}->{$context}->{$command} 
-           = $self->gdt($self->{'commands_translation'}->{$context}->{$command},
-                        undef, 'translated_text');
-        }
-      }
-    }
-    foreach my $command(keys(%translated_commands)) {
-      $self->_complete_commands_formatting($command);
-    }
-  }
-}
-
 # insert here name of icon images for buttons
 # Icons are used, if ICONS and resp. value are set
 my %ACTIVE_ICONS = (
@@ -984,6 +847,7 @@ my %PASSIVE_ICONS = (
      'PrevFile',    '',
 );
 
+my (%BUTTONS_TEXT, %BUTTONS_GOTO, %BUTTONS_NAME, %SPECIAL_ELEMENTS_NAME);
 
 my %defaults = (
   'ENABLE_ENCODING'      => 0,
@@ -1030,11 +894,15 @@ my %defaults = (
                              [ 'Prev', \&_default_panel_button_dynamic_direction ],
                              [ 'Up', \&_default_panel_button_dynamic_direction ], ' ',
                              'Contents', 'Index'],
+  'SECTION_FOOTER_BUTTONS' => [[ 'Next', \&_default_panel_button_dynamic_direction_section_footer ],
+                              [ 'Prev', \&_default_panel_button_dynamic_direction_section_footer ],
+                              [ 'Up', \&_default_panel_button_dynamic_direction_section_footer ], ' ',
+                              'Contents', 'Index'],
   'LINKS_BUTTONS'        => ['Top', 'Index', 'Contents', 'About', 
                               'NodeUp', 'NodeNext', 'NodePrev'],
-  'NODE_FOOTER_BUTTONS'  => [[ 'Next', \&_default_panel_button_dynamic_direction_footer ],
-                             [ 'Prev', \&_default_panel_button_dynamic_direction_footer ],
-                             [ 'Up', \&_default_panel_button_dynamic_direction_footer ],
+  'NODE_FOOTER_BUTTONS'  => [[ 'Next', \&_default_panel_button_dynamic_direction_node_footer ],
+                             [ 'Prev', \&_default_panel_button_dynamic_direction_node_footer ],
+                             [ 'Up', \&_default_panel_button_dynamic_direction_node_footer ],
                              ' ', 'Contents', 'Index'],
   'misc_elements_targets'   => {
                              'Overview' => 'SEC_Overview',
@@ -1098,10 +966,178 @@ my %defaults = (
   'output_format'        => 'html',
 );
 
-foreach my $buttons ('CHAPTER_BUTTONS', 'SECTION_FOOTER_BUTTONS',
-  'MISC_BUTTONS', 'TOP_BUTTONS') {
+foreach my $buttons ('CHAPTER_BUTTONS', 'MISC_BUTTONS', 'TOP_BUTTONS') {
   $defaults{$buttons} = [@{$defaults{'SECTION_BUTTONS'}}];
 }
+
+foreach my $buttons ('SECTION_FOOTER_BUTTONS', 'CHAPTER_FOOTER_BUTTONS') {
+  $defaults{$buttons} = [@{$defaults{'SECTION_FOOTER_BUTTONS'}}];
+}
+
+
+my @global_directions = ('First', 'Last', 'Index', 'Top');
+my %global_and_special_directions;
+foreach my $global_direction (@global_directions) {
+  $global_and_special_directions{$global_direction} = 1;
+}
+foreach my $special_element (keys %{$defaults{'SPECIAL_ELEMENTS_CLASS'}}) {
+  $global_and_special_directions{$special_element} = 1;
+}
+
+foreach my $hash (\%BUTTONS_REL, \%BUTTONS_ACCESSKEY,
+                  \%ACTIVE_ICONS, \%PASSIVE_ICONS) {
+  foreach my $button (grep {not exists($global_and_special_directions{$_}) and $_ ne ' '} keys %$hash) {
+    $hash->{'FirstInFile'.$button} = $hash->{$button};
+  }
+}
+
+sub _translate_names($)
+{
+  my $self = shift;
+  #print STDERR "encoding_name: ".$self->get_conf('OUTPUT_ENCODING_NAME')." documentlanguage: ".$self->get_conf('documentlanguage')."\n";
+
+
+  %BUTTONS_TEXT = (
+     'Top',         $self->gdt('Top'),
+     'Contents',    $self->gdt('Contents'),
+     'Overview',    $self->gdt('Overview'),
+     'Index',       $self->gdt('Index'),
+     ' ',           ' &nbsp; ',
+     'This',        $self->gdt('current'),
+     'Back',        ' &lt; ',
+     'FastBack',    ' &lt;&lt; ',
+     'Prev',        $self->gdt('Prev'),
+     'Up',          $self->gdt(' Up '),
+     'Next',        $self->gdt('Next'),
+     #'NodeUp',      $self->gdt('Node up'),
+     'NodeUp',      $self->gdt('Up'),
+     #'NodeNext',    $self->gdt('Next node'),
+     'NodeNext',    $self->gdt('Next'),
+     #'NodePrev',    $self->gdt('Previous node'),
+     'NodePrev',    $self->gdt('Previous'),
+     'NodeForward', $self->gdt('Forward node'),
+     'NodeBack',    $self->gdt('Back node'),
+     'Forward',     ' &gt; ',
+     'FastForward', ' &gt;&gt; ',
+     'About',       ' ? ',
+     'First',       ' |&lt; ',
+     'Last',        ' &gt;| ',
+     'NextFile',    $self->gdt('Next file'),
+     'PrevFile',    $self->gdt('Previous file'),
+  );
+
+  foreach my $button (grep {not exists($global_and_special_directions{$_}) and $_ ne ' '} keys %BUTTONS_TEXT) {
+    $BUTTONS_TEXT{'FirstInFile'.$button} = $BUTTONS_TEXT{$button};
+  }
+
+  #%BUTTONS_TEXT = %NAVIGATION_TEXT;
+
+  %BUTTONS_GOTO = (
+     'Top',         $self->gdt('Cover (top) of document'),
+     'Contents',    $self->gdt('Table of contents'),
+     'Overview',    $self->gdt('Short table of contents'),
+     'Index',       $self->gdt('Index'),
+     'This',        $self->gdt('Current section'),
+     'Back',        $self->gdt('Previous section in reading order'),
+     'FastBack',    $self->gdt('Beginning of this chapter or previous chapter'),
+     'Prev',        $self->gdt('Previous section on same level'),
+     'Up',          $self->gdt('Up section'),
+     'Next',        $self->gdt('Next section on same level'),
+     'NodeUp',      $self->gdt('Up node'),
+     'NodeNext',    $self->gdt('Next node'),
+     'NodePrev',    $self->gdt('Previous node'),
+     'NodeForward', $self->gdt('Next node in node reading order'),
+     'NodeBack',    $self->gdt('Previous node in node reading order'),
+     'Forward',     $self->gdt('Next section in reading order'),
+     'FastForward', $self->gdt('Next chapter'),
+     'About' ,      $self->gdt('About (help)'),
+     'First',       $self->gdt('First section in reading order'),
+     'Last',        $self->gdt('Last section in reading order'),
+     'NextFile',    $self->gdt('Forward section in next file'),
+     'PrevFile',    $self->gdt('Back section in previous file'),
+  );
+
+  foreach my $button (grep {not exists($global_and_special_directions{$_}) and $_ ne ' '} keys %BUTTONS_GOTO) {
+    $BUTTONS_GOTO{'FirstInFile'.$button} = $BUTTONS_GOTO{$button};
+  }
+
+  %BUTTONS_NAME = (
+     'Top',         $self->gdt('Top'),
+     'Contents',    $self->gdt('Contents'),
+     'Overview',    $self->gdt('Overview'),
+     'Index',       $self->gdt('Index'),
+     ' ',           ' ',
+     'This',        $self->gdt('This'),
+     'Back',        $self->gdt('Back'),
+     'FastBack',    $self->gdt('FastBack'),
+     'Prev',        $self->gdt('Prev'),
+     'Up',          $self->gdt('Up'),
+     'Next',        $self->gdt('Next'),
+     'NodeUp',      $self->gdt('NodeUp'),
+     'NodeNext',    $self->gdt('NodeNext'),
+     'NodePrev',    $self->gdt('NodePrev'),
+     'NodeForward', $self->gdt('NodeForward'),
+     'NodeBack',    $self->gdt('NodeBack'),
+     'Forward',     $self->gdt('Forward'),
+     'FastForward', $self->gdt('FastForward'),
+     'About',       $self->gdt('About'),
+     'First',       $self->gdt('First'),
+     'Last',        $self->gdt('Last'),
+     'NextFile',    $self->gdt('NextFile'),
+     'PrevFile',    $self->gdt('PrevFile'),
+  );
+
+  foreach my $button (grep {not exists($global_and_special_directions{$_}) and $_ ne ' '} keys %BUTTONS_NAME) {
+    $BUTTONS_NAME{'FirstInFile'.$button} = $BUTTONS_NAME{$button};
+  }
+
+  %SPECIAL_ELEMENTS_NAME = (
+    'About'       => $self->gdt('About This Document'),
+    'Contents'    => $self->gdt('Table of Contents'),
+    'Overview'    => $self->gdt('Short Table of Contents'),
+    'Footnotes'   => $self->gdt('Footnotes'),
+  );
+
+  # delete the tree and formatted results for special elements
+  # such that they are redone with the new tree when needed.
+  foreach my $special_element (keys (%SPECIAL_ELEMENTS_NAME)) {
+    if ($self->{'special_elements_types'}->{$special_element} and
+        $self->{'targets'}->{$self->{'special_elements_types'}->{$special_element}}) {
+      my $target
+        = $self->{'targets'}->{$self->{'special_elements_types'}->{$special_element}};
+      foreach my $key ('text', 'string', 'tree') {
+        delete $target->{$key};
+      }
+    }
+  }
+  
+  foreach my $hash (\%BUTTONS_TEXT, \%BUTTONS_GOTO, \%BUTTONS_NAME) {
+    foreach my $button (keys (%$hash)) {
+      if (ref($hash->{$button})) {
+        $hash->{$button} = $self->convert_tree_new_formatting_context(
+                                       $hash->{$button}, "button $button");
+      }
+    }
+  }
+  if ($self->{'commands_translation'}) {
+    my %translated_commands;
+    foreach my $context ('normal', 'preformatted', 'string') {
+      foreach my $command (keys(%{$self->{'commands_translation'}->{$context}})) {
+        $translated_commands{$command} = 1;
+        delete $self->{'commands_formatting'}->{$context}->{$command};
+        if (defined($self->{'commands_translation'}->{$context}->{$command})) {
+          $self->{'commands_formatting'}->{$context}->{$command}
+           = $self->gdt($self->{'commands_translation'}->{$context}->{$command},
+                        undef, 'translated_text');
+        }
+      }
+    }
+    foreach my $command(keys(%translated_commands)) {
+      $self->_complete_commands_formatting($command);
+    }
+  }
+}
+
 
 sub converter_defaults($$)
 {
@@ -2011,11 +2047,12 @@ sub _default_format_heading_text($$$$$)
 # Associated to a button.  Return text to use for a link in button bar.
 # Depending on USE_NODE_DIRECTIONS and xrefautomaticsectiontitle
 # use section or node for link direction and string.
-sub _default_panel_button_dynamic_direction($$;$)
+sub _default_panel_button_dynamic_direction($$;$$)
 {
   my $self = shift;
   my $direction = shift;
   my $omit_rel = shift;
+  my $use_first_element_in_file_directions = shift;
   
   my $result = undef;
 
@@ -2024,6 +2061,10 @@ sub _default_panel_button_dynamic_direction($$;$)
       or (not defined($self->get_conf('USE_NODE_DIRECTIONS'))
           and $self->get_conf('USE_NODES'))) {
     $direction = 'Node'.$direction;
+  }
+
+  if ($use_first_element_in_file_directions) {
+    $direction = 'FirstInFile'.$direction;
   }
 
   my $href = $self->_element_direction($self->{'current_element'},
@@ -2057,12 +2098,22 @@ sub _default_panel_button_dynamic_direction($$;$)
 
 # Used for button bar at the foot of a node, with "rel" and "accesskey"
 # attributes omitted.
-sub _default_panel_button_dynamic_direction_footer($$)
+sub _default_panel_button_dynamic_direction_node_footer($$)
 {
   my $self = shift;
   my $direction = shift;
 
   return _default_panel_button_dynamic_direction($self, $direction, 1);
+}
+
+# used for button bar at the foot of a section or chapter with
+# directions of first element in file used instead of the last
+# element directions.
+sub _default_panel_button_dynamic_direction_section_footer($$) {
+  my $self = shift;
+  my $direction = shift;
+
+  return _default_panel_button_dynamic_direction($self, $direction, undef, 1);
 }
 
 # how to create IMG tag
@@ -4805,22 +4856,14 @@ sub _default_format_element_footer($$$$)
 </tr>
 </table>"."\n";
   }
-  if ($end_page) {
-    $result .= join('', $self->close_registered_sections_level(0));
-  }
-
-  # No footer navigation panel if there is more than one node in the
-  # output file.
-  my $do_buttons = 0;
-  if ($end_page
-      and $self->{'elements_in_file_count'}->{$element->{'filename'}} == 1) {
-    $do_buttons = 1;
-  }
 
   my $rule = '';
   my $buttons;
 
-  if ($do_buttons) {
+  if ($end_page) {
+    $result .= join('', $self->close_registered_sections_level(0));
+
+    # setup buttons for navigation footer
     if (($is_top or $is_special)
         and ($self->get_conf('SPLIT') or !$self->get_conf('MONOLITHIC'))
         and (($self->get_conf('HEADERS') 
@@ -4833,7 +4876,7 @@ sub _default_format_element_footer($$$$)
     } elsif ($self->get_conf('SPLIT') eq 'section') {
       $buttons = $self->get_conf('SECTION_FOOTER_BUTTONS');
     } elsif ($self->get_conf('SPLIT') eq 'chapter') {
-      $buttons = $self->get_conf('CHAPTER_BUTTONS');
+      $buttons = $self->get_conf('CHAPTER_FOOTER_BUTTONS');
     } elsif ($self->get_conf('SPLIT') eq 'node') {
       if ($self->get_conf('HEADERS')) {
         my $no_footer_word_count;
@@ -6037,7 +6080,7 @@ sub _prepare_global_targets($$)
   
   if ($self->get_conf('DEBUG')) {
     print STDERR "GLOBAL DIRECTIONS:\n";
-    foreach my $global_direction ('First', 'Last', 'Index', 'Top') {
+    foreach my $global_direction (@global_directions) {
       if (defined($self->{'global_target_elements'}->{$global_direction})) {
         print STDERR "$global_direction($self->{'global_target_elements'}->{$global_direction}): ".
           Texinfo::Structuring::_print_element_command_texi(
@@ -8216,8 +8259,11 @@ sub _set_variables_texi2html()
   ['CHAPTER_BUTTONS', [ 'FastBack', 'FastForward', ' ',
                               ' ', ' ', ' ', ' ',
                               'Top', 'Contents', 'Index', 'About', ]],
-  ['SECTION_FOOTER_BUTTONS', [ 'FastBack', 'Back', 'Up', 
+  ['SECTION_FOOTER_BUTTONS', [ 'FastBack', 'FirstInFileBack', 'FirstInFileUp',
                                                'Forward', 'FastForward' ]],
+  ['CHAPTER_FOOTER_BUTTONS', [ 'FastBack', 'FastForward', ' ',
+                              ' ', ' ', ' ', ' ',
+                              'Top', 'Contents', 'Index', 'About', ]],
   ['NODE_FOOTER_BUTTONS', [ 'FastBack', 'Back', 
                                             'Up', 'Forward', 'FastForward',
                              ' ', ' ', ' ', ' ',

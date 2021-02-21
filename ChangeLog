@@ -1,3 +1,25 @@
+2021-02-21  Patrice Dumas  <pertusus@free.fr>
+
+	use first section in file direction for footer if split at section or
+	chapter
+
+	* tp/Texinfo/Convert/HTML.pm, tp/init/book.pm: add 
+	CHAPTER_FOOTER_BUTTONS to be able to specify different 
+	customization for footer and header when split at chapter.
+	(_translate_names, %BUTTONS_*): add FirstInFile* directions.
+	(_default_format_element_footer)
+	(_default_panel_button_dynamic_direction)
+	(_default_panel_button_dynamic_direction_section_footer)
+	(_set_variables_texi2html):
+	reenable footer when there are more than one element in a file
+	and use FirstInFile* directions for section and chapter footer 
+	formatting.
+	(_default_panel_button_dynamic_direction_footer)
+	(_default_panel_button_dynamic_direction_node_footer): rename
+	_default_panel_button_dynamic_direction_footer() as
+	_default_panel_button_dynamic_direction_node_footer().
+	Report from Per Bothner.
+
 2021-02-21  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/Structuring.pm (nodes_tree):
@@ -6,7 +28,7 @@
 
 2021-02-21  Patrice Dumas  <pertusus@free.fr>
 
-	* p/Texinfo/Structuring.pm (_check_referenced_nodes):
+	* tp/Texinfo/Structuring.pm (_check_referenced_nodes):
 	consider a node to be referenced if it is a target of a
 	@*ref command.  Report by Gavin.
 
