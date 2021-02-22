@@ -730,7 +730,7 @@ $result_nodes{'section_chapter_before_top_nodes'} = {
 $result_nodes{'section_chapter_before_top_nodes'}{'menu_child'}{'menu_child'}{'node_next'} = $result_nodes{'section_chapter_before_top_nodes'}{'menu_child'};
 $result_nodes{'section_chapter_before_top_nodes'}{'menu_child'}{'menu_child'}{'node_up'} = $result_nodes{'section_chapter_before_top_nodes'}{'menu_child'};
 $result_nodes{'section_chapter_before_top_nodes'}{'menu_child'}{'node_next'} = $result_nodes{'section_chapter_before_top_nodes'};
-$result_nodes{'section_chapter_before_top_nodes'}{'menu_child'}{'node_prev'} = $result_nodes{'section_chapter_before_top_nodes'};
+$result_nodes{'section_chapter_before_top_nodes'}{'menu_child'}{'node_prev'} = $result_nodes{'section_chapter_before_top_nodes'}{'menu_child'}{'menu_child'};
 $result_nodes{'section_chapter_before_top_nodes'}{'menu_child'}{'node_up'} = $result_nodes{'section_chapter_before_top_nodes'};
 $result_nodes{'section_chapter_before_top_nodes'}{'node_next'} = $result_nodes{'section_chapter_before_top_nodes'}{'menu_child'};
 
@@ -819,7 +819,7 @@ File: ,  Node: section node,  Next: chapter node,  Up: chapter node
 =========
 
 
-File: ,  Node: chapter node,  Next: Top,  Prev: Top,  Up: Top
+File: ,  Node: chapter node,  Next: Top,  Prev: section node,  Up: Top
 
 2 chapter
 =========
@@ -843,7 +843,7 @@ top
 Tag Table:
 Node: section node27
 Node: chapter node119
-Node: Top232
+Node: Top241
 
 End Tag Table
 
@@ -904,7 +904,7 @@ Next: <a href="#chapter-node" accesskey="n" rel="next">chapter</a>, Up: <a href=
 <div class="chapter" id="chapter-node">
 <div class="header">
 <p>
-Next: <a href="#Top" accesskey="n" rel="next">top</a>, Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
+Next: <a href="#Top" accesskey="n" rel="next">top</a>, Previous: <a href="#section-node" accesskey="p" rel="prev">section</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>
 <span id="chapter"></span><h3 class="section">2 chapter</h3>
 

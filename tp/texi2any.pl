@@ -1258,6 +1258,7 @@ while(@input_files) {
 
   my $top_node;
   if ($formats_table{$format}->{'nodes_tree'}) {
+    Texinfo::Structuring::set_menus_node_directions($parser);
     $top_node = Texinfo::Structuring::nodes_tree($parser);
   }
   if ($formats_table{$format}->{'floats'}) {

@@ -1,3 +1,19 @@
+2021-02-22  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Structuring.pm (set_menus_node_directions)
+	(nodes_tree, _section_direction_associated_node), 
+	(_complete_check_menus_directions): separate
+	set_menus_node_directions() and _complete_check_menus_directions()
+	from nodes_tree() to distinguish better code related to menus
+	and not related to menus.  Add _section_direction_associated_node()
+	as a small helper function from node_tree too to be able to reuse 
+	the code.
+	* tp/t/test_utils.pl, tp/texi2any.pl: call
+	set_menus_node_directions.
+	* tp/Texinfo/Structuring.pm (nodes_tree): set Top node next
+	using the sectioning structure first.  Avoid resetting node directions
+	based on Top node first menu entry the direction was already set.
+
 2021-02-21  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/HTML.pm (nodes_tree): use first non Top node

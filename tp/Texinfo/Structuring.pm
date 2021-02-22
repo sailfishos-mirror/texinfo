@@ -51,6 +51,7 @@ use vars qw($VERSION @ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
   nodes_tree
   number_floats
   sectioning_structure
+  set_menus_node_directions
   sort_indices
   sort_indices_by_letter
   split_by_node
@@ -445,12 +446,11 @@ sub _check_referenced_nodes
   }
 }
 
-# set node and menu directions, and check consistency
-sub nodes_tree($)
+# set menu directions
+sub set_menus_node_directions($)
 {
   my $self = shift;
   return undef unless ($self->{'nodes'} and @{$self->{'nodes'}});
-  my $top_node;
 
   my $check_menu_entries = (!$self->{'info'}->{'novalidate'}
                       and $self->get_conf('FORMAT_MENU') eq 'menu');
@@ -530,7 +530,170 @@ sub nodes_tree($)
       }
     }
   }
+}
 
+# determine node found through section directions, usually
+# from section_$direction.  It could also be from
+# toplevel_$direction if going through parts, except for @top
+# as prev or next.
+sub _section_direction_associated_node($$)
+{
+  my $section = shift;
+  my $direction = shift;
+
+  foreach my $direction_base ('section', 'toplevel') {
+    if ($section->{$direction_base.'_'.$direction}
+       and $section->{$direction_base.'_'.$direction}->{'extra'}
+       and ($direction_base ne 'toplevel'
+            or $direction eq 'up'
+            or $section->{$direction_base.'_'.$direction}->{'cmdname'} ne 'top')
+       and $section->{$direction_base.'_'.$direction}->{'extra'}->{'associated_node'}) {
+         return $section->{$direction_base.'_'.$direction}->{'extra'}->{'associated_node'};
+    }
+  }
+  return undef;
+}
+
+# complete automatic directions with menus (and first node
+# for Top node).
+# Checks on structure related to menus.
+sub _complete_check_menus_directions($)
+{
+  my $self = shift;
+  return undef unless ($self->{'nodes'} and @{$self->{'nodes'}});
+  # Go through all the nodes
+  foreach my $node (@{$self->{'nodes'}}) {
+    my $automatic_directions =
+      (scalar(@{$node->{'extra'}->{'nodes_manuals'}}) == 1);
+
+    if ($automatic_directions) {
+      if ($node->{'extra'}->{'normalized'} ne 'Top') {
+        foreach my $direction (@node_directions) {
+          # prev already defined for the node first Top node menu entry
+          if ($direction eq 'prev' and $node->{'node_'.$direction}
+              and $node->{'node_'.$direction}->{'extra'}
+              and $node->{'node_'.$direction}->{'extra'}->{'normalized'}
+              and $node->{'node_'.$direction}->{'extra'}->{'normalized'} eq 'Top') {
+            next;
+          }
+          if ($node->{'extra'}->{'associated_section'}) {
+            my $section = $node->{'extra'}->{'associated_section'};
+
+            # Prefer the section associated with a @part for node directions.
+            if ($section->{'extra'}->{'part_associated_section'}) {
+              $section = $section->{'extra'}->{'part_associated_section'};
+            }
+            # Check consistency with section and menu structure
+            my $direction_associated_node
+              = _section_direction_associated_node($section, $direction);
+            if ($direction_associated_node) {
+              if ($self->get_conf('CHECK_NORMAL_MENU_STRUCTURE')) {
+                if ($section->{'section_up'}{'extra'}
+          and $section->{'section_up'}{'extra'}{'associated_node'}
+          and $section->{'section_up'}{'extra'}{'associated_node'}{'menus'}
+          and @{$section->{'section_up'}{'extra'}{'associated_node'}{'menus'}}
+                    and !$node->{'menu_'.$direction}) {
+                  $self->line_warn(sprintf(
+               __("node %s for `%s' is `%s' in sectioning but not in menu"),
+                  $direction,
+                  node_extra_to_texi($node->{'extra'}),
+                  node_extra_to_texi($direction_associated_node->{'extra'})),
+                    $node->{'line_nr'});
+                }
+              }
+            }
+          }
+          # no direction was found using sections, use menus.  This allows
+          # using only automatic direction for manuals without sectioning
+          # commands.
+          if (!$node->{'node_'.$direction}
+              and $node->{'menu_'.$direction}
+              and !$node->{'menu_'.$direction}->{'extra'}->{'manual_content'}) {
+            if ($self->get_conf('CHECK_NORMAL_MENU_STRUCTURE')
+                  and $node->{'extra'}->{'associated_section'}) {
+              $self->line_warn(sprintf(
+                  __("node `%s' is %s for `%s' in menu but not in sectioning"),
+                node_extra_to_texi($node->{'menu_'.$direction}->{'extra'}),
+                                   $direction,
+                node_extra_to_texi($node->{'extra'}),
+                  ),
+                $node->{'line_nr'});
+            }
+            $node->{'node_'.$direction} = $node->{'menu_'.$direction};
+          }
+        }
+      } elsif (not $node->{'node_next'}) {
+        # use first menu entry if available as next for Top
+        if ($node->{'menu_child'}) {
+          $node->{'node_next'} = $node->{'menu_child'};
+          if (!$node->{'menu_child'}->{'extra'}->{'manual_content'}
+              and !$node->{'menu_child'}->{'node_prev'}) {
+            $node->{'menu_child'}->{'node_prev'} = $node;
+          }
+        } else {
+          # use the first non top node as next for Top
+          foreach my $first_non_top_node (@{$self->{'nodes'}}) {
+            if ($first_non_top_node ne $node) {
+              $node->{'node_next'} = $first_non_top_node;
+              if (scalar(@{$first_non_top_node->{'extra'}->{'nodes_manuals'}}) == 1) {
+                $first_non_top_node->{'node_prev'} = $node;
+              }
+              last;
+            }
+          }
+        }
+      }
+    }
+    # check consistency between node pointer and node entries menu order
+    if ($node->{'extra'}->{'normalized'} ne 'Top') {
+      foreach my $direction (@node_directions) {
+        if ($self->get_conf('CHECK_NORMAL_MENU_STRUCTURE')
+            and $node->{'node_'.$direction}
+            and $node->{'menu_'.$direction}
+            and $node->{'menu_'.$direction}
+               ne $node->{'node_'.$direction}
+            and not $node->{'menu_'.$direction}->{'extra'}->{'manual_content'}) {
+          $self->line_warn(sprintf(
+           __("node %s pointer for `%s' is `%s' but %s is `%s' in menu"),
+                  $direction,
+                  node_extra_to_texi($node->{'extra'}),
+                  node_extra_to_texi($node->{'node_'.$direction}->{'extra'}),
+                  $direction,
+                  node_extra_to_texi($node->{'menu_'.$direction}->{'extra'})),
+                 $node->{'line_nr'});
+        }
+      }
+    }
+
+    # check for node up / menu up mismatch
+    if ($self->get_conf('CHECK_NORMAL_MENU_STRUCTURE')
+        and $node->{'node_up'}
+        # No check if node up is an external manual
+        and (!$node->{'node_up'}->{'extra'}->{'manual_content'})
+        and (!$node->{'menu_up_hash'}
+          or !$node->{'menu_up_hash'}->{$node->{'node_up'}->{'extra'}->{'normalized'}})) {
+      # check if up node has a menu
+      if ($node->{'node_up'}->{'menus'} and @{$node->{'node_up'}->{'menus'}}) {
+        $self->line_warn(sprintf(
+           __("node `%s' lacks menu item for `%s' despite being its Up target"), 
+           node_extra_to_texi($node->{'node_up'}->{'extra'}), 
+           node_extra_to_texi($node->{'extra'})),
+           $node->{'node_up'}->{'line_nr'});
+      }
+      # FIXME check that the menu_up_hash is not empty (except for Top)?
+      # FIXME check that node_up is not an external node (except for Top)?
+    }
+  }
+}
+
+
+# set node directions based on sectioning and @node explicit directions
+sub nodes_tree($)
+{
+  my $self = shift;
+  return undef unless ($self->{'nodes'} and @{$self->{'nodes'}});
+
+  my $top_node;
   # Go through all the nodes and set directions.
   foreach my $node (@{$self->{'nodes'}}) {
     if ($node->{'extra'}->{'normalized'} eq 'Top') {
@@ -556,77 +719,25 @@ sub nodes_tree($)
             if ($section->{'extra'}->{'part_associated_section'}) {
               $section = $section->{'extra'}->{'part_associated_section'};
             }
-            # Set node_$direction, usually from section_$direction.
-            # 'toplevel' is to go through parts, except for @top as prev
-            # or next.
-            foreach my $direction_base ('section', 'toplevel') {
-              if ($section->{$direction_base.'_'.$direction}
-                 and $section->{$direction_base.'_'.$direction}->{'extra'}
-                 and ($direction_base ne 'toplevel'
-                      or $direction eq 'up'
-                      or $section->{$direction_base.'_'.$direction}->{'cmdname'} ne 'top')
-                 and $section->{$direction_base.'_'.$direction}->{'extra'}->{'associated_node'}) {
-                $node->{'node_'.$direction} 
-                  = $section->{$direction_base.'_'.$direction}->{'extra'}->{'associated_node'};
-                last;
-              }
+
+            my $direction_associated_node
+              = _section_direction_associated_node($section, $direction);
+            if ($direction_associated_node) {
+              $node->{'node_'.$direction} = $direction_associated_node;
             }
-            # If set, a direction was found using sections.  Check consistency
-            # with menus.
-            if ($node->{'node_'.$direction}) {
-              if ($self->get_conf('CHECK_NORMAL_MENU_STRUCTURE')) {
-                if ($section->{'section_up'}{'extra'}
-          and $section->{'section_up'}{'extra'}{'associated_node'}
-          and $section->{'section_up'}{'extra'}{'associated_node'}{'menus'}
-          and @{$section->{'section_up'}{'extra'}{'associated_node'}{'menus'}}
-                    and !$node->{'menu_'.$direction}) {
-                  $self->line_warn(sprintf(
-               __("node %s for `%s' is `%s' in sectioning but not in menu"), 
-                  $direction,
-                  node_extra_to_texi($node->{'extra'}),
-                  node_extra_to_texi($node->{'node_'.$direction}->{'extra'})), 
-                    $node->{'line_nr'});
-                }
-              }
-            }
-          }
-          # no direction was found using sections, use menus.  This allows
-          # using only automatic direction for manuals without sectioning
-          # commands.
-          if (!$node->{'node_'.$direction}
-              and $node->{'menu_'.$direction}
-              and !$node->{'menu_'.$direction}->{'extra'}->{'manual_content'}) {
-            if ($self->get_conf('CHECK_NORMAL_MENU_STRUCTURE')
-                  and $node->{'extra'}->{'associated_section'}) {
-              $self->line_warn(sprintf(
-                  __("node `%s' is %s for `%s' in menu but not in sectioning"),
-                node_extra_to_texi($node->{'menu_'.$direction}->{'extra'}),
-                                   $direction,
-                node_extra_to_texi($node->{'extra'}), 
-                  ), 
-                $node->{'line_nr'});
-            }
-            $node->{'node_'.$direction} = $node->{'menu_'.$direction};
           }
         }
       } else {
-        # Special case for Top node.
-        # use first menu entry if available as next for Top
-        if ($node->{'menu_child'}) {
-          $node->{'node_next'} = $node->{'menu_child'};
-          if (!$node->{'menu_child'}->{'extra'}->{'manual_content'}) {
-            $node->{'menu_child'}->{'node_prev'} = $node;
-          }
-        } else {
-          # use the first non top node as next for Top
-          foreach my $first_non_top_node (@{$self->{'nodes'}}) {
-            if ($first_non_top_node ne $node) {
-              $node->{'node_next'} = $first_non_top_node;
-              if (scalar(@{$first_non_top_node->{'extra'}->{'nodes_manuals'}}) == 1) {
-                $first_non_top_node->{'node_prev'} = $node;
-              }
-              last;
-            }
+        # Special case for Top node, use first section
+        if ($node->{'extra'}->{'associated_section'}
+            and $node->{'extra'}->{'associated_section'}->{'section_childs'}
+            and $node->{'extra'}->{'associated_section'}->{'section_childs'}->[0]
+            and $node->{'extra'}->{'associated_section'}->{'section_childs'}->[0]->{'extra'}->{'associated_node'}) {
+          my $top_node_section_child
+            = $node->{'extra'}->{'associated_section'}->{'section_childs'}->[0]->{'extra'}->{'associated_node'};
+          $node->{'node_next'} = $top_node_section_child;
+          if (scalar(@{$top_node_section_child->{'extra'}->{'nodes_manuals'}}) == 1) {
+            $top_node_section_child->{'node_prev'} = $node;
           }
         }
       }
@@ -670,58 +781,12 @@ sub nodes_tree($)
         }
       }
     }
-    # check consistency between node pointer and node entries menu order
-    if ($node->{'extra'}->{'normalized'} ne 'Top') {
-      foreach my $direction (@node_directions) {
-        if ($self->get_conf('CHECK_NORMAL_MENU_STRUCTURE')
-            and $node->{'node_'.$direction}
-            and $node->{'menu_'.$direction}
-            and $node->{'menu_'.$direction}
-               ne $node->{'node_'.$direction}
-            and not $node->{'menu_'.$direction}->{'extra'}->{'manual_content'}) {
-          $self->line_warn(sprintf(
-           __("node %s pointer for `%s' is `%s' but %s is `%s' in menu"),
-                  $direction,
-                  node_extra_to_texi($node->{'extra'}),
-                  node_extra_to_texi($node->{'node_'.$direction}->{'extra'}),
-                  $direction,
-                  node_extra_to_texi($node->{'menu_'.$direction}->{'extra'})),
-                 $node->{'line_nr'});
-        }
-      }
-    }
-
-    # check for node up / menu up mismatch
-    if ($self->get_conf('CHECK_NORMAL_MENU_STRUCTURE')
-        and $node->{'node_up'}
-        # No check if node up is an external manual
-        and (!$node->{'node_up'}->{'extra'}->{'manual_content'})
-        and (!$node->{'menu_up_hash'}
-          or !$node->{'menu_up_hash'}->{$node->{'node_up'}->{'extra'}->{'normalized'}})) {
-      # check if up node has a menu
-      if ($node->{'node_up'}->{'menus'} and @{$node->{'node_up'}->{'menus'}}) {
-        $self->line_warn(sprintf(
-           __("node `%s' lacks menu item for `%s' despite being its Up target"), 
-           node_extra_to_texi($node->{'node_up'}->{'extra'}), 
-           node_extra_to_texi($node->{'extra'})),
-           $node->{'node_up'}->{'line_nr'});
-      } #elsif ($node->{'menu_up'}) {
-        # check unneeded as mismatch between node and menu directions
-        # already done just above
-        ## check if node is listed in a different menu
-        #$self->line_warn(sprintf(
-        #   __("for `%s', up in menu `%s' and up `%s' don't match"), 
-        #  node_extra_to_texi($node->{'extra'}),
-        #  node_extra_to_texi($node->{'menu_up'}->{'extra'}), 
-        #  node_extra_to_texi($node->{'node_up'}->{'extra'})),
-        #                $node->{'line_nr'});
-      #}
-      # FIXME check that the menu_up_hash is not empty (except for Top)?
-      # FIXME check that node_up is not an external node (except for Top)?
-    }
   }
   $top_node = $self->{'nodes'}->[0] if (!$top_node);
   $self->{'structuring'}->{'top_node'} = $top_node;
+
+  _complete_check_menus_directions($self);
+
   if ($self->get_conf('FORMAT_MENU') ne 'sectiontoc') {
     _check_referenced_nodes($self, $top_node);
   }
@@ -1644,6 +1709,7 @@ Texinfo::Structuring - information on Texinfo::Parser tree
     elements_file_directions);
   # $tree is a Texinfo document tree.  $parser is a Texinfo::Parser object.
   my $sections_root = sectioning_structure ($parser, $tree);
+  set_menus_node_directions($parser);
   my $top_node = nodes_tree($parser);
   number_floats($parser->floats_information());
   associate_internal_references($parser);
@@ -1675,9 +1741,11 @@ Texinfo::Structuring - information on Texinfo::Parser tree
 Texinfo::Structuring first allows to collect informations on a Texinfo tree.
 In most case, it also requires a parser object to do that job.  Thanks to
 C<sectioning_structure> the hierarchy of sectioning commands is determined.
-The node and menus tree is analysed with C<nodes_tree>.  Floats get their 
-standard numbering with C<number_floats> and internal references are matched
-up with nodes, floats or anchors with C<associate_internal_references>.
+The directions implied by menus are determined with
+C<set_menus_node_directions>.  The node tree is analysed with C<nodes_tree>.
+Floats get their standard numbering with C<number_floats> and internal
+references are matched up with nodes, floats or anchors with
+C<associate_internal_references>.
 
 It is also possible to group the top-level contents of the tree, which consist
 in nodes and sectioning commands into elements that group together a node and
@@ -1757,12 +1825,9 @@ account C<@part> elements.
 
 =back
 
-=item my $top_node = nodes_tree($parser)
+=item set_menus_node_directions($parser)
 
-Goes through menu and nodes and set directions.  Returns the top
-node.
-
-This functions sets:
+Goes through menu and set directions.
 
 =over
 
@@ -1777,6 +1842,19 @@ The first child in the menu of the node.
 =item menu_prev
 
 Up, next and previous directions as set in menus.
+
+=item node_up
+
+=back
+
+=item my $top_node = nodes_tree($parser)
+
+Goes through nodes and set directions.  Returns the top
+node.
+
+This functions sets:
+
+=over
 
 =item node_up
 

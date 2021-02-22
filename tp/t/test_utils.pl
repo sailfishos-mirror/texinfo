@@ -786,6 +786,7 @@ sub test($$)
 
   Texinfo::Structuring::number_floats($floats);
 
+  Texinfo::Structuring::set_menus_node_directions($parser);
   my $top_node = Texinfo::Structuring::nodes_tree($parser);
 
   my ($errors, $error_nrs) = $parser->errors();
