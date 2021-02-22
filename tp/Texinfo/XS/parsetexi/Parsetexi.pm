@@ -53,11 +53,6 @@ my %parser_default_configuration =
   (%Texinfo::Common::default_parser_state_configuration,
    %Texinfo::Common::default_customization_values);
 
-my %tree_informations;
-foreach my $tree_information ('values', 'macros', 'explained_commands', 'labels') {
-  $tree_informations{$tree_information} = 1;
-}
-
 use Storable qw(dclone); # standard in 5.007003
 
 sub simple_parser {
