@@ -838,9 +838,10 @@ There is NO WARRANTY, to the extent permitted by law.\n"), "2020";
                      if (!$_[1]) {
                        set_from_cmdline('FORMAT_MENU', 'nomenu');
                      } else {
-                       # NOTE this may be different from what the 
-                       # converter would have set in the default case.
-                       set_from_cmdline('FORMAT_MENU', 'menu');
+                       # a special value that is modified below when the
+                       # output format is known, to be the default for that
+                       # format, or 'menu'
+                       set_from_cmdline('FORMAT_MENU', 'set_format_menu_from_cmdline_header');
                      }
                      $format = 'plaintext' if (!$_[1] and $format eq 'info'); },
  'output|out|o=s' => sub {
@@ -1070,6 +1071,22 @@ if (defined($formats_table{$format}->{'module'})) {
 if (defined($formats_table{$format}->{'module'})) {
   $converter_class = $formats_table{$format}->{'module'};
   %converter_defaults = $converter_class->converter_defaults();
+
+  # set FORMAT_MENU to the output format default, if not nomenu
+  if (defined(get_conf('FORMAT_MENU'))
+      and get_conf('FORMAT_MENU') eq 'set_format_menu_from_cmdline_header') {
+    if (defined($converter_defaults{'FORMAT_MENU'})
+        and $converter_defaults{'FORMAT_MENU'} ne 'nomenu') {
+      set_from_cmdline('FORMAT_MENU', $converter_defaults{'FORMAT_MENU'});
+    } else {
+      set_from_cmdline('FORMAT_MENU', 'menu');
+    }
+  }
+} else {
+  if (defined(get_conf('FORMAT_MENU'))
+      and get_conf('FORMAT_MENU') eq 'set_format_menu_from_cmdline_header') {
+    set_from_cmdline('FORMAT_MENU', 'menu');
+  }
 }
 
 # using no warnings is wrong, but a way to avoid a spurious warning.
@@ -1088,7 +1105,9 @@ foreach my $parser_settable_option (
 
 # Copy some of the customization variables into the parser options.
 # The configuration options are upper-cased when considered as 
-# customization variables, and lower-cased when passed to the Parser
+# customization variables, and lower-cased when passed to the Parser.
+# The customization variables passed here can only be set in perl
+# customization files, using set_from_init_file().
 foreach my $parser_option (map {uc($_)} 
                   (keys (%Texinfo::Common::default_parser_state_configuration))) {
   $parser_options->{lc($parser_option)} = get_conf($parser_option)
