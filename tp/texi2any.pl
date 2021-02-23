@@ -1070,7 +1070,9 @@ if (defined($formats_table{$format}->{'module'})) {
 
 if (defined($formats_table{$format}->{'module'})) {
   $converter_class = $formats_table{$format}->{'module'};
-  %converter_defaults = $converter_class->converter_defaults();
+  # $cmdline_options is passed to have TEXI2HTML set for conversion to
+  # HTML
+  %converter_defaults = $converter_class->converter_defaults($cmdline_options);
 
   # set FORMAT_MENU to the output format default, if not nomenu
   if (defined(get_conf('FORMAT_MENU'))
@@ -1091,8 +1093,9 @@ if (defined($formats_table{$format}->{'module'})) {
 
 # using no warnings is wrong, but a way to avoid a spurious warning.
 no warnings 'once';
-foreach my $parser_settable_option (
-                keys(%Texinfo::Common::default_customization_values)) {
+my @parser_settable_options = keys(%Texinfo::Common::default_parser_customization_values);
+push @parser_settable_options, keys(%Texinfo::Common::default_structure_customization_values);
+foreach my $parser_settable_option (@parser_settable_options) {
   if (defined(get_conf($parser_settable_option))) {
     $parser_options->{$parser_settable_option} 
        = get_conf($parser_settable_option);
@@ -1277,8 +1280,17 @@ while(@input_files) {
 
   my $top_node;
   if ($formats_table{$format}->{'nodes_tree'}) {
-    Texinfo::Structuring::set_menus_node_directions($parser);
+
+    # it is not get_conf('FORMAT_MENU') but $parser_options as
+    # $parser_options is set to the output default and then replaced
+    # with get_conf('FORMAT_MENU') is needed
+    if ($parser_options->{'FORMAT_MENU'} eq 'menu') {
+      Texinfo::Structuring::set_menus_node_directions($parser);
+    }
     $top_node = Texinfo::Structuring::nodes_tree($parser);
+    if ($parser_options->{'FORMAT_MENU'} eq 'menu') {
+      Texinfo::Structuring::complete_node_tree_with_menus($parser, $top_node);
+    }
   }
   if ($formats_table{$format}->{'floats'}) {
     Texinfo::Structuring::number_floats($floats);

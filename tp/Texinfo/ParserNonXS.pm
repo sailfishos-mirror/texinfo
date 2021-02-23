@@ -105,7 +105,8 @@ sub N__($)
 
 my %parser_default_configuration = (
     %Texinfo::Common::default_parser_state_configuration,
-    %Texinfo::Common::default_customization_values,
+    %Texinfo::Common::default_parser_customization_values,
+    %Texinfo::Common::default_structure_customization_values,
     'clickstyle' => 'arrow',
     'kbdinputstyle' => 'distinct',
     # this is not really used, but this allows to have an 

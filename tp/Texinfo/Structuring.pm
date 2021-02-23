@@ -557,9 +557,11 @@ sub _section_direction_associated_node($$)
 # complete automatic directions with menus (and first node
 # for Top node).
 # Checks on structure related to menus.
-sub _complete_check_menus_directions($)
+sub complete_node_tree_with_menus($$)
 {
   my $self = shift;
+  my $top_node = shift;
+
   return undef unless ($self->{'nodes'} and @{$self->{'nodes'}});
   # Go through all the nodes
   foreach my $node (@{$self->{'nodes'}}) {
@@ -684,6 +686,7 @@ sub _complete_check_menus_directions($)
       # FIXME check that node_up is not an external node (except for Top)?
     }
   }
+  _check_referenced_nodes($self, $top_node);
 }
 
 
@@ -785,11 +788,6 @@ sub nodes_tree($)
   $top_node = $self->{'nodes'}->[0] if (!$top_node);
   $self->{'structuring'}->{'top_node'} = $top_node;
 
-  _complete_check_menus_directions($self);
-
-  if ($self->get_conf('FORMAT_MENU') ne 'sectiontoc') {
-    _check_referenced_nodes($self, $top_node);
-  }
   return $top_node;
 }
 
@@ -1711,6 +1709,7 @@ Texinfo::Structuring - information on Texinfo::Parser tree
   my $sections_root = sectioning_structure ($parser, $tree);
   set_menus_node_directions($parser);
   my $top_node = nodes_tree($parser);
+  complete_node_tree_with_menus($parser, $top_node);
   number_floats($parser->floats_information());
   associate_internal_references($parser);
   my $elements;
@@ -1743,9 +1742,10 @@ In most case, it also requires a parser object to do that job.  Thanks to
 C<sectioning_structure> the hierarchy of sectioning commands is determined.
 The directions implied by menus are determined with
 C<set_menus_node_directions>.  The node tree is analysed with C<nodes_tree>.
-Floats get their standard numbering with C<number_floats> and internal
-references are matched up with nodes, floats or anchors with
-C<associate_internal_references>.
+Nodes directions are completed with menu directions with
+C<complete_node_tree_with_menus>.  Floats get their standard numbering with
+C<number_floats> and internal references are matched up with nodes, floats or
+anchors with C<associate_internal_references>.
 
 It is also possible to group the top-level contents of the tree, which consist
 in nodes and sectioning commands into elements that group together a node and
@@ -1865,6 +1865,12 @@ This functions sets:
 Up, next and previous directions for the node.
 
 =back
+
+=item complete_node_tree_with_menus($parser, $top_node)
+
+Complete nodes directions with menu directions.  Check consistency
+of menus, sectionning and nodes direction structures.  Check that
+all the nodes are referenced (in menu, @*ref or node direction).
 
 =item number_floats($float_information)
 

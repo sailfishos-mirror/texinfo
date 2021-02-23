@@ -140,9 +140,8 @@ our %default_parser_state_configuration = (
 );
 
 
-# Customization variables obeyed by the parser and other modules, and the 
-# default values.
-our %default_customization_values = (
+# Customization variables obeyed by the parser, and the default values.
+our %default_parser_customization_values = (
   'DEBUG' => 0,     # if >= 10, tree is printed in texi2any.pl after parsing.
                     # If >= 100 tree is printed every line.
   'FORMAT_MENU' => 'menu',           # if not 'menu' no menu error related.
@@ -154,6 +153,11 @@ our %default_customization_values = (
   # Texinfo::Common::_convert_text_options
   'ENABLE_ENCODING' => 1,     # output accented and special characters
                               # based on @documentencoding
+);
+
+# Customization variables set in the parser for other modules, and the
+# default values.
+our %default_structure_customization_values = (
   # following are used in Texinfo::Structuring
   'USE_UP_NODE_FOR_ELEMENT_UP' => 0, # Use node up for Up if there is no 
                                      # section up.

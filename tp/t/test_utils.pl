@@ -789,6 +789,8 @@ sub test($$)
   Texinfo::Structuring::set_menus_node_directions($parser);
   my $top_node = Texinfo::Structuring::nodes_tree($parser);
 
+  Texinfo::Structuring::complete_node_tree_with_menus($parser, $top_node);
+
   my ($errors, $error_nrs) = $parser->errors();
   my $index_names = $parser->indices_information();
   # FIXME maybe it would be good to compare $merged_index_entries?

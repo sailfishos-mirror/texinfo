@@ -51,7 +51,7 @@ sub get_conf($$)
 
 my %parser_default_configuration =
   (%Texinfo::Common::default_parser_state_configuration,
-   %Texinfo::Common::default_customization_values);
+   %Texinfo::Common::default_parser_customization_values);
 
 use Storable qw(dclone); # standard in 5.007003
 
@@ -122,7 +122,8 @@ sub parser (;$$)
       } elsif ($key eq 'DEBUG') {
         set_debug($conf->{$key}) if $conf->{'key'};
       } elsif ($key eq 'in_gdt'
-               or $key eq 'ENABLE_ENCODING') {
+               or $key eq 'ENABLE_ENCODING'
+               or defined($Texinfo::Common::default_structure_customization_values{$key})) {
         # no action needed
       } else {
         warn "ignoring parser configuration value \"$key\"\n";
