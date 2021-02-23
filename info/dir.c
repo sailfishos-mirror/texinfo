@@ -258,7 +258,7 @@ dir_entry_of_infodir (char *label, char *searchdir)
       free (dir_fullpath);
       dir_fullpath = tmp;
     }
-  result = info_check_compressed (dir_fullpath, NULL);
+  result = info_check_compressed (dir_fullpath, &dummy);
   if (!result)
     {
       free (dir_fullpath);

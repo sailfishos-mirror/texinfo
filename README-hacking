@@ -211,6 +211,10 @@ util/srclist-txi          # for pretest, to sync files with other sources
 
 - Final (easy) checks:
 
+Check that translations have been updated, e.g.:
+  rsync  -Lrtzv  translationproject.org::tp/latest/texinfo/ po
+  rsync  -Lrtzv  translationproject.org::tp/latest/texinfo_document/ \
+                 po_document # note the trailing slashes in these commands
 check OpenCSW build reports at
   https://buildfarm.opencsw.org/buildbot/waterfall?category=texinfo
 Ensure texinfo.tex, texi2dvi, and htmlxref.cnf are updated on ftp.gnu.org.
@@ -226,11 +230,21 @@ Update copyright years in many files for release; best to grep -r for
   the previous year.  See also ChangeLog entries for "copyright years".
   No need (though it's ok) to change every source file at once, just the
   ones relevant to --version calls, etc., such as texindex.awk and info.c.
+update version in configure.ac, notice in ChangeLog.
+(cd tp && ./maintain/change_perl_modules_version.sh auto)
+  -- this updates all the version numbers in the Perl modules
+check that texindex version is updated properly
+  (rm texindex.awk ; make)
+make
+make update-po            # both po and po_document needed, build a dist first
+(cd tp ; maintain/regenerate_file_lists.pl) # list all test results
+make distcheck
+(export MALLOC_CHECK_=2; make distcheck)  # repeat until clean
+git commit and push
 
 after uploading distribution,
 pretest announcement -> bug-texinfo / beebe / platform-testers to try.
 bcc coordinator@translationproject.org.
-
 
 - Official releases only:
 version and date in NEWS.
@@ -240,22 +254,6 @@ version number in texi2any.pl, texi2dvi, texi2pdf, txirefcard.tex.
 
 make V=1 pdf and fix underfull/overfull boxes.
 
-- Changes to sources:
-update version in configure.ac, notice in ChangeLog.
-(cd tp && ./maintain/change_perl_modules_version.sh auto)
-  -- this updates all the version numbers in the Perl modules
-check that texindex version is updated properly
-  (rm texindex.awk ; make)
-Check that translations have been updated, e.g.:
-  rsync  -Lrtzv  translationproject.org::tp/latest/texinfo/ po
-  rsync  -Lrtzv  translationproject.org::tp/latest/texinfo_document/ \
-                 po_document # note the trailing slashes in these commands
-
-make
-make update-po            # both po and po_document needed, build a dist first
-TEXINFO_XS_PARSER=1 make distcheck # to check XS parser is good
-(export MALLOC_CHECK_=2; make distcheck)  # repeat until clean
-git commit and push
 
 - To do the actual upload:
 pkg=texinfo

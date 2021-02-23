@@ -48,7 +48,7 @@ use vars qw($VERSION @ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
 @EXPORT = qw(
 );
 
-$VERSION = '6.7dev';
+$VERSION = '6.7.90';
 
 # this is in fact not needed for 'footnote', 'shortcaption', 'caption'
 # when they have no brace_command_arg, see below.
