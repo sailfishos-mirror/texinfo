@@ -6,15 +6,22 @@ body.in-iframe, div[node]#index {
     padding: 0px 0.5em 0px 1em;
 }
 
-div[node] {
-    left: 25%;
-    width: 75%;
+#sub-pages {
     box-sizing: border-box;
+    left: 25%;     width: 75%;
     height: auto;
     top: 0pt;
     bottom: 0pt;
     position: absolute;
+}
+
+div[node] {
+    height: 100%;
     overflow: auto;
+}
+body[show-sidebar="no"] div#sub-pages {
+    left: 0px;
+    width: 100%;
 }
 
 div[node][hidden] {
@@ -24,6 +31,17 @@ div[node][hidden] {
 /* Non-iframed main page */
 body.in-iframe {
     margin: 0px;
+}
+
+div.toc-sidebar {
+    bottom: 2.8ex;
+}
+
+.sidebar-hider {
+    bottom: 0px;
+    height: 2.8ex;
+    position: absolute;
+    text-align: start;
 }
 
 /* Iframed sub pages */
@@ -50,15 +68,35 @@ iframe.node {
 #slider {
     position: fixed;
     top: 0em;
-    right: 25%;
     bottom: 0em;
-    left: 0em;
     height: 100%;
     width: 25%;
-    overflow: auto;
-    border: none;
     margin: 0px;
     padding: 0px;
+}
+
+#slider, body[show-sidebar="yes"] .sidebar-hider {
+    box-sizing: border-box;
+    left: 0em;
+}
+body[show-sidebar="yes"] .sidebar-hider {
+    width: 100%;
+}
+body[show-sidebar="no"] #slider {
+    width: 0px; /* so mouse events don't get captured */
+}
+body[show-sidebar="no"] .sidebar-hider {
+    width: auto;
+    position: fixed;
+    padding: 3px 1.2em 1px 0.8em;
+}
+
+body[show-sidebar="no"] div.toc-sidebar { display: none }
+
+div.toc-sidebar {
+    position: absolute;
+    top: 0px;
+    overflow: auto;
 }
 
 div.toc-sidebar header {
@@ -174,4 +212,21 @@ table#keyboard-shortcuts th {
 
 .echo-area {
     bottom: 0;
+}
+#slider {
+    background: #f0f0f0c0;
+}
+div.toc-sidebar nav, div.toc-sidebar header, .sidebar-hider {
+    background: #f0f0f0d0;
+}
+body[show-sidebar="yes"] .sidebar-hider {
+    border-width: thin 0px 0px 0px;
+}
+body[show-sidebar="no"] .sidebar-hider {
+    border-width: thin;
+}
+@media (max-width: 60em) {
+    div#sub-pages { left: 0px; width: 100% }
+    body[show-sidebar="yes"] div#slider {width: 20em }
+    div.logo img { max-width: 80%; width: 2em; }
 }

@@ -33,6 +33,8 @@
     MAIN_ANCHORS: ["Top"],
     WARNING_TIMEOUT: 3000,
     SCREEN_MIN_WIDTH: 700,
+    SHOW_SIDEBAR_HTML: "<span>Show sidebar</span>",
+    HIDE_SIDEBAR_HTML: "<span>Hide sidebar</span>",
 
     // hooks:
     /** Define a function called after 'DOMContentLoaded' event in
@@ -55,6 +57,7 @@
       @typedef {function (Action): void} Action_consumer
       @type {{dispatch: Action_consumer, state?: any, listeners?: any[]}}.  */
   var store;
+  var show_sidebar_button;
 
   /** Create a Store that calls its listeners at each state change.
       @arg {function (Object, Action): Object} reducer
@@ -683,14 +686,28 @@
     function
     Sidebar (contents_node)
     {
-      this.element = document.createElement ("div");
+      this.element = document.createElement ("div"); // FIXME unneeded?
       this.element.setAttribute ("id", "slider");
       var div = document.createElement ("div");
       div.classList.add ("toc-sidebar");
       var toc = document.querySelector ("#SEC_Contents");
       toc.remove ();
 
-      contents_node.appendChild(toc.cloneNode(true));
+      // Like n.cloneNode, but also copy _href
+      function cloneNode(n)
+      {
+        let r = n.cloneNode(false);
+        for (let c = n.firstChild; c; c = c.nextSibling)
+          {
+            let d = cloneNode(c);
+            let h = c._href;
+            if (h)
+              d._href = h;
+            r.appendChild(d);
+          }
+        return r;
+      }
+      contents_node.appendChild(cloneNode(toc));
 
       /* Remove table of contents header.  */
       toc = toc.querySelector(".contents"); // skip ToC header
@@ -707,6 +724,13 @@
       div$.appendChild (nav);
       div.appendChild (div$);
       this.element.appendChild (div);
+
+      let hider = document.createElement ("button");
+      //let hider = document.createElement ("div");
+      hider.classList.add ("sidebar-hider");
+      hider.innerHTML = config.HIDE_SIDEBAR_HTML;
+      show_sidebar_button = hider;
+      this.element.appendChild(hider);
     }
 
     /* Render 'sidebar' according to STATE which is a new state. */
@@ -995,6 +1019,7 @@
       fix_links (document.links);
       add_icons ();
       document.body.classList.add ("mainbar");
+      document.body.setAttribute("show-sidebar", "yes");
 
       /* Move contents of <body> into a a fresh <div> to let the components
          treat the index page like other iframe page.  */
@@ -1375,7 +1400,9 @@
   {
     for (var target = event.target; target !== null; target = target.parentNode)
       {
-        if ((target instanceof Element) && target.matches ("a"))
+        if (! (target instanceof Element))
+          continue;
+        if (target.matches ("a"))
           {
             var href = link_href(target);
             if (href && !absolute_url_p (href)
@@ -1387,10 +1414,32 @@
                 store.dispatch (actions.set_current_url (linkid));
                 event.preventDefault ();
                 event.stopPropagation ();
+                let body = document.body;
+                if (body.getAttribute("show-sidebar") == "yes"
+                    && is_narrow_window ())
+                   show_sidebar (false)
                 return;
               }
           }
+        if (target.matches (".sidebar-hider"))
+          {
+              let body = document.body;
+              let show = body.getAttribute("show-sidebar");
+              show_sidebar(show==="no");
+          }
       }
+  }
+
+  // Only valid when showing sidebar.
+  function is_narrow_window ()
+  {
+        return document.body.firstChild.offsetLeft == 0;
+  }
+
+  function show_sidebar (show)
+  {
+    document.body.setAttribute("show-sidebar", show ? "yes" : "no");
+    show_sidebar_button.innerHTML = show ? config.HIDE_SIDEBAR_HTML : config.SHOW_SIDEBAR_HTML;
   }
 
   /** Handle unload events.  */
@@ -1971,12 +2020,14 @@
 
   /* Until we have a responsive design implemented, fallback to basic
      HTML navigation for small screen.  */
+    /*
   if (window.screen.availWidth < config.SCREEN_MIN_WIDTH)
     {
       window.onload =
         error ("screen width is too small to display the table of content");
       return;
     }
+*/
 
   register_polyfills ();
   /* Let the config provided by the user mask the default one.  */

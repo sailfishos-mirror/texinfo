@@ -1,3 +1,12 @@
+2021-02-24  Per Bothner  <per@bothner.com>
+
+	* js/info.js: Add button to show/hide sidebar.  Other polishing.
+	(Sidebar): Create show/hide button.
+	(on_click): Handle clicks on show/hide button.
+	Also automatically hide sidebar on click when narrow.
+	(Sidebar): Copy _href property when copying ToC.
+	* js/info.css: Various adjustments and tricks to make it work.
+
 2021-02-23  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Common.pm (%default_customization_values),
@@ -8,12 +17,12 @@
 	* tp/Texinfo/ParserNonXS.pm (%parser_default_configuration),
 	* tp/texi2any.pl:
 	split %default_customization_values in two, as
-	%default_parser_customization_values and 
+	%default_parser_customization_values and
 	%default_structure_customization_values differentiating
 	parser options and options for Texinfo::Structuring.
 	* tp/Texinfo/Structuring.pm (_complete_check_menus_directions),
 	(complete_node_tree_with_menus, nodes_tree),
-	* tp/t/test_utils.pl (test), tp/texi2any.pl: rename 
+	* tp/t/test_utils.pl (test), tp/texi2any.pl: rename
 	_complete_check_menus_directions() as complete_node_tree_with_menus(),
 	call _check_referenced_nodes in that function and do not call
 	_complete_check_menus_directions in nodes_tree.
@@ -31,7 +40,7 @@
 	* configure.ac, util/texi2dvi, util/texi2pdf: Version.
 	* info/info.c (main), install-info/install-info.c (main): 2021
 	* README-hacking: Edit release instructions.
-	
+
 	* info/dir.c (dir_entry_of_infodir): Do not call
 	info_check_compressed with a null argument.
 
