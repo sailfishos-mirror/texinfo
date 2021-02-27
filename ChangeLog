@@ -1,5 +1,13 @@
 2021-02-27  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	No raw newline in awk string constant
+
+	* texindex/ti.twjr (usage, version): Avoid multi-line character
+	string as it appears not to be supported by awk under AIX 7.1.
+	Report by Bruno Haible.
+
+2021-02-27  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	Avoid cleaning generated files
 
 	* tp/Texinfo/XS/Makefile.am (CLEANFILES): Remove .c files that
