@@ -38,6 +38,13 @@
 	with $cmdline_options argument to pass TEXI2HTML customization
 	variable for HTML output.
 
+2021-02-23  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/texi2any.pl: use a special value if 'FORMAT_MENU' is set on
+	the command line that is replaced by the output format default
+	when the output format is known if the output format default is
+	not nomenu, or set to 'menu'.
+
 2021-02-23  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	pretest 6.7.90
@@ -48,13 +55,6 @@
 
 	* info/dir.c (dir_entry_of_infodir): Do not call
 	info_check_compressed with a null argument.
-
-2021-02-23  Patrice Dumas  <pertusus@free.fr>
-
-	* tp/texi2any.pl: use a special value if 'FORMAT_MENU' is set on
-	the command line that is replaced by the output format default
-	when the output format is known if the output format default is
-	not nomenu, or set to 'menu'.
 
 2021-02-22  Patrice Dumas  <pertusus@free.fr>
 
