@@ -30,7 +30,9 @@
 #include <sys/ioctl.h>
 #endif
 #ifdef __MINGW32__
+# undef read
 # define read(f,b,s)	w32_read(f,b,s)
+# undef _read
 # define _read(f,b,s)	w32_read(f,b,s)
 extern ssize_t w32_read (int, void *, size_t);
 #endif

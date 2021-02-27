@@ -1,3 +1,8 @@
+2021-02-27  Eli Zaretskii  <eliz@gnu.org>
+
+	* info/session.c (read, _read): #undef before redefining, to avoid
+	compilation warning due to Gnulib's unistd.h redefining them.
+
 2021-02-24  Per Bothner  <per@bothner.com>
 
 	* js/info.js: Add button to show/hide sidebar.  Other polishing.
