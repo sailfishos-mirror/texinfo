@@ -16,8 +16,7 @@
 # texindex.awk does the real work; it is created from ti.twjr 
 # using rules here invoking the texiwebjr utilities.
 
-# what we want installed in $(bindir).
-dist_bin_SCRIPTS = texindex
+bin_SCRIPTS = texindex
 
 # since it's generated, have to clean it explicitly.
 CLEANFILES = texindex
@@ -32,8 +31,7 @@ dist_pkgdata_SCRIPTS = texindex.awk
 MAINTAINERCLEANFILES = texindex.awk
 
 # mention the texiwebjr utilities. they are maintained in another
-# repository (see their sources), and updated here manually (see
-# ../util/srclist.txt).
+# repository (see their sources), and can be updated here manually
 noinst_SCRIPTS = jrtangle jrweave
 EXTRA_DIST += $(noinst_SCRIPTS)
 
