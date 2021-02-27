@@ -39,7 +39,7 @@ use strict;
 # for fileparse
 use File::Basename;
 
-use POSIX qw(setlocale LC_MESSAGES LC_ALL);
+use POSIX qw(setlocale LC_ALL);
 use Locale::Messages;
 # to be able to load a parser if none was given to gdt.
 use Texinfo::Parser;
@@ -241,7 +241,7 @@ sub gdt($$;$$)
   my $re = join '|', map { quotemeta $_ } keys %$context
       if (defined($context) and ref($context));
 
-  my $saved_LC_MESSAGES = POSIX::setlocale(LC_MESSAGES);
+  my $saved_LC_ALL = POSIX::setlocale(LC_ALL);
   my $saved_LANGUAGE = $ENV{'LANGUAGE'};
 
   # The following is necessary when the locale is "C" (as is the case
@@ -249,8 +249,10 @@ sub gdt($$;$$)
   #   https://rt.cpan.org/Public/Bug/Display.html?id=81315
   # Translation is not done if LC_MESSAGES is "C" or "POSIX".
   # This may not work if a locale named here doesn't exist on the system.
+  # Set LC_ALL rather than LC_MESSAGES as LC_MESSAGES may not be supported
+  # on Perl for MS-Windows.
   for my $try ('en_US.UTF-8', 'en_US') {
-    my $locale = POSIX::setlocale(LC_MESSAGES, $try);
+    my $locale = POSIX::setlocale(LC_ALL, $try);
     last if $locale;
   }
 
@@ -314,10 +316,10 @@ sub gdt($$;$$)
   } else {
     $ENV{'LANGUAGE'} = $saved_LANGUAGE;
   }
-  if (defined($saved_LC_MESSAGES)) {
-    POSIX::setlocale(LC_MESSAGES, $saved_LC_MESSAGES);
+  if (defined($saved_LC_ALL)) {
+    POSIX::setlocale(LC_ALL, $saved_LC_ALL);
   } else {
-    POSIX::setlocale(LC_MESSAGES, '');
+    POSIX::setlocale(LC_ALL, '');
   }
 
   if ($type and $type eq 'translated_text') {

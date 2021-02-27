@@ -1,5 +1,11 @@
 2021-02-27  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/Report.pm (gdt): Set and restore LC_ALL rather than
+	LC_MESSAGES as the latter doesn't work on MS-Windows.  Report
+	from Eli Zaretskii.
+
+2021-02-27  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* texindex/Makefile.am (bin_SCRIPTS): Remove dist_ prefix
 	from variable to prevent distribution of the generated texindex
 	wrapper script.  Report by Bruno Haible.
