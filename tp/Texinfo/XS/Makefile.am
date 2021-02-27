@@ -38,7 +38,7 @@ PERL_INC = $(PERL_CONF_archlibexp)/CORE
 XSUBPPARGS = -typemap $(PERL_CONF_privlibexp)/ExtUtils/typemap
 
 .xs.c:
-	$(XSUBPP) $(XSUBPPARGS) $< > $*.xsc && mv $*.xsc $*.c
+	$(XSUBPP) $(XSUBPPARGS) $< > $*.xsc && mv $*.xsc $(srcdir)/$*.c
 
 EXTRA_DIST += TestXS.pm
 
@@ -61,14 +61,7 @@ MiscXS_la_SOURCES = MiscXS.c misc.c miscxs.h ppport.h
 install-data-hook:
 	rm -f $(DESTDIR)$(xsdir)/TestXS*
 
-CLEANFILES += TestXS.c
-EXTRA_DIST += TestXS.xs
-
-CLEANFILES += XSParagraph.c
-EXTRA_DIST += XSParagraph.xs
-
-CLEANFILES += MiscXS.c
-EXTRA_DIST += MiscXS.xs
+EXTRA_DIST += TestXS.xs XSParagraph.xs MiscXS.xs
 
 
 AM_CFLAGS = $(PERL_CONF_ccflags) $(PERL_CONF_optimize)
