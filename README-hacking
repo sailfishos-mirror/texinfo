@@ -199,6 +199,11 @@ after installing new version of gettext)
 # a separate gnulib import.
 gnulib-tool --add-import
 
+After upgrading automake/autoconf/gettext/gnulib, run ./autogen.sh
+and/or "autoreconf --verbose --force --install" and/or util/srclist-txi
+to update ancilliary files in build-aux and elsewhere.  Check changes before
+committing.
+
 try groff.texinfo from groff source repo.
 process doc/texinfo-tex-test.texi with TeX and check that output is good.
 check for C compiler warnings by configuring with -Wall (not all have to 
@@ -206,7 +211,6 @@ be fixed)
 Have a look at the output of "git status -u" to check for files that
   should be tracked in git or ignored.
 make po-check             # update po/POTFILES.in as needed
-util/srclist-txi          # for pretest, to sync files with other sources
 
 
 - Final (easy) checks:

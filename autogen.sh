@@ -26,9 +26,6 @@ echo "  $cmd"
 $chicken eval $cmd || exit 1
 
 # This overwrites lots of files with older versions.
-# I keep the newest versions of files common between distributions up to
-# date in CVS (see util/srclist.txt), because it's not trivial for every
-# developer to do this.
 #cmd="autoreconf --verbose --force --install --include=m4"
 
 # So instead:

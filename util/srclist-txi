@@ -2,7 +2,7 @@
 # Texinfo's wrapper for the Gnulib script config/srclist-update,
 # to define particular variables our srclist.txt uses.
 # 
-# Copyright 2013-2019 Free Software Foundation, Inc.
+# Copyright 2013-2021 Free Software Foundation, Inc.
 #
 # This file is free software; as a special exception the author gives
 # unlimited permission to copy and/or distribute it, with or without
@@ -15,14 +15,12 @@
 # per-user overrides.
 case $LOGNAME in
 karl)
-  : ${GETTEXT=/usr/local/gnu/src/dist-gettext};     export GETTEXT
   : ${AUTOMAKE=/usr/local/gnu/share/automake-1.15}; export AUTOMAKE
   : ${GNULIB=$HOME/gnu/src/gnulib};                 export GNULIB
   ;;
 g)
   : ${GNULIB=$HOME/src/texinfo/gnulib} ; export GNULIB
-  : ${AUTOMAKE=$HOME/extsrc/automake-1.16} ; export AUTOMAKE
-  : ${GETTEXT=$HOME/extsrc/gettext-0.19.8} ; export GETTEXT
+  : ${AUTOMAKE=$HOME/extsrc/automake-1.16.3} ; export AUTOMAKE
 esac
 
 mydir=`dirname $0`

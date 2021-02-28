@@ -1,5 +1,17 @@
 2021-02-28  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	Simplify, update, document infrastructure
+
+	* util/srclist.txt: Remove all gettext lines as this should
+	be taken care of by gettextize.
+	* util/srclist-txi: Likewise.
+	* README-hacking: Explain how to check that files have been updated.
+	* INSTALL.generic: Update from gnulib.
+	* build-aux/config.rpath: Update from gnulib.
+	* autogen.sh: Remove obsolete comment about keeping files in CVS.
+
+2021-02-28  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	Run "autoreconf --verbose --force --install" to update
 	files under build-aux.  Don't commit changes to INSTALL or
 	build-aux/texinfo.tex.
