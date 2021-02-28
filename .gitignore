@@ -84,6 +84,7 @@ doc/*.info
 doc/*.info-*
 doc/*.pdf
 doc/*.t2p
+doc/test.*
 
 doc/info-stnd.??
 doc/info-stnd.??s
@@ -156,6 +157,8 @@ info/pseudotty
 info/t/*.log
 info/t/*.trs
 
+infog/test-infodir/**
+
 install-info/*.log
 install-info/*.trs
 
@@ -217,6 +220,7 @@ tp/texi_sort_elements_count
 tp/*.trs
 tp/*.log
 tp/*.html
+tp/test.*
 
 tp/Texinfo/ModulePath.pm
 tp/Texinfo/*.html
