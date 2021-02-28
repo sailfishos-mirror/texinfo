@@ -1,3 +1,9 @@
+2021-02-28  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	Run "autoreconf --verbose --force --install" to update
+	files under build-aux.  Don't commit changes to INSTALL or
+	build-aux/texinfo.tex.
+
 2021-02-27  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	No raw newline in awk string constant
