@@ -1,5 +1,14 @@
 2021-03-01  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	GNULIB_MDA_FDOPEN=0
+
+	* tp/Texinfo/XS/configure.ac: Set GNULIB_MDA_FDOPEN=0 to
+	prevent definition of fdopen in gnulib-provided stdio.h, which
+	clashes with Perl header files.  Report by Eli Zaretskii.
+	Suggested fix from Bruno Haible.
+
+2021-03-01  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/XS/parsetexi/api.c (element_to_perl_hash):
 	Cast pointer to intptr_t before IV to prevent a compiler warning
 	on MinGW.  Suggestion from Eli Zaretskii.

@@ -127,9 +127,13 @@ gl_INIT
 
 LT_INIT([disable-static])
 
-# The above are still necessary for --disable-perl-xs even though they 
-# aren't really used: otherwise, configure complains about undefined
-# variables.
+# Note that the above have to be outside the disable_xs block
+# otherwise it causes an error with configure.
+
+# Disable gnulib provision of "Microsoft deprecated alias" fdopen on
+# MS-Windows to prevent a clash with definitions in Perl header files
+GNULIB_MDA_FDOPEN=0
+
 
 host_needs_no_undefined=no
 case "$host" in *-mingw32 | *-mingw64 | *-msdosdjgpp | *-cygwin )
