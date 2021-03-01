@@ -427,8 +427,10 @@ element_to_perl_hash (ELEMENT *e)
               break;
               }
             case extra_integer:
-              { /* A simple integer. */
-              IV value = (IV) f;
+              { /* A simple integer.  The intptr_t cast here prevents
+                   a warning on MinGW ("cast from pointer to integer of
+                   different size"). */
+              IV value = (IV) (intptr_t) f;
               STORE(newSViv (value));
               break;
               }

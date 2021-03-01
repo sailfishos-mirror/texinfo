@@ -1,3 +1,9 @@
+2021-03-01  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/XS/parsetexi/api.c (element_to_perl_hash):
+	Cast pointer to intptr_t before IV to prevent a compiler warning
+	on MinGW.  Suggestion from Eli Zaretskii.
+
 2021-02-28  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	Simplify, update, document infrastructure
