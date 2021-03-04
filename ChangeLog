@@ -1,3 +1,10 @@
+2021-03-03  Per Bothner  <per@bothner.com>
+
+	* js/info.js (absolute_url_p): Replace with maybe_pageref_url_p.
+	New function checks if URL may be cross-reference to local page.
+	Prevents failure on links to images or stuff in sub-directories.
+	(config.LOCAL_HTML_PAGE_PATTERN): Patternfor HTML files.
+
 2021-03-02  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.texi (Invoking pod2texi): Remove  reference to

@@ -33,6 +33,7 @@
     MAIN_ANCHORS: ["Top"],
     WARNING_TIMEOUT: 3000,
     SCREEN_MIN_WIDTH: 700,
+    LOCAL_HTML_PAGE_PATTERN: ".*[.](html|htm|xhtml)$",
     SHOW_SIDEBAR_HTML: "<span>Show sidebar</span>",
     HIDE_SIDEBAR_HTML: "<span>Hide sidebar</span>",
 
@@ -1405,7 +1406,7 @@
         if (target.matches ("a"))
           {
             var href = link_href(target);
-            if (href && !absolute_url_p (href)
+            if (href && maybe_pageref_url_p (href)
                   && !external_manual_url_p (href))
               {
                 var linkid = href_hash (href) || config.INDEX_ID;
@@ -1655,10 +1656,10 @@
         var href = link_href(link);
         if (!href)
           continue;
-        else if (absolute_url_p (href))
-          link.setAttribute ("target", "_blank");
         else if (external_manual_url_p (href))
           link.setAttribute ("target", "_top");
+        else if (! maybe_pageref_url_p (href))
+          link.setAttribute ("target", "_blank");
         else
           {
             var href$ = with_sidebar_query (href);
@@ -1728,16 +1729,12 @@
       }
   }
 
-  /** Check if 'URL' is an absolute URL.  Return true if this is the case
-      otherwise return false.  'URL' must be a USVString representing a valid
-      URL.  */
+  /** Check if 'URL' may be a cross-reference to another page in this manual. */
   function
-  absolute_url_p (url)
+  maybe_pageref_url_p (url)
   {
-    if (typeof url !== "string")
-      throw new TypeError ("'" + url + "' is not a string");
-
-    return url.includes (":");
+    return ! (url.includes (":") || url.includes ("/"))
+      && url.match(config.LOCAL_HTML_PAGE_PATTERN);
   }
 
   /** Check if 'URL' is a link to another manual.  For locally installed 
