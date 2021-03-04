@@ -651,8 +651,11 @@ sub _get_converter_default($)
   return undef;
 }
 
+# translation related todo to be done when the string change anyway to
+# avoid requiring translation
 sub makeinfo_help()
 {
+  # TODO: avoid \n in translated strings.  Report from Benno Schulenberg
   my $makeinfo_help =
     sprintf(__("Usage: %s [OPTION]... TEXINFO-FILE...\n"),
     $real_command_name . $command_suffix)
@@ -663,6 +666,8 @@ Info files suitable for reading online with Emacs or standalone GNU Info.
 This program is commonly installed as both `makeinfo' and `texi2any';
 the behavior is identical, and does not depend on the installed name.\n")
 ."\n";
+  # TODO: avoid \n in translated strings, split each option in a translatable
+  # string.  Report from Benno Schulenberg
   $makeinfo_help .= sprintf(__("General options:
       --document-language=STR locale to use in translating Texinfo keywords
                                 for the output document (default C).
@@ -679,6 +684,8 @@ the behavior is identical, and does not depend on the installed name.\n")
       --version               display version information and exit.\n"),
     get_conf('ERROR_LIMIT'))
 ."\n";
+  # TODO: avoid \n in translated strings, split each option in a translatable
+  # string.  Report from Benno Schulenberg
   $makeinfo_help .= __("Output format selection (default is to produce Info):
       --docbook               output Docbook XML rather than Info.
       --html                  output HTML rather than Info.
@@ -687,6 +694,8 @@ the behavior is identical, and does not depend on the installed name.\n")
       --dvi, --dvipdf, --ps, --pdf  call texi2dvi to generate given output,
                                 after checking validity of TEXINFO-FILE.\n")
 ."\n";
+  # TODO: avoid \n in translated strings, split each option in a translatable
+  # string.  Report from Benno Schulenberg
   $makeinfo_help .= __("General output options:
   -E, --macro-expand=FILE     output macro-expanded source to FILE,
                                 ignoring any \@setfilename.
@@ -707,6 +716,8 @@ the behavior is identical, and does not depend on the installed name.\n")
                                  put the output file there.
                                 Otherwise, DEST names the output file.\n")
 ."\n";
+  # TODO: avoid \n in translated strings, split each option in a translatable
+  # string.  Report from Benno Schulenberg
   $makeinfo_help .= sprintf(__("Options for Info and plain text:
       --disable-encoding      do not output accented and special characters
                                 in Info output based on \@documentencoding.
@@ -724,6 +735,8 @@ the behavior is identical, and does not depend on the installed name.\n")
     _get_converter_default('paragraphindent'), 
     _get_converter_default('SPLIT_SIZE'))
 ."\n";
+  # TODO: avoid \n in translated strings, split each option in a translatable
+  # string.  Report from Benno Schulenberg
   $makeinfo_help .= __("Options for HTML:
       --css-include=FILE      include FILE in HTML <style> output;
                                 read stdin if FILE is -.
@@ -735,12 +748,15 @@ the behavior is identical, and does not depend on the installed name.\n")
       --node-files            produce redirection files for nodes and 
                                 anchors; default is set only if split.\n")
 ."\n";
+  # TODO: avoid \n in translated strings.  Report from Benno Schulenberg
   $makeinfo_help .= __("Options for XML and Docbook:
       --output-indent=VAL     does nothing, retained for compatibility.\n")
 ."\n";
   $makeinfo_help .= __("Options for DVI/PS/PDF:
       --Xopt=OPT              pass OPT to texi2dvi; can be repeated.\n")
 ."\n";
+  # TODO: avoid \n in translated strings, split each option in a translatable
+  # string.  Report from Benno Schulenberg
   $makeinfo_help .= __("Input file options:
       --commands-in-node-names  does nothing, retained for compatibility.
   -D VAR                        define the variable VAR, as with \@set.
@@ -749,6 +765,8 @@ the behavior is identical, and does not depend on the installed name.\n")
   -P DIR                        prepend DIR to the \@include search path.
   -U VAR                        undefine the variable VAR, as with \@clear.\n")
 ."\n";
+  # TODO: avoid \n in translated strings, split each option in a translatable
+  # string.  Report from Benno Schulenberg
   $makeinfo_help .= __("Conditional processing in input:
   --ifdocbook       process \@ifdocbook and \@docbook even if
                       not generating Docbook.
@@ -766,6 +784,8 @@ the behavior is identical, and does not depend on the installed name.\n")
 
   Also, for the --no-ifFORMAT options, do process \@ifnotFORMAT text.\n")
 ."\n";
+  # TODO: avoid \n in translated strings, split each option in a translatable
+  # string.  Report from Benno Schulenberg
   $makeinfo_help .= __("  The defaults for the \@if... conditionals depend on the output format:
   if generating Docbook, --ifdocbook is on and the others are off;
   if generating HTML, --ifhtml is on and the others are off;
@@ -773,6 +793,8 @@ the behavior is identical, and does not depend on the installed name.\n")
   if generating plain text, --ifplaintext is on and the others are off;
   if generating XML, --ifxml is on and the others are off.\n")
 ."\n";
+  # TODO: avoid \n in translated strings, split each option in a translatable
+  # string.  Report from Benno Schulenberg
   $makeinfo_help .= __("Examples:
   makeinfo foo.texi                      write Info to foo's \@setfilename
   makeinfo --html foo.texi               write HTML to \@setfilename

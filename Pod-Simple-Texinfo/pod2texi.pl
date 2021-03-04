@@ -101,35 +101,37 @@ my ($real_command_name, $directories, $suffix) = fileparse($0);
 
 sub pod2texi_help()
 {
-  return __("Usage: pod2texi [OPTION]... POD...
-
-Translate Perl pod documentation file(s) to Texinfo.  There are two
+  my $pod2texi_help = __("Usage: pod2texi [OPTION]... POD...");
+  $pod2texi_help .= "\n\n";
+  $pod2texi_help .= __("Translate Perl pod documentation file(s) to Texinfo.  There are two
 basic modes of operation.  First, by default, each pod is translated to
 a standalone Texinfo manual.
 
 Second, if C<--base-level> is set higher than 0, each pod is translated
 to a file suitable for C<\@include>, and one more file with all the
 C<\@include>s is generated, intended to be C<\@include>d in turn within
-a hand-written top-level file.
+a hand-written top-level file.");
+  $pod2texi_help .= "\n\n";
+  $pod2texi_help .= __("Options:
+    --appendix-sections     use appendix-like sections")."\n";
+  $pod2texi_help .= __("    --base-level=NUM|NAME   level of the head1 commands; default 0")."\n";
+  $pod2texi_help .= __("    --debug=NUM             set debugging level")."\n";
+  $pod2texi_help .= __("    --help                  display this help and exit")."\n";
+  $pod2texi_help .= __("    --no-fill-section-gaps  do not fill sectioning gaps")."\n";
+  $pod2texi_help .= __("    --no-section-nodes      use anchors for sections instead of nodes")."\n";
+  $pod2texi_help .= __("    --output=NAME           output to NAME for the first or main manual
+                            instead of standard output")."\n";
+  $pod2texi_help .= __("    --preamble=STR          insert STR as beginning boilerplate")."\n";
+  $pod2texi_help .= __("    --subdir=NAME           put files included in the main manual in NAME")."\n";
+  $pod2texi_help .= __("    --top                   top for the main manual")."\n";
+  $pod2texi_help .= __("    --unnumbered-sections   use unumbered sections")."\n";
+  $pod2texi_help .= __("    --version               display version information and exit");
+  $pod2texi_help .= "\n\n";
 
-Options:
-  --appendix-sections     use appendix-like sections.
-  --base-level=NUM|NAME   level of the head1 commands; default 0.
-  --debug=NUM             set debugging level.
-  --help                  display this help and exit.
-  --no-fill-section-gaps  do not fill sectioning gaps.
-  --no-section-nodes      use anchors for sections instead of nodes.
-  --output=NAME           output to NAME for the first or main manual
-                          instead of standard output.
-  --preamble=STR          insert STR as beginning boilerplate.
-  --subdir=NAME           put files included in the main manual in NAME.
-  --top                   top for the main manual.
-  --unnumbered-sections   use unumbered sections.
-  --version               display version information and exit.
-
-Email bug reports to bug-texinfo\@gnu.org,
+  $pod2texi_help .= __("Email bug reports to bug-texinfo\@gnu.org,
 general questions and discussion to help-texinfo\@gnu.org.
-Texinfo home page: http://www.gnu.org/software/texinfo/\n");
+Texinfo home page: http://www.gnu.org/software/texinfo/")."\n";
+  return $pod2texi_help;
 }
 
 my $base_level = 0;
