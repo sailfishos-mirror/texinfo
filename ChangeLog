@@ -1,3 +1,8 @@
+2021-03-11  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* tp/tests/coverage_macro.texi: Add blank lines to isolate
+	test result differences for some glyph commands.
+
 2021-03-10  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.texi (@copying): Coalesce copyright years where possible.

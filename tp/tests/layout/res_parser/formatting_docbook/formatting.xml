@@ -97,7 +97,8 @@ but , ,
 @print &#8867;
 @result &#8658;
 @today a sunny day
-@aa &#229;
+</para>
+<para>@aa &#229;
 @AA &#197;
 @ae &#230;
 @oe &#339;
@@ -112,7 +113,8 @@ but , ,
 @TH &#222;
 @dh &#240;
 @th &#254;
-@exclamdown &#161;
+</para>
+<para>@exclamdown &#161;
 @questiondown &#191;
 @pounds &#163;
 @registeredsymbol &#174;
@@ -732,7 +734,8 @@ but , ,
 @print &#8867;
 @result &#8658;
 @today a sunny day
-@aa &#229;
+</para>
+<para>@aa &#229;
 @AA &#197;
 @ae &#230;
 @oe &#339;
@@ -747,7 +750,8 @@ but , ,
 @TH &#222;
 @dh &#240;
 @th &#254;
-@exclamdown &#161;
+</para>
+<para>@exclamdown &#161;
 @questiondown &#191;
 @pounds &#163;
 @registeredsymbol &#174;
@@ -1368,7 +1372,8 @@ but , ,
 @print &#8867;
 @result &#8658;
 @today a sunny day
-@aa &#229;
+</para>
+<para>@aa &#229;
 @AA &#197;
 @ae &#230;
 @oe &#339;
@@ -1383,7 +1388,8 @@ but , ,
 @TH &#222;
 @dh &#240;
 @th &#254;
-@exclamdown &#161;
+</para>
+<para>@exclamdown &#161;
 @questiondown &#191;
 @pounds &#163;
 @registeredsymbol &#174;
@@ -2004,7 +2010,8 @@ but , ,
 @print &#8867;
 @result &#8658;
 @today a sunny day
-@aa &#229;
+</para>
+<para>@aa &#229;
 @AA &#197;
 @ae &#230;
 @oe &#339;
@@ -2019,7 +2026,8 @@ but , ,
 @TH &#222;
 @dh &#240;
 @th &#254;
-@exclamdown &#161;
+</para>
+<para>@exclamdown &#161;
 @questiondown &#191;
 @pounds &#163;
 @registeredsymbol &#174;
@@ -2639,7 +2647,8 @@ but , ,
 @print &#8867;
 @result &#8658;
 @today a sunny day
-@aa &#229;
+</para>
+<para>@aa &#229;
 @AA &#197;
 @ae &#230;
 @oe &#339;
@@ -2654,7 +2663,8 @@ but , ,
 @TH &#222;
 @dh &#240;
 @th &#254;
-@exclamdown &#161;
+</para>
+<para>@exclamdown &#161;
 @questiondown &#191;
 @pounds &#163;
 @registeredsymbol &#174;
@@ -3270,6 +3280,7 @@ but , ,
 @print &#8867;
 @result &#8658;
 @today a sunny day
+
 @aa &#229;
 @AA &#197;
 @ae &#230;
@@ -3285,6 +3296,7 @@ but , ,
 @TH &#222;
 @dh &#240;
 @th &#254;
+
 @exclamdown &#161;
 @questiondown &#191;
 @pounds &#163;
