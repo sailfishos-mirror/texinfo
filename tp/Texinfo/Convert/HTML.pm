@@ -675,6 +675,7 @@ sub default_formatting_function($$)
   return $self->{'default_formatting_functions'}->{$format};
 }
 
+# used for customization only (in t2h_singular.init)
 sub get_value($$)
 {
   my $self = shift;
