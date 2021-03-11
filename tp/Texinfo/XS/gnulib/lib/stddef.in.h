@@ -42,6 +42,13 @@
 #   define _GL_STDDEF_WINT_T
 #  endif
 #  @INCLUDE_NEXT@ @NEXT_STDDEF_H@
+   /* On TinyCC, make sure that the macros that indicate the special invocation
+      convention get undefined.  */
+#  undef __need_wchar_t
+#  undef __need_size_t
+#  undef __need_ptrdiff_t
+#  undef __need_NULL
+#  undef __need_wint_t
 # endif
 
 #else
@@ -51,7 +58,7 @@
 
 /* On AIX 7.2, with xlc in 64-bit mode, <stddef.h> defines max_align_t to a
    type with alignment 4, but 'long' has alignment 8.  */
-#  if defined _AIX && defined _ARCH_PPC64
+#  if defined _AIX && defined __LP64__
 #   if !GNULIB_defined_max_align_t
 #    ifdef _MAX_ALIGN_T
 /* /usr/include/stddef.h has already defined max_align_t.  Override it.  */

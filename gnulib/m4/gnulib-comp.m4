@@ -507,6 +507,7 @@ AC_DEFUN([gl_INIT],
   {
     if ! $gl_gnulib_enabled_dynarray; then
       gl_gnulib_enabled_dynarray=true
+      func_gl_gnulib_m4code_intprops
       func_gl_gnulib_m4code_21ee726a3540c09237a8e70c0baf7467
     fi
   }
