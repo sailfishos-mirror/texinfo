@@ -14,7 +14,11 @@
    along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
 #include <config.h>
+
+
+#ifdef ENABLE_NLS
 #include <libintl.h>
+#endif
 
 #include <stdlib.h>
 #include <stdarg.h>
@@ -27,7 +31,6 @@
 void bug (char *message)
 {
   fprintf (stderr, "texi2any (XS parser): bug: %s\n", message);
-  abort ();
 }
 
 void fatal (char *message)
@@ -52,7 +55,11 @@ line_error_internal (enum error_type type, LINE_NR *cmd_line_nr,
                      char *format, va_list v)
 {
   char *message;
+#ifdef ENABLE_NLS
   vasprintf (&message, gettext(format), v);
+#else
+  vasprintf (&message, format, v);
+#endif
   if (!message) fatal ("vasprintf failed");
 
   if (error_number == error_space)

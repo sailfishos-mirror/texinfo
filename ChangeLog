@@ -1,3 +1,15 @@
+2021-03-12  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	Fix NetBSD build
+
+	* tp/Texinfo/XS/parsetexi/api.c,
+	* tp/Texinfo/XS/parsetexi/errors.c: Surround calls to gettext
+	with #ifdef ENABLE_NLS.
+
+2021-03-12  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/XS/parsetexi/errors.c (bug): Don't call abort.
+
 2021-03-11  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* tp/tests/coverage_macro.texi: Add blank lines to isolate
