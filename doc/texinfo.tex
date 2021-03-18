@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2021-02-20.11}
+\def\texinfoversion{2021-03-18.20}
 %
 % Copyright 1985, 1986, 1988, 1990-2021 Free Software Foundation, Inc.
 %
@@ -4486,6 +4486,7 @@ $$%
     \global\advance\colcount by 1
     \multistrut
     \vtop{%
+      \advance\hsize by -1\leftskip
       % Use the current \colcount to find the correct column width:
       \hsize=\expandafter\csname col\the\colcount\endcsname
       %

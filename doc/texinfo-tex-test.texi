@@ -1590,6 +1590,39 @@ chicken		pizza	beefburger	hotdog
 “Please come again”
 @end verbatim
 
+@section @code{@@multitable}
+
+Nested in @@quotation:
+
+before before before before before before before before
+before before before before before before before before
+before before before before before before before before
+before before before before before before before before
+
+@quotation
+@multitable @columnfractions 0.5 0.5
+@item
+left left left left left left left left
+left left left left left left left left
+left left left left left left left left
+left left left left left left left left
+@tab
+right right right right right right right right
+right right right right right right right right
+right right right right right right right right
+right right right right right right right right
+@end multitable
+@end quotation
+
+after after after after after after after after
+after after after after after after after after
+after after after after after after after after
+after after after after after after after after
+
+
+
+
+
 
 @chapter Document encoding
 
