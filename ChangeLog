@@ -1,3 +1,17 @@
+2021-03-20  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.tex (\multitable): Fix indendation of code.  Remove
+	useless macro \multistrut replacing it with \strut (always set to
+	this since October 2004).  Remove comment about space added by
+	\multistrut, as no such space was added.  Remove documentation of
+	@multitable as this is in the manual.  Remove comment crediting
+	original author of macros, recorded here as
+	Amy Hendrickson, 8/18/94, 3/6/96
+	(\tab): Remove comment from April 1999 saying what used to be
+	in the code.
+	(\alphaenumerate, \capsenumerate): Remove undocumented aliases.
+
+
 2021-03-18  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	Narrow @multitable nested within @quotation
