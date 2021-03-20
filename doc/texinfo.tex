@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2021-03-20.00}
+\def\texinfoversion{2021-03-20.01}
 %
 % Copyright 1985, 1986, 1988, 1990-2021 Free Software Foundation, Inc.
 %
@@ -4292,23 +4292,6 @@ $$%
 
 % @multitable macros
 
-% Default dimensions may be reset by user.
-% @multitableparskip is vertical space between paragraphs in table.
-% @multitableparindent is paragraph indent in table.
-% @multitablecolmargin is horizontal space to be left between columns.
-% @multitablelinespace is space to leave between table items, baseline
-%                                                            to baseline.
-%   0pt means it depends on current normal line spacing.
-%
-\newskip\multitableparskip
-\newskip\multitableparindent
-\newdimen\multitablecolspace
-\newskip\multitablelinespace
-\multitableparskip=0pt
-\multitableparindent=6pt
-\multitablecolspace=12pt
-\multitablelinespace=0pt
-
 % Macros used to set up halign preamble:
 %
 \let\endsetuptable\relax
@@ -4387,9 +4370,8 @@ $$%
   %
   \tolerance=9500
   \hbadness=9500
-  \setmultitablespacing
-  \parskip=\multitableparskip
-  \parindent=\multitableparindent
+  \parskip=0pt
+  \parindent=6pt
   \overfullrule=0pt
   \global\colcount=0
   %
@@ -4422,34 +4404,19 @@ $$%
     \strut
     \vtop{%
       \advance\hsize by -1\leftskip
-      % Use the current \colcount to find the correct column width:
+      % Find the correct column width
       \hsize=\expandafter\csname col\the\colcount\endcsname
       %
-      % In order to keep entries from bumping into each other
-      % we will add a \leftskip of \multitablecolspace to all columns after
-      % the first one.
-      %
-      % If a template has been used, we will add \multitablecolspace
-      % to the width of each template entry.
-      %
-      % If the user has set preamble in terms of percent of \hsize we will
-      % use that dimension as the width of the column, and the \leftskip
-      % will keep entries from bumping into each other.  Table will start at
-      % left margin and final column will justify at right margin.
-      %
-      % Make sure we don't inherit \rightskip from the outer environment.
       \rightskip=0pt
       \ifnum\colcount=1
-        % The first column will be indented with the surrounding text.
-        \advance\hsize by\leftskip
+        \advance\hsize by\leftskip % Add indent of surrounding text
       \else
+        % In order to keep entries from bumping into each other.
+        \leftskip=12pt
         \ifsetpercent \else
-          % If user has not set preamble in terms of percent of \hsize
-          % we will advance \hsize by \multitablecolspace.
-          \advance\hsize by \multitablecolspace
+          % If a template has been used
+          \advance\hsize by \leftskip
         \fi
-        % In either case we will make \leftskip=\multitablecolspace:
-        \leftskip=\multitablecolspace
       \fi
       \noindent\ignorespaces##\unskip\strut
     }\cr
@@ -4459,27 +4426,6 @@ $$%
   \egroup % end the \halign
   \global\setpercentfalse
 }
-
-\def\setmultitablespacing{%
-  % Compute \multitablelinespace (if not defined by user) for use in
-  % \multitableparskip calculation.
-  \ifdim\multitablelinespace=0pt
-    \setbox0=\vbox{X}\global\multitablelinespace=\the\baselineskip
-    \global\advance\multitablelinespace by-\ht0
-  \fi
-  % Test to see if parskip is larger than space between lines of
-  % table. If not, do nothing.
-  %        If so, set to same dimension as multitablelinespace.
-  \ifdim\multitableparskip>\multitablelinespace
-    \global\multitableparskip=\multitablelinespace
-    \global\advance\multitableparskip-7pt % keep parskip somewhat smaller than
-                                          % skip between lines in the table.
-  \fi%
-  \ifdim\multitableparskip=0pt
-    \global\multitableparskip=\multitablelinespace
-    \global\advance\multitableparskip-7pt % keep parskip somewhat smaller than
-                                          % skip between lines in the table.
-  \fi}
 
 
 \message{conditionals,}

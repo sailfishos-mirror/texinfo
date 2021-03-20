@@ -1,5 +1,15 @@
 2021-03-20  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.tex (\multitableparskip, \multitableparindent)
+	(\multitablecolspace, \multitablelinespace):
+	Try removing these and hardcoding values.  \multitablelinespace
+	was not used anyway and a comment referred to a @multitablecolmargin
+	sequence which didn't exist.  This should make the code a bit
+	easier to understand.
+	(\setmultitablespacing): Remove.
+
+2021-03-20  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.tex (\multitable): Fix indendation of code.  Remove
 	useless macro \multistrut replacing it with \strut (always set to
 	this since October 2004).  Remove comment about space added by
