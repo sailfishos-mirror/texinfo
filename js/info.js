@@ -1734,7 +1734,8 @@
   maybe_pageref_url_p (url)
   {
     return ! (url.includes (":") || url.includes ("/"))
-      && url.match(config.LOCAL_HTML_PAGE_PATTERN);
+          && (url.startsWith(config.INDEX_NAME)
+              || url.match(config.LOCAL_HTML_PAGE_PATTERN));
   }
 
   /** Check if 'URL' is a link to another manual.  For locally installed 
