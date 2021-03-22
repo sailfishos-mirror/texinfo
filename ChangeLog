@@ -1,5 +1,9 @@
 2021-03-22  Per Bothner  <per@bothner.com>
 
+	* js/info.js: Add tooltips for show/hide sidebar button.
+	(SHOW_SIDEBAR_TOOLTIP, HIDE_SIDEBAR_TOOLTIP): Tooltip text.
+	(show_sidebar): Update tooltips on show/hide of sidebar.
+
 	* js/info.js (maybe_pageref_url_p): Recognize "index.html#PAGE".
 
 2021-03-20  Gavin Smith  <gavinsmith0123@gmail.com>

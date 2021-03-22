@@ -36,6 +36,8 @@
     LOCAL_HTML_PAGE_PATTERN: ".*[.](html|htm|xhtml)$",
     SHOW_SIDEBAR_HTML: "<span>Show sidebar</span>",
     HIDE_SIDEBAR_HTML: "<span>Hide sidebar</span>",
+    SHOW_SIDEBAR_TOOLTIP: 'Show navigation sidebar',
+    HIDE_SIDEBAR_TOOLTIP: 'Hide navigation sidebar',
 
     // hooks:
     /** Define a function called after 'DOMContentLoaded' event in
@@ -1441,6 +1443,11 @@
   {
     document.body.setAttribute("show-sidebar", show ? "yes" : "no");
     show_sidebar_button.innerHTML = show ? config.HIDE_SIDEBAR_HTML : config.SHOW_SIDEBAR_HTML;
+    var tooltip = show ? config.HIDE_SIDEBAR_TOOLTIP : config.SHOW_SIDEBAR_TOOLTIP;
+    if (tooltip)
+      show_sidebar_button.setAttribute("title", tooltip);
+    else
+      show_sidebar_button.removeAttribute("title");
   }
 
   /** Handle unload events.  */
