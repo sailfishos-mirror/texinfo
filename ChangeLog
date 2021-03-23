@@ -1,3 +1,12 @@
+2021-03-23  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.tex (\indexnofonts): Do not define any of the
+	non-English letter glyph commands with a special definition
+	that removes a following pair of braces, as these braces are
+	not always present in the definitions for e.g. Unicode characters.
+	This could lead to an error message within \setpdfdestname where
+	\indexnofonts was called.  Report from Werner Lemberg for XeTeX.
+
 2021-03-22  Per Bothner  <per@bothner.com>
 
 	* js/info.js: Add tooltips for show/hide sidebar button.
