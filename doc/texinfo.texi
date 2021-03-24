@@ -7624,6 +7624,11 @@ To specify column widths as fractions of the line length, write
 The fractions need not add up exactly to 1.0, as these do not.  This
 allows you to produce tables that do not need the full line length.
 
+When using @code{@@columnfractions}, the leftmost column may appear
+slightly wider than you might expect, relative to the other columns.
+This is due to spacing between columns being included in the width of
+the other columns.
+
 @item
 @cindex Prototype row, column widths defined by
 To specify a prototype row, write the longest entry for each column

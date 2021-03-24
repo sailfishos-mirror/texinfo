@@ -1,3 +1,8 @@
+2021-03-24  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.texi (Multitable Column Widths): Mention effect
+	of inter-column space for @columnfractions.
+
 2021-03-23  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.tex (\indexnofonts): Do not define any of the
