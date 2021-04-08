@@ -1,3 +1,8 @@
+2021-03-27  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* info/t/Init-test.inc (run_ginfo): Increase timeout for
+	test from 3 to 5 seconds in an attempt to stop test failures.
+
 2021-03-24  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.texi (Multitable Column Widths): Mention effect
