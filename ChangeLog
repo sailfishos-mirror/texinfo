@@ -1,3 +1,9 @@
+2021-04-08  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.tex (\end): Add % after opening brace to
+	prevent spurious space being added to the output.  Report
+	from Werner Lemberg for "@end iftex".
+
 2021-03-27  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* info/t/Init-test.inc (run_ginfo): Increase timeout for
