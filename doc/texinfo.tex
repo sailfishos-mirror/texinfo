@@ -1862,19 +1862,23 @@ output) for that.)}
       \closein 1
     \endgroup
     %
-    \def\xetexpdfext{pdf}%
-    \ifx\xeteximgext\xetexpdfext
-      \XeTeXpdffile "#1".\xeteximgext ""
-    \else
-      \def\xetexpdfext{PDF}%
+    % Putting an \hbox around the image can prevent an over-long line
+    % after the image.
+    \hbox\bgroup
+      \def\xetexpdfext{pdf}%
       \ifx\xeteximgext\xetexpdfext
         \XeTeXpdffile "#1".\xeteximgext ""
       \else
-        \XeTeXpicfile "#1".\xeteximgext ""
+        \def\xetexpdfext{PDF}%
+        \ifx\xeteximgext\xetexpdfext
+          \XeTeXpdffile "#1".\xeteximgext ""
+        \else
+          \XeTeXpicfile "#1".\xeteximgext ""
+        \fi
       \fi
-    \fi
-    \ifdim \wd0 >0pt width \xeteximagewidth \fi
-    \ifdim \wd2 >0pt height \xeteximageheight \fi \relax
+      \ifdim \wd0 >0pt width \xeteximagewidth \fi
+      \ifdim \wd2 >0pt height \xeteximageheight \fi \relax
+    \egroup
   }
 \fi
 
