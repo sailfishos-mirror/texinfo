@@ -1,3 +1,13 @@
+2021-04-25  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	Fix memory leaks.
+	
+	* info/m-x.c (describe_command): Always free a variable.
+	* info/filesys.c (info_file_find_next_in_path): Do not free a string
+	that shouldn't be freed.
+
+	Reports from Vitezslav Crhonek.
+
 2021-04-14  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.tex (\doxeteximage):

@@ -1,6 +1,6 @@
 /* filesys.c -- filesystem specific functions.
 
-   Copyright 1993-2020 Free Software Foundation, Inc.
+   Copyright 1993-2021 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -153,7 +153,6 @@ info_file_find_next_in_path (char *filename, int *path_index, struct stat *finfo
       if (*dirname == '~')
         {
           char *expanded_dirname = tilde_expand_word (dirname);
-          free (dirname);
           dirname = expanded_dirname;
         }
 
