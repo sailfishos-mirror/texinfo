@@ -257,10 +257,11 @@ cc
 ff
 
 
+
  [index ]
 * Menu:
 
-* index entry:                           Top.                  (line 10)
+* index entry:                           Top.                  (line 11)
 
 
 
@@ -283,9 +284,10 @@ cc
 ff
 
 
+
 * Menu:
 
-* index entry:                           Top.                   (line 7)
+* index entry:                           Top.                   (line 8)
 
 ';
 

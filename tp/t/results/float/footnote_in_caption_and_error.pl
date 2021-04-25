@@ -403,6 +403,7 @@ $result_converted{'plaintext'}->{'footnote_in_caption_and_error'} = '* Menu:
 
 In float.
 
+
 fl 1: in caption(1)
 
    ---------- Footnotes ----------

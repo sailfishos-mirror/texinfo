@@ -1173,9 +1173,11 @@ exdent quotation!  After punc
 
 In float
 
+
 float type! After punc 1: shortcaption!  After punc
 
 In float with caption.
+
 
 float type! After punc 2: caption!  After punc
 
@@ -1192,11 +1194,12 @@ heading! After punc
 titlefont! After punc
 *********************
 
+
                           center! After punc
 
 * Menu:
 
-* index! After punc:                     node! After punc.     (line 23)
+* index! After punc:                     node! After punc.     (line 25)
 
 top! After punc
 ';

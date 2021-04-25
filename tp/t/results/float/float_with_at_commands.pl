@@ -554,6 +554,7 @@ $result_floats{'float_with_at_commands'}{'entr@\'ee'}[0]{'extra'}{'caption'}{'ex
 
 $result_converted{'plaintext'}->{'float_with_at_commands'} = 'Ceci est notre première entrée.
 
+
 entrée 1: La première entrée est importante
 
 * Menu:

@@ -382,6 +382,7 @@ $result_converted{'plaintext'}->{'footnote_in_caption'} = '* Menu:
 
 In float.
 
+
 fl 1: in caption(1)
 
    ---------- Footnotes ----------
@@ -402,6 +403,7 @@ File: ,  Node: Top,  Up: (dir)
 
 In float.
 
+
 fl 1: in caption(1)
 
    ---------- Footnotes ----------
@@ -413,7 +415,7 @@ fl 1: in caption(1)
 Tag Table:
 Node: Top27
 Ref: label126
-Ref: Top-Footnote-1194
+Ref: Top-Footnote-1195
 
 End Tag Table
 

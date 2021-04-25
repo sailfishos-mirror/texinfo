@@ -2570,6 +2570,7 @@ bbb
 ccc
 
 Image description""\\.
+
    in para Image description""\\..
 ';
 
@@ -2818,6 +2819,7 @@ bbb
 ccc
 
  [image src="f--ile.png" alt="a very long alt argument that could span more than one line who knows" text="Image description\\"\\"\\\\." ]
+
 
    in para  [image src="f--ile.png" alt="a very long alt argument that could span more than one line who knows" text="Image description\\"\\"\\\\." ].
 

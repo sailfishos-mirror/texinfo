@@ -517,7 +517,9 @@ $result_converted{'info'}->{'float_long_captions'} = 'This is , produced from .
 
 File: ,  Node: Top,  Up: (dir)
 
+
 Text 1: AAAAAAAAAAAAAAAA BBBBB CCCCCCCCCCC
+
 
 Text 2: AAAAAAAAAAAAAAAA BBBBBB CCCCCCCCCCC
 
@@ -531,7 +533,7 @@ Text 2: AAAAAAAAAAAAAAAA BBBBBB CCCCCCCCCCC
 Tag Table:
 Node: Top27
 Ref: text161
-Ref: text2105
+Ref: text2106
 
 End Tag Table
 

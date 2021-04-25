@@ -132,7 +132,7 @@ $result_floats{'space_command_in_image'} = {};
 
 
 
-$result_converted{'plaintext'}->{'space_command_in_image'} = 'Image description""\\.Image description""\\.';
+$result_converted{'plaintext'}->{'space_command_in_image'} = 'Image description""\\. Image description""\\.';
 
 
 $result_converted{'html_text'}->{'space_command_in_image'} = '<img src="f--ile.png" alt="&nbsp;"> <img src="f--ile.png" alt="f--ile">';

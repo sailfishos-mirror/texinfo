@@ -645,11 +645,13 @@ $result_converted{'plaintext'}->{'empty_listoffloats_with_floats'} = 'Label no c
 
 Label and caption.
 
+
 2: caption with label
 
 no label no caption
 
 no label caption
+
 
 caption no label
 

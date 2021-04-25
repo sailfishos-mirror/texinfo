@@ -457,11 +457,12 @@ $result_converted{'plaintext'}->{'cindex_in_caption'} = '* Menu:
 
 In float.
 
+
 fl 1: in caption
 
 * Menu:
 
-* index entry:                           Top.                   (line 6)
+* index entry:                           Top.                   (line 7)
 
 ';
 
@@ -477,12 +478,13 @@ File: ,  Node: Top,  Up: (dir)
 
 In float.
 
+
 fl 1: in caption
 
  [index ]
 * Menu:
 
-* index entry:                           Top.                   (line 9)
+* index entry:                           Top.                  (line 10)
 
 
 

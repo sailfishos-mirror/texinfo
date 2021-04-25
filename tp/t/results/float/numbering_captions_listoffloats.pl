@@ -8065,13 +8065,19 @@ $result_floats{'numbering_captions_listoffloats'}{'th@\'eor@`eme'}[0]{'extra'}{'
 $result_converted{'plaintext'}->{'numbering_captions_listoffloats'} = 'Test floats
 ***********
 
+
+
 Text 1: An example of float caption...
 
 No label but caption and shortcaption.
 
+
+
 Text: C No label
 
 No type but caption and shortcaption.
+
+
 
 1: C No type
 
@@ -8083,13 +8089,19 @@ No label, no type, no caption no shortcaption.
 
 No label, no type, but caption and shortcaption.
 
+
+
 C No label, no type, but caption and shortcaption.
 
 Second float with no type.
 
+
+
 3: C No type 2
 
 A warning
+
+
 
 Warning 1: C A warning
 
@@ -8098,19 +8110,26 @@ Warning 1: C A warning
 
 Text in chapter
 
+
 Text 1.1: C Text in chapter
+
 
 Text 1.2: An example of float caption, no shortcaption...
 
 A théorème
 
+
 théorème 1.1: C A théorème
 
 float with no type.
 
+
+
 1.1: C No type in chapter
 
 A warning
+
+
 
 Warning 1.1: C A warning in chapter
 
@@ -8126,9 +8145,13 @@ Unnumbered
 
 unnum
 
+
+
 Text 5: C unnumbered float
 
 float with no type.
+
+
 
 5: C No type in unnumbered
 
@@ -8137,12 +8160,16 @@ Section within unnumbered
 
 Section within unnumbered
 
+
+
 Text 6: C Section within unnumbered
 
 2 Chapter with unnumbsubsec
 ***************************
 
 Chap
+
+
 
 Text 2.1: C Chapter with subsec
 
@@ -8151,9 +8178,13 @@ unnumbered sec
 
 Chap
 
+
+
 Text 2.2: C unnumbered sec float
 
 float with no type.
+
+
 
 2.1: C No type in unnumbered subsec in chapter
 
@@ -8161,6 +8192,8 @@ Appendix A Appendix for float
 *****************************
 
 Appendix
+
+
 
 Text A.1: C appendix sec float
 

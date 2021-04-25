@@ -23,6 +23,11 @@ text l 2
 @titlefont{title font}
 @image{aa,bb,cc,dd,.ee}
 '],
+[ 'sole_image',
+'@image{aa}
+
+next para
+'],
 [ 'paragraph_command','@@
 
 @b{aaa}.

@@ -1574,6 +1574,10 @@ sub _convert($$)
       } elsif ($root->{'text'} =~ /\S/) {
         $self->_bug_message("ignored text not empty `$root->{'text'}'", $root);
         return '';
+      } else {
+        # miscellaneous top-level whitespace - possibly after an @image
+        return _count_added($self, $formatter->{'container'},
+                  add_text($formatter->{'container'}, $root->{'text'}));
       }
     } else {
       my $tree = $self->gdt($root->{'text'});

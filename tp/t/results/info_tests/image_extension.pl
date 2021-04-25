@@ -308,8 +308,11 @@ $result_converted{'info'}->{'image_extension'} = 'This is , produced from .
 File: ,  Node: Top,  Up: (dir)
 
  [image src="fextext" text="t" ]
+
  [image src="fdotext.ext" text="t" ]
+
  [image src="f--ile.png" text="Image description\\"\\"\\\\." ]
+
 
 
 Tag Table:

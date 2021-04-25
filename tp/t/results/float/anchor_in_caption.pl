@@ -382,6 +382,7 @@ $result_converted{'plaintext'}->{'anchor_in_caption'} = '* Menu:
 
 In float.
 
+
 fl 1: in caption
 ';
 
@@ -397,13 +398,14 @@ File: ,  Node: Top,  Up: (dir)
 
 In float.
 
+
 fl 1: in caption
 
 
 Tag Table:
 Node: Top27
 Ref: label123
-Ref: in anchor150
+Ref: in anchor151
 
 End Tag Table
 

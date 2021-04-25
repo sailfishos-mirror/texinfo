@@ -4802,6 +4802,8 @@ A ref.  *Note xref Text with features: Top.  A footnote.  (1).
 
 TeX and _téî<an_url>_ AND it is @verb  a word !@ Æ.
 
+
+
 Text 1: An example of float caption...  An example.
      example
 
@@ -4831,6 +4833,7 @@ TeX and _téî<an_url>_ AND it is @verb  a word !@ Æ.
 ***********
 
 Float text of a float with a lot of features.
+
 
 Text 1.1: An example of float caption...  2 An example 2.
      example 2

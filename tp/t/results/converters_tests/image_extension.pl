@@ -89,7 +89,8 @@ $result_floats{'image_extension'} = {};
 
 
 
-$result_converted{'plaintext'}->{'image_extension'} = '[f---ile]';
+$result_converted{'plaintext'}->{'image_extension'} = '[f---ile]
+';
 
 $result_converted_errors{'plaintext'}->{'image_extension'} = [
   {
@@ -146,6 +147,7 @@ $result_converted_errors{'docbook'}->{'image_extension'} = [
 $result_converted{'info'}->{'image_extension'} = 'This is , produced from .
 
 [f---ile]
+
 
 Tag Table:
 

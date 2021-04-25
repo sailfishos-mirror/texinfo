@@ -451,6 +451,7 @@ $result_converted{'plaintext'}->{'block_commands'} = 'in group
 
 In float
 
+
 a float 1: in caption
 
 in caption

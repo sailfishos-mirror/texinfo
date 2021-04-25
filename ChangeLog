@@ -1,5 +1,18 @@
 2021-04-25  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	Whitespace after @image
+
+	* tp/Texinfo/Convert/Plaintext.pm (_convert): Output any
+	top-level whitespace element.  This allows a blank line
+	of whitespace to appear after an @image that is not part
+	of a paragraph.
+
+	* tp/t/05paragraph.t (sole_image): New test.
+
+	Report from Werner Lemberg.
+
+2021-04-25  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* info/nodes.c (get_tags_of_indirect_tags_table):
 	Free arrays in case of malformed Info file.
 	Report from Vitezslav Crhonek.

@@ -586,6 +586,7 @@ File: ,  Node: Top,  Up: (dir)
 
 Float text1
 
+
 Text 1: Caption.  TeX.  In caption *note caption*.  Now footnote(1)
 
 * Menu:
@@ -605,7 +606,7 @@ Text 1: Caption.  TeX.  In caption *note caption*.  Now footnote(1)
 Tag Table:
 Node: Top27
 Ref: label61
-Ref: Top-Footnote-1343
+Ref: Top-Footnote-1344
 
 End Tag Table
 
