@@ -1,6 +1,6 @@
 /* nodes.c -- how to get an Info file and node.
 
-   Copyright 1993-2019 Free Software Foundation, Inc.
+   Copyright 1993-2021 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -477,8 +477,10 @@ get_tags_of_indirect_tags_table (FILE_BUFFER *file_buffer,
               free (subfiles[i]);
               free (file_buffer->subfiles[i]);
             }
+          free (file_buffer->subfiles);
           file_buffer->subfiles = NULL;
           free_file_buffer_tags (file_buffer);
+          free (subfiles):
           return;
         }
 
