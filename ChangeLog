@@ -1,3 +1,16 @@
+2021-04-25  Vitezslav Crhonek <vcrhonek@redhat.com>  (tiny change)
+
+	Fix memory leaks.
+	
+	* info/makedoc.c (process_one_file):
+	The memory is freed for both pointers at the end of the loop.
+	But there is one break that leaves the loop without freeing them.
+	* info/session.c (info_goto_invocation_node):
+	The value of 'default_program_name' is assigned by
+	program_name_from_file_name() function.
+	Its description says 'Return value should be freed by caller.'
+	That was not done in this case.
+
 2021-04-25  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	Fix memory leaks.

@@ -3563,6 +3563,7 @@ DECLARE_INFO_COMMAND (info_goto_invocation_node,
   if (!line)
     {
       info_abort_key (window, 0);
+      free (default_program_name);
       return;
     }
   if (*line)
