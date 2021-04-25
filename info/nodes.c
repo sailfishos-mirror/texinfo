@@ -303,7 +303,10 @@ get_nodes_of_tags_table (FILE_BUFFER *file_buffer,
       for (p = 0; nodedef[p] && nodedef[p] != INFO_TAGSEP; p++)
         ;
       if (nodedef[p] != INFO_TAGSEP)
-        continue;
+        {
+          free (entry);
+          continue;
+        }
 
       entry->nodename = xmalloc (p + 1);
       strncpy (entry->nodename, nodedef, p);

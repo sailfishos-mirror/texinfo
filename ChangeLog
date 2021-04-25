@@ -1,6 +1,16 @@
 2021-04-25  Vitezslav Crhonek <vcrhonek@redhat.com>  (tiny change)
 
 	Fix memory leaks.
+
+	* info/nodes.c (get_nodes_of_tags_table):
+	info_create_tag returns a pointer to a newly allocated TAG structure.
+	Before continuing to the start of the loop it is necessary to free the
+	current TAG structure, because the pointer will be overwritten by
+	new value in the next iteration of the loop.
+
+2021-04-25  Vitezslav Crhonek <vcrhonek@redhat.com>  (tiny change)
+
+	Fix memory leaks.
 	
 	* info/makedoc.c (process_one_file):
 	The memory is freed for both pointers at the end of the loop.
