@@ -1,5 +1,15 @@
 2021-04-25  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	Avoid suppressing first paragraph indent with an @image.
+	
+	* doc/texinfo.tex (\imageindent): New macro.
+	(\image): Use it.
+	* doc/texinfo-tex-test.texi (Paragraph formatting): New section.
+	
+	Inconsistency between Info and TeX reported by Werner Lemberg.
+
+2021-04-25  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	Whitespace after @image
 
 	* tp/Texinfo/Convert/Plaintext.pm (_convert): Output any
