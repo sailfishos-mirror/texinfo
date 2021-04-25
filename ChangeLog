@@ -1,3 +1,8 @@
+2021-04-25  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* info/nodes.c (get_tags_of_indirect_tags_table):
+	Reduce indentation of code.
+
 2021-04-25  Vitezslav Crhonek <vcrhonek@redhat.com>  (tiny change)
 
 	Fix memory leaks.
