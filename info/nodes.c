@@ -480,7 +480,7 @@ get_tags_of_indirect_tags_table (FILE_BUFFER *file_buffer,
           free (file_buffer->subfiles);
           file_buffer->subfiles = NULL;
           free_file_buffer_tags (file_buffer);
-          free (subfiles):
+          free (subfiles);
           return;
         }
 
