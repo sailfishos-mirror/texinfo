@@ -1,5 +1,9 @@
 2021-04-27  Per Bothner  <per@bothner.com>
 
+	* js/info.js (cache_index_links): Fix thinko alink->link.
+
+2021-04-27  Per Bothner  <per@bothner.com>
+
 	Change how "show/hide sidebar" button is displayed.
 	Move it to upper-left and use arrows, to hopefully both
 	make it more visible and take less space in hide mode.

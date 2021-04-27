@@ -142,7 +142,7 @@
       for (var i = 0; i < links.length; i += 1)
         {
           var link = links[i];
-          dict[link.textContent] = href_hash (link_href (alink));
+          dict[link.textContent] = href_hash (link_href (link));
         }
       return { type: "cache-index-links", links: dict };
     },
