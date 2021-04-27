@@ -1,11 +1,24 @@
+2021-04-27  Per Bothner  <per@bothner.com>
+
+	Change how "show/hide sidebar" button is displayed.
+	Move it to upper-left and use arrows, to hopefully both
+	make it more visible and take less space in hide mode.
+	* js/info.js (add_header): Change DOM structure to make this work.
+	(hide_sidebar_if_narrow): New function.
+	* js/info.css: Styling changes for desired show/hide style.
+
+	Improve determination of whether links are internal or not.
+	* js/info.js (config.LOCAL_HTML_PAGE_PATTERN): New regex pattern
+	(maybe_pageref_url_p): Use LOCAL_HTML_PAGE_PATTERN.
+
 2021-04-25  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	Avoid suppressing first paragraph indent with an @image.
-	
+
 	* doc/texinfo.tex (\imageindent): New macro.
 	(\image): Use it.
 	* doc/texinfo-tex-test.texi (Paragraph formatting): New section.
-	
+
 	Inconsistency between Info and TeX reported by Werner Lemberg.
 
 2021-04-25  Gavin Smith  <gavinsmith0123@gmail.com>

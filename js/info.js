@@ -33,9 +33,9 @@
     MAIN_ANCHORS: ["Top"],
     WARNING_TIMEOUT: 3000,
     SCREEN_MIN_WIDTH: 700,
-    LOCAL_HTML_PAGE_PATTERN: ".*[.](html|htm|xhtml)$",
-    SHOW_SIDEBAR_HTML: "<span>Show sidebar</span>",
-    HIDE_SIDEBAR_HTML: "<span>Hide sidebar</span>",
+    LOCAL_HTML_PAGE_PATTERN: "[^:/]*[.](html|htm|xhtml)([#].*)?$",
+    SHOW_SIDEBAR_HTML: '<span class="hide-icon">&#x21db;</span>',
+    HIDE_SIDEBAR_HTML: '<span class="hide-icon">&#x21da;</span><span class="hide-text">Hide sidebar</span>',
     SHOW_SIDEBAR_TOOLTIP: 'Show navigation sidebar',
     HIDE_SIDEBAR_TOOLTIP: 'Hide navigation sidebar',
 
@@ -251,6 +251,11 @@
         {
           res.help = action.visible;
           res.focus = true;
+          return res;
+        }
+      case "clicked":
+        {
+          res.clicked = true;
           return res;
         }
       case "navigate":
@@ -727,19 +732,14 @@
       div$.appendChild (nav);
       div.appendChild (div$);
       this.element.appendChild (div);
-
-      let hider = document.createElement ("button");
-      //let hider = document.createElement ("div");
-      hider.classList.add ("sidebar-hider");
-      hider.innerHTML = config.HIDE_SIDEBAR_HTML;
-      show_sidebar_button = hider;
-      this.element.appendChild(hider);
     }
 
     /* Render 'sidebar' according to STATE which is a new state. */
     Sidebar.prototype.render = function render (state) {
       /* Update sidebar to highlight the title corresponding to
          'state.current'.*/
+      if (state.clicked)
+        hide_sidebar_if_narrow ();
       var msg = { message_kind: "update-sidebar", selected: state.current };
       window.postMessage (msg, "*");
     };
@@ -1256,10 +1256,17 @@
     function
     add_header (elem)
     {
+      var header = document.createElement ("header");
+      elem.parentElement.insertBefore (header, elem);
+      let hider = document.createElement ("button");
+      hider.classList.add ("sidebar-hider");
+      hider.innerHTML = config.HIDE_SIDEBAR_HTML;
+      show_sidebar_button = hider;
+      header.appendChild(hider);
+
       var h1 = document.querySelector ("h1.settitle");
       if (h1)
         {
-          var header = document.createElement ("header");
           var a = document.createElement ("a");
           a.setAttribute ("href", config.INDEX_NAME);
           a.setAttribute ("id", config.INDEX_ID);
@@ -1274,7 +1281,6 @@
               span.textContent = h1.textContent;
               div.appendChild (span);
             }
-          elem.parentElement.insertBefore (header, elem);
         }
     }
 
@@ -1417,11 +1423,7 @@
                 store.dispatch (actions.set_current_url (linkid));
                 event.preventDefault ();
                 event.stopPropagation ();
-                let body = document.body;
-                if (body.getAttribute("show-sidebar") == "yes"
-                    && is_narrow_window ())
-                   show_sidebar (false)
-                return;
+                break;
               }
           }
         if (target.matches (".sidebar-hider"))
@@ -1429,14 +1431,16 @@
               let body = document.body;
               let show = body.getAttribute("show-sidebar");
               show_sidebar(show==="no");
+              return;
           }
       }
+    hide_sidebar_if_narrow ();
   }
 
   // Only valid when showing sidebar.
   function is_narrow_window ()
   {
-        return document.body.firstChild.offsetLeft == 0;
+    return document.body.firstChild.offsetLeft == 0;
   }
 
   function show_sidebar (show)
@@ -1448,6 +1452,15 @@
       show_sidebar_button.setAttribute("title", tooltip);
     else
       show_sidebar_button.removeAttribute("title");
+  }
+
+  function hide_sidebar_if_narrow ()
+  {
+    if (inside_iframe)
+       store.dispatch ({ type: "clicked", msg: null })
+    else if (document.body.getAttribute("show-sidebar") == "yes"
+        && is_narrow_window ())
+      show_sidebar (false)
   }
 
   /** Handle unload events.  */
@@ -1740,9 +1753,7 @@
   function
   maybe_pageref_url_p (url)
   {
-    return ! (url.includes (":") || url.includes ("/"))
-          && (url.startsWith(config.INDEX_NAME)
-              || url.match(config.LOCAL_HTML_PAGE_PATTERN));
+    return url.match(config.LOCAL_HTML_PAGE_PATTERN);
   }
 
   /** Check if 'URL' is a link to another manual.  For locally installed 

@@ -6,6 +6,11 @@ body.in-iframe, div[node]#index {
     padding: 0px 0.5em 0px 1em;
 }
 
+header > a {
+    width: 90%;
+    display: inline-block;
+}
+
 #sub-pages {
     box-sizing: border-box;
     left: 25%;     width: 75%;
@@ -38,10 +43,13 @@ div.toc-sidebar {
 }
 
 .sidebar-hider {
-    bottom: 0px;
-    height: 2.8ex;
-    position: absolute;
+    display: inline;
+    padding: 2px;
+    vertical-align: top;
     text-align: start;
+}
+.sidebar-hider span.hide-icon {
+    font-size: x-large;
 }
 
 /* Iframed sub pages */
@@ -80,7 +88,6 @@ iframe.node {
     left: 0em;
 }
 body[show-sidebar="yes"] .sidebar-hider {
-    width: 100%;
 }
 body[show-sidebar="no"] #slider {
     width: 0px; /* so mouse events don't get captured */
@@ -88,10 +95,10 @@ body[show-sidebar="no"] #slider {
 body[show-sidebar="no"] .sidebar-hider {
     width: auto;
     position: fixed;
-    padding: 3px 1.2em 1px 0.8em;
 }
 
-body[show-sidebar="no"] div.toc-sidebar { display: none }
+body[show-sidebar="no"] div.toc, body[show-sidebar="no"] header > a {
+    display: none }
 
 div.toc-sidebar {
     position: absolute;
@@ -213,6 +220,7 @@ table#keyboard-shortcuts th {
 .echo-area {
     bottom: 0;
 }
+div.header { text-align: right }
 #slider {
     background: #f0f0f0c0;
 }
@@ -220,13 +228,14 @@ div.toc-sidebar nav, div.toc-sidebar header, .sidebar-hider {
     background: #f0f0f0d0;
 }
 body[show-sidebar="yes"] .sidebar-hider {
-    border-width: thin 0px 0px 0px;
+    border-width: thin;
 }
 body[show-sidebar="no"] .sidebar-hider {
     border-width: thin;
 }
 @media (max-width: 60em) {
     div#sub-pages { left: 0px; width: 100% }
+    body[show-sidebar="yes"] div#sub-pages { opacity: 0.4 }
     body[show-sidebar="yes"] div#slider {width: 20em }
     div.logo img { max-width: 80%; width: 2em; }
 }
