@@ -33,7 +33,7 @@
     MAIN_ANCHORS: ["Top"],
     WARNING_TIMEOUT: 3000,
     SCREEN_MIN_WIDTH: 700,
-    LOCAL_HTML_PAGE_PATTERN: "[^:/]*[.](html|htm|xhtml)([#].*)?$",
+    LOCAL_HTML_PAGE_PATTERN: "^([^:/]*[.](html|htm|xhtml))?([#].*)?$",
     SHOW_SIDEBAR_HTML: '<span class="hide-icon">&#x21db;</span>',
     HIDE_SIDEBAR_HTML: '<span class="hide-icon">&#x21da;</span><span class="hide-text">Hide sidebar</span>',
     SHOW_SIDEBAR_TOOLTIP: 'Show navigation sidebar',
