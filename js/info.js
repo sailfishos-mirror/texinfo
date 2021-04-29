@@ -754,6 +754,8 @@
       let show = state.show_sidebar;
       if (show == "hide-if-narrow")
           show = is_narrow_window() || currently_showing == "no" ? "no" : "yes";
+      if (show === undefined)
+            show = "yes";
       if (show !== currently_showing)
         {
           document.body.setAttribute("show-sidebar", show);
@@ -1046,7 +1048,6 @@
       fix_links (document.links);
       add_icons ();
       document.body.classList.add ("mainbar");
-      document.body.setAttribute("show-sidebar", "yes");
 
       /* Move contents of <body> into a a fresh <div> to let the components
          treat the index page like other iframe page.  */

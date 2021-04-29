@@ -1,5 +1,7 @@
 2021-04-29  Per Bothner  <per@bothner.com>
 
+	* js/info.js (Sidebar.render): Fix initial rendering.
+
 	* js/info.css: Style hide-sidebar buttom vertically.
 
 2021-04-28  Per Bothner  <per@bothner.com>
