@@ -42,6 +42,19 @@ div.toc-sidebar {
     bottom: 2.8ex;
 }
 
+.toc-sidebar header {
+    display: flex;
+    align-items: flex-start;
+}
+
+.sidebar-hider span.hide-icon {
+    display: block;
+}
+.sidebar-hider span.hide-text {
+    display: block;
+    writing-mode: vertical-rl
+}
+
 .sidebar-hider {
     display: inline;
     padding: 2px;
