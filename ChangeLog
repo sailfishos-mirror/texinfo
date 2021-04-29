@@ -1,5 +1,7 @@
 2021-04-29  Per Bothner  <per@bothner.com>
 
+	* js/info.js (Text_input.keyup): At end hide sidebar if narrow.
+
 	* js/info.js (Sidebar.render): Fix initial rendering.
 
 	* js/info.css: Style hide-sidebar buttom vertically.

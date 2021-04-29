@@ -553,7 +553,10 @@
           {
             var linkid = this.data[this.input.value];
             if (linkid)
-              store.dispatch (actions.set_current_url (linkid));
+              {
+                hide_sidebar_if_narrow ();
+                store.dispatch (actions.set_current_url (linkid));
+              }
           }
         event.stopPropagation ();
       }).bind (this));
