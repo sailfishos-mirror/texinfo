@@ -60,7 +60,6 @@
       @typedef {function (Action): void} Action_consumer
       @type {{dispatch: Action_consumer, state?: any, listeners?: any[]}}.  */
   var store;
-  var show_sidebar_button;
 
   /** Create a Store that calls its listeners at each state change.
       @arg {function (Object, Action): Object} reducer
@@ -114,10 +113,11 @@
         @arg {string} linkid - link identifier
         @arg {string|false} [history] - method name that will be applied on
         the 'window.history' object.  */
-    set_current_url: function (linkid, history) {
+    set_current_url: function (linkid, history, clicked = false) {
       if (undef_or_null (history))
         history = "pushState";
-      return { type: "current-url", url: linkid, history: history };
+      return { type: "current-url", url: linkid,
+               history: history, clicked: clicked };
     },
 
     /** Set current URL to the node corresponding to POINTER which is an
@@ -221,6 +221,10 @@
         }
       case "current-url":
         {
+          if (document.body.getAttribute("show-sidebar") == "yes"
+              && is_narrow_window ()
+              && action.clicked === "in-page")
+            return state;
           linkid = (action.pointer) ?
               state.loaded_nodes[action.pointer] : action.url;
 
@@ -253,9 +257,9 @@
           res.focus = true;
           return res;
         }
-      case "clicked":
+      case "show-sidebar": // "yes" (show), "no" (hide) or "hide-if-narrow"
         {
-          res.clicked = true;
+          res.show_sidebar = action.show === "hide-if-narrow" && res.show_sidebar === "no" ? "no" : action.show;
           return res;
         }
       case "navigate":
@@ -732,14 +736,34 @@
       div$.appendChild (nav);
       div.appendChild (div$);
       this.element.appendChild (div);
+
+      let header = document.createElement ("header");
+      div$.parentElement.insertBefore (header, div$);
+      let hider = document.createElement ("button");
+      hider.classList.add ("sidebar-hider");
+      hider.innerHTML = config.HIDE_SIDEBAR_HTML;
+      this.show_sidebar_button = hider;
+      header.appendChild(hider);
     }
 
     /* Render 'sidebar' according to STATE which is a new state. */
     Sidebar.prototype.render = function render (state) {
       /* Update sidebar to highlight the title corresponding to
          'state.current'.*/
-      if (state.clicked)
-        hide_sidebar_if_narrow ();
+      let currently_showing = document.body.getAttribute("show-sidebar");
+      let show = state.show_sidebar;
+      if (show == "hide-if-narrow")
+          show = is_narrow_window() || currently_showing == "no" ? "no" : "yes";
+      if (show !== currently_showing)
+        {
+          document.body.setAttribute("show-sidebar", show);
+          this.show_sidebar_button.innerHTML = show == "yes" ? config.HIDE_SIDEBAR_HTML : config.SHOW_SIDEBAR_HTML;
+          let tooltip = show == "yes" ? config.HIDE_SIDEBAR_TOOLTIP : config.SHOW_SIDEBAR_TOOLTIP;
+          if (tooltip)
+            this.show_sidebar_button.setAttribute("title", tooltip);
+          else
+            this.show_sidebar_button.removeAttribute("title");
+        }
       var msg = { message_kind: "update-sidebar", selected: state.current };
       window.postMessage (msg, "*");
     };
@@ -1256,20 +1280,14 @@
     function
     add_header (elem)
     {
-      var header = document.createElement ("header");
-      elem.parentElement.insertBefore (header, elem);
-      let hider = document.createElement ("button");
-      hider.classList.add ("sidebar-hider");
-      hider.innerHTML = config.HIDE_SIDEBAR_HTML;
-      show_sidebar_button = hider;
-      header.appendChild(hider);
-
       var h1 = document.querySelector ("h1.settitle");
       if (h1)
         {
           var a = document.createElement ("a");
           a.setAttribute ("href", config.INDEX_NAME);
           a.setAttribute ("id", config.INDEX_ID);
+
+          let header = elem.previousSibling;
           header.appendChild (a);
           if (window.sidebarLinkAppendContents)
             window.sidebarLinkAppendContents(a, h1.textContent);
@@ -1407,6 +1425,7 @@
   function
   on_click (event)
   {
+    let in_sidebar = event.target.matches ("#slider *");
     for (var target = event.target; target !== null; target = target.parentNode)
       {
         if (! (target instanceof Element))
@@ -1420,7 +1439,8 @@
                 var linkid = href_hash (href) || config.INDEX_ID;
                 if (linkid === "index.SEC_Contents")
                     linkid = config.CONTENTS_ID;
-                store.dispatch (actions.set_current_url (linkid));
+                store.dispatch (actions.set_current_url (linkid, null,
+                                                         in_sidebar ? "in-sidebar" : "in-page"));
                 event.preventDefault ();
                 event.stopPropagation ();
                 break;
@@ -1430,11 +1450,12 @@
           {
               let body = document.body;
               let show = body.getAttribute("show-sidebar");
-              show_sidebar(show==="no");
+              show_sidebar (show==="no");
               return;
           }
       }
-    hide_sidebar_if_narrow ();
+    if (! in_sidebar)
+      hide_sidebar_if_narrow ();
   }
 
   // Only valid when showing sidebar.
@@ -1445,22 +1466,12 @@
 
   function show_sidebar (show)
   {
-    document.body.setAttribute("show-sidebar", show ? "yes" : "no");
-    show_sidebar_button.innerHTML = show ? config.HIDE_SIDEBAR_HTML : config.SHOW_SIDEBAR_HTML;
-    var tooltip = show ? config.HIDE_SIDEBAR_TOOLTIP : config.SHOW_SIDEBAR_TOOLTIP;
-    if (tooltip)
-      show_sidebar_button.setAttribute("title", tooltip);
-    else
-      show_sidebar_button.removeAttribute("title");
+    store.dispatch({ type: "show-sidebar", show: show ? "yes" : "no" });
   }
 
   function hide_sidebar_if_narrow ()
   {
-    if (inside_iframe)
-       store.dispatch ({ type: "clicked", msg: null })
-    else if (document.body.getAttribute("show-sidebar") == "yes"
-        && is_narrow_window ())
-      show_sidebar (false)
+    store.dispatch({ type: "show-sidebar", show: "hide-if-narrow" });
   }
 
   /** Handle unload events.  */

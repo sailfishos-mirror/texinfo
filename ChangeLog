@@ -1,3 +1,11 @@
+2021-04-28  Per Bothner  <per@bothner.com>
+
+	* js/info.js: Change auto-hide of sidebar in narrow windows.
+	Now clicking in sidebar in narror window doesn't hide sidebar,
+	but click in main page does - however, navigation is supressed.
+	Also changed the show/hide-sidebar logic to work using the
+	store/action/dispatch framework.
+
 2021-04-27  Per Bothner  <per@bothner.com>
 
 	* js/info.js (config.LOCAL_HTML_PAGE_PATTERN): Handle local links.
