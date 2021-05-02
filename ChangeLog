@@ -1,3 +1,9 @@
+2021-05-02  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/HTML.pm (_convert_image_command): format
+	@image with an <img> tag in preformatted environment.  Report from
+	Per Bothner.
+
 2021-05-02  Per Bothner  <per@bothner.com>
 
 	* js/info.js: Fix sidebar-update after selecting non-section link.

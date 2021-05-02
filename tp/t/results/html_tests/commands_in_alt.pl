@@ -311,7 +311,7 @@ ul.no-bullet {list-style: none}
 <img src="f--ile.png" alt="alt &ndash; in b">
 
 <div class="example">
-<pre class="example">[ alt -- <b>in b</b> ]
+<pre class="example"><img src="f--ile.png" alt="alt &ndash; in b">
 </pre></div>
 
 

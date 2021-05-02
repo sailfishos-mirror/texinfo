@@ -3923,14 +3923,14 @@ but , ,
 <code>@footnote{in footnote}</code> <a id="DOCF7" href="#FOOT7">(5)</a>
 <code>@footnote{in footnote2}</code> <a id="DOCF8" href="#FOOT8">(6)</a>
 
-<code>@image{f--ile}</code> [ f--ile ]
-<code>@image{f--ile,l--i}</code> [ f--ile ]
-<code>@image{f--ile,,l--e}</code> [ f--ile ]
-<code>@image{f--ile,,,alt}</code> [ alt ]
-<code>@image{f--ile,,,,.e-d-xt}</code> [ f--ile ]
-<code>@image{f--ile,aze,az,alt,.e--xt}</code> [ alt ]
-<code>@image{f-ile,aze,,a--lt}</code> [ a--lt ]
-<code>@image{@file{f--ile}@@@.,aze,az,alt,@file{.file ext} e--xt@}</code> [ alt ]
+<code>@image{f--ile}</code> <img src="f--ile.png" alt="f--ile">
+<code>@image{f--ile,l--i}</code> <img src="f--ile.png" alt="f--ile">
+<code>@image{f--ile,,l--e}</code> <img src="f--ile.png" alt="f--ile">
+<code>@image{f--ile,,,alt}</code> <img src="f--ile.png" alt="alt">
+<code>@image{f--ile,,,,.e-d-xt}</code> <img src="f--ile.e--xt" alt="f--ile">
+<code>@image{f--ile,aze,az,alt,.e--xt}</code> <img src="f--ile.e--xt" alt="alt">
+<code>@image{f-ile,aze,,a--lt}</code> <img src="f-ile.jpg" alt="a&ndash;lt">
+<code>@image{@file{f--ile}@@@.,aze,az,alt,@file{.file ext} e--xt@}</code> <img src="f--ile@..file ext e--xt}" alt="alt">
 
 
 
@@ -4477,9 +4477,9 @@ html ''
 
 <code>@math{--a@minus{} {\frac{1}{2}}}</code> <em class='tex2jax_process'>\(--a- {\frac{1}{2}}\)</em>
 
-<code>@image{f-ile,,,alt@verb{:jk _&quot; %}}</code> [ alt<tt>jk _&quot; %@</tt> ]
-<code>@image{f--ile,aze,az,@verb{:jk _&quot; %@:} @b{in b &quot;},e--xt}</code> [ <tt>jk _&quot; %@</tt> <b>in b &quot;</b> ]
-<code>@image{file@verb{:jk _&quot; %@:},,,alt@verb{:jk _&quot; %@:}}</code> [ alt<tt>jk _&quot; %@</tt> ]
+<code>@image{f-ile,,,alt@verb{:jk _&quot; %}}</code> <img src="f-ile.jpg" alt="altjk _&quot; %@">
+<code>@image{f--ile,aze,az,@verb{:jk _&quot; %@:} @b{in b &quot;},e--xt}</code> <img src="f--ile.e--xt" alt="jk _&quot; %@ in b &quot;">
+<code>@image{file@verb{:jk _&quot; %@:},,,alt@verb{:jk _&quot; %@:}}</code> <img src="filejk _&quot; %@.jpg" alt="altjk _&quot; %@">
 
 
 

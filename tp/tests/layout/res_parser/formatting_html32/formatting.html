@@ -3825,14 +3825,14 @@ but , ,
 <code>@footnote{in footnote}</code> <a id="DOCF7" href="#FOOT7">(5)</a>
 <code>@footnote{in footnote2}</code> <a id="DOCF8" href="#FOOT8">(6)</a>
 
-<code>@image{f--ile}</code> [ f--ile ]
-<code>@image{f--ile,l--i}</code> [ f--ile ]
-<code>@image{f--ile,,l--e}</code> [ f--ile ]
-<code>@image{f--ile,,,alt}</code> [ alt ]
-<code>@image{f--ile,,,,.e-d-xt}</code> [ f--ile ]
-<code>@image{f--ile,aze,az,alt,.e--xt}</code> [ alt ]
-<code>@image{f-ile,aze,,a--lt}</code> [ a--lt ]
-<code>@image{@file{f--ile}@@@.,aze,az,alt,@file{.file ext} e--xt@}</code> [ alt ]
+<code>@image{f--ile}</code> <img src="f--ile.png" alt="f--ile">
+<code>@image{f--ile,l--i}</code> <img src="f--ile.png" alt="f--ile">
+<code>@image{f--ile,,l--e}</code> <img src="f--ile.png" alt="f--ile">
+<code>@image{f--ile,,,alt}</code> <img src="f--ile.png" alt="alt">
+<code>@image{f--ile,,,,.e-d-xt}</code> <img src="f--ile.e--xt" alt="f--ile">
+<code>@image{f--ile,aze,az,alt,.e--xt}</code> <img src="f--ile.e--xt" alt="alt">
+<code>@image{f-ile,aze,,a--lt}</code> <img src="f-ile.jpg" alt="a-lt">
+<code>@image{@file{f--ile}@@@.,aze,az,alt,@file{.file ext} e--xt@}</code> <img src="f--ile@..file ext e--xt}" alt="alt">
 
 
 
@@ -4362,9 +4362,9 @@ html ''
 
 <code>@math{--a@minus{} {\frac{1}{2}}}</code> <em class='math'>--a- {\frac{1}{2}}</em>
 
-<code>@image{f-ile,,,alt@verb{:jk _&#34; %}}</code> [ alt<tt>jk _&#34; %@</tt> ]
-<code>@image{f--ile,aze,az,@verb{:jk _&#34; %@:} @b{in b &#34;},e--xt}</code> [ <tt>jk _&#34; %@</tt> <b>in b &#34;</b> ]
-<code>@image{file@verb{:jk _&#34; %@:},,,alt@verb{:jk _&#34; %@:}}</code> [ alt<tt>jk _&#34; %@</tt> ]
+<code>@image{f-ile,,,alt@verb{:jk _&#34; %}}</code> <img src="f-ile.jpg" alt="altjk _&#34; %@">
+<code>@image{f--ile,aze,az,@verb{:jk _&#34; %@:} @b{in b &#34;},e--xt}</code> <img src="f--ile.e--xt" alt="jk _&#34; %@ in b &#34;">
+<code>@image{file@verb{:jk _&#34; %@:},,,alt@verb{:jk _&#34; %@:}}</code> <img src="filejk _&#34; %@.jpg" alt="altjk _&#34; %@">
 
 
 

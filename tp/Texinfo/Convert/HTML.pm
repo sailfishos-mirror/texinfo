@@ -1829,25 +1829,14 @@ sub _convert_image_command($$$$)
     if (defined($self->get_conf('IMAGE_LINK_PREFIX'))) {
       $image_file = $self->get_conf('IMAGE_LINK_PREFIX') . $image_file;
     }
-    if ($self->in_preformatted()) {
-      my $alt_text;
-      if (defined($args->[3]) and defined($args->[3]->{'normal'})) {
-        $alt_text = $args->[3]->{'normal'};
-      }
-      if (!defined($alt_text) or ($alt_text eq '')) {
-        $alt_text = $self->protect_text($basefile);
-      }
-      return "[ $alt_text ]";
-    } else {
-      my $alt_string;
-      if (defined($args->[3]) and defined($args->[3]->{'string'})) {
-        $alt_string = $args->[3]->{'string'};
-      }
-      if (!defined($alt_string) or ($alt_string eq '')) {
-        $alt_string = $self->protect_text($basefile);
-      }
-      return "<img src=\"".$self->protect_text($image_file)."\" alt=\"$alt_string\">";
+    my $alt_string;
+    if (defined($args->[3]) and defined($args->[3]->{'string'})) {
+      $alt_string = $args->[3]->{'string'};
     }
+    if (!defined($alt_string) or ($alt_string eq '')) {
+      $alt_string = $self->protect_text($basefile);
+    }
+    return "<img src=\"".$self->protect_text($image_file)."\" alt=\"$alt_string\">";
   }
   return '';
 }

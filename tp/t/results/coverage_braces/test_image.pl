@@ -3964,10 +3964,10 @@ ul.no-bullet {list-style: none}
 &lt;&quot;%@  &lt; &amp; @ % &quot; ">.
 </p>
 <div class="example">
-<pre class="example">[ f@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot;  ]
+<pre class="example"><img src="f@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; .ext@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; " alt="f@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; ">
 
-In text [ alt <b>&icirc;&ndash;le..</b>  a
-&lt;&quot;%@<tt>  &lt; &amp; @ % &quot; </tt> ].
+In text <img src="f@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; .ext@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; " alt="alt &icirc;&ndash;le..  a
+&lt;&quot;%@  &lt; &amp; @ % &quot; ">.
 </pre></div>
 
 <div class="float"><span id="Image-with-commands"></span>
@@ -4205,10 +4205,10 @@ $result_converted{'html_text'}->{'test_image'} = '
 &lt;&quot;%@  &lt; &amp; @ % &quot; ">.
 </p>
 <div class="example">
-<pre class="example">[ f@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot;  ]
+<pre class="example"><img src="f@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; .ext@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; " alt="f@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; ">
 
-In text [ alt <b>&icirc;&ndash;le..</b>  a
-&lt;&quot;%@<tt>  &lt; &amp; @ % &quot; </tt> ].
+In text <img src="f@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; .ext@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; " alt="alt &icirc;&ndash;le..  a
+&lt;&quot;%@  &lt; &amp; @ % &quot; ">.
 </pre></div>
 
 <div class="float"><span id="Image-with-commands"></span>
