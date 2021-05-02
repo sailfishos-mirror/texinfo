@@ -1,6 +1,14 @@
+2021-05-02  Per Bothner  <per@bothner.com>
+
+	* js/info.js: Fix sidebar-update after selecting non-section link.
+	For example index link or @anchor are not sections,
+	hence not in the ToC.  To update the sidebar we need to find the
+	the sectioning element surrounding the anchor.
+	This involves some back-and-forth messaging.
+
 2021-05-02  Vitezslav Crhonek <vcrhonek@redhat.com>
 
-	* contrib/fix-info-dir:  Remove unused variable 
+	* contrib/fix-info-dir:  Remove unused variable
 
 2021-05-02  Vitezslav Crhonek <vcrhonek@redhat.com>
 
@@ -13,7 +21,7 @@
 2021-05-02  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	Avoid extra newline after @titlefont
-	
+
 	* tp/Texinfo/Convert/Plaintext.pm (_convert) <@titlefont>:
 	Remove newline from end of output as a newline following
 	@titlefont{...} is now output separately since change on

@@ -61,6 +61,13 @@
       @type {{dispatch: Action_consumer, state?: any, listeners?: any[]}}.  */
   var store;
 
+  var section_names = [
+    'top', 'chapter', 'unnumbered', 'chapheading', 'appendix',
+    'section', 'unnumberedsec', 'heading', 'appendixsec',
+    'subsection', 'unnumberedsubsec', 'subheading', 'appendixsubsec',
+    'subsubsection', 'unnumberedsubsubsec', 'subsubheading',
+    'appendixsubsubsec' ];
+
   /** Create a Store that calls its listeners at each state change.
       @arg {function (Object, Action): Object} reducer
       @arg {Object} state  */
@@ -219,6 +226,11 @@
           res.index = Object.assign ({}, res.index, action.links);
           return res;
         }
+      case "section":
+        {
+          res.section_hash = action.section_hash;
+          return res;
+        }
       case "current-url":
         {
           if (document.body.getAttribute("show-sidebar") == "yes"
@@ -229,6 +241,7 @@
               state.loaded_nodes[action.pointer] : action.url;
 
           res.current = linkid;
+          res.section_hash = null;
           res.history = action.history;
           res.text_input = null;
           res.warning = null;
@@ -294,6 +307,7 @@
           else
             {
               res.current = linkid;
+              res.section_hash = null;
               res.history = action.history;
               res.text_input = null;
               res.warning = null;
@@ -334,6 +348,7 @@
               res.search.status = "done";
               res.search.found = true;
               res.current = res.search.current_pageid;
+              res.section_hash = null;
               res.history = "pushState";
               res.highlight = res.search.regexp;
             }
@@ -756,9 +771,9 @@
       let currently_showing = document.body.getAttribute("show-sidebar");
       let show = state.show_sidebar;
       if (show == "hide-if-narrow")
-          show = is_narrow_window() || currently_showing == "no" ? "no" : "yes";
+        show = is_narrow_window() || currently_showing == "no" ? "no" : "yes";
       if (show === undefined)
-            show = "yes";
+        show = "yes";
       if (show !== currently_showing)
         {
           document.body.setAttribute("show-sidebar", show);
@@ -769,7 +784,7 @@
           else
             this.show_sidebar_button.removeAttribute("title");
         }
-      var msg = { message_kind: "update-sidebar", selected: state.current };
+      var msg = { message_kind: "update-sidebar", selected: state.current, section_hash: state.section_hash };
       window.postMessage (msg, "*");
     };
 
@@ -1205,10 +1220,16 @@
         @arg {HTMLElement} elem
         @arg {string} linkid */
     function
-    scan_toc (elem, linkid)
+    scan_toc (elem, linkid, section_hash = null)
     {
       /** @type {Element} */
       var res;
+      if (section_hash)
+        {
+          let dot = linkid.lastIndexOf('.');
+          if (dot >= 0)
+            linkid = linkid.substring(0, dot+1) + section_hash;
+        }
       var url = with_sidebar_query (linkid_to_url (linkid));
 
       /** Set CURRENT to the node corresponding to URL linkid.
@@ -1351,7 +1372,7 @@
           var pageid = linkid_split (data.selected).pageid;
           var selected = (pageid === config.INDEX_ID) ? pageid : data.selected;
           /* Highlight the current LINKID in the table of content.  */
-          var elem = scan_toc (toc_div, selected);
+          var elem = scan_toc (toc_div, selected, data.section_hash);
           if (elem)
             elem.scrollIntoView (true);
         }
@@ -1409,7 +1430,42 @@
         {
           /* Scroll to the anchor corresponding to HASH.  */
           if (data.hash)
-            window.location.replace (data.hash);
+            {
+              let elem = document.getElementById(data.hash.substring(1));
+              // Check if hash reference is to a sectioing element.  
+              // If not we need to find the outer sectioning element,
+              // so we can update the sidebar's ToC correctly.
+              if (elem)
+                {
+                  let p = elem;
+                  let section = null;
+                  let id = null;
+                  for (let p = elem;
+                       section === null && p instanceof Element;
+                        p = p.parentNode)
+                    {
+                      let sid = p.getAttribute("id");
+                      if (sid == null)
+                        continue;
+                      let cl = p.classList;
+                      for (let i = cl.length; --i >= 0; )
+                        {
+                          if (section_names.indexOf(cl.item(i)) >= 0)
+                            {
+                              section = p;
+                              id = sid;
+                              break;
+                            }
+                        }
+                    }
+                    if (section && section !== elem)
+                      {
+                        // Send section id to sidebar so it can properly update.
+                        store.dispatch({ type: "section", hash: data.hash, section_hash: id } );
+                      }
+                }
+                window.location.replace (data.hash);
+            }
           else
             window.scroll (0, 0);
         }
