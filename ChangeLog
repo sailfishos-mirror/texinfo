@@ -1,5 +1,9 @@
 2021-05-02  Vitezslav Crhonek <vcrhonek@redhat.com>
 
+	* contrib/fix-info-dir:  Remove unused variable 
+
+2021-05-02  Vitezslav Crhonek <vcrhonek@redhat.com>
+
 	* util/texi2dvi (input_file_name_decode):
 	Fix ShellCheck SC1083 warning
 	https://github.com/koalaman/shellcheck/wiki/SC1083
