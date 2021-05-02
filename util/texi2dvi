@@ -1695,7 +1695,7 @@ cleanup ()
 input_file_name_decode ()
 {
   case $command_line_filename in
-    *\\input{*}*)
+    *\\input\{*\}*)
       # Let AUC-TeX error parser deal with line numbers.
       line_error=false
       command_line_filename=`\

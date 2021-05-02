@@ -1,3 +1,11 @@
+2021-05-02  Vitezslav Crhonek <vcrhonek@redhat.com>
+
+	* util/texi2dvi (input_file_name_decode):
+	Fix ShellCheck SC1083 warning
+	https://github.com/koalaman/shellcheck/wiki/SC1083
+	This is only for suppresing the warning, both '{' and '}'
+	are supposed to be literals.
+
 2021-05-02  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	Avoid extra newline after @titlefont
