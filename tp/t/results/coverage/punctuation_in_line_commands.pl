@@ -1194,7 +1194,6 @@ heading! After punc
 titlefont! After punc
 *********************
 
-
                           center! After punc
 
 * Menu:

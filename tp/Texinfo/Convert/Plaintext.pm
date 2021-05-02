@@ -2273,9 +2273,10 @@ sub _convert($$)
         'cmdname' => 'titlefont'}, $result, $self, 
         $self->get_conf('NUMBER_SECTIONS'),
         ($self->{'format_context'}->[-1]->{'indent_level'}) * $indent_length);
+      $result =~ s/\n$//; # final newline has its own tree element
       $self->{'empty_lines_count'} = 0 unless ($result eq '');
       _add_text_count($self, $result);
-      _add_lines_count($self, 2);
+      _add_lines_count($self, 1);
       return $result;
 
     } elsif ($command eq 'U') {
