@@ -1,3 +1,8 @@
+2021-05-04  Per Bothner  <per@bothner.com>
+
+	* js/info.js: Use keydown event handler instead of keyup.
+	The former is more standard.
+
 2021-05-02  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/HTML.pm (_convert_image_command): format

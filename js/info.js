@@ -513,7 +513,7 @@
 
       /* Define a special key handler when 'this.input' is focused and
          visible.*/
-      this.input.addEventListener ("keyup", (function (event) {
+      this.input.addEventListener ("keydown", (function (event) {
         if (is_escape_key (event.key))
           store.dispatch ({ type: "unfocus" });
         else if (event.key === "Enter")
@@ -561,7 +561,7 @@
 
       /* Define a special key handler when 'this.input' is focused and
          visible.*/
-      this.input.addEventListener ("keyup", (function (event) {
+      this.input.addEventListener ("keydown", (function (event) {
         if (is_escape_key (event.key))
           store.dispatch ({ type: "unfocus" });
         else if (event.key === "Enter")
@@ -1547,16 +1547,16 @@
     }
   }
 
-  /** Handle Keyboard 'keyup' events.
+  /** Handle Keyboard 'keydown' events.
       @arg {KeyboardEvent} event */
   function
-  on_keyup (event)
+  on_keydown (event)
   {
     if (is_escape_key (event.key))
       store.dispatch ({ type: "unfocus" });
     else
       {
-        var val = on_keyup.dict[event.key];
+        var val = on_keydown.dict[event.key];
         if (val)
           {
             if (typeof val === "function")
@@ -1568,7 +1568,7 @@
   }
 
   /* Associate an Event 'key' property to an action or a thunk.  */
-  on_keyup.dict = {
+  on_keydown.dict = {
     i: actions.show_text_input ("index"),
     l: window.history.back.bind (window.history),
     m: actions.show_text_input ("menu"),
@@ -2170,8 +2170,8 @@
   /* Register common event handlers.  */
   window.addEventListener ("beforeunload", on_unload, false);
   window.addEventListener ("click", on_click, false);
-  /* XXX: handle 'keyup' event instead of 'keypress' since Chromium
+  /* XXX: handle 'keydown' event instead of 'keypress' since Chromium
      doesn't handle the 'Escape' key properly.  See
      https://bugs.chromium.org/p/chromium/issues/detail?id=9061.  */
-  window.addEventListener ("keyup", on_keyup, false);
+  window.addEventListener ("keydown", on_keydown, false);
 } (window["Modernizr"], window["INFO_CONFIG"]));
