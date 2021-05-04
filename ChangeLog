@@ -1,5 +1,10 @@
 2021-05-04  Per Bothner  <per@bothner.com>
 
+	* js/info.js (updater.navigate): Relative movement without node links.
+	For example if the current item is a @subsection without a @node,
+	requesting the 'next' item can't use the Next link as there is none.
+	Instead, use the nesting in the sidebar ToC.
+
 	* js/info.js: Use keydown event handler instead of keyup.
 	The former is more standard.
 

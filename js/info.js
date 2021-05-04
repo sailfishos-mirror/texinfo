@@ -288,6 +288,32 @@
           linkid = ids[action.direction];
           if (!linkid)
             {
+              // Look for sibling link in ToC.
+              // Needed for (say) @subsection without corresponding @node.
+              let toc_current =
+                document.querySelector ('#slider a[toc-current="yes"]');
+              if (toc_current)
+                {
+                  let item_current = toc_current.parentNode; // 'li' element
+                  let nlink = (action.direction === "next"
+                               ? item_current.nextElementSibling
+                               : action.direction === "prev"
+                               ? item_current.previousElementSibling
+                               : action.direction === "up"
+                               ? item_current.parentNode.parentNode
+                               : null);
+                  if (nlink)
+                    nlink = nlink.firstElementChild;
+                  if (nlink && nlink.matches("a"))
+                    {
+                      let href = link_href (nlink)
+                      if (href)
+                        linkid = href_hash (href) ;
+                    }
+                }
+            }
+          if (!linkid)
+            {
               /* When CURRENT is in index but doesn't have the requested
                  direction, ask its corresponding 'pageid'.  */
               var is_index_ref =
