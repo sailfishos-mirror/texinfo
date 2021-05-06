@@ -1,3 +1,12 @@
+2021-05-06  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	Fix afl-fuzz error
+
+	* info/info-utils.c (copy_input_to_output): Avoid calling
+	copy_converting with negative argument in case of malformed
+	input file.  Report from Nathaniel Beaver for file generated
+	by afl-fuzz.
+
 2021-05-04  Per Bothner  <per@bothner.com>
 
 	* js/info.js (updater.navigate): Relative movement without node links.

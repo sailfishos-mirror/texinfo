@@ -997,7 +997,12 @@ copy_input_to_output (long n)
                   else if (first_anchor < (inptr-input_start) + bytes_left)
                     {
                       /* Convert enough to pass the first anchor in input. */
-                      bytes_to_convert = first_anchor - (inptr-input_start) + 1;
+                      bytes_to_convert = first_anchor - (inptr-input_start)+1;
+                      if (bytes_to_convert < 0)
+                        {
+                          bytes_to_convert = bytes_left;
+                          anchor_to_adjust = 0;
+                        }
                     }
                 }
 
