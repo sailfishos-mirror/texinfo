@@ -1324,7 +1324,8 @@ scan_reference_label (REFERENCE *entry, int in_index)
     entry->end = inptr - input_start;
 
   /* Colon after label. */
-  skip_input (1);
+  if (*inptr)
+    skip_input (1);
   /* Don't mess up the margin of a menu description. */
   if (entry->type == REFERENCE_MENU_ITEM)
     write_extra_bytes_to_output (" ", 1);
