@@ -35,8 +35,8 @@ Installation notes specific to Texinfo:
       After building the program, the use of XS modules can be
   controlled with the `TEXINFO_XS' environment variable, which may be
   useful for troubleshooting.  Set TEXINFO_XS=debug to print some
-  information as the modules are looked for and loaded, TEXINFO=omit to
-  disable their use, and TEXINFO_XS=required to force their use.
+  information as the modules are looked for and loaded, TEXINFO_XS=omit
+  to disable their use, and TEXINFO_XS=required to force their use.
 
 * For instructions on compiling this distribution with DJGPP tools
   for MS-DOS and MS-Windows, see the file djgpp/README.
