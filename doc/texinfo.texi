@@ -8037,10 +8037,13 @@ for a package @var{foo}.  Copying the files into
 The @var{width} and @var{height} arguments are described in the next
 section.
 
-For @TeX{} output, if an image is the only thing in a paragraph it
-will ordinarily be displayed on a line by itself, respecting the
-current environment indentation, but without the normal paragraph
-indentation.  If you want it centered, use @code{@@center}
+If an image is the first thing in a paragraph and followed by
+more text, then you should precede the @code{@@image} command with
+@code{@@indent} or @code{@@noindent} to indicate the beginning of
+paragraph formatting.  This is especially important for @TeX{} output
+to get correct paragraph indentation.
+
+Use @code{@@center} to center an image
 (@pxref{@code{@@titlefont @@center @@sp}}).
 
 @cindex Alt attribute for images
