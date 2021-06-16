@@ -1,6 +1,6 @@
 #! /usr/bin/env perl
 # pod2texi -- convert Pod to Texinfo.
-# Copyright 2012-2019 Free Software Foundation, Inc.
+# Copyright 2012-2021 Free Software Foundation, Inc.
 # 
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -124,7 +124,7 @@ a hand-written top-level file.");
   $pod2texi_help .= __("    --preamble=STR          insert STR as beginning boilerplate")."\n";
   $pod2texi_help .= __("    --subdir=NAME           put files included in the main manual in NAME")."\n";
   $pod2texi_help .= __("    --top                   top for the main manual")."\n";
-  $pod2texi_help .= __("    --unnumbered-sections   use unumbered sections")."\n";
+  $pod2texi_help .= __("    --unnumbered-sections   do not number sections")."\n";
   $pod2texi_help .= __("    --version               display version information and exit");
   $pod2texi_help .= "\n\n";
 
@@ -151,7 +151,7 @@ my $result_options = Getopt::Long::GetOptions (
     printf __("Copyright (C) %s Free Software Foundation, Inc.
 License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 This is free software: you are free to change and redistribute it.
-There is NO WARRANTY, to the extent permitted by law.\n"), "2016";
+There is NO WARRANTY, to the extent permitted by law.\n"), "2021";
       exit 0;},
   'base-level=s' => sub {
      if ($_[1] =~ /^[0-4]$/) {
@@ -194,8 +194,8 @@ my @input_files = @ARGV;
 
 # use STDIN if not a tty, like makeinfo does
 @input_files = ('-') if (!scalar(@input_files) and !-t STDIN);
-die sprintf(__("%s: missing file argument;\n"), $real_command_name)
-   .sprintf(__("try `%s --help' for more information\n"), $real_command_name)
+die sprintf(__("%s: missing file argument\n"), $real_command_name)
+   .sprintf(__("Try `%s --help' for more information\n"), $real_command_name)
      unless (scalar(@input_files) >= 1);
 
 my @processed_files;
@@ -590,7 +590,7 @@ Texinfo home page: L<http://www.gnu.org/software/texinfo/>
 
 =head1 COPYRIGHT
 
-Copyright 2016 Free Software Foundation, Inc.
+Copyright 2021 Free Software Foundation, Inc.
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by

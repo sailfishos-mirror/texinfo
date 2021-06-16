@@ -1,3 +1,8 @@
+2021-06-17  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* Pod-Simple-Texinfo/pod2texi.pl: Fix some messages.  Report from
+	Benno Schulenberg.  Update copyright years.
+
 2021-06-16  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	pretest 6.7.91
