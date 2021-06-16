@@ -10,6 +10,7 @@ See the manual for detailed information.
 ------------------------------------------------------------------------------
 
 * Language:
+  . new command @displaymath
   . @example takes an argument to specify the language
   . mark these commands as deprecated, not to be used:
     @centerchap, @definfoenclose, @refill, @inforef.
