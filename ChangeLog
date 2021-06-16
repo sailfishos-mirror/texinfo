@@ -1,3 +1,11 @@
+2021-02-23  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	pretest 6.7.91
+
+	* configure.ac, util/texi2dvi, util/texi2pdf,
+	* info/info.c (main), install-info/install-info.c (main):
+	version, 2021.
+
 2021-06-08  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	Document @indent @image{}

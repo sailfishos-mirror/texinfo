@@ -61,7 +61,7 @@ sub import {
 @EXPORT = qw(
 );
 
-$VERSION = '6.7.90';
+$VERSION = '6.7.91';
 
 # misc commands that are of use for formatting.
 my %formatting_misc_commands = %Texinfo::Convert::Text::formatting_misc_commands;
