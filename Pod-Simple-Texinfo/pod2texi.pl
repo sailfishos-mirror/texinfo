@@ -195,7 +195,7 @@ my @input_files = @ARGV;
 # use STDIN if not a tty, like makeinfo does
 @input_files = ('-') if (!scalar(@input_files) and !-t STDIN);
 die sprintf(__("%s: missing file argument\n"), $real_command_name)
-   .sprintf(__("Try `%s --help' for more information\n"), $real_command_name)
+   .sprintf(__("Try `%s --help' for more information.\n"), $real_command_name)
      unless (scalar(@input_files) >= 1);
 
 my @processed_files;
