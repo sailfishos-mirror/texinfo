@@ -99,7 +99,7 @@
   Remote_store ()
   {
     /* The browsing context containing the real store.  */
-    this.delegate = top;
+    this.delegate = window.parent;
   }
 
   /** Dispatch ACTION to the delegate browing context.  This method must be

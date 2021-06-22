@@ -1,3 +1,8 @@
+2021-06-22  Per Bothner  <per@bothner.com>
+
+	* js/info.js (Remote_store): Use parent window rather than top window.
+	The latter breaks if we're running the info browser in an iframe.
+
 2021-06-20  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* NEWS: update
