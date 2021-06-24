@@ -15,16 +15,13 @@ unset RUNNING_BSH
 # hack around a bug in zsh:
 test -n "${ZSH_VERSION+set}" && alias -g '${1+"$@"}'='"$@"'
 
-rcs_revision='$Revision$'
-rcs_version=`set - $rcs_revision; echo $2`
-
 # special-case --version following GNU standards for identifying the
 # program name.  If --version is specified as other than the first
 # argument, we don't output the standard name, but then, we're not
 # obliged to.
 if test "x$1" = x--version; then
   cat <<EOF
-texi2pdf (GNU Texinfo 6.7.91) $rcs_version
+texi2pdf (GNU Texinfo 6.7.91)
 
 Copyright (C) 2021 Free Software Foundation, Inc.
 License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>

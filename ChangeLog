@@ -1,3 +1,10 @@
+2021-06-24  Patrice Dumas  <pertusus@free.fr>
+
+	Remove SVN keyword.
+
+	* util/texi2pdf (version), util/pdftexi2dvi (version): Do not
+	use '$Revision$' keyword as this doesn't work with git.
+
 2021-06-22  Per Bothner  <per@bothner.com>
 
 	* js/info.js (Remote_store): Use parent window rather than top window.
