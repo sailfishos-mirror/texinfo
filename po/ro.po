@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 4.7.94\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2021-06-15 21:06+0100\n"
+"POT-Creation-Date: 2021-06-30 15:10+0100\n"
 "PO-Revision-Date: 2005-05-03 12:00+05\n"
 "Last-Translator: Laurentiu Buzdugan <lbuz@rolix.org>\n"
 "Language-Team: Romanian <translation-team-ro@lists.sourceforge.net>\n"
@@ -2169,7 +2169,7 @@ msgid "    --top                   top for the main manual"
 msgstr ""
 
 #: Pod-Simple-Texinfo/pod2texi.pl:127
-msgid "    --unnumbered-sections   use unumbered sections"
+msgid "    --unnumbered-sections   do not number sections"
 msgstr ""
 
 #: Pod-Simple-Texinfo/pod2texi.pl:128
@@ -2192,13 +2192,12 @@ msgstr "Nu pot crea directorul `%s': %s"
 #: Pod-Simple-Texinfo/pod2texi.pl:197
 #, fuzzy, perl-format
 #| msgid "%s: missing file argument.\n"
-msgid "%s: missing file argument;\n"
+msgid "%s: missing file argument\n"
 msgstr "%s: lipseºte fiºierul argument.\n"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:198
-#, fuzzy, perl-format
-#| msgid "Try `%s --help' for more information.\n"
-msgid "try `%s --help' for more information\n"
+#: Pod-Simple-Texinfo/pod2texi.pl:198 tp/texi2any.pl:1149
+#, perl-format
+msgid "Try `%s --help' for more information.\n"
 msgstr "Încercaþi `%s --help' pentru informaþii suplimentare.\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:219
@@ -3998,11 +3997,6 @@ msgstr ""
 #, perl-format
 msgid "%s: missing file argument.\n"
 msgstr "%s: lipseºte fiºierul argument.\n"
-
-#: tp/texi2any.pl:1149
-#, perl-format
-msgid "Try `%s --help' for more information.\n"
-msgstr "Încercaþi `%s --help' pentru informaþii suplimentare.\n"
 
 #: tp/texi2any.pl:1216
 msgid "fill_gaps_in_sectioning transformation return no result. No section?"

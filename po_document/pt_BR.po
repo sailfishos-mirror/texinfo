@@ -6,10 +6,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: texinfo_document 6.5.90\n"
+"Project-Id-Version: texinfo_document 6.7.91\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
 "POT-Creation-Date: 2021-06-15 21:06+0100\n"
-"PO-Revision-Date: 2019-12-17 17:52-0300\n"
+"PO-Revision-Date: 2021-06-16 11:08-0300\n"
 "Last-Translator: Jorge Barros de Abreu <ficmatin10@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <ldpbr-translation@lists.sourceforge."
 "net>\n"
@@ -710,15 +710,14 @@ msgstr "{category} na {class}"
 
 #: tp/Texinfo/Convert/HTML.pm:4393
 #, fuzzy, perl-brace-format
-#| msgid "{category}: @strong{{name}} @emph{{arguments}}"
+#| msgid "{category} of {class}: @strong{{name}} @emph{{arguments}}"
 msgid "@strong{{name}} @emph{{arguments}}"
-msgstr "{category}: @strong{{name}} @emph{{arguments}}"
+msgstr "{category} de {class}: @strong{{name}} @emph{{arguments}}"
 
 #: tp/Texinfo/Convert/HTML.pm:4397
-#, fuzzy, perl-brace-format
-#| msgid "{category}: @strong{{name}}"
+#, perl-brace-format
 msgid "@strong{{name}}"
-msgstr "{category}: @strong{{name}}"
+msgstr ""
 
 #: tp/Texinfo/Convert/HTML.pm:4414 tp/Texinfo/Convert/HTML.pm:4432
 #, fuzzy, perl-brace-format
@@ -728,21 +727,26 @@ msgstr "{category} na {class}"
 
 #: tp/Texinfo/Convert/HTML.pm:4417
 #, fuzzy, perl-brace-format
-#| msgid "{category}:@* @emph{{type}}@* @strong{{name}} @emph{{arguments}}"
+#| msgid ""
+#| "{category} on {class}:@* @emph{{type}}@* @strong{{name}} "
+#| "@emph{{arguments}}"
 msgid "@emph{{type}}@* @strong{{name}} @emph{{arguments}}"
-msgstr "{category}:@* @emph{{type}}@* @strong{{name}} @emph{{arguments}}"
+msgstr ""
+"{category} em {class}:@* @emph{{type}}@* @strong{{name}} @emph{{arguments}}"
 
 #: tp/Texinfo/Convert/HTML.pm:4421
 #, fuzzy, perl-brace-format
-#| msgid "{category}: @emph{{type}} @strong{{name}} @emph{{arguments}}"
+#| msgid ""
+#| "{category} on {class}: @emph{{type}} @strong{{name}} @emph{{arguments}}"
 msgid "@emph{{type}} @strong{{name}} @emph{{arguments}}"
-msgstr "{category}: @emph{{type}} @strong{{name}} @emph{{arguments}}"
+msgstr ""
+"{category} em {class}: @emph{{type}} @strong{{name}} @emph{{arguments}}"
 
 #: tp/Texinfo/Convert/HTML.pm:4435
 #, fuzzy, perl-brace-format
-#| msgid "{category}: @emph{{type}} @strong{{name}}"
+#| msgid "{category} on {class}: @emph{{type}} @strong{{name}}"
 msgid "@emph{{type}} @strong{{name}}"
-msgstr "{category}: @emph{{type}} @strong{{name}}"
+msgstr "{category} em {class}: @emph{{type}} @strong{{name}}"
 
 #: tp/Texinfo/Convert/HTML.pm:4445
 #, perl-brace-format
@@ -825,7 +829,7 @@ msgstr "Esse documento foi gerado em @emph{@today{}}."
 
 #: tp/Texinfo/Convert/HTML.pm:6620
 msgid "JavaScript license information"
-msgstr ""
+msgstr "Infoma@,{c}ao de licenciamento JavaScript"
 
 #: tp/Texinfo/Convert/HTML.pm:6656
 #, perl-brace-format
@@ -912,15 +916,3 @@ msgstr "Subse@,{c}@~{a}o Um-Quatro"
 #: tp/Texinfo/Convert/HTML.pm:7463
 msgid "Untitled Document"
 msgstr "Documento Sem Nome"
-
-#, perl-brace-format
-#~ msgid "see section {reference_name}"
-#~ msgstr "veja se@,{c}@~{a}o {reference_name}"
-
-#, perl-brace-format
-#~ msgid "See section {reference_name}"
-#~ msgstr "Veja se@,{c}@~{a}o {reference_name}"
-
-#, perl-brace-format
-#~ msgid "{category}:@* @emph{{type}}@* @strong{{name}}"
-#~ msgstr "{category}:@* @emph{{type}}@* @strong{{name}}"

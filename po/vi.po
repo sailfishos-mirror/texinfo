@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 6.3.92\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2021-06-15 21:06+0100\n"
+"POT-Creation-Date: 2021-06-30 15:10+0100\n"
 "PO-Revision-Date: 2017-07-11 14:12+0700\n"
 "Last-Translator: Trần Ngọc Quân <vnwildman@gmail.com>\n"
 "Language-Team: Vietnamese <translation-team-vi@lists.sourceforge.net>\n"
@@ -2056,7 +2056,7 @@ msgid "    --top                   top for the main manual"
 msgstr ""
 
 #: Pod-Simple-Texinfo/pod2texi.pl:127
-msgid "    --unnumbered-sections   use unumbered sections"
+msgid "    --unnumbered-sections   do not number sections"
 msgstr ""
 
 #: Pod-Simple-Texinfo/pod2texi.pl:128
@@ -2079,13 +2079,12 @@ msgstr "không thể tạo thư mục “%s”: %s"
 #: Pod-Simple-Texinfo/pod2texi.pl:197
 #, fuzzy, perl-format
 #| msgid "%s: missing file argument.\n"
-msgid "%s: missing file argument;\n"
+msgid "%s: missing file argument\n"
 msgstr "%s: thiếu đối số tập tin.\n"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:198
-#, fuzzy, perl-format
-#| msgid "Try `%s --help' for more information.\n"
-msgid "try `%s --help' for more information\n"
+#: Pod-Simple-Texinfo/pod2texi.pl:198 tp/texi2any.pl:1149
+#, perl-format
+msgid "Try `%s --help' for more information.\n"
 msgstr "Hãy thử lệnh trợ giúp “%s --help” để xem thông tin thêm.\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:219
@@ -3783,11 +3782,6 @@ msgstr "bỏ qua việc chia cắt cho định dạng %s"
 #, perl-format
 msgid "%s: missing file argument.\n"
 msgstr "%s: thiếu đối số tập tin.\n"
-
-#: tp/texi2any.pl:1149
-#, perl-format
-msgid "Try `%s --help' for more information.\n"
-msgstr "Hãy thử lệnh trợ giúp “%s --help” để xem thông tin thêm.\n"
 
 #: tp/texi2any.pl:1216
 msgid "fill_gaps_in_sectioning transformation return no result. No section?"

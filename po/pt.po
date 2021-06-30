@@ -1,15 +1,15 @@
 # Portuguese (Portugal) translations for the texinfo package.
 # Copyright (C) 2018 Free Software Foundation, Inc.
 # This file is distributed under the same license as the texinfo package.
-# Pedro Albuquerque <palbuquerque73@gmail.com>, 2018, 2019.
+# Pedro Albuquerque <pmra@protonmail.com>, 2018, 2019, 2021.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: GNU texinfo 6.6.90\n"
+"Project-Id-Version: GNU texinfo 6.7.91\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2021-06-15 21:06+0100\n"
-"PO-Revision-Date: 2019-08-20 12:20+0100\n"
-"Last-Translator: Pedro Albuquerque <palbuquerque73@gmail.com>\n"
+"POT-Creation-Date: 2021-06-30 15:10+0100\n"
+"PO-Revision-Date: 2021-06-17 06:07+0100\n"
+"Last-Translator: Pedro Albuquerque <pmra@protonmail.com>\n"
 "Language-Team: Portuguese <translation-team-pt@lists.sourceforge.net>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Bugs: Report translation errors to the Language-Team address.\n"
-"X-Generator: Gtranslator 2.91.7\n"
+"X-Generator: Poedit 2.3\n"
 
 #: gnulib/lib/error.c:195
 msgid "Unknown system error"
@@ -367,7 +367,7 @@ msgstr "Tópico de índice"
 #: info/indices.c:916
 #, c-format
 msgid "No index entries containing '%s'."
-msgstr "Sem entradas de índice contendo \"%s\""
+msgstr "Sem entradas de índice contendo \"%s\"."
 
 #: info/indices.h:40
 #, c-format
@@ -546,7 +546,7 @@ msgstr ""
 "  info                         mostra o menu dir de topo\n"
 "  info info-stnd               mostra o manual para este programa Info\n"
 "  info emacs                   começa no nó emacs da pasta de topo\n"
-"  info emacs buffers           selecciona a entrada buffers no manual do "
+"  info emacs buffers           Seleccionar a entrada buffers no manual do "
 "emacs\n"
 "  info emacs -n Files          começa no nó Files dentro do manual do emacs\n"
 "  info \"(emacs)Files\"          forma alternativa de começar no nó Files\n"
@@ -653,19 +653,19 @@ msgstr "\\%-10[get-info-help-node]  chama o tutorial do Info.\n"
 
 #: info/infodoc.c:44
 msgid "\\%-10[prev-line]  Move up one line.\n"
-msgstr "\\%-10[prev-line]  move para a linha acima.\n"
+msgstr "\\%-10[prev-line]  Mover para a linha acima.\n"
 
 #: info/infodoc.c:45
 msgid "\\%-10[next-line]  Move down one line.\n"
-msgstr "\\%-10[next-line]  move para a linha abaixo.\n"
+msgstr "\\%-10[next-line]  Mover para a linha abaixo.\n"
 
 #: info/infodoc.c:46
 msgid "\\%-10[scroll-backward]  Scroll backward one screenful.\n"
-msgstr "\\%-10[scroll-backward]  rola um ecrã atrás.\n"
+msgstr "\\%-10[scroll-backward]  Rolar um ecrã atrás.\n"
 
 #: info/infodoc.c:47
 msgid "\\%-10[scroll-forward]  Scroll forward one screenful.\n"
-msgstr "\\%-10[scroll-forward]  rola um ecrã à frente.\n"
+msgstr "\\%-10[scroll-forward]  Rolar um ecrã à frente.\n"
 
 #: info/infodoc.c:48
 msgid "\\%-10[beginning-of-node]  Go to the beginning of this node.\n"
@@ -758,7 +758,7 @@ msgid ""
 "              select the node referenced by the first entry found.\n"
 msgstr ""
 "\\%-10[index-search]  procura a cadeia especificada no índice, e\n"
-"              selecciona o nó referenciado pela 1ª entrada encontrada.\n"
+"              Seleccionar o nó referenciado pela 1ª entrada encontrada.\n"
 
 #: info/infodoc.c:74
 msgid "\\%-10[virtual-index]  Synthesize menu of matching index entries.\n"
@@ -814,15 +814,15 @@ msgstr ""
 
 #: info/infodoc.c:333
 msgid "Display help message"
-msgstr "mostra a mensagem de ajuda"
+msgstr "Mostrar a mensagem de ajuda"
 
 #: info/infodoc.c:346
 msgid "Visit Info node '(info)Help'"
-msgstr "visita o nó Info \"(info)Help\""
+msgstr "Visitar o nó Info \"(info)Help\""
 
 #: info/infodoc.c:450
 msgid "Print documentation for KEY"
-msgstr "imprime a documentação para CHAVE"
+msgstr "Imprimir a documentação para CHAVE"
 
 #: info/infodoc.c:461
 #, c-format
@@ -1041,61 +1041,61 @@ msgstr ""
 
 #: info/session.c:1257
 msgid "Move down to the next line"
-msgstr "move para a linha seguinte"
+msgstr "Mover para a linha seguinte"
 
 #: info/session.c:1272
 msgid "Move up to the previous line"
-msgstr "move para a linha anterior"
+msgstr "Mover para a linha anterior"
 
 #: info/session.c:1288
 msgid "Move the cursor to a specific line of the window"
-msgstr "move o cursor para uma linha específica da janela"
+msgstr "Mover o cursor para uma linha específica da janela"
 
 #: info/session.c:1320
 msgid "Move to the end of the line"
-msgstr "move para o final da linha"
+msgstr "Mover para o final da linha"
 
 #: info/session.c:1345
 msgid "Move to the start of the line"
-msgstr "move para o início da linha"
+msgstr "Mover para o início da linha"
 
 #: info/session.c:1427
 msgid "Move to the start of this node"
-msgstr "move para o início deste nó"
+msgstr "Mover para o início deste nó"
 
 #: info/session.c:1434
 msgid "Move to the end of this node"
-msgstr "move para o fim deste nó"
+msgstr "Mover para o fim deste nó"
 
 #: info/session.c:1525
 msgid "Scroll forward in this window"
-msgstr "rola para a frente na janela"
+msgstr "Rolar para a frente na janela"
 
 #: info/session.c:1539
 msgid "Scroll backward in this window"
-msgstr "rola para trás na janela"
+msgstr "Rolar para trás na janela"
 
 #: info/session.c:1547
 msgid "Scroll forward in this window and set default window size"
-msgstr "rola para a frente na janela e predefine o tamanho da janela"
+msgstr "Rolar para a frente na janela e predefine o tamanho da janela"
 
 #: info/session.c:1562
 msgid "Scroll backward in this window and set default window size"
-msgstr "rola para trás na janela e predefine o tamanho da janela"
+msgstr "Rolar para trás na janela e predefine o tamanho da janela"
 
 #: info/session.c:1568
 msgid "Scroll forward in this window staying within node"
-msgstr "rola para a frente na janela mantendo-se dentro do nó"
+msgstr "Rolar para a frente na janela mantendo-se dentro do nó"
 
 #: info/session.c:1583
 msgid "Scroll backward in this window staying within node"
-msgstr "rola para trás na janela mantendo-se dentro do nó"
+msgstr "Rolar para trás na janela mantendo-se dentro do nó"
 
 #: info/session.c:1591
 msgid ""
 "Scroll forward in this window staying within node and set default window size"
 msgstr ""
-"rola para a frente na janela mantendo-se dentro do nó e predefine o tamanho "
+"Rolar para a frente na janela mantendo-se dentro do nó e predefine o tamanho "
 "da janela"
 
 #: info/session.c:1618
@@ -1103,48 +1103,48 @@ msgid ""
 "Scroll backward in this window staying within node and set default window "
 "size"
 msgstr ""
-"rola para trás na janela mantendo-se dentro do nó e predefine o tamanho da "
+"Rolar para trás na janela mantendo-se dentro do nó e predefine o tamanho da "
 "janela"
 
 #: info/session.c:1624
 msgid "Scroll down by lines"
-msgstr "rola abaixo linhas"
+msgstr "Rolar abaixo linhas"
 
 #: info/session.c:1630
 msgid "Scroll up by lines"
-msgstr "rola acima linhas"
+msgstr "Rolar acima linhas"
 
 #: info/session.c:1642
 msgid "Scroll down by half screen size"
-msgstr "rola abaixo meio ecrã"
+msgstr "Rolar abaixo meio ecrã"
 
 #: info/session.c:1669
 msgid "Scroll up by half screen size"
-msgstr "rola acima meio ecrã"
+msgstr "Rolar acima meio ecrã"
 
 #: info/session.c:1675
 msgid "Scroll the other window"
-msgstr "rola a outra janela"
+msgstr "Rolar a outra janela"
 
 #: info/session.c:1696
 msgid "Scroll the other window backward"
-msgstr "rola a outra janela atrás"
+msgstr "Rolar a outra janela atrás"
 
 #: info/session.c:1810
 msgid "Select the next window"
-msgstr "selecciona a janela seguinte"
+msgstr "Seleccionar a janela seguinte"
 
 #: info/session.c:1847
 msgid "Select the previous window"
-msgstr "selecciona a janela anterior"
+msgstr "Seleccionar a janela anterior"
 
 #: info/session.c:1891
 msgid "Split the current window"
-msgstr "divide a janela actual"
+msgstr "Dividir a janela actual"
 
 #: info/session.c:1936
 msgid "Delete the current window"
-msgstr "elimina a janela actual"
+msgstr "Eliminar a janela actual"
 
 #: info/session.c:1941
 msgid "Cannot delete a permanent window"
@@ -1152,15 +1152,15 @@ msgstr "Impossível eliminar uma janela permanente"
 
 #: info/session.c:1972
 msgid "Delete all other windows"
-msgstr "elimina todas as outras janelas"
+msgstr "Eliminar todas as outras janelas"
 
 #: info/session.c:2018
 msgid "Grow (or shrink) this window"
-msgstr "aumenta (ou diminui) esta janela"
+msgstr "Aumentar (ou diminuir) esta janela"
 
 #: info/session.c:2029
 msgid "Divide the available screen space among the visible windows"
-msgstr "divide o espaço de ecrã disponível entre as janelas visíveis"
+msgstr "Dividir o espaço de ecrã disponível entre as janelas visíveis"
 
 #: info/session.c:2036
 msgid "Toggle the state of line wrapping in the current window"
@@ -1168,7 +1168,7 @@ msgstr "Alterna o estado de quebra de linhas na janela actual"
 
 #: info/session.c:2190
 msgid "Select this menu item"
-msgstr "selecciona este item de menu"
+msgstr "Seleccionar este item de menu"
 
 #: info/session.c:2220
 #, c-format
@@ -1179,7 +1179,7 @@ msgstr[1] "Não há %d itens neste menu"
 
 #: info/session.c:2229
 msgid "Select the last item in this node's menu"
-msgstr "selecciona o último item no menu deste nó"
+msgstr "Seleccionar o último item no menu deste nó"
 
 #: info/session.c:2335 info/session.c:2336
 #, c-format
@@ -1206,31 +1206,31 @@ msgstr "A referência desapareceu! (%s)"
 
 #: info/session.c:2439
 msgid "Read a menu item and select its node"
-msgstr "lê um item de menu e selecciona o seu nó"
+msgstr "Ler um item de menu e seleccionar o seu nó"
 
 #: info/session.c:2464
 msgid "Read a footnote or cross reference and select its node"
-msgstr "lê uma nota de rodapé ou referência cruzada e selecciona o seu nó"
+msgstr "Ler uma nota de rodapé ou referência cruzada e Seleccionar o seu nó"
 
 #: info/session.c:2487
 msgid "Move to the start of this node's menu"
-msgstr "move para o início do menu deste nó"
+msgstr "Mover para o início do menu deste nó"
 
 #: info/session.c:2509
 msgid "Visit as many menu items at once as possible"
-msgstr "visita tantos itens de menu em simultâneo quanto possível"
+msgstr "Visitar tantos itens de menu em simultâneo quanto possível"
 
 #: info/session.c:2609
 msgid "Move to the previous cross reference"
-msgstr "move para a referência cruzada anterior"
+msgstr "Mover para a referência cruzada anterior"
 
 #: info/session.c:2672
 msgid "Move to the next cross reference"
-msgstr "move para a referência cruzada seguinte"
+msgstr "Mover para a referência cruzada seguinte"
 
 #: info/session.c:2733
 msgid "Select reference or menu item appearing on this line"
-msgstr "selecciona referência ou item de menu que aparece nesta linha"
+msgstr "Seleccionar referência ou item de menu que aparece nesta linha"
 
 #: info/session.c:2767
 #, c-format
@@ -1244,7 +1244,7 @@ msgstr "Impossível encontrar o nó referenciado por \"%s\" em \"%s\""
 
 #: info/session.c:2870
 msgid "Read a list of menus starting from dir and follow them"
-msgstr "lê uma lista de menus começando em dir e segue-os"
+msgstr "Ler uma lista de menus começando em dir e segue-os"
 
 #: info/session.c:2872
 msgid "Follow menus: "
@@ -1252,19 +1252,19 @@ msgstr "Seguir menus: "
 
 #: info/session.c:2977
 msgid "Select the Next node"
-msgstr "selecciona o nó seguinte"
+msgstr "Seleccionar o nó seguinte"
 
 #: info/session.c:2984
 msgid "Select the Prev node"
-msgstr "selecciona o nó anterior"
+msgstr "Seleccionar o nó anterior"
 
 #: info/session.c:2991
 msgid "Select the Up node"
-msgstr "selecciona o nó acima"
+msgstr "Seleccionar o nó acima"
 
 #: info/session.c:2997
 msgid "Select the last node in this file"
-msgstr "selecciona o último nó neste ficheiro"
+msgstr "Seleccionar o último nó neste ficheiro"
 
 #: info/session.c:3024 info/session.c:3057
 msgid "This window has no additional nodes"
@@ -1272,7 +1272,7 @@ msgstr "Esta janela não tem nós adicionais"
 
 #: info/session.c:3030
 msgid "Select the first node in this file"
-msgstr "selecciona o primeiro nó neste ficheiro"
+msgstr "Seleccionar o primeiro nó neste ficheiro"
 
 #: info/session.c:3164
 msgid "No more nodes within this document"
@@ -1284,15 +1284,15 @@ msgstr "Não há nós anterior ou acima neste documento"
 
 #: info/session.c:3268
 msgid "Move forwards or down through node structure"
-msgstr "move à frente ou abaixo na estrutura dos nós"
+msgstr "Mover à frente ou abaixo na estrutura dos nós"
 
 #: info/session.c:3285
 msgid "Move backwards or up through node structure"
-msgstr "move atrás ou acima na estrutura dos nós"
+msgstr "Mover atrás ou acima na estrutura dos nós"
 
 #: info/session.c:3308
 msgid "Read a node name and select it"
-msgstr "lê um nome de nó e selecciona-o"
+msgstr "Ler um nome de nó e selecciona-o"
 
 #: info/session.c:3362 info/session.c:3366
 msgid "Goto node: "
@@ -1300,7 +1300,7 @@ msgstr "Ir para nó: "
 
 #: info/session.c:3545
 msgid "Find the node describing program invocation"
-msgstr "encontra o nó que descreve a chamada do programa"
+msgstr "Encontrar o nó que descreve a chamada do programa"
 
 #: info/session.c:3547
 #, c-format
@@ -1309,7 +1309,7 @@ msgstr "Encontrar nó de chamada de [%s]: "
 
 #: info/session.c:3593
 msgid "Read a manpage reference and select it"
-msgstr "lê uma referência de manpage e selecciona-a"
+msgstr "Ler uma referência de manpage e selecciona-a"
 
 #: info/session.c:3597
 msgid "Get Manpage: "
@@ -1317,19 +1317,19 @@ msgstr "Obter manpage: "
 
 #: info/session.c:3618
 msgid "Select the node 'Top' in this file"
-msgstr "selecciona o nó \"Top\" neste ficheiro"
+msgstr "Seleccionar o nó \"Top\" neste ficheiro"
 
 #: info/session.c:3624
 msgid "Select the node '(dir)'"
-msgstr "selecciona o nó \"(dir)\""
+msgstr "Seleccionar o nó \"(dir)\""
 
 #: info/session.c:3630
 msgid "Show full file name of node being displayed"
-msgstr "mostra o nome de ficheiro completo do nó mostrado"
+msgstr "Mostrar o nome de ficheiro completo do nó mostrado"
 
 #: info/session.c:3647
 msgid "Select the most recently selected node"
-msgstr "selecciona o nó mais recentemente seleccionado"
+msgstr "Seleccionar o nó mais recentemente seleccionado"
 
 #: info/session.c:3652
 msgid "No earlier node in history"
@@ -1337,7 +1337,7 @@ msgstr "Sem nó anterior no histórico"
 
 #: info/session.c:3656
 msgid "Read the name of a file and select it"
-msgstr "lê o nome de um ficheiro e selecciona-o"
+msgstr "Ler o nome de um ficheiro e selecciona-o"
 
 #: info/session.c:3660
 msgid "Find file: "
@@ -1479,19 +1479,19 @@ msgstr "Ir para a correspondência anterior na sub-árvore Info"
 
 #: info/session.c:4640
 msgid "Read a string and search for it case-sensitively"
-msgstr "lê uma cadeia e procura-a diferenciando maiúsculas"
+msgstr "Ler uma cadeia e procura-a diferenciando maiúsculas"
 
 #: info/session.c:4645
 msgid "Read a string and search for it"
-msgstr "lê uma cadeia e procura-a"
+msgstr "Ler uma cadeia e procura-a"
 
 #: info/session.c:4651
 msgid "Read a string and search backward for it"
-msgstr "lê uma cadeia e procura-a para trás"
+msgstr "Ler uma cadeia e procura-a para trás"
 
 #: info/session.c:4659
 msgid "Repeat last search in the same direction"
-msgstr "repete a última procura na mesma direcção"
+msgstr "Repetir a última procura na mesma direcção"
 
 #: info/session.c:4673 info/session.c:4724
 msgid "No previous search string"
@@ -1499,15 +1499,15 @@ msgstr "Sem cadeia de procura prévia"
 
 #: info/session.c:4710
 msgid "Repeat last search in the reverse direction"
-msgstr "repete a última procura na direcção inversa"
+msgstr "Repetir a última procura na direcção inversa"
 
 #: info/session.c:4763
 msgid "Clear displayed search matches"
-msgstr "limpa as correspondências mostradas"
+msgstr "Limpar as correspondências mostradas"
 
 #: info/session.c:4779 info/session.c:4785
 msgid "Search interactively for a string as you type it"
-msgstr "procura interactivamente uma cadeia ao escrever"
+msgstr "Procurar interactivamente uma cadeia ao escrever"
 
 #: info/session.c:4905
 msgid "Regexp I-search backward: "
@@ -1527,19 +1527,19 @@ msgstr "Procura I: "
 
 #: info/session.c:4934 info/session.c:4937
 msgid "Failing "
-msgstr "A falhar"
+msgstr "A falhar "
 
 #: info/session.c:5302
 msgid "Cancel current operation"
-msgstr "cancela a operação actual"
+msgstr "Cancelar a operação actual"
 
 #: info/session.c:5309
 msgid "Quit"
-msgstr "sai"
+msgstr "Sair"
 
 #: info/session.c:5314
 msgid "Display version of Info being run"
-msgstr "mostra a versão do Info"
+msgstr "Mostrar a versão do Info"
 
 #: info/session.c:5316
 #, c-format
@@ -1548,15 +1548,15 @@ msgstr "GNU Info versão %s"
 
 #: info/session.c:5321
 msgid "Redraw the display"
-msgstr "redesenha o ecrã"
+msgstr "Redesenhar o ecrã"
 
 #: info/session.c:5358
 msgid "Quit using Info"
-msgstr "sair do Info"
+msgstr "Sair do Info"
 
 #: info/session.c:5374
 msgid "Run command bound to this key's lowercase variant"
-msgstr "executa o comando associado à minúscula desta tecla"
+msgstr "Executar o comando associado à minúscula desta tecla"
 
 #: info/session.c:5385
 #, c-format
@@ -1575,11 +1575,11 @@ msgstr "\"%s\" é inválido"
 
 #: info/session.c:5707
 msgid "Add this digit to the current numeric argument"
-msgstr "adiciona este algarismo ao argumento numérico actual"
+msgstr "Adicionar este algarismo ao argumento numérico actual"
 
 #: info/session.c:5714
 msgid "Start (or multiply by 4) the current numeric argument"
-msgstr "começa (ou multiplica por 4) o argumento numérico actual"
+msgstr "Começar (ou multiplica por 4) o argumento numérico actual"
 
 #: info/variables.c:67
 msgid "When \"On\", footnotes appear and disappear automatically"
@@ -1611,20 +1611,21 @@ msgstr ""
 
 #: info/variables.c:90
 msgid "Controls what happens when scrolling is requested at the end of a node"
-msgstr "controla o que acontece quando a rolagem é pedida no final de um nó"
+msgstr "Controlar o que acontece quando a rolagem é pedida no final de um nó"
 
 #: info/variables.c:95
 msgid "Same as scroll-behaviour"
-msgstr "o mesmo que o comportamento da rolagem"
+msgstr "O mesmo que o comportamento da rolagem"
 
 #: info/variables.c:99
 msgid "The number lines to scroll when the cursor moves out of the window"
-msgstr "o número de linhas a rolar quando o cursor sai da janela"
+msgstr "O número de linhas a rolar quando o cursor sai da janela"
 
 #: info/variables.c:103
 msgid "Controls whether scroll-behavior affects cursor movement commands"
 msgstr ""
-"controla se o comportamento da rolagem afecta comandos de movimento do cursor"
+"Controlar se o comportamento da rolagem afecta comandos de movimento do "
+"cursor"
 
 #: info/variables.c:107
 msgid "When \"On\", Info accepts and displays ISO Latin characters"
@@ -1634,7 +1635,7 @@ msgstr "Quando \"On\", o Info aceita e mostra caracteres ISO Latin"
 msgid ""
 "What to do when a scrolling command is issued at the end of the last node"
 msgstr ""
-"o que fazer quando é emitido um comando de rolagem no final do último nó"
+"O que fazer quando é emitido um comando de rolagem no final do último nó"
 
 #: info/variables.c:116
 msgid "Minimal length of a search string"
@@ -1642,55 +1643,55 @@ msgstr "Tamanho mínimo de uma cadeia de procura"
 
 #: info/variables.c:120
 msgid "Skip current window when searching"
-msgstr "salta a janela actual ao procurar"
+msgstr "Saltar a janela actual ao procurar"
 
 #: info/variables.c:124
 msgid "Exclude default directories from file search path"
-msgstr "exclui pastas predefinidas do caminho de procura de ficheiros"
+msgstr "Excluir pastas predefinidas do caminho de procura de ficheiros"
 
 #: info/variables.c:128
 msgid "Hide some Info file syntax in the text of nodes"
-msgstr "oculta alguma sintaxe Info no texto dos nós"
+msgstr "Ocultar alguma sintaxe Info no texto dos nós"
 
 #: info/variables.c:132
 msgid ""
 "Length of time in milliseconds to wait for the next byte in a sequence "
 "indicating that a key has been pressed"
 msgstr ""
-"tempo (em mili-segundos) a esperar pelo byte seguinte numa sequência "
+"Tempo (em mili-segundos) a esperar pelo byte seguinte numa sequência "
 "indicando a pressão de uma tecla"
 
 #: info/variables.c:136
 msgid "Method to use to track mouse events"
-msgstr "método para seguir eventos do rato"
+msgstr "Método para seguir eventos do rato"
 
 #: info/variables.c:140
 msgid "How to follow a cross-reference"
-msgstr "como seguir uma referência cruzada"
+msgstr "Como seguir uma referência cruzada"
 
 #: info/variables.c:144
 msgid "Highlight search matches"
-msgstr "realça correspondências"
+msgstr "Realçar correspondências"
 
 #: info/variables.c:148
 msgid "Styles for links"
-msgstr "estilos de ligações"
+msgstr "Estilos de ligações"
 
 #: info/variables.c:152
 msgid "Styles for active links"
-msgstr "estilos de ligações activas"
+msgstr "Estilos de ligações activas"
 
 #: info/variables.c:156
 msgid "Styles for search matches"
-msgstr "estilos para correspondências"
+msgstr "Estilos para correspondências"
 
 #: info/variables.c:160
 msgid "How to print the information line at the start of a node"
-msgstr "como imprime a linha de informação no início de um nó"
+msgstr "Como imprimir a linha de informação no início de um nó"
 
 #: info/variables.c:221
 msgid "Explain the use of a variable"
-msgstr "explica o uso de uma variável"
+msgstr "Explicar o uso de uma variável"
 
 #: info/variables.c:227
 msgid "Describe variable: "
@@ -1698,7 +1699,7 @@ msgstr "Descreva a variável: "
 
 #: info/variables.c:247
 msgid "Set the value of an Info variable"
-msgstr "define o valor de uma variável Info"
+msgstr "Definir o valor de uma variável Info"
 
 #: info/variables.c:254
 msgid "Set variable: "
@@ -1741,7 +1742,7 @@ msgstr "Uso: %s [OPÇÃO]... [FICHEIRO-INFO [PASTA-FICHEIRO]]\n"
 #: install-info/install-info.c:540
 msgid "Add or remove entries in INFO-FILE from the Info directory DIR-FILE."
 msgstr ""
-"adiciona ou remove entrada em FICHEIRO-INFO na pasta Info PASTA-FICHEIRO."
+"Adicionar ou remover entrada em FICHEIRO-INFO na pasta Info PASTA-FICHEIRO."
 
 #: install-info/install-info.c:541
 msgid ""
@@ -1781,8 +1782,8 @@ msgid ""
 " --dry-run           same as --test."
 msgstr ""
 " --debug             reporta o que se está a fazer;\n"
-" --delete            elimina entradas existentes para FICHEIRO-INFO de PASTA-"
-"FICHEIRO;\n"
+" --delete            Eliminar entradas existentes para FICHEIRO-INFO de "
+"PASTA-FICHEIRO;\n"
 "                      não insere novas entradas.\n"
 " --defsection=TEXTO  como --section, mas só usa TEXTO se não houver\n"
 "                      secções presentes em FICHEIRO-INFO (substituindo "
@@ -1833,7 +1834,7 @@ msgstr ""
 " --info-file=FICH    especifica o ficheiro Info a instalar na pasta;\n"
 "                      equivalente a usar o argumento FICHEIRO-INFO.\n"
 " --item=TEXTO        igual a --entry=TEXTO.\n"
-" --keep-old          não substitui entradas, ou remove secções vazias."
+" --keep-old          não substitui entradas, ou reMover secções vazias."
 
 #: install-info/install-info.c:582
 msgid ""
@@ -1872,8 +1873,8 @@ msgstr ""
 " --regex=R           põe as entradas deste ficheiro em todas as secções que "
 "cumpram\n"
 "                      a expressão regular R (ignorar maiúsculas).\n"
-" --remove            igual a --delete.\n"
-" --remove-exactly    só remove se o nome de ficheiro info corresponder "
+" --reMover            igual a --delete.\n"
+" --remove-exactly    só reMover se o nome de ficheiro info corresponder "
 "exactamente;\n"
 "                      sufixos como .info e .gz não são ignorados.\n"
 " --section=SECÇÃO    põe as entradas na secção SECÇÃO da pasta.\n"
@@ -1994,10 +1995,8 @@ msgid "no entries found for `%s'; nothing deleted"
 msgstr "sem entradas para \"%s\"; nada eliminado"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:104
-#, fuzzy
-#| msgid "Usage: %s [OPTION]... TEXINFO-FILE...\n"
 msgid "Usage: pod2texi [OPTION]... POD..."
-msgstr "Uso: %s [OPÇÃO]... FICH-TEXINFO...\n"
+msgstr "Uso: pod2texi [OPÇÃO]... CÁPSULA..."
 
 #: Pod-Simple-Texinfo/pod2texi.pl:106
 msgid ""
@@ -2010,87 +2009,105 @@ msgid ""
 "C<@include>s is generated, intended to be C<@include>d in turn within\n"
 "a hand-written top-level file."
 msgstr ""
+"Traduzir o(s) ficheiro(s) de documentação da cápsula Perl para Texinfo. "
+"Existem dois\n"
+"modos básicos de funcionamento.  Em primeiro lugar, por defeito, cada "
+"cápsula é traduzida para\n"
+"um manual autónomo do Texinfo.\n"
+"\n"
+"Segundo, se C<--base-level> estiver definido acima de 0, cada cápsula é "
+"traduzida\n"
+"para um ficheiro adequado para C<@include> e mais um ficheiro com todos os\n"
+"C<@include>s é gerado, destinado a ser C<@include>d por sua vez dentro\n"
+"um ficheiro de nível superior escrito à mão."
 
 #: Pod-Simple-Texinfo/pod2texi.pl:115
 msgid ""
 "Options:\n"
 "    --appendix-sections     use appendix-like sections"
 msgstr ""
+"Opções:\n"
+"    --appendix-sections     usar secções tipo apêndice"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:117
 msgid "    --base-level=NUM|NAME   level of the head1 commands; default 0"
-msgstr ""
+msgstr "    --base-level=NUM|NAME   nível de comandos head; predefinição 0"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:118
 msgid "    --debug=NUM             set debugging level"
-msgstr ""
+msgstr "    --debug=NUM             definir nível de depuração"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:119
 msgid "    --help                  display this help and exit"
-msgstr ""
+msgstr "    --help                  Mostrar esta ajuda e sair"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:120
 msgid "    --no-fill-section-gaps  do not fill sectioning gaps"
-msgstr ""
+msgstr "    --no-fill-section-gaps  não preencher espaços de seccionamento"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:121
 msgid "    --no-section-nodes      use anchors for sections instead of nodes"
-msgstr ""
+msgstr "    --no-section-nodes      usar âncoras para secções em vez de nós"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:122
 msgid ""
 "    --output=NAME           output to NAME for the first or main manual\n"
 "                            instead of standard output"
 msgstr ""
+"    --output=NAME           imprimir para NOME para o primeiro ou principal "
+"manual\n"
+"                            en vez da saída padrão"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:124
 msgid "    --preamble=STR          insert STR as beginning boilerplate"
-msgstr ""
+msgstr "    --preamble=STR          inserir CAD como caldeira inicial"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:125
 msgid ""
 "    --subdir=NAME           put files included in the main manual in NAME"
 msgstr ""
+"    --subdir=NAME           pôr ficheiros incluídos no manual principal em "
+"NOME"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:126
 msgid "    --top                   top for the main manual"
-msgstr ""
+msgstr "    --top                   topo para o manual pricipal"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:127
-msgid "    --unnumbered-sections   use unumbered sections"
-msgstr ""
+#, fuzzy
+#| msgid "    --unnumbered-sections   use unumbered sections"
+msgid "    --unnumbered-sections   do not number sections"
+msgstr "    --unnumbered-sections   usar secções não numeradas"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:128
 msgid "    --version               display version information and exit"
-msgstr ""
+msgstr "    --version               Mostrar informação da versão e sair"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:162
 #, perl-format
 msgid "%s: wrong argument for --base-level\n"
-msgstr ""
+msgstr "%s: argumento errado para --base-level\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:182
-#, fuzzy, perl-format
-#| msgid "could not create directory `%s': %s"
+#, perl-format
 msgid "%s: could not create directory %s: %s"
-msgstr "impossível criar pasta \"%s\": %s"
+msgstr "%s: impossível criar pasta %s: %s"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:197
 #, fuzzy, perl-format
-#| msgid "%s: missing file argument.\n"
-msgid "%s: missing file argument;\n"
-msgstr "%s: argumento de ficheiro em falta.\n"
+#| msgid "%s: missing file argument;\n"
+msgid "%s: missing file argument\n"
+msgstr "%s: argumento de ficheiro em falta;\n"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:198
-#, fuzzy, perl-format
-#| msgid "Try `%s --help' for more information.\n"
-msgid "try `%s --help' for more information\n"
+#: Pod-Simple-Texinfo/pod2texi.pl:198 tp/texi2any.pl:1149
+#, perl-format
+msgid "Try `%s --help' for more information.\n"
 msgstr "Tente \"%s --help\" para mais informação.\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:219
 #, perl-format
 msgid "%s: ignoring %s without content\n"
-msgstr ""
+msgstr "%s: a ignorar %s sem conteúdo\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:354 Pod-Simple-Texinfo/pod2texi.pl:433
 #: tp/texi2any.pl:1385 tp/texi2any.pl:1419
@@ -2099,10 +2116,9 @@ msgid "%s: could not open %s for writing: %s\n"
 msgstr "%s: impossível abrir %s para escrita: %s\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:382
-#, fuzzy, perl-format
-#| msgid "@%s: could not open %s: %s"
+#, perl-format
 msgid "%s: could not open %s: %s\n"
-msgstr "@%s: impossível abrir %s: %s"
+msgstr "%s: impossível abrir %s: %s\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:395 Pod-Simple-Texinfo/pod2texi.pl:476
 #: tp/texi2any.pl:1356 tp/texi2any.pl:1432
@@ -2113,19 +2129,17 @@ msgstr "%s: erro ao fechar %s: %s\n"
 #: Pod-Simple-Texinfo/pod2texi.pl:402
 #, perl-format
 msgid "%s: removing %s as input file %s has no content\n"
-msgstr ""
+msgstr "%s: a remover %s como ficheiro de entrada %s não tem conteúdo\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:419
-#, fuzzy, perl-format
-#| msgid "rename %s failed: %s"
+#, perl-format
 msgid "%s: rename %s failed: %s\n"
-msgstr "renomeação %s falhou: %s"
+msgstr "%s: renomeação %s falhou: %s\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:482
-#, fuzzy, perl-format
-#| msgid "%s: error on closing %s: %s\n"
+#, perl-format
 msgid "%s: error on closing stdout: %s\n"
-msgstr "%s: erro ao fechar %s: %s\n"
+msgstr "%s: erro ao fechar stdout: %s\n"
 
 #: tp/DebugTexinfo/DebugTree.pm:63 tp/Texinfo/Convert/Converter.pm:782
 #: tp/Texinfo/Convert/Converter.pm:820 tp/Texinfo/Convert/Converter.pm:1095
@@ -2293,10 +2307,9 @@ msgid "no htmlxref.cnf entry found for `%s'"
 msgstr "sem entrada htmlxref.cnf para \"%s\""
 
 #: tp/Texinfo/Convert/HTML.pm:6721
-#, fuzzy, perl-format
-#| msgid "@%s not meaningful inside @%s block"
+#, perl-format
 msgid "%s not meaningful for non-split output"
-msgstr "@%s sem significado dentro de um bloco @%s"
+msgstr "%s sem significado para saída não dividida"
 
 #: tp/Texinfo/Convert/HTML.pm:7050
 #, perl-format
@@ -2304,6 +2317,8 @@ msgid ""
 "cannot use absolute path or URL `%s' for JS_WEBLABELS_FILE when generating "
 "web labels file"
 msgstr ""
+"impossível usar caminho absoluto ou URL \"%s\" para JS_WEBLABELS_FILE ao "
+"gerar ficheiro de etiquetas web"
 
 #: tp/Texinfo/Convert/HTML.pm:7115
 #, perl-format
@@ -2327,13 +2342,12 @@ msgstr "tem de especificar um título com um comando de título ou @top"
 #: tp/Texinfo/Convert/HTML.pm:7682
 #, perl-format
 msgid "%s already exists but is not a directory"
-msgstr ""
+msgstr "%s já existe, mas não é uma pasta"
 
 #: tp/Texinfo/Convert/HTML.pm:7701
-#, fuzzy, perl-format
-#| msgid "error on closing %s: %s"
+#, perl-format
 msgid "error on copying %s into %s"
-msgstr "erro ao fechar %s: %s"
+msgstr "erro ao copiar %s para %s"
 
 #: tp/Texinfo/Convert/HTML.pm:7762
 #, perl-format
@@ -2705,7 +2719,7 @@ msgstr "eis a definição anterior de \"%s\""
 #: tp/Texinfo/ParserNonXS.pm:3610 tp/Texinfo/XS/parsetexi/parser.c:1168
 #, c-format, perl-format
 msgid "redefining Texinfo language command: @%s"
-msgstr "A redefinir comando de linguagem Texinfo: @%s"
+msgstr "redefinir comando de linguagem Texinfo: @%s"
 
 #: tp/Texinfo/ParserNonXS.pm:3678
 #, perl-format
@@ -2837,7 +2851,7 @@ msgstr "@%s só devia aparecer numa entrada de índice"
 
 #: tp/Texinfo/ParserNonXS.pm:4405 tp/Texinfo/XS/parsetexi/handle_commands.c:580
 msgid "no more than two levels of index subentry are allowed"
-msgstr "Só são permitidos dois níveis de sub-entradas de índice"
+msgstr "só são permitidos dois níveis de sub-entradas de índice"
 
 #: tp/Texinfo/ParserNonXS.pm:4446 tp/Texinfo/XS/parsetexi/handle_commands.c:637
 #, c-format, perl-format
@@ -3113,13 +3127,12 @@ msgstr "nome de nó \"%s\" da entrada @%s diferente de %s nome \"%s\""
 #: tp/Texinfo/Structuring.pm:442
 #, perl-format
 msgid "node `%s' unreferenced"
-msgstr ""
+msgstr "nó \"%s\" não referenciado"
 
 #: tp/Texinfo/Structuring.pm:599
-#, fuzzy, perl-format
-#| msgid "node `%s' is %s for `%s' in sectioning but not in menu"
+#, perl-format
 msgid "node %s for `%s' is `%s' in sectioning but not in menu"
-msgstr "o nó \"%s\" é %s para \"%s\" nas secções mas não no menu"
+msgstr "o nó %s para \"%s\" é \"%s\" nas secções mas não no menu"
 
 #: tp/Texinfo/Structuring.pm:617
 #, perl-format
@@ -3127,10 +3140,9 @@ msgid "node `%s' is %s for `%s' in menu but not in sectioning"
 msgstr "o nó \"%s\" é %s para \"%s\" no menu, mas não nas secções"
 
 #: tp/Texinfo/Structuring.pm:659
-#, fuzzy, perl-format
-#| msgid "node `%s' is %s for `%s' in sectioning but not in menu"
+#, perl-format
 msgid "node %s pointer for `%s' is `%s' but %s is `%s' in menu"
-msgstr "o nó \"%s\" é %s para \"%s\" nas secções mas não no menu"
+msgstr "o nó %s ponteiro para \"%s\" é \"%s\" mas %s é \"%s\" no menu"
 
 #: tp/Texinfo/Structuring.pm:680
 #, perl-format
@@ -3265,10 +3277,9 @@ msgid "tex4ht.pm: command failed: %s"
 msgstr "tex4ht.pm: o comando falhou: %s"
 
 #: tp/init/tex4ht.pm:279
-#, fuzzy, perl-format
-#| msgid "tex4ht.pm: command failed: %s"
+#, perl-format
 msgid "tex4ht.pm: closing communication failed: %s: %s"
-msgstr "tex4ht.pm: o comando falhou: %s"
+msgstr "tex4ht.pm: fecho das comunicações falhou: %s: %s"
 
 #: tp/init/tex4ht.pm:314
 #, perl-format
@@ -3299,27 +3310,24 @@ msgstr ""
 "de itens encontrados no documento para @%s"
 
 #: tp/init/highlight_syntax.pm:58
-#, fuzzy, perl-format
-#| msgid "tex4ht.pm: command failed: %s"
+#, perl-format
 msgid "highlight_syntax.pm: command failed: %s"
-msgstr "tex4ht.pm: o comando falhou: %s"
+msgstr "highlight_syntax.pm: o comando falhou: %s"
 
 #: tp/init/highlight_syntax.pm:69
 #, perl-format
 msgid "highlight_syntax.pm: %s: %s: cannot parse language line"
-msgstr ""
+msgstr "highlight_syntax.pm: %s: %s: impossível analisar linha de linguagem"
 
 #: tp/init/highlight_syntax.pm:170 tp/init/highlight_syntax.pm:227
-#, fuzzy, perl-format
-#| msgid "tex4ht.pm: could not open %s: %s"
+#, perl-format
 msgid "highlight_syntax.pm: could not open %s: %s"
-msgstr "tex4ht.pm: impossível abrir %s: %s"
+msgstr "highlight_syntax.pm: impossível abrir %s: %s"
 
 #: tp/init/highlight_syntax.pm:219
-#, fuzzy, perl-format
-#| msgid "l2h: command did not succeed: %s"
+#, perl-format
 msgid "highlight_syntax.pm: command did not succeed: %s"
-msgstr "l2h: comando sem sucesso: %s"
+msgstr "highlight_syntax.pm: comando sem sucesso: %s"
 
 #: tp/init/highlight_syntax.pm:259
 #, perl-format
@@ -3327,36 +3335,34 @@ msgid ""
 "highlight_syntax.pm: %s: %d separators; expected %d, the number of fragments "
 "+1"
 msgstr ""
+"highlight_syntax.pm: %s: %d separadores; esperado %d, o número de fragmentos "
+"+1"
 
 #: tp/init/highlight_syntax.pm:267
-#, fuzzy, perl-format
-#| msgid "tex4ht.pm: end of @%s item %d not found"
+#, perl-format
 msgid "highlight_syntax.pm: %s: end of @%s item %d not found"
-msgstr "tex4ht.pm: fim de @%s item %d não encontrado"
+msgstr "highlight_syntax.pm: %s: fim de @%s item %d não encontrado"
 
 #: tp/init/highlight_syntax.pm:272
-#, fuzzy, perl-format
-#| msgid ""
-#| "latex2html.pm: processing produced %d items in HTML; expected %d, the "
-#| "number of items found in the document"
+#, perl-format
 msgid ""
 "highlight_syntax.pm: %s: processing produced %d items in HTML; expected %d, "
 "the number found in the document"
 msgstr ""
-"latex2html.pm: o processamento produziu %d itens em HTML; esperados %d, o "
-"número de itens encontrados no documento"
+"highlight_syntax.pm: %s: o processamento produziu %d itens em HTML; "
+"esperados %d, o número de itens encontrados no documento"
 
 #: tp/init/highlight_syntax.pm:292
-#, fuzzy, perl-format
-#| msgid "tex4ht.pm: output has no HTML item for @%s %s"
+#, perl-format
 msgid "highlight_syntax.pm: output has HTML item for @%s but no language %s"
-msgstr "tex4ht.pm: a saída não tem item HTML para @%s %s"
+msgstr ""
+"highlight_syntax.pm: a saída tem um item HTML para @%s mas nenhuma linguagem "
+"%s"
 
 #: tp/init/highlight_syntax.pm:339
-#, fuzzy, perl-format
-#| msgid "tex4ht.pm: output has no HTML item for @%s %s"
+#, perl-format
 msgid "highlight_syntax.pm: output has no HTML item for @%s %s %s"
-msgstr "tex4ht.pm: a saída não tem item HTML para @%s %s"
+msgstr "highlight_syntax.pm: a saída não tem nenhum item HTML para @%s %s %s"
 
 #: tp/texi2any.pl:345
 #, perl-format
@@ -3565,11 +3571,11 @@ msgid ""
 msgstr ""
 "Opções para HTML:\n"
 "      --css-include=FICHEIRO      inclui FICHEIRO na saída <estilo> HTML;\n"
-"                                    lê stdin se FICHEIRO for -.\n"
+"                                    Ler stdin se FICHEIRO for -.\n"
 "      --css-ref=URL               gera referência CSS para o URL.\n"
 "      --internal-links=FICHEIRO   produz uma lista de ligações internas em "
 "FICHEIRO.\n"
-"      --split=DIVIDE              divide em DIVIDE, onde DIVIDE pode ser "
+"      --split=DIVIDE              Dividir em DIVIDE, onde DIVIDE pode ser "
 "\"chapter\",\n"
 "                                    \"section\" ou \"node\".\n"
 "      --transliterate-file-names  usa nomes de ficheiro em transliteração "
@@ -3613,7 +3619,8 @@ msgstr ""
 "  -I PASTA                      anexa PASTA ao caminho de procura @include.\n"
 "  -P PASTA                      prepõe PASTA ao caminho de procura "
 "@include.\n"
-"  -U VAR                        remove a definição de VAR, tal como @clear.\n"
+"  -U VAR                        reMover a definição de VAR, tal como "
+"@clear.\n"
 
 #: tp/texi2any.pl:770
 msgid ""
@@ -3739,11 +3746,6 @@ msgstr "a ignorar divisão para formato %s"
 #, perl-format
 msgid "%s: missing file argument.\n"
 msgstr "%s: argumento de ficheiro em falta.\n"
-
-#: tp/texi2any.pl:1149
-#, perl-format
-msgid "Try `%s --help' for more information.\n"
-msgstr "Tente \"%s --help\" para mais informação.\n"
 
 #: tp/texi2any.pl:1216
 msgid "fill_gaps_in_sectioning transformation return no result. No section?"
@@ -3976,6 +3978,10 @@ msgstr "@dotless espera \"i\" ou \"j\" como argumento, não \"%s\""
 msgid "misplaced }"
 msgstr "} mal colocada"
 
+#, perl-format
+#~ msgid "try `%s --help' for more information\n"
+#~ msgstr "tente \"%s --help\" para mais informação\n"
+
 #~ msgid ""
 #~ "move your @contents command if you want the contents after the title page"
 #~ msgstr ""
@@ -3989,7 +3995,6 @@ msgstr "} mal colocada"
 #~ "mova os seus comandos @shortcontents e @contents se pretende o conteúdo "
 #~ "após a página de título"
 
-#, c-format, perl-format
 #~ msgid "@%s seen before first @node"
 #~ msgstr "@%s obtido antes do primeiro @node"
 
@@ -3998,19 +4003,15 @@ msgstr "} mal colocada"
 #~ msgstr ""
 #~ "talvez o seu nó @top devesse estar dentro de @ifnottex em vez de @ifinfo?"
 
-#, perl-format
 #~ msgid "unreferenced node `%s'"
 #~ msgstr "nó não referenciado \"%s\""
 
-#, perl-format
 #~ msgid "node %s `%s' in menu `%s' and in sectioning `%s' differ"
 #~ msgstr "o nó %s \"%s\" no menu \"%s\" e nas secções \"%s\" difere"
 
-#, perl-format
 #~ msgid "for `%s', up in menu `%s' and up `%s' don't match"
 #~ msgstr "para \"%s\", acima no menu \"%s\" e \"%s\" acima não correspondem"
 
-#, c-format
 #~ msgid "undefined flag: %.*s"
 #~ msgstr "bandeira não definida: %.*s"
 

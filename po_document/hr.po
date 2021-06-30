@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the texinfo package.
 #
 #
-# Božidar Putanec <bozidarp@yahoo.com>, 2016, 2017, 2019.
+# Božidar Putanec <bozidarp@yahoo.com>, 2016, 2017, 2019, 2021.
 msgid ""
 msgstr ""
-"Project-Id-Version: GNU texinfo_document 6.5.90\n"
+"Project-Id-Version: GNU texinfo_document 6.7.91\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
 "POT-Creation-Date: 2021-06-15 21:06+0100\n"
-"PO-Revision-Date: 2020-11-22 13:29-0800\n"
+"PO-Revision-Date: 2021-06-16 21:38-0700\n"
 "Last-Translator: Božidar Putanec <bozidarp@yahoo.com>\n"
 "Language-Team: Croatian <lokalizacija@linux.hr>\n"
 "Language: hr\n"
@@ -19,7 +19,7 @@ msgstr ""
 "X-Bugs: Report translation errors to the Language-Team address.\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 2.0\n"
+"X-Generator: Poedit 3.0\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 #: tp/Texinfo/Common.pm:788 tp/Texinfo/Common.pm:793
@@ -705,46 +705,39 @@ msgid "Section"
 msgstr "Odlomak"
 
 #: tp/Texinfo/Convert/HTML.pm:4371
-#, fuzzy, perl-brace-format
-#| msgid "{category} on {class}"
+#, perl-brace-format
 msgid "{category}: "
-msgstr "{category} na {class}"
+msgstr "{category}: "
 
 #: tp/Texinfo/Convert/HTML.pm:4393
-#, fuzzy, perl-brace-format
-#| msgid "{category}: @strong{{name}} @emph{{arguments}}"
+#, perl-brace-format
 msgid "@strong{{name}} @emph{{arguments}}"
-msgstr "{category}: @strong{{name}} @emph{{arguments}}"
+msgstr "@strong{{name}} @emph{{arguments}}"
 
 #: tp/Texinfo/Convert/HTML.pm:4397
-#, fuzzy, perl-brace-format
-#| msgid "{category}: @strong{{name}}"
+#, perl-brace-format
 msgid "@strong{{name}}"
-msgstr "{category}: @strong{{name}}"
+msgstr "@strong{{name}}"
 
 #: tp/Texinfo/Convert/HTML.pm:4414 tp/Texinfo/Convert/HTML.pm:4432
-#, fuzzy, perl-brace-format
-#| msgid "{category} on {class}"
+#, perl-brace-format
 msgid "{category}:@* "
-msgstr "{category} na {class}"
+msgstr "{category}:@* "
 
 #: tp/Texinfo/Convert/HTML.pm:4417
-#, fuzzy, perl-brace-format
-#| msgid "{category}:@* @emph{{type}}@* @strong{{name}} @emph{{arguments}}"
+#, perl-brace-format
 msgid "@emph{{type}}@* @strong{{name}} @emph{{arguments}}"
-msgstr "{category}:@* @emph{{type}}@* @strong{{name}} @emph{{arguments}}"
+msgstr "@emph{{type}}@* @strong{{name}} @emph{{arguments}}"
 
 #: tp/Texinfo/Convert/HTML.pm:4421
-#, fuzzy, perl-brace-format
-#| msgid "{category}: @emph{{type}} @strong{{name}} @emph{{arguments}}"
+#, perl-brace-format
 msgid "@emph{{type}} @strong{{name}} @emph{{arguments}}"
-msgstr "{category}: @emph{{type}} @strong{{name}} @emph{{arguments}}"
+msgstr "@emph{{type}} @strong{{name}} @emph{{arguments}}"
 
 #: tp/Texinfo/Convert/HTML.pm:4435
-#, fuzzy, perl-brace-format
-#| msgid "{category}: @emph{{type}} @strong{{name}}"
+#, perl-brace-format
 msgid "@emph{{type}} @strong{{name}}"
-msgstr "{category}: @emph{{type}} @strong{{name}}"
+msgstr "@emph{{type}} @strong{{name}}"
 
 #: tp/Texinfo/Convert/HTML.pm:4445
 #, perl-brace-format
@@ -827,7 +820,7 @@ msgstr "Ovaj dokument je generiran na @emph{@today{}}."
 
 #: tp/Texinfo/Convert/HTML.pm:6620
 msgid "JavaScript license information"
-msgstr ""
+msgstr "Podaci o licenci za JavaScript"
 
 #: tp/Texinfo/Convert/HTML.pm:6656
 #, perl-brace-format
@@ -912,15 +905,12 @@ msgstr "Pododlomak jedan-četri"
 msgid "Untitled Document"
 msgstr "Dokument bez naslova"
 
-#, perl-brace-format
 #~ msgid "see section {reference_name}"
 #~ msgstr "pogledajte odlomak {reference_name}"
 
-#, perl-brace-format
 #~ msgid "See section {reference_name}"
 #~ msgstr "Pogledajte odlomak {reference_name}"
 
-#, perl-brace-format
 #~ msgid "{category}:@* @emph{{type}}@* @strong{{name}}"
 #~ msgstr "{category}:@* @emph{{type}}@* @strong{{name}}"
 

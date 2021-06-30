@@ -6,10 +6,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: texinfo 6.6.90\n"
+"Project-Id-Version: texinfo 6.7.91\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2021-06-15 21:06+0100\n"
-"PO-Revision-Date: 2019-12-16 08:16-0300\n"
+"POT-Creation-Date: 2021-06-30 15:10+0100\n"
+"PO-Revision-Date: 2021-06-16 14:25-0300\n"
 "Last-Translator: Jorge Barros de Abreu <ficmatin10@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <ldpbr-translation@lists.sourceforge."
 "net>\n"
@@ -1039,8 +1039,8 @@ msgid ""
 "Welcome to Info version %s.  Type \\[get-help-window] for help, \\[get-info-"
 "help-node] for tutorial."
 msgstr ""
-"Bem vindo à versão Info %s. Digite \\[get-help-window] para ajuda,\\[get-"
-"inffo-help-node] para tutorial."
+"Bem vindo à versão Info %s. Digite \\[get-help-window] p/ ajuda,\\[get-inffo-"
+"help-node] p/ tutorial."
 
 #: info/session.c:1257
 msgid "Move down to the next line"
@@ -2026,64 +2026,83 @@ msgid ""
 "C<@include>s is generated, intended to be C<@include>d in turn within\n"
 "a hand-written top-level file."
 msgstr ""
+"Traduza os arquivos documentação Perl pod para Texinfo.  Existem dois\n"
+"modos básicos de operação.  Primeiro, por padrão, cada pod é traduzido para\n"
+"um manual Texinfo independente.\n"
+"\n"
+"Segundo, se C<--base-level> for ajustado para maior que 0, cada pod é "
+"traduzido\n"
+"para um arquivo adequado para C<@include>, e um arquivo adicional com todos "
+"os\n"
+"C<@include>s é gerado, objetivando ser C<@include>d por sua vez dentro\n"
+"de um arquivo de nível mais alto manualmete escrito."
 
 #: Pod-Simple-Texinfo/pod2texi.pl:115
 msgid ""
 "Options:\n"
 "    --appendix-sections     use appendix-like sections"
 msgstr ""
+"Opções:\n"
+"    --appendix-sections     use seções appendix-like"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:117
 msgid "    --base-level=NUM|NAME   level of the head1 commands; default 0"
-msgstr ""
+msgstr "    --base-level=NUM|NOME   nível dos comandos head1; o padrão é 0"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:118
 msgid "    --debug=NUM             set debugging level"
-msgstr ""
+msgstr "    --debug=NUM             escolhe o nível de depuração"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:119
 msgid "    --help                  display this help and exit"
-msgstr ""
+msgstr "    --help                  exibe esta ajuda e sai"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:120
 msgid "    --no-fill-section-gaps  do not fill sectioning gaps"
-msgstr ""
+msgstr "    --no-fill-section-gaps  não preenche lacunas de seção"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:121
 msgid "    --no-section-nodes      use anchors for sections instead of nodes"
-msgstr ""
+msgstr "    --no-section-nodes      usa âncoras para seções ao invés de nodos"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:122
 msgid ""
 "    --output=NAME           output to NAME for the first or main manual\n"
 "                            instead of standard output"
 msgstr ""
+"    --output=NOME           saída para NOME para o primeiro ou principal "
+"manual\n"
+"                            ao invés da saída padrão"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:124
 msgid "    --preamble=STR          insert STR as beginning boilerplate"
-msgstr ""
+msgstr "    --preamble=STR          insere STR no início da boilerplate"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:125
 msgid ""
 "    --subdir=NAME           put files included in the main manual in NAME"
 msgstr ""
+"    --subdir=NOME           coloque os arquivos incluídos no manual "
+"principal em NOME"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:126
 msgid "    --top                   top for the main manual"
-msgstr ""
+msgstr "    --top                   topo do manual principal"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:127
-msgid "    --unnumbered-sections   use unumbered sections"
-msgstr ""
+#, fuzzy
+#| msgid "    --unnumbered-sections   use unumbered sections"
+msgid "    --unnumbered-sections   do not number sections"
+msgstr "    --unnumbered-sections   use seções não numeradas"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:128
 msgid "    --version               display version information and exit"
-msgstr ""
+msgstr "    --version               mostre informações de versão e saia"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:162
 #, perl-format
 msgid "%s: wrong argument for --base-level\n"
-msgstr ""
+msgstr "%s: argumento errado a --base-level\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:182
 #, fuzzy, perl-format
@@ -2094,19 +2113,18 @@ msgstr "não posso criar diretório `%s': %s"
 #: Pod-Simple-Texinfo/pod2texi.pl:197
 #, fuzzy, perl-format
 #| msgid "%s: missing file argument.\n"
-msgid "%s: missing file argument;\n"
+msgid "%s: missing file argument\n"
 msgstr "%s: faltando argumento arquivo.\n"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:198
-#, fuzzy, perl-format
-#| msgid "Try `%s --help' for more information.\n"
-msgid "try `%s --help' for more information\n"
+#: Pod-Simple-Texinfo/pod2texi.pl:198 tp/texi2any.pl:1149
+#, perl-format
+msgid "Try `%s --help' for more information.\n"
 msgstr "Tente `%s --help' para mais informação.\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:219
 #, perl-format
 msgid "%s: ignoring %s without content\n"
-msgstr ""
+msgstr "%s: ignorando %s vazio\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:354 Pod-Simple-Texinfo/pod2texi.pl:433
 #: tp/texi2any.pl:1385 tp/texi2any.pl:1419
@@ -2129,7 +2147,7 @@ msgstr "%s: erro ao fechar %s: %s\n"
 #: Pod-Simple-Texinfo/pod2texi.pl:402
 #, perl-format
 msgid "%s: removing %s as input file %s has no content\n"
-msgstr ""
+msgstr "%s: removendo %s como entrada %s está vazio\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:419
 #, fuzzy, perl-format
@@ -2320,6 +2338,8 @@ msgid ""
 "cannot use absolute path or URL `%s' for JS_WEBLABELS_FILE when generating "
 "web labels file"
 msgstr ""
+"caminho absoluto ou URL inadequado `%s' para JS_WEBLABELS_FILE ao gerar "
+"arquivo de rótulos web"
 
 #: tp/Texinfo/Convert/HTML.pm:7115
 #, perl-format
@@ -2343,7 +2363,7 @@ msgstr "deve especificar um comando de título ou @top"
 #: tp/Texinfo/Convert/HTML.pm:7682
 #, perl-format
 msgid "%s already exists but is not a directory"
-msgstr ""
+msgstr "%s existe mas não é um diretório"
 
 #: tp/Texinfo/Convert/HTML.pm:7701
 #, fuzzy, perl-format
@@ -3121,13 +3141,13 @@ msgstr "a entrada @%s nome de nodo `%s' diferentes de %s nome `%s'"
 #: tp/Texinfo/Structuring.pm:442
 #, perl-format
 msgid "node `%s' unreferenced"
-msgstr ""
+msgstr "nodo `%s' não referenciado"
 
 #: tp/Texinfo/Structuring.pm:599
 #, fuzzy, perl-format
-#| msgid "node `%s' is %s for `%s' in sectioning but not in menu"
+#| msgid "node `%s' is %s for `%s' in menu but not in sectioning"
 msgid "node %s for `%s' is `%s' in sectioning but not in menu"
-msgstr "nodo `%s' é %s para `%s' na seção mas não no menu"
+msgstr "nodo `%s' é %s para `%s' no menu mas não na seção"
 
 #: tp/Texinfo/Structuring.pm:617
 #, perl-format
@@ -3136,9 +3156,9 @@ msgstr "nodo `%s' é %s para `%s' no menu mas não na seção"
 
 #: tp/Texinfo/Structuring.pm:659
 #, fuzzy, perl-format
-#| msgid "node `%s' is %s for `%s' in sectioning but not in menu"
+#| msgid "node `%s' is %s for `%s' in menu but not in sectioning"
 msgid "node %s pointer for `%s' is `%s' but %s is `%s' in menu"
-msgstr "nodo `%s' é %s para `%s' na seção mas não no menu"
+msgstr "nodo `%s' é %s para `%s' no menu mas não na seção"
 
 #: tp/Texinfo/Structuring.pm:680
 #, perl-format
@@ -3315,7 +3335,7 @@ msgstr "tex4ht.pm: o comando falhou: %s"
 #: tp/init/highlight_syntax.pm:69
 #, perl-format
 msgid "highlight_syntax.pm: %s: %s: cannot parse language line"
-msgstr ""
+msgstr "highlight_syntax.pm: %s: %s: linha de linguagem indisponível"
 
 #: tp/init/highlight_syntax.pm:170 tp/init/highlight_syntax.pm:227
 #, fuzzy, perl-format
@@ -3335,6 +3355,7 @@ msgid ""
 "highlight_syntax.pm: %s: %d separators; expected %d, the number of fragments "
 "+1"
 msgstr ""
+"highlight_syntax.pm: %s: %d separadores; esperado %d, número de fragmentos +1"
 
 #: tp/init/highlight_syntax.pm:267
 #, fuzzy, perl-format
@@ -3761,11 +3782,6 @@ msgstr "ignorando quebra para o formato %s"
 msgid "%s: missing file argument.\n"
 msgstr "%s: faltando argumento arquivo.\n"
 
-#: tp/texi2any.pl:1149
-#, perl-format
-msgid "Try `%s --help' for more information.\n"
-msgstr "Tente `%s --help' para mais informação.\n"
-
 #: tp/texi2any.pl:1216
 msgid "fill_gaps_in_sectioning transformation return no result. No section?"
 msgstr ""
@@ -3992,43 +4008,9 @@ msgstr "@dotless espera `i' ou `j' como argumento, não `%s'"
 
 #: tp/Texinfo/XS/parsetexi/separator.c:555
 msgid "misplaced }"
-msgstr "perdido }"
+msgstr "omitido }"
 
-#~ msgid ""
-#~ "move your @contents command if you want the contents after the title page"
-#~ msgstr ""
-#~ "move seu comando @contents se você desejar os conteúdos após a página "
-#~ "título"
-
-#~ msgid ""
-#~ "move your @shortcontents and @contents commands if you want the contents "
-#~ "after the title page"
-#~ msgstr ""
-#~ "move seus comandos @shortcontents e @contents se você desejar os "
-#~ "conteúdos após a página título"
-
-#, c-format, perl-format
-#~ msgid "@%s seen before first @node"
-#~ msgstr "@%s visto antes do primeiro @node"
-
-#~ msgid ""
-#~ "perhaps your @top node should be wrapped in @ifnottex rather than @ifinfo?"
-#~ msgstr ""
-#~ "pode ser que seu nodo @top node deva estar envolvido em um @ifnottex ao "
-#~ "invés de um @ifinfo?"
-
-#, perl-format
-#~ msgid "unreferenced node `%s'"
-#~ msgstr "nodo não referenciado `%s'"
-
-#, perl-format
-#~ msgid "node %s `%s' in menu `%s' and in sectioning `%s' differ"
-#~ msgstr "nodo %s `%s' no menu `%s' e na seção `%s' diferem"
-
-#, perl-format
-#~ msgid "for `%s', up in menu `%s' and up `%s' don't match"
-#~ msgstr "para `%s', acima no menu `%s' e acima `%s' não coincidem"
-
-#, c-format
-#~ msgid "undefined flag: %.*s"
-#~ msgstr "sinalizador indefinido: %.*s"
+#, fuzzy, perl-format
+#~| msgid "Try `%s --help' for more information.\n"
+#~ msgid "try `%s --help' for more information\n"
+#~ msgstr "Tente `%s --help' para mais informação.\n"

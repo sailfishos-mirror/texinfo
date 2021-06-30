@@ -1,23 +1,23 @@
 # Portugese (Portugal) translations of resulting document strings.
 # Copyright (C) 2018 Free Software Foundation, Inc.
 # This file is distributed under the same license as the texinfo package.
-# Pedro Albuquerque <palbuquerque73@gmail.com>, 2018.
+# Pedro Albuquerque <pmra@protonmail.com>, 2018, 2021.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: texinfo_document 6.4.90\n"
+"Project-Id-Version: texinfo_document 6.7.91\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
 "POT-Creation-Date: 2021-06-15 21:06+0100\n"
-"PO-Revision-Date: 2018-10-24 09:03+0100\n"
-"Last-Translator: Pedro Albuquerque <palbuquerque73@gmail.com>\n"
+"PO-Revision-Date: 2021-06-17 06:32+0100\n"
+"Last-Translator: Pedro Albuquerque <pmra@protonmail.com>\n"
 "Language-Team: Portuguese <translation-team-pt@lists.sourceforge.net>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Bugs: Report translation errors to the Language-Team address.\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\\n\n"
-"X-Generator: Gtranslator 2.91.7\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\\n;\n"
+"X-Generator: Poedit 2.3\n"
 
 #: tp/Texinfo/Common.pm:788 tp/Texinfo/Common.pm:793
 msgid "Function"
@@ -204,7 +204,7 @@ msgstr "secção ``{section_name}'' em @cite{{book}}"
 #: tp/Texinfo/Convert/DocBook.pm:932
 #, perl-brace-format
 msgid "See section ``{section_name}'' in @cite{{book}}"
-msgstr "veja a secção ``{section_name}'' em @cite{{book}}"
+msgstr "Veja a secção ``{section_name}'' em @cite{{book}}"
 
 #: tp/Texinfo/Convert/DocBook.pm:937
 #, perl-brace-format
@@ -702,46 +702,39 @@ msgid "Section"
 msgstr "Secção"
 
 #: tp/Texinfo/Convert/HTML.pm:4371
-#, fuzzy, perl-brace-format
-#| msgid "{category} on {class}"
+#, perl-brace-format
 msgid "{category}: "
-msgstr "{category} na {class}"
+msgstr "{category}: "
 
 #: tp/Texinfo/Convert/HTML.pm:4393
-#, fuzzy, perl-brace-format
-#| msgid "{category}: @strong{{name}} @emph{{arguments}}"
+#, perl-brace-format
 msgid "@strong{{name}} @emph{{arguments}}"
-msgstr "{category}: @strong{{name}} @emph{{arguments}}"
+msgstr "@strong{{name}} @emph{{arguments}}"
 
 #: tp/Texinfo/Convert/HTML.pm:4397
-#, fuzzy, perl-brace-format
-#| msgid "{category}: @strong{{name}}"
+#, perl-brace-format
 msgid "@strong{{name}}"
-msgstr "{category}: @strong{{name}}"
+msgstr "@strong{{name}}"
 
 #: tp/Texinfo/Convert/HTML.pm:4414 tp/Texinfo/Convert/HTML.pm:4432
-#, fuzzy, perl-brace-format
-#| msgid "{category} on {class}"
+#, perl-brace-format
 msgid "{category}:@* "
-msgstr "{category} na {class}"
+msgstr "{category}:@* "
 
 #: tp/Texinfo/Convert/HTML.pm:4417
-#, fuzzy, perl-brace-format
-#| msgid "{category}:@* @emph{{type}}@* @strong{{name}} @emph{{arguments}}"
+#, perl-brace-format
 msgid "@emph{{type}}@* @strong{{name}} @emph{{arguments}}"
-msgstr "{category}:@* @emph{{type}}@* @strong{{name}} @emph{{arguments}}"
+msgstr "@emph{{type}}@* @strong{{name}} @emph{{arguments}}"
 
 #: tp/Texinfo/Convert/HTML.pm:4421
-#, fuzzy, perl-brace-format
-#| msgid "{category}: @emph{{type}} @strong{{name}} @emph{{arguments}}"
+#, perl-brace-format
 msgid "@emph{{type}} @strong{{name}} @emph{{arguments}}"
-msgstr "{category}: @emph{{type}} @strong{{name}} @emph{{arguments}}"
+msgstr "@emph{{type}} @strong{{name}} @emph{{arguments}}"
 
 #: tp/Texinfo/Convert/HTML.pm:4435
-#, fuzzy, perl-brace-format
-#| msgid "{category}: @emph{{type}} @strong{{name}}"
+#, perl-brace-format
 msgid "@emph{{type}} @strong{{name}}"
-msgstr "{category}: @emph{{type}} @strong{{name}}"
+msgstr "@emph{{type}} @strong{{name}}"
 
 #: tp/Texinfo/Convert/HTML.pm:4445
 #, perl-brace-format
@@ -824,7 +817,7 @@ msgstr "Este documento foi gerado em @emph{@today{}}."
 
 #: tp/Texinfo/Convert/HTML.pm:6620
 msgid "JavaScript license information"
-msgstr ""
+msgstr "Informação da licença Javascript"
 
 #: tp/Texinfo/Convert/HTML.pm:6656
 #, perl-brace-format
@@ -909,15 +902,12 @@ msgstr "Sub-secção um-quatro"
 msgid "Untitled Document"
 msgstr "Documento sem nome"
 
-#, perl-brace-format
 #~ msgid "see section {reference_name}"
 #~ msgstr "veja a secção {reference_name}"
 
-#, perl-brace-format
 #~ msgid "See section {reference_name}"
 #~ msgstr "Veja a secção {reference_name}"
 
-#, perl-brace-format
 #~ msgid "{category}:@* @emph{{type}}@* @strong{{name}}"
 #~ msgstr "{category}:@* @emph{{type}}@* @strong{{name}}"
 

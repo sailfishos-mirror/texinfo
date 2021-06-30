@@ -1,14 +1,14 @@
 # Polish translation for texinfo_document
-# Copyright (C) 2013, 2017 Free Software Foundation, Inc.
+# Copyright (C) 2013, 2017, 2021 Free Software Foundation, Inc.
 # This file is distributed under the same license as the texinfo package.
-# Jakub Bogusz <qboosh@pld-linux.org>, 2013-2017.
+# Jakub Bogusz <qboosh@pld-linux.org>, 2013-2021.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: texinfo_document 6.4.90\n"
+"Project-Id-Version: texinfo_document 6.7.91\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
 "POT-Creation-Date: 2021-06-15 21:06+0100\n"
-"PO-Revision-Date: 2017-07-11 22:19+0200\n"
+"PO-Revision-Date: 2021-06-16 21:01+0200\n"
 "Last-Translator: Jakub Bogusz <qboosh@pld-linux.org>\n"
 "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
 "Language: pl\n"
@@ -700,46 +700,39 @@ msgid "Section"
 msgstr "Sekcja"
 
 #: tp/Texinfo/Convert/HTML.pm:4371
-#, fuzzy, perl-brace-format
-#| msgid "{category} on {class}"
+#, perl-brace-format
 msgid "{category}: "
-msgstr "{category} dla klasy {class}"
+msgstr "{category}: "
 
 #: tp/Texinfo/Convert/HTML.pm:4393
-#, fuzzy, perl-brace-format
-#| msgid "{category}: @strong{{name}} @emph{{arguments}}"
+#, perl-brace-format
 msgid "@strong{{name}} @emph{{arguments}}"
-msgstr "{category}: @strong{{name}} @emph{{arguments}}"
+msgstr "@strong{{name}} @emph{{arguments}}"
 
 #: tp/Texinfo/Convert/HTML.pm:4397
-#, fuzzy, perl-brace-format
-#| msgid "{category}: @strong{{name}}"
+#, perl-brace-format
 msgid "@strong{{name}}"
-msgstr "{category}: @strong{{name}}"
+msgstr "@strong{{name}}"
 
 #: tp/Texinfo/Convert/HTML.pm:4414 tp/Texinfo/Convert/HTML.pm:4432
-#, fuzzy, perl-brace-format
-#| msgid "{category} on {class}"
+#, perl-brace-format
 msgid "{category}:@* "
-msgstr "{category} dla klasy {class}"
+msgstr "{category}:@* "
 
 #: tp/Texinfo/Convert/HTML.pm:4417
-#, fuzzy, perl-brace-format
-#| msgid "{category}:@* @emph{{type}}@* @strong{{name}} @emph{{arguments}}"
+#, perl-brace-format
 msgid "@emph{{type}}@* @strong{{name}} @emph{{arguments}}"
-msgstr "{category}:@* @emph{{type}}@* @strong{{name}} @emph{{arguments}}"
+msgstr "@emph{{type}}@* @strong{{name}} @emph{{arguments}}"
 
 #: tp/Texinfo/Convert/HTML.pm:4421
-#, fuzzy, perl-brace-format
-#| msgid "{category}: @emph{{type}} @strong{{name}} @emph{{arguments}}"
+#, perl-brace-format
 msgid "@emph{{type}} @strong{{name}} @emph{{arguments}}"
-msgstr "{category}: @emph{{type}} @strong{{name}} @emph{{arguments}}"
+msgstr "@emph{{type}} @strong{{name}} @emph{{arguments}}"
 
 #: tp/Texinfo/Convert/HTML.pm:4435
-#, fuzzy, perl-brace-format
-#| msgid "{category}: @emph{{type}} @strong{{name}}"
+#, perl-brace-format
 msgid "@emph{{type}} @strong{{name}}"
-msgstr "{category}: @emph{{type}} @strong{{name}}"
+msgstr "@emph{{type}} @strong{{name}}"
 
 #: tp/Texinfo/Convert/HTML.pm:4445
 #, perl-brace-format
@@ -825,7 +818,7 @@ msgstr "Ten dokument został wygenerowany @emph{@today{}}."
 
 #: tp/Texinfo/Convert/HTML.pm:6620
 msgid "JavaScript license information"
-msgstr ""
+msgstr "Informacje o licencji JavaScriptu"
 
 #: tp/Texinfo/Convert/HTML.pm:6656
 #, perl-brace-format
@@ -910,15 +903,3 @@ msgstr "Podsekcja Jeden-Cztery"
 #: tp/Texinfo/Convert/HTML.pm:7463
 msgid "Untitled Document"
 msgstr "Dokument bez tytułu"
-
-#, perl-brace-format
-#~ msgid "see section {reference_name}"
-#~ msgstr "p. sekcja {reference_name}"
-
-#, perl-brace-format
-#~ msgid "See section {reference_name}"
-#~ msgstr "P. sekcja {reference_name}"
-
-#, perl-brace-format
-#~ msgid "{category}:@* @emph{{type}}@* @strong{{name}}"
-#~ msgstr "{category}:@* @emph{{type}}@* @strong{{name}}"

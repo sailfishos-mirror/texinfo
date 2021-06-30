@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: texinfo 6.6.90\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2021-06-15 21:06+0100\n"
+"POT-Creation-Date: 2021-06-30 15:10+0100\n"
 "PO-Revision-Date: 2019-08-20 15:18+0200\n"
 "Last-Translator: Sebastian Rasmussen <sebras@gmail.com>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
@@ -2114,7 +2114,7 @@ msgid "    --top                   top for the main manual"
 msgstr ""
 
 #: Pod-Simple-Texinfo/pod2texi.pl:127
-msgid "    --unnumbered-sections   use unumbered sections"
+msgid "    --unnumbered-sections   do not number sections"
 msgstr ""
 
 #: Pod-Simple-Texinfo/pod2texi.pl:128
@@ -2135,13 +2135,12 @@ msgstr "kunde inte skapa katalogen ”%s”: %s"
 #: Pod-Simple-Texinfo/pod2texi.pl:197
 #, fuzzy, perl-format
 #| msgid "%s: missing file argument.\n"
-msgid "%s: missing file argument;\n"
+msgid "%s: missing file argument\n"
 msgstr "%s: filargument saknas.\n"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:198
-#, fuzzy, perl-format
-#| msgid "Try `%s --help' for more information.\n"
-msgid "try `%s --help' for more information\n"
+#: Pod-Simple-Texinfo/pod2texi.pl:198 tp/texi2any.pl:1149
+#, perl-format
+msgid "Try `%s --help' for more information.\n"
 msgstr "Prova ”%s --help” för mer information.\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:219
@@ -3798,11 +3797,6 @@ msgstr "hoppar över uppdelning för format %s"
 #, perl-format
 msgid "%s: missing file argument.\n"
 msgstr "%s: filargument saknas.\n"
-
-#: tp/texi2any.pl:1149
-#, perl-format
-msgid "Try `%s --help' for more information.\n"
-msgstr "Prova ”%s --help” för mer information.\n"
 
 #: tp/texi2any.pl:1216
 msgid "fill_gaps_in_sectioning transformation return no result. No section?"

@@ -2,7 +2,7 @@
 # Copyright (C) 1997 Free Software Foundation, Inc.
 # This file is distributed under the same license as the texinfo package.
 # Vladimir Michl <Vladimir.Michl@seznam.cz>, 1997.
-# Petr Pisar <petr.pisar@atlas.cz>, 2014, 2015, 2016, 2017, 2018, 2019.
+# Petr Pisar <petr.pisar@atlas.cz>, 2014, 2015, 2016, 2017, 2018, 2019, 2021.
 #
 # Note: 2 messages untranslated, it's ok.
 # gnulib messages copied from gnulib-3.0.0.6062.a6b16.
@@ -17,10 +17,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: texinfo 6.6.90\n"
+"Project-Id-Version: texinfo 6.7.91\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2021-06-15 21:06+0100\n"
-"PO-Revision-Date: 2019-08-20 20:35+02:00\n"
+"POT-Creation-Date: 2021-06-30 15:10+0100\n"
+"PO-Revision-Date: 2021-06-22 20:58+02:00\n"
 "Last-Translator: Petr Pisar <petr.pisar@atlas.cz>\n"
 "Language-Team: Czech <translation-team-cs@lists.sourceforge.net>\n"
 "Language: cs\n"
@@ -1999,10 +1999,8 @@ msgid "no entries found for `%s'; nothing deleted"
 msgstr "pro „%s“ nebyly nalezeny žádné položky"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:104
-#, fuzzy
-#| msgid "Usage: %s [OPTION]... FILE...\n"
 msgid "Usage: pod2texi [OPTION]... POD..."
-msgstr "Použití: %s [PŘEPÍNAČ]… SOUBOR…\n"
+msgstr "Použití: pod2texi [PŘEPÍNAČ]… POD…"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:106
 msgid ""
@@ -2015,91 +2013,101 @@ msgid ""
 "C<@include>s is generated, intended to be C<@include>d in turn within\n"
 "a hand-written top-level file."
 msgstr ""
+"Překládá perlové dokumentační soubory POD do Texinfa. Existují dva základní\n"
+"způsoby použití. První, a výchozí, přeloží každý POD to samostatného\n"
+"manuálu Texinfa.\n"
+"\n"
+"Druhý, je-li C<--base-level> nastaveno výše než 0, přeloží každý POD do\n"
+"samostatného souboru vhodného pro začlenění příkazem C<@include> a jednoho\n"
+"dalšího souboru obsahující všechny tyto příkazy C<@include> určeného pro\n"
+"vložení pomocí C<@include> do ručně psaného vrcholového souboru."
 
 #: Pod-Simple-Texinfo/pod2texi.pl:115
 msgid ""
 "Options:\n"
 "    --appendix-sections     use appendix-like sections"
 msgstr ""
+"Přepínače:\n"
+"    --appendix-sections     použije oddíly podobné přílohám"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:117
 msgid "    --base-level=NUM|NAME   level of the head1 commands; default 0"
-msgstr ""
+msgstr "    --base-level=ČÍSLO|NÁZEV  úroveň příkazů head1, výchozí je 0"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:118
 msgid "    --debug=NUM             set debugging level"
-msgstr ""
+msgstr "    --debug=ČÍSLO           nastaví úroveň ladění"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:119
-#, fuzzy
-#| msgid " -h, --help   display this help and exit"
 msgid "    --help                  display this help and exit"
-msgstr " -h, --help   vypíše tuto nápovědu a skončí"
+msgstr "    --help                  vypíše tuto nápovědu a skončí"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:120
 msgid "    --no-fill-section-gaps  do not fill sectioning gaps"
-msgstr ""
+msgstr "    --no-fill-section-gaps  nevyplňuje mezery mezi oddíly"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:121
 msgid "    --no-section-nodes      use anchors for sections instead of nodes"
-msgstr ""
+msgstr "    --no-section-nodes      pro oddíly použije kotvy namísto uzlů"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:122
 msgid ""
 "    --output=NAME           output to NAME for the first or main manual\n"
 "                            instead of standard output"
 msgstr ""
+"    --output=NÁZEV          první nebo hlavní manuál vypíše do NÁZVU "
+"namísto\n"
+"                            na standardní výstup"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:124
 msgid "    --preamble=STR          insert STR as beginning boilerplate"
-msgstr ""
+msgstr "    --preamble=ŘETĚZEC      vloží ŘETĚZEC jako zahajující hlavičku"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:125
 msgid ""
 "    --subdir=NAME           put files included in the main manual in NAME"
 msgstr ""
+"    --subdir=NÁZEV          vloží soubory zahrnuté v hlavním manuálu do NÁZVU"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:126
 msgid "    --top                   top for the main manual"
-msgstr ""
+msgstr "    --top                   vrcholový uzel hlavního manuálu"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:127
-msgid "    --unnumbered-sections   use unumbered sections"
-msgstr ""
+#, fuzzy
+#| msgid "    --unnumbered-sections   use unumbered sections"
+msgid "    --unnumbered-sections   do not number sections"
+msgstr "    --unumbered-sections    nečísluje oddíly"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:128
-#, fuzzy
-#| msgid " --version    display version information and exit"
 msgid "    --version               display version information and exit"
-msgstr " --version    zobrazí údaje o verzi a skončí"
+msgstr "    --version               zobrazí údaje o verzi a skončí"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:162
 #, perl-format
 msgid "%s: wrong argument for --base-level\n"
-msgstr ""
+msgstr "%s: chybný argument u --base-level\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:182
-#, fuzzy, perl-format
-#| msgid "could not create directory `%s': %s"
+#, perl-format
 msgid "%s: could not create directory %s: %s"
-msgstr "adresář „%s“ nebylo možno vytvořit: %s"
+msgstr "%s: adresář %s nebylo možno vytvořit: %s"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:197
 #, fuzzy, perl-format
-#| msgid "%s: missing file argument.\n"
-msgid "%s: missing file argument;\n"
-msgstr "%s: chybí argument jména souboru.\n"
+#| msgid "%s: missing file argument;\n"
+msgid "%s: missing file argument\n"
+msgstr "%s: chybí argument se jménem souboru,\n"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:198
-#, fuzzy, perl-format
-#| msgid "Try `%s --help' for more information.\n"
-msgid "try `%s --help' for more information\n"
+#: Pod-Simple-Texinfo/pod2texi.pl:198 tp/texi2any.pl:1149
+#, perl-format
+msgid "Try `%s --help' for more information.\n"
 msgstr "Více informací získáte příkazem „%s --help“.\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:219
 #, perl-format
 msgid "%s: ignoring %s without content\n"
-msgstr ""
+msgstr "%s: ignoruje se %s bez obsahu\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:354 Pod-Simple-Texinfo/pod2texi.pl:433
 #: tp/texi2any.pl:1385 tp/texi2any.pl:1419
@@ -2108,10 +2116,9 @@ msgid "%s: could not open %s for writing: %s\n"
 msgstr "%s: %s nebylo možné otevřít pro zápis: %s\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:382
-#, fuzzy, perl-format
-#| msgid "@%s: could not open %s: %s"
+#, perl-format
 msgid "%s: could not open %s: %s\n"
-msgstr "@%s: nebylo možné otevřít %s: %s"
+msgstr "%s: nebylo možné otevřít %s: %s\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:395 Pod-Simple-Texinfo/pod2texi.pl:476
 #: tp/texi2any.pl:1356 tp/texi2any.pl:1432
@@ -2122,19 +2129,17 @@ msgstr "%s: chyba při zavírání %s: %s\n"
 #: Pod-Simple-Texinfo/pod2texi.pl:402
 #, perl-format
 msgid "%s: removing %s as input file %s has no content\n"
-msgstr ""
+msgstr "%s: odstraňuje se %s, protože vstupní soubor %s nemá žádný obsah\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:419
-#, fuzzy, perl-format
-#| msgid "rename %s failed: %s"
+#, perl-format
 msgid "%s: rename %s failed: %s\n"
-msgstr "přejmenování %s selhalo: %s"
+msgstr "%s: přejmenování %s selhalo: %s\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:482
-#, fuzzy, perl-format
-#| msgid "%s: error on closing %s: %s\n"
+#, perl-format
 msgid "%s: error on closing stdout: %s\n"
-msgstr "%s: chyba při zavírání %s: %s\n"
+msgstr "%s: chyba při zavírání standardního výstupu: %s\n"
 
 #: tp/DebugTexinfo/DebugTree.pm:63 tp/Texinfo/Convert/Converter.pm:782
 #: tp/Texinfo/Convert/Converter.pm:820 tp/Texinfo/Convert/Converter.pm:1095
@@ -2302,10 +2307,9 @@ msgid "no htmlxref.cnf entry found for `%s'"
 msgstr "pro „%s“ nenalezena žádná položka htmlxref.cnf"
 
 #: tp/Texinfo/Convert/HTML.pm:6721
-#, fuzzy, perl-format
-#| msgid "@%s not meaningful inside @%s block"
+#, perl-format
 msgid "%s not meaningful for non-split output"
-msgstr "@%s nemá smysl uvnitř bloku @%s"
+msgstr "%s nemá smysl pro nedělený výstup"
 
 #: tp/Texinfo/Convert/HTML.pm:7050
 #, perl-format
@@ -2313,6 +2317,8 @@ msgid ""
 "cannot use absolute path or URL `%s' for JS_WEBLABELS_FILE when generating "
 "web labels file"
 msgstr ""
+"když se vytváří soubor s webovými jmenovkami, absolutní cestu nebo URL „%s“ "
+"nelze pro JS_WEBLABELS_FILE použít"
 
 #: tp/Texinfo/Convert/HTML.pm:7115
 #, perl-format
@@ -2336,13 +2342,12 @@ msgstr "je třeba určit název pomocí příkazu title nebo @top"
 #: tp/Texinfo/Convert/HTML.pm:7682
 #, perl-format
 msgid "%s already exists but is not a directory"
-msgstr ""
+msgstr "%s již existuje, ale nejedná se o adresář"
 
 #: tp/Texinfo/Convert/HTML.pm:7701
-#, fuzzy, perl-format
-#| msgid "error on closing %s: %s"
+#, perl-format
 msgid "error on copying %s into %s"
-msgstr "chyba při zavírání %s: %s"
+msgstr "chyba při kopírování %s do %s"
 
 #: tp/Texinfo/Convert/HTML.pm:7762
 #, perl-format
@@ -3111,16 +3116,14 @@ msgid "@%s entry node name `%s' different from %s name `%s'"
 msgstr "název uzlu položky @%s „%s“ se liší od %s názvu „%s“"
 
 #: tp/Texinfo/Structuring.pm:442
-#, fuzzy, perl-format
-#| msgid "node `%s' has been referenced %d times"
+#, perl-format
 msgid "node `%s' unreferenced"
-msgstr "na uzel „%s“ se bylo odkazováno %d krát"
+msgstr "na uzel „%s“ se neodkazuje"
 
 #: tp/Texinfo/Structuring.pm:599
-#, fuzzy, perl-format
-#| msgid "node `%s' is %s for `%s' in sectioning but not in menu"
+#, perl-format
 msgid "node %s for `%s' is `%s' in sectioning but not in menu"
-msgstr "uzel „%s“ je %s pro „%s“ v oddílech, ale ne v nabídce"
+msgstr "uzel %s pro „%s“ je „%s“ v oddílech, ale ne v nabídce"
 
 #: tp/Texinfo/Structuring.pm:617
 #, perl-format
@@ -3128,10 +3131,9 @@ msgid "node `%s' is %s for `%s' in menu but not in sectioning"
 msgstr "uzel „%s“ je %s pro „%s“ v nabídce ale ne v oddílech"
 
 #: tp/Texinfo/Structuring.pm:659
-#, fuzzy, perl-format
-#| msgid "node `%s' is %s for `%s' in sectioning but not in menu"
+#, perl-format
 msgid "node %s pointer for `%s' is `%s' but %s is `%s' in menu"
-msgstr "uzel „%s“ je %s pro „%s“ v oddílech, ale ne v nabídce"
+msgstr "ukazatel uzlu %s pro „%s“ je „%s“, ale %s je v nabídce „%s“"
 
 #: tp/Texinfo/Structuring.pm:680
 #, perl-format
@@ -3266,10 +3268,9 @@ msgid "tex4ht.pm: command failed: %s"
 msgstr "tex4ht.pm: příkaz selhal: %s"
 
 #: tp/init/tex4ht.pm:279
-#, fuzzy, perl-format
-#| msgid "tex4ht.pm: command failed: %s"
+#, perl-format
 msgid "tex4ht.pm: closing communication failed: %s: %s"
-msgstr "tex4ht.pm: příkaz selhal: %s"
+msgstr "tex4ht.pm: uzavření komunikace selhalo: %s: %s"
 
 #: tp/init/tex4ht.pm:314
 #, perl-format
@@ -3300,27 +3301,24 @@ msgstr ""
 "nalezených v dokumentu pro @%s"
 
 #: tp/init/highlight_syntax.pm:58
-#, fuzzy, perl-format
-#| msgid "tex4ht.pm: command failed: %s"
+#, perl-format
 msgid "highlight_syntax.pm: command failed: %s"
-msgstr "tex4ht.pm: příkaz selhal: %s"
+msgstr "highlight_syntax.pm: příkaz selhal: %s"
 
 #: tp/init/highlight_syntax.pm:69
 #, perl-format
 msgid "highlight_syntax.pm: %s: %s: cannot parse language line"
-msgstr ""
+msgstr "highlight_syntax.pm: %s: %s: nelze rozebrat řádek s jazykem"
 
 #: tp/init/highlight_syntax.pm:170 tp/init/highlight_syntax.pm:227
-#, fuzzy, perl-format
-#| msgid "tex4ht.pm: could not open %s: %s"
+#, perl-format
 msgid "highlight_syntax.pm: could not open %s: %s"
-msgstr "tex4ht.pm: %s nebylo možné otevřít: %s"
+msgstr "highlight_syntax.pm: %s nebylo možné otevřít: %s"
 
 #: tp/init/highlight_syntax.pm:219
-#, fuzzy, perl-format
-#| msgid "l2h: command did not succeed: %s"
+#, perl-format
 msgid "highlight_syntax.pm: command did not succeed: %s"
-msgstr "l2h: příkaz neuspěl: %s"
+msgstr "highlight_syntax.pm: příkaz neuspěl: %s"
 
 #: tp/init/highlight_syntax.pm:259
 #, perl-format
@@ -3328,36 +3326,32 @@ msgid ""
 "highlight_syntax.pm: %s: %d separators; expected %d, the number of fragments "
 "+1"
 msgstr ""
+"highlight_syntax.pm: %s: %d oddělovačů, očekáváno %d, počet fragmentů + 1"
 
 #: tp/init/highlight_syntax.pm:267
-#, fuzzy, perl-format
-#| msgid "tex4ht.pm: end of @%s item %d not found"
+#, perl-format
 msgid "highlight_syntax.pm: %s: end of @%s item %d not found"
-msgstr "tex4ht.pm: konec @%s položky %d nenalezen"
+msgstr "highlight_syntax.pm: %s: konec @%s položky %d nenalezen"
 
 #: tp/init/highlight_syntax.pm:272
-#, fuzzy, perl-format
-#| msgid ""
-#| "latex2html.pm: processing produced %d items in HTML; expected %d, the "
-#| "number of items found in the document"
+#, perl-format
 msgid ""
 "highlight_syntax.pm: %s: processing produced %d items in HTML; expected %d, "
 "the number found in the document"
 msgstr ""
-"latex2html.pm: zpracování vyrobilo %d položek v HTML; očekáváno %d, počet "
-"položek nalezených v dokumentu"
+"highlight_syntax.pm: %s: zpracování vyrobilo %d položek v HTML; očekáváno "
+"%d, počet položek nalezených v dokumentu"
 
 #: tp/init/highlight_syntax.pm:292
-#, fuzzy, perl-format
-#| msgid "tex4ht.pm: output has no HTML item for @%s %s"
+#, perl-format
 msgid "highlight_syntax.pm: output has HTML item for @%s but no language %s"
-msgstr "tex4ht.pm: výstup nemá žádnou HTML položku pro @%s %s"
+msgstr ""
+"highlight_syntax.pm: výstup má HTML položku pro @%s, ale žádný jazyk %s"
 
 #: tp/init/highlight_syntax.pm:339
-#, fuzzy, perl-format
-#| msgid "tex4ht.pm: output has no HTML item for @%s %s"
+#, perl-format
 msgid "highlight_syntax.pm: output has no HTML item for @%s %s %s"
-msgstr "tex4ht.pm: výstup nemá žádnou HTML položku pro @%s %s"
+msgstr "highlight_syntax.pm: výstup nemá žádnou HTML položku pro @%s %s %s"
 
 #: tp/texi2any.pl:345
 #, perl-format
@@ -3737,11 +3731,6 @@ msgstr "dělení u formátu %s se ignoruje"
 msgid "%s: missing file argument.\n"
 msgstr "%s: chybí argument jména souboru.\n"
 
-#: tp/texi2any.pl:1149
-#, perl-format
-msgid "Try `%s --help' for more information.\n"
-msgstr "Více informací získáte příkazem „%s --help“.\n"
-
 #: tp/texi2any.pl:1216
 msgid "fill_gaps_in_sectioning transformation return no result. No section?"
 msgstr ""
@@ -3970,6 +3959,10 @@ msgstr "@dotless vyžaduje jako argument „i“ nebo „j“, ne „%s“"
 msgid "misplaced }"
 msgstr "špatně umístěný znak }"
 
+#, perl-format
+#~ msgid "try `%s --help' for more information\n"
+#~ msgstr "více informací získáte příkazem „%s --help“\n"
+
 #~ msgid ""
 #~ "move your @contents command if you want the contents after the title page"
 #~ msgstr "přesune příkaz @contents, chcete-li obsah za stránkou s nadpisem"
@@ -3981,7 +3974,6 @@ msgstr "špatně umístěný znak }"
 #~ "přesune příkazy @shortcontents a @contents, chcete-li obsah za stránkou "
 #~ "s nadpisem"
 
-#, c-format, perl-format
 #~ msgid "@%s seen before first @node"
 #~ msgstr "@%s spatřeno před prvním @node"
 
@@ -3990,19 +3982,15 @@ msgstr "špatně umístěný znak }"
 #~ msgstr ""
 #~ "protože váš uzel @top by měl být uzavřen v @ifnottex spíše než v @ifinfo?"
 
-#, perl-format
 #~ msgid "unreferenced node `%s'"
 #~ msgstr "na uzel „%s“ nesměřuje žádný odkaz"
 
-#, perl-format
 #~ msgid "node %s `%s' in menu `%s' and in sectioning `%s' differ"
 #~ msgstr "uzel %s „%s“ v nabídce „%s“ se liší od toho v oddílech „%s“"
 
-#, perl-format
 #~ msgid "for `%s', up in menu `%s' and up `%s' don't match"
 #~ msgstr "u „%s“ nahoru v menu „%s“ a nahoru „%s“ se neshodují"
 
-#, c-format
 #~ msgid "undefined flag: %.*s"
 #~ msgstr "nedefinovaný příznak: %.*s"
 

@@ -2,14 +2,15 @@
 # Copyright (C) 2019 Free Software Foundation, Inc.
 # This file is distributed under the same license as the texinfo package.
 # Sebastian Rasmussen <sebras@gmail.com>, 2019.
+# Luna Jernberg <droidbittin@gmail.com>, 2021
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: GNU texinfo_document 6.5.90\n"
+"Project-Id-Version: GNU texinfo_document 6.7.91\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
 "POT-Creation-Date: 2021-06-15 21:06+0100\n"
-"PO-Revision-Date: 2019-04-19 05:41+0800\n"
-"Last-Translator: Sebastian Rasmussen <sebras@gmail.com>\n"
+"PO-Revision-Date: 2021-06-16 11:51+0200\n"
+"Last-Translator: Luna Jernberg <droidbittin@gmail.com>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
@@ -17,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Bugs: Report translation errors to the Language-Team address.\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.2.1\n"
+"X-Generator: Poedit 3.0\n"
 
 #: tp/Texinfo/Common.pm:788 tp/Texinfo/Common.pm:793
 msgid "Function"
@@ -702,46 +703,39 @@ msgid "Section"
 msgstr "Avsnitt"
 
 #: tp/Texinfo/Convert/HTML.pm:4371
-#, fuzzy, perl-brace-format
-#| msgid "{category} on {class}"
+#, perl-brace-format
 msgid "{category}: "
-msgstr "{category} på {class}"
+msgstr "{category}: "
 
 #: tp/Texinfo/Convert/HTML.pm:4393
-#, fuzzy, perl-brace-format
-#| msgid "{category}: @strong{{name}} @emph{{arguments}}"
+#, perl-brace-format
 msgid "@strong{{name}} @emph{{arguments}}"
-msgstr "{category}: @strong{{name}} @emph{{arguments}}"
+msgstr "@strong{{name}} @emph{{arguments}} "
 
 #: tp/Texinfo/Convert/HTML.pm:4397
-#, fuzzy, perl-brace-format
-#| msgid "{category}: @strong{{name}}"
+#, perl-brace-format
 msgid "@strong{{name}}"
-msgstr "{category}: @strong{{name}}"
+msgstr "@strong{{name}} "
 
 #: tp/Texinfo/Convert/HTML.pm:4414 tp/Texinfo/Convert/HTML.pm:4432
-#, fuzzy, perl-brace-format
-#| msgid "{category} on {class}"
+#, perl-brace-format
 msgid "{category}:@* "
-msgstr "{category} på {class}"
+msgstr "{category}:@*  "
 
 #: tp/Texinfo/Convert/HTML.pm:4417
-#, fuzzy, perl-brace-format
-#| msgid "{category}:@* @emph{{type}}@* @strong{{name}} @emph{{arguments}}"
+#, perl-brace-format
 msgid "@emph{{type}}@* @strong{{name}} @emph{{arguments}}"
-msgstr "{category}:@* @emph{{type}}@* @strong{{name}} @emph{{arguments}}"
+msgstr "@emph{{type}}@* @strong{{name}} @emph{{arguments}} "
 
 #: tp/Texinfo/Convert/HTML.pm:4421
-#, fuzzy, perl-brace-format
-#| msgid "{category}: @emph{{type}} @strong{{name}} @emph{{arguments}}"
+#, perl-brace-format
 msgid "@emph{{type}} @strong{{name}} @emph{{arguments}}"
-msgstr "{category}: @emph{{type}} @strong{{name}} @emph{{arguments}}"
+msgstr "@emph{{type}} @strong{{name}} @emph{{arguments}} "
 
 #: tp/Texinfo/Convert/HTML.pm:4435
-#, fuzzy, perl-brace-format
-#| msgid "{category}: @emph{{type}} @strong{{name}}"
+#, perl-brace-format
 msgid "@emph{{type}} @strong{{name}}"
-msgstr "{category}: @emph{{type}} @strong{{name}}"
+msgstr "@emph{{type}} @strong{{name}} "
 
 #: tp/Texinfo/Convert/HTML.pm:4445
 #, perl-brace-format
@@ -824,7 +818,7 @@ msgstr "Detta dokument genererades @emph{@today{}}."
 
 #: tp/Texinfo/Convert/HTML.pm:6620
 msgid "JavaScript license information"
-msgstr ""
+msgstr "JavaScript-licensinformation"
 
 #: tp/Texinfo/Convert/HTML.pm:6656
 #, perl-brace-format
@@ -910,14 +904,11 @@ msgstr "Underavsnitt Ett-Fyra"
 msgid "Untitled Document"
 msgstr "Namnlöst dokument"
 
-#, perl-brace-format
 #~ msgid "see section {reference_name}"
 #~ msgstr "se avsnitt {reference_name}"
 
-#, perl-brace-format
 #~ msgid "See section {reference_name}"
 #~ msgstr "Se avsnitt {reference_name}"
 
-#, perl-brace-format
 #~ msgid "{category}:@* @emph{{type}}@* @strong{{name}}"
 #~ msgstr "{category}:@* @emph{{type}}@* @strong{{name}}"

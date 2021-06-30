@@ -2,7 +2,7 @@
 # Copyright (C) 2015 Free Software Foundation, Inc.
 # This file is distributed under the same license as the texinfo package.
 # Based on Czech translation of texinfo-6.0.90.
-# Petr Pisar <petr.pisar@atlas.cz>, 2015, 2016, 2017.
+# Petr Pisar <petr.pisar@atlas.cz>, 2015, 2016, 2017, 2021.
 #
 # Note: 2 messages untranslated, it's ok.
 # gnulib messages copied from gnulib-3.0.0.6062.a6b16.
@@ -17,10 +17,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: texinfo_document 6.4.90\n"
+"Project-Id-Version: texinfo_document 6.7.91\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
 "POT-Creation-Date: 2021-06-15 21:06+0100\n"
-"PO-Revision-Date: 2017-07-11 17:01+02:00\n"
+"PO-Revision-Date: 2021-06-22 21:03+02:00\n"
 "Last-Translator: Petr Pisar <petr.pisar@atlas.cz>\n"
 "Language-Team: Czech <translation-team-cs@lists.sourceforge.net>\n"
 "Language: cs\n"
@@ -713,46 +713,39 @@ msgid "Section"
 msgstr "Oddíl"
 
 #: tp/Texinfo/Convert/HTML.pm:4371
-#, fuzzy, perl-brace-format
-#| msgid "{category} on {class}"
+#, perl-brace-format
 msgid "{category}: "
-msgstr "{category} na třídě {class}"
+msgstr "{category}: "
 
 #: tp/Texinfo/Convert/HTML.pm:4393
-#, fuzzy, perl-brace-format
-#| msgid "{category}: @strong{{name}} @emph{{arguments}}"
+#, perl-brace-format
 msgid "@strong{{name}} @emph{{arguments}}"
-msgstr "{category}: @strong{{name}} @emph{{arguments}}"
+msgstr "@strong{{name}} @emph{{arguments}}"
 
 #: tp/Texinfo/Convert/HTML.pm:4397
-#, fuzzy, perl-brace-format
-#| msgid "{category}: @strong{{name}}"
+#, perl-brace-format
 msgid "@strong{{name}}"
-msgstr "{category}: @strong{{name}}"
+msgstr "@strong{{name}}"
 
 #: tp/Texinfo/Convert/HTML.pm:4414 tp/Texinfo/Convert/HTML.pm:4432
-#, fuzzy, perl-brace-format
-#| msgid "{category} on {class}"
+#, perl-brace-format
 msgid "{category}:@* "
-msgstr "{category} na třídě {class}"
+msgstr "{category}:@* "
 
 #: tp/Texinfo/Convert/HTML.pm:4417
-#, fuzzy, perl-brace-format
-#| msgid "{category}:@* @emph{{type}}@* @strong{{name}} @emph{{arguments}}"
+#, perl-brace-format
 msgid "@emph{{type}}@* @strong{{name}} @emph{{arguments}}"
-msgstr "{category}:@* @emph{{type}}@* @strong{{name}} @emph{{arguments}}"
+msgstr "@emph{{type}}@* @strong{{name}} @emph{{arguments}}"
 
 #: tp/Texinfo/Convert/HTML.pm:4421
-#, fuzzy, perl-brace-format
-#| msgid "{category}: @emph{{type}} @strong{{name}} @emph{{arguments}}"
+#, perl-brace-format
 msgid "@emph{{type}} @strong{{name}} @emph{{arguments}}"
-msgstr "{category}: @emph{{type}} @strong{{name}} @emph{{arguments}}"
+msgstr "@emph{{type}} @strong{{name}} @emph{{arguments}}"
 
 #: tp/Texinfo/Convert/HTML.pm:4435
-#, fuzzy, perl-brace-format
-#| msgid "{category}: @emph{{type}} @strong{{name}}"
+#, perl-brace-format
 msgid "@emph{{type}} @strong{{name}}"
-msgstr "{category}: @emph{{type}} @strong{{name}}"
+msgstr "@emph{{type}} @strong{{name}}"
 
 #: tp/Texinfo/Convert/HTML.pm:4445
 #, perl-brace-format
@@ -837,7 +830,7 @@ msgstr "Tento dokument byl vytvořen @emph{@today{}}."
 
 #: tp/Texinfo/Convert/HTML.pm:6620
 msgid "JavaScript license information"
-msgstr ""
+msgstr "Údaje o licenci JavaScriptu"
 
 #: tp/Texinfo/Convert/HTML.pm:6656
 #, perl-brace-format
@@ -922,15 +915,12 @@ msgstr "Pododdíl Jedna-čtyři"
 msgid "Untitled Document"
 msgstr "Nepojmenovaný dokument"
 
-#, perl-brace-format
 #~ msgid "see section {reference_name}"
 #~ msgstr "vizte oddíl {reference_name}"
 
-#, perl-brace-format
 #~ msgid "See section {reference_name}"
 #~ msgstr "Vizte oddíl {reference_name}"
 
-#, perl-brace-format
 #~ msgid "{category}:@* @emph{{type}}@* @strong{{name}}"
 #~ msgstr "{category}:@* @emph{{type}}@* @strong{{name}}"
 

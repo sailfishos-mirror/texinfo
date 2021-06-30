@@ -4,13 +4,13 @@
 #
 # Myhailo Danylenko <isbear@ukrpost.net>, 2009.
 # Maxim V. Dziumanenko <dziumanenko@gmail.com>, 2010.
-# Yuri Chornoivan <yurchor@ukr.net>, 2013, 2015, 2016, 2017, 2019.
+# Yuri Chornoivan <yurchor@ukr.net>, 2013, 2015, 2016, 2017, 2019, 2021.
 msgid ""
 msgstr ""
-"Project-Id-Version: texinfo 6.6.90\n"
+"Project-Id-Version: texinfo 6.7.91\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2021-06-15 21:06+0100\n"
-"PO-Revision-Date: 2019-08-20 12:39+0300\n"
+"POT-Creation-Date: 2021-06-30 15:10+0100\n"
+"PO-Revision-Date: 2021-06-16 16:37+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -20,7 +20,7 @@ msgstr ""
 "X-Bugs: Report translation errors to the Language-Team address.\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 19.11.70\n"
+"X-Generator: Lokalize 20.12.0\n"
 
 #: gnulib/lib/error.c:195
 msgid "Unknown system error"
@@ -2000,10 +2000,8 @@ msgid "no entries found for `%s'; nothing deleted"
 msgstr "у `%s' записів не знайдено; нічого не вилучено"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:104
-#, fuzzy
-#| msgid "Usage: %s [OPTION]... FILE...\n"
 msgid "Usage: pod2texi [OPTION]... POD..."
-msgstr "Користування: %s [ПАРАМЕТР]... ФАЙЛ-TEXINFO...\n"
+msgstr "Користування: pod2texi [ПАРАМЕТР]... POD..."
 
 #: Pod-Simple-Texinfo/pod2texi.pl:106
 msgid ""
@@ -2016,91 +2014,105 @@ msgid ""
 "C<@include>s is generated, intended to be C<@include>d in turn within\n"
 "a hand-written top-level file."
 msgstr ""
+"Перетворює файли документації до Perl pod у формат Texinfo. Передбачено\n"
+"два основних режими роботи. У першому, типовому, кожен pod буде\n"
+"перетворено на окремий підручник Texinfo.\n"
+"\n"
+"У другому, якщо встановлено значення C<--base-level>, яке перевищує 0,\n"
+"кожен pod буде перетворено на файл, придатний для C<@include>, і буде\n"
+"створено додатковий файл із усіма C<@include>. Цей файл можна буде\n"
+"включити за допомогою C<@include> до написаного вручну файла верхнього\n"
+"рівня."
 
 #: Pod-Simple-Texinfo/pod2texi.pl:115
 msgid ""
 "Options:\n"
 "    --appendix-sections     use appendix-like sections"
 msgstr ""
+"Параметри:\n"
+"    --appendix-sections     використовувати додаткоподібні розділи"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:117
 msgid "    --base-level=NUM|NAME   level of the head1 commands; default 0"
-msgstr ""
+msgstr "    --base-level=ЧИСЛО|НАЗВА рівень команд head1; типово 0"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:118
 msgid "    --debug=NUM             set debugging level"
-msgstr ""
+msgstr "    --debug=ЧИСЛО           встановити рівень діагностики"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:119
-#, fuzzy
-#| msgid " -h, --help   display this help and exit"
 msgid "    --help                  display this help and exit"
-msgstr " -h, --help     вивести довідку і завершити роботу"
+msgstr "    --help                  вивести цю довідку і вийти"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:120
 msgid "    --no-fill-section-gaps  do not fill sectioning gaps"
-msgstr ""
+msgstr "    --no-fill-section-gaps  не заповнювати проміжки поділу на розділи"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:121
 msgid "    --no-section-nodes      use anchors for sections instead of nodes"
 msgstr ""
+"    --no-section-nodes      використовувати прив'язки для розділів, а не для "
+"вузлів"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:122
 msgid ""
 "    --output=NAME           output to NAME for the first or main manual\n"
 "                            instead of standard output"
 msgstr ""
+"    --output=НАЗВА          вивести дані до файла НАЗВА для першого або "
+"основного\n"
+"                            підручника, замість стандартного виведення"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:124
 msgid "    --preamble=STR          insert STR as beginning boilerplate"
-msgstr ""
+msgstr "    --preamble=РЯДОК        вставити РЯДОК як початковий фрагмент"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:125
 msgid ""
 "    --subdir=NAME           put files included in the main manual in NAME"
 msgstr ""
+"    --subdir=НАЗВА          записати файли, включені до основного "
+"підручника, до каталогу НАЗВА"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:126
 msgid "    --top                   top for the main manual"
-msgstr ""
+msgstr "    --top                   верхній рівень основного підручника"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:127
-msgid "    --unnumbered-sections   use unumbered sections"
-msgstr ""
+#, fuzzy
+#| msgid "    --unnumbered-sections   use unumbered sections"
+msgid "    --unnumbered-sections   do not number sections"
+msgstr "    --unnumbered-sections   використовувати розділи без нумерації"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:128
-#, fuzzy
-#| msgid " --version    display version information and exit"
 msgid "    --version               display version information and exit"
-msgstr " --version    показати дані щодо версії і завершити роботу"
+msgstr "    --version               вивести дані щодо версії і вийти"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:162
 #, perl-format
 msgid "%s: wrong argument for --base-level\n"
-msgstr ""
+msgstr "%s: помилковий аргумент --base-level\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:182
-#, fuzzy, perl-format
-#| msgid "could not create directory `%s': %s"
+#, perl-format
 msgid "%s: could not create directory %s: %s"
-msgstr "не вдалося створити каталог «%s»: %s"
+msgstr "%s: не вдалося створити каталог %s: %s"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:197
 #, fuzzy, perl-format
-#| msgid "%s: missing file argument.\n"
-msgid "%s: missing file argument;\n"
-msgstr "%s: не вказано аргумент назви файлу.\n"
+#| msgid "%s: missing file argument;\n"
+msgid "%s: missing file argument\n"
+msgstr "%s: не вказано аргумент назви файла;\n"
 
-#: Pod-Simple-Texinfo/pod2texi.pl:198
-#, fuzzy, perl-format
-#| msgid "Try `%s --help' for more information.\n"
-msgid "try `%s --help' for more information\n"
+#: Pod-Simple-Texinfo/pod2texi.pl:198 tp/texi2any.pl:1149
+#, perl-format
+msgid "Try `%s --help' for more information.\n"
 msgstr "Спробуйте `%s --help', щоб отримати більше інформації.\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:219
 #, perl-format
 msgid "%s: ignoring %s without content\n"
-msgstr ""
+msgstr "%s: ігноруємо %s без вмісту\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:354 Pod-Simple-Texinfo/pod2texi.pl:433
 #: tp/texi2any.pl:1385 tp/texi2any.pl:1419
@@ -2109,10 +2121,9 @@ msgid "%s: could not open %s for writing: %s\n"
 msgstr "%s: не вдалося відкрити %s для запису даних: %s\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:382
-#, fuzzy, perl-format
-#| msgid "@%s: could not open %s: %s"
+#, perl-format
 msgid "%s: could not open %s: %s\n"
-msgstr "@%s: не вдалося відкрити %s: %s"
+msgstr "%s: не вдалося відкрити %s: %s\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:395 Pod-Simple-Texinfo/pod2texi.pl:476
 #: tp/texi2any.pl:1356 tp/texi2any.pl:1432
@@ -2124,18 +2135,17 @@ msgstr "%s: помилка під час спроби закрити %s: %s\n"
 #, perl-format
 msgid "%s: removing %s as input file %s has no content\n"
 msgstr ""
+"%s: вилучаємо %s, оскільки файл вхідних даних %s не містить придатних даних\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:419
-#, fuzzy, perl-format
-#| msgid "rename %s failed: %s"
+#, perl-format
 msgid "%s: rename %s failed: %s\n"
-msgstr "спроба перейменування %s зазнала невдачі: %s"
+msgstr "%s: не вдалося перейменувати %s: %s\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:482
-#, fuzzy, perl-format
-#| msgid "%s: error on closing %s: %s\n"
+#, perl-format
 msgid "%s: error on closing stdout: %s\n"
-msgstr "%s: помилка під час спроби закрити %s: %s\n"
+msgstr "%s: помилка під час спроби закрити stdout: %s\n"
 
 #: tp/DebugTexinfo/DebugTree.pm:63 tp/Texinfo/Convert/Converter.pm:782
 #: tp/Texinfo/Convert/Converter.pm:820 tp/Texinfo/Convert/Converter.pm:1095
@@ -2303,10 +2313,9 @@ msgid "no htmlxref.cnf entry found for `%s'"
 msgstr "не знайдено запису htmlxref.cnf для «%s»"
 
 #: tp/Texinfo/Convert/HTML.pm:6721
-#, fuzzy, perl-format
-#| msgid "@%s not meaningful inside @%s block"
+#, perl-format
 msgid "%s not meaningful for non-split output"
-msgstr "@%s не має сенсу усередині блоку %s"
+msgstr "%s не є змістовним для неподіленого виведення"
 
 #: tp/Texinfo/Convert/HTML.pm:7050
 #, perl-format
@@ -2314,6 +2323,8 @@ msgid ""
 "cannot use absolute path or URL `%s' for JS_WEBLABELS_FILE when generating "
 "web labels file"
 msgstr ""
+"не вдалося скористатися абсолютним шляхом або адресою «%s» для "
+"JS_WEBLABELS_FILE під час створення файла вебміток"
 
 #: tp/Texinfo/Convert/HTML.pm:7115
 #, perl-format
@@ -2337,13 +2348,12 @@ msgstr "слід вказати заголовок за допомогою ко�
 #: tp/Texinfo/Convert/HTML.pm:7682
 #, perl-format
 msgid "%s already exists but is not a directory"
-msgstr ""
+msgstr "%s вже існує, але не є каталогом"
 
 #: tp/Texinfo/Convert/HTML.pm:7701
-#, fuzzy, perl-format
-#| msgid "error on closing %s: %s"
+#, perl-format
 msgid "error on copying %s into %s"
-msgstr "помилка під час спроби закрити %s: %s"
+msgstr "помилка під час спроби копіювання %s до %s"
 
 #: tp/Texinfo/Convert/HTML.pm:7762
 #, perl-format
@@ -3129,13 +3139,12 @@ msgstr "назва вузла запису @%s, «%s», відрізняєтьс
 #: tp/Texinfo/Structuring.pm:442
 #, perl-format
 msgid "node `%s' unreferenced"
-msgstr ""
+msgstr "на вузол «%s» немає посилань"
 
 #: tp/Texinfo/Structuring.pm:599
-#, fuzzy, perl-format
-#| msgid "node `%s' is %s for `%s' in sectioning but not in menu"
+#, perl-format
 msgid "node %s for `%s' is `%s' in sectioning but not in menu"
-msgstr "вузол «%s» є вузлом %s для «%s» у структурі розділів, але не у меню"
+msgstr "вузлом %s для «%s» є «%s» у поділі на розділи, але не у меню"
 
 #: tp/Texinfo/Structuring.pm:617
 #, perl-format
@@ -3143,10 +3152,9 @@ msgid "node `%s' is %s for `%s' in menu but not in sectioning"
 msgstr "вузол «%s» є вузлом %s для «%s» у меню, але не у структурі розділів"
 
 #: tp/Texinfo/Structuring.pm:659
-#, fuzzy, perl-format
-#| msgid "node `%s' is %s for `%s' in sectioning but not in menu"
+#, perl-format
 msgid "node %s pointer for `%s' is `%s' but %s is `%s' in menu"
-msgstr "вузол «%s» є вузлом %s для «%s» у структурі розділів, але не у меню"
+msgstr "вказівником на вузол %s для «%s» є «%s», але %s у меню — «%s»"
 
 #: tp/Texinfo/Structuring.pm:680
 #, perl-format
@@ -3280,10 +3288,9 @@ msgid "tex4ht.pm: command failed: %s"
 msgstr "tex4ht.pm: помилка команди: %s"
 
 #: tp/init/tex4ht.pm:279
-#, fuzzy, perl-format
-#| msgid "tex4ht.pm: command failed: %s"
+#, perl-format
 msgid "tex4ht.pm: closing communication failed: %s: %s"
-msgstr "tex4ht.pm: помилка команди: %s"
+msgstr "tex4ht.pm: не вдалося завершити обмін даними: %s: %s"
 
 #: tp/init/tex4ht.pm:314
 #, perl-format
@@ -3314,27 +3321,24 @@ msgstr ""
 "записів, знайдених у документі для @%s"
 
 #: tp/init/highlight_syntax.pm:58
-#, fuzzy, perl-format
-#| msgid "tex4ht.pm: command failed: %s"
+#, perl-format
 msgid "highlight_syntax.pm: command failed: %s"
-msgstr "tex4ht.pm: помилка команди: %s"
+msgstr "highlight_syntax.pm: помилка команди: %s"
 
 #: tp/init/highlight_syntax.pm:69
 #, perl-format
 msgid "highlight_syntax.pm: %s: %s: cannot parse language line"
-msgstr ""
+msgstr "highlight_syntax.pm: %s: %s: не вдалося обробити рядок мови"
 
 #: tp/init/highlight_syntax.pm:170 tp/init/highlight_syntax.pm:227
-#, fuzzy, perl-format
-#| msgid "tex4ht.pm: could not open %s: %s"
+#, perl-format
 msgid "highlight_syntax.pm: could not open %s: %s"
-msgstr "tex4ht.pm: не вдалося відкрити %s: %s"
+msgstr "highlight_syntax.pm: не вдалося відкрити %s: %s"
 
 #: tp/init/highlight_syntax.pm:219
-#, fuzzy, perl-format
-#| msgid "l2h: command did not succeed: %s"
+#, perl-format
 msgid "highlight_syntax.pm: command did not succeed: %s"
-msgstr "l2h: не вдалося успішно виконати команду: %s"
+msgstr "highlight_syntax.pm: не вдалося успішно виконати команду: %s"
 
 #: tp/init/highlight_syntax.pm:259
 #, perl-format
@@ -3342,36 +3346,34 @@ msgid ""
 "highlight_syntax.pm: %s: %d separators; expected %d, the number of fragments "
 "+1"
 msgstr ""
+"highlight_syntax.pm: %s: %d роздільників; мало бути %d, кількість фрагментів "
+"+1"
 
 #: tp/init/highlight_syntax.pm:267
-#, fuzzy, perl-format
-#| msgid "tex4ht.pm: end of @%s item %d not found"
+#, perl-format
 msgid "highlight_syntax.pm: %s: end of @%s item %d not found"
-msgstr "tex4ht.pm: не знайдено завершення запису @%s з номером %d"
+msgstr "highlight_syntax.pm: %s: не знайдено кінця @%s, запис %d"
 
 #: tp/init/highlight_syntax.pm:272
-#, fuzzy, perl-format
-#| msgid ""
-#| "latex2html.pm: processing produced %d items in HTML; expected %d, the "
-#| "number of items found in the document"
+#, perl-format
 msgid ""
 "highlight_syntax.pm: %s: processing produced %d items in HTML; expected %d, "
 "the number found in the document"
 msgstr ""
-"latex2html.pm: обробляємо створені %d записів у HTML; мало бути %d, "
-"кількість записів, знайдених у документі"
+"highlight_syntax.pm: %s: у результаті обробки отримано %d записів у HTML; "
+"мало бути %d, кількість знайдених у документі"
 
 #: tp/init/highlight_syntax.pm:292
-#, fuzzy, perl-format
-#| msgid "tex4ht.pm: output has no HTML item for @%s %s"
+#, perl-format
 msgid "highlight_syntax.pm: output has HTML item for @%s but no language %s"
-msgstr "tex4ht.pm: у виведених даних немає запису HTML для @%s %s"
+msgstr ""
+"highlight_syntax.pm: виведені дані містять запис HTML для @%s, але немає "
+"мови %s"
 
 #: tp/init/highlight_syntax.pm:339
-#, fuzzy, perl-format
-#| msgid "tex4ht.pm: output has no HTML item for @%s %s"
+#, perl-format
 msgid "highlight_syntax.pm: output has no HTML item for @%s %s %s"
-msgstr "tex4ht.pm: у виведених даних немає запису HTML для @%s %s"
+msgstr "highlight_syntax.pm: у виведених даних немає запису HTML для @%s %s %s"
 
 #: tp/texi2any.pl:345
 #, perl-format
@@ -3767,11 +3769,6 @@ msgstr "ігноруємо поділ для формату %s"
 msgid "%s: missing file argument.\n"
 msgstr "%s: не вказано аргумент назви файлу.\n"
 
-#: tp/texi2any.pl:1149
-#, perl-format
-msgid "Try `%s --help' for more information.\n"
-msgstr "Спробуйте `%s --help', щоб отримати більше інформації.\n"
-
 #: tp/texi2any.pl:1216
 msgid "fill_gaps_in_sectioning transformation return no result. No section?"
 msgstr ""
@@ -4003,6 +4000,10 @@ msgstr "@dotless потрібен аргумент «i» або «j», але н
 msgid "misplaced }"
 msgstr "неправильно розташована }"
 
+#, perl-format
+#~ msgid "try `%s --help' for more information\n"
+#~ msgstr "спробуйте `%s --help', щоб отримати більше інформації\n"
+
 #~ msgid ""
 #~ "move your @contents command if you want the contents after the title page"
 #~ msgstr ""
@@ -4015,7 +4016,6 @@ msgstr "неправильно розташована }"
 #~ "пересуньте команди @shortcontents і @contents, якщо після титульної "
 #~ "сторінки має бути текст"
 
-#, c-format, perl-format
 #~ msgid "@%s seen before first @node"
 #~ msgstr "@%s розташовано перед першим @node"
 
@@ -4025,22 +4025,18 @@ msgstr "неправильно розташована }"
 #~ "мабуть, ваш вузол @top повинен бути обгорнутий у @ifnottex замість "
 #~ "@ifinfo?"
 
-#, perl-format
 #~ msgid "unreferenced node `%s'"
 #~ msgstr "вузол, на який нема посилань `%s'"
 
-#, perl-format
 #~ msgid "node %s `%s' in menu `%s' and in sectioning `%s' differ"
 #~ msgstr ""
 #~ "виявлено відмінності у записах вузла %s «%s» у меню «%s» і у структурі "
 #~ "розділів «%s»"
 
-#, perl-format
 #~ msgid "for `%s', up in menu `%s' and up `%s' don't match"
 #~ msgstr ""
 #~ "для «%s», вгору меню «%s» і вгору «%s» відрізняються один від одного"
 
-#, c-format
 #~ msgid "undefined flag: %.*s"
 #~ msgstr "невідомий прапорець: %.*s"
 
