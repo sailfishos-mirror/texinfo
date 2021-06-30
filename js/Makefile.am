@@ -46,7 +46,6 @@ endif
 .PHONY: $(phony)
 EXTRA_DIST =
 
-EXTRA_DIST += INSTALL
 
 jsdir=$(pkgdatadir)/js
 
