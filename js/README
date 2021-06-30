@@ -1,21 +1,12 @@
 This subdirectory contains a JavaScript system used to browse the HTML 
 output of texi2any.  This work was done by Matthieu Lirzin in 2017.
 
-See INSTALL for generic installation instructions.
-
-See COPYING for copying conditions.
-
 See https://www.gnu.org/software/soc-projects/ideas-2017.html#texinfo
 and http://mathieu.lirzin.emi.u-bordeaux.fr/categories/gsoc/ for some
 background information.
 
-To build the provided examples you need to have 'makeinfo' installed
-on your system.  'makeinfo' is provided by GNU Texinfo. After that
-execute the following commands:
-
-  autoreconf -fi
-  ./configure
-  make examples
+Running "make examples" used to build the provided examples, but
+now you can use INFO_JS_DIR instead - see the Texinfo manual.
 
 To check the result of EXAMPLE:
 

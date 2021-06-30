@@ -58,14 +58,6 @@ js_scripts = \
 
 dist_js_DATA=$(js_scripts) info.css
 
-bin_SCRIPTS = texinfo-js
-EXTRA_DIST += texinfo-js.in
-CLEANFILES = texinfo-js
-
-texinfo-js: texinfo-js.in
-	sed -e 's,@pkgdatadir@,'$(pkgdatadir)',g' $(srcdir)/texinfo-js.in >$@
-	chmod a+x $@
-
 EXTRA_DIST += HACKING README TODO \
 	      build-aux/eslint.json \
 	      build-aux/modernizr.json \
@@ -75,8 +67,6 @@ EXTRA_DIST += HACKING README TODO \
 	      tsconfig.json \
 	      yarn.lock
 
-info_TEXINFOS=texinfo-js.texi
-EXTRA_DIST += fdl.texi
 
 ## ---------- ##
 ## Examples.  ##
