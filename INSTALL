@@ -17,6 +17,7 @@ Installation notes specific to Texinfo:
   after the normal make install:
     make TEXMF=/your/texmf install-tex
   texinfo.tex is installed in ${TEXMF}/tex/texinfo/texinfo.tex, etc.
+  More information is available in doc/README.
 
 * On the other hand, if you're maintaining a TeX distribution and
   keeping the files up to date yourself, you may not want to see the
