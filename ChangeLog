@@ -1,7 +1,11 @@
+2021-07-03  Per Bothner  <per@bothner.com>
+
+	* js/info.css: Styling tweaks for js-info to make help scrollable.
+
 2021-07-03  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	6.8
-	
+
 	* tp/Texinfo/Convert/HTML.pm: unconditionally reference MathJax
 	code if HTML_MATH is 'mathjax' and it is non-split output.
 
