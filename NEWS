@@ -9,6 +9,7 @@ See the manual for detailed information.
 
 ------------------------------------------------------------------------------
 
+6.8 (3 July 2021)
 * Language
   . new command @displaymath for formatting of mathematical notation
   . @example takes an argument to specify the language

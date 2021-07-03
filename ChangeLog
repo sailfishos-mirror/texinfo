@@ -1,3 +1,10 @@
+2021-07-03  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	6.8
+
+	* configure.ac, NEWS, util/texi2dvi, util/texi2pdf: versionn
+	* tp/Texinfo/Documentlanguages.pm: Regenerate.
+
 2021-07-02  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* INSTALL: Refer to doc/README.  From Patrice.
