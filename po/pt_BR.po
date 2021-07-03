@@ -6,10 +6,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: texinfo 6.7.91\n"
+"Project-Id-Version: texinfo 6.7.92\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2021-06-30 15:10+0100\n"
-"PO-Revision-Date: 2021-06-16 14:25-0300\n"
+"POT-Creation-Date: 2021-07-03 09:59+0100\n"
+"PO-Revision-Date: 2021-07-01 07:19-0300\n"
 "Last-Translator: Jorge Barros de Abreu <ficmatin10@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <ldpbr-translation@lists.sourceforge."
 "net>\n"
@@ -2091,9 +2091,9 @@ msgstr "    --top                   topo do manual principal"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:127
 #, fuzzy
-#| msgid "    --unnumbered-sections   use unumbered sections"
+#| msgid "    --no-fill-section-gaps  do not fill sectioning gaps"
 msgid "    --unnumbered-sections   do not number sections"
-msgstr "    --unnumbered-sections   use seções não numeradas"
+msgstr "    --no-fill-section-gaps  não preenche lacunas de seção"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:128
 msgid "    --version               display version information and exit"
@@ -4009,8 +4009,3 @@ msgstr "@dotless espera `i' ou `j' como argumento, não `%s'"
 #: tp/Texinfo/XS/parsetexi/separator.c:555
 msgid "misplaced }"
 msgstr "omitido }"
-
-#, fuzzy, perl-format
-#~| msgid "Try `%s --help' for more information.\n"
-#~ msgid "try `%s --help' for more information\n"
-#~ msgstr "Tente `%s --help' para mais informação.\n"

@@ -13,10 +13,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: texinfo 6.7.91\n"
+"Project-Id-Version: texinfo 6.7.92\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2021-06-30 15:10+0100\n"
-"PO-Revision-Date: 2021-06-18 15:15+0200\n"
+"POT-Creation-Date: 2021-07-03 09:59+0100\n"
+"PO-Revision-Date: 2021-07-02 18:48+0200\n"
 "Last-Translator: Jean-Charles Malahieude <lilyfan@orange.fr>\n"
 "Language-Team: French <traduc@traduc.org>\n"
 "Language: fr\n"
@@ -2084,8 +2084,6 @@ msgid "    --top                   top for the main manual"
 msgstr "    --top                   « top » du document principal"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:127
-#, fuzzy
-#| msgid "    --unnumbered-sections   use unumbered sections"
 msgid "    --unnumbered-sections   do not number sections"
 msgstr "    --unnumbered-sections   ne numérote pas les sections"
 
@@ -2104,10 +2102,9 @@ msgid "%s: could not create directory %s: %s"
 msgstr "%s : impossible de créer les répertoires « %s » : %s"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:197
-#, fuzzy, perl-format
-#| msgid "%s: missing file argument;\n"
+#, perl-format
 msgid "%s: missing file argument\n"
-msgstr "%s : argument fichier absent ;\n"
+msgstr "%s : argument fichier absent\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:198 tp/texi2any.pl:1149
 #, perl-format
@@ -4011,7 +4008,3 @@ msgstr "@dotless attend l'argument « i » ou « j », pas « %s »"
 #: tp/Texinfo/XS/parsetexi/separator.c:555
 msgid "misplaced }"
 msgstr "} mal placée"
-
-#, perl-format
-#~ msgid "try `%s --help' for more information\n"
-#~ msgstr "Consultez « %s --help » pour plus d'informations.\n"

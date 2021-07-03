@@ -5,10 +5,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: texinfo 6.7.91\n"
+"Project-Id-Version: texinfo 6.7.92\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2021-06-30 15:10+0100\n"
-"PO-Revision-Date: 2021-06-16 20:15+0200\n"
+"POT-Creation-Date: 2021-07-03 09:59+0100\n"
+"PO-Revision-Date: 2021-07-01 17:15+0200\n"
 "Last-Translator: Jakub Bogusz <qboosh@pld-linux.org>\n"
 "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
 "Language: pl\n"
@@ -2064,10 +2064,8 @@ msgid "    --top                   top for the main manual"
 msgstr "    --top                   główny plik dla głównego podręcznika"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:127
-#, fuzzy
-#| msgid "    --unnumbered-sections   use unumbered sections"
 msgid "    --unnumbered-sections   do not number sections"
-msgstr "    --unnumbered-sections   użycie sekcji bez numeracji"
+msgstr "    --unnumbered-sections   bez numerowania sekcji"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:128
 msgid "    --version               display version information and exit"
@@ -2085,10 +2083,9 @@ msgid "%s: could not create directory %s: %s"
 msgstr "%s: nie można utworzyć katalogu %s: %s"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:197
-#, fuzzy, perl-format
-#| msgid "%s: missing file argument;\n"
+#, perl-format
 msgid "%s: missing file argument\n"
-msgstr "%s: brakujący argument plikowy;\n"
+msgstr "%s: brakujący argument plikowy\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:198 tp/texi2any.pl:1149
 #, perl-format
@@ -3975,7 +3972,3 @@ msgstr "@dotless oczekuje `i' lub `j' jako argumentu, a nie `%s'"
 #: tp/Texinfo/XS/parsetexi/separator.c:555
 msgid "misplaced }"
 msgstr "źle umieszczone }"
-
-#, perl-format
-#~ msgid "try `%s --help' for more information\n"
-#~ msgstr "polecenie `%s --help' poda więcej informacji\n"

@@ -7,10 +7,10 @@
 # Yuri Chornoivan <yurchor@ukr.net>, 2013, 2015, 2016, 2017, 2019, 2021.
 msgid ""
 msgstr ""
-"Project-Id-Version: texinfo 6.7.91\n"
+"Project-Id-Version: texinfo 6.7.92\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2021-06-30 15:10+0100\n"
-"PO-Revision-Date: 2021-06-16 16:37+0300\n"
+"POT-Creation-Date: 2021-07-03 09:59+0100\n"
+"PO-Revision-Date: 2021-07-01 10:42+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -2079,10 +2079,8 @@ msgid "    --top                   top for the main manual"
 msgstr "    --top                   верхній рівень основного підручника"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:127
-#, fuzzy
-#| msgid "    --unnumbered-sections   use unumbered sections"
 msgid "    --unnumbered-sections   do not number sections"
-msgstr "    --unnumbered-sections   використовувати розділи без нумерації"
+msgstr "    --unnumbered-sections   не нумерувати розділи"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:128
 msgid "    --version               display version information and exit"
@@ -2099,10 +2097,9 @@ msgid "%s: could not create directory %s: %s"
 msgstr "%s: не вдалося створити каталог %s: %s"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:197
-#, fuzzy, perl-format
-#| msgid "%s: missing file argument;\n"
+#, perl-format
 msgid "%s: missing file argument\n"
-msgstr "%s: не вказано аргумент назви файла;\n"
+msgstr "%s: не вказано аргумент назви файла\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:198 tp/texi2any.pl:1149
 #, perl-format
@@ -4000,7 +3997,6 @@ msgstr "@dotless потрібен аргумент «i» або «j», але н
 msgid "misplaced }"
 msgstr "неправильно розташована }"
 
-#, perl-format
 #~ msgid "try `%s --help' for more information\n"
 #~ msgstr "спробуйте `%s --help', щоб отримати більше інформації\n"
 

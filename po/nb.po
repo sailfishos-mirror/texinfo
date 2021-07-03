@@ -2,58 +2,53 @@
 # This file is distributed under the same license as the texinfo package.
 # Copyright (C) 1999 Free Software Foundation, Inc.
 # Trond Endrestøl <Trond.Endrestol@gtf.ol.no>, 1998.
-# Johnny A. Solbu <johnny@solbu.net>, 2017
+# Johnny A. Solbu <johnny@solbu.net>, 2017 - 2021
 #
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: texinfo 6.1.92\n"
+"Project-Id-Version: texinfo 6.7.92\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2021-06-30 15:10+0100\n"
-"PO-Revision-Date: 2017-01-22 20:47+0100\n"
+"POT-Creation-Date: 2021-07-03 09:59+0100\n"
+"PO-Revision-Date: 2021-07-01 15:36+0200\n"
 "Last-Translator: Johnny A. Solbu <johnny@solbu.net>\n"
-"Language-Team: Norwegian Bokmaal <i18n-nb@lister.ping.uio.no>\n"
+"Language-Team: Norwegian Bokmaal <l10n-no@lister.huftis.org>\n"
 "Language: nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Bugs: Report translation errors to the Language-Team address.\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.7.1\n"
+"X-Generator: Poedit 2.2.3\n"
 
 #: gnulib/lib/error.c:195
 msgid "Unknown system error"
 msgstr "Ukjent systemfeil"
 
 #: gnulib/lib/getopt.c:278
-#, fuzzy, c-format
-#| msgid "%s: option '%s' is ambiguous\n"
+#, c-format
 msgid "%s: option '%s%s' is ambiguous\n"
-msgstr "%s: valget «%s» er flertydig\n"
+msgstr "%s: valget «%s%s» er flertydig\n"
 
 #: gnulib/lib/getopt.c:284
-#, fuzzy, c-format
-#| msgid "%s: option '%s' is ambiguous; possibilities:"
+#, c-format
 msgid "%s: option '%s%s' is ambiguous; possibilities:"
-msgstr "%s: valget «%s» er flertydig; muligheter:"
+msgstr "%s: valget «%s%s» er flertydig; muligheter:"
 
 #: gnulib/lib/getopt.c:319
-#, fuzzy, c-format
-#| msgid "%s: unrecognized option '%c%s'\n"
+#, c-format
 msgid "%s: unrecognized option '%s%s'\n"
-msgstr "%s: ukjent valg «%c%s»\n"
+msgstr "%s: ukjent valg «%s%s»\n"
 
 #: gnulib/lib/getopt.c:345
-#, fuzzy, c-format
-#| msgid "%s: option '%c%s' doesn't allow an argument\n"
+#, c-format
 msgid "%s: option '%s%s' doesn't allow an argument\n"
-msgstr "%s: valget «%c%s» tillater ikke argumenter\n"
+msgstr "%s: valget «%s%s» tillater ikke argumenter\n"
 
 #: gnulib/lib/getopt.c:360
-#, fuzzy, c-format
-#| msgid "%s: option '--%s' requires an argument\n"
+#, c-format
 msgid "%s: option '%s%s' requires an argument\n"
-msgstr "%s: valget «--%s» krever et argument\n"
+msgstr "%s: valget «%s%s» krever et argument\n"
 
 #: gnulib/lib/getopt.c:621
 #, c-format
@@ -292,10 +287,8 @@ msgid "Look up a string in the index for this file"
 msgstr "Lete opp en streng i indeksen til denne filen"
 
 #: info/indices.c:213
-#, fuzzy
-#| msgid "No indices found."
 msgid "No indices found"
-msgstr "Ingen indekser funnet."
+msgstr "Ingen indekser funnet"
 
 #: info/indices.c:217
 msgid "Index entry: "
@@ -318,22 +311,18 @@ msgstr ""
 "kommando"
 
 #: info/indices.c:457
-#, fuzzy
-#| msgid "No previous index search string."
 msgid "No previous index search string"
-msgstr "Ingen tidligere indekssøkestrenger."
+msgstr "Ingen tidligere indekssøkestrenger"
 
 #: info/indices.c:475
-#, fuzzy, c-format
-#| msgid "No more index entries containing '%s'."
+#, c-format
 msgid "No more index entries containing '%s'"
-msgstr "Ingen flere indeksoppføringer som inneholder «%s»."
+msgstr "Ingen flere indeksoppføringer som inneholder «%s»"
 
 #: info/indices.c:476
-#, fuzzy, c-format
-#| msgid "No index entries containing '%s'."
+#, c-format
 msgid "No index entries containing '%s'"
-msgstr "Ingen indeksoppføringer som inneholder «%s»."
+msgstr "Ingen indeksoppføringer som inneholder «%s»"
 
 #: info/indices.c:586
 #, c-format
@@ -378,34 +367,27 @@ msgid "No index entries containing '%s'."
 msgstr "Ingen indeksoppføringer som inneholder «%s»."
 
 #: info/indices.h:40
-#, fuzzy, c-format
-#| msgid "No available info files have '%s' in their indices."
+#, c-format
 msgid "No available info files have '%s' in their indices"
-msgstr "Ingen tilgjengelig infofiler har «%s» i sine indekser."
+msgstr "Ingen tilgjengelig infofiler har «%s» i sine indekser"
 
 #: info/info-utils.c:878
-#, fuzzy
-#| msgid "Error converting file character encoding."
 msgid "Error converting file character encoding"
-msgstr "Feil ved konvertering av filtegnkoding."
+msgstr "Feil ved konvertering av filtegnkoding"
 
 #: info/info.c:277 info/session.c:2789
-#, fuzzy, c-format
-#| msgid "No menu item '%s' in node '%s'."
+#, c-format
 msgid "No menu item '%s' in node '%s'"
-msgstr "Ingen menypunkt «%s» i noden «%s»."
+msgstr "Ingen menypunkt «%s» i noden «%s»"
 
 #: info/info.c:415 info/info.c:1181
-#, fuzzy, c-format
-#| msgid "Cannot find node '%s'."
+#, c-format
 msgid "Cannot find node '%s'"
-msgstr "Kan ikke finne noden «%s»."
+msgstr "Kan ikke finne noden «%s»"
 
 #: info/info.c:437
-#, fuzzy
-#| msgid "No program name given."
 msgid "No program name given"
-msgstr "Intet programnavn oppgitt."
+msgstr "Intet programnavn oppgitt"
 
 #: info/info.c:635
 #, c-format
@@ -630,10 +612,9 @@ msgstr ""
 "Websiden for Texinfo: http://www.gnu.org/software/texinfo/"
 
 #: info/info.c:1182
-#, fuzzy, c-format
-#| msgid "Cannot find node '(%s)%s'."
+#, c-format
 msgid "Cannot find node '(%s)%s'"
-msgstr "Kan ikke finne noden «(%s)%s»."
+msgstr "Kan ikke finne noden «(%s)%s»"
 
 #: info/info.c:1183
 msgid "Cannot find a window!"
@@ -644,76 +625,55 @@ msgid "Point doesn't appear within this window's node!"
 msgstr "Markøren vises ikke innen dette vinduets node!"
 
 #: info/info.c:1185
-#, fuzzy
-#| msgid "Cannot delete the last window."
 msgid "Cannot delete the last window"
-msgstr "Kan ikke slette det siste vinduet."
+msgstr "Kan ikke slette det siste vinduet"
 
 #: info/info.c:1186
-#, fuzzy
-#| msgid "No menu in this node."
 msgid "No menu in this node"
-msgstr "Ingen meny i denne noden."
+msgstr "Ingen meny i denne noden"
 
 #: info/info.c:1187
-#, fuzzy
-#| msgid "No footnotes in this node."
 msgid "No footnotes in this node"
-msgstr "Ingen fotnoter i denne noden."
+msgstr "Ingen fotnoter i denne noden"
 
 #: info/info.c:1188
-#, fuzzy
-#| msgid "No cross references in this node."
 msgid "No cross references in this node"
-msgstr "Ingen kryssreferanser i denne noden."
+msgstr "Ingen kryssreferanser i denne noden"
 
 #: info/info.c:1189
-#, fuzzy, c-format
-#| msgid "No '%s' pointer for this node."
+#, c-format
 msgid "No '%s' pointer for this node"
-msgstr "Ingen «%s»-peker for denne noden."
+msgstr "Ingen «%s»-peker for denne noden"
 
 #: info/info.c:1190
-#, fuzzy, c-format
-#| msgid "Unknown Info command '%c'; try '?' for help."
+#, c-format
 msgid "Unknown Info command '%c'; try '?' for help"
-msgstr "Ukjent Info-kommando «%c»; prøv «?» for hjelp."
+msgstr "Ukjent Info-kommando «%c»; prøv «?» for hjelp"
 
 #: info/info.c:1191
-#, fuzzy, c-format
-#| msgid "Terminal type '%s' is not smart enough to run Info."
+#, c-format
 msgid "Terminal type '%s' is not smart enough to run Info"
-msgstr "Terminaltypen «%s» er ikke smart nok til å kjøre Info."
+msgstr "Terminaltypen «%s» er ikke smart nok til å kjøre Info"
 
 #: info/info.c:1192
-#, fuzzy
-#| msgid "You are already at the last page of this node."
 msgid "You are already at the last page of this node"
-msgstr "Du er allerede på den siste siden av denne noden."
+msgstr "Du er allerede på den siste siden av denne noden"
 
 #: info/info.c:1193
-#, fuzzy
-#| msgid "You are already at the first page of this node."
 msgid "You are already at the first page of this node"
-msgstr "Du er allerede på den første siden til denne noden."
+msgstr "Du er allerede på den første siden til denne noden"
 
 #: info/info.c:1194
-#, fuzzy
-#| msgid "Only one window."
 msgid "Only one window"
-msgstr "Bare et vindu."
+msgstr "Bare et vindu"
 
 #: info/info.c:1195
-#, fuzzy
-#| msgid "Resulting window would be too small."
 msgid "Resulting window would be too small"
-msgstr "Resulterende vindu ville blitt for lite."
+msgstr "Resulterende vindu ville blitt for lite"
 
 #: info/info.c:1196
-#, fuzzy
-#| msgid "Not enough room for a help window, please delete a window."
 msgid "Not enough room for a help window, please delete a window"
-msgstr "Ikke nok plass for et hjelpevindu, vennligst slett et vindu."
+msgstr "Ikke nok plass for et hjelpevindu, vennligst slett et vindu"
 
 #: info/infodoc.c:38
 msgid "Basic Info command keys\n"
@@ -908,10 +868,9 @@ msgid "Describe key: %s"
 msgstr "Beskriv tast: %s"
 
 #: info/infodoc.c:471 info/infodoc.c:507
-#, fuzzy, c-format
-#| msgid "%s is undefined."
+#, c-format
 msgid "%s is undefined"
-msgstr "%s er udefinert."
+msgstr "%s er udefinert"
 
 #: info/infodoc.c:795
 msgid "Show what to type to execute a given command"
@@ -927,16 +886,14 @@ msgid "'%s' is not on any keys"
 msgstr "«%s» er ikke på noen taster"
 
 #: info/infodoc.c:827
-#, fuzzy, c-format
-#| msgid "%s can only be invoked via %s."
+#, c-format
 msgid "%s can only be invoked via %s"
-msgstr "%s kan bare bli påkallet via %s."
+msgstr "%s kan bare bli startet via %s"
 
 #: info/infodoc.c:831
-#, fuzzy, c-format
-#| msgid "%s can be invoked via %s."
+#, c-format
 msgid "%s can be invoked via %s"
-msgstr "%s kan bli påkallet via %s."
+msgstr "%s kan bli startet via %s"
 
 #: info/infodoc.c:836
 #, c-format
@@ -1021,10 +978,8 @@ msgid "Read a command name in the echo area and execute it"
 msgstr "Lese et kommandonavn i ekkoområdet og utføre den"
 
 #: info/m-x.c:132
-#, fuzzy
-#| msgid "Cannot execute an 'echo-area' command here."
 msgid "Cannot execute an 'echo-area' command here"
-msgstr "Kan ikke utføre en «echo-area»-kommando her."
+msgstr "Kan ikke utføre en «echo-area»-kommando her"
 
 #: info/m-x.c:146
 msgid "Set the height of the displayed window"
@@ -1252,13 +1207,11 @@ msgid "Select this menu item"
 msgstr "Velge dette menypunktet"
 
 #: info/session.c:2220
-#, fuzzy, c-format
-#| msgid "There isn't %d item in this menu."
-#| msgid_plural "There aren't %d items in this menu."
+#, c-format
 msgid "There isn't %d item in this menu"
 msgid_plural "There aren't %d items in this menu"
-msgstr[0] "Det er ikke %d punkt i denne menyen."
-msgstr[1] "Det er ikke %d punkter i denne menyen."
+msgstr[0] "Det er ikke %d punkt i denne menyen"
+msgstr[1] "Det er ikke %d punkter i denne menyen"
 
 #: info/session.c:2229
 msgid "Select the last item in this node's menu"
@@ -1283,10 +1236,9 @@ msgid "Follow xref: "
 msgstr "Følge kryssreferanse: "
 
 #: info/session.c:2427
-#, fuzzy, c-format
-#| msgid "The reference disappeared! (%s)."
+#, c-format
 msgid "The reference disappeared! (%s)"
-msgstr "Referansen forsvant! (%s)."
+msgstr "Referansen forsvant! (%s)"
 
 #: info/session.c:2439
 msgid "Read a menu item and select its node"
@@ -1317,16 +1269,14 @@ msgid "Select reference or menu item appearing on this line"
 msgstr "Velge referanse eller menypunkt på denne linjen"
 
 #: info/session.c:2767
-#, fuzzy, c-format
-#| msgid "No menu in node '%s'."
+#, c-format
 msgid "No menu in node '%s'"
-msgstr "Ingen meny i noden «%s»."
+msgstr "Ingen meny i noden «%s»"
 
 #: info/session.c:2814
-#, fuzzy, c-format
-#| msgid "Unable to find node referenced by '%s' in '%s'."
+#, c-format
 msgid "Unable to find node referenced by '%s' in '%s'"
-msgstr "Klarte ikke å finne noden referert av «%s» i «%s»."
+msgstr "Klarte ikke å finne noden referert av «%s» i «%s»"
 
 #: info/session.c:2870
 msgid "Read a list of menus starting from dir and follow them"
@@ -1361,16 +1311,12 @@ msgid "Select the first node in this file"
 msgstr "Velge første node i denne filen"
 
 #: info/session.c:3164
-#, fuzzy
-#| msgid "No more nodes within this document."
 msgid "No more nodes within this document"
-msgstr "Ingen flere noder i dette dokumentet."
+msgstr "Ingen flere noder i dette dokumentet"
 
 #: info/session.c:3208 info/session.c:3255
-#, fuzzy
-#| msgid "No 'Prev' or 'Up' for this node within this document."
 msgid "No 'Prev' or 'Up' for this node within this document"
-msgstr "Ingen «forrige» eller «opp» for denne noden i dette dokumentet."
+msgstr "Ingen «forrige» eller «opp» for denne noden i dette dokumentet"
 
 #: info/session.c:3268
 msgid "Move forwards or down through node structure"
@@ -1434,16 +1380,14 @@ msgid "Find file: "
 msgstr "Finne fil: "
 
 #: info/session.c:3677
-#, fuzzy, c-format
-#| msgid "Cannot find '%s'."
+#, c-format
 msgid "Cannot find '%s'"
-msgstr "Kan ikke finne «%s»."
+msgstr "Kan ikke finne «%s»"
 
 #: info/session.c:3725
-#, fuzzy, c-format
-#| msgid "Could not create output file '%s'."
+#, c-format
 msgid "Could not create output file '%s'"
-msgstr "Kunne ikke opprette utskriftsfil «%s»."
+msgstr "Kunne ikke opprette utskriftsfil «%s»"
 
 #: info/session.c:3739
 #, c-format
@@ -1467,10 +1411,9 @@ msgid "Pipe the contents of this node through INFO_PRINT_COMMAND"
 msgstr "«Pipe» innholdet av denne noden gjennom INFO_PRINT_COMMAND"
 
 #: info/session.c:3871
-#, fuzzy, c-format
-#| msgid "Cannot open pipe to '%s'."
+#, c-format
 msgid "Cannot open pipe to '%s'"
-msgstr "Kan ikke åpne pipe til «%s»."
+msgstr "Kan ikke åpne pipe til «%s»"
 
 #: info/session.c:3876
 #, c-format
@@ -1487,28 +1430,20 @@ msgid "Toggle the usage of regular expressions in searches"
 msgstr "Skifte bruk av regulære uttrykk i søk"
 
 #: info/session.c:3920
-#, fuzzy
-#| msgid "Using regular expressions for searches."
 msgid "Using regular expressions for searches"
-msgstr "Bruk regulære uttrykk til søking."
+msgstr "Bruk regulære uttrykk til søking"
 
 #: info/session.c:3921
-#, fuzzy
-#| msgid "Using literal strings for searches."
 msgid "Using literal strings for searches"
-msgstr "Bruk bokstavelige strenger til søking."
+msgstr "Bruk bokstavelige strenger til søking"
 
 #: info/session.c:4124
-#, fuzzy
-#| msgid "Search continued from the end of the document."
 msgid "Search continued from the end of the document"
-msgstr "Søket fortsatte fra slutten av dokumentet."
+msgstr "Søket fortsatte fra slutten av dokumentet"
 
 #: info/session.c:4129
-#, fuzzy
-#| msgid "Search continued from the beginning of the document."
 msgid "Search continued from the beginning of the document"
-msgstr "Søk fortsatte fra begynnelsen av dokumentet."
+msgstr "Søk fortsatte fra begynnelsen av dokumentet"
 
 #: info/session.c:4146
 #, c-format
@@ -1516,8 +1451,6 @@ msgid "Searching subfile %s ..."
 msgstr "Søker i delfil «%s»..."
 
 #: info/session.c:4187 info/session.c:4453 info/session.c:4566
-#, fuzzy
-#| msgid "Search failed."
 msgid "Search failed"
 msgstr "Søk mislyktes"
 
@@ -1557,23 +1490,18 @@ msgid "Going back to last match from %s"
 msgstr "Går tilbake til siste treff fra %s"
 
 #: info/session.c:4453 info/session.c:4566
-#, fuzzy
-#| msgid "No more matches."
 msgid "No more matches"
-msgstr "Ingen flere treff."
+msgstr "Ingen flere treff"
 
 #: info/session.c:4593
-#, fuzzy
-#| msgid "Search this node and subnodes for a string."
 msgid "Search this node and subnodes for a string"
-msgstr "Søk i denne noden og under-noder etter en streng."
+msgstr "Søk i denne noden og under-noder etter en streng"
 
 #. TRANSLATORS: %s is the title of a node.
 #: info/session.c:4600
-#, fuzzy, c-format
-#| msgid "Searching subfile %s ..."
+#, c-format
 msgid "Search under %s: "
-msgstr "Søker i delfil «%s»..."
+msgstr "Søker under %s "
 
 #: info/session.c:4615
 msgid "Go to next match in Info sub-tree"
@@ -1670,10 +1598,9 @@ msgid "Run command bound to this key's lowercase variant"
 msgstr "Kjør kommandoen knyttet til denne tastens «liten-bokstav-variant»"
 
 #: info/session.c:5385
-#, fuzzy, c-format
-#| msgid "Unknown command (%s)."
+#, c-format
 msgid "Unknown command (%s)"
-msgstr "Ukjent kommando (%s)."
+msgstr "Ukjent kommando (%s)"
 
 #: info/session.c:5388
 #, c-format
@@ -2093,10 +2020,8 @@ msgid "no entries found for `%s'; nothing deleted"
 msgstr "fant ingen oppføringer for «%s»; ingenting slettet"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:104
-#, fuzzy
-#| msgid "Usage: %s [OPTION]... FILE...\n"
 msgid "Usage: pod2texi [OPTION]... POD..."
-msgstr "Bruksmåte: %s [VALG]... FIL...\n"
+msgstr "Bruk: pod2texi [VALG]... POD..."
 
 #: Pod-Simple-Texinfo/pod2texi.pl:106
 msgid ""
@@ -2125,10 +2050,8 @@ msgid "    --debug=NUM             set debugging level"
 msgstr ""
 
 #: Pod-Simple-Texinfo/pod2texi.pl:119
-#, fuzzy
-#| msgid "display this help and exit"
 msgid "    --help                  display this help and exit"
-msgstr "vise denne hjelpen og avslutte"
+msgstr "    --help                  vise denne hjelpen og avslutte"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:120
 msgid "    --no-fill-section-gaps  do not fill sectioning gaps"
@@ -2171,16 +2094,14 @@ msgid "%s: wrong argument for --base-level\n"
 msgstr ""
 
 #: Pod-Simple-Texinfo/pod2texi.pl:182
-#, fuzzy, perl-format
-#| msgid "could not create directory `%s': %s"
+#, perl-format
 msgid "%s: could not create directory %s: %s"
-msgstr "kan ikke opprette katalogen «%s»: %s"
+msgstr "%s: kan ikke opprette katalogen «%s»: %s"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:197
-#, fuzzy, perl-format
-#| msgid "%s: missing file argument.\n"
+#, perl-format
 msgid "%s: missing file argument\n"
-msgstr "%s: mangler filargument.\n"
+msgstr "%s: mangler filargument\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:198 tp/texi2any.pl:1149
 #, perl-format
@@ -2199,10 +2120,9 @@ msgid "%s: could not open %s for writing: %s\n"
 msgstr "%s: kunne ikke åpne %s for skriving: %s\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:382
-#, fuzzy, perl-format
-#| msgid "@%s: could not open %s: %s"
+#, perl-format
 msgid "%s: could not open %s: %s\n"
-msgstr "@%s: kunne ikke åpne %s: %s"
+msgstr "%s: kunne ikke åpne %s: %s\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:395 Pod-Simple-Texinfo/pod2texi.pl:476
 #: tp/texi2any.pl:1356 tp/texi2any.pl:1432
@@ -2216,16 +2136,14 @@ msgid "%s: removing %s as input file %s has no content\n"
 msgstr ""
 
 #: Pod-Simple-Texinfo/pod2texi.pl:419
-#, fuzzy, perl-format
-#| msgid "%s: already have dir file: %s\n"
+#, perl-format
 msgid "%s: rename %s failed: %s\n"
-msgstr "%s: har allerede en dirfil: %s\n"
+msgstr "%s: endre navn %s mislyktes: %s\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:482
-#, fuzzy, perl-format
-#| msgid "%s: error on closing %s: %s\n"
+#, perl-format
 msgid "%s: error on closing stdout: %s\n"
-msgstr "%s: feil ved lukking av  %s: %s\n"
+msgstr "%s: feil ved lukking av standard-utdata: %s\n"
 
 #: tp/DebugTexinfo/DebugTree.pm:63 tp/Texinfo/Convert/Converter.pm:782
 #: tp/Texinfo/Convert/Converter.pm:820 tp/Texinfo/Convert/Converter.pm:1095
@@ -2393,10 +2311,9 @@ msgid "no htmlxref.cnf entry found for `%s'"
 msgstr "ingen htmlxref.cnf-oppføring funnet for «%s»"
 
 #: tp/Texinfo/Convert/HTML.pm:6721
-#, fuzzy, perl-format
-#| msgid "@%s not meaningful inside `@%s' block"
+#, perl-format
 msgid "%s not meaningful for non-split output"
-msgstr "@%s er meningsløs innenfor en «@%s»-blokk"
+msgstr "@%s er meningsløs for ikke-splittutgang"
 
 #: tp/Texinfo/Convert/HTML.pm:7050
 #, perl-format
@@ -2430,10 +2347,9 @@ msgid "%s already exists but is not a directory"
 msgstr ""
 
 #: tp/Texinfo/Convert/HTML.pm:7701
-#, fuzzy, perl-format
-#| msgid "error on closing %s: %s"
+#, perl-format
 msgid "error on copying %s into %s"
-msgstr "Feil ved lukking av  %s: %s"
+msgstr "Feil ved kopiering av %s til %s"
 
 #: tp/Texinfo/Convert/HTML.pm:7762
 #, perl-format
@@ -2926,10 +2842,9 @@ msgstr "@%s er ikke tillat i en «@%s»-blokk"
 
 #: tp/Texinfo/ParserNonXS.pm:4394 tp/Texinfo/ParserNonXS.pm:4733
 #: tp/Texinfo/XS/parsetexi/handle_commands.c:1082
-#, fuzzy, c-format, perl-format
-#| msgid "@%s should only appear at the beginning of a line"
+#, c-format, perl-format
 msgid "@%s should only appear in an index entry"
-msgstr "@%s bør bare forekomme ved begynnelsen av en linje"
+msgstr "@%s bør bare forekomme i en indeksoppføring"
 
 #: tp/Texinfo/ParserNonXS.pm:4405 tp/Texinfo/XS/parsetexi/handle_commands.c:580
 msgid "no more than two levels of index subentry are allowed"
@@ -3042,8 +2957,7 @@ msgid "expected @end %s"
 msgstr "Forventet @end %s"
 
 #: tp/Texinfo/ParserNonXS.pm:5416
-#, fuzzy, perl-format
-#| msgid "@%s should only accept a @-command as argument, not `%s'"
+#, perl-format
 msgid "@%s should only accept an @-command as argument, not `%s'"
 msgstr "@%s bør kun akseptere en @-kommando som argument, ikke «%s»"
 
@@ -3348,10 +3262,9 @@ msgid "tex4ht.pm: command failed: %s"
 msgstr ""
 
 #: tp/init/tex4ht.pm:279
-#, fuzzy, perl-format
-#| msgid "tex4ht.pm: could not open %s: %s"
+#, perl-format
 msgid "tex4ht.pm: closing communication failed: %s: %s"
-msgstr "tex4ht.pm: kunne ikke åpne %s: %s"
+msgstr "tex4ht.pm: kommunikasjonsavslutning mislyktes %s: %s"
 
 #: tp/init/tex4ht.pm:314
 #, perl-format
@@ -3388,10 +3301,9 @@ msgid "highlight_syntax.pm: %s: %s: cannot parse language line"
 msgstr ""
 
 #: tp/init/highlight_syntax.pm:170 tp/init/highlight_syntax.pm:227
-#, fuzzy, perl-format
-#| msgid "tex4ht.pm: could not open %s: %s"
+#, perl-format
 msgid "highlight_syntax.pm: could not open %s: %s"
-msgstr "tex4ht.pm: kunne ikke åpne %s: %s"
+msgstr "highlight_syntax.pm: kunne ikke åpne %s: %s"
 
 #: tp/init/highlight_syntax.pm:219
 #, perl-format
@@ -3825,213 +3737,166 @@ msgid "%s: error on closing internal links file %s: %s\n"
 msgstr "%s: feil ved lukking av intern lenkefil %s: %s\n"
 
 #: tp/Texinfo/XS/parsetexi/close.c:274
-#, fuzzy, c-format
-#| msgid "no matching `%cend %s'"
+#, c-format
 msgid "no matching `@end %s'"
-msgstr "Ingen tilsvarende «%cend %s»"
+msgstr "Ingen treff «@end %s»"
 
 #: tp/Texinfo/XS/parsetexi/close.c:312 tp/Texinfo/XS/parsetexi/separator.c:193
-#, fuzzy
-#| msgid "misplaced %c"
 msgid "misplaced {"
-msgstr "feilplassert %c"
+msgstr "feilplassert {"
 
 #: tp/Texinfo/XS/parsetexi/close.c:422
-#, fuzzy, c-format
-#| msgid "unmatched `%c%s'"
+#, c-format
 msgid "unmatched `@end %s'"
-msgstr "umatchet «%c%s»"
+msgstr "umatchet «@end %s»"
 
 #: tp/Texinfo/XS/parsetexi/end_line.c:192
-#, fuzzy
-#| msgid "%c%s requires a name"
 msgid "@set requires a name"
-msgstr "%c%s krever et navn"
+msgstr "@set krever et navn"
 
 #: tp/Texinfo/XS/parsetexi/end_line.c:195
-#, fuzzy
-#| msgid "bad name for @%s"
 msgid "bad name for @set"
-msgstr "dårlig navn for @%s"
+msgstr "dårlig navn for @set"
 
 #: tp/Texinfo/XS/parsetexi/end_line.c:219
-#, fuzzy
-#| msgid "%c%s requires a name"
 msgid "@clear requires a name"
-msgstr "%c%s krever et navn"
+msgstr "@clear krever et navn"
 
 #: tp/Texinfo/XS/parsetexi/end_line.c:223
-#, fuzzy
-#| msgid "bad name for @%s"
 msgid "bad name for @clear"
-msgstr "dårlig navn for @%s"
+msgstr "dårlig navn for @clear"
 
 #: tp/Texinfo/XS/parsetexi/end_line.c:242
-#, fuzzy
-#| msgid "%c%s requires a name"
 msgid "@unmacro requires a name"
-msgstr "%c%s krever et navn"
+msgstr "@unmacro krever et navn"
 
 #: tp/Texinfo/XS/parsetexi/end_line.c:245
-#, fuzzy
-#| msgid "bad name for @%s"
 msgid "bad name for @unmacro"
-msgstr "dårlig navn for @%s"
+msgstr "dårlig navn for @unmacro"
 
 #: tp/Texinfo/XS/parsetexi/end_line.c:264
-#, fuzzy, c-format
-#| msgid "@%s should only accept a @-command as argument, not `%s'"
+#, c-format
 msgid "@clickstyle should only accept an @-command as argument, not `%s'"
-msgstr "@%s bør kun akseptere en @-kommando som argument, ikke «%s»"
+msgstr "@clickstyle bør kun akseptere en @-kommando som argument, ikke «%s»"
 
 #: tp/Texinfo/XS/parsetexi/end_line.c:357
-#, fuzzy, c-format
-#| msgid "environment command %s as argument to @%s"
+#, c-format
 msgid "environment command %s as argument to @alias"
-msgstr "miljø-kommando %s som argument til @%s"
+msgstr "miljø-kommando %s som argument til @alias"
 
 #: tp/Texinfo/XS/parsetexi/end_line.c:375
-#, fuzzy
-#| msgid "bad argument to @%s"
 msgid "bad argument to @alias"
-msgstr "ugyldig argument til @%s"
+msgstr "dårlig argument til @alias"
 
 #: tp/Texinfo/XS/parsetexi/end_line.c:426
-#, fuzzy
-#| msgid "bad argument to @%s"
 msgid "bad argument to @definfoenclose"
-msgstr "ugyldig argument til @%s"
+msgstr "dårlig argument til @definfoenclose"
 
 #: tp/Texinfo/XS/parsetexi/end_line.c:438
-#, fuzzy
-#| msgid "empty argument in @%s"
 msgid "empty @columnfractions"
-msgstr "tomt argument i @%s"
+msgstr "tom @columnfractions"
 
 #: tp/Texinfo/XS/parsetexi/end_line.c:598
-#, fuzzy, c-format
-#| msgid "bad argument to @%s: %s"
+#, c-format
 msgid "bad argument to @printindex: %s"
-msgstr "dårlig argument til @%s: %s"
+msgstr "dårlig argument til @printindex: %s"
 
 #: tp/Texinfo/XS/parsetexi/end_line.c:650
-#, fuzzy, c-format
-#| msgid "Only @%s 10 or 11 is supported, not `%s'"
+#, c-format
 msgid "Only @fonttextsize 10 or 11 is supported, not `%s'"
-msgstr "Kun @%s 10 eller 11 er støttet, ikke «%s»"
+msgstr "Kun @fonttextsize 10 eller 11 er støttet, ikke «%s»"
 
 #: tp/Texinfo/XS/parsetexi/end_line.c:661
-#, fuzzy, c-format
-#| msgid "%s: --footnote-style arg must be `separate' or `end', not `%s'.\n"
+#, c-format
 msgid "@footnotestyle arg must be `separate' or `end', not `%s'"
-msgstr "%s: --footnote-style arg må være «separate» eller «end», ikke «%s».\n"
+msgstr "@footnotestyle-argument må være «separate» eller «end», ikke «%s»"
 
 #: tp/Texinfo/XS/parsetexi/end_line.c:673
-#, fuzzy, c-format
-#| msgid "@%s arg must be `on', `off' or `odd', not `%s'"
+#, c-format
 msgid "@setchapternewpage arg must be `on', `off' or `odd', not `%s'"
-msgstr "@%s-argument må være «on», «off» eller «odd», ikke «%s»"
+msgstr "@setchapternewpage-argument må være «on», «off» eller «odd», ikke «%s»"
 
 #: tp/Texinfo/XS/parsetexi/end_line.c:684
-#, fuzzy, c-format
-#| msgid "bad argument to @%s: %s"
+#, c-format
 msgid "bad argument to @need: %s"
-msgstr "dårlig argument til @%s: %s"
+msgstr "dårlig argument til @need: %s"
 
 #: tp/Texinfo/XS/parsetexi/end_line.c:705
-#, fuzzy, c-format
-#| msgid "@firstparagraphindent arg must be `none' or `insert', not `%s'"
+#, c-format
 msgid "@firstparagraph arg must be `none' or `insert', not `%s'"
-msgstr ""
-"@firstparagraphindent-argument må være numerisk/«none»/«asis», ikke «%s»"
+msgstr "@firstparagraph-argument må være «none» eller «insert», ikke «%s»"
 
 #: tp/Texinfo/XS/parsetexi/end_line.c:787
-#, fuzzy, c-format
-#| msgid "bad argument to @%s: %s"
+#, c-format
 msgid "bad argument to @headings: %s"
-msgstr "dårlig argument til @%s: %s"
+msgstr "dårlig argument til @headings: %s"
 
 #: tp/Texinfo/XS/parsetexi/end_line.c:1162
-#, fuzzy, c-format
-#| msgid "%s requires an argument: the formatter for %citem"
+#, c-format
 msgid "%s requires an argument: the formatter for @item"
-msgstr "%s krever et argument: formattereren for %citem"
+msgstr "%s krever et argument: formattereren for @item"
 
 #: tp/Texinfo/XS/parsetexi/end_line.c:1380
-#, fuzzy
-#| msgid "unmatched `%c%s'"
 msgid "unmatched `@end'"
-msgstr "umatchet «%c%s»"
+msgstr "umatchet «%end»"
 
 #: tp/Texinfo/XS/parsetexi/end_line.c:1400
 #: tp/Texinfo/XS/parsetexi/parser.c:1133
-#, fuzzy, c-format
-#| msgid "superfluous argument to @%s %s: %s"
+#, c-format
 msgid "superfluous argument to @end %s: %s"
-msgstr "overflødig argument til @%s %s: %s"
+msgstr "overflødig argument til @end %s: %s"
 
 #: tp/Texinfo/XS/parsetexi/end_line.c:1410
-#, fuzzy, c-format
-#| msgid "bad argument to @%s: %s"
+#, c-format
 msgid "bad argument to @end: %s"
-msgstr "dårlig argument til @%s: %s"
+msgstr "dårlig argument til @end: %s"
 
 #: tp/Texinfo/XS/parsetexi/end_line.c:1427
-#, fuzzy, c-format
-#| msgid "@%s: could not find %s"
+#, c-format
 msgid "@include: could not find %s"
-msgstr "@%s: kan ikke finne %s"
+msgstr "@include: kan ikke finne %s"
 
 #: tp/Texinfo/XS/parsetexi/end_line.c:1435
-#, fuzzy, c-format
-#| msgid "@%s: could not open %s: %s"
+#, c-format
 msgid "@include: could not open %s:"
-msgstr "@%s: kunne ikke åpne %s: %s"
+msgstr "@include: kunne ikke åpne %s:"
 
 #: tp/Texinfo/XS/parsetexi/end_line.c:1816
 msgid "@setfilename after the first element"
 msgstr ""
 
 #: tp/Texinfo/XS/parsetexi/end_line.c:1826
-#, fuzzy
-#| msgid "@%s only meaningful on a @multitable line"
 msgid "@columnfractions only meaningful on a @multitable line"
-msgstr "@%s er kun meningsfull i en @multitable-linje"
+msgstr "@columnfractions er kun meningsfull i en @multitable-linje"
 
 #: tp/Texinfo/XS/parsetexi/end_line.c:1893
 msgid "@node precedes @part, but parts may not be associated with nodes"
 msgstr ""
 
 #: tp/Texinfo/XS/parsetexi/handle_commands.c:154
-#, fuzzy, c-format
-#| msgid "@%s not meaningful inside `@%s' block"
+#, c-format
 msgid "@%s not meaningful inside @%s block"
-msgstr "@%s er meningsløs innenfor en «@%s»-blokk"
+msgstr "@%s er meningsløs innenfor en @%s-blokk"
 
 #: tp/Texinfo/XS/parsetexi/handle_commands.c:363
-#, fuzzy, c-format
-#| msgid "@%s not allowed inside `@%s' block"
+#, c-format
 msgid "@%s not allowed inside `@copying' block"
-msgstr "@%s er ikke tillat i en «@%s»-blokk"
+msgstr "@%s er ikke tillat i en «@copying»-blokk"
 
 #: tp/Texinfo/XS/parsetexi/handle_commands.c:565
 msgid "@subentry should only occur in an index entry"
 msgstr ""
 
 #: tp/Texinfo/XS/parsetexi/handle_commands.c:690
-#, fuzzy
-#| msgid ""
-#| "@%s not meaningful outside `@titlepage' and `@quotation' environments"
 msgid ""
 "@author not meaningful outside `@titlepage' and `@quotation' environments"
-msgstr "@%s gir ikke mening utenfor «@titlepage»- og «@quotation»-miljøer"
+msgstr "@author gir ikke mening utenfor «@titlepage»- og «@quotation»-miljøer"
 
 #: tp/Texinfo/XS/parsetexi/handle_commands.c:804
 #: tp/Texinfo/XS/parsetexi/macro.c:107
-#, fuzzy, c-format
-#| msgid "%c%s requires a name"
+#, c-format
 msgid "@%s requires a name"
-msgstr "%c%s krever et navn"
+msgstr "@%s krever et navn"
 
 #: tp/Texinfo/XS/parsetexi/macro.c:159
 #, c-format
@@ -4039,62 +3904,49 @@ msgid "bad or empty @%s formal argument: "
 msgstr ""
 
 #: tp/Texinfo/XS/parsetexi/parser.c:1460
-#, fuzzy, c-format
-#| msgid "%c%s expects `i' or `j' as argument, not `%s'"
+#, c-format
 msgid "@dotless expects `i' or `j' as argument, not `%c'"
-msgstr "%c%s forventer «i» eller «j» som argument, ikke «%s»"
+msgstr "@dotless forventer «i» eller «j» som argument, ikke «%c»"
 
 #: tp/Texinfo/XS/parsetexi/parser.c:1594
-#, fuzzy, c-format
-#| msgid "%c%s is obsolete."
+#, c-format
 msgid "@%s is obsolete."
-msgstr "%c%s er foreldet."
+msgstr "@%s er foreldet."
 
 #: tp/Texinfo/XS/parsetexi/parser.c:1596
-#, fuzzy, c-format
-#| msgid "%c%s is obsolete; %s"
+#, c-format
 msgid "@%s is obsolete; %s"
-msgstr "%c%s er foreldet: %s"
+msgstr "@%s er foreldet; %s"
 
 #: tp/Texinfo/XS/parsetexi/parser.c:1722
-#, fuzzy
-#| msgid "@%s should only appear at the beginning of a line"
 msgid "@\\ should only appear in math context"
-msgstr "@%s bør bare forekomme ved begynnelsen av en linje"
+msgstr "@\\ bør bare forekomme i matematisk sammenheng"
 
 #: tp/Texinfo/XS/parsetexi/separator.c:53
 msgid "@verb without associated character"
 msgstr ""
 
 #: tp/Texinfo/XS/parsetexi/separator.c:396
-#, fuzzy, c-format
-#| msgid "%c%s expects `i' or `j' as argument, not `%s'"
+#, c-format
 msgid "@dotless expects `i' or `j' as argument, not `%s'"
-msgstr "%c%s forventer «i» eller «j» som argument, ikke «%s»"
+msgstr "@dotless forventer «i» eller «j» som argument, ikke «%s»"
 
 #: tp/Texinfo/XS/parsetexi/separator.c:555
-#, fuzzy
-#| msgid "misplaced %c"
 msgid "misplaced }"
-msgstr "feilplassert %c"
+msgstr "feilplassert }"
 
-#, c-format
 #~ msgid "%s: option '--%s' doesn't allow an argument\n"
 #~ msgstr "%s: valget «--%s» tillater ikke et argument\n"
 
-#, c-format
 #~ msgid "%s: unrecognized option '--%s'\n"
 #~ msgstr "%s: ukjent valg «--%s»\n"
 
-#, c-format
 #~ msgid "%s: option '-W %s' is ambiguous\n"
 #~ msgstr "%s: valget «-W %s» er flertydig\n"
 
-#, c-format
 #~ msgid "%s: option '-W %s' doesn't allow an argument\n"
 #~ msgstr "%s: valget «-W %s» tillater ikke argumenter\n"
 
-#, c-format
 #~ msgid "%s: option '-W %s' requires an argument\n"
 #~ msgstr "%s: valget «-W %s» krever et argument\n"
 
@@ -4111,19 +3963,15 @@ msgstr "feilplassert %c"
 #~ "      --restore=FIL           lese innledende tastetrykk fra FIL.\n"
 #~ "  -O, --show-options, --usage  gå til kommandolinjealternativ-node."
 
-#, c-format
 #~ msgid "Undefined command: %s"
 #~ msgstr "udefinert kommando: %s"
 
-#, c-format
 #~ msgid "can't open %s: %s"
 #~ msgstr "Kan ikke åpne %s: %s"
 
-#, c-format
 #~ msgid "debugging output diverted to \"%s\""
 #~ msgstr "debuggingsdata omdirigert til «%s»"
 
-#, c-format
 #~ msgid "readline: Out of virtual memory!\n"
 #~ msgstr "readline: Tomt for virtuelt minne!\n"
 
@@ -4133,19 +3981,15 @@ msgstr "feilplassert %c"
 #~ msgid "arguments are quoted by default"
 #~ msgstr "argumenter siteres som standard"
 
-#, perl-format
 #~ msgid "Obsolete variable %s\n"
 #~ msgstr "Foreldet variabel %s\n"
 
-#, perl-format
 #~ msgid "old name for `%s' is a node of the document"
 #~ msgstr "gammelt navn for «%s» er en node for dokumentet"
 
-#, perl-format
 #~ msgid "file empty for renamed node `%s'"
 #~ msgstr "fil tom for omdøpt node «%s»"
 
-#, perl-format
 #~ msgid "@%s seen before first @node"
 #~ msgstr "@%s sett før første @node"
 
@@ -4155,15 +3999,12 @@ msgstr "feilplassert %c"
 #~ "kanskje burde din @top-node bli pakket inn i @ifnottex istedet for "
 #~ "@ifinfo?"
 
-#, perl-format
 #~ msgid "unreferenced node `%s'"
 #~ msgstr "ureferert node «%s»"
 
-#, perl-format
 #~ msgid "%s: obsolete variable %s\n"
 #~ msgstr "%s: foreldet variabel %s\n"
 
-#, perl-format
 #~ msgid "obsolete variable %s\n"
 #~ msgstr "foreldet variabel %s\n"
 

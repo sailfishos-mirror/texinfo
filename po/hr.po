@@ -9,10 +9,10 @@
 # Božidar Putanec <bozidarp@yahoo.com>, 2016, 2017, 2019, 2021.
 msgid ""
 msgstr ""
-"Project-Id-Version: GNU texinfo-6.7.91\n"
+"Project-Id-Version: GNU texinfo-6.7.92\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2021-06-30 15:10+0100\n"
-"PO-Revision-Date: 2021-06-17 11:22-0700\n"
+"POT-Creation-Date: 2021-07-03 09:59+0100\n"
+"PO-Revision-Date: 2021-07-02 17:01+0200\n"
 "Last-Translator: Božidar Putanec <bozidarp@yahoo.com>\n"
 "Language-Team: Croatian <lokalizacija@linux.hr>\n"
 "Language: hr\n"
@@ -254,7 +254,7 @@ msgstr "Dopune se generiraju..."
 # dodan 2 razmaka radi vizualnog dojma
 #: info/echo-area.c:1387
 msgid "Scroll the completions window"
-msgstr "  Listajte popis dopuna"
+msgstr "Listajte popis dopuna"
 
 #: info/filesys.c:88
 #, c-format
@@ -2065,10 +2065,8 @@ msgid "    --top                   top for the main manual"
 msgstr "    --top                   vrh glavnog priručnika"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:127
-#, fuzzy
-#| msgid "    --unnumbered-sections   use unumbered sections"
 msgid "    --unnumbered-sections   do not number sections"
-msgstr "    --unnumbered-sections   koristi nenumerirane odlomke"
+msgstr "    --unnumbered-sections   ne numerira odlomke"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:128
 msgid "    --version               display version information and exit"
@@ -2085,10 +2083,9 @@ msgid "%s: could not create directory %s: %s"
 msgstr "%s: nije (bilo) moguće napraviti direktorij %s: %s"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:197
-#, fuzzy, perl-format
-#| msgid "%s: missing file argument;\n"
+#, perl-format
 msgid "%s: missing file argument\n"
-msgstr "%s: manjka datotečni argument;\n"
+msgstr "%s: nedostaje datotečni argument\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:198 tp/texi2any.pl:1149
 #, perl-format
@@ -3964,7 +3961,6 @@ msgstr "@dotless očekuje „i“ ili „j“ kao argument, a ne „%s“"
 msgid "misplaced }"
 msgstr "} zametnut li na krivom mjestu"
 
-#, perl-format
 #~ msgid "try `%s --help' for more information\n"
 #~ msgstr "Pokušajte s „%s --help“ za dodatne informacije\n"
 

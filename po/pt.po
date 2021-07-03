@@ -5,10 +5,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: GNU texinfo 6.7.91\n"
+"Project-Id-Version: GNU texinfo 6.7.92\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2021-06-30 15:10+0100\n"
-"PO-Revision-Date: 2021-06-17 06:07+0100\n"
+"POT-Creation-Date: 2021-07-03 09:59+0100\n"
+"PO-Revision-Date: 2021-07-02 05:53+0100\n"
 "Last-Translator: Pedro Albuquerque <pmra@protonmail.com>\n"
 "Language-Team: Portuguese <translation-team-pt@lists.sourceforge.net>\n"
 "Language: pt\n"
@@ -2074,10 +2074,8 @@ msgid "    --top                   top for the main manual"
 msgstr "    --top                   topo para o manual pricipal"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:127
-#, fuzzy
-#| msgid "    --unnumbered-sections   use unumbered sections"
 msgid "    --unnumbered-sections   do not number sections"
-msgstr "    --unnumbered-sections   usar secções não numeradas"
+msgstr "    --unnumbered-sections   não numerar secções"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:128
 msgid "    --version               display version information and exit"
@@ -2094,10 +2092,9 @@ msgid "%s: could not create directory %s: %s"
 msgstr "%s: impossível criar pasta %s: %s"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:197
-#, fuzzy, perl-format
-#| msgid "%s: missing file argument;\n"
+#, perl-format
 msgid "%s: missing file argument\n"
-msgstr "%s: argumento de ficheiro em falta;\n"
+msgstr "%s: argumento de ficheiro em falta\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:198 tp/texi2any.pl:1149
 #, perl-format
@@ -3978,7 +3975,6 @@ msgstr "@dotless espera \"i\" ou \"j\" como argumento, não \"%s\""
 msgid "misplaced }"
 msgstr "} mal colocada"
 
-#, perl-format
 #~ msgid "try `%s --help' for more information\n"
 #~ msgstr "tente \"%s --help\" para mais informação\n"
 

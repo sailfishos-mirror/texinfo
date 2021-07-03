@@ -17,10 +17,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: texinfo 6.7.91\n"
+"Project-Id-Version: texinfo 6.7.92\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2021-06-30 15:10+0100\n"
-"PO-Revision-Date: 2021-06-22 20:58+02:00\n"
+"POT-Creation-Date: 2021-07-03 09:59+0100\n"
+"PO-Revision-Date: 2021-07-01 19:22+02:00\n"
 "Last-Translator: Petr Pisar <petr.pisar@atlas.cz>\n"
 "Language-Team: Czech <translation-team-cs@lists.sourceforge.net>\n"
 "Language: cs\n"
@@ -2074,8 +2074,6 @@ msgid "    --top                   top for the main manual"
 msgstr "    --top                   vrcholový uzel hlavního manuálu"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:127
-#, fuzzy
-#| msgid "    --unnumbered-sections   use unumbered sections"
 msgid "    --unnumbered-sections   do not number sections"
 msgstr "    --unumbered-sections    nečísluje oddíly"
 
@@ -2094,10 +2092,9 @@ msgid "%s: could not create directory %s: %s"
 msgstr "%s: adresář %s nebylo možno vytvořit: %s"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:197
-#, fuzzy, perl-format
-#| msgid "%s: missing file argument;\n"
+#, perl-format
 msgid "%s: missing file argument\n"
-msgstr "%s: chybí argument se jménem souboru,\n"
+msgstr "%s: chybí argument se jménem souboru\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:198 tp/texi2any.pl:1149
 #, perl-format
@@ -3959,7 +3956,6 @@ msgstr "@dotless vyžaduje jako argument „i“ nebo „j“, ne „%s“"
 msgid "misplaced }"
 msgstr "špatně umístěný znak }"
 
-#, perl-format
 #~ msgid "try `%s --help' for more information\n"
 #~ msgstr "více informací získáte příkazem „%s --help“\n"
 

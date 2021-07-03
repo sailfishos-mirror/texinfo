@@ -1,21 +1,21 @@
 # Dutch translations for GNU Texinfo.
-# Copyright (C) 2019 Free Software Foundation, Inc.
+# Copyright (C) 2021 Free Software Foundation, Inc.
 # This file is distributed under the same license as the texinfo package.
 #
 # "Dante is een dichter, en geen pizzabezorger!"
 #
 # Vocabulair:
-# node -> pagina
+#   node -> pagina
 #
-# Benno Schulenberg <benno@vertaalt.nl>, 2007, 2008, 2012, 2013, 2015, 2016, 2017, 2019.
+# Benno Schulenberg <benno@vertaalt.nl>, 2007, 2008, 2012, 2013, 2015, 2016, 2017, 2019, 2021.
 # Freek de Kruijf <f.de.kruijf@hetnet.nl>, 2004, 2005, 2007.
 # Ivo Timmermans <zarq@iname.com>, 1998.
 msgid ""
 msgstr ""
-"Project-Id-Version: texinfo-6.6.90\n"
+"Project-Id-Version: texinfo-6.7.92\n"
 "Report-Msgid-Bugs-To: bug-texinfo@gnu.org\n"
-"POT-Creation-Date: 2021-06-30 15:10+0100\n"
-"PO-Revision-Date: 2019-08-20 16:40+0200\n"
+"POT-Creation-Date: 2021-07-03 09:59+0100\n"
+"PO-Revision-Date: 2021-07-02 11:05+0200\n"
 "Last-Translator: Benno Schulenberg <vertaling@coevern.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
 "Language: nl\n"
@@ -2010,10 +2010,8 @@ msgid "no entries found for `%s'; nothing deleted"
 msgstr "geen items voor '%s' gevonden; er is niets verwijderd"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:104
-#, fuzzy
-#| msgid "Usage: %s [OPTION]... FILE...\n"
 msgid "Usage: pod2texi [OPTION]... POD..."
-msgstr "Gebruik:  %s [OPTIE...] BESTAND...\n"
+msgstr "Gebruik:  pod2texi [OPTIE...] POD-BESTAND..."
 
 #: Pod-Simple-Texinfo/pod2texi.pl:106
 msgid ""
@@ -2026,80 +2024,90 @@ msgid ""
 "C<@include>s is generated, intended to be C<@include>d in turn within\n"
 "a hand-written top-level file."
 msgstr ""
+"Perl-POD-documentatiebestanden vertalen naar Texinfo.\n"
+"\n"
+"Standaard wordt elk POD-bestand vertaalt naar een op-zichzelf-staande\n"
+"Texinfo-handleiding.  Maar als een C<--base-level> groter dan nul gegeven\n"
+"wordt, dan wordt elk POD-bestand vertaalt naar een bestand dat geschikt\n"
+"is voor C<@include>, en wordt een extra bestand met alle C<@include>'s\n"
+"gegenereerd dat bedoeld is om zelf met C<@include> opgenomen te worden\n"
+"in een handgeschreven topbestand."
 
 #: Pod-Simple-Texinfo/pod2texi.pl:115
 msgid ""
 "Options:\n"
 "    --appendix-sections     use appendix-like sections"
 msgstr ""
+"Opties:\n"
+"    --appendix-sections     appendixachtige secties gebruiken"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:117
 msgid "    --base-level=NUM|NAME   level of the head1 commands; default 0"
-msgstr ""
+msgstr "    --base-level=GETAL|NAAM   niveau van head1-opdrachten; standaard 0"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:118
 msgid "    --debug=NUM             set debugging level"
-msgstr ""
+msgstr "    --debug=GETAL           te gebruiken debugging-niveau"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:119
-#, fuzzy
-#| msgid " -h, --help   display this help and exit"
 msgid "    --help                  display this help and exit"
-msgstr "  -h, --help        deze hulptekst tonen en stoppen"
+msgstr "    --help                  deze hulptekst tonen en stoppen"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:120
 msgid "    --no-fill-section-gaps  do not fill sectioning gaps"
-msgstr ""
+msgstr "    --no-fill-section-gaps  sectiegaten niet opvullen"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:121
 msgid "    --no-section-nodes      use anchors for sections instead of nodes"
 msgstr ""
+"    --no-section-nodes      ankers i.p.v. pagina's gebruiken voor secties"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:122
 msgid ""
 "    --output=NAME           output to NAME for the first or main manual\n"
 "                            instead of standard output"
 msgstr ""
+"    --output=NAAM           uitvoer naar NAAM sturen voor de eerste of de\n"
+"                            hoofdhandleiding i.p.v. naar standaarduitvoer"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:124
 msgid "    --preamble=STR          insert STR as beginning boilerplate"
 msgstr ""
+"    --preamble=TEKST        deze tekst invoegen as standaard starttekst"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:125
 msgid ""
 "    --subdir=NAME           put files included in the main manual in NAME"
 msgstr ""
+"    --subdir=NAAM           bestanden voor hoofdhandleiding in deze map "
+"plaatsen"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:126
 msgid "    --top                   top for the main manual"
-msgstr ""
+msgstr "    --top                   de top voor de hoofdhandleiding"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:127
 msgid "    --unnumbered-sections   do not number sections"
-msgstr ""
+msgstr "    --unnumbered-sections   de secties niet nummeren"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:128
-#, fuzzy
-#| msgid " --version    display version information and exit"
 msgid "    --version               display version information and exit"
-msgstr "      --version     programmaversie tonen en stoppen"
+msgstr "    --version               programmaversie tonen en stoppen"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:162
 #, perl-format
 msgid "%s: wrong argument for --base-level\n"
-msgstr ""
+msgstr "%s: onjuist argument van --base-level\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:182
-#, fuzzy, perl-format
-#| msgid "could not create directory `%s': %s"
+#, perl-format
 msgid "%s: could not create directory %s: %s"
-msgstr "kan map '%s' niet aanmaken: %s"
+msgstr "%s: kan map '%s' niet aanmaken: %s"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:197
-#, fuzzy, perl-format
-#| msgid "%s: missing file argument.\n"
+#, perl-format
 msgid "%s: missing file argument\n"
-msgstr "%s: Ontbrekend bestandsargument.\n"
+msgstr "%s: ontbrekend bestandsargument\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:198 tp/texi2any.pl:1149
 #, perl-format
@@ -2109,7 +2117,7 @@ msgstr "Typ '%s --help' voor meer informatie.\n"
 #: Pod-Simple-Texinfo/pod2texi.pl:219
 #, perl-format
 msgid "%s: ignoring %s without content\n"
-msgstr ""
+msgstr "%s: '%s' zonder inhoud wordt genegeerd\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:354 Pod-Simple-Texinfo/pod2texi.pl:433
 #: tp/texi2any.pl:1385 tp/texi2any.pl:1419
@@ -2118,10 +2126,9 @@ msgid "%s: could not open %s for writing: %s\n"
 msgstr "%s: kan %s niet openen om te schrijven: %s\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:382
-#, fuzzy, perl-format
-#| msgid "@%s: could not open %s: %s"
+#, perl-format
 msgid "%s: could not open %s: %s\n"
-msgstr "@%s: kan %s niet openen: %s"
+msgstr "@%s: kan %s niet openen: %s\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:395 Pod-Simple-Texinfo/pod2texi.pl:476
 #: tp/texi2any.pl:1356 tp/texi2any.pl:1432
@@ -2132,19 +2139,17 @@ msgstr "%s: fout bij sluiten van %s: %s\n"
 #: Pod-Simple-Texinfo/pod2texi.pl:402
 #, perl-format
 msgid "%s: removing %s as input file %s has no content\n"
-msgstr ""
+msgstr "%s: %s wordt verwijderd omdat invoerbestand %s geen inhoud heeft\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:419
-#, fuzzy, perl-format
-#| msgid "rename %s failed: %s"
+#, perl-format
 msgid "%s: rename %s failed: %s\n"
-msgstr "hernoemen van %s is mislukt: %s"
+msgstr "%s: hernoemen van %s is mislukt: %s\n"
 
 #: Pod-Simple-Texinfo/pod2texi.pl:482
-#, fuzzy, perl-format
-#| msgid "%s: error on closing %s: %s\n"
+#, perl-format
 msgid "%s: error on closing stdout: %s\n"
-msgstr "%s: fout bij sluiten van %s: %s\n"
+msgstr "%s: fout bij sluiten van standaarduitvoer: %s\n"
 
 #: tp/DebugTexinfo/DebugTree.pm:63 tp/Texinfo/Convert/Converter.pm:782
 #: tp/Texinfo/Convert/Converter.pm:820 tp/Texinfo/Convert/Converter.pm:1095
@@ -2313,10 +2318,9 @@ msgid "no htmlxref.cnf entry found for `%s'"
 msgstr "geen 'htmlxref.cnf'-item gevonden voor '%s'"
 
 #: tp/Texinfo/Convert/HTML.pm:6721
-#, fuzzy, perl-format
-#| msgid "@%s not meaningful inside @%s block"
+#, perl-format
 msgid "%s not meaningful for non-split output"
-msgstr "@%s is zinloos binnen een '@%s'-blok"
+msgstr "%s is zinloos voor ongesplitste uitvoer"
 
 #: tp/Texinfo/Convert/HTML.pm:7050
 #, perl-format
@@ -2324,6 +2328,8 @@ msgid ""
 "cannot use absolute path or URL `%s' for JS_WEBLABELS_FILE when generating "
 "web labels file"
 msgstr ""
+"kan absoluut pad of URL '%s' niet gebruiken voor JS_WEBLABELS_FILE bij het "
+"genereren van een web-labels-bestand"
 
 #: tp/Texinfo/Convert/HTML.pm:7115
 #, perl-format
@@ -2347,13 +2353,12 @@ msgstr "een 'title'-commando en '@top' vereisen een titel"
 #: tp/Texinfo/Convert/HTML.pm:7682
 #, perl-format
 msgid "%s already exists but is not a directory"
-msgstr ""
+msgstr "%s bestaat al maar is geen map"
 
 #: tp/Texinfo/Convert/HTML.pm:7701
-#, fuzzy, perl-format
-#| msgid "error on closing %s: %s"
+#, perl-format
 msgid "error on copying %s into %s"
-msgstr "fout bij sluiten van %s: %s"
+msgstr "fout bij kopiëren van %s naar %s"
 
 #: tp/Texinfo/Convert/HTML.pm:7762
 #, perl-format
@@ -3143,13 +3148,12 @@ msgstr "@%s-paginanaam '%s' verschilt van %s-naam '%s'"
 #: tp/Texinfo/Structuring.pm:442
 #, perl-format
 msgid "node `%s' unreferenced"
-msgstr ""
+msgstr "naar pagina '%s' wordt niet verwezen"
 
 #: tp/Texinfo/Structuring.pm:599
-#, fuzzy, perl-format
-#| msgid "node `%s' is %s for `%s' in sectioning but not in menu"
+#, perl-format
 msgid "node %s for `%s' is `%s' in sectioning but not in menu"
-msgstr "pagina '%s' is %s voor '%s' in de sectionering maar niet in het menu"
+msgstr "pagina '%s' voor '%s' is '%s' in de sectionering maar niet in het menu"
 
 #: tp/Texinfo/Structuring.pm:617
 #, perl-format
@@ -3157,10 +3161,9 @@ msgid "node `%s' is %s for `%s' in menu but not in sectioning"
 msgstr "pagina '%s' is %s voor '%s' in het menu maar niet in de sectionering"
 
 #: tp/Texinfo/Structuring.pm:659
-#, fuzzy, perl-format
-#| msgid "node `%s' is %s for `%s' in sectioning but not in menu"
+#, perl-format
 msgid "node %s pointer for `%s' is `%s' but %s is `%s' in menu"
-msgstr "pagina '%s' is %s voor '%s' in de sectionering maar niet in het menu"
+msgstr "in pagina '%s' is de pointer voor %s '%s', maar %s is '%s' in het menu"
 
 #: tp/Texinfo/Structuring.pm:680
 #, perl-format
@@ -3295,10 +3298,9 @@ msgid "tex4ht.pm: command failed: %s"
 msgstr "tex4ht.pm: opdracht is mislukt: %s"
 
 #: tp/init/tex4ht.pm:279
-#, fuzzy, perl-format
-#| msgid "tex4ht.pm: command failed: %s"
+#, perl-format
 msgid "tex4ht.pm: closing communication failed: %s: %s"
-msgstr "tex4ht.pm: opdracht is mislukt: %s"
+msgstr "tex4ht.pm: afsluiten van communicatie is mislukt: %s: %s"
 
 #: tp/init/tex4ht.pm:314
 #, perl-format
@@ -3329,27 +3331,24 @@ msgstr ""
 "verwacht werden %d, het aantal items in het document voor @%s"
 
 #: tp/init/highlight_syntax.pm:58
-#, fuzzy, perl-format
-#| msgid "tex4ht.pm: command failed: %s"
+#, perl-format
 msgid "highlight_syntax.pm: command failed: %s"
-msgstr "tex4ht.pm: opdracht is mislukt: %s"
+msgstr "highlight_syntax.pm: opdracht is mislukt: %s"
 
 #: tp/init/highlight_syntax.pm:69
 #, perl-format
 msgid "highlight_syntax.pm: %s: %s: cannot parse language line"
-msgstr ""
+msgstr "highlight_syntax.pm: %s: %s: kan taalregel niet ontleden"
 
 #: tp/init/highlight_syntax.pm:170 tp/init/highlight_syntax.pm:227
-#, fuzzy, perl-format
-#| msgid "tex4ht.pm: could not open %s: %s"
+#, perl-format
 msgid "highlight_syntax.pm: could not open %s: %s"
-msgstr "tex4ht.pm: kan %s niet openen: %s"
+msgstr "highlight_syntax.pm: kan %s niet openen: %s"
 
 #: tp/init/highlight_syntax.pm:219
-#, fuzzy, perl-format
-#| msgid "l2h: command did not succeed: %s"
+#, perl-format
 msgid "highlight_syntax.pm: command did not succeed: %s"
-msgstr "l2h: opdracht is niet gelukt: %s"
+msgstr "highlight_syntax.pm: opdracht is niet gelukt: %s"
 
 #: tp/init/highlight_syntax.pm:259
 #, perl-format
@@ -3357,36 +3356,33 @@ msgid ""
 "highlight_syntax.pm: %s: %d separators; expected %d, the number of fragments "
 "+1"
 msgstr ""
+"highlight_syntax.pm: %s: %d scheidingstekens; %d werden verwacht, het aantal "
+"fragmenten plus één"
 
 #: tp/init/highlight_syntax.pm:267
-#, fuzzy, perl-format
-#| msgid "tex4ht.pm: end of @%s item %d not found"
+#, perl-format
 msgid "highlight_syntax.pm: %s: end of @%s item %d not found"
-msgstr "tex4ht.pm: einde van @%s-item %d niet gevonden"
+msgstr "highlight_syntax.pm: %s: einde van @%s-item %d niet gevonden"
 
 #: tp/init/highlight_syntax.pm:272
-#, fuzzy, perl-format
-#| msgid ""
-#| "latex2html.pm: processing produced %d items in HTML; expected %d, the "
-#| "number of items found in the document"
+#, perl-format
 msgid ""
 "highlight_syntax.pm: %s: processing produced %d items in HTML; expected %d, "
 "the number found in the document"
 msgstr ""
-"latex2html.pm: bewerking produceerde %d items in HTML;\n"
+"highlight_syntax.pm: %s: bewerking produceerde %d items in HTML;\n"
 "verwacht werden %d, het aantal items in het document"
 
 #: tp/init/highlight_syntax.pm:292
-#, fuzzy, perl-format
-#| msgid "tex4ht.pm: output has no HTML item for @%s %s"
+#, perl-format
 msgid "highlight_syntax.pm: output has HTML item for @%s but no language %s"
-msgstr "tex4ht.pm: uitvoer bevat geen HTML-item voor @%s %s"
+msgstr ""
+"highlight_syntax.pm: uitvoer bevat HTML-item voor @%s maar geen taal %s"
 
 #: tp/init/highlight_syntax.pm:339
-#, fuzzy, perl-format
-#| msgid "tex4ht.pm: output has no HTML item for @%s %s"
+#, perl-format
 msgid "highlight_syntax.pm: output has no HTML item for @%s %s %s"
-msgstr "tex4ht.pm: uitvoer bevat geen HTML-item voor @%s %s"
+msgstr "highlight_syntax.pm: uitvoer bevat geen HTML-item voor @%s %s %s"
 
 #: tp/texi2any.pl:345
 #, perl-format
@@ -4010,7 +4006,6 @@ msgstr "verkeerd geplaatste }"
 #~ "verplaats uw @shortcontents- en @contents-commando's als u de "
 #~ "inhoudsopgave na de titelpagina wilt"
 
-#, c-format, perl-format
 #~ msgid "@%s seen before first @node"
 #~ msgstr "@%s gevonden vóór de eerste @node"
 
@@ -4020,19 +4015,15 @@ msgstr "verkeerd geplaatste }"
 #~ "uw @top-pagina moet mogelijk ingepakt worden in @ifnottex in plaats van "
 #~ "@ifinfo?"
 
-#, perl-format
 #~ msgid "unreferenced node `%s'"
 #~ msgstr "naar pagina '%s' wordt niet verwezen"
 
-#, perl-format
 #~ msgid "node %s `%s' in menu `%s' and in sectioning `%s' differ"
 #~ msgstr "pagina %s '%s' in menu '%s' en in sectionering '%s' verschillen"
 
-#, perl-format
 #~ msgid "for `%s', up in menu `%s' and up `%s' don't match"
 #~ msgstr "bij '%s' komen 'Up' in menu '%s' en 'Up %s' niet overeen"
 
-#, c-format
 #~ msgid "undefined flag: %.*s"
 #~ msgstr "ongedefinieerde vlag: %.*s"
 
