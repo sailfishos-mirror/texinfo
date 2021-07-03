@@ -6737,7 +6737,7 @@ sub _file_header_informations($$)
       $self->{'jslicenses_element'}->{$key} = $self->{'jslicenses_infojs'}->{$key};
     }
   }
-  if ($self->{'element_math'}
+  if (($self->{'element_math'} or !$self->get_conf('SPLIT'))
         and defined($self->get_conf('HTML_MATH'))
         and $self->get_conf('HTML_MATH') eq 'mathjax') {
     my $mathjax_script = $self->get_conf('MATHJAX_SCRIPT');
