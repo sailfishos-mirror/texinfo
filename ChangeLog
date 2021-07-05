@@ -1,3 +1,8 @@
+2021-07-05  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* README-hacking: Update instructions.  Add backup email
+	addresses for contacting tug.org (from Karl).
+
 2021-07-03  Per Bothner  <per@bothner.com>
 
 	* js/info.css: Styling tweaks for js-info to make help scrollable.

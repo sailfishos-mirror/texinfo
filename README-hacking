@@ -235,7 +235,7 @@ for speed when testing).
 update version in configure.ac, notice in ChangeLog.
 check up to date copyright years in files relevant to --version calls
 (tp/texi2any.pl, info/info.c, install-info/install-info.c)
-version number in texi2any.pl, texi2dvi, texi2pdf, txirefcard.tex.
+version number in texi2dvi, texi2pdf, txirefcard.tex.
 check that texindex version is updated properly
   (cd texindex ; rm texindex.awk ; make)
 (cd tp && ./maintain/change_perl_modules_version.sh auto)
@@ -305,8 +305,13 @@ Copy documentation files to web checkout with, e.g.
 Check for removed files with, e.g. ls -ltu $(www_target)/*/html_node, 
 followed by cvs rm -f.  Likewise, check for added files with
 cvs -qn update, followed by cvs add.  When done, run cvs commit.
+(Note: MathJax referencing is currently broken for generating the
+non-split manual.)
 
-#  Official releases only: Contact root@tug.org to update texinfo at tug.org
+#  Official releases only: Contact root@tug.org to update texinfo at tug.org.
+# If root@tug.org doesn't reply, can try webmaster@tug.org,
+# or (last resort) board@tug.org.
+
 
 #  For official releases:
 send announcement to info-gnu,
