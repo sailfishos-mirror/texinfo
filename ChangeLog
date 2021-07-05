@@ -1,5 +1,14 @@
 2021-07-05  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	Find working locale for gettext
+
+	* tp/Texinfo/Report.pm (gdt): If we couldn't set the locale, then
+	run "locale -a" and try the locales named one by one.  This should
+	allow the test_scripts/layout_formatting_fr_icons.sh test to
+	pass on more systems.
+
+2021-07-05  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* README-hacking: Update instructions.  Add backup email
 	addresses for contacting tug.org (from Karl).
 

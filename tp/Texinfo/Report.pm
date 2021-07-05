@@ -244,17 +244,32 @@ sub gdt($$;$$)
   my $saved_LC_ALL = POSIX::setlocale(LC_ALL);
   my $saved_LANGUAGE = $ENV{'LANGUAGE'};
 
-  # The following is necessary when the locale is "C" (as is the case
-  # when the tests are run), due to the fix for
-  #   https://rt.cpan.org/Public/Bug/Display.html?id=81315
-  # Translation is not done if LC_MESSAGES is "C" or "POSIX".
-  # This may not work if a locale named here doesn't exist on the system.
-  # Set LC_ALL rather than LC_MESSAGES as LC_MESSAGES may not be supported
-  # on Perl for MS-Windows.
-  for my $try ('en_US.UTF-8', 'en_US') {
-    my $locale = POSIX::setlocale(LC_ALL, $try);
-    last if $locale;
+  # We need to set LC_MESSAGES to a valid locale other than "C" or "POSIX"
+  # for translation via LANGUAGES to work.  (The locale is "C" if the
+  # tests are being run.)
+  #   Set LC_ALL rather than LC_MESSAGES for on Perl for MS-Windows.
+
+  my $locale;
+  our $working_locale;
+  if ($working_locale) {
+    $locale = POSIX::setlocale(LC_ALL, $working_locale);
   }
+  if (!$locale) {
+    $locale = POSIX::setlocale(LC_ALL, "en_US.UTF-8");
+  }
+  if (!$locale) {
+    $locale = POSIX::setlocale(LC_ALL, "en_US")
+  }
+  if (!$locale) {
+    my @locales = split("\n", `locale -a`);
+    for my $try (@locales) {
+      next if $try eq 'C' or $try eq 'POSIX';
+      $locale = POSIX::setlocale(LC_ALL, $try);
+      last if $locale;
+    }
+  }
+  $working_locale = $locale;
+
 
   Locale::Messages::textdomain($strings_textdomain);
 
