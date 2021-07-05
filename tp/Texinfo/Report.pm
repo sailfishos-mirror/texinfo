@@ -245,9 +245,9 @@ sub gdt($$;$$)
   my $saved_LANGUAGE = $ENV{'LANGUAGE'};
 
   # We need to set LC_MESSAGES to a valid locale other than "C" or "POSIX"
-  # for translation via LANGUAGES to work.  (The locale is "C" if the
+  # for translation via LANGUAGE to work.  (The locale is "C" if the
   # tests are being run.)
-  #   Set LC_ALL rather than LC_MESSAGES for on Perl for MS-Windows.
+  #   Set LC_ALL rather than LC_MESSAGES for Perl for MS-Windows.
 
   my $locale;
   our $working_locale;
