@@ -560,11 +560,16 @@ locate_include_file (char *filename)
 int
 input_push_file (char *filename)
 {
-  FILE *stream;
+  FILE *stream = 0;
 
-  stream = fopen (filename, "r");
-  if (!stream)
-    return errno;
+  if (!strcmp (filename, "-"))
+    stream = stdin;
+  else
+    {
+      stream = fopen (filename, "r");
+      if (!stream)
+        return errno;
+    }
 
   if (input_number == input_space)
     {

@@ -1,5 +1,13 @@
 2021-07-06  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	Fix texi2any reading from stdin
+
+	* tp/Texinfo/XS/parsetexi/input.c (input_push_file): If input file
+	name is "-", read from stdin instead.  Broken reading from standard
+	input reported by Ken Brown and John Turney.
+
+2021-07-06  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	Avoid repeated "locale -a" calls.
 
 	* tp/Texinfo/Report.pm (gdt): Only try to call "locale -a" once
