@@ -1,3 +1,10 @@
+2021-07-06  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	Avoid repeated "locale -a" calls.
+
+	* tp/Texinfo/Report.pm (gdt): Only try to call "locale -a" once
+	and check its exit status.
+
 2021-07-05  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	Find working locale for gettext

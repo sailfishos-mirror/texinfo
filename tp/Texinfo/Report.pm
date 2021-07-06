@@ -260,12 +260,16 @@ sub gdt($$;$$)
   if (!$locale) {
     $locale = POSIX::setlocale(LC_ALL, "en_US")
   }
-  if (!$locale) {
-    my @locales = split("\n", `locale -a`);
-    for my $try (@locales) {
-      next if $try eq 'C' or $try eq 'POSIX';
-      $locale = POSIX::setlocale(LC_ALL, $try);
-      last if $locale;
+  our $locale_command;
+  if (!$locale and !$locale_command) {
+    $locale_command = "locale -a";
+    my @locales = split("\n", `$locale_command`);
+    if ($? == 0) {
+      for my $try (@locales) {
+        next if $try eq 'C' or $try eq 'POSIX';
+        $locale = POSIX::setlocale(LC_ALL, $try);
+        last if $locale;
+      }
     }
   }
   $working_locale = $locale;
