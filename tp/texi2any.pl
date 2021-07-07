@@ -499,6 +499,17 @@ my %formats_table = (
              'no_warn_non_empty_parts' => 1,
              'module' => 'Texinfo::Convert::HTML'
            },
+  'latex' => {
+             'nodes_tree' => 1,
+             'floats' => 1,
+             'split' => 1,
+             'internal_links' => 1,
+             'simple_menu' => 1,
+             'move_index_entries_after_items' => 1,
+             'relate_index_entries_to_table_entries' => 1,
+             'no_warn_non_empty_parts' => 1,
+             'module' => 'Texinfo::Convert::LaTeX'
+           },
   'texinfoxml' => {
              'nodes_tree' => 1,
              'module' => 'Texinfo::Convert::TexinfoXML',
@@ -689,6 +700,7 @@ the behavior is identical, and does not depend on the installed name.\n")
   $makeinfo_help .= __("Output format selection (default is to produce Info):
       --docbook               output Docbook XML rather than Info.
       --html                  output HTML rather than Info.
+      --latex                 output LaTeX rather than Info.
       --plaintext             output plain text rather than Info.
       --xml                   output Texinfo XML rather than Info.
       --dvi, --dvipdf, --ps, --pdf  call texi2dvi to generate given output,
@@ -949,6 +961,7 @@ There is NO WARRANTY, to the extent permitted by law.\n"), "2021";
  'silent|quiet' => sub { push @texi2dvi_args, '--'.$_[0];},
  'plaintext' => sub {$format = set_format($_[0].'');},
  'html' => sub {$format = set_format($_[0].'');},
+ 'latex' => sub {$format = set_format($_[0].'');},
  'info' => sub {$format = set_format($_[0].'');},
  'docbook' => sub {$format = set_format($_[0].'');},
  'xml' => sub {$format = set_format($_[0].'');},

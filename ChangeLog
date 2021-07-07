@@ -1,3 +1,11 @@
+2021-07-07  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	Initial work on LaTeX back-end
+
+	* tp/Texinfo/Convert/LaTeX.pm: File copied from Plaintext.pm
+	and heavily modified.
+	* tp/texi2any.pl (%formats_table, $makeinfo_help): Add 'latex'.
+
 2021-07-06  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	Fix texi2any reading from stdin
