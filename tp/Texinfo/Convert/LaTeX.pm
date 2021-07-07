@@ -27,6 +27,7 @@ use strict;
 use Texinfo::Convert::Converter;
 use Texinfo::Common;
 use Texinfo::Convert::Texinfo;
+use Texinfo::Convert::NodeNameNormalization;
 
 use Texinfo::Convert::Text;
 
@@ -448,38 +449,25 @@ sub _printindex($$)
 ';
 }
 
-sub _normalize_top_node($)
-{
-  my $node = shift;
-  return Texinfo::Common::normalize_top_node_name($node);
-}
 
+sub _node_name {
+  my $node_content = shift;
+
+  my $label = Texinfo::Convert::NodeNameNormalization::normalize_node
+    ({'type' => '_code', 'contents' => $node_content});
+  return "anchor:$label";
+}
 
 sub _node($$)
 {
   my $self = shift;
   my $node = shift;
 
-  return '';
+  my $label = _node_name($node->{'extra'}->{'node_content'});
+
+  return "\\label{$label}";
 }
 
-# no error in plaintext
-sub _error_outside_of_any_node($$)
-{
-  my $self = shift;
-  my $root = shift;
-}
-
-sub _anchor($$)
-{
-  my $self = shift;
-  my $anchor = shift;
-
-  if (!($self->{'multiple_pass'} or $self->{'in_copying_header'})) {
-    $self->_error_outside_of_any_node($anchor);
-  }
-  return '';
-}
 
 my $listoffloat_entry_length = 41;
 my $listoffloat_append = '...';
@@ -777,7 +765,7 @@ sub _convert($$)
 
       return $result;
     } elsif ($command eq 'anchor') {
-      $result .= $self->_anchor($root);
+      $result .= $self->_node($root);
       return $result;
     } elsif ($ref_commands{$command}) {
       if (scalar(@{$root->{'args'}})) {
@@ -791,9 +779,6 @@ sub _convert($$)
         }
         $args[0] = [{'text' => ''}] if (!defined($args[0]));
 
-        # normalize node name, to get a ref with the right formatting
-        # NOTE as a consequence, the line numbers appearing in case of errors
-        # correspond to the node lines numbers, and not the @ref.
         my $node_content;
         if ($root->{'extra'}
             and $root->{'extra'}->{'label'}) {
@@ -815,14 +800,18 @@ sub _convert($$)
           $args[1] = $name->{'contents'};
         }
         if ($command eq 'inforef' and scalar(@args) == 3) {
+          # todo: refuse to process @inforef
           $args[3] = $args[2];
           $args[2] = undef;
         }
 
+        # rodo: should translate
+        # rodo: get section name as well
         if ($command eq 'xref') {
-          $result = _convert($self, {'contents' => [{'text' => '*Note '}]});
-        } else {
-          $result = _convert($self, {'contents' => [{'text' => '*note '}]});
+          $result = "See ";
+        } elsif ($command eq 'pxref') {
+          $result = "see ";
+        } elsif ($command eq 'ref') {
         }
         my $name;
         if (defined($args[1])) {
@@ -850,46 +839,18 @@ sub _convert($$)
           if ($file) {
             $result .= _convert($self, {'contents' => $file});
           }
-          # node name
-          my $node_text = _convert($self, {'type' => '_code',
-                                           'contents' => $node_content});
+          my $node_text = _node_name($node_content);
 
-          $result .= $node_text;
+          $result .= " (page \\pageref{$node_text})";
         } else { # Label same as node specification
           if ($file) {
             $result .= _convert($self, {'contents' => $file});
+            $result .= " manual, "
           }
-          my $node_text = _convert($self, {'type' => '_code',
-                                           'contents' => $node_content});
-
-          $result .= $node_text;
+          my $node_text = _node_name($node_content);
+          $result .= "page \\pageref{$node_text}";
         }
 
-        if ($name and ($command eq 'xref')) {
-          my $next = $self->{'current_contents'}->[-1]->[0];
-          if (!($next and $next->{'text'} and $next->{'text'} =~ /^[\.,]/)) {
-            if ($command eq 'xref') {
-              if ($next and defined($next->{'text'}) and $next->{'text'} =~ /\S/) {
-                my $text = $next->{'text'};
-                $text =~ s/^\s*//;
-                my $char = substr($text, 0, 1);
-                $self->line_warn(sprintf(__(
-                            "`.' or `,' must follow \@xref, not %s"), 
-                                         $char), $root->{'line_nr'});
-              } else {
-                $self->line_warn(__("`.' or `,' must follow \@xref"), 
-                                 $root->{'line_nr'});
-              }
-            }
-            my @added = ({'text' => '.'});
-            # The added full stop does not end a sentence.  Info readers will
-            # have a chance of guessing correctly whether the full stop was
-            # added by whether it is followed by 2 spaces (although this
-            # doesn't help at the end of a line).
-            push @added, {'cmdname' => ':'};
-            unshift @{$self->{'current_contents'}->[-1]}, @added;
-          }
-        }
         return $result;
       }
       return '';
@@ -1072,7 +1033,7 @@ sub _convert($$)
       } elsif ($command eq 'float') {
         $result .= "\n";
         if ($root->{'extra'} and $root->{'extra'}->{'node_content'}) {
-          $result .= $self->_anchor($root);
+          $result .= $self->_node($root);
         }
       }
     } elsif ($command eq 'node') {
