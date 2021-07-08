@@ -1078,7 +1078,7 @@ sub _convert($$)
         );
         my $section_cmd = $section_map{$command};
         if ($section_cmd) {
-          $result .= $section_cmd."{$heading}\n";
+          $result .= $section_cmd."{$heading}\n\n";
         }
       }
     } elsif (($command eq 'item' or $command eq 'itemx')
@@ -1198,13 +1198,13 @@ sub _convert($$)
   }
 
   # open 'type' constructs.
-  my $paragraph;
+  my $paragraph = 0;
   if ($root->{'type'}) {
     if ($root->{'type'} eq 'paragraph') {
-      # ...
+      $paragraph = 1;
     } elsif ($root->{'type'} eq 'preformatted'
              or $root->{'type'} eq 'rawpreformatted') {
-      # ...
+      $preformatted = 1;
     } elsif ($root->{'type'} eq 'def_line') {
       if ($root->{'extra'} and $root->{'extra'}->{'def_parsed_hash'}
              and %{$root->{'extra'}->{'def_parsed_hash'}}) {
@@ -1407,17 +1407,8 @@ sub _convert($$)
     }
   }
   # close paragraphs and preformatted
-  if ($paragraph) {
+  if ($paragraph or $preformatted) {
     $result .= "\n\n";
-    if ($self->{'context'}->[-1] eq 'flushright') {
-    }
-  } elsif ($preformatted) {
-    $result .= "\n\n";
-    if ($result ne '') {
-      $result .= "\n";
-    }
-    if ($self->{'context'}->[-1] eq 'flushright') {
-    }
   }
 
   # close commands
