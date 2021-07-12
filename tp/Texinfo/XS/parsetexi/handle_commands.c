@@ -811,16 +811,19 @@ handle_block_command (ELEMENT *current, char **line_inout,
                 {
                   p += strspn (p, whitespace_chars);
                   /* Check for a comment at the end of the line. */
-                  if (memcmp (p, "@c", 2) == 0)
+                  if (*p)
                     {
-                      p += 2;
-                      if (memcmp (p, "omment", 6) == 0)
-                        p += 7;
-                      if (*p && *p != '@' && !strchr (whitespace_chars, *p))
-                        goto bad_value; /* @c or @comment not terminated. */
+		      if (memcmp (p, "@c", 2) == 0)
+			{
+			  p += 2;
+			  if (memcmp (p, "omment", 6) == 0)
+			    p += 7;
+			  if (*p && *p != '@' && !strchr (whitespace_chars, *p))
+			    goto bad_value; /* @c or @comment not terminated. */
+			}
+		      else
+			goto bad_value; /* Trailing characters on line. */
                     }
-                  else if (*p)
-                    goto bad_value; /* Trailing characters on line. */
                 }
               if (1)
                 {

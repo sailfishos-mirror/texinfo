@@ -1,3 +1,9 @@
+2021-07-12  Eli Zaretskii  <eliz@gnu.org>
+
+	* tp/Texinfo/XS/parsetexi/handle_commands.c
+	(handle_block_command): Don't let 'memcmp' try accessing memory
+	past the end of the input buffer.
+
 2021-07-07  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	Initial work on LaTeX back-end
