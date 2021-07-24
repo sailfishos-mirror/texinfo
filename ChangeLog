@@ -1,3 +1,13 @@
+2021-07-24  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	Avoid info crash for Brazillian Portuguese
+
+	* info/infodoc.c (replace_in_documentation): Do not abort
+	if command name is not found in documentation.  As the string
+	may have come from a translated message, such a problem may
+	not be found for some time.  Report from
+	René Neumann <lists@necoro.eu>.
+
 2021-07-12  Eli Zaretskii  <eliz@gnu.org>
 
 	* tp/Texinfo/XS/parsetexi/handle_commands.c
