@@ -1,5 +1,13 @@
 2021-07-24  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	Update gnulib checkout
+	
+	This is intended to fix incompatibilities with upcoming glibc-2.34,
+	related to the use of __attribute_nonnull__.  Reported by
+	Sam James <sam@gentoo.org>.
+
+2021-07-24  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	Avoid info crash for Brazillian Portuguese
 
 	* info/infodoc.c (replace_in_documentation): Do not abort

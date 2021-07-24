@@ -4,16 +4,16 @@
    Contributed by Isamu Hasegawa <isamu@yamato.ibm.com>.
 
    The GNU C Library is free software; you can redistribute it and/or
-   modify it under the terms of the GNU General Public
+   modify it under the terms of the GNU Lesser General Public
    License as published by the Free Software Foundation; either
-   version 3 of the License, or (at your option) any later version.
+   version 2.1 of the License, or (at your option) any later version.
 
    The GNU C Library is distributed in the hope that it will be useful,
    but WITHOUT ANY WARRANTY; without even the implied warranty of
    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-   General Public License for more details.
+   Lesser General Public License for more details.
 
-   You should have received a copy of the GNU General Public
+   You should have received a copy of the GNU Lesser General Public
    License along with the GNU C Library; if not, see
    <https://www.gnu.org/licenses/>.  */
 
@@ -1220,9 +1220,13 @@ proceed_next_node (const re_match_context_t *mctx, Idx nregs, regmatch_t *regs,
     {
       re_node_set *cur_nodes = &mctx->state_log[*pidx]->nodes;
       re_node_set *edests = &dfa->edests[node];
-      bool ok = re_node_set_insert (eps_via_nodes, node);
-      if (__glibc_unlikely (! ok))
-	return -2;
+
+      if (! re_node_set_contains (eps_via_nodes, node))
+        {
+          bool ok = re_node_set_insert (eps_via_nodes, node);
+          if (__glibc_unlikely (! ok))
+            return -2;
+        }
 
       /* Pick a valid destination, or return -1 if none is found.  */
       Idx dest_node = -1;
@@ -1414,7 +1418,7 @@ set_regs (const regex_t *preg, const re_match_context_t *mctx, size_t nmatch,
       update_regs (dfa, pmatch, prev_idx_match, cur_node, idx, nmatch);
 
       if ((idx == pmatch[0].rm_eo && cur_node == mctx->last_node)
-	  || re_node_set_contains (&eps_via_nodes, cur_node))
+	  || (fs && re_node_set_contains (&eps_via_nodes, cur_node)))
 	{
 	  Idx reg_idx;
 	  cur_node = -1;

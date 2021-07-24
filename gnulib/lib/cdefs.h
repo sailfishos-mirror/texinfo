@@ -2,16 +2,16 @@
    This file is part of the GNU C Library.
 
    The GNU C Library is free software; you can redistribute it and/or
-   modify it under the terms of the GNU General Public
+   modify it under the terms of the GNU Lesser General Public
    License as published by the Free Software Foundation; either
-   version 3 of the License, or (at your option) any later version.
+   version 2.1 of the License, or (at your option) any later version.
 
    The GNU C Library is distributed in the hope that it will be useful,
    but WITHOUT ANY WARRANTY; without even the implied warranty of
    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-   General Public License for more details.
+   Lesser General Public License for more details.
 
-   You should have received a copy of the GNU General Public
+   You should have received a copy of the GNU Lesser General Public
    License along with the GNU C Library; if not, see
    <https://www.gnu.org/licenses/>.  */
 
@@ -259,10 +259,12 @@
 # define __attribute_const__ /* Ignore */
 #endif
 
-#if defined __STDC_VERSION__ && 201710L < __STDC_VERSION__
-# define __attribute_maybe_unused__ [[__maybe_unused__]]
-#elif __GNUC_PREREQ (2,7) || __glibc_has_attribute (__unused__)
+#if __GNUC_PREREQ (2,7) || __glibc_has_attribute (__unused__)
 # define __attribute_maybe_unused__ __attribute__ ((__unused__))
+/* Once the next version of the C standard comes out, we can
+   do something like the following here:
+   #elif defined __STDC_VERSION__ && 202???L <= __STDC_VERSION__
+   # define __attribute_maybe_unused__ [[__maybe_unused__]]   */
 #else
 # define __attribute_maybe_unused__ /* Ignore */
 #endif
@@ -320,7 +322,9 @@
 #endif
 
 /* The nonnull function attribute marks pointer parameters that
-   must not be NULL.  */
+   must not be NULL.  This has the name __nonnull in glibc,
+   and __attribute_nonnull__ in files shared with Gnulib to avoid
+   collision with a different __nonnull in DragonFlyBSD 5.9.  */
 #ifndef __attribute_nonnull__
 # if __GNUC_PREREQ (3,3) || __glibc_has_attribute (__nonnull__)
 #  define __attribute_nonnull__(params) __attribute__ ((__nonnull__ params))
@@ -485,9 +489,9 @@
       [!!sizeof (struct { int __error_if_negative: (expr) ? 2 : -1; })]
 #endif
 
-/* The #ifndef lets Gnulib avoid including these on non-glibc
-   platforms, where the includes typically do not exist.  */
-#ifndef __WORDSIZE
+/* Gnulib avoids including these, as they don't work on non-glibc or
+   older glibc platforms.  */
+#ifndef __GNULIB_CDEFS
 # include <bits/wordsize.h>
 # include <bits/long-double.h>
 #endif
