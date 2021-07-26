@@ -1,3 +1,5 @@
+#include <config.h>
+
 /* Avoid namespace conflicts. */
 #define context perl_context
 

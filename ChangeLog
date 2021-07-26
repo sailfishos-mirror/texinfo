@@ -1,5 +1,11 @@
 2021-07-26  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* tp/Texinfo/XS/parsetexi/Parsetexi.xs: #include <config.h> to
+	avoid gnulib error from unistd.h included via perl.h.  From
+	Patrice.
+
+2021-07-26  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* configure.ac: Bump to 6.8dev, no dist-xz.
 
 2021-07-24  Gavin Smith  <gavinsmith0123@gmail.com>
