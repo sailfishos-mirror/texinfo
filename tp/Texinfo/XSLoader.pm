@@ -23,7 +23,7 @@ use warnings;
 
 our $TEXINFO_XS;
 
-our $VERSION = '6.8';
+our $VERSION = '6.8dev';
 
 our $disable_XS;
 
