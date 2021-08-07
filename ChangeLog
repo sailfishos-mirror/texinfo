@@ -1,5 +1,11 @@
 2021-08-07  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/tests/layout/list-of-tests,
+	tp/tests/layout/res_parser/formatting_info/: (re)add a coverage
+	test for info.
+
+2021-08-07  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/tests/layout/list-of-tests: remove now useless -U texi2html
 	and remove also -c TEXI2HTML=undef for formats other than html
 	as it should not be needed.
