@@ -126,6 +126,106 @@ foreach my $misc_command (keys(%misc_commands)) {
     unless ($formatting_misc_commands{$misc_command});
 }
 
+my %Latex_no_arg_brace_commands = (
+   # textmode
+  'text' => {
+    'TeX' => '\TeX{}',
+    'LaTeX' => '\LaTeX{}',
+    'bullet' => '\textbullet{}',
+    'copyright' => '\copyright{}',
+    'registeredsymbol' => '\circledR{}',
+    'dots' => '\dots{}\@',
+    'enddots' => '\dots{}',
+    'equiv' => '$\equiv{}$',
+    'error' => '\fbox{error}',
+    'expansion' => '$\mapsto{}$',
+    'arrow' => '$\rightarrow{}$',
+    'minus' => '-',
+    'point' => '$\star{}$',
+    'print' => '$\dashv{}$',
+    'result' => '$\Rightarrow{}$',
+    'pounds' => '\textsterling{}',
+    'atchar', => '@',
+    'lbracechar' => '\{',
+    'rbracechar' => '\}',
+    'backslashchar' => '\textbackslash{}',
+    'hashchar' => '\#',
+    'comma' => ',',
+    'ampchar' => '\&',
+    'euro' => '\euro{}',
+    'geq' => '$\geq{}$',
+    'leq' => '$\leq{}$',
+    'textdegree' => '\textdegree{}',
+    'tie' => '\hbox{}',
+  },
+  'math' => {
+    'TeX' => 'TeX',
+    'LaTeX' => 'LaTeX',
+    'bullet' => '\bullet{}',
+    'copyright' => '\copyright{}',
+    'registeredsymbol' => '\circledR{}',
+    'dots' => '\dots{}',
+    'enddots' => '\dots{}',
+    'equiv' => '\equiv{}',
+    'error' => '\fbox{error}',
+    'expansion' => '\mapsto{}',
+    'arrow' => '\rightarrow{}',
+    'minus' => '-',
+    'point' => '\star{}',
+    'print' => '\dashv{}',
+    'result' => '\Rightarrow{}',
+    'pounds' => '\mathsterling{}',
+    'atchar', => '@',
+    'lbracechar' => '\{',
+    'rbracechar' => '\}',
+    'backslashchar' => '\backslash{}',
+    'hashchar' => '\#',
+    'comma' => ',',
+    'ampchar' => '\&',
+    'euro' => '\euro{}',
+    'geq' => '\geq{}',
+    'leq' => '\leq{}',
+    'textdegree' => '^{\circ{}}',
+    'tie' => '\hbox{}',
+  }
+);
+# TODO check 'click'
+
+my %LaTeX_text_only_no_arg_brace_commands = (
+  'exclamdown' => 'textexclamdown',
+  'questiondown' => 'textquestiondown',
+  'ordf' => 'textordfeminine',
+  'ordm' => 'textordmasculine',
+  'quotedblleft' => 'textquotedblleft',
+  'quotedblright' => 'textquotedblright',
+  'quoteleft' => 'textquoteleft',
+  'quoteright' => 'textquoteright',
+  'quotedblbase' => 'quotedblbase',
+  'quotesinglbase' => 'quotesinglbase',
+  'guillemetleft', => 'guillemotleft',
+  'guillemetright' => 'guillemotright',
+  'guillemotleft' => 'guillemotleft',
+  'guillemotright' => 'guillemotright',
+  'guilsinglleft' => 'guilsinglleft',
+  'guilsinglright' => 'guilsinglright',
+);
+
+foreach my $letter_no_arg_command ('aa','AA','ae','oe','AE','OE','o','O',
+                                   'ss','l','L','DH','dh','TH','th') {
+  $LaTeX_text_only_no_arg_brace_commands{$letter_no_arg_command}
+   = $letter_no_arg_command;
+}
+
+foreach my $text_only_no_arg_brace_command
+     (keys(%LaTeX_text_only_no_arg_brace_commands)) {
+  my $LaTeX_command =
+    "\\$LaTeX_text_only_no_arg_brace_commands{$text_only_no_arg_brace_command}\{\}";
+  $Latex_no_arg_brace_commands{'text'}->{$text_only_no_arg_brace_command} 
+    = $LaTeX_command;
+  $Latex_no_arg_brace_commands{'math'}->{$text_only_no_arg_brace_command}
+    = '\mathord{\text{'.$LaTeX_command.'}}';
+}
+
 my %ignored_commands = %ignored_misc_commands;
 foreach my $ignored_brace_commands ('caption', 'shortcaption', 
   'hyphenation', 'sortas') {
@@ -163,6 +263,13 @@ foreach my $format_context_command (keys(%menu_commands), 'verbatim',
   $default_format_context_commands{$format_context_command} = 1;
 }
 
+# environments existing in LaTeX
+# 'flushleft' => 'flushleft',
+# 'flushright' => 'flushright',
+#
+# for a linebreak for @*?
+# \linebreak[4]
+
 my %flush_commands = (
   'flushleft'  => 1,
   'flushright' => 1
@@ -171,11 +278,6 @@ my %flush_commands = (
 foreach my $ignored_block_commands ('ignore', 'macro', 'rmacro', 'copying',
   'documentdescription', 'titlepage', 'direntry') {
   $ignored_commands{$ignored_block_commands} = 1;
-}
-
-my %punctuation_no_arg_commands;
-foreach my $punctuation_command('enddots', 'exclamdown', 'questiondown') {
-  $punctuation_no_arg_commands{$punctuation_command} = 1;
 }
 
 my %upper_case_commands = (
@@ -212,6 +314,10 @@ my %style_map = (
 foreach my $command (keys(%style_map)) {
   $style_map{$command} = [$style_map{$command}, $style_map{$command}];
 }
+
+# verb exists in latex.  'extra' => {
+#            'delimiter' => '*'
+
 
 # math is special
 my @asis_commands = ('asis', 'w', 'b', 'i', 'sc', 't', 'r',
@@ -262,7 +368,7 @@ my %defaults = (
   'ENABLE_ENCODING'      => 1,
   'FORMAT_MENU'          => 'nomenu',
   #'EXTENSION'            => 'info',
-  'EXTENSION'            => 'txt',
+  'EXTENSION'            => 'tex',
   #'USE_SETFILENAME_EXTENSION' => 1,
   'INFO_SPECIAL_CHARS_WARNING' => 1,
 
@@ -361,13 +467,41 @@ sub converter_initialize($)
   return $self;
 }
 
+my %LaTeX_encoding_names_map = (
+  'utf-8' => 'utf8',
+);
+
+# ellipsis leaves less spacing after \dots in case it is followed
+# by punctuation. It does not seem to fix the @dots verusus @enddots issue
+# to be loaded after Babel if you are using the French option
+# FIXME use it anyway?
+# \usepackage{ellipsis}
 
 sub _latex_header {
-  return
+  my $self = shift;
+  # amsfonts for \circledR
+  # T1 fontenc for \DH, \guillemotleft
+  # eurosym for \euro
+  my $header = 
 '\documentclass{book}
 \usepackage{makeidx}\makeindex
-\begin{document}
+\usepackage{amsfonts}
+\usepackage[gen]{eurosym}
+\usepackage[T1]{fontenc}
 ';
+  if ($self->get_conf('OUTPUT_ENCODING_NAME')) {
+    my $encoding = $self->get_conf('OUTPUT_ENCODING_NAME');
+    if (defined($LaTeX_encoding_names_map{$encoding})) {
+      $encoding = $LaTeX_encoding_names_map{$encoding};
+    }# else {
+      # FIXME Warn?
+    #}
+    $header .= "\\usepackage[$encoding]{inputenc}\n";
+  }
+  $header .= 
+'\begin{document}
+';
+  return $header;
 }
 
 sub _latex_footer {
@@ -380,16 +514,55 @@ sub output($$)
 {
   my ($self, $root) = @_;
 
+  $self->_set_outfile();
+  return undef unless $self->_create_destination_directory();
+
+  my $fh;
+  if (! $self->{'output_file'} eq '') {
+    $fh = $self->Texinfo::Common::open_out ($self->{'output_file'});
+    if (!$fh) {
+      $self->document_error(sprintf(__("could not open %s for writing: %s"),
+                                    $self->{'output_file'}, $!));
+      return undef;
+    }
+  }
+
+  $self->_set_global_multiple_commands(-1);
+
   my $result = '';
 
-  $result .= $self->_latex_header();
-  $result .= $self->_convert($root);
-  $result .= $self->_latex_footer();
+  $result .= $self->_output_text($self->_latex_header(), $fh);
+  $result .= $self->convert_document_sections($root, $fh);
+  $result .= $self->_output_text($self->_latex_footer(), $fh);
 
-  print $result;
+  #print $result;
+  if ($fh and $self->{'output_file'} ne '-') {
+    $self->register_close_file($self->{'output_file'});
+    if (!close ($fh)) {
+      $self->document_error(sprintf(__("error on closing %s: %s"),
+                                    $self->{'output_file'}, $!));
+    }
+  }
+  return $result
 }
 
+sub convert($$;$)
+{
+  my $self = shift;
+  my $root = shift;
+  my $fh = shift;
 
+  $self->_set_global_multiple_commands(-1);
+  return $self->convert_document_sections($root, $fh);
+}
+
+sub convert_tree($$)
+{
+  my $self = shift;
+  my $root = shift;
+
+  return $self->_convert($root);
+}
 
 sub convert_line($$;$)
 {
@@ -638,30 +811,14 @@ sub _convert($$)
       my $today = $self->Texinfo::Common::expand_today();
       unshift @{$self->{'current_contents'}->[-1]}, $today;
     } elsif (exists($brace_no_arg_commands{$command})) {
-      my $text;
-      
-      if ($command eq 'dots' or $command eq 'enddots') {
-        # Don't use Unicode ellipsis character.
-        $text = '...';
+      if (exists($Latex_no_arg_brace_commands{'text'}->{$command})) {
+        $result .= $Latex_no_arg_brace_commands{'text'}->{$command};
       } else {
-        $text = Texinfo::Convert::Text::brace_no_arg_command($root, 
+        my $text = Texinfo::Convert::Text::brace_no_arg_command($root, 
                                            $self->{'convert_text_options'});
+        $result .= _protect_text($text);
       }
 
-      if ($punctuation_no_arg_commands{$command}) {
-        $result .= _protect_text($text);
-        # should have an end sentence space after @enddots
-      } elsif ($command eq 'tie') {
-        $result .= '\hbox{';
-        $result .= _protect_text($text);
-        $result .= '}';
-      } else {
-        $result .= _protect_text($text);
-
-        if ($command eq 'dots') {
-          $result .= '\\@';
-        }
-      }
       return $result;
     # commands with braces
     } elsif ($accent_commands{$command}) {

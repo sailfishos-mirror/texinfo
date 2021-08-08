@@ -1,3 +1,15 @@
+2021-08-08  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/LaTeX.pm (%Latex_no_arg_brace_commands,
+	%LaTeX_text_only_no_arg_brace_commands, _latex_header, _convert):
+	use LaTeX commands for @-commands with braces and no argument.
+	* tp/Texinfo/Convert/LaTeX.pm (_latex_header, 
+	%LaTeX_encoding_names_map): use OUTPUT_ENCODING_NAME to determine
+	output encoding.
+	* tp/Texinfo/Convert/LaTeX.pm (%defaults): set EXTENSION to tex.
+	* tp/Texinfo/Convert/LaTeX.pm (output, convert, convert_tree):
+	make output() more general, add convert() and convert_tree().
+
 2021-08-07  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/tests/layout/list-of-tests,
