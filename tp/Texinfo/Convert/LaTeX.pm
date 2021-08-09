@@ -101,10 +101,7 @@ foreach my $def_command (keys(%def_commands)) {
 }
 
 # There are stacks that define the context.
-# context:   relevant for alignement of text.  Set in math, footnote, 
-#            listoffloats, flush_commands, preformatted_context_commands 
-#            (preformatted + menu + verbatim), and raw commands if 
-#            on top level.
+# context:   relevant for math versus text mode.
 
 
 my %default_preformatted_context_commands = (%preformatted_commands,
@@ -258,7 +255,7 @@ foreach my $non_indented('format', 'smallformat') {
 
 # FIXME should keys(%math_brace_commands) be added here?
 # How can this be tested?
-foreach my $format_context_command (keys(%menu_commands), 'verbatim',
+foreach my $format_context_command (keys(%math_commands), 'verbatim',
  'flushleft', 'flushright', 'multitable', 'float') {
   $default_format_context_commands{$format_context_command} = 1;
 }
@@ -402,7 +399,7 @@ sub converter_initialize($)
 {
   my $self = shift;
 
-  $self->{'context'} = [];
+  $self->{'context'} = ['text'];
 
   %{$self->{'ignored_types'}} = %ignored_types;
   %{$self->{'ignorable_space_types'}} = %ignorable_space_types;
@@ -585,20 +582,23 @@ sub convert_unfilled($$;$)
 
 
 # Protect LaTeX special characters.
-sub _protect_text($)
+sub _protect_text($$)
 {
-  my ($text) = @_;
+  my ($self, $text) = @_;
 
-  # temporarily replace \ with a control character
-  $text =~ s/\\/\x08/g;
+  # FIXME are there some special characters to protect in math mode,
+  # for instance # and ~?
+  if ($self->{'context'}->[-1] ne 'math') {
+    # temporarily replace \ with a control character
+    $text =~ s/\\/\x08/g;
 
-  # replace the other special characters
-  $text =~ s/([#%&{}_\$])/\\$1/g;
-  $text =~ s/~/\\~{}/g;
-  $text =~ s/\^/\\^{}/g;
+    # replace the other special characters
+    $text =~ s/([#%&{}_\$])/\\$1/g;
+    $text =~ s/~/\\~{}/g;
+    $text =~ s/\^/\\^{}/g;
 
-  $text =~ s/\x08/\\textbackslash{}/g;
-
+    $text =~ s/\x08/\\textbackslash{}/g;
+  }
   return $text;
 }
 
@@ -700,7 +700,7 @@ sub _image_formatted_text($$$$)
                              $basefile), $root->{'line_nr'});
     $result = '['.$basefile.']';
   }
-  return $result;
+  return _protect_text($self, $result);
 }
 
 sub _image($$)
@@ -773,7 +773,7 @@ sub _convert($$)
   # process text
   if (defined($root->{'text'})) {
     if (!$type or $type ne 'untranslated') {
-      my $result = _protect_text($root->{'text'});
+      my $result = _protect_text($self, $root->{'text'});
       return $result;
     } else {
       my $tree = $self->gdt($root->{'text'});
@@ -798,27 +798,34 @@ sub _convert($$)
         $result = "\\\@";
         return '';
       } elsif ($command eq '*') {
-        $result = "\\\\\n";
+        # FIXME \leavevmode{} is added to avoid
+        # ! LaTeX Error: There's no line here to end.
+        # but it is not clearly correct
+        $result = "\\leavevmode{}\\\\\n";
+        #$result = "\\linebreak[4]\n";
       } elsif ($command eq '.' or $command eq '?' or $command eq '!') {
         $result .=  "\\\@$command";
       } elsif ($command eq ' ' or $command eq "\n" or $command eq "\t") {
         $result .= "\\ {}";
       } else {
-        $result .= _protect_text($no_brace_commands{$command});
+        $result .= _protect_text($self, $no_brace_commands{$command});
       }
       return $result;
     } elsif ($command eq 'today') {
       my $today = $self->Texinfo::Common::expand_today();
       unshift @{$self->{'current_contents'}->[-1]}, $today;
     } elsif (exists($brace_no_arg_commands{$command})) {
-      if (exists($Latex_no_arg_brace_commands{'text'}->{$command})) {
-        $result .= $Latex_no_arg_brace_commands{'text'}->{$command};
+      my $command_context = 'text';
+      if ($self->{'context'}->[-1] eq 'math') {
+        $command_context = 'math';
+      }
+      if (exists($Latex_no_arg_brace_commands{$command_context}->{$command})) {
+        $result .= $Latex_no_arg_brace_commands{$command_context}->{$command};
       } else {
         my $text = Texinfo::Convert::Text::brace_no_arg_command($root, 
                                            $self->{'convert_text_options'});
-        $result .= _protect_text($text);
+        $result .= _protect_text($self, $text);
       }
-
       return $result;
     # commands with braces
     } elsif ($accent_commands{$command}) {
@@ -829,7 +836,7 @@ sub _convert($$)
       my $sc;
       my $accented_text 
          = Texinfo::Convert::Text::text_accents($root, $encoding, $sc);
-      $result .= _protect_text($accented_text);
+      $result .= _protect_text($self, $accented_text);
 
       my $accented_text_original;
 
@@ -962,8 +969,8 @@ sub _convert($$)
           $args[2] = undef;
         }
 
-        # rodo: should translate
-        # rodo: get section name as well
+        # TODO: should translate
+        # TODO: get section name as well
         if ($command eq 'xref') {
           $result = "See ";
         } elsif ($command eq 'pxref') {
@@ -1057,16 +1064,24 @@ sub _convert($$)
       }
       return '';
       # condition should actually be that the $command is inline
-    } elsif ($math_commands{$command} and not exists($block_commands{$command})) {
-      push @{$self->{'context'}}, $command;
-      if ($root->{'args'}) {
-        $result .= _convert($self, {'type' => 'frenchspacing',
-             'contents' => [{'type' => '_code',
-                            'contents' => [$root->{'args'}->[0]]}]});
+    } elsif ($math_commands{$command}) {
+      push @{$self->{'context'}}, 'math';
+      if (not exists($block_commands{$command})) {
+        if ($root->{'args'}) {
+          if ($command eq 'math') {
+            $result .= '$';
+            $result .= _convert($self, $root->{'args'}->[0]);
+            $result .= '$';
+          }
+        }
+        my $old_context = pop @{$self->{'context'}};
+        die if ($old_context ne 'math');
+        return $result;
+      } else {
+        if ($command eq 'displaymath') {
+          $result .= "\$\$\n";
+        }
       }
-      my $old_context = pop @{$self->{'context'}};
-      die if ($old_context ne $command);
-      return $result;
     } elsif ($command eq 'titlefont') {
       $result = $self->convert_line ({'type' => 'frenchspacing',
                'contents' => [$root->{'args'}->[0]]});
@@ -1128,7 +1143,7 @@ sub _convert($$)
         } else {
           $res = "U+$arg";  # not outputting UTF-8
         }
-        $result .= _protect_text($res);
+        $result .= _protect_text($self, $res);
       } else {
         $result = '';  # arg was not defined
       }
@@ -1162,7 +1177,7 @@ sub _convert($$)
         push @{$self->{'context'}}, $command;
       } elsif ($flush_commands{$command}) {
         push @{$self->{'context'}}, $command;
-      } elsif ($raw_commands{$command} or $block_math_commands{$command}) {
+      } elsif ($raw_commands{$command}) {
         $result .= "\n\n";
       }
 
@@ -1257,7 +1272,7 @@ sub _convert($$)
     } elsif ($command eq 'item' and $root->{'parent'}->{'cmdname'}
              and $item_container_commands{$root->{'parent'}->{'cmdname'}}) {
       if ($root->{'parent'}->{'cmdname'} eq 'enumerate') {
-        $result = _protect_text(Texinfo::Common::enumerate_item_representation(
+        $result = _protect_text($self, Texinfo::Common::enumerate_item_representation(
                  $root->{'parent'}->{'extra'}->{'enumerate_specification'},
                  $root->{'extra'}->{'item_number'}) . '. ');
       } elsif ($root->{'parent'}->{'args'}
@@ -1533,7 +1548,7 @@ sub _convert($$)
     } elsif ($root->{'type'} eq '_code') {
       # ...
     } elsif ($root->{'type'} eq 'bracketed') {
-      $result .= _protect_text('{');
+      $result .= _protect_text($self, '{');
     }
   }
 
@@ -1556,7 +1571,7 @@ sub _convert($$)
     if ($root->{'type'} eq 'frenchspacing') {
     } elsif ($root->{'type'} eq '_code') {
     } elsif ($root->{'type'} eq 'bracketed') {
-      $result .= _protect_text('}');
+      $result .= _protect_text($self, '}');
     } elsif ($root->{'type'} eq 'row') {
       # ...
     } elsif ($root->{'type'} eq 'text_root') {
@@ -1611,8 +1626,13 @@ sub _convert($$)
     } elsif ($flush_commands{$command}) {
       my $old_context = pop @{$self->{'context'}};
       die if (! $flush_commands{$old_context});
+    } elsif ($block_math_commands{$command}) {
+      my $old_context = pop @{$self->{'context'}};
+      die if ($old_context ne 'math');
+      if ($command eq 'displaymath') {
+        $result .= "\$\$\n";
+      }
     }
-
     if ($cell) {
       $result = '';
     }
