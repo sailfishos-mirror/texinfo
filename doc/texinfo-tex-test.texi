@@ -1649,6 +1649,30 @@ after after after after after after after after
 after after after after after after after after
 
 
+@section Definitions
+
+Check that spacing does not vary after the `?' punctuation on the
+definition line, but spacing does vary inside the definition body and
+afterwards.
+
+@defun foo bar? bar bar
+@defunx foo bar?@: bar bar
+a. b@*
+a.@: b
+@end defun
+
+@noindent
+a. b@*
+a.@: b
+
+@defun foo bar?@: bar bar
+a. b@*
+a.@: b
+@end defun
+
+
+
+
 
 
 
