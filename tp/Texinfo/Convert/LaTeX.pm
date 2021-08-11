@@ -175,6 +175,7 @@ my %LaTeX_no_arg_brace_commands = (
     'tie' => '\hbox{}',
   },
   'math' => {
+    # error in math with \TeX \LaTeX, spacing command used not allowed
     'TeX' => 'TeX',
     'LaTeX' => 'LaTeX',
     'bullet' => '\bullet{}',
@@ -343,16 +344,16 @@ foreach my $ignored_type(keys(%ignored_types)) {
 # math, verb and kbd are special
 my %LaTeX_style_brace_commands = (
   'text' => {
-    'hyphenation' => 'hyphenation',
-    'w' => 'hbox',
-    'sub' => 'textsuperscript',
-    'sup' => 'textsuperscript',
+    'hyphenation' => '\\hyphenation',
+    'w' => '\\hbox',
+    'sub' => '\\textsubscript',
+    'sup' => '\\textsuperscript',
   },
   'math' => {
     'hyphenation' => '',
-    'w' => 'hbox',
+    'w' => '\\hbox',
     'sub' => '_',
-    'sub' => '^',
+    'sup' => '^',
   }
 );
 
@@ -367,21 +368,21 @@ foreach my $asis_command (@asis_commands) {
 
 my @emphasized_commands = ('var', 'dfn', 'emph');
 foreach my $emphasized_command (@emphasized_commands) {
-  $LaTeX_style_brace_commands{'text'}->{$emphasized_command} = 'emph';
+  $LaTeX_style_brace_commands{'text'}->{$emphasized_command} = '\\emph';
   $LaTeX_style_brace_commands{'math'}->{$emphasized_command} = '';
 }
 
 my @bold_commands = ('strong', 'b');
 foreach my $bold_command (@bold_commands) {
-  $LaTeX_style_brace_commands{'text'}->{$bold_command} = 'textbf';
-  $LaTeX_style_brace_commands{'math'}->{$bold_command} = 'mathbf';
+  $LaTeX_style_brace_commands{'text'}->{$bold_command} = '\\textbf';
+  $LaTeX_style_brace_commands{'math'}->{$bold_command} = '\\mathbf';
 }
 
 # 'cite' could be emphasized?
 my @italics_commands = ('cite', 'i');
 foreach my $italics_command (@italics_commands) {
-  $LaTeX_style_brace_commands{'text'}->{$italics_command} = 'textit';
-  $LaTeX_style_brace_commands{'math'}->{$italics_command} = 'mathit';
+  $LaTeX_style_brace_commands{'text'}->{$italics_command} = '\\textit';
+  $LaTeX_style_brace_commands{'math'}->{$italics_command} = '\\mathit';
 }
 
 
@@ -389,8 +390,8 @@ my @typewriter_commands = ('t', 'code', 'samp', 'key', 'env', 'file',
  'command', 'option', 'indicateurl');
 
 foreach my $typewriter_command (@typewriter_commands) {
-  $LaTeX_style_brace_commands{'text'}->{$typewriter_command} = 'texttt';
-  $LaTeX_style_brace_commands{'math'}->{$typewriter_command} = 'mathtt';
+  $LaTeX_style_brace_commands{'text'}->{$typewriter_command} = '\\texttt';
+  $LaTeX_style_brace_commands{'math'}->{$typewriter_command} = '\\mathtt';
 }
 
 my @quoted_commands = ('samp', 'indicateurl');
@@ -518,12 +519,14 @@ my %LaTeX_encoding_names_map = (
 sub _latex_header {
   my $self = shift;
   # amsfonts for \circledR
+  # amsmath for \text in math
   # T1 fontenc for \DH, \guillemotleft
   # eurosym for \euro
   my $header = 
 '\documentclass{book}
 \usepackage{makeidx}\makeindex
 \usepackage{amsfonts}
+\usepackage{amsmath}
 \usepackage[gen]{eurosym}
 \usepackage[T1]{fontenc}
 ';
@@ -839,9 +842,15 @@ sub _convert($$)
   my $preformatted;
   if ($command) {
     my $unknown_command;
+    my $command_context = 'text';
+    if ($self->{'style_context'}->[-1]->{'context'}->[-1] eq 'math') {
+      $command_context = 'math';
+    }
     if (defined($no_brace_commands{$command})) {
       if ($command eq ':') {
-        $result .= "\\\@";
+        if ($command_context ne 'math') {
+          $result .= "\\\@";
+        }
       } elsif ($command eq '*') {
         # FIXME \leavevmode{} is added to avoid
         # ! LaTeX Error: There's no line here to end.
@@ -849,11 +858,17 @@ sub _convert($$)
         $result = "\\leavevmode{}\\\\\n";
         #$result = "\\linebreak[4]\n";
       } elsif ($command eq '.' or $command eq '?' or $command eq '!') {
-        $result .=  "\\\@$command";
+        if ($command_context ne 'math') {
+          $result .= "\\\@";
+        }
+        $result .= $command;
       } elsif ($command eq ' ' or $command eq "\n" or $command eq "\t") {
         $result .= "\\ {}";
       } elsif ($command eq '-') {
         $result .= "\\-{}";
+      } elsif ($command eq '}' or $command eq '{') {
+        # always protect, even in math mode
+        $result .= "\\$command";
       } else {
         $result .= _protect_text($self, $no_brace_commands{$command});
       }
@@ -862,10 +877,6 @@ sub _convert($$)
       my $today = $self->Texinfo::Common::expand_today();
       unshift @{$self->{'current_contents'}->[-1]}, $today;
     } elsif (exists($brace_no_arg_commands{$command})) {
-      my $command_context = 'text';
-      if ($self->{'style_context'}->[-1]->{'context'}->[-1] eq 'math') {
-        $command_context = 'math';
-      }
       if (exists($LaTeX_no_arg_brace_commands{$command_context}->{$command})) {
         $result .= $LaTeX_no_arg_brace_commands{$command_context}->{$command};
       } else {
@@ -883,20 +894,19 @@ sub _convert($$)
            = Texinfo::Convert::Text::text_accents($root, $encoding, $sc);
         $result .= _protect_text($self, $accented_text);
       } else {
-        my $command_context = 'text';
-        if ($self->{'style_context'}->[-1]->{'context'}->[-1] eq 'math') {
-          $command_context = 'math';
-        }
         my $accent_arg = '';
-        if ($root->{'args'}) {
-          $accent_arg = _convert($self, $root->{'args'}->[0]);
-        }
 
         if ($LaTeX_accent_commands{$command_context}->{$command}) {
           $result .= "\\$LaTeX_accent_commands{$command_context}->{$command}\{";
+          if ($root->{'args'}) {
+            $accent_arg = _convert($self, $root->{'args'}->[0]);
+          }
           $result .= $accent_arg;
           $result .= '}';
         } elsif ($command eq 'dotless') {
+          if ($root->{'args'}) {
+            $accent_arg = _convert($self, $root->{'args'}->[0]);
+          }
           if ($accent_arg eq 'i' or $accent_arg eq 'j') {
             if ($command_context eq 'math') {
               return "\\${accent_arg}math{}";
@@ -906,9 +916,16 @@ sub _convert($$)
           } else {
             return _protect_text($self, $accent_arg);
           }
+        # accent without math command, use slanted text
         } elsif ($command_context eq 'math'
                  and $LaTeX_accent_commands{'text'}->{$command}) {
           $result .= "\\textsl{\\$LaTeX_accent_commands{'text'}->{$command}\{";
+          # we do not want accents within to be math accents
+          if ($root->{'args'}) {
+            push @{$self->{'style_context'}->[-1]->{'context'}}, 'text';
+            $accent_arg = _convert($self, $root->{'args'}->[0]);
+            my $old_context = pop @{$self->{'style_context'}->[-1]->{'context'}};
+          }
           $result .= $accent_arg;
           $result .= '}}';
         }
@@ -917,15 +934,11 @@ sub _convert($$)
     } elsif (exists($LaTeX_style_brace_commands{'text'}->{$command})
          or ($root->{'type'} and $root->{'type'} eq 'definfoenclose_command')) {
       if ($root->{'args'}) {
-        my $command_context = 'text';
-        if ($self->{'style_context'}->[-1]->{'context'}->[-1] eq 'math') {
-          $command_context = 'math';
-        }
         if ($self->{'quotes_map'}->{$command}) {
           $result .= $self->{'quotes_map'}->{$command}->[0];
         }
         if ($LaTeX_style_brace_commands{$command_context}->{$command}) {
-          $result .= "\\$LaTeX_style_brace_commands{$command_context}->{$command}\{";
+          $result .= "$LaTeX_style_brace_commands{$command_context}->{$command}\{";
         }
         if ($code_style_commands{$command}) {
           $self->{'style_context'}->[-1]->{'code'} += 1;
@@ -950,10 +963,6 @@ sub _convert($$)
       # ‘distinct’ (the default) Always use the distinguishing font for @kbd.
       #    {\ttfamily\textsl{kbd argument}}
       if ($root->{'args'}) {
-        my $command_context = 'text';
-        if ($self->{'style_context'}->[-1]->{'context'}->[-1] eq 'math') {
-          $command_context = 'math';
-        }
         my $code_font = 0;
         if (defined($self->{'conf'}->{'kbdinputstyle'})
             and ($self->{'conf'}->{'kbdinputstyle'} eq 'code'
@@ -963,7 +972,7 @@ sub _convert($$)
         }
         if ($code_font) {
           if ($LaTeX_style_brace_commands{$command_context}->{'code'}) {
-            $result .= "\\$LaTeX_style_brace_commands{$command_context}->{'code'}\{";
+            $result .= "$LaTeX_style_brace_commands{$command_context}->{'code'}\{";
           }
         } else {
           # use \ttfamily to have a cumulative effect with \textsl
