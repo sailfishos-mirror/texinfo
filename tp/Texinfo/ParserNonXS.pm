@@ -2209,6 +2209,8 @@ sub _parse_def($$$)
     my $bracketed = { 'type' => 'bracketed_inserted',
                       'parent' => $current };
     my $content = { 'text' => $prepended, 'parent' => $bracketed };
+    # the prepended string is an english string (such as Function).  If
+    # documentlanguage is set it needs to be translated during the conversion.
     if ($self->{'documentlanguage'}) {
       $content->{'type'} = 'untranslated';
       $content->{'extra'}->{'documentlanguage'} = $self->{'documentlanguage'};
@@ -6409,6 +6411,12 @@ The text elements may have the following types (or may have no type
 at all):
 
 =over
+
+=item untranslated
+
+English text added by the parser that may need to be translated
+during conversion.  Happens for @def* @-commands aliases that
+leads to prepending text such as 'Function'.
 
 =item empty_line
 
