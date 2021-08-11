@@ -124,6 +124,22 @@ foreach my $misc_command (keys(%misc_commands)) {
     unless ($formatting_misc_commands{$misc_command});
 }
 
+my %section_map = (
+   'part' => 'part',
+   'chapter' => 'chapter',
+   'section' => 'section',
+   'subsection' => 'subsection',
+   'subsubsection' => 'subsubsection',
+   'chapheading' => 'chapter*',
+   'heading' => 'section*',
+   'subheading' => 'subsection*',
+   'subsubheading' => 'subsubsection*',
+   'unnumbered' => 'chapter*',
+   'unnumberedsec' => 'section*',
+   'unnumberedsubsec' => 'subsection*',
+   'unnumberedsubsubsec' => 'subsubsection*',
+);
+
 my %LaTeX_no_arg_brace_commands = (
    # textmode
   'text' => {
@@ -427,6 +443,7 @@ sub converter_initialize($)
   $self->{'style_context'} = [{
     'context' => ['text'],
     'code' => 0,
+    'dot_not_end_sentence' => 0,
     'type' => 'main'
   }];
 
@@ -625,6 +642,9 @@ sub _protect_text($$)
       $text =~ s/---/{-}{-}{-}/g;
       $text =~ s/--/{-}{-}/g;
     }
+    if ($self->{'style_context'}->[-1]->{'dot_not_end_sentence'}) {
+      $text =~ s/\./\.\\@/g;
+    }
   }
   return $text;
 }
@@ -741,13 +761,12 @@ sub _image($$)
      {'code' => 1, %{$self->{'convert_text_options'}}});
     my ($text, $width) = $self->_image_text($root, $basefile);
     my $result = $self->_image_formatted_text($root, $basefile, $text);
-    my $lines_count = ($result =~ tr/\n/\n/);
     if (!defined($width)) {
       $width = Texinfo::Convert::Unicode::string_width($result);
     }
-    return ($result, $lines_count);
+    return $result;
   }
-  return ('', 0);
+  return '';
 }
 
 sub _get_form_feeds($)
@@ -972,7 +991,7 @@ sub _convert($$)
       die if ($old_context ne 'raw');
       $result .= $root->{'extra'}->{'delimiter'};
     } elsif ($command eq 'image') {
-      my ($image, $lines_count) = $self->_image($root);
+      my $image = $self->_image($root);
       $result .= $image; 
       return $result;
     } elsif ($command eq 'email') {
@@ -1041,6 +1060,7 @@ sub _convert($$)
          {
            'context' => ['text'],
            'code' => 0,
+           'dot_not_end_sentence' => 0,
            'type' => 'footnote'
          };
       $result .= '\footnote{';
@@ -1146,7 +1166,7 @@ sub _convert($$)
         # in abbr spaces never end a sentence.
         my $argument;
         if ($command eq 'abbr') {
-          $argument = {'type' => 'frenchspacing',
+          $argument = {'type' => '_dot_not_end_sentence',
                        'contents' => $root->{'args'}->[0]->{'contents'}};
         } else {
           $argument = { 'contents' => $root->{'args'}->[0]->{'contents'}};
@@ -1203,14 +1223,10 @@ sub _convert($$)
         }
       }
     } elsif ($command eq 'titlefont') {
-      $result = $self->convert_line ({'type' => 'frenchspacing',
-               'contents' => [$root->{'args'}->[0]]});
-      $result = Texinfo::Convert::Text::heading({'level' => 0, 
-        'cmdname' => 'titlefont'}, $result, $self, 
-        $self->get_conf('NUMBER_SECTIONS'));
-      $result =~ s/\n$//; # final newline has its own tree element
+      $result .= "{\\Huge \\bfseries ";
+      $result .= $self->convert_line({'contents' => [$root->{'args'}->[0]]});
+      $result .= '}';
       return $result;
-
     } elsif ($command eq 'U') {
       my $arg;
       if ($root->{'args'}
@@ -1311,7 +1327,6 @@ sub _convert($$)
             and @{$root->{'args'}->[0]->{'contents'}}) {
           my $prepended = $self->gdt('@b{{quotation_arg}:} ', 
              {'quotation_arg' => $root->{'args'}->[0]->{'contents'}});
-          $prepended->{'type'} = 'frenchspacing';
           $result .= $self->convert_line($prepended);
         }
       } elsif ($command eq 'multitable') {
@@ -1352,28 +1367,12 @@ sub _convert($$)
       }
              
       if ($contents) {
-        my $heading = $self->convert_line({'type' => 'frenchspacing',
-                         'contents' => $contents});
+        my $heading = $self->convert_line({'contents' => $contents});
         $heading =~ s/\s*$//;
 
-        my %section_map = (
-          'part' => '\\part',
-          'chapter' => '\\chapter',
-          'section' => '\\section',
-          'subsection' => '\\subsection',
-          'subsubsection' => '\\subsubsection',
-          'chapheading' => '\\chapter*',
-          'heading' => '\\section*',
-          'subheading' => '\\subsection*',
-          'subsubheading' => '\\subsubsection*',
-          'unnumbered' => '\\chapter*',
-          'unnumberedsec' => '\\section*',
-          'unnumberedsubsec' => '\\subsection*',
-          'unnumberedsubsubsec' => '\\subsubsection*',
-        );
         my $section_cmd = $section_map{$command};
         if ($section_cmd) {
-          $result .= $section_cmd."{$heading}\n\n";
+          $result .= "\\".$section_cmd."{$heading}\n\n";
         }
       }
     } elsif (($command eq 'item' or $command eq 'itemx')
@@ -1386,7 +1385,6 @@ sub _convert($$)
         my $converted_tree = $self->_table_item_content_tree($root,
                                          $root->{'args'}->[0]->{'contents'});
 
-        $converted_tree->{'type'} = 'frenchspacing';
         $result = $self->convert_line($converted_tree);
         if ($result ne '') {
           $result .= "\n";
@@ -1412,8 +1410,7 @@ sub _convert($$)
       # ...
     } elsif ($command eq 'center') {
       $result = $self->convert_line (
-                       {'type' => 'frenchspacing',
-                        'contents' => $root->{'args'}->[0]->{'contents'}},
+                       {'contents' => $root->{'args'}->[0]->{'contents'}},
                        {'indent_length' => 0});
       return $result;
     } elsif ($command eq 'exdent') {
@@ -1462,7 +1459,6 @@ sub _convert($$)
                or $command eq 'summarycontents') {
       if ($self->{'structuring'}
             and $self->{'structuring'}->{'sectioning_root'}) {
-        my $lines_count;
         $result
               = $self->_contents($self->{'structuring'}->{'sectioning_root'}, 
                               'shortcontents');
@@ -1666,10 +1662,10 @@ sub _convert($$)
       }
       $result .= "\n";
 
-    } elsif ($root->{'type'} eq 'frenchspacing') {
-      # ...
     } elsif ($root->{'type'} eq '_code') {
       # ...
+    } elsif ($root->{'type'} eq '_dot_not_end_sentence') {
+      $self->{'style_context'}->[-1]->{'dot_not_end_sentence'} += 1;
     } elsif ($root->{'type'} eq 'bracketed') {
       $result .= _protect_text($self, '{');
     }
@@ -1691,8 +1687,9 @@ sub _convert($$)
 
   # now closing. First, close types.
   if ($root->{'type'}) {
-    if ($root->{'type'} eq 'frenchspacing') {
-    } elsif ($root->{'type'} eq '_code') {
+    if ($root->{'type'} eq '_code') {
+    } elsif ($root->{'type'} eq '_dot_not_end_sentence') {
+      $self->{'style_context'}->[-1]->{'dot_not_end_sentence'} -= 1;
     } elsif ($root->{'type'} eq 'bracketed') {
       $result .= _protect_text($self, '}');
     } elsif ($root->{'type'} eq 'row') {
@@ -1718,7 +1715,6 @@ sub _convert($$)
         my ($caption, $prepended) = Texinfo::Common::float_name_caption($self,
                                                                         $root);
         if ($prepended) {
-          $prepended->{'type'} = 'frenchspacing';
           my $float_number = $self->convert_line ($prepended);
           $result .= $float_number;
         }
