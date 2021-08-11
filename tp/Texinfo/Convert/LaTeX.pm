@@ -102,7 +102,8 @@ foreach my $def_command (keys(%def_commands)) {
 # style_context: for a whole context for style, for instance
 #                in a footnote.
 #       context: relevant for math versus text mode, raw
-#                (no text protection) and preformatted.
+#                (no text protection) and preformatted. Inside
+#                style_context.
 
 
 my %block_raw_commands = %format_raw_commands;
@@ -123,7 +124,7 @@ foreach my $misc_command (keys(%misc_commands)) {
     unless ($formatting_misc_commands{$misc_command});
 }
 
-my %Latex_no_arg_brace_commands = (
+my %LaTeX_no_arg_brace_commands = (
    # textmode
   'text' => {
     'TeX' => '\TeX{}',
@@ -219,10 +220,45 @@ foreach my $text_only_no_arg_brace_command
      (keys(%LaTeX_text_only_no_arg_brace_commands)) {
   my $LaTeX_command =
     "\\$LaTeX_text_only_no_arg_brace_commands{$text_only_no_arg_brace_command}\{\}";
-  $Latex_no_arg_brace_commands{'text'}->{$text_only_no_arg_brace_command} 
+  $LaTeX_no_arg_brace_commands{'text'}->{$text_only_no_arg_brace_command} 
     = $LaTeX_command;
-  $Latex_no_arg_brace_commands{'math'}->{$text_only_no_arg_brace_command}
+  $LaTeX_no_arg_brace_commands{'math'}->{$text_only_no_arg_brace_command}
     = '\mathord{\text{'.$LaTeX_command.'}}';
+}
+
+# dotless is special
+my %LaTeX_accent_commands = (
+   # textmode
+  'text' => {
+    ',' => 'c',
+    'ringaccent' => 'r',
+    'H' => 'H',
+    'dotaccent' => '.',
+    'ubaraccent' => 'b',
+    'udotaccent' => 'd',
+    'ogonek' => 'k',
+    'tieaccent' => 't',
+  },
+  'math' => {
+    '"' => 'ddot',
+    '~' => 'tilde',
+    '^' => 'hat',
+    '`' => 'grave',
+    "'" => 'acute',
+    '=' => 'bar',
+    'ringaccent' => 'mathring',
+    'dotaccent' => 'dot',
+    'u' => 'breve',
+    'v' => 'check',
+  }
+);
+
+# accent in math and not in text is the same in 
+# Texinfo and LaTeX.
+foreach my $accent_command (keys %{$LaTeX_accent_commands{'math'}}) {
+  if (not exists($LaTeX_accent_commands{'text'}->{$accent_command})) {
+    $LaTeX_accent_commands{'text'}->{$accent_command} = $accent_command;
+  }
 }
 
 my %ignored_commands = %ignored_misc_commands;
@@ -289,7 +325,7 @@ foreach my $ignored_type(keys(%ignored_types)) {
 
 # All those commands run with the text.
 # math, verb and kbd are special
-my %Latex_style_brace_commands = (
+my %LaTeX_style_brace_commands = (
   'text' => {
     'hyphenation' => 'hyphenation',
     'w' => 'hbox',
@@ -309,27 +345,27 @@ my @asis_commands = ('asis', 'clicksequence',
   'headitemfont', 'dmn');
 
 foreach my $asis_command (@asis_commands) {
-  $Latex_style_brace_commands{'text'}->{$asis_command} = '';
-  $Latex_style_brace_commands{'math'}->{$asis_command} = '';
+  $LaTeX_style_brace_commands{'text'}->{$asis_command} = '';
+  $LaTeX_style_brace_commands{'math'}->{$asis_command} = '';
 }
 
 my @emphasized_commands = ('var', 'dfn', 'emph');
 foreach my $emphasized_command (@emphasized_commands) {
-  $Latex_style_brace_commands{'text'}->{$emphasized_command} = 'emph';
-  $Latex_style_brace_commands{'math'}->{$emphasized_command} = '';
+  $LaTeX_style_brace_commands{'text'}->{$emphasized_command} = 'emph';
+  $LaTeX_style_brace_commands{'math'}->{$emphasized_command} = '';
 }
 
 my @bold_commands = ('strong', 'b');
 foreach my $bold_command (@bold_commands) {
-  $Latex_style_brace_commands{'text'}->{$bold_command} = 'textbf';
-  $Latex_style_brace_commands{'math'}->{$bold_command} = 'mathbf';
+  $LaTeX_style_brace_commands{'text'}->{$bold_command} = 'textbf';
+  $LaTeX_style_brace_commands{'math'}->{$bold_command} = 'mathbf';
 }
 
 # 'cite' could be emphasized?
 my @italics_commands = ('cite', 'i');
 foreach my $italics_command (@italics_commands) {
-  $Latex_style_brace_commands{'text'}->{$italics_command} = 'textit';
-  $Latex_style_brace_commands{'math'}->{$italics_command} = 'mathit';
+  $LaTeX_style_brace_commands{'text'}->{$italics_command} = 'textit';
+  $LaTeX_style_brace_commands{'math'}->{$italics_command} = 'mathit';
 }
 
 
@@ -337,8 +373,8 @@ my @typewriter_commands = ('t', 'code', 'samp', 'key', 'env', 'file',
  'command', 'option', 'indicateurl');
 
 foreach my $typewriter_command (@typewriter_commands) {
-  $Latex_style_brace_commands{'text'}->{$typewriter_command} = 'texttt';
-  $Latex_style_brace_commands{'math'}->{$typewriter_command} = 'mathtt';
+  $LaTeX_style_brace_commands{'text'}->{$typewriter_command} = 'texttt';
+  $LaTeX_style_brace_commands{'math'}->{$typewriter_command} = 'mathtt';
 }
 
 my @quoted_commands = ('samp', 'indicateurl');
@@ -351,7 +387,7 @@ foreach my $quoted_command (@quoted_commands) {
 }
 
 my %defaults = (
-  'ENABLE_ENCODING'      => 1,
+  'ENABLE_ENCODING'      => 0,
   'FORMAT_MENU'          => 'nomenu',
   #'EXTENSION'            => 'info',
   'EXTENSION'            => 'tex',
@@ -407,7 +443,8 @@ sub converter_initialize($)
   $self->{'convert_text_options'} 
       = {Texinfo::Common::_convert_text_options($self)};
 
-  if ($self->get_conf('ENABLE_ENCODING') and $self->get_conf('OUTPUT_ENCODING_NAME')
+  if ($self->get_conf('ENABLE_ENCODING')
+      and $self->get_conf('OUTPUT_ENCODING_NAME')
       and $self->get_conf('OUTPUT_ENCODING_NAME') eq 'utf-8') {
     # cache this to avoid redoing calls to get_conf
     $self->{'to_utf8'} = 1;
@@ -810,8 +847,8 @@ sub _convert($$)
       if ($self->{'style_context'}->[-1]->{'context'}->[-1] eq 'math') {
         $command_context = 'math';
       }
-      if (exists($Latex_no_arg_brace_commands{$command_context}->{$command})) {
-        $result .= $Latex_no_arg_brace_commands{$command_context}->{$command};
+      if (exists($LaTeX_no_arg_brace_commands{$command_context}->{$command})) {
+        $result .= $LaTeX_no_arg_brace_commands{$command_context}->{$command};
       } else {
         my $text = Texinfo::Convert::Text::brace_no_arg_command($root, 
                                            $self->{'convert_text_options'});
@@ -820,19 +857,45 @@ sub _convert($$)
       return $result;
     # commands with braces
     } elsif ($accent_commands{$command}) {
-      my $encoding;
       if ($self->{'enable_encoding'}) {
-        $encoding = $self->{'output_encoding_name'};
+        my $encoding = $self->{'output_encoding_name'};
+        my $sc;
+        my $accented_text
+           = Texinfo::Convert::Text::text_accents($root, $encoding, $sc);
+        $result .= _protect_text($self, $accented_text);
+      } else {
+        my $command_context = 'text';
+        if ($self->{'style_context'}->[-1]->{'context'}->[-1] eq 'math') {
+          $command_context = 'math';
+        }
+        my $accent_arg = '';
+        if ($root->{'args'}) {
+          $accent_arg = _convert($self, $root->{'args'}->[0]);
+        }
+
+        if ($LaTeX_accent_commands{$command_context}->{$command}) {
+          $result .= "\\$LaTeX_accent_commands{$command_context}->{$command}\{";
+          $result .= $accent_arg;
+          $result .= '}';
+        } elsif ($command eq 'dotless') {
+          if ($accent_arg eq 'i' or $accent_arg eq 'j') {
+            if ($command_context eq 'math') {
+              return "\\${accent_arg}math{}";
+            } else {
+              return "\\${accent_arg}{}";
+            }
+          } else {
+            return _protect_text($self, $accent_arg);
+          }
+        } elsif ($command_context eq 'math'
+                 and $LaTeX_accent_commands{'text'}->{$command}) {
+          $result .= "\\textsl{\\$LaTeX_accent_commands{'text'}->{$command}\{";
+          $result .= $accent_arg;
+          $result .= '}}';
+        }
       }
-      my $sc;
-      my $accented_text 
-         = Texinfo::Convert::Text::text_accents($root, $encoding, $sc);
-      $result .= _protect_text($self, $accented_text);
-
-      my $accented_text_original;
-
       return $result;
-    } elsif (exists($Latex_style_brace_commands{'text'}->{$command})
+    } elsif (exists($LaTeX_style_brace_commands{'text'}->{$command})
          or ($root->{'type'} and $root->{'type'} eq 'definfoenclose_command')) {
       if ($root->{'args'}) {
         my $command_context = 'text';
@@ -842,14 +905,14 @@ sub _convert($$)
         if ($self->{'quotes_map'}->{$command}) {
           $result .= $self->{'quotes_map'}->{$command}->[0];
         }
-        if ($Latex_style_brace_commands{$command_context}->{$command}) {
-          $result .= "\\$Latex_style_brace_commands{$command_context}->{$command}\{";
+        if ($LaTeX_style_brace_commands{$command_context}->{$command}) {
+          $result .= "\\$LaTeX_style_brace_commands{$command_context}->{$command}\{";
         }
         if ($code_style_commands{$command}) {
           $self->{'style_context'}->[-1]->{'code'} += 1;
         }
         $result .= _convert($self, $root->{'args'}->[0]);
-        if ($Latex_style_brace_commands{$command_context}->{$command}) {
+        if ($LaTeX_style_brace_commands{$command_context}->{$command}) {
           $result .= '}';
         }
         if ($code_style_commands{$command}) {
@@ -880,8 +943,8 @@ sub _convert($$)
           $code_font = 1;
         }
         if ($code_font) {
-          if ($Latex_style_brace_commands{$command_context}->{'code'}) {
-            $result .= "\\$Latex_style_brace_commands{$command_context}->{'code'}\{";
+          if ($LaTeX_style_brace_commands{$command_context}->{'code'}) {
+            $result .= "\\$LaTeX_style_brace_commands{$command_context}->{'code'}\{";
           }
         } else {
           # use \ttfamily to have a cumulative effect with \textsl
@@ -891,7 +954,7 @@ sub _convert($$)
         $result .= _convert($self, $root->{'args'}->[0]);
         $self->{'style_context'}->[-1]->{'code'} -= 1;
         if ($code_font) {
-          if ($Latex_style_brace_commands{$command_context}->{'code'}) {
+          if ($LaTeX_style_brace_commands{$command_context}->{'code'}) {
             $result .= '}';
           }
         } else {
@@ -1121,7 +1184,6 @@ sub _convert($$)
         unshift @{$self->{'current_contents'}->[-1]}, ($argument);
       }
       return '';
-      # condition should actually be that the $command is inline
     } elsif ($math_commands{$command}) {
       push @{$self->{'style_context'}->[-1]->{'context'}}, 'math';
       if (not exists($block_commands{$command})) {
@@ -1688,6 +1750,7 @@ sub _convert($$)
       if ($command eq 'verbatim') {
         $result .= "\\end{verbatim}\n\n";
       }
+      # FIXME add \n or \n\n if not verbatim?
     } elsif ($flush_commands{$command}) {
       my $old_context = pop @{$self->{'style_context'}->[-1]->{'context'}};
       die if (! $flush_commands{$old_context});
