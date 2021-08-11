@@ -185,6 +185,7 @@ but , ,@:
 @code{@@,@{--c@}} @,{--c}
 @code{@@ogonek@{a@}} @ogonek{a}
 @code{@@ogonek@{--a@}} @ogonek{--a}
+@code{a@@sup@{h@}@@sub@{l@}} a@sup{h}@sub{l}
 @code{@@footnote@{in footnote@}} @footnote{in footnote}
 @code{@@footnote@{in footnote2@}} @footnote{in footnote2}
 
@@ -204,6 +205,60 @@ but , ,@:
 After clickstyle @result{}
 @code{@@clicksequence@{click @@click@{@} A@}} @clicksequence{click @click{} A}
 @clickstyle @arrow
+
+@c test most commands that could happen in math mode
+@displaymath
+@strong{``simple-double--three---four----''} @w{aa}
+@end displaymath
+
+@displaymath
+@"u @"{U} @~n @^a @'e @=o @`i @'{e} @dotless{i} @dotless{j} @`{@=E}
+@l{} @,{@'C} @,{@'C} @,c @H{a} @dotaccent{a} @ringaccent{a} @tieaccent{a}
+@u{a} @ubaraccent{a} @udotaccent{a} @v{a} @ogonek{a} a@sup{h}@sub{l}
+@* @ @  @
+@- @| @: @! @? @. @@ @} @{ @/
+@today{}
+@end displaymath
+
+@displaymath
+@click{}
+@U{0075}
+@TeX{} @LaTeX{} @bullet{} @copyright{} @dots{} @enddots{} @equiv{}
+@error{} @expansion{} @minus{} @point{} @print{} @result{}
+@aa{} @AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{}
+@TH{} @dh{} @th{} @exclamdown{} @questiondown{} @pounds{}
+@registeredsymbol{} @ordf{} @ordm{} @comma{} 
+@end displaymath
+
+@displaymath
+@quotedblleft{} @quotedblright{} 
+@quoteleft{} @quoteright{} @quotedblbase{} @quotesinglbase{} @guillemetleft{}
+@guillemetright{} @guillemotleft{} @guillemotright{} @guilsinglleft{}
+@guilsinglright{} @textdegree{} @euro{} @arrow{} @leq{} @geq{}
+@end displaymath
+
+@kbd{default kbdinputstyle}
+@example
+@kbd{in example default kbdinputstyle}
+@end example
+
+@kbdinputstyle code
+@kbd{code kbdinputstyle}
+@example
+@kbd{in example code kbdinputstyle}
+@end example
+
+@kbdinputstyle example
+@kbd{example kbdinputstyle}
+@example
+@kbd{in example example kbdinputstyle}
+@end example
+
+@kbdinputstyle distinct
+@kbd{distinct kbdinputstyle}
+@example
+@kbd{in example distinct kbdinputstyle}
+@end example
 
 @quotation 
 A quot---ation

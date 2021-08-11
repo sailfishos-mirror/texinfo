@@ -208,6 +208,7 @@ but , ,@:
 @code{@@,@{--c@}} @,{--c}
 @code{@@ogonek@{a@}} @ogonek{a}
 @code{@@ogonek@{--a@}} @ogonek{--a}
+@code{a@@sup@{h@}@@sub@{l@}} a@sup{h}@sub{l}
 @code{@@footnote@{in footnote@}} @footnote{in footnote}
 @code{@@footnote@{in footnote2@}} @footnote{in footnote2}
 
@@ -227,6 +228,60 @@ but , ,@:
 After clickstyle @result{}
 @code{@@clicksequence@{click @@click@{@} A@}} @clicksequence{click @click{} A}
 @clickstyle @arrow
+
+@c test most commands that could happen in math mode
+@displaymath
+@strong{``simple-double--three---four----''} @w{aa}
+@end displaymath
+
+@displaymath
+@&quot;u @&quot;{U} @~n @^a @'e @=o @`i @'{e} @dotless{i} @dotless{j} @`{@=E}
+@l{} @,{@'C} @,{@'C} @,c @H{a} @dotaccent{a} @ringaccent{a} @tieaccent{a}
+@u{a} @ubaraccent{a} @udotaccent{a} @v{a} @ogonek{a} a@sup{h}@sub{l}
+@* @ @  @
+@- @| @: @! @? @. @@ @} @{ @/
+@today{}
+@end displaymath
+
+@displaymath
+@click{}
+@U{0075}
+@TeX{} @LaTeX{} @bullet{} @copyright{} @dots{} @enddots{} @equiv{}
+@error{} @expansion{} @minus{} @point{} @print{} @result{}
+@aa{} @AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{}
+@TH{} @dh{} @th{} @exclamdown{} @questiondown{} @pounds{}
+@registeredsymbol{} @ordf{} @ordm{} @comma{} 
+@end displaymath
+
+@displaymath
+@quotedblleft{} @quotedblright{} 
+@quoteleft{} @quoteright{} @quotedblbase{} @quotesinglbase{} @guillemetleft{}
+@guillemetright{} @guillemotleft{} @guillemotright{} @guilsinglleft{}
+@guilsinglright{} @textdegree{} @euro{} @arrow{} @leq{} @geq{}
+@end displaymath
+
+@kbd{default kbdinputstyle}
+@example
+@kbd{in example default kbdinputstyle}
+@end example
+
+@kbdinputstyle code
+@kbd{code kbdinputstyle}
+@example
+@kbd{in example code kbdinputstyle}
+@end example
+
+@kbdinputstyle example
+@kbd{example kbdinputstyle}
+@example
+@kbd{in example example kbdinputstyle}
+@end example
+
+@kbdinputstyle distinct
+@kbd{distinct kbdinputstyle}
+@example
+@kbd{in example distinct kbdinputstyle}
+@end example
 
 @quotation 
 A quot---ation
@@ -984,6 +1039,7 @@ but , ,&noeos;
 <code>&arobase;,&lbrace;--c&rbrace;</code> <accent type="cedil">&textndash;c</accent>
 <code>&arobase;ogonek&lbrace;a&rbrace;</code> <accent type="ogon">a</accent>
 <code>&arobase;ogonek&lbrace;--a&rbrace;</code> <accent type="ogon">&textndash;a</accent>
+<code>a&arobase;sup&lbrace;h&rbrace;&arobase;sub&lbrace;l&rbrace;</code> a<sup>h</sup><sub>l</sub>
 <code>&arobase;footnote&lbrace;in footnote&rbrace;</code> <footnote><para>in footnote</para></footnote>
 <code>&arobase;footnote&lbrace;in footnote2&rbrace;</code> <footnote><para>in footnote2</para></footnote>
 </para>
@@ -1004,6 +1060,59 @@ After clickstyle &result;
 <code>&arobase;clicksequence&lbrace;click &arobase;click&lbrace;&rbrace; A&rbrace;</code> <clicksequence>click <click command="result"/> A</clicksequence>
 <clickstyle command="arrow" line=" @arrow">@arrow</clickstyle>
 </para>
+<!-- c test most commands that could happen in math mode -->
+<displaymath endspaces=" ">
+<strong>``simple-double--three---four----''</strong> <w>aa</w>
+</displaymath>
+
+<displaymath endspaces=" ">
+<accent type="uml" bracketed="off">u</accent> <accent type="uml">U</accent> <accent type="tilde" bracketed="off">n</accent> <accent type="circ" bracketed="off">a</accent> <accent type="acute" bracketed="off">e</accent> <accent type="macr" bracketed="off">o</accent> <accent type="grave" bracketed="off">i</accent> <accent type="acute">e</accent> <dotless>i</dotless> <dotless>j</dotless> <accent type="grave"><accent type="macr" bracketed="off">E</accent></accent>
+&lslash; <accent type="cedil"><accent type="acute" bracketed="off">C</accent></accent> <accent type="cedil"><accent type="acute" bracketed="off">C</accent></accent> <accent type="cedil" bracketed="off">c</accent> <accent type="doubleacute">a</accent> <accent type="dotaccent">a</accent> <accent type="ring">a</accent> <accent type="tieaccent">a</accent>
+<accent type="breve">a</accent> <accent type="ubaraccent">a</accent> <accent type="udotaccent">a</accent> <accent type="caron">a</accent> <accent type="ogon">a</accent> a<sup>h</sup><sub>l</sub>
+&linebreak; <spacecmd type="spc"/><spacecmd type="spc"/> <spacecmd type="nl"/>&hyphenbreak;  &noeos; &eosexcl; &eosquest; &eosperiod; &arobase; &rbrace; &lbrace; &slashbreak;
+<today/>
+</displaymath>
+
+<displaymath endspaces=" ">
+<click command="arrow"/>
+<U>0075</U>
+&tex; &latex; &bullet; &copyright; &dots; &enddots; &equiv;
+&errorglyph; &expansion; &minus; &point; &printglyph; &result;
+&aring; &Aring; &aelig; &oelig; &AElig; &OElig; &oslash; &Oslash; &szlig; &lslash; &Lslash; &ETH;
+&THORN; &eth; &thorn; &iexcl; &iquest; &pound;
+&registered; &ordf; &ordm; &comma; 
+</displaymath>
+
+<displaymath endspaces=" ">
+&ldquo; &rdquo; 
+&lsquo; &rsquo; &bdquo; &sbquo; &laquo;
+&raquo; &guillemotleft; &guillemotright; &lsaquo;
+&rsaquo; &deg; &euro; &rarr; &le; &ge;
+</displaymath>
+
+<para><kbd>default kbdinputstyle</kbd>
+</para><example endspaces=" ">
+<pre xml:space="preserve"><kbd>in example default kbdinputstyle</kbd>
+</pre></example>
+
+<kbdinputstyle value="code" line="code"></kbdinputstyle>
+<para><kbd>code kbdinputstyle</kbd>
+</para><example endspaces=" ">
+<pre xml:space="preserve"><kbd>in example code kbdinputstyle</kbd>
+</pre></example>
+
+<kbdinputstyle value="example" line="example"></kbdinputstyle>
+<para><kbd>example kbdinputstyle</kbd>
+</para><example endspaces=" ">
+<pre xml:space="preserve"><kbd>in example example kbdinputstyle</kbd>
+</pre></example>
+
+<kbdinputstyle value="distinct" line="distinct"></kbdinputstyle>
+<para><kbd>distinct kbdinputstyle</kbd>
+</para><example endspaces=" ">
+<pre xml:space="preserve"><kbd>in example distinct kbdinputstyle</kbd>
+</pre></example>
+
 <quotation endspaces=" "> 
 <para>A quot&textmdash;ation
 </para></quotation>
@@ -1750,6 +1859,7 @@ but , ,&noeos;
 <code>&arobase;,&lbrace;--c&rbrace;</code> <accent type="cedil">&textndash;c</accent>
 <code>&arobase;ogonek&lbrace;a&rbrace;</code> <accent type="ogon">a</accent>
 <code>&arobase;ogonek&lbrace;--a&rbrace;</code> <accent type="ogon">&textndash;a</accent>
+<code>a&arobase;sup&lbrace;h&rbrace;&arobase;sub&lbrace;l&rbrace;</code> a<sup>h</sup><sub>l</sub>
 <code>&arobase;footnote&lbrace;in footnote&rbrace;</code> <footnote><para>in footnote</para></footnote>
 <code>&arobase;footnote&lbrace;in footnote2&rbrace;</code> <footnote><para>in footnote2</para></footnote>
 </para>
@@ -1770,6 +1880,59 @@ After clickstyle &result;
 <code>&arobase;clicksequence&lbrace;click &arobase;click&lbrace;&rbrace; A&rbrace;</code> <clicksequence>click <click command="result"/> A</clicksequence>
 <clickstyle command="arrow" line=" @arrow">@arrow</clickstyle>
 </para>
+<!-- c test most commands that could happen in math mode -->
+<displaymath endspaces=" ">
+<strong>``simple-double--three---four----''</strong> <w>aa</w>
+</displaymath>
+
+<displaymath endspaces=" ">
+<accent type="uml" bracketed="off">u</accent> <accent type="uml">U</accent> <accent type="tilde" bracketed="off">n</accent> <accent type="circ" bracketed="off">a</accent> <accent type="acute" bracketed="off">e</accent> <accent type="macr" bracketed="off">o</accent> <accent type="grave" bracketed="off">i</accent> <accent type="acute">e</accent> <dotless>i</dotless> <dotless>j</dotless> <accent type="grave"><accent type="macr" bracketed="off">E</accent></accent>
+&lslash; <accent type="cedil"><accent type="acute" bracketed="off">C</accent></accent> <accent type="cedil"><accent type="acute" bracketed="off">C</accent></accent> <accent type="cedil" bracketed="off">c</accent> <accent type="doubleacute">a</accent> <accent type="dotaccent">a</accent> <accent type="ring">a</accent> <accent type="tieaccent">a</accent>
+<accent type="breve">a</accent> <accent type="ubaraccent">a</accent> <accent type="udotaccent">a</accent> <accent type="caron">a</accent> <accent type="ogon">a</accent> a<sup>h</sup><sub>l</sub>
+&linebreak; <spacecmd type="spc"/><spacecmd type="spc"/> <spacecmd type="nl"/>&hyphenbreak;  &noeos; &eosexcl; &eosquest; &eosperiod; &arobase; &rbrace; &lbrace; &slashbreak;
+<today/>
+</displaymath>
+
+<displaymath endspaces=" ">
+<click command="arrow"/>
+<U>0075</U>
+&tex; &latex; &bullet; &copyright; &dots; &enddots; &equiv;
+&errorglyph; &expansion; &minus; &point; &printglyph; &result;
+&aring; &Aring; &aelig; &oelig; &AElig; &OElig; &oslash; &Oslash; &szlig; &lslash; &Lslash; &ETH;
+&THORN; &eth; &thorn; &iexcl; &iquest; &pound;
+&registered; &ordf; &ordm; &comma; 
+</displaymath>
+
+<displaymath endspaces=" ">
+&ldquo; &rdquo; 
+&lsquo; &rsquo; &bdquo; &sbquo; &laquo;
+&raquo; &guillemotleft; &guillemotright; &lsaquo;
+&rsaquo; &deg; &euro; &rarr; &le; &ge;
+</displaymath>
+
+<para><kbd>default kbdinputstyle</kbd>
+</para><example endspaces=" ">
+<pre xml:space="preserve"><kbd>in example default kbdinputstyle</kbd>
+</pre></example>
+
+<kbdinputstyle value="code" line="code"></kbdinputstyle>
+<para><kbd>code kbdinputstyle</kbd>
+</para><example endspaces=" ">
+<pre xml:space="preserve"><kbd>in example code kbdinputstyle</kbd>
+</pre></example>
+
+<kbdinputstyle value="example" line="example"></kbdinputstyle>
+<para><kbd>example kbdinputstyle</kbd>
+</para><example endspaces=" ">
+<pre xml:space="preserve"><kbd>in example example kbdinputstyle</kbd>
+</pre></example>
+
+<kbdinputstyle value="distinct" line="distinct"></kbdinputstyle>
+<para><kbd>distinct kbdinputstyle</kbd>
+</para><example endspaces=" ">
+<pre xml:space="preserve"><kbd>in example distinct kbdinputstyle</kbd>
+</pre></example>
+
 <quotation endspaces=" "> 
 <para>A quot&textmdash;ation
 </para></quotation>
@@ -2516,6 +2679,7 @@ but , ,&noeos;
 <code>&arobase;,&lbrace;--c&rbrace;</code> <accent type="cedil">&textndash;c</accent>
 <code>&arobase;ogonek&lbrace;a&rbrace;</code> <accent type="ogon">a</accent>
 <code>&arobase;ogonek&lbrace;--a&rbrace;</code> <accent type="ogon">&textndash;a</accent>
+<code>a&arobase;sup&lbrace;h&rbrace;&arobase;sub&lbrace;l&rbrace;</code> a<sup>h</sup><sub>l</sub>
 <code>&arobase;footnote&lbrace;in footnote&rbrace;</code> <footnote><para>in footnote</para></footnote>
 <code>&arobase;footnote&lbrace;in footnote2&rbrace;</code> <footnote><para>in footnote2</para></footnote>
 </para>
@@ -2536,6 +2700,59 @@ After clickstyle &result;
 <code>&arobase;clicksequence&lbrace;click &arobase;click&lbrace;&rbrace; A&rbrace;</code> <clicksequence>click <click command="result"/> A</clicksequence>
 <clickstyle command="arrow" line=" @arrow">@arrow</clickstyle>
 </para>
+<!-- c test most commands that could happen in math mode -->
+<displaymath endspaces=" ">
+<strong>``simple-double--three---four----''</strong> <w>aa</w>
+</displaymath>
+
+<displaymath endspaces=" ">
+<accent type="uml" bracketed="off">u</accent> <accent type="uml">U</accent> <accent type="tilde" bracketed="off">n</accent> <accent type="circ" bracketed="off">a</accent> <accent type="acute" bracketed="off">e</accent> <accent type="macr" bracketed="off">o</accent> <accent type="grave" bracketed="off">i</accent> <accent type="acute">e</accent> <dotless>i</dotless> <dotless>j</dotless> <accent type="grave"><accent type="macr" bracketed="off">E</accent></accent>
+&lslash; <accent type="cedil"><accent type="acute" bracketed="off">C</accent></accent> <accent type="cedil"><accent type="acute" bracketed="off">C</accent></accent> <accent type="cedil" bracketed="off">c</accent> <accent type="doubleacute">a</accent> <accent type="dotaccent">a</accent> <accent type="ring">a</accent> <accent type="tieaccent">a</accent>
+<accent type="breve">a</accent> <accent type="ubaraccent">a</accent> <accent type="udotaccent">a</accent> <accent type="caron">a</accent> <accent type="ogon">a</accent> a<sup>h</sup><sub>l</sub>
+&linebreak; <spacecmd type="spc"/><spacecmd type="spc"/> <spacecmd type="nl"/>&hyphenbreak;  &noeos; &eosexcl; &eosquest; &eosperiod; &arobase; &rbrace; &lbrace; &slashbreak;
+<today/>
+</displaymath>
+
+<displaymath endspaces=" ">
+<click command="arrow"/>
+<U>0075</U>
+&tex; &latex; &bullet; &copyright; &dots; &enddots; &equiv;
+&errorglyph; &expansion; &minus; &point; &printglyph; &result;
+&aring; &Aring; &aelig; &oelig; &AElig; &OElig; &oslash; &Oslash; &szlig; &lslash; &Lslash; &ETH;
+&THORN; &eth; &thorn; &iexcl; &iquest; &pound;
+&registered; &ordf; &ordm; &comma; 
+</displaymath>
+
+<displaymath endspaces=" ">
+&ldquo; &rdquo; 
+&lsquo; &rsquo; &bdquo; &sbquo; &laquo;
+&raquo; &guillemotleft; &guillemotright; &lsaquo;
+&rsaquo; &deg; &euro; &rarr; &le; &ge;
+</displaymath>
+
+<para><kbd>default kbdinputstyle</kbd>
+</para><example endspaces=" ">
+<pre xml:space="preserve"><kbd>in example default kbdinputstyle</kbd>
+</pre></example>
+
+<kbdinputstyle value="code" line="code"></kbdinputstyle>
+<para><kbd>code kbdinputstyle</kbd>
+</para><example endspaces=" ">
+<pre xml:space="preserve"><kbd>in example code kbdinputstyle</kbd>
+</pre></example>
+
+<kbdinputstyle value="example" line="example"></kbdinputstyle>
+<para><kbd>example kbdinputstyle</kbd>
+</para><example endspaces=" ">
+<pre xml:space="preserve"><kbd>in example example kbdinputstyle</kbd>
+</pre></example>
+
+<kbdinputstyle value="distinct" line="distinct"></kbdinputstyle>
+<para><kbd>distinct kbdinputstyle</kbd>
+</para><example endspaces=" ">
+<pre xml:space="preserve"><kbd>in example distinct kbdinputstyle</kbd>
+</pre></example>
+
 <quotation endspaces=" "> 
 <para>A quot&textmdash;ation
 </para></quotation>
@@ -3276,6 +3493,7 @@ but , ,&noeos;
 <code>&arobase;,&lbrace;--c&rbrace;</code> <accent type="cedil">--c</accent>
 <code>&arobase;ogonek&lbrace;a&rbrace;</code> <accent type="ogon">a</accent>
 <code>&arobase;ogonek&lbrace;--a&rbrace;</code> <accent type="ogon">--a</accent>
+<code>a&arobase;sup&lbrace;h&rbrace;&arobase;sub&lbrace;l&rbrace;</code> a<sup>h</sup><sub>l</sub>
 <code>&arobase;footnote&lbrace;in footnote&rbrace;</code> <footnote><para>in footnote</para></footnote>
 <code>&arobase;footnote&lbrace;in footnote2&rbrace;</code> <footnote><para>in footnote2</para></footnote>
 
@@ -3296,6 +3514,59 @@ After clickstyle &result;
 <code>&arobase;clicksequence&lbrace;click &arobase;click&lbrace;&rbrace; A&rbrace;</code> <clicksequence>click <click command="result"/> A</clicksequence>
 <clickstyle command="arrow" line=" @arrow">@arrow</clickstyle>
 
+<!-- c test most commands that could happen in math mode -->
+</pre><displaymath endspaces=" ">
+<strong>``simple-double--three---four----''</strong> <w>aa</w>
+</displaymath>
+<pre xml:space="preserve">
+</pre><displaymath endspaces=" ">
+<accent type="uml" bracketed="off">u</accent> <accent type="uml">U</accent> <accent type="tilde" bracketed="off">n</accent> <accent type="circ" bracketed="off">a</accent> <accent type="acute" bracketed="off">e</accent> <accent type="macr" bracketed="off">o</accent> <accent type="grave" bracketed="off">i</accent> <accent type="acute">e</accent> <dotless>i</dotless> <dotless>j</dotless> <accent type="grave"><accent type="macr" bracketed="off">E</accent></accent>
+&lslash; <accent type="cedil"><accent type="acute" bracketed="off">C</accent></accent> <accent type="cedil"><accent type="acute" bracketed="off">C</accent></accent> <accent type="cedil" bracketed="off">c</accent> <accent type="doubleacute">a</accent> <accent type="dotaccent">a</accent> <accent type="ring">a</accent> <accent type="tieaccent">a</accent>
+<accent type="breve">a</accent> <accent type="ubaraccent">a</accent> <accent type="udotaccent">a</accent> <accent type="caron">a</accent> <accent type="ogon">a</accent> a<sup>h</sup><sub>l</sub>
+&linebreak; <spacecmd type="spc"/><spacecmd type="spc"/> <spacecmd type="nl"/>&hyphenbreak;  &noeos; &eosexcl; &eosquest; &eosperiod; &arobase; &rbrace; &lbrace; &slashbreak;
+<today/>
+</displaymath>
+<pre xml:space="preserve">
+</pre><displaymath endspaces=" ">
+<click command="arrow"/>
+<U>0075</U>
+&tex; &latex; &bullet; &copyright; &dots; &enddots; &equiv;
+&errorglyph; &expansion; &minus; &point; &printglyph; &result;
+&aring; &Aring; &aelig; &oelig; &AElig; &OElig; &oslash; &Oslash; &szlig; &lslash; &Lslash; &ETH;
+&THORN; &eth; &thorn; &iexcl; &iquest; &pound;
+&registered; &ordf; &ordm; &comma; 
+</displaymath>
+<pre xml:space="preserve">
+</pre><displaymath endspaces=" ">
+&ldquo; &rdquo; 
+&lsquo; &rsquo; &bdquo; &sbquo; &laquo;
+&raquo; &guillemotleft; &guillemotright; &lsaquo;
+&rsaquo; &deg; &euro; &rarr; &le; &ge;
+</displaymath>
+<pre xml:space="preserve">
+<kbd>default kbdinputstyle</kbd>
+</pre><example endspaces=" ">
+<pre xml:space="preserve"><kbd>in example default kbdinputstyle</kbd>
+</pre></example>
+<pre xml:space="preserve">
+<kbdinputstyle value="code" line="code"></kbdinputstyle>
+<kbd>code kbdinputstyle</kbd>
+</pre><example endspaces=" ">
+<pre xml:space="preserve"><kbd>in example code kbdinputstyle</kbd>
+</pre></example>
+<pre xml:space="preserve">
+<kbdinputstyle value="example" line="example"></kbdinputstyle>
+<kbd>example kbdinputstyle</kbd>
+</pre><example endspaces=" ">
+<pre xml:space="preserve"><kbd>in example example kbdinputstyle</kbd>
+</pre></example>
+<pre xml:space="preserve">
+<kbdinputstyle value="distinct" line="distinct"></kbdinputstyle>
+<kbd>distinct kbdinputstyle</kbd>
+</pre><example endspaces=" ">
+<pre xml:space="preserve"><kbd>in example distinct kbdinputstyle</kbd>
+</pre></example>
+<pre xml:space="preserve">
 </pre><quotation endspaces=" "> 
 <pre xml:space="preserve">A quot---ation
 </pre></quotation>

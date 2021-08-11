@@ -204,6 +204,7 @@ but , ,
 <literal>@,{--c}</literal> &#8211;c,
 <literal>@ogonek{a}</literal> &#261;
 <literal>@ogonek{--a}</literal> &#8211;a;
+<literal>a@sup{h}@sub{l}</literal> a<superscript>h</superscript><subscript>l</subscript>
 <literal>@footnote{in footnote}</literal> <footnote><para>in footnote</para></footnote>
 <literal>@footnote{in footnote2}</literal> <footnote><para>in footnote2</para></footnote>
 </para>
@@ -227,6 +228,41 @@ aaa</literallayout></textobject></inlinemediaobject>
 After clickstyle &#8658;
 <literal>@clicksequence{click @click{} A}</literal> click &#8658; A
 </para>
+<!-- test most commands that could happen in math mode -->
+<informalequation><mathphrase><emphasis role="bold">``simple-double--three---four----''</emphasis> aa<!-- /@w -->
+</mathphrase></informalequation>
+<informalequation><mathphrase>&#252; &#220; &#241; &#226; &#233; &#333; &#236; &#233; i j &#274;`
+&#322; &#262;, &#262;, &#231; a'' &#551; &#229; a[
+&#259; a_ &#7841; &#462; &#261; a<superscript>h</superscript><subscript>l</subscript>
+
+ &#160;&#160; &#160;   ! ? . @ } { 
+a sunny day
+</mathphrase></informalequation>
+<informalequation><mathphrase>&#8594;
+&#x0075;
+&tex; &latex; &#8226; &#169; &#8230; ... &#8801;
+error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
+&#229; &#197; &#230; &#339; &#198; &#338; &#248; &#216; &#223; &#322; &#321; &#208;
+&#222; &#240; &#254; &#161; &#191; &#163;
+&#174; &#170; &#186; &#44; 
+</mathphrase></informalequation>
+<informalequation><mathphrase>&#8220; &#8221; 
+&#8216; &#8217; &#8222; &#8218; &#171;
+&#187; &#171; &#187; &#8249;
+&#8250; &#176; &#8364; &#8594; &#8804; &#8805;
+</mathphrase></informalequation>
+<para><userinput>default kbdinputstyle</userinput>
+</para><screen><userinput>in example default kbdinputstyle</userinput>
+</screen>
+<para><userinput>code kbdinputstyle</userinput>
+</para><screen><userinput>in example code kbdinputstyle</userinput>
+</screen>
+<para><userinput>example kbdinputstyle</userinput>
+</para><screen><userinput>in example example kbdinputstyle</userinput>
+</screen>
+<para><userinput>distinct kbdinputstyle</userinput>
+</para><screen><userinput>in example distinct kbdinputstyle</userinput>
+</screen>
 <blockquote><para>A quot&#8212;ation
 </para></blockquote>
 <note><para>A Note
@@ -841,6 +877,7 @@ but , ,
 <literal>@,{--c}</literal> &#8211;c,
 <literal>@ogonek{a}</literal> &#261;
 <literal>@ogonek{--a}</literal> &#8211;a;
+<literal>a@sup{h}@sub{l}</literal> a<superscript>h</superscript><subscript>l</subscript>
 <literal>@footnote{in footnote}</literal> <footnote><para>in footnote</para></footnote>
 <literal>@footnote{in footnote2}</literal> <footnote><para>in footnote2</para></footnote>
 </para>
@@ -864,6 +901,41 @@ aaa</literallayout></textobject></inlinemediaobject>
 After clickstyle &#8658;
 <literal>@clicksequence{click @click{} A}</literal> click &#8658; A
 </para>
+<!-- test most commands that could happen in math mode -->
+<informalequation><mathphrase><emphasis role="bold">``simple-double--three---four----''</emphasis> aa<!-- /@w -->
+</mathphrase></informalequation>
+<informalequation><mathphrase>&#252; &#220; &#241; &#226; &#233; &#333; &#236; &#233; i j &#274;`
+&#322; &#262;, &#262;, &#231; a'' &#551; &#229; a[
+&#259; a_ &#7841; &#462; &#261; a<superscript>h</superscript><subscript>l</subscript>
+
+ &#160;&#160; &#160;   ! ? . @ } { 
+a sunny day
+</mathphrase></informalequation>
+<informalequation><mathphrase>&#8594;
+&#x0075;
+&tex; &latex; &#8226; &#169; &#8230; ... &#8801;
+error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
+&#229; &#197; &#230; &#339; &#198; &#338; &#248; &#216; &#223; &#322; &#321; &#208;
+&#222; &#240; &#254; &#161; &#191; &#163;
+&#174; &#170; &#186; &#44; 
+</mathphrase></informalequation>
+<informalequation><mathphrase>&#8220; &#8221; 
+&#8216; &#8217; &#8222; &#8218; &#171;
+&#187; &#171; &#187; &#8249;
+&#8250; &#176; &#8364; &#8594; &#8804; &#8805;
+</mathphrase></informalequation>
+<para><userinput>default kbdinputstyle</userinput>
+</para><screen><userinput>in example default kbdinputstyle</userinput>
+</screen>
+<para><userinput>code kbdinputstyle</userinput>
+</para><screen><userinput>in example code kbdinputstyle</userinput>
+</screen>
+<para><userinput>example kbdinputstyle</userinput>
+</para><screen><userinput>in example example kbdinputstyle</userinput>
+</screen>
+<para><userinput>distinct kbdinputstyle</userinput>
+</para><screen><userinput>in example distinct kbdinputstyle</userinput>
+</screen>
 <blockquote><para>A quot&#8212;ation
 </para></blockquote>
 <note><para>A Note
@@ -1479,6 +1551,7 @@ but , ,
 <literal>@,{--c}</literal> &#8211;c,
 <literal>@ogonek{a}</literal> &#261;
 <literal>@ogonek{--a}</literal> &#8211;a;
+<literal>a@sup{h}@sub{l}</literal> a<superscript>h</superscript><subscript>l</subscript>
 <literal>@footnote{in footnote}</literal> <footnote><para>in footnote</para></footnote>
 <literal>@footnote{in footnote2}</literal> <footnote><para>in footnote2</para></footnote>
 </para>
@@ -1502,6 +1575,41 @@ aaa</literallayout></textobject></inlinemediaobject>
 After clickstyle &#8658;
 <literal>@clicksequence{click @click{} A}</literal> click &#8658; A
 </para>
+<!-- test most commands that could happen in math mode -->
+<informalequation><mathphrase><emphasis role="bold">``simple-double--three---four----''</emphasis> aa<!-- /@w -->
+</mathphrase></informalequation>
+<informalequation><mathphrase>&#252; &#220; &#241; &#226; &#233; &#333; &#236; &#233; i j &#274;`
+&#322; &#262;, &#262;, &#231; a'' &#551; &#229; a[
+&#259; a_ &#7841; &#462; &#261; a<superscript>h</superscript><subscript>l</subscript>
+
+ &#160;&#160; &#160;   ! ? . @ } { 
+a sunny day
+</mathphrase></informalequation>
+<informalequation><mathphrase>&#8594;
+&#x0075;
+&tex; &latex; &#8226; &#169; &#8230; ... &#8801;
+error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
+&#229; &#197; &#230; &#339; &#198; &#338; &#248; &#216; &#223; &#322; &#321; &#208;
+&#222; &#240; &#254; &#161; &#191; &#163;
+&#174; &#170; &#186; &#44; 
+</mathphrase></informalequation>
+<informalequation><mathphrase>&#8220; &#8221; 
+&#8216; &#8217; &#8222; &#8218; &#171;
+&#187; &#171; &#187; &#8249;
+&#8250; &#176; &#8364; &#8594; &#8804; &#8805;
+</mathphrase></informalequation>
+<para><userinput>default kbdinputstyle</userinput>
+</para><screen><userinput>in example default kbdinputstyle</userinput>
+</screen>
+<para><userinput>code kbdinputstyle</userinput>
+</para><screen><userinput>in example code kbdinputstyle</userinput>
+</screen>
+<para><userinput>example kbdinputstyle</userinput>
+</para><screen><userinput>in example example kbdinputstyle</userinput>
+</screen>
+<para><userinput>distinct kbdinputstyle</userinput>
+</para><screen><userinput>in example distinct kbdinputstyle</userinput>
+</screen>
 <blockquote><para>A quot&#8212;ation
 </para></blockquote>
 <note><para>A Note
@@ -2117,6 +2225,7 @@ but , ,
 <literal>@,{--c}</literal> &#8211;c,
 <literal>@ogonek{a}</literal> &#261;
 <literal>@ogonek{--a}</literal> &#8211;a;
+<literal>a@sup{h}@sub{l}</literal> a<superscript>h</superscript><subscript>l</subscript>
 <literal>@footnote{in footnote}</literal> <footnote><para>in footnote</para></footnote>
 <literal>@footnote{in footnote2}</literal> <footnote><para>in footnote2</para></footnote>
 </para>
@@ -2140,6 +2249,41 @@ aaa</literallayout></textobject></inlinemediaobject>
 After clickstyle &#8658;
 <literal>@clicksequence{click @click{} A}</literal> click &#8658; A
 </para>
+<!-- test most commands that could happen in math mode -->
+<informalequation><mathphrase><emphasis role="bold">``simple-double--three---four----''</emphasis> aa<!-- /@w -->
+</mathphrase></informalequation>
+<informalequation><mathphrase>&#252; &#220; &#241; &#226; &#233; &#333; &#236; &#233; i j &#274;`
+&#322; &#262;, &#262;, &#231; a'' &#551; &#229; a[
+&#259; a_ &#7841; &#462; &#261; a<superscript>h</superscript><subscript>l</subscript>
+
+ &#160;&#160; &#160;   ! ? . @ } { 
+a sunny day
+</mathphrase></informalequation>
+<informalequation><mathphrase>&#8594;
+&#x0075;
+&tex; &latex; &#8226; &#169; &#8230; ... &#8801;
+error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
+&#229; &#197; &#230; &#339; &#198; &#338; &#248; &#216; &#223; &#322; &#321; &#208;
+&#222; &#240; &#254; &#161; &#191; &#163;
+&#174; &#170; &#186; &#44; 
+</mathphrase></informalequation>
+<informalequation><mathphrase>&#8220; &#8221; 
+&#8216; &#8217; &#8222; &#8218; &#171;
+&#187; &#171; &#187; &#8249;
+&#8250; &#176; &#8364; &#8594; &#8804; &#8805;
+</mathphrase></informalequation>
+<para><userinput>default kbdinputstyle</userinput>
+</para><screen><userinput>in example default kbdinputstyle</userinput>
+</screen>
+<para><userinput>code kbdinputstyle</userinput>
+</para><screen><userinput>in example code kbdinputstyle</userinput>
+</screen>
+<para><userinput>example kbdinputstyle</userinput>
+</para><screen><userinput>in example example kbdinputstyle</userinput>
+</screen>
+<para><userinput>distinct kbdinputstyle</userinput>
+</para><screen><userinput>in example distinct kbdinputstyle</userinput>
+</screen>
 <blockquote><para>A quot&#8212;ation
 </para></blockquote>
 <note><para>A Note
@@ -2754,6 +2898,7 @@ but , ,
 <literal>@,{--c}</literal> &#8211;c,
 <literal>@ogonek{a}</literal> &#261;
 <literal>@ogonek{--a}</literal> &#8211;a;
+<literal>a@sup{h}@sub{l}</literal> a<superscript>h</superscript><subscript>l</subscript>
 <literal>@footnote{in footnote}</literal> <footnote><para>in footnote</para></footnote>
 <literal>@footnote{in footnote2}</literal> <footnote><para>in footnote2</para></footnote>
 </para>
@@ -2777,6 +2922,41 @@ aaa</literallayout></textobject></inlinemediaobject>
 After clickstyle &#8658;
 <literal>@clicksequence{click @click{} A}</literal> click &#8658; A
 </para>
+<!-- test most commands that could happen in math mode -->
+<informalequation><mathphrase><emphasis role="bold">``simple-double--three---four----''</emphasis> aa<!-- /@w -->
+</mathphrase></informalequation>
+<informalequation><mathphrase>&#252; &#220; &#241; &#226; &#233; &#333; &#236; &#233; i j &#274;`
+&#322; &#262;, &#262;, &#231; a'' &#551; &#229; a[
+&#259; a_ &#7841; &#462; &#261; a<superscript>h</superscript><subscript>l</subscript>
+
+ &#160;&#160; &#160;   ! ? . @ } { 
+a sunny day
+</mathphrase></informalequation>
+<informalequation><mathphrase>&#8594;
+&#x0075;
+&tex; &latex; &#8226; &#169; &#8230; ... &#8801;
+error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
+&#229; &#197; &#230; &#339; &#198; &#338; &#248; &#216; &#223; &#322; &#321; &#208;
+&#222; &#240; &#254; &#161; &#191; &#163;
+&#174; &#170; &#186; &#44; 
+</mathphrase></informalequation>
+<informalequation><mathphrase>&#8220; &#8221; 
+&#8216; &#8217; &#8222; &#8218; &#171;
+&#187; &#171; &#187; &#8249;
+&#8250; &#176; &#8364; &#8594; &#8804; &#8805;
+</mathphrase></informalequation>
+<para><userinput>default kbdinputstyle</userinput>
+</para><screen><userinput>in example default kbdinputstyle</userinput>
+</screen>
+<para><userinput>code kbdinputstyle</userinput>
+</para><screen><userinput>in example code kbdinputstyle</userinput>
+</screen>
+<para><userinput>example kbdinputstyle</userinput>
+</para><screen><userinput>in example example kbdinputstyle</userinput>
+</screen>
+<para><userinput>distinct kbdinputstyle</userinput>
+</para><screen><userinput>in example distinct kbdinputstyle</userinput>
+</screen>
 <blockquote><para>A quot&#8212;ation
 </para></blockquote>
 <note><para>A Note
@@ -3387,6 +3567,7 @@ but , ,
 <literal>@,{--c}</literal> --c,
 <literal>@ogonek{a}</literal> &#261;
 <literal>@ogonek{--a}</literal> --a;
+<literal>a@sup{h}@sub{l}</literal> a<superscript>h</superscript><subscript>l</subscript>
 <literal>@footnote{in footnote}</literal> <footnote><para>in footnote</para></footnote>
 <literal>@footnote{in footnote2}</literal> <footnote><para>in footnote2</para></footnote>
 
@@ -3410,6 +3591,41 @@ aaa</literallayout></textobject></inlinemediaobject>
 After clickstyle &#8658;
 <literal>@clicksequence{click @click{} A}</literal> click &#8658; A
 
+<!-- test most commands that could happen in math mode -->
+</screen><informalequation><mathphrase><emphasis role="bold">``simple-double--three---four----''</emphasis> aa<!-- /@w -->
+</mathphrase></informalequation><screen>
+</screen><informalequation><mathphrase>&#252; &#220; &#241; &#226; &#233; &#333; &#236; &#233; i j &#274;`
+&#322; &#262;, &#262;, &#231; a'' &#551; &#229; a[
+&#259; a_ &#7841; &#462; &#261; a<superscript>h</superscript><subscript>l</subscript>
+
+ &#160;&#160; &#160;   ! ? . @ } { 
+a sunny day
+</mathphrase></informalequation><screen>
+</screen><informalequation><mathphrase>&#8594;
+&#x0075;
+&tex; &latex; &#8226; &#169; &#8230; ... &#8801;
+error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
+&#229; &#197; &#230; &#339; &#198; &#338; &#248; &#216; &#223; &#322; &#321; &#208;
+&#222; &#240; &#254; &#161; &#191; &#163;
+&#174; &#170; &#186; &#44; 
+</mathphrase></informalequation><screen>
+</screen><informalequation><mathphrase>&#8220; &#8221; 
+&#8216; &#8217; &#8222; &#8218; &#171;
+&#187; &#171; &#187; &#8249;
+&#8250; &#176; &#8364; &#8594; &#8804; &#8805;
+</mathphrase></informalequation><screen>
+<userinput>default kbdinputstyle</userinput>
+</screen><screen><userinput>in example default kbdinputstyle</userinput>
+</screen><screen>
+<userinput>code kbdinputstyle</userinput>
+</screen><screen><userinput>in example code kbdinputstyle</userinput>
+</screen><screen>
+<userinput>example kbdinputstyle</userinput>
+</screen><screen><userinput>in example example kbdinputstyle</userinput>
+</screen><screen>
+<userinput>distinct kbdinputstyle</userinput>
+</screen><screen><userinput>in example distinct kbdinputstyle</userinput>
+</screen><screen>
 </screen><blockquote><screen>A quot---ation
 </screen></blockquote><screen>
 </screen><note><screen>A Note
