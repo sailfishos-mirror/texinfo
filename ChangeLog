@@ -10,6 +10,14 @@
 
 2021-08-09  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/LaTeX.pm (%Latex_style_brace_commands)
+	(_protect_text, _convert): handle style commands, verb and
+	kbd, verbatim, @-, add kbdinputstyle in informative commands.
+	* t/latex_tests.t, t/test_utils.pl: support for LaTeX converter
+	tests.  Add a first test.
+
+2021-08-11  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/LaTeX.pm (_protect_text, _convert):
 	use the context to determine if in math.  If in math protect
 	text differently and use different conversions.

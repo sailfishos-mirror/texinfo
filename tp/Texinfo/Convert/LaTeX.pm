@@ -50,11 +50,10 @@ $VERSION = '6.8dev';
 # misc commands that are of use for formatting.
 my %formatting_misc_commands = %Texinfo::Convert::Text::formatting_misc_commands;
 
-my $NO_NUMBER_FOOTNOTE_SYMBOL = '*';
-
 my @informative_global_commands = ('paragraphindent', 'firstparagraphindent',
 'frenchspacing', 'documentencoding', 'footnotestyle', 'documentlanguage',
-'contents', 'shortcontents', 'summarycontents', 'deftypefnnewline');
+'contents', 'shortcontents', 'summarycontents', 'deftypefnnewline',
+'allowcodebreaks', 'kbdinputstyle');
 
 my %informative_commands;
 foreach my $informative_command (@informative_global_commands) {
@@ -81,7 +80,6 @@ my %explained_commands = %Texinfo::Common::explained_commands;
 my %inline_format_commands = %Texinfo::Common::inline_format_commands;
 my %inline_commands = %Texinfo::Common::inline_commands;
 my %item_container_commands = %Texinfo::Common::item_container_commands;
-my %raw_commands = %Texinfo::Common::raw_commands;
 my %format_raw_commands = %Texinfo::Common::format_raw_commands;
 my %code_style_commands       = %Texinfo::Common::code_style_commands;
 my %regular_font_style_commands = %Texinfo::Common::regular_font_style_commands;
@@ -89,8 +87,8 @@ my %preformatted_code_commands = %Texinfo::Common::preformatted_code_commands;
 my %default_index_commands = %Texinfo::Common::default_index_commands;
 my %letter_no_arg_commands = %Texinfo::Common::letter_no_arg_commands;
 
-foreach my $kept_command(keys (%informative_commands),
-  keys (%default_index_commands),
+foreach my $kept_command (keys(%informative_commands),
+  keys(%default_index_commands),
   'verbatiminclude', 'insertcopying', 
   'listoffloats', 'printindex', ) {
   $formatting_misc_commands{$kept_command} = 1;
@@ -101,13 +99,15 @@ foreach my $def_command (keys(%def_commands)) {
 }
 
 # There are stacks that define the context.
-# context:   relevant for math versus text mode.
+# style_context: for a whole context for style, for instance
+#                in a footnote.
+#       context: relevant for math versus text mode, raw
+#                (no text protection) and preformatted.
 
 
-my %default_preformatted_context_commands = (%preformatted_commands,
-                                             %format_raw_commands);
-foreach my $preformatted_command ('verbatim', keys(%menu_commands)) {
-  $default_preformatted_context_commands{$preformatted_command} = 1;
+my %block_raw_commands = %format_raw_commands;
+foreach my $block_raw_command ('verbatim') {
+  $block_raw_commands{$block_raw_command} = 1
 }
 
 my %block_math_commands;
@@ -153,6 +153,8 @@ my %Latex_no_arg_brace_commands = (
     'geq' => '$\geq{}$',
     'leq' => '$\leq{}$',
     'textdegree' => '\textdegree{}',
+    # FIXME according to the manual, it is not \hbox, \hbox is for @w.
+    # maybe use ~?
     'tie' => '\hbox{}',
   },
   'math' => {
@@ -225,7 +227,7 @@ foreach my $text_only_no_arg_brace_command
 
 my %ignored_commands = %ignored_misc_commands;
 foreach my $ignored_brace_commands ('caption', 'shortcaption', 
-  'hyphenation', 'sortas') {
+  'sortas') {
   $ignored_commands{$ignored_brace_commands} = 1;
 }
 
@@ -247,40 +249,24 @@ foreach my $indented_command (keys(%item_indent_format_length),
     if exists($block_commands{$indented_command});
 }
 
-my %default_format_context_commands = %indented_commands;
-
 foreach my $non_indented('format', 'smallformat') {
   delete $indented_commands{$non_indented};
-}
-
-# FIXME should keys(%math_brace_commands) be added here?
-# How can this be tested?
-foreach my $format_context_command (keys(%math_commands), 'verbatim',
- 'flushleft', 'flushright', 'multitable', 'float') {
-  $default_format_context_commands{$format_context_command} = 1;
 }
 
 # environments existing in LaTeX
 # 'flushleft' => 'flushleft',
 # 'flushright' => 'flushright',
-#
-# for a linebreak for @*?
-# \linebreak[4]
 
 my %flush_commands = (
   'flushleft'  => 1,
   'flushright' => 1
 );
 
+# FIXME titlepage should not be ignored
 foreach my $ignored_block_commands ('ignore', 'macro', 'rmacro', 'copying',
   'documentdescription', 'titlepage', 'direntry') {
   $ignored_commands{$ignored_block_commands} = 1;
 }
-
-my %upper_case_commands = (
- 'sc' => 1,
- 'var' => 1
-);
 
 my %ignorable_space_types;
 foreach my $type ('empty_line_after_command',
@@ -302,63 +288,66 @@ foreach my $ignored_type(keys(%ignored_types)) {
 }
 
 # All those commands run with the text.
-my %style_map = (
-  'strong' => '*',
-  'dfn'    => '"',
-  'emph'   => '_',
+# math, verb and kbd are special
+my %Latex_style_brace_commands = (
+  'text' => {
+    'hyphenation' => 'hyphenation',
+    'w' => 'hbox',
+    'sub' => 'textsuperscript',
+    'sup' => 'textsuperscript',
+  },
+  'math' => {
+    'hyphenation' => '',
+    'w' => 'hbox',
+    'sub' => '_',
+    'sub' => '^',
+  }
 );
 
-foreach my $command (keys(%style_map)) {
-  $style_map{$command} = [$style_map{$command}, $style_map{$command}];
-}
-
-# verb exists in latex.  'extra' => {
-#            'delimiter' => '*'
-
-
-# math is special
-my @asis_commands = ('asis', 'w', 'b', 'i', 'sc', 't', 'r',
-  'slanted', 'sansserif', 'var', 'verb', 'clicksequence',
+# FIXME dmn, headitemfont
+my @asis_commands = ('asis', 'clicksequence',
   'headitemfont', 'dmn');
 
 foreach my $asis_command (@asis_commands) {
-  $style_map{$asis_command} = ['', ''];
+  $Latex_style_brace_commands{'text'}->{$asis_command} = '';
+  $Latex_style_brace_commands{'math'}->{$asis_command} = '';
 }
 
-my @quoted_commands = ('cite', 'code', 'command', 'env', 'file', 'kbd',
-  'option', 'samp', 'indicateurl');
+my @emphasized_commands = ('var', 'dfn', 'emph');
+foreach my $emphasized_command (@emphasized_commands) {
+  $Latex_style_brace_commands{'text'}->{$emphasized_command} = 'emph';
+  $Latex_style_brace_commands{'math'}->{$emphasized_command} = '';
+}
 
-# %non_quoted_commands_when_nested have no quote when in code command contexts
-my %non_quoted_commands_when_nested;
+my @bold_commands = ('strong', 'b');
+foreach my $bold_command (@bold_commands) {
+  $Latex_style_brace_commands{'text'}->{$bold_command} = 'textbf';
+  $Latex_style_brace_commands{'math'}->{$bold_command} = 'mathbf';
+}
 
-# Quotes are reset in converter_initialize and unicode quotes are used 
+# 'cite' could be emphasized?
+my @italics_commands = ('cite', 'i');
+foreach my $italics_command (@italics_commands) {
+  $Latex_style_brace_commands{'text'}->{$italics_command} = 'textit';
+  $Latex_style_brace_commands{'math'}->{$italics_command} = 'mathit';
+}
+
+
+my @typewriter_commands = ('t', 'code', 'samp', 'key', 'env', 'file',
+ 'command', 'option', 'indicateurl');
+
+foreach my $typewriter_command (@typewriter_commands) {
+  $Latex_style_brace_commands{'text'}->{$typewriter_command} = 'texttt';
+  $Latex_style_brace_commands{'math'}->{$typewriter_command} = 'mathtt';
+}
+
+my @quoted_commands = ('samp', 'indicateurl');
+
+my %quotes_map;
+# Quotes are reset in converter_initialize and unicode quotes are used
 # if @documentencoding utf-8 is used.
 foreach my $quoted_command (@quoted_commands) {
-  $style_map{$quoted_command} = ["'", "'"];
-  if ($code_style_commands{$quoted_command}) {
-    $non_quoted_commands_when_nested{$quoted_command} = 1;
-  }
-}
-# always quoted even when nested
-delete $non_quoted_commands_when_nested{'samp'};
-delete $non_quoted_commands_when_nested{'indicateurl'};
-
-$style_map{'key'} = ['<', '>'];
-$style_map{'sub'} = ['_{', '}'];
-$style_map{'sup'} = ['^{', '}'];
-
-# Commands producing styles that are output in node names and index entries.
-my %index_style_commands;
-for my $index_style_command ('strong', 'emph', 'sub', 'sup', 'key') {
-  $index_style_commands{$index_style_command} = 1;
-}
-
-
-# in those commands, there is no addition of double space after a dot.
-# math is special
-my %no_punctation_munging_commands;
-foreach my $command ('var', 'cite', 'dmn', keys(%code_style_commands)) {
-  $no_punctation_munging_commands{$command} = 1;
+  $quotes_map{$quoted_command} = ["`", "'"];
 }
 
 my %defaults = (
@@ -399,22 +388,22 @@ sub converter_initialize($)
 {
   my $self = shift;
 
-  $self->{'context'} = ['text'];
+  $self->{'style_context'} = [{
+    'context' => ['text'],
+    'code' => 0,
+    'type' => 'main'
+  }];
 
   %{$self->{'ignored_types'}} = %ignored_types;
   %{$self->{'ignorable_space_types'}} = %ignorable_space_types;
   %{$self->{'ignored_commands'}} = %ignored_commands;
-  # this is dynamic because raw formats may either be full commands if
-  # isolated, or simple text if in a paragraph
-  %{$self->{'preformatted_context_commands'}} 
-     = %default_preformatted_context_commands;
 
   foreach my $format (keys(%format_raw_commands)) {
     $self->{'ignored_commands'}->{$format} = 1 
        unless ($self->{'expanded_formats_hash'}->{$format});
   }
 
-  %{$self->{'style_map'}} = %style_map;
+  %{$self->{'quotes_map'}} = %quotes_map;
   $self->{'convert_text_options'} 
       = {Texinfo::Common::_convert_text_options($self)};
 
@@ -429,21 +418,19 @@ sub converter_initialize($)
     } else {
       foreach my $quoted_command (@quoted_commands) {
         # Directed single quotes
-        $self->{'style_map'}->{$quoted_command} = ["\x{2018}", "\x{2019}"];
+        $self->{'quotes_map'}->{$quoted_command} = ["\x{2018}", "\x{2019}"];
       }
-      # Directed double quotes
-      $self->{'style_map'}->{'dfn'} = ["\x{201C}", "\x{201D}"];
     }
   }
   if (defined($self->get_conf('OPEN_QUOTE_SYMBOL'))) {
     foreach my $quoted_command (@quoted_commands) {
-      $self->{'style_map'}->{$quoted_command}->[0] 
+      $self->{'quotes_map'}->{$quoted_command}->[0]
        = $self->get_conf('OPEN_QUOTE_SYMBOL');
     }
   }
   if (defined($self->get_conf('CLOSE_QUOTE_SYMBOL'))) {
     foreach my $quoted_command (@quoted_commands) {
-      $self->{'style_map'}->{$quoted_command}->[1] 
+      $self->{'quotes_map'}->{$quoted_command}->[1]
        = $self->get_conf('CLOSE_QUOTE_SYMBOL');
     }
   }
@@ -579,8 +566,6 @@ sub convert_unfilled($$;$)
 
 
 
-
-
 # Protect LaTeX special characters.
 sub _protect_text($$)
 {
@@ -588,7 +573,8 @@ sub _protect_text($$)
 
   # FIXME are there some special characters to protect in math mode,
   # for instance # and ~?
-  if ($self->{'context'}->[-1] ne 'math') {
+  if ($self->{'style_context'}->[-1]->{'context'}->[-1] ne 'math'
+      and $self->{'style_context'}->[-1]->{'context'}->[-1] ne 'raw') {
     # temporarily replace \ with a control character
     $text =~ s/\\/\x08/g;
 
@@ -598,6 +584,10 @@ sub _protect_text($$)
     $text =~ s/\^/\\^{}/g;
 
     $text =~ s/\x08/\\textbackslash{}/g;
+    if ($self->{'style_context'}->[-1]->{'code'}) {
+      $text =~ s/---/{-}{-}{-}/g;
+      $text =~ s/--/{-}{-}/g;
+    }
   }
   return $text;
 }
@@ -795,8 +785,7 @@ sub _convert($$)
     my $unknown_command;
     if (defined($no_brace_commands{$command})) {
       if ($command eq ':') {
-        $result = "\\\@";
-        return '';
+        $result .= "\\\@";
       } elsif ($command eq '*') {
         # FIXME \leavevmode{} is added to avoid
         # ! LaTeX Error: There's no line here to end.
@@ -807,6 +796,8 @@ sub _convert($$)
         $result .=  "\\\@$command";
       } elsif ($command eq ' ' or $command eq "\n" or $command eq "\t") {
         $result .= "\\ {}";
+      } elsif ($command eq '-') {
+        $result .= "\\-{}";
       } else {
         $result .= _protect_text($self, $no_brace_commands{$command});
       }
@@ -816,7 +807,7 @@ sub _convert($$)
       unshift @{$self->{'current_contents'}->[-1]}, $today;
     } elsif (exists($brace_no_arg_commands{$command})) {
       my $command_context = 'text';
-      if ($self->{'context'}->[-1] eq 'math') {
+      if ($self->{'style_context'}->[-1]->{'context'}->[-1] eq 'math') {
         $command_context = 'math';
       }
       if (exists($Latex_no_arg_brace_commands{$command_context}->{$command})) {
@@ -841,22 +832,82 @@ sub _convert($$)
       my $accented_text_original;
 
       return $result;
-    } elsif ($self->{'style_map'}->{$command} 
+    } elsif (exists($Latex_style_brace_commands{'text'}->{$command})
          or ($root->{'type'} and $root->{'type'} eq 'definfoenclose_command')) {
       if ($root->{'args'}) {
+        my $command_context = 'text';
+        if ($self->{'style_context'}->[-1]->{'context'}->[-1] eq 'math') {
+          $command_context = 'math';
+        }
+        if ($self->{'quotes_map'}->{$command}) {
+          $result .= $self->{'quotes_map'}->{$command}->[0];
+        }
+        if ($Latex_style_brace_commands{$command_context}->{$command}) {
+          $result .= "\\$Latex_style_brace_commands{$command_context}->{$command}\{";
+        }
+        if ($code_style_commands{$command}) {
+          $self->{'style_context'}->[-1]->{'code'} += 1;
+        }
         $result .= _convert($self, $root->{'args'}->[0]);
-        if ($command eq 'strong' 
-             and scalar (@{$root->{'args'}->[0]->{'contents'}})
-             and $root->{'args'}->[0]->{'contents'}->[0]->{'text'}
-             and $root->{'args'}->[0]->{'contents'}->[0]->{'text'} =~ /^Note\s/i
-             and $self->{'output_format'}
-             and $self->{'output_format'} eq 'info') {
-          $self->line_warn(__(
-    "\@strong{Note...} produces a spurious cross-reference in Info; reword to avoid that"), 
-                           $root->{'line_nr'});
+        if ($Latex_style_brace_commands{$command_context}->{$command}) {
+          $result .= '}';
+        }
+        if ($code_style_commands{$command}) {
+          $self->{'style_context'}->[-1]->{'code'} -= 1;
+        }
+        if ($self->{'quotes_map'}->{$command}) {
+          $result .= $self->{'quotes_map'}->{$command}->[1];
         }
       }
       return $result;
+    } elsif ($command eq 'kbd') {
+      # 'kbd' is special, distinct font is typewriter + slanted
+      # @kbdinputstyle
+      # ‘code’ Always use the same font for @kbd as @code.
+      # ‘example’ Use the distinguishing font for @kbd only in @example and similar environments.
+      # ‘distinct’ (the default) Always use the distinguishing font for @kbd.
+      #    {\ttfamily\textsl{kbd argument}}
+      if ($root->{'args'}) {
+        my $command_context = 'text';
+        if ($self->{'style_context'}->[-1]->{'context'}->[-1] eq 'math') {
+          $command_context = 'math';
+        }
+        my $code_font = 0;
+        if (defined($self->{'conf'}->{'kbdinputstyle'})
+            and ($self->{'conf'}->{'kbdinputstyle'} eq 'code'
+              or ($self->{'conf'}->{'kbdinputstyle'} eq 'example'
+                and $preformatted_commands{$self->{'style_context'}->[-1]->{'context'}->[-1]}))) {
+          $code_font = 1;
+        }
+        if ($code_font) {
+          if ($Latex_style_brace_commands{$command_context}->{'code'}) {
+            $result .= "\\$Latex_style_brace_commands{$command_context}->{'code'}\{";
+          }
+        } else {
+          # use \ttfamily to have a cumulative effect with \textsl
+          $result .= '{\ttfamily\textsl{';
+        }
+        $self->{'style_context'}->[-1]->{'code'} += 1;
+        $result .= _convert($self, $root->{'args'}->[0]);
+        $self->{'style_context'}->[-1]->{'code'} -= 1;
+        if ($code_font) {
+          if ($Latex_style_brace_commands{$command_context}->{'code'}) {
+            $result .= '}';
+          }
+        } else {
+          $result .= '}}';
+        }
+      }
+      return $result;
+    } elsif ($command eq 'verb') {
+      $result .= "\\verb" .$root->{'extra'}->{'delimiter'};
+      push @{$self->{'style_context'}->[-1]->{'context'}}, 'raw';
+      if ($root->{'args'}) {
+        $result .= _convert($self, $root->{'args'}->[0]);
+      }
+      my $old_context = pop @{$self->{'style_context'}->[-1]->{'context'}};
+      die if ($old_context ne 'raw');
+      $result .= $root->{'extra'}->{'delimiter'};
     } elsif ($command eq 'image') {
       my ($image, $lines_count) = $self->_image($root);
       $result .= $image; 
@@ -923,9 +974,16 @@ sub _convert($$)
       }
       return '';
     } elsif ($command eq 'footnote') {
+      push @{$self->{'style_context'}},
+         {
+           'context' => ['text'],
+           'code' => 0,
+           'type' => 'footnote'
+         };
       $result .= '\footnote{';
       $result .= $self->_convert($root->{'args'}->[0]); 
       $result .= '}';
+      pop @{$self->{'style_context'}};
 
       return $result;
     } elsif ($command eq 'anchor') {
@@ -1065,7 +1123,7 @@ sub _convert($$)
       return '';
       # condition should actually be that the $command is inline
     } elsif ($math_commands{$command}) {
-      push @{$self->{'context'}}, 'math';
+      push @{$self->{'style_context'}->[-1]->{'context'}}, 'math';
       if (not exists($block_commands{$command})) {
         if ($root->{'args'}) {
           if ($command eq 'math') {
@@ -1074,7 +1132,7 @@ sub _convert($$)
             $result .= '$';
           }
         }
-        my $old_context = pop @{$self->{'context'}};
+        my $old_context = pop @{$self->{'style_context'}->[-1]->{'context'}};
         die if ($old_context ne 'math');
         return $result;
       } else {
@@ -1169,16 +1227,19 @@ sub _convert($$)
       if ($menu_commands{$command}) {
         return '';
       }
-      if ($self->{'preformatted_context_commands'}->{$command}
-          or $command eq 'float') {
+      if ($block_raw_commands{$command}) {
         if ($format_raw_commands{$command}) {
           $result .= "\n\n";
+        } elsif ($command eq 'verbatim') {
+          # FIXME add a \n?
+          $result .= "\\begin{verbatim}\n";
         }
-        push @{$self->{'context'}}, $command;
+        push @{$self->{'style_context'}->[-1]->{'context'}}, 'raw';
+      } elsif ($preformatted_commands{$command}
+          or $command eq 'float') {
+        push @{$self->{'style_context'}->[-1]->{'context'}}, $command;
       } elsif ($flush_commands{$command}) {
-        push @{$self->{'context'}}, $command;
-      } elsif ($raw_commands{$command}) {
-        $result .= "\n\n";
+        push @{$self->{'style_context'}->[-1]->{'context'}}, $command;
       }
 
       if ($command eq 'quotation'
@@ -1294,7 +1355,7 @@ sub _convert($$)
                        {'indent_length' => 0});
       return $result;
     } elsif ($command eq 'exdent') {
-      if ($self->{'preformatted_context_commands'}->{$self->{'context'}->[-1]}) {
+      if ($preformatted_commands{$self->{'style_context'}->[-1]->{'context'}->[-1]}) {
         $result = $self->convert_unfilled({'contents' => $root->{'args'}->[0]->{'contents'}});
       } else {
         $result = $self->convert_line({'contents' => $root->{'args'}->[0]->{'contents'}});
@@ -1615,19 +1676,23 @@ sub _convert($$)
     }
  
     # close the contexts and register the cells
-    if ($self->{'preformatted_context_commands'}->{$command}
+    if ($preformatted_commands{$command}
         or $command eq 'float') {
-      my $old_context = pop @{$self->{'context'}};
+      my $old_context = pop @{$self->{'style_context'}->[-1]->{'context'}};
       die "Not a preformatted context: $old_context"
-        if (!$self->{'preformatted_context_commands'}->{$old_context}
+        if (!$preformatted_commands{$old_context}
             and $old_context ne 'float');
-      delete ($self->{'preformatted_context_commands'}->{$command})
-       unless ($default_preformatted_context_commands{$command});
+    } elsif ($block_raw_commands{$command}) {
+      my $old_context = pop @{$self->{'style_context'}->[-1]->{'context'}};
+      die if ($old_context ne 'raw');
+      if ($command eq 'verbatim') {
+        $result .= "\\end{verbatim}\n\n";
+      }
     } elsif ($flush_commands{$command}) {
-      my $old_context = pop @{$self->{'context'}};
+      my $old_context = pop @{$self->{'style_context'}->[-1]->{'context'}};
       die if (! $flush_commands{$old_context});
     } elsif ($block_math_commands{$command}) {
-      my $old_context = pop @{$self->{'context'}};
+      my $old_context = pop @{$self->{'style_context'}->[-1]->{'context'}};
       die if ($old_context ne 'math');
       if ($command eq 'displaymath') {
         $result .= "\$\$\n";

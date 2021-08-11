@@ -42,6 +42,7 @@ use Texinfo::Convert::Info;
 use Texinfo::Convert::HTML;
 use Texinfo::Convert::TexinfoXML;
 use Texinfo::Convert::DocBook;
+use Texinfo::Convert::LaTeX;
 use File::Basename;
 use File::Copy;
 use File::Compare; # standard since 5.004
@@ -118,6 +119,8 @@ our %formats = (
   'file_xml' => \&convert_to_xml,
   'docbook' => \&convert_to_docbook,
   'file_docbook' => \&convert_to_docbook,
+  'latex' => \&convert_to_latex,
+  'file_latex' => \&convert_to_latex,
 );
 
 our %extensions = (
@@ -125,6 +128,7 @@ our %extensions = (
   'html_text' => 'html',
   'xml' => 'xml',
   'docbook' => 'dbk',
+  'latex' => 'tex',
 );
 
 my %xml_converter_defaults 
@@ -183,6 +187,17 @@ ul.no-bullet {list-style: none}
 ',
 '</body>
 </html>
+'],
+# FIXME complete
+ 'latex' => ['\documentclass{book}
+\usepackage{makeidx}\makeindex
+\usepackage{amsfonts}
+\usepackage[gen]{eurosym}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\begin{document}
+',
+'\end{document}
 ']
 );
 
@@ -686,6 +701,37 @@ sub convert_to_docbook($$$$$$;$)
   return ($errors, $result);
 }
 
+sub convert_to_latex($$$$$$;$)
+{
+  my $self = shift;
+  my $test_name = shift;
+  my $format = shift;
+  my $tree = shift;
+  my $parser = shift;
+  my $parser_options = shift;
+  my $converter_options = shift;
+  $converter_options 
+    = set_converter_option_defaults($converter_options,
+                                    $parser_options, 'latex');
+  
+  my $converter =
+     Texinfo::Convert::LaTeX->converter ({'DEBUG' => $self->{'DEBUG'},
+                                         'parser' => $parser,
+                                         'output_format' => 'latex',
+                                          %$converter_options });
+  my $result;
+  if (defined($converter_options->{'OUTFILE'}) 
+      and $converter_options->{'OUTFILE'} eq '') {
+    $result = $converter->convert($tree);
+  } else {
+    $result = $converter->output($tree);
+    close_files($converter);
+    $result = undef if (defined($result and $result eq ''));
+  }
+  my ($errors, $error_nrs) = $converter->errors();
+  return ($errors, $result);
+}
+
 # Run a single test case.  Each test case is an array
 # [TEST_NAME, TEST_TEXT, PARSER_OPTIONS, CONVERTER_OPTIONS]
 sub test($$) 
@@ -707,7 +753,7 @@ sub test($$)
 
   if (!defined $parser_options->{'expanded_formats'}) {
     $parser_options->{'expanded_formats'} = [
-      'docbook', 'html', 'xml', 'info', 'plaintext'];
+      'docbook', 'html', 'xml', 'info', 'plaintext', 'latex'];
     #  'tex' is missed out here so that @ifnottex is expanded
     # in the tests.  Put
     #   {'expanded_formats' => ['tex']}
