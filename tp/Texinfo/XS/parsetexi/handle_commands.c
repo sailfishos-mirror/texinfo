@@ -726,6 +726,7 @@ static struct expanded_format expanded_formats[] = {
     "tex", 0,
     "xml", 0,
     "info", 1,
+    "latex", 0,
 };
 
 void

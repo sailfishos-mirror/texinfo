@@ -502,6 +502,64 @@ $result_trees{'inlinefmtifelse'} = {
       ],
       'parent' => {},
       'type' => 'paragraph'
+    },
+    {
+      'parent' => {},
+      'text' => '
+',
+      'type' => 'empty_line'
+    },
+    {
+      'contents' => [
+        {
+          'args' => [
+            {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => 'latex'
+                }
+              ],
+              'parent' => {},
+              'type' => 'brace_command_arg'
+            },
+            {
+              'contents' => [],
+              'parent' => {},
+              'type' => 'elided'
+            },
+            {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => 'else latex'
+                }
+              ],
+              'parent' => {},
+              'type' => 'brace_command_arg'
+            }
+          ],
+          'cmdname' => 'inlinefmtifelse',
+          'contents' => [],
+          'extra' => {
+            'expand_index' => 2,
+            'format' => 'latex'
+          },
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 17,
+            'macro' => ''
+          },
+          'parent' => {}
+        },
+        {
+          'parent' => {},
+          'text' => '.
+'
+        }
+      ],
+      'parent' => {},
+      'type' => 'paragraph'
     }
   ],
   'type' => 'text_root'
@@ -580,6 +638,15 @@ $result_trees{'inlinefmtifelse'}{'contents'}[12]{'contents'}[0]{'args'}[2]{'pare
 $result_trees{'inlinefmtifelse'}{'contents'}[12]{'contents'}[0]{'parent'} = $result_trees{'inlinefmtifelse'}{'contents'}[12];
 $result_trees{'inlinefmtifelse'}{'contents'}[12]{'contents'}[1]{'parent'} = $result_trees{'inlinefmtifelse'}{'contents'}[12];
 $result_trees{'inlinefmtifelse'}{'contents'}[12]{'parent'} = $result_trees{'inlinefmtifelse'};
+$result_trees{'inlinefmtifelse'}{'contents'}[13]{'parent'} = $result_trees{'inlinefmtifelse'};
+$result_trees{'inlinefmtifelse'}{'contents'}[14]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'inlinefmtifelse'}{'contents'}[14]{'contents'}[0]{'args'}[0];
+$result_trees{'inlinefmtifelse'}{'contents'}[14]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'inlinefmtifelse'}{'contents'}[14]{'contents'}[0];
+$result_trees{'inlinefmtifelse'}{'contents'}[14]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'inlinefmtifelse'}{'contents'}[14]{'contents'}[0];
+$result_trees{'inlinefmtifelse'}{'contents'}[14]{'contents'}[0]{'args'}[2]{'contents'}[0]{'parent'} = $result_trees{'inlinefmtifelse'}{'contents'}[14]{'contents'}[0]{'args'}[2];
+$result_trees{'inlinefmtifelse'}{'contents'}[14]{'contents'}[0]{'args'}[2]{'parent'} = $result_trees{'inlinefmtifelse'}{'contents'}[14]{'contents'}[0];
+$result_trees{'inlinefmtifelse'}{'contents'}[14]{'contents'}[0]{'parent'} = $result_trees{'inlinefmtifelse'}{'contents'}[14];
+$result_trees{'inlinefmtifelse'}{'contents'}[14]{'contents'}[1]{'parent'} = $result_trees{'inlinefmtifelse'}{'contents'}[14];
+$result_trees{'inlinefmtifelse'}{'contents'}[14]{'parent'} = $result_trees{'inlinefmtifelse'};
 
 $result_texis{'inlinefmtifelse'} = '@inlinefmtifelse{html,,else html no if}.
 @inlinefmtifelse{html,,else html}.
@@ -596,6 +663,8 @@ $result_texis{'inlinefmtifelse'} = '@inlinefmtifelse{html,,else html no if}.
 @inlinefmtifelse{docbook,,else docbook}.
 
 @inlinefmtifelse{tex,,else tex}.
+
+@inlinefmtifelse{latex,,else latex}.
 ';
 
 
@@ -614,6 +683,8 @@ else tex spaces .
 else docbook.
 
 else tex.
+
+else latex.
 ';
 
 $result_errors{'inlinefmtifelse'} = [];
@@ -636,6 +707,8 @@ $result_converted{'plaintext'}->{'inlinefmtifelse'} = 'else html no if.  else ht
    else docbook.
 
    else tex.
+
+   else latex.
 ';
 
 
@@ -654,6 +727,8 @@ else plaintext.
 <p>else docbook.
 </p>
 <p>else tex.
+</p>
+<p>else latex.
 </p>';
 
 
@@ -672,6 +747,8 @@ $result_converted{'xml'}->{'inlinefmtifelse'} = '<para><inlinefmtifelse><inlinef
 <para><inlinefmtifelse><inlinefmtifelseformat>docbook</inlinefmtifelseformat><inlinefmtifelsecontentelse>else docbook</inlinefmtifelsecontentelse></inlinefmtifelse>.
 </para>
 <para><inlinefmtifelse><inlinefmtifelseformat>tex</inlinefmtifelseformat><inlinefmtifelsecontentelse>else tex</inlinefmtifelsecontentelse></inlinefmtifelse>.
+</para>
+<para><inlinefmtifelse><inlinefmtifelseformat>latex</inlinefmtifelseformat><inlinefmtifelsecontentelse>else latex</inlinefmtifelsecontentelse></inlinefmtifelse>.
 </para>';
 
 
@@ -690,6 +767,8 @@ else plaintext.
 <para>.
 </para>
 <para>else tex.
+</para>
+<para>else latex.
 </para>';
 
 1;

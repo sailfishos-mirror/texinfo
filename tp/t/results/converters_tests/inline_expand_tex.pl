@@ -220,6 +220,41 @@ $result_trees{'inline_expand_tex'} = {
           'parent' => {},
           'text' => '$ ``
 '
+        },
+        {
+          'args' => [
+            {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => 'latex'
+                }
+              ],
+              'parent' => {},
+              'type' => 'brace_command_arg'
+            },
+            {
+              'contents' => [],
+              'parent' => {},
+              'type' => 'elided'
+            }
+          ],
+          'cmdname' => 'inlinefmt',
+          'contents' => [],
+          'extra' => {
+            'format' => 'latex'
+          },
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 7,
+            'macro' => ''
+          },
+          'parent' => {}
+        },
+        {
+          'parent' => {},
+          'text' => '
+'
         }
       ],
       'parent' => {},
@@ -264,7 +299,7 @@ $result_trees{'inline_expand_tex'} = {
           },
           'line_nr' => {
             'file_name' => '',
-            'line_nr' => 9,
+            'line_nr' => 10,
             'macro' => ''
           },
           'parent' => {}
@@ -299,7 +334,7 @@ $result_trees{'inline_expand_tex'} = {
           },
           'line_nr' => {
             'file_name' => '',
-            'line_nr' => 10,
+            'line_nr' => 11,
             'macro' => ''
           },
           'parent' => {}
@@ -334,7 +369,7 @@ $result_trees{'inline_expand_tex'} = {
           },
           'line_nr' => {
             'file_name' => '',
-            'line_nr' => 11,
+            'line_nr' => 12,
             'macro' => ''
           },
           'parent' => {}
@@ -369,7 +404,7 @@ $result_trees{'inline_expand_tex'} = {
           },
           'line_nr' => {
             'file_name' => '',
-            'line_nr' => 12,
+            'line_nr' => 13,
             'macro' => ''
           },
           'parent' => {}
@@ -420,7 +455,7 @@ $result_trees{'inline_expand_tex'} = {
                               ],
                               'line_nr' => {
                                 'file_name' => '',
-                                'line_nr' => 13,
+                                'line_nr' => 14,
                                 'macro' => ''
                               },
                               'parent' => {},
@@ -435,7 +470,7 @@ $result_trees{'inline_expand_tex'} = {
                       'contents' => [],
                       'line_nr' => {
                         'file_name' => '',
-                        'line_nr' => 13,
+                        'line_nr' => 14,
                         'macro' => ''
                       },
                       'parent' => {}
@@ -443,7 +478,7 @@ $result_trees{'inline_expand_tex'} = {
                   ],
                   'line_nr' => {
                     'file_name' => '',
-                    'line_nr' => 13,
+                    'line_nr' => 14,
                     'macro' => ''
                   },
                   'parent' => {},
@@ -469,7 +504,42 @@ $result_trees{'inline_expand_tex'} = {
           },
           'line_nr' => {
             'file_name' => '',
-            'line_nr' => 13,
+            'line_nr' => 14,
+            'macro' => ''
+          },
+          'parent' => {}
+        },
+        {
+          'parent' => {},
+          'text' => '
+'
+        },
+        {
+          'args' => [
+            {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => 'latex'
+                }
+              ],
+              'parent' => {},
+              'type' => 'brace_command_arg'
+            },
+            {
+              'contents' => [],
+              'parent' => {},
+              'type' => 'elided'
+            }
+          ],
+          'cmdname' => 'inlineraw',
+          'contents' => [],
+          'extra' => {
+            'format' => 'latex'
+          },
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 15,
             'macro' => ''
           },
           'parent' => {}
@@ -516,6 +586,11 @@ $result_trees{'inline_expand_tex'}{'contents'}[1]{'contents'}[8]{'args'}[1]{'con
 $result_trees{'inline_expand_tex'}{'contents'}[1]{'contents'}[8]{'args'}[1]{'parent'} = $result_trees{'inline_expand_tex'}{'contents'}[1]{'contents'}[8];
 $result_trees{'inline_expand_tex'}{'contents'}[1]{'contents'}[8]{'parent'} = $result_trees{'inline_expand_tex'}{'contents'}[1];
 $result_trees{'inline_expand_tex'}{'contents'}[1]{'contents'}[9]{'parent'} = $result_trees{'inline_expand_tex'}{'contents'}[1];
+$result_trees{'inline_expand_tex'}{'contents'}[1]{'contents'}[10]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'inline_expand_tex'}{'contents'}[1]{'contents'}[10]{'args'}[0];
+$result_trees{'inline_expand_tex'}{'contents'}[1]{'contents'}[10]{'args'}[0]{'parent'} = $result_trees{'inline_expand_tex'}{'contents'}[1]{'contents'}[10];
+$result_trees{'inline_expand_tex'}{'contents'}[1]{'contents'}[10]{'args'}[1]{'parent'} = $result_trees{'inline_expand_tex'}{'contents'}[1]{'contents'}[10];
+$result_trees{'inline_expand_tex'}{'contents'}[1]{'contents'}[10]{'parent'} = $result_trees{'inline_expand_tex'}{'contents'}[1];
+$result_trees{'inline_expand_tex'}{'contents'}[1]{'contents'}[11]{'parent'} = $result_trees{'inline_expand_tex'}{'contents'}[1];
 $result_trees{'inline_expand_tex'}{'contents'}[1]{'parent'} = $result_trees{'inline_expand_tex'};
 $result_trees{'inline_expand_tex'}{'contents'}[2]{'parent'} = $result_trees{'inline_expand_tex'};
 $result_trees{'inline_expand_tex'}{'contents'}[3]{'parent'} = $result_trees{'inline_expand_tex'};
@@ -553,6 +628,11 @@ $result_trees{'inline_expand_tex'}{'contents'}[4]{'contents'}[8]{'args'}[1]{'con
 $result_trees{'inline_expand_tex'}{'contents'}[4]{'contents'}[8]{'args'}[1]{'parent'} = $result_trees{'inline_expand_tex'}{'contents'}[4]{'contents'}[8];
 $result_trees{'inline_expand_tex'}{'contents'}[4]{'contents'}[8]{'parent'} = $result_trees{'inline_expand_tex'}{'contents'}[4];
 $result_trees{'inline_expand_tex'}{'contents'}[4]{'contents'}[9]{'parent'} = $result_trees{'inline_expand_tex'}{'contents'}[4];
+$result_trees{'inline_expand_tex'}{'contents'}[4]{'contents'}[10]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'inline_expand_tex'}{'contents'}[4]{'contents'}[10]{'args'}[0];
+$result_trees{'inline_expand_tex'}{'contents'}[4]{'contents'}[10]{'args'}[0]{'parent'} = $result_trees{'inline_expand_tex'}{'contents'}[4]{'contents'}[10];
+$result_trees{'inline_expand_tex'}{'contents'}[4]{'contents'}[10]{'args'}[1]{'parent'} = $result_trees{'inline_expand_tex'}{'contents'}[4]{'contents'}[10];
+$result_trees{'inline_expand_tex'}{'contents'}[4]{'contents'}[10]{'parent'} = $result_trees{'inline_expand_tex'}{'contents'}[4];
+$result_trees{'inline_expand_tex'}{'contents'}[4]{'contents'}[11]{'parent'} = $result_trees{'inline_expand_tex'}{'contents'}[4];
 $result_trees{'inline_expand_tex'}{'contents'}[4]{'parent'} = $result_trees{'inline_expand_tex'};
 
 $result_texis{'inline_expand_tex'} = '
@@ -561,6 +641,7 @@ $result_texis{'inline_expand_tex'} = '
 @inlinefmt{xml,},
 @inlinefmt{docbook,}, 
 @inlinefmt{tex, $\\underlinea < b @code{tex \\hbox code }}$ ``
+@inlinefmt{latex,}
 
 
 @inlineraw{html,}, 
@@ -568,6 +649,7 @@ $result_texis{'inline_expand_tex'} = '
 @inlineraw{xml,},
 @inlineraw{docbook,}, 
 @inlineraw{tex, raw $\\underline{a < b @code{tex \\hbox{ code }}}$ ``}
+@inlineraw{latex,}
 ';
 
 
@@ -579,10 +661,12 @@ $result_texts{'inline_expand_tex'} = '
 $ "
 
 
+
 , 
 , 
 ,
 , 
+
 
 ';
 
@@ -642,6 +726,7 @@ $result_converted{'html_text'}->{'inline_expand_tex'} = '
 ,
 , 
 $\\underlinea &lt; b <code>tex \\hbox code </code>$ &ldquo;
+
 </p>
 
 <p>, 
@@ -649,6 +734,7 @@ $\\underlinea &lt; b <code>tex \\hbox code </code>$ &ldquo;
 ,
 , 
 raw $\\underline{a < b <code>tex \\hbox{ code }</code>}$ ``
+
 </p>';
 
 
@@ -658,6 +744,7 @@ $result_converted{'xml'}->{'inline_expand_tex'} = '
 <inlinefmt><inlinefmtformat>xml</inlinefmtformat></inlinefmt>,
 <inlinefmt><inlinefmtformat>docbook</inlinefmtformat></inlinefmt>, 
 $\\underlinea &lt; b <code>tex \\hbox code </code>$ &textldquo;
+<inlinefmt><inlinefmtformat>latex</inlinefmtformat></inlinefmt>
 </para>
 
 <para><inlineraw><inlinerawformat>html</inlinerawformat></inlineraw>, 
@@ -665,6 +752,7 @@ $\\underlinea &lt; b <code>tex \\hbox code </code>$ &textldquo;
 <inlineraw><inlinerawformat>xml</inlinerawformat></inlineraw>,
 <inlineraw><inlinerawformat>docbook</inlinerawformat></inlineraw>, 
 raw $\\underline{a < b <code>tex \\hbox{ code }</code>}$ ``
+<inlineraw><inlinerawformat>latex</inlinerawformat></inlineraw>
 </para>';
 
 
@@ -674,6 +762,7 @@ $result_converted{'docbook'}->{'inline_expand_tex'} = '
 ,
 , 
 $\\underlinea &lt; b <literal>tex \\hbox code </literal>$ &#8220;
+
 </para>
 
 <para>, 
@@ -681,6 +770,7 @@ $\\underlinea &lt; b <literal>tex \\hbox code </literal>$ &#8220;
 ,
 , 
 raw $\\underline{a < b <literal>tex \\hbox{ code }</literal>}$ ``
+
 </para>';
 
 1;

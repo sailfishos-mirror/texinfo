@@ -347,6 +347,129 @@ $result_trees{'raw_block_commands_expand_tex'} = {
         'macro' => ''
       },
       'parent' => {}
+    },
+    {
+      'parent' => {},
+      'text' => '
+',
+      'type' => 'empty_line'
+    },
+    {
+      'cmdname' => 'latex',
+      'contents' => [
+        {
+          'extra' => {
+            'command' => {}
+          },
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line_after_command'
+        },
+        {
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => '$\\frac'
+            },
+            {
+              'parent' => {},
+              'text' => '{a < b '
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'tex \\hbox'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'parent' => {},
+                          'text' => ' code '
+                        }
+                      ],
+                      'line_nr' => {
+                        'file_name' => '',
+                        'line_nr' => 19,
+                        'macro' => ''
+                      },
+                      'parent' => {},
+                      'type' => 'bracketed'
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                }
+              ],
+              'cmdname' => 'code',
+              'contents' => [],
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 19,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => '}'
+            },
+            {
+              'parent' => {},
+              'text' => '{b'
+            },
+            {
+              'parent' => {},
+              'text' => '}$ ``
+'
+            }
+          ],
+          'parent' => {},
+          'type' => 'rawpreformatted'
+        },
+        {
+          'args' => [
+            {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => 'latex'
+                }
+              ],
+              'extra' => {
+                'spaces_after_argument' => '
+'
+              },
+              'parent' => {},
+              'type' => 'line_arg'
+            }
+          ],
+          'cmdname' => 'end',
+          'extra' => {
+            'command_argument' => 'latex',
+            'spaces_before_argument' => ' ',
+            'text_arg' => 'latex'
+          },
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 20,
+            'macro' => ''
+          },
+          'parent' => {}
+        }
+      ],
+      'extra' => {
+        'end_command' => {}
+      },
+      'line_nr' => {
+        'file_name' => '',
+        'line_nr' => 18,
+        'macro' => ''
+      },
+      'parent' => {}
     }
   ],
   'type' => 'text_root'
@@ -402,6 +525,25 @@ $result_trees{'raw_block_commands_expand_tex'}{'contents'}[7]{'contents'}[2]{'ar
 $result_trees{'raw_block_commands_expand_tex'}{'contents'}[7]{'contents'}[2]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[7];
 $result_trees{'raw_block_commands_expand_tex'}{'contents'}[7]{'extra'}{'end_command'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[7]{'contents'}[2];
 $result_trees{'raw_block_commands_expand_tex'}{'contents'}[7]{'parent'} = $result_trees{'raw_block_commands_expand_tex'};
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[8]{'parent'} = $result_trees{'raw_block_commands_expand_tex'};
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[9]{'contents'}[0]{'extra'}{'command'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[9];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[9]{'contents'}[0]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[9];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[9]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[9]{'contents'}[1];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[9]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[9]{'contents'}[1];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[9]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[9]{'contents'}[1]{'contents'}[2]{'args'}[0];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[9]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[9]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[1];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[9]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[9]{'contents'}[1]{'contents'}[2]{'args'}[0];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[9]{'contents'}[1]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[9]{'contents'}[1]{'contents'}[2];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[9]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[9]{'contents'}[1];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[9]{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[9]{'contents'}[1];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[9]{'contents'}[1]{'contents'}[4]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[9]{'contents'}[1];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[9]{'contents'}[1]{'contents'}[5]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[9]{'contents'}[1];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[9]{'contents'}[1]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[9];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[9]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[9]{'contents'}[2]{'args'}[0];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[9]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[9]{'contents'}[2];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[9]{'contents'}[2]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[9];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[9]{'extra'}{'end_command'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[9]{'contents'}[2];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[9]{'parent'} = $result_trees{'raw_block_commands_expand_tex'};
 
 $result_texis{'raw_block_commands_expand_tex'} = '
 @html
@@ -419,10 +561,15 @@ $result_texis{'raw_block_commands_expand_tex'} = '
 @tex
 $\\underline{a < b @code{tex \\hbox{ code }}}$ ``}
 @end tex
+
+@latex
+$\\frac{a < b @code{tex \\hbox{ code }}}{b}$ ``
+@end latex
 ';
 
 
 $result_texts{'raw_block_commands_expand_tex'} = '
+
 
 
 
@@ -436,6 +583,7 @@ $result_floats{'raw_block_commands_expand_tex'} = {};
 
 
 $result_converted{'plaintext'}->{'raw_block_commands_expand_tex'} = '$\\underline{a < b \'tex \\hbox{ code }\'}$ ``}
+
 ';
 
 
@@ -444,6 +592,7 @@ $result_converted{'html_text'}->{'raw_block_commands_expand_tex'} = '
 
 
 $\\underline{a &lt; b &lt;code&gt;tex \\hbox{ code }&lt;/code&gt;}$ ``}
+
 ';
 
 $result_converted_errors{'html_text'}->{'raw_block_commands_expand_tex'} = [
@@ -474,6 +623,10 @@ $result_converted{'xml'}->{'raw_block_commands_expand_tex'} = '
 </docbook>
 
 $\\underline{a < b <code>tex \\hbox{ code }</code>}$ ``}
+
+<latex endspaces=" ">
+$\\frac{a &lt; b <code>tex \\hbox{ code }</code>}{b}$ &textldquo;
+</latex>
 ';
 
 
@@ -482,6 +635,7 @@ $result_converted{'docbook'}->{'raw_block_commands_expand_tex'} = '
 
 
 $\\underline{a < b <literal>tex \\hbox{ code }</literal>}$ ``}
+
 ';
 
 1;

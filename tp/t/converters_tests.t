@@ -111,6 +111,7 @@ my $inline_text = '
 @inlinefmt{xml, <para>xml</para> ``},
 @inlinefmt{docbook, <emphasis>docbook</emphasis> ``}, 
 @inlinefmt{tex, $\underline{a < b @code{tex \hbox{ code }}}$ ``}
+@inlinefmt{latex, @math{\frac{a < b @code{tex \hbox{ code }}}{b}} ``}
 
 
 @inlineraw{html, raw <blink>html</blink> ``}, 
@@ -118,6 +119,7 @@ my $inline_text = '
 @inlineraw{xml, raw <para>xml</para> ``},
 @inlineraw{docbook, raw <emphasis>docbook</emphasis> ``}, 
 @inlineraw{tex, raw $\underline{a < b @code{tex \hbox{ code }}}$ ``}
+@inlineraw{latex, raw $\frac{a < b @code{tex \hbox{ code }}}{b}$ ``}
 ';
 
 my $raw_commands_text = '
@@ -136,6 +138,10 @@ my $raw_commands_text = '
 @tex
 $\underline{a < b @code{tex \hbox{ code }}}$ ``}
 @end tex
+
+@latex
+$\frac{a < b @code{tex \hbox{ code }}}{b}$ ``
+@end latex
 ';
 
 my $top_in_ref_text = 
@@ -624,11 +630,11 @@ fff2
 '],
 ['raw_block_commands',
 $raw_commands_text,
-{'expanded_formats' => ['tex', 'docbook', 'html', 'xml']}
+{'expanded_formats' => ['tex', 'docbook', 'html', 'xml', 'latex']}
 ],
 ['raw_block_commands_expand_tex',
 $raw_commands_text,
-{'expanded_formats' => ['tex', 'docbook', 'html', 'xml']},
+{'expanded_formats' => ['tex', 'docbook', 'html', 'xml', 'latex']},
 {'expanded_formats' => ['tex']},
 ],
 ['inline',
@@ -654,6 +660,8 @@ $inline_text, {'expanded_formats' => ['tex']},
 @inlinefmtifelse{docbook,if docbook,else docbook}.
 
 @inlinefmtifelse{tex,if tex,else tex}.
+
+@inlinefmtifelse{latex,if latex,else latex}.
 ',
 {'expanded_formats' => []}
 ],
@@ -1043,6 +1051,7 @@ foreach my $test (@test_cases) {
   }
   push @{$test->[2]->{'test_formats'}}, 'xml';
   push @{$test->[2]->{'test_formats'}}, 'docbook';
+  #push @{$test->[2]->{'test_formats'}}, 'latex';
   push @{$test->[2]->{'test_formats'}}, 'info'
     if ($info_tests{$test->[0]});
 }

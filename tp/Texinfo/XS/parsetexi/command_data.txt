@@ -426,6 +426,7 @@ html                    block,format_raw
 tex                     block,format_raw
 xml                     block,format_raw
 docbook                 block,format_raw
+latex                   block,format_raw
 
 # raw commands
 verbatim                block                           BLOCK_raw
@@ -458,6 +459,8 @@ ifinfo                  block                           BLOCK_conditional
 ifnotinfo               block                           BLOCK_conditional
 ifplaintext             block                           BLOCK_conditional
 ifnotplaintext          block                           BLOCK_conditional
+iflatex                 block                           BLOCK_conditional
+ifnotlatex              block                           BLOCK_conditional
 ifset                   block                           BLOCK_conditional
 ifclear                 block                           BLOCK_conditional
 ifcommanddefined        block                           BLOCK_conditional

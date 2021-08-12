@@ -885,7 +885,7 @@ foreach my $block_math_command('displaymath') {
 }
 
 our %format_raw_commands;
-foreach my $format_raw_command('html', 'tex', 'xml', 'docbook') {
+foreach my $format_raw_command('html', 'tex', 'xml', 'docbook', 'latex') {
   $block_commands{$format_raw_command} = 0;
   $format_raw_commands{$format_raw_command} = 1;
 }
