@@ -14,6 +14,21 @@
 # 
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+# TODO
+# @shortcontent is not implemented.  Tried shorttoc package but it
+# has two limitations that are not in Texinfo, need a main \tableofcontents
+# and need to be before @contents.  A code snippet looked good for a
+# @shortcontents after @contents, but not before:
+#{
+#\renewcommand*{\contentsname}{Short contents}
+#\setcounter{tocdepth}{0}
+#\expandafter\def\csname @starttoc\endcsname#1{\InputIfFileExists{\jobname.#1}{}{}}%
+#\tableofcontents
+#}
+#
+# in TeX, acronym is in a smaller font (1pt less). Can this be
+# easily done in LaTeX?  Is it really useful to do that?
 
 package Texinfo::Convert::LaTeX;
 
@@ -206,7 +221,6 @@ my %LaTeX_no_arg_brace_commands = (
     'tie' => '\hbox{}',
   }
 );
-# TODO check 'click'
 
 my %LaTeX_text_only_no_arg_brace_commands = (
   'exclamdown' => 'textexclamdown',
@@ -406,18 +420,13 @@ foreach my $quoted_command (@quoted_commands) {
 my %defaults = (
   'ENABLE_ENCODING'      => 0,
   'FORMAT_MENU'          => 'nomenu',
-  #'EXTENSION'            => 'info',
   'EXTENSION'            => 'tex',
-  #'USE_SETFILENAME_EXTENSION' => 1,
-  'INFO_SPECIAL_CHARS_WARNING' => 1,
 
-  #'OUTFILE'              => undef,
-  'OUTFILE'              => '-',
+  'OUTFILE'              => undef,
   'SUBDIR'               => undef,
   'documentlanguage'     => undef,
 
-  'output_format'        => '',
-  'USE_NODES'            => 1,
+  'output_format'        => 'latex',
 );
 
 
@@ -461,19 +470,26 @@ sub converter_initialize($)
   $self->{'convert_text_options'} 
       = {Texinfo::Common::_convert_text_options($self)};
 
-  if ($self->get_conf('ENABLE_ENCODING')
-      and $self->get_conf('OUTPUT_ENCODING_NAME')
+  # this condition means that there is no way to turn off
+  # @U expansion to utf-8 characters even though this
+  # could output characters that are not known in the
+  # fontenc and will lead to an error.
+  # FIXME add a customization variable?  Or allow/explain
+  # how to add \DeclareUnicodeCharacter{XXXX}{aa}
+  # in preamble?  Use a fontenc with more points?
+  if ($self->get_conf('OUTPUT_ENCODING_NAME')
       and $self->get_conf('OUTPUT_ENCODING_NAME') eq 'utf-8') {
     # cache this to avoid redoing calls to get_conf
     $self->{'to_utf8'} = 1;
-    if (!$self->{'extra'}->{'documentencoding'}) {
-      # Do not use curly quotes or some other unnecessary non-ASCII characters
-      # if '@documentencoding UTF-8' is not given.
-      $self->{'convert_text_options'}->{'no_extra_unicode'} = 1;
-    } else {
-      foreach my $quoted_command (@quoted_commands) {
-        # Directed single quotes
-        $self->{'quotes_map'}->{$quoted_command} = ["\x{2018}", "\x{2019}"];
+
+    if ($self->get_conf('ENABLE_ENCODING')) {
+      # Do not use utf-8 encoded curly quotes if '@documentencoding UTF-8'
+      # is not given.
+      if ($self->{'extra'}->{'documentencoding'}) {
+        foreach my $quoted_command (@quoted_commands) {
+          # Directed single quotes
+          $self->{'quotes_map'}->{$quoted_command} = ["\x{2018}", "\x{2019}"];
+        }
       }
     }
   }
@@ -489,16 +505,7 @@ sub converter_initialize($)
        = $self->get_conf('CLOSE_QUOTE_SYMBOL');
     }
   }
-  if ($self->get_conf('FILLCOLUMN')) {
-    $self->{'fillcolumn'} = $self->get_conf('FILLCOLUMN');
-    # else it's already set via the defaults
-  }
   # some caching to avoid calling get_conf
-  if ($self->get_conf('OUTPUT_PERL_ENCODING')) {
-    $self->{'output_perl_encoding'} = $self->get_conf('OUTPUT_PERL_ENCODING');
-  } else {
-    $self->{'output_perl_encoding'} = '';
-  }
   $self->{'enable_encoding'} = $self->get_conf('ENABLE_ENCODING');
   $self->{'output_encoding_name'} = $self->get_conf('OUTPUT_ENCODING_NAME');
   $self->{'debug'} = $self->get_conf('DEBUG');
@@ -532,8 +539,8 @@ sub _latex_header {
 \usepackage[T1]{fontenc}
 \usepackage{textcomp}
 ';
-  if ($self->get_conf('OUTPUT_ENCODING_NAME')) {
-    my $encoding = $self->get_conf('OUTPUT_ENCODING_NAME');
+  if ($self->{'output_encoding_name'}) {
+    my $encoding = $self->{'output_encoding_name'};
     if (defined($LaTeX_encoding_names_map{$encoding})) {
       $encoding = $LaTeX_encoding_names_map{$encoding};
     }# else {
@@ -541,6 +548,10 @@ sub _latex_header {
     #}
     $header .= "\\usepackage[$encoding]{inputenc}\n";
   }
+  #if ($self->{'extra'}->{'shortcontents'}) {
+  #  # in texlive-latex-extra in debian
+  #  $header .= "\\usepackage{shorttoc}\n";
+  #}
   $header .= 
 '\begin{document}
 ';
@@ -655,18 +666,6 @@ sub _protect_text($$)
 }
 
 
-sub _contents($$$)
-{
-  my ($self, $section_root, $contents_or_shortcontents) = @_;
-
-  my $contents = 1 if ($contents_or_shortcontents eq 'contents');
-  
-  if ($contents) {
-    return "\\tableofcontents\\newpage\n";
-  }
-  return '';
-}
-
 sub _printindex($$)
 {
   my ($self, $printindex) = @_;
@@ -679,7 +678,7 @@ sub _node_name {
   my $node_content = shift;
 
   my $label = Texinfo::Convert::NodeNameNormalization::normalize_node
-    ({'type' => '_code', 'contents' => $node_content});
+    ({'contents' => $node_content});
   return "anchor:$label";
 }
 
@@ -693,9 +692,6 @@ sub _node($$)
   return "\\label{$label}";
 }
 
-
-my $listoffloat_entry_length = 41;
-my $listoffloat_append = '...';
 
 sub _image_text($$$)
 {
@@ -857,7 +853,7 @@ sub _convert($$)
         # FIXME \leavevmode{} is added to avoid
         # ! LaTeX Error: There's no line here to end.
         # but it is not clearly correct
-        $result = "\\leavevmode{}\\\\\n";
+        $result = "\\leavevmode{}\\\\";
         #$result = "\\linebreak[4]\n";
       } elsif ($command eq '.' or $command eq '?' or $command eq '!') {
         if ($command_context ne 'math') {
@@ -879,12 +875,15 @@ sub _convert($$)
       my $today = $self->Texinfo::Common::expand_today();
       unshift @{$self->{'current_contents'}->[-1]}, $today;
     } elsif (exists($brace_no_arg_commands{$command})) {
-      if (exists($LaTeX_no_arg_brace_commands{$command_context}->{$command})) {
-        $result .= $LaTeX_no_arg_brace_commands{$command_context}->{$command};
+      my $converted_command = $command;
+      if ($command eq 'click' and $root->{'extra'}
+        and exists($root->{'extra'}->{'clickstyle'})) {
+        $converted_command = $root->{'extra'}->{'clickstyle'};
+      }
+      if (exists($LaTeX_no_arg_brace_commands{$command_context}->{$converted_command})) {
+        $result .= $LaTeX_no_arg_brace_commands{$command_context}->{$converted_command};
       } else {
-        my $text = Texinfo::Convert::Text::brace_no_arg_command($root, 
-                                           $self->{'convert_text_options'});
-        $result .= _protect_text($self, $text);
+        die "BUG: unknown brace_no_arg_commands $command $converted_command\n";
       }
       return $result;
     # commands with braces
@@ -916,9 +915,11 @@ sub _convert($$)
               return "\\${accent_arg}{}";
             }
           } else {
+            # should be an error, but we do not care, it is better if it is
+            # handled during parsing
             return _protect_text($self, $accent_arg);
           }
-        # accent without math command, use slanted text
+        # accent without math mode command, use slanted text
         } elsif ($command_context eq 'math'
                  and $LaTeX_accent_commands{'text'}->{$command}) {
           $result .= "\\textsl{\\$LaTeX_accent_commands{'text'}->{$command}\{";
@@ -935,26 +936,26 @@ sub _convert($$)
       return $result;
     } elsif (exists($LaTeX_style_brace_commands{'text'}->{$command})
          or ($root->{'type'} and $root->{'type'} eq 'definfoenclose_command')) {
+      if ($self->{'quotes_map'}->{$command}) {
+        $result .= $self->{'quotes_map'}->{$command}->[0];
+      }
+      if ($LaTeX_style_brace_commands{$command_context}->{$command}) {
+        $result .= "$LaTeX_style_brace_commands{$command_context}->{$command}\{";
+      }
+      if ($code_style_commands{$command}) {
+        $self->{'style_context'}->[-1]->{'code'} += 1;
+      }
       if ($root->{'args'}) {
-        if ($self->{'quotes_map'}->{$command}) {
-          $result .= $self->{'quotes_map'}->{$command}->[0];
-        }
-        if ($LaTeX_style_brace_commands{$command_context}->{$command}) {
-          $result .= "$LaTeX_style_brace_commands{$command_context}->{$command}\{";
-        }
-        if ($code_style_commands{$command}) {
-          $self->{'style_context'}->[-1]->{'code'} += 1;
-        }
         $result .= _convert($self, $root->{'args'}->[0]);
-        if ($LaTeX_style_brace_commands{$command_context}->{$command}) {
-          $result .= '}';
-        }
-        if ($code_style_commands{$command}) {
-          $self->{'style_context'}->[-1]->{'code'} -= 1;
-        }
-        if ($self->{'quotes_map'}->{$command}) {
-          $result .= $self->{'quotes_map'}->{$command}->[1];
-        }
+      }
+      if ($LaTeX_style_brace_commands{$command_context}->{$command}) {
+        $result .= '}';
+      }
+      if ($code_style_commands{$command}) {
+        $self->{'style_context'}->[-1]->{'code'} -= 1;
+      }
+      if ($self->{'quotes_map'}->{$command}) {
+        $result .= $self->{'quotes_map'}->{$command}->[1];
       }
       return $result;
     } elsif ($command eq 'kbd') {
@@ -964,32 +965,32 @@ sub _convert($$)
       # ‘example’ Use the distinguishing font for @kbd only in @example and similar environments.
       # ‘distinct’ (the default) Always use the distinguishing font for @kbd.
       #    {\ttfamily\textsl{kbd argument}}
+      my $code_font = 0;
+      if (defined($self->{'conf'}->{'kbdinputstyle'})
+          and ($self->{'conf'}->{'kbdinputstyle'} eq 'code'
+            or ($self->{'conf'}->{'kbdinputstyle'} eq 'example'
+              and $preformatted_commands{$self->{'style_context'}->[-1]->{'context'}->[-1]}))) {
+        $code_font = 1;
+      }
+      if ($code_font) {
+        if ($LaTeX_style_brace_commands{$command_context}->{'code'}) {
+          $result .= "$LaTeX_style_brace_commands{$command_context}->{'code'}\{";
+        }
+      } else {
+        # use \ttfamily to have a cumulative effect with \textsl
+        $result .= '{\ttfamily\textsl{';
+      }
       if ($root->{'args'}) {
-        my $code_font = 0;
-        if (defined($self->{'conf'}->{'kbdinputstyle'})
-            and ($self->{'conf'}->{'kbdinputstyle'} eq 'code'
-              or ($self->{'conf'}->{'kbdinputstyle'} eq 'example'
-                and $preformatted_commands{$self->{'style_context'}->[-1]->{'context'}->[-1]}))) {
-          $code_font = 1;
-        }
-        if ($code_font) {
-          if ($LaTeX_style_brace_commands{$command_context}->{'code'}) {
-            $result .= "$LaTeX_style_brace_commands{$command_context}->{'code'}\{";
-          }
-        } else {
-          # use \ttfamily to have a cumulative effect with \textsl
-          $result .= '{\ttfamily\textsl{';
-        }
         $self->{'style_context'}->[-1]->{'code'} += 1;
         $result .= _convert($self, $root->{'args'}->[0]);
         $self->{'style_context'}->[-1]->{'code'} -= 1;
-        if ($code_font) {
-          if ($LaTeX_style_brace_commands{$command_context}->{'code'}) {
-            $result .= '}';
-          }
-        } else {
-          $result .= '}}';
+      }
+      if ($code_font) {
+        if ($LaTeX_style_brace_commands{$command_context}->{'code'}) {
+          $result .= '}';
         }
+      } else {
+        $result .= '}}';
       }
       return $result;
     } elsif ($command eq 'verb') {
@@ -1001,6 +1002,7 @@ sub _convert($$)
       my $old_context = pop @{$self->{'style_context'}->[-1]->{'context'}};
       die if ($old_context ne 'raw');
       $result .= $root->{'extra'}->{'delimiter'};
+      return $result;
     } elsif ($command eq 'image') {
       my $image = $self->_image($root);
       $result .= $image; 
@@ -1078,7 +1080,6 @@ sub _convert($$)
       $result .= $self->_convert($root->{'args'}->[0]); 
       $result .= '}';
       pop @{$self->{'style_context'}};
-
       return $result;
     } elsif ($command eq 'anchor') {
       $result .= $self->_node($root);
@@ -1180,6 +1181,7 @@ sub _convert($$)
           $argument = {'type' => '_dot_not_end_sentence',
                        'contents' => $root->{'args'}->[0]->{'contents'}};
         } else {
+        # TODO in TeX, acronym is in a smaller font (1pt less).
           $argument = { 'contents' => $root->{'args'}->[0]->{'contents'}};
         }
         if (scalar (@{$root->{'args'}}) == 2
@@ -1192,7 +1194,6 @@ sub _convert($$)
           return '';
         } else {
           $result = _convert($self, $argument);
-
           return $result;
         }
       }
@@ -1207,14 +1208,17 @@ sub _convert($$)
       if (scalar(@{$root->{'args'}}) > $arg_index
          and defined($root->{'args'}->[$arg_index])
          and @{$root->{'args'}->[$arg_index]->{'contents'}}) {
-        my $argument;
         if ($command eq 'inlineraw') {
-          $argument->{'type'} = '_code';
+          push @{$self->{'style_context'}->[-1]->{'context'}}, 'raw';
         }
-        $argument->{'contents'} = $root->{'args'}->[$arg_index]->{'contents'};
-        unshift @{$self->{'current_contents'}->[-1]}, ($argument);
+        $result .= _convert($self, {'contents'
+                         => $root->{'args'}->[$arg_index]->{'contents'}});
+        if ($command eq 'inlineraw') {
+          my $old_context = pop @{$self->{'style_context'}->[-1]->{'context'}};
+          die if ($old_context ne 'raw');
+        }
       }
-      return '';
+      return $result;
     } elsif ($math_commands{$command}) {
       push @{$self->{'style_context'}->[-1]->{'context'}}, 'math';
       if (not exists($block_commands{$command})) {
@@ -1461,18 +1465,15 @@ sub _convert($$)
     } elsif ($command eq 'contents') {
       if ($self->{'structuring'}
             and $self->{'structuring'}->{'sectioning_root'}) {
-        $result
-            = $self->_contents($self->{'structuring'}->{'sectioning_root'}, 
-                              'contents');
+        $result = "\\tableofcontents\\newpage\n";
       }
       return $result;
     } elsif ($command eq 'shortcontents' 
                or $command eq 'summarycontents') {
       if ($self->{'structuring'}
             and $self->{'structuring'}->{'sectioning_root'}) {
-        $result
-              = $self->_contents($self->{'structuring'}->{'sectioning_root'}, 
-                              'shortcontents');
+        # TODO see notes at the beginning
+        $result = '';
       }
       return $result;
     # all the @-commands that have an information for the formatting, like
@@ -1686,14 +1687,12 @@ sub _convert($$)
   if ($root->{'contents'}) {
     my @contents = @{$root->{'contents'}};
     push @{$self->{'current_contents'}}, \@contents;
-    push @{$self->{'current_roots'}}, $root;
     while (@contents) {
       my $content = shift @contents;
       my $text = _convert($self, $content);
       $result .= $text;
     }
     pop @{$self->{'current_contents'}};
-    pop @{$self->{'current_roots'}};
   }
 
   # now closing. First, close types.

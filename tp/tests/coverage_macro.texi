@@ -745,7 +745,9 @@ Invalid use of @@':@*
 @@U, without braces @U
 @@U@{@}, with empty arg @U{}
 @@U@{z@}, with non-hex arg @U{z}
+@ifnotlatex
 @@U@{abc@}, with <4 hex digits @U{abc}
+@end ifnotlatex
 @@U@{FFFFFFFFFFFFFF@}, value much too large @U{FFFFFFFFFFFFFF}
 @@U@{110000@}, value just beyond Unicode @U{110000}
 

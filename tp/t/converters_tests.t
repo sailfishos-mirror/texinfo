@@ -1042,6 +1042,13 @@ my %xml_file_tests = (
  'char_latin1_latin1_in_refs' => 1,
 );
 
+# this is temporary, all the files in @test_cases should go
+# through the LaTeX converter
+my %latex_tests = (
+  'accentenc' => 1,
+  'inline' => 1,
+);
+
 foreach my $test (@test_cases) {
   push @{$test->[2]->{'test_formats'}}, 'plaintext';
   if ($html_tests{$test->[0]}) {
@@ -1051,7 +1058,8 @@ foreach my $test (@test_cases) {
   }
   push @{$test->[2]->{'test_formats'}}, 'xml';
   push @{$test->[2]->{'test_formats'}}, 'docbook';
-  #push @{$test->[2]->{'test_formats'}}, 'latex';
+  push @{$test->[2]->{'test_formats'}}, 'latex'
+    if ($latex_tests{$test->[0]});
   push @{$test->[2]->{'test_formats'}}, 'info'
     if ($info_tests{$test->[0]});
 }
