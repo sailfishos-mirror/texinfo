@@ -587,6 +587,39 @@ In float with caption.
 
 @~Z @~s
 '],
+['commands_in_math',
+'
+@displaymath
+@strong{``simple-double--three---four----\'\'} @w{aa}
+`@w{}`simple-double-@w{}-three---four----\'@w{}\'@*
+@end displaymath
+
+@displaymath
+@"u @"{U} @~n @^a @\'e @=o @`i @\'{e} @dotless{i} @dotless{j} @`{@=E}
+@l{} @,{@\'C} @,{@\'C} @,c @H{a} @dotaccent{a} @ringaccent{a} @tieaccent{a}
+@u{a} @ubaraccent{a} @udotaccent{a} @v{a} @ogonek{a} a@sup{h}@sub{l}
+@* @ @  @
+@- @| @: @! @? @. @@ @} @{ @/
+@today{}
+@end displaymath
+
+@displaymath
+@click{}
+@U{0075}
+@TeX{} @LaTeX{} @bullet{} @copyright{} @dots{} @enddots{} @equiv{}
+@error{} @expansion{} @minus{} @point{} @print{} @result{}
+@aa{} @AA{} @ae{} @oe{} @AE{} @OE{} @o{} @O{} @ss{} @l{} @L{} @DH{}
+@TH{} @dh{} @th{} @exclamdown{} @questiondown{} @pounds{}
+@registeredsymbol{} @ordf{} @ordm{} @comma{} 
+@end displaymath
+
+@displaymath
+@quotedblleft{} @quotedblright{} 
+@quoteleft{} @quoteright{} @quotedblbase{} @quotesinglbase{} @guillemetleft{}
+@guillemetright{} @guillemotleft{} @guillemotright{} @guilsinglleft{}
+@guilsinglright{} @textdegree{} @euro{} @arrow{} @leq{} @geq{}
+@end displaymath
+'],
 );
 
 my @test_tree = (
