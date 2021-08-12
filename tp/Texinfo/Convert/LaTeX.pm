@@ -522,6 +522,7 @@ sub _latex_header {
   # amsmath for \text in math
   # T1 fontenc for \DH, \guillemotleft
   # eurosym for \euro
+  # textcomp for \textdegree in older LaTeX
   my $header = 
 '\documentclass{book}
 \usepackage{makeidx}\makeindex
@@ -529,6 +530,7 @@ sub _latex_header {
 \usepackage{amsmath}
 \usepackage[gen]{eurosym}
 \usepackage[T1]{fontenc}
+\usepackage{textcomp}
 ';
   if ($self->get_conf('OUTPUT_ENCODING_NAME')) {
     my $encoding = $self->get_conf('OUTPUT_ENCODING_NAME');
