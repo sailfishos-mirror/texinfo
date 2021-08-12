@@ -39,6 +39,8 @@ use if $] >= 5.012, feature => qw(unicode_strings);
 
 use strict;
 
+use File::Spec;
+
 use Texinfo::Convert::Converter;
 use Texinfo::Common;
 use Texinfo::Convert::Texinfo;
@@ -138,6 +140,10 @@ foreach my $misc_command (keys(%misc_commands)) {
   $ignored_misc_commands{$misc_command} = 1 
     unless ($formatting_misc_commands{$misc_command});
 }
+
+# from \def\Gin@extensions in graphics-def/pdftex.def
+my @LaTeX_image_extensions = (
+'pdf','png','jpg','mps','jpeg','jbig2','jb2','PDF','PNG','JPG','JPEG','JBIG2','JB2');
 
 my %section_map = (
    'part' => 'part',
@@ -530,6 +536,7 @@ sub _latex_header {
   # T1 fontenc for \DH, \guillemotleft
   # eurosym for \euro
   # textcomp for \textdegree in older LaTeX
+  # graphicx for \includegraphics
   my $header = 
 '\documentclass{book}
 \usepackage{makeidx}\makeindex
@@ -538,7 +545,19 @@ sub _latex_header {
 \usepackage[gen]{eurosym}
 \usepackage[T1]{fontenc}
 \usepackage{textcomp}
+\usepackage{graphicx}
+
 ';
+  # this is in order to be able to run pdflatex even
+  # if files do not exist, or filenames cannot be
+  # processed by LaTeX
+  if ($self->get_conf('TEST')) {
+    $header .=
+'
+\renewcommand{\includegraphics}[1]{FIG #1}
+
+';
+  }
   if ($self->{'output_encoding_name'}) {
     my $encoding = $self->{'output_encoding_name'};
     if (defined($LaTeX_encoding_names_map{$encoding})) {
@@ -692,83 +711,6 @@ sub _node($$)
   return "\\label{$label}";
 }
 
-
-sub _image_text($$$)
-{
-  my ($self, $root, $basefile) = @_;
-
-  my $txt_file = $self->Texinfo::Common::locate_include_file($basefile.'.txt');
-  if (!defined($txt_file)) {
-    return undef;
-  } else {
-    my $filehandle = do { local *FH };
-    if (open ($filehandle, $txt_file)) {
-      my $enc = $root->{'extra'}->{'input_perl_encoding'};
-      binmode($filehandle, ":encoding($enc)")
-        if ($enc);
-      my $result = '';
-      my $max_width = 0;
-      while (<$filehandle>) {
-        my $width = Texinfo::Convert::Unicode::string_width($_);
-        if ($width > $max_width) {
-          $max_width = $width;
-        }
-        $result .= $_;
-      }
-      # remove last end of line
-      chomp ($result);
-      if (!close ($filehandle)) {
-        $self->document_warn(sprintf(__("error on closing image text file %s: %s"),
-                                     $txt_file, $!));
-      }
-      return ($result, $max_width);
-    } else {
-      $self->line_warn(sprintf(__("\@image file `%s' unreadable: %s"), 
-                               $txt_file, $!), $root->{'line_nr'});
-    }
-  }
-  return undef;
-}
-
-sub _image_formatted_text($$$$)
-{
-  my ($self, $root, $basefile, $text) = @_;
-
-  my $result;
-  if (defined($text)) {
-    $result = $text;
-  } elsif (defined($root->{'args'}->[3])
-      and @{$root->{'args'}->[3]->{'contents'}}) {
-    $result = '[' .Texinfo::Convert::Text::convert(
-      {'contents' => $root->{'args'}->[3]->{'contents'}},
-      $self->{'convert_text_options'}) .']';
-  } else {
-    $self->line_warn(sprintf(__(
-                    "could not find \@image file `%s.txt' nor alternate text"),
-                             $basefile), $root->{'line_nr'});
-    $result = '['.$basefile.']';
-  }
-  return _protect_text($self, $result);
-}
-
-sub _image($$)
-{
-  my ($self, $root) = @_;
-
-  if (defined($root->{'args'}->[0])
-        and @{$root->{'args'}->[0]->{'contents'}}) {
-    my $basefile = Texinfo::Convert::Text::convert(
-     {'contents' => $root->{'args'}->[0]->{'contents'}},
-     {'code' => 1, %{$self->{'convert_text_options'}}});
-    my ($text, $width) = $self->_image_text($root, $basefile);
-    my $result = $self->_image_formatted_text($root, $basefile, $text);
-    if (!defined($width)) {
-      $width = Texinfo::Convert::Unicode::string_width($result);
-    }
-    return $result;
-  }
-  return '';
-}
 
 sub _get_form_feeds($)
 {
@@ -1004,8 +946,74 @@ sub _convert($$)
       $result .= $root->{'extra'}->{'delimiter'};
       return $result;
     } elsif ($command eq 'image') {
-      my $image = $self->_image($root);
-      $result .= $image; 
+      if (defined($root->{'args'}->[0])
+          and @{$root->{'args'}->[0]->{'contents'}}) {
+        # distinguish text basefile used to find the file and
+        # converted basefile with special characters escaped
+        my $basefile = Texinfo::Convert::Text::convert(
+         {'contents' => $root->{'args'}->[0]->{'contents'}},
+         {'code' => 1, %{$self->{'convert_text_options'}}});
+        # FIXME not clear at all what can be in filenames here,
+        # what should be escaped and how
+        my $converted_basefile = _protect_text($self, $basefile);
+
+        my $image_file;
+        foreach my $extension (@LaTeX_image_extensions) {
+          my $located_file =
+            $self->Texinfo::Common::locate_include_file("$basefile.$extension");
+          if (defined($located_file)) {
+            my ($image_volume, $image_directories, $image_filename)
+                 = File::Spec->splitpath($located_file);
+            # using basefile with escaped characters
+            $image_file = File::Spec->catpath($image_volume,
+                                       $image_directories, $converted_basefile);
+          }
+        }
+        if (not defined($image_file)) {
+          $image_file = $converted_basefile;
+        }
+        my $width;
+        if ((@{$root->{'args'}} >= 2)
+              and defined($root->{'args'}->[1])
+              and @{$root->{'args'}->[1]->{'contents'}}){
+          push @{$self->{'style_context'}->[-1]->{'context'}}, 'raw';
+          $width = _convert($self, {'contents'
+                         => $root->{'args'}->[1]->{'contents'}});
+          my $old_context = pop @{$self->{'style_context'}->[-1]->{'context'}};
+          die if ($old_context ne 'raw');
+          if ($width !~ /\S/) {
+            $width = undef;
+          }
+        }
+        my $height;
+        if ((@{$root->{'args'}} >= 3)
+              and defined($root->{'args'}->[2])
+              and @{$root->{'args'}->[2]->{'contents'}}) {
+          push @{$self->{'style_context'}->[-1]->{'context'}}, 'raw';
+          $height = _convert($self, {'contents'
+                         => $root->{'args'}->[2]->{'contents'}});
+          my $old_context = pop @{$self->{'style_context'}->[-1]->{'context'}};
+          die if ($old_context ne 'raw');
+          if ($height !~ /\S/) {
+            $height = undef;
+          }
+        }
+        $result .= "\\includegraphics";
+        if (defined($width) or defined($height)) {
+          $result .= "[";
+          if (defined($width)) {
+            $result .= "width=$width";
+            if (defined($height)) {
+              $result .= ",";
+            }
+          }
+          if (defined($height)) {
+            $result .= "height=$height";
+          }
+          $result .= "]";
+        }
+        $result .= "{$image_file}";
+      }
       return $result;
     } elsif ($command eq 'email') {
       # nothing is output for email, instead the command is substituted.
