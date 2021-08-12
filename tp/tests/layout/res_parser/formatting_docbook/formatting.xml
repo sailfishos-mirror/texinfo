@@ -291,6 +291,9 @@ error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
 <blockquote></blockquote>
 <blockquote></blockquote>
 <blockquote></blockquote>
+<blockquote><attribution>quotation author</attribution>
+<para>aaa quotation
+</para></blockquote>
 <blockquote><para>A small quot&#8212;ation
 </para></blockquote>
 <note><para>A small Note
@@ -966,6 +969,9 @@ error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
 <blockquote></blockquote>
 <blockquote></blockquote>
 <blockquote></blockquote>
+<blockquote><attribution>quotation author</attribution>
+<para>aaa quotation
+</para></blockquote>
 <blockquote><para>A small quot&#8212;ation
 </para></blockquote>
 <note><para>A small Note
@@ -1642,6 +1648,9 @@ error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
 <blockquote></blockquote>
 <blockquote></blockquote>
 <blockquote></blockquote>
+<blockquote><attribution>quotation author</attribution>
+<para>aaa quotation
+</para></blockquote>
 <blockquote><para>A small quot&#8212;ation
 </para></blockquote>
 <note><para>A small Note
@@ -2318,6 +2327,9 @@ error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
 <blockquote></blockquote>
 <blockquote></blockquote>
 <blockquote></blockquote>
+<blockquote><attribution>quotation author</attribution>
+<para>aaa quotation
+</para></blockquote>
 <blockquote><para>A small quot&#8212;ation
 </para></blockquote>
 <note><para>A small Note
@@ -2993,6 +3005,9 @@ error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
 <blockquote></blockquote>
 <blockquote></blockquote>
 <blockquote></blockquote>
+<blockquote><attribution>quotation author</attribution>
+<para>aaa quotation
+</para></blockquote>
 <blockquote><para>A small quot&#8212;ation
 </para></blockquote>
 <note><para>A small Note
@@ -3596,7 +3611,7 @@ aaa</literallayout></textobject></inlinemediaobject>
 <literal>@image{f-ile,aze,,a--lt}</literal> <inlinemediaobject><imageobject><imagedata fileref="f-ile.jpg" format="JPG"></imagedata></imageobject></inlinemediaobject>
 <literal>@image{@file{f--ile}@@@.,aze,az,alt,@file{.file ext} e--xt@}</literal> <inlinemediaobject><imageobject><imagedata fileref="f--ile@..jpg" format="JPG"></imagedata></imageobject></inlinemediaobject>
 
-
+</screen><screen>
 <literal>@clicksequence{click @click{} A}</literal> click &#8594; A
 After clickstyle &#8658;
 <literal>@clicksequence{click @click{} A}</literal> click &#8658; A
@@ -3664,6 +3679,9 @@ error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
 </screen><blockquote></blockquote><screen>
 </screen><blockquote></blockquote><screen>
 </screen><blockquote></blockquote><screen>
+</screen><blockquote><attribution>quotation author</attribution>
+<screen>aaa quotation
+</screen></blockquote><screen>
 </screen><blockquote><screen>A small quot---ation
 </screen></blockquote><screen>
 </screen><note><screen>A small Note

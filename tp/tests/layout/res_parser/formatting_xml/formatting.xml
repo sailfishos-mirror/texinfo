@@ -222,6 +222,8 @@ but , ,@:
 @code{@@image@{@@file@{f--ile@}@@@@@@.,aze,az,alt,@@file@{.file ext@} e--xt@@@}} @image{@file{f--ile}@@@.,aze,az,alt,@file{.file ext} e--xt@}}
 
 @sp 2
+@page
+@author author
 
 @code{@@clicksequence@{click @@click@{@} A@}} @clicksequence{click @click{} A}
 @clickstyle @result
@@ -338,6 +340,11 @@ Note, the note
 @end quotation
 
 @quotation @*
+@end quotation
+
+@quotation
+aaa @author quotation author
+quotation
 @end quotation
 
 @smallquotation 
@@ -1056,6 +1063,8 @@ but , ,&noeos;
 <code>&arobase;image&lbrace;&arobase;file&lbrace;f--ile&rbrace;&arobase;&arobase;&arobase;.,aze,az,alt,&arobase;file&lbrace;.file ext&rbrace; e--xt&arobase;&rbrace;</code> <image where="inline"><imagefile><file>f--ile</file>&arobase;&eosperiod;</imagefile><imagewidth>aze</imagewidth><imageheight>az</imageheight><alttext>alt</alttext><imageextension><file>.file ext</file> e--xt&rbrace;</imageextension></image>
 </para>
 <sp value="2" line="2"></sp>
+<page></page>
+<author spaces=" ">author</author>
 
 <para><code>&arobase;clicksequence&lbrace;click &arobase;click&lbrace;&rbrace; A&rbrace;</code> <clicksequence>click <click command="arrow"/> A</clicksequence>
 <clickstyle command="result" line=" @result">@result</clickstyle>
@@ -1171,6 +1180,11 @@ After clickstyle &result;
 
 <quotation spaces=" " endspaces=" "><quotationtype>&linebreak;</quotationtype>
 </quotation>
+
+<quotation endspaces=" ">
+<para>aaa <author spaces=" ">quotation author</author>
+quotation
+</para></quotation>
 
 <smallquotation endspaces=" "> 
 <para>A small quot&textmdash;ation
@@ -1877,6 +1891,8 @@ but , ,&noeos;
 <code>&arobase;image&lbrace;&arobase;file&lbrace;f--ile&rbrace;&arobase;&arobase;&arobase;.,aze,az,alt,&arobase;file&lbrace;.file ext&rbrace; e--xt&arobase;&rbrace;</code> <image where="inline"><imagefile><file>f--ile</file>&arobase;&eosperiod;</imagefile><imagewidth>aze</imagewidth><imageheight>az</imageheight><alttext>alt</alttext><imageextension><file>.file ext</file> e--xt&rbrace;</imageextension></image>
 </para>
 <sp value="2" line="2"></sp>
+<page></page>
+<author spaces=" ">author</author>
 
 <para><code>&arobase;clicksequence&lbrace;click &arobase;click&lbrace;&rbrace; A&rbrace;</code> <clicksequence>click <click command="arrow"/> A</clicksequence>
 <clickstyle command="result" line=" @result">@result</clickstyle>
@@ -1992,6 +2008,11 @@ After clickstyle &result;
 
 <quotation spaces=" " endspaces=" "><quotationtype>&linebreak;</quotationtype>
 </quotation>
+
+<quotation endspaces=" ">
+<para>aaa <author spaces=" ">quotation author</author>
+quotation
+</para></quotation>
 
 <smallquotation endspaces=" "> 
 <para>A small quot&textmdash;ation
@@ -2698,6 +2719,8 @@ but , ,&noeos;
 <code>&arobase;image&lbrace;&arobase;file&lbrace;f--ile&rbrace;&arobase;&arobase;&arobase;.,aze,az,alt,&arobase;file&lbrace;.file ext&rbrace; e--xt&arobase;&rbrace;</code> <image where="inline"><imagefile><file>f--ile</file>&arobase;&eosperiod;</imagefile><imagewidth>aze</imagewidth><imageheight>az</imageheight><alttext>alt</alttext><imageextension><file>.file ext</file> e--xt&rbrace;</imageextension></image>
 </para>
 <sp value="2" line="2"></sp>
+<page></page>
+<author spaces=" ">author</author>
 
 <para><code>&arobase;clicksequence&lbrace;click &arobase;click&lbrace;&rbrace; A&rbrace;</code> <clicksequence>click <click command="arrow"/> A</clicksequence>
 <clickstyle command="result" line=" @result">@result</clickstyle>
@@ -2813,6 +2836,11 @@ After clickstyle &result;
 
 <quotation spaces=" " endspaces=" "><quotationtype>&linebreak;</quotationtype>
 </quotation>
+
+<quotation endspaces=" ">
+<para>aaa <author spaces=" ">quotation author</author>
+quotation
+</para></quotation>
 
 <smallquotation endspaces=" "> 
 <para>A small quot&textmdash;ation
@@ -3513,6 +3541,8 @@ but , ,&noeos;
 <code>&arobase;image&lbrace;&arobase;file&lbrace;f--ile&rbrace;&arobase;&arobase;&arobase;.,aze,az,alt,&arobase;file&lbrace;.file ext&rbrace; e--xt&arobase;&rbrace;</code> <image where="inline"><imagefile><file>f--ile</file>&arobase;&eosperiod;</imagefile><imagewidth>aze</imagewidth><imageheight>az</imageheight><alttext>alt</alttext><imageextension><file>.file ext</file> e--xt&rbrace;</imageextension></image>
 
 <sp value="2" line="2"></sp>
+</pre><page></page>
+<pre xml:space="preserve"><author spaces=" ">author</author>
 
 <code>&arobase;clicksequence&lbrace;click &arobase;click&lbrace;&rbrace; A&rbrace;</code> <clicksequence>click <click command="arrow"/> A</clicksequence>
 <clickstyle command="result" line=" @result">@result</clickstyle>
@@ -3628,6 +3658,11 @@ After clickstyle &result;
 <pre xml:space="preserve">
 </pre><quotation spaces=" " endspaces=" "><quotationtype>&linebreak;</quotationtype>
 </quotation>
+<pre xml:space="preserve">
+</pre><quotation endspaces=" ">
+<pre xml:space="preserve">aaa <author spaces=" ">quotation author</author>
+quotation
+</pre></quotation>
 <pre xml:space="preserve">
 </pre><smallquotation endspaces=" "> 
 <pre xml:space="preserve">A small quot---ation
