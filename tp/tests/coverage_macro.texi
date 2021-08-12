@@ -209,6 +209,7 @@ After clickstyle @result{}
 @c test most commands that could happen in math mode
 @displaymath
 @strong{``simple-double--three---four----''} @w{aa}
+`@w{}`simple-double-@w{}-three---four----'@w{}'@*
 @end displaymath
 
 @displaymath

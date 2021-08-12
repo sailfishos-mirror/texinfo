@@ -87,17 +87,20 @@ $">
 |;
 
 $l2h_cache_key = q/$$@strong{``simple-double--three---four----''} @w{aa}
+`@w{}`simple-double-@w{}-three---four----'@w{}'@*
 $$/;
 $l2h_cache{$l2h_cache_key} = q|<DIV CLASS="displaymath">
 <!-- MATH
  \begin{displaymath}
 @strong{``simple-double- -three- - -four- - - -''} @w{aa}
+`@w{}`simple-double-@w{}-three- - -four- - - -'@w{}'@*
 \end{displaymath}
  -->
 
 <IMG
  STYLE="height: 2.54ex; vertical-align: -0.57ex; " SRC="sing_4.svg"
  ALT="$\displaystyle @strong{\lq\lq simple-double--three---four----''} @w{aa}
+\lq @w{}\lq simple-double-@w{}-three---four----'@w{}'@*
 $">
 </DIV>
 |;

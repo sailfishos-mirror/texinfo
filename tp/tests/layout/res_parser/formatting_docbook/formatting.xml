@@ -230,6 +230,8 @@ After clickstyle &#8658;
 </para>
 <!-- test most commands that could happen in math mode -->
 <informalequation><mathphrase><emphasis role="bold">``simple-double--three---four----''</emphasis> aa<!-- /@w -->
+`<!-- /@w -->`simple-double-<!-- /@w -->-three---four----'<!-- /@w -->'
+
 </mathphrase></informalequation>
 <informalequation><mathphrase>&#252; &#220; &#241; &#226; &#233; &#333; &#236; &#233; i j &#274;`
 &#322; &#262;, &#262;, &#231; a'' &#551; &#229; a[
@@ -903,6 +905,8 @@ After clickstyle &#8658;
 </para>
 <!-- test most commands that could happen in math mode -->
 <informalequation><mathphrase><emphasis role="bold">``simple-double--three---four----''</emphasis> aa<!-- /@w -->
+`<!-- /@w -->`simple-double-<!-- /@w -->-three---four----'<!-- /@w -->'
+
 </mathphrase></informalequation>
 <informalequation><mathphrase>&#252; &#220; &#241; &#226; &#233; &#333; &#236; &#233; i j &#274;`
 &#322; &#262;, &#262;, &#231; a'' &#551; &#229; a[
@@ -1577,6 +1581,8 @@ After clickstyle &#8658;
 </para>
 <!-- test most commands that could happen in math mode -->
 <informalequation><mathphrase><emphasis role="bold">``simple-double--three---four----''</emphasis> aa<!-- /@w -->
+`<!-- /@w -->`simple-double-<!-- /@w -->-three---four----'<!-- /@w -->'
+
 </mathphrase></informalequation>
 <informalequation><mathphrase>&#252; &#220; &#241; &#226; &#233; &#333; &#236; &#233; i j &#274;`
 &#322; &#262;, &#262;, &#231; a'' &#551; &#229; a[
@@ -2251,6 +2257,8 @@ After clickstyle &#8658;
 </para>
 <!-- test most commands that could happen in math mode -->
 <informalequation><mathphrase><emphasis role="bold">``simple-double--three---four----''</emphasis> aa<!-- /@w -->
+`<!-- /@w -->`simple-double-<!-- /@w -->-three---four----'<!-- /@w -->'
+
 </mathphrase></informalequation>
 <informalequation><mathphrase>&#252; &#220; &#241; &#226; &#233; &#333; &#236; &#233; i j &#274;`
 &#322; &#262;, &#262;, &#231; a'' &#551; &#229; a[
@@ -2924,6 +2932,8 @@ After clickstyle &#8658;
 </para>
 <!-- test most commands that could happen in math mode -->
 <informalequation><mathphrase><emphasis role="bold">``simple-double--three---four----''</emphasis> aa<!-- /@w -->
+`<!-- /@w -->`simple-double-<!-- /@w -->-three---four----'<!-- /@w -->'
+
 </mathphrase></informalequation>
 <informalequation><mathphrase>&#252; &#220; &#241; &#226; &#233; &#333; &#236; &#233; i j &#274;`
 &#322; &#262;, &#262;, &#231; a'' &#551; &#229; a[
@@ -3593,6 +3603,8 @@ After clickstyle &#8658;
 
 <!-- test most commands that could happen in math mode -->
 </screen><informalequation><mathphrase><emphasis role="bold">``simple-double--three---four----''</emphasis> aa<!-- /@w -->
+`<!-- /@w -->`simple-double-<!-- /@w -->-three---four----'<!-- /@w -->'
+
 </mathphrase></informalequation><screen>
 </screen><informalequation><mathphrase>&#252; &#220; &#241; &#226; &#233; &#333; &#236; &#233; i j &#274;`
 &#322; &#262;, &#262;, &#231; a'' &#551; &#229; a[
