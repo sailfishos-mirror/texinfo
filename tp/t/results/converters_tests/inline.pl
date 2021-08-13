@@ -910,7 +910,8 @@ raw <emphasis>docbook</emphasis> ``,
 </para>';
 
 
-$result_converted{'latex'}->{'inline'} = ', 
+$result_converted{'latex'}->{'inline'} = '
+, 
 , 
 ,
 , 
@@ -924,8 +925,6 @@ $\\frac{a < b \\mathtt{tex \\hbox{ code }}}{b}$ ``
 , 
 
 raw $\\frac{a < b \\texttt{tex \\hbox{ code }}}{b}$ ``
-
-
 ';
 
 1;

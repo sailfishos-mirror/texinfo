@@ -1047,6 +1047,7 @@ my %xml_file_tests = (
 my %latex_tests = (
   'accentenc' => 1,
   'inline' => 1,
+  'test_sp' => 1,
 );
 
 foreach my $test (@test_cases) {

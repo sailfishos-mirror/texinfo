@@ -421,4 +421,23 @@ Now lone @sp:
 <para>sp after para
 </para>';
 
+
+$result_converted{'latex'}->{'test_sp'} = 'Para
+\\vskip 1\\baselineskip
+other para
+Now lone @sp:
+
+\\vskip 1\\baselineskip
+
+\\vskip 2\\baselineskip
+Para after sp
+
+A
+\\vskip 2\\baselineskip
+B
+
+sp after para
+\\vskip 1\\baselineskip
+';
+
 1;

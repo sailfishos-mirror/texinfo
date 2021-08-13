@@ -554,7 +554,7 @@ sub _latex_header {
   if ($self->get_conf('TEST')) {
     $header .=
 '
-\renewcommand{\includegraphics}[1]{FIG #1}
+\renewcommand{\includegraphics}[1]{\fbox{FIG #1}}
 
 ';
   }
@@ -636,24 +636,6 @@ sub convert_tree($$)
 
   return $self->_convert($root);
 }
-
-sub convert_line($$;$)
-{
-  my ($self, $converted, $conf) = @_;
-  my $text = $self->_convert($converted);
-  $text .= "\n\n";
-  return $text;
-}
-
-sub convert_unfilled($$;$)
-{
-  my ($self, $converted, $conf) = @_;
-  my $result = $self->_convert($converted);
-  $result .= "\n\n";
-  return $result;
-}
-
-
 
 # Protect LaTeX special characters.
 sub _protect_text($$)
@@ -754,8 +736,14 @@ sub _convert($$)
     return $result;
   }
 
-  if ($type and ($type eq 'empty_line' 
-                           or $type eq 'after_description_line')) {
+  #if ($type and ($type eq 'empty_line' 
+  #                         or $type eq 'after_description_line')) {
+  #  return '';
+  #}
+  if ($type and ($type eq 'empty_line')) {
+    return "\n";
+  }
+  if ($type and ($type eq 'after_description_line')) {
     return '';
   }
 
@@ -1247,7 +1235,8 @@ sub _convert($$)
       }
     } elsif ($command eq 'titlefont') {
       $result .= "{\\Huge \\bfseries ";
-      $result .= $self->convert_line({'contents' => [$root->{'args'}->[0]]});
+      $result .= $self->_convert({'contents'
+                                  => $root->{'args'}->[0]->{'contents'}});
       $result .= '}';
       return $result;
     } elsif ($command eq 'U') {
@@ -1332,7 +1321,6 @@ sub _convert($$)
         if ($format_raw_commands{$command}) {
           $result .= "\n\n";
         } elsif ($command eq 'verbatim') {
-          # FIXME add a \n?
           $result .= "\\begin{verbatim}\n";
         }
         push @{$self->{'style_context'}->[-1]->{'context'}}, 'raw';
@@ -1350,15 +1338,15 @@ sub _convert($$)
             and @{$root->{'args'}->[0]->{'contents'}}) {
           my $prepended = $self->gdt('@b{{quotation_arg}:} ', 
              {'quotation_arg' => $root->{'args'}->[0]->{'contents'}});
-          $result .= $self->convert_line($prepended);
+          $result .= $self->_convert($prepended);
         }
       } elsif ($command eq 'multitable') {
         my $columnsize;
         if ($root->{'extra'}->{'columnfractions'}) {
         } elsif ($root->{'extra'}->{'prototypes'}) {
           foreach my $prototype (@{$root->{'extra'}->{'prototypes'}}) {
-            my ($formatted_prototype) = $self->convert_line($prototype, 
-                                                        {'indent_length' => 0});
+            my ($formatted_prototype) = $self->_convert($prototype,
+                                                       {'indent_length' => 0});
             push @$columnsize, 
                  2+Texinfo::Convert::Unicode::string_width($formatted_prototype);
           }
@@ -1390,12 +1378,12 @@ sub _convert($$)
       }
              
       if ($contents) {
-        my $heading = $self->convert_line({'contents' => $contents});
+        my $heading = $self->_convert({'contents' => $contents});
         $heading =~ s/\s*$//;
 
         my $section_cmd = $section_map{$command};
         if ($section_cmd) {
-          $result .= "\\".$section_cmd."{$heading}\n\n";
+          $result .= "\\".$section_cmd."{$heading}\n";
         }
       }
     } elsif (($command eq 'item' or $command eq 'itemx')
@@ -1408,7 +1396,7 @@ sub _convert($$)
         my $converted_tree = $self->_table_item_content_tree($root,
                                          $root->{'args'}->[0]->{'contents'});
 
-        $result = $self->convert_line($converted_tree);
+        $result = $self->_convert($converted_tree);
         if ($result ne '') {
           $result .= "\n";
         }
@@ -1432,15 +1420,15 @@ sub _convert($$)
              or $command eq 'tab') {
       # ...
     } elsif ($command eq 'center') {
-      $result = $self->convert_line (
+      $result = $self->_convert (
                        {'contents' => $root->{'args'}->[0]->{'contents'}},
                        {'indent_length' => 0});
       return $result;
     } elsif ($command eq 'exdent') {
       if ($preformatted_commands{$self->{'style_context'}->[-1]->{'context'}->[-1]}) {
-        $result = $self->convert_unfilled({'contents' => $root->{'args'}->[0]->{'contents'}});
+        $result = $self->_convert({'contents' => $root->{'args'}->[0]->{'contents'}});
       } else {
-        $result = $self->convert_line({'contents' => $root->{'args'}->[0]->{'contents'}});
+        $result = $self->_convert({'contents' => $root->{'args'}->[0]->{'contents'}});
       }
       if ($result ne '') {
         $result .= "\n";
@@ -1462,13 +1450,18 @@ sub _convert($$)
       return $result;
     } elsif ($command eq 'listoffloats') {
       return '';
+    # @page \newpage
     } elsif ($command eq 'sp') {
+      my $sp_nr = 1;
       if ($root->{'extra'}->{'misc_args'}->[0]) {
         # this useless copy avoids perl changing the type to integer!
-        my $sp_nr = $root->{'extra'}->{'misc_args'}->[0];
-
-        # add vertical space here
+        $sp_nr = $root->{'extra'}->{'misc_args'}->[0];
       }
+      # FIXME \vskip is a TeX primitive, so the syntax seems to be
+      # different from LaTeX, and some people warn against using
+      # TeX primitives.  However there is no obvious corresponding
+      # command in LaTeX, except for adding enough \\.
+      $result .= "\\vskip $sp_nr\\baselineskip\n";
       return $result;
     } elsif ($command eq 'contents') {
       if ($self->{'structuring'}
@@ -1488,6 +1481,7 @@ sub _convert($$)
     # @paragraphindent, @frenchspacing...
     } elsif ($informative_commands{$command}) {
       $self->_informative_command($root);
+      # \frenchspacing \nonfrenchspacing
       return '';
     } else {
       $unknown_command = 1;
@@ -1716,8 +1710,8 @@ sub _convert($$)
       $self->{'text_before_first_node'} = $result;
     }
   }
-  # close paragraphs and preformatted
-  if ($paragraph or $preformatted) {
+  # close preformatted
+  if ($preformatted) {
     $result .= "\n\n";
   }
 
@@ -1733,7 +1727,7 @@ sub _convert($$)
         my ($caption, $prepended) = Texinfo::Common::float_name_caption($self,
                                                                         $root);
         if ($prepended) {
-          my $float_number = $self->convert_line ($prepended);
+          my $float_number = $self->_convert($prepended);
           $result .= $float_number;
         }
         if ($caption) {
@@ -1762,9 +1756,9 @@ sub _convert($$)
       my $old_context = pop @{$self->{'style_context'}->[-1]->{'context'}};
       die if ($old_context ne 'raw');
       if ($command eq 'verbatim') {
-        $result .= "\\end{verbatim}\n\n";
+        $result .= "\\end{verbatim}\n";
       }
-      # FIXME add \n or \n\n if not verbatim?
+      # FIXME add \n if not verbatim?
     } elsif ($flush_commands{$command}) {
       my $old_context = pop @{$self->{'style_context'}->[-1]->{'context'}};
       die if (! $flush_commands{$old_context});

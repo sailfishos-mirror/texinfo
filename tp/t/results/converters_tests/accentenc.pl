@@ -3543,117 +3543,81 @@ $result_converted{'docbook'}->{'accentenc'} = '
 ';
 
 
-$result_converted{'latex'}->{'accentenc'} = '\\label{anchor:Top}should be e`: \\`{e} \\`{e}
-
+$result_converted{'latex'}->{'accentenc'} = '
+\\label{anchor:Top}
+should be e`: \\`{e} \\`{e}
 
 should be e\': \\\'{e} \\\'{e}
 
-
 should be e\\^{}: \\^{e} \\^{e}
 
-
 should be u": \\"{u} \\"{u}
-
 
 should be i`: \\`{i} \\`{i}
 
-
 should be i\': \\\'{i} \\\'{i}
-
 
 should be i\\^{}: \\^{i} \\^{i}
 
-
 should be u": \\"{u} \\"{u}
-
 
 should be c,: \\c{c} \\c{c}
 
-
 should be n\\~{}: \\~{n} \\~{n}
-
 
 should be e=: \\={e} \\={e}
 
-
 should be e\\hbox{\'}\': \\H{e} \\H{e}
-
 
 should be e.: \\.{e} \\.{e}
 
-
 should be e*: \\r{e} \\r{e}
-
 
 should be ee[: \\t{ee}
 
-
 should be e(: \\u{e} \\u{e}
-
 
 should be e\\_: \\b{e} \\b{e}
 
-
 should be .e: \\d{e} \\d{e}
-
 
 should be e<: \\v{e} \\v{e}
 
-
 should be a; : \\k{a} \\k{a}
-
 
 should be e; : \\k{e} \\k{e}
 
-
 upside down: \\textquestiondown{} \\textexclamdown{}
-
 
 A-with-circle: \\aa{},\\AA{}
 
-
 AE, OE ligatures: \\ae{} \\AE{} \\oe{} \\OE{}
-
 
 dotless i, j: \\i{} \\j{}
 
-
 Polish suppressed-L: \\l{} \\L{}
-
 
 O-with-slash: \\o{} \\O{}
 
-
 es-zet or sharp S: \\ss{}
-
 
 pounds sterling: \\textsterling{}
 
-
 should be dotless i`: \\`{\\i{}}
-
 
 should be dotless i\': \\\'{\\i{}}
 
-
 should be dotless i\\^{}: \\^{\\i{}}
-
 
 should be dotless i": \\"{\\i{}}
 
-
 should be dotless j`: \\`{\\j{}}
-
 
 should be dotless j\': \\\'{\\j{}}
 
-
 should be dotless j\\^{}: \\^{\\j{}}
 
-
 should be dotless j": \\"{\\j{}}
-
-
 ';
 
 1;
