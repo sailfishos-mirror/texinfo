@@ -257,4 +257,16 @@ qsd dsq sdq dsq dssdq sdq sdq sdq dsq sdq dsq dsq sdq dsq sdqsd q
 <para>unneeded indent
 </para>';
 
+
+$result_converted{'latex'}->{'noindent_indent'} = '
+First para
+
+\\noindent{}qsddsqkdsqkkmljsqjsqodmmdsqdsmqj dqs sdq sqd sdq dsq sdq sqd sqd sdq sdq 
+qsd dsq sdq dsq dssdq sdq sdq sdq dsq sdq dsq dsq sdq dsq sdqsd q
+
+\\noindent{}noindent in para.
+
+unneeded indent
+';
+
 1;

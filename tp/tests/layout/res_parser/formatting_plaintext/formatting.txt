@@ -77,7 +77,10 @@ aaa
 aaa '@image{f-ile,aze,,a--lt}' [a-lt]
 '@image{@file{f--ile}@@@.,aze,az,alt,@file{.file ext} e--xt@}' [alt]
 
+   '@sp 2'
 
+
+   '@page'
 
    '@clicksequence{click @click{} A}' click -> A After clickstyle =>
 '@clicksequence{click @click{} A}' click => A
@@ -147,6 +150,8 @@ error-> ==> - -!- -| =>
      aaa quotation
                          -- _quotation author_
 
+     indent in quotation
+
      A small quot--ation
 
      Note: A small Note
@@ -200,6 +205,11 @@ truc   bidule
      example with empty and non empty args mix
 
      s--mallexample
+
+   '@noindent' after smallexample.
+     $ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.guess?rev=HEAD&content-type=text/plain'
+     $ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEAD&content-type=text/plain'
+Less recent versions are also present.
 
      d-isplay
 
@@ -386,10 +396,14 @@ b
    g-roupe
 
 f-lushleft
+more text
 
                                                             f-lushright
+                                                              more text
 
                             ce-ntered line
+
+   r-raggedright more text
 
 \input texinfo @c -*-texinfo-*-
 
@@ -572,7 +586,10 @@ aaa
 aaa '@image{f-ile,aze,,a--lt}' [a-lt]
 '@image{@file{f--ile}@@@.,aze,az,alt,@file{.file ext} e--xt@}' [alt]
 
+   '@sp 2'
 
+
+   '@page'
 
    '@clicksequence{click @click{} A}' click -> A After clickstyle =>
 '@clicksequence{click @click{} A}' click => A
@@ -642,6 +659,8 @@ error-> ==> - -!- -| =>
      aaa quotation
                          -- _quotation author_
 
+     indent in quotation
+
      A small quot--ation
 
      Note: A small Note
@@ -695,6 +714,11 @@ truc   bidule
      example with empty and non empty args mix
 
      s--mallexample
+
+   '@noindent' after smallexample.
+     $ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.guess?rev=HEAD&content-type=text/plain'
+     $ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEAD&content-type=text/plain'
+Less recent versions are also present.
 
      d-isplay
 
@@ -881,10 +905,14 @@ b
    g-roupe
 
 f-lushleft
+more text
 
                                                             f-lushright
+                                                              more text
 
                             ce-ntered line
+
+   r-raggedright more text
 
 \input texinfo @c -*-texinfo-*-
 
@@ -1203,7 +1231,11 @@ aaa
      @image{f-ile,aze,,a--lt} [a-lt]
      @image{@file{f--ile}@@@.,aze,az,alt,@file{.file ext} e--xt@} [alt]
 
+     @sp 2
 
+
+
+     @page
 
 
      @clicksequence{click @click{} A} click -> A
@@ -1276,6 +1308,8 @@ aaa
           aaa quotation
                          -- _quotation author_
 
+          indent in quotation
+
           A small quot---ation
 
           Note: A small Note
@@ -1329,6 +1363,11 @@ aaa
           example with empty and non empty args mix
 
           s--mallexample
+
+     @noindent after smallexample.
+          $ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.guess?rev=HEAD&content-type=text/plain'
+          $ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEAD&content-type=text/plain'
+     Less recent versions are also present.
 
           d--isplay
 
@@ -1515,10 +1554,15 @@ aaa
      g--roupe
 
      f--lushleft
+     more text
 
                                                            f--lushright
+                                                              more text
 
                             ce-ntered line
+
+     r--raggedright
+     more text
 
      \input texinfo @c -*-texinfo-*-
      
@@ -1664,190 +1708,190 @@ aaa
 * Menu:
 
 * ":                                     Top.                (line   16)
-* " <1>:                                 Top.                (line  511)
-* " <2>:                                 Top.                (line 1017)
+* " <1>:                                 Top.                (line  525)
+* " <2>:                                 Top.                (line 1045)
 * -option:                               Top.                (line   16)
-* -option <1>:                           Top.                (line  511)
-* -option <2>:                           Top.                (line 1017)
-* .:                                     Top.                (line 1661)
-* ?:                                     Top.                (line 1661)
-* a:                                     Top.                (line 1661)
-* index entry between item and itemx:    Top.                (line  380)
-* index entry between item and itemx <1>: Top.               (line  875)
-* index entry between item and itemx <2>: Top.               (line 1509)
-* index entry within deffn:              Top.                (line  226)
-* index entry within deffn <1>:          Top.                (line  721)
-* index entry within deffn <2>:          Top.                (line 1355)
-* index entry within itemize:            Top.                (line  167)
-* index entry within itemize <1>:        Top.                (line  662)
-* index entry within itemize <2>:        Top.                (line 1296)
-* index entry within multitable:         Top.                (line  175)
-* index entry within multitable <1>:     Top.                (line  670)
-* index entry within multitable <2>:     Top.                (line 1305)
-* t-ruc:                                 Top.                (line 1661)
-* T-ruc:                                 Top.                (line 1661)
+* -option <1>:                           Top.                (line  525)
+* -option <2>:                           Top.                (line 1045)
+* .:                                     Top.                (line 1705)
+* ?:                                     Top.                (line 1705)
+* a:                                     Top.                (line 1705)
+* index entry between item and itemx:    Top.                (line  390)
+* index entry between item and itemx <1>: Top.               (line  899)
+* index entry between item and itemx <2>: Top.               (line 1548)
+* index entry within deffn:              Top.                (line  236)
+* index entry within deffn <1>:          Top.                (line  745)
+* index entry within deffn <2>:          Top.                (line 1394)
+* index entry within itemize:            Top.                (line  172)
+* index entry within itemize <1>:        Top.                (line  681)
+* index entry within itemize <2>:        Top.                (line 1330)
+* index entry within multitable:         Top.                (line  180)
+* index entry within multitable <1>:     Top.                (line  689)
+* index entry within multitable <2>:     Top.                (line 1339)
+* t-ruc:                                 Top.                (line 1705)
+* T-ruc:                                 Top.                (line 1705)
 
    fn
 
 * Menu:
 
 * --foption:                             Top.                (line   16)
-* --foption <1>:                         Top.                (line  511)
-* --foption <2>:                         Top.                (line 1017)
-* .:                                     Top.                (line 1661)
-* ?:                                     Top.                (line 1661)
+* --foption <1>:                         Top.                (line  525)
+* --foption <2>:                         Top.                (line 1045)
+* .:                                     Top.                (line 1705)
+* ?:                                     Top.                (line 1705)
 * ``:                                    Top.                (line   16)
-* `` <1>:                                Top.                (line  511)
-* `` <2>:                                Top.                (line 1017)
-* a:                                     Top.                (line  243)
-* a <1>:                                 Top.                (line  379)
-* a <2>:                                 Top.                (line  738)
-* a <3>:                                 Top.                (line  874)
-* a <4>:                                 Top.                (line 1372)
-* a <5>:                                 Top.                (line 1508)
-* a <6>:                                 Top.                (line 1661)
-* after:                                 Top.                (line  464)
-* after <1>:                             Top.                (line  959)
-* after <2>:                             Top.                (line 1620)
-* b:                                     Top.                (line  380)
-* b <1>:                                 Top.                (line  875)
-* b <2>:                                 Top.                (line 1509)
-* bidule machin:                         Top.                (line  237)
-* bidule machin <1>:                     Top.                (line  732)
-* bidule machin <2>:                     Top.                (line 1366)
-* d--effn_name:                          Top.                (line  218)
-* d--effn_name <1>:                      Top.                (line  713)
-* d--effn_name <2>:                      Top.                (line 1347)
-* d--efmac_name:                         Top.                (line  279)
-* d--efmac_name <1>:                     Top.                (line  774)
-* d--efmac_name <2>:                     Top.                (line 1408)
-* d--efmethod_name on c--lass:           Top.                (line  303)
-* d--efmethod_name on c--lass <1>:       Top.                (line  798)
-* d--efmethod_name on c--lass <2>:       Top.                (line 1432)
-* d--efop_name on c--lass:               Top.                (line  270)
-* d--efop_name on c--lass <1>:           Top.                (line  765)
-* d--efop_name on c--lass <2>:           Top.                (line 1399)
-* d--efspec_name:                        Top.                (line  282)
-* d--efspec_name <1>:                    Top.                (line  777)
-* d--efspec_name <2>:                    Top.                (line 1411)
-* d--eftypefn_name:                      Top.                (line  258)
-* d--eftypefn_name <1>:                  Top.                (line  753)
-* d--eftypefn_name <2>:                  Top.                (line 1387)
-* d--eftypefun_name:                     Top.                (line  291)
-* d--eftypefun_name <1>:                 Top.                (line  786)
-* d--eftypefun_name <2>:                 Top.                (line 1420)
-* d--eftypemethod_name on c--lass:       Top.                (line  306)
-* d--eftypemethod_name on c--lass <1>:   Top.                (line  801)
-* d--eftypemethod_name on c--lass <2>:   Top.                (line 1435)
-* d--eftypeop_name on c--lass:           Top.                (line  261)
-* d--eftypeop_name on c--lass <1>:       Top.                (line  756)
-* d--eftypeop_name on c--lass <2>:       Top.                (line 1390)
-* d--efun_name:                          Top.                (line  276)
-* d--efun_name <1>:                      Top.                (line  771)
-* d--efun_name <2>:                      Top.                (line 1405)
-* de--ffn_name:                          Top.                (line  221)
-* de--ffn_name <1>:                      Top.                (line  716)
-* de--ffn_name <2>:                      Top.                (line 1350)
-* deffn:                                 Top.                (line  246)
-* deffn <1>:                             Top.                (line  248)
-* deffn <2>:                             Top.                (line  741)
-* deffn <3>:                             Top.                (line  743)
-* deffn <4>:                             Top.                (line 1375)
-* deffn <5>:                             Top.                (line 1377)
-* deffnx:                                Top.                (line  244)
-* deffnx <1>:                            Top.                (line  249)
-* deffnx <2>:                            Top.                (line  739)
-* deffnx <3>:                            Top.                (line  744)
-* deffnx <4>:                            Top.                (line 1373)
-* deffnx <5>:                            Top.                (line 1378)
-* followed:                              Top.                (line  240)
-* followed <1>:                          Top.                (line  462)
-* followed <2>:                          Top.                (line  735)
-* followed <3>:                          Top.                (line  957)
-* followed <4>:                          Top.                (line 1369)
-* followed <5>:                          Top.                (line 1618)
-* I:                                     Top.                (line  225)
-* I <1>:                                 Top.                (line  251)
-* I <2>:                                 Top.                (line  720)
-* I <3>:                                 Top.                (line  746)
-* I <4>:                                 Top.                (line 1354)
-* I <5>:                                 Top.                (line 1380)
-* id i ule:                              Top.                (line  231)
-* id i ule <1>:                          Top.                (line  726)
-* id i ule <2>:                          Top.                (line 1360)
-* id ule:                                Top.                (line  230)
-* id ule <1>:                            Top.                (line  725)
-* id ule <2>:                            Top.                (line 1359)
-* log trap:                              Top.                (line  227)
-* log trap <1>:                          Top.                (line  722)
-* log trap <2>:                          Top.                (line 1356)
-* log trap1:                             Top.                (line  228)
-* log trap1 <1>:                         Top.                (line  723)
-* log trap1 <2>:                         Top.                (line 1357)
-* log trap2:                             Top.                (line  229)
-* log trap2 <1>:                         Top.                (line  724)
-* log trap2 <2>:                         Top.                (line 1358)
-* machin:                                Top.                (line  236)
-* machin <1>:                            Top.                (line  238)
-* machin <2>:                            Top.                (line  458)
-* machin <3>:                            Top.                (line  459)
-* machin <4>:                            Top.                (line  460)
-* machin <5>:                            Top.                (line  461)
-* machin <6>:                            Top.                (line  731)
-* machin <7>:                            Top.                (line  733)
-* machin <8>:                            Top.                (line  953)
-* machin <9>:                            Top.                (line  954)
-* machin <10>:                           Top.                (line  955)
-* machin <11>:                           Top.                (line  956)
-* machin <12>:                           Top.                (line 1365)
-* machin <13>:                           Top.                (line 1367)
-* machin <14>:                           Top.                (line 1614)
-* machin <15>:                           Top.                (line 1615)
-* machin <16>:                           Top.                (line 1616)
-* machin <17>:                           Top.                (line 1617)
-* t--ruc:                                Top.                (line 1661)
-* T--ruc:                                Top.                (line 1661)
-* truc:                                  Top.                (line  226)
-* truc <1>:                              Top.                (line  252)
-* truc <2>:                              Top.                (line  721)
-* truc <3>:                              Top.                (line  747)
-* truc <4>:                              Top.                (line 1355)
-* truc <5>:                              Top.                (line 1381)
+* `` <1>:                                Top.                (line  525)
+* `` <2>:                                Top.                (line 1045)
+* a:                                     Top.                (line  253)
+* a <1>:                                 Top.                (line  389)
+* a <2>:                                 Top.                (line  762)
+* a <3>:                                 Top.                (line  898)
+* a <4>:                                 Top.                (line 1411)
+* a <5>:                                 Top.                (line 1547)
+* a <6>:                                 Top.                (line 1705)
+* after:                                 Top.                (line  478)
+* after <1>:                             Top.                (line  987)
+* after <2>:                             Top.                (line 1664)
+* b:                                     Top.                (line  390)
+* b <1>:                                 Top.                (line  899)
+* b <2>:                                 Top.                (line 1548)
+* bidule machin:                         Top.                (line  247)
+* bidule machin <1>:                     Top.                (line  756)
+* bidule machin <2>:                     Top.                (line 1405)
+* d--effn_name:                          Top.                (line  228)
+* d--effn_name <1>:                      Top.                (line  737)
+* d--effn_name <2>:                      Top.                (line 1386)
+* d--efmac_name:                         Top.                (line  289)
+* d--efmac_name <1>:                     Top.                (line  798)
+* d--efmac_name <2>:                     Top.                (line 1447)
+* d--efmethod_name on c--lass:           Top.                (line  313)
+* d--efmethod_name on c--lass <1>:       Top.                (line  822)
+* d--efmethod_name on c--lass <2>:       Top.                (line 1471)
+* d--efop_name on c--lass:               Top.                (line  280)
+* d--efop_name on c--lass <1>:           Top.                (line  789)
+* d--efop_name on c--lass <2>:           Top.                (line 1438)
+* d--efspec_name:                        Top.                (line  292)
+* d--efspec_name <1>:                    Top.                (line  801)
+* d--efspec_name <2>:                    Top.                (line 1450)
+* d--eftypefn_name:                      Top.                (line  268)
+* d--eftypefn_name <1>:                  Top.                (line  777)
+* d--eftypefn_name <2>:                  Top.                (line 1426)
+* d--eftypefun_name:                     Top.                (line  301)
+* d--eftypefun_name <1>:                 Top.                (line  810)
+* d--eftypefun_name <2>:                 Top.                (line 1459)
+* d--eftypemethod_name on c--lass:       Top.                (line  316)
+* d--eftypemethod_name on c--lass <1>:   Top.                (line  825)
+* d--eftypemethod_name on c--lass <2>:   Top.                (line 1474)
+* d--eftypeop_name on c--lass:           Top.                (line  271)
+* d--eftypeop_name on c--lass <1>:       Top.                (line  780)
+* d--eftypeop_name on c--lass <2>:       Top.                (line 1429)
+* d--efun_name:                          Top.                (line  286)
+* d--efun_name <1>:                      Top.                (line  795)
+* d--efun_name <2>:                      Top.                (line 1444)
+* de--ffn_name:                          Top.                (line  231)
+* de--ffn_name <1>:                      Top.                (line  740)
+* de--ffn_name <2>:                      Top.                (line 1389)
+* deffn:                                 Top.                (line  256)
+* deffn <1>:                             Top.                (line  258)
+* deffn <2>:                             Top.                (line  765)
+* deffn <3>:                             Top.                (line  767)
+* deffn <4>:                             Top.                (line 1414)
+* deffn <5>:                             Top.                (line 1416)
+* deffnx:                                Top.                (line  254)
+* deffnx <1>:                            Top.                (line  259)
+* deffnx <2>:                            Top.                (line  763)
+* deffnx <3>:                            Top.                (line  768)
+* deffnx <4>:                            Top.                (line 1412)
+* deffnx <5>:                            Top.                (line 1417)
+* followed:                              Top.                (line  250)
+* followed <1>:                          Top.                (line  476)
+* followed <2>:                          Top.                (line  759)
+* followed <3>:                          Top.                (line  985)
+* followed <4>:                          Top.                (line 1408)
+* followed <5>:                          Top.                (line 1662)
+* I:                                     Top.                (line  235)
+* I <1>:                                 Top.                (line  261)
+* I <2>:                                 Top.                (line  744)
+* I <3>:                                 Top.                (line  770)
+* I <4>:                                 Top.                (line 1393)
+* I <5>:                                 Top.                (line 1419)
+* id i ule:                              Top.                (line  241)
+* id i ule <1>:                          Top.                (line  750)
+* id i ule <2>:                          Top.                (line 1399)
+* id ule:                                Top.                (line  240)
+* id ule <1>:                            Top.                (line  749)
+* id ule <2>:                            Top.                (line 1398)
+* log trap:                              Top.                (line  237)
+* log trap <1>:                          Top.                (line  746)
+* log trap <2>:                          Top.                (line 1395)
+* log trap1:                             Top.                (line  238)
+* log trap1 <1>:                         Top.                (line  747)
+* log trap1 <2>:                         Top.                (line 1396)
+* log trap2:                             Top.                (line  239)
+* log trap2 <1>:                         Top.                (line  748)
+* log trap2 <2>:                         Top.                (line 1397)
+* machin:                                Top.                (line  246)
+* machin <1>:                            Top.                (line  248)
+* machin <2>:                            Top.                (line  472)
+* machin <3>:                            Top.                (line  473)
+* machin <4>:                            Top.                (line  474)
+* machin <5>:                            Top.                (line  475)
+* machin <6>:                            Top.                (line  755)
+* machin <7>:                            Top.                (line  757)
+* machin <8>:                            Top.                (line  981)
+* machin <9>:                            Top.                (line  982)
+* machin <10>:                           Top.                (line  983)
+* machin <11>:                           Top.                (line  984)
+* machin <12>:                           Top.                (line 1404)
+* machin <13>:                           Top.                (line 1406)
+* machin <14>:                           Top.                (line 1658)
+* machin <15>:                           Top.                (line 1659)
+* machin <16>:                           Top.                (line 1660)
+* machin <17>:                           Top.                (line 1661)
+* t--ruc:                                Top.                (line 1705)
+* T--ruc:                                Top.                (line 1705)
+* truc:                                  Top.                (line  236)
+* truc <1>:                              Top.                (line  262)
+* truc <2>:                              Top.                (line  745)
+* truc <3>:                              Top.                (line  771)
+* truc <4>:                              Top.                (line 1394)
+* truc <5>:                              Top.                (line 1420)
 
    vr
 
 * Menu:
 
-* a:                                     Top.                (line  375)
-* a <1>:                                 Top.                (line  870)
-* a <2>:                                 Top.                (line 1504)
-* b:                                     Top.                (line  376)
-* b <1>:                                 Top.                (line  871)
-* b <2>:                                 Top.                (line 1505)
-* d--efcv_name:                          Top.                (line  267)
-* d--efcv_name <1>:                      Top.                (line  762)
-* d--efcv_name <2>:                      Top.                (line 1396)
-* d--efivar_name of c--lass:             Top.                (line  297)
-* d--efivar_name of c--lass <1>:         Top.                (line  792)
-* d--efivar_name of c--lass <2>:         Top.                (line 1426)
-* d--efopt_name:                         Top.                (line  288)
-* d--efopt_name <1>:                     Top.                (line  783)
-* d--efopt_name <2>:                     Top.                (line 1417)
-* d--eftypeivar_name of c--lass:         Top.                (line  300)
-* d--eftypeivar_name of c--lass <1>:     Top.                (line  795)
-* d--eftypeivar_name of c--lass <2>:     Top.                (line 1429)
-* d--eftypevar_name:                     Top.                (line  294)
-* d--eftypevar_name <1>:                 Top.                (line  789)
-* d--eftypevar_name <2>:                 Top.                (line 1423)
-* d--eftypevr_name:                      Top.                (line  264)
-* d--eftypevr_name <1>:                  Top.                (line  759)
-* d--eftypevr_name <2>:                  Top.                (line 1393)
-* d--efvar_name:                         Top.                (line  285)
-* d--efvar_name <1>:                     Top.                (line  780)
-* d--efvar_name <2>:                     Top.                (line 1414)
-* d--efvr_name:                          Top.                (line  255)
-* d--efvr_name <1>:                      Top.                (line  750)
-* d--efvr_name <2>:                      Top.                (line 1384)
+* a:                                     Top.                (line  385)
+* a <1>:                                 Top.                (line  894)
+* a <2>:                                 Top.                (line 1543)
+* b:                                     Top.                (line  386)
+* b <1>:                                 Top.                (line  895)
+* b <2>:                                 Top.                (line 1544)
+* d--efcv_name:                          Top.                (line  277)
+* d--efcv_name <1>:                      Top.                (line  786)
+* d--efcv_name <2>:                      Top.                (line 1435)
+* d--efivar_name of c--lass:             Top.                (line  307)
+* d--efivar_name of c--lass <1>:         Top.                (line  816)
+* d--efivar_name of c--lass <2>:         Top.                (line 1465)
+* d--efopt_name:                         Top.                (line  298)
+* d--efopt_name <1>:                     Top.                (line  807)
+* d--efopt_name <2>:                     Top.                (line 1456)
+* d--eftypeivar_name of c--lass:         Top.                (line  310)
+* d--eftypeivar_name of c--lass <1>:     Top.                (line  819)
+* d--eftypeivar_name of c--lass <2>:     Top.                (line 1468)
+* d--eftypevar_name:                     Top.                (line  304)
+* d--eftypevar_name <1>:                 Top.                (line  813)
+* d--eftypevar_name <2>:                 Top.                (line 1462)
+* d--eftypevr_name:                      Top.                (line  274)
+* d--eftypevr_name <1>:                  Top.                (line  783)
+* d--eftypevr_name <2>:                  Top.                (line 1432)
+* d--efvar_name:                         Top.                (line  295)
+* d--efvar_name <1>:                     Top.                (line  804)
+* d--efvar_name <2>:                     Top.                (line 1453)
+* d--efvr_name:                          Top.                (line  265)
+* d--efvr_name <1>:                      Top.                (line  774)
+* d--efvr_name <2>:                      Top.                (line 1423)
 
    ky
 
@@ -1857,9 +1901,9 @@ aaa
 
 * Menu:
 
-* d--eftp_name:                          Top.                (line  273)
-* d--eftp_name <1>:                      Top.                (line  768)
-* d--eftp_name <2>:                      Top.                (line 1402)
+* d--eftp_name:                          Top.                (line  283)
+* d--eftp_name <1>:                      Top.                (line  792)
+* d--eftp_name <2>:                      Top.                (line 1441)
 
    ---------- Footnotes ----------
 
@@ -1878,7 +1922,16 @@ aaa
 1 chapter
 *********
 
-(1)
+   First para
+
+qsddsqkdsqkkmljsqjsqodmmdsqdsmqj dqs sdq sqd sdq dsq sdq sqd sqd sdq sdq
+qsd dsq sdq dsq dssdq sdq sdq sdq dsq sdq dsq dsq sdq dsq sdqsd q
+
+noindent in para.
+
+   unneeded indent
+
+   (1)
 
 
    ---------- Footnotes ----------
@@ -1903,153 +1956,153 @@ chapter 2
 * Menu:
 
 * ":                                     Top.                (line   16)
-* " <1>:                                 Top.                (line  511)
-* " <2>:                                 Top.                (line 1017)
+* " <1>:                                 Top.                (line  525)
+* " <2>:                                 Top.                (line 1045)
 * -option:                               Top.                (line   16)
-* -option <1>:                           Top.                (line  511)
-* -option <2>:                           Top.                (line 1017)
-* .:                                     Top.                (line 1661)
-* ?:                                     Top.                (line 1661)
-* a:                                     Top.                (line 1661)
-* index entry between item and itemx:    Top.                (line  380)
-* index entry between item and itemx <1>: Top.               (line  875)
-* index entry between item and itemx <2>: Top.               (line 1509)
-* index entry within deffn:              Top.                (line  226)
-* index entry within deffn <1>:          Top.                (line  721)
-* index entry within deffn <2>:          Top.                (line 1355)
-* index entry within itemize:            Top.                (line  167)
-* index entry within itemize <1>:        Top.                (line  662)
-* index entry within itemize <2>:        Top.                (line 1296)
-* index entry within multitable:         Top.                (line  175)
-* index entry within multitable <1>:     Top.                (line  670)
-* index entry within multitable <2>:     Top.                (line 1305)
-* t-ruc:                                 Top.                (line 1661)
-* T-ruc:                                 Top.                (line 1661)
+* -option <1>:                           Top.                (line  525)
+* -option <2>:                           Top.                (line 1045)
+* .:                                     Top.                (line 1705)
+* ?:                                     Top.                (line 1705)
+* a:                                     Top.                (line 1705)
+* index entry between item and itemx:    Top.                (line  390)
+* index entry between item and itemx <1>: Top.               (line  899)
+* index entry between item and itemx <2>: Top.               (line 1548)
+* index entry within deffn:              Top.                (line  236)
+* index entry within deffn <1>:          Top.                (line  745)
+* index entry within deffn <2>:          Top.                (line 1394)
+* index entry within itemize:            Top.                (line  172)
+* index entry within itemize <1>:        Top.                (line  681)
+* index entry within itemize <2>:        Top.                (line 1330)
+* index entry within multitable:         Top.                (line  180)
+* index entry within multitable <1>:     Top.                (line  689)
+* index entry within multitable <2>:     Top.                (line 1339)
+* t-ruc:                                 Top.                (line 1705)
+* T-ruc:                                 Top.                (line 1705)
 
 * Menu:
 
 * --foption:                             Top.                (line   16)
-* --foption <1>:                         Top.                (line  511)
-* --foption <2>:                         Top.                (line 1017)
-* .:                                     Top.                (line 1661)
-* ?:                                     Top.                (line 1661)
+* --foption <1>:                         Top.                (line  525)
+* --foption <2>:                         Top.                (line 1045)
+* .:                                     Top.                (line 1705)
+* ?:                                     Top.                (line 1705)
 * ``:                                    Top.                (line   16)
-* `` <1>:                                Top.                (line  511)
-* `` <2>:                                Top.                (line 1017)
-* a:                                     Top.                (line  243)
-* a <1>:                                 Top.                (line  379)
-* a <2>:                                 Top.                (line  738)
-* a <3>:                                 Top.                (line  874)
-* a <4>:                                 Top.                (line 1372)
-* a <5>:                                 Top.                (line 1508)
-* a <6>:                                 Top.                (line 1661)
-* after:                                 Top.                (line  464)
-* after <1>:                             Top.                (line  959)
-* after <2>:                             Top.                (line 1620)
-* b:                                     Top.                (line  380)
-* b <1>:                                 Top.                (line  875)
-* b <2>:                                 Top.                (line 1509)
-* bidule machin:                         Top.                (line  237)
-* bidule machin <1>:                     Top.                (line  732)
-* bidule machin <2>:                     Top.                (line 1366)
-* d--effn_name:                          Top.                (line  218)
-* d--effn_name <1>:                      Top.                (line  713)
-* d--effn_name <2>:                      Top.                (line 1347)
-* d--efmac_name:                         Top.                (line  279)
-* d--efmac_name <1>:                     Top.                (line  774)
-* d--efmac_name <2>:                     Top.                (line 1408)
-* d--efmethod_name on c--lass:           Top.                (line  303)
-* d--efmethod_name on c--lass <1>:       Top.                (line  798)
-* d--efmethod_name on c--lass <2>:       Top.                (line 1432)
-* d--efop_name on c--lass:               Top.                (line  270)
-* d--efop_name on c--lass <1>:           Top.                (line  765)
-* d--efop_name on c--lass <2>:           Top.                (line 1399)
-* d--efspec_name:                        Top.                (line  282)
-* d--efspec_name <1>:                    Top.                (line  777)
-* d--efspec_name <2>:                    Top.                (line 1411)
-* d--eftypefn_name:                      Top.                (line  258)
-* d--eftypefn_name <1>:                  Top.                (line  753)
-* d--eftypefn_name <2>:                  Top.                (line 1387)
-* d--eftypefun_name:                     Top.                (line  291)
-* d--eftypefun_name <1>:                 Top.                (line  786)
-* d--eftypefun_name <2>:                 Top.                (line 1420)
-* d--eftypemethod_name on c--lass:       Top.                (line  306)
-* d--eftypemethod_name on c--lass <1>:   Top.                (line  801)
-* d--eftypemethod_name on c--lass <2>:   Top.                (line 1435)
-* d--eftypeop_name on c--lass:           Top.                (line  261)
-* d--eftypeop_name on c--lass <1>:       Top.                (line  756)
-* d--eftypeop_name on c--lass <2>:       Top.                (line 1390)
-* d--efun_name:                          Top.                (line  276)
-* d--efun_name <1>:                      Top.                (line  771)
-* d--efun_name <2>:                      Top.                (line 1405)
-* de--ffn_name:                          Top.                (line  221)
-* de--ffn_name <1>:                      Top.                (line  716)
-* de--ffn_name <2>:                      Top.                (line 1350)
-* deffn:                                 Top.                (line  246)
-* deffn <1>:                             Top.                (line  248)
-* deffn <2>:                             Top.                (line  741)
-* deffn <3>:                             Top.                (line  743)
-* deffn <4>:                             Top.                (line 1375)
-* deffn <5>:                             Top.                (line 1377)
-* deffnx:                                Top.                (line  244)
-* deffnx <1>:                            Top.                (line  249)
-* deffnx <2>:                            Top.                (line  739)
-* deffnx <3>:                            Top.                (line  744)
-* deffnx <4>:                            Top.                (line 1373)
-* deffnx <5>:                            Top.                (line 1378)
-* followed:                              Top.                (line  240)
-* followed <1>:                          Top.                (line  462)
-* followed <2>:                          Top.                (line  735)
-* followed <3>:                          Top.                (line  957)
-* followed <4>:                          Top.                (line 1369)
-* followed <5>:                          Top.                (line 1618)
-* I:                                     Top.                (line  225)
-* I <1>:                                 Top.                (line  251)
-* I <2>:                                 Top.                (line  720)
-* I <3>:                                 Top.                (line  746)
-* I <4>:                                 Top.                (line 1354)
-* I <5>:                                 Top.                (line 1380)
-* id i ule:                              Top.                (line  231)
-* id i ule <1>:                          Top.                (line  726)
-* id i ule <2>:                          Top.                (line 1360)
-* id ule:                                Top.                (line  230)
-* id ule <1>:                            Top.                (line  725)
-* id ule <2>:                            Top.                (line 1359)
-* log trap:                              Top.                (line  227)
-* log trap <1>:                          Top.                (line  722)
-* log trap <2>:                          Top.                (line 1356)
-* log trap1:                             Top.                (line  228)
-* log trap1 <1>:                         Top.                (line  723)
-* log trap1 <2>:                         Top.                (line 1357)
-* log trap2:                             Top.                (line  229)
-* log trap2 <1>:                         Top.                (line  724)
-* log trap2 <2>:                         Top.                (line 1358)
-* machin:                                Top.                (line  236)
-* machin <1>:                            Top.                (line  238)
-* machin <2>:                            Top.                (line  458)
-* machin <3>:                            Top.                (line  459)
-* machin <4>:                            Top.                (line  460)
-* machin <5>:                            Top.                (line  461)
-* machin <6>:                            Top.                (line  731)
-* machin <7>:                            Top.                (line  733)
-* machin <8>:                            Top.                (line  953)
-* machin <9>:                            Top.                (line  954)
-* machin <10>:                           Top.                (line  955)
-* machin <11>:                           Top.                (line  956)
-* machin <12>:                           Top.                (line 1365)
-* machin <13>:                           Top.                (line 1367)
-* machin <14>:                           Top.                (line 1614)
-* machin <15>:                           Top.                (line 1615)
-* machin <16>:                           Top.                (line 1616)
-* machin <17>:                           Top.                (line 1617)
-* t--ruc:                                Top.                (line 1661)
-* T--ruc:                                Top.                (line 1661)
-* truc:                                  Top.                (line  226)
-* truc <1>:                              Top.                (line  252)
-* truc <2>:                              Top.                (line  721)
-* truc <3>:                              Top.                (line  747)
-* truc <4>:                              Top.                (line 1355)
-* truc <5>:                              Top.                (line 1381)
+* `` <1>:                                Top.                (line  525)
+* `` <2>:                                Top.                (line 1045)
+* a:                                     Top.                (line  253)
+* a <1>:                                 Top.                (line  389)
+* a <2>:                                 Top.                (line  762)
+* a <3>:                                 Top.                (line  898)
+* a <4>:                                 Top.                (line 1411)
+* a <5>:                                 Top.                (line 1547)
+* a <6>:                                 Top.                (line 1705)
+* after:                                 Top.                (line  478)
+* after <1>:                             Top.                (line  987)
+* after <2>:                             Top.                (line 1664)
+* b:                                     Top.                (line  390)
+* b <1>:                                 Top.                (line  899)
+* b <2>:                                 Top.                (line 1548)
+* bidule machin:                         Top.                (line  247)
+* bidule machin <1>:                     Top.                (line  756)
+* bidule machin <2>:                     Top.                (line 1405)
+* d--effn_name:                          Top.                (line  228)
+* d--effn_name <1>:                      Top.                (line  737)
+* d--effn_name <2>:                      Top.                (line 1386)
+* d--efmac_name:                         Top.                (line  289)
+* d--efmac_name <1>:                     Top.                (line  798)
+* d--efmac_name <2>:                     Top.                (line 1447)
+* d--efmethod_name on c--lass:           Top.                (line  313)
+* d--efmethod_name on c--lass <1>:       Top.                (line  822)
+* d--efmethod_name on c--lass <2>:       Top.                (line 1471)
+* d--efop_name on c--lass:               Top.                (line  280)
+* d--efop_name on c--lass <1>:           Top.                (line  789)
+* d--efop_name on c--lass <2>:           Top.                (line 1438)
+* d--efspec_name:                        Top.                (line  292)
+* d--efspec_name <1>:                    Top.                (line  801)
+* d--efspec_name <2>:                    Top.                (line 1450)
+* d--eftypefn_name:                      Top.                (line  268)
+* d--eftypefn_name <1>:                  Top.                (line  777)
+* d--eftypefn_name <2>:                  Top.                (line 1426)
+* d--eftypefun_name:                     Top.                (line  301)
+* d--eftypefun_name <1>:                 Top.                (line  810)
+* d--eftypefun_name <2>:                 Top.                (line 1459)
+* d--eftypemethod_name on c--lass:       Top.                (line  316)
+* d--eftypemethod_name on c--lass <1>:   Top.                (line  825)
+* d--eftypemethod_name on c--lass <2>:   Top.                (line 1474)
+* d--eftypeop_name on c--lass:           Top.                (line  271)
+* d--eftypeop_name on c--lass <1>:       Top.                (line  780)
+* d--eftypeop_name on c--lass <2>:       Top.                (line 1429)
+* d--efun_name:                          Top.                (line  286)
+* d--efun_name <1>:                      Top.                (line  795)
+* d--efun_name <2>:                      Top.                (line 1444)
+* de--ffn_name:                          Top.                (line  231)
+* de--ffn_name <1>:                      Top.                (line  740)
+* de--ffn_name <2>:                      Top.                (line 1389)
+* deffn:                                 Top.                (line  256)
+* deffn <1>:                             Top.                (line  258)
+* deffn <2>:                             Top.                (line  765)
+* deffn <3>:                             Top.                (line  767)
+* deffn <4>:                             Top.                (line 1414)
+* deffn <5>:                             Top.                (line 1416)
+* deffnx:                                Top.                (line  254)
+* deffnx <1>:                            Top.                (line  259)
+* deffnx <2>:                            Top.                (line  763)
+* deffnx <3>:                            Top.                (line  768)
+* deffnx <4>:                            Top.                (line 1412)
+* deffnx <5>:                            Top.                (line 1417)
+* followed:                              Top.                (line  250)
+* followed <1>:                          Top.                (line  476)
+* followed <2>:                          Top.                (line  759)
+* followed <3>:                          Top.                (line  985)
+* followed <4>:                          Top.                (line 1408)
+* followed <5>:                          Top.                (line 1662)
+* I:                                     Top.                (line  235)
+* I <1>:                                 Top.                (line  261)
+* I <2>:                                 Top.                (line  744)
+* I <3>:                                 Top.                (line  770)
+* I <4>:                                 Top.                (line 1393)
+* I <5>:                                 Top.                (line 1419)
+* id i ule:                              Top.                (line  241)
+* id i ule <1>:                          Top.                (line  750)
+* id i ule <2>:                          Top.                (line 1399)
+* id ule:                                Top.                (line  240)
+* id ule <1>:                            Top.                (line  749)
+* id ule <2>:                            Top.                (line 1398)
+* log trap:                              Top.                (line  237)
+* log trap <1>:                          Top.                (line  746)
+* log trap <2>:                          Top.                (line 1395)
+* log trap1:                             Top.                (line  238)
+* log trap1 <1>:                         Top.                (line  747)
+* log trap1 <2>:                         Top.                (line 1396)
+* log trap2:                             Top.                (line  239)
+* log trap2 <1>:                         Top.                (line  748)
+* log trap2 <2>:                         Top.                (line 1397)
+* machin:                                Top.                (line  246)
+* machin <1>:                            Top.                (line  248)
+* machin <2>:                            Top.                (line  472)
+* machin <3>:                            Top.                (line  473)
+* machin <4>:                            Top.                (line  474)
+* machin <5>:                            Top.                (line  475)
+* machin <6>:                            Top.                (line  755)
+* machin <7>:                            Top.                (line  757)
+* machin <8>:                            Top.                (line  981)
+* machin <9>:                            Top.                (line  982)
+* machin <10>:                           Top.                (line  983)
+* machin <11>:                           Top.                (line  984)
+* machin <12>:                           Top.                (line 1404)
+* machin <13>:                           Top.                (line 1406)
+* machin <14>:                           Top.                (line 1658)
+* machin <15>:                           Top.                (line 1659)
+* machin <16>:                           Top.                (line 1660)
+* machin <17>:                           Top.                (line 1661)
+* t--ruc:                                Top.                (line 1705)
+* T--ruc:                                Top.                (line 1705)
+* truc:                                  Top.                (line  236)
+* truc <1>:                              Top.                (line  262)
+* truc <2>:                              Top.                (line  745)
+* truc <3>:                              Top.                (line  771)
+* truc <4>:                              Top.                (line 1394)
+* truc <5>:                              Top.                (line 1420)
 
 Top section
 1 chapter

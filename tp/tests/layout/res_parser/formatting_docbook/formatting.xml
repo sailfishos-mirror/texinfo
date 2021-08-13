@@ -223,7 +223,11 @@ aaa</literallayout></textobject></inlinemediaobject>
 <literal>@image{f-ile,aze,,a--lt}</literal> <inlinemediaobject><imageobject><imagedata fileref="f-ile.jpg" format="JPG"></imagedata></imageobject></inlinemediaobject>
 <literal>@image{@file{f--ile}@@@.,aze,az,alt,@file{.file ext} e--xt@}</literal> <inlinemediaobject><imageobject><imagedata fileref="f--ile@..jpg" format="JPG"></imagedata></imageobject></inlinemediaobject>
 </para>
+<para><literal>@sp 2</literal>
 
+</para><para><literal>@page</literal>
+
+</para>
 <para><literal>@clicksequence{click @click{} A}</literal> click &#8594; A
 After clickstyle &#8658;
 <literal>@clicksequence{click @click{} A}</literal> click &#8658; A
@@ -294,6 +298,8 @@ error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
 <blockquote><attribution>quotation author</attribution>
 <para>aaa quotation
 </para></blockquote>
+<blockquote><para>indent in quotation
+</para></blockquote>
 <blockquote><para>A small quot&#8212;ation
 </para></blockquote>
 <note><para>A small Note
@@ -351,6 +357,11 @@ error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
 </screen>
 <screen>s--mallexample
 </screen>
+<para><literal>@noindent</literal> after smallexample.
+</para><screen>$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.guess?rev=HEAD&amp;content-type=text/plain'
+$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEAD&amp;content-type=text/plain'
+</screen><para>Less recent versions are also present.
+</para>
 <literallayout>d&#8211;isplay
 </literallayout>
 <literallayout>s&#8211;malldisplay
@@ -542,11 +553,16 @@ See Info file <filename>a comma, in file</filename>, node &#8216;<literal>s--ect
 <para>g&#8211;roupe
 </para>
 <para>f&#8211;lushleft
+more text
 </para>
 <para>f&#8211;lushright
+more text
 </para>
 ce&#8211;ntered line
 
+<para>r&#8211;raggedright
+more text
+</para>
 <screen>\input texinfo @c -*-texinfo-*-
 
 @setfilename simplest.info
@@ -902,7 +918,11 @@ aaa</literallayout></textobject></inlinemediaobject>
 <literal>@image{f-ile,aze,,a--lt}</literal> <inlinemediaobject><imageobject><imagedata fileref="f-ile.jpg" format="JPG"></imagedata></imageobject></inlinemediaobject>
 <literal>@image{@file{f--ile}@@@.,aze,az,alt,@file{.file ext} e--xt@}</literal> <inlinemediaobject><imageobject><imagedata fileref="f--ile@..jpg" format="JPG"></imagedata></imageobject></inlinemediaobject>
 </para>
+<para><literal>@sp 2</literal>
 
+</para><para><literal>@page</literal>
+
+</para>
 <para><literal>@clicksequence{click @click{} A}</literal> click &#8594; A
 After clickstyle &#8658;
 <literal>@clicksequence{click @click{} A}</literal> click &#8658; A
@@ -973,6 +993,8 @@ error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
 <blockquote><attribution>quotation author</attribution>
 <para>aaa quotation
 </para></blockquote>
+<blockquote><para>indent in quotation
+</para></blockquote>
 <blockquote><para>A small quot&#8212;ation
 </para></blockquote>
 <note><para>A small Note
@@ -1030,6 +1052,11 @@ error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
 </screen>
 <screen>s--mallexample
 </screen>
+<para><literal>@noindent</literal> after smallexample.
+</para><screen>$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.guess?rev=HEAD&amp;content-type=text/plain'
+$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEAD&amp;content-type=text/plain'
+</screen><para>Less recent versions are also present.
+</para>
 <literallayout>d&#8211;isplay
 </literallayout>
 <literallayout>s&#8211;malldisplay
@@ -1221,11 +1248,16 @@ See Info file <filename>a comma, in file</filename>, node &#8216;<literal>s--ect
 <para>g&#8211;roupe
 </para>
 <para>f&#8211;lushleft
+more text
 </para>
 <para>f&#8211;lushright
+more text
 </para>
 ce&#8211;ntered line
 
+<para>r&#8211;raggedright
+more text
+</para>
 <screen>\input texinfo @c -*-texinfo-*-
 
 @setfilename simplest.info
@@ -1582,7 +1614,11 @@ aaa</literallayout></textobject></inlinemediaobject>
 <literal>@image{f-ile,aze,,a--lt}</literal> <inlinemediaobject><imageobject><imagedata fileref="f-ile.jpg" format="JPG"></imagedata></imageobject></inlinemediaobject>
 <literal>@image{@file{f--ile}@@@.,aze,az,alt,@file{.file ext} e--xt@}</literal> <inlinemediaobject><imageobject><imagedata fileref="f--ile@..jpg" format="JPG"></imagedata></imageobject></inlinemediaobject>
 </para>
+<para><literal>@sp 2</literal>
 
+</para><para><literal>@page</literal>
+
+</para>
 <para><literal>@clicksequence{click @click{} A}</literal> click &#8594; A
 After clickstyle &#8658;
 <literal>@clicksequence{click @click{} A}</literal> click &#8658; A
@@ -1653,6 +1689,8 @@ error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
 <blockquote><attribution>quotation author</attribution>
 <para>aaa quotation
 </para></blockquote>
+<blockquote><para>indent in quotation
+</para></blockquote>
 <blockquote><para>A small quot&#8212;ation
 </para></blockquote>
 <note><para>A small Note
@@ -1710,6 +1748,11 @@ error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
 </screen>
 <screen>s--mallexample
 </screen>
+<para><literal>@noindent</literal> after smallexample.
+</para><screen>$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.guess?rev=HEAD&amp;content-type=text/plain'
+$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEAD&amp;content-type=text/plain'
+</screen><para>Less recent versions are also present.
+</para>
 <literallayout>d&#8211;isplay
 </literallayout>
 <literallayout>s&#8211;malldisplay
@@ -1901,11 +1944,16 @@ See Info file <filename>a comma, in file</filename>, node &#8216;<literal>s--ect
 <para>g&#8211;roupe
 </para>
 <para>f&#8211;lushleft
+more text
 </para>
 <para>f&#8211;lushright
+more text
 </para>
 ce&#8211;ntered line
 
+<para>r&#8211;raggedright
+more text
+</para>
 <screen>\input texinfo @c -*-texinfo-*-
 
 @setfilename simplest.info
@@ -2262,7 +2310,11 @@ aaa</literallayout></textobject></inlinemediaobject>
 <literal>@image{f-ile,aze,,a--lt}</literal> <inlinemediaobject><imageobject><imagedata fileref="f-ile.jpg" format="JPG"></imagedata></imageobject></inlinemediaobject>
 <literal>@image{@file{f--ile}@@@.,aze,az,alt,@file{.file ext} e--xt@}</literal> <inlinemediaobject><imageobject><imagedata fileref="f--ile@..jpg" format="JPG"></imagedata></imageobject></inlinemediaobject>
 </para>
+<para><literal>@sp 2</literal>
 
+</para><para><literal>@page</literal>
+
+</para>
 <para><literal>@clicksequence{click @click{} A}</literal> click &#8594; A
 After clickstyle &#8658;
 <literal>@clicksequence{click @click{} A}</literal> click &#8658; A
@@ -2333,6 +2385,8 @@ error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
 <blockquote><attribution>quotation author</attribution>
 <para>aaa quotation
 </para></blockquote>
+<blockquote><para>indent in quotation
+</para></blockquote>
 <blockquote><para>A small quot&#8212;ation
 </para></blockquote>
 <note><para>A small Note
@@ -2390,6 +2444,11 @@ error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
 </screen>
 <screen>s--mallexample
 </screen>
+<para><literal>@noindent</literal> after smallexample.
+</para><screen>$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.guess?rev=HEAD&amp;content-type=text/plain'
+$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEAD&amp;content-type=text/plain'
+</screen><para>Less recent versions are also present.
+</para>
 <literallayout>d&#8211;isplay
 </literallayout>
 <literallayout>s&#8211;malldisplay
@@ -2581,11 +2640,16 @@ See Info file <filename>a comma, in file</filename>, node &#8216;<literal>s--ect
 <para>g&#8211;roupe
 </para>
 <para>f&#8211;lushleft
+more text
 </para>
 <para>f&#8211;lushright
+more text
 </para>
 ce&#8211;ntered line
 
+<para>r&#8211;raggedright
+more text
+</para>
 <screen>\input texinfo @c -*-texinfo-*-
 
 @setfilename simplest.info
@@ -2941,7 +3005,11 @@ aaa</literallayout></textobject></inlinemediaobject>
 <literal>@image{f-ile,aze,,a--lt}</literal> <inlinemediaobject><imageobject><imagedata fileref="f-ile.jpg" format="JPG"></imagedata></imageobject></inlinemediaobject>
 <literal>@image{@file{f--ile}@@@.,aze,az,alt,@file{.file ext} e--xt@}</literal> <inlinemediaobject><imageobject><imagedata fileref="f--ile@..jpg" format="JPG"></imagedata></imageobject></inlinemediaobject>
 </para>
+<para><literal>@sp 2</literal>
 
+</para><para><literal>@page</literal>
+
+</para>
 <para><literal>@clicksequence{click @click{} A}</literal> click &#8594; A
 After clickstyle &#8658;
 <literal>@clicksequence{click @click{} A}</literal> click &#8658; A
@@ -3012,6 +3080,8 @@ error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
 <blockquote><attribution>quotation author</attribution>
 <para>aaa quotation
 </para></blockquote>
+<blockquote><para>indent in quotation
+</para></blockquote>
 <blockquote><para>A small quot&#8212;ation
 </para></blockquote>
 <note><para>A small Note
@@ -3069,6 +3139,11 @@ error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
 </screen>
 <screen>s--mallexample
 </screen>
+<para><literal>@noindent</literal> after smallexample.
+</para><screen>$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.guess?rev=HEAD&amp;content-type=text/plain'
+$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEAD&amp;content-type=text/plain'
+</screen><para>Less recent versions are also present.
+</para>
 <literallayout>d&#8211;isplay
 </literallayout>
 <literallayout>s&#8211;malldisplay
@@ -3260,11 +3335,16 @@ See Info file <filename>a comma, in file</filename>, node &#8216;<literal>s--ect
 <para>g&#8211;roupe
 </para>
 <para>f&#8211;lushleft
+more text
 </para>
 <para>f&#8211;lushright
+more text
 </para>
 ce&#8211;ntered line
 
+<para>r&#8211;raggedright
+more text
+</para>
 <screen>\input texinfo @c -*-texinfo-*-
 
 @setfilename simplest.info
@@ -3616,6 +3696,10 @@ aaa</literallayout></textobject></inlinemediaobject>
 <literal>@image{f-ile,aze,,a--lt}</literal> <inlinemediaobject><imageobject><imagedata fileref="f-ile.jpg" format="JPG"></imagedata></imageobject></inlinemediaobject>
 <literal>@image{@file{f--ile}@@@.,aze,az,alt,@file{.file ext} e--xt@}</literal> <inlinemediaobject><imageobject><imagedata fileref="f--ile@..jpg" format="JPG"></imagedata></imageobject></inlinemediaobject>
 
+<literal>@sp 2</literal>
+
+<literal>@page</literal>
+
 </screen><screen>
 <literal>@clicksequence{click @click{} A}</literal> click &#8594; A
 After clickstyle &#8658;
@@ -3687,6 +3771,8 @@ error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
 </screen><blockquote><attribution>quotation author</attribution>
 <screen>aaa quotation
 </screen></blockquote><screen>
+</screen><blockquote><screen>indent in quotation
+</screen></blockquote><screen>
 </screen><blockquote><screen>A small quot---ation
 </screen></blockquote><screen>
 </screen><note><screen>A small Note
@@ -3742,6 +3828,11 @@ error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
 </screen><screen>
 </screen><screen>s--mallexample
 </screen><screen>
+<literal>@noindent</literal> after smallexample.
+</screen><screen>$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.guess?rev=HEAD&amp;content-type=text/plain'
+$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEAD&amp;content-type=text/plain'
+</screen><screen>Less recent versions are also present.
+
 </screen><literallayout>d--isplay
 </literallayout><screen>
 </screen><literallayout>s--malldisplay
@@ -3931,11 +4022,16 @@ See Info file <filename>a comma, in file</filename>, node &#8216;<literal>s--ect
 </screen><screen>g--roupe
 </screen><screen>
 </screen><screen>f--lushleft
+more text
 </screen><screen>
 </screen><screen>f--lushright
+more text
 </screen><screen>
 </screen>ce--ntered line
 <screen>
+</screen><screen>r--raggedright
+more text
+</screen><screen>
 </screen><screen>\input texinfo @c -*-texinfo-*-
 
 @setfilename simplest.info
@@ -4114,6 +4210,15 @@ Various deff lines
 <chapter label="1" id="chapter">
 <title>chapter</title>
 
+<para>First para
+</para>
+<para>qsddsqkdsqkkmljsqjsqodmmdsqdsmqj dqs sdq sqd sdq dsq sdq sqd sqd sdq sdq 
+qsd dsq sdq dsq dssdq sdq sdq sdq dsq sdq dsq dsq sdq dsq sdqsd q
+</para>
+<para>noindent in para.
+</para>
+<para>unneeded indent
+</para>
 <para><footnote><para>in footnote</para></footnote>
 </para>
 

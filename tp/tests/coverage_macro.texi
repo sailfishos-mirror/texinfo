@@ -198,9 +198,14 @@ but , ,@:
 @code{@@image@{f-ile,aze,,a--lt@}} @image{f-ile,aze,,a--lt}
 @code{@@image@{@@file@{f--ile@}@@@@@@.,aze,az,alt,@@file@{.file ext@} e--xt@@@}} @image{@file{f--ile}@@@.,aze,az,alt,@file{.file ext} e--xt@}}
 
+@code{@@sp 2}@*
 @sp 2
+@code{@@page}@*
 @page
 @author author
+
+@code{need 1002}
+@need 1002
 
 @code{@@clicksequence@{click @@click@{@} A@}} @clicksequence{click @click{} A}
 @clickstyle @result
@@ -324,6 +329,11 @@ aaa @author quotation author
 quotation
 @end quotation
 
+@quotation
+@indent
+indent in quotation
+@end quotation
+
 @smallquotation 
 A small quot---ation
 @end smallquotation
@@ -428,6 +438,14 @@ example with empty and non empty args mix
 @smallexample
 s--mallexample
 @end smallexample
+
+@code{@@noindent} after smallexample.
+@smallexample
+$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.guess?rev=HEAD&content-type=text/plain'
+$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEAD&content-type=text/plain'
+@end smallexample
+@noindent
+Less recent versions are also present.
 
 @display 
 d--isplay
@@ -675,13 +693,20 @@ g--roupe
 
 @flushleft
 f--lushleft
+more text
 @end flushleft
 
 @flushright
 f--lushright
+more text
 @end flushright
 
 @center ce--ntered line
+
+@raggedright
+r--raggedright
+more text
+@end raggedright
 
 @verbatiminclude simplest.texi
 

@@ -497,6 +497,10 @@ my %docbook_tests = (
   'command_in_heading_footing' => 1,
 );
 
+my %latex_tests = (
+  'noindent_indent' => 1,
+);
+
 foreach my $test (@converted_test_cases) {
   push @{$test->[2]->{'test_formats'}}, 'plaintext';
   push @{$test->[2]->{'test_formats'}}, 'html_text';
@@ -509,6 +513,9 @@ foreach my $test (@converted_test_cases) {
   } 
   if ($xml_tests{$test->[0]}) {
     push @{$test->[2]->{'test_formats'}}, 'xml';
+  }
+  if ($latex_tests{$test->[0]}) {
+    push @{$test->[2]->{'test_formats'}}, 'latex';
   }
 }
 

@@ -206,8 +206,14 @@ a@sup{h}@sub{l} ahl
 @image{f-ile,aze,,a-lt} f-ile
 @image{@file{f-ile}@@@.,aze,az,alt,@file{.file ext} e-xt@} f-ile@.
 
+@sp 2
 
 
+
+@page
+
+
+need 1002
 
 @clicksequence{click @click{} A} click -> A
 After clickstyle =>
@@ -288,6 +294,8 @@ Empty
 
 aaa quotation
 
+indent in quotation
+
 A small quot-ation
 
 Note
@@ -342,6 +350,11 @@ example with empty args
 example with empty and non empty args mix
 
 s-mallexample
+
+@noindent after smallexample.
+$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.guess?rev=HEAD&content-type=text/plain'
+$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEAD&content-type=text/plain'
+Less recent versions are also present.
 
 d-isplay
 
@@ -526,10 +539,15 @@ c-artouche
 g-roupe
 
 f-lushleft
+more text
 
 f-lushright
+more text
 
 ce-ntered line
+
+r-raggedright
+more text
 
 \input texinfo @c -*-texinfo-*-
 
@@ -547,6 +565,7 @@ in verbatim ''
 html ''
 
 $$\partial_t \eta (t) = g(\eta(t),\varphi(t))$$ ''
+
 
 
 majorheading
@@ -945,9 +964,13 @@ but , ,
 <code>@image{f-ile,aze,,a--lt}</code> <img src="f-ile.jpg" alt="a&ndash;lt">
 <code>@image{@file{f--ile}@@@.,aze,az,alt,@file{.file ext} e--xt@}</code> <img src="f--ile@..file ext e--xt}" alt="alt">
 </p>
+<p><code>@sp 2</code><br>
+</p><br>
 <br>
-<br>
-
+<p><code>@page</code><br>
+</p>
+<p><code>need 1002</code>
+</p>
 <p><code>@clicksequence{click @click{} A}</code> click &rarr; A
 After clickstyle &rArr;
 <code>@clicksequence{click @click{} A}</code> click &rArr; A
@@ -1113,6 +1136,10 @@ $">
 <div align="center">&mdash; <em>quotation author</em>
 </div>
 <blockquote>
+<p>indent in quotation
+</p></blockquote>
+
+<blockquote>
 <p>A small quot&mdash;ation
 </p></blockquote>
 
@@ -1215,6 +1242,13 @@ i&ndash;tem 1
 <pre class="example">s--mallexample
 </pre></div>
 
+<p><code>@noindent</code> after smallexample.
+</p><div class="example">
+<pre class="example">$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.guess?rev=HEAD&amp;content-type=text/plain'
+$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEAD&amp;content-type=text/plain'
+</pre></div>
+<p>Less recent versions are also present.
+</p>
 <div class="display">
 <pre class="display">d&ndash;isplay
 </pre></div>
@@ -1485,11 +1519,16 @@ ref</a>
 <p>g&ndash;roupe
 </p>
 <p align="left">f&ndash;lushleft
+more text
 </p>
 <p align="right">f&ndash;lushright
+more text
 </p>
 <div align="center">ce&ndash;ntered line
 </div>
+<p>r&ndash;raggedright
+more text
+</p>
 <pre class="verbatim">\input texinfo @c -*-texinfo-*-
 
 @setfilename simplest.info
@@ -1517,6 +1556,7 @@ html ''
  ALT="$\displaystyle \partial_t \eta (t) = g(\eta(t),\varphi(t))$">
 </DIV>
  &rdquo;
+
 
 
 <span id="majorheading"></span><h1 class="majorheading">majorheading</h1>
@@ -1841,9 +1881,13 @@ but , ,
 <code>@image{f-ile,aze,,a--lt}</code> <img src="f-ile.jpg" alt="a&ndash;lt">
 <code>@image{@file{f--ile}@@@.,aze,az,alt,@file{.file ext} e--xt@}</code> <img src="f--ile@..file ext e--xt}" alt="alt">
 </p>
+<p><code>@sp 2</code><br>
+</p><br>
 <br>
-<br>
-
+<p><code>@page</code><br>
+</p>
+<p><code>need 1002</code>
+</p>
 <p><code>@clicksequence{click @click{} A}</code> click &rarr; A
 After clickstyle &rArr;
 <code>@clicksequence{click @click{} A}</code> click &rArr; A
@@ -2009,6 +2053,10 @@ $">
 <div align="center">&mdash; <em>quotation author</em>
 </div>
 <blockquote>
+<p>indent in quotation
+</p></blockquote>
+
+<blockquote>
 <p>A small quot&mdash;ation
 </p></blockquote>
 
@@ -2111,6 +2159,13 @@ i&ndash;tem 1
 <pre class="example">s--mallexample
 </pre></div>
 
+<p><code>@noindent</code> after smallexample.
+</p><div class="example">
+<pre class="example">$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.guess?rev=HEAD&amp;content-type=text/plain'
+$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEAD&amp;content-type=text/plain'
+</pre></div>
+<p>Less recent versions are also present.
+</p>
 <div class="display">
 <pre class="display">d&ndash;isplay
 </pre></div>
@@ -2381,11 +2436,16 @@ ref</a>
 <p>g&ndash;roupe
 </p>
 <p align="left">f&ndash;lushleft
+more text
 </p>
 <p align="right">f&ndash;lushright
+more text
 </p>
 <div align="center">ce&ndash;ntered line
 </div>
+<p>r&ndash;raggedright
+more text
+</p>
 <pre class="verbatim">\input texinfo @c -*-texinfo-*-
 
 @setfilename simplest.info
@@ -2413,6 +2473,7 @@ html ''
  ALT="$\displaystyle \partial_t \eta (t) = g(\eta(t),\varphi(t))$">
 </DIV>
  &rdquo;
+
 
 
 <span id="majorheading-1"></span><h1 class="majorheading">majorheading</h1>
@@ -2744,9 +2805,15 @@ but , ,
 <code>@image{f-ile,aze,,a--lt}</code> <img src="f-ile.jpg" alt="a&ndash;lt">
 <code>@image{@file{f--ile}@@@.,aze,az,alt,@file{.file ext} e--xt@}</code> <img src="f--ile@..file ext e--xt}" alt="alt">
 
+<code>@sp 2</code>
 
+
+
+<code>@page</code>
 
 </pre><pre class="example">
+
+<code>need 1002</code>
 
 <code>@clicksequence{click @click{} A}</code> click &rarr; A
 After clickstyle &rArr;
@@ -2937,6 +3004,11 @@ $">
 </div><pre class="example">
 
 </pre><blockquote>
+<pre class="example">indent in quotation
+</pre></blockquote>
+<pre class="example">
+
+</pre><blockquote>
 <pre class="example">A small quot---ation
 </pre></blockquote>
 <pre class="example">
@@ -3061,6 +3133,13 @@ $">
 <pre class="example">s--mallexample
 </pre></div>
 <pre class="example">
+
+<code>@noindent</code> after smallexample.
+</pre><div class="example">
+<pre class="example">$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.guess?rev=HEAD&amp;content-type=text/plain'
+$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEAD&amp;content-type=text/plain'
+</pre></div>
+<pre class="example">Less recent versions are also present.
 
 </pre><div class="display">
 <pre class="example">d--isplay
@@ -3366,13 +3445,19 @@ ref</a>
 </pre><pre class="example">
 
 </pre><pre class="example">f--lushleft
+more text
 </pre><pre class="example">
 
 </pre><pre class="example">f--lushright
+more text
 </pre><pre class="example">
 
 </pre><div align="center">ce--ntered line
 </div><pre class="example">
+
+</pre><pre class="example">r--raggedright
+more text
+</pre><pre class="example">
 
 </pre><pre class="verbatim">\input texinfo @c -*-texinfo-*-
 
@@ -3403,6 +3488,7 @@ html ''
  ALT="$\displaystyle \partial_t \eta (t) = g(\eta(t),\varphi(t))$">
 </DIV>
  &rdquo;
+
 
 
 </pre><span id="majorheading-2"></span><strong>majorheading</strong>

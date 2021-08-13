@@ -27,8 +27,30 @@
 #\tableofcontents
 #}
 #
+# it seems that LaTeX \indent only works with \setlength{\parindent}{0pt}
+# which makes it quite different from Texinfo @indent which should requires
+# a different conversion
+#
+# There is no obvious way to change the first paragraph indentation
+# in a way that can be reverted as with @firstparagraphindent.
+# use of \usepackage{indentfirst} cannot be reverted.
+#
 # in TeX, acronym is in a smaller font (1pt less). Can this be
 # easily done in LaTeX?  Is it really useful to do that?
+#
+# flushleft and flushright
+# the flushleft and flushright in Texinfo are not the same as in
+# LaTeX, as, in addition to come from a possibly different margin,
+# the text is not filled at all in Texinfo, each line is left as is.
+# LaTeX flushleft and flushright are filled but not aligned.
+# 
+# Other non filled environments @example, @display...  No similar
+# environment found in LaTeX
+#
+# @group should also be done together with the non filled environments.
+#
+# @need is implemented in a specific way, maybe there could be a 
+# definition of \mil instead.
 
 package Texinfo::Convert::LaTeX;
 
@@ -107,7 +129,7 @@ my %letter_no_arg_commands = %Texinfo::Common::letter_no_arg_commands;
 foreach my $kept_command (keys(%informative_commands),
   keys(%default_index_commands),
   'verbatiminclude', 'insertcopying', 
-  'listoffloats', 'printindex', ) {
+  'listoffloats', 'printindex', 'indent', 'noindent', 'need') {
   $formatting_misc_commands{$kept_command} = 1;
 }
 
@@ -326,19 +348,29 @@ foreach my $non_indented('format', 'smallformat') {
   delete $indented_commands{$non_indented};
 }
 
-# environments existing in LaTeX
-# 'flushleft' => 'flushleft',
-# 'flushright' => 'flushright',
+foreach my $ignored_block_commands ('ignore', 'macro', 'rmacro', 'copying',
+  'documentdescription') {
+  $ignored_commands{$ignored_block_commands} = 1;
+}
 
-my %flush_commands = (
-  'flushleft'  => 1,
-  'flushright' => 1
+foreach my $menu_command (keys(%menu_commands)) {
+  $ignored_commands{$menu_command} = 1;
+}
+
+my @LaTeX_same_block_commands = (
+  'titlepage', 'verbatim');
+
+# TODO flushleft and flushright
+# the flushleft and flushright in Texinfo are not the same as in
+# LaTeX, as, in addition to come from a possibly different margin,
+# the test is not filled at all, each line is left as is.  LaTeX
+# flushleft and flushright are filled but not aligned.
+my %LaTeX_block_commands = (
+  'raggedright' => 'flushleft',
 );
 
-# FIXME titlepage should not be ignored
-foreach my $ignored_block_commands ('ignore', 'macro', 'rmacro', 'copying',
-  'documentdescription', 'titlepage', 'direntry') {
-  $ignored_commands{$ignored_block_commands} = 1;
+foreach my $environment_command (@LaTeX_same_block_commands) {
+  $LaTeX_block_commands{$environment_command} = $environment_command;
 }
 
 my %ignorable_space_types;
@@ -361,7 +393,7 @@ foreach my $ignored_type(keys(%ignored_types)) {
 }
 
 # All those commands run with the text.
-# math, verb and kbd are special
+# math, verb and kbd are special and implemented separately
 my %LaTeX_style_brace_commands = (
   'text' => {
     'hyphenation' => '\\hyphenation',
@@ -458,6 +490,7 @@ sub converter_initialize($)
 
   $self->{'style_context'} = [{
     'context' => ['text'],
+    'math_style' => [],
     'code' => 0,
     'dot_not_end_sentence' => 0,
     'type' => 'main'
@@ -537,6 +570,7 @@ sub _latex_header {
   # eurosym for \euro
   # textcomp for \textdegree in older LaTeX
   # graphicx for \includegraphics
+  # needspace for \needspace. In texlive-latex-extra in debian
   my $header = 
 '\documentclass{book}
 \usepackage{makeidx}\makeindex
@@ -546,6 +580,7 @@ sub _latex_header {
 \usepackage[T1]{fontenc}
 \usepackage{textcomp}
 \usepackage{graphicx}
+\usepackage{needspace}
 
 ';
   # this is in order to be able to run pdflatex even
@@ -780,11 +815,21 @@ sub _convert($$)
           $result .= "\\\@";
         }
       } elsif ($command eq '*') {
-        # FIXME \leavevmode{} is added to avoid
-        # ! LaTeX Error: There's no line here to end.
-        # but it is not clearly correct
-        $result = "\\leavevmode{}\\\\";
-        #$result = "\\linebreak[4]\n";
+        if ($command_context ne 'math') {
+          # FIXME \leavevmode{} is added to avoid
+          # ! LaTeX Error: There's no line here to end.
+          # but it is not clearly correct
+          $result = "\\leavevmode{}\\\\";
+          #$result = "\\linebreak[4]\n";
+        } else {
+          if ($self->{'style_context'}->[-1]->{'math_style'}->[-1] 
+              eq 'one-line') {
+            $result = "";
+          } else {
+            # no such case for now, but could be in the future
+            $result = "\\\\";
+          }
+        }
       } elsif ($command eq '.' or $command eq '?' or $command eq '!') {
         if ($command_context ne 'math') {
           $result .= "\\\@";
@@ -1068,6 +1113,7 @@ sub _convert($$)
       push @{$self->{'style_context'}},
          {
            'context' => ['text'],
+           'math_style' => [],
            'code' => 0,
            'dot_not_end_sentence' => 0,
            'type' => 'footnote'
@@ -1218,8 +1264,9 @@ sub _convert($$)
     } elsif ($math_commands{$command}) {
       push @{$self->{'style_context'}->[-1]->{'context'}}, 'math';
       if (not exists($block_commands{$command})) {
-        if ($root->{'args'}) {
-          if ($command eq 'math') {
+        push @{$self->{'style_context'}->[-1]->{'math_style'}}, 'one-line';
+        if ($command eq 'math') {
+          if ($root->{'args'}) {
             $result .= '$';
             $result .= _convert($self, $root->{'args'}->[0]);
             $result .= '$';
@@ -1227,9 +1274,12 @@ sub _convert($$)
         }
         my $old_context = pop @{$self->{'style_context'}->[-1]->{'context'}};
         die if ($old_context ne 'math');
+        my $old_math_style = pop @{$self->{'style_context'}->[-1]->{'math_style'}};
+        die if ($old_math_style ne 'one-line');
         return $result;
       } else {
         if ($command eq 'displaymath') {
+          push @{$self->{'style_context'}->[-1]->{'math_style'}}, 'one-line';    
           $result .= "\$\$\n";
         }
       }
@@ -1314,18 +1364,13 @@ sub _convert($$)
       # remark:
       # cartouche group and raggedright -> nothing on format stack
 
-      if ($menu_commands{$command}) {
-        return '';
+      if ($LaTeX_block_commands{$command}) {
+        $result .= "\\begin{".$LaTeX_block_commands{$command}."}\n";
       }
       if ($block_raw_commands{$command}) {
-        if ($command eq 'verbatim') {
-          $result .= "\\begin{verbatim}\n";
-        }
         push @{$self->{'style_context'}->[-1]->{'context'}}, 'raw';
       } elsif ($preformatted_commands{$command}
           or $command eq 'float') {
-        push @{$self->{'style_context'}->[-1]->{'context'}}, $command;
-      } elsif ($flush_commands{$command}) {
         push @{$self->{'style_context'}->[-1]->{'context'}}, $command;
       }
 
@@ -1418,10 +1463,11 @@ sub _convert($$)
              or $command eq 'tab') {
       # ...
     } elsif ($command eq 'center') {
-      $result = $self->_convert (
-                       {'contents' => $root->{'args'}->[0]->{'contents'}},
-                       {'indent_length' => 0});
-      return $result."\n";
+      $result .= "\\begin{center}\n";
+      $result .= $self->_convert (
+                       {'contents' => $root->{'args'}->[0]->{'contents'}});
+      $result .= "\n\\end{center}\n";
+      return $result;
     } elsif ($command eq 'exdent') {
       if ($preformatted_commands{$self->{'style_context'}->[-1]->{'context'}->[-1]}) {
         $result = $self->_convert({'contents' => $root->{'args'}->[0]->{'contents'}});
@@ -1448,7 +1494,18 @@ sub _convert($$)
       return $result;
     } elsif ($command eq 'listoffloats') {
       return '';
-    # @page \newpage
+    } elsif ($command eq 'page') {
+      $result .= "\\newpage\n";
+      return $result;
+    } elsif ($command eq 'indent') {
+      # TODO it seems that \indent only works with \setlength{\parindent}{0pt}
+      # which makes it quite different from Texinfo @indent
+      #$result .= "\\indent{}";
+    } elsif ($command eq 'noindent') {
+      # spaces after noindent are in ignorable_space_types and are therefore
+      # munged which is ok as otherwise it could add a leading space
+      $result .= "\\noindent{}";
+      return $result;
     } elsif ($command eq 'sp') {
       my $sp_nr = 1;
       if ($root->{'extra'}->{'misc_args'}->[0]) {
@@ -1460,6 +1517,12 @@ sub _convert($$)
       # TeX primitives.  However there is no obvious corresponding
       # command in LaTeX, except for adding enough \\.
       $result .= "\\vskip $sp_nr\\baselineskip\n";
+      return $result;
+    } elsif ($command eq 'need') {
+      if ($root->{'extra'}->{'misc_args'}->[0]) {
+        my $need_value = 0.001 * $root->{'extra'}->{'misc_args'}->[0];
+        $result .= "\\needspace{${need_value}pt}\n";
+      }
       return $result;
     } elsif ($command eq 'contents') {
       if ($self->{'structuring'}
@@ -1475,11 +1538,34 @@ sub _convert($$)
         $result = '';
       }
       return $result;
-    # all the @-commands that have an information for the formatting, like
-    # @paragraphindent, @frenchspacing...
+    # all the @-commands that have an information for the formatting
+    # TODO
+    # There is no obvious way to change the first paragraph indentation
+    # in a way that can be reverted as with @firstparagraphindent.
+    # use of \usepackage{indentfirst} cannot be reverted.
     } elsif ($informative_commands{$command}) {
       $self->_informative_command($root);
-      # \frenchspacing \nonfrenchspacing
+      if ($command eq 'paragraphindent'
+          and $root->{'extra'}->{'misc_args'}->[0]) {
+        my $indentation_spec = $root->{'extra'}->{'misc_args'}->[0];
+        if ($indentation_spec eq 'asis') {
+          # not implemented here, same as in TeX.
+          return '';
+        }
+        my $indentation_spec_arg = $indentation_spec.'em';
+        if ($indentation_spec eq '0' or $indentation_spec eq 'none') {
+          $indentation_spec_arg = '0pt';
+        }
+        return "\\setlength{\\parindent}{$indentation_spec_arg}\n";
+      } elsif ($command eq 'frenchspacing'
+               and $root->{'extra'}->{'misc_args'}->[0]) {
+        my $frenchspacing_spec = $root->{'extra'}->{'misc_args'}->[0];
+        if ($frenchspacing_spec eq 'on') {
+          return "\\frenchspacing\n";
+        } elsif ($frenchspacing_spec eq 'off') {
+          return "\\nonfrenchspacing\n";
+        }
+      }
       return '';
     } else {
       $unknown_command = 1;
@@ -1743,18 +1829,17 @@ sub _convert($$)
     } elsif ($block_raw_commands{$command}) {
       my $old_context = pop @{$self->{'style_context'}->[-1]->{'context'}};
       die if ($old_context ne 'raw');
-      if ($command eq 'verbatim') {
-        $result .= "\\end{verbatim}\n";
-      }
-    } elsif ($flush_commands{$command}) {
-      my $old_context = pop @{$self->{'style_context'}->[-1]->{'context'}};
-      die if (! $flush_commands{$old_context});
     } elsif ($block_math_commands{$command}) {
       my $old_context = pop @{$self->{'style_context'}->[-1]->{'context'}};
       die if ($old_context ne 'math');
       if ($command eq 'displaymath') {
         $result .= "\$\$\n";
       }
+      my $old_math_style = pop @{$self->{'style_context'}->[-1]->{'math_style'}};
+      die if ($old_math_style ne 'one-line');
+    }
+    if ($LaTeX_block_commands{$command}) {
+      $result .= "\\end{".$LaTeX_block_commands{$command}."}\n";
     }
     if ($cell) {
       $result = '';

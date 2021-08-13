@@ -221,7 +221,9 @@ but , ,@:
 @code{@@image@{f-ile,aze,,a--lt@}} @image{f-ile,aze,,a--lt}
 @code{@@image@{@@file@{f--ile@}@@@@@@.,aze,az,alt,@@file@{.file ext@} e--xt@@@}} @image{@file{f--ile}@@@.,aze,az,alt,@file{.file ext} e--xt@}}
 
+@code{@@sp 2}@*
 @sp 2
+@code{@@page}@*
 @page
 @author author
 
@@ -347,6 +349,11 @@ aaa @author quotation author
 quotation
 @end quotation
 
+@quotation
+@indent
+indent in quotation
+@end quotation
+
 @smallquotation 
 A small quot---ation
 @end smallquotation
@@ -451,6 +458,14 @@ example with empty and non empty args mix
 @smallexample
 s--mallexample
 @end smallexample
+
+@code{@@noindent} after smallexample.
+@smallexample
+$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.guess?rev=HEAD&amp;content-type=text/plain'
+$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEAD&amp;content-type=text/plain'
+@end smallexample
+@noindent
+Less recent versions are also present.
 
 @display 
 d--isplay
@@ -698,13 +713,20 @@ g--roupe
 
 @flushleft
 f--lushleft
+more text
 @end flushleft
 
 @flushright
 f--lushright
+more text
 @end flushright
 
 @center ce--ntered line
+
+@raggedright
+r--raggedright
+more text
+@end raggedright
 
 @verbatiminclude simplest.texi
 
@@ -1066,8 +1088,10 @@ but , ,&noeos;
 <code>&arobase;image&lbrace;f-ile,aze,,a--lt&rbrace;</code> <image where="inline"><imagefile>f-ile</imagefile><imagewidth>aze</imagewidth><alttext>a&textndash;lt</alttext></image>
 <code>&arobase;image&lbrace;&arobase;file&lbrace;f--ile&rbrace;&arobase;&arobase;&arobase;.,aze,az,alt,&arobase;file&lbrace;.file ext&rbrace; e--xt&arobase;&rbrace;</code> <image where="inline"><imagefile><file>f--ile</file>&arobase;&eosperiod;</imagefile><imagewidth>aze</imagewidth><imageheight>az</imageheight><alttext>alt</alttext><imageextension><file>.file ext</file> e--xt&rbrace;</imageextension></image>
 </para>
-<sp value="2" line="2"></sp>
-<page></page>
+<para><code>&arobase;sp 2</code>&linebreak;
+</para><sp value="2" line="2"></sp>
+<para><code>&arobase;page</code>&linebreak;
+</para><page></page>
 <author spaces=" ">author</author>
 
 <para><code>&arobase;clicksequence&lbrace;click &arobase;click&lbrace;&rbrace; A&rbrace;</code> <clicksequence>click <click command="arrow"/> A</clicksequence>
@@ -1190,6 +1214,11 @@ After clickstyle &result;
 quotation
 </para></quotation>
 
+<quotation endspaces=" ">
+<indent></indent>
+<para>indent in quotation
+</para></quotation>
+
 <smallquotation endspaces=" "> 
 <para>A small quot&textmdash;ation
 </para></smallquotation>
@@ -1292,6 +1321,14 @@ quotation
 <pre xml:space="preserve">s--mallexample
 </pre></smallexample>
 
+<para><code>&arobase;noindent</code> after smallexample.
+</para><smallexample endspaces=" ">
+<pre xml:space="preserve">$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.guess?rev=HEAD&amp;content-type=text/plain'
+$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEAD&amp;content-type=text/plain'
+</pre></smallexample>
+<noindent></noindent>
+<para>Less recent versions are also present.
+</para>
 <display endspaces=" "> 
 <pre xml:space="preserve">d&textndash;isplay
 </pre></display>
@@ -1537,13 +1574,20 @@ ref</inforefrefname><inforefinfoname spaces=" ">a comma&comma; in file</inforefi
 
 <flushleft endspaces=" ">
 <para>f&textndash;lushleft
+more text
 </para></flushleft>
 
 <flushright endspaces=" ">
 <para>f&textndash;lushright
+more text
 </para></flushright>
 
 <center spaces=" ">ce&textndash;ntered line</center>
+
+<raggedright endspaces=" ">
+<para>r&textndash;raggedright
+more text
+</para></raggedright>
 
 <verbatiminclude file="simplest.texi" spaces=" ">simplest.texi</verbatiminclude>
 
@@ -1897,8 +1941,10 @@ but , ,&noeos;
 <code>&arobase;image&lbrace;f-ile,aze,,a--lt&rbrace;</code> <image where="inline"><imagefile>f-ile</imagefile><imagewidth>aze</imagewidth><alttext>a&textndash;lt</alttext></image>
 <code>&arobase;image&lbrace;&arobase;file&lbrace;f--ile&rbrace;&arobase;&arobase;&arobase;.,aze,az,alt,&arobase;file&lbrace;.file ext&rbrace; e--xt&arobase;&rbrace;</code> <image where="inline"><imagefile><file>f--ile</file>&arobase;&eosperiod;</imagefile><imagewidth>aze</imagewidth><imageheight>az</imageheight><alttext>alt</alttext><imageextension><file>.file ext</file> e--xt&rbrace;</imageextension></image>
 </para>
-<sp value="2" line="2"></sp>
-<page></page>
+<para><code>&arobase;sp 2</code>&linebreak;
+</para><sp value="2" line="2"></sp>
+<para><code>&arobase;page</code>&linebreak;
+</para><page></page>
 <author spaces=" ">author</author>
 
 <para><code>&arobase;clicksequence&lbrace;click &arobase;click&lbrace;&rbrace; A&rbrace;</code> <clicksequence>click <click command="arrow"/> A</clicksequence>
@@ -2021,6 +2067,11 @@ After clickstyle &result;
 quotation
 </para></quotation>
 
+<quotation endspaces=" ">
+<indent></indent>
+<para>indent in quotation
+</para></quotation>
+
 <smallquotation endspaces=" "> 
 <para>A small quot&textmdash;ation
 </para></smallquotation>
@@ -2123,6 +2174,14 @@ quotation
 <pre xml:space="preserve">s--mallexample
 </pre></smallexample>
 
+<para><code>&arobase;noindent</code> after smallexample.
+</para><smallexample endspaces=" ">
+<pre xml:space="preserve">$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.guess?rev=HEAD&amp;content-type=text/plain'
+$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEAD&amp;content-type=text/plain'
+</pre></smallexample>
+<noindent></noindent>
+<para>Less recent versions are also present.
+</para>
 <display endspaces=" "> 
 <pre xml:space="preserve">d&textndash;isplay
 </pre></display>
@@ -2368,13 +2427,20 @@ ref</inforefrefname><inforefinfoname spaces=" ">a comma&comma; in file</inforefi
 
 <flushleft endspaces=" ">
 <para>f&textndash;lushleft
+more text
 </para></flushleft>
 
 <flushright endspaces=" ">
 <para>f&textndash;lushright
+more text
 </para></flushright>
 
 <center spaces=" ">ce&textndash;ntered line</center>
+
+<raggedright endspaces=" ">
+<para>r&textndash;raggedright
+more text
+</para></raggedright>
 
 <verbatiminclude file="simplest.texi" spaces=" ">simplest.texi</verbatiminclude>
 
@@ -2728,8 +2794,10 @@ but , ,&noeos;
 <code>&arobase;image&lbrace;f-ile,aze,,a--lt&rbrace;</code> <image where="inline"><imagefile>f-ile</imagefile><imagewidth>aze</imagewidth><alttext>a&textndash;lt</alttext></image>
 <code>&arobase;image&lbrace;&arobase;file&lbrace;f--ile&rbrace;&arobase;&arobase;&arobase;.,aze,az,alt,&arobase;file&lbrace;.file ext&rbrace; e--xt&arobase;&rbrace;</code> <image where="inline"><imagefile><file>f--ile</file>&arobase;&eosperiod;</imagefile><imagewidth>aze</imagewidth><imageheight>az</imageheight><alttext>alt</alttext><imageextension><file>.file ext</file> e--xt&rbrace;</imageextension></image>
 </para>
-<sp value="2" line="2"></sp>
-<page></page>
+<para><code>&arobase;sp 2</code>&linebreak;
+</para><sp value="2" line="2"></sp>
+<para><code>&arobase;page</code>&linebreak;
+</para><page></page>
 <author spaces=" ">author</author>
 
 <para><code>&arobase;clicksequence&lbrace;click &arobase;click&lbrace;&rbrace; A&rbrace;</code> <clicksequence>click <click command="arrow"/> A</clicksequence>
@@ -2852,6 +2920,11 @@ After clickstyle &result;
 quotation
 </para></quotation>
 
+<quotation endspaces=" ">
+<indent></indent>
+<para>indent in quotation
+</para></quotation>
+
 <smallquotation endspaces=" "> 
 <para>A small quot&textmdash;ation
 </para></smallquotation>
@@ -2954,6 +3027,14 @@ quotation
 <pre xml:space="preserve">s--mallexample
 </pre></smallexample>
 
+<para><code>&arobase;noindent</code> after smallexample.
+</para><smallexample endspaces=" ">
+<pre xml:space="preserve">$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.guess?rev=HEAD&amp;content-type=text/plain'
+$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEAD&amp;content-type=text/plain'
+</pre></smallexample>
+<noindent></noindent>
+<para>Less recent versions are also present.
+</para>
 <display endspaces=" "> 
 <pre xml:space="preserve">d&textndash;isplay
 </pre></display>
@@ -3199,13 +3280,20 @@ ref</inforefrefname><inforefinfoname spaces=" ">a comma&comma; in file</inforefi
 
 <flushleft endspaces=" ">
 <para>f&textndash;lushleft
+more text
 </para></flushleft>
 
 <flushright endspaces=" ">
 <para>f&textndash;lushright
+more text
 </para></flushright>
 
 <center spaces=" ">ce&textndash;ntered line</center>
+
+<raggedright endspaces=" ">
+<para>r&textndash;raggedright
+more text
+</para></raggedright>
 
 <verbatiminclude file="simplest.texi" spaces=" ">simplest.texi</verbatiminclude>
 
@@ -3553,7 +3641,9 @@ but , ,&noeos;
 <code>&arobase;image&lbrace;f-ile,aze,,a--lt&rbrace;</code> <image where="inline"><imagefile>f-ile</imagefile><imagewidth>aze</imagewidth><alttext>a--lt</alttext></image>
 <code>&arobase;image&lbrace;&arobase;file&lbrace;f--ile&rbrace;&arobase;&arobase;&arobase;.,aze,az,alt,&arobase;file&lbrace;.file ext&rbrace; e--xt&arobase;&rbrace;</code> <image where="inline"><imagefile><file>f--ile</file>&arobase;&eosperiod;</imagefile><imagewidth>aze</imagewidth><imageheight>az</imageheight><alttext>alt</alttext><imageextension><file>.file ext</file> e--xt&rbrace;</imageextension></image>
 
+<code>&arobase;sp 2</code>&linebreak;
 <sp value="2" line="2"></sp>
+<code>&arobase;page</code>&linebreak;
 </pre><page></page>
 <pre xml:space="preserve"><author spaces=" ">author</author>
 
@@ -3677,6 +3767,11 @@ After clickstyle &result;
 quotation
 </pre></quotation>
 <pre xml:space="preserve">
+</pre><quotation endspaces=" ">
+<pre xml:space="preserve"><indent></indent>
+indent in quotation
+</pre></quotation>
+<pre xml:space="preserve">
 </pre><smallquotation endspaces=" "> 
 <pre xml:space="preserve">A small quot---ation
 </pre></smallquotation>
@@ -3779,6 +3874,14 @@ quotation
 <pre xml:space="preserve">s--mallexample
 </pre></smallexample>
 <pre xml:space="preserve">
+<code>&arobase;noindent</code> after smallexample.
+</pre><smallexample endspaces=" ">
+<pre xml:space="preserve">$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.guess?rev=HEAD&amp;content-type=text/plain'
+$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEAD&amp;content-type=text/plain'
+</pre></smallexample>
+<pre xml:space="preserve"><noindent></noindent>
+Less recent versions are also present.
+
 </pre><display endspaces=" "> 
 <pre xml:space="preserve">d--isplay
 </pre></display>
@@ -4024,13 +4127,20 @@ ref</inforefrefname><inforefinfoname spaces=" ">a comma&comma; in file</inforefi
 <pre xml:space="preserve">
 </pre><flushleft endspaces=" ">
 <pre xml:space="preserve">f--lushleft
+more text
 </pre></flushleft>
 <pre xml:space="preserve">
 </pre><flushright endspaces=" ">
 <pre xml:space="preserve">f--lushright
+more text
 </pre></flushright>
 <pre xml:space="preserve">
 </pre><center spaces=" ">ce--ntered line</center>
+<pre xml:space="preserve">
+</pre><raggedright endspaces=" ">
+<pre xml:space="preserve">r--raggedright
+more text
+</pre></raggedright>
 <pre xml:space="preserve">
 </pre><verbatiminclude file="simplest.texi" spaces=" ">simplest.texi</verbatiminclude>
 <pre xml:space="preserve">
@@ -4215,6 +4325,17 @@ Various deff lines
 <node name="chapter" spaces=" "><nodename>chapter</nodename><nodenext automatic="on">chapter2</nodenext><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
 <chapter spaces=" "><sectiontitle>chapter</sectiontitle>
 
+<indent></indent>
+<para>First para
+</para>
+<noindent></noindent>
+<para>qsddsqkdsqkkmljsqjsqodmmdsqdsmqj dqs sdq sqd sdq dsq sdq sqd sqd sdq sdq 
+qsd dsq sdq dsq dssdq sdq sdq sdq dsq sdq dsq dsq sdq dsq sdqsd q
+</para>
+<noindent></noindent><para>noindent in para.
+</para>
+<indent></indent><para>unneeded indent
+</para>
 <para><footnote><para>in footnote</para></footnote>
 </para>
 <format endspaces=" ">

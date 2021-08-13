@@ -17,9 +17,8 @@
 
 
 
-
-Insertcopying in normal text
-In copying
+\begin{titlepage}
+In titlepage
 
 <
 >
@@ -214,7 +213,9 @@ but , ,\@
 \texttt{@image\{f-ile,aze,,a{-}{-}lt\}} \includegraphics[width=aze]{f-ile}
 \texttt{@image\{@file\{f{-}{-}ile\}@@@.,aze,az,alt,@file\{.file ext\} e{-}{-}xt@\}} \includegraphics[width=aze,height=az]{f--ile@.}
 
+\texttt{@sp 2}\leavevmode{}\\
 \vskip 2\baselineskip
+\texttt{@page}\leavevmode{}\\
 
 \texttt{@clicksequence\{click @click\{\} A\}} click $\rightarrow{}$ A
 After clickstyle $\Rightarrow{}$
@@ -222,14 +223,14 @@ After clickstyle $\Rightarrow{}$
 
 $$
 \mathbf{``simple-double--three---four----''} \hbox{aa}
-`\hbox{}`simple-double-\hbox{}-three---four----'\hbox{}'\leavevmode{}\\
+`\hbox{}`simple-double-\hbox{}-three---four----'\hbox{}'
 $$
 
 $$
 \ddot{u} \ddot{U} \tilde{n} \hat{a} \acute{e} \bar{o} \grave{i} \acute{e} \imath{} \jmath{} \grave{\bar{E}}
 \mathord{\text{\l{}}} \textsl{\c{\'{C}}} \textsl{\c{\'{C}}} \textsl{\c{c}} \textsl{\H{a}} \dot{a} \mathring{a} \textsl{\t{a}}
 \breve{a} \textsl{\b{a}} \textsl{\d{a}} \check{a} \textsl{\k{a}} a^{h}_{l}
-\leavevmode{}\\ \ {}\ {} \ {}\-{}   ! ? . @ \} \{ 
+ \ {}\ {} \ {}\-{}   ! ? . @ \} \{ 
 a sunny day
 $$
 
@@ -289,7 +290,11 @@ A quot---ation
 \textbf{:} 
 \textbf{\leavevmode{}\\:} 
 aaa quotation
+\begin{center}
 --- \emph{quotation author}
+\end{center}
+
+indent in quotation
 
 A small quot---ation
 
@@ -361,6 +366,11 @@ example with empty args
 example with empty and non empty args mix
 
 s--mallexample
+
+\texttt{@noindent} after smallexample.
+\$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.guess?rev=HEAD\&content-type=text/plain'
+\$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEAD\&content-type=text/plain'
+\noindent{}Less recent versions are also present.
 
 d--isplay
 
@@ -639,10 +649,1606 @@ c--artouche
 g--roupe
 
 f--lushleft
+more text
 
 f--lushright
+more text
 
+\begin{center}
 ce--ntered line
+\end{center}
+
+\begin{flushleft}
+r--raggedright
+more text
+\end{flushleft}
+
+\begin{verbatim}
+\input texinfo @c -*-texinfo-*-
+
+@setfilename simplest.info
+
+@node Top
+
+This is a very simple texi manual @  <>.
+
+@bye
+\end{verbatim}
+
+\begin{verbatim}
+in verbatim ''
+\end{verbatim}
+
+
+
+
+
+$\frac{a < b \texttt{tex \hbox{ code }}}{b}$ ``
+
+
+\chapter*{chapheading}
+
+\section*{heading}
+
+\subsection*{subheading}
+
+\subsubsection*{subsubheading}
+
+
+\texttt{@acronym\{{-}{-}a,an accronym @comma\{\} @enddots\{\}\}} --a (an accronym , \dots{})
+\texttt{@abbr\{@'E{-}{-}. @comma\{\}A., @'Etude{-}{-}@comma\{\} @b\{Autonome\} \}} \'{E}--.\@ ,A.\@ (\'{E}tude--, \textbf{Autonome})
+\texttt{@abbr\{@'E{-}{-}. @comma\{\}A.\}} \'{E}--.\@ ,A.\@
+
+\texttt{@math\{{-}{-}a@minus\{\} \{\textbackslash{}frac\{1\}\{2\}\}\}} $--a- {\frac{1}{2}}$
+
+\texttt{@image\{f-ile,,,alt@verb\{:jk \_" \%\@\}\}} \includegraphics{f-ile}
+\texttt{@image\{f{-}{-}ile,aze,az,@verb\{:jk \_" \%@:\} @b\{in b "\},e{-}{-}xt\}} \includegraphics[width=aze,height=az]{layout/f--ile}
+\texttt{@image\{file@verb\{:jk \_" \%@:\},,,alt@verb\{:jk \_" \%@:\}\}} \includegraphics{filejk \_" \%@}
+
+
+
+
+Somehow invalid use of @,:\leavevmode{}\\
+@, \c{}
+\leavevmode{}\\
+@,@"u \c{}\"{u}
+
+Invalid use of @':\leavevmode{}\\
+@' \'{}
+\leavevmode{}\\
+@'@"u \'{}\"{u}
+
+@dotless\{truc\} truc
+@dotless\{ij\} ij
+\texttt{@dotless\{{-}{-}a\}} --a
+\texttt{@dotless\{a\}} a
+
+@U, without braces @U\{\}, with empty arg 
+@U\{z\}, with non-hex arg U+z
+@U\{FFFFFFFFFFFFFF\}, value much too large U+FFFFFFFFFFFFFF
+@U\{110000\}, value just beyond Unicode U+110000
+
+@TeX, but without brace \TeX{}\texttt{@\#} \#
+
+\texttt{@w\{{-}{-}a\}} \hbox{--a}
+
+\texttt{@image\{,1{-}{-}xt\}} 
+\texttt{@image\{,,2{-}{-}xt\}} 
+\texttt{@image\{,,,3{-}{-}xt\}} 
+
+
+\emph{} after emph 
+
+e--mph item
+
+\textbullet{} a--n itemize line 
+
+i--tem 1
+\textbullet{} a--n itemize line 
+
+i--tem 2
+
+\hbox{}-- fun: 
+
+
+\hbox{}-- truc: machin bidule chose and
+
+
+\hbox{}-- truc: machin bidule chose and  after
+
+
+\hbox{}-- truc: machin bidule chose and 
+
+
+\hbox{}-- truc: machin bidule chose and and after
+
+
+\hbox{}-- truc: followed by a comment
+
+
+Various deff lines
+\hbox{}-- truc: after a deff item
+
+
+
+\texttt{@ref\{node\}} page \pageref{anchor:node}
+
+\texttt{@ref\{,cross ref name\}} cross ref name (page \pageref{anchor:})
+\texttt{@ref\{,,title\}} title (page \pageref{anchor:})
+\texttt{@ref\{,,,file name\}} (file name) manual, page \pageref{anchor:}
+\texttt{@ref\{,,,,manual\}} () manual, page \pageref{anchor:}
+\texttt{@ref\{node,cross ref name\}} cross ref name (page \pageref{anchor:node})
+\texttt{@ref\{node,,title\}} title (page \pageref{anchor:node})
+\texttt{@ref\{node,,,file name\}} (file name) manual, page \pageref{anchor:node}
+\texttt{@ref\{node,,,,manual\}} () manual, page \pageref{anchor:node}
+\texttt{@ref\{node,cross ref name,title,\}} cross ref name (page \pageref{anchor:node})
+\texttt{@ref\{node,cross ref name,,file name\}} cross ref name(file name) (page \pageref{anchor:node})
+\texttt{@ref\{node,cross ref name,,,manual\}} cross ref name() (page \pageref{anchor:node})
+\texttt{@ref\{node,cross ref name,title,file name\}} cross ref name(file name) (page \pageref{anchor:node})
+\texttt{@ref\{node,cross ref name,title,,manual\}} cross ref name() (page \pageref{anchor:node})
+\texttt{@ref\{node,cross ref name,title, file name, manual\}} cross ref name(file name) (page \pageref{anchor:node})
+\texttt{@ref\{node,,title,file name\}} title(file name) (page \pageref{anchor:node})
+\texttt{@ref\{node,,title,,manual\}} title() (page \pageref{anchor:node})
+\texttt{@ref\{chapter,,title, file name, manual\}} title(file name) (page \pageref{anchor:chapter})
+\texttt{@ref\{node,,title, file name, manual\}} title(file name) (page \pageref{anchor:node})
+\texttt{@ref\{node,,,file name,manual\}} (file name) manual, page \pageref{anchor:node}
+\texttt{@ref\{,cross ref name,title,\}} cross ref name (page \pageref{anchor:})
+\texttt{@ref\{,cross ref name,,file name\}} cross ref name(file name) (page \pageref{anchor:})
+\texttt{@ref\{,cross ref name,,,manual\}} cross ref name() (page \pageref{anchor:})
+\texttt{@ref\{,cross ref name,title,file name\}} cross ref name(file name) (page \pageref{anchor:})
+\texttt{@ref\{,cross ref name,title,,manual\}} cross ref name() (page \pageref{anchor:})
+\texttt{@ref\{,cross ref name,title, file name, manual\}} cross ref name(file name) (page \pageref{anchor:})
+\texttt{@ref\{,,title,file name\}} title(file name) (page \pageref{anchor:})
+\texttt{@ref\{,,title,,manual\}} title() (page \pageref{anchor:})
+\texttt{@ref\{,,title, file name, manual\}} title(file name) (page \pageref{anchor:})
+\texttt{@ref\{,,,file name,manual\}} (file name) manual, page \pageref{anchor:}
+
+\texttt{@inforef\{,cross ref name \}} cross ref name (page \pageref{anchor:})
+\texttt{@inforef\{,,file name\}} (file name) manual, page \pageref{anchor:}
+\texttt{@inforef\{,cross ref name, file name\}} cross ref name(file name) (page \pageref{anchor:})
+\texttt{@inforef\{\}} page \pageref{anchor:}
+
+
+
+Insercopying in titlepage
+In copying
+
+<
+>
+"
+\&
+'
+`
+
+``simple-double--three---four----''\leavevmode{}\\
+code: \texttt{``simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-''} \leavevmode{}\\
+asis: ``simple-double--three---four----'' \leavevmode{}\\
+strong: \textbf{``simple-double--three---four----''} \leavevmode{}\\
+kbd: {\ttfamily\textsl{``simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-''}} \leavevmode{}\\
+
+`\hbox{}`simple-double-\hbox{}-three---four----'\hbox{}'\leavevmode{}\\
+
+
+@"u \"{u} 
+@"\{U\} \"{U} 
+@\~{}n \~{n}
+@\^{}a \^{a}
+@'e \'{e}
+@=o \={o}
+@`i \`{i}
+@'\{e\} \'{e}
+@'\{@dotless\{i\}\} \'{\i{}} 
+@dotless\{i\} \i{}
+@dotless\{j\} \j{}
+@`\{@=E\} \`{\={E}} 
+@l\{\} \l{}
+@,\{@'C\} \c{\'{C}}
+@,c \c{c}
+@,c@"u \c{c}\"{u} \leavevmode{}\\
+
+@U\{0075\} u
+
+@* \leavevmode{}\\
+@ followed by a space
+\ {}
+@ followed by a tab
+\ {}
+@ followed by a new line
+\ {}\texttt{@-} \-{}
+\texttt{@|} 
+\texttt{@:} \@
+\texttt{@!} \@!
+\texttt{@?} \@?
+\texttt{@.} \@.
+\texttt{@@} @
+\texttt{@\}} \}
+\texttt{@\{} \{
+\texttt{@/} 
+
+foo vs.\@ bar. 
+colon :\@And something else.
+semi colon ;\@.
+And ? ?\@.
+Now ! !\@@
+but , ,\@
+
+@TeX \TeX{}
+@LaTeX \LaTeX{}
+@bullet \textbullet{}
+@copyright \copyright{}
+@dots \dots{}\@
+@enddots \dots{}
+@equiv $\equiv{}$
+@error \fbox{error}
+@expansion $\mapsto{}$
+@minus -
+@point $\star{}$
+@print $\dashv{}$
+@result $\Rightarrow{}$
+@today a sunny day
+
+@aa \aa{}
+@AA \AA{}
+@ae \ae{}
+@oe \oe{}
+@AE \AE{}
+@OE \OE{}
+@o \o{}
+@O \O{}
+@ss \ss{}
+@l \l{}
+@L \L{}
+@DH \DH{}
+@TH \TH{}
+@dh \dh{}
+@th \th{}
+
+@exclamdown \textexclamdown{}
+@questiondown \textquestiondown{}
+@pounds \textsterling{}
+@registeredsymbol \circledR{}
+@ordf \textordfeminine{}
+@ordm \textordmasculine{}
+@comma ,
+@quotedblleft \textquotedblleft{}
+@quotedblright \textquotedblright{}
+@quoteleft \textquoteleft{}
+@quoteright \textquoteright{}
+@quotedblbase \quotedblbase{}
+@quotesinglbase \quotesinglbase{}
+@guillemetleft \guillemotleft{}
+@guillemetright \guillemotright{}
+@guillemotleft \guillemotleft{}
+@guillemotright \guillemotright{}
+@guilsinglleft \guilsinglleft{}
+@guilsinglright \guilsinglright{}
+@textdegree \textdegree{}
+@euro \euro{}
+@arrow $\rightarrow{}$
+@leq $\leq{}$
+@geq $\geq{}$
+
+\texttt{@acronym\{{-}{-}a,an accronym\}} --a (an accronym)
+\texttt{@acronym\{{-}{-}a\}} --a
+\texttt{@abbr\{@'E{-}{-}. @comma\{\}A., @'Etude Autonome \}} \'{E}--.\@ ,A.\@ (\'{E}tude Autonome)
+\texttt{@abbr\{@'E{-}{-}. @comma\{\}A.\}} \'{E}--.\@ ,A.\@
+\texttt{@asis\{{-}{-}a\}} --a
+\texttt{@b\{{-}{-}a\}} \textbf{--a}
+\texttt{@cite\{{-}{-}a\}} \textit{--a}
+\texttt{@code\{{-}{-}a\}} \texttt{{-}{-}a}
+\texttt{@command\{{-}{-}a\}} \texttt{{-}{-}a}
+\texttt{@dfn\{{-}{-}a\}} \emph{--a}
+\texttt{@dmn\{{-}{-}a\}} --a
+\texttt{@email\{{-}{-}a,{-}{-}b\}} --b \texttt{<{-}{-}a>}
+\texttt{@email\{,{-}{-}b\}} --b
+\texttt{@email\{{-}{-}a\}} \texttt{<{-}{-}a>}
+\texttt{@emph\{{-}{-}a\}} \emph{--a}
+\texttt{@env\{{-}{-}a\}} \texttt{{-}{-}a}
+\texttt{@file\{{-}{-}a\}} \texttt{{-}{-}a}
+\texttt{@i\{{-}{-}a\}} \textit{--a}
+\texttt{@kbd\{{-}{-}a\}} {\ttfamily\textsl{{-}{-}a}}
+\texttt{@key\{{-}{-}a\}} \texttt{{-}{-}a}
+\texttt{@math\{{-}{-}a \{\textbackslash{}frac\{1\}\{2\}\} @minus\{\}\}} $--a {\frac{1}{2}} -$
+\texttt{@option\{{-}{-}a\}} \texttt{{-}{-}a}
+\texttt{@r\{{-}{-}a\}} 
+\texttt{@samp\{{-}{-}a\}} `\texttt{{-}{-}a}'
+\texttt{@sc\{{-}{-}a\}} 
+\texttt{@strong\{{-}{-}a\}} \textbf{--a}
+\texttt{@t\{{-}{-}a\}} \texttt{{-}{-}a}
+\texttt{@sansserif\{{-}{-}a\}} 
+\texttt{@slanted\{{-}{-}a\}} 
+\texttt{@titlefont\{{-}{-}a\}} {\Huge \bfseries --a}
+\texttt{@indicateurl\{{-}{-}a\}} `\texttt{{-}{-}a}'
+\texttt{@uref\{{-}{-}a,{-}{-}b\}} --b (--a)
+\texttt{@uref\{{-}{-}a\}} \texttt{<{-}{-}a>}
+\texttt{@uref\{,{-}{-}b\}} --b
+\texttt{@uref\{{-}{-}a,{-}{-}b,{-}{-}c\}} --c
+\texttt{@uref\{,{-}{-}b,{-}{-}c\}} --c
+\texttt{@uref\{{-}{-}a,,{-}{-}c\}} --c
+\texttt{@uref\{,,{-}{-}c\}} --c
+\texttt{@url\{{-}{-}a,{-}{-}b\}} --b (--a)
+\texttt{@url\{{-}{-}a,\}} \texttt{<{-}{-}a>}
+\texttt{@url\{,{-}{-}b\}} --b
+\texttt{@var\{{-}{-}a\}} \emph{--a}
+\texttt{@verb\{:{-}{-}a:\}} \verb:--a:
+\texttt{@verb\{:a  < \& @ \% " {-}{-}    b:\}} \verb:a  < & @ % " --    b:
+\texttt{@w\{a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a\}} \hbox{a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a}
+\texttt{@H\{a\}} \H{a}
+\texttt{@H\{{-}{-}a\}} \H{--a}
+\texttt{@dotaccent\{a\}} \.{a}
+\texttt{@dotaccent\{{-}{-}a\}} \.{--a}
+\texttt{@ringaccent\{a\}} \r{a}
+\texttt{@ringaccent\{{-}{-}a\}} \r{--a}
+\texttt{@tieaccent\{a\}} \t{a}
+\texttt{@tieaccent\{{-}{-}a\}} \t{--a}
+\texttt{@u\{a\}} \u{a}
+\texttt{@u\{{-}{-}a\}} \u{--a}
+\texttt{@ubaraccent\{a\}} \b{a}
+\texttt{@ubaraccent\{{-}{-}a\}} \b{--a}
+\texttt{@udotaccent\{a\}} \d{a}
+\texttt{@udotaccent\{{-}{-}a\}} \d{--a}
+\texttt{@v\{a\}} \v{a}
+\texttt{@v\{{-}{-}a\}} \v{--a}
+\texttt{@,\{c\}} \c{c}
+\texttt{@,\{{-}{-}c\}} \c{--c}
+\texttt{@ogonek\{a\}} \k{a}
+\texttt{@ogonek\{{-}{-}a\}} \k{--a}
+\texttt{a@sup\{h\}@sub\{l\}} a\textsuperscript{h}\textsubscript{l}
+\texttt{@footnote\{in footnote\}} \footnote{in footnote}
+\texttt{@footnote\{in footnote2\}} \footnote{in footnote2}
+
+\texttt{@image\{f{-}{-}ile\}} \includegraphics{layout/f--ile}
+\texttt{@image\{f{-}{-}ile,l{-}{-}i\}} \includegraphics[width=l--i]{layout/f--ile}
+\texttt{@image\{f{-}{-}ile,,l{-}{-}e\}} \includegraphics[height=l--e]{layout/f--ile}
+\texttt{@image\{f{-}{-}ile,,,alt\}} \includegraphics{layout/f--ile}
+\texttt{@image\{f{-}{-}ile,,,,.e-d-xt\}} \includegraphics{layout/f--ile}
+\texttt{@image\{f{-}{-}ile,aze,az,alt,.e{-}{-}xt\}} \includegraphics[width=aze,height=az]{layout/f--ile}
+\texttt{@image\{f-ile,aze,,a{-}{-}lt\}} \includegraphics[width=aze]{f-ile}
+\texttt{@image\{@file\{f{-}{-}ile\}@@@.,aze,az,alt,@file\{.file ext\} e{-}{-}xt@\}} \includegraphics[width=aze,height=az]{f--ile@.}
+
+\texttt{@sp 2}\leavevmode{}\\
+\vskip 2\baselineskip
+\texttt{@page}\leavevmode{}\\
+
+\texttt{@clicksequence\{click @click\{\} A\}} click $\rightarrow{}$ A
+After clickstyle $\Rightarrow{}$
+\texttt{@clicksequence\{click @click\{\} A\}} click $\Rightarrow{}$ A
+
+$$
+\mathbf{``simple-double--three---four----''} \hbox{aa}
+`\hbox{}`simple-double-\hbox{}-three---four----'\hbox{}'
+$$
+
+$$
+\ddot{u} \ddot{U} \tilde{n} \hat{a} \acute{e} \bar{o} \grave{i} \acute{e} \imath{} \jmath{} \grave{\bar{E}}
+\mathord{\text{\l{}}} \textsl{\c{\'{C}}} \textsl{\c{\'{C}}} \textsl{\c{c}} \textsl{\H{a}} \dot{a} \mathring{a} \textsl{\t{a}}
+\breve{a} \textsl{\b{a}} \textsl{\d{a}} \check{a} \textsl{\k{a}} a^{h}_{l}
+ \ {}\ {} \ {}\-{}   ! ? . @ \} \{ 
+a sunny day
+$$
+
+$$
+\rightarrow{}
+u
+TeX LaTeX \bullet{} \copyright{} \dots{} \dots{} \equiv{}
+\fbox{error} \mapsto{} - \star{} \dashv{} \Rightarrow{}
+\mathord{\text{\aa{}}} \mathord{\text{\AA{}}} \mathord{\text{\ae{}}} \mathord{\text{\oe{}}} \mathord{\text{\AE{}}} \mathord{\text{\OE{}}} \mathord{\text{\o{}}} \mathord{\text{\O{}}} \mathord{\text{\ss{}}} \mathord{\text{\l{}}} \mathord{\text{\L{}}} \mathord{\text{\DH{}}}
+\mathord{\text{\TH{}}} \mathord{\text{\dh{}}} \mathord{\text{\th{}}} \mathord{\text{\textexclamdown{}}} \mathord{\text{\textquestiondown{}}} \mathsterling{}
+\circledR{} \mathord{\text{\textordfeminine{}}} \mathord{\text{\textordmasculine{}}} , 
+$$
+
+$$
+\mathord{\text{\textquotedblleft{}}} \mathord{\text{\textquotedblright{}}} 
+\mathord{\text{\textquoteleft{}}} \mathord{\text{\textquoteright{}}} \mathord{\text{\quotedblbase{}}} \mathord{\text{\quotesinglbase{}}} \mathord{\text{\guillemotleft{}}}
+\mathord{\text{\guillemotright{}}} \mathord{\text{\guillemotleft{}}} \mathord{\text{\guillemotright{}}} \mathord{\text{\guilsinglleft{}}}
+\mathord{\text{\guilsinglright{}}} ^{\circ{}} \euro{} \rightarrow{} \leq{} \geq{}
+$$
+
+{\ttfamily\textsl{default kbdinputstyle}}
+{\ttfamily\textsl{in example default kbdinputstyle}}
+
+\texttt{code kbdinputstyle}
+\texttt{in example code kbdinputstyle}
+
+{\ttfamily\textsl{example kbdinputstyle}}
+\texttt{in example example kbdinputstyle}
+
+{\ttfamily\textsl{distinct kbdinputstyle}}
+{\ttfamily\textsl{in example distinct kbdinputstyle}}
+
+A quot---ation
+
+\textbf{Note:} A Note
+
+\textbf{note:} A note
+
+\textbf{Caution:} Caution
+
+\textbf{Important:} Important
+
+\textbf{Tip:} a Tip
+
+\textbf{Warning:} a Warning.
+
+\textbf{something \'{e} \TeX{}:} The something \'{e} \TeX{} is here.
+
+\textbf{@ at the end of line \ {}:} A @ at the end of the @quotation line.
+
+\textbf{something, other thing:} something, other thing
+
+\textbf{Note, the note:} Note, the note
+
+
+\textbf{Empty:} 
+\textbf{:} 
+\textbf{\leavevmode{}\\:} 
+aaa quotation
+\begin{center}
+--- \emph{quotation author}
+\end{center}
+
+indent in quotation
+
+A small quot---ation
+
+\textbf{Note:} A small Note
+
+\textbf{something, other thing:} something, other thing
+
+\textbullet{} 
+
+i--temize
+
++ 
+
+i--tem +
+
+\textbullet{} 
+
+b--ullet
+
+- 
+
+minu--s
+
+\emph{} 
+
+e--mph item
+
+\emph{after emph} 
+
+e--mph item
+
+\textbullet{} a--n itemize line 
+
+i--tem 1
+\textbullet{} a--n itemize line 
+
+i--tem 2
+
+1. 
+
+e--numerate
+
+mu--ltitable headitem another tab
+mu--ltitable item multitable tab
+mu--ltitable item 2 multitable tab 2
+lone mu--ltitable item
+
+truc bidule
+
+e--xample  some
+   text
+
+example one arg
+
+example two args
+
+example three args
+
+example four args
+
+example five args
+
+The something \'{e} \TeX{} is here.
+
+A @ at the end of the @example line.
+
+example with empty args
+
+example with empty and non empty args mix
+
+s--mallexample
+
+\texttt{@noindent} after smallexample.
+\$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.guess?rev=HEAD\&content-type=text/plain'
+\$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEAD\&content-type=text/plain'
+\noindent{}Less recent versions are also present.
+
+d--isplay
+
+s--malldisplay
+
+l--isp
+
+s--malllisp
+
+f--ormat
+
+s--mallformat
+
+$$
+disp--laymath
+f(x) = {1 \over \sigma \sqrt{2\pi}}e^{-{1 \over 2}\left({x-\mu \over \sigma}\right)^2}
+$$
+
+\hbox{}-- c--ategory: d--effn\_name a--rguments...
+
+
+d--effn
+
+\hbox{}-- cate--gory: de--ffn\_name ar--guments    more args \leavevmode{}\\ even more so
+
+
+def--fn
+
+\hbox{}-- fset: \emph{i} a g
+
+
+\hbox{}-- cmde: truc 
+
+
+\hbox{}-- Command: log trap 
+
+
+\hbox{}-- Command: log trap1 
+
+
+\hbox{}-- Command: log trap2 
+
+
+\hbox{}-- cmde: \textbf{id ule} truc
+
+
+\hbox{}-- cmde2: \textbf{id `\texttt{i}' ule} truc
+
+
+\hbox{}-- \textbf{id `\texttt{i}' ule}: 
+
+
+
+\hbox{}-- aaa: 
+
+
+\hbox{}-- : 
+
+
+\hbox{}-- : 
+
+
+\hbox{}-- : machin
+
+
+\hbox{}-- : bidule machin
+
+
+\hbox{}-- truc: machin
+
+
+\hbox{}-- truc: 
+
+
+\hbox{}-- truc: followed by a comment
+
+
+\hbox{}-- truc: 
+
+
+\hbox{}-- : 
+
+
+\hbox{}-- truc: a b c d e \textbf{f g} h i
+
+
+\hbox{}-- truc: deffnx before end deffn
+
+
+
+\hbox{}-- empty: deffn
+
+
+
+\hbox{}-- empty: deffn with deffnx
+
+
+\hbox{}-- empty: deffnx
+
+
+
+\hbox{}-- fset: \emph{i} a g
+
+
+\hbox{}-- cmde: truc 
+
+
+text in def item for second def item
+
+\hbox{}-- c--ategory: d--efvr\_name
+
+
+d--efvr
+
+\hbox{}-- c--ategory: t--ype d--eftypefn\_name a--rguments...
+
+
+d--eftypefn
+
+\hbox{}-- c--ategory on c--lass: t--ype d--eftypeop\_name a--rguments...
+
+
+d--eftypeop
+
+\hbox{}-- c--ategory: t--ype d--eftypevr\_name
+
+
+d--eftypevr
+
+\hbox{}-- c--ategory of c--lass: d--efcv\_name
+
+
+d--efcv
+
+\hbox{}-- c--ategory on c--lass: d--efop\_name a--rguments...
+
+
+d--efop
+
+\hbox{}-- c--ategory: d--eftp\_name a--ttributes...
+
+
+d--eftp
+
+\hbox{}-- Function: d--efun\_name a--rguments...
+
+
+d--efun
+
+\hbox{}-- Macro: d--efmac\_name a--rguments...
+
+
+d--efmac
+
+\hbox{}-- Special Form: d--efspec\_name a--rguments...
+
+
+d--efspec
+
+\hbox{}-- Variable: d--efvar\_name argvar argvar1
+
+
+d--efvar
+
+\hbox{}-- User Option: d--efopt\_name
+
+
+d--efopt
+
+\hbox{}-- Function: t--ype d--eftypefun\_name a--rguments...
+
+
+d--eftypefun
+
+\hbox{}-- Variable: t--ype d--eftypevar\_name
+
+
+d--eftypevar
+
+\hbox{}-- Instance Variable of c--lass: d--efivar\_name
+
+
+d--efivar
+
+\hbox{}-- Instance Variable of c--lass: t--ype d--eftypeivar\_name
+
+
+d--eftypeivar
+
+\hbox{}-- Method on c--lass: d--efmethod\_name a--rguments...
+
+
+d--efmethod
+
+\hbox{}-- Method on c--lass: t--ype d--eftypemethod\_name a--rguments...
+
+
+d--eftypemethod
+
+\texttt{@xref\{c{-}{-}{-}hapter@@, cross r{-}{-}{-}ef name@@, t{-}{-}{-}itle@@, file n{-}{-}{-}ame@@, ma{-}{-}{-}nual@@\}} See cross r---ef name@(file n---ame@) (page \pageref{anchor:c_002d_002d_002dhapter_0040}).
+\texttt{@ref\{chapter, cross ref name, title, file name, manual\}} cross ref name(file name) (page \pageref{anchor:chapter})
+\texttt{@pxref\{chapter, cross ref name, title, file name, manual\}} see cross ref name(file name) (page \pageref{anchor:chapter})
+\texttt{@inforef\{chapter, cross ref name, file name\}} cross ref name(file name) (page \pageref{anchor:chapter})
+
+\texttt{@ref\{chapter\}} page \pageref{anchor:chapter}
+\texttt{@xref\{chapter\}} See page \pageref{anchor:chapter}.
+\texttt{@pxref\{chapter\}} see page \pageref{anchor:chapter}
+\texttt{@ref\{s{-}{-}ect@comma\{\}ion\}} page \pageref{anchor:s_002d_002dect_002cion}
+
+\texttt{@ref\{s{-}{-}ect@comma\{\}ion, a @comma\{\} in cross
+ref, a comma@comma\{\} in title, a comma@comma\{\} in file, a @comma\{\} in manual name \}}
+a , in cross
+ref(a comma, in file) (page \pageref{anchor:s_002d_002dect_002cion})
+
+\texttt{@ref\{chapter,cross ref name\}} cross ref name (page \pageref{anchor:chapter})
+\texttt{@ref\{chapter,,title\}} title (page \pageref{anchor:chapter})
+\texttt{@ref\{chapter,,,file name\}} (file name) manual, page \pageref{anchor:chapter}
+\texttt{@ref\{chapter,,,,manual\}} () manual, page \pageref{anchor:chapter}
+\texttt{@ref\{chapter,cross ref name,title,\}} cross ref name (page \pageref{anchor:chapter})
+\texttt{@ref\{chapter,cross ref name,,file name\}} cross ref name(file name) (page \pageref{anchor:chapter})
+\texttt{@ref\{chapter,cross ref name,,,manual\}} cross ref name() (page \pageref{anchor:chapter})
+\texttt{@ref\{chapter,cross ref name,title,file name\}} cross ref name(file name) (page \pageref{anchor:chapter})
+\texttt{@ref\{chapter,cross ref name,title,,manual\}} cross ref name() (page \pageref{anchor:chapter})
+\texttt{@ref\{chapter,cross ref name,title, file name, manual\}} cross ref name(file name) (page \pageref{anchor:chapter})
+\texttt{@ref\{chapter,,title,file name\}} title(file name) (page \pageref{anchor:chapter})
+\texttt{@ref\{chapter,,title,,manual\}} title() (page \pageref{anchor:chapter})
+\texttt{@ref\{chapter,,title, file name, manual\}} title(file name) (page \pageref{anchor:chapter})
+\texttt{@ref\{chapter,,,file name,manual\}} (file name) manual, page \pageref{anchor:chapter}
+
+
+\texttt{@ref\{(pman)anode,cross ref name\}} cross ref name (page \pageref{anchor:_0028pman_0029anode})
+\texttt{@ref\{(pman)anode,,title\}} title (page \pageref{anchor:_0028pman_0029anode})
+\texttt{@ref\{(pman)anode,,,file name\}} (file name) manual, page \pageref{anchor:_0028pman_0029anode}
+\texttt{@ref\{(pman)anode,,,,manual\}} () manual, page \pageref{anchor:_0028pman_0029anode}
+\texttt{@ref\{(pman)anode,cross ref name,title,\}} cross ref name (page \pageref{anchor:_0028pman_0029anode})
+\texttt{@ref\{(pman)anode,cross ref name,,file name\}} cross ref name(file name) (page \pageref{anchor:_0028pman_0029anode})
+\texttt{@ref\{(pman)anode,cross ref name,,,manual\}} cross ref name() (page \pageref{anchor:_0028pman_0029anode})
+\texttt{@ref\{(pman)anode,cross ref name,title,file name\}} cross ref name(file name) (page \pageref{anchor:_0028pman_0029anode})
+\texttt{@ref\{(pman)anode,cross ref name,title,,manual\}} cross ref name() (page \pageref{anchor:_0028pman_0029anode})
+\texttt{@ref\{(pman)anode,cross ref name,title, file name, manual\}} cross ref name(file name) (page \pageref{anchor:_0028pman_0029anode})
+\texttt{@ref\{(pman)anode,,title,file name\}} title(file name) (page \pageref{anchor:_0028pman_0029anode})
+\texttt{@ref\{(pman)anode,,title,,manual\}} title() (page \pageref{anchor:_0028pman_0029anode})
+\texttt{@ref\{(pman)anode,,title, file name, manual\}} title(file name) (page \pageref{anchor:_0028pman_0029anode})
+\texttt{@ref\{(pman)anode,,,file name,manual\}} (file name) manual, page \pageref{anchor:_0028pman_0029anode}
+
+
+\texttt{@inforef\{chapter, cross ref name, file name\}} cross ref name(file name) (page \pageref{anchor:chapter})
+\texttt{@inforef\{chapter\}} page \pageref{anchor:chapter}
+\texttt{@inforef\{chapter, cross ref name\}} cross ref name (page \pageref{anchor:chapter})
+\texttt{@inforef\{chapter,,file name\}} (file name) manual, page \pageref{anchor:chapter}
+\texttt{@inforef\{node, cross ref name, file name\}} cross ref name(file name) (page \pageref{anchor:node})
+\texttt{@inforef\{node\}} page \pageref{anchor:node}
+\texttt{@inforef\{node, cross ref name\}} cross ref name (page \pageref{anchor:node})
+\texttt{@inforef\{node,,file name\}} (file name) manual, page \pageref{anchor:node}
+\texttt{@inforef\{chapter, cross ref name, file name, spurious arg\}} cross ref name(file name, spurious arg) (page \pageref{anchor:chapter})
+
+\texttt{@inforef\{s{-}{-}ect@comma\{\}ion, a @comma\{\} in cross
+ref, a comma@comma\{\} in file\}}
+a , in cross
+ref(a comma, in file) (page \pageref{anchor:s_002d_002dect_002cion})
+
+
+a
+l--ine
+
+a
+b
+l--ine
+
+a
+b
+l--ine
+
+c--artouche
+
+g--roupe
+
+f--lushleft
+more text
+
+f--lushright
+more text
+
+\begin{center}
+ce--ntered line
+\end{center}
+
+\begin{flushleft}
+r--raggedright
+more text
+\end{flushleft}
+
+\begin{verbatim}
+\input texinfo @c -*-texinfo-*-
+
+@setfilename simplest.info
+
+@node Top
+
+This is a very simple texi manual @  <>.
+
+@bye
+\end{verbatim}
+
+\begin{verbatim}
+in verbatim ''
+\end{verbatim}
+
+
+
+
+
+$\frac{a < b \texttt{tex \hbox{ code }}}{b}$ ``
+
+
+\chapter*{chapheading}
+
+\section*{heading}
+
+\subsection*{subheading}
+
+\subsubsection*{subsubheading}
+
+
+\texttt{@acronym\{{-}{-}a,an accronym @comma\{\} @enddots\{\}\}} --a (an accronym , \dots{})
+\texttt{@abbr\{@'E{-}{-}. @comma\{\}A., @'Etude{-}{-}@comma\{\} @b\{Autonome\} \}} \'{E}--.\@ ,A.\@ (\'{E}tude--, \textbf{Autonome})
+\texttt{@abbr\{@'E{-}{-}. @comma\{\}A.\}} \'{E}--.\@ ,A.\@
+
+\texttt{@math\{{-}{-}a@minus\{\} \{\textbackslash{}frac\{1\}\{2\}\}\}} $--a- {\frac{1}{2}}$
+
+\texttt{@image\{f-ile,,,alt@verb\{:jk \_" \%\@\}\}} \includegraphics{f-ile}
+\texttt{@image\{f{-}{-}ile,aze,az,@verb\{:jk \_" \%@:\} @b\{in b "\},e{-}{-}xt\}} \includegraphics[width=aze,height=az]{layout/f--ile}
+\texttt{@image\{file@verb\{:jk \_" \%@:\},,,alt@verb\{:jk \_" \%@:\}\}} \includegraphics{filejk \_" \%@}
+
+
+
+
+Somehow invalid use of @,:\leavevmode{}\\
+@, \c{}
+\leavevmode{}\\
+@,@"u \c{}\"{u}
+
+Invalid use of @':\leavevmode{}\\
+@' \'{}
+\leavevmode{}\\
+@'@"u \'{}\"{u}
+
+@dotless\{truc\} truc
+@dotless\{ij\} ij
+\texttt{@dotless\{{-}{-}a\}} --a
+\texttt{@dotless\{a\}} a
+
+@U, without braces @U\{\}, with empty arg 
+@U\{z\}, with non-hex arg U+z
+@U\{FFFFFFFFFFFFFF\}, value much too large U+FFFFFFFFFFFFFF
+@U\{110000\}, value just beyond Unicode U+110000
+
+@TeX, but without brace \TeX{}\texttt{@\#} \#
+
+\texttt{@w\{{-}{-}a\}} \hbox{--a}
+
+\texttt{@image\{,1{-}{-}xt\}} 
+\texttt{@image\{,,2{-}{-}xt\}} 
+\texttt{@image\{,,,3{-}{-}xt\}} 
+
+
+\emph{} after emph 
+
+e--mph item
+
+\textbullet{} a--n itemize line 
+
+i--tem 1
+\textbullet{} a--n itemize line 
+
+i--tem 2
+
+\hbox{}-- fun: 
+
+
+\hbox{}-- truc: machin bidule chose and
+
+
+\hbox{}-- truc: machin bidule chose and  after
+
+
+\hbox{}-- truc: machin bidule chose and 
+
+
+\hbox{}-- truc: machin bidule chose and and after
+
+
+\hbox{}-- truc: followed by a comment
+
+
+Various deff lines
+\hbox{}-- truc: after a deff item
+
+
+
+\texttt{@ref\{node\}} page \pageref{anchor:node}
+
+\texttt{@ref\{,cross ref name\}} cross ref name (page \pageref{anchor:})
+\texttt{@ref\{,,title\}} title (page \pageref{anchor:})
+\texttt{@ref\{,,,file name\}} (file name) manual, page \pageref{anchor:}
+\texttt{@ref\{,,,,manual\}} () manual, page \pageref{anchor:}
+\texttt{@ref\{node,cross ref name\}} cross ref name (page \pageref{anchor:node})
+\texttt{@ref\{node,,title\}} title (page \pageref{anchor:node})
+\texttt{@ref\{node,,,file name\}} (file name) manual, page \pageref{anchor:node}
+\texttt{@ref\{node,,,,manual\}} () manual, page \pageref{anchor:node}
+\texttt{@ref\{node,cross ref name,title,\}} cross ref name (page \pageref{anchor:node})
+\texttt{@ref\{node,cross ref name,,file name\}} cross ref name(file name) (page \pageref{anchor:node})
+\texttt{@ref\{node,cross ref name,,,manual\}} cross ref name() (page \pageref{anchor:node})
+\texttt{@ref\{node,cross ref name,title,file name\}} cross ref name(file name) (page \pageref{anchor:node})
+\texttt{@ref\{node,cross ref name,title,,manual\}} cross ref name() (page \pageref{anchor:node})
+\texttt{@ref\{node,cross ref name,title, file name, manual\}} cross ref name(file name) (page \pageref{anchor:node})
+\texttt{@ref\{node,,title,file name\}} title(file name) (page \pageref{anchor:node})
+\texttt{@ref\{node,,title,,manual\}} title() (page \pageref{anchor:node})
+\texttt{@ref\{chapter,,title, file name, manual\}} title(file name) (page \pageref{anchor:chapter})
+\texttt{@ref\{node,,title, file name, manual\}} title(file name) (page \pageref{anchor:node})
+\texttt{@ref\{node,,,file name,manual\}} (file name) manual, page \pageref{anchor:node}
+\texttt{@ref\{,cross ref name,title,\}} cross ref name (page \pageref{anchor:})
+\texttt{@ref\{,cross ref name,,file name\}} cross ref name(file name) (page \pageref{anchor:})
+\texttt{@ref\{,cross ref name,,,manual\}} cross ref name() (page \pageref{anchor:})
+\texttt{@ref\{,cross ref name,title,file name\}} cross ref name(file name) (page \pageref{anchor:})
+\texttt{@ref\{,cross ref name,title,,manual\}} cross ref name() (page \pageref{anchor:})
+\texttt{@ref\{,cross ref name,title, file name, manual\}} cross ref name(file name) (page \pageref{anchor:})
+\texttt{@ref\{,,title,file name\}} title(file name) (page \pageref{anchor:})
+\texttt{@ref\{,,title,,manual\}} title() (page \pageref{anchor:})
+\texttt{@ref\{,,title, file name, manual\}} title(file name) (page \pageref{anchor:})
+\texttt{@ref\{,,,file name,manual\}} (file name) manual, page \pageref{anchor:}
+
+\texttt{@inforef\{,cross ref name \}} cross ref name (page \pageref{anchor:})
+\texttt{@inforef\{,,file name\}} (file name) manual, page \pageref{anchor:}
+\texttt{@inforef\{,cross ref name, file name\}} cross ref name(file name) (page \pageref{anchor:})
+\texttt{@inforef\{\}} page \pageref{anchor:}
+
+
+\end{titlepage}
+
+Insertcopying in normal text
+In copying
+
+<
+>
+"
+\&
+'
+`
+
+``simple-double--three---four----''\leavevmode{}\\
+code: \texttt{``simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-''} \leavevmode{}\\
+asis: ``simple-double--three---four----'' \leavevmode{}\\
+strong: \textbf{``simple-double--three---four----''} \leavevmode{}\\
+kbd: {\ttfamily\textsl{``simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-''}} \leavevmode{}\\
+
+`\hbox{}`simple-double-\hbox{}-three---four----'\hbox{}'\leavevmode{}\\
+
+
+@"u \"{u} 
+@"\{U\} \"{U} 
+@\~{}n \~{n}
+@\^{}a \^{a}
+@'e \'{e}
+@=o \={o}
+@`i \`{i}
+@'\{e\} \'{e}
+@'\{@dotless\{i\}\} \'{\i{}} 
+@dotless\{i\} \i{}
+@dotless\{j\} \j{}
+@`\{@=E\} \`{\={E}} 
+@l\{\} \l{}
+@,\{@'C\} \c{\'{C}}
+@,c \c{c}
+@,c@"u \c{c}\"{u} \leavevmode{}\\
+
+@U\{0075\} u
+
+@* \leavevmode{}\\
+@ followed by a space
+\ {}
+@ followed by a tab
+\ {}
+@ followed by a new line
+\ {}\texttt{@-} \-{}
+\texttt{@|} 
+\texttt{@:} \@
+\texttt{@!} \@!
+\texttt{@?} \@?
+\texttt{@.} \@.
+\texttt{@@} @
+\texttt{@\}} \}
+\texttt{@\{} \{
+\texttt{@/} 
+
+foo vs.\@ bar. 
+colon :\@And something else.
+semi colon ;\@.
+And ? ?\@.
+Now ! !\@@
+but , ,\@
+
+@TeX \TeX{}
+@LaTeX \LaTeX{}
+@bullet \textbullet{}
+@copyright \copyright{}
+@dots \dots{}\@
+@enddots \dots{}
+@equiv $\equiv{}$
+@error \fbox{error}
+@expansion $\mapsto{}$
+@minus -
+@point $\star{}$
+@print $\dashv{}$
+@result $\Rightarrow{}$
+@today a sunny day
+
+@aa \aa{}
+@AA \AA{}
+@ae \ae{}
+@oe \oe{}
+@AE \AE{}
+@OE \OE{}
+@o \o{}
+@O \O{}
+@ss \ss{}
+@l \l{}
+@L \L{}
+@DH \DH{}
+@TH \TH{}
+@dh \dh{}
+@th \th{}
+
+@exclamdown \textexclamdown{}
+@questiondown \textquestiondown{}
+@pounds \textsterling{}
+@registeredsymbol \circledR{}
+@ordf \textordfeminine{}
+@ordm \textordmasculine{}
+@comma ,
+@quotedblleft \textquotedblleft{}
+@quotedblright \textquotedblright{}
+@quoteleft \textquoteleft{}
+@quoteright \textquoteright{}
+@quotedblbase \quotedblbase{}
+@quotesinglbase \quotesinglbase{}
+@guillemetleft \guillemotleft{}
+@guillemetright \guillemotright{}
+@guillemotleft \guillemotleft{}
+@guillemotright \guillemotright{}
+@guilsinglleft \guilsinglleft{}
+@guilsinglright \guilsinglright{}
+@textdegree \textdegree{}
+@euro \euro{}
+@arrow $\rightarrow{}$
+@leq $\leq{}$
+@geq $\geq{}$
+
+\texttt{@acronym\{{-}{-}a,an accronym\}} --a (an accronym)
+\texttt{@acronym\{{-}{-}a\}} --a
+\texttt{@abbr\{@'E{-}{-}. @comma\{\}A., @'Etude Autonome \}} \'{E}--.\@ ,A.\@ (\'{E}tude Autonome)
+\texttt{@abbr\{@'E{-}{-}. @comma\{\}A.\}} \'{E}--.\@ ,A.\@
+\texttt{@asis\{{-}{-}a\}} --a
+\texttt{@b\{{-}{-}a\}} \textbf{--a}
+\texttt{@cite\{{-}{-}a\}} \textit{--a}
+\texttt{@code\{{-}{-}a\}} \texttt{{-}{-}a}
+\texttt{@command\{{-}{-}a\}} \texttt{{-}{-}a}
+\texttt{@dfn\{{-}{-}a\}} \emph{--a}
+\texttt{@dmn\{{-}{-}a\}} --a
+\texttt{@email\{{-}{-}a,{-}{-}b\}} --b \texttt{<{-}{-}a>}
+\texttt{@email\{,{-}{-}b\}} --b
+\texttt{@email\{{-}{-}a\}} \texttt{<{-}{-}a>}
+\texttt{@emph\{{-}{-}a\}} \emph{--a}
+\texttt{@env\{{-}{-}a\}} \texttt{{-}{-}a}
+\texttt{@file\{{-}{-}a\}} \texttt{{-}{-}a}
+\texttt{@i\{{-}{-}a\}} \textit{--a}
+\texttt{@kbd\{{-}{-}a\}} {\ttfamily\textsl{{-}{-}a}}
+\texttt{@key\{{-}{-}a\}} \texttt{{-}{-}a}
+\texttt{@math\{{-}{-}a \{\textbackslash{}frac\{1\}\{2\}\} @minus\{\}\}} $--a {\frac{1}{2}} -$
+\texttt{@option\{{-}{-}a\}} \texttt{{-}{-}a}
+\texttt{@r\{{-}{-}a\}} 
+\texttt{@samp\{{-}{-}a\}} `\texttt{{-}{-}a}'
+\texttt{@sc\{{-}{-}a\}} 
+\texttt{@strong\{{-}{-}a\}} \textbf{--a}
+\texttt{@t\{{-}{-}a\}} \texttt{{-}{-}a}
+\texttt{@sansserif\{{-}{-}a\}} 
+\texttt{@slanted\{{-}{-}a\}} 
+\texttt{@titlefont\{{-}{-}a\}} {\Huge \bfseries --a}
+\texttt{@indicateurl\{{-}{-}a\}} `\texttt{{-}{-}a}'
+\texttt{@uref\{{-}{-}a,{-}{-}b\}} --b (--a)
+\texttt{@uref\{{-}{-}a\}} \texttt{<{-}{-}a>}
+\texttt{@uref\{,{-}{-}b\}} --b
+\texttt{@uref\{{-}{-}a,{-}{-}b,{-}{-}c\}} --c
+\texttt{@uref\{,{-}{-}b,{-}{-}c\}} --c
+\texttt{@uref\{{-}{-}a,,{-}{-}c\}} --c
+\texttt{@uref\{,,{-}{-}c\}} --c
+\texttt{@url\{{-}{-}a,{-}{-}b\}} --b (--a)
+\texttt{@url\{{-}{-}a,\}} \texttt{<{-}{-}a>}
+\texttt{@url\{,{-}{-}b\}} --b
+\texttt{@var\{{-}{-}a\}} \emph{--a}
+\texttt{@verb\{:{-}{-}a:\}} \verb:--a:
+\texttt{@verb\{:a  < \& @ \% " {-}{-}    b:\}} \verb:a  < & @ % " --    b:
+\texttt{@w\{a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a\}} \hbox{a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a}
+\texttt{@H\{a\}} \H{a}
+\texttt{@H\{{-}{-}a\}} \H{--a}
+\texttt{@dotaccent\{a\}} \.{a}
+\texttt{@dotaccent\{{-}{-}a\}} \.{--a}
+\texttt{@ringaccent\{a\}} \r{a}
+\texttt{@ringaccent\{{-}{-}a\}} \r{--a}
+\texttt{@tieaccent\{a\}} \t{a}
+\texttt{@tieaccent\{{-}{-}a\}} \t{--a}
+\texttt{@u\{a\}} \u{a}
+\texttt{@u\{{-}{-}a\}} \u{--a}
+\texttt{@ubaraccent\{a\}} \b{a}
+\texttt{@ubaraccent\{{-}{-}a\}} \b{--a}
+\texttt{@udotaccent\{a\}} \d{a}
+\texttt{@udotaccent\{{-}{-}a\}} \d{--a}
+\texttt{@v\{a\}} \v{a}
+\texttt{@v\{{-}{-}a\}} \v{--a}
+\texttt{@,\{c\}} \c{c}
+\texttt{@,\{{-}{-}c\}} \c{--c}
+\texttt{@ogonek\{a\}} \k{a}
+\texttt{@ogonek\{{-}{-}a\}} \k{--a}
+\texttt{a@sup\{h\}@sub\{l\}} a\textsuperscript{h}\textsubscript{l}
+\texttt{@footnote\{in footnote\}} \footnote{in footnote}
+\texttt{@footnote\{in footnote2\}} \footnote{in footnote2}
+
+\texttt{@image\{f{-}{-}ile\}} \includegraphics{layout/f--ile}
+\texttt{@image\{f{-}{-}ile,l{-}{-}i\}} \includegraphics[width=l--i]{layout/f--ile}
+\texttt{@image\{f{-}{-}ile,,l{-}{-}e\}} \includegraphics[height=l--e]{layout/f--ile}
+\texttt{@image\{f{-}{-}ile,,,alt\}} \includegraphics{layout/f--ile}
+\texttt{@image\{f{-}{-}ile,,,,.e-d-xt\}} \includegraphics{layout/f--ile}
+\texttt{@image\{f{-}{-}ile,aze,az,alt,.e{-}{-}xt\}} \includegraphics[width=aze,height=az]{layout/f--ile}
+\texttt{@image\{f-ile,aze,,a{-}{-}lt\}} \includegraphics[width=aze]{f-ile}
+\texttt{@image\{@file\{f{-}{-}ile\}@@@.,aze,az,alt,@file\{.file ext\} e{-}{-}xt@\}} \includegraphics[width=aze,height=az]{f--ile@.}
+
+\texttt{@sp 2}\leavevmode{}\\
+\vskip 2\baselineskip
+\texttt{@page}\leavevmode{}\\
+
+\texttt{@clicksequence\{click @click\{\} A\}} click $\rightarrow{}$ A
+After clickstyle $\Rightarrow{}$
+\texttt{@clicksequence\{click @click\{\} A\}} click $\Rightarrow{}$ A
+
+$$
+\mathbf{``simple-double--three---four----''} \hbox{aa}
+`\hbox{}`simple-double-\hbox{}-three---four----'\hbox{}'
+$$
+
+$$
+\ddot{u} \ddot{U} \tilde{n} \hat{a} \acute{e} \bar{o} \grave{i} \acute{e} \imath{} \jmath{} \grave{\bar{E}}
+\mathord{\text{\l{}}} \textsl{\c{\'{C}}} \textsl{\c{\'{C}}} \textsl{\c{c}} \textsl{\H{a}} \dot{a} \mathring{a} \textsl{\t{a}}
+\breve{a} \textsl{\b{a}} \textsl{\d{a}} \check{a} \textsl{\k{a}} a^{h}_{l}
+ \ {}\ {} \ {}\-{}   ! ? . @ \} \{ 
+a sunny day
+$$
+
+$$
+\rightarrow{}
+u
+TeX LaTeX \bullet{} \copyright{} \dots{} \dots{} \equiv{}
+\fbox{error} \mapsto{} - \star{} \dashv{} \Rightarrow{}
+\mathord{\text{\aa{}}} \mathord{\text{\AA{}}} \mathord{\text{\ae{}}} \mathord{\text{\oe{}}} \mathord{\text{\AE{}}} \mathord{\text{\OE{}}} \mathord{\text{\o{}}} \mathord{\text{\O{}}} \mathord{\text{\ss{}}} \mathord{\text{\l{}}} \mathord{\text{\L{}}} \mathord{\text{\DH{}}}
+\mathord{\text{\TH{}}} \mathord{\text{\dh{}}} \mathord{\text{\th{}}} \mathord{\text{\textexclamdown{}}} \mathord{\text{\textquestiondown{}}} \mathsterling{}
+\circledR{} \mathord{\text{\textordfeminine{}}} \mathord{\text{\textordmasculine{}}} , 
+$$
+
+$$
+\mathord{\text{\textquotedblleft{}}} \mathord{\text{\textquotedblright{}}} 
+\mathord{\text{\textquoteleft{}}} \mathord{\text{\textquoteright{}}} \mathord{\text{\quotedblbase{}}} \mathord{\text{\quotesinglbase{}}} \mathord{\text{\guillemotleft{}}}
+\mathord{\text{\guillemotright{}}} \mathord{\text{\guillemotleft{}}} \mathord{\text{\guillemotright{}}} \mathord{\text{\guilsinglleft{}}}
+\mathord{\text{\guilsinglright{}}} ^{\circ{}} \euro{} \rightarrow{} \leq{} \geq{}
+$$
+
+{\ttfamily\textsl{default kbdinputstyle}}
+{\ttfamily\textsl{in example default kbdinputstyle}}
+
+\texttt{code kbdinputstyle}
+\texttt{in example code kbdinputstyle}
+
+{\ttfamily\textsl{example kbdinputstyle}}
+\texttt{in example example kbdinputstyle}
+
+{\ttfamily\textsl{distinct kbdinputstyle}}
+{\ttfamily\textsl{in example distinct kbdinputstyle}}
+
+A quot---ation
+
+\textbf{Note:} A Note
+
+\textbf{note:} A note
+
+\textbf{Caution:} Caution
+
+\textbf{Important:} Important
+
+\textbf{Tip:} a Tip
+
+\textbf{Warning:} a Warning.
+
+\textbf{something \'{e} \TeX{}:} The something \'{e} \TeX{} is here.
+
+\textbf{@ at the end of line \ {}:} A @ at the end of the @quotation line.
+
+\textbf{something, other thing:} something, other thing
+
+\textbf{Note, the note:} Note, the note
+
+
+\textbf{Empty:} 
+\textbf{:} 
+\textbf{\leavevmode{}\\:} 
+aaa quotation
+\begin{center}
+--- \emph{quotation author}
+\end{center}
+
+indent in quotation
+
+A small quot---ation
+
+\textbf{Note:} A small Note
+
+\textbf{something, other thing:} something, other thing
+
+\textbullet{} 
+
+i--temize
+
++ 
+
+i--tem +
+
+\textbullet{} 
+
+b--ullet
+
+- 
+
+minu--s
+
+\emph{} 
+
+e--mph item
+
+\emph{after emph} 
+
+e--mph item
+
+\textbullet{} a--n itemize line 
+
+i--tem 1
+\textbullet{} a--n itemize line 
+
+i--tem 2
+
+1. 
+
+e--numerate
+
+mu--ltitable headitem another tab
+mu--ltitable item multitable tab
+mu--ltitable item 2 multitable tab 2
+lone mu--ltitable item
+
+truc bidule
+
+e--xample  some
+   text
+
+example one arg
+
+example two args
+
+example three args
+
+example four args
+
+example five args
+
+The something \'{e} \TeX{} is here.
+
+A @ at the end of the @example line.
+
+example with empty args
+
+example with empty and non empty args mix
+
+s--mallexample
+
+\texttt{@noindent} after smallexample.
+\$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.guess?rev=HEAD\&content-type=text/plain'
+\$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEAD\&content-type=text/plain'
+\noindent{}Less recent versions are also present.
+
+d--isplay
+
+s--malldisplay
+
+l--isp
+
+s--malllisp
+
+f--ormat
+
+s--mallformat
+
+$$
+disp--laymath
+f(x) = {1 \over \sigma \sqrt{2\pi}}e^{-{1 \over 2}\left({x-\mu \over \sigma}\right)^2}
+$$
+
+\hbox{}-- c--ategory: d--effn\_name a--rguments...
+
+
+d--effn
+
+\hbox{}-- cate--gory: de--ffn\_name ar--guments    more args \leavevmode{}\\ even more so
+
+
+def--fn
+
+\hbox{}-- fset: \emph{i} a g
+
+
+\hbox{}-- cmde: truc 
+
+
+\hbox{}-- Command: log trap 
+
+
+\hbox{}-- Command: log trap1 
+
+
+\hbox{}-- Command: log trap2 
+
+
+\hbox{}-- cmde: \textbf{id ule} truc
+
+
+\hbox{}-- cmde2: \textbf{id `\texttt{i}' ule} truc
+
+
+\hbox{}-- \textbf{id `\texttt{i}' ule}: 
+
+
+
+\hbox{}-- aaa: 
+
+
+\hbox{}-- : 
+
+
+\hbox{}-- : 
+
+
+\hbox{}-- : machin
+
+
+\hbox{}-- : bidule machin
+
+
+\hbox{}-- truc: machin
+
+
+\hbox{}-- truc: 
+
+
+\hbox{}-- truc: followed by a comment
+
+
+\hbox{}-- truc: 
+
+
+\hbox{}-- : 
+
+
+\hbox{}-- truc: a b c d e \textbf{f g} h i
+
+
+\hbox{}-- truc: deffnx before end deffn
+
+
+
+\hbox{}-- empty: deffn
+
+
+
+\hbox{}-- empty: deffn with deffnx
+
+
+\hbox{}-- empty: deffnx
+
+
+
+\hbox{}-- fset: \emph{i} a g
+
+
+\hbox{}-- cmde: truc 
+
+
+text in def item for second def item
+
+\hbox{}-- c--ategory: d--efvr\_name
+
+
+d--efvr
+
+\hbox{}-- c--ategory: t--ype d--eftypefn\_name a--rguments...
+
+
+d--eftypefn
+
+\hbox{}-- c--ategory on c--lass: t--ype d--eftypeop\_name a--rguments...
+
+
+d--eftypeop
+
+\hbox{}-- c--ategory: t--ype d--eftypevr\_name
+
+
+d--eftypevr
+
+\hbox{}-- c--ategory of c--lass: d--efcv\_name
+
+
+d--efcv
+
+\hbox{}-- c--ategory on c--lass: d--efop\_name a--rguments...
+
+
+d--efop
+
+\hbox{}-- c--ategory: d--eftp\_name a--ttributes...
+
+
+d--eftp
+
+\hbox{}-- Function: d--efun\_name a--rguments...
+
+
+d--efun
+
+\hbox{}-- Macro: d--efmac\_name a--rguments...
+
+
+d--efmac
+
+\hbox{}-- Special Form: d--efspec\_name a--rguments...
+
+
+d--efspec
+
+\hbox{}-- Variable: d--efvar\_name argvar argvar1
+
+
+d--efvar
+
+\hbox{}-- User Option: d--efopt\_name
+
+
+d--efopt
+
+\hbox{}-- Function: t--ype d--eftypefun\_name a--rguments...
+
+
+d--eftypefun
+
+\hbox{}-- Variable: t--ype d--eftypevar\_name
+
+
+d--eftypevar
+
+\hbox{}-- Instance Variable of c--lass: d--efivar\_name
+
+
+d--efivar
+
+\hbox{}-- Instance Variable of c--lass: t--ype d--eftypeivar\_name
+
+
+d--eftypeivar
+
+\hbox{}-- Method on c--lass: d--efmethod\_name a--rguments...
+
+
+d--efmethod
+
+\hbox{}-- Method on c--lass: t--ype d--eftypemethod\_name a--rguments...
+
+
+d--eftypemethod
+
+\texttt{@xref\{c{-}{-}{-}hapter@@, cross r{-}{-}{-}ef name@@, t{-}{-}{-}itle@@, file n{-}{-}{-}ame@@, ma{-}{-}{-}nual@@\}} See cross r---ef name@(file n---ame@) (page \pageref{anchor:c_002d_002d_002dhapter_0040}).
+\texttt{@ref\{chapter, cross ref name, title, file name, manual\}} cross ref name(file name) (page \pageref{anchor:chapter})
+\texttt{@pxref\{chapter, cross ref name, title, file name, manual\}} see cross ref name(file name) (page \pageref{anchor:chapter})
+\texttt{@inforef\{chapter, cross ref name, file name\}} cross ref name(file name) (page \pageref{anchor:chapter})
+
+\texttt{@ref\{chapter\}} page \pageref{anchor:chapter}
+\texttt{@xref\{chapter\}} See page \pageref{anchor:chapter}.
+\texttt{@pxref\{chapter\}} see page \pageref{anchor:chapter}
+\texttt{@ref\{s{-}{-}ect@comma\{\}ion\}} page \pageref{anchor:s_002d_002dect_002cion}
+
+\texttt{@ref\{s{-}{-}ect@comma\{\}ion, a @comma\{\} in cross
+ref, a comma@comma\{\} in title, a comma@comma\{\} in file, a @comma\{\} in manual name \}}
+a , in cross
+ref(a comma, in file) (page \pageref{anchor:s_002d_002dect_002cion})
+
+\texttt{@ref\{chapter,cross ref name\}} cross ref name (page \pageref{anchor:chapter})
+\texttt{@ref\{chapter,,title\}} title (page \pageref{anchor:chapter})
+\texttt{@ref\{chapter,,,file name\}} (file name) manual, page \pageref{anchor:chapter}
+\texttt{@ref\{chapter,,,,manual\}} () manual, page \pageref{anchor:chapter}
+\texttt{@ref\{chapter,cross ref name,title,\}} cross ref name (page \pageref{anchor:chapter})
+\texttt{@ref\{chapter,cross ref name,,file name\}} cross ref name(file name) (page \pageref{anchor:chapter})
+\texttt{@ref\{chapter,cross ref name,,,manual\}} cross ref name() (page \pageref{anchor:chapter})
+\texttt{@ref\{chapter,cross ref name,title,file name\}} cross ref name(file name) (page \pageref{anchor:chapter})
+\texttt{@ref\{chapter,cross ref name,title,,manual\}} cross ref name() (page \pageref{anchor:chapter})
+\texttt{@ref\{chapter,cross ref name,title, file name, manual\}} cross ref name(file name) (page \pageref{anchor:chapter})
+\texttt{@ref\{chapter,,title,file name\}} title(file name) (page \pageref{anchor:chapter})
+\texttt{@ref\{chapter,,title,,manual\}} title() (page \pageref{anchor:chapter})
+\texttt{@ref\{chapter,,title, file name, manual\}} title(file name) (page \pageref{anchor:chapter})
+\texttt{@ref\{chapter,,,file name,manual\}} (file name) manual, page \pageref{anchor:chapter}
+
+
+\texttt{@ref\{(pman)anode,cross ref name\}} cross ref name (page \pageref{anchor:_0028pman_0029anode})
+\texttt{@ref\{(pman)anode,,title\}} title (page \pageref{anchor:_0028pman_0029anode})
+\texttt{@ref\{(pman)anode,,,file name\}} (file name) manual, page \pageref{anchor:_0028pman_0029anode}
+\texttt{@ref\{(pman)anode,,,,manual\}} () manual, page \pageref{anchor:_0028pman_0029anode}
+\texttt{@ref\{(pman)anode,cross ref name,title,\}} cross ref name (page \pageref{anchor:_0028pman_0029anode})
+\texttt{@ref\{(pman)anode,cross ref name,,file name\}} cross ref name(file name) (page \pageref{anchor:_0028pman_0029anode})
+\texttt{@ref\{(pman)anode,cross ref name,,,manual\}} cross ref name() (page \pageref{anchor:_0028pman_0029anode})
+\texttt{@ref\{(pman)anode,cross ref name,title,file name\}} cross ref name(file name) (page \pageref{anchor:_0028pman_0029anode})
+\texttt{@ref\{(pman)anode,cross ref name,title,,manual\}} cross ref name() (page \pageref{anchor:_0028pman_0029anode})
+\texttt{@ref\{(pman)anode,cross ref name,title, file name, manual\}} cross ref name(file name) (page \pageref{anchor:_0028pman_0029anode})
+\texttt{@ref\{(pman)anode,,title,file name\}} title(file name) (page \pageref{anchor:_0028pman_0029anode})
+\texttt{@ref\{(pman)anode,,title,,manual\}} title() (page \pageref{anchor:_0028pman_0029anode})
+\texttt{@ref\{(pman)anode,,title, file name, manual\}} title(file name) (page \pageref{anchor:_0028pman_0029anode})
+\texttt{@ref\{(pman)anode,,,file name,manual\}} (file name) manual, page \pageref{anchor:_0028pman_0029anode}
+
+
+\texttt{@inforef\{chapter, cross ref name, file name\}} cross ref name(file name) (page \pageref{anchor:chapter})
+\texttt{@inforef\{chapter\}} page \pageref{anchor:chapter}
+\texttt{@inforef\{chapter, cross ref name\}} cross ref name (page \pageref{anchor:chapter})
+\texttt{@inforef\{chapter,,file name\}} (file name) manual, page \pageref{anchor:chapter}
+\texttt{@inforef\{node, cross ref name, file name\}} cross ref name(file name) (page \pageref{anchor:node})
+\texttt{@inforef\{node\}} page \pageref{anchor:node}
+\texttt{@inforef\{node, cross ref name\}} cross ref name (page \pageref{anchor:node})
+\texttt{@inforef\{node,,file name\}} (file name) manual, page \pageref{anchor:node}
+\texttt{@inforef\{chapter, cross ref name, file name, spurious arg\}} cross ref name(file name, spurious arg) (page \pageref{anchor:chapter})
+
+\texttt{@inforef\{s{-}{-}ect@comma\{\}ion, a @comma\{\} in cross
+ref, a comma@comma\{\} in file\}}
+a , in cross
+ref(a comma, in file) (page \pageref{anchor:s_002d_002dect_002cion})
+
+
+a
+l--ine
+
+a
+b
+l--ine
+
+a
+b
+l--ine
+
+c--artouche
+
+g--roupe
+
+f--lushleft
+more text
+
+f--lushright
+more text
+
+\begin{center}
+ce--ntered line
+\end{center}
+
+\begin{flushleft}
+r--raggedright
+more text
+\end{flushleft}
 
 \begin{verbatim}
 \input texinfo @c -*-texinfo-*-
@@ -986,7 +2592,9 @@ but , ,\@
 \texttt{@image\{f-ile,aze,,a{-}{-}lt\}} \includegraphics[width=aze]{f-ile}
 \texttt{@image\{@file\{f{-}{-}ile\}@@@.,aze,az,alt,@file\{.file ext\} e{-}{-}xt@\}} \includegraphics[width=aze,height=az]{f--ile@.}
 
+\texttt{@sp 2}\leavevmode{}\\
 \vskip 2\baselineskip
+\texttt{@page}\leavevmode{}\\
 
 \texttt{@clicksequence\{click @click\{\} A\}} click $\rightarrow{}$ A
 After clickstyle $\Rightarrow{}$
@@ -994,14 +2602,14 @@ After clickstyle $\Rightarrow{}$
 
 $$
 \mathbf{``simple-double--three---four----''} \hbox{aa}
-`\hbox{}`simple-double-\hbox{}-three---four----'\hbox{}'\leavevmode{}\\
+`\hbox{}`simple-double-\hbox{}-three---four----'\hbox{}'
 $$
 
 $$
 \ddot{u} \ddot{U} \tilde{n} \hat{a} \acute{e} \bar{o} \grave{i} \acute{e} \imath{} \jmath{} \grave{\bar{E}}
 \mathord{\text{\l{}}} \textsl{\c{\'{C}}} \textsl{\c{\'{C}}} \textsl{\c{c}} \textsl{\H{a}} \dot{a} \mathring{a} \textsl{\t{a}}
 \breve{a} \textsl{\b{a}} \textsl{\d{a}} \check{a} \textsl{\k{a}} a^{h}_{l}
-\leavevmode{}\\ \ {}\ {} \ {}\-{}   ! ? . @ \} \{ 
+ \ {}\ {} \ {}\-{}   ! ? . @ \} \{ 
 a sunny day
 $$
 
@@ -1061,7 +2669,11 @@ A quot---ation
 \textbf{:} 
 \textbf{\leavevmode{}\\:} 
 aaa quotation
+\begin{center}
 --- \emph{quotation author}
+\end{center}
+
+indent in quotation
 
 A small quot---ation
 
@@ -1133,6 +2745,11 @@ example with empty args
 example with empty and non empty args mix
 
 s--mallexample
+
+\texttt{@noindent} after smallexample.
+\$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.guess?rev=HEAD\&content-type=text/plain'
+\$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEAD\&content-type=text/plain'
+\noindent{}Less recent versions are also present.
 
 d--isplay
 
@@ -1411,10 +3028,19 @@ c--artouche
 g--roupe
 
 f--lushleft
+more text
 
 f--lushright
+more text
 
+\begin{center}
 ce--ntered line
+\end{center}
+
+\begin{flushleft}
+r--raggedright
+more text
+\end{flushleft}
 
 \begin{verbatim}
 \input texinfo @c -*-texinfo-*-
@@ -1758,7 +3384,9 @@ but , ,\@
 \texttt{@image\{f-ile,aze,,a{-}{-}lt\}} \includegraphics[width=aze]{f-ile}
 \texttt{@image\{@file\{f{-}{-}ile\}@@@.,aze,az,alt,@file\{.file ext\} e{-}{-}xt@\}} \includegraphics[width=aze,height=az]{f--ile@.}
 
+\texttt{@sp 2}\leavevmode{}\\
 \vskip 2\baselineskip
+\texttt{@page}\leavevmode{}\\
 
 \texttt{@clicksequence\{click @click\{\} A\}} click $\rightarrow{}$ A
 After clickstyle $\Rightarrow{}$
@@ -1766,14 +3394,14 @@ After clickstyle $\Rightarrow{}$
 
 $$
 \mathbf{``simple-double--three---four----''} \hbox{aa}
-`\hbox{}`simple-double-\hbox{}-three---four----'\hbox{}'\leavevmode{}\\
+`\hbox{}`simple-double-\hbox{}-three---four----'\hbox{}'
 $$
 
 $$
 \ddot{u} \ddot{U} \tilde{n} \hat{a} \acute{e} \bar{o} \grave{i} \acute{e} \imath{} \jmath{} \grave{\bar{E}}
 \mathord{\text{\l{}}} \textsl{\c{\'{C}}} \textsl{\c{\'{C}}} \textsl{\c{c}} \textsl{\H{a}} \dot{a} \mathring{a} \textsl{\t{a}}
 \breve{a} \textsl{\b{a}} \textsl{\d{a}} \check{a} \textsl{\k{a}} a^{h}_{l}
-\leavevmode{}\\ \ {}\ {} \ {}\-{}   ! ? . @ \} \{ 
+ \ {}\ {} \ {}\-{}   ! ? . @ \} \{ 
 a sunny day
 $$
 
@@ -1833,7 +3461,11 @@ A quot---ation
 \textbf{:} 
 \textbf{\leavevmode{}\\:} 
 aaa quotation
+\begin{center}
 --- \emph{quotation author}
+\end{center}
+
+indent in quotation
 
 A small quot---ation
 
@@ -1905,6 +3537,11 @@ example with empty args
 example with empty and non empty args mix
 
 s--mallexample
+
+\texttt{@noindent} after smallexample.
+\$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.guess?rev=HEAD\&content-type=text/plain'
+\$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEAD\&content-type=text/plain'
+\noindent{}Less recent versions are also present.
 
 d--isplay
 
@@ -2183,10 +3820,19 @@ c--artouche
 g--roupe
 
 f--lushleft
+more text
 
 f--lushright
+more text
 
+\begin{center}
 ce--ntered line
+\end{center}
+
+\begin{flushleft}
+r--raggedright
+more text
+\end{flushleft}
 
 \begin{verbatim}
 \input texinfo @c -*-texinfo-*-
@@ -2358,6 +4004,15 @@ tp
 
 
 \label{anchor:chapter}\chapter{chapter}
+
+First para
+
+\noindent{}qsddsqkdsqkkmljsqjsqodmmdsqdsmqj dqs sdq sqd sdq dsq sdq sqd sqd sdq sdq 
+qsd dsq sdq dsq dssdq sdq sdq sdq dsq sdq dsq dsq sdq dsq sdqsd q
+
+\noindent{}noindent in para.
+
+unneeded indent
 
 \footnote{in footnote}
 
