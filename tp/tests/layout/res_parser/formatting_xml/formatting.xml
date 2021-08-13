@@ -728,6 +728,10 @@ $$\\partial_t \\eta (t) = g(\\eta(t),\\varphi(t))$$ ''
 docbook ''
 @end docbook
 
+@latex
+$\\frac{a &lt; b @code{tex \\hbox{ code }}}{b}$ ``
+@end latex
+
 @majorheading majorheading
 
 @chapheading chapheading
@@ -1558,6 +1562,9 @@ in verbatim ''
 <docbook endspaces=" ">
 </docbook>
 
+<latex endspaces=" ">
+</latex>
+
 <majorheading spaces=" ">majorheading</majorheading>
 
 <chapheading spaces=" ">chapheading</chapheading>
@@ -2385,6 +2392,9 @@ in verbatim ''
 
 <docbook endspaces=" ">
 </docbook>
+
+<latex endspaces=" ">
+</latex>
 
 <majorheading spaces=" ">majorheading</majorheading>
 
@@ -3214,6 +3224,9 @@ in verbatim ''
 <docbook endspaces=" ">
 </docbook>
 
+<latex endspaces=" ">
+</latex>
+
 <majorheading spaces=" ">majorheading</majorheading>
 
 <chapheading spaces=" ">chapheading</chapheading>
@@ -4035,6 +4048,9 @@ in verbatim ''
 
 <docbook endspaces=" ">
 </docbook>
+
+<latex endspaces=" ">
+</latex>
 
 </pre><majorheading spaces=" ">majorheading</majorheading>
 <pre xml:space="preserve">

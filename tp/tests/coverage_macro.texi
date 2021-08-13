@@ -705,6 +705,10 @@ $$\\partial_t \\eta (t) = g(\\eta(t),\\varphi(t))$$ ''
 docbook ''
 @end docbook
 
+@latex
+$\\frac{a < b @code{tex \\hbox{ code }}}{b}$ ``
+@end latex
+
 @majorheading majorheading
 
 @chapheading chapheading

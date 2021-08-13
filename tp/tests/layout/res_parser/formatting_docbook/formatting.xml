@@ -564,6 +564,7 @@ This is a very simple texi manual @  &lt;&gt;.
 
 docbook ''
 
+
 <bridgehead renderas="other">majorheading</bridgehead>
 
 <bridgehead renderas="other">chapheading</bridgehead>
@@ -1241,6 +1242,7 @@ This is a very simple texi manual @  &lt;&gt;.
 
 
 docbook ''
+
 
 <bridgehead renderas="other">majorheading</bridgehead>
 
@@ -1921,6 +1923,7 @@ This is a very simple texi manual @  &lt;&gt;.
 
 docbook ''
 
+
 <bridgehead renderas="other">majorheading</bridgehead>
 
 <bridgehead renderas="other">chapheading</bridgehead>
@@ -2600,6 +2603,7 @@ This is a very simple texi manual @  &lt;&gt;.
 
 docbook ''
 
+
 <bridgehead renderas="other">majorheading</bridgehead>
 
 <bridgehead renderas="other">chapheading</bridgehead>
@@ -3278,6 +3282,7 @@ This is a very simple texi manual @  &lt;&gt;.
 
 docbook ''
 
+
 <bridgehead renderas="other">majorheading</bridgehead>
 
 <bridgehead renderas="other">chapheading</bridgehead>
@@ -3947,6 +3952,7 @@ This is a very simple texi manual @  &lt;&gt;.
 
 
 docbook ''
+
 
 </screen><bridgehead renderas="other">majorheading</bridgehead>
 <screen>

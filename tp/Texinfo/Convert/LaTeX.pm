@@ -1318,9 +1318,7 @@ sub _convert($$)
         return '';
       }
       if ($block_raw_commands{$command}) {
-        if ($format_raw_commands{$command}) {
-          $result .= "\n\n";
-        } elsif ($command eq 'verbatim') {
+        if ($command eq 'verbatim') {
           $result .= "\\begin{verbatim}\n";
         }
         push @{$self->{'style_context'}->[-1]->{'context'}}, 'raw';
@@ -1423,7 +1421,7 @@ sub _convert($$)
       $result = $self->_convert (
                        {'contents' => $root->{'args'}->[0]->{'contents'}},
                        {'indent_length' => 0});
-      return $result;
+      return $result."\n";
     } elsif ($command eq 'exdent') {
       if ($preformatted_commands{$self->{'style_context'}->[-1]->{'context'}->[-1]}) {
         $result = $self->_convert({'contents' => $root->{'args'}->[0]->{'contents'}});
@@ -1503,14 +1501,8 @@ sub _convert($$)
   }
 
   # open 'type' constructs.
-  my $paragraph = 0;
   if ($root->{'type'}) {
-    if ($root->{'type'} eq 'paragraph') {
-      $paragraph = 1;
-    } elsif ($root->{'type'} eq 'preformatted'
-             or $root->{'type'} eq 'rawpreformatted') {
-      $preformatted = 1;
-    } elsif ($root->{'type'} eq 'def_line') {
+    if ($root->{'type'} eq 'def_line') {
       if ($root->{'extra'} and $root->{'extra'}->{'def_parsed_hash'}
              and %{$root->{'extra'}->{'def_parsed_hash'}}) {
         my $arguments = Texinfo::Common::definition_arguments_content($root);
@@ -1710,10 +1702,6 @@ sub _convert($$)
       $self->{'text_before_first_node'} = $result;
     }
   }
-  # close preformatted
-  if ($preformatted) {
-    $result .= "\n\n";
-  }
 
   # close commands
   if ($command) {
@@ -1758,7 +1746,6 @@ sub _convert($$)
       if ($command eq 'verbatim') {
         $result .= "\\end{verbatim}\n";
       }
-      # FIXME add \n if not verbatim?
     } elsif ($flush_commands{$command}) {
       my $old_context = pop @{$self->{'style_context'}->[-1]->{'context'}};
       die if (! $flush_commands{$old_context});
