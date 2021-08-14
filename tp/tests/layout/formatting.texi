@@ -7,16 +7,6 @@
 * @code{@@ @'e @equiv{}}: (formatting).  ``@asis{--- something}'' 
                            @command{cmd} @`a
 @end direntry
-@node Top
-@top Top section
-
-@menu
-* chapter::               chapter
-
-Menu comment
-
-* description:chapter2.   Chapter 2
-@end menu
 
 @include coverage_macro.texi
 
@@ -37,6 +27,32 @@ In titlepage
 Insercopying in titlepage
 @insertcopying
 @end titlepage
+
+@node Top
+@top Top section
+
+@menu
+* chapter::               chapter
+
+Menu comment
+
+* description:chapter2.   Chapter 2
+@end menu
+
+
+@node chapter
+@chapter chapter
+
+@indent
+First para
+
+@noindent
+qsddsqkdsqkkmljsqjsqodmmdsqdsmqj dqs sdq sqd sdq dsq sdq sqd sqd sdq sdq 
+qsd dsq sdq dsq dssdq sdq sdq sdq dsq sdq dsq dsq sdq dsq sdqsd q
+
+@noindent noindent in para.
+
+@indent unneeded indent
 
 Insertcopying in normal text
 @insertcopying
@@ -80,20 +96,6 @@ tp
 @printindex tp
 
 
-
-@node chapter
-@chapter chapter
-
-@indent
-First para
-
-@noindent
-qsddsqkdsqkkmljsqjsqodmmdsqdsmqj dqs sdq sqd sdq dsq sdq sqd sqd sdq sdq 
-qsd dsq sdq dsq dssdq sdq sdq sdq dsq sdq dsq dsq sdq dsq sdqsd q
-
-@noindent noindent in para.
-
-@indent unneeded indent
 
 @footnote{in footnote}
 

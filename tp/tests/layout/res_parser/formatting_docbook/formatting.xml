@@ -5,9 +5,6 @@
 ]>
 <book id="formatting.xml" lang="en">
 
-<chapter label="" id="Top">
-<title>Top section</title>
-
 
 
 <bookinfo><legalnotice><para>In copying
@@ -2102,6 +2099,24 @@ aaa</literallayout></textobject></inlinemediaobject>
 </para>
 
 
+<chapter label="" id="Top">
+<title>Top section</title>
+
+
+
+</chapter>
+<chapter label="1" id="chapter">
+<title>chapter</title>
+
+<para>First para
+</para>
+<para>qsddsqkdsqkkmljsqjsqodmmdsqdsmqj dqs sdq sqd sdq dsq sdq sqd sqd sdq sdq 
+qsd dsq sdq dsq dssdq sdq sdq sdq dsq sdq dsq dsq sdq dsq sdqsd q
+</para>
+<para>noindent in para.
+</para>
+<para>unneeded indent
+</para>
 <para>Insertcopying in normal text
 </para><para>In copying
 </para>
@@ -4218,19 +4233,6 @@ Various deff lines
 
 
 
-</chapter>
-<chapter label="1" id="chapter">
-<title>chapter</title>
-
-<para>First para
-</para>
-<para>qsddsqkdsqkkmljsqjsqodmmdsqdsmqj dqs sdq sqd sdq dsq sdq sqd sqd sdq sdq 
-qsd dsq sdq dsq dssdq sdq sdq sdq dsq sdq dsq dsq sdq dsq sdqsd q
-</para>
-<para>noindent in para.
-</para>
-<para>unneeded indent
-</para>
 <para><footnote><para>in footnote</para></footnote>
 </para>
 

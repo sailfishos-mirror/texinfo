@@ -489,6 +489,23 @@ $result_trees{'two_nodes_at_the_end'} = [
             'text' => '
 ',
             'type' => 'empty_line'
+          },
+          {
+            'contents' => [
+              {
+                'parent' => {},
+                'text' => 'in node after chapter 1
+'
+              }
+            ],
+            'parent' => {},
+            'type' => 'paragraph'
+          },
+          {
+            'parent' => {},
+            'text' => '
+',
+            'type' => 'empty_line'
           }
         ],
         'extra' => {
@@ -549,7 +566,7 @@ $result_trees{'two_nodes_at_the_end'} = [
         },
         'line_nr' => {
           'file_name' => '',
-          'line_nr' => 15,
+          'line_nr' => 17,
           'macro' => ''
         },
         'parent' => {}
@@ -636,6 +653,9 @@ $result_trees{'two_nodes_at_the_end'}[1]{'contents'}[1]{'parent'} = $result_tree
 $result_trees{'two_nodes_at_the_end'}[1]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'two_nodes_at_the_end'}[1]{'contents'}[2]{'args'}[0];
 $result_trees{'two_nodes_at_the_end'}[1]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'two_nodes_at_the_end'}[1]{'contents'}[2];
 $result_trees{'two_nodes_at_the_end'}[1]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'two_nodes_at_the_end'}[1]{'contents'}[2];
+$result_trees{'two_nodes_at_the_end'}[1]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'two_nodes_at_the_end'}[1]{'contents'}[2]{'contents'}[1];
+$result_trees{'two_nodes_at_the_end'}[1]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'two_nodes_at_the_end'}[1]{'contents'}[2];
+$result_trees{'two_nodes_at_the_end'}[1]{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'two_nodes_at_the_end'}[1]{'contents'}[2];
 $result_trees{'two_nodes_at_the_end'}[1]{'contents'}[2]{'extra'}{'node_content'}[0] = $result_trees{'two_nodes_at_the_end'}[1]{'contents'}[2]{'args'}[0]{'contents'}[0];
 $result_trees{'two_nodes_at_the_end'}[1]{'contents'}[2]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'two_nodes_at_the_end'}[1]{'contents'}[2]{'args'}[0]{'contents'}[0];
 $result_trees{'two_nodes_at_the_end'}[1]{'contents'}[2]{'parent'} = $result_trees{'two_nodes_at_the_end'}[1];
@@ -663,6 +683,8 @@ $result_texis{'two_nodes_at_the_end'} = '@node Top
 
 @node node after chapter 1
 
+in node after chapter 1
+
 @node node after chapter 2
 ';
 
@@ -677,6 +699,8 @@ $result_texts{'two_nodes_at_the_end'} = 'top
 1 chapter c1
 ************
 
+
+in node after chapter 1
 
 ';
 
@@ -992,6 +1016,8 @@ $result_converted{'plaintext'}->{'two_nodes_at_the_end'} = 'top
 1 chapter c1
 ************
 
+in node after chapter 1
+
 ';
 
 
@@ -1059,6 +1085,8 @@ Next: <a href="#node-after-chapter-2" accesskey="n" rel="next">node after chapte
 </div>
 <h4 class="node-heading">node after chapter 1</h4>
 
+<p>in node after chapter 1
+</p>
 <hr>
 <span id="node-after-chapter-2"></span><div class="header">
 <p>
@@ -1072,6 +1100,17 @@ Previous: <a href="#node-after-chapter-1" accesskey="p" rel="prev">node after ch
 
 </body>
 </html>
+';
+
+
+$result_converted{'latex'}->{'two_nodes_at_the_end'} = '\\chapter{chapter c1}
+\\label{anchor:chapter-1}%
+
+\\label{anchor:node-after-chapter-1}%
+
+in node after chapter 1
+
+\\label{anchor:node-after-chapter-2}%
 ';
 
 1;

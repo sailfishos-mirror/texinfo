@@ -814,4 +814,18 @@ $result_converted{'xml'}->{'chapter_between_nodes'} = '
 </chapter>
 ';
 
+
+$result_converted{'latex'}->{'chapter_between_nodes'} = '
+\\chapter{Chapter}
+
+In chapter
+
+\\section{section}
+\\label{anchor:section-node}%
+
+section.
+
+\\tableofcontents\\newpage
+';
+
 1;

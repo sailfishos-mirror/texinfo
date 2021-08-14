@@ -11,16 +11,6 @@
 </pre></menudescription></menuentry><menuentry leadingtext="* "><menutitle separator=": "><code>&arobase; <accent type="acute" bracketed="off">e</accent> &equiv;</code></menutitle><menunode separator=".  ">(formatting)</menunode><menudescription><pre xml:space="preserve">&textldquo;<asis>&textmdash; something</asis>&textrdquo; 
                            <command>cmd</command> <accent type="grave" bracketed="off">a</accent>
 </pre></menudescription></menuentry></direntry>
-<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chapter</nodenext></node>
-<top spaces=" "><sectiontitle>Top section</sectiontitle>
-
-<menu endspaces=" ">
-<menuentry leadingtext="* "><menunode separator="::               ">chapter</menunode><menudescription><pre xml:space="preserve">chapter
-</pre></menudescription></menuentry><menucomment><pre xml:space="preserve">
-Menu comment
-
-</pre></menucomment><menuentry leadingtext="* "><menutitle separator=":">description</menutitle><menunode separator=".   ">chapter2</menunode><menudescription><pre xml:space="preserve">Chapter 2
-</pre></menudescription></menuentry></menu>
 
 <macro name="mymacro" line=" mymacro">
 &lt;
@@ -2601,6 +2591,33 @@ in verbatim ''
 </para><insertcopying></insertcopying>
 </titlepage>
 
+<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chapter</nodenext></node>
+<top spaces=" "><sectiontitle>Top section</sectiontitle>
+
+<menu endspaces=" ">
+<menuentry leadingtext="* "><menunode separator="::               ">chapter</menunode><menudescription><pre xml:space="preserve">chapter
+</pre></menudescription></menuentry><menucomment><pre xml:space="preserve">
+Menu comment
+
+</pre></menucomment><menuentry leadingtext="* "><menutitle separator=":">description</menutitle><menunode separator=".   ">chapter2</menunode><menudescription><pre xml:space="preserve">Chapter 2
+</pre></menudescription></menuentry></menu>
+
+
+</top>
+<node name="chapter" spaces=" "><nodename>chapter</nodename><nodenext automatic="on">chapter2</nodenext><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
+<chapter spaces=" "><sectiontitle>chapter</sectiontitle>
+
+<indent></indent>
+<para>First para
+</para>
+<noindent></noindent>
+<para>qsddsqkdsqkkmljsqjsqodmmdsqdsmqj dqs sdq sqd sdq dsq sdq sqd sqd sdq sdq 
+qsd dsq sdq dsq dssdq sdq sdq sdq dsq sdq dsq dsq sdq dsq sdqsd q
+</para>
+<noindent></noindent><para>noindent in para.
+</para>
+<indent></indent><para>unneeded indent
+</para>
 <para>Insertcopying in normal text
 </para><insertcopying></insertcopying>
 
@@ -4336,21 +4353,6 @@ Various deff lines
 
 
 
-</top>
-<node name="chapter" spaces=" "><nodename>chapter</nodename><nodenext automatic="on">chapter2</nodenext><nodeprev automatic="on">Top</nodeprev><nodeup automatic="on">Top</nodeup></node>
-<chapter spaces=" "><sectiontitle>chapter</sectiontitle>
-
-<indent></indent>
-<para>First para
-</para>
-<noindent></noindent>
-<para>qsddsqkdsqkkmljsqjsqodmmdsqdsmqj dqs sdq sqd sdq dsq sdq sqd sqd sdq sdq 
-qsd dsq sdq dsq dssdq sdq sdq sdq dsq sdq dsq dsq sdq dsq sdqsd q
-</para>
-<noindent></noindent><para>noindent in para.
-</para>
-<indent></indent><para>unneeded indent
-</para>
 <para><footnote><para>in footnote</para></footnote>
 </para>
 <format endspaces=" ">

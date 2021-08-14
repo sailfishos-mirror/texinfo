@@ -927,4 +927,14 @@ Next: <a href="#chapter-node" accesskey="n" rel="next">chapter</a> &nbsp; </p>
 </html>
 ';
 
+
+$result_converted{'latex'}->{'section_chapter_before_top_nodes'} = '\\section{section}
+\\label{anchor:section-node}%
+
+\\chapter{chapter}
+\\label{anchor:chapter-node}%
+
+
+';
+
 1;

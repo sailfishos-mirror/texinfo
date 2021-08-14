@@ -945,4 +945,15 @@ $result_errors{'loop_nodes'} = [
 $result_floats{'loop_nodes'} = {};
 
 
+
+$result_converted{'latex'}->{'loop_nodes'} = '
+\\label{anchor:node-up}%
+
+
+\\label{anchor:node-middle}%
+
+
+\\label{anchor:node-down}%
+';
+
 1;

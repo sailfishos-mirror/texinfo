@@ -5,7 +5,7 @@ use Texinfo::ModulePath (undef, undef, 'updirs' => 2);
 
 require 't/test_utils.pl';
 
-my $accents_text = '@node Top
+my $accents_text = '@node Top node
 @top top
 
 should be e`: @`{e} @`e

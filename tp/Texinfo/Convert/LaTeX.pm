@@ -51,6 +51,9 @@
 #
 # @need is implemented in a specific way, maybe there could be a 
 # definition of \mil instead.
+#
+# Nothing specific is done for @headings singleafter and @headings doubleafter
+# compared to @headings single and @headings double
 
 package Texinfo::Convert::LaTeX;
 
@@ -62,6 +65,8 @@ use if $] >= 5.012, feature => qw(unicode_strings);
 use strict;
 
 use File::Spec;
+
+use Carp qw(cluck confess);
 
 use Texinfo::Convert::Converter;
 use Texinfo::Common;
@@ -92,7 +97,7 @@ my %formatting_misc_commands = %Texinfo::Convert::Text::formatting_misc_commands
 my @informative_global_commands = ('paragraphindent', 'firstparagraphindent',
 'frenchspacing', 'documentencoding', 'footnotestyle', 'documentlanguage',
 'contents', 'shortcontents', 'summarycontents', 'deftypefnnewline',
-'allowcodebreaks', 'kbdinputstyle');
+'allowcodebreaks', 'kbdinputstyle', 'setchapternewpage', 'headings');
 
 my %informative_commands;
 foreach my $informative_command (@informative_global_commands) {
@@ -129,7 +134,7 @@ my %letter_no_arg_commands = %Texinfo::Common::letter_no_arg_commands;
 foreach my $kept_command (keys(%informative_commands),
   keys(%default_index_commands),
   'verbatiminclude', 'insertcopying', 
-  'listoffloats', 'printindex', 'indent', 'noindent', 'need') {
+  'listoffloats', 'printindex', 'indent', 'noindent', 'need', 'page') {
   $formatting_misc_commands{$kept_command} = 1;
 }
 
@@ -168,19 +173,28 @@ my @LaTeX_image_extensions = (
 'pdf','png','jpg','mps','jpeg','jbig2','jb2','PDF','PNG','JPG','JPEG','JBIG2','JB2');
 
 my %section_map = (
+   'top' => 'part*',
    'part' => 'part',
    'chapter' => 'chapter',
    'section' => 'section',
    'subsection' => 'subsection',
    'subsubsection' => 'subsubsection',
-   'chapheading' => 'chapter*',
-   'heading' => 'section*',
-   'subheading' => 'subsection*',
-   'subsubheading' => 'subsubsection*',
+   # embed in a \GNUTexinfonopagebreakheading call to remove pagebreaks
+   'chapheading' => 'GNUTexinfonopagebreakheading{\chapter*}',
+   'majorheading' => 'GNUTexinfonopagebreakheading{\chapter*}',
+   'heading' => 'GNUTexinfonopagebreakheading{\section*}',
+   'subheading' => 'GNUTexinfonopagebreakheading{\subsection*}',
+   'subsubheading' => 'GNUTexinfonopagebreakheading{\subsubsection*}',
    'unnumbered' => 'chapter*',
+   'centerchap' => 'chapter*',
    'unnumberedsec' => 'section*',
    'unnumberedsubsec' => 'subsection*',
    'unnumberedsubsubsec' => 'subsubsection*',
+   'appendix' => 'chapter',
+   'appendixsec' => 'section',
+   'appendixsubsec' => 'subsection',
+   'appendixsubsubsec' => 'subsubsection',
+
 );
 
 my %LaTeX_no_arg_brace_commands = (
@@ -213,6 +227,7 @@ my %LaTeX_no_arg_brace_commands = (
     'geq' => '$\geq{}$',
     'leq' => '$\leq{}$',
     'textdegree' => '\textdegree{}',
+    'today' => '\today{}',
     # FIXME according to the manual, it is not \hbox, \hbox is for @w.
     # maybe use ~?
     'tie' => '\hbox{}',
@@ -246,6 +261,7 @@ my %LaTeX_no_arg_brace_commands = (
     'geq' => '\geq{}',
     'leq' => '\leq{}',
     'textdegree' => '^{\circ{}}',
+    'today' => '\today{}',
     'tie' => '\hbox{}',
   }
 );
@@ -566,11 +582,12 @@ sub _latex_header {
   my $self = shift;
   # amsfonts for \circledR
   # amsmath for \text in math
-  # T1 fontenc for \DH, \guillemotleft
+  # T1 fontenc for \DH, \guillemotleft, ...
   # eurosym for \euro
   # textcomp for \textdegree in older LaTeX
   # graphicx for \includegraphics
   # needspace for \needspace. In texlive-latex-extra in debian
+  # etoolbox for \patchcmd. In texlive-latex-recommended in debian
   my $header = 
 '\documentclass{book}
 \usepackage{makeidx}\makeindex
@@ -581,18 +598,9 @@ sub _latex_header {
 \usepackage{textcomp}
 \usepackage{graphicx}
 \usepackage{needspace}
-
+\usepackage{etoolbox}
+\usepackage{fancyhdr}
 ';
-  # this is in order to be able to run pdflatex even
-  # if files do not exist, or filenames cannot be
-  # processed by LaTeX
-  if ($self->get_conf('TEST')) {
-    $header .=
-'
-\renewcommand{\includegraphics}[1]{\fbox{FIG #1}}
-
-';
-  }
   if ($self->{'output_encoding_name'}) {
     my $encoding = $self->{'output_encoding_name'};
     if (defined($LaTeX_encoding_names_map{$encoding})) {
@@ -606,9 +614,67 @@ sub _latex_header {
   #  # in texlive-latex-extra in debian
   #  $header .= "\\usepackage{shorttoc}\n";
   #}
+  $header .= '
+% command that does nothing used to help with substitutions in commands
+\newcommand{\GNUTexinfoplaceholder}[1]{}
+
+% called when setting single headers
+% use \nouppercase to match with Texinfo TeX style
+\newcommand{\GNUTexinfosetsingleheader}{\pagestyle{fancy}
+\fancyhf{}
+\lhead{\nouppercase{\leftmark}}
+\rhead{\thepage}
+}
+
+% called when setting double headers
+\newcommand{\GNUTexinfosetdoubleheader}[1]{\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[RE]{#1}
+\fancyhead[LO]{\nouppercase{\leftmark}}
+}
+
+% for part and chapter, which call \thispagestyle{plain}
+\fancypagestyle{plain}{ %
+ \fancyhf{}
+ \fancyhead[LE,RO]{\thepage}
+}
+
+% match Texinfo TeX style
+\renewcommand{\headrulewidth}{0pt}%
+
+% avoid pagebreak and headings setting for a sectionning command
+\newcommand{\GNUTexinfonopagebreakheading}[2]{\let\clearpage\relax \let\cleardoublepage\relax \let\thispagestyle\GNUTexinfoplaceholder #1{#2}}
+
+';
+  # this is in order to be able to run pdflatex even
+  # if files do not exist, or filenames cannot be
+  # processed by LaTeX
+  if ($self->get_conf('TEST')) {
+    $header .=
+'
+\renewcommand{\includegraphics}[1]{\fbox{FIG #1}}
+
+';
+  }
+  # setup defaults
+  $header .= "% set default for \@setchapternewpage\n";
+  $header .= _set_chapter_new_page($self, 'on');
+  $header .= "\n";
+  # setup headings before titlepage to have no headings
+  # before titlepage.  They will be set to 'on' after
+  # the titlepage if there is a titlepage
+  if (exists($self->{'extra'}->{'titlepage'})) {
+    $header .= "% no headings before titlepage\n";
+    $header .= _set_headings($self, 'off');
+    $header .= "\n";
+  }
   $header .= 
 '\begin{document}
 ';
+  if (exists($self->{'extra'}->{'titlepage'})) {
+    $header .= "\n\\frontmatter\n";
+  }
   return $header;
 }
 
@@ -616,6 +682,119 @@ sub _latex_footer {
   return
 '\end{document}
 ';
+}
+
+# TODO translation
+my $default_odd_heading = 'No Title';
+sub _set_headings($$)
+{
+  my ($self, $headings_spec) = @_;
+
+  my $headings_type;
+  if ($headings_spec eq 'on') {
+    $headings_type = 'single';
+    my $setchapternewpage_spec = $self->get_conf('setchapternewpage');
+    if (defined($setchapternewpage_spec)
+        and $setchapternewpage_spec eq 'odd') {
+      $headings_type = 'double';
+    }
+  } elsif ($headings_spec eq 'doubleafter') {
+    $headings_type = 'double';
+  } elsif ($headings_spec eq 'singleafter') {
+    $headings_type = 'single';
+  } elsif ($headings_spec eq 'off' or $headings_spec eq 'single'
+           or $headings_spec eq 'double') {
+    $headings_type = $headings_spec;
+  }
+
+  if (not defined($headings_type)) {
+    confess("_set_headings no type for $headings_spec");
+  }
+
+  my $result = '';
+  if ($headings_type eq 'single') {
+    $result = "\\GNUTexinfosetsingleheader{}%\n";
+  } elsif ($headings_type eq 'double') {
+    my $odd_heading;
+    if ($self->{'settitle_tree'}) {
+      $odd_heading = $self->_convert($self->{'settitle_tree'});
+    } else {
+      $odd_heading = $default_odd_heading;
+    }
+    $result = "\\GNUTexinfosetdoubleheader{$odd_heading}%\n";
+  } elsif ($headings_type eq 'off') {
+    $result = "\\pagestyle{empty}%\n";
+  }
+  return $result;
+}
+
+# to change the chapter we substitute in the \chapter command.
+# REMARK it is fragile as it depends on the LaTeX codes. It is also
+# most probably specific of the documentclass.
+my $odd_chapter_new_page_code = '\if@openright\cleardoublepage\else\clearpage\fi';
+my $default_chapter_page_code = $odd_chapter_new_page_code;
+# To make sure that we substitute the right code, we add a
+# distinctive code that does nothing.  This is needed when
+# code is simply removed or when simple code is substituted.
+my $chapter_new_page_marking_placeholder 
+   = '\GNUTexinfoplaceholder{setchapternewpage placeholder}';
+
+my %setchapternewpage_new_page_spec_code = (
+  'on' => $chapter_new_page_marking_placeholder.'\clearpage',
+  'off' => $chapter_new_page_marking_placeholder.'',
+  'odd' => $odd_chapter_new_page_code,
+);
+
+# Note that the code should probably be different if the default code
+# wes not distinctive enough
+sub _set_chapter_new_page($$)
+{
+  my ($self, $setchapternewpage_spec) = @_;
+  
+  my $substituted_code;
+  if (defined($self->{'prev_chapter_new_page_substitution'})) {
+    $substituted_code = $self->{'prev_chapter_new_page_substitution'};
+  } else {
+    $substituted_code = $default_chapter_page_code;
+  }
+  my $new_code = $setchapternewpage_new_page_spec_code{$setchapternewpage_spec};
+
+  my $result = '';
+  # do not substitute if it is the same, for instance
+  # if setting the same as book default or setting twice
+  if ($new_code ne $substituted_code) {
+    $result .= '\makeatletter
+\patchcmd{\chapter}{'.$substituted_code.'}{'.$new_code.'}{}{}
+\makeatother
+';
+  }
+
+  # reset headings after titlepage only, or immediately
+  # if there is no titlepage
+  if ((not  $self->{'extra'}->{'titlepage'})
+      or $self->{'titlepage_done'}) {
+    $result .= _set_headings($self, 'on');
+  }
+
+  $self->{'prev_chapter_new_page_substitution'} = $new_code;
+  
+  return $result;
+}
+
+sub _prepare_conversion($)
+{
+  my $self = shift;
+
+  $self->_set_global_multiple_commands(-1);
+
+  if ($self->{'extra'}->{'settitle'}) {
+    my $settitle_root = $self->{'extra'}->{'settitle'};
+    if (not ($settitle_root->{'extra'}
+             and $settitle_root->{'extra'}->{'missing_argument'})) {
+      $self->{'settitle_tree'} =
+         {'contents' => $settitle_root->{'args'}->[0]->{'contents'}};
+    }
+  }
 }
 
 sub output($$)
@@ -635,7 +814,7 @@ sub output($$)
     }
   }
 
-  $self->_set_global_multiple_commands(-1);
+  $self->_prepare_conversion();
 
   my $result = '';
 
@@ -660,7 +839,8 @@ sub convert($$;$)
   my $root = shift;
   my $fh = shift;
 
-  $self->_set_global_multiple_commands(-1);
+  $self->_prepare_conversion();
+  
   return $self->convert_document_sections($root, $fh);
 }
 
@@ -669,6 +849,10 @@ sub convert_tree($$)
   my $self = shift;
   my $root = shift;
 
+  #print STDERR "* ".Texinfo::Common::_print_current($root)."\n";
+  #foreach my $content (@{$root->{'contents'}}) {
+  #  print STDERR "** ".Texinfo::Common::_print_current($content)."\n";
+  #}
   return $self->_convert($root);
 }
 
@@ -710,24 +894,13 @@ sub _printindex($$)
 }
 
 
-sub _node_name {
+sub _tree_anchor_label {
   my $node_content = shift;
 
   my $label = Texinfo::Convert::NodeNameNormalization::normalize_node
     ({'contents' => $node_content});
   return "anchor:$label";
 }
-
-sub _node($$)
-{
-  my $self = shift;
-  my $node = shift;
-
-  my $label = _node_name($node->{'extra'}->{'node_content'});
-
-  return "\\label{$label}";
-}
-
 
 sub _get_form_feeds($)
 {
@@ -743,6 +916,8 @@ sub _convert($$);
 sub _convert($$)
 {
   my ($self, $root) = @_;
+
+  #print STDERR "C ".Texinfo::Common::_print_current($root)."\n";
 
   if (($root->{'type'} and $self->{'ignored_types'}->{$root->{'type'}})
        or ($root->{'cmdname'} 
@@ -822,7 +997,7 @@ sub _convert($$)
           $result = "\\leavevmode{}\\\\";
           #$result = "\\linebreak[4]\n";
         } else {
-          if ($self->{'style_context'}->[-1]->{'math_style'}->[-1] 
+          if ($self->{'style_context'}->[-1]->{'math_style'}->[-1]
               eq 'one-line') {
             $result = "";
           } else {
@@ -846,9 +1021,6 @@ sub _convert($$)
         $result .= _protect_text($self, $no_brace_commands{$command});
       }
       return $result;
-    } elsif ($command eq 'today') {
-      my $today = $self->Texinfo::Common::expand_today();
-      unshift @{$self->{'current_contents'}->[-1]}, $today;
     } elsif (exists($brace_no_arg_commands{$command})) {
       my $converted_command = $command;
       if ($command eq 'click' and $root->{'extra'}
@@ -1124,7 +1296,8 @@ sub _convert($$)
       pop @{$self->{'style_context'}};
       return $result;
     } elsif ($command eq 'anchor') {
-      $result .= $self->_node($root);
+      my $anchor_label = _tree_anchor_label($root->{'extra'}->{'node_content'});
+      $result .= "\\label{$anchor_label}%\n";
       return $result;
     } elsif ($ref_commands{$command}) {
       if (scalar(@{$root->{'args'}})) {
@@ -1198,16 +1371,16 @@ sub _convert($$)
           if ($file) {
             $result .= _convert($self, {'contents' => $file});
           }
-          my $node_text = _node_name($node_content);
+          my $node_label = _tree_anchor_label($node_content);
 
-          $result .= " (page \\pageref{$node_text})";
+          $result .= " (page \\pageref{$node_label})";
         } else { # Label same as node specification
           if ($file) {
             $result .= _convert($self, {'contents' => $file});
             $result .= " manual, "
           }
-          my $node_text = _node_name($node_content);
-          $result .= "page \\pageref{$node_text}";
+          my $node_label = _tree_anchor_label($node_content);
+          $result .= "page \\pageref{$node_label}";
         }
 
         return $result;
@@ -1279,7 +1452,7 @@ sub _convert($$)
         return $result;
       } else {
         if ($command eq 'displaymath') {
-          push @{$self->{'style_context'}->[-1]->{'math_style'}}, 'one-line';    
+          push @{$self->{'style_context'}->[-1]->{'math_style'}}, 'one-line';
           $result .= "\$\$\n";
         }
       }
@@ -1405,37 +1578,56 @@ sub _convert($$)
       } elsif ($command eq 'float') {
         $result .= "\n";
         if ($root->{'extra'} and $root->{'extra'}->{'node_content'}) {
-          $result .= $self->_node($root);
+          my $float_label
+            = _tree_anchor_label($root->{'extra'}->{'node_content'});
+          $result .= "\\label{$float_label}%\n";
         }
       }
     } elsif ($command eq 'node') {
       $self->{'node'} = $root;
-      $result .= $self->_node($root);
-    } elsif ($sectioning_commands{$command}) {
-      # use settitle for empty @top
-      # ignore @part
-      my $contents;
-      if ($root->{'args'}->[0]->{'contents'} 
-          and @{$root->{'args'}->[0]->{'contents'}} 
-          and $command ne 'part') {
-        $contents = $root->{'args'}->[0]->{'contents'};
-      } elsif ($command eq 'top'
-          and $self->{'extra'}->{'settitle'} 
-          and $self->{'extra'}->{'settitle'}->{'args'}
-          and @{$self->{'extra'}->{'settitle'}->{'args'}}
-          and $self->{'extra'}->{'settitle'}->{'args'}->[0]->{'contents'}
-          and @{$self->{'extra'}->{'settitle'}->{'args'}->[0]->{'contents'}}) {
-        $contents = $self->{'extra'}->{'settitle'}->{'args'}->[0]->{'contents'};
+      # add the label only if not associated with a section
+      if (not $root->{'extra'}->{'associated_section'}) {
+        my $node_label
+          = _tree_anchor_label($root->{'extra'}->{'node_content'});
+        $result .= "\\label{$node_label}%\n";;
       }
-             
-      if ($contents) {
-        my $heading = $self->_convert({'contents' => $contents});
-        $heading =~ s/\s*$//;
+      # ignore Top node as in Texinfo TeX
+      if ($root->{'extra'}->{'normalized'} eq 'Top') {
+        return $result;
+      }
+    } elsif ($sectioning_commands{$command}) {
+      my $heading = '';
+      if ($root->{'args'}->[0]->{'contents'}) {
+        $heading = $self->_convert({'contents' => $root->{'args'}->[0]->{'contents'}});
+      }
 
-        my $section_cmd = $section_map{$command};
-        if ($section_cmd) {
-          $result .= "\\".$section_cmd."{$heading}\n";
+      my $section_cmd = $section_map{$command};
+      if (not defined($section_map{$command})) {
+        die "BUG: no section_map for $command";
+      }
+      
+      my $associated_node;
+      if ($root->{'extra'}->{'associated_node'}) {
+        $associated_node = $root->{'extra'}->{'associated_node'};
+        # ignore Top node as in Texinfo TeX
+        if ($associated_node->{'extra'}->{'normalized'} eq 'Top') {
+          return $result;
         }
+      }
+
+      if ($command eq 'appendix' and not $self->{'appendix_done'}) {
+        $result .= "\\appendix\n";
+        $self->{'appendix_done'} = 1;
+      }
+      if ($command ne 'centerchap') {
+        $result .= "\\".$section_cmd."{$heading}\n";
+      } else {
+        $result .= "\\".$section_cmd."{\\centering $heading}\n";
+      }
+      if ($associated_node) {
+        my $node_label
+          = _tree_anchor_label($associated_node->{'extra'}->{'node_content'});
+        $result .= "\\label{$node_label}%\n";
       }
     } elsif (($command eq 'item' or $command eq 'itemx')
             and $root->{'args'} and $root->{'args'}->[0] 
@@ -1559,22 +1751,31 @@ sub _convert($$)
         if ($indentation_spec eq 'asis') {
           # not implemented here, same as in TeX.
           return '';
+        } else {
+          my $indentation_spec_arg = $indentation_spec.'em';
+          if ($indentation_spec eq '0' or $indentation_spec eq 'none') {
+            $indentation_spec_arg = '0pt';
+          }
+          $result .= "\\setlength{\\parindent}{$indentation_spec_arg}\n";
         }
-        my $indentation_spec_arg = $indentation_spec.'em';
-        if ($indentation_spec eq '0' or $indentation_spec eq 'none') {
-          $indentation_spec_arg = '0pt';
-        }
-        return "\\setlength{\\parindent}{$indentation_spec_arg}\n";
       } elsif ($command eq 'frenchspacing'
                and $root->{'extra'}->{'misc_args'}->[0]) {
         my $frenchspacing_spec = $root->{'extra'}->{'misc_args'}->[0];
         if ($frenchspacing_spec eq 'on') {
-          return "\\frenchspacing\n";
+          $result .= "\\frenchspacing\n";
         } elsif ($frenchspacing_spec eq 'off') {
-          return "\\nonfrenchspacing\n";
+          $result .= "\\nonfrenchspacing\n";
         }
+      } elsif ($command eq 'setchapternewpage'
+               and $root->{'extra'}->{'misc_args'}->[0]) {
+        my $setchapternewpage_spec = $root->{'extra'}->{'misc_args'}->[0];
+        $result .= _set_chapter_new_page($self, $setchapternewpage_spec);
+      } elsif ($command eq 'headings'
+               and $root->{'extra'}->{'misc_args'}->[0]) {
+        my $headings_spec = $root->{'extra'}->{'misc_args'}->[0];
+        $result .= _set_headings($self, $headings_spec);
       }
-      return '';
+      return $result;
     } else {
       $unknown_command = 1;
     }
@@ -1792,8 +1993,6 @@ sub _convert($$)
       $result .= _protect_text($self, '}');
     } elsif ($root->{'type'} eq 'row') {
       # ...
-    } elsif ($root->{'type'} eq 'text_root') {
-      $self->{'text_before_first_node'} = $result;
     }
   }
 
@@ -1850,6 +2049,12 @@ sub _convert($$)
       $result .= "\\end{".$LaTeX_block_commands{$command}."}\n";
     } elsif ($preformatted_commands{$command}) {
       $result .= '\\endgroup{}'; # \obeycr
+    }
+    # as explained in the Texinfo manual start headers after titlepage
+    if ($command eq 'titlepage') {
+      $result .= _set_headings($self, 'on');
+      $self->{'titlepage_done'} = 1;
+      $result .= "\\mainmatter\n";
     }
     if ($cell) {
       $result = '';

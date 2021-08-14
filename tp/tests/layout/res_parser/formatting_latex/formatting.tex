@@ -6,14 +6,57 @@
 \usepackage[T1]{fontenc}
 \usepackage{textcomp}
 \usepackage{graphicx}
+\usepackage{needspace}
+\usepackage{etoolbox}
+\usepackage{fancyhdr}
+\usepackage[utf8]{inputenc}
+
+% command that does nothing used to help with substitutions in commands
+\newcommand{\GNUTexinfoplaceholder}[1]{}
+
+% called when setting single headers
+% use \nouppercase to match with Texinfo TeX style
+\newcommand{\GNUTexinfosetsingleheader}{\pagestyle{fancy}
+\fancyhf{}
+\lhead{\nouppercase{\leftmark}}
+\rhead{\thepage}
+}
+
+% called when setting double headers
+\newcommand{\GNUTexinfosetdoubleheader}[1]{\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[RE]{#1}
+\fancyhead[LO]{\nouppercase{\leftmark}}
+}
+
+% for part and chapter, which call \thispagestyle{plain}
+\fancypagestyle{plain}{ %
+ \fancyhf{}
+ \fancyhead[LE,RO]{\thepage}
+}
+
+% match Texinfo TeX style
+\renewcommand{\headrulewidth}{0pt}%
+
+% avoid pagebreak and headings setting for a sectionning command
+\newcommand{\GNUTexinfonopagebreakheading}[2]{\let\clearpage\relax \let\cleardoublepage\relax \let\thispagestyle\GNUTexinfoplaceholder #1{#2}}
 
 
 \renewcommand{\includegraphics}[1]{\fbox{FIG #1}}
 
-\usepackage[utf8]{inputenc}
+% set default for @setchapternewpage
+\makeatletter
+\patchcmd{\chapter}{\if@openright\cleardoublepage\else\clearpage\fi}{\GNUTexinfoplaceholder{setchapternewpage placeholder}\clearpage}{}{}
+\makeatother
+
+% no headings before titlepage
+\pagestyle{empty}%
+
 \begin{document}
 
-\label{anchor:Top}
+\frontmatter
+
 
 
 
@@ -92,7 +135,7 @@ but , ,\@
 @point $\star{}$
 @print $\dashv{}$
 @result $\Rightarrow{}$
-@today a sunny day
+@today \today{}
 
 @aa \aa{}
 @AA \AA{}
@@ -216,6 +259,10 @@ but , ,\@
 \texttt{@sp 2}\leavevmode{}\\
 \vskip 2\baselineskip
 \texttt{@page}\leavevmode{}\\
+\newpage
+
+\texttt{need 1002}
+\needspace{1.002pt}
 
 \texttt{@clicksequence\{click @click\{\} A\}} click $\rightarrow{}$ A
 After clickstyle $\Rightarrow{}$
@@ -231,7 +278,7 @@ $$
 \mathord{\text{\l{}}} \textsl{\c{\'{C}}} \textsl{\c{\'{C}}} \textsl{\c{c}} \textsl{\H{a}} \dot{a} \mathring{a} \textsl{\t{a}}
 \breve{a} \textsl{\b{a}} \textsl{\d{a}} \check{a} \textsl{\k{a}} a^{h}_{l}
  \ {}\ {} \ {}\-{}   ! ? . @ \} \{ 
-a sunny day
+\today{}
 $$
 
 $$
@@ -685,14 +732,15 @@ in verbatim ''
 
 $\frac{a < b \texttt{tex \hbox{ code }}}{b}$ ``
 
+\GNUTexinfonopagebreakheading{\chapter*}{majorheading}
 
-\chapter*{chapheading}
+\GNUTexinfonopagebreakheading{\chapter*}{chapheading}
 
-\section*{heading}
+\GNUTexinfonopagebreakheading{\section*}{heading}
 
-\subsection*{subheading}
+\GNUTexinfonopagebreakheading{\subsection*}{subheading}
 
-\subsubsection*{subsubheading}
+\GNUTexinfonopagebreakheading{\subsubsection*}{subsubheading}
 
 
 \texttt{@acronym\{{-}{-}a,an accronym @comma\{\} @enddots\{\}\}} --a (an accronym , \dots{})
@@ -885,7 +933,7 @@ but , ,\@
 @point $\star{}$
 @print $\dashv{}$
 @result $\Rightarrow{}$
-@today a sunny day
+@today \today{}
 
 @aa \aa{}
 @AA \AA{}
@@ -1009,6 +1057,10 @@ but , ,\@
 \texttt{@sp 2}\leavevmode{}\\
 \vskip 2\baselineskip
 \texttt{@page}\leavevmode{}\\
+\newpage
+
+\texttt{need 1002}
+\needspace{1.002pt}
 
 \texttt{@clicksequence\{click @click\{\} A\}} click $\rightarrow{}$ A
 After clickstyle $\Rightarrow{}$
@@ -1024,7 +1076,7 @@ $$
 \mathord{\text{\l{}}} \textsl{\c{\'{C}}} \textsl{\c{\'{C}}} \textsl{\c{c}} \textsl{\H{a}} \dot{a} \mathring{a} \textsl{\t{a}}
 \breve{a} \textsl{\b{a}} \textsl{\d{a}} \check{a} \textsl{\k{a}} a^{h}_{l}
  \ {}\ {} \ {}\-{}   ! ? . @ \} \{ 
-a sunny day
+\today{}
 $$
 
 $$
@@ -1478,14 +1530,15 @@ in verbatim ''
 
 $\frac{a < b \texttt{tex \hbox{ code }}}{b}$ ``
 
+\GNUTexinfonopagebreakheading{\chapter*}{majorheading}
 
-\chapter*{chapheading}
+\GNUTexinfonopagebreakheading{\chapter*}{chapheading}
 
-\section*{heading}
+\GNUTexinfonopagebreakheading{\section*}{heading}
 
-\subsection*{subheading}
+\GNUTexinfonopagebreakheading{\subsection*}{subheading}
 
-\subsubsection*{subsubheading}
+\GNUTexinfonopagebreakheading{\subsubsection*}{subsubheading}
 
 
 \texttt{@acronym\{{-}{-}a,an accronym @comma\{\} @enddots\{\}\}} --a (an accronym , \dots{})
@@ -1603,6 +1656,20 @@ Various deff lines
 
 
 \end{titlepage}
+\GNUTexinfosetsingleheader{}%
+\mainmatter
+
+\chapter{chapter}
+\label{anchor:chapter}%
+
+First para
+
+\noindent{}qsddsqkdsqkkmljsqjsqodmmdsqdsmqj dqs sdq sqd sdq dsq sdq sqd sqd sdq sdq 
+qsd dsq sdq dsq dssdq sdq sdq sdq dsq sdq dsq dsq sdq dsq sdqsd q
+
+\noindent{}noindent in para.
+
+unneeded indent
 
 Insertcopying in normal text
 In copying
@@ -1679,7 +1746,7 @@ but , ,\@
 @point $\star{}$
 @print $\dashv{}$
 @result $\Rightarrow{}$
-@today a sunny day
+@today \today{}
 
 @aa \aa{}
 @AA \AA{}
@@ -1803,6 +1870,10 @@ but , ,\@
 \texttt{@sp 2}\leavevmode{}\\
 \vskip 2\baselineskip
 \texttt{@page}\leavevmode{}\\
+\newpage
+
+\texttt{need 1002}
+\needspace{1.002pt}
 
 \texttt{@clicksequence\{click @click\{\} A\}} click $\rightarrow{}$ A
 After clickstyle $\Rightarrow{}$
@@ -1818,7 +1889,7 @@ $$
 \mathord{\text{\l{}}} \textsl{\c{\'{C}}} \textsl{\c{\'{C}}} \textsl{\c{c}} \textsl{\H{a}} \dot{a} \mathring{a} \textsl{\t{a}}
 \breve{a} \textsl{\b{a}} \textsl{\d{a}} \check{a} \textsl{\k{a}} a^{h}_{l}
  \ {}\ {} \ {}\-{}   ! ? . @ \} \{ 
-a sunny day
+\today{}
 $$
 
 $$
@@ -2272,14 +2343,15 @@ in verbatim ''
 
 $\frac{a < b \texttt{tex \hbox{ code }}}{b}$ ``
 
+\GNUTexinfonopagebreakheading{\chapter*}{majorheading}
 
-\chapter*{chapheading}
+\GNUTexinfonopagebreakheading{\chapter*}{chapheading}
 
-\section*{heading}
+\GNUTexinfonopagebreakheading{\section*}{heading}
 
-\subsection*{subheading}
+\GNUTexinfonopagebreakheading{\subsection*}{subheading}
 
-\subsubsection*{subsubheading}
+\GNUTexinfonopagebreakheading{\subsubsection*}{subsubheading}
 
 
 \texttt{@acronym\{{-}{-}a,an accronym @comma\{\} @enddots\{\}\}} --a (an accronym , \dots{})
@@ -2471,7 +2543,7 @@ but , ,\@
 @point $\star{}$
 @print $\dashv{}$
 @result $\Rightarrow{}$
-@today a sunny day
+@today \today{}
 
 @aa \aa{}
 @AA \AA{}
@@ -2595,6 +2667,10 @@ but , ,\@
 \texttt{@sp 2}\leavevmode{}\\
 \vskip 2\baselineskip
 \texttt{@page}\leavevmode{}\\
+\newpage
+
+\texttt{need 1002}
+\needspace{1.002pt}
 
 \texttt{@clicksequence\{click @click\{\} A\}} click $\rightarrow{}$ A
 After clickstyle $\Rightarrow{}$
@@ -2610,7 +2686,7 @@ $$
 \mathord{\text{\l{}}} \textsl{\c{\'{C}}} \textsl{\c{\'{C}}} \textsl{\c{c}} \textsl{\H{a}} \dot{a} \mathring{a} \textsl{\t{a}}
 \breve{a} \textsl{\b{a}} \textsl{\d{a}} \check{a} \textsl{\k{a}} a^{h}_{l}
  \ {}\ {} \ {}\-{}   ! ? . @ \} \{ 
-a sunny day
+\today{}
 $$
 
 $$
@@ -3064,14 +3140,15 @@ in verbatim ''
 
 $\frac{a < b \texttt{tex \hbox{ code }}}{b}$ ``
 
+\GNUTexinfonopagebreakheading{\chapter*}{majorheading}
 
-\chapter*{chapheading}
+\GNUTexinfonopagebreakheading{\chapter*}{chapheading}
 
-\section*{heading}
+\GNUTexinfonopagebreakheading{\section*}{heading}
 
-\subsection*{subheading}
+\GNUTexinfonopagebreakheading{\subsection*}{subheading}
 
-\subsubsection*{subsubheading}
+\GNUTexinfonopagebreakheading{\subsubsection*}{subsubheading}
 
 
 \texttt{@acronym\{{-}{-}a,an accronym @comma\{\} @enddots\{\}\}} --a (an accronym , \dots{})
@@ -3263,7 +3340,7 @@ but , ,\@
 @point $\star{}$
 @print $\dashv{}$
 @result $\Rightarrow{}$
-@today a sunny day
+@today \today{}
 
 @aa \aa{}
 @AA \AA{}
@@ -3387,6 +3464,10 @@ but , ,\@
 \texttt{@sp 2}\leavevmode{}\\
 \vskip 2\baselineskip
 \texttt{@page}\leavevmode{}\\
+\newpage
+
+\texttt{need 1002}
+\needspace{1.002pt}
 
 \texttt{@clicksequence\{click @click\{\} A\}} click $\rightarrow{}$ A
 After clickstyle $\Rightarrow{}$
@@ -3402,7 +3483,7 @@ $$
 \mathord{\text{\l{}}} \textsl{\c{\'{C}}} \textsl{\c{\'{C}}} \textsl{\c{c}} \textsl{\H{a}} \dot{a} \mathring{a} \textsl{\t{a}}
 \breve{a} \textsl{\b{a}} \textsl{\d{a}} \check{a} \textsl{\k{a}} a^{h}_{l}
  \ {}\ {} \ {}\-{}   ! ? . @ \} \{ 
-a sunny day
+\today{}
 $$
 
 $$
@@ -3856,14 +3937,15 @@ in verbatim ''
 
 $\frac{a < b \texttt{tex \hbox{ code }}}{b}$ ``
 
+\GNUTexinfonopagebreakheading{\chapter*}{majorheading}
 
-\chapter*{chapheading}
+\GNUTexinfonopagebreakheading{\chapter*}{chapheading}
 
-\section*{heading}
+\GNUTexinfonopagebreakheading{\section*}{heading}
 
-\subsection*{subheading}
+\GNUTexinfonopagebreakheading{\subsection*}{subheading}
 
-\subsubsection*{subsubheading}
+\GNUTexinfonopagebreakheading{\subsubsection*}{subsubheading}
 
 
 \texttt{@acronym\{{-}{-}a,an accronym @comma\{\} @enddots\{\}\}} --a (an accronym , \dots{})
@@ -4003,32 +4085,28 @@ tp
 
 
 
-\label{anchor:chapter}\chapter{chapter}
-
-First para
-
-\noindent{}qsddsqkdsqkkmljsqjsqodmmdsqdsmqj dqs sdq sqd sdq dsq sdq sqd sqd sdq sdq 
-qsd dsq sdq dsq dssdq sdq sdq sdq dsq sdq dsq dsq sdq dsq sdqsd q
-
-\noindent{}noindent in para.
-
-unneeded indent
-
 \footnote{in footnote}
 
 
-\label{anchor:s_002d_002dect_002cion}\section{A section}
+\section{A section}
+\label{anchor:s_002d_002dect_002cion}%
 
 
-\label{anchor:subsection}\subsection{subsection}
+\subsection{subsection}
+\label{anchor:subsection}%
 
 
-\label{anchor:anchor}
-\label{anchor:subsubsection-_0060_0060simple_002ddouble_002d_002d}\subsubsection{subsubsection ``simple-double--}
+\label{anchor:anchor}%
 
-\label{anchor:subsubsection-three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027}\subsubsection{three---four----''}
+\subsubsection{subsubsection ``simple-double--}
+\label{anchor:subsubsection-_0060_0060simple_002ddouble_002d_002d}%
 
-\label{anchor:chapter2}
+\subsubsection{three---four----''}
+\label{anchor:subsubsection-three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027}%
+
+\chapter*{\centering chapter 2}
+\label{anchor:chapter2}%
+
 \printindex
 \printindex
 

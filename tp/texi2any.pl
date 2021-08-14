@@ -500,11 +500,8 @@ my %formats_table = (
              'module' => 'Texinfo::Convert::HTML'
            },
   'latex' => {
-             'nodes_tree' => 1,
              'floats' => 1,
-             'split' => 1,
              'internal_links' => 1,
-             'simple_menu' => 1,
              'move_index_entries_after_items' => 1,
              'relate_index_entries_to_table_entries' => 1,
              'no_warn_non_empty_parts' => 1,

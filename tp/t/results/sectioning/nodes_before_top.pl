@@ -872,4 +872,14 @@ $result_errors{'nodes_before_top'} = [];
 $result_floats{'nodes_before_top'} = {};
 
 
+
+$result_converted{'latex'}->{'nodes_before_top'} = '\\label{anchor:first}%
+
+
+\\label{anchor:node-in-menu-before-top}%
+
+\\chapter{a chapter}
+\\label{anchor:second-node}%
+';
+
 1;
