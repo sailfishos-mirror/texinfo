@@ -228,6 +228,8 @@ aaa</literallayout></textobject></inlinemediaobject>
 </para><para><literal>@page</literal>
 
 </para>
+<para><literal>need 1002</literal>
+</para>
 <para><literal>@clicksequence{click @click{} A}</literal> click &#8594; A
 After clickstyle &#8658;
 <literal>@clicksequence{click @click{} A}</literal> click &#8658; A
@@ -922,6 +924,8 @@ aaa</literallayout></textobject></inlinemediaobject>
 
 </para><para><literal>@page</literal>
 
+</para>
+<para><literal>need 1002</literal>
 </para>
 <para><literal>@clicksequence{click @click{} A}</literal> click &#8594; A
 After clickstyle &#8658;
@@ -1619,6 +1623,8 @@ aaa</literallayout></textobject></inlinemediaobject>
 </para><para><literal>@page</literal>
 
 </para>
+<para><literal>need 1002</literal>
+</para>
 <para><literal>@clicksequence{click @click{} A}</literal> click &#8594; A
 After clickstyle &#8658;
 <literal>@clicksequence{click @click{} A}</literal> click &#8658; A
@@ -2315,6 +2321,8 @@ aaa</literallayout></textobject></inlinemediaobject>
 </para><para><literal>@page</literal>
 
 </para>
+<para><literal>need 1002</literal>
+</para>
 <para><literal>@clicksequence{click @click{} A}</literal> click &#8594; A
 After clickstyle &#8658;
 <literal>@clicksequence{click @click{} A}</literal> click &#8658; A
@@ -3010,6 +3018,8 @@ aaa</literallayout></textobject></inlinemediaobject>
 </para><para><literal>@page</literal>
 
 </para>
+<para><literal>need 1002</literal>
+</para>
 <para><literal>@clicksequence{click @click{} A}</literal> click &#8594; A
 After clickstyle &#8658;
 <literal>@clicksequence{click @click{} A}</literal> click &#8658; A
@@ -3701,6 +3711,8 @@ aaa</literallayout></textobject></inlinemediaobject>
 <literal>@page</literal>
 
 </screen><screen>
+<literal>need 1002</literal>
+
 <literal>@clicksequence{click @click{} A}</literal> click &#8594; A
 After clickstyle &#8658;
 <literal>@clicksequence{click @click{} A}</literal> click &#8658; A
