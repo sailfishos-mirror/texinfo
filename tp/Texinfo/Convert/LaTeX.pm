@@ -45,7 +45,7 @@
 # LaTeX flushleft and flushright are filled but not aligned.
 # 
 # Other non filled environments @example, @display...  No similar
-# environment found in LaTeX
+# environment found in LaTeX.  Basic implementation done with \obeycr.
 #
 # @group should also be done together with the non filled environments.
 #
@@ -1366,6 +1366,14 @@ sub _convert($$)
 
       if ($LaTeX_block_commands{$command}) {
         $result .= "\\begin{".$LaTeX_block_commands{$command}."}\n";
+      } elsif ($preformatted_commands{$command}) {
+        $result .= '\\par\\begingroup\\obeycr';
+        # TODO how to indent block?
+
+        if ($preformatted_code_commands{$command}) {
+          $result .= '\\ttfamily';
+        }
+        $result .= '\\noindent{}';
       }
       if ($block_raw_commands{$command}) {
         push @{$self->{'style_context'}->[-1]->{'context'}}, 'raw';
@@ -1840,6 +1848,8 @@ sub _convert($$)
     }
     if ($LaTeX_block_commands{$command}) {
       $result .= "\\end{".$LaTeX_block_commands{$command}."}\n";
+    } elsif ($preformatted_commands{$command}) {
+      $result .= '\\endgroup{}'; # \obeycr
     }
     if ($cell) {
       $result = '';
