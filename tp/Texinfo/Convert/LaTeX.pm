@@ -823,7 +823,56 @@ sub output($$)
   my $result = '';
 
   $result .= $self->_output_text($self->_latex_header(), $fh);
-  $result .= $self->convert_document_sections($root, $fh);
+  #$result .= $self->convert_document_sections($root, $fh);
+  my $elements = Texinfo::Structuring::split_by_section($root);
+  if ($elements) {
+    # Check if the document ends with a lone Top node, that
+    # will be ignored
+    my $top_node_in_end_element;
+    my $node_following_top_node_in_end_element = 0;
+    foreach my $element_content (@{$elements->[-1]->{'contents'}}) {
+      if ($element_content->{'cmdname'}
+          and $element_content->{'cmdname'} eq 'node') {
+        if ($element_content->{'extra'}->{'normalized'} eq 'Top') {
+          $top_node_in_end_element = 1;
+        } elsif ($top_node_in_end_element) {
+          $node_following_top_node_in_end_element = 1;
+          last;
+        }
+      }
+    }
+    my $converted_elements = $elements;
+    if ($top_node_in_end_element and not $node_following_top_node_in_end_element) {
+      # the document ends with a lone to node, replace by a text
+      # stating that the Top nodei s ignored as in Texinfo TeX
+      $converted_elements = [ @$elements ];
+      my $last_element = pop @$converted_elements;
+      my $modified_last_element = {'contents' => []};
+      foreach my $key ($last_element) {
+        if ($key ne 'contents') {
+          $modified_last_element->{$key} = $last_element->{$key};
+        }
+      }
+      foreach my $element_content (@{$last_element}) {
+        if ($element_content->{'cmdname'}
+          and $element_content->{'cmdname'} eq 'node'
+          and $element_content->{'extra'}->{'normalized'} eq 'Top') {
+          push @{$modified_last_element->{'contents'}},
+           {'text' => "(`Top' node ignored)\n", 'type' => 'ignored_top_node'};
+          last;
+        } else {
+          push @{$modified_last_element->{'contents'}}, $element_content;
+        }
+      }
+      push @$converted_elements, $modified_last_element;
+    }
+    my $result = '';
+    foreach my $element (@$converted_elements) {
+      $result .= $self->_output_text($self->convert_tree($element), $fh);
+    }
+  } else {
+    $result .= $self->_output_text($self->convert_tree($root), $fh);
+  }
   $result .= $self->_output_text($self->_latex_footer(), $fh);
 
   #print $result;
@@ -889,6 +938,50 @@ sub _protect_text($$)
   return $text;
 }
 
+sub _open_preformatted($)
+{
+  my $command = shift;
+  my $result = '';
+  $result .= '\\par\\begingroup\\obeylines\\obeyspaces\\frenchspacing';
+  # TODO indent block correct amount
+  $result .= '\\leftskip=2em\\relax\\parskip=0pt\\relax';
+
+  if ($preformatted_code_commands{$command}) {
+    $result .= '\\ttfamily';
+  }
+  $result .= '{}';
+  return $result;
+}
+
+sub _close_preformatted()
+{
+  return '\\endgroup{}'; # \obeylines
+}
+
+sub _open_preformatted_stack($)
+{
+  my $stack = shift;
+  my $result = '';
+  foreach my $stack_comand (@$stack) {
+    if ($preformatted_commands{$stack_comand}) {
+      $result .= _open_preformatted($stack_comand);
+    }
+  }
+  return $result;
+}
+
+sub _close_preformatted_stack($)
+{
+  # should close in reverse, but it doesn't depend on the command
+  my $stack = shift;
+  my $result = '';
+  foreach my $stack_comand (@$stack) {
+    if ($preformatted_commands{$stack_comand}) {
+      $result .= _close_preformatted();
+    }
+  }
+  return $result;
+}
 
 sub _printindex($$)
 {
@@ -1457,6 +1550,8 @@ sub _convert($$)
       } else {
         if ($command eq 'displaymath') {
           push @{$self->{'style_context'}->[-1]->{'math_style'}}, 'one-line';
+          # close all preformatted formats
+          $result .= _close_preformatted_stack($self->{'style_context'}->[-1]->{'context'});
           $result .= "\$\$\n";
         }
       }
@@ -1544,14 +1639,7 @@ sub _convert($$)
       if ($LaTeX_block_commands{$command}) {
         $result .= "\\begin{".$LaTeX_block_commands{$command}."}\n";
       } elsif ($preformatted_commands{$command}) {
-        $result .= '\\par\\begingroup\\obeylines\\obeyspaces\\frenchspacing';
-        # TODO indent block correct amount
-        $result .= '\\leftskip=2em\\relax\\parskip=0pt\\relax';
-
-        if ($preformatted_code_commands{$command}) {
-          $result .= '\\ttfamily';
-        }
-        $result .= '{}';
+        $result .= _open_preformatted($command);
       }
       if ($block_raw_commands{$command}) {
         push @{$self->{'style_context'}->[-1]->{'context'}}, 'raw';
@@ -1985,6 +2073,11 @@ sub _convert($$)
       my $content = shift @contents;
       my $text = _convert($self, $content);
       $result .= $text;
+      #my @str_contents = ();
+      #foreach my $item_content (@contents) {
+      #  push @str_contents, Texinfo::Common::_print_element_tree_simple($item_content);
+      #}
+      #print STDERR "contents ".Texinfo::Common::_print_element_tree_simple($root).": ".join("|", @str_contents)."\n";
     }
     pop @{$self->{'current_contents'}};
   }
@@ -2046,6 +2139,8 @@ sub _convert($$)
       die if ($old_context ne 'math');
       if ($command eq 'displaymath') {
         $result .= "\$\$\n";
+        # reopen all preformatted commands
+        $result .= _open_preformatted_stack($self->{'style_context'}->[-1]->{'context'});
       }
       my $old_math_style = pop @{$self->{'style_context'}->[-1]->{'math_style'}};
       die if ($old_math_style ne 'one-line');
@@ -2053,7 +2148,7 @@ sub _convert($$)
     if ($LaTeX_block_commands{$command}) {
       $result .= "\\end{".$LaTeX_block_commands{$command}."}\n";
     } elsif ($preformatted_commands{$command}) {
-      $result .= '\\endgroup{}'; # \obeylines
+      $result .= _close_preformatted();
     }
     # as explained in the Texinfo manual start headers after titlepage
     if ($command eq 'titlepage') {
