@@ -4891,7 +4891,8 @@ sub _parse_texi($;$)
                  { 'type' => 'bracketed', 'contents' => [],
                    'parent' => $current, 'line_nr' => $line_nr };
             $current = $current->{'contents'}->[-1];
-            print STDERR "BRACKETED in math\n" if ($self->{'DEBUG'});
+            print STDERR "BRACKETED in math/rawpreformatted/inlineraw\n"
+               if ($self->{'DEBUG'});
           } else {
             $self->line_error(sprintf(__("misplaced %c"),
                                              ord('{')), $line_nr);
@@ -4994,12 +4995,14 @@ sub _parse_texi($;$)
                 }
                 if ($closed_command ne 'inforef' and defined($args[2])) {
                   my $normalized_cross_ref_title =
-                    Texinfo::Convert::NodeNameNormalization::normalize_node({'contents' => $args[2]});
+                    Texinfo::Convert::NodeNameNormalization::normalize_node(
+                                                     {'contents' => $args[2]});
                   if ($normalized_cross_ref_title !~ /[^-]/) {
                     $self->line_warn(sprintf(__(
                      "in \@%s empty cross reference title after expansion `%s'"),
                           $closed_command,
-                          Texinfo::Convert::Texinfo::convert({'contents' => $args[2]})), 
+                          Texinfo::Convert::Texinfo::convert(
+                                                  {'contents' => $args[2]})), 
                             $line_nr);
                   }
                 }
@@ -5013,8 +5016,8 @@ sub _parse_texi($;$)
                    __("\@image missing filename argument"), $line_nr);
               }
               $image->{'extra'}->{'input_perl_encoding'}
-                           = $self->{'info'}->{'input_perl_encoding'}
-                                  if defined $self->{'info'}->{'input_perl_encoding'};
+                   = $self->{'info'}->{'input_perl_encoding'}
+                        if defined $self->{'info'}->{'input_perl_encoding'};
             } elsif($current->{'parent'}->{'cmdname'} eq 'dotless') {
               my $dotless = $current->{'parent'};
               if (@{$current->{'contents'}}) {
@@ -5067,8 +5070,9 @@ sub _parse_texi($;$)
 
               } elsif (length ($arg) < 4) {
                 # Perl doesn't mind, but too much trouble to do in TeX.
-                $self->line_warn(sprintf(__("fewer than four hex digits in argument for \@U: %s"), $arg),
-                  $line_nr);
+                $self->line_warn(sprintf(__(
+                  "fewer than four hex digits in argument for \@U: %s"), $arg),
+                 $line_nr);
 
               } else {
                 # we don't want to call hex at all if the value isn't
@@ -5083,9 +5087,9 @@ sub _parse_texi($;$)
                 }
                 # ok, value can be given to hex(), so try it.
                 if ($@ or hex($arg) > 0x10FFFF) {
-                  $self->line_error(
-    sprintf(__("argument for \@U exceeds Unicode maximum 0x10FFFF: %s"),
-            $arg),
+                  $self->line_error(sprintf(__(
+                     "argument for \@U exceeds Unicode maximum 0x10FFFF: %s"),
+                     $arg),
                     $line_nr);
                 }
               }
@@ -5662,7 +5666,7 @@ sub _parse_line_command_args($$$)
     }
   } elsif ($command eq 'setchapternewpage') {
     if ($line eq 'on' or $line eq 'off' or $line eq 'odd') {
-      $args = [$1];
+      $args = [$line];
     } else {
       $self->line_error(sprintf(__(
                            "\@%s arg must be `on', `off' or `odd', not `%s'"), 
