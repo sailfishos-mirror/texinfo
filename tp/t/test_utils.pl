@@ -568,7 +568,7 @@ sub convert_to_plaintext($$$$$$;$)
   } else {
     $result = $converter->output($tree);
     close_files($converter);
-    $result = undef if (defined($result and $result eq ''));
+    $result = undef if (defined($result) and ($result eq ''));
   }
   my ($errors, $error_nrs) = $converter->errors();
   return ($errors, $result);
@@ -664,7 +664,7 @@ sub convert_to_xml($$$$$$;$)
   } else {
     $result = $converter->output($tree);
     close_files($converter);
-    $result = undef if (defined($result and $result eq ''));
+    $result = undef if (defined($result) and ($result eq ''));
   }
   my ($errors, $error_nrs) = $converter->errors();
   return ($errors, $result);
@@ -695,7 +695,7 @@ sub convert_to_docbook($$$$$$;$)
   } else {
     $result = $converter->output($tree);
     close_files($converter);
-    $result = undef if (defined($result and $result eq ''));
+    $result = undef if (defined($result) and ($result eq ''));
   }
   my ($errors, $error_nrs) = $converter->errors();
   return ($errors, $result);
@@ -726,7 +726,7 @@ sub convert_to_latex($$$$$$;$)
   } else {
     $result = $converter->output($tree);
     close_files($converter);
-    $result = undef if (defined($result and $result eq ''));
+    $result = undef if (defined($result) and ($result eq ''));
   }
   my ($errors, $error_nrs) = $converter->errors();
   return ($errors, $result);
