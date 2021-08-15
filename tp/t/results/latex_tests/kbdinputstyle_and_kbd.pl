@@ -743,16 +743,16 @@ $result_floats{'kbdinputstyle_and_kbd'} = {};
 
 $result_converted{'latex'}->{'kbdinputstyle_and_kbd'} = '
 {\\ttfamily\\textsl{default kbdinputstyle}}
-{\\ttfamily\\textsl{in example default kbdinputstyle}}
-
+\\par\\begingroup\\obeycr\\ttfamily\\noindent{}{\\ttfamily\\textsl{in example default kbdinputstyle}}
+\\endgroup{}
 \\texttt{code kbdinputstyle}
-\\texttt{in example code kbdinputstyle}
-
+\\par\\begingroup\\obeycr\\ttfamily\\noindent{}\\texttt{in example code kbdinputstyle}
+\\endgroup{}
 {\\ttfamily\\textsl{example kbdinputstyle}}
-\\texttt{in example example kbdinputstyle}
-
+\\par\\begingroup\\obeycr\\ttfamily\\noindent{}\\texttt{in example example kbdinputstyle}
+\\endgroup{}
 {\\ttfamily\\textsl{distinct kbdinputstyle}}
-{\\ttfamily\\textsl{in example distinct kbdinputstyle}}
-';
+\\par\\begingroup\\obeycr\\ttfamily\\noindent{}{\\ttfamily\\textsl{in example distinct kbdinputstyle}}
+\\endgroup{}';
 
 1;
