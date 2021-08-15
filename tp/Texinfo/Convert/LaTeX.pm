@@ -655,6 +655,9 @@ sub _latex_header {
 '
 \renewcommand{\includegraphics}[1]{\fbox{FIG #1}}
 
+%temporary to avoid "no line here to end" errors in test suite constructs
+\renewcommand{\obeycr}{\relax}
+
 ';
   }
   # setup defaults
@@ -1695,7 +1698,7 @@ sub _convert($$)
     } elsif ($command eq 'listoffloats') {
       return '';
     } elsif ($command eq 'page') {
-      $result .= "\\newpage\n";
+      $result .= "\\newpage{}%\n";
       return $result;
     } elsif ($command eq 'indent') {
       # TODO it seems that \indent only works with \setlength{\parindent}{0pt}
@@ -1716,12 +1719,12 @@ sub _convert($$)
       # different from LaTeX, and some people warn against using
       # TeX primitives.  However there is no obvious corresponding
       # command in LaTeX, except for adding enough \\.
-      $result .= "\\vskip $sp_nr\\baselineskip\n";
+      $result .= "\\vskip $sp_nr\\baselineskip %\n";
       return $result;
     } elsif ($command eq 'need') {
       if ($root->{'extra'}->{'misc_args'}->[0]) {
         my $need_value = 0.001 * $root->{'extra'}->{'misc_args'}->[0];
-        $result .= "\\needspace{${need_value}pt}\n";
+        $result .= "\\needspace{${need_value}pt}%\n";
       }
       return $result;
     } elsif ($command eq 'contents') {

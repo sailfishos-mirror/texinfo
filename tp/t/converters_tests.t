@@ -5,6 +5,7 @@ use Texinfo::ModulePath (undef, undef, 'updirs' => 2);
 
 require 't/test_utils.pl';
 
+# do not use @node Top as it is ignored in LaTeX output
 my $accents_text = '@node Top node
 @top top
 

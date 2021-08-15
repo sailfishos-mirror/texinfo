@@ -564,6 +564,8 @@ more text
 </para>
 <screen>\input texinfo @c -*-texinfo-*-
 
+@c this file is used in tests in @verbatiminclude but not converted
+
 @setfilename simplest.info
 
 @node Top
@@ -1260,6 +1262,8 @@ ce&#8211;ntered line
 more text
 </para>
 <screen>\input texinfo @c -*-texinfo-*-
+
+@c this file is used in tests in @verbatiminclude but not converted
 
 @setfilename simplest.info
 
@@ -1958,6 +1962,8 @@ ce&#8211;ntered line
 more text
 </para>
 <screen>\input texinfo @c -*-texinfo-*-
+
+@c this file is used in tests in @verbatiminclude but not converted
 
 @setfilename simplest.info
 
@@ -2675,6 +2681,8 @@ more text
 </para>
 <screen>\input texinfo @c -*-texinfo-*-
 
+@c this file is used in tests in @verbatiminclude but not converted
+
 @setfilename simplest.info
 
 @node Top
@@ -3372,6 +3380,8 @@ more text
 </para>
 <screen>\input texinfo @c -*-texinfo-*-
 
+@c this file is used in tests in @verbatiminclude but not converted
+
 @setfilename simplest.info
 
 @node Top
@@ -4060,6 +4070,8 @@ more text
 more text
 </screen><screen>
 </screen><screen>\input texinfo @c -*-texinfo-*-
+
+@c this file is used in tests in @verbatiminclude but not converted
 
 @setfilename simplest.info
 

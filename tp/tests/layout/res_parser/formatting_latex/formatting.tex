@@ -45,6 +45,9 @@
 
 \renewcommand{\includegraphics}[1]{\fbox{FIG #1}}
 
+%temporary to avoid "no line here to end" errors in test suite constructs
+\renewcommand{\obeycr}{\relax}
+
 % set default for @setchapternewpage
 \makeatletter
 \patchcmd{\chapter}{\if@openright\cleardoublepage\else\clearpage\fi}{\GNUTexinfoplaceholder{setchapternewpage placeholder}\clearpage}{}{}
@@ -257,12 +260,12 @@ but , ,\@
 \texttt{@image\{@file\{f{-}{-}ile\}@@@.,aze,az,alt,@file\{.file ext\} e{-}{-}xt@\}} \includegraphics[width=aze,height=az]{f--ile@.}
 
 \texttt{@sp 2}\leavevmode{}\\
-\vskip 2\baselineskip
+\vskip 2\baselineskip %
 \texttt{@page}\leavevmode{}\\
-\newpage
+\newpage{}%
 
 \texttt{need 1002}
-\needspace{1.002pt}
+\needspace{1.002pt}%
 
 \texttt{@clicksequence\{click @click\{\} A\}} click $\rightarrow{}$ A
 After clickstyle $\Rightarrow{}$
@@ -299,17 +302,17 @@ $$
 $$
 
 {\ttfamily\textsl{default kbdinputstyle}}
-{\ttfamily\textsl{in example default kbdinputstyle}}
-
+\par\begingroup\obeycr\ttfamily\noindent{}{\ttfamily\textsl{in example default kbdinputstyle}}
+\endgroup{}
 \texttt{code kbdinputstyle}
-\texttt{in example code kbdinputstyle}
-
+\par\begingroup\obeycr\ttfamily\noindent{}\texttt{in example code kbdinputstyle}
+\endgroup{}
 {\ttfamily\textsl{example kbdinputstyle}}
-\texttt{in example example kbdinputstyle}
-
+\par\begingroup\obeycr\ttfamily\noindent{}\texttt{in example example kbdinputstyle}
+\endgroup{}
 {\ttfamily\textsl{distinct kbdinputstyle}}
-{\ttfamily\textsl{in example distinct kbdinputstyle}}
-
+\par\begingroup\obeycr\ttfamily\noindent{}{\ttfamily\textsl{in example distinct kbdinputstyle}}
+\endgroup{}
 A quot---ation
 
 \textbf{Note:} A Note
@@ -391,46 +394,46 @@ lone mu--ltitable item
 
 truc bidule
 
-e--xample  some
+\par\begingroup\obeycr\ttfamily\noindent{}e--xample  some
    text
-
-example one arg
-
-example two args
-
-example three args
-
-example four args
-
-example five args
-
-The something \'{e} \TeX{} is here.
-
-A @ at the end of the @example line.
-
-example with empty args
-
-example with empty and non empty args mix
-
-s--mallexample
-
+\endgroup{}
+\par\begingroup\obeycr\ttfamily\noindent{}example one arg
+\endgroup{}
+\par\begingroup\obeycr\ttfamily\noindent{}example two args
+\endgroup{}
+\par\begingroup\obeycr\ttfamily\noindent{}example three args
+\endgroup{}
+\par\begingroup\obeycr\ttfamily\noindent{}example four args
+\endgroup{}
+\par\begingroup\obeycr\ttfamily\noindent{}example five args
+\endgroup{}
+\par\begingroup\obeycr\ttfamily\noindent{}The something \'{e} \TeX{} is here.
+\endgroup{}
+\par\begingroup\obeycr\ttfamily\noindent{}A @ at the end of the @example line.
+\endgroup{}
+\par\begingroup\obeycr\ttfamily\noindent{}example with empty args
+\endgroup{}
+\par\begingroup\obeycr\ttfamily\noindent{}example with empty and non empty args mix
+\endgroup{}
+\par\begingroup\obeycr\ttfamily\noindent{}s--mallexample
+\endgroup{}
 \texttt{@noindent} after smallexample.
-\$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.guess?rev=HEAD\&content-type=text/plain'
+\par\begingroup\obeycr\ttfamily\noindent{}\$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.guess?rev=HEAD\&content-type=text/plain'
 \$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEAD\&content-type=text/plain'
-\noindent{}Less recent versions are also present.
+\endgroup{}\noindent{}Less recent versions are also present.
 
-d--isplay
-
-s--malldisplay
-
-l--isp
-
-s--malllisp
-
-f--ormat
-
-s--mallformat
-
+\par\begingroup\obeycr\noindent{}d--isplay
+\endgroup{}
+\par\begingroup\obeycr\noindent{}s--malldisplay
+\endgroup{}
+\par\begingroup\obeycr\ttfamily\noindent{}l--isp
+\endgroup{}
+\par\begingroup\obeycr\ttfamily\noindent{}s--malllisp
+\endgroup{}
+\par\begingroup\obeycr\noindent{}f--ormat
+\endgroup{}
+\par\begingroup\obeycr\noindent{}s--mallformat
+\endgroup{}
 $$
 disp--laymath
 f(x) = {1 \over \sigma \sqrt{2\pi}}e^{-{1 \over 2}\left({x-\mu \over \sigma}\right)^2}
@@ -712,6 +715,8 @@ more text
 
 \begin{verbatim}
 \input texinfo @c -*-texinfo-*-
+
+@c this file is used in tests in @verbatiminclude but not converted
 
 @setfilename simplest.info
 
@@ -1055,12 +1060,12 @@ but , ,\@
 \texttt{@image\{@file\{f{-}{-}ile\}@@@.,aze,az,alt,@file\{.file ext\} e{-}{-}xt@\}} \includegraphics[width=aze,height=az]{f--ile@.}
 
 \texttt{@sp 2}\leavevmode{}\\
-\vskip 2\baselineskip
+\vskip 2\baselineskip %
 \texttt{@page}\leavevmode{}\\
-\newpage
+\newpage{}%
 
 \texttt{need 1002}
-\needspace{1.002pt}
+\needspace{1.002pt}%
 
 \texttt{@clicksequence\{click @click\{\} A\}} click $\rightarrow{}$ A
 After clickstyle $\Rightarrow{}$
@@ -1097,17 +1102,17 @@ $$
 $$
 
 {\ttfamily\textsl{default kbdinputstyle}}
-{\ttfamily\textsl{in example default kbdinputstyle}}
-
+\par\begingroup\obeycr\ttfamily\noindent{}{\ttfamily\textsl{in example default kbdinputstyle}}
+\endgroup{}
 \texttt{code kbdinputstyle}
-\texttt{in example code kbdinputstyle}
-
+\par\begingroup\obeycr\ttfamily\noindent{}\texttt{in example code kbdinputstyle}
+\endgroup{}
 {\ttfamily\textsl{example kbdinputstyle}}
-\texttt{in example example kbdinputstyle}
-
+\par\begingroup\obeycr\ttfamily\noindent{}\texttt{in example example kbdinputstyle}
+\endgroup{}
 {\ttfamily\textsl{distinct kbdinputstyle}}
-{\ttfamily\textsl{in example distinct kbdinputstyle}}
-
+\par\begingroup\obeycr\ttfamily\noindent{}{\ttfamily\textsl{in example distinct kbdinputstyle}}
+\endgroup{}
 A quot---ation
 
 \textbf{Note:} A Note
@@ -1189,46 +1194,46 @@ lone mu--ltitable item
 
 truc bidule
 
-e--xample  some
+\par\begingroup\obeycr\ttfamily\noindent{}e--xample  some
    text
-
-example one arg
-
-example two args
-
-example three args
-
-example four args
-
-example five args
-
-The something \'{e} \TeX{} is here.
-
-A @ at the end of the @example line.
-
-example with empty args
-
-example with empty and non empty args mix
-
-s--mallexample
-
+\endgroup{}
+\par\begingroup\obeycr\ttfamily\noindent{}example one arg
+\endgroup{}
+\par\begingroup\obeycr\ttfamily\noindent{}example two args
+\endgroup{}
+\par\begingroup\obeycr\ttfamily\noindent{}example three args
+\endgroup{}
+\par\begingroup\obeycr\ttfamily\noindent{}example four args
+\endgroup{}
+\par\begingroup\obeycr\ttfamily\noindent{}example five args
+\endgroup{}
+\par\begingroup\obeycr\ttfamily\noindent{}The something \'{e} \TeX{} is here.
+\endgroup{}
+\par\begingroup\obeycr\ttfamily\noindent{}A @ at the end of the @example line.
+\endgroup{}
+\par\begingroup\obeycr\ttfamily\noindent{}example with empty args
+\endgroup{}
+\par\begingroup\obeycr\ttfamily\noindent{}example with empty and non empty args mix
+\endgroup{}
+\par\begingroup\obeycr\ttfamily\noindent{}s--mallexample
+\endgroup{}
 \texttt{@noindent} after smallexample.
-\$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.guess?rev=HEAD\&content-type=text/plain'
+\par\begingroup\obeycr\ttfamily\noindent{}\$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.guess?rev=HEAD\&content-type=text/plain'
 \$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEAD\&content-type=text/plain'
-\noindent{}Less recent versions are also present.
+\endgroup{}\noindent{}Less recent versions are also present.
 
-d--isplay
-
-s--malldisplay
-
-l--isp
-
-s--malllisp
-
-f--ormat
-
-s--mallformat
-
+\par\begingroup\obeycr\noindent{}d--isplay
+\endgroup{}
+\par\begingroup\obeycr\noindent{}s--malldisplay
+\endgroup{}
+\par\begingroup\obeycr\ttfamily\noindent{}l--isp
+\endgroup{}
+\par\begingroup\obeycr\ttfamily\noindent{}s--malllisp
+\endgroup{}
+\par\begingroup\obeycr\noindent{}f--ormat
+\endgroup{}
+\par\begingroup\obeycr\noindent{}s--mallformat
+\endgroup{}
 $$
 disp--laymath
 f(x) = {1 \over \sigma \sqrt{2\pi}}e^{-{1 \over 2}\left({x-\mu \over \sigma}\right)^2}
@@ -1510,6 +1515,8 @@ more text
 
 \begin{verbatim}
 \input texinfo @c -*-texinfo-*-
+
+@c this file is used in tests in @verbatiminclude but not converted
 
 @setfilename simplest.info
 
@@ -1868,12 +1875,12 @@ but , ,\@
 \texttt{@image\{@file\{f{-}{-}ile\}@@@.,aze,az,alt,@file\{.file ext\} e{-}{-}xt@\}} \includegraphics[width=aze,height=az]{f--ile@.}
 
 \texttt{@sp 2}\leavevmode{}\\
-\vskip 2\baselineskip
+\vskip 2\baselineskip %
 \texttt{@page}\leavevmode{}\\
-\newpage
+\newpage{}%
 
 \texttt{need 1002}
-\needspace{1.002pt}
+\needspace{1.002pt}%
 
 \texttt{@clicksequence\{click @click\{\} A\}} click $\rightarrow{}$ A
 After clickstyle $\Rightarrow{}$
@@ -1910,17 +1917,17 @@ $$
 $$
 
 {\ttfamily\textsl{default kbdinputstyle}}
-{\ttfamily\textsl{in example default kbdinputstyle}}
-
+\par\begingroup\obeycr\ttfamily\noindent{}{\ttfamily\textsl{in example default kbdinputstyle}}
+\endgroup{}
 \texttt{code kbdinputstyle}
-\texttt{in example code kbdinputstyle}
-
+\par\begingroup\obeycr\ttfamily\noindent{}\texttt{in example code kbdinputstyle}
+\endgroup{}
 {\ttfamily\textsl{example kbdinputstyle}}
-\texttt{in example example kbdinputstyle}
-
+\par\begingroup\obeycr\ttfamily\noindent{}\texttt{in example example kbdinputstyle}
+\endgroup{}
 {\ttfamily\textsl{distinct kbdinputstyle}}
-{\ttfamily\textsl{in example distinct kbdinputstyle}}
-
+\par\begingroup\obeycr\ttfamily\noindent{}{\ttfamily\textsl{in example distinct kbdinputstyle}}
+\endgroup{}
 A quot---ation
 
 \textbf{Note:} A Note
@@ -2002,46 +2009,46 @@ lone mu--ltitable item
 
 truc bidule
 
-e--xample  some
+\par\begingroup\obeycr\ttfamily\noindent{}e--xample  some
    text
-
-example one arg
-
-example two args
-
-example three args
-
-example four args
-
-example five args
-
-The something \'{e} \TeX{} is here.
-
-A @ at the end of the @example line.
-
-example with empty args
-
-example with empty and non empty args mix
-
-s--mallexample
-
+\endgroup{}
+\par\begingroup\obeycr\ttfamily\noindent{}example one arg
+\endgroup{}
+\par\begingroup\obeycr\ttfamily\noindent{}example two args
+\endgroup{}
+\par\begingroup\obeycr\ttfamily\noindent{}example three args
+\endgroup{}
+\par\begingroup\obeycr\ttfamily\noindent{}example four args
+\endgroup{}
+\par\begingroup\obeycr\ttfamily\noindent{}example five args
+\endgroup{}
+\par\begingroup\obeycr\ttfamily\noindent{}The something \'{e} \TeX{} is here.
+\endgroup{}
+\par\begingroup\obeycr\ttfamily\noindent{}A @ at the end of the @example line.
+\endgroup{}
+\par\begingroup\obeycr\ttfamily\noindent{}example with empty args
+\endgroup{}
+\par\begingroup\obeycr\ttfamily\noindent{}example with empty and non empty args mix
+\endgroup{}
+\par\begingroup\obeycr\ttfamily\noindent{}s--mallexample
+\endgroup{}
 \texttt{@noindent} after smallexample.
-\$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.guess?rev=HEAD\&content-type=text/plain'
+\par\begingroup\obeycr\ttfamily\noindent{}\$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.guess?rev=HEAD\&content-type=text/plain'
 \$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEAD\&content-type=text/plain'
-\noindent{}Less recent versions are also present.
+\endgroup{}\noindent{}Less recent versions are also present.
 
-d--isplay
-
-s--malldisplay
-
-l--isp
-
-s--malllisp
-
-f--ormat
-
-s--mallformat
-
+\par\begingroup\obeycr\noindent{}d--isplay
+\endgroup{}
+\par\begingroup\obeycr\noindent{}s--malldisplay
+\endgroup{}
+\par\begingroup\obeycr\ttfamily\noindent{}l--isp
+\endgroup{}
+\par\begingroup\obeycr\ttfamily\noindent{}s--malllisp
+\endgroup{}
+\par\begingroup\obeycr\noindent{}f--ormat
+\endgroup{}
+\par\begingroup\obeycr\noindent{}s--mallformat
+\endgroup{}
 $$
 disp--laymath
 f(x) = {1 \over \sigma \sqrt{2\pi}}e^{-{1 \over 2}\left({x-\mu \over \sigma}\right)^2}
@@ -2323,6 +2330,8 @@ more text
 
 \begin{verbatim}
 \input texinfo @c -*-texinfo-*-
+
+@c this file is used in tests in @verbatiminclude but not converted
 
 @setfilename simplest.info
 
@@ -2665,12 +2674,12 @@ but , ,\@
 \texttt{@image\{@file\{f{-}{-}ile\}@@@.,aze,az,alt,@file\{.file ext\} e{-}{-}xt@\}} \includegraphics[width=aze,height=az]{f--ile@.}
 
 \texttt{@sp 2}\leavevmode{}\\
-\vskip 2\baselineskip
+\vskip 2\baselineskip %
 \texttt{@page}\leavevmode{}\\
-\newpage
+\newpage{}%
 
 \texttt{need 1002}
-\needspace{1.002pt}
+\needspace{1.002pt}%
 
 \texttt{@clicksequence\{click @click\{\} A\}} click $\rightarrow{}$ A
 After clickstyle $\Rightarrow{}$
@@ -2707,17 +2716,17 @@ $$
 $$
 
 {\ttfamily\textsl{default kbdinputstyle}}
-{\ttfamily\textsl{in example default kbdinputstyle}}
-
+\par\begingroup\obeycr\ttfamily\noindent{}{\ttfamily\textsl{in example default kbdinputstyle}}
+\endgroup{}
 \texttt{code kbdinputstyle}
-\texttt{in example code kbdinputstyle}
-
+\par\begingroup\obeycr\ttfamily\noindent{}\texttt{in example code kbdinputstyle}
+\endgroup{}
 {\ttfamily\textsl{example kbdinputstyle}}
-\texttt{in example example kbdinputstyle}
-
+\par\begingroup\obeycr\ttfamily\noindent{}\texttt{in example example kbdinputstyle}
+\endgroup{}
 {\ttfamily\textsl{distinct kbdinputstyle}}
-{\ttfamily\textsl{in example distinct kbdinputstyle}}
-
+\par\begingroup\obeycr\ttfamily\noindent{}{\ttfamily\textsl{in example distinct kbdinputstyle}}
+\endgroup{}
 A quot---ation
 
 \textbf{Note:} A Note
@@ -2799,46 +2808,46 @@ lone mu--ltitable item
 
 truc bidule
 
-e--xample  some
+\par\begingroup\obeycr\ttfamily\noindent{}e--xample  some
    text
-
-example one arg
-
-example two args
-
-example three args
-
-example four args
-
-example five args
-
-The something \'{e} \TeX{} is here.
-
-A @ at the end of the @example line.
-
-example with empty args
-
-example with empty and non empty args mix
-
-s--mallexample
-
+\endgroup{}
+\par\begingroup\obeycr\ttfamily\noindent{}example one arg
+\endgroup{}
+\par\begingroup\obeycr\ttfamily\noindent{}example two args
+\endgroup{}
+\par\begingroup\obeycr\ttfamily\noindent{}example three args
+\endgroup{}
+\par\begingroup\obeycr\ttfamily\noindent{}example four args
+\endgroup{}
+\par\begingroup\obeycr\ttfamily\noindent{}example five args
+\endgroup{}
+\par\begingroup\obeycr\ttfamily\noindent{}The something \'{e} \TeX{} is here.
+\endgroup{}
+\par\begingroup\obeycr\ttfamily\noindent{}A @ at the end of the @example line.
+\endgroup{}
+\par\begingroup\obeycr\ttfamily\noindent{}example with empty args
+\endgroup{}
+\par\begingroup\obeycr\ttfamily\noindent{}example with empty and non empty args mix
+\endgroup{}
+\par\begingroup\obeycr\ttfamily\noindent{}s--mallexample
+\endgroup{}
 \texttt{@noindent} after smallexample.
-\$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.guess?rev=HEAD\&content-type=text/plain'
+\par\begingroup\obeycr\ttfamily\noindent{}\$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.guess?rev=HEAD\&content-type=text/plain'
 \$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEAD\&content-type=text/plain'
-\noindent{}Less recent versions are also present.
+\endgroup{}\noindent{}Less recent versions are also present.
 
-d--isplay
-
-s--malldisplay
-
-l--isp
-
-s--malllisp
-
-f--ormat
-
-s--mallformat
-
+\par\begingroup\obeycr\noindent{}d--isplay
+\endgroup{}
+\par\begingroup\obeycr\noindent{}s--malldisplay
+\endgroup{}
+\par\begingroup\obeycr\ttfamily\noindent{}l--isp
+\endgroup{}
+\par\begingroup\obeycr\ttfamily\noindent{}s--malllisp
+\endgroup{}
+\par\begingroup\obeycr\noindent{}f--ormat
+\endgroup{}
+\par\begingroup\obeycr\noindent{}s--mallformat
+\endgroup{}
 $$
 disp--laymath
 f(x) = {1 \over \sigma \sqrt{2\pi}}e^{-{1 \over 2}\left({x-\mu \over \sigma}\right)^2}
@@ -3121,6 +3130,8 @@ more text
 \begin{verbatim}
 \input texinfo @c -*-texinfo-*-
 
+@c this file is used in tests in @verbatiminclude but not converted
+
 @setfilename simplest.info
 
 @node Top
@@ -3267,7 +3278,7 @@ Various deff lines
 
 
 In example.
-
+\par\begingroup\obeycr\ttfamily\noindent{}
 <
 >
 "
@@ -3462,12 +3473,12 @@ but , ,\@
 \texttt{@image\{@file\{f{-}{-}ile\}@@@.,aze,az,alt,@file\{.file ext\} e{-}{-}xt@\}} \includegraphics[width=aze,height=az]{f--ile@.}
 
 \texttt{@sp 2}\leavevmode{}\\
-\vskip 2\baselineskip
+\vskip 2\baselineskip %
 \texttt{@page}\leavevmode{}\\
-\newpage
+\newpage{}%
 
 \texttt{need 1002}
-\needspace{1.002pt}
+\needspace{1.002pt}%
 
 \texttt{@clicksequence\{click @click\{\} A\}} click $\rightarrow{}$ A
 After clickstyle $\Rightarrow{}$
@@ -3504,17 +3515,17 @@ $$
 $$
 
 {\ttfamily\textsl{default kbdinputstyle}}
-{\ttfamily\textsl{in example default kbdinputstyle}}
-
+\par\begingroup\obeycr\ttfamily\noindent{}{\ttfamily\textsl{in example default kbdinputstyle}}
+\endgroup{}
 \texttt{code kbdinputstyle}
-\texttt{in example code kbdinputstyle}
-
+\par\begingroup\obeycr\ttfamily\noindent{}\texttt{in example code kbdinputstyle}
+\endgroup{}
 \texttt{example kbdinputstyle}
-\texttt{in example example kbdinputstyle}
-
+\par\begingroup\obeycr\ttfamily\noindent{}\texttt{in example example kbdinputstyle}
+\endgroup{}
 {\ttfamily\textsl{distinct kbdinputstyle}}
-{\ttfamily\textsl{in example distinct kbdinputstyle}}
-
+\par\begingroup\obeycr\ttfamily\noindent{}{\ttfamily\textsl{in example distinct kbdinputstyle}}
+\endgroup{}
 A quot---ation
 
 \textbf{Note:} A Note
@@ -3596,46 +3607,46 @@ lone mu--ltitable item
 
 truc bidule
 
-e--xample  some
+\par\begingroup\obeycr\ttfamily\noindent{}e--xample  some
    text
-
-example one arg
-
-example two args
-
-example three args
-
-example four args
-
-example five args
-
-The something \'{e} \TeX{} is here.
-
-A @ at the end of the @example line.
-
-example with empty args
-
-example with empty and non empty args mix
-
-s--mallexample
-
+\endgroup{}
+\par\begingroup\obeycr\ttfamily\noindent{}example one arg
+\endgroup{}
+\par\begingroup\obeycr\ttfamily\noindent{}example two args
+\endgroup{}
+\par\begingroup\obeycr\ttfamily\noindent{}example three args
+\endgroup{}
+\par\begingroup\obeycr\ttfamily\noindent{}example four args
+\endgroup{}
+\par\begingroup\obeycr\ttfamily\noindent{}example five args
+\endgroup{}
+\par\begingroup\obeycr\ttfamily\noindent{}The something \'{e} \TeX{} is here.
+\endgroup{}
+\par\begingroup\obeycr\ttfamily\noindent{}A @ at the end of the @example line.
+\endgroup{}
+\par\begingroup\obeycr\ttfamily\noindent{}example with empty args
+\endgroup{}
+\par\begingroup\obeycr\ttfamily\noindent{}example with empty and non empty args mix
+\endgroup{}
+\par\begingroup\obeycr\ttfamily\noindent{}s--mallexample
+\endgroup{}
 \texttt{@noindent} after smallexample.
-\$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.guess?rev=HEAD\&content-type=text/plain'
+\par\begingroup\obeycr\ttfamily\noindent{}\$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.guess?rev=HEAD\&content-type=text/plain'
 \$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEAD\&content-type=text/plain'
-\noindent{}Less recent versions are also present.
+\endgroup{}\noindent{}Less recent versions are also present.
 
-d--isplay
-
-s--malldisplay
-
-l--isp
-
-s--malllisp
-
-f--ormat
-
-s--mallformat
-
+\par\begingroup\obeycr\noindent{}d--isplay
+\endgroup{}
+\par\begingroup\obeycr\noindent{}s--malldisplay
+\endgroup{}
+\par\begingroup\obeycr\ttfamily\noindent{}l--isp
+\endgroup{}
+\par\begingroup\obeycr\ttfamily\noindent{}s--malllisp
+\endgroup{}
+\par\begingroup\obeycr\noindent{}f--ormat
+\endgroup{}
+\par\begingroup\obeycr\noindent{}s--mallformat
+\endgroup{}
 $$
 disp--laymath
 f(x) = {1 \over \sigma \sqrt{2\pi}}e^{-{1 \over 2}\left({x-\mu \over \sigma}\right)^2}
@@ -3918,6 +3929,8 @@ more text
 \begin{verbatim}
 \input texinfo @c -*-texinfo-*-
 
+@c this file is used in tests in @verbatiminclude but not converted
+
 @setfilename simplest.info
 
 @node Top
@@ -4062,7 +4075,7 @@ Various deff lines
 \texttt{@inforef\{\}} page \pageref{anchor:}
 
 
-
+\endgroup{}
 
 
 cp
@@ -4087,7 +4100,7 @@ tp
 
 \footnote{in footnote}
 
-
+\par\begingroup\obeycr\noindent{}\endgroup{}
 \section{A section}
 \label{anchor:s_002d_002dect_002cion}%
 
