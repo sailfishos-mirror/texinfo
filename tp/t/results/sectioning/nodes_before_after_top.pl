@@ -8,7 +8,43 @@ use utf8;
 $result_trees{'nodes_before_after_top'} = {
   'contents' => [
     {
-      'contents' => [],
+      'contents' => [
+        {
+          'args' => [
+            {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => 'nodes_before_after_top.info'
+                }
+              ],
+              'extra' => {
+                'spaces_after_argument' => '
+'
+              },
+              'parent' => {},
+              'type' => 'line_arg'
+            }
+          ],
+          'cmdname' => 'setfilename',
+          'extra' => {
+            'spaces_before_argument' => ' ',
+            'text_arg' => 'nodes_before_after_top.info'
+          },
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 1,
+            'macro' => ''
+          },
+          'parent' => {}
+        },
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        }
+      ],
       'parent' => {},
       'type' => 'text_root'
     },
@@ -72,7 +108,7 @@ $result_trees{'nodes_before_after_top'} = {
       },
       'line_nr' => {
         'file_name' => '',
-        'line_nr' => 1,
+        'line_nr' => 3,
         'macro' => ''
       },
       'parent' => {}
@@ -113,7 +149,7 @@ $result_trees{'nodes_before_after_top'} = {
       },
       'line_nr' => {
         'file_name' => '',
-        'line_nr' => 5,
+        'line_nr' => 7,
         'macro' => ''
       },
       'parent' => {}
@@ -167,7 +203,7 @@ $result_trees{'nodes_before_after_top'} = {
       'level' => 0,
       'line_nr' => {
         'file_name' => '',
-        'line_nr' => 6,
+        'line_nr' => 8,
         'macro' => ''
       },
       'parent' => {}
@@ -232,7 +268,7 @@ $result_trees{'nodes_before_after_top'} = {
       },
       'line_nr' => {
         'file_name' => '',
-        'line_nr' => 10,
+        'line_nr' => 12,
         'macro' => ''
       },
       'parent' => {}
@@ -273,7 +309,7 @@ $result_trees{'nodes_before_after_top'} = {
       },
       'line_nr' => {
         'file_name' => '',
-        'line_nr' => 14,
+        'line_nr' => 16,
         'macro' => ''
       },
       'parent' => {}
@@ -321,7 +357,7 @@ $result_trees{'nodes_before_after_top'} = {
       'level' => 1,
       'line_nr' => {
         'file_name' => '',
-        'line_nr' => 15,
+        'line_nr' => 17,
         'macro' => ''
       },
       'number' => 1,
@@ -330,6 +366,10 @@ $result_trees{'nodes_before_after_top'} = {
   ],
   'type' => 'document_root'
 };
+$result_trees{'nodes_before_after_top'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'nodes_before_after_top'}{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'nodes_before_after_top'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'nodes_before_after_top'}{'contents'}[0]{'contents'}[0];
+$result_trees{'nodes_before_after_top'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'nodes_before_after_top'}{'contents'}[0];
+$result_trees{'nodes_before_after_top'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'nodes_before_after_top'}{'contents'}[0];
 $result_trees{'nodes_before_after_top'}{'contents'}[0]{'parent'} = $result_trees{'nodes_before_after_top'};
 $result_trees{'nodes_before_after_top'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'nodes_before_after_top'}{'contents'}[1]{'args'}[0];
 $result_trees{'nodes_before_after_top'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'nodes_before_after_top'}{'contents'}[1];
@@ -373,7 +413,9 @@ $result_trees{'nodes_before_after_top'}{'contents'}[6]{'contents'}[1]{'contents'
 $result_trees{'nodes_before_after_top'}{'contents'}[6]{'contents'}[1]{'parent'} = $result_trees{'nodes_before_after_top'}{'contents'}[6];
 $result_trees{'nodes_before_after_top'}{'contents'}[6]{'parent'} = $result_trees{'nodes_before_after_top'};
 
-$result_texis{'nodes_before_after_top'} = '@node node before
+$result_texis{'nodes_before_after_top'} = '@setfilename nodes_before_after_top.info
+
+@node node before
 
 In node before
 
@@ -394,6 +436,7 @@ in chap
 
 
 $result_texts{'nodes_before_after_top'} = '
+
 In node before
 
 top sectionning
@@ -499,19 +542,19 @@ $result_menus{'nodes_before_after_top'} = {
 
 $result_errors{'nodes_before_after_top'} = [
   {
-    'error_line' => ':1: warning: node `node before\' unreferenced
+    'error_line' => ':3: warning: node `node before\' unreferenced
 ',
     'file_name' => '',
-    'line_nr' => 1,
+    'line_nr' => 3,
     'macro' => '',
     'text' => 'node `node before\' unreferenced',
     'type' => 'warning'
   },
   {
-    'error_line' => ':10: warning: node `after\' unreferenced
+    'error_line' => ':12: warning: node `after\' unreferenced
 ',
     'file_name' => '',
-    'line_nr' => 10,
+    'line_nr' => 12,
     'macro' => '',
     'text' => 'node `after\' unreferenced',
     'type' => 'warning'
@@ -523,7 +566,8 @@ $result_floats{'nodes_before_after_top'} = {};
 
 
 
-$result_converted{'latex'}->{'nodes_before_after_top'} = '\\label{anchor:node-before}%
+$result_converted{'latex'}->{'nodes_before_after_top'} = '
+\\label{anchor:node-before}%
 
 In node before
 

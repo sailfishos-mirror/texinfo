@@ -9,7 +9,43 @@ $result_trees{'lone_Top_node'} = [
   {
     'contents' => [
       {
-        'contents' => [],
+        'contents' => [
+          {
+            'args' => [
+              {
+                'contents' => [
+                  {
+                    'parent' => {},
+                    'text' => 'lone_Top_node.info'
+                  }
+                ],
+                'extra' => {
+                  'spaces_after_argument' => '
+'
+                },
+                'parent' => {},
+                'type' => 'line_arg'
+              }
+            ],
+            'cmdname' => 'setfilename',
+            'extra' => {
+              'spaces_before_argument' => ' ',
+              'text_arg' => 'lone_Top_node.info'
+            },
+            'line_nr' => {
+              'file_name' => '',
+              'line_nr' => 1,
+              'macro' => ''
+            },
+            'parent' => {}
+          },
+          {
+            'parent' => {},
+            'text' => '
+',
+            'type' => 'empty_line'
+          }
+        ],
         'parent' => {},
         'type' => 'text_root'
       },
@@ -101,7 +137,7 @@ $result_trees{'lone_Top_node'} = [
                 },
                 'line_nr' => {
                   'file_name' => '',
-                  'line_nr' => 4,
+                  'line_nr' => 6,
                   'macro' => ''
                 },
                 'parent' => {},
@@ -132,7 +168,7 @@ $result_trees{'lone_Top_node'} = [
                 },
                 'line_nr' => {
                   'file_name' => '',
-                  'line_nr' => 5,
+                  'line_nr' => 7,
                   'macro' => ''
                 },
                 'parent' => {}
@@ -143,7 +179,7 @@ $result_trees{'lone_Top_node'} = [
             },
             'line_nr' => {
               'file_name' => '',
-              'line_nr' => 3,
+              'line_nr' => 5,
               'macro' => ''
             },
             'parent' => {}
@@ -172,7 +208,7 @@ $result_trees{'lone_Top_node'} = [
         },
         'line_nr' => {
           'file_name' => '',
-          'line_nr' => 1,
+          'line_nr' => 3,
           'macro' => ''
         },
         'parent' => {}
@@ -213,7 +249,7 @@ $result_trees{'lone_Top_node'} = [
         },
         'line_nr' => {
           'file_name' => '',
-          'line_nr' => 7,
+          'line_nr' => 9,
           'macro' => ''
         },
         'parent' => {}
@@ -243,7 +279,7 @@ $result_trees{'lone_Top_node'} = [
         'level' => 1,
         'line_nr' => {
           'file_name' => '',
-          'line_nr' => 8,
+          'line_nr' => 10,
           'macro' => ''
         },
         'number' => 1,
@@ -258,6 +294,10 @@ $result_trees{'lone_Top_node'} = [
     'type' => 'element'
   }
 ];
+$result_trees{'lone_Top_node'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'lone_Top_node'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'lone_Top_node'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'lone_Top_node'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'lone_Top_node'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'lone_Top_node'}[0]{'contents'}[0];
+$result_trees{'lone_Top_node'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'lone_Top_node'}[0]{'contents'}[0];
 $result_trees{'lone_Top_node'}[0]{'contents'}[0]{'parent'} = $result_trees{'lone_Top_node'}[0];
 $result_trees{'lone_Top_node'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'lone_Top_node'}[0]{'contents'}[1]{'args'}[0];
 $result_trees{'lone_Top_node'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'lone_Top_node'}[0]{'contents'}[1];
@@ -295,7 +335,9 @@ $result_trees{'lone_Top_node'}[0]{'extra'}{'element_command'} = $result_trees{'l
 $result_trees{'lone_Top_node'}[0]{'extra'}{'node'} = $result_trees{'lone_Top_node'}[0]{'contents'}[2];
 $result_trees{'lone_Top_node'}[0]{'extra'}{'section'} = $result_trees{'lone_Top_node'}[0]{'contents'}[3];
 
-$result_texis{'lone_Top_node'} = '@node Top
+$result_texis{'lone_Top_node'} = '@setfilename lone_Top_node.info
+
+@node Top
 
 @menu
 * First::
@@ -307,6 +349,7 @@ $result_texis{'lone_Top_node'} = '@node Top
 
 
 $result_texts{'lone_Top_node'} = '
+
 * First::
 
 1 chap
@@ -402,10 +445,10 @@ $result_menus{'lone_Top_node'}{'menu_child'}{'menu_up'} = $result_menus{'lone_To
 
 $result_errors{'lone_Top_node'} = [
   {
-    'error_line' => ':7: warning: node `Top\' is up for `First\' in menu but not in sectioning
+    'error_line' => ':9: warning: node `Top\' is up for `First\' in menu but not in sectioning
 ',
     'file_name' => '',
-    'line_nr' => 7,
+    'line_nr' => 9,
     'macro' => '',
     'text' => 'node `Top\' is up for `First\' in menu but not in sectioning',
     'type' => 'warning'
@@ -470,7 +513,8 @@ $result_directions_text{'lone_Top_node'} = 'element: @chapter chap
 ';
 
 
-$result_converted{'latex'}->{'lone_Top_node'} = '\\label{anchor:Top}%
+$result_converted{'latex'}->{'lone_Top_node'} = '
+\\label{anchor:Top}%
 \\chapter{chap}
 \\label{anchor:First}%
 ';

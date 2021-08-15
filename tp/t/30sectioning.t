@@ -844,7 +844,8 @@ anchor ref @anchor{ref}.
 ref to ref @ref{ref}.
 '],
 ['chapter_between_nodes',
-'
+'@setfilename chapter_between_nodes.info
+
 @node Top
 @top top section
 Top node
@@ -865,7 +866,9 @@ section.
 @contents
 ', {}, {'CONTENTS_OUTPUT_LOCATION' => 'inline'}],
 ['section_before_after_top_node_last_node',
-'@unnumbered before
+'@setfilename section_before_after_top_node_last_node
+
+@unnumbered before
 
 @node Top
 @top top section
@@ -1087,7 +1090,9 @@ Top node
 @end menu
 '],
 ['section_chapter_before_top_nodes',
-'@node section node
+'@setfilename section_chapter_before_top_nodes.info
+
+@node section node
 @section section 
 
 @node chapter node
@@ -1638,7 +1643,8 @@ in node following second
 @xref{unknown ref}.
 '],
 ['loop_nodes',
-'
+'@setfilename loop_nodes.info
+
 @node Top
 @top top
 
@@ -1694,7 +1700,9 @@ Second top.
 @subsection the subsection
 '],
 ['lone_Top_node',
-'@node Top
+'@setfilename lone_Top_node.info
+
+@node Top
 
 @menu
 * First::
@@ -1799,7 +1807,9 @@ Second top.
 @section Sub3
 ', {'CHECK_NORMAL_MENU_STRUCTURE' => 1}],
 ['nodes_before_top',
-'@node first, Top, ,(dir)
+'@setfilename nodes_before_top.info
+
+@node first, Top, ,(dir)
 
 @menu
 * node in menu before top::
@@ -1818,7 +1828,9 @@ Second top.
 @chapter a chapter
 '],
 ['nodes_before_after_top',
-'@node node before
+'@setfilename nodes_before_after_top.info
+
+@node node before
 
 In node before
 

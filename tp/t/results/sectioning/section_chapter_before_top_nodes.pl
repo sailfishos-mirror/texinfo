@@ -8,7 +8,43 @@ use utf8;
 $result_trees{'section_chapter_before_top_nodes'} = {
   'contents' => [
     {
-      'contents' => [],
+      'contents' => [
+        {
+          'args' => [
+            {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => 'section_chapter_before_top_nodes.info'
+                }
+              ],
+              'extra' => {
+                'spaces_after_argument' => '
+'
+              },
+              'parent' => {},
+              'type' => 'line_arg'
+            }
+          ],
+          'cmdname' => 'setfilename',
+          'extra' => {
+            'spaces_before_argument' => ' ',
+            'text_arg' => 'section_chapter_before_top_nodes.info'
+          },
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 1,
+            'macro' => ''
+          },
+          'parent' => {}
+        },
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        }
+      ],
       'parent' => {},
       'type' => 'text_root'
     },
@@ -48,7 +84,7 @@ $result_trees{'section_chapter_before_top_nodes'} = {
       },
       'line_nr' => {
         'file_name' => '',
-        'line_nr' => 1,
+        'line_nr' => 3,
         'macro' => ''
       },
       'parent' => {}
@@ -85,7 +121,7 @@ $result_trees{'section_chapter_before_top_nodes'} = {
       'level' => 2,
       'line_nr' => {
         'file_name' => '',
-        'line_nr' => 2,
+        'line_nr' => 4,
         'macro' => ''
       },
       'number' => 1,
@@ -127,7 +163,7 @@ $result_trees{'section_chapter_before_top_nodes'} = {
       },
       'line_nr' => {
         'file_name' => '',
-        'line_nr' => 4,
+        'line_nr' => 6,
         'macro' => ''
       },
       'parent' => {}
@@ -220,7 +256,7 @@ $result_trees{'section_chapter_before_top_nodes'} = {
               },
               'line_nr' => {
                 'file_name' => '',
-                'line_nr' => 8,
+                'line_nr' => 10,
                 'macro' => ''
               },
               'parent' => {},
@@ -251,7 +287,7 @@ $result_trees{'section_chapter_before_top_nodes'} = {
               },
               'line_nr' => {
                 'file_name' => '',
-                'line_nr' => 9,
+                'line_nr' => 11,
                 'macro' => ''
               },
               'parent' => {}
@@ -262,7 +298,7 @@ $result_trees{'section_chapter_before_top_nodes'} = {
           },
           'line_nr' => {
             'file_name' => '',
-            'line_nr' => 7,
+            'line_nr' => 9,
             'macro' => ''
           },
           'parent' => {}
@@ -280,7 +316,7 @@ $result_trees{'section_chapter_before_top_nodes'} = {
       'level' => 2,
       'line_nr' => {
         'file_name' => '',
-        'line_nr' => 5,
+        'line_nr' => 7,
         'macro' => ''
       },
       'number' => 2,
@@ -322,7 +358,7 @@ $result_trees{'section_chapter_before_top_nodes'} = {
       },
       'line_nr' => {
         'file_name' => '',
-        'line_nr' => 11,
+        'line_nr' => 13,
         'macro' => ''
       },
       'parent' => {}
@@ -415,7 +451,7 @@ $result_trees{'section_chapter_before_top_nodes'} = {
               },
               'line_nr' => {
                 'file_name' => '',
-                'line_nr' => 15,
+                'line_nr' => 17,
                 'macro' => ''
               },
               'parent' => {},
@@ -446,7 +482,7 @@ $result_trees{'section_chapter_before_top_nodes'} = {
               },
               'line_nr' => {
                 'file_name' => '',
-                'line_nr' => 16,
+                'line_nr' => 18,
                 'macro' => ''
               },
               'parent' => {}
@@ -457,7 +493,7 @@ $result_trees{'section_chapter_before_top_nodes'} = {
           },
           'line_nr' => {
             'file_name' => '',
-            'line_nr' => 14,
+            'line_nr' => 16,
             'macro' => ''
           },
           'parent' => {}
@@ -475,7 +511,7 @@ $result_trees{'section_chapter_before_top_nodes'} = {
       'level' => 2,
       'line_nr' => {
         'file_name' => '',
-        'line_nr' => 12,
+        'line_nr' => 14,
         'macro' => ''
       },
       'parent' => {}
@@ -483,6 +519,10 @@ $result_trees{'section_chapter_before_top_nodes'} = {
   ],
   'type' => 'document_root'
 };
+$result_trees{'section_chapter_before_top_nodes'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'section_chapter_before_top_nodes'}{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'section_chapter_before_top_nodes'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'section_chapter_before_top_nodes'}{'contents'}[0]{'contents'}[0];
+$result_trees{'section_chapter_before_top_nodes'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'section_chapter_before_top_nodes'}{'contents'}[0];
+$result_trees{'section_chapter_before_top_nodes'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'section_chapter_before_top_nodes'}{'contents'}[0];
 $result_trees{'section_chapter_before_top_nodes'}{'contents'}[0]{'parent'} = $result_trees{'section_chapter_before_top_nodes'};
 $result_trees{'section_chapter_before_top_nodes'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'section_chapter_before_top_nodes'}{'contents'}[1]{'args'}[0];
 $result_trees{'section_chapter_before_top_nodes'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'section_chapter_before_top_nodes'}{'contents'}[1];
@@ -548,7 +588,9 @@ $result_trees{'section_chapter_before_top_nodes'}{'contents'}[6]{'contents'}[1]{
 $result_trees{'section_chapter_before_top_nodes'}{'contents'}[6]{'contents'}[2]{'parent'} = $result_trees{'section_chapter_before_top_nodes'}{'contents'}[6];
 $result_trees{'section_chapter_before_top_nodes'}{'contents'}[6]{'parent'} = $result_trees{'section_chapter_before_top_nodes'};
 
-$result_texis{'section_chapter_before_top_nodes'} = '@node section node
+$result_texis{'section_chapter_before_top_nodes'} = '@setfilename section_chapter_before_top_nodes.info
+
+@node section node
 @section section 
 
 @node chapter node
@@ -568,7 +610,8 @@ $result_texis{'section_chapter_before_top_nodes'} = '@node section node
 ';
 
 
-$result_texts{'section_chapter_before_top_nodes'} = '1 section
+$result_texts{'section_chapter_before_top_nodes'} = '
+1 section
 =========
 
 2 chapter
@@ -768,37 +811,37 @@ $result_menus{'section_chapter_before_top_nodes'}{'menu_child'}{'menu_up'} = $re
 
 $result_errors{'section_chapter_before_top_nodes'} = [
   {
-    'error_line' => ':5: warning: lowering the section level of @chapter appearing after a lower element
+    'error_line' => ':7: warning: lowering the section level of @chapter appearing after a lower element
 ',
     'file_name' => '',
-    'line_nr' => 5,
+    'line_nr' => 7,
     'macro' => '',
     'text' => 'lowering the section level of @chapter appearing after a lower element',
     'type' => 'warning'
   },
   {
-    'error_line' => ':12: warning: lowering the section level of @top appearing after a lower element
+    'error_line' => ':14: warning: lowering the section level of @top appearing after a lower element
 ',
     'file_name' => '',
-    'line_nr' => 12,
+    'line_nr' => 14,
     'macro' => '',
     'text' => 'lowering the section level of @top appearing after a lower element',
     'type' => 'warning'
   },
   {
-    'error_line' => ':1: warning: node `chapter node\' is up for `section node\' in menu but not in sectioning
+    'error_line' => ':3: warning: node `chapter node\' is up for `section node\' in menu but not in sectioning
 ',
     'file_name' => '',
-    'line_nr' => 1,
+    'line_nr' => 3,
     'macro' => '',
     'text' => 'node `chapter node\' is up for `section node\' in menu but not in sectioning',
     'type' => 'warning'
   },
   {
-    'error_line' => ':4: warning: node `Top\' is up for `chapter node\' in menu but not in sectioning
+    'error_line' => ':6: warning: node `Top\' is up for `chapter node\' in menu but not in sectioning
 ',
     'file_name' => '',
-    'line_nr' => 4,
+    'line_nr' => 6,
     'macro' => '',
     'text' => 'node `Top\' is up for `chapter node\' in menu but not in sectioning',
     'type' => 'warning'
@@ -810,16 +853,16 @@ $result_floats{'section_chapter_before_top_nodes'} = {};
 
 
 
-$result_converted{'info'}->{'section_chapter_before_top_nodes'} = 'This is , produced from .
+$result_converted{'info'}->{'section_chapter_before_top_nodes'} = 'This is section_chapter_before_top_nodes.info, produced from .
 
 
-File: ,  Node: section node,  Next: chapter node,  Up: chapter node
+File: section_chapter_before_top_nodes.info,  Node: section node,  Next: chapter node,  Up: chapter node
 
 1 section
 =========
 
 
-File: ,  Node: chapter node,  Next: Top,  Prev: section node,  Up: Top
+File: section_chapter_before_top_nodes.info,  Node: chapter node,  Next: Top,  Prev: section node,  Up: Top
 
 2 chapter
 =========
@@ -829,7 +872,7 @@ File: ,  Node: chapter node,  Next: Top,  Prev: section node,  Up: Top
 * section node::
 
 
-File: ,  Node: Top,  Next: chapter node,  Up: (dir)
+File: section_chapter_before_top_nodes.info,  Node: Top,  Next: chapter node,  Up: (dir)
 
 top
 ===
@@ -841,9 +884,9 @@ top
 
 
 Tag Table:
-Node: section node27
-Node: chapter node119
-Node: Top241
+Node: section node64
+Node: chapter node193
+Node: Top352
 
 End Tag Table
 
@@ -892,6 +935,7 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
+
 <div class="section" id="section-node">
 <div class="header">
 <p>
@@ -928,7 +972,8 @@ Next: <a href="#chapter-node" accesskey="n" rel="next">chapter</a> &nbsp; </p>
 ';
 
 
-$result_converted{'latex'}->{'section_chapter_before_top_nodes'} = '\\section{section}
+$result_converted{'latex'}->{'section_chapter_before_top_nodes'} = '
+\\section{section}
 \\label{anchor:section-node}%
 
 \\chapter{chapter}

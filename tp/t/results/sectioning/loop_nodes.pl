@@ -10,6 +10,35 @@ $result_trees{'loop_nodes'} = {
     {
       'contents' => [
         {
+          'args' => [
+            {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => 'loop_nodes.info'
+                }
+              ],
+              'extra' => {
+                'spaces_after_argument' => '
+'
+              },
+              'parent' => {},
+              'type' => 'line_arg'
+            }
+          ],
+          'cmdname' => 'setfilename',
+          'extra' => {
+            'spaces_before_argument' => ' ',
+            'text_arg' => 'loop_nodes.info'
+          },
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 1,
+            'macro' => ''
+          },
+          'parent' => {}
+        },
+        {
           'parent' => {},
           'text' => '
 ',
@@ -55,7 +84,7 @@ $result_trees{'loop_nodes'} = {
       },
       'line_nr' => {
         'file_name' => '',
-        'line_nr' => 2,
+        'line_nr' => 3,
         'macro' => ''
       },
       'parent' => {}
@@ -148,7 +177,7 @@ $result_trees{'loop_nodes'} = {
               },
               'line_nr' => {
                 'file_name' => '',
-                'line_nr' => 6,
+                'line_nr' => 7,
                 'macro' => ''
               },
               'parent' => {},
@@ -179,7 +208,7 @@ $result_trees{'loop_nodes'} = {
               },
               'line_nr' => {
                 'file_name' => '',
-                'line_nr' => 7,
+                'line_nr' => 8,
                 'macro' => ''
               },
               'parent' => {}
@@ -190,7 +219,7 @@ $result_trees{'loop_nodes'} = {
           },
           'line_nr' => {
             'file_name' => '',
-            'line_nr' => 5,
+            'line_nr' => 6,
             'macro' => ''
           },
           'parent' => {}
@@ -208,7 +237,7 @@ $result_trees{'loop_nodes'} = {
       'level' => 0,
       'line_nr' => {
         'file_name' => '',
-        'line_nr' => 3,
+        'line_nr' => 4,
         'macro' => ''
       },
       'parent' => {}
@@ -321,7 +350,7 @@ $result_trees{'loop_nodes'} = {
               },
               'line_nr' => {
                 'file_name' => '',
-                'line_nr' => 12,
+                'line_nr' => 13,
                 'macro' => ''
               },
               'parent' => {},
@@ -352,7 +381,7 @@ $result_trees{'loop_nodes'} = {
               },
               'line_nr' => {
                 'file_name' => '',
-                'line_nr' => 13,
+                'line_nr' => 14,
                 'macro' => ''
               },
               'parent' => {}
@@ -363,7 +392,7 @@ $result_trees{'loop_nodes'} = {
           },
           'line_nr' => {
             'file_name' => '',
-            'line_nr' => 11,
+            'line_nr' => 12,
             'macro' => ''
           },
           'parent' => {}
@@ -400,7 +429,7 @@ $result_trees{'loop_nodes'} = {
       },
       'line_nr' => {
         'file_name' => '',
-        'line_nr' => 9,
+        'line_nr' => 10,
         'macro' => ''
       },
       'parent' => {}
@@ -513,7 +542,7 @@ $result_trees{'loop_nodes'} = {
               },
               'line_nr' => {
                 'file_name' => '',
-                'line_nr' => 18,
+                'line_nr' => 19,
                 'macro' => ''
               },
               'parent' => {},
@@ -544,7 +573,7 @@ $result_trees{'loop_nodes'} = {
               },
               'line_nr' => {
                 'file_name' => '',
-                'line_nr' => 19,
+                'line_nr' => 20,
                 'macro' => ''
               },
               'parent' => {}
@@ -555,7 +584,7 @@ $result_trees{'loop_nodes'} = {
           },
           'line_nr' => {
             'file_name' => '',
-            'line_nr' => 17,
+            'line_nr' => 18,
             'macro' => ''
           },
           'parent' => {}
@@ -592,7 +621,7 @@ $result_trees{'loop_nodes'} = {
       },
       'line_nr' => {
         'file_name' => '',
-        'line_nr' => 15,
+        'line_nr' => 16,
         'macro' => ''
       },
       'parent' => {}
@@ -633,7 +662,7 @@ $result_trees{'loop_nodes'} = {
       },
       'line_nr' => {
         'file_name' => '',
-        'line_nr' => 21,
+        'line_nr' => 22,
         'macro' => ''
       },
       'parent' => {}
@@ -641,7 +670,10 @@ $result_trees{'loop_nodes'} = {
   ],
   'type' => 'document_root'
 };
+$result_trees{'loop_nodes'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'loop_nodes'}{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'loop_nodes'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'loop_nodes'}{'contents'}[0]{'contents'}[0];
 $result_trees{'loop_nodes'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'loop_nodes'}{'contents'}[0];
+$result_trees{'loop_nodes'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'loop_nodes'}{'contents'}[0];
 $result_trees{'loop_nodes'}{'contents'}[0]{'parent'} = $result_trees{'loop_nodes'};
 $result_trees{'loop_nodes'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'loop_nodes'}{'contents'}[1]{'args'}[0];
 $result_trees{'loop_nodes'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'loop_nodes'}{'contents'}[1];
@@ -734,7 +766,8 @@ $result_trees{'loop_nodes'}{'contents'}[5]{'extra'}{'node_content'}[0] = $result
 $result_trees{'loop_nodes'}{'contents'}[5]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'loop_nodes'}{'contents'}[5]{'args'}[0]{'contents'}[0];
 $result_trees{'loop_nodes'}{'contents'}[5]{'parent'} = $result_trees{'loop_nodes'};
 
-$result_texis{'loop_nodes'} = '
+$result_texis{'loop_nodes'} = '@setfilename loop_nodes.info
+
 @node Top
 @top top
 
@@ -931,10 +964,10 @@ $result_menus{'loop_nodes'}{'menu_child'}{'menu_up'} = $result_menus{'loop_nodes
 
 $result_errors{'loop_nodes'} = [
   {
-    'error_line' => ':9: warning: node up pointer for `node up\' is `node down\' but up is `Top\' in menu
+    'error_line' => ':10: warning: node up pointer for `node up\' is `node down\' but up is `Top\' in menu
 ',
     'file_name' => '',
-    'line_nr' => 9,
+    'line_nr' => 10,
     'macro' => '',
     'text' => 'node up pointer for `node up\' is `node down\' but up is `Top\' in menu',
     'type' => 'warning'

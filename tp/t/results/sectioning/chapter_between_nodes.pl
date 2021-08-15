@@ -10,6 +10,35 @@ $result_trees{'chapter_between_nodes'} = {
     {
       'contents' => [
         {
+          'args' => [
+            {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => 'chapter_between_nodes.info'
+                }
+              ],
+              'extra' => {
+                'spaces_after_argument' => '
+'
+              },
+              'parent' => {},
+              'type' => 'line_arg'
+            }
+          ],
+          'cmdname' => 'setfilename',
+          'extra' => {
+            'spaces_before_argument' => ' ',
+            'text_arg' => 'chapter_between_nodes.info'
+          },
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 1,
+            'macro' => ''
+          },
+          'parent' => {}
+        },
+        {
           'parent' => {},
           'text' => '
 ',
@@ -55,7 +84,7 @@ $result_trees{'chapter_between_nodes'} = {
       },
       'line_nr' => {
         'file_name' => '',
-        'line_nr' => 2,
+        'line_nr' => 3,
         'macro' => ''
       },
       'parent' => {}
@@ -159,7 +188,7 @@ $result_trees{'chapter_between_nodes'} = {
               },
               'line_nr' => {
                 'file_name' => '',
-                'line_nr' => 7,
+                'line_nr' => 8,
                 'macro' => ''
               },
               'parent' => {},
@@ -190,7 +219,7 @@ $result_trees{'chapter_between_nodes'} = {
               },
               'line_nr' => {
                 'file_name' => '',
-                'line_nr' => 8,
+                'line_nr' => 9,
                 'macro' => ''
               },
               'parent' => {}
@@ -201,7 +230,7 @@ $result_trees{'chapter_between_nodes'} = {
           },
           'line_nr' => {
             'file_name' => '',
-            'line_nr' => 6,
+            'line_nr' => 7,
             'macro' => ''
           },
           'parent' => {}
@@ -219,7 +248,7 @@ $result_trees{'chapter_between_nodes'} = {
       'level' => 0,
       'line_nr' => {
         'file_name' => '',
-        'line_nr' => 3,
+        'line_nr' => 4,
         'macro' => ''
       },
       'parent' => {}
@@ -273,7 +302,7 @@ $result_trees{'chapter_between_nodes'} = {
       'level' => 1,
       'line_nr' => {
         'file_name' => '',
-        'line_nr' => 10,
+        'line_nr' => 11,
         'macro' => ''
       },
       'number' => 1,
@@ -343,7 +372,7 @@ $result_trees{'chapter_between_nodes'} = {
       },
       'line_nr' => {
         'file_name' => '',
-        'line_nr' => 14,
+        'line_nr' => 15,
         'macro' => ''
       },
       'parent' => {}
@@ -402,7 +431,7 @@ $result_trees{'chapter_between_nodes'} = {
           'cmdname' => 'contents',
           'line_nr' => {
             'file_name' => '',
-            'line_nr' => 19,
+            'line_nr' => 20,
             'macro' => ''
           },
           'parent' => {}
@@ -414,7 +443,7 @@ $result_trees{'chapter_between_nodes'} = {
       'level' => 2,
       'line_nr' => {
         'file_name' => '',
-        'line_nr' => 15,
+        'line_nr' => 16,
         'macro' => ''
       },
       'number' => '1.1',
@@ -423,7 +452,10 @@ $result_trees{'chapter_between_nodes'} = {
   ],
   'type' => 'document_root'
 };
+$result_trees{'chapter_between_nodes'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'chapter_between_nodes'}{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'chapter_between_nodes'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'chapter_between_nodes'}{'contents'}[0]{'contents'}[0];
 $result_trees{'chapter_between_nodes'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'chapter_between_nodes'}{'contents'}[0];
+$result_trees{'chapter_between_nodes'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'chapter_between_nodes'}{'contents'}[0];
 $result_trees{'chapter_between_nodes'}{'contents'}[0]{'parent'} = $result_trees{'chapter_between_nodes'};
 $result_trees{'chapter_between_nodes'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'chapter_between_nodes'}{'contents'}[1]{'args'}[0];
 $result_trees{'chapter_between_nodes'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'chapter_between_nodes'}{'contents'}[1];
@@ -481,7 +513,8 @@ $result_trees{'chapter_between_nodes'}{'contents'}[5]{'contents'}[3]{'args'}[0]{
 $result_trees{'chapter_between_nodes'}{'contents'}[5]{'contents'}[3]{'parent'} = $result_trees{'chapter_between_nodes'}{'contents'}[5];
 $result_trees{'chapter_between_nodes'}{'contents'}[5]{'parent'} = $result_trees{'chapter_between_nodes'};
 
-$result_texis{'chapter_between_nodes'} = '
+$result_texis{'chapter_between_nodes'} = '@setfilename chapter_between_nodes.info
+
 @node Top
 @top top section
 Top node
@@ -657,10 +690,10 @@ $result_floats{'chapter_between_nodes'} = {};
 
 
 
-$result_converted{'info'}->{'chapter_between_nodes'} = 'This is , produced from .
+$result_converted{'info'}->{'chapter_between_nodes'} = 'This is chapter_between_nodes.info, produced from .
 
 
-File: ,  Node: Top,  Next: section node,  Up: (dir)
+File: chapter_between_nodes.info,  Node: Top,  Next: section node,  Up: (dir)
 
 top section
 ***********
@@ -677,7 +710,7 @@ Top node
 In chapter
 
 
-File: ,  Node: section node,  Prev: Top,  Up: Top
+File: chapter_between_nodes.info,  Node: section node,  Prev: Top,  Up: Top
 
 1.1 section
 ===========
@@ -687,8 +720,8 @@ section.
 
 
 Tag Table:
-Node: Top27
-Node: section node177
+Node: Top53
+Node: section node229
 
 End Tag Table
 
@@ -790,7 +823,8 @@ Previous: <a href="#Top" accesskey="p" rel="prev">top section</a>, Up: <a href="
 ';
 
 
-$result_converted{'xml'}->{'chapter_between_nodes'} = '
+$result_converted{'xml'}->{'chapter_between_nodes'} = '<setfilename file="chapter_between_nodes.info" spaces=" ">chapter_between_nodes.info</setfilename>
+
 <node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">section node</nodenext></node>
 <top spaces=" "><sectiontitle>top section</sectiontitle>
 <para>Top node
