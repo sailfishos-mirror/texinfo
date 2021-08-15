@@ -826,8 +826,12 @@ sub output($$)
   #$result .= $self->convert_document_sections($root, $fh);
   my $elements = Texinfo::Structuring::split_by_section($root);
   if ($elements) {
-    # Check if the document ends with a lone Top node, that
-    # will be ignored
+    # Ignore everything between Top node and the next node.  If
+    # at the end mark that Top node is ignored.
+    # After those manipulations, the tree should be incorrect,
+    # as element should point to original sections and sections
+    # to original elements.  This structure is not used in the
+    # LaTeX conversion code, though.
     my $converted_elements = [];
     my $current_modified_element;
     my $in_top_node = 0;
@@ -862,7 +866,13 @@ sub output($$)
               }
             }
           } else {
-            $in_top_node = 0;
+            if ($in_top_node) {
+              $in_top_node = 0;
+            }
+            if ($current_modified_element) {
+              push @{$current_modified_element->{'contents'}},
+                $element_content;
+            }
           }
         } elsif (not $in_top_node) {
           if ($current_modified_element) {
@@ -1695,7 +1705,6 @@ sub _convert($$)
         }
       }
     } elsif ($command eq 'node') {
-      $self->{'node'} = $root;
       # add the label only if not associated with a section
       if (not $root->{'extra'}->{'associated_section'}) {
         my $node_label

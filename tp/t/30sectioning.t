@@ -865,7 +865,6 @@ section.
 
 @contents
 ', {}, {'CONTENTS_OUTPUT_LOCATION' => 'inline'}],
-# FIXME in LaTeX @node node after is missing
 ['section_before_after_top_node_last_node',
 '@setfilename section_before_after_top_node_last_node.info
 
@@ -1830,7 +1829,6 @@ Second top.
 @node second node
 @chapter a chapter
 '],
-# FIXME in LaTeX "in node after" is missing
 ['nodes_before_after_top',
 '@setfilename nodes_before_after_top.info
 
