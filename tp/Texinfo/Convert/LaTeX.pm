@@ -808,8 +808,6 @@ sub output($$)
   $self->_set_outfile();
   return undef unless $self->_create_destination_directory();
 
-  print STDERR "output_file".$self->{'output_file'}."\n";
-
   my $fh;
   if (! $self->{'output_file'} eq '') {
     $fh = $self->Texinfo::Common::open_out ($self->{'output_file'});
