@@ -13,6 +13,35 @@ $result_trees{'three_setchapternewpage_on_odd_off'} = {
           'contents' => [
             {
               'parent' => {},
+              'text' => 'three_setchapternewpage_on_odd_off.info'
+            }
+          ],
+          'extra' => {
+            'spaces_after_argument' => '
+'
+          },
+          'parent' => {},
+          'type' => 'line_arg'
+        }
+      ],
+      'cmdname' => 'setfilename',
+      'extra' => {
+        'spaces_before_argument' => ' ',
+        'text_arg' => 'three_setchapternewpage_on_odd_off.info'
+      },
+      'line_nr' => {
+        'file_name' => '',
+        'line_nr' => 1,
+        'macro' => ''
+      },
+      'parent' => {}
+    },
+    {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'parent' => {},
               'text' => 'on'
             }
           ],
@@ -33,7 +62,7 @@ $result_trees{'three_setchapternewpage_on_odd_off'} = {
       },
       'line_nr' => {
         'file_name' => '',
-        'line_nr' => 1,
+        'line_nr' => 2,
         'macro' => ''
       },
       'parent' => {}
@@ -70,7 +99,7 @@ $result_trees{'three_setchapternewpage_on_odd_off'} = {
       },
       'line_nr' => {
         'file_name' => '',
-        'line_nr' => 3,
+        'line_nr' => 4,
         'macro' => ''
       },
       'parent' => {}
@@ -107,7 +136,7 @@ $result_trees{'three_setchapternewpage_on_odd_off'} = {
       },
       'line_nr' => {
         'file_name' => '',
-        'line_nr' => 5,
+        'line_nr' => 6,
         'macro' => ''
       },
       'parent' => {}
@@ -118,16 +147,20 @@ $result_trees{'three_setchapternewpage_on_odd_off'} = {
 $result_trees{'three_setchapternewpage_on_odd_off'}{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'three_setchapternewpage_on_odd_off'}{'contents'}[0]{'args'}[0];
 $result_trees{'three_setchapternewpage_on_odd_off'}{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'three_setchapternewpage_on_odd_off'}{'contents'}[0];
 $result_trees{'three_setchapternewpage_on_odd_off'}{'contents'}[0]{'parent'} = $result_trees{'three_setchapternewpage_on_odd_off'};
+$result_trees{'three_setchapternewpage_on_odd_off'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'three_setchapternewpage_on_odd_off'}{'contents'}[1]{'args'}[0];
+$result_trees{'three_setchapternewpage_on_odd_off'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'three_setchapternewpage_on_odd_off'}{'contents'}[1];
 $result_trees{'three_setchapternewpage_on_odd_off'}{'contents'}[1]{'parent'} = $result_trees{'three_setchapternewpage_on_odd_off'};
-$result_trees{'three_setchapternewpage_on_odd_off'}{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'three_setchapternewpage_on_odd_off'}{'contents'}[2]{'args'}[0];
-$result_trees{'three_setchapternewpage_on_odd_off'}{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'three_setchapternewpage_on_odd_off'}{'contents'}[2];
 $result_trees{'three_setchapternewpage_on_odd_off'}{'contents'}[2]{'parent'} = $result_trees{'three_setchapternewpage_on_odd_off'};
+$result_trees{'three_setchapternewpage_on_odd_off'}{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'three_setchapternewpage_on_odd_off'}{'contents'}[3]{'args'}[0];
+$result_trees{'three_setchapternewpage_on_odd_off'}{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'three_setchapternewpage_on_odd_off'}{'contents'}[3];
 $result_trees{'three_setchapternewpage_on_odd_off'}{'contents'}[3]{'parent'} = $result_trees{'three_setchapternewpage_on_odd_off'};
-$result_trees{'three_setchapternewpage_on_odd_off'}{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'three_setchapternewpage_on_odd_off'}{'contents'}[4]{'args'}[0];
-$result_trees{'three_setchapternewpage_on_odd_off'}{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'three_setchapternewpage_on_odd_off'}{'contents'}[4];
 $result_trees{'three_setchapternewpage_on_odd_off'}{'contents'}[4]{'parent'} = $result_trees{'three_setchapternewpage_on_odd_off'};
+$result_trees{'three_setchapternewpage_on_odd_off'}{'contents'}[5]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'three_setchapternewpage_on_odd_off'}{'contents'}[5]{'args'}[0];
+$result_trees{'three_setchapternewpage_on_odd_off'}{'contents'}[5]{'args'}[0]{'parent'} = $result_trees{'three_setchapternewpage_on_odd_off'}{'contents'}[5];
+$result_trees{'three_setchapternewpage_on_odd_off'}{'contents'}[5]{'parent'} = $result_trees{'three_setchapternewpage_on_odd_off'};
 
-$result_texis{'three_setchapternewpage_on_odd_off'} = '@setchapternewpage on
+$result_texis{'three_setchapternewpage_on_odd_off'} = '@setfilename three_setchapternewpage_on_odd_off.info
+@setchapternewpage on
 
 @setchapternewpage odd
 
@@ -141,19 +174,19 @@ $result_texts{'three_setchapternewpage_on_odd_off'} = '
 
 $result_errors{'three_setchapternewpage_on_odd_off'} = [
   {
-    'error_line' => ':3: warning: multiple @setchapternewpage
+    'error_line' => ':4: warning: multiple @setchapternewpage
 ',
     'file_name' => '',
-    'line_nr' => 3,
+    'line_nr' => 4,
     'macro' => '',
     'text' => 'multiple @setchapternewpage',
     'type' => 'warning'
   },
   {
-    'error_line' => ':5: warning: multiple @setchapternewpage
+    'error_line' => ':6: warning: multiple @setchapternewpage
 ',
     'file_name' => '',
-    'line_nr' => 5,
+    'line_nr' => 6,
     'macro' => '',
     'text' => 'multiple @setchapternewpage',
     'type' => 'warning'

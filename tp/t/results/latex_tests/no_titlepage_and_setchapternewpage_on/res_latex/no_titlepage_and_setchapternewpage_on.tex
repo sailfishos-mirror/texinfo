@@ -1,0 +1,59 @@
+\documentclass{book}
+\usepackage{makeidx}\makeindex
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage[gen]{eurosym}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{graphicx}
+\usepackage{needspace}
+\usepackage{etoolbox}
+\usepackage{fancyhdr}
+\usepackage[utf8]{inputenc}
+
+% command that does nothing used to help with substitutions in commands
+\newcommand{\GNUTexinfoplaceholder}[1]{}
+
+% called when setting single headers
+% use \nouppercase to match with Texinfo TeX style
+\newcommand{\GNUTexinfosetsingleheader}{\pagestyle{fancy}
+\fancyhf{}
+\lhead{\nouppercase{\leftmark}}
+\rhead{\thepage}
+}
+
+% called when setting double headers
+\newcommand{\GNUTexinfosetdoubleheader}[1]{\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[RE]{#1}
+\fancyhead[LO]{\nouppercase{\leftmark}}
+}
+
+% for part and chapter, which call \thispagestyle{plain}
+\fancypagestyle{plain}{ %
+ \fancyhf{}
+ \fancyhead[LE,RO]{\thepage}
+}
+
+% match Texinfo TeX style
+\renewcommand{\headrulewidth}{0pt}%
+
+% avoid pagebreak and headings setting for a sectionning command
+\newcommand{\GNUTexinfonopagebreakheading}[2]{\let\clearpage\relax \let\cleardoublepage\relax \let\thispagestyle\GNUTexinfoplaceholder #1{#2}}
+
+
+\renewcommand{\includegraphics}[1]{\fbox{FIG #1}}
+
+%temporary to avoid "no line here to end" errors in test suite constructs
+\renewcommand{\obeycr}{\relax}
+
+% set default for @setchapternewpage
+\makeatletter
+\patchcmd{\chapter}{\if@openright\cleardoublepage\else\clearpage\fi}{\GNUTexinfoplaceholder{setchapternewpage placeholder}\clearpage}{}{}
+\makeatother
+\GNUTexinfosetsingleheader{}%
+
+\begin{document}
+\GNUTexinfosetsingleheader{}%
+\end{document}

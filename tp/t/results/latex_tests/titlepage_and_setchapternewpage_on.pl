@@ -8,10 +8,33 @@ use utf8;
 $result_trees{'titlepage_and_setchapternewpage_on'} = {
   'contents' => [
     {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
+      'args' => [
+        {
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => 'titlepage_and_setchapternewpage_on.info'
+            }
+          ],
+          'extra' => {
+            'spaces_after_argument' => '
+'
+          },
+          'parent' => {},
+          'type' => 'line_arg'
+        }
+      ],
+      'cmdname' => 'setfilename',
+      'extra' => {
+        'spaces_before_argument' => ' ',
+        'text_arg' => 'titlepage_and_setchapternewpage_on.info'
+      },
+      'line_nr' => {
+        'file_name' => '',
+        'line_nr' => 1,
+        'macro' => ''
+      },
+      'parent' => {}
     },
     {
       'args' => [
@@ -123,6 +146,8 @@ $result_trees{'titlepage_and_setchapternewpage_on'} = {
   ],
   'type' => 'text_root'
 };
+$result_trees{'titlepage_and_setchapternewpage_on'}{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'titlepage_and_setchapternewpage_on'}{'contents'}[0]{'args'}[0];
+$result_trees{'titlepage_and_setchapternewpage_on'}{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'titlepage_and_setchapternewpage_on'}{'contents'}[0];
 $result_trees{'titlepage_and_setchapternewpage_on'}{'contents'}[0]{'parent'} = $result_trees{'titlepage_and_setchapternewpage_on'};
 $result_trees{'titlepage_and_setchapternewpage_on'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'titlepage_and_setchapternewpage_on'}{'contents'}[1]{'args'}[0];
 $result_trees{'titlepage_and_setchapternewpage_on'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'titlepage_and_setchapternewpage_on'}{'contents'}[1];
@@ -139,7 +164,7 @@ $result_trees{'titlepage_and_setchapternewpage_on'}{'contents'}[3]{'extra'}{'end
 $result_trees{'titlepage_and_setchapternewpage_on'}{'contents'}[3]{'parent'} = $result_trees{'titlepage_and_setchapternewpage_on'};
 $result_trees{'titlepage_and_setchapternewpage_on'}{'contents'}[4]{'parent'} = $result_trees{'titlepage_and_setchapternewpage_on'};
 
-$result_texis{'titlepage_and_setchapternewpage_on'} = '
+$result_texis{'titlepage_and_setchapternewpage_on'} = '@setfilename titlepage_and_setchapternewpage_on.info
 @setchapternewpage on
 
 @titlepage
@@ -151,7 +176,6 @@ in titlepage
 
 $result_texts{'titlepage_and_setchapternewpage_on'} = '
 
-
 ';
 
 $result_errors{'titlepage_and_setchapternewpage_on'} = [];
@@ -161,8 +185,7 @@ $result_floats{'titlepage_and_setchapternewpage_on'} = {};
 
 
 
-$result_converted{'latex'}->{'titlepage_and_setchapternewpage_on'} = '
-\\makeatletter
+$result_converted{'latex'}->{'titlepage_and_setchapternewpage_on'} = '\\makeatletter
 \\patchcmd{\\chapter}{\\if@openright\\cleardoublepage\\else\\clearpage\\fi}{\\GNUTexinfoplaceholder{setchapternewpage placeholder}\\clearpage}{}{}
 \\makeatother
 

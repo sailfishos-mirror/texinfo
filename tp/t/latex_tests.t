@@ -31,8 +31,12 @@ my @test_cases = (
 @kbd{in example distinct kbdinputstyle}
 @end example
 '],
+);
+
+my @file_tests = (
 ['settitle_and_headings',
-'@settitle Title @* for a manual
+'@setfilename settitle_and_headings.info
+@settitle Title @* for a manual
 
 @headings double
 
@@ -40,17 +44,21 @@ my @test_cases = (
 '],
 # default case
 ['titlepage_and_headings',
-'@titlepage
+'@setfilename titlepage_and_headings.info
+
+@titlepage
 in titlepage
 @end titlepage
 
 '],
-# note that those tests do not really correspond to
+# note that those tests with 'latex' do not really correspond to
 # what happens for real documents, as in real documents,
 # LaTeX default (start chapter on odd page) is switched
-# to Texinfo default (@setchapternewpage on). 
+# to Texinfo default (@setchapternewpage on).  With 'file_latex',
+# the correspond to the actual output
 ['titlepage_and_setchapternewpage_odd',
-'
+'@setfilename titlepage_and_setchapternewpage_odd.info
+
 @setchapternewpage odd
 
 @titlepage
@@ -59,11 +67,11 @@ in titlepage
 
 '],
 ['no_titlepage_and_setchapternewpage_odd',
-'
+'@setfilename no_titlepage_and_setchapternewpage_odd.info
 @setchapternewpage odd
 '],
 ['titlepage_and_setchapternewpage_on',
-'
+'@setfilename titlepage_and_setchapternewpage_on.info
 @setchapternewpage on
 
 @titlepage
@@ -72,31 +80,36 @@ in titlepage
 
 '],
 ['no_titlepage_and_setchapternewpage_on',
-'
+'@setfilename no_titlepage_and_setchapternewpage_on.info
 @setchapternewpage on
 '],
 ['two_setchapternewpage_odd_on',
-'@setchapternewpage odd
+'@setfilename two_setchapternewpage_odd_on.info
+@setchapternewpage odd
 
 @setchapternewpage on
 '],
 ['two_setchapternewpage_on_odd',
-'@setchapternewpage on
+'@setfilename two_setchapternewpage_on_odd.info
+@setchapternewpage on
 
 @setchapternewpage odd
 '],
 ['three_setchapternewpage_on_odd_off',
-'@setchapternewpage on
+'@setfilename three_setchapternewpage_on_odd_off.info
+@setchapternewpage on
 
 @setchapternewpage odd
 
 @setchapternewpage off
 '],
-# this is more like what would actually happen, switching
+# With 'latex' test type this is more like what would actually 
+# happen in the default case with output to a file, switching
 # to @setchapternewpage on in preamble, then odd and then the
 # title page
 ['setchapternewpage_on_odd_titlepage',
-'@setchapternewpage on
+'@setfilename setchapternewpage_on_odd_titlepage.info
+@setchapternewpage on
 
 @setchapternewpage odd
 
@@ -105,7 +118,9 @@ in titlepage
 @end titlepage
 '],
 ['titlepage_in_top_node',
-'@node Top
+'@setfilename titlepage_in_top_node.info
+
+@node Top
 @top top sectionning
 
 In top
@@ -125,9 +140,13 @@ foreach my $test (@test_cases) {
   $test->[2]->{'test_formats'} = ['latex'];
 }
 
+foreach my $test (@file_tests) {
+  $test->[2]->{'test_formats'} = ['latex', 'file_latex'];
+}
+
 our ($arg_test_case, $arg_generate, $arg_debug);
 
-run_all ('latex_tests', [@test_cases], $arg_test_case,
+run_all ('latex_tests', [@test_cases, @file_tests], $arg_test_case,
    $arg_generate, $arg_debug);
 
 1;
