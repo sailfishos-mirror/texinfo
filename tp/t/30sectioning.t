@@ -506,13 +506,23 @@ $nodes_after_top_before_chapter_text
 $nodes_after_top_before_chapter_text
 ,{}, {'USE_NODE_DIRECTIONS' => 0}
 ],
+['node_sectop_before_chapter_no_node',
+'@setfilename node_sectop_before_chapter_no_node.info
+
+@node Top
+@top top section
+
+@chapter chap
+'],
 # automatic directions are confused by the following setup
 # as @node Top next is with the first non Top node which
 # happens to be before.  Then the next node for the 
 # node before node is obtained with toplevel next which is
 # the node associated with the chapter, after the Top node!
 ['node_sectop_before_lone_node_Top',
-'@node node before
+'@setfilename node_sectop_before_lone_node_Top.info
+
+@node node before
 @top top sectionning
 
 in node before
@@ -854,6 +864,28 @@ section.
 
 @contents
 ', {}, {'CONTENTS_OUTPUT_LOCATION' => 'inline'}],
+['section_before_after_top_node_last_node',
+'@unnumbered before
+
+@node Top
+@top top section
+
+@chapter Chapter
+
+in chapter
+
+@node node after
+'],
+['section_before_after_top_node',
+'@unnumbered before
+
+@node Top
+@top top section
+
+@chapter Chapter
+
+in chapter
+'],
 ['part_node_before_top',
 '@node part node before top, Top,,Top
 @part part
@@ -1981,6 +2013,10 @@ my @xml_tests_converted_tests = ('section_before_part', 'chapter_before_part',
   'chapter_before_and_after_part');
 
 my @latex_tests_converted_tests = ('two_nodes_at_the_end',
+  'node_sectop_before_chapter_no_node',
+  'node_sectop_before_lone_node_Top');
+
+my @file_latex_tests_converted_tests = ('node_sectop_before_chapter_no_node',
   'node_sectop_before_lone_node_Top');
 
 foreach my $test (@tests_converted) {
@@ -1990,6 +2026,8 @@ foreach my $test (@tests_converted) {
     if (grep {$_ eq $test->[0]} @xml_tests_converted_tests);
   push @{$test->[2]->{'test_formats'}}, 'latex'
     if (grep {$_ eq $test->[0]} @latex_tests_converted_tests);
+  push @{$test->[2]->{'test_formats'}}, 'file_latex'
+    if (grep {$_ eq $test->[0]} @file_latex_tests_converted_tests);
 }
 
 my @xml_tests_info_tests = ('part_chapter_after_top', 
@@ -2008,6 +2046,8 @@ my @xml_tests_info_tests = ('part_chapter_after_top',
 my @docbook_tests_info_tests = ('double_node_anchor_float');
 
 my @latex_tests_info_tests = ('chapter_between_nodes',
+  'section_before_after_top_node_last_node',
+  'section_before_after_top_node',
   'section_chapter_before_top_nodes', 'unnumbered_top_without_node_sections');
 
 foreach my $test (@tests_info) {

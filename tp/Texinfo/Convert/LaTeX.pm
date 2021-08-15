@@ -808,6 +808,8 @@ sub output($$)
   $self->_set_outfile();
   return undef unless $self->_create_destination_directory();
 
+  print STDERR "output_file".$self->{'output_file'}."\n";
+
   my $fh;
   if (! $self->{'output_file'} eq '') {
     $fh = $self->Texinfo::Common::open_out ($self->{'output_file'});
@@ -828,43 +830,61 @@ sub output($$)
   if ($elements) {
     # Check if the document ends with a lone Top node, that
     # will be ignored
-    my $top_node_in_end_element;
-    my $node_following_top_node_in_end_element = 0;
-    foreach my $element_content (@{$elements->[-1]->{'contents'}}) {
-      if ($element_content->{'cmdname'}
-          and $element_content->{'cmdname'} eq 'node') {
-        if ($element_content->{'extra'}->{'normalized'} eq 'Top') {
-          $top_node_in_end_element = 1;
-        } elsif ($top_node_in_end_element) {
-          $node_following_top_node_in_end_element = 1;
-          last;
+    my $converted_elements = [];
+    my $current_modified_element;
+    my $in_top_node = 0;
+    foreach my $element (@$elements) {
+      $current_modified_element = undef;
+      if ($in_top_node) {
+        $current_modified_element = {'contents' => []};
+        foreach my $key ($element) {
+          if ($key ne 'contents') {
+            $current_modified_element->{$key} = $element->{$key};
+          }
         }
+      }
+      foreach my $element_content (@{$element->{'contents'}}) {
+        if ($element_content->{'cmdname'}
+            and $element_content->{'cmdname'} eq 'node') {
+          if ($element_content->{'extra'}->{'normalized'} eq 'Top') {
+            $in_top_node = 1;
+            if (not $current_modified_element) {
+              $current_modified_element = {'contents' => []};
+              foreach my $key ($element) {
+                if ($key ne 'contents') {
+                  $current_modified_element->{$key} = $element->{$key};
+                }
+              }
+              foreach my $previous_element_content (@{$element->{'contents'}}) {
+                if ($previous_element_content eq $element_content) {
+                  last;
+                }
+                push @{$current_modified_element->{'contents'}}, 
+                   $previous_element_content;
+              }
+            }
+          } else {
+            $in_top_node = 0;
+          }
+        } elsif (not $in_top_node) {
+          if ($current_modified_element) {
+            push @{$current_modified_element->{'contents'}},
+              $element_content;
+          }
+        }
+      }
+      if ($current_modified_element) {
+        push @$converted_elements, $current_modified_element;
+      } else {
+        push @$converted_elements, $element;
       }
     }
-    my $converted_elements = $elements;
-    if ($top_node_in_end_element and not $node_following_top_node_in_end_element) {
-      # the document ends with a lone to node, replace by a text
-      # stating that the Top nodei s ignored as in Texinfo TeX
-      $converted_elements = [ @$elements ];
-      my $last_element = pop @$converted_elements;
-      my $modified_last_element = {'contents' => []};
-      foreach my $key ($last_element) {
-        if ($key ne 'contents') {
-          $modified_last_element->{$key} = $last_element->{$key};
-        }
-      }
-      foreach my $element_content (@{$last_element}) {
-        if ($element_content->{'cmdname'}
-          and $element_content->{'cmdname'} eq 'node'
-          and $element_content->{'extra'}->{'normalized'} eq 'Top') {
-          push @{$modified_last_element->{'contents'}},
-           {'text' => "(`Top' node ignored)\n", 'type' => 'ignored_top_node'};
-          last;
-        } else {
-          push @{$modified_last_element->{'contents'}}, $element_content;
-        }
-      }
-      push @$converted_elements, $modified_last_element;
+    if ($in_top_node) {
+      # This is very simple, not in a paragraph, for instance, nor in
+      # a tree piece appearing typically in element such as @node or
+      # sectionning command.
+      push @{$current_modified_element->{'contents'}},
+          {'text' => "\n(`Top' node ignored)\n", 'type' => 'ignored_top_node'};
     }
     my $result = '';
     foreach my $element (@$converted_elements) {

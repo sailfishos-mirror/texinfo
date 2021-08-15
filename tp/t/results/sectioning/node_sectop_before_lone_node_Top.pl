@@ -8,7 +8,43 @@ use utf8;
 $result_trees{'node_sectop_before_lone_node_Top'} = {
   'contents' => [
     {
-      'contents' => [],
+      'contents' => [
+        {
+          'args' => [
+            {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => 'node_sectop_before_lone_node_Top.info'
+                }
+              ],
+              'extra' => {
+                'spaces_after_argument' => '
+'
+              },
+              'parent' => {},
+              'type' => 'line_arg'
+            }
+          ],
+          'cmdname' => 'setfilename',
+          'extra' => {
+            'spaces_before_argument' => ' ',
+            'text_arg' => 'node_sectop_before_lone_node_Top.info'
+          },
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 1,
+            'macro' => ''
+          },
+          'parent' => {}
+        },
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        }
+      ],
       'parent' => {},
       'type' => 'text_root'
     },
@@ -48,7 +84,7 @@ $result_trees{'node_sectop_before_lone_node_Top'} = {
       },
       'line_nr' => {
         'file_name' => '',
-        'line_nr' => 1,
+        'line_nr' => 3,
         'macro' => ''
       },
       'parent' => {}
@@ -102,7 +138,7 @@ $result_trees{'node_sectop_before_lone_node_Top'} = {
       'level' => 0,
       'line_nr' => {
         'file_name' => '',
-        'line_nr' => 2,
+        'line_nr' => 4,
         'macro' => ''
       },
       'parent' => {}
@@ -167,7 +203,7 @@ $result_trees{'node_sectop_before_lone_node_Top'} = {
       },
       'line_nr' => {
         'file_name' => '',
-        'line_nr' => 6,
+        'line_nr' => 8,
         'macro' => ''
       },
       'parent' => {}
@@ -208,7 +244,7 @@ $result_trees{'node_sectop_before_lone_node_Top'} = {
       },
       'line_nr' => {
         'file_name' => '',
-        'line_nr' => 10,
+        'line_nr' => 12,
         'macro' => ''
       },
       'parent' => {}
@@ -256,7 +292,7 @@ $result_trees{'node_sectop_before_lone_node_Top'} = {
       'level' => 1,
       'line_nr' => {
         'file_name' => '',
-        'line_nr' => 11,
+        'line_nr' => 13,
         'macro' => ''
       },
       'number' => 1,
@@ -265,6 +301,10 @@ $result_trees{'node_sectop_before_lone_node_Top'} = {
   ],
   'type' => 'document_root'
 };
+$result_trees{'node_sectop_before_lone_node_Top'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'node_sectop_before_lone_node_Top'}{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'node_sectop_before_lone_node_Top'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'node_sectop_before_lone_node_Top'}{'contents'}[0]{'contents'}[0];
+$result_trees{'node_sectop_before_lone_node_Top'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'node_sectop_before_lone_node_Top'}{'contents'}[0];
+$result_trees{'node_sectop_before_lone_node_Top'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'node_sectop_before_lone_node_Top'}{'contents'}[0];
 $result_trees{'node_sectop_before_lone_node_Top'}{'contents'}[0]{'parent'} = $result_trees{'node_sectop_before_lone_node_Top'};
 $result_trees{'node_sectop_before_lone_node_Top'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'node_sectop_before_lone_node_Top'}{'contents'}[1]{'args'}[0];
 $result_trees{'node_sectop_before_lone_node_Top'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'node_sectop_before_lone_node_Top'}{'contents'}[1];
@@ -299,7 +339,9 @@ $result_trees{'node_sectop_before_lone_node_Top'}{'contents'}[5]{'contents'}[1]{
 $result_trees{'node_sectop_before_lone_node_Top'}{'contents'}[5]{'contents'}[1]{'parent'} = $result_trees{'node_sectop_before_lone_node_Top'}{'contents'}[5];
 $result_trees{'node_sectop_before_lone_node_Top'}{'contents'}[5]{'parent'} = $result_trees{'node_sectop_before_lone_node_Top'};
 
-$result_texis{'node_sectop_before_lone_node_Top'} = '@node node before
+$result_texis{'node_sectop_before_lone_node_Top'} = '@setfilename node_sectop_before_lone_node_Top.info
+
+@node node before
 @top top sectionning
 
 in node before
@@ -315,7 +357,8 @@ in chap
 ';
 
 
-$result_texts{'node_sectop_before_lone_node_Top'} = 'top sectionning
+$result_texts{'node_sectop_before_lone_node_Top'} = '
+top sectionning
 ***************
 
 in node before
@@ -482,6 +525,7 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
+
 <div class="top" id="node-before">
 <div class="header">
 <p>
@@ -522,7 +566,8 @@ Up: <a href="#node-before" accesskey="u" rel="up">top sectionning</a> &nbsp; </p
 ';
 
 
-$result_converted{'latex'}->{'node_sectop_before_lone_node_Top'} = '\\part*{top sectionning}
+$result_converted{'latex'}->{'node_sectop_before_lone_node_Top'} = '
+\\part*{top sectionning}
 \\label{anchor:node-before}%
 
 in node before
