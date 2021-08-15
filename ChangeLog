@@ -1,5 +1,18 @@
 2021-08-15  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_end_line),
+	tp/Texinfo/Convert/Texinfo.pm (convert),
+	tp/Texinfo/Convert/TexinfoXML.pm (%ignored_types):
+	Keep @include of included files in tree, with type
+	set to 'replaced'.  Ignore 'replaced' type in converters
+	that expand all @-commands, in the default case.  If
+	Texinfo.pm convert() has a defined second argument given,
+	expand replaced types.  Used in the parser to have
+	@include replaced by its content, with replaced type set
+	shown in error messages.
+
+2021-08-15  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_parse_line_command_args):
 	fix setchapternewpage argument.
 	Changes in one debug message, reindent some code.

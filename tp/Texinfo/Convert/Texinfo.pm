@@ -57,18 +57,25 @@ for my $a (@ignored_types) {
 # Following subroutines deal with transforming a texinfo tree into texinfo
 # text.  Should give the text that was used parsed, except for a few cases.
 
+# the second arguments, if defined triggers replaced
+# tree item to be shown, in the default case they are
+# not shown.
 # expand a tree to the corresponding texinfo.
-sub convert
+sub convert($;$);
+sub convert($;$)
 {
   my $root = shift;
+  my $expand_replaced = shift;
 
   die "convert: root undef\n" if (!defined($root));
   die "convert: bad root type (".ref($root).") $root\n" 
      if (ref($root) ne 'HASH');
   my $result = '';
 
-  return '' if ($root->{'type'} and $ignored_types{$root->{'type'}});
-
+  return '' if ($root->{'type'}
+                and ($ignored_types{$root->{'type'}}
+                     or ($root->{'type'} eq 'replaced'
+                         and not $expand_replaced)));
   if (defined($root->{'text'})) {
     $result .= $root->{'text'};
   } else {
@@ -76,7 +83,7 @@ sub convert
        or ($root->{'type'} and ($root->{'type'} eq 'def_line'
                                 or $root->{'type'} eq 'menu_entry'
                                 or $root->{'type'} eq 'menu_comment'))) {
-      $result .= _expand_cmd_args_to_texi($root);
+      $result .= _expand_cmd_args_to_texi($root, $expand_replaced);
     }
     if ($root->{'type'}
         and ($root->{'type'} eq 'bracketed'
@@ -89,14 +96,15 @@ sub convert
     }
     if (defined($root->{'contents'})) {
       foreach my $child (@{$root->{'contents'}}) {
-        $result .= convert($child);
+        $result .= convert($child, $expand_replaced);
       }
     }
     if ($root->{'extra'} and $root->{'extra'}->{'spaces_after_argument'}) {
       $result .= $root->{'extra'}->{'spaces_after_argument'};
     }
     if ($root->{'extra'} and $root->{'extra'}->{'comment_at_end'}) {
-      $result .= convert($root->{'extra'}->{'comment_at_end'});
+      $result .= convert($root->{'extra'}->{'comment_at_end'},
+                         $expand_replaced);
     }
     $result .= '}' if ($root->{'type'}
                        and ($root->{'type'} eq 'bracketed'
@@ -128,8 +136,9 @@ sub node_extra_to_texi($)
 
 
 # expand a command argument as texinfo.
-sub _expand_cmd_args_to_texi {
+sub _expand_cmd_args_to_texi($;$) {
   my $cmd = shift;
+  my $expand_replaced = shift;
 
   my $cmdname = $cmd->{'cmdname'};
   $cmdname = '' if (!$cmd->{'cmdname'}); 
@@ -149,7 +158,7 @@ sub _expand_cmd_args_to_texi {
      $result .= $cmd->{'extra'}->{'spaces_before_argument'}
        if $cmd->{'extra'} and $cmd->{'extra'}->{'spaces_before_argument'};
      foreach my $arg (@{$cmd->{'args'}}) {
-        $result .= convert($arg);
+        $result .= convert($arg, $expand_replaced);
     }
   # for misc_commands with type special
   } elsif (($cmd->{'extra'} or $cmdname eq 'macro' or $cmdname eq 'rmacro') 

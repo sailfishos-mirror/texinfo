@@ -29,6 +29,13 @@ nytprofhtml --open
 # firefox nytprof/index.html
 
 
+Documentation of tree in ParserNonXS.pm
+=======================================
+
+replaced, elided, elided_block types.
+'extra'->'file' in replaced @include.
+
+
 Delayed bugs
 ============
 
@@ -152,8 +159,9 @@ bit to update.
 Add some elements of texinfo that are not of interest in the
 tree, like beginning and end of included file, @ protecting
 end of line in @def*, begin and end of user defined macro
-or value expansion.  Maybe call the key for these elements
-'sourcemark'?
+or value expansion.  For @include @-commands, which are kept,
+the type is set to 'replaced', it could be possible to do the
+same.
 
 In a similar way, keep the information about aliases in the tree?
 And about @setfilename in included files which is for now completly

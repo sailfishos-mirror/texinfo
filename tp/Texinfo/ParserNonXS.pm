@@ -2477,8 +2477,6 @@ sub _end_line($$$)
 
   my $current_old = $current;
 
-  my $included_file = 0;
-
   # a line consisting only of spaces.
   if ($current->{'contents'} and @{$current->{'contents'}} 
       and $current->{'contents'}->[-1]->{'type'} 
@@ -2986,7 +2984,6 @@ sub _end_line($$$)
           if (defined($file)) {
             my $filehandle = do { local *FH };
             if (_open_in ($self, $filehandle, $file)) {
-              $included_file = 1;
               print STDERR "Included $file($filehandle)\n" if ($self->{'DEBUG'});
               my ($directories, $suffix);
               ($file, $directories, $suffix) = fileparse($file);
@@ -2995,6 +2992,10 @@ sub _end_line($$$)
                 'line_nr' => 0,
                 'pending' => [],
                 'fh' => $filehandle };
+              $current->{'extra'}->{'file'} = $file;
+              # we set thetype to replaced to tell converters not to
+              # expand the @-command
+              $current->{'type'} = 'replaced';
             } else {
               $self->_command_error($current, $line_nr,
                               __("\@%s: could not open %s: %s"),
@@ -3045,8 +3046,11 @@ sub _end_line($$$)
         }
       }
       if ($superfluous_arg) {
+        # note that the argument to expand replaced @-commands is
+        # set, such that @include that are removed from the tree
+        # with type set to replaced are still shown in error messages.
         my $texi_line 
-          = Texinfo::Convert::Texinfo::convert($current->{'args'}->[0]);
+          = Texinfo::Convert::Texinfo::convert($current->{'args'}->[0], 1);
         $texi_line =~ s/^\s*//;
         $texi_line =~ s/\s*$//;
 
@@ -3128,11 +3132,10 @@ sub _end_line($$$)
       $current = _begin_preformatted($self, $current) 
         if ($close_preformatted_commands{$command});
     }
-    # if a file was included, remove completly the include file command.
-    # Also ignore @setfilename in included file, as said in the manual.
-    if ($included_file or ($command eq 'setfilename'
-                           and scalar(@{$self->{'input'}}) > 1)) {
-      # TODO keep the information with sourcemark
+    # Ignore @setfilename in included file, as said in the manual.
+    if ($command eq 'setfilename'
+         and scalar(@{$self->{'input'}}) > 1) {
+      # TODO keep the information
       pop @{$current->{'contents'}};
     } elsif ($command eq 'setfilename'
              and ($self->{'current_node'} or $self->{'current_section'})) {

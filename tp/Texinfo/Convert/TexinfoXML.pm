@@ -388,6 +388,8 @@ foreach my $type (
             # those are put as spaces in the corresponding @-command
             'empty_spaces_after_command',
             'empty_spaces_before_argument',
+            # @-commands replaced in the tree
+            'replaced',
   ) {
   $ignored_types{$type} = 1;
 }
