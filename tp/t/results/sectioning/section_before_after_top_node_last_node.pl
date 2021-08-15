@@ -15,7 +15,7 @@ $result_trees{'section_before_after_top_node_last_node'} = {
               'contents' => [
                 {
                   'parent' => {},
-                  'text' => 'section_before_after_top_node_last_node'
+                  'text' => 'section_before_after_top_node_last_node.info'
                 }
               ],
               'extra' => {
@@ -29,7 +29,7 @@ $result_trees{'section_before_after_top_node_last_node'} = {
           'cmdname' => 'setfilename',
           'extra' => {
             'spaces_before_argument' => ' ',
-            'text_arg' => 'section_before_after_top_node_last_node'
+            'text_arg' => 'section_before_after_top_node_last_node.info'
           },
           'line_nr' => {
             'file_name' => '',
@@ -293,7 +293,7 @@ $result_trees{'section_before_after_top_node_last_node'}{'contents'}[5]{'extra'}
 $result_trees{'section_before_after_top_node_last_node'}{'contents'}[5]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'section_before_after_top_node_last_node'}{'contents'}[5]{'args'}[0]{'contents'}[0];
 $result_trees{'section_before_after_top_node_last_node'}{'contents'}[5]{'parent'} = $result_trees{'section_before_after_top_node_last_node'};
 
-$result_texis{'section_before_after_top_node_last_node'} = '@setfilename section_before_after_top_node_last_node
+$result_texis{'section_before_after_top_node_last_node'} = '@setfilename section_before_after_top_node_last_node.info
 
 @unnumbered before
 
@@ -422,13 +422,13 @@ $result_floats{'section_before_after_top_node_last_node'} = {};
 
 
 
-$result_converted{'info'}->{'section_before_after_top_node_last_node'} = 'This is section_before_after_top_node_last_node, produced from .
+$result_converted{'info'}->{'section_before_after_top_node_last_node'} = 'This is section_before_after_top_node_last_node.info, produced from .
 
 before
 ******
 
 
-File: section_before_after_top_node_last_node,  Node: Top,  Next: node after,  Up: (dir)
+File: section_before_after_top_node_last_node.info,  Node: Top,  Next: node after,  Up: (dir)
 
 top section
 ***********
@@ -439,13 +439,13 @@ top section
 in chapter
 
 
-File: section_before_after_top_node_last_node,  Node: node after,  Prev: Top
+File: section_before_after_top_node_last_node.info,  Node: node after,  Prev: Top
 
 
 
 Tag Table:
-Node: Top81
-Node: node after231
+Node: Top86
+Node: node after241
 
 End Tag Table
 

@@ -865,8 +865,9 @@ section.
 
 @contents
 ', {}, {'CONTENTS_OUTPUT_LOCATION' => 'inline'}],
+# FIXME in LaTeX @node node after is missing
 ['section_before_after_top_node_last_node',
-'@setfilename section_before_after_top_node_last_node
+'@setfilename section_before_after_top_node_last_node.info
 
 @unnumbered before
 
@@ -880,7 +881,9 @@ in chapter
 @node node after
 '],
 ['section_before_after_top_node',
-'@unnumbered before
+'@setfilename section_before_after_top_node.info
+
+@unnumbered before
 
 @node Top
 @top top section
@@ -1827,6 +1830,7 @@ Second top.
 @node second node
 @chapter a chapter
 '],
+# FIXME in LaTeX "in node after" is missing
 ['nodes_before_after_top',
 '@setfilename nodes_before_after_top.info
 
@@ -2062,6 +2066,11 @@ my @latex_tests_info_tests = ('chapter_between_nodes',
   'section_before_after_top_node',
   'section_chapter_before_top_nodes', 'unnumbered_top_without_node_sections');
 
+my @file_latex_tests_info_tests = ('chapter_between_nodes',
+  'section_before_after_top_node_last_node',
+  'section_before_after_top_node',
+  'section_chapter_before_top_nodes');
+
 foreach my $test (@tests_info) {
   push @{$test->[2]->{'test_formats'}}, 'info';
   push @{$test->[2]->{'test_formats'}}, 'html';
@@ -2071,6 +2080,8 @@ foreach my $test (@tests_info) {
     if (grep {$_ eq $test->[0]} @docbook_tests_info_tests);
   push @{$test->[2]->{'test_formats'}}, 'latex'
     if (grep {$_ eq $test->[0]} @latex_tests_info_tests);
+  push @{$test->[2]->{'test_formats'}}, 'file_latex'
+    if (grep {$_ eq $test->[0]} @file_latex_tests_info_tests);
 }
 
 my @xml_tests_cases_tests = ('part_before_section', 
@@ -2084,11 +2095,16 @@ my @xml_tests_cases_tests = ('part_before_section',
 my @latex_tests_cases_tests = ('loop_nodes', 'lone_Top_node',
  'nodes_before_top', 'nodes_before_after_top');
 
+my @file_latex_tests_cases_tests = ('loop_nodes', 'lone_Top_node',
+ 'nodes_before_top', 'nodes_before_after_top');
+
 foreach my $test (@test_cases) {
   push @{$test->[2]->{'test_formats'}}, 'xml'
     if (grep {$_ eq $test->[0]} @xml_tests_cases_tests);
   push @{$test->[2]->{'test_formats'}}, 'latex'
     if (grep {$_ eq $test->[0]} @latex_tests_cases_tests);
+  push @{$test->[2]->{'test_formats'}}, 'file_latex'
+    if (grep {$_ eq $test->[0]} @file_latex_tests_cases_tests);
 }
 
 our ($arg_test_case, $arg_generate, $arg_debug);
