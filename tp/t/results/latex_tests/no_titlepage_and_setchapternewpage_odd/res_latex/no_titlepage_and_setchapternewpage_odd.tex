@@ -45,9 +45,6 @@
 
 \renewcommand{\includegraphics}[1]{\fbox{FIG #1}}
 
-%temporary to avoid "no line here to end" errors in test suite constructs
-\renewcommand{\obeycr}{\relax}
-
 % set default for @setchapternewpage
 \makeatletter
 \patchcmd{\chapter}{\if@openright\cleardoublepage\else\clearpage\fi}{\GNUTexinfoplaceholder{setchapternewpage placeholder}\clearpage}{}{}

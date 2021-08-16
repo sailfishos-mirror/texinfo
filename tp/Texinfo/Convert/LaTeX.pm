@@ -659,9 +659,6 @@ sub _latex_header {
 '
 \renewcommand{\includegraphics}[1]{\fbox{FIG #1}}
 
-%temporary to avoid "no line here to end" errors in test suite constructs
-\renewcommand{\obeycr}{\relax}
-
 ';
   }
   # setup defaults
@@ -1633,10 +1630,6 @@ sub _convert($$)
                     'contents' => [$expansion]};
       $result .= _convert($self, $expansion);
       return $result;
-    } elsif ($root->{'args'} and $root->{'args'}->[0] 
-             and $root->{'args'}->[0]->{'type'}
-             and $root->{'args'}->[0]->{'type'} eq 'brace_command_arg') {
-      print STDERR "Unknown $command\n";
     # block commands
     } elsif (exists($block_commands{$command})) {
       # remark:
