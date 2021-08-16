@@ -245,6 +245,10 @@ After clickstyle @result{}
 @guilsinglright{} @textdegree{} @euro{} @arrow{} @leq{} @geq{}
 @end displaymath
 
+@displaymath
+@b{b} @i{i} @r{r} @sc{sc} @t{t} @sansserif{sansserif} @slanted{slanted}
+@end displaymath
+
 @kbd{default kbdinputstyle}
 @example
 @kbd{in example default kbdinputstyle}

@@ -256,6 +256,8 @@ error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
 &#187; &#171; &#187; &#8249;
 &#8250; &#176; &#8364; &#8594; &#8804; &#8805;
 </mathphrase></informalequation>
+<informalequation><mathphrase><emphasis role="bold">b</emphasis> <emphasis>i</emphasis> r SC <literal>t</literal> sansserif slanted
+</mathphrase></informalequation>
 <para><userinput>default kbdinputstyle</userinput>
 </para><screen><userinput>in example default kbdinputstyle</userinput>
 </screen>
@@ -954,6 +956,8 @@ error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
 &#8216; &#8217; &#8222; &#8218; &#171;
 &#187; &#171; &#187; &#8249;
 &#8250; &#176; &#8364; &#8594; &#8804; &#8805;
+</mathphrase></informalequation>
+<informalequation><mathphrase><emphasis role="bold">b</emphasis> <emphasis>i</emphasis> r SC <literal>t</literal> sansserif slanted
 </mathphrase></informalequation>
 <para><userinput>default kbdinputstyle</userinput>
 </para><screen><userinput>in example default kbdinputstyle</userinput>
@@ -1654,6 +1658,8 @@ error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
 &#8216; &#8217; &#8222; &#8218; &#171;
 &#187; &#171; &#187; &#8249;
 &#8250; &#176; &#8364; &#8594; &#8804; &#8805;
+</mathphrase></informalequation>
+<informalequation><mathphrase><emphasis role="bold">b</emphasis> <emphasis>i</emphasis> r SC <literal>t</literal> sansserif slanted
 </mathphrase></informalequation>
 <para><userinput>default kbdinputstyle</userinput>
 </para><screen><userinput>in example default kbdinputstyle</userinput>
@@ -2373,6 +2379,8 @@ error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
 &#187; &#171; &#187; &#8249;
 &#8250; &#176; &#8364; &#8594; &#8804; &#8805;
 </mathphrase></informalequation>
+<informalequation><mathphrase><emphasis role="bold">b</emphasis> <emphasis>i</emphasis> r SC <literal>t</literal> sansserif slanted
+</mathphrase></informalequation>
 <para><userinput>default kbdinputstyle</userinput>
 </para><screen><userinput>in example default kbdinputstyle</userinput>
 </screen>
@@ -3072,6 +3080,8 @@ error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
 &#187; &#171; &#187; &#8249;
 &#8250; &#176; &#8364; &#8594; &#8804; &#8805;
 </mathphrase></informalequation>
+<informalequation><mathphrase><emphasis role="bold">b</emphasis> <emphasis>i</emphasis> r SC <literal>t</literal> sansserif slanted
+</mathphrase></informalequation>
 <para><userinput>default kbdinputstyle</userinput>
 </para><screen><userinput>in example default kbdinputstyle</userinput>
 </screen>
@@ -3766,6 +3776,8 @@ error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
 &#8216; &#8217; &#8222; &#8218; &#171;
 &#187; &#171; &#187; &#8249;
 &#8250; &#176; &#8364; &#8594; &#8804; &#8805;
+</mathphrase></informalequation><screen>
+</screen><informalequation><mathphrase><emphasis role="bold">b</emphasis> <emphasis>i</emphasis> r SC <literal>t</literal> sansserif slanted
 </mathphrase></informalequation><screen>
 <userinput>default kbdinputstyle</userinput>
 </screen><screen><userinput>in example default kbdinputstyle</userinput>

@@ -29,6 +29,22 @@ $">
 </DIV>
 |;
 
+$l2h_cache_key = q/$$@b{b} @i{i} @r{r} @sc{sc} @t{t} @sansserif{sansserif} @slanted{slanted}
+$$/;
+$l2h_cache{$l2h_cache_key} = q|<DIV CLASS="displaymath">
+<!-- MATH
+ \begin{displaymath}
+@b{b} @i{i} @r{r} @sc{sc} @t{t} @sansserif{sansserif} @slanted{slanted}
+\end{displaymath}
+ -->
+
+<IMG
+ STYLE="height: 2.29ex; vertical-align: -0.57ex; " SRC="sing_8.svg"
+ ALT="$\displaystyle @b{b} @i{i} @r{r} @sc{sc} @t{t} @sansserif{sansserif} @slanted{slanted}
+$">
+</DIV>
+|;
+
 $l2h_cache_key = q/$$@click{}
 @U{0075}
 @TeX{} @LaTeX{} @bullet{} @copyright{} @dots{} @enddots{} @equiv{}
@@ -131,7 +147,7 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e@sup{-{1 \over 2}\left({x-\mu \over \sigma}\
  -->
 
 <IMG
- STYLE="height: 6.26ex; vertical-align: -2.32ex; " SRC="sing_8.svg"
+ STYLE="height: 6.26ex; vertical-align: -2.32ex; " SRC="sing_9.svg"
  ALT="$\displaystyle disp--laymath
 f(x) = {1 \over \sigma \sqrt{2\pi}}e@sup{-{1 \over 2}\left({x-\mu \over \sigma}\right)^2}
 $">

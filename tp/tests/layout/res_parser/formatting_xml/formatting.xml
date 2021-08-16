@@ -258,6 +258,10 @@ After clickstyle @result{}
 @guilsinglright{} @textdegree{} @euro{} @arrow{} @leq{} @geq{}
 @end displaymath
 
+@displaymath
+@b{b} @i{i} @r{r} @sc{sc} @t{t} @sansserif{sansserif} @slanted{slanted}
+@end displaymath
+
 @kbd{default kbdinputstyle}
 @example
 @kbd{in example default kbdinputstyle}
@@ -1127,6 +1131,10 @@ After clickstyle &result;
 &rsaquo; &deg; &euro; &rarr; &le; &ge;
 </displaymath>
 
+<displaymath endspaces=" ">
+<b>b</b> <i>i</i> <r>r</r> <sc>sc</sc> <t>t</t> <sansserif>sansserif</sansserif> <slanted>slanted</slanted>
+</displaymath>
+
 <para><kbd>default kbdinputstyle</kbd>
 </para><example endspaces=" ">
 <pre xml:space="preserve"><kbd>in example default kbdinputstyle</kbd>
@@ -1981,6 +1989,10 @@ After clickstyle &result;
 &lsquo; &rsquo; &bdquo; &sbquo; &laquo;
 &raquo; &guillemotleft; &guillemotright; &lsaquo;
 &rsaquo; &deg; &euro; &rarr; &le; &ge;
+</displaymath>
+
+<displaymath endspaces=" ">
+<b>b</b> <i>i</i> <r>r</r> <sc>sc</sc> <t>t</t> <sansserif>sansserif</sansserif> <slanted>slanted</slanted>
 </displaymath>
 
 <para><kbd>default kbdinputstyle</kbd>
@@ -2866,6 +2878,10 @@ After clickstyle &result;
 &rsaquo; &deg; &euro; &rarr; &le; &ge;
 </displaymath>
 
+<displaymath endspaces=" ">
+<b>b</b> <i>i</i> <r>r</r> <sc>sc</sc> <t>t</t> <sansserif>sansserif</sansserif> <slanted>slanted</slanted>
+</displaymath>
+
 <para><kbd>default kbdinputstyle</kbd>
 </para><example endspaces=" ">
 <pre xml:space="preserve"><kbd>in example default kbdinputstyle</kbd>
@@ -3714,6 +3730,10 @@ After clickstyle &result;
 &lsquo; &rsquo; &bdquo; &sbquo; &laquo;
 &raquo; &guillemotleft; &guillemotright; &lsaquo;
 &rsaquo; &deg; &euro; &rarr; &le; &ge;
+</displaymath>
+<pre xml:space="preserve">
+</pre><displaymath endspaces=" ">
+<b>b</b> <i>i</i> <r>r</r> <sc>sc</sc> <t>t</t> <sansserif>sansserif</sansserif> <slanted>slanted</slanted>
 </displaymath>
 <pre xml:space="preserve">
 <kbd>default kbdinputstyle</kbd>

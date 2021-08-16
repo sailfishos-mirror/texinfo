@@ -417,12 +417,21 @@ my %LaTeX_style_brace_commands = (
     'w' => '\\hbox',
     'sub' => '\\textsubscript',
     'sup' => '\\textsuperscript',
+    'r' => '\\textrm',
+    'sc' => '\\textsc',
+    'sansserif' => '\\textsf',
+    'slanted' => '\\textsl',
   },
   'math' => {
     'hyphenation' => '',
     'w' => '\\hbox',
     'sub' => '_',
     'sup' => '^',
+    'r' => '\\mathrm',
+    'sc' => '', # no obvious way to do it in math mode, not switching to
+                # text mode only for this command
+    'sansserif' => '\\mathsf',
+    'slanted' => '',
   }
 );
 
@@ -1623,12 +1632,11 @@ sub _convert($$)
       $expansion = {'type' => 'paragraph',
                     'contents' => [$expansion]};
       $result .= _convert($self, $expansion);
-      #  unshift @{$self->{'current_contents'}->[-1]}, $expansion;
-      #return '';
       return $result;
     } elsif ($root->{'args'} and $root->{'args'}->[0] 
              and $root->{'args'}->[0]->{'type'}
              and $root->{'args'}->[0]->{'type'} eq 'brace_command_arg') {
+      print STDERR "Unknown $command\n";
     # block commands
     } elsif (exists($block_commands{$command})) {
       # remark:
