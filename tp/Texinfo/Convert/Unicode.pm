@@ -1468,6 +1468,45 @@ sub unicode_for_brace_no_arg_command($$) {
   }  
 }
 
+# this function checks that it is possible to output
+# actual UTF-8 binary bytes, by checking that chr(hex($arg)) is valid.
+# Perl gives a warning and will not output UTF-8 for Unicode
+# non-characters such as U+10FFFF.
+#
+# return 1 if the conversion is possible and can be attempted, 0 otherwise.
+# the second argument triggers debugging output if the conversion failed.
+sub check_unicode_point_conversion($;$)
+{
+  my $arg = shift;
+  my $output_debug = shift;
+
+  # The warning about non-characters is only given when the code
+  # point is attempted to be output, not just manipulated.
+  # http://stackoverflow.com/questions/5127725/how-could-i-catch-an-unicode-non-character-warning
+  #
+  # Therefore, we have to try to output it within an eval.
+  # Since opening /dev/null or a temporary file means
+  # more system-dependent checks, use a string as our
+  # filehandle.
+  eval {
+    use warnings FATAL => qw(all);
+    my ($fh, $string);
+    open($fh, ">", \$string) || die "open(U string eval) failed: $!";
+    binmode($fh, ":utf8") || die "binmode(U string eval) failed: $!";
+    print $fh chr(hex("$arg"));
+  };
+  if ($@) {
+    warn "Unicode chr(hex($arg)) eval failed: $@\n" if ($output_debug);
+    return 0;
+  } elsif (hex($arg) > 0x10FFFF) {
+    # The check above appears not to work in older versions of perl,
+    # so check the argument is not greater the maximum Unicode code
+    # point.
+    return 0;
+  }
+  return 1;
+}
+
 # string length size taking into account that east asian characters
 # may take 2 spaces.
 sub string_width($)
@@ -1578,6 +1617,17 @@ Return the unicode representing a command with brace and no argument
 I<$command_name> (like C<@bullet{}>, C<@aa{}> or C<@guilsinglleft{}>), 
 or undef if there is no available encoded character for encoding 
 I<$encoding>. 
+
+=item $possible_conversion = check_unicode_point_conversion($arg, $output_debug)
+
+Check that it is possible to output actual UTF-8 binary bytes
+corresponding to the Unicode codepoint string I<$args> (such as
+C<201D>).  Perl gives a warning and will not output UTF-8 for
+Unicode non-characters such as U+10FFFF.  If the optional
+I<$output_debug> argument is set, a debugging output warning
+is emitted if the test of the conversion failed.
+Returns 1 if the conversion is possible and can be attempted,
+0 otherwise.
 
 =item $width = string_width($string)
 

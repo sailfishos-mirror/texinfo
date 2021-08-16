@@ -1,3 +1,12 @@
+2021-08-16  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/Unicode.pm (check_unicode_point_conversion)
+	tp/Texinfo/Convert/Plaintext.pm (_convert)
+	tp/Texinfo/Convert/LaTeX.pm (_convert):
+	move the code checking actual conversion to UTF-8 of
+	unicode codepoint string to Texinfo/Convert/Unicode.pm
+	as check_unicode_point_conversion().
+
 2021-08-15  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/ParserNonXS.pm (_end_line),
