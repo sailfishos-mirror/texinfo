@@ -818,89 +818,42 @@ sub output($$)
     }
   }
 
-  $self->_prepare_conversion();
+  # Ignore everything between Top node and the next node.  If
+  # at the end, mark that Top node is ignored.
+  my $removed_top_node_root = {'contents' => []};
+
+  my $in_top_node = 0;
+  foreach my $element_content (@{$root->{'contents'}}) {
+    if ($element_content->{'cmdname'}
+        and $element_content->{'cmdname'} eq 'node') {
+      if ($element_content->{'extra'}->{'normalized'} eq 'Top') {
+        $in_top_node = 1;
+      } else {
+        if ($in_top_node) {
+          $in_top_node = 0;
+        }
+        push @{$removed_top_node_root->{'contents'}},
+          $element_content;
+      }
+    } elsif (not $in_top_node) {
+      push @{$removed_top_node_root->{'contents'}},
+        $element_content;
+    }
+  }
+  if ($in_top_node) {
+    # This is very simple, not in a paragraph, for instance, nor in
+    # a tree piece appearing typically in element such as @node or
+    # sectionning command.
+    push @{$removed_top_node_root->{'contents'}},
+        {'text' => "\n(`Top' node ignored)\n", 'type' => 'ignored_top_node'};
+  }
 
   my $result = '';
 
+  $self->_prepare_conversion();
+
   $result .= $self->_output_text($self->_latex_header(), $fh);
-  #$result .= $self->convert_document_sections($root, $fh);
-  my $elements = Texinfo::Structuring::split_by_section($root);
-  if ($elements) {
-    # Ignore everything between Top node and the next node.  If
-    # at the end mark that Top node is ignored.
-    # After those manipulations, the tree should be incorrect,
-    # as element should point to original sections and sections
-    # to original elements.  This structure is not used in the
-    # LaTeX conversion code, though.
-    my $converted_elements = [];
-    my $current_modified_element;
-    my $in_top_node = 0;
-    foreach my $element (@$elements) {
-      $current_modified_element = undef;
-      if ($in_top_node) {
-        $current_modified_element = {'contents' => []};
-        foreach my $key ($element) {
-          if ($key ne 'contents') {
-            $current_modified_element->{$key} = $element->{$key};
-          }
-        }
-      }
-      foreach my $element_content (@{$element->{'contents'}}) {
-        if ($element_content->{'cmdname'}
-            and $element_content->{'cmdname'} eq 'node') {
-          if ($element_content->{'extra'}->{'normalized'} eq 'Top') {
-            $in_top_node = 1;
-            if (not $current_modified_element) {
-              $current_modified_element = {'contents' => []};
-              foreach my $key ($element) {
-                if ($key ne 'contents') {
-                  $current_modified_element->{$key} = $element->{$key};
-                }
-              }
-              foreach my $previous_element_content (@{$element->{'contents'}}) {
-                if ($previous_element_content eq $element_content) {
-                  last;
-                }
-                push @{$current_modified_element->{'contents'}}, 
-                   $previous_element_content;
-              }
-            }
-          } else {
-            if ($in_top_node) {
-              $in_top_node = 0;
-            }
-            if ($current_modified_element) {
-              push @{$current_modified_element->{'contents'}},
-                $element_content;
-            }
-          }
-        } elsif (not $in_top_node) {
-          if ($current_modified_element) {
-            push @{$current_modified_element->{'contents'}},
-              $element_content;
-          }
-        }
-      }
-      if ($current_modified_element) {
-        push @$converted_elements, $current_modified_element;
-      } else {
-        push @$converted_elements, $element;
-      }
-    }
-    if ($in_top_node) {
-      # This is very simple, not in a paragraph, for instance, nor in
-      # a tree piece appearing typically in element such as @node or
-      # sectionning command.
-      push @{$current_modified_element->{'contents'}},
-          {'text' => "\n(`Top' node ignored)\n", 'type' => 'ignored_top_node'};
-    }
-    my $result = '';
-    foreach my $element (@$converted_elements) {
-      $result .= $self->_output_text($self->convert_tree($element), $fh);
-    }
-  } else {
-    $result .= $self->_output_text($self->convert_tree($root), $fh);
-  }
+  $result .= $self->_output_text($self->convert_tree($removed_top_node_root), $fh);
   $result .= $self->_output_text($self->_latex_footer(), $fh);
 
   #print $result;
@@ -911,7 +864,7 @@ sub output($$)
                                     $self->{'output_file'}, $!));
     }
   }
-  return $result
+  return $result;
 }
 
 sub convert($$;$)
@@ -922,7 +875,7 @@ sub convert($$;$)
 
   $self->_prepare_conversion();
   
-  return $self->convert_document_sections($root, $fh);
+  return $self->_convert($root);
 }
 
 sub convert_tree($$)
