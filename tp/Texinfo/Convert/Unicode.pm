@@ -1561,8 +1561,8 @@ Texinfo::Convert::Unicode - Handle conversion to Unicode
   my ($innermost_contents, $stack)
       = Texinfo::Common::find_innermost_accent_contents($accent);
   
-  my $formatted_accents = encoded_accents ($converter, 
-                        convert($innermost_contents), $stack, $encoding, 
+  my $formatted_accents = encoded_accents ($converter,
+                 convert_to_text($innermost_contents), $stack, $encoding,
                         \&Texinfo::Text::ascii_accent_fallback);
 
   my $accent_text = unicode_accent('e', $accent_command);
