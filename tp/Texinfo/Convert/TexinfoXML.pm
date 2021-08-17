@@ -562,13 +562,12 @@ sub _accent($$;$$$)
   return $result;
 }
 
-sub convert($$;$)
+sub convert($$)
 {
   my $self = shift;
   my $root = shift;
-  my $fh = shift;
   
-  return $self->convert_document_sections($root, $fh);
+  return $self->convert_document_sections($root);
 }
 
 sub convert_tree($$)

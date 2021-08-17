@@ -867,11 +867,10 @@ sub output($$)
   return $result;
 }
 
-sub convert($$;$)
+sub convert($$)
 {
   my $self = shift;
   my $root = shift;
-  my $fh = shift;
 
   $self->_prepare_conversion();
   
