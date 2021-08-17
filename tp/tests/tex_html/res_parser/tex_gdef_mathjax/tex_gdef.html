@@ -51,9 +51,13 @@ MathJax = {
 
   \gdef\Desig{\buildrel \rm def \over \equiv}
 
-<p><em class='tex2jax_process'>\(\Desig\)</em>
+<p><em class='tex2jax_process'>\(\def\otest{\sqrt{64}} \)</em>
 </p>
-<div class="displaymath"><em class="tex2jax_process">\[ \Desig
+<p><em class='tex2jax_process'>\(\gdef\testmacro{a \equiv b} \)</em>
+</p>
+<p><em class='tex2jax_process'>\(\Desig \testmacro \otest\)</em>
+</p>
+<div class="displaymath"><em class="tex2jax_process">\[ \Desig \testmacro \otest
 \]</em></div>
 <hr></div>
 <p><font size="-1">

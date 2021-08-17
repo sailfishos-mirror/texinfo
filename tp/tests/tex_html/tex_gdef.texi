@@ -7,10 +7,17 @@
   \gdef\Desig{\buildrel \rm def \over \equiv}
 @end tex
 
-@math{\Desig}
+@c MathJax process LaTeX commands in math environments
+@c trailing space is needed for latex2html
+@math{\def\otest{\sqrt{64}} }
+
+@c MathJax doesn't get \gdef
+@math{\gdef\testmacro{a \equiv b} }
+
+@math{\Desig \testmacro \otest}
 
 @displaymath
- \Desig
+ \Desig \testmacro \otest
 @end displaymath
 
 @bye
