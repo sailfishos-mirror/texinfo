@@ -1927,6 +1927,41 @@ sub _collect_commands_in_tree($$)
   }
 }
 
+sub collect_commands_list_in_tree($$)
+{
+  my $root = shift;
+  my $commands_list = shift;
+
+  my $collected_commands_list = [];
+  my $commands_hash = {};
+  foreach my $command_name (@$commands_list) {
+    $commands_hash->{$command_name} = 1;
+  }
+  _collect_commands_list_in_tree($root, $commands_hash, $collected_commands_list);
+  return $collected_commands_list;
+}
+
+sub _collect_commands_list_in_tree($$$);
+sub _collect_commands_list_in_tree($$$)
+{
+  my $current = shift;
+  my $commands_hash = shift;
+  my $collected_commands_list = shift;
+
+  if (defined($current->{'cmdname'})
+      and defined($commands_hash->{$current->{'cmdname'}})) {
+    push @{$collected_commands_list}, $current;
+  }
+  foreach my $key ('args', 'contents') {
+    if ($current->{$key}) {
+      foreach my $child (@{$current->{$key}}) {
+        _collect_commands_list_in_tree($child, $commands_hash, 
+                                       $collected_commands_list);
+      }
+    }
+  }
+}
+
 # Not used.
 sub _collect_references($$);
 sub _collect_references($$)
@@ -3076,6 +3111,13 @@ Returns a hash reference with keys @-commands names specified
 in the I<$commands_list> array reference and values arrays of
 tree elements corresponding to those @-command found in I<$tree>
 by traversing the tree.
+
+=item collect_commands_list_in_tree($tree, $commands_list)
+
+Return a list reference containing the tree elements corresponding
+to the @-commands names specified in the I<$commands_list> found
+in I<$tree> by traversing the tree.  The order of the @-commands
+should be kept.
 
 =back
 

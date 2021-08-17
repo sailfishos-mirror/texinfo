@@ -19,7 +19,8 @@ $l2h_cache{$l2h_cache_key} = q|<DIV CLASS="displaymath">
  ALT="$\displaystyle \leqalignno{
 \int v(t)\, dt &amp;= u(t) + C&amp;[3.1]\cr
 \int v(t)\, dt &amp;= u(t) + H&amp;[3.2]\cr
-}$">
+}
+$">
 </DIV>
 |;
 
@@ -42,7 +43,8 @@ $l2h_cache{$l2h_cache_key} = q|<DIV CLASS="displaymath">
  ALT="$\displaystyle \leqalignno{
 \int v(t)\, dt &amp;= u(t) + C&amp;[3.1]\cr
 \int v(t)\, dt &amp;= u(t) + H&amp;[3.2]\cr
-}$">
+}
+$">
 </DIV>
 |;
 1;

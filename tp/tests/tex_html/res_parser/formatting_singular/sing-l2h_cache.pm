@@ -19,7 +19,7 @@ $l2h_cache{$l2h_cache_key} = q|<DIV CLASS="displaymath">
  -->
 
 <IMG
- STYLE="height: 2.67ex; vertical-align: -0.70ex; " SRC="sing_5.svg"
+ STYLE="height: 2.67ex; vertical-align: -0.70ex; " SRC="sing_3.svg"
  ALT="$\displaystyle @''u @''{U} @~n @^a @'e @=o @\lq i @'{e} @dotless{i} @dotless{j} @\lq {...
 ...@ogonek{a} a@sup{h}@sub{l}
 @* @ @ @
@@ -39,7 +39,7 @@ $l2h_cache{$l2h_cache_key} = q|<DIV CLASS="displaymath">
  -->
 
 <IMG
- STYLE="height: 2.29ex; vertical-align: -0.57ex; " SRC="sing_8.svg"
+ STYLE="height: 2.29ex; vertical-align: -0.57ex; " SRC="sing_6.svg"
  ALT="$\displaystyle @b{b} @i{i} @r{r} @sc{sc} @t{t} @sansserif{sansserif} @slanted{slanted}
 $">
 </DIV>
@@ -67,7 +67,7 @@ $l2h_cache{$l2h_cache_key} = q|<DIV CLASS="displaymath">
  -->
 
 <IMG
- STYLE="height: 2.29ex; vertical-align: -0.57ex; " SRC="sing_6.svg"
+ STYLE="height: 2.29ex; vertical-align: -0.57ex; " SRC="sing_4.svg"
  ALT="$\displaystyle @click{}
 @U{0075}
 @TeX{} @LaTeX{} @bullet{} @copyright{} @dots{} ...
@@ -93,7 +93,7 @@ $l2h_cache{$l2h_cache_key} = q|<DIV CLASS="displaymath">
  -->
 
 <IMG
- STYLE="height: 2.29ex; vertical-align: -0.57ex; " SRC="sing_7.svg"
+ STYLE="height: 2.29ex; vertical-align: -0.57ex; " SRC="sing_5.svg"
  ALT="$\displaystyle @quotedblleft{} @quotedblright{}
 @quoteleft{} @quoteright{} @quo...
 ...guilsinglleft{}
@@ -114,7 +114,7 @@ $l2h_cache{$l2h_cache_key} = q|<DIV CLASS="displaymath">
  -->
 
 <IMG
- STYLE="height: 2.54ex; vertical-align: -0.57ex; " SRC="sing_4.svg"
+ STYLE="height: 2.54ex; vertical-align: -0.57ex; " SRC="sing_2.svg"
  ALT="$\displaystyle @strong{\lq\lq simple-double--three---four----''} @w{aa}
 \lq @w{}\lq simple-double-@w{}-three---four----'@w{}'@*
 $">
@@ -130,7 +130,7 @@ $l2h_cache{$l2h_cache_key} = q|<DIV CLASS="displaymath">
  -->
 
 <IMG
- STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="sing_1.svg"
+ STYLE="height: 2.55ex; vertical-align: -0.70ex; " SRC="sing_8.svg"
  ALT="$\displaystyle \partial_t \eta (t) = g(\eta(t),\varphi(t))$">
 </DIV>
  &rdquo;|;
@@ -147,7 +147,7 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e@sup{-{1 \over 2}\left({x-\mu \over \sigma}\
  -->
 
 <IMG
- STYLE="height: 6.26ex; vertical-align: -2.32ex; " SRC="sing_9.svg"
+ STYLE="height: 6.26ex; vertical-align: -2.32ex; " SRC="sing_7.svg"
  ALT="$\displaystyle disp--laymath
 f(x) = {1 \over \sigma \sqrt{2\pi}}e@sup{-{1 \over 2}\left({x-\mu \over \sigma}\right)^2}
 $">
@@ -159,7 +159,7 @@ $l2h_cache{$l2h_cache_key} = q|<!-- MATH
  $- -a {\frac{1}{2}} @minus{}$
  -->
 <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.98ex; vertical-align: -0.92ex; " SRC="sing_2.svg"
+ STYLE="height: 2.98ex; vertical-align: -0.92ex; " SRC="sing_1.svg"
  ALT="$--a {\frac{1}{2}} @minus{}$"></SPAN>|;
 
 $l2h_cache_key = q/$--a@minus{} {\frac{1}{2}}$/;
@@ -167,6 +167,6 @@ $l2h_cache{$l2h_cache_key} = q|<!-- MATH
  $- -a@minus{} {\frac{1}{2}}$
  -->
 <SPAN CLASS="MATH"><IMG
- STYLE="height: 2.98ex; vertical-align: -0.92ex; " SRC="sing_3.svg"
+ STYLE="height: 2.98ex; vertical-align: -0.92ex; " SRC="sing_9.svg"
  ALT="$--a@minus{} {\frac{1}{2}}$"></SPAN>|;
 1;

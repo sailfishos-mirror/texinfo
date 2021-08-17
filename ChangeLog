@@ -1,5 +1,14 @@
 2021-08-17  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (collect_commands_list_in_tree):
+	add function that collects commands from tree and keep them
+	in the order in which they appear.
+	* tp/init/latex2html.pm (l2h_process): use 
+	Texinfo::Common::collect_commands_list_in_tree() to
+	collect @-commands in order and process them in order too.
+
+2021-08-17  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (find_innermost_accent_contents)
 	(float_name_caption, labels_information), 
 	tp/Texinfo/Convert/Converter.pm (sort_element_counts),

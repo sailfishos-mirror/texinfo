@@ -208,35 +208,31 @@ sub l2h_process($$)
                    or $self->get_conf('L2H_SKIP'));
 
   my @replaced_commands = ('tex', 'math', 'displaymath');
-  my $collected_commands = Texinfo::Common::collect_commands_in_tree($document_root, \@replaced_commands);
-  foreach my $command (@replaced_commands) {
-    ## we rely on @tex and @math being recorded as 'global commands'
-    #if ($self->{'extra'}->{$command}) {
-    if (scalar(@{$collected_commands->{$command}}) > 0) {
-      my $counter = 0;
-      #foreach my $root (@{$self->{'extra'}->{$command}}) {
-      foreach my $root (@{$collected_commands->{$command}}) {
-        $counter++;
-        my $tree;
-        if ($command eq 'math') {
-          $tree = $root->{'args'}->[0];
-        } else {
-          $tree = {'contents' => [@{$root->{'contents'}}]};
-          if ($tree->{'contents'}->[0]
-              and $tree->{'contents'}->[0]->{'type'}
-              and $tree->{'contents'}->[0]->{'type'} eq 'empty_line_after_command') {
-            shift @{$tree->{'contents'}};
-          }
-          if ($tree->{'contents'}->[-1]->{'cmdname'} 
-              and $tree->{'contents'}->[-1]->{'cmdname'} eq 'end') {
-            pop @{$tree->{'contents'}};
-          }
+  my $collected_commands = Texinfo::Common::collect_commands_list_in_tree(
+                                        $document_root, \@replaced_commands);
+  my $counter = 0;
+  if (scalar(@{$collected_commands})) {
+    foreach my $root (@{$collected_commands}) {
+      my $command = $root->{'cmdname'};
+      $counter++;
+      my $tree;
+      if ($command eq 'math') {
+        $tree = $root->{'args'}->[0];
+      } else {
+        $tree = {'contents' => [@{$root->{'contents'}}]};
+        if ($tree->{'contents'}->[0]
+            and $tree->{'contents'}->[0]->{'type'}
+            and $tree->{'contents'}->[0]->{'type'} eq 'empty_line_after_command') {
+          shift @{$tree->{'contents'}};
         }
-        my $text = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
-        #$text .= "\n" if ($command eq 'tex');
-        l2h_to_latex($self, $command, $text, $counter);
-        $commands_counters{$root} = $counter;
+        if ($tree->{'contents'}->[-1]->{'cmdname'} 
+           and $tree->{'contents'}->[-1]->{'cmdname'} eq 'end') {
+          pop @{$tree->{'contents'}};
+        }
       }
+      my $text = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
+      l2h_to_latex($self, $command, $text, $counter);
+      $commands_counters{$root} = $counter;
     }
   }
   $status = l2h_finish_to_latex($self);
