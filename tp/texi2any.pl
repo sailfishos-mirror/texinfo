@@ -1236,7 +1236,7 @@ while(@input_files) {
 
   if (defined(get_conf('MACRO_EXPAND')) and $file_number == 0) {
     require Texinfo::Convert::Texinfo;
-    my $texinfo_text = Texinfo::Convert::Texinfo::convert($tree, 1);
+    my $texinfo_text = Texinfo::Convert::Texinfo::convert($tree);
     #print STDERR "$texinfo_text\n";
     my $macro_expand_file = get_conf('MACRO_EXPAND');
     my $macro_expand_fh = Texinfo::Common::open_out($parser, $macro_expand_file);
