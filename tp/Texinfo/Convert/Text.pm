@@ -776,7 +776,7 @@ output strings translation or error handling.
 
 =over
 
-=item $result = convert($tree, $options)
+=item $result = convert_to_text($tree, $options)
 
 Convert a Texinfo tree to simple text.  I<$options> is a hash reference of 
 options.  The converter is very simple, and has no internal state besides
