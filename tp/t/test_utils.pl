@@ -863,7 +863,7 @@ sub test($$)
     $parser->Texinfo::Transformations::set_menus_to_simple_menu();
   }
 
-  my $converted_text = Texinfo::Convert::Text::convert($result, {'TEST' => 1});
+  my $converted_text = Texinfo::Convert::Text::convert_to_text($result, {'TEST' => 1});
 
   my %converted;
   my %converted_errors;
@@ -1017,7 +1017,7 @@ sub test($$)
       local $Data::Dumper::Sortkeys = \&filter_tree_keys;
       $out_result = Data::Dumper->Dump([$split_result], ['$result_trees{\''.$test_name.'\'}']);
     }
-    my $texi_string_result = Texinfo::Convert::Texinfo::convert($result);
+    my $texi_string_result = Texinfo::Convert::Texinfo::convert_to_texinfo($result);
     $out_result .= "\n".'$result_texis{\''.$test_name.'\'} = \''
           .protect_perl_string($texi_string_result)."';\n\n";
     $out_result .= "\n".'$result_texts{\''.$test_name.'\'} = \''
@@ -1070,7 +1070,7 @@ sub test($$)
     print OUT $out_result;
     close (OUT);
     
-    print STDERR "--> $test_name\n".Texinfo::Convert::Texinfo::convert($result)."\n" 
+    print STDERR "--> $test_name\n".Texinfo::Convert::Texinfo::convert_to_texinfo($result)."\n" 
             if ($self->{'generate'});
   }
   if (!$self->{'generate'}) {
@@ -1090,7 +1090,7 @@ sub test($$)
         $test_name.' errors');
     ok (Data::Compare::Compare($indices, $result_indices{$test_name}), 
         $test_name.' indices');
-    ok (Texinfo::Convert::Texinfo::convert($result) eq $result_texis{$test_name}, 
+    ok (Texinfo::Convert::Texinfo::convert_to_texinfo($result) eq $result_texis{$test_name}, 
          $test_name.' texi');
     if ($todos{'text'}) {
       SKIP: {

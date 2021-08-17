@@ -848,7 +848,7 @@ sub _convert($$;$)
             if (scalar(@{$root->{'args'}}) == 3
                 and defined($root->{'args'}->[-1]) and @{$root->{'args'}->[-1]->{'contents'}}) {
               $filename 
-                = $self->xml_protect_text(Texinfo::Convert::Text::convert(
+                = $self->xml_protect_text(Texinfo::Convert::Text::convert_to_text(
               {'contents' => $root->{'args'}->[-1]->{'contents'}},
               {'code' => 1, Texinfo::Common::_convert_text_options($self)}));
             }
@@ -984,7 +984,7 @@ sub _convert($$;$)
         }
       } elsif ($root->{'cmdname'} eq 'image') {
         if (defined($root->{'args'}->[0]) and @{$root->{'args'}->[0]->{'contents'}}) {
-          my $basefile = Texinfo::Convert::Text::convert(
+          my $basefile = Texinfo::Convert::Text::convert_to_text(
            {'contents' => $root->{'args'}->[0]->{'contents'}},
            {'code' => 1, Texinfo::Common::_convert_text_options($self)});
           my $element;
@@ -1040,7 +1040,7 @@ sub _convert($$;$)
           if (defined($root->{'args'}->[0]) and @{$root->{'args'}->[0]->{'contents'}}) {
             $email = $root->{'args'}->[0]->{'contents'};
             $email_text 
-              = $self->_protect_text(Texinfo::Convert::Text::convert(
+              = $self->_protect_text(Texinfo::Convert::Text::convert_to_text(
                                          {'contents' => $email},
                                          {'code' => 1,
                                   Texinfo::Common::_convert_text_options($self)}));
@@ -1062,7 +1062,7 @@ sub _convert($$;$)
           my ($url_text, $url_content);
           if (defined($root->{'args'}->[0]) and @{$root->{'args'}->[0]->{'contents'}}) {
             $url_content = $root->{'args'}->[0]->{'contents'};
-            $url_text = $self->_protect_text(Texinfo::Convert::Text::convert(
+            $url_text = $self->_protect_text(Texinfo::Convert::Text::convert_to_text(
                                          {'contents' => $url_content},
                                          {'code' => 1,
                                   Texinfo::Common::_convert_text_options($self)}));
@@ -1236,7 +1236,7 @@ sub _convert($$;$)
             $multiply = 1;
             foreach my $prototype (@{$root->{'extra'}->{'prototypes'}}) {
               my $prototype_text
-                = Texinfo::Convert::Text::convert($prototype,
+                = Texinfo::Convert::Text::convert_to_text($prototype,
                                {Texinfo::Common::_convert_text_options($self)});
               push @fractions, 
                 Texinfo::Convert::Unicode::string_width($prototype_text);
@@ -1278,7 +1278,7 @@ sub _convert($$;$)
           if ($root->{'args'} and $root->{'args'}->[0]
               and $root->{'args'}->[0]->{'contents'}
               and @{$root->{'args'}->[0]->{'contents'}}) {
-            my $quotation_arg_text = Texinfo::Convert::Text::convert(
+            my $quotation_arg_text = Texinfo::Convert::Text::convert_to_text(
                      $root->{'args'}->[0],
                      {Texinfo::Common::_convert_text_options($self)});
             if ($docbook_special_quotations{lc($quotation_arg_text)}) {

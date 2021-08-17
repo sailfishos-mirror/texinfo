@@ -1270,7 +1270,7 @@ sub _printindex_formatted($$;$)
     if ($entry_text =~ /:/ and $self->get_conf('INDEX_SPECIAL_CHARS_WARNING')) {
       $self->line_warn (sprintf(__("Index entry in \@%s with : produces invalid Info: %s"),
                                  $entry->{'index_at_command'},
-          Texinfo::Convert::Texinfo::convert($entry_tree)), 
+          Texinfo::Convert::Texinfo::convert_to_texinfo($entry_tree)), 
                         $entry->{'command'}->{'line_nr'});
     }
 
@@ -1449,7 +1449,7 @@ sub _image_formatted_text($$$$)
     $result = $text;
   } elsif (defined($root->{'args'}->[3])
       and @{$root->{'args'}->[3]->{'contents'}}) {
-    $result = '[' .Texinfo::Convert::Text::convert(
+    $result = '[' .Texinfo::Convert::Text::convert_to_text(
       {'contents' => $root->{'args'}->[3]->{'contents'}},
       $self->{'convert_text_options'}) .']';
   } else {
@@ -1467,7 +1467,7 @@ sub _image($$)
 
   if (defined($root->{'args'}->[0])
         and @{$root->{'args'}->[0]->{'contents'}}) {
-    my $basefile = Texinfo::Convert::Text::convert(
+    my $basefile = Texinfo::Convert::Text::convert_to_text(
      {'contents' => $root->{'args'}->[0]->{'contents'}},
      {'code' => 1, %{$self->{'convert_text_options'}}});
     my ($text, $width) = $self->_image_text($root, $basefile);

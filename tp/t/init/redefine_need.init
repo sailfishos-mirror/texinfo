@@ -18,7 +18,7 @@ sub my_need_formatting($$$)
   }
   my $arg_text;
   if ($command->{'args'} and $command->{'args'}->[0]) {
-    $arg_text = Texinfo::Convert::Text::convert($command->{'args'}->[0]);
+    $arg_text = Texinfo::Convert::Text::convert_to_text($command->{'args'}->[0]);
   } else {
     $arg_text = '';
   }

@@ -53,7 +53,7 @@ sub test_correction($$$)
   #print STDERR Data::Dumper->Dump([$tree]);
   #print STDERR Data::Dumper->Dump([$corrected_content]);
   }
-  my $texi_result = Texinfo::Convert::Texinfo::convert({'contents' => $corrected_content});
+  my $texi_result = Texinfo::Convert::Texinfo::convert_to_texinfo({'contents' => $corrected_content});
   if (!defined($out)) {
     print STDERR " --> $name:\n$texi_result";
   } else {

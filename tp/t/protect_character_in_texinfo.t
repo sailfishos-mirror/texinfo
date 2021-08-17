@@ -32,7 +32,7 @@ sub run_test($$$$)
     $tree = protect_node_after_label_in_tree($tree);
   }
   
-  my $texi_result = Texinfo::Convert::Texinfo::convert($tree);
+  my $texi_result = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
 
   if (!defined($out)) {
     print STDERR " --> $name:\n$texi_result";

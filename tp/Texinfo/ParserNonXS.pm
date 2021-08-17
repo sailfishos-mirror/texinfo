@@ -932,7 +932,7 @@ sub _print_command_args_texi($)
            or $current->{'args'}->[0]->{'type'} eq 'brace_command_context');
     $args .= '{' if ($with_brace);
     foreach my $arg (@{$current->{'args'}}) {
-      $args .= Texinfo::Convert::Texinfo::convert($arg).', ';
+      $args .= Texinfo::Convert::Texinfo::convert_to_texinfo($arg).', ';
     }
     $args =~ s/, $//;
   }
@@ -2112,7 +2112,7 @@ sub _parse_float_type($)
   if ($current->{'args'} and @{$current->{'args'}}) {
     if (@{$current->{'args'}->[0]->{'contents'}}) {
       my $normalized 
-        = Texinfo::Convert::Texinfo::convert(
+        = Texinfo::Convert::Texinfo::convert_to_texinfo(
           {'contents' => $current->{'args'}->[0]->{'contents'}});
       $current->{'extra'}->{'type'}->{'content'} =
                                       $current->{'args'}->[0]->{'contents'};
@@ -2744,7 +2744,7 @@ sub _end_line($$$)
             $self->_command_warn($current, $line_nr, 
                 __("unexpected argument on \@%s line: %s"),
                      $current->{'parent'}->{'cmdname'}, 
-                     Texinfo::Convert::Texinfo::convert($content));
+                     Texinfo::Convert::Texinfo::convert_to_texinfo($content));
           }
         }
       }
@@ -2965,7 +2965,7 @@ sub _end_line($$$)
             if (($superfluous_arg or $line =~ /\S/)
                 and defined($end_command)) {
               my $texi_line 
-                = Texinfo::Convert::Texinfo::convert($current->{'args'}->[0]);
+                = Texinfo::Convert::Texinfo::convert_to_texinfo($current->{'args'}->[0]);
               $texi_line =~ s/^\s*([[:alnum:]][[:alnum:]-]+)//;
               $self->_command_error($current, $line_nr, 
                              __("superfluous argument to \@%s %s: %s"),
@@ -3050,7 +3050,7 @@ sub _end_line($$$)
         # set, such that @include that are removed from the tree
         # with type set to replaced are still shown in error messages.
         my $texi_line 
-          = Texinfo::Convert::Texinfo::convert($current->{'args'}->[0], 1);
+          = Texinfo::Convert::Texinfo::convert_to_texinfo($current->{'args'}->[0], 1);
         $texi_line =~ s/^\s*//;
         $texi_line =~ s/\s*$//;
 
@@ -3329,7 +3329,7 @@ sub _register_extra_menu_entry_information($$;$)
         Texinfo::Convert::NodeNameNormalization::normalize_node($arg);
       if ($normalized_menu_entry_name !~ /[^-]/) {
         $self->line_warn(sprintf(__("empty menu entry name in `%s'"),
-          Texinfo::Convert::Texinfo::convert($current)), $line_nr);
+          Texinfo::Convert::Texinfo::convert_to_texinfo($current)), $line_nr);
       }
     } elsif ($arg->{'type'} eq 'menu_entry_node') {
       _isolate_last_space($self, $arg);
@@ -3599,7 +3599,7 @@ sub _parse_texi($;$)
                     or ($current->{'parent'}->{'cmdname'} ne 'macro'
                         and $current->{'parent'}->{'cmdname'} ne 'rmacro'))) {
             my $macrobody =
-               Texinfo::Convert::Texinfo::convert({ 'contents' 
+               Texinfo::Convert::Texinfo::convert_to_texinfo({ 'contents' 
                                              => $current->{'contents'} });
             if ($current->{'args'} and $current->{'args'}->[0]) {
               my $name = $current->{'args'}->[0]->{'text'};
@@ -4992,7 +4992,7 @@ sub _parse_texi($;$)
                     $self->line_warn(sprintf(__(
                       "in \@%s empty cross reference name after expansion `%s'"),
                           $closed_command,
-                          Texinfo::Convert::Texinfo::convert({'contents' => $args[1]})), 
+                          Texinfo::Convert::Texinfo::convert_to_texinfo({'contents' => $args[1]})), 
                             $line_nr);
                   }
                 }
@@ -5004,7 +5004,7 @@ sub _parse_texi($;$)
                     $self->line_warn(sprintf(__(
                      "in \@%s empty cross reference title after expansion `%s'"),
                           $closed_command,
-                          Texinfo::Convert::Texinfo::convert(
+                          Texinfo::Convert::Texinfo::convert_to_texinfo(
                                                   {'contents' => $args[2]})), 
                             $line_nr);
                   }
@@ -5030,7 +5030,7 @@ sub _parse_texi($;$)
                   $self->line_error(sprintf(
                     __("%c%s expects `i' or `j' as argument, not `%s'"), 
                     ord('@'), $dotless->{'cmdname'}, 
-                    Texinfo::Convert::Texinfo::convert($current)), $line_nr);
+                    Texinfo::Convert::Texinfo::convert_to_texinfo($current)), $line_nr);
                 }
               }
             } elsif ($explained_commands{$current->{'parent'}->{'cmdname'}}

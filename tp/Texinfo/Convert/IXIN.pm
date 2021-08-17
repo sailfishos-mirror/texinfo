@@ -827,13 +827,13 @@ sub output_ixin($$)
       my $extension;
       if (defined($command->{'args'}->[0])
             and @{$command->{'args'}->[0]->{'contents'}}) {
-        $basefile = Texinfo::Convert::Text::convert(
+        $basefile = Texinfo::Convert::Text::convert_to_text(
           {'contents' => $command->{'args'}->[0]->{'contents'}},
           {'code' => 1, Texinfo::Common::_convert_text_options($self)});
       }
       if (defined($command->{'args'}->[4])
             and @{$command->{'args'}->[4]->{'contents'}}) {
-        $extension = Texinfo::Convert::Text::convert(
+        $extension = Texinfo::Convert::Text::convert_to_text(
           {'contents' => $command->{'args'}->[4]->{'contents'}},
           {'code' => 1, Texinfo::Common::_convert_text_options($self)});
         $extension =~ s/^\.//;

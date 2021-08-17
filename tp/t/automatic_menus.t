@@ -32,7 +32,7 @@ sub test($$$;$)
   } else {
     $parser->Texinfo::Transformations::complete_tree_nodes_menus($tree);
   }
-  my $texi_result = Texinfo::Convert::Texinfo::convert($tree);
+  my $texi_result = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
 
   if (!defined($out)) {
     print STDERR " --> $name:\n$texi_result";

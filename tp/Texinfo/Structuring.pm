@@ -341,7 +341,7 @@ sub _check_node_same_texinfo_code($$)
 
   my $reference_node_texi;
   if ($reference_node->{'extra'}->{'node_content'}) {
-    $reference_node_texi = Texinfo::Convert::Texinfo::convert (
+    $reference_node_texi = Texinfo::Convert::Texinfo::convert_to_texinfo(
         {'contents' => $reference_node->{'extra'}->{'node_content'}});
     $reference_node_texi =~ s/\s+/ /g;
   } else {
@@ -353,7 +353,7 @@ sub _check_node_same_texinfo_code($$)
     my @contents_node = @{$node_extra->{'node_content'}};
     pop @contents_node if ($contents_node[-1]->{'type'} 
                and $contents_node[-1]->{'type'} eq 'space_at_end_menu_node');
-    $node_texi = Texinfo::Convert::Texinfo::convert (
+    $node_texi = Texinfo::Convert::Texinfo::convert_to_texinfo(
       {'contents' => \@contents_node});
     $node_texi =~ s/\s+/ /g;
   } else {
@@ -1205,7 +1205,7 @@ sub _print_root_command_texi($)
     return "Not a root command";
   }
   return '@'.$command->{'cmdname'}. ' '
-       .Texinfo::Convert::Texinfo::convert ({'contents' => $tree})
+       .Texinfo::Convert::Texinfo::convert_to_texinfo({'contents' => $tree})
           if ($tree);
   return 'UNDEF @'.$command->{'cmdname'};
 }
@@ -1229,7 +1229,7 @@ sub _print_element_command_texi($)
     if ($element->{'extra'}->{'node_content'}) {
       unshift @{$command->{'contents'}}, @{$element->{'extra'}->{'node_content'}};
     }
-    return Texinfo::Convert::Texinfo::convert($command);
+    return Texinfo::Convert::Texinfo::convert_to_texinfo($command);
   }
   
   my $command = $element->{'extra'}->{'element_command'};
@@ -1610,7 +1610,7 @@ sub do_index_keys($$)
       if (defined $entry->{'sortas'}) {
         $entry->{'key'} = $entry->{'sortas'};
       } else {
-        $entry->{'key'} = Texinfo::Convert::Text::convert(
+        $entry->{'key'} = Texinfo::Convert::Text::convert_to_text(
                               {'contents' => $entry->{'content'}}, $options);
         if ($ignore_chars) {
           $entry->{'key'} =~ s/[$ignore_chars]//g;

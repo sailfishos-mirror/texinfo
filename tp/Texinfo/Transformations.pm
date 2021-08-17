@@ -164,7 +164,8 @@ sub _reference_to_arg($$$)
       if (defined($current->{'args'}->[$index])) {
         # This a double checking that there is some content.
         # Not sure that it is useful.
-        my $text = Texinfo::Convert::Text::convert($current->{'args'}->[$index]);
+        my $text = Texinfo::Convert::Text::convert_to_text(
+                                           $current->{'args'}->[$index]);
         if (defined($text) and $text =~ /\S/) {
           my $result
             = {'contents' => $current->{'args'}->[$index]->{'contents'},
@@ -289,7 +290,8 @@ sub _reassociate_to_node($$$$)
         and (!$current->{'extra'}->{'index_entry'}->{'node'}
              or $current->{'extra'}->{'index_entry'}->{'node'} ne $previous_node)) {
       print STDERR "Bug: index entry $current (".
-        Texinfo::Convert::Texinfo::convert ({'contents' => $current->{'extra'}->{'index_entry'}->{'content'}})
+        Texinfo::Convert::Texinfo::convert_to_texinfo(
+            {'contents' => $current->{'extra'}->{'index_entry'}->{'content'}})
          .") not in previous node $previous_node\n";
       print STDERR "  previous node: "._print_root_command_texi($previous_node)."\n";
       if ($current->{'extra'}->{'index_entry'}->{'node'}) {

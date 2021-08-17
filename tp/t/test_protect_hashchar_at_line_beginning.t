@@ -45,7 +45,7 @@ sub run_test($$$;$)
     }
   }
 
-  my $texi_result = Texinfo::Convert::Texinfo::convert($corrected_tree);
+  my $texi_result = Texinfo::Convert::Texinfo::convert_to_texinfo($corrected_tree);
 
   if (!defined($out)) {
     print STDERR " --> $name:\n$texi_result";

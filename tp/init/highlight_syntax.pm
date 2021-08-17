@@ -189,7 +189,7 @@ sub highlight_process($$)
           and $tree->{'contents'}->[-1]->{'cmdname'} eq 'end') {
         pop @{$tree->{'contents'}};
       }
-      my $text = Texinfo::Convert::Text::convert($tree, {'code' => 1,
+      my $text = Texinfo::Convert::Text::convert_to_text($tree, {'code' => 1,
                               Texinfo::Common::_convert_text_options($self)});
       # make sure that the text ends with a newline
       chomp ($text);

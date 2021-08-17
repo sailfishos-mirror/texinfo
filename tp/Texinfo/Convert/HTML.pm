@@ -1332,6 +1332,8 @@ $default_commands_formatting{'normal'}->{'enddots'}
     = '<small class="enddots">...</small>';
 $default_commands_formatting{'preformatted'}->{'enddots'} = '...';
 $default_commands_formatting{'normal'}->{'*'} = '<br>';
+# this is used in math too, not sure that it is the best
+# in that context, '<br>' could be better.
 $default_commands_formatting{'preformatted'}->{'*'} = "\n";
 
 
@@ -4336,7 +4338,7 @@ sub _convert_def_line_type($$$$)
   my $content = shift;
 
   if ($self->in_string()) {
-    return $self->protect_text(Texinfo::Convert::Text::convert(
+    return $self->protect_text(Texinfo::Convert::Text::convert_to_text(
        $command, Texinfo::Common::_convert_text_options($self)));
   }
 
@@ -6148,7 +6150,7 @@ sub _prepare_footnotes($)
       $self->{'seen_ids'}->{$docid} = 1;
       $self->{'targets'}->{$footnote} = { 'target' => $footid };
       print STDERR "Enter footnote $footnote: target $footid, nr $footnote_nr\n"
-       .Texinfo::Convert::Texinfo::convert($footnote)."\n"
+       .Texinfo::Convert::Texinfo::convert_to_texinfo($footnote)."\n"
         if ($self->get_conf('DEBUG'));
     }
   }
@@ -6184,7 +6186,7 @@ sub _external_node_href($$$$)
   my $target_split;
   my $file;
   if ($external_node->{'manual_content'}) {
-    my $manual_name = Texinfo::Convert::Text::convert(
+    my $manual_name = Texinfo::Convert::Text::convert_to_text(
        {'contents' => $external_node->{'manual_content'}}, 
        { 'code' => 1, 
          Texinfo::Common::_convert_text_options($self)});
@@ -7199,7 +7201,7 @@ sub output_internal_links($)
         $href = $self->command_href($command, '');
         my $tree = $self->command_text($command, 'tree');
         if ($tree) {
-          $text = Texinfo::Convert::Text::convert($tree, 
+          $text = Texinfo::Convert::Text::convert_to_text($tree, 
                              {Texinfo::Common::_convert_text_options($self)});
         }
       }
@@ -7474,7 +7476,7 @@ sub output($$)
 
   # copying comment
   if ($self->{'extra'}->{'copying'}) {
-    my $copying_comment = Texinfo::Convert::Text::convert(
+    my $copying_comment = Texinfo::Convert::Text::convert_to_text(
      {'contents' => $self->{'extra'}->{'copying'}->{'contents'}}, 
      {Texinfo::Common::_convert_text_options($self)});
     if ($copying_comment ne '') {
@@ -8041,7 +8043,7 @@ sub _convert($$;$)
                 pop @{$self->{'document_context'}};
               } elsif ($arg_type eq 'monospacetext') {
                 $arg_formatted->{$arg_type} 
-                  = Texinfo::Convert::Text::convert($arg, {'code' => 1,
+                  = Texinfo::Convert::Text::convert_to_text($arg, {'code' => 1,
                             Texinfo::Common::_convert_text_options($self)});
               } elsif ($arg_type eq 'raw') {
                 $self->{'document_context'}->[-1]->{'raw'}++;

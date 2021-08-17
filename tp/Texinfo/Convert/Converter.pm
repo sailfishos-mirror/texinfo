@@ -1292,11 +1292,11 @@ sub sort_element_counts($$;$$)
         and ($element->{'extra'}->{'node'} or $element->{'extra'}->{'section'})) {
       my $command = $element->{'extra'}->{'element_command'};
       if ($command->{'cmdname'} eq 'node') {
-        $name = Texinfo::Convert::Texinfo::convert({'contents' 
+        $name = Texinfo::Convert::Texinfo::convert_to_texinfo({'contents' 
           => $command->{'extra'}->{'nodes_manuals'}->[0]->{'node_content'}});
       } else {
         $name = "\@$command->{'cmdname'}"
-          .Texinfo::Convert::Texinfo::convert($command->{'args'}->[0]);
+          .Texinfo::Convert::Texinfo::convert_to_texinfo($command->{'args'}->[0]);
       }
     }
     chomp($name);

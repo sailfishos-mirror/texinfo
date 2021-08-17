@@ -29,7 +29,7 @@ sub test_new_node($$$$)
   
   my ($texi_result, $normalized);
   if (defined($node)) {
-    $texi_result = Texinfo::Convert::Texinfo::convert($node);
+    $texi_result = Texinfo::Convert::Texinfo::convert_to_texinfo($node);
     Texinfo::Structuring::associate_internal_references($parser);
     $normalized = $node->{'extra'}->{'normalized'};
     my $labels = $parser->labels_information();
@@ -70,8 +70,8 @@ my $line_tree = Texinfo::Parser::parse_texi_line (undef, 'a node');
 Texinfo::Structuring::associate_internal_references($parser);
 my $node = Texinfo::Transformations::_new_node($parser, $line_tree);
 is ('@node a node 1
-',  Texinfo::Convert::Texinfo::convert($node), 'duplicate node added');
-#print STDERR Texinfo::Convert::Texinfo::convert($node);
+',  Texinfo::Convert::Texinfo::convert_to_texinfo($node), 'duplicate node added');
+#print STDERR Texinfo::Convert::Texinfo::convert_to_texinfo($node);
 
 my $sections_text = 
 '@top top section
@@ -141,7 +141,7 @@ Text.
   Texinfo::Structuring::associate_internal_references($parser);
   my ($new_content, $added_nodes) = Texinfo::Transformations::insert_nodes_for_sectioning_commands($parser, $tree);
   $tree->{'contents'} = $new_content;
-  my $result = Texinfo::Convert::Texinfo::convert($tree);
+  my $result = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
   is ($reference, $result, 'add nodes');
   #print STDERR "$result";
 
@@ -166,7 +166,7 @@ my $labels = $parser->labels_information();
 ok (($labels->{'chap'}->{'menus'} and @{$labels->{'chap'}->{'menus'}}
      and scalar(@{$labels->{'chap'}->{'menus'}}) == 1
      and !exists($labels->{'Top'}->{'menus'})), 'new node has a menu');
-is (Texinfo::Convert::Texinfo::convert($labels->{'chap'}->{'menus'}->[0]),
+is (Texinfo::Convert::Texinfo::convert_to_texinfo($labels->{'chap'}->{'menus'}->[0]),
 '@menu
 * (some_manual)::
 @end menu
@@ -174,7 +174,7 @@ is (Texinfo::Convert::Texinfo::convert($labels->{'chap'}->{'menus'}->[0]),
 #print STDERR join('|', keys(%{$index_names->{'cp'}->{'index_entries'}}))."\n";
 is ($labels->{'chap'}, $index_names->{'cp'}->{'index_entries'}->[0]->{'node'}, 
   'index entry reassociated');
-#print STDERR Texinfo::Convert::Texinfo::convert($tree);
+#print STDERR Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
 
 # Note: this test doesn't pass anymore because we only notice duplicate
 # nodes at the end.

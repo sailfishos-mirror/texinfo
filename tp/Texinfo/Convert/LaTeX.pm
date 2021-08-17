@@ -1233,7 +1233,7 @@ sub _convert($$)
           and @{$root->{'args'}->[0]->{'contents'}}) {
         # distinguish text basefile used to find the file and
         # converted basefile with special characters escaped
-        my $basefile = Texinfo::Convert::Text::convert(
+        my $basefile = Texinfo::Convert::Text::convert_to_text(
          {'contents' => $root->{'args'}->[0]->{'contents'}},
          {'code' => 1, %{$self->{'convert_text_options'}}});
         # FIXME not clear at all what can be in filenames here,

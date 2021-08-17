@@ -18,8 +18,8 @@
 # 
 # Original author: Patrice Dumas <pertusus@free.fr>
 
-# This calls Texinfo::Convert::Texinfo::convert while inheriting standard
-# functions from Texinfo::Convert::Converter.
+# This calls Texinfo::Convert::Texinfo::convert_to_texinfo while
+# inheriting standard functions from Texinfo::Convert::Converter.
 
 package Texinfo::Convert::PlainTexinfo;
 
@@ -64,7 +64,7 @@ sub _convert($$)
   my $self = shift;
   my $root = shift;
   
-  return Texinfo::Convert::Texinfo::convert($root);
+  return Texinfo::Convert::Texinfo::convert_to_texinfo($root);
 }
 
 1;

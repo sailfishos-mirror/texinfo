@@ -250,7 +250,7 @@ sub output($)
     if ($seen_anchors{$label_text}) {
       $self->line_error(sprintf(__("\@%s output more than once: %s"),
           $label->{'root'}->{'cmdname'},
-          Texinfo::Convert::Texinfo::convert({'contents' =>
+          Texinfo::Convert::Texinfo::convert_to_texinfo({'contents' =>
               $label->{'root'}->{'extra'}->{'node_content'}})),
         $label->{'root'}->{'line_nr'});
       next;
@@ -475,12 +475,12 @@ sub _image($$)
 
   if (defined($root->{'args'}->[0])
       and @{$root->{'args'}->[0]->{'contents'}}) {
-    my $basefile = Texinfo::Convert::Text::convert(
+    my $basefile = Texinfo::Convert::Text::convert_to_text(
       {'contents' => $root->{'args'}->[0]->{'contents'}},
       {'code' => 1, Texinfo::Common::_convert_text_options($self)});
     if (defined($root->{'args'}->[4])
         and @{$root->{'args'}->[4]->{'contents'}}) {
-      my $extension = Texinfo::Convert::Text::convert(
+      my $extension = Texinfo::Convert::Text::convert_to_text(
         {'contents' => $root->{'args'}->[4]->{'contents'}},
         {'code' => 1, Texinfo::Common::_convert_text_options($self)});
       unshift @extensions, ".$extension";
@@ -499,7 +499,7 @@ sub _image($$)
     my $alt;
     if (defined($root->{'args'}->[3])
         and @{$root->{'args'}->[3]->{'contents'}}) {
-     $alt = Texinfo::Convert::Text::convert(
+     $alt = Texinfo::Convert::Text::convert_to_text(
        {'contents' => $root->{'args'}->[3]->{'contents'}},
        {Texinfo::Common::_convert_text_options($self)});
     }

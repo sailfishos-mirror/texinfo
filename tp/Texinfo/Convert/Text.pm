@@ -38,7 +38,7 @@ use vars qw($VERSION @ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
 @ISA = qw(Exporter Texinfo::Convert::Converter);
 
 %EXPORT_TAGS = ( 'all' => [ qw(
-  convert
+  convert_to_text
   ascii_accent
   text_accents
 ) ] );
@@ -223,7 +223,7 @@ sub text_accents($;$$)
   my $options = {};
   $options->{'enabled_encoding'} = $encoding if (defined($encoding));
   $options->{'sc'} = $set_case if (defined($set_case));
-  my $text = convert({'contents' => $contents}, $options);
+  my $text = convert_to_text({'contents' => $contents}, $options);
 
   my $result = Texinfo::Convert::Unicode::encoded_accents(undef, $text, 
                      $stack, $encoding, \&ascii_accent_fallback, $set_case);
@@ -331,18 +331,11 @@ sub _code_options($)
   return $code_options;
 }
 
-sub convert($;$)
+sub convert_to_text($;$)
 {
   my $root = shift;
-  # means it was called object oriented
-  if (ref($root) ne 'HASH') {
-    if (ref($root) eq 'ARRAY') {
-      carp ("convert argument $root not blessed reference or HASH");
-      return undef;
-    }
-    $root = shift;
-  }
   my $options = shift;
+
   #print STDERR "CONVERT\n";
   return _convert($root, $options);
 }
@@ -558,7 +551,6 @@ sub _convert($;$)
       push @contents, {'text' => "\n"};
       $result = _convert({'contents' => \@contents}, _code_options($options));
     }
-    #$result = convert($root->{'args'}->[0], $options) if ($root->{'args'});
   } elsif ($root->{'type'} and $root->{'type'} eq 'menu_entry') {
     foreach my $arg (@{$root->{'args'}}) {
       if ($arg->{'type'} eq 'menu_entry_node') {
@@ -661,6 +653,14 @@ sub convert_tree($$)
   return _convert($root);
 }
 
+sub convert($$)
+{
+  my $self = shift;
+  my $root = shift;
+
+  return _convert($root);
+}
+
 # determine outfile and output to that file
 my $STDIN_DOCU_NAME = 'stdin';
 sub output($$)
@@ -753,12 +753,12 @@ Texinfo::Convert::Text - Convert Texinfo tree to simple text
 
 =head1 SYNOPSIS
 
-  use Texinfo::Convert::Text qw(convert ascii_accent text_accents);
+  use Texinfo::Convert::Text qw(convert_to_text ascii_accent text_accents);
 
-  my $result = convert($tree);
-  my $result_encoded = convert($tree, 
+  my $result = convert_to_text($tree);
+  my $result_encoded = convert_to_text($tree, 
              {'enabled_encoding' => 'utf-8'});
-  my $result_converter = convert($tree,
+  my $result_converter = convert_to_text($tree,
              {'converter' => $converter});
 
   my $result_accent_text = ascii_accent('e', $accent_command);

@@ -129,6 +129,6 @@ title@verb{: in verb } :}@@.
 @end multitable
 ';
 
-is (Texinfo::Convert::Texinfo::convert($manual_tree), 
+is (Texinfo::Convert::Texinfo::convert_to_texinfo($manual_tree), 
      $manual_tree_result, "tree_to_texi on a manually written tree");
 

@@ -26,7 +26,7 @@ sub test_accent_stack ($)
   my $tree = $text_root->{'contents'}->[0]->{'contents'}->[0];
   my ($contents, $commands_stack) = 
     Texinfo::Common::find_innermost_accent_contents($tree);
-  my $text = Texinfo::Convert::Text::convert({'contents' => $contents});
+  my $text = Texinfo::Convert::Text::convert_to_text({'contents' => $contents});
   my @stack = map {$_->{'cmdname'}} @$commands_stack;
   if (defined($reference)) {
     ok ($reference eq join('|',($text, @stack)), 'innermost '.$name);
@@ -76,7 +76,7 @@ sub test_enable_encoding ($)
 
   my ($contents, $commands_stack) = 
     Texinfo::Common::find_innermost_accent_contents($tree);
-  my $text = Texinfo::Convert::Text::convert({'contents' => $contents});
+  my $text = Texinfo::Convert::Text::convert_to_text({'contents' => $contents});
 
   my $result = 
        Texinfo::Convert::Unicode::eight_bit_accents(undef, $text, $commands_stack, 
@@ -92,7 +92,7 @@ sub test_enable_encoding ($)
 
   ($contents, $commands_stack) =
     Texinfo::Common::find_innermost_accent_contents($tree);
-  $text = Texinfo::Convert::Text::convert({'contents' => $contents},
+  $text = Texinfo::Convert::Text::convert_to_text({'contents' => $contents},
                                {'enabled_encoding' => 'utf-8'});
   my $result_unicode = Texinfo::Convert::Unicode::unicode_accents(undef, $text, 
               $commands_stack, \&Texinfo::Convert::Text::ascii_accent_fallback);
@@ -172,14 +172,14 @@ foreach my $test (
 
 #my $aa = Texinfo::Parser::parse_texi_line(undef, '@aa{}');
 my $res_e = Texinfo::Parser::parse_texi_line(undef, '@^e');
-my $result = Texinfo::Convert::Text::convert($res_e, {'enabled_encoding' => 'utf-8'});
+my $result = Texinfo::Convert::Text::convert_to_text($res_e, {'enabled_encoding' => 'utf-8'});
 is ($result, "\x{00EA}", 'enable encoding @^e');
 
 my $res_aa = Texinfo::Parser::parse_texi_line(undef, '@aa{}');
-$result = Texinfo::Convert::Text::convert($res_aa, {'enabled_encoding' => 'utf-8'});
+$result = Texinfo::Convert::Text::convert_to_text($res_aa, {'enabled_encoding' => 'utf-8'});
 is ($result, "\x{00E5}", 'enable encoding @aa{}');
 
-$result = Texinfo::Convert::Text::convert($res_aa, {'enabled_encoding' => 'iso-8859-1'});
+$result = Texinfo::Convert::Text::convert_to_text($res_aa, {'enabled_encoding' => 'iso-8859-1'});
 is ($result, "\x{00E5}", 'enable encoding latin1 @aa{}');
 #print STDERR "$result\n";
 #print STDERR "`$result'\n".ord($result)."\n".sprintf("%x\n",ord($result));

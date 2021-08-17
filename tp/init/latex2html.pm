@@ -232,7 +232,7 @@ sub l2h_process($$)
             pop @{$tree->{'contents'}};
           }
         }
-        my $text = Texinfo::Convert::Texinfo::convert($tree);
+        my $text = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
         #$text .= "\n" if ($command eq 'tex');
         l2h_to_latex($self, $command, $text, $counter);
         $commands_counters{$root} = $counter;

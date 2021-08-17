@@ -677,7 +677,7 @@ sub _texinfo_line($$)
   my $self = shift;
   my $root = shift;
 
-  my $line = Texinfo::Convert::Texinfo::convert($root->{'args'}->[-1]);
+  my $line = Texinfo::Convert::Texinfo::convert_to_texinfo($root->{'args'}->[-1]);
   chomp($line);
   if ($line ne '') {
     return ('line', $line);
@@ -1239,14 +1239,14 @@ sub _convert($$;$)
           }
           if (defined($root->{'args'}->[$manual_arg_index])
               and @{$root->{'args'}->[$manual_arg_index]->{'contents'}}) {
-            $manual = Texinfo::Convert::Text::convert({'contents'
+            $manual = Texinfo::Convert::Text::convert_to_text({'contents'
                      => $root->{'args'}->[$manual_arg_index]->{'contents'}},
                       {'code' => 1,
                        Texinfo::Common::_convert_text_options($self)});
           }
           if (!defined($manual) and $root->{'extra'}->{'node_argument'}
               and $root->{'extra'}->{'node_argument'}->{'manual_content'}) {
-            $manual = Texinfo::Convert::Text::convert({'contents' 
+            $manual = Texinfo::Convert::Text::convert_to_text({'contents' 
                  => $root->{'extra'}->{'node_argument'}->{'manual_content'}},
               {'code' => 1, Texinfo::Common::_convert_text_options($self)});
           }

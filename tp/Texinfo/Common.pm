@@ -1426,7 +1426,7 @@ sub find_innermost_accent_contents($;$)
         or !$accent_commands{$current->{'cmdname'}}) {
       #print STDERR "BUG: Not an accent command in accent\n";
       cluck "BUG: Not an accent command in accent\n";
-      #print STDERR Texinfo::Convert::Texinfo::convert($current)."\n";
+      #print STDERR Texinfo::Convert::Texinfo::convert_to_texinfo($current)."\n";
       #print STDERR Data::Dumper->Dump([$current]);
       last;
     }
@@ -1439,7 +1439,7 @@ sub find_innermost_accent_contents($;$)
     if (!$arg->{'contents'}) {
       print STDERR "BUG: No content in accent command\n";
       #print STDERR Data::Dumper->Dump([$current]);
-      #print STDERR Texinfo::Convert::Texinfo::convert($current)."\n";
+      #print STDERR Texinfo::Convert::Texinfo::convert_to_texinfo($current)."\n";
       return ([], \@accent_commands);
     }
     # inside the argument of an accent
@@ -1620,7 +1620,7 @@ sub float_name_caption($$)
   }
   #if ($self->get_conf('DEBUG')) {
   #  my $caption_texi = 
-  #    Texinfo::Convert::Texinfo::convert({ 'contents' => $caption->{'contents'}});
+  #    Texinfo::Convert::Texinfo::convert_to_texinfo({ 'contents' => $caption->{'contents'}});
   #  print STDERR "  CAPTION: $caption_texi\n";
   #}
   my $type;
@@ -2383,6 +2383,28 @@ sub _print_current($)
   }
 }
 
+# for debugging
+sub _print_element_tree_simple($) {
+  my $current = shift;
+  if (ref($current) ne 'HASH') {
+    return  "_print_element_tree_simple: $current not a hash\n";
+  }
+  my $type = '';
+  my $cmd = '';
+  my $parent_string = '';
+  my $text = '';
+  $type = "($current->{'type'})" if (defined($current->{'type'}));
+  $cmd = "\@$current->{'cmdname'}" if (defined($current->{'cmdname'}));
+  $text = "[T]" if (defined($current->{'text'}));
+  my $args = '';
+  my $contents = '';
+  $args = "[A".scalar(@{$current->{'args'}}).']' if $current->{'args'};
+  $contents = "[C".scalar(@{$current->{'contents'}}).']'
+    if $current->{'contents'};
+  return "$cmd$type$text$args$contents";
+}
+
+
 sub move_index_entries_after_items($) {
   # enumerate or itemize
   my $current = shift;
@@ -2704,7 +2726,7 @@ sub labels_information
 
         if ($normalized !~ /[^-]/) {
           $self->line_error (sprintf(__("empty node name after expansion `%s'"),
-                Texinfo::Convert::Texinfo::convert({'contents' 
+                Texinfo::Convert::Texinfo::convert_to_texinfo({'contents' 
                                => $target->{'extra'}->{'node_content'}})), 
                 $target->{'line_nr'});
           delete $target->{'extra'}->{'node_content'};
@@ -2713,7 +2735,7 @@ sub labels_information
             $self->line_error(
               sprintf(__("\@%s `%s' previously defined"), 
                          $target->{'cmdname'}, 
-                   Texinfo::Convert::Texinfo::convert({'contents' => 
+                   Texinfo::Convert::Texinfo::convert_to_texinfo({'contents' => 
                        $target->{'extra'}->{'node_content'}})), 
                            $target->{'line_nr'});
             $self->line_error(

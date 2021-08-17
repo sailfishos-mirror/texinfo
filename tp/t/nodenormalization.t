@@ -136,7 +136,7 @@ in float
 ';
 
 my $manual_tree = $parser->parse_texi_text($texinfo_manual);
-my $check_texinfo = Texinfo::Convert::Texinfo::convert($manual_tree);
+my $check_texinfo = Texinfo::Convert::Texinfo::convert_to_texinfo($manual_tree);
 is ($texinfo_manual, $check_texinfo, 'check manual parsing');
 
 #print STDERR Data::Dumper->Dump([$manual_tree]);

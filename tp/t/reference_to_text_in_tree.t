@@ -24,7 +24,7 @@ sub run_test($$$)
 
   my $corrected_tree 
     = Texinfo::Transformations::reference_to_arg_in_tree($parser, $tree);
-  my $texi_result = Texinfo::Convert::Texinfo::convert($corrected_tree);
+  my $texi_result = Texinfo::Convert::Texinfo::convert_to_texinfo($corrected_tree);
 
   if (!defined($out)) {
     print STDERR " --> $name:\n$texi_result";

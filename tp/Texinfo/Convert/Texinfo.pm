@@ -31,7 +31,7 @@ use vars qw($VERSION @ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
 @ISA = qw(Exporter);
 
 %EXPORT_TAGS = ( 'all' => [ qw(
-  convert
+  convert_to_texinfo
   node_extra_to_texi
 ) ] );
 
@@ -61,14 +61,14 @@ for my $a (@ignored_types) {
 # tree item to be shown, in the default case they are
 # not shown.
 # expand a tree to the corresponding texinfo.
-sub convert($;$);
-sub convert($;$)
+sub convert_to_texinfo($;$);
+sub convert_to_texinfo($;$)
 {
   my $root = shift;
   my $expand_replaced = shift;
 
-  die "convert: root undef\n" if (!defined($root));
-  die "convert: bad root type (".ref($root).") $root\n" 
+  die "convert_to_texinfo: root undef\n" if (!defined($root));
+  die "convert_to_texinfo: bad root type (".ref($root).") $root\n" 
      if (ref($root) ne 'HASH');
   my $result = '';
 
@@ -96,14 +96,14 @@ sub convert($;$)
     }
     if (defined($root->{'contents'})) {
       foreach my $child (@{$root->{'contents'}}) {
-        $result .= convert($child, $expand_replaced);
+        $result .= convert_to_texinfo($child, $expand_replaced);
       }
     }
     if ($root->{'extra'} and $root->{'extra'}->{'spaces_after_argument'}) {
       $result .= $root->{'extra'}->{'spaces_after_argument'};
     }
     if ($root->{'extra'} and $root->{'extra'}->{'comment_at_end'}) {
-      $result .= convert($root->{'extra'}->{'comment_at_end'},
+      $result .= convert_to_texinfo($root->{'extra'}->{'comment_at_end'},
                          $expand_replaced);
     }
     $result .= '}' if ($root->{'type'}
@@ -124,12 +124,11 @@ sub node_extra_to_texi($)
   my $node = shift;
   my $result = '';
   if ($node->{'manual_content'}) {
-    $result = '('.Texinfo::Convert::Texinfo::convert({'contents'
-                                     => $node->{'manual_content'}}) .')';
+    $result = '('.convert_to_texinfo({'contents'
+                              => $node->{'manual_content'}}) .')';
   }
   if ($node->{'node_content'}) {
-    $result .= Texinfo::Convert::Texinfo::convert ({'contents'
-                                          => $node->{'node_content'}});
+    $result .= convert_to_texinfo({'contents' => $node->{'node_content'}});
   }
   return $result;
 }
@@ -158,7 +157,7 @@ sub _expand_cmd_args_to_texi($;$) {
      $result .= $cmd->{'extra'}->{'spaces_before_argument'}
        if $cmd->{'extra'} and $cmd->{'extra'}->{'spaces_before_argument'};
      foreach my $arg (@{$cmd->{'args'}}) {
-        $result .= convert($arg, $expand_replaced);
+        $result .= convert_to_texinfo($arg, $expand_replaced);
     }
   # for misc_commands with type special
   } elsif (($cmd->{'extra'} or $cmdname eq 'macro' or $cmdname eq 'rmacro') 
@@ -175,7 +174,7 @@ sub _expand_cmd_args_to_texi($;$) {
       if ($arg->{'extra'} and $arg->{'extra'}->{'spaces_before_argument'}) {
         $result .= $arg->{'extra'}->{'spaces_before_argument'};
       }
-      $result .= convert($arg);
+      $result .= convert_to_texinfo($arg);
       $result .= ',';
     }
     $result =~ s/,$//;
@@ -202,7 +201,7 @@ sub _expand_cmd_args_to_texi($;$) {
       if ($arg->{'extra'} and $arg->{'extra'}->{'spaces_before_argument'}) {
         $result .= $arg->{'extra'}->{'spaces_before_argument'};
       }
-      $result .= convert($arg);
+      $result .= convert_to_texinfo($arg);
     }
     if ($cmdname eq 'verb') {
       $result .= $cmd->{'extra'}->{'delimiter'};
@@ -226,9 +225,9 @@ Texinfo::Convert::Texinfo - Convert a Texinfo tree to Texinfo code
 
 =head1 SYNOPSIS
 
-  use Texinfo::Convert::Texinfo qw(convert);
+  use Texinfo::Convert::Texinfo qw(convert_to_texinfo);
   
-  my $texinfo_text = convert($tree);
+  my $texinfo_text = convert_to_texinfo($tree);
 
 =head1 DESCRIPTION
 
@@ -242,7 +241,7 @@ and C<@value> are expanded, and some invalid code is discarded.
 
 =over
 
-=item $texinfo_text = convert($tree)
+=item $texinfo_text = convert_to_texinfo($tree)
 
 Converts the Texinfo tree I<$tree> to Texinfo code.
 

@@ -168,7 +168,7 @@ sub tex4ht_prepare($$)
             pop @{$tree->{'contents'}};
           }
         }
-        my $text = Texinfo::Convert::Texinfo::convert($tree);
+        my $text = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
         $commands{$command}->{'commands'}->[$counter-1] = $root;
 
         # write to tex file
