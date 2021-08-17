@@ -1,5 +1,14 @@
 2021-08-17  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/init/tex4ht.pm (tex4ht_prepare, tex4ht_convert)
+	(tex4ht_process_format, tex4ht_process_command):
+	process commands in the input file order, using
+	Texinfo::Common::collect_commands_list_in_tree().
+	Prepare and process a file for tex4ht per format and 
+	not per @-command.
+
+2021-08-17  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (collect_commands_list_in_tree):
 	add function that collects commands from tree and keep them
 	in the order in which they appear.

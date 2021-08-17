@@ -48,8 +48,10 @@ Css: table.pmatrix {width:100%;}
 --- needs --- tex_complex_tex4ht_tex.idv[1] ==> tex_complex_tex4ht_tex0x.png ---
 --- needs --- tex_complex_tex4ht_tex.idv[2] ==> tex_complex_tex4ht_tex1x.png ---
 --- needs --- tex_complex_tex4ht_tex.idv[3] ==> tex_complex_tex4ht_tex2x.png ---
+--- needs --- tex_complex_tex4ht_tex.idv[4] ==> tex_complex_tex4ht_tex3x.png ---
 --- characters ---
 Font("cmr","10","10","100")
 Font("cmmi","10","10","100")
 Font("cmmi","7","7","100")
+Font("cmsy","10","10","100")
 Font("cmsy","7","7","100")

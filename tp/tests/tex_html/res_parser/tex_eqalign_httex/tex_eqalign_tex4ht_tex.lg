@@ -46,6 +46,7 @@ Css: img.cdots{vertical-align:middle;}
 Css: div.pmatrix {text-align:center;}
 Css: table.pmatrix {width:100%;}
 --- needs --- tex_eqalign_tex4ht_tex.idv[1] ==> tex_eqalign_tex4ht_tex0x.png ---
+--- needs --- tex_eqalign_tex4ht_tex.idv[2] ==> tex_eqalign_tex4ht_tex1x.png ---
 --- characters ---
 Font("cmr","10","10","100")
 Font("cmmi","10","10","100")

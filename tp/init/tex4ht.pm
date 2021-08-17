@@ -23,13 +23,12 @@
 #
 #-##############################################################################
 # To customize the command and the options, you could set
-# $Texinfo::TeX4HT::STYLE_MATH to latex/tex
-# $Texinfo::TeX4HT::STYLE_TEX to latex/texi
+# $Texinfo::TeX4HT::STYLE_MATH and $Texinfo::TeX4HT::STYLE_TEX to tex/latex/texi
 # and/or change
-# $Texinfo::TeX4HT::tex4ht_command_math 
-#    and $Texinfo::TeX4HT::tex4ht_options_math
-# $Texinfo::TeX4HT::tex4ht_command_tex, $Texinfo::TeX4HT::tex4ht_command_displaymath
+# $Texinfo::TeX4HT::tex4ht_command_tex
 #    and $Texinfo::TeX4HT::tex4ht_options_tex
+# $Texinfo::TeX4HT::tex4ht_command_latex, $Texinfo::TeX4HT::tex4ht_command_texi
+#    and $Texinfo::TeX4HT::tex4ht_options_latex and $Texinfo::TeX4HT::tex4ht_options_texi
 
 use strict;
 
@@ -52,33 +51,35 @@ package Texinfo::TeX4HT;
 use vars qw(
 $STYLE_MATH
 $STYLE_TEX
-$tex4ht_command_math
 $tex4ht_command_tex
-$tex4ht_command_displaymath
-$tex4ht_options_math
+$tex4ht_command_latex
+$tex4ht_command_texi
 $tex4ht_options_tex
+$tex4ht_options_latex
+$tex4ht_options_texi
 );
 
 $STYLE_MATH = 'tex' if (!defined($STYLE_MATH));
 $STYLE_TEX = 'tex' if (!defined($STYLE_TEX));
 
-if (!defined($tex4ht_command_math)) {
-  $tex4ht_command_math = 'httexi';
-  $tex4ht_command_math = 'htlatex' if ($STYLE_MATH eq 'latex');
-  $tex4ht_command_math = 'httex' if ($STYLE_MATH eq 'tex');
-}
+
 if (!defined($tex4ht_command_tex)) {
   $tex4ht_command_tex = 'httex';
-  $tex4ht_command_tex = 'htlatex' if ($STYLE_TEX eq 'latex');
-  $tex4ht_command_tex = 'httexi' if ($STYLE_TEX eq 'texi');
 }
-if (!defined($tex4ht_command_displaymath)) {
-  $tex4ht_command_displaymath = $tex4ht_command_tex;
+
+if (!defined($tex4ht_command_latex)) {
+  $tex4ht_command_latex = 'htlatex';
+}
+
+if (!defined($tex4ht_command_texi)) {
+  $tex4ht_command_texi = 'httexi';
 }
 
 }
 
 my %commands = ();
+# style of output
+my %formats = ();
 
 my $tex4ht_initial_dir;
 my $tex4ht_out_dir;
@@ -100,82 +101,96 @@ sub tex4ht_prepare($$)
   my $document_name = $self->{'document_name'};
   my $tex4ht_basename = "${document_name}_tex4ht";
 
-  # this initialization doesn't seems to be needed, but it is cleaner anyway
+  # this initialization doesn't seems to be needed, but it is cleaner anyway,
+  # in case there is more than one texinfo file processed.
+  # In that case, it is indeed better to clear the structures.  Note that
+  # even if the structures are not cleared, the results are ok, as everything
+  # that needs to be changed should be rewritten, so it does not matter
+  # if there are remaining results from the previous file.
   %commands = ();
+  %formats = ();
   $commands{'math'}->{'style'} = $Texinfo::TeX4HT::STYLE_MATH;
   $commands{'tex'}->{'style'} = $Texinfo::TeX4HT::STYLE_TEX;
-  $commands{'math'}->{'exec'} = $Texinfo::TeX4HT::tex4ht_command_math;
-  $commands{'tex'}->{'exec'} = $Texinfo::TeX4HT::tex4ht_command_tex;
   $commands{'displaymath'}->{'style'} = $Texinfo::TeX4HT::STYLE_TEX;
-  $commands{'displaymath'}->{'exec'} = $Texinfo::TeX4HT::tex4ht_command_displaymath;
+  $formats{'tex'}->{'exec'} = $Texinfo::TeX4HT::tex4ht_command_tex;
+  $formats{'latex'}->{'exec'} = $Texinfo::TeX4HT::tex4ht_command_latex;
+  $formats{'texi'}->{'exec'} = $Texinfo::TeX4HT::tex4ht_command_texi;
   my @replaced_commands = sort(keys(%commands));
-  my $collected_commands = Texinfo::Common::collect_commands_in_tree($document_root, \@replaced_commands);
-  foreach my $command (@replaced_commands) {
-    my $style = $commands{$command}->{'style'};
-    $commands{$command}->{'basename'} = $tex4ht_basename . "_$command";
-    my $suffix = '.tex';
-    $suffix = '.texi' if ($style eq 'texi');
-    $commands{$command}->{'basefile'} = $commands{$command}->{'basename'} . $suffix;
-    $commands{$command}->{'html_file'} = $commands{$command}->{'basename'} . '.html';
-    $commands{$command}->{'rfile'} = File::Spec->catfile($tex4ht_out_dir, 
-                                          $commands{$command}->{'basefile'});
-    my $rfile = $commands{$command}->{'rfile'};
-    $commands{$command}->{'counter'} = 0;
-    $commands{$command}->{'output_counter'} = 0;
+  my $collected_commands = Texinfo::Common::collect_commands_list_in_tree(
+                                        $document_root, \@replaced_commands);
+  my %format_collected_commands = ();
+  foreach my $root (@{$collected_commands}) {
+    my $command = $root->{'cmdname'};
+    my $format = $commands{$command}->{'style'};
+    push @{$format_collected_commands{$format}}, $root;
+    $commands{$command}->{'counter'}++;
+  }
 
-    if (scalar(@{$collected_commands->{$command}}) > 0) {
+  foreach my $format (keys(%format_collected_commands)) {
+    $formats{$format}->{'basename'} = $tex4ht_basename . "_$format";
+    my $suffix = '.tex';
+    $suffix = '.texi' if ($format eq 'texi');
+    $formats{$format}->{'basefile'} = $formats{$format}->{'basename'} . $suffix;
+    $formats{$format}->{'html_file'} = $formats{$format}->{'basename'} . '.html';
+    $formats{$format}->{'rfile'} = File::Spec->catfile($tex4ht_out_dir,
+                                          $formats{$format}->{'basefile'});
+    my $rfile = $formats{$format}->{'rfile'};
+    $formats{$format}->{'counter'} = 0;
+    $formats{$format}->{'output_counter'} = 0;
+
+    if (scalar(@{$format_collected_commands{$format}}) > 0) {
       
       local *TEX4HT_TEXFILE;
       unless (open (*TEX4HT_TEXFILE, ">$rfile")) {
-        $self->document_warn(sprintf(__("tex4ht.pm: could not open %s: %s"), 
+        $self->document_warn(sprintf(__("tex4ht.pm: could not open %s: %s"),
                                       $rfile, $!));
         return 1;
       }
-      $commands{$command}->{'handle'} = *TEX4HT_TEXFILE;
+      $formats{$format}->{'handle'} = *TEX4HT_TEXFILE;
 
-      my $style = $commands{$command}->{'style'};
-      my $fh = $commands{$command}->{'handle'};
+      my $fh = $formats{$format}->{'handle'};
       my $comment = '@c';
-      $comment = '%' if ($style ne 'texi');
+      $comment = '%' if ($format ne 'texi');
       $comment .= " Automatically generated\n";
-      if ($style eq 'texi') {
+      if ($format eq 'texi') {
         print $fh "\\input texinfo
-\@setfilename $commands{$command}->{'basename'}.info\n";
+\@setfilename $formats{$format}->{'basename'}.info\n";
         print $fh "$comment";
       } else {
         print $fh "$comment";
-        if ($style eq 'latex') {
+        if ($format eq 'latex') {
           print $fh "\\documentstyle{article}\n\\begin{document}\n";
-        } elsif ($style eq 'tex') {
+        } elsif ($format eq 'tex') {
           print $fh "\\csname tex4ht\\endcsname\n";
         }
       }
-      foreach my $root (@{$collected_commands->{$command}}) {
-        $commands{$command}->{'counter'}++;
-        my $counter = $commands{$command}->{'counter'};
+      foreach my $root (@{$format_collected_commands{$format}}) {
+        $formats{$format}->{'counter'}++;
+        my $counter = $formats{$format}->{'counter'};
+        my $command = $root->{'cmdname'};
         my $tree;
         if ($command eq 'math') {
           $tree = $root->{'args'}->[0];
         } else {
           $tree = {'contents' => [@{$root->{'contents'}}]};
-          if ($tree->{'contents'}->[0] 
+          if ($tree->{'contents'}->[0]
               and $tree->{'contents'}->[0]->{'type'}
               and $tree->{'contents'}->[0]->{'type'} eq 'empty_line_after_command') {
             shift @{$tree->{'contents'}};
           }
-          if ($tree->{'contents'}->[-1]->{'cmdname'} 
+          if ($tree->{'contents'}->[-1]->{'cmdname'}
               and $tree->{'contents'}->[-1]->{'cmdname'} eq 'end') {
             pop @{$tree->{'contents'}};
           }
         }
         my $text = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
-        $commands{$command}->{'commands'}->[$counter-1] = $root;
+        $formats{$format}->{'commands'}->[$counter-1] = $root;
 
         # write to tex file
         my ($before_comment_open, $after_comment_open, $before_comment_close,
             $after_comment_close);
 
-        if ($style eq 'texi') {
+        if ($format eq 'texi') {
           $before_comment_open = "\@verbatim\n\n";
           $after_comment_open = "\n\@end verbatim\n";
           $before_comment_close = "\@verbatim\n";
@@ -187,12 +202,12 @@ sub tex4ht_prepare($$)
           $after_comment_close = "\\Hnewline \\Hnewline}\n";
         }
   
-        my $begin_comment = "<!-- tex4ht_begin $commands{$command}->{'basename'} $command $counter -->";
+        my $begin_comment = "<!-- tex4ht_begin $formats{$format}->{'basename'} $command $counter -->";
         print $fh "$before_comment_open$begin_comment$after_comment_open";
         if ($command eq 'tex') {
           print $fh $text;
         } elsif ($command eq 'math') {
-          if ($style eq 'texi') {
+          if ($format eq 'texi') {
             print $fh '@math{' . $text . "}\n";
           } else {
             print $fh "\\IgnorePar \$" . $text . "\$";
@@ -200,22 +215,22 @@ sub tex4ht_prepare($$)
         } elsif ($command eq 'displaymath') {
           print $fh "\n\$\$" . $text . "\$\$\n";
         }
-        my $end_comment = "<!-- tex4ht_end $commands{$command}->{'basename'} $command $counter -->";
+        my $end_comment = "<!-- tex4ht_end $formats{$format}->{'basename'} $command $counter -->";
         print $fh "$before_comment_close$end_comment$after_comment_close";
       }
       # finish the tex file
-      if ($style eq 'latex') {
+      if ($format eq 'latex') {
         print $fh "\\end{document}\n";
-      } elsif ($style eq 'tex') {
+      } elsif ($format eq 'tex') {
         print $fh "\n\\bye\n";
       } else {
         print $fh "\n\@bye\n";
       }
       close ($fh);
-      # this has to be done during the 'process' phase, in 'output' it is 
+      # this has to be done during the 'process' phase, in 'output' it is
       # too late.
-      push @{$self->{'css_import_lines'}}, 
-         "\@import \"$commands{$command}->{'basename'}.css\";\n";
+      push @{$self->{'css_import_lines'}},
+         "\@import \"$formats{$format}->{'basename'}.css\";\n";
     }
   }
   return 1;
@@ -229,12 +244,12 @@ sub tex4ht_convert($)
                          $tex4ht_out_dir, $!));
     return 0;
   }
-  print STDERR "cwd($tex4ht_out_dir): " . Cwd::cwd() ."\n" 
+  print STDERR "cwd($tex4ht_out_dir): " . Cwd::cwd() ."\n"
     if ($self->get_conf('VERBOSE'));
 
   my $errors = 0;
-  foreach my $command (keys(%commands)) {
-    $errors += tex4ht_process_command($self, $command);
+  foreach my $format (keys(%formats)) {
+    $errors += tex4ht_process_format($self, $format);
   }
   unless (chdir $tex4ht_initial_dir) {
     $self->document_warn(sprintf(__(
@@ -244,31 +259,31 @@ sub tex4ht_convert($)
   return 1;
 }
 
-sub tex4ht_process_command($$) {
+sub tex4ht_process_format($$) {
   my $self = shift;
-  my $command = shift;
+  my $format = shift;
   
-  return 0 unless ($commands{$command}->{'counter'});
+  return 0 unless ($formats{$format}->{'counter'});
 
   $self->document_warn(sprintf(__("tex4ht.pm: output file missing: %s"),
-                               $commands{$command}->{'basefile'}))
-    unless (-f $commands{$command}->{'basefile'});
-  my $style = $commands{$command}->{'style'};
+                               $formats{$format}->{'basefile'}))
+    unless (-f $formats{$format}->{'basefile'});
   # now run tex4ht
   my $options = '';
-  if ($style eq 'math' and defined($Texinfo::TeX4HT::tex4ht_options_math)) {
-    $options = $Texinfo::TeX4HT::tex4ht_options_math 
-  } elsif ($style eq 'tex' and defined($Texinfo::TeX4HT::tex4ht_options_tex)) {
+  if ($format eq 'tex' and defined($Texinfo::TeX4HT::tex4ht_options_tex)) {
     $options = $Texinfo::TeX4HT::tex4ht_options_tex;
+  } elsif ($format eq 'latex' and defined($Texinfo::TeX4HT::tex4ht_options_latex)) {
+    $options = $Texinfo::TeX4HT::tex4ht_options_latex;
+  } elsif ($format eq 'texi' and defined($Texinfo::TeX4HT::tex4ht_options_texi)) {
+    $options = $Texinfo::TeX4HT::tex4ht_options_texi;
   }
 
-  my $cmd = "$commands{$command}->{'exec'} $commands{$command}->{'basefile'} $options";
+  my $cmd = "$formats{$format}->{'exec'} $formats{$format}->{'basefile'} $options";
   print STDERR "tex4ht command: $cmd\n" if ($self->get_conf('VERBOSE'));
   # do not use system in order to be sure that tex STDIN is not
   # mixed up with the main script STDIN.  It is important because
   # if tex fails, it will read from STDIN and the input may trigger
   # diverse actions by tex.
-  #if (system($cmd)) {
   if (not(open(TEX4HT, "|-", $cmd))) {
     $self->document_warn(sprintf(__(
                          "tex4ht.pm: command failed: %s"), $cmd));
@@ -282,9 +297,9 @@ sub tex4ht_process_command($$) {
   }
 
   # extract the html from the file created by tex4ht
-  my $html_basefile = $commands{$command}->{'html_file'};
+  my $html_basefile = $formats{$format}->{'html_file'};
   unless (open (TEX4HT_HTMLFILE, $html_basefile)) {
-    $self->document_warn(sprintf(__("tex4ht.pm: could not open %s: %s"), 
+    $self->document_warn(sprintf(__("tex4ht.pm: could not open %s: %s"),
                                   $html_basefile, $!));
     return 1;
   }
@@ -292,17 +307,17 @@ sub tex4ht_process_command($$) {
   my $line;
   while ($line = <TEX4HT_HTMLFILE>) {
     #print STDERR "$html_basefile: while $line";
-    if ($line =~ /!-- tex4ht_begin $commands{$command}->{'basename'} (\w+) (\d+) --/) {
+    if ($line =~ /!-- tex4ht_begin $formats{$format}->{'basename'} (\w+) (\d+) --/) {
       my $command = $1;
       my $count = $2;
       my $text = '';
       my $end_found = 0;
       while ($line = <TEX4HT_HTMLFILE>) {
         #print STDERR "while search $command $count $line";
-        if ($line =~ /!-- tex4ht_end $commands{$command}->{'basename'} $command $count --/) {
+        if ($line =~ /!-- tex4ht_end $formats{$format}->{'basename'} $command $count --/) {
           $got_count++;
           chomp($text) if ($command eq 'math');
-          $commands{$command}->{'results'}->{$commands{$command}->{'commands'}->[$count-1]} = $text;
+          $commands{$command}->{'results'}->{$formats{$format}->{'commands'}->[$count-1]} = $text;
           $end_found = 1;
           last;
         } else {
@@ -311,16 +326,16 @@ sub tex4ht_process_command($$) {
       }
       unless ($end_found) {
         $self->document_warn(sprintf(__(
-                               "tex4ht.pm: end of \@%s item %d not found"), 
-                                      $command, $count));
+                               "tex4ht.pm: end of %s item %d not found"),
+                                      $format, $count));
       }
     }
   }
-  if ($got_count != $commands{$command}->{'counter'}) {
+  if ($got_count != $formats{$format}->{'counter'}) {
     $self->document_warn(sprintf(__(
-       "tex4ht.pm: processing produced %d items in HTML; expected %d, the number of items found in the document for \@%s"), 
-                                 $got_count, $commands{$command}->{'counter'},
-                                 $command));
+       "tex4ht.pm: processing produced %d items in HTML; expected %d, the number of items found in the document for %s"),
+                                 $got_count, $formats{$format}->{'counter'},
+                                 $format));
   }
   close (TEX4HT_HTMLFILE);
   return 0;
@@ -331,7 +346,7 @@ sub tex4ht_do_tex($$$$)
   my $self = shift;
   my $cmdname = shift;;
   my $command = shift;
-  # return the resulting html 
+  # return the resulting html
   if (exists ($commands{$cmdname}->{'results'}->{$command})
       and defined($commands{$cmdname}->{'results'}->{$command})) {
     $commands{$cmdname}->{'output_counter'}++;
@@ -353,8 +368,8 @@ sub tex4ht_finish($)
     foreach my $command (keys(%commands)) {
       if ($commands{$command}->{'output_counter'} != $commands{$command}->{'counter'}) {
         $self->document_warn(sprintf(__(
-           "tex4ht.pm: processing retrieved %d items in HTML; expected %d, the number of items found in the document for \@%s"), 
-                                  $commands{$command}->{'output_counter'}, 
+           "tex4ht.pm: processing retrieved %d items in HTML; expected %d, the number of items found in the document for \@%s"),
+                                  $commands{$command}->{'output_counter'},
                                   $commands{$command}->{'counter'}, $command));
       }
     }
