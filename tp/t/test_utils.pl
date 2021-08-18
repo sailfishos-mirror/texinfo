@@ -1274,6 +1274,12 @@ sub output_texi_file($)
       $node_top .= "\@top $test_name\n";
     }
   }
+  # add a chapter too for LaTeX as Top node is ignored.
+  my $added_chapter = '';
+  unless ($test_text =~ /^\@(chapter|unnumbered|appendix)\s/m
+     or $test_text =~ /^\@(chapter|unnumbered|appendix) *$/m) {
+    $added_chapter = "\@node chapter\n\@chapter chapter\n";
+  }
   my $bye = '';
   if ($test_text !~ /^\@bye *$/m) {
     $bye = '@bye';
@@ -1282,6 +1288,7 @@ sub output_texi_file($)
 
 $setfilename
 $node_top
+$added_chapter
 
 $test_text
 
