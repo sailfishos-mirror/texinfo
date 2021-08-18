@@ -134,7 +134,7 @@ my %letter_no_arg_commands = %Texinfo::Common::letter_no_arg_commands;
 
 foreach my $kept_command (keys(%informative_commands),
   keys(%default_index_commands),
-  'verbatiminclude', 'insertcopying', 
+  'verbatiminclude', 'insertcopying', 'xrefautomaticsectiontitle',
   'listoffloats', 'printindex', 'indent', 'noindent', 'need', 'page') {
   $formatting_misc_commands{$kept_command} = 1;
 }
@@ -604,6 +604,7 @@ sub _latex_header {
 \usepackage{needspace}
 \usepackage{etoolbox}
 \usepackage{fancyhdr}
+\usepackage{hyperref}
 ';
   if ($self->{'output_encoding_name'}) {
     my $encoding = $self->{'output_encoding_name'};
@@ -1386,80 +1387,162 @@ sub _convert($$)
             push @args, undef;
           }
         }
-        $args[0] = [{'text' => ''}] if (!defined($args[0]));
-
-        my $node_content;
-        if ($root->{'extra'}
-            and $root->{'extra'}->{'label'}) {
-          $node_content = $root->{'extra'}->{'label'}->{'extra'}->{'node_content'};
-        } else { 
-          $node_content = $args[0];
-        }
-
-        # if it a reference to a float with a label, $arg[1] is
-        # set to '$type $number' or '$number' if there is no type.
-        if (! defined($args[1]) 
-            and $root->{'extra'}
-            and $root->{'extra'}->{'label'}
-            and $root->{'extra'}->{'label'}->{'cmdname'}
-            and $root->{'extra'}->{'label'}->{'cmdname'} eq 'float') {
-          my $float = $root->{'extra'}->{'label'};
-
-          my $name = $self->_float_type_number($float);
-          $args[1] = $name->{'contents'};
-        }
+        # FIXME is the condition scalar(@args) == 3 really needed/ok?
         if ($command eq 'inforef' and scalar(@args) == 3) {
-          # todo: refuse to process @inforef
           $args[3] = $args[2];
           $args[2] = undef;
         }
+        my $book = '';
+        if (defined($args[4])) {
+          $book = _convert($self, {'contents' => $args[4]});
+        }
 
-        # TODO: should translate
-        # TODO: get section name as well
-        if ($command eq 'xref') {
-          $result = "See ";
-        } elsif ($command eq 'pxref') {
-          $result = "see ";
-        } elsif ($command eq 'ref') {
-        }
-        my $name;
-        if (defined($args[1])) {
-          $name = $args[1];
-        } elsif (defined($args[2])) {
-          $name = $args[2];
-        }
-        my $file;
+        my $file_contents;
+        # FIXME not sure if Texinfo TeX uses the external node manual
+        # specified as part of the node name with manual name prependended
+        # in parentheses
         if (defined($args[3])) {
-          $file = [{'text' => '('},
-                   {'type' => '_code',
-                    'contents' => $args[3]},
-                   {'text' => ')'},];
-        } elsif (defined($args[4])) {
-          # add a () such that the node is considered to be external, 
-          # even though the manual name is not known.
-          $file = [{'text' => '()'}];
+          $file_contents = $args[3];
+        } elsif ($root->{'extra'}->{'node_argument'}
+                 and defined($root->{'extra'}->{'node_argument'}->{'normalized'})
+                 and $root->{'extra'}->{'node_argument'}->{'manual_content'}) {
+          $file_contents = $root->{'extra'}->{'node_argument'}->{'manual_content'};
         }
-         
-        if ($name) {
+        my $filename = '';
+        if ($file_contents) {
+          $self->{'style_context'}->[-1]->{'code'} += 1;
+          $filename = _convert($self, {'contents' => $file_contents});
+          $self->{'style_context'}->[-1]->{'code'} -= 1;
+        }
+        
+        if ($command ne 'inforef' and $book eq '' and $filename eq ''
+            and $root->{'extra'}->{'node_argument'}
+            and defined($root->{'extra'}->{'node_argument'}->{'normalized'})
+            and !$root->{'extra'}->{'node_argument'}->{'manual_content'}
+            and $self->{'labels'}
+            and $self->{'labels'}->{$root->{'extra'}->{'node_argument'}->{'normalized'}}) {
+          # internal reference
+          # FIXME or $root->{'extra'}->{'label'}?  Both should be
+          # the same, but for node_content $root->{'extra'}->{'label'}
+          # is used, while above $self->{'labels'} is used.  It could be better
+          # to be consistent
+          my $node
+           = $self->{'labels'}->{$root->{'extra'}->{'node_argument'}->{'normalized'}};
+          my $node_content;
+          if ($root->{'extra'}
+              and $root->{'extra'}->{'label'}) {
+            $node_content = $root->{'extra'}->{'label'}->{'extra'}->{'node_content'};
+          } else {
+            # FIXME this is probably impossible
+            $node_content = $args[0];
+          }
+
+          my $section_command;
+          if ($node->{'extra'}->{'associated_section'}) {
+            $section_command = $node->{'extra'}->{'associated_section'};
+          }
+          # reference to a float with a label
+          my $float_type;
+          if (! defined($args[2])
+              and $root->{'extra'}
+              and $root->{'extra'}->{'label'}
+              and $root->{'extra'}->{'label'}->{'cmdname'}
+              and $root->{'extra'}->{'label'}->{'cmdname'} eq 'float') {
+            my $float = $root->{'extra'}->{'label'};
+            if ($float->{'extra'}->{'type'}
+                and $float->{'extra'}->{'type'}->{'normalized'} ne '') {
+              my $float_type_contents = $float->{'extra'}->{'type'}->{'content'};
+              $float_type = _convert($self, {'contents' => $float_type_contents});
+            } else {
+              $float_type = '';
+            }
+          }
+
+          # TODO: should translate
+          if ($command eq 'xref') {
+            $result = "See ";
+          } elsif ($command eq 'pxref') {
+            $result = "see ";
+          } elsif ($command eq 'ref') {
+          }
+          my $name;
+          if (defined($args[2])) {
+            $name = $args[2];
+          } else {
+            if (defined($self->get_conf('xrefautomaticsectiontitle'))
+                and $self->get_conf('xrefautomaticsectiontitle') eq 'on'
+                and $section_command) {
+              $name = {'contents' => $section_command->{'args'}->[0]->{'contents'}};
+            } else {
+              $name = $node_content;
+            }
+          }
+          my $node_label = _tree_anchor_label($node_content);
+
           my $name_text = _convert($self, {'contents' => $name});
 
-          $result .= $name_text;
-
-          if ($file) {
-            $result .= _convert($self, {'contents' => $file});
+          # FIXME translation
+          if (defined($float_type)) {
+            # no page for float reference in Texinfo TeX
+            $result .= $float_type." \\ref{$node_label}";
+          } else {
+            # FIXME seems like a , should be added last, but only if not
+            # followed by punctualtion which means a painful look ahead
+            # code to do...
+            # When processing with TeX, a comma is automatically inserted after the page number
+            # for cross-references to within the same manual, unless the closing brace of the argument
+            # is followed by non-whitespace (such as a comma or period).
+            # 
+            # If an unwanted comma is added, follow the argument with a command such as @:
+            if ($section_command) {
+              if ($section_command->{'level'} > 0) {
+                $result .= "Section~\\ref{$node_label} [$name_text], page~\\pageref{$node_label}";
+              } else {
+                $result .= "Chapter~\\ref{$node_label} [$name_text], page~\\pageref{$node_label}";
+              }
+            } else {
+              $result .= "\\ref{$node_label} [$name_text], page~\\pageref{$node_label}";
+            }
           }
-          my $node_label = _tree_anchor_label($node_content);
-
-          $result .= " (page \\pageref{$node_label})";
-        } else { # Label same as node specification
-          if ($file) {
-            $result .= _convert($self, {'contents' => $file});
-            $result .= " manual, "
+          return $result;
+        } else {
+          # external ref
+          # TODO reference to manual file which seems to be implemented
+          # in recent Texinfo TeX
+          # TODO: should translate
+          if ($command eq 'xref') {
+            $result = "See ";
+          } elsif ($command eq 'pxref') {
+            $result = "see ";
+          } elsif ($command eq 'ref') {
           }
-          my $node_label = _tree_anchor_label($node_content);
-          $result .= "page \\pageref{$node_label}";
+          my $name;
+          if (defined($args[2])) {
+            $name = $args[2];
+          } elsif (defined($args[0])) {
+            $name = $args[0];
+          }
+          my $name_text;
+          if (defined($name)) {
+            $name_text = _convert($self, {'contents' => $name});
+          }
+          
+          if ($book ne '') {
+            if (defined ($name_text)) {
+              $result .= "Section ``$name_text'' in \\textit{$book}";
+            } else {
+              $result .= "\\textit{$book}";
+            }
+          } elsif ($filename ne '') {
+            if (defined ($name_text)) {
+              $result .= "Section ``$name_text'' in \\texttt{$filename}";
+            } else {
+              $result .= "\\texttt{$filename}";
+            }
+          } elsif ($name_text) {
+            $result .= $name_text;
+          }
         }
-
         return $result;
       }
       return '';

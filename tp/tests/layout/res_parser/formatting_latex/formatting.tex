@@ -9,6 +9,7 @@
 \usepackage{needspace}
 \usepackage{etoolbox}
 \usepackage{fancyhdr}
+\usepackage{hyperref}
 \usepackage[utf8]{inputenc}
 
 % command that does nothing used to help with substitutions in commands
@@ -621,67 +622,65 @@ d--efmethod
 
 d--eftypemethod
 
-\texttt{@xref\{c{-}{-}{-}hapter@@, cross r{-}{-}{-}ef name@@, t{-}{-}{-}itle@@, file n{-}{-}{-}ame@@, ma{-}{-}{-}nual@@\}} See cross r---ef name@(file n---ame@) (page \pageref{anchor:c_002d_002d_002dhapter_0040}).
-\texttt{@ref\{chapter, cross ref name, title, file name, manual\}} cross ref name(file name) (page \pageref{anchor:chapter})
-\texttt{@pxref\{chapter, cross ref name, title, file name, manual\}} see cross ref name(file name) (page \pageref{anchor:chapter})
-\texttt{@inforef\{chapter, cross ref name, file name\}} cross ref name(file name) (page \pageref{anchor:chapter})
+\texttt{@xref\{c{-}{-}{-}hapter@@, cross r{-}{-}{-}ef name@@, t{-}{-}{-}itle@@, file n{-}{-}{-}ame@@, ma{-}{-}{-}nual@@\}} See Section ``t---itle@'' in \textit{ma---nual@}.
+\texttt{@ref\{chapter, cross ref name, title, file name, manual\}} Section ``title'' in \textit{manual}
+\texttt{@pxref\{chapter, cross ref name, title, file name, manual\}} see Section ``title'' in \textit{manual}
+\texttt{@inforef\{chapter, cross ref name, file name\}} Section ``chapter'' in \texttt{file name}
 
-\texttt{@ref\{chapter\}} page \pageref{anchor:chapter}
-\texttt{@xref\{chapter\}} See page \pageref{anchor:chapter}.
-\texttt{@pxref\{chapter\}} see page \pageref{anchor:chapter}
-\texttt{@ref\{s{-}{-}ect@comma\{\}ion\}} page \pageref{anchor:s_002d_002dect_002cion}
+\texttt{@ref\{chapter\}} Section~\ref{anchor:chapter} [chapter], page~\pageref{anchor:chapter}
+\texttt{@xref\{chapter\}} See Section~\ref{anchor:chapter} [chapter], page~\pageref{anchor:chapter}.
+\texttt{@pxref\{chapter\}} see Section~\ref{anchor:chapter} [chapter], page~\pageref{anchor:chapter}
+\texttt{@ref\{s{-}{-}ect@comma\{\}ion\}} Section~\ref{anchor:s_002d_002dect_002cion} [s--ect,ion], page~\pageref{anchor:s_002d_002dect_002cion}
 
 \texttt{@ref\{s{-}{-}ect@comma\{\}ion, a @comma\{\} in cross
 ref, a comma@comma\{\} in title, a comma@comma\{\} in file, a @comma\{\} in manual name \}}
-a , in cross
-ref(a comma, in file) (page \pageref{anchor:s_002d_002dect_002cion})
+Section ``a comma, in title'' in \textit{a , in manual name}
 
-\texttt{@ref\{chapter,cross ref name\}} cross ref name (page \pageref{anchor:chapter})
-\texttt{@ref\{chapter,,title\}} title (page \pageref{anchor:chapter})
-\texttt{@ref\{chapter,,,file name\}} (file name) manual, page \pageref{anchor:chapter}
-\texttt{@ref\{chapter,,,,manual\}} () manual, page \pageref{anchor:chapter}
-\texttt{@ref\{chapter,cross ref name,title,\}} cross ref name (page \pageref{anchor:chapter})
-\texttt{@ref\{chapter,cross ref name,,file name\}} cross ref name(file name) (page \pageref{anchor:chapter})
-\texttt{@ref\{chapter,cross ref name,,,manual\}} cross ref name() (page \pageref{anchor:chapter})
-\texttt{@ref\{chapter,cross ref name,title,file name\}} cross ref name(file name) (page \pageref{anchor:chapter})
-\texttt{@ref\{chapter,cross ref name,title,,manual\}} cross ref name() (page \pageref{anchor:chapter})
-\texttt{@ref\{chapter,cross ref name,title, file name, manual\}} cross ref name(file name) (page \pageref{anchor:chapter})
-\texttt{@ref\{chapter,,title,file name\}} title(file name) (page \pageref{anchor:chapter})
-\texttt{@ref\{chapter,,title,,manual\}} title() (page \pageref{anchor:chapter})
-\texttt{@ref\{chapter,,title, file name, manual\}} title(file name) (page \pageref{anchor:chapter})
-\texttt{@ref\{chapter,,,file name,manual\}} (file name) manual, page \pageref{anchor:chapter}
-
-
-\texttt{@ref\{(pman)anode,cross ref name\}} cross ref name (page \pageref{anchor:_0028pman_0029anode})
-\texttt{@ref\{(pman)anode,,title\}} title (page \pageref{anchor:_0028pman_0029anode})
-\texttt{@ref\{(pman)anode,,,file name\}} (file name) manual, page \pageref{anchor:_0028pman_0029anode}
-\texttt{@ref\{(pman)anode,,,,manual\}} () manual, page \pageref{anchor:_0028pman_0029anode}
-\texttt{@ref\{(pman)anode,cross ref name,title,\}} cross ref name (page \pageref{anchor:_0028pman_0029anode})
-\texttt{@ref\{(pman)anode,cross ref name,,file name\}} cross ref name(file name) (page \pageref{anchor:_0028pman_0029anode})
-\texttt{@ref\{(pman)anode,cross ref name,,,manual\}} cross ref name() (page \pageref{anchor:_0028pman_0029anode})
-\texttt{@ref\{(pman)anode,cross ref name,title,file name\}} cross ref name(file name) (page \pageref{anchor:_0028pman_0029anode})
-\texttt{@ref\{(pman)anode,cross ref name,title,,manual\}} cross ref name() (page \pageref{anchor:_0028pman_0029anode})
-\texttt{@ref\{(pman)anode,cross ref name,title, file name, manual\}} cross ref name(file name) (page \pageref{anchor:_0028pman_0029anode})
-\texttt{@ref\{(pman)anode,,title,file name\}} title(file name) (page \pageref{anchor:_0028pman_0029anode})
-\texttt{@ref\{(pman)anode,,title,,manual\}} title() (page \pageref{anchor:_0028pman_0029anode})
-\texttt{@ref\{(pman)anode,,title, file name, manual\}} title(file name) (page \pageref{anchor:_0028pman_0029anode})
-\texttt{@ref\{(pman)anode,,,file name,manual\}} (file name) manual, page \pageref{anchor:_0028pman_0029anode}
+\texttt{@ref\{chapter,cross ref name\}} Section~\ref{anchor:chapter} [chapter], page~\pageref{anchor:chapter}
+\texttt{@ref\{chapter,,title\}} Section~\ref{anchor:chapter} [title], page~\pageref{anchor:chapter}
+\texttt{@ref\{chapter,,,file name\}} Section ``chapter'' in \texttt{file name}
+\texttt{@ref\{chapter,,,,manual\}} Section ``chapter'' in \textit{manual}
+\texttt{@ref\{chapter,cross ref name,title,\}} Section~\ref{anchor:chapter} [title], page~\pageref{anchor:chapter}
+\texttt{@ref\{chapter,cross ref name,,file name\}} Section ``chapter'' in \texttt{file name}
+\texttt{@ref\{chapter,cross ref name,,,manual\}} Section ``chapter'' in \textit{manual}
+\texttt{@ref\{chapter,cross ref name,title,file name\}} Section ``title'' in \texttt{file name}
+\texttt{@ref\{chapter,cross ref name,title,,manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{chapter,cross ref name,title, file name, manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{chapter,,title,file name\}} Section ``title'' in \texttt{file name}
+\texttt{@ref\{chapter,,title,,manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{chapter,,title, file name, manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{chapter,,,file name,manual\}} Section ``chapter'' in \textit{manual}
 
 
-\texttt{@inforef\{chapter, cross ref name, file name\}} cross ref name(file name) (page \pageref{anchor:chapter})
-\texttt{@inforef\{chapter\}} page \pageref{anchor:chapter}
-\texttt{@inforef\{chapter, cross ref name\}} cross ref name (page \pageref{anchor:chapter})
-\texttt{@inforef\{chapter,,file name\}} (file name) manual, page \pageref{anchor:chapter}
-\texttt{@inforef\{node, cross ref name, file name\}} cross ref name(file name) (page \pageref{anchor:node})
-\texttt{@inforef\{node\}} page \pageref{anchor:node}
-\texttt{@inforef\{node, cross ref name\}} cross ref name (page \pageref{anchor:node})
-\texttt{@inforef\{node,,file name\}} (file name) manual, page \pageref{anchor:node}
-\texttt{@inforef\{chapter, cross ref name, file name, spurious arg\}} cross ref name(file name, spurious arg) (page \pageref{anchor:chapter})
+\texttt{@ref\{(pman)anode,cross ref name\}} (pman)anode
+\texttt{@ref\{(pman)anode,,title\}} title
+\texttt{@ref\{(pman)anode,,,file name\}} Section ``(pman)anode'' in \texttt{file name}
+\texttt{@ref\{(pman)anode,,,,manual\}} Section ``(pman)anode'' in \textit{manual}
+\texttt{@ref\{(pman)anode,cross ref name,title,\}} title
+\texttt{@ref\{(pman)anode,cross ref name,,file name\}} Section ``(pman)anode'' in \texttt{file name}
+\texttt{@ref\{(pman)anode,cross ref name,,,manual\}} Section ``(pman)anode'' in \textit{manual}
+\texttt{@ref\{(pman)anode,cross ref name,title,file name\}} Section ``title'' in \texttt{file name}
+\texttt{@ref\{(pman)anode,cross ref name,title,,manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{(pman)anode,cross ref name,title, file name, manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{(pman)anode,,title,file name\}} Section ``title'' in \texttt{file name}
+\texttt{@ref\{(pman)anode,,title,,manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{(pman)anode,,title, file name, manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{(pman)anode,,,file name,manual\}} Section ``(pman)anode'' in \textit{manual}
+
+
+\texttt{@inforef\{chapter, cross ref name, file name\}} Section ``chapter'' in \texttt{file name}
+\texttt{@inforef\{chapter\}} chapter
+\texttt{@inforef\{chapter, cross ref name\}} chapter
+\texttt{@inforef\{chapter,,file name\}} Section ``chapter'' in \texttt{file name}
+\texttt{@inforef\{node, cross ref name, file name\}} Section ``node'' in \texttt{file name}
+\texttt{@inforef\{node\}} node
+\texttt{@inforef\{node, cross ref name\}} node
+\texttt{@inforef\{node,,file name\}} Section ``node'' in \texttt{file name}
+\texttt{@inforef\{chapter, cross ref name, file name, spurious arg\}} Section ``chapter'' in \texttt{file name, spurious arg}
 
 \texttt{@inforef\{s{-}{-}ect@comma\{\}ion, a @comma\{\} in cross
 ref, a comma@comma\{\} in file\}}
-a , in cross
-ref(a comma, in file) (page \pageref{anchor:s_002d_002dect_002cion})
+Section ``s--ect,ion'' in \texttt{a comma, in file}
 
 
 a
@@ -825,42 +824,42 @@ Various deff lines
 
 
 
-\texttt{@ref\{node\}} page \pageref{anchor:node}
+\texttt{@ref\{node\}} node
 
-\texttt{@ref\{,cross ref name\}} cross ref name (page \pageref{anchor:})
-\texttt{@ref\{,,title\}} title (page \pageref{anchor:})
-\texttt{@ref\{,,,file name\}} (file name) manual, page \pageref{anchor:}
-\texttt{@ref\{,,,,manual\}} () manual, page \pageref{anchor:}
-\texttt{@ref\{node,cross ref name\}} cross ref name (page \pageref{anchor:node})
-\texttt{@ref\{node,,title\}} title (page \pageref{anchor:node})
-\texttt{@ref\{node,,,file name\}} (file name) manual, page \pageref{anchor:node}
-\texttt{@ref\{node,,,,manual\}} () manual, page \pageref{anchor:node}
-\texttt{@ref\{node,cross ref name,title,\}} cross ref name (page \pageref{anchor:node})
-\texttt{@ref\{node,cross ref name,,file name\}} cross ref name(file name) (page \pageref{anchor:node})
-\texttt{@ref\{node,cross ref name,,,manual\}} cross ref name() (page \pageref{anchor:node})
-\texttt{@ref\{node,cross ref name,title,file name\}} cross ref name(file name) (page \pageref{anchor:node})
-\texttt{@ref\{node,cross ref name,title,,manual\}} cross ref name() (page \pageref{anchor:node})
-\texttt{@ref\{node,cross ref name,title, file name, manual\}} cross ref name(file name) (page \pageref{anchor:node})
-\texttt{@ref\{node,,title,file name\}} title(file name) (page \pageref{anchor:node})
-\texttt{@ref\{node,,title,,manual\}} title() (page \pageref{anchor:node})
-\texttt{@ref\{chapter,,title, file name, manual\}} title(file name) (page \pageref{anchor:chapter})
-\texttt{@ref\{node,,title, file name, manual\}} title(file name) (page \pageref{anchor:node})
-\texttt{@ref\{node,,,file name,manual\}} (file name) manual, page \pageref{anchor:node}
-\texttt{@ref\{,cross ref name,title,\}} cross ref name (page \pageref{anchor:})
-\texttt{@ref\{,cross ref name,,file name\}} cross ref name(file name) (page \pageref{anchor:})
-\texttt{@ref\{,cross ref name,,,manual\}} cross ref name() (page \pageref{anchor:})
-\texttt{@ref\{,cross ref name,title,file name\}} cross ref name(file name) (page \pageref{anchor:})
-\texttt{@ref\{,cross ref name,title,,manual\}} cross ref name() (page \pageref{anchor:})
-\texttt{@ref\{,cross ref name,title, file name, manual\}} cross ref name(file name) (page \pageref{anchor:})
-\texttt{@ref\{,,title,file name\}} title(file name) (page \pageref{anchor:})
-\texttt{@ref\{,,title,,manual\}} title() (page \pageref{anchor:})
-\texttt{@ref\{,,title, file name, manual\}} title(file name) (page \pageref{anchor:})
-\texttt{@ref\{,,,file name,manual\}} (file name) manual, page \pageref{anchor:}
+\texttt{@ref\{,cross ref name\}} 
+\texttt{@ref\{,,title\}} title
+\texttt{@ref\{,,,file name\}} \texttt{file name}
+\texttt{@ref\{,,,,manual\}} \textit{manual}
+\texttt{@ref\{node,cross ref name\}} node
+\texttt{@ref\{node,,title\}} title
+\texttt{@ref\{node,,,file name\}} Section ``node'' in \texttt{file name}
+\texttt{@ref\{node,,,,manual\}} Section ``node'' in \textit{manual}
+\texttt{@ref\{node,cross ref name,title,\}} title
+\texttt{@ref\{node,cross ref name,,file name\}} Section ``node'' in \texttt{file name}
+\texttt{@ref\{node,cross ref name,,,manual\}} Section ``node'' in \textit{manual}
+\texttt{@ref\{node,cross ref name,title,file name\}} Section ``title'' in \texttt{file name}
+\texttt{@ref\{node,cross ref name,title,,manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{node,cross ref name,title, file name, manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{node,,title,file name\}} Section ``title'' in \texttt{file name}
+\texttt{@ref\{node,,title,,manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{chapter,,title, file name, manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{node,,title, file name, manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{node,,,file name,manual\}} Section ``node'' in \textit{manual}
+\texttt{@ref\{,cross ref name,title,\}} title
+\texttt{@ref\{,cross ref name,,file name\}} \texttt{file name}
+\texttt{@ref\{,cross ref name,,,manual\}} \textit{manual}
+\texttt{@ref\{,cross ref name,title,file name\}} Section ``title'' in \texttt{file name}
+\texttt{@ref\{,cross ref name,title,,manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{,cross ref name,title, file name, manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{,,title,file name\}} Section ``title'' in \texttt{file name}
+\texttt{@ref\{,,title,,manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{,,title, file name, manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{,,,file name,manual\}} \textit{manual}
 
-\texttt{@inforef\{,cross ref name \}} cross ref name (page \pageref{anchor:})
-\texttt{@inforef\{,,file name\}} (file name) manual, page \pageref{anchor:}
-\texttt{@inforef\{,cross ref name, file name\}} cross ref name(file name) (page \pageref{anchor:})
-\texttt{@inforef\{\}} page \pageref{anchor:}
+\texttt{@inforef\{,cross ref name \}} 
+\texttt{@inforef\{,,file name\}} \texttt{file name}
+\texttt{@inforef\{,cross ref name, file name\}} \texttt{file name}
+\texttt{@inforef\{\}} 
 
 
 
@@ -1425,67 +1424,65 @@ d--efmethod
 
 d--eftypemethod
 
-\texttt{@xref\{c{-}{-}{-}hapter@@, cross r{-}{-}{-}ef name@@, t{-}{-}{-}itle@@, file n{-}{-}{-}ame@@, ma{-}{-}{-}nual@@\}} See cross r---ef name@(file n---ame@) (page \pageref{anchor:c_002d_002d_002dhapter_0040}).
-\texttt{@ref\{chapter, cross ref name, title, file name, manual\}} cross ref name(file name) (page \pageref{anchor:chapter})
-\texttt{@pxref\{chapter, cross ref name, title, file name, manual\}} see cross ref name(file name) (page \pageref{anchor:chapter})
-\texttt{@inforef\{chapter, cross ref name, file name\}} cross ref name(file name) (page \pageref{anchor:chapter})
+\texttt{@xref\{c{-}{-}{-}hapter@@, cross r{-}{-}{-}ef name@@, t{-}{-}{-}itle@@, file n{-}{-}{-}ame@@, ma{-}{-}{-}nual@@\}} See Section ``t---itle@'' in \textit{ma---nual@}.
+\texttt{@ref\{chapter, cross ref name, title, file name, manual\}} Section ``title'' in \textit{manual}
+\texttt{@pxref\{chapter, cross ref name, title, file name, manual\}} see Section ``title'' in \textit{manual}
+\texttt{@inforef\{chapter, cross ref name, file name\}} Section ``chapter'' in \texttt{file name}
 
-\texttt{@ref\{chapter\}} page \pageref{anchor:chapter}
-\texttt{@xref\{chapter\}} See page \pageref{anchor:chapter}.
-\texttt{@pxref\{chapter\}} see page \pageref{anchor:chapter}
-\texttt{@ref\{s{-}{-}ect@comma\{\}ion\}} page \pageref{anchor:s_002d_002dect_002cion}
+\texttt{@ref\{chapter\}} Section~\ref{anchor:chapter} [chapter], page~\pageref{anchor:chapter}
+\texttt{@xref\{chapter\}} See Section~\ref{anchor:chapter} [chapter], page~\pageref{anchor:chapter}.
+\texttt{@pxref\{chapter\}} see Section~\ref{anchor:chapter} [chapter], page~\pageref{anchor:chapter}
+\texttt{@ref\{s{-}{-}ect@comma\{\}ion\}} Section~\ref{anchor:s_002d_002dect_002cion} [s--ect,ion], page~\pageref{anchor:s_002d_002dect_002cion}
 
 \texttt{@ref\{s{-}{-}ect@comma\{\}ion, a @comma\{\} in cross
 ref, a comma@comma\{\} in title, a comma@comma\{\} in file, a @comma\{\} in manual name \}}
-a , in cross
-ref(a comma, in file) (page \pageref{anchor:s_002d_002dect_002cion})
+Section ``a comma, in title'' in \textit{a , in manual name}
 
-\texttt{@ref\{chapter,cross ref name\}} cross ref name (page \pageref{anchor:chapter})
-\texttt{@ref\{chapter,,title\}} title (page \pageref{anchor:chapter})
-\texttt{@ref\{chapter,,,file name\}} (file name) manual, page \pageref{anchor:chapter}
-\texttt{@ref\{chapter,,,,manual\}} () manual, page \pageref{anchor:chapter}
-\texttt{@ref\{chapter,cross ref name,title,\}} cross ref name (page \pageref{anchor:chapter})
-\texttt{@ref\{chapter,cross ref name,,file name\}} cross ref name(file name) (page \pageref{anchor:chapter})
-\texttt{@ref\{chapter,cross ref name,,,manual\}} cross ref name() (page \pageref{anchor:chapter})
-\texttt{@ref\{chapter,cross ref name,title,file name\}} cross ref name(file name) (page \pageref{anchor:chapter})
-\texttt{@ref\{chapter,cross ref name,title,,manual\}} cross ref name() (page \pageref{anchor:chapter})
-\texttt{@ref\{chapter,cross ref name,title, file name, manual\}} cross ref name(file name) (page \pageref{anchor:chapter})
-\texttt{@ref\{chapter,,title,file name\}} title(file name) (page \pageref{anchor:chapter})
-\texttt{@ref\{chapter,,title,,manual\}} title() (page \pageref{anchor:chapter})
-\texttt{@ref\{chapter,,title, file name, manual\}} title(file name) (page \pageref{anchor:chapter})
-\texttt{@ref\{chapter,,,file name,manual\}} (file name) manual, page \pageref{anchor:chapter}
-
-
-\texttt{@ref\{(pman)anode,cross ref name\}} cross ref name (page \pageref{anchor:_0028pman_0029anode})
-\texttt{@ref\{(pman)anode,,title\}} title (page \pageref{anchor:_0028pman_0029anode})
-\texttt{@ref\{(pman)anode,,,file name\}} (file name) manual, page \pageref{anchor:_0028pman_0029anode}
-\texttt{@ref\{(pman)anode,,,,manual\}} () manual, page \pageref{anchor:_0028pman_0029anode}
-\texttt{@ref\{(pman)anode,cross ref name,title,\}} cross ref name (page \pageref{anchor:_0028pman_0029anode})
-\texttt{@ref\{(pman)anode,cross ref name,,file name\}} cross ref name(file name) (page \pageref{anchor:_0028pman_0029anode})
-\texttt{@ref\{(pman)anode,cross ref name,,,manual\}} cross ref name() (page \pageref{anchor:_0028pman_0029anode})
-\texttt{@ref\{(pman)anode,cross ref name,title,file name\}} cross ref name(file name) (page \pageref{anchor:_0028pman_0029anode})
-\texttt{@ref\{(pman)anode,cross ref name,title,,manual\}} cross ref name() (page \pageref{anchor:_0028pman_0029anode})
-\texttt{@ref\{(pman)anode,cross ref name,title, file name, manual\}} cross ref name(file name) (page \pageref{anchor:_0028pman_0029anode})
-\texttt{@ref\{(pman)anode,,title,file name\}} title(file name) (page \pageref{anchor:_0028pman_0029anode})
-\texttt{@ref\{(pman)anode,,title,,manual\}} title() (page \pageref{anchor:_0028pman_0029anode})
-\texttt{@ref\{(pman)anode,,title, file name, manual\}} title(file name) (page \pageref{anchor:_0028pman_0029anode})
-\texttt{@ref\{(pman)anode,,,file name,manual\}} (file name) manual, page \pageref{anchor:_0028pman_0029anode}
+\texttt{@ref\{chapter,cross ref name\}} Section~\ref{anchor:chapter} [chapter], page~\pageref{anchor:chapter}
+\texttt{@ref\{chapter,,title\}} Section~\ref{anchor:chapter} [title], page~\pageref{anchor:chapter}
+\texttt{@ref\{chapter,,,file name\}} Section ``chapter'' in \texttt{file name}
+\texttt{@ref\{chapter,,,,manual\}} Section ``chapter'' in \textit{manual}
+\texttt{@ref\{chapter,cross ref name,title,\}} Section~\ref{anchor:chapter} [title], page~\pageref{anchor:chapter}
+\texttt{@ref\{chapter,cross ref name,,file name\}} Section ``chapter'' in \texttt{file name}
+\texttt{@ref\{chapter,cross ref name,,,manual\}} Section ``chapter'' in \textit{manual}
+\texttt{@ref\{chapter,cross ref name,title,file name\}} Section ``title'' in \texttt{file name}
+\texttt{@ref\{chapter,cross ref name,title,,manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{chapter,cross ref name,title, file name, manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{chapter,,title,file name\}} Section ``title'' in \texttt{file name}
+\texttt{@ref\{chapter,,title,,manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{chapter,,title, file name, manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{chapter,,,file name,manual\}} Section ``chapter'' in \textit{manual}
 
 
-\texttt{@inforef\{chapter, cross ref name, file name\}} cross ref name(file name) (page \pageref{anchor:chapter})
-\texttt{@inforef\{chapter\}} page \pageref{anchor:chapter}
-\texttt{@inforef\{chapter, cross ref name\}} cross ref name (page \pageref{anchor:chapter})
-\texttt{@inforef\{chapter,,file name\}} (file name) manual, page \pageref{anchor:chapter}
-\texttt{@inforef\{node, cross ref name, file name\}} cross ref name(file name) (page \pageref{anchor:node})
-\texttt{@inforef\{node\}} page \pageref{anchor:node}
-\texttt{@inforef\{node, cross ref name\}} cross ref name (page \pageref{anchor:node})
-\texttt{@inforef\{node,,file name\}} (file name) manual, page \pageref{anchor:node}
-\texttt{@inforef\{chapter, cross ref name, file name, spurious arg\}} cross ref name(file name, spurious arg) (page \pageref{anchor:chapter})
+\texttt{@ref\{(pman)anode,cross ref name\}} (pman)anode
+\texttt{@ref\{(pman)anode,,title\}} title
+\texttt{@ref\{(pman)anode,,,file name\}} Section ``(pman)anode'' in \texttt{file name}
+\texttt{@ref\{(pman)anode,,,,manual\}} Section ``(pman)anode'' in \textit{manual}
+\texttt{@ref\{(pman)anode,cross ref name,title,\}} title
+\texttt{@ref\{(pman)anode,cross ref name,,file name\}} Section ``(pman)anode'' in \texttt{file name}
+\texttt{@ref\{(pman)anode,cross ref name,,,manual\}} Section ``(pman)anode'' in \textit{manual}
+\texttt{@ref\{(pman)anode,cross ref name,title,file name\}} Section ``title'' in \texttt{file name}
+\texttt{@ref\{(pman)anode,cross ref name,title,,manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{(pman)anode,cross ref name,title, file name, manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{(pman)anode,,title,file name\}} Section ``title'' in \texttt{file name}
+\texttt{@ref\{(pman)anode,,title,,manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{(pman)anode,,title, file name, manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{(pman)anode,,,file name,manual\}} Section ``(pman)anode'' in \textit{manual}
+
+
+\texttt{@inforef\{chapter, cross ref name, file name\}} Section ``chapter'' in \texttt{file name}
+\texttt{@inforef\{chapter\}} chapter
+\texttt{@inforef\{chapter, cross ref name\}} chapter
+\texttt{@inforef\{chapter,,file name\}} Section ``chapter'' in \texttt{file name}
+\texttt{@inforef\{node, cross ref name, file name\}} Section ``node'' in \texttt{file name}
+\texttt{@inforef\{node\}} node
+\texttt{@inforef\{node, cross ref name\}} node
+\texttt{@inforef\{node,,file name\}} Section ``node'' in \texttt{file name}
+\texttt{@inforef\{chapter, cross ref name, file name, spurious arg\}} Section ``chapter'' in \texttt{file name, spurious arg}
 
 \texttt{@inforef\{s{-}{-}ect@comma\{\}ion, a @comma\{\} in cross
 ref, a comma@comma\{\} in file\}}
-a , in cross
-ref(a comma, in file) (page \pageref{anchor:s_002d_002dect_002cion})
+Section ``s--ect,ion'' in \texttt{a comma, in file}
 
 
 a
@@ -1629,42 +1626,42 @@ Various deff lines
 
 
 
-\texttt{@ref\{node\}} page \pageref{anchor:node}
+\texttt{@ref\{node\}} node
 
-\texttt{@ref\{,cross ref name\}} cross ref name (page \pageref{anchor:})
-\texttt{@ref\{,,title\}} title (page \pageref{anchor:})
-\texttt{@ref\{,,,file name\}} (file name) manual, page \pageref{anchor:}
-\texttt{@ref\{,,,,manual\}} () manual, page \pageref{anchor:}
-\texttt{@ref\{node,cross ref name\}} cross ref name (page \pageref{anchor:node})
-\texttt{@ref\{node,,title\}} title (page \pageref{anchor:node})
-\texttt{@ref\{node,,,file name\}} (file name) manual, page \pageref{anchor:node}
-\texttt{@ref\{node,,,,manual\}} () manual, page \pageref{anchor:node}
-\texttt{@ref\{node,cross ref name,title,\}} cross ref name (page \pageref{anchor:node})
-\texttt{@ref\{node,cross ref name,,file name\}} cross ref name(file name) (page \pageref{anchor:node})
-\texttt{@ref\{node,cross ref name,,,manual\}} cross ref name() (page \pageref{anchor:node})
-\texttt{@ref\{node,cross ref name,title,file name\}} cross ref name(file name) (page \pageref{anchor:node})
-\texttt{@ref\{node,cross ref name,title,,manual\}} cross ref name() (page \pageref{anchor:node})
-\texttt{@ref\{node,cross ref name,title, file name, manual\}} cross ref name(file name) (page \pageref{anchor:node})
-\texttt{@ref\{node,,title,file name\}} title(file name) (page \pageref{anchor:node})
-\texttt{@ref\{node,,title,,manual\}} title() (page \pageref{anchor:node})
-\texttt{@ref\{chapter,,title, file name, manual\}} title(file name) (page \pageref{anchor:chapter})
-\texttt{@ref\{node,,title, file name, manual\}} title(file name) (page \pageref{anchor:node})
-\texttt{@ref\{node,,,file name,manual\}} (file name) manual, page \pageref{anchor:node}
-\texttt{@ref\{,cross ref name,title,\}} cross ref name (page \pageref{anchor:})
-\texttt{@ref\{,cross ref name,,file name\}} cross ref name(file name) (page \pageref{anchor:})
-\texttt{@ref\{,cross ref name,,,manual\}} cross ref name() (page \pageref{anchor:})
-\texttt{@ref\{,cross ref name,title,file name\}} cross ref name(file name) (page \pageref{anchor:})
-\texttt{@ref\{,cross ref name,title,,manual\}} cross ref name() (page \pageref{anchor:})
-\texttt{@ref\{,cross ref name,title, file name, manual\}} cross ref name(file name) (page \pageref{anchor:})
-\texttt{@ref\{,,title,file name\}} title(file name) (page \pageref{anchor:})
-\texttt{@ref\{,,title,,manual\}} title() (page \pageref{anchor:})
-\texttt{@ref\{,,title, file name, manual\}} title(file name) (page \pageref{anchor:})
-\texttt{@ref\{,,,file name,manual\}} (file name) manual, page \pageref{anchor:}
+\texttt{@ref\{,cross ref name\}} 
+\texttt{@ref\{,,title\}} title
+\texttt{@ref\{,,,file name\}} \texttt{file name}
+\texttt{@ref\{,,,,manual\}} \textit{manual}
+\texttt{@ref\{node,cross ref name\}} node
+\texttt{@ref\{node,,title\}} title
+\texttt{@ref\{node,,,file name\}} Section ``node'' in \texttt{file name}
+\texttt{@ref\{node,,,,manual\}} Section ``node'' in \textit{manual}
+\texttt{@ref\{node,cross ref name,title,\}} title
+\texttt{@ref\{node,cross ref name,,file name\}} Section ``node'' in \texttt{file name}
+\texttt{@ref\{node,cross ref name,,,manual\}} Section ``node'' in \textit{manual}
+\texttt{@ref\{node,cross ref name,title,file name\}} Section ``title'' in \texttt{file name}
+\texttt{@ref\{node,cross ref name,title,,manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{node,cross ref name,title, file name, manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{node,,title,file name\}} Section ``title'' in \texttt{file name}
+\texttt{@ref\{node,,title,,manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{chapter,,title, file name, manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{node,,title, file name, manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{node,,,file name,manual\}} Section ``node'' in \textit{manual}
+\texttt{@ref\{,cross ref name,title,\}} title
+\texttt{@ref\{,cross ref name,,file name\}} \texttt{file name}
+\texttt{@ref\{,cross ref name,,,manual\}} \textit{manual}
+\texttt{@ref\{,cross ref name,title,file name\}} Section ``title'' in \texttt{file name}
+\texttt{@ref\{,cross ref name,title,,manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{,cross ref name,title, file name, manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{,,title,file name\}} Section ``title'' in \texttt{file name}
+\texttt{@ref\{,,title,,manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{,,title, file name, manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{,,,file name,manual\}} \textit{manual}
 
-\texttt{@inforef\{,cross ref name \}} cross ref name (page \pageref{anchor:})
-\texttt{@inforef\{,,file name\}} (file name) manual, page \pageref{anchor:}
-\texttt{@inforef\{,cross ref name, file name\}} cross ref name(file name) (page \pageref{anchor:})
-\texttt{@inforef\{\}} page \pageref{anchor:}
+\texttt{@inforef\{,cross ref name \}} 
+\texttt{@inforef\{,,file name\}} \texttt{file name}
+\texttt{@inforef\{,cross ref name, file name\}} \texttt{file name}
+\texttt{@inforef\{\}} 
 
 
 \end{titlepage}
@@ -2244,67 +2241,65 @@ d--efmethod
 
 d--eftypemethod
 
-\texttt{@xref\{c{-}{-}{-}hapter@@, cross r{-}{-}{-}ef name@@, t{-}{-}{-}itle@@, file n{-}{-}{-}ame@@, ma{-}{-}{-}nual@@\}} See cross r---ef name@(file n---ame@) (page \pageref{anchor:c_002d_002d_002dhapter_0040}).
-\texttt{@ref\{chapter, cross ref name, title, file name, manual\}} cross ref name(file name) (page \pageref{anchor:chapter})
-\texttt{@pxref\{chapter, cross ref name, title, file name, manual\}} see cross ref name(file name) (page \pageref{anchor:chapter})
-\texttt{@inforef\{chapter, cross ref name, file name\}} cross ref name(file name) (page \pageref{anchor:chapter})
+\texttt{@xref\{c{-}{-}{-}hapter@@, cross r{-}{-}{-}ef name@@, t{-}{-}{-}itle@@, file n{-}{-}{-}ame@@, ma{-}{-}{-}nual@@\}} See Section ``t---itle@'' in \textit{ma---nual@}.
+\texttt{@ref\{chapter, cross ref name, title, file name, manual\}} Section ``title'' in \textit{manual}
+\texttt{@pxref\{chapter, cross ref name, title, file name, manual\}} see Section ``title'' in \textit{manual}
+\texttt{@inforef\{chapter, cross ref name, file name\}} Section ``chapter'' in \texttt{file name}
 
-\texttt{@ref\{chapter\}} page \pageref{anchor:chapter}
-\texttt{@xref\{chapter\}} See page \pageref{anchor:chapter}.
-\texttt{@pxref\{chapter\}} see page \pageref{anchor:chapter}
-\texttt{@ref\{s{-}{-}ect@comma\{\}ion\}} page \pageref{anchor:s_002d_002dect_002cion}
+\texttt{@ref\{chapter\}} Section~\ref{anchor:chapter} [chapter], page~\pageref{anchor:chapter}
+\texttt{@xref\{chapter\}} See Section~\ref{anchor:chapter} [chapter], page~\pageref{anchor:chapter}.
+\texttt{@pxref\{chapter\}} see Section~\ref{anchor:chapter} [chapter], page~\pageref{anchor:chapter}
+\texttt{@ref\{s{-}{-}ect@comma\{\}ion\}} Section~\ref{anchor:s_002d_002dect_002cion} [s--ect,ion], page~\pageref{anchor:s_002d_002dect_002cion}
 
 \texttt{@ref\{s{-}{-}ect@comma\{\}ion, a @comma\{\} in cross
 ref, a comma@comma\{\} in title, a comma@comma\{\} in file, a @comma\{\} in manual name \}}
-a , in cross
-ref(a comma, in file) (page \pageref{anchor:s_002d_002dect_002cion})
+Section ``a comma, in title'' in \textit{a , in manual name}
 
-\texttt{@ref\{chapter,cross ref name\}} cross ref name (page \pageref{anchor:chapter})
-\texttt{@ref\{chapter,,title\}} title (page \pageref{anchor:chapter})
-\texttt{@ref\{chapter,,,file name\}} (file name) manual, page \pageref{anchor:chapter}
-\texttt{@ref\{chapter,,,,manual\}} () manual, page \pageref{anchor:chapter}
-\texttt{@ref\{chapter,cross ref name,title,\}} cross ref name (page \pageref{anchor:chapter})
-\texttt{@ref\{chapter,cross ref name,,file name\}} cross ref name(file name) (page \pageref{anchor:chapter})
-\texttt{@ref\{chapter,cross ref name,,,manual\}} cross ref name() (page \pageref{anchor:chapter})
-\texttt{@ref\{chapter,cross ref name,title,file name\}} cross ref name(file name) (page \pageref{anchor:chapter})
-\texttt{@ref\{chapter,cross ref name,title,,manual\}} cross ref name() (page \pageref{anchor:chapter})
-\texttt{@ref\{chapter,cross ref name,title, file name, manual\}} cross ref name(file name) (page \pageref{anchor:chapter})
-\texttt{@ref\{chapter,,title,file name\}} title(file name) (page \pageref{anchor:chapter})
-\texttt{@ref\{chapter,,title,,manual\}} title() (page \pageref{anchor:chapter})
-\texttt{@ref\{chapter,,title, file name, manual\}} title(file name) (page \pageref{anchor:chapter})
-\texttt{@ref\{chapter,,,file name,manual\}} (file name) manual, page \pageref{anchor:chapter}
-
-
-\texttt{@ref\{(pman)anode,cross ref name\}} cross ref name (page \pageref{anchor:_0028pman_0029anode})
-\texttt{@ref\{(pman)anode,,title\}} title (page \pageref{anchor:_0028pman_0029anode})
-\texttt{@ref\{(pman)anode,,,file name\}} (file name) manual, page \pageref{anchor:_0028pman_0029anode}
-\texttt{@ref\{(pman)anode,,,,manual\}} () manual, page \pageref{anchor:_0028pman_0029anode}
-\texttt{@ref\{(pman)anode,cross ref name,title,\}} cross ref name (page \pageref{anchor:_0028pman_0029anode})
-\texttt{@ref\{(pman)anode,cross ref name,,file name\}} cross ref name(file name) (page \pageref{anchor:_0028pman_0029anode})
-\texttt{@ref\{(pman)anode,cross ref name,,,manual\}} cross ref name() (page \pageref{anchor:_0028pman_0029anode})
-\texttt{@ref\{(pman)anode,cross ref name,title,file name\}} cross ref name(file name) (page \pageref{anchor:_0028pman_0029anode})
-\texttt{@ref\{(pman)anode,cross ref name,title,,manual\}} cross ref name() (page \pageref{anchor:_0028pman_0029anode})
-\texttt{@ref\{(pman)anode,cross ref name,title, file name, manual\}} cross ref name(file name) (page \pageref{anchor:_0028pman_0029anode})
-\texttt{@ref\{(pman)anode,,title,file name\}} title(file name) (page \pageref{anchor:_0028pman_0029anode})
-\texttt{@ref\{(pman)anode,,title,,manual\}} title() (page \pageref{anchor:_0028pman_0029anode})
-\texttt{@ref\{(pman)anode,,title, file name, manual\}} title(file name) (page \pageref{anchor:_0028pman_0029anode})
-\texttt{@ref\{(pman)anode,,,file name,manual\}} (file name) manual, page \pageref{anchor:_0028pman_0029anode}
+\texttt{@ref\{chapter,cross ref name\}} Section~\ref{anchor:chapter} [chapter], page~\pageref{anchor:chapter}
+\texttt{@ref\{chapter,,title\}} Section~\ref{anchor:chapter} [title], page~\pageref{anchor:chapter}
+\texttt{@ref\{chapter,,,file name\}} Section ``chapter'' in \texttt{file name}
+\texttt{@ref\{chapter,,,,manual\}} Section ``chapter'' in \textit{manual}
+\texttt{@ref\{chapter,cross ref name,title,\}} Section~\ref{anchor:chapter} [title], page~\pageref{anchor:chapter}
+\texttt{@ref\{chapter,cross ref name,,file name\}} Section ``chapter'' in \texttt{file name}
+\texttt{@ref\{chapter,cross ref name,,,manual\}} Section ``chapter'' in \textit{manual}
+\texttt{@ref\{chapter,cross ref name,title,file name\}} Section ``title'' in \texttt{file name}
+\texttt{@ref\{chapter,cross ref name,title,,manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{chapter,cross ref name,title, file name, manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{chapter,,title,file name\}} Section ``title'' in \texttt{file name}
+\texttt{@ref\{chapter,,title,,manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{chapter,,title, file name, manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{chapter,,,file name,manual\}} Section ``chapter'' in \textit{manual}
 
 
-\texttt{@inforef\{chapter, cross ref name, file name\}} cross ref name(file name) (page \pageref{anchor:chapter})
-\texttt{@inforef\{chapter\}} page \pageref{anchor:chapter}
-\texttt{@inforef\{chapter, cross ref name\}} cross ref name (page \pageref{anchor:chapter})
-\texttt{@inforef\{chapter,,file name\}} (file name) manual, page \pageref{anchor:chapter}
-\texttt{@inforef\{node, cross ref name, file name\}} cross ref name(file name) (page \pageref{anchor:node})
-\texttt{@inforef\{node\}} page \pageref{anchor:node}
-\texttt{@inforef\{node, cross ref name\}} cross ref name (page \pageref{anchor:node})
-\texttt{@inforef\{node,,file name\}} (file name) manual, page \pageref{anchor:node}
-\texttt{@inforef\{chapter, cross ref name, file name, spurious arg\}} cross ref name(file name, spurious arg) (page \pageref{anchor:chapter})
+\texttt{@ref\{(pman)anode,cross ref name\}} (pman)anode
+\texttt{@ref\{(pman)anode,,title\}} title
+\texttt{@ref\{(pman)anode,,,file name\}} Section ``(pman)anode'' in \texttt{file name}
+\texttt{@ref\{(pman)anode,,,,manual\}} Section ``(pman)anode'' in \textit{manual}
+\texttt{@ref\{(pman)anode,cross ref name,title,\}} title
+\texttt{@ref\{(pman)anode,cross ref name,,file name\}} Section ``(pman)anode'' in \texttt{file name}
+\texttt{@ref\{(pman)anode,cross ref name,,,manual\}} Section ``(pman)anode'' in \textit{manual}
+\texttt{@ref\{(pman)anode,cross ref name,title,file name\}} Section ``title'' in \texttt{file name}
+\texttt{@ref\{(pman)anode,cross ref name,title,,manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{(pman)anode,cross ref name,title, file name, manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{(pman)anode,,title,file name\}} Section ``title'' in \texttt{file name}
+\texttt{@ref\{(pman)anode,,title,,manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{(pman)anode,,title, file name, manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{(pman)anode,,,file name,manual\}} Section ``(pman)anode'' in \textit{manual}
+
+
+\texttt{@inforef\{chapter, cross ref name, file name\}} Section ``chapter'' in \texttt{file name}
+\texttt{@inforef\{chapter\}} chapter
+\texttt{@inforef\{chapter, cross ref name\}} chapter
+\texttt{@inforef\{chapter,,file name\}} Section ``chapter'' in \texttt{file name}
+\texttt{@inforef\{node, cross ref name, file name\}} Section ``node'' in \texttt{file name}
+\texttt{@inforef\{node\}} node
+\texttt{@inforef\{node, cross ref name\}} node
+\texttt{@inforef\{node,,file name\}} Section ``node'' in \texttt{file name}
+\texttt{@inforef\{chapter, cross ref name, file name, spurious arg\}} Section ``chapter'' in \texttt{file name, spurious arg}
 
 \texttt{@inforef\{s{-}{-}ect@comma\{\}ion, a @comma\{\} in cross
 ref, a comma@comma\{\} in file\}}
-a , in cross
-ref(a comma, in file) (page \pageref{anchor:s_002d_002dect_002cion})
+Section ``s--ect,ion'' in \texttt{a comma, in file}
 
 
 a
@@ -2448,42 +2443,42 @@ Various deff lines
 
 
 
-\texttt{@ref\{node\}} page \pageref{anchor:node}
+\texttt{@ref\{node\}} node
 
-\texttt{@ref\{,cross ref name\}} cross ref name (page \pageref{anchor:})
-\texttt{@ref\{,,title\}} title (page \pageref{anchor:})
-\texttt{@ref\{,,,file name\}} (file name) manual, page \pageref{anchor:}
-\texttt{@ref\{,,,,manual\}} () manual, page \pageref{anchor:}
-\texttt{@ref\{node,cross ref name\}} cross ref name (page \pageref{anchor:node})
-\texttt{@ref\{node,,title\}} title (page \pageref{anchor:node})
-\texttt{@ref\{node,,,file name\}} (file name) manual, page \pageref{anchor:node}
-\texttt{@ref\{node,,,,manual\}} () manual, page \pageref{anchor:node}
-\texttt{@ref\{node,cross ref name,title,\}} cross ref name (page \pageref{anchor:node})
-\texttt{@ref\{node,cross ref name,,file name\}} cross ref name(file name) (page \pageref{anchor:node})
-\texttt{@ref\{node,cross ref name,,,manual\}} cross ref name() (page \pageref{anchor:node})
-\texttt{@ref\{node,cross ref name,title,file name\}} cross ref name(file name) (page \pageref{anchor:node})
-\texttt{@ref\{node,cross ref name,title,,manual\}} cross ref name() (page \pageref{anchor:node})
-\texttt{@ref\{node,cross ref name,title, file name, manual\}} cross ref name(file name) (page \pageref{anchor:node})
-\texttt{@ref\{node,,title,file name\}} title(file name) (page \pageref{anchor:node})
-\texttt{@ref\{node,,title,,manual\}} title() (page \pageref{anchor:node})
-\texttt{@ref\{chapter,,title, file name, manual\}} title(file name) (page \pageref{anchor:chapter})
-\texttt{@ref\{node,,title, file name, manual\}} title(file name) (page \pageref{anchor:node})
-\texttt{@ref\{node,,,file name,manual\}} (file name) manual, page \pageref{anchor:node}
-\texttt{@ref\{,cross ref name,title,\}} cross ref name (page \pageref{anchor:})
-\texttt{@ref\{,cross ref name,,file name\}} cross ref name(file name) (page \pageref{anchor:})
-\texttt{@ref\{,cross ref name,,,manual\}} cross ref name() (page \pageref{anchor:})
-\texttt{@ref\{,cross ref name,title,file name\}} cross ref name(file name) (page \pageref{anchor:})
-\texttt{@ref\{,cross ref name,title,,manual\}} cross ref name() (page \pageref{anchor:})
-\texttt{@ref\{,cross ref name,title, file name, manual\}} cross ref name(file name) (page \pageref{anchor:})
-\texttt{@ref\{,,title,file name\}} title(file name) (page \pageref{anchor:})
-\texttt{@ref\{,,title,,manual\}} title() (page \pageref{anchor:})
-\texttt{@ref\{,,title, file name, manual\}} title(file name) (page \pageref{anchor:})
-\texttt{@ref\{,,,file name,manual\}} (file name) manual, page \pageref{anchor:}
+\texttt{@ref\{,cross ref name\}} 
+\texttt{@ref\{,,title\}} title
+\texttt{@ref\{,,,file name\}} \texttt{file name}
+\texttt{@ref\{,,,,manual\}} \textit{manual}
+\texttt{@ref\{node,cross ref name\}} node
+\texttt{@ref\{node,,title\}} title
+\texttt{@ref\{node,,,file name\}} Section ``node'' in \texttt{file name}
+\texttt{@ref\{node,,,,manual\}} Section ``node'' in \textit{manual}
+\texttt{@ref\{node,cross ref name,title,\}} title
+\texttt{@ref\{node,cross ref name,,file name\}} Section ``node'' in \texttt{file name}
+\texttt{@ref\{node,cross ref name,,,manual\}} Section ``node'' in \textit{manual}
+\texttt{@ref\{node,cross ref name,title,file name\}} Section ``title'' in \texttt{file name}
+\texttt{@ref\{node,cross ref name,title,,manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{node,cross ref name,title, file name, manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{node,,title,file name\}} Section ``title'' in \texttt{file name}
+\texttt{@ref\{node,,title,,manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{chapter,,title, file name, manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{node,,title, file name, manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{node,,,file name,manual\}} Section ``node'' in \textit{manual}
+\texttt{@ref\{,cross ref name,title,\}} title
+\texttt{@ref\{,cross ref name,,file name\}} \texttt{file name}
+\texttt{@ref\{,cross ref name,,,manual\}} \textit{manual}
+\texttt{@ref\{,cross ref name,title,file name\}} Section ``title'' in \texttt{file name}
+\texttt{@ref\{,cross ref name,title,,manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{,cross ref name,title, file name, manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{,,title,file name\}} Section ``title'' in \texttt{file name}
+\texttt{@ref\{,,title,,manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{,,title, file name, manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{,,,file name,manual\}} \textit{manual}
 
-\texttt{@inforef\{,cross ref name \}} cross ref name (page \pageref{anchor:})
-\texttt{@inforef\{,,file name\}} (file name) manual, page \pageref{anchor:}
-\texttt{@inforef\{,cross ref name, file name\}} cross ref name(file name) (page \pageref{anchor:})
-\texttt{@inforef\{\}} page \pageref{anchor:}
+\texttt{@inforef\{,cross ref name \}} 
+\texttt{@inforef\{,,file name\}} \texttt{file name}
+\texttt{@inforef\{,cross ref name, file name\}} \texttt{file name}
+\texttt{@inforef\{\}} 
 
 
 
@@ -3047,67 +3042,65 @@ d--efmethod
 
 d--eftypemethod
 
-\texttt{@xref\{c{-}{-}{-}hapter@@, cross r{-}{-}{-}ef name@@, t{-}{-}{-}itle@@, file n{-}{-}{-}ame@@, ma{-}{-}{-}nual@@\}} See cross r---ef name@(file n---ame@) (page \pageref{anchor:c_002d_002d_002dhapter_0040}).
-\texttt{@ref\{chapter, cross ref name, title, file name, manual\}} cross ref name(file name) (page \pageref{anchor:chapter})
-\texttt{@pxref\{chapter, cross ref name, title, file name, manual\}} see cross ref name(file name) (page \pageref{anchor:chapter})
-\texttt{@inforef\{chapter, cross ref name, file name\}} cross ref name(file name) (page \pageref{anchor:chapter})
+\texttt{@xref\{c{-}{-}{-}hapter@@, cross r{-}{-}{-}ef name@@, t{-}{-}{-}itle@@, file n{-}{-}{-}ame@@, ma{-}{-}{-}nual@@\}} See Section ``t---itle@'' in \textit{ma---nual@}.
+\texttt{@ref\{chapter, cross ref name, title, file name, manual\}} Section ``title'' in \textit{manual}
+\texttt{@pxref\{chapter, cross ref name, title, file name, manual\}} see Section ``title'' in \textit{manual}
+\texttt{@inforef\{chapter, cross ref name, file name\}} Section ``chapter'' in \texttt{file name}
 
-\texttt{@ref\{chapter\}} page \pageref{anchor:chapter}
-\texttt{@xref\{chapter\}} See page \pageref{anchor:chapter}.
-\texttt{@pxref\{chapter\}} see page \pageref{anchor:chapter}
-\texttt{@ref\{s{-}{-}ect@comma\{\}ion\}} page \pageref{anchor:s_002d_002dect_002cion}
+\texttt{@ref\{chapter\}} Section~\ref{anchor:chapter} [chapter], page~\pageref{anchor:chapter}
+\texttt{@xref\{chapter\}} See Section~\ref{anchor:chapter} [chapter], page~\pageref{anchor:chapter}.
+\texttt{@pxref\{chapter\}} see Section~\ref{anchor:chapter} [chapter], page~\pageref{anchor:chapter}
+\texttt{@ref\{s{-}{-}ect@comma\{\}ion\}} Section~\ref{anchor:s_002d_002dect_002cion} [s--ect,ion], page~\pageref{anchor:s_002d_002dect_002cion}
 
 \texttt{@ref\{s{-}{-}ect@comma\{\}ion, a @comma\{\} in cross
 ref, a comma@comma\{\} in title, a comma@comma\{\} in file, a @comma\{\} in manual name \}}
-a , in cross
-ref(a comma, in file) (page \pageref{anchor:s_002d_002dect_002cion})
+Section ``a comma, in title'' in \textit{a , in manual name}
 
-\texttt{@ref\{chapter,cross ref name\}} cross ref name (page \pageref{anchor:chapter})
-\texttt{@ref\{chapter,,title\}} title (page \pageref{anchor:chapter})
-\texttt{@ref\{chapter,,,file name\}} (file name) manual, page \pageref{anchor:chapter}
-\texttt{@ref\{chapter,,,,manual\}} () manual, page \pageref{anchor:chapter}
-\texttt{@ref\{chapter,cross ref name,title,\}} cross ref name (page \pageref{anchor:chapter})
-\texttt{@ref\{chapter,cross ref name,,file name\}} cross ref name(file name) (page \pageref{anchor:chapter})
-\texttt{@ref\{chapter,cross ref name,,,manual\}} cross ref name() (page \pageref{anchor:chapter})
-\texttt{@ref\{chapter,cross ref name,title,file name\}} cross ref name(file name) (page \pageref{anchor:chapter})
-\texttt{@ref\{chapter,cross ref name,title,,manual\}} cross ref name() (page \pageref{anchor:chapter})
-\texttt{@ref\{chapter,cross ref name,title, file name, manual\}} cross ref name(file name) (page \pageref{anchor:chapter})
-\texttt{@ref\{chapter,,title,file name\}} title(file name) (page \pageref{anchor:chapter})
-\texttt{@ref\{chapter,,title,,manual\}} title() (page \pageref{anchor:chapter})
-\texttt{@ref\{chapter,,title, file name, manual\}} title(file name) (page \pageref{anchor:chapter})
-\texttt{@ref\{chapter,,,file name,manual\}} (file name) manual, page \pageref{anchor:chapter}
-
-
-\texttt{@ref\{(pman)anode,cross ref name\}} cross ref name (page \pageref{anchor:_0028pman_0029anode})
-\texttt{@ref\{(pman)anode,,title\}} title (page \pageref{anchor:_0028pman_0029anode})
-\texttt{@ref\{(pman)anode,,,file name\}} (file name) manual, page \pageref{anchor:_0028pman_0029anode}
-\texttt{@ref\{(pman)anode,,,,manual\}} () manual, page \pageref{anchor:_0028pman_0029anode}
-\texttt{@ref\{(pman)anode,cross ref name,title,\}} cross ref name (page \pageref{anchor:_0028pman_0029anode})
-\texttt{@ref\{(pman)anode,cross ref name,,file name\}} cross ref name(file name) (page \pageref{anchor:_0028pman_0029anode})
-\texttt{@ref\{(pman)anode,cross ref name,,,manual\}} cross ref name() (page \pageref{anchor:_0028pman_0029anode})
-\texttt{@ref\{(pman)anode,cross ref name,title,file name\}} cross ref name(file name) (page \pageref{anchor:_0028pman_0029anode})
-\texttt{@ref\{(pman)anode,cross ref name,title,,manual\}} cross ref name() (page \pageref{anchor:_0028pman_0029anode})
-\texttt{@ref\{(pman)anode,cross ref name,title, file name, manual\}} cross ref name(file name) (page \pageref{anchor:_0028pman_0029anode})
-\texttt{@ref\{(pman)anode,,title,file name\}} title(file name) (page \pageref{anchor:_0028pman_0029anode})
-\texttt{@ref\{(pman)anode,,title,,manual\}} title() (page \pageref{anchor:_0028pman_0029anode})
-\texttt{@ref\{(pman)anode,,title, file name, manual\}} title(file name) (page \pageref{anchor:_0028pman_0029anode})
-\texttt{@ref\{(pman)anode,,,file name,manual\}} (file name) manual, page \pageref{anchor:_0028pman_0029anode}
+\texttt{@ref\{chapter,cross ref name\}} Section~\ref{anchor:chapter} [chapter], page~\pageref{anchor:chapter}
+\texttt{@ref\{chapter,,title\}} Section~\ref{anchor:chapter} [title], page~\pageref{anchor:chapter}
+\texttt{@ref\{chapter,,,file name\}} Section ``chapter'' in \texttt{file name}
+\texttt{@ref\{chapter,,,,manual\}} Section ``chapter'' in \textit{manual}
+\texttt{@ref\{chapter,cross ref name,title,\}} Section~\ref{anchor:chapter} [title], page~\pageref{anchor:chapter}
+\texttt{@ref\{chapter,cross ref name,,file name\}} Section ``chapter'' in \texttt{file name}
+\texttt{@ref\{chapter,cross ref name,,,manual\}} Section ``chapter'' in \textit{manual}
+\texttt{@ref\{chapter,cross ref name,title,file name\}} Section ``title'' in \texttt{file name}
+\texttt{@ref\{chapter,cross ref name,title,,manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{chapter,cross ref name,title, file name, manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{chapter,,title,file name\}} Section ``title'' in \texttt{file name}
+\texttt{@ref\{chapter,,title,,manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{chapter,,title, file name, manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{chapter,,,file name,manual\}} Section ``chapter'' in \textit{manual}
 
 
-\texttt{@inforef\{chapter, cross ref name, file name\}} cross ref name(file name) (page \pageref{anchor:chapter})
-\texttt{@inforef\{chapter\}} page \pageref{anchor:chapter}
-\texttt{@inforef\{chapter, cross ref name\}} cross ref name (page \pageref{anchor:chapter})
-\texttt{@inforef\{chapter,,file name\}} (file name) manual, page \pageref{anchor:chapter}
-\texttt{@inforef\{node, cross ref name, file name\}} cross ref name(file name) (page \pageref{anchor:node})
-\texttt{@inforef\{node\}} page \pageref{anchor:node}
-\texttt{@inforef\{node, cross ref name\}} cross ref name (page \pageref{anchor:node})
-\texttt{@inforef\{node,,file name\}} (file name) manual, page \pageref{anchor:node}
-\texttt{@inforef\{chapter, cross ref name, file name, spurious arg\}} cross ref name(file name, spurious arg) (page \pageref{anchor:chapter})
+\texttt{@ref\{(pman)anode,cross ref name\}} (pman)anode
+\texttt{@ref\{(pman)anode,,title\}} title
+\texttt{@ref\{(pman)anode,,,file name\}} Section ``(pman)anode'' in \texttt{file name}
+\texttt{@ref\{(pman)anode,,,,manual\}} Section ``(pman)anode'' in \textit{manual}
+\texttt{@ref\{(pman)anode,cross ref name,title,\}} title
+\texttt{@ref\{(pman)anode,cross ref name,,file name\}} Section ``(pman)anode'' in \texttt{file name}
+\texttt{@ref\{(pman)anode,cross ref name,,,manual\}} Section ``(pman)anode'' in \textit{manual}
+\texttt{@ref\{(pman)anode,cross ref name,title,file name\}} Section ``title'' in \texttt{file name}
+\texttt{@ref\{(pman)anode,cross ref name,title,,manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{(pman)anode,cross ref name,title, file name, manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{(pman)anode,,title,file name\}} Section ``title'' in \texttt{file name}
+\texttt{@ref\{(pman)anode,,title,,manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{(pman)anode,,title, file name, manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{(pman)anode,,,file name,manual\}} Section ``(pman)anode'' in \textit{manual}
+
+
+\texttt{@inforef\{chapter, cross ref name, file name\}} Section ``chapter'' in \texttt{file name}
+\texttt{@inforef\{chapter\}} chapter
+\texttt{@inforef\{chapter, cross ref name\}} chapter
+\texttt{@inforef\{chapter,,file name\}} Section ``chapter'' in \texttt{file name}
+\texttt{@inforef\{node, cross ref name, file name\}} Section ``node'' in \texttt{file name}
+\texttt{@inforef\{node\}} node
+\texttt{@inforef\{node, cross ref name\}} node
+\texttt{@inforef\{node,,file name\}} Section ``node'' in \texttt{file name}
+\texttt{@inforef\{chapter, cross ref name, file name, spurious arg\}} Section ``chapter'' in \texttt{file name, spurious arg}
 
 \texttt{@inforef\{s{-}{-}ect@comma\{\}ion, a @comma\{\} in cross
 ref, a comma@comma\{\} in file\}}
-a , in cross
-ref(a comma, in file) (page \pageref{anchor:s_002d_002dect_002cion})
+Section ``s--ect,ion'' in \texttt{a comma, in file}
 
 
 a
@@ -3251,42 +3244,42 @@ Various deff lines
 
 
 
-\texttt{@ref\{node\}} page \pageref{anchor:node}
+\texttt{@ref\{node\}} node
 
-\texttt{@ref\{,cross ref name\}} cross ref name (page \pageref{anchor:})
-\texttt{@ref\{,,title\}} title (page \pageref{anchor:})
-\texttt{@ref\{,,,file name\}} (file name) manual, page \pageref{anchor:}
-\texttt{@ref\{,,,,manual\}} () manual, page \pageref{anchor:}
-\texttt{@ref\{node,cross ref name\}} cross ref name (page \pageref{anchor:node})
-\texttt{@ref\{node,,title\}} title (page \pageref{anchor:node})
-\texttt{@ref\{node,,,file name\}} (file name) manual, page \pageref{anchor:node}
-\texttt{@ref\{node,,,,manual\}} () manual, page \pageref{anchor:node}
-\texttt{@ref\{node,cross ref name,title,\}} cross ref name (page \pageref{anchor:node})
-\texttt{@ref\{node,cross ref name,,file name\}} cross ref name(file name) (page \pageref{anchor:node})
-\texttt{@ref\{node,cross ref name,,,manual\}} cross ref name() (page \pageref{anchor:node})
-\texttt{@ref\{node,cross ref name,title,file name\}} cross ref name(file name) (page \pageref{anchor:node})
-\texttt{@ref\{node,cross ref name,title,,manual\}} cross ref name() (page \pageref{anchor:node})
-\texttt{@ref\{node,cross ref name,title, file name, manual\}} cross ref name(file name) (page \pageref{anchor:node})
-\texttt{@ref\{node,,title,file name\}} title(file name) (page \pageref{anchor:node})
-\texttt{@ref\{node,,title,,manual\}} title() (page \pageref{anchor:node})
-\texttt{@ref\{chapter,,title, file name, manual\}} title(file name) (page \pageref{anchor:chapter})
-\texttt{@ref\{node,,title, file name, manual\}} title(file name) (page \pageref{anchor:node})
-\texttt{@ref\{node,,,file name,manual\}} (file name) manual, page \pageref{anchor:node}
-\texttt{@ref\{,cross ref name,title,\}} cross ref name (page \pageref{anchor:})
-\texttt{@ref\{,cross ref name,,file name\}} cross ref name(file name) (page \pageref{anchor:})
-\texttt{@ref\{,cross ref name,,,manual\}} cross ref name() (page \pageref{anchor:})
-\texttt{@ref\{,cross ref name,title,file name\}} cross ref name(file name) (page \pageref{anchor:})
-\texttt{@ref\{,cross ref name,title,,manual\}} cross ref name() (page \pageref{anchor:})
-\texttt{@ref\{,cross ref name,title, file name, manual\}} cross ref name(file name) (page \pageref{anchor:})
-\texttt{@ref\{,,title,file name\}} title(file name) (page \pageref{anchor:})
-\texttt{@ref\{,,title,,manual\}} title() (page \pageref{anchor:})
-\texttt{@ref\{,,title, file name, manual\}} title(file name) (page \pageref{anchor:})
-\texttt{@ref\{,,,file name,manual\}} (file name) manual, page \pageref{anchor:}
+\texttt{@ref\{,cross ref name\}} 
+\texttt{@ref\{,,title\}} title
+\texttt{@ref\{,,,file name\}} \texttt{file name}
+\texttt{@ref\{,,,,manual\}} \textit{manual}
+\texttt{@ref\{node,cross ref name\}} node
+\texttt{@ref\{node,,title\}} title
+\texttt{@ref\{node,,,file name\}} Section ``node'' in \texttt{file name}
+\texttt{@ref\{node,,,,manual\}} Section ``node'' in \textit{manual}
+\texttt{@ref\{node,cross ref name,title,\}} title
+\texttt{@ref\{node,cross ref name,,file name\}} Section ``node'' in \texttt{file name}
+\texttt{@ref\{node,cross ref name,,,manual\}} Section ``node'' in \textit{manual}
+\texttt{@ref\{node,cross ref name,title,file name\}} Section ``title'' in \texttt{file name}
+\texttt{@ref\{node,cross ref name,title,,manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{node,cross ref name,title, file name, manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{node,,title,file name\}} Section ``title'' in \texttt{file name}
+\texttt{@ref\{node,,title,,manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{chapter,,title, file name, manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{node,,title, file name, manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{node,,,file name,manual\}} Section ``node'' in \textit{manual}
+\texttt{@ref\{,cross ref name,title,\}} title
+\texttt{@ref\{,cross ref name,,file name\}} \texttt{file name}
+\texttt{@ref\{,cross ref name,,,manual\}} \textit{manual}
+\texttt{@ref\{,cross ref name,title,file name\}} Section ``title'' in \texttt{file name}
+\texttt{@ref\{,cross ref name,title,,manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{,cross ref name,title, file name, manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{,,title,file name\}} Section ``title'' in \texttt{file name}
+\texttt{@ref\{,,title,,manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{,,title, file name, manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{,,,file name,manual\}} \textit{manual}
 
-\texttt{@inforef\{,cross ref name \}} cross ref name (page \pageref{anchor:})
-\texttt{@inforef\{,,file name\}} (file name) manual, page \pageref{anchor:}
-\texttt{@inforef\{,cross ref name, file name\}} cross ref name(file name) (page \pageref{anchor:})
-\texttt{@inforef\{\}} page \pageref{anchor:}
+\texttt{@inforef\{,cross ref name \}} 
+\texttt{@inforef\{,,file name\}} \texttt{file name}
+\texttt{@inforef\{,cross ref name, file name\}} \texttt{file name}
+\texttt{@inforef\{\}} 
 
 
 
@@ -3850,67 +3843,65 @@ d--efmethod
 
 d--eftypemethod
 
-\texttt{@xref\{c{-}{-}{-}hapter@@, cross r{-}{-}{-}ef name@@, t{-}{-}{-}itle@@, file n{-}{-}{-}ame@@, ma{-}{-}{-}nual@@\}} See cross r---ef name@(file n---ame@) (page \pageref{anchor:c_002d_002d_002dhapter_0040}).
-\texttt{@ref\{chapter, cross ref name, title, file name, manual\}} cross ref name(file name) (page \pageref{anchor:chapter})
-\texttt{@pxref\{chapter, cross ref name, title, file name, manual\}} see cross ref name(file name) (page \pageref{anchor:chapter})
-\texttt{@inforef\{chapter, cross ref name, file name\}} cross ref name(file name) (page \pageref{anchor:chapter})
+\texttt{@xref\{c{-}{-}{-}hapter@@, cross r{-}{-}{-}ef name@@, t{-}{-}{-}itle@@, file n{-}{-}{-}ame@@, ma{-}{-}{-}nual@@\}} See Section ``t---itle@'' in \textit{ma---nual@}.
+\texttt{@ref\{chapter, cross ref name, title, file name, manual\}} Section ``title'' in \textit{manual}
+\texttt{@pxref\{chapter, cross ref name, title, file name, manual\}} see Section ``title'' in \textit{manual}
+\texttt{@inforef\{chapter, cross ref name, file name\}} Section ``chapter'' in \texttt{file name}
 
-\texttt{@ref\{chapter\}} page \pageref{anchor:chapter}
-\texttt{@xref\{chapter\}} See page \pageref{anchor:chapter}.
-\texttt{@pxref\{chapter\}} see page \pageref{anchor:chapter}
-\texttt{@ref\{s{-}{-}ect@comma\{\}ion\}} page \pageref{anchor:s_002d_002dect_002cion}
+\texttt{@ref\{chapter\}} Section~\ref{anchor:chapter} [chapter], page~\pageref{anchor:chapter}
+\texttt{@xref\{chapter\}} See Section~\ref{anchor:chapter} [chapter], page~\pageref{anchor:chapter}.
+\texttt{@pxref\{chapter\}} see Section~\ref{anchor:chapter} [chapter], page~\pageref{anchor:chapter}
+\texttt{@ref\{s{-}{-}ect@comma\{\}ion\}} Section~\ref{anchor:s_002d_002dect_002cion} [s--ect,ion], page~\pageref{anchor:s_002d_002dect_002cion}
 
 \texttt{@ref\{s{-}{-}ect@comma\{\}ion, a @comma\{\} in cross
 ref, a comma@comma\{\} in title, a comma@comma\{\} in file, a @comma\{\} in manual name \}}
-a , in cross
-ref(a comma, in file) (page \pageref{anchor:s_002d_002dect_002cion})
+Section ``a comma, in title'' in \textit{a , in manual name}
 
-\texttt{@ref\{chapter,cross ref name\}} cross ref name (page \pageref{anchor:chapter})
-\texttt{@ref\{chapter,,title\}} title (page \pageref{anchor:chapter})
-\texttt{@ref\{chapter,,,file name\}} (file name) manual, page \pageref{anchor:chapter}
-\texttt{@ref\{chapter,,,,manual\}} () manual, page \pageref{anchor:chapter}
-\texttt{@ref\{chapter,cross ref name,title,\}} cross ref name (page \pageref{anchor:chapter})
-\texttt{@ref\{chapter,cross ref name,,file name\}} cross ref name(file name) (page \pageref{anchor:chapter})
-\texttt{@ref\{chapter,cross ref name,,,manual\}} cross ref name() (page \pageref{anchor:chapter})
-\texttt{@ref\{chapter,cross ref name,title,file name\}} cross ref name(file name) (page \pageref{anchor:chapter})
-\texttt{@ref\{chapter,cross ref name,title,,manual\}} cross ref name() (page \pageref{anchor:chapter})
-\texttt{@ref\{chapter,cross ref name,title, file name, manual\}} cross ref name(file name) (page \pageref{anchor:chapter})
-\texttt{@ref\{chapter,,title,file name\}} title(file name) (page \pageref{anchor:chapter})
-\texttt{@ref\{chapter,,title,,manual\}} title() (page \pageref{anchor:chapter})
-\texttt{@ref\{chapter,,title, file name, manual\}} title(file name) (page \pageref{anchor:chapter})
-\texttt{@ref\{chapter,,,file name,manual\}} (file name) manual, page \pageref{anchor:chapter}
-
-
-\texttt{@ref\{(pman)anode,cross ref name\}} cross ref name (page \pageref{anchor:_0028pman_0029anode})
-\texttt{@ref\{(pman)anode,,title\}} title (page \pageref{anchor:_0028pman_0029anode})
-\texttt{@ref\{(pman)anode,,,file name\}} (file name) manual, page \pageref{anchor:_0028pman_0029anode}
-\texttt{@ref\{(pman)anode,,,,manual\}} () manual, page \pageref{anchor:_0028pman_0029anode}
-\texttt{@ref\{(pman)anode,cross ref name,title,\}} cross ref name (page \pageref{anchor:_0028pman_0029anode})
-\texttt{@ref\{(pman)anode,cross ref name,,file name\}} cross ref name(file name) (page \pageref{anchor:_0028pman_0029anode})
-\texttt{@ref\{(pman)anode,cross ref name,,,manual\}} cross ref name() (page \pageref{anchor:_0028pman_0029anode})
-\texttt{@ref\{(pman)anode,cross ref name,title,file name\}} cross ref name(file name) (page \pageref{anchor:_0028pman_0029anode})
-\texttt{@ref\{(pman)anode,cross ref name,title,,manual\}} cross ref name() (page \pageref{anchor:_0028pman_0029anode})
-\texttt{@ref\{(pman)anode,cross ref name,title, file name, manual\}} cross ref name(file name) (page \pageref{anchor:_0028pman_0029anode})
-\texttt{@ref\{(pman)anode,,title,file name\}} title(file name) (page \pageref{anchor:_0028pman_0029anode})
-\texttt{@ref\{(pman)anode,,title,,manual\}} title() (page \pageref{anchor:_0028pman_0029anode})
-\texttt{@ref\{(pman)anode,,title, file name, manual\}} title(file name) (page \pageref{anchor:_0028pman_0029anode})
-\texttt{@ref\{(pman)anode,,,file name,manual\}} (file name) manual, page \pageref{anchor:_0028pman_0029anode}
+\texttt{@ref\{chapter,cross ref name\}} Section~\ref{anchor:chapter} [chapter], page~\pageref{anchor:chapter}
+\texttt{@ref\{chapter,,title\}} Section~\ref{anchor:chapter} [title], page~\pageref{anchor:chapter}
+\texttt{@ref\{chapter,,,file name\}} Section ``chapter'' in \texttt{file name}
+\texttt{@ref\{chapter,,,,manual\}} Section ``chapter'' in \textit{manual}
+\texttt{@ref\{chapter,cross ref name,title,\}} Section~\ref{anchor:chapter} [title], page~\pageref{anchor:chapter}
+\texttt{@ref\{chapter,cross ref name,,file name\}} Section ``chapter'' in \texttt{file name}
+\texttt{@ref\{chapter,cross ref name,,,manual\}} Section ``chapter'' in \textit{manual}
+\texttt{@ref\{chapter,cross ref name,title,file name\}} Section ``title'' in \texttt{file name}
+\texttt{@ref\{chapter,cross ref name,title,,manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{chapter,cross ref name,title, file name, manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{chapter,,title,file name\}} Section ``title'' in \texttt{file name}
+\texttt{@ref\{chapter,,title,,manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{chapter,,title, file name, manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{chapter,,,file name,manual\}} Section ``chapter'' in \textit{manual}
 
 
-\texttt{@inforef\{chapter, cross ref name, file name\}} cross ref name(file name) (page \pageref{anchor:chapter})
-\texttt{@inforef\{chapter\}} page \pageref{anchor:chapter}
-\texttt{@inforef\{chapter, cross ref name\}} cross ref name (page \pageref{anchor:chapter})
-\texttt{@inforef\{chapter,,file name\}} (file name) manual, page \pageref{anchor:chapter}
-\texttt{@inforef\{node, cross ref name, file name\}} cross ref name(file name) (page \pageref{anchor:node})
-\texttt{@inforef\{node\}} page \pageref{anchor:node}
-\texttt{@inforef\{node, cross ref name\}} cross ref name (page \pageref{anchor:node})
-\texttt{@inforef\{node,,file name\}} (file name) manual, page \pageref{anchor:node}
-\texttt{@inforef\{chapter, cross ref name, file name, spurious arg\}} cross ref name(file name, spurious arg) (page \pageref{anchor:chapter})
+\texttt{@ref\{(pman)anode,cross ref name\}} (pman)anode
+\texttt{@ref\{(pman)anode,,title\}} title
+\texttt{@ref\{(pman)anode,,,file name\}} Section ``(pman)anode'' in \texttt{file name}
+\texttt{@ref\{(pman)anode,,,,manual\}} Section ``(pman)anode'' in \textit{manual}
+\texttt{@ref\{(pman)anode,cross ref name,title,\}} title
+\texttt{@ref\{(pman)anode,cross ref name,,file name\}} Section ``(pman)anode'' in \texttt{file name}
+\texttt{@ref\{(pman)anode,cross ref name,,,manual\}} Section ``(pman)anode'' in \textit{manual}
+\texttt{@ref\{(pman)anode,cross ref name,title,file name\}} Section ``title'' in \texttt{file name}
+\texttt{@ref\{(pman)anode,cross ref name,title,,manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{(pman)anode,cross ref name,title, file name, manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{(pman)anode,,title,file name\}} Section ``title'' in \texttt{file name}
+\texttt{@ref\{(pman)anode,,title,,manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{(pman)anode,,title, file name, manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{(pman)anode,,,file name,manual\}} Section ``(pman)anode'' in \textit{manual}
+
+
+\texttt{@inforef\{chapter, cross ref name, file name\}} Section ``chapter'' in \texttt{file name}
+\texttt{@inforef\{chapter\}} chapter
+\texttt{@inforef\{chapter, cross ref name\}} chapter
+\texttt{@inforef\{chapter,,file name\}} Section ``chapter'' in \texttt{file name}
+\texttt{@inforef\{node, cross ref name, file name\}} Section ``node'' in \texttt{file name}
+\texttt{@inforef\{node\}} node
+\texttt{@inforef\{node, cross ref name\}} node
+\texttt{@inforef\{node,,file name\}} Section ``node'' in \texttt{file name}
+\texttt{@inforef\{chapter, cross ref name, file name, spurious arg\}} Section ``chapter'' in \texttt{file name, spurious arg}
 
 \texttt{@inforef\{s{-}{-}ect@comma\{\}ion, a @comma\{\} in cross
 ref, a comma@comma\{\} in file\}}
-a , in cross
-ref(a comma, in file) (page \pageref{anchor:s_002d_002dect_002cion})
+Section ``s--ect,ion'' in \texttt{a comma, in file}
 
 
 a
@@ -4054,42 +4045,42 @@ Various deff lines
 
 
 
-\texttt{@ref\{node\}} page \pageref{anchor:node}
+\texttt{@ref\{node\}} node
 
-\texttt{@ref\{,cross ref name\}} cross ref name (page \pageref{anchor:})
-\texttt{@ref\{,,title\}} title (page \pageref{anchor:})
-\texttt{@ref\{,,,file name\}} (file name) manual, page \pageref{anchor:}
-\texttt{@ref\{,,,,manual\}} () manual, page \pageref{anchor:}
-\texttt{@ref\{node,cross ref name\}} cross ref name (page \pageref{anchor:node})
-\texttt{@ref\{node,,title\}} title (page \pageref{anchor:node})
-\texttt{@ref\{node,,,file name\}} (file name) manual, page \pageref{anchor:node}
-\texttt{@ref\{node,,,,manual\}} () manual, page \pageref{anchor:node}
-\texttt{@ref\{node,cross ref name,title,\}} cross ref name (page \pageref{anchor:node})
-\texttt{@ref\{node,cross ref name,,file name\}} cross ref name(file name) (page \pageref{anchor:node})
-\texttt{@ref\{node,cross ref name,,,manual\}} cross ref name() (page \pageref{anchor:node})
-\texttt{@ref\{node,cross ref name,title,file name\}} cross ref name(file name) (page \pageref{anchor:node})
-\texttt{@ref\{node,cross ref name,title,,manual\}} cross ref name() (page \pageref{anchor:node})
-\texttt{@ref\{node,cross ref name,title, file name, manual\}} cross ref name(file name) (page \pageref{anchor:node})
-\texttt{@ref\{node,,title,file name\}} title(file name) (page \pageref{anchor:node})
-\texttt{@ref\{node,,title,,manual\}} title() (page \pageref{anchor:node})
-\texttt{@ref\{chapter,,title, file name, manual\}} title(file name) (page \pageref{anchor:chapter})
-\texttt{@ref\{node,,title, file name, manual\}} title(file name) (page \pageref{anchor:node})
-\texttt{@ref\{node,,,file name,manual\}} (file name) manual, page \pageref{anchor:node}
-\texttt{@ref\{,cross ref name,title,\}} cross ref name (page \pageref{anchor:})
-\texttt{@ref\{,cross ref name,,file name\}} cross ref name(file name) (page \pageref{anchor:})
-\texttt{@ref\{,cross ref name,,,manual\}} cross ref name() (page \pageref{anchor:})
-\texttt{@ref\{,cross ref name,title,file name\}} cross ref name(file name) (page \pageref{anchor:})
-\texttt{@ref\{,cross ref name,title,,manual\}} cross ref name() (page \pageref{anchor:})
-\texttt{@ref\{,cross ref name,title, file name, manual\}} cross ref name(file name) (page \pageref{anchor:})
-\texttt{@ref\{,,title,file name\}} title(file name) (page \pageref{anchor:})
-\texttt{@ref\{,,title,,manual\}} title() (page \pageref{anchor:})
-\texttt{@ref\{,,title, file name, manual\}} title(file name) (page \pageref{anchor:})
-\texttt{@ref\{,,,file name,manual\}} (file name) manual, page \pageref{anchor:}
+\texttt{@ref\{,cross ref name\}} 
+\texttt{@ref\{,,title\}} title
+\texttt{@ref\{,,,file name\}} \texttt{file name}
+\texttt{@ref\{,,,,manual\}} \textit{manual}
+\texttt{@ref\{node,cross ref name\}} node
+\texttt{@ref\{node,,title\}} title
+\texttt{@ref\{node,,,file name\}} Section ``node'' in \texttt{file name}
+\texttt{@ref\{node,,,,manual\}} Section ``node'' in \textit{manual}
+\texttt{@ref\{node,cross ref name,title,\}} title
+\texttt{@ref\{node,cross ref name,,file name\}} Section ``node'' in \texttt{file name}
+\texttt{@ref\{node,cross ref name,,,manual\}} Section ``node'' in \textit{manual}
+\texttt{@ref\{node,cross ref name,title,file name\}} Section ``title'' in \texttt{file name}
+\texttt{@ref\{node,cross ref name,title,,manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{node,cross ref name,title, file name, manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{node,,title,file name\}} Section ``title'' in \texttt{file name}
+\texttt{@ref\{node,,title,,manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{chapter,,title, file name, manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{node,,title, file name, manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{node,,,file name,manual\}} Section ``node'' in \textit{manual}
+\texttt{@ref\{,cross ref name,title,\}} title
+\texttt{@ref\{,cross ref name,,file name\}} \texttt{file name}
+\texttt{@ref\{,cross ref name,,,manual\}} \textit{manual}
+\texttt{@ref\{,cross ref name,title,file name\}} Section ``title'' in \texttt{file name}
+\texttt{@ref\{,cross ref name,title,,manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{,cross ref name,title, file name, manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{,,title,file name\}} Section ``title'' in \texttt{file name}
+\texttt{@ref\{,,title,,manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{,,title, file name, manual\}} Section ``title'' in \textit{manual}
+\texttt{@ref\{,,,file name,manual\}} \textit{manual}
 
-\texttt{@inforef\{,cross ref name \}} cross ref name (page \pageref{anchor:})
-\texttt{@inforef\{,,file name\}} (file name) manual, page \pageref{anchor:}
-\texttt{@inforef\{,cross ref name, file name\}} cross ref name(file name) (page \pageref{anchor:})
-\texttt{@inforef\{\}} page \pageref{anchor:}
+\texttt{@inforef\{,cross ref name \}} 
+\texttt{@inforef\{,,file name\}} \texttt{file name}
+\texttt{@inforef\{,cross ref name, file name\}} \texttt{file name}
+\texttt{@inforef\{\}} 
 
 
 \endgroup{}
