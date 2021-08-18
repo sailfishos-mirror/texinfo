@@ -666,6 +666,11 @@ ref, a comma@@comma@{@} in file@}}
 @inforef{s--ect@comma{}ion, a @comma{} in cross
 ref, a comma@comma{} in file}
 
+@c special cases with @uref
+@samp{@ref{chapter}}.
+
+@ref{ext, cross ref with uref @uref{href://http/myhost.com/index.html,uref1}, title with uref2 @uref{href://http/myhost.com/index2.html,uref2}, info file with uref3 @uref{href://http/myhost.com/index3.html,uref3}, printed manual with uref4 @uref{href://http/myhost.com/index4.html,uref4}}
+@ref{chapter, cross ref with uref @uref{href://http/myhost.com/index.html,uref1}, title with uref2 @uref{href://http/myhost.com/index2.html,uref2}}
 
 @table @bullet
 @c comment in table

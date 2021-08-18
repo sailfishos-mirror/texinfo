@@ -468,4 +468,16 @@ $result_converted{'html_text'}->{'uref_url'} = '<p><a href="--a">&ndash;b</a>
 <a href="--o">&ndash;q</a>
 </p>';
 
+
+$result_converted{'latex'}->{'uref_url'} = '\\href{--a}{--b (\\nolinkurl{--a})}
+\\url{--c}
+--d
+--g
+--i
+--k
+--l
+\\href{--m}{--n (\\nolinkurl{--m})}
+--q
+';
+
 1;

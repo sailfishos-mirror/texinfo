@@ -592,6 +592,7 @@ sub _latex_header {
   # graphicx for \includegraphics
   # needspace for \needspace. In texlive-latex-extra in debian
   # etoolbox for \patchcmd. In texlive-latex-recommended in debian
+  # \usepackage[linkbordercolor={0 0 0}]{hyperref}
   my $header = 
 '\documentclass{book}
 \usepackage{makeidx}\makeindex
@@ -604,7 +605,8 @@ sub _latex_header {
 \usepackage{needspace}
 \usepackage{etoolbox}
 \usepackage{fancyhdr}
-\usepackage{hyperref}
+% use hidelinks to remove boxes around links to be similar with Texinfo TeX
+\usepackage[hidelinks]{hyperref}
 ';
   if ($self->{'output_encoding_name'}) {
     my $encoding = $self->{'output_encoding_name'};
@@ -888,6 +890,14 @@ sub convert_tree($$)
   #  print STDERR "** ".Texinfo::Common::_print_current($content)."\n";
   #}
   return $self->_convert($root);
+}
+
+sub _protect_url($$)
+{
+  my ($self, $text) = @_;
+
+  $text =~ s/([{}\\#%])/\\$1/g;
+  return $text;
 }
 
 # Protect LaTeX special characters.
@@ -1336,20 +1346,25 @@ sub _convert($$)
           unshift @{$self->{'current_contents'}->[-1]}, 
             {'contents' => $root->{'args'}->[2]->{'contents'}};
         } elsif (@{$root->{'args'}->[0]->{'contents'}}) {
-          # no mangling of --- and similar in url.
-          my $url = {'type' => '_code',
-              'contents' => $root->{'args'}->[0]->{'contents'}};
+          my $url_content = $root->{'args'}->[0]->{'contents'};
+          my $url_text = $self->_protect_url(
+                      Texinfo::Convert::Text::convert_to_text(
+                                       {'contents' => $url_content},
+                                       {'code' => 1,
+                                Texinfo::Common::_convert_text_options($self)}));
           if (scalar(@{$root->{'args'}}) == 2
              and defined($root->{'args'}->[1])
              and @{$root->{'args'}->[1]->{'contents'}}) {
-            my $prepended = $self->gdt('{text} ({url})', 
-                 {'text' => $root->{'args'}->[1]->{'contents'},
-                  'url' => $url });
-            unshift @{$self->{'current_contents'}->[-1]}, $prepended;
+            my $description = _convert($self, {'contents',
+                                   $root->{'args'}->[1]->{'contents'}});
+            my $text = $self->gdt('{text} ({url})',
+                          {'text' => $description, 'url' => "\\nolinkurl{$url_text}"}, 
+                                       'translated_text');
+            $result .= "\\href{$url_text}{$text}";
+            return $result;
           } else {
-            my $prepended = $self->gdt('@t{<{url}>}', 
-                                        {'url' => $url});
-            unshift @{$self->{'current_contents'}->[-1]}, $prepended
+            $result .= "\\url{$url_text}";
+            return $result;
           }
         } elsif (scalar(@{$root->{'args'}}) == 2
                  and defined($root->{'args'}->[1])
@@ -1495,13 +1510,13 @@ sub _convert($$)
             # 
             # If an unwanted comma is added, follow the argument with a command such as @:
             if ($section_command) {
-              if ($section_command->{'level'} > 0) {
-                $result .= "Section~\\ref{$node_label} [$name_text], page~\\pageref{$node_label}";
+              if ($section_command->{'level'} > 1) {
+                $result .= "\\hyperref[$node_label]{Section~\\ref*{$node_label} [$name_text], page~\\pageref*{$node_label}}";
               } else {
-                $result .= "Chapter~\\ref{$node_label} [$name_text], page~\\pageref{$node_label}";
+                $result .= "\\hyperref[$node_label]{Chapter~\\ref*{$node_label} [$name_text], page~\\pageref*{$node_label}}";
               }
             } else {
-              $result .= "\\ref{$node_label} [$name_text], page~\\pageref{$node_label}";
+              $result .= "\\hyperref[$node_label]{\\ref*{$node_label} [$name_text], page~\\pageref*{$node_label}}";
             }
           }
           return $result;

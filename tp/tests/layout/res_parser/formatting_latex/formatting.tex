@@ -9,7 +9,8 @@
 \usepackage{needspace}
 \usepackage{etoolbox}
 \usepackage{fancyhdr}
-\usepackage{hyperref}
+% use hidelinks to remove boxes around links to be similar with Texinfo TeX
+\usepackage[hidelinks]{hyperref}
 \usepackage[utf8]{inputenc}
 
 % command that does nothing used to help with substitutions in commands
@@ -190,9 +191,9 @@ but , ,\@
 \texttt{@command\{{-}{-}a\}} \texttt{{-}{-}a}
 \texttt{@dfn\{{-}{-}a\}} \emph{--a}
 \texttt{@dmn\{{-}{-}a\}} --a
-\texttt{@email\{{-}{-}a,{-}{-}b\}} --b \texttt{<{-}{-}a>}
+\texttt{@email\{{-}{-}a,{-}{-}b\}} --b \url{--a}
 \texttt{@email\{,{-}{-}b\}} --b
-\texttt{@email\{{-}{-}a\}} \texttt{<{-}{-}a>}
+\texttt{@email\{{-}{-}a\}} \url{--a}
 \texttt{@emph\{{-}{-}a\}} \emph{--a}
 \texttt{@env\{{-}{-}a\}} \texttt{{-}{-}a}
 \texttt{@file\{{-}{-}a\}} \texttt{{-}{-}a}
@@ -210,15 +211,15 @@ but , ,\@
 \texttt{@slanted\{{-}{-}a\}} \textsl{--a}
 \texttt{@titlefont\{{-}{-}a\}} {\Huge \bfseries --a}
 \texttt{@indicateurl\{{-}{-}a\}} `\texttt{{-}{-}a}'
-\texttt{@uref\{{-}{-}a,{-}{-}b\}} --b (--a)
-\texttt{@uref\{{-}{-}a\}} \texttt{<{-}{-}a>}
+\texttt{@uref\{{-}{-}a,{-}{-}b\}} \href{--a}{--b (\nolinkurl{--a})}
+\texttt{@uref\{{-}{-}a\}} \url{--a}
 \texttt{@uref\{,{-}{-}b\}} --b
 \texttt{@uref\{{-}{-}a,{-}{-}b,{-}{-}c\}} --c
 \texttt{@uref\{,{-}{-}b,{-}{-}c\}} --c
 \texttt{@uref\{{-}{-}a,,{-}{-}c\}} --c
 \texttt{@uref\{,,{-}{-}c\}} --c
-\texttt{@url\{{-}{-}a,{-}{-}b\}} --b (--a)
-\texttt{@url\{{-}{-}a,\}} \texttt{<{-}{-}a>}
+\texttt{@url\{{-}{-}a,{-}{-}b\}} \href{--a}{--b (\nolinkurl{--a})}
+\texttt{@url\{{-}{-}a,\}} \url{--a}
 \texttt{@url\{,{-}{-}b\}} --b
 \texttt{@var\{{-}{-}a\}} \emph{--a}
 \texttt{@verb\{:{-}{-}a:\}} \verb:--a:
@@ -627,20 +628,20 @@ d--eftypemethod
 \texttt{@pxref\{chapter, cross ref name, title, file name, manual\}} see Section ``title'' in \textit{manual}
 \texttt{@inforef\{chapter, cross ref name, file name\}} Section ``chapter'' in \texttt{file name}
 
-\texttt{@ref\{chapter\}} Section~\ref{anchor:chapter} [chapter], page~\pageref{anchor:chapter}
-\texttt{@xref\{chapter\}} See Section~\ref{anchor:chapter} [chapter], page~\pageref{anchor:chapter}.
-\texttt{@pxref\{chapter\}} see Section~\ref{anchor:chapter} [chapter], page~\pageref{anchor:chapter}
-\texttt{@ref\{s{-}{-}ect@comma\{\}ion\}} Section~\ref{anchor:s_002d_002dect_002cion} [s--ect,ion], page~\pageref{anchor:s_002d_002dect_002cion}
+\texttt{@ref\{chapter\}} \hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}
+\texttt{@xref\{chapter\}} See \hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}.
+\texttt{@pxref\{chapter\}} see \hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}
+\texttt{@ref\{s{-}{-}ect@comma\{\}ion\}} \hyperref[anchor:s_002d_002dect_002cion]{Section~\ref*{anchor:s_002d_002dect_002cion} [s--ect,ion], page~\pageref*{anchor:s_002d_002dect_002cion}}
 
 \texttt{@ref\{s{-}{-}ect@comma\{\}ion, a @comma\{\} in cross
 ref, a comma@comma\{\} in title, a comma@comma\{\} in file, a @comma\{\} in manual name \}}
 Section ``a comma, in title'' in \textit{a , in manual name}
 
-\texttt{@ref\{chapter,cross ref name\}} Section~\ref{anchor:chapter} [chapter], page~\pageref{anchor:chapter}
-\texttt{@ref\{chapter,,title\}} Section~\ref{anchor:chapter} [title], page~\pageref{anchor:chapter}
+\texttt{@ref\{chapter,cross ref name\}} \hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}
+\texttt{@ref\{chapter,,title\}} \hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [title], page~\pageref*{anchor:chapter}}
 \texttt{@ref\{chapter,,,file name\}} Section ``chapter'' in \texttt{file name}
 \texttt{@ref\{chapter,,,,manual\}} Section ``chapter'' in \textit{manual}
-\texttt{@ref\{chapter,cross ref name,title,\}} Section~\ref{anchor:chapter} [title], page~\pageref{anchor:chapter}
+\texttt{@ref\{chapter,cross ref name,title,\}} \hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [title], page~\pageref*{anchor:chapter}}
 \texttt{@ref\{chapter,cross ref name,,file name\}} Section ``chapter'' in \texttt{file name}
 \texttt{@ref\{chapter,cross ref name,,,manual\}} Section ``chapter'' in \textit{manual}
 \texttt{@ref\{chapter,cross ref name,title,file name\}} Section ``title'' in \texttt{file name}
@@ -682,6 +683,10 @@ Section ``a comma, in title'' in \textit{a , in manual name}
 ref, a comma@comma\{\} in file\}}
 Section ``s--ect,ion'' in \texttt{a comma, in file}
 
+`\texttt{\hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}}'.
+
+Section ``title with uref2 \href{href://http/myhost.com/index2.html}{uref2 (\nolinkurl{href://http/myhost.com/index2.html})}'' in \textit{printed manual with uref4 \href{href://http/myhost.com/index4.html}{uref4 (\nolinkurl{href://http/myhost.com/index4.html})}}
+\hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [title with uref2 \href{href://http/myhost.com/index2.html}{uref2 (\nolinkurl{href://http/myhost.com/index2.html})}], page~\pageref*{anchor:chapter}}
 
 a
 l--ine
@@ -992,9 +997,9 @@ but , ,\@
 \texttt{@command\{{-}{-}a\}} \texttt{{-}{-}a}
 \texttt{@dfn\{{-}{-}a\}} \emph{--a}
 \texttt{@dmn\{{-}{-}a\}} --a
-\texttt{@email\{{-}{-}a,{-}{-}b\}} --b \texttt{<{-}{-}a>}
+\texttt{@email\{{-}{-}a,{-}{-}b\}} --b \url{--a}
 \texttt{@email\{,{-}{-}b\}} --b
-\texttt{@email\{{-}{-}a\}} \texttt{<{-}{-}a>}
+\texttt{@email\{{-}{-}a\}} \url{--a}
 \texttt{@emph\{{-}{-}a\}} \emph{--a}
 \texttt{@env\{{-}{-}a\}} \texttt{{-}{-}a}
 \texttt{@file\{{-}{-}a\}} \texttt{{-}{-}a}
@@ -1012,15 +1017,15 @@ but , ,\@
 \texttt{@slanted\{{-}{-}a\}} \textsl{--a}
 \texttt{@titlefont\{{-}{-}a\}} {\Huge \bfseries --a}
 \texttt{@indicateurl\{{-}{-}a\}} `\texttt{{-}{-}a}'
-\texttt{@uref\{{-}{-}a,{-}{-}b\}} --b (--a)
-\texttt{@uref\{{-}{-}a\}} \texttt{<{-}{-}a>}
+\texttt{@uref\{{-}{-}a,{-}{-}b\}} \href{--a}{--b (\nolinkurl{--a})}
+\texttt{@uref\{{-}{-}a\}} \url{--a}
 \texttt{@uref\{,{-}{-}b\}} --b
 \texttt{@uref\{{-}{-}a,{-}{-}b,{-}{-}c\}} --c
 \texttt{@uref\{,{-}{-}b,{-}{-}c\}} --c
 \texttt{@uref\{{-}{-}a,,{-}{-}c\}} --c
 \texttt{@uref\{,,{-}{-}c\}} --c
-\texttt{@url\{{-}{-}a,{-}{-}b\}} --b (--a)
-\texttt{@url\{{-}{-}a,\}} \texttt{<{-}{-}a>}
+\texttt{@url\{{-}{-}a,{-}{-}b\}} \href{--a}{--b (\nolinkurl{--a})}
+\texttt{@url\{{-}{-}a,\}} \url{--a}
 \texttt{@url\{,{-}{-}b\}} --b
 \texttt{@var\{{-}{-}a\}} \emph{--a}
 \texttt{@verb\{:{-}{-}a:\}} \verb:--a:
@@ -1429,20 +1434,20 @@ d--eftypemethod
 \texttt{@pxref\{chapter, cross ref name, title, file name, manual\}} see Section ``title'' in \textit{manual}
 \texttt{@inforef\{chapter, cross ref name, file name\}} Section ``chapter'' in \texttt{file name}
 
-\texttt{@ref\{chapter\}} Section~\ref{anchor:chapter} [chapter], page~\pageref{anchor:chapter}
-\texttt{@xref\{chapter\}} See Section~\ref{anchor:chapter} [chapter], page~\pageref{anchor:chapter}.
-\texttt{@pxref\{chapter\}} see Section~\ref{anchor:chapter} [chapter], page~\pageref{anchor:chapter}
-\texttt{@ref\{s{-}{-}ect@comma\{\}ion\}} Section~\ref{anchor:s_002d_002dect_002cion} [s--ect,ion], page~\pageref{anchor:s_002d_002dect_002cion}
+\texttt{@ref\{chapter\}} \hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}
+\texttt{@xref\{chapter\}} See \hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}.
+\texttt{@pxref\{chapter\}} see \hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}
+\texttt{@ref\{s{-}{-}ect@comma\{\}ion\}} \hyperref[anchor:s_002d_002dect_002cion]{Section~\ref*{anchor:s_002d_002dect_002cion} [s--ect,ion], page~\pageref*{anchor:s_002d_002dect_002cion}}
 
 \texttt{@ref\{s{-}{-}ect@comma\{\}ion, a @comma\{\} in cross
 ref, a comma@comma\{\} in title, a comma@comma\{\} in file, a @comma\{\} in manual name \}}
 Section ``a comma, in title'' in \textit{a , in manual name}
 
-\texttt{@ref\{chapter,cross ref name\}} Section~\ref{anchor:chapter} [chapter], page~\pageref{anchor:chapter}
-\texttt{@ref\{chapter,,title\}} Section~\ref{anchor:chapter} [title], page~\pageref{anchor:chapter}
+\texttt{@ref\{chapter,cross ref name\}} \hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}
+\texttt{@ref\{chapter,,title\}} \hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [title], page~\pageref*{anchor:chapter}}
 \texttt{@ref\{chapter,,,file name\}} Section ``chapter'' in \texttt{file name}
 \texttt{@ref\{chapter,,,,manual\}} Section ``chapter'' in \textit{manual}
-\texttt{@ref\{chapter,cross ref name,title,\}} Section~\ref{anchor:chapter} [title], page~\pageref{anchor:chapter}
+\texttt{@ref\{chapter,cross ref name,title,\}} \hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [title], page~\pageref*{anchor:chapter}}
 \texttt{@ref\{chapter,cross ref name,,file name\}} Section ``chapter'' in \texttt{file name}
 \texttt{@ref\{chapter,cross ref name,,,manual\}} Section ``chapter'' in \textit{manual}
 \texttt{@ref\{chapter,cross ref name,title,file name\}} Section ``title'' in \texttt{file name}
@@ -1484,6 +1489,10 @@ Section ``a comma, in title'' in \textit{a , in manual name}
 ref, a comma@comma\{\} in file\}}
 Section ``s--ect,ion'' in \texttt{a comma, in file}
 
+`\texttt{\hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}}'.
+
+Section ``title with uref2 \href{href://http/myhost.com/index2.html}{uref2 (\nolinkurl{href://http/myhost.com/index2.html})}'' in \textit{printed manual with uref4 \href{href://http/myhost.com/index4.html}{uref4 (\nolinkurl{href://http/myhost.com/index4.html})}}
+\hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [title with uref2 \href{href://http/myhost.com/index2.html}{uref2 (\nolinkurl{href://http/myhost.com/index2.html})}], page~\pageref*{anchor:chapter}}
 
 a
 l--ine
@@ -1809,9 +1818,9 @@ but , ,\@
 \texttt{@command\{{-}{-}a\}} \texttt{{-}{-}a}
 \texttt{@dfn\{{-}{-}a\}} \emph{--a}
 \texttt{@dmn\{{-}{-}a\}} --a
-\texttt{@email\{{-}{-}a,{-}{-}b\}} --b \texttt{<{-}{-}a>}
+\texttt{@email\{{-}{-}a,{-}{-}b\}} --b \url{--a}
 \texttt{@email\{,{-}{-}b\}} --b
-\texttt{@email\{{-}{-}a\}} \texttt{<{-}{-}a>}
+\texttt{@email\{{-}{-}a\}} \url{--a}
 \texttt{@emph\{{-}{-}a\}} \emph{--a}
 \texttt{@env\{{-}{-}a\}} \texttt{{-}{-}a}
 \texttt{@file\{{-}{-}a\}} \texttt{{-}{-}a}
@@ -1829,15 +1838,15 @@ but , ,\@
 \texttt{@slanted\{{-}{-}a\}} \textsl{--a}
 \texttt{@titlefont\{{-}{-}a\}} {\Huge \bfseries --a}
 \texttt{@indicateurl\{{-}{-}a\}} `\texttt{{-}{-}a}'
-\texttt{@uref\{{-}{-}a,{-}{-}b\}} --b (--a)
-\texttt{@uref\{{-}{-}a\}} \texttt{<{-}{-}a>}
+\texttt{@uref\{{-}{-}a,{-}{-}b\}} \href{--a}{--b (\nolinkurl{--a})}
+\texttt{@uref\{{-}{-}a\}} \url{--a}
 \texttt{@uref\{,{-}{-}b\}} --b
 \texttt{@uref\{{-}{-}a,{-}{-}b,{-}{-}c\}} --c
 \texttt{@uref\{,{-}{-}b,{-}{-}c\}} --c
 \texttt{@uref\{{-}{-}a,,{-}{-}c\}} --c
 \texttt{@uref\{,,{-}{-}c\}} --c
-\texttt{@url\{{-}{-}a,{-}{-}b\}} --b (--a)
-\texttt{@url\{{-}{-}a,\}} \texttt{<{-}{-}a>}
+\texttt{@url\{{-}{-}a,{-}{-}b\}} \href{--a}{--b (\nolinkurl{--a})}
+\texttt{@url\{{-}{-}a,\}} \url{--a}
 \texttt{@url\{,{-}{-}b\}} --b
 \texttt{@var\{{-}{-}a\}} \emph{--a}
 \texttt{@verb\{:{-}{-}a:\}} \verb:--a:
@@ -2246,20 +2255,20 @@ d--eftypemethod
 \texttt{@pxref\{chapter, cross ref name, title, file name, manual\}} see Section ``title'' in \textit{manual}
 \texttt{@inforef\{chapter, cross ref name, file name\}} Section ``chapter'' in \texttt{file name}
 
-\texttt{@ref\{chapter\}} Section~\ref{anchor:chapter} [chapter], page~\pageref{anchor:chapter}
-\texttt{@xref\{chapter\}} See Section~\ref{anchor:chapter} [chapter], page~\pageref{anchor:chapter}.
-\texttt{@pxref\{chapter\}} see Section~\ref{anchor:chapter} [chapter], page~\pageref{anchor:chapter}
-\texttt{@ref\{s{-}{-}ect@comma\{\}ion\}} Section~\ref{anchor:s_002d_002dect_002cion} [s--ect,ion], page~\pageref{anchor:s_002d_002dect_002cion}
+\texttt{@ref\{chapter\}} \hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}
+\texttt{@xref\{chapter\}} See \hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}.
+\texttt{@pxref\{chapter\}} see \hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}
+\texttt{@ref\{s{-}{-}ect@comma\{\}ion\}} \hyperref[anchor:s_002d_002dect_002cion]{Section~\ref*{anchor:s_002d_002dect_002cion} [s--ect,ion], page~\pageref*{anchor:s_002d_002dect_002cion}}
 
 \texttt{@ref\{s{-}{-}ect@comma\{\}ion, a @comma\{\} in cross
 ref, a comma@comma\{\} in title, a comma@comma\{\} in file, a @comma\{\} in manual name \}}
 Section ``a comma, in title'' in \textit{a , in manual name}
 
-\texttt{@ref\{chapter,cross ref name\}} Section~\ref{anchor:chapter} [chapter], page~\pageref{anchor:chapter}
-\texttt{@ref\{chapter,,title\}} Section~\ref{anchor:chapter} [title], page~\pageref{anchor:chapter}
+\texttt{@ref\{chapter,cross ref name\}} \hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}
+\texttt{@ref\{chapter,,title\}} \hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [title], page~\pageref*{anchor:chapter}}
 \texttt{@ref\{chapter,,,file name\}} Section ``chapter'' in \texttt{file name}
 \texttt{@ref\{chapter,,,,manual\}} Section ``chapter'' in \textit{manual}
-\texttt{@ref\{chapter,cross ref name,title,\}} Section~\ref{anchor:chapter} [title], page~\pageref{anchor:chapter}
+\texttt{@ref\{chapter,cross ref name,title,\}} \hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [title], page~\pageref*{anchor:chapter}}
 \texttt{@ref\{chapter,cross ref name,,file name\}} Section ``chapter'' in \texttt{file name}
 \texttt{@ref\{chapter,cross ref name,,,manual\}} Section ``chapter'' in \textit{manual}
 \texttt{@ref\{chapter,cross ref name,title,file name\}} Section ``title'' in \texttt{file name}
@@ -2301,6 +2310,10 @@ Section ``a comma, in title'' in \textit{a , in manual name}
 ref, a comma@comma\{\} in file\}}
 Section ``s--ect,ion'' in \texttt{a comma, in file}
 
+`\texttt{\hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}}'.
+
+Section ``title with uref2 \href{href://http/myhost.com/index2.html}{uref2 (\nolinkurl{href://http/myhost.com/index2.html})}'' in \textit{printed manual with uref4 \href{href://http/myhost.com/index4.html}{uref4 (\nolinkurl{href://http/myhost.com/index4.html})}}
+\hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [title with uref2 \href{href://http/myhost.com/index2.html}{uref2 (\nolinkurl{href://http/myhost.com/index2.html})}], page~\pageref*{anchor:chapter}}
 
 a
 l--ine
@@ -2610,9 +2623,9 @@ but , ,\@
 \texttt{@command\{{-}{-}a\}} \texttt{{-}{-}a}
 \texttt{@dfn\{{-}{-}a\}} \emph{--a}
 \texttt{@dmn\{{-}{-}a\}} --a
-\texttt{@email\{{-}{-}a,{-}{-}b\}} --b \texttt{<{-}{-}a>}
+\texttt{@email\{{-}{-}a,{-}{-}b\}} --b \url{--a}
 \texttt{@email\{,{-}{-}b\}} --b
-\texttt{@email\{{-}{-}a\}} \texttt{<{-}{-}a>}
+\texttt{@email\{{-}{-}a\}} \url{--a}
 \texttt{@emph\{{-}{-}a\}} \emph{--a}
 \texttt{@env\{{-}{-}a\}} \texttt{{-}{-}a}
 \texttt{@file\{{-}{-}a\}} \texttt{{-}{-}a}
@@ -2630,15 +2643,15 @@ but , ,\@
 \texttt{@slanted\{{-}{-}a\}} \textsl{--a}
 \texttt{@titlefont\{{-}{-}a\}} {\Huge \bfseries --a}
 \texttt{@indicateurl\{{-}{-}a\}} `\texttt{{-}{-}a}'
-\texttt{@uref\{{-}{-}a,{-}{-}b\}} --b (--a)
-\texttt{@uref\{{-}{-}a\}} \texttt{<{-}{-}a>}
+\texttt{@uref\{{-}{-}a,{-}{-}b\}} \href{--a}{--b (\nolinkurl{--a})}
+\texttt{@uref\{{-}{-}a\}} \url{--a}
 \texttt{@uref\{,{-}{-}b\}} --b
 \texttt{@uref\{{-}{-}a,{-}{-}b,{-}{-}c\}} --c
 \texttt{@uref\{,{-}{-}b,{-}{-}c\}} --c
 \texttt{@uref\{{-}{-}a,,{-}{-}c\}} --c
 \texttt{@uref\{,,{-}{-}c\}} --c
-\texttt{@url\{{-}{-}a,{-}{-}b\}} --b (--a)
-\texttt{@url\{{-}{-}a,\}} \texttt{<{-}{-}a>}
+\texttt{@url\{{-}{-}a,{-}{-}b\}} \href{--a}{--b (\nolinkurl{--a})}
+\texttt{@url\{{-}{-}a,\}} \url{--a}
 \texttt{@url\{,{-}{-}b\}} --b
 \texttt{@var\{{-}{-}a\}} \emph{--a}
 \texttt{@verb\{:{-}{-}a:\}} \verb:--a:
@@ -3047,20 +3060,20 @@ d--eftypemethod
 \texttt{@pxref\{chapter, cross ref name, title, file name, manual\}} see Section ``title'' in \textit{manual}
 \texttt{@inforef\{chapter, cross ref name, file name\}} Section ``chapter'' in \texttt{file name}
 
-\texttt{@ref\{chapter\}} Section~\ref{anchor:chapter} [chapter], page~\pageref{anchor:chapter}
-\texttt{@xref\{chapter\}} See Section~\ref{anchor:chapter} [chapter], page~\pageref{anchor:chapter}.
-\texttt{@pxref\{chapter\}} see Section~\ref{anchor:chapter} [chapter], page~\pageref{anchor:chapter}
-\texttt{@ref\{s{-}{-}ect@comma\{\}ion\}} Section~\ref{anchor:s_002d_002dect_002cion} [s--ect,ion], page~\pageref{anchor:s_002d_002dect_002cion}
+\texttt{@ref\{chapter\}} \hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}
+\texttt{@xref\{chapter\}} See \hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}.
+\texttt{@pxref\{chapter\}} see \hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}
+\texttt{@ref\{s{-}{-}ect@comma\{\}ion\}} \hyperref[anchor:s_002d_002dect_002cion]{Section~\ref*{anchor:s_002d_002dect_002cion} [s--ect,ion], page~\pageref*{anchor:s_002d_002dect_002cion}}
 
 \texttt{@ref\{s{-}{-}ect@comma\{\}ion, a @comma\{\} in cross
 ref, a comma@comma\{\} in title, a comma@comma\{\} in file, a @comma\{\} in manual name \}}
 Section ``a comma, in title'' in \textit{a , in manual name}
 
-\texttt{@ref\{chapter,cross ref name\}} Section~\ref{anchor:chapter} [chapter], page~\pageref{anchor:chapter}
-\texttt{@ref\{chapter,,title\}} Section~\ref{anchor:chapter} [title], page~\pageref{anchor:chapter}
+\texttt{@ref\{chapter,cross ref name\}} \hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}
+\texttt{@ref\{chapter,,title\}} \hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [title], page~\pageref*{anchor:chapter}}
 \texttt{@ref\{chapter,,,file name\}} Section ``chapter'' in \texttt{file name}
 \texttt{@ref\{chapter,,,,manual\}} Section ``chapter'' in \textit{manual}
-\texttt{@ref\{chapter,cross ref name,title,\}} Section~\ref{anchor:chapter} [title], page~\pageref{anchor:chapter}
+\texttt{@ref\{chapter,cross ref name,title,\}} \hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [title], page~\pageref*{anchor:chapter}}
 \texttt{@ref\{chapter,cross ref name,,file name\}} Section ``chapter'' in \texttt{file name}
 \texttt{@ref\{chapter,cross ref name,,,manual\}} Section ``chapter'' in \textit{manual}
 \texttt{@ref\{chapter,cross ref name,title,file name\}} Section ``title'' in \texttt{file name}
@@ -3102,6 +3115,10 @@ Section ``a comma, in title'' in \textit{a , in manual name}
 ref, a comma@comma\{\} in file\}}
 Section ``s--ect,ion'' in \texttt{a comma, in file}
 
+`\texttt{\hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}}'.
+
+Section ``title with uref2 \href{href://http/myhost.com/index2.html}{uref2 (\nolinkurl{href://http/myhost.com/index2.html})}'' in \textit{printed manual with uref4 \href{href://http/myhost.com/index4.html}{uref4 (\nolinkurl{href://http/myhost.com/index4.html})}}
+\hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [title with uref2 \href{href://http/myhost.com/index2.html}{uref2 (\nolinkurl{href://http/myhost.com/index2.html})}], page~\pageref*{anchor:chapter}}
 
 a
 l--ine
@@ -3411,9 +3428,9 @@ but , ,\@
 \texttt{@command\{{-}{-}a\}} \texttt{{-}{-}a}
 \texttt{@dfn\{{-}{-}a\}} \emph{--a}
 \texttt{@dmn\{{-}{-}a\}} --a
-\texttt{@email\{{-}{-}a,{-}{-}b\}} --b \texttt{<{-}{-}a>}
+\texttt{@email\{{-}{-}a,{-}{-}b\}} --b \url{--a}
 \texttt{@email\{,{-}{-}b\}} --b
-\texttt{@email\{{-}{-}a\}} \texttt{<{-}{-}a>}
+\texttt{@email\{{-}{-}a\}} \url{--a}
 \texttt{@emph\{{-}{-}a\}} \emph{--a}
 \texttt{@env\{{-}{-}a\}} \texttt{{-}{-}a}
 \texttt{@file\{{-}{-}a\}} \texttt{{-}{-}a}
@@ -3431,15 +3448,15 @@ but , ,\@
 \texttt{@slanted\{{-}{-}a\}} \textsl{--a}
 \texttt{@titlefont\{{-}{-}a\}} {\Huge \bfseries --a}
 \texttt{@indicateurl\{{-}{-}a\}} `\texttt{{-}{-}a}'
-\texttt{@uref\{{-}{-}a,{-}{-}b\}} --b (--a)
-\texttt{@uref\{{-}{-}a\}} \texttt{<{-}{-}a>}
+\texttt{@uref\{{-}{-}a,{-}{-}b\}} \href{--a}{--b (\nolinkurl{--a})}
+\texttt{@uref\{{-}{-}a\}} \url{--a}
 \texttt{@uref\{,{-}{-}b\}} --b
 \texttt{@uref\{{-}{-}a,{-}{-}b,{-}{-}c\}} --c
 \texttt{@uref\{,{-}{-}b,{-}{-}c\}} --c
 \texttt{@uref\{{-}{-}a,,{-}{-}c\}} --c
 \texttt{@uref\{,,{-}{-}c\}} --c
-\texttt{@url\{{-}{-}a,{-}{-}b\}} --b (--a)
-\texttt{@url\{{-}{-}a,\}} \texttt{<{-}{-}a>}
+\texttt{@url\{{-}{-}a,{-}{-}b\}} \href{--a}{--b (\nolinkurl{--a})}
+\texttt{@url\{{-}{-}a,\}} \url{--a}
 \texttt{@url\{,{-}{-}b\}} --b
 \texttt{@var\{{-}{-}a\}} \emph{--a}
 \texttt{@verb\{:{-}{-}a:\}} \verb:--a:
@@ -3848,20 +3865,20 @@ d--eftypemethod
 \texttt{@pxref\{chapter, cross ref name, title, file name, manual\}} see Section ``title'' in \textit{manual}
 \texttt{@inforef\{chapter, cross ref name, file name\}} Section ``chapter'' in \texttt{file name}
 
-\texttt{@ref\{chapter\}} Section~\ref{anchor:chapter} [chapter], page~\pageref{anchor:chapter}
-\texttt{@xref\{chapter\}} See Section~\ref{anchor:chapter} [chapter], page~\pageref{anchor:chapter}.
-\texttt{@pxref\{chapter\}} see Section~\ref{anchor:chapter} [chapter], page~\pageref{anchor:chapter}
-\texttt{@ref\{s{-}{-}ect@comma\{\}ion\}} Section~\ref{anchor:s_002d_002dect_002cion} [s--ect,ion], page~\pageref{anchor:s_002d_002dect_002cion}
+\texttt{@ref\{chapter\}} \hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}
+\texttt{@xref\{chapter\}} See \hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}.
+\texttt{@pxref\{chapter\}} see \hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}
+\texttt{@ref\{s{-}{-}ect@comma\{\}ion\}} \hyperref[anchor:s_002d_002dect_002cion]{Section~\ref*{anchor:s_002d_002dect_002cion} [s--ect,ion], page~\pageref*{anchor:s_002d_002dect_002cion}}
 
 \texttt{@ref\{s{-}{-}ect@comma\{\}ion, a @comma\{\} in cross
 ref, a comma@comma\{\} in title, a comma@comma\{\} in file, a @comma\{\} in manual name \}}
 Section ``a comma, in title'' in \textit{a , in manual name}
 
-\texttt{@ref\{chapter,cross ref name\}} Section~\ref{anchor:chapter} [chapter], page~\pageref{anchor:chapter}
-\texttt{@ref\{chapter,,title\}} Section~\ref{anchor:chapter} [title], page~\pageref{anchor:chapter}
+\texttt{@ref\{chapter,cross ref name\}} \hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}
+\texttt{@ref\{chapter,,title\}} \hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [title], page~\pageref*{anchor:chapter}}
 \texttt{@ref\{chapter,,,file name\}} Section ``chapter'' in \texttt{file name}
 \texttt{@ref\{chapter,,,,manual\}} Section ``chapter'' in \textit{manual}
-\texttt{@ref\{chapter,cross ref name,title,\}} Section~\ref{anchor:chapter} [title], page~\pageref{anchor:chapter}
+\texttt{@ref\{chapter,cross ref name,title,\}} \hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [title], page~\pageref*{anchor:chapter}}
 \texttt{@ref\{chapter,cross ref name,,file name\}} Section ``chapter'' in \texttt{file name}
 \texttt{@ref\{chapter,cross ref name,,,manual\}} Section ``chapter'' in \textit{manual}
 \texttt{@ref\{chapter,cross ref name,title,file name\}} Section ``title'' in \texttt{file name}
@@ -3903,6 +3920,10 @@ Section ``a comma, in title'' in \textit{a , in manual name}
 ref, a comma@comma\{\} in file\}}
 Section ``s--ect,ion'' in \texttt{a comma, in file}
 
+`\texttt{\hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}}'.
+
+Section ``title with uref2 \href{href://http/myhost.com/index2.html}{uref2 (\nolinkurl{href://http/myhost.com/index2.html})}'' in \textit{printed manual with uref4 \href{href://http/myhost.com/index4.html}{uref4 (\nolinkurl{href://http/myhost.com/index4.html})}}
+\hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [title with uref2 \href{href://http/myhost.com/index2.html}{uref2 (\nolinkurl{href://http/myhost.com/index2.html})}], page~\pageref*{anchor:chapter}}
 
 a
 l--ine

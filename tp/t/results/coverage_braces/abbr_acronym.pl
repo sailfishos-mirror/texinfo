@@ -470,4 +470,12 @@ $result_converted{'html_text'}->{'abbr_acronym'} = '<p><acronym title="an accron
 <abbr title="&Eacute;tude&ndash;, Autonome">&Eacute;&ndash;a. ,A.</abbr>
 </p>';
 
+
+$result_converted{'latex'}->{'abbr_acronym'} = '--a (an accronym)
+--a
+--a (an accronym , \\dots{})
+\\\'{E}--a.\\@ ,A.\\@ (\\\'{E}tude--, \\textbf{Autonome})
+\\\'{E}--a.\\@ ,A.\\@
+';
+
 1;

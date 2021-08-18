@@ -534,7 +534,12 @@ section &#8220;a comma&#44; in title&#8221; in <citetitle>a &#44; in manual name
 ref, a comma@comma{} in file}</literal>
 See Info file <filename>a comma, in file</filename>, node &#8216;<literal>s--ect&#44;ion</literal>&#8217;
 </para>
-
+<!-- special cases with @uref -->
+<para>&#8216;<literal><link linkend="chapter">chapter</link></literal>&#8217;.
+</para>
+<para>section &#8220;title with uref2 <ulink url="href://http/myhost.com/index2.html">uref2</ulink>&#8221; in <citetitle>printed manual with uref4 <ulink url="href://http/myhost.com/index4.html">uref4</ulink></citetitle>
+<link linkend="chapter">title with uref2 <ulink url="href://http/myhost.com/index2.html">uref2</ulink></link>
+</para>
 <variablelist><!-- comment in table -->
 <varlistentry><term>a
 </term><listitem><para>l&#8211;ine
@@ -1235,7 +1240,12 @@ section &#8220;a comma&#44; in title&#8221; in <citetitle>a &#44; in manual name
 ref, a comma@comma{} in file}</literal>
 See Info file <filename>a comma, in file</filename>, node &#8216;<literal>s--ect&#44;ion</literal>&#8217;
 </para>
-
+<!-- special cases with @uref -->
+<para>&#8216;<literal><link linkend="chapter">chapter</link></literal>&#8217;.
+</para>
+<para>section &#8220;title with uref2 <ulink url="href://http/myhost.com/index2.html">uref2</ulink>&#8221; in <citetitle>printed manual with uref4 <ulink url="href://http/myhost.com/index4.html">uref4</ulink></citetitle>
+<link linkend="chapter">title with uref2 <ulink url="href://http/myhost.com/index2.html">uref2</ulink></link>
+</para>
 <variablelist><!-- comment in table -->
 <varlistentry><term>a
 </term><listitem><para>l&#8211;ine
@@ -1937,7 +1947,12 @@ section &#8220;a comma&#44; in title&#8221; in <citetitle>a &#44; in manual name
 ref, a comma@comma{} in file}</literal>
 See Info file <filename>a comma, in file</filename>, node &#8216;<literal>s--ect&#44;ion</literal>&#8217;
 </para>
-
+<!-- special cases with @uref -->
+<para>&#8216;<literal><link linkend="chapter">chapter</link></literal>&#8217;.
+</para>
+<para>section &#8220;title with uref2 <ulink url="href://http/myhost.com/index2.html">uref2</ulink>&#8221; in <citetitle>printed manual with uref4 <ulink url="href://http/myhost.com/index4.html">uref4</ulink></citetitle>
+<link linkend="chapter">title with uref2 <ulink url="href://http/myhost.com/index2.html">uref2</ulink></link>
+</para>
 <variablelist><!-- comment in table -->
 <varlistentry><term>a
 </term><listitem><para>l&#8211;ine
@@ -2657,7 +2672,12 @@ section &#8220;a comma&#44; in title&#8221; in <citetitle>a &#44; in manual name
 ref, a comma@comma{} in file}</literal>
 See Info file <filename>a comma, in file</filename>, node &#8216;<literal>s--ect&#44;ion</literal>&#8217;
 </para>
-
+<!-- special cases with @uref -->
+<para>&#8216;<literal><link linkend="chapter">chapter</link></literal>&#8217;.
+</para>
+<para>section &#8220;title with uref2 <ulink url="href://http/myhost.com/index2.html">uref2</ulink>&#8221; in <citetitle>printed manual with uref4 <ulink url="href://http/myhost.com/index4.html">uref4</ulink></citetitle>
+<link linkend="chapter">title with uref2 <ulink url="href://http/myhost.com/index2.html">uref2</ulink></link>
+</para>
 <variablelist><!-- comment in table -->
 <varlistentry><term>a
 </term><listitem><para>l&#8211;ine
@@ -3358,7 +3378,12 @@ section &#8220;a comma&#44; in title&#8221; in <citetitle>a &#44; in manual name
 ref, a comma@comma{} in file}</literal>
 See Info file <filename>a comma, in file</filename>, node &#8216;<literal>s--ect&#44;ion</literal>&#8217;
 </para>
-
+<!-- special cases with @uref -->
+<para>&#8216;<literal><link linkend="chapter">chapter</link></literal>&#8217;.
+</para>
+<para>section &#8220;title with uref2 <ulink url="href://http/myhost.com/index2.html">uref2</ulink>&#8221; in <citetitle>printed manual with uref4 <ulink url="href://http/myhost.com/index4.html">uref4</ulink></citetitle>
+<link linkend="chapter">title with uref2 <ulink url="href://http/myhost.com/index2.html">uref2</ulink></link>
+</para>
 <variablelist><!-- comment in table -->
 <varlistentry><term>a
 </term><listitem><para>l&#8211;ine
@@ -4052,6 +4077,11 @@ section ``a comma&#44; in title'' in <citetitle>a &#44; in manual name</citetitl
 ref, a comma@comma{} in file}</literal>
 See Info file <filename>a comma, in file</filename>, node &#8216;<literal>s--ect&#44;ion</literal>&#8217;
 
+<!-- special cases with @uref -->
+&#8216;<literal><link linkend="chapter">chapter</link></literal>&#8217;.
+
+section ``title with uref2 <ulink url="href://http/myhost.com/index2.html">uref2</ulink>'' in <citetitle>printed manual with uref4 <ulink url="href://http/myhost.com/index4.html">uref4</ulink></citetitle>
+<link linkend="chapter">title with uref2 <ulink url="href://http/myhost.com/index2.html">uref2</ulink></link>
 
 </screen><variablelist><screen><!-- comment in table -->
 </screen><varlistentry><term>a

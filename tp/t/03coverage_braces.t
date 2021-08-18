@@ -63,6 +63,9 @@ my @test_cases = (
 @url{--m,--n}
 @url{--o,--p,--q}
 '],
+['uref_with_commands_characters',
+'@uref{http://my-host.com/~@strong{toto}%5Cs\'q"a&e?b@}b@{ba@@s\s p+h#aaa, see that @strong{@LaTeX{}}}
+'],
 ['empty_commands',
 '@titlefont{}
 
@@ -328,12 +331,17 @@ third}
 ']
 );
 
-our ($arg_test_case, $arg_generate, $arg_debug);
+my @latex_tests_cases_tests = ('abbr_acronym', 'uref_url',
+  'uref_with_commands_characters', 'nested', 'uref_in_ref');
 
 foreach my $test (@test_cases) {
   push @{$test->[2]->{'test_formats'}}, 'plaintext';
   push @{$test->[2]->{'test_formats'}}, 'html_text';
+  push @{$test->[2]->{'test_formats'}}, 'latex'
+    if (grep {$_ eq $test->[0]} @latex_tests_cases_tests);
 }
+
+our ($arg_test_case, $arg_generate, $arg_debug);
 
 run_all ('coverage_braces', [@test_cases, @test_invalid], $arg_test_case,
    $arg_generate, $arg_debug);

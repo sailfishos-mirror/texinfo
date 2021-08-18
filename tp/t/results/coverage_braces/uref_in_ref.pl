@@ -320,4 +320,8 @@ $result_converted_errors{'plaintext'}->{'uref_in_ref'} = [
 $result_converted{'html_text'}->{'uref_in_ref'} = '<p><a data-manual="info file with uref3 href://http/myhost.com/index3.html (uref3)" href="index3.html (uref3).html#node">title with uref2 <a href="href://http/myhost.com/index2.html">uref2</a></a> in <cite>printed manual with uref4 <a href="href://http/myhost.com/index4.html">uref4</a></cite>
 </p>';
 
+
+$result_converted{'latex'}->{'uref_in_ref'} = 'Section ``title with uref2 \\href{href://http/myhost.com/index2.html}{uref2 (\\nolinkurl{href://http/myhost.com/index2.html})}\'\' in \\textit{printed manual with uref4 \\href{href://http/myhost.com/index4.html}{uref4 (\\nolinkurl{href://http/myhost.com/index4.html})}}
+';
+
 1;

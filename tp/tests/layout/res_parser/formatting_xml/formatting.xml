@@ -679,6 +679,11 @@ ref, a comma@@comma@{@} in file@}}
 @inforef{s--ect@comma{}ion, a @comma{} in cross
 ref, a comma@comma{} in file}
 
+@c special cases with @uref
+@samp{@ref{chapter}}.
+
+@ref{ext, cross ref with uref @uref{href://http/myhost.com/index.html,uref1}, title with uref2 @uref{href://http/myhost.com/index2.html,uref2}, info file with uref3 @uref{href://http/myhost.com/index3.html,uref3}, printed manual with uref4 @uref{href://http/myhost.com/index4.html,uref4}}
+@ref{chapter, cross ref with uref @uref{href://http/myhost.com/index.html,uref1}, title with uref2 @uref{href://http/myhost.com/index2.html,uref2}}
 
 @table @bullet
 @c comment in table
@@ -1547,7 +1552,12 @@ ref, a comma&arobase;comma&lbrace;&rbrace; in file&rbrace;</code>
 <inforef label="s_002d_002dect_002cion" manual="a comma, in file"><inforefnodename>s--ect&comma;ion</inforefnodename><inforefrefname spaces=" ">a &comma; in cross
 ref</inforefrefname><inforefinfoname spaces=" ">a comma&comma; in file</inforefinfoname></inforef>
 </para>
-
+<!-- c special cases with @uref -->
+<para><samp><ref label="chapter"><xrefnodename>chapter</xrefnodename></ref></samp>.
+</para>
+<para><ref label="ext" manual="index3"><xrefnodename>ext</xrefnodename><xrefinfoname spaces=" ">cross ref with uref <uref><urefurl>href://http/myhost.com/index.html</urefurl><urefdesc>uref1</urefdesc></uref></xrefinfoname><xrefprinteddesc spaces=" ">title with uref2 <uref><urefurl>href://http/myhost.com/index2.html</urefurl><urefdesc>uref2</urefdesc></uref></xrefprinteddesc><xrefinfofile spaces=" ">info file with uref3 <uref><urefurl>href://http/myhost.com/index3.html</urefurl><urefdesc>uref3</urefdesc></uref></xrefinfofile><xrefprintedname spaces=" ">printed manual with uref4 <uref><urefurl>href://http/myhost.com/index4.html</urefurl><urefdesc>uref4</urefdesc></uref></xrefprintedname></ref>
+<ref label="chapter"><xrefnodename>chapter</xrefnodename><xrefinfoname spaces=" ">cross ref with uref <uref><urefurl>href://http/myhost.com/index.html</urefurl><urefdesc>uref1</urefdesc></uref></xrefinfoname><xrefprinteddesc spaces=" ">title with uref2 <uref><urefurl>href://http/myhost.com/index2.html</urefurl><urefdesc>uref2</urefdesc></uref></xrefprinteddesc></ref>
+</para>
 <table commandarg="asis" spaces=" " endspaces=" ">
 <beforefirstitem><!-- c comment in table -->
 </beforefirstitem><tableentry><tableterm><item spaces=" "><itemformat command="asis">a</itemformat></item>
@@ -2407,7 +2417,12 @@ ref, a comma&arobase;comma&lbrace;&rbrace; in file&rbrace;</code>
 <inforef label="s_002d_002dect_002cion" manual="a comma, in file"><inforefnodename>s--ect&comma;ion</inforefnodename><inforefrefname spaces=" ">a &comma; in cross
 ref</inforefrefname><inforefinfoname spaces=" ">a comma&comma; in file</inforefinfoname></inforef>
 </para>
-
+<!-- c special cases with @uref -->
+<para><samp><ref label="chapter"><xrefnodename>chapter</xrefnodename></ref></samp>.
+</para>
+<para><ref label="ext" manual="index3"><xrefnodename>ext</xrefnodename><xrefinfoname spaces=" ">cross ref with uref <uref><urefurl>href://http/myhost.com/index.html</urefurl><urefdesc>uref1</urefdesc></uref></xrefinfoname><xrefprinteddesc spaces=" ">title with uref2 <uref><urefurl>href://http/myhost.com/index2.html</urefurl><urefdesc>uref2</urefdesc></uref></xrefprinteddesc><xrefinfofile spaces=" ">info file with uref3 <uref><urefurl>href://http/myhost.com/index3.html</urefurl><urefdesc>uref3</urefdesc></uref></xrefinfofile><xrefprintedname spaces=" ">printed manual with uref4 <uref><urefurl>href://http/myhost.com/index4.html</urefurl><urefdesc>uref4</urefdesc></uref></xrefprintedname></ref>
+<ref label="chapter"><xrefnodename>chapter</xrefnodename><xrefinfoname spaces=" ">cross ref with uref <uref><urefurl>href://http/myhost.com/index.html</urefurl><urefdesc>uref1</urefdesc></uref></xrefinfoname><xrefprinteddesc spaces=" ">title with uref2 <uref><urefurl>href://http/myhost.com/index2.html</urefurl><urefdesc>uref2</urefdesc></uref></xrefprinteddesc></ref>
+</para>
 <table commandarg="asis" spaces=" " endspaces=" ">
 <beforefirstitem><!-- c comment in table -->
 </beforefirstitem><tableentry><tableterm><item spaces=" "><itemformat command="asis">a</itemformat></item>
@@ -3294,7 +3309,12 @@ ref, a comma&arobase;comma&lbrace;&rbrace; in file&rbrace;</code>
 <inforef label="s_002d_002dect_002cion" manual="a comma, in file"><inforefnodename>s--ect&comma;ion</inforefnodename><inforefrefname spaces=" ">a &comma; in cross
 ref</inforefrefname><inforefinfoname spaces=" ">a comma&comma; in file</inforefinfoname></inforef>
 </para>
-
+<!-- c special cases with @uref -->
+<para><samp><ref label="chapter"><xrefnodename>chapter</xrefnodename></ref></samp>.
+</para>
+<para><ref label="ext" manual="index3"><xrefnodename>ext</xrefnodename><xrefinfoname spaces=" ">cross ref with uref <uref><urefurl>href://http/myhost.com/index.html</urefurl><urefdesc>uref1</urefdesc></uref></xrefinfoname><xrefprinteddesc spaces=" ">title with uref2 <uref><urefurl>href://http/myhost.com/index2.html</urefurl><urefdesc>uref2</urefdesc></uref></xrefprinteddesc><xrefinfofile spaces=" ">info file with uref3 <uref><urefurl>href://http/myhost.com/index3.html</urefurl><urefdesc>uref3</urefdesc></uref></xrefinfofile><xrefprintedname spaces=" ">printed manual with uref4 <uref><urefurl>href://http/myhost.com/index4.html</urefurl><urefdesc>uref4</urefdesc></uref></xrefprintedname></ref>
+<ref label="chapter"><xrefnodename>chapter</xrefnodename><xrefinfoname spaces=" ">cross ref with uref <uref><urefurl>href://http/myhost.com/index.html</urefurl><urefdesc>uref1</urefdesc></uref></xrefinfoname><xrefprinteddesc spaces=" ">title with uref2 <uref><urefurl>href://http/myhost.com/index2.html</urefurl><urefdesc>uref2</urefdesc></uref></xrefprinteddesc></ref>
+</para>
 <table commandarg="asis" spaces=" " endspaces=" ">
 <beforefirstitem><!-- c comment in table -->
 </beforefirstitem><tableentry><tableterm><item spaces=" "><itemformat command="asis">a</itemformat></item>
@@ -4148,6 +4168,11 @@ ref, a comma&arobase;comma&lbrace;&rbrace; in file&rbrace;</code>
 <inforef label="s_002d_002dect_002cion" manual="a comma, in file"><inforefnodename>s--ect&comma;ion</inforefnodename><inforefrefname spaces=" ">a &comma; in cross
 ref</inforefrefname><inforefinfoname spaces=" ">a comma&comma; in file</inforefinfoname></inforef>
 
+<!-- c special cases with @uref -->
+<samp><ref label="chapter"><xrefnodename>chapter</xrefnodename></ref></samp>.
+
+<ref label="ext" manual="index3"><xrefnodename>ext</xrefnodename><xrefinfoname spaces=" ">cross ref with uref <uref><urefurl>href://http/myhost.com/index.html</urefurl><urefdesc>uref1</urefdesc></uref></xrefinfoname><xrefprinteddesc spaces=" ">title with uref2 <uref><urefurl>href://http/myhost.com/index2.html</urefurl><urefdesc>uref2</urefdesc></uref></xrefprinteddesc><xrefinfofile spaces=" ">info file with uref3 <uref><urefurl>href://http/myhost.com/index3.html</urefurl><urefdesc>uref3</urefdesc></uref></xrefinfofile><xrefprintedname spaces=" ">printed manual with uref4 <uref><urefurl>href://http/myhost.com/index4.html</urefurl><urefdesc>uref4</urefdesc></uref></xrefprintedname></ref>
+<ref label="chapter"><xrefnodename>chapter</xrefnodename><xrefinfoname spaces=" ">cross ref with uref <uref><urefurl>href://http/myhost.com/index.html</urefurl><urefdesc>uref1</urefdesc></uref></xrefinfoname><xrefprinteddesc spaces=" ">title with uref2 <uref><urefurl>href://http/myhost.com/index2.html</urefurl><urefdesc>uref2</urefdesc></uref></xrefprinteddesc></ref>
 
 </pre><table commandarg="asis" spaces=" " endspaces=" ">
 <beforefirstitem><pre xml:space="preserve"><!-- c comment in table -->
