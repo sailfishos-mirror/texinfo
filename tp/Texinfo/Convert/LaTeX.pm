@@ -46,7 +46,7 @@
 # 
 # Other non filled environments @example, @display...  No similar
 # environment found in LaTeX.  Basic implementation done with \obeylines
-# from plain TeX.
+# from plain TeX, but some features remain to be done.
 #
 # @group should also be done together with the non filled environments.
 #
@@ -55,6 +55,24 @@
 #
 # Nothing specific is done for @headings singleafter and @headings doubleafter
 # compared to @headings single and @headings double
+#
+# two \newpage in titlepage do not cause one blank page.  See
+# titlepage_classical in t/latex_tests.t test result processed by 
+# pdflatex.
+# 
+# The \listof result does not seems very good.  Also it does not
+# use the type (name) of float.
+#
+# interline spacing in @title multi lines in @titlepage and between
+# multiple @author is not as good as in Texinfo TeX output/
+# example titlepage_classical in t/latex_tests.t can show it.
+#
+# for external references it seems that Texinfo TeX points to
+# a file. 
+#
+# Translations.   Need thinking.  In texi2any?  In LaTeX?  If in 
+# texi2any In general no need for something complex as gdt, as we 
+# can provide nice strings to be translated in LaTeX.
 
 package Texinfo::Convert::LaTeX;
 
