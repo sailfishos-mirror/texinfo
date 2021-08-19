@@ -90,6 +90,13 @@
 #  in PDF/DVI
 #   In normal text, treated as ending any open paragraph; essentially ignored
 #   between paragraphs.
+#
+# In the manual it is said that majorheading generates a larger 
+# vertical whitespace before the heading than @chapheading command.
+# It is not implemented.  However, it seems that the chapter level
+# commands in LaTeX generate bigger fonts and much more vertical whitespace
+# than in Texinfo TeX so maybe it is not needed to do something here.
+#
 
 package Texinfo::Convert::LaTeX;
 
@@ -133,7 +140,8 @@ my %formatting_misc_commands = %Texinfo::Convert::Text::formatting_misc_commands
 my @informative_global_commands = ('paragraphindent', 'firstparagraphindent',
 'frenchspacing', 'documentencoding', 'footnotestyle', 'documentlanguage',
 'contents', 'shortcontents', 'summarycontents', 'deftypefnnewline',
-'allowcodebreaks', 'kbdinputstyle', 'setchapternewpage', 'headings');
+'allowcodebreaks', 'kbdinputstyle', 'setchapternewpage', 'headings',
+'xrefautomaticsectiontitle');
 
 my %informative_commands;
 foreach my $informative_command (@informative_global_commands) {
@@ -169,7 +177,7 @@ my %letter_no_arg_commands = %Texinfo::Common::letter_no_arg_commands;
 
 foreach my $kept_command (keys(%informative_commands),
   keys(%default_index_commands),
-  'verbatiminclude', 'insertcopying', 'xrefautomaticsectiontitle',
+  'verbatiminclude', 'insertcopying',
   'listoffloats', 'printindex', 'indent', 'noindent', 'need', 'page',
   'shorttitlepage', 'title', 'subtitle', 'author', 'vskip') {
   $formatting_misc_commands{$kept_command} = 1;
@@ -904,11 +912,16 @@ sub _set_chapter_new_page($$)
   return $result;
 }
 
-sub _prepare_conversion($)
+sub _prepare_conversion($;$)
 {
   my $self = shift;
+  my $root = shift;
 
   $self->_set_global_multiple_commands(-1);
+
+  if (defined($root)) {
+    $self->associate_other_nodes_to_sections($root);
+  }
 
   if ($self->{'extra'}->{'settitle'}) {
     my $settitle_root = $self->{'extra'}->{'settitle'};
@@ -919,6 +932,46 @@ sub _prepare_conversion($)
     }
   }
   $self->_prepare_floats();
+}
+
+sub associate_other_nodes_to_sections($$) {
+  my $self = shift;
+  my $root = shift;
+
+  # associate lone nodes with sectioning commands
+  my $additional_node_section_associations = {};
+
+  my $current_sectioning_command;
+  # nodes not already associated as no section has been seen,
+  # associate to the first section
+  my $pending_nodes = [];
+
+  foreach my $element_content (@{$root->{'contents'}}) {
+    if ($element_content->{'cmdname'}
+        and $element_content->{'cmdname'} eq 'node') {
+      if (not $element_content->{'extra'}->{'associated_section'}
+          and $element_content->{'extra'}->{'normalized'}) {
+        if (defined($current_sectioning_command)) {
+          $additional_node_section_associations->{$element_content->{'extra'}->{'normalized'}}
+            = $current_sectioning_command;
+        } else {
+          push @$pending_nodes, $element_content->{'extra'}->{'normalized'};
+        }
+      }
+    } elsif ($element_content->{'cmdname'}
+          and $root_commands{$element_content->{'cmdname'}}) {
+      $current_sectioning_command = $element_content;
+      if (scalar(@$pending_nodes)) {
+        foreach my $normalized_node_name (@$pending_nodes) {
+          $additional_node_section_associations->{$normalized_node_name}
+            = $current_sectioning_command
+        }
+        $pending_nodes = [];
+      }
+    }
+  }
+  $self->{'normalized_nodes_associated_section'}
+    = $additional_node_section_associations;
 }
 
 sub output($$)
@@ -970,7 +1023,7 @@ sub output($$)
 
   my $result = '';
 
-  $self->_prepare_conversion();
+  $self->_prepare_conversion($removed_top_node_root);
 
   $result .= $self->_output_text($self->_latex_header(), $fh);
   $result .= $self->_output_text($self->convert_tree($removed_top_node_root), $fh);
@@ -992,7 +1045,7 @@ sub convert($$)
   my $self = shift;
   my $root = shift;
 
-  $self->_prepare_conversion();
+  $self->_prepare_conversion($root);
   
   return $self->_convert($root);
 }
@@ -1585,10 +1638,20 @@ sub _convert($$)
             # FIXME this is probably impossible
             $node_content = $args[0];
           }
-
+          
           my $section_command;
           if ($node->{'extra'}->{'associated_section'}) {
             $section_command = $node->{'extra'}->{'associated_section'};
+          } elsif ($node->{'cmdname'} ne 'float') {
+            my $normalized_name
+              = $root->{'extra'}->{'node_argument'}->{'normalized'};
+            if ($self->{'normalized_nodes_associated_section'}
+                and $self->{'normalized_nodes_associated_section'}->{$normalized_name}) {
+              $section_command
+                = $self->{'normalized_nodes_associated_section'}->{$normalized_name}; 
+            } else {
+              print STDERR "BUG/TODO assoc ".$node->{'cmdname'}.": $normalized_name: ".join("|", sort(keys(%{$node->{'extra'}})))."\n";
+            }
           }
           # reference to a float with a label
           my $float_type;
@@ -1620,7 +1683,7 @@ sub _convert($$)
             if (defined($self->get_conf('xrefautomaticsectiontitle'))
                 and $self->get_conf('xrefautomaticsectiontitle') eq 'on'
                 and $section_command) {
-              $name = {'contents' => $section_command->{'args'}->[0]->{'contents'}};
+              $name = $section_command->{'args'}->[0]->{'contents'};
             } else {
               $name = $node_content;
             }

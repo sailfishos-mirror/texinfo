@@ -1850,6 +1850,36 @@ in node after
 
 in chap
 '],
+['nodes_before_after_top_xref',
+'@setfilename nodes_before_after_top_xref.info
+
+@node node before
+
+In node before
+
+@node Top
+@top top sectionning
+
+in node Top
+
+@node after
+
+in node after
+
+@node chap
+@chapter chap
+
+in chap
+
+@xrefautomaticsectiontitle on
+@xref{node before}.
+@xref{after}.
+
+@xrefautomaticsectiontitle off
+@xref{node before}.
+@xref{after}.
+
+'],
 ['part_before_section',
 '@part part
 
@@ -2091,10 +2121,12 @@ my @xml_tests_cases_tests = ('part_before_section',
 'more_sections_than_nodes');
 
 my @latex_tests_cases_tests = ('loop_nodes', 'lone_Top_node',
- 'nodes_before_top', 'nodes_before_after_top');
+ 'nodes_before_top', 'nodes_before_after_top',
+ 'nodes_before_after_top_xref');
 
 my @file_latex_tests_cases_tests = ('loop_nodes', 'lone_Top_node',
- 'nodes_before_top', 'nodes_before_after_top');
+ 'nodes_before_top', 'nodes_before_after_top',
+ 'nodes_before_after_top_xref');
 
 foreach my $test (@test_cases) {
   push @{$test->[2]->{'test_formats'}}, 'xml'
