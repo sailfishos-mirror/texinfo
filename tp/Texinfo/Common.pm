@@ -2409,8 +2409,15 @@ sub _print_current($)
   my $args = '';
   my $contents = '';
   $args = "args(".scalar(@{$current->{'args'}}).')' if $current->{'args'};
-  $contents = "contents(".scalar(@{$current->{'contents'}}).')'
-    if $current->{'contents'};
+  if ($current->{'contents'}) {
+    if (ref($current->{'contents'}) ne 'ARRAY') {
+      # this is most probably a bug
+      $contents = "BUG: NOT array contents ".ref($current->{'contents'});
+    }
+    else {
+      $contents = "contents(".scalar(@{$current->{'contents'}}).')';
+    }
+  }
   if ("$cmd$type" ne '') {
     return "$cmd$type : $text $args $contents\n$parent_string";
   } else {
@@ -2737,7 +2744,7 @@ sub complete_indices {
   $self->{'documentlanguage'} = $save_lang;
 }
 
-# Called from Texinfo::Parser and Texinfo::XS::parsetexi::Parsetexi.
+# Called from Texinfo::ParserNonXS and Texinfo::XS::parsetexi::Parsetexi.
 sub labels_information
 {
   my $self = shift;
