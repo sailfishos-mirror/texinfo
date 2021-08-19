@@ -294,6 +294,12 @@ In figure
 @xref{my figure, two, three, four}.
 @xref{my figure, two, three, four, five}.
 
+@chapter lists
+
+@listoffloats 
+@listoffloats Figure
+@listoffloats Thing
+
 ']
 );
 

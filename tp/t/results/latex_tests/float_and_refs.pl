@@ -1713,6 +1713,143 @@ $result_trees{'float_and_refs'} = {
       },
       'number' => 2,
       'parent' => {}
+    },
+    {
+      'args' => [
+        {
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => 'lists'
+            }
+          ],
+          'extra' => {
+            'spaces_after_argument' => '
+'
+          },
+          'parent' => {},
+          'type' => 'line_arg'
+        }
+      ],
+      'cmdname' => 'chapter',
+      'contents' => [
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'args' => [
+            {
+              'contents' => [],
+              'extra' => {
+                'spaces_after_argument' => ' 
+'
+              },
+              'parent' => {},
+              'type' => 'line_arg'
+            }
+          ],
+          'cmdname' => 'listoffloats',
+          'extra' => {
+            'type' => {
+              'normalized' => ''
+            }
+          },
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 49,
+            'macro' => ''
+          },
+          'parent' => {}
+        },
+        {
+          'args' => [
+            {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => 'Figure'
+                }
+              ],
+              'extra' => {
+                'spaces_after_argument' => '
+'
+              },
+              'parent' => {},
+              'type' => 'line_arg'
+            }
+          ],
+          'cmdname' => 'listoffloats',
+          'extra' => {
+            'spaces_before_argument' => ' ',
+            'type' => {
+              'content' => [
+                {}
+              ],
+              'normalized' => 'Figure'
+            }
+          },
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 50,
+            'macro' => ''
+          },
+          'parent' => {}
+        },
+        {
+          'args' => [
+            {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => 'Thing'
+                }
+              ],
+              'extra' => {
+                'spaces_after_argument' => '
+'
+              },
+              'parent' => {},
+              'type' => 'line_arg'
+            }
+          ],
+          'cmdname' => 'listoffloats',
+          'extra' => {
+            'spaces_before_argument' => ' ',
+            'type' => {
+              'content' => [
+                {}
+              ],
+              'normalized' => 'Thing'
+            }
+          },
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 51,
+            'macro' => ''
+          },
+          'parent' => {}
+        },
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        }
+      ],
+      'extra' => {
+        'spaces_before_argument' => ' '
+      },
+      'level' => 1,
+      'line_nr' => {
+        'file_name' => '',
+        'line_nr' => 47,
+        'macro' => ''
+      },
+      'number' => 3,
+      'parent' => {}
     }
   ],
   'type' => 'document_root'
@@ -1979,6 +2116,21 @@ $result_trees{'float_and_refs'}{'contents'}[5]{'contents'}[5]{'contents'}[9]{'pa
 $result_trees{'float_and_refs'}{'contents'}[5]{'contents'}[5]{'parent'} = $result_trees{'float_and_refs'}{'contents'}[5];
 $result_trees{'float_and_refs'}{'contents'}[5]{'contents'}[6]{'parent'} = $result_trees{'float_and_refs'}{'contents'}[5];
 $result_trees{'float_and_refs'}{'contents'}[5]{'parent'} = $result_trees{'float_and_refs'};
+$result_trees{'float_and_refs'}{'contents'}[6]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'float_and_refs'}{'contents'}[6]{'args'}[0];
+$result_trees{'float_and_refs'}{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'float_and_refs'}{'contents'}[6];
+$result_trees{'float_and_refs'}{'contents'}[6]{'contents'}[0]{'parent'} = $result_trees{'float_and_refs'}{'contents'}[6];
+$result_trees{'float_and_refs'}{'contents'}[6]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'float_and_refs'}{'contents'}[6]{'contents'}[1];
+$result_trees{'float_and_refs'}{'contents'}[6]{'contents'}[1]{'parent'} = $result_trees{'float_and_refs'}{'contents'}[6];
+$result_trees{'float_and_refs'}{'contents'}[6]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'float_and_refs'}{'contents'}[6]{'contents'}[2]{'args'}[0];
+$result_trees{'float_and_refs'}{'contents'}[6]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'float_and_refs'}{'contents'}[6]{'contents'}[2];
+$result_trees{'float_and_refs'}{'contents'}[6]{'contents'}[2]{'extra'}{'type'}{'content'}[0] = $result_trees{'float_and_refs'}{'contents'}[6]{'contents'}[2]{'args'}[0]{'contents'}[0];
+$result_trees{'float_and_refs'}{'contents'}[6]{'contents'}[2]{'parent'} = $result_trees{'float_and_refs'}{'contents'}[6];
+$result_trees{'float_and_refs'}{'contents'}[6]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'float_and_refs'}{'contents'}[6]{'contents'}[3]{'args'}[0];
+$result_trees{'float_and_refs'}{'contents'}[6]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'float_and_refs'}{'contents'}[6]{'contents'}[3];
+$result_trees{'float_and_refs'}{'contents'}[6]{'contents'}[3]{'extra'}{'type'}{'content'}[0] = $result_trees{'float_and_refs'}{'contents'}[6]{'contents'}[3]{'args'}[0]{'contents'}[0];
+$result_trees{'float_and_refs'}{'contents'}[6]{'contents'}[3]{'parent'} = $result_trees{'float_and_refs'}{'contents'}[6];
+$result_trees{'float_and_refs'}{'contents'}[6]{'contents'}[4]{'parent'} = $result_trees{'float_and_refs'}{'contents'}[6];
+$result_trees{'float_and_refs'}{'contents'}[6]{'parent'} = $result_trees{'float_and_refs'};
 
 $result_texis{'float_and_refs'} = '@setfilename float_and_refs.info
 
@@ -2026,6 +2178,12 @@ In figure
 @xref{my figure, two, three, four}.
 @xref{my figure, two, three, four, five}.
 
+@chapter lists
+
+@listoffloats 
+@listoffloats Figure
+@listoffloats Thing
+
 ';
 
 
@@ -2071,6 +2229,10 @@ my figure.
 my figure.
 my figure.
 my figure.
+
+3 lists
+*******
+
 
 ';
 
@@ -2120,6 +2282,18 @@ $result_sectioning{'float_and_refs'} = {
           'section_up' => {},
           'toplevel_prev' => {},
           'toplevel_up' => {}
+        },
+        {
+          'cmdname' => 'chapter',
+          'extra' => {
+            'spaces_before_argument' => ' '
+          },
+          'level' => 1,
+          'number' => 3,
+          'section_prev' => {},
+          'section_up' => {},
+          'toplevel_prev' => {},
+          'toplevel_up' => {}
         }
       ],
       'section_up' => {}
@@ -2133,6 +2307,10 @@ $result_sectioning{'float_and_refs'}{'section_childs'}[0]{'section_childs'}[1]{'
 $result_sectioning{'float_and_refs'}{'section_childs'}[0]{'section_childs'}[1]{'section_up'} = $result_sectioning{'float_and_refs'}{'section_childs'}[0];
 $result_sectioning{'float_and_refs'}{'section_childs'}[0]{'section_childs'}[1]{'toplevel_prev'} = $result_sectioning{'float_and_refs'}{'section_childs'}[0]{'section_childs'}[0];
 $result_sectioning{'float_and_refs'}{'section_childs'}[0]{'section_childs'}[1]{'toplevel_up'} = $result_sectioning{'float_and_refs'}{'section_childs'}[0];
+$result_sectioning{'float_and_refs'}{'section_childs'}[0]{'section_childs'}[2]{'section_prev'} = $result_sectioning{'float_and_refs'}{'section_childs'}[0]{'section_childs'}[1];
+$result_sectioning{'float_and_refs'}{'section_childs'}[0]{'section_childs'}[2]{'section_up'} = $result_sectioning{'float_and_refs'}{'section_childs'}[0];
+$result_sectioning{'float_and_refs'}{'section_childs'}[0]{'section_childs'}[2]{'toplevel_prev'} = $result_sectioning{'float_and_refs'}{'section_childs'}[0]{'section_childs'}[1];
+$result_sectioning{'float_and_refs'}{'section_childs'}[0]{'section_childs'}[2]{'toplevel_up'} = $result_sectioning{'float_and_refs'}{'section_childs'}[0];
 $result_sectioning{'float_and_refs'}{'section_childs'}[0]{'section_up'} = $result_sectioning{'float_and_refs'};
 
 $result_nodes{'float_and_refs'} = {
@@ -2359,6 +2537,12 @@ See \\hyperref[anchor:my-figure]{Figure~\\ref*{anchor:my-figure}}.
 See \\hyperref[anchor:my-figure]{three}.
 See Section ``three\'\' in \\texttt{four}.
 See Section ``three\'\' in \\textit{five}.
+
+\\chapter{lists}
+
+\\listof{TexinfoFloat}{}
+\\listoffigures
+\\listof{TexinfoFloatThing}{}
 
 ';
 
