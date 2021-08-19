@@ -63,7 +63,6 @@
 \begin{document}
 
 \frontmatter
-
 \begin{titlepage}
 \begingroup
 \newskip\titlepagetopglue \titlepagetopglue = 1.5in
@@ -71,10 +70,17 @@
 \setlength{\parindent}{0pt}
 % Leave some space at the very top of the page.
     \vglue\titlepagetopglue
-in titlepage
+{\huge \bfseries Some manual tested}
+
+\vskip 0pt plus 1filll
+\leftline{\Large \bfseries Some Author}%
 \endgroup
 \end{titlepage}
 \GNUTexinfosetsingleheader{}%
 \mainmatter
 
+\chapter{Chapter}
+\label{anchor:chapter}%
+
+In chapter
 \end{document}

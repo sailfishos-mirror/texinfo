@@ -135,7 +135,8 @@ my %letter_no_arg_commands = %Texinfo::Common::letter_no_arg_commands;
 foreach my $kept_command (keys(%informative_commands),
   keys(%default_index_commands),
   'verbatiminclude', 'insertcopying', 'xrefautomaticsectiontitle',
-  'listoffloats', 'printindex', 'indent', 'noindent', 'need', 'page') {
+  'listoffloats', 'printindex', 'indent', 'noindent', 'need', 'page',
+  'title', 'subtitle', 'author', 'vskip') {
   $formatting_misc_commands{$kept_command} = 1;
 }
 
@@ -513,6 +514,7 @@ sub converter_initialize($)
     'math_style' => [],
     'code' => 0,
     'dot_not_end_sentence' => 0,
+    'in_quotation' => 0,
     'type' => 'main'
   }];
 
@@ -622,6 +624,11 @@ sub _latex_header {
   #  $header .= "\\usepackage{shorttoc}\n";
   #}
   $header .= '
+% redefine the \mainmatter command such that it does not clear the page
+\makeatletter
+\renewcommand\mainmatter{\clearpage\@mainmattertrue\pagenumbering{arabic}}
+\makeatother
+
 % command that does nothing used to help with substitutions in commands
 \newcommand{\GNUTexinfoplaceholder}[1]{}
 
@@ -778,7 +785,7 @@ sub _set_chapter_new_page($$)
 
   # reset headings after titlepage only, or immediately
   # if there is no titlepage
-  if ((not  $self->{'extra'}->{'titlepage'})
+  if ((not $self->{'extra'}->{'titlepage'})
       or $self->{'titlepage_done'}) {
     $result .= _set_headings($self, 'on');
   }
@@ -972,6 +979,30 @@ sub _close_preformatted_stack($)
     }
   }
   return $result;
+}
+
+sub _title_font($$)
+{
+  my $self = shift;
+  my $root = shift;
+  # in Texinfo TeX seems a bit smaller, but LARGE seems too small
+  my $result = "{\\huge \\bfseries ";
+  $result .= _convert($self, {'contents' => $root->{'args'}->[0]->{'contents'}});
+  $result .= '}';
+  return $result;
+}
+
+sub _end_title_page($)
+{
+  my $self = shift;
+  # add a rule if there was a @title (same as in Texinfo TeX)
+  if ($self->{'titlepage_formatting'}->{'title'}) {
+    delete $self->{'titlepage_formatting'}->{'title'};
+    return '\vskip4pt \hrule height 2pt width \hsize
+  \vskip\titlepagebottomglue
+';
+  }
+  return '';
 }
 
 sub _printindex($$)
@@ -1381,6 +1412,7 @@ sub _convert($$)
            'math_style' => [],
            'code' => 0,
            'dot_not_end_sentence' => 0,
+           'in_quotation' => 0,
            'type' => 'footnote'
          };
       $result .= '\footnote{';
@@ -1522,7 +1554,7 @@ sub _convert($$)
           return $result;
         } else {
           # external ref
-          # TODO reference to manual file which seems to be implemented
+          # TODO hyper reference to manual file which seems to be implemented
           # in recent Texinfo TeX
           # TODO: should translate
           if ($command eq 'xref') {
@@ -1634,10 +1666,7 @@ sub _convert($$)
         }
       }
     } elsif ($command eq 'titlefont') {
-      $result .= "{\\Huge \\bfseries ";
-      $result .= $self->_convert({'contents'
-                                  => $root->{'args'}->[0]->{'contents'}});
-      $result .= '}';
+      $result .= _title_font($self, $root);
       return $result;
     } elsif ($command eq 'U') {
       my $arg;
@@ -1696,9 +1725,25 @@ sub _convert($$)
           or $command eq 'float') {
         push @{$self->{'style_context'}->[-1]->{'context'}}, $command;
       }
+      if ($command eq 'titlepage') {
+        # start a group such that the changes are forgotten when closed
+        # define glues dimensions that are used in titlepage formatting.
+        # taken from Texinfo TeX.
+        # FIXME replace \\newskip by \\newlen?
+        $result .= "\\begingroup
+\\newskip\\titlepagetopglue \\titlepagetopglue = 1.5in
+\\newskip\\titlepagebottomglue \\titlepagebottomglue = 2pc
+\\setlength{\\parindent}{0pt}\n";
+        $result .= "% Leave some space at the very top of the page.
+    \\vglue\\titlepagetopglue\n";
+        $self->{'titlepage_formatting'} = {'in_titlepage' => 1};
+      }
 
       if ($command eq 'quotation'
           or $command eq 'smallquotation') {
+        # this is only used to avoid @author converted as
+        # a @titlepage author, for a @quotation in @titlepage @author
+        $self->{'style_context'}->[-1]->{'in_quotation'} += 1;
         if ($root->{'args'} and $root->{'args'}->[0]
             and $root->{'args'}->[0]->{'contents'}
             and @{$root->{'args'}->[0]->{'contents'}}) {
@@ -1836,6 +1881,7 @@ sub _convert($$)
     } elsif ($command eq 'listoffloats') {
       return '';
     } elsif ($command eq 'page') {
+      $result .= _end_title_page($self);
       $result .= "\\newpage{}%\n";
       return $result;
     } elsif ($command eq 'indent') {
@@ -1863,6 +1909,46 @@ sub _convert($$)
       if ($root->{'extra'}->{'misc_args'}->[0]) {
         my $need_value = 0.001 * $root->{'extra'}->{'misc_args'}->[0];
         $result .= "\\needspace{${need_value}pt}%\n";
+      }
+      return $result;
+    } elsif ($command eq 'title') {
+      my $title_text = _title_font($self, $root);
+      #$result .= "\\begin{flushleft}\n";
+      #$result .= $title_text."\n";
+      #$result .= "\\end{flushleft}\n";
+      # FIXME In Texinfo TeX the interline space seems more even
+      $result .= "{\\raggedright $title_text}\n";
+      $result .= "\\vskip 4pt \\hrule height 4pt width \\hsize \\vskip 4pt\n";
+      $self->{'titlepage_formatting'}->{'title'} = 1;
+    } elsif ($command eq 'subtitle') {
+      my $subtitle_text = _convert($self,
+               {'contents' => $root->{'args'}->[0]->{'contents'}});
+      # too much vertical spacing
+      #$result .= "\\begin{flushright}\n";
+      #$result .= $subtitle_text."\n";
+      #$result .= "\\end{flushright}\n";
+      $result .= "\\rightline{$subtitle_text}\n";
+    } elsif ($command eq 'author') {
+      if ($self->{'titlepage_formatting'}->{'in_titlepage'}
+          and not $self->{'style_context'}->[-1]->{'in_quotation'}) {
+        if (not $self->{'titlepage_formatting'}->{'author'}) {
+          # first author, add space before
+          $self->{'titlepage_formatting'}->{'author'} = 1;
+          $result .= "\\vskip 0pt plus 1filll\n";
+        }
+        my $author_name = _convert($self,
+                       {'contents' => $root->{'args'}->[0]->{'contents'}});
+        # use \leftline as in Texinfo TeX
+        # FIXME In Texinfo TeX the interline space between @author lines
+        # seems better
+        $result .= "\\leftline{\\Large \\bfseries $author_name}%\n";
+        return $result;
+      }
+    } elsif ($command eq 'vskip') {
+      if ($root->{'extra'}->{'misc_args'}->[0]) {
+        # no need for space in front and end of line they are in the
+        # argument
+        $result .= "\\vskip$root->{'extra'}->{'misc_args'}->[0]";
       }
       return $result;
     } elsif ($command eq 'contents') {
@@ -2162,14 +2248,16 @@ sub _convert($$)
           $result .= _convert($self, $tree);
         }
       }
-    } elsif (($command eq 'quotation' 
-               or $command eq 'smallquotation')
-             and $root->{'extra'} and $root->{'extra'}->{'authors'}) {
-      foreach my $author (@{$root->{'extra'}->{'authors'}}) {
-        $result .= _convert($self, 
+    } elsif ($command eq 'quotation'
+               or $command eq 'smallquotation') {
+      if ($root->{'extra'} and $root->{'extra'}->{'authors'}) {
+        foreach my $author (@{$root->{'extra'}->{'authors'}}) {
+          $result .= _convert($self,
                  $self->gdt("\@center --- \@emph{{author}}\n",
                     {'author' => $author->{'args'}->[0]->{'contents'}}));
+        }
       }
+      $self->{'style_context'}->[-1]->{'in_quotation'} -= 1;
     }
  
     # close the contexts and register the cells
@@ -2192,6 +2280,11 @@ sub _convert($$)
       }
       my $old_math_style = pop @{$self->{'style_context'}->[-1]->{'math_style'}};
       die if ($old_math_style ne 'one-line');
+    }
+    if ($command eq 'titlepage') {
+      $result .= _end_title_page($self);
+      $result .= "\\endgroup\n";
+      $self->{'titlepage_formatting'}->{'in_titlepage'} = 0;
     }
     if ($LaTeX_block_commands{$command}) {
       $result .= "\\end{".$LaTeX_block_commands{$command}."}\n";

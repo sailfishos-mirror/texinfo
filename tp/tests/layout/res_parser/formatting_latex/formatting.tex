@@ -13,6 +13,11 @@
 \usepackage[hidelinks]{hyperref}
 \usepackage[utf8]{inputenc}
 
+% redefine the \mainmatter command such that it does not clear the page
+\makeatletter
+\renewcommand\mainmatter{\clearpage\@mainmattertrue\pagenumbering{arabic}}
+\makeatother
+
 % command that does nothing used to help with substitutions in commands
 \newcommand{\GNUTexinfoplaceholder}[1]{}
 
@@ -63,6 +68,19 @@
 
 
 \begin{titlepage}
+\begingroup
+\newskip\titlepagetopglue \titlepagetopglue = 1.5in
+\newskip\titlepagebottomglue \titlepagebottomglue = 2pc
+\setlength{\parindent}{0pt}
+% Leave some space at the very top of the page.
+    \vglue\titlepagetopglue
+{\raggedright {\huge \bfseries title --a}}
+\vskip 4pt \hrule height 4pt width \hsize \vskip 4pt
+\rightline{formatting subtitle --a}
+\rightline{subtitle 2 --a}
+\vskip 0pt plus 1filll
+\leftline{\Large \bfseries author1 --a with accents in name T\'{e}\c{c}a}%
+\leftline{\Large \bfseries author2 --a}%
 In titlepage
 
 <
@@ -209,7 +227,7 @@ but , ,\@
 \texttt{@t\{{-}{-}a\}} \texttt{{-}{-}a}
 \texttt{@sansserif\{{-}{-}a\}} \textsf{--a}
 \texttt{@slanted\{{-}{-}a\}} \textsl{--a}
-\texttt{@titlefont\{{-}{-}a\}} {\Huge \bfseries --a}
+\texttt{@titlefont\{{-}{-}a\}} {\huge \bfseries --a}
 \texttt{@indicateurl\{{-}{-}a\}} `\texttt{{-}{-}a}'
 \texttt{@uref\{{-}{-}a,{-}{-}b\}} \href{--a}{--b (\nolinkurl{--a})}
 \texttt{@uref\{{-}{-}a\}} \url{--a}
@@ -261,7 +279,10 @@ but , ,\@
 \texttt{@sp 2}\leavevmode{}\\
 \vskip 2\baselineskip %
 \texttt{@page}\leavevmode{}\\
+\vskip4pt \hrule height 2pt width \hsize
+  \vskip\titlepagebottomglue
 \newpage{}%
+\leftline{\Large \bfseries author}%
 
 \texttt{need 1002}
 \needspace{1.002pt}%
@@ -1015,7 +1036,7 @@ but , ,\@
 \texttt{@t\{{-}{-}a\}} \texttt{{-}{-}a}
 \texttt{@sansserif\{{-}{-}a\}} \textsf{--a}
 \texttt{@slanted\{{-}{-}a\}} \textsl{--a}
-\texttt{@titlefont\{{-}{-}a\}} {\Huge \bfseries --a}
+\texttt{@titlefont\{{-}{-}a\}} {\huge \bfseries --a}
 \texttt{@indicateurl\{{-}{-}a\}} `\texttt{{-}{-}a}'
 \texttt{@uref\{{-}{-}a,{-}{-}b\}} \href{--a}{--b (\nolinkurl{--a})}
 \texttt{@uref\{{-}{-}a\}} \url{--a}
@@ -1068,6 +1089,7 @@ but , ,\@
 \vskip 2\baselineskip %
 \texttt{@page}\leavevmode{}\\
 \newpage{}%
+\leftline{\Large \bfseries author}%
 
 \texttt{need 1002}
 \needspace{1.002pt}%
@@ -1673,6 +1695,7 @@ Various deff lines
 \texttt{@inforef\{\}} 
 
 
+\endgroup
 \end{titlepage}
 \GNUTexinfosetsingleheader{}%
 \mainmatter
@@ -1836,7 +1859,7 @@ but , ,\@
 \texttt{@t\{{-}{-}a\}} \texttt{{-}{-}a}
 \texttt{@sansserif\{{-}{-}a\}} \textsf{--a}
 \texttt{@slanted\{{-}{-}a\}} \textsl{--a}
-\texttt{@titlefont\{{-}{-}a\}} {\Huge \bfseries --a}
+\texttt{@titlefont\{{-}{-}a\}} {\huge \bfseries --a}
 \texttt{@indicateurl\{{-}{-}a\}} `\texttt{{-}{-}a}'
 \texttt{@uref\{{-}{-}a,{-}{-}b\}} \href{--a}{--b (\nolinkurl{--a})}
 \texttt{@uref\{{-}{-}a\}} \url{--a}
@@ -2641,7 +2664,7 @@ but , ,\@
 \texttt{@t\{{-}{-}a\}} \texttt{{-}{-}a}
 \texttt{@sansserif\{{-}{-}a\}} \textsf{--a}
 \texttt{@slanted\{{-}{-}a\}} \textsl{--a}
-\texttt{@titlefont\{{-}{-}a\}} {\Huge \bfseries --a}
+\texttt{@titlefont\{{-}{-}a\}} {\huge \bfseries --a}
 \texttt{@indicateurl\{{-}{-}a\}} `\texttt{{-}{-}a}'
 \texttt{@uref\{{-}{-}a,{-}{-}b\}} \href{--a}{--b (\nolinkurl{--a})}
 \texttt{@uref\{{-}{-}a\}} \url{--a}
@@ -3446,7 +3469,7 @@ but , ,\@
 \texttt{@t\{{-}{-}a\}} \texttt{{-}{-}a}
 \texttt{@sansserif\{{-}{-}a\}} \textsf{--a}
 \texttt{@slanted\{{-}{-}a\}} \textsl{--a}
-\texttt{@titlefont\{{-}{-}a\}} {\Huge \bfseries --a}
+\texttt{@titlefont\{{-}{-}a\}} {\huge \bfseries --a}
 \texttt{@indicateurl\{{-}{-}a\}} `\texttt{{-}{-}a}'
 \texttt{@uref\{{-}{-}a,{-}{-}b\}} \href{--a}{--b (\nolinkurl{--a})}
 \texttt{@uref\{{-}{-}a\}} \url{--a}

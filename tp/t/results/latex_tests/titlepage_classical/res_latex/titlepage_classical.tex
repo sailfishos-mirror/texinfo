@@ -64,6 +64,7 @@
 
 \frontmatter
 
+
 \begin{titlepage}
 \begingroup
 \newskip\titlepagetopglue \titlepagetopglue = 1.5in
@@ -71,10 +72,28 @@
 \setlength{\parindent}{0pt}
 % Leave some space at the very top of the page.
     \vglue\titlepagetopglue
-in titlepage
+{\raggedright {\huge \bfseries Some manual tested}}
+\vskip 4pt \hrule height 4pt width \hsize \vskip 4pt
+\rightline{Subtitle manual tested}
+\rightline{Subtitle 2 manual tested}
+\vskip 0pt plus 1filll
+\leftline{\Large \bfseries First author}%
+\leftline{\Large \bfseries Second author}%
+
+\vskip4pt \hrule height 2pt width \hsize
+  \vskip\titlepagebottomglue
+\newpage{}%
+\newpage{}%
+\vskip 0pt plus 1filll
+in Copying
 \endgroup
 \end{titlepage}
 \GNUTexinfosetsingleheader{}%
 \mainmatter
+
+\chapter{Chapter}
+\label{anchor:chapter}%
+
+In chapter
 
 \end{document}

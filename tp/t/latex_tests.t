@@ -134,6 +134,119 @@ In top
 
 in chap
 '],
+['titlepage_no_author',
+'@setfilename titlepage_no_author.info
+@titlepage
+@title Some manual tested
+@end titlepage
+
+@node Top
+@top section top
+
+@node chapter
+@chapter Chapter
+
+In chapter
+'],
+['titlepage_no_title',
+'@setfilename titlepage_no_title.info
+@titlepage
+@titlefont{Some manual tested}
+
+@author Some Author
+@end titlepage
+
+@node Top
+@top section top
+
+@node chapter
+@chapter Chapter
+
+In chapter
+'],
+['titlepage_long_title',
+'@setfilename titlepage_long_title.info
+@titlepage
+@title a title than is long, very long, veeeeeeeeeeeeeeeeery long, it seems to never stop and it is not so interesting only very long oh an end of line @* and the title continue and keep on being unfinished until it is the end
+
+@end titlepage
+
+@node Top
+@top section top
+
+@node chapter
+@chapter Chapter
+
+In chapter
+'],
+# FIXME texi2pdf output has a blank page after the main title page
+# thanks to the second page, while two newpage do not produce two pages
+['titlepage_classical',
+'@setfilename titlepage_classical.info
+
+@copying
+in Copying
+@end copying
+
+@titlepage
+@title Some manual tested
+@subtitle Subtitle manual tested
+@subtitle Subtitle 2 manual tested
+@author First author
+@author Second author
+
+@page
+@c The following two commands start the copyright page.
+@page
+@vskip 0pt plus 1filll
+@insertcopying
+@end titlepage
+
+@node Top
+@top section top
+
+@node chapter
+@chapter Chapter
+
+In chapter
+
+'],
+['titlepage_with_commands_classical',
+'@setfilename titlepage_with_commands_classical.info
+
+@copying
+in Copying
+@end copying
+
+@titlepage
+@title Some manual @* tested
+@subtitle Subtitle manual @* tested
+@subtitle Subtitle 2 manual @* tested
+@author First @* author
+@author Second @* author@footnote{Something
+about the address of author.
+
+Something about the life. 
+@displaymath
+\frac{a}{b}
+@end displaymath
+}
+@page
+@c The following two commands start the copyright page.
+@page
+@vskip 0pt plus 1filll
+@insertcopying
+@end titlepage
+
+@node Top
+@top section top
+
+@node chapter
+@chapter Chapter
+
+In chapter
+
+']
 );
 
 foreach my $test (@test_cases) {

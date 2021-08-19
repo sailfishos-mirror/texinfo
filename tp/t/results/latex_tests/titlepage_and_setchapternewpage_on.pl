@@ -190,7 +190,14 @@ $result_converted{'latex'}->{'titlepage_and_setchapternewpage_on'} = '\\makeatle
 \\makeatother
 
 \\begin{titlepage}
+\\begingroup
+\\newskip\\titlepagetopglue \\titlepagetopglue = 1.5in
+\\newskip\\titlepagebottomglue \\titlepagebottomglue = 2pc
+\\setlength{\\parindent}{0pt}
+% Leave some space at the very top of the page.
+    \\vglue\\titlepagetopglue
 in titlepage
+\\endgroup
 \\end{titlepage}
 \\GNUTexinfosetsingleheader{}%
 \\mainmatter
