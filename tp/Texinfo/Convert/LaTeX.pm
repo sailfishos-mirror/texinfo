@@ -56,10 +56,6 @@
 # Nothing specific is done for @headings singleafter and @headings doubleafter
 # compared to @headings single and @headings double
 #
-# two \newpage in titlepage do not cause one blank page.  See
-# titlepage_classical in t/latex_tests.t test result processed by 
-# pdflatex.
-# 
 # The \listof result does not seems very good.  Also it does not
 # use the type (name) of float.
 #
@@ -67,12 +63,33 @@
 # multiple @author is not as good as in Texinfo TeX output/
 # example titlepage_classical in t/latex_tests.t can show it.
 #
+# shorttitlepage in Texinfo TeX does not seem to break line.
+# Probably ok to do it
+#
 # for external references it seems that Texinfo TeX points to
 # a file. 
 #
 # Translations.   Need thinking.  In texi2any?  In LaTeX?  If in 
 # texi2any In general no need for something complex as gdt, as we 
 # can provide nice strings to be translated in LaTeX.
+# 
+# breaking in urls is not implemented, maybe there is some support
+# already in hyperref.  @urefbreakstyle, @/
+#
+# The support of \global\urefurlonlylinktrue would be rather easy,
+# but maybe need to make it a proper @-command.  Similar for
+# \global\def\linkcolor and \global\def\urlcolor.  There are options
+# for colors in hyperref, like linkbordercolor but it is unlear whether
+# it can be used to distinguish links and urls.
+#
+# There is something about form feeds to do.  There is some processing
+# of form feeds right now, which simply amounts to keeping them in
+# ignorable spaces (and with another condition that may not be relevant 
+# for LaTeX as the code comes from Plaintext). In the manual it is said
+# form feed (CTRL-l) characters in the input are handled as follows:
+#  in PDF/DVI
+#   In normal text, treated as ending any open paragraph; essentially ignored
+#   between paragraphs.
 
 package Texinfo::Convert::LaTeX;
 
@@ -154,7 +171,7 @@ foreach my $kept_command (keys(%informative_commands),
   keys(%default_index_commands),
   'verbatiminclude', 'insertcopying', 'xrefautomaticsectiontitle',
   'listoffloats', 'printindex', 'indent', 'noindent', 'need', 'page',
-  'title', 'subtitle', 'author', 'vskip') {
+  'shorttitlepage', 'title', 'subtitle', 'author', 'vskip') {
   $formatting_misc_commands{$kept_command} = 1;
 }
 
@@ -767,7 +784,8 @@ sub _latex_header {
   # setup headings before titlepage to have no headings
   # before titlepage.  They will be set to 'on' after
   # the titlepage if there is a titlepage
-  if (exists($self->{'extra'}->{'titlepage'})) {
+  if (exists($self->{'extra'}->{'titlepage'})
+      or exists($self->{'extra'}->{'shorttitlepage'})) {
     $header .= "% no headings before titlepage\n";
     $header .= _set_headings($self, 'off');
     $header .= "\n";
@@ -775,7 +793,8 @@ sub _latex_header {
   $header .= 
 '\begin{document}
 ';
-  if (exists($self->{'extra'}->{'titlepage'})) {
+  if (exists($self->{'extra'}->{'titlepage'})
+      or exists($self->{'extra'}->{'shorttitlepage'})) {
     $header .= "\n\\frontmatter\n";
   }
   return $header;
@@ -874,7 +893,8 @@ sub _set_chapter_new_page($$)
 
   # reset headings after titlepage only, or immediately
   # if there is no titlepage
-  if ((not $self->{'extra'}->{'titlepage'})
+  if ((not $self->{'extra'}->{'titlepage'}
+       and not $self->{'extra'}->{'shorttitlepage'})
       or $self->{'titlepage_done'}) {
     $result .= _set_headings($self, 'on');
   }
@@ -2030,7 +2050,8 @@ sub _convert($$)
       return $result;
     } elsif ($command eq 'page') {
       $result .= _end_title_page($self);
-      $result .= "\\newpage{}%\n";
+      # the phantom is added such that successive new pages create blank pages
+      $result .= "\\newpage{}%\n\\phantom{blabla}%\n";
       return $result;
     } elsif ($command eq 'indent') {
       # TODO it seems that \indent only works with \setlength{\parindent}{0pt}
@@ -2059,6 +2080,12 @@ sub _convert($$)
         $result .= "\\needspace{${need_value}pt}%\n";
       }
       return $result;
+    } elsif ($command eq 'shorttitlepage') {
+      my $title_text = _title_font($self, $root);
+      $result .= "{\\raggedright $title_text}\n";
+      # first newpage ends the title page, phantom and second newpage
+      # adds a blank page
+      $result .= "\\newpage{}\n\\phantom{blabla}\\newpage{}\n";
     } elsif ($command eq 'title') {
       my $title_text = _title_font($self, $root);
       #$result .= "\\begin{flushleft}\n";
@@ -2441,7 +2468,7 @@ sub _convert($$)
       $result .= _close_preformatted();
     }
     # as explained in the Texinfo manual start headers after titlepage
-    if ($command eq 'titlepage') {
+    if ($command eq 'titlepage' or $command eq 'shorttitlepage') {
       $result .= _set_headings($self, 'on');
       $self->{'titlepage_done'} = 1;
       $result .= "\\mainmatter\n";

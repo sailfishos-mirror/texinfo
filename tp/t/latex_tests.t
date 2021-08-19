@@ -134,6 +134,19 @@ In top
 
 in chap
 '],
+['shorttitlepage',
+'@setfilename shorttitlepage.info
+
+@shorttitlepage the title with shorttitlepage @* it can be long
+
+@node Top
+@top section top
+
+@node chapter
+@chapter Chapter
+
+In chapter
+'],
 ['titlepage_no_author',
 '@setfilename titlepage_no_author.info
 @titlepage
