@@ -9,11 +9,13 @@
 \usepackage{needspace}
 \usepackage{etoolbox}
 \usepackage{fancyhdr}
+\usepackage{float}
 % use hidelinks to remove boxes around links to be similar with Texinfo TeX
 \usepackage[hidelinks]{hyperref}
 \usepackage[utf8]{inputenc}
 
-% redefine the \mainmatter command such that it does not clear the page
+% redefine the \mainmatter command such that it does not clear page
+% as if in double page
 \makeatletter
 \renewcommand\mainmatter{\clearpage\@mainmattertrue\pagenumbering{arabic}}
 \makeatother

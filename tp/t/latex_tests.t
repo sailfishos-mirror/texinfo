@@ -246,6 +246,54 @@ Something about the life.
 
 In chapter
 
+'],
+['float_and_refs',
+'@setfilename float_and_refs.info
+
+@node Top
+@top top
+
+@node chapter
+@chapter chapter
+
+@float , no type
+no type
+@caption{no type float}
+@shortcaption{short no type float}
+@end float
+
+@float Thing, with type
+Something with
+@caption{with type float}
+@shortcaption{short with type float}
+@end float
+
+@float Figure, my figure
+In figure
+@caption{caption for figure}
+@shortcaption{short caption for figure}
+@end float
+
+@chapter refs
+
+@xref{no type}.
+@xref{no type, two}.
+@xref{no type, two, three}.
+@xref{no type, two, three, four}.
+@xref{no type, two, three, four, five}.
+
+@xref{with type}.
+@xref{with type, two}.
+@xref{with type, two, three}.
+@xref{with type, two, three, four}.
+@xref{with type, two, three, four, five}.
+
+@xref{my figure}.
+@xref{my figure, two}.
+@xref{my figure, two, three}.
+@xref{my figure, two, three, four}.
+@xref{my figure, two, three, four, five}.
+
 ']
 );
 

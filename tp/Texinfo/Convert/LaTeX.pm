@@ -236,6 +236,7 @@ my %LaTeX_no_arg_brace_commands = (
   },
   'math' => {
     # error in math with \TeX \LaTeX, spacing command used not allowed
+    # so use plain text
     'TeX' => 'TeX',
     'LaTeX' => 'LaTeX',
     'bullet' => '\bullet{}',
@@ -268,6 +269,8 @@ my %LaTeX_no_arg_brace_commands = (
   }
 );
 
+# the corresponding LaTeX commands can only appear in text mode
+# so we switch to text mode to output them if in math
 my %LaTeX_text_only_no_arg_brace_commands = (
   'exclamdown' => 'textexclamdown',
   'questiondown' => 'textquestiondown',
@@ -339,7 +342,7 @@ foreach my $accent_command (keys %{$LaTeX_accent_commands{'math'}}) {
 }
 
 my %ignored_commands = %ignored_misc_commands;
-foreach my $ignored_brace_commands ('caption', 'shortcaption', 
+foreach my $ignored_brace_commands (
   'sortas') {
   $ignored_commands{$ignored_brace_commands} = 1;
 }
@@ -492,6 +495,9 @@ my %defaults = (
   'documentlanguage'     => undef,
 
   'output_format'        => 'latex',
+
+  # FIXME any idea what could be used?
+  'floats_extension'     => 'tfl',
 );
 
 
@@ -509,15 +515,7 @@ sub converter_initialize($)
 {
   my $self = shift;
 
-  $self->{'style_context'} = [{
-    'context' => ['text'],
-    'math_style' => [],
-    'code' => 0,
-    'dot_not_end_sentence' => 0,
-    'in_quotation' => 0,
-    'type' => 'main'
-  }];
-
+  push_new_context($self, 'main');
   %{$self->{'ignored_types'}} = %ignored_types;
   %{$self->{'ignorable_space_types'}} = %ignorable_space_types;
   %{$self->{'ignored_commands'}} = %ignored_commands;
@@ -578,6 +576,56 @@ my %LaTeX_encoding_names_map = (
   'utf-8' => 'utf8',
 );
 
+sub push_new_context($$)
+{
+  my $self = shift;
+  my $context_name = shift;
+
+  push @{$self->{'style_context'}},
+     {
+       'context' => ['text'],
+       'math_style' => [],
+       'code' => 0,
+       'dot_not_end_sentence' => 0,
+       'in_quotation' => 0,
+       'type' => $context_name
+     };
+}
+
+my %LaTeX_floats = (
+ 'figure' => '\listoffigures',
+ 'table' => '\listoftables',
+);
+
+# associate float normalized types to latex float environment names
+sub _prepare_floats($) {
+  my $self = shift;
+  if ($self->{'floats'}) {
+    foreach my $normalized_float_type (sort(keys(%{$self->{'floats'}}))) {
+      my $latex_variable_float_name = $normalized_float_type;
+      # note that with that transformation, some float types
+      # may be put together
+      $latex_variable_float_name =~ s/[^a-zA-z]//g;
+      if (exists($LaTeX_floats{lc($latex_variable_float_name)})) {
+        $self->{'normalized_float_latex'}->{$normalized_float_type}
+          = lc($latex_variable_float_name);
+      } else {
+        # for floats without type, and to avoid name clashes
+        my $latex_float_name = 'TexinfoFloat'.$latex_variable_float_name;
+        if (exists($self->{'latex_floats'}->{$latex_float_name})) {
+          while (exists($self->{'latex_floats'}->{$latex_float_name})) {
+            $latex_float_name .= 'a';
+          }
+        }
+        $self->{'latex_floats'}->{$latex_float_name}
+          = $normalized_float_type;
+        $self->{'normalized_float_latex'}->{$normalized_float_type}
+          = $latex_float_name;
+      }
+    }
+  }
+}
+
 # ellipsis leaves less spacing after \dots in case it is followed
 # by punctuation. It does not seem to fix the @dots verusus @enddots issue
 # to be loaded after Babel if you are using the French option
@@ -607,6 +655,7 @@ sub _latex_header {
 \usepackage{needspace}
 \usepackage{etoolbox}
 \usepackage{fancyhdr}
+\usepackage{float}
 % use hidelinks to remove boxes around links to be similar with Texinfo TeX
 \usepackage[hidelinks]{hyperref}
 ';
@@ -623,8 +672,30 @@ sub _latex_header {
   #  # in texlive-latex-extra in debian
   #  $header .= "\\usepackage{shorttoc}\n";
   #}
+  if ($self->{'floats'}) {
+    foreach my $normalized_float_type (sort(keys(%{$self->{'normalized_float_latex'}}))) {
+      my $latex_float_name
+        = $self->{'normalized_float_latex'}->{$normalized_float_type};
+      if (not exists($LaTeX_floats{$latex_float_name})) {
+        my $float_type = '';
+        if ($normalized_float_type ne '') {
+          push_new_context($self, 'float_type '.$normalized_float_type);
+          my $float = $self->{'floats'}->{$normalized_float_type}->[0];
+          my $float_type_contents = $float->{'extra'}->{'type'}->{'content'};
+          my $float_type = _convert($self, {'contents' => $float_type_contents});
+          pop @{$self->{'style_context'}};
+        }
+        my $floats_extension = $self->{'floats_extension'};
+        $header .= "% new float for type `$normalized_float_type'\n";
+        $header .= "\\newfloat{$latex_float_name}{htb}{$floats_extension}[chapter]
+\\floatname{$latex_float_name}{$float_type}
+";
+      }
+    }
+  }
   $header .= '
-% redefine the \mainmatter command such that it does not clear the page
+% redefine the \mainmatter command such that it does not clear page
+% as if in double page
 \makeatletter
 \renewcommand\mainmatter{\clearpage\@mainmattertrue\pagenumbering{arabic}}
 \makeatother
@@ -809,6 +880,7 @@ sub _prepare_conversion($)
          {'contents' => $settitle_root->{'args'}->[0]->{'contents'}};
     }
   }
+  $self->_prepare_floats();
 }
 
 sub output($$)
@@ -1406,15 +1478,7 @@ sub _convert($$)
       }
       return '';
     } elsif ($command eq 'footnote') {
-      push @{$self->{'style_context'}},
-         {
-           'context' => ['text'],
-           'math_style' => [],
-           'code' => 0,
-           'dot_not_end_sentence' => 0,
-           'in_quotation' => 0,
-           'type' => 'footnote'
-         };
+      push_new_context($self, 'footnote');
       $result .= '\footnote{';
       $result .= $self->_convert($root->{'args'}->[0]); 
       $result .= '}';
@@ -1427,9 +1491,9 @@ sub _convert($$)
     } elsif ($ref_commands{$command}) {
       if (scalar(@{$root->{'args'}})) {
         my @args;
-        for my $a (@{$root->{'args'}}) {
-          if (defined $a->{'contents'} and @{$a->{'contents'}}) {
-            push @args, $a->{'contents'};
+        for my $arg (@{$root->{'args'}}) {
+          if (defined $arg->{'contents'} and @{$arg->{'contents'}}) {
+            push @args, $arg->{'contents'};
           } else {
             push @args, undef;
           }
@@ -1490,8 +1554,7 @@ sub _convert($$)
           }
           # reference to a float with a label
           my $float_type;
-          if (! defined($args[2])
-              and $root->{'extra'}
+          if ($root->{'extra'}
               and $root->{'extra'}->{'label'}
               and $root->{'extra'}->{'label'}->{'cmdname'}
               and $root->{'extra'}->{'label'}->{'cmdname'} eq 'float') {
@@ -1515,7 +1578,7 @@ sub _convert($$)
           my $name;
           if (defined($args[2])) {
             $name = $args[2];
-          } else {
+          } elsif (not defined($float_type)) {
             if (defined($self->get_conf('xrefautomaticsectiontitle'))
                 and $self->get_conf('xrefautomaticsectiontitle') eq 'on'
                 and $section_command) {
@@ -1526,16 +1589,27 @@ sub _convert($$)
           }
           my $node_label = _tree_anchor_label($node_content);
 
-          my $name_text = _convert($self, {'contents' => $name});
+          my $name_text;
+          if (defined($name)) {
+            $name_text = _convert($self, {'contents' => $name});
+          }
 
           # FIXME translation
           if (defined($float_type)) {
             # no page for float reference in Texinfo TeX
-            $result .= $float_type." \\ref{$node_label}";
+            if (defined($name_text)) {
+              $result .= "\\hyperref[$node_label]{$name_text}";
+            } else {
+              if ($float_type ne '') {
+                $result .= "\\hyperref[$node_label]{$float_type~\\ref*{$node_label}}";
+              } else {
+                $result .= "\\hyperref[$node_label]{\\ref*{$node_label}}";
+              }
+            }
           } else {
             # FIXME seems like a , should be added last, but only if not
-            # followed by punctualtion which means a painful look ahead
-            # code to do...
+            # followed by punctuation which means a painful look ahead
+            # code to do...  From the Texinfo manual:
             # When processing with TeX, a comma is automatically inserted after the page number
             # for cross-references to within the same manual, unless the closing brace of the argument
             # is followed by non-whitespace (such as a comma or period).
@@ -1665,6 +1739,40 @@ sub _convert($$)
           $result .= "\$\$\n";
         }
       }
+    } elsif ($command eq 'caption' or $command eq 'shortcaption') {
+      if (not defined($root->{'extra'})
+          or not defined($root->{'extra'}->{'float'})) {
+        return '';
+      }
+      my $float = $root->{'extra'}->{'float'};
+      my $shortcaption;
+      if ($command eq 'shortcaption') {
+        if ($float->{'extra'}->{'caption'}) {
+          # nothing to do, will do @caption
+          return '';
+        } else {
+          # shortcaption used as caption;
+        }
+      } else {
+        if ($float->{'extra'}->{'shortcaption'}) {
+          $shortcaption = $float->{'extra'}->{'shortcaption'};
+        }
+      }
+      push_new_context($self, 'latex_caption');
+      my $caption_text = _convert($self,
+         {'contents' => $root->{'args'}->[0]->{'contents'}});
+      pop @{$self->{'style_context'}};
+      
+      $result .= '\caption';
+
+      if (defined($shortcaption)) {
+        push_new_context($self, 'latex_shortcaption');
+        my $shortcaption_text = _convert($self, 
+                       {'contents' => $shortcaption->{'args'}->[0]->{'contents'}});
+        pop @{$self->{'style_context'}};
+        $result .= '['.$shortcaption_text.']';
+      }
+      $result .= "{$caption_text}\n";
     } elsif ($command eq 'titlefont') {
       $result .= _title_font($self, $root);
       return $result;
@@ -1721,14 +1829,13 @@ sub _convert($$)
       }
       if ($block_raw_commands{$command}) {
         push @{$self->{'style_context'}->[-1]->{'context'}}, 'raw';
-      } elsif ($preformatted_commands{$command}
-          or $command eq 'float') {
+      } elsif ($preformatted_commands{$command}) {
         push @{$self->{'style_context'}->[-1]->{'context'}}, $command;
       }
       if ($command eq 'titlepage') {
         # start a group such that the changes are forgotten when closed
         # define glues dimensions that are used in titlepage formatting.
-        # taken from Texinfo TeX.
+        # Taken from Texinfo TeX.
         # FIXME replace \\newskip by \\newlen?
         $result .= "\\begingroup
 \\newskip\\titlepagetopglue \\titlepagetopglue = 1.5in
@@ -1763,12 +1870,18 @@ sub _convert($$)
           }
         }
       } elsif ($command eq 'float') {
-        $result .= "\n";
-        if ($root->{'extra'} and $root->{'extra'}->{'node_content'}) {
-          my $float_label
-            = _tree_anchor_label($root->{'extra'}->{'node_content'});
-          $result .= "\\label{$float_label}%\n";
+        #$result .= "\n";
+        my $normalized_float_type = '';
+        if ($root->{'extra'}->{'type'}) {
+          $normalized_float_type = $root->{'extra'}->{'type'}->{'normalized'};
         }
+        if (not exists($self->{'normalized_float_latex'}->{$normalized_float_type})) {
+          cluck("\@float $normalized_float_type: not found\n");
+          return '';
+        }
+        my $latex_float_name = $self->{'normalized_float_latex'}->{$normalized_float_type};
+        push_new_context($self, 'float'.$latex_float_name);
+        $result .= "\\begin{$latex_float_name}\n";
       }
     } elsif ($command eq 'node') {
       # add the label only if not associated with a section
@@ -1879,7 +1992,24 @@ sub _convert($$)
       $result = $self->_printindex($root);
       return $result;
     } elsif ($command eq 'listoffloats') {
-      return '';
+      if ($root->{'extra'} and $root->{'extra'}->{'type'}
+          and defined($root->{'extra'}->{'type'}->{'normalized'})
+          and $self->{'floats'}
+          and $self->{'floats'}->{$root->{'extra'}->{'type'}->{'normalized'}}
+          and @{$self->{'floats'}->{$root->{'extra'}->{'type'}->{'normalized'}}}) {
+        my $normalized_float_type = $root->{'extra'}->{'type'}->{'normalized'};
+        if (not exists($self->{'normalized_float_latex'}->{$normalized_float_type})) {
+          cluck("\@listoffloats $normalized_float_type: not found\n");
+          return '';
+        }
+        my $latex_float_name = $self->{'normalized_float_latex'}->{$normalized_float_type};
+        if (exists($LaTeX_floats{$latex_float_name})) {
+          $result .= $LaTeX_floats{$latex_float_name}."\n";
+        } else {
+          $result .= "\\listof{$latex_float_name}{}\n";
+        }
+      }
+      return $result;
     } elsif ($command eq 'page') {
       $result .= _end_title_page($self);
       $result .= "\\newpage{}%\n";
@@ -1918,12 +2048,13 @@ sub _convert($$)
       #$result .= "\\end{flushleft}\n";
       # FIXME In Texinfo TeX the interline space seems more even
       $result .= "{\\raggedright $title_text}\n";
+      # same formatting for the rule as in Texinfo TeX
       $result .= "\\vskip 4pt \\hrule height 4pt width \\hsize \\vskip 4pt\n";
       $self->{'titlepage_formatting'}->{'title'} = 1;
     } elsif ($command eq 'subtitle') {
       my $subtitle_text = _convert($self,
                {'contents' => $root->{'args'}->[0]->{'contents'}});
-      # too much vertical spacing
+      # too much vertical spacing with flushright environment
       #$result .= "\\begin{flushright}\n";
       #$result .= $subtitle_text."\n";
       #$result .= "\\end{flushright}\n";
@@ -2231,23 +2362,25 @@ sub _convert($$)
   # close commands
   if ($command) {
     if ($command eq 'float') {
-      if ($root->{'extra'}
-          and ($root->{'extra'}->{'type'}->{'normalized'} ne '' 
-               or defined($root->{'number'})
-               or $root->{'extra'}->{'caption'} or $root->{'extra'}->{'shortcaption'})) {
-        
-        $result .= "\n";
-        my ($caption, $prepended) = Texinfo::Common::float_name_caption($self,
-                                                                        $root);
-        if ($prepended) {
-          my $float_number = $self->_convert($prepended);
-          $result .= $float_number;
-        }
-        if ($caption) {
-          my $tree = $caption->{'args'}->[0];
-          $result .= _convert($self, $tree);
-        }
+      my $normalized_float_type = '';
+      if ($root->{'extra'}->{'type'}) {
+        $normalized_float_type = $root->{'extra'}->{'type'}->{'normalized'};
       }
+      # this should never happen as we returned at the command
+      # open.  If this happens it means that the tree has been modified...
+      if (not exists($self->{'normalized_float_latex'}->{$normalized_float_type})) {
+        confess("\@float $normalized_float_type: not found\n");
+      }
+      # do that at the end of the float to be sure that it is after
+      # the caption
+      if ($root->{'extra'} and $root->{'extra'}->{'node_content'}) {
+        my $float_label
+          = _tree_anchor_label($root->{'extra'}->{'node_content'});
+        $result .= "\\label{$float_label}%\n";
+      }
+      my $latex_float_name = $self->{'normalized_float_latex'}->{$normalized_float_type};
+      $result .= "\\end{$latex_float_name}\n";
+      pop @{$self->{'style_context'}};
     } elsif ($command eq 'quotation'
                or $command eq 'smallquotation') {
       if ($root->{'extra'} and $root->{'extra'}->{'authors'}) {
@@ -2261,12 +2394,10 @@ sub _convert($$)
     }
  
     # close the contexts and register the cells
-    if ($preformatted_commands{$command}
-        or $command eq 'float') {
+    if ($preformatted_commands{$command}) {
       my $old_context = pop @{$self->{'style_context'}->[-1]->{'context'}};
       die "Not a preformatted context: $old_context"
-        if (!$preformatted_commands{$old_context}
-            and $old_context ne 'float');
+        if (!$preformatted_commands{$old_context});
     } elsif ($block_raw_commands{$command}) {
       my $old_context = pop @{$self->{'style_context'}->[-1]->{'context'}};
       die if ($old_context ne 'raw');
