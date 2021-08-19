@@ -1309,35 +1309,35 @@ sub _convert($$)
       }
       return $result;
     } elsif ($command eq 'email') {
-      # nothing is output for email, instead the command is substituted.
-      my @email_contents;
       if ($root->{'args'}) {
         my $name;
+        my $converted_name;
         my $email;
+        my $email_text;
         if (scalar (@{$root->{'args'}}) == 2
             and defined($root->{'args'}->[1])
             and @{$root->{'args'}->[1]->{'contents'}}) {
           $name = $root->{'args'}->[1]->{'contents'};
+          $converted_name = _convert($self, {'contents' => $name});
         }
         if (defined($root->{'args'}->[0])
             and @{$root->{'args'}->[0]->{'contents'}}) {
           $email = $root->{'args'}->[0]->{'contents'};
+          $email_text 
+            = $self->_protect_url(Texinfo::Convert::Text::convert_to_text(
+                                       {'contents' => $email},
+                                       {'code' => 1,
+                                Texinfo::Common::_convert_text_options($self)}));
         }
-        my $prepended;
         if ($name and $email) {
-          $prepended = $self->gdt('{name} @url{{email}}', 
-                           {'name' => $name, 'email' => $email});
+          $result .= "\\href{mailto:$email_text}{$converted_name}";
         } elsif ($email) {
-          $prepended = $self->gdt('@url{{email}}', 
-                           {'email' => $email});
+          $result .= "\\href{mailto:$email_text}{\\nolinkurl{$email_text}}";
         } elsif ($name) {
-          $prepended = {'contents' => $name};
-        } else {
-          return '';
+          $result .= $converted_name;
         }
-        unshift @{$self->{'current_contents'}->[-1]}, $prepended;
       }
-      return '';
+      return $result;
     } elsif ($command eq 'uref' or $command eq 'url') {
       if ($root->{'args'}) {
         if (scalar(@{$root->{'args'}}) == 3
