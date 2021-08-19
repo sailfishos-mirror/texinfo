@@ -192,8 +192,6 @@ In chapter
 
 In chapter
 '],
-# FIXME texi2pdf output has a blank page after the main title page
-# thanks to the second page, while two newpage do not produce two pages
 ['titlepage_classical',
 '@setfilename titlepage_classical.info
 
@@ -313,6 +311,43 @@ In figure
 @listoffloats Figure
 @listoffloats Thing
 
+'],
+['anchor_links_xref_xrefautomaticsectiontitle',
+'@setfilename anchor_links_xref_xrefautomaticsectiontitle.info
+
+@node node before
+
+In node before
+@anchor{anch: in node before}
+
+@node Top
+@top top sectionning
+
+in node Top
+@anchor{anch: in node top}
+
+@node after
+
+in node after
+@anchor{anch: in node after}
+
+@node chap
+@chapter chap
+
+in chap
+@anchor{anch: in chap}
+
+@xrefautomaticsectiontitle on
+@xref{anch: in node before}.
+@xref{anch: in node top}.
+@xref{anch: in node after}.
+@xref{anch: in chap}.
+
+@xrefautomaticsectiontitle off
+@xref{anch: in node before}.
+@xref{anch: in node top}.
+@xref{anch: in node after}.
+@xref{anch: in chap}.
 ']
 );
 

@@ -1628,21 +1628,21 @@ sub _convert($$)
           # the same, but for node_content $root->{'extra'}->{'label'}
           # is used, while above $self->{'labels'} is used.  It could be better
           # to be consistent
-          my $node
+          my $reference
            = $self->{'labels'}->{$root->{'extra'}->{'node_argument'}->{'normalized'}};
-          my $node_content;
+          my $reference_node_content;
           if ($root->{'extra'}
               and $root->{'extra'}->{'label'}) {
-            $node_content = $root->{'extra'}->{'label'}->{'extra'}->{'node_content'};
+            $reference_node_content = $root->{'extra'}->{'label'}->{'extra'}->{'node_content'};
           } else {
             # FIXME this is probably impossible
-            $node_content = $args[0];
+            $reference_node_content = $args[0];
           }
           
           my $section_command;
-          if ($node->{'extra'}->{'associated_section'}) {
-            $section_command = $node->{'extra'}->{'associated_section'};
-          } elsif ($node->{'cmdname'} ne 'float') {
+          if ($reference->{'extra'}->{'associated_section'}) {
+            $section_command = $reference->{'extra'}->{'associated_section'};
+          } elsif ($reference->{'cmdname'} ne 'float') {
             my $normalized_name
               = $root->{'extra'}->{'node_argument'}->{'normalized'};
             if ($self->{'normalized_nodes_associated_section'}
@@ -1650,19 +1650,42 @@ sub _convert($$)
               $section_command
                 = $self->{'normalized_nodes_associated_section'}->{$normalized_name}; 
             } else {
-              print STDERR "BUG/TODO assoc ".$node->{'cmdname'}.": $normalized_name: ".join("|", sort(keys(%{$node->{'extra'}})))."\n";
+              # an anchor.  Find associated section using top level parent @-command
+              my $current_root = $reference;
+              while ($current_root->{'parent'}) {
+                $current_root = $current_root->{'parent'};
+                if ($current_root->{'cmdname'}
+                    and $root_commands{$current_root->{'cmdname'}}) {
+                  if ($current_root->{'cmdname'} ne 'node') {
+                    $section_command = $current_root;
+                  } else {
+                    if ($current_root->{'extra'}->{'associated_section'}) {
+                      $section_command = $current_root->{'extra'}->{'associated_section'};
+                    } elsif (exists($current_root->{'extra'}->{'normalized'})
+                             and $self->{'normalized_nodes_associated_section'}->{$current_root->{'extra'}->{'normalized'}}) {
+                      $section_command
+                        = $self->{'normalized_nodes_associated_section'}->{$current_root->{'extra'}->{'normalized'}};
+                    }
+                  }
+                  last;
+                }
+              }
+              if (defined($section_command)) {
+                # set the association with anchor
+                $self->{'normalized_nodes_associated_section'}->{$normalized_name}
+                  = $section_command;
+              } else {
+                print STDERR "BUG/TODO assoc ".$reference->{'cmdname'}.": $normalized_name: ".join("|", sort(keys(%{$reference->{'extra'}})))."\n";
+              }
             }
           }
           # reference to a float with a label
           my $float_type;
-          if ($root->{'extra'}
-              and $root->{'extra'}->{'label'}
-              and $root->{'extra'}->{'label'}->{'cmdname'}
-              and $root->{'extra'}->{'label'}->{'cmdname'} eq 'float') {
-            my $float = $root->{'extra'}->{'label'};
-            if ($float->{'extra'}->{'type'}
-                and $float->{'extra'}->{'type'}->{'normalized'} ne '') {
-              my $float_type_contents = $float->{'extra'}->{'type'}->{'content'};
+          if (exists($reference->{'cmdname'})
+              and $reference->{'cmdname'} eq 'float') {
+            if ($reference->{'extra'}->{'type'}
+                and $reference->{'extra'}->{'type'}->{'normalized'} ne '') {
+              my $float_type_contents = $reference->{'extra'}->{'type'}->{'content'};
               $float_type = _convert($self, {'contents' => $float_type_contents});
             } else {
               $float_type = '';
@@ -1685,10 +1708,10 @@ sub _convert($$)
                 and $section_command) {
               $name = $section_command->{'args'}->[0]->{'contents'};
             } else {
-              $name = $node_content;
+              $name = $reference_node_content;
             }
           }
-          my $node_label = _tree_anchor_label($node_content);
+          my $reference_label = _tree_anchor_label($reference_node_content);
 
           my $name_text;
           if (defined($name)) {
@@ -1699,12 +1722,12 @@ sub _convert($$)
           if (defined($float_type)) {
             # no page for float reference in Texinfo TeX
             if (defined($name_text)) {
-              $result .= "\\hyperref[$node_label]{$name_text}";
+              $result .= "\\hyperref[$reference_label]{$name_text}";
             } else {
               if ($float_type ne '') {
-                $result .= "\\hyperref[$node_label]{$float_type~\\ref*{$node_label}}";
+                $result .= "\\hyperref[$reference_label]{$float_type~\\ref*{$reference_label}}";
               } else {
-                $result .= "\\hyperref[$node_label]{\\ref*{$node_label}}";
+                $result .= "\\hyperref[$reference_label]{\\ref*{$reference_label}}";
               }
             }
           } else {
@@ -1716,14 +1739,16 @@ sub _convert($$)
             # is followed by non-whitespace (such as a comma or period).
             # 
             # If an unwanted comma is added, follow the argument with a command such as @:
-            if ($section_command) {
+            if ($reference->{'cmdname'} and $reference->{'cmdname'} eq 'node'
+                and $section_command) {
               if ($section_command->{'level'} > 1) {
-                $result .= "\\hyperref[$node_label]{Section~\\ref*{$node_label} [$name_text], page~\\pageref*{$node_label}}";
+                $result .= "\\hyperref[$reference_label]{Section~\\ref*{$reference_label} [$name_text], page~\\pageref*{$reference_label}}";
               } else {
-                $result .= "\\hyperref[$node_label]{Chapter~\\ref*{$node_label} [$name_text], page~\\pageref*{$node_label}}";
+                $result .= "\\hyperref[$reference_label]{Chapter~\\ref*{$reference_label} [$name_text], page~\\pageref*{$reference_label}}";
               }
             } else {
-              $result .= "\\hyperref[$node_label]{\\ref*{$node_label} [$name_text], page~\\pageref*{$node_label}}";
+              # anchor
+              $result .= "\\hyperref[$reference_label]{[$name_text], page~\\pageref*{$reference_label}}";
             }
           }
           return $result;
