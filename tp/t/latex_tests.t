@@ -348,7 +348,38 @@ in chap
 @xref{anch: in node top}.
 @xref{anch: in node after}.
 @xref{anch: in chap}.
-']
+'],
+['fonttextsize',
+'@setfilename fonttextsize.info
+
+@fonttextsize 10
+
+@node Top
+@top section top
+
+@node chapter
+@chapter Chapter
+
+@section section
+
+@subsection Subsection 10pts
+In 10pts
+
+@fonttextsize 11
+@subsection Subsection 11pts
+
+In 11pts
+
+@fonttextsize 8
+@subsection Subsection 8pts
+
+In 8pts
+
+@fonttextsize 15
+@subsection Subsection 15pts
+
+In 15pts
+'],
 );
 
 foreach my $test (@test_cases) {

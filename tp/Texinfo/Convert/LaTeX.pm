@@ -16,6 +16,9 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 # TODO
+#
+# Use texinfo.cnf?  Here?  in texi2any.pl?
+#
 # @shortcontent is not implemented.  Tried shorttoc package but it
 # has two limitations that are not in Texinfo, need a main \tableofcontents
 # and need to be before @contents.  A code snippet looked good for a
@@ -75,6 +78,9 @@
 # 
 # breaking in urls is not implemented, maybe there is some support
 # already in hyperref.  @urefbreakstyle, @/
+# 
+# Breaking in _ or - in @code is not implemented, as well as
+# @allowcodebreaks.
 #
 # The support of \global\urefurlonlylinktrue would be rather easy,
 # but maybe need to make it a proper @-command.  Similar for
@@ -97,6 +103,9 @@
 # commands in LaTeX generate bigger fonts and much more vertical whitespace
 # than in Texinfo TeX so maybe it is not needed to do something here.
 #
+# @fonttextsize with \changefontsize does not seems to change fonts much.
+# It seems to change in the text, but only 10pt, and does not seems to
+# change sections font sizes.
 
 package Texinfo::Convert::LaTeX;
 
@@ -141,7 +150,7 @@ my @informative_global_commands = ('paragraphindent', 'firstparagraphindent',
 'frenchspacing', 'documentencoding', 'footnotestyle', 'documentlanguage',
 'contents', 'shortcontents', 'summarycontents', 'deftypefnnewline',
 'allowcodebreaks', 'kbdinputstyle', 'setchapternewpage', 'headings',
-'xrefautomaticsectiontitle');
+'xrefautomaticsectiontitle', 'fonttextsize');
 
 my %informative_commands;
 foreach my $informative_command (@informative_global_commands) {
@@ -685,6 +694,7 @@ sub _latex_header {
   # graphicx for \includegraphics
   # needspace for \needspace. In texlive-latex-extra in debian
   # etoolbox for \patchcmd. In texlive-latex-recommended in debian
+  # fontsize for \changefontsize. In texlive-latex-extra in debian
   # \usepackage[linkbordercolor={0 0 0}]{hyperref}
   my $header = 
 '\documentclass{book}
@@ -697,6 +707,7 @@ sub _latex_header {
 \usepackage{graphicx}
 \usepackage{needspace}
 \usepackage{etoolbox}
+\usepackage{fontsize}
 \usepackage{fancyhdr}
 \usepackage{float}
 % use hidelinks to remove boxes around links to be similar with Texinfo TeX
@@ -2265,6 +2276,11 @@ sub _convert($$)
                and $root->{'extra'}->{'misc_args'}->[0]) {
         my $headings_spec = $root->{'extra'}->{'misc_args'}->[0];
         $result .= _set_headings($self, $headings_spec);
+      } elsif ($command eq 'fonttextsize'
+               and $root->{'extra'}->{'misc_args'}->[0]) {
+        my $fontsize = $root->{'extra'}->{'misc_args'}->[0];
+        # default dimension for changefontsize is pt
+        $result .= "\\changefontsize{$fontsize}\n";
       }
       return $result;
     } else {
