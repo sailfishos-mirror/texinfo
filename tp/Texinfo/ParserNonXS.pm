@@ -212,6 +212,7 @@ my %command_index             = %Texinfo::Common::command_index;
 my %ref_commands              = %Texinfo::Common::ref_commands;
 my %region_commands           = %Texinfo::Common::region_commands;
 my %code_style_commands       = %Texinfo::Common::code_style_commands;
+my %headings_specification_commands = %Texinfo::Common::headings_specification_commands;
 my %in_heading_commands       = %Texinfo::Common::in_heading_commands;
 my %in_index_commands         = %Texinfo::Common::in_index_commands;
 my %explained_commands        = %Texinfo::Common::explained_commands;
@@ -519,6 +520,12 @@ sub _top_context($)
 {
   my $self = shift;
   return $self->{'context_stack'}->[-1];
+}
+
+sub _top_context_command($)
+{
+  my $self = shift;
+  return $self->{'context_command_stack'}->[-1];
 }
 
 
@@ -4145,9 +4152,13 @@ sub _parse_texi($;$)
 
           if ($arg_spec eq 'noarg') {
             if ($in_heading_commands{$command}) {
-              $self->line_error(
-                sprintf(__("\@%s should only appear in heading or footing"),
+              # TODO use a more generic system for check of @-command nesting
+              # in command on context stack
+              if (not $headings_specification_commands{$self->_top_context_command}) {
+                $self->line_error(
+                  sprintf(__("\@%s should only appear in heading or footing"),
                         $command), $line_nr);
+              }
             }
             $misc = {'cmdname' => $command, 'parent' => $current};
             push @{$current->{'contents'}}, $misc;

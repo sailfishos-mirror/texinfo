@@ -1,5 +1,15 @@
 2021-08-21  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_top_context_command)
+	(_parse_texi),
+	tp/Texinfo/Common.pm (%headings_specification_commands):
+	use a list of headings specification @-commands and
+	a new function, _top_context_command() to determine if
+	rightly in a headings specification @-commands when seeing an
+	@-command in %in_heading_commands.
+
+2021-08-21  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_init_context_stack)
 	(_push_context, _pop_context, _get_context_stack)
 	(_top_context): use functions to encapsulate

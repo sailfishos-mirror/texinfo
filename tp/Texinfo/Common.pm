@@ -584,6 +584,11 @@ foreach my $in_heading_command ('thischapter', 'thischaptername',
   $other_commands{$in_heading_command} = 'noarg';
 }
 
+our %headings_specification_commands;
+foreach my $headings_specification_command ('everyheading', 'everyfooting',
+  'evenheading', 'evenfooting', 'oddheading', 'oddfooting') {
+  $headings_specification_commands{$headings_specification_command} = 1;
+}
 
 # only valid in index entries
 our %in_index_commands;
