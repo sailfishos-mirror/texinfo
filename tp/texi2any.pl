@@ -1315,12 +1315,16 @@ while(@input_files) {
 
     # it is not get_conf('FORMAT_MENU') but $parser_options as
     # $parser_options is set to the output default and then replaced
-    # with get_conf('FORMAT_MENU') is needed
-    if ($parser_options->{'FORMAT_MENU'} eq 'menu') {
+    # with get_conf('FORMAT_MENU') if needed.
+    # 'FORMAT_MENU' may not be defined in some special cases,
+    # for instance if format is structure.
+    if (not defined($parser_options->{'FORMAT_MENU'})
+        or $parser_options->{'FORMAT_MENU'} eq 'menu') {
       Texinfo::Structuring::set_menus_node_directions($parser);
     }
     $top_node = Texinfo::Structuring::nodes_tree($parser);
-    if ($parser_options->{'FORMAT_MENU'} eq 'menu') {
+    if (not defined($parser_options->{'FORMAT_MENU'})
+        or $parser_options->{'FORMAT_MENU'} eq 'menu') {
       Texinfo::Structuring::complete_node_tree_with_menus($parser, $top_node);
     }
   }
