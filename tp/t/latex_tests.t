@@ -380,6 +380,32 @@ In 8pts
 
 In 15pts
 '],
+['pagetype',
+'@setfilename pagetype.info
+
+@afourpaper
+
+@afourwide
+
+@node Top
+@top section top
+
+@node chapter
+@chapter Chapter
+
+@smallbook
+
+@Chapter In smallbook
+
+In smallbook
+@afourpaper
+
+After afourpaper
+
+@chapter afourpaper reset
+
+In afourpaper reset
+']
 );
 
 foreach my $test (@test_cases) {

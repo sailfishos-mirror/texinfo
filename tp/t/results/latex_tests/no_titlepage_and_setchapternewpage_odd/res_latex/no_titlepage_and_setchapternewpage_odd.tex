@@ -9,6 +9,7 @@
 \usepackage{needspace}
 \usepackage{etoolbox}
 \usepackage{fontsize}
+\usepackage{geometry}
 \usepackage{fancyhdr}
 \usepackage{float}
 % use hidelinks to remove boxes around links to be similar with Texinfo TeX
@@ -61,9 +62,9 @@
 \makeatother
 \GNUTexinfosetdoubleheader{No Title}%
 
-\begin{document}
 \makeatletter
 \patchcmd{\chapter}{\GNUTexinfoplaceholder{setchapternewpage placeholder}\clearpage}{\if@openright\cleardoublepage\else\clearpage\fi}{}{}
 \makeatother
 \GNUTexinfosetdoubleheader{No Title}%
+\begin{document}
 \end{document}

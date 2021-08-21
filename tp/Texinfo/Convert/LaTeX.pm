@@ -146,11 +146,24 @@ $VERSION = '6.8dev';
 # misc commands that are of use for formatting.
 my %formatting_misc_commands = %Texinfo::Convert::Text::formatting_misc_commands;
 
+my %paper_geometry_commands = (
+  'afourpaper' => 'papername=a4paper',
+  'afourlatex' => 'papername=a4paper',
+  'afourwide' => 'papername=a4paper',
+  'afivepaper' => 'papername=a5paper',
+  'bsixpaper' => 'papername=b6paper',
+  'smallbook' => 'paperheight=9.25in,paperwidth=7in',
+);
+
 my @informative_global_commands = ('paragraphindent', 'firstparagraphindent',
 'frenchspacing', 'documentencoding', 'footnotestyle', 'documentlanguage',
 'contents', 'shortcontents', 'summarycontents', 'deftypefnnewline',
 'allowcodebreaks', 'kbdinputstyle', 'setchapternewpage', 'headings',
-'xrefautomaticsectiontitle', 'fonttextsize');
+'xrefautomaticsectiontitle', 'fonttextsize', 'pagesizes',
+);
+# FIXME paper geometry commands are not in Texinfo::Common::document_settable_unique_at_commands
+# thus not in valid_options.
+#sort(keys(%paper_geometry_commands)));
 
 my %informative_commands;
 foreach my $informative_command (@informative_global_commands) {
@@ -184,8 +197,17 @@ my %preformatted_code_commands = %Texinfo::Common::preformatted_code_commands;
 my %default_index_commands = %Texinfo::Common::default_index_commands;
 my %letter_no_arg_commands = %Texinfo::Common::letter_no_arg_commands;
 
+# commands that can appear in preamble, before \begin{document}
+my %preamble_commands;
+foreach my $preamble_command ('hyphenation', 'anchor', 'errormsg',
+       'inlineraw', '*',
+       keys(%paper_geometry_commands), @informative_global_commands,
+       keys(%format_raw_commands), keys(%inline_commands)) {
+  $preamble_commands{$preamble_command} = 1;
+}
+
 foreach my $kept_command (keys(%informative_commands),
-  keys(%default_index_commands),
+  keys(%default_index_commands), keys(%paper_geometry_commands),
   'verbatiminclude', 'insertcopying',
   'listoffloats', 'printindex', 'indent', 'noindent', 'need', 'page',
   'shorttitlepage', 'title', 'subtitle', 'author', 'vskip') {
@@ -248,7 +270,6 @@ my %section_map = (
    'appendixsec' => 'section',
    'appendixsubsec' => 'subsection',
    'appendixsubsubsec' => 'subsubsection',
-
 );
 
 my %LaTeX_no_arg_brace_commands = (
@@ -567,7 +588,6 @@ sub converter_initialize($)
 {
   my $self = shift;
 
-  push_new_context($self, 'main');
   %{$self->{'ignored_types'}} = %ignored_types;
   %{$self->{'ignorable_space_types'}} = %ignorable_space_types;
   %{$self->{'ignored_commands'}} = %ignored_commands;
@@ -624,33 +644,14 @@ sub converter_initialize($)
   return $self;
 }
 
-my %LaTeX_encoding_names_map = (
-  'utf-8' => 'utf8',
-);
-
-sub push_new_context($$)
-{
-  my $self = shift;
-  my $context_name = shift;
-
-  push @{$self->{'style_context'}},
-     {
-       'context' => ['text'],
-       'math_style' => [],
-       'code' => 0,
-       'dot_not_end_sentence' => 0,
-       'in_quotation' => 0,
-       'type' => $context_name
-     };
-}
-
 my %LaTeX_floats = (
  'figure' => '\listoffigures',
  'table' => '\listoftables',
 );
 
 # associate float normalized types to latex float environment names
-sub _prepare_floats($) {
+sub _prepare_floats($)
+{
   my $self = shift;
   if ($self->{'floats'}) {
     foreach my $normalized_float_type (sort(keys(%{$self->{'floats'}}))) {
@@ -678,11 +679,218 @@ sub _prepare_floats($) {
   }
 }
 
+sub _prepare_conversion($;$)
+{
+  my $self = shift;
+  my $root = shift;
+
+  $self->_set_global_multiple_commands(-1);
+
+  if (defined($root)) {
+    $self->associate_other_nodes_to_sections($root);
+  }
+
+  if ($self->{'extra'}->{'settitle'}) {
+    my $settitle_root = $self->{'extra'}->{'settitle'};
+    if (not ($settitle_root->{'extra'}
+             and $settitle_root->{'extra'}->{'missing_argument'})) {
+      $self->{'settitle_tree'} =
+         {'contents' => $settitle_root->{'args'}->[0]->{'contents'}};
+    }
+  }
+  $self->_prepare_floats();
+}
+
+sub associate_other_nodes_to_sections($$)
+{
+  my ($self, $root) = @_;
+
+  # associate lone nodes with sectioning commands
+  my $additional_node_section_associations = {};
+
+  my $current_sectioning_command;
+  # nodes not already associated as no section has been seen,
+  # associate to the first section
+  my $pending_nodes = [];
+
+  foreach my $element_content (@{$root->{'contents'}}) {
+    if ($element_content->{'cmdname'}
+        and $element_content->{'cmdname'} eq 'node') {
+      if (not $element_content->{'extra'}->{'associated_section'}
+          and $element_content->{'extra'}->{'normalized'}) {
+        if (defined($current_sectioning_command)) {
+          $additional_node_section_associations->{$element_content->{'extra'}->{'normalized'}}
+            = $current_sectioning_command;
+        } else {
+          push @$pending_nodes, $element_content->{'extra'}->{'normalized'};
+        }
+      }
+    } elsif ($element_content->{'cmdname'}
+          and $root_commands{$element_content->{'cmdname'}}) {
+      $current_sectioning_command = $element_content;
+      if (scalar(@$pending_nodes)) {
+        foreach my $normalized_node_name (@$pending_nodes) {
+          $additional_node_section_associations->{$normalized_node_name}
+            = $current_sectioning_command
+        }
+        $pending_nodes = [];
+      }
+    }
+  }
+  $self->{'normalized_nodes_associated_section'}
+    = $additional_node_section_associations;
+}
+
+# added in the tree where the \begin{document} should be,
+# after the @-commands in preamble
+my $latex_document_type = '_latex_document';
+
+sub output($$)
+{
+  my ($self, $root) = @_;
+
+  $self->_set_outfile();
+  return undef unless $self->_create_destination_directory();
+
+  my $fh;
+  if (! $self->{'output_file'} eq '') {
+    $fh = $self->Texinfo::Common::open_out ($self->{'output_file'});
+    if (!$fh) {
+      $self->document_error(sprintf(__("could not open %s for writing: %s"),
+                                    $self->{'output_file'}, $!));
+      return undef;
+    }
+  }
+
+  # add one level if not a document_root, to always have
+  # the same tree structure
+  my $top_root;
+  if (not $root->{'type'} or $root->{'type'} ne 'document_root') {
+    $top_root = {'contents' => [$root]};
+  } else {
+    $top_root = $root;
+  }
+
+  # Ignore everything between Top node and the next node.
+  my $modified_top_root = {'contents' => []};
+
+  my $in_top_node = 0;
+  foreach my $element_content (@{$top_root->{'contents'}}) {
+    if ($element_content->{'cmdname'}
+        and $element_content->{'cmdname'} eq 'node') {
+      if ($element_content->{'extra'}->{'normalized'} eq 'Top') {
+        $in_top_node = 1;
+      } else {
+        if ($in_top_node) {
+          $in_top_node = 0;
+        }
+        push @{$modified_top_root->{'contents'}},
+          $element_content;
+      }
+    } elsif (not $in_top_node) {
+      push @{$modified_top_root->{'contents'}},
+        $element_content;
+    }
+  }
+
+  # split the first element of the tree in a content before
+  # document start and a new type where the document start.
+  # The document start at the first @-command that is some
+  # document text and not an informative @-command, or
+  # at the first paragraph.
+  my $begin_document_type = {'type' => $latex_document_type};
+  # already a top node sectioning or node command
+  if (defined($modified_top_root->{'contents'}->[0]->{'cmdname'})) {
+    unshift @{$modified_top_root->{'contents'}}, $begin_document_type;
+  } else {
+    my $first_element = shift @{$modified_top_root->{'contents'}};
+    my @first_element_contents = @{$first_element->{'contents'}};
+    my $new_first_element = {'contents' => []};
+    if ($first_element->{'type'}) {
+      $new_first_element->{'type'} = $first_element->{'type'};
+    }
+    while (scalar(@first_element_contents)) {
+      my $content = $first_element_contents[0];
+      if (($content->{'cmdname'}
+           and not $preamble_commands{$content->{'cmdname'}}
+           and not $self->{'ignored_commands'}->{$content->{'cmdname'}})
+          or ($content->{'type'} and $content->{'type'} eq 'paragraph')) {
+        last;
+      }
+      push @{$new_first_element->{'contents'}},
+             shift @first_element_contents;
+    }
+    $begin_document_type->{'contents'} = \@first_element_contents;
+    unshift @{$modified_top_root->{'contents'}},
+      ($new_first_element, $begin_document_type);
+  }
+
+  # nothing after Top node the end, mark that Top node is ignored.
+  if ($in_top_node) {
+    push @{$modified_top_root->{'contents'}},
+        {'type' => 'paragraph', 'contents' => [
+        {'text' => "\n(`Top' node ignored)\n", 'type' => 'ignored_top_node'}]};
+  }
+
+  my $result = '';
+
+  $self->_prepare_conversion($modified_top_root);
+
+  $result .= $self->_output_text($self->_latex_header(), $fh);
+  _push_new_context($self, 'main');
+  $result .= $self->_output_text($self->convert_tree($modified_top_root), $fh);
+  $result .= $self->_output_text($self->_latex_footer(), $fh);
+
+  #print $result;
+  if ($fh and $self->{'output_file'} ne '-') {
+    $self->register_close_file($self->{'output_file'});
+    if (!close ($fh)) {
+      $self->document_error(sprintf(__("error on closing %s: %s"),
+                                    $self->{'output_file'}, $!));
+    }
+  }
+  return $result;
+}
+
+# we allow the converter to already be in a context, but if
+# not create one.
+sub convert($$)
+{
+  my $self = shift;
+  my $root = shift;
+
+  $self->_prepare_conversion($root);
+
+  if (not exists($self->{'style_context'})
+      or scalar(@{$self->{'style_context'}}) == 0) {
+    _push_new_context($self, 'document');
+  }
+  
+  return $self->_convert($root);
+}
+
+# a context should have been set by the caller
+sub convert_tree($$)
+{
+  my $self = shift;
+  my $root = shift;
+
+  #print STDERR "* ".Texinfo::Common::_print_current($root)."\n";
+  #foreach my $content (@{$root->{'contents'}}) {
+  #  print STDERR "** ".Texinfo::Common::_print_current($content)."\n";
+  #}
+  return $self->_convert($root);
+}
+
 # ellipsis leaves less spacing after \dots in case it is followed
 # by punctuation. It does not seem to fix the @dots verusus @enddots issue
 # to be loaded after Babel if you are using the French option
 # FIXME use it anyway?
 # \usepackage{ellipsis}
+
+my %LaTeX_encoding_names_map = (
+  'utf-8' => 'utf8',
+);
 
 sub _latex_header {
   my $self = shift;
@@ -708,6 +916,7 @@ sub _latex_header {
 \usepackage{needspace}
 \usepackage{etoolbox}
 \usepackage{fontsize}
+\usepackage{geometry}
 \usepackage{fancyhdr}
 \usepackage{float}
 % use hidelinks to remove boxes around links to be similar with Texinfo TeX
@@ -733,11 +942,11 @@ sub _latex_header {
       if (not exists($LaTeX_floats{$latex_float_name})) {
         my $float_type = '';
         if ($normalized_float_type ne '') {
-          push_new_context($self, 'float_type '.$normalized_float_type);
+          _push_new_context($self, 'float_type '.$normalized_float_type);
           my $float = $self->{'floats'}->{$normalized_float_type}->[0];
           my $float_type_contents = $float->{'extra'}->{'type'}->{'content'};
           my $float_type = _convert($self, {'contents' => $float_type_contents});
-          pop @{$self->{'style_context'}};
+          $self->_pop_context();
         }
         my $floats_extension = $self->{'floats_extension'};
         $header .= "% new float for type `$normalized_float_type'\n";
@@ -809,20 +1018,86 @@ sub _latex_header {
     $header .= _set_headings($self, 'off');
     $header .= "\n";
   }
-  $header .= 
-'\begin{document}
+  return $header;
+}
+
+sub _begin_document($)
+{
+  my $self = shift;
+
+  my $result = '';
+  $result .= '\begin{document}
 ';
   if (exists($self->{'extra'}->{'titlepage'})
       or exists($self->{'extra'}->{'shorttitlepage'})) {
-    $header .= "\n\\frontmatter\n";
+    $result .= "\n\\frontmatter\n";
   }
-  return $header;
+  return $result;
 }
 
 sub _latex_footer {
   return
 '\end{document}
 ';
+}
+
+sub _push_new_context($$)
+{
+  my $self = shift;
+  my $context_name = shift;
+
+  push @{$self->{'style_context'}},
+     {
+       'context' => ['text'],
+       'math_style' => [],
+       'code' => 0,
+       'dot_not_end_sentence' => 0,
+       'in_quotation' => 0,
+       'type' => $context_name
+     };
+}
+
+sub _pop_context($)
+{
+  my $self = shift;
+  pop @{$self->{'style_context'}};
+}
+
+sub _protect_url($$)
+{
+  my ($self, $text) = @_;
+
+  $text =~ s/([{}\\#%])/\\$1/g;
+  return $text;
+}
+
+# Protect LaTeX special characters.
+sub _protect_text($$)
+{
+  my ($self, $text) = @_;
+
+  # FIXME are there some special characters to protect in math mode,
+  # for instance # and ~?
+  if ($self->{'style_context'}->[-1]->{'context'}->[-1] ne 'math'
+      and $self->{'style_context'}->[-1]->{'context'}->[-1] ne 'raw') {
+    # temporarily replace \ with a control character
+    $text =~ s/\\/\x08/g;
+
+    # replace the other special characters
+    $text =~ s/([#%&{}_\$])/\\$1/g;
+    $text =~ s/~/\\~{}/g;
+    $text =~ s/\^/\\^{}/g;
+
+    $text =~ s/\x08/\\textbackslash{}/g;
+    if ($self->{'style_context'}->[-1]->{'code'}) {
+      $text =~ s/---/{-}{-}{-}/g;
+      $text =~ s/--/{-}{-}/g;
+    }
+    if ($self->{'style_context'}->[-1]->{'dot_not_end_sentence'}) {
+      $text =~ s/\./\.\\@/g;
+    }
+  }
+  return $text;
 }
 
 # TODO translation
@@ -921,193 +1196,6 @@ sub _set_chapter_new_page($$)
   $self->{'prev_chapter_new_page_substitution'} = $new_code;
   
   return $result;
-}
-
-sub _prepare_conversion($;$)
-{
-  my $self = shift;
-  my $root = shift;
-
-  $self->_set_global_multiple_commands(-1);
-
-  if (defined($root)) {
-    $self->associate_other_nodes_to_sections($root);
-  }
-
-  if ($self->{'extra'}->{'settitle'}) {
-    my $settitle_root = $self->{'extra'}->{'settitle'};
-    if (not ($settitle_root->{'extra'}
-             and $settitle_root->{'extra'}->{'missing_argument'})) {
-      $self->{'settitle_tree'} =
-         {'contents' => $settitle_root->{'args'}->[0]->{'contents'}};
-    }
-  }
-  $self->_prepare_floats();
-}
-
-sub associate_other_nodes_to_sections($$) {
-  my $self = shift;
-  my $root = shift;
-
-  # associate lone nodes with sectioning commands
-  my $additional_node_section_associations = {};
-
-  my $current_sectioning_command;
-  # nodes not already associated as no section has been seen,
-  # associate to the first section
-  my $pending_nodes = [];
-
-  foreach my $element_content (@{$root->{'contents'}}) {
-    if ($element_content->{'cmdname'}
-        and $element_content->{'cmdname'} eq 'node') {
-      if (not $element_content->{'extra'}->{'associated_section'}
-          and $element_content->{'extra'}->{'normalized'}) {
-        if (defined($current_sectioning_command)) {
-          $additional_node_section_associations->{$element_content->{'extra'}->{'normalized'}}
-            = $current_sectioning_command;
-        } else {
-          push @$pending_nodes, $element_content->{'extra'}->{'normalized'};
-        }
-      }
-    } elsif ($element_content->{'cmdname'}
-          and $root_commands{$element_content->{'cmdname'}}) {
-      $current_sectioning_command = $element_content;
-      if (scalar(@$pending_nodes)) {
-        foreach my $normalized_node_name (@$pending_nodes) {
-          $additional_node_section_associations->{$normalized_node_name}
-            = $current_sectioning_command
-        }
-        $pending_nodes = [];
-      }
-    }
-  }
-  $self->{'normalized_nodes_associated_section'}
-    = $additional_node_section_associations;
-}
-
-sub output($$)
-{
-  my ($self, $root) = @_;
-
-  $self->_set_outfile();
-  return undef unless $self->_create_destination_directory();
-
-  my $fh;
-  if (! $self->{'output_file'} eq '') {
-    $fh = $self->Texinfo::Common::open_out ($self->{'output_file'});
-    if (!$fh) {
-      $self->document_error(sprintf(__("could not open %s for writing: %s"),
-                                    $self->{'output_file'}, $!));
-      return undef;
-    }
-  }
-
-  # Ignore everything between Top node and the next node.  If
-  # at the end, mark that Top node is ignored.
-  my $removed_top_node_root = {'contents' => []};
-
-  my $in_top_node = 0;
-  foreach my $element_content (@{$root->{'contents'}}) {
-    if ($element_content->{'cmdname'}
-        and $element_content->{'cmdname'} eq 'node') {
-      if ($element_content->{'extra'}->{'normalized'} eq 'Top') {
-        $in_top_node = 1;
-      } else {
-        if ($in_top_node) {
-          $in_top_node = 0;
-        }
-        push @{$removed_top_node_root->{'contents'}},
-          $element_content;
-      }
-    } elsif (not $in_top_node) {
-      push @{$removed_top_node_root->{'contents'}},
-        $element_content;
-    }
-  }
-  if ($in_top_node) {
-    # This is very simple, not in a paragraph, for instance, nor in
-    # a tree piece appearing typically in element such as @node or
-    # sectionning command.
-    push @{$removed_top_node_root->{'contents'}},
-        {'text' => "\n(`Top' node ignored)\n", 'type' => 'ignored_top_node'};
-  }
-
-  my $result = '';
-
-  $self->_prepare_conversion($removed_top_node_root);
-
-  $result .= $self->_output_text($self->_latex_header(), $fh);
-  $result .= $self->_output_text($self->convert_tree($removed_top_node_root), $fh);
-  $result .= $self->_output_text($self->_latex_footer(), $fh);
-
-  #print $result;
-  if ($fh and $self->{'output_file'} ne '-') {
-    $self->register_close_file($self->{'output_file'});
-    if (!close ($fh)) {
-      $self->document_error(sprintf(__("error on closing %s: %s"),
-                                    $self->{'output_file'}, $!));
-    }
-  }
-  return $result;
-}
-
-sub convert($$)
-{
-  my $self = shift;
-  my $root = shift;
-
-  $self->_prepare_conversion($root);
-  
-  return $self->_convert($root);
-}
-
-sub convert_tree($$)
-{
-  my $self = shift;
-  my $root = shift;
-
-  #print STDERR "* ".Texinfo::Common::_print_current($root)."\n";
-  #foreach my $content (@{$root->{'contents'}}) {
-  #  print STDERR "** ".Texinfo::Common::_print_current($content)."\n";
-  #}
-  return $self->_convert($root);
-}
-
-sub _protect_url($$)
-{
-  my ($self, $text) = @_;
-
-  $text =~ s/([{}\\#%])/\\$1/g;
-  return $text;
-}
-
-# Protect LaTeX special characters.
-sub _protect_text($$)
-{
-  my ($self, $text) = @_;
-
-  # FIXME are there some special characters to protect in math mode,
-  # for instance # and ~?
-  if ($self->{'style_context'}->[-1]->{'context'}->[-1] ne 'math'
-      and $self->{'style_context'}->[-1]->{'context'}->[-1] ne 'raw') {
-    # temporarily replace \ with a control character
-    $text =~ s/\\/\x08/g;
-
-    # replace the other special characters
-    $text =~ s/([#%&{}_\$])/\\$1/g;
-    $text =~ s/~/\\~{}/g;
-    $text =~ s/\^/\\^{}/g;
-
-    $text =~ s/\x08/\\textbackslash{}/g;
-    if ($self->{'style_context'}->[-1]->{'code'}) {
-      $text =~ s/---/{-}{-}{-}/g;
-      $text =~ s/--/{-}{-}/g;
-    }
-    if ($self->{'style_context'}->[-1]->{'dot_not_end_sentence'}) {
-      $text =~ s/\./\.\\@/g;
-    }
-  }
-  return $text;
 }
 
 sub _open_preformatted($)
@@ -1211,6 +1299,7 @@ sub _convert($$)
   my ($self, $root) = @_;
 
   #print STDERR "C ".Texinfo::Common::_print_current($root)."\n";
+  #print STDERR "C ".Texinfo::Common::_print_element_tree_simple($root)."\n";
 
   if (($root->{'type'} and $self->{'ignored_types'}->{$root->{'type'}})
        or ($root->{'cmdname'} 
@@ -1269,8 +1358,6 @@ sub _convert($$)
     }
   }
 
-  my $cell;
-  my $preformatted;
   if ($command) {
     my $unknown_command;
     my $command_context = 'text';
@@ -1292,10 +1379,10 @@ sub _convert($$)
         } else {
           if ($self->{'style_context'}->[-1]->{'math_style'}->[-1]
               eq 'one-line') {
-            $result = "";
+            $result .= "";
           } else {
             # no such case for now, but could be in the future
-            $result = "\\\\";
+            $result .= "\\\\";
           }
         }
       } elsif ($command eq '.' or $command eq '?' or $command eq '!') {
@@ -1350,15 +1437,16 @@ sub _convert($$)
           }
           if ($accent_arg eq 'i' or $accent_arg eq 'j') {
             if ($command_context eq 'math') {
-              return "\\${accent_arg}math{}";
+              $result .= "\\${accent_arg}math{}";
             } else {
-              return "\\${accent_arg}{}";
+              $result .= "\\${accent_arg}{}";
             }
           } else {
             # should be an error, but we do not care, it is better if it is
             # handled during parsing
-            return _protect_text($self, $accent_arg);
+            $result .= _protect_text($self, $accent_arg);
           }
+          return $result;
         # accent without math mode command, use slanted text
         } elsif ($command_context eq 'math'
                  and $LaTeX_accent_commands{'text'}->{$command}) {
@@ -1578,13 +1666,13 @@ sub _convert($$)
             {'contents' => $root->{'args'}->[1]->{'contents'}};
         }
       }
-      return '';
+      return $result;
     } elsif ($command eq 'footnote') {
-      push_new_context($self, 'footnote');
+      _push_new_context($self, 'footnote');
       $result .= '\footnote{';
       $result .= $self->_convert($root->{'args'}->[0]); 
       $result .= '}';
-      pop @{$self->{'style_context'}};
+      $self->_pop_context();
       return $result;
     } elsif ($command eq 'anchor') {
       my $anchor_label = _tree_anchor_label($root->{'extra'}->{'node_content'});
@@ -1705,9 +1793,9 @@ sub _convert($$)
 
           # TODO: should translate
           if ($command eq 'xref') {
-            $result = "See ";
+            $result .= "See ";
           } elsif ($command eq 'pxref') {
-            $result = "see ";
+            $result .= "see ";
           } elsif ($command eq 'ref') {
           }
           my $name;
@@ -1769,9 +1857,9 @@ sub _convert($$)
           # in recent Texinfo TeX
           # TODO: should translate
           if ($command eq 'xref') {
-            $result = "See ";
+            $result .= "See ";
           } elsif ($command eq 'pxref') {
-            $result = "see ";
+            $result .= "see ";
           } elsif ($command eq 'ref') {
           }
           my $name;
@@ -1803,7 +1891,7 @@ sub _convert($$)
         }
         return $result;
       }
-      return '';
+      return $result;
     } elsif ($explained_commands{$command}) {
       if ($root->{'args'}
           and defined($root->{'args'}->[0])
@@ -1823,14 +1911,12 @@ sub _convert($$)
           my $prepended = $self->gdt('{abbr_or_acronym} ({explanation})', 
                            {'abbr_or_acronym' => $argument, 
                             'explanation' => $root->{'args'}->[-1]->{'contents'}});
-          unshift @{$self->{'current_contents'}->[-1]}, $prepended;
-          return '';
+          $result .= _convert($self, $prepended);
         } else {
-          $result = _convert($self, $argument);
-          return $result;
+          $result .= _convert($self, $argument);
         }
       }
-      return '';
+      return $result;
     } elsif ($inline_commands{$command}) {
       my $arg_index = 1;
       if ($command eq 'inlinefmtifelse'
@@ -1879,14 +1965,14 @@ sub _convert($$)
     } elsif ($command eq 'caption' or $command eq 'shortcaption') {
       if (not defined($root->{'extra'})
           or not defined($root->{'extra'}->{'float'})) {
-        return '';
+        return $result;
       }
       my $float = $root->{'extra'}->{'float'};
       my $shortcaption;
       if ($command eq 'shortcaption') {
         if ($float->{'extra'}->{'caption'}) {
           # nothing to do, will do @caption
-          return '';
+          return $result;
         } else {
           # shortcaption used as caption;
         }
@@ -1895,21 +1981,22 @@ sub _convert($$)
           $shortcaption = $float->{'extra'}->{'shortcaption'};
         }
       }
-      push_new_context($self, 'latex_caption');
+      _push_new_context($self, 'latex_caption');
       my $caption_text = _convert($self,
          {'contents' => $root->{'args'}->[0]->{'contents'}});
-      pop @{$self->{'style_context'}};
+      $self->_pop_context();
       
       $result .= '\caption';
 
       if (defined($shortcaption)) {
-        push_new_context($self, 'latex_shortcaption');
+        _push_new_context($self, 'latex_shortcaption');
         my $shortcaption_text = _convert($self, 
                        {'contents' => $shortcaption->{'args'}->[0]->{'contents'}});
-        pop @{$self->{'style_context'}};
+        $self->_pop_context();
         $result .= '['.$shortcaption_text.']';
       }
       $result .= "{$caption_text}\n";
+      return $result;
     } elsif ($command eq 'titlefont') {
       $result .= _title_font($self, $root);
       return $result;
@@ -1942,11 +2029,8 @@ sub _convert($$)
           $res = "U+$arg";  # not outputting UTF-8
         }
         $result .= _protect_text($self, $res);
-      } else {
-        $result = '';  # arg was not defined
       }
       return $result;
-
     } elsif ($command eq 'value') {
       my $expansion = $self->gdt('@{No value for `{value}\'@}', 
                                     {'value' => $root->{'type'}});
@@ -2017,7 +2101,7 @@ sub _convert($$)
           return '';
         }
         my $latex_float_name = $self->{'normalized_float_latex'}->{$normalized_float_type};
-        push_new_context($self, 'float'.$latex_float_name);
+        _push_new_context($self, 'float'.$latex_float_name);
         $result .= "\\begin{$latex_float_name}\n";
       }
     } elsif ($command eq 'node') {
@@ -2025,7 +2109,7 @@ sub _convert($$)
       if (not $root->{'extra'}->{'associated_section'}) {
         my $node_label
           = _tree_anchor_label($root->{'extra'}->{'node_content'});
-        $result .= "\\label{$node_label}%\n";;
+        $result .= "\\label{$node_label}%\n";
       }
       # ignore Top node as in Texinfo TeX
       if ($root->{'extra'}->{'normalized'} eq 'Top') {
@@ -2106,27 +2190,24 @@ sub _convert($$)
       return $result;
     } elsif ($command eq 'exdent') {
       if ($preformatted_commands{$self->{'style_context'}->[-1]->{'context'}->[-1]}) {
-        $result = $self->_convert({'contents' => $root->{'args'}->[0]->{'contents'}});
+        $result .= $self->_convert({'contents' => $root->{'args'}->[0]->{'contents'}})."\n";
       } else {
-        $result = $self->_convert({'contents' => $root->{'args'}->[0]->{'contents'}});
-      }
-      if ($result ne '') {
-        $result .= "\n";
+        $result .= $self->_convert({'contents' => $root->{'args'}->[0]->{'contents'}})."\n";
       }
       return $result;
     } elsif ($command eq 'verbatiminclude') {
       my $expansion = $self->Texinfo::Common::expand_verbatiminclude($root);
       unshift @{$self->{'current_contents'}->[-1]}, $expansion
         if ($expansion);
-      return '';
+      return $result;
     } elsif ($command eq 'insertcopying') {
       if ($self->{'extra'} and $self->{'extra'}->{'copying'}) {
         unshift @{$self->{'current_contents'}->[-1]}, 
            {'contents' => $self->{'extra'}->{'copying'}->{'contents'}};
       }
-      return '';
+      return $result;
     } elsif ($command eq 'printindex') {
-      $result = $self->_printindex($root);
+      $result .= $self->_printindex($root);
       return $result;
     } elsif ($command eq 'listoffloats') {
       if ($root->{'extra'} and $root->{'extra'}->{'type'}
@@ -2137,7 +2218,7 @@ sub _convert($$)
         my $normalized_float_type = $root->{'extra'}->{'type'}->{'normalized'};
         if (not exists($self->{'normalized_float_latex'}->{$normalized_float_type})) {
           cluck("\@listoffloats $normalized_float_type: not found\n");
-          return '';
+          return $result;
         }
         my $latex_float_name = $self->{'normalized_float_latex'}->{$normalized_float_type};
         if (exists($LaTeX_floats{$latex_float_name})) {
@@ -2181,10 +2262,12 @@ sub _convert($$)
       return $result;
     } elsif ($command eq 'shorttitlepage') {
       my $title_text = _title_font($self, $root);
+      $result .= "\\begin{titlepage}\n";
       $result .= "{\\raggedright $title_text}\n";
       # first newpage ends the title page, phantom and second newpage
       # adds a blank page
       $result .= "\\newpage{}\n\\phantom{blabla}\\newpage{}\n";
+      $result .= "\\end{titlepage}\n";
     } elsif ($command eq 'title') {
       my $title_text = _title_font($self, $root);
       #$result .= "\\begin{flushleft}\n";
@@ -2229,7 +2312,7 @@ sub _convert($$)
     } elsif ($command eq 'contents') {
       if ($self->{'structuring'}
             and $self->{'structuring'}->{'sectioning_root'}) {
-        $result = "\\tableofcontents\\newpage\n";
+        $result .= "\\tableofcontents\\newpage\n";
       }
       return $result;
     } elsif ($command eq 'shortcontents' 
@@ -2237,22 +2320,30 @@ sub _convert($$)
       if ($self->{'structuring'}
             and $self->{'structuring'}->{'sectioning_root'}) {
         # TODO see notes at the beginning
-        $result = '';
+        $result .= '';
       }
       return $result;
-    # all the @-commands that have an information for the formatting
+    # FIXME right now not informative commands
+    } elsif ($paper_geometry_commands{$command}) {
+      $result .= "\\geometry{$paper_geometry_commands{$command}}%\n";
+      return $result;
+    # @-commands that have an information for the formatting
     # TODO
     # There is no obvious way to change the first paragraph indentation
     # in a way that can be reverted as with @firstparagraphindent.
     # use of \usepackage{indentfirst} cannot be reverted.
     } elsif ($informative_commands{$command}) {
       $self->_informative_command($root);
-      if ($command eq 'paragraphindent'
+      if ($command eq 'pagesizes') {
+#textwidth=
+#textheight=
+
+      } elsif ($command eq 'paragraphindent'
           and $root->{'extra'}->{'misc_args'}->[0]) {
         my $indentation_spec = $root->{'extra'}->{'misc_args'}->[0];
         if ($indentation_spec eq 'asis') {
           # not implemented here, same as in TeX.
-          return '';
+          return $result;
         } else {
           my $indentation_spec_arg = $indentation_spec.'em';
           if ($indentation_spec eq '0' or $indentation_spec eq 'none') {
@@ -2476,6 +2567,9 @@ sub _convert($$)
       $self->{'style_context'}->[-1]->{'dot_not_end_sentence'} += 1;
     } elsif ($root->{'type'} eq 'bracketed') {
       $result .= _protect_text($self, '{');
+    } elsif ($root->{'type'} eq $latex_document_type) {
+      # special type inserted where the document begins
+      $result .= _begin_document($self);
     }
   }
 
@@ -2529,7 +2623,7 @@ sub _convert($$)
       }
       my $latex_float_name = $self->{'normalized_float_latex'}->{$normalized_float_type};
       $result .= "\\end{$latex_float_name}\n";
-      pop @{$self->{'style_context'}};
+      $self->_pop_context();
     } elsif ($command eq 'quotation'
                or $command eq 'smallquotation') {
       if ($root->{'extra'} and $root->{'extra'}->{'authors'}) {
@@ -2576,9 +2670,6 @@ sub _convert($$)
       $result .= _set_headings($self, 'on');
       $self->{'titlepage_done'} = 1;
       $result .= "\\mainmatter\n";
-    }
-    if ($cell) {
-      $result = '';
     }
   }
 

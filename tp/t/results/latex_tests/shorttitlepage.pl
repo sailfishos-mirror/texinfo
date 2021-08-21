@@ -413,9 +413,11 @@ $result_floats{'shorttitlepage'} = {};
 
 
 $result_converted{'latex'}->{'shorttitlepage'} = '
+\\begin{titlepage}
 {\\raggedright {\\huge \\bfseries the title with shorttitlepage \\leavevmode{}\\\\ it can be long}}
 \\newpage{}
 \\phantom{blabla}\\newpage{}
+\\end{titlepage}
 \\GNUTexinfosetsingleheader{}%
 \\mainmatter
 

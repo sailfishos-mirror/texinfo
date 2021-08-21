@@ -9,6 +9,7 @@
 \usepackage{needspace}
 \usepackage{etoolbox}
 \usepackage{fontsize}
+\usepackage{geometry}
 \usepackage{fancyhdr}
 \usepackage{float}
 % use hidelinks to remove boxes around links to be similar with Texinfo TeX
@@ -61,7 +62,6 @@
 \makeatother
 \GNUTexinfosetsingleheader{}%
 
-\begin{document}
 \GNUTexinfosetsingleheader{}%
 
 \makeatletter
@@ -73,4 +73,5 @@
 \patchcmd{\chapter}{\if@openright\cleardoublepage\else\clearpage\fi}{\GNUTexinfoplaceholder{setchapternewpage placeholder}}{}{}
 \makeatother
 \GNUTexinfosetsingleheader{}%
+\begin{document}
 \end{document}

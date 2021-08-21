@@ -9,6 +9,7 @@
 \usepackage{needspace}
 \usepackage{etoolbox}
 \usepackage{fontsize}
+\usepackage{geometry}
 \usepackage{fancyhdr}
 \usepackage{float}
 % use hidelinks to remove boxes around links to be similar with Texinfo TeX
@@ -63,13 +64,15 @@
 % no headings before titlepage
 \pagestyle{empty}%
 
+
 \begin{document}
 
 \frontmatter
-
+\begin{titlepage}
 {\raggedright {\huge \bfseries the title with shorttitlepage \leavevmode{}\\ it can be long}}
 \newpage{}
 \phantom{blabla}\newpage{}
+\end{titlepage}
 \GNUTexinfosetsingleheader{}%
 \mainmatter
 
