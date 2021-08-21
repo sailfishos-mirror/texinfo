@@ -254,7 +254,7 @@ sub _fix_texinfo_tree($$$$;$)
           # First remove the old normalized entry
           delete $parser->{'labels'}->{$node->{'extra'}->{'normalized'}};
           # now get the number
-          my $node_texi = Texinfo::Convert::Texinfo::convert(
+          my $node_texi = Texinfo::Convert::Texinfo::convert_to_texinfo(
                 {'contents' => $node->{'extra'}->{'node_content'}});
           # We could have kept the asis, too, it is kept when !section_nodes
           $node_texi =~ s/^\s*(\@asis\{\})?\s*//;
@@ -298,7 +298,7 @@ sub _fix_texinfo_manual($$$$;$)
   my $do_master_menu = shift;
   my ($parser, $tree) = _fix_texinfo_tree($self, $manual_texi, $section_nodes, 
                                     $fill_gaps_in_sectioning, $do_master_menu);
-  return Texinfo::Convert::Texinfo::convert($tree);
+  return Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
 }
 
 sub _do_top_node_menu($)
@@ -308,7 +308,7 @@ sub _do_top_node_menu($)
   my $labels = $parser->labels_information();
   my $top_node_menu = $labels->{'Top'}->{'menus'}->[0];
   if ($top_node_menu) {
-    return Texinfo::Convert::Texinfo::convert($top_node_menu);
+    return Texinfo::Convert::Texinfo::convert_to_texinfo($top_node_menu);
   } else {
     return '';
   }

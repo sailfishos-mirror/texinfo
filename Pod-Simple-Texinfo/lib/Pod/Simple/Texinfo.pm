@@ -273,7 +273,7 @@ sub _protect_comma($)
   my $texinfo = shift;
   my $tree = parse_texi_line(undef, $texinfo);
   $tree = protect_comma_in_tree($tree);
-  return Texinfo::Convert::Texinfo::convert($tree);
+  return Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
 }
 
 sub _protect_hashchar($)
@@ -283,7 +283,7 @@ sub _protect_hashchar($)
   if ($texinfo =~ /#/) {
     my $tree = parse_texi_text(undef, $texinfo);
     protect_hashchar_at_line_beginning(undef, $tree);
-    return Texinfo::Convert::Texinfo::convert($tree);
+    return Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
   } else {
     return $texinfo;
   }
@@ -294,7 +294,7 @@ sub _reference_to_text_in_texi($)
   my $texinfo = shift;
   my $tree = parse_texi_text(undef, $texinfo);
   Texinfo::Transformations::reference_to_arg_in_tree(undef, $tree);
-  return Texinfo::Convert::Texinfo::convert($tree);
+  return Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
 }  
 
 sub _section_manual_to_node_name($$$)
@@ -334,7 +334,7 @@ sub _normalize_texinfo_name($$)
     $tree->{'contents'}->[0]->{'args'}->[-0]->{'contents'}
       = protect_first_parenthesis($tree->{'contents'}->[0]->{'args'}->[-0]->{'contents'});
   }
-  my $fixed_text = Texinfo::Convert::Texinfo::convert($tree, 1);
+  my $fixed_text = Texinfo::Convert::Texinfo::convert_to_texinfo($tree, 1);
   my $result = $fixed_text;
   if ($command eq 'anchor') {
     $result =~ s/^\@anchor\{(.*)\}$/$1/s;
@@ -385,7 +385,7 @@ sub _prepare_anchor($$)
   }
   $node_tree = protect_comma_in_tree($node_tree);
   $self->{'texinfo_nodes'}->{$normalized} = $node_tree;
-  my $final_node_name = Texinfo::Convert::Texinfo::convert($node_tree, 1);
+  my $final_node_name = Texinfo::Convert::Texinfo::convert_to_texinfo($node_tree, 1);
   return $final_node_name;
 }
 

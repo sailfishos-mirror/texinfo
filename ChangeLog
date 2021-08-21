@@ -1,5 +1,12 @@
 2021-08-21  Patrice Dumas  <pertusus@free.fr>
 
+	* Pod-Simple-Texinfo/lib/Pod/Simple/Texinfo.pm,
+	Pod-Simple-Texinfo/pod2texi.pl: rename 
+	Texinfo::Convert::Texinfo convert() as convert_to_texinfo().
+	Report from shoober420.
+
+2021-08-21  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (%in_simple_text_headings_commands),
 	(%simple_text_commands, %simple_text_headings_commands)
 	(%default_valid_nestings): add valid nestings for
