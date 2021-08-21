@@ -33,7 +33,7 @@ use vars qw($VERSION @ISA);
 
 my %defaults = (
   'OUTFILE'              => '-',
-  'EXTENSION'            => '.txi',
+  'EXTENSION'            => 'texi',
 );
 
 sub converter_defaults($$)

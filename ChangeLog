@@ -1,5 +1,10 @@
 2021-08-21  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/PlainTexinfo.pm (%defaults): set
+	EXTENSION to texi.
+
+2021-08-21  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/texi2any.pl: handle the case of 'FORMAT_MENU'
 	not being defined and format 'nodes_tree' being set.
 	Can happen if format is structure.
