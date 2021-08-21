@@ -106,6 +106,18 @@
 # @fonttextsize with \changefontsize does not seems to change fonts much.
 # It seems to change in the text, but only 10pt, and does not seems to
 # change sections font sizes.
+#
+# The @afourpaper, @afourlatex and @afourwide commands all map to
+# papername=a4paper.  It is most likely ok for @afourlatex, but the other
+# two should be associated with other geometries.
+#
+# The \geometry command does not really reset the geometry after
+# \begin{document} according to the documentation, somthing else should
+# be used to switch paper definition.
+#
+# @pagesizes uses \newgeometry which forgets about previous settings except
+# for paper size.  It could be a good thing to change geometry that way,
+# but it is not how Texinfo TeX does it.
 
 package Texinfo::Convert::LaTeX;
 
@@ -2335,9 +2347,21 @@ sub _convert($$)
     } elsif ($informative_commands{$command}) {
       $self->_informative_command($root);
       if ($command eq 'pagesizes') {
-#textwidth=
-#textheight=
-
+        my $pagesize_spec = _convert($self, $root->{'args'}->[0]);
+        my @pagesize_args = split(/\s*,\s*/, $pagesize_spec);
+        print STDERR "".join("|", @pagesize_args)."\n";
+        my @geometry;
+        my $height = shift @pagesize_args;
+        if (defined($height) and $height ne '') {
+          push @geometry, "textheight=$height";
+        }
+        my $width = shift @pagesize_args;
+        if (defined($width) and $width ne '') {
+          push @geometry, "textwidth=$width";
+        }
+        if (scalar(@geometry)) {
+          $result .= "\\newgeometry{".join(',', @geometry)."}\n";
+        }
       } elsif ($command eq 'paragraphindent'
           and $root->{'extra'}->{'misc_args'}->[0]) {
         my $indentation_spec = $root->{'extra'}->{'misc_args'}->[0];

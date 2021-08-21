@@ -405,6 +405,25 @@ After afourpaper
 @chapter afourpaper reset
 
 In afourpaper reset
+'],
+['pagesizes',
+'@setfilename pagesizes.info
+
+@pagesizes 200mm,150mm
+
+@node Top
+@top section top
+
+@node chapter
+@chapter Chapter
+
+@pagesizes 11.5in
+
+@chapter other pagesizes
+
+@pagesizes , 130mm
+
+@pagesizes , 
 ']
 );
 
