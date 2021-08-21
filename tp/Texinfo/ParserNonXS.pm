@@ -3026,7 +3026,7 @@ sub _end_line($$$)
                 'pending' => [],
                 'fh' => $filehandle };
               $current->{'extra'}->{'file'} = $file;
-              # we set thetype to replaced to tell converters not to
+              # we set the type to replaced to tell converters not to
               # expand the @-command
               $current->{'type'} = 'replaced';
             } else {
@@ -3166,8 +3166,13 @@ sub _end_line($$$)
         if ($close_preformatted_commands{$command});
     }
     # Ignore @setfilename in included file, as said in the manual.
-    if ($command eq 'setfilename'
-         and scalar(@{$self->{'input'}}) > 1) {
+    if (($command eq 'setfilename'
+           and scalar(@{$self->{'input'}}) > 1)
+      # TODO remove this condition if/when the XS parser has been updated
+      # to output @include with type replaced when the file was found
+        or (scalar(@{$current->{'contents'}})
+             and exists($current->{'contents'}->[-1]->{'type'})
+             and $current->{'contents'}->[-1]->{'type'} eq 'replaced')) {
       # TODO keep the information
       pop @{$current->{'contents'}};
     } elsif ($command eq 'setfilename'

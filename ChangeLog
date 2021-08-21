@@ -1,5 +1,12 @@
 2021-08-21  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_end_line): do not really
+	keep the @include in tree when they have been replaced
+	to avoid different test results until the XS parser has
+	been modified (or not).
+
+2021-08-21  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/TexinfoXML.pm (%commands_formatting):
 	format @| as divideheading element.
 	* util/texinfo.dtd: add divideheading.  Add heading marks, such
