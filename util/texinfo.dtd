@@ -152,18 +152,25 @@
                           | dfn | cite | key | kbd | var | acronym | abbr
                           | indicateurl | w | asis | sub | sup "> 
 <!ENTITY % Inline.math "math | dmn">
-<!ENTITY % Inline.reference "xref | ref | pxref | inforef | email | uref | url">
+<!ENTITY % Inline.reference "xref | ref | pxref | inforef ">
+<!ENTITY % Inline.hyperreference "email | uref | url">
 <!ENTITY % Inline.misc "click | clicksequence | logo | punct | spacecmd | today
                         | linebreak | accent | dotless | ctrl | inlineraw 
                         | inlinefmt | inlinefmtifelse | inlineifclear 
                         | inlineifset | infoenclose | noeos | formfeed ">
 
 <!-- on lines -->
-<!ENTITY % Inline.linetext "%Inline.emphasize; | %Inline.misc; | %Inline.fonts;
-          | %Inline.markup; | %Inline.math; | %Inline.reference;
-          | %Inline.footnote;" >
+<!ENTITY % Inline.linesimpletext "%Inline.emphasize; | %Inline.misc; | %Inline.fonts;
+          | %Inline.markup; | %Inline.math; | %Inline.hyperreference">
+<!ENTITY % Inline.linetext "%Inline.linesimpletext | %Inline.reference;
+                            | %Inline.footnote;" >
 <!ENTITY % Inline.line "%Inline.linetext; | image">
 <!ENTITY % Inline.fullline "%Inline.line; | titlefont | anchor">
+
+<!-- on headings specification lines -->
+<!ENTITY % Inline.headingmark "divideheading | thischapter | thischaptername |
+                        | thischapternum | thisfile | thispage | thistitle">
+<!ENTITY % Inline.headingline "%Inline.linesimpletext | %Inline.headingmark">
 
 <!-- in paragraphs -->
 <!ENTITY % Inline.phrase
@@ -346,12 +353,24 @@
 <!ATTLIST headings
           %lineattr;
           value CDATA #REQUIRED>
-<!ELEMENT everyheading (#PCDATA)>
-<!ELEMENT everyfooting (#PCDATA)>
-<!ELEMENT evenheading (#PCDATA)>
-<!ELEMENT evenfooting (#PCDATA)>
-<!ELEMENT oddheading (#PCDATA)>
-<!ELEMENT oddfooting (#PCDATA)>
+<!ELEMENT everyheading        (#PCDATA | %Inline.headingline;)*>
+<!ATTLIST everyheading
+          %spacesattr;>
+<!ELEMENT everyfooting        (#PCDATA | %Inline.headingline;)*>
+<!ATTLIST everyfooting
+          %spacesattr;>
+<!ELEMENT evenheading        (#PCDATA | %Inline.headingline;)*>
+<!ATTLIST evenheading
+          %spacesattr;>
+<!ELEMENT evenfooting        (#PCDATA | %Inline.headingline;)*>
+<!ATTLIST evenfooting
+          %spacesattr;>
+<!ELEMENT oddheading        (#PCDATA | %Inline.headingline;)*>
+<!ATTLIST oddheading
+          %spacesattr;>
+<!ELEMENT oddfooting        (#PCDATA | %Inline.headingline;)*>
+<!ATTLIST oddfooting
+          %spacesattr;>
 <!ELEMENT vskip (#PCDATA)>
 <!ELEMENT smallbook       EMPTY>
 <!ATTLIST smallbook
@@ -443,6 +462,14 @@
           value CDATA #REQUIRED>
 <!ELEMENT indent   EMPTY>
 <!ELEMENT noindent EMPTY>
+
+<!-- heading marks -->
+<!ELEMENT thischapter EMPTY>
+<!ELEMENT thischaptername EMPTY>
+<!ELEMENT thischapternum EMPTY>
+<!ELEMENT thisfile EMPTY>
+<!ELEMENT thispage EMPTY>
+<!ELEMENT thistitle EMPTY>
 
 <!-- emacs-page
 <!ELEMENT node (nodename, nodenext?, nodeprev?, nodeup?,
@@ -1267,6 +1294,7 @@
 <!ELEMENT linebreak EMPTY>
 <!ELEMENT noeos EMPTY>
 <!ELEMENT formfeed EMPTY>
+<!ELEMENT divideheading EMPTY>
 
 <!ENTITY tex        "<logo>TeX</logo>">
 <!ENTITY latex      "<logo>LaTeX</logo>">
