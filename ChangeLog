@@ -1,5 +1,14 @@
 2021-08-21  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (%in_simple_text_headings_commands),
+	(%simple_text_commands, %simple_text_headings_commands)
+	(%default_valid_nestings): add valid nestings for
+	%in_heading_commands like @thispage in %headings_specification_commands
+	like @everyheading.  This should have an effect when
+	%headings_specification_commands commands arguments are parsed.
+
+2021-08-21  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_end_line): do not really
 	keep the @include in tree when they have been replaced
 	to avoid different test results until the XS parser has

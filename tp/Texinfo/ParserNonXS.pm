@@ -376,17 +376,23 @@ foreach my $not_in_simple_text_command('xref', 'ref', 'pxref', 'inforef') {
   delete $in_simple_text_commands{$not_in_simple_text_command};
 }
 
+my %in_simple_text_headings_commands = (%in_simple_text_commands,
+                                        %in_heading_commands);
+
 # commands that only accept simple text as argument in any context.
 my %simple_text_commands;
 foreach my $line_command(keys(%line_commands)) {
   if ($line_commands{$line_command} =~ /^\d+$/ 
       or ($line_commands{$line_command} eq 'line' 
           and !($sectioning_commands{$line_command}
-                or $def_commands{$line_command}))
+                or $def_commands{$line_command}
+                or $headings_specification_commands{$line_command}))
       or $line_commands{$line_command} eq 'text') {
     $simple_text_commands{$line_command} = 1;
   }
 }
+
+my %simple_text_headings_commands = (%headings_specification_commands);
 
 my %full_line_commands_no_refs = (%sectioning_commands,
                                   %def_commands);
@@ -436,6 +442,9 @@ foreach my $command (keys(%accent_commands)) {
 }
 foreach my $command (keys(%simple_text_commands)) {
   $default_valid_nestings{$command} = \%in_simple_text_commands;
+}
+foreach my $command (keys(%simple_text_headings_commands)) {
+  $default_valid_nestings{$command} = \%in_simple_text_headings_commands;
 }
 foreach my $command (keys(%full_text_commands), keys(%full_line_commands)) {
   $default_valid_nestings{$command} = \%in_full_text_commands;
