@@ -2,6 +2,11 @@ no_monolithic_only_toc_out no_monolithic.texi -c 'MONOLITHIC 0' --init only_toc_
 #navigation_noheaders_init navigation.texi --init noheaders.pm
 navigation_test_misc_file_collision navigation.texi --split node --init misc_file_collision.init
 
+formatting_macro_expand formatting.texi --macro-expand=@OUT_DIR@formatting.texi -c TEXINFO_OUTPUT_FORMAT=structure
+# the output should be the same as just above, but is less interesting
+# to test as above also tests the not otherwise tested 'structure' format
+# # and also tests --macro-expand.
+#formatting_macro_expand formatting.texi -c TEXINFO_OUTPUT_FORMAT=plaintexinfo
 formatting_docbook formatting.texi --docbook
 formatting_xml formatting.texi --xml
 #lightweight_markups_mediawiki lightweight_markups.texi --init mediawiki.pm
@@ -10,6 +15,7 @@ formatting_html_nodes formatting.texi --html --split node --node-files -c 'TOP_F
 formatting_html_no_texi2html formatting.texi --html --no-split -c TEXI2HTML=undef
 formatting_info formatting.texi --info
 formatting_plaintext formatting.texi -c FORMAT_MENU=nomenu --plaintext
+#formatting_latex formatting.texi --latex
 
 formatting_mathjax formatting.texi --html -c HTML_MATH=mathjax
 #formatting_mediawiki formatting.texi --init mediawiki.pm
