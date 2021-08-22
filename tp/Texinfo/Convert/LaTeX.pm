@@ -476,14 +476,14 @@ my $small_font_size = 'footnotesize';
 # LaTeX, as, in addition to come from a possibly different margin,
 # the test is not filled at all, each line is left as is.  LaTeX
 # flushleft and flushright are filled but not aligned.
-my %LaTeX_block_commands = (
+my %LaTeX_environment_commands = (
   'raggedright' => ['flushleft'],
   'quotation' => ['quote'],
   'smallquotation' => ['quote', $small_font_size],
 );
 
 foreach my $environment_command (@LaTeX_same_block_commands) {
-  $LaTeX_block_commands{$environment_command} = [$environment_command];
+  $LaTeX_environment_commands{$environment_command} = [$environment_command];
 }
 
 my %ignorable_space_types;
@@ -1083,6 +1083,7 @@ sub _push_new_context($$)
   push @{$self->{'style_context'}},
      {
        'context' => ['text'],
+       'preformatted_context' => [],
        'math_style' => [],
        'code' => 0,
        'dot_not_end_sentence' => 0,
@@ -1132,6 +1133,16 @@ sub _protect_text($$)
     }
   }
   return $text;
+}
+
+sub _start_mainmatter_after_titlepage($)
+{
+  my $self = shift;
+
+  my $result = _set_headings($self, 'on');
+  $result .= "\\GNUTexinfomainmatter\n";
+  $self->{'titlepage_done'} = 1;
+  return $result;
 }
 
 # TODO translation
@@ -1239,9 +1250,11 @@ foreach my $small_font_preformatted_command (
   $small_font_preformatted_commands{$small_font_preformatted_command} = 1;
 }
 
-sub _open_preformatted($)
+sub _open_preformatted($$)
 {
+  my $self = shift;
   my $command = shift;
+
   my $result = '';
   $result .= '\\par\\begingroup\\obeylines\\obeyspaces\\frenchspacing';
   # TODO indent block correct amount
@@ -1249,40 +1262,48 @@ sub _open_preformatted($)
 
   if ($preformatted_code_commands{$command}) {
     $result .= '\\ttfamily';
+    $self->{'style_context'}->[-1]->{'code'} += 1;
   }
   if ($small_font_preformatted_commands{$command}) {
     $result .= "\\$small_font_size";
   }
   $result .= '{}'."%\n";
+  push @{$self->{'style_context'}->[-1]->{'preformatted_context'}}, $command;
   return $result;
 }
 
-sub _close_preformatted()
+sub _close_preformatted($$)
 {
+  my $self = shift;
+  my $command = shift;
+  if ($preformatted_code_commands{$command}) {
+    $self->{'style_context'}->[-1]->{'code'} -= 1;
+  }
+  my $old_context = pop @{$self->{'style_context'}->[-1]->{'preformatted_context'}};
+  die if ($old_context ne $command);
   return "\\endgroup{}%\n"; # \obeylines
 }
 
-sub _open_preformatted_stack($)
+sub _open_preformatted_stack($$)
 {
+  my $self = shift;
   my $stack = shift;
+
   my $result = '';
-  foreach my $stack_comand (@$stack) {
-    if ($preformatted_commands{$stack_comand}) {
-      $result .= _open_preformatted($stack_comand);
-    }
+  foreach my $preformatted_command (@$stack) {
+    $result .= _open_preformatted($self, $preformatted_command);
   }
   return $result;
 }
 
-sub _close_preformatted_stack($)
+sub _close_preformatted_stack($$)
 {
-  # should close in reverse, but it doesn't depend on the command
+  my $self = shift;
   my $stack = shift;
+
   my $result = '';
-  foreach my $stack_comand (@$stack) {
-    if ($preformatted_commands{$stack_comand}) {
-      $result .= _close_preformatted();
-    }
+  foreach my $preformatted_command (reverse @$stack) {
+    $result .= _close_preformatted($self, $preformatted_command);
   }
   return $result;
 }
@@ -1402,6 +1423,8 @@ sub _convert($$)
     }
   }
 
+  # for displaymath that closes the preformatted
+  my $preformatted_to_reopen;
   if ($command) {
     my $unknown_command;
     my $command_context = 'text';
@@ -1541,7 +1564,8 @@ sub _convert($$)
       if (defined($self->{'conf'}->{'kbdinputstyle'})
           and ($self->{'conf'}->{'kbdinputstyle'} eq 'code'
             or ($self->{'conf'}->{'kbdinputstyle'} eq 'example'
-              and $preformatted_commands{$self->{'style_context'}->[-1]->{'context'}->[-1]}))) {
+              and (scalar(@{$self->{'style_context'}->[-1]->{'preformatted_context'}})
+                   and $preformatted_code_commands{$self->{'style_context'}->[-1]->{'preformatted_context'}->[-1]})))) {
         $code_font = 1;
       }
       if ($code_font) {
@@ -2002,7 +2026,8 @@ sub _convert($$)
         if ($command eq 'displaymath') {
           push @{$self->{'style_context'}->[-1]->{'math_style'}}, 'one-line';
           # close all preformatted formats
-          $result .= _close_preformatted_stack($self->{'style_context'}->[-1]->{'context'});
+          $preformatted_to_reopen = [@{$self->{'style_context'}->[-1]->{'preformatted_context'}}];
+          $result .= _close_preformatted_stack($self, $preformatted_to_reopen);
           $result .= "\$\$\n";
         }
       }
@@ -2015,7 +2040,7 @@ sub _convert($$)
       my $shortcaption;
       if ($command eq 'shortcaption') {
         if ($float->{'extra'}->{'caption'}) {
-          # nothing to do, will do @caption
+          # nothing to do, will use @shortcaption when converting @caption
           return $result;
         } else {
           # shortcaption used as caption;
@@ -2084,17 +2109,15 @@ sub _convert($$)
       return $result;
     # block commands
     } elsif (exists($block_commands{$command})) {
-      if ($LaTeX_block_commands{$command}) {
-        foreach my $environment (@{$LaTeX_block_commands{$command}}) {
+      if ($LaTeX_environment_commands{$command}) {
+        foreach my $environment (@{$LaTeX_environment_commands{$command}}) {
           $result .= "\\begin{".$environment."}\n";
         }
-      } elsif ($preformatted_commands{$command}) {
-        $result .= _open_preformatted($command);
       }
-      if ($block_raw_commands{$command}) {
+      if ($preformatted_commands{$command}) {
+        $result .= _open_preformatted($self, $command);
+      } elsif ($block_raw_commands{$command}) {
         push @{$self->{'style_context'}->[-1]->{'context'}}, 'raw';
-      } elsif ($preformatted_commands{$command}) {
-        push @{$self->{'style_context'}->[-1]->{'context'}}, $command;
       }
       if ($command eq 'titlepage') {
         # start a group such that the changes are forgotten when closed
@@ -2310,6 +2333,7 @@ sub _convert($$)
       }
       return $result;
     } elsif ($command eq 'shorttitlepage') {
+      # FIXME ignore if there is alreadu a @titlepage?
       my $title_text = _title_font($self, $root);
       $result .= "\\begin{titlepage}\n";
       $result .= "{\\raggedright $title_text}\n";
@@ -2317,6 +2341,8 @@ sub _convert($$)
       # adds a blank page
       $result .= "\\newpage{}\n\\phantom{blabla}\\newpage{}\n";
       $result .= "\\end{titlepage}\n";
+      $result .= _start_mainmatter_after_titlepage($self);
+      return $result;
     } elsif ($command eq 'title') {
       my $title_text = _title_font($self, $root);
       #$result .= "\\begin{flushleft}\n";
@@ -2669,12 +2695,13 @@ sub _convert($$)
       $result .= "\\endgroup\n";
       $self->{'titlepage_formatting'}->{'in_titlepage'} = 0;
     }
-    if ($LaTeX_block_commands{$command}) {
-      foreach my $environment (reverse @{$LaTeX_block_commands{$command}}) {
+    if ($LaTeX_environment_commands{$command}) {
+      foreach my $environment (reverse @{$LaTeX_environment_commands{$command}}) {
         $result .= "\\end{".$environment."}\n";
       }
-    } elsif ($preformatted_commands{$command}) {
-      $result .= _close_preformatted();
+    }
+    if ($preformatted_commands{$command}) {
+      $result .= _close_preformatted($self, $command);
     }
     if ($command eq 'float') {
       my $normalized_float_type = '';
@@ -2706,20 +2733,13 @@ sub _convert($$)
         }
       }
       $self->{'style_context'}->[-1]->{'in_quotation'} -= 1;
-    }
+    } elsif ($command eq 'titlepage') {
     # as explained in the Texinfo manual start headers after titlepage
-    if ($command eq 'titlepage' or $command eq 'shorttitlepage') {
-      $result .= _set_headings($self, 'on');
-      $self->{'titlepage_done'} = 1;
-      $result .= "\\GNUTexinfomainmatter\n";
+      $result .= _start_mainmatter_after_titlepage($self);
     }
  
     # close the contexts and register the cells
-    if ($preformatted_commands{$command}) {
-      my $old_context = pop @{$self->{'style_context'}->[-1]->{'context'}};
-      die "Not a preformatted context: $old_context"
-        if (!$preformatted_commands{$old_context});
-    } elsif ($block_raw_commands{$command}) {
+    if ($block_raw_commands{$command}) {
       my $old_context = pop @{$self->{'style_context'}->[-1]->{'context'}};
       die if ($old_context ne 'raw');
     } elsif ($block_math_commands{$command}) {
@@ -2728,7 +2748,7 @@ sub _convert($$)
       if ($command eq 'displaymath') {
         $result .= "\$\$\n";
         # reopen all preformatted commands
-        $result .= _open_preformatted_stack($self->{'style_context'}->[-1]->{'context'});
+        $result .= _open_preformatted_stack($self, $preformatted_to_reopen);
       }
       my $old_math_style = pop @{$self->{'style_context'}->[-1]->{'math_style'}};
       die if ($old_math_style ne 'one-line');
