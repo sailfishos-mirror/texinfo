@@ -27,6 +27,9 @@
 \makeatletter
 \renewcommand\mainmatter{\clearpage\@mainmattertrue\pagenumbering{arabic}}
 \makeatother
+% add command aliases to use the same command in book and report
+\newcommand\GNUTexinfomainmatter{\mainmatter}
+\newcommand\GNUTexinfofrontmatter{\frontmatter}
 
 % command that does nothing used to help with substitutions in commands
 \newcommand{\GNUTexinfoplaceholder}[1]{}

@@ -21,6 +21,9 @@
 \makeatletter
 \renewcommand\mainmatter{\clearpage\@mainmattertrue\pagenumbering{arabic}}
 \makeatother
+% add command aliases to use the same command in book and report
+\newcommand\GNUTexinfomainmatter{\mainmatter}
+\newcommand\GNUTexinfofrontmatter{\frontmatter}
 
 % command that does nothing used to help with substitutions in commands
 \newcommand{\GNUTexinfoplaceholder}[1]{}
@@ -67,14 +70,14 @@
 
 \begin{document}
 
-\frontmatter
+\GNUTexinfofrontmatter
 \begin{titlepage}
 {\raggedright {\huge \bfseries the title with shorttitlepage \leavevmode{}\\ it can be long}}
 \newpage{}
 \phantom{blabla}\newpage{}
 \end{titlepage}
 \GNUTexinfosetsingleheader{}%
-\mainmatter
+\GNUTexinfomainmatter
 
 \chapter{Chapter}
 \label{anchor:chapter}%

@@ -21,6 +21,9 @@
 \makeatletter
 \renewcommand\mainmatter{\clearpage\@mainmattertrue\pagenumbering{arabic}}
 \makeatother
+% add command aliases to use the same command in book and report
+\newcommand\GNUTexinfomainmatter{\mainmatter}
+\newcommand\GNUTexinfofrontmatter{\frontmatter}
 
 % command that does nothing used to help with substitutions in commands
 \newcommand{\GNUTexinfoplaceholder}[1]{}
@@ -68,7 +71,7 @@
 
 \begin{document}
 
-\frontmatter
+\GNUTexinfofrontmatter
 \begin{titlepage}
 \begingroup
 \newskip\titlepagetopglue \titlepagetopglue = 1.5in
@@ -101,7 +104,7 @@ in Copying
 \endgroup
 \end{titlepage}
 \GNUTexinfosetsingleheader{}%
-\mainmatter
+\GNUTexinfomainmatter
 
 \chapter{Chapter}
 \label{anchor:chapter}%

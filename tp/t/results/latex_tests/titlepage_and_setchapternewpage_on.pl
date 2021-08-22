@@ -200,7 +200,7 @@ in titlepage
 \\endgroup
 \\end{titlepage}
 \\GNUTexinfosetsingleheader{}%
-\\mainmatter
+\\GNUTexinfomainmatter
 
 ';
 

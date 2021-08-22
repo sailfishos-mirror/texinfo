@@ -249,7 +249,7 @@ in titlepage
 \\endgroup
 \\end{titlepage}
 \\GNUTexinfosetdoubleheader{No Title}%
-\\mainmatter
+\\GNUTexinfomainmatter
 ';
 
 1;

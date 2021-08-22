@@ -419,7 +419,7 @@ $result_converted{'latex'}->{'shorttitlepage'} = '
 \\phantom{blabla}\\newpage{}
 \\end{titlepage}
 \\GNUTexinfosetsingleheader{}%
-\\mainmatter
+\\GNUTexinfomainmatter
 
 \\chapter{Chapter}
 \\label{anchor:chapter}%

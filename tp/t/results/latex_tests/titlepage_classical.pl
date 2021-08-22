@@ -818,7 +818,7 @@ in Copying
 \\endgroup
 \\end{titlepage}
 \\GNUTexinfosetsingleheader{}%
-\\mainmatter
+\\GNUTexinfomainmatter
 
 \\chapter{Chapter}
 \\label{anchor:chapter}%

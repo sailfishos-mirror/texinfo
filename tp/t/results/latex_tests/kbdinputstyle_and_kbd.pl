@@ -743,16 +743,24 @@ $result_floats{'kbdinputstyle_and_kbd'} = {};
 
 $result_converted{'latex'}->{'kbdinputstyle_and_kbd'} = '
 {\\ttfamily\\textsl{default kbdinputstyle}}
-\\par\\begingroup\\obeylines\\obeyspaces\\frenchspacing\\leftskip=2em\\relax\\parskip=0pt\\relax\\ttfamily{}{\\ttfamily\\textsl{in example default kbdinputstyle}}
-\\endgroup{}
+\\par\\begingroup\\obeylines\\obeyspaces\\frenchspacing\\leftskip=2em\\relax\\parskip=0pt\\relax\\ttfamily{}%
+{\\ttfamily\\textsl{in example default kbdinputstyle}}
+\\endgroup{}%
+
 \\texttt{code kbdinputstyle}
-\\par\\begingroup\\obeylines\\obeyspaces\\frenchspacing\\leftskip=2em\\relax\\parskip=0pt\\relax\\ttfamily{}\\texttt{in example code kbdinputstyle}
-\\endgroup{}
+\\par\\begingroup\\obeylines\\obeyspaces\\frenchspacing\\leftskip=2em\\relax\\parskip=0pt\\relax\\ttfamily{}%
+\\texttt{in example code kbdinputstyle}
+\\endgroup{}%
+
 {\\ttfamily\\textsl{example kbdinputstyle}}
-\\par\\begingroup\\obeylines\\obeyspaces\\frenchspacing\\leftskip=2em\\relax\\parskip=0pt\\relax\\ttfamily{}\\texttt{in example example kbdinputstyle}
-\\endgroup{}
+\\par\\begingroup\\obeylines\\obeyspaces\\frenchspacing\\leftskip=2em\\relax\\parskip=0pt\\relax\\ttfamily{}%
+\\texttt{in example example kbdinputstyle}
+\\endgroup{}%
+
 {\\ttfamily\\textsl{distinct kbdinputstyle}}
-\\par\\begingroup\\obeylines\\obeyspaces\\frenchspacing\\leftskip=2em\\relax\\parskip=0pt\\relax\\ttfamily{}{\\ttfamily\\textsl{in example distinct kbdinputstyle}}
-\\endgroup{}';
+\\par\\begingroup\\obeylines\\obeyspaces\\frenchspacing\\leftskip=2em\\relax\\parskip=0pt\\relax\\ttfamily{}%
+{\\ttfamily\\textsl{in example distinct kbdinputstyle}}
+\\endgroup{}%
+';
 
 1;

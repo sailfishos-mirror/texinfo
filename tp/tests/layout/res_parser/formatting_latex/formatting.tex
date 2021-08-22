@@ -21,6 +21,9 @@
 \makeatletter
 \renewcommand\mainmatter{\clearpage\@mainmattertrue\pagenumbering{arabic}}
 \makeatother
+% add command aliases to use the same command in book and report
+\newcommand\GNUTexinfomainmatter{\mainmatter}
+\newcommand\GNUTexinfofrontmatter{\frontmatter}
 
 % command that does nothing used to help with substitutions in commands
 \newcommand{\GNUTexinfoplaceholder}[1]{}
@@ -70,7 +73,7 @@
 
 \begin{document}
 
-\frontmatter
+\GNUTexinfofrontmatter
 \begin{titlepage}
 \begingroup
 \newskip\titlepagetopglue \titlepagetopglue = 1.5in
@@ -331,55 +334,109 @@ $$
 $$
 
 {\ttfamily\textsl{default kbdinputstyle}}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}{\ttfamily\textsl{in example default kbdinputstyle}}
-\endgroup{}
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+{\ttfamily\textsl{in example default kbdinputstyle}}
+\endgroup{}%
+
 \texttt{code kbdinputstyle}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}\texttt{in example code kbdinputstyle}
-\endgroup{}
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+\texttt{in example code kbdinputstyle}
+\endgroup{}%
+
 {\ttfamily\textsl{example kbdinputstyle}}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}\texttt{in example example kbdinputstyle}
-\endgroup{}
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+\texttt{in example example kbdinputstyle}
+\endgroup{}%
+
 {\ttfamily\textsl{distinct kbdinputstyle}}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}{\ttfamily\textsl{in example distinct kbdinputstyle}}
-\endgroup{}
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+{\ttfamily\textsl{in example distinct kbdinputstyle}}
+\endgroup{}%
+
+\begin{quote}
 A quot---ation
+\end{quote}
 
+\begin{quote}
 \textbf{Note:} A Note
+\end{quote}
 
+\begin{quote}
 \textbf{note:} A note
+\end{quote}
 
+\begin{quote}
 \textbf{Caution:} Caution
+\end{quote}
 
+\begin{quote}
 \textbf{Important:} Important
+\end{quote}
 
+\begin{quote}
 \textbf{Tip:} a Tip
+\end{quote}
 
+\begin{quote}
 \textbf{Warning:} a Warning.
+\end{quote}
 
+\begin{quote}
 \textbf{something \'{e} \TeX{}:} The something \'{e} \TeX{} is here.
+\end{quote}
 
+\begin{quote}
 \textbf{@ at the end of line \ {}:} A @ at the end of the @quotation line.
+\end{quote}
 
+\begin{quote}
 \textbf{something, other thing:} something, other thing
+\end{quote}
 
+\begin{quote}
 \textbf{Note, the note:} Note, the note
+\end{quote}
 
+\begin{quote}
+\end{quote}
 
-\textbf{Empty:} 
-\textbf{:} 
-\textbf{\leavevmode{}\\:} 
+\begin{quote}
+\textbf{Empty:} \end{quote}
+
+\begin{quote}
+\textbf{:} \end{quote}
+
+\begin{quote}
+\textbf{\leavevmode{}\\:} \end{quote}
+
+\begin{quote}
 aaa quotation
+\end{quote}
 \begin{center}
 --- \emph{quotation author}
 \end{center}
 
+\begin{quote}
 indent in quotation
+\end{quote}
 
+\begin{quote}
+\begin{footnotesize}
 A small quot---ation
+\end{footnotesize}
+\end{quote}
 
+\begin{quote}
+\begin{footnotesize}
 \textbf{Note:} A small Note
+\end{footnotesize}
+\end{quote}
 
+\begin{quote}
+\begin{footnotesize}
 \textbf{something, other thing:} something, other thing
+\end{footnotesize}
+\end{quote}
 
 \textbullet{} 
 
@@ -423,46 +480,82 @@ lone mu--ltitable item
 
 truc bidule
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}e--xample  some
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+e--xample  some
    text
-\endgroup{}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}example one arg
-\endgroup{}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}example two args
-\endgroup{}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}example three args
-\endgroup{}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}example four args
-\endgroup{}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}example five args
-\endgroup{}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}The something \'{e} \TeX{} is here.
-\endgroup{}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}A @ at the end of the @example line.
-\endgroup{}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}example with empty args
-\endgroup{}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}example with empty and non empty args mix
-\endgroup{}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}s--mallexample
-\endgroup{}
-\texttt{@noindent} after smallexample.
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}\$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.guess?rev=HEAD\&content-type=text/plain'
-\$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEAD\&content-type=text/plain'
-\endgroup{}\noindent{}Less recent versions are also present.
+\endgroup{}%
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax{}d--isplay
-\endgroup{}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax{}s--malldisplay
-\endgroup{}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}l--isp
-\endgroup{}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}s--malllisp
-\endgroup{}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax{}f--ormat
-\endgroup{}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax{}s--mallformat
-\endgroup{}
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+example one arg
+\endgroup{}%
+
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+example two args
+\endgroup{}%
+
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+example three args
+\endgroup{}%
+
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+example four args
+\endgroup{}%
+
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+example five args
+\endgroup{}%
+
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+The something \'{e} \TeX{} is here.
+\endgroup{}%
+
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+A @ at the end of the @example line.
+\endgroup{}%
+
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+example with empty args
+\endgroup{}%
+
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+example with empty and non empty args mix
+\endgroup{}%
+
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily\footnotesize{}%
+s--mallexample
+\endgroup{}%
+
+\texttt{@noindent} after smallexample.
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily\footnotesize{}%
+\$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.guess?rev=HEAD\&content-type=text/plain'
+\$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEAD\&content-type=text/plain'
+\endgroup{}%
+\noindent{}Less recent versions are also present.
+
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax{}%
+d--isplay
+\endgroup{}%
+
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\footnotesize{}%
+s--malldisplay
+\endgroup{}%
+
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+l--isp
+\endgroup{}%
+
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily\footnotesize{}%
+s--malllisp
+\endgroup{}%
+
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax{}%
+f--ormat
+\endgroup{}%
+
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\footnotesize{}%
+s--mallformat
+\endgroup{}%
+
 $$
 disp--laymath
 f(x) = {1 \over \sigma \sqrt{2\pi}}e^{-{1 \over 2}\left({x-\mu \over \sigma}\right)^2}
@@ -1139,55 +1232,109 @@ $$
 $$
 
 {\ttfamily\textsl{default kbdinputstyle}}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}{\ttfamily\textsl{in example default kbdinputstyle}}
-\endgroup{}
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+{\ttfamily\textsl{in example default kbdinputstyle}}
+\endgroup{}%
+
 \texttt{code kbdinputstyle}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}\texttt{in example code kbdinputstyle}
-\endgroup{}
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+\texttt{in example code kbdinputstyle}
+\endgroup{}%
+
 {\ttfamily\textsl{example kbdinputstyle}}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}\texttt{in example example kbdinputstyle}
-\endgroup{}
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+\texttt{in example example kbdinputstyle}
+\endgroup{}%
+
 {\ttfamily\textsl{distinct kbdinputstyle}}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}{\ttfamily\textsl{in example distinct kbdinputstyle}}
-\endgroup{}
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+{\ttfamily\textsl{in example distinct kbdinputstyle}}
+\endgroup{}%
+
+\begin{quote}
 A quot---ation
+\end{quote}
 
+\begin{quote}
 \textbf{Note:} A Note
+\end{quote}
 
+\begin{quote}
 \textbf{note:} A note
+\end{quote}
 
+\begin{quote}
 \textbf{Caution:} Caution
+\end{quote}
 
+\begin{quote}
 \textbf{Important:} Important
+\end{quote}
 
+\begin{quote}
 \textbf{Tip:} a Tip
+\end{quote}
 
+\begin{quote}
 \textbf{Warning:} a Warning.
+\end{quote}
 
+\begin{quote}
 \textbf{something \'{e} \TeX{}:} The something \'{e} \TeX{} is here.
+\end{quote}
 
+\begin{quote}
 \textbf{@ at the end of line \ {}:} A @ at the end of the @quotation line.
+\end{quote}
 
+\begin{quote}
 \textbf{something, other thing:} something, other thing
+\end{quote}
 
+\begin{quote}
 \textbf{Note, the note:} Note, the note
+\end{quote}
 
+\begin{quote}
+\end{quote}
 
-\textbf{Empty:} 
-\textbf{:} 
-\textbf{\leavevmode{}\\:} 
+\begin{quote}
+\textbf{Empty:} \end{quote}
+
+\begin{quote}
+\textbf{:} \end{quote}
+
+\begin{quote}
+\textbf{\leavevmode{}\\:} \end{quote}
+
+\begin{quote}
 aaa quotation
+\end{quote}
 \begin{center}
 --- \emph{quotation author}
 \end{center}
 
+\begin{quote}
 indent in quotation
+\end{quote}
 
+\begin{quote}
+\begin{footnotesize}
 A small quot---ation
+\end{footnotesize}
+\end{quote}
 
+\begin{quote}
+\begin{footnotesize}
 \textbf{Note:} A small Note
+\end{footnotesize}
+\end{quote}
 
+\begin{quote}
+\begin{footnotesize}
 \textbf{something, other thing:} something, other thing
+\end{footnotesize}
+\end{quote}
 
 \textbullet{} 
 
@@ -1231,46 +1378,82 @@ lone mu--ltitable item
 
 truc bidule
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}e--xample  some
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+e--xample  some
    text
-\endgroup{}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}example one arg
-\endgroup{}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}example two args
-\endgroup{}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}example three args
-\endgroup{}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}example four args
-\endgroup{}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}example five args
-\endgroup{}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}The something \'{e} \TeX{} is here.
-\endgroup{}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}A @ at the end of the @example line.
-\endgroup{}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}example with empty args
-\endgroup{}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}example with empty and non empty args mix
-\endgroup{}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}s--mallexample
-\endgroup{}
-\texttt{@noindent} after smallexample.
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}\$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.guess?rev=HEAD\&content-type=text/plain'
-\$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEAD\&content-type=text/plain'
-\endgroup{}\noindent{}Less recent versions are also present.
+\endgroup{}%
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax{}d--isplay
-\endgroup{}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax{}s--malldisplay
-\endgroup{}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}l--isp
-\endgroup{}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}s--malllisp
-\endgroup{}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax{}f--ormat
-\endgroup{}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax{}s--mallformat
-\endgroup{}
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+example one arg
+\endgroup{}%
+
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+example two args
+\endgroup{}%
+
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+example three args
+\endgroup{}%
+
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+example four args
+\endgroup{}%
+
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+example five args
+\endgroup{}%
+
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+The something \'{e} \TeX{} is here.
+\endgroup{}%
+
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+A @ at the end of the @example line.
+\endgroup{}%
+
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+example with empty args
+\endgroup{}%
+
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+example with empty and non empty args mix
+\endgroup{}%
+
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily\footnotesize{}%
+s--mallexample
+\endgroup{}%
+
+\texttt{@noindent} after smallexample.
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily\footnotesize{}%
+\$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.guess?rev=HEAD\&content-type=text/plain'
+\$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEAD\&content-type=text/plain'
+\endgroup{}%
+\noindent{}Less recent versions are also present.
+
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax{}%
+d--isplay
+\endgroup{}%
+
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\footnotesize{}%
+s--malldisplay
+\endgroup{}%
+
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+l--isp
+\endgroup{}%
+
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily\footnotesize{}%
+s--malllisp
+\endgroup{}%
+
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax{}%
+f--ormat
+\endgroup{}%
+
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\footnotesize{}%
+s--mallformat
+\endgroup{}%
+
 $$
 disp--laymath
 f(x) = {1 \over \sigma \sqrt{2\pi}}e^{-{1 \over 2}\left({x-\mu \over \sigma}\right)^2}
@@ -1704,7 +1887,7 @@ Various deff lines
 \endgroup
 \end{titlepage}
 \GNUTexinfosetsingleheader{}%
-\mainmatter
+\GNUTexinfomainmatter
 
 \chapter{chapter}
 \label{anchor:chapter}%
@@ -1962,55 +2145,109 @@ $$
 $$
 
 {\ttfamily\textsl{default kbdinputstyle}}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}{\ttfamily\textsl{in example default kbdinputstyle}}
-\endgroup{}
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+{\ttfamily\textsl{in example default kbdinputstyle}}
+\endgroup{}%
+
 \texttt{code kbdinputstyle}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}\texttt{in example code kbdinputstyle}
-\endgroup{}
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+\texttt{in example code kbdinputstyle}
+\endgroup{}%
+
 {\ttfamily\textsl{example kbdinputstyle}}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}\texttt{in example example kbdinputstyle}
-\endgroup{}
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+\texttt{in example example kbdinputstyle}
+\endgroup{}%
+
 {\ttfamily\textsl{distinct kbdinputstyle}}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}{\ttfamily\textsl{in example distinct kbdinputstyle}}
-\endgroup{}
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+{\ttfamily\textsl{in example distinct kbdinputstyle}}
+\endgroup{}%
+
+\begin{quote}
 A quot---ation
+\end{quote}
 
+\begin{quote}
 \textbf{Note:} A Note
+\end{quote}
 
+\begin{quote}
 \textbf{note:} A note
+\end{quote}
 
+\begin{quote}
 \textbf{Caution:} Caution
+\end{quote}
 
+\begin{quote}
 \textbf{Important:} Important
+\end{quote}
 
+\begin{quote}
 \textbf{Tip:} a Tip
+\end{quote}
 
+\begin{quote}
 \textbf{Warning:} a Warning.
+\end{quote}
 
+\begin{quote}
 \textbf{something \'{e} \TeX{}:} The something \'{e} \TeX{} is here.
+\end{quote}
 
+\begin{quote}
 \textbf{@ at the end of line \ {}:} A @ at the end of the @quotation line.
+\end{quote}
 
+\begin{quote}
 \textbf{something, other thing:} something, other thing
+\end{quote}
 
+\begin{quote}
 \textbf{Note, the note:} Note, the note
+\end{quote}
 
+\begin{quote}
+\end{quote}
 
-\textbf{Empty:} 
-\textbf{:} 
-\textbf{\leavevmode{}\\:} 
+\begin{quote}
+\textbf{Empty:} \end{quote}
+
+\begin{quote}
+\textbf{:} \end{quote}
+
+\begin{quote}
+\textbf{\leavevmode{}\\:} \end{quote}
+
+\begin{quote}
 aaa quotation
+\end{quote}
 \begin{center}
 --- \emph{quotation author}
 \end{center}
 
+\begin{quote}
 indent in quotation
+\end{quote}
 
+\begin{quote}
+\begin{footnotesize}
 A small quot---ation
+\end{footnotesize}
+\end{quote}
 
+\begin{quote}
+\begin{footnotesize}
 \textbf{Note:} A small Note
+\end{footnotesize}
+\end{quote}
 
+\begin{quote}
+\begin{footnotesize}
 \textbf{something, other thing:} something, other thing
+\end{footnotesize}
+\end{quote}
 
 \textbullet{} 
 
@@ -2054,46 +2291,82 @@ lone mu--ltitable item
 
 truc bidule
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}e--xample  some
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+e--xample  some
    text
-\endgroup{}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}example one arg
-\endgroup{}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}example two args
-\endgroup{}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}example three args
-\endgroup{}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}example four args
-\endgroup{}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}example five args
-\endgroup{}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}The something \'{e} \TeX{} is here.
-\endgroup{}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}A @ at the end of the @example line.
-\endgroup{}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}example with empty args
-\endgroup{}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}example with empty and non empty args mix
-\endgroup{}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}s--mallexample
-\endgroup{}
-\texttt{@noindent} after smallexample.
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}\$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.guess?rev=HEAD\&content-type=text/plain'
-\$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEAD\&content-type=text/plain'
-\endgroup{}\noindent{}Less recent versions are also present.
+\endgroup{}%
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax{}d--isplay
-\endgroup{}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax{}s--malldisplay
-\endgroup{}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}l--isp
-\endgroup{}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}s--malllisp
-\endgroup{}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax{}f--ormat
-\endgroup{}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax{}s--mallformat
-\endgroup{}
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+example one arg
+\endgroup{}%
+
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+example two args
+\endgroup{}%
+
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+example three args
+\endgroup{}%
+
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+example four args
+\endgroup{}%
+
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+example five args
+\endgroup{}%
+
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+The something \'{e} \TeX{} is here.
+\endgroup{}%
+
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+A @ at the end of the @example line.
+\endgroup{}%
+
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+example with empty args
+\endgroup{}%
+
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+example with empty and non empty args mix
+\endgroup{}%
+
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily\footnotesize{}%
+s--mallexample
+\endgroup{}%
+
+\texttt{@noindent} after smallexample.
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily\footnotesize{}%
+\$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.guess?rev=HEAD\&content-type=text/plain'
+\$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEAD\&content-type=text/plain'
+\endgroup{}%
+\noindent{}Less recent versions are also present.
+
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax{}%
+d--isplay
+\endgroup{}%
+
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\footnotesize{}%
+s--malldisplay
+\endgroup{}%
+
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+l--isp
+\endgroup{}%
+
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily\footnotesize{}%
+s--malllisp
+\endgroup{}%
+
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax{}%
+f--ormat
+\endgroup{}%
+
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\footnotesize{}%
+s--mallformat
+\endgroup{}%
+
 $$
 disp--laymath
 f(x) = {1 \over \sigma \sqrt{2\pi}}e^{-{1 \over 2}\left({x-\mu \over \sigma}\right)^2}
@@ -2768,55 +3041,109 @@ $$
 $$
 
 {\ttfamily\textsl{default kbdinputstyle}}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}{\ttfamily\textsl{in example default kbdinputstyle}}
-\endgroup{}
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+{\ttfamily\textsl{in example default kbdinputstyle}}
+\endgroup{}%
+
 \texttt{code kbdinputstyle}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}\texttt{in example code kbdinputstyle}
-\endgroup{}
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+\texttt{in example code kbdinputstyle}
+\endgroup{}%
+
 {\ttfamily\textsl{example kbdinputstyle}}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}\texttt{in example example kbdinputstyle}
-\endgroup{}
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+\texttt{in example example kbdinputstyle}
+\endgroup{}%
+
 {\ttfamily\textsl{distinct kbdinputstyle}}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}{\ttfamily\textsl{in example distinct kbdinputstyle}}
-\endgroup{}
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+{\ttfamily\textsl{in example distinct kbdinputstyle}}
+\endgroup{}%
+
+\begin{quote}
 A quot---ation
+\end{quote}
 
+\begin{quote}
 \textbf{Note:} A Note
+\end{quote}
 
+\begin{quote}
 \textbf{note:} A note
+\end{quote}
 
+\begin{quote}
 \textbf{Caution:} Caution
+\end{quote}
 
+\begin{quote}
 \textbf{Important:} Important
+\end{quote}
 
+\begin{quote}
 \textbf{Tip:} a Tip
+\end{quote}
 
+\begin{quote}
 \textbf{Warning:} a Warning.
+\end{quote}
 
+\begin{quote}
 \textbf{something \'{e} \TeX{}:} The something \'{e} \TeX{} is here.
+\end{quote}
 
+\begin{quote}
 \textbf{@ at the end of line \ {}:} A @ at the end of the @quotation line.
+\end{quote}
 
+\begin{quote}
 \textbf{something, other thing:} something, other thing
+\end{quote}
 
+\begin{quote}
 \textbf{Note, the note:} Note, the note
+\end{quote}
 
+\begin{quote}
+\end{quote}
 
-\textbf{Empty:} 
-\textbf{:} 
-\textbf{\leavevmode{}\\:} 
+\begin{quote}
+\textbf{Empty:} \end{quote}
+
+\begin{quote}
+\textbf{:} \end{quote}
+
+\begin{quote}
+\textbf{\leavevmode{}\\:} \end{quote}
+
+\begin{quote}
 aaa quotation
+\end{quote}
 \begin{center}
 --- \emph{quotation author}
 \end{center}
 
+\begin{quote}
 indent in quotation
+\end{quote}
 
+\begin{quote}
+\begin{footnotesize}
 A small quot---ation
+\end{footnotesize}
+\end{quote}
 
+\begin{quote}
+\begin{footnotesize}
 \textbf{Note:} A small Note
+\end{footnotesize}
+\end{quote}
 
+\begin{quote}
+\begin{footnotesize}
 \textbf{something, other thing:} something, other thing
+\end{footnotesize}
+\end{quote}
 
 \textbullet{} 
 
@@ -2860,46 +3187,82 @@ lone mu--ltitable item
 
 truc bidule
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}e--xample  some
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+e--xample  some
    text
-\endgroup{}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}example one arg
-\endgroup{}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}example two args
-\endgroup{}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}example three args
-\endgroup{}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}example four args
-\endgroup{}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}example five args
-\endgroup{}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}The something \'{e} \TeX{} is here.
-\endgroup{}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}A @ at the end of the @example line.
-\endgroup{}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}example with empty args
-\endgroup{}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}example with empty and non empty args mix
-\endgroup{}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}s--mallexample
-\endgroup{}
-\texttt{@noindent} after smallexample.
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}\$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.guess?rev=HEAD\&content-type=text/plain'
-\$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEAD\&content-type=text/plain'
-\endgroup{}\noindent{}Less recent versions are also present.
+\endgroup{}%
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax{}d--isplay
-\endgroup{}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax{}s--malldisplay
-\endgroup{}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}l--isp
-\endgroup{}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}s--malllisp
-\endgroup{}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax{}f--ormat
-\endgroup{}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax{}s--mallformat
-\endgroup{}
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+example one arg
+\endgroup{}%
+
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+example two args
+\endgroup{}%
+
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+example three args
+\endgroup{}%
+
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+example four args
+\endgroup{}%
+
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+example five args
+\endgroup{}%
+
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+The something \'{e} \TeX{} is here.
+\endgroup{}%
+
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+A @ at the end of the @example line.
+\endgroup{}%
+
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+example with empty args
+\endgroup{}%
+
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+example with empty and non empty args mix
+\endgroup{}%
+
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily\footnotesize{}%
+s--mallexample
+\endgroup{}%
+
+\texttt{@noindent} after smallexample.
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily\footnotesize{}%
+\$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.guess?rev=HEAD\&content-type=text/plain'
+\$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEAD\&content-type=text/plain'
+\endgroup{}%
+\noindent{}Less recent versions are also present.
+
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax{}%
+d--isplay
+\endgroup{}%
+
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\footnotesize{}%
+s--malldisplay
+\endgroup{}%
+
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+l--isp
+\endgroup{}%
+
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily\footnotesize{}%
+s--malllisp
+\endgroup{}%
+
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax{}%
+f--ormat
+\endgroup{}%
+
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\footnotesize{}%
+s--mallformat
+\endgroup{}%
+
 $$
 disp--laymath
 f(x) = {1 \over \sigma \sqrt{2\pi}}e^{-{1 \over 2}\left({x-\mu \over \sigma}\right)^2}
@@ -3332,7 +3695,8 @@ Various deff lines
 
 
 In example.
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+
 <
 >
 "
@@ -3539,20 +3903,25 @@ but , ,\@
 After clickstyle $\Rightarrow{}$
 \texttt{@clicksequence\{click @click\{\} A\}} click $\Rightarrow{}$ A
 
-\endgroup{}$$
+\endgroup{}%
+$$
 \mathbf{``simple-double--three---four----''} \hbox{aa}
 `\hbox{}`simple-double-\hbox{}-three---four----'\hbox{}'
 $$
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}
-\endgroup{}$$
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+
+\endgroup{}%
+$$
 \ddot{u} \ddot{U} \tilde{n} \hat{a} \acute{e} \bar{o} \grave{i} \acute{e} \imath{} \jmath{} \grave{\bar{E}}
 \mathord{\text{\l{}}} \textsl{\c{\'{C}}} \textsl{\c{\'{C}}} \textsl{\c{c}} \textsl{\H{a}} \dot{a} \mathring{a} \textsl{\t{a}}
 \breve{a} \textsl{\b{a}} \textsl{\d{a}} \check{a} \textsl{\k{a}} a^{h}_{l}
  \ {}\ {} \ {}\-{}   ! ? . @ \} \{ 
 \today{}
 $$
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}
-\endgroup{}$$
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+
+\endgroup{}%
+$$
 \rightarrow{}
 u
 TeX LaTeX \bullet{} \copyright{} \dots{} \dots{} \equiv{}
@@ -3561,68 +3930,127 @@ TeX LaTeX \bullet{} \copyright{} \dots{} \dots{} \equiv{}
 \mathord{\text{\TH{}}} \mathord{\text{\dh{}}} \mathord{\text{\th{}}} \mathord{\text{\textexclamdown{}}} \mathord{\text{\textquestiondown{}}} \mathsterling{}
 \circledR{} \mathord{\text{\textordfeminine{}}} \mathord{\text{\textordmasculine{}}} , 
 $$
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}
-\endgroup{}$$
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+
+\endgroup{}%
+$$
 \mathord{\text{\textquotedblleft{}}} \mathord{\text{\textquotedblright{}}} 
 \mathord{\text{\textquoteleft{}}} \mathord{\text{\textquoteright{}}} \mathord{\text{\quotedblbase{}}} \mathord{\text{\quotesinglbase{}}} \mathord{\text{\guillemotleft{}}}
 \mathord{\text{\guillemotright{}}} \mathord{\text{\guillemotleft{}}} \mathord{\text{\guillemotright{}}} \mathord{\text{\guilsinglleft{}}}
 \mathord{\text{\guilsinglright{}}} ^{\circ{}} \euro{} \rightarrow{} \leq{} \geq{}
 $$
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}
-\endgroup{}$$
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+
+\endgroup{}%
+$$
 \mathbf{b} \mathit{i} \mathrm{r} sc \mathtt{t} \mathsf{sansserif} slanted
 $$
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+
 {\ttfamily\textsl{default kbdinputstyle}}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}{\ttfamily\textsl{in example default kbdinputstyle}}
-\endgroup{}
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+{\ttfamily\textsl{in example default kbdinputstyle}}
+\endgroup{}%
+
 \texttt{code kbdinputstyle}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}\texttt{in example code kbdinputstyle}
-\endgroup{}
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+\texttt{in example code kbdinputstyle}
+\endgroup{}%
+
 \texttt{example kbdinputstyle}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}\texttt{in example example kbdinputstyle}
-\endgroup{}
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+\texttt{in example example kbdinputstyle}
+\endgroup{}%
+
 {\ttfamily\textsl{distinct kbdinputstyle}}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}{\ttfamily\textsl{in example distinct kbdinputstyle}}
-\endgroup{}
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+{\ttfamily\textsl{in example distinct kbdinputstyle}}
+\endgroup{}%
+
+\begin{quote}
 A quot---ation
+\end{quote}
 
+\begin{quote}
 \textbf{Note:} A Note
+\end{quote}
 
+\begin{quote}
 \textbf{note:} A note
+\end{quote}
 
+\begin{quote}
 \textbf{Caution:} Caution
+\end{quote}
 
+\begin{quote}
 \textbf{Important:} Important
+\end{quote}
 
+\begin{quote}
 \textbf{Tip:} a Tip
+\end{quote}
 
+\begin{quote}
 \textbf{Warning:} a Warning.
+\end{quote}
 
+\begin{quote}
 \textbf{something \'{e} \TeX{}:} The something \'{e} \TeX{} is here.
+\end{quote}
 
+\begin{quote}
 \textbf{@ at the end of line \ {}:} A @ at the end of the @quotation line.
+\end{quote}
 
+\begin{quote}
 \textbf{something, other thing:} something, other thing
+\end{quote}
 
+\begin{quote}
 \textbf{Note, the note:} Note, the note
+\end{quote}
 
+\begin{quote}
+\end{quote}
 
-\textbf{Empty:} 
-\textbf{:} 
-\textbf{\leavevmode{}\\:} 
+\begin{quote}
+\textbf{Empty:} \end{quote}
+
+\begin{quote}
+\textbf{:} \end{quote}
+
+\begin{quote}
+\textbf{\leavevmode{}\\:} \end{quote}
+
+\begin{quote}
 aaa quotation
+\end{quote}
 \begin{center}
 --- \emph{quotation author}
 \end{center}
 
+\begin{quote}
 indent in quotation
+\end{quote}
 
+\begin{quote}
+\begin{footnotesize}
 A small quot---ation
+\end{footnotesize}
+\end{quote}
 
+\begin{quote}
+\begin{footnotesize}
 \textbf{Note:} A small Note
+\end{footnotesize}
+\end{quote}
 
+\begin{quote}
+\begin{footnotesize}
 \textbf{something, other thing:} something, other thing
+\end{footnotesize}
+\end{quote}
 
 \textbullet{} 
 
@@ -3666,51 +4094,89 @@ lone mu--ltitable item
 
 truc bidule
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}e--xample  some
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+e--xample  some
    text
-\endgroup{}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}example one arg
-\endgroup{}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}example two args
-\endgroup{}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}example three args
-\endgroup{}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}example four args
-\endgroup{}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}example five args
-\endgroup{}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}The something \'{e} \TeX{} is here.
-\endgroup{}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}A @ at the end of the @example line.
-\endgroup{}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}example with empty args
-\endgroup{}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}example with empty and non empty args mix
-\endgroup{}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}s--mallexample
-\endgroup{}
-\texttt{@noindent} after smallexample.
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}\$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.guess?rev=HEAD\&content-type=text/plain'
-\$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEAD\&content-type=text/plain'
-\endgroup{}\noindent{}Less recent versions are also present.
+\endgroup{}%
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax{}d--isplay
-\endgroup{}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax{}s--malldisplay
-\endgroup{}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}l--isp
-\endgroup{}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}s--malllisp
-\endgroup{}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax{}f--ormat
-\endgroup{}
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax{}s--mallformat
-\endgroup{}
-\endgroup{}$$
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+example one arg
+\endgroup{}%
+
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+example two args
+\endgroup{}%
+
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+example three args
+\endgroup{}%
+
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+example four args
+\endgroup{}%
+
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+example five args
+\endgroup{}%
+
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+The something \'{e} \TeX{} is here.
+\endgroup{}%
+
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+A @ at the end of the @example line.
+\endgroup{}%
+
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+example with empty args
+\endgroup{}%
+
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+example with empty and non empty args mix
+\endgroup{}%
+
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily\footnotesize{}%
+s--mallexample
+\endgroup{}%
+
+\texttt{@noindent} after smallexample.
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily\footnotesize{}%
+\$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.guess?rev=HEAD\&content-type=text/plain'
+\$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEAD\&content-type=text/plain'
+\endgroup{}%
+\noindent{}Less recent versions are also present.
+
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax{}%
+d--isplay
+\endgroup{}%
+
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\footnotesize{}%
+s--malldisplay
+\endgroup{}%
+
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+l--isp
+\endgroup{}%
+
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily\footnotesize{}%
+s--malllisp
+\endgroup{}%
+
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax{}%
+f--ormat
+\endgroup{}%
+
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\footnotesize{}%
+s--mallformat
+\endgroup{}%
+
+\endgroup{}%
+$$
 disp--laymath
 f(x) = {1 \over \sigma \sqrt{2\pi}}e^{-{1 \over 2}\left({x-\mu \over \sigma}\right)^2}
 $$
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+
 \hbox{}-- c--ategory: d--effn\_name a--rguments...
 
 
@@ -4136,7 +4602,8 @@ Various deff lines
 \texttt{@inforef\{\}} 
 
 
-\endgroup{}
+\endgroup{}%
+
 
 
 cp
@@ -4161,7 +4628,9 @@ tp
 
 \footnote{in footnote}
 
-\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax{}\endgroup{}
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax{}%
+\endgroup{}%
+
 \section{A section}
 \label{anchor:s_002d_002dect_002cion}%
 

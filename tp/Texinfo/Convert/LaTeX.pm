@@ -118,6 +118,9 @@
 # @pagesizes uses \newgeometry which forgets about previous settings except
 # for paper size.  It could be a good thing to change geometry that way,
 # but it is not how Texinfo TeX does it.
+#
+# The environment used for @quotation is quote as it seems to match,
+# but the description of quote does not really match.
 
 package Texinfo::Convert::LaTeX;
 
@@ -443,7 +446,7 @@ my $indent_length = 5;
 
 my %indented_commands;
 foreach my $indented_command (keys(%item_indent_format_length), 
-           keys(%preformatted_commands), 'quotation', 'smallquotation', 
+           keys(%preformatted_commands),
            'indentedblock', 'smallindentedblock',
            keys(%def_commands)) {
   $indented_commands{$indented_command} = 1 
@@ -466,17 +469,21 @@ foreach my $menu_command (keys(%menu_commands)) {
 my @LaTeX_same_block_commands = (
   'titlepage', 'verbatim');
 
+my $small_font_size = 'footnotesize';
+
 # TODO flushleft and flushright
 # the flushleft and flushright in Texinfo are not the same as in
 # LaTeX, as, in addition to come from a possibly different margin,
 # the test is not filled at all, each line is left as is.  LaTeX
 # flushleft and flushright are filled but not aligned.
 my %LaTeX_block_commands = (
-  'raggedright' => 'flushleft',
+  'raggedright' => ['flushleft'],
+  'quotation' => ['quote'],
+  'smallquotation' => ['quote', $small_font_size],
 );
 
 foreach my $environment_command (@LaTeX_same_block_commands) {
-  $LaTeX_block_commands{$environment_command} = $environment_command;
+  $LaTeX_block_commands{$environment_command} = [$environment_command];
 }
 
 my %ignorable_space_types;
@@ -904,6 +911,26 @@ my %LaTeX_encoding_names_map = (
   'utf-8' => 'utf8',
 );
 
+# book or report?
+my $documentclass = 'book';
+
+my %front_main_matter_definitions = (
+  'book' => '% redefine the \mainmatter command such that it does not clear page
+% as if in double page
+\makeatletter
+\renewcommand\mainmatter{\clearpage\@mainmattertrue\pagenumbering{arabic}}
+\makeatother
+% add command aliases to use the same command in book and report
+\newcommand\GNUTexinfomainmatter{\mainmatter}
+\newcommand\GNUTexinfofrontmatter{\frontmatter}
+',
+  'report' => '% add mainmatter and frontmatter commands
+\newcommand\GNUTexinfomainmatter{\clearpage\pagenumbering{arabic}}
+\newcommand\GNUTexinfofrontmatter{\clearpage\pagenumbering{roman}}
+'
+);
+
+
 sub _latex_header {
   my $self = shift;
   # amsfonts for \circledR
@@ -916,9 +943,8 @@ sub _latex_header {
   # etoolbox for \patchcmd. In texlive-latex-recommended in debian
   # fontsize for \changefontsize. In texlive-latex-extra in debian
   # \usepackage[linkbordercolor={0 0 0}]{hyperref}
-  my $header = 
-'\documentclass{book}
-\usepackage{makeidx}\makeindex
+  my $header = "\\documentclass{$documentclass}\n"
+.'\usepackage{makeidx}\makeindex
 \usepackage{amsfonts}
 \usepackage{amsmath}
 \usepackage[gen]{eurosym}
@@ -968,13 +994,9 @@ sub _latex_header {
       }
     }
   }
+  $header .= "\n";
+  $header .= $front_main_matter_definitions{$documentclass};
   $header .= '
-% redefine the \mainmatter command such that it does not clear page
-% as if in double page
-\makeatletter
-\renewcommand\mainmatter{\clearpage\@mainmattertrue\pagenumbering{arabic}}
-\makeatother
-
 % command that does nothing used to help with substitutions in commands
 \newcommand{\GNUTexinfoplaceholder}[1]{}
 
@@ -1042,7 +1064,7 @@ sub _begin_document($)
 ';
   if (exists($self->{'extra'}->{'titlepage'})
       or exists($self->{'extra'}->{'shorttitlepage'})) {
-    $result .= "\n\\frontmatter\n";
+    $result .= "\n\\GNUTexinfofrontmatter\n";
   }
   return $result;
 }
@@ -1158,7 +1180,8 @@ sub _set_headings($$)
 
 # to change the chapter we substitute in the \chapter command.
 # REMARK it is fragile as it depends on the LaTeX codes. It is also
-# most probably specific of the documentclass.
+# most probably specific of the documentclass.  It is present in both
+# report and book document classes in 2021
 my $odd_chapter_new_page_code = '\if@openright\cleardoublepage\else\clearpage\fi';
 my $default_chapter_page_code = $odd_chapter_new_page_code;
 # To make sure that we substitute the right code, we add a
@@ -1189,7 +1212,7 @@ sub _set_chapter_new_page($$)
 
   my $result = '';
   # do not substitute if it is the same, for instance
-  # if setting the same as book default or setting twice
+  # if setting the same as document class default or setting twice
   if ($new_code ne $substituted_code) {
     $result .= '\makeatletter
 \patchcmd{\chapter}{'.$substituted_code.'}{'.$new_code.'}{}{}
@@ -1210,6 +1233,12 @@ sub _set_chapter_new_page($$)
   return $result;
 }
 
+my %small_font_preformatted_commands;
+foreach my $small_font_preformatted_command (
+     grep {/^small/} keys(%preformatted_commands)) {
+  $small_font_preformatted_commands{$small_font_preformatted_command} = 1;
+}
+
 sub _open_preformatted($)
 {
   my $command = shift;
@@ -1221,13 +1250,16 @@ sub _open_preformatted($)
   if ($preformatted_code_commands{$command}) {
     $result .= '\\ttfamily';
   }
-  $result .= '{}';
+  if ($small_font_preformatted_commands{$command}) {
+    $result .= "\\$small_font_size";
+  }
+  $result .= '{}'."%\n";
   return $result;
 }
 
 sub _close_preformatted()
 {
-  return '\\endgroup{}'; # \obeylines
+  return "\\endgroup{}%\n"; # \obeylines
 }
 
 sub _open_preformatted_stack($)
@@ -2052,11 +2084,10 @@ sub _convert($$)
       return $result;
     # block commands
     } elsif (exists($block_commands{$command})) {
-      # remark:
-      # cartouche group and raggedright -> nothing on format stack
-
       if ($LaTeX_block_commands{$command}) {
-        $result .= "\\begin{".$LaTeX_block_commands{$command}."}\n";
+        foreach my $environment (@{$LaTeX_block_commands{$command}}) {
+          $result .= "\\begin{".$environment."}\n";
+        }
       } elsif ($preformatted_commands{$command}) {
         $result .= _open_preformatted($command);
       }
@@ -2103,7 +2134,6 @@ sub _convert($$)
           }
         }
       } elsif ($command eq 'float') {
-        #$result .= "\n";
         my $normalized_float_type = '';
         if ($root->{'extra'}->{'type'}) {
           $normalized_float_type = $root->{'extra'}->{'type'}->{'normalized'};
@@ -2123,7 +2153,8 @@ sub _convert($$)
           = _tree_anchor_label($root->{'extra'}->{'node_content'});
         $result .= "\\label{$node_label}%\n";
       }
-      # ignore Top node as in Texinfo TeX
+      # ignore Top node like Texinfo TeX.  When called through
+      # output(), the tree elements are already removed
       if ($root->{'extra'}->{'normalized'} eq 'Top') {
         return $result;
       }
@@ -2141,7 +2172,13 @@ sub _convert($$)
       my $associated_node;
       if ($root->{'extra'}->{'associated_node'}) {
         $associated_node = $root->{'extra'}->{'associated_node'};
-        # ignore Top node as in Texinfo TeX
+        # ignore Top node like Texinfo TeX.  When called through
+        # output(), the tree elements are already removed.
+        # If the sections are not already removed and are removed here,
+        # and in contrast with Texinfo TeX and sections removed in
+        # output(), the sections not associated with
+        # any node and after Top node and the following node are not
+        # removed.
         if ($associated_node->{'extra'}->{'normalized'} eq 'Top') {
           return $result;
         }
@@ -2349,7 +2386,6 @@ sub _convert($$)
       if ($command eq 'pagesizes') {
         my $pagesize_spec = _convert($self, $root->{'args'}->[0]);
         my @pagesize_args = split(/\s*,\s*/, $pagesize_spec);
-        print STDERR "".join("|", @pagesize_args)."\n";
         my @geometry;
         my $height = shift @pagesize_args;
         if (defined($height) and $height ne '') {
@@ -2628,6 +2664,18 @@ sub _convert($$)
 
   # close commands
   if ($command) {
+    if ($command eq 'titlepage') {
+      $result .= _end_title_page($self);
+      $result .= "\\endgroup\n";
+      $self->{'titlepage_formatting'}->{'in_titlepage'} = 0;
+    }
+    if ($LaTeX_block_commands{$command}) {
+      foreach my $environment (reverse @{$LaTeX_block_commands{$command}}) {
+        $result .= "\\end{".$environment."}\n";
+      }
+    } elsif ($preformatted_commands{$command}) {
+      $result .= _close_preformatted();
+    }
     if ($command eq 'float') {
       my $normalized_float_type = '';
       if ($root->{'extra'}->{'type'}) {
@@ -2659,6 +2707,12 @@ sub _convert($$)
       }
       $self->{'style_context'}->[-1]->{'in_quotation'} -= 1;
     }
+    # as explained in the Texinfo manual start headers after titlepage
+    if ($command eq 'titlepage' or $command eq 'shorttitlepage') {
+      $result .= _set_headings($self, 'on');
+      $self->{'titlepage_done'} = 1;
+      $result .= "\\GNUTexinfomainmatter\n";
+    }
  
     # close the contexts and register the cells
     if ($preformatted_commands{$command}) {
@@ -2678,22 +2732,6 @@ sub _convert($$)
       }
       my $old_math_style = pop @{$self->{'style_context'}->[-1]->{'math_style'}};
       die if ($old_math_style ne 'one-line');
-    }
-    if ($command eq 'titlepage') {
-      $result .= _end_title_page($self);
-      $result .= "\\endgroup\n";
-      $self->{'titlepage_formatting'}->{'in_titlepage'} = 0;
-    }
-    if ($LaTeX_block_commands{$command}) {
-      $result .= "\\end{".$LaTeX_block_commands{$command}."}\n";
-    } elsif ($preformatted_commands{$command}) {
-      $result .= _close_preformatted();
-    }
-    # as explained in the Texinfo manual start headers after titlepage
-    if ($command eq 'titlepage' or $command eq 'shorttitlepage') {
-      $result .= _set_headings($self, 'on');
-      $self->{'titlepage_done'} = 1;
-      $result .= "\\mainmatter\n";
     }
   }
 
