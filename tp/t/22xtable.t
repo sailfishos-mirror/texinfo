@@ -86,6 +86,19 @@ l--ine
 Texte before first item.
 @item abb
 @end table
+
+@table @samp
+@cindex samp cindex in table 
+@c samp comment in table
+@item asamp--bb
+l--ine samp
+@end table
+
+@table @samp
+@cindex samp cindex in table 
+Texte before first item samp.
+@item asamp--bb
+@end table
 '],
 ['inter_item_commands_in_table_in_example',
 '@setfilename inter_item_commands_in_table_in_example.info
