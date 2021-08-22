@@ -376,10 +376,6 @@ something, other thing
 @item minu--s
 @end itemize
 
-@itemize @emph
-@item e--mph item
-@end itemize
-
 @itemize @emph{after emph}
 @c comment in itemize
 @item e--mph item
@@ -393,6 +389,20 @@ something, other thing
 
 @enumerate
 @item e--numerate
+@end enumerate
+
+@enumerate 3
+@item first third
+@item second third
+@end enumerate
+
+@enumerate a
+@item e--numerate
+@end enumerate
+
+@enumerate c
+@item first c
+@item second c
 @end enumerate
 
 @multitable @columnfractions 0.4 0.6 
@@ -682,20 +692,20 @@ ref, a comma@comma{} in file}
 @ref{ext, cross ref with uref @uref{href://http/myhost.com/index.html,uref1}, title with uref2 @uref{href://http/myhost.com/index2.html,uref2}, info file with uref3 @uref{href://http/myhost.com/index3.html,uref3}, printed manual with uref4 @uref{href://http/myhost.com/index4.html,uref4}}
 @ref{chapter, cross ref with uref @uref{href://http/myhost.com/index.html,uref1}, title with uref2 @uref{href://http/myhost.com/index2.html,uref2}}
 
-@table @bullet
+@table @strong
 @c comment in table
-@item a
+@item a strong
 l--ine
 @end table
 
 @vtable @asis
-@item a
+@item a asis
 @c comment between item and itemx
 @itemx b
 l--ine
 @end vtable
 
-@ftable @minus
+@ftable @emph
 @item a
 @cindex index entry between item and itemx
 @itemx b
@@ -822,6 +832,11 @@ Invalid use of @@':@*
 
 @sp
 
+@c style command in itemize
+@itemize @emph
+@item e--mph item
+@end itemize
+
 @c braces missing
 @itemize @emph after emph
 @item e--mph item
@@ -832,6 +847,28 @@ Invalid use of @@':@*
 @item i--tem 1
 @item i--tem 2
 @end itemize
+
+@c not style formatting
+@table @bullet
+@c comment in table
+@item a
+l--ine
+@end table
+
+@c missing style formatting
+@table
+@c comment in table
+@item a
+l--ine
+@end table
+
+@c not style formatting
+@ftable @minus
+@item a
+@cindex index entry between item and itemx
+@itemx b
+l--ine
+@end ftable
 
 @c deffnx after deff lines
 @deffn fun
@@ -1256,10 +1293,6 @@ something, other thing
 @item minu--s
 @end itemize
 
-@itemize @emph
-@item e--mph item
-@end itemize
-
 @itemize @emph{after emph}
 @c comment in itemize
 @item e--mph item
@@ -1273,6 +1306,20 @@ something, other thing
 
 @enumerate
 @item e--numerate
+@end enumerate
+
+@enumerate 3
+@item first third
+@item second third
+@end enumerate
+
+@enumerate a
+@item e--numerate
+@end enumerate
+
+@enumerate c
+@item first c
+@item second c
 @end enumerate
 
 @multitable @columnfractions 0.4 0.6 
@@ -1561,20 +1608,20 @@ ref, a comma@comma{} in file}
 @ref{ext, cross ref with uref @uref{href://http/myhost.com/index.html,uref1}, title with uref2 @uref{href://http/myhost.com/index2.html,uref2}, info file with uref3 @uref{href://http/myhost.com/index3.html,uref3}, printed manual with uref4 @uref{href://http/myhost.com/index4.html,uref4}}
 @ref{chapter, cross ref with uref @uref{href://http/myhost.com/index.html,uref1}, title with uref2 @uref{href://http/myhost.com/index2.html,uref2}}
 
-@table @bullet
+@table @strong
 @c comment in table
-@item a
+@item a strong
 l--ine
 @end table
 
 @vtable @asis
-@item a
+@item a asis
 @c comment between item and itemx
 @itemx b
 l--ine
 @end vtable
 
-@ftable @minus
+@ftable @emph
 @item a
 @cindex index entry between item and itemx
 @itemx b
@@ -1690,6 +1737,11 @@ Invalid use of @@':@*
 
 @sp
 
+@c style command in itemize
+@itemize @emph
+@item e--mph item
+@end itemize
+
 @c braces missing
 @itemize @emph after emph
 @item e--mph item
@@ -1700,6 +1752,28 @@ Invalid use of @@':@*
 @item i--tem 1
 @item i--tem 2
 @end itemize
+
+@c not style formatting
+@table @bullet
+@c comment in table
+@item a
+l--ine
+@end table
+
+@c missing style formatting
+@table
+@c comment in table
+@item a
+l--ine
+@end table
+
+@c not style formatting
+@ftable @minus
+@item a
+@cindex index entry between item and itemx
+@itemx b
+l--ine
+@end ftable
 
 @c deffnx after deff lines
 @deffn fun
@@ -2128,10 +2202,6 @@ something, other thing
 @item minu--s
 @end itemize
 
-@itemize @emph
-@item e--mph item
-@end itemize
-
 @itemize @emph{after emph}
 @c comment in itemize
 @item e--mph item
@@ -2145,6 +2215,20 @@ something, other thing
 
 @enumerate
 @item e--numerate
+@end enumerate
+
+@enumerate 3
+@item first third
+@item second third
+@end enumerate
+
+@enumerate a
+@item e--numerate
+@end enumerate
+
+@enumerate c
+@item first c
+@item second c
 @end enumerate
 
 @multitable @columnfractions 0.4 0.6 
@@ -2433,20 +2517,20 @@ ref, a comma@comma{} in file}
 @ref{ext, cross ref with uref @uref{href://http/myhost.com/index.html,uref1}, title with uref2 @uref{href://http/myhost.com/index2.html,uref2}, info file with uref3 @uref{href://http/myhost.com/index3.html,uref3}, printed manual with uref4 @uref{href://http/myhost.com/index4.html,uref4}}
 @ref{chapter, cross ref with uref @uref{href://http/myhost.com/index.html,uref1}, title with uref2 @uref{href://http/myhost.com/index2.html,uref2}}
 
-@table @bullet
+@table @strong
 @c comment in table
-@item a
+@item a strong
 l--ine
 @end table
 
 @vtable @asis
-@item a
+@item a asis
 @c comment between item and itemx
 @itemx b
 l--ine
 @end vtable
 
-@ftable @minus
+@ftable @emph
 @item a
 @cindex index entry between item and itemx
 @itemx b
@@ -2562,6 +2646,11 @@ Invalid use of @@':@*
 
 @sp
 
+@c style command in itemize
+@itemize @emph
+@item e--mph item
+@end itemize
+
 @c braces missing
 @itemize @emph after emph
 @item e--mph item
@@ -2572,6 +2661,28 @@ Invalid use of @@':@*
 @item i--tem 1
 @item i--tem 2
 @end itemize
+
+@c not style formatting
+@table @bullet
+@c comment in table
+@item a
+l--ine
+@end table
+
+@c missing style formatting
+@table
+@c comment in table
+@item a
+l--ine
+@end table
+
+@c not style formatting
+@ftable @minus
+@item a
+@cindex index entry between item and itemx
+@itemx b
+l--ine
+@end ftable
 
 @c deffnx after deff lines
 @deffn fun
@@ -3026,10 +3137,6 @@ something, other thing
 @item minu--s
 @end itemize
 
-@itemize @emph
-@item e--mph item
-@end itemize
-
 @itemize @emph{after emph}
 @c comment in itemize
 @item e--mph item
@@ -3043,6 +3150,20 @@ something, other thing
 
 @enumerate
 @item e--numerate
+@end enumerate
+
+@enumerate 3
+@item first third
+@item second third
+@end enumerate
+
+@enumerate a
+@item e--numerate
+@end enumerate
+
+@enumerate c
+@item first c
+@item second c
 @end enumerate
 
 @multitable @columnfractions 0.4 0.6 
@@ -3331,20 +3452,20 @@ ref, a comma@comma{} in file}
 @ref{ext, cross ref with uref @uref{href://http/myhost.com/index.html,uref1}, title with uref2 @uref{href://http/myhost.com/index2.html,uref2}, info file with uref3 @uref{href://http/myhost.com/index3.html,uref3}, printed manual with uref4 @uref{href://http/myhost.com/index4.html,uref4}}
 @ref{chapter, cross ref with uref @uref{href://http/myhost.com/index.html,uref1}, title with uref2 @uref{href://http/myhost.com/index2.html,uref2}}
 
-@table @bullet
+@table @strong
 @c comment in table
-@item a
+@item a strong
 l--ine
 @end table
 
 @vtable @asis
-@item a
+@item a asis
 @c comment between item and itemx
 @itemx b
 l--ine
 @end vtable
 
-@ftable @minus
+@ftable @emph
 @item a
 @cindex index entry between item and itemx
 @itemx b
@@ -3460,6 +3581,11 @@ Invalid use of @@':@*
 
 @sp
 
+@c style command in itemize
+@itemize @emph
+@item e--mph item
+@end itemize
+
 @c braces missing
 @itemize @emph after emph
 @item e--mph item
@@ -3470,6 +3596,28 @@ Invalid use of @@':@*
 @item i--tem 1
 @item i--tem 2
 @end itemize
+
+@c not style formatting
+@table @bullet
+@c comment in table
+@item a
+l--ine
+@end table
+
+@c missing style formatting
+@table
+@c comment in table
+@item a
+l--ine
+@end table
+
+@c not style formatting
+@ftable @minus
+@item a
+@cindex index entry between item and itemx
+@itemx b
+l--ine
+@end ftable
 
 @c deffnx after deff lines
 @deffn fun
@@ -3892,10 +4040,6 @@ something, other thing
 @item minu--s
 @end itemize
 
-@itemize @emph
-@item e--mph item
-@end itemize
-
 @itemize @emph{after emph}
 @c comment in itemize
 @item e--mph item
@@ -3909,6 +4053,20 @@ something, other thing
 
 @enumerate
 @item e--numerate
+@end enumerate
+
+@enumerate 3
+@item first third
+@item second third
+@end enumerate
+
+@enumerate a
+@item e--numerate
+@end enumerate
+
+@enumerate c
+@item first c
+@item second c
 @end enumerate
 
 @multitable @columnfractions 0.4 0.6 
@@ -4197,20 +4355,20 @@ ref, a comma@comma{} in file}
 @ref{ext, cross ref with uref @uref{href://http/myhost.com/index.html,uref1}, title with uref2 @uref{href://http/myhost.com/index2.html,uref2}, info file with uref3 @uref{href://http/myhost.com/index3.html,uref3}, printed manual with uref4 @uref{href://http/myhost.com/index4.html,uref4}}
 @ref{chapter, cross ref with uref @uref{href://http/myhost.com/index.html,uref1}, title with uref2 @uref{href://http/myhost.com/index2.html,uref2}}
 
-@table @bullet
+@table @strong
 @c comment in table
-@item a
+@item a strong
 l--ine
 @end table
 
 @vtable @asis
-@item a
+@item a asis
 @c comment between item and itemx
 @itemx b
 l--ine
 @end vtable
 
-@ftable @minus
+@ftable @emph
 @item a
 @cindex index entry between item and itemx
 @itemx b
@@ -4326,6 +4484,11 @@ Invalid use of @@':@*
 
 @sp
 
+@c style command in itemize
+@itemize @emph
+@item e--mph item
+@end itemize
+
 @c braces missing
 @itemize @emph after emph
 @item e--mph item
@@ -4336,6 +4499,28 @@ Invalid use of @@':@*
 @item i--tem 1
 @item i--tem 2
 @end itemize
+
+@c not style formatting
+@table @bullet
+@c comment in table
+@item a
+l--ine
+@end table
+
+@c missing style formatting
+@table
+@c comment in table
+@item a
+l--ine
+@end table
+
+@c not style formatting
+@ftable @minus
+@item a
+@cindex index entry between item and itemx
+@itemx b
+l--ine
+@end ftable
 
 @c deffnx after deff lines
 @deffn fun

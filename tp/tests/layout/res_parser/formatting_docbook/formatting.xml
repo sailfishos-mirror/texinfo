@@ -315,8 +315,6 @@ error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
 </para></listitem></itemizedlist>
 <itemizedlist><listitem><para>&#8722; minu&#8211;s
 </para></listitem></itemizedlist>
-<itemizedlist><listitem><para> e&#8211;mph item
-</para></listitem></itemizedlist>
 <itemizedlist><!-- comment in itemize -->
 <listitem><para><emphasis>after emph</emphasis> e&#8211;mph item
 </para></listitem></itemizedlist>
@@ -325,6 +323,14 @@ error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
 </para></listitem><listitem><para>&#8226; a&#8211;n itemize line i&#8211;tem 2
 </para></listitem></itemizedlist>
 <orderedlist numeration="arabic"><listitem><para>e&#8211;numerate
+</para></listitem></orderedlist>
+<orderedlist numeration="arabic"><listitem><para>first third
+</para></listitem><listitem><para>second third
+</para></listitem></orderedlist>
+<orderedlist numeration="loweralpha"><listitem><para>e&#8211;numerate
+</para></listitem></orderedlist>
+<orderedlist numeration="loweralpha"><listitem><para>first c
+</para></listitem><listitem><para>second c
 </para></listitem></orderedlist>
 <informaltable><tgroup cols="2"><colspec colwidth="40*"></colspec><colspec colwidth="60*"></colspec><thead><row><entry><para>mu&#8211;ltitable headitem </para></entry><entry><para>another tab
 </para></entry></row></thead><tbody><row><entry><para>mu&#8211;ltitable item </para></entry><entry><para>multitable tab
@@ -541,17 +547,17 @@ See Info file <filename>a comma, in file</filename>, node &#8216;<literal>s--ect
 <link linkend="chapter">title with uref2 <ulink url="href://http/myhost.com/index2.html">uref2</ulink></link>
 </para>
 <variablelist><!-- comment in table -->
-<varlistentry><term>a
+<varlistentry><term><emphasis role="bold">a strong</emphasis>
 </term><listitem><para>l&#8211;ine
 </para></listitem></varlistentry></variablelist>
-<variablelist><varlistentry><term><indexterm role="vr"><primary>a</primary></indexterm>a
+<variablelist><varlistentry><term><indexterm role="vr"><primary>a asis</primary></indexterm>a asis
 </term><!-- comment between item and itemx -->
 <term><indexterm role="vr"><primary>b</primary></indexterm>b
 </term><listitem><para>l&#8211;ine
 </para></listitem></varlistentry></variablelist>
-<variablelist><varlistentry><term><indexterm role="fn"><primary>a</primary></indexterm>a
+<variablelist><varlistentry><term><indexterm role="fn"><primary>a</primary></indexterm><emphasis>a</emphasis>
 </term><indexterm role="cp"><primary>index entry between item and itemx</primary></indexterm>
-<term><indexterm role="fn"><primary>b</primary></indexterm>b
+<term><indexterm role="fn"><primary>b</primary></indexterm><emphasis>b</emphasis>
 </term><listitem><para>l&#8211;ine
 </para></listitem></varlistentry></variablelist>
 <para>c&#8211;artouche
@@ -655,6 +661,9 @@ aaa</literallayout></textobject></inlinemediaobject>
 <literal>@image{,,,3--xt}</literal> 
 </para>
 
+<!-- style command in itemize -->
+<itemizedlist><listitem><para> e&#8211;mph item
+</para></listitem></itemizedlist>
 <!-- braces missing -->
 <itemizedlist><listitem><para> after emph e&#8211;mph item
 </para></listitem></itemizedlist>
@@ -662,6 +671,22 @@ aaa</literallayout></textobject></inlinemediaobject>
 <itemizedlist><listitem><para>&#8226; a&#8211;n itemize line i&#8211;tem 1
 </para></listitem><listitem><para>&#8226; a&#8211;n itemize line i&#8211;tem 2
 </para></listitem></itemizedlist>
+<!-- not style formatting -->
+<variablelist><!-- comment in table -->
+<varlistentry><term>a
+</term><listitem><para>l&#8211;ine
+</para></listitem></varlistentry></variablelist>
+<!-- missing style formatting -->
+<variablelist><!-- comment in table -->
+<varlistentry><term>a
+</term><listitem><para>l&#8211;ine
+</para></listitem></varlistentry></variablelist>
+<!-- not style formatting -->
+<variablelist><varlistentry><term><indexterm role="fn"><primary>a</primary></indexterm>a
+</term><indexterm role="cp"><primary>index entry between item and itemx</primary></indexterm>
+<term><indexterm role="fn"><primary>b</primary></indexterm>b
+</term><listitem><para>l&#8211;ine
+</para></listitem></varlistentry></variablelist>
 <!-- deffnx after deff lines -->
 <synopsis><phrase role="category"><emphasis role="bold">fun</emphasis>:</phrase></synopsis>
 <synopsis><indexterm role="fn"><primary>machin</primary></indexterm><phrase role="category"><emphasis role="bold">truc</emphasis>:</phrase> <function>machin</function> <replaceable>bidule</replaceable> <replaceable>chose</replaceable> <replaceable>and</replaceable></synopsis>
@@ -1021,8 +1046,6 @@ error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
 </para></listitem></itemizedlist>
 <itemizedlist><listitem><para>&#8722; minu&#8211;s
 </para></listitem></itemizedlist>
-<itemizedlist><listitem><para> e&#8211;mph item
-</para></listitem></itemizedlist>
 <itemizedlist><!-- comment in itemize -->
 <listitem><para><emphasis>after emph</emphasis> e&#8211;mph item
 </para></listitem></itemizedlist>
@@ -1031,6 +1054,14 @@ error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
 </para></listitem><listitem><para>&#8226; a&#8211;n itemize line i&#8211;tem 2
 </para></listitem></itemizedlist>
 <orderedlist numeration="arabic"><listitem><para>e&#8211;numerate
+</para></listitem></orderedlist>
+<orderedlist numeration="arabic"><listitem><para>first third
+</para></listitem><listitem><para>second third
+</para></listitem></orderedlist>
+<orderedlist numeration="loweralpha"><listitem><para>e&#8211;numerate
+</para></listitem></orderedlist>
+<orderedlist numeration="loweralpha"><listitem><para>first c
+</para></listitem><listitem><para>second c
 </para></listitem></orderedlist>
 <informaltable><tgroup cols="2"><colspec colwidth="40*"></colspec><colspec colwidth="60*"></colspec><thead><row><entry><para>mu&#8211;ltitable headitem </para></entry><entry><para>another tab
 </para></entry></row></thead><tbody><row><entry><para>mu&#8211;ltitable item </para></entry><entry><para>multitable tab
@@ -1247,17 +1278,17 @@ See Info file <filename>a comma, in file</filename>, node &#8216;<literal>s--ect
 <link linkend="chapter">title with uref2 <ulink url="href://http/myhost.com/index2.html">uref2</ulink></link>
 </para>
 <variablelist><!-- comment in table -->
-<varlistentry><term>a
+<varlistentry><term><emphasis role="bold">a strong</emphasis>
 </term><listitem><para>l&#8211;ine
 </para></listitem></varlistentry></variablelist>
-<variablelist><varlistentry><term><indexterm role="vr"><primary>a</primary></indexterm>a
+<variablelist><varlistentry><term><indexterm role="vr"><primary>a asis</primary></indexterm>a asis
 </term><!-- comment between item and itemx -->
 <term><indexterm role="vr"><primary>b</primary></indexterm>b
 </term><listitem><para>l&#8211;ine
 </para></listitem></varlistentry></variablelist>
-<variablelist><varlistentry><term><indexterm role="fn"><primary>a</primary></indexterm>a
+<variablelist><varlistentry><term><indexterm role="fn"><primary>a</primary></indexterm><emphasis>a</emphasis>
 </term><indexterm role="cp"><primary>index entry between item and itemx</primary></indexterm>
-<term><indexterm role="fn"><primary>b</primary></indexterm>b
+<term><indexterm role="fn"><primary>b</primary></indexterm><emphasis>b</emphasis>
 </term><listitem><para>l&#8211;ine
 </para></listitem></varlistentry></variablelist>
 <para>c&#8211;artouche
@@ -1361,6 +1392,9 @@ aaa</literallayout></textobject></inlinemediaobject>
 <literal>@image{,,,3--xt}</literal> 
 </para>
 
+<!-- style command in itemize -->
+<itemizedlist><listitem><para> e&#8211;mph item
+</para></listitem></itemizedlist>
 <!-- braces missing -->
 <itemizedlist><listitem><para> after emph e&#8211;mph item
 </para></listitem></itemizedlist>
@@ -1368,6 +1402,22 @@ aaa</literallayout></textobject></inlinemediaobject>
 <itemizedlist><listitem><para>&#8226; a&#8211;n itemize line i&#8211;tem 1
 </para></listitem><listitem><para>&#8226; a&#8211;n itemize line i&#8211;tem 2
 </para></listitem></itemizedlist>
+<!-- not style formatting -->
+<variablelist><!-- comment in table -->
+<varlistentry><term>a
+</term><listitem><para>l&#8211;ine
+</para></listitem></varlistentry></variablelist>
+<!-- missing style formatting -->
+<variablelist><!-- comment in table -->
+<varlistentry><term>a
+</term><listitem><para>l&#8211;ine
+</para></listitem></varlistentry></variablelist>
+<!-- not style formatting -->
+<variablelist><varlistentry><term><indexterm role="fn"><primary>a</primary></indexterm>a
+</term><indexterm role="cp"><primary>index entry between item and itemx</primary></indexterm>
+<term><indexterm role="fn"><primary>b</primary></indexterm>b
+</term><listitem><para>l&#8211;ine
+</para></listitem></varlistentry></variablelist>
 <!-- deffnx after deff lines -->
 <synopsis><phrase role="category"><emphasis role="bold">fun</emphasis>:</phrase></synopsis>
 <synopsis><indexterm role="fn"><primary>machin</primary></indexterm><phrase role="category"><emphasis role="bold">truc</emphasis>:</phrase> <function>machin</function> <replaceable>bidule</replaceable> <replaceable>chose</replaceable> <replaceable>and</replaceable></synopsis>
@@ -1728,8 +1778,6 @@ error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
 </para></listitem></itemizedlist>
 <itemizedlist><listitem><para>&#8722; minu&#8211;s
 </para></listitem></itemizedlist>
-<itemizedlist><listitem><para> e&#8211;mph item
-</para></listitem></itemizedlist>
 <itemizedlist><!-- comment in itemize -->
 <listitem><para><emphasis>after emph</emphasis> e&#8211;mph item
 </para></listitem></itemizedlist>
@@ -1738,6 +1786,14 @@ error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
 </para></listitem><listitem><para>&#8226; a&#8211;n itemize line i&#8211;tem 2
 </para></listitem></itemizedlist>
 <orderedlist numeration="arabic"><listitem><para>e&#8211;numerate
+</para></listitem></orderedlist>
+<orderedlist numeration="arabic"><listitem><para>first third
+</para></listitem><listitem><para>second third
+</para></listitem></orderedlist>
+<orderedlist numeration="loweralpha"><listitem><para>e&#8211;numerate
+</para></listitem></orderedlist>
+<orderedlist numeration="loweralpha"><listitem><para>first c
+</para></listitem><listitem><para>second c
 </para></listitem></orderedlist>
 <informaltable><tgroup cols="2"><colspec colwidth="40*"></colspec><colspec colwidth="60*"></colspec><thead><row><entry><para>mu&#8211;ltitable headitem </para></entry><entry><para>another tab
 </para></entry></row></thead><tbody><row><entry><para>mu&#8211;ltitable item </para></entry><entry><para>multitable tab
@@ -1954,17 +2010,17 @@ See Info file <filename>a comma, in file</filename>, node &#8216;<literal>s--ect
 <link linkend="chapter">title with uref2 <ulink url="href://http/myhost.com/index2.html">uref2</ulink></link>
 </para>
 <variablelist><!-- comment in table -->
-<varlistentry><term>a
+<varlistentry><term><emphasis role="bold">a strong</emphasis>
 </term><listitem><para>l&#8211;ine
 </para></listitem></varlistentry></variablelist>
-<variablelist><varlistentry><term><indexterm role="vr"><primary>a</primary></indexterm>a
+<variablelist><varlistentry><term><indexterm role="vr"><primary>a asis</primary></indexterm>a asis
 </term><!-- comment between item and itemx -->
 <term><indexterm role="vr"><primary>b</primary></indexterm>b
 </term><listitem><para>l&#8211;ine
 </para></listitem></varlistentry></variablelist>
-<variablelist><varlistentry><term><indexterm role="fn"><primary>a</primary></indexterm>a
+<variablelist><varlistentry><term><indexterm role="fn"><primary>a</primary></indexterm><emphasis>a</emphasis>
 </term><indexterm role="cp"><primary>index entry between item and itemx</primary></indexterm>
-<term><indexterm role="fn"><primary>b</primary></indexterm>b
+<term><indexterm role="fn"><primary>b</primary></indexterm><emphasis>b</emphasis>
 </term><listitem><para>l&#8211;ine
 </para></listitem></varlistentry></variablelist>
 <para>c&#8211;artouche
@@ -2068,6 +2124,9 @@ aaa</literallayout></textobject></inlinemediaobject>
 <literal>@image{,,,3--xt}</literal> 
 </para>
 
+<!-- style command in itemize -->
+<itemizedlist><listitem><para> e&#8211;mph item
+</para></listitem></itemizedlist>
 <!-- braces missing -->
 <itemizedlist><listitem><para> after emph e&#8211;mph item
 </para></listitem></itemizedlist>
@@ -2075,6 +2134,22 @@ aaa</literallayout></textobject></inlinemediaobject>
 <itemizedlist><listitem><para>&#8226; a&#8211;n itemize line i&#8211;tem 1
 </para></listitem><listitem><para>&#8226; a&#8211;n itemize line i&#8211;tem 2
 </para></listitem></itemizedlist>
+<!-- not style formatting -->
+<variablelist><!-- comment in table -->
+<varlistentry><term>a
+</term><listitem><para>l&#8211;ine
+</para></listitem></varlistentry></variablelist>
+<!-- missing style formatting -->
+<variablelist><!-- comment in table -->
+<varlistentry><term>a
+</term><listitem><para>l&#8211;ine
+</para></listitem></varlistentry></variablelist>
+<!-- not style formatting -->
+<variablelist><varlistentry><term><indexterm role="fn"><primary>a</primary></indexterm>a
+</term><indexterm role="cp"><primary>index entry between item and itemx</primary></indexterm>
+<term><indexterm role="fn"><primary>b</primary></indexterm>b
+</term><listitem><para>l&#8211;ine
+</para></listitem></varlistentry></variablelist>
 <!-- deffnx after deff lines -->
 <synopsis><phrase role="category"><emphasis role="bold">fun</emphasis>:</phrase></synopsis>
 <synopsis><indexterm role="fn"><primary>machin</primary></indexterm><phrase role="category"><emphasis role="bold">truc</emphasis>:</phrase> <function>machin</function> <replaceable>bidule</replaceable> <replaceable>chose</replaceable> <replaceable>and</replaceable></synopsis>
@@ -2453,8 +2528,6 @@ error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
 </para></listitem></itemizedlist>
 <itemizedlist><listitem><para>&#8722; minu&#8211;s
 </para></listitem></itemizedlist>
-<itemizedlist><listitem><para> e&#8211;mph item
-</para></listitem></itemizedlist>
 <itemizedlist><!-- comment in itemize -->
 <listitem><para><emphasis>after emph</emphasis> e&#8211;mph item
 </para></listitem></itemizedlist>
@@ -2463,6 +2536,14 @@ error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
 </para></listitem><listitem><para>&#8226; a&#8211;n itemize line i&#8211;tem 2
 </para></listitem></itemizedlist>
 <orderedlist numeration="arabic"><listitem><para>e&#8211;numerate
+</para></listitem></orderedlist>
+<orderedlist numeration="arabic"><listitem><para>first third
+</para></listitem><listitem><para>second third
+</para></listitem></orderedlist>
+<orderedlist numeration="loweralpha"><listitem><para>e&#8211;numerate
+</para></listitem></orderedlist>
+<orderedlist numeration="loweralpha"><listitem><para>first c
+</para></listitem><listitem><para>second c
 </para></listitem></orderedlist>
 <informaltable><tgroup cols="2"><colspec colwidth="40*"></colspec><colspec colwidth="60*"></colspec><thead><row><entry><para>mu&#8211;ltitable headitem </para></entry><entry><para>another tab
 </para></entry></row></thead><tbody><row><entry><para>mu&#8211;ltitable item </para></entry><entry><para>multitable tab
@@ -2679,17 +2760,17 @@ See Info file <filename>a comma, in file</filename>, node &#8216;<literal>s--ect
 <link linkend="chapter">title with uref2 <ulink url="href://http/myhost.com/index2.html">uref2</ulink></link>
 </para>
 <variablelist><!-- comment in table -->
-<varlistentry><term>a
+<varlistentry><term><emphasis role="bold">a strong</emphasis>
 </term><listitem><para>l&#8211;ine
 </para></listitem></varlistentry></variablelist>
-<variablelist><varlistentry><term><indexterm role="vr"><primary>a</primary></indexterm>a
+<variablelist><varlistentry><term><indexterm role="vr"><primary>a asis</primary></indexterm>a asis
 </term><!-- comment between item and itemx -->
 <term><indexterm role="vr"><primary>b</primary></indexterm>b
 </term><listitem><para>l&#8211;ine
 </para></listitem></varlistentry></variablelist>
-<variablelist><varlistentry><term><indexterm role="fn"><primary>a</primary></indexterm>a
+<variablelist><varlistentry><term><indexterm role="fn"><primary>a</primary></indexterm><emphasis>a</emphasis>
 </term><indexterm role="cp"><primary>index entry between item and itemx</primary></indexterm>
-<term><indexterm role="fn"><primary>b</primary></indexterm>b
+<term><indexterm role="fn"><primary>b</primary></indexterm><emphasis>b</emphasis>
 </term><listitem><para>l&#8211;ine
 </para></listitem></varlistentry></variablelist>
 <para>c&#8211;artouche
@@ -2793,6 +2874,9 @@ aaa</literallayout></textobject></inlinemediaobject>
 <literal>@image{,,,3--xt}</literal> 
 </para>
 
+<!-- style command in itemize -->
+<itemizedlist><listitem><para> e&#8211;mph item
+</para></listitem></itemizedlist>
 <!-- braces missing -->
 <itemizedlist><listitem><para> after emph e&#8211;mph item
 </para></listitem></itemizedlist>
@@ -2800,6 +2884,22 @@ aaa</literallayout></textobject></inlinemediaobject>
 <itemizedlist><listitem><para>&#8226; a&#8211;n itemize line i&#8211;tem 1
 </para></listitem><listitem><para>&#8226; a&#8211;n itemize line i&#8211;tem 2
 </para></listitem></itemizedlist>
+<!-- not style formatting -->
+<variablelist><!-- comment in table -->
+<varlistentry><term>a
+</term><listitem><para>l&#8211;ine
+</para></listitem></varlistentry></variablelist>
+<!-- missing style formatting -->
+<variablelist><!-- comment in table -->
+<varlistentry><term>a
+</term><listitem><para>l&#8211;ine
+</para></listitem></varlistentry></variablelist>
+<!-- not style formatting -->
+<variablelist><varlistentry><term><indexterm role="fn"><primary>a</primary></indexterm>a
+</term><indexterm role="cp"><primary>index entry between item and itemx</primary></indexterm>
+<term><indexterm role="fn"><primary>b</primary></indexterm>b
+</term><listitem><para>l&#8211;ine
+</para></listitem></varlistentry></variablelist>
 <!-- deffnx after deff lines -->
 <synopsis><phrase role="category"><emphasis role="bold">fun</emphasis>:</phrase></synopsis>
 <synopsis><indexterm role="fn"><primary>machin</primary></indexterm><phrase role="category"><emphasis role="bold">truc</emphasis>:</phrase> <function>machin</function> <replaceable>bidule</replaceable> <replaceable>chose</replaceable> <replaceable>and</replaceable></synopsis>
@@ -3159,8 +3259,6 @@ error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
 </para></listitem></itemizedlist>
 <itemizedlist><listitem><para>&#8722; minu&#8211;s
 </para></listitem></itemizedlist>
-<itemizedlist><listitem><para> e&#8211;mph item
-</para></listitem></itemizedlist>
 <itemizedlist><!-- comment in itemize -->
 <listitem><para><emphasis>after emph</emphasis> e&#8211;mph item
 </para></listitem></itemizedlist>
@@ -3169,6 +3267,14 @@ error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
 </para></listitem><listitem><para>&#8226; a&#8211;n itemize line i&#8211;tem 2
 </para></listitem></itemizedlist>
 <orderedlist numeration="arabic"><listitem><para>e&#8211;numerate
+</para></listitem></orderedlist>
+<orderedlist numeration="arabic"><listitem><para>first third
+</para></listitem><listitem><para>second third
+</para></listitem></orderedlist>
+<orderedlist numeration="loweralpha"><listitem><para>e&#8211;numerate
+</para></listitem></orderedlist>
+<orderedlist numeration="loweralpha"><listitem><para>first c
+</para></listitem><listitem><para>second c
 </para></listitem></orderedlist>
 <informaltable><tgroup cols="2"><colspec colwidth="40*"></colspec><colspec colwidth="60*"></colspec><thead><row><entry><para>mu&#8211;ltitable headitem </para></entry><entry><para>another tab
 </para></entry></row></thead><tbody><row><entry><para>mu&#8211;ltitable item </para></entry><entry><para>multitable tab
@@ -3385,17 +3491,17 @@ See Info file <filename>a comma, in file</filename>, node &#8216;<literal>s--ect
 <link linkend="chapter">title with uref2 <ulink url="href://http/myhost.com/index2.html">uref2</ulink></link>
 </para>
 <variablelist><!-- comment in table -->
-<varlistentry><term>a
+<varlistentry><term><emphasis role="bold">a strong</emphasis>
 </term><listitem><para>l&#8211;ine
 </para></listitem></varlistentry></variablelist>
-<variablelist><varlistentry><term><indexterm role="vr"><primary>a</primary></indexterm>a
+<variablelist><varlistentry><term><indexterm role="vr"><primary>a asis</primary></indexterm>a asis
 </term><!-- comment between item and itemx -->
 <term><indexterm role="vr"><primary>b</primary></indexterm>b
 </term><listitem><para>l&#8211;ine
 </para></listitem></varlistentry></variablelist>
-<variablelist><varlistentry><term><indexterm role="fn"><primary>a</primary></indexterm>a
+<variablelist><varlistentry><term><indexterm role="fn"><primary>a</primary></indexterm><emphasis>a</emphasis>
 </term><indexterm role="cp"><primary>index entry between item and itemx</primary></indexterm>
-<term><indexterm role="fn"><primary>b</primary></indexterm>b
+<term><indexterm role="fn"><primary>b</primary></indexterm><emphasis>b</emphasis>
 </term><listitem><para>l&#8211;ine
 </para></listitem></varlistentry></variablelist>
 <para>c&#8211;artouche
@@ -3499,6 +3605,9 @@ aaa</literallayout></textobject></inlinemediaobject>
 <literal>@image{,,,3--xt}</literal> 
 </para>
 
+<!-- style command in itemize -->
+<itemizedlist><listitem><para> e&#8211;mph item
+</para></listitem></itemizedlist>
 <!-- braces missing -->
 <itemizedlist><listitem><para> after emph e&#8211;mph item
 </para></listitem></itemizedlist>
@@ -3506,6 +3615,22 @@ aaa</literallayout></textobject></inlinemediaobject>
 <itemizedlist><listitem><para>&#8226; a&#8211;n itemize line i&#8211;tem 1
 </para></listitem><listitem><para>&#8226; a&#8211;n itemize line i&#8211;tem 2
 </para></listitem></itemizedlist>
+<!-- not style formatting -->
+<variablelist><!-- comment in table -->
+<varlistentry><term>a
+</term><listitem><para>l&#8211;ine
+</para></listitem></varlistentry></variablelist>
+<!-- missing style formatting -->
+<variablelist><!-- comment in table -->
+<varlistentry><term>a
+</term><listitem><para>l&#8211;ine
+</para></listitem></varlistentry></variablelist>
+<!-- not style formatting -->
+<variablelist><varlistentry><term><indexterm role="fn"><primary>a</primary></indexterm>a
+</term><indexterm role="cp"><primary>index entry between item and itemx</primary></indexterm>
+<term><indexterm role="fn"><primary>b</primary></indexterm>b
+</term><listitem><para>l&#8211;ine
+</para></listitem></varlistentry></variablelist>
 <!-- deffnx after deff lines -->
 <synopsis><phrase role="category"><emphasis role="bold">fun</emphasis>:</phrase></synopsis>
 <synopsis><indexterm role="fn"><primary>machin</primary></indexterm><phrase role="category"><emphasis role="bold">truc</emphasis>:</phrase> <function>machin</function> <replaceable>bidule</replaceable> <replaceable>chose</replaceable> <replaceable>and</replaceable></synopsis>
@@ -3861,8 +3986,6 @@ error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
 </screen></listitem></itemizedlist><screen>
 </screen><itemizedlist><listitem><screen>&#8722; minu--s
 </screen></listitem></itemizedlist><screen>
-</screen><itemizedlist><listitem><screen> e--mph item
-</screen></listitem></itemizedlist><screen>
 </screen><itemizedlist><screen><!-- comment in itemize -->
 </screen><listitem><screen><emphasis>after emph</emphasis> e--mph item
 </screen></listitem></itemizedlist><screen>
@@ -3870,6 +3993,14 @@ error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
 </screen></listitem><listitem><screen>&#8226; a--n itemize line i--tem 2
 </screen></listitem></itemizedlist><screen>
 </screen><orderedlist numeration="arabic"><listitem><screen>e--numerate
+</screen></listitem></orderedlist><screen>
+</screen><orderedlist numeration="arabic"><listitem><screen>first third
+</screen></listitem><listitem><screen>second third
+</screen></listitem></orderedlist><screen>
+</screen><orderedlist numeration="loweralpha"><listitem><screen>e--numerate
+</screen></listitem></orderedlist><screen>
+</screen><orderedlist numeration="loweralpha"><listitem><screen>first c
+</screen></listitem><listitem><screen>second c
 </screen></listitem></orderedlist><screen>
 </screen><informaltable><tgroup cols="2"><colspec colwidth="40*"></colspec><colspec colwidth="60*"></colspec><thead><row><entry><screen>mu--ltitable headitem </screen></entry><entry><screen>another tab
 </screen></entry></row></thead><tbody><row><entry><screen>mu--ltitable item </screen></entry><entry><screen>multitable tab
@@ -4084,16 +4215,16 @@ section ``title with uref2 <ulink url="href://http/myhost.com/index2.html">uref2
 <link linkend="chapter">title with uref2 <ulink url="href://http/myhost.com/index2.html">uref2</ulink></link>
 
 </screen><variablelist><screen><!-- comment in table -->
-</screen><varlistentry><term>a
+</screen><varlistentry><term><emphasis role="bold">a strong</emphasis>
 </term><listitem><screen>l--ine
 </screen></listitem></varlistentry></variablelist><screen>
-</screen><variablelist><varlistentry><term><indexterm role="vr"><primary>a</primary></indexterm>a
+</screen><variablelist><varlistentry><term><indexterm role="vr"><primary>a asis</primary></indexterm>a asis
 </term><screen><!-- comment between item and itemx -->
 </screen><term><indexterm role="vr"><primary>b</primary></indexterm>b
 </term><listitem><screen>l--ine
 </screen></listitem></varlistentry></variablelist><screen>
-</screen><variablelist><varlistentry><term><indexterm role="fn"><primary>a</primary></indexterm>a
-</term><screen><indexterm role="cp"><primary>index entry between item and itemx</primary></indexterm></screen><term><indexterm role="fn"><primary>b</primary></indexterm>b
+</screen><variablelist><varlistentry><term><indexterm role="fn"><primary>a</primary></indexterm><emphasis>a</emphasis>
+</term><screen><indexterm role="cp"><primary>index entry between item and itemx</primary></indexterm></screen><term><indexterm role="fn"><primary>b</primary></indexterm><emphasis>b</emphasis>
 </term><listitem><screen>l--ine
 </screen></listitem></varlistentry></variablelist><screen>
 </screen><screen>c--artouche
@@ -4197,6 +4328,9 @@ Invalid use of @':
 <literal>@image{,,,3--xt}</literal> 
 
 
+<!-- style command in itemize -->
+</screen><itemizedlist><listitem><screen> e--mph item
+</screen></listitem></itemizedlist><screen>
 <!-- braces missing -->
 </screen><itemizedlist><listitem><screen> after emph e--mph item
 </screen></listitem></itemizedlist><screen>
@@ -4204,6 +4338,21 @@ Invalid use of @':
 </screen><itemizedlist><listitem><screen>&#8226; a--n itemize line i--tem 1
 </screen></listitem><listitem><screen>&#8226; a--n itemize line i--tem 2
 </screen></listitem></itemizedlist><screen>
+<!-- not style formatting -->
+</screen><variablelist><screen><!-- comment in table -->
+</screen><varlistentry><term>a
+</term><listitem><screen>l--ine
+</screen></listitem></varlistentry></variablelist><screen>
+<!-- missing style formatting -->
+</screen><variablelist><screen><!-- comment in table -->
+</screen><varlistentry><term>a
+</term><listitem><screen>l--ine
+</screen></listitem></varlistentry></variablelist><screen>
+<!-- not style formatting -->
+</screen><variablelist><varlistentry><term><indexterm role="fn"><primary>a</primary></indexterm>a
+</term><screen><indexterm role="cp"><primary>index entry between item and itemx</primary></indexterm></screen><term><indexterm role="fn"><primary>b</primary></indexterm>b
+</term><listitem><screen>l--ine
+</screen></listitem></varlistentry></variablelist><screen>
 <!-- deffnx after deff lines -->
 </screen><synopsis><phrase role="category"><emphasis role="bold">fun</emphasis>:</phrase></synopsis>
 <synopsis><indexterm role="fn"><primary>machin</primary></indexterm><phrase role="category"><emphasis role="bold">truc</emphasis>:</phrase> <function>machin</function> <replaceable>bidule</replaceable> <replaceable>chose</replaceable> <replaceable>and</replaceable></synopsis>

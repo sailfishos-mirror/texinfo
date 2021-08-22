@@ -58,7 +58,15 @@
 </OBJECT> </LI>
 <LI> <OBJECT type="text/sitemap">
 <param name="Name" value="index entry between item and itemx">
+<param name="Local" value="formatting.html#index-copying-index-entry-between-item-and-itemx-1">
+</OBJECT> </LI>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="index entry between item and itemx">
 <param name="Local" value="formatting.html#index-titlepage-index-entry-between-item-and-itemx">
+</OBJECT> </LI>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="index entry between item and itemx">
+<param name="Local" value="formatting.html#index-titlepage-index-entry-between-item-and-itemx-1">
 </OBJECT> </LI>
 <LI> <OBJECT type="text/sitemap">
 <param name="Name" value="index entry between item and itemx">
@@ -67,6 +75,14 @@
 <LI> <OBJECT type="text/sitemap">
 <param name="Name" value="index entry between item and itemx">
 <param name="Local" value="chapter.html#index-index-entry-between-item-and-itemx-1">
+</OBJECT> </LI>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="index entry between item and itemx">
+<param name="Local" value="chapter.html#index-index-entry-between-item-and-itemx-2">
+</OBJECT> </LI>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="index entry between item and itemx">
+<param name="Local" value="chapter.html#index-index-entry-between-item-and-itemx-3">
 </OBJECT> </LI>
 <LI> <OBJECT type="text/sitemap">
 <param name="Name" value="index entry within deffn">
@@ -174,11 +190,19 @@
 </OBJECT> </LI>
 <LI> <OBJECT type="text/sitemap">
 <param name="Name" value="a">
+<param name="Local" value="formatting.html#index-copying-a-2">
+</OBJECT> </LI>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="a">
 <param name="Local" value="formatting.html#index-titlepage-a">
 </OBJECT> </LI>
 <LI> <OBJECT type="text/sitemap">
 <param name="Name" value="a">
 <param name="Local" value="formatting.html#index-titlepage-a-1">
+</OBJECT> </LI>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="a">
+<param name="Local" value="formatting.html#index-titlepage-a-2">
 </OBJECT> </LI>
 <LI> <OBJECT type="text/sitemap">
 <param name="Name" value="a">
@@ -199,6 +223,14 @@
 <LI> <OBJECT type="text/sitemap">
 <param name="Name" value="a">
 <param name="Local" value="chapter.html#index-a-5">
+</OBJECT> </LI>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="a">
+<param name="Local" value="chapter.html#index-a-6">
+</OBJECT> </LI>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="a">
+<param name="Local" value="chapter.html#index-a-7">
 </OBJECT> </LI>
 <LI> <OBJECT type="text/sitemap">
 <param name="Name" value="after">
@@ -222,7 +254,15 @@
 </OBJECT> </LI>
 <LI> <OBJECT type="text/sitemap">
 <param name="Name" value="b">
+<param name="Local" value="formatting.html#index-copying-b-1">
+</OBJECT> </LI>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="b">
 <param name="Local" value="formatting.html#index-titlepage-b">
+</OBJECT> </LI>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="b">
+<param name="Local" value="formatting.html#index-titlepage-b-1">
 </OBJECT> </LI>
 <LI> <OBJECT type="text/sitemap">
 <param name="Name" value="b">
@@ -231,6 +271,14 @@
 <LI> <OBJECT type="text/sitemap">
 <param name="Name" value="b">
 <param name="Local" value="chapter.html#index-b-1">
+</OBJECT> </LI>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="b">
+<param name="Local" value="chapter.html#index-b-2">
+</OBJECT> </LI>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="b">
+<param name="Local" value="chapter.html#index-b-3">
 </OBJECT> </LI>
 <LI> <OBJECT type="text/sitemap">
 <param name="Name" value="bidule machin">
@@ -785,36 +833,36 @@
 <param name="Local" value="chapter.html#index-d_002d_002deftp_005fname-1">
 </OBJECT> </LI>
 <LI> <OBJECT type="text/sitemap">
-<param name="Name" value="a">
-<param name="Local" value="formatting.html#index-copying-a-2">
+<param name="Name" value="a asis">
+<param name="Local" value="formatting.html#index-copying-a-asis">
 </OBJECT> </LI>
 <LI> <OBJECT type="text/sitemap">
-<param name="Name" value="a">
-<param name="Local" value="formatting.html#index-titlepage-a-2">
+<param name="Name" value="a asis">
+<param name="Local" value="formatting.html#index-titlepage-a-asis">
 </OBJECT> </LI>
 <LI> <OBJECT type="text/sitemap">
-<param name="Name" value="a">
-<param name="Local" value="chapter.html#index-a-6">
+<param name="Name" value="a asis">
+<param name="Local" value="chapter.html#index-a-asis">
 </OBJECT> </LI>
 <LI> <OBJECT type="text/sitemap">
-<param name="Name" value="a">
-<param name="Local" value="chapter.html#index-a-7">
-</OBJECT> </LI>
-<LI> <OBJECT type="text/sitemap">
-<param name="Name" value="b">
-<param name="Local" value="formatting.html#index-copying-b-1">
+<param name="Name" value="a asis">
+<param name="Local" value="chapter.html#index-a-asis-1">
 </OBJECT> </LI>
 <LI> <OBJECT type="text/sitemap">
 <param name="Name" value="b">
-<param name="Local" value="formatting.html#index-titlepage-b-1">
+<param name="Local" value="formatting.html#index-copying-b-2">
 </OBJECT> </LI>
 <LI> <OBJECT type="text/sitemap">
 <param name="Name" value="b">
-<param name="Local" value="chapter.html#index-b-2">
+<param name="Local" value="formatting.html#index-titlepage-b-2">
 </OBJECT> </LI>
 <LI> <OBJECT type="text/sitemap">
 <param name="Name" value="b">
-<param name="Local" value="chapter.html#index-b-3">
+<param name="Local" value="chapter.html#index-b-4">
+</OBJECT> </LI>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="b">
+<param name="Local" value="chapter.html#index-b-5">
 </OBJECT> </LI>
 <LI> <OBJECT type="text/sitemap">
 <param name="Name" value="d--efcv_name">

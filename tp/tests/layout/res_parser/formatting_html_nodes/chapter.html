@@ -316,12 +316,18 @@ minu-s
 
 e-mph item
 
-e-mph item
-
 i-tem 1
 i-tem 2
 
 1. e-numerate
+
+3. first third
+4. second third
+
+a. e-numerate
+
+c. first c
+d. second c
 
 mu-ltitable headitem another tab
 mu-ltitable item multitable tab
@@ -529,10 +535,10 @@ chapter.
 ext
 chapter
 
-a
+a strong
 l-ine
 
-a
+a asis
 b
 l-ine
 
@@ -640,8 +646,20 @@ Invalid use of @':
 
 e-mph item
 
+e-mph item
+
 i-tem 1
 i-tem 2
+
+a
+l-ine
+
+a
+l-ine
+
+a
+b
+l-ine
 
 fun: 
 truc: machin bidule chose and
@@ -1102,10 +1120,6 @@ error&rarr; &rarr; - &lowast; -| &rArr;
 </li></ul>
 
 <ul class="no-bullet">
-<li> e&ndash;mph item
-</li></ul>
-
-<ul class="no-bullet">
 <li><em>after emph</em> e&ndash;mph item
 </li></ul>
 
@@ -1117,6 +1131,20 @@ i&ndash;tem 1
 
 <ol>
 <li> e&ndash;numerate
+</li></ol>
+
+<ol start="3">
+<li> first third
+</li><li> second third
+</li></ol>
+
+<ol type="a" start="1">
+<li> e&ndash;numerate
+</li></ol>
+
+<ol type="a" start="3">
+<li> first c
+</li><li> second c
 </li></ol>
 
 <table>
@@ -1417,23 +1445,23 @@ ref</a>
 <a href="#chapter">title with uref2 <a href="href://http/myhost.com/index2.html">uref2</a></a>
 </p>
 <dl compact="compact">
-<dt><span>a</span></dt>
+<dt><span><strong>a strong</strong></span></dt>
 <dd><p>l&ndash;ine
 </p></dd>
 </dl>
 
 <dl compact="compact">
-<dt id='index-copying-a-2'><span>a<a href='#index-copying-a-2' class='copiable-anchor'> &para;</a></span></dt>
-<dt id='index-copying-b-1'><span>b<a href='#index-copying-b-1' class='copiable-anchor'> &para;</a></span></dt>
+<dt id='index-copying-a-asis'><span>a asis<a href='#index-copying-a-asis' class='copiable-anchor'> &para;</a></span></dt>
+<dt id='index-copying-b-2'><span>b<a href='#index-copying-b-2' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>l&ndash;ine
 </p></dd>
 </dl>
 
 <dl compact="compact">
-<dt id='index-copying-a-1'><span>a<a href='#index-copying-a-1' class='copiable-anchor'> &para;</a></span></dt>
+<dt id='index-copying-a-1'><span><em>a</em><a href='#index-copying-a-1' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-copying-index-entry-between-item-and-itemx"></span>
 </dd>
-<dt id='index-copying-b'><span>b<a href='#index-copying-b' class='copiable-anchor'> &para;</a></span></dt>
+<dt id='index-copying-b'><span><em>b</em><a href='#index-copying-b' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>l&ndash;ine
 </p></dd>
 </dl>
@@ -1530,6 +1558,10 @@ html ''
 </p>
 
 <ul class="no-bullet">
+<li> e&ndash;mph item
+</li></ul>
+
+<ul class="no-bullet">
 <li> after emph e&ndash;mph item
 </li></ul>
 
@@ -1537,6 +1569,27 @@ html ''
 <li>&bull; a&ndash;n itemize line i&ndash;tem 1
 </li><li>&bull; a&ndash;n itemize line i&ndash;tem 2
 </li></ul>
+
+<dl compact="compact">
+<dt><span>a</span></dt>
+<dd><p>l&ndash;ine
+</p></dd>
+</dl>
+
+<dl compact="compact">
+<dt><span>a</span></dt>
+<dd><p>l&ndash;ine
+</p></dd>
+</dl>
+
+<dl compact="compact">
+<dt id='index-copying-a-2'><span>a<a href='#index-copying-a-2' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-copying-index-entry-between-item-and-itemx-1"></span>
+</dd>
+<dt id='index-copying-b-1'><span>b<a href='#index-copying-b-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>l&ndash;ine
+</p></dd>
+</dl>
 
 <dl class="def">
 <dt><span class="category">fun: </span><span><strong></strong></span></dt>
@@ -1938,10 +1991,6 @@ error&rarr; &rarr; - &lowast; -| &rArr;
 </li></ul>
 
 <ul class="no-bullet">
-<li> e&ndash;mph item
-</li></ul>
-
-<ul class="no-bullet">
 <li><em>after emph</em> e&ndash;mph item
 </li></ul>
 
@@ -1953,6 +2002,20 @@ i&ndash;tem 1
 
 <ol>
 <li> e&ndash;numerate
+</li></ol>
+
+<ol start="3">
+<li> first third
+</li><li> second third
+</li></ol>
+
+<ol type="a" start="1">
+<li> e&ndash;numerate
+</li></ol>
+
+<ol type="a" start="3">
+<li> first c
+</li><li> second c
 </li></ol>
 
 <table>
@@ -2253,23 +2316,23 @@ ref</a>
 <a href="#chapter">title with uref2 <a href="href://http/myhost.com/index2.html">uref2</a></a>
 </p>
 <dl compact="compact">
-<dt><span>a</span></dt>
+<dt><span><strong>a strong</strong></span></dt>
 <dd><p>l&ndash;ine
 </p></dd>
 </dl>
 
 <dl compact="compact">
-<dt id='index-a-6'><span>a<a href='#index-a-6' class='copiable-anchor'> &para;</a></span></dt>
-<dt id='index-b-2'><span>b<a href='#index-b-2' class='copiable-anchor'> &para;</a></span></dt>
+<dt id='index-a-asis'><span>a asis<a href='#index-a-asis' class='copiable-anchor'> &para;</a></span></dt>
+<dt id='index-b-4'><span>b<a href='#index-b-4' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>l&ndash;ine
 </p></dd>
 </dl>
 
 <dl compact="compact">
-<dt id='index-a-2'><span>a<a href='#index-a-2' class='copiable-anchor'> &para;</a></span></dt>
+<dt id='index-a-2'><span><em>a</em><a href='#index-a-2' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-index-entry-between-item-and-itemx"></span>
 </dd>
-<dt id='index-b'><span>b<a href='#index-b' class='copiable-anchor'> &para;</a></span></dt>
+<dt id='index-b'><span><em>b</em><a href='#index-b' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>l&ndash;ine
 </p></dd>
 </dl>
@@ -2366,6 +2429,10 @@ html ''
 </p>
 
 <ul class="no-bullet">
+<li> e&ndash;mph item
+</li></ul>
+
+<ul class="no-bullet">
 <li> after emph e&ndash;mph item
 </li></ul>
 
@@ -2373,6 +2440,27 @@ html ''
 <li>&bull; a&ndash;n itemize line i&ndash;tem 1
 </li><li>&bull; a&ndash;n itemize line i&ndash;tem 2
 </li></ul>
+
+<dl compact="compact">
+<dt><span>a</span></dt>
+<dd><p>l&ndash;ine
+</p></dd>
+</dl>
+
+<dl compact="compact">
+<dt><span>a</span></dt>
+<dd><p>l&ndash;ine
+</p></dd>
+</dl>
+
+<dl compact="compact">
+<dt id='index-a-3'><span>a<a href='#index-a-3' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-index-entry-between-item-and-itemx-1"></span>
+</dd>
+<dt id='index-b-1'><span>b<a href='#index-b-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>l&ndash;ine
+</p></dd>
+</dl>
 
 <dl class="def">
 <dt><span class="category">fun: </span><span><strong></strong></span></dt>
@@ -2817,11 +2905,6 @@ error&rarr; &rarr; - &lowast; -| &rArr;
 <pre class="example">
 
 </pre><ul class="no-bullet">
-<li> <pre class="example">e--mph item
-</pre></li></ul>
-<pre class="example">
-
-</pre><ul class="no-bullet">
 <li><em>after emph</em> <pre class="example">e--mph item
 </pre></li></ul>
 <pre class="example">
@@ -2834,6 +2917,23 @@ error&rarr; &rarr; - &lowast; -| &rArr;
 
 </pre><ol>
 <li> <pre class="example">e--numerate
+</pre></li></ol>
+<pre class="example">
+
+</pre><ol start="3">
+<li> <pre class="example">first third
+</pre></li><li> <pre class="example">second third
+</pre></li></ol>
+<pre class="example">
+
+</pre><ol type="a" start="1">
+<li> <pre class="example">e--numerate
+</pre></li></ol>
+<pre class="example">
+
+</pre><ol type="a" start="3">
+<li> <pre class="example">first c
+</pre></li><li> <pre class="example">second c
 </pre></li></ol>
 <pre class="example">
 
@@ -2980,7 +3080,7 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 <dt id="index-followed-2"><span class="category">truc: </span><span><strong>followed</strong> <em>by a comment</em><a href='#index-followed-2' class='copiable-anchor'> &para;</a></span></dt>
 <dt><span class="category">truc: </span><span><strong></strong></span></dt>
 <dt><span class="category">: </span><span><strong></strong></span></dt>
-<dt id="index-a-3"><span class="category">truc: </span><span><strong>a</strong> <em>b c d e <b>f g</b> h i</em><a href='#index-a-3' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-a-4"><span class="category">truc: </span><span><strong>a</strong> <em>b c d e <b>f g</b> h i</em><a href='#index-a-4' class='copiable-anchor'> &para;</a></span></dt>
 <dt id="index-deffnx-2"><span class="category">truc: </span><span><strong>deffnx</strong> <em>before end deffn</em><a href='#index-deffnx-2' class='copiable-anchor'> &para;</a></span></dt>
 </dl>
 <pre class="example">
@@ -3178,24 +3278,24 @@ ref</a>
 <a href="#chapter">title with uref2 <a href="href://http/myhost.com/index2.html">uref2</a></a>
 
 </pre><dl compact="compact">
-<dt><span><tt>a</tt></span></dt>
+<dt><span><tt><strong>a strong</strong></tt></span></dt>
 <dd><pre class="example">l--ine
 </pre></dd>
 </dl>
 <pre class="example">
 
 </pre><dl compact="compact">
-<dt id='index-a-7'><span><tt>a</tt><a href='#index-a-7' class='copiable-anchor'> &para;</a></span></dt>
-<dt id='index-b-3'><span><tt>b</tt><a href='#index-b-3' class='copiable-anchor'> &para;</a></span></dt>
+<dt id='index-a-asis-1'><span><tt>a asis</tt><a href='#index-a-asis-1' class='copiable-anchor'> &para;</a></span></dt>
+<dt id='index-b-5'><span><tt>b</tt><a href='#index-b-5' class='copiable-anchor'> &para;</a></span></dt>
 <dd><pre class="example">l--ine
 </pre></dd>
 </dl>
 <pre class="example">
 
 </pre><dl compact="compact">
-<dt id='index-a-4'><span><tt>a</tt><a href='#index-a-4' class='copiable-anchor'> &para;</a></span></dt>
-<dd><pre class="example"><span id="index-index-entry-between-item-and-itemx-1"></span></pre></dd>
-<dt id='index-b-1'><span><tt>b</tt><a href='#index-b-1' class='copiable-anchor'> &para;</a></span></dt>
+<dt id='index-a-5'><span><tt><em>a</em></tt><a href='#index-a-5' class='copiable-anchor'> &para;</a></span></dt>
+<dd><pre class="example"><span id="index-index-entry-between-item-and-itemx-2"></span></pre></dd>
+<dt id='index-b-2'><span><tt><em>b</em></tt><a href='#index-b-2' class='copiable-anchor'> &para;</a></span></dt>
 <dd><pre class="example">l--ine
 </pre></dd>
 </dl>
@@ -3310,6 +3410,11 @@ Invalid use of @':
 
 
 </pre><ul class="no-bullet">
+<li> <pre class="example">e--mph item
+</pre></li></ul>
+<pre class="example">
+
+</pre><ul class="no-bullet">
 <li> after emph <pre class="example">e--mph item
 </pre></li></ul>
 <pre class="example">
@@ -3318,6 +3423,29 @@ Invalid use of @':
 <li>&bull; a&ndash;n itemize line <pre class="example">i--tem 1
 </pre></li><li>&bull; a&ndash;n itemize line <pre class="example">i--tem 2
 </pre></li></ul>
+<pre class="example">
+
+</pre><dl compact="compact">
+<dt><span><tt>a</tt></span></dt>
+<dd><pre class="example">l--ine
+</pre></dd>
+</dl>
+<pre class="example">
+
+</pre><dl compact="compact">
+<dt><span><tt>a</tt></span></dt>
+<dd><pre class="example">l--ine
+</pre></dd>
+</dl>
+<pre class="example">
+
+</pre><dl compact="compact">
+<dt id='index-a-6'><span><tt>a</tt><a href='#index-a-6' class='copiable-anchor'> &para;</a></span></dt>
+<dd><pre class="example"><span id="index-index-entry-between-item-and-itemx-3"></span></pre></dd>
+<dt id='index-b-3'><span><tt>b</tt><a href='#index-b-3' class='copiable-anchor'> &para;</a></span></dt>
+<dd><pre class="example">l--ine
+</pre></dd>
+</dl>
 <pre class="example">
 
 </pre><dl class="def">
@@ -3381,7 +3509,7 @@ Invalid use of @':
 <span id="index-T_002d_002druc-1"></span>
 <span id="index-_002e-1"></span>
 <span id="index-_003f-1"></span>
-<span id="index-a-5"></span>
+<span id="index-a-7"></span>
 
 
 <p>cp
@@ -3427,9 +3555,13 @@ Invalid use of @':
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="chapter-1_cp_letter-I">I</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="index.html#index-copying-index-entry-between-item-and-itemx">index entry between item and itemx</a></td><td>&nbsp;</td><td valign="top"><a href="index.html">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="index.html#index-copying-index-entry-between-item-and-itemx-1">index entry between item and itemx</a></td><td>&nbsp;</td><td valign="top"><a href="index.html">Top section</a></td></tr>
 <tr><td></td><td valign="top"><a href="index.html#index-titlepage-index-entry-between-item-and-itemx">index entry between item and itemx</a></td><td>&nbsp;</td><td valign="top"><a href="index.html">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="index.html#index-titlepage-index-entry-between-item-and-itemx-1">index entry between item and itemx</a></td><td>&nbsp;</td><td valign="top"><a href="index.html">Top section</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-index-entry-between-item-and-itemx">index entry between item and itemx</a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-index-entry-between-item-and-itemx-1">index entry between item and itemx</a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-index-entry-between-item-and-itemx-2">index entry between item and itemx</a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-index-entry-between-item-and-itemx-3">index entry between item and itemx</a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="index.html#index-copying-index-entry-within-deffn">index entry within deffn</a></td><td>&nbsp;</td><td valign="top"><a href="index.html">Top section</a></td></tr>
 <tr><td></td><td valign="top"><a href="index.html#index-titlepage-index-entry-within-deffn">index entry within deffn</a></td><td>&nbsp;</td><td valign="top"><a href="index.html">Top section</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-index-entry-within-deffn">index entry within deffn</a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
@@ -3516,13 +3648,17 @@ Invalid use of @':
 <tr><th id="chapter-1_fn_letter-A">A</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="index.html#index-copying-a"><code>a</code></a></td><td>&nbsp;</td><td valign="top"><a href="index.html">Top section</a></td></tr>
 <tr><td></td><td valign="top"><a href="index.html#index-copying-a-1"><code>a</code></a></td><td>&nbsp;</td><td valign="top"><a href="index.html">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="index.html#index-copying-a-2"><code>a</code></a></td><td>&nbsp;</td><td valign="top"><a href="index.html">Top section</a></td></tr>
 <tr><td></td><td valign="top"><a href="index.html#index-titlepage-a"><code>a</code></a></td><td>&nbsp;</td><td valign="top"><a href="index.html">Top section</a></td></tr>
 <tr><td></td><td valign="top"><a href="index.html#index-titlepage-a-1"><code>a</code></a></td><td>&nbsp;</td><td valign="top"><a href="index.html">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="index.html#index-titlepage-a-2"><code>a</code></a></td><td>&nbsp;</td><td valign="top"><a href="index.html">Top section</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-a-1"><code>a</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-a-2"><code>a</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-a-3"><code>a</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-a-4"><code>a</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-a-5"><code>a</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-a-6"><code>a</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-a-7"><code>a</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="index.html#index-copying-after"><code>after</code></a></td><td>&nbsp;</td><td valign="top"><a href="index.html">Top section</a></td></tr>
 <tr><td></td><td valign="top"><a href="index.html#index-titlepage-after"><code>after</code></a></td><td>&nbsp;</td><td valign="top"><a href="index.html">Top section</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-after"><code>after</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
@@ -3530,9 +3666,13 @@ Invalid use of @':
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="chapter-1_fn_letter-B">B</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="index.html#index-copying-b"><code>b</code></a></td><td>&nbsp;</td><td valign="top"><a href="index.html">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="index.html#index-copying-b-1"><code>b</code></a></td><td>&nbsp;</td><td valign="top"><a href="index.html">Top section</a></td></tr>
 <tr><td></td><td valign="top"><a href="index.html#index-titlepage-b"><code>b</code></a></td><td>&nbsp;</td><td valign="top"><a href="index.html">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="index.html#index-titlepage-b-1"><code>b</code></a></td><td>&nbsp;</td><td valign="top"><a href="index.html">Top section</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-b"><code>b</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-b-1"><code>b</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-b-2"><code>b</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-b-3"><code>b</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="index.html#index-copying-bidule-machin"><code>bidule machin</code></a></td><td>&nbsp;</td><td valign="top"><a href="index.html">Top section</a></td></tr>
 <tr><td></td><td valign="top"><a href="index.html#index-titlepage-bidule-machin"><code>bidule machin</code></a></td><td>&nbsp;</td><td valign="top"><a href="index.html">Top section</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-bidule-machin"><code>bidule machin</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
@@ -3720,16 +3860,16 @@ Invalid use of @':
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="chapter-1_vr_letter-A">A</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="index.html#index-copying-a-2"><code>a</code></a></td><td>&nbsp;</td><td valign="top"><a href="index.html">Top section</a></td></tr>
-<tr><td></td><td valign="top"><a href="index.html#index-titlepage-a-2"><code>a</code></a></td><td>&nbsp;</td><td valign="top"><a href="index.html">Top section</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-a-6"><code>a</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-a-7"><code>a</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="index.html#index-copying-a-asis"><code>a asis</code></a></td><td>&nbsp;</td><td valign="top"><a href="index.html">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="index.html#index-titlepage-a-asis"><code>a asis</code></a></td><td>&nbsp;</td><td valign="top"><a href="index.html">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-a-asis"><code>a asis</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-a-asis-1"><code>a asis</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="chapter-1_vr_letter-B">B</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="index.html#index-copying-b-1"><code>b</code></a></td><td>&nbsp;</td><td valign="top"><a href="index.html">Top section</a></td></tr>
-<tr><td></td><td valign="top"><a href="index.html#index-titlepage-b-1"><code>b</code></a></td><td>&nbsp;</td><td valign="top"><a href="index.html">Top section</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-b-2"><code>b</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-b-3"><code>b</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="index.html#index-copying-b-2"><code>b</code></a></td><td>&nbsp;</td><td valign="top"><a href="index.html">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="index.html#index-titlepage-b-2"><code>b</code></a></td><td>&nbsp;</td><td valign="top"><a href="index.html">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-b-4"><code>b</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-b-5"><code>b</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="chapter-1_vr_letter-D">D</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="index.html#index-copying-d_002d_002defcv_005fname"><code>d--efcv_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="index.html">Top section</a></td></tr>

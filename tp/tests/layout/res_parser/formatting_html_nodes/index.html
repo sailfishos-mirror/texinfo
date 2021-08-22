@@ -316,12 +316,18 @@ minu-s
 
 e-mph item
 
-e-mph item
-
 i-tem 1
 i-tem 2
 
 1. e-numerate
+
+3. first third
+4. second third
+
+a. e-numerate
+
+c. first c
+d. second c
 
 mu-ltitable headitem another tab
 mu-ltitable item multitable tab
@@ -529,10 +535,10 @@ chapter.
 ext
 chapter
 
-a
+a strong
 l-ine
 
-a
+a asis
 b
 l-ine
 
@@ -640,8 +646,20 @@ Invalid use of @':
 
 e-mph item
 
+e-mph item
+
 i-tem 1
 i-tem 2
+
+a
+l-ine
+
+a
+l-ine
+
+a
+b
+l-ine
 
 fun: 
 truc: machin bidule chose and
@@ -1079,10 +1097,6 @@ error&rarr; &rarr; - &lowast; -| &rArr;
 </li></ul>
 
 <ul class="no-bullet">
-<li> e&ndash;mph item
-</li></ul>
-
-<ul class="no-bullet">
 <li><em>after emph</em> e&ndash;mph item
 </li></ul>
 
@@ -1094,6 +1108,20 @@ i&ndash;tem 1
 
 <ol>
 <li> e&ndash;numerate
+</li></ol>
+
+<ol start="3">
+<li> first third
+</li><li> second third
+</li></ol>
+
+<ol type="a" start="1">
+<li> e&ndash;numerate
+</li></ol>
+
+<ol type="a" start="3">
+<li> first c
+</li><li> second c
 </li></ol>
 
 <table>
@@ -1394,23 +1422,23 @@ ref</a>
 <a href="chapter.html">title with uref2 <a href="href://http/myhost.com/index2.html">uref2</a></a>
 </p>
 <dl compact="compact">
-<dt><span>a</span></dt>
+<dt><span><strong>a strong</strong></span></dt>
 <dd><p>l&ndash;ine
 </p></dd>
 </dl>
 
 <dl compact="compact">
-<dt id='index-titlepage-a-2'><span>a<a href='#index-titlepage-a-2' class='copiable-anchor'> &para;</a></span></dt>
-<dt id='index-titlepage-b-1'><span>b<a href='#index-titlepage-b-1' class='copiable-anchor'> &para;</a></span></dt>
+<dt id='index-titlepage-a-asis'><span>a asis<a href='#index-titlepage-a-asis' class='copiable-anchor'> &para;</a></span></dt>
+<dt id='index-titlepage-b-2'><span>b<a href='#index-titlepage-b-2' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>l&ndash;ine
 </p></dd>
 </dl>
 
 <dl compact="compact">
-<dt id='index-titlepage-a-1'><span>a<a href='#index-titlepage-a-1' class='copiable-anchor'> &para;</a></span></dt>
+<dt id='index-titlepage-a-1'><span><em>a</em><a href='#index-titlepage-a-1' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-titlepage-index-entry-between-item-and-itemx"></span>
 </dd>
-<dt id='index-titlepage-b'><span>b<a href='#index-titlepage-b' class='copiable-anchor'> &para;</a></span></dt>
+<dt id='index-titlepage-b'><span><em>b</em><a href='#index-titlepage-b' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>l&ndash;ine
 </p></dd>
 </dl>
@@ -1507,6 +1535,10 @@ html ''
 </p>
 
 <ul class="no-bullet">
+<li> e&ndash;mph item
+</li></ul>
+
+<ul class="no-bullet">
 <li> after emph e&ndash;mph item
 </li></ul>
 
@@ -1514,6 +1546,27 @@ html ''
 <li>&bull; a&ndash;n itemize line i&ndash;tem 1
 </li><li>&bull; a&ndash;n itemize line i&ndash;tem 2
 </li></ul>
+
+<dl compact="compact">
+<dt><span>a</span></dt>
+<dd><p>l&ndash;ine
+</p></dd>
+</dl>
+
+<dl compact="compact">
+<dt><span>a</span></dt>
+<dd><p>l&ndash;ine
+</p></dd>
+</dl>
+
+<dl compact="compact">
+<dt id='index-titlepage-a-2'><span>a<a href='#index-titlepage-a-2' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-titlepage-index-entry-between-item-and-itemx-1"></span>
+</dd>
+<dt id='index-titlepage-b-1'><span>b<a href='#index-titlepage-b-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>l&ndash;ine
+</p></dd>
+</dl>
 
 <dl class="def">
 <dt><span class="category">fun: </span><span><strong></strong></span></dt>
@@ -1916,10 +1969,6 @@ error&rarr; &rarr; - &lowast; -| &rArr;
 </li></ul>
 
 <ul class="no-bullet">
-<li> e&ndash;mph item
-</li></ul>
-
-<ul class="no-bullet">
 <li><em>after emph</em> e&ndash;mph item
 </li></ul>
 
@@ -1931,6 +1980,20 @@ i&ndash;tem 1
 
 <ol>
 <li> e&ndash;numerate
+</li></ol>
+
+<ol start="3">
+<li> first third
+</li><li> second third
+</li></ol>
+
+<ol type="a" start="1">
+<li> e&ndash;numerate
+</li></ol>
+
+<ol type="a" start="3">
+<li> first c
+</li><li> second c
 </li></ol>
 
 <table>
@@ -2231,23 +2294,23 @@ ref</a>
 <a href="chapter.html">title with uref2 <a href="href://http/myhost.com/index2.html">uref2</a></a>
 </p>
 <dl compact="compact">
-<dt><span>a</span></dt>
+<dt><span><strong>a strong</strong></span></dt>
 <dd><p>l&ndash;ine
 </p></dd>
 </dl>
 
 <dl compact="compact">
-<dt id='index-copying-a-2'><span>a<a href='#index-copying-a-2' class='copiable-anchor'> &para;</a></span></dt>
-<dt id='index-copying-b-1'><span>b<a href='#index-copying-b-1' class='copiable-anchor'> &para;</a></span></dt>
+<dt id='index-copying-a-asis'><span>a asis<a href='#index-copying-a-asis' class='copiable-anchor'> &para;</a></span></dt>
+<dt id='index-copying-b-2'><span>b<a href='#index-copying-b-2' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>l&ndash;ine
 </p></dd>
 </dl>
 
 <dl compact="compact">
-<dt id='index-copying-a-1'><span>a<a href='#index-copying-a-1' class='copiable-anchor'> &para;</a></span></dt>
+<dt id='index-copying-a-1'><span><em>a</em><a href='#index-copying-a-1' class='copiable-anchor'> &para;</a></span></dt>
 <dd><span id="index-copying-index-entry-between-item-and-itemx"></span>
 </dd>
-<dt id='index-copying-b'><span>b<a href='#index-copying-b' class='copiable-anchor'> &para;</a></span></dt>
+<dt id='index-copying-b'><span><em>b</em><a href='#index-copying-b' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>l&ndash;ine
 </p></dd>
 </dl>
@@ -2344,6 +2407,10 @@ html ''
 </p>
 
 <ul class="no-bullet">
+<li> e&ndash;mph item
+</li></ul>
+
+<ul class="no-bullet">
 <li> after emph e&ndash;mph item
 </li></ul>
 
@@ -2351,6 +2418,27 @@ html ''
 <li>&bull; a&ndash;n itemize line i&ndash;tem 1
 </li><li>&bull; a&ndash;n itemize line i&ndash;tem 2
 </li></ul>
+
+<dl compact="compact">
+<dt><span>a</span></dt>
+<dd><p>l&ndash;ine
+</p></dd>
+</dl>
+
+<dl compact="compact">
+<dt><span>a</span></dt>
+<dd><p>l&ndash;ine
+</p></dd>
+</dl>
+
+<dl compact="compact">
+<dt id='index-copying-a-2'><span>a<a href='#index-copying-a-2' class='copiable-anchor'> &para;</a></span></dt>
+<dd><span id="index-copying-index-entry-between-item-and-itemx-1"></span>
+</dd>
+<dt id='index-copying-b-1'><span>b<a href='#index-copying-b-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>l&ndash;ine
+</p></dd>
+</dl>
 
 <dl class="def">
 <dt><span class="category">fun: </span><span><strong></strong></span></dt>

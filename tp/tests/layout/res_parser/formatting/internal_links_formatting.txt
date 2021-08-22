@@ -17,9 +17,13 @@ formatting.html#index-_002e	cp	.
 formatting.html#index-_003f	cp	?
 formatting.html#index-a	cp	a
 formatting.html#index-copying-index-entry-between-item-and-itemx	cp	index entry between item and itemx
+formatting.html#index-copying-index-entry-between-item-and-itemx-1	cp	index entry between item and itemx
 formatting.html#index-titlepage-index-entry-between-item-and-itemx	cp	index entry between item and itemx
+formatting.html#index-titlepage-index-entry-between-item-and-itemx-1	cp	index entry between item and itemx
 formatting.html#index-index-entry-between-item-and-itemx	cp	index entry between item and itemx
 formatting.html#index-index-entry-between-item-and-itemx-1	cp	index entry between item and itemx
+formatting.html#index-index-entry-between-item-and-itemx-2	cp	index entry between item and itemx
+formatting.html#index-index-entry-between-item-and-itemx-3	cp	index entry between item and itemx
 formatting.html#index-copying-index-entry-within-deffn	cp	index entry within deffn
 formatting.html#index-titlepage-index-entry-within-deffn	cp	index entry within deffn
 formatting.html#index-index-entry-within-deffn	cp	index entry within deffn
@@ -46,21 +50,29 @@ formatting.html#index-_0060_0060-2	fn	``
 formatting.html#index-_0060_0060-3	fn	``
 formatting.html#index-copying-a	fn	a
 formatting.html#index-copying-a-1	fn	a
+formatting.html#index-copying-a-2	fn	a
 formatting.html#index-titlepage-a	fn	a
 formatting.html#index-titlepage-a-1	fn	a
+formatting.html#index-titlepage-a-2	fn	a
 formatting.html#index-a-1	fn	a
 formatting.html#index-a-2	fn	a
 formatting.html#index-a-3	fn	a
 formatting.html#index-a-4	fn	a
 formatting.html#index-a-5	fn	a
+formatting.html#index-a-6	fn	a
+formatting.html#index-a-7	fn	a
 formatting.html#index-copying-after	fn	after
 formatting.html#index-titlepage-after	fn	after
 formatting.html#index-after	fn	after
 formatting.html#index-after-1	fn	after
 formatting.html#index-copying-b	fn	b
+formatting.html#index-copying-b-1	fn	b
 formatting.html#index-titlepage-b	fn	b
+formatting.html#index-titlepage-b-1	fn	b
 formatting.html#index-b	fn	b
 formatting.html#index-b-1	fn	b
+formatting.html#index-b-2	fn	b
+formatting.html#index-b-3	fn	b
 formatting.html#index-copying-bidule-machin	fn	bidule machin
 formatting.html#index-titlepage-bidule-machin	fn	bidule machin
 formatting.html#index-bidule-machin	fn	bidule machin
@@ -199,14 +211,14 @@ formatting.html#index-copying-d_002d_002deftp_005fname	tp	d--eftp_name
 formatting.html#index-titlepage-d_002d_002deftp_005fname	tp	d--eftp_name
 formatting.html#index-d_002d_002deftp_005fname	tp	d--eftp_name
 formatting.html#index-d_002d_002deftp_005fname-1	tp	d--eftp_name
-formatting.html#index-copying-a-2	vr	a
-formatting.html#index-titlepage-a-2	vr	a
-formatting.html#index-a-6	vr	a
-formatting.html#index-a-7	vr	a
-formatting.html#index-copying-b-1	vr	b
-formatting.html#index-titlepage-b-1	vr	b
-formatting.html#index-b-2	vr	b
-formatting.html#index-b-3	vr	b
+formatting.html#index-copying-a-asis	vr	a asis
+formatting.html#index-titlepage-a-asis	vr	a asis
+formatting.html#index-a-asis	vr	a asis
+formatting.html#index-a-asis-1	vr	a asis
+formatting.html#index-copying-b-2	vr	b
+formatting.html#index-titlepage-b-2	vr	b
+formatting.html#index-b-4	vr	b
+formatting.html#index-b-5	vr	b
 formatting.html#index-copying-d_002d_002defcv_005fname	vr	d--efcv_name
 formatting.html#index-titlepage-d_002d_002defcv_005fname	vr	d--efcv_name
 formatting.html#index-d_002d_002defcv_005fname	vr	d--efcv_name
