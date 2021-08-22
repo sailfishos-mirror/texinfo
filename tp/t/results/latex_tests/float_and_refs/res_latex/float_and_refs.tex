@@ -8,6 +8,8 @@
 \usepackage{graphicx}
 \usepackage{needspace}
 \usepackage{etoolbox}
+% a framemethod is needed for roundcorner
+\usepackage[framemethod=TikZ]{mdframed}
 \usepackage{fontsize}
 \usepackage{geometry}
 \usepackage{fancyhdr}
@@ -61,6 +63,11 @@
 
 % avoid pagebreak and headings setting for a sectionning command
 \newcommand{\GNUTexinfonopagebreakheading}[2]{\let\clearpage\relax \let\cleardoublepage\relax \let\thispagestyle\GNUTexinfoplaceholder #1{#2}}
+
+% the mdframed style for @cartouche
+\mdfdefinestyle{GNUTexinfocartouche}{
+innertopmargin=10pt, innerbottommargin=10pt,%
+roundcorner=10pt}
 
 
 \renewcommand{\includegraphics}[1]{\fbox{FIG #1}}

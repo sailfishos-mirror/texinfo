@@ -34,6 +34,8 @@
 # which makes it quite different from Texinfo @indent which should requires
 # a different conversion
 #
+# @exdent is not implemented
+#
 # There is no obvious way to change the first paragraph indentation
 # in a way that can be reverted as with @firstparagraphindent.
 # use of \usepackage{indentfirst} cannot be reverted.
@@ -47,11 +49,11 @@
 # the text is not filled at all in Texinfo, each line is left as is.
 # LaTeX flushleft and flushright are filled but not aligned.
 # 
-# Other non filled environments @example, @display...  No similar
-# environment found in LaTeX.  Basic implementation done with \obeylines
-# from plain TeX, but some features remain to be done.
+# indentation in @example, @display... still needs to be done
 #
-# @group should also be done together with the non filled environments.
+# @indentedblock and @smallindentedblock
+#
+# @group should also be added together with the non filled environments.
 #
 # @need is implemented in a specific way, maybe there could be a 
 # definition of \mil instead.
@@ -112,7 +114,7 @@
 # two should be associated with other geometries.
 #
 # The \geometry command does not really reset the geometry after
-# \begin{document} according to the documentation, somthing else should
+# \begin{document} according to the documentation, something else should
 # be used to switch paper definition.
 #
 # @pagesizes uses \newgeometry which forgets about previous settings except
@@ -484,6 +486,11 @@ my %LaTeX_environment_commands = (
   'raggedright' => ['flushleft'],
   'quotation' => ['quote'],
   'smallquotation' => ['quote', $small_font_size],
+  'cartouche' => ['mdframed'],
+);
+
+my %LaTeX_environment_options = (
+  'cartouche' => {'mdframed' => 'style=GNUTexinfocartouche'},
 );
 
 foreach my $environment_command (@LaTeX_same_block_commands) {
@@ -946,6 +953,7 @@ sub _latex_header {
   # needspace for \needspace. In texlive-latex-extra in debian
   # etoolbox for \patchcmd. In texlive-latex-recommended in debian
   # fontsize for \changefontsize. In texlive-latex-extra in debian
+  # mdframed for the formatting of @cartouche
   # \usepackage[linkbordercolor={0 0 0}]{hyperref}
   my $header = "\\documentclass{$documentclass}\n"
 .'\usepackage{makeidx}\makeindex
@@ -957,6 +965,8 @@ sub _latex_header {
 \usepackage{graphicx}
 \usepackage{needspace}
 \usepackage{etoolbox}
+% a framemethod is needed for roundcorner
+\usepackage[framemethod=TikZ]{mdframed}
 \usepackage{fontsize}
 \usepackage{geometry}
 \usepackage{fancyhdr}
@@ -1031,6 +1041,11 @@ sub _latex_header {
 
 % avoid pagebreak and headings setting for a sectionning command
 \newcommand{\GNUTexinfonopagebreakheading}[2]{\let\clearpage\relax \let\cleardoublepage\relax \let\thispagestyle\GNUTexinfoplaceholder #1{#2}}
+
+% the mdframed style for @cartouche
+\mdfdefinestyle{GNUTexinfocartouche}{
+innertopmargin=10pt, innerbottommargin=10pt,%
+roundcorner=10pt}
 
 ';
   # this is in order to be able to run pdflatex even
@@ -2115,7 +2130,12 @@ sub _convert($$)
     } elsif (exists($block_commands{$command})) {
       if ($LaTeX_environment_commands{$command}) {
         foreach my $environment (@{$LaTeX_environment_commands{$command}}) {
-          $result .= "\\begin{".$environment."}\n";
+          $result .= "\\begin{".$environment."}";
+          if (exists($LaTeX_environment_options{$command}) and
+              exists($LaTeX_environment_options{$command}{$environment})) {
+            $result .= '['.$LaTeX_environment_options{$command}{$environment}.']';
+          }
+          $result .= "\n";
         }
       }
       if ($preformatted_commands{$command}) {

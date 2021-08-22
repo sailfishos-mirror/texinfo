@@ -434,6 +434,22 @@ In afourpaper reset
 @end verbatim
 @end smallformat
 '],
+['example_in_cartouche',
+'@setfilename example_in_cartouche.info
+
+@cartouche
+Normal cartouche
+
+New para
+@end cartouche
+
+@cartouche
+@example
+% pwd
+/usr/local/share/emacs
+@end example
+@end cartouche
+'],
 );
 
 foreach my $test (@test_cases) {

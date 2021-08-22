@@ -74,11 +74,16 @@ roundcorner=10pt}
 
 
 \begin{document}
-\label{anchor:first}%
+\begin{mdframed}[style=GNUTexinfocartouche]
+Normal cartouche
 
+New para
+\end{mdframed}
 
-\label{anchor:node-in-menu-before-top}%
-
-\chapter{a chapter}
-\label{anchor:second-node}%
+\begin{mdframed}[style=GNUTexinfocartouche]
+\par\begingroup\obeylines\obeyspaces\frenchspacing\leftskip=2em\relax\parskip=0pt\relax\ttfamily{}%
+\% pwd
+/usr/local/share/emacs
+\endgroup{}%
+\end{mdframed}
 \end{document}
