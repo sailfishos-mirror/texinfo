@@ -121,6 +121,10 @@
 #
 # The environment used for @quotation is quote as it seems to match,
 # but the description of quote does not really match.
+#
+# push a context for the formatting of @quotation @author, such that
+# if in a preformatted environment the @quotation @author formatting
+# will be the same as in the main text?
 
 package Texinfo::Convert::LaTeX;
 
@@ -880,8 +884,8 @@ sub convert($$)
 
   $self->_prepare_conversion($root);
 
-  if (not exists($self->{'style_context'})
-      or scalar(@{$self->{'style_context'}}) == 0) {
+  if (not exists($self->{'formatting_context'})
+      or scalar(@{$self->{'formatting_context'}}) == 0) {
     _push_new_context($self, 'document');
   }
   
@@ -1080,9 +1084,9 @@ sub _push_new_context($$)
   my $self = shift;
   my $context_name = shift;
 
-  push @{$self->{'style_context'}},
+  push @{$self->{'formatting_context'}},
      {
-       'context' => ['text'],
+       'text_context' => ['text'],
        'preformatted_context' => [],
        'math_style' => [],
        'code' => 0,
@@ -1095,7 +1099,7 @@ sub _push_new_context($$)
 sub _pop_context($)
 {
   my $self = shift;
-  pop @{$self->{'style_context'}};
+  pop @{$self->{'formatting_context'}};
 }
 
 sub _protect_url($$)
@@ -1113,8 +1117,8 @@ sub _protect_text($$)
 
   # FIXME are there some special characters to protect in math mode,
   # for instance # and ~?
-  if ($self->{'style_context'}->[-1]->{'context'}->[-1] ne 'math'
-      and $self->{'style_context'}->[-1]->{'context'}->[-1] ne 'raw') {
+  if ($self->{'formatting_context'}->[-1]->{'text_context'}->[-1] ne 'math'
+      and $self->{'formatting_context'}->[-1]->{'text_context'}->[-1] ne 'raw') {
     # temporarily replace \ with a control character
     $text =~ s/\\/\x08/g;
 
@@ -1124,11 +1128,11 @@ sub _protect_text($$)
     $text =~ s/\^/\\^{}/g;
 
     $text =~ s/\x08/\\textbackslash{}/g;
-    if ($self->{'style_context'}->[-1]->{'code'}) {
+    if ($self->{'formatting_context'}->[-1]->{'code'}) {
       $text =~ s/---/{-}{-}{-}/g;
       $text =~ s/--/{-}{-}/g;
     }
-    if ($self->{'style_context'}->[-1]->{'dot_not_end_sentence'}) {
+    if ($self->{'formatting_context'}->[-1]->{'dot_not_end_sentence'}) {
       $text =~ s/\./\.\\@/g;
     }
   }
@@ -1262,13 +1266,13 @@ sub _open_preformatted($$)
 
   if ($preformatted_code_commands{$command}) {
     $result .= '\\ttfamily';
-    $self->{'style_context'}->[-1]->{'code'} += 1;
+    $self->{'formatting_context'}->[-1]->{'code'} += 1;
   }
   if ($small_font_preformatted_commands{$command}) {
     $result .= "\\$small_font_size";
   }
   $result .= '{}'."%\n";
-  push @{$self->{'style_context'}->[-1]->{'preformatted_context'}}, $command;
+  push @{$self->{'formatting_context'}->[-1]->{'preformatted_context'}}, $command;
   return $result;
 }
 
@@ -1277,9 +1281,9 @@ sub _close_preformatted($$)
   my $self = shift;
   my $command = shift;
   if ($preformatted_code_commands{$command}) {
-    $self->{'style_context'}->[-1]->{'code'} -= 1;
+    $self->{'formatting_context'}->[-1]->{'code'} -= 1;
   }
-  my $old_context = pop @{$self->{'style_context'}->[-1]->{'preformatted_context'}};
+  my $old_context = pop @{$self->{'formatting_context'}->[-1]->{'preformatted_context'}};
   die if ($old_context ne $command);
   return "\\endgroup{}%\n"; # \obeylines
 }
@@ -1428,7 +1432,7 @@ sub _convert($$)
   if ($command) {
     my $unknown_command;
     my $command_context = 'text';
-    if ($self->{'style_context'}->[-1]->{'context'}->[-1] eq 'math') {
+    if ($self->{'formatting_context'}->[-1]->{'text_context'}->[-1] eq 'math') {
       $command_context = 'math';
     }
     if (defined($no_brace_commands{$command})) {
@@ -1444,7 +1448,7 @@ sub _convert($$)
           $result = "\\leavevmode{}\\\\";
           #$result = "\\linebreak[4]\n";
         } else {
-          if ($self->{'style_context'}->[-1]->{'math_style'}->[-1]
+          if ($self->{'formatting_context'}->[-1]->{'math_style'}->[-1]
               eq 'one-line') {
             $result .= "";
           } else {
@@ -1520,9 +1524,9 @@ sub _convert($$)
           $result .= "\\textsl{\\$LaTeX_accent_commands{'text'}->{$command}\{";
           # we do not want accents within to be math accents
           if ($root->{'args'}) {
-            push @{$self->{'style_context'}->[-1]->{'context'}}, 'text';
+            push @{$self->{'formatting_context'}->[-1]->{'text_context'}}, 'text';
             $accent_arg = _convert($self, $root->{'args'}->[0]);
-            my $old_context = pop @{$self->{'style_context'}->[-1]->{'context'}};
+            my $old_context = pop @{$self->{'formatting_context'}->[-1]->{'text_context'}};
           }
           $result .= $accent_arg;
           $result .= '}}';
@@ -1538,7 +1542,7 @@ sub _convert($$)
         $result .= "$LaTeX_style_brace_commands{$command_context}->{$command}\{";
       }
       if ($code_style_commands{$command}) {
-        $self->{'style_context'}->[-1]->{'code'} += 1;
+        $self->{'formatting_context'}->[-1]->{'code'} += 1;
       }
       if ($root->{'args'}) {
         $result .= _convert($self, $root->{'args'}->[0]);
@@ -1547,7 +1551,7 @@ sub _convert($$)
         $result .= '}';
       }
       if ($code_style_commands{$command}) {
-        $self->{'style_context'}->[-1]->{'code'} -= 1;
+        $self->{'formatting_context'}->[-1]->{'code'} -= 1;
       }
       if ($self->{'quotes_map'}->{$command}) {
         $result .= $self->{'quotes_map'}->{$command}->[1];
@@ -1564,8 +1568,8 @@ sub _convert($$)
       if (defined($self->{'conf'}->{'kbdinputstyle'})
           and ($self->{'conf'}->{'kbdinputstyle'} eq 'code'
             or ($self->{'conf'}->{'kbdinputstyle'} eq 'example'
-              and (scalar(@{$self->{'style_context'}->[-1]->{'preformatted_context'}})
-                   and $preformatted_code_commands{$self->{'style_context'}->[-1]->{'preformatted_context'}->[-1]})))) {
+              and (scalar(@{$self->{'formatting_context'}->[-1]->{'preformatted_context'}})
+                   and $preformatted_code_commands{$self->{'formatting_context'}->[-1]->{'preformatted_context'}->[-1]})))) {
         $code_font = 1;
       }
       if ($code_font) {
@@ -1577,9 +1581,9 @@ sub _convert($$)
         $result .= '{\ttfamily\textsl{';
       }
       if ($root->{'args'}) {
-        $self->{'style_context'}->[-1]->{'code'} += 1;
+        $self->{'formatting_context'}->[-1]->{'code'} += 1;
         $result .= _convert($self, $root->{'args'}->[0]);
-        $self->{'style_context'}->[-1]->{'code'} -= 1;
+        $self->{'formatting_context'}->[-1]->{'code'} -= 1;
       }
       if ($code_font) {
         if ($LaTeX_style_brace_commands{$command_context}->{'code'}) {
@@ -1591,11 +1595,11 @@ sub _convert($$)
       return $result;
     } elsif ($command eq 'verb') {
       $result .= "\\verb" .$root->{'extra'}->{'delimiter'};
-      push @{$self->{'style_context'}->[-1]->{'context'}}, 'raw';
+      push @{$self->{'formatting_context'}->[-1]->{'text_context'}}, 'raw';
       if ($root->{'args'}) {
         $result .= _convert($self, $root->{'args'}->[0]);
       }
-      my $old_context = pop @{$self->{'style_context'}->[-1]->{'context'}};
+      my $old_context = pop @{$self->{'formatting_context'}->[-1]->{'text_context'}};
       die if ($old_context ne 'raw');
       $result .= $root->{'extra'}->{'delimiter'};
       return $result;
@@ -1630,10 +1634,10 @@ sub _convert($$)
         if ((@{$root->{'args'}} >= 2)
               and defined($root->{'args'}->[1])
               and @{$root->{'args'}->[1]->{'contents'}}){
-          push @{$self->{'style_context'}->[-1]->{'context'}}, 'raw';
+          push @{$self->{'formatting_context'}->[-1]->{'text_context'}}, 'raw';
           $width = _convert($self, {'contents'
                          => $root->{'args'}->[1]->{'contents'}});
-          my $old_context = pop @{$self->{'style_context'}->[-1]->{'context'}};
+          my $old_context = pop @{$self->{'formatting_context'}->[-1]->{'text_context'}};
           die if ($old_context ne 'raw');
           if ($width !~ /\S/) {
             $width = undef;
@@ -1643,10 +1647,10 @@ sub _convert($$)
         if ((@{$root->{'args'}} >= 3)
               and defined($root->{'args'}->[2])
               and @{$root->{'args'}->[2]->{'contents'}}) {
-          push @{$self->{'style_context'}->[-1]->{'context'}}, 'raw';
+          push @{$self->{'formatting_context'}->[-1]->{'text_context'}}, 'raw';
           $height = _convert($self, {'contents'
                          => $root->{'args'}->[2]->{'contents'}});
-          my $old_context = pop @{$self->{'style_context'}->[-1]->{'context'}};
+          my $old_context = pop @{$self->{'formatting_context'}->[-1]->{'text_context'}};
           die if ($old_context ne 'raw');
           if ($height !~ /\S/) {
             $height = undef;
@@ -1779,9 +1783,9 @@ sub _convert($$)
         }
         my $filename = '';
         if ($file_contents) {
-          $self->{'style_context'}->[-1]->{'code'} += 1;
+          $self->{'formatting_context'}->[-1]->{'code'} += 1;
           $filename = _convert($self, {'contents' => $file_contents});
-          $self->{'style_context'}->[-1]->{'code'} -= 1;
+          $self->{'formatting_context'}->[-1]->{'code'} -= 1;
         }
         
         if ($command ne 'inforef' and $book eq '' and $filename eq ''
@@ -1996,20 +2000,20 @@ sub _convert($$)
          and defined($root->{'args'}->[$arg_index])
          and @{$root->{'args'}->[$arg_index]->{'contents'}}) {
         if ($command eq 'inlineraw') {
-          push @{$self->{'style_context'}->[-1]->{'context'}}, 'raw';
+          push @{$self->{'formatting_context'}->[-1]->{'text_context'}}, 'raw';
         }
         $result .= _convert($self, {'contents'
                          => $root->{'args'}->[$arg_index]->{'contents'}});
         if ($command eq 'inlineraw') {
-          my $old_context = pop @{$self->{'style_context'}->[-1]->{'context'}};
+          my $old_context = pop @{$self->{'formatting_context'}->[-1]->{'text_context'}};
           die if ($old_context ne 'raw');
         }
       }
       return $result;
     } elsif ($math_commands{$command}) {
-      push @{$self->{'style_context'}->[-1]->{'context'}}, 'math';
+      push @{$self->{'formatting_context'}->[-1]->{'text_context'}}, 'math';
       if (not exists($block_commands{$command})) {
-        push @{$self->{'style_context'}->[-1]->{'math_style'}}, 'one-line';
+        push @{$self->{'formatting_context'}->[-1]->{'math_style'}}, 'one-line';
         if ($command eq 'math') {
           if ($root->{'args'}) {
             $result .= '$';
@@ -2017,16 +2021,16 @@ sub _convert($$)
             $result .= '$';
           }
         }
-        my $old_context = pop @{$self->{'style_context'}->[-1]->{'context'}};
+        my $old_context = pop @{$self->{'formatting_context'}->[-1]->{'text_context'}};
         die if ($old_context ne 'math');
-        my $old_math_style = pop @{$self->{'style_context'}->[-1]->{'math_style'}};
+        my $old_math_style = pop @{$self->{'formatting_context'}->[-1]->{'math_style'}};
         die if ($old_math_style ne 'one-line');
         return $result;
       } else {
         if ($command eq 'displaymath') {
-          push @{$self->{'style_context'}->[-1]->{'math_style'}}, 'one-line';
+          push @{$self->{'formatting_context'}->[-1]->{'math_style'}}, 'one-line';
           # close all preformatted formats
-          $preformatted_to_reopen = [@{$self->{'style_context'}->[-1]->{'preformatted_context'}}];
+          $preformatted_to_reopen = [@{$self->{'formatting_context'}->[-1]->{'preformatted_context'}}];
           $result .= _close_preformatted_stack($self, $preformatted_to_reopen);
           $result .= "\$\$\n";
         }
@@ -2117,7 +2121,7 @@ sub _convert($$)
       if ($preformatted_commands{$command}) {
         $result .= _open_preformatted($self, $command);
       } elsif ($block_raw_commands{$command}) {
-        push @{$self->{'style_context'}->[-1]->{'context'}}, 'raw';
+        push @{$self->{'formatting_context'}->[-1]->{'text_context'}}, 'raw';
       }
       if ($command eq 'titlepage') {
         # start a group such that the changes are forgotten when closed
@@ -2137,7 +2141,7 @@ sub _convert($$)
           or $command eq 'smallquotation') {
         # this is only used to avoid @author converted as
         # a @titlepage author, for a @quotation in @titlepage @author
-        $self->{'style_context'}->[-1]->{'in_quotation'} += 1;
+        $self->{'formatting_context'}->[-1]->{'in_quotation'} += 1;
         if ($root->{'args'} and $root->{'args'}->[0]
             and $root->{'args'}->[0]->{'contents'}
             and @{$root->{'args'}->[0]->{'contents'}}) {
@@ -2261,7 +2265,7 @@ sub _convert($$)
       $result .= "\n\\end{center}\n";
       return $result;
     } elsif ($command eq 'exdent') {
-      if ($preformatted_commands{$self->{'style_context'}->[-1]->{'context'}->[-1]}) {
+      if (scalar(@{$self->{'formatting_context'}->[-1]->{'preformatted_context'}})) {
         $result .= $self->_convert({'contents' => $root->{'args'}->[0]->{'contents'}})."\n";
       } else {
         $result .= $self->_convert({'contents' => $root->{'args'}->[0]->{'contents'}})."\n";
@@ -2363,7 +2367,7 @@ sub _convert($$)
       $result .= "\\rightline{$subtitle_text}\n";
     } elsif ($command eq 'author') {
       if ($self->{'titlepage_formatting'}->{'in_titlepage'}
-          and not $self->{'style_context'}->[-1]->{'in_quotation'}) {
+          and not $self->{'formatting_context'}->[-1]->{'in_quotation'}) {
         if (not $self->{'titlepage_formatting'}->{'author'}) {
           # first author, add space before
           $self->{'titlepage_formatting'}->{'author'} = 1;
@@ -2650,7 +2654,7 @@ sub _convert($$)
     } elsif ($root->{'type'} eq '_code') {
       # ...
     } elsif ($root->{'type'} eq '_dot_not_end_sentence') {
-      $self->{'style_context'}->[-1]->{'dot_not_end_sentence'} += 1;
+      $self->{'formatting_context'}->[-1]->{'dot_not_end_sentence'} += 1;
     } elsif ($root->{'type'} eq 'bracketed') {
       $result .= _protect_text($self, '{');
     } elsif ($root->{'type'} eq $latex_document_type) {
@@ -2680,7 +2684,7 @@ sub _convert($$)
   if ($root->{'type'}) {
     if ($root->{'type'} eq '_code') {
     } elsif ($root->{'type'} eq '_dot_not_end_sentence') {
-      $self->{'style_context'}->[-1]->{'dot_not_end_sentence'} -= 1;
+      $self->{'formatting_context'}->[-1]->{'dot_not_end_sentence'} -= 1;
     } elsif ($root->{'type'} eq 'bracketed') {
       $result .= _protect_text($self, '}');
     } elsif ($root->{'type'} eq 'row') {
@@ -2726,13 +2730,15 @@ sub _convert($$)
     } elsif ($command eq 'quotation'
                or $command eq 'smallquotation') {
       if ($root->{'extra'} and $root->{'extra'}->{'authors'}) {
+        # FIXME push a formatting context to have a formatting independent
+        # of the context in particular the preformatted context?
         foreach my $author (@{$root->{'extra'}->{'authors'}}) {
           $result .= _convert($self,
                  $self->gdt("\@center --- \@emph{{author}}\n",
                     {'author' => $author->{'args'}->[0]->{'contents'}}));
         }
       }
-      $self->{'style_context'}->[-1]->{'in_quotation'} -= 1;
+      $self->{'formatting_context'}->[-1]->{'in_quotation'} -= 1;
     } elsif ($command eq 'titlepage') {
     # as explained in the Texinfo manual start headers after titlepage
       $result .= _start_mainmatter_after_titlepage($self);
@@ -2740,17 +2746,17 @@ sub _convert($$)
  
     # close the contexts and register the cells
     if ($block_raw_commands{$command}) {
-      my $old_context = pop @{$self->{'style_context'}->[-1]->{'context'}};
+      my $old_context = pop @{$self->{'formatting_context'}->[-1]->{'text_context'}};
       die if ($old_context ne 'raw');
     } elsif ($block_math_commands{$command}) {
-      my $old_context = pop @{$self->{'style_context'}->[-1]->{'context'}};
+      my $old_context = pop @{$self->{'formatting_context'}->[-1]->{'text_context'}};
       die if ($old_context ne 'math');
       if ($command eq 'displaymath') {
         $result .= "\$\$\n";
         # reopen all preformatted commands
         $result .= _open_preformatted_stack($self, $preformatted_to_reopen);
       }
-      my $old_math_style = pop @{$self->{'style_context'}->[-1]->{'math_style'}};
+      my $old_math_style = pop @{$self->{'formatting_context'}->[-1]->{'math_style'}};
       die if ($old_math_style ne 'one-line');
     }
   }
