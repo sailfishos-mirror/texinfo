@@ -11,12 +11,19 @@
 % a framemethod is needed for roundcorner
 \usepackage[framemethod=TikZ]{mdframed}
 \usepackage{fontsize}
+\usepackage{enumitem}
 \usepackage{geometry}
 \usepackage{fancyhdr}
 \usepackage{float}
 % use hidelinks to remove boxes around links to be similar with Texinfo TeX
 \usepackage[hidelinks]{hyperref}
 \usepackage[utf8]{inputenc}
+% command used in \description format for indicateurl
+\newcommand\GNUTexinfotablestyleindicateurl[1]{`\texttt{#1}'}%
+
+% command used in \description format for samp
+\newcommand\GNUTexinfotablestylesamp[1]{`\texttt{#1}'}%
+
 
 % redefine the \mainmatter command such that it does not clear page
 % as if in double page
@@ -26,6 +33,11 @@
 % add command aliases to use the same command in book and report
 \newcommand\GNUTexinfomainmatter{\mainmatter}
 \newcommand\GNUTexinfofrontmatter{\frontmatter}
+
+% set defaults for lists that match Texinfo TeX formatting
+\setlist[description]{style=nextline, font=\normalfont}
+\setlist[itemize]{label=\textbullet}
+\setlist[enumerate]{label=\arabic*.}
 
 % command that does nothing used to help with substitutions in commands
 \newcommand{\GNUTexinfoplaceholder}[1]{}
@@ -445,54 +457,48 @@ A small quot---ation
 \end{footnotesize}
 \end{quote}
 
-\textbullet{} 
+\begin{itemize}
+\item i--temize
+\end{itemize}
 
-i--temize
+\begin{itemize}[label=+]
+\item i--tem +
+\end{itemize}
 
-+ 
+\begin{itemize}[label=\textbullet{}]
+\item b--ullet
+\end{itemize}
 
-i--tem +
+\begin{itemize}[label=-]
+\item minu--s
+\end{itemize}
 
-\textbullet{} 
+\begin{itemize}[label=\emph{after emph}]
+\item e--mph item
+\end{itemize}
 
-b--ullet
+\begin{itemize}[label=\textbullet{} a--n itemize line]
+\item i--tem 1
+\item i--tem 2
+\end{itemize}
 
-- 
+\begin{enumerate}[start=1]
+\item e--numerate
+\end{enumerate}
 
-minu--s
+\begin{enumerate}[start=3]
+\item first third
+\item second third
+\end{enumerate}
 
-\emph{after emph} 
+\begin{enumerate}[label=\alph*.]
+\item e--numerate
+\end{enumerate}
 
-e--mph item
-
-\textbullet{} a--n itemize line 
-
-i--tem 1
-\textbullet{} a--n itemize line 
-
-i--tem 2
-
-1. 
-
-e--numerate
-
-3. 
-
-first third
-4. 
-
-second third
-
-a. 
-
-e--numerate
-
-c. 
-
-first c
-d. 
-
-second c
+\begin{enumerate}[label=\alph*.,start=3]
+\item first c
+\item second c
+\end{enumerate}
 
 mu--ltitable headitem another tab
 mu--ltitable item multitable tab
@@ -828,16 +834,22 @@ Section ``s--ect,ion'' in \texttt{a comma, in file}
 Section ``title with uref2 \href{href://http/myhost.com/index2.html}{uref2 (\nolinkurl{href://http/myhost.com/index2.html})}'' in \textit{printed manual with uref4 \href{href://http/myhost.com/index4.html}{uref4 (\nolinkurl{href://http/myhost.com/index4.html})}}
 \hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [title with uref2 \href{href://http/myhost.com/index2.html}{uref2 (\nolinkurl{href://http/myhost.com/index2.html})}], page~\pageref*{anchor:chapter}}
 
-\textbf{a strong}
+\begin{description}[format=\textbf]
+\item[a strong]
 l--ine
+\end{description}
 
-a asis
-b
+\begin{description}
+\item[a asis]
+\item[b]
 l--ine
+\end{description}
 
-\emph{a}
-\emph{b}
+\begin{description}[format=\normalfont\emph]
+\item[a]
+\item[b]
 l--ine
+\end{description}
 
 \begin{mdframed}[style=GNUTexinfocartouche]
 c--artouche
@@ -937,30 +949,34 @@ Invalid use of @':\leavevmode{}\\
 \texttt{@image\{,,,3{-}{-}xt\}} 
 
 
-\emph{} 
+\begin{itemize}[label=\emph{}]
+\item e--mph item
+\end{itemize}
 
-e--mph item
+\begin{itemize}[label=\emph{} after emph]
+\item e--mph item
+\end{itemize}
 
-\emph{} after emph 
+\begin{itemize}[label=\textbullet{} a--n itemize line]
+\item i--tem 1
+\item i--tem 2
+\end{itemize}
 
-e--mph item
-
-\textbullet{} a--n itemize line 
-
-i--tem 1
-\textbullet{} a--n itemize line 
-
-i--tem 2
-
-a
+\begin{description}
+\item[a]
 l--ine
+\end{description}
 
-a
+\begin{description}
+\item[a]
 l--ine
+\end{description}
 
-a
-b
+\begin{description}
+\item[a]
+\item[b]
 l--ine
+\end{description}
 
 \hbox{}-- fun: 
 
@@ -1373,54 +1389,48 @@ A small quot---ation
 \end{footnotesize}
 \end{quote}
 
-\textbullet{} 
+\begin{itemize}
+\item i--temize
+\end{itemize}
 
-i--temize
+\begin{itemize}[label=+]
+\item i--tem +
+\end{itemize}
 
-+ 
+\begin{itemize}[label=\textbullet{}]
+\item b--ullet
+\end{itemize}
 
-i--tem +
+\begin{itemize}[label=-]
+\item minu--s
+\end{itemize}
 
-\textbullet{} 
+\begin{itemize}[label=\emph{after emph}]
+\item e--mph item
+\end{itemize}
 
-b--ullet
+\begin{itemize}[label=\textbullet{} a--n itemize line]
+\item i--tem 1
+\item i--tem 2
+\end{itemize}
 
-- 
+\begin{enumerate}[start=1]
+\item e--numerate
+\end{enumerate}
 
-minu--s
+\begin{enumerate}[start=3]
+\item first third
+\item second third
+\end{enumerate}
 
-\emph{after emph} 
+\begin{enumerate}[label=\alph*.]
+\item e--numerate
+\end{enumerate}
 
-e--mph item
-
-\textbullet{} a--n itemize line 
-
-i--tem 1
-\textbullet{} a--n itemize line 
-
-i--tem 2
-
-1. 
-
-e--numerate
-
-3. 
-
-first third
-4. 
-
-second third
-
-a. 
-
-e--numerate
-
-c. 
-
-first c
-d. 
-
-second c
+\begin{enumerate}[label=\alph*.,start=3]
+\item first c
+\item second c
+\end{enumerate}
 
 mu--ltitable headitem another tab
 mu--ltitable item multitable tab
@@ -1756,16 +1766,22 @@ Section ``s--ect,ion'' in \texttt{a comma, in file}
 Section ``title with uref2 \href{href://http/myhost.com/index2.html}{uref2 (\nolinkurl{href://http/myhost.com/index2.html})}'' in \textit{printed manual with uref4 \href{href://http/myhost.com/index4.html}{uref4 (\nolinkurl{href://http/myhost.com/index4.html})}}
 \hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [title with uref2 \href{href://http/myhost.com/index2.html}{uref2 (\nolinkurl{href://http/myhost.com/index2.html})}], page~\pageref*{anchor:chapter}}
 
-\textbf{a strong}
+\begin{description}[format=\textbf]
+\item[a strong]
 l--ine
+\end{description}
 
-a asis
-b
+\begin{description}
+\item[a asis]
+\item[b]
 l--ine
+\end{description}
 
-\emph{a}
-\emph{b}
+\begin{description}[format=\normalfont\emph]
+\item[a]
+\item[b]
 l--ine
+\end{description}
 
 \begin{mdframed}[style=GNUTexinfocartouche]
 c--artouche
@@ -1865,30 +1881,34 @@ Invalid use of @':\leavevmode{}\\
 \texttt{@image\{,,,3{-}{-}xt\}} 
 
 
-\emph{} 
+\begin{itemize}[label=\emph{}]
+\item e--mph item
+\end{itemize}
 
-e--mph item
+\begin{itemize}[label=\emph{} after emph]
+\item e--mph item
+\end{itemize}
 
-\emph{} after emph 
+\begin{itemize}[label=\textbullet{} a--n itemize line]
+\item i--tem 1
+\item i--tem 2
+\end{itemize}
 
-e--mph item
-
-\textbullet{} a--n itemize line 
-
-i--tem 1
-\textbullet{} a--n itemize line 
-
-i--tem 2
-
-a
+\begin{description}
+\item[a]
 l--ine
+\end{description}
 
-a
+\begin{description}
+\item[a]
 l--ine
+\end{description}
 
-a
-b
+\begin{description}
+\item[a]
+\item[b]
 l--ine
+\end{description}
 
 \hbox{}-- fun: 
 
@@ -2316,54 +2336,48 @@ A small quot---ation
 \end{footnotesize}
 \end{quote}
 
-\textbullet{} 
+\begin{itemize}
+\item i--temize
+\end{itemize}
 
-i--temize
+\begin{itemize}[label=+]
+\item i--tem +
+\end{itemize}
 
-+ 
+\begin{itemize}[label=\textbullet{}]
+\item b--ullet
+\end{itemize}
 
-i--tem +
+\begin{itemize}[label=-]
+\item minu--s
+\end{itemize}
 
-\textbullet{} 
+\begin{itemize}[label=\emph{after emph}]
+\item e--mph item
+\end{itemize}
 
-b--ullet
+\begin{itemize}[label=\textbullet{} a--n itemize line]
+\item i--tem 1
+\item i--tem 2
+\end{itemize}
 
-- 
+\begin{enumerate}[start=1]
+\item e--numerate
+\end{enumerate}
 
-minu--s
+\begin{enumerate}[start=3]
+\item first third
+\item second third
+\end{enumerate}
 
-\emph{after emph} 
+\begin{enumerate}[label=\alph*.]
+\item e--numerate
+\end{enumerate}
 
-e--mph item
-
-\textbullet{} a--n itemize line 
-
-i--tem 1
-\textbullet{} a--n itemize line 
-
-i--tem 2
-
-1. 
-
-e--numerate
-
-3. 
-
-first third
-4. 
-
-second third
-
-a. 
-
-e--numerate
-
-c. 
-
-first c
-d. 
-
-second c
+\begin{enumerate}[label=\alph*.,start=3]
+\item first c
+\item second c
+\end{enumerate}
 
 mu--ltitable headitem another tab
 mu--ltitable item multitable tab
@@ -2699,16 +2713,22 @@ Section ``s--ect,ion'' in \texttt{a comma, in file}
 Section ``title with uref2 \href{href://http/myhost.com/index2.html}{uref2 (\nolinkurl{href://http/myhost.com/index2.html})}'' in \textit{printed manual with uref4 \href{href://http/myhost.com/index4.html}{uref4 (\nolinkurl{href://http/myhost.com/index4.html})}}
 \hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [title with uref2 \href{href://http/myhost.com/index2.html}{uref2 (\nolinkurl{href://http/myhost.com/index2.html})}], page~\pageref*{anchor:chapter}}
 
-\textbf{a strong}
+\begin{description}[format=\textbf]
+\item[a strong]
 l--ine
+\end{description}
 
-a asis
-b
+\begin{description}
+\item[a asis]
+\item[b]
 l--ine
+\end{description}
 
-\emph{a}
-\emph{b}
+\begin{description}[format=\normalfont\emph]
+\item[a]
+\item[b]
 l--ine
+\end{description}
 
 \begin{mdframed}[style=GNUTexinfocartouche]
 c--artouche
@@ -2808,30 +2828,34 @@ Invalid use of @':\leavevmode{}\\
 \texttt{@image\{,,,3{-}{-}xt\}} 
 
 
-\emph{} 
+\begin{itemize}[label=\emph{}]
+\item e--mph item
+\end{itemize}
 
-e--mph item
+\begin{itemize}[label=\emph{} after emph]
+\item e--mph item
+\end{itemize}
 
-\emph{} after emph 
+\begin{itemize}[label=\textbullet{} a--n itemize line]
+\item i--tem 1
+\item i--tem 2
+\end{itemize}
 
-e--mph item
-
-\textbullet{} a--n itemize line 
-
-i--tem 1
-\textbullet{} a--n itemize line 
-
-i--tem 2
-
-a
+\begin{description}
+\item[a]
 l--ine
+\end{description}
 
-a
+\begin{description}
+\item[a]
 l--ine
+\end{description}
 
-a
-b
+\begin{description}
+\item[a]
+\item[b]
 l--ine
+\end{description}
 
 \hbox{}-- fun: 
 
@@ -3242,54 +3266,48 @@ A small quot---ation
 \end{footnotesize}
 \end{quote}
 
-\textbullet{} 
+\begin{itemize}
+\item i--temize
+\end{itemize}
 
-i--temize
+\begin{itemize}[label=+]
+\item i--tem +
+\end{itemize}
 
-+ 
+\begin{itemize}[label=\textbullet{}]
+\item b--ullet
+\end{itemize}
 
-i--tem +
+\begin{itemize}[label=-]
+\item minu--s
+\end{itemize}
 
-\textbullet{} 
+\begin{itemize}[label=\emph{after emph}]
+\item e--mph item
+\end{itemize}
 
-b--ullet
+\begin{itemize}[label=\textbullet{} a--n itemize line]
+\item i--tem 1
+\item i--tem 2
+\end{itemize}
 
-- 
+\begin{enumerate}[start=1]
+\item e--numerate
+\end{enumerate}
 
-minu--s
+\begin{enumerate}[start=3]
+\item first third
+\item second third
+\end{enumerate}
 
-\emph{after emph} 
+\begin{enumerate}[label=\alph*.]
+\item e--numerate
+\end{enumerate}
 
-e--mph item
-
-\textbullet{} a--n itemize line 
-
-i--tem 1
-\textbullet{} a--n itemize line 
-
-i--tem 2
-
-1. 
-
-e--numerate
-
-3. 
-
-first third
-4. 
-
-second third
-
-a. 
-
-e--numerate
-
-c. 
-
-first c
-d. 
-
-second c
+\begin{enumerate}[label=\alph*.,start=3]
+\item first c
+\item second c
+\end{enumerate}
 
 mu--ltitable headitem another tab
 mu--ltitable item multitable tab
@@ -3625,16 +3643,22 @@ Section ``s--ect,ion'' in \texttt{a comma, in file}
 Section ``title with uref2 \href{href://http/myhost.com/index2.html}{uref2 (\nolinkurl{href://http/myhost.com/index2.html})}'' in \textit{printed manual with uref4 \href{href://http/myhost.com/index4.html}{uref4 (\nolinkurl{href://http/myhost.com/index4.html})}}
 \hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [title with uref2 \href{href://http/myhost.com/index2.html}{uref2 (\nolinkurl{href://http/myhost.com/index2.html})}], page~\pageref*{anchor:chapter}}
 
-\textbf{a strong}
+\begin{description}[format=\textbf]
+\item[a strong]
 l--ine
+\end{description}
 
-a asis
-b
+\begin{description}
+\item[a asis]
+\item[b]
 l--ine
+\end{description}
 
-\emph{a}
-\emph{b}
+\begin{description}[format=\normalfont\emph]
+\item[a]
+\item[b]
 l--ine
+\end{description}
 
 \begin{mdframed}[style=GNUTexinfocartouche]
 c--artouche
@@ -3734,30 +3758,34 @@ Invalid use of @':\leavevmode{}\\
 \texttt{@image\{,,,3{-}{-}xt\}} 
 
 
-\emph{} 
+\begin{itemize}[label=\emph{}]
+\item e--mph item
+\end{itemize}
 
-e--mph item
+\begin{itemize}[label=\emph{} after emph]
+\item e--mph item
+\end{itemize}
 
-\emph{} after emph 
+\begin{itemize}[label=\textbullet{} a--n itemize line]
+\item i--tem 1
+\item i--tem 2
+\end{itemize}
 
-e--mph item
-
-\textbullet{} a--n itemize line 
-
-i--tem 1
-\textbullet{} a--n itemize line 
-
-i--tem 2
-
-a
+\begin{description}
+\item[a]
 l--ine
+\end{description}
 
-a
+\begin{description}
+\item[a]
 l--ine
+\end{description}
 
-a
-b
+\begin{description}
+\item[a]
+\item[b]
 l--ine
+\end{description}
 
 \hbox{}-- fun: 
 
@@ -4179,54 +4207,48 @@ A small quot{-}{-}{-}ation
 \end{footnotesize}
 \end{quote}
 
-\textbullet{} 
+\begin{itemize}
+\item i{-}{-}temize
+\end{itemize}
 
-i{-}{-}temize
+\begin{itemize}[label=+]
+\item i{-}{-}tem +
+\end{itemize}
 
-+ 
+\begin{itemize}[label=\textbullet{}]
+\item b{-}{-}ullet
+\end{itemize}
 
-i{-}{-}tem +
+\begin{itemize}[label=-]
+\item minu{-}{-}s
+\end{itemize}
 
-\textbullet{} 
+\begin{itemize}[label=\emph{after emph}]
+\item e{-}{-}mph item
+\end{itemize}
 
-b{-}{-}ullet
+\begin{itemize}[label=\textbullet{} a{-}{-}n itemize line]
+\item i{-}{-}tem 1
+\item i{-}{-}tem 2
+\end{itemize}
 
-- 
+\begin{enumerate}[start=1]
+\item e{-}{-}numerate
+\end{enumerate}
 
-minu{-}{-}s
+\begin{enumerate}[start=3]
+\item first third
+\item second third
+\end{enumerate}
 
-\emph{after emph} 
+\begin{enumerate}[label=\alph*.]
+\item e{-}{-}numerate
+\end{enumerate}
 
-e{-}{-}mph item
-
-\textbullet{} a{-}{-}n itemize line 
-
-i{-}{-}tem 1
-\textbullet{} a{-}{-}n itemize line 
-
-i{-}{-}tem 2
-
-1. 
-
-e{-}{-}numerate
-
-3. 
-
-first third
-4. 
-
-second third
-
-a. 
-
-e{-}{-}numerate
-
-c. 
-
-first c
-d. 
-
-second c
+\begin{enumerate}[label=\alph*.,start=3]
+\item first c
+\item second c
+\end{enumerate}
 
 mu{-}{-}ltitable headitem another tab
 mu{-}{-}ltitable item multitable tab
@@ -4564,16 +4586,22 @@ Section ``s{-}{-}ect,ion'' in \texttt{a comma, in file}
 Section ``title with uref2 \href{href://http/myhost.com/index2.html}{uref2 (\nolinkurl{href://http/myhost.com/index2.html})}'' in \textit{printed manual with uref4 \href{href://http/myhost.com/index4.html}{uref4 (\nolinkurl{href://http/myhost.com/index4.html})}}
 \hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [title with uref2 \href{href://http/myhost.com/index2.html}{uref2 (\nolinkurl{href://http/myhost.com/index2.html})}], page~\pageref*{anchor:chapter}}
 
-\textbf{a strong}
+\begin{description}[format=\textbf]
+\item[a strong]
 l{-}{-}ine
+\end{description}
 
-a asis
-b
+\begin{description}
+\item[a asis]
+\item[b]
 l{-}{-}ine
+\end{description}
 
-\emph{a}
-\emph{b}
+\begin{description}[format=\normalfont\emph]
+\item[a]
+\item[b]
 l{-}{-}ine
+\end{description}
 
 \begin{mdframed}[style=GNUTexinfocartouche]
 c{-}{-}artouche
@@ -4673,30 +4701,34 @@ Invalid use of @':\leavevmode{}\\
 \texttt{@image\{,,,3{-}{-}xt\}} 
 
 
-\emph{} 
+\begin{itemize}[label=\emph{}]
+\item e{-}{-}mph item
+\end{itemize}
 
-e{-}{-}mph item
+\begin{itemize}[label=\emph{} after emph]
+\item e{-}{-}mph item
+\end{itemize}
 
-\emph{} after emph 
+\begin{itemize}[label=\textbullet{} a{-}{-}n itemize line]
+\item i{-}{-}tem 1
+\item i{-}{-}tem 2
+\end{itemize}
 
-e{-}{-}mph item
-
-\textbullet{} a{-}{-}n itemize line 
-
-i{-}{-}tem 1
-\textbullet{} a{-}{-}n itemize line 
-
-i{-}{-}tem 2
-
-a
+\begin{description}
+\item[a]
 l{-}{-}ine
+\end{description}
 
-a
+\begin{description}
+\item[a]
 l{-}{-}ine
+\end{description}
 
-a
-b
+\begin{description}
+\item[a]
+\item[b]
 l{-}{-}ine
+\end{description}
 
 \hbox{}{-}{-} fun: 
 

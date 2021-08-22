@@ -459,7 +459,9 @@ more.
 @end example
 '],
 ['inter_item_commands_in_itemize',
-'@itemize @minus
+'@setfilename inter_item_commands_in_itemize.info
+
+@itemize @minus
 @c comment in itemize
 @cindex also a cindex in itemize
 @item e--mph item
@@ -480,7 +482,9 @@ T--ext before items.
 @end itemize
 '],
 ['inter_item_commands_in_enumerate',
-'@enumerate
+'@setfilename inter_item_commands_in_enumerate.info
+
+@enumerate
 
 @comment comment before first item in enumerate
 @item e--numerate
@@ -553,9 +557,14 @@ my @test_invalid = (
 '],
 );
 
+my @file_latex_tests_cases_tests = ('inter_item_commands_in_itemize',
+  'inter_item_commands_in_enumerate');
+
 foreach my $test (@test_cases) {
   push @{$test->[2]->{'test_formats'}}, 'plaintext';
   push @{$test->[2]->{'test_formats'}}, 'html_text';
+  push @{$test->[2]->{'test_formats'}}, 'file_latex'
+    if (grep {$_ eq $test->[0]} @file_latex_tests_cases_tests);
 }
 
 our ($arg_test_case, $arg_generate, $arg_debug);

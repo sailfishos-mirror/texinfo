@@ -43,21 +43,23 @@ Text.
 @end table
 '],
 ['inter_item_commands_in_table',
-'@vtable @code
+'@setfilename inter_item_commands_in_table.info
+
+@vtable @code
 @c comment in table
-@item a
+@item acode--b
 l--ine
 @end vtable
 
 @vtable @asis
-@item a
+@item aasis--b
 @c comment between item and itemx
 @itemx b
 l--ine
 @end vtable
 
 @ftable @var
-@item a
+@item avar--b
 @cindex index entry between item and itemx
 @c and a comment
 @comment and another comment
@@ -86,9 +88,11 @@ Texte before first item.
 @end table
 '],
 ['inter_item_commands_in_table_in_example',
-'@example
+'@setfilename inter_item_commands_in_table_in_example.info
+
+@example
 @table @var
-@item a
+@item a--b
 @cindex index entry between item and itemx
 @c and a comment
 @comment and another comment
@@ -259,10 +263,15 @@ Title
 '],
 );
 
+my @file_latex_tests_cases_tests = ('inter_item_commands_in_table',
+  'inter_item_commands_in_table_in_example');
+
 foreach my $test (@test_cases) {
   push @{$test->[2]->{'test_formats'}}, 'plaintext';
   push @{$test->[2]->{'test_formats'}}, 'html_text';
   push @{$test->[2]->{'test_formats'}}, 'xml';
+  push @{$test->[2]->{'test_formats'}}, 'file_latex'
+    if (grep {$_ eq $test->[0]} @file_latex_tests_cases_tests);
 }
 
 our ($arg_test_case, $arg_generate, $arg_debug);

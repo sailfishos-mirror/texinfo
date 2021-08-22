@@ -217,6 +217,7 @@ my %regular_font_style_commands = %Texinfo::Common::regular_font_style_commands;
 my %preformatted_code_commands = %Texinfo::Common::preformatted_code_commands;
 my %default_index_commands = %Texinfo::Common::default_index_commands;
 my %letter_no_arg_commands = %Texinfo::Common::letter_no_arg_commands;
+my %item_line_commands = %Texinfo::Common::item_line_commands;
 
 # commands that can appear in preamble, before \begin{document}
 my %preamble_commands;
@@ -487,6 +488,11 @@ my %LaTeX_environment_commands = (
   'quotation' => ['quote'],
   'smallquotation' => ['quote', $small_font_size],
   'cartouche' => ['mdframed'],
+  'itemize' => ['itemize'],
+  'enumerate' => ['enumerate'],
+  'table' => ['description'],
+  'vtable' => ['description'],
+  'ftable' => ['description'],
 );
 
 my %LaTeX_environment_options = (
@@ -505,9 +511,11 @@ foreach my $type ('empty_line_after_command',
   $ignorable_space_types{$type} = 1;
 }
 
+# ignore 'command_as_argument_inserted' in order to use the default
+# setting for @itemize if there is no argument
 my %ignored_types;
 foreach my $type ('preamble',
-            'preamble_before_setfilename') {
+            'preamble_before_setfilename', 'command_as_argument_inserted') {
   $ignored_types{$type} = 1;
 }
 
@@ -586,6 +594,54 @@ my %quotes_map;
 # if @documentencoding utf-8 is used.
 foreach my $quoted_command (@quoted_commands) {
   $quotes_map{$quoted_command} = ["`", "'"];
+}
+
+# for the distinct kbd style.
+# use \ttfamily to have a cumulative effect with \textsl
+my $kbd_formatting_latex = '\ttfamily\textsl';
+
+# format in description for @*table argument
+my %description_command_format;
+
+foreach my $command (keys(%{$LaTeX_style_brace_commands{'text'}})) {
+  my $description_format = $LaTeX_style_brace_commands{'text'}->{$command};
+  if ($description_format ne '' and $description_format !~ /\\text[a-z]{2}$/) {
+    # use \normalfont to avoid default bold if not already a font switching
+    # command (useful for emph in practice).
+    $description_format = '\normalfont'.$description_format;
+  }
+  $description_command_format{$command} = $description_format;
+}
+
+# used for the distinct style
+$description_command_format{'kbd'} = $kbd_formatting_latex;
+
+# style @-commands that can appear in tables need to be
+# formatted with a final command.  For quoted commands this command
+# has to be setup. Prepare that setup.
+my $description_command_new_commands_prefix = 'GNUTexinfotablestyle';
+
+my %description_command_new_commands = ();
+
+foreach my $quoted_command (@quoted_commands) {
+  delete $description_command_format{$quoted_command};
+  my $specific_format_command
+    = "\\${description_command_new_commands_prefix}$quoted_command";
+  my $description_format = $LaTeX_style_brace_commands{'text'}->{$quoted_command};
+  # does not happen currently
+  if ($description_format eq '') {
+    $description_command_new_commands{$quoted_command} =
+            "$specific_format_command\[1]{`#1'}";
+  } else {
+    my $prepended_normalfont = '';
+    if ($description_format !~ /\\text[a-z]{2}$/) {
+      # use \normalfont to avoid default bold
+      $prepended_normalfont = '\normalfont{}';
+    }
+    $description_command_new_commands{$quoted_command} =
+            "$specific_format_command\[1]{$prepended_normalfont`$description_format\{#1}'}";
+  }
+  $description_command_format{$quoted_command} = $specific_format_command;
 }
 
 my %defaults = (
@@ -968,6 +1024,7 @@ sub _latex_header {
 % a framemethod is needed for roundcorner
 \usepackage[framemethod=TikZ]{mdframed}
 \usepackage{fontsize}
+\usepackage{enumitem}
 \usepackage{geometry}
 \usepackage{fancyhdr}
 \usepackage{float}
@@ -1008,9 +1065,21 @@ sub _latex_header {
       }
     }
   }
+  # defined additional commands used in @*table description format
+  foreach my $command (sort(keys(%description_command_new_commands))) {
+    $header .= '% command used in \description format for '.$command."\n";
+    $header .= "\\newcommand".$description_command_new_commands{$command}."%\n";
+    $header .= "\n";
+  }
+
   $header .= "\n";
   $header .= $front_main_matter_definitions{$documentclass};
   $header .= '
+% set defaults for lists that match Texinfo TeX formatting
+\setlist[description]{style=nextline, font=\normalfont}
+\setlist[itemize]{label=\textbullet}
+\setlist[enumerate]{label=\arabic*.}
+
 % command that does nothing used to help with substitutions in commands
 \newcommand{\GNUTexinfoplaceholder}[1]{}
 
@@ -1338,6 +1407,76 @@ sub _title_font($$)
   return $result;
 }
 
+sub _set_environment_options($$$)
+{
+  my $self = shift;
+  my $command = shift;
+  my $root = shift;
+
+  if (exists($LaTeX_environment_options{$command})) {
+    return $LaTeX_environment_options{$command};
+  }
+
+  if ($command eq 'enumerate') {
+    my $environment = $LaTeX_environment_commands{$command}[0];
+    if ($root->{'extra'} and
+        exists($root->{'extra'}->{'enumerate_specification'})) {
+      my $specification = $root->{'extra'}->{'enumerate_specification'};
+      if ($specification eq 'a') {
+        return {$environment => 'label=\alph*.'};
+      } elsif ($specification eq 'A') {
+        return {$environment => 'label=\Alph*.'};
+      }
+      if ($specification =~ /^[a-z]+$/) {
+        return {$environment
+             => 'label=\alph*.,start='.(ord($specification) - ord('a') + 1)};
+      } elsif ($specification =~ /^[A-Z]+$/) {
+        return {$environment
+             => 'label=\Alph*.,start='.(ord($specification) - ord('A') + 1)};
+      } else {
+        return {$environment => "start=$specification"};
+      }
+    }
+  } elsif ($command eq 'itemize') {
+    if ($root->{'args'} and $root->{'args'}->[0]->{'contents'}) {
+      # FIXME start a new top context?
+      my $itemize_label = _convert($self, $root->{'args'}->[0]);
+      if ($itemize_label ne '') {
+        my $environment = $LaTeX_environment_commands{$command}[0];
+        return {$environment => 'label='.$itemize_label};
+      }
+    }
+  } elsif ($item_line_commands{$command}) {
+    if ($root->{'extra'}
+        and $root->{'extra'}->{'command_as_argument'}) {
+      my $command_as_argument
+        = $root->{'extra'}->{'command_as_argument'}->{'cmdname'};
+      if ($command_as_argument eq 'kbd') {
+        if (_kbd_code_style($self)) {
+          $command_as_argument = 'code';
+        }
+      }
+      if (exists($description_command_format{$command_as_argument})
+          and $description_command_format{$command_as_argument} ne '') {
+        my $environment = $LaTeX_environment_commands{$command}[0];
+        return {$environment => 'format='
+                .$description_command_format{$command_as_argument}};
+      }
+    }
+  }
+  return undef;
+}
+
+sub _kbd_code_style($)
+{
+  my $self = shift;
+  return (defined($self->{'conf'}->{'kbdinputstyle'})
+          and ($self->{'conf'}->{'kbdinputstyle'} eq 'code'
+            or ($self->{'conf'}->{'kbdinputstyle'} eq 'example'
+              and (scalar(@{$self->{'formatting_context'}->[-1]->{'preformatted_context'}})
+                   and $preformatted_code_commands{$self->{'formatting_context'}->[-1]->{'preformatted_context'}->[-1]}))));
+}
+
 sub _end_title_page($)
 {
   my $self = shift;
@@ -1578,22 +1717,13 @@ sub _convert($$)
       # ‘code’ Always use the same font for @kbd as @code.
       # ‘example’ Use the distinguishing font for @kbd only in @example and similar environments.
       # ‘distinct’ (the default) Always use the distinguishing font for @kbd.
-      #    {\ttfamily\textsl{kbd argument}}
-      my $code_font = 0;
-      if (defined($self->{'conf'}->{'kbdinputstyle'})
-          and ($self->{'conf'}->{'kbdinputstyle'} eq 'code'
-            or ($self->{'conf'}->{'kbdinputstyle'} eq 'example'
-              and (scalar(@{$self->{'formatting_context'}->[-1]->{'preformatted_context'}})
-                   and $preformatted_code_commands{$self->{'formatting_context'}->[-1]->{'preformatted_context'}->[-1]})))) {
-        $code_font = 1;
-      }
+      my $code_font = _kbd_code_style($self);
       if ($code_font) {
         if ($LaTeX_style_brace_commands{$command_context}->{'code'}) {
           $result .= "$LaTeX_style_brace_commands{$command_context}->{'code'}\{";
         }
       } else {
-        # use \ttfamily to have a cumulative effect with \textsl
-        $result .= '{\ttfamily\textsl{';
+        $result .= "{$kbd_formatting_latex\{";
       }
       if ($root->{'args'}) {
         $self->{'formatting_context'}->[-1]->{'code'} += 1;
@@ -2129,11 +2259,12 @@ sub _convert($$)
     # block commands
     } elsif (exists($block_commands{$command})) {
       if ($LaTeX_environment_commands{$command}) {
+        my $environment_options = _set_environment_options($self, $command, $root);
         foreach my $environment (@{$LaTeX_environment_commands{$command}}) {
           $result .= "\\begin{".$environment."}";
-          if (exists($LaTeX_environment_options{$command}) and
-              exists($LaTeX_environment_options{$command}{$environment})) {
-            $result .= '['.$LaTeX_environment_options{$command}{$environment}.']';
+          if (defined($environment_options) and
+              exists($environment_options->{$environment})) {
+            $result .= '['.$environment_options->{$environment}.']';
           }
           $result .= "\n";
         }
@@ -2249,31 +2380,31 @@ sub _convert($$)
             and $root->{'args'} and $root->{'args'}->[0] 
             and $root->{'args'}->[0]->{'type'}
             and $root->{'args'}->[0]->{'type'} eq 'line_arg') {
-      if ($root->{'args'} and @{$root->{'args'}}
-          and $root->{'args'}->[0]->{'contents'}) {
-
-        my $converted_tree = $self->_table_item_content_tree($root,
-                                         $root->{'args'}->[0]->{'contents'});
-
-        $result = $self->_convert($converted_tree);
-        if ($result ne '') {
-          $result .= "\n";
+      # item in @*table
+      if ($root->{'args'}->[0]->{'contents'}) {
+        my $code_style = 0;
+        my $table_command = $root->{'parent'}->{'parent'}->{'parent'};
+        if ($table_command->{'extra'}
+            and $table_command->{'extra'}->{'command_as_argument'}) {
+          my $command_as_argument
+            = $table_command->{'extra'}->{'command_as_argument'}->{'cmdname'};
+          if ($code_style_commands{$command_as_argument}) {
+            $code_style = 1;
+          }
         }
+        if ($code_style) {
+          $self->{'formatting_context'}->[-1]->{'code'} += 1;
+        }
+        my $converted_arg = _convert($self, $root->{'args'}->[0]);
+        if ($code_style) {
+          $self->{'formatting_context'}->[-1]->{'code'} -= 1;
+        }
+        $result .= "\\item[$converted_arg]\n";
       }
     } elsif ($command eq 'item' and $root->{'parent'}->{'cmdname'}
              and $item_container_commands{$root->{'parent'}->{'cmdname'}}) {
-      if ($root->{'parent'}->{'cmdname'} eq 'enumerate') {
-        $result = _protect_text($self, Texinfo::Common::enumerate_item_representation(
-                 $root->{'parent'}->{'extra'}->{'enumerate_specification'},
-                 $root->{'extra'}->{'item_number'}) . '. ');
-      } elsif ($root->{'parent'}->{'args'}
-          and $root->{'parent'}->{'args'}->[0]) {
-        # this is the text prepended to items.
-        
-        $result = _convert($self, $root->{'parent'}->{'args'}->[0]);
-        $result .= _convert($self, { 'text' => ' ' });
-      }
-      $result .= "\n\n";
+      # item in @enumerate and @itemize
+      $result .= '\item ';
     # open a multitable cell
     } elsif ($command eq 'headitem' or $command eq 'item'
              or $command eq 'tab') {
@@ -2670,7 +2801,6 @@ sub _convert($$)
         $result .= "\n\n";
       }
       $result .= "\n";
-
     } elsif ($root->{'type'} eq '_code') {
       # ...
     } elsif ($root->{'type'} eq '_dot_not_end_sentence') {
@@ -2707,6 +2837,11 @@ sub _convert($$)
       $self->{'formatting_context'}->[-1]->{'dot_not_end_sentence'} -= 1;
     } elsif ($root->{'type'} eq 'bracketed') {
       $result .= _protect_text($self, '}');
+    } elsif ($root->{'type'} eq 'before_item') {
+      # LaTeX environments do not accept text before the first item, add an item
+      if ($result =~ /\S/) {
+        $result = '\item '.$result;
+      }
     } elsif ($root->{'type'} eq 'row') {
       # ...
     }

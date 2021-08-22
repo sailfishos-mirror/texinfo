@@ -450,6 +450,82 @@ New para
 @end example
 @end cartouche
 '],
+['nested_itemize',
+'@setfilename nested_itemize.info
+@itemize
+   @item First level item
+   @item First level item
+@itemize
+     @item Second level item
+     @item Second level item
+@itemize
+       @item Third level item
+       @item Third level item
+@itemize
+         @item Fourth level item
+         @item Fourth level item
+@end itemize
+@end itemize
+@end itemize
+@end itemize
+
+'],
+['nested_enumerate',
+'@setfilename nested_enumerate.info
+
+@enumerate
+   @item First level item
+   @item First level item
+@enumerate
+     @item Second level item
+     @item Second level item
+@enumerate
+       @item Third level item
+       @item Third level item
+@enumerate
+         @item Fourth level item
+         @item Fourth level item
+@end enumerate
+@end enumerate
+@end enumerate
+@end enumerate
+
+'],
+['enumerate_arguments',
+'@setfilename enumerate_arguments.info
+
+@enumerate a
+@item value
+@item value
+@end enumerate
+
+@enumerate A
+@item value
+@item value
+@end enumerate
+
+@enumerate c
+@item value
+@item value
+@end enumerate
+
+@enumerate C
+@item value
+@item value
+@end enumerate
+
+@enumerate 1
+@item value
+@item value
+@end enumerate
+
+@enumerate 3
+@item value
+@item value
+@end enumerate
+
+']
+
 );
 
 foreach my $test (@test_cases) {

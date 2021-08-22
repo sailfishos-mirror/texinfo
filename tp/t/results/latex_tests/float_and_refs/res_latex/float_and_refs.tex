@@ -11,6 +11,7 @@
 % a framemethod is needed for roundcorner
 \usepackage[framemethod=TikZ]{mdframed}
 \usepackage{fontsize}
+\usepackage{enumitem}
 \usepackage{geometry}
 \usepackage{fancyhdr}
 \usepackage{float}
@@ -23,6 +24,12 @@
 % new float for type `Thing'
 \newfloat{TexinfoFloatThing}{htb}{tfl}[chapter]
 \floatname{TexinfoFloatThing}{}
+% command used in \description format for indicateurl
+\newcommand\GNUTexinfotablestyleindicateurl[1]{`\texttt{#1}'}%
+
+% command used in \description format for samp
+\newcommand\GNUTexinfotablestylesamp[1]{`\texttt{#1}'}%
+
 
 % redefine the \mainmatter command such that it does not clear page
 % as if in double page
@@ -32,6 +39,11 @@
 % add command aliases to use the same command in book and report
 \newcommand\GNUTexinfomainmatter{\mainmatter}
 \newcommand\GNUTexinfofrontmatter{\frontmatter}
+
+% set defaults for lists that match Texinfo TeX formatting
+\setlist[description]{style=nextline, font=\normalfont}
+\setlist[itemize]{label=\textbullet}
+\setlist[enumerate]{label=\arabic*.}
 
 % command that does nothing used to help with substitutions in commands
 \newcommand{\GNUTexinfoplaceholder}[1]{}
