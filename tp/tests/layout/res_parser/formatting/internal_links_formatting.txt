@@ -211,10 +211,10 @@ formatting.html#index-copying-d_002d_002deftp_005fname	tp	d--eftp_name
 formatting.html#index-titlepage-d_002d_002deftp_005fname	tp	d--eftp_name
 formatting.html#index-d_002d_002deftp_005fname	tp	d--eftp_name
 formatting.html#index-d_002d_002deftp_005fname-1	tp	d--eftp_name
-formatting.html#index-copying-a-asis	vr	a asis
-formatting.html#index-titlepage-a-asis	vr	a asis
-formatting.html#index-a-asis	vr	a asis
-formatting.html#index-a-asis-1	vr	a asis
+formatting.html#index-copying-a_002d_002dasis	vr	a--asis
+formatting.html#index-titlepage-a_002d_002dasis	vr	a--asis
+formatting.html#index-a_002d_002dasis	vr	a--asis
+formatting.html#index-a_002d_002dasis-1	vr	a--asis
 formatting.html#index-copying-b-2	vr	b
 formatting.html#index-titlepage-b-2	vr	b
 formatting.html#index-b-4	vr	b

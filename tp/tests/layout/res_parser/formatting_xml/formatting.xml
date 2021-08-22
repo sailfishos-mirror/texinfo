@@ -697,12 +697,12 @@ ref, a comma@comma{} in file}
 
 @table @strong
 @c comment in table
-@item a strong
+@item a--strong
 l--ine
 @end table
 
 @vtable @asis
-@item a asis
+@item a--asis
 @c comment between item and itemx
 @itemx b
 l--ine
@@ -714,6 +714,19 @@ l--ine
 @itemx b
 l--ine
 @end ftable
+
+@table @code
+Title
+@item a--code
+Value--table code
+@end table
+
+@table @samp
+Title
+@item a--samp
+@itemx a2--samp
+Value--table samp
+@end table
 
 @cartouche
 c--artouche
@@ -861,7 +874,7 @@ l--ine
 @c missing style formatting
 @table
 @c comment in table
-@item a
+@item a--missing style formatting
 l--ine
 @end table
 
@@ -1607,12 +1620,12 @@ ref</inforefrefname><inforefinfoname spaces=" ">a comma&comma; in file</inforefi
 </para>
 <table commandarg="strong" spaces=" " endspaces=" ">
 <beforefirstitem><!-- c comment in table -->
-</beforefirstitem><tableentry><tableterm><item spaces=" "><itemformat command="strong">a strong</itemformat></item>
+</beforefirstitem><tableentry><tableterm><item spaces=" "><itemformat command="strong">a&textndash;strong</itemformat></item>
 </tableterm><tableitem><para>l&textndash;ine
 </para></tableitem></tableentry></table>
 
 <vtable commandarg="asis" spaces=" " endspaces=" ">
-<tableentry><tableterm><item spaces=" "><itemformat command="asis"><indexterm index="vr" number="9">a asis</indexterm>a asis</itemformat></item>
+<tableentry><tableterm><item spaces=" "><itemformat command="asis"><indexterm index="vr" number="9">a--asis</indexterm>a&textndash;asis</itemformat></item>
 <!-- c comment between item and itemx -->
 <itemx spaces=" "><itemformat command="asis"><indexterm index="vr" number="10">b</indexterm>b</itemformat></itemx>
 </tableterm><tableitem><para>l&textndash;ine
@@ -1624,6 +1637,19 @@ ref</inforefrefname><inforefinfoname spaces=" ">a comma&comma; in file</inforefi
 <itemx spaces=" "><itemformat command="emph"><indexterm index="fn" number="33">b</indexterm>b</itemformat></itemx>
 </tableterm><tableitem><para>l&textndash;ine
 </para></tableitem></tableentry></ftable>
+
+<table commandarg="code" spaces=" " endspaces=" ">
+<beforefirstitem><para>Title
+</para></beforefirstitem><tableentry><tableterm><item spaces=" "><itemformat command="code">a--code</itemformat></item>
+</tableterm><tableitem><para>Value&textndash;table code
+</para></tableitem></tableentry></table>
+
+<table commandarg="samp" spaces=" " endspaces=" ">
+<beforefirstitem><para>Title
+</para></beforefirstitem><tableentry><tableterm><item spaces=" "><itemformat command="samp">a--samp</itemformat></item>
+<itemx spaces=" "><itemformat command="samp">a2--samp</itemformat></itemx>
+</tableterm><tableitem><para>Value&textndash;table samp
+</para></tableitem></tableentry></table>
 
 <cartouche endspaces=" ">
 <para>c&textndash;artouche
@@ -1759,7 +1785,7 @@ in verbatim ''
 <!-- c missing style formatting -->
 <table commandarg="asis" endspaces=" ">
 <beforefirstitem><!-- c comment in table -->
-</beforefirstitem><tableentry><tableterm><item spaces=" "><itemformat command="asis">a</itemformat></item>
+</beforefirstitem><tableentry><tableterm><item spaces=" "><itemformat command="asis">a&textndash;missing style formatting</itemformat></item>
 </tableterm><tableitem><para>l&textndash;ine
 </para></tableitem></tableentry></table>
 
@@ -2509,12 +2535,12 @@ ref</inforefrefname><inforefinfoname spaces=" ">a comma&comma; in file</inforefi
 </para>
 <table commandarg="strong" spaces=" " endspaces=" ">
 <beforefirstitem><!-- c comment in table -->
-</beforefirstitem><tableentry><tableterm><item spaces=" "><itemformat command="strong">a strong</itemformat></item>
+</beforefirstitem><tableentry><tableterm><item spaces=" "><itemformat command="strong">a&textndash;strong</itemformat></item>
 </tableterm><tableitem><para>l&textndash;ine
 </para></tableitem></tableentry></table>
 
 <vtable commandarg="asis" spaces=" " endspaces=" ">
-<tableentry><tableterm><item spaces=" "><itemformat command="asis"><indexterm index="vr" number="19">a asis</indexterm>a asis</itemformat></item>
+<tableentry><tableterm><item spaces=" "><itemformat command="asis"><indexterm index="vr" number="19">a--asis</indexterm>a&textndash;asis</itemformat></item>
 <!-- c comment between item and itemx -->
 <itemx spaces=" "><itemformat command="asis"><indexterm index="vr" number="20">b</indexterm>b</itemformat></itemx>
 </tableterm><tableitem><para>l&textndash;ine
@@ -2526,6 +2552,19 @@ ref</inforefrefname><inforefinfoname spaces=" ">a comma&comma; in file</inforefi
 <itemx spaces=" "><itemformat command="emph"><indexterm index="fn" number="74">b</indexterm>b</itemformat></itemx>
 </tableterm><tableitem><para>l&textndash;ine
 </para></tableitem></tableentry></ftable>
+
+<table commandarg="code" spaces=" " endspaces=" ">
+<beforefirstitem><para>Title
+</para></beforefirstitem><tableentry><tableterm><item spaces=" "><itemformat command="code">a--code</itemformat></item>
+</tableterm><tableitem><para>Value&textndash;table code
+</para></tableitem></tableentry></table>
+
+<table commandarg="samp" spaces=" " endspaces=" ">
+<beforefirstitem><para>Title
+</para></beforefirstitem><tableentry><tableterm><item spaces=" "><itemformat command="samp">a--samp</itemformat></item>
+<itemx spaces=" "><itemformat command="samp">a2--samp</itemformat></itemx>
+</tableterm><tableitem><para>Value&textndash;table samp
+</para></tableitem></tableentry></table>
 
 <cartouche endspaces=" ">
 <para>c&textndash;artouche
@@ -2661,7 +2700,7 @@ in verbatim ''
 <!-- c missing style formatting -->
 <table commandarg="asis" endspaces=" ">
 <beforefirstitem><!-- c comment in table -->
-</beforefirstitem><tableentry><tableterm><item spaces=" "><itemformat command="asis">a</itemformat></item>
+</beforefirstitem><tableentry><tableterm><item spaces=" "><itemformat command="asis">a&textndash;missing style formatting</itemformat></item>
 </tableterm><tableitem><para>l&textndash;ine
 </para></tableitem></tableentry></table>
 
@@ -3438,12 +3477,12 @@ ref</inforefrefname><inforefinfoname spaces=" ">a comma&comma; in file</inforefi
 </para>
 <table commandarg="strong" spaces=" " endspaces=" ">
 <beforefirstitem><!-- c comment in table -->
-</beforefirstitem><tableentry><tableterm><item spaces=" "><itemformat command="strong">a strong</itemformat></item>
+</beforefirstitem><tableentry><tableterm><item spaces=" "><itemformat command="strong">a&textndash;strong</itemformat></item>
 </tableterm><tableitem><para>l&textndash;ine
 </para></tableitem></tableentry></table>
 
 <vtable commandarg="asis" spaces=" " endspaces=" ">
-<tableentry><tableterm><item spaces=" "><itemformat command="asis"><indexterm index="vr" number="29">a asis</indexterm>a asis</itemformat></item>
+<tableentry><tableterm><item spaces=" "><itemformat command="asis"><indexterm index="vr" number="29">a--asis</indexterm>a&textndash;asis</itemformat></item>
 <!-- c comment between item and itemx -->
 <itemx spaces=" "><itemformat command="asis"><indexterm index="vr" number="30">b</indexterm>b</itemformat></itemx>
 </tableterm><tableitem><para>l&textndash;ine
@@ -3455,6 +3494,19 @@ ref</inforefrefname><inforefinfoname spaces=" ">a comma&comma; in file</inforefi
 <itemx spaces=" "><itemformat command="emph"><indexterm index="fn" number="115">b</indexterm>b</itemformat></itemx>
 </tableterm><tableitem><para>l&textndash;ine
 </para></tableitem></tableentry></ftable>
+
+<table commandarg="code" spaces=" " endspaces=" ">
+<beforefirstitem><para>Title
+</para></beforefirstitem><tableentry><tableterm><item spaces=" "><itemformat command="code">a--code</itemformat></item>
+</tableterm><tableitem><para>Value&textndash;table code
+</para></tableitem></tableentry></table>
+
+<table commandarg="samp" spaces=" " endspaces=" ">
+<beforefirstitem><para>Title
+</para></beforefirstitem><tableentry><tableterm><item spaces=" "><itemformat command="samp">a--samp</itemformat></item>
+<itemx spaces=" "><itemformat command="samp">a2--samp</itemformat></itemx>
+</tableterm><tableitem><para>Value&textndash;table samp
+</para></tableitem></tableentry></table>
 
 <cartouche endspaces=" ">
 <para>c&textndash;artouche
@@ -3590,7 +3642,7 @@ in verbatim ''
 <!-- c missing style formatting -->
 <table commandarg="asis" endspaces=" ">
 <beforefirstitem><!-- c comment in table -->
-</beforefirstitem><tableentry><tableterm><item spaces=" "><itemformat command="asis">a</itemformat></item>
+</beforefirstitem><tableentry><tableterm><item spaces=" "><itemformat command="asis">a&textndash;missing style formatting</itemformat></item>
 </tableterm><tableitem><para>l&textndash;ine
 </para></tableitem></tableentry></table>
 
@@ -4334,12 +4386,12 @@ ref</inforefrefname><inforefinfoname spaces=" ">a comma&comma; in file</inforefi
 
 </pre><table commandarg="strong" spaces=" " endspaces=" ">
 <beforefirstitem><pre xml:space="preserve"><!-- c comment in table -->
-</pre></beforefirstitem><tableentry><tableterm><item spaces=" "><itemformat command="strong">a strong</itemformat></item>
+</pre></beforefirstitem><tableentry><tableterm><item spaces=" "><itemformat command="strong">a--strong</itemformat></item>
 </tableterm><tableitem><pre xml:space="preserve">l--ine
 </pre></tableitem></tableentry></table>
 <pre xml:space="preserve">
 </pre><vtable commandarg="asis" spaces=" " endspaces=" ">
-<tableentry><tableterm><item spaces=" "><itemformat command="asis"><indexterm index="vr" number="39">a asis</indexterm>a asis</itemformat></item>
+<tableentry><tableterm><item spaces=" "><itemformat command="asis"><indexterm index="vr" number="39">a--asis</indexterm>a--asis</itemformat></item>
 <pre xml:space="preserve"><!-- c comment between item and itemx -->
 </pre><itemx spaces=" "><itemformat command="asis"><indexterm index="vr" number="40">b</indexterm>b</itemformat></itemx>
 </tableterm><tableitem><pre xml:space="preserve">l--ine
@@ -4351,6 +4403,19 @@ ref</inforefrefname><inforefinfoname spaces=" ">a comma&comma; in file</inforefi
 </pre><itemx spaces=" "><itemformat command="emph"><indexterm index="fn" number="156">b</indexterm>b</itemformat></itemx>
 </tableterm><tableitem><pre xml:space="preserve">l--ine
 </pre></tableitem></tableentry></ftable>
+<pre xml:space="preserve">
+</pre><table commandarg="code" spaces=" " endspaces=" ">
+<beforefirstitem><pre xml:space="preserve">Title
+</pre></beforefirstitem><tableentry><tableterm><item spaces=" "><itemformat command="code">a--code</itemformat></item>
+</tableterm><tableitem><pre xml:space="preserve">Value--table code
+</pre></tableitem></tableentry></table>
+<pre xml:space="preserve">
+</pre><table commandarg="samp" spaces=" " endspaces=" ">
+<beforefirstitem><pre xml:space="preserve">Title
+</pre></beforefirstitem><tableentry><tableterm><item spaces=" "><itemformat command="samp">a--samp</itemformat></item>
+<itemx spaces=" "><itemformat command="samp">a2--samp</itemformat></itemx>
+</tableterm><tableitem><pre xml:space="preserve">Value--table samp
+</pre></tableitem></tableentry></table>
 <pre xml:space="preserve">
 </pre><cartouche endspaces=" ">
 <pre xml:space="preserve">c--artouche
@@ -4486,7 +4551,7 @@ Invalid use of &arobase;':&linebreak;
 <!-- c missing style formatting -->
 </pre><table commandarg="asis" endspaces=" ">
 <beforefirstitem><pre xml:space="preserve"><!-- c comment in table -->
-</pre></beforefirstitem><tableentry><tableterm><item spaces=" "><itemformat command="asis">a</itemformat></item>
+</pre></beforefirstitem><tableentry><tableterm><item spaces=" "><itemformat command="asis">a--missing style formatting</itemformat></item>
 </tableterm><tableitem><pre xml:space="preserve">l--ine
 </pre></tableitem></tableentry></table>
 <pre xml:space="preserve">

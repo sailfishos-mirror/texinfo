@@ -694,12 +694,12 @@ ref, a comma@comma{} in file}
 
 @table @strong
 @c comment in table
-@item a strong
+@item a--strong
 l--ine
 @end table
 
 @vtable @asis
-@item a asis
+@item a--asis
 @c comment between item and itemx
 @itemx b
 l--ine
@@ -711,6 +711,19 @@ l--ine
 @itemx b
 l--ine
 @end ftable
+
+@table @code
+Title
+@item a--code
+Value--table code
+@end table
+
+@table @samp
+Title
+@item a--samp
+@itemx a2--samp
+Value--table samp
+@end table
 
 @cartouche
 c--artouche
@@ -858,7 +871,7 @@ l--ine
 @c missing style formatting
 @table
 @c comment in table
-@item a
+@item a--missing style formatting
 l--ine
 @end table
 
@@ -1610,12 +1623,12 @@ ref, a comma@comma{} in file}
 
 @table @strong
 @c comment in table
-@item a strong
+@item a--strong
 l--ine
 @end table
 
 @vtable @asis
-@item a asis
+@item a--asis
 @c comment between item and itemx
 @itemx b
 l--ine
@@ -1627,6 +1640,19 @@ l--ine
 @itemx b
 l--ine
 @end ftable
+
+@table @code
+Title
+@item a--code
+Value--table code
+@end table
+
+@table @samp
+Title
+@item a--samp
+@itemx a2--samp
+Value--table samp
+@end table
 
 @cartouche
 c--artouche
@@ -1763,7 +1789,7 @@ l--ine
 @c missing style formatting
 @table
 @c comment in table
-@item a
+@item a--missing style formatting
 l--ine
 @end table
 
@@ -2519,12 +2545,12 @@ ref, a comma@comma{} in file}
 
 @table @strong
 @c comment in table
-@item a strong
+@item a--strong
 l--ine
 @end table
 
 @vtable @asis
-@item a asis
+@item a--asis
 @c comment between item and itemx
 @itemx b
 l--ine
@@ -2536,6 +2562,19 @@ l--ine
 @itemx b
 l--ine
 @end ftable
+
+@table @code
+Title
+@item a--code
+Value--table code
+@end table
+
+@table @samp
+Title
+@item a--samp
+@itemx a2--samp
+Value--table samp
+@end table
 
 @cartouche
 c--artouche
@@ -2672,7 +2711,7 @@ l--ine
 @c missing style formatting
 @table
 @c comment in table
-@item a
+@item a--missing style formatting
 l--ine
 @end table
 
@@ -3454,12 +3493,12 @@ ref, a comma@comma{} in file}
 
 @table @strong
 @c comment in table
-@item a strong
+@item a--strong
 l--ine
 @end table
 
 @vtable @asis
-@item a asis
+@item a--asis
 @c comment between item and itemx
 @itemx b
 l--ine
@@ -3471,6 +3510,19 @@ l--ine
 @itemx b
 l--ine
 @end ftable
+
+@table @code
+Title
+@item a--code
+Value--table code
+@end table
+
+@table @samp
+Title
+@item a--samp
+@itemx a2--samp
+Value--table samp
+@end table
 
 @cartouche
 c--artouche
@@ -3607,7 +3659,7 @@ l--ine
 @c missing style formatting
 @table
 @c comment in table
-@item a
+@item a--missing style formatting
 l--ine
 @end table
 
@@ -4357,12 +4409,12 @@ ref, a comma@comma{} in file}
 
 @table @strong
 @c comment in table
-@item a strong
+@item a--strong
 l--ine
 @end table
 
 @vtable @asis
-@item a asis
+@item a--asis
 @c comment between item and itemx
 @itemx b
 l--ine
@@ -4374,6 +4426,19 @@ l--ine
 @itemx b
 l--ine
 @end ftable
+
+@table @code
+Title
+@item a--code
+Value--table code
+@end table
+
+@table @samp
+Title
+@item a--samp
+@itemx a2--samp
+Value--table samp
+@end table
 
 @cartouche
 c--artouche
@@ -4510,7 +4575,7 @@ l--ine
 @c missing style formatting
 @table
 @c comment in table
-@item a
+@item a--missing style formatting
 l--ine
 @end table
 

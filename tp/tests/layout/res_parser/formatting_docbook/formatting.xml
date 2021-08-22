@@ -547,10 +547,10 @@ See Info file <filename>a comma, in file</filename>, node &#8216;<literal>s--ect
 <link linkend="chapter">title with uref2 <ulink url="href://http/myhost.com/index2.html">uref2</ulink></link>
 </para>
 <variablelist><!-- comment in table -->
-<varlistentry><term><emphasis role="bold">a strong</emphasis>
+<varlistentry><term><emphasis role="bold">a&#8211;strong</emphasis>
 </term><listitem><para>l&#8211;ine
 </para></listitem></varlistentry></variablelist>
-<variablelist><varlistentry><term><indexterm role="vr"><primary>a asis</primary></indexterm>a asis
+<variablelist><varlistentry><term><indexterm role="vr"><primary>a--asis</primary></indexterm>a&#8211;asis
 </term><!-- comment between item and itemx -->
 <term><indexterm role="vr"><primary>b</primary></indexterm>b
 </term><listitem><para>l&#8211;ine
@@ -559,6 +559,15 @@ See Info file <filename>a comma, in file</filename>, node &#8216;<literal>s--ect
 </term><indexterm role="cp"><primary>index entry between item and itemx</primary></indexterm>
 <term><indexterm role="fn"><primary>b</primary></indexterm><emphasis>b</emphasis>
 </term><listitem><para>l&#8211;ine
+</para></listitem></varlistentry></variablelist>
+<variablelist><para>Title
+</para><varlistentry><term><literal>a--code</literal>
+</term><listitem><para>Value&#8211;table code
+</para></listitem></varlistentry></variablelist>
+<variablelist><para>Title
+</para><varlistentry><term>&#8216;<literal>a--samp</literal>&#8217;
+</term><term>&#8216;<literal>a2--samp</literal>&#8217;
+</term><listitem><para>Value&#8211;table samp
 </para></listitem></varlistentry></variablelist>
 <para>c&#8211;artouche
 </para>
@@ -678,7 +687,7 @@ aaa</literallayout></textobject></inlinemediaobject>
 </para></listitem></varlistentry></variablelist>
 <!-- missing style formatting -->
 <variablelist><!-- comment in table -->
-<varlistentry><term>a
+<varlistentry><term>a&#8211;missing style formatting
 </term><listitem><para>l&#8211;ine
 </para></listitem></varlistentry></variablelist>
 <!-- not style formatting -->
@@ -1278,10 +1287,10 @@ See Info file <filename>a comma, in file</filename>, node &#8216;<literal>s--ect
 <link linkend="chapter">title with uref2 <ulink url="href://http/myhost.com/index2.html">uref2</ulink></link>
 </para>
 <variablelist><!-- comment in table -->
-<varlistentry><term><emphasis role="bold">a strong</emphasis>
+<varlistentry><term><emphasis role="bold">a&#8211;strong</emphasis>
 </term><listitem><para>l&#8211;ine
 </para></listitem></varlistentry></variablelist>
-<variablelist><varlistentry><term><indexterm role="vr"><primary>a asis</primary></indexterm>a asis
+<variablelist><varlistentry><term><indexterm role="vr"><primary>a--asis</primary></indexterm>a&#8211;asis
 </term><!-- comment between item and itemx -->
 <term><indexterm role="vr"><primary>b</primary></indexterm>b
 </term><listitem><para>l&#8211;ine
@@ -1290,6 +1299,15 @@ See Info file <filename>a comma, in file</filename>, node &#8216;<literal>s--ect
 </term><indexterm role="cp"><primary>index entry between item and itemx</primary></indexterm>
 <term><indexterm role="fn"><primary>b</primary></indexterm><emphasis>b</emphasis>
 </term><listitem><para>l&#8211;ine
+</para></listitem></varlistentry></variablelist>
+<variablelist><para>Title
+</para><varlistentry><term><literal>a--code</literal>
+</term><listitem><para>Value&#8211;table code
+</para></listitem></varlistentry></variablelist>
+<variablelist><para>Title
+</para><varlistentry><term>&#8216;<literal>a--samp</literal>&#8217;
+</term><term>&#8216;<literal>a2--samp</literal>&#8217;
+</term><listitem><para>Value&#8211;table samp
 </para></listitem></varlistentry></variablelist>
 <para>c&#8211;artouche
 </para>
@@ -1409,7 +1427,7 @@ aaa</literallayout></textobject></inlinemediaobject>
 </para></listitem></varlistentry></variablelist>
 <!-- missing style formatting -->
 <variablelist><!-- comment in table -->
-<varlistentry><term>a
+<varlistentry><term>a&#8211;missing style formatting
 </term><listitem><para>l&#8211;ine
 </para></listitem></varlistentry></variablelist>
 <!-- not style formatting -->
@@ -2010,10 +2028,10 @@ See Info file <filename>a comma, in file</filename>, node &#8216;<literal>s--ect
 <link linkend="chapter">title with uref2 <ulink url="href://http/myhost.com/index2.html">uref2</ulink></link>
 </para>
 <variablelist><!-- comment in table -->
-<varlistentry><term><emphasis role="bold">a strong</emphasis>
+<varlistentry><term><emphasis role="bold">a&#8211;strong</emphasis>
 </term><listitem><para>l&#8211;ine
 </para></listitem></varlistentry></variablelist>
-<variablelist><varlistentry><term><indexterm role="vr"><primary>a asis</primary></indexterm>a asis
+<variablelist><varlistentry><term><indexterm role="vr"><primary>a--asis</primary></indexterm>a&#8211;asis
 </term><!-- comment between item and itemx -->
 <term><indexterm role="vr"><primary>b</primary></indexterm>b
 </term><listitem><para>l&#8211;ine
@@ -2022,6 +2040,15 @@ See Info file <filename>a comma, in file</filename>, node &#8216;<literal>s--ect
 </term><indexterm role="cp"><primary>index entry between item and itemx</primary></indexterm>
 <term><indexterm role="fn"><primary>b</primary></indexterm><emphasis>b</emphasis>
 </term><listitem><para>l&#8211;ine
+</para></listitem></varlistentry></variablelist>
+<variablelist><para>Title
+</para><varlistentry><term><literal>a--code</literal>
+</term><listitem><para>Value&#8211;table code
+</para></listitem></varlistentry></variablelist>
+<variablelist><para>Title
+</para><varlistentry><term>&#8216;<literal>a--samp</literal>&#8217;
+</term><term>&#8216;<literal>a2--samp</literal>&#8217;
+</term><listitem><para>Value&#8211;table samp
 </para></listitem></varlistentry></variablelist>
 <para>c&#8211;artouche
 </para>
@@ -2141,7 +2168,7 @@ aaa</literallayout></textobject></inlinemediaobject>
 </para></listitem></varlistentry></variablelist>
 <!-- missing style formatting -->
 <variablelist><!-- comment in table -->
-<varlistentry><term>a
+<varlistentry><term>a&#8211;missing style formatting
 </term><listitem><para>l&#8211;ine
 </para></listitem></varlistentry></variablelist>
 <!-- not style formatting -->
@@ -2760,10 +2787,10 @@ See Info file <filename>a comma, in file</filename>, node &#8216;<literal>s--ect
 <link linkend="chapter">title with uref2 <ulink url="href://http/myhost.com/index2.html">uref2</ulink></link>
 </para>
 <variablelist><!-- comment in table -->
-<varlistentry><term><emphasis role="bold">a strong</emphasis>
+<varlistentry><term><emphasis role="bold">a&#8211;strong</emphasis>
 </term><listitem><para>l&#8211;ine
 </para></listitem></varlistentry></variablelist>
-<variablelist><varlistentry><term><indexterm role="vr"><primary>a asis</primary></indexterm>a asis
+<variablelist><varlistentry><term><indexterm role="vr"><primary>a--asis</primary></indexterm>a&#8211;asis
 </term><!-- comment between item and itemx -->
 <term><indexterm role="vr"><primary>b</primary></indexterm>b
 </term><listitem><para>l&#8211;ine
@@ -2772,6 +2799,15 @@ See Info file <filename>a comma, in file</filename>, node &#8216;<literal>s--ect
 </term><indexterm role="cp"><primary>index entry between item and itemx</primary></indexterm>
 <term><indexterm role="fn"><primary>b</primary></indexterm><emphasis>b</emphasis>
 </term><listitem><para>l&#8211;ine
+</para></listitem></varlistentry></variablelist>
+<variablelist><para>Title
+</para><varlistentry><term><literal>a--code</literal>
+</term><listitem><para>Value&#8211;table code
+</para></listitem></varlistentry></variablelist>
+<variablelist><para>Title
+</para><varlistentry><term>&#8216;<literal>a--samp</literal>&#8217;
+</term><term>&#8216;<literal>a2--samp</literal>&#8217;
+</term><listitem><para>Value&#8211;table samp
 </para></listitem></varlistentry></variablelist>
 <para>c&#8211;artouche
 </para>
@@ -2891,7 +2927,7 @@ aaa</literallayout></textobject></inlinemediaobject>
 </para></listitem></varlistentry></variablelist>
 <!-- missing style formatting -->
 <variablelist><!-- comment in table -->
-<varlistentry><term>a
+<varlistentry><term>a&#8211;missing style formatting
 </term><listitem><para>l&#8211;ine
 </para></listitem></varlistentry></variablelist>
 <!-- not style formatting -->
@@ -3491,10 +3527,10 @@ See Info file <filename>a comma, in file</filename>, node &#8216;<literal>s--ect
 <link linkend="chapter">title with uref2 <ulink url="href://http/myhost.com/index2.html">uref2</ulink></link>
 </para>
 <variablelist><!-- comment in table -->
-<varlistentry><term><emphasis role="bold">a strong</emphasis>
+<varlistentry><term><emphasis role="bold">a&#8211;strong</emphasis>
 </term><listitem><para>l&#8211;ine
 </para></listitem></varlistentry></variablelist>
-<variablelist><varlistentry><term><indexterm role="vr"><primary>a asis</primary></indexterm>a asis
+<variablelist><varlistentry><term><indexterm role="vr"><primary>a--asis</primary></indexterm>a&#8211;asis
 </term><!-- comment between item and itemx -->
 <term><indexterm role="vr"><primary>b</primary></indexterm>b
 </term><listitem><para>l&#8211;ine
@@ -3503,6 +3539,15 @@ See Info file <filename>a comma, in file</filename>, node &#8216;<literal>s--ect
 </term><indexterm role="cp"><primary>index entry between item and itemx</primary></indexterm>
 <term><indexterm role="fn"><primary>b</primary></indexterm><emphasis>b</emphasis>
 </term><listitem><para>l&#8211;ine
+</para></listitem></varlistentry></variablelist>
+<variablelist><para>Title
+</para><varlistentry><term><literal>a--code</literal>
+</term><listitem><para>Value&#8211;table code
+</para></listitem></varlistentry></variablelist>
+<variablelist><para>Title
+</para><varlistentry><term>&#8216;<literal>a--samp</literal>&#8217;
+</term><term>&#8216;<literal>a2--samp</literal>&#8217;
+</term><listitem><para>Value&#8211;table samp
 </para></listitem></varlistentry></variablelist>
 <para>c&#8211;artouche
 </para>
@@ -3622,7 +3667,7 @@ aaa</literallayout></textobject></inlinemediaobject>
 </para></listitem></varlistentry></variablelist>
 <!-- missing style formatting -->
 <variablelist><!-- comment in table -->
-<varlistentry><term>a
+<varlistentry><term>a&#8211;missing style formatting
 </term><listitem><para>l&#8211;ine
 </para></listitem></varlistentry></variablelist>
 <!-- not style formatting -->
@@ -4215,10 +4260,10 @@ section ``title with uref2 <ulink url="href://http/myhost.com/index2.html">uref2
 <link linkend="chapter">title with uref2 <ulink url="href://http/myhost.com/index2.html">uref2</ulink></link>
 
 </screen><variablelist><screen><!-- comment in table -->
-</screen><varlistentry><term><emphasis role="bold">a strong</emphasis>
+</screen><varlistentry><term><emphasis role="bold">a--strong</emphasis>
 </term><listitem><screen>l--ine
 </screen></listitem></varlistentry></variablelist><screen>
-</screen><variablelist><varlistentry><term><indexterm role="vr"><primary>a asis</primary></indexterm>a asis
+</screen><variablelist><varlistentry><term><indexterm role="vr"><primary>a--asis</primary></indexterm>a--asis
 </term><screen><!-- comment between item and itemx -->
 </screen><term><indexterm role="vr"><primary>b</primary></indexterm>b
 </term><listitem><screen>l--ine
@@ -4226,6 +4271,15 @@ section ``title with uref2 <ulink url="href://http/myhost.com/index2.html">uref2
 </screen><variablelist><varlistentry><term><indexterm role="fn"><primary>a</primary></indexterm><emphasis>a</emphasis>
 </term><screen><indexterm role="cp"><primary>index entry between item and itemx</primary></indexterm></screen><term><indexterm role="fn"><primary>b</primary></indexterm><emphasis>b</emphasis>
 </term><listitem><screen>l--ine
+</screen></listitem></varlistentry></variablelist><screen>
+</screen><variablelist><screen>Title
+</screen><varlistentry><term><literal>a--code</literal>
+</term><listitem><screen>Value--table code
+</screen></listitem></varlistentry></variablelist><screen>
+</screen><variablelist><screen>Title
+</screen><varlistentry><term>&#8216;<literal>a--samp</literal>&#8217;
+</term><term>&#8216;<literal>a2--samp</literal>&#8217;
+</term><listitem><screen>Value--table samp
 </screen></listitem></varlistentry></variablelist><screen>
 </screen><screen>c--artouche
 </screen><screen>
@@ -4345,7 +4399,7 @@ Invalid use of @':
 </screen></listitem></varlistentry></variablelist><screen>
 <!-- missing style formatting -->
 </screen><variablelist><screen><!-- comment in table -->
-</screen><varlistentry><term>a
+</screen><varlistentry><term>a--missing style formatting
 </term><listitem><screen>l--ine
 </screen></listitem></varlistentry></variablelist><screen>
 <!-- not style formatting -->
