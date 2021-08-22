@@ -93,16 +93,42 @@ roundcorner=10pt}
 \makeatother
 \GNUTexinfosetsingleheader{}%
 
-\GNUTexinfosetsingleheader{}%
 
-\makeatletter
-\patchcmd{\chapter}{\GNUTexinfoplaceholder{setchapternewpage placeholder}\clearpage}{\if@openright\cleardoublepage\else\clearpage\fi}{}{}
-\makeatother
-\GNUTexinfosetdoubleheader{No Title}%
+\selectlanguage{ja}%
 
-\makeatletter
-\patchcmd{\chapter}{\if@openright\cleardoublepage\else\clearpage\fi}{\GNUTexinfoplaceholder{setchapternewpage placeholder}}{}{}
-\makeatother
-\GNUTexinfosetsingleheader{}%
 \begin{document}
+\chapter{ja}
+\label{anchor:chapter-ja}%
+
+In japanese. See \hyperref[anchor:chapter-ja]{Chapter~\ref*{anchor:chapter-ja} [chapter ja], page~\pageref*{anchor:chapter-ja}}.
+\hbox{}-- Instance Variable of AAA: BBB CCC
+
+
+
+\selectlanguage{en}%
+\chapter{en}
+\label{anchor:chapter-en}%
+
+In english. See \hyperref[anchor:chapter-ja]{Chapter~\ref*{anchor:chapter-ja} [chapter ja], page~\pageref*{anchor:chapter-ja}}.
+\hbox{}-- Instance Variable of AAA: BBB CCC
+
+
+
+\selectlanguage{fr-FR}%
+\chapter{fr\_FR}
+\label{anchor:chapter-fr_005fFR}%
+
+\hbox{}-- Variable d'instance de AAA\ {}: BBB CCC
+
+
+
+\selectlanguage{de}%
+\chapter{de}
+\label{anchor:chapter-de}%
+
+\selectlanguage{pt-BR}%
+\chapter{pt\_bR}
+\label{anchor:chapter-pt_005fBR}%
+
+In brazilian. See \hyperref[anchor:chapter-ja]{Chapter~\ref*{anchor:chapter-ja} [chapter ja], page~\pageref*{anchor:chapter-ja}}.
 \end{document}

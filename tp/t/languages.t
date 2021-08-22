@@ -81,6 +81,14 @@ my $multiple_lang_chapters_text =
 '@setfilename multiple_lang_chapters.info
 @documentencoding utf-8
 
+@c @node Top is ignored in TeX and LaTeX, so switch here
+@iftex
+@documentlanguage ja
+@end iftex
+@iflatex
+@documentlanguage ja
+@end iflatex
+
 @node Top
 @top Multi language file
 
@@ -96,7 +104,7 @@ my $multiple_lang_chapters_text =
 @node chapter ja
 @chapter ja
 
-In japanese. @xref{Top}.
+In japanese. @xref{chapter ja}.
 @defivar AAA BBB CCC
 @end defivar
 
@@ -104,7 +112,7 @@ In japanese. @xref{Top}.
 @node chapter en
 @chapter en
 
-In english. @xref{Top}.
+In english. @xref{chapter ja}.
 @defivar AAA BBB CCC
 @end defivar
 
@@ -123,15 +131,26 @@ In english. @xref{Top}.
 @node chapter pt_BR
 @chapter pt_bR
 
-In brazilian. @xref{Top}.
+In brazilian. @xref{chapter ja}.
 ';
 my @file_tests = (
+# this first test expands everything including latex, so ends up
+# with a redundant @documentlanguage
 ['multiple_lang_chapters',
 $multiple_lang_chapters_text, {}, {'SPLIT' => 0}],
 ['multiple_lang_chapters_texi2html',
 $multiple_lang_chapters_text, 
-{'test_input_file_name' => 'multiple_lang_chapters.texi'}, 
+{'test_input_file_name' => 'multiple_lang_chapters.texi',
+'expanded_formats' => ['html']}, 
 {'SPLIT' => 0, 'TEXI2HTML' => 1, 'TEST' => 1}],
+);
+
+# expand latex
+my @latex_file_tests = (
+['multiple_lang_chapters_latex',
+$multiple_lang_chapters_text,
+{'expanded_formats' => ['latex']}
+]
 );
 
 my %info_tests = (
@@ -155,9 +174,13 @@ foreach my $test (@file_tests) {
   push @{$test->[2]->{'test_formats'}}, 'file_info';
 }
 
+foreach my $test (@latex_file_tests) {
+  push @{$test->[2]->{'test_formats'}}, 'file_latex';
+}
+
 our ($arg_test_case, $arg_generate, $arg_debug);
 
-run_all ('languages', [@test_cases, @file_tests], $arg_test_case,
-   $arg_generate, $arg_debug);
+run_all ('languages', [@test_cases, @file_tests, @latex_file_tests], 
+   $arg_test_case, $arg_generate, $arg_debug);
 
 1;

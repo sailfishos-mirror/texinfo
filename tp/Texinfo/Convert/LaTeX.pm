@@ -19,6 +19,10 @@
 #
 # Use texinfo.cnf?  Here?  in texi2any.pl?
 #
+# @multitable not implemented
+#
+# @def* not implemented
+#
 # @shortcontent is not implemented.  Tried shorttoc package but it
 # has two limitations that are not in Texinfo, need a main \tableofcontents
 # and need to be before @contents.  A code snippet looked good for a
@@ -90,6 +94,11 @@
 # for colors in hyperref, like linkbordercolor but it is unlear whether
 # it can be used to distinguish links and urls.
 #
+# The @itemx in @*table are simply expanded as:
+# \item[key]
+# But this leads to to much spacing.  Even with setting nosep
+# enumitem option.
+#
 # There is something about form feeds to do.  There is some processing
 # of form feeds right now, which simply amounts to keeping them in
 # ignorable spaces (and with another condition that may not be relevant 
@@ -127,6 +136,10 @@
 # push a context for the formatting of @quotation @author, such that
 # if in a preformatted environment the @quotation @author formatting
 # will be the same as in the main text?
+#
+# Should @tie be expanded to ~?
+#
+# @dmn is not implemented
 
 package Texinfo::Convert::LaTeX;
 
@@ -1035,6 +1048,7 @@ sub _latex_header {
 \usepackage{geometry}
 \usepackage{fancyhdr}
 \usepackage{float}
+\usepackage{babel}
 % use hidelinks to remove boxes around links to be similar with Texinfo TeX
 \usepackage[hidelinks]{hyperref}
 ';
@@ -1082,6 +1096,14 @@ sub _latex_header {
   $header .= "\n";
   $header .= $front_main_matter_definitions{$documentclass};
   $header .= '
+
+% this allows to select languages based on bcp47 codes.  bcp47 is a superset
+% of the LL_CC ISO 639-2 LL ISO 3166 CC information of @documentlanguage
+\babeladjust{
+  autoload.bcp47 = on,
+  autoload.bcp47.options = import
+}
+
 % set defaults for lists that match Texinfo TeX formatting
 \setlist[description]{style=nextline, font=\normalfont}
 \setlist[itemize]{label=\textbullet}
@@ -2571,7 +2593,11 @@ sub _convert($$)
     # use of \usepackage{indentfirst} cannot be reverted.
     } elsif ($informative_commands{$command}) {
       $self->_informative_command($root);
-      if ($command eq 'pagesizes') {
+      if ($command eq 'documentlanguage') {
+        my $language = $self->get_conf('documentlanguage');
+        $language =~ s/_/-/;
+        $result .= "\\selectlanguage{$language}%\n";
+      } elsif ($command eq 'pagesizes') {
         my $pagesize_spec = _convert($self, $root->{'args'}->[0]);
         my @pagesize_args = split(/\s*,\s*/, $pagesize_spec);
         my @geometry;
