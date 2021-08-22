@@ -424,7 +424,16 @@ In afourpaper reset
 @pagesizes , 130mm
 
 @pagesizes , 
-']
+'],
+['verbatim_in_smallformat',
+'@setfilename verbatim_in_smallformat.info
+
+@smallformat
+@verbatim
+... still verbatim, but in a smaller font ...
+@end verbatim
+@end smallformat
+'],
 );
 
 foreach my $test (@test_cases) {
