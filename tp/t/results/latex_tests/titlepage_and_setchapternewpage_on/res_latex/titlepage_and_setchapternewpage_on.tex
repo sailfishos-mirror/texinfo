@@ -19,10 +19,10 @@
 \usepackage[hidelinks]{hyperref}
 \usepackage[utf8]{inputenc}
 % command used in \description format for indicateurl
-\newcommand\GNUTexinfotablestyleindicateurl[1]{`\texttt{#1}'}%
+\newcommand\GNUTexinfotablestyleindicateurl[1]{\ifstrempty{#1}{}{`\texttt{#1}'}}%
 
 % command used in \description format for samp
-\newcommand\GNUTexinfotablestylesamp[1]{`\texttt{#1}'}%
+\newcommand\GNUTexinfotablestylesamp[1]{\ifstrempty{#1}{}{`\texttt{#1}'}}%
 
 
 % redefine the \mainmatter command such that it does not clear page

@@ -631,15 +631,22 @@ foreach my $quoted_command (@quoted_commands) {
   # does not happen currently
   if ($description_format eq '') {
     $description_command_new_commands{$quoted_command} =
-            "$specific_format_command\[1]{`#1'}";
+            "$specific_format_command\[1]{\\ifstrempty{#1}{}{`#1'}}";
   } else {
     my $prepended_normalfont = '';
     if ($description_format !~ /\\text[a-z]{2}$/) {
       # use \normalfont to avoid default bold
       $prepended_normalfont = '\normalfont{}';
     }
+    # We use \ifstrempty to avoid outputting an empty
+    # quotation if there is no item.  Note that it does
+    # not work as intended if there is no optional parameter
+    # for item, like
+    #   \item some text
+    # but works for
+    #   \item[] some text
     $description_command_new_commands{$quoted_command} =
-            "$specific_format_command\[1]{$prepended_normalfont`$description_format\{#1}'}";
+            "$specific_format_command\[1]{\\ifstrempty{#1}{}{$prepended_normalfont`$description_format\{#1}'}}";
   }
   $description_command_format{$quoted_command} = $specific_format_command;
 }
@@ -1007,7 +1014,7 @@ sub _latex_header {
   # textcomp for \textdegree in older LaTeX
   # graphicx for \includegraphics
   # needspace for \needspace. In texlive-latex-extra in debian
-  # etoolbox for \patchcmd. In texlive-latex-recommended in debian
+  # etoolbox for \patchcmd and \ifstrempty. In texlive-latex-recommended in debian
   # fontsize for \changefontsize. In texlive-latex-extra in debian
   # mdframed for the formatting of @cartouche
   # \usepackage[linkbordercolor={0 0 0}]{hyperref}
@@ -2840,7 +2847,14 @@ sub _convert($$)
     } elsif ($root->{'type'} eq 'before_item') {
       # LaTeX environments do not accept text before the first item, add an item
       if ($result =~ /\S/) {
-        $result = '\item '.$result;
+        if ($item_line_commands{$root->{'parent'}->{'cmdname'}}) {
+          # it is important to have an empty optional argument otherwise
+          # a quoted command will output the quotes, even with a detection
+          # of empty argument (tested with diverse possibilities)
+          $result = '\item[] '.$result;
+        } else {
+          $result = '\item '.$result;
+        }
       }
     } elsif ($root->{'type'} eq 'row') {
       # ...
