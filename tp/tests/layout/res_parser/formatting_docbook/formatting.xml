@@ -7,6 +7,7 @@
 
 
 
+
 <bookinfo><legalnotice><para>In copying
 </para>
 <para>&lt;
@@ -4469,6 +4470,42 @@ Various deff lines
 <indexterm role="fn"><primary>?</primary></indexterm>
 <indexterm role="fn"><primary>a</primary></indexterm>
 
+<indexterm role="cp"><primary>a&#8212;a</primary></indexterm>
+<indexterm role="cp"><primary>b&#8212;b</primary><secondary>c&#8212;c</secondary></indexterm><indexterm role="cp"><primary>d&#8212;dd</primary><secondary>e&#8212;ee</secondary><tertiary>f&#8212;ff</tertiary></indexterm><indexterm role="cp"><primary>g&#8212;gg</primary><secondary>h&#8212;hh jjj</secondary><tertiary>k&#8212;kk</tertiary><tertiary>l&#8212;ll</tertiary></indexterm>
+<indexterm role="fn"><primary>f---aa</primary></indexterm>
+<indexterm role="fn"><primary>f---bb</primary><secondary>f---cc</secondary></indexterm><indexterm role="fn"><primary>f---ddd</primary><secondary>f---eee</secondary><tertiary>ffff</tertiary></indexterm><indexterm role="fn"><primary>f---ggg</primary><secondary>f---hhh fjjj</secondary><tertiary>f---kkk</tertiary><tertiary>f---lll</tertiary></indexterm>
+<indexterm role="cp"><primary>aaa</primary><see>bbb</see></indexterm>
+<indexterm role="cp"><primary>ddd</primary><seealso>ccc</seealso></indexterm>
+
+<indexterm role="fn"><primary>f&#8212;aaa</primary><see>f&#8212;bbb</see></indexterm>
+<indexterm role="fn"><primary>f&#8212;ddd</primary><seealso>f&#8212;ccc</seealso></indexterm>
+
+<indexterm role="cp"><primary>aaa</primary><secondary>bbb</secondary></indexterm>
+<indexterm role="fn"><primary>xxx</primary><secondary>zzz</secondary></indexterm>
+<indexterm role="fn"><primary><!-- /@w --></primary></indexterm>
+
+<indexterm role="codeidx"><primary>a <replaceable>index---entry</replaceable> t&#7869; --- &#238;</primary></indexterm>
+
+<indexterm role="truc"><primary>truc</primary></indexterm>
+
+
+<para>Text<footnote><para>in footnote
+<indexterm role="cp"><primary>index entry in footnote</primary></indexterm>
+</para>
+<para>Blah
+</para>
+<para>Blih
+</para>
+<indexterm role="cp"><primary>counting entry</primary></indexterm>
+</footnote>
+</para>
+<para>truc
+</para>
+<index role="truc"></index>
+
+<para>codeidx
+</para>
+<index role="codeidx"></index>
 
 <para>cp
 </para><index role="cp"></index>

@@ -8,6 +8,9 @@
                            @command{cmd} @`a
 @end direntry
 
+@defindex truc
+@defcodeindex codeidx
+
 @macro mymacro
 
 <
@@ -4651,6 +4654,52 @@ Various deff lines
 @findex ?
 @findex a
 
+@cindex a---a
+@cindex b---b @subentry c---c
+@cindex d---dd @subentry e---ee @subentry f---ff
+@cindex g---gg @subentry h---hh jjj @subentry k---kk @subentry l---ll
+
+@findex f---aa
+@findex f---bb @subentry f---cc
+@findex f---ddd @subentry f---eee @subentry ffff
+@findex f---ggg @subentry f---hhh fjjj @subentry f---kkk @subentry f---lll
+
+@cindex aaa @seeentry{bbb}
+@cindex @seealso{ccc} ddd
+
+@findex f---aaa @seeentry{f---bbb}
+@findex @seealso{f---ccc} f---ddd
+
+@cindex aaa @sortas{A} @subentry @sortas{B} bbb
+
+@findex xxx @sortas{X} @subentry @sortas{X} zzz
+
+@cindex
+@findex @w{}
+
+@codeidxindex a @var{index---entry} t@~e --- @^{@dotless{i}}
+
+@trucindex truc
+
+@syncodeindex vr cp
+
+Text@footnote{in footnote
+@cindex index entry in footnote
+
+Blah
+
+Blih
+
+@cindex counting entry
+}
+
+truc
+
+@printindex truc
+
+codeidx
+
+@printindex codeidx
 
 cp
 @printindex cp

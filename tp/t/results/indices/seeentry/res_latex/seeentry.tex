@@ -1,0 +1,105 @@
+\documentclass{book}
+\usepackage{imakeidx}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage[gen]{eurosym}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{graphicx}
+\usepackage{needspace}
+\usepackage{etoolbox}
+% a framemethod is needed for roundcorner
+\usepackage[framemethod=TikZ]{mdframed}
+\usepackage{fontsize}
+\usepackage{enumitem}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage{babel}
+% use hidelinks to remove boxes around links to be similar with Texinfo TeX
+\usepackage[hidelinks]{hyperref}
+\usepackage[utf8]{inputenc}
+
+% command used in \description format for indicateurl
+\newcommand\GNUTexinfotablestyleindicateurl[1]{\ifstrempty{#1}{}{`\texttt{#1}'}}%
+
+% command used in \description format for samp
+\newcommand\GNUTexinfotablestylesamp[1]{\ifstrempty{#1}{}{`\texttt{#1}'}}%
+
+% redefine the \mainmatter command such that it does not clear page
+% as if in double page
+\makeatletter
+\renewcommand\mainmatter{\clearpage\@mainmattertrue\pagenumbering{arabic}}
+\makeatother
+% add command aliases to use the same command in book and report
+\newcommand\GNUTexinfomainmatter{\mainmatter}
+\newcommand\GNUTexinfofrontmatter{\frontmatter}
+
+% this allows to select languages based on bcp47 codes.  bcp47 is a superset
+% of the LL_CC ISO 639-2 LL ISO 3166 CC information of @documentlanguage
+\babeladjust{
+  autoload.bcp47 = on,
+  autoload.bcp47.options = import
+}
+
+% set defaults for lists that match Texinfo TeX formatting
+\setlist[description]{style=nextline, font=\normalfont}
+\setlist[itemize]{label=\textbullet}
+\setlist[enumerate]{label=\arabic*.}
+
+% command that does nothing used to help with substitutions in commands
+\newcommand{\GNUTexinfoplaceholder}[1]{}
+
+% called when setting single headers
+% use \nouppercase to match with Texinfo TeX style
+\newcommand{\GNUTexinfosetsingleheader}{\pagestyle{fancy}
+\fancyhf{}
+\lhead{\nouppercase{\leftmark}}
+\rhead{\thepage}
+}
+
+% called when setting double headers
+\newcommand{\GNUTexinfosetdoubleheader}[1]{\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[RE]{#1}
+\fancyhead[LO]{\nouppercase{\leftmark}}
+}
+
+% for part and chapter, which call \thispagestyle{plain}
+\fancypagestyle{plain}{ %
+ \fancyhf{}
+ \fancyhead[LE,RO]{\thepage}
+}
+
+% match Texinfo TeX style
+\renewcommand{\headrulewidth}{0pt}%
+
+% avoid pagebreak and headings setting for a sectionning command
+\newcommand{\GNUTexinfonopagebreakheading}[2]{\let\clearpage\relax \let\cleardoublepage\relax \let\thispagestyle\GNUTexinfoplaceholder #1{#2}}
+
+% the mdframed style for @cartouche
+\mdfdefinestyle{GNUTexinfocartouche}{
+innertopmargin=10pt, innerbottommargin=10pt,%
+roundcorner=10pt}
+
+\renewcommand{\includegraphics}[1]{\fbox{FIG #1}}
+
+% set default for @setchapternewpage
+\makeatletter
+\patchcmd{\chapter}{\if@openright\cleardoublepage\else\clearpage\fi}{\GNUTexinfoplaceholder{setchapternewpage placeholder}\clearpage}{}{}
+\makeatother
+\GNUTexinfosetsingleheader{}%
+
+
+\begin{document}
+\chapter{Index}
+\label{anchor:chapter-index}%
+
+\index[cp]{aaa|see{bbb}}%
+\index[cp]{ddd|seealso{ccc}}%
+
+\index[fn]{f---aaa@\texttt{f{-}{-}{-}aaa}|see{f---bbb}}%
+\index[fn]{f---ddd@\texttt{f{-}{-}{-}ddd}|seealso{f---ccc}}%
+
+\end{document}

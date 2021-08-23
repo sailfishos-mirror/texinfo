@@ -1832,6 +1832,20 @@ aaa
 
 
 
+   Text(7)
+
+   truc
+
+* Menu:
+
+* truc:                                  chapter.            (line 1834)
+
+   codeidx
+
+* Menu:
+
+* a INDEX---ENTRY tẽ --- î:              chapter.            (line 1834)
+
    cp
 
 * Menu:
@@ -1845,12 +1859,49 @@ aaa
 * .:                                     chapter.            (line 1834)
 * ?:                                     chapter.            (line 1834)
 * a:                                     chapter.            (line 1834)
+* aaa, bbb:                              chapter.            (line 1834)
+* a--a:                                  chapter.            (line 1834)
+* a--asis:                               chapter.            (line  414)
+* a--asis <1>:                           chapter.            (line  963)
+* a--asis <2>:                           chapter.            (line 1649)
+* b:                                     chapter.            (line  415)
+* b <1>:                                 chapter.            (line  964)
+* b <2>:                                 chapter.            (line 1650)
+* b--b, c--c:                            chapter.            (line 1834)
+* counting entry:                        chapter.            (line    0)
+* d--dd, e--ee, f--ff:                   chapter.            (line 1834)
+* d--efcv_name:                          chapter.            (line  299)
+* d--efcv_name <1>:                      chapter.            (line  848)
+* d--efcv_name <2>:                      chapter.            (line 1537)
+* d--efivar_name of c--lass:             chapter.            (line  329)
+* d--efivar_name of c--lass <1>:         chapter.            (line  878)
+* d--efivar_name of c--lass <2>:         chapter.            (line 1567)
+* d--efopt_name:                         chapter.            (line  320)
+* d--efopt_name <1>:                     chapter.            (line  869)
+* d--efopt_name <2>:                     chapter.            (line 1558)
+* d--eftypeivar_name of c--lass:         chapter.            (line  332)
+* d--eftypeivar_name of c--lass <1>:     chapter.            (line  881)
+* d--eftypeivar_name of c--lass <2>:     chapter.            (line 1570)
+* d--eftypevar_name:                     chapter.            (line  326)
+* d--eftypevar_name <1>:                 chapter.            (line  875)
+* d--eftypevar_name <2>:                 chapter.            (line 1564)
+* d--eftypevr_name:                      chapter.            (line  296)
+* d--eftypevr_name <1>:                  chapter.            (line  845)
+* d--eftypevr_name <2>:                  chapter.            (line 1534)
+* d--efvar_name:                         chapter.            (line  317)
+* d--efvar_name <1>:                     chapter.            (line  866)
+* d--efvar_name <2>:                     chapter.            (line 1555)
+* d--efvr_name:                          chapter.            (line  287)
+* d--efvr_name <1>:                      chapter.            (line  836)
+* d--efvr_name <2>:                      chapter.            (line 1525)
+* g--gg, h--hh jjj, k--kk, l--ll:        chapter.            (line 1834)
 * index entry between item and itemx:    chapter.            (line  419)
 * index entry between item and itemx <1>: chapter.           (line  520)
 * index entry between item and itemx <2>: chapter.           (line  968)
 * index entry between item and itemx <3>: chapter.           (line 1069)
 * index entry between item and itemx <4>: chapter.           (line 1654)
 * index entry between item and itemx <5>: chapter.           (line 1783)
+* index entry in footnote:               chapter.            (line    0)
 * index entry within deffn:              chapter.            (line  258)
 * index entry within deffn <1>:          chapter.            (line  807)
 * index entry within deffn <2>:          chapter.            (line 1496)
@@ -1942,6 +1993,10 @@ aaa
 * deffnx <3>:                            chapter.            (line  830)
 * deffnx <4>:                            chapter.            (line 1514)
 * deffnx <5>:                            chapter.            (line 1519)
+* f---aa:                                chapter.            (line 1834)
+* f---bb, f---cc:                        chapter.            (line 1834)
+* f---ddd, f---eee, ffff:                chapter.            (line 1834)
+* f---ggg, f---hhh fjjj, f---kkk, f---lll: chapter.          (line 1834)
 * followed:                              chapter.            (line  272)
 * followed <1>:                          chapter.            (line  528)
 * followed <2>:                          chapter.            (line  821)
@@ -1995,41 +2050,9 @@ aaa
 * truc <3>:                              chapter.            (line  833)
 * truc <4>:                              chapter.            (line 1496)
 * truc <5>:                              chapter.            (line 1522)
+* xxx, zzz:                              chapter.            (line 1834)
 
    vr
-
-* Menu:
-
-* a--asis:                               chapter.            (line  414)
-* a--asis <1>:                           chapter.            (line  963)
-* a--asis <2>:                           chapter.            (line 1649)
-* b:                                     chapter.            (line  415)
-* b <1>:                                 chapter.            (line  964)
-* b <2>:                                 chapter.            (line 1650)
-* d--efcv_name:                          chapter.            (line  299)
-* d--efcv_name <1>:                      chapter.            (line  848)
-* d--efcv_name <2>:                      chapter.            (line 1537)
-* d--efivar_name of c--lass:             chapter.            (line  329)
-* d--efivar_name of c--lass <1>:         chapter.            (line  878)
-* d--efivar_name of c--lass <2>:         chapter.            (line 1567)
-* d--efopt_name:                         chapter.            (line  320)
-* d--efopt_name <1>:                     chapter.            (line  869)
-* d--efopt_name <2>:                     chapter.            (line 1558)
-* d--eftypeivar_name of c--lass:         chapter.            (line  332)
-* d--eftypeivar_name of c--lass <1>:     chapter.            (line  881)
-* d--eftypeivar_name of c--lass <2>:     chapter.            (line 1570)
-* d--eftypevar_name:                     chapter.            (line  326)
-* d--eftypevar_name <1>:                 chapter.            (line  875)
-* d--eftypevar_name <2>:                 chapter.            (line 1564)
-* d--eftypevr_name:                      chapter.            (line  296)
-* d--eftypevr_name <1>:                  chapter.            (line  845)
-* d--eftypevr_name <2>:                  chapter.            (line 1534)
-* d--efvar_name:                         chapter.            (line  317)
-* d--efvar_name <1>:                     chapter.            (line  866)
-* d--efvar_name <2>:                     chapter.            (line 1555)
-* d--efvr_name:                          chapter.            (line  287)
-* d--efvr_name <1>:                      chapter.            (line  836)
-* d--efvr_name <2>:                      chapter.            (line 1525)
 
    ky
 
@@ -2043,7 +2066,7 @@ aaa
 * d--eftp_name <1>:                      chapter.            (line  854)
 * d--eftp_name <2>:                      chapter.            (line 1543)
 
-   (7)
+   (8)
 
 
    ---------- Footnotes ----------
@@ -2061,6 +2084,12 @@ aaa
    (6) in footnote2
 
    (7) in footnote
+
+   Blah
+
+   Blih
+
+   (8) in footnote
 
 1.1 A section
 =============
@@ -2088,12 +2117,49 @@ chapter 2
 * .:                                     chapter.            (line 1834)
 * ?:                                     chapter.            (line 1834)
 * a:                                     chapter.            (line 1834)
+* aaa, bbb:                              chapter.            (line 1834)
+* a--a:                                  chapter.            (line 1834)
+* a--asis:                               chapter.            (line  414)
+* a--asis <1>:                           chapter.            (line  963)
+* a--asis <2>:                           chapter.            (line 1649)
+* b:                                     chapter.            (line  415)
+* b <1>:                                 chapter.            (line  964)
+* b <2>:                                 chapter.            (line 1650)
+* b--b, c--c:                            chapter.            (line 1834)
+* counting entry:                        chapter.            (line 2090)
+* d--dd, e--ee, f--ff:                   chapter.            (line 1834)
+* d--efcv_name:                          chapter.            (line  299)
+* d--efcv_name <1>:                      chapter.            (line  848)
+* d--efcv_name <2>:                      chapter.            (line 1537)
+* d--efivar_name of c--lass:             chapter.            (line  329)
+* d--efivar_name of c--lass <1>:         chapter.            (line  878)
+* d--efivar_name of c--lass <2>:         chapter.            (line 1567)
+* d--efopt_name:                         chapter.            (line  320)
+* d--efopt_name <1>:                     chapter.            (line  869)
+* d--efopt_name <2>:                     chapter.            (line 1558)
+* d--eftypeivar_name of c--lass:         chapter.            (line  332)
+* d--eftypeivar_name of c--lass <1>:     chapter.            (line  881)
+* d--eftypeivar_name of c--lass <2>:     chapter.            (line 1570)
+* d--eftypevar_name:                     chapter.            (line  326)
+* d--eftypevar_name <1>:                 chapter.            (line  875)
+* d--eftypevar_name <2>:                 chapter.            (line 1564)
+* d--eftypevr_name:                      chapter.            (line  296)
+* d--eftypevr_name <1>:                  chapter.            (line  845)
+* d--eftypevr_name <2>:                  chapter.            (line 1534)
+* d--efvar_name:                         chapter.            (line  317)
+* d--efvar_name <1>:                     chapter.            (line  866)
+* d--efvar_name <2>:                     chapter.            (line 1555)
+* d--efvr_name:                          chapter.            (line  287)
+* d--efvr_name <1>:                      chapter.            (line  836)
+* d--efvr_name <2>:                      chapter.            (line 1525)
+* g--gg, h--hh jjj, k--kk, l--ll:        chapter.            (line 1834)
 * index entry between item and itemx:    chapter.            (line  419)
 * index entry between item and itemx <1>: chapter.           (line  520)
 * index entry between item and itemx <2>: chapter.           (line  968)
 * index entry between item and itemx <3>: chapter.           (line 1069)
 * index entry between item and itemx <4>: chapter.           (line 1654)
 * index entry between item and itemx <5>: chapter.           (line 1783)
+* index entry in footnote:               chapter.            (line 2085)
 * index entry within deffn:              chapter.            (line  258)
 * index entry within deffn <1>:          chapter.            (line  807)
 * index entry within deffn <2>:          chapter.            (line 1496)
@@ -2183,6 +2249,10 @@ chapter 2
 * deffnx <3>:                            chapter.            (line  830)
 * deffnx <4>:                            chapter.            (line 1514)
 * deffnx <5>:                            chapter.            (line 1519)
+* f---aa:                                chapter.            (line 1834)
+* f---bb, f---cc:                        chapter.            (line 1834)
+* f---ddd, f---eee, ffff:                chapter.            (line 1834)
+* f---ggg, f---hhh fjjj, f---kkk, f---lll: chapter.          (line 1834)
 * followed:                              chapter.            (line  272)
 * followed <1>:                          chapter.            (line  528)
 * followed <2>:                          chapter.            (line  821)
@@ -2236,6 +2306,7 @@ chapter 2
 * truc <3>:                              chapter.            (line  833)
 * truc <4>:                              chapter.            (line 1496)
 * truc <5>:                              chapter.            (line 1522)
+* xxx, zzz:                              chapter.            (line 1834)
 
 Top section
 1 chapter

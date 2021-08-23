@@ -1,5 +1,5 @@
 \documentclass{book}
-\usepackage{makeidx}\makeindex
+\usepackage{imakeidx}
 \usepackage{amsfonts}
 \usepackage{amsmath}
 \usepackage[gen]{eurosym}
@@ -15,15 +15,22 @@
 \usepackage{geometry}
 \usepackage{fancyhdr}
 \usepackage{float}
+\usepackage{babel}
 % use hidelinks to remove boxes around links to be similar with Texinfo TeX
 \usepackage[hidelinks]{hyperref}
 \usepackage[utf8]{inputenc}
+
+\makeindex[name=codeidx]%
+\makeindex[name=cp]%
+\makeindex[name=fn]%
+\makeindex[name=tp]%
+\makeindex[name=truc]%
+
 % command used in \description format for indicateurl
 \newcommand\GNUTexinfotablestyleindicateurl[1]{\ifstrempty{#1}{}{`\texttt{#1}'}}%
 
 % command used in \description format for samp
 \newcommand\GNUTexinfotablestylesamp[1]{\ifstrempty{#1}{}{`\texttt{#1}'}}%
-
 
 % redefine the \mainmatter command such that it does not clear page
 % as if in double page
@@ -33,6 +40,13 @@
 % add command aliases to use the same command in book and report
 \newcommand\GNUTexinfomainmatter{\mainmatter}
 \newcommand\GNUTexinfofrontmatter{\frontmatter}
+
+% this allows to select languages based on bcp47 codes.  bcp47 is a superset
+% of the LL_CC ISO 639-2 LL ISO 3166 CC information of @documentlanguage
+\babeladjust{
+  autoload.bcp47 = on,
+  autoload.bcp47.options = import
+}
 
 % set defaults for lists that match Texinfo TeX formatting
 \setlist[description]{style=nextline, font=\normalfont}
@@ -75,7 +89,6 @@
 innertopmargin=10pt, innerbottommargin=10pt,%
 roundcorner=10pt}
 
-
 \renewcommand{\includegraphics}[1]{\fbox{FIG #1}}
 
 % set default for @setchapternewpage
@@ -85,6 +98,7 @@ roundcorner=10pt}
 
 % no headings before titlepage
 \pagestyle{empty}%
+
 
 
 
@@ -124,6 +138,10 @@ kbd: {\ttfamily\textsl{``simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-''}} \le
 
 `\hbox{}`simple-double-\hbox{}-three---four----'\hbox{}'\leavevmode{}\\
 
+\index[cp]{--option}%
+\index[cp]{``}%
+\index[fn]{``@\texttt{``}}%
+\index[fn]{--foption@\texttt{{-}{-}foption}}%
 
 @"u \"{u} 
 @"\{U\} \"{U} 
@@ -478,7 +496,8 @@ A small quot---ation
 \end{itemize}
 
 \begin{itemize}[label=\textbullet{} a--n itemize line]
-\item i--tem 1
+\item \index[cp]{index entry within itemize}%
+i--tem 1
 \item i--tem 2
 \end{itemize}
 
@@ -503,6 +522,7 @@ A small quot---ation
 mu--ltitable headitem another tab
 mu--ltitable item multitable tab
 mu--ltitable item 2 multitable tab 2
+\index[cp]{index entry within multitable}%
 lone mu--ltitable item
 
 truc bidule
@@ -591,34 +611,44 @@ $$
 \hbox{}-- c--ategory: d--effn\_name a--rguments...
 
 
+\index[fn]{d--effn\_name@\texttt{d{-}{-}effn\_name}}%
 d--effn
 
 \hbox{}-- cate--gory: de--ffn\_name ar--guments    more args \leavevmode{}\\ even more so
 
 
+\index[fn]{de--ffn\_name@\texttt{de{-}{-}ffn\_name}}%
 def--fn
 
 \hbox{}-- fset: \emph{i} a g
 
 
+\index[fn]{\emph{i}@\texttt{\emph{i}}}%
+\index[cp]{index entry within deffn}%
 \hbox{}-- cmde: truc 
 
 
+\index[fn]{truc@\texttt{truc}}%
 \hbox{}-- Command: log trap 
 
 
+\index[fn]{log trap@\texttt{log trap}}%
 \hbox{}-- Command: log trap1 
 
 
+\index[fn]{log trap1@\texttt{log trap1}}%
 \hbox{}-- Command: log trap2 
 
 
+\index[fn]{log trap2@\texttt{log trap2}}%
 \hbox{}-- cmde: \textbf{id ule} truc
 
 
+\index[fn]{\textbf{id ule}@\texttt{\textbf{id ule}}}%
 \hbox{}-- cmde2: \textbf{id `\texttt{i}' ule} truc
 
 
+\index[fn]{\textbf{id `\texttt{i}' ule}@\texttt{\textbf{id `\texttt{i}' ule}}}%
 \hbox{}-- \textbf{id `\texttt{i}' ule}: 
 
 
@@ -635,18 +665,22 @@ def--fn
 \hbox{}-- : machin
 
 
+\index[fn]{machin@\texttt{machin}}%
 \hbox{}-- : bidule machin
 
 
+\index[fn]{bidule machin@\texttt{bidule machin}}%
 \hbox{}-- truc: machin
 
 
+\index[fn]{machin@\texttt{machin}}%
 \hbox{}-- truc: 
 
 
 \hbox{}-- truc: followed by a comment
 
 
+\index[fn]{followed@\texttt{followed}}%
 \hbox{}-- truc: 
 
 
@@ -656,117 +690,142 @@ def--fn
 \hbox{}-- truc: a b c d e \textbf{f g} h i
 
 
+\index[fn]{a@\texttt{a}}%
 \hbox{}-- truc: deffnx before end deffn
 
 
+\index[fn]{deffnx@\texttt{deffnx}}%
 
 \hbox{}-- empty: deffn
 
 
+\index[fn]{deffn@\texttt{deffn}}%
 
 \hbox{}-- empty: deffn with deffnx
 
 
+\index[fn]{deffn@\texttt{deffn}}%
 \hbox{}-- empty: deffnx
 
 
+\index[fn]{deffnx@\texttt{deffnx}}%
 
 \hbox{}-- fset: \emph{i} a g
 
 
+\index[fn]{\emph{i}@\texttt{\emph{i}}}%
 \hbox{}-- cmde: truc 
 
 
+\index[fn]{truc@\texttt{truc}}%
 text in def item for second def item
 
 \hbox{}-- c--ategory: d--efvr\_name
 
 
+\index[cp]{d--efvr\_name@\texttt{d{-}{-}efvr\_name}}%
 d--efvr
 
 \hbox{}-- c--ategory: t--ype d--eftypefn\_name a--rguments...
 
 
+\index[fn]{d--eftypefn\_name@\texttt{d{-}{-}eftypefn\_name}}%
 d--eftypefn
 
 \hbox{}-- c--ategory on c--lass: t--ype d--eftypeop\_name a--rguments...
 
 
+\index[fn]{d--eftypeop\_name on c--lass@\texttt{d{-}{-}eftypeop\_name on c{-}{-}lass}}%
 d--eftypeop
 
 \hbox{}-- c--ategory: t--ype d--eftypevr\_name
 
 
+\index[cp]{d--eftypevr\_name@\texttt{d{-}{-}eftypevr\_name}}%
 d--eftypevr
 
 \hbox{}-- c--ategory of c--lass: d--efcv\_name
 
 
+\index[cp]{d--efcv\_name@\texttt{d{-}{-}efcv\_name}}%
 d--efcv
 
 \hbox{}-- c--ategory on c--lass: d--efop\_name a--rguments...
 
 
+\index[fn]{d--efop\_name on c--lass@\texttt{d{-}{-}efop\_name on c{-}{-}lass}}%
 d--efop
 
 \hbox{}-- c--ategory: d--eftp\_name a--ttributes...
 
 
+\index[tp]{d--eftp\_name@\texttt{d{-}{-}eftp\_name}}%
 d--eftp
 
 \hbox{}-- Function: d--efun\_name a--rguments...
 
 
+\index[fn]{d--efun\_name@\texttt{d{-}{-}efun\_name}}%
 d--efun
 
 \hbox{}-- Macro: d--efmac\_name a--rguments...
 
 
+\index[fn]{d--efmac\_name@\texttt{d{-}{-}efmac\_name}}%
 d--efmac
 
 \hbox{}-- Special Form: d--efspec\_name a--rguments...
 
 
+\index[fn]{d--efspec\_name@\texttt{d{-}{-}efspec\_name}}%
 d--efspec
 
 \hbox{}-- Variable: d--efvar\_name argvar argvar1
 
 
+\index[cp]{d--efvar\_name@\texttt{d{-}{-}efvar\_name}}%
 d--efvar
 
 \hbox{}-- User Option: d--efopt\_name
 
 
+\index[cp]{d--efopt\_name@\texttt{d{-}{-}efopt\_name}}%
 d--efopt
 
 \hbox{}-- Function: t--ype d--eftypefun\_name a--rguments...
 
 
+\index[fn]{d--eftypefun\_name@\texttt{d{-}{-}eftypefun\_name}}%
 d--eftypefun
 
 \hbox{}-- Variable: t--ype d--eftypevar\_name
 
 
+\index[cp]{d--eftypevar\_name@\texttt{d{-}{-}eftypevar\_name}}%
 d--eftypevar
 
 \hbox{}-- Instance Variable of c--lass: d--efivar\_name
 
 
+\index[cp]{d--efivar\_name of c--lass@\texttt{d{-}{-}efivar\_name of c{-}{-}lass}}%
 d--efivar
 
 \hbox{}-- Instance Variable of c--lass: t--ype d--eftypeivar\_name
 
 
+\index[cp]{d--eftypeivar\_name of c--lass@\texttt{d{-}{-}eftypeivar\_name of c{-}{-}lass}}%
 d--eftypeivar
 
 \hbox{}-- Method on c--lass: d--efmethod\_name a--rguments...
 
 
+\index[fn]{d--efmethod\_name on c--lass@\texttt{d{-}{-}efmethod\_name on c{-}{-}lass}}%
 d--efmethod
 
 \hbox{}-- Method on c--lass: t--ype d--eftypemethod\_name a--rguments...
 
 
+\index[fn]{d--eftypemethod\_name on c--lass@\texttt{d{-}{-}eftypemethod\_name on c{-}{-}lass}}%
 d--eftypemethod
 
 \texttt{@xref\{c{-}{-}{-}hapter@@, cross r{-}{-}{-}ef name@@, t{-}{-}{-}itle@@, file n{-}{-}{-}ame@@, ma{-}{-}{-}nual@@\}} See Section ``t---itle@'' in \textit{ma---nual@}.
@@ -774,20 +833,20 @@ d--eftypemethod
 \texttt{@pxref\{chapter, cross ref name, title, file name, manual\}} see Section ``title'' in \textit{manual}
 \texttt{@inforef\{chapter, cross ref name, file name\}} Section ``chapter'' in \texttt{file name}
 
-\texttt{@ref\{chapter\}} \hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}
-\texttt{@xref\{chapter\}} See \hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}.
-\texttt{@pxref\{chapter\}} see \hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}
+\texttt{@ref\{chapter\}} \hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}
+\texttt{@xref\{chapter\}} See \hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}.
+\texttt{@pxref\{chapter\}} see \hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}
 \texttt{@ref\{s{-}{-}ect@comma\{\}ion\}} \hyperref[anchor:s_002d_002dect_002cion]{Section~\ref*{anchor:s_002d_002dect_002cion} [s--ect,ion], page~\pageref*{anchor:s_002d_002dect_002cion}}
 
 \texttt{@ref\{s{-}{-}ect@comma\{\}ion, a @comma\{\} in cross
 ref, a comma@comma\{\} in title, a comma@comma\{\} in file, a @comma\{\} in manual name \}}
 Section ``a comma, in title'' in \textit{a , in manual name}
 
-\texttt{@ref\{chapter,cross ref name\}} \hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}
-\texttt{@ref\{chapter,,title\}} \hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [title], page~\pageref*{anchor:chapter}}
+\texttt{@ref\{chapter,cross ref name\}} \hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}
+\texttt{@ref\{chapter,,title\}} \hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [title], page~\pageref*{anchor:chapter}}
 \texttt{@ref\{chapter,,,file name\}} Section ``chapter'' in \texttt{file name}
 \texttt{@ref\{chapter,,,,manual\}} Section ``chapter'' in \textit{manual}
-\texttt{@ref\{chapter,cross ref name,title,\}} \hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [title], page~\pageref*{anchor:chapter}}
+\texttt{@ref\{chapter,cross ref name,title,\}} \hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [title], page~\pageref*{anchor:chapter}}
 \texttt{@ref\{chapter,cross ref name,,file name\}} Section ``chapter'' in \texttt{file name}
 \texttt{@ref\{chapter,cross ref name,,,manual\}} Section ``chapter'' in \textit{manual}
 \texttt{@ref\{chapter,cross ref name,title,file name\}} Section ``title'' in \texttt{file name}
@@ -829,10 +888,10 @@ Section ``a comma, in title'' in \textit{a , in manual name}
 ref, a comma@comma\{\} in file\}}
 Section ``s--ect,ion'' in \texttt{a comma, in file}
 
-`\texttt{\hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}}'.
+`\texttt{\hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}}'.
 
 Section ``title with uref2 \href{href://http/myhost.com/index2.html}{uref2 (\nolinkurl{href://http/myhost.com/index2.html})}'' in \textit{printed manual with uref4 \href{href://http/myhost.com/index4.html}{uref4 (\nolinkurl{href://http/myhost.com/index4.html})}}
-\hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [title with uref2 \href{href://http/myhost.com/index2.html}{uref2 (\nolinkurl{href://http/myhost.com/index2.html})}], page~\pageref*{anchor:chapter}}
+\hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [title with uref2 \href{href://http/myhost.com/index2.html}{uref2 (\nolinkurl{href://http/myhost.com/index2.html})}], page~\pageref*{anchor:chapter}}
 
 \begin{description}[format=\textbf]
 \item[a--strong]
@@ -841,13 +900,18 @@ l--ine
 
 \begin{description}
 \item[a--asis]
+\index[cp]{a--asis@\texttt{a{-}{-}asis}}%
 \item[b]
+\index[cp]{b@\texttt{b}}%
 l--ine
 \end{description}
 
 \begin{description}[format=\normalfont\emph]
 \item[a]
+\index[fn]{a@\texttt{a}}%
+\index[cp]{index entry between item and itemx}%
 \item[b]
+\index[fn]{b@\texttt{b}}%
 l--ine
 \end{description}
 
@@ -987,7 +1051,10 @@ l--ine
 
 \begin{description}
 \item[a]
+\index[fn]{a@\texttt{a}}%
+\index[cp]{index entry between item and itemx}%
 \item[b]
+\index[fn]{b@\texttt{b}}%
 l--ine
 \end{description}
 
@@ -997,22 +1064,28 @@ l--ine
 \hbox{}-- truc: machin bidule chose and
 
 
+\index[fn]{machin@\texttt{machin}}%
 \hbox{}-- truc: machin bidule chose and  after
 
 
+\index[fn]{machin@\texttt{machin}}%
 \hbox{}-- truc: machin bidule chose and 
 
 
+\index[fn]{machin@\texttt{machin}}%
 \hbox{}-- truc: machin bidule chose and and after
 
 
+\index[fn]{machin@\texttt{machin}}%
 \hbox{}-- truc: followed by a comment
 
 
+\index[fn]{followed@\texttt{followed}}%
 Various deff lines
 \hbox{}-- truc: after a deff item
 
 
+\index[fn]{after@\texttt{after}}%
 
 \texttt{@ref\{node\}} node
 
@@ -1071,6 +1144,10 @@ kbd: {\ttfamily\textsl{``simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-''}} \le
 
 `\hbox{}`simple-double-\hbox{}-three---four----'\hbox{}'\leavevmode{}\\
 
+\index[cp]{--option}%
+\index[cp]{``}%
+\index[fn]{``@\texttt{``}}%
+\index[fn]{--foption@\texttt{{-}{-}foption}}%
 
 @"u \"{u} 
 @"\{U\} \"{U} 
@@ -1423,7 +1500,8 @@ A small quot---ation
 \end{itemize}
 
 \begin{itemize}[label=\textbullet{} a--n itemize line]
-\item i--tem 1
+\item \index[cp]{index entry within itemize}%
+i--tem 1
 \item i--tem 2
 \end{itemize}
 
@@ -1448,6 +1526,7 @@ A small quot---ation
 mu--ltitable headitem another tab
 mu--ltitable item multitable tab
 mu--ltitable item 2 multitable tab 2
+\index[cp]{index entry within multitable}%
 lone mu--ltitable item
 
 truc bidule
@@ -1536,34 +1615,44 @@ $$
 \hbox{}-- c--ategory: d--effn\_name a--rguments...
 
 
+\index[fn]{d--effn\_name@\texttt{d{-}{-}effn\_name}}%
 d--effn
 
 \hbox{}-- cate--gory: de--ffn\_name ar--guments    more args \leavevmode{}\\ even more so
 
 
+\index[fn]{de--ffn\_name@\texttt{de{-}{-}ffn\_name}}%
 def--fn
 
 \hbox{}-- fset: \emph{i} a g
 
 
+\index[fn]{\emph{i}@\texttt{\emph{i}}}%
+\index[cp]{index entry within deffn}%
 \hbox{}-- cmde: truc 
 
 
+\index[fn]{truc@\texttt{truc}}%
 \hbox{}-- Command: log trap 
 
 
+\index[fn]{log trap@\texttt{log trap}}%
 \hbox{}-- Command: log trap1 
 
 
+\index[fn]{log trap1@\texttt{log trap1}}%
 \hbox{}-- Command: log trap2 
 
 
+\index[fn]{log trap2@\texttt{log trap2}}%
 \hbox{}-- cmde: \textbf{id ule} truc
 
 
+\index[fn]{\textbf{id ule}@\texttt{\textbf{id ule}}}%
 \hbox{}-- cmde2: \textbf{id `\texttt{i}' ule} truc
 
 
+\index[fn]{\textbf{id `\texttt{i}' ule}@\texttt{\textbf{id `\texttt{i}' ule}}}%
 \hbox{}-- \textbf{id `\texttt{i}' ule}: 
 
 
@@ -1580,18 +1669,22 @@ def--fn
 \hbox{}-- : machin
 
 
+\index[fn]{machin@\texttt{machin}}%
 \hbox{}-- : bidule machin
 
 
+\index[fn]{bidule machin@\texttt{bidule machin}}%
 \hbox{}-- truc: machin
 
 
+\index[fn]{machin@\texttt{machin}}%
 \hbox{}-- truc: 
 
 
 \hbox{}-- truc: followed by a comment
 
 
+\index[fn]{followed@\texttt{followed}}%
 \hbox{}-- truc: 
 
 
@@ -1601,117 +1694,142 @@ def--fn
 \hbox{}-- truc: a b c d e \textbf{f g} h i
 
 
+\index[fn]{a@\texttt{a}}%
 \hbox{}-- truc: deffnx before end deffn
 
 
+\index[fn]{deffnx@\texttt{deffnx}}%
 
 \hbox{}-- empty: deffn
 
 
+\index[fn]{deffn@\texttt{deffn}}%
 
 \hbox{}-- empty: deffn with deffnx
 
 
+\index[fn]{deffn@\texttt{deffn}}%
 \hbox{}-- empty: deffnx
 
 
+\index[fn]{deffnx@\texttt{deffnx}}%
 
 \hbox{}-- fset: \emph{i} a g
 
 
+\index[fn]{\emph{i}@\texttt{\emph{i}}}%
 \hbox{}-- cmde: truc 
 
 
+\index[fn]{truc@\texttt{truc}}%
 text in def item for second def item
 
 \hbox{}-- c--ategory: d--efvr\_name
 
 
+\index[cp]{d--efvr\_name@\texttt{d{-}{-}efvr\_name}}%
 d--efvr
 
 \hbox{}-- c--ategory: t--ype d--eftypefn\_name a--rguments...
 
 
+\index[fn]{d--eftypefn\_name@\texttt{d{-}{-}eftypefn\_name}}%
 d--eftypefn
 
 \hbox{}-- c--ategory on c--lass: t--ype d--eftypeop\_name a--rguments...
 
 
+\index[fn]{d--eftypeop\_name on c--lass@\texttt{d{-}{-}eftypeop\_name on c{-}{-}lass}}%
 d--eftypeop
 
 \hbox{}-- c--ategory: t--ype d--eftypevr\_name
 
 
+\index[cp]{d--eftypevr\_name@\texttt{d{-}{-}eftypevr\_name}}%
 d--eftypevr
 
 \hbox{}-- c--ategory of c--lass: d--efcv\_name
 
 
+\index[cp]{d--efcv\_name@\texttt{d{-}{-}efcv\_name}}%
 d--efcv
 
 \hbox{}-- c--ategory on c--lass: d--efop\_name a--rguments...
 
 
+\index[fn]{d--efop\_name on c--lass@\texttt{d{-}{-}efop\_name on c{-}{-}lass}}%
 d--efop
 
 \hbox{}-- c--ategory: d--eftp\_name a--ttributes...
 
 
+\index[tp]{d--eftp\_name@\texttt{d{-}{-}eftp\_name}}%
 d--eftp
 
 \hbox{}-- Function: d--efun\_name a--rguments...
 
 
+\index[fn]{d--efun\_name@\texttt{d{-}{-}efun\_name}}%
 d--efun
 
 \hbox{}-- Macro: d--efmac\_name a--rguments...
 
 
+\index[fn]{d--efmac\_name@\texttt{d{-}{-}efmac\_name}}%
 d--efmac
 
 \hbox{}-- Special Form: d--efspec\_name a--rguments...
 
 
+\index[fn]{d--efspec\_name@\texttt{d{-}{-}efspec\_name}}%
 d--efspec
 
 \hbox{}-- Variable: d--efvar\_name argvar argvar1
 
 
+\index[cp]{d--efvar\_name@\texttt{d{-}{-}efvar\_name}}%
 d--efvar
 
 \hbox{}-- User Option: d--efopt\_name
 
 
+\index[cp]{d--efopt\_name@\texttt{d{-}{-}efopt\_name}}%
 d--efopt
 
 \hbox{}-- Function: t--ype d--eftypefun\_name a--rguments...
 
 
+\index[fn]{d--eftypefun\_name@\texttt{d{-}{-}eftypefun\_name}}%
 d--eftypefun
 
 \hbox{}-- Variable: t--ype d--eftypevar\_name
 
 
+\index[cp]{d--eftypevar\_name@\texttt{d{-}{-}eftypevar\_name}}%
 d--eftypevar
 
 \hbox{}-- Instance Variable of c--lass: d--efivar\_name
 
 
+\index[cp]{d--efivar\_name of c--lass@\texttt{d{-}{-}efivar\_name of c{-}{-}lass}}%
 d--efivar
 
 \hbox{}-- Instance Variable of c--lass: t--ype d--eftypeivar\_name
 
 
+\index[cp]{d--eftypeivar\_name of c--lass@\texttt{d{-}{-}eftypeivar\_name of c{-}{-}lass}}%
 d--eftypeivar
 
 \hbox{}-- Method on c--lass: d--efmethod\_name a--rguments...
 
 
+\index[fn]{d--efmethod\_name on c--lass@\texttt{d{-}{-}efmethod\_name on c{-}{-}lass}}%
 d--efmethod
 
 \hbox{}-- Method on c--lass: t--ype d--eftypemethod\_name a--rguments...
 
 
+\index[fn]{d--eftypemethod\_name on c--lass@\texttt{d{-}{-}eftypemethod\_name on c{-}{-}lass}}%
 d--eftypemethod
 
 \texttt{@xref\{c{-}{-}{-}hapter@@, cross r{-}{-}{-}ef name@@, t{-}{-}{-}itle@@, file n{-}{-}{-}ame@@, ma{-}{-}{-}nual@@\}} See Section ``t---itle@'' in \textit{ma---nual@}.
@@ -1719,20 +1837,20 @@ d--eftypemethod
 \texttt{@pxref\{chapter, cross ref name, title, file name, manual\}} see Section ``title'' in \textit{manual}
 \texttt{@inforef\{chapter, cross ref name, file name\}} Section ``chapter'' in \texttt{file name}
 
-\texttt{@ref\{chapter\}} \hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}
-\texttt{@xref\{chapter\}} See \hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}.
-\texttt{@pxref\{chapter\}} see \hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}
+\texttt{@ref\{chapter\}} \hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}
+\texttt{@xref\{chapter\}} See \hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}.
+\texttt{@pxref\{chapter\}} see \hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}
 \texttt{@ref\{s{-}{-}ect@comma\{\}ion\}} \hyperref[anchor:s_002d_002dect_002cion]{Section~\ref*{anchor:s_002d_002dect_002cion} [s--ect,ion], page~\pageref*{anchor:s_002d_002dect_002cion}}
 
 \texttt{@ref\{s{-}{-}ect@comma\{\}ion, a @comma\{\} in cross
 ref, a comma@comma\{\} in title, a comma@comma\{\} in file, a @comma\{\} in manual name \}}
 Section ``a comma, in title'' in \textit{a , in manual name}
 
-\texttt{@ref\{chapter,cross ref name\}} \hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}
-\texttt{@ref\{chapter,,title\}} \hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [title], page~\pageref*{anchor:chapter}}
+\texttt{@ref\{chapter,cross ref name\}} \hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}
+\texttt{@ref\{chapter,,title\}} \hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [title], page~\pageref*{anchor:chapter}}
 \texttt{@ref\{chapter,,,file name\}} Section ``chapter'' in \texttt{file name}
 \texttt{@ref\{chapter,,,,manual\}} Section ``chapter'' in \textit{manual}
-\texttt{@ref\{chapter,cross ref name,title,\}} \hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [title], page~\pageref*{anchor:chapter}}
+\texttt{@ref\{chapter,cross ref name,title,\}} \hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [title], page~\pageref*{anchor:chapter}}
 \texttt{@ref\{chapter,cross ref name,,file name\}} Section ``chapter'' in \texttt{file name}
 \texttt{@ref\{chapter,cross ref name,,,manual\}} Section ``chapter'' in \textit{manual}
 \texttt{@ref\{chapter,cross ref name,title,file name\}} Section ``title'' in \texttt{file name}
@@ -1774,10 +1892,10 @@ Section ``a comma, in title'' in \textit{a , in manual name}
 ref, a comma@comma\{\} in file\}}
 Section ``s--ect,ion'' in \texttt{a comma, in file}
 
-`\texttt{\hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}}'.
+`\texttt{\hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}}'.
 
 Section ``title with uref2 \href{href://http/myhost.com/index2.html}{uref2 (\nolinkurl{href://http/myhost.com/index2.html})}'' in \textit{printed manual with uref4 \href{href://http/myhost.com/index4.html}{uref4 (\nolinkurl{href://http/myhost.com/index4.html})}}
-\hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [title with uref2 \href{href://http/myhost.com/index2.html}{uref2 (\nolinkurl{href://http/myhost.com/index2.html})}], page~\pageref*{anchor:chapter}}
+\hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [title with uref2 \href{href://http/myhost.com/index2.html}{uref2 (\nolinkurl{href://http/myhost.com/index2.html})}], page~\pageref*{anchor:chapter}}
 
 \begin{description}[format=\textbf]
 \item[a--strong]
@@ -1786,13 +1904,18 @@ l--ine
 
 \begin{description}
 \item[a--asis]
+\index[cp]{a--asis@\texttt{a{-}{-}asis}}%
 \item[b]
+\index[cp]{b@\texttt{b}}%
 l--ine
 \end{description}
 
 \begin{description}[format=\normalfont\emph]
 \item[a]
+\index[fn]{a@\texttt{a}}%
+\index[cp]{index entry between item and itemx}%
 \item[b]
+\index[fn]{b@\texttt{b}}%
 l--ine
 \end{description}
 
@@ -1932,7 +2055,10 @@ l--ine
 
 \begin{description}
 \item[a]
+\index[fn]{a@\texttt{a}}%
+\index[cp]{index entry between item and itemx}%
 \item[b]
+\index[fn]{b@\texttt{b}}%
 l--ine
 \end{description}
 
@@ -1942,22 +2068,28 @@ l--ine
 \hbox{}-- truc: machin bidule chose and
 
 
+\index[fn]{machin@\texttt{machin}}%
 \hbox{}-- truc: machin bidule chose and  after
 
 
+\index[fn]{machin@\texttt{machin}}%
 \hbox{}-- truc: machin bidule chose and 
 
 
+\index[fn]{machin@\texttt{machin}}%
 \hbox{}-- truc: machin bidule chose and and after
 
 
+\index[fn]{machin@\texttt{machin}}%
 \hbox{}-- truc: followed by a comment
 
 
+\index[fn]{followed@\texttt{followed}}%
 Various deff lines
 \hbox{}-- truc: after a deff item
 
 
+\index[fn]{after@\texttt{after}}%
 
 \texttt{@ref\{node\}} node
 
@@ -2032,6 +2164,10 @@ kbd: {\ttfamily\textsl{``simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-''}} \le
 
 `\hbox{}`simple-double-\hbox{}-three---four----'\hbox{}'\leavevmode{}\\
 
+\index[cp]{--option}%
+\index[cp]{``}%
+\index[fn]{``@\texttt{``}}%
+\index[fn]{--foption@\texttt{{-}{-}foption}}%
 
 @"u \"{u} 
 @"\{U\} \"{U} 
@@ -2383,7 +2519,8 @@ A small quot---ation
 \end{itemize}
 
 \begin{itemize}[label=\textbullet{} a--n itemize line]
-\item i--tem 1
+\item \index[cp]{index entry within itemize}%
+i--tem 1
 \item i--tem 2
 \end{itemize}
 
@@ -2408,6 +2545,7 @@ A small quot---ation
 mu--ltitable headitem another tab
 mu--ltitable item multitable tab
 mu--ltitable item 2 multitable tab 2
+\index[cp]{index entry within multitable}%
 lone mu--ltitable item
 
 truc bidule
@@ -2496,34 +2634,44 @@ $$
 \hbox{}-- c--ategory: d--effn\_name a--rguments...
 
 
+\index[fn]{d--effn\_name@\texttt{d{-}{-}effn\_name}}%
 d--effn
 
 \hbox{}-- cate--gory: de--ffn\_name ar--guments    more args \leavevmode{}\\ even more so
 
 
+\index[fn]{de--ffn\_name@\texttt{de{-}{-}ffn\_name}}%
 def--fn
 
 \hbox{}-- fset: \emph{i} a g
 
 
+\index[fn]{\emph{i}@\texttt{\emph{i}}}%
+\index[cp]{index entry within deffn}%
 \hbox{}-- cmde: truc 
 
 
+\index[fn]{truc@\texttt{truc}}%
 \hbox{}-- Command: log trap 
 
 
+\index[fn]{log trap@\texttt{log trap}}%
 \hbox{}-- Command: log trap1 
 
 
+\index[fn]{log trap1@\texttt{log trap1}}%
 \hbox{}-- Command: log trap2 
 
 
+\index[fn]{log trap2@\texttt{log trap2}}%
 \hbox{}-- cmde: \textbf{id ule} truc
 
 
+\index[fn]{\textbf{id ule}@\texttt{\textbf{id ule}}}%
 \hbox{}-- cmde2: \textbf{id `\texttt{i}' ule} truc
 
 
+\index[fn]{\textbf{id `\texttt{i}' ule}@\texttt{\textbf{id `\texttt{i}' ule}}}%
 \hbox{}-- \textbf{id `\texttt{i}' ule}: 
 
 
@@ -2540,18 +2688,22 @@ def--fn
 \hbox{}-- : machin
 
 
+\index[fn]{machin@\texttt{machin}}%
 \hbox{}-- : bidule machin
 
 
+\index[fn]{bidule machin@\texttt{bidule machin}}%
 \hbox{}-- truc: machin
 
 
+\index[fn]{machin@\texttt{machin}}%
 \hbox{}-- truc: 
 
 
 \hbox{}-- truc: followed by a comment
 
 
+\index[fn]{followed@\texttt{followed}}%
 \hbox{}-- truc: 
 
 
@@ -2561,117 +2713,142 @@ def--fn
 \hbox{}-- truc: a b c d e \textbf{f g} h i
 
 
+\index[fn]{a@\texttt{a}}%
 \hbox{}-- truc: deffnx before end deffn
 
 
+\index[fn]{deffnx@\texttt{deffnx}}%
 
 \hbox{}-- empty: deffn
 
 
+\index[fn]{deffn@\texttt{deffn}}%
 
 \hbox{}-- empty: deffn with deffnx
 
 
+\index[fn]{deffn@\texttt{deffn}}%
 \hbox{}-- empty: deffnx
 
 
+\index[fn]{deffnx@\texttt{deffnx}}%
 
 \hbox{}-- fset: \emph{i} a g
 
 
+\index[fn]{\emph{i}@\texttt{\emph{i}}}%
 \hbox{}-- cmde: truc 
 
 
+\index[fn]{truc@\texttt{truc}}%
 text in def item for second def item
 
 \hbox{}-- c--ategory: d--efvr\_name
 
 
+\index[cp]{d--efvr\_name@\texttt{d{-}{-}efvr\_name}}%
 d--efvr
 
 \hbox{}-- c--ategory: t--ype d--eftypefn\_name a--rguments...
 
 
+\index[fn]{d--eftypefn\_name@\texttt{d{-}{-}eftypefn\_name}}%
 d--eftypefn
 
 \hbox{}-- c--ategory on c--lass: t--ype d--eftypeop\_name a--rguments...
 
 
+\index[fn]{d--eftypeop\_name on c--lass@\texttt{d{-}{-}eftypeop\_name on c{-}{-}lass}}%
 d--eftypeop
 
 \hbox{}-- c--ategory: t--ype d--eftypevr\_name
 
 
+\index[cp]{d--eftypevr\_name@\texttt{d{-}{-}eftypevr\_name}}%
 d--eftypevr
 
 \hbox{}-- c--ategory of c--lass: d--efcv\_name
 
 
+\index[cp]{d--efcv\_name@\texttt{d{-}{-}efcv\_name}}%
 d--efcv
 
 \hbox{}-- c--ategory on c--lass: d--efop\_name a--rguments...
 
 
+\index[fn]{d--efop\_name on c--lass@\texttt{d{-}{-}efop\_name on c{-}{-}lass}}%
 d--efop
 
 \hbox{}-- c--ategory: d--eftp\_name a--ttributes...
 
 
+\index[tp]{d--eftp\_name@\texttt{d{-}{-}eftp\_name}}%
 d--eftp
 
 \hbox{}-- Function: d--efun\_name a--rguments...
 
 
+\index[fn]{d--efun\_name@\texttt{d{-}{-}efun\_name}}%
 d--efun
 
 \hbox{}-- Macro: d--efmac\_name a--rguments...
 
 
+\index[fn]{d--efmac\_name@\texttt{d{-}{-}efmac\_name}}%
 d--efmac
 
 \hbox{}-- Special Form: d--efspec\_name a--rguments...
 
 
+\index[fn]{d--efspec\_name@\texttt{d{-}{-}efspec\_name}}%
 d--efspec
 
 \hbox{}-- Variable: d--efvar\_name argvar argvar1
 
 
+\index[cp]{d--efvar\_name@\texttt{d{-}{-}efvar\_name}}%
 d--efvar
 
 \hbox{}-- User Option: d--efopt\_name
 
 
+\index[cp]{d--efopt\_name@\texttt{d{-}{-}efopt\_name}}%
 d--efopt
 
 \hbox{}-- Function: t--ype d--eftypefun\_name a--rguments...
 
 
+\index[fn]{d--eftypefun\_name@\texttt{d{-}{-}eftypefun\_name}}%
 d--eftypefun
 
 \hbox{}-- Variable: t--ype d--eftypevar\_name
 
 
+\index[cp]{d--eftypevar\_name@\texttt{d{-}{-}eftypevar\_name}}%
 d--eftypevar
 
 \hbox{}-- Instance Variable of c--lass: d--efivar\_name
 
 
+\index[cp]{d--efivar\_name of c--lass@\texttt{d{-}{-}efivar\_name of c{-}{-}lass}}%
 d--efivar
 
 \hbox{}-- Instance Variable of c--lass: t--ype d--eftypeivar\_name
 
 
+\index[cp]{d--eftypeivar\_name of c--lass@\texttt{d{-}{-}eftypeivar\_name of c{-}{-}lass}}%
 d--eftypeivar
 
 \hbox{}-- Method on c--lass: d--efmethod\_name a--rguments...
 
 
+\index[fn]{d--efmethod\_name on c--lass@\texttt{d{-}{-}efmethod\_name on c{-}{-}lass}}%
 d--efmethod
 
 \hbox{}-- Method on c--lass: t--ype d--eftypemethod\_name a--rguments...
 
 
+\index[fn]{d--eftypemethod\_name on c--lass@\texttt{d{-}{-}eftypemethod\_name on c{-}{-}lass}}%
 d--eftypemethod
 
 \texttt{@xref\{c{-}{-}{-}hapter@@, cross r{-}{-}{-}ef name@@, t{-}{-}{-}itle@@, file n{-}{-}{-}ame@@, ma{-}{-}{-}nual@@\}} See Section ``t---itle@'' in \textit{ma---nual@}.
@@ -2679,20 +2856,20 @@ d--eftypemethod
 \texttt{@pxref\{chapter, cross ref name, title, file name, manual\}} see Section ``title'' in \textit{manual}
 \texttt{@inforef\{chapter, cross ref name, file name\}} Section ``chapter'' in \texttt{file name}
 
-\texttt{@ref\{chapter\}} \hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}
-\texttt{@xref\{chapter\}} See \hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}.
-\texttt{@pxref\{chapter\}} see \hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}
+\texttt{@ref\{chapter\}} \hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}
+\texttt{@xref\{chapter\}} See \hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}.
+\texttt{@pxref\{chapter\}} see \hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}
 \texttt{@ref\{s{-}{-}ect@comma\{\}ion\}} \hyperref[anchor:s_002d_002dect_002cion]{Section~\ref*{anchor:s_002d_002dect_002cion} [s--ect,ion], page~\pageref*{anchor:s_002d_002dect_002cion}}
 
 \texttt{@ref\{s{-}{-}ect@comma\{\}ion, a @comma\{\} in cross
 ref, a comma@comma\{\} in title, a comma@comma\{\} in file, a @comma\{\} in manual name \}}
 Section ``a comma, in title'' in \textit{a , in manual name}
 
-\texttt{@ref\{chapter,cross ref name\}} \hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}
-\texttt{@ref\{chapter,,title\}} \hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [title], page~\pageref*{anchor:chapter}}
+\texttt{@ref\{chapter,cross ref name\}} \hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}
+\texttt{@ref\{chapter,,title\}} \hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [title], page~\pageref*{anchor:chapter}}
 \texttt{@ref\{chapter,,,file name\}} Section ``chapter'' in \texttt{file name}
 \texttt{@ref\{chapter,,,,manual\}} Section ``chapter'' in \textit{manual}
-\texttt{@ref\{chapter,cross ref name,title,\}} \hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [title], page~\pageref*{anchor:chapter}}
+\texttt{@ref\{chapter,cross ref name,title,\}} \hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [title], page~\pageref*{anchor:chapter}}
 \texttt{@ref\{chapter,cross ref name,,file name\}} Section ``chapter'' in \texttt{file name}
 \texttt{@ref\{chapter,cross ref name,,,manual\}} Section ``chapter'' in \textit{manual}
 \texttt{@ref\{chapter,cross ref name,title,file name\}} Section ``title'' in \texttt{file name}
@@ -2734,10 +2911,10 @@ Section ``a comma, in title'' in \textit{a , in manual name}
 ref, a comma@comma\{\} in file\}}
 Section ``s--ect,ion'' in \texttt{a comma, in file}
 
-`\texttt{\hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}}'.
+`\texttt{\hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}}'.
 
 Section ``title with uref2 \href{href://http/myhost.com/index2.html}{uref2 (\nolinkurl{href://http/myhost.com/index2.html})}'' in \textit{printed manual with uref4 \href{href://http/myhost.com/index4.html}{uref4 (\nolinkurl{href://http/myhost.com/index4.html})}}
-\hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [title with uref2 \href{href://http/myhost.com/index2.html}{uref2 (\nolinkurl{href://http/myhost.com/index2.html})}], page~\pageref*{anchor:chapter}}
+\hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [title with uref2 \href{href://http/myhost.com/index2.html}{uref2 (\nolinkurl{href://http/myhost.com/index2.html})}], page~\pageref*{anchor:chapter}}
 
 \begin{description}[format=\textbf]
 \item[a--strong]
@@ -2746,13 +2923,18 @@ l--ine
 
 \begin{description}
 \item[a--asis]
+\index[cp]{a--asis@\texttt{a{-}{-}asis}}%
 \item[b]
+\index[cp]{b@\texttt{b}}%
 l--ine
 \end{description}
 
 \begin{description}[format=\normalfont\emph]
 \item[a]
+\index[fn]{a@\texttt{a}}%
+\index[cp]{index entry between item and itemx}%
 \item[b]
+\index[fn]{b@\texttt{b}}%
 l--ine
 \end{description}
 
@@ -2892,7 +3074,10 @@ l--ine
 
 \begin{description}
 \item[a]
+\index[fn]{a@\texttt{a}}%
+\index[cp]{index entry between item and itemx}%
 \item[b]
+\index[fn]{b@\texttt{b}}%
 l--ine
 \end{description}
 
@@ -2902,22 +3087,28 @@ l--ine
 \hbox{}-- truc: machin bidule chose and
 
 
+\index[fn]{machin@\texttt{machin}}%
 \hbox{}-- truc: machin bidule chose and  after
 
 
+\index[fn]{machin@\texttt{machin}}%
 \hbox{}-- truc: machin bidule chose and 
 
 
+\index[fn]{machin@\texttt{machin}}%
 \hbox{}-- truc: machin bidule chose and and after
 
 
+\index[fn]{machin@\texttt{machin}}%
 \hbox{}-- truc: followed by a comment
 
 
+\index[fn]{followed@\texttt{followed}}%
 Various deff lines
 \hbox{}-- truc: after a deff item
 
 
+\index[fn]{after@\texttt{after}}%
 
 \texttt{@ref\{node\}} node
 
@@ -2975,6 +3166,10 @@ kbd: {\ttfamily\textsl{``simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-''}} \le
 
 `\hbox{}`simple-double-\hbox{}-three---four----'\hbox{}'\leavevmode{}\\
 
+\index[cp]{--option}%
+\index[cp]{``}%
+\index[fn]{``@\texttt{``}}%
+\index[fn]{--foption@\texttt{{-}{-}foption}}%
 
 @"u \"{u} 
 @"\{U\} \"{U} 
@@ -3326,7 +3521,8 @@ A small quot---ation
 \end{itemize}
 
 \begin{itemize}[label=\textbullet{} a--n itemize line]
-\item i--tem 1
+\item \index[cp]{index entry within itemize}%
+i--tem 1
 \item i--tem 2
 \end{itemize}
 
@@ -3351,6 +3547,7 @@ A small quot---ation
 mu--ltitable headitem another tab
 mu--ltitable item multitable tab
 mu--ltitable item 2 multitable tab 2
+\index[cp]{index entry within multitable}%
 lone mu--ltitable item
 
 truc bidule
@@ -3439,34 +3636,44 @@ $$
 \hbox{}-- c--ategory: d--effn\_name a--rguments...
 
 
+\index[fn]{d--effn\_name@\texttt{d{-}{-}effn\_name}}%
 d--effn
 
 \hbox{}-- cate--gory: de--ffn\_name ar--guments    more args \leavevmode{}\\ even more so
 
 
+\index[fn]{de--ffn\_name@\texttt{de{-}{-}ffn\_name}}%
 def--fn
 
 \hbox{}-- fset: \emph{i} a g
 
 
+\index[fn]{\emph{i}@\texttt{\emph{i}}}%
+\index[cp]{index entry within deffn}%
 \hbox{}-- cmde: truc 
 
 
+\index[fn]{truc@\texttt{truc}}%
 \hbox{}-- Command: log trap 
 
 
+\index[fn]{log trap@\texttt{log trap}}%
 \hbox{}-- Command: log trap1 
 
 
+\index[fn]{log trap1@\texttt{log trap1}}%
 \hbox{}-- Command: log trap2 
 
 
+\index[fn]{log trap2@\texttt{log trap2}}%
 \hbox{}-- cmde: \textbf{id ule} truc
 
 
+\index[fn]{\textbf{id ule}@\texttt{\textbf{id ule}}}%
 \hbox{}-- cmde2: \textbf{id `\texttt{i}' ule} truc
 
 
+\index[fn]{\textbf{id `\texttt{i}' ule}@\texttt{\textbf{id `\texttt{i}' ule}}}%
 \hbox{}-- \textbf{id `\texttt{i}' ule}: 
 
 
@@ -3483,18 +3690,22 @@ def--fn
 \hbox{}-- : machin
 
 
+\index[fn]{machin@\texttt{machin}}%
 \hbox{}-- : bidule machin
 
 
+\index[fn]{bidule machin@\texttt{bidule machin}}%
 \hbox{}-- truc: machin
 
 
+\index[fn]{machin@\texttt{machin}}%
 \hbox{}-- truc: 
 
 
 \hbox{}-- truc: followed by a comment
 
 
+\index[fn]{followed@\texttt{followed}}%
 \hbox{}-- truc: 
 
 
@@ -3504,117 +3715,142 @@ def--fn
 \hbox{}-- truc: a b c d e \textbf{f g} h i
 
 
+\index[fn]{a@\texttt{a}}%
 \hbox{}-- truc: deffnx before end deffn
 
 
+\index[fn]{deffnx@\texttt{deffnx}}%
 
 \hbox{}-- empty: deffn
 
 
+\index[fn]{deffn@\texttt{deffn}}%
 
 \hbox{}-- empty: deffn with deffnx
 
 
+\index[fn]{deffn@\texttt{deffn}}%
 \hbox{}-- empty: deffnx
 
 
+\index[fn]{deffnx@\texttt{deffnx}}%
 
 \hbox{}-- fset: \emph{i} a g
 
 
+\index[fn]{\emph{i}@\texttt{\emph{i}}}%
 \hbox{}-- cmde: truc 
 
 
+\index[fn]{truc@\texttt{truc}}%
 text in def item for second def item
 
 \hbox{}-- c--ategory: d--efvr\_name
 
 
+\index[cp]{d--efvr\_name@\texttt{d{-}{-}efvr\_name}}%
 d--efvr
 
 \hbox{}-- c--ategory: t--ype d--eftypefn\_name a--rguments...
 
 
+\index[fn]{d--eftypefn\_name@\texttt{d{-}{-}eftypefn\_name}}%
 d--eftypefn
 
 \hbox{}-- c--ategory on c--lass: t--ype d--eftypeop\_name a--rguments...
 
 
+\index[fn]{d--eftypeop\_name on c--lass@\texttt{d{-}{-}eftypeop\_name on c{-}{-}lass}}%
 d--eftypeop
 
 \hbox{}-- c--ategory: t--ype d--eftypevr\_name
 
 
+\index[cp]{d--eftypevr\_name@\texttt{d{-}{-}eftypevr\_name}}%
 d--eftypevr
 
 \hbox{}-- c--ategory of c--lass: d--efcv\_name
 
 
+\index[cp]{d--efcv\_name@\texttt{d{-}{-}efcv\_name}}%
 d--efcv
 
 \hbox{}-- c--ategory on c--lass: d--efop\_name a--rguments...
 
 
+\index[fn]{d--efop\_name on c--lass@\texttt{d{-}{-}efop\_name on c{-}{-}lass}}%
 d--efop
 
 \hbox{}-- c--ategory: d--eftp\_name a--ttributes...
 
 
+\index[tp]{d--eftp\_name@\texttt{d{-}{-}eftp\_name}}%
 d--eftp
 
 \hbox{}-- Function: d--efun\_name a--rguments...
 
 
+\index[fn]{d--efun\_name@\texttt{d{-}{-}efun\_name}}%
 d--efun
 
 \hbox{}-- Macro: d--efmac\_name a--rguments...
 
 
+\index[fn]{d--efmac\_name@\texttt{d{-}{-}efmac\_name}}%
 d--efmac
 
 \hbox{}-- Special Form: d--efspec\_name a--rguments...
 
 
+\index[fn]{d--efspec\_name@\texttt{d{-}{-}efspec\_name}}%
 d--efspec
 
 \hbox{}-- Variable: d--efvar\_name argvar argvar1
 
 
+\index[cp]{d--efvar\_name@\texttt{d{-}{-}efvar\_name}}%
 d--efvar
 
 \hbox{}-- User Option: d--efopt\_name
 
 
+\index[cp]{d--efopt\_name@\texttt{d{-}{-}efopt\_name}}%
 d--efopt
 
 \hbox{}-- Function: t--ype d--eftypefun\_name a--rguments...
 
 
+\index[fn]{d--eftypefun\_name@\texttt{d{-}{-}eftypefun\_name}}%
 d--eftypefun
 
 \hbox{}-- Variable: t--ype d--eftypevar\_name
 
 
+\index[cp]{d--eftypevar\_name@\texttt{d{-}{-}eftypevar\_name}}%
 d--eftypevar
 
 \hbox{}-- Instance Variable of c--lass: d--efivar\_name
 
 
+\index[cp]{d--efivar\_name of c--lass@\texttt{d{-}{-}efivar\_name of c{-}{-}lass}}%
 d--efivar
 
 \hbox{}-- Instance Variable of c--lass: t--ype d--eftypeivar\_name
 
 
+\index[cp]{d--eftypeivar\_name of c--lass@\texttt{d{-}{-}eftypeivar\_name of c{-}{-}lass}}%
 d--eftypeivar
 
 \hbox{}-- Method on c--lass: d--efmethod\_name a--rguments...
 
 
+\index[fn]{d--efmethod\_name on c--lass@\texttt{d{-}{-}efmethod\_name on c{-}{-}lass}}%
 d--efmethod
 
 \hbox{}-- Method on c--lass: t--ype d--eftypemethod\_name a--rguments...
 
 
+\index[fn]{d--eftypemethod\_name on c--lass@\texttt{d{-}{-}eftypemethod\_name on c{-}{-}lass}}%
 d--eftypemethod
 
 \texttt{@xref\{c{-}{-}{-}hapter@@, cross r{-}{-}{-}ef name@@, t{-}{-}{-}itle@@, file n{-}{-}{-}ame@@, ma{-}{-}{-}nual@@\}} See Section ``t---itle@'' in \textit{ma---nual@}.
@@ -3622,20 +3858,20 @@ d--eftypemethod
 \texttt{@pxref\{chapter, cross ref name, title, file name, manual\}} see Section ``title'' in \textit{manual}
 \texttt{@inforef\{chapter, cross ref name, file name\}} Section ``chapter'' in \texttt{file name}
 
-\texttt{@ref\{chapter\}} \hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}
-\texttt{@xref\{chapter\}} See \hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}.
-\texttt{@pxref\{chapter\}} see \hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}
+\texttt{@ref\{chapter\}} \hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}
+\texttt{@xref\{chapter\}} See \hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}.
+\texttt{@pxref\{chapter\}} see \hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}
 \texttt{@ref\{s{-}{-}ect@comma\{\}ion\}} \hyperref[anchor:s_002d_002dect_002cion]{Section~\ref*{anchor:s_002d_002dect_002cion} [s--ect,ion], page~\pageref*{anchor:s_002d_002dect_002cion}}
 
 \texttt{@ref\{s{-}{-}ect@comma\{\}ion, a @comma\{\} in cross
 ref, a comma@comma\{\} in title, a comma@comma\{\} in file, a @comma\{\} in manual name \}}
 Section ``a comma, in title'' in \textit{a , in manual name}
 
-\texttt{@ref\{chapter,cross ref name\}} \hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}
-\texttt{@ref\{chapter,,title\}} \hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [title], page~\pageref*{anchor:chapter}}
+\texttt{@ref\{chapter,cross ref name\}} \hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}
+\texttt{@ref\{chapter,,title\}} \hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [title], page~\pageref*{anchor:chapter}}
 \texttt{@ref\{chapter,,,file name\}} Section ``chapter'' in \texttt{file name}
 \texttt{@ref\{chapter,,,,manual\}} Section ``chapter'' in \textit{manual}
-\texttt{@ref\{chapter,cross ref name,title,\}} \hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [title], page~\pageref*{anchor:chapter}}
+\texttt{@ref\{chapter,cross ref name,title,\}} \hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [title], page~\pageref*{anchor:chapter}}
 \texttt{@ref\{chapter,cross ref name,,file name\}} Section ``chapter'' in \texttt{file name}
 \texttt{@ref\{chapter,cross ref name,,,manual\}} Section ``chapter'' in \textit{manual}
 \texttt{@ref\{chapter,cross ref name,title,file name\}} Section ``title'' in \texttt{file name}
@@ -3677,10 +3913,10 @@ Section ``a comma, in title'' in \textit{a , in manual name}
 ref, a comma@comma\{\} in file\}}
 Section ``s--ect,ion'' in \texttt{a comma, in file}
 
-`\texttt{\hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}}'.
+`\texttt{\hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}}'.
 
 Section ``title with uref2 \href{href://http/myhost.com/index2.html}{uref2 (\nolinkurl{href://http/myhost.com/index2.html})}'' in \textit{printed manual with uref4 \href{href://http/myhost.com/index4.html}{uref4 (\nolinkurl{href://http/myhost.com/index4.html})}}
-\hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [title with uref2 \href{href://http/myhost.com/index2.html}{uref2 (\nolinkurl{href://http/myhost.com/index2.html})}], page~\pageref*{anchor:chapter}}
+\hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [title with uref2 \href{href://http/myhost.com/index2.html}{uref2 (\nolinkurl{href://http/myhost.com/index2.html})}], page~\pageref*{anchor:chapter}}
 
 \begin{description}[format=\textbf]
 \item[a--strong]
@@ -3689,13 +3925,18 @@ l--ine
 
 \begin{description}
 \item[a--asis]
+\index[cp]{a--asis@\texttt{a{-}{-}asis}}%
 \item[b]
+\index[cp]{b@\texttt{b}}%
 l--ine
 \end{description}
 
 \begin{description}[format=\normalfont\emph]
 \item[a]
+\index[fn]{a@\texttt{a}}%
+\index[cp]{index entry between item and itemx}%
 \item[b]
+\index[fn]{b@\texttt{b}}%
 l--ine
 \end{description}
 
@@ -3835,7 +4076,10 @@ l--ine
 
 \begin{description}
 \item[a]
+\index[fn]{a@\texttt{a}}%
+\index[cp]{index entry between item and itemx}%
 \item[b]
+\index[fn]{b@\texttt{b}}%
 l--ine
 \end{description}
 
@@ -3845,22 +4089,28 @@ l--ine
 \hbox{}-- truc: machin bidule chose and
 
 
+\index[fn]{machin@\texttt{machin}}%
 \hbox{}-- truc: machin bidule chose and  after
 
 
+\index[fn]{machin@\texttt{machin}}%
 \hbox{}-- truc: machin bidule chose and 
 
 
+\index[fn]{machin@\texttt{machin}}%
 \hbox{}-- truc: machin bidule chose and and after
 
 
+\index[fn]{machin@\texttt{machin}}%
 \hbox{}-- truc: followed by a comment
 
 
+\index[fn]{followed@\texttt{followed}}%
 Various deff lines
 \hbox{}-- truc: after a deff item
 
 
+\index[fn]{after@\texttt{after}}%
 
 \texttt{@ref\{node\}} node
 
@@ -3919,6 +4169,10 @@ kbd: {\ttfamily\textsl{``simple-double{-}{-}three{-}{-}{-}four{-}{-}{-}-''}} \le
 
 `\hbox{}`simple-double-\hbox{}-three{-}{-}{-}four{-}{-}{-}-'\hbox{}'\leavevmode{}\\
 
+\index[cp]{--option}%
+\index[cp]{``}%
+\index[fn]{``@\texttt{``}}%
+\index[fn]{--foption@\texttt{{-}{-}foption}}%
 
 @"u \"{u} 
 @"\{U\} \"{U} 
@@ -4280,7 +4534,8 @@ A small quot{-}{-}{-}ation
 \end{itemize}
 
 \begin{itemize}[label=\textbullet{} a{-}{-}n itemize line]
-\item i{-}{-}tem 1
+\item \index[cp]{index entry within itemize}%
+i{-}{-}tem 1
 \item i{-}{-}tem 2
 \end{itemize}
 
@@ -4305,6 +4560,7 @@ A small quot{-}{-}{-}ation
 mu{-}{-}ltitable headitem another tab
 mu{-}{-}ltitable item multitable tab
 mu{-}{-}ltitable item 2 multitable tab 2
+\index[cp]{index entry within multitable}%
 lone mu{-}{-}ltitable item
 
 truc bidule
@@ -4395,34 +4651,44 @@ $$
 \hbox{}{-}{-} c{-}{-}ategory: d{-}{-}effn\_name a{-}{-}rguments...
 
 
+\index[fn]{d--effn\_name@\texttt{d{-}{-}effn\_name}}%
 d{-}{-}effn
 
 \hbox{}{-}{-} cate{-}{-}gory: de{-}{-}ffn\_name ar{-}{-}guments    more args \leavevmode{}\\ even more so
 
 
+\index[fn]{de--ffn\_name@\texttt{de{-}{-}ffn\_name}}%
 def{-}{-}fn
 
 \hbox{}{-}{-} fset: \emph{i} a g
 
 
+\index[fn]{\emph{i}@\texttt{\emph{i}}}%
+\index[cp]{index entry within deffn}%
 \hbox{}{-}{-} cmde: truc 
 
 
+\index[fn]{truc@\texttt{truc}}%
 \hbox{}{-}{-} Command: log trap 
 
 
+\index[fn]{log trap@\texttt{log trap}}%
 \hbox{}{-}{-} Command: log trap1 
 
 
+\index[fn]{log trap1@\texttt{log trap1}}%
 \hbox{}{-}{-} Command: log trap2 
 
 
+\index[fn]{log trap2@\texttt{log trap2}}%
 \hbox{}{-}{-} cmde: \textbf{id ule} truc
 
 
+\index[fn]{\textbf{id ule}@\texttt{\textbf{id ule}}}%
 \hbox{}{-}{-} cmde2: \textbf{id `\texttt{i}' ule} truc
 
 
+\index[fn]{\textbf{id `\texttt{i}' ule}@\texttt{\textbf{id `\texttt{i}' ule}}}%
 \hbox{}{-}{-} \textbf{id `\texttt{i}' ule}: 
 
 
@@ -4439,18 +4705,22 @@ def{-}{-}fn
 \hbox{}{-}{-} : machin
 
 
+\index[fn]{machin@\texttt{machin}}%
 \hbox{}{-}{-} : bidule machin
 
 
+\index[fn]{bidule machin@\texttt{bidule machin}}%
 \hbox{}{-}{-} truc: machin
 
 
+\index[fn]{machin@\texttt{machin}}%
 \hbox{}{-}{-} truc: 
 
 
 \hbox{}{-}{-} truc: followed by a comment
 
 
+\index[fn]{followed@\texttt{followed}}%
 \hbox{}{-}{-} truc: 
 
 
@@ -4460,117 +4730,142 @@ def{-}{-}fn
 \hbox{}{-}{-} truc: a b c d e \textbf{f g} h i
 
 
+\index[fn]{a@\texttt{a}}%
 \hbox{}{-}{-} truc: deffnx before end deffn
 
 
+\index[fn]{deffnx@\texttt{deffnx}}%
 
 \hbox{}{-}{-} empty: deffn
 
 
+\index[fn]{deffn@\texttt{deffn}}%
 
 \hbox{}{-}{-} empty: deffn with deffnx
 
 
+\index[fn]{deffn@\texttt{deffn}}%
 \hbox{}{-}{-} empty: deffnx
 
 
+\index[fn]{deffnx@\texttt{deffnx}}%
 
 \hbox{}{-}{-} fset: \emph{i} a g
 
 
+\index[fn]{\emph{i}@\texttt{\emph{i}}}%
 \hbox{}{-}{-} cmde: truc 
 
 
+\index[fn]{truc@\texttt{truc}}%
 text in def item for second def item
 
 \hbox{}{-}{-} c{-}{-}ategory: d{-}{-}efvr\_name
 
 
+\index[cp]{d--efvr\_name@\texttt{d{-}{-}efvr\_name}}%
 d{-}{-}efvr
 
 \hbox{}{-}{-} c{-}{-}ategory: t{-}{-}ype d{-}{-}eftypefn\_name a{-}{-}rguments...
 
 
+\index[fn]{d--eftypefn\_name@\texttt{d{-}{-}eftypefn\_name}}%
 d{-}{-}eftypefn
 
 \hbox{}{-}{-} c{-}{-}ategory on c{-}{-}lass: t{-}{-}ype d{-}{-}eftypeop\_name a{-}{-}rguments...
 
 
+\index[fn]{d--eftypeop\_name on c--lass@\texttt{d{-}{-}eftypeop\_name on c{-}{-}lass}}%
 d{-}{-}eftypeop
 
 \hbox{}{-}{-} c{-}{-}ategory: t{-}{-}ype d{-}{-}eftypevr\_name
 
 
+\index[cp]{d--eftypevr\_name@\texttt{d{-}{-}eftypevr\_name}}%
 d{-}{-}eftypevr
 
 \hbox{}{-}{-} c{-}{-}ategory of c{-}{-}lass: d{-}{-}efcv\_name
 
 
+\index[cp]{d--efcv\_name@\texttt{d{-}{-}efcv\_name}}%
 d{-}{-}efcv
 
 \hbox{}{-}{-} c{-}{-}ategory on c{-}{-}lass: d{-}{-}efop\_name a{-}{-}rguments...
 
 
+\index[fn]{d--efop\_name on c--lass@\texttt{d{-}{-}efop\_name on c{-}{-}lass}}%
 d{-}{-}efop
 
 \hbox{}{-}{-} c{-}{-}ategory: d{-}{-}eftp\_name a{-}{-}ttributes...
 
 
+\index[tp]{d--eftp\_name@\texttt{d{-}{-}eftp\_name}}%
 d{-}{-}eftp
 
 \hbox{}{-}{-} Function: d{-}{-}efun\_name a{-}{-}rguments...
 
 
+\index[fn]{d--efun\_name@\texttt{d{-}{-}efun\_name}}%
 d{-}{-}efun
 
 \hbox{}{-}{-} Macro: d{-}{-}efmac\_name a{-}{-}rguments...
 
 
+\index[fn]{d--efmac\_name@\texttt{d{-}{-}efmac\_name}}%
 d{-}{-}efmac
 
 \hbox{}{-}{-} Special Form: d{-}{-}efspec\_name a{-}{-}rguments...
 
 
+\index[fn]{d--efspec\_name@\texttt{d{-}{-}efspec\_name}}%
 d{-}{-}efspec
 
 \hbox{}{-}{-} Variable: d{-}{-}efvar\_name argvar argvar1
 
 
+\index[cp]{d--efvar\_name@\texttt{d{-}{-}efvar\_name}}%
 d{-}{-}efvar
 
 \hbox{}{-}{-} User Option: d{-}{-}efopt\_name
 
 
+\index[cp]{d--efopt\_name@\texttt{d{-}{-}efopt\_name}}%
 d{-}{-}efopt
 
 \hbox{}{-}{-} Function: t{-}{-}ype d{-}{-}eftypefun\_name a{-}{-}rguments...
 
 
+\index[fn]{d--eftypefun\_name@\texttt{d{-}{-}eftypefun\_name}}%
 d{-}{-}eftypefun
 
 \hbox{}{-}{-} Variable: t{-}{-}ype d{-}{-}eftypevar\_name
 
 
+\index[cp]{d--eftypevar\_name@\texttt{d{-}{-}eftypevar\_name}}%
 d{-}{-}eftypevar
 
 \hbox{}{-}{-} Instance Variable of c{-}{-}lass: d{-}{-}efivar\_name
 
 
+\index[cp]{d--efivar\_name of c--lass@\texttt{d{-}{-}efivar\_name of c{-}{-}lass}}%
 d{-}{-}efivar
 
 \hbox{}{-}{-} Instance Variable of c{-}{-}lass: t{-}{-}ype d{-}{-}eftypeivar\_name
 
 
+\index[cp]{d--eftypeivar\_name of c--lass@\texttt{d{-}{-}eftypeivar\_name of c{-}{-}lass}}%
 d{-}{-}eftypeivar
 
 \hbox{}{-}{-} Method on c{-}{-}lass: d{-}{-}efmethod\_name a{-}{-}rguments...
 
 
+\index[fn]{d--efmethod\_name on c--lass@\texttt{d{-}{-}efmethod\_name on c{-}{-}lass}}%
 d{-}{-}efmethod
 
 \hbox{}{-}{-} Method on c{-}{-}lass: t{-}{-}ype d{-}{-}eftypemethod\_name a{-}{-}rguments...
 
 
+\index[fn]{d--eftypemethod\_name on c--lass@\texttt{d{-}{-}eftypemethod\_name on c{-}{-}lass}}%
 d{-}{-}eftypemethod
 
 \texttt{@xref\{c{-}{-}{-}hapter@@, cross r{-}{-}{-}ef name@@, t{-}{-}{-}itle@@, file n{-}{-}{-}ame@@, ma{-}{-}{-}nual@@\}} See Section ``t{-}{-}{-}itle@'' in \textit{ma{-}{-}{-}nual@}.
@@ -4578,20 +4873,20 @@ d{-}{-}eftypemethod
 \texttt{@pxref\{chapter, cross ref name, title, file name, manual\}} see Section ``title'' in \textit{manual}
 \texttt{@inforef\{chapter, cross ref name, file name\}} Section ``chapter'' in \texttt{file name}
 
-\texttt{@ref\{chapter\}} \hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}
-\texttt{@xref\{chapter\}} See \hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}.
-\texttt{@pxref\{chapter\}} see \hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}
+\texttt{@ref\{chapter\}} \hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}
+\texttt{@xref\{chapter\}} See \hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}.
+\texttt{@pxref\{chapter\}} see \hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}
 \texttt{@ref\{s{-}{-}ect@comma\{\}ion\}} \hyperref[anchor:s_002d_002dect_002cion]{Section~\ref*{anchor:s_002d_002dect_002cion} [s{-}{-}ect,ion], page~\pageref*{anchor:s_002d_002dect_002cion}}
 
 \texttt{@ref\{s{-}{-}ect@comma\{\}ion, a @comma\{\} in cross
 ref, a comma@comma\{\} in title, a comma@comma\{\} in file, a @comma\{\} in manual name \}}
 Section ``a comma, in title'' in \textit{a , in manual name}
 
-\texttt{@ref\{chapter,cross ref name\}} \hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}
-\texttt{@ref\{chapter,,title\}} \hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [title], page~\pageref*{anchor:chapter}}
+\texttt{@ref\{chapter,cross ref name\}} \hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}
+\texttt{@ref\{chapter,,title\}} \hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [title], page~\pageref*{anchor:chapter}}
 \texttt{@ref\{chapter,,,file name\}} Section ``chapter'' in \texttt{file name}
 \texttt{@ref\{chapter,,,,manual\}} Section ``chapter'' in \textit{manual}
-\texttt{@ref\{chapter,cross ref name,title,\}} \hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [title], page~\pageref*{anchor:chapter}}
+\texttt{@ref\{chapter,cross ref name,title,\}} \hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [title], page~\pageref*{anchor:chapter}}
 \texttt{@ref\{chapter,cross ref name,,file name\}} Section ``chapter'' in \texttt{file name}
 \texttt{@ref\{chapter,cross ref name,,,manual\}} Section ``chapter'' in \textit{manual}
 \texttt{@ref\{chapter,cross ref name,title,file name\}} Section ``title'' in \texttt{file name}
@@ -4633,10 +4928,10 @@ Section ``a comma, in title'' in \textit{a , in manual name}
 ref, a comma@comma\{\} in file\}}
 Section ``s{-}{-}ect,ion'' in \texttt{a comma, in file}
 
-`\texttt{\hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}}'.
+`\texttt{\hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [chapter], page~\pageref*{anchor:chapter}}}'.
 
 Section ``title with uref2 \href{href://http/myhost.com/index2.html}{uref2 (\nolinkurl{href://http/myhost.com/index2.html})}'' in \textit{printed manual with uref4 \href{href://http/myhost.com/index4.html}{uref4 (\nolinkurl{href://http/myhost.com/index4.html})}}
-\hyperref[anchor:chapter]{Chapter~\ref*{anchor:chapter} [title with uref2 \href{href://http/myhost.com/index2.html}{uref2 (\nolinkurl{href://http/myhost.com/index2.html})}], page~\pageref*{anchor:chapter}}
+\hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [title with uref2 \href{href://http/myhost.com/index2.html}{uref2 (\nolinkurl{href://http/myhost.com/index2.html})}], page~\pageref*{anchor:chapter}}
 
 \begin{description}[format=\textbf]
 \item[a{-}{-}strong]
@@ -4645,13 +4940,18 @@ l{-}{-}ine
 
 \begin{description}
 \item[a{-}{-}asis]
+\index[cp]{a--asis@\texttt{a{-}{-}asis}}%
 \item[b]
+\index[cp]{b@\texttt{b}}%
 l{-}{-}ine
 \end{description}
 
 \begin{description}[format=\normalfont\emph]
 \item[a]
+\index[fn]{a@\texttt{a}}%
+\index[cp]{index entry between item and itemx}%
 \item[b]
+\index[fn]{b@\texttt{b}}%
 l{-}{-}ine
 \end{description}
 
@@ -4791,7 +5091,10 @@ l{-}{-}ine
 
 \begin{description}
 \item[a]
+\index[fn]{a@\texttt{a}}%
+\index[cp]{index entry between item and itemx}%
 \item[b]
+\index[fn]{b@\texttt{b}}%
 l{-}{-}ine
 \end{description}
 
@@ -4801,22 +5104,28 @@ l{-}{-}ine
 \hbox{}{-}{-} truc: machin bidule chose and
 
 
+\index[fn]{machin@\texttt{machin}}%
 \hbox{}{-}{-} truc: machin bidule chose and  after
 
 
+\index[fn]{machin@\texttt{machin}}%
 \hbox{}{-}{-} truc: machin bidule chose and 
 
 
+\index[fn]{machin@\texttt{machin}}%
 \hbox{}{-}{-} truc: machin bidule chose and and after
 
 
+\index[fn]{machin@\texttt{machin}}%
 \hbox{}{-}{-} truc: followed by a comment
 
 
+\index[fn]{followed@\texttt{followed}}%
 Various deff lines
 \hbox{}{-}{-} truc: after a deff item
 
 
+\index[fn]{after@\texttt{after}}%
 
 \texttt{@ref\{node\}} node
 
@@ -4858,25 +5167,76 @@ Various deff lines
 
 \endgroup{}%
 
+\index[cp]{t--ruc}%
+\index[cp]{T--ruc}%
+\index[cp]{.}%
+\index[cp]{?}%
+\index[cp]{a}%
+\index[fn]{t--ruc@\texttt{t{-}{-}ruc}}%
+\index[fn]{T--ruc@\texttt{T{-}{-}ruc}}%
+\index[fn]{.@\texttt{.}}%
+\index[fn]{?@\texttt{?}}%
+\index[fn]{a@\texttt{a}}%
 
+\index[cp]{a---a}%
+\index[cp]{b---b!c---c}%
+\index[cp]{d---dd!e---ee!f---ff}%
+\index[cp]{g---gg!h---hh jjj!k---kk!l---ll}%
+
+\index[fn]{f---aa@\texttt{f{-}{-}{-}aa}}%
+\index[fn]{f---bb@\texttt{f{-}{-}{-}bb}!f---cc@\texttt{f{-}{-}{-}cc}}%
+\index[fn]{f---ddd@\texttt{f{-}{-}{-}ddd}!f---eee@\texttt{f{-}{-}{-}eee}!ffff@\texttt{ffff}}%
+\index[fn]{f---ggg@\texttt{f{-}{-}{-}ggg}!f---hhh fjjj@\texttt{f{-}{-}{-}hhh fjjj}!f---kkk@\texttt{f{-}{-}{-}kkk}!f---lll@\texttt{f{-}{-}{-}lll}}%
+
+\index[cp]{aaa|see{bbb}}%
+\index[cp]{ddd|seealso{ccc}}%
+
+\index[fn]{f---aaa@\texttt{f{-}{-}{-}aaa}|see{f---bbb}}%
+\index[fn]{f---ddd@\texttt{f{-}{-}{-}ddd}|seealso{f---ccc}}%
+
+\index[cp]{A@aaa!B@bbb}%
+
+\index[fn]{X@\texttt{xxx}!X@\texttt{zzz}}%
+
+\index[fn]{\hbox{}@\texttt{\hbox{}}}%
+
+\index[codeidx]{a \emph{index---entry} t\~{e} --- \^{\i{}}@\texttt{a \emph{index{-}{-}{-}entry} t\~{e} {-}{-}{-} \^{\i{}}}}%
+
+\index[truc]{truc}%
+
+
+Text\footnote{in footnote
+\index[cp]{index entry in footnote}%
+
+Blah
+
+Blih
+
+\index[cp]{counting entry}%
+}
+
+truc
+
+\printindex[truc]
+
+codeidx
+
+\printindex[codeidx]
 
 cp
-\printindex
+\printindex[cp]
 
 fn
-\printindex
+\printindex[fn]
 
 vr
-\printindex
 
 ky
-\printindex
 
 pg
-\printindex
 
 tp
-\printindex
+\printindex[tp]
 
 
 
@@ -4904,8 +5264,8 @@ tp
 \chapter*{\centering chapter 2}
 \label{anchor:chapter2}%
 
-\printindex
-\printindex
+\printindex[cp]
+\printindex[fn]
 
 \tableofcontents\newpage
 \end{document}

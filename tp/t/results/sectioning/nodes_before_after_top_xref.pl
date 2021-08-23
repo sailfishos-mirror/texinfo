@@ -848,11 +848,11 @@ in node after
 
 in chap
 
-See \\hyperref[anchor:node-before]{Chapter~\\ref*{anchor:node-before} [top sectionning], page~\\pageref*{anchor:node-before}}.
-See \\hyperref[anchor:after]{Chapter~\\ref*{anchor:after} [top sectionning], page~\\pageref*{anchor:after}}.
+See \\hyperref[anchor:node-before]{\\chaptername~\\ref*{anchor:node-before} [top sectionning], page~\\pageref*{anchor:node-before}}.
+See \\hyperref[anchor:after]{\\chaptername~\\ref*{anchor:after} [top sectionning], page~\\pageref*{anchor:after}}.
 
-See \\hyperref[anchor:node-before]{Chapter~\\ref*{anchor:node-before} [node before], page~\\pageref*{anchor:node-before}}.
-See \\hyperref[anchor:after]{Chapter~\\ref*{anchor:after} [after], page~\\pageref*{anchor:after}}.
+See \\hyperref[anchor:node-before]{\\chaptername~\\ref*{anchor:node-before} [node before], page~\\pageref*{anchor:node-before}}.
+See \\hyperref[anchor:after]{\\chaptername~\\ref*{anchor:after} [after], page~\\pageref*{anchor:after}}.
 
 ';
 

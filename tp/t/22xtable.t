@@ -45,6 +45,12 @@ Text.
 ['inter_item_commands_in_table',
 '@setfilename inter_item_commands_in_table.info
 
+@node Top
+@top top
+
+@node chapter
+@chapter chap
+
 @vtable @code
 @c comment in table
 @item acode--b
@@ -99,6 +105,35 @@ l--ine samp
 Texte before first item samp.
 @item asamp--bb
 @end table
+
+@table @samp 
+
+@cindex cindex between lines
+
+@item asamp--bb1
+@end table
+
+@table @samp 
+@cindex cindex before line
+
+@item asamp--bb2
+@end table
+
+@table @samp 
+
+@cindex cindex after line
+@item asamp--bb2
+@end table
+
+@table @samp 
+@cindex cindex first
+@c commant
+@cindex second
+@cindex third
+@item asamp--bb2
+@end table
+
+
 '],
 ['inter_item_commands_in_table_in_example',
 '@setfilename inter_item_commands_in_table_in_example.info

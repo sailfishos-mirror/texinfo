@@ -461,6 +461,12 @@ more.
 ['inter_item_commands_in_itemize',
 '@setfilename inter_item_commands_in_itemize.info
 
+@node Top
+@top top
+
+@node chapter
+@chapter chap
+
 @itemize @minus
 @c comment in itemize
 @cindex also a cindex in itemize
@@ -484,6 +490,12 @@ T--ext before items.
 ['inter_item_commands_in_enumerate',
 '@setfilename inter_item_commands_in_enumerate.info
 
+@node Top
+@top top
+
+@node chapter
+@chapter chap
+
 @enumerate
 
 @comment comment before first item in enumerate
@@ -491,10 +503,38 @@ T--ext before items.
 @end enumerate
 
 @enumerate
+
+@cindex index inter in enumerate between lines
+
+@item enumerate item
+@end enumerate
+
+@enumerate
+
+@cindex index inter in enumerate after line
+@item enumerate item
+@end enumerate
+
+@enumerate
+@cindex index inter in enumerate before line
+
+@item enumerate item
+@end enumerate
+
+@enumerate
 Title
 @cindex cindex
 @item enum
 @end enumerate
+
+@enumerate
+@cindex first idx
+@comment comment
+@cindex sedond idx
+@cindex another
+@item enum
+@end enumerate
+
 '],
 ['table_in_itemize',
 '@itemize @bullet

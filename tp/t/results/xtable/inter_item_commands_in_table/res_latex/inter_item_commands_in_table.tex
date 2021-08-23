@@ -1,5 +1,5 @@
 \documentclass{book}
-\usepackage{makeidx}\makeindex
+\usepackage{imakeidx}
 \usepackage{amsfonts}
 \usepackage{amsmath}
 \usepackage[gen]{eurosym}
@@ -19,12 +19,16 @@
 % use hidelinks to remove boxes around links to be similar with Texinfo TeX
 \usepackage[hidelinks]{hyperref}
 \usepackage[utf8]{inputenc}
+
+\makeindex[name=cp]%
+\makeindex[name=fn]%
+\makeindex[name=vr]%
+
 % command used in \description format for indicateurl
 \newcommand\GNUTexinfotablestyleindicateurl[1]{\ifstrempty{#1}{}{`\texttt{#1}'}}%
 
 % command used in \description format for samp
 \newcommand\GNUTexinfotablestylesamp[1]{\ifstrempty{#1}{}{`\texttt{#1}'}}%
-
 
 % redefine the \mainmatter command such that it does not clear page
 % as if in double page
@@ -34,7 +38,6 @@
 % add command aliases to use the same command in book and report
 \newcommand\GNUTexinfomainmatter{\mainmatter}
 \newcommand\GNUTexinfofrontmatter{\frontmatter}
-
 
 % this allows to select languages based on bcp47 codes.  bcp47 is a superset
 % of the LL_CC ISO 639-2 LL ISO 3166 CC information of @documentlanguage
@@ -84,7 +87,6 @@
 innertopmargin=10pt, innerbottommargin=10pt,%
 roundcorner=10pt}
 
-
 \renewcommand{\includegraphics}[1]{\fbox{FIG #1}}
 
 % set default for @setchapternewpage
@@ -95,45 +97,88 @@ roundcorner=10pt}
 
 
 \begin{document}
+\chapter{chap}
+\label{anchor:chapter}%
+
 \begin{description}[format=\texttt]
 \item[acode{-}{-}b]
+\index[vr]{acode--b@\texttt{acode{-}{-}b}}%
 l--ine
 \end{description}
 
 \begin{description}
 \item[aasis--b]
+\index[vr]{aasis--b@\texttt{aasis{-}{-}b}}%
 \item[b]
+\index[vr]{b@\texttt{b}}%
 l--ine
 \end{description}
 
 \begin{description}[format=\normalfont\emph]
 \item[avar--b]
+\index[fn]{avar--b@\texttt{avar{-}{-}b}}%
+\index[cp]{index entry between item and itemx}%
 \item[b]
+\index[fn]{b@\texttt{b}}%
 l--ine
 \item[c]
+\index[fn]{c@\texttt{c}}%
 
 
 \item[d]
+\index[fn]{d@\texttt{d}}%
 
 \end{description}
 
 \begin{description}[format=\texttt]
+\item[] \index[cp]{cindex in table}%
 \item[abb]
 l--ine
 \end{description}
 
 \begin{description}[format=\texttt]
-\item[] Texte before first item.
+\item[] \index[cp]{cindex in table}%
+Texte before first item.
 \item[abb]
 \end{description}
 
 \begin{description}[format=\GNUTexinfotablestylesamp]
+\item[] \index[cp]{samp cindex in table}%
 \item[asamp{-}{-}bb]
 l--ine samp
 \end{description}
 
 \begin{description}[format=\GNUTexinfotablestylesamp]
-\item[] Texte before first item samp.
+\item[] \index[cp]{samp cindex in table}%
+Texte before first item samp.
 \item[asamp{-}{-}bb]
 \end{description}
+
+\begin{description}[format=\GNUTexinfotablestylesamp]
+\item[] 
+\index[cp]{cindex between lines}%
+
+\item[asamp{-}{-}bb1]
+\end{description}
+
+\begin{description}[format=\GNUTexinfotablestylesamp]
+\item[] \index[cp]{cindex before line}%
+
+\item[asamp{-}{-}bb2]
+\end{description}
+
+\begin{description}[format=\GNUTexinfotablestylesamp]
+\item[] 
+\index[cp]{cindex after line}%
+\item[asamp{-}{-}bb2]
+\end{description}
+
+\begin{description}[format=\GNUTexinfotablestylesamp]
+\item[] \index[cp]{cindex first}%
+\index[cp]{second}%
+\index[cp]{third}%
+\item[asamp{-}{-}bb2]
+\end{description}
+
+
 \end{document}

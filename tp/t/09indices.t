@@ -165,9 +165,15 @@ Last paragraph.
 @printindex cp
 '],
 ['syncode_index_print_both',
-'@syncodeindex fn cp
+'@setfilename syncode_index_print_both.info
+
+@syncodeindex fn cp
 
 @node Top
+@top top
+
+@node chapter index
+@chapter index
 
 @cindex c---oncept
 @findex f---un
@@ -177,7 +183,7 @@ Print fn
 
 @printindex fn
 
-Print vr
+Print cp
 
 @printindex cp
 
@@ -406,10 +412,15 @@ vr index.
 @printindex vr
 '],
 ['def_syn_indices',
-'
+'@setfilename def_syn_indices.info
+
 @syncodeindex cp fn
 
 @node Top
+@top top
+
+@node Chapter index
+@chapter Index
 
 definedx truc
 @defindex truc
@@ -529,23 +540,62 @@ in a reuglar para @sortas{foo}. @code{inside another @sortas{command}}.
 @printindex cp
 '],
 ['subentries',
-'@node Top
+'@setfilename subentries.info
+
+@node Top
 @top
 
-@cindex aa
-@cindex bb @subentry cc
-@cindex ddd @subentry eee @subentry fff
-@cindex ggg @subentry hhh jjj @subentry kkk @subentry lll
+@node chapter index
+@chapter Index
+
+@cindex a---a
+@cindex b---b @subentry c---c
+@cindex d---dd @subentry e---ee @subentry f---ff
+@cindex g---gg @subentry h---hh jjj @subentry k---kk @subentry l---ll
+
+@findex f---aa
+@findex f---bb @subentry f---cc
+@findex f---ddd @subentry f---eee @subentry ffff
+@findex f---ggg @subentry f---hhh fjjj @subentry f---kkk @subentry f---lll
 
 @printindex cp
+@printindex fn
 ', {'test_formats' => ['docbook']}
 ],
 ['seeentry',
-'@node Top
+'@setfilename seeentry.info
+
+@node Top
 @top
+
+@node chapter index
+@chapter Index
 
 @cindex aaa @seeentry{bbb}
 @cindex @seealso{ccc} ddd
+
+@findex f---aaa @seeentry{f---bbb}
+@findex @seealso{f---ccc} f---ddd
+
+@printindex cp
+@printindex fn
+', {'test_formats' => ['docbook']}
+],
+['double_seeentry_seealso',
+'@setfilename double_seeentry_seealso.info
+
+@node top
+@top top
+
+@node node index
+@chapter Chapter Index
+
+@cindex aaa @seeentry{bbb} @seeentry{ccc}
+@cindex @seealso{ccc} ddd @seealso{eee}
+@cindex ggg @seeentry{hhh} @seealso{iii}
+@cindex @seealso{fff} @subentry subggg @seeentry{subhhh}
+
+@printindex cp
 ', {'test_formats' => ['docbook']}
 ],
 ['seealso_duplicate',
@@ -557,12 +607,20 @@ in a reuglar para @sortas{foo}. @code{inside another @sortas{command}}.
 @printindex cp
 '],
 ['subentry_and_sortas',
-'@node Top
+'@setfilename subentry_and_sortas.info
+
+@node Top
 @top
+
+@node chapter index
+@chapter Index
 
 @cindex aaa @sortas{A} @subentry @sortas{B} bbb
 
+@findex xxx @sortas{X} @subentry @sortas{X} zzz
+
 @printindex cp
+@printindex fn
 ', {'test_formats' => ['plaintext', 'docbook', 'html']}
 ],
 ['w_lines_count',
@@ -678,10 +736,16 @@ undef,
 ],
 );
 
+my @file_latex_tests_cases_tests = ('syncode_index_print_both',
+  'def_syn_indices', 'seeentry', 'subentry_and_sortas', 'subentries',
+  'double_seeentry_seealso');
+
 foreach my $test (@test_formatted) {
   push @{$test->[2]->{'test_formats'}}, 'info';
   push @{$test->[2]->{'test_formats'}}, 'plaintext';
   push @{$test->[2]->{'test_formats'}}, 'html_text';
+  push @{$test->[2]->{'test_formats'}}, 'file_latex'
+    if (grep {$_ eq $test->[0]} @file_latex_tests_cases_tests);
 }
 
 foreach my $test (@file_tests) {

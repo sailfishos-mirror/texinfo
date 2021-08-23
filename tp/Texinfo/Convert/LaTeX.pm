@@ -140,6 +140,9 @@
 # Should @tie be expanded to ~?
 #
 # @dmn is not implemented
+#
+# index entry between @table and fist @item cause an empty \item[] to
+# be output.
 
 package Texinfo::Convert::LaTeX;
 
@@ -451,7 +454,7 @@ foreach my $accent_command (keys %{$LaTeX_accent_commands{'math'}}) {
 
 my %ignored_commands = %ignored_misc_commands;
 foreach my $ignored_brace_commands (
-  'sortas') {
+  'sortas', 'seeentry', 'seealso') {
   $ignored_commands{$ignored_brace_commands} = 1;
 }
 
@@ -785,6 +788,28 @@ sub _prepare_floats($)
   }
 }
 
+sub _prepare_indices($)
+{
+  my $self = shift;
+
+  if ($self->{'parser'}) {
+    my $index_names = $self->{'parser'}->indices_information();
+    $self->{'index_names'} = $index_names;
+    my $merged_index_entries
+        = Texinfo::Structuring::merge_indices($index_names);
+    # select non empty indices
+    foreach my $index_name (keys(%{$merged_index_entries})) {
+      # print STDERR "PI $index_name\n";
+      # print STDERR "".$merged_index_entries->{$index_name}."\n";
+      #print STDERR "".join("|", @{$merged_index_entries->{$index_name}})."\n";
+      if (scalar(@{$merged_index_entries->{$index_name}})) {
+        $self->{'index_entries'}->{$index_name} = $merged_index_entries->{$index_name};
+      }
+    }
+  }
+}
+
+
 sub _prepare_conversion($;$)
 {
   my $self = shift;
@@ -805,6 +830,7 @@ sub _prepare_conversion($;$)
     }
   }
   $self->_prepare_floats();
+  $self->_prepare_indices();
 }
 
 sub associate_other_nodes_to_sections($$)
@@ -1032,7 +1058,7 @@ sub _latex_header {
   # mdframed for the formatting of @cartouche
   # \usepackage[linkbordercolor={0 0 0}]{hyperref}
   my $header = "\\documentclass{$documentclass}\n"
-.'\usepackage{makeidx}\makeindex
+.'\usepackage{imakeidx}
 \usepackage{amsfonts}
 \usepackage{amsmath}
 \usepackage[gen]{eurosym}
@@ -1061,6 +1087,7 @@ sub _latex_header {
     #}
     $header .= "\\usepackage[$encoding]{inputenc}\n";
   }
+  $header .= "\n";
   #if ($self->{'extra'}->{'shortcontents'}) {
   #  # in texlive-latex-extra in debian
   #  $header .= "\\usepackage{shorttoc}\n";
@@ -1086,6 +1113,12 @@ sub _latex_header {
       }
     }
   }
+  if ($self->{'index_entries'}) {
+    foreach my $index_name (sort(keys(%{$self->{'index_entries'}}))) {
+      $header .= "\\makeindex[name=$index_name]%\n";
+    }
+    $header .= "\n";
+  }
   # defined additional commands used in @*table description format
   foreach my $command (sort(keys(%description_command_new_commands))) {
     $header .= '% command used in \description format for '.$command."\n";
@@ -1093,10 +1126,8 @@ sub _latex_header {
     $header .= "\n";
   }
 
-  $header .= "\n";
   $header .= $front_main_matter_definitions{$documentclass};
   $header .= '
-
 % this allows to select languages based on bcp47 codes.  bcp47 is a superset
 % of the LL_CC ISO 639-2 LL ISO 3166 CC information of @documentlanguage
 \babeladjust{
@@ -1151,8 +1182,7 @@ roundcorner=10pt}
   # processed by LaTeX
   if ($self->get_conf('TEST')) {
     $header .=
-'
-\renewcommand{\includegraphics}[1]{\fbox{FIG #1}}
+'\renewcommand{\includegraphics}[1]{\fbox{FIG #1}}
 
 ';
   }
@@ -1223,6 +1253,14 @@ sub _protect_url($$)
   return $text;
 }
 
+# in index entries !"@ have special meaning and need to be quoted with "
+sub _protect_index_text($)
+{
+  my $text = shift;
+  $text =~ s/([!|"@])/"$1/g;
+  return $text;
+}
+
 # Protect LaTeX special characters.
 sub _protect_text($$)
 {
@@ -1230,8 +1268,11 @@ sub _protect_text($$)
 
   # FIXME are there some special characters to protect in math mode,
   # for instance # and ~?
-  if ($self->{'formatting_context'}->[-1]->{'text_context'}->[-1] ne 'math'
-      and $self->{'formatting_context'}->[-1]->{'text_context'}->[-1] ne 'raw') {
+  if ($self->{'formatting_context'}->[-1]->{'text_context'}->[-1] eq 'math') {
+    if ($self->{'formatting_context'}->[-1]->{'index'}) {
+      $text = _protect_index_text($text);
+    }
+  } elsif ($self->{'formatting_context'}->[-1]->{'text_context'}->[-1] ne 'raw') {
     # temporarily replace \ with a control character
     $text =~ s/\\/\x08/g;
 
@@ -1241,6 +1282,9 @@ sub _protect_text($$)
     $text =~ s/\^/\\^{}/g;
 
     $text =~ s/\x08/\\textbackslash{}/g;
+    if ($self->{'formatting_context'}->[-1]->{'index'}) {
+      $text = _protect_index_text($text);
+    }
     if ($self->{'formatting_context'}->[-1]->{'code'}) {
       $text =~ s/---/{-}{-}{-}/g;
       $text =~ s/--/{-}{-}/g;
@@ -1519,14 +1563,6 @@ sub _end_title_page($)
   return '';
 }
 
-sub _printindex($$)
-{
-  my ($self, $printindex) = @_;
-  return '\printindex
-';
-}
-
-
 sub _tree_anchor_label {
   my $node_content = shift;
 
@@ -1541,6 +1577,94 @@ sub _get_form_feeds($)
   $form_feeds =~ s/^[^\f]*//;
   $form_feeds =~ s/[^\f]$//;
   return $form_feeds;
+}
+
+my %LaTeX_see_index_commands_text = (
+  'seeentry' => 'see',
+  'seealso' => 'seealso'
+);
+
+sub _index_entry($$)
+{
+  my $self = shift;
+  my $root = shift;
+  if ($root->{'extra'} and $root->{'extra'}->{'index_entry'}) {
+    my $entry = $root->{'extra'}->{'index_entry'};
+    my $entry_index_name = $entry->{'index_name'};
+    my $index_name = $entry_index_name;
+    if ($self->{'index_names'}->{$entry_index_name}->{'merged_in'}) {
+      $index_name = $self->{'index_names'}->{$entry_index_name}->{'merged_in'};
+    }
+    my $in_code = 0;
+    if ($self->{'index_names'}->{$entry_index_name}->{'in_code'}) {
+      $in_code = 1;
+    }
+    #print STDERR "I ".Texinfo::Common::_print_element_tree_simple($root)." ".$entry_index_name."/".$index_name." ".$in_code." C ".$entry->{'index_at_command'}." T ".$entry->{'index_type_command'}."; ".join("|", sort(keys(%{$root->{'extra'}})))."\n";
+    my $current_entry = $root;
+    my $sortas;
+    my $subentry_commands = [$root];
+    if (exists($root->{'extra'}->{'sortas'})) {
+      $sortas = $root->{'extra'}->{'sortas'};
+    }
+    my $subentries = [[{'contents' => $entry->{'content_normalized'}}, $sortas]];
+    while ($current_entry->{'extra'}
+      and $current_entry->{'extra'}->{'subentry'}) {
+      $current_entry = $current_entry->{'extra'}->{'subentry'};
+      my $sortas;
+      if (exists($current_entry->{'extra'}->{'sortas'})) {
+        $sortas = $current_entry->{'extra'}->{'sortas'};
+      }
+      push @$subentries, [$current_entry->{'args'}->[0], $sortas];
+      push @$subentry_commands, $current_entry;
+    }
+    _push_new_context($self, 'index_entry');
+    $self->{'formatting_context'}->[-1]->{'index'} = 1;
+    my @result;
+    foreach my $subentry_sortas (@$subentries) {
+      my ($subentry, $sortas) = @$subentry_sortas;
+      if ($in_code) {
+        $self->{'formatting_context'}->[-1]->{'code'} += 1;
+      }
+      my $index_entry = _convert($self, $subentry);
+      if ($in_code) {
+        $self->{'formatting_context'}->[-1]->{'code'} -= 1;
+        # always use a string to sort with code as we use a command
+        if (not defined($sortas)) {
+          $sortas = _convert($self, $subentry);
+          # another possibility could be to use
+          # _protect_index_text(Texinfo::Convert::NodeNameNormalization::transliterate_texinfo($subentry));
+          # of Texinfo::Convert::Text
+        }
+      }
+      my $result = '';
+      if (defined($sortas)) {
+        $result = $sortas.'@';
+      }
+      if ($in_code) {
+        $result .= "\\texttt{$index_entry}";
+      } else {
+        $result .= $index_entry;
+      }
+      push @result, $result;
+    }
+    my $seeresult = '';
+   SEEENTRY: 
+    foreach my $subentry_command (@$subentry_commands) {
+      foreach my $seecommand (('seeentry', 'seealso')) {
+        if ($subentry_command->{'extra'}->{$seecommand}
+            and $subentry_command->{'extra'}->{$seecommand}->{'args'}->[0]) {
+          my $seeconverted = _convert($self,
+                   $subentry_command->{'extra'}->{$seecommand}->{'args'}->[0]);
+          $seeresult = '|'.$LaTeX_see_index_commands_text{$seecommand}.'{'
+                     .$seeconverted.'}';
+          last SEEENTRY;
+        }
+      }
+    }
+    _pop_context($self);
+    return "\\index[$index_name]{".join('!',@result).$seeresult."}%\n";
+  }
+  return '';
 }
 
 sub _convert($$);
@@ -2087,12 +2211,18 @@ sub _convert($$)
             if ($reference->{'cmdname'} and $reference->{'cmdname'} eq 'node'
                 and $section_command) {
               if ($section_command->{'level'} > 1) {
+                # TODO command that could be used for translation \sectionname does
+                # not exist in the default case.  it is defined in the pagenote package together with 
+                # \pagename which is page in the default case, but it is unclear if this
+                # can be used as a basis for translations
                 $result .= "\\hyperref[$reference_label]{Section~\\ref*{$reference_label} [$name_text], page~\\pageref*{$reference_label}}";
               } else {
-                $result .= "\\hyperref[$reference_label]{Chapter~\\ref*{$reference_label} [$name_text], page~\\pageref*{$reference_label}}";
+                # TODO translation
+                $result .= "\\hyperref[$reference_label]{\\chaptername~\\ref*{$reference_label} [$name_text], page~\\pageref*{$reference_label}}";
               }
             } else {
               # anchor
+              # TODO translation
               $result .= "\\hyperref[$reference_label]{[$name_text], page~\\pageref*{$reference_label}}";
             }
           }
@@ -2121,12 +2251,14 @@ sub _convert($$)
           
           if ($book ne '') {
             if (defined ($name_text)) {
+              # TODO translation
               $result .= "Section ``$name_text'' in \\textit{$book}";
             } else {
               $result .= "\\textit{$book}";
             }
           } elsif ($filename ne '') {
             if (defined ($name_text)) {
+              # TODO translation
               $result .= "Section ``$name_text'' in \\texttt{$filename}";
             } else {
               $result .= "\\texttt{$filename}";
@@ -2430,6 +2562,7 @@ sub _convert($$)
         }
         $result .= "\\item[$converted_arg]\n";
       }
+      $result .= _index_entry($self, $root);
     } elsif ($command eq 'item' and $root->{'parent'}->{'cmdname'}
              and $item_container_commands{$root->{'parent'}->{'cmdname'}}) {
       # item in @enumerate and @itemize
@@ -2463,7 +2596,14 @@ sub _convert($$)
       }
       return $result;
     } elsif ($command eq 'printindex') {
-      $result .= $self->_printindex($root);
+      my $index_name;
+      if ($root->{'extra'} and $root->{'extra'}->{'misc_args'}
+          and defined($root->{'extra'}->{'misc_args'}->[0])) {
+        $index_name = $root->{'extra'}->{'misc_args'}->[0];
+        if (exists($self->{'index_entries'}->{$index_name})) {
+          $result .= "\\printindex[$index_name]\n";
+        }
+      }
       return $result;
     } elsif ($command eq 'listoffloats') {
       if ($root->{'extra'} and $root->{'extra'}->{'type'}
@@ -2653,9 +2793,7 @@ sub _convert($$)
     }
     if ($unknown_command
         and !($root->{'extra'} 
-                and ($root->{'extra'}->{'index_entry'}
-                     or $root->{'extra'}->{'seeentry'}
-                     or $root->{'extra'}->{'seealso'}))
+                and ($root->{'extra'}->{'index_entry'}))
         # commands like def*x are not processed above, since only the def_line
         # associated is processed. If they have no name and no category they 
         # are not considered as index entries either so they have a specific
@@ -2669,6 +2807,9 @@ sub _convert($$)
 
   # open 'type' constructs.
   if ($root->{'type'}) {
+    if ($root->{'type'} eq 'index_entry_command') {
+      $result .= _index_entry($self, $root);
+    }
     if ($root->{'type'} eq 'def_line') {
       if ($root->{'extra'} and $root->{'extra'}->{'def_parsed_hash'}
              and %{$root->{'extra'}->{'def_parsed_hash'}}) {
@@ -2834,6 +2975,7 @@ sub _convert($$)
         $result .= "\n\n";
       }
       $result .= "\n";
+      $result .= _index_entry($self, $root);
     } elsif ($root->{'type'} eq '_code') {
       # ...
     } elsif ($root->{'type'} eq '_dot_not_end_sentence') {
@@ -2873,6 +3015,11 @@ sub _convert($$)
     } elsif ($root->{'type'} eq 'before_item') {
       # LaTeX environments do not accept text before the first item, add an item
       if ($result =~ /\S/) {
+        # FIXME if there is only an index element it is content and
+        # triggers an empty \item.  It is mitigates by
+        # move_index_entries_after_items but not for @*table
+        # for which there is relate_index_entries_to_table_entries
+        # but it has no obvious role
         if ($item_line_commands{$root->{'parent'}->{'cmdname'}}) {
           # it is important to have an empty optional argument otherwise
           # a quoted command will output the quotes, even with a detection

@@ -36,3 +36,6 @@ index_entry_in_footnote_info index_entry_in_footnote.texi --info
 index_entry_in_footnote_separated_info index_entry_in_footnote.texi --info --footnote-style=separate
 
 index_table index_table.texi -c 'TEXI2HTML 1' --split chapter
+
+indices_in_begin_tables_lists indices_in_begin_tables_lists.texi
+indices_in_begin_tables_lists_latex indices_in_begin_tables_lists.texi --latex

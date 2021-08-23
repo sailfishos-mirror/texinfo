@@ -808,6 +808,33 @@ sub _add_newline_if_needed($) {
   return '';
 }
 
+sub _open_code($)
+{
+  my $formatter = shift;
+
+  if (!$formatter->{'font_type_stack'}->[-1]->{'monospace'}) {
+    push @{$formatter->{'font_type_stack'}}, {'monospace' => 1};
+  } else {
+    $formatter->{'font_type_stack'}->[-1]->{'monospace'}++;
+  }
+  push @{$formatter->{'frenchspacing_stack'}}, 'on';
+  set_space_protection($formatter->{'container'}, undef, undef, undef, 1);
+}
+
+sub _close_code($)
+{
+  my $formatter = shift;
+
+  $formatter->{'font_type_stack'}->[-1]->{'monospace'}--;
+  pop @{$formatter->{'font_type_stack'}}
+    if !$formatter->{'font_type_stack'}->[-1]->{'monospace'};
+  pop @{$formatter->{'frenchspacing_stack'}};
+  my $frenchspacing = 0;
+  $frenchspacing = 1 if ($formatter->{'frenchspacing_stack'}->[-1] eq 'on');
+  set_space_protection($formatter->{'container'}, undef,
+                       undef, undef, $frenchspacing);
+}
+
 my $footnote_indent = 3;
 sub _footnotes($;$)
 {
@@ -1259,7 +1286,15 @@ sub _printindex_formatted($$;$)
                                    {'indent' => 0, 'suppress_styles' => 1});
     push @{$self->{'formatters'}}, $formatter;
     $entry_text = $self->_convert($entry_tree);
+    # cannot introduce a _code type element, since convert_index_subentries
+    # expects an index command directly as argument.
+    if ($entry->{'in_code'}) {
+      _open_code($formatter);
+    }
     $entry_text .= $self->convert_index_subentries($entry);
+    if ($entry->{'in_code'}) {
+      _close_code($formatter);
+    }
     $entry_text .= _count_added($self, $formatter->{'container'},
                   Texinfo::Convert::Paragraph::end($formatter->{'container'}));
     pop @{$self->{'formatters'}};
@@ -3030,13 +3065,7 @@ sub _convert($$)
       push @{$formatter->{'frenchspacing_stack'}}, 'on';
       set_space_protection($formatter->{'container'}, undef, undef, undef, 1);
     } elsif ($root->{'type'} eq '_code') {
-      if (!$formatter->{'font_type_stack'}->[-1]->{'monospace'}) {
-        push @{$formatter->{'font_type_stack'}}, {'monospace' => 1};
-      } else {
-        $formatter->{'font_type_stack'}->[-1]->{'monospace'}++;
-      }
-      push @{$formatter->{'frenchspacing_stack'}}, 'on';
-      set_space_protection($formatter->{'container'}, undef, undef, undef, 1);
+      _open_code($formatter);
     } elsif ($root->{'type'} eq 'bracketed') {
       $result .= _count_added($self, $formatter->{'container'}, 
                    add_text($formatter->{'container'}, '{'));
@@ -3068,14 +3097,7 @@ sub _convert($$)
       set_space_protection($formatter->{'container'}, undef,
                            undef, undef, $frenchspacing);
     } elsif ($root->{'type'} eq '_code') {
-      $formatter->{'font_type_stack'}->[-1]->{'monospace'}--;
-      pop @{$formatter->{'font_type_stack'}}
-        if !$formatter->{'font_type_stack'}->[-1]->{'monospace'};
-      pop @{$formatter->{'frenchspacing_stack'}};
-      my $frenchspacing = 0;
-      $frenchspacing = 1 if ($formatter->{'frenchspacing_stack'}->[-1] eq 'on');
-      set_space_protection($formatter->{'container'}, undef,
-                           undef, undef, $frenchspacing);
+      _close_code($formatter);
     } elsif ($root->{'type'} eq 'bracketed') {
       $result .= _count_added($self, $formatter->{'container'}, 
                                      add_text($formatter->{'container'}, '}'));

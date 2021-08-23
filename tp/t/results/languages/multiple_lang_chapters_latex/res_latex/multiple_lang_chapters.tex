@@ -1,5 +1,5 @@
 \documentclass{book}
-\usepackage{makeidx}\makeindex
+\usepackage{imakeidx}
 \usepackage{amsfonts}
 \usepackage{amsmath}
 \usepackage[gen]{eurosym}
@@ -19,12 +19,14 @@
 % use hidelinks to remove boxes around links to be similar with Texinfo TeX
 \usepackage[hidelinks]{hyperref}
 \usepackage[utf8]{inputenc}
+
+\makeindex[name=vr]%
+
 % command used in \description format for indicateurl
 \newcommand\GNUTexinfotablestyleindicateurl[1]{\ifstrempty{#1}{}{`\texttt{#1}'}}%
 
 % command used in \description format for samp
 \newcommand\GNUTexinfotablestylesamp[1]{\ifstrempty{#1}{}{`\texttt{#1}'}}%
-
 
 % redefine the \mainmatter command such that it does not clear page
 % as if in double page
@@ -34,7 +36,6 @@
 % add command aliases to use the same command in book and report
 \newcommand\GNUTexinfomainmatter{\mainmatter}
 \newcommand\GNUTexinfofrontmatter{\frontmatter}
-
 
 % this allows to select languages based on bcp47 codes.  bcp47 is a superset
 % of the LL_CC ISO 639-2 LL ISO 3166 CC information of @documentlanguage
@@ -84,7 +85,6 @@
 innertopmargin=10pt, innerbottommargin=10pt,%
 roundcorner=10pt}
 
-
 \renewcommand{\includegraphics}[1]{\fbox{FIG #1}}
 
 % set default for @setchapternewpage
@@ -100,19 +100,21 @@ roundcorner=10pt}
 \chapter{ja}
 \label{anchor:chapter-ja}%
 
-In japanese. See \hyperref[anchor:chapter-ja]{Chapter~\ref*{anchor:chapter-ja} [chapter ja], page~\pageref*{anchor:chapter-ja}}.
+In japanese. See \hyperref[anchor:chapter-ja]{\chaptername~\ref*{anchor:chapter-ja} [chapter ja], page~\pageref*{anchor:chapter-ja}}.
 \hbox{}-- Instance Variable of AAA: BBB CCC
 
 
+\index[vr]{BBB of AAA@\texttt{BBB of AAA}}%
 
 \selectlanguage{en}%
 \chapter{en}
 \label{anchor:chapter-en}%
 
-In english. See \hyperref[anchor:chapter-ja]{Chapter~\ref*{anchor:chapter-ja} [chapter ja], page~\pageref*{anchor:chapter-ja}}.
+In english. See \hyperref[anchor:chapter-ja]{\chaptername~\ref*{anchor:chapter-ja} [chapter ja], page~\pageref*{anchor:chapter-ja}}.
 \hbox{}-- Instance Variable of AAA: BBB CCC
 
 
+\index[vr]{BBB of AAA@\texttt{BBB of AAA}}%
 
 \selectlanguage{fr-FR}%
 \chapter{fr\_FR}
@@ -121,6 +123,7 @@ In english. See \hyperref[anchor:chapter-ja]{Chapter~\ref*{anchor:chapter-ja} [c
 \hbox{}-- Variable d'instance de AAA\ {}: BBB CCC
 
 
+\index[vr]{BBB of AAA@\texttt{BBB of AAA}}%
 
 \selectlanguage{de}%
 \chapter{de}
@@ -130,5 +133,5 @@ In english. See \hyperref[anchor:chapter-ja]{Chapter~\ref*{anchor:chapter-ja} [c
 \chapter{pt\_bR}
 \label{anchor:chapter-pt_005fBR}%
 
-In brazilian. See \hyperref[anchor:chapter-ja]{Chapter~\ref*{anchor:chapter-ja} [chapter ja], page~\pageref*{anchor:chapter-ja}}.
+In brazilian. See \hyperref[anchor:chapter-ja]{\chaptername~\ref*{anchor:chapter-ja} [chapter ja], page~\pageref*{anchor:chapter-ja}}.
 \end{document}

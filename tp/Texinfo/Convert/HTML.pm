@@ -3778,7 +3778,15 @@ sub _convert_printindex_command($$$$)
       } else {
         $entry = $self->convert_tree({'contents' => $index_entry_ref->{'content'}});
       }
+      # cannot introduce a _code type element, since convert_index_subentries
+      # expects an index command directly as argument.
+      if ($index_entry_ref->{'in_code'}) {
+        push @{$self->{'document_context'}->[-1]->{'monospace'}}, 1;
+      }
       $entry .= $self->convert_index_subentries($index_entry_ref);
+      if ($index_entry_ref->{'in_code'}) {
+        pop @{$self->{'document_context'}->[-1]->{'monospace'}};
+      }
       if ($already_formatted) {
         $self->{'ignore_notice'}--;
       }

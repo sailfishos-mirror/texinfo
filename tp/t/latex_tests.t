@@ -524,6 +524,19 @@ New para
 @item value
 @end enumerate
 
+'],
+['indices',
+'@setfilename indices.info
+
+@node Top
+@top top section
+
+@node chapter
+@chapter Index
+
+@cindex @math{a!"@@b} "!@@ @"a @"{o} @subentry @sortas{a!"@@b} sub@math{a!"@@b} sub "!@@ @"a @"{o} @seealso{@math{a!"@@b} "!@@ @"a @"{o}}
+
+@printindex cp
 ']
 
 );

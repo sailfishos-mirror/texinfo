@@ -1,5 +1,5 @@
 \documentclass{book}
-\usepackage{makeidx}\makeindex
+\usepackage{imakeidx}
 \usepackage{amsfonts}
 \usepackage{amsmath}
 \usepackage[gen]{eurosym}
@@ -19,12 +19,12 @@
 % use hidelinks to remove boxes around links to be similar with Texinfo TeX
 \usepackage[hidelinks]{hyperref}
 \usepackage[utf8]{inputenc}
+
 % command used in \description format for indicateurl
 \newcommand\GNUTexinfotablestyleindicateurl[1]{\ifstrempty{#1}{}{`\texttt{#1}'}}%
 
 % command used in \description format for samp
 \newcommand\GNUTexinfotablestylesamp[1]{\ifstrempty{#1}{}{`\texttt{#1}'}}%
-
 
 % redefine the \mainmatter command such that it does not clear page
 % as if in double page
@@ -34,7 +34,6 @@
 % add command aliases to use the same command in book and report
 \newcommand\GNUTexinfomainmatter{\mainmatter}
 \newcommand\GNUTexinfofrontmatter{\frontmatter}
-
 
 % this allows to select languages based on bcp47 codes.  bcp47 is a superset
 % of the LL_CC ISO 639-2 LL ISO 3166 CC information of @documentlanguage
@@ -83,7 +82,6 @@
 \mdfdefinestyle{GNUTexinfocartouche}{
 innertopmargin=10pt, innerbottommargin=10pt,%
 roundcorner=10pt}
-
 
 \renewcommand{\includegraphics}[1]{\fbox{FIG #1}}
 
