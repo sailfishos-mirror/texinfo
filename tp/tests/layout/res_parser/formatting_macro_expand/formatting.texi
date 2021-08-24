@@ -4670,9 +4670,9 @@ Various deff lines
 @findex f---aaa @seeentry{f---bbb}
 @findex @seealso{f---ccc} f---ddd
 
-@cindex aaa @sortas{A} @subentry @sortas{B} bbb
+@cindex aaa @sortas{A---S} @subentry @sortas{B---S1} bbb
 
-@findex xxx @sortas{X} @subentry @sortas{X} zzz
+@findex xxx @sortas{X---S} @subentry @sortas{X---S1} zzz
 
 @cindex
 @findex @w{}

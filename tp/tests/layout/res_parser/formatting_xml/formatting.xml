@@ -4646,9 +4646,9 @@ Various deff lines
 <findex index="fn" spaces=" "><indexterm index="fn" number="174">f&textmdash;aaa<seeentry>f&textmdash;bbb</seeentry></indexterm></findex>
 <findex index="fn" spaces=" "><indexterm index="fn" number="174"><seealso>f&textmdash;ccc</seealso> f&textmdash;ddd</indexterm></findex>
 
-<cindex index="cp" spaces=" "><indexterm index="cp" number="38">aaa<sortas>A</sortas></indexterm></cindex><subentry spaces=" "><sortas>B</sortas> bbb</subentry>
+<cindex index="cp" spaces=" "><indexterm index="cp" number="38">aaa<sortas>A&textmdash;S</sortas></indexterm></cindex><subentry spaces=" "><sortas>B&textmdash;S1</sortas> bbb</subentry>
 
-<findex index="fn" spaces=" "><indexterm index="fn" number="174">xxx<sortas>X</sortas></indexterm></findex><subentry spaces=" "><sortas>X</sortas> zzz</subentry>
+<findex index="fn" spaces=" "><indexterm index="fn" number="174">xxx<sortas>X---S</sortas></indexterm></findex><subentry spaces=" "><sortas>X&textmdash;S1</sortas> zzz</subentry>
 
 <cindex></cindex>
 <findex index="fn" spaces=" "><indexterm index="fn" number="175"><w></w></indexterm></findex>

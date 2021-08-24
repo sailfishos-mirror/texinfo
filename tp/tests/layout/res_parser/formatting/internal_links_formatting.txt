@@ -17,7 +17,7 @@ formatting.html#index-_002d_002doption-1	cp	-option
 formatting.html#index-_002e	cp	.
 formatting.html#index-_003f	cp	?
 formatting.html#index-a	cp	a
-formatting.html#index-aaa	cp	A
+formatting.html#index-aaa	cp	aaa
 formatting.html#index-a_002d_002d_002da	cp	a--a
 formatting.html#index-copying-a_002d_002dasis	cp	a--asis
 formatting.html#index-titlepage-a_002d_002dasis	cp	a--asis
@@ -259,7 +259,7 @@ formatting.html#index-truc	fn	truc
 formatting.html#index-truc-1	fn	truc
 formatting.html#index-truc-2	fn	truc
 formatting.html#index-truc-3	fn	truc
-formatting.html#index-xxx	fn	X
+formatting.html#index-xxx	fn	xxx
 formatting.html#index-copying-d_002d_002deftp_005fname	tp	d--eftp_name
 formatting.html#index-titlepage-d_002d_002deftp_005fname	tp	d--eftp_name
 formatting.html#index-d_002d_002deftp_005fname	tp	d--eftp_name

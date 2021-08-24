@@ -1,5 +1,11 @@
 2021-08-24  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (output_internal_links):
+	do not use 'key' for index entries, as it may be different
+	from the index entry to be used for sorting.
+
+2021-08-24  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Text.pm (%ignored_brace_commands),
 	tp/Texinfo/Convert/NodeNameNormalization.pm
 	(%ignored_brace_commands): ignore sortas, seealso, seeentry.
