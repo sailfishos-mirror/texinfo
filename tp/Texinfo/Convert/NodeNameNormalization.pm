@@ -63,7 +63,7 @@ my %accent_commands = %Texinfo::Common::accent_commands;
 
 my %ignored_brace_commands;
 foreach my $ignored_brace_command ('anchor', 'footnote', 'shortcaption',
-                                   'caption', 'hyphenation') {
+       'caption', 'hyphenation', 'sortas', 'seealso', 'seeentry') {
   $ignored_brace_commands{$ignored_brace_command} = 1;
 }
 
