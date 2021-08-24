@@ -393,7 +393,7 @@ $result_trees{'explicit_sort_key'} = {
               'index_at_command' => 'SKindex',
               'index_name' => 'SK',
               'index_type_command' => 'SKindex',
-              'key' => 'aaainvalid nesting',
+              'key' => 'aaa',
               'node' => {},
               'number' => 4
             },
@@ -792,10 +792,10 @@ in a reuglar para @sortas{foo}. @code{inside another @sortas{command}}.
 $result_texts{'explicit_sort_key'} = '
 
 
-in a reuglar parafoo. inside anothercommand.
+in a reuglar para. inside another.
 
-and cmd inside.
-and cmdinside.
+.
+and cmd.
 
 ';
 
@@ -1000,10 +1000,10 @@ $result_converted{'plaintext'}->{'explicit_sort_key'} = 'in a reuglar para.  \'i
 $result_converted{'html_text'}->{'explicit_sort_key'} = '<div class="top" id="Top">
 <span id="SEC_Top"></span>
 
-<span id="index-Abbbbbbb-_0028first_0029"></span>
-<span id="index-Baaaaaaa-_0028second_0029"></span>
-<span id="index-0zero-sort-key"></span>
-<span id="index-aaainvalid-nesting"></span>
+<span id="index-bbbbbbb-_0028first_0029"></span>
+<span id="index-aaaaaaa-_0028second_0029"></span>
+<span id="index-zero-sort-key"></span>
+<span id="index-aaa"></span>
 
 <p>in a reuglar para. <code>inside another</code>.
 </p>
@@ -1022,14 +1022,14 @@ $result_converted{'html_text'}->{'explicit_sort_key'} = '<div class="top" id="To
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="t_h_SK_symbol-1">0</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-0zero-sort-key">zero sort key</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-zero-sort-key">zero sort key</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="t_h_SK_letter-A">A</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-Abbbbbbb-_0028first_0029">bbbbbbb (first)</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-aaainvalid-nesting"><b>aaa</b></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-bbbbbbb-_0028first_0029">bbbbbbb (first)</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-aaa"><b>aaa</b></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="t_h_SK_letter-B">B</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-Baaaaaaa-_0028second_0029">aaaaaaa (second)</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-aaaaaaa-_0028second_0029">aaaaaaa (second)</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#t_h_SK_symbol-1"><b>0</b></a>

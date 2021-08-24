@@ -54,7 +54,7 @@ $VERSION = '6.8dev';
 # when they have no brace_command_arg, see below.
 my %ignored_brace_commands;
 foreach my $ignored_brace_command (#'xref','ref','pxref','inforef',
-   'anchor',
+   'anchor', 'sortas', 'seealso', 'seeentry',
    'footnote', 'shortcaption', 'caption', 'hyphenation', 'errormsg') {
   $ignored_brace_commands{$ignored_brace_command} = 1;
 }

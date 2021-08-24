@@ -1573,12 +1573,9 @@ sub _sort_index_entries_in_letter($$)
   return $res;
 }
 
-# Go through all the index entries and set 'key', the sort key, on
-# each one.
-sub do_index_keys($$)
+sub setup_index_entry_keys_formatting($)
 {
   my $self = shift;
-  my $index_names = shift;
   my $ignore_chars = '';
 
   # '-' must come first to avoid e.g. [<-@] looking like a character range
@@ -1591,40 +1588,67 @@ sub do_index_keys($$)
   $ignore_chars .= '@'
     if defined $self->{'values'}->{'txiindexatsignignore'};
 
-  my $options = {'sort_string' => 1};
-  if ($self->get_conf('ENABLE_ENCODING') 
-      and $self->{'info'}->{'input_encoding_name'}) {
+  my $options = {'sort_string' => 1,
+                 Texinfo::Common::_convert_text_options($self)};
+
+  # FIXME really useful?  Already set according to OUTPUT_ENCODING_NAME
+  if ($self->get_conf('ENABLE_ENCODING')
+      and $self->{'info'}->{'input_encoding_name'}
+      and not defined($options->{'enabled_encoding'})) {
     $options->{'enabled_encoding'} = $self->{'info'}->{'input_encoding_name'};
   }
+  return $options, $ignore_chars;
+}
 
-  if ($self->get_conf('ENABLE_ENCODING')) {
-    if ($self->get_conf('OUTPUT_ENCODING_NAME')) {
-      $options->{'enabled_encoding'} = $self->get_conf('OUTPUT_ENCODING_NAME');
+# can be used for subentries
+sub index_key($$$$;$)
+{
+  my $main_entry = shift;
+  my $entry_tree_element = shift;
+  my $sortas = shift;
+  my $options = shift;
+  my $ignore_chars = shift;
+
+  my $converter_options = {%$options};
+  $converter_options->{'code'} = $main_entry->{'in_code'};
+
+  my $entry_key;
+  if (defined($sortas)) {
+    $entry_key = $sortas;
+  } else {
+    $entry_key = Texinfo::Convert::Text::convert_to_text(
+                          $entry_tree_element, $converter_options);
+    # FIXME do that for sortas too?
+    if (defined($ignore_chars) and $ignore_chars ne '') {
+      $entry_key =~ s/[$ignore_chars]//g;
     }
   }
-  $options->{'expanded_formats_hash'} = $self->{'expanded_formats_hash'};
+  # This avoids varying results depending on whether the string is
+  # represented internally in UTF-8.  See "the Unicode bug" in the
+  # "perlunicode" man page.
+  utf8::upgrade($entry_key);
+
+  return $entry_key;
+}
+
+# Go through all the index entries and set 'key', the sort key, on
+# each one.
+sub do_index_keys($$)
+{
+  my $self = shift;
+  my $index_names = shift;
+
+  my ($options, $ignore_chars) = setup_index_entry_keys_formatting($self);
 
   foreach my $index_name (keys(%$index_names)) {
     foreach my $entry (@{$index_names->{$index_name}->{'index_entries'}}) {
-      $options->{'code'} = $entry->{'in_code'};
-      if (defined $entry->{'sortas'}) {
-        $entry->{'key'} = $entry->{'sortas'};
-      } else {
-        $entry->{'key'} = Texinfo::Convert::Text::convert_to_text(
-                              {'contents' => $entry->{'content'}}, $options);
-        if ($ignore_chars) {
-          $entry->{'key'} =~ s/[$ignore_chars]//g;
-        }
-      }
+      $entry->{'key'} = index_key($entry, {'contents' => $entry->{'content'}},
+                                  $entry->{'sortas'}, $options, $ignore_chars);
       if ($entry->{'key'} !~ /\S/) {
         $self->line_warn(sprintf(__("empty index key in \@%s"), 
                                  $entry->{'index_at_command'}),
                         $entry->{'command'}->{'line_nr'});
       }
-      # This avoids varying results depending on whether the string is
-      # represented internally in UTF-8.  See "the Unicode bug" in the
-      # "perlunicode" man page.
-      utf8::upgrade($entry->{'key'});
     }
   }
 }

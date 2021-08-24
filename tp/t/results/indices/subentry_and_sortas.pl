@@ -205,7 +205,7 @@ $result_trees{'subentry_and_sortas'} = {
                       'contents' => [
                         {
                           'parent' => {},
-                          'text' => 'A'
+                          'text' => 'A---S'
                         }
                       ],
                       'parent' => {},
@@ -239,12 +239,12 @@ $result_trees{'subentry_and_sortas'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'A',
+              'key' => 'A---S',
               'node' => {},
               'number' => 1,
-              'sortas' => 'A'
+              'sortas' => 'A---S'
             },
-            'sortas' => 'A',
+            'sortas' => 'A---S',
             'spaces_before_argument' => ' ',
             'subentry' => {
               'args' => [
@@ -256,7 +256,7 @@ $result_trees{'subentry_and_sortas'} = {
                           'contents' => [
                             {
                               'parent' => {},
-                              'text' => 'B'
+                              'text' => 'B---S1'
                             }
                           ],
                           'parent' => {},
@@ -293,7 +293,7 @@ $result_trees{'subentry_and_sortas'} = {
               'cmdname' => 'subentry',
               'extra' => {
                 'level' => 1,
-                'sortas' => 'B',
+                'sortas' => 'B---S1',
                 'spaces_before_argument' => ' '
               },
               'line_nr' => {
@@ -338,7 +338,7 @@ $result_trees{'subentry_and_sortas'} = {
                       'contents' => [
                         {
                           'parent' => {},
-                          'text' => 'X'
+                          'text' => 'X---S'
                         }
                       ],
                       'parent' => {},
@@ -372,12 +372,12 @@ $result_trees{'subentry_and_sortas'} = {
               'index_at_command' => 'findex',
               'index_name' => 'fn',
               'index_type_command' => 'findex',
-              'key' => 'X',
+              'key' => 'X---S',
               'node' => {},
               'number' => 1,
-              'sortas' => 'X'
+              'sortas' => 'X---S'
             },
-            'sortas' => 'X',
+            'sortas' => 'X---S',
             'spaces_before_argument' => ' ',
             'subentry' => {
               'args' => [
@@ -389,7 +389,7 @@ $result_trees{'subentry_and_sortas'} = {
                           'contents' => [
                             {
                               'parent' => {},
-                              'text' => 'X'
+                              'text' => 'X---S1'
                             }
                           ],
                           'parent' => {},
@@ -426,7 +426,7 @@ $result_trees{'subentry_and_sortas'} = {
               'cmdname' => 'subentry',
               'extra' => {
                 'level' => 1,
-                'sortas' => 'X',
+                'sortas' => 'X---S1',
                 'spaces_before_argument' => ' '
               },
               'line_nr' => {
@@ -607,9 +607,9 @@ $result_texis{'subentry_and_sortas'} = '@setfilename subentry_and_sortas.info
 @node chapter index
 @chapter Index
 
-@cindex aaa @sortas{A} @subentry @sortas{B} bbb
+@cindex aaa @sortas{A---S} @subentry @sortas{B---S1} bbb
 
-@findex xxx @sortas{X} @subentry @sortas{X} zzz
+@findex xxx @sortas{X---S} @subentry @sortas{X---S1} zzz
 
 @printindex cp
 @printindex fn
@@ -805,9 +805,9 @@ Next: <a href="#chapter-index" accesskey="n" rel="next">Index</a> &nbsp; [<a hre
 </div>
 <span id="Index"></span><h2 class="chapter">1 Index</h2>
 
-<span id="index-aaaA"></span>
+<span id="index-aaa"></span>
 
-<span id="index-xxxX"></span>
+<span id="index-xxx"></span>
 
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#chapter-index_cp_letter-A"><b>A</b></a>
  &nbsp; 
@@ -816,7 +816,7 @@ Next: <a href="#chapter-index" accesskey="n" rel="next">Index</a> &nbsp; [<a hre
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="chapter-index_cp_letter-A">A</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-aaaA">aaa, bbb</a>:</td><td>&nbsp;</td><td valign="top"><a href="#chapter-index">chapter index</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-aaa">aaa, bbb</a>:</td><td>&nbsp;</td><td valign="top"><a href="#chapter-index">chapter index</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#chapter-index_cp_letter-A"><b>A</b></a>
@@ -829,7 +829,7 @@ Next: <a href="#chapter-index" accesskey="n" rel="next">Index</a> &nbsp; [<a hre
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="chapter-index_fn_letter-X">X</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-xxxX"><code>xxx, zzz</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#chapter-index">chapter index</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-xxx"><code>xxx, zzz</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#chapter-index">chapter index</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#chapter-index_fn_letter-X"><b>X</b></a>
@@ -927,9 +927,9 @@ $result_converted{'html_text'}->{'subentry_and_sortas'} = '
 </div>
 <span id="Index"></span><h2 class="chapter">1 Index</h2>
 
-<span id="index-aaaA"></span>
+<span id="index-aaa"></span>
 
-<span id="index-xxxX"></span>
+<span id="index-xxx"></span>
 
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#t_h_cp_letter-A"><b>A</b></a>
  &nbsp; 
@@ -938,7 +938,7 @@ $result_converted{'html_text'}->{'subentry_and_sortas'} = '
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="t_h_cp_letter-A">A</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-aaaA">aaa, bbb</a>:</td><td>&nbsp;</td><td valign="top"><a href="#chapter-index">chapter index</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-aaa">aaa, bbb</a>:</td><td>&nbsp;</td><td valign="top"><a href="#chapter-index">chapter index</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#t_h_cp_letter-A"><b>A</b></a>
@@ -951,7 +951,7 @@ $result_converted{'html_text'}->{'subentry_and_sortas'} = '
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="t_h_fn_letter-X">X</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-xxxX"><code>xxx, zzz</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#chapter-index">chapter index</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-xxx"><code>xxx, zzz</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#chapter-index">chapter index</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#t_h_fn_letter-X"><b>X</b></a>

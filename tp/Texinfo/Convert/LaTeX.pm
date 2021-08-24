@@ -453,6 +453,7 @@ foreach my $accent_command (keys %{$LaTeX_accent_commands{'math'}}) {
 }
 
 my %ignored_commands = %ignored_misc_commands;
+# processed as part of the index command or type formatting
 foreach my $ignored_brace_commands (
   'sortas', 'seeentry', 'seealso') {
   $ignored_commands{$ignored_brace_commands} = 1;
@@ -1600,45 +1601,50 @@ sub _index_entry($$)
       $in_code = 1;
     }
     #print STDERR "I ".Texinfo::Common::_print_element_tree_simple($root)." ".$entry_index_name."/".$index_name." ".$in_code." C ".$entry->{'index_at_command'}." T ".$entry->{'index_type_command'}."; ".join("|", sort(keys(%{$root->{'extra'}})))."\n";
+    # FIXME cache?  In theory txiindexbackslashignore and consorts
+    # may change dynamically.  But the current code does not set the
+    # values dynamically for now.
+    my ($options, $ignore_chars)
+      = Texinfo::Structuring::setup_index_entry_keys_formatting($self);
     my $current_entry = $root;
-    my $sortas;
+    my $current_sortas;
     my $subentry_commands = [$root];
     if (exists($root->{'extra'}->{'sortas'})) {
-      $sortas = $root->{'extra'}->{'sortas'};
+      $current_sortas = $root->{'extra'}->{'sortas'};
     }
-    my $subentries = [[{'contents' => $entry->{'content_normalized'}}, $sortas]];
+    my $subentries = [[{'contents' => $entry->{'content_normalized'}},
+                         $current_sortas]];
     while ($current_entry->{'extra'}
       and $current_entry->{'extra'}->{'subentry'}) {
       $current_entry = $current_entry->{'extra'}->{'subentry'};
-      my $sortas;
+      my $current_sortas;
       if (exists($current_entry->{'extra'}->{'sortas'})) {
-        $sortas = $current_entry->{'extra'}->{'sortas'};
+        $current_sortas = $current_entry->{'extra'}->{'sortas'};
       }
-      push @$subentries, [$current_entry->{'args'}->[0], $sortas];
+      push @$subentries, [$current_entry->{'args'}->[0], $current_sortas];
       push @$subentry_commands, $current_entry;
     }
     _push_new_context($self, 'index_entry');
     $self->{'formatting_context'}->[-1]->{'index'} = 1;
     my @result;
     foreach my $subentry_sortas (@$subentries) {
-      my ($subentry, $sortas) = @$subentry_sortas;
+      my $sortas;
+      my ($subentry, $subentry_sortas) = @$subentry_sortas;
       if ($in_code) {
         $self->{'formatting_context'}->[-1]->{'code'} += 1;
       }
       my $index_entry = _convert($self, $subentry);
       if ($in_code) {
         $self->{'formatting_context'}->[-1]->{'code'} -= 1;
-        # always use a string to sort with code as we use a command
-        if (not defined($sortas)) {
-          $sortas = _convert($self, $subentry);
-          # another possibility could be to use
-          # _protect_index_text(Texinfo::Convert::NodeNameNormalization::transliterate_texinfo($subentry));
-          # of Texinfo::Convert::Text
-        }
+        # always setup a string to sort with code as we use a command
+        $sortas = Texinfo::Structuring::index_key($entry, $subentry,
+                                 $subentry_sortas, $options, $ignore_chars);
+      } else {
+        $sortas = $subentry_sortas;
       }
       my $result = '';
       if (defined($sortas)) {
-        $result = $sortas.'@';
+        $result = _protect_text($self, $sortas).'@';
       }
       if ($in_code) {
         $result .= "\\texttt{$index_entry}";
@@ -2336,7 +2342,8 @@ sub _convert($$)
         if ($command eq 'displaymath') {
           push @{$self->{'formatting_context'}->[-1]->{'math_style'}}, 'one-line';
           # close all preformatted formats
-          $preformatted_to_reopen = [@{$self->{'formatting_context'}->[-1]->{'preformatted_context'}}];
+          $preformatted_to_reopen
+              = [@{$self->{'formatting_context'}->[-1]->{'preformatted_context'}}];
           $result .= _close_preformatted_stack($self, $preformatted_to_reopen);
           $result .= "\$\$\n";
         }

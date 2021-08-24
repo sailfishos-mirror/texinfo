@@ -615,9 +615,9 @@ in a reuglar para @sortas{foo}. @code{inside another @sortas{command}}.
 @node chapter index
 @chapter Index
 
-@cindex aaa @sortas{A} @subentry @sortas{B} bbb
+@cindex aaa @sortas{A---S} @subentry @sortas{B---S1} bbb
 
-@findex xxx @sortas{X} @subentry @sortas{X} zzz
+@findex xxx @sortas{X---S} @subentry @sortas{X---S1} zzz
 
 @printindex cp
 @printindex fn
