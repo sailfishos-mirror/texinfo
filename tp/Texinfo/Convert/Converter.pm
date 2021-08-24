@@ -1350,8 +1350,8 @@ sub convert_index_subentries {
   my $tmp = $entry->{'command'};
   while ($tmp->{'extra'} and $tmp->{'extra'}->{'subentry'}) {
     $tmp = $tmp->{'extra'}->{'subentry'};
-    $result .= $self->_convert({'text' => ', '});
-    $result .= $self->_convert($tmp->{'args'}->[0]);
+    $result .= $self->convert_tree({'text' => ', '});
+    $result .= $self->convert_tree($tmp->{'args'}->[0]);
   }
   return $result;
 }

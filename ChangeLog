@@ -1,5 +1,10 @@
 2021-08-24  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Converter.pm (convert_index_subentries):
+	use convert_tree() instead of _convert().
+
+2021-08-24  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_convert_printindex_command):
 	convert @subentry in monospace context if in code index.
 	* tp/Texinfo/Convert/Plaintext.pm (_open_code, _close_code)
