@@ -6,3 +6,6 @@ test_redefine_need test_need.texi --init redefine_need.init
 # FIXME /dev/null not portable
 split_nocopying_split_dev_null split_nocopying.texi --info --split-size 1 -o /dev/null
 simplest_test_css simplest.texi --css-include file.css
+
+# check that command line overrides document
+documentlanguage_cmdline documentlanguage.texi --document-language=fr
