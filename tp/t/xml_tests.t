@@ -206,7 +206,7 @@ Para
 <in />
 @end xml
 ',
-{'expanded_formats' => ['tex', 'xml']}
+{'EXPANDED_FORMATS' => ['tex', 'xml']}
 ],
 ['raw_and_comments',
 '@tex  @c comment
@@ -218,7 +218,7 @@ Para
 <in />
 @end xml  @comment end xml comment
 ',
-{'expanded_formats' => ['tex', 'xml']}
+{'EXPANDED_FORMATS' => ['tex', 'xml']}
 ],
 ['node_no_section',
 '@node Top
@@ -299,7 +299,7 @@ T
 @end deffn
 
 ',
-{'expanded_formats' => ['tex'] }
+{'EXPANDED_FORMATS' => ['tex'] }
 ],
 ['spaces_info_lost',
 '@display  text on display line 

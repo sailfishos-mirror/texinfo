@@ -1,3 +1,22 @@
+2021-08-25  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Common.pm (%default_parser_state_configuration)
+	(%default_parser_customization_values, @variable_other_settables)
+	(@parser_options), tp/Texinfo/Convert/Text.pm (converter),
+	tp/Texinfo/ParserNonXS.pm (%parser_state_configuration),
+	(_setup_parser, simple_parser), texi2any.pl,
+	tp/Texinfo/XS/parsetexi/Parsetexi.pm (%parser_default_configuration)
+	(parser): rename 'expanded_formats' key as 'EXPANDED_FORMATS' in
+	the configuration setting and in the parsers.
+	Move %default_parser_state_configuration out of Common.pm to
+	ParserNonXS.pm, renaming it %parser_state_configuration.
+	Put the keys that are actually parser options in
+	%default_parser_customization_values (EXPANDED_FORMATS and
+	documentlanguage).  Remove correspondingly @parser_options.
+	Do not set defaults for parse configuration in texi2any.pl
+	and in Parsetexi.pm according to %default_parser_state_configuration.
+	Do not set $parser_options for keys that are alreay in configuration.
+
 2021-08-24  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/HTML.pm (output_internal_links):

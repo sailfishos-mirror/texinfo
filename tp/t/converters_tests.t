@@ -631,18 +631,18 @@ fff2
 '],
 ['raw_block_commands',
 $raw_commands_text,
-{'expanded_formats' => ['tex', 'docbook', 'html', 'xml', 'latex']}
+{'EXPANDED_FORMATS' => ['tex', 'docbook', 'html', 'xml', 'latex']}
 ],
 ['raw_block_commands_expand_tex',
 $raw_commands_text,
-{'expanded_formats' => ['tex', 'docbook', 'html', 'xml', 'latex']},
+{'EXPANDED_FORMATS' => ['tex', 'docbook', 'html', 'xml', 'latex']},
 {'expanded_formats' => ['tex']},
 ],
 ['inline',
 $inline_text,
 ],
 ['inline_expand_tex',
-$inline_text, {'expanded_formats' => ['tex']},
+$inline_text, {'EXPANDED_FORMATS' => ['tex']},
 {'expanded_formats' => ['tex']},
 ],
 ['inlinefmtifelse',
@@ -664,7 +664,7 @@ $inline_text, {'expanded_formats' => ['tex']},
 
 @inlinefmtifelse{latex,if latex,else latex}.
 ',
-{'expanded_formats' => []}
+{'EXPANDED_FORMATS' => []}
 ],
 ['inlineifsetifclear',
 '@inlineifclear{aaa, iclear first }.
@@ -968,7 +968,7 @@ Macro not unmacroed @othermacro{}.
 
 Macros that should not be defined: @mymacro{}. @macroarg{with arg}.
 
-', {'expanded_formats' => ['html']}, {'expanded_formats' => ['html']}
+', {'EXPANDED_FORMATS' => ['html']}, {'expanded_formats' => ['html']}
 ], 
 );
 

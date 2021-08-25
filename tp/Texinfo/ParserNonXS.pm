@@ -105,8 +105,45 @@ sub N__($)
   return $_[0];
 }
 
+# these are the default values for the parser state
+my %parser_state_configuration = (
+  'include_directories' => [ '.' ],
+  # these are the user-added indices.  May be an array reference on names
+  # or an hash reference in the same format than %index_names below
+  'indices' => [],
+  # the following are dynamically modified during the document parsing.
+  'aliases' => {},            # key is a command name value is the alias
+  'explained_commands' => {}, # the key is a command name, either acronym
+                              # or abbr, the value is a hash.  The key hash 
+                              # is a normalized first argument of the 
+                              # corresponding command, the value is the 
+                              # contents array of the previous command with
+                              # this first arg and a second arg.
+  'labels'          => {},    # keys are normalized label names, as described
+                              # in the `HTML Xref' node.  Value should be
+                              # a node/anchor or float in the tree.
+  'targets' => [],            # array of elements used to build 'labels'
+  'macros' => {},             # the key is the user-defined macro name.  The 
+                              # value is the reference on a macro element 
+                              # as obtained by parsing the @macro
+  'merged_indices' => {},     # the key is merged in the value
+  'sections_level' => 0,      # modified by raise/lowersections
+  'values' => {'txicommandconditionals' => 1},
+                              # the key is the name, the value the @set name 
+                              # argument.  A Texinfo tree may also be used.
+                              # The txicommandconditionals is a special value
+                              # that is set to mark that @ifcommandnotdefined
+                              # is implemented
+  'info' => {
+    'novalidate' => 0,        # same as setting @novalidate.
+    'input_encoding_name' => 'utf-8',
+    'input_perl_encoding' => 'utf-8'
+  },
+  'in_gdt' => 0 # whether we are being called by gdt
+);
+
 my %parser_default_configuration = (
-    %Texinfo::Common::default_parser_state_configuration,
+    %parser_state_configuration,
     %Texinfo::Common::default_parser_customization_values,
     %Texinfo::Common::default_structure_customization_values,
     'clickstyle' => 'arrow',
@@ -118,7 +155,7 @@ my %parser_default_configuration = (
 
 # the other possible keys for the parser state are:
 #
-# expanded_formats_hash   each key comes from expanded_formats value is 1
+# expanded_formats_hash   each key comes from EXPANDED_FORMATS value is 1
 # index_names             a structure holding the link between index 
 #                         names, merged indices,
 #                         initial value is %index_names in Texinfo::Common.
@@ -672,7 +709,7 @@ sub _setup_parser {
 
   # turn the array to a hash for speed.  Not sure it really matters for such
   # a small array.
-  foreach my $expanded_format(@{$parser->{'expanded_formats'}}) {
+  foreach my $expanded_format(@{$parser->{'EXPANDED_FORMATS'}}) {
     $parser->{'expanded_formats_hash'}->{$expanded_format} = 1;
   }
 
@@ -722,7 +759,7 @@ sub simple_parser(;$)
 
   # turn the array to a hash for speed.  Not sure it really matters for such
   # a small array.
-  foreach my $expanded_format(@{$parser->{'expanded_formats'}}) {
+  foreach my $expanded_format(@{$parser->{'EXPANDED_FORMATS'}}) {
     $parser->{'expanded_formats_hash'}->{$expanded_format} = 1;
   }
 
@@ -5862,7 +5899,7 @@ C<@synindex>).  These options are described below in L</Texinfo Parser options>.
 
 =over
 
-=item expanded_formats
+=item EXPANDED_FORMATS
 
 An array reference of the output formats for which C<@ifI<FORMAT>> 
 conditional blocks should be expanded.  Default is empty.

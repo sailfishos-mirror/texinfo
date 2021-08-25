@@ -28,7 +28,7 @@ Locale::Messages::bindtextdomain ('texinfo_document', 't/locales');
 my $parser = Texinfo::Parser::parser({'TEST' => 1,
                                       'include_directories' => [
                                           $srcdir.'t/include/'],
-                                      'expanded_formats' => ['html', 'tex']});
+                                      'EXPANDED_FORMATS' => ['html', 'tex']});
 
 my $invalid_line = '@noindent Text @titlefont{in titlefont} @anchor{in anchor}@footnote{footnote} @exdent exdent';
 

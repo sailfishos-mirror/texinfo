@@ -631,8 +631,8 @@ sub converter($)
         }
       }
     }
-    if (!$expanded_formats and $converter->{'parser'}->{'expanded_formats'}) {
-      $expanded_formats = $converter->{'parser'}->{'expanded_formats'};
+    if (!$expanded_formats and $converter->{'parser'}->{'EXPANDED_FORMATS'}) {
+      $expanded_formats = $converter->{'parser'}->{'EXPANDED_FORMATS'};
     }
   }
   if ($expanded_formats) {

@@ -751,12 +751,12 @@ sub test($$)
   $parser_options = shift @$test_case if (@$test_case);
   $converter_options = shift @$test_case if (@$test_case);
 
-  if (!defined $parser_options->{'expanded_formats'}) {
-    $parser_options->{'expanded_formats'} = [
+  if (!defined $parser_options->{'EXPANDED_FORMATS'}) {
+    $parser_options->{'EXPANDED_FORMATS'} = [
       'docbook', 'html', 'xml', 'info', 'plaintext', 'latex'];
     #  'tex' is missed out here so that @ifnottex is expanded
     # in the tests.  Put
-    #   {'expanded_formats' => ['tex']}
+    #   {'EXPANDED_FORMATS' => ['tex']}
     # where you need @tex expanded in the t/*.t files.
   }
 

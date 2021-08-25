@@ -27,7 +27,7 @@ in  v---erbatim`` <>
 in verbatim2
 @end verbatim
 ',
-{'expanded_formats' => ['tex', 'html']}
+{'EXPANDED_FORMATS' => ['tex', 'html']}
 ],
 ['misc_raw_comments','
 @html @c comment space
@@ -41,7 +41,7 @@ in verbatim @c in verbatim
 in verbatim2
 @end verbatim
 ',
-{'expanded_formats' => ['tex', 'html']}
+{'EXPANDED_FORMATS' => ['tex', 'html']}
 ],
 ['raw_in_para',
 'para
@@ -64,7 +64,7 @@ in tex2
 
 End.
 ',
-{'expanded_formats' => ['tex', 'html']}
+{'EXPANDED_FORMATS' => ['tex', 'html']}
 ],
 ['raw_in_example',
 '@example
@@ -94,7 +94,7 @@ $$
 @end example
 
 ',
-{'expanded_formats' => ['tex', 'html']}
+{'EXPANDED_FORMATS' => ['tex', 'html']}
 ],
 ['braces_in_tex',
 '
@@ -118,7 +118,7 @@ $$
 @end example
 
 ',
-{'expanded_formats' => ['tex']}
+{'EXPANDED_FORMATS' => ['tex']}
 ],
 ['lone_braces_in_html',
 '@html
@@ -129,7 +129,7 @@ $$
 {
 @end html
 ',
-{'expanded_formats' => ['html']}
+{'EXPANDED_FORMATS' => ['html']}
 ],
 ['verbatim_and_verbatiminclude',
 '@verbatim
@@ -283,7 +283,7 @@ Before the opening command @verbatim
 in block
 @end verbatim. A symbol after the closing command.
 ',
-{'expanded_formats' => ['tex', 'html']}
+{'EXPANDED_FORMATS' => ['tex', 'html']}
 ],
 ['inlinefmt',
 'A @inlinefmt{plaintext, plaintext `` @lbracechar{} } a.  Now html
@@ -306,7 +306,7 @@ A @inlineraw{plaintext, plaintext
 in <i>@acronym{HTML}</i>}.
 @end example
 ',
-{'expanded_formats' => ['plaintext', 'html']}
+{'EXPANDED_FORMATS' => ['plaintext', 'html']}
 ],
 ['raw_in_style',
 '@code{
@@ -319,7 +319,7 @@ in html
 @html
 in html
 @end html
-}',{'expanded_formats' => ['html']}, {'expanded_formats' => ['html']}
+}',{'EXPANDED_FORMATS' => ['html']}, {'expanded_formats' => ['html']}
 ],
 ['verbatim_in_brace_command',
 '@samp{
@@ -356,7 +356,7 @@ This is some html
 
 This is some \LaTeX{}
 ',
-{'expanded_formats' => ['tex']}
+{'EXPANDED_FORMATS' => ['tex']}
 ],
 ['verbatim_not_closed',
 '@verbatim
@@ -389,7 +389,7 @@ some verbatim @
 '
 @tex in tex @end tex
 ',
-{'expanded_formats' => ['tex']}
+{'EXPANDED_FORMATS' => ['tex']}
 ],
 );
 

@@ -43,6 +43,36 @@ $result_trees{'indices'} = {
           'text' => '
 ',
           'type' => 'empty_line'
+        },
+        {
+          'args' => [
+            {
+              'parent' => {},
+              'text' => 'txiindexbackslashignore',
+              'type' => 'misc_arg'
+            },
+            {
+              'parent' => {},
+              'text' => '',
+              'type' => 'misc_arg'
+            }
+          ],
+          'cmdname' => 'set',
+          'extra' => {
+            'arg_line' => ' txiindexbackslashignore
+',
+            'misc_args' => [
+              'txiindexbackslashignore',
+              ''
+            ]
+          },
+          'parent' => {}
+        },
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
         }
       ],
       'parent' => {},
@@ -84,7 +114,7 @@ $result_trees{'indices'} = {
       },
       'line_nr' => {
         'file_name' => '',
-        'line_nr' => 3,
+        'line_nr' => 5,
         'macro' => ''
       },
       'parent' => {}
@@ -121,7 +151,7 @@ $result_trees{'indices'} = {
       'level' => 0,
       'line_nr' => {
         'file_name' => '',
-        'line_nr' => 4,
+        'line_nr' => 6,
         'macro' => ''
       },
       'parent' => {}
@@ -163,7 +193,7 @@ $result_trees{'indices'} = {
       },
       'line_nr' => {
         'file_name' => '',
-        'line_nr' => 6,
+        'line_nr' => 8,
         'macro' => ''
       },
       'parent' => {}
@@ -222,7 +252,7 @@ $result_trees{'indices'} = {
                   'contents' => [],
                   'line_nr' => {
                     'file_name' => '',
-                    'line_nr' => 9,
+                    'line_nr' => 11,
                     'macro' => ''
                   },
                   'parent' => {}
@@ -256,7 +286,7 @@ $result_trees{'indices'} = {
                   'contents' => [],
                   'line_nr' => {
                     'file_name' => '',
-                    'line_nr' => 9,
+                    'line_nr' => 11,
                     'macro' => ''
                   },
                   'parent' => {}
@@ -282,7 +312,7 @@ $result_trees{'indices'} = {
                   'contents' => [],
                   'line_nr' => {
                     'file_name' => '',
-                    'line_nr' => 9,
+                    'line_nr' => 11,
                     'macro' => ''
                   },
                   'parent' => {}
@@ -339,7 +369,7 @@ $result_trees{'indices'} = {
                       'contents' => [],
                       'line_nr' => {
                         'file_name' => '',
-                        'line_nr' => 9,
+                        'line_nr' => 11,
                         'macro' => ''
                       },
                       'parent' => {}
@@ -378,7 +408,7 @@ $result_trees{'indices'} = {
                       'contents' => [],
                       'line_nr' => {
                         'file_name' => '',
-                        'line_nr' => 9,
+                        'line_nr' => 11,
                         'macro' => ''
                       },
                       'parent' => {}
@@ -412,7 +442,7 @@ $result_trees{'indices'} = {
                       'contents' => [],
                       'line_nr' => {
                         'file_name' => '',
-                        'line_nr' => 9,
+                        'line_nr' => 11,
                         'macro' => ''
                       },
                       'parent' => {}
@@ -438,7 +468,7 @@ $result_trees{'indices'} = {
                       'contents' => [],
                       'line_nr' => {
                         'file_name' => '',
-                        'line_nr' => 9,
+                        'line_nr' => 11,
                         'macro' => ''
                       },
                       'parent' => {}
@@ -477,7 +507,7 @@ $result_trees{'indices'} = {
                               'contents' => [],
                               'line_nr' => {
                                 'file_name' => '',
-                                'line_nr' => 9,
+                                'line_nr' => 11,
                                 'macro' => ''
                               },
                               'parent' => {}
@@ -511,7 +541,7 @@ $result_trees{'indices'} = {
                               'contents' => [],
                               'line_nr' => {
                                 'file_name' => '',
-                                'line_nr' => 9,
+                                'line_nr' => 11,
                                 'macro' => ''
                               },
                               'parent' => {}
@@ -537,7 +567,7 @@ $result_trees{'indices'} = {
                               'contents' => [],
                               'line_nr' => {
                                 'file_name' => '',
-                                'line_nr' => 9,
+                                'line_nr' => 11,
                                 'macro' => ''
                               },
                               'parent' => {}
@@ -551,7 +581,7 @@ $result_trees{'indices'} = {
                       'contents' => [],
                       'line_nr' => {
                         'file_name' => '',
-                        'line_nr' => 9,
+                        'line_nr' => 11,
                         'macro' => ''
                       },
                       'parent' => {}
@@ -574,7 +604,7 @@ $result_trees{'indices'} = {
               },
               'line_nr' => {
                 'file_name' => '',
-                'line_nr' => 9,
+                'line_nr' => 11,
                 'macro' => ''
               },
               'parent' => {}
@@ -582,13 +612,329 @@ $result_trees{'indices'} = {
           },
           'line_nr' => {
             'file_name' => '',
-            'line_nr' => 9,
+            'line_nr' => 11,
             'macro' => ''
           },
           'parent' => {},
           'type' => 'index_entry_command'
         },
         {},
+        {
+          'args' => [
+            {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => '\\cmd'
+                }
+              ],
+              'extra' => {
+                'spaces_after_argument' => '
+'
+              },
+              'parent' => {},
+              'type' => 'line_arg'
+            }
+          ],
+          'cmdname' => 'cindex',
+          'extra' => {
+            'index_entry' => {
+              'command' => {},
+              'content' => [],
+              'content_normalized' => [],
+              'in_code' => 0,
+              'index_at_command' => 'cindex',
+              'index_name' => 'cp',
+              'index_type_command' => 'cindex',
+              'key' => '\\cmd',
+              'node' => {},
+              'number' => 2
+            },
+            'spaces_before_argument' => ' '
+          },
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 12,
+            'macro' => ''
+          },
+          'parent' => {},
+          'type' => 'index_entry_command'
+        },
+        {
+          'args' => [
+            {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => 'totocmd'
+                },
+                {
+                  'parent' => {},
+                  'text' => ' ',
+                  'type' => 'empty_spaces_before_argument'
+                },
+                {
+                  'args' => [
+                    {
+                      'contents' => [
+                        {
+                          'parent' => {},
+                          'text' => '\\cmd'
+                        }
+                      ],
+                      'parent' => {},
+                      'type' => 'brace_command_arg'
+                    }
+                  ],
+                  'cmdname' => 'sortas',
+                  'contents' => [],
+                  'line_nr' => {
+                    'file_name' => '',
+                    'line_nr' => 13,
+                    'macro' => ''
+                  },
+                  'parent' => {}
+                }
+              ],
+              'extra' => {
+                'spaces_after_argument' => '
+'
+              },
+              'parent' => {},
+              'type' => 'line_arg'
+            }
+          ],
+          'cmdname' => 'cindex',
+          'extra' => {
+            'index_entry' => {
+              'command' => {},
+              'content' => [],
+              'content_normalized' => [],
+              'in_code' => 0,
+              'index_at_command' => 'cindex',
+              'index_name' => 'cp',
+              'index_type_command' => 'cindex',
+              'key' => '\\cmd',
+              'node' => {},
+              'number' => 3,
+              'sortas' => '\\cmd'
+            },
+            'sortas' => '\\cmd',
+            'spaces_before_argument' => ' '
+          },
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 13,
+            'macro' => ''
+          },
+          'parent' => {},
+          'type' => 'index_entry_command'
+        },
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'args' => [
+            {
+              'parent' => {},
+              'text' => 'txiindexbackslashignore',
+              'type' => 'misc_arg'
+            }
+          ],
+          'cmdname' => 'clear',
+          'extra' => {
+            'arg_line' => ' txiindexbackslashignore
+',
+            'misc_args' => [
+              'txiindexbackslashignore'
+            ]
+          },
+          'parent' => {}
+        },
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'args' => [
+            {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => '\\some\\command for '
+                },
+                {
+                  'args' => [
+                    {
+                      'contents' => [
+                        {
+                          'parent' => {},
+                          'text' => 'file'
+                        }
+                      ],
+                      'parent' => {},
+                      'type' => 'brace_command_arg'
+                    }
+                  ],
+                  'cmdname' => 'file',
+                  'contents' => [],
+                  'line_nr' => {
+                    'file_name' => '',
+                    'line_nr' => 17,
+                    'macro' => ''
+                  },
+                  'parent' => {}
+                }
+              ],
+              'extra' => {
+                'comment_at_end' => {
+                  'args' => [
+                    {
+                      'parent' => {},
+                      'text' => ' comment
+',
+                      'type' => 'misc_arg'
+                    }
+                  ],
+                  'cmdname' => 'c',
+                  'extra' => {
+                    'misc_args' => [
+                      ' comment
+'
+                    ]
+                  },
+                  'parent' => {}
+                },
+                'spaces_after_argument' => ' '
+              },
+              'parent' => {},
+              'type' => 'line_arg'
+            }
+          ],
+          'cmdname' => 'cindex',
+          'extra' => {
+            'index_entry' => {
+              'command' => {},
+              'content' => [],
+              'content_normalized' => [],
+              'in_code' => 0,
+              'index_at_command' => 'cindex',
+              'index_name' => 'cp',
+              'index_type_command' => 'cindex',
+              'key' => '\\some\\command for file',
+              'node' => {},
+              'number' => 4
+            },
+            'spaces_before_argument' => ' '
+          },
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 17,
+            'macro' => ''
+          },
+          'parent' => {},
+          'type' => 'index_entry_command'
+        },
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'args' => [
+            {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => 'the '
+                },
+                {
+                  'args' => [
+                    {
+                      'contents' => [
+                        {
+                          'parent' => {},
+                          'text' => 'person'
+                        }
+                      ],
+                      'parent' => {},
+                      'type' => 'brace_command_arg'
+                    }
+                  ],
+                  'cmdname' => 'r',
+                  'contents' => [],
+                  'line_nr' => {
+                    'file_name' => '',
+                    'line_nr' => 19,
+                    'macro' => ''
+                  },
+                  'parent' => {}
+                },
+                {
+                  'parent' => {},
+                  'text' => ' index '
+                },
+                {
+                  'args' => [
+                    {
+                      'contents' => [
+                        {
+                          'parent' => {},
+                          'text' => 'aa'
+                        }
+                      ],
+                      'parent' => {},
+                      'type' => 'brace_command_arg'
+                    }
+                  ],
+                  'cmdname' => 'file',
+                  'contents' => [],
+                  'line_nr' => {
+                    'file_name' => '',
+                    'line_nr' => 19,
+                    'macro' => ''
+                  },
+                  'parent' => {}
+                }
+              ],
+              'extra' => {
+                'spaces_after_argument' => '
+'
+              },
+              'parent' => {},
+              'type' => 'line_arg'
+            }
+          ],
+          'cmdname' => 'findex',
+          'extra' => {
+            'index_entry' => {
+              'command' => {},
+              'content' => [],
+              'content_normalized' => [],
+              'in_code' => 1,
+              'index_at_command' => 'findex',
+              'index_name' => 'fn',
+              'index_type_command' => 'findex',
+              'key' => 'the person index aa',
+              'node' => {},
+              'number' => 1
+            },
+            'spaces_before_argument' => ' '
+          },
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 19,
+            'macro' => ''
+          },
+          'parent' => {},
+          'type' => 'index_entry_command'
+        },
         {
           'parent' => {},
           'text' => '
@@ -621,7 +967,44 @@ $result_trees{'indices'} = {
           },
           'line_nr' => {
             'file_name' => '',
-            'line_nr' => 11,
+            'line_nr' => 21,
+            'macro' => ''
+          },
+          'parent' => {}
+        },
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'args' => [
+            {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => 'fn'
+                }
+              ],
+              'extra' => {
+                'spaces_after_argument' => '
+'
+              },
+              'parent' => {},
+              'type' => 'line_arg'
+            }
+          ],
+          'cmdname' => 'printindex',
+          'extra' => {
+            'misc_args' => [
+              'fn'
+            ],
+            'spaces_before_argument' => ' '
+          },
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 23,
             'macro' => ''
           },
           'parent' => {}
@@ -633,7 +1016,7 @@ $result_trees{'indices'} = {
       'level' => 1,
       'line_nr' => {
         'file_name' => '',
-        'line_nr' => 7,
+        'line_nr' => 9,
         'macro' => ''
       },
       'number' => 1,
@@ -646,6 +1029,10 @@ $result_trees{'indices'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]
 $result_trees{'indices'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'indices'}{'contents'}[0]{'contents'}[0];
 $result_trees{'indices'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'indices'}{'contents'}[0];
 $result_trees{'indices'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'indices'}{'contents'}[0];
+$result_trees{'indices'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'indices'}{'contents'}[0]{'contents'}[2];
+$result_trees{'indices'}{'contents'}[0]{'contents'}[2]{'args'}[1]{'parent'} = $result_trees{'indices'}{'contents'}[0]{'contents'}[2];
+$result_trees{'indices'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'indices'}{'contents'}[0];
+$result_trees{'indices'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'indices'}{'contents'}[0];
 $result_trees{'indices'}{'contents'}[0]{'parent'} = $result_trees{'indices'};
 $result_trees{'indices'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'indices'}{'contents'}[1]{'args'}[0];
 $result_trees{'indices'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'indices'}{'contents'}[1];
@@ -729,13 +1116,68 @@ $result_trees{'indices'}{'contents'}[4]{'contents'}[1]{'extra'}{'subentry'}{'ext
 $result_trees{'indices'}{'contents'}[4]{'contents'}[1]{'extra'}{'subentry'}{'parent'} = $result_trees{'indices'}{'contents'}[4];
 $result_trees{'indices'}{'contents'}[4]{'contents'}[1]{'parent'} = $result_trees{'indices'}{'contents'}[4];
 $result_trees{'indices'}{'contents'}[4]{'contents'}[2] = $result_trees{'indices'}{'contents'}[4]{'contents'}[1]{'extra'}{'subentry'};
+$result_trees{'indices'}{'contents'}[4]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[3]{'args'}[0];
+$result_trees{'indices'}{'contents'}[4]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[3];
+$result_trees{'indices'}{'contents'}[4]{'contents'}[3]{'extra'}{'index_entry'}{'command'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[3];
+$result_trees{'indices'}{'contents'}[4]{'contents'}[3]{'extra'}{'index_entry'}{'content'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[3]{'args'}[0]{'contents'};
+$result_trees{'indices'}{'contents'}[4]{'contents'}[3]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[3]{'args'}[0]{'contents'};
+$result_trees{'indices'}{'contents'}[4]{'contents'}[3]{'extra'}{'index_entry'}{'node'} = $result_trees{'indices'}{'contents'}[3];
 $result_trees{'indices'}{'contents'}[4]{'contents'}[3]{'parent'} = $result_trees{'indices'}{'contents'}[4];
 $result_trees{'indices'}{'contents'}[4]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[4]{'args'}[0];
+$result_trees{'indices'}{'contents'}[4]{'contents'}[4]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[4]{'args'}[0];
+$result_trees{'indices'}{'contents'}[4]{'contents'}[4]{'args'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[4]{'args'}[0]{'contents'}[2]{'args'}[0];
+$result_trees{'indices'}{'contents'}[4]{'contents'}[4]{'args'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[4]{'args'}[0]{'contents'}[2];
+$result_trees{'indices'}{'contents'}[4]{'contents'}[4]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[4]{'args'}[0];
 $result_trees{'indices'}{'contents'}[4]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[4];
+$result_trees{'indices'}{'contents'}[4]{'contents'}[4]{'extra'}{'index_entry'}{'command'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[4];
+$result_trees{'indices'}{'contents'}[4]{'contents'}[4]{'extra'}{'index_entry'}{'content'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[4]{'args'}[0]{'contents'};
+$result_trees{'indices'}{'contents'}[4]{'contents'}[4]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[4]{'args'}[0]{'contents'};
+$result_trees{'indices'}{'contents'}[4]{'contents'}[4]{'extra'}{'index_entry'}{'node'} = $result_trees{'indices'}{'contents'}[3];
 $result_trees{'indices'}{'contents'}[4]{'contents'}[4]{'parent'} = $result_trees{'indices'}{'contents'}[4];
+$result_trees{'indices'}{'contents'}[4]{'contents'}[5]{'parent'} = $result_trees{'indices'}{'contents'}[4];
+$result_trees{'indices'}{'contents'}[4]{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[6];
+$result_trees{'indices'}{'contents'}[4]{'contents'}[6]{'parent'} = $result_trees{'indices'}{'contents'}[4];
+$result_trees{'indices'}{'contents'}[4]{'contents'}[7]{'parent'} = $result_trees{'indices'}{'contents'}[4];
+$result_trees{'indices'}{'contents'}[4]{'contents'}[8]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[8]{'args'}[0];
+$result_trees{'indices'}{'contents'}[4]{'contents'}[8]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[8]{'args'}[0]{'contents'}[1]{'args'}[0];
+$result_trees{'indices'}{'contents'}[4]{'contents'}[8]{'args'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[8]{'args'}[0]{'contents'}[1];
+$result_trees{'indices'}{'contents'}[4]{'contents'}[8]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[8]{'args'}[0];
+$result_trees{'indices'}{'contents'}[4]{'contents'}[8]{'args'}[0]{'extra'}{'comment_at_end'}{'args'}[0]{'parent'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[8]{'args'}[0]{'extra'}{'comment_at_end'};
+$result_trees{'indices'}{'contents'}[4]{'contents'}[8]{'args'}[0]{'extra'}{'comment_at_end'}{'parent'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[8]{'args'}[0];
+$result_trees{'indices'}{'contents'}[4]{'contents'}[8]{'args'}[0]{'parent'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[8];
+$result_trees{'indices'}{'contents'}[4]{'contents'}[8]{'extra'}{'index_entry'}{'command'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[8];
+$result_trees{'indices'}{'contents'}[4]{'contents'}[8]{'extra'}{'index_entry'}{'content'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[8]{'args'}[0]{'contents'};
+$result_trees{'indices'}{'contents'}[4]{'contents'}[8]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[8]{'args'}[0]{'contents'};
+$result_trees{'indices'}{'contents'}[4]{'contents'}[8]{'extra'}{'index_entry'}{'node'} = $result_trees{'indices'}{'contents'}[3];
+$result_trees{'indices'}{'contents'}[4]{'contents'}[8]{'parent'} = $result_trees{'indices'}{'contents'}[4];
+$result_trees{'indices'}{'contents'}[4]{'contents'}[9]{'parent'} = $result_trees{'indices'}{'contents'}[4];
+$result_trees{'indices'}{'contents'}[4]{'contents'}[10]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[10]{'args'}[0];
+$result_trees{'indices'}{'contents'}[4]{'contents'}[10]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[10]{'args'}[0]{'contents'}[1]{'args'}[0];
+$result_trees{'indices'}{'contents'}[4]{'contents'}[10]{'args'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[10]{'args'}[0]{'contents'}[1];
+$result_trees{'indices'}{'contents'}[4]{'contents'}[10]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[10]{'args'}[0];
+$result_trees{'indices'}{'contents'}[4]{'contents'}[10]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[10]{'args'}[0];
+$result_trees{'indices'}{'contents'}[4]{'contents'}[10]{'args'}[0]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[10]{'args'}[0]{'contents'}[3]{'args'}[0];
+$result_trees{'indices'}{'contents'}[4]{'contents'}[10]{'args'}[0]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[10]{'args'}[0]{'contents'}[3];
+$result_trees{'indices'}{'contents'}[4]{'contents'}[10]{'args'}[0]{'contents'}[3]{'parent'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[10]{'args'}[0];
+$result_trees{'indices'}{'contents'}[4]{'contents'}[10]{'args'}[0]{'parent'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[10];
+$result_trees{'indices'}{'contents'}[4]{'contents'}[10]{'extra'}{'index_entry'}{'command'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[10];
+$result_trees{'indices'}{'contents'}[4]{'contents'}[10]{'extra'}{'index_entry'}{'content'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[10]{'args'}[0]{'contents'};
+$result_trees{'indices'}{'contents'}[4]{'contents'}[10]{'extra'}{'index_entry'}{'content_normalized'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[10]{'args'}[0]{'contents'};
+$result_trees{'indices'}{'contents'}[4]{'contents'}[10]{'extra'}{'index_entry'}{'node'} = $result_trees{'indices'}{'contents'}[3];
+$result_trees{'indices'}{'contents'}[4]{'contents'}[10]{'parent'} = $result_trees{'indices'}{'contents'}[4];
+$result_trees{'indices'}{'contents'}[4]{'contents'}[11]{'parent'} = $result_trees{'indices'}{'contents'}[4];
+$result_trees{'indices'}{'contents'}[4]{'contents'}[12]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[12]{'args'}[0];
+$result_trees{'indices'}{'contents'}[4]{'contents'}[12]{'args'}[0]{'parent'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[12];
+$result_trees{'indices'}{'contents'}[4]{'contents'}[12]{'parent'} = $result_trees{'indices'}{'contents'}[4];
+$result_trees{'indices'}{'contents'}[4]{'contents'}[13]{'parent'} = $result_trees{'indices'}{'contents'}[4];
+$result_trees{'indices'}{'contents'}[4]{'contents'}[14]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[14]{'args'}[0];
+$result_trees{'indices'}{'contents'}[4]{'contents'}[14]{'args'}[0]{'parent'} = $result_trees{'indices'}{'contents'}[4]{'contents'}[14];
+$result_trees{'indices'}{'contents'}[4]{'contents'}[14]{'parent'} = $result_trees{'indices'}{'contents'}[4];
 $result_trees{'indices'}{'contents'}[4]{'parent'} = $result_trees{'indices'};
 
 $result_texis{'indices'} = '@setfilename indices.info
+
+@set txiindexbackslashignore
 
 @node Top
 @top top section
@@ -744,17 +1186,32 @@ $result_texis{'indices'} = '@setfilename indices.info
 @chapter Index
 
 @cindex @math{a!"@@b} "!@@ @"a @"{o} @subentry @sortas{a!"@@b} sub@math{a!"@@b} sub "!@@ @"a @"{o} @seealso{@math{a!"@@b} "!@@ @"a @"{o}}
+@cindex \\cmd
+@cindex totocmd @sortas{\\cmd}
+
+@clear txiindexbackslashignore
+
+@cindex \\some\\command for @file{file} @c comment
+
+@findex the @r{person} index @file{aa}
 
 @printindex cp
+
+@printindex fn
 ';
 
 
 $result_texts{'indices'} = '
+
 top section
 ***********
 
 1 Index
 *******
+
+
+
+
 
 
 ';
@@ -848,7 +1305,26 @@ $result_menus{'indices'} = {
   }
 };
 
-$result_errors{'indices'} = [];
+$result_errors{'indices'} = [
+  {
+    'error_line' => ':17: misplaced {
+',
+    'file_name' => '',
+    'line_nr' => 17,
+    'macro' => '',
+    'text' => 'misplaced {',
+    'type' => 'error'
+  },
+  {
+    'error_line' => ':17: misplaced }
+',
+    'file_name' => '',
+    'line_nr' => 17,
+    'macro' => '',
+    'text' => 'misplaced }',
+    'type' => 'error'
+  }
+];
 
 
 $result_floats{'indices'} = {};
@@ -856,12 +1332,22 @@ $result_floats{'indices'} = {};
 
 
 $result_converted{'latex'}->{'indices'} = '
+
 \\chapter{Index}
 \\label{anchor:chapter}%
 
 \\index[cp]{$a"!"""@b$ """!"@ \\"{a} \\"{o}!a"!"""@b@sub$a"!"""@b$ sub """!"@ \\"{a} \\"{o}|seealso{$a"!"""@b$ """!"@ \\"{a} \\"{o}}}%
+\\index[cp]{\\textbackslash{}cmd}%
+\\index[cp]{\\textbackslash{}cmd@totocmd}%
+
+
+\\index[cp]{\\textbackslash{}some\\textbackslash{}command for \\texttt{file}}%
+
+\\index[fn]{the person index aa@\\texttt{the \\textrm{person} index \\texttt{aa}}}%
 
 \\printindex[cp]
+
+\\printindex[fn]
 ';
 
 1;

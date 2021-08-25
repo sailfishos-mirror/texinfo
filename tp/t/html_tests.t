@@ -196,7 +196,7 @@ in detaildescription
 aa
 @end tex
 @end copying
-', {'expanded_formats' => ['tex']},
+', {'EXPANDED_FORMATS' => ['tex']},
 {'expanded_formats' => ['tex']}
 ],
 ['titles',

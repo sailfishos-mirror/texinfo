@@ -31,13 +31,13 @@ my @test_cases = (
 ['raw_block_on_line',
 '@cindex @tex
 ',
-{'expanded_formats' => ['tex']}
+{'EXPANDED_FORMATS' => ['tex']}
 ],
 ['ignored_text',
 '@node before ignore @ifinfo
 in ifinfo
 @end ifinfo on the node line',
-{'expanded_formats' => []}
+{'EXPANDED_FORMATS' => []}
 ],
 ['in_table',
 '

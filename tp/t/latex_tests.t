@@ -528,6 +528,8 @@ New para
 ['indices',
 '@setfilename indices.info
 
+@set txiindexbackslashignore
+
 @node Top
 @top top section
 
@@ -535,8 +537,18 @@ New para
 @chapter Index
 
 @cindex @math{a!"@@b} "!@@ @"a @"{o} @subentry @sortas{a!"@@b} sub@math{a!"@@b} sub "!@@ @"a @"{o} @seealso{@math{a!"@@b} "!@@ @"a @"{o}}
+@cindex \cmd
+@cindex totocmd @sortas{\cmd}
+
+@clear txiindexbackslashignore
+
+@cindex \some\command{} for @file{file} @c comment
+
+@findex the @r{person} index @file{aa}
 
 @printindex cp
+
+@printindex fn
 ']
 
 );

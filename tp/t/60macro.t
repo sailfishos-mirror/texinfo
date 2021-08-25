@@ -522,7 +522,7 @@ Call macroseven
 @macroseven{aaa}
 
 ',
-{'expanded_formats' => []}
+{'EXPANDED_FORMATS' => []}
 ],
 ['expansion_order',
 '@macro bidule{arg}

@@ -7810,7 +7810,7 @@ any cross-referencing will simply use a bare number.
 Specifies a cross-reference label for this float.  If given, this
 float is automatically given a number, and will appear in any
 @code{@@listoffloats} output (@pxref{@code{@@listoffloats}}).  Cross
-references to @var{label} are allowed.
+references to @var{label} are allowed, (for example see @ref{fig:ex1}).
 
 @cindex Floats @subentry making unnumbered
 @cindex Unnumbered float, creating

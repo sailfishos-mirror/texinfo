@@ -230,6 +230,8 @@ sub converter(;$)
       } else {
         $converter->{$key} = $conf->{$key};
       }
+      # configuration set here, in general coming from command-line
+      # will not be reset by set_conf.
       $converter->{'set'}->{$key} = 1;
     }
   }

@@ -50,8 +50,7 @@ sub get_conf($$)
 }
 
 my %parser_default_configuration =
-  (%Texinfo::Common::default_parser_state_configuration,
-   %Texinfo::Common::default_parser_customization_values);
+  (%Texinfo::Common::default_parser_customization_values);
 
 use Storable qw(dclone); # standard in 5.007003
 
@@ -95,7 +94,7 @@ sub parser (;$$)
 	    store_value ($v, "<<UNKNOWN VALUE>>");
 	  }
 	}
-      } elsif ($key eq 'expanded_formats') {
+      } elsif ($key eq 'EXPANDED_FORMATS') {
         clear_expanded_formats ();
 
         for my $f (@{$conf->{$key}}) {

@@ -141,7 +141,7 @@ $multiple_lang_chapters_text, {}, {'SPLIT' => 0}],
 ['multiple_lang_chapters_texi2html',
 $multiple_lang_chapters_text, 
 {'test_input_file_name' => 'multiple_lang_chapters.texi',
-'expanded_formats' => ['html']}, 
+'EXPANDED_FORMATS' => ['html']}, 
 {'SPLIT' => 0, 'TEXI2HTML' => 1, 'TEST' => 1}],
 );
 
@@ -149,7 +149,7 @@ $multiple_lang_chapters_text,
 my @latex_file_tests = (
 ['multiple_lang_chapters_latex',
 $multiple_lang_chapters_text,
-{'expanded_formats' => ['latex']}
+{'EXPANDED_FORMATS' => ['latex']}
 ]
 );
 

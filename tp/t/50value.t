@@ -289,7 +289,7 @@ After page on it\'s own line.
 @set bye_macro @bye
 
 @value{bye_macro}',
-{'expanded_formats' => []}
+{'EXPANDED_FORMATS' => []}
 ],
 ['value_in_invalid_documentencoding',
 '@set badvalue bad

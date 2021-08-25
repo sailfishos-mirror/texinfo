@@ -449,9 +449,17 @@ my @conf_dirs = ();
 my @include_dirs = ();
 my @prepend_dirs = ();
 
-# options for all the files
-my $parser_options = {'expanded_formats' => [], 
-                              'values' => {'txicommandconditionals' => 1}};
+# $cmdline_options are common to main program and Texinfo::Config
+# namespace, set by set_from_cmdline for text values.
+# There is in addition $parser_options for parser
+# related informations for informations that are not set through
+# set_from_cmdline.  The configuration text values are later on
+# copied over to the parser if they are parser options, with
+# format specific options also set if not already in the configuration.
+# Some parser options (as well as parser generated informations) are selectively
+# copied to converters either here or in converter initialization.
+my $parser_options = {'EXPANDED_FORMATS' => [],
+                      'values' => {'txicommandconditionals' => 1}};
 
 Texinfo::Config::_load_config($converter_default_options, $cmdline_options);
 
@@ -460,11 +468,11 @@ sub set_expansion($$) {
   my $set = shift;
   $set = 1 if (!defined($set));
   if ($set) {
-    push @{$parser_options->{'expanded_formats'}}, $region
-      unless (grep {$_ eq $region} @{$parser_options->{'expanded_formats'}});
+    push @{$parser_options->{'EXPANDED_FORMATS'}}, $region
+      unless (grep {$_ eq $region} @{$parser_options->{'EXPANDED_FORMATS'}});
   } else {
-    @{$parser_options->{'expanded_formats'}} = 
-      grep {$_ ne $region} @{$parser_options->{'expanded_formats'}};
+    @{$parser_options->{'EXPANDED_FORMATS'}} =
+      grep {$_ ne $region} @{$parser_options->{'EXPANDED_FORMATS'}};
     @{$default_expanded_format} 
        = grep {$_ ne $region} @{$default_expanded_format};
   }
@@ -893,7 +901,6 @@ There is NO WARRANTY, to the extent permitted by law.\n"), "2021";
                      push @texi2dvi_args, '--verbose'; },
  'document-language=s' => sub {
                       set_from_cmdline('documentlanguage', $_[1]); 
-                      $parser_options->{'documentlanguage'} = $_[1];
                       my @messages 
                        = Texinfo::Common::warn_unknown_language($_[1]);
                       foreach my $message (@messages) {
@@ -946,9 +953,9 @@ There is NO WARRANTY, to the extent permitted by law.\n"), "2021";
  },
  'fill-column|f=i' => sub {set_from_cmdline('FILLCOLUMN',$_[1]);},
  'enable-encoding' => sub {set_from_cmdline('ENABLE_ENCODING',$_[1]);
-                     $parser_options->{'ENABLE_ENCODING'} = $_[1];},
+                     },
  'disable-encoding' => sub {set_from_cmdline('ENABLE_ENCODING', 0);
-                     $parser_options->{'ENABLE_ENCODING'} = 0;},
+                     },
  'internal-links=s' => sub {set_from_cmdline('INTERNAL_LINKS', $_[1]);},
  'force|F' => sub {set_from_cmdline('FORCE', $_[1]);},
  'commands-in-node-names' => sub { ;},
@@ -967,7 +974,6 @@ There is NO WARRANTY, to the extent permitted by law.\n"), "2021";
  'ps' => sub {$format = set_format($_[0].'');},
  'pdf' => sub {$format = set_format($_[0].'');},
  'debug=i' => sub {set_from_cmdline('DEBUG', $_[1]); 
-                   $parser_options->{'DEBUG'} = $_[1];
                    push @texi2dvi_args, '--'.$_[0]; },
 );
 
@@ -1084,8 +1090,8 @@ if (get_conf('SPLIT') and !$formats_table{$format}->{'split'}) {
 }
 
 foreach my $expanded_format (@{$default_expanded_format}) {
-  push @{$parser_options->{'expanded_formats'}}, $expanded_format 
-    unless (grep {$_ eq $expanded_format} @{$parser_options->{'expanded_formats'}});
+  push @{$parser_options->{'EXPANDED_FORMATS'}}, $expanded_format
+    unless (grep {$_ eq $expanded_format} @{$parser_options->{'EXPANDED_FORMATS'}});
 }
 
 my $converter_class;
@@ -1127,6 +1133,10 @@ if (defined($formats_table{$format}->{'module'})) {
 no warnings 'once';
 my @parser_settable_options = keys(%Texinfo::Common::default_parser_customization_values);
 push @parser_settable_options, keys(%Texinfo::Common::default_structure_customization_values);
+# Copy some of the customization variables into the parser options.
+# Here customization options set on the command line and set by
+# the converter associated with the output format, command line
+# taking precedence.
 foreach my $parser_settable_option (@parser_settable_options) {
   if (defined(get_conf($parser_settable_option))) {
     $parser_options->{$parser_settable_option} 
@@ -1138,16 +1148,7 @@ foreach my $parser_settable_option (@parser_settable_options) {
   }
 }
 
-# Copy some of the customization variables into the parser options.
-# The configuration options are upper-cased when considered as 
-# customization variables, and lower-cased when passed to the Parser.
-# The customization variables passed here can only be set in perl
-# customization files, using set_from_init_file().
-foreach my $parser_option (map {uc($_)} 
-                  (keys (%Texinfo::Common::default_parser_state_configuration))) {
-  $parser_options->{lc($parser_option)} = get_conf($parser_option)
-    if (defined(get_conf($parser_option)));
-}
+#print STDERR "V ".join('|', sort(keys(%{$parser_options->{'values'}})))."\n";
 
 
 # Main processing, process all the files given on the command line
@@ -1314,7 +1315,7 @@ while(@input_files) {
   if ($formats_table{$format}->{'nodes_tree'}) {
 
     # it is not get_conf('FORMAT_MENU') but $parser_options as
-    # $parser_options is set to the output default and then replaced
+    # $parser_options is set to the output default and then replaced.
     # with get_conf('FORMAT_MENU') if needed.
     # 'FORMAT_MENU' may not be defined in some special cases,
     # for instance if format is structure.
@@ -1348,7 +1349,7 @@ while(@input_files) {
                             %$cmdline_options,
                             %$Texinfo::Config::options };
 
-  $converter_options->{'expanded_formats'} = $parser_options->{'expanded_formats'};
+  $converter_options->{'expanded_formats'} = $parser_options->{'EXPANDED_FORMATS'};
   $converter_options->{'parser'} = $parser;
   $converter_options->{'output_format'} = $format;
   $converter_options->{'language_config_dirs'} = \@language_config_dirs;

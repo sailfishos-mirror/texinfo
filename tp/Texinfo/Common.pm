@@ -98,50 +98,11 @@ sub __p($$) {
   return Locale::Messages::dpgettext($messages_textdomain, $context, $msgid);
 }
 
-# these are the default values for the parser state that may be 
-# initialized to values given by the user.
-# They are defined here, because they are used below and we 
-# don't want Texinfo::Common to use Texinfo::Parser.
-our %default_parser_state_configuration = (
-  'expanded_formats' => [],
-  'include_directories' => [ '.' ],
-  # these are the user-added indices.  May be an array reference on names
-  # or an hash reference in the same format than %index_names below
-  'indices' => [],
-  # the following are dynamically modified during the document parsing.
-  'aliases' => {},            # key is a command name value is the alias
-  'documentlanguage' => undef,
-                              # Current documentlanguage set by 
-                              # @documentlanguage
-  'explained_commands' => {}, # the key is a command name, either acronym
-                              # or abbr, the value is a hash.  The key hash 
-                              # is a normalized first argument of the 
-                              # corresponding command, the value is the 
-                              # contents array of the previous command with
-                              # this first arg and a second arg.
-  'labels'          => {},    # keys are normalized label names, as described
-                              # in the `HTML Xref' node.  Value should be
-                              # a node/anchor or float in the tree.
-  'targets' => [],            # array of elements used to build 'labels'
-  'macros' => {},             # the key is the user-defined macro name.  The 
-                              # value is the reference on a macro element 
-                              # as obtained by parsing the @macro
-  'merged_indices' => {},     # the key is merged in the value
-  'sections_level' => 0,      # modified by raise/lowersections
-  'values' => {'txicommandconditionals' => 1},
-                              # the key is the name, the value the @set name 
-                              # argument.  A Texinfo tree may also be used.
-  'info' => {
-    'novalidate' => 0,        # same as setting @novalidate.
-    'input_encoding_name' => 'utf-8',
-    'input_perl_encoding' => 'utf-8'
-  },
-  'in_gdt' => 0 # whether we are being called by gdt
-);
-
 
 # Customization variables obeyed by the parser, and the default values.
 our %default_parser_customization_values = (
+  'documentlanguage' => undef,
+  'EXPANDED_FORMATS' => [],
   'DEBUG' => 0,     # if >= 10, tree is printed in texi2any.pl after parsing.
                     # If >= 100 tree is printed every line.
   'FORMAT_MENU' => 'menu',           # if not 'menu' no menu error related.
@@ -214,6 +175,7 @@ our %document_settable_unique_at_commands = (
   'evenfooting'       => undef,
   'oddheading'        => undef,
   'oddfooting'        => undef,
+  # FIXME add afourpaper and similar?
 );
 
 my @command_line_settables = (
@@ -223,10 +185,6 @@ my @command_line_settables = (
   'OUTFILE', 'SPLIT', 'SPLIT_SIZE', 'SUBDIR', 'TRANSLITERATE_FILE_NAMES',
   'VERBOSE'
 );
-
-# documented in the Texinfo::Parser pod section
-# all are lower cased in texi2any.pl
-my @parser_options = map {uc($_)} (keys(%default_parser_state_configuration));
 
 our @variable_string_settables = (
 'AFTER_ABOUT',
@@ -361,7 +319,7 @@ my @variable_other_settables = (
   'MISC_BUTTONS', 'CHAPTER_BUTTONS', 'BUTTONS_NAME',
   'BUTTONS_EXAMPLE', 'SPECIAL_ELEMENTS_NAME', 'SPECIAL_ELEMENTS_CLASS',
   'ACTIVE_ICONS', 'PASSIVE_ICONS',
-  'CSS_FILES', 'CSS_REFS', 
+  'CSS_FILES', 'CSS_REFS', 'EXPANDED_FORMATS',
   'GLOBAL_COMMANDS',
 );
 
@@ -369,7 +327,7 @@ my %valid_options;
 foreach my $var (keys(%document_settable_at_commands), 
          keys(%document_settable_unique_at_commands),
          @command_line_settables, @variable_string_settables, 
-         @variable_other_settables, @parser_options) {
+         @variable_other_settables) {
   $valid_options{$var} = 1;
 }
 
@@ -395,7 +353,6 @@ my %customization_variable_classes = (
   'command_line_settables' => \@command_line_settables,
   'variable_string_settables' => \@variable_string_settables,
   'variable_other_settables' => \@variable_other_settables,
-  'parser_options' => \@parser_options,
 );
 
 my %valid_tree_transformations;
@@ -516,6 +473,12 @@ our %line_commands = (
   'setchapternewpage' => 1, # off on odd
 
   # only relevant in TeX, and special
+  #'everyheading'      => 'line',  # @*heading @*footing use @|
+  #'everyfooting'      => 'line',  # + @thispage @thissectionname
+  #'evenheading'       => 'line',  # @thissectionnum @thissection
+  #'evenfooting'       => 'line',  # @thischaptername @thischapternum
+  #'oddheading'        => 'line',  # @thischapter @thistitle @thisfile
+  #'oddfooting'        => 'line',
   'everyheading'      => 'lineraw',  # @*heading @*footing use @|
   'everyfooting'      => 'lineraw',  # + @thispage @thissectionname
   'evenheading'       => 'lineraw',  # @thissectionnum @thissection
@@ -836,9 +799,6 @@ foreach my $def_command(keys %def_map) {
   $def_commands{$def_command.'x'} = 1;
   $command_index{$def_command.'x'} = $command_index{$def_command};
 }
-
-#print STDERR "".Data::Dumper->Dump([\%def_aliases]);
-#print STDERR "".Data::Dumper->Dump([\%def_prepended_content]);
 
 $block_commands{'multitable'} = 'multitable';
 $block_item_commands{'multitable'} = 1;
