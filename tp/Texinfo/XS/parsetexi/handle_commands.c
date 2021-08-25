@@ -498,10 +498,6 @@ handle_line_command (ELEMENT *current, char **line_inout,
         {
           global_info.sections_level--;
         }
-      else if (cmd == CM_novalidate)
-        {
-          global_info.novalidate = 1;
-        }
 
       if (misc) 
         register_global_command (misc);

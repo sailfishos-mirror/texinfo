@@ -135,22 +135,21 @@ my %parser_state_configuration = (
                               # that is set to mark that @ifcommandnotdefined
                               # is implemented
   'info' => {
-    'novalidate' => 0,        # same as setting @novalidate.
     'input_encoding_name' => 'utf-8',
     'input_perl_encoding' => 'utf-8'
   },
-  'in_gdt' => 0 # whether we are being called by gdt
+  'in_gdt' => 0, # whether we are being called by gdt
+  'clickstyle' => 'arrow',
+  'kbdinputstyle' => 'distinct',
+  # this is not really used, but this allows to have an
+  # output more similar to the XS parser output.
+  'floats' => {},
 );
 
 my %parser_default_configuration = (
     %parser_state_configuration,
     %Texinfo::Common::default_parser_customization_values,
     %Texinfo::Common::default_structure_customization_values,
-    'clickstyle' => 'arrow',
-    'kbdinputstyle' => 'distinct',
-    # this is not really used, but this allows to have an 
-    # output more similar to the XS parser output.
-    'floats' => {},
 );
 
 # the other possible keys for the parser state are:
@@ -843,6 +842,9 @@ sub parse_texi_text($$;$$$$)
   $self = parser() if (!defined($self));
   $self->{'input'} = [{'pending' => $lines_array}];
   my $tree = $self->_parse_texi();
+
+  $self->_set_global_informations();
+
   return $tree;
 }
 
@@ -865,6 +867,15 @@ sub _open_in {
     return 1;
   } else {
     return 0;
+  }
+}
+
+sub _set_global_informations($)
+{
+  my $self = shift;
+
+  if ($self->get_conf('novalidate') or $self->{'extra'}->{'novalidate'}) {
+    $self->{'info'}->{'novalidate'} = 1;
   }
 }
 
@@ -921,7 +932,7 @@ sub parse_texi_file($$)
         }];
   $self->{'info'}->{'input_file_name'} = $file_name;
   $self->{'info'}->{'input_directory'} = $directories;
-
+  
   my $tree = $self->_parse_texi($root);
 
   # Find 'text_root', which contains everything before first node/section.
@@ -951,7 +962,8 @@ sub parse_texi_file($$)
     unshift (@{$text_root->{'contents'}}, $before_setfilename)
       if (@{$before_setfilename->{'contents'}});
   }
-  #$self->_check_contents_location($tree);
+
+  $self->_set_global_informations();
 
   return $tree;
 }
@@ -4439,8 +4451,6 @@ sub _parse_texi($;$)
               $self->{'sections_level'}++;
             } elsif ($command eq 'lowersections') {
               $self->{'sections_level'}--;
-            } elsif ($command eq 'novalidate') {
-              $self->{'info'}->{'novalidate'} = 1;
             }
             _register_global_command($self, $misc, $line_nr)
               if $misc;

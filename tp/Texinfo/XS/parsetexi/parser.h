@@ -35,7 +35,6 @@ typedef struct GLOBAL_INFO {
     char *input_encoding_name;
     char *input_perl_encoding;
     int sections_level;
-    int novalidate;
     ELEMENT dircategory_direntry; /* an array of elements */
 
     /* Elements that should be unique. */
@@ -63,6 +62,7 @@ typedef struct GLOBAL_INFO {
     ELEMENT *evenfootingmarks;
     ELEMENT *oddfootingmarks;
     ELEMENT *shorttitlepage;
+    ELEMENT *novalidate;
 
     /* Arrays of elements */
     ELEMENT footnotes;
@@ -157,7 +157,6 @@ int format_expanded_p (char *format);
 int is_end_current_command (ELEMENT *current, char **line,
                             enum command_id *end_cmd);
 void set_documentlanguage (char *);
-void set_novalidate (int value);
 char *element_type_name (ELEMENT *e);
 
 /* Return values */

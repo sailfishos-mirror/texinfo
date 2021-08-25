@@ -69,6 +69,7 @@ sub parser (;$$)
   if (defined($conf)) {
     foreach my $key (keys (%$conf)) {
       # Copy conf to parser object.  Not used in parser module itself
+      # except to set {'info'}->{'novalidate'}
       # but some settings may be used elsewhere, especially in
       # Structuring.pm.
       if ($key ne 'values' and ref($conf->{$key})) {
@@ -104,10 +105,6 @@ sub parser (;$$)
         if (defined ($conf->{$key})) {
           set_documentlanguage ($conf->{$key});
         }
-      } elsif ($key eq 'info') {
-        if (defined($conf->{$key}->{'novalidate'})) { 
-          set_novalidate($conf->{$key}->{'novalidate'});
-        }
       } elsif ($key eq 'FORMAT_MENU') {
         if ($conf->{$key} eq 'menu') {
           conf_set_show_menu (1);
@@ -122,6 +119,7 @@ sub parser (;$$)
         set_debug($conf->{$key}) if $conf->{'key'};
       } elsif ($key eq 'in_gdt'
                or $key eq 'ENABLE_ENCODING'
+               or $key eq 'novalidate'
                or defined($Texinfo::Common::default_structure_customization_values{$key})) {
         # no action needed
       } else {
@@ -192,6 +190,10 @@ sub get_parser_info {
   $self->{'floats'} = $FLOATS;
   $self->{'info'} = $GLOBAL_INFO;
   $self->{'extra'} = $GLOBAL_INFO2;
+
+  if ($self->get_conf('novalidate') or $self->{'extra'}->{'novalidate'}) {
+    $self->{'info'}->{'novalidate'} = 1;
+  }
 
   # Propagate these settings from 'info' hash to 'values' hash.
   # The 'values' hash is not otherwise used.  Maybe we should use

@@ -146,12 +146,6 @@ set_documentlanguage (char *value)
   global_documentlanguage = strdup (value);
 }
 
-void
-set_novalidate (int value)
-{
-  global_info.novalidate = value;
-}
-
 /* Record the information from a command of global effect. */
 int
 register_global_command (ELEMENT *current)
@@ -253,6 +247,7 @@ register_global_command (ELEMENT *current)
         GLOBAL_UNIQUE_CASE(oddfootingmarks);
         GLOBAL_UNIQUE_CASE(shorttitlepage);
         GLOBAL_UNIQUE_CASE(title);
+        GLOBAL_UNIQUE_CASE(novalidate);
 #undef GLOBAL_UNIQUE_CASE
         /* NOTE: Same list in api.c:build_global_info2 and wipe_global_info. */
         default:

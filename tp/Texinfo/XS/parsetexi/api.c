@@ -892,12 +892,6 @@ build_global_info (void)
         }
     }
 
-  if (global_info.novalidate)
-    {
-      hv_store (hv, "novalidate", strlen ("novalidate"),
-                newSVpv ("1", 0), 0);
-    }
-
   char *txi_flags[] = { "txiindexatsignignore", "txiindexbackslashignore",
     "txiindexhyphenignore", "txiindexlessthanignore", 0};
   char **p;
@@ -958,6 +952,7 @@ build_global_info2 (void)
   BUILD_GLOBAL_UNIQ(oddfootingmarks);
   BUILD_GLOBAL_UNIQ(shorttitlepage);
   BUILD_GLOBAL_UNIQ(title);
+  BUILD_GLOBAL_UNIQ(novalidate);
 #undef BUILD_GLOBAL_UNIQ
 
   /* NOTE: Same list in handle_commands.c:register_global_command. */

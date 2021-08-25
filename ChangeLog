@@ -1,5 +1,26 @@
 2021-08-25  Patrice Dumas  <pertusus@free.fr>
 
+	handle @novalidate in a more common way
+
+	* tp/Texinfo/Common.pm (%default_parser_customization_values):
+	add novalidate.
+	* tp/texi2any.pl: do not set {'info'}->{'novalidate'} here.
+	* tp/Texinfo/ParserNonXS.pm (_set_global_informations, _parse_texi)
+	tp/Texinfo/XS/parsetexi/Parsetexi.pm (parser, get_parser_info)
+	tp/Texinfo/XS/parsetexi/handle_commands.c (handle_line_command):
+	Handle @novalidate more like other commands by setting
+	{'info'}->{'novalidate'} based on global unique
+	command information and configuration.
+	* tp/Texinfo/XS/parsetexi/Parsetexi.xs (set_novalidate),
+	tp/Texinfo/XS/parsetexi/parser.c (set_novalidate): remove.
+	* tp/Texinfo/XS/parsetexi/api.c (build_global_info)
+	(build_global_info2), tp/Texinfo/XS/parsetexi/parser.c
+	(register_global_command), tp/Texinfo/XS/parsetexi/parser.h:
+	register novalidate as a global command.
+
+
+2021-08-25  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (%default_parser_state_configuration)
 	(%default_parser_customization_values, @variable_other_settables)
 	(@parser_options), tp/Texinfo/Convert/Text.pm (converter),

@@ -102,6 +102,7 @@ sub __p($$) {
 # Customization variables obeyed by the parser, and the default values.
 our %default_parser_customization_values = (
   'documentlanguage' => undef,
+  'novalidate' => undef,
   'EXPANDED_FORMATS' => [],
   'DEBUG' => 0,     # if >= 10, tree is printed in texi2any.pl after parsing.
                     # If >= 100 tree is printed every line.
