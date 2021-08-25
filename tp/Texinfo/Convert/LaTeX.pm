@@ -816,8 +816,6 @@ sub _prepare_conversion($;$)
   my $self = shift;
   my $root = shift;
 
-  $self->_set_global_multiple_commands(-1);
-
   if (defined($root)) {
     $self->associate_other_nodes_to_sections($root);
   }
@@ -1603,7 +1601,7 @@ sub _index_entry($$)
     #print STDERR "I ".Texinfo::Common::_print_element_tree_simple($root)." ".$entry_index_name."/".$index_name." ".$in_code." C ".$entry->{'index_at_command'}." T ".$entry->{'index_type_command'}."; ".join("|", sort(keys(%{$root->{'extra'}})))."\n";
     # FIXME cache?  In theory txiindexbackslashignore and consorts
     # may change dynamically.  But the current code does not set the
-    # values dynamically for now.
+    # values dynamically for now.  Actually not set at all...
     my ($options, $ignore_chars)
       = Texinfo::Structuring::setup_index_entry_keys_formatting($self);
     my $current_entry = $root;
@@ -1627,9 +1625,9 @@ sub _index_entry($$)
     _push_new_context($self, 'index_entry');
     $self->{'formatting_context'}->[-1]->{'index'} = 1;
     my @result;
-    foreach my $subentry_sortas (@$subentries) {
+    foreach my $subentry_entry_and_sortas (@$subentries) {
       my $sortas;
-      my ($subentry, $subentry_sortas) = @$subentry_sortas;
+      my ($subentry, $subentry_sortas) = @$subentry_entry_and_sortas;
       if ($in_code) {
         $self->{'formatting_context'}->[-1]->{'code'} += 1;
       }
@@ -1640,7 +1638,13 @@ sub _index_entry($$)
         $sortas = Texinfo::Structuring::index_key($entry, $subentry,
                                  $subentry_sortas, $options, $ignore_chars);
       } else {
-        $sortas = $subentry_sortas;
+        if (defined($subentry_sortas)) {
+          $sortas = $subentry_sortas;
+        } elsif (defined($ignore_chars) and $ignore_chars ne '') {
+          # setup a sort string if some characters are ignored
+          $sortas = Texinfo::Structuring::index_key($entry, $subentry,
+                                 $subentry_sortas, $options, $ignore_chars);
+        }
       }
       my $result = '';
       if (defined($sortas)) {
