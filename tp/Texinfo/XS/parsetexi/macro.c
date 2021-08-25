@@ -685,6 +685,9 @@ fetch_value (char *name)
         return value_list[i].value;
     }
 
+  /* special value always returned as 1 to mark that @ifcommandnotdefined
+      is implemented.  Note that in most cases it is also set from perl
+      using the configuration passed to the parser */
   if (!strcmp (name, "txicommandconditionals"))
     return "1";
   return 0;
