@@ -33,7 +33,6 @@ check_latex2html_and_tex4ht ()
            exit 1
          fi
       fi
-      l2h_tmp_dir="-c 'L2H_TMP $tmp_dir'"
       l2h_flags="-c L2H_CLEAN=0 -c 'L2H_TMP $tmp_dir' -c L2H_FILE=$srcdir/../t/init/l2h.init"
     elif echo "$remaining" | grep '[-]init tex4ht.pm' >/dev/null; then
       if test "$no_tex4ht" = 'yes' ; then
