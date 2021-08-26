@@ -1021,6 +1021,9 @@ our %misc_commands = (%line_commands, %other_commands);
 
 $root_commands{'node'} = 1;
 
+# there is the @txiinternalvalue command too, but it is considered
+# as a valid command only if a customization option is set, such
+# that it does not appear in user documents.  So it is not set here.
 our %all_commands;
 foreach my $command (
   keys(%Texinfo::Common::block_commands),

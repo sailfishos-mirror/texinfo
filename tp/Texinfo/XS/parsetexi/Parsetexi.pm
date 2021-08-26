@@ -117,8 +117,9 @@ sub parser (;$$)
         conf_set_CPP_LINE_DIRECTIVES($conf->{$key});
       } elsif ($key eq 'DEBUG') {
         set_debug($conf->{$key}) if $conf->{'key'};
-      } elsif ($key eq 'in_gdt'
-               or $key eq 'ENABLE_ENCODING'
+      } elsif ($key eq 'in_gdt') {
+        set_in_gdt();
+      } elsif ($key eq 'ENABLE_ENCODING'
                or $key eq 'novalidate'
                or defined($Texinfo::Common::default_structure_customization_values{$key})) {
         # no action needed
@@ -349,6 +350,7 @@ sub parse_texi_line($$;$$$$)
     utf8::upgrade($text);
     parse_string($text);
     my $tree = build_texinfo_tree ();
+    _get_errors ($self);
     return $tree;
 }
 

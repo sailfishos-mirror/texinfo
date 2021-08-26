@@ -108,3 +108,6 @@ set_documentlanguage (value)
 
 void
 set_debug (int i)
+
+void
+set_in_gdt()

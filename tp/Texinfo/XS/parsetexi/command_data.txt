@@ -19,6 +19,8 @@
 
 # Not in Common.pm
 value                   brace
+# invalid if not in_gdt set in configuration
+txiinternalvalue        brace
 
 ##############################################################
 # no brace commands - single letter commands

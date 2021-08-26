@@ -136,6 +136,7 @@ COUNTER count_cells;
 GLOBAL_INFO global_info;
 char *global_clickstyle = 0;
 char *global_documentlanguage = 0;
+int global_in_gdt = 0;
 
 enum kbd_enum global_kbdinputstyle = kbd_distinct;
 
@@ -144,6 +145,12 @@ set_documentlanguage (char *value)
 {
   free (global_documentlanguage);
   global_documentlanguage = strdup (value);
+}
+
+void
+set_in_gdt()
+{
+  global_in_gdt = 1;
 }
 
 /* Record the information from a command of global effect. */
@@ -1500,8 +1507,8 @@ superfluous_arg:
       line = line_after_command;
       debug ("COMMAND %s", command_name(cmd));
 
-      /* @value */
-      if (cmd == CM_value)
+      /* @value and @txiinternalvalue */
+      if ((cmd == CM_value) || (cmd == CM_txiinternalvalue))
         {
           char *arg_start;
           char *flag;
@@ -1525,51 +1532,72 @@ superfluous_arg:
             {
               char *value;
 value_valid:
-              value = fetch_value (flag);
-              if (!value)
+              if (cmd == CM_value)
                 {
-                  /* Add element for unexpanded @value.
-                     This is not necessarily an error - in
-                     Texinfo::Report::gdt we deliberately pass
-                     in undefined values. */
-                  ELEMENT *value_elt;
+                  value = fetch_value (flag);
+                  if (!value)
+                    {
+                    /* Add element for unexpanded @value.
+                       This should be an error, but still leave a tree element 
+                       for the converters to handle */
+                      ELEMENT *value_elt;
 
-                  line_warn ("undefined flag: %s", flag);
-                  /* Note: In the Perl code, this warning is conditional on 
-                     in_gdt setting, but the only effect that this possibly has 
-                     is on speed, as these warnings would not be printed to the 
-                     user. */
+                      line_warn ("undefined flag: %s", flag);
 
-                  abort_empty_line (&current, NULL);
-                  value_elt = new_element (ET_NONE);
-                  value_elt->cmd = CM_value;
-                  text_append (&value_elt->text, flag);
+                      abort_empty_line (&current, NULL);
+                      value_elt = new_element (ET_NONE);
+                      value_elt->cmd = CM_value;
+                      text_append (&value_elt->text, flag);
 
-                  /* In the Perl code, the name of the flag is stored in
-                     the "type" field.  We need to store in 'text' instead
-                     and then output it as the type in
-                     dump_perl.c / api.c. */
+                      /* In the Perl code, the name of the flag is stored in
+                         the "type" field.  We need to store in 'text' instead
+                         and then output it as the type in
+                         dump_perl.c / api.c. */
 
-                  add_to_element_contents (current, value_elt);
+                      add_to_element_contents (current, value_elt);
 
-                  line++; /* past '}' */
-                  retval = STILL_MORE_TO_PROCESS;
+                      line++; /* past '}' */
+                      retval = STILL_MORE_TO_PROCESS;
+                    }
+                  else
+                    {
+                      line++; /* past '}' */
+                      input_push_text (strdup (line), line_nr.macro);
+                      input_push_text (strdup (value), line_nr.macro);
+                      line += strlen (line);
+                      retval = STILL_MORE_TO_PROCESS;
+                    }
+                  free (flag);
+                  goto funexit;
                 }
               else
-                {
+                { /* CM_txiinternalvalue */
+                  ELEMENT *txiinternalvalue_elt;
+
+                  abort_empty_line (&current, NULL);
+                  txiinternalvalue_elt = new_element (ET_NONE);
+                  txiinternalvalue_elt->cmd = CM_txiinternalvalue;
+
+                  /* FIXME or misc_arg?
+                   * ELEMENT *txiinternalvalue_arg = new_element (ET_misc_arg) */;
+                  ELEMENT *txiinternalvalue_arg = new_element (ET_NONE);
+
+                  text_append (&txiinternalvalue_arg->text, flag);
+                  add_to_element_args (txiinternalvalue_elt, txiinternalvalue_arg);
+
+                  add_to_element_contents (current, txiinternalvalue_elt);
+
                   line++; /* past '}' */
-                  input_push_text (strdup (line), line_nr.macro);
-                  input_push_text (strdup (value), line_nr.macro);
-                  line += strlen (line);
                   retval = STILL_MORE_TO_PROCESS;
+
+                  free (flag);
+                  goto funexit;
                 }
-              free (flag);
-              goto funexit;
             }
           else
             {
 value_invalid:
-              line_error ("bad syntax for @value");
+              line_error ("bad syntax for @%s", command_name(cmd));
               retval = STILL_MORE_TO_PROCESS;
               goto funexit;
             }

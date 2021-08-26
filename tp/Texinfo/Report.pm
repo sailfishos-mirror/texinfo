@@ -356,14 +356,7 @@ sub gdt($$;$$)
   # the parser is a new one there should not be any problem anyway.
   if (defined($re)) {
     # next line taken from libintl perl, copyright Guido. sub __expand
-    $translation_result =~ s/\{($re)\}/\@value\{_$1\}/g;
-    foreach my $substitution(keys %$context) {
-      # Only pass simple string @values to parser.
-      if (!ref($context->{$substitution})) {
-        $parser_conf->{'values'}->{'_'.$substitution}
-        = $context->{$substitution};
-      }
-    }
+    $translation_result =~ s/\{($re)\}/\@txiinternalvalue\{$1\}/g;
   }
 
   # Don't reuse the current parser itself, as (tested) the parsing goes 
@@ -392,6 +385,15 @@ sub gdt($$;$$)
   }
 
   my $tree = $parser->parse_texi_line($translation_result);
+  if ($parser->{'DEBUG'}) {
+    my ($errors, $errors_count) = $parser->errors();
+    if ($errors_count) {
+      print STDERR "GDT $errors_count errors\n";
+      foreach my $error_message (@$errors) {
+        warn $error_message->{'error_line'};
+      }
+    }
+  }
   $tree = _substitute ($tree, $context);
   return $tree;
 }
@@ -401,13 +403,14 @@ sub _substitute_element_array ($$) {
   my $array = shift; my $context = shift;
 
   @{$array} = map {
-    if ($_->{'cmdname'} and $_->{'cmdname'} eq 'value') {
-      my $name = $_->{'type'};
-      $name =~ s/^_//;
+    if ($_->{'cmdname'} and $_->{'cmdname'} eq 'txiinternalvalue') {
+      my $name = $_->{'args'}->[0]->{'text'};
       if (ref($context->{$name}) eq 'HASH') {
         $context->{$name};
       } elsif (ref($context->{$name}) eq 'ARRAY') {
         @{$context->{$name}};
+      } elsif (ref($context->{$name}) eq '') {
+        {'text' => $context->{$name}};
       } else {
         (); # undefined - shouldn't happen?
       }

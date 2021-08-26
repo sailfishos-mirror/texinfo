@@ -464,6 +464,18 @@ strongalias @@alias is defined.
 strongalias @@alias is wrongly not defined
 @end ifcommandnotdefined
 '],
+['txiinternalvalue',
+'@txiinternalvalue
+'],
+# currently this is not an error, it is only an error
+# to redefine @txiinternalvalue if in_gdt
+['user_defined_txiinternalvalue',
+'@macro txiinternalvalue
+user internalvalue
+@end macro
+
+@txiinternalvalue
+'],
 ['inlineiffmtifelse_not_closed',
 '@inlinefmtifelse{html,
 '],

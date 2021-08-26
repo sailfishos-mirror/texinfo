@@ -157,6 +157,7 @@ int format_expanded_p (char *format);
 int is_end_current_command (ELEMENT *current, char **line,
                             enum command_id *end_cmd);
 void set_documentlanguage (char *);
+void set_in_gdt ();
 char *element_type_name (ELEMENT *e);
 
 /* Return values */
@@ -175,6 +176,7 @@ extern ELEMENT *current_part;
 extern GLOBAL_INFO global_info;
 extern char *global_clickstyle;
 extern char *global_documentlanguage;
+extern int global_in_gdt;
 
 enum kbd_enum {kbd_none, kbd_code, kbd_example, kbd_distinct };
 extern enum kbd_enum global_kbdinputstyle;

@@ -138,7 +138,7 @@ my %parser_state_configuration = (
     'input_encoding_name' => 'utf-8',
     'input_perl_encoding' => 'utf-8'
   },
-  'in_gdt' => 0, # whether we are being called by gdt
+  'in_gdt' => 0, # whether we are being called by gdt.
   'clickstyle' => 'arrow',
   'kbdinputstyle' => 'distinct',
   # this is not really used, but this allows to have an
@@ -3703,7 +3703,8 @@ sub _parse_texi($;$)
                                    "here is the previous definition of `%s'"), 
                $name), $self->{'macros'}->{$name}->{'element'}->{'line_nr'});
               }
-              if ($all_commands{$name}) {
+              if ($all_commands{$name}
+                  or ($name eq 'txiinternalvalue' and $self->{'in_gdt'})) {
                 $self->line_warn(sprintf(__(
                                   "redefining Texinfo language command: \@%s"), 
                                           $name), $current->{'line_nr'});
@@ -4098,7 +4099,9 @@ sub _parse_texi($;$)
             and !$self->{'macros'}->{$command}
             and !$self->{'definfoenclose'}->{$command}
             and !$self->{'aliases'}->{$command}
-            and !$self->{'command_index'}->{$command}) {
+            and !$self->{'command_index'}->{$command}
+            # @txiinternalvalue is invalid unless in_gdt is set
+            and !($command eq 'txiinternalvalue' and $self->{'in_gdt'})) {
           $self->line_error(sprintf(__("unknown command `%s'"), 
                                       $command), $line_nr);
           _abort_empty_line($self, $current);
@@ -4113,39 +4116,39 @@ sub _parse_texi($;$)
           $command = $self->{'aliases'}->{$command};
         }
 
-        if ($command eq 'value') {
-          $line =~ s/^\s*// 
+        if ($command eq 'value' or $command eq 'txiinternalvalue') {
+          $line =~ s/^\s*//
              if ($self->{'IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME'});
           # REVALUE
           if ($line =~ s/^{([\w\-][^\s{\\}~`\^+"<>|@]*)}//) {
             my $value = $1;
-            if (exists($self->{'values'}->{$value})) {
-              if (!defined($self->{'values'}->{$value})) {
-                print STDERR "BUG? $value exists but not defined\n";
-              } elsif (!ref($self->{'values'}->{$value})) {
+            if ($command eq 'value') {
+              if (exists($self->{'values'}->{$value})) {
                 $line = $self->{'values'}->{$value} . $line;
               } else {
-                print STDERR "BUG? $value defined as reference\n";
-              }
-            } else {
-              # Flag not defined.  This is an error if it comes from
-              # a user's document.  It is also expected behaviour for
-              # Texinfo::Report::gdt, where we want to defer substitution
-              # of the value until after the containing Texinfo is parsed.
-              _abort_empty_line($self, $current);
-              # caller should expand something along 
-              # gdt('@{No value for `{value}\'@}', {'value' => $value}, {'keep_texi'=> 1});
-              push @{$current->{'contents'}}, { 'cmdname' => 'value',
-                                                'type' => $value,
-                                                'contents' => [],
-                                                'parent' => $current };
-              if (!$self->{'in_gdt'}) {
+                _abort_empty_line($self, $current);
+                # caller should expand something along
+                # gdt('@{No value for `{value}\'@}', {'value' => $value}, {'keep_texi'=> 1});
+                push @{$current->{'contents'}}, { 'cmdname' => $command,
+                                                  'type' => $value,
+                                                  'contents' => [],
+                                                  'parent' => $current };
                 $self->line_warn(
                    sprintf(__("undefined flag: %s"), $value), $line_nr);
               }
+            } else {
+              # txiinternalvalue
+              _abort_empty_line($self, $current);
+              my $new_element = { 'cmdname' => $command,
+                                  'args' => [],
+                                  'parent' => $current };
+              # type misc_arg?
+              push @{$new_element->{'args'}}, {'text' => $value,
+                                               'parent' => $new_element};
+              push @{$current->{'contents'}}, $new_element;
             }
           } else {
-            $self->line_error(__("bad syntax for \@value"), $line_nr);
+            $self->line_error(__("bad syntax for \@$command"), $line_nr);
           }
           next;
         }
