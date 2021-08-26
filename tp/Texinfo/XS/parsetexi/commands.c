@@ -22,10 +22,10 @@
 #include "commands.h"
 #include "errors.h"
 
-/* FIXME pass global_in_gdt to lookup_command instead of
+/* FIXME pass global_accept_internalvalue to lookup_command instead of
  * #include parser.h to get the global variable value? */
 
-/* for global_in_gdt */
+/* for global_accept_internalvalue */
 #include "parser.h"
 
 #include "command_data.c"
@@ -79,7 +79,7 @@ lookup_command (char *cmdname)
 
       /* txiinternalvalue is invalid if the corresponding configuration
        * is not set */
-      if (cmd == CM_txiinternalvalue && !global_in_gdt) {
+      if (cmd == CM_txiinternalvalue && !global_accept_internalvalue) {
         return 0;
       }
 

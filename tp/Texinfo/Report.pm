@@ -377,7 +377,7 @@ sub gdt($$;$$)
         if (defined($current_parser->{$duplicated_conf}));
     }
   }
-  $parser_conf->{'in_gdt'} = 1;
+  $parser_conf->{'accept_internalvalue'} = 1;
   #my $parser = Texinfo::Parser::parser($parser_conf);
   my $parser = Texinfo::Parser::simple_parser($parser_conf);
   if ($parser->{'DEBUG'}) {
@@ -421,8 +421,8 @@ sub _substitute_element_array ($$) {
   } @{$array};
 }
 
-# Recursively substitute @value elements in $TREE with their values given
-# in $CONTEXT.
+# Recursively substitute @txiinternalvalue elements in $TREE with 
+# their values given in $CONTEXT.
 sub _substitute ($$);
 sub _substitute ($$) {
   my $tree = shift; my $context = shift;

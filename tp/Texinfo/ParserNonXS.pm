@@ -138,7 +138,9 @@ my %parser_state_configuration = (
     'input_encoding_name' => 'utf-8',
     'input_perl_encoding' => 'utf-8'
   },
-  'in_gdt' => 0, # whether we are being called by gdt.
+  'accept_internalvalue' => 0, # whether @txiinternalvalue should be added
+                               # to the tree or considered invalid.
+                               # currently set if called by gdt.
   'clickstyle' => 'arrow',
   'kbdinputstyle' => 'distinct',
   # this is not really used, but this allows to have an
@@ -3704,7 +3706,8 @@ sub _parse_texi($;$)
                $name), $self->{'macros'}->{$name}->{'element'}->{'line_nr'});
               }
               if ($all_commands{$name}
-                  or ($name eq 'txiinternalvalue' and $self->{'in_gdt'})) {
+                  or ($name eq 'txiinternalvalue'
+                      and $self->{'accept_internalvalue'})) {
                 $self->line_warn(sprintf(__(
                                   "redefining Texinfo language command: \@%s"), 
                                           $name), $current->{'line_nr'});
@@ -4100,8 +4103,9 @@ sub _parse_texi($;$)
             and !$self->{'definfoenclose'}->{$command}
             and !$self->{'aliases'}->{$command}
             and !$self->{'command_index'}->{$command}
-            # @txiinternalvalue is invalid unless in_gdt is set
-            and !($command eq 'txiinternalvalue' and $self->{'in_gdt'})) {
+            # @txiinternalvalue is invalid unless accept_internalvalue is set
+            and !($command eq 'txiinternalvalue'
+                  and $self->{'accept_internalvalue'})) {
           $self->line_error(sprintf(__("unknown command `%s'"), 
                                       $command), $line_nr);
           _abort_empty_line($self, $current);

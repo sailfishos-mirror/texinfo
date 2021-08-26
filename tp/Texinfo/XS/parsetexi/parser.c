@@ -136,7 +136,7 @@ COUNTER count_cells;
 GLOBAL_INFO global_info;
 char *global_clickstyle = 0;
 char *global_documentlanguage = 0;
-int global_in_gdt = 0;
+int global_accept_internalvalue = 0;
 
 enum kbd_enum global_kbdinputstyle = kbd_distinct;
 
@@ -148,9 +148,9 @@ set_documentlanguage (char *value)
 }
 
 void
-set_in_gdt()
+set_accept_internalvalue()
 {
-  global_in_gdt = 1;
+  global_accept_internalvalue = 1;
 }
 
 /* Record the information from a command of global effect. */

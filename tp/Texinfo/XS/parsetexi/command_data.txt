@@ -19,7 +19,7 @@
 
 # Not in Common.pm
 value                   brace
-# invalid if not in_gdt set in configuration
+# invalid if not accept_internalvalue set in configuration
 txiinternalvalue        brace
 
 ##############################################################

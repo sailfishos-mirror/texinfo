@@ -1,5 +1,16 @@
 2021-08-26  Patrice Dumas  <pertusus@free.fr>
 
+	replace in_gdt by accept_internalvalue
+
+	* tp/Texinfo/ParserNonXS.pm, tp/Texinfo/Report.pm,
+	tp/Texinfo/XS/parsetexi/Parsetexi.pm,
+	tp/Texinfo/XS/parsetexi/Parsetexi.xs, tp/Texinfo/XS/parsetexi/api.c,
+	tp/Texinfo/XS/parsetexi/command_data.txt,
+	tp/Texinfo/XS/parsetexi/commands.c, tp/Texinfo/XS/parsetexi/parser.c,
+	tp/Texinfo/XS/parsetexi/parser.h
+
+2021-08-26  Patrice Dumas  <pertusus@free.fr>
+
 	Internal command @txiinternalvalue for gdt strings value labels in
 	tree
 

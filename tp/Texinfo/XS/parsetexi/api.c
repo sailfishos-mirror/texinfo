@@ -147,7 +147,7 @@ reset_parser (void)
   wipe_values ();
   clear_expanded_formats ();
   reset_conf ();
-  global_in_gdt = 0;
+  global_accept_internalvalue = 0;
 }
 
 /* Set ROOT to root of tree obtained by parsing FILENAME. */

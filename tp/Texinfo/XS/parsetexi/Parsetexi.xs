@@ -110,4 +110,4 @@ void
 set_debug (int i)
 
 void
-set_in_gdt()
+set_accept_internalvalue()
