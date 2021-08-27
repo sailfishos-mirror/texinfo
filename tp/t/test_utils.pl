@@ -615,12 +615,7 @@ sub convert_to_html($$$$$$;$)
   
   $converter_options->{'SPLIT'} = 0
     if ($format eq 'html_text' 
-        and !defined($parser_options->{'SPLIT'})
         and !defined($converter_options->{'SPLIT'}));
-  if (!defined($converter_options->{'SIMPLE_MENU'}) 
-       and $parser_options->{'SIMPLE_MENU'}) {
-    $converter_options->{'SIMPLE_MENU'} = 1;
-  }
   my $converter =
      Texinfo::Convert::HTML->converter ({'DEBUG' => $self->{'DEBUG'},
                                          'parser' => $parser,
@@ -766,6 +761,13 @@ sub test($$)
   $parser_options = shift @$test_case if (@$test_case);
   $converter_options = shift @$test_case if (@$test_case);
 
+  if (!$self->{'generate'}) {
+    mkdir "t/results/$self->{'name'}" if (! -d "t/results/$self->{'name'}");
+  } else {
+    mkdir $srcdir."t/results/$self->{'name'}"
+      if (! -d $srcdir."t/results/$self->{'name'}");
+  }
+
   if (!defined $parser_options->{'EXPANDED_FORMATS'}) {
     $parser_options->{'EXPANDED_FORMATS'} = [
       'docbook', 'html', 'xml', 'info', 'plaintext', 'latex'];
@@ -775,6 +777,8 @@ sub test($$)
     # where you need @tex expanded in the t/*.t files.
   }
 
+  # get all the infos put in parser_options that are not actual
+  # parser options but specifications for the test.
   my $test_file;
   if ($parser_options->{'test_file'}) {
     $test_file = $input_files_dir . $parser_options->{'test_file'};
@@ -794,11 +798,15 @@ sub test($$)
     delete $parser_options->{'test_split'};
   }
 
-  if (!$self->{'generate'}) {
-    mkdir "t/results/$self->{'name'}" if (! -d "t/results/$self->{'name'}");
-  } else {
-    mkdir $srcdir."t/results/$self->{'name'}"
-      if (! -d $srcdir."t/results/$self->{'name'}");
+  # register that there is a tree transformation to do
+  # in addition to passing to converter.
+  my $simple_menus;
+  if ($parser_options->{'SIMPLE_MENU'}) {
+    $simple_menus = 1;
+    if (!defined($converter_options->{'SIMPLE_MENU'})) {
+      $converter_options->{'SIMPLE_MENU'} = 1;
+    }
+    delete $parser_options->{'SIMPLE_MENU'};
   }
 
   my %todos;
@@ -885,7 +893,7 @@ sub test($$)
                                                      $merged_index_entries,
                                                      $index_names);
   }
-  if ($parser_options->{'SIMPLE_MENU'}) {
+  if ($simple_menus) {
     # require instead of use for speed when this module is not needed
     require Texinfo::Transformations;
     $parser->Texinfo::Transformations::set_menus_to_simple_menu();

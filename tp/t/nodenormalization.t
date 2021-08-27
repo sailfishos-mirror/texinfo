@@ -25,8 +25,7 @@ my $strings_textdomain = 'texinfo_document';
 Locale::Messages->select_package ('gettext_pp');
 Locale::Messages::bindtextdomain ('texinfo_document', 't/locales');
 
-my $parser = Texinfo::Parser::parser({'TEST' => 1,
-                                      'include_directories' => [
+my $parser = Texinfo::Parser::parser({'include_directories' => [
                                           $srcdir.'t/include/'],
                                       'EXPANDED_FORMATS' => ['html', 'tex']});
 
