@@ -39,7 +39,7 @@ our %EXPORT_TAGS = ( 'all' => [ qw(
 our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 
 our @EXPORT = qw(
-	
+
 );
 
 sub get_conf($$)
@@ -83,18 +83,18 @@ sub parser (;$$)
           add_include_directory ($d);
         }
       } elsif ($key eq 'values') {
-	# This is used by Texinfo::Report::gdt for substituted values
-	for my $v (keys %{$conf->{'values'}}) {
-	  if (!ref($conf->{'values'}->{$v})) {
-	    store_value ($v, $conf->{'values'}->{$v});
+        # This is used by Texinfo::Report::gdt for substituted values
+        for my $v (keys %{$conf->{'values'}}) {
+          if (!ref($conf->{'values'}->{$v})) {
+            store_value ($v, $conf->{'values'}->{$v});
           } elsif (ref($conf->{'values'}->{$v}) eq 'HASH') {
             store_value ($v, "<<HASH VALUE>>");
-	  } elsif (ref($conf->{'values'}->{$v}) eq 'ARRAY') {
-	    store_value ($v, "<<ARRAY VALUE>>");
-	  } else {
-	    store_value ($v, "<<UNKNOWN VALUE>>");
-	  }
-	}
+          } elsif (ref($conf->{'values'}->{$v}) eq 'ARRAY') {
+            store_value ($v, "<<ARRAY VALUE>>");
+          } else {
+            store_value ($v, "<<UNKNOWN VALUE>>");
+          }
+        }
       } elsif ($key eq 'EXPANDED_FORMATS') {
         clear_expanded_formats ();
 
