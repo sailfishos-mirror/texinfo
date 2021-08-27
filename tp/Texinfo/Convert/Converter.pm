@@ -1720,7 +1720,7 @@ in upper case.  The function returns the accented letter as XML entity
 if possible.  I<$use_numeric_entities> is also optional, and, if set, and
 there is no XML entity, the numerical entity corresponding to Unicode 
 points is preferred to an ASCII transliteration.  If I<$use_numeric_entities>
-is set numerci entities are also used for diacritics instead of ASCII
+is set numerical entities are also used for diacritics instead of ASCII
 characters.
 
 =item $result = $converter->xml_accents($accent_command, $in_upper_case)

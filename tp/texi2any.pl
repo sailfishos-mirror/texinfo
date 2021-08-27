@@ -324,7 +324,7 @@ package Texinfo::Config;
 
 #use Carp;
 
-# passed from main program
+# passed from main program through _load_config
 my $cmdline_options;
 my $default_options;
 # used in main program
@@ -336,6 +336,8 @@ sub _load_config($$) {
   #print STDERR "cmdline_options: ".join('|',keys(%$cmdline_options))."\n";
 }
 
+# eval init file in the Texinfo::Config namespace.  Needed functions are in
+# the Texinfo::Convert::HTML Texinfo::Config package namespace code.
 sub _load_init_file($) {
   my $file = shift;
   require Texinfo::Convert::HTML;
@@ -349,6 +351,8 @@ sub _load_init_file($) {
 
 # FIXME: maybe use an opaque return status that can be used to retrieve
 # an error message?
+#
+# Called from init files to set configuration options.
 sub set_from_init_file($$) {
   my $var = shift;
   my $value = shift;
@@ -365,6 +369,7 @@ sub set_from_init_file($$) {
   return 1;
 }
 
+# set option from the command line.  Highest precedence.
 sub set_from_cmdline($$) {
   my $var = shift;
   my $value = shift;
