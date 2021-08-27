@@ -51,6 +51,12 @@ When making changes that you expect will change the parse tree but not
 change any of the output, one way to check this would be to run "make
 check" and then "grep FAIL test-suite.log | grep -v 'tree$'".
 
+The tests output on STDERR are not checked, it is possible to look
+for surious output on STDERR in addition to the header and a few
+informations after "make check" with:
+
+ grep -v -e '^ok [0-9]\+' -e '^PASS:' -e '^SKIP:' -e '1\.\.[0-9]\+$' t/*.log
+
 Another way to check test results is to regenerate the reference test
 results (see below), and then run "git diff t".
 

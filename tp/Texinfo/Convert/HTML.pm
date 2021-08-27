@@ -1319,8 +1319,8 @@ $default_commands_formatting{'normal'}->{"\t"} = '&nbsp;';
 $default_commands_formatting{'normal'}->{"\n"} = '&nbsp;';
 
 my %default_commands_translation;
-# possible example of use, right now not used, as the generic
-# translated command with gdt tree is used.
+# possible example of use, right now not used, as 'translated_commands'
+# in the generic Converter customization is directly used.
 #$default_commands_translation{'normal'}->{'error'} = 'error--&gt;';
 ## This is used to have gettext pick up the chain to be translated
 #if (0) {

@@ -327,7 +327,7 @@ sub gdt($$;$$)
 
   Locale::Messages::nl_putenv("LANGUAGE=$locales");
 
-  my $translation_result = Locale::Messages::gettext($message);
+  my $translated_message = Locale::Messages::gettext($message);
 
   Locale::Messages::textdomain($messages_textdomain);
   if (!defined($saved_LANGUAGE)) {
@@ -340,6 +340,8 @@ sub gdt($$;$$)
   } else {
     POSIX::setlocale(LC_ALL, '');
   }
+
+  my $translation_result = $translated_message;
 
   if ($type and $type eq 'translated_text') {
     if (defined($re)) {
@@ -385,13 +387,13 @@ sub gdt($$;$$)
   }
 
   my $tree = $parser->parse_texi_line($translation_result);
-  if ($parser->{'DEBUG'}) {
-    my ($errors, $errors_count) = $parser->errors();
-    if ($errors_count) {
-      print STDERR "GDT $errors_count errors\n";
-      foreach my $error_message (@$errors) {
-        warn $error_message->{'error_line'};
-      }
+  my ($errors, $errors_count) = $parser->errors();
+  if ($errors_count) {
+    warn "translation $errors_count error(s)\n";
+    warn "translated message: $translated_message\n";
+    warn "Error messages: \n";
+    foreach my $error_message (@$errors) {
+      warn $error_message->{'error_line'};
     }
   }
   $tree = _substitute ($tree, $context);

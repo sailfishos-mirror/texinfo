@@ -1,0 +1,5 @@
+
+# modified with an existing translated string for interesting results
+# depending on the @documentlanguage
+$commands_translation{'normal'}->{'error'} = "Special Form";
+1;

@@ -732,6 +732,21 @@ sub convert_to_latex($$$$$$;$)
   return ($errors, $result);
 }
 
+{
+# eval init file in the Texinfo::Config namespace.  Needed functions are in
+# the Texinfo::Convert::HTML Texinfo::Config package namespace code.
+package Texinfo::Config;
+sub _load_init_file($) {
+  my $file = shift;
+  require Texinfo::Convert::HTML;
+  eval { require($file) ;};
+  my $e = $@;
+  if ($e ne '') {
+    warn (sprintf("error loading %s: %s\n", $file, $e));
+  }
+}
+}
+
 # Run a single test case.  Each test case is an array
 # [TEST_NAME, TEST_TEXT, PARSER_OPTIONS, CONVERTER_OPTIONS]
 sub test($$) 
@@ -801,6 +816,19 @@ sub test($$)
   if ($parser_options and $parser_options->{'test_formats'}) {
     push @tested_formats, @{$parser_options->{'test_formats'}};
     delete $parser_options->{'test_formats'};
+  }
+
+  my $init_file_directories = [$srcdir.'init/', $srcdir.'t/init/'];
+  if ($parser_options and $parser_options->{'init_files'}) {
+    foreach my $filename (@{$parser_options->{'init_files'}}) {
+      my $file = Texinfo::Common::locate_init_file($filename, $init_file_directories, 0);
+      if (defined($file)) {
+        Texinfo::Config::_load_init_file($file);
+      } else {
+        warn (sprintf("could not read init file %s", $filename));
+      }
+    }
+    delete $parser_options->{'init_files'};
   }
 
   my $parser = Texinfo::Parser::parser({'include_directories' => [
