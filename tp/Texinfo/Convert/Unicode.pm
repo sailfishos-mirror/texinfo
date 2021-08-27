@@ -1234,7 +1234,21 @@ sub unicode_accent($$)
   }
 
   if (defined($unicode_diacritics{$accent})) {
-    $result = Unicode::Normalize::NFC($text . chr(hex($unicode_diacritics{$accent})));
+    if ($accent ne 'tieaccent') {
+      $result = Unicode::Normalize::NFC($text
+           . chr(hex($unicode_diacritics{$accent})));
+    } else {
+      # tieaccent diacritic is naturally and correctly composed
+      # between two characters
+      my $remaining_text = $text;
+      if ($remaining_text =~ s/^([\p{L}\d])([\p{L}\d])(.*)$/$3/) {
+        $result = Unicode::Normalize::NFC($1
+           . chr(hex($unicode_diacritics{$accent})).$2.$remaining_text);
+      } else {
+        $result = Unicode::Normalize::NFC($text
+           . chr(hex($unicode_diacritics{$accent})));
+      }
+    }
     return $result;
   } else {
     return undef;

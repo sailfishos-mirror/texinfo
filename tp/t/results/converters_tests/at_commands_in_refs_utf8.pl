@@ -2386,7 +2386,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                     {},
                     {}
                   ],
-                  'normalized' => '_0117-_0115-e_0332-_1eb9-_011b-j-ee_0361'
+                  'normalized' => '_0117-_0115-e_0332-_1eb9-_011b-j-e_0361e'
                 }
               },
               'line_nr' => {
@@ -8704,10 +8704,10 @@ $result_trees{'at_commands_in_refs_utf8'} = {
               {},
               {}
             ],
-            'normalized' => '_0117-_0115-e_0332-_1eb9-_011b-j-ee_0361'
+            'normalized' => '_0117-_0115-e_0332-_1eb9-_011b-j-e_0361e'
           }
         ],
-        'normalized' => '_0117-_0115-e_0332-_1eb9-_011b-j-ee_0361',
+        'normalized' => '_0117-_0115-e_0332-_1eb9-_011b-j-e_0361e',
         'spaces_before_argument' => ' '
       },
       'line_nr' => {
@@ -15252,7 +15252,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
                     {},
                     {}
                   ],
-                  'normalized' => '_0117-_0115-e_0332-_1eb9-_011b-j-ee_0361'
+                  'normalized' => '_0117-_0115-e_0332-_1eb9-_011b-j-e_0361e'
                 }
               },
               'line_nr' => {
@@ -21365,7 +21365,7 @@ $result_sectioning{'at_commands_in_refs_utf8'} = {
             'associated_node' => {
               'cmdname' => 'node',
               'extra' => {
-                'normalized' => '_0117-_0115-e_0332-_1eb9-_011b-j-ee_0361',
+                'normalized' => '_0117-_0115-e_0332-_1eb9-_011b-j-e_0361e',
                 'spaces_before_argument' => ' '
               }
             },
@@ -21960,7 +21960,7 @@ $result_nodes{'at_commands_in_refs_utf8'} = {
                             'level' => 1,
                             'number' => 11
                           },
-                          'normalized' => '_0117-_0115-e_0332-_1eb9-_011b-j-ee_0361',
+                          'normalized' => '_0117-_0115-e_0332-_1eb9-_011b-j-e_0361e',
                           'spaces_before_argument' => ' '
                         },
                         'node_next' => {
@@ -22410,7 +22410,7 @@ $result_menus{'at_commands_in_refs_utf8'} = {
                       'menu_next' => {
                         'cmdname' => 'node',
                         'extra' => {
-                          'normalized' => '_0117-_0115-e_0332-_1eb9-_011b-j-ee_0361',
+                          'normalized' => '_0117-_0115-e_0332-_1eb9-_011b-j-e_0361e',
                           'spaces_before_argument' => ' '
                         },
                         'menu_next' => {

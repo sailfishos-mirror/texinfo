@@ -3202,7 +3202,7 @@ should be e\': è è
 
    should be e*: e̊ e̊
 
-   should be ee[: ee͡
+   should be ee[: e͡e
 
    should be e(: ĕ ĕ
 

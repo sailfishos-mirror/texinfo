@@ -378,6 +378,9 @@ $weird_accents_text, {}, {'ENABLE_ENCODING' => 0}
 ['accent',
 $accents_text
 ],
+['accent_enable_encoding',
+$accents_text, {}, {'ENABLE_ENCODING' => 1}
+],
 ['accent_with_text',
 '@u{--a} @dotless{--b} @^{--@dotless{i}} @^{--@dotless{j}} @^{--a}
 '],

@@ -2319,7 +2319,7 @@ $result_trees{'at_commands_in_refs'} = {
                     {},
                     {}
                   ],
-                  'normalized' => '_0117-_0115-e_0332-_1eb9-_011b-j-ee_0361'
+                  'normalized' => '_0117-_0115-e_0332-_1eb9-_011b-j-e_0361e'
                 }
               },
               'line_nr' => {
@@ -8637,10 +8637,10 @@ $result_trees{'at_commands_in_refs'} = {
               {},
               {}
             ],
-            'normalized' => '_0117-_0115-e_0332-_1eb9-_011b-j-ee_0361'
+            'normalized' => '_0117-_0115-e_0332-_1eb9-_011b-j-e_0361e'
           }
         ],
-        'normalized' => '_0117-_0115-e_0332-_1eb9-_011b-j-ee_0361',
+        'normalized' => '_0117-_0115-e_0332-_1eb9-_011b-j-e_0361e',
         'spaces_before_argument' => ' '
       },
       'line_nr' => {
@@ -15185,7 +15185,7 @@ $result_trees{'at_commands_in_refs'} = {
                     {},
                     {}
                   ],
-                  'normalized' => '_0117-_0115-e_0332-_1eb9-_011b-j-ee_0361'
+                  'normalized' => '_0117-_0115-e_0332-_1eb9-_011b-j-e_0361e'
                 }
               },
               'line_nr' => {
@@ -21287,7 +21287,7 @@ $result_sectioning{'at_commands_in_refs'} = {
             'associated_node' => {
               'cmdname' => 'node',
               'extra' => {
-                'normalized' => '_0117-_0115-e_0332-_1eb9-_011b-j-ee_0361',
+                'normalized' => '_0117-_0115-e_0332-_1eb9-_011b-j-e_0361e',
                 'spaces_before_argument' => ' '
               }
             },
@@ -21882,7 +21882,7 @@ $result_nodes{'at_commands_in_refs'} = {
                             'level' => 1,
                             'number' => 11
                           },
-                          'normalized' => '_0117-_0115-e_0332-_1eb9-_011b-j-ee_0361',
+                          'normalized' => '_0117-_0115-e_0332-_1eb9-_011b-j-e_0361e',
                           'spaces_before_argument' => ' '
                         },
                         'node_next' => {
@@ -22332,7 +22332,7 @@ $result_menus{'at_commands_in_refs'} = {
                       'menu_next' => {
                         'cmdname' => 'node',
                         'extra' => {
-                          'normalized' => '_0117-_0115-e_0332-_1eb9-_011b-j-ee_0361',
+                          'normalized' => '_0117-_0115-e_0332-_1eb9-_011b-j-e_0361e',
                           'spaces_before_argument' => ' '
                         },
                         'menu_next' => {
@@ -22716,7 +22716,7 @@ $result_converted{'plaintext'}->{'at_commands_in_refs'} = 'Top
 10 ä ẽ î â à é ç ē e̊ e̋ ę
 ************************
 
-11 ė ĕ e̲ ẹ ě j ee͡
+11 ė ĕ e̲ ẹ ě j e͡e
 *****************
 
 12 ı Ḕ Ḉ
@@ -22789,7 +22789,7 @@ $result_converted{'plaintext'}->{'at_commands_in_refs'} = 'Top
 
    *note ä ẽ î â à é ç ē e̊ e̋ ę::
 
-   *note ė ĕ e̲ ẹ ě j ee͡::
+   *note ė ĕ e̲ ẹ ě j e͡e::
 
    *note ı Ḕ Ḉ::
 
@@ -22914,7 +22914,7 @@ Next: <a href="#-_007b-_007d" accesskey="n" rel="next"> { }</a> &nbsp; </p>
 <li><a href="#g_t_21d2-_00b0-a-b--_00e5" accesskey="8">&rArr; &deg; a&nbsp;b a sunny day &aring;</a></li>
 <li><a href="#g_t_00c5-_00e6-_0153-_00c6-_0152-_00f8-_00d8-_00df-_0142-_0141-_00d0-_00f0-_00de-_00fe" accesskey="9">&Aring; &aelig; &oelig; &AElig; &OElig; &oslash; &Oslash; &szlig; &#322; &#321; &ETH; &eth; &THORN; &thorn;</a></li>
 <li><a href="#g_t_00e4-_1ebd-_00ee-_00e2-_00e0-_00e9-_00e7-_0113-e_030a-e_030b-_0119">&auml; &#7869; &icirc; &acirc; &agrave; &eacute; &ccedil; &#275; e* e\'\' &#281;</a></li>
-<li><a href="#g_t_0117-_0115-e_0332-_1eb9-_011b-j-ee_0361">&#279; &#277; e_ &#7865; &#283; j ee[</a></li>
+<li><a href="#g_t_0117-_0115-e_0332-_1eb9-_011b-j-e_0361e">&#279; &#277; e_ &#7865; &#283; j ee[</a></li>
 <li><a href="#g_t_0131-_1e14-_1e08">i &#274;` &#262;,</a></li>
 <li><a href="#g_t_201c-_201d-_2018-_2019-_201e-_201a">&ldquo; &rdquo; &lsquo; &rsquo; &bdquo; &sbquo;</a></li>
 <li><a href="#g_t_00ab-_00bb-_00ab-_00bb-_2039-_203a">&laquo; &raquo; &laquo; &raquo; &lsaquo; &rsaquo;</a></li>
@@ -23017,13 +23017,13 @@ Next: <a href="#g_t_00e4-_1ebd-_00ee-_00e2-_00e0-_00e9-_00e7-_0113-e_030a-e_030b
 <div class="chapter" id="g_t_00e4-_1ebd-_00ee-_00e2-_00e0-_00e9-_00e7-_0113-e_030a-e_030b-_0119">
 <div class="header">
 <p>
-Next: <a href="#g_t_0117-_0115-e_0332-_1eb9-_011b-j-ee_0361" accesskey="n" rel="next">&#279; &#277; e_ &#7865; &#283; j ee[</a>, Previous: <a href="#g_t_00c5-_00e6-_0153-_00c6-_0152-_00f8-_00d8-_00df-_0142-_0141-_00d0-_00f0-_00de-_00fe" accesskey="p" rel="prev">&Aring; &aelig; &oelig; &AElig; &OElig; &oslash; &Oslash; &szlig; &#322; &#321; &ETH; &eth; &THORN; &thorn;</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
+Next: <a href="#g_t_0117-_0115-e_0332-_1eb9-_011b-j-e_0361e" accesskey="n" rel="next">&#279; &#277; e_ &#7865; &#283; j ee[</a>, Previous: <a href="#g_t_00c5-_00e6-_0153-_00c6-_0152-_00f8-_00d8-_00df-_0142-_0141-_00d0-_00f0-_00de-_00fe" accesskey="p" rel="prev">&Aring; &aelig; &oelig; &AElig; &OElig; &oslash; &Oslash; &szlig; &#322; &#321; &ETH; &eth; &THORN; &thorn;</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
 <span id="a-e-i-a-a-e-c-e-e-e-e"></span><h2 class="chapter">10 &auml; &#7869; &icirc; &acirc; &agrave; &eacute; &ccedil; &#275; e* e\'\' &#281;</h2>
 
 <hr>
 </div>
-<div class="chapter" id="g_t_0117-_0115-e_0332-_1eb9-_011b-j-ee_0361">
+<div class="chapter" id="g_t_0117-_0115-e_0332-_1eb9-_011b-j-e_0361e">
 <div class="header">
 <p>
 Next: <a href="#g_t_0131-_1e14-_1e08" accesskey="n" rel="next">i &#274;` &#262;,</a>, Previous: <a href="#g_t_00e4-_1ebd-_00ee-_00e2-_00e0-_00e9-_00e7-_0113-e_030a-e_030b-_0119" accesskey="p" rel="prev">&auml; &#7869; &icirc; &acirc; &agrave; &eacute; &ccedil; &#275; e* e\'\' &#281;</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
@@ -23035,7 +23035,7 @@ Next: <a href="#g_t_0131-_1e14-_1e08" accesskey="n" rel="next">i &#274;` &#262;,
 <div class="chapter" id="g_t_0131-_1e14-_1e08">
 <div class="header">
 <p>
-Next: <a href="#g_t_201c-_201d-_2018-_2019-_201e-_201a" accesskey="n" rel="next">&ldquo; &rdquo; &lsquo; &rsquo; &bdquo; &sbquo;</a>, Previous: <a href="#g_t_0117-_0115-e_0332-_1eb9-_011b-j-ee_0361" accesskey="p" rel="prev">&#279; &#277; e_ &#7865; &#283; j ee[</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
+Next: <a href="#g_t_201c-_201d-_2018-_2019-_201e-_201a" accesskey="n" rel="next">&ldquo; &rdquo; &lsquo; &rsquo; &bdquo; &sbquo;</a>, Previous: <a href="#g_t_0117-_0115-e_0332-_1eb9-_011b-j-e_0361e" accesskey="p" rel="prev">&#279; &#277; e_ &#7865; &#283; j ee[</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
 <span id="i-E-C"></span><h2 class="chapter">12 i &#274;` &#262;,</h2>
 
@@ -23194,7 +23194,7 @@ Previous: <a href="#gH-3rd" accesskey="p" rel="prev"><sub>g</sub>H 3<sup>rd</sup
 </p>
 <p><a href="#g_t_00e4-_1ebd-_00ee-_00e2-_00e0-_00e9-_00e7-_0113-e_030a-e_030b-_0119">&auml; &#7869; &icirc; &acirc; &agrave; &eacute; &ccedil; &#275; e* e\'\' &#281;</a>
 </p>
-<p><a href="#g_t_0117-_0115-e_0332-_1eb9-_011b-j-ee_0361">&#279; &#277; e_ &#7865; &#283; j ee[</a>
+<p><a href="#g_t_0117-_0115-e_0332-_1eb9-_011b-j-e_0361e">&#279; &#277; e_ &#7865; &#283; j ee[</a>
 </p>
 <p><a href="#g_t_0131-_1e14-_1e08">i &#274;` &#262;,</a>
 </p>
@@ -23352,7 +23352,7 @@ $result_converted{'xml'}->{'at_commands_in_refs'} = '<node name="Top" spaces=" "
 <chapter spaces="  "><sectiontitle><accent type="uml">a</accent> <accent type="tilde">e</accent> <accent type="circ"><dotless>i</dotless></accent> <accent type="circ">a</accent> <accent type="grave">a</accent> <accent type="acute" bracketed="off">e</accent> <accent type="cedil">c</accent> <accent type="macr">e</accent> <accent type="ring">e</accent> <accent type="doubleacute">e</accent> <accent type="ogon">e</accent></sectiontitle>
 
 </chapter>
-<node name="_0117-_0115-e_0332-_1eb9-_011b-j-ee_0361" spaces=" "><nodename><accent type="dotaccent">e</accent> <accent type="breve">e</accent> <accent type="ubaraccent">e</accent> <accent type="udotaccent">e</accent> <accent type="caron">e</accent> <dotless>j</dotless> <accent type="tieaccent">ee</accent></nodename><nodenext automatic="on"><dotless>i</dotless> <accent type="grave"><accent type="macr" bracketed="off">E</accent></accent> <accent type="cedil"><accent type="acute" bracketed="off">C</accent></accent></nodenext><nodeprev automatic="on"><accent type="uml">a</accent> <accent type="tilde">e</accent> <accent type="circ"><dotless>i</dotless></accent> <accent type="circ">a</accent> <accent type="grave">a</accent> <accent type="acute" bracketed="off">e</accent> <accent type="cedil">c</accent> <accent type="macr">e</accent> <accent type="ring">e</accent> <accent type="doubleacute">e</accent> <accent type="ogon">e</accent></nodeprev><nodeup automatic="on">Top</nodeup></node>
+<node name="_0117-_0115-e_0332-_1eb9-_011b-j-e_0361e" spaces=" "><nodename><accent type="dotaccent">e</accent> <accent type="breve">e</accent> <accent type="ubaraccent">e</accent> <accent type="udotaccent">e</accent> <accent type="caron">e</accent> <dotless>j</dotless> <accent type="tieaccent">ee</accent></nodename><nodenext automatic="on"><dotless>i</dotless> <accent type="grave"><accent type="macr" bracketed="off">E</accent></accent> <accent type="cedil"><accent type="acute" bracketed="off">C</accent></accent></nodenext><nodeprev automatic="on"><accent type="uml">a</accent> <accent type="tilde">e</accent> <accent type="circ"><dotless>i</dotless></accent> <accent type="circ">a</accent> <accent type="grave">a</accent> <accent type="acute" bracketed="off">e</accent> <accent type="cedil">c</accent> <accent type="macr">e</accent> <accent type="ring">e</accent> <accent type="doubleacute">e</accent> <accent type="ogon">e</accent></nodeprev><nodeup automatic="on">Top</nodeup></node>
 <chapter spaces=" "><sectiontitle><accent type="dotaccent">e</accent> <accent type="breve">e</accent> <accent type="ubaraccent">e</accent> <accent type="udotaccent">e</accent> <accent type="caron">e</accent> <dotless>j</dotless> <accent type="tieaccent">ee</accent></sectiontitle>
 
 </chapter>
@@ -23439,7 +23439,7 @@ $result_converted{'xml'}->{'at_commands_in_refs'} = '<node name="Top" spaces=" "
 </para>
 <para><ref label="_00e4-_1ebd-_00ee-_00e2-_00e0-_00e9-_00e7-_0113-e_030a-e_030b-_0119"><xrefnodename><accent type="uml">a</accent> <accent type="tilde">e</accent> <accent type="circ"><dotless>i</dotless></accent> <accent type="circ">a</accent> <accent type="grave">a</accent> <accent type="acute" bracketed="off">e</accent> <accent type="cedil">c</accent> <accent type="macr">e</accent> <accent type="ring">e</accent> <accent type="doubleacute">e</accent> <accent type="ogon">e</accent></xrefnodename></ref>
 </para>
-<para><ref label="_0117-_0115-e_0332-_1eb9-_011b-j-ee_0361"><xrefnodename><accent type="dotaccent">e</accent> <accent type="breve">e</accent> <accent type="ubaraccent">e</accent> <accent type="udotaccent">e</accent> <accent type="caron">e</accent> <dotless>j</dotless> <accent type="tieaccent">ee</accent></xrefnodename></ref>
+<para><ref label="_0117-_0115-e_0332-_1eb9-_011b-j-e_0361e"><xrefnodename><accent type="dotaccent">e</accent> <accent type="breve">e</accent> <accent type="ubaraccent">e</accent> <accent type="udotaccent">e</accent> <accent type="caron">e</accent> <dotless>j</dotless> <accent type="tieaccent">ee</accent></xrefnodename></ref>
 </para>
 <para><ref label="_0131-_1e14-_1e08"><xrefnodename><dotless>i</dotless> <accent type="grave"><accent type="macr" bracketed="off">E</accent></accent> <accent type="cedil"><accent type="acute" bracketed="off">C</accent></accent></xrefnodename></ref>
 </para>
@@ -23524,7 +23524,7 @@ $result_converted{'docbook'}->{'at_commands_in_refs'} = '<chapter label="" id="T
 <title>&#228; &#7869; &#238; &#226; &#224; &#233; &#231; &#275; e* e\'\' &#281;</title>
 
 </chapter>
-<chapter label="11" id="_0117-_0115-e_0332-_1eb9-_011b-j-ee_0361">
+<chapter label="11" id="_0117-_0115-e_0332-_1eb9-_011b-j-e_0361e">
 <title>&#279; &#277; e_ &#7865; &#283; j ee[</title>
 
 </chapter>
@@ -23612,7 +23612,7 @@ $result_converted{'docbook'}->{'at_commands_in_refs'} = '<chapter label="" id="T
 </para>
 <para><link linkend="_00e4-_1ebd-_00ee-_00e2-_00e0-_00e9-_00e7-_0113-e_030a-e_030b-_0119">&#228; &#7869; &#238; &#226; &#224; &#233; &#231; &#275; e* e\'\' &#281;</link>
 </para>
-<para><link linkend="_0117-_0115-e_0332-_1eb9-_011b-j-ee_0361">&#279; &#277; e_ &#7865; &#283; j ee[</link>
+<para><link linkend="_0117-_0115-e_0332-_1eb9-_011b-j-e_0361e">&#279; &#277; e_ &#7865; &#283; j ee[</link>
 </para>
 <para><link linkend="_0131-_1e14-_1e08">i &#274;` &#262;,</link>
 </para>
@@ -23693,7 +23693,7 @@ Top
 * => ° a b a sunny day å::
 * Å æ œ Æ Œ ø Ø ß ł Ł Ð ð Þ þ::
 * ä ẽ î â à é ç ē e̊ e̋ ę::
-* ė ĕ e̲ ẹ ě j ee͡::
+* ė ĕ e̲ ẹ ě j e͡e::
 * ı Ḕ Ḉ::
 * “ ” ‘ ’ „ ‚::
 * « » « » ‹ ›::
@@ -23770,19 +23770,19 @@ File: ,  Node: Å æ œ Æ Œ ø Ø ß ł Ł Ð ð Þ þ,  Next: ä ẽ î â à
 *****************************
 
 
-File: ,  Node: ä ẽ î â à é ç ē e̊ e̋ ę,  Next: ė ĕ e̲ ẹ ě j ee͡,  Prev: Å æ œ Æ Œ ø Ø ß ł Ł Ð ð Þ þ,  Up: Top
+File: ,  Node: ä ẽ î â à é ç ē e̊ e̋ ę,  Next: ė ĕ e̲ ẹ ě j e͡e,  Prev: Å æ œ Æ Œ ø Ø ß ł Ł Ð ð Þ þ,  Up: Top
 
 10 ä ẽ î â à é ç ē e̊ e̋ ę
 ************************
 
 
-File: ,  Node: ė ĕ e̲ ẹ ě j ee͡,  Next: ı Ḕ Ḉ,  Prev: ä ẽ î â à é ç ē e̊ e̋ ę,  Up: Top
+File: ,  Node: ė ĕ e̲ ẹ ě j e͡e,  Next: ı Ḕ Ḉ,  Prev: ä ẽ î â à é ç ē e̊ e̋ ę,  Up: Top
 
-11 ė ĕ e̲ ẹ ě j ee͡
+11 ė ĕ e̲ ẹ ě j e͡e
 *****************
 
 
-File: ,  Node: ı Ḕ Ḉ,  Next: “ ” ‘ ’ „ ‚,  Prev: ė ĕ e̲ ẹ ě j ee͡,  Up: Top
+File: ,  Node: ı Ḕ Ḉ,  Next: “ ” ‘ ’ „ ‚,  Prev: ė ĕ e̲ ẹ ě j e͡e,  Up: Top
 
 12 ı Ḕ Ḉ
 ********
@@ -23899,7 +23899,7 @@ File: ,  Node: <http://somewhere_aaa> text (url) ls,  Prev: _{g}H 3^{rd},  Up: T
 
    *note ä ẽ î â à é ç ē e̊ e̋ ę::
 
-   *note ė ĕ e̲ ẹ ě j ee͡::
+   *note ė ĕ e̲ ẹ ě j e͡e::
 
    *note ı Ḕ Ḉ::
 
@@ -23948,7 +23948,7 @@ Node: ª º -!- £ -| ¿ (R)1610
 Node: => ° a b a sunny day å1760
 Node: Å æ œ Æ Œ ø Ø ß ł Ł Ð ð Þ þ1947
 Node: ä ẽ î â à é ç ē e̊ e̋ ę2169
-Node: ė ĕ e̲ ẹ ě j ee͡2380
+Node: ė ĕ e̲ ẹ ě j e͡e2380
 Node: ı Ḕ Ḉ2541
 Node: “ ” ‘ ’ „ ‚2668
 Node: « » « » ‹ ›2810
