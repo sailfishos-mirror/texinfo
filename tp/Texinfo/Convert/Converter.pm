@@ -1487,9 +1487,28 @@ sub xml_accent($$$;$$)
   if ($use_numeric_entities
       and exists($Texinfo::Convert::Unicode::unicode_accented_letters{$accent}) 
       and exists($Texinfo::Convert::Unicode::unicode_accented_letters{$accent}->{$text})) {
-    return '&#' . 
+    return '&#' .
       hex($Texinfo::Convert::Unicode::unicode_accented_letters{$accent}->{$text}). ';';
   }
+  if ($use_numeric_entities
+      and exists($Texinfo::Convert::Unicode::unicode_diacritics{$accent})) {
+    my $diacritics_entity = '&#'
+       .hex($Texinfo::Convert::Unicode::unicode_diacritics{$accent}). ';';
+    if ($accent ne 'tieaccent') {
+      return $text . $diacritics_entity;
+    } else {
+      # tieaccent diacritic is naturally and correctly composed
+      # between two characters
+      my $remaining_text = $text;
+      # we consider that letters are either characters or entities
+      if ($remaining_text =~ s/^([\p{L}\d]|&[a-zA-Z0-9];)([\p{L}\d]|&[a-zA-Z0-9];)(.*)$/$3/) {
+        return $1.$diacritics_entity.$2.$remaining_text;
+      } else {
+        return $text . $diacritics_entity;
+      }
+    }
+  }
+
   return $text . '&lt;' if ($accent eq 'v');
   # FIXME it is not possible to call xml_protect_text since what is in $text
   # may already be xml.  But this means that each time ascii_accent changes
@@ -1700,7 +1719,9 @@ an argument.  I<$in_upper_case> is optional, and, if set, the text is put
 in upper case.  The function returns the accented letter as XML entity 
 if possible.  I<$use_numeric_entities> is also optional, and, if set, and
 there is no XML entity, the numerical entity corresponding to Unicode 
-points is preferred to an ASCII transliteration.
+points is preferred to an ASCII transliteration.  If I<$use_numeric_entities>
+is set numerci entities are also used for diacritics instead of ASCII
+characters.
 
 =item $result = $converter->xml_accents($accent_command, $in_upper_case)
 

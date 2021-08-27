@@ -22913,9 +22913,9 @@ Next: <a href="#-_007b-_007d" accesskey="n" rel="next"> { }</a> &nbsp; </p>
 <li><a href="#g_t_00aa-_00ba-_2605-_00a3-_22a3-_00bf-_00ae" accesskey="7">&ordf; &ordm; &lowast; &pound; -| &iquest; &reg;</a></li>
 <li><a href="#g_t_21d2-_00b0-a-b--_00e5" accesskey="8">&rArr; &deg; a&nbsp;b a sunny day &aring;</a></li>
 <li><a href="#g_t_00c5-_00e6-_0153-_00c6-_0152-_00f8-_00d8-_00df-_0142-_0141-_00d0-_00f0-_00de-_00fe" accesskey="9">&Aring; &aelig; &oelig; &AElig; &OElig; &oslash; &Oslash; &szlig; &#322; &#321; &ETH; &eth; &THORN; &thorn;</a></li>
-<li><a href="#g_t_00e4-_1ebd-_00ee-_00e2-_00e0-_00e9-_00e7-_0113-e_030a-e_030b-_0119">&auml; &#7869; &icirc; &acirc; &agrave; &eacute; &ccedil; &#275; e* e\'\' &#281;</a></li>
-<li><a href="#g_t_0117-_0115-e_0332-_1eb9-_011b-j-e_0361e">&#279; &#277; e_ &#7865; &#283; j ee[</a></li>
-<li><a href="#g_t_0131-_1e14-_1e08">i &#274;` &#262;,</a></li>
+<li><a href="#g_t_00e4-_1ebd-_00ee-_00e2-_00e0-_00e9-_00e7-_0113-e_030a-e_030b-_0119">&auml; &#7869; &icirc; &acirc; &agrave; &eacute; &ccedil; &#275; e&#778; e&#779; &#281;</a></li>
+<li><a href="#g_t_0117-_0115-e_0332-_1eb9-_011b-j-e_0361e">&#279; &#277; e&#818; &#7865; &#283; j e&#865;e</a></li>
+<li><a href="#g_t_0131-_1e14-_1e08">i &#274;&#768; &#262;&#807;</a></li>
 <li><a href="#g_t_201c-_201d-_2018-_2019-_201e-_201a">&ldquo; &rdquo; &lsquo; &rsquo; &bdquo; &sbquo;</a></li>
 <li><a href="#g_t_00ab-_00bb-_00ab-_00bb-_2039-_203a">&laquo; &raquo; &laquo; &raquo; &lsaquo; &rsaquo;</a></li>
 <li><a href="#g_t_0060_0060-_0027_0027-_002d_002d_002d-_002d_002d-_0060-_0027">&ldquo; &rdquo; &mdash; &ndash; &lsquo; &rsquo;</a></li>
@@ -23008,7 +23008,7 @@ Next: <a href="#g_t_00c5-_00e6-_0153-_00c6-_0152-_00f8-_00d8-_00df-_0142-_0141-_
 <div class="chapter" id="g_t_00c5-_00e6-_0153-_00c6-_0152-_00f8-_00d8-_00df-_0142-_0141-_00d0-_00f0-_00de-_00fe">
 <div class="header">
 <p>
-Next: <a href="#g_t_00e4-_1ebd-_00ee-_00e2-_00e0-_00e9-_00e7-_0113-e_030a-e_030b-_0119" accesskey="n" rel="next">&auml; &#7869; &icirc; &acirc; &agrave; &eacute; &ccedil; &#275; e* e\'\' &#281;</a>, Previous: <a href="#g_t_21d2-_00b0-a-b--_00e5" accesskey="p" rel="prev">&rArr; &deg; a&nbsp;b a sunny day &aring;</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
+Next: <a href="#g_t_00e4-_1ebd-_00ee-_00e2-_00e0-_00e9-_00e7-_0113-e_030a-e_030b-_0119" accesskey="n" rel="next">&auml; &#7869; &icirc; &acirc; &agrave; &eacute; &ccedil; &#275; e&#778; e&#779; &#281;</a>, Previous: <a href="#g_t_21d2-_00b0-a-b--_00e5" accesskey="p" rel="prev">&rArr; &deg; a&nbsp;b a sunny day &aring;</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
 <span id="AA-ae-oe-AE-OE-o-O-ss-l-L-D-d-TH-th"></span><h2 class="chapter">9 &Aring; &aelig; &oelig; &AElig; &OElig; &oslash; &Oslash; &szlig; &#322; &#321; &ETH; &eth; &THORN; &thorn;</h2>
 
@@ -23017,34 +23017,34 @@ Next: <a href="#g_t_00e4-_1ebd-_00ee-_00e2-_00e0-_00e9-_00e7-_0113-e_030a-e_030b
 <div class="chapter" id="g_t_00e4-_1ebd-_00ee-_00e2-_00e0-_00e9-_00e7-_0113-e_030a-e_030b-_0119">
 <div class="header">
 <p>
-Next: <a href="#g_t_0117-_0115-e_0332-_1eb9-_011b-j-e_0361e" accesskey="n" rel="next">&#279; &#277; e_ &#7865; &#283; j ee[</a>, Previous: <a href="#g_t_00c5-_00e6-_0153-_00c6-_0152-_00f8-_00d8-_00df-_0142-_0141-_00d0-_00f0-_00de-_00fe" accesskey="p" rel="prev">&Aring; &aelig; &oelig; &AElig; &OElig; &oslash; &Oslash; &szlig; &#322; &#321; &ETH; &eth; &THORN; &thorn;</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
+Next: <a href="#g_t_0117-_0115-e_0332-_1eb9-_011b-j-e_0361e" accesskey="n" rel="next">&#279; &#277; e&#818; &#7865; &#283; j e&#865;e</a>, Previous: <a href="#g_t_00c5-_00e6-_0153-_00c6-_0152-_00f8-_00d8-_00df-_0142-_0141-_00d0-_00f0-_00de-_00fe" accesskey="p" rel="prev">&Aring; &aelig; &oelig; &AElig; &OElig; &oslash; &Oslash; &szlig; &#322; &#321; &ETH; &eth; &THORN; &thorn;</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
-<span id="a-e-i-a-a-e-c-e-e-e-e"></span><h2 class="chapter">10 &auml; &#7869; &icirc; &acirc; &agrave; &eacute; &ccedil; &#275; e* e\'\' &#281;</h2>
+<span id="a-e-i-a-a-e-c-e-e-e-e"></span><h2 class="chapter">10 &auml; &#7869; &icirc; &acirc; &agrave; &eacute; &ccedil; &#275; e&#778; e&#779; &#281;</h2>
 
 <hr>
 </div>
 <div class="chapter" id="g_t_0117-_0115-e_0332-_1eb9-_011b-j-e_0361e">
 <div class="header">
 <p>
-Next: <a href="#g_t_0131-_1e14-_1e08" accesskey="n" rel="next">i &#274;` &#262;,</a>, Previous: <a href="#g_t_00e4-_1ebd-_00ee-_00e2-_00e0-_00e9-_00e7-_0113-e_030a-e_030b-_0119" accesskey="p" rel="prev">&auml; &#7869; &icirc; &acirc; &agrave; &eacute; &ccedil; &#275; e* e\'\' &#281;</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
+Next: <a href="#g_t_0131-_1e14-_1e08" accesskey="n" rel="next">i &#274;&#768; &#262;&#807;</a>, Previous: <a href="#g_t_00e4-_1ebd-_00ee-_00e2-_00e0-_00e9-_00e7-_0113-e_030a-e_030b-_0119" accesskey="p" rel="prev">&auml; &#7869; &icirc; &acirc; &agrave; &eacute; &ccedil; &#275; e&#778; e&#779; &#281;</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
-<span id="e-e-e-e-e-j-ee"></span><h2 class="chapter">11 &#279; &#277; e_ &#7865; &#283; j ee[</h2>
+<span id="e-e-e-e-e-j-ee"></span><h2 class="chapter">11 &#279; &#277; e&#818; &#7865; &#283; j e&#865;e</h2>
 
 <hr>
 </div>
 <div class="chapter" id="g_t_0131-_1e14-_1e08">
 <div class="header">
 <p>
-Next: <a href="#g_t_201c-_201d-_2018-_2019-_201e-_201a" accesskey="n" rel="next">&ldquo; &rdquo; &lsquo; &rsquo; &bdquo; &sbquo;</a>, Previous: <a href="#g_t_0117-_0115-e_0332-_1eb9-_011b-j-e_0361e" accesskey="p" rel="prev">&#279; &#277; e_ &#7865; &#283; j ee[</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
+Next: <a href="#g_t_201c-_201d-_2018-_2019-_201e-_201a" accesskey="n" rel="next">&ldquo; &rdquo; &lsquo; &rsquo; &bdquo; &sbquo;</a>, Previous: <a href="#g_t_0117-_0115-e_0332-_1eb9-_011b-j-e_0361e" accesskey="p" rel="prev">&#279; &#277; e&#818; &#7865; &#283; j e&#865;e</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
-<span id="i-E-C"></span><h2 class="chapter">12 i &#274;` &#262;,</h2>
+<span id="i-E-C"></span><h2 class="chapter">12 i &#274;&#768; &#262;&#807;</h2>
 
 <hr>
 </div>
 <div class="chapter" id="g_t_201c-_201d-_2018-_2019-_201e-_201a">
 <div class="header">
 <p>
-Next: <a href="#g_t_00ab-_00bb-_00ab-_00bb-_2039-_203a" accesskey="n" rel="next">&laquo; &raquo; &laquo; &raquo; &lsaquo; &rsaquo;</a>, Previous: <a href="#g_t_0131-_1e14-_1e08" accesskey="p" rel="prev">i &#274;` &#262;,</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
+Next: <a href="#g_t_00ab-_00bb-_00ab-_00bb-_2039-_203a" accesskey="n" rel="next">&laquo; &raquo; &laquo; &raquo; &lsaquo; &rsaquo;</a>, Previous: <a href="#g_t_0131-_1e14-_1e08" accesskey="p" rel="prev">i &#274;&#768; &#262;&#807;</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
 <span id="g_t_201c-_201d-_2018-_2019-_201e-_201a-1"></span><h2 class="chapter">13 &ldquo; &rdquo; &lsquo; &rsquo; &bdquo; &sbquo;</h2>
 
@@ -23192,11 +23192,11 @@ Previous: <a href="#gH-3rd" accesskey="p" rel="prev"><sub>g</sub>H 3<sup>rd</sup
 </p>
 <p><a href="#g_t_00c5-_00e6-_0153-_00c6-_0152-_00f8-_00d8-_00df-_0142-_0141-_00d0-_00f0-_00de-_00fe">&Aring; &aelig; &oelig; &AElig; &OElig; &oslash; &Oslash; &szlig; &#322; &#321; &ETH; &eth; &THORN; &thorn;</a>
 </p>
-<p><a href="#g_t_00e4-_1ebd-_00ee-_00e2-_00e0-_00e9-_00e7-_0113-e_030a-e_030b-_0119">&auml; &#7869; &icirc; &acirc; &agrave; &eacute; &ccedil; &#275; e* e\'\' &#281;</a>
+<p><a href="#g_t_00e4-_1ebd-_00ee-_00e2-_00e0-_00e9-_00e7-_0113-e_030a-e_030b-_0119">&auml; &#7869; &icirc; &acirc; &agrave; &eacute; &ccedil; &#275; e&#778; e&#779; &#281;</a>
 </p>
-<p><a href="#g_t_0117-_0115-e_0332-_1eb9-_011b-j-e_0361e">&#279; &#277; e_ &#7865; &#283; j ee[</a>
+<p><a href="#g_t_0117-_0115-e_0332-_1eb9-_011b-j-e_0361e">&#279; &#277; e&#818; &#7865; &#283; j e&#865;e</a>
 </p>
-<p><a href="#g_t_0131-_1e14-_1e08">i &#274;` &#262;,</a>
+<p><a href="#g_t_0131-_1e14-_1e08">i &#274;&#768; &#262;&#807;</a>
 </p>
 <p><a href="#g_t_201c-_201d-_2018-_2019-_201e-_201a">&ldquo; &rdquo; &lsquo; &rsquo; &bdquo; &sbquo;</a>
 </p>

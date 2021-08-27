@@ -101,7 +101,7 @@ $result_converted{'plaintext'}->{'at_after_accent_command'} = '̊@.  ̂@.
 ';
 
 
-$result_converted{'html_text'}->{'at_after_accent_command'} = '<p>*@. ^@.
+$result_converted{'html_text'}->{'at_after_accent_command'} = '<p>&#778;@. &#770;@.
 </p>';
 
 

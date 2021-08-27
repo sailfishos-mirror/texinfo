@@ -898,19 +898,19 @@ $result_converted{'plaintext'}->{'unknown_accents'} = 'Ẍ ẍ Q̈ Ÿ
 ';
 
 
-$result_converted{'html_text'}->{'unknown_accents'} = '<p>&#7820; &#7821; Q" &#376;
+$result_converted{'html_text'}->{'unknown_accents'} = '<p>&#7820; &#7821; Q&#776; &#376;
 </p>
-<p>&#394; q\' &#341;
-&#377; Q\' &#340;
+<p>&#394; q&#769; &#341;
+&#377; Q&#769; &#340;
 </p>
 <p>&#7720; &#7721;
 </p>
-<p>&#7825; r^ t^ k^
-&#7824; R^ T^ K^
+<p>&#7825; r&#770; t&#770; k&#770;
+&#7824; R&#770; T&#770; K&#770;
 </p>
-<p>z` m` p`
+<p>z&#768; m&#768; p&#768;
 </p>
-<p>Z~ s~
+<p>Z&#771; s&#771;
 </p>';
 
 

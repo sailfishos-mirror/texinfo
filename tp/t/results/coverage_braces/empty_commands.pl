@@ -283,7 +283,7 @@ $result_converted{'plaintext'}->{'empty_commands'} = '
 
 $result_converted{'html_text'}->{'empty_commands'} = '
 
-<p> <abbr></abbr>  <code></code><a id="DOCF1" href="#FOOT1"><sup>1</sup></a> ~  <tt></tt>
+<p> <abbr></abbr>  <code></code><a id="DOCF1" href="#FOOT1"><sup>1</sup></a> &#771;  <tt></tt>
 </p><div class="footnote">
 <hr>
 <h4 class="footnotes-heading">Footnotes</h4>

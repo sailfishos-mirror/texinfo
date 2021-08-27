@@ -59,7 +59,7 @@ $result_converted{'plaintext'}->{'accent_and_dash'} = 'a-̂
 ';
 
 
-$result_converted{'html_text'}->{'accent_and_dash'} = '<p>a&ndash;^</p>';
+$result_converted{'html_text'}->{'accent_and_dash'} = '<p>a&ndash;&#770;</p>';
 
 
 $result_converted{'xml'}->{'accent_and_dash'} = '<para><accent type="circ">a&textndash;</accent></para>';

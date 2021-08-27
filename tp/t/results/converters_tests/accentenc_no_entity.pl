@@ -3242,17 +3242,17 @@ $result_converted{'html_text'}->{'accentenc_no_entity'} = '
 </p>
 <p>should be e=: &#275; &#275;
 </p>
-<p>should be e&rsquo;<!-- /@w -->&rsquo;: e\'\' e\'\'
+<p>should be e&rsquo;<!-- /@w -->&rsquo;: e&#779; e&#779;
 </p>
 <p>should be e.: &#279; &#279;
 </p>
-<p>should be e*: e* e*
+<p>should be e*: e&#778; e&#778;
 </p>
-<p>should be ee[: ee[
+<p>should be ee[: e&#865;e
 </p>
 <p>should be e(: &#277; &#277;
 </p>
-<p>should be e_: e_ e_
+<p>should be e_: e&#818; e&#818;
 </p>
 <p>should be .e: &#7865; &#7865;
 </p>
@@ -3286,13 +3286,13 @@ $result_converted{'html_text'}->{'accentenc_no_entity'} = '
 </p>
 <p>should be dotless i&quot;: ï
 </p>
-<p>should be dotless j&lsquo;: j`
+<p>should be dotless j&lsquo;: j&#768;
 </p>
-<p>should be dotless j&rsquo;: j\'
+<p>should be dotless j&rsquo;: j&#769;
 </p>
 <p>should be dotless j^: &#309;
 </p>
-<p>should be dotless j&quot;: j"
+<p>should be dotless j&quot;: j&#776;
 </p><hr></div>
 ';
 

@@ -247,7 +247,7 @@ $result_converted{'plaintext'}->{'accent_with_text'} = '-ă -b î ĵ -â
 ';
 
 
-$result_converted{'html_text'}->{'accent_with_text'} = '<p>&ndash;a( &ndash;b &icirc; &#309; &ndash;a^
+$result_converted{'html_text'}->{'accent_with_text'} = '<p>&ndash;a&#774; &ndash;b &icirc; &#309; &ndash;a&#770;
 </p>';
 
 

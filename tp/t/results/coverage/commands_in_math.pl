@@ -2831,9 +2831,9 @@ $result_converted{'html_text'}->{'commands_in_math'} = '
 `<!-- /@w -->`simple-double-<!-- /@w -->-three---four----\'<!-- /@w -->\'
 
 </em></div>
-<div class="displaymath"><em>&uuml; &Uuml; &ntilde; &acirc; &eacute; &#333; &igrave; &eacute; i j &#274;`
-&#322; &#262;, &#262;, &ccedil; a\'\' &#551; &aring; a[
-&#259; a_ &#7841; &#462; &#261; a<sup>h</sup><sub>l</sub>
+<div class="displaymath"><em>&uuml; &Uuml; &ntilde; &acirc; &eacute; &#333; &igrave; &eacute; i j &#274;&#768;
+&#322; &#262;&#807; &#262;&#807; &ccedil; a&#779; &#551; &aring; a&#865;
+&#259; a&#818; &#7841; &#462; &#261; a<sup>h</sup><sub>l</sub>
 
  &nbsp;&nbsp; &nbsp;   ! ? . @ } { 
 a sunny day
