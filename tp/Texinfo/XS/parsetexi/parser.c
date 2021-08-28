@@ -284,9 +284,12 @@ void
 wipe_global_info (void)
 {
   free (global_clickstyle);
-  free (global_documentlanguage);
   global_clickstyle = strdup ("arrow");
-  global_documentlanguage = strdup ("");
+  if (!global_documentlanguage_fixed)
+    {
+      free (global_documentlanguage);
+      global_documentlanguage = strdup ("");
+    }
   global_kbdinputstyle = kbd_distinct;
 
   free (global_info.input_perl_encoding);

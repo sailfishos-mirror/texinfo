@@ -1,5 +1,19 @@
 2021-08-28  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	Fix setting documentlanguage from command line
+
+	* tp/Texinfo/XS/parsetexi/parser.c (wipe_global_info): Do not
+	reset document language if it was set from the command line.
+	* tp/Texinfo/XS/parsetexi/api.c (reset_parser): Reset documentlanguage
+	here too.
+	* tp/Texinfo/XS/parsetexi/end_line.c (end_line_misc_line): Set
+	documentlanguage via set_documentlanguage to allow override to
+	take effect.
+	
+	Report from Patrice.
+
+2021-08-28  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	Give documentlanguage setting priority over @documentlanguage
 	
 	* tp/Texinfo/XS/parsetexi/Parsetexi.xs,

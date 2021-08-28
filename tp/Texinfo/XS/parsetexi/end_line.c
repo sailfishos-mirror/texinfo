@@ -1636,10 +1636,7 @@ end_line_misc_line (ELEMENT *current)
                         }
                     }
                 }
-
-              free (global_documentlanguage);
-              global_documentlanguage = strdup (text);
-              /* FIXME: check customization variable */
+              set_documentlanguage (text);
             }
         }
       if (superfluous_arg)

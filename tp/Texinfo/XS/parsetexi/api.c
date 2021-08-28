@@ -147,6 +147,11 @@ reset_parser (void)
   wipe_values ();
   clear_expanded_formats ();
   reset_conf ();
+
+  free (global_documentlanguage);
+  global_documentlanguage = 0;
+  global_documentlanguage_fixed = 0;
+
   global_accept_internalvalue = 0;
 }
 
