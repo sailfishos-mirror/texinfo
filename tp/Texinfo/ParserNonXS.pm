@@ -2324,7 +2324,7 @@ sub _parse_def($$$)
     my $content = { 'text' => $prepended, 'parent' => $bracketed };
     # the prepended string is an english string (such as Function).  If
     # documentlanguage is set it needs to be translated during the conversion.
-    if ($self->{'documentlanguage'}) {
+    if (defined($self->{'documentlanguage'})) {
       $content->{'type'} = 'untranslated';
       $content->{'extra'}->{'documentlanguage'} = $self->{'documentlanguage'};
     }
@@ -2789,8 +2789,10 @@ sub _end_line($$$)
               or $command_index{$def_command} eq 'vr'
                   and $def_command ne 'defcv') {
             undef $index_entry;
-            $current->{'parent'}->{'extra'}->{'documentlanguage'}
+            if (defined($self->{'documentlanguage'})) {
+              $current->{'parent'}->{'extra'}->{'documentlanguage'}
                      = $self->{'documentlanguage'};
+            }
           }
         }
         my $index_contents;
