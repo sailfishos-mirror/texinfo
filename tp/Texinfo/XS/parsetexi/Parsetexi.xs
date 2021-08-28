@@ -103,7 +103,7 @@ void
 conf_set_IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME (int i)
 
 void
-set_documentlanguage (value)
+set_documentlanguage_override (value)
      char *value
 
 void

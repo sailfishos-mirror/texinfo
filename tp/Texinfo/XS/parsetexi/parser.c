@@ -136,15 +136,20 @@ COUNTER count_cells;
 GLOBAL_INFO global_info;
 char *global_clickstyle = 0;
 char *global_documentlanguage = 0;
+int global_documentlanguage_fixed = 0;
 int global_accept_internalvalue = 0;
 
 enum kbd_enum global_kbdinputstyle = kbd_distinct;
 
+/* Set the document language unless it was set on the texi2any command line. */
 void
 set_documentlanguage (char *value)
 {
-  free (global_documentlanguage);
-  global_documentlanguage = strdup (value);
+  if (!global_documentlanguage_fixed)
+    {
+      free (global_documentlanguage);
+      global_documentlanguage = strdup (value);
+    }
 }
 
 void

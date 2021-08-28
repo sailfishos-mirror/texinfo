@@ -176,6 +176,7 @@ extern ELEMENT *current_part;
 extern GLOBAL_INFO global_info;
 extern char *global_clickstyle;
 extern char *global_documentlanguage;
+extern int global_documentlanguage_fixed;
 extern int global_accept_internalvalue;
 
 enum kbd_enum {kbd_none, kbd_code, kbd_example, kbd_distinct };

@@ -1025,3 +1025,11 @@ set_debug (int value)
   debug_output = value;
 }
 
+void
+set_documentlanguage_override (char *value)
+{
+  free (global_documentlanguage);
+  global_documentlanguage = strdup (value);
+  global_documentlanguage_fixed = 1;
+}
+

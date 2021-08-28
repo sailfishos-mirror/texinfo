@@ -1,4 +1,4 @@
-# Copyright 2014-2020 Free Software Foundation, Inc.
+# Copyright 2014-2021 Free Software Foundation, Inc.
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -58,7 +58,7 @@ sub simple_parser {
   goto &parser;
 }
 
-# Stub for Texinfo::Parser::parser
+# Initialize the parser
 sub parser (;$$)
 {
   my $conf = shift;
@@ -103,7 +103,7 @@ sub parser (;$$)
         }
       } elsif ($key eq 'documentlanguage') {
         if (defined ($conf->{$key})) {
-          set_documentlanguage ($conf->{$key});
+          set_documentlanguage_override ($conf->{$key});
         }
       } elsif ($key eq 'FORMAT_MENU') {
         if ($conf->{$key} eq 'menu') {
