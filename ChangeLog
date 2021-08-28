@@ -1,3 +1,11 @@
+2021-08-28  Stephen Gildea <stepheng-texinfo@gildea.com> (tiny change)
+
+	texinfo.tex: Simplify time-stamp local variables
+	
+	* doc/texinfo.tex: Use time-stamp-pattern in preference to setting
+	multiple time-stamp Emacs variables.  Add time-stamp to hook locally,
+	so that Emacs will accept this setting as safe without prompting.
+
 2021-08-28  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/XS/parsetexi/end_line.c (end_line) <def command>:
