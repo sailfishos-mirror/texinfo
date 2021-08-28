@@ -4161,7 +4161,8 @@ sub _parse_texi($;$)
               push @{$current->{'contents'}}, $new_element;
             }
           } else {
-            $self->line_error(__("bad syntax for \@$command"), $line_nr);
+            $self->line_error (sprintf(__("bad syntax for %c%s"), ord('@'),
+                                 $command), $line_nr);
           }
           next;
         }

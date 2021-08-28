@@ -1,3 +1,8 @@
+2021-08-28  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/ParserNonXS.pm (_parse_texi): avoid "invalid
+	interpolation" error in error message.
+
 2021-08-28  Stephen Gildea <stepheng-texinfo@gildea.com> (tiny change)
 
 	texinfo.tex: Simplify time-stamp local variables
