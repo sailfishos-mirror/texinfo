@@ -18,6 +18,40 @@
 
 2021-08-28  Patrice Dumas  <pertusus@free.fr>
 
+	* Pod-Simple-Texinfo/pod2texi.pl (_fix_texinfo_tree)
+	tp/texi2any.pl,
+	tp/Texinfo/Common.pm (register_label, set_nodes_list_labels),
+	tp/Texinfo/ParserNonXS.pm (labels_information, _register_label)
+	(_end_line, _parse_texi),
+	tp/Texinfo/XS/parsetexi/Parsetexi.pm (_complete_node_menus)
+	(get_parser_info, parse_texi_line, labels_information)
+	tp/Texinfo/Structuring.pm (_check_menu_entry)
+	(_check_referenced_nodes, check_nodes_are_referenced)
+	(set_menus_node_directions, complete_node_tree_with_menus)
+	(nodes_tree, associate_internal_references),
+	tp/Texinfo/Transformations.pm (_new_node)
+	(insert_nodes_for_sectioning_commands, _print_down_menus)
+	(new_master_menu, regenerate_master_menu, set_menus_to_simple_menu),
+	tp/Texinfo/Convert/Converter.pm (converter):
+	Rename labels_information() as set_nodes_list_labels() in
+	Texinfo::Common, do not remove the 'labels' and always set
+	'targets'.  Always call that function from the parsers.
+	Have labels_information() return 'targets' list and 'nodes'
+	list too.
+	Use what is returned by labels_information() instead of a parser
+	or converter in Texinfo::Structuring and Texinfo::Transform
+	functions to access 'labels', 'targets' and 'nodes'.
+	Move the definition of Texinfo::ParserNonXS _register_label
+	as register_label in Texinfo::Common and use the 'labels'
+	list in argument instead of the parser.
+	Separate _check_referenced_nodes from complete_node_tree_with_menus
+	and rename as check_nodes_are_referenced.
+
+	* tp/Texinfo/Common.pm (%default_structure_customization_values):
+	remove USE_UP_NODE_FOR_ELEMENT_UP, it is used from converter.
+
+2021-08-28  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm(_parse_def, _end_line): put
 	information about documentlanguage into the tree only if defined.
 

@@ -24,13 +24,15 @@ sub test($$$;$)
 
   my $parser = Texinfo::Parser::parser();
   my $tree = $parser->parse_texi_text($in);
-  $parser->Texinfo::Structuring::associate_internal_references();
-  my $sectioning = $parser->Texinfo::Structuring::sectioning_structure($tree);
+  my ($labels, $targets_list, $nodes_list) = $parser->labels_information();
+  my $refs = $parser->internal_references_information();
+  Texinfo::Structuring::associate_internal_references($parser, $labels, $refs);
+  my $sectioning = Texinfo::Structuring::sectioning_structure($parser, $tree);
   if ($complete_missing_menus) {
-    $parser->Texinfo::Transformations::complete_tree_nodes_missing_menu($tree);
+    Texinfo::Transformations::complete_tree_nodes_missing_menu($parser, $tree);
     #print STDERR "".Texinfo::Common::print_tree($tree)."\n";
   } else {
-    $parser->Texinfo::Transformations::complete_tree_nodes_menus($tree);
+    Texinfo::Transformations::complete_tree_nodes_menus($parser, $tree);
   }
   my $texi_result = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
 

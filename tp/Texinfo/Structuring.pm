@@ -45,6 +45,8 @@ use vars qw($VERSION @ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
 
 %EXPORT_TAGS = ( 'all' => [ qw(
   associate_internal_references
+  check_nodes_are_referenced
+  complete_node_tree_with_menus
   elements_directions
   elements_file_directions
   merge_indices
@@ -371,16 +373,17 @@ my %direction_texts = (
  'up' => 'Up'
 );
 
-sub _check_menu_entry($$$)
+sub _check_menu_entry($$$$)
 {
   my $self = shift;
+  my $labels = shift;
   my $command = shift;
   my $menu_content = shift;
 
   my $normalized_menu_node
       = $menu_content->{'extra'}->{'menu_entry_node'}->{'normalized'};
 
-  my $menu_node = $self->{'labels'}->{$normalized_menu_node};
+  my $menu_node = $labels->{$normalized_menu_node};
 
   if (!$menu_node) {
     $self->line_error(sprintf(
@@ -401,12 +404,16 @@ sub _check_menu_entry($$$)
   }
 }
 
-sub _check_referenced_nodes
+# In general should be called only after complete_node_tree_with_menus
+# to try to generate menus automatically before checking.
+sub check_nodes_are_referenced
 {
-  my ($self, $top_node) = @_;
+  my ($self, $nodes_list, $top_node, $labels, $refs) = @_;
+
+  return undef unless ($nodes_list and scalar(@{$nodes_list}));
 
   my %referenced_nodes = ($top_node => 1);
-  foreach my $node (@{$self->{'nodes'}}) {
+  foreach my $node (@{$nodes_list}) {
     # gather referenced nodes based on node pointers
     foreach my $direction (@node_directions) {
       if ($node->{'node_'.$direction}
@@ -420,8 +427,6 @@ sub _check_referenced_nodes
   }
 
   # consider nodes in @*ref commands to be referenced
-  my $labels = $self->labels_information();
-  my $refs = $self->internal_references_information();
   if (defined($refs)) {
     foreach my $ref (@$refs) {
       my $node_arg = $ref->{'extra'}{'node_argument'};
@@ -437,7 +442,7 @@ sub _check_referenced_nodes
     }
   }
 
-  foreach my $node (@{$self->{'nodes'}}) {
+  foreach my $node (@{$nodes_list}) {
     if (not exists($referenced_nodes{$node})) {
       $self->line_warn(sprintf(__("node `%s' unreferenced"),
           node_extra_to_texi($node->{'extra'})),
@@ -447,10 +452,13 @@ sub _check_referenced_nodes
 }
 
 # set menu directions
-sub set_menus_node_directions($)
+sub set_menus_node_directions($$$)
 {
   my $self = shift;
-  return undef unless ($self->{'nodes'} and @{$self->{'nodes'}});
+  my $nodes_list = shift;
+  my $labels = shift;
+
+  return undef unless ($nodes_list and scalar(@{$nodes_list}));
 
   my $check_menu_entries = (!$self->{'info'}->{'novalidate'}
                       and $self->get_conf('FORMAT_MENU') eq 'menu');
@@ -462,7 +470,7 @@ sub set_menus_node_directions($)
   # another command such as @format, may be treated slightly
   # differently; at least, there are no error messages for them.
   #
-  foreach my $node (@{$self->{'nodes'}}) {
+  foreach my $node (@{$nodes_list}) {
     if ($node->{'menus'}) {
       if (@{$node->{'menus'}} > 1) {
         foreach my $menu (@{$node->{'menus'}}[1 .. $#{$node->{'menus'}}]) {
@@ -478,12 +486,12 @@ sub set_menus_node_directions($)
             my $menu_node;
             my $external_node;
             if (!$menu_content->{'extra'}->{'menu_entry_node'}->{'manual_content'}) {
-              $menu_node = $self->{'labels'}->{
+              $menu_node = $labels->{
                       $menu_content->{'extra'}
                                    ->{'menu_entry_node'}->{'normalized'}};
 
               if ($check_menu_entries) {
-                _check_menu_entry($self, 'menu', $menu_content);
+                _check_menu_entry($self, $labels, 'menu', $menu_content);
               }
               # this may happen more than once for a given node if the node 
               # is in more than one menu.  Therefore all the menu up node 
@@ -523,7 +531,7 @@ sub set_menus_node_directions($)
           if ($menu_content->{'extra'}
              and $menu_content->{'extra'}->{'menu_entry_node'}) {
             if (!$menu_content->{'extra'}->{'menu_entry_node'}->{'manual_content'}) {
-              _check_menu_entry($self, 'detailmenu', $menu_content);
+              _check_menu_entry($self, $labels, 'detailmenu', $menu_content);
             }
           }
         }
@@ -557,14 +565,15 @@ sub _section_direction_associated_node($$)
 # complete automatic directions with menus (and first node
 # for Top node).
 # Checks on structure related to menus.
-sub complete_node_tree_with_menus($$)
+sub complete_node_tree_with_menus($$$)
 {
   my $self = shift;
+  my $nodes_list = shift;
   my $top_node = shift;
 
-  return undef unless ($self->{'nodes'} and @{$self->{'nodes'}});
+  return undef unless ($nodes_list and @{$nodes_list});
   # Go through all the nodes
-  foreach my $node (@{$self->{'nodes'}}) {
+  foreach my $node (@{$nodes_list}) {
     my $automatic_directions =
       (scalar(@{$node->{'extra'}->{'nodes_manuals'}}) == 1);
 
@@ -634,7 +643,7 @@ sub complete_node_tree_with_menus($$)
           }
         } else {
           # use the first non top node as next for Top
-          foreach my $first_non_top_node (@{$self->{'nodes'}}) {
+          foreach my $first_non_top_node (@{$nodes_list}) {
             if ($first_non_top_node ne $node) {
               $node->{'node_next'} = $first_non_top_node;
               if (scalar(@{$first_non_top_node->{'extra'}->{'nodes_manuals'}}) == 1) {
@@ -686,19 +695,20 @@ sub complete_node_tree_with_menus($$)
       # FIXME check that node_up is not an external node (except for Top)?
     }
   }
-  _check_referenced_nodes($self, $top_node);
 }
 
 
 # set node directions based on sectioning and @node explicit directions
-sub nodes_tree($)
+sub nodes_tree($$$)
 {
   my $self = shift;
-  return undef unless ($self->{'nodes'} and @{$self->{'nodes'}});
+  my $nodes_list = shift;
+  my $labels = shift;
+  return undef unless ($nodes_list and @{$nodes_list});
 
   my $top_node;
   # Go through all the nodes and set directions.
-  foreach my $node (@{$self->{'nodes'}}) {
+  foreach my $node (@{$nodes_list}) {
     if ($node->{'extra'}->{'normalized'} eq 'Top') {
       $top_node = $node;
     }
@@ -754,9 +764,9 @@ sub nodes_tree($)
         if ($node_direction->{'manual_content'}) {
           $node->{'node_'.$direction} = { 'extra' => $node_direction };
         } else {
-          if ($self->{'labels'}->{$node_direction->{'normalized'}}) {
+          if ($labels->{$node_direction->{'normalized'}}) {
             my $node_target 
-               = $self->{'labels'}->{$node_direction->{'normalized'}};
+               = $labels->{$node_direction->{'normalized'}};
             $node->{'node_'.$direction} = $node_target;
 
             if (!$self->{'info'}->{'novalidate'}
@@ -785,7 +795,7 @@ sub nodes_tree($)
       }
     }
   }
-  $top_node = $self->{'nodes'}->[0] if (!$top_node);
+  $top_node = $nodes_list->[0] if (!$top_node);
   $self->{'structuring'}->{'top_node'} = $top_node;
 
   return $top_node;
@@ -1275,12 +1285,12 @@ sub _unsplit($)
 
 # For each internal reference command, set the 'label' key in the 'extra' 
 # hash of the reference tree element to the associated labeled tree element.
-sub associate_internal_references($)
+sub associate_internal_references($$$)
 {
   my $self = shift;
+  my $labels = shift;
+  my $refs = shift;
 
-  my $labels = $self->labels_information();
-  my $refs = $self->internal_references_information();
   return if (!defined($refs));
   foreach my $ref (@$refs) {
     my $node_arg;
@@ -1731,11 +1741,15 @@ Texinfo::Structuring - information on Texinfo::Parser tree
     elements_file_directions);
   # $tree is a Texinfo document tree.  $parser is a Texinfo::Parser object.
   my $sections_root = sectioning_structure ($parser, $tree);
-  set_menus_node_directions($parser);
-  my $top_node = nodes_tree($parser);
-  complete_node_tree_with_menus($parser, $top_node);
+  my $nodes_list = $parser->nodes_list();
+  my $labels = $parser->labels_information();
+  set_menus_node_directions($parser, $nodes_list, $labels);
+  my $top_node = nodes_tree($parser, $nodes_list, $labels);
+  complete_node_tree_with_menus($parser, $nodes_list, $top_node);
+  my $refs = $parser->internal_references_information();
+  check_nodes_are_referenced($parser, $nodes_list, $top_node, $labels, $refs);
   number_floats($parser->floats_information());
-  associate_internal_references($parser);
+  associate_internal_references($parser, $labels, $refs);
   my $elements;
   if ($split_at_nodes) {
     $elements = split_by_node($tree);
@@ -1849,7 +1863,7 @@ account C<@part> elements.
 
 =back
 
-=item set_menus_node_directions($parser)
+=item set_menus_node_directions($parser, $nodes_list, $labels)
 
 Goes through menu and set directions.
 
@@ -1871,7 +1885,7 @@ Up, next and previous directions as set in menus.
 
 =back
 
-=item my $top_node = nodes_tree($parser)
+=item my $top_node = nodes_tree($parser, $nodes_list, $labels)
 
 Goes through nodes and set directions.  Returns the top
 node.
@@ -1890,18 +1904,23 @@ Up, next and previous directions for the node.
 
 =back
 
-=item complete_node_tree_with_menus($parser, $top_node)
+=item complete_node_tree_with_menus($parser, $nodes_list, $top_node)
 
 Complete nodes directions with menu directions.  Check consistency
-of menus, sectionning and nodes direction structures.  Check that
-all the nodes are referenced (in menu, @*ref or node direction).
+of menus, sectionning and nodes direction structures.
+
+=item check_nodes_are_referenced($parser, $nodes_list, $top_node, $labels, $refs)
+
+Check that all the nodes are referenced (in menu, @*ref or node direction).
+Should be called after C<complete_node_tree_with_menus> in order to
+have the autogenerated menus available.
 
 =item number_floats($float_information)
 
 Number the floats as described in the Texinfo manual.  Sets
 the I<number> key of the float tree elements.
 
-=item associate_internal_references($parser)
+=item associate_internal_references($parser, $labels, $refs)
 
 Verify that internal references (C<@ref> and similar without
 fourth of fifth argument) have an associated node, anchor or float.

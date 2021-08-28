@@ -206,7 +206,8 @@ sub converter(;$)
          = $converter->{'parser'}->global_commands_information();
       $converter->{'info'} = $converter->{'parser'}->global_informations();
       my $floats = $converter->{'parser'}->floats_information();
-      my $labels = $converter->{'parser'}->labels_information();
+      my ($labels, $targets_list, $nodes_list)
+        = $converter->{'parser'}->labels_information();
       $converter->{'structuring'} = $converter->{'parser'}->{'structuring'};
 
       $converter->{'floats'} = $floats if ($floats);

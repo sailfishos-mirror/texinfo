@@ -238,6 +238,7 @@ sub _fix_texinfo_tree($$$$;$)
 
   my $parser = Texinfo::Parser::parser();
   my $tree = $parser->parse_texi_text($manual_texi);
+  my ($labels, $targets_list, $nodes_list) = $parser->labels_information();
 
   if ($fill_gaps_in_sectioning) {
     my ($added_sections, $added_nodes);
@@ -247,7 +248,8 @@ sub _fix_texinfo_tree($$$$;$)
     # new nodes should only be created for the $added_sections.
     if ($section_nodes) {
       ($tree->{'contents'}, $added_nodes)
-        = Texinfo::Transformations::insert_nodes_for_sectioning_commands($parser, $tree);
+        = Texinfo::Transformations::insert_nodes_for_sectioning_commands($parser,
+                                  $tree, $nodes_list, $targets_list, $labels);
       if ($self and $self->texinfo_sectioning_base_level > 0) {
         # prepend the manual name
         foreach my $node (@$added_nodes) {
@@ -274,10 +276,10 @@ sub _fix_texinfo_tree($$$$;$)
             $content->{'parent'} = $node_arg;
           }
           # Last parse and register node
-          my $parsed_node = Texinfo::Parser::_parse_node_manual($node_arg);
+          my $parsed_node = Texinfo::Common::parse_node_manual($node_arg);
           #push @{$node->{'extra'}->{'nodes_manuals'}}, $parsed_node;
           @{$node->{'extra'}->{'nodes_manuals'}} = ($parsed_node);
-          Texinfo::Parser::_register_label($parser, $node, $parsed_node);
+          Texinfo::Common::register_label($parser, $node, $parsed_node);
         }
       }
     }
@@ -285,7 +287,8 @@ sub _fix_texinfo_tree($$$$;$)
   my $structure = Texinfo::Structuring::sectioning_structure($parser, $tree);
   Texinfo::Transformations::complete_tree_nodes_menus($parser, $tree) 
     if ($section_nodes);
-  Texinfo::Transformations::regenerate_master_menu($parser) if ($do_master_menu);
+  Texinfo::Transformations::regenerate_master_menu($parser, $labels)
+     if ($do_master_menu);
   return ($parser, $tree);
 }
 
@@ -305,7 +308,7 @@ sub _do_top_node_menu($)
 {
   my $manual_texi = shift;
   my ($parser, $tree) = _fix_texinfo_tree(undef, $manual_texi, 1, 0, 1); 
-  my $labels = $parser->labels_information();
+  my ($labels, $targets_list, $nodes_list) = $parser->labels_information();
   my $top_node_menu = $labels->{'Top'}->{'menus'}->[0];
   if ($top_node_menu) {
     return Texinfo::Convert::Texinfo::convert_to_texinfo($top_node_menu);

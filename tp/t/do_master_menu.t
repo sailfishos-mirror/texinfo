@@ -123,8 +123,10 @@ my $no_detailmenu = _get_in('');
 
 my $parser = Texinfo::Parser::parser();
 my $tree = $parser->parse_texi_text($in_detailmenu);
-Texinfo::Structuring::associate_internal_references($parser);
-my $master_menu = Texinfo::Transformations::new_master_menu($parser);
+my ($labels, $targets_list, $nodes_list) = $parser->labels_information();
+my $refs = $parser->internal_references_information();
+Texinfo::Structuring::associate_internal_references($parser, $labels, $refs);
+my $master_menu = Texinfo::Transformations::new_master_menu($parser, $labels);
 my $out = Texinfo::Convert::Texinfo::convert_to_texinfo($master_menu);
 
 my $reference = '@detailmenu
@@ -163,15 +165,19 @@ is ($out, $reference, 'master menu');
 
 $parser = Texinfo::Parser::parser();
 $tree = $parser->parse_texi_text($no_detailmenu);
-Texinfo::Structuring::associate_internal_references($parser);
-$master_menu = Texinfo::Transformations::new_master_menu($parser);
+($labels, $targets_list, $nodes_list) = $parser->labels_information();
+$refs = $parser->internal_references_information();
+Texinfo::Structuring::associate_internal_references($parser, $labels, $refs);
+$master_menu = Texinfo::Transformations::new_master_menu($parser, $labels);
 $out = Texinfo::Convert::Texinfo::convert_to_texinfo($master_menu);
 is ($out, $reference, 'master menu no detailmenu');
 
 $parser = Texinfo::Parser::parser();
 $tree = $parser->parse_texi_text($in_detailmenu);
-Texinfo::Structuring::associate_internal_references($parser);
-Texinfo::Transformations::regenerate_master_menu($parser);
+($labels, $targets_list, $nodes_list) = $parser->labels_information();
+$refs = $parser->internal_references_information();
+Texinfo::Structuring::associate_internal_references($parser, $labels, $refs);
+Texinfo::Transformations::regenerate_master_menu($parser, $labels);
 $out = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
 
 is ($out, _get_in($reference), 'regenerate with existing detailmenu');
@@ -180,8 +186,10 @@ is ($out, _get_in($reference), 'regenerate with existing detailmenu');
 
 $parser = Texinfo::Parser::parser();
 $tree = $parser->parse_texi_text($no_detailmenu);
-Texinfo::Structuring::associate_internal_references($parser);
-Texinfo::Transformations::regenerate_master_menu($parser);
+($labels, $targets_list, $nodes_list) = $parser->labels_information();
+$refs = $parser->internal_references_information();
+Texinfo::Structuring::associate_internal_references($parser, $labels, $refs);
+Texinfo::Transformations::regenerate_master_menu($parser, $labels);
 $out = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
 
 is ($out, _get_in('',"\n".$reference), 'regenerate with no detailmenu');

@@ -157,9 +157,6 @@ sub _complete_node_menus {
   my $self = shift;
   my $root = shift;
 
-  if (!defined $self->{'nodes'}) {
-    $self->{'nodes'} = [];
-  }
   my $node;
   foreach my $child (@{$root->{'contents'}}) {
     if ($child->{'cmdname'} and $child->{'cmdname'} eq 'node') {
@@ -186,7 +183,6 @@ sub get_parser_info {
   $GLOBAL_INFO2 = build_global_info2 ();
 
   $self->{'targets'} = $TARGETS;
-  $self->{'labels'} = {};
   $self->{'internal_references'} = $INTL_XREFS;
   $self->{'floats'} = $FLOATS;
   $self->{'info'} = $GLOBAL_INFO;
@@ -207,6 +203,9 @@ sub get_parser_info {
   }
 
   _get_errors ($self);
+
+  # Setup labels info and nodes list based on 'targets'
+  Texinfo::Common::set_nodes_list_labels($self);
   Texinfo::Common::complete_indices ($self);
 }
 
@@ -258,6 +257,7 @@ sub parse_texi_file ($$)
 
   my $TREE = build_texinfo_tree ();
   get_parser_info ($self);
+
   _complete_node_menus ($self, $TREE);
 
   my $text_root;
@@ -331,6 +331,7 @@ sub parse_texi_text($$;$$$$)
 
     get_parser_info($self);
     _complete_node_menus ($self, $tree);
+
     return $tree;
 }
 
@@ -351,6 +352,16 @@ sub parse_texi_line($$;$$$$)
     parse_string($text);
     my $tree = build_texinfo_tree ();
     _get_errors ($self);
+
+    # It is unclear if it is an error to have targets set in parse_texi_line.
+    # We nevertheless set targets and other infos to do the same as in
+    # ParserNonXS.
+    my $TARGETS = build_label_list ();
+    $self->{'targets'} = $TARGETS;
+
+    # Setup labels info and nodes list based on 'targets'
+    Texinfo::Common::set_nodes_list_labels($self);
+
     return $tree;
 }
 
@@ -391,10 +402,10 @@ sub global_informations($)
   return $self->{'info'};
 }
 
-# Setup labels and nodes info and return labels
 sub labels_information($)
 {
-  goto &Texinfo::Common::labels_information;
+  my $self = shift;
+  return $self->{'labels'}, $self->{'targets'}, $self->{'nodes'};
 }
 
 1;

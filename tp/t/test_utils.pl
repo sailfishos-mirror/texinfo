@@ -858,7 +858,9 @@ sub test($$)
   } else {
     $result = $parser->parse_texi_file($test_file);
   }
-  Texinfo::Structuring::associate_internal_references($parser);
+  my ($labels, $targets_list, $nodes_list) = $parser->labels_information();
+  my $refs = $parser->internal_references_information();
+  Texinfo::Structuring::associate_internal_references($parser, $labels, $refs);
   my $floats = $parser->floats_information();
 
   my $structure = Texinfo::Structuring::sectioning_structure($parser, $result);
@@ -868,10 +870,16 @@ sub test($$)
 
   Texinfo::Structuring::number_floats($floats);
 
-  Texinfo::Structuring::set_menus_node_directions($parser);
-  my $top_node = Texinfo::Structuring::nodes_tree($parser);
+  Texinfo::Structuring::set_menus_node_directions($parser, $nodes_list, $labels);
+  my $top_node = Texinfo::Structuring::nodes_tree($parser, $nodes_list, $labels);
 
-  Texinfo::Structuring::complete_node_tree_with_menus($parser, $top_node);
+  if (defined($nodes_list)) {
+    Texinfo::Structuring::complete_node_tree_with_menus($parser,
+                                                        $nodes_list, $top_node);
+    Texinfo::Structuring::check_nodes_are_referenced($parser,
+                                                     $nodes_list, $top_node,
+                                                     $labels, $refs);
+  }
 
   my ($errors, $error_nrs) = $parser->errors();
   my $index_names = $parser->indices_information();
@@ -896,7 +904,7 @@ sub test($$)
   if ($simple_menus) {
     # require instead of use for speed when this module is not needed
     require Texinfo::Transformations;
-    $parser->Texinfo::Transformations::set_menus_to_simple_menu();
+    Texinfo::Transformations::set_menus_to_simple_menu($nodes_list);
   }
 
   my $converted_text = Texinfo::Convert::Text::convert_to_text($result, {'TEST' => 1});

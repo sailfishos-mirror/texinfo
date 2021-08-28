@@ -1116,7 +1116,11 @@ if (defined($formats_table{$format}->{'module'})) {
   # HTML
   %converter_defaults = $converter_class->converter_defaults($cmdline_options);
 
-  # set FORMAT_MENU to the output format default, if not nomenu
+  # set FORMAT_MENU to the output format default, if not nomenu. We do not
+  # simply let it be set by taking %converter_defaults values if not already set
+  # below in case the default $converter_defaults{'FORMAT_MENU'} is nomenu, but
+  # for the other cases we could simply unset $converter_defaults{'FORMAT_MENU'}
+  # and let the converter default value be
   if (defined(get_conf('FORMAT_MENU'))
       and get_conf('FORMAT_MENU') eq 'set_format_menu_from_cmdline_header') {
     if (defined($converter_defaults{'FORMAT_MENU'})
@@ -1233,10 +1237,12 @@ while(@input_files) {
       $tree->{'contents'} = $filled_contents;
     }
   }
+
+  my ($labels, $targets_list, $nodes_list) = $parser->labels_information();
   if ((get_conf('SIMPLE_MENU')
        and $formats_table{$format}->{'simple_menu'})
       or $tree_transformations{'simple_menus'}) {
-    $parser->Texinfo::Transformations::set_menus_to_simple_menu();
+    Texinfo::Transformations::set_menus_to_simple_menu($nodes_list);
   }
 
   if (defined(get_conf('MACRO_EXPAND')) and $file_number == 0) {
@@ -1283,7 +1289,8 @@ while(@input_files) {
 
   if ($tree_transformations{'insert_nodes_for_sectioning_commands'}) {
     my ($modified_contents, $added_nodes)
-     = Texinfo::Transformations::insert_nodes_for_sectioning_commands($parser, $tree);
+     = Texinfo::Transformations::insert_nodes_for_sectioning_commands($parser, 
+                              $tree, $nodes_list, $targets_list, $labels);
     if (!defined($modified_contents)) {
       document_warn(__(
        "insert_nodes_for_sectioning_commands transformation return no result. No section?"));
@@ -1292,7 +1299,8 @@ while(@input_files) {
     }
   }
 
-  Texinfo::Structuring::associate_internal_references($parser);
+  my $refs = $parser->internal_references_information();
+  Texinfo::Structuring::associate_internal_references($parser, $labels, $refs);
   # every format needs the sectioning structure
 
   my $structure = Texinfo::Structuring::sectioning_structure($parser, $tree);
@@ -1309,7 +1317,7 @@ while(@input_files) {
   }
 
   if ($tree_transformations{'regenerate_master_menu'}) {
-    Texinfo::Transformations::regenerate_master_menu($parser);
+    Texinfo::Transformations::regenerate_master_menu($parser, $labels);
   }
 
   # this can be done for every format, since information is already gathered
@@ -1325,12 +1333,18 @@ while(@input_files) {
     # for instance if format is structure.
     if (not defined($parser_options->{'FORMAT_MENU'})
         or $parser_options->{'FORMAT_MENU'} eq 'menu') {
-      Texinfo::Structuring::set_menus_node_directions($parser);
+      Texinfo::Structuring::set_menus_node_directions($parser, $nodes_list, $labels);
     }
-    $top_node = Texinfo::Structuring::nodes_tree($parser);
+    $top_node = Texinfo::Structuring::nodes_tree($parser, $nodes_list, $labels);
     if (not defined($parser_options->{'FORMAT_MENU'})
         or $parser_options->{'FORMAT_MENU'} eq 'menu') {
-      Texinfo::Structuring::complete_node_tree_with_menus($parser, $top_node);
+      if (defined($nodes_list)) {
+        Texinfo::Structuring::complete_node_tree_with_menus($parser,
+                                                       $nodes_list, $top_node);
+        Texinfo::Structuring::check_nodes_are_referenced($parser,
+                                                     $nodes_list, $top_node,
+                                                     $labels, $refs);
+      }
     }
   }
   if ($formats_table{$format}->{'floats'}) {

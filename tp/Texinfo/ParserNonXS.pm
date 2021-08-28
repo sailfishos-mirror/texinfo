@@ -1030,10 +1030,10 @@ sub global_informations($)
   return $self->{'info'};
 }
 
-# Setup labels and nodes info and return labels
-sub labels_information
+sub labels_information($)
 {
-  goto &Texinfo::Common::labels_information;
+  my $self = shift;
+  return $self->{'labels'}, $self->{'targets'}, $self->{'nodes'};
 }
 
 # Following are the internal subroutines.  The most important are
@@ -2493,12 +2493,9 @@ sub _parse_def($$$)
 # @float second arg.
 sub _register_label($$$)
 {
-  my ($self, $current, $label) = @_;
+  my ($targets_list, $current, $label) = @_;
 
-  push @{$self->{'targets'}}, $current;
-  if ($label->{'node_content'}) {
-    $current->{'extra'}->{'node_content'} = $label->{'node_content'};
-  }
+  Texinfo::Common::register_label($targets_list, $current, $label);
 }
 
 # store an index entry.
@@ -2887,7 +2884,7 @@ sub _end_line($$$)
         $float_label = _parse_node_manual($current->{'args'}->[1]);
         _check_internal_node($self, $float_label, $line_nr);
       }
-      _register_label($self, $current, $float_label);
+      _register_label($self->{'targets'}, $current, $float_label);
       _parse_float_type($current);
       $type = $current->{'extra'}->{'type'}->{'normalized'};
       push @{$self->{'floats'}->{$type}}, $current;
@@ -3168,7 +3165,7 @@ sub _end_line($$$)
       }
       _check_internal_node($self, $current->{'extra'}->{'nodes_manuals'}->[0],
                            $line_nr);
-     _register_label($self, $current, 
+     _register_label($self->{'targets'}, $current,
                    $current->{'extra'}->{'nodes_manuals'}->[0]);
      $self->{'current_node'} = $current;
     } elsif ($command eq 'listoffloats') {
@@ -5052,7 +5049,8 @@ sub _parse_texi($;$)
               my $parsed_anchor = _parse_node_manual($current);
               if (_check_node_label($self, $parsed_anchor,
                                 $current->{'parent'}->{'cmdname'}, $line_nr)) {
-                _register_label($self, $current->{'parent'}, $parsed_anchor);
+                _register_label($self->{'targets'}, $current->{'parent'},
+                                $parsed_anchor);
                 if (@{$self->{'regions_stack'}}) {
                   $current->{'extra'}->{'region'} = $self->{'regions_stack'}->[-1];
                 }
@@ -5449,8 +5447,8 @@ sub _parse_texi($;$)
     $self->_init_context_stack(1);
   }
 
-  # Call 'labels_information' to initialize labels.
-  my $labels = labels_information($self);
+  # Setup labels info and nodes list based on 'targets'
+  Texinfo::Common::set_nodes_list_labels($self);
   Texinfo::Common::complete_indices($self);
   return $root;
 }
@@ -5884,7 +5882,7 @@ Texinfo::Parser - Parse Texinfo code into a Perl tree
   my $internal_references_array
     = $parser->internal_references_information();
   # An hash reference on normalized node/float/anchor names
-  my $labels_information = $parser->labels_information();
+  my ($labels_information, $targets_list, $nodes_list) = $parser->labels_information();
   # A hash reference, keys are @-command names, value is an 
   # array reference holding all the corresponding @-commands.
   my $global_commands_information = $parser->global_commands_information();
@@ -6106,10 +6104,12 @@ the association with @-commands is available through C<labels_information>:
 
 =over
 
-=item $labels_information = labels_information($parser)
+=item $labels_information, $targets_list = labels_information($parser)
 
 I<$labels_information> is a hash reference whose keys are normalized
 labels, and the associated value is the corresponding @-command.
+I<$targets_list> is a list of labels @-command.  Using
+I<$labels_information> is preferred.
 
 =back
 

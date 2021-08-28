@@ -121,8 +121,6 @@ our %default_parser_customization_values = (
 # default values.
 our %default_structure_customization_values = (
   # following are used in Texinfo::Structuring
-  'USE_UP_NODE_FOR_ELEMENT_UP' => 0, # Use node up for Up if there is no 
-                                     # section up.
   'CHECK_NORMAL_MENU_STRUCTURE' => 0, # output warnings when node with
             # automatic direction does directions in menu are not consistent
             # with sectionning, and when node directions are not consistent
@@ -2634,7 +2632,20 @@ sub print_tree($)
 
 # common parser functions
 
-sub _non_bracketed_contents {
+# register a label, that is something that may be the target of a reference
+# and must be unique in the document.  Corresponds to @node, @anchor and
+# @float second arg.
+sub register_label($$$)
+{
+  my ($targets_list, $current, $label) = @_;
+
+  push @{$targets_list}, $current;
+  if ($label->{'node_content'}) {
+    $current->{'extra'}->{'node_content'} = $label->{'node_content'};
+  }
+}
+
+sub _non_bracketed_contents($) {
   my $current = shift;
 
   if ($current->{'type'} and $current->{'type'} eq 'bracketed') {
@@ -2672,7 +2683,8 @@ sub complete_indices {
             and $def_command) {
           # Use the document language that was current when the command was
           # used for getting the translation.
-          $self->{'documentlanguage'} = $entry->{'command'}->{'extra'}->{'documentlanguage'};
+          $self->{'documentlanguage'}
+             = $entry->{'command'}->{'extra'}->{'documentlanguage'};
           delete $entry->{'command'}->{'extra'}->{'documentlanguage'};
           if ($def_command eq 'defop'
               or $def_command eq 'deftypeop'
@@ -2714,18 +2726,23 @@ sub complete_indices {
 }
 
 # Called from Texinfo::ParserNonXS and Texinfo::XS::parsetexi::Parsetexi.
-sub labels_information
+# This should be considered an internal function of the parsers for all
+# purposes, it is here to avoid code duplication.
+# Sets $self->{'nodes'} and $self->{'labels'} based on $self->{'targets'}.
+sub set_nodes_list_labels($)
 {
   my $self = shift;
+  $self->{'nodes'} = [];
+  my %labels = ();
   if (defined $self->{'targets'}) {
-    my %labels = ();
     for my $target (@{$self->{'targets'}}) {
       if ($target->{'cmdname'} eq 'node') {
         if ($target->{'extra'}->{'nodes_manuals'}) {
           for my $node_manual (@{$target->{'extra'}{'nodes_manuals'}}) {
             if (defined $node_manual
                   and defined $node_manual->{'node_content'}) {
-              my $normalized = Texinfo::Convert::NodeNameNormalization::normalize_node({'contents' => $node_manual->{'node_content'}});
+              my $normalized = Texinfo::Convert::NodeNameNormalization::normalize_node(
+                                    {'contents' => $node_manual->{'node_content'}});
               $node_manual->{'normalized'} = $normalized;
             }
           }
@@ -2733,7 +2750,8 @@ sub labels_information
       }
       if (defined $target->{'extra'}
             and defined $target->{'extra'}->{'node_content'}) {
-        my $normalized = Texinfo::Convert::NodeNameNormalization::normalize_node({'contents' => $target->{'extra'}->{'node_content'}});
+        my $normalized = Texinfo::Convert::NodeNameNormalization::normalize_node(
+                             {'contents' => $target->{'extra'}->{'node_content'}});
 
         if ($normalized !~ /[^-]/) {
           $self->line_error (sprintf(__("empty node name after expansion `%s'"),
@@ -2775,10 +2793,8 @@ sub labels_information
         }
       }
     }
-    $self->{'labels'} = \%labels;
-    delete $self->{'targets'};
   }
-  return $self->{'labels'};
+  $self->{'labels'} = \%labels;
 }
 
 1;

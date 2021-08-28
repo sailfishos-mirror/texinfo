@@ -188,10 +188,14 @@ sub reference_to_arg_in_tree($$)
 }
 
 # prepare a new node
-sub _new_node($$)
+# modifies $nodes_list, $targets_list, $labels
+sub _new_node($$$$$)
 {
   my $self = shift;
   my $node_tree = shift;
+  my $nodes_list = shift;
+  my $targets_list = shift;
+  my $labels = shift;
 
   $node_tree = Texinfo::Common::protect_comma_in_tree($node_tree);
   $node_tree->{'contents'} 
@@ -218,8 +222,8 @@ sub _new_node($$)
   my ($node, $parsed_node);
 
   while (!defined($node) 
-         or ($self->{'labels'} 
-            and $self->{'labels'}->{$parsed_node->{'normalized'}})) {
+         or ($labels
+            and $labels->{$parsed_node->{'normalized'}})) {
     $node = {'cmdname' => 'node', 'args' => [{}]};
     my $node_arg = $node->{'args'}->[0];
     $node_arg->{'parent'} = $node;
@@ -254,14 +258,11 @@ sub _new_node($$)
 
   push @{$node->{'extra'}->{'nodes_manuals'}}, $parsed_node;
   if ($parsed_node->{'normalized'} ne '') {
-    $self->{'labels'}->{$parsed_node->{'normalized'}} = $node;
+    $labels->{$parsed_node->{'normalized'}} = $node;
     $node->{'extra'}->{'normalized'} = $parsed_node->{'normalized'};
   }
-  push @{$self->{'targets'}}, $node;
-  if ($parsed_node->{'node_content'}) {
-    $node->{'extra'}->{'node_content'} = $parsed_node->{'node_content'};
-  }
-  push @{$self->{'nodes'}}, $node;
+  Texinfo::Common::register_label($targets_list, $node, $parsed_node);
+  push @{$nodes_list}, $node;
   return $node;
 }
 
@@ -306,10 +307,15 @@ sub _reassociate_to_node($$$$)
   return ($current);
 }
 
-sub insert_nodes_for_sectioning_commands($$)
+# modifies $nodes_list, $targets_list, $labels
+sub insert_nodes_for_sectioning_commands($$$$$)
 {
   my $self = shift;
   my $root = shift;
+  my $nodes_list = shift;
+  my $targets_list = shift;
+  my $labels = shift;
+
   if (!$root->{'type'} or $root->{'type'} ne 'document_root'
       or !$root->{'contents'}) {
     return (undef, undef);
@@ -330,7 +336,8 @@ sub insert_nodes_for_sectioning_commands($$)
         $new_node_tree = Texinfo::Common::copy_tree({'contents' 
           => $content->{'args'}->[0]->{'contents'}});
       }
-      my $new_node = _new_node($self, $new_node_tree);
+      my $new_node = _new_node($self, $new_node_tree, $nodes_list,
+                               $targets_list, $labels);
       if (defined($new_node)) {
         push @contents, $new_node;
         push @added_nodes, $new_node;
@@ -505,8 +512,8 @@ sub _copy_contents($)
   return $copy->{'contents'};
 }
 
-sub _print_down_menus($$;$);
-sub _print_down_menus($$;$)
+sub _print_down_menus($$$);
+sub _print_down_menus($$$)
 {
   my $self = shift;
   my $node = shift;
@@ -567,11 +574,10 @@ sub _print_down_menus($$;$)
   return @master_menu_contents;
 }
 
-sub new_master_menu($;$)
+sub new_master_menu($$)
 {
   my $self = shift;
   my $labels = shift;
-  $labels = $self->labels_information() if (!defined($labels));
   my $node = $labels->{'Top'};
   return undef if (!defined($node));
 
@@ -608,11 +614,10 @@ sub new_master_menu($;$)
   }
 }
 
-sub regenerate_master_menu($;$)
+sub regenerate_master_menu($$)
 {
   my $self = shift;
   my $labels = shift;
-  $labels = $self->labels_information() if (!defined($labels));
   my $top_node = $labels->{'Top'};
   return undef if (!defined($top_node));
 
@@ -733,10 +738,10 @@ sub menu_to_simple_menu($)
 
 sub set_menus_to_simple_menu($)
 {
-  my $self = shift;
+  my $nodes_list = shift;
 
-  if ($self->{'nodes'} and @{$self->{'nodes'}}) {
-    foreach my $node (@{$self->{'nodes'}}) {
+  if ($nodes_list) {
+    foreach my $node (@{$nodes_list}) {
       if ($node->{'menus'}) {
         foreach my $menu (@{$node->{'menus'}}) {
           menu_to_simple_menu($menu);
@@ -795,19 +800,22 @@ C<@lowersection> added to some tree elements.
 
 =item menu_to_simple_menu ($menu)
 
-=item set_menus_to_simple_menu ($parser)
+=item set_menus_to_simple_menu ($nodes_list)
 
 C<menu_to_simple_menu> transforms the tree of a menu tree element.  
 C<set_menus_to_simple_menu> calls C<menu_to_simple_menu> for all the
-menus of the document.
+menus of the nodes in C<$nodes_list>.
 
 A simple menu has no I<menu_comment>, I<menu_entry> or I<menu_entry_description>
 container anymore, their content are merged directly in the menu in 
 I<preformatted> container.
 
-=item ($root_content, $added_nodes) = insert_nodes_for_sectioning_commands ($parser, $tree)
+=item ($root_content, $added_nodes) = insert_nodes_for_sectioning_commands ($parser, $tree, $nodes_list, $targets_list, $labels)
 
 Insert nodes for sectioning commands without node in C<$tree>.
+Add nodes to the labels used as targets for references C<$labels>
+and C<$targets_list> and to C<$nodes_list>.
+
 An array reference is returned, containing the root contents
 with added nodes, as well as an array reference containing the 
 added nodes.
@@ -828,11 +836,11 @@ C<$add_section_names_in_entries> argument is set, a menu entry
 name is added using the section name.  This function should be
 called after L<sectioning_structure>.
 
-=item $detailmenu = new_master_menu ($parser)
+=item $detailmenu = new_master_menu ($parser, $labels)
 
 Returns a detailmenu tree element formatted as a master node.
 
-=item regenerate_master_menu ($parser)
+=item regenerate_master_menu ($parser, $labels)
 
 Regenerate the Top node master menu, replacing the first detailmenu
 in Top node menus or appending at the end of the Top node menu.
