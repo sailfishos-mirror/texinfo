@@ -295,9 +295,9 @@ sub heading($$$;$$)
   my $numbered = shift;
   my $indent_length = shift;
 
-  # REMARK to get the numberig right in case of an indented text, the
+  # REMARK to get the numbering right in case of an indented text, the
   # indentation should be given here.  But this should never happen as
-  # the only @-commands allowed in indented context are not number.
+  # the only @-commands allowed in indented context are not numbered.
   $text = Texinfo::Common::numbered_heading($converter, $current, $text, 
                                             $numbered);
   return '' if ($text !~ /\S/);
@@ -371,6 +371,12 @@ sub _convert($;$)
   if (defined($root->{'text'})) {
     if ($root->{'type'} and $root->{'type'} eq 'untranslated'
         and $options and $options->{'converter'}) {
+      # FIXME here converter is both a source for the documentlanguage
+      # information, modified for the translation and used for the
+      # translation itself.  It is wrong on two levels
+      # * configuration and other functions should be seprated
+      # * there should not be a need to modify internal converter
+      #   state to get the translation
       my $save_lang = $options->{'converter'}->get_conf('documentlanguage');
       $options->{'converter'}->{'documentlanguage'}
         = $root->{'extra'}->{'documentlanguage'};
@@ -616,7 +622,7 @@ sub converter($)
 
   my $expanded_formats = $converter->{'expanded_formats'};;
   if ($converter->{'parser'}) {
-    $converter->{'info'} = $converter->{'parser'}->global_informations();
+    $converter->{'parser_info'} = $converter->{'parser'}->global_informations();
     $converter->{'extra'} = $converter->{'parser'}->global_commands_information();
     foreach my $global_command ('documentencoding') {
       if (defined($converter->{'extra'}->{$global_command})) {
@@ -669,10 +675,10 @@ sub output($$)
   my $tree = shift;
   #print STDERR "OUTPUT\n";
   my $input_basename;
-  if (defined($self->{'info'}->{'input_file_name'})) {
+  if (defined($self->{'parser_info'}->{'input_file_name'})) {
     my ($directories, $suffix);
     ($input_basename, $directories, $suffix)
-       = fileparse($self->{'info'}->{'input_file_name'});
+       = fileparse($self->{'parser_info'}->{'input_file_name'});
   } else {
     # This could happen if called on a piece of texinfo
     $input_basename = '';
@@ -767,8 +773,9 @@ Texinfo::Convert::Text - Convert Texinfo tree to simple text
 =head1 DESCRIPTION
 
 Texinfo::Convert::Text is a simple backend that converts a Texinfo tree
-to simple text.  It is used for some command argument expansion in 
+to simple text.  It is used for some command argument expansion in
 C<Texinfo::Parser>, for instance the file names, or encoding names.
+It is also used in some converters, especially for file names.
 The converter is very simple, and, in the default case, cannot handle 
 output strings translation or error handling.
 

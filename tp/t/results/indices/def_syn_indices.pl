@@ -487,7 +487,7 @@ $result_trees{'def_syn_indices'} = {
               'index_at_command' => 'codeidxindex',
               'index_name' => 'codeidx',
               'index_type_command' => 'codeidxindex',
-              'key' => "a index entry t\x{1ebd} \x{ee}",
+              'key' => 'a index entry te~ i^',
               'node' => {},
               'number' => 1
             },

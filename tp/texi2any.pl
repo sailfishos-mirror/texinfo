@@ -324,6 +324,8 @@ package Texinfo::Config;
 
 #use Carp;
 
+
+
 # passed from main program through _load_config
 my $cmdline_options;
 my $default_options;
@@ -1300,14 +1302,17 @@ while(@input_files) {
   }
 
   my $refs = $parser->internal_references_information();
-  Texinfo::Structuring::associate_internal_references($parser, $labels, $refs);
+  my $parser_informations = $parser->global_informations();
+  Texinfo::Structuring::associate_internal_references($parser,
+                                      $parser_informations, $labels, $refs);
   # every format needs the sectioning structure
 
   my $structure = Texinfo::Structuring::sectioning_structure($parser, $tree);
 
+  my $global_commands = $parser->global_commands_information();
   if ($structure
       and !$formats_table{$format}->{'no_warn_non_empty_parts'}) {
-    Texinfo::Structuring::warn_non_empty_parts($parser);
+    Texinfo::Structuring::warn_non_empty_parts($parser, $global_commands);
   }
 
   if ($tree_transformations{'complete_tree_nodes_menus'}) {
@@ -1333,13 +1338,15 @@ while(@input_files) {
     # for instance if format is structure.
     if (not defined($parser_options->{'FORMAT_MENU'})
         or $parser_options->{'FORMAT_MENU'} eq 'menu') {
-      Texinfo::Structuring::set_menus_node_directions($parser, $nodes_list, $labels);
+      Texinfo::Structuring::set_menus_node_directions($parser, $parser,
+               $parser_informations, $global_commands, $nodes_list, $labels);
     }
-    $top_node = Texinfo::Structuring::nodes_tree($parser, $nodes_list, $labels);
+    $top_node = Texinfo::Structuring::nodes_tree($parser, $parser_informations,
+                                                             $nodes_list, $labels);
     if (not defined($parser_options->{'FORMAT_MENU'})
         or $parser_options->{'FORMAT_MENU'} eq 'menu') {
       if (defined($nodes_list)) {
-        Texinfo::Structuring::complete_node_tree_with_menus($parser,
+        Texinfo::Structuring::complete_node_tree_with_menus($parser, $parser,
                                                        $nodes_list, $top_node);
         Texinfo::Structuring::check_nodes_are_referenced($parser,
                                                      $nodes_list, $top_node,

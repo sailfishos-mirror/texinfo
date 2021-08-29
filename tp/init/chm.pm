@@ -235,7 +235,8 @@ sub chm_init($)
   }
   print $hhk_fh "</OBJECT>\n";
 
-  my $index_entries = Texinfo::Structuring::sort_indices($self, 
+  my $index_entries = Texinfo::Structuring::sort_indices($self, $self,
+                                          $self->{'parser_info'},
                                           $self->{'index_entries'},
                                           $self->{'index_names'});
   if ($index_entries) {

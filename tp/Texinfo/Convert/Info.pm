@@ -103,7 +103,7 @@ sub output($)
   my @indirect_files;
   if (!defined($elements) or $elements->[0]->{'extra'}->{'no_node'}) {
     $self->file_line_warn(__("document without nodes"), 
-                          $self->{'info'}->{'input_file_name'});
+                          $self->{'parser_info'}->{'input_file_name'});
     my $output = $header.$self->_convert($root);
     $self->_count_context_bug_message('no element ');
 
@@ -120,7 +120,7 @@ sub output($)
     unless ($self->{'structuring'} and $self->{'structuring'}->{'top_node'}
      and $self->{'structuring'}->{'top_node'}->{'extra'}->{'normalized'} eq 'Top') {
       $self->file_line_warn(__("document without Top node"),
-                            $self->{'info'}->{'input_file_name'});
+                            $self->{'parser_info'}->{'input_file_name'});
     }
     $out_file_nr = 1;
     my $first_node = 0;
@@ -332,9 +332,9 @@ sub _info_header($)
     $result .= $self->_footnotes();
     delete $self->{'in_copying_header'};
   }
-  if ($self->{'info'}->{'dircategory_direntry'}) {
+  if ($self->{'parser_info'}->{'dircategory_direntry'}) {
     $self->{'ignored_commands'}->{'direntry'} = 0;
-    foreach my $command (@{$self->{'info'}->{'dircategory_direntry'}}) {
+    foreach my $command (@{$self->{'parser_info'}->{'dircategory_direntry'}}) {
       if ($command->{'cmdname'} eq 'dircategory') {
         if ($command->{'args'} and @{$command->{'args'}}
             and defined($command->{'args'}->[0]->{'contents'})) {

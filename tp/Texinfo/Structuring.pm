@@ -310,6 +310,7 @@ sub sectioning_structure($$)
   return $sec_root;
 }
 
+# for debugging
 sub _print_sectioning_tree($);
 sub _print_sectioning_tree($)
 {
@@ -322,10 +323,11 @@ sub _print_sectioning_tree($)
 }
 
 
-sub warn_non_empty_parts($)
+sub warn_non_empty_parts($$)
 {
   my $self = shift;
-  my $global_commands = $self->global_commands_information();
+  my $global_commands = shift;
+
   if ($global_commands->{'part'}) {
     foreach my $part (@{$global_commands->{'part'}}) {
       if (!Texinfo::Common::is_content_empty($part)) {
@@ -452,16 +454,19 @@ sub check_nodes_are_referenced
 }
 
 # set menu directions
-sub set_menus_node_directions($$$)
+sub set_menus_node_directions($$$$$$)
 {
   my $self = shift;
+  my $configuration_informations = shift;
+  my $parser_informations = shift;
+  my $global_commands = shift;
   my $nodes_list = shift;
   my $labels = shift;
 
   return undef unless ($nodes_list and scalar(@{$nodes_list}));
 
-  my $check_menu_entries = (!$self->{'info'}->{'novalidate'}
-                      and $self->get_conf('FORMAT_MENU') eq 'menu');
+  my $check_menu_entries = (!$parser_informations->{'novalidate'}
+      and $configuration_informations->get_conf('FORMAT_MENU') eq 'menu');
 
   # First go through all the menus and set menu_up, menu_next and menu_prev,
   # and warn for unknown nodes.
@@ -524,7 +529,6 @@ sub set_menus_node_directions($$$)
   }
   # Check @detailmenu
   if ($check_menu_entries) {
-    my $global_commands = $self->global_commands_information();
     if ($global_commands->{'detailmenu'}) {
       foreach my $detailmenu (@{$global_commands->{'detailmenu'}}) {
         foreach my $menu_content (@{$detailmenu->{'contents'}}) {
@@ -565,9 +569,10 @@ sub _section_direction_associated_node($$)
 # complete automatic directions with menus (and first node
 # for Top node).
 # Checks on structure related to menus.
-sub complete_node_tree_with_menus($$$)
+sub complete_node_tree_with_menus($$$$)
 {
   my $self = shift;
+  my $configuration_informations = shift;
   my $nodes_list = shift;
   my $top_node = shift;
 
@@ -598,7 +603,7 @@ sub complete_node_tree_with_menus($$$)
             my $direction_associated_node
               = _section_direction_associated_node($section, $direction);
             if ($direction_associated_node) {
-              if ($self->get_conf('CHECK_NORMAL_MENU_STRUCTURE')) {
+              if ($configuration_informations->get_conf('CHECK_NORMAL_MENU_STRUCTURE')) {
                 if ($section->{'section_up'}{'extra'}
           and $section->{'section_up'}{'extra'}{'associated_node'}
           and $section->{'section_up'}{'extra'}{'associated_node'}{'menus'}
@@ -620,7 +625,7 @@ sub complete_node_tree_with_menus($$$)
           if (!$node->{'node_'.$direction}
               and $node->{'menu_'.$direction}
               and !$node->{'menu_'.$direction}->{'extra'}->{'manual_content'}) {
-            if ($self->get_conf('CHECK_NORMAL_MENU_STRUCTURE')
+            if ($configuration_informations->get_conf('CHECK_NORMAL_MENU_STRUCTURE')
                   and $node->{'extra'}->{'associated_section'}) {
               $self->line_warn(sprintf(
                   __("node `%s' is %s for `%s' in menu but not in sectioning"),
@@ -658,7 +663,7 @@ sub complete_node_tree_with_menus($$$)
     # check consistency between node pointer and node entries menu order
     if ($node->{'extra'}->{'normalized'} ne 'Top') {
       foreach my $direction (@node_directions) {
-        if ($self->get_conf('CHECK_NORMAL_MENU_STRUCTURE')
+        if ($configuration_informations->get_conf('CHECK_NORMAL_MENU_STRUCTURE')
             and $node->{'node_'.$direction}
             and $node->{'menu_'.$direction}
             and $node->{'menu_'.$direction}
@@ -677,7 +682,7 @@ sub complete_node_tree_with_menus($$$)
     }
 
     # check for node up / menu up mismatch
-    if ($self->get_conf('CHECK_NORMAL_MENU_STRUCTURE')
+    if ($configuration_informations->get_conf('CHECK_NORMAL_MENU_STRUCTURE')
         and $node->{'node_up'}
         # No check if node up is an external manual
         and (!$node->{'node_up'}->{'extra'}->{'manual_content'})
@@ -699,9 +704,10 @@ sub complete_node_tree_with_menus($$$)
 
 
 # set node directions based on sectioning and @node explicit directions
-sub nodes_tree($$$)
+sub nodes_tree($$$$)
 {
   my $self = shift;
+  my $parser_informations = shift;
   my $nodes_list = shift;
   my $labels = shift;
   return undef unless ($nodes_list and @{$nodes_list});
@@ -769,7 +775,7 @@ sub nodes_tree($$$)
                = $labels->{$node_direction->{'normalized'}};
             $node->{'node_'.$direction} = $node_target;
 
-            if (!$self->{'info'}->{'novalidate'}
+            if (!$parser_informations->{'novalidate'}
                 and !_check_node_same_texinfo_code($node_target,
                                                    $node_direction)) {
               $self->line_warn(sprintf(
@@ -782,7 +788,7 @@ sub nodes_tree($$$)
                                      $node->{'line_nr'});
             }
           } else {
-            if ($self->{'info'}->{'novalidate'}) {
+            if ($parser_informations->{'novalidate'}) {
               $node->{'node_'.$direction} = { 'extra' => $node_direction };
             } else {
               $self->line_error(sprintf(
@@ -984,9 +990,10 @@ sub _node_element($)
 
 # Do element directions (like in texi2html) and store them 
 # in 'extra'->'directions'.
-sub elements_directions($$)
+sub elements_directions($$$)
 {
   my $self = shift;
+  my $configuration_informations = shift;
   my $elements = shift;
   return if (!$elements or !@$elements);
 
@@ -1117,7 +1124,7 @@ sub elements_directions($$)
     }
     # Use node up for Up if there is no section up.
     # Not done in the default case.
-    if ($self->get_conf('USE_UP_NODE_FOR_ELEMENT_UP')
+    if ($configuration_informations->get_conf('USE_UP_NODE_FOR_ELEMENT_UP')
         and !$directions->{'Up'} and $element->{'extra'}->{'node'}
         and $element->{'extra'}->{'node'}->{'node_up'} 
         and (!$node_top or ($element->{'extra'}->{'node'} ne $node_top))) {
@@ -1285,9 +1292,10 @@ sub _unsplit($)
 
 # For each internal reference command, set the 'label' key in the 'extra' 
 # hash of the reference tree element to the associated labeled tree element.
-sub associate_internal_references($$$)
+sub associate_internal_references($$$$)
 {
   my $self = shift;
+  my $parser_informations = shift;
   my $labels = shift;
   my $refs = shift;
 
@@ -1315,7 +1323,7 @@ sub associate_internal_references($$$)
       $node_arg->{'normalized'} = $normalized;
     }
     if (!defined($labels->{$node_arg->{'normalized'}})) {
-      if (!$self->{'info'}->{'novalidate'}) {
+      if (!$parser_informations->{'novalidate'}) {
         $self->line_error(sprintf(__("\@%s reference to nonexistent node `%s'"),
                 $ref->{'cmdname'}, node_extra_to_texi($node_arg)),
                 $ref->{'line_nr'});
@@ -1323,7 +1331,7 @@ sub associate_internal_references($$$)
     } else {
       my $node_target = $labels->{$node_arg->{'normalized'}};
       $ref->{'extra'}->{'label'} = $node_target;
-      if (!$self->{'info'}->{'novalidate'}
+      if (!$parser_informations->{'novalidate'}
           and !_check_node_same_texinfo_code($node_target, $node_arg)) {
         $self->line_warn(sprintf(
            __("\@%s to `%s', different from %s name `%s'"), 
@@ -1583,9 +1591,12 @@ sub _sort_index_entries_in_letter($$)
   return $res;
 }
 
-sub setup_index_entry_keys_formatting($)
+sub setup_index_entry_keys_formatting($$$)
 {
   my $self = shift;
+  my $configuration_informations = shift;
+  my $parser_informations = shift;
+
   my $ignore_chars = '';
 
   # '-' must come first to avoid e.g. [<-@] looking like a character range
@@ -1599,13 +1610,16 @@ sub setup_index_entry_keys_formatting($)
     if defined $self->{'values'}->{'txiindexatsignignore'};
 
   my $options = {'sort_string' => 1,
-                 Texinfo::Common::_convert_text_options($self)};
+                 Texinfo::Common::_convert_text_options($configuration_informations)};
 
-  # FIXME really useful?  Already set according to OUTPUT_ENCODING_NAME
-  if ($self->get_conf('ENABLE_ENCODING')
-      and $self->{'info'}->{'input_encoding_name'}
+  # FIXME really useful and not incorrect?  Should be already set according
+  # to OUTPUT_ENCODING_NAME.  May not be set because parser configuration
+  # is used instead of converter configuration, but this does not make
+  # it right to set the input encoding.
+  if ($configuration_informations->get_conf('ENABLE_ENCODING')
+      and $parser_informations->{'input_encoding_name'}
       and not defined($options->{'enabled_encoding'})) {
-    $options->{'enabled_encoding'} = $self->{'info'}->{'input_encoding_name'};
+    $options->{'enabled_encoding'} = $parser_informations->{'input_encoding_name'};
   }
   return $options, $ignore_chars;
 }
@@ -1643,12 +1657,15 @@ sub index_key($$$$;$)
 
 # Go through all the index entries and set 'key', the sort key, on
 # each one.
-sub do_index_keys($$)
+sub do_index_keys($$$$)
 {
   my $self = shift;
+  my $configuration_informations = shift;
+  my $parser_informations = shift;
   my $index_names = shift;
 
-  my ($options, $ignore_chars) = setup_index_entry_keys_formatting($self);
+  my ($options, $ignore_chars) = setup_index_entry_keys_formatting($self,
+                        $configuration_informations, $parser_informations);
 
   foreach my $index_name (keys(%$index_names)) {
     foreach my $entry (@{$index_names->{$index_name}->{'index_entries'}}) {
@@ -1663,13 +1680,17 @@ sub do_index_keys($$)
   }
 }
 
-sub sort_indices($$$)
+sub sort_indices($$$$$)
 {
   my $self = shift;
+  my $configuration_informations = shift;
+  my $parser_informations = shift;
   my $index_entries = shift;
   my $index_names = shift;
+
   my $sorted_index_entries;
-  do_index_keys($self, $index_names);
+  do_index_keys($self, $configuration_informations, $parser_informations,
+                $index_names);
   foreach my $index_name (keys(%$index_entries)) {
     @{$sorted_index_entries->{$index_name}} = 
         sort _sort_index_entries 
@@ -1678,13 +1699,17 @@ sub sort_indices($$$)
   return $sorted_index_entries;
 }
 
-sub sort_indices_by_letter($$$)
+sub sort_indices_by_letter($$$$$)
 {
   my $self = shift;
+  my $configuration_informations = shift;
+  my $parser_informations = shift;
   my $index_entries = shift;
   my $index_names = shift;
+
   my $indices_sorted_by_letters;
-  do_index_keys($self, $index_names);
+  do_index_keys($self, $configuration_informations, $parser_informations,
+                $index_names);
   foreach my $index_name (keys(%$index_entries)) {
     my $index_letter_hash;
     foreach my $index_entry (@{$index_entries->{$index_name}}) {
@@ -1741,11 +1766,13 @@ Texinfo::Structuring - information on Texinfo::Parser tree
     elements_file_directions);
   # $tree is a Texinfo document tree.  $parser is a Texinfo::Parser object.
   my $sections_root = sectioning_structure ($parser, $tree);
-  my $nodes_list = $parser->nodes_list();
-  my $labels = $parser->labels_information();
-  set_menus_node_directions($parser, $nodes_list, $labels);
+  my ($labels, $targets_list, $nodes_list) = $parser->labels_information();
+  my $parser_informations = $parser->global_informations();
+  my $global_commands = $parser->global_commands_information();
+  set_menus_node_directions($parser, $parser, $parser_informations,
+                            $global_commands, $nodes_list, $labels);
   my $top_node = nodes_tree($parser, $nodes_list, $labels);
-  complete_node_tree_with_menus($parser, $nodes_list, $top_node);
+  complete_node_tree_with_menus($parser, $parser, $nodes_list, $top_node);
   my $refs = $parser->internal_references_information();
   check_nodes_are_referenced($parser, $nodes_list, $top_node, $labels, $refs);
   number_floats($parser->floats_information());
@@ -1757,7 +1784,7 @@ Texinfo::Structuring - information on Texinfo::Parser tree
     $elements = split_by_section($tree);
   }
   split_pages($elements, $split);
-  elements_directions($parser, $elements);
+  elements_directions($parser, $parser, $elements);
   elements_file_directions($parser, $elements);
 
   my $index_names = $parser->indices_information();
@@ -1765,11 +1792,11 @@ Texinfo::Structuring - information on Texinfo::Parser tree
      = merge_indices($index_names);
   my $index_entries_sorted;
   if ($sort_by_letter) {
-    $index_entries_sorted = sort_indices_by_letter($parser,
+    $index_entries_sorted = sort_indices_by_letter($parser, $parser, $parser_informations,
                                        $merged_index_entries, $index_names);
   } else {
-    $index_entries_sorted = sort_indices($parser, $merged_index_entries,
-                                         $index_names);
+    $index_entries_sorted = sort_indices($parser, $parser, $parser_informations,
+                                         $merged_index_entries, $index_names);
   }
   
   
@@ -1863,7 +1890,7 @@ account C<@part> elements.
 
 =back
 
-=item set_menus_node_directions($parser, $nodes_list, $labels)
+=item set_menus_node_directions($parser, $configuration_informations, $parser_informations, $global_commands, $nodes_list, $labels);
 
 Goes through menu and set directions.
 
@@ -1904,7 +1931,7 @@ Up, next and previous directions for the node.
 
 =back
 
-=item complete_node_tree_with_menus($parser, $nodes_list, $top_node)
+=item complete_node_tree_with_menus($parser, $configuration_informations, $nodes_list, $top_node)
 
 Complete nodes directions with menu directions.  Check consistency
 of menus, sectionning and nodes direction structures.
@@ -1927,9 +1954,11 @@ fourth of fifth argument) have an associated node, anchor or float.
 Set the I<label> key in the I<extra> hash of the reference tree
 element to the associated labeled tree element.
 
-=item warn_non_empty_parts($parser)
+=item warn_non_empty_parts($parser, $global_commands)
 
-Register a warning in C<$parser> for each C<@part> that is not empty.
+Register a warning in C<$parser> for each C<@part> that is not empty
+in C<$global_commands> information (obtained by calling
+C<global_commands_information()> on a parser).
 
 =item $elements = split_by_node($tree)
 
@@ -1999,7 +2028,7 @@ No splitting, only one page is returned, holding all the elements.
 
 =back
 
-=item elements_directions($parser, $elements)
+=item elements_directions($parser, $configuration_informations, $elements)
 
 Directions are set up for the elements in the array reference given in 
 argument.  The corresponding hash reference is in 
@@ -2088,9 +2117,9 @@ The I<$merged_entries> returned is a hash reference whose
 keys are the index names and values arrays of index entry structures
 described in details in L<Texinfo::Parser/index_entries>.
 
-=item $index_entries_sorted = sort_indices_by_letter($parser, $merged_index_entries, $index_names)
+=item $index_entries_sorted = sort_indices_by_letter($parser, $configuration_informations, $parser_informations, $merged_index_entries, $index_names)
 
-=item $index_entries_sorted = sort_indices($parser, $merged_index_entries, $index_names)
+=item $index_entries_sorted = sort_indices($parser, $configuration_informations, $parser_informations, $merged_index_entries, $index_names)
 
 These functions first sets a plain text key for each index entry, used for 
 sorting.  In both cases, a hash reference with index names as keys is returned.

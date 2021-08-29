@@ -5073,7 +5073,7 @@ sub _load_htmlxref_files {
     # directories if TEST is set.
     @htmlxref_dirs = File::Spec->catdir($curdir, '.texinfo');
 
-    my $input_directory = $self->{'info'}->{'input_directory'};
+    my $input_directory = $self->{'parser_info'}->{'input_directory'};
     if (defined($input_directory)
         and $input_directory ne '.' and $input_directory ne '') {
       unshift @htmlxref_dirs, $input_directory;
@@ -6104,7 +6104,8 @@ sub _prepare_index_entries($)
     my $merged_index_entries 
         = Texinfo::Structuring::merge_indices($index_names);
     $self->{'index_entries_by_letter'}
-      = Texinfo::Structuring::sort_indices_by_letter ($self->{'parser'},
+      = Texinfo::Structuring::sort_indices_by_letter ($self->{'parser'}, $self,
+                          $self->{'parser_info'},
                           $merged_index_entries, $index_names);
     $self->{'index_entries'} = $merged_index_entries;
 
@@ -7398,7 +7399,7 @@ sub output($$)
   $self->_prepare_contents_elements();
 
   # do element directions. 
-  Texinfo::Structuring::elements_directions($self, $elements);
+  Texinfo::Structuring::elements_directions($self, $self, $elements);
 
   # do element directions related to files.
   # FIXME do it here or before?  Here it means that
@@ -7486,7 +7487,7 @@ sub output($$)
           'title_string');
     $self->file_line_warn(__(
                          "must specify a title with a title command or \@top"),
-                         $self->{'info'}->{'input_file_name'});
+                         $self->{'parser_info'}->{'input_file_name'});
   } else {
     $self->{'title_string'} = $html_title_string;
   }

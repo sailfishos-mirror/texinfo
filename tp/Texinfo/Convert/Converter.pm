@@ -204,7 +204,7 @@ sub converter(;$)
       $converter->{'parser'} = $conf->{'parser'};
       $converter->{'extra'} 
          = $converter->{'parser'}->global_commands_information();
-      $converter->{'info'} = $converter->{'parser'}->global_informations();
+      $converter->{'parser_info'} = $converter->{'parser'}->global_informations();
       my $floats = $converter->{'parser'}->floats_information();
       my ($labels, $targets_list, $nodes_list)
         = $converter->{'parser'}->labels_information();
@@ -237,8 +237,8 @@ sub converter(;$)
     }
   }
   $converter->set_conf('OUTPUT_ENCODING_NAME', 
-                       $converter->{'info'}->{'input_encoding_name'})
-     if ($converter->{'info'}->{'input_encoding_name'});
+                 $converter->{'parser_info'}->{'input_encoding_name'})
+     if ($converter->{'parser_info'}->{'input_encoding_name'});
   if (!$converter->get_conf('OUTPUT_PERL_ENCODING')
        and $converter->get_conf('OUTPUT_ENCODING_NAME')) {
     my $perl_encoding 
@@ -379,10 +379,10 @@ sub _set_outfile($$$)
 
   # determine input file base name
   my $input_basename;
-  if (defined($self->{'info'}->{'input_file_name'})) {
+  if (defined($self->{'parser_info'}->{'input_file_name'})) {
     my ($directories, $suffix);
     ($input_basename, $directories, $suffix) 
-       = fileparse($self->{'info'}->{'input_file_name'});
+       = fileparse($self->{'parser_info'}->{'input_file_name'});
   } else {
     # This could happen if called on a piece of texinfo
     $input_basename = '';

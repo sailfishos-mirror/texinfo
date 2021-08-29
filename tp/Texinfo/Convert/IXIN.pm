@@ -314,9 +314,9 @@ sub output_ixin($$)
   $result .= $self->ixin_list_element('lang', ['name', $lang]);
   # FIXME title: use simpletitle or fulltitle
   
-  if ($self->{'info'}->{'dircategory_direntry'}) {
+  if ($self->{'parser_info'}->{'dircategory_direntry'}) {
     my $current_category;
-    foreach my $dircategory_direntry (@{$self->{'info'}->{'dircategory_direntry'}}) {
+    foreach my $dircategory_direntry (@{$self->{'parser_info'}->{'dircategory_direntry'}}) {
       if ($dircategory_direntry->{'cmdname'} and $dircategory_direntry->{'cmdname'} eq 'dircategory') {
         if ($current_category) {
           $result .= $self->ixin_close_element('category');
@@ -616,8 +616,8 @@ sub output_ixin($$)
     my $merged_index_entries
         = Texinfo::Structuring::merge_indices($index_names);
     my $entries 
-      = $self->Texinfo::Structuring::sort_indices($self->{'parser'},
-                                      $merged_index_entries, $index_names);
+      = $self->Texinfo::Structuring::sort_indices($self->{'parser'}, $self,
+           $self->{'parser_info'}, $merged_index_entries, $index_names);
     # first do the dts_text as the counts are needed for the dts index
     foreach my $index_name (sort(keys(%$entries))) {
       my $dts_text_result = '';
@@ -848,8 +848,8 @@ sub output_ixin($$)
             $blob_nr++;
             if ($extension eq 'txt') {
               binmode($filehandle, ":encoding("
-                         .$self->{'info'}->{'input_perl_encoding'}
-                if (defined($self->{'info'}->{'input_perl_encoding'});
+                         .$self->{'parser_info'}->{'input_perl_encoding'}
+                if (defined($self->{'parser_info'}->{'input_perl_encoding'});
             }
             my $file_content;
             if (-z $file) {

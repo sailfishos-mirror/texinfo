@@ -43,8 +43,10 @@ $tree = $parser->parse_texi_text('@node Top
 my ($index_names, $merged_indices) = 
    $parser->indices_information();
 my $index_entries = Texinfo::Structuring::merge_indices($index_names);
+my $parser_informations = $parser->global_informations();
 my $sorted_index_entries 
-  = Texinfo::Structuring::sort_indices($parser, $index_entries, $index_names);
+  = Texinfo::Structuring::sort_indices($parser, $parser, $parser_informations,
+                                          $index_entries, $index_names);
 
 my @entries = ();
 foreach my $entry (@{$sorted_index_entries->{'cp'}}) {
@@ -59,8 +61,8 @@ my @entries_ref = ('!', '"', 'aaaaaaaaaaaa', 'e', 'E', 'ł', 'ẽ');
 cmp_deeply (\@entries, \@entries_ref, 'sorted index entries');
 
 my $sorted_index_entries_by_letter 
-  = Texinfo::Structuring::sort_indices_by_letter($parser, $index_entries,
-                                                 $index_names);
+  = Texinfo::Structuring::sort_indices_by_letter($parser, $parser, $parser_informations,
+                                                 $index_entries, $index_names);
 
 my @letter_entries_ref = (
    {'!' => [ '!' ]},

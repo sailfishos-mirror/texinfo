@@ -1,3 +1,21 @@
+2021-08-29  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/Converter.pm (converter),
+	tp/Texinfo/Convert/HTML.pm (_load_htmlxref_files, output),
+	tp/Texinfo/Convert/IXIN.pm (output_ixin),
+	tp/Texinfo/Convert/Info.pm (output, _info_header),
+	tp/Texinfo/Convert/Text.pm (converter, output): rename 'info'
+	as 'parser_info' in converter.
+
+	* tp/Texinfo/Structuring.pm (warn_non_empty_parts)
+	(set_menus_node_directions, complete_node_tree_with_menus)
+	(nodes_tree, elements_directions, setup_index_entry_keys_formatting)
+	(do_index_keys, sort_indices, sort_indices_by_letter),
+	tp/texi2any.pl, tp/Texinfo/Convert/HTML.pm, tp/Texinfo/Convert/IXIN.pm,
+	tp/Texinfo/Convert/LaTeX.pm, tp/Texinfo/Convert/Plaintext.pm,
+	tp/init/chm.pm: pass explicitly parser informations and configuration
+	informations.
+
 2021-08-28  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/ParserNonXS.pm (_parse_texi): avoid "invalid
