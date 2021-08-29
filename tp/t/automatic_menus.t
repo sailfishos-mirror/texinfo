@@ -25,8 +25,10 @@ sub test($$$;$)
   my $parser = Texinfo::Parser::parser();
   my $tree = $parser->parse_texi_text($in);
   my ($labels, $targets_list, $nodes_list) = $parser->labels_information();
+  my $parser_informations = $parser->global_informations();
   my $refs = $parser->internal_references_information();
-  Texinfo::Structuring::associate_internal_references($parser, $labels, $refs);
+  Texinfo::Structuring::associate_internal_references($parser,
+                                        $parser_informations, $labels, $refs);
   my $sectioning = Texinfo::Structuring::sectioning_structure($parser, $tree);
   if ($complete_missing_menus) {
     Texinfo::Transformations::complete_tree_nodes_missing_menu($parser, $tree);
