@@ -1,5 +1,11 @@
 2021-08-29  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Structuring.pm (setup_index_entry_keys_formatting):
+	do not use input encoding to determine the encoding used in index
+	key sorting.
+
+2021-08-29  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Converter.pm (converter),
 	tp/Texinfo/Convert/HTML.pm (_load_htmlxref_files, output),
 	tp/Texinfo/Convert/IXIN.pm (output_ixin),

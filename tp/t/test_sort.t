@@ -44,6 +44,9 @@ my ($index_names, $merged_indices) =
    $parser->indices_information();
 my $index_entries = Texinfo::Structuring::merge_indices($index_names);
 my $parser_informations = $parser->global_informations();
+# FIXME this is not very clean, there should be an object
+# holding only configuration instead
+$parser->{'OUTPUT_ENCODING_NAME'} = $parser_informations->{'input_encoding_name'};
 my $sorted_index_entries 
   = Texinfo::Structuring::sort_indices($parser, $parser, $parser_informations,
                                           $index_entries, $index_names);

@@ -1612,15 +1612,6 @@ sub setup_index_entry_keys_formatting($$$)
   my $options = {'sort_string' => 1,
                  Texinfo::Common::_convert_text_options($configuration_informations)};
 
-  # FIXME really useful and not incorrect?  Should be already set according
-  # to OUTPUT_ENCODING_NAME.  May not be set because parser configuration
-  # is used instead of converter configuration, but this does not make
-  # it right to set the input encoding.
-  if ($configuration_informations->get_conf('ENABLE_ENCODING')
-      and $parser_informations->{'input_encoding_name'}
-      and not defined($options->{'enabled_encoding'})) {
-    $options->{'enabled_encoding'} = $parser_informations->{'input_encoding_name'};
-  }
   return $options, $ignore_chars;
 }
 

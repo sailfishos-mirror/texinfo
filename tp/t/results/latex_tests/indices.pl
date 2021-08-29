@@ -335,7 +335,7 @@ $result_trees{'indices'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => "a!\"\@b \"!\@ \x{e4} \x{f6}",
+              'key' => 'a!"@b "!@ a" o"',
               'node' => {},
               'number' => 1
             },
