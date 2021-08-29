@@ -903,7 +903,7 @@ sub test($$)
   if ($merged_index_entries) {
     $sorted_index_entries 
       = Texinfo::Structuring::sort_indices_by_letter($parser, $parser,
-             $parser_informations, $merged_index_entries, $index_names);
+                                   $merged_index_entries, $index_names);
   }
   if ($simple_menus) {
     # require instead of use for speed when this module is not needed

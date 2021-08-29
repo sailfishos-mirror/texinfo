@@ -1603,8 +1603,7 @@ sub _index_entry($$)
     # may change dynamically.  But the current code does not set the
     # values dynamically for now.  Actually not set at all...
     my ($options, $ignore_chars)
-      = Texinfo::Structuring::setup_index_entry_keys_formatting($self, $self,
-                                                $self->{'parser_info'});
+      = Texinfo::Structuring::setup_index_entry_keys_formatting($self, $self);
     my $current_entry = $root;
     my $current_sortas;
     my $subentry_commands = [$root];

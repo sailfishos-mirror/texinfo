@@ -1591,11 +1591,10 @@ sub _sort_index_entries_in_letter($$)
   return $res;
 }
 
-sub setup_index_entry_keys_formatting($$$)
+sub setup_index_entry_keys_formatting($$)
 {
   my $self = shift;
   my $configuration_informations = shift;
-  my $parser_informations = shift;
 
   my $ignore_chars = '';
 
@@ -1648,15 +1647,14 @@ sub index_key($$$$;$)
 
 # Go through all the index entries and set 'key', the sort key, on
 # each one.
-sub do_index_keys($$$$)
+sub do_index_keys($$$)
 {
   my $self = shift;
   my $configuration_informations = shift;
-  my $parser_informations = shift;
   my $index_names = shift;
 
   my ($options, $ignore_chars) = setup_index_entry_keys_formatting($self,
-                        $configuration_informations, $parser_informations);
+                                             $configuration_informations);
 
   foreach my $index_name (keys(%$index_names)) {
     foreach my $entry (@{$index_names->{$index_name}->{'index_entries'}}) {
@@ -1671,17 +1669,15 @@ sub do_index_keys($$$$)
   }
 }
 
-sub sort_indices($$$$$)
+sub sort_indices($$$$)
 {
   my $self = shift;
   my $configuration_informations = shift;
-  my $parser_informations = shift;
   my $index_entries = shift;
   my $index_names = shift;
 
   my $sorted_index_entries;
-  do_index_keys($self, $configuration_informations, $parser_informations,
-                $index_names);
+  do_index_keys($self, $configuration_informations, $index_names);
   foreach my $index_name (keys(%$index_entries)) {
     @{$sorted_index_entries->{$index_name}} = 
         sort _sort_index_entries 
@@ -1690,17 +1686,15 @@ sub sort_indices($$$$$)
   return $sorted_index_entries;
 }
 
-sub sort_indices_by_letter($$$$$)
+sub sort_indices_by_letter($$$$)
 {
   my $self = shift;
   my $configuration_informations = shift;
-  my $parser_informations = shift;
   my $index_entries = shift;
   my $index_names = shift;
 
   my $indices_sorted_by_letters;
-  do_index_keys($self, $configuration_informations, $parser_informations,
-                $index_names);
+  do_index_keys($self, $configuration_informations, $index_names);
   foreach my $index_name (keys(%$index_entries)) {
     my $index_letter_hash;
     foreach my $index_entry (@{$index_entries->{$index_name}}) {
@@ -1783,10 +1777,10 @@ Texinfo::Structuring - information on Texinfo::Parser tree
      = merge_indices($index_names);
   my $index_entries_sorted;
   if ($sort_by_letter) {
-    $index_entries_sorted = sort_indices_by_letter($parser, $parser, $parser_informations,
+    $index_entries_sorted = sort_indices_by_letter($parser, $parser,
                                        $merged_index_entries, $index_names);
   } else {
-    $index_entries_sorted = sort_indices($parser, $parser, $parser_informations,
+    $index_entries_sorted = sort_indices($parser, $parser,
                                          $merged_index_entries, $index_names);
   }
   
@@ -2108,9 +2102,9 @@ The I<$merged_entries> returned is a hash reference whose
 keys are the index names and values arrays of index entry structures
 described in details in L<Texinfo::Parser/index_entries>.
 
-=item $index_entries_sorted = sort_indices_by_letter($parser, $configuration_informations, $parser_informations, $merged_index_entries, $index_names)
+=item $index_entries_sorted = sort_indices_by_letter($parser, $configuration_informations, $merged_index_entries, $index_names)
 
-=item $index_entries_sorted = sort_indices($parser, $configuration_informations, $parser_informations, $merged_index_entries, $index_names)
+=item $index_entries_sorted = sort_indices($parser, $configuration_informations, $merged_index_entries, $index_names)
 
 These functions first sets a plain text key for each index entry, used for 
 sorting.  In both cases, a hash reference with index names as keys is returned.
