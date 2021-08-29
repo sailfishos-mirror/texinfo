@@ -858,23 +858,28 @@ sub test($$)
   } else {
     $result = $parser->parse_texi_file($test_file);
   }
+  my $parser_informations = $parser->global_informations();
   my ($labels, $targets_list, $nodes_list) = $parser->labels_information();
   my $refs = $parser->internal_references_information();
-  Texinfo::Structuring::associate_internal_references($parser, $labels, $refs);
+  Texinfo::Structuring::associate_internal_references($parser, $parser_informations,
+                                                      $labels, $refs);
   my $floats = $parser->floats_information();
 
+  my $global_commands = $parser->global_commands_information();
   my $structure = Texinfo::Structuring::sectioning_structure($parser, $result);
   if ($structure) {
-    Texinfo::Structuring::warn_non_empty_parts($parser);
+    Texinfo::Structuring::warn_non_empty_parts($parser, $global_commands);
   }
 
   Texinfo::Structuring::number_floats($floats);
 
-  Texinfo::Structuring::set_menus_node_directions($parser, $nodes_list, $labels);
-  my $top_node = Texinfo::Structuring::nodes_tree($parser, $nodes_list, $labels);
+  Texinfo::Structuring::set_menus_node_directions($parser, $parser,
+                  $parser_informations, $global_commands, $nodes_list, $labels);
+  my $top_node = Texinfo::Structuring::nodes_tree($parser, $parser_informations,
+                                                            $nodes_list, $labels);
 
   if (defined($nodes_list)) {
-    Texinfo::Structuring::complete_node_tree_with_menus($parser,
+    Texinfo::Structuring::complete_node_tree_with_menus($parser, $parser,
                                                         $nodes_list, $top_node);
     Texinfo::Structuring::check_nodes_are_referenced($parser,
                                                      $nodes_list, $top_node,
@@ -897,9 +902,8 @@ sub test($$)
   my $sorted_index_entries;
   if ($merged_index_entries) {
     $sorted_index_entries 
-      = Texinfo::Structuring::sort_indices_by_letter($parser, 
-                                                     $merged_index_entries,
-                                                     $index_names);
+      = Texinfo::Structuring::sort_indices_by_letter($parser, $parser,
+             $parser_informations, $merged_index_entries, $index_names);
   }
   if ($simple_menus) {
     # require instead of use for speed when this module is not needed
@@ -1013,7 +1017,7 @@ sub test($$)
     $elements = Texinfo::Structuring::split_by_section($result);
   }
   if ($split) {
-    Texinfo::Structuring::elements_directions($parser, $elements);
+    Texinfo::Structuring::elements_directions($parser, $parser, $elements);
     $directions_text = '';
     foreach my $element (@$elements) {
       $directions_text .= Texinfo::Structuring::_print_directions($element);
