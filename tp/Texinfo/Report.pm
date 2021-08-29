@@ -67,7 +67,7 @@ sub line_warn($$$)
   my $text = shift;
   chomp ($text);
   my $line_number = shift;
-  return if (!defined($line_number) or $self->{'ignore_notice'});
+  return if (!defined($line_number));
   my $file = $line_number->{'file_name'};
   # otherwise out of source build fail since the file names are different
   my ($directories, $suffix);
@@ -96,7 +96,6 @@ sub line_error($$$)
   my $text = shift;
   chomp ($text);
   my $line_number = shift;
-  return if ($self->{'ignore_notice'});
   if (defined($line_number)) {
     my $file = $line_number->{'file_name'};
     my ($directories, $suffix);
@@ -118,7 +117,6 @@ sub document_warn($$)
 {
   my $self = shift;
   my $text = shift;
-  return if ($self->{'ignore_notice'});
   chomp($text);
 
   my $warn_line;
@@ -137,7 +135,6 @@ sub document_error($$)
 {
   my $self = shift;
   my $text = shift;
-  return if ($self->{'ignore_notice'});
   chomp($text);
   my $error_line;
   if (defined($self->get_conf('PROGRAM')) and $self->get_conf('PROGRAM') ne '') {
@@ -154,7 +151,6 @@ sub file_line_warn($$$;$)
 {
   my $self = shift;
   my $text = shift;
-  return if ($self->{'ignore_notice'});
   chomp($text);
   my $file = shift;
   my $line_nr = shift;
@@ -178,7 +174,6 @@ sub file_line_error($$$;$)
 {
   my $self = shift;
   my $text = shift;
-  return if ($self->{'ignore_notice'});
   chomp($text);
   my $file = shift;
   my $line_nr = shift;
@@ -296,8 +291,9 @@ sub gdt($$;$$)
     }
   }
 
-  # FIXME do this once when @documentlanguage changes (or at beginning)
-  # instead of here, each time that gdt is called?
+  # This needs to be dynamic in case there is an untranslated string
+  # from another language that needs to be translated.
+  # FIXME make it an argument
   my $lang = $self->get_conf('documentlanguage');
   $lang = $DEFAULT_LANGUAGE if (!defined($lang));
   my @langs = ($lang);
@@ -323,7 +319,6 @@ sub gdt($$;$$)
     }
   }
   $locales =~ s/:$//;
-  # END FIXME
 
   Locale::Messages::nl_putenv("LANGUAGE=$locales");
 
@@ -371,10 +366,10 @@ sub gdt($$;$$)
   }
 
   if ($current_parser) {
-    # not sure 'gettext' could in fact be useful in parser for
-    # translated fragments.  'TEST' can be used fot @today{} expansion.
+    # 'TEST' can be used fot @today{} expansion.
+    # FIXME use get_conf
     foreach my $duplicated_conf ('clickstyle', 'kbdinputstyle', 'DEBUG',
-                                 'TEST', 'gettext') {
+                                 'TEST') {
       $parser_conf->{$duplicated_conf} = $current_parser->{$duplicated_conf}
         if (defined($current_parser->{$duplicated_conf}));
     }
@@ -387,6 +382,8 @@ sub gdt($$;$$)
   }
 
   my $tree = $parser->parse_texi_line($translation_result);
+  # FIXME if at some point it becomes possible to reuse a parser
+  # this could bring in all the parser errors
   my ($errors, $errors_count) = $parser->errors();
   if ($errors_count) {
     warn "translation $errors_count error(s)\n";

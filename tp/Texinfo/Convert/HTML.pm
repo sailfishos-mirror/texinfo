@@ -688,6 +688,24 @@ sub get_value($$)
   }
 }
 
+# intercept warning and error messages to take 'ignore_notice' into
+# account
+sub noticed_line_warn
+{
+  my $self = shift;
+  return if ($self->{'ignore_notice'});
+  return $self->line_warn(@_);
+}
+
+# does not seems to be used
+sub noticed_line_error
+{
+  my $self = shift;
+  return if ($self->{'ignore_notice'});
+  return $self->line_error(@_);
+}
+
+
 # This function should be used in formatting functions when some
 # Texinfo tree need to be converted.
 sub convert_tree_new_formatting_context($$;$$)
@@ -1824,7 +1842,7 @@ sub _convert_image_command($$$$)
         $image_file = "$basefile.jpg";
       }
       #cluck "err ($self->{'ignore_notice'})";
-      $self->line_warn(sprintf(
+      $self->noticed_line_warn(sprintf(
               __("\@image file `%s' (for HTML) not found, using `%s'"), 
                                $basefile, $image_file), $command->{'line_nr'});
     }
@@ -2638,8 +2656,8 @@ sub _convert_raw_command($$$$)
   if ($cmdname eq $self->{'output_format'}) {
     return $content;
   }
-  $self->line_warn(sprintf(__("raw format %s is not converted"), 
-                           $cmdname), $command->{'line_nr'});
+  $self->noticed_line_warn(sprintf(__("raw format %s is not converted"), 
+                                   $cmdname), $command->{'line_nr'});
   return $self->protect_text($content);
 }
 
