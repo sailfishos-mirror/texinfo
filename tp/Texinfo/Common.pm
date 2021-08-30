@@ -60,6 +60,8 @@ valid_tree_transformation
 
 @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 
+# This is where the Texinfo modules get access to __( without explicit
+# import.
 @EXPORT = qw(
 __ __p print_tree
 );

@@ -39,6 +39,7 @@ tp/Texinfo/Convert/DocBook.pm
 tp/Texinfo/Convert/HTML.pm
 tp/Texinfo/Convert/IXIN.pm
 tp/Texinfo/Convert/Info.pm
+tp/Texinfo/Convert/LaTeX.pm
 tp/Texinfo/Convert/Plaintext.pm
 tp/Texinfo/Convert/Text.pm
 tp/Texinfo/Convert/TexinfoXML.pm
@@ -50,6 +51,7 @@ tp/init/latex2html.pm
 tp/init/tex4ht.pm
 tp/init/highlight_syntax.pm
 tp/texi2any.pl
+tp/Texinfo/XS/parsetexi/Parsetexi.pm
 tp/Texinfo/XS/parsetexi/close.c
 tp/Texinfo/XS/parsetexi/end_line.c
 tp/Texinfo/XS/parsetexi/handle_commands.c

@@ -44,6 +44,27 @@ use Locale::Messages;
 # to be able to load a parser if none was given to gdt.
 use Texinfo::Parser;
 
+# we want a reliable way to switch locale for the document
+# strings translations so we don't use the system gettext.
+Locale::Messages->select_package ('gettext_pp');
+
+my $messages_textdomain = 'texinfo';
+
+# this module does not use Texinfo::Common, therefore does not
+# obtain those functions, they are defined here
+sub __($) {
+  my $msgid = shift;
+  return Locale::Messages::dgettext($messages_textdomain, $msgid);
+}
+
+sub __p($$) {
+  my $context = shift;
+  my $msgid = shift;
+  return Locale::Messages::dpgettext($messages_textdomain, $context, $msgid);
+}
+
+
+
 # return the errors and warnings
 sub errors($)
 {
@@ -204,24 +225,8 @@ sub file_line_error($$$;$)
 
 my $DEFAULT_LANGUAGE = 'en';
 
-# we want a reliable way to switch locale, so we don't use the system
-# gettext.
-Locale::Messages->select_package ('gettext_pp');
 
 my $strings_textdomain = 'texinfo_document';
-my $messages_textdomain = 'texinfo';
-
-sub __($) {
-  my $msgid = shift;
-  return Locale::Messages::dgettext($messages_textdomain, $msgid);
-}
-  
-sub __p($$) {
-  my $context = shift;
-  my $msgid = shift;
-  return Locale::Messages::dpgettext($messages_textdomain, $context, $msgid);
-}
-
 
 
 # libintl converts between encodings but doesn't decode them into the
