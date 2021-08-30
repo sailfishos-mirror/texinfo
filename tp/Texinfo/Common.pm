@@ -1102,7 +1102,7 @@ sub locate_include_file($$)
     $file = $text if (-e $text and -r $text);
   } else {
     my @dirs;
-    if ($self) {
+    if ($self and $self->{'include_directories'}) {
       @dirs = @{$self->{'include_directories'}};
     } else {
       # no object with directory list and not an absolute path, never succeed
@@ -1211,22 +1211,24 @@ sub warn_unknown_split($) {
 # This should do the job, or at least don't do wrong if $self
 # is not defined, as could be the case if called from 
 # Texinfo::Convert::Text.
-sub expand_verbatiminclude($$)
+sub expand_verbatiminclude($$$)
 {
-  my $self = shift;
+  my $registrar = shift;
+  my $configuration_informations = shift;
   my $current = shift;
 
   return unless ($current->{'extra'} and defined($current->{'extra'}->{'text_arg'}));
   my $text = $current->{'extra'}->{'text_arg'};
-  my $file = locate_include_file($self, $text);
+  my $file = locate_include_file($configuration_informations, $text);
 
   my $verbatiminclude;
 
   if (defined($file)) {
     if (!open(VERBINCLUDE, $file)) {
-      if ($self) {
-        $self->line_error(sprintf(__("could not read %s: %s"), $file, $!), 
-                            $current->{'line_nr'});
+      if ($registrar) {
+        $registrar->line_error($configuration_informations,
+                               sprintf(__("could not read %s: %s"), $file, $!),
+                               $current->{'line_nr'});
       }
     } else {
       if (defined $current->{'extra'}->{'input_perl_encoding'}) {
@@ -1243,16 +1245,18 @@ sub expand_verbatiminclude($$)
                   {'type' => 'raw', 'text' => $_ };
       }
       if (!close (VERBINCLUDE)) {
-        if ($self) {
-          $self->document_warn(sprintf(__(
+        if ($registrar) {
+          $registrar->document_warn(sprintf(__(
                       "error on closing \@verbatiminclude file %s: %s"),
                              $file, $!));
         }
       }
     }
-  } elsif ($self) {
-    $self->line_error(sprintf(__("\@%s: could not find %s"), 
-                    $current->{'cmdname'}, $text), $current->{'line_nr'});
+  } elsif ($registrar) {
+    $registrar->line_error($configuration_informations,
+                           sprintf(__("\@%s: could not find %s"),
+                                        $current->{'cmdname'}, $text),
+                           $current->{'line_nr'});
   }
   return $verbatiminclude;
 }
@@ -1731,6 +1735,11 @@ sub _convert_text_options($)
   $options{'NUMBER_SECTIONS'} = $self->get_conf('NUMBER_SECTIONS');
   $options{'converter'} = $self;
   $options{'expanded_formats_hash'} = $self->{'expanded_formats_hash'};
+  # for locate_include_file
+  $options{'include_directories'} = $self->{'include_directories'};
+  # for error registering
+  $options{'DEBUG'} = $self->get_conf('DEBUG');
+  $options{'PROGRAM'} = $self->get_conf('PROGRAM');
   return %options;
 }
 
@@ -2223,6 +2232,8 @@ sub _protect_hashchar_at_line_beginning($$$)
   my $type = shift;
   my $current = shift;
 
+  my ($registrar, $configuration_informations) = @$self;
+
   #print STDERR "$type $current "._print_current($current)."\n";
   # if the next is a hash character at line beginning, mark it
   if (defined($current->{'text'}) and $current->{'text'} =~ /\n$/
@@ -2265,9 +2276,11 @@ sub _protect_hashchar_at_line_beginning($$$)
         my $parent = $current->{'parent'};
         while ($parent) {
           if ($parent->{'cmdname'} and $parent->{'line_nr'}) {
-            $self->line_warn(sprintf(__(
+            if ($registrar) {
+              $registrar->line_warn($configuration_informations, sprintf(__(
                   "could not protect hash character in \@%s"), 
                              $parent->{'cmdname'}), $parent->{'line_nr'});
+            }
             last;
           }
           $parent = $parent->{'parent'};
@@ -2288,10 +2301,13 @@ sub _protect_hashchar_at_line_beginning($$$)
   }
 }
 
-sub protect_hashchar_at_line_beginning($$)
+sub protect_hashchar_at_line_beginning($$$)
 {
-  my $self = shift;
+  my $registrar = shift;
+  my $configuration_informations = shift;
   my $tree = shift;
+
+  my $self = [$registrar, $configuration_informations];
   return modify_tree($self, $tree, \&_protect_hashchar_at_line_beginning);
 }
 
@@ -2729,9 +2745,11 @@ sub complete_indices {
 # This should be considered an internal function of the parsers for all
 # purposes, it is here to avoid code duplication.
 # Sets $self->{'nodes'} and $self->{'labels'} based on $self->{'targets'}.
-sub set_nodes_list_labels($)
+sub set_nodes_list_labels($$$)
 {
   my $self = shift;
+  my $registrar = shift;
+  my $configuration_informations = shift;
   $self->{'nodes'} = [];
   my %labels = ();
   if (defined $self->{'targets'}) {
@@ -2754,20 +2772,21 @@ sub set_nodes_list_labels($)
                              {'contents' => $target->{'extra'}->{'node_content'}});
 
         if ($normalized !~ /[^-]/) {
-          $self->line_error (sprintf(__("empty node name after expansion `%s'"),
-                Texinfo::Convert::Texinfo::convert_to_texinfo({'contents' 
-                               => $target->{'extra'}->{'node_content'}})), 
-                $target->{'line_nr'});
+          $registrar->line_error($configuration_informations,
+               sprintf(__("empty node name after expansion `%s'"),
+                     Texinfo::Convert::Texinfo::convert_to_texinfo({'contents'
+                                   => $target->{'extra'}->{'node_content'}})),
+                            $target->{'line_nr'});
           delete $target->{'extra'}->{'node_content'};
         } else {
           if (defined $labels{$normalized}) {
-            $self->line_error(
+            $registrar->line_error($configuration_informations,
               sprintf(__("\@%s `%s' previously defined"), 
                          $target->{'cmdname'}, 
-                   Texinfo::Convert::Texinfo::convert_to_texinfo({'contents' => 
-                       $target->{'extra'}->{'node_content'}})), 
-                           $target->{'line_nr'});
-            $self->line_error(
+                   Texinfo::Convert::Texinfo::convert_to_texinfo({'contents'
+                                    => $target->{'extra'}->{'node_content'}})),
+                               $target->{'line_nr'});
+            $registrar->line_error($configuration_informations,
               sprintf(__("here is the previous definition as \@%s"),
                                $labels{$normalized}->{'cmdname'}),
                        $labels{$normalized}->{'line_nr'});
@@ -2787,7 +2806,8 @@ sub set_nodes_list_labels($)
         }
       } else {
         if ($target->{'cmdname'} eq 'node') {
-          $self->line_error (sprintf(__("empty argument in \@%s"),
+          $registrar->line_error($configuration_informations,
+               sprintf(__("empty argument in \@%s"),
                   $target->{'cmdname'}), $target->{'line_nr'});
           delete $target->{'extra'}->{'node_content'};
         }
@@ -2814,7 +2834,7 @@ Texinfo::Common - Classification of commands and miscellaneous methods
   
   my $today_tree = expand_today($converter);
   my $verbatiminclude_tree 
-     = expand_verbatiminclude(undef, $verbatiminclude);
+     = expand_verbatiminclude(undef, $converter, $verbatiminclude);
 
 =head1 DESCRIPTION
 
@@ -2993,13 +3013,13 @@ see L<Texinfo::Convert::Converter> and L<Texinfo::Report>.
 
 Expand today's date, as a texinfo tree with translations.
 
-=item $tree = expand_verbatiminclude($converter, $verbatiminclude)
+=item $tree = expand_verbatiminclude($registrar, $configuration_informations, $verbatiminclude)
 
-The I<$converter> argument may be undef.  I<$verbatiminclude> is a
+The I<$registrar> argument may be undef.  I<$verbatiminclude> is a
 C<@verbatiminclude> tree element.  This function returns a 
 C<@verbatim> tree elements after finding the included file and
-reading it.  If I<$converter> is not defined, the document encoding 
-is not taken into account when reading the file.
+reading it.  If I<$registrar> is not defined, errors messages are
+not registered.
 
 =item $tree = definition_category($converter, $def_line)
 
@@ -3072,12 +3092,13 @@ in C<@asis{}>.
 Return a contents array reference with first parenthesis in the 
 contents array reference protected.
 
-=item protect_hashchar_at_line_beginning($parser, $tree)
+=item protect_hashchar_at_line_beginning($registrar, $configuration_informations, $tree)
 
 Protect hash character at beginning of line if the line is a cpp
-line directive.  The I<$parser> argument maybe undef, if it is 
-defined it is used for error reporting in case an hash character
-could not be protected because it appeared in a raw environment.
+line directive.  The I<$registrar> and I<$configuration_informations>
+arguments maybe undef, if they are defined they are used for
+error reporting in case an hash character could not be protected
+because it appeared in a raw environment.
 
 =item move_index_entries_after_items_in_tree($tree)
 

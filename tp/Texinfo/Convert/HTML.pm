@@ -694,17 +694,8 @@ sub noticed_line_warn
 {
   my $self = shift;
   return if ($self->{'ignore_notice'});
-  return $self->line_warn(@_);
+  return $self->line_warn($self, @_);
 }
-
-# does not seems to be used
-sub noticed_line_error
-{
-  my $self = shift;
-  return if ($self->{'ignore_notice'});
-  return $self->line_error(@_);
-}
-
 
 # This function should be used in formatting functions when some
 # Texinfo tree need to be converted.
@@ -2849,7 +2840,7 @@ sub _convert_verbatiminclude_command($$$$)
   my $args = shift;
 
   my $verbatim_include_verbatim 
-    = $self->Texinfo::Common::expand_verbatiminclude($command);
+    = Texinfo::Common::expand_verbatiminclude($self, $self, $command);
   if (defined($verbatim_include_verbatim)) {
     return $self->convert_tree($verbatim_include_verbatim);
   } else {
@@ -6123,7 +6114,7 @@ sub _prepare_index_entries($)
         = Texinfo::Structuring::merge_indices($index_names);
     $self->{'index_entries_by_letter'}
       = Texinfo::Structuring::sort_indices_by_letter ($self->{'parser'}, $self,
-                          $merged_index_entries, $index_names);
+                          $self, $merged_index_entries, $index_names);
     $self->{'index_entries'} = $merged_index_entries;
 
     foreach my $index_name (sort(keys(%$index_names))) {
@@ -6239,7 +6230,7 @@ sub _external_node_href($$$$)
       $target_split = $default_target_split;
       if ($self->get_conf('CHECK_HTMLXREF')) {
         if (defined($link_command) and $link_command->{'line_nr'}) {
-          $self->line_warn(sprintf(__(
+          $self->line_warn($self, sprintf(__(
               "no htmlxref.cnf entry found for `%s'"), $manual_name),
             $link_command->{'line_nr'});
         } elsif (!$self->{'check_htmlxref_already_warned'}->{$manual_name}) {
@@ -7416,12 +7407,12 @@ sub output($$)
   $self->_prepare_contents_elements();
 
   # do element directions. 
-  Texinfo::Structuring::elements_directions($self, $self, $elements);
+  Texinfo::Structuring::elements_directions($self, $self->{'labels'}, $elements);
 
   # do element directions related to files.
   # FIXME do it here or before?  Here it means that
   # PrevFile and NextFile can be set.
-  Texinfo::Structuring::elements_file_directions($self, $elements);
+  Texinfo::Structuring::elements_file_directions($elements);
 
   # Associate the special elements that have no page with the main page.
   # This may only happen if not split.

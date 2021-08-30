@@ -61,9 +61,10 @@ sub new($)
 }
 
 # format a line warning
-sub line_warn($$$)
+sub line_warn($$$$)
 {
   my $self = shift;
+  my $configuration_informations = shift;
   my $text = shift;
   chomp ($text);
   my $line_number = shift;
@@ -72,7 +73,7 @@ sub line_warn($$$)
   # otherwise out of source build fail since the file names are different
   my ($directories, $suffix);
   ($file, $directories, $suffix) = fileparse($file)
-    if ($self->get_conf('TEST'));
+    if ($configuration_informations->get_conf('TEST'));
   my $warn_line;
   if ($line_number->{'macro'} ne '') {
     $warn_line = sprintf(__p("Texinfo source file warning",
@@ -83,16 +84,17 @@ sub line_warn($$$)
                                     "%s:%d: warning: %s\n"),
                          $file, $line_number->{'line_nr'}, $text);
   }
-  warn $warn_line if ($self->get_conf('DEBUG'));
+  warn $warn_line if ($configuration_informations->get_conf('DEBUG'));
   push @{$self->{'errors_warnings'}},
        { 'type' => 'warning', 'text' => $text, 'error_line' => $warn_line,
          %{$line_number} };
 }
 
 # format a line error
-sub line_error($$$)
+sub line_error($$$$)
 {
   my $self = shift;
+  my $configuration_informations = shift;
   my $text = shift;
   chomp ($text);
   my $line_number = shift;
@@ -100,12 +102,12 @@ sub line_error($$$)
     my $file = $line_number->{'file_name'};
     my ($directories, $suffix);
     ($file, $directories, $suffix) = fileparse($file)
-       if ($self->get_conf('TEST'));
+       if ($configuration_informations->get_conf('TEST'));
     my $macro_text = '';
     $macro_text = " (possibly involving \@$line_number->{'macro'})"
        if ($line_number->{'macro'} ne '');
     my $error_text = "$file:$line_number->{'line_nr'}: $text$macro_text\n";
-    warn "$error_text" if ($self->get_conf('DEBUG'));
+    warn "$error_text" if ($configuration_informations->get_conf('DEBUG'));
     push @{$self->{'errors_warnings'}},
          { 'type' => 'error', 'text' => $text, 'error_line' => $error_text,
            %{$line_number} };
@@ -453,7 +455,7 @@ Texinfo::Report - Error storing and string translations for Texinfo modules
   $converter->Texinfo::Report::new();
   
   if ($warning_happened) {
-    $converter->line_warn(sprintf($converter->__("\@%s is wrongly used"),
+    $converter->line_warn($converter, sprintf($converter->__("\@%s is wrongly used"),
                        $current->{'cmdname'}), $current->{'line_nr'});
   }
   
@@ -585,9 +587,9 @@ the error or warning.
 
 =back
 
-=item $converter->line_warn($text, $line_nr)
+=item $converter->line_warn($text, $configuration_informations, $line_nr)
 
-=item $converter->line_error($text, $line_nr)
+=item $converter->line_error($text, $configuration_informations, $line_nr)
 
 Register a warning or an error.  The I<$text> is the text of the
 error or warning.  The optional I<$line_nr> holds the information

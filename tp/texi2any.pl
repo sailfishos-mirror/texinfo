@@ -1303,22 +1303,23 @@ while(@input_files) {
 
   my $refs = $parser->internal_references_information();
   my $parser_informations = $parser->global_informations();
-  Texinfo::Structuring::associate_internal_references($parser,
-                                      $parser_informations, $labels, $refs);
+  Texinfo::Structuring::associate_internal_references($parser, $parser,
+                                        $parser_informations, $labels, $refs);
   # every format needs the sectioning structure
 
-  my $structure = Texinfo::Structuring::sectioning_structure($parser, $tree);
+  my $structure = Texinfo::Structuring::sectioning_structure($parser, $parser,
+                                                             $parser, $tree);
 
   my $global_commands = $parser->global_commands_information();
   if ($structure
       and !$formats_table{$format}->{'no_warn_non_empty_parts'}) {
-    Texinfo::Structuring::warn_non_empty_parts($parser, $global_commands);
+    Texinfo::Structuring::warn_non_empty_parts($parser, $parser, $global_commands);
   }
 
   if ($tree_transformations{'complete_tree_nodes_menus'}) {
-    Texinfo::Transformations::complete_tree_nodes_menus($parser, $tree);
+    Texinfo::Transformations::complete_tree_nodes_menus($tree);
   } elsif ($tree_transformations{'complete_tree_nodes_missing_menu'}) {
-    Texinfo::Transformations::complete_tree_nodes_missing_menu($parser, $tree);
+    Texinfo::Transformations::complete_tree_nodes_missing_menu($tree);
   }
 
   if ($tree_transformations{'regenerate_master_menu'}) {
@@ -1341,14 +1342,14 @@ while(@input_files) {
       Texinfo::Structuring::set_menus_node_directions($parser, $parser,
                $parser_informations, $global_commands, $nodes_list, $labels);
     }
-    $top_node = Texinfo::Structuring::nodes_tree($parser, $parser_informations,
-                                                             $nodes_list, $labels);
+    $top_node = Texinfo::Structuring::nodes_tree($parser, $parser, $parser,
+                                   $parser_informations, $nodes_list, $labels);
     if (not defined($parser_options->{'FORMAT_MENU'})
         or $parser_options->{'FORMAT_MENU'} eq 'menu') {
       if (defined($nodes_list)) {
         Texinfo::Structuring::complete_node_tree_with_menus($parser, $parser,
                                                        $nodes_list, $top_node);
-        Texinfo::Structuring::check_nodes_are_referenced($parser,
+        Texinfo::Structuring::check_nodes_are_referenced($parser, $parser,
                                                      $nodes_list, $top_node,
                                                      $labels, $refs);
       }

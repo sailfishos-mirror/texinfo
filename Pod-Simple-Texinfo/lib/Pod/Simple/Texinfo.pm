@@ -282,7 +282,7 @@ sub _protect_hashchar($)
   # protect # first in line
   if ($texinfo =~ /#/) {
     my $tree = parse_texi_text(undef, $texinfo);
-    protect_hashchar_at_line_beginning(undef, $tree);
+    protect_hashchar_at_line_beginning(undef, undef, $tree);
     return Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
   } else {
     return $texinfo;

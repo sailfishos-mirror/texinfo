@@ -248,7 +248,7 @@ sub output($)
     my ($label_text, $byte_count) = $self->_node_line($label->{'root'});
 
     if ($seen_anchors{$label_text}) {
-      $self->line_error(sprintf(__("\@%s output more than once: %s"),
+      $self->line_error($self, sprintf(__("\@%s output more than once: %s"),
           $label->{'root'}->{'cmdname'},
           Texinfo::Convert::Texinfo::convert_to_texinfo({'contents' =>
               $label->{'root'}->{'extra'}->{'node_content'}})),
@@ -378,7 +378,7 @@ sub _error_outside_of_any_node($$)
   my $self = shift;
   my $root = shift;
   if (!$self->{'node'}) {
-    $self->line_warn(sprintf(__("\@%s outside of any node"),
+    $self->line_warn($self, sprintf(__("\@%s outside of any node"),
                      $root->{'cmdname'}), $root->{'line_nr'});
   }
 }
@@ -420,7 +420,7 @@ sub _node($$)
   my $post_quote = '';
   if ($node_text =~ /,/) {
     if ($self->get_conf('INFO_SPECIAL_CHARS_WARNING')) {
-      $self->line_warn(sprintf(__(
+      $self->line_warn($self, sprintf(__(
                  "\@node name should not contain `,': %s"), $node_text),
                                $node->{'line_nr'});
     }

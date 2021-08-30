@@ -284,8 +284,9 @@ sub _fix_texinfo_tree($$$$;$)
       }
     }
   }
-  my $structure = Texinfo::Structuring::sectioning_structure($parser, $tree);
-  Texinfo::Transformations::complete_tree_nodes_menus($parser, $tree) 
+  my $structure = Texinfo::Structuring::sectioning_structure($parser, $parser,
+                                                             $parser, $tree);
+  Texinfo::Transformations::complete_tree_nodes_menus($tree)
     if ($section_nodes);
   Texinfo::Transformations::regenerate_master_menu($parser, $labels)
      if ($do_master_menu);

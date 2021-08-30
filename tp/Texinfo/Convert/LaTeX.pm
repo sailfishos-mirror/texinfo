@@ -2596,7 +2596,7 @@ sub _convert($$)
       }
       return $result;
     } elsif ($command eq 'verbatiminclude') {
-      my $expansion = $self->Texinfo::Common::expand_verbatiminclude($root);
+      my $expansion = Texinfo::Common::expand_verbatiminclude($self, $self, $root);
       unshift @{$self->{'current_contents'}->[-1]}, $expansion
         if ($expansion);
       return $result;

@@ -205,7 +205,7 @@ sub get_parser_info {
   _get_errors ($self);
 
   # Setup labels info and nodes list based on 'targets'
-  Texinfo::Common::set_nodes_list_labels($self);
+  Texinfo::Common::set_nodes_list_labels($self, $self, $self);
   Texinfo::Common::complete_indices ($self);
 }
 
@@ -285,14 +285,18 @@ sub parse_texi_file ($$)
 sub _get_errors($)
 {
   my $self = shift;
+  my $registrar = $self;
+  my $configuration_informations = $self;
   my $ERRORS;
   my $tree_stream = dump_errors();
   eval $tree_stream;
   for my $error (@{$ERRORS}) {
     if ($error->{'type'} eq 'error') {
-      $self->line_error ($error->{'message'}, $error->{'line_nr'});
+      $registrar->line_error ($configuration_informations,
+                              $error->{'message'}, $error->{'line_nr'});
     } else {
-      $self->line_warn ($error->{'message'}, $error->{'line_nr'});
+      $registrar->line_warn ($configuration_informations,
+                             $error->{'message'}, $error->{'line_nr'});
     }
   }
 }
@@ -360,7 +364,7 @@ sub parse_texi_line($$;$$$$)
     $self->{'targets'} = $TARGETS;
 
     # Setup labels info and nodes list based on 'targets'
-    Texinfo::Common::set_nodes_list_labels($self);
+    Texinfo::Common::set_nodes_list_labels($self, $self, $self);
 
     return $tree;
 }

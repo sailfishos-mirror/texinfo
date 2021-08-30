@@ -26,7 +26,7 @@ sub run_test($$$;$)
   my $tree = $parser->parse_texi_text($in, 1);
 
   my $corrected_tree = 
-    $parser->Texinfo::Common::protect_hashchar_at_line_beginning($tree);
+    Texinfo::Common::protect_hashchar_at_line_beginning($parser, $parser, $tree);
 
   if (defined($error_message)) {
     my ($errors, $errors_count) = $parser->errors();

@@ -48,7 +48,7 @@ my $parser_informations = $parser->global_informations();
 # holding only configuration instead
 $parser->{'OUTPUT_ENCODING_NAME'} = $parser_informations->{'input_encoding_name'};
 my $sorted_index_entries 
-  = Texinfo::Structuring::sort_indices($parser, $parser,
+  = Texinfo::Structuring::sort_indices($parser, $parser, $parser,
                                   $index_entries, $index_names);
 
 my @entries = ();
@@ -64,7 +64,7 @@ my @entries_ref = ('!', '"', 'aaaaaaaaaaaa', 'e', 'E', 'ł', 'ẽ');
 cmp_deeply (\@entries, \@entries_ref, 'sorted index entries');
 
 my $sorted_index_entries_by_letter 
-  = Texinfo::Structuring::sort_indices_by_letter($parser, $parser,
+  = Texinfo::Structuring::sort_indices_by_letter($parser, $parser, $parser,
                                                  $index_entries, $index_names);
 
 my @letter_entries_ref = (

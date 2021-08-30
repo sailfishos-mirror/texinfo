@@ -375,9 +375,8 @@ sub _prepend_new_menu_in_node_section($$$)
   push @{$node->{'menus'}}, $current_menu;
 }
 
-sub complete_node_menu($$;$)
+sub complete_node_menu($;$)
 {
-  my $self = shift;
   my $node = shift;
   my $use_sections = shift;
 
@@ -420,8 +419,8 @@ sub complete_node_menu($$;$)
           @pending = ();
         }
       } else {
-        my $entry = Texinfo::Structuring::new_node_menu_entry($self, 
-                              $node_entry, $use_sections);
+        my $entry = Texinfo::Structuring::new_node_menu_entry($node_entry,
+                                                              $use_sections);
         push @pending, $entry;
       }
     }
@@ -468,9 +467,8 @@ sub _get_non_automatic_nodes_with_sections($)
 }
 
 # This should be called after Texinfo::Structuring::sectioning_structure.
-sub complete_tree_nodes_menus($$;$)
+sub complete_tree_nodes_menus($;$)
 {
-  my $self = shift;
   my $root = shift;
   my $use_sections = shift;
 
@@ -479,14 +477,13 @@ sub complete_tree_nodes_menus($$;$)
     return undef;
   }
   foreach my $node (@{$non_automatic_nodes}) {
-    complete_node_menu($self, $node, $use_sections);
+    complete_node_menu($node, $use_sections);
   }
 }
 
 # this only complete menus if there was no menu
-sub complete_tree_nodes_missing_menu($$;$)
+sub complete_tree_nodes_missing_menu($;$)
 {
-  my $self = shift;
   my $root = shift;
   my $use_sections = shift;
 
@@ -497,7 +494,7 @@ sub complete_tree_nodes_missing_menu($$;$)
   foreach my $node (@{$non_automatic_nodes}) {
     if (not $node->{'menus'} or not scalar(@{$node->{'menus'}})) {
       my $section = $node->{'extra'}->{'associated_section'};
-      my $current_menu = Texinfo::Structuring::new_complete_node_menu($self, $node, $use_sections);
+      my $current_menu = Texinfo::Structuring::new_complete_node_menu($node, $use_sections);
       if (defined($current_menu)) {
         _prepend_new_menu_in_node_section($node, $section, $current_menu);
       }
@@ -820,7 +817,7 @@ An array reference is returned, containing the root contents
 with added nodes, as well as an array reference containing the 
 added nodes.
 
-=item complete_tree_nodes_menus ($parser, $tree, $add_section_names_in_entries)
+=item complete_tree_nodes_menus ($tree, $add_section_names_in_entries)
 
 Add menu entries or whole menus for nodes associated with sections,
 based on the sectioning tree.  If the optional 
@@ -828,7 +825,7 @@ C<$add_section_names_in_entries> argument is set, a menu entry
 name is added using the section name.  This function should be
 called after L<sectioning_structure>.
 
-=item complete_tree_nodes_missing_menu ($parser, $tree, $use_section_names_in_entries)
+=item complete_tree_nodes_missing_menu ($tree, $use_section_names_in_entries)
 
 Add whole menus for nodes associated with sections and without menu,
 based on the sectioning tree.  If the optional 

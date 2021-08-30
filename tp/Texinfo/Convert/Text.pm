@@ -513,7 +513,7 @@ sub _convert($;$)
       } elsif ($root->{'cmdname'} eq 'verbatiminclude') {
         my $verbatim_include_verbatim
           = Texinfo::Common::expand_verbatiminclude($options->{'converter'},
-                                                    $root);
+                                                    $options, $root);
         if (defined($verbatim_include_verbatim)) {
           $result .= _convert($verbatim_include_verbatim, $options);
         }
@@ -617,7 +617,10 @@ sub converter($)
   }
 
   if ($conf) {
+    # some informations are directy passed, in general duplicated
+    # in parser, in particular 'include_directories'.
     %{$converter} = %{$conf};
+    #print STDERR "CTe ".join("|", sort(keys(%{$conf})))."\n";
   }
 
   my $expanded_formats = $converter->{'expanded_formats'};;

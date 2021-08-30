@@ -1,3 +1,33 @@
+2021-08-30  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Report.pm (line_warn, line_error),
+	Pod-Simple-Texinfo/lib/Pod/Simple/Texinfo.pm (_protect_hashchar),
+	Pod-Simple-Texinfo/pod2texi.pl (_fix_texinfo_tree),
+	tp/Texinfo/Common.pm (locate_include_file, expand_verbatiminclude)
+	(_convert_text_options, _protect_hashchar_at_line_beginning)
+	(protect_hashchar_at_line_beginning, set_nodes_list_labels)
+	tp/Texinfo/Convert/DocBook.pm(_convert),
+	tp/Texinfo/Convert/HTML.pm(noticed_line_warn)
+	(_convert_verbatiminclude_command, _prepare_index_entries),
+	tp/Texinfo/Convert/IXIN.pm (output_ixin),
+	tp/Texinfo/Convert/Info.pm, tp/Texinfo/Convert/LaTeX.pm(_convert),
+	tp/Texinfo/Convert/Plaintext.pm(_printindex_formatted, _convert),
+	tp/Texinfo/Convert/Text.pm (_convert),
+	tp/Texinfo/ParserNonXS.pm (_line_warn, _line_error),
+	tp/Texinfo/Structuring.pm (sectioning_structure, warn_non_empty_parts)
+	(_check_menu_entry, check_nodes_are_referenced)
+	(set_menus_node_directions, complete_node_tree_with_menus)
+	(nodes_tree, elements_directions, elements_file_directions)
+	(associate_internal_references, do_index_keys, sort_indices
+	(sort_indices_by_letter, new_complete_node_menu)
+	tp/Texinfo/Transformations.pm (complete_node_menu)
+	(complete_tree_nodes_menus, complete_tree_nodes_missing_menu)
+	tp/Texinfo/XS/parsetexi/Parsetexi.pm (get_parser_info, _get_errors)
+	(parse_texi_line),
+	tp/init/chm.pm, tp/texi2any.pl: separate registrar that 
+	register errors from from configuration in Texinfo::Report.
+	pass more options to Text converter.
+
 2021-08-29  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Report.pm (line_warn, line_error, document_warn)

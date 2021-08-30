@@ -657,7 +657,7 @@ sub _convert($$;$)
       if ($type eq 'text') {
         if ($root->{'cmdname'} eq 'verbatiminclude') {
           my $verbatim_include_verbatim
-            = Texinfo::Common::expand_verbatiminclude($self, $root);
+            = Texinfo::Common::expand_verbatiminclude($self, $self, $root);
           if (defined($verbatim_include_verbatim)) {
             $result .= $self->_convert($verbatim_include_verbatim);
           } else {
@@ -1016,7 +1016,7 @@ sub _convert($$;$)
                .'</literallayout></textobject>';
           }
           if (!defined($image_text) and !$image_file_found) {
-            $self->line_warn(sprintf(
+            $self->line_warn($self, sprintf(
                      __("\@image file `%s' not found, using `%s'"), 
                        $basefile, "$basefile.jpg"), $root->{'line_nr'});
           }
@@ -1137,7 +1137,7 @@ sub _convert($$;$)
         if ($argument) {
           $result = "&#x$argument;";
         } else {
-          $self->line_warn(__("no argument specified for \@U"),
+          $self->line_warn($self, __("no argument specified for \@U"),
                            $root->{'line_nr'});
           $result = '';
         }
