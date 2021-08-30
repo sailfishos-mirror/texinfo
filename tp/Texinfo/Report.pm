@@ -115,16 +115,18 @@ sub line_error($$$$)
   $self->{'error_nrs'}++;
 }
 
-sub document_warn($$)
+sub document_warn($$$)
 {
   my $self = shift;
+  my $configuration_informations = shift;
   my $text = shift;
   chomp($text);
 
   my $warn_line;
-  if (defined($self->get_conf('PROGRAM')) and $self->get_conf('PROGRAM') ne '') {
+  if (defined($configuration_informations->get_conf('PROGRAM'))
+      and $configuration_informations->get_conf('PROGRAM') ne '') {
     $warn_line = sprintf(__p("whole document warning", "%s: warning: %s\n"), 
-                         $self->get_conf('PROGRAM'), $text);
+                  $configuration_informations->get_conf('PROGRAM'), $text);
   } else {
     $warn_line = sprintf(__p("whole document warning", "warning: %s\n"), 
                          $text);
@@ -133,14 +135,17 @@ sub document_warn($$)
     { 'type' => 'warning', 'text' => $text, 'error_line' => $warn_line };
 }
 
-sub document_error($$)
+sub document_error($$$)
 {
   my $self = shift;
+  my $configuration_informations = shift;
   my $text = shift;
   chomp($text);
   my $error_line;
-  if (defined($self->get_conf('PROGRAM')) and $self->get_conf('PROGRAM') ne '') {
-    $error_line = sprintf("%s: %s\n", $self->get_conf('PROGRAM'), $text);
+  if (defined($configuration_informations->get_conf('PROGRAM'))
+      and $configuration_informations->get_conf('PROGRAM') ne '') {
+    $error_line = sprintf("%s: %s\n",
+          $configuration_informations->get_conf('PROGRAM'), $text);
   } else {
     $error_line = "$text\n";
   }
@@ -452,14 +457,14 @@ Texinfo::Report - Error storing and string translations for Texinfo modules
 
   @ISA = qw(Texinfo::Report);
 
-  $converter->Texinfo::Report::new();
+  $registrar->Texinfo::Report::new();
   
   if ($warning_happened) {
-    $converter->line_warn($converter, sprintf($converter->__("\@%s is wrongly used"),
+    $registrar->line_warn($converter, sprintf(__("\@%s is wrongly used"),
                        $current->{'cmdname'}), $current->{'line_nr'});
   }
   
-  my ($errors, $errors_count) = $converter->errors();
+  my ($errors, $errors_count) = $registrar->errors();
   foreach my $error_message (@$errors) {
     warn $error_message->{'error_line'};
   }
@@ -473,13 +478,8 @@ Texinfo::Report - Error storing and string translations for Texinfo modules
 
 The Texinfo::Report module helps with string translations and error 
 handling.  It is used by the Texinfo modules Texinfo::Parser and 
-Texinfo::Convert::Converter.  To use this module, the usual way is
-to inherit Texinfo::Report methods and initialize the Texinfo::Report
-variables for a I<$converter> object. This is done by calling 
-C<Texinfo::Report::new()> on the I<$converter> object.  This is done by 
-Texinfo::Convert::Converter, for instance, so every module that inherits
-Texinfo::Convert::Converter can automatically use the Texinfo::Report
-methods in an object-oriented way.
+Texinfo::Convert::Converter.  To use this module, initialize the
+Texinfo::Report object with C<Texinfo::Report::new()>.
 
 Besides the C<new> method, C<gdt> is used for string translations, 
 C<errors> for reporting errors, and the other methods to store errors
@@ -550,7 +550,7 @@ methods allow registering errors and warnings.
 
 =over
 
-=item ($error_warnings_list, $error_count) = errors ($converter)
+=item ($error_warnings_list, $error_count) = errors ($registrar)
 
 This function returns as I<$error_count> the count of errors since
 calling C<new>.  The I<$error_warnings_list> is an array of hash references
@@ -587,30 +587,30 @@ the error or warning.
 
 =back
 
-=item $converter->line_warn($text, $configuration_informations, $line_nr)
+=item $registrar->line_warn($text, $configuration_informations, $line_nr)
 
-=item $converter->line_error($text, $configuration_informations, $line_nr)
+=item $registrar->line_error($text, $configuration_informations, $line_nr)
 
 Register a warning or an error.  The I<$text> is the text of the
 error or warning.  The optional I<$line_nr> holds the information
 on the error or warning location.  It is associated with the I<line_nr> 
 key of Texinfo tree elements as described in L<Texinfo::Parser/line_nr>
-for the @-commands.  The I<$line_nr> structure is described in L<errors|($error_warnings_list, $error_count) = errors ($converter)>
+for the @-commands.  The I<$line_nr> structure is described in L<errors|($error_warnings_list, $error_count) = errors ($registrar)>
 above.
 
-=item $converter->document_warn($text)
+=item $registrar->document_warn($text)
 
-=item $converter->document_error($text)
+=item $registrar->document_error($text)
 
 Register a document-wide error or warning.  I<$text> is the error or
 warning message.
 
-=item $converter->file_line_warn($text, $file, $line_nr)
+=item $registrar->file_line_warn($text, $file, $line_nr)
 
 Register the warning message I<$text> for file I<$file>, with, optionally
 the line I<$line_nr> in the file.
 
-=item $converter->file_line_error($text, $file, $line_nr)
+=item $registrar->file_line_error($text, $file, $line_nr)
 
 Register the error message I<$text> for file I<$file>, with, optionally
 the line I<$line_nr> in the file.

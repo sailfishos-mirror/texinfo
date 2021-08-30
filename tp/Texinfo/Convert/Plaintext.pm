@@ -1350,7 +1350,8 @@ sub _printindex_formatted($$;$)
       # done by the Parser.
       # Warn, only once.
       if (!$self->{'index_entries_no_node'}->{$entry}) {
-        $self->line_warn($self, sprintf(__("entry for index `%s' outside of any node"),
+        $self->line_warn($self,
+             sprintf(__("entry for index `%s' outside of any node"),
                                  $index_name), $entry->{'command'}->{'line_nr'});
         $self->{'index_entries_no_node'}->{$entry} = 1;
       }
@@ -1463,12 +1464,14 @@ sub _image_text($$$)
       # remove last end of line
       chomp ($result);
       if (!close ($filehandle)) {
-        $self->document_warn(sprintf(__("error on closing image text file %s: %s"),
+        $self->document_warn($self,
+           sprintf(__("error on closing image text file %s: %s"),
                                      $txt_file, $!));
       }
       return ($result, $max_width);
     } else {
-      $self->line_warn($self, sprintf(__("\@image file `%s' unreadable: %s"),
+      $self->line_warn($self,
+                  sprintf(__("\@image file `%s' unreadable: %s"),
                                $txt_file, $!), $root->{'line_nr'});
     }
   }
@@ -2217,7 +2220,8 @@ sub _convert($$)
                             "`.' or `,' must follow \@xref, not %s"),
                                          $char), $root->{'line_nr'});
               } else {
-                $self->line_warn($self, __("`.' or `,' must follow \@xref"),
+                $self->line_warn($self,
+                           __("`.' or `,' must follow \@xref"),
                                  $root->{'line_nr'});
               }
             }

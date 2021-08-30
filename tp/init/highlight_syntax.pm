@@ -54,7 +54,7 @@ sub _get_highlighted_languages($)
 
   my $cmd = 'source-highlight --lang-list';
   if (not(open(HIGHLIGHT_LANG_LIST, '-|', $cmd))) {
-    $self->document_warn(sprintf(__(
+    $self->document_warn($self, sprintf(__(
                          'highlight_syntax.pm: command failed: %s'), $cmd));
     return 0;
   }
@@ -65,7 +65,7 @@ sub _get_highlighted_languages($)
        my $language = $1;
        $highlighted_languages_list{$language} = 1;
     } else {
-      $self->document_warn(sprintf(__(
+      $self->document_warn($self, sprintf(__(
                          'highlight_syntax.pm: %s: %s: cannot parse language line'), 
                           $cmd, $line));
     }
@@ -167,7 +167,8 @@ sub highlight_process($$)
     # program
     my $rfile = $languages{$language}->{'rfile'};
     unless (open (HIGHLIGHT_LANG_IN, ">$rfile")) {
-      $self->document_warn(sprintf(__("highlight_syntax.pm: could not open %s: %s"),
+      $self->document_warn($self,
+             sprintf(__("highlight_syntax.pm: could not open %s: %s"),
                                       $rfile, $!));
       return 0;
     }
@@ -216,7 +217,8 @@ sub highlight_process($$)
     my $cmd = "source-highlight --src-lang=$language --out-format=html5 -i '$rfile' -o '$html_result_file' --line-range=$option_line_range_str --range-separator='$range_separator'";
 
     if (system($cmd)) {
-      $self->document_error(sprintf(__("highlight_syntax.pm: command did not succeed: %s"),
+      $self->document_error($self,
+          sprintf(__("highlight_syntax.pm: command did not succeed: %s"),
                                   $cmd));
       return 0;
     }
@@ -224,7 +226,8 @@ sub highlight_process($$)
     my $language_fragments_nr = $languages{$language}->{'counter'};
     # extract highlighted fragments
     unless (open (HIGHLIGHT_LANG_OUT, $html_result_file)) {
-      $self->document_warn(sprintf(__("highlight_syntax.pm: could not open %s: %s"),
+      $self->document_warn($self,
+         sprintf(__("highlight_syntax.pm: could not open %s: %s"),
                                   $html_result_file, $!));
       return 0;
     }
@@ -255,7 +258,7 @@ sub highlight_process($$)
       }
     }
     if ($separators_count != $language_fragments_nr +1) {
-      $self->document_warn(sprintf(__(
+      $self->document_warn($self, sprintf(__(
          "highlight_syntax.pm: %s: %d separators; expected %d, the number of fragments +1"),
                             $language, $separators_count, $language_fragments_nr+1));
     }
@@ -263,12 +266,12 @@ sub highlight_process($$)
       my $root_command = $languages{$language}->{'commands'}->[$got_count-1];
       my $root = $root_command->[0];
       my $command = $root_command->[1];
-      $self->document_warn(sprintf(__(
+      $self->document_warn($self, sprintf(__(
                  "highlight_syntax.pm: %s: end of \@%s item %d not found"),
                                   $language, $command, $got_count));
     }
     if ($got_count != $languages{$language}->{'counter'}) {
-      $self->document_warn(sprintf(__(
+      $self->document_warn($self, sprintf(__(
          "highlight_syntax.pm: %s: processing produced %d items in HTML; expected %d, the number found in the document"),
                             $language, $got_count, $language_fragments_nr));
     }
@@ -288,7 +291,7 @@ sub highlight_preformatted_command($$)
   if (exists ($commands{$cmdname}->{'results'}->{$command})
       and defined($commands{$cmdname}->{'results'}->{$command})) {
     if (not defined($language)) {
-      $self->document_warn(sprintf(__(
+      $self->document_warn($self, sprintf(__(
                        "highlight_syntax.pm: output has HTML item for \@%s but no language %s"),
                                   $cmdname, $command));
     } else {
@@ -335,7 +338,7 @@ sub highlight_preformatted_command($$)
       return $self->_attribute_class('div', $cmdname, $extra_classes).">\n".$preformatted_result_content.'</div>'."\n";
     }
   } elsif (defined($language)) {
-    $self->document_warn(sprintf(__(
+    $self->document_warn($self, sprintf(__(
                        "highlight_syntax.pm: output has no HTML item for \@%s %s %s"),
                                   $cmdname, $language, $command));
     #print STDERR "$content\n";

@@ -1246,7 +1246,8 @@ sub expand_verbatiminclude($$$)
       }
       if (!close (VERBINCLUDE)) {
         if ($registrar) {
-          $registrar->document_warn(sprintf(__(
+          $registrar->document_warn(
+                 $configuration_informations, sprintf(__(
                       "error on closing \@verbatiminclude file %s: %s"),
                              $file, $!));
         }

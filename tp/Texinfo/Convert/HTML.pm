@@ -690,11 +690,13 @@ sub get_value($$)
 
 # intercept warning and error messages to take 'ignore_notice' into
 # account
-sub noticed_line_warn
+sub noticed_line_warn($$$)
 {
   my $self = shift;
+  my $text = shift;
+  my $line_nr = shift;
   return if ($self->{'ignore_notice'});
-  return $self->line_warn($self, @_);
+  return $self->line_warn($self, $text, $line_nr);
 }
 
 # This function should be used in formatting functions when some
@@ -5016,7 +5018,7 @@ sub _parse_htmlxref_files($$)
     }
     print STDERR "html refs config file: $file\n" if ($self->get_conf('DEBUG'));
     unless (open (HTMLXREF, $file)) {
-      $self->document_warn(
+      $self->document_warn($self, 
         sprintf(__("could not open html refs config file %s: %s"),
           $file, $!));
       next;
@@ -5045,11 +5047,13 @@ sub _parse_htmlxref_files($$)
       my $split_or_mono = shift @htmlxref;
       #print STDERR "$split_or_mono $Texi2HTML::Config::htmlxref_entries{$split_or_mono} $line_nr\n";
       if (!defined($split_or_mono)) {
-        $self->file_line_warn(__("missing type"), $fname, $line_nr);
+        $self->file_line_warn(__("missing type"),
+                                        $fname, $line_nr);
         next;
       } elsif (!defined($htmlxref_entries{$split_or_mono})) {
-        $self->file_line_warn(sprintf(__("unrecognized type: %s"), 
-                               $split_or_mono), $fname, $line_nr);
+        $self->file_line_warn(
+                               sprintf(__("unrecognized type: %s"), 
+                                    $split_or_mono), $fname, $line_nr);
         next;
       }
       my $href = shift @htmlxref;
@@ -5064,7 +5068,7 @@ sub _parse_htmlxref_files($$)
       $htmlxref->{$manual}->{$split_or_mono} = $href;
     }
     if (!close (HTMLXREF)) {
-      $self->document_warn(sprintf(__(
+      $self->document_warn($self, sprintf(__(
                        "error on closing html refs config file %s: %s"),
                              $file, $!));
     }
@@ -5384,14 +5388,14 @@ sub _process_css_file($$$)
       }
     }
   }
-  #file_line_warn (__("string not closed in css file"), $file) if ($in_string);
-  #file_line_warn (__("--css-file ended in comment"), $file) if ($in_comment);
-  #file_line_warn (__("\@import not finished in css file"), $file)  if ($in_import and !$in_comment and !$in_string);
-  $self->file_line_warn(sprintf(__("string not closed in css file"), 
+  $self->file_line_warn(
+                        sprintf(__("string not closed in css file"), 
                         $file, $line_nr)) if ($in_string);
-  $self->file_line_warn(sprintf(__("--css-include ended in comment"), 
+  $self->file_line_warn(
+                        sprintf(__("--css-include ended in comment"), 
                         $file, $line_nr)) if ($in_comment);
-  $self->file_line_warn(sprintf(__("\@import not finished in css file"), 
+  $self->file_line_warn(
+                        sprintf(__("\@import not finished in css file"), 
                         $file, $line_nr)) 
     if ($in_import and !$in_comment and !$in_string);
   return ($imports, $rules);
@@ -5416,13 +5420,13 @@ sub _prepare_css($)
     } else {
       $css_file = $self->Texinfo::Common::locate_include_file($file);
       unless (defined($css_file)) {
-        $self->document_warn(sprintf(
+        $self->document_warn($self, sprintf(
                __("CSS file %s not found"), $file));
         next;
       }
       # FIXME use open_out?
       unless (open (CSSFILE, $css_file)) {
-        $self->document_warn(sprintf(__(
+        $self->document_warn($self, sprintf(__(
              "could not open --include-file %s: %s"), 
               $css_file, $!));
         next;
@@ -5433,7 +5437,8 @@ sub _prepare_css($)
     ($import_lines, $rules_lines) 
       = $self->_process_css_file ($css_file_fh, $css_file);
     if (!close($css_file_fh)) {
-      $self->document_warn(sprintf(__("error on closing CSS file %s: %s"),
+      $self->document_warn($self,
+            sprintf(__("error on closing CSS file %s: %s"),
                                    $css_file, $!));
     }
     push @css_import_lines, @$import_lines;
@@ -6234,7 +6239,7 @@ sub _external_node_href($$$$)
               "no htmlxref.cnf entry found for `%s'"), $manual_name),
             $link_command->{'line_nr'});
         } elsif (!$self->{'check_htmlxref_already_warned'}->{$manual_name}) {
-          $self->document_warn(sprintf(__(
+          $self->document_warn($self, sprintf(__(
             "no htmlxref.cnf entry found for `%s'"), $manual_name),
             );
         }
@@ -6736,7 +6741,7 @@ sub _file_header_informations($$)
 
   if (defined($self->get_conf('INFO_JS_DIR'))) {
     if (!$self->get_conf('SPLIT')) {
-      $self->document_error(
+      $self->document_error($self, 
         sprintf(__("%s not meaningful for non-split output"),
                    'INFO_JS_DIR'));
     } else {
@@ -7065,7 +7070,7 @@ sub _do_jslicenses_file {
   $a .= "</body></html>\n";
 
   if (File::Spec->file_name_is_absolute($path) or $path =~ /^[A-Za-z]*:/) {
-    $self->document_warn(sprintf(
+    $self->document_warn($self, sprintf(
 __("cannot use absolute path or URL `%s' for JS_WEBLABELS_FILE when generating web labels file"), $path));
     return;
   }
@@ -7076,11 +7081,13 @@ __("cannot use absolute path or URL `%s' for JS_WEBLABELS_FILE when generating w
     print $fh $a;
     $self->register_close_file($license_file);
     if (!close ($fh)) {
-      $self->document_error(sprintf(__("error on closing %s: %s"),
+      $self->document_error($self,
+               sprintf(__("error on closing %s: %s"),
                                     $license_file, $!));
     }
   } else {
-    $self->document_error(sprintf(__("could not open %s for writing: %s"),
+    $self->document_error($self,
+           sprintf(__("could not open %s for writing: %s"),
                                   $license_file, $!));
   }
 }
@@ -7131,12 +7138,14 @@ EOT
 
     $self->register_close_file($frame_outfile);
     if (!close ($frame_fh)) {
-      $self->document_error(sprintf(__("error on closing frame file %s: %s"),
+      $self->document_error($self,
+          sprintf(__("error on closing frame file %s: %s"),
                                     $frame_outfile, $!));
       return 0;
     }
   } else {
-    $self->document_error(sprintf(__("could not open %s for writing: %s"),
+    $self->document_error($self,
+           sprintf(__("could not open %s for writing: %s"),
                                   $frame_outfile, $!));
     return 0;
   }
@@ -7155,12 +7164,14 @@ EOT
 
     $self->register_close_file($toc_frame_outfile);
     if (!close ($toc_frame_fh)) {
-      $self->document_error(sprintf(__("error on closing TOC frame file %s: %s"),
+      $self->document_error($self,
+            sprintf(__("error on closing TOC frame file %s: %s"),
                                     $toc_frame_outfile, $!));
       return 0;
     }
   } else {
-    $self->document_error(sprintf(__("could not open %s for writing: %s"),
+    $self->document_error($self,
+           sprintf(__("could not open %s for writing: %s"),
                                   $toc_frame_outfile, $!));
     return 0;
   }
@@ -7601,7 +7612,8 @@ sub output($$)
       }
       $fh = $self->Texinfo::Common::open_out($outfile);
       if (!$fh) {
-        $self->document_error(sprintf(__("could not open %s for writing: %s"),
+        $self->document_error($self,
+              sprintf(__("could not open %s for writing: %s"),
                                       $outfile, $!));
         return undef;
       }
@@ -7629,7 +7641,8 @@ sub output($$)
     if ($fh and $outfile ne '-') {
       $self->register_close_file($outfile);
       if (!close($fh)) {
-        $self->document_error(sprintf(__("error on closing %s: %s"),
+        $self->document_error($self,
+              sprintf(__("error on closing %s: %s"),
                                       $outfile, $!));
       }
     }
@@ -7673,7 +7686,8 @@ sub output($$)
       if (!$files{$element->{'filename'}}->{'fh'}) {
         $file_fh = $self->Texinfo::Common::open_out($element->{'out_filename'});
         if (!$file_fh) {
-          $self->document_error(sprintf(__("could not open %s for writing: %s"),
+          $self->document_error($self,
+               sprintf(__("could not open %s for writing: %s"),
                                     $element->{'out_filename'}, $!));
           return undef;
         }
@@ -7694,7 +7708,8 @@ sub output($$)
         if ($element->{'out_filename'} ne '-') {
           $self->register_close_file($element->{'out_filename'});
           if (!close($file_fh)) {
-            $self->document_error(sprintf(__("error on closing %s: %s"),
+            $self->document_error($self,
+                       sprintf(__("error on closing %s: %s"),
                                   $element->{'out_filename'}, $!));
             return undef;
           }
@@ -7706,7 +7721,7 @@ sub output($$)
                                      $self->get_conf('INFO_JS_DIR'));
       if (!-d $jsdir) {
         if (-f $jsdir) {
-          $self->document_error(
+          $self->document_error($self, 
             sprintf(__("%s already exists but is not a directory"), $jsdir));
         } else {
           mkdir $jsdir;
@@ -7725,7 +7740,7 @@ sub output($$)
           my $from = File::Spec->catfile($jssrcdir, $f);
 
           if (!copy($from, $jsdir)) {
-            $self->document_error(
+            $self->document_error($self, 
               sprintf(__("error on copying %s into %s"), $from, $jsdir));
           }
         }
@@ -7779,14 +7794,14 @@ sub output($$)
         }
         my $file_fh = $self->Texinfo::Common::open_out($out_filename);
         if (!$file_fh) {
-         $self->document_error(sprintf(__(
+         $self->document_error($self, sprintf(__(
                                     "could not open %s for writing: %s"),
                                     $out_filename, $!));
         } else {
           print $file_fh $redirection_page;
           $self->register_close_file($out_filename);
           if (!close ($file_fh)) {
-            $self->document_error(sprintf(__(
+            $self->document_error($self, sprintf(__(
                              "error on closing redirection node file %s: %s"),
                                     $out_filename, $!));
             return undef;

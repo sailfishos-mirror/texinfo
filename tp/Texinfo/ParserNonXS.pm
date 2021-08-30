@@ -906,7 +906,8 @@ sub parse_texi_file($$)
 
   my $filehandle = do { local *FH };
   if (!_open_in($self, $filehandle, $file_name)) {
-    $self->document_error(sprintf(__("could not open %s: %s"), 
+    $self->document_error($self,
+                 sprintf(__("could not open %s: %s"),
                                   $file_name, $!));
     return undef;
   }
@@ -1964,9 +1965,9 @@ sub _next_text($$)
     # Don't close STDIN
     if ($previous_input->{'fh'} and $previous_input->{'name'} ne '-') {
       if (!close($previous_input->{'fh'})) {
-        $self->document_warn(sprintf(__("error on closing %s: %s"),
+        $self->document_warn($self,
+                             sprintf(__("error on closing %s: %s"),
                                      $previous_input->{'name'}, $!));
-
       }
     }
   }

@@ -250,8 +250,9 @@ sub parse_texi_file ($$)
 
   my $status = parse_file ($file_name);
   if ($status) {
-    # TODO: internationalise this message?
-    $self->document_error(sprintf("could not open %s: %s", $file_name, $!));
+    # FIXME internationalize
+    $self->document_error($self,
+       sprintf("could not open %s: %s", $file_name, $!));
     return undef;
   }
 

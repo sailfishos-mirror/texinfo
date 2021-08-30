@@ -142,7 +142,8 @@ sub tex4ht_prepare($$)
       
       local *TEX4HT_TEXFILE;
       unless (open (*TEX4HT_TEXFILE, ">$rfile")) {
-        $self->document_warn(sprintf(__("tex4ht.pm: could not open %s: %s"),
+        $self->document_warn($self,
+                sprintf(__("tex4ht.pm: could not open %s: %s"),
                                       $rfile, $!));
         return 1;
       }
@@ -240,7 +241,8 @@ sub tex4ht_convert($)
 {
   my $self = shift;
   unless (chdir $tex4ht_out_dir) {
-    $self->document_warn(sprintf(__("tex4ht.pm: chdir %s failed: %s"),
+    $self->document_warn($self,
+            sprintf(__("tex4ht.pm: chdir %s failed: %s"),
                          $tex4ht_out_dir, $!));
     return 0;
   }
@@ -252,7 +254,7 @@ sub tex4ht_convert($)
     $errors += tex4ht_process_format($self, $format);
   }
   unless (chdir $tex4ht_initial_dir) {
-    $self->document_warn(sprintf(__(
+    $self->document_warn($self, sprintf(__(
           "tex4ht.pm: unable to return to initial directory: %s"), $!));
     return 0;
   }
@@ -265,7 +267,8 @@ sub tex4ht_process_format($$) {
   
   return 0 unless ($formats{$format}->{'counter'});
 
-  $self->document_warn(sprintf(__("tex4ht.pm: output file missing: %s"),
+  $self->document_warn($self,
+              sprintf(__("tex4ht.pm: output file missing: %s"),
                                $formats{$format}->{'basefile'}))
     unless (-f $formats{$format}->{'basefile'});
   # now run tex4ht
@@ -285,12 +288,12 @@ sub tex4ht_process_format($$) {
   # if tex fails, it will read from STDIN and the input may trigger
   # diverse actions by tex.
   if (not(open(TEX4HT, "|-", $cmd))) {
-    $self->document_warn(sprintf(__(
+    $self->document_warn($self, sprintf(__(
                          "tex4ht.pm: command failed: %s"), $cmd));
     return 1;
   }
   if (!close (TEX4HT)) {
-    $self->document_warn(sprintf(__(
+    $self->document_warn($self, sprintf(__(
                          "tex4ht.pm: closing communication failed: %s: %s"),
                          $cmd, $!));
     return 1;
@@ -299,7 +302,8 @@ sub tex4ht_process_format($$) {
   # extract the html from the file created by tex4ht
   my $html_basefile = $formats{$format}->{'html_file'};
   unless (open (TEX4HT_HTMLFILE, $html_basefile)) {
-    $self->document_warn(sprintf(__("tex4ht.pm: could not open %s: %s"),
+    $self->document_warn($self,
+              sprintf(__("tex4ht.pm: could not open %s: %s"),
                                   $html_basefile, $!));
     return 1;
   }
@@ -325,14 +329,14 @@ sub tex4ht_process_format($$) {
         }
       }
       unless ($end_found) {
-        $self->document_warn(sprintf(__(
+        $self->document_warn($self, sprintf(__(
                                "tex4ht.pm: end of %s item %d not found"),
                                       $format, $count));
       }
     }
   }
   if ($got_count != $formats{$format}->{'counter'}) {
-    $self->document_warn(sprintf(__(
+    $self->document_warn($self, sprintf(__(
        "tex4ht.pm: processing produced %d items in HTML; expected %d, the number of items found in the document for %s"),
                                  $got_count, $formats{$format}->{'counter'},
                                  $format));
@@ -352,7 +356,7 @@ sub tex4ht_do_tex($$$$)
     $commands{$cmdname}->{'output_counter'}++;
     return $commands{$cmdname}->{'results'}->{$command};
   } else {
-    $self->document_warn(sprintf(__(
+    $self->document_warn($self, sprintf(__(
                        "tex4ht.pm: output has no HTML item for \@%s %s"),
                                   $cmdname, $command));
     return '';
@@ -367,7 +371,7 @@ sub tex4ht_finish($)
   if ($self->get_conf('VERBOSE')) {
     foreach my $command (keys(%commands)) {
       if ($commands{$command}->{'output_counter'} != $commands{$command}->{'counter'}) {
-        $self->document_warn(sprintf(__(
+        $self->document_warn($self, sprintf(__(
            "tex4ht.pm: processing retrieved %d items in HTML; expected %d, the number of items found in the document for \@%s"),
                                   $commands{$command}->{'output_counter'},
                                   $commands{$command}->{'counter'}, $command));

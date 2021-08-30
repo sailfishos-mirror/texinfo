@@ -194,7 +194,7 @@ sub l2h_process($$)
 
   unless ($self->get_conf('L2H_SKIP')) {
     unless (open(L2H_LATEX, ">$l2h_latex_file")) {
-      $self->document_error(sprintf(__(
+      $self->document_error($self, sprintf(__(
               "l2h: could not open latex file %s for writing: %s"),
                                     $l2h_latex_file, $!));
       $status = 0;
@@ -339,12 +339,14 @@ sub l2h_to_html($)
   # Check for dot in directory where dvips will work
   if ($self->get_conf('L2H_TMP')) {
     if ($self->get_conf('L2H_TMP') =~ /\./) {
-      $self->document_warn(__("l2h: L2H_TMP directory contains a dot"));
+      $self->document_warn($self,
+        __("l2h: L2H_TMP directory contains a dot"));
       $dotbug = 1;
     }
   } else {
     if (cwd() =~ /\./) {
-      $self->document_warn(__("l2h: current directory contains a dot"));
+      $self->document_warn($self,
+            __("l2h: current directory contains a dot"));
       $dotbug = 1;
     }
   }
@@ -372,7 +374,8 @@ sub l2h_to_html($)
 
   warn "# l2h: executing '$call'\n" if ($verbose);
   if (system($call)) {
-    $self->document_error(sprintf(__("l2h: command did not succeed: %s"), 
+    $self->document_error($self,
+             sprintf(__("l2h: command did not succeed: %s"), 
                                   $call));
     return 0;
   } else  {
@@ -419,7 +422,7 @@ sub l2h_change_image_file_names($$)
         # document extension. copying the file could result in 
         # overwriting an output file (almost surely if the default 
         # texi2html file names are used).
-        $self->document_warn(sprintf(__(
+        $self->document_warn($self, sprintf(__(
                             "l2h: image has invalid extension: %s"), $src));
         next;
       }
@@ -436,7 +439,8 @@ sub l2h_change_image_file_names($$)
         copy($file_src, $file_dest);
       } else {
         if (!rename($file_src, $file_dest)) {
-          $self->document_warn(sprintf(__("l2h: rename %s as %s failed: %s"), 
+          $self->document_warn($self,
+                 sprintf(__("l2h: rename %s as %s failed: %s"), 
                                        $file_src, $file_dest, $!));
         }
       }
@@ -458,7 +462,8 @@ sub l2h_init_from_html($)
   }
 
   if (! open(L2H_HTML, "<$l2h_html_file")) {
-    $self->document_warn(sprintf(__("l2h: could not open %s: %s"),
+    $self->document_warn($self,
+                sprintf(__("l2h: could not open %s: %s"),
                                  $l2h_html_file, $!));
     return 0;
   }
@@ -491,7 +496,8 @@ sub l2h_init_from_html($)
       }
       unless ($h_end_found) { 
         # couldn't found the closing comment. Should be a bug.
-        $self->document_warn(sprintf(__("latex2html.pm: end of \@%s item %d not found"),
+        $self->document_warn($self,
+                sprintf(__("latex2html.pm: end of \@%s item %d not found"),
                                       $l2h_name, $count));
         close(L2H_HTML);
         return 0;
@@ -501,7 +507,7 @@ sub l2h_init_from_html($)
 
   # Not the same number of converted elements and retrieved elements
   if ($latex_converted_count != $html_converted_count) {
-    $self->document_warn(sprintf(__(
+    $self->document_warn($self, sprintf(__(
       "latex2html.pm: processing produced %d items in HTML; expected %d, the number of items found in the document"),       
                           $html_converted_count, $latex_converted_count));
   }
@@ -531,7 +537,7 @@ sub l2h_do_tex($$)
   if (!defined($count)) {
     # counter is undefined
     $invalid_counter_count++;
-    $self->document_warn(
+    $self->document_warn($self, 
            sprintf(__("l2h: could not determine the fragment %d for \@%s"),
                    $counter, $cmdname));
     return ("<!-- l2h: ". __LINE__ . " undef count for ${cmdname}_$counter -->")
@@ -557,7 +563,7 @@ sub l2h_do_tex($$)
   } else {
     # if the result is not in @l2h_from_html, there is an error somewhere.
     $extract_error_count++;
-    $self->document_warn(sprintf(__(
+    $self->document_warn($self, sprintf(__(
        "l2h: could not extract the fragment %d for \@%s with output counter %d from HTML"), 
                    $counter, $cmdname, $count));
     # try simple (ordinary) substitution (without l2h)
@@ -619,7 +625,8 @@ sub l2h_init_cache($)
   my $self = shift;
   if (-r $l2h_cache_file) {
     my $rdo = do "$l2h_cache_file";
-    $self->document_error(sprintf(__("l2h: could not load %s: %s"),
+    $self->document_error($self,
+               sprintf(__("l2h: could not load %s: %s"),
                                   $l2h_cache_file, $@))
       unless ($rdo);
   }
@@ -632,7 +639,8 @@ sub l2h_store_cache($)
   return unless $latex_count;
   my ($key, $value);
   unless (open(FH, ">$l2h_cache_file")) { 
-    $self->document_error(sprintf(__("l2h: could not open %s for writing: %s"),
+    $self->document_error($self,
+          sprintf(__("l2h: could not open %s for writing: %s"),
                                   $l2h_cache_file, $!));
     return;
   }

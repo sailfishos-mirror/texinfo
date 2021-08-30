@@ -176,8 +176,8 @@ sub sectioning_structure($$$$)
       # new command is below
       if ($previous_section->{'level'} < $level) {
         if ($level - $previous_section->{'level'} > 1) {
-          $registrar->line_error($configuration_informations, sprintf(
-              __("raising the section level of \@%s which is too low"), 
+          $registrar->line_error($configuration_informations,
+           sprintf(__("raising the section level of \@%s which is too low"), 
               $content->{'cmdname'}), $content->{'line_nr'});
           $content->{'level'} = $previous_section->{'level'} + 1;
         }
@@ -208,13 +208,13 @@ sub sectioning_structure($$$$)
             if ($content->{'cmdname'} eq 'part') {
               $new_upper_part_element = 1;
               if ($level < $up->{'level'}) {
-                $registrar->line_warn($configuration_informations, sprintf(__(
-                      "no chapter-level command before \@%s"),
+                $registrar->line_warn($configuration_informations,
+                 sprintf(__("no chapter-level command before \@%s"),
                     $content->{'cmdname'}), $content->{'line_nr'});
               }
             } else {
-              $registrar->line_warn($configuration_informations, sprintf(__(
-                    "lowering the section level of \@%s appearing after a lower element"), 
+              $registrar->line_warn($configuration_informations,
+  sprintf(__("lowering the section level of \@%s appearing after a lower element"), 
                   $content->{'cmdname'}), $content->{'line_nr'});
               $content->{'level'} = $up->{'level'} + 1;
             }
@@ -302,8 +302,8 @@ sub sectioning_structure($$$$)
       }
     } elsif ($content->{'cmdname'} eq 'part' 
         and !$content->{'extra'}->{'part_associated_section'}) {
-      $registrar->line_warn($configuration_informations, sprintf(__(
-            "no sectioning command associated with \@%s"),
+      $registrar->line_warn($configuration_informations,
+        sprintf(__("no sectioning command associated with \@%s"),
           $content->{'cmdname'}), $content->{'line_nr'});
     }
   }
@@ -334,7 +334,8 @@ sub warn_non_empty_parts($$$)
   if ($global_commands->{'part'}) {
     foreach my $part (@{$global_commands->{'part'}}) {
       if (!Texinfo::Common::is_content_empty($part)) {
-        $registrar->line_warn($configuration_informations, sprintf(__("\@%s not empty"),
+        $registrar->line_warn($configuration_informations,
+               sprintf(__("\@%s not empty"),
                          $part->{'cmdname'}), $part->{'line_nr'});
       }
     }
@@ -392,20 +393,20 @@ sub _check_menu_entry($$$$$)
   my $menu_node = $labels->{$normalized_menu_node};
 
   if (!$menu_node) {
-    $registrar->line_error($configuration_informations, sprintf(
-     __("\@%s reference to nonexistent node `%s'"), $command,
+    $registrar->line_error($configuration_informations,
+      sprintf(__("\@%s reference to nonexistent node `%s'"), $command,
         node_extra_to_texi($menu_content->{'extra'}->{'menu_entry_node'})), 
      $menu_content->{'line_nr'});
   } else {
     if (!_check_node_same_texinfo_code($menu_node, 
                            $menu_content->{'extra'}->{'menu_entry_node'})) {
-      $registrar->line_warn($configuration_informations, sprintf(
-       __("\@%s entry node name `%s' different from %s name `%s'"), 
+      $registrar->line_warn($configuration_informations,
+       sprintf(__("\@%s entry node name `%s' different from %s name `%s'"), 
          $command,
          node_extra_to_texi($menu_content->{'extra'}->{'menu_entry_node'}),
          $menu_node->{'cmdname'},
          node_extra_to_texi($menu_node->{'extra'})),
-                            $menu_content->{'line_nr'});
+       $menu_content->{'line_nr'});
     }
   }
 }
@@ -484,7 +485,8 @@ sub set_menus_node_directions($$$$$$)
     if ($node->{'menus'}) {
       if (@{$node->{'menus'}} > 1) {
         foreach my $menu (@{$node->{'menus'}}[1 .. $#{$node->{'menus'}}]) {
-          $registrar->line_warn($configuration_informations, sprintf(__("multiple \@%s"),
+          $registrar->line_warn($configuration_informations,
+                 sprintf(__("multiple \@%s"),
                         $menu->{'cmdname'}), $menu->{'line_nr'});
         }
       }
@@ -616,8 +618,8 @@ sub complete_node_tree_with_menus($$$$)
           and $section->{'section_up'}{'extra'}{'associated_node'}{'menus'}
           and @{$section->{'section_up'}{'extra'}{'associated_node'}{'menus'}}
                     and !$node->{'menu_'.$direction}) {
-                  $registrar->line_warn($configuration_informations, sprintf(
-               __("node %s for `%s' is `%s' in sectioning but not in menu"),
+                  $registrar->line_warn($configuration_informations, 
+          sprintf(__("node %s for `%s' is `%s' in sectioning but not in menu"),
                   $direction,
                   node_extra_to_texi($node->{'extra'}),
                   node_extra_to_texi($direction_associated_node->{'extra'})),
@@ -634,8 +636,8 @@ sub complete_node_tree_with_menus($$$$)
               and !$node->{'menu_'.$direction}->{'extra'}->{'manual_content'}) {
             if ($configuration_informations->get_conf('CHECK_NORMAL_MENU_STRUCTURE')
                   and $node->{'extra'}->{'associated_section'}) {
-              $registrar->line_warn($configuration_informations, sprintf(
-                  __("node `%s' is %s for `%s' in menu but not in sectioning"),
+              $registrar->line_warn($configuration_informations,
+          sprintf(__("node `%s' is %s for `%s' in menu but not in sectioning"),
                 node_extra_to_texi($node->{'menu_'.$direction}->{'extra'}),
                                    $direction,
                 node_extra_to_texi($node->{'extra'}),
@@ -676,8 +678,8 @@ sub complete_node_tree_with_menus($$$$)
             and $node->{'menu_'.$direction}
                ne $node->{'node_'.$direction}
             and not $node->{'menu_'.$direction}->{'extra'}->{'manual_content'}) {
-          $registrar->line_warn($configuration_informations, sprintf(
-           __("node %s pointer for `%s' is `%s' but %s is `%s' in menu"),
+          $registrar->line_warn($configuration_informations,
+            sprintf(__("node %s pointer for `%s' is `%s' but %s is `%s' in menu"),
                   $direction,
                   node_extra_to_texi($node->{'extra'}),
                   node_extra_to_texi($node->{'node_'.$direction}->{'extra'}),
@@ -697,11 +699,12 @@ sub complete_node_tree_with_menus($$$$)
           or !$node->{'menu_up_hash'}->{$node->{'node_up'}->{'extra'}->{'normalized'}})) {
       # check if up node has a menu
       if ($node->{'node_up'}->{'menus'} and @{$node->{'node_up'}->{'menus'}}) {
-        $registrar->line_warn($configuration_informations, sprintf(
+        $registrar->line_warn($configuration_informations,
+         sprintf(
            __("node `%s' lacks menu item for `%s' despite being its Up target"), 
            node_extra_to_texi($node->{'node_up'}->{'extra'}), 
            node_extra_to_texi($node->{'extra'})),
-           $node->{'node_up'}->{'line_nr'});
+         $node->{'node_up'}->{'line_nr'});
       }
       # FIXME check that the menu_up_hash is not empty (except for Top)?
       # FIXME check that node_up is not an external node (except for Top)?
@@ -787,23 +790,25 @@ sub nodes_tree($$$$$$)
             if (!$parser_informations->{'novalidate'}
                 and !_check_node_same_texinfo_code($node_target,
                                                    $node_direction)) {
-              $registrar->line_warn($configuration_informations, sprintf(
-                __("%s pointer `%s' (for node `%s') different from %s name `%s'"),
+              $registrar->line_warn($configuration_informations,
+                sprintf(
+                  __("%s pointer `%s' (for node `%s') different from %s name `%s'"),
                   $direction_texts{$direction},
                   node_extra_to_texi($node_direction),
                   node_extra_to_texi($node->{'extra'}),
                                      $node_target->{'cmdname'},
                   node_extra_to_texi($node_target->{'extra'})),
-                                     $node->{'line_nr'});
+                $node->{'line_nr'});
             }
           } else {
             if ($parser_informations->{'novalidate'}) {
               $node->{'node_'.$direction} = { 'extra' => $node_direction };
             } else {
-              $registrar->line_error($configuration_informations, sprintf(
-                                  __("%s reference to nonexistent `%s'"),
-                    $direction_texts{$direction},
-                    node_extra_to_texi($node_direction)), $node->{'line_nr'});
+              $registrar->line_error($configuration_informations,
+                   sprintf(__("%s reference to nonexistent `%s'"),
+                      $direction_texts{$direction},
+                      node_extra_to_texi($node_direction)), 
+                   $node->{'line_nr'});
             }
           }
         }
@@ -1343,12 +1348,13 @@ sub associate_internal_references($$$$$)
       $ref->{'extra'}->{'label'} = $node_target;
       if (!$parser_informations->{'novalidate'}
           and !_check_node_same_texinfo_code($node_target, $node_arg)) {
-        $registrar->line_warn($configuration_informations, sprintf(
-           __("\@%s to `%s', different from %s name `%s'"), 
-           $ref->{'cmdname'},
-           node_extra_to_texi($node_arg),
-           $node_target->{'cmdname'},
-           node_extra_to_texi($node_target->{'extra'})), $ref->{'line_nr'});
+        $registrar->line_warn($configuration_informations,
+           sprintf(__("\@%s to `%s', different from %s name `%s'"), 
+               $ref->{'cmdname'},
+               node_extra_to_texi($node_arg),
+               $node_target->{'cmdname'},
+               node_extra_to_texi($node_target->{'extra'})),
+           $ref->{'line_nr'});
       }
     }
   }

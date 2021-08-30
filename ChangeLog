@@ -1,5 +1,19 @@
 2021-08-30  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Report.pm (document_warn, document_error),
+	tp/Texinfo/Common.pm, tp/Texinfo/Convert/Converter.pm,
+	tp/Texinfo/Convert/DocBook.pm, tp/Texinfo/Convert/HTML.pm,
+	tp/Texinfo/Convert/IXIN.pm, tp/Texinfo/Convert/Info.pm,
+	tp/Texinfo/Convert/LaTeX.pm, tp/Texinfo/Convert/Plaintext.pm,
+	Texinfo/ParserNonXS.pm, tp/Texinfo/Structuring.pm,
+	tp/Texinfo/XS/parsetexi/Parsetexi.pm, tp/init/chm.pm,
+	tp/init/highlight_syntax.pm, tp/init/latex2html.pm,
+	tp/init/tex4ht.pm: separate registrar that
+	register errors from from configuration in Texinfo::Report
+	for document_warn() and document_error().
+
+2021-08-30  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Report.pm (line_warn, line_error),
 	Pod-Simple-Texinfo/lib/Pod/Simple/Texinfo.pm (_protect_hashchar),
 	Pod-Simple-Texinfo/pod2texi.pl (_fix_texinfo_tree),
