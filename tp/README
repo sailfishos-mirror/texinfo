@@ -51,3 +51,10 @@ these commands output the tree (in different forms):
   makeinfo -c TEXINFO_OUTPUT_FORMAT=debugtree document.texi
 In addition (or instead) setting the DEBUG configuration variable will
 dump more information about what it's doing.
+
+
+Sometime the messages on syntax errors can be incomplete because of the
+system used to set the paths.  It is possible in that case to use something
+along the following line to test the validityy of one source file:
+
+perl -c -I '.' -I './maintain/lib/libintl-perl/lib/' -I './maintain/lib/Unicode-EastAsianWidth/lib/' -I './maintain/lib/Text-Unidecode/lib' Texinfo/Convert/HTML.pm
