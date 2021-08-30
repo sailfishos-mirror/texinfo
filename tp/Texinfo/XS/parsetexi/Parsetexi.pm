@@ -153,7 +153,7 @@ sub _find_menus_of_node {
 
 # Set 'menus' array for each node.  This accounts for malformed input where
 # the number of sectioning commands between @node and @menu is not exactly 1.
-sub _complete_node_menus {
+sub _associate_node_menus {
   my $self = shift;
   my $root = shift;
 
@@ -258,7 +258,7 @@ sub parse_texi_file ($$)
   my $TREE = build_texinfo_tree ();
   get_parser_info ($self);
 
-  _complete_node_menus ($self, $TREE);
+  _associate_node_menus ($self, $TREE);
 
   my $text_root;
   if ($TREE->{'type'} eq 'text_root') {
@@ -334,7 +334,7 @@ sub parse_texi_text($$;$$$$)
     }
 
     get_parser_info($self);
-    _complete_node_menus ($self, $tree);
+    _associate_node_menus ($self, $tree);
 
     return $tree;
 }
