@@ -13,6 +13,7 @@ xmllint --nonet --noout --valid commands.xml
 Before next release
 ===================
 
+document_warn document_error file_line_warn  file_line_error
 
 Bugs
 ====
@@ -51,9 +52,6 @@ expanded.  For example
 In Plaintext, @quotation text should have the right margin narrowed.
 
 Text after @bye should be kept as is when redoing Texinfo.
-
-@-commands in index entries are transliterated when sorting, they should
-certainly be converted to unicode instead.
 
 Sorting of index entries should be locale dependent and sort properly
 unicode sorting.
@@ -107,8 +105,9 @@ In fact @image is completly formatted outside of usual formatting containers.
 Not sure what should be the right way?
 test in info_test/image_and_punctuation
 
-There should be a warning for something like
-@example text
+There should be a warning for block commands without argument
+that have an argument on their line, like:
+@blockcmd text
 ...
 
 Image on sectioning command line haven't their length ignored correctly.
@@ -138,8 +137,7 @@ to a possible test of CASE_INSENSITIVE_FILENAMES.
 
 Unit test of end_line_count for Texinfo/Convert/Paragraph.pm .... containers.
 
-In html test empty @top for title, with different cases for 
-setcontentsaftertit* and for anchors.
+In html test empty @top for title, with different cases for anchors.
 
 Test @sc{@aa{}} and @sc{@'e} in HTML with 8bit and utf8, with and without
 enable encoding and entities.
@@ -176,9 +174,6 @@ Check the design of the HTML.pm API.  Document the API, in particular
 everything in Texinfo::Config.  Add an API for everything used in the 
 default functions, for example in page_head, use $self->title_string() 
 and so on and so forth.  
-Functions to document for HTML API (many more are missing!):
-sectioning_command_target_name
-node_target_name
 
 Implement what is proposed in HTML Cross Reference Mismatch.
 
@@ -251,11 +246,7 @@ Interrogations and remarks
 Instead of _set_global_multiple_commands and _unset_global_multiple_commands
 have a better granularity and do something per command, with the possibility
 to really revert everything, including things that are not set by set_conf.
-(There is a FIXME in the code).  This is not that important, now that the 
-actual case that was problematic (setting encodings as a side effect of 
-setting @documentencoding) is not supported anymore.  (Now the encoding is
-set at the initialization of the converter and should be changed by setting
-the correct customization variable, in general OUTPUT_ENCODING_NAME).
+(There is a FIXME in the code).
 
 Should more Converter ignore the last new line (with type 
 last_raw_newline) of a raw block format?
@@ -290,8 +281,6 @@ specific list of formats could be passed to Convert::Text::convert, which
 would be different (for example Info and Plaintext even if converting HTML).
 This requires a test, to begin with.
 
-Use INLINE_INSERTCOPYING as the default for some formats?
-
 In HTML, HEADERS is used.  But not in other modules, especially not in
 Plaintext.pm or Info.pm, this is determined by the module used (Plaintext.pm
 or Info.pm).  No idea whether it is right or wrong.
@@ -324,9 +313,6 @@ The @FIGURE @macro is, for html:
 @end macro
 
 Add @value to the corresponding commands categories?
-
-tests .init file not relevant since indices cannot be split anymore
-indices/index_test.init     
 
 Use of specialized synopsis in DocBook is not a priority and it is not even 
 obvious that it is interesting to do so.  The following notes explain the
