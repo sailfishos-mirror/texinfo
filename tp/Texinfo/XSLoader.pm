@@ -205,6 +205,10 @@ sub init {
   
   if ($perl_extra_file) {
     eval "require $perl_extra_file";
+    if ($@) {
+      warn();
+      die "Error loading $perl_extra_file\n";
+    }
   }
   
   return $module;
