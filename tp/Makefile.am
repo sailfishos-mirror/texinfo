@@ -71,6 +71,7 @@ dist_modules_DATA = \
  Texinfo/Encoding.pm \
  Texinfo/Structuring.pm \
  Texinfo/Transformations.pm \
+ Texinfo/Translations.pm \
  Texinfo/MiscXS.pm \
  Texinfo/XSLoader.pm \
  Texinfo/Documentlanguages.pm
