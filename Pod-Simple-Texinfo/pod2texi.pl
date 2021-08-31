@@ -238,6 +238,8 @@ sub _fix_texinfo_tree($$$$;$)
 
   my $parser = Texinfo::Parser::parser();
   my $tree = $parser->parse_texi_text($manual_texi);
+  my $registrar = $parser->registered_errors();
+  
   my ($labels, $targets_list, $nodes_list) = $parser->labels_information();
 
   if ($fill_gaps_in_sectioning) {
@@ -284,8 +286,8 @@ sub _fix_texinfo_tree($$$$;$)
       }
     }
   }
-  my $structure = Texinfo::Structuring::sectioning_structure($parser, $parser,
-                                                             $parser, $tree);
+  my ($sectioning_root, $sections_list)
+          = Texinfo::Structuring::sectioning_structure($registrar, $parser, $tree);
   Texinfo::Transformations::complete_tree_nodes_menus($tree)
     if ($section_nodes);
   Texinfo::Transformations::regenerate_master_menu($parser, $labels)

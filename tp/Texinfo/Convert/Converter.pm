@@ -60,6 +60,12 @@ my %defaults = (
 
 # defaults for all converters.  Maybe more could be added, especially what
 # can be set with --set and should be the same for all the formats.
+# undef values in general marks information passed by the caller that
+# is valid in the parser configuration initialization hash, but
+# is not considered as "configuration", and is available directly
+# in the converter, not through get_conf().
+# FIXME separate the two types of information and check that those
+# items are not valid options.
 our %all_converters_defaults = (
   'language_config_dirs' => undef,
   'output_format'        => undef,
@@ -69,6 +75,7 @@ our %all_converters_defaults = (
   'fillcolumn'           => 72,
   'expanded_formats'     => undef,
   'include_directories'  => undef,
+  'structuring'          => undef,
   'IMAGE_LINK_PREFIX'    => undef,
   'NUMBER_SECTIONS'      => 1,
   'NUMBER_FOOTNOTES'     => 1,
@@ -208,7 +215,6 @@ sub converter(;$)
       my $floats = $converter->{'parser'}->floats_information();
       my ($labels, $targets_list, $nodes_list)
         = $converter->{'parser'}->labels_information();
-      $converter->{'structuring'} = $converter->{'parser'}->{'structuring'};
 
       $converter->{'floats'} = $floats if ($floats);
       $converter->{'labels'} = $labels if ($labels);

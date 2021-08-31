@@ -24,12 +24,14 @@ sub test($$$;$)
 
   my $parser = Texinfo::Parser::parser();
   my $tree = $parser->parse_texi_text($in);
+  my $registrar = $parser->registered_errors();
   my ($labels, $targets_list, $nodes_list) = $parser->labels_information();
   my $parser_informations = $parser->global_informations();
   my $refs = $parser->internal_references_information();
-  Texinfo::Structuring::associate_internal_references($parser, $parser,
+  Texinfo::Structuring::associate_internal_references($registrar, $parser,
                                         $parser_informations, $labels, $refs);
-  my $sectioning = Texinfo::Structuring::sectioning_structure($parser, $parser,
+  my ($sectioning_root, $sections_list)
+                 = Texinfo::Structuring::sectioning_structure($registrar,
                                                               $parser, $tree);
   if ($complete_missing_menus) {
     Texinfo::Transformations::complete_tree_nodes_missing_menu($tree);

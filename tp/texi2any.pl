@@ -1309,16 +1309,24 @@ while(@input_files) {
   my $parser_informations = $parser->global_informations();
   Texinfo::Structuring::associate_internal_references($registrar, $parser,
                                         $parser_informations, $labels, $refs);
+  # filled with informations obtained through Texinfo::Structuring
+  # and usefull in converters.
+  # FIXME the keys are not documented anywhere.  It is unclear where they
+  # should be documented.
+  my $structure_informations = {};
   # every format needs the sectioning structure
-  # FIXME replace parser as first argument by a structure object
-  my $structure = Texinfo::Structuring::sectioning_structure($parser, $registrar,
+  my ($sectioning_root, $sections_list)
+            = Texinfo::Structuring::sectioning_structure($registrar,
                                                              $parser, $tree);
 
   my $global_commands = $parser->global_commands_information();
-  if ($structure
-      and !$formats_table{$format}->{'no_warn_non_empty_parts'}) {
-    Texinfo::Structuring::warn_non_empty_parts($registrar, $parser,
-                                               $global_commands);
+  if ($sectioning_root) {
+    $structure_informations->{'sectioning_root'} = $sectioning_root;
+    $structure_informations->{'sections_list'} = $sections_list;
+    if (!$formats_table{$format}->{'no_warn_non_empty_parts'}) {
+      Texinfo::Structuring::warn_non_empty_parts($registrar, $parser,
+                                                 $global_commands);
+    }
   }
 
   if ($tree_transformations{'complete_tree_nodes_menus'}) {
@@ -1347,9 +1355,11 @@ while(@input_files) {
       Texinfo::Structuring::set_menus_node_directions($registrar, $parser,
                $parser_informations, $global_commands, $nodes_list, $labels);
     }
-    # FIXME replace parser as first argument by a structure object
-    $top_node = Texinfo::Structuring::nodes_tree($parser, $registrar, $parser,
+    $top_node = Texinfo::Structuring::nodes_tree($registrar, $parser,
                                    $parser_informations, $nodes_list, $labels);
+    if (defined($top_node)) {
+      $structure_informations->{'top_node'} = $top_node;
+    }
     if (not defined($parser_options->{'FORMAT_MENU'})
         or $parser_options->{'FORMAT_MENU'} eq 'menu') {
       if (defined($nodes_list)) {
@@ -1383,6 +1393,7 @@ while(@input_files) {
 
   $converter_options->{'expanded_formats'} = $parser_options->{'EXPANDED_FORMATS'};
   $converter_options->{'parser'} = $parser;
+  $converter_options->{'structuring'} = $structure_informations;
   $converter_options->{'output_format'} = $format;
   $converter_options->{'language_config_dirs'} = \@language_config_dirs;
   unshift @{$converter_options->{'include_directories'}},

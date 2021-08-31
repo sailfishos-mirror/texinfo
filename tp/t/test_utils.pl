@@ -867,18 +867,26 @@ sub test($$)
   my $floats = $parser->floats_information();
 
   my $global_commands = $parser->global_commands_information();
-  my $structure = Texinfo::Structuring::sectioning_structure($parser, $registrar,
+
+  my $structure_informations = {};
+  my ($sectioning_root, $sections_list)
+              = Texinfo::Structuring::sectioning_structure($registrar,
                                                              $parser, $result);
-  if ($structure) {
+  if ($sectioning_root) {
     Texinfo::Structuring::warn_non_empty_parts($registrar, $parser, $global_commands);
+    $structure_informations->{'sectioning_root'} = $sectioning_root;
+    $structure_informations->{'sections_list'} = $sections_list;
   }
 
   Texinfo::Structuring::number_floats($floats);
 
   Texinfo::Structuring::set_menus_node_directions($registrar, $parser,
                   $parser_informations, $global_commands, $nodes_list, $labels);
-  my $top_node = Texinfo::Structuring::nodes_tree($parser, $registrar, $parser,
+  my $top_node = Texinfo::Structuring::nodes_tree($registrar, $parser,
                                     $parser_informations, $nodes_list, $labels);
+  if (defined($top_node)) {
+    $structure_informations->{'top_node'} = $top_node;
+  }
 
   if (defined($nodes_list)) {
     Texinfo::Structuring::complete_node_tree_with_menus($registrar, $parser,
@@ -918,6 +926,7 @@ sub test($$)
   my %converted;
   my %converted_errors;
   $converter_options = {} if (!defined($converter_options));
+  $converter_options->{'structuring'} = $structure_informations;
   foreach my $format (@tested_formats) {
     if (defined($formats{$format})) {
       my $format_converter_options = {%$converter_options};
@@ -1074,9 +1083,9 @@ sub test($$)
           .protect_perl_string($converted_text)."';\n\n";
     {
       local $Data::Dumper::Sortkeys = \&filter_sectioning_keys;
-      $out_result .=  Data::Dumper->Dump([$structure], 
+      $out_result .=  Data::Dumper->Dump([$sectioning_root],
                            ['$result_sectioning{\''.$test_name.'\'}'])."\n"
-        if ($structure);
+        if ($sectioning_root);
     }
     if ($top_node) {
       {
@@ -1129,7 +1138,7 @@ sub test($$)
 
     cmp_trimmed($split_result, $result_trees{$test_name}, \@avoided_keys_tree,
                 $test_name.' tree');
-    cmp_trimmed($structure, $result_sectioning{$test_name},
+    cmp_trimmed($sectioning_root, $result_sectioning{$test_name},
                  \@avoided_keys_sectioning, $test_name.' sectioning' );
     cmp_trimmed($top_node, $result_nodes{$test_name}, \@avoided_keys_nodes,
                 $test_name.' nodes');

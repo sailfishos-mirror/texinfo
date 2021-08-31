@@ -127,12 +127,12 @@ sub section_level($)
 # 'toplevel_next'
 # 'toplevel_prev'
 # 'toplevel_up'
-sub sectioning_structure($$$$)
+sub sectioning_structure($$$)
 {
-  my $self = shift;
   my $registrar = shift;
   my $configuration_informations = shift;
   my $root = shift;
+
   if (!$root->{'type'} or $root->{'type'} ne 'document_root'
       or !$root->{'contents'}) {
     return undef;
@@ -307,9 +307,7 @@ sub sectioning_structure($$$$)
           $content->{'cmdname'}), $content->{'line_nr'});
     }
   }
-  $self->{'structuring'}->{'sectioning_root'} = $sec_root;
-  $self->{'structuring'}->{'sections_list'} = \@sections_list;
-  return $sec_root;
+  return $sec_root, \@sections_list;
 }
 
 # for debugging
@@ -714,9 +712,8 @@ sub complete_node_tree_with_menus($$$$)
 
 
 # set node directions based on sectioning and @node explicit directions
-sub nodes_tree($$$$$$)
+sub nodes_tree($$$$$)
 {
-  my $self = shift;
   my $registrar = shift;
   my $configuration_informations = shift;
   my $parser_informations = shift;
@@ -816,7 +813,6 @@ sub nodes_tree($$$$$$)
     }
   }
   $top_node = $nodes_list->[0] if (!$top_node);
-  $self->{'structuring'}->{'top_node'} = $top_node;
 
   return $top_node;
 }
@@ -1770,18 +1766,19 @@ Texinfo::Structuring - information on Texinfo::Parser tree
     merge_indices sort_indices_by_letter sort_indices elements_directions
     elements_file_directions);
   # $tree is a Texinfo document tree.  $parser is a Texinfo::Parser object.
-  my $sections_root = sectioning_structure ($parser, $parser, $parser, $tree);
+  my $registrar = $parser->registered_errors();
+  my $sections_root = sectioning_structure ($registart, $parser, $tree);
   my ($labels, $targets_list, $nodes_list) = $parser->labels_information();
   my $parser_informations = $parser->global_informations();
   my $global_commands = $parser->global_commands_information();
-  set_menus_node_directions($parser, $parser, $parser_informations,
+  set_menus_node_directions($registrar, $parser, $parser_informations,
                             $global_commands, $nodes_list, $labels);
-  my $top_node = nodes_tree($parser, $parser, $parser, $parser_informations, $nodes_list, $labels);
-  complete_node_tree_with_menus($parser, $parser, $nodes_list, $top_node);
+  my $top_node = nodes_tree($registrar, $parser, $parser_informations, $nodes_list, $labels);
+  complete_node_tree_with_menus($registrar, $parser, $nodes_list, $top_node);
   my $refs = $parser->internal_references_information();
-  check_nodes_are_referenced($parser, $parser, $nodes_list, $top_node, $labels, $refs);
+  check_nodes_are_referenced($registrar, $parser, $nodes_list, $top_node, $labels, $refs);
   number_floats($parser->floats_information());
-  associate_internal_references($parser, $parser, $parser_informations, $labels, $refs);
+  associate_internal_references($registrar, $parser, $parser_informations, $labels, $refs);
   my $elements;
   if ($split_at_nodes) {
     $elements = split_by_node($tree);
@@ -1844,12 +1841,12 @@ as argument, see L<Texinfo::Parser>.
 
 =over
 
-=item $sections_root = sectioning_structure ($parser, $registrar, $configuration_informations, $tree)
+=item $sections_root, $sections_list = sectioning_structure ($registrar, $configuration_informations, $tree)
 
 This function goes through the tree and gather information on
 the document structure for sectioning commands.  It returns the 
-root of the sectioning commands tree.  Errors are registered 
-in I<$registrar>.
+root of the sectioning commands tree and a reference on the sections
+elements list.  Errors are registered in I<$registrar>.
 
 For section elements, it sets:
 
@@ -1911,7 +1908,7 @@ Up, next and previous directions as set in menus.
 
 =back
 
-=item my $top_node = nodes_tree($parser, $registrar, $configuration_informations, $parser_informations, $nodes_list, $labels)
+=item my $top_node = nodes_tree($registrar, $configuration_informations, $parser_informations, $nodes_list, $labels)
 
 Goes through nodes and set directions.  Returns the top
 node.  Register errors in C<$registrar>.
