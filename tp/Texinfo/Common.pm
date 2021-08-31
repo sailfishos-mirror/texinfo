@@ -2098,9 +2098,6 @@ sub modify_tree($$$;$)
       # this puts the new args at the place of the old arg using the 
       # offset from the end of the array
       splice (@{$tree->{'args'}}, $i - $#args -1, 1, @new_args);
-      #foreach my $arg (@new_args) {
-      #  modify_tree($self, $arg, $operation);
-      #}
     }
   }
   if ($tree->{'contents'}) {
@@ -2111,9 +2108,6 @@ sub modify_tree($$$;$)
       # this puts the new contents at the place of the old content using the 
       # offset from the end of the array
       splice (@{$tree->{'contents'}}, $i - $#contents -1, 1, @new_contents);
-      #foreach my $content (@new_contents) {
-      #  modify_tree($self, $content, $operation);
-      #}
     }
   }
   return $tree;
@@ -2753,6 +2747,7 @@ sub set_nodes_list_labels($$$)
   my $self = shift;
   my $registrar = shift;
   my $configuration_informations = shift;
+
   $self->{'nodes'} = [];
   my %labels = ();
   if (defined $self->{'targets'}) {
