@@ -65,20 +65,26 @@ sub __p($$) {
 
 
 
+sub new(;$)
+{
+  my $self = shift;
+  # if there is no argument, setup a separate Texinfo::Report object,
+  # otherwise the structure is added to the converter, nothing is "blessed".
+  if (not defined($self)) {
+    $self = {};
+    bless $self;
+  }
+  $self->{'errors_warnings'} = [];
+  #print STDERR "REPORT NEW $self $self->{'errors_warnings'}\n";
+  $self->{'errors_nrs'} = 0;
+  return $self;
+}
+
 # return the errors and warnings
 sub errors($)
 {
   my $self = shift;
   return ($self->{'errors_warnings'}, $self->{'error_nrs'});
-}
-
-sub new($)
-{
-  my $self = shift;
-  $self->{'errors_warnings'} = [];
-  #print STDERR "REPORT NEW $self $self->{'errors_warnings'}\n";
-  $self->{'errors_nrs'} = 0;
-  return $self;
 }
 
 # format a line warning
@@ -387,16 +393,14 @@ sub gdt($$;$$)
     }
   }
   $parser_conf->{'accept_internalvalue'} = 1;
-  #my $parser = Texinfo::Parser::parser($parser_conf);
   my $parser = Texinfo::Parser::simple_parser($parser_conf);
   if ($parser->{'DEBUG'}) {
     print STDERR "GDT $translation_result\n";
   }
 
   my $tree = $parser->parse_texi_line($translation_result);
-  # FIXME if at some point it becomes possible to reuse a parser
-  # this could bring in all the parser errors
-  my ($errors, $errors_count) = $parser->errors();
+  my $registrar = $parser->registered_errors();
+  my ($errors, $errors_count) = $registrar->errors();
   if ($errors_count) {
     warn "translation $errors_count error(s)\n";
     warn "translated message: $translated_message\n";

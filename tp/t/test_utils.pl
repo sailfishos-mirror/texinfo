@@ -858,36 +858,37 @@ sub test($$)
   } else {
     $result = $parser->parse_texi_file($test_file);
   }
+  my $registrar = $parser->registered_errors();
   my $parser_informations = $parser->global_informations();
   my ($labels, $targets_list, $nodes_list) = $parser->labels_information();
   my $refs = $parser->internal_references_information();
-  Texinfo::Structuring::associate_internal_references($parser, $parser,
+  Texinfo::Structuring::associate_internal_references($registrar, $parser,
                                         $parser_informations, $labels, $refs);
   my $floats = $parser->floats_information();
 
   my $global_commands = $parser->global_commands_information();
-  my $structure = Texinfo::Structuring::sectioning_structure($parser, $parser,
+  my $structure = Texinfo::Structuring::sectioning_structure($parser, $registrar,
                                                              $parser, $result);
   if ($structure) {
-    Texinfo::Structuring::warn_non_empty_parts($parser, $parser, $global_commands);
+    Texinfo::Structuring::warn_non_empty_parts($registrar, $parser, $global_commands);
   }
 
   Texinfo::Structuring::number_floats($floats);
 
-  Texinfo::Structuring::set_menus_node_directions($parser, $parser,
+  Texinfo::Structuring::set_menus_node_directions($registrar, $parser,
                   $parser_informations, $global_commands, $nodes_list, $labels);
-  my $top_node = Texinfo::Structuring::nodes_tree($parser, $parser, $parser,
+  my $top_node = Texinfo::Structuring::nodes_tree($parser, $registrar, $parser,
                                     $parser_informations, $nodes_list, $labels);
 
   if (defined($nodes_list)) {
-    Texinfo::Structuring::complete_node_tree_with_menus($parser, $parser,
+    Texinfo::Structuring::complete_node_tree_with_menus($registrar, $parser,
                                                         $nodes_list, $top_node);
-    Texinfo::Structuring::check_nodes_are_referenced($parser, $parser,
+    Texinfo::Structuring::check_nodes_are_referenced($registrar, $parser,
                                                      $nodes_list, $top_node,
                                                      $labels, $refs);
   }
 
-  my ($errors, $error_nrs) = $parser->errors();
+  my ($errors, $error_nrs) = $registrar->errors();
   my $index_names = $parser->indices_information();
   # FIXME maybe it would be good to compare $merged_index_entries?
   my $merged_index_entries 
@@ -903,7 +904,7 @@ sub test($$)
   my $sorted_index_entries;
   if ($merged_index_entries) {
     $sorted_index_entries 
-      = Texinfo::Structuring::sort_indices_by_letter($parser, $parser, $parser,
+      = Texinfo::Structuring::sort_indices_by_letter($parser, $registrar, $parser,
                                    $merged_index_entries, $index_names);
   }
   if ($simple_menus) {

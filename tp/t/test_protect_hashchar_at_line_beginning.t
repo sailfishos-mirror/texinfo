@@ -25,11 +25,13 @@ sub run_test($$$;$)
   my $parser = Texinfo::Parser::parser();
   my $tree = $parser->parse_texi_text($in, 1);
 
+  my $registrar = $parser->registered_errors();
+
   my $corrected_tree = 
-    Texinfo::Common::protect_hashchar_at_line_beginning($parser, $parser, $tree);
+    Texinfo::Common::protect_hashchar_at_line_beginning($registrar, $parser, $tree);
 
   if (defined($error_message)) {
-    my ($errors, $errors_count) = $parser->errors();
+    my ($errors, $errors_count) = $registrar->errors();
     if (!$error_message) {
       if ($errors and scalar(@$errors)) {
         print STDERR " --error-> $errors->[0]->{'error_line'}";

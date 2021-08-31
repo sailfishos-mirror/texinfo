@@ -13,7 +13,6 @@ xmllint --nonet --noout --valid commands.xml
 Before next release
 ===================
 
-document_warn document_error file_line_warn  file_line_error
 
 Bugs
 ====

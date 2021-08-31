@@ -1224,8 +1224,10 @@ while(@input_files) {
     local $Data::Dumper::Indent = 1;
     print STDERR Data::Dumper->Dump([$tree]);
   }
+  # object registering errors and warnings
+  my $registrar = $parser->registered_errors();
   if (!defined($tree) or $format eq 'parse') {
-    handle_errors($parser, $error_count, \@opened_files);
+    handle_errors($registrar, $error_count, \@opened_files);
     next;
   }
 
@@ -1275,7 +1277,7 @@ while(@input_files) {
     }
   }
   if (get_conf('DUMP_TEXI') or $formats_table{$format}->{'texi2dvi_format'}) {
-    handle_errors($parser, $error_count, \@opened_files);
+    handle_errors($registrar, $error_count, \@opened_files);
     next;
   }
 
@@ -1291,7 +1293,9 @@ while(@input_files) {
 
   if ($tree_transformations{'insert_nodes_for_sectioning_commands'}) {
     my ($modified_contents, $added_nodes)
-     = Texinfo::Transformations::insert_nodes_for_sectioning_commands($parser, 
+     # the first argument is ultimately passed to Texinfo::Common::modify_tree
+     # functions, but they do not actually use this argument
+     = Texinfo::Transformations::insert_nodes_for_sectioning_commands(undef,
                               $tree, $nodes_list, $targets_list, $labels);
     if (!defined($modified_contents)) {
       document_warn(__(
@@ -1303,17 +1307,18 @@ while(@input_files) {
 
   my $refs = $parser->internal_references_information();
   my $parser_informations = $parser->global_informations();
-  Texinfo::Structuring::associate_internal_references($parser, $parser,
+  Texinfo::Structuring::associate_internal_references($registrar, $parser,
                                         $parser_informations, $labels, $refs);
   # every format needs the sectioning structure
-
-  my $structure = Texinfo::Structuring::sectioning_structure($parser, $parser,
+  # FIXME replace parser as first argument by a structure object
+  my $structure = Texinfo::Structuring::sectioning_structure($parser, $registrar,
                                                              $parser, $tree);
 
   my $global_commands = $parser->global_commands_information();
   if ($structure
       and !$formats_table{$format}->{'no_warn_non_empty_parts'}) {
-    Texinfo::Structuring::warn_non_empty_parts($parser, $parser, $global_commands);
+    Texinfo::Structuring::warn_non_empty_parts($registrar, $parser,
+                                               $global_commands);
   }
 
   if ($tree_transformations{'complete_tree_nodes_menus'}) {
@@ -1339,17 +1344,18 @@ while(@input_files) {
     # for instance if format is structure.
     if (not defined($parser_options->{'FORMAT_MENU'})
         or $parser_options->{'FORMAT_MENU'} eq 'menu') {
-      Texinfo::Structuring::set_menus_node_directions($parser, $parser,
+      Texinfo::Structuring::set_menus_node_directions($registrar, $parser,
                $parser_informations, $global_commands, $nodes_list, $labels);
     }
-    $top_node = Texinfo::Structuring::nodes_tree($parser, $parser, $parser,
+    # FIXME replace parser as first argument by a structure object
+    $top_node = Texinfo::Structuring::nodes_tree($parser, $registrar, $parser,
                                    $parser_informations, $nodes_list, $labels);
     if (not defined($parser_options->{'FORMAT_MENU'})
         or $parser_options->{'FORMAT_MENU'} eq 'menu') {
       if (defined($nodes_list)) {
-        Texinfo::Structuring::complete_node_tree_with_menus($parser, $parser,
+        Texinfo::Structuring::complete_node_tree_with_menus($registrar, $parser,
                                                        $nodes_list, $top_node);
-        Texinfo::Structuring::check_nodes_are_referenced($parser, $parser,
+        Texinfo::Structuring::check_nodes_are_referenced($registrar, $parser,
                                                      $nodes_list, $top_node,
                                                      $labels, $refs);
       }
@@ -1359,7 +1365,7 @@ while(@input_files) {
     Texinfo::Structuring::number_floats($floats);
   }
 
-  $error_count = handle_errors($parser, $error_count, \@opened_files);
+  $error_count = handle_errors($registrar, $error_count, \@opened_files);
 
   if ($format eq 'structure') {
     next;

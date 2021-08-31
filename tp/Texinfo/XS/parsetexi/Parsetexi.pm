@@ -28,7 +28,7 @@ use Texinfo::Encoding;
 use Texinfo::Convert::NodeNameNormalization;
 use Texinfo::Report;
 
-our @ISA = qw(Exporter DynaLoader Texinfo::Report);
+our @ISA = qw(Exporter Texinfo::Report);
 our %EXPORT_TAGS = ( 'all' => [ qw(
     parser
     parse_texi_text
@@ -121,6 +121,7 @@ sub parser (;$$)
         set_accept_internalvalue();
       } elsif ($key eq 'ENABLE_ENCODING'
                or $key eq 'novalidate'
+               or $key eq 'registrar'
                or defined($Texinfo::Common::default_structure_customization_values{$key})) {
         # no action needed
       } else {
@@ -130,8 +131,6 @@ sub parser (;$$)
   }
 
   bless $parser;
-
-  $parser->Texinfo::Report::new;
 
   return $parser;
 }
@@ -205,7 +204,7 @@ sub get_parser_info {
   _get_errors ($self);
 
   # Setup labels info and nodes list based on 'targets'
-  Texinfo::Common::set_nodes_list_labels($self, $self, $self);
+  Texinfo::Common::set_nodes_list_labels($self, $self->{'registrar'}, $self);
   Texinfo::Common::complete_indices ($self);
 }
 
@@ -285,8 +284,12 @@ sub parse_texi_file ($$)
 sub _get_errors($)
 {
   my $self = shift;
-  my $registrar = $self;
+  if (not $self->{'registrar'}) {
+    $self->{'registrar'} = Texinfo::Report::new();
+  }
+  my $registrar = $self->{'registrar'};
   my $configuration_informations = $self;
+
   my $ERRORS;
   my $tree_stream = dump_errors();
   eval $tree_stream;
@@ -300,6 +303,7 @@ sub _get_errors($)
     }
   }
 }
+
 
 # Replacement for Texinfo::Parser::parse_texi_text
 #
@@ -364,7 +368,7 @@ sub parse_texi_line($$;$$$$)
     $self->{'targets'} = $TARGETS;
 
     # Setup labels info and nodes list based on 'targets'
-    Texinfo::Common::set_nodes_list_labels($self, $self, $self);
+    Texinfo::Common::set_nodes_list_labels($self, $self->{'registrar'}, $self);
 
     return $tree;
 }
@@ -410,6 +414,12 @@ sub labels_information($)
 {
   my $self = shift;
   return $self->{'labels'}, $self->{'targets'}, $self->{'nodes'};
+}
+
+sub registered_errors($)
+{
+  my $self = shift;
+  return $self->{'registrar'};
 }
 
 1;

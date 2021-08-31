@@ -580,14 +580,14 @@ sub _top_context_command($)
 sub _line_warn
 {
   my $self = shift;
-  my $registrar = $self;
+  my $registrar = $self->{'registrar'};
   $registrar->line_warn($self, @_);
 }
 
 sub _line_error
 {
   my $self = shift;
-  my $registrar = $self;
+  my $registrar = $self->{'registrar'};
   $registrar->line_error($self, @_);
 }
 
@@ -731,7 +731,9 @@ sub _setup_parser {
 
   %{$parser->{'global_commands'}} = %global_multiple_commands;
 
-  $parser->Texinfo::Report::new;
+  if (not defined($parser->{'registrar'})) {
+    $parser->{'registrar'} = Texinfo::Report::new();
+  }
 
   return $parser;
 }
@@ -781,7 +783,9 @@ sub simple_parser(;$)
 
   %{$parser->{'global_commands'}} = ();
 
-  $parser->Texinfo::Report::new;
+  if (not defined($parser->{'registrar'})) {
+    $parser->{'registrar'} = Texinfo::Report::new();
+  }
 
   return $parser;
 }
@@ -906,7 +910,7 @@ sub parse_texi_file($$)
 
   my $filehandle = do { local *FH };
   if (!_open_in($self, $filehandle, $file_name)) {
-    $self->document_error($self,
+    $self->{'registrar'}->document_error($self,
                  sprintf(__("could not open %s: %s"),
                                   $file_name, $!));
     return undef;
@@ -1050,6 +1054,12 @@ sub labels_information($)
 {
   my $self = shift;
   return $self->{'labels'}, $self->{'targets'}, $self->{'nodes'};
+}
+
+sub registered_errors($)
+{
+  my $self = shift;
+  return $self->{'registrar'};
 }
 
 # Following are the internal subroutines.  The most important are
@@ -1965,7 +1975,7 @@ sub _next_text($$)
     # Don't close STDIN
     if ($previous_input->{'fh'} and $previous_input->{'name'} ne '-') {
       if (!close($previous_input->{'fh'})) {
-        $self->document_warn($self,
+        $self->{'registrar'}->document_warn($self,
                              sprintf(__("error on closing %s: %s"),
                                      $previous_input->{'name'}, $!));
       }
@@ -5464,7 +5474,7 @@ sub _parse_texi($;$)
   }
 
   # Setup labels info and nodes list based on 'targets'
-  Texinfo::Common::set_nodes_list_labels($self, $self, $self);
+  Texinfo::Common::set_nodes_list_labels($self, $self->{'registrar'}, $self);
   Texinfo::Common::complete_indices($self);
   return $root;
 }
@@ -5905,6 +5915,9 @@ Texinfo::Parser - Parse Texinfo code into a Perl tree
   # a hash reference on some document informations (encodings, 
   # input file name, dircategory and direntry list, for exampel).
   my $global_informations = $parser->global_informations();
+  # a Texinfo::Report object in which the errors and warnings
+  # encountered while parsing are registered.
+  my $registrar = $parser->registered_errors();
 
 =head1 DESCRIPTION
 
@@ -5969,6 +5982,10 @@ Maximal number of nested user-defined macro calls.  Default is 100000.
 
 Possible values are 'nomenu', 'menu' and 'sectiontoc'.  Only report 
 menu-related errors for 'menu'. 
+
+=item registrar
+
+Texinfo::Report object reused by the parser to register errors.
 
 =begin :comment
 
@@ -6053,9 +6070,22 @@ undef is returned if the file couldn't be read.
 
 =back
 
-The errors collected during the tree parsing are available through the
-C<errors> method.  This method comes from C<Texinfo::Report>, and is 
+The errors collected during the tree parsing are registered in a
+C<Texinfo::Report> object.  This object is available with
+C<registered_errors>.  The errors registered in the C<Texinfo::Report>
+object are available through the C<errors> method.  This method is
 described in L<errors|Texinfo::Report/($error_warnings_list, $error_count) = errors ($converter)>.
+
+=over
+
+=item $registrar = registered_errors($parser)
+
+C<$registrar> is a C<Texinfo::Report> object in which the errors
+and warnings encountered while parsing are registered.  If a C<registrar>
+option is pased to the parser initialization it is reused, otherwise
+a new one is created.
+
+=back
 
 =head2 Getting information on the document
 
