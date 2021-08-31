@@ -60,9 +60,11 @@ use Texinfo::Convert::NodeNameNormalization;
 # in error messages, and for macro body expansion
 use Texinfo::Convert::Texinfo;
 
+use Texinfo::Translations;
+
 require Exporter;
 use vars qw($VERSION @ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
-@ISA = qw(Exporter Texinfo::Report);
+@ISA = qw(Exporter Texinfo::Translations);
 
 our $module_loaded = 0;
 sub import {

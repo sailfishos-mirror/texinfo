@@ -27,8 +27,9 @@ use Texinfo::Common;
 use Texinfo::Encoding;
 use Texinfo::Convert::NodeNameNormalization;
 use Texinfo::Report;
+use Texinfo::Translations;
 
-our @ISA = qw(Exporter Texinfo::Report);
+our @ISA = qw(Exporter Texinfo::Translations);
 our %EXPORT_TAGS = ( 'all' => [ qw(
     parser
     parse_texi_text
@@ -83,7 +84,7 @@ sub parser (;$$)
           add_include_directory ($d);
         }
       } elsif ($key eq 'values') {
-        # This is used by Texinfo::Report::gdt for substituted values
+        # This is used by Texinfo::Translations::gdt for substituted values
         for my $v (keys %{$conf->{'values'}}) {
           if (!ref($conf->{'values'}->{$v})) {
             store_value ($v, $conf->{'values'}->{$v});

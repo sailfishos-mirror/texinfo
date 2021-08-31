@@ -380,7 +380,7 @@ sub _convert($;$)
       my $save_lang = $options->{'converter'}->get_conf('documentlanguage');
       $options->{'converter'}->{'documentlanguage'}
         = $root->{'extra'}->{'documentlanguage'};
-      my $tree = Texinfo::Report::gdt($options->{'converter'},
+      my $tree = Texinfo::Translations::gdt($options->{'converter'},
                                       $root->{'text'});
       $result = _convert($tree, $options);
       $options->{'converter'}->{'documentlanguage'} = $save_lang;

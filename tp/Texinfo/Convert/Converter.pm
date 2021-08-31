@@ -35,7 +35,7 @@ use Carp qw(cluck);
 
 require Exporter;
 use vars qw($VERSION @ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
-@ISA = qw(Exporter Texinfo::Report);
+@ISA = qw(Exporter Texinfo::Report Texinfo::Translations);
 
 %EXPORT_TAGS = ( 'all' => [ qw(
 xml_protect_text
@@ -254,6 +254,7 @@ sub converter(;$)
   $converter->{'output_files'} = {};
 
   require Texinfo::Report;
+  require Texinfo::Translations;
   # 'require' here instead of 'use' at top of file to cut down run time of 
   # 'texi2any --help'
 

@@ -24,10 +24,11 @@ sub test_new_node($$$$)
 
   my $parser = Texinfo::Parser::parser();
   my $line = $parser->parse_texi_line ($in);
+  my $registrar = $parser->registered_errors();
   my ($labels, $targets_list, $nodes_list) = $parser->labels_information();
   my $parser_informations = $parser->global_informations();
   my $refs = $parser->internal_references_information();
-  Texinfo::Structuring::associate_internal_references($parser, $parser,
+  Texinfo::Structuring::associate_internal_references($registrar, $parser,
                                         $parser_informations, $labels, $refs);
   # $labels, $nodes_list, $targets_list are modified
   my $node = Texinfo::Transformations::_new_node($parser, $line,
@@ -37,7 +38,7 @@ sub test_new_node($$$$)
   if (defined($node)) {
     $texi_result = Texinfo::Convert::Texinfo::convert_to_texinfo($node);
     my $refs = $parser->internal_references_information();
-    Texinfo::Structuring::associate_internal_references($parser, $parser,
+    Texinfo::Structuring::associate_internal_references($registrar, $parser,
                                         $parser_informations, $labels, $refs);
     $normalized = $node->{'extra'}->{'normalized'};
     my @labels = sort(keys(%$labels));
@@ -77,10 +78,11 @@ my $parser = Texinfo::Parser::parser();
 my $tree = $parser->parse_texi_text('@node a node
 ');
 my $line_tree = Texinfo::Parser::parse_texi_line (undef, 'a node');
+my $registrar = $parser->registered_errors();
 my ($labels, $targets_list, $nodes_list) = $parser->labels_information();
 my $parser_informations = $parser->global_informations();
 my $refs = $parser->internal_references_information();
-Texinfo::Structuring::associate_internal_references($parser, $parser,
+Texinfo::Structuring::associate_internal_references($registrar, $parser,
                                         $parser_informations, $labels, $refs);
 my $node = Texinfo::Transformations::_new_node($parser, $line_tree,
                                         $nodes_list, $targets_list, $labels);
@@ -153,10 +155,11 @@ Text.
 
   $parser = Texinfo::Parser::parser();
   $tree = $parser->parse_texi_text ($sections_text);
+  $registrar = $parser->registered_errors();
   ($labels, $targets_list, $nodes_list) = $parser->labels_information();
   $parser_informations = $parser->global_informations();
   $refs = $parser->internal_references_information();
-  Texinfo::Structuring::associate_internal_references($parser, $parser,
+  Texinfo::Structuring::associate_internal_references($registrar, $parser,
                                         $parser_informations, $labels, $refs);
   my ($new_content, $added_nodes)
    = Texinfo::Transformations::insert_nodes_for_sectioning_commands($parser,
@@ -178,10 +181,11 @@ $tree = $parser->parse_texi_text ('@node Top
 * (some_manual)::
 @end menu
 ');
+$registrar = $parser->registered_errors();
 ($labels, $targets_list, $nodes_list) = $parser->labels_information();
 $parser_informations = $parser->global_informations();
 $refs = $parser->internal_references_information();
-Texinfo::Structuring::associate_internal_references($parser, $parser,
+Texinfo::Structuring::associate_internal_references($registrar, $parser,
                                         $parser_informations, $labels, $refs);
 ($new_content, $added_nodes)
    = Texinfo::Transformations::insert_nodes_for_sectioning_commands($parser,

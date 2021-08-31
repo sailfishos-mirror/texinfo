@@ -654,6 +654,7 @@ sub handle_errors($$$)
   my $self = shift;
   my $error_count = shift;
   my $opened_files = shift;
+
   my ($errors, $new_error_count) = $self->errors();
   $error_count += $new_error_count if ($new_error_count);
   foreach my $error_message (@$errors) {

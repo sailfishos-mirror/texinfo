@@ -1,5 +1,13 @@
 2021-08-31  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Report.pm, tp/Texinfo/Translations.pm,
+	tp/Texinfo/Convert/Converter.pm, tp/Texinfo/Convert/Text.pm,
+	tp/Texinfo/ParserNonXS.pm, tp/Texinfo/XS/parsetexi/Parsetexi.pm:
+	move gdt() and string translation related code from
+	tp/Texinfo/Report.pm to newly created tp/Texinfo/Translations.pm.
+
+2021-08-31  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/texi2any.pl: use separate opened files informations
 	for each of the files opened in texi2any.pl and add to
 	the opened files list.
