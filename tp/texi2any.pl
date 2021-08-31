@@ -1170,6 +1170,7 @@ die sprintf(__("%s: missing file argument.\n"), $real_command_name)
    .sprintf(__("Try `%s --help' for more information.\n"), $real_command_name)
      unless (scalar(@input_files) >= 1);
 
+my $files_information = {};
 my $file_number = -1;
 my @opened_files = ();
 my %unclosed_files;
@@ -1254,17 +1255,18 @@ while(@input_files) {
     my $texinfo_text = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
     #print STDERR "$texinfo_text\n";
     my $macro_expand_file = get_conf('MACRO_EXPAND');
-    my $macro_expand_fh = Texinfo::Common::open_out($parser, $macro_expand_file);
-
+    my $macro_expand_fh = Texinfo::Common::output_files_open_out(
+                            $files_information, $parser, $macro_expand_file);
     my $error_macro_expand_file;
     if (defined($macro_expand_fh)) {
       print $macro_expand_fh $texinfo_text;
+      Texinfo::Common::output_files_register_closed($files_information,
+                                                    $macro_expand_file);
       if (!close($macro_expand_fh)) {
         document_warn(sprintf(__("error on closing macro expand file %s: %s\n"), 
                               $macro_expand_file, $!));
         $error_macro_expand_file = 1;
       }
-      $parser->Texinfo::Convert::Converter::register_close_file($macro_expand_file);
     } else {
       document_warn(sprintf(__("could not open %s for writing: %s\n"), 
                             $macro_expand_file, $!));
@@ -1401,9 +1403,12 @@ while(@input_files) {
 
   my $converter = &{$formats_table{$format}->{'converter'}}($converter_options);
   $converter->output($tree);
-  push @opened_files, $converter->converter_opened_files();
+  push @opened_files, Texinfo::Common::output_files_opened_files(
+                              $converter->output_files_information());
   handle_errors($converter, $error_count, \@opened_files);
-  my $converter_unclosed_files = $converter->converter_unclosed_files();
+  my $converter_unclosed_files
+       = Texinfo::Common::output_files_unclosed_files(
+                               $converter->output_files_information());
   if ($converter_unclosed_files) {
     foreach my $unclosed_file (keys(%$converter_unclosed_files)) {
       if ($unclosed_file eq '-') {
@@ -1427,7 +1432,8 @@ while(@input_files) {
     # always create a file, even if empty.
     $internal_links_text = '' if (!defined($internal_links_text));
     my $internal_links_file = get_conf('INTERNAL_LINKS');
-    my $internal_links_fh = Texinfo::Common::open_out($converter, 
+    my $internal_links_fh = Texinfo::Common::output_files_open_out(
+                              $converter->output_files_information(), $converter,
                                              $internal_links_file);
     my $error_internal_links_file;
     if (defined ($internal_links_fh)) {
@@ -1438,7 +1444,8 @@ while(@input_files) {
                       $real_command_name, $internal_links_file, $!));
         $error_internal_links_file = 1;
       }
-      $converter->register_close_file($internal_links_file);
+      Texinfo::Common::output_files_register_closed(
+              $converter->output_files_information(), $internal_links_file);
     } else {
       warn(sprintf(__("%s: could not open %s for writing: %s\n"), 
                       $real_command_name, $internal_links_file, $!));
@@ -1460,8 +1467,13 @@ while(@input_files) {
                $converter_element_count_file, $tree, $use_sections,
                              get_conf('SORT_ELEMENT_COUNT_WORDS'));
 
-    my $sort_element_count_file = get_conf('SORT_ELEMENT_COUNT'); 
-    my $sort_element_count_fh = Texinfo::Common::open_out($converter, 
+    my $sort_element_count_file = get_conf('SORT_ELEMENT_COUNT');
+    # FIXME using $converter here for the configuration is
+    # not right, should be changed by something not associated
+    # with the converter but to the main program or file. parser
+    # is not much better
+    my $sort_element_count_fh = Texinfo::Common::output_files_open_out(
+                                        $files_information, $converter,
                                              $sort_element_count_file);
     my $error_sort_element_count_file;
     if (defined ($sort_element_count_fh)) {
@@ -1472,7 +1484,8 @@ while(@input_files) {
                       $real_command_name, $sort_element_count_file, $!));
         $error_sort_element_count_file = 1;
       }
-      $converter->register_close_file($sort_element_count_file);
+      Texinfo::Common::output_files_register_closed($files_information,
+                                              $sort_element_count_file);
     } else {
       warn(sprintf(__("%s: could not open %s for writing: %s\n"), 
                     $real_command_name, $sort_element_count_file, $!));
@@ -1485,6 +1498,7 @@ while(@input_files) {
   }
 }
 
+# FIXME use $files_information?
 foreach my $unclosed_file (keys(%unclosed_files)) {
   if (!close($unclosed_files{$unclosed_file})) {
     warn(sprintf(__("%s: error on closing %s: %s\n"), 

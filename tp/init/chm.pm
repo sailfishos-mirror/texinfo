@@ -217,7 +217,8 @@ sub chm_init($)
 
   my $hhk_filename = $document_name . ".hhk";
   my $hhk_file = File::Spec->catfile($outdir, $hhk_filename);
-  my $hhk_fh = Texinfo::Common::open_out($self, $hhk_file);
+  my $hhk_fh = Texinfo::Common::output_files_open_out(
+                      $self->output_files_information(), $self, $hhk_file);
   if (!defined($hhk_fh)) {
     $self->document_error($self,
          sprintf(__("chm.pm: could not open %s for writing: %s\n"), 
@@ -264,7 +265,8 @@ sub chm_init($)
     }
   }
   print $hhk_fh "</BODY>\n</HTML>\n";
-  delete $self->{'unclosed_files'}->{$hhk_file};
+  Texinfo::Common::output_files_register_closed(
+    $self->output_files_information(), $hhk_file);
   if (!close ($hhk_fh)) {
     $self->document_error($self,
            sprintf(__("chm.pm: error on closing %s: %s"),
@@ -274,7 +276,8 @@ sub chm_init($)
 
   my $hhc_filename = $document_name . ".hhc";
   my $hhc_file = File::Spec->catfile($outdir, $hhc_filename);
-  my $hhc_fh = Texinfo::Common::open_out($self, $hhc_file);
+  my $hhc_fh = Texinfo::Common::output_files_open_out(
+                      $self->output_files_information(), $self, $hhc_file);
   # Not sure $! is still valid
   if (!defined($hhc_fh)) {
     $self->document_error($self,
@@ -336,7 +339,8 @@ sub chm_init($)
     }
   }
   print $hhc_fh "</HTML>\n</BODY>\n";
-  delete $self->{'unclosed_files'}->{$hhc_file};
+  Texinfo::Common::output_files_register_closed(
+    $self->output_files_information(), $hhc_file);
   if (!close ($hhc_fh)) {
     $self->document_error($self,
            sprintf(__("chm.pm: error on closing %s: %s"),
@@ -346,7 +350,8 @@ sub chm_init($)
 
   my $hhp_filename = $document_name . ".hhp";
   my $hhp_file = File::Spec->catfile($outdir, $hhp_filename);
-  my $hhp_fh = Texinfo::Common::open_out($self, $hhp_file);
+  my $hhp_fh = Texinfo::Common::output_files_open_out(
+                      $self->output_files_information(), $self, $hhp_file);
   # Not sure $! is still valid
   if (!defined($hhp_fh)) {
     $self->document_error(
@@ -399,7 +404,8 @@ EOT
     }
   }
 
-  delete $self->{'unclosed_files'}->{$hhp_file};
+  Texinfo::Common::output_files_register_closed(
+    $self->output_files_information(), $hhp_file);
   if (!close ($hhp_fh)) {
     $self->document_error($self,
          sprintf(__("chm.pm: error on closing %s: %s"),

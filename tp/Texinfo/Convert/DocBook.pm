@@ -312,7 +312,9 @@ sub output($$)
 
   my $fh;
   if (! $self->{'output_file'} eq '') {
-    $fh = $self->Texinfo::Common::open_out ($self->{'output_file'});
+    $fh = Texinfo::Common::output_files_open_out(
+                             $self->output_files_information(), $self,
+                             $self->{'output_file'});
     if (!$fh) {
       $self->document_error($self,
            sprintf(__("could not open %s for writing: %s"),
@@ -349,7 +351,8 @@ sub output($$)
   $result .= $self->convert_document_sections($root, $fh);
   $result .= $self->_output_text("</book>\n", $fh);
   if ($fh and $self->{'output_file'} ne '-') {
-    $self->register_close_file($self->{'output_file'});
+    Texinfo::Common::output_files_register_closed(
+                  $self->output_files_information(), $self->{'output_file'});
     if (!close ($fh)) {
       $self->document_error($self,
             sprintf(__("error on closing %s: %s"),

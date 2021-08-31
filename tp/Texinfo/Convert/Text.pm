@@ -710,14 +710,20 @@ sub output($$)
     $outfile = $self->{'OUTFILE'};
   }
   my $fh;
+  $self->{'output_files'} = {};
   if (defined($outfile)) {
-    $fh = $self->Texinfo::Common::open_out($outfile);
+    $fh = Texinfo::Common::output_files_open_out(
+                             $self->{'output_files'}, $self,
+                             $outfile);
     return undef if (!$fh);
   }
   my %options = $self->Texinfo::Common::_convert_text_options();
   my $result = _convert($tree, \%options);
   if ($fh) {
     print $fh $result;
+    # it is cleaner to follow the API (but not really useful)
+    Texinfo::Common::output_files_register_closed(
+                  $self->{'output_files'}, $outfile);
     return undef if (!close($fh));
     $result = '';
   }
@@ -735,16 +741,6 @@ sub get_conf($$)
 sub errors()
 {
   return undef;
-}
-
-sub converter_unclosed_files()
-{
-  return undef;
-}
-
-sub converter_opened_files()
-{
-  return ();
 }
 
 sub converter_defaults()

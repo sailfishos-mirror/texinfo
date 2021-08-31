@@ -155,7 +155,8 @@ sub output($)
           $close_error = $!;
         }
         if ($out_file_nr == 1) {
-          $self->register_close_file($self->{'output_file'});
+          Texinfo::Common::output_files_register_closed(
+             $self->output_files_information(), $self->{'output_file'});
           if (defined($close_error)) {
             $self->document_error($self,
                   sprintf(__("error on closing %s: %s"),
@@ -183,7 +184,9 @@ sub output($)
                                  $complete_header_bytes];
           #print STDERR join(' --> ', @{$indirect_files[-1]}) ."\n";
         } else {
-          $self->register_close_file($self->{'output_file'}.'-'.$out_file_nr);
+          Texinfo::Common::output_files_register_closed(
+                           $self->output_files_information(),
+                           $self->{'output_file'}.'-'.$out_file_nr);
           if (defined($close_error)) {
             $self->document_error($self,
                   sprintf(__("error on closing %s: %s"),
@@ -212,7 +215,8 @@ sub output($)
   }
   my $tag_text = '';
   if ($out_file_nr > 1) {
-    $self->register_close_file($self->{'output_file'}.'-'.$out_file_nr);
+    Texinfo::Common::output_files_register_closed(
+      $self->output_files_information(), $self->{'output_file'}.'-'.$out_file_nr);
     if (!close ($fh)) {
       $self->document_error($self,
                sprintf(__("error on closing %s: %s"),
@@ -276,7 +280,8 @@ sub output($)
     # reopened after closing STDOUT.  So closing STDOUT is handled by the
     # caller.
     unless ($self->{'output_file'} eq '-') {
-      $self->register_close_file($self->{'output_file'});
+      Texinfo::Common::output_files_register_closed(
+         $self->output_files_information(), $self->{'output_file'});
       if (!close ($fh)) {
         $self->document_error($self,
                   sprintf(__("error on closing %s: %s"),
@@ -289,14 +294,17 @@ sub output($)
   return $result;
 }
 
-# Wrapper around Texinfo::Common::open_out.  Open the file with any CR-LF
-# conversion disabled.  We need this for tag tables to be correct under
-# MS-Windows.   Return filehandle or undef on failure.
+# Wrapper around Texinfo::Common::output_files_open_out.  Open the file
+# with any CR-LF conversion disabled.  We need this for tag tables to
+# be correct under MS-Windows.   Return filehandle or undef on failure.
 sub _open_info_file($$)
 {
   my $self = shift;
   my $filename = shift;
-  my $fh = $self->Texinfo::Common::open_out($filename, undef, 'use_binmode');
+  my $fh = Texinfo::Common::output_files_open_out(
+                             $self->output_files_information(), $self,
+                             $filename, 'use_binmode');
+
   if (!$fh) {
     $self->document_error($self, sprintf(
         __("could not open %s for writing: %s"),

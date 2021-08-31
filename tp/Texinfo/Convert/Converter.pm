@@ -162,17 +162,6 @@ sub _informative_command($$)
   }
 }
 
-sub register_close_file($$)
-{
-  my $self = shift;
-  my $filename = shift;
-  if ($self->{'unclosed_files'}->{$filename}) {
-    delete $self->{'unclosed_files'}->{$filename};
-  } else {
-    cluck "$filename not opened\n";
-  }
-}
-
 sub converter(;$)
 {
   my $class = shift;
@@ -260,6 +249,10 @@ sub converter(;$)
     $converter->{'expanded_formats_hash'}->{$expanded_format} = 1;
   }
 
+  # used for output files information, to register opened
+  # and not closed files.  Accessed through output_files_information()
+  $converter->{'output_files'} = {};
+
   require Texinfo::Report;
   # 'require' here instead of 'use' at top of file to cut down run time of 
   # 'texi2any --help'
@@ -271,20 +264,10 @@ sub converter(;$)
   return $converter;
 }
 
-sub converter_unclosed_files($)
+sub output_files_information($)
 {
   my $self = shift;
-  return $self->{'unclosed_files'};
-}
-
-sub converter_opened_files($)
-{
-  my $self = shift;
-  if (defined($self->{'opened_files'})) {
-    return @{$self->{'opened_files'}};
-  } else {
-    return ();
-  }
+  return $self->{'output_files'};
 }
 
 sub _set_global_multiple_commands($;$)
@@ -787,7 +770,8 @@ sub output($$)
       }
       print STDERR "DO No pages, output in $outfile\n"
         if ($self->get_conf('DEBUG'));
-      $fh = $self->Texinfo::Common::open_out($outfile);
+      $fh = Texinfo::Common::output_files_open_out(
+                    $self->output_files_information(), $self, $outfile);
       if (!$fh) {
         $self->document_error($self,
                  sprintf(__("could not open %s for writing: %s"),
@@ -809,7 +793,8 @@ sub output($$)
     }
     # NOTE do not close STDOUT now to avoid a perl warning.
     if ($fh and $outfile ne '-') {
-      $self->register_close_file($outfile);
+      Texinfo::Common::output_files_register_closed(
+                  $self->output_files_information(), $outfile);
       if (!close($fh)) {
         $self->document_error($self,
                  sprintf(__("error on closing %s: %s"),
@@ -827,7 +812,9 @@ sub output($$)
       my $file_fh;
       # open the file and output the elements
       if (!$files{$element->{'filename'}}->{'fh'}) {
-        $file_fh = $self->Texinfo::Common::open_out($element->{'out_filename'});
+        $file_fh = Texinfo::Common::output_files_open_out(
+                             $self->output_files_information(), $self,
+                             $element->{'out_filename'});
         if (!$file_fh) {
           $self->document_error($self,
                 sprintf(__("could not open %s for writing: %s"),
@@ -844,7 +831,8 @@ sub output($$)
       if ($self->{'file_counters'}->{$element->{'filename'}} == 0) {
         # NOTE do not close STDOUT here to avoid a perl warning
         if ($element->{'out_filename'} ne '-') {
-          $self->register_close_file($element->{'out_filename'});
+          Texinfo::Common::output_files_register_closed(
+            $self->output_files_information(), $element->{'out_filename'});
           if (!close($file_fh)) {
             $self->document_error($self,
                      sprintf(__("error on closing %s: %s"),
@@ -1104,7 +1092,9 @@ sub output_no_split($$)
   
   my $fh;
   if (! $self->{'output_file'} eq '') {
-    $fh = $self->Texinfo::Common::open_out($self->{'output_file'});
+    $fh = Texinfo::Common::output_files_open_out(
+                             $self->output_files_information(), $self,
+                                     $self->{'output_file'});
     if (!$fh) {
       $self->document_error($self,
                sprintf(__("could not open %s for writing: %s"),

@@ -527,7 +527,9 @@ sub set_converter_option_defaults($$$)
 sub close_files($)
 {
   my $converter = shift;
-  my $converter_unclosed_files = $converter->converter_unclosed_files();
+  my $converter_unclosed_files
+       = Texinfo::Common::output_files_unclosed_files(
+                               $converter->output_files_information());
   if ($converter_unclosed_files) {
     foreach my $unclosed_file (keys(%$converter_unclosed_files)) {
       if (!close($converter_unclosed_files->{$unclosed_file})) {

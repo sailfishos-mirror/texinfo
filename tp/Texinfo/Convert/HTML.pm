@@ -7076,10 +7076,12 @@ __("cannot use absolute path or URL `%s' for JS_WEBLABELS_FILE when generating w
   }
   my $license_file = File::Spec->catdir($self->{'destination_directory'},
                                         $path);
-  my $fh = $self->Texinfo::Common::open_out($license_file);
+  my $fh = Texinfo::Common::output_files_open_out(
+                 $self->output_files_information(), $self, $license_file);
   if (defined($fh)) {
     print $fh $a;
-    $self->register_close_file($license_file);
+    Texinfo::Common::output_files_register_closed(
+                  $self->output_files_information(), $license_file);
     if (!close ($fh)) {
       $self->document_error($self,
                sprintf(__("error on closing %s: %s"),
@@ -7116,7 +7118,8 @@ sub _default_format_frame_files($)
     $toc_frame_outfile = $toc_frame_file;
   }
   
-  my $frame_fh = $self->Texinfo::Common::open_out($frame_outfile);
+  my $frame_fh = Texinfo::Common::output_files_open_out(
+                     $self->output_files_information(), $self, $frame_outfile);
   if (defined($frame_fh)) {
     my $doctype = $self->get_conf('FRAMESET_DOCTYPE');
     my $top_file = '';
@@ -7136,7 +7139,8 @@ $doctype
 </html>
 EOT
 
-    $self->register_close_file($frame_outfile);
+    Texinfo::Common::output_files_register_closed(
+                  $self->output_files_information(), $frame_outfile);
     if (!close ($frame_fh)) {
       $self->document_error($self,
           sprintf(__("error on closing frame file %s: %s"),
@@ -7150,7 +7154,8 @@ EOT
     return 0;
   }
 
-  my $toc_frame_fh = $self->Texinfo::Common::open_out($toc_frame_outfile);
+  my $toc_frame_fh = Texinfo::Common::output_files_open_out(
+                      $self->output_files_information(), $self, $toc_frame_outfile);
   if (defined($toc_frame_fh)) {
 
     my $header = &{$self->{'format_begin_file'}}($self, $toc_frame_file, undef);
@@ -7162,7 +7167,8 @@ EOT
     print $toc_frame_fh $shortcontents;
     print $toc_frame_fh "</body></html>\n";
 
-    $self->register_close_file($toc_frame_outfile);
+    Texinfo::Common::output_files_register_closed(
+                  $self->output_files_information(), $toc_frame_outfile);
     if (!close ($toc_frame_fh)) {
       $self->document_error($self,
             sprintf(__("error on closing TOC frame file %s: %s"),
@@ -7610,7 +7616,8 @@ sub output($$)
       } else {
         $outfile = $self->{'output_file'};
       }
-      $fh = $self->Texinfo::Common::open_out($outfile);
+      $fh = Texinfo::Common::output_files_open_out(
+              $self->output_files_information(), $self,$outfile);
       if (!$fh) {
         $self->document_error($self,
               sprintf(__("could not open %s for writing: %s"),
@@ -7639,7 +7646,8 @@ sub output($$)
 
     # NOTE do not close STDOUT now to avoid a perl warning.
     if ($fh and $outfile ne '-') {
-      $self->register_close_file($outfile);
+      Texinfo::Common::output_files_register_closed(
+                  $self->output_files_information(), $outfile);
       if (!close($fh)) {
         $self->document_error($self,
               sprintf(__("error on closing %s: %s"),
@@ -7684,7 +7692,9 @@ sub output($$)
       }
 
       if (!$files{$element->{'filename'}}->{'fh'}) {
-        $file_fh = $self->Texinfo::Common::open_out($element->{'out_filename'});
+        $file_fh = Texinfo::Common::output_files_open_out(
+                         $self->output_files_information(), $self,
+                         $element->{'out_filename'});
         if (!$file_fh) {
           $self->document_error($self,
                sprintf(__("could not open %s for writing: %s"),
@@ -7706,7 +7716,8 @@ sub output($$)
 
         # NOTE do not close STDOUT here to avoid a perl warning
         if ($element->{'out_filename'} ne '-') {
-          $self->register_close_file($element->{'out_filename'});
+          Texinfo::Common::output_files_register_closed(
+             $self->output_files_information(), $element->{'out_filename'});
           if (!close($file_fh)) {
             $self->document_error($self,
                        sprintf(__("error on closing %s: %s"),
@@ -7792,14 +7803,17 @@ sub output($$)
         } else {
           $out_filename = $node_filename;
         }
-        my $file_fh = $self->Texinfo::Common::open_out($out_filename);
+        my $file_fh = Texinfo::Common::output_files_open_out(
+                             $self->output_files_information(), $self,
+                             $out_filename);
         if (!$file_fh) {
          $self->document_error($self, sprintf(__(
                                     "could not open %s for writing: %s"),
                                     $out_filename, $!));
         } else {
           print $file_fh $redirection_page;
-          $self->register_close_file($out_filename);
+          Texinfo::Common::output_files_register_closed(
+                  $self->output_files_information(), $out_filename);
           if (!close ($file_fh)) {
             $self->document_error($self, sprintf(__(
                              "error on closing redirection node file %s: %s"),

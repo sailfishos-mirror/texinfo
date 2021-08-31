@@ -1125,21 +1125,25 @@ sub locate_include_file($$)
   return $file;
 }
 
-sub open_out($$;$$)
+
+# internal API to open and register files.  In general $self is
+# stored as $converter->{'output_files'} and should be accessed
+# through $converter->output_files_information();
+sub output_files_open_out($$$;$)
 {
   my $self = shift;
+  my $configuration_informations = shift;
   my $file = shift;
-  my $encoding = shift;
   my $use_binmode = shift;
 
-  if (!defined($encoding) and $self 
-      and defined($self->get_conf('OUTPUT_PERL_ENCODING'))) {
-    $encoding = $self->get_conf('OUTPUT_PERL_ENCODING');
+  my $encoding;
+  if (defined($configuration_informations->get_conf('OUTPUT_PERL_ENCODING'))) {
+    $encoding = $configuration_informations->get_conf('OUTPUT_PERL_ENCODING');
   }
 
   if ($file eq '-') {
     binmode(STDOUT) if $use_binmode;
-    binmode(STDOUT, ":encoding($encoding)") if ($encoding);
+    binmode(STDOUT, ":encoding($encoding)") if (defined($encoding));
     if ($self) {
       $self->{'unclosed_files'}->{$file} = \*STDOUT;
     }
@@ -1169,6 +1173,35 @@ sub open_out($$;$$)
   }
   return $filehandle;
 }
+
+sub output_files_register_closed($$)
+{
+  my $self = shift;
+  my $filename = shift;
+  if ($self->{'unclosed_files'}->{$filename}) {
+    delete $self->{'unclosed_files'}->{$filename};
+  } else {
+    cluck "$filename not opened\n";
+  }
+}
+
+sub output_files_opened_files($)
+{
+  my $self = shift;
+  if (defined($self->{'opened_files'})) {
+    return @{$self->{'opened_files'}};
+  } else {
+    return ();
+  }
+}
+
+sub output_files_unclosed_files($)
+{
+  my $self = shift;
+  return $self->{'unclosed_files'};
+}
+# end of output_files API
+
 
 sub warn_unknown_language($) {
   my $lang = shift;

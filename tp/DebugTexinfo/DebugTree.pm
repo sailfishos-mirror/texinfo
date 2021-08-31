@@ -58,7 +58,9 @@ sub output($$)
 
   my $fh;
   if (! $self->{'output_file'} eq '') {
-    $fh = $self->Texinfo::Common::open_out ($self->{'output_file'});
+    $fh = Texinfo::Common::output_files_open_out(
+                             $self->output_files_information(), $self,
+                                     $self->{'output_file'});
     if (!$fh) {
       $self->document_error($self,
            sprintf($self->__("could not open %s for writing: %s"),
