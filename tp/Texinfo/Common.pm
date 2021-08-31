@@ -1129,6 +1129,11 @@ sub locate_include_file($$)
 # internal API to open and register files.  In general $self is
 # stored as $converter->{'output_files'} and should be accessed
 # through $converter->output_files_information();
+# All the opened files are registered, except for stdout,
+# and the closing of files should be registered too with
+# output_files_register_closed() below.  This makes possible to
+# unlink all the opened files and close the files not already
+# closed.
 sub output_files_open_out($$$;$)
 {
   my $self = shift;

@@ -1,5 +1,11 @@
 2021-08-31  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/texi2any.pl: use separate opened files informations
+	for each of the files opened in texi2any.pl and add to
+	the opened files list.
+
+2021-08-31  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (open_out, output_files_open_out)
 	(output_files_register_closed, output_files_opened_files)
 	(output_files_unclosed_files),
