@@ -509,13 +509,11 @@ sub _copy_contents($)
   return $copy->{'contents'};
 }
 
-sub _print_down_menus($$$);
-sub _print_down_menus($$$)
+sub _print_down_menus($$);
+sub _print_down_menus($$)
 {
-  my $self = shift;
   my $node = shift;
   my $labels = shift;
-  $labels = $self->labels_information() if (!defined($labels));
 
   my @master_menu_contents;
 
@@ -564,7 +562,7 @@ sub _print_down_menus($$$)
 
       # now recurse in the children
       foreach my $child (@node_children) {
-        push @master_menu_contents, _print_down_menus($self, $child, $labels);
+        push @master_menu_contents, _print_down_menus($child, $labels);
       }
     }
   }
@@ -588,8 +586,7 @@ sub new_master_menu($$)
               and defined($entry_node->{'normalized'})) {
             my $node = $labels->{$entry_node->{'normalized'}};
             if (defined($node) and $node->{'extra'}) {
-              push @master_menu_contents, _print_down_menus($self, 
-                                                            $node, $labels);
+              push @master_menu_contents, _print_down_menus($node, $labels);
             }
           }
         }
