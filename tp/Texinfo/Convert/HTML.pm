@@ -3922,8 +3922,8 @@ foreach my $small_command (keys(%small_alias)) {
 }
 
 # Keys are tree element types, values are function references to convert
-# elements of that type.  Can be overridden with
-# Texinfo::Config::texinfo_types_conversion, setup by
+# elements of that type.  Can be overridden accessing
+# Texinfo::Config::GNUT_get_types_conversion, setup by
 # Texinfo::Config::texinfo_register_type_formatting()
 my %default_types_conversion;
 
@@ -5137,9 +5137,10 @@ sub converter_initialize($)
   _load_htmlxref_files($self);
 
   foreach my $type (keys(%default_types_conversion)) {
-    if (exists($Texinfo::Config::texinfo_types_conversion{$type})) {
+    my $customized_types_conversion = Texinfo::Config::GNUT_get_types_conversion();
+    if (exists($customized_types_conversion->{$type})) {
       $self->{'types_conversion'}->{$type}
-          = $Texinfo::Config::texinfo_types_conversion{$type};
+          = $customized_types_conversion->{$type};
     } else {
       $self->{'types_conversion'}->{$type} 
           = $default_types_conversion{$type};
@@ -5159,9 +5160,11 @@ sub converter_initialize($)
   # FIXME put value in a category in Texinfo::Common?
   foreach my $command (keys(%misc_commands), keys(%brace_commands),
      keys (%block_commands), keys(%no_brace_commands), 'value') {
-    if (exists($Texinfo::Config::texinfo_commands_conversion{$command})) {
+    my $customized_commands_conversion
+        = Texinfo::Config::GNUT_get_commands_conversion();
+    if (exists($customized_commands_conversion->{$command})) {
       $self->{'commands_conversion'}->{$command} 
-          = $Texinfo::Config::texinfo_commands_conversion{$command};
+          = $customized_commands_conversion->{$command};
     } else {
       if ($self->get_conf('FORMAT_MENU') ne 'menu'
            and ($command eq 'menu' or $command eq 'detailmenu')) {
@@ -5245,9 +5248,10 @@ sub converter_initialize($)
   foreach my $formatting_reference (keys(%default_formatting_references)) {
     $self->{'default_formatting_functions'}->{$formatting_reference}
        = $default_formatting_references{$formatting_reference};
-    if (defined($Texinfo::Config::texinfo_formatting_references{$formatting_reference})) {
+    my $customized_formatting_references = Texinfo::Config::GNUT_get_formatting_references();
+    if (defined($customized_formatting_references->{$formatting_reference})) {
       $self->{$formatting_reference} 
-       =  $Texinfo::Config::texinfo_formatting_references{$formatting_reference};
+       =  $customized_formatting_references->{$formatting_reference};
     } else {
       $self->{$formatting_reference} 
        = $default_formatting_references{$formatting_reference};
@@ -7298,11 +7302,12 @@ sub run_stage_handlers($$$)
   my $stage = shift;
   die if (!$possible_stages{$stage});
 
-  return 1 if (!defined($Texinfo::Config::texinfo_default_stage_handlers{$stage}));
+  my $stage_handlers = Texinfo::Config::GNUT_get_stage_handlers();
+  return 1 if (!defined($stage_handlers->{$stage}));
 
-  my @sorted_priorities = sort keys(%{$Texinfo::Config::texinfo_default_stage_handlers{$stage}});
+  my @sorted_priorities = sort keys(%{$stage_handlers->{$stage}});
   foreach my $priority (@sorted_priorities) {
-    foreach my $handler (@{$Texinfo::Config::texinfo_default_stage_handlers{$stage}->{$priority}}) {
+    foreach my $handler (@{$stage_handlers->{$stage}->{$priority}}) {
       if ($converter->get_conf('DEBUG')) {
         print STDERR "HANDLER($stage) , priority $priority: $handler\n";
       }
@@ -8144,7 +8149,6 @@ sub _convert($$;$)
     }
 
     if ($self->{'code_types'}->{$root->{'type'}}) {
-      #$self->{'document_context'}->[-1]->{'code'}++;
       push @{$self->{'document_context'}->[-1]->{'monospace'}}, 1;
     }
     if ($root->{'type'} eq '_string') {
@@ -8171,7 +8175,6 @@ sub _convert($$;$)
       $result = $content_formatted;
     }
     if ($self->{'code_types'}->{$root->{'type'}}) {
-      #$self->{'document_context'}->[-1]->{'code'}--;
       pop @{$self->{'document_context'}->[-1]->{'monospace'}};
     } 
     if ($root->{'type'} eq '_string') {

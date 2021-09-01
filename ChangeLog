@@ -1,5 +1,13 @@
 2021-09-01  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Config.pm (GNUT_get_stage_handlers)
+	(GNUT_get_formatting_references, GNUT_get_commands_conversion)
+	(GNUT_get_types_conversion), tp/Texinfo/Convert/HTML.pm:
+	use a proper interface between Texinfo::Config and
+	Texinfo::Convert::HTML for handlers.
+
+2021-09-01  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Config.pm, texi2any.pl, tp/init/*.pm, tp/t/init/*.init: 
 	rename _load_init_file as GNUT_load_init_file,
 	_load_config as GNUT_load_config, set_from_init_file as

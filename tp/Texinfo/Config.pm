@@ -67,7 +67,7 @@ sub texinfo_set_from_init_file($$) {
     # carp may be better, but infortunately, it points to the routine that 
     # loads the file, and not to the init file.
     main::document_warn(sprintf(__("%s: unknown variable %s"),
-                                'set_from_init_file', $var));
+                                'texinfo_set_from_init_file', $var));
     return 0;
   }
   return 0 if (defined($cmdline_options->{$var}));
@@ -84,7 +84,7 @@ sub GNUT_set_from_cmdline($$) {
   delete $default_options->{$var};
   if (!Texinfo::Common::valid_option($var)) {
     main::document_warn(sprintf(main::__("%s: unknown variable %s\n"),
-                                'set_from_cmdline', $var));
+                                'GNUT_set_from_cmdline', $var));
     return 0;
   }
   $cmdline_options->{$var} = $value;
@@ -131,13 +131,18 @@ foreach my $stage (@possible_stages) {
 
 my $default_priority = 'default';
 
-# Note that these variables are available for the Texinfo modules
-# but, in general should not be accessed directly by the users who
+# Thes variables should not be accessed directly by the users who
 # customize formatting and should use the associated functions,
 # such as texinfo_register_handler(), texinfo_register_formatting_function(),
 # texinfo_register_command_formatting() or texinfo_register_type_formatting().
-use vars qw(%texinfo_default_stage_handlers %texinfo_formatting_references
-            %texinfo_commands_conversion %texinfo_types_conversion);
+#
+# FIXME add another level with format?  Not needed now as HTML is
+# the only customizable format for now.
+my $GNUT_stage_handlers = {};
+my $GNUT_formatting_references = {};
+my $GNUT_commands_conversion = {};
+my $GNUT_types_conversion = {};
+
 
 sub texinfo_register_handler($$;$)
 {
@@ -150,10 +155,17 @@ sub texinfo_register_handler($$;$)
     return 0;
   }
   $priority = $default_priority if (!defined($priority));
-  push @{$texinfo_default_stage_handlers{$stage}->{$priority}}, $handler;
+  push @{$GNUT_stage_handlers->{$stage}->{$priority}}, $handler;
   return 1;
 }
 
+# called from the Converter
+sub GNUT_get_stage_handlers()
+{
+  return $GNUT_stage_handlers;
+}
+
+# called from init files
 sub texinfo_register_formatting_function($$)
 {
   my $thing = shift;
@@ -162,23 +174,42 @@ sub texinfo_register_formatting_function($$)
     carp ("Unknown formatting type $thing\n");
     return 0;
   }
-  $texinfo_formatting_references{$thing} = $handler;
+  $GNUT_formatting_references->{$thing} = $handler;
 }
 
+# called from the Converter
+sub GNUT_get_formatting_references()
+{
+  return $GNUT_formatting_references;
+}
+
+# called from init files
 sub texinfo_register_command_formatting($$)
 {
   my $command = shift;
   my $reference = shift;
-  $texinfo_commands_conversion{$command} = $reference;
+  $GNUT_commands_conversion->{$command} = $reference;
 }
 
+# called from the Converter
+sub GNUT_get_commands_conversion()
+{
+  return $GNUT_commands_conversion;
+}
+
+# called from init files
 sub texinfo_register_type_formatting($$)
 {
   my $command = shift;
   my $reference = shift;
-  $texinfo_types_conversion{$command} = $reference;
+  $GNUT_types_conversion->{$command} = $reference;
 }
 
+# called from the Converter
+sub GNUT_get_types_conversion()
+{
+  return $GNUT_types_conversion;
+}
 
 
 1;
