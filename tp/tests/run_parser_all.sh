@@ -17,7 +17,7 @@ check_latex2html_and_tex4ht ()
     if echo "$remaining" | grep '[-]l2h' >/dev/null; then
       maybe_use_latex2html=yes
     fi
-    if echo "$remaining" | grep 'L2H 1' >/dev/null; then
+    if echo "$remaining" | grep 'HTML_MATH l2h' >/dev/null; then
       maybe_use_latex2html=yes
     fi
     if [ $maybe_use_latex2html = 'yes' ]; then

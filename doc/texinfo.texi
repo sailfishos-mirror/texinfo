@@ -16251,7 +16251,7 @@ Use tables for header formatting rather than a simple
 @item HTML_MATH
 Method to use to render @code{@@math}.  This can be unset, set to
 @samp{mathjax} (@pxref{MathJax Customization Variables}),
-set to @samp{l2h}, which has the same effect as setting @code{L2H}
+set to @samp{l2h}, which uses @command{latex2html}
 (@pxref{@command{latex2html} Customization Variables}), or set to
 @samp{t2h}, which uses @command{tex4ht}.
 
@@ -16473,32 +16473,30 @@ others' distribution systems.
 @subsection @command{latex2html} Customization Variables
 
 This table lists the customization variables which can be used when 
-@command{latex2html} is being used.
+@command{latex2html} is being used to convert @code{@@math} and
+@code{@@tex} sections for HTML@.  To actually convert @code{@@tex} sections,
+@option{--iftex} should be used.
 
 @vtable @code
-@item L2H
-For HTML@.  If set, @command{latex2html} is used to convert @code{@@math}
-and @code{@@tex} sections; default false.  Best used with @option{--iftex}.
-
 @item L2H_CLEAN
-(Relevant only if @code{L2H} is set.)  If set, the intermediate files
+(Relevant only if @code{HTML_MATH} is set to @samp{l2h}.)  If set, the intermediate files
 generated in relation with @command{latex2html} are removed; default
 true.
 
 @item L2H_FILE
-(Relevant only if @code{L2H} is set.)  If set, the given file is used
+(Relevant only if @code{HTML_MATH} is set to @samp{l2h}.)  If set, the given file is used
 as @command{latex2html}'s init file; default unset.
 
 @item L2H_HTML_VERSION
-(Relevant only if @code{L2H} is set.)  The HTML version used in the
+(Relevant only if @code{HTML_MATH} is set to @samp{l2h}.)  The HTML version used in the
 @command{latex2html} call; default unset.
 
 @item L2H_L2H
-(Relevant only if @code{L2H} is set.)  The program invoked as
+(Relevant only if @code{HTML_MATH} is set to @samp{l2h}.)  The program invoked as
 @command{latex2html}; default is @code{latex2html}.
 
 @item L2H_SKIP
-(Relevant only if @code{L2H} is set.)  If set to a true value, the
+(Relevant only if @code{HTML_MATH} is set to @samp{l2h}.)  If set to a true value, the
 actual call to @command{latex2html} is skipped; previously generated
 content is reused instead.  If set to 0, the cache is not used at all.
 If set to @samp{undef}, the cache is used for as many @TeX{} fragments as
@@ -16506,7 +16504,7 @@ possible and for any remaining the command is run.  The default is
 @samp{undef}.
 
 @item L2H_TMP
-(Relevant only if @code{L2H} is set.)  Set the directory used for
+(Relevant only if @code{HTML_MATH} is set to @samp{l2h}.)  Set the directory used for
 temporary files.  None of the file name components in this directory
 name may start with @samp{.}; otherwise, @command{latex2html} will
 fail (because of @command{dvips}).  The default is the empty string,
@@ -17013,7 +17011,7 @@ corresponding @command{texi2any} customization variables.
 @item @option{--def-table}            @tab @code{DEF_TABLE}
 @item @option{--ignore-preamble-text} @tab @code{IGNORE_PREAMBLE_TEXT}
 @item @option{--html-xref-prefix}     @tab @code{EXTERNAL_DIR}
-@item @option{--l2h}                  @tab @code{L2H}
+@item @option{--l2h}                  @tab @code{HTML_MATH} set to @samp{l2h}
 @item @option{--l2h-l2h}              @tab @code{L2H_L2H}
 @item @option{--l2h-skip}             @tab @code{L2H_SKIP}
 @item @option{--l2h-tmp}              @tab @code{L2H_TMP}

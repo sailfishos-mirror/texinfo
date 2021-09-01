@@ -241,7 +241,6 @@ our @variable_string_settables = (
 'JS_WEBLABELS',
 'JS_WEBLABELS_FILE',
 'KEEP_TOP_EXTERNAL_REF',
-'L2H',
 'L2H_CLEAN',
 'L2H_FILE',
 'L2H_HTML_VERSION',

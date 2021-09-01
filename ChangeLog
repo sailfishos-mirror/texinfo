@@ -1,5 +1,13 @@
 2021-09-01  Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texinfo.texi (HTML Customization Variables)
+	(@command{latex2html} Customization Variables, @command{texi2html})
+	tp/Texinfo/Common.pm (@variable_string_settables)
+	tp/texi2any.pl: remove L2H.  HTML_MATH should be set to l2h
+	only.
+
+2021-09-01  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (@variable_other_settables),
 	tp/Texinfo/Convert/IXIN.pm (output_ixin),
 	tp/Texinfo/Convert/IXINSXML.pm (%defaults):

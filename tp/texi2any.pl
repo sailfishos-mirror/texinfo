@@ -908,16 +908,14 @@ sub process_config {
     $format = set_format('html', $format, 1);
     $parser_options->{'values'}->{'texi2html'} = 1;
   }
-  if (defined($conf->{'HTML_MATH'}) and $conf->{'HTML_MATH'} eq 'l2h') {
-    $conf->{'L2H'} = 1;
-  }
 }
 
 process_config($cmdline_options);
 
 # FIXME do this here or inside format-specific code?
 my $latex2html_file = 'latex2html.pm';
-if (defined($cmdline_options->{'L2H'})) {
+if (defined($cmdline_options->{'HTML_MATH'})
+      and $cmdline_options->{'HTML_MATH'} eq 'l2h') {
   locate_and_load_init_file($latex2html_file, 
                         [ @conf_dirs, @program_init_dirs ]);
 }
