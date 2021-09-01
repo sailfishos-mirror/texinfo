@@ -90,6 +90,7 @@ dist_converters_DATA = \
  Texinfo/Convert/IXIN.pm \
  Texinfo/Convert/IXINSXML.pm \
  Texinfo/Convert/Info.pm \
+ Texinfo/Convert/LaTeX.pm \
  Texinfo/Convert/Line.pm \
  Texinfo/Convert/NodeNameNormalization.pm \
  Texinfo/Convert/Paragraph.pm \
@@ -162,6 +163,8 @@ test_files = \
  t/init/test_renamed_nodes.init \
  t/init/misc_file_collision.init \
  t/init/l2h.init \
+ t/init/command_translation_modified.init \
+ t/init/translate_txiinternalvalue_macro.init \
  t/test_utils.pl \
  t/input_files/all_spaces.texi \
  t/input_files/at_commands_in_refs.texi \
