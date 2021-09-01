@@ -74,7 +74,6 @@ our %all_converters_defaults = (
   'paragraphindent'      => 3,
   'fillcolumn'           => 72,
   'expanded_formats'     => undef,
-  'include_directories'  => undef,
   'structuring'          => undef,
   'IMAGE_LINK_PREFIX'    => undef,
   'NUMBER_SECTIONS'      => 1,

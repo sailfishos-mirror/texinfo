@@ -79,8 +79,8 @@ sub parser (;$$)
         $parser->{$key} = $conf->{$key};
       }
 
-      if ($key eq 'include_directories') {
-        foreach my $d (@{$conf->{'include_directories'}}) {
+      if ($key eq 'INCLUDE_DIRECTORIES') {
+        foreach my $d (@{$conf->{'INCLUDE_DIRECTORIES'}}) {
           add_include_directory ($d);
         }
       } elsif ($key eq 'values') {

@@ -109,7 +109,6 @@ sub N__($)
 
 # these are the default values for the parser state
 my %parser_state_configuration = (
-  'include_directories' => [ '.' ],
   # these are the user-added indices.  May be an array reference on names
   # or an hash reference in the same format than %index_names below
   'indices' => [],
@@ -5960,7 +5959,7 @@ C<@synindex>).  These options are described below in L</Texinfo Parser options>.
 An array reference of the output formats for which C<@ifI<FORMAT>> 
 conditional blocks should be expanded.  Default is empty.
 
-=item include_directories
+=item INCLUDE_DIRECTORIES
 
 An array reference of directories in which C<@include> files should be 
 searched for.  Default contains the working directory, F<.>.
@@ -5988,16 +5987,6 @@ menu-related errors for 'menu'.
 =item registrar
 
 Texinfo::Report object reused by the parser to register errors.
-
-=begin :comment
-
-Used by Sectioning only
-=item TOP_NODE_UP
-
-Text for the up node of the Top node.  The default is C<(dir)>.  The
-string may contain @-commands.
-
-=end :comment
 
 =back
 

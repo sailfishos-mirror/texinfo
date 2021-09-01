@@ -104,8 +104,10 @@ use Texinfo::Convert::Converter;
 # command line parsing.
 my @css_files = ();
 my @css_refs = ();
+my @include_dirs = ();
 my $cmdline_options = { 'CSS_FILES' => \@css_files,
-                        'CSS_REFS' => \@css_refs };
+                        'CSS_REFS' => \@css_refs,
+                        'INCLUDE_DIRECTORIES' => \@include_dirs };
 
 # determine the path separators
 my $path_separator = $Config{'path_sep'};
@@ -357,11 +359,12 @@ my $format = 'info';
 # corresponding --no-ifformat.
 my $default_expanded_format = [ $format ];
 my @conf_dirs = ();
-my @include_dirs = ();
 my @prepend_dirs = ();
 
 # $cmdline_options are common to main program and Texinfo::Config
-# namespace, set by set_from_cmdline for text values.
+# namespace, set by GNUT_set_from_cmdline for text values, but also
+# manipulated in main program.
+# $init_files_options are managed by Texinfo::Config and available here.
 # There is in addition $parser_options for parser
 # related informations for informations that are not set through
 # set_from_cmdline.  The configuration text values are later on
@@ -372,7 +375,8 @@ my @prepend_dirs = ();
 my $parser_options = {'EXPANDED_FORMATS' => [],
                       'values' => {'txicommandconditionals' => 1}};
 
-Texinfo::Config::GNUT_load_config($converter_default_options, $cmdline_options);
+my $init_files_options = Texinfo::Config::GNUT_initialize_config(
+      $real_command_name, $converter_default_options, $cmdline_options);
 
 sub set_expansion($$) {
   my $region = shift;
@@ -524,6 +528,8 @@ sub set_format($;$$)
   return $new_format;
 }
 
+# FIXME used in init/chm.pm main::set_global_format('html'); but this
+# is not a sane interface, should be modified.
 sub set_global_format($)
 {
   my $set_format = shift;
@@ -892,8 +898,8 @@ There is NO WARRANTY, to the extent permitted by law.\n"), "2021";
 
 exit 1 if (!$result_options);
 
-# Change some options depending on the settings of other ones
-sub normalize_config {
+# Change some options depending on the settings of other ones set formats
+sub process_config {
   my $conf = shift;
 
   if (defined($conf->{'TEXINFO_OUTPUT_FORMAT'})) {
@@ -907,9 +913,7 @@ sub normalize_config {
   }
 }
 
-$cmdline_options->{'include_directories'} = [@include_dirs];
-
-normalize_config($cmdline_options);
+process_config($cmdline_options);
 
 # FIXME do this here or inside format-specific code?
 my $latex2html_file = 'latex2html.pm';
@@ -1105,15 +1109,13 @@ while(@input_files) {
 
   my $parser_file_options = { %$parser_options };
 
-  $parser_file_options->{'include_directories'} = [@include_dirs];
-
   my @prepended_include_directories = ('.');
   push @prepended_include_directories, $input_directory
       if ($input_directory ne '.');
   @prepended_include_directories =
     (@prepend_dirs, @prepended_include_directories);
 
-  unshift @{$parser_file_options->{'include_directories'}},
+  unshift @{$parser_file_options->{'INCLUDE_DIRECTORIES'}},
           @prepended_include_directories;
 
   my $parser = Texinfo::Parser::parser($parser_file_options);
@@ -1292,23 +1294,26 @@ while(@input_files) {
   if ($format eq 'structure') {
     next;
   }
+  my $file_cmdline_options = { %$cmdline_options };
 
   if ($file_number != 0) {
-    delete $cmdline_options->{'OUTFILE'} if exists($cmdline_options->{'OUTFILE'});
-    delete $cmdline_options->{'PREFIX'} if exists($cmdline_options->{'PREFIX'});
-    delete $cmdline_options->{'SUBDIR'} 
-      if (exists($cmdline_options->{'SUBDIR'}) and get_conf('SPLIT'));
+    delete $file_cmdline_options->{'OUTFILE'}
+       if exists($file_cmdline_options->{'OUTFILE'});
+    delete $file_cmdline_options->{'PREFIX'}
+       if exists($file_cmdline_options->{'PREFIX'});
+    delete $file_cmdline_options->{'SUBDIR'}
+       if (exists($file_cmdline_options->{'SUBDIR'}) and get_conf('SPLIT'));
   }
   my $converter_options = { %$converter_default_options, 
-                            %$cmdline_options,
-                            %$Texinfo::Config::options };
+                            %$file_cmdline_options,
+                            %$init_files_options };
 
   $converter_options->{'expanded_formats'} = $parser_options->{'EXPANDED_FORMATS'};
   $converter_options->{'parser'} = $parser;
   $converter_options->{'structuring'} = $structure_informations;
   $converter_options->{'output_format'} = $format;
   $converter_options->{'language_config_dirs'} = \@language_config_dirs;
-  unshift @{$converter_options->{'include_directories'}},
+  unshift @{$converter_options->{'INCLUDE_DIRECTORIES'}},
           @prepended_include_directories;
 
   my $converter = &{$formats_table{$format}->{'converter'}}($converter_options);

@@ -1,5 +1,33 @@
 2021-09-01  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (%default_parser_customization_values)
+	(@variable_other_settables, locate_include_file)
+	(_convert_text_options),
+	tp/Texinfo/Convert/Converter.pm (%all_converters_defaults),
+	tp/Texinfo/Convert/Text.pm (_code_options, convert_to_text)
+	(_convert), tp/Texinfo/ParserNonXS.pm (%parser_state_configuration),
+	tp/Texinfo/XS/parsetexi/Parsetexi.pm (parser), tp/texi2any.pl:
+	turn 'include_directories' to a normal conf variable, renamed
+	as 'INCLUDE_DIRECTORIES'.  As a consequence, locate_include_file
+	now uses get_conf, which means that the $configurations_informations
+	need to be blessed.  bless $options in Texinfo::Convert::Text
+	convert_to_text() and instead of replacing the $options with
+	the _code_options() function, use a state in '_code_options'
+	to modify transiently instead of replacing each time code type
+	formatting is needed.
+
+	* tp/Texinfo/Config.pm (GNUT_load_config, GNUT_initialize_config)
+	(_document_warn), tp/texi2any.pl: rename GNUT_load_config() as
+	GNUT_initialize_config().  Pass $real_command_name and return
+	$options, renamed $init_files_options.
+
+	* tp/texi2any.pl (normalize_config, process_config): rename
+	normalize_config() as process_config().
+	Do not modify $cmdline_options after the first file, copy and
+	modify.
+
+2021-09-01  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Config.pm (texinfo_register_formatting_function),
 	tp/Texinfo/Convert/HTML.pm (converter_initialize, run_stage_handlers):
 	do not check the validity of texinfo_register_formatting_function()

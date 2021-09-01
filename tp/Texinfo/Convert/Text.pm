@@ -318,25 +318,20 @@ sub heading($$$;$$)
   return $result;
 }
 
-sub _code_options($)
-{
-  my $options = shift;
-  my $code_options;
-  if (defined($options)) {
-    $code_options = { %$options };
-  } else {
-    $code_options = {};
-  }
-  $code_options->{'code'} = 1;
-  return $code_options;
-}
-
 sub convert_to_text($;$)
 {
   my $root = shift;
   my $options = shift;
 
   #print STDERR "CONVERT\n";
+  # this is needed for locate_include_file which uses
+  # $configurations_informations->get_conf() and thus requires a blessed reference.
+  if (defined($options)) {
+    bless $options;
+    if ($options->{'code'}) {
+      $options->{'_code_options'} = 1;
+    }
+  }
   return _convert($root, $options);
 }
 
@@ -392,7 +387,7 @@ sub _convert($;$)
         if ($options->{'sc'}) {
           $result = uc($result);
         }
-        if (!$options->{'code'}) {
+        if (!$options->{'_code_options'}) {
           $result =~ s/``/"/g;
           $result =~ s/\'\'/"/g;
           $result =~ s/---/\x{1F}/g;
@@ -429,9 +424,14 @@ sub _convert($;$)
                                         $options->{'sc'});
       return $result;
     } elsif ($root->{'cmdname'} eq 'image') {
-      return _convert($root->{'args'}->[0], _code_options($options));
+      $options->{_code_options}++;
+      my $text = _convert($root->{'args'}->[0], $options);
+      $options->{_code_options}--;
+      return $text;
     } elsif ($root->{'cmdname'} eq 'email') {
-      my $mail = _convert($root->{'args'}->[0], _code_options($options));
+      $options->{_code_options}++;
+      my $mail = _convert($root->{'args'}->[0], $options);
+      $options->{_code_options}--;
       my $text;
       $text = _convert($root->{'args'}->[1], $options)
          if (defined($root->{'args'}->[1]));
@@ -445,7 +445,9 @@ sub _convert($;$)
       my $text;
       $text = _convert($root->{'args'}->[1], $options)
         if (defined($root->{'args'}->[1]));
-      my $url = _convert($root->{'args'}->[0], _code_options($options));
+      $options->{_code_options}++;
+      my $url = _convert($root->{'args'}->[0], $options);
+      $options->{_code_options}--;
       if (defined($text) and $text ne '') {
         return "$url ($text)";
       } else {
@@ -477,13 +479,16 @@ sub _convert($;$)
                 and $root->{'args'}->[0]->{'type'} eq 'brace_command_arg')
                 or $Texinfo::Common::math_commands{$root->{'cmdname'}})) {
       my $result;
+      my $in_code;
       if ($root->{'cmdname'} eq 'sc') {
         $options = {%$options, 'sc' => 1};
       } elsif ($Texinfo::Common::code_style_commands{$root->{'cmdname'}}
                or $Texinfo::Common::math_commands{$root->{'cmdname'}}) {
-        $options = _code_options($options);
+        $in_code = 1;
       }
+      $options->{_code_options}++ if ($in_code);
       $result = _convert($root->{'args'}->[0], $options);
+      $options->{_code_options}-- if ($in_code);
       return $result;
     # block commands
     } elsif ($root->{'cmdname'} eq 'quotation'
@@ -555,12 +560,16 @@ sub _convert($;$)
         push @contents, @$arguments;
       }
       push @contents, {'text' => "\n"};
-      $result = _convert({'contents' => \@contents}, _code_options($options));
+      $options->{_code_options}++;
+      $result = _convert({'contents' => \@contents}, $options);
+      $options->{_code_options}--;
     }
   } elsif ($root->{'type'} and $root->{'type'} eq 'menu_entry') {
     foreach my $arg (@{$root->{'args'}}) {
       if ($arg->{'type'} eq 'menu_entry_node') {
-        $result .= _convert($arg, _code_options($options));
+        $options->{_code_options}++;
+        $result .= _convert($arg, $options);
+        $options->{_code_options}--;
       } else {
         $result .= _convert($arg, $options);
       }
@@ -573,19 +582,22 @@ sub _convert($;$)
     }
   }
   if ($root->{'contents'}) {
+    my $in_code;
     if ($root->{'cmdname'} 
         and ($Texinfo::Common::preformatted_code_commands{$root->{'cmdname'}}
              or $Texinfo::Common::math_commands{$root->{'cmdname'}}
              or (defined($Texinfo::Common::block_commands{$root->{'cmdname'}}) 
                  and $Texinfo::Common::block_commands{$root->{'cmdname'}} eq 'raw'))) {
-      $options = _code_options($options);
+      $in_code = 1;
     }
     if (ref($root->{'contents'}) ne 'ARRAY') {
       cluck "contents not an array($root->{'contents'}).";
     }
+    $options->{_code_options}++ if ($in_code);
     foreach my $content (@{$root->{'contents'}}) {
       $result .= _convert($content, $options);
     }
+    $options->{_code_options}-- if ($in_code);
   }
   $result = '{'.$result.'}' 
      if ($root->{'type'} and $root->{'type'} eq 'bracketed'
@@ -618,7 +630,7 @@ sub converter($)
 
   if ($conf) {
     # some informations are directy passed, in general duplicated
-    # in parser, in particular 'include_directories'.
+    # in parser.
     %{$converter} = %{$conf};
     #print STDERR "CTe ".join("|", sort(keys(%{$conf})))."\n";
   }
@@ -785,7 +797,7 @@ output strings translation or error handling.
 =item $result = convert_to_text($tree, $options)
 
 Convert a Texinfo tree to simple text.  I<$options> is a hash reference of 
-options.  The converter is very simple, and has no internal state besides
+options.  The converter is very simple, and has almost no internal state besides
 the options.  It cannot handle as is output strings translation or error 
 storing.
 

@@ -103,6 +103,7 @@ sub __p($$) {
 
 # Customization variables obeyed by the parser, and the default values.
 our %default_parser_customization_values = (
+  'INCLUDE_DIRECTORIES' => [ '.' ],
   'documentlanguage' => undef,
   'novalidate' => undef,
   'EXPANDED_FORMATS' => [],
@@ -320,8 +321,9 @@ my @variable_other_settables = (
   'MISC_BUTTONS', 'CHAPTER_BUTTONS', 'BUTTONS_NAME',
   'BUTTONS_EXAMPLE', 'SPECIAL_ELEMENTS_NAME', 'SPECIAL_ELEMENTS_CLASS',
   'ACTIVE_ICONS', 'PASSIVE_ICONS',
-  'CSS_FILES', 'CSS_REFS', 'EXPANDED_FORMATS',
   'GLOBAL_COMMANDS',
+  # set from command line
+  'CSS_FILES', 'CSS_REFS', 'EXPANDED_FORMATS', 'INCLUDE_DIRECTORIES',
 );
 
 my %valid_options;
@@ -1074,7 +1076,7 @@ sub locate_init_file($$$)
 
 sub locate_include_file($$)
 {
-  my $self = shift;
+  my $configuration_informations = shift;
   my $text = shift;
   my $file;
 
@@ -1083,7 +1085,7 @@ sub locate_include_file($$)
   my ($volume, $directories, $filename) = File::Spec->splitpath($text);
   my @directories = File::Spec->splitdir($directories);
 
-  #print STDERR "$self $text @{$self->{'include_directories'}}\n";
+  #print STDERR "$configuration_informations $text @{$configuration_informations->get_conf('INCLUDE_DIRECTORIES')}\n";
   # If the path is absolute or begins with . or .., do not search in
   # include directories.
   if (File::Spec->file_name_is_absolute($text)) {
@@ -1104,13 +1106,14 @@ sub locate_include_file($$)
     $file = $text if (-e $text and -r $text);
   } else {
     my @dirs;
-    if ($self and $self->{'include_directories'}) {
-      @dirs = @{$self->{'include_directories'}};
+    if ($configuration_informations
+        and $configuration_informations->get_conf('INCLUDE_DIRECTORIES')) {
+      @dirs = @{$configuration_informations->get_conf('INCLUDE_DIRECTORIES')};
     } else {
       # no object with directory list and not an absolute path, never succeed
       return undef;
     }
-    foreach my $include_dir (@{$self->{'include_directories'}}) {
+    foreach my $include_dir (@{$configuration_informations->get_conf('INCLUDE_DIRECTORIES')}) {
       my ($include_volume, $include_directories, $include_filename) 
          = File::Spec->splitpath($include_dir, 1);
       
@@ -1777,7 +1780,7 @@ sub _convert_text_options($)
   $options{'converter'} = $self;
   $options{'expanded_formats_hash'} = $self->{'expanded_formats_hash'};
   # for locate_include_file
-  $options{'include_directories'} = $self->{'include_directories'};
+  $options{'INCLUDE_DIRECTORIES'} = $self->get_conf('INCLUDE_DIRECTORIES');
   # for error registering
   $options{'DEBUG'} = $self->get_conf('DEBUG');
   $options{'PROGRAM'} = $self->get_conf('PROGRAM');

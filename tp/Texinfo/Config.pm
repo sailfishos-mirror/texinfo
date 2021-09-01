@@ -25,7 +25,7 @@
 
 package Texinfo::Config;
 
-# for __(
+# for __( and p__(
 use Texinfo::Common;
 
 # for carp
@@ -33,31 +33,42 @@ use Carp;
 
 # not that there is no use strict to avoid warnings for users code
 
+my $real_command_name;
+
+my $cmdline_options;
+my $default_options;
+my $init_files_options = {};
+
+# called from texi2any.pl main program
+sub GNUT_initialize_config($$$) {
+  $real_command_name = shift;
+  $default_options = shift;
+  $cmdline_options = shift;
+  #print STDERR "cmdline_options: ".join('|',keys(%$cmdline_options))."\n";
+  return $init_files_options;
+}
+
+# duplicated from texi2any.pl
+sub _document_warn($) {
+  return if (texinfo_get_conf('NO_WARN'));
+  my $text = shift;
+  chomp ($text);
+  warn(sprintf(__p("program name: warning: warning_message",
+                   "%s: warning: %s\n"), $real_command_name,  $text));
+}
+
+# called from texi2any.pl main program.
 # eval init file in the Texinfo::Config namespace.
 sub GNUT_load_init_file($) {
   my $file = shift;
   eval { require($file) ;};
   my $e = $@;
   if ($e ne '') {
-    main::document_warn(sprintf(__("error loading %s: %s\n"),
+    _document_warn(sprintf(__("error loading %s: %s\n"),
                                  $file, $e));
   }
 }
 
-# used in main program
-our $options = {};
-my $cmdline_options;
-my $default_options;
-
-sub GNUT_load_config($$) {
-  $default_options = shift;
-  $cmdline_options = shift;
-  #print STDERR "cmdline_options: ".join('|',keys(%$cmdline_options))."\n";
-}
-
-# FIXME: maybe use an opaque return status that can be used to retrieve
-# an error message?
-#
 # Called from init files to set configuration options.
 sub texinfo_set_from_init_file($$) {
   my $var = shift;
@@ -65,13 +76,13 @@ sub texinfo_set_from_init_file($$) {
   if (!Texinfo::Common::valid_option($var)) {
     # carp may be better, but infortunately, it points to the routine that 
     # loads the file, and not to the init file.
-    main::document_warn(sprintf(__("%s: unknown variable %s"),
+    _document_warn(sprintf(__("%s: unknown variable %s"),
                                 'texinfo_set_from_init_file', $var));
     return 0;
   }
   return 0 if (defined($cmdline_options->{$var}));
   delete $default_options->{$var};
-  $options->{$var} = $value;
+  $init_files_options->{$var} = $value;
   return 1;
 }
 
@@ -79,11 +90,11 @@ sub texinfo_set_from_init_file($$) {
 sub GNUT_set_from_cmdline($$) {
   my $var = shift;
   my $value = shift;
-  delete $options->{$var};
+  delete $init_files_options->{$var};
   delete $default_options->{$var};
   if (!Texinfo::Common::valid_option($var)) {
-    main::document_warn(sprintf(main::__("%s: unknown variable %s\n"),
-                                'GNUT_set_from_cmdline', $var));
+    _document_warn(sprintf(__("%s: unknown variable %s\n"),
+                          'GNUT_set_from_cmdline', $var));
     return 0;
   }
   $cmdline_options->{$var} = $value;
@@ -97,8 +108,8 @@ sub texinfo_get_conf($) {
   my $var = shift;
   if (exists($cmdline_options->{$var})) {
     return $cmdline_options->{$var};
-  } elsif (exists($options->{$var})) {
-    return $options->{$var};
+  } elsif (exists($init_files_options->{$var})) {
+    return $init_files_options->{$var};
   } elsif (exists($default_options->{$var})) {
     return $default_options->{$var};
   } else {
@@ -106,7 +117,7 @@ sub texinfo_get_conf($) {
   }
 }
 
-# to dynamically add options from init files
+# to dynamically add customization options from init files
 sub texinfo_add_valid_option($)
 {
   my $option = shift;

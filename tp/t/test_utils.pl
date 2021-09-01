@@ -827,7 +827,7 @@ sub test($$)
     delete $parser_options->{'init_files'};
   }
 
-  my $parser = Texinfo::Parser::parser({'include_directories' => [
+  my $parser = Texinfo::Parser::parser({'INCLUDE_DIRECTORIES' => [
                                           $srcdir.'t/include/'],
                                         'DEBUG' => $self->{'DEBUG'},
                                        %$parser_options});
@@ -948,7 +948,7 @@ sub test($$)
         $format_converter_options->{'OUTFILE'} = '';
       }
       $format_converter_options->{'TEST'} = 1;
-      $format_converter_options->{'include_directories'} = [
+      $format_converter_options->{'INCLUDE_DIRECTORIES'} = [
                                           $srcdir.'t/include/'];
       ($converted_errors{$format}, $converted{$format})
            = &{$formats{$format}}($self, $test_name, $format_type, 
