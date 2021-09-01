@@ -1130,7 +1130,7 @@ sub _register_global_command {
 
   my $command = $current->{'cmdname'};
 
-  if ($command eq 'summarycontents' and !$self->{'global_commands'}->{$command}) {
+  if ($command eq 'summarycontents') {
     $command = 'shortcontents';
   }
   if ($self->{'global_commands'}->{$command}) {
