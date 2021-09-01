@@ -132,7 +132,7 @@ our %default_structure_customization_values = (
 
 
 # customization options
-our %document_settable_at_commands = (
+our %document_settable_multiple_at_commands = (
   'allowcodebreaks' => 'true',
   'clickstyle' => '@arrow',
   'codequotebacktick' => 'off',
@@ -156,7 +156,8 @@ our %document_settable_at_commands = (
 # those should be unique
 our %document_settable_unique_at_commands = (
   # when passed through a configuration variable, documentdescription
-  # should be already formatted for HTML
+  # should be already formatted for HTML.  There is no default,
+  # what is determined to be the title is used if not set.
   'documentdescription' => undef,
   'evenfootingmarks' => undef,
   'evenheadingmarks' => undef,
@@ -325,9 +326,9 @@ my @variable_other_settables = (
 );
 
 my %valid_options;
-foreach my $var (keys(%document_settable_at_commands), 
+foreach my $var (keys(%document_settable_multiple_at_commands),
          keys(%document_settable_unique_at_commands),
-         @command_line_settables, @variable_string_settables, 
+         @command_line_settables, @variable_string_settables,
          @variable_other_settables) {
   $valid_options{$var} = 1;
 }
@@ -349,7 +350,7 @@ sub add_valid_option($)
 }
 
 my %customization_variable_classes = (
-  'document_settable_at_commands' => [ sort(keys(%document_settable_at_commands)) ],
+  'document_settable_multiple_at_commands' => [ sort(keys(%document_settable_multiple_at_commands)) ],
   'document_settable_unique_at_commands' => [ sort(keys(%document_settable_unique_at_commands)) ],
   'command_line_settables' => \@command_line_settables,
   'variable_string_settables' => \@variable_string_settables,

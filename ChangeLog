@@ -1,5 +1,12 @@
 2021-09-01  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (%document_settable_at_commands)
+	(%document_settable_multiple_at_commands): rename
+	%document_settable_at_commands as
+	%document_settable_multiple_at_commands.
+
+2021-09-01  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texinfo.texi (HTML Customization Variables)
 	(@command{latex2html} Customization Variables, @command{texi2html})
 	tp/Texinfo/Common.pm (@variable_string_settables)

@@ -348,15 +348,17 @@ sub output_ixin($$)
   my %setting_commands;
   my %end_of_nodes_setting_commands;
   my %setting_commands_defaults;
+  # FIXME this code is unclear and probably needs to be fixed if developemnt
+  # resumes.
   foreach my $global_command (keys(%{$self->{'extra'}})) {
     if ((($Texinfo::Common::misc_commands{$global_command}
           and $Texinfo::Common::misc_commands{$global_command} =~ /^\d/)
          or $additional_setting_commands{$global_command})
         and !$global_misc_not_setting_commands{$global_command}) {
       if (ref($self->{'extra'}->{$global_command}) eq 'ARRAY') {
-        if (defined($Texinfo::Common::document_settable_at_commands{$global_command})) {
+        if (defined($Texinfo::Common::document_settable_multiple_at_commands{$global_command})) {
           $setting_commands_defaults{$global_command} 
-            = $Texinfo::Common::document_settable_at_commands{$global_command};
+            = $Texinfo::Common::document_settable_multiple_at_commands{$global_command};
         }
         foreach my $command (@{$self->{'extra'}->{$global_command}}) {
           my ($element, $root_command) = _get_element($self, $command);
@@ -372,6 +374,7 @@ sub output_ixin($$)
           #print STDERR "$element $root_command->{'extra'} $global_command\n";
         }
       } else {
+        # FIXME the value is reset just after, this is useless...
         if (defined($Texinfo::Common::document_settable_unique_at_commands{$global_command})) {
           $setting_commands_defaults{$global_command} 
             = $Texinfo::Common::document_settable_unique_at_commands{$global_command};

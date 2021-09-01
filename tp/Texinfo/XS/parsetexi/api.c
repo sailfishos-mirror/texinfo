@@ -1002,7 +1002,7 @@ build_global_info2 (void)
   BUILD_GLOBAL_ARRAY(detailmenu);
   BUILD_GLOBAL_ARRAY(part);
 
-  /* from Common.pm %document_settable_at_commands */
+  /* from Common.pm %document_settable_multiple_at_commands */
   BUILD_GLOBAL_ARRAY(allowcodebreaks);
   BUILD_GLOBAL_ARRAY(clickstyle);
   BUILD_GLOBAL_ARRAY(codequotebacktick);

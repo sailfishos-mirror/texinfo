@@ -190,7 +190,7 @@ register_global_command (ELEMENT *current)
         GLOBAL_CASE(detailmenu);
         GLOBAL_CASE(part);
 
-        /* from Common.pm %document_settable_at_commands */
+        /* from Common.pm %document_settable_multiple_at_commands */
         GLOBAL_CASE(allowcodebreaks);
         GLOBAL_CASE(clickstyle);
         GLOBAL_CASE(codequotebacktick);

@@ -292,7 +292,7 @@ my %global_multiple_commands;
 foreach my $global_multiple_command (
   'footnote', 'hyphenation', 'insertcopying', 'printindex',
   'subtitle','titlefont', 'listoffloats', 'detailmenu', 'part',
-  keys(%Texinfo::Common::document_settable_at_commands), ) {
+  keys(%Texinfo::Common::document_settable_multiple_at_commands), ) {
   $global_multiple_commands{$global_multiple_command} = 1;
 }
 
