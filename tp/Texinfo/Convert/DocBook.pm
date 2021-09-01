@@ -192,11 +192,6 @@ my %docbook_global_commands = (
   'documentlanguage' => 1,
 );
 
-sub converter_global_commands($)
-{
-  return keys(%docbook_global_commands);
-}
-
 my %default_args_code_style 
   = %Texinfo::Convert::Converter::default_args_code_style;
 my %regular_font_style_commands = %Texinfo::Common::regular_font_style_commands;

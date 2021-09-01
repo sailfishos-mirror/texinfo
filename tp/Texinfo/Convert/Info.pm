@@ -318,7 +318,7 @@ sub _info_header($)
 {
   my $self = shift;
 
-  $self->_set_global_multiple_commands();
+  $self->_set_global_multiple_commands(1);
   my $paragraph = Texinfo::Convert::Paragraph->new();
   my $result = add_text($paragraph, "This is ");
   # This ensures that spaces in file are kept.
@@ -366,7 +366,7 @@ sub _info_header($)
     }
     $self->{'ignored_commands'}->{'direntry'} = 1;
   }
-  $self->_unset_global_multiple_commands();
+  $self->_set_global_multiple_commands(0);
   return $result;
 }
 

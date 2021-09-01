@@ -89,7 +89,7 @@ roundcorner=10pt}
 \makeatletter
 \patchcmd{\chapter}{\if@openright\cleardoublepage\else\clearpage\fi}{\GNUTexinfoplaceholder{setchapternewpage placeholder}\clearpage}{}{}
 \makeatother
-\GNUTexinfosetdoubleheader{No Title}%
+\GNUTexinfosetsingleheader{}%
 
 \makeatletter
 \patchcmd{\chapter}{\GNUTexinfoplaceholder{setchapternewpage placeholder}\clearpage}{\if@openright\cleardoublepage\else\clearpage\fi}{}{}

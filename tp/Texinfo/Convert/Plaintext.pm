@@ -376,11 +376,6 @@ sub converter_defaults($$)
   return %defaults;
 }
 
-sub converter_global_commands($)
-{
-  return @informative_global_commands;
-}
-
 sub converter_initialize($)
 {
   my $self = shift;

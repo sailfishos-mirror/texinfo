@@ -325,9 +325,11 @@ my @variable_other_settables = (
   'CSS_FILES', 'CSS_REFS', 'EXPANDED_FORMATS', 'INCLUDE_DIRECTORIES',
 );
 
+our %document_settable_at_commands = (%document_settable_multiple_at_commands,
+   %document_settable_unique_at_commands);
+
 my %valid_options;
-foreach my $var (keys(%document_settable_multiple_at_commands),
-         keys(%document_settable_unique_at_commands),
+foreach my $var (keys(%document_settable_at_commands),
          @command_line_settables, @variable_string_settables,
          @variable_other_settables) {
   $valid_options{$var} = 1;

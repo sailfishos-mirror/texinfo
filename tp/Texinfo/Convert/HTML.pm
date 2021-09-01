@@ -1284,11 +1284,6 @@ foreach my $misc_command(@informative_global_commands,
   $kept_misc_commands{$misc_command} = 1;
 }
 
-sub converter_global_commands($)
-{
-  return @informative_global_commands;
-}
-
 foreach my $misc_command (keys(%misc_commands)) {
   $default_commands_conversion{$misc_command} = undef
     unless ($kept_misc_commands{$misc_command});
@@ -7349,6 +7344,11 @@ sub output($$)
     $self->set_conf('shortcontents', 1);
   }
   $self->set_conf('EXTERNAL_CROSSREF_SPLIT', $self->get_conf('SPLIT'));
+
+  # the configuration has potentially been modified for
+  # this output file especially.  Set a corresponding initial
+  # configuration.
+  $self->{'output_init_conf'} = { %{$self->{'conf'}} };
 
   my $setup_status = $self->run_stage_handlers($root, 'setup');
   return undef unless($setup_status);

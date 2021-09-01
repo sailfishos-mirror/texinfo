@@ -32,11 +32,17 @@ nytprofhtml --open
 # firefox nytprof/index.html
 
 
-Documentation of tree in ParserNonXS.pm
-=======================================
+Documentation
+=============
+
+Tree documentation in ParserNonXS.pm
 
 replaced, elided, elided_block types.
 'extra'->'file' in replaced @include.
+
+
+For converter writers,
+'output_init_conf' and 'converter_init_conf'.
 
 
 Delayed bugs
@@ -245,10 +251,11 @@ DocBook
 Interrogations and remarks
 ==========================
 
-Instead of _set_global_multiple_commands and _unset_global_multiple_commands
-have a better granularity and do something per command, with the possibility
-to really revert everything, including things that are not set by set_conf.
-(There is a FIXME in the code).
+Instead of _set_global_multiple_commands have a better granularity and
+do something per command, with the possibility to really revert everything,
+including things that are not set by set_conf (There is a comment in the
+code above _set_global_multiple_commands)?  Not clear that it is really
+interesting, there is no clear use case for now.
 
 Should more Converter ignore the last new line (with type 
 last_raw_newline) of a raw block format?

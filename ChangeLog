@@ -1,3 +1,19 @@
+2021-09-02  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/Converter.pm (converter_global_commands),
+	tp/Texinfo/Convert/HTML.pm (output):
+	handle the global unique commands similarly with the global
+	multiple commands.  remove now unused converter_global_commands().
+	Modify _set_global_multiple_commands such that it only set to the
+	first, last or initial configuration values (replacing
+	_unset_global_multiple_commands).  Rename 'conf_default'
+	as 'converter_init_conf' and add 'output_init_conf' for
+	converters that modify the initial configuration per output,
+	currently HTML.
+	* tp/Texinfo/Common.pm (%document_settable_at_commands):
+	add as a merge of %document_settable_multiple_at_commands and
+	%document_settable_unique_at_commands.
+
 2021-09-01  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Common.pm (%document_settable_at_commands)

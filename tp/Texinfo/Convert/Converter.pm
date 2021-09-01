@@ -75,6 +75,7 @@ our %all_converters_defaults = (
   'fillcolumn'           => 72,
   'expanded_formats'     => undef,
   'structuring'          => undef,
+  # only HTML
   'IMAGE_LINK_PREFIX'    => undef,
   'NUMBER_SECTIONS'      => 1,
   'NUMBER_FOOTNOTES'     => 1,
@@ -112,11 +113,6 @@ sub converter_initialize($)
 {
 }
 
-sub converter_global_commands($)
-{
-  return ('documentlanguage', 'documentencoding');
-}
-
 sub output_internal_links($)
 {
   my $self = shift;
@@ -141,10 +137,9 @@ sub _informative_command_value($$)
   return undef;
 }
 
-# FIXME documentencoding handling is not reverted by resetting
-# a value with set_conf, so _unset_global_multiple_commands won't
-# reverse what _set_global_multiple_commands did through 
-# _informative_command.
+# REMARK documentencoding handling is not reverted by resetting
+# a value with set_conf, as the encodings are set using other
+# informations (possibly based on @documentencoding) in converter.
 sub _informative_command($$)
 {
   my $self = shift;
@@ -152,8 +147,6 @@ sub _informative_command($$)
 
   my $cmdname = $root->{'cmdname'};
   $cmdname = 'shortcontents' if ($cmdname eq 'summarycontents');
-
-  return if ($self->{'set'}->{$cmdname});
 
   my $value = $self->_informative_command_value($root);
   if (defined($value)) {
@@ -193,7 +186,7 @@ sub converter(;$)
       $converter->{$key} = $defaults{$key};
     }
   }
-  $converter->{'conf_default'} = \%defaults;
+  $converter->{'converter_init_conf'} = \%defaults;
   if (defined($conf)) {
     if ($conf->{'parser'}) {
       $converter->{'parser'} = $conf->{'parser'};
@@ -206,15 +199,6 @@ sub converter(;$)
 
       $converter->{'floats'} = $floats if ($floats);
       $converter->{'labels'} = $labels if ($labels);
-      foreach my $global_command ($converter->converter_global_commands()) {
-        if (defined($converter->{'extra'}->{$global_command})) {
-          my $root = $converter->{'extra'}->{$global_command};
-          # always set unique commands
-          if (ref($root) ne 'ARRAY') {
-            $converter->_informative_command($root);
-          }
-        }
-      }
       delete $conf->{'parser'};
     }
     foreach my $key (keys(%$conf)) {
@@ -270,48 +254,73 @@ sub output_files_information($)
   return $self->{'output_files'};
 }
 
-sub _set_global_multiple_commands($;$)
+# $MULTIPLE_COMMANDS_INDEX is 0, 1 or -1.
+# 0 means setting to the values before the document commands
+# (default and command-line).
+# 1 means setting to the first value for the command in the document
+# -1 means setting to the last value for the command in the document.
+#
+# For unique command, the last may be considered to be the same as the first.
+#
+# If a value was given in converter input, it is never reset by documents
+# @-commands values.
+#
+# Notice that the only effect is to use set_conf (directly or through
+# _informative_command), @-commands side effects or settings using other
+# customization is not set/reset.
+sub _set_global_multiple_commands($$)
 {
   my $self = shift;
   my $multiple_commands_index = shift;
-  $multiple_commands_index = 0 if (!defined($multiple_commands_index));
 
-  foreach my $global_command ($self->converter_global_commands()) {
-    if (defined($self->{'extra'}->{$global_command})
-        and ref($self->{'extra'}->{$global_command}) eq 'ARRAY') {
-      my $root = $self->{'extra'}->{$global_command}->[$multiple_commands_index];
+  my $init_conf;
+  if (defined($self->{'output_init_conf'})) {
+    # use in priority the initial configuration per output
+    $init_conf = $self->{'output_init_conf'};
+  } else {
+    $init_conf = $self->{'converter_init_conf'};
+  }
+
+  # gather the defaults
+  my $commands_init = {};
+  foreach my $global_command (keys(%Texinfo::Common::document_settable_at_commands)) {
+    if (defined($init_conf->{$global_command})) {
+      $commands_init->{$global_command} = $init_conf->{$global_command};
+    } elsif (defined($Texinfo::Common::document_settable_at_commands{$global_command})) {
+      $commands_init->{$global_command} =
+            $Texinfo::Common::document_settable_at_commands{$global_command};
+    }
+  }
+  if ($multiple_commands_index == 0) {
+    foreach my $global_command (keys(%{$commands_init})) {
+      # for commands not appearing in the document, this should set the
+      # same value, the converter initialization value
+      $self->set_conf($global_command, $commands_init->{$global_command});
+    }
+  } else {
+    foreach my $global_command (keys(%$commands_init)) {
+      my $root;
+      if (defined($self->{'extra'}->{$global_command})
+          and ref($self->{'extra'}->{$global_command}) eq 'ARRAY') {
+        # used when $multiple_commands_index == 1
+        my $index_in_global_commands = 0;
+        if ($multiple_commands_index < 0) {
+          $index_in_global_commands = -1;
+        }
+        $root = $self->{'extra'}->{$global_command}->[$index_in_global_commands];
+      } elsif (defined($self->{'extra'}->{$global_command})) {
+        # unique command, first and last are the same
+        $root = $self->{'extra'}->{$global_command};
+      }
       if ($self->get_conf('DEBUG')) {
         print STDERR "SET_global_multiple_commands($multiple_commands_index) $global_command\n";
       }
-      $self->_informative_command($root);
-    }
-  }
-}
-
-# Notice that set_conf is used, which means that it is not possible to
-# customize what is done for those commands.  For documentencoding, for
-# example the values are not reset correctly, see the FIXME above.
-sub _unset_global_multiple_commands($)
-{
-  my $self = shift;
-
-  foreach my $global_command ($self->converter_global_commands()) {
-    if (defined($self->{'extra'}->{$global_command})
-        and ref($self->{'extra'}->{$global_command}) eq 'ARRAY') {
-      if (exists($self->{'conf_default'}->{$global_command})) {
-        if ($self->get_conf('DEBUG')) {
-          my $default = 'UNDEF';
-          $default = $self->{'conf_default'}->{$global_command} 
-            if (defined($self->{'conf_default'}->{$global_command}));
-          my $set = 0;
-          $set = 1 if ($self->{'set'}->{$global_command});
-          print STDERR "UNSET_global_multiple_commands $global_command ($set): $default\n";
-        }
-        if (Texinfo::Common::valid_option($global_command)) {
-          $self->set_conf($global_command, $self->{'conf_default'}->{$global_command});
-        } else {
-          $self->{$global_command} = $self->{'conf_default'}->{$global_command};
-        }
+      if (defined($root)) {
+        $self->_informative_command($root);
+      } else {
+        # commands not appearing in the document, this should set the
+        # same value, the converter initialization value
+        $self->set_conf($global_command, $commands_init->{$global_command});
       }
     }
   }
@@ -429,7 +438,6 @@ sub _set_outfile($$$)
       my $dir = File::Spec->canonpath($self->get_conf('SUBDIR'));
       $outfile = File::Spec->catfile($dir, $outfile);
     }
-    #$self->set_conf('OUTFILE', $outfile);
   } else {
     $document_name = $self->get_conf('OUTFILE');
     $document_name =~ s/\.[^\.]*$//;
@@ -1566,9 +1574,6 @@ Texinfo::Convert::Converter - Parent class for Texinfo tree converters
     my $self = shift;
     $self->{'document_context'} = [{}];
   }
-  sub converter_global_commands($) {
-    return ('documentlanguage', documentencoding', 'paragraphindent');
-  }
 
   sub convert($$) {
     ...
@@ -1592,10 +1597,10 @@ Texinfo::Convert::Converter is a super class that can be used to
 simplify converters initialization.  The class also provide some 
 useful methods.
 
-In turn, the converter should define some methods.  Three are 
-optional, C<converter_defaults>, C<converter_initialize> and 
-C<converter_global_commands> and used for initialization, to 
-give C<Texinfo::Convert::Converter> some informations.
+In turn, the converter should define some methods.  Two are
+optional, C<converter_defaults>, C<converter_initialize> and
+used for initialization, to give C<Texinfo::Convert::Converter>
+some informations.
 
 The C<convert_tree> method is more or less mandatory and should 
 convert portions of Texinfo tree.  The C<output> and C<convert> 
@@ -1642,7 +1647,7 @@ also initialized as a L<Texinfo::Report>.
 
 =back
 
-To help with these initializations, the modules can define three methods:
+To help with these initializations, the modules can define two methods:
 
 =over
 
@@ -1651,15 +1656,10 @@ To help with these initializations, the modules can define three methods:
 The converter can provide a defaults hash for configuration options.
 The I<$options> hash reference holds options for the converter.
 
-=item @global_commands = $converter->converter_global_commands()
-
-The list returned is the list of Texinfo global commands (like 
-C<@paragraphindent>, C<@documentlanguage>...) that are relevant for the
-converter.
-
 =item converter_initialize
 
-This method is called at the end of the converter initialization.
+This method is called at the end of the Texinfo::Convert::Converter
+converter initialization.
 
 =back
 
