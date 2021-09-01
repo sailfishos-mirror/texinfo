@@ -28,32 +28,32 @@ use Texinfo::Convert::Converter qw(xml_protect_text);
 
 use vars qw(%commands_formatting %style_commands_formatting);
 
-set_from_init_file('COMPLEX_FORMAT_IN_TABLE', 1);
+texinfo_set_from_init_file('COMPLEX_FORMAT_IN_TABLE', 1);
 
-set_from_init_file('DOCTYPE', '<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN" "http://www.w3.org/TR/html32/loose.dtd">');
+texinfo_set_from_init_file('DOCTYPE', '<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN" "http://www.w3.org/TR/html32/loose.dtd">');
 
-set_from_init_file('FRAMESET_DOCTYPE', get_conf('DOCTYPE'));
+texinfo_set_from_init_file('FRAMESET_DOCTYPE', texinfo_get_conf('DOCTYPE'));
 
-set_from_init_file('BODYTEXT', 'bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000"');
+texinfo_set_from_init_file('BODYTEXT', 'bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000"');
 
-set_from_init_file('BEFORE_OVERVIEW', '');
-set_from_init_file('AFTER_OVERVIEW', '');
-set_from_init_file('BEFORE_TOC_LINES', '');
-set_from_init_file('AFTER_TOC_LINES', '');
+texinfo_set_from_init_file('BEFORE_OVERVIEW', '');
+texinfo_set_from_init_file('AFTER_OVERVIEW', '');
+texinfo_set_from_init_file('BEFORE_TOC_LINES', '');
+texinfo_set_from_init_file('AFTER_TOC_LINES', '');
 
 # html version for latex2html
-set_from_init_file('L2H_HTML_VERSION', '3.2');
+texinfo_set_from_init_file('L2H_HTML_VERSION', '3.2');
 
 # no css, no class
-set_from_init_file('NO_CSS', 1);
+texinfo_set_from_init_file('NO_CSS', 1);
 
 # no accesskey in html 3.2
-set_from_init_file('USE_ACCESSKEY', 0);
+texinfo_set_from_init_file('USE_ACCESSKEY', 0);
 
-set_from_init_file('MENU_SYMBOL', '*');
+texinfo_set_from_init_file('MENU_SYMBOL', '*');
 
-set_from_init_file('OPEN_QUOTE_SYMBOL', '`');
-set_from_init_file('CLOSE_QUOTE_SYMBOL', "'");
+texinfo_set_from_init_file('OPEN_QUOTE_SYMBOL', '`');
+texinfo_set_from_init_file('CLOSE_QUOTE_SYMBOL', "'");
 
 foreach my $command ('euro', 'geq', 'leq',
    'bullet', 'equiv', 'expansion', 'point', 'result', 'arrow',

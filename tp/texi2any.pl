@@ -329,7 +329,7 @@ sub locate_and_load_init_file($$)
 
   my $file = Texinfo::Common::locate_init_file($filename, $directories, 0);
   if (defined($file)) {
-    Texinfo::Config::_load_init_file($file);
+    Texinfo::Config::GNUT_load_init_file($file);
   } else {
     document_warn(sprintf(__("could not read init file %s"), $filename));
   }
@@ -338,19 +338,15 @@ sub locate_and_load_init_file($$)
 # read initialization files
 foreach my $file (Texinfo::Common::locate_init_file($conf_file_name, 
                   [ reverse(@program_config_dirs) ], 1)) {
-  Texinfo::Config::_load_init_file($file);
+  Texinfo::Config::GNUT_load_init_file($file);
 }
 
 sub set_from_cmdline($$) {
-  return &Texinfo::Config::set_from_cmdline(@_);
-}
-
-sub set_from_init_file($$) {
-  return &Texinfo::Config::set_from_init_file(@_);
+  return &Texinfo::Config::GNUT_set_from_cmdline(@_);
 }
 
 sub get_conf($) {
-  return &Texinfo::Config::get_conf(@_);
+  return &Texinfo::Config::texinfo_get_conf(@_);
 }
 
 my @input_file_suffixes = ('.txi','.texinfo','.texi','.txinfo','');
@@ -378,7 +374,7 @@ my @prepend_dirs = ();
 my $parser_options = {'EXPANDED_FORMATS' => [],
                       'values' => {'txicommandconditionals' => 1}};
 
-Texinfo::Config::_load_config($converter_default_options, $cmdline_options);
+Texinfo::Config::GNUT_load_config($converter_default_options, $cmdline_options);
 
 sub set_expansion($$) {
   my $region = shift;

@@ -33,21 +33,21 @@ use Texinfo::Common;
 
 main::set_global_format('html');
 
-set_from_init_file('TOP_FILE', undef);
+texinfo_set_from_init_file('TOP_FILE', undef);
 
 #$SECTION_NAVIGATION = 0; # to avoid headers in normal elements
-set_from_init_file('FORMAT_MENU', 'nomenu');
-set_from_init_file('SPLIT', 'node');
-set_from_init_file('contents', 1);
+texinfo_set_from_init_file('FORMAT_MENU', 'nomenu');
+texinfo_set_from_init_file('SPLIT', 'node');
+texinfo_set_from_init_file('contents', 1);
 
-set_from_init_file('DEFAULT_RULE', '');
-set_from_init_file('BIG_RULE', '');
-set_from_init_file('HEADERS', 0);
+texinfo_set_from_init_file('DEFAULT_RULE', '');
+texinfo_set_from_init_file('BIG_RULE', '');
+texinfo_set_from_init_file('HEADERS', 0);
 
-set_from_init_file('footnotestyle', 'end');
+texinfo_set_from_init_file('footnotestyle', 'end');
 
 #FIXME remove that later?
-set_from_init_file('USE_NODES', 0);
+texinfo_set_from_init_file('USE_NODES', 0);
 
 use vars qw(%commands_formatting);
 texinfo_register_formatting_function('format_end_file', \&chm_format_end_file);

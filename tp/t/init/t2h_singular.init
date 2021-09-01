@@ -15,39 +15,39 @@ my $T2H_BLUE_BUTTONS = 0;
 
 # -prefix
 # Set the output file prefix, prepended to all .html, .png and .pl files.
-set_from_init_file('setfilename', 'sing');
+texinfo_set_from_init_file('setfilename', 'sing');
 
 # -expand
 # if set to "tex" (or, "info") expand @iftex and @tex (or, @ifinfo) sections
 # else, neither expand @iftex, @tex, nor @ifinfo sections
-set_from_init_file('EXPANDED_FORMATS', ['html', 'tex']);
+texinfo_set_from_init_file('EXPANDED_FORMATS', ['html', 'tex']);
 
 # if set, creates one html file per node
-set_from_init_file('SPLIT', 'node');
+texinfo_set_from_init_file('SPLIT', 'node');
 
 #if set cross-references use the xref node name argument
-set_from_init_file('XREF_USE_NODE_NAME_ARG', 1);
+texinfo_set_from_init_file('XREF_USE_NODE_NAME_ARG', 1);
 
 # if set, chatter about what we are doing
-set_from_init_file('VERBOSE', 1);
+texinfo_set_from_init_file('VERBOSE', 1);
 
 my $T2H_SING_base_images = '../singular_images/';
 
 # inside <BODY ..>
-set_from_init_file('BODYTEXT','lang="en"  background="'.${T2H_SING_base_images}.'Mybg.png"');
+texinfo_set_from_init_file('BODYTEXT','lang="en"  background="'.${T2H_SING_base_images}.'Mybg.png"');
 
 # after <BODY>
-set_from_init_file('AFTER_BODY_OPEN', "\n");
+texinfo_set_from_init_file('AFTER_BODY_OPEN', "\n");
 
 # before </BODY>
-set_from_init_file('PRE_BODY_CLOSE', "\n");
+texinfo_set_from_init_file('PRE_BODY_CLOSE', "\n");
 
 # if using tex4ht, must be in latex mode due to \textbf
 $Texinfo::TeX4HT::STYLE='latex';
 
 # title is already in the manual
 #$print_title = \&T2H_DEFAULT_print_title;
-set_from_init_file('SHOW_TITLE', 0);
+texinfo_set_from_init_file('SHOW_TITLE', 0);
 
 # footer
 
@@ -138,9 +138,9 @@ EOT
 }
 
 # always use bottom navigation
-set_from_init_file('WORDS_IN_PAGE', 0);
+texinfo_set_from_init_file('WORDS_IN_PAGE', 0);
 
-set_from_init_file('VERTICAL_HEAD_NAVIGATION', 1);
+texinfo_set_from_init_file('VERTICAL_HEAD_NAVIGATION', 1);
 my @SECTION_BUTTONS =
   (
    \&singular_banner,
@@ -148,19 +148,19 @@ my @SECTION_BUTTONS =
    'Up', 'Top', 'Contents', 'Index', 'About' 
   );
 
-set_from_init_file ('SECTION_BUTTONS', \@SECTION_BUTTONS);
+texinfo_set_from_init_file ('SECTION_BUTTONS', \@SECTION_BUTTONS);
 
 my @NODE_FOOTER_BUTTONS = @SECTION_BUTTONS;
-set_from_init_file ('NODE_FOOTER_BUTTONS', \@SECTION_BUTTONS);
+texinfo_set_from_init_file ('NODE_FOOTER_BUTTONS', \@SECTION_BUTTONS);
 
 # buttons for misc stuff
 my @MISC_BUTTONS = (\&singular_banner, 'Top', 'Contents', 'Index', 'About');
 my @TOP_BUTTONS = (\&singular_banner, 'Top', 'Contents', 'Index', 'About');
 
-set_from_init_file ('MISC_BUTTONS', \@MISC_BUTTONS);
-set_from_init_file ('TOP_BUTTONS', \@TOP_BUTTONS);
+texinfo_set_from_init_file ('MISC_BUTTONS', \@MISC_BUTTONS);
+texinfo_set_from_init_file ('TOP_BUTTONS', \@TOP_BUTTONS);
 
-set_from_init_file('ICONS', 1);
+texinfo_set_from_init_file('ICONS', 1);
 
 my %ACTIVE_ICONS;
 my %PASSIVE_ICONS;
@@ -243,8 +243,8 @@ foreach my $hash_ref((\%ACTIVE_ICONS, \%PASSIVE_ICONS)) {
   }
 }
 
-set_from_init_file ('ACTIVE_ICONS', \%ACTIVE_ICONS);
-set_from_init_file ('PASSIVE_ICONS', \%PASSIVE_ICONS);
+texinfo_set_from_init_file ('ACTIVE_ICONS', \%ACTIVE_ICONS);
+texinfo_set_from_init_file ('PASSIVE_ICONS', \%PASSIVE_ICONS);
 
 sub T2H_SING_pre_about($$)
 {
@@ -272,7 +272,7 @@ EOT
   return $result;
 }
 
-set_from_init_file ('PRE_ABOUT', \&T2H_SING_pre_about);
+texinfo_set_from_init_file ('PRE_ABOUT', \&T2H_SING_pre_about);
 
 # a whole menu
 texinfo_register_command_formatting('menu', \&t2h_sing_menu);

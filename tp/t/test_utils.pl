@@ -819,7 +819,7 @@ sub test($$)
     foreach my $filename (@{$parser_options->{'init_files'}}) {
       my $file = Texinfo::Common::locate_init_file($filename, $init_file_directories, 0);
       if (defined($file)) {
-        Texinfo::Config::_load_init_file($file);
+        Texinfo::Config::GNUT_load_init_file($file);
       } else {
         warn (sprintf("could not read init file %s", $filename));
       }

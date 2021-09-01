@@ -1,5 +1,19 @@
 2021-09-01  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Config.pm, texi2any.pl, tp/init/*.pm, tp/t/init/*.init: 
+	rename _load_init_file as GNUT_load_init_file,
+	_load_config as GNUT_load_config, set_from_init_file as
+	texinfo_set_from_init_file, set_from_cmdline as GNUT_set_from_cmdline
+	and get_conf as texinfo_get_conf to follow the convention that
+	functions that should not be called by user init files codes are
+	prefixed by GNUT_ while functions that can be called by user init
+	files codes are prefixed by texinfo_.
+
+	* tp/Texinfo/Config.pm: use explicitly Texinfo::Common for __(
+	instead of using main program function.
+
+2021-09-01  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Config.pm, texi2any.pl, tp/Texinfo/Convert/HTML.pm,
 	tp/Makefile.am (dist_modules_DATA): put Texinfo::Config namespace
 	in a separate file.  This is not perfect as Texinfo::Config is still

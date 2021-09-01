@@ -16,8 +16,15 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 # 
 # Original author: Patrice Dumas <pertusus@free.fr>
+#
+# functions that should not be called by user init files codes are
+# prefixed by GNUT_ while functions that can be called by user init
+# files codes are prefixed by texinfo_.
 
 package Texinfo::Config;
+
+# for __(
+use Texinfo::Common;
 
 # for %Texinfo::Convert::HTML::default_formatting_references
 use Texinfo::Convert::HTML;
@@ -27,14 +34,13 @@ use Carp;
 
 # not that there is no use strict to avoid warnings for users code
 
-# eval init file in the Texinfo::Config namespace.  Needed functions are in
-# the Texinfo::Convert::HTML Texinfo::Config package namespace code.
-sub _load_init_file($) {
+# eval init file in the Texinfo::Config namespace.
+sub GNUT_load_init_file($) {
   my $file = shift;
   eval { require($file) ;};
   my $e = $@;
   if ($e ne '') {
-    main::document_warn(sprintf(main::__("error loading %s: %s\n"),
+    main::document_warn(sprintf(__("error loading %s: %s\n"),
                                  $file, $e));
   }
 }
@@ -44,7 +50,7 @@ our $options = {};
 my $cmdline_options;
 my $default_options;
 
-sub _load_config($$) {
+sub GNUT_load_config($$) {
   $default_options = shift;
   $cmdline_options = shift;
   #print STDERR "cmdline_options: ".join('|',keys(%$cmdline_options))."\n";
@@ -54,13 +60,13 @@ sub _load_config($$) {
 # an error message?
 #
 # Called from init files to set configuration options.
-sub set_from_init_file($$) {
+sub texinfo_set_from_init_file($$) {
   my $var = shift;
   my $value = shift;
   if (!Texinfo::Common::valid_option($var)) {
     # carp may be better, but infortunately, it points to the routine that 
     # loads the file, and not to the init file.
-    main::document_warn(sprintf(main::__("%s: unknown variable %s"),
+    main::document_warn(sprintf(__("%s: unknown variable %s"),
                                 'set_from_init_file', $var));
     return 0;
   }
@@ -71,7 +77,7 @@ sub set_from_init_file($$) {
 }
 
 # set option from the command line.  Highest precedence.
-sub set_from_cmdline($$) {
+sub GNUT_set_from_cmdline($$) {
   my $var = shift;
   my $value = shift;
   delete $options->{$var};
@@ -88,7 +94,7 @@ sub set_from_cmdline($$) {
 # This also could get and set some @-command results.
 # FIXME But it does not take into account what happens during conversion,
 # for that something like $converter->get_conf(...) has to be used.
-sub get_conf($) {
+sub texinfo_get_conf($) {
   my $var = shift;
   if (exists($cmdline_options->{$var})) {
     return $cmdline_options->{$var};
@@ -109,8 +115,9 @@ sub texinfo_add_valid_option($)
 }
 
 # FIXME this is unclean, but it is texi2any.pl that loads init files
-# so it needs to knwow the %default_formatting_references for 
-# texinfo_register_formatting_function.
+# so it needs to know the %default_formatting_references for
+# texinfo_register_formatting_function when eval'ing files in load_init_file
+# which appears early.
 my %default_formatting_references = %Texinfo::Convert::HTML::default_formatting_references;
 
 # FIXME would be better to do the reverse, but Texinfo::Convert::HTML

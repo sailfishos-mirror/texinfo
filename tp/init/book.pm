@@ -12,31 +12,31 @@ use strict;
 
 use vars qw($element_file_name);
 
-set_from_init_file('contents', 1);
-set_from_init_file('CONTENTS_OUTPUT_LOCATION', 'inline');
-set_from_init_file('USE_TITLEPAGE_FOR_TITLE', 1);
+texinfo_set_from_init_file('contents', 1);
+texinfo_set_from_init_file('CONTENTS_OUTPUT_LOCATION', 'inline');
+texinfo_set_from_init_file('USE_TITLEPAGE_FOR_TITLE', 1);
 
 my @book_buttons = ('Back', 'Forward', ' ', 'Contents', 'Index', 'About');
 
 foreach my $buttons ('SECTION_BUTTONS', 'CHAPTER_BUTTONS', 'TOP_BUTTONS') {
-  set_from_init_file($buttons, \@book_buttons);
+  texinfo_set_from_init_file($buttons, \@book_buttons);
 }
 
 my @book_footer_buttons = ('Contents', 'Index', 'About');
 foreach my $buttons ('MISC_BUTTONS', 'SECTION_FOOTER_BUTTONS',
                      'CHAPTER_FOOTER_BUTTONS') {
-  set_from_init_file($buttons, \@book_footer_buttons);
+  texinfo_set_from_init_file($buttons, \@book_footer_buttons);
 }
 
-set_from_init_file('NODE_FOOTER_BUTTONS', ['Back', 'Forward']);
-set_from_init_file('LINKS_BUTTONS', 
+texinfo_set_from_init_file('NODE_FOOTER_BUTTONS', ['Back', 'Forward']);
+texinfo_set_from_init_file('LINKS_BUTTONS',
     ['Top', 'Index', 'Contents', 'About', 'Up', 'NextFile', 'PrevFile']);
 
-set_from_init_file('WORDS_IN_PAGE', undef);
-set_from_init_file('FORMAT_MENU', 'nomenu');
-set_from_init_file('USE_NODES', undef);
+texinfo_set_from_init_file('WORDS_IN_PAGE', undef);
+texinfo_set_from_init_file('FORMAT_MENU', 'nomenu');
+texinfo_set_from_init_file('USE_NODES', undef);
 
-set_from_init_file('BIG_RULE', '<hr>');
+texinfo_set_from_init_file('BIG_RULE', '<hr>');
 
 my ($book_previous_default_filename, $book_previous_file_name, 
     $book_unumbered_nr);
@@ -135,14 +135,14 @@ sub book_print_sub_toc($$$)
   }
 #print STDERR "SUB_TOC $element->{'text'}\n"; #sleep 1;
   if ($command->{'section_childs'} and @{$command->{'section_childs'}}) {
-#print STDERR "SUB_TOC child $element->{'child'}->{'text'}\n"; 
+#print STDERR "SUB_TOC child $element->{'child'}->{'text'}\n";
     $result .= '<li>'.$converter->_attribute_class('ul',$NO_BULLET_LIST_CLASS)
      .">\n". book_print_sub_toc($converter, $parent_command, 
                                 $command->{'section_childs'}->[0]) 
      ."</ul></li>\n";
   }
   if (exists($command->{'section_next'})) {
-#print STDERR "SUB_TOC next($element->{'text'}) $element->{'next'}->{'text'}\n"; 
+#print STDERR "SUB_TOC next($element->{'text'}) $element->{'next'}->{'text'}\n";
     $result .= book_print_sub_toc($converter, $parent_command, 
                                   $command->{'section_next'});
   }

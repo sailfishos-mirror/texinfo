@@ -1,4 +1,4 @@
-set_from_init_file('shortcontents', 1);
+texinfo_set_from_init_file('shortcontents', 1);
 
 sub mini_ker_element_type($$$$)
 {

@@ -21,6 +21,6 @@ sub test_misc_file_name($$$)
   return $filename;
 }
 
-set_from_init_file('DO_ABOUT', 1);
+texinfo_set_from_init_file('DO_ABOUT', 1);
 
 1;
