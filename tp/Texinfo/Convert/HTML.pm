@@ -5239,10 +5239,7 @@ sub converter_initialize($)
   }
 
   foreach my $command (keys %{$self->{'commands_conversion'}}) {
-    if (exists($Texinfo::Config::commands_args{$command})) {
-      $self->{'commands_args'}->{$command} 
-         = $Texinfo::Config::commands_args{$command};
-    } elsif (exists($default_commands_args{$command})) {
+    if (exists($default_commands_args{$command})) {
       $self->{'commands_args'}->{$command} = $default_commands_args{$command};
     }
   }

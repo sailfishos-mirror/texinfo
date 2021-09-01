@@ -17,6 +17,9 @@ Before next release
 Bugs
 ====
 
+review interface in texi2any.pl of
+set_global_format()
+See comment there
 
 Profiling
 =========
