@@ -1,5 +1,12 @@
 2021-09-01  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (@variable_other_settables),
+	tp/Texinfo/Convert/IXIN.pm (output_ixin),
+	tp/Texinfo/Convert/IXINSXML.pm (%defaults):
+	remove completely 'GLOBAL_COMMANDS'.
+
+2021-09-01  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (converter_initialize): do not
 	allow customization of 'commands_args'.  It is not already used
 	and it is better to avoid making such changes which amounts

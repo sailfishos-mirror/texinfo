@@ -62,7 +62,6 @@ my %defaults = (
   'SPLIT'                => 0,
   'documentlanguage'     => 'en',
   'USE_NODES'            => 1,
-  'GLOBAL_COMMANDS'      => ['image'],
 );
 
 sub converter_defaults($$)

@@ -823,8 +823,10 @@ sub output_ixin($$)
   my $blobs = '';
   my $blobs_index = '';
   my $blob_nr = 0;
-  if ($self->{'extra'}->{'image'}) {
-    foreach my $command (@{$self->{'extra'}->{'image'}}) {
+  my $collected_image_commands = Texinfo::Common::collect_commands_list_in_tree(
+                                                                $root, ['image']);
+  if (scalar(@{$collected_image_commands})) {
+    foreach my $command (@{$collected_image_commands}) {
       my @extension;
       my $basefile;
       my $extension;
@@ -851,8 +853,8 @@ sub output_ixin($$)
             $blob_nr++;
             if ($extension eq 'txt') {
               binmode($filehandle, ":encoding("
-                         .$self->{'parser_info'}->{'input_perl_encoding'}
-                if (defined($self->{'parser_info'}->{'input_perl_encoding'});
+                         .$self->{'parser_info'}->{'input_perl_encoding'})
+                if (defined($self->{'parser_info'}->{'input_perl_encoding'}));
             }
             my $file_content;
             if (-z $file) {
