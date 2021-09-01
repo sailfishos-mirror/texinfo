@@ -4951,7 +4951,8 @@ sub _new_document_context($$)
 }
 
 # Functions accessed with e.g. 'format_heading_text'.
-my %default_formatting_references = (
+# used in Texinfo::Config
+our %default_formatting_references = (
      'format_heading_text' => \&_default_format_heading_text,
      'format_comment' => \&_default_format_comment,
      'format_protect_text' => \&_default_format_protect_text,
@@ -7281,7 +7282,10 @@ sub output_internal_links($)
   }
 }
 
-my @possible_stages = ('setup', 'structure', 'init', 'finish');
+use Texinfo::Config;
+
+#my @possible_stages = @Texinfo::Config::possible_stages;
+our @possible_stages = ('setup', 'structure', 'init', 'finish');
 my %possible_stages;
 foreach my $stage (@possible_stages) {
   $possible_stages{$stage} = 1;
@@ -7315,62 +7319,6 @@ sub run_stage_handlers($$$)
     }
   }
   return 1;
-}
-
-my $default_priority = 'default';
-
-{
-package Texinfo::Config;
-
-# Note that these variables are available for the Texinfo modules
-# but, in general should not be accessed directly by the users who
-# customize formatting and should use the associated functions,
-# such as texinfo_register_handler(), texinfo_register_formatting_function(),
-# texinfo_register_command_formatting() or texinfo_register_type_formatting().
-use vars qw(%texinfo_default_stage_handlers %texinfo_formatting_references
-            %texinfo_commands_conversion %texinfo_types_conversion);
-
-sub texinfo_register_handler($$;$)
-{
-  my $stage = shift;
-  my $handler = shift;
-  my $priority = shift;
-
-  if (!$possible_stages{$stage}) {
-    carp ("Unknown stage $stage\n");
-    return 0;
-  }
-  $priority = $default_priority if (!defined($priority));
-  push @{$texinfo_default_stage_handlers{$stage}->{$priority}}, $handler;
-  return 1;
-}
-
-sub texinfo_register_formatting_function($$)
-{
-  my $thing = shift;
-  my $handler = shift;
-  if (!$default_formatting_references{$thing}) {
-    carp ("Unknown formatting type $thing\n");
-    return 0;
-  }
-  $texinfo_formatting_references{$thing} = $handler;
-}
-
-sub texinfo_register_command_formatting($$)
-{
-  my $command = shift;
-  my $reference = shift;
-  $texinfo_commands_conversion{$command} = $reference;
-}
-
-sub texinfo_register_type_formatting($$)
-{
-  my $command = shift;
-  my $reference = shift;
-  $texinfo_types_conversion{$command} = $reference;
-}
-
-
 }
 
 # Main function for outputting a manual in HTML.

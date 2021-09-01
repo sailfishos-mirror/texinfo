@@ -64,6 +64,7 @@ makeinfo: texi2any
 
 modulesdir = $(pkgdatadir)/Texinfo
 dist_modules_DATA = \
+ Texinfo/Config.pm \
  Texinfo/Parser.pm \
  Texinfo/ParserNonXS.pm \
  Texinfo/Report.pm \

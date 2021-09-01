@@ -43,6 +43,7 @@ use Texinfo::Convert::HTML;
 use Texinfo::Convert::TexinfoXML;
 use Texinfo::Convert::DocBook;
 use Texinfo::Convert::LaTeX;
+use Texinfo::Config;
 use File::Basename;
 use File::Copy;
 use File::Compare; # standard since 5.004
@@ -727,21 +728,6 @@ sub convert_to_latex($$$$$$;$)
   }
   my ($errors, $error_nrs) = $converter->errors();
   return ($errors, $result);
-}
-
-{
-# eval init file in the Texinfo::Config namespace.  Needed functions are in
-# the Texinfo::Convert::HTML Texinfo::Config package namespace code.
-package Texinfo::Config;
-sub _load_init_file($) {
-  my $file = shift;
-  require Texinfo::Convert::HTML;
-  eval { require($file) ;};
-  my $e = $@;
-  if ($e ne '') {
-    warn (sprintf("error loading %s: %s\n", $file, $e));
-  }
-}
 }
 
 # Run a single test case.  Each test case is an array

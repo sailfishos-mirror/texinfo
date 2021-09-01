@@ -1,5 +1,14 @@
 2021-09-01  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Config.pm, texi2any.pl, tp/Texinfo/Convert/HTML.pm,
+	tp/Makefile.am (dist_modules_DATA): put Texinfo::Config namespace
+	in a separate file.  This is not perfect as Texinfo::Config is still
+	entangled with Texinfo::Convert::HTML.  In particular delayed loading
+	of converter modules in texi2any.pl is now ineffective for
+	Texinfo::Convert::HTML.
+
+2021-09-01  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Makefile.am (dist_converters_DATA, test_files),
 	tp/tests/formatting/Makefile.am, tp/tests/indices/Makefile.am: add
 	new files.
