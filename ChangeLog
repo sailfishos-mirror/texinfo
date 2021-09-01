@@ -1,5 +1,16 @@
 2021-09-01  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Config.pm (texinfo_register_formatting_function),
+	tp/Texinfo/Convert/HTML.pm (converter_initialize, run_stage_handlers):
+	do not check the validity of texinfo_register_formatting_function()
+	registered functions in Texinfo::Config but in Texinfo::Convert::HTML
+	in converter_initialize().  Do not check that the stage handler is
+	valid in Convert::HTML in run_stage_handlers() as it has already been
+	done in Texinfo::Config.  This allows to avoid loading the
+	Convert::HTML module early.
+
+2021-09-01  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Config.pm (GNUT_get_stage_handlers)
 	(GNUT_get_formatting_references, GNUT_get_commands_conversion)
 	(GNUT_get_types_conversion), tp/Texinfo/Convert/HTML.pm:

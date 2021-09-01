@@ -63,6 +63,8 @@ use Texinfo::Convert::Text;
 use Texinfo::Convert::Unicode;
 use Texinfo::Convert::NodeNameNormalization;
 
+use Texinfo::Config;
+
 use Carp qw(cluck confess);
 
 use File::Copy qw(copy);
@@ -5136,8 +5138,8 @@ sub converter_initialize($)
 
   _load_htmlxref_files($self);
 
+  my $customized_types_conversion = Texinfo::Config::GNUT_get_types_conversion();
   foreach my $type (keys(%default_types_conversion)) {
-    my $customized_types_conversion = Texinfo::Config::GNUT_get_types_conversion();
     if (exists($customized_types_conversion->{$type})) {
       $self->{'types_conversion'}->{$type}
           = $customized_types_conversion->{$type};
@@ -5158,10 +5160,10 @@ sub converter_initialize($)
   }
 
   # FIXME put value in a category in Texinfo::Common?
+  my $customized_commands_conversion
+     = Texinfo::Config::GNUT_get_commands_conversion();
   foreach my $command (keys(%misc_commands), keys(%brace_commands),
      keys (%block_commands), keys(%no_brace_commands), 'value') {
-    my $customized_commands_conversion
-        = Texinfo::Config::GNUT_get_commands_conversion();
     if (exists($customized_commands_conversion->{$command})) {
       $self->{'commands_conversion'}->{$command} 
           = $customized_commands_conversion->{$command};
@@ -5245,10 +5247,19 @@ sub converter_initialize($)
     }
   }
 
+  my $customized_formatting_references = Texinfo::Config::GNUT_get_formatting_references();
+  # first check that all the customized_formatting_references
+  # are in default_formatting_references
+  foreach my $customized_formatting_reference
+       (sort(keys(%{$customized_formatting_references}))) {
+    if (!$default_formatting_references{$customized_formatting_reference}) {
+      $self->document_warn($self, sprintf(__("Unknown formatting function: %s"),
+                                          $customized_formatting_reference));
+    }
+  }
   foreach my $formatting_reference (keys(%default_formatting_references)) {
     $self->{'default_formatting_functions'}->{$formatting_reference}
        = $default_formatting_references{$formatting_reference};
-    my $customized_formatting_references = Texinfo::Config::GNUT_get_formatting_references();
     if (defined($customized_formatting_references->{$formatting_reference})) {
       $self->{$formatting_reference} 
        =  $customized_formatting_references->{$formatting_reference};
@@ -7286,21 +7297,11 @@ sub output_internal_links($)
   }
 }
 
-use Texinfo::Config;
-
-#my @possible_stages = @Texinfo::Config::possible_stages;
-our @possible_stages = ('setup', 'structure', 'init', 'finish');
-my %possible_stages;
-foreach my $stage (@possible_stages) {
-  $possible_stages{$stage} = 1;
-}
-
 sub run_stage_handlers($$$)
 {
   my $converter = shift;
   my $root = shift;
   my $stage = shift;
-  die if (!$possible_stages{$stage});
 
   my $stage_handlers = Texinfo::Config::GNUT_get_stage_handlers();
   return 1 if (!defined($stage_handlers->{$stage}));

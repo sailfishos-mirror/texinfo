@@ -20,14 +20,13 @@
 # functions that should not be called by user init files codes are
 # prefixed by GNUT_ while functions that can be called by user init
 # files codes are prefixed by texinfo_.
+# 
+# TODO document all texinfo_ in a pod section, but wait for stabilization
 
 package Texinfo::Config;
 
 # for __(
 use Texinfo::Common;
-
-# for %Texinfo::Convert::HTML::default_formatting_references
-use Texinfo::Convert::HTML;
 
 # for carp
 use Carp;
@@ -114,16 +113,7 @@ sub texinfo_add_valid_option($)
   return Texinfo::Common::add_valid_option($option);
 }
 
-# FIXME this is unclean, but it is texi2any.pl that loads init files
-# so it needs to know the %default_formatting_references for
-# texinfo_register_formatting_function when eval'ing files in load_init_file
-# which appears early.
-my %default_formatting_references = %Texinfo::Convert::HTML::default_formatting_references;
-
-# FIXME would be better to do the reverse, but Texinfo::Convert::HTML
-# is loaded first
-#our @possible_stages = ('setup', 'structure', 'init', 'finish');
-my @possible_stages = @Texinfo::Convert::HTML::possible_stages;
+my @possible_stages = ('setup', 'structure', 'init', 'finish');
 my %possible_stages;
 foreach my $stage (@possible_stages) {
   $possible_stages{$stage} = 1;
@@ -131,7 +121,7 @@ foreach my $stage (@possible_stages) {
 
 my $default_priority = 'default';
 
-# Thes variables should not be accessed directly by the users who
+# These variables should not be accessed directly by the users who
 # customize formatting and should use the associated functions,
 # such as texinfo_register_handler(), texinfo_register_formatting_function(),
 # texinfo_register_command_formatting() or texinfo_register_type_formatting().
@@ -142,7 +132,6 @@ my $GNUT_stage_handlers = {};
 my $GNUT_formatting_references = {};
 my $GNUT_commands_conversion = {};
 my $GNUT_types_conversion = {};
-
 
 sub texinfo_register_handler($$;$)
 {
@@ -170,10 +159,6 @@ sub texinfo_register_formatting_function($$)
 {
   my $thing = shift;
   my $handler = shift;
-  if (!$default_formatting_references{$thing}) {
-    carp ("Unknown formatting type $thing\n");
-    return 0;
-  }
   $GNUT_formatting_references->{$thing} = $handler;
 }
 

@@ -96,6 +96,8 @@ BEGIN {
 
 use Locale::Messages;
 use Texinfo::Common;
+use Texinfo::Config;
+
 use Texinfo::Convert::Converter;
 
 # this associates the command line options to the arrays set during
@@ -317,10 +319,6 @@ push @program_config_dirs, File::Spec->catdir($datadir, $program_name)
 foreach my $texinfo_config_dir (@language_config_dirs) {
   push @program_init_dirs, File::Spec->catdir($texinfo_config_dir, 'init');
 }
-
-# FIXME this in turns uses Texinfo::Convert::HTML which defeats the delayed
-# loading of Texinfo converter modules.
-use Texinfo::Config;
 
 sub locate_and_load_init_file($$)
 {
