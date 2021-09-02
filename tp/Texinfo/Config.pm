@@ -22,6 +22,7 @@
 # files codes are prefixed by texinfo_.
 # 
 # TODO document all texinfo_ in a pod section, but wait for stabilization
+# document that GNUT_, _GNUT_ and texinfo_ are reserved prefixes.
 
 package Texinfo::Config;
 
@@ -49,7 +50,7 @@ sub GNUT_initialize_config($$$) {
 }
 
 # duplicated from texi2any.pl
-sub _document_warn($) {
+sub _GNUT_document_warn($) {
   return if (texinfo_get_conf('NO_WARN'));
   my $text = shift;
   chomp ($text);
@@ -64,19 +65,48 @@ sub GNUT_load_init_file($) {
   eval { require($file) ;};
   my $e = $@;
   if ($e ne '') {
-    _document_warn(sprintf(__("error loading %s: %s\n"),
+    _GNUT_document_warn(sprintf(__("error loading %s: %s\n"),
                                  $file, $e));
   }
+}
+
+# L2H removed in 2021
+# return undef for var there is nothing to set.
+sub _GNUT_map_obsolete_options($$)
+{
+  my $input_var = shift;
+  my $input_value = shift;
+
+  my $var = $input_var;
+  my $value = $input_value;
+
+  if ($input_var eq 'L2H') {
+    _GNUT_document_warn(sprintf(__("obsolete option: %s"), $input_var));
+    if (! $input_value) {
+      # nothing to do in that case
+      $var = undef;
+      $value = undef;
+    } else {
+      $var = 'HTML_MATH';
+      $value = 'l2h';
+    }
+  }
+  return $var, $value;
 }
 
 # Called from init files to set configuration options.
 sub texinfo_set_from_init_file($$) {
   my $var = shift;
   my $value = shift;
+
+  ($var, $value) = _GNUT_map_obsolete_options($var, $value);
+  if (!defined($var)) {
+    return 1;
+  }
   if (!Texinfo::Common::valid_option($var)) {
     # carp may be better, but infortunately, it points to the routine that 
     # loads the file, and not to the init file.
-    _document_warn(sprintf(__("%s: unknown variable %s"),
+    _GNUT_document_warn(sprintf(__("%s: unknown variable %s"),
                                 'texinfo_set_from_init_file', $var));
     return 0;
   }
@@ -90,10 +120,16 @@ sub texinfo_set_from_init_file($$) {
 sub GNUT_set_from_cmdline($$) {
   my $var = shift;
   my $value = shift;
+
+  ($var, $value) = _GNUT_map_obsolete_options($var, $value);
+  if (!defined($var)) {
+    return 1;
+  }
+
   delete $init_files_options->{$var};
   delete $default_options->{$var};
   if (!Texinfo::Common::valid_option($var)) {
-    _document_warn(sprintf(__("%s: unknown variable %s\n"),
+    _GNUT_document_warn(sprintf(__("%s: unknown variable %s\n"),
                           'GNUT_set_from_cmdline', $var));
     return 0;
   }

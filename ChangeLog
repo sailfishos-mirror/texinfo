@@ -1,5 +1,15 @@
 2021-09-02  Patrice Dumas  <pertusus@free.fr>
 
+	* NEWS: document that L2H was removed.
+
+	* tp/Texinfo/Config.pm (_GNUT_map_obsolete_options),
+	(texinfo_set_from_init_file, GNUT_set_from_cmdline): 
+	add _GNUT_map_obsolete_options to map obsolete options
+	to current options.
+	add _GNUT in front of internal functions starting with _.
+
+2021-09-02  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/Parsetexi.pm (_get_error_registrar)
 	(parse_texi_file, _get_errors): setup an error registrar
 	to output the error message obtained before tree parsing.
