@@ -318,7 +318,6 @@ sub _info_header($)
 {
   my $self = shift;
 
-  $self->_set_global_multiple_commands(1);
   my $paragraph = Texinfo::Convert::Paragraph->new();
   my $result = add_text($paragraph, "This is ");
   # This ensures that spaces in file are kept.
@@ -336,6 +335,11 @@ sub _info_header($)
   $result .= "\n";
   $self->{'empty_lines_count'} = 1;
 
+  # format @copying using the first value set for global
+  # commands in the document.  It may not correspond to the
+  # intent of the author if the global commands appears late
+  # in the document.  However this is the best guess we can do.
+  $self->_set_global_multiple_commands(1);
   if ($self->{'extra'} and $self->{'extra'}->{'copying'}) {
     print STDERR "COPYING HEADER\n" if ($self->get_conf('DEBUG'));
     $self->{'in_copying_header'} = 1;
@@ -345,6 +349,8 @@ sub _info_header($)
     $result .= $self->_footnotes();
     delete $self->{'in_copying_header'};
   }
+  $self->_set_global_multiple_commands(0);
+
   if ($self->{'parser_info'}->{'dircategory_direntry'}) {
     $self->{'ignored_commands'}->{'direntry'} = 0;
     foreach my $command (@{$self->{'parser_info'}->{'dircategory_direntry'}}) {
@@ -366,7 +372,6 @@ sub _info_header($)
     }
     $self->{'ignored_commands'}->{'direntry'} = 1;
   }
-  $self->_set_global_multiple_commands(0);
   return $result;
 }
 
