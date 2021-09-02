@@ -178,7 +178,7 @@ sub converter(;$)
       $converter->{$key} = $defaults{$key};
     }
   }
-  $converter->{'converter_init_conf'} = \%defaults;
+  #$converter->{'converter_pre_conf'} = \%defaults;
   if (defined($conf)) {
     if ($conf->{'parser'}) {
       $converter->{'parser'} = $conf->{'parser'};
@@ -206,6 +206,19 @@ sub converter(;$)
       $converter->{'set'}->{$key} = 1;
     }
   }
+  # set $converter->{'converter_init_conf'} to the configuration
+  # options obtained after setting the defaults and applying
+  # the configuration passed as argument.
+  $converter->{'converter_init_conf'} = {};
+  foreach my $key (keys(%{$converter->{'conf'}})) {
+    $converter->{'converter_init_conf'}->{$key} = $converter->{'conf'}->{$key};
+  }
+  foreach my $key (keys (%defaults)) {
+    if (defined($converter->{$key})) {
+      $converter->{'converter_init_conf'}->{$key} = $converter->{$key};
+    }
+  }
+
   $converter->set_conf('OUTPUT_ENCODING_NAME', 
                  $converter->{'parser_info'}->{'input_encoding_name'})
      if ($converter->{'parser_info'}->{'input_encoding_name'});
@@ -244,7 +257,7 @@ sub output_files_information($)
   return $self->{'output_files'};
 }
 
-# $MULTIPLE_COMMANDS_INDEX is 0, 1 or -1.
+# $COMMANDS_LOCATION is 0, 1 or -1.
 # 0 means setting to the values before the document commands
 # (default and command-line).
 # 1 means setting to the first value for the command in the document
@@ -261,7 +274,7 @@ sub output_files_information($)
 sub _set_global_multiple_commands($$)
 {
   my $self = shift;
-  my $multiple_commands_index = shift;
+  my $commands_location = shift;
 
   my $init_conf;
   if (defined($self->{'output_init_conf'})) {
@@ -281,7 +294,7 @@ sub _set_global_multiple_commands($$)
             $Texinfo::Common::document_settable_at_commands{$global_command};
     }
   }
-  if ($multiple_commands_index == 0) {
+  if ($commands_location == 0) {
     foreach my $global_command (keys(%{$commands_init})) {
       # for commands not appearing in the document, this should set the
       # same value, the converter initialization value
@@ -292,9 +305,9 @@ sub _set_global_multiple_commands($$)
       my $root;
       if (defined($self->{'extra'}->{$global_command})
           and ref($self->{'extra'}->{$global_command}) eq 'ARRAY') {
-        # used when $multiple_commands_index == 1
+        # used when $commands_location == 1
         my $index_in_global_commands = 0;
-        if ($multiple_commands_index < 0) {
+        if ($commands_location < 0) {
           $index_in_global_commands = -1;
         }
         $root = $self->{'extra'}->{$global_command}->[$index_in_global_commands];
@@ -303,7 +316,7 @@ sub _set_global_multiple_commands($$)
         $root = $self->{'extra'}->{$global_command};
       }
       if ($self->get_conf('DEBUG')) {
-        print STDERR "SET_global_multiple_commands($multiple_commands_index) $global_command\n";
+        print STDERR "SET_global_multiple_commands($commands_location) $global_command\n";
       }
       if (defined($root)) {
         $self->_informative_command($root);

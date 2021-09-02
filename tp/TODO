@@ -13,6 +13,63 @@ xmllint --nonet --noout --valid commands.xml
 Before next release
 ===================
 
+Rename _set_global_multiple_commands and $multiple_commands_index
+
+Real API for Texinfo::Config used in html32.pm.
+
+CHECK_NORMAL_MENU_STRUCTURE devien argument de la fonction
+
+renommer formatting_commands no_arg_commands ou approchant
+
+remettre libint-perl
+
+
+do not remove documentlanguage in index entries
+
+check @{$converter_options->{'INCLUDE_DIRECTORIES'}} with more 
+than one output file
+FIXME isn't that done for each output file?
+
+
+remove NODE_FILENAMES
+vi init/book.pm
+  return undef if ($converter->get_conf('NODE_FILENAMES')
++ COmmon.pm
+
+
+COmmon.pm float_name_caption to Convert::Common
+ sub definition_category($$) to Convert::Common
+    expand_today to Convert::Common
+translated_command_tree Convert::Common
+numbered_heading Convert::Common
+definition_arguments_content Convert::Common
+find_innermost_accent_contents Convert::Common
+
+float_name_caption Convert::Converter
+
+trim_spaces_comment_from_content ?
+
+count_bytes ?
+
+_count_opened_tree_braces _find_end_brace parse_node_manual remains in Common
+enumerate_item_representation
+is_content_empty
+normalize_top_node_name
+_convert_text_options
+
+protect_colon_in_tree modify_tree substitute_references collect_commands_list_in_tree collect_commands_in_tree _copy_tree copy_tree remains in Common
+need _new_asis_command_with_text or _protect_text
+protect_node_after_label_in_tree 
+protect_first_parenthesis
+
+
+protect_hashchar_at_line_beginning Transformations
+
+set_nodes_list_labels to NodeNameNormalization
+
+
+complete_indices, gdt, some code in Text: add documentlanguage arg to gdt
+move complete_indices to Translations
 
 Bugs
 ====

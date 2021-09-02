@@ -1,5 +1,15 @@
 2021-09-02  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Converter.pm (converter): set
+	$converter->{'converter_init_conf'} to the configuration
+	options obtained after setting the defaults and applying
+	the configuration passed as argument.
+
+	* tp/Texinfo/Convert/Converter.pm (_set_global_multiple_commands):
+	rename $multiple_commands_index as $commands_location.
+
+2021-09-02  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm, tp/Texinfo/Convert/Converter.pm,
 	tp/texi2any.pl: add more default values for command
 	line options and customizations, separating specific main
