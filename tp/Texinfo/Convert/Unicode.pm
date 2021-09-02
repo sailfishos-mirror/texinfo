@@ -34,6 +34,8 @@ use Unicode::EastAsianWidth;
 require Exporter;
 use vars qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
 
+use Texinfo::Encoding;
+
 use Texinfo::MiscXS;
 
 # Some extra initialization for the first time this module is loaded.

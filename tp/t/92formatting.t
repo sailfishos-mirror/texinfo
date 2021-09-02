@@ -42,7 +42,7 @@ my @test_cases = (
   undef, {'test_file' => 'cond.texi',
     'EXPANDED_FORMATS' => ['html', 'info', 'tex'],
   },
-  {'expanded_formats' => ['html', 'info', 'tex'], },
+  {'EXPANDED_FORMATS' => ['html', 'info', 'tex'], },
 ],
 ['cond_info',
   undef, {'test_file' => 'cond.texi',
@@ -55,14 +55,14 @@ my @test_cases = (
     'test_formats' => ['info'],
     'EXPANDED_FORMATS' => [],
   },
-  {'expanded_formats' => []}
+  {'EXPANDED_FORMATS' => []}
 ],
 ['cond_info_ifhtml_ifinfo_iftex',
   undef, {'test_file' => 'cond.texi',
     'test_formats' => ['info'],
     'EXPANDED_FORMATS' => ['info', 'html', 'tex'],
   },
-  {'expanded_formats' => ['info', 'html', 'tex'],}
+  {'EXPANDED_FORMATS' => ['info', 'html', 'tex'],}
 ],
 ['defcondx_Dbar',
   undef, {'test_file' => 'defxcond.texi',

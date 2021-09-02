@@ -13,14 +13,11 @@ my $T2H_BLUE_BUTTONS = 0;
 # we only redefine things which ar of relevance to singular
 # all the others we simply "include"
 
-# -prefix
 # Set the output file prefix, prepended to all .html, .png and .pl files.
 texinfo_set_from_init_file('setfilename', 'sing');
 
-# -expand
-# if set to "tex" (or, "info") expand @iftex and @tex (or, @ifinfo) sections
-# else, neither expand @iftex, @tex, nor @ifinfo sections
-texinfo_set_from_init_file('EXPANDED_FORMATS', ['html', 'tex']);
+# add html and tex to expanded formats.  html should be redundant.
+texinfo_add_to_option_list('EXPANDED_FORMATS', ['html', 'tex']);
 
 # if set, creates one html file per node
 texinfo_set_from_init_file('SPLIT', 'node');

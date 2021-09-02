@@ -31,6 +31,11 @@ use File::Spec;
 # For __(
 use Texinfo::Common;
 
+# load modules to make sure that they are loaded before use
+use Texinfo::Convert::Unicode;
+use Texinfo::Convert::Text;
+use Texinfo::Structuring;
+
 main::set_global_format('html');
 
 texinfo_set_from_init_file('TOP_FILE', undef);

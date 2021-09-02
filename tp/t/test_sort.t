@@ -40,15 +40,16 @@ $tree = $parser->parse_texi_text('@node Top
 @cindex @l{}
 ');
 
-my ($index_names, $merged_indices) = 
-   $parser->indices_information();
+my $registrar = $parser->registered_errors();
+my ($index_names, $merged_indices) = $parser->indices_information();
 my $index_entries = Texinfo::Structuring::merge_indices($index_names);
 my $parser_informations = $parser->global_informations();
-# FIXME this is not very clean, there should be an object
-# holding only configuration instead
+# FIXME this is wrong, there should be an object
+# holding only configuration that is not a parser
 $parser->{'OUTPUT_ENCODING_NAME'} = $parser_informations->{'input_encoding_name'};
+$parser->{'ENABLE_ENCODING'} = 1;
 my $sorted_index_entries 
-  = Texinfo::Structuring::sort_indices($parser, $parser, $parser,
+  = Texinfo::Structuring::sort_indices($parser, $registrar, $parser,
                                   $index_entries, $index_names);
 
 my @entries = ();

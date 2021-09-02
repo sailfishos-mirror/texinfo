@@ -639,14 +639,14 @@ $raw_commands_text,
 ['raw_block_commands_expand_tex',
 $raw_commands_text,
 {'EXPANDED_FORMATS' => ['tex', 'docbook', 'html', 'xml', 'latex']},
-{'expanded_formats' => ['tex']},
+{'EXPANDED_FORMATS' => ['tex']},
 ],
 ['inline',
 $inline_text,
 ],
 ['inline_expand_tex',
 $inline_text, {'EXPANDED_FORMATS' => ['tex']},
-{'expanded_formats' => ['tex']},
+{'EXPANDED_FORMATS' => ['tex']},
 ],
 ['inlinefmtifelse',
 '@inlinefmtifelse{html,,else html no if}.
@@ -971,7 +971,7 @@ Macro not unmacroed @othermacro{}.
 
 Macros that should not be defined: @mymacro{}. @macroarg{with arg}.
 
-', {'EXPANDED_FORMATS' => ['html']}, {'expanded_formats' => ['html']}
+', {'EXPANDED_FORMATS' => ['html']}, {'EXPANDED_FORMATS' => ['html']}
 ], 
 );
 

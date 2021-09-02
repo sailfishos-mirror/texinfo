@@ -37,14 +37,34 @@ use Carp;
 my $real_command_name;
 
 my $cmdline_options;
-my $default_options;
+my $main_program_default_options;
 my $init_files_options = {};
+
+# list options are not handled like string options.  Indeed,
+# the lists need to be defined in the main program, therefore
+# the main program list options would always take precedence
+# if there is a precedence, and the list options set from
+# init file would not have any effect. For list options, items
+# are added and removed by calls to texinfo_add_to_option_list
+# and texinfo_remove_from_option_list, be it from command line
+# or init files, there is no precedence, but the order of calls
+# matter.
+my %options_as_lists;
 
 # called from texi2any.pl main program
 sub GNUT_initialize_config($$$) {
   $real_command_name = shift;
-  $default_options = shift;
+  $main_program_default_options = shift;
   $cmdline_options = shift;
+  # consider options passed from main program for initialization
+  # as list options
+  foreach my $cmdline_option (keys(%$cmdline_options)) {
+    if (not ref($cmdline_options->{$cmdline_option})
+        or ref($cmdline_options->{$cmdline_option}) ne 'ARRAY') {
+      warn "BUG: $cmdline_option not an ARRAY $cmdline_options->{$cmdline_option}\n";
+    }
+    $options_as_lists{$cmdline_option} = 1;
+  }
   #print STDERR "cmdline_options: ".join('|',keys(%$cmdline_options))."\n";
   return $init_files_options;
 }
@@ -111,7 +131,7 @@ sub texinfo_set_from_init_file($$) {
     return 0;
   }
   return 0 if (defined($cmdline_options->{$var}));
-  delete $default_options->{$var};
+  delete $main_program_default_options->{$var};
   $init_files_options->{$var} = $value;
   return 1;
 }
@@ -127,13 +147,43 @@ sub GNUT_set_from_cmdline($$) {
   }
 
   delete $init_files_options->{$var};
-  delete $default_options->{$var};
+  delete $main_program_default_options->{$var};
   if (!Texinfo::Common::valid_option($var)) {
     _GNUT_document_warn(sprintf(__("%s: unknown variable %s\n"),
                           'GNUT_set_from_cmdline', $var));
     return 0;
   }
   $cmdline_options->{$var} = $value;
+  return 1;
+}
+
+# called both from main program and init files.
+sub texinfo_add_to_option_list($$)
+{
+  my $var = shift;
+  my $values_array_ref = shift;
+  if (not $options_as_lists{$var}) {
+    return 0;
+  }
+  foreach my $value (@$values_array_ref) {
+    push @{$cmdline_options->{$var}}, $value
+      unless (grep {$_ eq $value} @{$cmdline_options->{$var}});
+  }
+  return 1;
+}
+
+# called both from main program and init files.
+sub texinfo_remove_from_option_list($$)
+{
+  my $var = shift;
+  my $values_array_ref = shift;
+  if (not $options_as_lists{$var}) {
+    return 0;
+  }
+  foreach my $value (@$values_array_ref) {
+    @{$cmdline_options->{$var}}
+      = grep {$_ ne $value} @{$cmdline_options->{$var}};
+  }
   return 1;
 }
 
@@ -146,8 +196,8 @@ sub texinfo_get_conf($) {
     return $cmdline_options->{$var};
   } elsif (exists($init_files_options->{$var})) {
     return $init_files_options->{$var};
-  } elsif (exists($default_options->{$var})) {
-    return $default_options->{$var};
+  } elsif (exists($main_program_default_options->{$var})) {
+    return $main_program_default_options->{$var};
   } else {
     return undef;
   }

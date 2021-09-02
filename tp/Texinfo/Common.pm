@@ -30,6 +30,13 @@ use Config;
 use File::Spec;
 
 use Texinfo::Documentlanguages;
+# used in functions, but Texinfo::Convert::Texinfo uses
+# Texinfo::Common in main module, so needs to be loaded after
+#use Texinfo::Convert::Texinfo;
+# same reason as above, and in addition Texinfo::Convert::NodeNameNormalization
+# loads most of the other modules, we may not want to load those modules
+# early.
+#use Texinfo::Convert::NodeNameNormalization;
 
 # debugging
 use Carp qw(cluck);
@@ -100,25 +107,38 @@ sub __p($$) {
   return Locale::Messages::dpgettext($messages_textdomain, $context, $msgid);
 }
 
-
-# Customization variables obeyed by the parser, and the default values.
-our %default_parser_customization_values = (
+# not specific of Parser, used in other contexts.  Spread over the different
+# categories set below.  The default values are in general the same as
+# elsewheere, but occasionally may be specific of the Parser.
+my %default_parser_common_customization = (
   'INCLUDE_DIRECTORIES' => [ '.' ],
-  'documentlanguage' => undef,
-  'novalidate' => undef,
+  'documentlanguage' => undef,  # not 'en' as it is better to specify that there is no
+                                # need for translation since the strings are in english
+                                # rather than ask for translations to en
+  'novalidate' => undef,   # --no-validate
   'EXPANDED_FORMATS' => [],
   'DEBUG' => 0,     # if >= 10, tree is printed in texi2any.pl after parsing.
                     # If >= 100 tree is printed every line.
   'FORMAT_MENU' => 'menu',           # if not 'menu' no menu error related.
+  # This is not used directly, but passed to Convert::Text through
+  # Texinfo::Common::_convert_text_options
+  'ENABLE_ENCODING' => undef,     # output accented and special characters
+                                  # based on @documentencoding
+);
+
+# Customization variables obeyed only by the parser, and the default values.
+my %default_parser_specific_customization = (
   'IGNORE_BEFORE_SETFILENAME' => 1,
   'IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME' => 1,
   'CPP_LINE_DIRECTIVES' => 1, # handle cpp like synchronization lines
   'MAX_MACRO_CALL_NESTING' => 100000, # max number of nested macro calls
-  # This is not used directly, but passed to Convert::Text through 
-  # Texinfo::Common::_convert_text_options
-  'ENABLE_ENCODING' => 1,     # output accented and special characters
-                              # based on @documentencoding
 );
+
+# this serves both to set defaults and list configuration options
+# valid for the parser.
+our %default_parser_customization_values = (%default_parser_common_customization,
+  %default_parser_specific_customization);
+
 
 # Customization variables set in the parser for other modules, and the
 # default values.
@@ -127,11 +147,12 @@ our %default_structure_customization_values = (
   'CHECK_NORMAL_MENU_STRUCTURE' => 0, # output warnings when node with
             # automatic direction does directions in menu are not consistent
             # with sectionning, and when node directions are not consistent
-            # with menu directions
+            # with menu directions.  Used in complete_node_tree_with_menus()
 );
 
 
-# customization options
+# @-commands that can be used multiple time in a document and default
+# values.  Associated with customization values too.
 our %document_settable_multiple_at_commands = (
   'allowcodebreaks' => 'true',
   'clickstyle' => '@arrow',
@@ -140,7 +161,7 @@ our %document_settable_multiple_at_commands = (
   'contents' => 0,
   'deftypefnnewline' => 'off',
   'documentencoding' => 'us-ascii',
-  'documentlanguage' => 'en',
+  'documentlanguage' => 'en', # or undef?  Documented as en. Also --document-language
   # is N ems in TeX, 0.4 in.
   'exampleindent' => 5,
   'firstparagraphindent' => 'none',
@@ -153,7 +174,7 @@ our %document_settable_multiple_at_commands = (
   'xrefautomaticsectiontitle' => 'off',
 );
 
-# those should be unique
+# @-commands that should be unique.  Associated with customization values too.
 our %document_settable_unique_at_commands = (
   # when passed through a configuration variable, documentdescription
   # should be already formatted for HTML.  There is no default,
@@ -164,7 +185,7 @@ our %document_settable_unique_at_commands = (
   'everyfootingmarks' => 'bottom', 
   'everyheadingmarks' => 'bottom',
   'fonttextsize' => 11, 
-  'footnotestyle' => 'end', 
+  'footnotestyle' => 'end',    # also --footnote-style
   'novalidate' => 0,
   'oddfootingmarks' => undef,
   'oddheadingmarks' => undef,
@@ -181,21 +202,79 @@ our %document_settable_unique_at_commands = (
   # FIXME add afourpaper and similar?
 );
 
-my @command_line_settables = (
-  'CASE_INSENSITIVE_FILENAMES', 'ENABLE_ENCODING', 'ERROR_LIMIT',
-  'FILLCOLUMN', 'FORCE', 'HEADERS', 'INTERNAL_LINKS', 'MACRO_EXPAND',
-  'NODE_FILES', 'NO_WARN', 'NUMBER_FOOTNOTES', 'NUMBER_SECTIONS',
-  'OUTFILE', 'SPLIT', 'SPLIT_SIZE', 'SUBDIR', 'TRANSLITERATE_FILE_NAMES',
-  'VERBOSE'
+# a value corresponds to defaults that are the same for every output format
+# otherwise undef is used
+our %default_converter_command_line_options = (
+  'SPLIT_SIZE'           => 300000,  # --split-size
+  'FILLCOLUMN'           => 72,      # --fill-column
+  'NUMBER_SECTIONS'      => 1,       # --number-sections
+  'NUMBER_FOOTNOTES'     => 1,       # --number-footnotes
+  # only in HTML
+  'TRANSLITERATE_FILE_NAMES' => 1,   # --transliterate-file-names
+  'SPLIT'                => undef,   # --split
+  'HEADERS'              => 1,       # --headers.  Used to set diverse customization options
+                                     # in main program.  Only directly used in HTML converter
+  'FORMAT_MENU'          => undef,   # --headers.  Modified by the format.
+  'NODE_FILES'           => undef,   # --node-files.  Depend on SPLIT
+  'VERBOSE'              => undef,   # --verbose
+  'OUTFILE'              => undef,   # --output    If non split and not ending by /. 
+                                     # Setting can be format dependent
+  'SUBDIR'               => undef,   # --output    If split or ending by /.
+                                     # Setting can be format dependent
+  'ENABLE_ENCODING'      => undef,   # --disable-encoding/--enable-encoding.  The documentation
+                                     # only mentions Info and plain text, but the option is used
+                                     # in many formats, with differing defaults.  The default expected
+                                     # by the converters is to be unset, although for Info and
+                                     # plain text, default is set.  If set, it is set in the formats
+                                     # converter defaults.
 );
 
+# only used in main program, defaults documented in manual
+my %default_main_program_command_line_options = (
+  'MACRO_EXPAND'         => undef,   # --macro-expand
+  # used in HTML only, called from main program
+  'INTERNAL_LINKS'       => undef,   # --internal-links
+  'ERROR_LIMIT'          => 100,     # --error-limit
+  'FORCE'                => undef,   # --force
+  'NO_WARN'              => undef,   # --no-warn
+);
+
+# used in main program, defaults documented in manual
+my %default_main_program_customization = (
+  'SORT_ELEMENT_COUNT_WORDS'    => undef,
+  'SORT_ELEMENT_COUNT'          => undef,
+  'TEXI2DVI'                    => 'texi2dvi',
+  'TREE_TRANSFORMATIONS'        => undef,
+  'DUMP_TREE'                   => undef,
+  'DUMP_TEXI'                   => undef,
+);
+
+# defaults for the main program.  In general transmitted to converters as defaults
+our %default_main_program_customization_options = (
+ %default_main_program_command_line_options,  %default_main_program_customization);
+
+# used in converters, default documented in manual
+our %default_converter_customization = (
+  'TOP_NODE_UP'           => '(dir)',   # up node of Top node default value
+  'BASEFILENAME_LENGTH'   => 255 - 10,
+  # only used in HTML
+  'IMAGE_LINK_PREFIX'     => undef,
+  'CASE_INSENSITIVE_FILENAMES' => 0,
+  'DEBUG'                 => 0,
+  'TEST'                  => 0,
+  'TEXTCONTENT_COMMENT',  => undef,  # in textcontent format
+);
+
+# Some are for all converters, EXTENSION for instance, some for
+# some converters, for example CLOSE_QUOTE_SYMBOL and many
+# for HTML.  Could be added to %default_converter_customization.
+# Defaults are documented in manual and set in the various converters.
 our @variable_string_settables = (
 'AFTER_ABOUT',
 'AFTER_BODY_OPEN',
 'AFTER_OVERVIEW',
 'AFTER_TOC_LINES',
 'AVOID_MENU_REDUNDANCY',
-'BASEFILENAME_LENGTH',
 'BEFORE_OVERVIEW',
 'BEFORE_TOC_LINES',
 'BIG_RULE',
@@ -207,16 +286,12 @@ our @variable_string_settables = (
 'CLOSE_QUOTE_SYMBOL',
 'COMPLEX_FORMAT_IN_TABLE',
 'CONTENTS_OUTPUT_LOCATION',
-'CPP_LINE_DIRECTIVES',
 'CSS_LINES',
 'DATE_IN_HEADER',
-'DEBUG',
 'DEFAULT_RULE',
 'DEF_TABLE',
 'DO_ABOUT',
 'DOCTYPE',
-'DUMP_TEXI',
-'DUMP_TREE',
 'ENABLE_ENCODING_USE_ENTITY',
 'EXTENSION',
 'EXTERNAL_CROSSREF_SPLIT',
@@ -230,8 +305,6 @@ our @variable_string_settables = (
 'HTML_MATH',
 'HTMLXREF',
 'ICONS',
-'IGNORE_BEFORE_SETFILENAME',
-'IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME',
 'IMAGE_LINK_PREFIX',
 'INDEX_ENTRY_COLON',
 'INDEX_SPECIAL_CHARS_WARNING',
@@ -251,7 +324,6 @@ our @variable_string_settables = (
 'MATHJAX_SCRIPT',
 'MATHJAX_SOURCE',
 'MAX_HEADER_LEVEL',
-'MAX_MACRO_CALL_NESTING',
 'MENU_ENTRY_COLON',
 'MENU_SYMBOL',
 'MONOLITHIC',
@@ -277,23 +349,16 @@ our @variable_string_settables = (
 'PROGRAM_NAME_IN_FOOTER',
 'SECTION_NAME_IN_TITLE',
 'SHORTEXTN',
-'FORMAT_MENU',
 'SHOW_TITLE',
 'SIMPLE_MENU',
 'SORT_ELEMENT_COUNT',
-'SORT_ELEMENT_COUNT_WORDS',
-'TEST',
-'TEXI2DVI',
 'TEXI2HTML',
 'TEXINFO_DTD_VERSION',
 'TEXINFO_OUTPUT_FORMAT',
-'TEXTCONTENT_COMMENT',
 'TOC_LINKS',
 'TOP_FILE',
 'TOP_NODE_FILE_TARGET',
-'TOP_NODE_UP',
 'TOP_NODE_UP_URL',
-'TREE_TRANSFORMATIONS',
 'USE_ACCESSKEY',
 'USE_ISO',
 'USE_LINKS',
@@ -311,7 +376,7 @@ our @variable_string_settables = (
 'XREF_USE_NODE_NAME_ARG',
 );
 
-# Not strings. 
+# Not strings.  Not documented in the manual nor elsewhere.
 # FIXME To be documented somewhere, but where?
 my @variable_other_settables = (
   'LINKS_BUTTONS', 'TOP_BUTTONS', 'SECTION_BUTTONS', 'BUTTONS_TEXT',
@@ -322,7 +387,10 @@ my @variable_other_settables = (
   'BUTTONS_EXAMPLE', 'SPECIAL_ELEMENTS_NAME', 'SPECIAL_ELEMENTS_CLASS',
   'ACTIVE_ICONS', 'PASSIVE_ICONS',
   # set from command line
-  'CSS_FILES', 'CSS_REFS', 'EXPANDED_FORMATS', 'INCLUDE_DIRECTORIES',
+  'CSS_FILES',            # --css-include
+  'CSS_REFS',             # --css-ref
+  'EXPANDED_FORMATS',     # --if*
+  'INCLUDE_DIRECTORIES',  # -I
 );
 
 our %document_settable_at_commands = (%document_settable_multiple_at_commands,
@@ -330,7 +398,12 @@ our %document_settable_at_commands = (%document_settable_multiple_at_commands,
 
 my %valid_options;
 foreach my $var (keys(%document_settable_at_commands),
-         @command_line_settables, @variable_string_settables,
+         keys(%default_main_program_command_line_options),
+         keys(%default_converter_command_line_options),
+         keys(%default_main_program_customization),
+         keys(%default_parser_specific_customization),
+         keys(%default_converter_customization),
+         @variable_string_settables,
          @variable_other_settables) {
   $valid_options{$var} = 1;
 }
@@ -354,8 +427,11 @@ sub add_valid_option($)
 my %customization_variable_classes = (
   'document_settable_multiple_at_commands' => [ sort(keys(%document_settable_multiple_at_commands)) ],
   'document_settable_unique_at_commands' => [ sort(keys(%document_settable_unique_at_commands)) ],
-  'command_line_settables' => \@command_line_settables,
-  'variable_string_settables' => \@variable_string_settables,
+  'command_line_settables' => [ sort((keys(%default_converter_command_line_options),
+                                      keys(%default_main_program_command_line_options))) ],
+  'variable_string_settables' => [ @variable_string_settables, sort(
+    (keys(%default_parser_specific_customization), keys(%default_main_program_customization),
+     keys(%default_converter_customization))) ],
   'variable_other_settables' => \@variable_other_settables,
 );
 

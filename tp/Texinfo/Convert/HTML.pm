@@ -56,8 +56,9 @@ use if $] >= 5.012, feature => 'unicode_strings';
 
 use strict;
 
-use Texinfo::Convert::Converter;
 use Texinfo::Common;
+use Texinfo::Structuring;
+use Texinfo::Convert::Converter;
 use Texinfo::Convert::Texinfo;
 use Texinfo::Convert::Text;
 use Texinfo::Convert::Unicode;
@@ -885,7 +886,6 @@ my %defaults = (
   'TOP_FILE'             => 'index.html',
   'EXTENSION'            => 'html',
   'TOP_NODE_FILE_TARGET' => 'index.html',
-  'TRANSLITERATE_FILE_NAMES' => 1,
   'USE_LINKS'            => 1,
   'USE_NUMERIC_ENTITY'   => 1,
   'ENABLE_ENCODING_USE_ENTITY'   => 1,

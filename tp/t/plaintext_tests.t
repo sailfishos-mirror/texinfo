@@ -90,14 +90,14 @@ Before samp. @samp{a}. after samp, w @w{in   w. after dot}  afterw
 html
 @end html
 after.
-',{'EXPANDED_FORMATS' => ['html']}, {'expanded_formats' => ['html']}
+',{'EXPANDED_FORMATS' => ['html']}, {'EXPANDED_FORMATS' => ['html']}
 ],
 ['isolated_html_expanded',
 '
 @html
 html
 @end html
-',{'EXPANDED_FORMATS' => ['html']}, {'expanded_formats' => ['html']}
+',{'EXPANDED_FORMATS' => ['html']}, {'EXPANDED_FORMATS' => ['html']}
 ],
 ['star_at_command_formatting',
 '@macro mymacro
@@ -477,7 +477,7 @@ GGG
 HHH
 @end tex
 bbbbbbbbb1 bbbbbbbbbbb2 bbbbbbbbbb3 bbbbbbbbbbbbbb4.
-', {'EXPANDED_FORMATS' => ['tex']}, {'expanded_formats' => ['tex']}
+', {'EXPANDED_FORMATS' => ['tex']}, {'EXPANDED_FORMATS' => ['tex']}
 ],
 ['paragraphindent',
 'First

@@ -35,6 +35,8 @@ use Texinfo::Convert::Text;
 # for error messages 
 use Texinfo::Convert::Texinfo;
 
+use Texinfo::Convert::NodeNameNormalization;
+
 *node_extra_to_texi = \&Texinfo::Convert::Texinfo::node_extra_to_texi;
 
 use Carp qw(cluck);

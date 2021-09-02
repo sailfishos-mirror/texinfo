@@ -24,7 +24,8 @@ use warnings;
 require Exporter;
 
 use Texinfo::Common;
-use Texinfo::Encoding;
+# no direct use, use through
+# Texinfo::Common::set_nodes_list_labels
 use Texinfo::Convert::NodeNameNormalization;
 use Texinfo::Report;
 use Texinfo::Translations;

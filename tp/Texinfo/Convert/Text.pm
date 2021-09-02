@@ -22,7 +22,6 @@ package Texinfo::Convert::Text;
 use 5.00405;
 use strict;
 
-use Texinfo::Convert::Converter;
 # accent commands list.
 use Texinfo::Common;
 use Texinfo::Convert::Unicode;
@@ -35,7 +34,7 @@ use File::Basename;
 
 require Exporter;
 use vars qw($VERSION @ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
-@ISA = qw(Exporter Texinfo::Convert::Converter);
+@ISA = qw(Exporter);
 
 %EXPORT_TAGS = ( 'all' => [ qw(
   convert_to_text
@@ -635,7 +634,7 @@ sub converter($)
     #print STDERR "CTe ".join("|", sort(keys(%{$conf})))."\n";
   }
 
-  my $expanded_formats = $converter->{'expanded_formats'};;
+  my $expanded_formats = $converter->{'EXPANDED_FORMATS'};;
   if ($converter->{'parser'}) {
     $converter->{'parser_info'} = $converter->{'parser'}->global_informations();
     $converter->{'extra'} = $converter->{'parser'}->global_commands_information();

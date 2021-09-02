@@ -319,7 +319,7 @@ in html
 @html
 in html
 @end html
-}',{'EXPANDED_FORMATS' => ['html']}, {'expanded_formats' => ['html']}
+}',{'EXPANDED_FORMATS' => ['html']}, {'EXPANDED_FORMATS' => ['html']}
 ],
 ['verbatim_in_brace_command',
 '@samp{

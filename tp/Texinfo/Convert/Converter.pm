@@ -31,6 +31,14 @@ use Encode;
 use Texinfo::Common;
 use Texinfo::Structuring;
 
+use Texinfo::Report;
+use Texinfo::Translations;
+
+use Texinfo::Convert::NodeNameNormalization;
+use Texinfo::Structuring;
+use Texinfo::Convert::Unicode;
+use Texinfo::Convert::Text;
+
 use Carp qw(cluck);
 
 require Exporter;
@@ -52,50 +60,34 @@ xml_accents
 $VERSION = '6.8dev';
 
 my %defaults = (
-  'ENABLE_ENCODING'      => 1,
-  'OUTFILE'              => undef,
-  'SUBDIR'               => undef,
   'documentlanguage'     => undef,
 );
 
-# defaults for all converters.  Maybe more could be added, especially what
-# can be set with --set and should be the same for all the formats.
+# defaults for all converters that are not defined elsewhere.
 # undef values in general marks information passed by the caller that
 # is valid in the parser configuration initialization hash, but
 # is not considered as "configuration", and is available directly
 # in the converter, not through get_conf().
 # FIXME separate the two types of information and check that those
-# items are not valid options.
-our %all_converters_defaults = (
+# items are not valid customization options?
+my %common_converters_defaults = (
   'language_config_dirs' => undef,
   'output_format'        => undef,
-  'SPLIT_SIZE'           => 300000,
-  'TOP_NODE_UP'          => '(dir)',   # up node of Top node default value
-  'paragraphindent'      => 3,
-  'fillcolumn'           => 72,
-  'expanded_formats'     => undef,
   'structuring'          => undef,
-  # only HTML
-  'IMAGE_LINK_PREFIX'    => undef,
-  'NUMBER_SECTIONS'      => 1,
-  'NUMBER_FOOTNOTES'     => 1,
-  'frenchspacing'        => 'off',
-  'paragraphindent'      => 3,
-  'firstparagraphindent' => 'none',
-  'allowcodebreaks'      => 'true',
-  'footnotestyle'        => 'end',
-  'deftypefnnewline'     => 'off',
-  'BASEFILENAME_LENGTH'  => 255 - 10,
+  'translated_commands'  => {'error' => 'error@arrow{}',},
 # This is the default, mainly for tests; the caller should set them.  These
 # values are what is used in tests of the Converters.
   'PACKAGE_AND_VERSION'  => 'texinfo',
   'PACKAGE_VERSION'      => '',
   'PACKAGE_URL'          => 'http://www.gnu.org/software/texinfo/',
   'PROGRAM'              => '',
+);
 
-  'DEBUG'                => 0,
-  'TEST'                 => 0,
-  'translated_commands'  => {'error' => 'error@arrow{}',},
+my %all_converters_defaults = (%Texinfo::Common::default_converter_command_line_options,
+  %Texinfo::Common::default_converter_customization,
+  %Texinfo::Common::document_settable_unique_at_commands,
+  %Texinfo::Common::document_settable_multiple_at_commands,
+  %common_converters_defaults
 );
 
 # For translation of in document string.
@@ -228,18 +220,16 @@ sub converter(;$)
 
   # turn the array to a hash for speed.  Not sure it really matters for such
   # a small array.
-  foreach my $expanded_format(@{$converter->{'expanded_formats'}}) {
-    $converter->{'expanded_formats_hash'}->{$expanded_format} = 1;
+  my $expanded_formats = $converter->get_conf('EXPANDED_FORMATS');
+  if (defined($expanded_formats)) {
+    foreach my $expanded_format (@{$converter->get_conf('EXPANDED_FORMATS')}) {
+      $converter->{'expanded_formats_hash'}->{$expanded_format} = 1;
+    }
   }
 
   # used for output files information, to register opened
   # and not closed files.  Accessed through output_files_information()
   $converter->{'output_files'} = {};
-
-  require Texinfo::Report;
-  require Texinfo::Translations;
-  # 'require' here instead of 'use' at top of file to cut down run time of 
-  # 'texi2any --help'
 
   $converter->Texinfo::Report::new();
 

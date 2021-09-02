@@ -519,8 +519,8 @@ sub set_converter_option_defaults($$$)
   my $parser_options = shift;
   my $format = shift;
   $converter_options = {} if (!defined($converter_options));
-  if (!defined($converter_options->{'expanded_formats'})) {
-    $converter_options->{'expanded_formats'} = [$format];
+  if (!defined($converter_options->{'EXPANDED_FORMATS'})) {
+    $converter_options->{'EXPANDED_FORMATS'} = [$format];
   }
   return $converter_options;
 }

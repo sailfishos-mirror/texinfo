@@ -98,17 +98,6 @@ use Locale::Messages;
 use Texinfo::Common;
 use Texinfo::Config;
 
-use Texinfo::Convert::Converter;
-
-# this associates the command line options to the arrays set during
-# command line parsing.
-my @css_files = ();
-my @css_refs = ();
-my @include_dirs = ();
-my $cmdline_options = { 'CSS_FILES' => \@css_files,
-                        'CSS_REFS' => \@css_refs,
-                        'INCLUDE_DIRECTORIES' => \@include_dirs };
-
 # determine the path separators
 my $path_separator = $Config{'path_sep'};
 $path_separator = ':' if (!defined($path_separator));
@@ -275,13 +264,8 @@ if ($texinfo_dtd_version eq '@' . 'TEXINFO_DTD_VERSION@') {
 $texinfo_dtd_version = $configured_version
   if (!defined($texinfo_dtd_version));
 
-# defaults for options relevant in the main program, not undef, and also
-# defaults for all the converters.
-# Other relevant options (undef) are NO_WARN FORCE OUTFILE
-# Others are set in the converters (FORMAT_MENU).
-my $converter_default_options = { 
-    'ERROR_LIMIT' => 100,
-    'TEXI2DVI' => 'texi2dvi',
+# options set in the main program.
+my $main_program_set_options = {
     'PACKAGE_VERSION' => $configured_version,
     'PACKAGE' => $configured_package,
     'PACKAGE_NAME' => $configured_name,
@@ -289,6 +273,13 @@ my $converter_default_options = {
     'PACKAGE_URL' => $configured_url,
     'PROGRAM' => $real_command_name, 
     'TEXINFO_DTD_VERSION' => $texinfo_dtd_version,
+};
+
+# defaults for options relevant in the main program. Also used as
+# defaults for all the converters.
+my $main_program_default_options = {
+  %$main_program_set_options,
+  %Texinfo::Common::default_main_program_customization_options,
 };
 
 # determine configuration directories.
@@ -329,16 +320,11 @@ sub locate_and_load_init_file($$)
 
   my $file = Texinfo::Common::locate_init_file($filename, $directories, 0);
   if (defined($file)) {
+    # evaluate the code in the Texinfo::Config namespace
     Texinfo::Config::GNUT_load_init_file($file);
   } else {
     document_warn(sprintf(__("could not read init file %s"), $filename));
   }
-}
-
-# read initialization files
-foreach my $file (Texinfo::Common::locate_init_file($conf_file_name, 
-                  [ reverse(@program_config_dirs) ], 1)) {
-  Texinfo::Config::GNUT_load_init_file($file);
 }
 
 sub set_from_cmdline($$) {
@@ -349,9 +335,28 @@ sub get_conf($) {
   return &Texinfo::Config::texinfo_get_conf(@_);
 }
 
+sub add_to_option_list($$) {
+  return &Texinfo::Config::texinfo_add_to_option_list(@_);
+}
+
+sub remove_from_option_list($$) {
+  return &Texinfo::Config::texinfo_remove_from_option_list(@_);
+}
+
 my @input_file_suffixes = ('.txi','.texinfo','.texi','.txinfo','');
 
 my @texi2dvi_args = ();
+
+# this associates the command line options to the arrays set during
+# command line parsing.
+my @css_files = ();
+my @css_refs = ();
+my @include_dirs = ();
+my @expanded_formats = ();
+my $cmdline_options = { 'CSS_FILES' => \@css_files,
+                        'CSS_REFS' => \@css_refs,
+                        'INCLUDE_DIRECTORIES' => \@include_dirs,
+                        'EXPANDED_FORMATS' => \@expanded_formats };
 
 my $format = 'info';
 # this is the format associated with the output format, which is replaced
@@ -361,33 +366,40 @@ my $default_expanded_format = [ $format ];
 my @conf_dirs = ();
 my @prepend_dirs = ();
 
-# $cmdline_options are common to main program and Texinfo::Config
-# namespace, set by GNUT_set_from_cmdline for text values, but also
-# manipulated in main program.
-# $init_files_options are managed by Texinfo::Config and available here.
-# There is in addition $parser_options for parser
-# related informations for informations that are not set through
-# set_from_cmdline.  The configuration text values are later on
-# copied over to the parser if they are parser options, with
-# format specific options also set if not already in the configuration.
-# Some parser options (as well as parser generated informations) are selectively
-# copied to converters either here or in converter initialization.
-my $parser_options = {'EXPANDED_FORMATS' => [],
-                      'values' => {'txicommandconditionals' => 1}};
+# $cmdline_options are set by GNUT_set_from_cmdline for text values, and also
+# accessed in main program.  The $cmdline_options passed to
+# Texinfo::Config::GNUT_initialize_config are considered to be arrays
+# in which items can be added or deleted both from the command line
+# and from init files.
+# $init_files_options are managed by Texinfo::Config, set by
+# texinfo_set_from_init_file in init files.
+#
+# There is in addition $parser_options for parser related informations
+# that are not set otherwise.
+# The configuration text values are later on copied over to the parser if
+# they are parser options, with format specific options also set with
+# less precedence.
+my $parser_options = {'values' => {'txicommandconditionals' => 1}};
 
 my $init_files_options = Texinfo::Config::GNUT_initialize_config(
-      $real_command_name, $converter_default_options, $cmdline_options);
+      $real_command_name, $main_program_default_options, $cmdline_options);
+
+# read initialization files.  Better to do that after
+# Texinfo::Config::GNUT_initialize_config() in case loaded
+# files replace default options.
+foreach my $file (Texinfo::Common::locate_init_file($conf_file_name,
+                  [ reverse(@program_config_dirs) ], 1)) {
+  Texinfo::Config::GNUT_load_init_file($file);
+}
 
 sub set_expansion($$) {
   my $region = shift;
   my $set = shift;
   $set = 1 if (!defined($set));
   if ($set) {
-    push @{$parser_options->{'EXPANDED_FORMATS'}}, $region
-      unless (grep {$_ eq $region} @{$parser_options->{'EXPANDED_FORMATS'}});
+    add_to_option_list('EXPANDED_FORMATS', [$region]);
   } else {
-    @{$parser_options->{'EXPANDED_FORMATS'}} =
-      grep {$_ ne $region} @{$parser_options->{'EXPANDED_FORMATS'}};
+    remove_from_option_list('EXPANDED_FORMATS', [$region]);
     @{$default_expanded_format} 
        = grep {$_ ne $region} @{$default_expanded_format};
   }
@@ -580,8 +592,13 @@ sub handle_errors($$$)
 sub _get_converter_default($)
 {
   my $option = shift;
-  return $Texinfo::Convert::Converter::all_converters_defaults{$option}
-   if (defined($Texinfo::Convert::Converter::all_converters_defaults{$option}));
+  if (defined($Texinfo::Common::documented_converter_default_command_line{$option})) {
+    return $Texinfo::Common::documented_converter_default_command_line{$option};
+  } elsif (defined($Texinfo::Common::document_settable_multiple_at_commands{$option})) {
+    return $Texinfo::Common::document_settable_multiple_at_commands{$option};
+  } #elsif (defined(%Texinfo::Common::document_settable_unique_at_commands{$option})) {
+  #  return $Texinfo::Common::document_settable_unique_at_commands{$option};
+  #}
   return undef;
 }
 
@@ -666,7 +683,7 @@ the behavior is identical, and does not depend on the installed name.\n")
                                 If VAL is `none', do not indent; if VAL is
                                 `asis', preserve existing indentation.
       --split-size=NUM        split Info files at size NUM (default %d).\n"),
-    _get_converter_default('fillcolumn'), 
+    _get_converter_default('FILLCOLUMN'),
     _get_converter_default('paragraphindent'), 
     _get_converter_default('SPLIT_SIZE'))
 ."\n";
@@ -939,7 +956,7 @@ my %test_conf = (
 );
 if (get_conf('TEST')) {
   foreach my $conf (keys (%test_conf)) {
-    $converter_default_options->{$conf} = $test_conf{$conf};
+    $main_program_default_options->{$conf} = $test_conf{$conf};
   }
 }
 
@@ -1002,10 +1019,7 @@ if (get_conf('SPLIT') and !$formats_table{$format}->{'split'}) {
   set_from_cmdline('SPLIT', ''); 
 }
 
-foreach my $expanded_format (@{$default_expanded_format}) {
-  push @{$parser_options->{'EXPANDED_FORMATS'}}, $expanded_format
-    unless (grep {$_ eq $expanded_format} @{$parser_options->{'EXPANDED_FORMATS'}});
-}
+add_to_option_list('EXPANDED_FORMATS', $default_expanded_format);
 
 my $converter_class;
 my %converter_defaults;
@@ -1302,15 +1316,15 @@ while(@input_files) {
     delete $file_cmdline_options->{'SUBDIR'}
        if (exists($file_cmdline_options->{'SUBDIR'}) and get_conf('SPLIT'));
   }
-  my $converter_options = { %$converter_default_options, 
+  my $converter_options = { %$main_program_default_options,
                             %$file_cmdline_options,
                             %$init_files_options };
 
-  $converter_options->{'expanded_formats'} = $parser_options->{'EXPANDED_FORMATS'};
   $converter_options->{'parser'} = $parser;
   $converter_options->{'structuring'} = $structure_informations;
   $converter_options->{'output_format'} = $format;
   $converter_options->{'language_config_dirs'} = \@language_config_dirs;
+  # FIXME isn't that done for each output file?
   unshift @{$converter_options->{'INCLUDE_DIRECTORIES'}},
           @prepended_include_directories;
 
@@ -1378,6 +1392,7 @@ while(@input_files) {
     }
   }
   if (defined(get_conf('SORT_ELEMENT_COUNT')) and $file_number == 0) {
+    require Texinfo::Convert::Converter;
     my $converter_element_count_file 
       = Texinfo::Convert::TextContent->converter($converter_options);
     my $use_sections = (! $formats_table{$format}->{'nodes_tree'}
