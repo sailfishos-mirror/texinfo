@@ -34,6 +34,7 @@ install-info/install-info.c
 Pod-Simple-Texinfo/pod2texi.pl
 tp/DebugTexinfo/DebugTree.pm
 tp/Texinfo/Common.pm
+tp/Texinfo/Config.pm
 tp/Texinfo/Convert/Converter.pm
 tp/Texinfo/Convert/DocBook.pm
 tp/Texinfo/Convert/HTML.pm
