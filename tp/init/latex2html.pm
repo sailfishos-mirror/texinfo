@@ -352,10 +352,15 @@ sub l2h_to_html($)
   }
   return 0 if ($dotbug);
 
-  $call = $self->get_conf('L2H_L2H');
+  my $latex2html_command = $self->get_conf('L2H_L2H');
+  if (not defined($latex2html_command) or $latex2html_command !~ /\S/) {
+    $self->document_error($self, __("l2h: command not set"));
+    return 0;
+  }
+  $call = $latex2html_command;
   # use init file, if specified
   my $init_file = $self->get_conf('L2H_FILE');
-  $call = $call . " -init_file " . $init_file 
+  $call .= " -init_file " . $init_file
     if (defined($init_file) and $init_file ne '' 
         and -f $init_file and -r $init_file);
   # set output dir
@@ -379,8 +384,8 @@ sub l2h_to_html($)
                                   $call));
     return 0;
   } else  {
-     warn "# l2h: latex2html finished successfully\n" if ($verbose);
-     return 1;
+    warn "# l2h: latex2html finished successfully\n" if ($verbose);
+    return 1;
   }
 }
 

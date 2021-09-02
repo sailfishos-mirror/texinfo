@@ -166,6 +166,17 @@ sub _associate_node_menus {
   }
 }
 
+sub _get_error_registrar($)
+{
+  my $self = shift;
+  if (not $self->{'registrar'}) {
+    $self->{'registrar'} = Texinfo::Report::new();
+  }
+  my $registrar = $self->{'registrar'};
+  my $configuration_informations = $self;
+  return $registrar, $configuration_informations;
+}
+
 sub get_parser_info {
   my $self = shift;
 
@@ -250,7 +261,8 @@ sub parse_texi_file ($$)
 
   my $status = parse_file ($file_name);
   if ($status) {
-    $self->document_error($self,
+    my ($registrar, $configuration_informations) = _get_error_registrar($self);
+    $registrar->document_error($configuration_informations,
        sprintf(__("could not open %s: %s"), $file_name, $!));
     return undef;
   }
@@ -285,11 +297,7 @@ sub parse_texi_file ($$)
 sub _get_errors($)
 {
   my $self = shift;
-  if (not $self->{'registrar'}) {
-    $self->{'registrar'} = Texinfo::Report::new();
-  }
-  my $registrar = $self->{'registrar'};
-  my $configuration_informations = $self;
+  my ($registrar, $configuration_informations) = _get_error_registrar($self);
 
   my $ERRORS;
   my $tree_stream = dump_errors();

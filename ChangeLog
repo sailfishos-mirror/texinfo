@@ -1,5 +1,14 @@
 2021-09-02  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/Parsetexi.pm (_get_error_registrar)
+	(parse_texi_file, _get_errors): setup an error registrar
+	to output the error message obtained before tree parsing.
+
+	* tp/init/latex2html.pm (l2h_to_html): check that the
+	command is set.
+
+2021-09-02  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Converter.pm (converter_global_commands),
 	tp/Texinfo/Convert/HTML.pm (output):
 	handle the global unique commands similarly with the global
