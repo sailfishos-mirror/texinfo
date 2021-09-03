@@ -272,8 +272,7 @@ sub book_element_file_name($$$)
   my $element = shift;
   my $filename = shift;
 
-  return undef if ($converter->get_conf('NODE_FILENAMES') 
-                   or !$converter->get_conf('SPLIT'));
+  return undef if (!$converter->get_conf('SPLIT'));
 
   if (defined($book_previous_default_filename)
       and ($filename eq $book_previous_default_filename)) {

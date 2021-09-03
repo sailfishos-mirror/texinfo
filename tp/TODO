@@ -30,12 +30,6 @@ than one output file
 FIXME isn't that done for each output file?
 
 
-remove NODE_FILENAMES
-vi init/book.pm
-  return undef if ($converter->get_conf('NODE_FILENAMES')
-+ COmmon.pm
-
-
 COmmon.pm float_name_caption to Convert::Common
  sub definition_category($$) to Convert::Common
     expand_today to Convert::Common
