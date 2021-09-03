@@ -126,12 +126,12 @@ my %entity_texts = (
   'attrformfeed' => "\f",
 );
 
-foreach my $command (keys(%Texinfo::Convert::TexinfoXML::commands_formatting)) {
-  if (!ref($Texinfo::Convert::TexinfoXML::commands_formatting{$command})) {
-    $entity_texts{$Texinfo::Convert::TexinfoXML::commands_formatting{$command}}
+foreach my $command (keys(%Texinfo::Convert::TexinfoXML::no_arg_commands_formatting)) {
+  if (!ref($Texinfo::Convert::TexinfoXML::no_arg_commands_formatting{$command})) {
+    $entity_texts{$Texinfo::Convert::TexinfoXML::no_arg_commands_formatting{$command}}
       = command_with_braces($command);
   } else {
-    my $spec = $Texinfo::Convert::TexinfoXML::commands_formatting{$command};
+    my $spec = $Texinfo::Convert::TexinfoXML::no_arg_commands_formatting{$command};
     my $element = $spec->[0];
     if ($element eq 'spacecmd') {
       if ($spec->[1] eq 'type') {

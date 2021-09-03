@@ -1,5 +1,13 @@
 2021-09-03  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Converter.pm, tp/Texinfo/Convert/DocBook.pm,
+	tp/Texinfo/Convert/HTML.pm, tp/Texinfo/Convert/TexinfoXML.pm,
+	tp/init/chm.pm, tp/init/html32.pm, util/txixml2texi.pl: replace
+	commands_formatting with no_arg_commands_formatting to be more
+	precise.
+
+2021-09-03  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (%default_main_program_command_line_options),
 	tp/Texinfo/Config.pm (GNUT_set_main_program_default,
 	Texinfo::MainConfig, new, get_conf, set_conf), texi2any.pl

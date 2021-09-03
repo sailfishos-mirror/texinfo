@@ -26,7 +26,7 @@
 use strict;
 use Texinfo::Convert::Converter qw(xml_protect_text);
 
-use vars qw(%commands_formatting %style_commands_formatting);
+use vars qw(%no_arg_commands_formatting %style_commands_formatting);
 
 texinfo_set_from_init_file('COMPLEX_FORMAT_IN_TABLE', 1);
 
@@ -62,17 +62,17 @@ foreach my $command ('euro', 'geq', 'leq',
    'quotedblbase', 'quotesinglbase', 'guillemetleft', 'guillemetright',
    'guillemotleft', 'guillemotright', 'guilsinglleft', 'guilsinglright') {
   
-  $commands_formatting{'normal'}->{$command}
+  $no_arg_commands_formatting{'normal'}->{$command}
     = xml_protect_text(undef,
              $Texinfo::Convert::Text::text_brace_no_arg_commands{$command});
 }
 
-$commands_formatting{'normal'}->{'oe'} = '&#156;';
-$commands_formatting{'normal'}->{'OE'} = '&#140;';
+$no_arg_commands_formatting{'normal'}->{'oe'} = '&#156;';
+$no_arg_commands_formatting{'normal'}->{'OE'} = '&#140;';
 
 foreach my $dots ('dots', 'enddots') {
-  $commands_formatting{'normal'}->{$dots} = '<small>...</small>';
-  $commands_formatting{'preformatted'}->{$dots} = '...';
+  $no_arg_commands_formatting{'normal'}->{$dots} = '<small>...</small>';
+  $no_arg_commands_formatting{'preformatted'}->{$dots} = '...';
 }
 
 foreach my $context ('preformatted', 'normal') {

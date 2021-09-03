@@ -1365,8 +1365,8 @@ sub convert_index_subentries {
 
 
 # 'today' is not set here.
-our %default_xml_commands_formatting; 
-$default_xml_commands_formatting{'normal'} = {
+our %default_xml_no_arg_commands_formatting;
+$default_xml_no_arg_commands_formatting{'normal'} = {
                'TeX'          => 'TeX',
                'LaTeX'          => 'LaTeX',
                'bullet'       => '&bull;',
@@ -1432,11 +1432,11 @@ $default_xml_commands_formatting{'normal'} = {
 };
 
 foreach my $no_brace_command (keys(%Texinfo::Common::no_brace_commands)) {
-  $default_xml_commands_formatting{'normal'}->{$no_brace_command}
+  $default_xml_no_arg_commands_formatting{'normal'}->{$no_brace_command}
     = $Texinfo::Common::no_brace_commands{$no_brace_command};
 }
 
-$default_xml_commands_formatting{'normal'}->{'&'} = '&amp;';
+$default_xml_no_arg_commands_formatting{'normal'}->{'&'} = '&amp;';
 
 sub xml_comment($$)
 {

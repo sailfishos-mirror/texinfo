@@ -1138,16 +1138,16 @@ sub _translate_names($)
     foreach my $context ('normal', 'preformatted', 'string') {
       foreach my $command (keys(%{$self->{'commands_translation'}->{$context}})) {
         $translated_commands{$command} = 1;
-        delete $self->{'commands_formatting'}->{$context}->{$command};
+        delete $self->{'no_arg_commands_formatting'}->{$context}->{$command};
         if (defined($self->{'commands_translation'}->{$context}->{$command})) {
-          $self->{'commands_formatting'}->{$context}->{$command}
+          $self->{'no_arg_commands_formatting'}->{$context}->{$command}
            = $self->gdt($self->{'commands_translation'}->{$context}->{$command},
                         undef, 'translated_text');
         }
       }
     }
     foreach my $command(keys(%translated_commands)) {
-      $self->_complete_commands_formatting($command);
+      $self->_complete_no_arg_commands_formatting($command);
     }
   }
 }
@@ -1315,16 +1315,16 @@ foreach my $ignored_block_commands ('ignore', 'macro', 'rmacro', 'copying',
 # 'normal' in normal text, 'preformatted' in @example and similar
 # commands, and 'string' for contexts where HTML elements should not
 # be used.
-my %default_commands_formatting;
+my %default_no_arg_commands_formatting;
 
-foreach my $command (keys(%{$Texinfo::Convert::Converter::default_xml_commands_formatting{'normal'}})) {
-  $default_commands_formatting{'normal'}->{$command} = 
-    $Texinfo::Convert::Converter::default_xml_commands_formatting{'normal'}->{$command};
+foreach my $command (keys(%{$Texinfo::Convert::Converter::default_xml_no_arg_commands_formatting{'normal'}})) {
+  $default_no_arg_commands_formatting{'normal'}->{$command} =
+    $Texinfo::Convert::Converter::default_xml_no_arg_commands_formatting{'normal'}->{$command};
 }
 
-$default_commands_formatting{'normal'}->{' '} = '&nbsp;';
-$default_commands_formatting{'normal'}->{"\t"} = '&nbsp;';
-$default_commands_formatting{'normal'}->{"\n"} = '&nbsp;';
+$default_no_arg_commands_formatting{'normal'}->{' '} = '&nbsp;';
+$default_no_arg_commands_formatting{'normal'}->{"\t"} = '&nbsp;';
+$default_no_arg_commands_formatting{'normal'}->{"\n"} = '&nbsp;';
 
 my %default_commands_translation;
 # possible example of use, right now not used, as 'translated_commands'
@@ -1336,13 +1336,13 @@ my %default_commands_translation;
 #  $not_existing->gdt('error--&gt;');
 #}
 
-$default_commands_formatting{'normal'}->{'enddots'} 
+$default_no_arg_commands_formatting{'normal'}->{'enddots'}
     = '<small class="enddots">...</small>';
-$default_commands_formatting{'preformatted'}->{'enddots'} = '...';
-$default_commands_formatting{'normal'}->{'*'} = '<br>';
+$default_no_arg_commands_formatting{'preformatted'}->{'enddots'} = '...';
+$default_no_arg_commands_formatting{'normal'}->{'*'} = '<br>';
 # this is used in math too, not sure that it is the best
 # in that context, '<br>' could be better.
-$default_commands_formatting{'preformatted'}->{'*'} = "\n";
+$default_no_arg_commands_formatting{'preformatted'}->{'*'} = "\n";
 
 
 sub _convert_no_arg_command($$$)
@@ -1355,15 +1355,15 @@ sub _convert_no_arg_command($$$)
       and exists($command->{'extra'}->{'clickstyle'})) {
     my $click_cmdname = $command->{'extra'}->{'clickstyle'};
     if (($self->in_preformatted() or $self->in_math()
-         and $self->{'commands_formatting'}->{'preformatted'}->{$click_cmdname})
+         and $self->{'no_arg_commands_formatting'}->{'preformatted'}->{$click_cmdname})
         or ($self->in_string() and 
-            $self->{'commands_formatting'}->{'string'}->{$click_cmdname})
-        or ($self->{'commands_formatting'}->{'normal'}->{$click_cmdname})) {
+            $self->{'no_arg_commands_formatting'}->{'string'}->{$click_cmdname})
+        or ($self->{'no_arg_commands_formatting'}->{'normal'}->{$click_cmdname})) {
       $cmdname = $click_cmdname;
     }
   }
   if ($self->in_upper_case() and $letter_no_arg_commands{$cmdname}
-      and $self->{'commands_formatting'}->{'normal'}->{uc($cmdname)}) {
+      and $self->{'no_arg_commands_formatting'}->{'normal'}->{uc($cmdname)}) {
     $cmdname = uc($cmdname);
   }
 
@@ -1373,16 +1373,16 @@ sub _convert_no_arg_command($$$)
          $self->gdt($self->{'translated_commands'}->{$cmdname}));
   }
   if ($self->in_preformatted() or $self->in_math()) {
-    $result = $self->{'commands_formatting'}->{'preformatted'}->{$cmdname};
+    $result = $self->{'no_arg_commands_formatting'}->{'preformatted'}->{$cmdname};
   } elsif ($self->in_string()) {
-    $result = $self->{'commands_formatting'}->{'string'}->{$cmdname};
+    $result = $self->{'no_arg_commands_formatting'}->{'string'}->{$cmdname};
   } else {
-    $result = $self->{'commands_formatting'}->{'normal'}->{$cmdname};
+    $result = $self->{'no_arg_commands_formatting'}->{'normal'}->{$cmdname};
   }
   return $result;
 }
 
-foreach my $command(keys(%{$default_commands_formatting{'normal'}})) {
+foreach my $command(keys(%{$default_no_arg_commands_formatting{'normal'}})) {
   $default_commands_conversion{$command} = \&_convert_no_arg_command;
 }
 
@@ -4979,20 +4979,20 @@ sub _use_entity_is_entity($$)
   return 1 if ($text =~ /^&/ and $text =~ /;$/);
 }
 
-sub _complete_commands_formatting($$)
+sub _complete_no_arg_commands_formatting($$)
 {
   my $self = shift;
   my $command = shift;
-  if (!defined ($self->{'commands_formatting'}->{'normal'}->{$command})) {
-    $self->{'commands_formatting'}->{'normal'}->{$command} = '';
+  if (!defined ($self->{'no_arg_commands_formatting'}->{'normal'}->{$command})) {
+    $self->{'no_arg_commands_formatting'}->{'normal'}->{$command} = '';
   }
-  if (!defined ($self->{'commands_formatting'}->{'preformatted'}->{$command})) {
-    $self->{'commands_formatting'}->{'preformatted'}->{$command} = 
-      $self->{'commands_formatting'}->{'normal'}->{$command};
+  if (!defined ($self->{'no_arg_commands_formatting'}->{'preformatted'}->{$command})) {
+    $self->{'no_arg_commands_formatting'}->{'preformatted'}->{$command} =
+      $self->{'no_arg_commands_formatting'}->{'normal'}->{$command};
   }
-  if (!defined ($self->{'commands_formatting'}->{'string'}->{$command})) {
-   $self->{'commands_formatting'}->{'string'}->{$command} = 
-      $self->{'commands_formatting'}->{'preformatted'}->{$command};
+  if (!defined ($self->{'no_arg_commands_formatting'}->{'string'}->{$command})) {
+   $self->{'no_arg_commands_formatting'}->{'string'}->{$command} =
+      $self->{'no_arg_commands_formatting'}->{'preformatted'}->{$command};
   }
 }
 
@@ -5180,22 +5180,22 @@ sub converter_initialize($)
   }
 
   foreach my $context ('normal', 'preformatted', 'string') {
-    foreach my $command (keys(%{$default_commands_formatting{'normal'}})) {
-      if (exists ($Texinfo::Config::commands_formatting{$context}->{$command})) {
-        $self->{'commands_formatting'}->{$context}->{$command} 
-           = $Texinfo::Config::commands_formatting{$context}->{$command};
+    foreach my $command (keys(%{$default_no_arg_commands_formatting{'normal'}})) {
+      if (exists ($Texinfo::Config::no_arg_commands_formatting{$context}->{$command})) {
+        $self->{'no_arg_commands_formatting'}->{$context}->{$command}
+           = $Texinfo::Config::no_arg_commands_formatting{$context}->{$command};
       } else {
-        if (defined($default_commands_formatting{$context}->{$command})) {
+        if (defined($default_no_arg_commands_formatting{$context}->{$command})) {
           if ($self->get_conf('ENABLE_ENCODING') 
               and Texinfo::Convert::Unicode::unicode_for_brace_no_arg_command(
                              $command, $self->get_conf('OUTPUT_ENCODING_NAME'))
-              and !$self->_use_entity_is_entity($default_commands_formatting{$context}->{$command})) {
-            $self->{'commands_formatting'}->{$context}->{$command}
+              and !$self->_use_entity_is_entity($default_no_arg_commands_formatting{$context}->{$command})) {
+            $self->{'no_arg_commands_formatting'}->{$context}->{$command}
               = Texinfo::Convert::Unicode::unicode_for_brace_no_arg_command(
                            $command, $self->get_conf('OUTPUT_ENCODING_NAME'));
           } else {
-            $self->{'commands_formatting'}->{$context}->{$command} 
-              = $default_commands_formatting{$context}->{$command};
+            $self->{'no_arg_commands_formatting'}->{$context}->{$command}
+              = $default_no_arg_commands_formatting{$context}->{$command};
           }
         }
       }
@@ -5213,11 +5213,11 @@ sub converter_initialize($)
 
   # set sane defaults in case there is none and the default formatting
   # function is used
-  foreach my $command (keys(%{$default_commands_formatting{'normal'}})) {
+  foreach my $command (keys(%{$default_no_arg_commands_formatting{'normal'}})) {
     if ($self->{'commands_conversion'}->{$command} 
         and $self->{'commands_conversion'}->{$command} 
             eq $default_commands_conversion{$command}) {
-      $self->_complete_commands_formatting($command);
+      $self->_complete_no_arg_commands_formatting($command);
     }
   }
 

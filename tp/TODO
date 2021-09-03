@@ -20,8 +20,6 @@ Rename _set_global_multiple_commands
 
 Real API for Texinfo::Config used in html32.pm.
 
-renommer formatting_commands no_arg_commands ou approchant
-
 remettre libint-perl
 
 

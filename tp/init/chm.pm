@@ -54,7 +54,7 @@ texinfo_set_from_init_file('footnotestyle', 'end');
 #FIXME remove that later?
 texinfo_set_from_init_file('USE_NODES', 0);
 
-use vars qw(%commands_formatting);
+use vars qw(%no_arg_commands_formatting);
 texinfo_register_formatting_function('format_end_file', \&chm_format_end_file);
 texinfo_register_formatting_function('format_navigation_header', \&chm_noop);
 texinfo_register_formatting_function('format_navigation_header_panel', \&chm_noop);
@@ -175,7 +175,7 @@ my %hhc_global_property = (
 
 # at least kchmviewer has trouble with the corresponding textual entities
 foreach my $thing ('OE', 'oe', 'euro') {
-  $commands_formatting{'normal'}->{$thing} 
+  $no_arg_commands_formatting{'normal'}->{$thing}
     = $Texinfo::Convert::Unicode::unicode_entities{$thing};
 }
 

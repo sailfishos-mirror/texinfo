@@ -64,7 +64,7 @@ my %defaults = (
 
 
 # our because it is used in the xml to texi translator
-our %commands_formatting = (
+our %no_arg_commands_formatting = (
            '*' => 'linebreak',
            ' ' => ['spacecmd', 'type', 'spc'],
            "\t" => ['spacecmd', 'type', 'tab'],
@@ -107,7 +107,7 @@ our %commands_formatting = (
            'rbracechar'   => 'rbracechar',
            'backslashchar' => 'backslashchar',
            'hashchar'      => 'hashchar',
-           # in Texinfo::Convert::Converter::default_xml_commands_formatting,
+           # in Texinfo::Convert::Converter::default_xml_no_arg_commands_formatting,
            # guillemotleft and guillemotright are mapped to laquo and raquo,
            # but guillemetleft and guillemetright are also mapped to those
            # entities.  To make sure that it is possible to go back to the
@@ -118,19 +118,19 @@ our %commands_formatting = (
 
 # use default XML formatting to complete the hash, removing XML
 # specific formatting.  This avoids some code duplication.
-my %default_xml_commands_formatting = 
-    %{$Texinfo::Convert::Converter::default_xml_commands_formatting{'normal'}};
+my %default_xml_no_arg_commands_formatting = 
+    %{$Texinfo::Convert::Converter::default_xml_no_arg_commands_formatting{'normal'}};
 
-foreach my $command (keys(%default_xml_commands_formatting)) {
-  if (!exists($commands_formatting{$command})) {
-    if ($default_xml_commands_formatting{$command} ne '') {
-      if ($default_xml_commands_formatting{$command} =~ /^&(.*);$/) {
-        $commands_formatting{$command} = $1;
+foreach my $command (keys(%default_xml_no_arg_commands_formatting)) {
+  if (!exists($no_arg_commands_formatting{$command})) {
+    if ($default_xml_no_arg_commands_formatting{$command} ne '') {
+      if ($default_xml_no_arg_commands_formatting{$command} =~ /^&(.*);$/) {
+        $no_arg_commands_formatting{$command} = $1;
       } else {
-        die "BUG: Strange xml_commands_formatting: $default_xml_commands_formatting{$command}\n";
+        die "BUG: Strange xml_no_arg_commands_formatting: $default_xml_no_arg_commands_formatting{$command}\n";
       }
     } else {
-      $commands_formatting{$command} = '';
+      $no_arg_commands_formatting{$command} = '';
     }
   }
 }
@@ -212,8 +212,8 @@ sub format_atom($$)
 {
   my $self = shift;
   my $atom = shift;
-  if ($commands_formatting{$atom} ne '') {
-    return '&'.$commands_formatting{$atom}.';';
+  if ($no_arg_commands_formatting{$atom} ne '') {
+    return '&'.$no_arg_commands_formatting{$atom}.';';
   } else {
     return '';
   }
@@ -494,10 +494,10 @@ sub _format_command($$)
   my $self = shift;
   my $command = shift;
 
-  if (! ref($commands_formatting{$command})) {
+  if (! ref($no_arg_commands_formatting{$command})) {
     return $self->format_atom($command);
   } else {
-    my @spec = @{$commands_formatting{$command}};
+    my @spec = @{$no_arg_commands_formatting{$command}};
     my $element_name = shift @spec;
     return $self->element($element_name, \@spec);
   }
@@ -756,7 +756,7 @@ sub _convert($$;$)
   }
   my @close_elements;
   if ($root->{'cmdname'}) {
-    if (defined($commands_formatting{$root->{'cmdname'}})) {
+    if (defined($no_arg_commands_formatting{$root->{'cmdname'}})) {
       if ($root->{'cmdname'} eq 'click' 
           and $root->{'extra'} 
           and defined($root->{'extra'}->{'clickstyle'})) {

@@ -91,16 +91,16 @@ my %docbook_specific_formatting = (
   " " => $nbsp,
   'tie' => $nbsp,
 );
-my %docbook_commands_formatting
-  = %{$Texinfo::Convert::Converter::default_xml_commands_formatting{'normal'}};
+my %docbook_no_arg_commands_formatting
+  = %{$Texinfo::Convert::Converter::default_xml_no_arg_commands_formatting{'normal'}};
 
 foreach my $command (keys(%Texinfo::Convert::Unicode::unicode_entities)) {
-  $docbook_commands_formatting{$command}
+  $docbook_no_arg_commands_formatting{$command}
    = $Texinfo::Convert::Unicode::unicode_entities{$command};
 }
 
 foreach my $command (keys(%docbook_specific_formatting)) {
-  $docbook_commands_formatting{$command} 
+  $docbook_no_arg_commands_formatting{$command}
     = $docbook_specific_formatting{$command};
 }
 
@@ -561,8 +561,8 @@ sub _convert($$;$)
   my @close_elements;
   if ($root->{'cmdname'}) {
     #warn "  got cmdname $root->{'cmdname'}\n";
-    if (defined($docbook_commands_formatting{$root->{'cmdname'}})) {
-      #warn "  has commands_formatting \n";
+    if (defined($docbook_no_arg_commands_formatting{$root->{'cmdname'}})) {
+      #warn "  has no_arg_commands_formatting \n";
       my $command;
       if ($root->{'cmdname'} eq 'click' 
           and $root->{'extra'} 
@@ -579,7 +579,7 @@ sub _convert($$;$)
         return $self->_convert(Texinfo::Common::translated_command_tree($self,
                                                                    $command));
       } else {
-        return $docbook_commands_formatting{$command};
+        return $docbook_no_arg_commands_formatting{$command};
       }
     } elsif ($root->{'cmdname'} eq 'today') {
       return $self->_convert(Texinfo::Common::expand_today($self));
