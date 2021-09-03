@@ -2,10 +2,11 @@
 
 	* tp/Texinfo/Common.pm (%default_main_program_command_line_options),
 	tp/Texinfo/Config.pm (GNUT_set_main_program_default,
-	Texinfo::MainConfig, new, get_conf, set_conf), texi2any.pl: add
-	a scope with functions that mimics parser or converter with
-	get_conf() and set_conf() methods, have access to Texinfo::Config
-	informations.  This allows to set a $main_configuration object in
+	Texinfo::MainConfig, new, get_conf, set_conf), texi2any.pl
+	(set_main_program_default): add a scope with functions that
+	mimics parser or converter with get_conf() and set_conf()
+	methods but using directly Texinfo::Config informations.
+	This allows to set a $main_configuration object in
 	main program that is passed to functions that need information.
 	Used in tests too, simply setting a hash reference and not accessing
 	Texinfo::Config informations.

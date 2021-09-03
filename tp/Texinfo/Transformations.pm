@@ -608,6 +608,8 @@ sub new_master_menu($$)
   }
 }
 
+# self is used to pass down a translatable object with customization
+# information to call gdt().
 sub regenerate_master_menu($$)
 {
   my $self = shift;

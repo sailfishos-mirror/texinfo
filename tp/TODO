@@ -13,18 +13,17 @@ xmllint --nonet --noout --valid commands.xml
 Before next release
 ===================
 
-Rename _set_global_multiple_commands and $multiple_commands_index
+do not remove documentlanguage in index entries in complete_indices
+(remove delete $entry->{'command'}->{'extra'}->{'documentlanguage'};)
+
+Rename _set_global_multiple_commands
 
 Real API for Texinfo::Config used in html32.pm.
-
-CHECK_NORMAL_MENU_STRUCTURE devien argument de la fonction
 
 renommer formatting_commands no_arg_commands ou approchant
 
 remettre libint-perl
 
-
-do not remove documentlanguage in index entries
 
 check @{$converter_options->{'INCLUDE_DIRECTORIES'}} with more 
 than one output file

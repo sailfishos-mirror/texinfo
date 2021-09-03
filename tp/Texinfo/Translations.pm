@@ -208,6 +208,7 @@ sub gdt($$;$$)
         if (defined($current_parser->{$duplicated_conf}));
     }
   }
+  # accept @txiinternalvalue as a valid Texinfo command
   $parser_conf->{'accept_internalvalue'} = 1;
   my $parser = Texinfo::Parser::simple_parser($parser_conf);
   if ($parser->{'DEBUG'}) {
