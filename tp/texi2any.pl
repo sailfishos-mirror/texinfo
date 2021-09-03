@@ -331,6 +331,10 @@ sub set_from_cmdline($$) {
   return &Texinfo::Config::GNUT_set_from_cmdline(@_);
 }
 
+sub set_main_program_default($$) {
+  return &Texinfo::Config::GNUT_set_main_program_default(@_);
+}
+
 sub get_conf($) {
   return &Texinfo::Config::texinfo_get_conf(@_);
 }
@@ -376,13 +380,16 @@ my @prepend_dirs = ();
 #
 # There is in addition $parser_options for parser related informations
 # that are not set otherwise.
-# The configuration text values are later on copied over to the parser if
-# they are parser options, with format specific options also set with
-# less precedence.
+# The configuration values are later on copied over to the parser if
+# they are parser options.
 my $parser_options = {'values' => {'txicommandconditionals' => 1}};
 
 my $init_files_options = Texinfo::Config::GNUT_initialize_config(
       $real_command_name, $main_program_default_options, $cmdline_options);
+
+# setup a configuration object which defines get_conf and gives the same as
+# get_conf() in main program
+my $main_configuration = Texinfo::MainConfig::new();
 
 # read initialization files.  Better to do that after
 # Texinfo::Config::GNUT_initialize_config() in case loaded
@@ -929,7 +936,11 @@ sub process_config {
 
 process_config($cmdline_options);
 
-# FIXME do this here or inside format-specific code?
+# The configuration API is setup such that the loading of init
+# files can be done here and not in format specific code.  There is
+# only one format, HTML, with use of complex customization (besides setting
+# customization options), so maybe this would need to be revisited
+# if another format uses complex customization.
 my $latex2html_file = 'latex2html.pm';
 if (defined($cmdline_options->{'HTML_MATH'})
       and $cmdline_options->{'HTML_MATH'} eq 'l2h') {
@@ -1033,29 +1044,44 @@ if (defined($formats_table{$format}->{'module'})) {
         .'->converter(@_)};';
 }
 
+# For now, FORMAT_MENU is the only variable that can be set from converter defaults
+# for the main program structuring and for the parser.
+# This could be done for more variables if
+# converter default becomes relevant for more variables, either
+# for the parser or the main program.
+
+# Specific variable for 'FORMAT_MENU' to keep the converter information
+# even if the command line higher precedence option is set in case
+# command line is set_format_menu_from_cmdline_header.
+my $conversion_format_menu_default;
 if (defined($formats_table{$format}->{'module'})) {
   $converter_class = $formats_table{$format}->{'module'};
-  # $cmdline_options is passed to have TEXI2HTML set for conversion to
-  # HTML
+  # $cmdline_options is passed to have command line settings, here
+  # in practice TEXI2HTML set, for conversion to HTML to select
+  # possibly different customization variable values.
   %converter_defaults = $converter_class->converter_defaults($cmdline_options);
-
-  # set FORMAT_MENU to the output format default, if not nomenu. We do not
-  # simply let it be set by taking %converter_defaults values if not already set
-  # below in case the default $converter_defaults{'FORMAT_MENU'} is nomenu, but
-  # for the other cases we could simply unset $converter_defaults{'FORMAT_MENU'}
-  # and let the converter default value be
-  if (defined(get_conf('FORMAT_MENU'))
-      and get_conf('FORMAT_MENU') eq 'set_format_menu_from_cmdline_header') {
-    if (defined($converter_defaults{'FORMAT_MENU'})
-        and $converter_defaults{'FORMAT_MENU'} ne 'nomenu') {
-      set_from_cmdline('FORMAT_MENU', $converter_defaults{'FORMAT_MENU'});
-    } else {
-      set_from_cmdline('FORMAT_MENU', 'menu');
-    }
+  $conversion_format_menu_default = undef;
+  if (defined($converter_defaults{'FORMAT_MENU'})) {
+    # could be done for other customization options
+    set_main_program_default('FORMAT_MENU', $converter_defaults{'FORMAT_MENU'});
+    # for FORMAT_MENU need in addition to have the value if
+    # command-line set to 'set_format_menu_from_cmdline_header'
+    $conversion_format_menu_default = $converter_defaults{'FORMAT_MENU'};
+  } else {
+    # this happens for the plaintexinfo format for which nothing
+    # is set.
   }
-} else {
-  if (defined(get_conf('FORMAT_MENU'))
-      and get_conf('FORMAT_MENU') eq 'set_format_menu_from_cmdline_header') {
+}
+
+# special case for FORMAT_MENU of delayed setting based in
+# some case on converter
+if (defined(get_conf('FORMAT_MENU'))
+    and get_conf('FORMAT_MENU') eq 'set_format_menu_from_cmdline_header') {
+   # set FORMAT_MENU to the output format default, if not nomenu
+  if (defined($conversion_format_menu_default)
+      and $conversion_format_menu_default ne 'nomenu') {
+    set_from_cmdline('FORMAT_MENU', $conversion_format_menu_default);
+  } else {
     set_from_cmdline('FORMAT_MENU', 'menu');
   }
 }
@@ -1063,24 +1089,13 @@ if (defined($formats_table{$format}->{'module'})) {
 # using no warnings is wrong, but a way to avoid a spurious warning.
 no warnings 'once';
 my @parser_settable_options = keys(%Texinfo::Common::default_parser_customization_values);
-push @parser_settable_options, keys(%Texinfo::Common::default_structure_customization_values);
-# Copy some of the customization variables into the parser options.
-# Here customization options set on the command line and set by
-# the converter associated with the output format, command line
-# taking precedence.
+# Copy relevant customization variables into the parser options.
 foreach my $parser_settable_option (@parser_settable_options) {
   if (defined(get_conf($parser_settable_option))) {
     $parser_options->{$parser_settable_option} 
        = get_conf($parser_settable_option);
-  } elsif (defined($converter_class) 
-           and defined($converter_defaults{$parser_settable_option})) {
-    $parser_options->{$parser_settable_option} 
-       = $converter_defaults{$parser_settable_option};
   }
 }
-
-#print STDERR "V ".join('|', sort(keys(%{$parser_options->{'values'}})))."\n";
-
 
 # Main processing, process all the files given on the command line
 
@@ -1127,6 +1142,7 @@ while(@input_files) {
   @prepended_include_directories =
     (@prepend_dirs, @prepended_include_directories);
 
+  # FIXME isn't that done for each output file?
   unshift @{$parser_file_options->{'INCLUDE_DIRECTORIES'}},
           @prepended_include_directories;
 
@@ -1168,6 +1184,9 @@ while(@input_files) {
     Texinfo::Transformations::set_menus_to_simple_menu($nodes_list);
   }
 
+  my $parser_informations = $parser->global_informations();
+  Texinfo::Common::set_output_encodings($main_configuration, $parser_informations);
+
   if (defined(get_conf('MACRO_EXPAND')) and $file_number == 0) {
     require Texinfo::Convert::Texinfo;
     my $texinfo_text = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
@@ -1175,7 +1194,7 @@ while(@input_files) {
     my $macro_expand_file = get_conf('MACRO_EXPAND');
     my $macro_expand_files_information = {};
     my $macro_expand_fh = Texinfo::Common::output_files_open_out(
-          $macro_expand_files_information, $parser, $macro_expand_file);
+          $macro_expand_files_information, $main_configuration, $macro_expand_file);
     my $error_macro_expand_file;
     if (defined($macro_expand_fh)) {
       print $macro_expand_fh $texinfo_text;
@@ -1232,8 +1251,8 @@ while(@input_files) {
   }
 
   my $refs = $parser->internal_references_information();
-  my $parser_informations = $parser->global_informations();
-  Texinfo::Structuring::associate_internal_references($registrar, $parser,
+  Texinfo::Structuring::associate_internal_references($registrar, 
+                                                      $main_configuration,
                                         $parser_informations, $labels, $refs);
   # filled with informations obtained through Texinfo::Structuring
   # and usefull in converters.
@@ -1243,14 +1262,14 @@ while(@input_files) {
   # every format needs the sectioning structure
   my ($sectioning_root, $sections_list)
             = Texinfo::Structuring::sectioning_structure($registrar,
-                                                             $parser, $tree);
+                                               $main_configuration, $tree);
 
   my $global_commands = $parser->global_commands_information();
   if ($sectioning_root) {
     $structure_informations->{'sectioning_root'} = $sectioning_root;
     $structure_informations->{'sections_list'} = $sections_list;
     if (!$formats_table{$format}->{'no_warn_non_empty_parts'}) {
-      Texinfo::Structuring::warn_non_empty_parts($registrar, $parser,
+      Texinfo::Structuring::warn_non_empty_parts($registrar, $main_configuration,
                                                  $global_commands);
     }
   }
@@ -1271,28 +1290,28 @@ while(@input_files) {
   my $top_node;
   if ($formats_table{$format}->{'nodes_tree'}) {
 
-    # it is not get_conf('FORMAT_MENU') but $parser_options as
-    # $parser_options is set to the output default and then replaced.
-    # with get_conf('FORMAT_MENU') if needed.
-    # 'FORMAT_MENU' may not be defined in some special cases,
-    # for instance if format is structure.
-    if (not defined($parser_options->{'FORMAT_MENU'})
-        or $parser_options->{'FORMAT_MENU'} eq 'menu') {
-      Texinfo::Structuring::set_menus_node_directions($registrar, $parser,
-               $parser_informations, $global_commands, $nodes_list, $labels);
+    # FIXME makes implicitely menu the default here.  'FORMAT_MENU'
+    # not being set here happens rarely, when there is a format, but the
+    # format does not define 'FORMAT_MENU' (case of plaintexinfo).
+    if (not defined(get_conf('FORMAT_MENU'))
+        or get_conf('FORMAT_MENU') eq 'menu') {
+      Texinfo::Structuring::set_menus_node_directions($registrar,
+               $main_configuration, $parser_informations, $global_commands,
+               $nodes_list, $labels);
     }
-    $top_node = Texinfo::Structuring::nodes_tree($registrar, $parser,
+    $top_node = Texinfo::Structuring::nodes_tree($registrar, $main_configuration,
                                    $parser_informations, $nodes_list, $labels);
     if (defined($top_node)) {
       $structure_informations->{'top_node'} = $top_node;
     }
-    if (not defined($parser_options->{'FORMAT_MENU'})
-        or $parser_options->{'FORMAT_MENU'} eq 'menu') {
+    if (not defined(get_conf('FORMAT_MENU'))
+        or get_conf('FORMAT_MENU') eq 'menu') {
       if (defined($nodes_list)) {
-        Texinfo::Structuring::complete_node_tree_with_menus($registrar, $parser,
-                                                       $nodes_list, $top_node);
-        Texinfo::Structuring::check_nodes_are_referenced($registrar, $parser,
-                                                     $nodes_list, $top_node,
+
+        Texinfo::Structuring::complete_node_tree_with_menus($registrar,
+                                 $main_configuration, $nodes_list, $top_node);
+        Texinfo::Structuring::check_nodes_are_referenced($registrar,
+                                    $main_configuration, $nodes_list, $top_node,
                                                      $labels, $refs);
       }
     }

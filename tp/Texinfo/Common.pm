@@ -28,6 +28,7 @@ use 5.006;
 # to determine the null file
 use Config;
 use File::Spec;
+use Encode;
 
 use Texinfo::Documentlanguages;
 # used in functions, but Texinfo::Convert::Texinfo uses
@@ -140,17 +141,6 @@ our %default_parser_customization_values = (%default_parser_common_customization
   %default_parser_specific_customization);
 
 
-# Customization variables set in the parser for other modules, and the
-# default values.
-our %default_structure_customization_values = (
-  # following are used in Texinfo::Structuring
-  'CHECK_NORMAL_MENU_STRUCTURE' => 0, # output warnings when node with
-            # automatic direction does directions in menu are not consistent
-            # with sectionning, and when node directions are not consistent
-            # with menu directions.  Used in complete_node_tree_with_menus()
-);
-
-
 # @-commands that can be used multiple time in a document and default
 # values.  Associated with customization values too.
 our %document_settable_multiple_at_commands = (
@@ -214,7 +204,6 @@ our %default_converter_command_line_options = (
   'SPLIT'                => undef,   # --split
   'HEADERS'              => 1,       # --headers.  Used to set diverse customization options
                                      # in main program.  Only directly used in HTML converter
-  'FORMAT_MENU'          => undef,   # --headers.  Modified by the format.
   'NODE_FILES'           => undef,   # --node-files.  Depend on SPLIT
   'VERBOSE'              => undef,   # --verbose
   'OUTFILE'              => undef,   # --output    If non split and not ending by /. 
@@ -229,14 +218,18 @@ our %default_converter_command_line_options = (
                                      # converter defaults.
 );
 
-# only used in main program, defaults documented in manual
+# used in main program, defaults documented in manual
 my %default_main_program_command_line_options = (
+  # only in main program
   'MACRO_EXPAND'         => undef,   # --macro-expand
   # used in HTML only, called from main program
   'INTERNAL_LINKS'       => undef,   # --internal-links
   'ERROR_LIMIT'          => 100,     # --error-limit
   'FORCE'                => undef,   # --force
   'NO_WARN'              => undef,   # --no-warn
+
+  # following also used in converters
+  'FORMAT_MENU'          => 'menu',  # --headers.  Modified by the format.
 );
 
 # used in main program, defaults documented in manual
@@ -247,6 +240,10 @@ my %default_main_program_customization = (
   'TREE_TRANSFORMATIONS'        => undef,
   'DUMP_TREE'                   => undef,
   'DUMP_TEXI'                   => undef,
+  'CHECK_NORMAL_MENU_STRUCTURE' => 0, # output warnings when node with
+            # automatic direction does directions in menu are not consistent
+            # with sectionning, and when node directions are not consistent
+            # with menu directions.
 );
 
 # defaults for the main program.  In general transmitted to converters as defaults
@@ -282,7 +279,6 @@ our @variable_string_settables = (
 'COPIABLE_ANCHORS',
 'CHAPTER_HEADER_LEVEL',
 'CHECK_HTMLXREF',
-'CHECK_NORMAL_MENU_STRUCTURE',
 'CLOSE_QUOTE_SYMBOL',
 'COMPLEX_FORMAT_IN_TABLE',
 'CONTENTS_OUTPUT_LOCATION',
@@ -1326,6 +1322,25 @@ sub warn_unknown_split($) {
     push @messages, sprintf(__("%s is not a valid split possibility"), $split);
   }
   return @messages;
+}
+
+# in Texinfo::Structuring?
+sub set_output_encodings($$)
+{
+  my $configuration_informations = shift;
+  my $parser_informations = shift;
+
+  $configuration_informations->set_conf('OUTPUT_ENCODING_NAME',
+               $parser_informations->{'input_encoding_name'})
+     if ($parser_informations->{'input_encoding_name'});
+  if (!$configuration_informations->get_conf('OUTPUT_PERL_ENCODING')
+       and $configuration_informations->get_conf('OUTPUT_ENCODING_NAME')) {
+    my $perl_encoding
+      = Encode::resolve_alias($configuration_informations->get_conf('OUTPUT_ENCODING_NAME'));
+    if ($perl_encoding) {
+      $configuration_informations->set_conf('OUTPUT_PERL_ENCODING', $perl_encoding);
+    }
+  }
 }
 
 # This should do the job, or at least don't do wrong if $self

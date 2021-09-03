@@ -219,17 +219,8 @@ sub converter(;$)
     }
   }
 
-  $converter->set_conf('OUTPUT_ENCODING_NAME', 
-                 $converter->{'parser_info'}->{'input_encoding_name'})
-     if ($converter->{'parser_info'}->{'input_encoding_name'});
-  if (!$converter->get_conf('OUTPUT_PERL_ENCODING')
-       and $converter->get_conf('OUTPUT_ENCODING_NAME')) {
-    my $perl_encoding 
-      = Encode::resolve_alias($converter->get_conf('OUTPUT_ENCODING_NAME'));
-    if ($perl_encoding) {
-      $converter->set_conf('OUTPUT_PERL_ENCODING', $perl_encoding);
-    }
-  }
+  Texinfo::Common::set_output_encodings($converter,
+    $converter->{'parser_info'});
 
   # turn the array to a hash for speed.  Not sure it really matters for such
   # a small array.

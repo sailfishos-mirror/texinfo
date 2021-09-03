@@ -1,3 +1,28 @@
+2021-09-03  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Common.pm (%default_main_program_command_line_options),
+	tp/Texinfo/Config.pm (GNUT_set_main_program_default,
+	Texinfo::MainConfig, new, get_conf, set_conf), texi2any.pl: add
+	a scope with functions that mimics parser or converter with
+	get_conf() and set_conf() methods, have access to Texinfo::Config
+	informations.  This allows to set a $main_configuration object in
+	main program that is passed to functions that need information.
+	Used in tests too, simply setting a hash reference and not accessing
+	Texinfo::Config informations.
+	handle FORMAT_MENU and CHECK_NORMAL_MENU_STRUCTURE more like a
+	normal main program option.
+	
+
+	* tp/Texinfo/Common.pm (%default_structure_customization_values),
+	tp/Texinfo/XS/parsetexi/Parsetexi.pm, tp/Texinfo/ParserNonXS.pm:
+	remove %default_structure_customization_values.
+
+	* tp/Texinfo/Common.pm (set_output_encodings),
+	tp/Texinfo/Convert/Converter.pm (converter), texi2any.pl: add
+	set_output_encodings(), based on Texinfo::Converter::Convert
+	to call on main program configuration for
+	Texinfo::Common::output_files_open_out().
+
 2021-09-02  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/Converter.pm (converter): set

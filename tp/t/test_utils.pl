@@ -516,7 +516,7 @@ sub filter_elements_keys {[grep {!$avoided_keys_elements{$_}}
 sub set_converter_option_defaults($$$)
 {
   my $converter_options = shift;
-  my $parser_options = shift;
+  my $main_configuration = shift;
   my $format = shift;
   $converter_options = {} if (!defined($converter_options));
   if (!defined($converter_options->{'EXPANDED_FORMATS'})) {
@@ -549,11 +549,11 @@ sub convert_to_plaintext($$$$$$;$)
   my $format = shift;
   my $tree = shift;
   my $parser = shift;
-  my $parser_options = shift;
+  my $main_configuration = shift;
   my $converter_options = shift;
   $converter_options 
     = set_converter_option_defaults($converter_options,
-                                    $parser_options, $format);
+                                    $main_configuration, $format);
   if (!defined($converter_options->{'OUTFILE'})
       and defined($converter_options->{'SUBDIR'})) {
     $converter_options->{'OUTFILE'} 
@@ -584,12 +584,12 @@ sub convert_to_info($$$$$;$)
   my $format = shift;
   my $tree = shift;
   my $parser = shift;
-  my $parser_options = shift;
+  my $main_configuration = shift;
   my $converter_options = shift;
   # FIXME plaintext too?
   $converter_options 
     = set_converter_option_defaults($converter_options,
-                                    $parser_options, $format);
+                                    $main_configuration, $format);
   
   my $converter = 
      Texinfo::Convert::Info->converter ({'DEBUG' => $self->{'DEBUG'},
@@ -610,11 +610,11 @@ sub convert_to_html($$$$$$;$)
   my $format = shift;
   my $tree = shift;
   my $parser = shift;
-  my $parser_options = shift;
+  my $main_configuration = shift;
   my $converter_options = shift;
   $converter_options 
     = set_converter_option_defaults($converter_options,
-                                    $parser_options, 'html');
+                                    $main_configuration, 'html');
   
   $converter_options->{'SPLIT'} = 0
     if ($format eq 'html_text' 
@@ -643,11 +643,11 @@ sub convert_to_xml($$$$$$;$)
   my $format = shift;
   my $tree = shift;
   my $parser = shift;
-  my $parser_options = shift;
+  my $main_configuration = shift;
   my $converter_options = shift;
   $converter_options 
     = set_converter_option_defaults($converter_options,
-                                    $parser_options, 'xml');
+                                    $main_configuration, 'xml');
   
   my $converter =
      Texinfo::Convert::TexinfoXML->converter ({'DEBUG' => $self->{'DEBUG'},
@@ -675,11 +675,11 @@ sub convert_to_docbook($$$$$$;$)
   my $format = shift;
   my $tree = shift;
   my $parser = shift;
-  my $parser_options = shift;
+  my $main_configuration = shift;
   my $converter_options = shift;
   $converter_options 
     = set_converter_option_defaults($converter_options,
-                                    $parser_options, 'docbook');
+                                    $main_configuration, 'docbook');
   
   my $converter =
      Texinfo::Convert::DocBook->converter ({'DEBUG' => $self->{'DEBUG'},
@@ -706,11 +706,11 @@ sub convert_to_latex($$$$$$;$)
   my $format = shift;
   my $tree = shift;
   my $parser = shift;
-  my $parser_options = shift;
+  my $main_configuration = shift;
   my $converter_options = shift;
   $converter_options 
     = set_converter_option_defaults($converter_options,
-                                    $parser_options, 'latex');
+                                    $main_configuration, 'latex');
   
   my $converter =
      Texinfo::Convert::LaTeX->converter ({'DEBUG' => $self->{'DEBUG'},
@@ -797,6 +797,14 @@ sub test($$)
     delete $parser_options->{'SIMPLE_MENU'};
   }
 
+  # always set FORMAT_MENU to menu, which is the default for parser
+  my $added_main_configurations = {'FORMAT_MENU' => 'menu'};
+  if ($parser_options->{'CHECK_NORMAL_MENU_STRUCTURE'}) {
+    $added_main_configurations->{'CHECK_NORMAL_MENU_STRUCTURE'}
+      = $parser_options->{'CHECK_NORMAL_MENU_STRUCTURE'};
+    delete $parser_options->{'CHECK_NORMAL_MENU_STRUCTURE'};
+  }
+
   my %todos;
   if ($parser_options->{'todo'}) {
     %todos = %{$parser_options->{'todo'}};
@@ -826,11 +834,13 @@ sub test($$)
     }
     delete $parser_options->{'init_files'};
   }
-
-  my $parser = Texinfo::Parser::parser({'INCLUDE_DIRECTORIES' => [
-                                          $srcdir.'t/include/'],
+  my $completed_parser_options = {'INCLUDE_DIRECTORIES' => [$srcdir.'t/include/'],
                                         'DEBUG' => $self->{'DEBUG'},
-                                       %$parser_options});
+                                       %$parser_options};
+  my $main_configuration = Texinfo::MainConfig::new({ %$completed_parser_options,
+                                                      %$added_main_configurations });
+
+  my $parser = Texinfo::Parser::parser($completed_parser_options);
 
   # take the initial values to record only if there is something new
   my $initial_index_names = $parser->indices_information();
@@ -850,7 +860,8 @@ sub test($$)
   my $parser_informations = $parser->global_informations();
   my ($labels, $targets_list, $nodes_list) = $parser->labels_information();
   my $refs = $parser->internal_references_information();
-  Texinfo::Structuring::associate_internal_references($registrar, $parser,
+  Texinfo::Structuring::associate_internal_references($registrar,
+                                        $main_configuration,
                                         $parser_informations, $labels, $refs);
   my $floats = $parser->floats_information();
 
@@ -859,29 +870,30 @@ sub test($$)
   my $structure_informations = {};
   my ($sectioning_root, $sections_list)
               = Texinfo::Structuring::sectioning_structure($registrar,
-                                                             $parser, $result);
+                                                      $main_configuration, $result);
   if ($sectioning_root) {
-    Texinfo::Structuring::warn_non_empty_parts($registrar, $parser, $global_commands);
+    Texinfo::Structuring::warn_non_empty_parts($registrar, $main_configuration,
+                                               $global_commands);
     $structure_informations->{'sectioning_root'} = $sectioning_root;
     $structure_informations->{'sections_list'} = $sections_list;
   }
 
   Texinfo::Structuring::number_floats($floats);
 
-  Texinfo::Structuring::set_menus_node_directions($registrar, $parser,
+  Texinfo::Structuring::set_menus_node_directions($registrar, $main_configuration,
                   $parser_informations, $global_commands, $nodes_list, $labels);
-  my $top_node = Texinfo::Structuring::nodes_tree($registrar, $parser,
+  my $top_node = Texinfo::Structuring::nodes_tree($registrar, $main_configuration,
                                     $parser_informations, $nodes_list, $labels);
   if (defined($top_node)) {
     $structure_informations->{'top_node'} = $top_node;
   }
 
   if (defined($nodes_list)) {
-    Texinfo::Structuring::complete_node_tree_with_menus($registrar, $parser,
-                                                        $nodes_list, $top_node);
-    Texinfo::Structuring::check_nodes_are_referenced($registrar, $parser,
-                                                     $nodes_list, $top_node,
-                                                     $labels, $refs);
+    Texinfo::Structuring::complete_node_tree_with_menus($registrar,
+                                $main_configuration, $nodes_list, $top_node);
+    Texinfo::Structuring::check_nodes_are_referenced($registrar,
+                                          $main_configuration, $nodes_list,
+                                          $top_node, $labels, $refs);
   }
 
   my ($errors, $error_nrs) = $registrar->errors();
@@ -900,7 +912,8 @@ sub test($$)
   my $sorted_index_entries;
   if ($merged_index_entries) {
     $sorted_index_entries 
-      = Texinfo::Structuring::sort_indices_by_letter($parser, $registrar, $parser,
+      = Texinfo::Structuring::sort_indices_by_letter($parser, $registrar,
+                                   $main_configuration,
                                    $merged_index_entries, $index_names);
   }
   if ($simple_menus) {
@@ -953,7 +966,7 @@ sub test($$)
       ($converted_errors{$format}, $converted{$format})
            = &{$formats{$format}}($self, $test_name, $format_type, 
                                   $result, $parser, 
-                                  $parser_options, $format_converter_options);
+                                  $main_configuration, $format_converter_options);
       $converted_errors{$format} = undef if (!@{$converted_errors{$format}});
 
       # output converted result and errors in files if $arg_output is set

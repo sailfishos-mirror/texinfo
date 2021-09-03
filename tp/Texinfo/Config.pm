@@ -157,6 +157,23 @@ sub GNUT_set_from_cmdline($$) {
   return 1;
 }
 
+# add default based, for instance, on the format.
+sub GNUT_set_main_program_default($$) {
+  my $var = shift;
+  my $value = shift;
+
+  ($var, $value) = _GNUT_map_obsolete_options($var, $value);
+  if (!defined($var)) {
+    return 1;
+  }
+
+  return 0 if (defined($cmdline_options->{$var})
+    or defined($init_files_options->{$var}));
+  $main_program_default_options->{$var} = $value;
+  return 1;
+}
+
+
 # called both from main program and init files.
 sub texinfo_add_to_option_list($$)
 {
@@ -291,6 +308,56 @@ sub texinfo_register_type_formatting($$)
 sub GNUT_get_types_conversion()
 {
   return $GNUT_types_conversion;
+}
+
+
+package Texinfo::MainConfig;
+
+# the objective of this small package is to be in another
+# scope than init files, still have access to configuration
+# options, and setup blessed object that can call a
+# get_conf() and set_conf() method like parser or converter
+# that return the same as Texinfo::Config::texinfo_get_conf
+
+# this is used in tests too.  In the tests nothing from
+# Texinfo::Config is used, and it is assumed that the
+# configuration is available as a hash reference key
+# value, which is the case if new is called with an hash
+# reference argument.
+
+my $additional_conf = {};
+
+sub new(;$)
+{
+  my $options = shift;
+  if (defined($options)) {
+    # creates a new object based on input hash reference
+    %$additional_conf = %$options;
+    bless $options;
+  } else {
+    # use Texinfo::Config
+    bless $cmdline_options;
+  }
+}
+
+sub get_conf($$)
+{
+  my $self = shift;
+  my $var = shift;
+
+  if (defined($additional_conf->{$var})) {
+    return $additional_conf->{$var};
+  }
+  return Texinfo::Config::texinfo_get_conf($var);
+}
+
+sub set_conf($$$)
+{
+  my $self = shift;
+  my $var = shift;
+  my $val = shift;
+  # overrides command line
+  $additional_conf->{$var} = $val;
 }
 
 

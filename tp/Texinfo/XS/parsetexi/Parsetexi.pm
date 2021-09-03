@@ -123,8 +123,7 @@ sub parser (;$$)
         set_accept_internalvalue();
       } elsif ($key eq 'ENABLE_ENCODING'
                or $key eq 'novalidate'
-               or $key eq 'registrar'
-               or defined($Texinfo::Common::default_structure_customization_values{$key})) {
+               or $key eq 'registrar') {
         # no action needed
       } else {
         warn "ignoring parser configuration value \"$key\"\n";

@@ -152,7 +152,6 @@ my %parser_state_configuration = (
 my %parser_default_configuration = (
     %parser_state_configuration,
     %Texinfo::Common::default_parser_customization_values,
-    %Texinfo::Common::default_structure_customization_values,
 );
 
 # the other possible keys for the parser state are:
