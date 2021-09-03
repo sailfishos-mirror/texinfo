@@ -5181,9 +5181,11 @@ sub converter_initialize($)
 
   foreach my $context ('normal', 'preformatted', 'string') {
     foreach my $command (keys(%{$default_no_arg_commands_formatting{'normal'}})) {
-      if (exists ($Texinfo::Config::no_arg_commands_formatting{$context}->{$command})) {
+      my $no_arg_command_customized_formatting
+        = Texinfo::Config::GNUT_get_no_arg_command_formatting($command, $context);
+      if (defined($no_arg_command_customized_formatting)) {
         $self->{'no_arg_commands_formatting'}->{$context}->{$command}
-           = $Texinfo::Config::no_arg_commands_formatting{$context}->{$command};
+           = $no_arg_command_customized_formatting;
       } else {
         if (defined($default_no_arg_commands_formatting{$context}->{$command})) {
           if ($self->get_conf('ENABLE_ENCODING') 
@@ -5223,9 +5225,11 @@ sub converter_initialize($)
 
   foreach my $context (keys(%style_commands_formatting)) {
     foreach my $command (keys(%{$style_commands_formatting{$context}})) {
-      if (exists ($Texinfo::Config::style_commands_formatting{$context}->{$command})) {
+      my $style_commands_formatting_info
+        = Texinfo::Config::GNUT_get_style_command_formatting($command, $context);
+      if (defined($style_commands_formatting_info)) {
         $self->{'style_commands_formatting'}->{$context}->{$command} 
-           = $Texinfo::Config::style_commands_formatting{$context}->{$command};
+           = $style_commands_formatting_info;
       } elsif (exists($style_commands_formatting{$context}->{$command})) {
         $self->{'style_commands_formatting'}->{$context}->{$command} 
            = $style_commands_formatting{$context}->{$command};

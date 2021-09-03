@@ -227,6 +227,8 @@ sub texinfo_add_valid_option($)
   return Texinfo::Common::add_valid_option($option);
 }
 
+
+
 my @possible_stages = ('setup', 'structure', 'init', 'finish');
 my %possible_stages;
 foreach my $stage (@possible_stages) {
@@ -235,17 +237,9 @@ foreach my $stage (@possible_stages) {
 
 my $default_priority = 'default';
 
-# These variables should not be accessed directly by the users who
-# customize formatting and should use the associated functions,
-# such as texinfo_register_handler(), texinfo_register_formatting_function(),
-# texinfo_register_command_formatting() or texinfo_register_type_formatting().
-#
 # FIXME add another level with format?  Not needed now as HTML is
 # the only customizable format for now.
 my $GNUT_stage_handlers = {};
-my $GNUT_formatting_references = {};
-my $GNUT_commands_conversion = {};
-my $GNUT_types_conversion = {};
 
 sub texinfo_register_handler($$;$)
 {
@@ -267,6 +261,13 @@ sub GNUT_get_stage_handlers()
 {
   return $GNUT_stage_handlers;
 }
+
+
+my $GNUT_formatting_references = {};
+my $GNUT_commands_conversion = {};
+my $GNUT_types_conversion = {};
+my $GNUT_no_arg_commands_formatting_strings = {};
+my $GNUT_style_commands_formatting_info = {};
 
 # called from init files
 sub texinfo_register_formatting_function($$)
@@ -310,6 +311,86 @@ sub GNUT_get_types_conversion()
   return $GNUT_types_conversion;
 }
 
+my $default_formatting_context = 'normal';
+my %possible_formatting_contexts;
+foreach my $possible_formatting_context (($default_formatting_context,
+                       'preformatted', 'string')) {
+  $possible_formatting_contexts{$possible_formatting_context} = 1;
+}
+
+sub texinfo_register_no_arg_command_formatting($$;$)
+{
+  my $command = shift;
+  my $value = shift;
+  my $context = shift;
+
+  if (!defined($context)) {
+    $context = $default_formatting_context;
+  } elsif (not defined($possible_formatting_contexts{$context})) {
+    _GNUT_document_warn(sprintf(__("%s: unknown formatting context %s\n"),
+                  'texinfo_register_no_arg_command_formatting', $context));
+    return 0;
+  }
+  $GNUT_no_arg_commands_formatting_strings->{$context}->{$command} = $value;
+  return 1;
+}
+
+sub GNUT_get_no_arg_command_formatting($;$)
+{
+  my $command = shift;
+  my $context = shift;
+
+  if (!defined($context)) {
+    $context = $default_formatting_context;
+  } elsif (not defined($possible_formatting_contexts{$context})) {
+    _GNUT_document_warn(sprintf(__("%s: unknown formatting context %s\n"),
+                        'GNUT_get_no_arg_command_formatting', $context));
+    return undef;
+  }
+  if (exists($GNUT_no_arg_commands_formatting_strings->{$context})
+      and exists($GNUT_no_arg_commands_formatting_strings->{$context}->{$command})) {
+    return $GNUT_no_arg_commands_formatting_strings->{$context}->{$command};
+  }
+  return undef;
+}
+
+# the value should be a hash reference, possibly empty, with valid
+# keys 'attribute' and 'quote'.
+sub texinfo_register_style_command_formatting($$;$)
+{
+  my $command = shift;
+  my $value = shift;
+  my $context = shift;
+
+  if (!defined($context)) {
+    $context = $default_formatting_context;
+  } elsif (not defined($possible_formatting_contexts{$context})) {
+    _GNUT_document_warn(sprintf(__("%s: unknown formatting context %s\n"),
+                  'texinfo_register_style_command_formatting', $context));
+    return 0;
+  }
+  $GNUT_style_commands_formatting_info->{$context}->{$command} = $value;
+  return 1;
+}
+
+sub GNUT_get_style_command_formatting($;$)
+{
+  my $command = shift;
+  my $context = shift;
+
+  if (!defined($context)) {
+    $context = $default_formatting_context;
+  } elsif (not defined($possible_formatting_contexts{$context})) {
+    _GNUT_document_warn(sprintf(__("%s: unknown formatting context %s\n"),
+                        'GNUT_get_style_command_formatting', $context));
+    return undef;
+  }
+  if (exists($GNUT_style_commands_formatting_info->{$context})
+      and exists($GNUT_style_commands_formatting_info->{$context}->{$command})) {
+    return $GNUT_style_commands_formatting_info->{$context}->{$command};
+  }
+  return undef;
+}
 
 package Texinfo::MainConfig;
 
