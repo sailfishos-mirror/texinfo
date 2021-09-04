@@ -1877,9 +1877,9 @@ sub _convert($$)
     } elsif ($command eq 'kbd') {
       # 'kbd' is special, distinct font is typewriter + slanted
       # @kbdinputstyle
-      # ‘code’ Always use the same font for @kbd as @code.
-      # ‘example’ Use the distinguishing font for @kbd only in @example and similar environments.
-      # ‘distinct’ (the default) Always use the distinguishing font for @kbd.
+      # 'code' Always use the same font for @kbd as @code.
+      # 'example' Use the distinguishing font for @kbd only in @example and similar environments.
+      # 'distinct' (the default) Always use the distinguishing font for @kbd.
       my $code_font = _kbd_code_style($self);
       if ($code_font) {
         if ($LaTeX_style_brace_commands{$command_context}->{'code'}) {
