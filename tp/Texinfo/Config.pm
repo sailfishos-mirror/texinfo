@@ -414,10 +414,12 @@ sub new(;$)
   if (defined($options)) {
     # creates a new object based on input hash reference
     %$additional_conf = %$options;
-    bless $options;
+    bless $additional_conf;
+    return $additional_conf;
   } else {
     # use Texinfo::Config
     bless $cmdline_options;
+    return $cmdline_options;
   }
 }
 
