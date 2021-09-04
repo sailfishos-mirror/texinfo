@@ -1386,7 +1386,6 @@ $result_trees{'formatting_fr'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 't-ruc',
               'node' => {},
               'number' => 1
             },
@@ -1427,7 +1426,6 @@ $result_trees{'formatting_fr'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'T-ruc',
               'node' => {},
               'number' => 2
             },
@@ -1468,7 +1466,6 @@ $result_trees{'formatting_fr'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => '.',
               'node' => {},
               'number' => 3
             },
@@ -1509,7 +1506,6 @@ $result_trees{'formatting_fr'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => '?',
               'node' => {},
               'number' => 4
             },
@@ -1550,7 +1546,6 @@ $result_trees{'formatting_fr'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'a',
               'node' => {},
               'number' => 5
             },
@@ -1591,7 +1586,6 @@ $result_trees{'formatting_fr'} = {
               'index_at_command' => 'findex',
               'index_name' => 'fn',
               'index_type_command' => 'findex',
-              'key' => 't--ruc',
               'node' => {},
               'number' => 1
             },
@@ -1632,7 +1626,6 @@ $result_trees{'formatting_fr'} = {
               'index_at_command' => 'findex',
               'index_name' => 'fn',
               'index_type_command' => 'findex',
-              'key' => 'T--ruc',
               'node' => {},
               'number' => 2
             },
@@ -1673,7 +1666,6 @@ $result_trees{'formatting_fr'} = {
               'index_at_command' => 'findex',
               'index_name' => 'fn',
               'index_type_command' => 'findex',
-              'key' => '.',
               'node' => {},
               'number' => 3
             },
@@ -1714,7 +1706,6 @@ $result_trees{'formatting_fr'} = {
               'index_at_command' => 'findex',
               'index_name' => 'fn',
               'index_type_command' => 'findex',
-              'key' => '?',
               'node' => {},
               'number' => 4
             },
@@ -1755,7 +1746,6 @@ $result_trees{'formatting_fr'} = {
               'index_at_command' => 'findex',
               'index_name' => 'fn',
               'index_type_command' => 'findex',
-              'key' => 'a',
               'node' => {},
               'number' => 5
             },

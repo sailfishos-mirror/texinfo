@@ -1170,7 +1170,6 @@ $result_trees{'char_latin1_latin1_in_refs'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => "\x{e4} \x{eb} \x{ef} \x{f6} \x{fc} \x{ff}",
               'node' => {},
               'number' => 1
             },
@@ -1211,7 +1210,6 @@ $result_trees{'char_latin1_latin1_in_refs'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => "\x{c4} \x{cb} \x{cf} \x{d6} \x{dc}",
               'node' => {},
               'number' => 2
             },
@@ -1252,7 +1250,6 @@ $result_trees{'char_latin1_latin1_in_refs'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => "\x{e9}",
               'node' => {},
               'number' => 3
             },
@@ -1293,7 +1290,6 @@ $result_trees{'char_latin1_latin1_in_refs'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => "\x{e8}",
               'node' => {},
               'number' => 4
             },
@@ -1334,7 +1330,6 @@ $result_trees{'char_latin1_latin1_in_refs'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => "\x{e2} \x{ea} \x{ee} \x{f4} \x{fb} \x{c2} \x{ca} \x{ce} \x{d4} \x{db}",
               'node' => {},
               'number' => 5
             },
@@ -1375,7 +1370,6 @@ $result_trees{'char_latin1_latin1_in_refs'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => "\x{e7}",
               'node' => {},
               'number' => 6
             },

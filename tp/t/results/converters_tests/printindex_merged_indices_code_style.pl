@@ -140,7 +140,6 @@ $result_trees{'printindex_merged_indices_code_style'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'c"b',
               'node' => {},
               'number' => 1
             },
@@ -187,7 +186,6 @@ $result_trees{'printindex_merged_indices_code_style'} = {
               'index_at_command' => 'vindex',
               'index_name' => 'vr',
               'index_type_command' => 'vindex',
-              'key' => 'v"j',
               'node' => {},
               'number' => 1
             },
@@ -234,7 +232,6 @@ $result_trees{'printindex_merged_indices_code_style'} = {
               'index_at_command' => 'findex',
               'index_name' => 'fn',
               'index_type_command' => 'findex',
-              'key' => 'f``g',
               'node' => {},
               'number' => 1
             },
@@ -356,7 +353,6 @@ $result_trees{'printindex_merged_indices_code_style'} = {
               'index_at_command' => 'cdiindex',
               'index_name' => 'cdi',
               'index_type_command' => 'cdiindex',
-              'key' => 'cdi"h',
               'node' => {},
               'number' => 1
             },
@@ -478,7 +474,6 @@ $result_trees{'printindex_merged_indices_code_style'} = {
               'index_at_command' => 'ddiindex',
               'index_name' => 'ddi',
               'index_type_command' => 'ddiindex',
-              'key' => 'ddi``g',
               'node' => {},
               'number' => 1
             },

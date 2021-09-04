@@ -274,7 +274,6 @@ $result_trees{'comment_space_command_on_line'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'index entry  ',
               'node' => {},
               'number' => 1
             },

@@ -176,7 +176,6 @@ $result_trees{'transparent_sort_chars'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'version, for installinfo',
               'node' => {},
               'number' => 1
             },
@@ -217,7 +216,6 @@ $result_trees{'transparent_sort_chars'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'Source file format',
               'node' => {},
               'number' => 2
             },
@@ -258,7 +256,6 @@ $result_trees{'transparent_sort_chars'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'Semantic markup',
               'node' => {},
               'number' => 3
             },

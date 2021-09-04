@@ -242,7 +242,6 @@ $result_trees{'def_in_copying'} = {
                       'index_at_command' => 'deffn',
                       'index_name' => 'fn',
                       'index_type_command' => 'deffn',
-                      'key' => 'bb',
                       'number' => 1,
                       'region' => {}
                     },
@@ -330,7 +329,6 @@ $result_trees{'def_in_copying'} = {
                       'index_at_command' => 'deffnx',
                       'index_name' => 'fn',
                       'index_type_command' => 'deffn',
-                      'key' => 'bbx',
                       'number' => 2,
                       'region' => {}
                     },
@@ -538,7 +536,6 @@ $result_trees{'def_in_copying'} = {
                   'index_at_command' => 'deffn',
                   'index_name' => 'fn',
                   'index_type_command' => 'deffn',
-                  'key' => 'bb',
                   'node' => {},
                   'number' => 3
                 },
@@ -626,7 +623,6 @@ $result_trees{'def_in_copying'} = {
                   'index_at_command' => 'deffnx',
                   'index_name' => 'fn',
                   'index_type_command' => 'deffn',
-                  'key' => 'bbx',
                   'node' => {},
                   'number' => 4
                 },

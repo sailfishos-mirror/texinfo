@@ -77,7 +77,6 @@ $result_trees{'empty_string_index_entry'} = {
               'index_at_command' => 'findex',
               'index_name' => 'fn',
               'index_type_command' => 'findex',
-              'key' => '',
               'node' => {},
               'number' => 1
             },
@@ -167,7 +166,6 @@ $result_trees{'empty_string_index_entry'} = {
                           'index_at_command' => 'item',
                           'index_name' => 'fn',
                           'index_type_command' => 'ftable',
-                          'key' => '',
                           'node' => {},
                           'number' => 2
                         },
@@ -370,7 +368,6 @@ $result_trees{'empty_string_index_entry'} = {
                   'index_at_command' => 'defun',
                   'index_name' => 'fn',
                   'index_type_command' => 'defun',
-                  'key' => '',
                   'node' => {},
                   'number' => 3
                 },
@@ -515,7 +512,6 @@ $result_trees{'empty_string_index_entry'} = {
                   'index_at_command' => 'defunx',
                   'index_name' => 'fn',
                   'index_type_command' => 'defun',
-                  'key' => '',
                   'node' => {},
                   'number' => 4
                 },

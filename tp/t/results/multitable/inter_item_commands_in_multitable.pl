@@ -113,7 +113,6 @@ $result_trees{'inter_item_commands_in_multitable'} = {
                           'index_at_command' => 'cindex',
                           'index_name' => 'cp',
                           'index_type_command' => 'cindex',
-                          'key' => 'index entry between empty lines',
                           'number' => 1
                         },
                         'spaces_before_argument' => ' '
@@ -521,7 +520,6 @@ $result_trees{'inter_item_commands_in_multitable'} = {
                               'index_at_command' => 'cindex',
                               'index_name' => 'cp',
                               'index_type_command' => 'cindex',
-                              'key' => 'index entry within multitable',
                               'number' => 2
                             },
                             'spaces_before_argument' => ' '
@@ -707,7 +705,6 @@ $result_trees{'inter_item_commands_in_multitable'} = {
                       'index_at_command' => 'cindex',
                       'index_name' => 'cp',
                       'index_type_command' => 'cindex',
-                      'key' => 'cindex',
                       'number' => 3
                     },
                     'spaces_before_argument' => ' '

@@ -78,7 +78,6 @@ $result_trees{'index_entry_in_preformatted'} = {
                       'index_at_command' => 'cindex',
                       'index_name' => 'cp',
                       'index_type_command' => 'cindex',
-                      'key' => 'first',
                       'node' => {},
                       'number' => 1
                     },
@@ -147,7 +146,6 @@ $result_trees{'index_entry_in_preformatted'} = {
                       'index_at_command' => 'cindex',
                       'index_name' => 'cp',
                       'index_type_command' => 'cindex',
-                      'key' => 'other',
                       'node' => {},
                       'number' => 2
                     },
@@ -193,7 +191,6 @@ $result_trees{'index_entry_in_preformatted'} = {
                       'index_at_command' => 'cindex',
                       'index_name' => 'cp',
                       'index_type_command' => 'cindex',
-                      'key' => 'last',
                       'node' => {},
                       'number' => 3
                     },

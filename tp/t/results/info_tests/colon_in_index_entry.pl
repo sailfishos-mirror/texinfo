@@ -102,7 +102,6 @@ $result_trees{'colon_in_index_entry'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'a:b',
               'node' => {},
               'number' => 1
             },
@@ -179,7 +178,6 @@ $result_trees{'colon_in_index_entry'} = {
                           'index_at_command' => 'item',
                           'index_name' => 'vr',
                           'index_type_command' => 'vtable',
-                          'key' => '%main::value',
                           'node' => {},
                           'number' => 1
                         },
@@ -362,7 +360,6 @@ $result_trees{'colon_in_index_entry'} = {
                   'index_at_command' => 'defvr',
                   'index_name' => 'vr',
                   'index_type_command' => 'defvr',
-                  'key' => 'c:d',
                   'node' => {},
                   'number' => 2
                 },
@@ -502,7 +499,6 @@ $result_trees{'colon_in_index_entry'} = {
                   'index_at_command' => 'defvrx',
                   'index_name' => 'vr',
                   'index_type_command' => 'defvr',
-                  'key' => 'z:t',
                   'node' => {},
                   'number' => 3
                 },

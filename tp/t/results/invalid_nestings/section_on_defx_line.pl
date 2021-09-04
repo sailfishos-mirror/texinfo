@@ -100,7 +100,6 @@ $result_trees{'section_on_defx_line'} = {
                   'index_at_command' => 'deffn',
                   'index_name' => 'fn',
                   'index_type_command' => 'deffn',
-                  'key' => 'j',
                   'number' => 1
                 },
                 'original_def_cmdname' => 'deffn'

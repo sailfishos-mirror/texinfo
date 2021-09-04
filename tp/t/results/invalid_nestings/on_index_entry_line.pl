@@ -157,8 +157,6 @@ $result_trees{'on_index_entry_line'} = {
           'index_at_command' => 'cindex',
           'index_name' => 'cp',
           'index_type_command' => 'cindex',
-          'key' => 'in titlefont  exdent
-',
           'number' => 1
         },
         'spaces_before_argument' => ' '

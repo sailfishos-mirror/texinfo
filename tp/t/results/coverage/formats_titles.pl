@@ -427,7 +427,6 @@ $result_trees{'formats_titles'} = {
                       'index_at_command' => 'item',
                       'index_name' => 'vr',
                       'index_type_command' => 'vtable',
-                      'key' => 'vtab',
                       'number' => 1
                     },
                     'spaces_before_argument' => ' '

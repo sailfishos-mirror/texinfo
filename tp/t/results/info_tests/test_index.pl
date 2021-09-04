@@ -174,7 +174,6 @@ $result_trees{'test_index'} = {
                             'index_at_command' => 'cindex',
                             'index_name' => 'cp',
                             'index_type_command' => 'cindex',
-                            'key' => 'index in chapter end',
                             'node' => {
                               'args' => [
                                 {
@@ -325,7 +324,6 @@ $result_trees{'test_index'} = {
                   'index_at_command' => 'cindex',
                   'index_name' => 'cp',
                   'index_type_command' => 'cindex',
-                  'key' => 'in Top',
                   'node' => {},
                   'number' => 1
                 },
@@ -366,7 +364,6 @@ $result_trees{'test_index'} = {
                   'index_at_command' => 'cindex',
                   'index_name' => 'cp',
                   'index_type_command' => 'cindex',
-                  'key' => '@',
                   'node' => {},
                   'number' => 2
                 },
@@ -420,7 +417,6 @@ $result_trees{'test_index'} = {
                   'index_at_command' => 'cindex',
                   'index_name' => 'cp',
                   'index_type_command' => 'cindex',
-                  'key' => "\x{a1}",
                   'node' => {},
                   'number' => 3
                 },
@@ -461,7 +457,6 @@ $result_trees{'test_index'} = {
                   'index_at_command' => 'cindex',
                   'index_name' => 'cp',
                   'index_type_command' => 'cindex',
-                  'key' => '"',
                   'node' => {},
                   'number' => 4
                 },
@@ -594,7 +589,6 @@ $result_trees{'test_index'} = {
                   'index_at_command' => 'deffn',
                   'index_name' => 'fn',
                   'index_type_command' => 'deffn',
-                  'key' => 'i',
                   'node' => {},
                   'number' => 1
                 },
@@ -697,7 +691,6 @@ $result_trees{'test_index'} = {
                   'index_at_command' => 'deffnx',
                   'index_name' => 'fn',
                   'index_type_command' => 'deffn',
-                  'key' => 'machin',
                   'node' => {},
                   'number' => 2
                 },
@@ -829,7 +822,6 @@ $result_trees{'test_index'} = {
                           'index_at_command' => 'item',
                           'index_name' => 'fn',
                           'index_type_command' => 'ftable',
-                          'key' => 'a fun',
                           'node' => {},
                           'number' => 3
                         },
@@ -904,7 +896,6 @@ $result_trees{'test_index'} = {
                           'index_at_command' => 'item',
                           'index_name' => 'fn',
                           'index_type_command' => 'ftable',
-                          'key' => 'second fun',
                           'node' => {},
                           'number' => 4
                         },
@@ -944,7 +935,6 @@ $result_trees{'test_index'} = {
                           'index_at_command' => 'itemx',
                           'index_name' => 'fn',
                           'index_type_command' => 'ftable',
-                          'key' => 'itemx fun',
                           'node' => {},
                           'number' => 5
                         },
@@ -1304,7 +1294,6 @@ $result_trees{'test_index'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'index entry looooooooooooooooooooooooooooooooooooooooooooooooooooooooong',
               'node' => {},
               'number' => 5
             },
@@ -1345,7 +1334,6 @@ $result_trees{'test_index'} = {
               'index_at_command' => 'findex',
               'index_name' => 'fn',
               'index_type_command' => 'findex',
-              'key' => 'function index entry',
               'node' => {},
               'number' => 6
             },
@@ -1399,7 +1387,6 @@ $result_trees{'test_index'} = {
                   'index_at_command' => 'findex',
                   'index_name' => 'fn',
                   'index_type_command' => 'findex',
-                  'key' => 'other function',
                   'node' => {},
                   'number' => 7
                 },
@@ -1540,7 +1527,6 @@ $result_trees{'test_index'} = {
               'index_at_command' => 'findex',
               'index_name' => 'fn',
               'index_type_command' => 'findex',
-              'key' => 'after lines.',
               'node' => {},
               'number' => 8
             },
@@ -2862,7 +2848,6 @@ $result_trees{'test_index'} = {
               'index_at_command' => 'findex',
               'index_name' => 'fn',
               'index_type_command' => 'findex',
-              'key' => 'after more than 100 lines',
               'node' => {},
               'number' => 9
             },
@@ -2948,7 +2933,6 @@ $result_trees{'test_index'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'index entry in appendix before para',
               'node' => {},
               'number' => 6
             },
@@ -3054,7 +3038,6 @@ $result_trees{'test_index'} = {
               'index_at_command' => 'findex',
               'index_name' => 'fn',
               'index_type_command' => 'findex',
-              'key' => 'index entry between indices',
               'node' => {},
               'number' => 10
             },

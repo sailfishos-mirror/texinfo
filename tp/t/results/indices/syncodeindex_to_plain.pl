@@ -103,7 +103,6 @@ $result_trees{'syncodeindex_to_plain'} = {
               'index_at_command' => 'kindex',
               'index_name' => 'ky',
               'index_type_command' => 'kindex',
-              'key' => '--k1',
               'node' => {},
               'number' => 1
             },
@@ -144,7 +143,6 @@ $result_trees{'syncodeindex_to_plain'} = {
               'index_at_command' => 'vindex',
               'index_name' => 'vr',
               'index_type_command' => 'vindex',
-              'key' => '--v',
               'node' => {},
               'number' => 1
             },
@@ -185,7 +183,6 @@ $result_trees{'syncodeindex_to_plain'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => '-c',
               'node' => {},
               'number' => 1
             },

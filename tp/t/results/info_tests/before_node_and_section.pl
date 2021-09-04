@@ -123,7 +123,6 @@ $result_trees{'before_node_and_section'} = {
                   'index_at_command' => 'cindex',
                   'index_name' => 'cp',
                   'index_type_command' => 'cindex',
-                  'key' => 'index entry before anything',
                   'number' => 1
                 },
                 'spaces_before_argument' => ' '

@@ -213,7 +213,6 @@ $result_trees{'subentries'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'a--a',
               'node' => {},
               'number' => 1
             },
@@ -253,7 +252,6 @@ $result_trees{'subentries'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'b--b',
               'node' => {},
               'number' => 2
             },
@@ -323,7 +321,6 @@ $result_trees{'subentries'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'd--dd',
               'node' => {},
               'number' => 3
             },
@@ -422,7 +419,6 @@ $result_trees{'subentries'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'g--gg',
               'node' => {},
               'number' => 4
             },
@@ -557,7 +553,6 @@ $result_trees{'subentries'} = {
               'index_at_command' => 'findex',
               'index_name' => 'fn',
               'index_type_command' => 'findex',
-              'key' => 'f---aa',
               'node' => {},
               'number' => 1
             },
@@ -597,7 +592,6 @@ $result_trees{'subentries'} = {
               'index_at_command' => 'findex',
               'index_name' => 'fn',
               'index_type_command' => 'findex',
-              'key' => 'f---bb',
               'node' => {},
               'number' => 2
             },
@@ -667,7 +661,6 @@ $result_trees{'subentries'} = {
               'index_at_command' => 'findex',
               'index_name' => 'fn',
               'index_type_command' => 'findex',
-              'key' => 'f---ddd',
               'node' => {},
               'number' => 3
             },
@@ -766,7 +759,6 @@ $result_trees{'subentries'} = {
               'index_at_command' => 'findex',
               'index_name' => 'fn',
               'index_type_command' => 'findex',
-              'key' => 'f---ggg',
               'node' => {},
               'number' => 4
             },

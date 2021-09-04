@@ -223,7 +223,6 @@ $result_trees{'encoding_index_ascii_enable_encoding'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'e\' e\'',
               'node' => {},
               'number' => 1
             },
@@ -352,7 +351,6 @@ $result_trees{'encoding_index_ascii_enable_encoding'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'i" i"i"i"',
               'node' => {},
               'number' => 2
             },
@@ -503,7 +501,6 @@ $result_trees{'encoding_index_ascii_enable_encoding'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'i^ i^i^i^i^',
               'node' => {},
               'number' => 3
             },
@@ -544,7 +541,6 @@ $result_trees{'encoding_index_ascii_enable_encoding'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'a',
               'node' => {},
               'number' => 4
             },
@@ -585,7 +581,6 @@ $result_trees{'encoding_index_ascii_enable_encoding'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'b',
               'node' => {},
               'number' => 5
             },
@@ -626,7 +621,6 @@ $result_trees{'encoding_index_ascii_enable_encoding'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'c',
               'node' => {},
               'number' => 6
             },
@@ -667,7 +661,6 @@ $result_trees{'encoding_index_ascii_enable_encoding'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'd',
               'node' => {},
               'number' => 7
             },
@@ -708,7 +701,6 @@ $result_trees{'encoding_index_ascii_enable_encoding'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'e',
               'node' => {},
               'number' => 8
             },
@@ -749,7 +741,6 @@ $result_trees{'encoding_index_ascii_enable_encoding'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'f',
               'node' => {},
               'number' => 9
             },
@@ -790,7 +781,6 @@ $result_trees{'encoding_index_ascii_enable_encoding'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'g',
               'node' => {},
               'number' => 10
             },
@@ -831,7 +821,6 @@ $result_trees{'encoding_index_ascii_enable_encoding'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'h',
               'node' => {},
               'number' => 11
             },
@@ -872,7 +861,6 @@ $result_trees{'encoding_index_ascii_enable_encoding'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'i',
               'node' => {},
               'number' => 12
             },
@@ -913,7 +901,6 @@ $result_trees{'encoding_index_ascii_enable_encoding'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'j',
               'node' => {},
               'number' => 13
             },
@@ -954,7 +941,6 @@ $result_trees{'encoding_index_ascii_enable_encoding'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'k',
               'node' => {},
               'number' => 14
             },
@@ -995,7 +981,6 @@ $result_trees{'encoding_index_ascii_enable_encoding'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'l',
               'node' => {},
               'number' => 15
             },
@@ -1036,7 +1021,6 @@ $result_trees{'encoding_index_ascii_enable_encoding'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'm',
               'node' => {},
               'number' => 16
             },
@@ -1077,7 +1061,6 @@ $result_trees{'encoding_index_ascii_enable_encoding'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'n',
               'node' => {},
               'number' => 17
             },
@@ -1118,7 +1101,6 @@ $result_trees{'encoding_index_ascii_enable_encoding'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'o',
               'node' => {},
               'number' => 18
             },
@@ -1159,7 +1141,6 @@ $result_trees{'encoding_index_ascii_enable_encoding'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'p',
               'node' => {},
               'number' => 19
             },
@@ -1200,7 +1181,6 @@ $result_trees{'encoding_index_ascii_enable_encoding'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'q',
               'node' => {},
               'number' => 20
             },
@@ -1241,7 +1221,6 @@ $result_trees{'encoding_index_ascii_enable_encoding'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'r',
               'node' => {},
               'number' => 21
             },
@@ -1282,7 +1261,6 @@ $result_trees{'encoding_index_ascii_enable_encoding'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 's',
               'node' => {},
               'number' => 22
             },
@@ -1323,7 +1301,6 @@ $result_trees{'encoding_index_ascii_enable_encoding'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 't',
               'node' => {},
               'number' => 23
             },
@@ -1364,7 +1341,6 @@ $result_trees{'encoding_index_ascii_enable_encoding'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'u',
               'node' => {},
               'number' => 24
             },
@@ -1405,7 +1381,6 @@ $result_trees{'encoding_index_ascii_enable_encoding'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'v',
               'node' => {},
               'number' => 25
             },
@@ -1446,7 +1421,6 @@ $result_trees{'encoding_index_ascii_enable_encoding'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'w',
               'node' => {},
               'number' => 26
             },
@@ -1487,7 +1461,6 @@ $result_trees{'encoding_index_ascii_enable_encoding'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'x',
               'node' => {},
               'number' => 27
             },
@@ -1528,7 +1501,6 @@ $result_trees{'encoding_index_ascii_enable_encoding'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'y',
               'node' => {},
               'number' => 28
             },
@@ -1569,7 +1541,6 @@ $result_trees{'encoding_index_ascii_enable_encoding'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'z',
               'node' => {},
               'number' => 29
             },
@@ -1610,7 +1581,6 @@ $result_trees{'encoding_index_ascii_enable_encoding'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'A',
               'node' => {},
               'number' => 30
             },
@@ -1651,7 +1621,6 @@ $result_trees{'encoding_index_ascii_enable_encoding'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'B',
               'node' => {},
               'number' => 31
             },
@@ -1705,7 +1674,6 @@ $result_trees{'encoding_index_ascii_enable_encoding'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'l',
               'node' => {},
               'number' => 32
             },
@@ -1759,7 +1727,6 @@ $result_trees{'encoding_index_ascii_enable_encoding'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'L',
               'node' => {},
               'number' => 33
             },
@@ -1848,7 +1815,6 @@ $result_trees{'encoding_index_ascii_enable_encoding'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'i i (dotless)',
               'node' => {},
               'number' => 34
             },
@@ -1973,7 +1939,6 @@ $result_trees{'encoding_index_ascii_enable_encoding'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'i^ i^ (dotless)',
               'node' => {},
               'number' => 35
             },
@@ -2027,7 +1992,6 @@ $result_trees{'encoding_index_ascii_enable_encoding'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'ss',
               'node' => {},
               'number' => 36
             },
@@ -2081,7 +2045,6 @@ $result_trees{'encoding_index_ascii_enable_encoding'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'Euro',
               'node' => {},
               'number' => 37
             },
@@ -2135,7 +2098,6 @@ $result_trees{'encoding_index_ascii_enable_encoding'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'AE',
               'node' => {},
               'number' => 38
             },
@@ -2189,7 +2151,6 @@ $result_trees{'encoding_index_ascii_enable_encoding'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => '!',
               'node' => {},
               'number' => 39
             },
@@ -2243,7 +2204,6 @@ $result_trees{'encoding_index_ascii_enable_encoding'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'TH',
               'node' => {},
               'number' => 40
             },
@@ -2297,7 +2257,6 @@ $result_trees{'encoding_index_ascii_enable_encoding'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'D',
               'node' => {},
               'number' => 41
             },
@@ -2351,7 +2310,6 @@ $result_trees{'encoding_index_ascii_enable_encoding'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'o',
               'node' => {},
               'number' => 42
             },
@@ -2392,7 +2350,6 @@ $result_trees{'encoding_index_ascii_enable_encoding'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => '0',
               'node' => {},
               'number' => 43
             },
@@ -2433,7 +2390,6 @@ $result_trees{'encoding_index_ascii_enable_encoding'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => '9',
               'node' => {},
               'number' => 44
             },
@@ -2487,7 +2443,6 @@ $result_trees{'encoding_index_ascii_enable_encoding'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => '``',
               'node' => {},
               'number' => 45
             },
@@ -2541,7 +2496,6 @@ $result_trees{'encoding_index_ascii_enable_encoding'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => '>=',
               'node' => {},
               'number' => 46
             },
@@ -2595,7 +2549,6 @@ $result_trees{'encoding_index_ascii_enable_encoding'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => ',',
               'node' => {},
               'number' => 47
             },
@@ -2636,7 +2589,6 @@ $result_trees{'encoding_index_ascii_enable_encoding'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => '"',
               'node' => {},
               'number' => 48
             },
@@ -2677,7 +2629,6 @@ $result_trees{'encoding_index_ascii_enable_encoding'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => '`',
               'node' => {},
               'number' => 49
             },
@@ -2718,7 +2669,6 @@ $result_trees{'encoding_index_ascii_enable_encoding'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => '\'',
               'node' => {},
               'number' => 50
             },
@@ -2759,7 +2709,6 @@ $result_trees{'encoding_index_ascii_enable_encoding'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => '"',
               'node' => {},
               'number' => 51
             },
@@ -2800,7 +2749,6 @@ $result_trees{'encoding_index_ascii_enable_encoding'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => '"',
               'node' => {},
               'number' => 52
             },
@@ -2841,7 +2789,6 @@ $result_trees{'encoding_index_ascii_enable_encoding'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => '@',
               'node' => {},
               'number' => 53
             },
@@ -2882,7 +2829,6 @@ $result_trees{'encoding_index_ascii_enable_encoding'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => '-',
               'node' => {},
               'number' => 54
             },
@@ -2923,7 +2869,6 @@ $result_trees{'encoding_index_ascii_enable_encoding'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => '--',
               'node' => {},
               'number' => 55
             },

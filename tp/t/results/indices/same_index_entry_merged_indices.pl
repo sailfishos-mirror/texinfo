@@ -224,7 +224,6 @@ $result_trees{'same_index_entry_merged_indices'} = {
                   'index_at_command' => 'deffn',
                   'index_name' => 'fn',
                   'index_type_command' => 'deffn',
-                  'key' => 'mmm-mode',
                   'node' => {},
                   'number' => 1
                 },
@@ -370,7 +369,6 @@ $result_trees{'same_index_entry_merged_indices'} = {
                   'index_at_command' => 'defvar',
                   'index_name' => 'vr',
                   'index_type_command' => 'defvar',
-                  'key' => 'mmm-mode',
                   'node' => {},
                   'number' => 1
                 },

@@ -64,7 +64,6 @@ $result_trees{'double_index_entry'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'aaa',
               'node' => {},
               'number' => 1
             },
@@ -128,7 +127,6 @@ $result_trees{'double_index_entry'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'aaa',
               'node' => {},
               'number' => 2
             },
@@ -359,7 +357,6 @@ $result_trees{'double_index_entry'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'aaa',
               'node' => {},
               'number' => 3
             },

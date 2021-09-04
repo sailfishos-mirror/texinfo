@@ -163,7 +163,6 @@ $result_trees{'w_lines_count'} = {
               'index_at_command' => 'findex',
               'index_name' => 'fn',
               'index_type_command' => 'findex',
-              'key' => 'compilation-next-error',
               'node' => {},
               'number' => 1
             },

@@ -1677,7 +1677,6 @@ sub sort_indices($$$$;$)
       my $entry_key = index_key($entry, {'contents' => $entry->{'content'}},
                                   $entry->{'sortas'}, $options, $ignore_chars);
       $index_entry_keys->{$entry} = $entry_key;
-      $entry->{'key'} = $entry_key;
       if ($entry_key !~ /\S/) {
         $registrar->line_warn($configuration_informations,
                      sprintf(__("empty index key in \@%s"),

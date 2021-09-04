@@ -521,7 +521,6 @@ $result_trees{'at_commands_in_raw'} = {
                   'index_at_command' => 'findex',
                   'index_name' => 'fn',
                   'index_type_command' => 'findex',
-                  'key' => 'fentry2',
                   'node' => {},
                   'number' => 1
                 },

@@ -101,7 +101,6 @@ $result_trees{'ftable_vtable'} = {
                           'index_at_command' => 'item',
                           'index_name' => 'fn',
                           'index_type_command' => 'ftable',
-                          'key' => 'function1',
                           'node' => {},
                           'number' => 1
                         },
@@ -141,7 +140,6 @@ $result_trees{'ftable_vtable'} = {
                           'index_at_command' => 'itemx',
                           'index_name' => 'fn',
                           'index_type_command' => 'ftable',
-                          'key' => 'function2x',
                           'node' => {},
                           'number' => 2
                         },
@@ -210,7 +208,6 @@ $result_trees{'ftable_vtable'} = {
                           'index_at_command' => 'item',
                           'index_name' => 'fn',
                           'index_type_command' => 'ftable',
-                          'key' => 'fun3',
                           'node' => {},
                           'number' => 3
                         },
@@ -354,7 +351,6 @@ $result_trees{'ftable_vtable'} = {
                           'index_at_command' => 'item',
                           'index_name' => 'vr',
                           'index_type_command' => 'vtable',
-                          'key' => 'var1 error->',
                           'node' => {},
                           'number' => 1
                         },
@@ -394,7 +390,6 @@ $result_trees{'ftable_vtable'} = {
                           'index_at_command' => 'itemx',
                           'index_name' => 'vr',
                           'index_type_command' => 'vtable',
-                          'key' => 'varx2',
                           'node' => {},
                           'number' => 2
                         },
@@ -463,7 +458,6 @@ $result_trees{'ftable_vtable'} = {
                           'index_at_command' => 'item',
                           'index_name' => 'vr',
                           'index_type_command' => 'vtable',
-                          'key' => 'var3',
                           'node' => {},
                           'number' => 3
                         },
@@ -560,7 +554,6 @@ $result_trees{'ftable_vtable'} = {
               'index_at_command' => 'findex',
               'index_name' => 'fn',
               'index_type_command' => 'findex',
-              'key' => 'function1',
               'node' => {},
               'number' => 4
             },

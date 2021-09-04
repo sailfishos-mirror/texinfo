@@ -268,7 +268,6 @@ $result_trees{'table'} = {
                   'index_at_command' => 'cindex',
                   'index_name' => 'cp',
                   'index_type_command' => 'cindex',
-                  'key' => 'index entry',
                   'number' => 1
                 },
                 'spaces_before_argument' => ' '
@@ -322,7 +321,6 @@ $result_trees{'table'} = {
                       'index_at_command' => 'item',
                       'index_name' => 'vr',
                       'index_type_command' => 'vtable',
-                      'key' => 'vtable item',
                       'number' => 1
                     },
                     'spaces_before_argument' => ' '
@@ -381,7 +379,6 @@ $result_trees{'table'} = {
                           'index_at_command' => 'kindex',
                           'index_name' => 'ky',
                           'index_type_command' => 'kindex',
-                          'key' => 'key',
                           'number' => 1
                         },
                         'spaces_before_argument' => ' '
@@ -442,7 +439,6 @@ $result_trees{'table'} = {
                       'index_at_command' => 'itemx',
                       'index_name' => 'vr',
                       'index_type_command' => 'vtable',
-                      'key' => 'itemx vtable',
                       'number' => 2
                     },
                     'spaces_before_argument' => ' '

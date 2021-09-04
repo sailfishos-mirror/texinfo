@@ -1712,7 +1712,6 @@ $result_trees{'commands_and_spaces'} = {
                   'index_at_command' => 'deffn',
                   'index_name' => 'fn',
                   'index_type_command' => 'deffn',
-                  'key' => 'machin',
                   'node' => {},
                   'number' => 1
                 },

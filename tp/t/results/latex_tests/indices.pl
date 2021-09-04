@@ -335,7 +335,6 @@ $result_trees{'indices'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'a!"@b "!@ a" o"',
               'node' => {},
               'number' => 1
             },
@@ -646,7 +645,6 @@ $result_trees{'indices'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => '\\cmd',
               'node' => {},
               'number' => 2
             },
@@ -714,7 +712,6 @@ $result_trees{'indices'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => '\\cmd',
               'node' => {},
               'number' => 3,
               'sortas' => '\\cmd'
@@ -826,7 +823,6 @@ $result_trees{'indices'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => '\\some\\command for file',
               'node' => {},
               'number' => 4
             },
@@ -921,7 +917,6 @@ $result_trees{'indices'} = {
               'index_at_command' => 'findex',
               'index_name' => 'fn',
               'index_type_command' => 'findex',
-              'key' => 'the person index aa',
               'node' => {},
               'number' => 1
             },

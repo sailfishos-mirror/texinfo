@@ -159,7 +159,6 @@ $result_trees{'split_chapter_index'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'entry a',
               'node' => {},
               'number' => 1
             },
@@ -431,7 +430,6 @@ $result_trees{'split_chapter_index'} = {
                   'index_at_command' => 'cindex',
                   'index_name' => 'cp',
                   'index_type_command' => 'cindex',
-                  'key' => 'entry in node',
                   'node' => {},
                   'number' => 2
                 },
@@ -472,7 +470,6 @@ $result_trees{'split_chapter_index'} = {
                   'index_at_command' => 'cindex',
                   'index_name' => 'cp',
                   'index_type_command' => 'cindex',
-                  'key' => '! entry in node',
                   'node' => {},
                   'number' => 3
                 },
@@ -513,7 +510,6 @@ $result_trees{'split_chapter_index'} = {
                   'index_at_command' => 'findex',
                   'index_name' => 'fn',
                   'index_type_command' => 'findex',
-                  'key' => 'fun in node',
                   'node' => {},
                   'number' => 1
                 },
@@ -554,7 +550,6 @@ $result_trees{'split_chapter_index'} = {
                   'index_at_command' => 'cindex',
                   'index_name' => 'cp',
                   'index_type_command' => 'cindex',
-                  'key' => 'entry in node',
                   'node' => {},
                   'number' => 4
                 },
@@ -642,7 +637,6 @@ $result_trees{'split_chapter_index'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'entry after printindex',
               'node' => {},
               'number' => 5
             },
@@ -689,7 +683,6 @@ $result_trees{'split_chapter_index'} = {
               'index_at_command' => 'findex',
               'index_name' => 'fn',
               'index_type_command' => 'findex',
-              'key' => 'a function',
               'node' => {},
               'number' => 2
             },
@@ -730,7 +723,6 @@ $result_trees{'split_chapter_index'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'a concept in first',
               'node' => {},
               'number' => 6
             },
@@ -771,7 +763,6 @@ $result_trees{'split_chapter_index'} = {
               'index_at_command' => 'findex',
               'index_name' => 'fn',
               'index_type_command' => 'findex',
-              'key' => 'somewhere',
               'node' => {},
               'number' => 3
             },
@@ -1129,7 +1120,6 @@ $result_trees{'split_chapter_index'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'something',
               'node' => {},
               'number' => 7
             },
@@ -1176,7 +1166,6 @@ $result_trees{'split_chapter_index'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'another',
               'node' => {},
               'number' => 8
             },
@@ -1319,7 +1308,6 @@ $result_trees{'split_chapter_index'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'printindex subsection 2',
               'node' => {},
               'number' => 9
             },

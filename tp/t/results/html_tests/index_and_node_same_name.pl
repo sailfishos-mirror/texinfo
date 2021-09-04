@@ -94,7 +94,6 @@ $result_trees{'index_and_node_same_name'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'node',
               'node' => {},
               'number' => 1
             },

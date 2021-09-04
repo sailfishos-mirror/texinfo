@@ -81,7 +81,6 @@ $result_trees{'index_entry_in_footnote'} = {
                               'index_at_command' => 'cindex',
                               'index_name' => 'cp',
                               'index_type_command' => 'cindex',
-                              'key' => 'index entry in footnote',
                               'node' => {},
                               'number' => 1
                             },

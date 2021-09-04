@@ -214,7 +214,6 @@ $result_trees{'no_monolithic'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'top',
               'node' => {},
               'number' => 1
             },

@@ -154,7 +154,6 @@ $result_trees{'ampchar'} = {
               'index_at_command' => 'defop',
               'index_name' => 'fn',
               'index_type_command' => 'defop',
-              'key' => 'b on a',
               'number' => 1
             },
             'original_def_cmdname' => 'defop'

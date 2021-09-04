@@ -382,7 +382,6 @@ $result_trees{'complex_float'} = {
                       'index_at_command' => 'cindex',
                       'index_name' => 'cp',
                       'index_type_command' => 'cindex',
-                      'key' => 'float example',
                       'node' => {},
                       'number' => 1
                     },
@@ -1595,7 +1594,6 @@ $result_trees{'complex_float'} = {
                               'index_at_command' => 'cindex',
                               'index_name' => 'cp',
                               'index_type_command' => 'cindex',
-                              'key' => 'float example in caption',
                               'node' => {},
                               'number' => 2
                             },
@@ -3133,7 +3131,6 @@ $result_trees{'complex_float'} = {
                               'index_at_command' => 'cindex',
                               'index_name' => 'cp',
                               'index_type_command' => 'cindex',
-                              'key' => 'float example in caption 2',
                               'node' => {},
                               'number' => 3
                             },

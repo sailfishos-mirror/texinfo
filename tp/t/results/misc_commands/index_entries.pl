@@ -34,7 +34,6 @@ $result_trees{'index_entries'} = {
           'index_at_command' => 'cindex',
           'index_name' => 'cp',
           'index_type_command' => 'cindex',
-          'key' => 'cindex entry',
           'number' => 1
         },
         'spaces_before_argument' => ' '
@@ -117,7 +116,6 @@ $result_trees{'index_entries'} = {
           'index_at_command' => 'trucindex',
           'index_name' => 'truc',
           'index_type_command' => 'trucindex',
-          'key' => 'index truc',
           'number' => 1
         },
         'spaces_before_argument' => ' '

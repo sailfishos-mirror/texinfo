@@ -114,7 +114,6 @@ $result_trees{'backslash_in_arg'} = {
               'index_at_command' => 'findex',
               'index_name' => 'fn',
               'index_type_command' => 'findex',
-              'key' => '\\\\q',
               'node' => {},
               'number' => 1
             },
@@ -155,7 +154,6 @@ $result_trees{'backslash_in_arg'} = {
               'index_at_command' => 'findex',
               'index_name' => 'fn',
               'index_type_command' => 'findex',
-              'key' => '\\r',
               'node' => {},
               'number' => 2
             },
@@ -196,7 +194,6 @@ $result_trees{'backslash_in_arg'} = {
               'index_at_command' => 'findex',
               'index_name' => 'fn',
               'index_type_command' => 'findex',
-              'key' => '\\q',
               'node' => {},
               'number' => 3
             },
@@ -237,7 +234,6 @@ $result_trees{'backslash_in_arg'} = {
               'index_at_command' => 'findex',
               'index_name' => 'fn',
               'index_type_command' => 'findex',
-              'key' => '\\r',
               'node' => {},
               'number' => 4
             },

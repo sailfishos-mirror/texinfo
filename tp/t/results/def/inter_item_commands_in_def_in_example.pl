@@ -128,7 +128,6 @@ $result_trees{'inter_item_commands_in_def_in_example'} = {
                   'index_at_command' => 'deffn',
                   'index_name' => 'fn',
                   'index_type_command' => 'deffn',
-                  'key' => 'i',
                   'number' => 1
                 },
                 'original_def_cmdname' => 'deffn'
@@ -269,7 +268,6 @@ $result_trees{'inter_item_commands_in_def_in_example'} = {
                   'index_at_command' => 'deffnx',
                   'index_name' => 'fn',
                   'index_type_command' => 'deffn',
-                  'key' => 'log trap1',
                   'number' => 2
                 },
                 'original_def_cmdname' => 'deffnx',
@@ -314,7 +312,6 @@ $result_trees{'inter_item_commands_in_def_in_example'} = {
                           'index_at_command' => 'cindex',
                           'index_name' => 'cp',
                           'index_type_command' => 'cindex',
-                          'key' => 'between deffnx',
                           'number' => 1
                         },
                         'spaces_before_argument' => ' '
@@ -453,7 +450,6 @@ $result_trees{'inter_item_commands_in_def_in_example'} = {
                   'index_at_command' => 'deffnx',
                   'index_name' => 'fn',
                   'index_type_command' => 'deffn',
-                  'key' => 'id i ule',
                   'number' => 3
                 },
                 'original_def_cmdname' => 'deffnx',
@@ -498,7 +494,6 @@ $result_trees{'inter_item_commands_in_def_in_example'} = {
                           'index_at_command' => 'cindex',
                           'index_name' => 'cp',
                           'index_type_command' => 'cindex',
-                          'key' => 'cindex in deff item',
                           'number' => 2
                         },
                         'spaces_before_argument' => ' '

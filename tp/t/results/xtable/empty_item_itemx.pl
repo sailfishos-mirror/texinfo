@@ -93,7 +93,6 @@ $result_trees{'empty_item_itemx'} = {
                       'index_at_command' => 'item',
                       'index_name' => 'vr',
                       'index_type_command' => 'vtable',
-                      'key' => 'first item',
                       'number' => 1
                     },
                     'spaces_before_argument' => ' '
@@ -155,7 +154,6 @@ $result_trees{'empty_item_itemx'} = {
                       'index_at_command' => 'itemx',
                       'index_name' => 'vr',
                       'index_type_command' => 'vtable',
-                      'key' => 'after an empty itemx, before an empty item',
                       'number' => 2
                     },
                     'spaces_before_argument' => ' '
@@ -241,7 +239,6 @@ $result_trees{'empty_item_itemx'} = {
                       'index_at_command' => 'item',
                       'index_name' => 'vr',
                       'index_type_command' => 'vtable',
-                      'key' => 'in item before end table',
                       'number' => 3
                     },
                     'spaces_before_argument' => ' '

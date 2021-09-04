@@ -95,7 +95,6 @@ $result_trees{'index_entries_locations'} = {
                   'index_at_command' => 'cindex',
                   'index_name' => 'cp',
                   'index_type_command' => 'cindex',
-                  'key' => 'entry in paragraph',
                   'node' => {},
                   'number' => 1
                 },
@@ -141,7 +140,6 @@ $result_trees{'index_entries_locations'} = {
                   'index_at_command' => 'cindex',
                   'index_name' => 'cp',
                   'index_type_command' => 'cindex',
-                  'key' => 'entry at end of paragraph.',
                   'node' => {},
                   'number' => 2
                 },
@@ -209,7 +207,6 @@ $result_trees{'index_entries_locations'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'Entry before paragraph',
               'node' => {},
               'number' => 3
             },
@@ -267,7 +264,6 @@ $result_trees{'index_entries_locations'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'lone entry',
               'node' => {},
               'number' => 4
             },

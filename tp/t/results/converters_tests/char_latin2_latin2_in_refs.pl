@@ -494,7 +494,6 @@ $result_trees{'char_latin2_latin2_in_refs'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => "\x{104} \x{105} \x{2db} \x{118} \x{119}",
               'node' => {},
               'number' => 1
             },

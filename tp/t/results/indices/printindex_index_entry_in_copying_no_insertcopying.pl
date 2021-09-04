@@ -54,7 +54,6 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                   'index_at_command' => 'findex',
                   'index_name' => 'fn',
                   'index_type_command' => 'findex',
-                  'key' => 'Copying this document',
                   'number' => 1,
                   'region' => {}
                 },
@@ -156,7 +155,6 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                       'index_at_command' => 'defun',
                       'index_name' => 'fn',
                       'index_type_command' => 'defun',
-                      'key' => 'fun',
                       'number' => 2,
                       'region' => {}
                     },
@@ -250,7 +248,6 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                       'index_at_command' => 'defunx',
                       'index_name' => 'fn',
                       'index_type_command' => 'defun',
-                      'key' => 'xf',
                       'number' => 3,
                       'region' => {}
                     },
@@ -387,7 +384,6 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                               'index_at_command' => 'item',
                               'index_name' => 'fn',
                               'index_type_command' => 'ftable',
-                              'key' => 'ftable item',
                               'number' => 4,
                               'region' => {}
                             },
@@ -427,7 +423,6 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
                               'index_at_command' => 'itemx',
                               'index_name' => 'fn',
                               'index_type_command' => 'ftable',
-                              'key' => 'xftable xitem',
                               'number' => 5,
                               'region' => {}
                             },

@@ -230,7 +230,6 @@ $result_trees{'nested_multitable_anchor_index'} = {
                                                   'index_at_command' => 'cindex',
                                                   'index_name' => 'cp',
                                                   'index_type_command' => 'cindex',
-                                                  'key' => 'index entry inside',
                                                   'node' => {},
                                                   'number' => 1
                                                 },
@@ -474,7 +473,6 @@ $result_trees{'nested_multitable_anchor_index'} = {
                                   'index_at_command' => 'cindex',
                                   'index_name' => 'cp',
                                   'index_type_command' => 'cindex',
-                                  'key' => 'index entry',
                                   'node' => {},
                                   'number' => 2
                                 },

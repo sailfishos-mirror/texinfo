@@ -95,7 +95,6 @@ $result_trees{'index_no_node'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'truc',
               'number' => 1
             },
             'spaces_before_argument' => ' '
@@ -246,7 +245,6 @@ $result_trees{'index_no_node'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'unnumbered',
               'number' => 2
             },
             'spaces_before_argument' => ' '
@@ -293,7 +291,6 @@ $result_trees{'index_no_node'} = {
                   'index_at_command' => 'cindex',
                   'index_name' => 'cp',
                   'index_type_command' => 'cindex',
-                  'key' => 'unnumbered after text',
                   'number' => 3
                 },
                 'spaces_before_argument' => ' '
@@ -417,7 +414,6 @@ $result_trees{'index_no_node'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'top section',
               'number' => 4
             },
             'spaces_before_argument' => ' '
@@ -457,7 +453,6 @@ $result_trees{'index_no_node'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'top section',
               'number' => 5
             },
             'spaces_before_argument' => ' '
@@ -497,7 +492,6 @@ $result_trees{'index_no_node'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'top section',
               'number' => 6
             },
             'spaces_before_argument' => ' '
@@ -537,7 +531,6 @@ $result_trees{'index_no_node'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'top section',
               'number' => 7
             },
             'spaces_before_argument' => ' '
@@ -577,7 +570,6 @@ $result_trees{'index_no_node'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'top section',
               'number' => 8
             },
             'spaces_before_argument' => ' '
@@ -617,7 +609,6 @@ $result_trees{'index_no_node'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'top section',
               'number' => 9
             },
             'spaces_before_argument' => ' '
@@ -711,7 +702,6 @@ $result_trees{'index_no_node'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'top section1',
               'number' => 10
             },
             'spaces_before_argument' => ' '
@@ -831,7 +821,6 @@ $result_trees{'index_no_node'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'second',
               'number' => 11
             },
             'spaces_before_argument' => ' '
@@ -878,7 +867,6 @@ $result_trees{'index_no_node'} = {
                   'index_at_command' => 'cindex',
                   'index_name' => 'cp',
                   'index_type_command' => 'cindex',
-                  'key' => 'second',
                   'number' => 12
                 },
                 'spaces_before_argument' => ' '
@@ -990,7 +978,6 @@ $result_trees{'index_no_node'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'chapter',
               'number' => 13
             },
             'spaces_before_argument' => ' '
@@ -1074,7 +1061,6 @@ $result_trees{'index_no_node'} = {
                   'index_at_command' => 'cindex',
                   'index_name' => 'cp',
                   'index_type_command' => 'cindex',
-                  'key' => 'Chapter2',
                   'number' => 14
                 },
                 'spaces_before_argument' => ' '

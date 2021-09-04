@@ -423,7 +423,6 @@ $result_trees{'value_in_index_commands'} = {
               'index_at_command' => 'trucindex',
               'index_name' => 'truc',
               'index_type_command' => 'trucindex',
-              'key' => 'index truc',
               'node' => {},
               'number' => 1
             },
@@ -562,7 +561,6 @@ $result_trees{'value_in_index_commands'} = {
               'index_at_command' => 'codeidxindex',
               'index_name' => 'codeidx',
               'index_type_command' => 'codeidxindex',
-              'key' => 'a index entry te\' i^',
               'node' => {},
               'number' => 1
             },
@@ -609,7 +607,6 @@ $result_trees{'value_in_index_commands'} = {
               'index_at_command' => 'kindex',
               'index_name' => 'ky',
               'index_type_command' => 'kindex',
-              'key' => 'truc kindex',
               'node' => {},
               'number' => 1
             },
@@ -650,7 +647,6 @@ $result_trees{'value_in_index_commands'} = {
               'index_at_command' => 'pindex',
               'index_name' => 'pg',
               'index_type_command' => 'pindex',
-              'key' => 'pindex codeidx',
               'node' => {},
               'number' => 1
             },

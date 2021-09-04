@@ -273,7 +273,6 @@ $result_trees{'inter_item_commands_in_table'} = {
                           'index_at_command' => 'item',
                           'index_name' => 'vr',
                           'index_type_command' => 'vtable',
-                          'key' => 'acode--b',
                           'node' => {},
                           'number' => 1
                         },
@@ -417,7 +416,6 @@ $result_trees{'inter_item_commands_in_table'} = {
                           'index_at_command' => 'item',
                           'index_name' => 'vr',
                           'index_type_command' => 'vtable',
-                          'key' => 'aasis--b',
                           'node' => {},
                           'number' => 2
                         },
@@ -481,7 +479,6 @@ $result_trees{'inter_item_commands_in_table'} = {
                           'index_at_command' => 'itemx',
                           'index_name' => 'vr',
                           'index_type_command' => 'vtable',
-                          'key' => 'b',
                           'node' => {},
                           'number' => 3
                         },
@@ -625,7 +622,6 @@ $result_trees{'inter_item_commands_in_table'} = {
                           'index_at_command' => 'item',
                           'index_name' => 'fn',
                           'index_type_command' => 'ftable',
-                          'key' => 'avar--b',
                           'node' => {},
                           'number' => 1
                         },
@@ -667,7 +663,6 @@ $result_trees{'inter_item_commands_in_table'} = {
                               'index_at_command' => 'cindex',
                               'index_name' => 'cp',
                               'index_type_command' => 'cindex',
-                              'key' => 'index entry between item and itemx',
                               'node' => {},
                               'number' => 1
                             },
@@ -748,7 +743,6 @@ $result_trees{'inter_item_commands_in_table'} = {
                           'index_at_command' => 'itemx',
                           'index_name' => 'fn',
                           'index_type_command' => 'ftable',
-                          'key' => 'b',
                           'node' => {},
                           'number' => 2
                         },
@@ -817,7 +811,6 @@ $result_trees{'inter_item_commands_in_table'} = {
                           'index_at_command' => 'item',
                           'index_name' => 'fn',
                           'index_type_command' => 'ftable',
-                          'key' => 'c',
                           'node' => {},
                           'number' => 3
                         },
@@ -893,7 +886,6 @@ $result_trees{'inter_item_commands_in_table'} = {
                           'index_at_command' => 'itemx',
                           'index_name' => 'fn',
                           'index_type_command' => 'ftable',
-                          'key' => 'd',
                           'node' => {},
                           'number' => 4
                         },
@@ -1048,7 +1040,6 @@ $result_trees{'inter_item_commands_in_table'} = {
                       'index_at_command' => 'cindex',
                       'index_name' => 'cp',
                       'index_type_command' => 'cindex',
-                      'key' => 'cindex in table',
                       'node' => {},
                       'number' => 2
                     },
@@ -1245,7 +1236,6 @@ $result_trees{'inter_item_commands_in_table'} = {
                       'index_at_command' => 'cindex',
                       'index_name' => 'cp',
                       'index_type_command' => 'cindex',
-                      'key' => 'cindex in table',
                       'node' => {},
                       'number' => 3
                     },
@@ -1418,7 +1408,6 @@ $result_trees{'inter_item_commands_in_table'} = {
                       'index_at_command' => 'cindex',
                       'index_name' => 'cp',
                       'index_type_command' => 'cindex',
-                      'key' => 'samp cindex in table',
                       'node' => {},
                       'number' => 4
                     },
@@ -1615,7 +1604,6 @@ $result_trees{'inter_item_commands_in_table'} = {
                       'index_at_command' => 'cindex',
                       'index_name' => 'cp',
                       'index_type_command' => 'cindex',
-                      'key' => 'samp cindex in table',
                       'node' => {},
                       'number' => 5
                     },
@@ -1794,7 +1782,6 @@ $result_trees{'inter_item_commands_in_table'} = {
                       'index_at_command' => 'cindex',
                       'index_name' => 'cp',
                       'index_type_command' => 'cindex',
-                      'key' => 'cindex between lines',
                       'node' => {},
                       'number' => 6
                     },
@@ -1962,7 +1949,6 @@ $result_trees{'inter_item_commands_in_table'} = {
                       'index_at_command' => 'cindex',
                       'index_name' => 'cp',
                       'index_type_command' => 'cindex',
-                      'key' => 'cindex before line',
                       'node' => {},
                       'number' => 7
                     },
@@ -2136,7 +2122,6 @@ $result_trees{'inter_item_commands_in_table'} = {
                       'index_at_command' => 'cindex',
                       'index_name' => 'cp',
                       'index_type_command' => 'cindex',
-                      'key' => 'cindex after line',
                       'node' => {},
                       'number' => 8
                     },
@@ -2298,7 +2283,6 @@ $result_trees{'inter_item_commands_in_table'} = {
                       'index_at_command' => 'cindex',
                       'index_name' => 'cp',
                       'index_type_command' => 'cindex',
-                      'key' => 'cindex first',
                       'node' => {},
                       'number' => 9
                     },
@@ -2357,7 +2341,6 @@ $result_trees{'inter_item_commands_in_table'} = {
                       'index_at_command' => 'cindex',
                       'index_name' => 'cp',
                       'index_type_command' => 'cindex',
-                      'key' => 'second',
                       'node' => {},
                       'number' => 10
                     },
@@ -2398,7 +2381,6 @@ $result_trees{'inter_item_commands_in_table'} = {
                       'index_at_command' => 'cindex',
                       'index_name' => 'cp',
                       'index_type_command' => 'cindex',
-                      'key' => 'third',
                       'node' => {},
                       'number' => 11
                     },

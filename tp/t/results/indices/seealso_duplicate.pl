@@ -81,7 +81,6 @@ $result_trees{'seealso_duplicate'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'awk',
               'node' => {},
               'number' => 1
             },
@@ -169,7 +168,6 @@ $result_trees{'seealso_duplicate'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'awk',
               'node' => {},
               'number' => 2
             },

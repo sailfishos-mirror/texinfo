@@ -210,7 +210,6 @@ $result_trees{'end_of_lines_protected'} = {
               'index_at_command' => 'deffn',
               'index_name' => 'fn',
               'index_type_command' => 'deffn',
-              'key' => 'deffn_name',
               'number' => 1
             },
             'original_def_cmdname' => 'deffn'

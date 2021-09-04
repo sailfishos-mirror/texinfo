@@ -355,7 +355,6 @@ $result_trees{'complex_recursive_synindex'} = {
               'index_at_command' => 'eeeindex',
               'index_name' => 'eee',
               'index_type_command' => 'eeeindex',
-              'key' => 'e before synindex',
               'node' => {},
               'number' => 1
             },
@@ -468,7 +467,6 @@ $result_trees{'complex_recursive_synindex'} = {
               'index_at_command' => 'cccindex',
               'index_name' => 'ccc',
               'index_type_command' => 'cccindex',
-              'key' => 'c index',
               'node' => {},
               'number' => 1
             },
@@ -509,7 +507,6 @@ $result_trees{'complex_recursive_synindex'} = {
               'index_at_command' => 'bbbindex',
               'index_name' => 'bbb',
               'index_type_command' => 'bbbindex',
-              'key' => 'b entry',
               'node' => {},
               'number' => 1
             },
@@ -550,7 +547,6 @@ $result_trees{'complex_recursive_synindex'} = {
               'index_at_command' => 'aaaindex',
               'index_name' => 'aaa',
               'index_type_command' => 'aaaindex',
-              'key' => 'a entry',
               'node' => {},
               'number' => 1
             },
@@ -591,7 +587,6 @@ $result_trees{'complex_recursive_synindex'} = {
               'index_at_command' => 'dddindex',
               'index_name' => 'ddd',
               'index_type_command' => 'dddindex',
-              'key' => 'd index',
               'node' => {},
               'number' => 1
             },
@@ -632,7 +627,6 @@ $result_trees{'complex_recursive_synindex'} = {
               'index_at_command' => 'eeeindex',
               'index_name' => 'eee',
               'index_type_command' => 'eeeindex',
-              'key' => 'e index',
               'node' => {},
               'number' => 2
             },

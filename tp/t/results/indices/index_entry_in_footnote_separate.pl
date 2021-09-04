@@ -229,7 +229,6 @@ $result_trees{'index_entry_in_footnote_separate'} = {
                               'index_at_command' => 'cindex',
                               'index_name' => 'cp',
                               'index_type_command' => 'cindex',
-                              'key' => 'index entry in footnote',
                               'node' => {},
                               'number' => 1
                             },
@@ -314,7 +313,6 @@ $result_trees{'index_entry_in_footnote_separate'} = {
                           'index_at_command' => 'cindex',
                           'index_name' => 'cp',
                           'index_type_command' => 'cindex',
-                          'key' => 'counting entry',
                           'node' => {},
                           'number' => 2
                         },

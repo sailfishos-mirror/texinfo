@@ -258,7 +258,6 @@ $result_trees{'syncode_index_print_both'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'c--oncept',
               'node' => {},
               'number' => 1
             },
@@ -299,7 +298,6 @@ $result_trees{'syncode_index_print_both'} = {
               'index_at_command' => 'findex',
               'index_name' => 'fn',
               'index_type_command' => 'findex',
-              'key' => 'f---un',
               'node' => {},
               'number' => 1
             },

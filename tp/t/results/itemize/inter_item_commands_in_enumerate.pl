@@ -355,7 +355,6 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                       'index_at_command' => 'cindex',
                       'index_name' => 'cp',
                       'index_type_command' => 'cindex',
-                      'key' => 'index inter in enumerate between lines',
                       'node' => {},
                       'number' => 1
                     },
@@ -500,7 +499,6 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                       'index_at_command' => 'cindex',
                       'index_name' => 'cp',
                       'index_type_command' => 'cindex',
-                      'key' => 'index inter in enumerate after line',
                       'node' => {},
                       'number' => 2
                     },
@@ -633,7 +631,6 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                       'index_at_command' => 'cindex',
                       'index_name' => 'cp',
                       'index_type_command' => 'cindex',
-                      'key' => 'index inter in enumerate before line',
                       'node' => {},
                       'number' => 3
                     },
@@ -779,7 +776,6 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                           'index_at_command' => 'cindex',
                           'index_name' => 'cp',
                           'index_type_command' => 'cindex',
-                          'key' => 'cindex',
                           'node' => {},
                           'number' => 4
                         },
@@ -916,7 +912,6 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                       'index_at_command' => 'cindex',
                       'index_name' => 'cp',
                       'index_type_command' => 'cindex',
-                      'key' => 'first idx',
                       'node' => {},
                       'number' => 5
                     },
@@ -975,7 +970,6 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                       'index_at_command' => 'cindex',
                       'index_name' => 'cp',
                       'index_type_command' => 'cindex',
-                      'key' => 'sedond idx',
                       'node' => {},
                       'number' => 6
                     },
@@ -1016,7 +1010,6 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
                       'index_at_command' => 'cindex',
                       'index_name' => 'cp',
                       'index_type_command' => 'cindex',
-                      'key' => 'another',
                       'node' => {},
                       'number' => 7
                     },

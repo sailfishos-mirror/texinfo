@@ -128,7 +128,6 @@ $result_trees{'defx_after_comment_in_example'} = {
                   'index_at_command' => 'deffn',
                   'index_name' => 'fn',
                   'index_type_command' => 'deffn',
-                  'key' => 'i',
                   'number' => 1
                 },
                 'original_def_cmdname' => 'deffn'
@@ -256,7 +255,6 @@ $result_trees{'defx_after_comment_in_example'} = {
                   'index_at_command' => 'deffnx',
                   'index_name' => 'fn',
                   'index_type_command' => 'deffn',
-                  'key' => 'bidulr',
                   'number' => 2
                 },
                 'original_def_cmdname' => 'deffnx',

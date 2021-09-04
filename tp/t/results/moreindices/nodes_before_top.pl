@@ -163,7 +163,6 @@ $result_trees{'nodes_before_top'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'first before top',
               'node' => {},
               'number' => 1
             },
@@ -443,7 +442,6 @@ $result_trees{'nodes_before_top'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'node in menu before top',
               'node' => {},
               'number' => 2
             },
@@ -532,7 +530,6 @@ $result_trees{'nodes_before_top'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'printindex node in menu before top',
               'node' => {},
               'number' => 3
             },
@@ -654,7 +651,6 @@ $result_trees{'nodes_before_top'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'entry a',
               'node' => {},
               'number' => 4
             },
@@ -1028,7 +1024,6 @@ $result_trees{'nodes_before_top'} = {
                   'index_at_command' => 'cindex',
                   'index_name' => 'cp',
                   'index_type_command' => 'cindex',
-                  'key' => '! entry in node',
                   'node' => {},
                   'number' => 5
                 },
@@ -1069,7 +1064,6 @@ $result_trees{'nodes_before_top'} = {
                   'index_at_command' => 'findex',
                   'index_name' => 'fn',
                   'index_type_command' => 'findex',
-                  'key' => 'fun in node',
                   'node' => {},
                   'number' => 1
                 },
@@ -1110,7 +1104,6 @@ $result_trees{'nodes_before_top'} = {
                   'index_at_command' => 'cindex',
                   'index_name' => 'cp',
                   'index_type_command' => 'cindex',
-                  'key' => 'entry in node',
                   'node' => {},
                   'number' => 6
                 },
@@ -1689,7 +1682,6 @@ $result_trees{'nodes_before_top'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'something',
               'node' => {},
               'number' => 7
             },
@@ -1730,7 +1722,6 @@ $result_trees{'nodes_before_top'} = {
               'index_at_command' => 'findex',
               'index_name' => 'fn',
               'index_type_command' => 'findex',
-              'key' => 'somewhere',
               'node' => {},
               'number' => 2
             },
@@ -1771,7 +1762,6 @@ $result_trees{'nodes_before_top'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'another',
               'node' => {},
               'number' => 8
             },
@@ -1904,7 +1894,6 @@ $result_trees{'nodes_before_top'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'entry after printindex',
               'node' => {},
               'number' => 9
             },
@@ -1988,7 +1977,6 @@ $result_trees{'nodes_before_top'} = {
               'index_at_command' => 'findex',
               'index_name' => 'fn',
               'index_type_command' => 'findex',
-              'key' => 'a function',
               'node' => {},
               'number' => 3
             },
@@ -2029,7 +2017,6 @@ $result_trees{'nodes_before_top'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'a concept a node',
               'node' => {},
               'number' => 10
             },

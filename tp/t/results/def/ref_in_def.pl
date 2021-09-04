@@ -315,7 +315,6 @@ $result_trees{'ref_in_def'} = {
                   'index_at_command' => 'deffn',
                   'index_name' => 'fn',
                   'index_type_command' => 'deffn',
-                  'key' => 'myanchor',
                   'node' => {},
                   'number' => 1
                 },
@@ -571,7 +570,6 @@ $result_trees{'ref_in_def'} = {
                   'index_at_command' => 'deffnx',
                   'index_name' => 'fn',
                   'index_type_command' => 'deffn',
-                  'key' => 'myanchor',
                   'node' => {},
                   'number' => 2
                 },

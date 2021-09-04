@@ -160,7 +160,6 @@ $result_trees{'index_split_nodes'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'entry a',
               'node' => {},
               'number' => 1
             },
@@ -609,7 +608,6 @@ $result_trees{'index_split_nodes'} = {
                   'index_at_command' => 'cindex',
                   'index_name' => 'cp',
                   'index_type_command' => 'cindex',
-                  'key' => 'entry in node',
                   'node' => {},
                   'number' => 2
                 },
@@ -650,7 +648,6 @@ $result_trees{'index_split_nodes'} = {
                   'index_at_command' => 'cindex',
                   'index_name' => 'cp',
                   'index_type_command' => 'cindex',
-                  'key' => '! entry in node',
                   'node' => {},
                   'number' => 3
                 },
@@ -691,7 +688,6 @@ $result_trees{'index_split_nodes'} = {
                   'index_at_command' => 'findex',
                   'index_name' => 'fn',
                   'index_type_command' => 'findex',
-                  'key' => 'fun in node',
                   'node' => {},
                   'number' => 1
                 },
@@ -732,7 +728,6 @@ $result_trees{'index_split_nodes'} = {
                   'index_at_command' => 'cindex',
                   'index_name' => 'cp',
                   'index_type_command' => 'cindex',
-                  'key' => 'entry in node',
                   'node' => {},
                   'number' => 4
                 },
@@ -857,7 +852,6 @@ $result_trees{'index_split_nodes'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'entry after printindex',
               'node' => {},
               'number' => 5
             },
@@ -947,7 +941,6 @@ $result_trees{'index_split_nodes'} = {
               'index_at_command' => 'findex',
               'index_name' => 'fn',
               'index_type_command' => 'findex',
-              'key' => 'a function',
               'node' => {},
               'number' => 2
             },
@@ -988,7 +981,6 @@ $result_trees{'index_split_nodes'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'a concept in first',
               'node' => {},
               'number' => 6
             },
@@ -1029,7 +1021,6 @@ $result_trees{'index_split_nodes'} = {
               'index_at_command' => 'findex',
               'index_name' => 'fn',
               'index_type_command' => 'findex',
-              'key' => 'somewhere',
               'node' => {},
               'number' => 3
             },
@@ -1557,7 +1548,6 @@ $result_trees{'index_split_nodes'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'something',
               'node' => {},
               'number' => 7
             },
@@ -1825,7 +1815,6 @@ $result_trees{'index_split_nodes'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'another',
               'node' => {},
               'number' => 8
             },
@@ -2065,7 +2054,6 @@ $result_trees{'index_split_nodes'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'subsection 2',
               'node' => {},
               'number' => 9
             },
@@ -2149,7 +2137,6 @@ $result_trees{'index_split_nodes'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'printindex subsection 2',
               'node' => {},
               'number' => 10
             },
@@ -2372,7 +2359,6 @@ $result_trees{'index_split_nodes'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'section 3',
               'node' => {},
               'number' => 11
             },
@@ -2519,7 +2505,6 @@ $result_trees{'index_split_nodes'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'node in section 3',
               'node' => {},
               'number' => 12
             },
@@ -2658,7 +2643,6 @@ $result_trees{'index_split_nodes'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'node 2 in section 3',
               'node' => {},
               'number' => 13
             },
@@ -2753,7 +2737,6 @@ $result_trees{'index_split_nodes'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'between printindex node in section 3',
               'node' => {},
               'number' => 14
             },
@@ -2837,7 +2820,6 @@ $result_trees{'index_split_nodes'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'after second printindex node in section 3',
               'node' => {},
               'number' => 15
             },
@@ -2961,7 +2943,6 @@ $result_trees{'index_split_nodes'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'node 3 in section 3',
               'node' => {},
               'number' => 16
             },

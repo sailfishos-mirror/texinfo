@@ -874,7 +874,6 @@ $result_trees{'sample_utf8'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'chapter, first',
               'node' => {},
               'number' => 1
             },
@@ -928,7 +927,6 @@ $result_trees{'sample_utf8'} = {
                   'index_at_command' => 'cindex',
                   'index_name' => 'cp',
                   'index_type_command' => 'cindex',
-                  'key' => "\x{53e6}\x{4e00}\x{4e2a}\x{ff0c}index entry",
                   'node' => {},
                   'number' => 2
                 },
@@ -969,7 +967,6 @@ $result_trees{'sample_utf8'} = {
                   'index_at_command' => 'cindex',
                   'index_name' => 'cp',
                   'index_type_command' => 'cindex',
-                  'key' => "\x{104}\x{118} ae \x{105}\x{119}",
                   'node' => {},
                   'number' => 3
                 },
@@ -1010,7 +1007,6 @@ $result_trees{'sample_utf8'} = {
                   'index_at_command' => 'cindex',
                   'index_name' => 'cp',
                   'index_type_command' => 'cindex',
-                  'key' => "\x{e9} \x{c2}",
                   'node' => {},
                   'number' => 4
                 },

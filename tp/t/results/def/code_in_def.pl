@@ -152,7 +152,6 @@ $result_trees{'code_in_def'} = {
               'index_at_command' => 'deftypefn',
               'index_name' => 'fn',
               'index_type_command' => 'deftypefn',
-              'key' => 'foo',
               'number' => 1
             },
             'original_def_cmdname' => 'deftypefn'

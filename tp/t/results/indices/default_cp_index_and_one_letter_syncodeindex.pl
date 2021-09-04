@@ -102,7 +102,6 @@ $result_trees{'default_cp_index_and_one_letter_syncodeindex'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => '--cindex',
               'node' => {},
               'number' => 1
             },
@@ -143,7 +142,6 @@ $result_trees{'default_cp_index_and_one_letter_syncodeindex'} = {
               'index_at_command' => 'cpindex',
               'index_name' => 'cp',
               'index_type_command' => 'cpindex',
-              'key' => '--cpindex',
               'node' => {},
               'number' => 2
             },

@@ -723,7 +723,6 @@ $result_trees{'block_commands_in_table'} = {
                           'index_at_command' => 'item',
                           'index_name' => 'vr',
                           'index_type_command' => 'vtable',
-                          'key' => 'item before ignored lines',
                           'node' => {},
                           'number' => 1
                         },
@@ -783,7 +782,6 @@ $result_trees{'block_commands_in_table'} = {
                               'index_at_command' => 'vindex',
                               'index_name' => 'vr',
                               'index_type_command' => 'vindex',
-                              'key' => 'vindex',
                               'node' => {},
                               'number' => 2
                             },
@@ -828,7 +826,6 @@ $result_trees{'block_commands_in_table'} = {
                           'index_at_command' => 'itemx',
                           'index_name' => 'vr',
                           'index_type_command' => 'vtable',
-                          'key' => 'itemx now',
                           'node' => {},
                           'number' => 3
                         },
@@ -972,7 +969,6 @@ $result_trees{'block_commands_in_table'} = {
                           'index_at_command' => 'item',
                           'index_name' => 'vr',
                           'index_type_command' => 'vtable',
-                          'key' => 'item',
                           'node' => {},
                           'number' => 4
                         },
@@ -1024,7 +1020,6 @@ $result_trees{'block_commands_in_table'} = {
                           'index_at_command' => 'itemx',
                           'index_name' => 'vr',
                           'index_type_command' => 'vtable',
-                          'key' => 'itemx after an empty line',
                           'node' => {},
                           'number' => 5
                         },

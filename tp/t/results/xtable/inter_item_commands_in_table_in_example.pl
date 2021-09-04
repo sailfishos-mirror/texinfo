@@ -143,7 +143,6 @@ $result_trees{'inter_item_commands_in_table_in_example'} = {
                                   'index_at_command' => 'cindex',
                                   'index_name' => 'cp',
                                   'index_type_command' => 'cindex',
-                                  'key' => 'index entry between item and itemx',
                                   'number' => 1
                                 },
                                 'spaces_before_argument' => ' '

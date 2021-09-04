@@ -290,7 +290,6 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
                                   'index_at_command' => 'cindex',
                                   'index_name' => 'cp',
                                   'index_type_command' => 'cindex',
-                                  'key' => 'index entry within multitable',
                                   'node' => {},
                                   'number' => 1
                                 },
@@ -618,7 +617,6 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
                                   'index_at_command' => 'cindex',
                                   'index_name' => 'cp',
                                   'index_type_command' => 'cindex',
-                                  'key' => 'index entry',
                                   'node' => {},
                                   'number' => 2
                                 },

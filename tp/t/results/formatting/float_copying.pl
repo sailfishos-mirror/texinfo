@@ -239,7 +239,6 @@ $result_trees{'float_copying'} = {
                                           'index_at_command' => 'cindex',
                                           'index_name' => 'cp',
                                           'index_type_command' => 'cindex',
-                                          'key' => 'indexed caption copying footnote',
                                           'number' => 1,
                                           'region' => {}
                                         },
@@ -280,7 +279,6 @@ $result_trees{'float_copying'} = {
                                           'index_at_command' => 'findex',
                                           'index_name' => 'fn',
                                           'index_type_command' => 'findex',
-                                          'key' => 'public domain function',
                                           'number' => 1,
                                           'region' => {}
                                         },
@@ -490,7 +488,6 @@ $result_trees{'float_copying'} = {
                               'index_at_command' => 'cindex',
                               'index_name' => 'cp',
                               'index_type_command' => 'cindex',
-                              'key' => 'indexed caption',
                               'number' => 2,
                               'region' => {}
                             },
@@ -531,7 +528,6 @@ $result_trees{'float_copying'} = {
                               'index_at_command' => 'findex',
                               'index_name' => 'fn',
                               'index_type_command' => 'findex',
-                              'key' => 'indexed caption function',
                               'number' => 2,
                               'region' => {}
                             },
@@ -766,7 +762,6 @@ $result_trees{'float_copying'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'Top',
               'node' => {},
               'number' => 3
             },
@@ -1220,7 +1215,6 @@ $result_trees{'float_copying'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'listofloats',
               'node' => {},
               'number' => 4
             },

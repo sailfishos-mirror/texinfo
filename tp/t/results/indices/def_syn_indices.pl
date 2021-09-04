@@ -311,7 +311,6 @@ $result_trees{'def_syn_indices'} = {
               'index_at_command' => 'trucindex',
               'index_name' => 'truc',
               'index_type_command' => 'trucindex',
-              'key' => 'index truc',
               'node' => {},
               'number' => 1
             },
@@ -487,7 +486,6 @@ $result_trees{'def_syn_indices'} = {
               'index_at_command' => 'codeidxindex',
               'index_name' => 'codeidx',
               'index_type_command' => 'codeidxindex',
-              'key' => 'a index entry te~ i^',
               'node' => {},
               'number' => 1
             },
@@ -534,7 +532,6 @@ $result_trees{'def_syn_indices'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'cindex entry',
               'node' => {},
               'number' => 1
             },
@@ -619,7 +616,6 @@ $result_trees{'def_syn_indices'} = {
               'index_at_command' => 'kindex',
               'index_name' => 'ky',
               'index_type_command' => 'kindex',
-              'key' => 'truc kindex',
               'node' => {},
               'number' => 1
             },
@@ -660,7 +656,6 @@ $result_trees{'def_syn_indices'} = {
               'index_at_command' => 'pindex',
               'index_name' => 'pg',
               'index_type_command' => 'pindex',
-              'key' => 'pindex codeidx',
               'node' => {},
               'number' => 1
             },
@@ -883,7 +878,6 @@ $result_trees{'def_syn_indices'} = {
               'index_at_command' => 'defgindex',
               'index_name' => 'defg',
               'index_type_command' => 'defgindex',
-              'key' => 'defg index entry',
               'node' => {},
               'number' => 1
             },
@@ -930,7 +924,6 @@ $result_trees{'def_syn_indices'} = {
               'index_at_command' => 'abcindex',
               'index_name' => 'abc',
               'index_type_command' => 'abcindex',
-              'key' => 'abc index entry',
               'node' => {},
               'number' => 1
             },

@@ -214,7 +214,6 @@ $result_trees{'complex_nestings'} = {
                       'index_at_command' => 'defun',
                       'index_name' => 'fn',
                       'index_type_command' => 'defun',
-                      'key' => 'my def',
                       'node' => {},
                       'number' => 1
                     },
@@ -334,7 +333,6 @@ $result_trees{'complex_nestings'} = {
                       'index_at_command' => 'defunx',
                       'index_name' => 'fn',
                       'index_type_command' => 'defun',
-                      'key' => 'other def',
                       'node' => {},
                       'number' => 2
                     },
@@ -494,7 +492,6 @@ $result_trees{'complex_nestings'} = {
                               'index_at_command' => 'deffn',
                               'index_name' => 'fn',
                               'index_type_command' => 'deffn',
-                              'key' => 'name',
                               'node' => {},
                               'number' => 3
                             },
@@ -603,7 +600,6 @@ $result_trees{'complex_nestings'} = {
                                       'index_at_command' => 'defvar',
                                       'index_name' => 'vr',
                                       'index_type_command' => 'defvar',
-                                      'key' => 'variables',
                                       'node' => {},
                                       'number' => 1
                                     },
@@ -726,7 +722,6 @@ $result_trees{'complex_nestings'} = {
                                       'index_at_command' => 'defvarx',
                                       'index_name' => 'vr',
                                       'index_type_command' => 'defvar',
-                                      'key' => 'variables too',
                                       'node' => {},
                                       'number' => 2
                                     },

@@ -135,7 +135,6 @@ $result_trees{'double_syncodeindex'} = {
               'index_at_command' => 'cindex',
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
-              'key' => 'cindex entry',
               'node' => {},
               'number' => 1
             },
@@ -176,7 +175,6 @@ $result_trees{'double_syncodeindex'} = {
               'index_at_command' => 'findex',
               'index_name' => 'fn',
               'index_type_command' => 'findex',
-              'key' => 'findex entry',
               'node' => {},
               'number' => 1
             },

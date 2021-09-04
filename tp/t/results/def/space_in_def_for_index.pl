@@ -167,7 +167,6 @@ $result_trees{'space_in_def_for_index'} = {
                   'index_at_command' => 'deffn',
                   'index_name' => 'fn',
                   'index_type_command' => 'deffn',
-                  'key' => 'name',
                   'node' => {},
                   'number' => 1
                 },
@@ -277,7 +276,6 @@ $result_trees{'space_in_def_for_index'} = {
                   'index_at_command' => 'deffnx',
                   'index_name' => 'fn',
                   'index_type_command' => 'deffn',
-                  'key' => 'AAA2',
                   'node' => {},
                   'number' => 2
                 },

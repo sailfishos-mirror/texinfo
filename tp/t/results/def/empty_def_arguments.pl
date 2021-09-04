@@ -116,7 +116,6 @@ $result_trees{'empty_def_arguments'} = {
               'index_at_command' => 'deffn',
               'index_name' => 'fn',
               'index_type_command' => 'deffn',
-              'key' => 'i',
               'number' => 1
             },
             'original_def_cmdname' => 'deffn'

@@ -84,7 +84,6 @@ $result_trees{'heading_in_footnote'} = {
                       'index_at_command' => 'cindex',
                       'index_name' => 'cp',
                       'index_type_command' => 'cindex',
-                      'key' => 'ind e',
                       'number' => 1
                     },
                     'spaces_before_argument' => ' '

@@ -252,7 +252,6 @@ $result_trees{'table_nested'} = {
                           'index_at_command' => 'item',
                           'index_name' => 'vr',
                           'index_type_command' => 'vtable',
-                          'key' => 'first item',
                           'number' => 1
                         },
                         'spaces_before_argument' => ' '
@@ -291,7 +290,6 @@ $result_trees{'table_nested'} = {
                           'index_at_command' => 'itemx',
                           'index_name' => 'vr',
                           'index_type_command' => 'vtable',
-                          'key' => 'second itemx',
                           'number' => 2
                         },
                         'spaces_before_argument' => ' '
@@ -371,7 +369,6 @@ $result_trees{'table_nested'} = {
                           'index_at_command' => 'item',
                           'index_name' => 'vr',
                           'index_type_command' => 'vtable',
-                          'key' => 'second item',
                           'number' => 3
                         },
                         'spaces_before_argument' => ' '
@@ -451,7 +448,6 @@ $result_trees{'table_nested'} = {
                           'index_at_command' => 'item',
                           'index_name' => 'vr',
                           'index_type_command' => 'vtable',
-                          'key' => 'last',
                           'number' => 4
                         },
                         'spaces_before_argument' => ' '
@@ -852,7 +848,6 @@ $result_trees{'table_nested'} = {
                           'index_at_command' => 'item',
                           'index_name' => 'vr',
                           'index_type_command' => 'vtable',
-                          'key' => 'first item',
                           'number' => 5
                         },
                         'spaces_before_argument' => ' '
@@ -891,7 +886,6 @@ $result_trees{'table_nested'} = {
                           'index_at_command' => 'itemx',
                           'index_name' => 'vr',
                           'index_type_command' => 'vtable',
-                          'key' => 'second itemx',
                           'number' => 6
                         },
                         'spaces_before_argument' => ' '
@@ -971,7 +965,6 @@ $result_trees{'table_nested'} = {
                           'index_at_command' => 'item',
                           'index_name' => 'vr',
                           'index_type_command' => 'vtable',
-                          'key' => 'second item',
                           'number' => 7
                         },
                         'spaces_before_argument' => ' '
@@ -1051,7 +1044,6 @@ $result_trees{'table_nested'} = {
                           'index_at_command' => 'item',
                           'index_name' => 'vr',
                           'index_type_command' => 'vtable',
-                          'key' => 'last',
                           'number' => 8
                         },
                         'spaces_before_argument' => ' '
@@ -1464,7 +1456,6 @@ $result_trees{'table_nested'} = {
                               'index_at_command' => 'item',
                               'index_name' => 'vr',
                               'index_type_command' => 'vtable',
-                              'key' => 'first item',
                               'number' => 9
                             },
                             'spaces_before_argument' => ' '
@@ -1503,7 +1494,6 @@ $result_trees{'table_nested'} = {
                               'index_at_command' => 'itemx',
                               'index_name' => 'vr',
                               'index_type_command' => 'vtable',
-                              'key' => 'second itemx',
                               'number' => 10
                             },
                             'spaces_before_argument' => ' '
@@ -1583,7 +1573,6 @@ $result_trees{'table_nested'} = {
                               'index_at_command' => 'item',
                               'index_name' => 'vr',
                               'index_type_command' => 'vtable',
-                              'key' => 'second item',
                               'number' => 11
                             },
                             'spaces_before_argument' => ' '
@@ -1663,7 +1652,6 @@ $result_trees{'table_nested'} = {
                               'index_at_command' => 'item',
                               'index_name' => 'vr',
                               'index_type_command' => 'vtable',
-                              'key' => 'last',
                               'number' => 12
                             },
                             'spaces_before_argument' => ' '

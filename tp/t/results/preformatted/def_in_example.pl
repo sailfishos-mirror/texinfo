@@ -101,7 +101,6 @@ $result_trees{'def_in_example'} = {
                   'index_at_command' => 'defun',
                   'index_name' => 'fn',
                   'index_type_command' => 'defun',
-                  'key' => 'name',
                   'number' => 1
                 },
                 'original_def_cmdname' => 'defun'

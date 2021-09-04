@@ -173,7 +173,6 @@ $result_trees{'test_deftypefnnewline'} = {
                   'index_at_command' => 'deftypefun',
                   'index_name' => 'fn',
                   'index_type_command' => 'deftypefun',
-                  'key' => 'name',
                   'node' => {},
                   'number' => 1
                 },
@@ -313,7 +312,6 @@ $result_trees{'test_deftypefnnewline'} = {
                   'index_at_command' => 'deffn',
                   'index_name' => 'fn',
                   'index_type_command' => 'deffn',
-                  'key' => 'arg',
                   'node' => {},
                   'number' => 2
                 },
@@ -527,7 +525,6 @@ $result_trees{'test_deftypefnnewline'} = {
                   'index_at_command' => 'deftypefun',
                   'index_name' => 'fn',
                   'index_type_command' => 'deftypefun',
-                  'key' => 'name2',
                   'node' => {},
                   'number' => 3
                 },
@@ -667,7 +664,6 @@ $result_trees{'test_deftypefnnewline'} = {
                   'index_at_command' => 'deffn',
                   'index_name' => 'fn',
                   'index_type_command' => 'deffn',
-                  'key' => 'arg2',
                   'node' => {},
                   'number' => 4
                 },
