@@ -7258,21 +7258,16 @@ sub output_internal_links($)
       foreach my $letter_entry (@{$self->{'index_entries_by_letter'}->{$index_name}}) {
         foreach my $index_entry (@{$letter_entry->{'entries'}}) {
           my $href;
-          my $key;
           $href = $self->command_href($index_entry->{'command'}, '');
-          #$key = $index_entry->{'key'};
-          # 'key' is used for sorting, so it may be obtained from
-          # @sortas, it may have been modified according to txiindex*ignore,
-          # and also use sort_string which may lose some information.
-          # Convert to text
+          # Obtain term by converting to text
           my $converter_options = {%options};
           $converter_options->{'code'} = $index_entry->{'in_code'};
-          $key = Texinfo::Convert::Text::convert_to_text(
+          my $index_term = Texinfo::Convert::Text::convert_to_text(
                {'contents' => $index_entry->{'content'}}, $converter_options);
-          if (defined($key) and $key =~ /\S/) {
+          if (defined($index_term) and $index_term =~ /\S/) {
             $out_string .= $href if (defined($href));
             $out_string .= "\t$index_name\t";
-            $out_string .= $key;
+            $out_string .= $index_term;
             $out_string .= "\n";
           }
         }
