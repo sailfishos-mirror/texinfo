@@ -300,7 +300,6 @@ sub complete_indices
           # used for getting the translation.
           $self->{'documentlanguage'}
              = $entry->{'command'}->{'extra'}->{'documentlanguage'};
-          delete $entry->{'command'}->{'extra'}->{'documentlanguage'};
           if ($def_command eq 'defop'
               or $def_command eq 'deftypeop'
               or $def_command eq 'defmethod'

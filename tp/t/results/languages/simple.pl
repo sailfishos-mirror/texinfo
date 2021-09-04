@@ -161,6 +161,7 @@ $result_trees{'simple'} = {
                   'class' => {},
                   'name' => {}
                 },
+                'documentlanguage' => 'fr',
                 'index_entry' => {
                   'command' => {},
                   'content' => [

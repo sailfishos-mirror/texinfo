@@ -13,17 +13,11 @@ xmllint --nonet --noout --valid commands.xml
 Before next release
 ===================
 
-do not remove documentlanguage in index entries in complete_indices
-(remove delete $entry->{'command'}->{'extra'}->{'documentlanguage'};)
-
 Rename _set_global_multiple_commands
 
 check @{$converter_options->{'INCLUDE_DIRECTORIES'}} with more 
 than one output file
 FIXME isn't that done for each output file?
-
-Verify that Texinfo::Convert::TextContent really needs
-use Texinfo::Convert::Converter;
 
 complete_indices, gdt, some code in Text: add documentlanguage arg to gdt
 

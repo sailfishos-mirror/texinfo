@@ -754,6 +754,7 @@ $result_trees{'multiple_lang_chapters_texi2html'} = {
                   'class' => {},
                   'name' => {}
                 },
+                'documentlanguage' => 'ja',
                 'index_entry' => {
                   'command' => {},
                   'content' => [
@@ -1077,6 +1078,7 @@ $result_trees{'multiple_lang_chapters_texi2html'} = {
                   'class' => {},
                   'name' => {}
                 },
+                'documentlanguage' => 'en',
                 'index_entry' => {
                   'command' => {},
                   'content' => [
@@ -1354,6 +1356,7 @@ $result_trees{'multiple_lang_chapters_texi2html'} = {
                   'class' => {},
                   'name' => {}
                 },
+                'documentlanguage' => 'fr_FR',
                 'index_entry' => {
                   'command' => {},
                   'content' => [

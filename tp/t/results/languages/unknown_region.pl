@@ -161,6 +161,7 @@ $result_trees{'unknown_region'} = {
                   'class' => {},
                   'name' => {}
                 },
+                'documentlanguage' => 'fr_NOWHERE',
                 'index_entry' => {
                   'command' => {},
                   'content' => [

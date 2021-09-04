@@ -144,6 +144,7 @@ $result_trees{'multiple'} = {
                       'class' => {},
                       'name' => {}
                     },
+                    'documentlanguage' => 'fr',
                     'index_entry' => {
                       'command' => {},
                       'content' => [
@@ -383,6 +384,7 @@ $result_trees{'multiple'} = {
                   'class' => {},
                   'name' => {}
                 },
+                'documentlanguage' => 'fr',
                 'index_entry' => {
                   'command' => {},
                   'content' => [
@@ -610,6 +612,7 @@ $result_trees{'multiple'} = {
                   'class' => {},
                   'name' => {}
                 },
+                'documentlanguage' => 'pt',
                 'index_entry' => {
                   'command' => {},
                   'content' => [
