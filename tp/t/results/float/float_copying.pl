@@ -1,7 +1,7 @@
 use vars qw(%result_texis %result_texts %result_trees %result_errors 
    %result_indices %result_sectioning %result_nodes %result_menus
    %result_floats %result_converted %result_converted_errors 
-   %result_elements %result_directions_text);
+   %result_elements %result_directions_text %result_sort_strings);
 
 use utf8;
 
@@ -1375,6 +1375,18 @@ $result_floats{'float_copying'} = {
   ]
 };
 $result_floats{'float_copying'}{'Copyright notice'}[0]{'extra'}{'caption'}{'extra'}{'float'} = $result_floats{'float_copying'}{'Copyright notice'}[0];
+
+
+$result_sort_strings{'float_copying'} = {
+  'cp' => [
+    'indexed caption',
+    'indexed caption copying footnote'
+  ],
+  'fn' => [
+    'indexed caption function',
+    'public domain function'
+  ]
+};
 
 
 

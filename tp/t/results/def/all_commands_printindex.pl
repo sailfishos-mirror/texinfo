@@ -1,7 +1,7 @@
 use vars qw(%result_texis %result_texts %result_trees %result_errors 
    %result_indices %result_sectioning %result_nodes %result_menus
    %result_floats %result_converted %result_converted_errors 
-   %result_elements %result_directions_text);
+   %result_elements %result_directions_text %result_sort_strings);
 
 use utf8;
 
@@ -3878,6 +3878,34 @@ $result_errors{'all_commands_printindex'} = [];
 
 
 $result_floats{'all_commands_printindex'} = {};
+
+
+$result_sort_strings{'all_commands_printindex'} = {
+  'fn' => [
+    'd--efmac_name',
+    'd--efmethod_name on c--lass',
+    'd--efop_name on c--lass',
+    'd--efspec_name',
+    'd--eftypefn_name',
+    'd--eftypefun_name',
+    'd--eftypemethod_name on c--lass',
+    'd--eftypeop_name on c--lass',
+    'd--efun_name'
+  ],
+  'tp' => [
+    'd--eftp_name'
+  ],
+  'vr' => [
+    'd--efcv_name',
+    'd--efivar_name of c--lass',
+    'd--efopt_name',
+    'd--eftypeivar_name of c--lass',
+    'd--eftypevar_name',
+    'd--eftypevr_name',
+    'd--efvar_name',
+    'd--efvr_name'
+  ]
+};
 
 
 

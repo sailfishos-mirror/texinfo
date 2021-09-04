@@ -62,7 +62,7 @@ use Getopt::Long qw(GetOptions);
 use vars qw(%result_texis %result_texts %result_trees %result_errors 
    %result_indices %result_sectioning %result_nodes %result_menus
    %result_floats %result_converted %result_converted_errors 
-   %result_elements %result_directions_text);
+   %result_elements %result_directions_text %result_sort_strings);
 
 my $strings_textdomain = 'texinfo_document';
 Locale::Messages->select_package ('gettext_pp');
@@ -206,7 +206,7 @@ our $arg_generate;
 our $arg_debug;
 our $arg_complete;
 our $arg_output;
-our $nr_comparisons = 8;
+our $nr_comparisons = 9;
 
 Getopt::Long::Configure("gnu_getopt");
 GetOptions('g|generate' => \$arg_generate, 'd|debug=i' => \$arg_debug, 
@@ -911,11 +911,19 @@ sub test($$)
     unless (Data::Compare::Compare($trimmed_index_names, $initial_index_names));
 
   my ($sorted_index_entries, $index_entries_sort_strings);
+  my $indices_sorted_sort_strings;
   if ($merged_index_entries) {
     ($sorted_index_entries, $index_entries_sort_strings)
       = Texinfo::Structuring::sort_indices($parser, $registrar,
                                    $main_configuration,
-                                   $merged_index_entries, 'by_letter');
+                                   $merged_index_entries);
+    foreach my $index_name (keys(%$sorted_index_entries)) {
+      $indices_sorted_sort_strings->{$index_name} = [];
+      foreach my $index_entry (@{$sorted_index_entries->{$index_name}}) {
+        push @{$indices_sorted_sort_strings->{$index_name}},
+          $index_entries_sort_strings->{$index_entry};
+      }
+    }
   }
   if ($converter_options->{'SIMPLE_MENU'}) {
     # require instead of use for speed when this module is not needed
@@ -1069,7 +1077,7 @@ sub test($$)
     print OUT 'use vars qw(%result_texis %result_texts %result_trees %result_errors '."\n".
               '   %result_indices %result_sectioning %result_nodes %result_menus'."\n".
               '   %result_floats %result_converted %result_converted_errors '."\n".
-              '   %result_elements %result_directions_text);'."\n\n";
+              '   %result_elements %result_directions_text %result_sort_strings);'."\n\n";
     print OUT 'use utf8;'."\n\n";
 
     #print STDERR "Generate: ".Data::Dumper->Dump([$result], ['$res']);
@@ -1092,11 +1100,11 @@ sub test($$)
     if ($top_node) {
       {
         local $Data::Dumper::Sortkeys = \&filter_nodes_keys;
-         $out_result .=  Data::Dumper->Dump([$top_node], ['$result_nodes{\''.$test_name.'\'}'])."\n";
+        $out_result .=  Data::Dumper->Dump([$top_node], ['$result_nodes{\''.$test_name.'\'}'])."\n";
       }
       {
         local $Data::Dumper::Sortkeys = \&filter_menus_keys;
-         $out_result .=  Data::Dumper->Dump([$top_node], ['$result_menus{\''.$test_name.'\'}'])."\n";
+        $out_result .=  Data::Dumper->Dump([$top_node], ['$result_menus{\''.$test_name.'\'}'])."\n";
       }
     }
     {
@@ -1108,6 +1116,11 @@ sub test($$)
     if ($floats) {
       local $Data::Dumper::Sortkeys = \&filter_floats_keys;
       $out_result .= Data::Dumper->Dump([$floats], ['$result_floats{\''.$test_name.'\'}']) ."\n\n";
+    }
+    if ($indices_sorted_sort_strings) {
+      local $Data::Dumper::Sortkeys = 1;
+      $out_result .= Data::Dumper->Dump([$indices_sorted_sort_strings], 
+                                    ['$result_sort_strings{\''.$test_name.'\'}']) ."\n\n";
     }
     if ($elements) {
       local $Data::Dumper::Sortkeys = \&filter_elements_keys;
@@ -1151,6 +1164,8 @@ sub test($$)
         $test_name.' errors');
     ok (Data::Compare::Compare($indices, $result_indices{$test_name}), 
         $test_name.' indices');
+    ok (Data::Compare::Compare($indices_sorted_sort_strings, $result_sort_strings{$test_name}),
+        $test_name.' indices sort');
     ok (Texinfo::Convert::Texinfo::convert_to_texinfo($result) eq $result_texis{$test_name}, 
          $test_name.' texi');
     if ($todos{'text'}) {

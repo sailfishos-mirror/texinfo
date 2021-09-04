@@ -1,5 +1,10 @@
 2021-09-04  Patrice Dumas  <pertusus@free.fr>
 
+	* t/test_utils.pl: add a test comparison on sorted
+	index entry sort strings for indices.
+
+2021-09-04  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Structuring.pm (sort_indices): do not add
 	a 'key' in index entries when sorting.
 

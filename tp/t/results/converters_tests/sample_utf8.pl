@@ -1,7 +1,7 @@
 use vars qw(%result_texis %result_texts %result_trees %result_errors 
    %result_indices %result_sectioning %result_nodes %result_menus
    %result_floats %result_converted %result_converted_errors 
-   %result_elements %result_directions_text);
+   %result_elements %result_directions_text %result_sort_strings);
 
 use utf8;
 
@@ -1956,6 +1956,16 @@ $result_errors{'sample_utf8'} = [];
 
 
 $result_floats{'sample_utf8'} = {};
+
+
+$result_sort_strings{'sample_utf8'} = {
+  'cp' => [
+    'chapter, first',
+    "\x{e9} \x{c2}",
+    "\x{104}\x{118} ae \x{105}\x{119}",
+    "\x{53e6}\x{4e00}\x{4e2a}\x{ff0c}index entry"
+  ]
+};
 
 
 1;

@@ -1,7 +1,7 @@
 use vars qw(%result_texis %result_texts %result_trees %result_errors 
    %result_indices %result_sectioning %result_nodes %result_menus
    %result_floats %result_converted %result_converted_errors 
-   %result_elements %result_directions_text);
+   %result_elements %result_directions_text %result_sort_strings);
 
 use utf8;
 
@@ -3099,6 +3099,34 @@ $result_errors{'inter_item_commands_in_table'} = [];
 
 
 $result_floats{'inter_item_commands_in_table'} = {};
+
+
+$result_sort_strings{'inter_item_commands_in_table'} = {
+  'cp' => [
+    'cindex after line',
+    'cindex before line',
+    'cindex between lines',
+    'cindex first',
+    'cindex in table',
+    'cindex in table',
+    'index entry between item and itemx',
+    'samp cindex in table',
+    'samp cindex in table',
+    'second',
+    'third'
+  ],
+  'fn' => [
+    'avar--b',
+    'b',
+    'c',
+    'd'
+  ],
+  'vr' => [
+    'aasis--b',
+    'acode--b',
+    'b'
+  ]
+};
 
 
 

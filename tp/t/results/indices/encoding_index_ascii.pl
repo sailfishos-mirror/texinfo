@@ -1,7 +1,7 @@
 use vars qw(%result_texis %result_texts %result_trees %result_errors 
    %result_indices %result_sectioning %result_nodes %result_menus
    %result_floats %result_converted %result_converted_errors 
-   %result_elements %result_directions_text);
+   %result_elements %result_directions_text %result_sort_strings);
 
 use utf8;
 
@@ -3532,6 +3532,67 @@ $result_errors{'encoding_index_ascii'} = [];
 
 
 $result_floats{'encoding_index_ascii'} = {};
+
+
+$result_sort_strings{'encoding_index_ascii'} = {
+  'cp' => [
+    '!',
+    '"',
+    '"',
+    '"',
+    '\'',
+    ',',
+    '-',
+    '--',
+    '0',
+    '9',
+    '>=',
+    '@',
+    '`',
+    '``',
+    'a',
+    'A',
+    'AE',
+    'b',
+    'B',
+    'c',
+    'd',
+    'D',
+    'e',
+    'e\' e\'',
+    'Euro',
+    'f',
+    'g',
+    'h',
+    'i',
+    'i i (dotless)',
+    'i" i"i"i"',
+    'i^ i^ (dotless)',
+    'i^ i^i^i^i^',
+    'j',
+    'k',
+    'l',
+    'l',
+    'L',
+    'm',
+    'n',
+    'o',
+    'o',
+    'p',
+    'q',
+    'r',
+    's',
+    'ss',
+    't',
+    'TH',
+    'u',
+    'v',
+    'w',
+    'x',
+    'y',
+    'z'
+  ]
+};
 
 
 1;

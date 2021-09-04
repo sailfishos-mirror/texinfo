@@ -1,7 +1,7 @@
 use vars qw(%result_texis %result_texts %result_trees %result_errors 
    %result_indices %result_sectioning %result_nodes %result_menus
    %result_floats %result_converted %result_converted_errors 
-   %result_elements %result_directions_text);
+   %result_elements %result_directions_text %result_sort_strings);
 
 use utf8;
 
@@ -2398,6 +2398,27 @@ $result_errors{'def'} = [
 
 
 $result_floats{'def'} = {};
+
+
+$result_sort_strings{'def'} = {
+  'fn' => [
+    'after',
+    'bidule machin',
+    'd--effn_name',
+    'de--ffn_name',
+    'deffnx',
+    'followed',
+    'i',
+    'id i ule',
+    'id ule',
+    'log trap',
+    'log trap1',
+    'log trap2',
+    'machin',
+    'machin',
+    'truc'
+  ]
+};
 
 
 

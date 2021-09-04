@@ -1,7 +1,7 @@
 use vars qw(%result_texis %result_texts %result_trees %result_errors 
    %result_indices %result_sectioning %result_nodes %result_menus
    %result_floats %result_converted %result_converted_errors 
-   %result_elements %result_directions_text);
+   %result_elements %result_directions_text %result_sort_strings);
 
 use utf8;
 
@@ -623,6 +623,14 @@ $result_errors{'index_entry_in_footnote_separate'} = [];
 
 
 $result_floats{'index_entry_in_footnote_separate'} = {};
+
+
+$result_sort_strings{'index_entry_in_footnote_separate'} = {
+  'cp' => [
+    'counting entry',
+    'index entry in footnote'
+  ]
+};
 
 
 

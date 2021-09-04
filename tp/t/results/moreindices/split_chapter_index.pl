@@ -1,7 +1,7 @@
 use vars qw(%result_texis %result_texts %result_trees %result_errors 
    %result_indices %result_sectioning %result_nodes %result_menus
    %result_floats %result_converted %result_converted_errors 
-   %result_elements %result_directions_text);
+   %result_elements %result_directions_text %result_sort_strings);
 
 use utf8;
 
@@ -1901,6 +1901,26 @@ $result_errors{'split_chapter_index'} = [];
 
 
 $result_floats{'split_chapter_index'} = {};
+
+
+$result_sort_strings{'split_chapter_index'} = {
+  'cp' => [
+    '! entry in node',
+    'a concept in first',
+    'another',
+    'entry a',
+    'entry after printindex',
+    'entry in node',
+    'entry in node',
+    'printindex subsection 2',
+    'something'
+  ],
+  'fn' => [
+    'a function',
+    'fun in node',
+    'somewhere'
+  ]
+};
 
 
 1;

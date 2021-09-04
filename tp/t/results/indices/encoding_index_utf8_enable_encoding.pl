@@ -1,7 +1,7 @@
 use vars qw(%result_texis %result_texts %result_trees %result_errors 
    %result_indices %result_sectioning %result_nodes %result_menus
    %result_floats %result_converted %result_converted_errors 
-   %result_elements %result_directions_text);
+   %result_elements %result_directions_text %result_sort_strings);
 
 use utf8;
 
@@ -3510,6 +3510,67 @@ $result_errors{'encoding_index_utf8_enable_encoding'} = [];
 
 
 $result_floats{'encoding_index_utf8_enable_encoding'} = {};
+
+
+$result_sort_strings{'encoding_index_utf8_enable_encoding'} = {
+  'cp' => [
+    '"',
+    '"',
+    '"',
+    '\'',
+    ',',
+    '-',
+    '--',
+    '0',
+    '9',
+    '@',
+    '`',
+    "\x{a1}",
+    "\x{b0}",
+    "\x{201c}",
+    "\x{20ac}",
+    "\x{2265}",
+    'a',
+    'A',
+    'b',
+    'B',
+    'c',
+    'd',
+    'e',
+    'f',
+    'g',
+    'h',
+    'i',
+    "\x{131} \x{131} (dotless)",
+    'j',
+    'k',
+    'l',
+    'm',
+    'n',
+    'o',
+    'p',
+    'q',
+    'r',
+    's',
+    "\x{df}",
+    't',
+    'u',
+    'v',
+    'w',
+    'x',
+    'y',
+    'z',
+    "\x{c6}",
+    "\x{e9} \x{e9}",
+    "\x{ee} \x{ee} (dotless)",
+    "\x{ee} \x{ee}\x{ee}\x{ee}\x{ee}",
+    "\x{ef} \x{ef}\x{ef}\x{ef}",
+    "\x{d0}",
+    "\x{de}",
+    "\x{142}",
+    "\x{141}"
+  ]
+};
 
 
 1;

@@ -1,7 +1,7 @@
 use vars qw(%result_texis %result_texts %result_trees %result_errors 
    %result_indices %result_sectioning %result_nodes %result_menus
    %result_floats %result_converted %result_converted_errors 
-   %result_elements %result_directions_text);
+   %result_elements %result_directions_text %result_sort_strings);
 
 use utf8;
 
@@ -15750,6 +15750,63 @@ $result_errors{'all_commands_delimiters_printindex'} = [];
 
 
 $result_floats{'all_commands_delimiters_printindex'} = {};
+
+
+$result_sort_strings{'all_commands_delimiters_printindex'} = {
+  'fn' => [
+    ')expose on )Window',
+    ')expose on )Window',
+    ',expose on ,Window',
+    ',expose on ,Window',
+    ';expose on ;Window',
+    ';expose on ;Window',
+    'A2',
+    'A2',
+    'A3',
+    'A3',
+    'A3 on A2',
+    'A3 on A2',
+    'A4 on A2',
+    'A4 on A2',
+    'apply',
+    'e)xpose on W)indow',
+    'e)xpose on W)indow',
+    'e,xpose on W,indow',
+    'e,xpose on W,indow',
+    'e;xpose on W;indow',
+    'e;xpose on W;indow',
+    'expose on W,indow',
+    'expose on Window',
+    'expose on windows',
+    'foobar',
+    'foobar',
+    'foobug',
+    'forward--char',
+    'fun_name',
+    'fun_name1',
+    'name on Windowint',
+    'push'
+  ],
+  'tp' => [
+    'A2',
+    'A2',
+    'A2',
+    'pair'
+  ],
+  'vr' => [
+    'A2',
+    'A2',
+    'A3',
+    'A3',
+    'A3',
+    'A4 of A2',
+    'A4 of A2',
+    'border-pattern',
+    'border-pattern of Window',
+    'enable',
+    'fill-column'
+  ]
+};
 
 
 
