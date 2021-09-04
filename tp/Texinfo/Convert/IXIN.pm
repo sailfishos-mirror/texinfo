@@ -612,7 +612,7 @@ sub output_ixin($$)
     my $index_names = $self->{'parser'}->indices_information();
     my $merged_index_entries
         = Texinfo::Structuring::merge_indices($index_names);
-    my ($entries, $index_entries_keys)
+    my ($entries, $index_entries_sort_strings)
       = $self->Texinfo::Structuring::sort_indices($self->{'parser'}, $self,
                                               $self, $merged_index_entries);
     # first do the dts_text as the counts are needed for the dts index

@@ -1667,7 +1667,7 @@ sub sort_indices($$$$;$)
   my ($options, $ignore_chars) = setup_index_entry_keys_formatting($self,
                                              $configuration_informations);
   my $sorted_index_entries;
-  my $index_entry_keys = {};
+  my $index_entries_sort_strings = {};
   foreach my $index_name (keys(%$index_entries)) {
     # used if not $sort_by_letter
     my $sortable_index_entries = [];
@@ -1676,7 +1676,7 @@ sub sort_indices($$$$;$)
     foreach my $entry (@{$index_entries->{$index_name}}) {
       my $entry_key = index_key($entry, {'contents' => $entry->{'content'}},
                                   $entry->{'sortas'}, $options, $ignore_chars);
-      $index_entry_keys->{$entry} = $entry_key;
+      $index_entries_sort_strings->{$entry} = $entry_key;
       if ($entry_key !~ /\S/) {
         $registrar->line_warn($configuration_informations,
                      sprintf(__("empty index key in \@%s"),
@@ -1709,7 +1709,7 @@ sub sort_indices($$$$;$)
           sort _sort_index_entries @{$sortable_index_entries};
     }
   }
-  return $sorted_index_entries, $index_entry_keys;
+  return $sorted_index_entries, $index_entries_sort_strings;
 }
 
 sub merge_indices($)
@@ -2101,7 +2101,7 @@ The I<$merged_entries> returned is a hash reference whose
 keys are the index names and values arrays of index entry structures
 described in details in L<Texinfo::Parser/index_entries>.
 
-=item ($index_entries_sorted, $index_entry_keys) = sort_indices($parser, $registrar, $configuration_informations, $merged_index_entries, $sort_by_letter)
+=item ($index_entries_sorted, $index_entries_sort_strings) = sort_indices($parser, $registrar, $configuration_informations, $merged_index_entries, $sort_by_letter)
 
 If C<$sort_by_letter> is set, sort by letter, otherwise sort all
 entries together.  In both cases, a hash reference with index names
@@ -2115,8 +2115,8 @@ reference of sorted index entries beginning with the letter.
 When simply sorting, the array of the sorted index entries is associated
 with the index name.
 
-C<$index_entry_keys> is a hash reference associating the index entries
-with the key that were used to sort them.
+C<$index_entries_sort_strings> is a hash reference associating the index
+entries with the strings that were used to sort them.
 
 Register errors in C<$registrar>.
 

@@ -910,9 +910,9 @@ sub test($$)
   $indices->{'index_names'} = $trimmed_index_names
     unless (Data::Compare::Compare($trimmed_index_names, $initial_index_names));
 
-  my ($sorted_index_entries, $index_entries_keys);
+  my ($sorted_index_entries, $index_entries_sort_strings);
   if ($merged_index_entries) {
-    ($sorted_index_entries, $index_entries_keys)
+    ($sorted_index_entries, $index_entries_sort_strings)
       = Texinfo::Structuring::sort_indices($parser, $registrar,
                                    $main_configuration,
                                    $merged_index_entries, 'by_letter');
