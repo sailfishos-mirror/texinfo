@@ -505,7 +505,7 @@ sub _image($$)
         last; 
       }
     }
-    my ($text, $width) = $self->_image_text($root, $basefile);
+    my ($text, $width) = $self->txt_image_text($root, $basefile);
     my $alt;
     if (defined($root->{'args'}->[3])
         and @{$root->{'args'}->[3]->{'contents'}}) {

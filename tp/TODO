@@ -27,10 +27,6 @@ use Texinfo::Convert::Converter;
 
 complete_indices, gdt, some code in Text: add documentlanguage arg to gdt
 
-Texinfo/Convert/DocBook.pm
-use Texinfo::Convert::Plaintext;
-# FIXME use _image_text
-
 not internal (maybe move?)
 Texinfo::Common::_convert_text_options
 

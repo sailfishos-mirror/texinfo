@@ -1426,45 +1426,6 @@ sub ensure_end_of_line($$)
   return $text;
 }
 
-sub _image_text($$$)
-{
-  my ($self, $root, $basefile) = @_;
-
-  my $txt_file = $self->Texinfo::Common::locate_include_file($basefile.'.txt');
-  if (!defined($txt_file)) {
-    return undef;
-  } else {
-    my $filehandle = do { local *FH };
-    if (open ($filehandle, $txt_file)) {
-      my $enc = $root->{'extra'}->{'input_perl_encoding'};
-      binmode($filehandle, ":encoding($enc)")
-        if ($enc);
-      my $result = '';
-      my $max_width = 0;
-      while (<$filehandle>) {
-        my $width = Texinfo::Convert::Unicode::string_width($_);
-        if ($width > $max_width) {
-          $max_width = $width;
-        }
-        $result .= $_;
-      }
-      # remove last end of line
-      chomp ($result);
-      if (!close ($filehandle)) {
-        $self->document_warn($self,
-           sprintf(__("error on closing image text file %s: %s"),
-                                     $txt_file, $!));
-      }
-      return ($result, $max_width);
-    } else {
-      $self->line_warn($self,
-                  sprintf(__("\@image file `%s' unreadable: %s"),
-                               $txt_file, $!), $root->{'line_nr'});
-    }
-  }
-  return undef;
-}
-
 sub _image_formatted_text($$$$)
 {
   my ($self, $root, $basefile, $text) = @_;
@@ -1495,7 +1456,7 @@ sub _image($$)
     my $basefile = Texinfo::Convert::Text::convert_to_text(
      {'contents' => $root->{'args'}->[0]->{'contents'}},
      {'code' => 1, %{$self->{'convert_text_options'}}});
-    my ($text, $width) = $self->_image_text($root, $basefile);
+    my ($text, $width) = $self->txt_image_text($root, $basefile);
     my $result = $self->_image_formatted_text($root, $basefile, $text);
     my $lines_count = ($result =~ tr/\n/\n/);
     if (!defined($width)) {

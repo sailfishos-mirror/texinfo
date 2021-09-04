@@ -1,5 +1,13 @@
 2021-09-04  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Converter.pm (txt_image_text),
+	tp/Texinfo/Convert/Plaintext.pm (_image_text),
+	tp/Texinfo/Convert/DocBook.pm, tp/Texinfo/Convert/Info.pm:
+	move _image_text() from Texinfo::Convert::Plaintext to
+	Texinfo::Convert::Converter and rename as txt_image_text().
+
+2021-09-04  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Converter.pm, tp/Texinfo/Convert/DocBook.pm,
 	tp/Texinfo/Convert/HTML.pm, tp/Texinfo/Convert/IXIN.pm,
 	tp/Texinfo/Convert/IXINSXML.pm, tp/Texinfo/Convert/Info.pm,

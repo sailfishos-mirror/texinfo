@@ -930,6 +930,46 @@ sub _create_destination_directory($)
   return 1;
 }
 
+sub txt_image_text($$$)
+{
+  my ($self, $root, $basefile) = @_;
+
+  my $txt_file = Texinfo::Common::locate_include_file($self, $basefile.'.txt');
+  if (!defined($txt_file)) {
+    return undef;
+  } else {
+    my $filehandle = do { local *FH };
+    if (open ($filehandle, $txt_file)) {
+      my $enc = $root->{'extra'}->{'input_perl_encoding'};
+      binmode($filehandle, ":encoding($enc)")
+        if ($enc);
+      my $result = '';
+      my $max_width = 0;
+      while (<$filehandle>) {
+        my $width = Texinfo::Convert::Unicode::string_width($_);
+        if ($width > $max_width) {
+          $max_width = $width;
+        }
+        $result .= $_;
+      }
+      # remove last end of line
+      chomp ($result);
+      if (!close ($filehandle)) {
+        $self->document_warn($self,
+           sprintf(__("error on closing image text file %s: %s"),
+                                     $txt_file, $!));
+      }
+      return ($result, $max_width);
+    } else {
+      $self->line_warn($self,
+                  sprintf(__("\@image file `%s' unreadable: %s"),
+                               $txt_file, $!), $root->{'line_nr'});
+    }
+  }
+  return undef;
+}
+
+
 sub float_type_number($$)
 {
   my $self = shift;
@@ -942,7 +982,7 @@ sub float_type_number($$)
   }
 
   my $tree;
-  if ($type) {            
+  if ($type) {
     if (defined($float->{'number'})) {
       $tree = $self->gdt("{float_type} {float_number}",
           {'float_type' => $type,
