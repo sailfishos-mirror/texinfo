@@ -1,3 +1,13 @@
+2021-09-04  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	Avoid unnecessary documentlanguage extra value
+
+	* tp/Texinfo/XS/parsetexi/parser.c (wipe_global_info): Set
+	global_documentlanguage to null rather than an empty string.
+	This avoids a "documentlanguage" key being set on some @def*
+	commands (like @defop) where there is no @documentlanguage directive
+	in the document.  Report from Patrice.
+
 2021-09-04  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Config.pm (Texinfo::MainConfig::new):

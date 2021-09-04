@@ -288,7 +288,7 @@ wipe_global_info (void)
   if (!global_documentlanguage_fixed)
     {
       free (global_documentlanguage);
-      global_documentlanguage = strdup ("");
+      global_documentlanguage = 0;
     }
   global_kbdinputstyle = kbd_distinct;
 
