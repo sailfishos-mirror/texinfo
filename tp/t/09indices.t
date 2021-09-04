@@ -705,24 +705,22 @@ my @file_tests = (
 @setfilename encoding_index_ascii.info
 @documentencoding us-ascii
 '.$encoding_index_text,
-{'ENABLE_ENCODING' => 0}, {'ENABLE_ENCODING' => 0}
+{'ENABLE_ENCODING' => 0}
 ],
 ['encoding_index_latin1',
 undef,
 {'test_file' => 'encoding_index_latin1.texi', 'ENABLE_ENCODING' => 0}, 
-{'ENABLE_ENCODING' => 0}
 ],
 ['encoding_index_utf8',
 undef,
 {'test_file' => 'encoding_index_utf8.texi', 'ENABLE_ENCODING' => 0}, 
-{'ENABLE_ENCODING' => 0}
 ],
 ['encoding_index_ascii_enable_encoding',
 '
 @setfilename encoding_index_ascii_enable_encoding.info
 @documentencoding us-ascii
 '.$encoding_index_text,
-{'ENABLE_ENCODING' => 1}, {'ENABLE_ENCODING' => 1}
+{'ENABLE_ENCODING' => 1},
 ],
 ['encoding_index_latin1_enable_encoding',
 undef,

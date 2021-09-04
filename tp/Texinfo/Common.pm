@@ -108,10 +108,6 @@ my %default_parser_common_customization = (
   'DEBUG' => 0,     # if >= 10, tree is printed in texi2any.pl after parsing.
                     # If >= 100 tree is printed every line.
   'FORMAT_MENU' => 'menu',           # if not 'menu' no menu error related.
-  # This is not used directly, but passed to Convert::Text through
-  # Texinfo::Common::_convert_text_options
-  'ENABLE_ENCODING' => undef,     # output accented and special characters
-                                  # based on @documentencoding
 );
 
 # Customization variables obeyed only by the parser, and the default values.

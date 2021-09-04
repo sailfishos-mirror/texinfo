@@ -65,10 +65,7 @@ sub parser (;$$)
   reset_parser ();
   if (defined($conf)) {
     foreach my $key (keys (%$conf)) {
-      # Copy conf to parser object.  Not used in parser module itself
-      # except to set {'info'}->{'novalidate'}
-      # but some settings may be used elsewhere, especially in
-      # Structuring.pm.
+      # Copy conf to parser object.
       if ($key ne 'values' and ref($conf->{$key})) {
         $parser->{$key} = dclone($conf->{$key});
       } else {
@@ -116,8 +113,7 @@ sub parser (;$$)
         set_debug($conf->{$key}) if $conf->{'key'};
       } elsif ($key eq 'accept_internalvalue') {
         set_accept_internalvalue();
-      } elsif ($key eq 'ENABLE_ENCODING'
-               or $key eq 'novalidate'
+      } elsif ($key eq 'novalidate'
                or $key eq 'registrar') {
         # no action needed
       } else {

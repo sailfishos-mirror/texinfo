@@ -1391,8 +1391,7 @@ $result_indices_sort_strings{'in_table'} = {
     '2 index',
     'index',
     'index'
-  ],
-  'vr' => []
+  ]
 };
 
 

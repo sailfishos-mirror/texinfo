@@ -70,7 +70,7 @@ my @test_cases = (
   undef,
   # tests for node with directions after section
   {'test_file' => 'sectioning.texi', 'CHECK_NORMAL_MENU_STRUCTURE' => 1},
-  {'SPLIT' => 'chapter', 'FRAMES' => 1, 'CHECK_NORMAL_MENU_STRUCTURE' => 1}
+  {'SPLIT' => 'chapter', 'FRAMES' => 1}
 ],
 ['placed_things_before_element',
   undef,

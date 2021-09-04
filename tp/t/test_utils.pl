@@ -794,9 +794,19 @@ sub test($$)
 
   # always set FORMAT_MENU to menu, which is the default for parser
   my $added_main_configurations = {'FORMAT_MENU' => 'menu'};
-  foreach my $structuring_option (('CHECK_NORMAL_MENU_STRUCTURE',
-                                   'ENABLE_ENCODING')) {
-    if ($parser_options->{$structuring_option}) {
+  
+  foreach my $structuring_and_converter_option (('ENABLE_ENCODING')) {
+    if (defined($parser_options->{$structuring_and_converter_option})) {
+      $added_main_configurations->{$structuring_and_converter_option}
+        = $parser_options->{$structuring_and_converter_option};
+      $converter_options->{$structuring_and_converter_option}
+        = $parser_options->{$structuring_and_converter_option};
+      delete $parser_options->{$structuring_and_converter_option};
+    }
+  }
+
+  foreach my $structuring_option (('CHECK_NORMAL_MENU_STRUCTURE')) {
+    if (defined($parser_options->{$structuring_option})) {
       $added_main_configurations->{$structuring_option}
         = $parser_options->{$structuring_option};
       delete $parser_options->{$structuring_option};
@@ -919,10 +929,12 @@ sub test($$)
                                    $merged_index_entries);
     foreach my $index_name (keys(%$sorted_index_entries)) {
       # index entries sort strings sorted in the order of the index entries
-      $indices_sorted_sort_strings->{$index_name} = [];
-      foreach my $index_entry (@{$sorted_index_entries->{$index_name}}) {
-        push @{$indices_sorted_sort_strings->{$index_name}},
-          $index_entries_sort_strings->{$index_entry};
+      if (scalar(@{$sorted_index_entries->{$index_name}})) {
+        $indices_sorted_sort_strings->{$index_name} = [];
+        foreach my $index_entry (@{$sorted_index_entries->{$index_name}}) {
+          push @{$indices_sorted_sort_strings->{$index_name}},
+            $index_entries_sort_strings->{$index_entry};
+        }
       }
     }
   }

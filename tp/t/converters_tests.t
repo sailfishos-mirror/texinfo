@@ -373,13 +373,13 @@ $latin1_accents_text
 $weird_accents_text
 ],
 ['weird_accents_disable_encoding',
-$weird_accents_text, {}, {'ENABLE_ENCODING' => 0}
+$weird_accents_text, {'ENABLE_ENCODING' => 0}
 ],
 ['accent',
 $accents_text
 ],
 ['accent_enable_encoding',
-$accents_text, {}, {'ENABLE_ENCODING' => 1}
+$accents_text, {'ENABLE_ENCODING' => 1}
 ],
 ['accent_with_text',
 '@u{--a} @dotless{--b} @^{--@dotless{i}} @^{--@dotless{j}} @^{--a}
@@ -977,11 +977,11 @@ Macros that should not be defined: @mymacro{}. @macroarg{with arg}.
 
 my @html_text_cases = (
 ['accentenc_no_entity',
-$latin1_accents_text, {}, {'ENABLE_ENCODING' => 1,
-                           'ENABLE_ENCODING_USE_ENTITY' => 0}
+$latin1_accents_text, {'ENABLE_ENCODING' => 1},
+                      {'ENABLE_ENCODING_USE_ENTITY' => 0}
 ],
 ['accentenc_enable_encoding',
-$latin1_accents_text, {}, {'ENABLE_ENCODING' => 1}
+$latin1_accents_text, {'ENABLE_ENCODING' => 1}
 ],
 ['top_in_ref_keep_top',
 $top_in_ref_text,

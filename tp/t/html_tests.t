@@ -322,12 +322,12 @@ AA @^e --- -- \'` \'\' ``', {}, {'ENABLE_ENCODING_USE_ENTITY' => 0}],
 ['utf8_no_use_entity_enable_encoding',
 '@documentencoding utf-8
 
-AA @^e --- -- \'` \'\' ``', {}, {'ENABLE_ENCODING' => 1,
-                                  'ENABLE_ENCODING_USE_ENTITY' => 0}],
+AA @^e --- -- \'` \'\' ``', {'ENABLE_ENCODING' => 1},
+                            {'ENABLE_ENCODING_USE_ENTITY' => 0}],
 ['utf8_enable_encoding',
 '@documentencoding utf-8
 
-AA @^e --- -- \'` \'\' ``', {}, {'ENABLE_ENCODING' => 1}],
+AA @^e --- -- \'` \'\' ``', {'ENABLE_ENCODING' => 1}],
 ['utf8_no_use_entity_no_use_iso',
 '@documentencoding utf-8
 
@@ -336,7 +336,7 @@ AA @^e --- -- \'` \'\' ``', {}, {'ENABLE_ENCODING_USE_ENTITY' => 0,
 ['utf8_no_use_entity_enable_encoding_no_use_iso',
 '@documentencoding utf-8
 
-AA @^e --- -- \'` \'\' ``', {}, {'ENABLE_ENCODING' => 1, 'USE_ISO' => 0,
+AA @^e --- -- \'` \'\' ``', {'ENABLE_ENCODING' => 1}, {'USE_ISO' => 0,
                                   'ENABLE_ENCODING_USE_ENTITY' => 0}],
 ['utf8_enable_encoding_no_use_iso', # this one leads to transiliterated text as
                                     # ENABLE_ENCODING_USE_ENTITY is set
@@ -344,8 +344,7 @@ AA @^e --- -- \'` \'\' ``', {}, {'ENABLE_ENCODING' => 1, 'USE_ISO' => 0,
                                     # to utf-8 characters is not done
 '@documentencoding utf-8
 
-AA @^e --- -- \'` \'\' ``', {}, {'ENABLE_ENCODING' => 1,
-                                 'USE_ISO' => 0}],
+AA @^e --- -- \'` \'\' ``', {'ENABLE_ENCODING' => 1}, {'USE_ISO' => 0}],
 ['ref_in_preformatted',
 '@node Top
 
@@ -374,7 +373,7 @@ my @todo = (
 @AA{} @~{@dotless{i}} @dotless{i}.
 @equiv{}
 @sc{@AA{} @~{@dotless{i}} @dotless{i}}.
-',{}, {'ENABLE_ENCODING' => 1}]
+',{'ENABLE_ENCODING' => 1}]
 );
 
 # test that the node name that goes in the redirection file is reproducible.
