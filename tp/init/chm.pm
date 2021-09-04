@@ -33,6 +33,7 @@ use Texinfo::Common;
 
 # load modules to make sure that they are loaded before use
 use Texinfo::Convert::Unicode;
+use Texinfo::Convert::Utils;
 use Texinfo::Convert::Text;
 use Texinfo::Structuring;
 
@@ -330,7 +331,7 @@ sub chm_init($)
         }
       }
       my $text = convert_tree($self, $section->{'args'}->[0]);
-      $text = $self->Texinfo::Common::numbered_heading($section, $text,
+      $text = Texinfo::Convert::Utils::numbered_heading($self, $section, $text,
                           $self->get_conf('NUMBER_SECTIONS')); 
       my $file = $self->command_filename($section);
       my $anchor = $self->command_target($section);

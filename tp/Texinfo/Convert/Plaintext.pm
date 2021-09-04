@@ -26,12 +26,14 @@ use if $] >= 5.012, feature => qw(unicode_strings);
 
 use strict;
 
-use Texinfo::Convert::Converter;
 use Texinfo::Common;
 use Texinfo::Convert::Texinfo;
+use Texinfo::Convert::Utils;
+use Texinfo::Convert::Text;
+use Texinfo::Convert::Utils;
+use Texinfo::Convert::Converter;
 use Texinfo::Convert::Paragraph;
 
-use Texinfo::Convert::Text;
 
 require Exporter;
 use vars qw($VERSION @ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
@@ -1699,7 +1701,7 @@ sub _convert($$)
       }
       return $result;
     } elsif ($command eq 'today') {
-      my $today = $self->Texinfo::Common::expand_today();
+      my $today = $self->Texinfo::Convert::Utils::expand_today();
       unshift @{$self->{'current_contents'}->[-1]}, $today;
     } elsif (exists($brace_no_arg_commands{$command})) {
       my $text;
@@ -2037,7 +2039,7 @@ sub _convert($$)
             and $root->{'extra'}->{'label'}->{'cmdname'} eq 'float') {
           my $float = $root->{'extra'}->{'label'};
 
-          my $name = $self->_float_type_number($float);
+          my $name = $self->float_type_number($float);
           $args[1] = $name->{'contents'};
         }
         if ($command eq 'inforef' and scalar(@args) == 3) {
@@ -2605,7 +2607,8 @@ sub _convert($$)
       }
       return $result;
     } elsif ($command eq 'verbatiminclude') {
-      my $expansion = Texinfo::Common::expand_verbatiminclude($self, $self, $root);
+      my $expansion = Texinfo::Convert::Utils::expand_verbatiminclude($self,
+                                                               $self, $root);
       unshift @{$self->{'current_contents'}->[-1]}, $expansion
         if ($expansion);
       return '';
@@ -2637,7 +2640,7 @@ sub _convert($$)
                    or !@{$float->{'args'}->[1]->{'contents'}};
           my $float_label_text = $self->convert_line({'type' => '_code',
              'contents' => $float->{'args'}->[1]->{'contents'}});
-          my $float_entry = $self->_float_type_number($float);
+          my $float_entry = $self->float_type_number($float);
           my $float_entry_text = ':';
           if (defined($float_entry)) {
             $float_entry->{'type'} = 'frenchspacing';
@@ -2805,7 +2808,7 @@ sub _convert($$)
     } elsif ($root->{'type'} eq 'def_line') {
       if ($root->{'extra'} and $root->{'extra'}->{'def_parsed_hash'}
              and %{$root->{'extra'}->{'def_parsed_hash'}}) {
-        my $arguments = Texinfo::Common::definition_arguments_content($root);
+        my $arguments = Texinfo::Convert::Utils::definition_arguments_content($root);
         my $tree;
         my $command;
         if ($Texinfo::Common::def_aliases{$root->{'extra'}->{'def_command'}}) {
@@ -3245,8 +3248,8 @@ sub _convert($$)
                or $root->{'extra'}->{'caption'} or $root->{'extra'}->{'shortcaption'})) {
         
         $result .= _add_newline_if_needed($self);
-        my ($caption, $prepended) = Texinfo::Common::float_name_caption($self,
-                                                                        $root);
+        my ($caption, $prepended)
+             = Texinfo::Convert::Converter::float_name_caption($self, $root);
         if ($prepended) {
           $prepended->{'type'} = 'frenchspacing';
           my $float_number = $self->convert_line ($prepended);

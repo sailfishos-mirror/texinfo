@@ -24,10 +24,8 @@ use warnings;
 require Exporter;
 
 use Texinfo::Common;
-# no direct use, use through
-# Texinfo::Common::set_nodes_list_labels
-use Texinfo::Convert::NodeNameNormalization;
 use Texinfo::Report;
+use Texinfo::Convert::NodeNameNormalization;
 use Texinfo::Translations;
 
 our @ISA = qw(Exporter Texinfo::Translations);
@@ -216,8 +214,9 @@ sub get_parser_info {
   _get_errors ($self);
 
   # Setup labels info and nodes list based on 'targets'
-  Texinfo::Common::set_nodes_list_labels($self, $self->{'registrar'}, $self);
-  Texinfo::Common::complete_indices ($self);
+  Texinfo::Convert::NodeNameNormalization::set_nodes_list_labels($self,
+                                           $self->{'registrar'}, $self);
+  Texinfo::Translations::complete_indices ($self);
 }
 
 use File::Basename; # for fileparse
@@ -377,7 +376,8 @@ sub parse_texi_line($$;$$$$)
     $self->{'targets'} = $TARGETS;
 
     # Setup labels info and nodes list based on 'targets'
-    Texinfo::Common::set_nodes_list_labels($self, $self->{'registrar'}, $self);
+    Texinfo::Convert::NodeNameNormalization::set_nodes_list_labels($self,
+                                                $self->{'registrar'}, $self);
 
     return $tree;
 }

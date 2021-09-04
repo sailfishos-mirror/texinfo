@@ -276,6 +276,82 @@ sub _convert($;$)
   return $result;
 }
 
+# Called from Texinfo::ParserNonXS and Texinfo::XS::parsetexi::Parsetexi.
+# This should be considered an internal function of the parsers for all
+# purposes, it is here to avoid code duplication.
+# Sets $self->{'nodes'} and $self->{'labels'} based on $self->{'targets'}.
+sub set_nodes_list_labels($$$)
+{
+  my $self = shift;
+  my $registrar = shift;
+  my $configuration_informations = shift;
+
+  $self->{'nodes'} = [];
+  my %labels = ();
+  if (defined $self->{'targets'}) {
+    for my $target (@{$self->{'targets'}}) {
+      if ($target->{'cmdname'} eq 'node') {
+        if ($target->{'extra'}->{'nodes_manuals'}) {
+          for my $node_manual (@{$target->{'extra'}{'nodes_manuals'}}) {
+            if (defined $node_manual
+                  and defined $node_manual->{'node_content'}) {
+              my $normalized = Texinfo::Convert::NodeNameNormalization::normalize_node(
+                                    {'contents' => $node_manual->{'node_content'}});
+              $node_manual->{'normalized'} = $normalized;
+            }
+          }
+        }
+      }
+      if (defined $target->{'extra'}
+            and defined $target->{'extra'}->{'node_content'}) {
+        my $normalized = Texinfo::Convert::NodeNameNormalization::normalize_node(
+                             {'contents' => $target->{'extra'}->{'node_content'}});
+
+        if ($normalized !~ /[^-]/) {
+          $registrar->line_error($configuration_informations,
+               sprintf(__("empty node name after expansion `%s'"),
+                     Texinfo::Convert::Texinfo::convert_to_texinfo({'contents'
+                                   => $target->{'extra'}->{'node_content'}})),
+                            $target->{'line_nr'});
+          delete $target->{'extra'}->{'node_content'};
+        } else {
+          if (defined $labels{$normalized}) {
+            $registrar->line_error($configuration_informations,
+              sprintf(__("\@%s `%s' previously defined"), 
+                         $target->{'cmdname'}, 
+                   Texinfo::Convert::Texinfo::convert_to_texinfo({'contents'
+                                    => $target->{'extra'}->{'node_content'}})),
+                               $target->{'line_nr'});
+            $registrar->line_error($configuration_informations,
+              sprintf(__("here is the previous definition as \@%s"),
+                               $labels{$normalized}->{'cmdname'}),
+                       $labels{$normalized}->{'line_nr'});
+            delete $target->{'extra'}->{'node_content'};
+          } else {
+            $labels{$normalized} = $target;
+            $target->{'extra'}->{'normalized'} = $normalized;
+            if ($target->{'cmdname'} eq 'node') {
+              if ($target->{'extra'}
+                  and $target->{'extra'}{'node_argument'}) {
+                $target->{'extra'}{'node_argument'}{'normalized'}
+                  = $normalized;
+              }
+              push @{$self->{'nodes'}}, $target;
+            }
+          }
+        }
+      } else {
+        if ($target->{'cmdname'} eq 'node') {
+          $registrar->line_error($configuration_informations,
+               sprintf(__("empty argument in \@%s"),
+                  $target->{'cmdname'}), $target->{'line_nr'});
+          delete $target->{'extra'}->{'node_content'};
+        }
+      }
+    }
+  }
+  $self->{'labels'} = \%labels;
+}
 1;
 
 __END__

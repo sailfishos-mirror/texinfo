@@ -27,6 +27,9 @@ use strict;
 use Texinfo::Common;
 use Texinfo::Structuring;
 
+# Export?
+# protect_hashchar_at_line_beginning
+
 use Carp qw(cluck);
 
 # Add raise/lowersections to be back at the normal level
@@ -747,6 +750,98 @@ sub set_menus_to_simple_menu($)
   }
 }
 
+sub _is_cpp_line($)
+{
+  my $text = shift;
+  return 1 if ($text =~ /^\s*#\s*(line)? (\d+)(( "([^"]+)")(\s+\d+)*)?\s*$/);
+  return 0;
+}
+
+sub _protect_hashchar_at_line_beginning($$$)
+{
+  my $self = shift;
+  my $type = shift;
+  my $current = shift;
+
+  my ($registrar, $configuration_informations) = @$self;
+
+  #print STDERR "$type $current "._print_current($current)."\n";
+  # if the next is a hash character at line beginning, mark it
+  if (defined($current->{'text'}) and $current->{'text'} =~ /\n$/
+      and $current->{'parent'} and $current->{'parent'}->{'contents'}) {
+    my $parent = $current->{'parent'};
+    #print STDERR "End of line in $current, parent $parent: (@{$parent->{'contents'}})\n";
+    my $current_found = 0;
+    foreach my $content (@{$parent->{'contents'}}) {
+      if ($current_found) {
+        #print STDERR "after $current: $content $content->{'text'}\n";
+        if ($content->{'text'} and _is_cpp_line($content->{'text'})) {
+          $content->{'extra'}->{'_protect_hashchar'} = 1;
+        }
+        last;
+      } elsif ($content eq $current) {
+        $current_found = 1;
+      }
+    }
+  }
+
+  my $protect_hash = 0;
+  # if marked, or first and a cpp_line protect a leading hash character
+  if ($current->{'extra'} and $current->{'extra'}->{'_protect_hashchar'}) {
+    delete $current->{'extra'}->{'_protect_hashchar'};
+    if (!scalar(keys(%{$current->{'extra'}}))) {
+      delete $current->{'extra'};
+    }
+    $protect_hash = 1;
+  } elsif ($current->{'parent'} and $current->{'parent'}->{'contents'}
+           and $current->{'parent'}->{'contents'}->[0]
+           and $current->{'parent'}->{'contents'}->[0] eq $current
+           and $current->{'text'}
+           and _is_cpp_line($current->{'text'})) {
+    $protect_hash = 1;
+  }
+  if ($protect_hash) {
+    my @result = ();
+    if ($current->{'type'} and $current->{'type'} eq 'raw') {
+      if ($self) {
+        my $parent = $current->{'parent'};
+        while ($parent) {
+          if ($parent->{'cmdname'} and $parent->{'line_nr'}) {
+            if ($registrar) {
+              $registrar->line_warn($configuration_informations, sprintf(__(
+                  "could not protect hash character in \@%s"), 
+                             $parent->{'cmdname'}), $parent->{'line_nr'});
+            }
+            last;
+          }
+          $parent = $parent->{'parent'};
+        }
+      }
+    } else {
+      $current->{'text'} =~ s/^(\s*)#//;
+      if ($1 ne '') {
+        push @result, {'text' => $1, 'parent' => $current->{'parent'}};
+      }
+      push @result, {'cmdname' => 'hashchar', 'parent' => $current->{'parent'},
+                     'args' => [{'type' => 'brace_command_arg'}]};
+    }
+    push @result, $current;
+    return @result;
+  } else {
+    return ($current);
+  }
+}
+
+sub protect_hashchar_at_line_beginning($$$)
+{
+  my $registrar = shift;
+  my $configuration_informations = shift;
+  my $tree = shift;
+
+  my $self = [$registrar, $configuration_informations];
+  return Texinfo::Common::modify_tree($self, $tree, \&_protect_hashchar_at_line_beginning);
+}
+
 1;
 
 __END__
@@ -831,6 +926,11 @@ based on the sectioning tree.  If the optional
 C<$add_section_names_in_entries> argument is set, a menu entry 
 name is added using the section name.  This function should be
 called after L<sectioning_structure>.
+
+=item protect_hashchar_at_line_beginning($registrar, $configuration_informations, $tree)
+
+Protect hash (#) character at the beginning of line such that they would
+not be considered as lines to be processed by the CPP processor.
 
 =item $detailmenu = new_master_menu ($parser, $labels)
 

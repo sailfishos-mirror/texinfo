@@ -27,6 +27,9 @@ use Texinfo::Common;
 use Texinfo::Convert::Unicode;
 # for debugging
 use Texinfo::Convert::Texinfo;
+# misc functions and data
+use Texinfo::Convert::Utils;
+
 use Data::Dumper;
 use Carp qw(cluck carp);
 
@@ -217,7 +220,7 @@ sub text_accents($;$$)
   my $set_case = shift;
   
   my ($contents, $stack)
-      = Texinfo::Common::find_innermost_accent_contents($accent);
+      = Texinfo::Convert::Utils::find_innermost_accent_contents($accent);
 
   my $options = {};
   $options->{'enabled_encoding'} = $encoding if (defined($encoding));
@@ -253,8 +256,9 @@ sub brace_no_arg_command($;$)
                        $command, $encoding);
   }
   if (!defined($result) and $options and $options->{'converter'}) {
-    my $tree = Texinfo::Common::translated_command_tree(
-                  $options->{'converter'}, $command);
+    my $tree
+      = Texinfo::Convert::Utils::translated_command_tree($options->{'converter'},
+                                                                         $command);
     if ($tree) {
       $result = _convert($tree, $options);
     }
@@ -297,8 +301,8 @@ sub heading($$$;$$)
   # REMARK to get the numbering right in case of an indented text, the
   # indentation should be given here.  But this should never happen as
   # the only @-commands allowed in indented context are not numbered.
-  $text = Texinfo::Common::numbered_heading($converter, $current, $text, 
-                                            $numbered);
+  $text = Texinfo::Convert::Utils::numbered_heading($converter, $current, $text,
+                                                     $numbered);
   return '' if ($text !~ /\S/);
   my $result = $text ."\n";
   if (defined($indent_length)) {
@@ -405,15 +409,15 @@ sub _convert($;$)
           and $sort_brace_no_arg_commands{$root->{'cmdname'}}) {
         return $sort_brace_no_arg_commands{$root->{'cmdname'}};
       } elsif ($options->{'converter'}) {
-        return _convert(Texinfo::Common::expand_today($options->{'converter'}),
-                       $options);
+        return _convert(Texinfo::Convert::Utils::expand_today($options->{'converter'}),
+                        $options);
       } elsif ($options->{'TEST'}) {
         return 'a sunny day';
       } else {
         my($sec, $min, $hour, $mday, $mon, $year, $wday, $yday, $isdst)
           = localtime(time);
         $year += ($year < 70) ? 2000 : 1900;
-        return "$Texinfo::Common::MONTH_NAMES[$mon] $mday, $year";
+        return "$Texinfo::Convert::Utils::MONTH_NAMES[$mon] $mday, $year";
       }
     } elsif (defined($text_brace_no_arg_commands{$root->{'cmdname'}})) {
       return brace_no_arg_command($root, $options);
@@ -516,8 +520,8 @@ sub _convert($;$)
         }
       } elsif ($root->{'cmdname'} eq 'verbatiminclude') {
         my $verbatim_include_verbatim
-          = Texinfo::Common::expand_verbatiminclude($options->{'converter'},
-                                                    $options, $root);
+          = Texinfo::Convert::Utils::expand_verbatiminclude(
+                               $options->{'converter'}, $options, $root);
         if (defined($verbatim_include_verbatim)) {
           $result .= _convert($verbatim_include_verbatim, $options);
         }
@@ -545,7 +549,8 @@ sub _convert($;$)
     if ($root->{'extra'} and $root->{'extra'}->{'def_parsed_hash'}
              and %{$root->{'extra'}->{'def_parsed_hash'}}) {
       my $parsed_definition_category
-        = Texinfo::Common::definition_category ($options->{'converter'}, $root);
+        = Texinfo::Convert::Utils::definition_category($options->{'converter'},
+                                                       $root);
       my @contents = ($parsed_definition_category, {'text' => ': '});
       if ($root->{'extra'}->{'def_parsed_hash'}->{'type'}) {
         push @contents, ($root->{'extra'}->{'def_parsed_hash'}->{'type'},
@@ -553,7 +558,7 @@ sub _convert($;$)
       }
       push @contents, $root->{'extra'}->{'def_parsed_hash'}->{'name'};
 
-      my $arguments = Texinfo::Common::definition_arguments_content($root);
+      my $arguments = Texinfo::Convert::Utils::definition_arguments_content($root);
       if ($arguments) {
         push @contents, {'text' => ' '};
         push @contents, @$arguments;

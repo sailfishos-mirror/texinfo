@@ -50,16 +50,18 @@ use Storable qw(dclone); # standard in 5.007003
 
 # commands definitions
 use Texinfo::Common;
-# Error reporting and counting, translation of strings.
+# Error reporting and counting
 use Texinfo::Report;
 # encoding_alias
 use Texinfo::Encoding;
 
-# to normalize node name, anchor, float arg, and first *ref argument.
-use Texinfo::Convert::NodeNameNormalization;
 # in error messages, and for macro body expansion
 use Texinfo::Convert::Texinfo;
 
+# to normalize node name, anchor, float arg, and first *ref argument.
+use Texinfo::Convert::NodeNameNormalization;
+
+# translation of strings.
 use Texinfo::Translations;
 
 require Exporter;
@@ -5474,8 +5476,9 @@ sub _parse_texi($;$)
   }
 
   # Setup labels info and nodes list based on 'targets'
-  Texinfo::Common::set_nodes_list_labels($self, $self->{'registrar'}, $self);
-  Texinfo::Common::complete_indices($self);
+  Texinfo::Convert::NodeNameNormalization::set_nodes_list_labels($self,
+                                              $self->{'registrar'}, $self);
+  Texinfo::Translations::complete_indices($self);
   return $root;
 }
 

@@ -16,3 +16,4 @@ tp/Texinfo/Convert/Info.pm
 tp/Texinfo/Convert/LaTeX.pm
 tp/Texinfo/Convert/Plaintext.pm
 tp/Texinfo/Convert/HTML.pm
+tp/Texinfo/Convert/Utils.pm

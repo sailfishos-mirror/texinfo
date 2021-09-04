@@ -22,13 +22,16 @@ package Texinfo::Convert::DocBook;
 use 5.00405;
 use strict;
 
-use Texinfo::Convert::Converter;
 use Texinfo::Common;
-use Texinfo::Convert::Unicode;
-use Texinfo::Convert::Text;
-use Texinfo::Convert::Plaintext;
+
 # for debugging
 use Texinfo::Convert::Texinfo;
+
+use Texinfo::Convert::Unicode;
+use Texinfo::Convert::Utils;
+use Texinfo::Convert::Text;
+use Texinfo::Convert::Converter;
+use Texinfo::Convert::Plaintext;
 use Data::Dumper;
 use Carp qw(cluck);
 
@@ -575,14 +578,15 @@ sub _convert($$;$)
       } else {
         $command = $root->{'cmdname'};
       }
-      if ($self->{'translated_commands'}->{$command}) {
-        return $self->_convert(Texinfo::Common::translated_command_tree($self,
-                                                                   $command));
+      my $translated_tree = Texinfo::Convert::Utils::translated_command_tree($self,
+                                                                           $command);
+      if ($translated_tree) {
+        return $self->_convert($translated_tree);
       } else {
         return $docbook_no_arg_commands_formatting{$command};
       }
     } elsif ($root->{'cmdname'} eq 'today') {
-      return $self->_convert(Texinfo::Common::expand_today($self));
+      return $self->_convert(Texinfo::Convert::Utils::expand_today($self));
     } elsif ($Texinfo::Common::accent_commands{$root->{'cmdname'}}) {
       return $self->convert_accents($root, \&docbook_accent,
                $self->{'document_context'}->[-1]->{'upper_case'}->[-1]);
@@ -657,7 +661,7 @@ sub _convert($$;$)
       if ($type eq 'text') {
         if ($root->{'cmdname'} eq 'verbatiminclude') {
           my $verbatim_include_verbatim
-            = Texinfo::Common::expand_verbatiminclude($self, $self, $root);
+            = Texinfo::Convert::Utils::expand_verbatiminclude($self, $self, $root);
           if (defined($verbatim_include_verbatim)) {
             $result .= $self->_convert($verbatim_include_verbatim);
           } else {

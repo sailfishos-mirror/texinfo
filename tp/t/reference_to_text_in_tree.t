@@ -7,7 +7,7 @@ use Test::More;
 
 BEGIN { plan tests => 2; }
 
-use Texinfo::Parser qw(parse_texi_text);
+use Texinfo::Parser;
 use Texinfo::Transformations;
 use Texinfo::Convert::Texinfo;
 
@@ -20,7 +20,7 @@ sub run_test($$$)
   my $name = shift;
 
   my $parser = Texinfo::Parser::parser();
-  my $tree = parse_texi_text($parser, $in);
+  my $tree = $parser->parse_texi_text($in);
 
   my $corrected_tree 
     = Texinfo::Transformations::reference_to_arg_in_tree($parser, $tree);

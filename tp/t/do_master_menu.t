@@ -7,9 +7,10 @@ use Test::More;
 
 BEGIN { plan tests => 5; }
 
-use Texinfo::Parser qw(parse_texi_text);
+use Texinfo::Parser;
 use Texinfo::Transformations;
 use Texinfo::Convert::Texinfo;
+use Texinfo::Structuring;
 
 use Data::Dumper;
 

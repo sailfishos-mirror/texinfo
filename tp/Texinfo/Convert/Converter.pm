@@ -29,15 +29,15 @@ use File::Spec;
 use Encode;
 
 use Texinfo::Common;
-use Texinfo::Structuring;
 
 use Texinfo::Report;
 use Texinfo::Translations;
 
-use Texinfo::Convert::NodeNameNormalization;
-use Texinfo::Structuring;
+use Texinfo::Convert::Utils;
 use Texinfo::Convert::Unicode;
 use Texinfo::Convert::Text;
+use Texinfo::Convert::NodeNameNormalization;
+use Texinfo::Structuring;
 
 use Carp qw(cluck);
 
@@ -932,7 +932,7 @@ sub _create_destination_directory($)
   return 1;
 }
 
-sub _float_type_number($$)
+sub float_type_number($$)
 {
   my $self = shift;
   my $float = shift;
@@ -958,6 +958,60 @@ sub _float_type_number($$)
        {'float_number' => $float->{'number'}});
   }
   return $tree;
+}
+
+sub float_name_caption($$)
+{
+  my $self = shift;
+  my $root = shift;
+
+  my $caption;
+  if ($root->{'extra'}->{'caption'}) {
+    $caption = $root->{'extra'}->{'caption'};
+  } elsif ($root->{'extra'}->{'shortcaption'}) {
+    $caption = $root->{'extra'}->{'shortcaption'};
+  }
+  #if ($self->get_conf('DEBUG')) {
+  #  my $caption_texi =
+  #    Texinfo::Convert::Texinfo::convert_to_texinfo({ 'contents' => $caption->{'contents'}});
+  #  print STDERR "  CAPTION: $caption_texi\n";
+  #}
+  my $type;
+  if ($root->{'extra'}->{'type'}->{'normalized'} ne '') {
+    $type = {'contents' => $root->{'extra'}->{'type'}->{'content'}};
+  }
+
+  my $prepended;
+  if ($type) {
+    if ($caption) {
+      if (defined($root->{'number'})) {
+        $prepended = $self->gdt('{float_type} {float_number}: ',
+            {'float_type' => $type,
+             'float_number' => $root->{'number'}});
+      } else {
+        $prepended = $self->gdt('{float_type}: ',
+          {'float_type' => $type});
+      }
+    } else {
+      if (defined($root->{'number'})) {
+        $prepended = $self->gdt("{float_type} {float_number}\n",
+            {'float_type' => $type,
+              'float_number' => $root->{'number'}});
+      } else {
+        $prepended = $self->gdt("{float_type}\n",
+            {'float_type' => $type});
+      }
+    }
+  } elsif (defined($root->{'number'})) {
+    if ($caption) {
+      $prepended = $self->gdt('{float_number}: ',
+          {'float_number' => $root->{'number'}});
+    } else {
+      $prepended = $self->gdt("{float_number}\n",
+           {'float_number' => $root->{'number'}});
+    }
+  }
+  return ($caption, $prepended);
 }
 
 # This is used when the formatted text has no comment nor new line, but
@@ -1244,8 +1298,8 @@ sub convert_accents($$$;$)
   my $in_upper_case = shift;
 
   my ($contents, $stack)
-      = Texinfo::Common::find_innermost_accent_contents($accent);
-  my $result = $self->convert_tree({'contents' => $contents});  
+      = Texinfo::Convert::Utils::find_innermost_accent_contents($accent);
+  my $result = $self->convert_tree({'contents' => $contents});
 
   my $encoded;
   if ($self->get_conf('ENABLE_ENCODING')) {
@@ -1588,7 +1642,7 @@ Texinfo::Convert::Converter - Parent class for Texinfo tree converters
 =head1 DESCRIPTION
 
 Texinfo::Convert::Converter is a super class that can be used to
-simplify converters initialization.  The class also provide some 
+simplify converters initialization.  The class also provide some
 useful methods.
 
 In turn, the converter should define some methods.  Two are
@@ -1596,23 +1650,23 @@ optional, C<converter_defaults>, C<converter_initialize> and
 used for initialization, to give C<Texinfo::Convert::Converter>
 some informations.
 
-The C<convert_tree> method is more or less mandatory and should 
-convert portions of Texinfo tree.  The C<output> and C<convert> 
-are not required, but customarily used by converters as entry 
-points for conversion to a file with headers and so on, or 
+The C<convert_tree> method is more or less mandatory and should
+convert portions of Texinfo tree.  The C<output> and C<convert>
+are not required, but customarily used by converters as entry
+points for conversion to a file with headers and so on, or
 conversion of a whole Texinfo tree.
 
 Existing backends may be used as examples that implement those
-methods.  C<Texinfo::Convert::Texinfo> together with 
-C<Texinfo::Convert::PlainTexinfo>, as well as 
-C<Texinfo::Convert::TextContent> are trivial examples.  
-C<Texinfo::Convert::Text> is less trivial, although still simplistic, 
+methods.  C<Texinfo::Convert::Texinfo> together with
+C<Texinfo::Convert::PlainTexinfo>, as well as
+C<Texinfo::Convert::TextContent> are trivial examples.
+C<Texinfo::Convert::Text> is less trivial, although still simple,
 while C<Texinfo::Convert::DocBook> is a real converter
-that is also not too complex.  
+that is also not too complex.
 
-L<Texinfo::Common>, L<Texinfo::Convert::Unicode> 
-and L<Texinfo::Report> document modules or additional function 
-that may be useful for backends, while the parsed Texinfo tree is 
+L<Texinfo::Common>, L<Texinfo::Convert::Unicode>
+and L<Texinfo::Report> document modules or additional function
+that may be useful for backends, while the parsed Texinfo tree is
 described in L<Texinfo::Parser>.
 
 
@@ -1621,7 +1675,7 @@ described in L<Texinfo::Parser>.
 =head2 Initialization
 
 A module subclassing C<Texinfo::Convert::Converter> is created by calling
-the C<converter> method that should be inherited from 
+the C<converter> method that should be inherited from
 C<Texinfo::Convert::Converter>.
 
 =over
@@ -1629,12 +1683,12 @@ C<Texinfo::Convert::Converter>.
 =item $converter = MyConverter->converter($options)
 
 The I<$options> hash reference holds options for the converter.  In
-this option hash reference a L<parser object|Texinfo::Parser> 
-may be associated with the I<parser> key.  The other options 
+this option hash reference a L<parser object|Texinfo::Parser>
+may be associated with the I<parser> key.  The other options
 should be configuration options described in the Texinfo manual.
 Those options, when appropriate, override the document content.
 
-The C<converter> function returns a converter object (a blessed hash 
+The C<converter> function returns a converter object (a blessed hash
 reference) after checking the options and performing some initializations,
 especially when a parser is given among the options.  The converter is
 also initialized as a L<Texinfo::Report>.
@@ -1659,8 +1713,13 @@ converter initialization.
 
 =head2 Helper methods
 
-C<Texinfo::Convert::Converter> provides methods
-that may be useful for every converter:
+The module provides methods that may be useful for converter.
+Most methods take a I<$converter> as argument to get some
+information and use methods for error reporting, see L<Texinfo::Report>.  Also
+to translate strings, see L<Texinfo::Translations>.  For
+useful methods that need a converter optionally and can be used
+in converters that do not inherit from Texinfo::Convert::Converter,
+see L<Texinfo::Convert::Utils>.
 
 =over
 
@@ -1682,7 +1741,7 @@ format, like the splitting for example.
 
 =item $result = $converter->convert_document_sections($root, $file_handler)
 
-This method splits the I<$root> Texinfo tree at sections and 
+This method splits the I<$root> Texinfo tree at sections and
 calls C<convert_tree> on the elements.  If the optional I<$file_handler>
 is given in argument, the result are output in I<$file_handler>, otherwise
 the resulting string is returned.
@@ -1693,6 +1752,19 @@ I<$accent_command> is an accent command, which may have other accent
 commands nested.  The function returns the accents formatted either
 as encoded letters, or formatted using I<\&format_accents>.
 If I<$in_upper_case> is set, the result should be uppercased.
+
+=item ($caption, $prepended) = $converter->float_name_caption ($float)
+
+I<$float> is a texinfo tree C<@float> element.  This function
+returns the caption that should be used for the float formatting
+and the I<$prepended> texinfo tree combining the type and label
+of the float.
+
+=item $tree = $converter->float_type_number($float)
+
+I<$float> is a texinfo tree C<@float> element.  This function
+returns the type and number of the float as a texinfo tree with
+translations.
 
 =back
 
@@ -1713,9 +1785,9 @@ Returns an XML comment for I<$text>.
 I<$text> is the text appearing within an accent command.  I<$accent_command>
 should be a Texinfo tree element corresponding to an accent command taking
 an argument.  I<$in_upper_case> is optional, and, if set, the text is put
-in upper case.  The function returns the accented letter as XML entity 
+in upper case.  The function returns the accented letter as XML entity
 if possible.  I<$use_numeric_entities> is also optional, and, if set, and
-there is no XML entity, the numerical entity corresponding to Unicode 
+there is no XML entity, the numerical entity corresponding to Unicode
 points is preferred to an ASCII transliteration.  If I<$use_numeric_entities>
 is set numerical entities are also used for diacritics instead of ASCII
 characters.
@@ -1723,7 +1795,7 @@ characters.
 =item $result = $converter->xml_accents($accent_command, $in_upper_case)
 
 I<$accent_command> is an accent command, which may have other accent
-commands nested.  If I<$in_upper_case> is set, the result should be 
+commands nested.  If I<$in_upper_case> is set, the result should be
 upper cased.  The function returns the accents formatted as XML.
 
 =back
@@ -1740,8 +1812,8 @@ specification.
 
 =head1 SEE ALSO
 
-L<Texinfo::Common>, L<Texinfo::Convert::Unicode>, L<Texinfo::Report> 
-and L<Texinfo::Parser>.  
+L<Texinfo::Common>, L<Texinfo::Convert::Unicode>, L<Texinfo::Report>,
+L<Texinfo::Translations>, L<Texinfo::Convert::Utils> and L<Texinfo::Parser>.
 
 =head1 AUTHOR
 

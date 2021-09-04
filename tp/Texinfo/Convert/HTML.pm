@@ -58,10 +58,11 @@ use strict;
 
 use Texinfo::Common;
 use Texinfo::Structuring;
-use Texinfo::Convert::Converter;
+use Texinfo::Convert::Unicode;
+use Texinfo::Convert::Utils;
 use Texinfo::Convert::Texinfo;
 use Texinfo::Convert::Text;
-use Texinfo::Convert::Unicode;
+use Texinfo::Convert::Converter;
 use Texinfo::Convert::NodeNameNormalization;
 
 use Texinfo::Config;
@@ -570,7 +571,7 @@ sub command_text($$;$)
         $tree = {'type' => '_code',
                  'contents' => $command->{'extra'}->{'node_content'}};
       } elsif ($command->{'cmdname'} and ($command->{'cmdname'} eq 'float')) {
-        $tree = $self->_float_type_number($command); 
+        $tree = $self->float_type_number($command);
       } elsif ($command->{'extra'}->{'missing_argument'}) {
         if ($type eq 'tree' or $type eq 'tree_nonumber') {
           return {};
@@ -1368,9 +1369,11 @@ sub _convert_no_arg_command($$$)
   }
 
   my $result;
-  if ($self->{'translated_commands'}->{$cmdname}) {
-    return $self->convert_tree(
-         $self->gdt($self->{'translated_commands'}->{$cmdname}));
+  
+  my $translated_tree = Texinfo::Convert::Utils::translated_command_tree($self,
+                                                                       $cmdname);
+  if ($translated_tree) {
+    return $self->convert_tree($translated_tree);
   }
   if ($self->in_preformatted() or $self->in_math()) {
     $result = $self->{'no_arg_commands_formatting'}->{'preformatted'}->{$cmdname};
@@ -1392,7 +1395,7 @@ sub _convert_today_command($$$)
   my $cmdname = shift;
   my $command = shift;
 
-  my $tree = $self->Texinfo::Common::expand_today();
+  my $tree = $self->Texinfo::Convert::Utils::expand_today();
   return $self->convert_tree($tree);
 }
 
@@ -2839,7 +2842,7 @@ sub _convert_verbatiminclude_command($$$$)
   my $args = shift;
 
   my $verbatim_include_verbatim 
-    = Texinfo::Common::expand_verbatiminclude($self, $self, $command);
+    = Texinfo::Convert::Utils::expand_verbatiminclude($self, $self, $command);
   if (defined($verbatim_include_verbatim)) {
     return $self->convert_tree($verbatim_include_verbatim);
   } else {
@@ -3087,8 +3090,8 @@ sub _convert_float_command($$$$$)
   my $args = shift;
   my $content = shift;
 
-  my ($caption, $prepended) = Texinfo::Common::float_name_caption($self,
-                                                                   $command);
+  my ($caption, $prepended)
+     = Texinfo::Convert::Converter::float_name_caption($self, $command);
   my $caption_text = '';
   my $prepended_text;
   if ($self->in_string()) {
@@ -4364,7 +4367,7 @@ sub _convert_def_line_type($$$$)
     $index_label = " id=\"$index_id\"";
   }
   my $arguments
-    = Texinfo::Common::definition_arguments_content($command);
+    = Texinfo::Convert::Utils::definition_arguments_content($command);
 
   if (!$self->get_conf('DEF_TABLE')) {
     my $tree;
@@ -4568,7 +4571,7 @@ sub _convert_def_line_type($$$$)
     if ($command->{'extra'} and $command->{'extra'}->{'def_parsed_hash'}
         and %{$command->{'extra'}->{'def_parsed_hash'}}) {
       my $parsed_definition_category 
-         = Texinfo::Common::definition_category ($self, $command);
+         = Texinfo::Convert::Utils::definition_category ($self, $command);
       if ($parsed_definition_category) {
         $category_prepared = $self->convert_tree({'type' => '_code',
                    'contents' => [$parsed_definition_category]});

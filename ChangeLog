@@ -1,3 +1,39 @@
+2021-09-04  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Common.pm,
+	tp/Texinfo/Convert/Converter.pm (float_name_caption),
+	tp/Texinfo/Convert/Utils.pm (@MONTH_NAMES, expand_verbatiminclude)
+	(definition_category, expand_today, translated_command_tree)
+	(numbered_heading, definition_arguments_content)
+	(find_innermost_accent_contents),
+	tp/Texinfo/Convert/NodeNameNormalization.pm (set_nodes_list_labels),
+	tp/Texinfo/Transformations.pm (protect_hashchar_at_line_beginning),
+	tp/Texinfo/Translations.pm (complete_indices),
+	tp/Texinfo/XS/parsetexi/Parsetexi.pm,
+	tp/Texinfo/Convert/DocBook.pm, tp/Texinfo/Convert/HTML.pm,
+	tp/Texinfo/Convert/LaTeX.pm, tp/Texinfo/Convert/Plaintext.pm,
+	tp/Texinfo/Convert/Text.pm, tp/Texinfo/Convert/TextContent.pm,
+	tp/Texinfo/ParserNonXS.pm, Pod-Simple-Texinfo/lib/Pod/Simple/Texinfo.pm,
+	tp/init/chm.pm : move methods from Texinfo::Common to other files, to avoid
+	dependencies on other modules and group code more logically.
+	Most of the functions are moved to the newly created
+	Texinfo::Convert::Utils file which groups miscellaneous functions
+	usable in simple converters, in practice functions used by
+	Texinfo::Convert::Text and other converters.  Exceptions are
+	set_nodes_list_labels() moved to Texinfo::Convert::NodeNameNormalization
+	because it uses that module, float_name_caption() moved to
+	Texinfo::Convert::Converter, protect_hashchar_at_line_beginning()
+	moved to Texinfo::Transformations and complete_indices() moved
+	to Texinfo::Translations as it is mostly about translations.
+	Add to, simplify and reorder loading of packages with use.
+
+	* tp/Texinfo/Convert/Converter.pm (float_type_number),
+	tp/Texinfo/Convert/HTML.pm, tp/Texinfo/Convert/Plaintext.pm:
+	rename _float_type_number() as float_type_number().
+
+	* tp/Makefile.am (dist_converters_DATA), po/POTFILES.in,
+	po_document/POTFILES.in: add Texinfo/Convert/Utils.pm.
+
 2021-09-03  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Config.pm (texinfo_register_no_arg_command_formatting)

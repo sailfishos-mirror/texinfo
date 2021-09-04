@@ -7,8 +7,8 @@ use Test::More;
 
 BEGIN { plan tests => 6; }
 
-use Texinfo::Parser qw(parse_texi_text);
-use Texinfo::Common qw(protect_hashchar_at_line_beginning);
+use Texinfo::Parser;
+use Texinfo::Transformations;
 use Texinfo::Convert::Texinfo;
 
 use Data::Dumper;
@@ -28,7 +28,7 @@ sub run_test($$$;$)
   my $registrar = $parser->registered_errors();
 
   my $corrected_tree = 
-    Texinfo::Common::protect_hashchar_at_line_beginning($registrar, $parser, $tree);
+    Texinfo::Transformations::protect_hashchar_at_line_beginning($registrar, $parser, $tree);
 
   if (defined($error_message)) {
     my ($errors, $errors_count) = $registrar->errors();

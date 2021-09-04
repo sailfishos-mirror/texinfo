@@ -7,7 +7,7 @@ use Texinfo::ModulePath (undef, undef, 'updirs' => 2);
 
 BEGIN { plan tests => 24; }
 
-use Texinfo::Parser qw(parse_texi_text);
+use Texinfo::Parser;
 use Texinfo::Transformations;
 use Texinfo::Convert::Texinfo;
 

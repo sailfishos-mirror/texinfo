@@ -7,10 +7,14 @@ use Test::More;
 
 BEGIN { plan tests => 59; }
 
+use Encode;
+
+use Texinfo::Convert::Unicode;
+use Texinfo::Convert::Utils;
 use Texinfo::Convert::Text;
+use Texinfo::Parser;
 use Texinfo::Convert::Converter;
 use Texinfo::Convert::HTML;
-use Texinfo::Parser;
 
 ok(1, "modules loading");
 
@@ -25,7 +29,7 @@ sub test_accent_stack ($)
   my $text_root = $parser->parse_texi_text($texi);
   my $tree = $text_root->{'contents'}->[0]->{'contents'}->[0];
   my ($contents, $commands_stack) = 
-    Texinfo::Common::find_innermost_accent_contents($tree);
+    Texinfo::Convert::Utils::find_innermost_accent_contents($tree);
   my $text = Texinfo::Convert::Text::convert_to_text({'contents' => $contents});
   my @stack = map {$_->{'cmdname'}} @$commands_stack;
   if (defined($reference)) {
@@ -75,7 +79,7 @@ sub test_enable_encoding ($)
   my $tree = $text_root->{'contents'}->[0]->{'contents'}->[0];
 
   my ($contents, $commands_stack) = 
-    Texinfo::Common::find_innermost_accent_contents($tree);
+    Texinfo::Convert::Utils::find_innermost_accent_contents($tree);
   my $text = Texinfo::Convert::Text::convert_to_text({'contents' => $contents});
 
   my $result = 
@@ -91,7 +95,7 @@ sub test_enable_encoding ($)
       = Texinfo::Convert::Converter::xml_accents($html_converter, $tree);
 
   ($contents, $commands_stack) =
-    Texinfo::Common::find_innermost_accent_contents($tree);
+    Texinfo::Convert::Utils::find_innermost_accent_contents($tree);
   $text = Texinfo::Convert::Text::convert_to_text({'contents' => $contents},
                                {'enabled_encoding' => 'utf-8'});
   my $result_unicode = Texinfo::Convert::Unicode::unicode_accents(undef, $text, 

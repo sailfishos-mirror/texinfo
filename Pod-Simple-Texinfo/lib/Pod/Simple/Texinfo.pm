@@ -32,9 +32,8 @@ use Texinfo::Convert::NodeNameNormalization qw(normalize_node);
 use Texinfo::Parser qw(parse_texi_line parse_texi_text);
 use Texinfo::Convert::Texinfo;
 use Texinfo::Convert::TextContent;
-use Texinfo::Common qw(protect_comma_in_tree protect_first_parenthesis
-                       protect_hashchar_at_line_beginning);
-use Texinfo::Transformations;
+use Texinfo::Common qw(protect_comma_in_tree protect_first_parenthesis);
+use Texinfo::Transformations qw(protect_hashchar_at_line_beginning);
 
 use vars qw(
   @ISA $VERSION

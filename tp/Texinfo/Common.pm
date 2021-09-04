@@ -31,13 +31,6 @@ use File::Spec;
 use Encode;
 
 use Texinfo::Documentlanguages;
-# used in functions, but Texinfo::Convert::Texinfo uses
-# Texinfo::Common in main module, so needs to be loaded after
-#use Texinfo::Convert::Texinfo;
-# same reason as above, and in addition Texinfo::Convert::NodeNameNormalization
-# loads most of the other modules, we may not want to load those modules
-# early.
-#use Texinfo::Convert::NodeNameNormalization;
 
 # debugging
 use Carp qw(cluck);
@@ -49,17 +42,11 @@ use vars qw($VERSION @ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
 %EXPORT_TAGS = ( 'all' => [ qw(
 debug_hash
 debug_list
-definition_category
-expand_verbatiminclude
-expand_today
-float_name_caption
 is_content_empty
 move_index_entries_after_items_in_tree
 normalize_top_node_name
-numbered_heading
 protect_comma_in_tree
 protect_first_parenthesis
-protect_hashchar_at_line_beginning
 protect_colon_in_tree
 protect_node_after_label_in_tree
 trim_spaces_comment_from_content
@@ -266,7 +253,7 @@ our %default_converter_customization = (
 # some converters, for example CLOSE_QUOTE_SYMBOL and many
 # for HTML.  Could be added to %default_converter_customization.
 # Defaults are documented in manual and set in the various converters.
-our @variable_string_settables = (
+my @variable_string_settables = (
 'AFTER_ABOUT',
 'AFTER_BODY_OPEN',
 'AFTER_OVERVIEW',
@@ -660,7 +647,7 @@ foreach my $index_name (keys (%index_names)) {
 }
 
 # command with braces. Value is the max number of arguments.
-our %brace_commands;    
+our %brace_commands;
 
 our %letter_no_arg_commands;
 foreach my $letter_no_arg_command ('aa','AA','ae','oe','AE','OE','o','O',
@@ -809,6 +796,8 @@ our %block_commands;
 # commands that have a possible content before an item
 our %block_item_commands;
 
+# Do nothing, used to mark translations for gettext.  The strings
+# are marked to be translated in the parsers with type 'untranslated'.
 sub gdt($)
 {
   return $_[0];
@@ -1109,13 +1098,6 @@ foreach my $command (
   $all_commands{$command} = 1;
 } 
 
-our @MONTH_NAMES =
-    (
-     'January', 'February', 'March', 'April', 'May',
-     'June', 'July', 'August', 'September', 'October',
-     'November', 'December'
-    );
-
 # file:        file name to locate. It can be a file path.
 # directories: a reference on a array containing a list of directories to
 #              search the file in. 
@@ -1231,7 +1213,7 @@ sub output_files_open_out($$$;$)
   }
   my $filehandle = do { local *FH };
   if (!open ($filehandle, '>', $file)) {
-    return undef; 
+    return undef;
   }
   # We run binmode to turn off outputting LF as CR LF under MS-Windows,
   # so that Info tag tables will have correct offsets.  This must be done
@@ -1339,230 +1321,6 @@ sub set_output_encodings($$)
     if ($perl_encoding) {
       $configuration_informations->set_conf('OUTPUT_PERL_ENCODING', $perl_encoding);
     }
-  }
-}
-
-# This should do the job, or at least don't do wrong if $self
-# is not defined, as could be the case if called from 
-# Texinfo::Convert::Text.
-sub expand_verbatiminclude($$$)
-{
-  my $registrar = shift;
-  my $configuration_informations = shift;
-  my $current = shift;
-
-  return unless ($current->{'extra'} and defined($current->{'extra'}->{'text_arg'}));
-  my $text = $current->{'extra'}->{'text_arg'};
-  my $file = locate_include_file($configuration_informations, $text);
-
-  my $verbatiminclude;
-
-  if (defined($file)) {
-    if (!open(VERBINCLUDE, $file)) {
-      if ($registrar) {
-        $registrar->line_error($configuration_informations,
-                               sprintf(__("could not read %s: %s"), $file, $!),
-                               $current->{'line_nr'});
-      }
-    } else {
-      if (defined $current->{'extra'}->{'input_perl_encoding'}) {
-        binmode(VERBINCLUDE, ":encoding("
-                             . $current->{'extra'}->{'input_perl_encoding'}
-                             . ")");
-      }
-      $verbatiminclude = { 'cmdname' => 'verbatim',
-                           'parent' => $current->{'parent'},
-                           'extra' => 
-                        {'text_arg' => $current->{'extra'}->{'text_arg'}} };
-      while (<VERBINCLUDE>) {
-        push @{$verbatiminclude->{'contents'}}, 
-                  {'type' => 'raw', 'text' => $_ };
-      }
-      if (!close (VERBINCLUDE)) {
-        if ($registrar) {
-          $registrar->document_warn(
-                 $configuration_informations, sprintf(__(
-                      "error on closing \@verbatiminclude file %s: %s"),
-                             $file, $!));
-        }
-      }
-    }
-  } elsif ($registrar) {
-    $registrar->line_error($configuration_informations,
-                           sprintf(__("\@%s: could not find %s"),
-                                        $current->{'cmdname'}, $text),
-                           $current->{'line_nr'});
-  }
-  return $verbatiminclude;
-}
-
-sub definition_category($$)
-{
-  my $self = shift;
-  my $current = shift;
-
-  return undef if (!$current->{'extra'}
-      or !$current->{'extra'}->{'def_parsed_hash'});
-
-  my $arg_category = $current->{'extra'}->{'def_parsed_hash'}->{'category'};
-  my $arg_class = $current->{'extra'}->{'def_parsed_hash'}->{'class'};
-
-  return $arg_category
-    if (!defined($arg_class));
-  
-  my $style = $command_index{$current->{'extra'}->{'def_command'}};
-  if ($style eq 'fn') {
-    if ($self) {
-      return $self->gdt('{category} on {class}', { 'category' => $arg_category,
-                                          'class' => $arg_class });
-    } else {
-      return {'contents' => [$arg_category, {'text' => ' on '}, $arg_class]};
-    }
-  } elsif ($style eq 'vr') {
-    if ($self) {
-      return $self->gdt('{category} of {class}', { 'category' => $arg_category,
-                                          'class' => $arg_class });
-    } else {
-      return {'contents' => [$arg_category, {'text' => ' of '}, $arg_class]};
-    }
-  }
-}
-
-sub expand_today($)
-{
-  my $self = shift;
-  if ($self->get_conf('TEST')) {
-    return {'text' => 'a sunny day'};
-  }
-
-  my ($sec, $min, $hour, $mday, $mon, $year, $wday, $yday, $isdst)
-    = ($ENV{SOURCE_DATE_EPOCH}
-        ? gmtime($ENV{SOURCE_DATE_EPOCH})
-        : localtime(time));
-  # See https://reproducible-builds.org/specs/source-date-epoch/.
-
-  $year += ($year < 70) ? 2000 : 1900;
-  return $self->gdt('{month} {day}, {year}',
-          { 'month' => $self->gdt($MONTH_NAMES[$mon]),
-            'day' => $mday, 'year' => $year });
-}
-
-sub translated_command_tree($$)
-{
-  my $self = shift;
-  my $cmdname = shift;
-  if ($self->{'translated_commands'}->{$cmdname}) {
-    return $self->gdt($self->{'translated_commands'}->{$cmdname});
-  }
-  return undef;
-}
-
-sub numbered_heading($$$;$)
-{
-  my $self = shift;
-  my $current = shift;
-  my $text = shift;
-  my $numbered = shift;
-
-  my $number;
-  if (defined($current->{'number'}) and ($numbered or !defined($numbered))) {
-    $number = $current->{'number'};
-  }
-
-  my $result;
-  if ($self) {
-    if (defined($number)) {
-      if ($current->{'cmdname'} eq 'appendix' and $current->{'level'} == 1) {
-        $result = $self->gdt('Appendix {number} {section_title}',
-                   {'number' => $number, 'section_title' => $text}, 
-                   'translated_text');
-      } else {
-        $result = $self->gdt('{number} {section_title}',
-                   {'number' => $number, 'section_title' => $text},
-                   'translated_text');
-      }
-    } else {
-      $result = $text;
-    }
-  } else {
-    $result = $text;
-    $result = $number.' '.$result if (defined($number));
-    if ($current->{'cmdname'} eq 'appendix' and $current->{'level'} == 1) {
-      $result = 'Appendix '.$result;
-    }
-  }
-  chomp ($result);
-  return $result;
-}
-
-sub definition_arguments_content($)
-{
-  my $root = shift;
-  my $result;
-
-  return undef if (!defined($root->{'extra'}) 
-                    or !defined($root->{'extra'}->{'def_parsed_hash'}));
-  my @args = @{$root->{'args'}->[0]->{'contents'}};
-  while (@args) {
-    last if (defined($args[0]->{'extra'})
-             and defined($args[0]->{'extra'}->{'def_role'})
-             and $args[0]->{'extra'}->{'def_role'} ne 'spaces'
-             and !$root->{'extra'}->{'def_parsed_hash'}
-                       ->{$args[0]->{'extra'}->{'def_role'}});
-    shift @args;
-  }
-  if (scalar(@args) > 0) {
-    return \@args;
-  } else {
-    return undef;
-  }
-}
-
-# find the accent commands stack and the innermost text contents
-sub find_innermost_accent_contents($;$)
-{
-  my $current = shift;
-  my $encoding = shift;
-  my @accent_commands = ();
-  my $debug = 0;
- ACCENT:
-  while (1) {
-    # the following can happen if called with a bad tree
-    if (!$current->{'cmdname'} 
-        or !$accent_commands{$current->{'cmdname'}}) {
-      #print STDERR "BUG: Not an accent command in accent\n";
-      cluck "BUG: Not an accent command in accent\n";
-      #print STDERR Texinfo::Convert::Texinfo::convert_to_texinfo($current)."\n";
-      #print STDERR Data::Dumper->Dump([$current]);
-      last;
-    }
-    push @accent_commands, $current;
-    # A bogus accent, that may happen
-    if (!$current->{'args'}) {
-      return ([], \@accent_commands);
-    }
-    my $arg = $current->{'args'}->[0];
-    if (!$arg->{'contents'}) {
-      print STDERR "BUG: No content in accent command\n";
-      #print STDERR Data::Dumper->Dump([$current]);
-      #print STDERR Texinfo::Convert::Texinfo::convert_to_texinfo($current)."\n";
-      return ([], \@accent_commands);
-    }
-    # inside the argument of an accent
-    my $text_contents = [];
-    foreach my $content (@{$arg->{'contents'}}) {
-      if (!($content->{'cmdname'} and ($content->{'cmdname'} eq 'c'
-                                  or $content->{'cmdname'} eq 'comment'))) {
-        if ($content->{'cmdname'} and $accent_commands{$content->{'cmdname'}}) {
-          $current = $content;
-          next ACCENT;
-        } else {
-          push @$text_contents, $content;
-        }
-      }
-    }
-    # we go here if there was no nested accent
-    return ($text_contents, \@accent_commands);
   }
 }
 
@@ -1711,60 +1469,6 @@ sub parse_node_manual($)
   $node->{'contents'} = $new_contents;
 
   return $result;
-}
-
-sub float_name_caption($$)
-{
-  my $self = shift;
-  my $root = shift;
-
-  my $caption;
-  if ($root->{'extra'}->{'caption'}) {
-    $caption = $root->{'extra'}->{'caption'};
-  } elsif ($root->{'extra'}->{'shortcaption'}) {
-    $caption = $root->{'extra'}->{'shortcaption'};
-  }
-  #if ($self->get_conf('DEBUG')) {
-  #  my $caption_texi = 
-  #    Texinfo::Convert::Texinfo::convert_to_texinfo({ 'contents' => $caption->{'contents'}});
-  #  print STDERR "  CAPTION: $caption_texi\n";
-  #}
-  my $type;
-  if ($root->{'extra'}->{'type'}->{'normalized'} ne '') {
-    $type = {'contents' => $root->{'extra'}->{'type'}->{'content'}};
-  }
-
-  my $prepended;
-  if ($type) {
-    if ($caption) {
-      if (defined($root->{'number'})) {
-        $prepended = $self->gdt('{float_type} {float_number}: ',
-            {'float_type' => $type,
-             'float_number' => $root->{'number'}});
-      } else {
-        $prepended = $self->gdt('{float_type}: ',
-          {'float_type' => $type});
-      }
-    } else {
-      if (defined($root->{'number'})) {
-        $prepended = $self->gdt("{float_type} {float_number}\n",
-            {'float_type' => $type,
-              'float_number' => $root->{'number'}});
-      } else {
-        $prepended = $self->gdt("{float_type}\n",
-            {'float_type' => $type});
-      }
-    }
-  } elsif (defined($root->{'number'})) {
-    if ($caption) {
-      $prepended = $self->gdt('{float_number}: ',
-          {'float_number' => $root->{'number'}});
-    } else {
-      $prepended = $self->gdt("{float_number}\n",
-           {'float_number' => $root->{'number'}});
-    }
-  }
-  return ($caption, $prepended);
 }
 
 # decompose a decimal number on a given base.
@@ -2348,98 +2052,6 @@ sub protect_node_after_label_in_tree($)
   return modify_tree(undef, $tree, \&_protect_node_after_label);
 }
 
-sub _is_cpp_line($)
-{
-  my $text = shift;
-  return 1 if ($text =~ /^\s*#\s*(line)? (\d+)(( "([^"]+)")(\s+\d+)*)?\s*$/);
-  return 0;
-}
-
-sub _protect_hashchar_at_line_beginning($$$)
-{
-  my $self = shift;
-  my $type = shift;
-  my $current = shift;
-
-  my ($registrar, $configuration_informations) = @$self;
-
-  #print STDERR "$type $current "._print_current($current)."\n";
-  # if the next is a hash character at line beginning, mark it
-  if (defined($current->{'text'}) and $current->{'text'} =~ /\n$/
-      and $current->{'parent'} and $current->{'parent'}->{'contents'}) {
-    my $parent = $current->{'parent'};
-    #print STDERR "End of line in $current, parent $parent: (@{$parent->{'contents'}})\n";
-    my $current_found = 0;
-    foreach my $content (@{$parent->{'contents'}}) {
-      if ($current_found) {
-        #print STDERR "after $current: $content $content->{'text'}\n";
-        if ($content->{'text'} and _is_cpp_line($content->{'text'})) {
-          $content->{'extra'}->{'_protect_hashchar'} = 1;
-        }
-        last;
-      } elsif ($content eq $current) {
-        $current_found = 1;
-      }
-    }
-  }
-
-  my $protect_hash = 0;
-  # if marked, or first and a cpp_line protect a leading hash character
-  if ($current->{'extra'} and $current->{'extra'}->{'_protect_hashchar'}) {
-    delete $current->{'extra'}->{'_protect_hashchar'};
-    if (!scalar(keys(%{$current->{'extra'}}))) {
-      delete $current->{'extra'};
-    }
-    $protect_hash = 1;
-  } elsif ($current->{'parent'} and $current->{'parent'}->{'contents'}
-           and $current->{'parent'}->{'contents'}->[0]
-           and $current->{'parent'}->{'contents'}->[0] eq $current
-           and $current->{'text'}
-           and _is_cpp_line($current->{'text'})) {
-    $protect_hash = 1;
-  }
-  if ($protect_hash) {
-    my @result = ();
-    if ($current->{'type'} and $current->{'type'} eq 'raw') {
-      if ($self) {
-        my $parent = $current->{'parent'};
-        while ($parent) {
-          if ($parent->{'cmdname'} and $parent->{'line_nr'}) {
-            if ($registrar) {
-              $registrar->line_warn($configuration_informations, sprintf(__(
-                  "could not protect hash character in \@%s"), 
-                             $parent->{'cmdname'}), $parent->{'line_nr'});
-            }
-            last;
-          }
-          $parent = $parent->{'parent'};
-        }
-      }
-    } else {
-      $current->{'text'} =~ s/^(\s*)#//;
-      if ($1 ne '') {
-        push @result, {'text' => $1, 'parent' => $current->{'parent'}};
-      }
-      push @result, {'cmdname' => 'hashchar', 'parent' => $current->{'parent'},
-                     'args' => [{'type' => 'brace_command_arg'}]};
-    }
-    push @result, $current;
-    return @result;
-  } else {
-    return ($current);
-  }
-}
-
-sub protect_hashchar_at_line_beginning($$$)
-{
-  my $registrar = shift;
-  my $configuration_informations = shift;
-  my $tree = shift;
-
-  my $self = [$registrar, $configuration_informations];
-  return modify_tree($self, $tree, \&_protect_hashchar_at_line_beginning);
-}
-
 sub protect_first_parenthesis($)
 {
   my $contents = shift;
@@ -2711,7 +2323,7 @@ sub _relate_index_entries_to_table_entries_in_tree($$$)
 
 sub relate_index_entries_to_table_entries_in_tree($)
 {
-  my $tree = shift;  
+  my $tree = shift;
   return modify_tree(undef, $tree,
                      \&_relate_index_entries_to_table_entries_in_tree);
 }
@@ -2775,8 +2387,6 @@ sub print_tree($)
   return Data::Dumper->Dump([$tree]);
 }
 
-# common parser functions
-
 # register a label, that is something that may be the target of a reference
 # and must be unique in the document.  Corresponds to @node, @anchor and
 # @float second arg.
@@ -2790,162 +2400,6 @@ sub register_label($$$)
   }
 }
 
-sub _non_bracketed_contents($) {
-  my $current = shift;
-
-  if ($current->{'type'} and $current->{'type'} eq 'bracketed') {
-    my $new = {};
-    $new->{'contents'} = $current->{'contents'} if ($current->{'parent'});
-    $new->{'parent'} = $current->{'parent'} if ($current->{'parent'});
-    return $new;
-  } else {
-    return $current;
-  }
-}
-
-# In a handful of cases, we delay storing the contents of the
-# index entry until now to avoid needing Texinfo::Report::gdt
-# in the main code of Parser.pm.  Also set 'in_code' value on
-# index entries.
-
-sub complete_indices {
-  my $self = shift;
-
-  my ($index_entry, $index_contents_normalized);
-    
-  my $save_lang = $self->get_conf('documentlanguage');
-
-  foreach my $index_name (keys(%{$self->{'index_names'}})) {
-    next if !defined $self->{'index_names'}->{$index_name}->{'index_entries'};
-    foreach my $entry (@{$self->{'index_names'}->{$index_name}->{'index_entries'}}) {
-      $entry->{'in_code'} = $self->{'index_names'}->{$index_name}->{'in_code'};
-      
-      if (!defined $entry->{'content'}) {
-        my $def_command = $entry->{'command'}->{'extra'}->{'def_command'};
-
-        my $def_parsed_hash = $entry->{'command'}->{'extra'}->{'def_parsed_hash'}; 
-        if ($def_parsed_hash and $def_parsed_hash->{'class'}
-            and $def_command) {
-          # Use the document language that was current when the command was
-          # used for getting the translation.
-          $self->{'documentlanguage'}
-             = $entry->{'command'}->{'extra'}->{'documentlanguage'};
-          delete $entry->{'command'}->{'extra'}->{'documentlanguage'};
-          if ($def_command eq 'defop'
-              or $def_command eq 'deftypeop'
-              or $def_command eq 'defmethod'
-              or $def_command eq 'deftypemethod') {
-            $index_entry = $self->gdt('{name} on {class}',
-                                  {'name' => $def_parsed_hash->{'name'},
-                                   'class' => $def_parsed_hash->{'class'}});
-           $index_contents_normalized
-             = [_non_bracketed_contents($def_parsed_hash->{'name'}),
-                { 'text' => ' on '},
-                _non_bracketed_contents($def_parsed_hash->{'class'})];
-          } elsif ($def_command eq 'defivar'
-                   or $def_command eq 'deftypeivar'
-                   or $def_command eq 'deftypecv') {
-            $index_entry = $self->gdt('{name} of {class}',
-                                     {'name' => $def_parsed_hash->{'name'},
-                                     'class' => $def_parsed_hash->{'class'}});
-            $index_contents_normalized
-              = [_non_bracketed_contents($def_parsed_hash->{'name'}),
-                 { 'text' => ' of '},
-                 _non_bracketed_contents($def_parsed_hash->{'class'})];
-          }
-        }
-        # 'root_line' is the container returned by gdt.
-        if ($index_entry->{'type'} and $index_entry->{'type'} eq 'root_line') {
-          for my $child (@{$index_entry->{'contents'}}) {
-            delete $child->{'parent'};
-          }
-        }
-        if ($index_entry->{'contents'}) {
-          $entry->{'content'} = [@{$index_entry->{'contents'}}];
-          $entry->{'content_normalized'} = $index_contents_normalized;
-        }
-      }
-    }
-  }
-  $self->{'documentlanguage'} = $save_lang;
-}
-
-# Called from Texinfo::ParserNonXS and Texinfo::XS::parsetexi::Parsetexi.
-# This should be considered an internal function of the parsers for all
-# purposes, it is here to avoid code duplication.
-# Sets $self->{'nodes'} and $self->{'labels'} based on $self->{'targets'}.
-sub set_nodes_list_labels($$$)
-{
-  my $self = shift;
-  my $registrar = shift;
-  my $configuration_informations = shift;
-
-  $self->{'nodes'} = [];
-  my %labels = ();
-  if (defined $self->{'targets'}) {
-    for my $target (@{$self->{'targets'}}) {
-      if ($target->{'cmdname'} eq 'node') {
-        if ($target->{'extra'}->{'nodes_manuals'}) {
-          for my $node_manual (@{$target->{'extra'}{'nodes_manuals'}}) {
-            if (defined $node_manual
-                  and defined $node_manual->{'node_content'}) {
-              my $normalized = Texinfo::Convert::NodeNameNormalization::normalize_node(
-                                    {'contents' => $node_manual->{'node_content'}});
-              $node_manual->{'normalized'} = $normalized;
-            }
-          }
-        }
-      }
-      if (defined $target->{'extra'}
-            and defined $target->{'extra'}->{'node_content'}) {
-        my $normalized = Texinfo::Convert::NodeNameNormalization::normalize_node(
-                             {'contents' => $target->{'extra'}->{'node_content'}});
-
-        if ($normalized !~ /[^-]/) {
-          $registrar->line_error($configuration_informations,
-               sprintf(__("empty node name after expansion `%s'"),
-                     Texinfo::Convert::Texinfo::convert_to_texinfo({'contents'
-                                   => $target->{'extra'}->{'node_content'}})),
-                            $target->{'line_nr'});
-          delete $target->{'extra'}->{'node_content'};
-        } else {
-          if (defined $labels{$normalized}) {
-            $registrar->line_error($configuration_informations,
-              sprintf(__("\@%s `%s' previously defined"), 
-                         $target->{'cmdname'}, 
-                   Texinfo::Convert::Texinfo::convert_to_texinfo({'contents'
-                                    => $target->{'extra'}->{'node_content'}})),
-                               $target->{'line_nr'});
-            $registrar->line_error($configuration_informations,
-              sprintf(__("here is the previous definition as \@%s"),
-                               $labels{$normalized}->{'cmdname'}),
-                       $labels{$normalized}->{'line_nr'});
-            delete $target->{'extra'}->{'node_content'};
-          } else {
-            $labels{$normalized} = $target;
-            $target->{'extra'}->{'normalized'} = $normalized;
-            if ($target->{'cmdname'} eq 'node') {
-              if ($target->{'extra'}
-                  and $target->{'extra'}{'node_argument'}) {
-                $target->{'extra'}{'node_argument'}{'normalized'}
-                  = $normalized;
-              }
-              push @{$self->{'nodes'}}, $target;
-            }
-          }
-        }
-      } else {
-        if ($target->{'cmdname'} eq 'node') {
-          $registrar->line_error($configuration_informations,
-               sprintf(__("empty argument in \@%s"),
-                  $target->{'cmdname'}), $target->{'line_nr'});
-          delete $target->{'extra'}->{'node_content'};
-        }
-      }
-    }
-  }
-  $self->{'labels'} = \%labels;
-}
 
 1;
 
@@ -2957,31 +2411,47 @@ Texinfo::Common - Classification of commands and miscellaneous methods
 
 =head1 SYNOPSIS
 
-  use Texinfo::Common qw(expand_today expand_verbatiminclude);
+  use Texinfo::Common;
   if ($Texinfo::Common::accent_commands{$a_command}) {
     print STDERR "$a_command is an accent command\n";
   }
-  
-  my $today_tree = expand_today($converter);
-  my $verbatiminclude_tree 
-     = expand_verbatiminclude(undef, $converter, $verbatiminclude);
 
 =head1 DESCRIPTION
 
 Texinfo::Common holds interesting hashes classifying Texinfo @-commands,
-as well as miscellaneous methods that may be useful for any backend
+as well as miscellaneous methods that may be useful for backends
 converting texinfo trees.
 
-It also defines, as our variable a hash for default indices,
-named C<%index_names>.  The format of this hash is described in 
-L<Texinfo::Parser/indices_information>.
+=head1 MISC INFORMATIONS
+
+Hashes are defined as C<our> variables, and are therefore available
+outside of the module.
+
+TODO: undocumented
+
+%null_device_file %default_parser_customization_values %document_settable_multiple_at_commands %document_settable_unique_at_commands %default_converter_command_line_options %default_main_program_customization_options %default_converter_customization @variable_string_settables %document_settable_at_commands %def_map %command_index %close_paragraph_commands %command_structuring_level %level_to_structuring_command
+
+=over
+
+=item %index_names
+
+Hash describing the default Texinfo indices.  The format of this hash is
+described in L<Texinfo::Parser/indices_information>.
+
+=item %texinfo_output_formats
+
+Cannonical output formats that have associated conditionals.  In
+practice corresponds to C<%format_raw_commands> plus C<info>
+and C<plaintext>.
+
+=back
 
 =head1 COMMAND CLASSES
 
 Hashes are defined as C<our> variables, and are therefore available
 outside of the module.
 
-The key of the hashes are @-command names without the @.  The 
+The key of the hashes are @-command names without the @.  The
 following hashes are available:
 
 =over
@@ -2990,23 +2460,132 @@ following hashes are available:
 
 All the @-commands.
 
+=item %accent_commands
+
+Accent @-commands taking an argument, like C<@'> or C<@ringaccent>
+including C<@dotless> and C<@tieaccent>.
+
+=item %align_commands
+
+@-commands related with alignement of text.
+
+=item %block_commands
+
+Commands delimiting a block with a closing C<@end>.  The value
+is I<conditional> for C<@if> commands, I<def> for definition
+commands like C<@deffn>, I<raw> for @-commands that have no expansion
+of @-commands in their bodies and I<multitable> for C<@multitable>.
+Otherwise it is set to the number of arguments separated by commas
+that may appear on the @-command line. That means 0 in most cases,
+1 for C<@quotation> and 2 for C<@float>.
+
+=item %brace_commands
+
+The commands that take braces.  The associated value is the maximum
+number of arguments.
+
+=item %code_style_commands
+
+I<style_commands> that have their argument in code style, like
+C<@code>.
+
+=item %context_brace_commands
+
+@-commands with brace like C<@footnote>, C<@caption> and C<@math>
+whose argument is outside of the main text flow in one way or another.
+
+=item %def_commands
+
+=item %def_aliases
+
+Definition commands.  C<%def_aliases> associates an aliased command
+to the original command, for example C<defun> is associated to C<deffn>.
+
+=item %default_index_commands
+
+Index entry commands corresponding to default indices. For example
+C<@cindex>.
+
+=item %explained_commands
+
+@-commands whose second argument explain first argument and further
+@-command call without first argument, as C<@abbr> and C<@acronym>.
+
+=item %format_raw_commands
+
+@-commands associated with raw output format, like C<@html>, or
+C<@docbook>.
+
+=item %inline_commands
+
+=item %inline_conditional_commands
+
+=item %inline_format_commands
+
+Inline conditional commands, like C<@inlineifclear>, and inline format
+commands like C<inlineraw> and C<inlinefmt>.
+
+=item %item_container_commands
+
+Commands holding C<@item> with C<@item> that contains blocks of text,
+like C<@itemize>.
+
+=item %item_line_commands
+
+Commands with C<@item> that have their arguments on their lines, like
+C<@ftable>.
+
+=item %letter_no_arg_commands
+
+@-commands with braces but no argument corresponding to letters,
+like C<@AA{}> or C<@ss{}> or C<@o{}>.
+
+=item %math_commands
+
+@-commands which contains math, like C<@math> or C<@displaymath>.
+
+=item %menu_commands
+
+@-commands with menu entries.
+
+=item %misc_commands
+
+Command that do not take braces and are not block commands either, like
+C<@node>, C<@chapter>, C<@cindex>, C<@deffnx>, C<@end>, C<@footnotestyle>,
+C<@set>, C<@settitle>, C<@indent>, C<@definfoenclose>, C<@comment> and many
+others.
+
 =item %no_brace_commands
 
 Commands without brace with a single character as name, like C<*>
 or C<:>.  The value is an ascii representation of the command.  It
 may be an empty string.
 
-=item %misc_commands
+=item %preformatted_commands
 
-Command that do not take braces and are not block commands either, like
-C<@node>, C<@chapter>, C<@cindex>, C<@deffnx>, C<@end>, C<@footnotestyle>, 
-C<@set>, C<@settitle>, C<@indent>, C<@definfoenclose>, C<@comment> and many 
-others.
+=item %preformatted_code_commands
 
-=item %default_index_commands
+I<%preformatted_commands> is for commands whose content should not
+be filled, like C<@example> or C<@display>.  If the command is meant
+for code, it is also in I<%preformatted_code_commands>, like C<@example>.
 
-Index entry commands corresponding to default indices. For example 
-C<@cindex>.
+=item %raw_commands
+
+@-commands that have no expansion of @-commands in their bodies,
+as C<@macro>, C<@verbatim> or C<@ignore>.
+
+=item %ref_commands
+
+Cross reference @-command referencing nodes, like C<@xref>.
+
+=item %region_commands
+
+Block @-commands that enclose full text regions, like C<@titlepage>.
+
+=item %regular_font_style_commands
+
+I<style_commands> that have their argument in regular font, like
+C<@r> or C<@slanted>.
 
 =item %root_commands
 
@@ -3017,115 +2596,10 @@ C<@node> and sectioning commands, except heading commands.
 
 All the sectioning and heading commands.
 
-=item %brace_commands
-
-The commands that take braces.  The associated value is the maximum
-number of arguments.
-
-=item %letter_no_arg_commands
-
-@-commands with braces but no argument corresponding to letters, 
-like C<@AA{}> or C<@ss{}> or C<@o{}>.
-
-=item %accent_commands
-
-Accent @-commands taking an argument, like C<@'> or C<@ringaccent> 
-including C<@dotless> and C<@tieaccent>.
-
 =item %style_commands
 
 Commands that mark a fragment of texinfo, like C<@strong>,
 C<@cite>, C<@code> or C<@asis>.
-
-=item %code_style_commands
-
-I<style_commands> that have their argument in code style, like 
-C<@code>.
-
-=item %regular_font_style_commands
-
-I<style_commands> that have their argument in regular font, like
-C<@r> or C<@slanted>.
-
-=item %context_brace_commands
-
-@-commands with brace like C<@footnote>, C<@caption> and C<@math>
-whose argument is outside of the main text flow in one way or another.
-
-=item %ref_commands
-
-Cross reference @-command referencing nodes, like C<@xref>.
-
-=item %explained_commands
-
-@-commands whose second argument explain first argument and further
-@-command call without first argument, as C<@abbr> and C<@acronym>.
-
-=item %block commands
-
-Commands delimiting a block with a closing C<@end>.  The value
-is I<conditional> for C<@if> commands, I<def> for definition
-commands like C<@deffn>, I<raw> for @-commands that have no expansion
-of @-commands in their bodies and I<multitable> for C<@multitable>.  
-Otherwise it is set to the number of arguments separated by commas 
-that may appear on the @-command line. That means 0 in most cases, 
-1 for C<@quotation> and 2 for C<@float>.
-
-=item %raw_commands
-
-@-commands that have no expansion of @-commands in their bodies,
-as C<@macro>, C<@verbatim> or C<@ignore>.
-
-=item %format_raw_commands
-
-@-commands associated with raw output format, like C<@html>, or
-C<@docbook>.
-
-=item %math_commands
-
-@-commands which contains math, like C<@math> or C<@displaymath>.
-
-=item %texinfo_output_formats
-
-Cannonical output formats that have associated conditionals.  In
-practice C<%format_raw_commands> plus C<info> and C<plaintext>.
-
-=item %def_commands
-
-=item %def_aliases
-
-Definition commands.  C<%def_aliases> associates an aliased command
-to the original command, for example C<defun> is associated to C<deffn>.
-
-=item %menu_commands
-
-@-commands with menu entries.
-
-=item %align_commands
-
-@-commands related with alignement of text.
-
-=item %region_commands
-
-Block @-commands that enclose full text regions, like C<@titlepage>.
-
-=item %preformatted_commands
-
-=item %preformatted_code_commands
-
-I<%preformatted_commands> is for commands whose content should not 
-be filled, like C<@example> or C<@display>.  If the command is meant 
-for code, it is also in I<%preformatted_code_commands>, like C<@example>.
-
-=item %item_container_commands
-
-Commands holding C<@item> with C<@item> that contains blocks of text, 
-like C<@itemize>.
-
-=item %item_line_commands
-
-Commands with C<@item> that have their arguments on their lines, like
-C<@ftable>.
 
 =back
 
@@ -3133,55 +2607,17 @@ C<@ftable>.
 
 No method is exported in the default case.
 
-Most methods takes a I<$converter> as argument, sometime optionally, 
-to get some information and use methods for error reporting, 
+Most methods takes a I<$converter> as argument, sometime optionally,
+to get some information and use methods for error reporting,
 see L<Texinfo::Convert::Converter> and L<Texinfo::Report>.
 
 =over
-
-=item $tree = expand_today($converter)
-
-Expand today's date, as a texinfo tree with translations.
-
-=item $tree = expand_verbatiminclude($registrar, $configuration_informations, $verbatiminclude)
-
-The I<$registrar> argument may be undef.  I<$verbatiminclude> is a
-C<@verbatiminclude> tree element.  This function returns a 
-C<@verbatim> tree elements after finding the included file and
-reading it.  If I<$registrar> is not defined, errors messages are
-not registered.
-
-=item $tree = definition_category($converter, $def_line)
-
-The I<$converter> argument may be undef.  I<$def_line> is a 
-C<def_line> texinfo tree container.  This function
-returns a texinfo tree corresponding to the category of the
-I<$def_line> taking the class into account, if there is one.
-If I<$converter> is not defined, the resulting string won't be
-translated.
 
 =item $result = is_content_empty($tree, $do_not_ignore_index_entries)
 
 Return true if the C<$tree> has content that could be formatted.
 C<$do_not_ignore_index_entries> is optional.  If set, index entries
 are considered to be formatted.
-
-=item $result = numbered_heading ($converter, $heading_element, $heading_text, $do_number)
-
-The I<$converter> argument may be undef.  I<$heading_element> is 
-a heading command tree element.  I<$heading_text> is the already 
-formatted heading text.  if the I<$do_number> optional argument is 
-defined and false, no number is used and the text is returned as is.
-This function returns the heading with a number and the appendix 
-part if needed.  If I<$converter> is not defined, the resulting 
-string won't be translated.
-
-=item ($caption, $prepended) = float_name_caption ($converter, $float)
-
-I<$float> is a texinfo tree C<@float> element.  This function 
-returns the caption that should be used for the float formatting 
-and the I<$prepended> texinfo tree combining the type and label
-of the float.
 
 =item $text = enumerate_item_representation($specification, $number)
 
@@ -3211,35 +2647,35 @@ Protect comma characters, replacing C<,> with @comma{} in tree.
 
 =item protect_node_after_label_in_tree($tree)
 
-Protect colon with C<protect_colon_in_tree> and characters that 
+Protect colon with C<protect_colon_in_tree> and characters that
 are special in node names after a label in menu entries (tab
-dot and comma) with C<protect_node_after_label_in_tree>.  
-The protection is achieved by putting protected characters 
+dot and comma) with C<protect_node_after_label_in_tree>.
+The protection is achieved by putting protected characters
 in C<@asis{}>.
 
 =item $contents_result = protect_first_parenthesis ($contents)
 
-Return a contents array reference with first parenthesis in the 
+Return a contents array reference with first parenthesis in the
 contents array reference protected.
 
 =item protect_hashchar_at_line_beginning($registrar, $configuration_informations, $tree)
 
 Protect hash character at beginning of line if the line is a cpp
 line directive.  The I<$registrar> and I<$configuration_informations>
-arguments maybe undef, if they are defined they are used for
+arguments may be undef, if they are defined they are used for
 error reporting in case an hash character could not be protected
 because it appeared in a raw environment.
 
 =item move_index_entries_after_items_in_tree($tree)
 
-In C<@enumerate> and C<@itemize> from the tree, move index entries 
-appearing just before C<@item> after the C<@item>.  Comment lines 
+In C<@enumerate> and C<@itemize> from the tree, move index entries
+appearing just before C<@item> after the C<@item>.  Comment lines
 between index entries are moved too.
 
 =item $command = find_parent_root_command($parser, $tree_element)
 
 Find the parent root command of a tree element (sectioning command or node).
-The C<$parser> argument is optional, it is used to continue 
+The C<$parser> argument is optional, it is used to continue
 through C<@insertcopying> if in a C<@copying>.
 
 =item valid_tree_transformation($name)
@@ -3266,7 +2702,7 @@ should be kept.
 
 =head1 SEE ALSO
 
-L<Texinfo::Parser>, L<Texinfo::Convert::Converter> and L<Texinfo::Report>. 
+L<Texinfo::Parser>, L<Texinfo::Convert::Converter> and L<Texinfo::Report>.
 
 =head1 AUTHOR
 

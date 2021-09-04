@@ -7,9 +7,12 @@ use Test::More;
 
 BEGIN { plan tests => 8; }
 
+use Data::Dumper;
+use Locale::Messages;
+
+use Texinfo::Convert::Texinfo;
 use Texinfo::Convert::NodeNameNormalization qw(normalize_node transliterate_texinfo);
 use Texinfo::Parser;
-use Data::Dumper;
 
 # Currently, tests check that NodeNameNormalization do not break with complete 
 # Texinfo trees, not that the output is correct.

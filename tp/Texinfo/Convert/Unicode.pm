@@ -1575,7 +1575,7 @@ Texinfo::Convert::Unicode - Handle conversion to Unicode
                                    unicode_text);
 
   my ($innermost_contents, $stack)
-      = Texinfo::Common::find_innermost_accent_contents($accent);
+      = Texinfo::Convert::Utils::find_innermost_accent_contents($accent);
   
   my $formatted_accents = encoded_accents ($converter,
                  convert_to_text($innermost_contents), $stack, $encoding,
@@ -1613,7 +1613,7 @@ converter object in I<$format_accent> (I<$format_accent> described below).
 I<$text> is the text appearing within nested accent commands.  I<$stack> is
 an array reference holding the nested accents texinfo element trees.  For
 example, I<$text> could be the formatted content and I<$stack> the stack 
-returned by C<Texinfo::Common::find_innermost_accent_contents>.  I<$encoding> 
+returned by C<Texinfo::Convert::Utils::find_innermost_accent_contents>.  I<$encoding> 
 is the encoding the accented characters should be encoded to.  If 
 I<$encoding> not set the I<$result> is set to undef.  I<$format_accent> 
 is a function reference that is used to format the accent commands if 

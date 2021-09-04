@@ -2601,7 +2601,8 @@ sub _convert($$)
       }
       return $result;
     } elsif ($command eq 'verbatiminclude') {
-      my $expansion = Texinfo::Common::expand_verbatiminclude($self, $self, $root);
+      my $expansion = Texinfo::Convert::Utils::expand_verbatiminclude($self,
+                                                              $self, $root);
       unshift @{$self->{'current_contents'}->[-1]}, $expansion
         if ($expansion);
       return $result;
@@ -2829,7 +2830,7 @@ sub _convert($$)
     if ($root->{'type'} eq 'def_line') {
       if ($root->{'extra'} and $root->{'extra'}->{'def_parsed_hash'}
              and %{$root->{'extra'}->{'def_parsed_hash'}}) {
-        my $arguments = Texinfo::Common::definition_arguments_content($root);
+        my $arguments = Texinfo::Convert::Utils::definition_arguments_content($root);
         my $tree;
         my $command;
         if ($Texinfo::Common::def_aliases{$root->{'extra'}->{'def_command'}}) {
