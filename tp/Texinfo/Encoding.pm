@@ -25,24 +25,11 @@ use strict;
 use Encode;
 
 require Exporter;
-use vars qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
+use vars qw(@ISA @EXPORT_OK);
 @ISA = qw(Exporter);
 
-# Items to export into callers namespace by default. Note: do not export
-# names by default without a very good reason. Use EXPORT_OK instead.
-# Do not simply export all your public functions/methods/constants.
+@EXPORT_OK = qw( encoding_alias );
 
-# This allows declaration       use Texinfo::Covert::Text ':all';
-# If you do not need this, moving things directly into @EXPORT or @EXPORT_OK
-# will save memory.
-%EXPORT_TAGS = ( 'all' => [ qw(
-  encoding_alias
-) ] );
-
-@EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
-
-@EXPORT = qw(
-);
 
 # charset related definitions.
 

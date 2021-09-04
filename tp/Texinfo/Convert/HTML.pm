@@ -72,22 +72,11 @@ use Carp qw(cluck confess);
 use File::Copy qw(copy);
 
 require Exporter;
-use vars qw($VERSION @ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
-@ISA = qw(Exporter Texinfo::Convert::Converter);
-
-%EXPORT_TAGS = ( 'all' => [ qw(
-  convert
-  convert_tree
-  output
-  output_internal_links
-) ] );
-
-@EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
-
-@EXPORT = qw(
-);
+use vars qw($VERSION @ISA);
+@ISA = qw(Texinfo::Convert::Converter);
 
 $VERSION = '6.8dev';
+
 
 # misc commands that are of use for formatting.
 my %formatting_misc_commands = %Texinfo::Convert::Text::formatting_misc_commands;

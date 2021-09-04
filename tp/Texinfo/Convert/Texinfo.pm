@@ -27,7 +27,7 @@ use strict;
 use Texinfo::Common;
 
 require Exporter;
-use vars qw($VERSION @ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
+use vars qw($VERSION @ISA @EXPORT_OK %EXPORT_TAGS);
 @ISA = qw(Exporter);
 
 %EXPORT_TAGS = ( 'all' => [ qw(
@@ -37,10 +37,8 @@ use vars qw($VERSION @ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
 
 @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 
-@EXPORT = qw(
-);
-
 $VERSION = '6.8dev';
+
 
 my %misc_commands            = %Texinfo::Common::misc_commands;
 my %brace_commands           = %Texinfo::Common::brace_commands;    

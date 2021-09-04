@@ -34,9 +34,8 @@ use Texinfo::Convert::Utils;
 use Texinfo::Convert::Converter;
 use Texinfo::Convert::Paragraph;
 
-
 require Exporter;
-use vars qw($VERSION @ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
+use vars qw($VERSION @ISA);
 @ISA = qw(Texinfo::Convert::Converter);
 
 # Some extra initialization for the first time this module is loaded.
@@ -53,17 +52,8 @@ sub import {
   goto &Exporter::import;
 }
 
-%EXPORT_TAGS = ( 'all' => [ qw(
-  convert
-  output
-) ] );
-
-@EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
-
-@EXPORT = qw(
-);
-
 $VERSION = '6.8dev';
+
 
 # misc commands that are of use for formatting.
 my %formatting_misc_commands = %Texinfo::Convert::Text::formatting_misc_commands;

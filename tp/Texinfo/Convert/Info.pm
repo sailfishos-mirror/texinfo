@@ -29,21 +29,12 @@ use Texinfo::Convert::Text;
 
 use Texinfo::Convert::Paragraph;
 
-
 require Exporter;
-use vars qw($VERSION @ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
+use vars qw($VERSION @ISA);
 @ISA = qw(Texinfo::Convert::Plaintext);
 
-%EXPORT_TAGS = ( 'all' => [ qw(
-  convert
-) ] );
-
-@EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
-
-@EXPORT = qw(
-);
-
 $VERSION = '6.8dev';
+
 
 my $STDIN_DOCU_NAME = 'stdin';
 

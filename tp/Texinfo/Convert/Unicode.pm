@@ -26,17 +26,17 @@ package Texinfo::Convert::Unicode;
 use 5.007_003;
 use strict;
 
+use Carp qw(cluck);
+
 use Encode;
 use Unicode::Normalize;
-use Carp qw(cluck);
 use Unicode::EastAsianWidth;
-
-require Exporter;
-use vars qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
 
 use Texinfo::Encoding;
 
 use Texinfo::MiscXS;
+
+require Exporter;
 
 # Some extra initialization for the first time this module is loaded.
 # This could be done in a UNITCHECK block, but they were introduced in
@@ -52,6 +52,8 @@ sub import {
   goto &Exporter::import;
 }
 
+use vars qw($VERSION @ISA @EXPORT_OK %EXPORT_TAGS);
+
 %EXPORT_TAGS = ( 'all' => [ qw(
   unicode_accent
   encoded_accents
@@ -62,8 +64,8 @@ sub import {
 
 @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 
-@EXPORT = qw(
-);
+$VERSION = '6.8dev';
+
 
 our %unicode_diacritics = (
        'H'          => '030B', 
@@ -1296,7 +1298,7 @@ sub _eight_bit_and_unicode_point($$)
 }
 
 # format a stack of accents as unicode
-sub unicode_accents($$$$;$)
+sub _format_unicode_accents_stack($$$$;$)
 {
   my $converter = shift;
   my $result = shift;
@@ -1325,7 +1327,7 @@ sub unicode_accents($$$$;$)
   return $result;
 }
 
-sub eight_bit_accents($$$$$;$)
+sub _format_eight_bit_accents_stack($$$$$;$)
 {
   my $converter = shift;
   my $unicode_formatted = shift;
@@ -1457,10 +1459,10 @@ sub encoded_accents($$$$$;$)
 
   if ($encoding) {
     if ($encoding eq 'utf-8') {
-      return unicode_accents($converter, $text, $stack, $format_accent, 
-                             $set_case);
+      return _format_unicode_accents_stack($converter, $text, $stack,
+                                            $format_accent, $set_case);
     } elsif ($Texinfo::Encoding::eight_bit_encoding_aliases{$encoding}) {
-      return eight_bit_accents($converter, $text, $stack, $encoding, 
+      return _format_eight_bit_accents_stack($converter, $text, $stack, $encoding,
                                $format_accent, $set_case);
     }
   }

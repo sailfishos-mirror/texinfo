@@ -42,7 +42,7 @@ use Texinfo::Convert::NodeNameNormalization;
 use Carp qw(cluck);
 
 require Exporter;
-use vars qw($VERSION @ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
+use vars qw($VERSION @ISA @EXPORT_OK %EXPORT_TAGS);
 @ISA = qw(Exporter);
 
 %EXPORT_TAGS = ( 'all' => [ qw(
@@ -65,9 +65,6 @@ use vars qw($VERSION @ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
 ) ] );
 
 @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
-
-@EXPORT = qw(
-);
 
 $VERSION = '6.8dev';
 

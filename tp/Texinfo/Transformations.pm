@@ -24,13 +24,22 @@ use 5.00405;
 
 use strict;
 
+use Carp qw(cluck);
+
 use Texinfo::Common;
 use Texinfo::Structuring;
 
-# Export?
-# protect_hashchar_at_line_beginning
+require Exporter;
+use vars qw($VERSION @ISA @EXPORT_OK %EXPORT_TAGS);
+@ISA = qw(Exporter);
 
-use Carp qw(cluck);
+%EXPORT_TAGS = ( 'all' => [ qw(
+protect_hashchar_at_line_beginning
+) ] );
+
+@EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
+
+$VERSION = '6.8dev';
 
 # Add raise/lowersections to be back at the normal level
 sub _correct_level($$;$)
@@ -150,7 +159,6 @@ sub fill_gaps_in_sectioning($)
 # input for the node name tree.
 sub _reference_to_arg($$$)
 {
-  my $self = shift;
   my $type = shift;
   my $current = shift;
 
@@ -183,18 +191,16 @@ sub _reference_to_arg($$$)
   }
 }
 
-sub reference_to_arg_in_tree($$)
+sub reference_to_arg_in_tree($)
 {
-  my $self = shift;
   my $tree = shift;
-  return Texinfo::Common::modify_tree($self, $tree, \&_reference_to_arg);
+  return Texinfo::Common::modify_tree($tree, \&_reference_to_arg);
 }
 
 # prepare a new node
 # modifies $nodes_list, $targets_list, $labels
-sub _new_node($$$$$)
+sub _new_node($$$$)
 {
-  my $self = shift;
   my $node_tree = shift;
   my $nodes_list = shift;
   my $targets_list = shift;
@@ -203,7 +209,7 @@ sub _new_node($$$$$)
   $node_tree = Texinfo::Common::protect_comma_in_tree($node_tree);
   $node_tree->{'contents'} 
      = Texinfo::Common::protect_first_parenthesis($node_tree->{'contents'});
-  $node_tree = reference_to_arg_in_tree($self, $node_tree);
+  $node_tree = reference_to_arg_in_tree($node_tree);
 
   my $empty_node = 0;
   if (!$node_tree->{'contents'} 
@@ -272,11 +278,10 @@ sub _new_node($$$$$)
 # reassociate a tree element to the new node, from previous node
 sub _reassociate_to_node($$$$)
 {
-  my $self = shift;
   my $type = shift;
   my $current = shift;
-  my $nodes = shift;
-  my ($new_node, $previous_node) = @{$nodes};
+  my $argument = shift;
+  my ($new_node, $previous_node) = @{$argument};
 
   if ($current->{'cmdname'} and $current->{'cmdname'} eq 'menu') {
     if ($previous_node) {
@@ -311,9 +316,8 @@ sub _reassociate_to_node($$$$)
 }
 
 # modifies $nodes_list, $targets_list, $labels
-sub insert_nodes_for_sectioning_commands($$$$$)
+sub insert_nodes_for_sectioning_commands($$$$)
 {
-  my $self = shift;
   my $root = shift;
   my $nodes_list = shift;
   my $targets_list = shift;
@@ -339,7 +343,7 @@ sub insert_nodes_for_sectioning_commands($$$$$)
         $new_node_tree = Texinfo::Common::copy_tree({'contents' 
           => $content->{'args'}->[0]->{'contents'}});
       }
-      my $new_node = _new_node($self, $new_node_tree, $nodes_list,
+      my $new_node = _new_node($new_node_tree, $nodes_list,
                                $targets_list, $labels);
       if (defined($new_node)) {
         push @contents, $new_node;
@@ -348,7 +352,7 @@ sub insert_nodes_for_sectioning_commands($$$$$)
         $content->{'extra'}->{'associated_node'} = $new_node;
         $new_node->{'parent'} = $content->{'parent'};
         # reassociate index entries and menus
-        Texinfo::Common::modify_tree($self, $content, \&_reassociate_to_node,
+        Texinfo::Common::modify_tree($content, \&_reassociate_to_node,
                                      [$new_node, $previous_node]);
       }
     }
@@ -759,11 +763,11 @@ sub _is_cpp_line($)
 
 sub _protect_hashchar_at_line_beginning($$$)
 {
-  my $self = shift;
   my $type = shift;
   my $current = shift;
+  my $argument = shift;
 
-  my ($registrar, $configuration_informations) = @$self;
+  my ($registrar, $configuration_informations) = @$argument;
 
   #print STDERR "$type $current "._print_current($current)."\n";
   # if the next is a hash character at line beginning, mark it
@@ -803,19 +807,17 @@ sub _protect_hashchar_at_line_beginning($$$)
   if ($protect_hash) {
     my @result = ();
     if ($current->{'type'} and $current->{'type'} eq 'raw') {
-      if ($self) {
-        my $parent = $current->{'parent'};
-        while ($parent) {
-          if ($parent->{'cmdname'} and $parent->{'line_nr'}) {
-            if ($registrar) {
-              $registrar->line_warn($configuration_informations, sprintf(__(
-                  "could not protect hash character in \@%s"), 
-                             $parent->{'cmdname'}), $parent->{'line_nr'});
-            }
-            last;
+      my $parent = $current->{'parent'};
+      while ($parent) {
+        if ($parent->{'cmdname'} and $parent->{'line_nr'}) {
+          if ($registrar) {
+            $registrar->line_warn($configuration_informations, sprintf(__(
+                "could not protect hash character in \@%s"), 
+                           $parent->{'cmdname'}), $parent->{'line_nr'});
           }
-          $parent = $parent->{'parent'};
+          last;
         }
+        $parent = $parent->{'parent'};
       }
     } else {
       $current->{'text'} =~ s/^(\s*)#//;
@@ -838,8 +840,8 @@ sub protect_hashchar_at_line_beginning($$$)
   my $configuration_informations = shift;
   my $tree = shift;
 
-  my $self = [$registrar, $configuration_informations];
-  return Texinfo::Common::modify_tree($self, $tree, \&_protect_hashchar_at_line_beginning);
+  return Texinfo::Common::modify_tree($tree, \&_protect_hashchar_at_line_beginning,
+                                       [$registrar, $configuration_informations]);
 }
 
 1;

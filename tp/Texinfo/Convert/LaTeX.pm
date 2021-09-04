@@ -164,21 +164,11 @@ use Texinfo::Convert::NodeNameNormalization;
 
 use Texinfo::Convert::Text;
 
-require Exporter;
-use vars qw($VERSION @ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
+use vars qw($VERSION @ISA);
 @ISA = qw(Texinfo::Convert::Converter);
 
-%EXPORT_TAGS = ( 'all' => [ qw(
-  convert
-  output
-) ] );
-
-@EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
-
-@EXPORT = qw(
-);
-
 $VERSION = '6.8dev';
+
 
 # misc commands that are of use for formatting.
 my %formatting_misc_commands = %Texinfo::Convert::Text::formatting_misc_commands;

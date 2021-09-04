@@ -65,7 +65,7 @@ use Texinfo::Convert::NodeNameNormalization;
 use Texinfo::Translations;
 
 require Exporter;
-use vars qw($VERSION @ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
+use vars qw($VERSION @ISA @EXPORT_OK %EXPORT_TAGS);
 @ISA = qw(Exporter Texinfo::Translations);
 
 our $module_loaded = 0;
@@ -83,26 +83,17 @@ sub import {
   goto &Exporter::import;
 }
 
-
 %EXPORT_TAGS = ( 'all' => [ qw(
   parser
   parse_texi_text
   parse_texi_line
   parse_texi_file
-  indices_information
-  floats_information
-  internal_references_information
-  labels_information
-  global_commands_information
-  global_informations
 ) ] );
 
 @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 
-@EXPORT = qw(
-);
-
 $VERSION = '6.8dev';
+
 
 sub N__($)
 {

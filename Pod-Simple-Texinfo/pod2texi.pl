@@ -250,8 +250,8 @@ sub _fix_texinfo_tree($$$$;$)
     # new nodes should only be created for the $added_sections.
     if ($section_nodes) {
       ($tree->{'contents'}, $added_nodes)
-        = Texinfo::Transformations::insert_nodes_for_sectioning_commands($parser,
-                                  $tree, $nodes_list, $targets_list, $labels);
+        = Texinfo::Transformations::insert_nodes_for_sectioning_commands($tree,
+                                         $nodes_list, $targets_list, $labels);
       if ($self and $self->texinfo_sectioning_base_level > 0) {
         # prepend the manual name
         foreach my $node (@$added_nodes) {

@@ -372,9 +372,8 @@ sub duplicate_key_array($$)
 
 # used to have a similar output as the XS parser
 # when using the pure perl parser.
-sub _duplicate_element_keys($$$)
+sub _duplicate_element_keys($$)
 {
-  my $self = shift;
   my $type = shift;
   my $current = shift;
 
@@ -416,11 +415,10 @@ sub _duplicate_element_keys($$$)
   return ($current);
 }
 
-sub duplicate_tree_element_keys($$)
+sub duplicate_tree_element_keys($)
 {
-  my $self = shift;
   my $tree = shift;
-  return Texinfo::Common::modify_tree($self, $tree, \&_duplicate_element_keys);
+  return Texinfo::Common::modify_tree($tree, \&_duplicate_element_keys);
 }
 
 sub cmp_trimmed($$$$)
@@ -1046,11 +1044,11 @@ sub test($$)
   if ($elements) {
     $split_result = $elements;
     foreach my $element (@$elements) {
-      duplicate_tree_element_keys($parser, $element);
+      duplicate_tree_element_keys($element);
     }
   } else {
     $split_result = $result;
-    duplicate_tree_element_keys($parser, $result);
+    duplicate_tree_element_keys($result);
   }
 
   {

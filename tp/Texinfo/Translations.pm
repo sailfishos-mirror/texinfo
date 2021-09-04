@@ -20,24 +20,13 @@
 package Texinfo::Translations;
 
 require Exporter;
-use vars qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
-@ISA = qw(Exporter);
-
-%EXPORT_TAGS = ( 'all' => [ qw(
-  gdt
-) ] );
-
-@EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
-
-@EXPORT = qw(
-);
 
 use 5.00405;
 use strict;
 
 use POSIX qw(setlocale LC_ALL);
 use Locale::Messages;
-# to be able to load a parser if none was given to gdt.
+# to be able to load a (simple) parser if none was given to gdt.
 use Texinfo::Parser;
 
 # we want a reliable way to switch locale for the document
@@ -190,7 +179,7 @@ sub gdt($$;$$)
     $translation_result =~ s/\{($re)\}/\@txiinternalvalue\{$1\}/g;
   }
 
-  # Don't reuse the current parser itself, as (tested) the parsing goes 
+  # Don't reuse the current parser itself, as (tested) the parsing goes
   # wrong, certainly because the parsed text can affect the parser state.
   my $current_parser;
   if (ref($self) eq 'Texinfo::Parser') {
@@ -253,7 +242,7 @@ sub _substitute_element_array ($$) {
   } @{$array};
 }
 
-# Recursively substitute @txiinternalvalue elements in $TREE with 
+# Recursively substitute @txiinternalvalue elements in $TREE with
 # their values given in $CONTEXT.
 sub _substitute ($$);
 sub _substitute ($$) {
@@ -293,7 +282,7 @@ sub complete_indices
   my $self = shift;
 
   my ($index_entry, $index_contents_normalized);
-    
+  
   my $save_lang = $self->get_conf('documentlanguage');
 
   foreach my $index_name (keys(%{$self->{'index_names'}})) {
@@ -304,7 +293,7 @@ sub complete_indices
       if (!defined $entry->{'content'}) {
         my $def_command = $entry->{'command'}->{'extra'}->{'def_command'};
 
-        my $def_parsed_hash = $entry->{'command'}->{'extra'}->{'def_parsed_hash'}; 
+        my $def_parsed_hash = $entry->{'command'}->{'extra'}->{'def_parsed_hash'};
         if ($def_parsed_hash and $def_parsed_hash->{'class'}
             and $def_command) {
           # Use the document language that was current when the command was
@@ -372,7 +361,7 @@ Texinfo::Translations - Translations of output documents strings for Texinfo mod
 
 =head1 DESCRIPTION
 
-The Texinfo::Translations module helps with string translations
+The Texinfo::Translations module helps with translations
 in output documents.
 
 Translation of error messages uses another interface which
@@ -381,31 +370,45 @@ described as it is described in details elsewhere.
 
 =head1 METHODS
 
-No method is exported in the default case.  
+No method is exported.
 
-The C<gdt> method is used to translate strings to be output in 
+The C<gdt> method is used to translate strings to be output in
 converted documents, and return a texinfo tree.
 
 =over
 
 =item $tree = $converter->gdt($string, $replaced_substrings, $mode)
 
-The I<$string> is a string to be translated.  In the default case, 
-the function returns a Texinfo tree, as the string is 
-interpreted as Texinfo code after
-translation.  I<$replaced_substrings> is an optional 
-hash reference specifying some 
-substitution to be done after the translation.  The key of 
-the I<$replaced_substrings> hash reference identifies what is to 
-be substituted, and the value is some string, texinfo tree or array content 
-that is substituted in the resulting texinfo tree.
-In the string to be translated word in brace matching keys of 
-I<$replaced_substrings> are replaced.
+The I<$string> is a string to be translated.  In the default case,
+the function returns a Texinfo tree, as the string is interpreted
+as Texinfo code after translation.  I<$replaced_substrings> is an
+optional hash reference specifying some substitution to be done
+after the translation.  The key of the I<$replaced_substrings> hash
+reference identifies what is to be substituted, and the value is
+some string, texinfo tree or array content that is substituted in
+the resulting texinfo tree.  In the string to be translated word
+in brace matching keys of I<$replaced_substrings> are replaced.
+
+For example, in the following call, the string
+I<See {reference} in @cite{{book}}> is translated, then
+parsed as a Texinfo string, with I<{reference}> substituted by
+I<$tree_reference> in the resulting tree, and I<{book}>
+replaced by the associated texinfo tree text element:
+
+  $tree = $converter->gdt('See {reference} in @cite{{book}}',
+                       {'reference' => $tree_reference,
+                        'book'  => {'text' => $book_name}});
+
+C<gdt> uses the information in the I<$converter> to know the
+encoding and documentlanguage.
+
+C<gdt> uses a gettext-like infrastructure to retrieve the
+translated strings, using the I<texinfo_document> domain.
 
 I<$mode> is an optional string which may modify how the function
-behaves.  The possible values are
+behaves.  The possible values are:
 
-=over 
+=over
 
 =item translated_text
 
@@ -414,24 +417,6 @@ that is returned after translation and substitution.  The substitutions
 may only be strings in that case.
 
 =back
-
-For example in the following call, the string 
-I<See {reference} in @cite{{book}}> is translated, then
-parsed as a Texinfo string, with I<{reference}> substituted by
-I<$tree_reference> in the resulting tree, and I<{book}> 
-replaced by the associated texinfo tree text element:
-
-  $tree = $converter->gdt('See {reference} in @cite{{book}}',
-                       {'reference' => $tree_reference,
-                        'book'  => {'text' => $book_name}});
-
-C<gdt> uses the information in the I<$converter> to know the
-encoding and documentlanguage.  More precisely, 
-C<< $converter->{'encoding_name'} >>, C<< $converter->{'perl_encoding'} >>
-and C<< $converter->get_conf('documentlanguage') >> are used.
-
-C<gdt> uses a gettext-like infrastructure to retrieve the 
-translated strings, using the I<texinfo_document> domain.
 
 =back
 

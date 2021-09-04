@@ -33,20 +33,11 @@ use Texinfo::Convert::IXIN;
 
 use Carp qw(cluck);
 
-require Exporter;
-use vars qw($VERSION @ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
-@ISA = qw(Exporter Texinfo::Convert::TexinfoSXML Texinfo::Convert::IXIN);
-
-%EXPORT_TAGS = ( 'all' => [ qw(
-  output
-) ] );
-
-@EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
-
-@EXPORT = qw(
-);
+use vars qw($VERSION @ISA);
+@ISA = qw(Texinfo::Convert::TexinfoSXML Texinfo::Convert::IXIN);
 
 $VERSION = '6.8dev';
+
 
 my %defaults = (
   'ENABLE_ENCODING'      => 0,

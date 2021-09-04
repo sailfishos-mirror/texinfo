@@ -1917,10 +1917,9 @@ sub copy_tree($;$)
   return $copy;
 }
 
-sub modify_tree($$$;$);
-sub modify_tree($$$;$)
+sub modify_tree($$;$);
+sub modify_tree($$;$)
 {
-  my $self = shift;
   my $tree = shift;
   my $operation = shift;
   my $argument = shift;
@@ -1929,8 +1928,8 @@ sub modify_tree($$$;$)
   if ($tree->{'args'}) {
     my @args = @{$tree->{'args'}};
     for (my $i = 0; $i <= $#args; $i++) {
-      my @new_args = &$operation($self, 'arg', $args[$i], $argument);
-      modify_tree($self, $args[$i], $operation, $argument);
+      my @new_args = &$operation('arg', $args[$i], $argument);
+      modify_tree($args[$i], $operation, $argument);
       # this puts the new args at the place of the old arg using the 
       # offset from the end of the array
       splice (@{$tree->{'args'}}, $i - $#args -1, 1, @new_args);
@@ -1939,8 +1938,8 @@ sub modify_tree($$$;$)
   if ($tree->{'contents'}) {
     my @contents = @{$tree->{'contents'}};
     for (my $i = 0; $i <= $#contents; $i++) {
-      my @new_contents = &$operation($self, 'content', $contents[$i], $argument);
-      modify_tree($self, $contents[$i], $operation, $argument);
+      my @new_contents = &$operation('content', $contents[$i], $argument);
+      modify_tree($contents[$i], $operation, $argument);
       # this puts the new contents at the place of the old content using the 
       # offset from the end of the array
       splice (@{$tree->{'contents'}}, $i - $#contents -1, 1, @new_contents);
@@ -1949,9 +1948,8 @@ sub modify_tree($$$;$)
   return $tree;
 }
 
-sub _protect_comma($$$)
+sub _protect_comma($$)
 {
-  my $self = shift;
   my $type = shift;
   my $current = shift;
 
@@ -1961,7 +1959,7 @@ sub _protect_comma($$$)
 sub protect_comma_in_tree($)
 {
   my $tree = shift;
-  return modify_tree(undef, $tree, \&_protect_comma);
+  return modify_tree($tree, \&_protect_comma);
 }
 
 sub _new_asis_command_with_text($$;$)
@@ -2022,9 +2020,8 @@ sub _protect_text($$)
   }
 }
 
-sub _protect_colon($$$)
+sub _protect_colon($$)
 {
-  my $self = shift;
   my $type = shift;
   my $current = shift;
 
@@ -2034,12 +2031,11 @@ sub _protect_colon($$$)
 sub protect_colon_in_tree($)
 {
   my $tree = shift;
-  return modify_tree(undef, $tree, \&_protect_colon);
+  return modify_tree($tree, \&_protect_colon);
 }
 
-sub _protect_node_after_label($$$)
+sub _protect_node_after_label($$)
 {
-  my $self = shift;
   my $type = shift;
   my $current = shift;
 
@@ -2049,7 +2045,7 @@ sub _protect_node_after_label($$$)
 sub protect_node_after_label_in_tree($)
 {
   my $tree = shift;
-  return modify_tree(undef, $tree, \&_protect_node_after_label);
+  return modify_tree($tree, \&_protect_node_after_label);
 }
 
 sub protect_first_parenthesis($)
@@ -2253,9 +2249,8 @@ sub move_index_entries_after_items($) {
   }
 }
 
-sub _move_index_entries_after_items($$$)
+sub _move_index_entries_after_items($$)
 {
-  my $self = shift;
   my $type = shift;
   my $current = shift;
 
@@ -2269,7 +2264,7 @@ sub _move_index_entries_after_items($$$)
 sub move_index_entries_after_items_in_tree($)
 {
   my $tree = shift;
-  return modify_tree(undef, $tree, \&_move_index_entries_after_items);
+  return modify_tree($tree, \&_move_index_entries_after_items);
 }
 
 sub _relate_index_entry_to_table_entry($)
@@ -2313,7 +2308,7 @@ sub _relate_index_entry_to_table_entry($)
 
 sub _relate_index_entries_to_table_entries_in_tree($$$)
 {
-  my ($self, $type, $current) = @_;
+  my ($type, $current) = @_;
 
   if ($current->{'type'} and ($current->{'type'} eq 'table_entry')) {
     _relate_index_entry_to_table_entry($current);
@@ -2324,7 +2319,7 @@ sub _relate_index_entries_to_table_entries_in_tree($$$)
 sub relate_index_entries_to_table_entries_in_tree($)
 {
   my $tree = shift;
-  return modify_tree(undef, $tree,
+  return modify_tree($tree,
                      \&_relate_index_entries_to_table_entries_in_tree);
 }
 

@@ -26,10 +26,14 @@ package Texinfo::Convert::PlainTexinfo;
 use 5.00405;
 use strict;
 
+use Texinfo::Convert::Texinfo;
 use Texinfo::Convert::Converter;
 
 use vars qw($VERSION @ISA);
 @ISA = qw(Texinfo::Convert::Converter);
+
+$VERSION = '6.8dev';
+
 
 my %defaults = (
   'OUTFILE'              => '-',

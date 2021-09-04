@@ -1238,9 +1238,7 @@ while(@input_files) {
 
   if ($tree_transformations{'insert_nodes_for_sectioning_commands'}) {
     my ($modified_contents, $added_nodes)
-     # the first argument is ultimately passed to Texinfo::Common::modify_tree
-     # functions, but they do not actually use this argument
-     = Texinfo::Transformations::insert_nodes_for_sectioning_commands(undef,
+     = Texinfo::Transformations::insert_nodes_for_sectioning_commands(
                               $tree, $nodes_list, $targets_list, $labels);
     if (!defined($modified_contents)) {
       document_warn(__(

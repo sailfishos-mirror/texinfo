@@ -36,7 +36,7 @@ use Carp qw(cluck carp);
 use File::Basename;
 
 require Exporter;
-use vars qw($VERSION @ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
+use vars qw($VERSION @ISA @EXPORT_OK %EXPORT_TAGS);
 @ISA = qw(Exporter);
 
 %EXPORT_TAGS = ( 'all' => [ qw(
@@ -47,10 +47,8 @@ use vars qw($VERSION @ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
 
 @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 
-@EXPORT = qw(
-);
-
 $VERSION = '6.8dev';
+
 
 # this is in fact not needed for 'footnote', 'shortcaption', 'caption'
 # when they have no brace_command_arg, see below.

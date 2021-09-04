@@ -28,22 +28,11 @@ use strict;
 use Texinfo::Convert::TexinfoXML;
 use Carp qw(cluck);
 
-require Exporter;
-use vars qw($VERSION @ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
-@ISA = qw(Exporter Texinfo::Convert::TexinfoXML);
-
-%EXPORT_TAGS = ( 'all' => [ qw(
-  convert
-  convert_tree
-  output
-) ] );
-
-@EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
-
-@EXPORT = qw(
-);
+use vars qw($VERSION @ISA);
+@ISA = qw(Texinfo::Convert::TexinfoXML);
 
 $VERSION = '6.8dev';
+
 
 # SXML specific
 my %defaults = (
@@ -125,15 +114,15 @@ sub close_element($$)
   return $result;
 }
 
-my %commands_formatting = %Texinfo::Convert::TexinfoXML::commands_formatting;
+my %no_arg_commands_formatting = %Texinfo::Convert::TexinfoXML::no_arg_commands_formatting;
 
 # format specific
 sub format_atom($$)
 {
   my $self = shift;
   my $atom = shift;
-  if ($commands_formatting{$atom} ne '') {
-    return '('.$commands_formatting{$atom}.' (@))';
+  if ($no_arg_commands_formatting{$atom} ne '') {
+    return '('.$no_arg_commands_formatting{$atom}.' (@))';
   } else {
     return '';
   }

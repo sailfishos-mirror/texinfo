@@ -30,22 +30,11 @@ use Texinfo::Convert::Texinfo;
 use Data::Dumper;
 use Carp qw(cluck);
 
-require Exporter;
-use vars qw($VERSION @ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
-@ISA = qw(Exporter Texinfo::Convert::Converter);
-
-%EXPORT_TAGS = ( 'all' => [ qw(
-  convert
-  convert_tree
-  output
-) ] );
-
-@EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
-
-@EXPORT = qw(
-);
+use vars qw($VERSION @ISA);
+@ISA = qw(Texinfo::Convert::Converter);
 
 $VERSION = '6.8dev';
+
 
 # XML specific
 my %defaults = (

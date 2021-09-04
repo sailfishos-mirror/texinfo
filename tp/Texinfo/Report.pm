@@ -19,19 +19,6 @@
 
 package Texinfo::Report;
 
-require Exporter;
-use vars qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
-@ISA = qw(Exporter);
-
-%EXPORT_TAGS = ( 'all' => [ qw(
-  errors
-) ] );
-
-@EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
-
-@EXPORT = qw(
-);
-
 use 5.00405;
 use strict;
 

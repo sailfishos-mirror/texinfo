@@ -30,6 +30,9 @@ use Texinfo::Convert::Converter;
 use vars qw($VERSION @ISA);
 @ISA = qw(Texinfo::Convert::Converter);
 
+$VERSION = '6.8dev';
+
+
 my %ignored_brace_commands;
 # Handle better @errormsg?
 foreach my $ignored_brace_command ('hyphenation', 'errormsg') {

@@ -42,7 +42,7 @@ use Texinfo::Structuring;
 use Carp qw(cluck);
 
 require Exporter;
-use vars qw($VERSION @ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
+use vars qw($VERSION @ISA @EXPORT_OK %EXPORT_TAGS);
 @ISA = qw(Exporter Texinfo::Report Texinfo::Translations);
 
 %EXPORT_TAGS = ( 'all' => [ qw(
@@ -54,10 +54,8 @@ xml_accents
 
 @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 
-@EXPORT = qw(
-);
-
 $VERSION = '6.8dev';
+
 
 my %defaults = (
   'documentlanguage'     => undef,
