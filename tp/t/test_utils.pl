@@ -784,23 +784,23 @@ sub test($$)
     delete $parser_options->{'test_split'};
   }
 
-  # register that there is a tree transformation to do
-  # in addition to passing to converter.
-  my $simple_menus;
+  # this is a Structuring phase option, but also needed
+  # by converter, so set to converter, and use converter option
+  # to check for the option
   if ($parser_options->{'SIMPLE_MENU'}) {
-    $simple_menus = 1;
-    if (!defined($converter_options->{'SIMPLE_MENU'})) {
-      $converter_options->{'SIMPLE_MENU'} = 1;
-    }
+    $converter_options->{'SIMPLE_MENU'} = 1;
     delete $parser_options->{'SIMPLE_MENU'};
   }
 
   # always set FORMAT_MENU to menu, which is the default for parser
   my $added_main_configurations = {'FORMAT_MENU' => 'menu'};
-  if ($parser_options->{'CHECK_NORMAL_MENU_STRUCTURE'}) {
-    $added_main_configurations->{'CHECK_NORMAL_MENU_STRUCTURE'}
-      = $parser_options->{'CHECK_NORMAL_MENU_STRUCTURE'};
-    delete $parser_options->{'CHECK_NORMAL_MENU_STRUCTURE'};
+  foreach my $structuring_option (('CHECK_NORMAL_MENU_STRUCTURE',
+                                   'ENABLE_ENCODING')) {
+    if ($parser_options->{$structuring_option}) {
+      $added_main_configurations->{$structuring_option}
+        = $parser_options->{$structuring_option};
+      delete $parser_options->{$structuring_option};
+    }
   }
 
   my %todos;
@@ -854,8 +854,11 @@ sub test($$)
   } else {
     $result = $parser->parse_texi_file($test_file);
   }
-  my $registrar = $parser->registered_errors();
   my $parser_informations = $parser->global_informations();
+
+  Texinfo::Common::set_output_encodings($main_configuration, $parser_informations);
+
+  my $registrar = $parser->registered_errors();
   my ($labels, $targets_list, $nodes_list) = $parser->labels_information();
   my $refs = $parser->internal_references_information();
   Texinfo::Structuring::associate_internal_references($registrar,
@@ -907,14 +910,14 @@ sub test($$)
   $indices->{'index_names'} = $trimmed_index_names
     unless (Data::Compare::Compare($trimmed_index_names, $initial_index_names));
 
-  my $sorted_index_entries;
+  my ($sorted_index_entries, $index_entries_keys);
   if ($merged_index_entries) {
-    $sorted_index_entries 
-      = Texinfo::Structuring::sort_indices_by_letter($parser, $registrar,
+    ($sorted_index_entries, $index_entries_keys)
+      = Texinfo::Structuring::sort_indices($parser, $registrar,
                                    $main_configuration,
-                                   $merged_index_entries, $index_names);
+                                   $merged_index_entries, 'by_letter');
   }
-  if ($simple_menus) {
+  if ($converter_options->{'SIMPLE_MENU'}) {
     # require instead of use for speed when this module is not needed
     require Texinfo::Transformations;
     Texinfo::Transformations::set_menus_to_simple_menu($nodes_list);

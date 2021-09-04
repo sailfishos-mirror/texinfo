@@ -48,13 +48,13 @@ my $parser_informations = $parser->global_informations();
 # holding only configuration that is not a parser
 $parser->{'OUTPUT_ENCODING_NAME'} = $parser_informations->{'input_encoding_name'};
 $parser->{'ENABLE_ENCODING'} = 1;
-my $sorted_index_entries 
+my ($sorted_index_entries, $index_entries_keys)
   = Texinfo::Structuring::sort_indices($parser, $registrar, $parser,
-                                  $index_entries, $index_names);
+                                       $index_entries);
 
 my @entries = ();
 foreach my $entry (@{$sorted_index_entries->{'cp'}}) {
-  push @entries, $entry->{'key'};
+  push @entries, $index_entries_keys->{$entry};
 }
 
 use utf8;
@@ -64,9 +64,9 @@ my @entries_ref = ('!', '"', 'aaaaaaaaaaaa', 'e', 'E', 'ł', 'ẽ');
 
 cmp_deeply (\@entries, \@entries_ref, 'sorted index entries');
 
-my $sorted_index_entries_by_letter 
-  = Texinfo::Structuring::sort_indices_by_letter($parser, $parser, $parser,
-                                                 $index_entries, $index_names);
+my ($sorted_index_entries_by_letter, $by_letter_index_entries_keys)
+  = Texinfo::Structuring::sort_indices($parser, $parser, $parser,
+                                       $index_entries, 'by_letter');
 
 my @letter_entries_ref = (
    {'!' => [ '!' ]},
@@ -79,11 +79,11 @@ my @letter_entries_ref = (
  
 my @letter_entries;
 foreach my $letter (@{$sorted_index_entries_by_letter->{'cp'}}) {
-  #my $letter_entry = {'letter' => $letter->{'letter'}};
   my $letter_entry = {};
   push @letter_entries, $letter_entry;
   foreach my $entry (@{$letter->{'entries'}}) {
-    push @{$letter_entry->{$letter->{'letter'}}}, $entry->{'key'};
+    push @{$letter_entry->{$letter->{'letter'}}},
+      $by_letter_index_entries_keys->{$entry};
   }
 }
 

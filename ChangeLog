@@ -10,6 +10,17 @@
 
 2021-09-04  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Structuring.pm (sort_indices),
+	tp/Texinfo/Convert/HTML.pm, tp/Texinfo/Convert/IXIN.pm,
+	tp/Texinfo/Convert/Plaintext.pm, tp/init/chm.pm:
+	merge sort_indices_by_letter() in sort_indices().
+	Merge do_index_keys() in sort_indices() too.  Sort using
+	especially created lists with entries informations.  Do not
+	use entry 'key' at all.  Return keys used to sort entries as
+	a hash reference.
+
+2021-09-04  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Config.pm (Texinfo::MainConfig::new):
 	bless module hash and not input hash.  Return explicitly the
 	blessed hashes.

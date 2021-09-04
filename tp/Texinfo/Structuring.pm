@@ -1634,15 +1634,15 @@ sub index_key($$$$;$)
   my $options = shift;
   my $ignore_chars = shift;
 
-  my $converter_options = {%$options};
-  $converter_options->{'code'} = $main_entry->{'in_code'};
+  my $convert_to_text_options = {%$options};
+  $convert_to_text_options->{'code'} = $main_entry->{'in_code'};
 
   my $entry_key;
   if (defined($sortas)) {
     $entry_key = $sortas;
   } else {
     $entry_key = Texinfo::Convert::Text::convert_to_text(
-                          $entry_tree_element, $converter_options);
+                          $entry_tree_element, $convert_to_text_options);
     # FIXME do that for sortas too?
     if (defined($ignore_chars) and $ignore_chars ne '') {
       $entry_key =~ s/[$ignore_chars]//g;
@@ -1656,75 +1656,61 @@ sub index_key($$$$;$)
   return $entry_key;
 }
 
-# Go through all the index entries and set 'key', the sort key, on
-# each one.
-sub do_index_keys($$$$)
+sub sort_indices($$$$;$)
 {
   my $self = shift;
   my $registrar = shift;
   my $configuration_informations = shift;
-  my $index_names = shift;
+  my $index_entries = shift;
+  my $sort_by_letter = shift;
 
   my ($options, $ignore_chars) = setup_index_entry_keys_formatting($self,
                                              $configuration_informations);
-
-  foreach my $index_name (keys(%$index_names)) {
-    foreach my $entry (@{$index_names->{$index_name}->{'index_entries'}}) {
-      $entry->{'key'} = index_key($entry, {'contents' => $entry->{'content'}},
+  my $sorted_index_entries;
+  my $index_entry_keys = {};
+  foreach my $index_name (keys(%$index_entries)) {
+    # used if not $sort_by_letter
+    my $sortable_index_entries = [];
+    # used if $sort_by_letter
+    my $index_letter_hash;
+    foreach my $entry (@{$index_entries->{$index_name}}) {
+      my $entry_key = index_key($entry, {'contents' => $entry->{'content'}},
                                   $entry->{'sortas'}, $options, $ignore_chars);
-      if ($entry->{'key'} !~ /\S/) {
+      $index_entry_keys->{$entry} = $entry_key;
+      $entry->{'key'} = $entry_key;
+      if ($entry_key !~ /\S/) {
         $registrar->line_warn($configuration_informations,
                      sprintf(__("empty index key in \@%s"),
                                  $entry->{'index_at_command'}),
                         $entry->{'command'}->{'line_nr'});
+      } else {
+        my $sortable_entry = {'entry' => $entry, 'key' => $entry_key,
+           'number' => $entry->{'number'},
+           'index_at_command' => $entry->{'index_at_command'}};
+
+        if ($sort_by_letter) {
+          my $letter = uc(substr($entry_key, 0, 1));
+          push @{$index_letter_hash->{$letter}}, $sortable_entry;
+        } else {
+          push @{$sortable_index_entries}, $sortable_entry;
+        }
       }
     }
-  }
-}
-
-sub sort_indices($$$$$)
-{
-  my $self = shift;
-  my $registrar = shift;
-  my $configuration_informations = shift;
-  my $index_entries = shift;
-  my $index_names = shift;
-
-  my $sorted_index_entries;
-  do_index_keys($self, $registrar, $configuration_informations, $index_names);
-  foreach my $index_name (keys(%$index_entries)) {
-    @{$sorted_index_entries->{$index_name}} = 
-        sort _sort_index_entries 
-            grep {$_->{'key'} =~ /\S/} @{$index_entries->{$index_name}};
-  }
-  return $sorted_index_entries;
-}
-
-sub sort_indices_by_letter($$$$$)
-{
-  my $self = shift;
-  my $registrar = shift;
-  my $configuration_informations = shift;
-  my $index_entries = shift;
-  my $index_names = shift;
-
-  my $indices_sorted_by_letters;
-  do_index_keys($self, $registrar, $configuration_informations, $index_names);
-  foreach my $index_name (keys(%$index_entries)) {
-    my $index_letter_hash;
-    foreach my $index_entry (@{$index_entries->{$index_name}}) {
-      next if ($index_entry->{'key'} !~ /\S/);
-      my $letter = uc(substr($index_entry->{'key'}, 0, 1));
-      push @{$index_letter_hash->{$letter}}, $index_entry;
-    }
-    foreach my $letter (sort _sort_string (keys %$index_letter_hash)) {
-      my @sorted_letter_entries 
-         = sort _sort_index_entries_in_letter @{$index_letter_hash->{$letter}};
-      push @{$indices_sorted_by_letters->{$index_name}},
-        { 'letter' => $letter, 'entries' => \@sorted_letter_entries };
+    if ($sort_by_letter) {
+      foreach my $letter (sort _sort_string (keys %$index_letter_hash)) {
+        my @sorted_letter_entries
+           = map {$_->{'entry'}}
+               sort _sort_index_entries_in_letter @{$index_letter_hash->{$letter}};
+        push @{$sorted_index_entries->{$index_name}},
+          { 'letter' => $letter, 'entries' => \@sorted_letter_entries };
+      }
+    } else {
+      @{$sorted_index_entries->{$index_name}} =
+        map {$_->{'entry'}}
+          sort _sort_index_entries @{$sortable_index_entries};
     }
   }
-  return $indices_sorted_by_letters;
+  return $sorted_index_entries, $index_entry_keys;
 }
 
 sub merge_indices($)
@@ -1762,7 +1748,7 @@ Texinfo::Structuring - information on Texinfo::Parser tree
 
   use Texinfo::Structuring qw(sectioning_structure nodes_tree number_floats
     associate_internal_references split_by_node split_by_section split_pages
-    merge_indices sort_indices_by_letter sort_indices elements_directions
+    merge_indices sort_indices elements_directions
     elements_file_directions);
   # $tree is a Texinfo document tree.  $parser is a Texinfo::Parser object.
   my $registrar = $parser->registered_errors();
@@ -1793,11 +1779,11 @@ Texinfo::Structuring - information on Texinfo::Parser tree
      = merge_indices($index_names);
   my $index_entries_sorted;
   if ($sort_by_letter) {
-    $index_entries_sorted = sort_indices_by_letter($parser, $parser, $parser,
-                                       $merged_index_entries, $index_names);
+    $index_entries_sorted = sort_indices($parser, $parser, $parser,
+                                       $merged_index_entries, 'by_letter');
   } else {
     $index_entries_sorted = sort_indices($parser, $parser, $parser,
-                                         $merged_index_entries, $index_names);
+                                         $merged_index_entries);
   }
   
   
@@ -1828,7 +1814,7 @@ set direction related to files, provided files are associated with
 elements by the user.
 
 C<merge_indices> may be used to merge indices, which may be sorted
-with C<sort_indices> or C<sort_indices_by_letter> to sort by letters.
+with C<sort_indices>.
 
 
 =head1 METHODS
@@ -2116,12 +2102,11 @@ The I<$merged_entries> returned is a hash reference whose
 keys are the index names and values arrays of index entry structures
 described in details in L<Texinfo::Parser/index_entries>.
 
-=item $index_entries_sorted = sort_indices_by_letter($parser, $registrar, $configuration_informations, $merged_index_entries, $index_names)
+=item ($index_entries_sorted, $index_entry_keys) = sort_indices($parser, $registrar, $configuration_informations, $merged_index_entries, $sort_by_letter)
 
-=item $index_entries_sorted = sort_indices($parser, $registrar, $configuration_informations, $merged_index_entries, $index_names)
-
-These functions first sets a plain text key for each index entry, used for 
-sorting.  In both cases, a hash reference with index names as keys is returned.
+If C<$sort_by_letter> is set, sort by letter, otherwise sort all
+entries together.  In both cases, a hash reference with index names
+as keys C<$index_entries_sorted> is returned.
 
 When sorting by letter, an array reference of letter hash references is 
 associated with each index name.  Each letter hash reference has two 
@@ -2130,6 +2115,9 @@ reference of sorted index entries beginning with the letter.
 
 When simply sorting, the array of the sorted index entries is associated
 with the index name.
+
+C<$index_entry_keys> is a hash reference associating the index entries
+with the key that were used to sort them.
 
 Register errors in C<$registrar>.
 

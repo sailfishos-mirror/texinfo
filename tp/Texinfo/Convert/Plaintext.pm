@@ -1192,9 +1192,10 @@ sub _printindex_formatted($$;$)
     my $index_names = $self->{'parser'}->indices_information();
     my $merged_index_entries 
       = Texinfo::Structuring::merge_indices($index_names);
-    $self->{'index_entries'} 
+    my $index_entries_keys;
+    ($self->{'index_entries'}, $index_entries_keys)
       = Texinfo::Structuring::sort_indices($self->{'parser'}, $self, $self,
-                                   $merged_index_entries, $index_names);
+                                           $merged_index_entries);
     $self->{'index_names'} = $index_names;
   }
   if (!$self->{'index_entries'} or !$self->{'index_entries'}->{$index_name}

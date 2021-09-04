@@ -242,9 +242,9 @@ sub chm_init($)
   }
   print $hhk_fh "</OBJECT>\n";
 
-  my $index_entries = Texinfo::Structuring::sort_indices($self->{'parser'},
-                                    $self, $self, $self->{'index_entries'},
-                                          $self->{'index_names'});
+  my ($index_entries, $index_entries_keys)
+       = Texinfo::Structuring::sort_indices($self->{'parser'},
+                                    $self, $self, $self->{'index_entries'});
   if ($index_entries) {
     foreach my $index_name (sort(keys(%$index_entries))) {
       foreach my $index_entry_ref (@{$index_entries->{$index_name}}) {
