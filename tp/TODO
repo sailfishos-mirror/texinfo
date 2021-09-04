@@ -15,10 +15,6 @@ Before next release
 
 Rename _set_global_multiple_commands
 
-check @{$converter_options->{'INCLUDE_DIRECTORIES'}} with more 
-than one output file
-FIXME isn't that done for each output file?
-
 complete_indices, gdt, some code in Text: add documentlanguage arg to gdt
 
 not internal (maybe move?)

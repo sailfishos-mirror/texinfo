@@ -35,6 +35,8 @@ use File::Basename;
 use Getopt::Long qw(GetOptions);
 # for carp
 #use Carp;
+# for dclone
+use Storable;
 
 Getopt::Long::Configure("gnu_getopt");
 
@@ -1134,7 +1136,10 @@ while(@input_files) {
   my $input_file_base = $input_file_name;
   $input_file_base =~ s/\.te?x(i|info)?$//;
 
-  my $parser_file_options = { %$parser_options };
+  # a shallow copy is not sufficient for arrays and hashes to make
+  # sure that the $parser_options are not modified if $parser_file_options
+  # are modified
+  my $parser_file_options = Storable::dclone($parser_options);
 
   my @prepended_include_directories = ('.');
   push @prepended_include_directories, $input_directory
@@ -1142,7 +1147,6 @@ while(@input_files) {
   @prepended_include_directories =
     (@prepend_dirs, @prepended_include_directories);
 
-  # FIXME isn't that done for each output file?
   unshift @{$parser_file_options->{'INCLUDE_DIRECTORIES'}},
           @prepended_include_directories;
 
@@ -1323,7 +1327,10 @@ while(@input_files) {
   if ($format eq 'structure') {
     next;
   }
-  my $file_cmdline_options = { %$cmdline_options };
+  # a shallow copy is not sufficient for arrays and hashes to make
+  # sure that the $cmdline_options are not modified if $file_cmdline_options
+  # are modified
+  my $file_cmdline_options = Storable::dclone($cmdline_options);
 
   if ($file_number != 0) {
     delete $file_cmdline_options->{'OUTFILE'}
@@ -1341,7 +1348,6 @@ while(@input_files) {
   $converter_options->{'structuring'} = $structure_informations;
   $converter_options->{'output_format'} = $format;
   $converter_options->{'language_config_dirs'} = \@language_config_dirs;
-  # FIXME isn't that done for each output file?
   unshift @{$converter_options->{'INCLUDE_DIRECTORIES'}},
           @prepended_include_directories;
 
