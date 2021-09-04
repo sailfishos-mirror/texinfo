@@ -1,7 +1,7 @@
 use vars qw(%result_texis %result_texts %result_trees %result_errors 
    %result_indices %result_sectioning %result_nodes %result_menus
    %result_floats %result_converted %result_converted_errors 
-   %result_elements %result_directions_text %result_sort_strings);
+   %result_elements %result_directions_text %result_indices_sort_strings);
 
 use utf8;
 
@@ -2060,7 +2060,7 @@ $result_errors{'char_latin1_utf8_in_refs'} = [];
 $result_floats{'char_latin1_utf8_in_refs'} = {};
 
 
-$result_sort_strings{'char_latin1_utf8_in_refs'} = {
+$result_indices_sort_strings{'char_latin1_utf8_in_refs'} = {
   'cp' => [
     "\x{e2} \x{ea} \x{ee} \x{f4} \x{fb} \x{c2} \x{ca} \x{ce} \x{d4} \x{db}",
     "\x{c4} \x{cb} \x{cf} \x{d6} \x{dc}",

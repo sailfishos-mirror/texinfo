@@ -1,7 +1,7 @@
 use vars qw(%result_texis %result_texts %result_trees %result_errors 
    %result_indices %result_sectioning %result_nodes %result_menus
    %result_floats %result_converted %result_converted_errors 
-   %result_elements %result_directions_text %result_sort_strings);
+   %result_elements %result_directions_text %result_indices_sort_strings);
 
 use utf8;
 
@@ -4770,7 +4770,7 @@ $result_floats{'complex_float'}{'Text'}[0]{'extra'}{'shortcaption'}{'extra'}{'fl
 $result_floats{'complex_float'}{'Text'}[1]{'extra'}{'caption'}{'extra'}{'float'} = $result_floats{'complex_float'}{'Text'}[1];
 
 
-$result_sort_strings{'complex_float'} = {
+$result_indices_sort_strings{'complex_float'} = {
   'cp' => [
     'float example',
     'float example in caption',

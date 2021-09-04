@@ -1,7 +1,7 @@
 use vars qw(%result_texis %result_texts %result_trees %result_errors 
    %result_indices %result_sectioning %result_nodes %result_menus
    %result_floats %result_converted %result_converted_errors 
-   %result_elements %result_directions_text %result_sort_strings);
+   %result_elements %result_directions_text %result_indices_sort_strings);
 
 use utf8;
 
@@ -696,7 +696,7 @@ $result_errors{'inter_item_commands_in_def'} = [
 $result_floats{'inter_item_commands_in_def'} = {};
 
 
-$result_sort_strings{'inter_item_commands_in_def'} = {
+$result_indices_sort_strings{'inter_item_commands_in_def'} = {
   'cp' => [
     'between deffnx',
     'cindex in deff item'

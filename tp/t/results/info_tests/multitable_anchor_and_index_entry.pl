@@ -1,7 +1,7 @@
 use vars qw(%result_texis %result_texts %result_trees %result_errors 
    %result_indices %result_sectioning %result_nodes %result_menus
    %result_floats %result_converted %result_converted_errors 
-   %result_elements %result_directions_text %result_sort_strings);
+   %result_elements %result_directions_text %result_indices_sort_strings);
 
 use utf8;
 
@@ -1201,7 +1201,7 @@ $result_errors{'multitable_anchor_and_index_entry'} = [];
 $result_floats{'multitable_anchor_and_index_entry'} = {};
 
 
-$result_sort_strings{'multitable_anchor_and_index_entry'} = {
+$result_indices_sort_strings{'multitable_anchor_and_index_entry'} = {
   'cp' => [
     'index entry',
     'index entry within multitable'

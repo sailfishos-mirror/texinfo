@@ -1,7 +1,7 @@
 use vars qw(%result_texis %result_texts %result_trees %result_errors 
    %result_indices %result_sectioning %result_nodes %result_menus
    %result_floats %result_converted %result_converted_errors 
-   %result_elements %result_directions_text %result_sort_strings);
+   %result_elements %result_directions_text %result_indices_sort_strings);
 
 use utf8;
 
@@ -1264,7 +1264,7 @@ $result_errors{'printindex_index_entry_in_copying'} = [];
 $result_floats{'printindex_index_entry_in_copying'} = {};
 
 
-$result_sort_strings{'printindex_index_entry_in_copying'} = {
+$result_indices_sort_strings{'printindex_index_entry_in_copying'} = {
   'fn' => [
     'Copying this document',
     'ftable item',

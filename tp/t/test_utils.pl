@@ -62,7 +62,7 @@ use Getopt::Long qw(GetOptions);
 use vars qw(%result_texis %result_texts %result_trees %result_errors 
    %result_indices %result_sectioning %result_nodes %result_menus
    %result_floats %result_converted %result_converted_errors 
-   %result_elements %result_directions_text %result_sort_strings);
+   %result_elements %result_directions_text %result_indices_sort_strings);
 
 my $strings_textdomain = 'texinfo_document';
 Locale::Messages->select_package ('gettext_pp');
@@ -918,6 +918,7 @@ sub test($$)
                                    $main_configuration,
                                    $merged_index_entries);
     foreach my $index_name (keys(%$sorted_index_entries)) {
+      # index entries sort strings sorted in the order of the index entries
       $indices_sorted_sort_strings->{$index_name} = [];
       foreach my $index_entry (@{$sorted_index_entries->{$index_name}}) {
         push @{$indices_sorted_sort_strings->{$index_name}},
@@ -1077,7 +1078,7 @@ sub test($$)
     print OUT 'use vars qw(%result_texis %result_texts %result_trees %result_errors '."\n".
               '   %result_indices %result_sectioning %result_nodes %result_menus'."\n".
               '   %result_floats %result_converted %result_converted_errors '."\n".
-              '   %result_elements %result_directions_text %result_sort_strings);'."\n\n";
+              '   %result_elements %result_directions_text %result_indices_sort_strings);'."\n\n";
     print OUT 'use utf8;'."\n\n";
 
     #print STDERR "Generate: ".Data::Dumper->Dump([$result], ['$res']);
@@ -1120,7 +1121,7 @@ sub test($$)
     if ($indices_sorted_sort_strings) {
       local $Data::Dumper::Sortkeys = 1;
       $out_result .= Data::Dumper->Dump([$indices_sorted_sort_strings], 
-                                    ['$result_sort_strings{\''.$test_name.'\'}']) ."\n\n";
+                                    ['$result_indices_sort_strings{\''.$test_name.'\'}']) ."\n\n";
     }
     if ($elements) {
       local $Data::Dumper::Sortkeys = \&filter_elements_keys;
@@ -1164,7 +1165,8 @@ sub test($$)
         $test_name.' errors');
     ok (Data::Compare::Compare($indices, $result_indices{$test_name}), 
         $test_name.' indices');
-    ok (Data::Compare::Compare($indices_sorted_sort_strings, $result_sort_strings{$test_name}),
+    ok (Data::Compare::Compare($indices_sorted_sort_strings,
+                               $result_indices_sort_strings{$test_name}),
         $test_name.' indices sort');
     ok (Texinfo::Convert::Texinfo::convert_to_texinfo($result) eq $result_texis{$test_name}, 
          $test_name.' texi');
