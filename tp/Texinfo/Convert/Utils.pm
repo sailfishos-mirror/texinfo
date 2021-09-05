@@ -31,6 +31,7 @@ package Texinfo::Convert::Utils;
 use strict;
 
 use Texinfo::Common;
+# only needed in debugging comments.  Ok to keep it here anyway.
 use Texinfo::Convert::Texinfo;
 
 # debugging

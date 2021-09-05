@@ -2518,11 +2518,12 @@ sub _register_label($$$)
 }
 
 # store an index entry.
-# $current is the command element.
-# $content holds the actual content.
-# for index entries and v|ftable items, it is the index entry content, 
-# for def, it is the parsed arguments, based on the definition line 
-# arguments.
+# $COMMAND_CONTAINER is the name of the @-command the index entry
+#  is associated with, for instance 'cindex', 'defivar' or 'vtable'.
+# $CURRENT is the command element.
+# $CONTENT holds the actual content.  For index entries and v|ftable
+#  items, it is the index entry content, for def, it is the parsed
+#  arguments, based on the definition line arguments.
 sub _enter_index_entry($$$$$$$)
 {
   my ($self, $command_container, $command, $current, $content,

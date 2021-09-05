@@ -33,11 +33,9 @@ use Texinfo::Common;
 # for debugging.  Also for index entries sorting.
 use Texinfo::Convert::Text;
 # for error messages 
-use Texinfo::Convert::Texinfo;
+use Texinfo::Convert::Texinfo qw(node_extra_to_texi);
 
 use Texinfo::Convert::NodeNameNormalization;
-
-*node_extra_to_texi = \&Texinfo::Convert::Texinfo::node_extra_to_texi;
 
 use Carp qw(cluck);
 
