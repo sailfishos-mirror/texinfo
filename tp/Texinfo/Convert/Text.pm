@@ -721,7 +721,7 @@ sub output($$)
                              $outfile);
     return undef if (!$fh);
   }
-  my %options = $self->Texinfo::Common::_convert_text_options();
+  my %options = Texinfo::Common::copy_options_for_convert_text($self);
   my $result = _convert($tree, \%options);
   if ($fh) {
     print $fh $result;

@@ -222,6 +222,21 @@ sub protect_perl_string($)
   return $string;
 }
 
+# re-associate top level command with the document_root in case a converter
+# split the document, by resetting their 'parent' key.
+sub unsplit($)
+{
+  my $root = shift;
+  if (!$root->{'type'} or $root->{'type'} ne 'document_root'
+      or !$root->{'contents'}) {
+    return;
+  }
+  foreach my $content (@{$root->{'contents'}}) {
+    $content->{'parent'} = $root;
+  }
+  return;
+}
+
 sub compare_dirs_files($$;$)
 {
   my $dir1 = shift;
@@ -851,9 +866,8 @@ sub test($$)
   my $parser = Texinfo::Parser::parser($completed_parser_options);
 
   # take the initial values to record only if there is something new
-  my $initial_index_names = $parser->indices_information();
   # do a copy to compare the values and not the references
-  $initial_index_names = dclone($initial_index_names);
+  my $initial_index_names = dclone(\%Texinfo::Common::index_names);
   print STDERR "  TEST $test_name\n" if ($self->{'DEBUG'});
   my $result;
   if (!$test_file) {
@@ -1043,7 +1057,7 @@ sub test($$)
   # means that depending on the order of converters call, trees feed to 
   # converters may have a document_root as top level command parent or 
   # elements.  All the converters will have the document_root as argument.
-  Texinfo::Structuring::_unsplit($result);
+  unsplit($result);
   my $elements;
   if ($split eq 'node') {
     $elements = Texinfo::Structuring::split_by_node($result);
@@ -1054,7 +1068,8 @@ sub test($$)
     Texinfo::Structuring::elements_directions($parser, $labels, $elements);
     $directions_text = '';
     foreach my $element (@$elements) {
-      $directions_text .= Texinfo::Structuring::_print_directions($element);
+      $directions_text .=
+          Texinfo::Structuring::print_element_directions($element);
     }
   }
   if ($split_pages) {

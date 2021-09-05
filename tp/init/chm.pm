@@ -207,7 +207,7 @@ sub convert_tree ($$;$)
 
   return $converter->protect_text(
     Texinfo::Convert::Text::convert_to_text($tree,
-   {Texinfo::Common::_convert_text_options($converter),
+   {Texinfo::Common::copy_options_for_convert_text($converter),
      %$options}));
 }
 

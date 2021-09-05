@@ -1,5 +1,35 @@
 2021-09-05  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (%index_names), tp/t/test_utils.pl (test):
+	complete the %index_names structure to have the 'contained_indices'
+	field and use it as a reference in tests for the default index
+	names structure.
+
+	* tp/Texinfo/Common.pm (copy_options_for_convert_text)
+	(copy_contents), tp/Texinfo/Structuring.pm (print_element_directions)
+	(index_entry_sort_string, get_node_node_childs_from_sectioning),
+	tp/t/test_utils.pl (unsplit), tp/Texinfo/Transformations.pm,
+	tp/Texinfo/Convert/DocBook.pm, tp/Texinfo/Convert/HTML.pm,
+	tp/Texinfo/Convert/LaTeX.pm, tp/Texinfo/Convert/Plaintext.pm,
+	tp/Texinfo/Convert/TexinfoXML.pm, tp/Texinfo/Convert/Text.pm,
+	tp/Texinfo/Convert/TextContent.pm:
+	rename Texinfo::Common _convert_text_options() as
+	copy_options_for_convert_text().
+	Add _copy_contents as copy_contents() in Texinfo::Common,
+	from Texinfo::Structuring.
+	Rename Texinfo::Structuring _print_directions() as
+	print_element_directions().
+	Rename Texinfo::Structuring get_node_node_childs() as
+	get_node_node_childs_from_sectioning().
+	Rename Texinfo::Structuring index_key() as index_entry_sort_string().
+	Move Texinfo::Structuring _unsplit() to tp/t/test_utils.pl, renamed
+	as unsplit().
+	Remove _sort_index_entries_in_letter() it is not used anymore,
+	the same function is used for sorting when sorting by letter
+	or not.
+
+2021-09-05  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Translations.pm (gdt, complete_indices),
 	tp/Texinfo/Convert/Text.pm: pass optionally the language to gdt().
 

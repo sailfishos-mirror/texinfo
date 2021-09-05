@@ -1233,13 +1233,14 @@ sub _convert($$;$)
             $manual = Texinfo::Convert::Text::convert_to_text({'contents'
                      => $root->{'args'}->[$manual_arg_index]->{'contents'}},
                       {'code' => 1,
-                       Texinfo::Common::_convert_text_options($self)});
+                       Texinfo::Common::copy_options_for_convert_text($self)});
           }
           if (!defined($manual) and $root->{'extra'}->{'node_argument'}
               and $root->{'extra'}->{'node_argument'}->{'manual_content'}) {
             $manual = Texinfo::Convert::Text::convert_to_text({'contents' 
-                 => $root->{'extra'}->{'node_argument'}->{'manual_content'}},
-              {'code' => 1, Texinfo::Common::_convert_text_options($self)});
+                   => $root->{'extra'}->{'node_argument'}->{'manual_content'}},
+                 {'code' => 1,
+                  Texinfo::Common::copy_options_for_convert_text($self)});
           }
           if (defined($manual)) {
             my $manual_base = $manual;

@@ -396,7 +396,7 @@ sub converter_initialize($)
 
   %{$self->{'style_map'}} = %style_map;
   $self->{'convert_text_options'} 
-      = {Texinfo::Common::_convert_text_options($self)};
+      = {Texinfo::Common::copy_options_for_convert_text($self)};
 
   if ($self->get_conf('ENABLE_ENCODING') and $self->get_conf('OUTPUT_ENCODING_NAME')
       and $self->get_conf('OUTPUT_ENCODING_NAME') eq 'utf-8') {

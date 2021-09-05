@@ -839,11 +839,13 @@ sub _convert($$;$)
           if ($root->{'cmdname'} eq 'inforef') {
             my $filename;
             if (scalar(@{$root->{'args'}}) == 3
-                and defined($root->{'args'}->[-1]) and @{$root->{'args'}->[-1]->{'contents'}}) {
-              $filename 
-                = $self->xml_protect_text(Texinfo::Convert::Text::convert_to_text(
-              {'contents' => $root->{'args'}->[-1]->{'contents'}},
-              {'code' => 1, Texinfo::Common::_convert_text_options($self)}));
+                and defined($root->{'args'}->[-1])
+                and @{$root->{'args'}->[-1]->{'contents'}}) {
+              $filename =
+                $self->xml_protect_text(Texinfo::Convert::Text::convert_to_text(
+                  {'contents' => $root->{'args'}->[-1]->{'contents'}},
+                  {'code' => 1,
+                   Texinfo::Common::copy_options_for_convert_text($self)}));
             }
             my $node;
             if (defined($root->{'args'}->[0]) and @{$root->{'args'}->[0]->{'contents'}}) {
@@ -976,10 +978,11 @@ sub _convert($$;$)
           return '';
         }
       } elsif ($root->{'cmdname'} eq 'image') {
-        if (defined($root->{'args'}->[0]) and @{$root->{'args'}->[0]->{'contents'}}) {
+        if (defined($root->{'args'}->[0])
+            and @{$root->{'args'}->[0]->{'contents'}}) {
           my $basefile = Texinfo::Convert::Text::convert_to_text(
            {'contents' => $root->{'args'}->[0]->{'contents'}},
-           {'code' => 1, Texinfo::Common::_convert_text_options($self)});
+           {'code' => 1, Texinfo::Common::copy_options_for_convert_text($self)});
           my $element;
           my $is_inline = $self->_is_inline($root);
           if ($is_inline) {
@@ -1026,16 +1029,17 @@ sub _convert($$;$)
           my $email;
           my $email_text;
           if (scalar(@{$root->{'args'}}) == 2
-              and defined($root->{'args'}->[-1]) and @{$root->{'args'}->[-1]->{'contents'}}) {
+              and defined($root->{'args'}->[-1])
+              and @{$root->{'args'}->[-1]->{'contents'}}) {
             $name = $root->{'args'}->[1]->{'contents'};
           }
           if (defined($root->{'args'}->[0]) and @{$root->{'args'}->[0]->{'contents'}}) {
             $email = $root->{'args'}->[0]->{'contents'};
-            $email_text 
+            $email_text
               = $self->_protect_text(Texinfo::Convert::Text::convert_to_text(
-                                         {'contents' => $email},
-                                         {'code' => 1,
-                                  Texinfo::Common::_convert_text_options($self)}));
+                      {'contents' => $email},
+                      {'code' => 1,
+                       Texinfo::Common::copy_options_for_convert_text($self)}));
           }
           if ($name and $email) {
             return "<ulink url=\"mailto:$email_text\">"
@@ -1052,12 +1056,14 @@ sub _convert($$;$)
       } elsif ($root->{'cmdname'} eq 'uref' or $root->{'cmdname'} eq 'url') {
         if ($root->{'args'}) {
           my ($url_text, $url_content);
-          if (defined($root->{'args'}->[0]) and @{$root->{'args'}->[0]->{'contents'}}) {
+          if (defined($root->{'args'}->[0])
+              and @{$root->{'args'}->[0]->{'contents'}}) {
             $url_content = $root->{'args'}->[0]->{'contents'};
-            $url_text = $self->_protect_text(Texinfo::Convert::Text::convert_to_text(
-                                         {'contents' => $url_content},
-                                         {'code' => 1,
-                                  Texinfo::Common::_convert_text_options($self)}));
+            $url_text = $self->_protect_text(
+                Texinfo::Convert::Text::convert_to_text(
+                      {'contents' => $url_content},
+                      {'code' => 1,
+                       Texinfo::Common::copy_options_for_convert_text($self)}));
           } else {
             $url_text = '';
           }
@@ -1230,8 +1236,8 @@ sub _convert($$;$)
             foreach my $prototype (@{$root->{'extra'}->{'prototypes'}}) {
               my $prototype_text
                 = Texinfo::Convert::Text::convert_to_text($prototype,
-                               {Texinfo::Common::_convert_text_options($self)});
-              push @fractions, 
+                     {Texinfo::Common::copy_options_for_convert_text($self)});
+              push @fractions,
                 Texinfo::Convert::Unicode::string_width($prototype_text);
             }
           } elsif ($root->{'extra'}->{'columnfractions'}) {
@@ -1271,13 +1277,14 @@ sub _convert($$;$)
           if ($root->{'args'} and $root->{'args'}->[0]
               and $root->{'args'}->[0]->{'contents'}
               and @{$root->{'args'}->[0]->{'contents'}}) {
-            my $quotation_arg_text = Texinfo::Convert::Text::convert_to_text(
-                     $root->{'args'}->[0],
-                     {Texinfo::Common::_convert_text_options($self)});
+            my $quotation_arg_text
+                = Texinfo::Convert::Text::convert_to_text(
+                   $root->{'args'}->[0],
+                   {Texinfo::Common::copy_options_for_convert_text($self)});
             if ($docbook_special_quotations{lc($quotation_arg_text)}) {
               $element = lc($quotation_arg_text);
             } else {
-              $self->{'pending_prepend'} 
+              $self->{'pending_prepend'}
                 = $self->_convert($self->gdt('@b{{quotation_arg}:} ',
                               {'quotation_arg' =>
                     $root->{'args'}->[0]->{'contents'}}));
@@ -1311,7 +1318,7 @@ sub _convert($$;$)
 
 
   if ($root->{'type'}) {
-    #warn " have type $root->{'type'}\n"; 
+    #warn " have type $root->{'type'}\n";
     if (exists($docbook_preformatted_formats{$root->{'type'}})) {
       push @{$self->{'document_context'}->[-1]->{'preformatted_stack'}}, 
          $docbook_preformatted_formats{$root->{'type'}};

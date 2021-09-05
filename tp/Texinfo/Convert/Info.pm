@@ -487,12 +487,12 @@ sub _image($$)
       and @{$root->{'args'}->[0]->{'contents'}}) {
     my $basefile = Texinfo::Convert::Text::convert_to_text(
       {'contents' => $root->{'args'}->[0]->{'contents'}},
-      {'code' => 1, Texinfo::Common::_convert_text_options($self)});
+      {'code' => 1, Texinfo::Common::copy_options_for_convert_text($self)});
     if (defined($root->{'args'}->[4])
         and @{$root->{'args'}->[4]->{'contents'}}) {
       my $extension = Texinfo::Convert::Text::convert_to_text(
         {'contents' => $root->{'args'}->[4]->{'contents'}},
-        {'code' => 1, Texinfo::Common::_convert_text_options($self)});
+        {'code' => 1, Texinfo::Common::copy_options_for_convert_text($self)});
       unshift @extensions, ".$extension";
       unshift @extensions, "$extension";
     }
@@ -511,7 +511,7 @@ sub _image($$)
         and @{$root->{'args'}->[3]->{'contents'}}) {
      $alt = Texinfo::Convert::Text::convert_to_text(
        {'contents' => $root->{'args'}->[3]->{'contents'}},
-       {Texinfo::Common::_convert_text_options($self)});
+       {Texinfo::Common::copy_options_for_convert_text($self)});
     }
 
     my $result;

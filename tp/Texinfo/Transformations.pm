@@ -387,7 +387,7 @@ sub complete_node_menu($;$)
   my $node = shift;
   my $use_sections = shift;
 
-  my @node_childs = Texinfo::Structuring::get_node_node_childs($node);
+  my @node_childs = Texinfo::Structuring::get_node_node_childs_from_sectioning($node);
 
   if (scalar(@node_childs)) {
     my %existing_entries;
@@ -509,13 +509,6 @@ sub complete_tree_nodes_missing_menu($;$)
   }
 }
 
-sub _copy_contents($)
-{
-  my $contents = shift;
-  my $copy = Texinfo::Common::copy_tree({'contents' => $contents});
-  return $copy->{'contents'};
-}
-
 sub _print_down_menus($$);
 sub _print_down_menus($$)
 {
@@ -550,9 +543,10 @@ sub _print_down_menus($$)
           and $node->{'extra'}->{'associated_section'}->{'args'}->[0]
           and $node->{'extra'}->{'associated_section'}->{'args'}->[0]->{'contents'}) {
         $node_title_contents
-          = _copy_contents($node->{'extra'}->{'associated_section'}->{'args'}->[0]->{'contents'});
+          = Texinfo::Common::copy_contents(
+                      $node->{'extra'}->{'associated_section'}->{'args'}->[0]->{'contents'});
       } else {
-        $node_title_contents = _copy_contents($node->{'extra'}->{'node_content'});
+        $node_title_contents = Texinfo::Common::copy_contents($node->{'extra'}->{'node_content'});
       }
       my $menu_comment = {'type' => 'menu_comment'};
       $menu_comment->{'contents'}->[0] = {'type' => 'preformatted',

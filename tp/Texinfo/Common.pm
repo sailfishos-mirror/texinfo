@@ -627,8 +627,9 @@ our %index_names = (
  'tp' => {'in_code' => 1},
 );
 
-foreach my $index(keys(%index_names)) {
+foreach my $index (keys(%index_names)) {
   $index_names{$index}->{'name'} = $index;
+  $index_names{$index}->{'contained_indices'}->{$index} = 1;
 }
 
 our %default_index_commands;
@@ -1556,15 +1557,16 @@ sub normalize_top_node_name($)
   return $node;
 }
 
-# Argument is typically a converter object
-sub _convert_text_options($)
+# $SELF is typically a converter object.
+# Setup options as used by Texinfo::Convert::Text::convert_to_text
+# based on the converter informations.
+sub copy_options_for_convert_text($)
 {
   my $self = shift;
   my %options;
-  if ($self->get_conf('ENABLE_ENCODING')) {
-    if ($self->get_conf('OUTPUT_ENCODING_NAME')) {
-      $options{'enabled_encoding'} = $self->get_conf('OUTPUT_ENCODING_NAME');
-    }
+  if ($self->get_conf('ENABLE_ENCODING')
+      and $self->get_conf('OUTPUT_ENCODING_NAME')) {
+    $options{'enabled_encoding'} = $self->get_conf('OUTPUT_ENCODING_NAME');
   }
   $options{'TEST'} = 1 if ($self->get_conf('TEST'));
   $options{'NUMBER_SECTIONS'} = $self->get_conf('NUMBER_SECTIONS');
@@ -1912,6 +1914,18 @@ sub copy_tree($;$)
   substitute_references($current, $copy, $reference_associations);
   return $copy;
 }
+
+sub copy_contents($)
+{
+  my $contents = shift;
+  if (ref($contents) ne 'ARRAY') {
+    cluck "$contents not an array";
+    return undef;
+  }
+  my $copy = copy_tree({'contents' => $contents});
+  return $copy->{'contents'};
+}
+
 
 sub modify_tree($$;$);
 sub modify_tree($$;$)
