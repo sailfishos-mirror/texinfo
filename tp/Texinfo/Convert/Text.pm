@@ -367,19 +367,9 @@ sub _convert($;$)
   if (defined($root->{'text'})) {
     if ($root->{'type'} and $root->{'type'} eq 'untranslated'
         and $options and $options->{'converter'}) {
-      # FIXME here converter is both a source for the documentlanguage
-      # information, modified for the translation and used for the
-      # translation itself.  It is wrong on two levels
-      # * configuration and other functions should be seprated
-      # * there should not be a need to modify internal converter
-      #   state to get the translation
-      my $save_lang = $options->{'converter'}->get_conf('documentlanguage');
-      $options->{'converter'}->{'documentlanguage'}
-        = $root->{'extra'}->{'documentlanguage'};
-      my $tree = Texinfo::Translations::gdt($options->{'converter'},
-                                      $root->{'text'});
+      my $tree = $options->{'converter'}->gdt($root->{'text'}, undef,
+                        undef, $root->{'extra'}->{'documentlanguage'});
       $result = _convert($tree, $options);
-      $options->{'converter'}->{'documentlanguage'} = $save_lang;
     } else {
       $result = $root->{'text'};
       if ((! defined($root->{'type'}) 

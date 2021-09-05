@@ -469,6 +469,41 @@ $result_trees{'multiple'} = {
         {
           'args' => [
             {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => 'de'
+                }
+              ],
+              'extra' => {
+                'spaces_after_argument' => '
+'
+              },
+              'parent' => {},
+              'type' => 'line_arg'
+            }
+          ],
+          'cmdname' => 'documentlanguage',
+          'extra' => {
+            'spaces_before_argument' => ' ',
+            'text_arg' => 'de'
+          },
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 13,
+            'macro' => ''
+          },
+          'parent' => {}
+        },
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'args' => [
+            {
               'parent' => {},
               'text' => '
 ',
@@ -478,7 +513,7 @@ $result_trees{'multiple'} = {
           'cmdname' => 'insertcopying',
           'line_nr' => {
             'file_name' => '',
-            'line_nr' => 13,
+            'line_nr' => 15,
             'macro' => ''
           },
           'parent' => {}
@@ -513,7 +548,7 @@ $result_trees{'multiple'} = {
           },
           'line_nr' => {
             'file_name' => '',
-            'line_nr' => 15,
+            'line_nr' => 17,
             'macro' => ''
           },
           'parent' => {}
@@ -640,7 +675,7 @@ $result_trees{'multiple'} = {
               },
               'line_nr' => {
                 'file_name' => '',
-                'line_nr' => 17,
+                'line_nr' => 19,
                 'macro' => ''
               },
               'parent' => {},
@@ -671,7 +706,7 @@ $result_trees{'multiple'} = {
               },
               'line_nr' => {
                 'file_name' => '',
-                'line_nr' => 18,
+                'line_nr' => 20,
                 'macro' => ''
               },
               'parent' => {}
@@ -683,7 +718,7 @@ $result_trees{'multiple'} = {
           },
           'line_nr' => {
             'file_name' => '',
-            'line_nr' => 17,
+            'line_nr' => 19,
             'macro' => ''
           },
           'parent' => {}
@@ -706,13 +741,51 @@ $result_trees{'multiple'} = {
           'cmdname' => 'insertcopying',
           'line_nr' => {
             'file_name' => '',
-            'line_nr' => 20,
+            'line_nr' => 22,
+            'macro' => ''
+          },
+          'parent' => {}
+        },
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'args' => [
+            {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => 'vr'
+                }
+              ],
+              'extra' => {
+                'spaces_after_argument' => '
+'
+              },
+              'parent' => {},
+              'type' => 'line_arg'
+            }
+          ],
+          'cmdname' => 'printindex',
+          'extra' => {
+            'misc_args' => [
+              'vr'
+            ],
+            'spaces_before_argument' => ' '
+          },
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 24,
             'macro' => ''
           },
           'parent' => {}
         }
       ],
       'extra' => {
+        'isindex' => 1,
         'node_content' => [
           {}
         ],
@@ -800,39 +873,47 @@ $result_trees{'multiple'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'parent'}
 $result_trees{'multiple'}{'contents'}[1]{'contents'}[1]{'extra'}{'end_command'} = $result_trees{'multiple'}{'contents'}[1]{'contents'}[1]{'contents'}[1];
 $result_trees{'multiple'}{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'multiple'}{'contents'}[1];
 $result_trees{'multiple'}{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'multiple'}{'contents'}[1];
+$result_trees{'multiple'}{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'multiple'}{'contents'}[1]{'contents'}[3]{'args'}[0];
 $result_trees{'multiple'}{'contents'}[1]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'multiple'}{'contents'}[1]{'contents'}[3];
 $result_trees{'multiple'}{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'multiple'}{'contents'}[1];
 $result_trees{'multiple'}{'contents'}[1]{'contents'}[4]{'parent'} = $result_trees{'multiple'}{'contents'}[1];
-$result_trees{'multiple'}{'contents'}[1]{'contents'}[5]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'multiple'}{'contents'}[1]{'contents'}[5]{'args'}[0];
 $result_trees{'multiple'}{'contents'}[1]{'contents'}[5]{'args'}[0]{'parent'} = $result_trees{'multiple'}{'contents'}[1]{'contents'}[5];
 $result_trees{'multiple'}{'contents'}[1]{'contents'}[5]{'parent'} = $result_trees{'multiple'}{'contents'}[1];
 $result_trees{'multiple'}{'contents'}[1]{'contents'}[6]{'parent'} = $result_trees{'multiple'}{'contents'}[1];
-$result_trees{'multiple'}{'contents'}[1]{'contents'}[7]{'contents'}[0]{'args'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'multiple'}{'contents'}[1]{'contents'}[7]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'multiple'}{'contents'}[1]{'contents'}[7]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'multiple'}{'contents'}[1]{'contents'}[7]{'contents'}[0]{'args'}[0];
-$result_trees{'multiple'}{'contents'}[1]{'contents'}[7]{'contents'}[0]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'multiple'}{'contents'}[1]{'contents'}[7]{'contents'}[0]{'args'}[0];
-$result_trees{'multiple'}{'contents'}[1]{'contents'}[7]{'contents'}[0]{'args'}[0]{'contents'}[3]{'parent'} = $result_trees{'multiple'}{'contents'}[1]{'contents'}[7]{'contents'}[0]{'args'}[0];
-$result_trees{'multiple'}{'contents'}[1]{'contents'}[7]{'contents'}[0]{'args'}[0]{'contents'}[5]{'parent'} = $result_trees{'multiple'}{'contents'}[1]{'contents'}[7]{'contents'}[0]{'args'}[0];
-$result_trees{'multiple'}{'contents'}[1]{'contents'}[7]{'contents'}[0]{'args'}[0]{'contents'}[6]{'parent'} = $result_trees{'multiple'}{'contents'}[1]{'contents'}[7]{'contents'}[0]{'args'}[0];
-$result_trees{'multiple'}{'contents'}[1]{'contents'}[7]{'contents'}[0]{'args'}[0]{'contents'}[7]{'parent'} = $result_trees{'multiple'}{'contents'}[1]{'contents'}[7]{'contents'}[0]{'args'}[0];
-$result_trees{'multiple'}{'contents'}[1]{'contents'}[7]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'multiple'}{'contents'}[1]{'contents'}[7]{'contents'}[0];
-$result_trees{'multiple'}{'contents'}[1]{'contents'}[7]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'multiple'}{'contents'}[1]{'contents'}[7]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'multiple'}{'contents'}[1]{'contents'}[7]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'class'} = $result_trees{'multiple'}{'contents'}[1]{'contents'}[7]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'multiple'}{'contents'}[1]{'contents'}[7]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'multiple'}{'contents'}[1]{'contents'}[7]{'contents'}[0]{'args'}[0]{'contents'}[4];
-$result_trees{'multiple'}{'contents'}[1]{'contents'}[7]{'contents'}[0]{'extra'}{'index_entry'}{'command'} = $result_trees{'multiple'}{'contents'}[1]{'contents'}[7]{'contents'}[0];
-$result_trees{'multiple'}{'contents'}[1]{'contents'}[7]{'contents'}[0]{'extra'}{'index_entry'}{'content'}[0] = $result_trees{'multiple'}{'contents'}[1]{'contents'}[7]{'contents'}[0]{'args'}[0]{'contents'}[4];
-$result_trees{'multiple'}{'contents'}[1]{'contents'}[7]{'contents'}[0]{'extra'}{'index_entry'}{'content'}[2] = $result_trees{'multiple'}{'contents'}[1]{'contents'}[7]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'multiple'}{'contents'}[1]{'contents'}[7]{'contents'}[0]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'multiple'}{'contents'}[1]{'contents'}[7]{'contents'}[0]{'args'}[0]{'contents'}[4];
-$result_trees{'multiple'}{'contents'}[1]{'contents'}[7]{'contents'}[0]{'extra'}{'index_entry'}{'content_normalized'}[2] = $result_trees{'multiple'}{'contents'}[1]{'contents'}[7]{'contents'}[0]{'args'}[0]{'contents'}[2];
-$result_trees{'multiple'}{'contents'}[1]{'contents'}[7]{'contents'}[0]{'extra'}{'index_entry'}{'node'} = $result_trees{'multiple'}{'contents'}[1];
-$result_trees{'multiple'}{'contents'}[1]{'contents'}[7]{'contents'}[0]{'parent'} = $result_trees{'multiple'}{'contents'}[1]{'contents'}[7];
-$result_trees{'multiple'}{'contents'}[1]{'contents'}[7]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'multiple'}{'contents'}[1]{'contents'}[7]{'contents'}[1]{'args'}[0];
-$result_trees{'multiple'}{'contents'}[1]{'contents'}[7]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'multiple'}{'contents'}[1]{'contents'}[7]{'contents'}[1];
-$result_trees{'multiple'}{'contents'}[1]{'contents'}[7]{'contents'}[1]{'parent'} = $result_trees{'multiple'}{'contents'}[1]{'contents'}[7];
-$result_trees{'multiple'}{'contents'}[1]{'contents'}[7]{'extra'}{'end_command'} = $result_trees{'multiple'}{'contents'}[1]{'contents'}[7]{'contents'}[1];
+$result_trees{'multiple'}{'contents'}[1]{'contents'}[7]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'multiple'}{'contents'}[1]{'contents'}[7]{'args'}[0];
+$result_trees{'multiple'}{'contents'}[1]{'contents'}[7]{'args'}[0]{'parent'} = $result_trees{'multiple'}{'contents'}[1]{'contents'}[7];
 $result_trees{'multiple'}{'contents'}[1]{'contents'}[7]{'parent'} = $result_trees{'multiple'}{'contents'}[1];
 $result_trees{'multiple'}{'contents'}[1]{'contents'}[8]{'parent'} = $result_trees{'multiple'}{'contents'}[1];
-$result_trees{'multiple'}{'contents'}[1]{'contents'}[9]{'args'}[0]{'parent'} = $result_trees{'multiple'}{'contents'}[1]{'contents'}[9];
+$result_trees{'multiple'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'args'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'multiple'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'multiple'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'multiple'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'args'}[0];
+$result_trees{'multiple'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'multiple'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'args'}[0];
+$result_trees{'multiple'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'args'}[0]{'contents'}[3]{'parent'} = $result_trees{'multiple'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'args'}[0];
+$result_trees{'multiple'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'args'}[0]{'contents'}[5]{'parent'} = $result_trees{'multiple'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'args'}[0];
+$result_trees{'multiple'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'args'}[0]{'contents'}[6]{'parent'} = $result_trees{'multiple'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'args'}[0];
+$result_trees{'multiple'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'args'}[0]{'contents'}[7]{'parent'} = $result_trees{'multiple'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'args'}[0];
+$result_trees{'multiple'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'multiple'}{'contents'}[1]{'contents'}[9]{'contents'}[0];
+$result_trees{'multiple'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'category'} = $result_trees{'multiple'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'multiple'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'class'} = $result_trees{'multiple'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'args'}[0]{'contents'}[2];
+$result_trees{'multiple'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'extra'}{'def_parsed_hash'}{'name'} = $result_trees{'multiple'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'args'}[0]{'contents'}[4];
+$result_trees{'multiple'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'extra'}{'index_entry'}{'command'} = $result_trees{'multiple'}{'contents'}[1]{'contents'}[9]{'contents'}[0];
+$result_trees{'multiple'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'extra'}{'index_entry'}{'content'}[0] = $result_trees{'multiple'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'args'}[0]{'contents'}[4];
+$result_trees{'multiple'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'extra'}{'index_entry'}{'content'}[2] = $result_trees{'multiple'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'args'}[0]{'contents'}[2];
+$result_trees{'multiple'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'extra'}{'index_entry'}{'content_normalized'}[0] = $result_trees{'multiple'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'args'}[0]{'contents'}[4];
+$result_trees{'multiple'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'extra'}{'index_entry'}{'content_normalized'}[2] = $result_trees{'multiple'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'args'}[0]{'contents'}[2];
+$result_trees{'multiple'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'extra'}{'index_entry'}{'node'} = $result_trees{'multiple'}{'contents'}[1];
+$result_trees{'multiple'}{'contents'}[1]{'contents'}[9]{'contents'}[0]{'parent'} = $result_trees{'multiple'}{'contents'}[1]{'contents'}[9];
+$result_trees{'multiple'}{'contents'}[1]{'contents'}[9]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'multiple'}{'contents'}[1]{'contents'}[9]{'contents'}[1]{'args'}[0];
+$result_trees{'multiple'}{'contents'}[1]{'contents'}[9]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'multiple'}{'contents'}[1]{'contents'}[9]{'contents'}[1];
+$result_trees{'multiple'}{'contents'}[1]{'contents'}[9]{'contents'}[1]{'parent'} = $result_trees{'multiple'}{'contents'}[1]{'contents'}[9];
+$result_trees{'multiple'}{'contents'}[1]{'contents'}[9]{'extra'}{'end_command'} = $result_trees{'multiple'}{'contents'}[1]{'contents'}[9]{'contents'}[1];
 $result_trees{'multiple'}{'contents'}[1]{'contents'}[9]{'parent'} = $result_trees{'multiple'}{'contents'}[1];
+$result_trees{'multiple'}{'contents'}[1]{'contents'}[10]{'parent'} = $result_trees{'multiple'}{'contents'}[1];
+$result_trees{'multiple'}{'contents'}[1]{'contents'}[11]{'args'}[0]{'parent'} = $result_trees{'multiple'}{'contents'}[1]{'contents'}[11];
+$result_trees{'multiple'}{'contents'}[1]{'contents'}[11]{'parent'} = $result_trees{'multiple'}{'contents'}[1];
+$result_trees{'multiple'}{'contents'}[1]{'contents'}[12]{'parent'} = $result_trees{'multiple'}{'contents'}[1];
+$result_trees{'multiple'}{'contents'}[1]{'contents'}[13]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'multiple'}{'contents'}[1]{'contents'}[13]{'args'}[0];
+$result_trees{'multiple'}{'contents'}[1]{'contents'}[13]{'args'}[0]{'parent'} = $result_trees{'multiple'}{'contents'}[1]{'contents'}[13];
+$result_trees{'multiple'}{'contents'}[1]{'contents'}[13]{'parent'} = $result_trees{'multiple'}{'contents'}[1];
 $result_trees{'multiple'}{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'multiple'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'multiple'}{'contents'}[1]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'multiple'}{'contents'}[1]{'args'}[0]{'contents'}[0];
 $result_trees{'multiple'}{'contents'}[1]{'parent'} = $result_trees{'multiple'};
@@ -849,6 +930,8 @@ $result_texis{'multiple'} = '@documentlanguage fr
 @defivar fr BBB CCC
 @end defivar
 
+@documentlanguage de
+
 @insertcopying
 
 @documentlanguage pt
@@ -857,6 +940,8 @@ $result_texis{'multiple'} = '@documentlanguage fr
 @end defivar
 
 @insertcopying
+
+@printindex vr
 ';
 
 
@@ -867,7 +952,9 @@ Instance Variable of fr: BBB CCC
 
 
 
+
 Instance Variable of pt: BBB CCC
+
 
 ';
 
@@ -876,6 +963,7 @@ $result_sectioning{'multiple'} = {};
 $result_nodes{'multiple'} = {
   'cmdname' => 'node',
   'extra' => {
+    'isindex' => 1,
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   }
@@ -884,6 +972,7 @@ $result_nodes{'multiple'} = {
 $result_menus{'multiple'} = {
   'cmdname' => 'node',
   'extra' => {
+    'isindex' => 1,
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   }
@@ -907,11 +996,18 @@ $result_indices_sort_strings{'multiple'} = {
 
 $result_converted{'plaintext'}->{'multiple'} = ' -- Variable d\'instance de fr : BBB CCC
 
- -- Variable d\'instance de copying : a b
+ -- Instanzvariable von copying: a b
 
  -- Variável de instância da pt: BBB CCC
 
  -- Variável de instância da copying: a b
+
+* Menu:
+
+* a de copying:                          Top.                   (line 6)
+* BBB da pt:                             Top.                   (line 4)
+* BBB de fr:                             Top.                   (line 0)
+
 ';
 
 
@@ -924,11 +1020,19 @@ File: ,  Node: Top,  Up: (dir)
 
  -- Variable d\'instance de fr : BBB CCC
 
- -- Variable d\'instance de copying : a b
+ -- Instanzvariable von copying: a b
 
  -- Variável de instância da pt: BBB CCC
 
  -- Variável de instância da copying: a b
+
+ [index ]
+* Menu:
+
+* a de copying:                          Top.                   (line 9)
+* BBB da pt:                             Top.                   (line 7)
+* BBB de fr:                             Top.                   (line 3)
+
 
 
 Tag Table:
@@ -948,7 +1052,7 @@ $result_converted{'html'}->{'multiple'} = '<!DOCTYPE html PUBLIC "-//W3C//DTD HT
 <!-- Created by texinfo, http://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<!-- Variável de instância da copying: a b -->
+<!-- Variable d\'instance da copying: a b -->
 <title>Documento Sem Nome</title>
 
 <meta name="description" content="Documento Sem Nome">
@@ -958,6 +1062,7 @@ $result_converted{'html'}->{'multiple'} = '<!DOCTYPE html PUBLIC "-//W3C//DTD HT
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <link href="#Top" rel="start" title="Top">
+<link href="#Top" rel="index" title="Top">
 <style type="text/css">
 <!--
 a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
@@ -990,8 +1095,9 @@ ul.no-bullet {list-style: none}
 <dt id="index-BBB-of-fr"><span>Variable d\'instance de fr&nbsp;: <strong>BBB</strong> <em>CCC</em><a href=\'#index-BBB-of-fr\' class=\'copiable-anchor\'> &para;</a></span></dt>
 </dl>
 
+
 <dl class="def">
-<dt id="index-copying-a-of-copying"><span>Variable d\'instance de copying&nbsp;: <strong>a</strong> <em>b</em><a href=\'#index-copying-a-of-copying\' class=\'copiable-anchor\'> &para;</a></span></dt>
+<dt id="index-copying-a-of-copying"><span>Instanzvariable von copying: <strong>a</strong> <em>b</em><a href=\'#index-copying-a-of-copying\' class=\'copiable-anchor\'> &para;</a></span></dt>
 </dl>
 
 
@@ -1002,6 +1108,28 @@ ul.no-bullet {list-style: none}
 <dl class="def">
 <dt id="index-copying-a-of-copying"><span>Variável de instância da copying: <strong>a</strong> <em>b</em><a href=\'#index-copying-a-of-copying\' class=\'copiable-anchor\'> &para;</a></span></dt>
 </dl>
+
+<table><tr><th valign="top">Pular para: &nbsp; </th><td><a class="summary-letter" href="#Top_vr_letter-A"><b>A</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Top_vr_letter-B"><b>B</b></a>
+ &nbsp; 
+</td></tr></table>
+<table class="index-vr" border="0">
+<tr><td></td><th align="left">Entrada de &Iacute;ndice</th><td>&nbsp;</td><th align="left"> Se&ccedil;&atilde;o</th></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Top_vr_letter-A">A</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-copying-a-of-copying"><code>a de copying</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="Top_vr_letter-B">B</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-BBB-of-pt"><code>BBB da pt</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-BBB-of-fr"><code>BBB de fr</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+</table>
+<table><tr><th valign="top">Pular para: &nbsp; </th><td><a class="summary-letter" href="#Top_vr_letter-A"><b>A</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Top_vr_letter-B"><b>B</b></a>
+ &nbsp; 
+</td></tr></table>
 <hr>
 
 

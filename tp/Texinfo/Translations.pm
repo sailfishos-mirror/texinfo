@@ -52,9 +52,15 @@ sub _encode_i18n_string($$)
 
 # Get document translation - handle translations of in-document strings.
 # Return a parsed Texinfo tree
-sub gdt($$;$$)
+sub gdt($$;$$$)
 {
-  my ($self, $message, $context, $type) = @_;
+  my ($self, $message, $context, $type, $lang) = @_;
+
+  # In addition to being settable from the command line,
+  # the language needs to be dynamic in case there is an untranslated string
+  # from another language that needs to be translated.
+  $lang = $self->get_conf('documentlanguage') if (!defined($lang));
+  $lang = $DEFAULT_LANGUAGE if (!defined($lang));
 
   my $re = join '|', map { quotemeta $_ } keys %$context
       if (defined($context) and ref($context));
@@ -81,9 +87,9 @@ sub gdt($$;$$)
   our $locale_command;
   if (!$locale and !$locale_command) {
     $locale_command = "locale -a";
-    my @locales = split("\n", `$locale_command`);
+    my @local_command_locales = split("\n", `$locale_command`);
     if ($? == 0) {
-      for my $try (@locales) {
+      foreach my $try (@local_command_locales) {
         next if $try eq 'C' or $try eq 'POSIX';
         $locale = POSIX::setlocale(LC_ALL, $try);
         last if $locale;
@@ -114,11 +120,6 @@ sub gdt($$;$$)
     }
   }
 
-  # This needs to be dynamic in case there is an untranslated string
-  # from another language that needs to be translated.
-  # FIXME make it an argument
-  my $lang = $self->get_conf('documentlanguage');
-  $lang = $DEFAULT_LANGUAGE if (!defined($lang));
   my @langs = ($lang);
   if ($lang =~ /^([a-z]+)_([A-Z]+)/) {
     my $main_lang = $1;
@@ -126,22 +127,28 @@ sub gdt($$;$$)
     push @langs, $main_lang;
   }
 
-  my $locales = '';
-
+  my @locales;
   foreach my $language (@langs) {
     if ($encoding) {
-      $locales .= "$language.$encoding:";
+      push @locales, "$language.$encoding";
     } else {
-      $locales .= "$language:";
+      push @locales, $language;
     }
     # always try us-ascii, the charset should always be a subset of
     # all charset, and should resort to @-commands if needed for non
     # ascii characters
+    # REMARK this is not necessarily true for every language/encoding.
+    # This can be true for latin1, and maybe some other 8 bit encodings
+    # with accents available as @-commands, but not for most
+    # language.  However, for those languages, it is unlikely that
+    # the locale with .us-ascii can be set, so it should not hurt
+    # to add this possibility.
     if (!$encoding or ($encoding and $encoding ne 'us-ascii')) {
-      $locales .= "$language.us-ascii:";
+      push @locales, "$language.us-ascii";
     }
   }
-  $locales =~ s/:$//;
+
+  my $locales = join(':', @locales);
 
   Locale::Messages::nl_putenv("LANGUAGE=$locales");
 
@@ -169,18 +176,19 @@ sub gdt($$;$$)
     return $translation_result;
   }
 
-  my $parser_conf;
-  # we change the substituted brace-enclosed strings to values, that
-  # way they are substituted, including when they are Texinfo trees.
-  # a _ is prepended to avoid clashing with other values, although since
-  # the parser is a new one there should not be any problem anyway.
+  # we change the substituted brace-enclosed strings to internal
+  # values marked by @txiinternalvalue such that their location
+  # in the Texinfo tree can be marked.  They are substituted
+  # after the parsing in the final tree.
+  # Using a special command that is invalid unless a special
+  # configuration is set means that there should be no clash
+  # with @-commands used in translations.
   if (defined($re)) {
     # next line taken from libintl perl, copyright Guido. sub __expand
     $translation_result =~ s/\{($re)\}/\@txiinternalvalue\{$1\}/g;
   }
-
-  # Don't reuse the current parser itself, as (tested) the parsing goes
-  # wrong, certainly because the parsed text can affect the parser state.
+  
+  # determine existing parser, if any
   my $current_parser;
   if (ref($self) eq 'Texinfo::Parser') {
     $current_parser = $self;
@@ -188,6 +196,10 @@ sub gdt($$;$$)
     $current_parser = $self->{'parser'};
   }
 
+  # Don't reuse the current parser itself, as (tested) the parsing goes
+  # wrong, certainly because the parsed text can affect the parser state.
+
+  my $parser_conf;
   if ($current_parser) {
     # 'TEST' can be used fot @today{} expansion.
     # FIXME use get_conf
@@ -281,16 +293,13 @@ sub complete_indices
 {
   my $self = shift;
 
-  my ($index_entry, $index_contents_normalized);
-  
-  my $save_lang = $self->get_conf('documentlanguage');
-
   foreach my $index_name (keys(%{$self->{'index_names'}})) {
     next if !defined $self->{'index_names'}->{$index_name}->{'index_entries'};
     foreach my $entry (@{$self->{'index_names'}->{$index_name}->{'index_entries'}}) {
       $entry->{'in_code'} = $self->{'index_names'}->{$index_name}->{'in_code'};
       
       if (!defined $entry->{'content'}) {
+        my ($index_entry, $index_contents_normalized);
         my $def_command = $entry->{'command'}->{'extra'}->{'def_command'};
 
         my $def_parsed_hash = $entry->{'command'}->{'extra'}->{'def_parsed_hash'};
@@ -298,25 +307,27 @@ sub complete_indices
             and $def_command) {
           # Use the document language that was current when the command was
           # used for getting the translation.
-          $self->{'documentlanguage'}
+          my $entry_language
              = $entry->{'command'}->{'extra'}->{'documentlanguage'};
           if ($def_command eq 'defop'
               or $def_command eq 'deftypeop'
               or $def_command eq 'defmethod'
               or $def_command eq 'deftypemethod') {
             $index_entry = $self->gdt('{name} on {class}',
-                                  {'name' => $def_parsed_hash->{'name'},
-                                   'class' => $def_parsed_hash->{'class'}});
-           $index_contents_normalized
-             = [_non_bracketed_contents($def_parsed_hash->{'name'}),
+                                      {'name' => $def_parsed_hash->{'name'},
+                                       'class' => $def_parsed_hash->{'class'}},
+                                      undef, $entry_language);
+            $index_contents_normalized
+              = [_non_bracketed_contents($def_parsed_hash->{'name'}),
                 { 'text' => ' on '},
                 _non_bracketed_contents($def_parsed_hash->{'class'})];
           } elsif ($def_command eq 'defivar'
                    or $def_command eq 'deftypeivar'
                    or $def_command eq 'deftypecv') {
             $index_entry = $self->gdt('{name} of {class}',
-                                     {'name' => $def_parsed_hash->{'name'},
-                                     'class' => $def_parsed_hash->{'class'}});
+                                      {'name' => $def_parsed_hash->{'name'},
+                                       'class' => $def_parsed_hash->{'class'}},
+                                      undef, $entry_language);
             $index_contents_normalized
               = [_non_bracketed_contents($def_parsed_hash->{'name'}),
                  { 'text' => ' of '},
@@ -336,7 +347,6 @@ sub complete_indices
       }
     }
   }
-  $self->{'documentlanguage'} = $save_lang;
 }
 
 

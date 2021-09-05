@@ -168,23 +168,35 @@ sub _get_error_registrar($)
   return $registrar, $configuration_informations;
 }
 
+# done after all the parsings.  Part may not make much sense for parse_texi_line,
+# We nevertheless do it in any case to do the same as in ParserNonXS
+sub _set_errors_node_lists_labels_indices($)
+{
+  my $self = shift;
+
+  my $TARGETS = build_label_list ();
+  $self->{'targets'} = $TARGETS;
+
+    _get_errors ($self);
+  # Setup labels info and nodes list based on 'targets'
+  Texinfo::Convert::NodeNameNormalization::set_nodes_list_labels($self,
+                                           $self->{'registrar'}, $self);
+
+  my $INDEX_NAMES = build_index_data ();
+  $self->{'index_names'} = $INDEX_NAMES;
+  Texinfo::Translations::complete_indices ($self);
+}
+
 sub get_parser_info {
   my $self = shift;
 
-  my ($TARGETS, $INTL_XREFS, $FLOATS,
-      $INDEX_NAMES, $ERRORS, $GLOBAL_INFO, $GLOBAL_INFO2);
+  my ($INTL_XREFS, $FLOATS, $ERRORS, $GLOBAL_INFO, $GLOBAL_INFO2);
 
-  $TARGETS = build_label_list ();
   $INTL_XREFS = build_internal_xref_list ();
   $FLOATS = build_float_list ();
-
-  $INDEX_NAMES = build_index_data ();
-  $self->{'index_names'} = $INDEX_NAMES;
-
   $GLOBAL_INFO = build_global_info ();
   $GLOBAL_INFO2 = build_global_info2 ();
 
-  $self->{'targets'} = $TARGETS;
   $self->{'internal_references'} = $INTL_XREFS;
   $self->{'floats'} = $FLOATS;
   $self->{'info'} = $GLOBAL_INFO;
@@ -204,12 +216,7 @@ sub get_parser_info {
     }
   }
 
-  _get_errors ($self);
-
-  # Setup labels info and nodes list based on 'targets'
-  Texinfo::Convert::NodeNameNormalization::set_nodes_list_labels($self,
-                                           $self->{'registrar'}, $self);
-  Texinfo::Translations::complete_indices ($self);
+  _set_errors_node_lists_labels_indices($self);
 }
 
 use File::Basename; # for fileparse
@@ -331,13 +338,6 @@ sub parse_texi_text($$;$$$$)
     my $INDEX_NAMES = build_index_data ();
     $self->{'index_names'} = $INDEX_NAMES;
 
-    for my $index (keys %$INDEX_NAMES) {
-      if ($INDEX_NAMES->{$index}->{'merged_in'}) {
-        $self->{'merged_indices'}-> {$index}
-          = $INDEX_NAMES->{$index}->{'merged_in'};
-      }
-    }
-
     get_parser_info($self);
     _associate_node_menus ($self, $tree);
 
@@ -360,17 +360,8 @@ sub parse_texi_line($$;$$$$)
     utf8::upgrade($text);
     parse_string($text);
     my $tree = build_texinfo_tree ();
-    _get_errors ($self);
 
-    # It is unclear if it is an error to have targets set in parse_texi_line.
-    # We nevertheless set targets and other infos to do the same as in
-    # ParserNonXS.
-    my $TARGETS = build_label_list ();
-    $self->{'targets'} = $TARGETS;
-
-    # Setup labels info and nodes list based on 'targets'
-    Texinfo::Convert::NodeNameNormalization::set_nodes_list_labels($self,
-                                                $self->{'registrar'}, $self);
+    _set_errors_node_lists_labels_indices($self);
 
     return $tree;
 }
@@ -380,11 +371,6 @@ sub indices_information($)
 {
   my $self = shift;
 
-  my $INDEX_NAMES;
-  if (!$self->{'index_names'}) {
-    $INDEX_NAMES = build_index_data ();
-    $self->{'index_names'} = $INDEX_NAMES;
-  }
   return $self->{'index_names'};
 }
 
