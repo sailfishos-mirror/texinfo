@@ -828,13 +828,13 @@ sub output_ixin($$)
             and @{$command->{'args'}->[0]->{'contents'}}) {
         $basefile = Texinfo::Convert::Text::convert_to_text(
           {'contents' => $command->{'args'}->[0]->{'contents'}},
-          {'code' => 1, Texinfo::Common::copy_options_for_convert_text($self)});
+          {'code' => 1, Texinfo::Convert::Text::copy_options_for_convert_text($self)});
       }
       if (defined($command->{'args'}->[4])
             and @{$command->{'args'}->[4]->{'contents'}}) {
         $extension = Texinfo::Convert::Text::convert_to_text(
           {'contents' => $command->{'args'}->[4]->{'contents'}},
-          {'code' => 1, Texinfo::Common::copy_options_for_convert_text($self)});
+          {'code' => 1, Texinfo::Convert::Text::copy_options_for_convert_text($self)});
         $extension =~ s/^\.//;
         @extension = ($extension);
       }

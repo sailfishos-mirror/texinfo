@@ -1,5 +1,17 @@
 2021-09-05  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Text.pm (copy_options_for_convert_text),
+	tp/Texinfo/Common.pm, tp/Texinfo/Convert/DocBook.pm,
+	tp/Texinfo/Convert/HTML.pm, tp/Texinfo/Convert/IXIN.pm,
+	tp/Texinfo/Convert/Info.pm, tp/Texinfo/Convert/LaTeX.pm,
+	tp/Texinfo/Convert/Plaintext.pm, tp/Texinfo/Convert/TexinfoXML.pm,
+	tp/Texinfo/Convert/Text.pm, tp/Texinfo/Convert/TextContent.pm,
+	tp/Texinfo/Structuring.pm, tp/init/chm.pm,
+	tp/init/highlight_syntax.pm: move copy_options_for_convert_text()
+	from Texinfo::Common to Texinfo::Convert::Text.
+
+2021-09-05  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (%index_names), tp/t/test_utils.pl (test):
 	complete the %index_names structure to have the 'contained_indices'
 	field and use it as a reference in tests for the default index

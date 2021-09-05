@@ -694,7 +694,7 @@ sub converter_initialize($)
 
   %{$self->{'quotes_map'}} = %quotes_map;
   $self->{'convert_text_options'} 
-      = {Texinfo::Common::copy_options_for_convert_text($self)};
+      = {Texinfo::Convert::Text::copy_options_for_convert_text($self)};
 
   # this condition means that there is no way to turn off
   # @U expansion to utf-8 characters even though this
@@ -1993,9 +1993,9 @@ sub _convert($$)
           $email = $root->{'args'}->[0]->{'contents'};
           $email_text 
             = $self->_protect_url(Texinfo::Convert::Text::convert_to_text(
-                       {'contents' => $email},
-                       {'code' => 1,
-                        Texinfo::Common::copy_options_for_convert_text($self)}));
+                {'contents' => $email},
+                {'code' => 1,
+                 Texinfo::Convert::Text::copy_options_for_convert_text($self)}));
         }
         if ($name and $email) {
           $result .= "\\href{mailto:$email_text}{$converted_name}";
@@ -2016,10 +2016,10 @@ sub _convert($$)
         } elsif (@{$root->{'args'}->[0]->{'contents'}}) {
           my $url_content = $root->{'args'}->[0]->{'contents'};
           my $url_text = $self->_protect_url(
-               Texinfo::Convert::Text::convert_to_text(
-                   {'contents' => $url_content},
-                   {'code' => 1,
-                    Texinfo::Common::copy_options_for_convert_text($self)}));
+            Texinfo::Convert::Text::convert_to_text(
+               {'contents' => $url_content},
+               {'code' => 1,
+                Texinfo::Convert::Text::copy_options_for_convert_text($self)}));
           if (scalar(@{$root->{'args'}}) == 2
              and defined($root->{'args'}->[1])
              and @{$root->{'args'}->[1]->{'contents'}}) {

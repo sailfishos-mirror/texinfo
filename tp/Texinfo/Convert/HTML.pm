@@ -4347,7 +4347,7 @@ sub _convert_def_line_type($$$$)
 
   if ($self->in_string()) {
     return $self->protect_text(Texinfo::Convert::Text::convert_to_text(
-       $command, Texinfo::Common::copy_options_for_convert_text($self)));
+       $command, Texinfo::Convert::Text::copy_options_for_convert_text($self)));
   }
 
   my $index_label = '';
@@ -6216,7 +6216,7 @@ sub _external_node_href($$$$)
     my $manual_name = Texinfo::Convert::Text::convert_to_text(
        {'contents' => $external_node->{'manual_content'}}, 
        { 'code' => 1, 
-         Texinfo::Common::copy_options_for_convert_text($self)});
+         Texinfo::Convert::Text::copy_options_for_convert_text($self)});
     my $manual_base = $manual_name;
     $manual_base =~ s/\.info*$//;
     $manual_base =~ s/^.*\///;
@@ -7241,7 +7241,7 @@ sub output_internal_links($)
         my $tree = $self->command_text($command, 'tree');
         if ($tree) {
           $text = Texinfo::Convert::Text::convert_to_text($tree, 
-                    {Texinfo::Common::copy_options_for_convert_text($self)});
+               {Texinfo::Convert::Text::copy_options_for_convert_text($self)});
         }
       }
       if (defined($href) or defined($text)) {
@@ -7253,7 +7253,7 @@ sub output_internal_links($)
     }
   }
   if ($self->{'parser'}) {
-    my %options = Texinfo::Common::copy_options_for_convert_text($self);
+    my %options = Texinfo::Convert::Text::copy_options_for_convert_text($self);
     foreach my $index_name (sort(keys (%{$self->{'index_entries_by_letter'}}))) {
       foreach my $letter_entry (@{$self->{'index_entries_by_letter'}->{$index_name}}) {
         foreach my $index_entry (@{$letter_entry->{'entries'}}) {
@@ -7464,7 +7464,7 @@ sub output($$)
   if ($self->{'extra'}->{'copying'}) {
     my $copying_comment = Texinfo::Convert::Text::convert_to_text(
      {'contents' => $self->{'extra'}->{'copying'}->{'contents'}}, 
-     {Texinfo::Common::copy_options_for_convert_text($self)});
+     {Texinfo::Convert::Text::copy_options_for_convert_text($self)});
     if ($copying_comment ne '') {
       $self->{'copying_comment'} = &{$self->{'format_comment'}}($self, $copying_comment);
     }
@@ -8042,7 +8042,7 @@ sub _convert($$;$)
               } elsif ($arg_type eq 'monospacetext') {
                 $arg_formatted->{$arg_type} 
                   = Texinfo::Convert::Text::convert_to_text($arg, {'code' => 1,
-                            Texinfo::Common::copy_options_for_convert_text($self)});
+                     Texinfo::Convert::Text::copy_options_for_convert_text($self)});
               } elsif ($arg_type eq 'raw') {
                 $self->{'document_context'}->[-1]->{'raw'}++;
                 $arg_formatted->{$arg_type} = $self->_convert($arg, $explanation);

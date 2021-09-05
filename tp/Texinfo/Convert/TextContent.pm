@@ -129,7 +129,7 @@ sub _convert($$)
     } elsif (defined($Texinfo::Convert::Text::text_brace_no_arg_commands{$root->{'cmdname'}})) {
       return Texinfo::Convert::Text::brace_no_arg_command($root, undef);
     } elsif ($Texinfo::Common::accent_commands{$root->{'cmdname'}}) {
-      my %options = Texinfo::Common::copy_options_for_convert_text($self);
+      my %options = Texinfo::Convert::Text::copy_options_for_convert_text($self);
       my $result = Texinfo::Convert::Text::text_accents ($root, 
                                         $options{'enabled_encoding'});
       return $result;

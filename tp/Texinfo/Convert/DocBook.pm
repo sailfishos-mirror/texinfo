@@ -845,7 +845,7 @@ sub _convert($$;$)
                 $self->xml_protect_text(Texinfo::Convert::Text::convert_to_text(
                   {'contents' => $root->{'args'}->[-1]->{'contents'}},
                   {'code' => 1,
-                   Texinfo::Common::copy_options_for_convert_text($self)}));
+                   Texinfo::Convert::Text::copy_options_for_convert_text($self)}));
             }
             my $node;
             if (defined($root->{'args'}->[0]) and @{$root->{'args'}->[0]->{'contents'}}) {
@@ -982,7 +982,8 @@ sub _convert($$;$)
             and @{$root->{'args'}->[0]->{'contents'}}) {
           my $basefile = Texinfo::Convert::Text::convert_to_text(
            {'contents' => $root->{'args'}->[0]->{'contents'}},
-           {'code' => 1, Texinfo::Common::copy_options_for_convert_text($self)});
+           {'code' => 1,
+            Texinfo::Convert::Text::copy_options_for_convert_text($self)});
           my $element;
           my $is_inline = $self->_is_inline($root);
           if ($is_inline) {
@@ -1037,9 +1038,9 @@ sub _convert($$;$)
             $email = $root->{'args'}->[0]->{'contents'};
             $email_text
               = $self->_protect_text(Texinfo::Convert::Text::convert_to_text(
-                      {'contents' => $email},
-                      {'code' => 1,
-                       Texinfo::Common::copy_options_for_convert_text($self)}));
+                 {'contents' => $email},
+                 {'code' => 1,
+                  Texinfo::Convert::Text::copy_options_for_convert_text($self)}));
           }
           if ($name and $email) {
             return "<ulink url=\"mailto:$email_text\">"
@@ -1060,10 +1061,10 @@ sub _convert($$;$)
               and @{$root->{'args'}->[0]->{'contents'}}) {
             $url_content = $root->{'args'}->[0]->{'contents'};
             $url_text = $self->_protect_text(
-                Texinfo::Convert::Text::convert_to_text(
-                      {'contents' => $url_content},
-                      {'code' => 1,
-                       Texinfo::Common::copy_options_for_convert_text($self)}));
+              Texinfo::Convert::Text::convert_to_text(
+                {'contents' => $url_content},
+                {'code' => 1,
+                 Texinfo::Convert::Text::copy_options_for_convert_text($self)}));
           } else {
             $url_text = '';
           }
@@ -1235,8 +1236,8 @@ sub _convert($$;$)
             $multiply = 1;
             foreach my $prototype (@{$root->{'extra'}->{'prototypes'}}) {
               my $prototype_text
-                = Texinfo::Convert::Text::convert_to_text($prototype,
-                     {Texinfo::Common::copy_options_for_convert_text($self)});
+               = Texinfo::Convert::Text::convert_to_text($prototype,
+                  {Texinfo::Convert::Text::copy_options_for_convert_text($self)});
               push @fractions,
                 Texinfo::Convert::Unicode::string_width($prototype_text);
             }
@@ -1278,9 +1279,9 @@ sub _convert($$;$)
               and $root->{'args'}->[0]->{'contents'}
               and @{$root->{'args'}->[0]->{'contents'}}) {
             my $quotation_arg_text
-                = Texinfo::Convert::Text::convert_to_text(
-                   $root->{'args'}->[0],
-                   {Texinfo::Common::copy_options_for_convert_text($self)});
+              = Texinfo::Convert::Text::convert_to_text(
+                 $root->{'args'}->[0],
+                 {Texinfo::Convert::Text::copy_options_for_convert_text($self)});
             if ($docbook_special_quotations{lc($quotation_arg_text)}) {
               $element = lc($quotation_arg_text);
             } else {

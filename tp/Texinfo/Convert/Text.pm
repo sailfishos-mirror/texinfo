@@ -319,6 +319,29 @@ sub heading($$$;$$)
   return $result;
 }
 
+# $SELF is typically a converter object.
+# Setup options as used by Texinfo::Convert::Text::convert_to_text
+# based on the converter informations.
+sub copy_options_for_convert_text($)
+{
+  my $self = shift;
+  my %options;
+  if ($self->get_conf('ENABLE_ENCODING')
+      and $self->get_conf('OUTPUT_ENCODING_NAME')) {
+    $options{'enabled_encoding'} = $self->get_conf('OUTPUT_ENCODING_NAME');
+  }
+  $options{'TEST'} = 1 if ($self->get_conf('TEST'));
+  $options{'NUMBER_SECTIONS'} = $self->get_conf('NUMBER_SECTIONS');
+  $options{'converter'} = $self;
+  $options{'expanded_formats_hash'} = $self->{'expanded_formats_hash'};
+  # for locate_include_file
+  $options{'INCLUDE_DIRECTORIES'} = $self->get_conf('INCLUDE_DIRECTORIES');
+  # for error registering
+  $options{'DEBUG'} = $self->get_conf('DEBUG');
+  $options{'PROGRAM'} = $self->get_conf('PROGRAM');
+  return %options;
+}
+
 sub convert_to_text($;$)
 {
   my $root = shift;
@@ -721,7 +744,7 @@ sub output($$)
                              $outfile);
     return undef if (!$fh);
   }
-  my %options = Texinfo::Common::copy_options_for_convert_text($self);
+  my %options = copy_options_for_convert_text($self);
   my $result = _convert($tree, \%options);
   if ($fh) {
     print $fh $result;

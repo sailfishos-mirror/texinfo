@@ -1582,7 +1582,8 @@ sub setup_index_entry_keys_formatting($$)
     if defined $self->{'values'}->{'txiindexatsignignore'};
 
   my $options = {'sort_string' => 1,
-   Texinfo::Common::copy_options_for_convert_text($configuration_informations)};
+   Texinfo::Convert::Text::copy_options_for_convert_text(
+                                    $configuration_informations)};
 
   return $options, $ignore_chars;
 }
