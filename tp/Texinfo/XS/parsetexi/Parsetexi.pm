@@ -169,7 +169,7 @@ sub _get_error_registrar($)
 }
 
 # done after all the parsings.  Part may not make much sense for parse_texi_line,
-# We nevertheless do it in any case to do the same as in ParserNonXS
+# we nevertheless do it in any case to do the same as in ParserNonXS
 sub _set_errors_node_lists_labels_indices($)
 {
   my $self = shift;
@@ -335,8 +335,6 @@ sub parse_texi_text($$;$$$$)
 
     parse_text($text);
     my $tree = build_texinfo_tree ();
-    my $INDEX_NAMES = build_index_data ();
-    $self->{'index_names'} = $INDEX_NAMES;
 
     get_parser_info($self);
     _associate_node_menus ($self, $tree);
