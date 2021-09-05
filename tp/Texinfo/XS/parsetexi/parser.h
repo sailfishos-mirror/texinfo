@@ -157,7 +157,7 @@ int format_expanded_p (char *format);
 int is_end_current_command (ELEMENT *current, char **line,
                             enum command_id *end_cmd);
 void set_documentlanguage (char *);
-void set_accept_internalvalue ();
+void set_accept_internalvalue (void);
 char *element_type_name (ELEMENT *e);
 
 /* Return values */
