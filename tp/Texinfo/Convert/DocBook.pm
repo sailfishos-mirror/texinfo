@@ -278,7 +278,7 @@ sub convert($$)
   my $self = shift;
   my $root = shift;
 
-  $self->_set_global_multiple_commands(-1);
+  $self->set_global_document_commands(-1);
   return $self->convert_document_sections($root);
 }
 
@@ -311,7 +311,7 @@ sub output($$)
     }
   }
 
-  $self->_set_global_multiple_commands(-1);
+  $self->set_global_document_commands(-1);
 
   my $encoding = '';
   if ($self->get_conf('OUTPUT_ENCODING_NAME') 

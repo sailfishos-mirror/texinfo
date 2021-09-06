@@ -14,13 +14,13 @@ my @test_cases = (
 @defivar AAA BBB CCC
 @end defivar
 '],
-# FIXME in HTML, the copying comment is a mix of fr and pt
 # FIXME it may be correct, but it is worth noting that the
 # @defivar in @insertcopying after @documentlanguage de appears
 # in german in the document, (and after @documentlanguage pt at
 # the end appears in portruguese) but the index entry is in fr, because
 # the index entry is set in the @copying block which is in
 # @documentlanguage fr.
+# Also the copying comment at te beginning of each file is in fr
 ['multiple',
 '@documentlanguage fr
 

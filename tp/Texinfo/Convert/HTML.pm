@@ -4417,6 +4417,12 @@ sub _convert_def_line_type($$$$)
                 'name' => $name,
                 'type' => $command->{'extra'}->{'def_parsed_hash'}->{'type'},
                 'arguments' => $arguments};
+        # FIXME if in @def* in @example and with @deftypefnnewline on
+        # there is no effect of @deftypefnnewline on, as @* in preformatted
+        # environment becomes an end of line, but the def* line is not in a preformatted
+        # environment.  There should be an explicit <br> in that case.  Probably
+        # requires changing the conversion of @* in a @def* line in preformatted,
+        # nothing really specific of @deftypefnnewline on.
         if ($self->get_conf('deftypefnnewline') eq 'on') {
           $category_tree
             = {'type' => '_code',
@@ -4441,6 +4447,8 @@ sub _convert_def_line_type($$$$)
                'contents'
                   => [$self->gdt("{category}:\@* ", {'category' => $category})]
               };
+          $tree = $self->gdt("\@emph{{type}}\@* \@strong{{name}}",
+                  $strings);
         } else {
           $tree = $self->gdt("\@emph{{type}} \@strong{{name}}",
                   $strings);
@@ -5826,6 +5834,9 @@ sub _set_pages_files($$)
   }
 }
 
+my @contents_elements_options = grep {Texinfo::Common::valid_option($_)}
+                                         keys(%contents_command_element_name);
+
 # $ROOT is a parsed Texinfo tree.  Return a list of the "elements" we need to
 # output in the HTML file(s).  Each "element" is what can go in one HTML file,
 # such as the content between @node lines in the Texinfo source.
@@ -5835,13 +5846,6 @@ sub _prepare_elements($$)
   my $root = shift;
 
   my $elements;
-
-  # do that now to have it available for formatting
-  # NOTE this calls Convert::Converter::_informative_command on all the 
-  # @informative_global commands.
-  # Thus sets among others language and encodings.
-  $self->_set_global_multiple_commands(-1);
-  $self->_translate_names();
 
   if ($self->get_conf('USE_NODES')) {
     $elements = Texinfo::Structuring::split_by_node($root);
@@ -5855,10 +5859,19 @@ sub _prepare_elements($$)
   # This may be done as soon as elements are available.
   $self->_prepare_global_targets($elements);
 
+  # the presence of contents elements in the document is used in diverse
+  # places, set it once for all here
+  $self->set_global_document_commands(-1, \@contents_elements_options);
+
+  # configuration used to determine if a special element is to be done
+  # (in addition to contents)
+  my @conf_for_special_elements = ('footnotestyle');
+  $self->set_global_document_commands(-1, \@conf_for_special_elements);
   # Do that before the other elements, to be sure that special page ids
   # are registered before elements id are.
   my $special_elements 
     = $self->_prepare_special_elements($elements);
+  $self->set_global_document_commands(0, \@conf_for_special_elements);
 
   $self->{'special_elements'} = $special_elements 
     if (defined($special_elements));
@@ -5870,6 +5883,9 @@ sub _prepare_elements($$)
   #}
 
   $self->_set_root_commands_targets_node_files($elements);
+
+  # setup untranslated strings
+  $self->_translate_names();
 
   return ($elements, $special_elements);
 }
@@ -7210,6 +7226,7 @@ sub convert($$)
   # This should return undef if called on a tree without node or sections.
   my ($elements, $special_elements) 
     = $self->_prepare_elements($root);
+
   $self->_prepare_index_entries();
   $self->_prepare_footnotes();
 
@@ -7402,6 +7419,14 @@ sub output($$)
 
   &{$self->{'format_css_lines'}}($self);
 
+  # FIXME there is no good choice here.  The language may be
+  # set later on, it is wrong to use it from the beginning.
+  # Best that can be done for now.  Wait for Gavin answer on
+  # a more explicit header for Texinfo files that would be
+  # taken into account for that kind of global documents variables
+  # setting
+  $self->set_global_document_commands(1, ['documentlanguage']);
+
   $self->set_conf('BODYTEXT',
                   'lang="' . $self->get_conf('documentlanguage') . '"');
 
@@ -7469,6 +7494,7 @@ sub output($$)
       $self->{'copying_comment'} = &{$self->{'format_comment'}}($self, $copying_comment);
     }
   }
+  $self->set_global_document_commands(0, ['documentlanguage']);
 
   # documentdescription
   if (defined($self->get_conf('documentdescription'))) {
@@ -7535,12 +7561,6 @@ sub output($$)
     %{$self->{'jslicenses'}} = ( %{$self->{'jslicenses'}},
                                  %{$self->{'jslicenses_infojs'}} );
   }
-
-  # FIXME here call _unset_global_multiple_commands?  Problem is
-  # that some conversion, for instance for page header requires
-  # that the correct language is set, for instance.  The @-command
-  # will necessarily appear later on -- even if it appears a the
-  # beginning of the file.
 
   my $fh;
   my $output = '';

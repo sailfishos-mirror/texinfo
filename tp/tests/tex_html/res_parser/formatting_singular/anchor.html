@@ -408,6 +408,7 @@ truc:
 truc: a b c d e f g h i
 truc: deffnx before end deffn
 
+
 empty: deffn
 
 empty: deffn with deffnx
@@ -417,14 +418,27 @@ fset: i a g
 cmde: truc 
 text in def item for second def item
 
+
 c-ategory: d-efvr_name
 d-efvr
+
+c-ategory: n-ame a-rguments...
+d-effn
+
+c-ategory: n-ame
+d-effn no arg
 
 c-ategory: t-ype d-eftypefn_name a-rguments...
 d-eftypefn
 
+c-ategory: t-ype d-eftypefn_name
+d-eftypefn no arg
+
 c-ategory on c-lass: t-ype d-eftypeop_name a-rguments...
 d-eftypeop
+
+c-ategory on c-lass: t-ype d-eftypeop_name
+d-eftypeop no arg
 
 c-ategory: t-ype d-eftypevr_name
 d-eftypevr
@@ -432,8 +446,20 @@ d-eftypevr
 c-ategory of c-lass: d-efcv_name
 d-efcv
 
+c-ategory of c-lass: d-efcv_name a-rguments...
+d-efcv with arguments
+
+c-ategory of c-lass: t-ype d-eftypecv_name
+d-eftypecv
+
+c-ategory of c-lass: t-ype d-eftypecv_name a-rguments...
+d-eftypecv with arguments
+
 c-ategory on c-lass: d-efop_name a-rguments...
 d-efop
+
+c-ategory on c-lass: d-efop_name
+d-efop no arg
 
 c-ategory: d-eftp_name a-ttributes...
 d-eftp
@@ -447,8 +473,11 @@ d-efmac
 Special Form: d-efspec_name a-rguments...
 d-efspec
 
-Variable: d-efvar_name argvar argvar1
+Variable: d-efvar_name
 d-efvar
+
+Variable: d-efvar_name arg-var arg-var1
+d-efvar with args
 
 User Option: d-efopt_name
 d-efopt
@@ -470,6 +499,29 @@ d-efmethod
 
 Method on c-lass: t-ype d-eftypemethod_name a-rguments...
 d-eftypemethod
+
+
+Function: data-type2 name2 arguments2...
+aaa2
+
+c-ategory2: t-ype2 d-eftypefn_name2
+d-eftypefn no arg2
+
+c-ategory2 on c-lass2: t-ype2 d-eftypeop_name2 a-rguments2...
+d-eftypeop2
+
+c-ategory2 on c-lass2: t-ype2 d-eftypeop_name2
+d-eftypeop no arg2
+
+c-ategory2 of c-lass2: t-ype2 d-eftypecv_name2
+d-eftypecv2
+
+c-ategory2 of c-lass2: t-ype2 d-eftypecv_name2 a-rguments2...
+d-eftypecv with arguments2
+
+fun2: arg2
+fff2
+
 
 @xref{c-hapter@@, cross r-ef name@@, t-itle@@, file n-ame@@, ma-nual@@} c-hapter@.
 @ref{chapter, cross ref name, title, file name, manual} chapter

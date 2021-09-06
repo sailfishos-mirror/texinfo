@@ -407,6 +407,7 @@ truc:
 truc: a b c d e f g h i
 truc: deffnx before end deffn
 
+
 empty: deffn
 
 empty: deffn with deffnx
@@ -416,14 +417,27 @@ fset: i a g
 cmde: truc 
 text in def item for second def item
 
+
 c-ategory: d-efvr_name
 d-efvr
+
+c-ategory: n-ame a-rguments...
+d-effn
+
+c-ategory: n-ame
+d-effn no arg
 
 c-ategory: t-ype d-eftypefn_name a-rguments...
 d-eftypefn
 
+c-ategory: t-ype d-eftypefn_name
+d-eftypefn no arg
+
 c-ategory on c-lass: t-ype d-eftypeop_name a-rguments...
 d-eftypeop
+
+c-ategory on c-lass: t-ype d-eftypeop_name
+d-eftypeop no arg
 
 c-ategory: t-ype d-eftypevr_name
 d-eftypevr
@@ -431,8 +445,20 @@ d-eftypevr
 c-ategory of c-lass: d-efcv_name
 d-efcv
 
+c-ategory of c-lass: d-efcv_name a-rguments...
+d-efcv with arguments
+
+c-ategory of c-lass: t-ype d-eftypecv_name
+d-eftypecv
+
+c-ategory of c-lass: t-ype d-eftypecv_name a-rguments...
+d-eftypecv with arguments
+
 c-ategory on c-lass: d-efop_name a-rguments...
 d-efop
+
+c-ategory on c-lass: d-efop_name
+d-efop no arg
 
 c-ategory: d-eftp_name a-ttributes...
 d-eftp
@@ -446,8 +472,11 @@ d-efmac
 Special Form: d-efspec_name a-rguments...
 d-efspec
 
-Variable: d-efvar_name argvar argvar1
+Variable: d-efvar_name
 d-efvar
+
+Variable: d-efvar_name arg-var arg-var1
+d-efvar with args
 
 User Option: d-efopt_name
 d-efopt
@@ -469,6 +498,29 @@ d-efmethod
 
 Method on c-lass: t-ype d-eftypemethod_name a-rguments...
 d-eftypemethod
+
+
+Function: data-type2 name2 arguments2...
+aaa2
+
+c-ategory2: t-ype2 d-eftypefn_name2
+d-eftypefn no arg2
+
+c-ategory2 on c-lass2: t-ype2 d-eftypeop_name2 a-rguments2...
+d-eftypeop2
+
+c-ategory2 on c-lass2: t-ype2 d-eftypeop_name2
+d-eftypeop no arg2
+
+c-ategory2 of c-lass2: t-ype2 d-eftypecv_name2
+d-eftypecv2
+
+c-ategory2 of c-lass2: t-ype2 d-eftypecv_name2 a-rguments2...
+d-eftypecv with arguments2
+
+fun2: arg2
+fff2
+
 
 @xref{c-hapter@@, cross r-ef name@@, t-itle@@, file n-ame@@, ma-nual@@} c-hapter@.
 @ref{chapter, cross ref name, title, file name, manual} chapter
@@ -1259,6 +1311,7 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 <dt id="index-titlepage-deffnx"><span class="category">truc: </span><span><strong>deffnx</strong> <em>before end deffn</em><a href='#index-titlepage-deffnx' class='copiable-anchor'> &para;</a></span></dt>
 </dl>
 
+
 <dl class="def">
 <dt id="index-titlepage-deffn"><span class="category">empty: </span><span><strong>deffn</strong><a href='#index-titlepage-deffn' class='copiable-anchor'> &para;</a></span></dt>
 </dl>
@@ -1274,9 +1327,20 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 <dd><p>text in def item for second def item
 </p></dd></dl>
 
+
 <dl class="def">
 <dt id="index-titlepage-d_002d_002defvr_005fname"><span class="category">c--ategory: </span><span><strong>d--efvr_name</strong><a href='#index-titlepage-d_002d_002defvr_005fname' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>d&ndash;efvr
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-titlepage-n_002d_002dame"><span class="category">c--ategory: </span><span><strong>n--ame</strong> <em>a--rguments...</em><a href='#index-titlepage-n_002d_002dame' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d&ndash;effn
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-titlepage-n_002d_002dame-1"><span class="category">c--ategory: </span><span><strong>n--ame</strong><a href='#index-titlepage-n_002d_002dame-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d&ndash;effn no arg
 </p></dd></dl>
 
 <dl class="def">
@@ -1285,8 +1349,18 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 </p></dd></dl>
 
 <dl class="def">
+<dt id="index-titlepage-d_002d_002deftypefn_005fname-1"><span class="category">c--ategory: </span><span><em>t--ype</em> <strong>d--eftypefn_name</strong><a href='#index-titlepage-d_002d_002deftypefn_005fname-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d&ndash;eftypefn no arg
+</p></dd></dl>
+
+<dl class="def">
 <dt id="index-titlepage-d_002d_002deftypeop_005fname-on-c_002d_002dlass"><span>c--ategory on c--lass: <em>t--ype</em> <strong>d--eftypeop_name</strong> <em>a--rguments...</em><a href='#index-titlepage-d_002d_002deftypeop_005fname-on-c_002d_002dlass' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>d&ndash;eftypeop
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-titlepage-d_002d_002deftypeop_005fname-on-c_002d_002dlass-1"><span>c--ategory on c--lass: <em>t--ype</em> <strong>d--eftypeop_name</strong><a href='#index-titlepage-d_002d_002deftypeop_005fname-on-c_002d_002dlass-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d&ndash;eftypeop no arg
 </p></dd></dl>
 
 <dl class="def">
@@ -1300,8 +1374,28 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 </p></dd></dl>
 
 <dl class="def">
+<dt id="index-titlepage-d_002d_002defcv_005fname-1"><span>c--ategory of c--lass: <strong>d--efcv_name</strong> <em>a--rguments...</em><a href='#index-titlepage-d_002d_002defcv_005fname-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d&ndash;efcv with arguments
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-titlepage-d_002d_002deftypecv_005fname-of-c_002d_002dlass"><span>c--ategory of c--lass: <em>t--ype</em> <strong>d--eftypecv_name</strong><a href='#index-titlepage-d_002d_002deftypecv_005fname-of-c_002d_002dlass' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d&ndash;eftypecv
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-titlepage-d_002d_002deftypecv_005fname-of-c_002d_002dlass-1"><span>c--ategory of c--lass: <em>t--ype</em> <strong>d--eftypecv_name</strong> <em>a--rguments...</em><a href='#index-titlepage-d_002d_002deftypecv_005fname-of-c_002d_002dlass-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d&ndash;eftypecv with arguments
+</p></dd></dl>
+
+<dl class="def">
 <dt id="index-titlepage-d_002d_002defop_005fname-on-c_002d_002dlass"><span>c--ategory on c--lass: <strong>d--efop_name</strong> <em>a--rguments...</em><a href='#index-titlepage-d_002d_002defop_005fname-on-c_002d_002dlass' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>d&ndash;efop
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-titlepage-d_002d_002defop_005fname-on-c_002d_002dlass-1"><span>c--ategory on c--lass: <strong>d--efop_name</strong><a href='#index-titlepage-d_002d_002defop_005fname-on-c_002d_002dlass-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d&ndash;efop no arg
 </p></dd></dl>
 
 <dl class="def">
@@ -1325,8 +1419,13 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 </p></dd></dl>
 
 <dl class="def">
-<dt id="index-titlepage-d_002d_002defvar_005fname"><span class="category">Variable: </span><span><strong>d--efvar_name</strong> <em>argvar argvar1</em><a href='#index-titlepage-d_002d_002defvar_005fname' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-titlepage-d_002d_002defvar_005fname"><span class="category">Variable: </span><span><strong>d--efvar_name</strong><a href='#index-titlepage-d_002d_002defvar_005fname' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>d&ndash;efvar
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-titlepage-d_002d_002defvar_005fname-1"><span class="category">Variable: </span><span><strong>d--efvar_name</strong> <em>arg--var arg--var1</em><a href='#index-titlepage-d_002d_002defvar_005fname-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d&ndash;efvar with args
 </p></dd></dl>
 
 <dl class="def">
@@ -1363,6 +1462,43 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 <dt id="index-titlepage-d_002d_002deftypemethod_005fname-on-c_002d_002dlass"><span>Method on c--lass: <em>t--ype</em> <strong>d--eftypemethod_name</strong> <em>a--rguments...</em><a href='#index-titlepage-d_002d_002deftypemethod_005fname-on-c_002d_002dlass' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>d&ndash;eftypemethod
 </p></dd></dl>
+
+
+<dl class="def">
+<dt id="index-titlepage-name2"><span class="category">Function:<br> </span><span><em>data-type2</em><br> <strong>name2</strong> <em>arguments2...</em><a href='#index-titlepage-name2' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>aaa2
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-titlepage-d_002d_002deftypefn_005fname2"><span class="category">c--ategory2:<br> </span><span><em>t--ype2</em><br> <strong>d--eftypefn_name2</strong><a href='#index-titlepage-d_002d_002deftypefn_005fname2' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d&ndash;eftypefn no arg2
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-titlepage-d_002d_002deftypeop_005fname2-on-c_002d_002dlass2"><span>c--ategory2 on c--lass2:<br> <em>t--ype2</em><br> <strong>d--eftypeop_name2</strong> <em>a--rguments2...</em><a href='#index-titlepage-d_002d_002deftypeop_005fname2-on-c_002d_002dlass2' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d&ndash;eftypeop2
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-titlepage-d_002d_002deftypeop_005fname2-on-c_002d_002dlass2-1"><span>c--ategory2 on c--lass2:<br> <em>t--ype2</em><br> <strong>d--eftypeop_name2</strong><a href='#index-titlepage-d_002d_002deftypeop_005fname2-on-c_002d_002dlass2-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d&ndash;eftypeop no arg2
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-titlepage-d_002d_002deftypecv_005fname2-of-c_002d_002dlass2"><span>c--ategory2 of c--lass2:<br> <em>t--ype2</em><br> <strong>d--eftypecv_name2</strong><a href='#index-titlepage-d_002d_002deftypecv_005fname2-of-c_002d_002dlass2' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d&ndash;eftypecv2
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-titlepage-d_002d_002deftypecv_005fname2-of-c_002d_002dlass2-1"><span>c--ategory2 of c--lass2:<br> <em>t--ype2</em><br> <strong>d--eftypecv_name2</strong> <em>a--rguments2...</em><a href='#index-titlepage-d_002d_002deftypecv_005fname2-of-c_002d_002dlass2-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d&ndash;eftypecv with arguments2
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-titlepage-arg2"><span class="category">fun2: </span><span><strong>arg2</strong><a href='#index-titlepage-arg2' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>fff2
+</p></dd></dl>
+
 
 <p><code>@xref{c---hapter@@, cross r---ef name@@, t---itle@@, file n---ame@@, ma---nual@@}</code> See <a data-manual="file n---ame@" href="../file n---ame@/c_002d_002d_002dhapter_0040.html#c_002d_002d_002dhapter_0040">t&mdash;itle@</a> in <cite>ma&mdash;nual@</cite>.
 <code>@ref{chapter, cross ref name, title, file name, manual}</code> <a data-manual="file name" href="../file name/chapter.html#chapter">title</a> in <cite>manual</cite>
@@ -2148,6 +2284,7 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 <dt id="index-copying-deffnx"><span class="category">truc: </span><span><strong>deffnx</strong> <em>before end deffn</em><a href='#index-copying-deffnx' class='copiable-anchor'> &para;</a></span></dt>
 </dl>
 
+
 <dl class="def">
 <dt id="index-copying-deffn"><span class="category">empty: </span><span><strong>deffn</strong><a href='#index-copying-deffn' class='copiable-anchor'> &para;</a></span></dt>
 </dl>
@@ -2163,9 +2300,20 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 <dd><p>text in def item for second def item
 </p></dd></dl>
 
+
 <dl class="def">
 <dt id="index-copying-d_002d_002defvr_005fname"><span class="category">c--ategory: </span><span><strong>d--efvr_name</strong><a href='#index-copying-d_002d_002defvr_005fname' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>d&ndash;efvr
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-copying-n_002d_002dame"><span class="category">c--ategory: </span><span><strong>n--ame</strong> <em>a--rguments...</em><a href='#index-copying-n_002d_002dame' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d&ndash;effn
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-copying-n_002d_002dame-1"><span class="category">c--ategory: </span><span><strong>n--ame</strong><a href='#index-copying-n_002d_002dame-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d&ndash;effn no arg
 </p></dd></dl>
 
 <dl class="def">
@@ -2174,8 +2322,18 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 </p></dd></dl>
 
 <dl class="def">
+<dt id="index-copying-d_002d_002deftypefn_005fname-1"><span class="category">c--ategory: </span><span><em>t--ype</em> <strong>d--eftypefn_name</strong><a href='#index-copying-d_002d_002deftypefn_005fname-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d&ndash;eftypefn no arg
+</p></dd></dl>
+
+<dl class="def">
 <dt id="index-copying-d_002d_002deftypeop_005fname-on-c_002d_002dlass"><span>c--ategory on c--lass: <em>t--ype</em> <strong>d--eftypeop_name</strong> <em>a--rguments...</em><a href='#index-copying-d_002d_002deftypeop_005fname-on-c_002d_002dlass' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>d&ndash;eftypeop
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-copying-d_002d_002deftypeop_005fname-on-c_002d_002dlass-1"><span>c--ategory on c--lass: <em>t--ype</em> <strong>d--eftypeop_name</strong><a href='#index-copying-d_002d_002deftypeop_005fname-on-c_002d_002dlass-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d&ndash;eftypeop no arg
 </p></dd></dl>
 
 <dl class="def">
@@ -2189,8 +2347,28 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 </p></dd></dl>
 
 <dl class="def">
+<dt id="index-copying-d_002d_002defcv_005fname-1"><span>c--ategory of c--lass: <strong>d--efcv_name</strong> <em>a--rguments...</em><a href='#index-copying-d_002d_002defcv_005fname-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d&ndash;efcv with arguments
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-copying-d_002d_002deftypecv_005fname-of-c_002d_002dlass"><span>c--ategory of c--lass: <em>t--ype</em> <strong>d--eftypecv_name</strong><a href='#index-copying-d_002d_002deftypecv_005fname-of-c_002d_002dlass' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d&ndash;eftypecv
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-copying-d_002d_002deftypecv_005fname-of-c_002d_002dlass-1"><span>c--ategory of c--lass: <em>t--ype</em> <strong>d--eftypecv_name</strong> <em>a--rguments...</em><a href='#index-copying-d_002d_002deftypecv_005fname-of-c_002d_002dlass-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d&ndash;eftypecv with arguments
+</p></dd></dl>
+
+<dl class="def">
 <dt id="index-copying-d_002d_002defop_005fname-on-c_002d_002dlass"><span>c--ategory on c--lass: <strong>d--efop_name</strong> <em>a--rguments...</em><a href='#index-copying-d_002d_002defop_005fname-on-c_002d_002dlass' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>d&ndash;efop
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-copying-d_002d_002defop_005fname-on-c_002d_002dlass-1"><span>c--ategory on c--lass: <strong>d--efop_name</strong><a href='#index-copying-d_002d_002defop_005fname-on-c_002d_002dlass-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d&ndash;efop no arg
 </p></dd></dl>
 
 <dl class="def">
@@ -2214,8 +2392,13 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 </p></dd></dl>
 
 <dl class="def">
-<dt id="index-copying-d_002d_002defvar_005fname"><span class="category">Variable: </span><span><strong>d--efvar_name</strong> <em>argvar argvar1</em><a href='#index-copying-d_002d_002defvar_005fname' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-copying-d_002d_002defvar_005fname"><span class="category">Variable: </span><span><strong>d--efvar_name</strong><a href='#index-copying-d_002d_002defvar_005fname' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>d&ndash;efvar
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-copying-d_002d_002defvar_005fname-1"><span class="category">Variable: </span><span><strong>d--efvar_name</strong> <em>arg--var arg--var1</em><a href='#index-copying-d_002d_002defvar_005fname-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d&ndash;efvar with args
 </p></dd></dl>
 
 <dl class="def">
@@ -2252,6 +2435,43 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 <dt id="index-copying-d_002d_002deftypemethod_005fname-on-c_002d_002dlass"><span>Method on c--lass: <em>t--ype</em> <strong>d--eftypemethod_name</strong> <em>a--rguments...</em><a href='#index-copying-d_002d_002deftypemethod_005fname-on-c_002d_002dlass' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>d&ndash;eftypemethod
 </p></dd></dl>
+
+
+<dl class="def">
+<dt id="index-copying-name2"><span class="category">Function:<br> </span><span><em>data-type2</em><br> <strong>name2</strong> <em>arguments2...</em><a href='#index-copying-name2' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>aaa2
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-copying-d_002d_002deftypefn_005fname2"><span class="category">c--ategory2:<br> </span><span><em>t--ype2</em><br> <strong>d--eftypefn_name2</strong><a href='#index-copying-d_002d_002deftypefn_005fname2' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d&ndash;eftypefn no arg2
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-copying-d_002d_002deftypeop_005fname2-on-c_002d_002dlass2"><span>c--ategory2 on c--lass2:<br> <em>t--ype2</em><br> <strong>d--eftypeop_name2</strong> <em>a--rguments2...</em><a href='#index-copying-d_002d_002deftypeop_005fname2-on-c_002d_002dlass2' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d&ndash;eftypeop2
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-copying-d_002d_002deftypeop_005fname2-on-c_002d_002dlass2-1"><span>c--ategory2 on c--lass2:<br> <em>t--ype2</em><br> <strong>d--eftypeop_name2</strong><a href='#index-copying-d_002d_002deftypeop_005fname2-on-c_002d_002dlass2-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d&ndash;eftypeop no arg2
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-copying-d_002d_002deftypecv_005fname2-of-c_002d_002dlass2"><span>c--ategory2 of c--lass2:<br> <em>t--ype2</em><br> <strong>d--eftypecv_name2</strong><a href='#index-copying-d_002d_002deftypecv_005fname2-of-c_002d_002dlass2' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d&ndash;eftypecv2
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-copying-d_002d_002deftypecv_005fname2-of-c_002d_002dlass2-1"><span>c--ategory2 of c--lass2:<br> <em>t--ype2</em><br> <strong>d--eftypecv_name2</strong> <em>a--rguments2...</em><a href='#index-copying-d_002d_002deftypecv_005fname2-of-c_002d_002dlass2-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d&ndash;eftypecv with arguments2
+</p></dd></dl>
+
+<dl class="def">
+<dt id="index-copying-arg2"><span class="category">fun2: </span><span><strong>arg2</strong><a href='#index-copying-arg2' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>fff2
+</p></dd></dl>
+
 
 <p><code>@xref{c---hapter@@, cross r---ef name@@, t---itle@@, file n---ame@@, ma---nual@@}</code> See <a data-manual="file n---ame@" href="../file n---ame@/c_002d_002d_002dhapter_0040.html#c_002d_002d_002dhapter_0040">t&mdash;itle@</a> in <cite>ma&mdash;nual@</cite>.
 <code>@ref{chapter, cross ref name, title, file name, manual}</code> <a data-manual="file name" href="../file name/chapter.html#chapter">title</a> in <cite>manual</cite>

@@ -260,10 +260,11 @@ sub output_files_information($)
 # Notice that the only effect is to use set_conf (directly or through
 # _informative_command), @-commands side effects or settings using other
 # customization is not set/reset.
-sub _set_global_multiple_commands($$)
+sub set_global_document_commands($$;$)
 {
   my $self = shift;
   my $commands_location = shift;
+  my $selected_commands = shift;
 
   my $init_conf;
   if (defined($self->{'output_init_conf'})) {
@@ -283,14 +284,18 @@ sub _set_global_multiple_commands($$)
             $Texinfo::Common::document_settable_at_commands{$global_command};
     }
   }
+
+  if (not defined($selected_commands)) {
+    $selected_commands = [keys(%{$commands_init})];
+  }
   if ($commands_location == 0) {
-    foreach my $global_command (keys(%{$commands_init})) {
+    foreach my $global_command (@{$selected_commands}) {
       # for commands not appearing in the document, this should set the
       # same value, the converter initialization value
       $self->set_conf($global_command, $commands_init->{$global_command});
     }
   } else {
-    foreach my $global_command (keys(%$commands_init)) {
+    foreach my $global_command (@{$selected_commands}) {
       my $root;
       if (defined($self->{'extra'}->{$global_command})
           and ref($self->{'extra'}->{$global_command}) eq 'ARRAY') {
@@ -734,7 +739,7 @@ sub output($$)
   # NOTE this calls Convert::Converter::_informative_command on all the 
   # @informative_global commands.
   # Thus sets among others language and encodings.
-  $self->_set_global_multiple_commands(-1);
+  $self->set_global_document_commands(-1);
 
   if ($self->get_conf('USE_NODES')) {
     $elements = Texinfo::Structuring::split_by_node($root);
@@ -1197,7 +1202,7 @@ sub output_no_split($$)
     }
   }
 
-  $self->_set_global_multiple_commands(-1);
+  $self->set_global_document_commands(-1);
 
   if ($self->get_conf('USE_NODES')) {
     return $self->convert_document_nodes($root, $fh);

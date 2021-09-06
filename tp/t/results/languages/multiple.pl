@@ -1052,11 +1052,11 @@ $result_converted{'html'}->{'multiple'} = '<!DOCTYPE html PUBLIC "-//W3C//DTD HT
 <!-- Created by texinfo, http://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<!-- Variable d\'instance da copying: a b -->
-<title>Documento Sem Nome</title>
+<!-- Variable d\'instance de copying: a b -->
+<title>Document sans titre</title>
 
-<meta name="description" content="Documento Sem Nome">
-<meta name="keywords" content="Documento Sem Nome">
+<meta name="description" content="Document sans titre">
+<meta name="keywords" content="Document sans titre">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -1086,7 +1086,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="pt">
+<body lang="fr">
 
 
 <span id="Top"></span><h1 class="node-heading">Top</h1>

@@ -416,6 +416,7 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<superscript>-{1 \over 2}\left({x-\mu \over 
 <synopsis><indexterm role="fn"><primary>a</primary></indexterm><phrase role="category"><emphasis role="bold">truc</emphasis>:</phrase> <function>a</function> <replaceable>b</replaceable> <replaceable>c</replaceable> <replaceable>d</replaceable> <replaceable>e</replaceable> <replaceable><emphasis role="bold">f g</emphasis></replaceable> <replaceable>h i</replaceable></synopsis>
 <synopsis><indexterm role="fn"><primary>deffnx</primary></indexterm><phrase role="category"><emphasis role="bold">truc</emphasis>:</phrase> <function>deffnx</function> <replaceable>before</replaceable> <replaceable>end</replaceable> <replaceable>deffn</replaceable></synopsis>
 
+
 <synopsis><indexterm role="fn"><primary>deffn</primary></indexterm><phrase role="category"><emphasis role="bold">empty</emphasis>:</phrase> <function>deffn</function></synopsis>
 
 <synopsis><indexterm role="fn"><primary>deffn</primary></indexterm><phrase role="category"><emphasis role="bold">empty</emphasis>:</phrase> <function>deffn</function> <replaceable>with</replaceable> <replaceable>deffnx</replaceable></synopsis>
@@ -427,14 +428,28 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<superscript>-{1 \over 2}\left({x-\mu \over 
 <blockquote><!-- comment -->
 <para>text in def item for second def item
 </para></blockquote>
+<!-- from t/19def.t all_commands -->
+
 <synopsis><indexterm role="vr"><primary>d--efvr_name</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <varname>d--efvr_name</varname></synopsis>
 <blockquote><para>d&#8211;efvr
+</para></blockquote>
+<synopsis><indexterm role="fn"><primary>n--ame</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <function>n--ame</function> <replaceable>a--rguments...</replaceable></synopsis>
+<blockquote><para>d&#8211;effn
+</para></blockquote>
+<synopsis><indexterm role="fn"><primary>n--ame</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <function>n--ame</function></synopsis>
+<blockquote><para>d&#8211;effn no arg
 </para></blockquote>
 <synopsis><indexterm role="fn"><primary>d--eftypefn_name</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <returnvalue>t--ype</returnvalue> <function>d--eftypefn_name</function> <type>a--rguments...</type></synopsis>
 <blockquote><para>d&#8211;eftypefn
 </para></blockquote>
+<synopsis><indexterm role="fn"><primary>d--eftypefn_name</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <returnvalue>t--ype</returnvalue> <function>d--eftypefn_name</function></synopsis>
+<blockquote><para>d&#8211;eftypefn no arg
+</para></blockquote>
 <synopsis><indexterm role="fn"><primary>d--eftypeop_name on c--lass</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <ooclass><classname>c--lass</classname></ooclass> <returnvalue>t--ype</returnvalue> <methodname>d--eftypeop_name</methodname> <type>a--rguments...</type></synopsis>
 <blockquote><para>d&#8211;eftypeop
+</para></blockquote>
+<synopsis><indexterm role="fn"><primary>d--eftypeop_name on c--lass</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <ooclass><classname>c--lass</classname></ooclass> <returnvalue>t--ype</returnvalue> <methodname>d--eftypeop_name</methodname></synopsis>
+<blockquote><para>d&#8211;eftypeop no arg
 </para></blockquote>
 <synopsis><indexterm role="vr"><primary>d--eftypevr_name</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <returnvalue>t--ype</returnvalue> <varname>d--eftypevr_name</varname></synopsis>
 <blockquote><para>d&#8211;eftypevr
@@ -442,8 +457,20 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<superscript>-{1 \over 2}\left({x-\mu \over 
 <synopsis><indexterm role="vr"><primary>d--efcv_name</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <ooclass><classname>c--lass</classname></ooclass> <property>d--efcv_name</property></synopsis>
 <blockquote><para>d&#8211;efcv
 </para></blockquote>
+<synopsis><indexterm role="vr"><primary>d--efcv_name</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <ooclass><classname>c--lass</classname></ooclass> <property>d--efcv_name</property> <replaceable>a--rguments...</replaceable></synopsis>
+<blockquote><para>d&#8211;efcv with arguments
+</para></blockquote>
+<synopsis><indexterm role="vr"><primary>d--eftypecv_name of c--lass</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <ooclass><classname>c--lass</classname></ooclass> <returnvalue>t--ype</returnvalue> <property>d--eftypecv_name</property></synopsis>
+<blockquote><para>d&#8211;eftypecv
+</para></blockquote>
+<synopsis><indexterm role="vr"><primary>d--eftypecv_name of c--lass</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <ooclass><classname>c--lass</classname></ooclass> <returnvalue>t--ype</returnvalue> <property>d--eftypecv_name</property> <replaceable>a--rguments...</replaceable></synopsis>
+<blockquote><para>d&#8211;eftypecv with arguments
+</para></blockquote>
 <synopsis><indexterm role="fn"><primary>d--efop_name on c--lass</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <ooclass><classname>c--lass</classname></ooclass> <methodname>d--efop_name</methodname> <replaceable>a--rguments...</replaceable></synopsis>
 <blockquote><para>d&#8211;efop
+</para></blockquote>
+<synopsis><indexterm role="fn"><primary>d--efop_name on c--lass</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <ooclass><classname>c--lass</classname></ooclass> <methodname>d--efop_name</methodname></synopsis>
+<blockquote><para>d&#8211;efop no arg
 </para></blockquote>
 <synopsis><indexterm role="tp"><primary>d--eftp_name</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <structname>d--eftp_name</structname> <type>a--ttributes...</type></synopsis>
 <blockquote><para>d&#8211;eftp
@@ -457,8 +484,11 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<superscript>-{1 \over 2}\left({x-\mu \over 
 <synopsis><indexterm role="fn"><primary>d--efspec_name</primary></indexterm><phrase role="category"><emphasis role="bold">Special Form</emphasis>:</phrase> <function>d--efspec_name</function> <replaceable>a--rguments...</replaceable></synopsis>
 <blockquote><para>d&#8211;efspec
 </para></blockquote>
-<synopsis><indexterm role="vr"><primary>d--efvar_name</primary></indexterm><phrase role="category"><emphasis role="bold">Variable</emphasis>:</phrase> <varname>d--efvar_name</varname> <replaceable>argvar</replaceable> <replaceable>argvar1</replaceable></synopsis>
+<synopsis><indexterm role="vr"><primary>d--efvar_name</primary></indexterm><phrase role="category"><emphasis role="bold">Variable</emphasis>:</phrase> <varname>d--efvar_name</varname></synopsis>
 <blockquote><para>d&#8211;efvar
+</para></blockquote>
+<synopsis><indexterm role="vr"><primary>d--efvar_name</primary></indexterm><phrase role="category"><emphasis role="bold">Variable</emphasis>:</phrase> <varname>d--efvar_name</varname> <replaceable>arg--var</replaceable> <replaceable>arg--var1</replaceable></synopsis>
+<blockquote><para>d&#8211;efvar with args
 </para></blockquote>
 <synopsis><indexterm role="vr"><primary>d--efopt_name</primary></indexterm><phrase role="category"><emphasis role="bold">User Option</emphasis>:</phrase> <varname>d--efopt_name</varname></synopsis>
 <blockquote><para>d&#8211;efopt
@@ -481,6 +511,29 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<superscript>-{1 \over 2}\left({x-\mu \over 
 <synopsis><indexterm role="fn"><primary>d--eftypemethod_name on c--lass</primary></indexterm><phrase role="category"><emphasis role="bold">Method</emphasis>:</phrase> <ooclass><classname>c--lass</classname></ooclass> <returnvalue>t--ype</returnvalue> <methodname>d--eftypemethod_name</methodname> <type>a--rguments...</type></synopsis>
 <blockquote><para>d&#8211;eftypemethod
 </para></blockquote>
+
+<synopsis><indexterm role="fn"><primary>name2</primary></indexterm><phrase role="category"><emphasis role="bold">Function</emphasis>:</phrase> <returnvalue>data-type2</returnvalue> <function>name2</function> <type>arguments2...</type></synopsis>
+<blockquote><para>aaa2
+</para></blockquote>
+<synopsis><indexterm role="fn"><primary>d--eftypefn_name2</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory2</emphasis>:</phrase> <returnvalue>t--ype2</returnvalue> <function>d--eftypefn_name2</function></synopsis>
+<blockquote><para>d&#8211;eftypefn no arg2
+</para></blockquote>
+<synopsis><indexterm role="fn"><primary>d--eftypeop_name2 on c--lass2</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory2</emphasis>:</phrase> <ooclass><classname>c--lass2</classname></ooclass> <returnvalue>t--ype2</returnvalue> <methodname>d--eftypeop_name2</methodname> <type>a--rguments2...</type></synopsis>
+<blockquote><para>d&#8211;eftypeop2
+</para></blockquote>
+<synopsis><indexterm role="fn"><primary>d--eftypeop_name2 on c--lass2</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory2</emphasis>:</phrase> <ooclass><classname>c--lass2</classname></ooclass> <returnvalue>t--ype2</returnvalue> <methodname>d--eftypeop_name2</methodname></synopsis>
+<blockquote><para>d&#8211;eftypeop no arg2
+</para></blockquote>
+<synopsis><indexterm role="vr"><primary>d--eftypecv_name2 of c--lass2</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory2</emphasis>:</phrase> <ooclass><classname>c--lass2</classname></ooclass> <returnvalue>t--ype2</returnvalue> <property>d--eftypecv_name2</property></synopsis>
+<blockquote><para>d&#8211;eftypecv2
+</para></blockquote>
+<synopsis><indexterm role="vr"><primary>d--eftypecv_name2 of c--lass2</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory2</emphasis>:</phrase> <ooclass><classname>c--lass2</classname></ooclass> <returnvalue>t--ype2</returnvalue> <property>d--eftypecv_name2</property> <replaceable>a--rguments2...</replaceable></synopsis>
+<blockquote><para>d&#8211;eftypecv with arguments2
+</para></blockquote>
+<synopsis><indexterm role="fn"><primary>arg2</primary></indexterm><phrase role="category"><emphasis role="bold">fun2</emphasis>:</phrase> <function>arg2</function></synopsis>
+<blockquote><para>fff2
+</para></blockquote>
+
 <para><literal>@xref{c---hapter@@, cross r---ef name@@, t---itle@@, file n---ame@@, ma---nual@@}</literal> See section &#8220;t&#8212;itle@&#8221; in <citetitle>ma&#8212;nual@</citetitle>.
 <literal>@ref{chapter, cross ref name, title, file name, manual}</literal> section &#8220;title&#8221; in <citetitle>manual</citetitle>
 <literal>@pxref{chapter, cross ref name, title, file name, manual}</literal> see section &#8220;title&#8221; in <citetitle>manual</citetitle>
@@ -1156,6 +1209,7 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<superscript>-{1 \over 2}\left({x-\mu \over 
 <synopsis><indexterm role="fn"><primary>a</primary></indexterm><phrase role="category"><emphasis role="bold">truc</emphasis>:</phrase> <function>a</function> <replaceable>b</replaceable> <replaceable>c</replaceable> <replaceable>d</replaceable> <replaceable>e</replaceable> <replaceable><emphasis role="bold">f g</emphasis></replaceable> <replaceable>h i</replaceable></synopsis>
 <synopsis><indexterm role="fn"><primary>deffnx</primary></indexterm><phrase role="category"><emphasis role="bold">truc</emphasis>:</phrase> <function>deffnx</function> <replaceable>before</replaceable> <replaceable>end</replaceable> <replaceable>deffn</replaceable></synopsis>
 
+
 <synopsis><indexterm role="fn"><primary>deffn</primary></indexterm><phrase role="category"><emphasis role="bold">empty</emphasis>:</phrase> <function>deffn</function></synopsis>
 
 <synopsis><indexterm role="fn"><primary>deffn</primary></indexterm><phrase role="category"><emphasis role="bold">empty</emphasis>:</phrase> <function>deffn</function> <replaceable>with</replaceable> <replaceable>deffnx</replaceable></synopsis>
@@ -1167,14 +1221,28 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<superscript>-{1 \over 2}\left({x-\mu \over 
 <blockquote><!-- comment -->
 <para>text in def item for second def item
 </para></blockquote>
+<!-- from t/19def.t all_commands -->
+
 <synopsis><indexterm role="vr"><primary>d--efvr_name</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <varname>d--efvr_name</varname></synopsis>
 <blockquote><para>d&#8211;efvr
+</para></blockquote>
+<synopsis><indexterm role="fn"><primary>n--ame</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <function>n--ame</function> <replaceable>a--rguments...</replaceable></synopsis>
+<blockquote><para>d&#8211;effn
+</para></blockquote>
+<synopsis><indexterm role="fn"><primary>n--ame</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <function>n--ame</function></synopsis>
+<blockquote><para>d&#8211;effn no arg
 </para></blockquote>
 <synopsis><indexterm role="fn"><primary>d--eftypefn_name</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <returnvalue>t--ype</returnvalue> <function>d--eftypefn_name</function> <type>a--rguments...</type></synopsis>
 <blockquote><para>d&#8211;eftypefn
 </para></blockquote>
+<synopsis><indexterm role="fn"><primary>d--eftypefn_name</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <returnvalue>t--ype</returnvalue> <function>d--eftypefn_name</function></synopsis>
+<blockquote><para>d&#8211;eftypefn no arg
+</para></blockquote>
 <synopsis><indexterm role="fn"><primary>d--eftypeop_name on c--lass</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <ooclass><classname>c--lass</classname></ooclass> <returnvalue>t--ype</returnvalue> <methodname>d--eftypeop_name</methodname> <type>a--rguments...</type></synopsis>
 <blockquote><para>d&#8211;eftypeop
+</para></blockquote>
+<synopsis><indexterm role="fn"><primary>d--eftypeop_name on c--lass</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <ooclass><classname>c--lass</classname></ooclass> <returnvalue>t--ype</returnvalue> <methodname>d--eftypeop_name</methodname></synopsis>
+<blockquote><para>d&#8211;eftypeop no arg
 </para></blockquote>
 <synopsis><indexterm role="vr"><primary>d--eftypevr_name</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <returnvalue>t--ype</returnvalue> <varname>d--eftypevr_name</varname></synopsis>
 <blockquote><para>d&#8211;eftypevr
@@ -1182,8 +1250,20 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<superscript>-{1 \over 2}\left({x-\mu \over 
 <synopsis><indexterm role="vr"><primary>d--efcv_name</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <ooclass><classname>c--lass</classname></ooclass> <property>d--efcv_name</property></synopsis>
 <blockquote><para>d&#8211;efcv
 </para></blockquote>
+<synopsis><indexterm role="vr"><primary>d--efcv_name</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <ooclass><classname>c--lass</classname></ooclass> <property>d--efcv_name</property> <replaceable>a--rguments...</replaceable></synopsis>
+<blockquote><para>d&#8211;efcv with arguments
+</para></blockquote>
+<synopsis><indexterm role="vr"><primary>d--eftypecv_name of c--lass</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <ooclass><classname>c--lass</classname></ooclass> <returnvalue>t--ype</returnvalue> <property>d--eftypecv_name</property></synopsis>
+<blockquote><para>d&#8211;eftypecv
+</para></blockquote>
+<synopsis><indexterm role="vr"><primary>d--eftypecv_name of c--lass</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <ooclass><classname>c--lass</classname></ooclass> <returnvalue>t--ype</returnvalue> <property>d--eftypecv_name</property> <replaceable>a--rguments...</replaceable></synopsis>
+<blockquote><para>d&#8211;eftypecv with arguments
+</para></blockquote>
 <synopsis><indexterm role="fn"><primary>d--efop_name on c--lass</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <ooclass><classname>c--lass</classname></ooclass> <methodname>d--efop_name</methodname> <replaceable>a--rguments...</replaceable></synopsis>
 <blockquote><para>d&#8211;efop
+</para></blockquote>
+<synopsis><indexterm role="fn"><primary>d--efop_name on c--lass</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <ooclass><classname>c--lass</classname></ooclass> <methodname>d--efop_name</methodname></synopsis>
+<blockquote><para>d&#8211;efop no arg
 </para></blockquote>
 <synopsis><indexterm role="tp"><primary>d--eftp_name</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <structname>d--eftp_name</structname> <type>a--ttributes...</type></synopsis>
 <blockquote><para>d&#8211;eftp
@@ -1197,8 +1277,11 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<superscript>-{1 \over 2}\left({x-\mu \over 
 <synopsis><indexterm role="fn"><primary>d--efspec_name</primary></indexterm><phrase role="category"><emphasis role="bold">Special Form</emphasis>:</phrase> <function>d--efspec_name</function> <replaceable>a--rguments...</replaceable></synopsis>
 <blockquote><para>d&#8211;efspec
 </para></blockquote>
-<synopsis><indexterm role="vr"><primary>d--efvar_name</primary></indexterm><phrase role="category"><emphasis role="bold">Variable</emphasis>:</phrase> <varname>d--efvar_name</varname> <replaceable>argvar</replaceable> <replaceable>argvar1</replaceable></synopsis>
+<synopsis><indexterm role="vr"><primary>d--efvar_name</primary></indexterm><phrase role="category"><emphasis role="bold">Variable</emphasis>:</phrase> <varname>d--efvar_name</varname></synopsis>
 <blockquote><para>d&#8211;efvar
+</para></blockquote>
+<synopsis><indexterm role="vr"><primary>d--efvar_name</primary></indexterm><phrase role="category"><emphasis role="bold">Variable</emphasis>:</phrase> <varname>d--efvar_name</varname> <replaceable>arg--var</replaceable> <replaceable>arg--var1</replaceable></synopsis>
+<blockquote><para>d&#8211;efvar with args
 </para></blockquote>
 <synopsis><indexterm role="vr"><primary>d--efopt_name</primary></indexterm><phrase role="category"><emphasis role="bold">User Option</emphasis>:</phrase> <varname>d--efopt_name</varname></synopsis>
 <blockquote><para>d&#8211;efopt
@@ -1221,6 +1304,29 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<superscript>-{1 \over 2}\left({x-\mu \over 
 <synopsis><indexterm role="fn"><primary>d--eftypemethod_name on c--lass</primary></indexterm><phrase role="category"><emphasis role="bold">Method</emphasis>:</phrase> <ooclass><classname>c--lass</classname></ooclass> <returnvalue>t--ype</returnvalue> <methodname>d--eftypemethod_name</methodname> <type>a--rguments...</type></synopsis>
 <blockquote><para>d&#8211;eftypemethod
 </para></blockquote>
+
+<synopsis><indexterm role="fn"><primary>name2</primary></indexterm><phrase role="category"><emphasis role="bold">Function</emphasis>:</phrase> <returnvalue>data-type2</returnvalue> <function>name2</function> <type>arguments2...</type></synopsis>
+<blockquote><para>aaa2
+</para></blockquote>
+<synopsis><indexterm role="fn"><primary>d--eftypefn_name2</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory2</emphasis>:</phrase> <returnvalue>t--ype2</returnvalue> <function>d--eftypefn_name2</function></synopsis>
+<blockquote><para>d&#8211;eftypefn no arg2
+</para></blockquote>
+<synopsis><indexterm role="fn"><primary>d--eftypeop_name2 on c--lass2</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory2</emphasis>:</phrase> <ooclass><classname>c--lass2</classname></ooclass> <returnvalue>t--ype2</returnvalue> <methodname>d--eftypeop_name2</methodname> <type>a--rguments2...</type></synopsis>
+<blockquote><para>d&#8211;eftypeop2
+</para></blockquote>
+<synopsis><indexterm role="fn"><primary>d--eftypeop_name2 on c--lass2</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory2</emphasis>:</phrase> <ooclass><classname>c--lass2</classname></ooclass> <returnvalue>t--ype2</returnvalue> <methodname>d--eftypeop_name2</methodname></synopsis>
+<blockquote><para>d&#8211;eftypeop no arg2
+</para></blockquote>
+<synopsis><indexterm role="vr"><primary>d--eftypecv_name2 of c--lass2</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory2</emphasis>:</phrase> <ooclass><classname>c--lass2</classname></ooclass> <returnvalue>t--ype2</returnvalue> <property>d--eftypecv_name2</property></synopsis>
+<blockquote><para>d&#8211;eftypecv2
+</para></blockquote>
+<synopsis><indexterm role="vr"><primary>d--eftypecv_name2 of c--lass2</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory2</emphasis>:</phrase> <ooclass><classname>c--lass2</classname></ooclass> <returnvalue>t--ype2</returnvalue> <property>d--eftypecv_name2</property> <replaceable>a--rguments2...</replaceable></synopsis>
+<blockquote><para>d&#8211;eftypecv with arguments2
+</para></blockquote>
+<synopsis><indexterm role="fn"><primary>arg2</primary></indexterm><phrase role="category"><emphasis role="bold">fun2</emphasis>:</phrase> <function>arg2</function></synopsis>
+<blockquote><para>fff2
+</para></blockquote>
+
 <para><literal>@xref{c---hapter@@, cross r---ef name@@, t---itle@@, file n---ame@@, ma---nual@@}</literal> See section &#8220;t&#8212;itle@&#8221; in <citetitle>ma&#8212;nual@</citetitle>.
 <literal>@ref{chapter, cross ref name, title, file name, manual}</literal> section &#8220;title&#8221; in <citetitle>manual</citetitle>
 <literal>@pxref{chapter, cross ref name, title, file name, manual}</literal> see section &#8220;title&#8221; in <citetitle>manual</citetitle>
@@ -1897,6 +2003,7 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<superscript>-{1 \over 2}\left({x-\mu \over 
 <synopsis><indexterm role="fn"><primary>a</primary></indexterm><phrase role="category"><emphasis role="bold">truc</emphasis>:</phrase> <function>a</function> <replaceable>b</replaceable> <replaceable>c</replaceable> <replaceable>d</replaceable> <replaceable>e</replaceable> <replaceable><emphasis role="bold">f g</emphasis></replaceable> <replaceable>h i</replaceable></synopsis>
 <synopsis><indexterm role="fn"><primary>deffnx</primary></indexterm><phrase role="category"><emphasis role="bold">truc</emphasis>:</phrase> <function>deffnx</function> <replaceable>before</replaceable> <replaceable>end</replaceable> <replaceable>deffn</replaceable></synopsis>
 
+
 <synopsis><indexterm role="fn"><primary>deffn</primary></indexterm><phrase role="category"><emphasis role="bold">empty</emphasis>:</phrase> <function>deffn</function></synopsis>
 
 <synopsis><indexterm role="fn"><primary>deffn</primary></indexterm><phrase role="category"><emphasis role="bold">empty</emphasis>:</phrase> <function>deffn</function> <replaceable>with</replaceable> <replaceable>deffnx</replaceable></synopsis>
@@ -1908,14 +2015,28 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<superscript>-{1 \over 2}\left({x-\mu \over 
 <blockquote><!-- comment -->
 <para>text in def item for second def item
 </para></blockquote>
+<!-- from t/19def.t all_commands -->
+
 <synopsis><indexterm role="vr"><primary>d--efvr_name</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <varname>d--efvr_name</varname></synopsis>
 <blockquote><para>d&#8211;efvr
+</para></blockquote>
+<synopsis><indexterm role="fn"><primary>n--ame</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <function>n--ame</function> <replaceable>a--rguments...</replaceable></synopsis>
+<blockquote><para>d&#8211;effn
+</para></blockquote>
+<synopsis><indexterm role="fn"><primary>n--ame</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <function>n--ame</function></synopsis>
+<blockquote><para>d&#8211;effn no arg
 </para></blockquote>
 <synopsis><indexterm role="fn"><primary>d--eftypefn_name</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <returnvalue>t--ype</returnvalue> <function>d--eftypefn_name</function> <type>a--rguments...</type></synopsis>
 <blockquote><para>d&#8211;eftypefn
 </para></blockquote>
+<synopsis><indexterm role="fn"><primary>d--eftypefn_name</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <returnvalue>t--ype</returnvalue> <function>d--eftypefn_name</function></synopsis>
+<blockquote><para>d&#8211;eftypefn no arg
+</para></blockquote>
 <synopsis><indexterm role="fn"><primary>d--eftypeop_name on c--lass</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <ooclass><classname>c--lass</classname></ooclass> <returnvalue>t--ype</returnvalue> <methodname>d--eftypeop_name</methodname> <type>a--rguments...</type></synopsis>
 <blockquote><para>d&#8211;eftypeop
+</para></blockquote>
+<synopsis><indexterm role="fn"><primary>d--eftypeop_name on c--lass</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <ooclass><classname>c--lass</classname></ooclass> <returnvalue>t--ype</returnvalue> <methodname>d--eftypeop_name</methodname></synopsis>
+<blockquote><para>d&#8211;eftypeop no arg
 </para></blockquote>
 <synopsis><indexterm role="vr"><primary>d--eftypevr_name</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <returnvalue>t--ype</returnvalue> <varname>d--eftypevr_name</varname></synopsis>
 <blockquote><para>d&#8211;eftypevr
@@ -1923,8 +2044,20 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<superscript>-{1 \over 2}\left({x-\mu \over 
 <synopsis><indexterm role="vr"><primary>d--efcv_name</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <ooclass><classname>c--lass</classname></ooclass> <property>d--efcv_name</property></synopsis>
 <blockquote><para>d&#8211;efcv
 </para></blockquote>
+<synopsis><indexterm role="vr"><primary>d--efcv_name</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <ooclass><classname>c--lass</classname></ooclass> <property>d--efcv_name</property> <replaceable>a--rguments...</replaceable></synopsis>
+<blockquote><para>d&#8211;efcv with arguments
+</para></blockquote>
+<synopsis><indexterm role="vr"><primary>d--eftypecv_name of c--lass</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <ooclass><classname>c--lass</classname></ooclass> <returnvalue>t--ype</returnvalue> <property>d--eftypecv_name</property></synopsis>
+<blockquote><para>d&#8211;eftypecv
+</para></blockquote>
+<synopsis><indexterm role="vr"><primary>d--eftypecv_name of c--lass</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <ooclass><classname>c--lass</classname></ooclass> <returnvalue>t--ype</returnvalue> <property>d--eftypecv_name</property> <replaceable>a--rguments...</replaceable></synopsis>
+<blockquote><para>d&#8211;eftypecv with arguments
+</para></blockquote>
 <synopsis><indexterm role="fn"><primary>d--efop_name on c--lass</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <ooclass><classname>c--lass</classname></ooclass> <methodname>d--efop_name</methodname> <replaceable>a--rguments...</replaceable></synopsis>
 <blockquote><para>d&#8211;efop
+</para></blockquote>
+<synopsis><indexterm role="fn"><primary>d--efop_name on c--lass</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <ooclass><classname>c--lass</classname></ooclass> <methodname>d--efop_name</methodname></synopsis>
+<blockquote><para>d&#8211;efop no arg
 </para></blockquote>
 <synopsis><indexterm role="tp"><primary>d--eftp_name</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <structname>d--eftp_name</structname> <type>a--ttributes...</type></synopsis>
 <blockquote><para>d&#8211;eftp
@@ -1938,8 +2071,11 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<superscript>-{1 \over 2}\left({x-\mu \over 
 <synopsis><indexterm role="fn"><primary>d--efspec_name</primary></indexterm><phrase role="category"><emphasis role="bold">Special Form</emphasis>:</phrase> <function>d--efspec_name</function> <replaceable>a--rguments...</replaceable></synopsis>
 <blockquote><para>d&#8211;efspec
 </para></blockquote>
-<synopsis><indexterm role="vr"><primary>d--efvar_name</primary></indexterm><phrase role="category"><emphasis role="bold">Variable</emphasis>:</phrase> <varname>d--efvar_name</varname> <replaceable>argvar</replaceable> <replaceable>argvar1</replaceable></synopsis>
+<synopsis><indexterm role="vr"><primary>d--efvar_name</primary></indexterm><phrase role="category"><emphasis role="bold">Variable</emphasis>:</phrase> <varname>d--efvar_name</varname></synopsis>
 <blockquote><para>d&#8211;efvar
+</para></blockquote>
+<synopsis><indexterm role="vr"><primary>d--efvar_name</primary></indexterm><phrase role="category"><emphasis role="bold">Variable</emphasis>:</phrase> <varname>d--efvar_name</varname> <replaceable>arg--var</replaceable> <replaceable>arg--var1</replaceable></synopsis>
+<blockquote><para>d&#8211;efvar with args
 </para></blockquote>
 <synopsis><indexterm role="vr"><primary>d--efopt_name</primary></indexterm><phrase role="category"><emphasis role="bold">User Option</emphasis>:</phrase> <varname>d--efopt_name</varname></synopsis>
 <blockquote><para>d&#8211;efopt
@@ -1962,6 +2098,29 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<superscript>-{1 \over 2}\left({x-\mu \over 
 <synopsis><indexterm role="fn"><primary>d--eftypemethod_name on c--lass</primary></indexterm><phrase role="category"><emphasis role="bold">Method</emphasis>:</phrase> <ooclass><classname>c--lass</classname></ooclass> <returnvalue>t--ype</returnvalue> <methodname>d--eftypemethod_name</methodname> <type>a--rguments...</type></synopsis>
 <blockquote><para>d&#8211;eftypemethod
 </para></blockquote>
+
+<synopsis><indexterm role="fn"><primary>name2</primary></indexterm><phrase role="category"><emphasis role="bold">Function</emphasis>:</phrase> <returnvalue>data-type2</returnvalue> <function>name2</function> <type>arguments2...</type></synopsis>
+<blockquote><para>aaa2
+</para></blockquote>
+<synopsis><indexterm role="fn"><primary>d--eftypefn_name2</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory2</emphasis>:</phrase> <returnvalue>t--ype2</returnvalue> <function>d--eftypefn_name2</function></synopsis>
+<blockquote><para>d&#8211;eftypefn no arg2
+</para></blockquote>
+<synopsis><indexterm role="fn"><primary>d--eftypeop_name2 on c--lass2</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory2</emphasis>:</phrase> <ooclass><classname>c--lass2</classname></ooclass> <returnvalue>t--ype2</returnvalue> <methodname>d--eftypeop_name2</methodname> <type>a--rguments2...</type></synopsis>
+<blockquote><para>d&#8211;eftypeop2
+</para></blockquote>
+<synopsis><indexterm role="fn"><primary>d--eftypeop_name2 on c--lass2</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory2</emphasis>:</phrase> <ooclass><classname>c--lass2</classname></ooclass> <returnvalue>t--ype2</returnvalue> <methodname>d--eftypeop_name2</methodname></synopsis>
+<blockquote><para>d&#8211;eftypeop no arg2
+</para></blockquote>
+<synopsis><indexterm role="vr"><primary>d--eftypecv_name2 of c--lass2</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory2</emphasis>:</phrase> <ooclass><classname>c--lass2</classname></ooclass> <returnvalue>t--ype2</returnvalue> <property>d--eftypecv_name2</property></synopsis>
+<blockquote><para>d&#8211;eftypecv2
+</para></blockquote>
+<synopsis><indexterm role="vr"><primary>d--eftypecv_name2 of c--lass2</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory2</emphasis>:</phrase> <ooclass><classname>c--lass2</classname></ooclass> <returnvalue>t--ype2</returnvalue> <property>d--eftypecv_name2</property> <replaceable>a--rguments2...</replaceable></synopsis>
+<blockquote><para>d&#8211;eftypecv with arguments2
+</para></blockquote>
+<synopsis><indexterm role="fn"><primary>arg2</primary></indexterm><phrase role="category"><emphasis role="bold">fun2</emphasis>:</phrase> <function>arg2</function></synopsis>
+<blockquote><para>fff2
+</para></blockquote>
+
 <para><literal>@xref{c---hapter@@, cross r---ef name@@, t---itle@@, file n---ame@@, ma---nual@@}</literal> See section &#8220;t&#8212;itle@&#8221; in <citetitle>ma&#8212;nual@</citetitle>.
 <literal>@ref{chapter, cross ref name, title, file name, manual}</literal> section &#8220;title&#8221; in <citetitle>manual</citetitle>
 <literal>@pxref{chapter, cross ref name, title, file name, manual}</literal> see section &#8220;title&#8221; in <citetitle>manual</citetitle>
@@ -2656,6 +2815,7 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<superscript>-{1 \over 2}\left({x-\mu \over 
 <synopsis><indexterm role="fn"><primary>a</primary></indexterm><phrase role="category"><emphasis role="bold">truc</emphasis>:</phrase> <function>a</function> <replaceable>b</replaceable> <replaceable>c</replaceable> <replaceable>d</replaceable> <replaceable>e</replaceable> <replaceable><emphasis role="bold">f g</emphasis></replaceable> <replaceable>h i</replaceable></synopsis>
 <synopsis><indexterm role="fn"><primary>deffnx</primary></indexterm><phrase role="category"><emphasis role="bold">truc</emphasis>:</phrase> <function>deffnx</function> <replaceable>before</replaceable> <replaceable>end</replaceable> <replaceable>deffn</replaceable></synopsis>
 
+
 <synopsis><indexterm role="fn"><primary>deffn</primary></indexterm><phrase role="category"><emphasis role="bold">empty</emphasis>:</phrase> <function>deffn</function></synopsis>
 
 <synopsis><indexterm role="fn"><primary>deffn</primary></indexterm><phrase role="category"><emphasis role="bold">empty</emphasis>:</phrase> <function>deffn</function> <replaceable>with</replaceable> <replaceable>deffnx</replaceable></synopsis>
@@ -2667,14 +2827,28 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<superscript>-{1 \over 2}\left({x-\mu \over 
 <blockquote><!-- comment -->
 <para>text in def item for second def item
 </para></blockquote>
+<!-- from t/19def.t all_commands -->
+
 <synopsis><indexterm role="vr"><primary>d--efvr_name</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <varname>d--efvr_name</varname></synopsis>
 <blockquote><para>d&#8211;efvr
+</para></blockquote>
+<synopsis><indexterm role="fn"><primary>n--ame</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <function>n--ame</function> <replaceable>a--rguments...</replaceable></synopsis>
+<blockquote><para>d&#8211;effn
+</para></blockquote>
+<synopsis><indexterm role="fn"><primary>n--ame</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <function>n--ame</function></synopsis>
+<blockquote><para>d&#8211;effn no arg
 </para></blockquote>
 <synopsis><indexterm role="fn"><primary>d--eftypefn_name</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <returnvalue>t--ype</returnvalue> <function>d--eftypefn_name</function> <type>a--rguments...</type></synopsis>
 <blockquote><para>d&#8211;eftypefn
 </para></blockquote>
+<synopsis><indexterm role="fn"><primary>d--eftypefn_name</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <returnvalue>t--ype</returnvalue> <function>d--eftypefn_name</function></synopsis>
+<blockquote><para>d&#8211;eftypefn no arg
+</para></blockquote>
 <synopsis><indexterm role="fn"><primary>d--eftypeop_name on c--lass</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <ooclass><classname>c--lass</classname></ooclass> <returnvalue>t--ype</returnvalue> <methodname>d--eftypeop_name</methodname> <type>a--rguments...</type></synopsis>
 <blockquote><para>d&#8211;eftypeop
+</para></blockquote>
+<synopsis><indexterm role="fn"><primary>d--eftypeop_name on c--lass</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <ooclass><classname>c--lass</classname></ooclass> <returnvalue>t--ype</returnvalue> <methodname>d--eftypeop_name</methodname></synopsis>
+<blockquote><para>d&#8211;eftypeop no arg
 </para></blockquote>
 <synopsis><indexterm role="vr"><primary>d--eftypevr_name</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <returnvalue>t--ype</returnvalue> <varname>d--eftypevr_name</varname></synopsis>
 <blockquote><para>d&#8211;eftypevr
@@ -2682,8 +2856,20 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<superscript>-{1 \over 2}\left({x-\mu \over 
 <synopsis><indexterm role="vr"><primary>d--efcv_name</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <ooclass><classname>c--lass</classname></ooclass> <property>d--efcv_name</property></synopsis>
 <blockquote><para>d&#8211;efcv
 </para></blockquote>
+<synopsis><indexterm role="vr"><primary>d--efcv_name</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <ooclass><classname>c--lass</classname></ooclass> <property>d--efcv_name</property> <replaceable>a--rguments...</replaceable></synopsis>
+<blockquote><para>d&#8211;efcv with arguments
+</para></blockquote>
+<synopsis><indexterm role="vr"><primary>d--eftypecv_name of c--lass</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <ooclass><classname>c--lass</classname></ooclass> <returnvalue>t--ype</returnvalue> <property>d--eftypecv_name</property></synopsis>
+<blockquote><para>d&#8211;eftypecv
+</para></blockquote>
+<synopsis><indexterm role="vr"><primary>d--eftypecv_name of c--lass</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <ooclass><classname>c--lass</classname></ooclass> <returnvalue>t--ype</returnvalue> <property>d--eftypecv_name</property> <replaceable>a--rguments...</replaceable></synopsis>
+<blockquote><para>d&#8211;eftypecv with arguments
+</para></blockquote>
 <synopsis><indexterm role="fn"><primary>d--efop_name on c--lass</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <ooclass><classname>c--lass</classname></ooclass> <methodname>d--efop_name</methodname> <replaceable>a--rguments...</replaceable></synopsis>
 <blockquote><para>d&#8211;efop
+</para></blockquote>
+<synopsis><indexterm role="fn"><primary>d--efop_name on c--lass</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <ooclass><classname>c--lass</classname></ooclass> <methodname>d--efop_name</methodname></synopsis>
+<blockquote><para>d&#8211;efop no arg
 </para></blockquote>
 <synopsis><indexterm role="tp"><primary>d--eftp_name</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <structname>d--eftp_name</structname> <type>a--ttributes...</type></synopsis>
 <blockquote><para>d&#8211;eftp
@@ -2697,8 +2883,11 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<superscript>-{1 \over 2}\left({x-\mu \over 
 <synopsis><indexterm role="fn"><primary>d--efspec_name</primary></indexterm><phrase role="category"><emphasis role="bold">Special Form</emphasis>:</phrase> <function>d--efspec_name</function> <replaceable>a--rguments...</replaceable></synopsis>
 <blockquote><para>d&#8211;efspec
 </para></blockquote>
-<synopsis><indexterm role="vr"><primary>d--efvar_name</primary></indexterm><phrase role="category"><emphasis role="bold">Variable</emphasis>:</phrase> <varname>d--efvar_name</varname> <replaceable>argvar</replaceable> <replaceable>argvar1</replaceable></synopsis>
+<synopsis><indexterm role="vr"><primary>d--efvar_name</primary></indexterm><phrase role="category"><emphasis role="bold">Variable</emphasis>:</phrase> <varname>d--efvar_name</varname></synopsis>
 <blockquote><para>d&#8211;efvar
+</para></blockquote>
+<synopsis><indexterm role="vr"><primary>d--efvar_name</primary></indexterm><phrase role="category"><emphasis role="bold">Variable</emphasis>:</phrase> <varname>d--efvar_name</varname> <replaceable>arg--var</replaceable> <replaceable>arg--var1</replaceable></synopsis>
+<blockquote><para>d&#8211;efvar with args
 </para></blockquote>
 <synopsis><indexterm role="vr"><primary>d--efopt_name</primary></indexterm><phrase role="category"><emphasis role="bold">User Option</emphasis>:</phrase> <varname>d--efopt_name</varname></synopsis>
 <blockquote><para>d&#8211;efopt
@@ -2721,6 +2910,29 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<superscript>-{1 \over 2}\left({x-\mu \over 
 <synopsis><indexterm role="fn"><primary>d--eftypemethod_name on c--lass</primary></indexterm><phrase role="category"><emphasis role="bold">Method</emphasis>:</phrase> <ooclass><classname>c--lass</classname></ooclass> <returnvalue>t--ype</returnvalue> <methodname>d--eftypemethod_name</methodname> <type>a--rguments...</type></synopsis>
 <blockquote><para>d&#8211;eftypemethod
 </para></blockquote>
+
+<synopsis><indexterm role="fn"><primary>name2</primary></indexterm><phrase role="category"><emphasis role="bold">Function</emphasis>:</phrase> <returnvalue>data-type2</returnvalue> <function>name2</function> <type>arguments2...</type></synopsis>
+<blockquote><para>aaa2
+</para></blockquote>
+<synopsis><indexterm role="fn"><primary>d--eftypefn_name2</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory2</emphasis>:</phrase> <returnvalue>t--ype2</returnvalue> <function>d--eftypefn_name2</function></synopsis>
+<blockquote><para>d&#8211;eftypefn no arg2
+</para></blockquote>
+<synopsis><indexterm role="fn"><primary>d--eftypeop_name2 on c--lass2</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory2</emphasis>:</phrase> <ooclass><classname>c--lass2</classname></ooclass> <returnvalue>t--ype2</returnvalue> <methodname>d--eftypeop_name2</methodname> <type>a--rguments2...</type></synopsis>
+<blockquote><para>d&#8211;eftypeop2
+</para></blockquote>
+<synopsis><indexterm role="fn"><primary>d--eftypeop_name2 on c--lass2</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory2</emphasis>:</phrase> <ooclass><classname>c--lass2</classname></ooclass> <returnvalue>t--ype2</returnvalue> <methodname>d--eftypeop_name2</methodname></synopsis>
+<blockquote><para>d&#8211;eftypeop no arg2
+</para></blockquote>
+<synopsis><indexterm role="vr"><primary>d--eftypecv_name2 of c--lass2</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory2</emphasis>:</phrase> <ooclass><classname>c--lass2</classname></ooclass> <returnvalue>t--ype2</returnvalue> <property>d--eftypecv_name2</property></synopsis>
+<blockquote><para>d&#8211;eftypecv2
+</para></blockquote>
+<synopsis><indexterm role="vr"><primary>d--eftypecv_name2 of c--lass2</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory2</emphasis>:</phrase> <ooclass><classname>c--lass2</classname></ooclass> <returnvalue>t--ype2</returnvalue> <property>d--eftypecv_name2</property> <replaceable>a--rguments2...</replaceable></synopsis>
+<blockquote><para>d&#8211;eftypecv with arguments2
+</para></blockquote>
+<synopsis><indexterm role="fn"><primary>arg2</primary></indexterm><phrase role="category"><emphasis role="bold">fun2</emphasis>:</phrase> <function>arg2</function></synopsis>
+<blockquote><para>fff2
+</para></blockquote>
+
 <para><literal>@xref{c---hapter@@, cross r---ef name@@, t---itle@@, file n---ame@@, ma---nual@@}</literal> See section &#8220;t&#8212;itle@&#8221; in <citetitle>ma&#8212;nual@</citetitle>.
 <literal>@ref{chapter, cross ref name, title, file name, manual}</literal> section &#8220;title&#8221; in <citetitle>manual</citetitle>
 <literal>@pxref{chapter, cross ref name, title, file name, manual}</literal> see section &#8220;title&#8221; in <citetitle>manual</citetitle>
@@ -3396,6 +3608,7 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<superscript>-{1 \over 2}\left({x-\mu \over 
 <synopsis><indexterm role="fn"><primary>a</primary></indexterm><phrase role="category"><emphasis role="bold">truc</emphasis>:</phrase> <function>a</function> <replaceable>b</replaceable> <replaceable>c</replaceable> <replaceable>d</replaceable> <replaceable>e</replaceable> <replaceable><emphasis role="bold">f g</emphasis></replaceable> <replaceable>h i</replaceable></synopsis>
 <synopsis><indexterm role="fn"><primary>deffnx</primary></indexterm><phrase role="category"><emphasis role="bold">truc</emphasis>:</phrase> <function>deffnx</function> <replaceable>before</replaceable> <replaceable>end</replaceable> <replaceable>deffn</replaceable></synopsis>
 
+
 <synopsis><indexterm role="fn"><primary>deffn</primary></indexterm><phrase role="category"><emphasis role="bold">empty</emphasis>:</phrase> <function>deffn</function></synopsis>
 
 <synopsis><indexterm role="fn"><primary>deffn</primary></indexterm><phrase role="category"><emphasis role="bold">empty</emphasis>:</phrase> <function>deffn</function> <replaceable>with</replaceable> <replaceable>deffnx</replaceable></synopsis>
@@ -3407,14 +3620,28 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<superscript>-{1 \over 2}\left({x-\mu \over 
 <blockquote><!-- comment -->
 <para>text in def item for second def item
 </para></blockquote>
+<!-- from t/19def.t all_commands -->
+
 <synopsis><indexterm role="vr"><primary>d--efvr_name</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <varname>d--efvr_name</varname></synopsis>
 <blockquote><para>d&#8211;efvr
+</para></blockquote>
+<synopsis><indexterm role="fn"><primary>n--ame</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <function>n--ame</function> <replaceable>a--rguments...</replaceable></synopsis>
+<blockquote><para>d&#8211;effn
+</para></blockquote>
+<synopsis><indexterm role="fn"><primary>n--ame</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <function>n--ame</function></synopsis>
+<blockquote><para>d&#8211;effn no arg
 </para></blockquote>
 <synopsis><indexterm role="fn"><primary>d--eftypefn_name</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <returnvalue>t--ype</returnvalue> <function>d--eftypefn_name</function> <type>a--rguments...</type></synopsis>
 <blockquote><para>d&#8211;eftypefn
 </para></blockquote>
+<synopsis><indexterm role="fn"><primary>d--eftypefn_name</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <returnvalue>t--ype</returnvalue> <function>d--eftypefn_name</function></synopsis>
+<blockquote><para>d&#8211;eftypefn no arg
+</para></blockquote>
 <synopsis><indexterm role="fn"><primary>d--eftypeop_name on c--lass</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <ooclass><classname>c--lass</classname></ooclass> <returnvalue>t--ype</returnvalue> <methodname>d--eftypeop_name</methodname> <type>a--rguments...</type></synopsis>
 <blockquote><para>d&#8211;eftypeop
+</para></blockquote>
+<synopsis><indexterm role="fn"><primary>d--eftypeop_name on c--lass</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <ooclass><classname>c--lass</classname></ooclass> <returnvalue>t--ype</returnvalue> <methodname>d--eftypeop_name</methodname></synopsis>
+<blockquote><para>d&#8211;eftypeop no arg
 </para></blockquote>
 <synopsis><indexterm role="vr"><primary>d--eftypevr_name</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <returnvalue>t--ype</returnvalue> <varname>d--eftypevr_name</varname></synopsis>
 <blockquote><para>d&#8211;eftypevr
@@ -3422,8 +3649,20 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<superscript>-{1 \over 2}\left({x-\mu \over 
 <synopsis><indexterm role="vr"><primary>d--efcv_name</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <ooclass><classname>c--lass</classname></ooclass> <property>d--efcv_name</property></synopsis>
 <blockquote><para>d&#8211;efcv
 </para></blockquote>
+<synopsis><indexterm role="vr"><primary>d--efcv_name</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <ooclass><classname>c--lass</classname></ooclass> <property>d--efcv_name</property> <replaceable>a--rguments...</replaceable></synopsis>
+<blockquote><para>d&#8211;efcv with arguments
+</para></blockquote>
+<synopsis><indexterm role="vr"><primary>d--eftypecv_name of c--lass</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <ooclass><classname>c--lass</classname></ooclass> <returnvalue>t--ype</returnvalue> <property>d--eftypecv_name</property></synopsis>
+<blockquote><para>d&#8211;eftypecv
+</para></blockquote>
+<synopsis><indexterm role="vr"><primary>d--eftypecv_name of c--lass</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <ooclass><classname>c--lass</classname></ooclass> <returnvalue>t--ype</returnvalue> <property>d--eftypecv_name</property> <replaceable>a--rguments...</replaceable></synopsis>
+<blockquote><para>d&#8211;eftypecv with arguments
+</para></blockquote>
 <synopsis><indexterm role="fn"><primary>d--efop_name on c--lass</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <ooclass><classname>c--lass</classname></ooclass> <methodname>d--efop_name</methodname> <replaceable>a--rguments...</replaceable></synopsis>
 <blockquote><para>d&#8211;efop
+</para></blockquote>
+<synopsis><indexterm role="fn"><primary>d--efop_name on c--lass</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <ooclass><classname>c--lass</classname></ooclass> <methodname>d--efop_name</methodname></synopsis>
+<blockquote><para>d&#8211;efop no arg
 </para></blockquote>
 <synopsis><indexterm role="tp"><primary>d--eftp_name</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <structname>d--eftp_name</structname> <type>a--ttributes...</type></synopsis>
 <blockquote><para>d&#8211;eftp
@@ -3437,8 +3676,11 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<superscript>-{1 \over 2}\left({x-\mu \over 
 <synopsis><indexterm role="fn"><primary>d--efspec_name</primary></indexterm><phrase role="category"><emphasis role="bold">Special Form</emphasis>:</phrase> <function>d--efspec_name</function> <replaceable>a--rguments...</replaceable></synopsis>
 <blockquote><para>d&#8211;efspec
 </para></blockquote>
-<synopsis><indexterm role="vr"><primary>d--efvar_name</primary></indexterm><phrase role="category"><emphasis role="bold">Variable</emphasis>:</phrase> <varname>d--efvar_name</varname> <replaceable>argvar</replaceable> <replaceable>argvar1</replaceable></synopsis>
+<synopsis><indexterm role="vr"><primary>d--efvar_name</primary></indexterm><phrase role="category"><emphasis role="bold">Variable</emphasis>:</phrase> <varname>d--efvar_name</varname></synopsis>
 <blockquote><para>d&#8211;efvar
+</para></blockquote>
+<synopsis><indexterm role="vr"><primary>d--efvar_name</primary></indexterm><phrase role="category"><emphasis role="bold">Variable</emphasis>:</phrase> <varname>d--efvar_name</varname> <replaceable>arg--var</replaceable> <replaceable>arg--var1</replaceable></synopsis>
+<blockquote><para>d&#8211;efvar with args
 </para></blockquote>
 <synopsis><indexterm role="vr"><primary>d--efopt_name</primary></indexterm><phrase role="category"><emphasis role="bold">User Option</emphasis>:</phrase> <varname>d--efopt_name</varname></synopsis>
 <blockquote><para>d&#8211;efopt
@@ -3461,6 +3703,29 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<superscript>-{1 \over 2}\left({x-\mu \over 
 <synopsis><indexterm role="fn"><primary>d--eftypemethod_name on c--lass</primary></indexterm><phrase role="category"><emphasis role="bold">Method</emphasis>:</phrase> <ooclass><classname>c--lass</classname></ooclass> <returnvalue>t--ype</returnvalue> <methodname>d--eftypemethod_name</methodname> <type>a--rguments...</type></synopsis>
 <blockquote><para>d&#8211;eftypemethod
 </para></blockquote>
+
+<synopsis><indexterm role="fn"><primary>name2</primary></indexterm><phrase role="category"><emphasis role="bold">Function</emphasis>:</phrase> <returnvalue>data-type2</returnvalue> <function>name2</function> <type>arguments2...</type></synopsis>
+<blockquote><para>aaa2
+</para></blockquote>
+<synopsis><indexterm role="fn"><primary>d--eftypefn_name2</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory2</emphasis>:</phrase> <returnvalue>t--ype2</returnvalue> <function>d--eftypefn_name2</function></synopsis>
+<blockquote><para>d&#8211;eftypefn no arg2
+</para></blockquote>
+<synopsis><indexterm role="fn"><primary>d--eftypeop_name2 on c--lass2</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory2</emphasis>:</phrase> <ooclass><classname>c--lass2</classname></ooclass> <returnvalue>t--ype2</returnvalue> <methodname>d--eftypeop_name2</methodname> <type>a--rguments2...</type></synopsis>
+<blockquote><para>d&#8211;eftypeop2
+</para></blockquote>
+<synopsis><indexterm role="fn"><primary>d--eftypeop_name2 on c--lass2</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory2</emphasis>:</phrase> <ooclass><classname>c--lass2</classname></ooclass> <returnvalue>t--ype2</returnvalue> <methodname>d--eftypeop_name2</methodname></synopsis>
+<blockquote><para>d&#8211;eftypeop no arg2
+</para></blockquote>
+<synopsis><indexterm role="vr"><primary>d--eftypecv_name2 of c--lass2</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory2</emphasis>:</phrase> <ooclass><classname>c--lass2</classname></ooclass> <returnvalue>t--ype2</returnvalue> <property>d--eftypecv_name2</property></synopsis>
+<blockquote><para>d&#8211;eftypecv2
+</para></blockquote>
+<synopsis><indexterm role="vr"><primary>d--eftypecv_name2 of c--lass2</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory2</emphasis>:</phrase> <ooclass><classname>c--lass2</classname></ooclass> <returnvalue>t--ype2</returnvalue> <property>d--eftypecv_name2</property> <replaceable>a--rguments2...</replaceable></synopsis>
+<blockquote><para>d&#8211;eftypecv with arguments2
+</para></blockquote>
+<synopsis><indexterm role="fn"><primary>arg2</primary></indexterm><phrase role="category"><emphasis role="bold">fun2</emphasis>:</phrase> <function>arg2</function></synopsis>
+<blockquote><para>fff2
+</para></blockquote>
+
 <para><literal>@xref{c---hapter@@, cross r---ef name@@, t---itle@@, file n---ame@@, ma---nual@@}</literal> See section &#8220;t&#8212;itle@&#8221; in <citetitle>ma&#8212;nual@</citetitle>.
 <literal>@ref{chapter, cross ref name, title, file name, manual}</literal> section &#8220;title&#8221; in <citetitle>manual</citetitle>
 <literal>@pxref{chapter, cross ref name, title, file name, manual}</literal> see section &#8220;title&#8221; in <citetitle>manual</citetitle>
@@ -4129,6 +4394,7 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<superscript>-{1 \over 2}\left({x-\mu \over 
 <synopsis><indexterm role="fn"><primary>a</primary></indexterm><phrase role="category"><emphasis role="bold">truc</emphasis>:</phrase> <function>a</function> <replaceable>b</replaceable> <replaceable>c</replaceable> <replaceable>d</replaceable> <replaceable>e</replaceable> <replaceable><emphasis role="bold">f g</emphasis></replaceable> <replaceable>h i</replaceable></synopsis>
 <synopsis><indexterm role="fn"><primary>deffnx</primary></indexterm><phrase role="category"><emphasis role="bold">truc</emphasis>:</phrase> <function>deffnx</function> <replaceable>before</replaceable> <replaceable>end</replaceable> <replaceable>deffn</replaceable></synopsis>
 <screen>
+
 </screen><synopsis><indexterm role="fn"><primary>deffn</primary></indexterm><phrase role="category"><emphasis role="bold">empty</emphasis>:</phrase> <function>deffn</function></synopsis>
 <screen>
 </screen><synopsis><indexterm role="fn"><primary>deffn</primary></indexterm><phrase role="category"><emphasis role="bold">empty</emphasis>:</phrase> <function>deffn</function> <replaceable>with</replaceable> <replaceable>deffnx</replaceable></synopsis>
@@ -4140,14 +4406,28 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<superscript>-{1 \over 2}\left({x-\mu \over 
 <blockquote><screen><!-- comment -->
 text in def item for second def item
 </screen></blockquote><screen>
+<!-- from t/19def.t all_commands -->
+
 </screen><synopsis><indexterm role="vr"><primary>d--efvr_name</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <varname>d--efvr_name</varname></synopsis>
 <blockquote><screen>d--efvr
+</screen></blockquote><screen>
+</screen><synopsis><indexterm role="fn"><primary>n--ame</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <function>n--ame</function> <replaceable>a--rguments...</replaceable></synopsis>
+<blockquote><screen>d--effn
+</screen></blockquote><screen>
+</screen><synopsis><indexterm role="fn"><primary>n--ame</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <function>n--ame</function></synopsis>
+<blockquote><screen>d--effn no arg
 </screen></blockquote><screen>
 </screen><synopsis><indexterm role="fn"><primary>d--eftypefn_name</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <returnvalue>t--ype</returnvalue> <function>d--eftypefn_name</function> <type>a--rguments...</type></synopsis>
 <blockquote><screen>d--eftypefn
 </screen></blockquote><screen>
+</screen><synopsis><indexterm role="fn"><primary>d--eftypefn_name</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <returnvalue>t--ype</returnvalue> <function>d--eftypefn_name</function></synopsis>
+<blockquote><screen>d--eftypefn no arg
+</screen></blockquote><screen>
 </screen><synopsis><indexterm role="fn"><primary>d--eftypeop_name on c--lass</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <ooclass><classname>c--lass</classname></ooclass> <returnvalue>t--ype</returnvalue> <methodname>d--eftypeop_name</methodname> <type>a--rguments...</type></synopsis>
 <blockquote><screen>d--eftypeop
+</screen></blockquote><screen>
+</screen><synopsis><indexterm role="fn"><primary>d--eftypeop_name on c--lass</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <ooclass><classname>c--lass</classname></ooclass> <returnvalue>t--ype</returnvalue> <methodname>d--eftypeop_name</methodname></synopsis>
+<blockquote><screen>d--eftypeop no arg
 </screen></blockquote><screen>
 </screen><synopsis><indexterm role="vr"><primary>d--eftypevr_name</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <returnvalue>t--ype</returnvalue> <varname>d--eftypevr_name</varname></synopsis>
 <blockquote><screen>d--eftypevr
@@ -4155,8 +4435,20 @@ text in def item for second def item
 </screen><synopsis><indexterm role="vr"><primary>d--efcv_name</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <ooclass><classname>c--lass</classname></ooclass> <property>d--efcv_name</property></synopsis>
 <blockquote><screen>d--efcv
 </screen></blockquote><screen>
+</screen><synopsis><indexterm role="vr"><primary>d--efcv_name</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <ooclass><classname>c--lass</classname></ooclass> <property>d--efcv_name</property> <replaceable>a--rguments...</replaceable></synopsis>
+<blockquote><screen>d--efcv with arguments
+</screen></blockquote><screen>
+</screen><synopsis><indexterm role="vr"><primary>d--eftypecv_name of c--lass</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <ooclass><classname>c--lass</classname></ooclass> <returnvalue>t--ype</returnvalue> <property>d--eftypecv_name</property></synopsis>
+<blockquote><screen>d--eftypecv
+</screen></blockquote><screen>
+</screen><synopsis><indexterm role="vr"><primary>d--eftypecv_name of c--lass</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <ooclass><classname>c--lass</classname></ooclass> <returnvalue>t--ype</returnvalue> <property>d--eftypecv_name</property> <replaceable>a--rguments...</replaceable></synopsis>
+<blockquote><screen>d--eftypecv with arguments
+</screen></blockquote><screen>
 </screen><synopsis><indexterm role="fn"><primary>d--efop_name on c--lass</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <ooclass><classname>c--lass</classname></ooclass> <methodname>d--efop_name</methodname> <replaceable>a--rguments...</replaceable></synopsis>
 <blockquote><screen>d--efop
+</screen></blockquote><screen>
+</screen><synopsis><indexterm role="fn"><primary>d--efop_name on c--lass</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <ooclass><classname>c--lass</classname></ooclass> <methodname>d--efop_name</methodname></synopsis>
+<blockquote><screen>d--efop no arg
 </screen></blockquote><screen>
 </screen><synopsis><indexterm role="tp"><primary>d--eftp_name</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory</emphasis>:</phrase> <structname>d--eftp_name</structname> <type>a--ttributes...</type></synopsis>
 <blockquote><screen>d--eftp
@@ -4170,8 +4462,11 @@ text in def item for second def item
 </screen><synopsis><indexterm role="fn"><primary>d--efspec_name</primary></indexterm><phrase role="category"><emphasis role="bold">Special Form</emphasis>:</phrase> <function>d--efspec_name</function> <replaceable>a--rguments...</replaceable></synopsis>
 <blockquote><screen>d--efspec
 </screen></blockquote><screen>
-</screen><synopsis><indexterm role="vr"><primary>d--efvar_name</primary></indexterm><phrase role="category"><emphasis role="bold">Variable</emphasis>:</phrase> <varname>d--efvar_name</varname> <replaceable>argvar</replaceable> <replaceable>argvar1</replaceable></synopsis>
+</screen><synopsis><indexterm role="vr"><primary>d--efvar_name</primary></indexterm><phrase role="category"><emphasis role="bold">Variable</emphasis>:</phrase> <varname>d--efvar_name</varname></synopsis>
 <blockquote><screen>d--efvar
+</screen></blockquote><screen>
+</screen><synopsis><indexterm role="vr"><primary>d--efvar_name</primary></indexterm><phrase role="category"><emphasis role="bold">Variable</emphasis>:</phrase> <varname>d--efvar_name</varname> <replaceable>arg--var</replaceable> <replaceable>arg--var1</replaceable></synopsis>
+<blockquote><screen>d--efvar with args
 </screen></blockquote><screen>
 </screen><synopsis><indexterm role="vr"><primary>d--efopt_name</primary></indexterm><phrase role="category"><emphasis role="bold">User Option</emphasis>:</phrase> <varname>d--efopt_name</varname></synopsis>
 <blockquote><screen>d--efopt
@@ -4194,6 +4489,29 @@ text in def item for second def item
 </screen><synopsis><indexterm role="fn"><primary>d--eftypemethod_name on c--lass</primary></indexterm><phrase role="category"><emphasis role="bold">Method</emphasis>:</phrase> <ooclass><classname>c--lass</classname></ooclass> <returnvalue>t--ype</returnvalue> <methodname>d--eftypemethod_name</methodname> <type>a--rguments...</type></synopsis>
 <blockquote><screen>d--eftypemethod
 </screen></blockquote><screen>
+
+</screen><synopsis><indexterm role="fn"><primary>name2</primary></indexterm><phrase role="category"><emphasis role="bold">Function</emphasis>:</phrase> <returnvalue>data-type2</returnvalue> <function>name2</function> <type>arguments2...</type></synopsis>
+<blockquote><screen>aaa2
+</screen></blockquote><screen>
+</screen><synopsis><indexterm role="fn"><primary>d--eftypefn_name2</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory2</emphasis>:</phrase> <returnvalue>t--ype2</returnvalue> <function>d--eftypefn_name2</function></synopsis>
+<blockquote><screen>d--eftypefn no arg2
+</screen></blockquote><screen>
+</screen><synopsis><indexterm role="fn"><primary>d--eftypeop_name2 on c--lass2</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory2</emphasis>:</phrase> <ooclass><classname>c--lass2</classname></ooclass> <returnvalue>t--ype2</returnvalue> <methodname>d--eftypeop_name2</methodname> <type>a--rguments2...</type></synopsis>
+<blockquote><screen>d--eftypeop2
+</screen></blockquote><screen>
+</screen><synopsis><indexterm role="fn"><primary>d--eftypeop_name2 on c--lass2</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory2</emphasis>:</phrase> <ooclass><classname>c--lass2</classname></ooclass> <returnvalue>t--ype2</returnvalue> <methodname>d--eftypeop_name2</methodname></synopsis>
+<blockquote><screen>d--eftypeop no arg2
+</screen></blockquote><screen>
+</screen><synopsis><indexterm role="vr"><primary>d--eftypecv_name2 of c--lass2</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory2</emphasis>:</phrase> <ooclass><classname>c--lass2</classname></ooclass> <returnvalue>t--ype2</returnvalue> <property>d--eftypecv_name2</property></synopsis>
+<blockquote><screen>d--eftypecv2
+</screen></blockquote><screen>
+</screen><synopsis><indexterm role="vr"><primary>d--eftypecv_name2 of c--lass2</primary></indexterm><phrase role="category"><emphasis role="bold">c--ategory2</emphasis>:</phrase> <ooclass><classname>c--lass2</classname></ooclass> <returnvalue>t--ype2</returnvalue> <property>d--eftypecv_name2</property> <replaceable>a--rguments2...</replaceable></synopsis>
+<blockquote><screen>d--eftypecv with arguments2
+</screen></blockquote><screen>
+</screen><synopsis><indexterm role="fn"><primary>arg2</primary></indexterm><phrase role="category"><emphasis role="bold">fun2</emphasis>:</phrase> <function>arg2</function></synopsis>
+<blockquote><screen>fff2
+</screen></blockquote><screen>
+
 <literal>@xref{c---hapter@@, cross r---ef name@@, t---itle@@, file n---ame@@, ma---nual@@}</literal> See section ``t---itle@'' in <citetitle>ma---nual@</citetitle>.
 <literal>@ref{chapter, cross ref name, title, file name, manual}</literal> section ``title'' in <citetitle>manual</citetitle>
 <literal>@pxref{chapter, cross ref name, title, file name, manual}</literal> see section ``title'' in <citetitle>manual</citetitle>

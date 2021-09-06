@@ -456,7 +456,7 @@ sub output($$)
     }
   }
 
-  $self->_set_global_multiple_commands(-1);
+  $self->set_global_document_commands(-1);
 
   my $result = '';
   $result .= $self->_output_text($self->format_header(), $fh);

@@ -11,12 +11,28 @@ my @test_cases = (
 d--efvr
 @end defvr
 
+@deffn c--ategory n--ame a--rguments...
+d--effn
+@end deffn
+
+@deffn c--ategory n--ame
+d--effn no arg
+@end deffn
+
 @deftypefn c--ategory t--ype d--eftypefn_name a--rguments...
 d--eftypefn
 @end deftypefn
 
+@deftypefn c--ategory t--ype d--eftypefn_name
+d--eftypefn no arg
+@end deftypefn
+
 @deftypeop c--ategory c--lass t--ype d--eftypeop_name a--rguments...
 d--eftypeop
+@end deftypeop
+
+@deftypeop c--ategory c--lass t--ype d--eftypeop_name
+d--eftypeop no arg
 @end deftypeop
 
 @deftypevr c--ategory t--ype d--eftypevr_name
@@ -27,8 +43,24 @@ d--eftypevr
 d--efcv
 @end defcv
 
+@defcv c--ategory c--lass d--efcv_name a--rguments...
+d--efcv with arguments
+@end defcv
+
+@deftypecv c--ategory c--lass t--ype d--eftypecv_name
+d--eftypecv
+@end deftypecv
+
+@deftypecv c--ategory c--lass t--ype d--eftypecv_name a--rguments...
+d--eftypecv with arguments
+@end deftypecv
+
 @defop c--ategory c--lass d--efop_name a--rguments...
 d--efop
+@end defop
+
+@defop c--ategory c--lass d--efop_name
+d--efop no arg
 @end defop
 
 @deftp c--ategory d--eftp_name a--ttributes...
@@ -49,6 +81,10 @@ d--efspec
 
 @defvar d--efvar_name
 d--efvar
+@end defvar
+
+@defvar d--efvar_name arg--var arg--var1
+d--efvar with args
 @end defvar
 
 @defopt d--efopt_name

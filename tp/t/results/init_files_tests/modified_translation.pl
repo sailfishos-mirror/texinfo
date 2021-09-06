@@ -251,10 +251,10 @@ $result_converted{'html'}->{'modified_translation'} = '<!DOCTYPE html PUBLIC "-/
 <!-- Created by texinfo, http://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Documento Sem Nome</title>
+<title>Document sans titre</title>
 
-<meta name="description" content="Documento Sem Nome">
-<meta name="keywords" content="Documento Sem Nome">
+<meta name="description" content="Document sans titre">
+<meta name="keywords" content="Document sans titre">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -282,8 +282,8 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="pt">
-<p>Formulário especial.
+<body lang="fr">
+<p>Special Form.
 </p>
 
 <p>fr Forme Sp@\'eciale.

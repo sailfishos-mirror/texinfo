@@ -610,13 +610,39 @@ T
 @end example
 '],
 ['test_deftypefnnewline',
-'
+'@setfilename test_deftypefnnewline.info
+
 @deftypefnnewline on
 
 @node Top
+@top top
+
+@node chapter
+@chapter chap
+
 @deftypefun data-type name arguments...
 aaa
 @end deftypefun
+
+@deftypefn c--ategory t--ype d--eftypefn_name
+d--eftypefn no arg
+@end deftypefn
+
+@deftypeop c--ategory c--lass t--ype d--eftypeop_name a--rguments...
+d--eftypeop
+@end deftypeop
+
+@deftypeop c--ategory c--lass t--ype d--eftypeop_name
+d--eftypeop no arg
+@end deftypeop
+
+@deftypecv c--ategory c--lass t--ype d--eftypecv_name
+d--eftypecv
+@end deftypecv
+
+@deftypecv c--ategory c--lass t--ype d--eftypecv_name a--rguments...
+d--eftypecv with arguments
+@end deftypecv
 
 @deffn fun arg
 fff
@@ -627,6 +653,26 @@ fff
 @deftypefun data-type2 name2 arguments2...
 aaa2
 @end deftypefun
+
+@deftypefn c--ategory2 t--ype2 d--eftypefn_name2
+d--eftypefn no arg2
+@end deftypefn
+
+@deftypeop c--ategory2 c--lass2 t--ype2 d--eftypeop_name2 a--rguments2...
+d--eftypeop2
+@end deftypeop
+
+@deftypeop c--ategory2 c--lass2 t--ype2 d--eftypeop_name2
+d--eftypeop no arg2
+@end deftypeop
+
+@deftypecv c--ategory2 c--lass2 t--ype2 d--eftypecv_name2
+d--eftypecv2
+@end deftypecv
+
+@deftypecv c--ategory2 c--lass2 t--ype2 d--eftypecv_name2 a--rguments2...
+d--eftypecv with arguments2
+@end deftypecv
 
 @deffn fun2 arg2
 fff2

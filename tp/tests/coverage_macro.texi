@@ -528,6 +528,8 @@ def--fn
 @deffnx {truc} deffnx before end deffn
 @end deffn
 
+@deftypefnnewline off
+
 @deffn empty deffn
 @end deffn
 
@@ -542,16 +544,34 @@ def--fn
 text in def item for second def item
 @end deffn
 
+@c from t/19def.t all_commands
+
 @defvr c--ategory d--efvr_name
 d--efvr
 @end defvr
+
+@deffn c--ategory n--ame a--rguments...
+d--effn
+@end deffn
+
+@deffn c--ategory n--ame
+d--effn no arg
+@end deffn
 
 @deftypefn c--ategory t--ype d--eftypefn_name a--rguments...
 d--eftypefn
 @end deftypefn
 
+@deftypefn c--ategory t--ype d--eftypefn_name
+d--eftypefn no arg
+@end deftypefn
+
 @deftypeop c--ategory c--lass t--ype d--eftypeop_name a--rguments...
 d--eftypeop
+@end deftypeop
+
+@deftypeop c--ategory c--lass t--ype d--eftypeop_name
+d--eftypeop no arg
 @end deftypeop
 
 @deftypevr c--ategory t--ype d--eftypevr_name
@@ -562,8 +582,24 @@ d--eftypevr
 d--efcv
 @end defcv
 
+@defcv c--ategory c--lass d--efcv_name a--rguments...
+d--efcv with arguments
+@end defcv
+
+@deftypecv c--ategory c--lass t--ype d--eftypecv_name
+d--eftypecv
+@end deftypecv
+
+@deftypecv c--ategory c--lass t--ype d--eftypecv_name a--rguments...
+d--eftypecv with arguments
+@end deftypecv
+
 @defop c--ategory c--lass d--efop_name a--rguments...
 d--efop
+@end defop
+
+@defop c--ategory c--lass d--efop_name
+d--efop no arg
 @end defop
 
 @deftp c--ategory d--eftp_name a--ttributes...
@@ -582,8 +618,12 @@ d--efmac
 d--efspec
 @end defspec
 
-@defvar d--efvar_name argvar argvar1
+@defvar d--efvar_name
 d--efvar
+@end defvar
+
+@defvar d--efvar_name arg--var arg--var1
+d--efvar with args
 @end defvar
 
 @defopt d--efopt_name
@@ -613,6 +653,38 @@ d--efmethod
 @deftypemethod c--lass t--ype d--eftypemethod_name a--rguments...
 d--eftypemethod
 @end deftypemethod
+
+@deftypefnnewline on
+
+@deftypefun data-type2 name2 arguments2...
+aaa2
+@end deftypefun
+
+@deftypefn c--ategory2 t--ype2 d--eftypefn_name2
+d--eftypefn no arg2
+@end deftypefn
+
+@deftypeop c--ategory2 c--lass2 t--ype2 d--eftypeop_name2 a--rguments2...
+d--eftypeop2
+@end deftypeop
+
+@deftypeop c--ategory2 c--lass2 t--ype2 d--eftypeop_name2
+d--eftypeop no arg2
+@end deftypeop
+
+@deftypecv c--ategory2 c--lass2 t--ype2 d--eftypecv_name2
+d--eftypecv2
+@end deftypecv
+
+@deftypecv c--ategory2 c--lass2 t--ype2 d--eftypecv_name2 a--rguments2...
+d--eftypecv with arguments2
+@end deftypecv
+
+@deffn fun2 arg2
+fff2
+@end deffn
+
+@deftypefnnewline off
 
 @code{@@xref@{c---hapter@@@@, cross r---ef name@@@@, t---itle@@@@, file n---ame@@@@, ma---nual@@@@@}} @xref{c---hapter@@, cross r---ef name@@, t---itle@@, file n---ame@@, ma---nual@@}.
 @code{@@ref@{chapter, cross ref name, title, file name, manual@}} @ref{chapter, cross ref name, title, file name, manual}

@@ -407,6 +407,7 @@ truc:
 truc: a b c d e f g h i
 truc: deffnx before end deffn
 
+
 empty: deffn
 
 empty: deffn with deffnx
@@ -416,14 +417,27 @@ fset: i a g
 cmde: truc 
 text in def item for second def item
 
+
 c-ategory: d-efvr_name
 d-efvr
+
+c-ategory: n-ame a-rguments...
+d-effn
+
+c-ategory: n-ame
+d-effn no arg
 
 c-ategory: t-ype d-eftypefn_name a-rguments...
 d-eftypefn
 
+c-ategory: t-ype d-eftypefn_name
+d-eftypefn no arg
+
 c-ategory on c-lass: t-ype d-eftypeop_name a-rguments...
 d-eftypeop
+
+c-ategory on c-lass: t-ype d-eftypeop_name
+d-eftypeop no arg
 
 c-ategory: t-ype d-eftypevr_name
 d-eftypevr
@@ -431,8 +445,20 @@ d-eftypevr
 c-ategory of c-lass: d-efcv_name
 d-efcv
 
+c-ategory of c-lass: d-efcv_name a-rguments...
+d-efcv with arguments
+
+c-ategory of c-lass: t-ype d-eftypecv_name
+d-eftypecv
+
+c-ategory of c-lass: t-ype d-eftypecv_name a-rguments...
+d-eftypecv with arguments
+
 c-ategory on c-lass: d-efop_name a-rguments...
 d-efop
+
+c-ategory on c-lass: d-efop_name
+d-efop no arg
 
 c-ategory: d-eftp_name a-ttributes...
 d-eftp
@@ -446,8 +472,11 @@ d-efmac
 Special Form: d-efspec_name a-rguments...
 d-efspec
 
-Variable: d-efvar_name argvar argvar1
+Variable: d-efvar_name
 d-efvar
+
+Variable: d-efvar_name arg-var arg-var1
+d-efvar with args
 
 User Option: d-efopt_name
 d-efopt
@@ -469,6 +498,29 @@ d-efmethod
 
 Method on c-lass: t-ype d-eftypemethod_name a-rguments...
 d-eftypemethod
+
+
+Function: data-type2 name2 arguments2...
+aaa2
+
+c-ategory2: t-ype2 d-eftypefn_name2
+d-eftypefn no arg2
+
+c-ategory2 on c-lass2: t-ype2 d-eftypeop_name2 a-rguments2...
+d-eftypeop2
+
+c-ategory2 on c-lass2: t-ype2 d-eftypeop_name2
+d-eftypeop no arg2
+
+c-ategory2 of c-lass2: t-ype2 d-eftypecv_name2
+d-eftypecv2
+
+c-ategory2 of c-lass2: t-ype2 d-eftypecv_name2 a-rguments2...
+d-eftypecv with arguments2
+
+fun2: arg2
+fff2
+
 
 @xref{c-hapter@@, cross r-ef name@@, t-itle@@, file n-ame@@, ma-nual@@} c-hapter@.
 @ref{chapter, cross ref name, title, file name, manual} chapter
@@ -862,9 +914,13 @@ ul.no-bullet {list-style: none}
 <tr><th id="chapter-2_cp_letter-D">D</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="chapter.html#index-d_002d_002d_002ddd">d&mdash;dd, e&mdash;ee, f&mdash;ff</a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="chapter.html#index-copying-d_002d_002defcv_005fname"><code>d--efcv_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="chapter.html#index-copying-d_002d_002defcv_005fname-1"><code>d--efcv_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="index.htm#index-titlepage-d_002d_002defcv_005fname"><code>d--efcv_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="index.htm">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="index.htm#index-titlepage-d_002d_002defcv_005fname-1"><code>d--efcv_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="index.htm">Top section</a></td></tr>
 <tr><td></td><td valign="top"><a href="chapter.html#index-d_002d_002defcv_005fname"><code>d--efcv_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="chapter.html#index-d_002d_002defcv_005fname-1"><code>d--efcv_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="chapter.html#index-d_002d_002defcv_005fname-2"><code>d--efcv_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="chapter.html#index-d_002d_002defcv_005fname-3"><code>d--efcv_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="chapter.html#index-copying-d_002d_002defivar_005fname-of-c_002d_002dlass"><code>d--efivar_name of c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="index.htm#index-titlepage-d_002d_002defivar_005fname-of-c_002d_002dlass"><code>d--efivar_name of c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="index.htm">Top section</a></td></tr>
 <tr><td></td><td valign="top"><a href="chapter.html#index-d_002d_002defivar_005fname-of-c_002d_002dlass"><code>d--efivar_name of c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
@@ -873,6 +929,22 @@ ul.no-bullet {list-style: none}
 <tr><td></td><td valign="top"><a href="index.htm#index-titlepage-d_002d_002defopt_005fname"><code>d--efopt_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="index.htm">Top section</a></td></tr>
 <tr><td></td><td valign="top"><a href="chapter.html#index-d_002d_002defopt_005fname"><code>d--efopt_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="chapter.html#index-d_002d_002defopt_005fname-1"><code>d--efopt_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="chapter.html#index-copying-d_002d_002deftypecv_005fname-of-c_002d_002dlass"><code>d--eftypecv_name of c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="chapter.html#index-copying-d_002d_002deftypecv_005fname-of-c_002d_002dlass-1"><code>d--eftypecv_name of c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="index.htm#index-titlepage-d_002d_002deftypecv_005fname-of-c_002d_002dlass"><code>d--eftypecv_name of c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="index.htm">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="index.htm#index-titlepage-d_002d_002deftypecv_005fname-of-c_002d_002dlass-1"><code>d--eftypecv_name of c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="index.htm">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="chapter.html#index-d_002d_002deftypecv_005fname-of-c_002d_002dlass"><code>d--eftypecv_name of c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="chapter.html#index-d_002d_002deftypecv_005fname-of-c_002d_002dlass-1"><code>d--eftypecv_name of c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="chapter.html#index-d_002d_002deftypecv_005fname-of-c_002d_002dlass-2"><code>d--eftypecv_name of c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="chapter.html#index-d_002d_002deftypecv_005fname-of-c_002d_002dlass-3"><code>d--eftypecv_name of c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="chapter.html#index-copying-d_002d_002deftypecv_005fname2-of-c_002d_002dlass2"><code>d--eftypecv_name2 of c--lass2</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="chapter.html#index-copying-d_002d_002deftypecv_005fname2-of-c_002d_002dlass2-1"><code>d--eftypecv_name2 of c--lass2</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="index.htm#index-titlepage-d_002d_002deftypecv_005fname2-of-c_002d_002dlass2"><code>d--eftypecv_name2 of c--lass2</code></a></td><td>&nbsp;</td><td valign="top"><a href="index.htm">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="index.htm#index-titlepage-d_002d_002deftypecv_005fname2-of-c_002d_002dlass2-1"><code>d--eftypecv_name2 of c--lass2</code></a></td><td>&nbsp;</td><td valign="top"><a href="index.htm">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="chapter.html#index-d_002d_002deftypecv_005fname2-of-c_002d_002dlass2"><code>d--eftypecv_name2 of c--lass2</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="chapter.html#index-d_002d_002deftypecv_005fname2-of-c_002d_002dlass2-1"><code>d--eftypecv_name2 of c--lass2</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="chapter.html#index-d_002d_002deftypecv_005fname2-of-c_002d_002dlass2-2"><code>d--eftypecv_name2 of c--lass2</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="chapter.html#index-d_002d_002deftypecv_005fname2-of-c_002d_002dlass2-3"><code>d--eftypecv_name2 of c--lass2</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="chapter.html#index-copying-d_002d_002deftypeivar_005fname-of-c_002d_002dlass"><code>d--eftypeivar_name of c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="index.htm#index-titlepage-d_002d_002deftypeivar_005fname-of-c_002d_002dlass"><code>d--eftypeivar_name of c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="index.htm">Top section</a></td></tr>
 <tr><td></td><td valign="top"><a href="chapter.html#index-d_002d_002deftypeivar_005fname-of-c_002d_002dlass"><code>d--eftypeivar_name of c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
@@ -886,9 +958,13 @@ ul.no-bullet {list-style: none}
 <tr><td></td><td valign="top"><a href="chapter.html#index-d_002d_002deftypevr_005fname"><code>d--eftypevr_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="chapter.html#index-d_002d_002deftypevr_005fname-1"><code>d--eftypevr_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="chapter.html#index-copying-d_002d_002defvar_005fname"><code>d--efvar_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="chapter.html#index-copying-d_002d_002defvar_005fname-1"><code>d--efvar_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="index.htm#index-titlepage-d_002d_002defvar_005fname"><code>d--efvar_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="index.htm">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="index.htm#index-titlepage-d_002d_002defvar_005fname-1"><code>d--efvar_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="index.htm">Top section</a></td></tr>
 <tr><td></td><td valign="top"><a href="chapter.html#index-d_002d_002defvar_005fname"><code>d--efvar_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="chapter.html#index-d_002d_002defvar_005fname-1"><code>d--efvar_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="chapter.html#index-d_002d_002defvar_005fname-2"><code>d--efvar_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="chapter.html#index-d_002d_002defvar_005fname-3"><code>d--efvar_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="chapter.html#index-copying-d_002d_002defvr_005fname"><code>d--efvr_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="index.htm#index-titlepage-d_002d_002defvr_005fname"><code>d--efvr_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="index.htm">Top section</a></td></tr>
 <tr><td></td><td valign="top"><a href="chapter.html#index-d_002d_002defvr_005fname"><code>d--efvr_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
@@ -972,6 +1048,8 @@ ul.no-bullet {list-style: none}
  &nbsp; 
 <a class="summary-letter" href="#chapter-2_fn_letter-M"><b>M</b></a>
  &nbsp; 
+<a class="summary-letter" href="#chapter-2_fn_letter-N"><b>N</b></a>
+ &nbsp; 
 <a class="summary-letter" href="#chapter-2_fn_letter-T"><b>T</b></a>
  &nbsp; 
 <a class="summary-letter" href="#chapter-2_fn_letter-X"><b>X</b></a>
@@ -1016,6 +1094,10 @@ ul.no-bullet {list-style: none}
 <tr><td></td><td valign="top"><a href="index.htm#index-titlepage-after"><code>after</code></a></td><td>&nbsp;</td><td valign="top"><a href="index.htm">Top section</a></td></tr>
 <tr><td></td><td valign="top"><a href="chapter.html#index-after"><code>after</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="chapter.html#index-after-1"><code>after</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="chapter.html#index-copying-arg2"><code>arg2</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="index.htm#index-titlepage-arg2"><code>arg2</code></a></td><td>&nbsp;</td><td valign="top"><a href="index.htm">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="chapter.html#index-arg2"><code>arg2</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="chapter.html#index-arg2-1"><code>arg2</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="chapter-2_fn_letter-B">B</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="chapter.html#index-copying-b"><code>b</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
@@ -1045,17 +1127,29 @@ ul.no-bullet {list-style: none}
 <tr><td></td><td valign="top"><a href="chapter.html#index-d_002d_002defmethod_005fname-on-c_002d_002dlass"><code>d--efmethod_name on c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="chapter.html#index-d_002d_002defmethod_005fname-on-c_002d_002dlass-1"><code>d--efmethod_name on c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="chapter.html#index-copying-d_002d_002defop_005fname-on-c_002d_002dlass"><code>d--efop_name on c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="chapter.html#index-copying-d_002d_002defop_005fname-on-c_002d_002dlass-1"><code>d--efop_name on c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="index.htm#index-titlepage-d_002d_002defop_005fname-on-c_002d_002dlass"><code>d--efop_name on c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="index.htm">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="index.htm#index-titlepage-d_002d_002defop_005fname-on-c_002d_002dlass-1"><code>d--efop_name on c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="index.htm">Top section</a></td></tr>
 <tr><td></td><td valign="top"><a href="chapter.html#index-d_002d_002defop_005fname-on-c_002d_002dlass"><code>d--efop_name on c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="chapter.html#index-d_002d_002defop_005fname-on-c_002d_002dlass-1"><code>d--efop_name on c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="chapter.html#index-d_002d_002defop_005fname-on-c_002d_002dlass-2"><code>d--efop_name on c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="chapter.html#index-d_002d_002defop_005fname-on-c_002d_002dlass-3"><code>d--efop_name on c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="chapter.html#index-copying-d_002d_002defspec_005fname"><code>d--efspec_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="index.htm#index-titlepage-d_002d_002defspec_005fname"><code>d--efspec_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="index.htm">Top section</a></td></tr>
 <tr><td></td><td valign="top"><a href="chapter.html#index-d_002d_002defspec_005fname"><code>d--efspec_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="chapter.html#index-d_002d_002defspec_005fname-1"><code>d--efspec_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="chapter.html#index-copying-d_002d_002deftypefn_005fname"><code>d--eftypefn_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="chapter.html#index-copying-d_002d_002deftypefn_005fname-1"><code>d--eftypefn_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="index.htm#index-titlepage-d_002d_002deftypefn_005fname"><code>d--eftypefn_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="index.htm">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="index.htm#index-titlepage-d_002d_002deftypefn_005fname-1"><code>d--eftypefn_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="index.htm">Top section</a></td></tr>
 <tr><td></td><td valign="top"><a href="chapter.html#index-d_002d_002deftypefn_005fname"><code>d--eftypefn_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="chapter.html#index-d_002d_002deftypefn_005fname-1"><code>d--eftypefn_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="chapter.html#index-d_002d_002deftypefn_005fname-2"><code>d--eftypefn_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="chapter.html#index-d_002d_002deftypefn_005fname-3"><code>d--eftypefn_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="chapter.html#index-copying-d_002d_002deftypefn_005fname2"><code>d--eftypefn_name2</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="index.htm#index-titlepage-d_002d_002deftypefn_005fname2"><code>d--eftypefn_name2</code></a></td><td>&nbsp;</td><td valign="top"><a href="index.htm">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="chapter.html#index-d_002d_002deftypefn_005fname2"><code>d--eftypefn_name2</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="chapter.html#index-d_002d_002deftypefn_005fname2-1"><code>d--eftypefn_name2</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="chapter.html#index-copying-d_002d_002deftypefun_005fname"><code>d--eftypefun_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="index.htm#index-titlepage-d_002d_002deftypefun_005fname"><code>d--eftypefun_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="index.htm">Top section</a></td></tr>
 <tr><td></td><td valign="top"><a href="chapter.html#index-d_002d_002deftypefun_005fname"><code>d--eftypefun_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
@@ -1065,9 +1159,21 @@ ul.no-bullet {list-style: none}
 <tr><td></td><td valign="top"><a href="chapter.html#index-d_002d_002deftypemethod_005fname-on-c_002d_002dlass"><code>d--eftypemethod_name on c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="chapter.html#index-d_002d_002deftypemethod_005fname-on-c_002d_002dlass-1"><code>d--eftypemethod_name on c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="chapter.html#index-copying-d_002d_002deftypeop_005fname-on-c_002d_002dlass"><code>d--eftypeop_name on c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="chapter.html#index-copying-d_002d_002deftypeop_005fname-on-c_002d_002dlass-1"><code>d--eftypeop_name on c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="index.htm#index-titlepage-d_002d_002deftypeop_005fname-on-c_002d_002dlass"><code>d--eftypeop_name on c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="index.htm">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="index.htm#index-titlepage-d_002d_002deftypeop_005fname-on-c_002d_002dlass-1"><code>d--eftypeop_name on c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="index.htm">Top section</a></td></tr>
 <tr><td></td><td valign="top"><a href="chapter.html#index-d_002d_002deftypeop_005fname-on-c_002d_002dlass"><code>d--eftypeop_name on c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="chapter.html#index-d_002d_002deftypeop_005fname-on-c_002d_002dlass-1"><code>d--eftypeop_name on c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="chapter.html#index-d_002d_002deftypeop_005fname-on-c_002d_002dlass-2"><code>d--eftypeop_name on c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="chapter.html#index-d_002d_002deftypeop_005fname-on-c_002d_002dlass-3"><code>d--eftypeop_name on c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="chapter.html#index-copying-d_002d_002deftypeop_005fname2-on-c_002d_002dlass2"><code>d--eftypeop_name2 on c--lass2</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="chapter.html#index-copying-d_002d_002deftypeop_005fname2-on-c_002d_002dlass2-1"><code>d--eftypeop_name2 on c--lass2</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="index.htm#index-titlepage-d_002d_002deftypeop_005fname2-on-c_002d_002dlass2"><code>d--eftypeop_name2 on c--lass2</code></a></td><td>&nbsp;</td><td valign="top"><a href="index.htm">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="index.htm#index-titlepage-d_002d_002deftypeop_005fname2-on-c_002d_002dlass2-1"><code>d--eftypeop_name2 on c--lass2</code></a></td><td>&nbsp;</td><td valign="top"><a href="index.htm">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="chapter.html#index-d_002d_002deftypeop_005fname2-on-c_002d_002dlass2"><code>d--eftypeop_name2 on c--lass2</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="chapter.html#index-d_002d_002deftypeop_005fname2-on-c_002d_002dlass2-1"><code>d--eftypeop_name2 on c--lass2</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="chapter.html#index-d_002d_002deftypeop_005fname2-on-c_002d_002dlass2-2"><code>d--eftypeop_name2 on c--lass2</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="chapter.html#index-d_002d_002deftypeop_005fname2-on-c_002d_002dlass2-3"><code>d--eftypeop_name2 on c--lass2</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="chapter.html#index-copying-d_002d_002defun_005fname"><code>d--efun_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="index.htm#index-titlepage-d_002d_002defun_005fname"><code>d--efun_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="index.htm">Top section</a></td></tr>
 <tr><td></td><td valign="top"><a href="chapter.html#index-d_002d_002defun_005fname"><code>d--efun_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
@@ -1165,6 +1271,20 @@ ul.no-bullet {list-style: none}
 <tr><td></td><td valign="top"><a href="chapter.html#index-machin-10"><code>machin</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="chapter.html#index-machin-11"><code>machin</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
+<tr><th id="chapter-2_fn_letter-N">N</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="chapter.html#index-copying-n_002d_002dame"><code>n--ame</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="chapter.html#index-copying-n_002d_002dame-1"><code>n--ame</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="index.htm#index-titlepage-n_002d_002dame"><code>n--ame</code></a></td><td>&nbsp;</td><td valign="top"><a href="index.htm">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="index.htm#index-titlepage-n_002d_002dame-1"><code>n--ame</code></a></td><td>&nbsp;</td><td valign="top"><a href="index.htm">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="chapter.html#index-n_002d_002dame"><code>n--ame</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="chapter.html#index-n_002d_002dame-1"><code>n--ame</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="chapter.html#index-n_002d_002dame-2"><code>n--ame</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="chapter.html#index-n_002d_002dame-3"><code>n--ame</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="chapter.html#index-copying-name2"><code>name2</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="index.htm#index-titlepage-name2"><code>name2</code></a></td><td>&nbsp;</td><td valign="top"><a href="index.htm">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="chapter.html#index-name2"><code>name2</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="chapter.html#index-name2-1"><code>name2</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
 <tr><th id="chapter-2_fn_letter-T">T</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="chapter.html#index-t_002d_002druc-1"><code>t--ruc</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="chapter.html#index-T_002d_002druc-1"><code>T--ruc</code></a></td><td>&nbsp;</td><td valign="top"><a href="chapter.html">1 chapter</a></td></tr>
@@ -1203,6 +1323,8 @@ ul.no-bullet {list-style: none}
 <a class="summary-letter" href="#chapter-2_fn_letter-L"><b>L</b></a>
  &nbsp; 
 <a class="summary-letter" href="#chapter-2_fn_letter-M"><b>M</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#chapter-2_fn_letter-N"><b>N</b></a>
  &nbsp; 
 <a class="summary-letter" href="#chapter-2_fn_letter-T"><b>T</b></a>
  &nbsp; 

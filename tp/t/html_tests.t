@@ -189,6 +189,65 @@ in detaildescription
 @xrefautomaticsectiontitle off
 
 @xref{chap}.
+'],
+['test_xrefautomaticsectiontitle_off_first',
+'
+@xrefautomaticsectiontitle off
+
+@node Top
+@top top
+
+@menu
+* chap::
+@end menu
+
+@node chap
+@chapter chapter
+
+@xref{chap}.
+
+@xrefautomaticsectiontitle on
+
+@xref{chap}.
+'],
+['deftypefnnewline_for_copying_after',
+'@copying
+@deftypefun TYPE NAME ARGUMENTS...
+BODY-OF-DESCRIPTION
+@end deftypefun
+@end copying
+
+@insertcopying
+
+@deftypefnnewline on
+
+@insertcopying
+
+@node Top
+@top top
+
+@deftypefun void something input
+do something with input
+@end deftypefun
+
+'],
+['deftypefnnewline_for_copying_before',
+'
+@deftypefnnewline on
+
+@copying
+@deftypefun TYPE NAME ARGUMENTS...
+BODY-OF-DESCRIPTION
+@end deftypefun
+@end copying
+
+@node Top
+@top top
+
+@deftypefun void something input
+do something with input
+@end deftypefun
+
 ']
 ,['tex_expanded_in_copying',
 '@copying
@@ -257,6 +316,20 @@ In top.
 @chapter the chap
 
 @contents
+
+', {}, {'CONTENTS_OUTPUT_LOCATION' => 'after_title'}],
+['text_before_top_and_summarycontents_after_title',
+'
+Some text before top
+
+@node Top
+@top top
+
+In top.
+
+@chapter the chap
+
+@summarycontents
 
 ', {}, {'CONTENTS_OUTPUT_LOCATION' => 'after_title'}],
 ['example_class',
@@ -413,6 +486,26 @@ my @file_tests = (
 
 @node @^i
 ', {'test_split' => 'section'}, {'SPLIT' => 'chapter'}],
+# FIXME the result is incorrect, the second footnote text is in
+# the separate file but the link points to the same file
+['footnotestyle_separate_late',
+'@setfilename footnotestyle_separate_late.info
+
+@node Top
+@top top
+
+@node chap f
+@chapter Chapter f
+
+@footnote{in fchap 1}
+
+@node chap s
+@chapter Chapter s
+
+@footnote{in fchap 2}
+
+@footnotestyle separate
+', {'test_split' => 'node'}, {'SPLIT' => 'node'}],
 );
 
 

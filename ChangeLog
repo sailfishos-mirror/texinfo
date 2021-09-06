@@ -1,3 +1,22 @@
+2021-09-06  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/Converter.pm (set_global_document_commands),
+	tp/Texinfo/Convert/HTML.pm (_prepare_elements),
+	tp/Texinfo/Convert/IXIN.pm, tp/Texinfo/Convert/Info.pm,
+	tp/Texinfo/Convert/TexinfoXML.pm:
+	rename _set_global_multiple_commands() as
+	set_global_document_commands().  Add a list of global commands to
+	process in argument.
+	In Texinfo::Convert::HTML, use set_global_document_commands()
+	in more specific ways specifying the changed variables and restoring
+	after use if not needed anymore.  For contents, the variables are set
+	early and once for all as it needs to be known in advance in many
+	codes.
+
+	* tp/Texinfo/Convert/HTML.pm (_convert_def_line_type): fix the
+	case of @deftypefn and similar commands with @deftypefnnewline
+	on and no argument, the type and name were missing.
+
 2021-09-05  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/Text.pm (copy_options_for_convert_text),

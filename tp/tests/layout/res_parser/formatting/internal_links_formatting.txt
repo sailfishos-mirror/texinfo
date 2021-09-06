@@ -31,9 +31,13 @@ formatting.html#index-b_002d_002d_002db	cp	b--b
 formatting.html#index-counting-entry	cp	counting entry
 formatting.html#index-d_002d_002d_002ddd	cp	d--dd
 formatting.html#index-copying-d_002d_002defcv_005fname	cp	d--efcv_name
+formatting.html#index-copying-d_002d_002defcv_005fname-1	cp	d--efcv_name
 formatting.html#index-titlepage-d_002d_002defcv_005fname	cp	d--efcv_name
+formatting.html#index-titlepage-d_002d_002defcv_005fname-1	cp	d--efcv_name
 formatting.html#index-d_002d_002defcv_005fname	cp	d--efcv_name
 formatting.html#index-d_002d_002defcv_005fname-1	cp	d--efcv_name
+formatting.html#index-d_002d_002defcv_005fname-2	cp	d--efcv_name
+formatting.html#index-d_002d_002defcv_005fname-3	cp	d--efcv_name
 formatting.html#index-copying-d_002d_002defivar_005fname-of-c_002d_002dlass	cp	d--efivar_name of c--lass
 formatting.html#index-titlepage-d_002d_002defivar_005fname-of-c_002d_002dlass	cp	d--efivar_name of c--lass
 formatting.html#index-d_002d_002defivar_005fname-of-c_002d_002dlass	cp	d--efivar_name of c--lass
@@ -42,6 +46,22 @@ formatting.html#index-copying-d_002d_002defopt_005fname	cp	d--efopt_name
 formatting.html#index-titlepage-d_002d_002defopt_005fname	cp	d--efopt_name
 formatting.html#index-d_002d_002defopt_005fname	cp	d--efopt_name
 formatting.html#index-d_002d_002defopt_005fname-1	cp	d--efopt_name
+formatting.html#index-copying-d_002d_002deftypecv_005fname-of-c_002d_002dlass	cp	d--eftypecv_name of c--lass
+formatting.html#index-copying-d_002d_002deftypecv_005fname-of-c_002d_002dlass-1	cp	d--eftypecv_name of c--lass
+formatting.html#index-titlepage-d_002d_002deftypecv_005fname-of-c_002d_002dlass	cp	d--eftypecv_name of c--lass
+formatting.html#index-titlepage-d_002d_002deftypecv_005fname-of-c_002d_002dlass-1	cp	d--eftypecv_name of c--lass
+formatting.html#index-d_002d_002deftypecv_005fname-of-c_002d_002dlass	cp	d--eftypecv_name of c--lass
+formatting.html#index-d_002d_002deftypecv_005fname-of-c_002d_002dlass-1	cp	d--eftypecv_name of c--lass
+formatting.html#index-d_002d_002deftypecv_005fname-of-c_002d_002dlass-2	cp	d--eftypecv_name of c--lass
+formatting.html#index-d_002d_002deftypecv_005fname-of-c_002d_002dlass-3	cp	d--eftypecv_name of c--lass
+formatting.html#index-copying-d_002d_002deftypecv_005fname2-of-c_002d_002dlass2	cp	d--eftypecv_name2 of c--lass2
+formatting.html#index-copying-d_002d_002deftypecv_005fname2-of-c_002d_002dlass2-1	cp	d--eftypecv_name2 of c--lass2
+formatting.html#index-titlepage-d_002d_002deftypecv_005fname2-of-c_002d_002dlass2	cp	d--eftypecv_name2 of c--lass2
+formatting.html#index-titlepage-d_002d_002deftypecv_005fname2-of-c_002d_002dlass2-1	cp	d--eftypecv_name2 of c--lass2
+formatting.html#index-d_002d_002deftypecv_005fname2-of-c_002d_002dlass2	cp	d--eftypecv_name2 of c--lass2
+formatting.html#index-d_002d_002deftypecv_005fname2-of-c_002d_002dlass2-1	cp	d--eftypecv_name2 of c--lass2
+formatting.html#index-d_002d_002deftypecv_005fname2-of-c_002d_002dlass2-2	cp	d--eftypecv_name2 of c--lass2
+formatting.html#index-d_002d_002deftypecv_005fname2-of-c_002d_002dlass2-3	cp	d--eftypecv_name2 of c--lass2
 formatting.html#index-copying-d_002d_002deftypeivar_005fname-of-c_002d_002dlass	cp	d--eftypeivar_name of c--lass
 formatting.html#index-titlepage-d_002d_002deftypeivar_005fname-of-c_002d_002dlass	cp	d--eftypeivar_name of c--lass
 formatting.html#index-d_002d_002deftypeivar_005fname-of-c_002d_002dlass	cp	d--eftypeivar_name of c--lass
@@ -55,9 +75,13 @@ formatting.html#index-titlepage-d_002d_002deftypevr_005fname	cp	d--eftypevr_name
 formatting.html#index-d_002d_002deftypevr_005fname	cp	d--eftypevr_name
 formatting.html#index-d_002d_002deftypevr_005fname-1	cp	d--eftypevr_name
 formatting.html#index-copying-d_002d_002defvar_005fname	cp	d--efvar_name
+formatting.html#index-copying-d_002d_002defvar_005fname-1	cp	d--efvar_name
 formatting.html#index-titlepage-d_002d_002defvar_005fname	cp	d--efvar_name
+formatting.html#index-titlepage-d_002d_002defvar_005fname-1	cp	d--efvar_name
 formatting.html#index-d_002d_002defvar_005fname	cp	d--efvar_name
 formatting.html#index-d_002d_002defvar_005fname-1	cp	d--efvar_name
+formatting.html#index-d_002d_002defvar_005fname-2	cp	d--efvar_name
+formatting.html#index-d_002d_002defvar_005fname-3	cp	d--efvar_name
 formatting.html#index-copying-d_002d_002defvr_005fname	cp	d--efvr_name
 formatting.html#index-titlepage-d_002d_002defvr_005fname	cp	d--efvr_name
 formatting.html#index-d_002d_002defvr_005fname	cp	d--efvr_name
@@ -113,6 +137,10 @@ formatting.html#index-copying-after	fn	after
 formatting.html#index-titlepage-after	fn	after
 formatting.html#index-after	fn	after
 formatting.html#index-after-1	fn	after
+formatting.html#index-copying-arg2	fn	arg2
+formatting.html#index-titlepage-arg2	fn	arg2
+formatting.html#index-arg2	fn	arg2
+formatting.html#index-arg2-1	fn	arg2
 formatting.html#index-copying-b	fn	b
 formatting.html#index-copying-b-1	fn	b
 formatting.html#index-titlepage-b	fn	b
@@ -138,17 +166,29 @@ formatting.html#index-titlepage-d_002d_002defmethod_005fname-on-c_002d_002dlass	
 formatting.html#index-d_002d_002defmethod_005fname-on-c_002d_002dlass	fn	d--efmethod_name on c--lass
 formatting.html#index-d_002d_002defmethod_005fname-on-c_002d_002dlass-1	fn	d--efmethod_name on c--lass
 formatting.html#index-copying-d_002d_002defop_005fname-on-c_002d_002dlass	fn	d--efop_name on c--lass
+formatting.html#index-copying-d_002d_002defop_005fname-on-c_002d_002dlass-1	fn	d--efop_name on c--lass
 formatting.html#index-titlepage-d_002d_002defop_005fname-on-c_002d_002dlass	fn	d--efop_name on c--lass
+formatting.html#index-titlepage-d_002d_002defop_005fname-on-c_002d_002dlass-1	fn	d--efop_name on c--lass
 formatting.html#index-d_002d_002defop_005fname-on-c_002d_002dlass	fn	d--efop_name on c--lass
 formatting.html#index-d_002d_002defop_005fname-on-c_002d_002dlass-1	fn	d--efop_name on c--lass
+formatting.html#index-d_002d_002defop_005fname-on-c_002d_002dlass-2	fn	d--efop_name on c--lass
+formatting.html#index-d_002d_002defop_005fname-on-c_002d_002dlass-3	fn	d--efop_name on c--lass
 formatting.html#index-copying-d_002d_002defspec_005fname	fn	d--efspec_name
 formatting.html#index-titlepage-d_002d_002defspec_005fname	fn	d--efspec_name
 formatting.html#index-d_002d_002defspec_005fname	fn	d--efspec_name
 formatting.html#index-d_002d_002defspec_005fname-1	fn	d--efspec_name
 formatting.html#index-copying-d_002d_002deftypefn_005fname	fn	d--eftypefn_name
+formatting.html#index-copying-d_002d_002deftypefn_005fname-1	fn	d--eftypefn_name
 formatting.html#index-titlepage-d_002d_002deftypefn_005fname	fn	d--eftypefn_name
+formatting.html#index-titlepage-d_002d_002deftypefn_005fname-1	fn	d--eftypefn_name
 formatting.html#index-d_002d_002deftypefn_005fname	fn	d--eftypefn_name
 formatting.html#index-d_002d_002deftypefn_005fname-1	fn	d--eftypefn_name
+formatting.html#index-d_002d_002deftypefn_005fname-2	fn	d--eftypefn_name
+formatting.html#index-d_002d_002deftypefn_005fname-3	fn	d--eftypefn_name
+formatting.html#index-copying-d_002d_002deftypefn_005fname2	fn	d--eftypefn_name2
+formatting.html#index-titlepage-d_002d_002deftypefn_005fname2	fn	d--eftypefn_name2
+formatting.html#index-d_002d_002deftypefn_005fname2	fn	d--eftypefn_name2
+formatting.html#index-d_002d_002deftypefn_005fname2-1	fn	d--eftypefn_name2
 formatting.html#index-copying-d_002d_002deftypefun_005fname	fn	d--eftypefun_name
 formatting.html#index-titlepage-d_002d_002deftypefun_005fname	fn	d--eftypefun_name
 formatting.html#index-d_002d_002deftypefun_005fname	fn	d--eftypefun_name
@@ -158,9 +198,21 @@ formatting.html#index-titlepage-d_002d_002deftypemethod_005fname-on-c_002d_002dl
 formatting.html#index-d_002d_002deftypemethod_005fname-on-c_002d_002dlass	fn	d--eftypemethod_name on c--lass
 formatting.html#index-d_002d_002deftypemethod_005fname-on-c_002d_002dlass-1	fn	d--eftypemethod_name on c--lass
 formatting.html#index-copying-d_002d_002deftypeop_005fname-on-c_002d_002dlass	fn	d--eftypeop_name on c--lass
+formatting.html#index-copying-d_002d_002deftypeop_005fname-on-c_002d_002dlass-1	fn	d--eftypeop_name on c--lass
 formatting.html#index-titlepage-d_002d_002deftypeop_005fname-on-c_002d_002dlass	fn	d--eftypeop_name on c--lass
+formatting.html#index-titlepage-d_002d_002deftypeop_005fname-on-c_002d_002dlass-1	fn	d--eftypeop_name on c--lass
 formatting.html#index-d_002d_002deftypeop_005fname-on-c_002d_002dlass	fn	d--eftypeop_name on c--lass
 formatting.html#index-d_002d_002deftypeop_005fname-on-c_002d_002dlass-1	fn	d--eftypeop_name on c--lass
+formatting.html#index-d_002d_002deftypeop_005fname-on-c_002d_002dlass-2	fn	d--eftypeop_name on c--lass
+formatting.html#index-d_002d_002deftypeop_005fname-on-c_002d_002dlass-3	fn	d--eftypeop_name on c--lass
+formatting.html#index-copying-d_002d_002deftypeop_005fname2-on-c_002d_002dlass2	fn	d--eftypeop_name2 on c--lass2
+formatting.html#index-copying-d_002d_002deftypeop_005fname2-on-c_002d_002dlass2-1	fn	d--eftypeop_name2 on c--lass2
+formatting.html#index-titlepage-d_002d_002deftypeop_005fname2-on-c_002d_002dlass2	fn	d--eftypeop_name2 on c--lass2
+formatting.html#index-titlepage-d_002d_002deftypeop_005fname2-on-c_002d_002dlass2-1	fn	d--eftypeop_name2 on c--lass2
+formatting.html#index-d_002d_002deftypeop_005fname2-on-c_002d_002dlass2	fn	d--eftypeop_name2 on c--lass2
+formatting.html#index-d_002d_002deftypeop_005fname2-on-c_002d_002dlass2-1	fn	d--eftypeop_name2 on c--lass2
+formatting.html#index-d_002d_002deftypeop_005fname2-on-c_002d_002dlass2-2	fn	d--eftypeop_name2 on c--lass2
+formatting.html#index-d_002d_002deftypeop_005fname2-on-c_002d_002dlass2-3	fn	d--eftypeop_name2 on c--lass2
 formatting.html#index-copying-d_002d_002defun_005fname	fn	d--efun_name
 formatting.html#index-titlepage-d_002d_002defun_005fname	fn	d--efun_name
 formatting.html#index-d_002d_002defun_005fname	fn	d--efun_name
@@ -249,6 +301,18 @@ formatting.html#index-machin-8	fn	machin
 formatting.html#index-machin-9	fn	machin
 formatting.html#index-machin-10	fn	machin
 formatting.html#index-machin-11	fn	machin
+formatting.html#index-copying-n_002d_002dame	fn	n--ame
+formatting.html#index-copying-n_002d_002dame-1	fn	n--ame
+formatting.html#index-titlepage-n_002d_002dame	fn	n--ame
+formatting.html#index-titlepage-n_002d_002dame-1	fn	n--ame
+formatting.html#index-n_002d_002dame	fn	n--ame
+formatting.html#index-n_002d_002dame-1	fn	n--ame
+formatting.html#index-n_002d_002dame-2	fn	n--ame
+formatting.html#index-n_002d_002dame-3	fn	n--ame
+formatting.html#index-copying-name2	fn	name2
+formatting.html#index-titlepage-name2	fn	name2
+formatting.html#index-name2	fn	name2
+formatting.html#index-name2-1	fn	name2
 formatting.html#index-t_002d_002druc-1	fn	t--ruc
 formatting.html#index-T_002d_002druc-1	fn	T--ruc
 formatting.html#index-copying-truc	fn	truc

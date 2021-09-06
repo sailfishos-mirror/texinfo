@@ -407,6 +407,7 @@ truc:
 truc: a b c d e f g h i
 truc: deffnx before end deffn
 
+
 empty: deffn
 
 empty: deffn with deffnx
@@ -416,14 +417,27 @@ fset: i a g
 cmde: truc 
 text in def item for second def item
 
+
 c-ategory: d-efvr_name
 d-efvr
+
+c-ategory: n-ame a-rguments...
+d-effn
+
+c-ategory: n-ame
+d-effn no arg
 
 c-ategory: t-ype d-eftypefn_name a-rguments...
 d-eftypefn
 
+c-ategory: t-ype d-eftypefn_name
+d-eftypefn no arg
+
 c-ategory on c-lass: t-ype d-eftypeop_name a-rguments...
 d-eftypeop
+
+c-ategory on c-lass: t-ype d-eftypeop_name
+d-eftypeop no arg
 
 c-ategory: t-ype d-eftypevr_name
 d-eftypevr
@@ -431,8 +445,20 @@ d-eftypevr
 c-ategory of c-lass: d-efcv_name
 d-efcv
 
+c-ategory of c-lass: d-efcv_name a-rguments...
+d-efcv with arguments
+
+c-ategory of c-lass: t-ype d-eftypecv_name
+d-eftypecv
+
+c-ategory of c-lass: t-ype d-eftypecv_name a-rguments...
+d-eftypecv with arguments
+
 c-ategory on c-lass: d-efop_name a-rguments...
 d-efop
+
+c-ategory on c-lass: d-efop_name
+d-efop no arg
 
 c-ategory: d-eftp_name a-ttributes...
 d-eftp
@@ -446,8 +472,11 @@ d-efmac
 Special Form: d-efspec_name a-rguments...
 d-efspec
 
-Variable: d-efvar_name argvar argvar1
+Variable: d-efvar_name
 d-efvar
+
+Variable: d-efvar_name arg-var arg-var1
+d-efvar with args
 
 User Option: d-efopt_name
 d-efopt
@@ -469,6 +498,29 @@ d-efmethod
 
 Method on c-lass: t-ype d-eftypemethod_name a-rguments...
 d-eftypemethod
+
+
+Function: data-type2 name2 arguments2...
+aaa2
+
+c-ategory2: t-ype2 d-eftypefn_name2
+d-eftypefn no arg2
+
+c-ategory2 on c-lass2: t-ype2 d-eftypeop_name2 a-rguments2...
+d-eftypeop2
+
+c-ategory2 on c-lass2: t-ype2 d-eftypeop_name2
+d-eftypeop no arg2
+
+c-ategory2 of c-lass2: t-ype2 d-eftypecv_name2
+d-eftypecv2
+
+c-ategory2 of c-lass2: t-ype2 d-eftypecv_name2 a-rguments2...
+d-eftypecv with arguments2
+
+fun2: arg2
+fff2
+
 
 @xref{c-hapter@@, cross r-ef name@@, t-itle@@, file n-ame@@, ma-nual@@} c-hapter@.
 @ref{chapter, cross ref name, title, file name, manual} chapter
@@ -1218,6 +1270,7 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 <dt id="index-titlepage-deffnx">>truc: </span><span><strong>deffnx</strong> <em>before end deffn</em><a href='#index-titlepage-deffnx' class='copiable-anchor'> &para;</a></span></dt>
 </dl>
 
+
 <dl>
 <dt id="index-titlepage-deffn">>empty: </span><span><strong>deffn</strong><a href='#index-titlepage-deffn' class='copiable-anchor'> &para;</a></span></dt>
 </dl>
@@ -1233,9 +1286,20 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 <dd><p>text in def item for second def item
 </p></dd></dl>
 
+
 <dl>
 <dt id="index-titlepage-d_002d_002defvr_005fname">>c--ategory: </span><span><strong>d--efvr_name</strong><a href='#index-titlepage-d_002d_002defvr_005fname' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>d-efvr
+</p></dd></dl>
+
+<dl>
+<dt id="index-titlepage-n_002d_002dame">>c--ategory: </span><span><strong>n--ame</strong> <em>a--rguments...</em><a href='#index-titlepage-n_002d_002dame' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d-effn
+</p></dd></dl>
+
+<dl>
+<dt id="index-titlepage-n_002d_002dame-1">>c--ategory: </span><span><strong>n--ame</strong><a href='#index-titlepage-n_002d_002dame-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d-effn no arg
 </p></dd></dl>
 
 <dl>
@@ -1244,8 +1308,18 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 </p></dd></dl>
 
 <dl>
+<dt id="index-titlepage-d_002d_002deftypefn_005fname-1">>c--ategory: </span><span><em>t--ype</em> <strong>d--eftypefn_name</strong><a href='#index-titlepage-d_002d_002deftypefn_005fname-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d-eftypefn no arg
+</p></dd></dl>
+
+<dl>
 <dt id="index-titlepage-d_002d_002deftypeop_005fname-on-c_002d_002dlass"><span>c--ategory on c--lass: <em>t--ype</em> <strong>d--eftypeop_name</strong> <em>a--rguments...</em><a href='#index-titlepage-d_002d_002deftypeop_005fname-on-c_002d_002dlass' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>d-eftypeop
+</p></dd></dl>
+
+<dl>
+<dt id="index-titlepage-d_002d_002deftypeop_005fname-on-c_002d_002dlass-1"><span>c--ategory on c--lass: <em>t--ype</em> <strong>d--eftypeop_name</strong><a href='#index-titlepage-d_002d_002deftypeop_005fname-on-c_002d_002dlass-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d-eftypeop no arg
 </p></dd></dl>
 
 <dl>
@@ -1259,8 +1333,28 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 </p></dd></dl>
 
 <dl>
+<dt id="index-titlepage-d_002d_002defcv_005fname-1"><span>c--ategory of c--lass: <strong>d--efcv_name</strong> <em>a--rguments...</em><a href='#index-titlepage-d_002d_002defcv_005fname-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d-efcv with arguments
+</p></dd></dl>
+
+<dl>
+<dt id="index-titlepage-d_002d_002deftypecv_005fname-of-c_002d_002dlass"><span>c--ategory of c--lass: <em>t--ype</em> <strong>d--eftypecv_name</strong><a href='#index-titlepage-d_002d_002deftypecv_005fname-of-c_002d_002dlass' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d-eftypecv
+</p></dd></dl>
+
+<dl>
+<dt id="index-titlepage-d_002d_002deftypecv_005fname-of-c_002d_002dlass-1"><span>c--ategory of c--lass: <em>t--ype</em> <strong>d--eftypecv_name</strong> <em>a--rguments...</em><a href='#index-titlepage-d_002d_002deftypecv_005fname-of-c_002d_002dlass-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d-eftypecv with arguments
+</p></dd></dl>
+
+<dl>
 <dt id="index-titlepage-d_002d_002defop_005fname-on-c_002d_002dlass"><span>c--ategory on c--lass: <strong>d--efop_name</strong> <em>a--rguments...</em><a href='#index-titlepage-d_002d_002defop_005fname-on-c_002d_002dlass' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>d-efop
+</p></dd></dl>
+
+<dl>
+<dt id="index-titlepage-d_002d_002defop_005fname-on-c_002d_002dlass-1"><span>c--ategory on c--lass: <strong>d--efop_name</strong><a href='#index-titlepage-d_002d_002defop_005fname-on-c_002d_002dlass-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d-efop no arg
 </p></dd></dl>
 
 <dl>
@@ -1284,8 +1378,13 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 </p></dd></dl>
 
 <dl>
-<dt id="index-titlepage-d_002d_002defvar_005fname">>Variable: </span><span><strong>d--efvar_name</strong> <em>argvar argvar1</em><a href='#index-titlepage-d_002d_002defvar_005fname' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-titlepage-d_002d_002defvar_005fname">>Variable: </span><span><strong>d--efvar_name</strong><a href='#index-titlepage-d_002d_002defvar_005fname' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>d-efvar
+</p></dd></dl>
+
+<dl>
+<dt id="index-titlepage-d_002d_002defvar_005fname-1">>Variable: </span><span><strong>d--efvar_name</strong> <em>arg--var arg--var1</em><a href='#index-titlepage-d_002d_002defvar_005fname-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d-efvar with args
 </p></dd></dl>
 
 <dl>
@@ -1322,6 +1421,43 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 <dt id="index-titlepage-d_002d_002deftypemethod_005fname-on-c_002d_002dlass"><span>Method on c--lass: <em>t--ype</em> <strong>d--eftypemethod_name</strong> <em>a--rguments...</em><a href='#index-titlepage-d_002d_002deftypemethod_005fname-on-c_002d_002dlass' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>d-eftypemethod
 </p></dd></dl>
+
+
+<dl>
+<dt id="index-titlepage-name2">>Function:<br> </span><span><em>data-type2</em><br> <strong>name2</strong> <em>arguments2...</em><a href='#index-titlepage-name2' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>aaa2
+</p></dd></dl>
+
+<dl>
+<dt id="index-titlepage-d_002d_002deftypefn_005fname2">>c--ategory2:<br> </span><span><em>t--ype2</em><br> <strong>d--eftypefn_name2</strong><a href='#index-titlepage-d_002d_002deftypefn_005fname2' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d-eftypefn no arg2
+</p></dd></dl>
+
+<dl>
+<dt id="index-titlepage-d_002d_002deftypeop_005fname2-on-c_002d_002dlass2"><span>c--ategory2 on c--lass2:<br> <em>t--ype2</em><br> <strong>d--eftypeop_name2</strong> <em>a--rguments2...</em><a href='#index-titlepage-d_002d_002deftypeop_005fname2-on-c_002d_002dlass2' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d-eftypeop2
+</p></dd></dl>
+
+<dl>
+<dt id="index-titlepage-d_002d_002deftypeop_005fname2-on-c_002d_002dlass2-1"><span>c--ategory2 on c--lass2:<br> <em>t--ype2</em><br> <strong>d--eftypeop_name2</strong><a href='#index-titlepage-d_002d_002deftypeop_005fname2-on-c_002d_002dlass2-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d-eftypeop no arg2
+</p></dd></dl>
+
+<dl>
+<dt id="index-titlepage-d_002d_002deftypecv_005fname2-of-c_002d_002dlass2"><span>c--ategory2 of c--lass2:<br> <em>t--ype2</em><br> <strong>d--eftypecv_name2</strong><a href='#index-titlepage-d_002d_002deftypecv_005fname2-of-c_002d_002dlass2' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d-eftypecv2
+</p></dd></dl>
+
+<dl>
+<dt id="index-titlepage-d_002d_002deftypecv_005fname2-of-c_002d_002dlass2-1"><span>c--ategory2 of c--lass2:<br> <em>t--ype2</em><br> <strong>d--eftypecv_name2</strong> <em>a--rguments2...</em><a href='#index-titlepage-d_002d_002deftypecv_005fname2-of-c_002d_002dlass2-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d-eftypecv with arguments2
+</p></dd></dl>
+
+<dl>
+<dt id="index-titlepage-arg2">>fun2: </span><span><strong>arg2</strong><a href='#index-titlepage-arg2' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>fff2
+</p></dd></dl>
+
 
 <p><code>@xref{c---hapter@@, cross r---ef name@@, t---itle@@, file n---ame@@, ma---nual@@}</code> See <a data-manual="file n---ame@" href="file n---ame@.html#c_002d_002d_002dhapter_0040">t--itle@</a> in <cite>ma--nual@</cite>.
 <code>@ref{chapter, cross ref name, title, file name, manual}</code> <a data-manual="file name" href="file name.html#chapter">title</a> in <cite>manual</cite>
@@ -2085,6 +2221,7 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 <dt id="index-copying-deffnx">>truc: </span><span><strong>deffnx</strong> <em>before end deffn</em><a href='#index-copying-deffnx' class='copiable-anchor'> &para;</a></span></dt>
 </dl>
 
+
 <dl>
 <dt id="index-copying-deffn">>empty: </span><span><strong>deffn</strong><a href='#index-copying-deffn' class='copiable-anchor'> &para;</a></span></dt>
 </dl>
@@ -2100,9 +2237,20 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 <dd><p>text in def item for second def item
 </p></dd></dl>
 
+
 <dl>
 <dt id="index-copying-d_002d_002defvr_005fname">>c--ategory: </span><span><strong>d--efvr_name</strong><a href='#index-copying-d_002d_002defvr_005fname' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>d-efvr
+</p></dd></dl>
+
+<dl>
+<dt id="index-copying-n_002d_002dame">>c--ategory: </span><span><strong>n--ame</strong> <em>a--rguments...</em><a href='#index-copying-n_002d_002dame' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d-effn
+</p></dd></dl>
+
+<dl>
+<dt id="index-copying-n_002d_002dame-1">>c--ategory: </span><span><strong>n--ame</strong><a href='#index-copying-n_002d_002dame-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d-effn no arg
 </p></dd></dl>
 
 <dl>
@@ -2111,8 +2259,18 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 </p></dd></dl>
 
 <dl>
+<dt id="index-copying-d_002d_002deftypefn_005fname-1">>c--ategory: </span><span><em>t--ype</em> <strong>d--eftypefn_name</strong><a href='#index-copying-d_002d_002deftypefn_005fname-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d-eftypefn no arg
+</p></dd></dl>
+
+<dl>
 <dt id="index-copying-d_002d_002deftypeop_005fname-on-c_002d_002dlass"><span>c--ategory on c--lass: <em>t--ype</em> <strong>d--eftypeop_name</strong> <em>a--rguments...</em><a href='#index-copying-d_002d_002deftypeop_005fname-on-c_002d_002dlass' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>d-eftypeop
+</p></dd></dl>
+
+<dl>
+<dt id="index-copying-d_002d_002deftypeop_005fname-on-c_002d_002dlass-1"><span>c--ategory on c--lass: <em>t--ype</em> <strong>d--eftypeop_name</strong><a href='#index-copying-d_002d_002deftypeop_005fname-on-c_002d_002dlass-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d-eftypeop no arg
 </p></dd></dl>
 
 <dl>
@@ -2126,8 +2284,28 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 </p></dd></dl>
 
 <dl>
+<dt id="index-copying-d_002d_002defcv_005fname-1"><span>c--ategory of c--lass: <strong>d--efcv_name</strong> <em>a--rguments...</em><a href='#index-copying-d_002d_002defcv_005fname-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d-efcv with arguments
+</p></dd></dl>
+
+<dl>
+<dt id="index-copying-d_002d_002deftypecv_005fname-of-c_002d_002dlass"><span>c--ategory of c--lass: <em>t--ype</em> <strong>d--eftypecv_name</strong><a href='#index-copying-d_002d_002deftypecv_005fname-of-c_002d_002dlass' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d-eftypecv
+</p></dd></dl>
+
+<dl>
+<dt id="index-copying-d_002d_002deftypecv_005fname-of-c_002d_002dlass-1"><span>c--ategory of c--lass: <em>t--ype</em> <strong>d--eftypecv_name</strong> <em>a--rguments...</em><a href='#index-copying-d_002d_002deftypecv_005fname-of-c_002d_002dlass-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d-eftypecv with arguments
+</p></dd></dl>
+
+<dl>
 <dt id="index-copying-d_002d_002defop_005fname-on-c_002d_002dlass"><span>c--ategory on c--lass: <strong>d--efop_name</strong> <em>a--rguments...</em><a href='#index-copying-d_002d_002defop_005fname-on-c_002d_002dlass' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>d-efop
+</p></dd></dl>
+
+<dl>
+<dt id="index-copying-d_002d_002defop_005fname-on-c_002d_002dlass-1"><span>c--ategory on c--lass: <strong>d--efop_name</strong><a href='#index-copying-d_002d_002defop_005fname-on-c_002d_002dlass-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d-efop no arg
 </p></dd></dl>
 
 <dl>
@@ -2151,8 +2329,13 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 </p></dd></dl>
 
 <dl>
-<dt id="index-copying-d_002d_002defvar_005fname">>Variable: </span><span><strong>d--efvar_name</strong> <em>argvar argvar1</em><a href='#index-copying-d_002d_002defvar_005fname' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-copying-d_002d_002defvar_005fname">>Variable: </span><span><strong>d--efvar_name</strong><a href='#index-copying-d_002d_002defvar_005fname' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>d-efvar
+</p></dd></dl>
+
+<dl>
+<dt id="index-copying-d_002d_002defvar_005fname-1">>Variable: </span><span><strong>d--efvar_name</strong> <em>arg--var arg--var1</em><a href='#index-copying-d_002d_002defvar_005fname-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d-efvar with args
 </p></dd></dl>
 
 <dl>
@@ -2189,6 +2372,43 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 <dt id="index-copying-d_002d_002deftypemethod_005fname-on-c_002d_002dlass"><span>Method on c--lass: <em>t--ype</em> <strong>d--eftypemethod_name</strong> <em>a--rguments...</em><a href='#index-copying-d_002d_002deftypemethod_005fname-on-c_002d_002dlass' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>d-eftypemethod
 </p></dd></dl>
+
+
+<dl>
+<dt id="index-copying-name2">>Function:<br> </span><span><em>data-type2</em><br> <strong>name2</strong> <em>arguments2...</em><a href='#index-copying-name2' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>aaa2
+</p></dd></dl>
+
+<dl>
+<dt id="index-copying-d_002d_002deftypefn_005fname2">>c--ategory2:<br> </span><span><em>t--ype2</em><br> <strong>d--eftypefn_name2</strong><a href='#index-copying-d_002d_002deftypefn_005fname2' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d-eftypefn no arg2
+</p></dd></dl>
+
+<dl>
+<dt id="index-copying-d_002d_002deftypeop_005fname2-on-c_002d_002dlass2"><span>c--ategory2 on c--lass2:<br> <em>t--ype2</em><br> <strong>d--eftypeop_name2</strong> <em>a--rguments2...</em><a href='#index-copying-d_002d_002deftypeop_005fname2-on-c_002d_002dlass2' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d-eftypeop2
+</p></dd></dl>
+
+<dl>
+<dt id="index-copying-d_002d_002deftypeop_005fname2-on-c_002d_002dlass2-1"><span>c--ategory2 on c--lass2:<br> <em>t--ype2</em><br> <strong>d--eftypeop_name2</strong><a href='#index-copying-d_002d_002deftypeop_005fname2-on-c_002d_002dlass2-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d-eftypeop no arg2
+</p></dd></dl>
+
+<dl>
+<dt id="index-copying-d_002d_002deftypecv_005fname2-of-c_002d_002dlass2"><span>c--ategory2 of c--lass2:<br> <em>t--ype2</em><br> <strong>d--eftypecv_name2</strong><a href='#index-copying-d_002d_002deftypecv_005fname2-of-c_002d_002dlass2' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d-eftypecv2
+</p></dd></dl>
+
+<dl>
+<dt id="index-copying-d_002d_002deftypecv_005fname2-of-c_002d_002dlass2-1"><span>c--ategory2 of c--lass2:<br> <em>t--ype2</em><br> <strong>d--eftypecv_name2</strong> <em>a--rguments2...</em><a href='#index-copying-d_002d_002deftypecv_005fname2-of-c_002d_002dlass2-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d-eftypecv with arguments2
+</p></dd></dl>
+
+<dl>
+<dt id="index-copying-arg2">>fun2: </span><span><strong>arg2</strong><a href='#index-copying-arg2' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>fff2
+</p></dd></dl>
+
 
 <p><code>@xref{c---hapter@@, cross r---ef name@@, t---itle@@, file n---ame@@, ma---nual@@}</code> See <a data-manual="file n---ame@" href="file n---ame@.html#c_002d_002d_002dhapter_0040">t--itle@</a> in <cite>ma--nual@</cite>.
 <code>@ref{chapter, cross ref name, title, file name, manual}</code> <a data-manual="file name" href="file name.html#chapter">title</a> in <cite>manual</cite>
@@ -3008,6 +3228,7 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 <dt id="index-copying-deffnx">>truc: </span><span><strong>deffnx</strong> <em>before end deffn</em><a href='#index-copying-deffnx' class='copiable-anchor'> &para;</a></span></dt>
 </dl>
 
+
 <dl>
 <dt id="index-copying-deffn">>empty: </span><span><strong>deffn</strong><a href='#index-copying-deffn' class='copiable-anchor'> &para;</a></span></dt>
 </dl>
@@ -3023,9 +3244,20 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 <dd><p>text in def item for second def item
 </p></dd></dl>
 
+
 <dl>
 <dt id="index-copying-d_002d_002defvr_005fname">>c--ategory: </span><span><strong>d--efvr_name</strong><a href='#index-copying-d_002d_002defvr_005fname' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>d-efvr
+</p></dd></dl>
+
+<dl>
+<dt id="index-copying-n_002d_002dame">>c--ategory: </span><span><strong>n--ame</strong> <em>a--rguments...</em><a href='#index-copying-n_002d_002dame' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d-effn
+</p></dd></dl>
+
+<dl>
+<dt id="index-copying-n_002d_002dame-1">>c--ategory: </span><span><strong>n--ame</strong><a href='#index-copying-n_002d_002dame-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d-effn no arg
 </p></dd></dl>
 
 <dl>
@@ -3034,8 +3266,18 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 </p></dd></dl>
 
 <dl>
+<dt id="index-copying-d_002d_002deftypefn_005fname-1">>c--ategory: </span><span><em>t--ype</em> <strong>d--eftypefn_name</strong><a href='#index-copying-d_002d_002deftypefn_005fname-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d-eftypefn no arg
+</p></dd></dl>
+
+<dl>
 <dt id="index-copying-d_002d_002deftypeop_005fname-on-c_002d_002dlass"><span>c--ategory on c--lass: <em>t--ype</em> <strong>d--eftypeop_name</strong> <em>a--rguments...</em><a href='#index-copying-d_002d_002deftypeop_005fname-on-c_002d_002dlass' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>d-eftypeop
+</p></dd></dl>
+
+<dl>
+<dt id="index-copying-d_002d_002deftypeop_005fname-on-c_002d_002dlass-1"><span>c--ategory on c--lass: <em>t--ype</em> <strong>d--eftypeop_name</strong><a href='#index-copying-d_002d_002deftypeop_005fname-on-c_002d_002dlass-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d-eftypeop no arg
 </p></dd></dl>
 
 <dl>
@@ -3049,8 +3291,28 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 </p></dd></dl>
 
 <dl>
+<dt id="index-copying-d_002d_002defcv_005fname-1"><span>c--ategory of c--lass: <strong>d--efcv_name</strong> <em>a--rguments...</em><a href='#index-copying-d_002d_002defcv_005fname-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d-efcv with arguments
+</p></dd></dl>
+
+<dl>
+<dt id="index-copying-d_002d_002deftypecv_005fname-of-c_002d_002dlass"><span>c--ategory of c--lass: <em>t--ype</em> <strong>d--eftypecv_name</strong><a href='#index-copying-d_002d_002deftypecv_005fname-of-c_002d_002dlass' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d-eftypecv
+</p></dd></dl>
+
+<dl>
+<dt id="index-copying-d_002d_002deftypecv_005fname-of-c_002d_002dlass-1"><span>c--ategory of c--lass: <em>t--ype</em> <strong>d--eftypecv_name</strong> <em>a--rguments...</em><a href='#index-copying-d_002d_002deftypecv_005fname-of-c_002d_002dlass-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d-eftypecv with arguments
+</p></dd></dl>
+
+<dl>
 <dt id="index-copying-d_002d_002defop_005fname-on-c_002d_002dlass"><span>c--ategory on c--lass: <strong>d--efop_name</strong> <em>a--rguments...</em><a href='#index-copying-d_002d_002defop_005fname-on-c_002d_002dlass' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>d-efop
+</p></dd></dl>
+
+<dl>
+<dt id="index-copying-d_002d_002defop_005fname-on-c_002d_002dlass-1"><span>c--ategory on c--lass: <strong>d--efop_name</strong><a href='#index-copying-d_002d_002defop_005fname-on-c_002d_002dlass-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d-efop no arg
 </p></dd></dl>
 
 <dl>
@@ -3074,8 +3336,13 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 </p></dd></dl>
 
 <dl>
-<dt id="index-copying-d_002d_002defvar_005fname">>Variable: </span><span><strong>d--efvar_name</strong> <em>argvar argvar1</em><a href='#index-copying-d_002d_002defvar_005fname' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-copying-d_002d_002defvar_005fname">>Variable: </span><span><strong>d--efvar_name</strong><a href='#index-copying-d_002d_002defvar_005fname' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>d-efvar
+</p></dd></dl>
+
+<dl>
+<dt id="index-copying-d_002d_002defvar_005fname-1">>Variable: </span><span><strong>d--efvar_name</strong> <em>arg--var arg--var1</em><a href='#index-copying-d_002d_002defvar_005fname-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d-efvar with args
 </p></dd></dl>
 
 <dl>
@@ -3112,6 +3379,43 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 <dt id="index-copying-d_002d_002deftypemethod_005fname-on-c_002d_002dlass"><span>Method on c--lass: <em>t--ype</em> <strong>d--eftypemethod_name</strong> <em>a--rguments...</em><a href='#index-copying-d_002d_002deftypemethod_005fname-on-c_002d_002dlass' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>d-eftypemethod
 </p></dd></dl>
+
+
+<dl>
+<dt id="index-copying-name2">>Function:<br> </span><span><em>data-type2</em><br> <strong>name2</strong> <em>arguments2...</em><a href='#index-copying-name2' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>aaa2
+</p></dd></dl>
+
+<dl>
+<dt id="index-copying-d_002d_002deftypefn_005fname2">>c--ategory2:<br> </span><span><em>t--ype2</em><br> <strong>d--eftypefn_name2</strong><a href='#index-copying-d_002d_002deftypefn_005fname2' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d-eftypefn no arg2
+</p></dd></dl>
+
+<dl>
+<dt id="index-copying-d_002d_002deftypeop_005fname2-on-c_002d_002dlass2"><span>c--ategory2 on c--lass2:<br> <em>t--ype2</em><br> <strong>d--eftypeop_name2</strong> <em>a--rguments2...</em><a href='#index-copying-d_002d_002deftypeop_005fname2-on-c_002d_002dlass2' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d-eftypeop2
+</p></dd></dl>
+
+<dl>
+<dt id="index-copying-d_002d_002deftypeop_005fname2-on-c_002d_002dlass2-1"><span>c--ategory2 on c--lass2:<br> <em>t--ype2</em><br> <strong>d--eftypeop_name2</strong><a href='#index-copying-d_002d_002deftypeop_005fname2-on-c_002d_002dlass2-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d-eftypeop no arg2
+</p></dd></dl>
+
+<dl>
+<dt id="index-copying-d_002d_002deftypecv_005fname2-of-c_002d_002dlass2"><span>c--ategory2 of c--lass2:<br> <em>t--ype2</em><br> <strong>d--eftypecv_name2</strong><a href='#index-copying-d_002d_002deftypecv_005fname2-of-c_002d_002dlass2' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d-eftypecv2
+</p></dd></dl>
+
+<dl>
+<dt id="index-copying-d_002d_002deftypecv_005fname2-of-c_002d_002dlass2-1"><span>c--ategory2 of c--lass2:<br> <em>t--ype2</em><br> <strong>d--eftypecv_name2</strong> <em>a--rguments2...</em><a href='#index-copying-d_002d_002deftypecv_005fname2-of-c_002d_002dlass2-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d-eftypecv with arguments2
+</p></dd></dl>
+
+<dl>
+<dt id="index-copying-arg2">>fun2: </span><span><strong>arg2</strong><a href='#index-copying-arg2' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>fff2
+</p></dd></dl>
+
 
 <p><code>@xref{c---hapter@@, cross r---ef name@@, t---itle@@, file n---ame@@, ma---nual@@}</code> See <a data-manual="file n---ame@" href="file n---ame@.html#c_002d_002d_002dhapter_0040">t--itle@</a> in <cite>ma--nual@</cite>.
 <code>@ref{chapter, cross ref name, title, file name, manual}</code> <a data-manual="file name" href="file name.html#chapter">title</a> in <cite>manual</cite>
@@ -3874,6 +4178,7 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 <dt id="index-deffnx">>truc: </span><span><strong>deffnx</strong> <em>before end deffn</em><a href='#index-deffnx' class='copiable-anchor'> &para;</a></span></dt>
 </dl>
 
+
 <dl>
 <dt id="index-deffn">>empty: </span><span><strong>deffn</strong><a href='#index-deffn' class='copiable-anchor'> &para;</a></span></dt>
 </dl>
@@ -3889,9 +4194,20 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 <dd><p>text in def item for second def item
 </p></dd></dl>
 
+
 <dl>
 <dt id="index-d_002d_002defvr_005fname">>c--ategory: </span><span><strong>d--efvr_name</strong><a href='#index-d_002d_002defvr_005fname' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>d-efvr
+</p></dd></dl>
+
+<dl>
+<dt id="index-n_002d_002dame">>c--ategory: </span><span><strong>n--ame</strong> <em>a--rguments...</em><a href='#index-n_002d_002dame' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d-effn
+</p></dd></dl>
+
+<dl>
+<dt id="index-n_002d_002dame-1">>c--ategory: </span><span><strong>n--ame</strong><a href='#index-n_002d_002dame-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d-effn no arg
 </p></dd></dl>
 
 <dl>
@@ -3900,8 +4216,18 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 </p></dd></dl>
 
 <dl>
+<dt id="index-d_002d_002deftypefn_005fname-1">>c--ategory: </span><span><em>t--ype</em> <strong>d--eftypefn_name</strong><a href='#index-d_002d_002deftypefn_005fname-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d-eftypefn no arg
+</p></dd></dl>
+
+<dl>
 <dt id="index-d_002d_002deftypeop_005fname-on-c_002d_002dlass"><span>c--ategory on c--lass: <em>t--ype</em> <strong>d--eftypeop_name</strong> <em>a--rguments...</em><a href='#index-d_002d_002deftypeop_005fname-on-c_002d_002dlass' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>d-eftypeop
+</p></dd></dl>
+
+<dl>
+<dt id="index-d_002d_002deftypeop_005fname-on-c_002d_002dlass-1"><span>c--ategory on c--lass: <em>t--ype</em> <strong>d--eftypeop_name</strong><a href='#index-d_002d_002deftypeop_005fname-on-c_002d_002dlass-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d-eftypeop no arg
 </p></dd></dl>
 
 <dl>
@@ -3915,8 +4241,28 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 </p></dd></dl>
 
 <dl>
+<dt id="index-d_002d_002defcv_005fname-1"><span>c--ategory of c--lass: <strong>d--efcv_name</strong> <em>a--rguments...</em><a href='#index-d_002d_002defcv_005fname-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d-efcv with arguments
+</p></dd></dl>
+
+<dl>
+<dt id="index-d_002d_002deftypecv_005fname-of-c_002d_002dlass"><span>c--ategory of c--lass: <em>t--ype</em> <strong>d--eftypecv_name</strong><a href='#index-d_002d_002deftypecv_005fname-of-c_002d_002dlass' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d-eftypecv
+</p></dd></dl>
+
+<dl>
+<dt id="index-d_002d_002deftypecv_005fname-of-c_002d_002dlass-1"><span>c--ategory of c--lass: <em>t--ype</em> <strong>d--eftypecv_name</strong> <em>a--rguments...</em><a href='#index-d_002d_002deftypecv_005fname-of-c_002d_002dlass-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d-eftypecv with arguments
+</p></dd></dl>
+
+<dl>
 <dt id="index-d_002d_002defop_005fname-on-c_002d_002dlass"><span>c--ategory on c--lass: <strong>d--efop_name</strong> <em>a--rguments...</em><a href='#index-d_002d_002defop_005fname-on-c_002d_002dlass' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>d-efop
+</p></dd></dl>
+
+<dl>
+<dt id="index-d_002d_002defop_005fname-on-c_002d_002dlass-1"><span>c--ategory on c--lass: <strong>d--efop_name</strong><a href='#index-d_002d_002defop_005fname-on-c_002d_002dlass-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d-efop no arg
 </p></dd></dl>
 
 <dl>
@@ -3940,8 +4286,13 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 </p></dd></dl>
 
 <dl>
-<dt id="index-d_002d_002defvar_005fname">>Variable: </span><span><strong>d--efvar_name</strong> <em>argvar argvar1</em><a href='#index-d_002d_002defvar_005fname' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-d_002d_002defvar_005fname">>Variable: </span><span><strong>d--efvar_name</strong><a href='#index-d_002d_002defvar_005fname' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>d-efvar
+</p></dd></dl>
+
+<dl>
+<dt id="index-d_002d_002defvar_005fname-1">>Variable: </span><span><strong>d--efvar_name</strong> <em>arg--var arg--var1</em><a href='#index-d_002d_002defvar_005fname-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d-efvar with args
 </p></dd></dl>
 
 <dl>
@@ -3978,6 +4329,43 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 <dt id="index-d_002d_002deftypemethod_005fname-on-c_002d_002dlass"><span>Method on c--lass: <em>t--ype</em> <strong>d--eftypemethod_name</strong> <em>a--rguments...</em><a href='#index-d_002d_002deftypemethod_005fname-on-c_002d_002dlass' class='copiable-anchor'> &para;</a></span></dt>
 <dd><p>d-eftypemethod
 </p></dd></dl>
+
+
+<dl>
+<dt id="index-name2">>Function:<br> </span><span><em>data-type2</em><br> <strong>name2</strong> <em>arguments2...</em><a href='#index-name2' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>aaa2
+</p></dd></dl>
+
+<dl>
+<dt id="index-d_002d_002deftypefn_005fname2">>c--ategory2:<br> </span><span><em>t--ype2</em><br> <strong>d--eftypefn_name2</strong><a href='#index-d_002d_002deftypefn_005fname2' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d-eftypefn no arg2
+</p></dd></dl>
+
+<dl>
+<dt id="index-d_002d_002deftypeop_005fname2-on-c_002d_002dlass2"><span>c--ategory2 on c--lass2:<br> <em>t--ype2</em><br> <strong>d--eftypeop_name2</strong> <em>a--rguments2...</em><a href='#index-d_002d_002deftypeop_005fname2-on-c_002d_002dlass2' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d-eftypeop2
+</p></dd></dl>
+
+<dl>
+<dt id="index-d_002d_002deftypeop_005fname2-on-c_002d_002dlass2-1"><span>c--ategory2 on c--lass2:<br> <em>t--ype2</em><br> <strong>d--eftypeop_name2</strong><a href='#index-d_002d_002deftypeop_005fname2-on-c_002d_002dlass2-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d-eftypeop no arg2
+</p></dd></dl>
+
+<dl>
+<dt id="index-d_002d_002deftypecv_005fname2-of-c_002d_002dlass2"><span>c--ategory2 of c--lass2:<br> <em>t--ype2</em><br> <strong>d--eftypecv_name2</strong><a href='#index-d_002d_002deftypecv_005fname2-of-c_002d_002dlass2' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d-eftypecv2
+</p></dd></dl>
+
+<dl>
+<dt id="index-d_002d_002deftypecv_005fname2-of-c_002d_002dlass2-1"><span>c--ategory2 of c--lass2:<br> <em>t--ype2</em><br> <strong>d--eftypecv_name2</strong> <em>a--rguments2...</em><a href='#index-d_002d_002deftypecv_005fname2-of-c_002d_002dlass2-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>d-eftypecv with arguments2
+</p></dd></dl>
+
+<dl>
+<dt id="index-arg2">>fun2: </span><span><strong>arg2</strong><a href='#index-arg2' class='copiable-anchor'> &para;</a></span></dt>
+<dd><p>fff2
+</p></dd></dl>
+
 
 <p><code>@xref{c---hapter@@, cross r---ef name@@, t---itle@@, file n---ame@@, ma---nual@@}</code> See <a data-manual="file n---ame@" href="file n---ame@.html#c_002d_002d_002dhapter_0040">t--itle@</a> in <cite>ma--nual@</cite>.
 <code>@ref{chapter, cross ref name, title, file name, manual}</code> <a data-manual="file name" href="file name.html#chapter">title</a> in <cite>manual</cite>
@@ -4809,6 +5197,7 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 </dl>
 <pre>
 
+
 </pre><dl>
 <dt id="index-deffn-2">>empty: </span><span><strong>deffn</strong><a href='#index-deffn-2' class='copiable-anchor'> &para;</a></span></dt>
 </dl>
@@ -4827,6 +5216,7 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 </pre></dd></dl>
 <pre>
 
+
 </pre><dl>
 <dt id="index-d_002d_002defvr_005fname-1">>c--ategory: </span><span><strong>d--efvr_name</strong><a href='#index-d_002d_002defvr_005fname-1' class='copiable-anchor'> &para;</a></span></dt>
 <dd><pre>d--efvr
@@ -4834,14 +5224,38 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 <pre>
 
 </pre><dl>
-<dt id="index-d_002d_002deftypefn_005fname-1">>c--ategory: </span><span><em>t--ype</em> <strong>d--eftypefn_name</strong> <em>a--rguments...</em><a href='#index-d_002d_002deftypefn_005fname-1' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-n_002d_002dame-2">>c--ategory: </span><span><strong>n--ame</strong> <em>a--rguments...</em><a href='#index-n_002d_002dame-2' class='copiable-anchor'> &para;</a></span></dt>
+<dd><pre>d--effn
+</pre></dd></dl>
+<pre>
+
+</pre><dl>
+<dt id="index-n_002d_002dame-3">>c--ategory: </span><span><strong>n--ame</strong><a href='#index-n_002d_002dame-3' class='copiable-anchor'> &para;</a></span></dt>
+<dd><pre>d--effn no arg
+</pre></dd></dl>
+<pre>
+
+</pre><dl>
+<dt id="index-d_002d_002deftypefn_005fname-2">>c--ategory: </span><span><em>t--ype</em> <strong>d--eftypefn_name</strong> <em>a--rguments...</em><a href='#index-d_002d_002deftypefn_005fname-2' class='copiable-anchor'> &para;</a></span></dt>
 <dd><pre>d--eftypefn
 </pre></dd></dl>
 <pre>
 
 </pre><dl>
-<dt id="index-d_002d_002deftypeop_005fname-on-c_002d_002dlass-1"><span>c--ategory on c--lass: <em>t--ype</em> <strong>d--eftypeop_name</strong> <em>a--rguments...</em><a href='#index-d_002d_002deftypeop_005fname-on-c_002d_002dlass-1' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-d_002d_002deftypefn_005fname-3">>c--ategory: </span><span><em>t--ype</em> <strong>d--eftypefn_name</strong><a href='#index-d_002d_002deftypefn_005fname-3' class='copiable-anchor'> &para;</a></span></dt>
+<dd><pre>d--eftypefn no arg
+</pre></dd></dl>
+<pre>
+
+</pre><dl>
+<dt id="index-d_002d_002deftypeop_005fname-on-c_002d_002dlass-2"><span>c--ategory on c--lass: <em>t--ype</em> <strong>d--eftypeop_name</strong> <em>a--rguments...</em><a href='#index-d_002d_002deftypeop_005fname-on-c_002d_002dlass-2' class='copiable-anchor'> &para;</a></span></dt>
 <dd><pre>d--eftypeop
+</pre></dd></dl>
+<pre>
+
+</pre><dl>
+<dt id="index-d_002d_002deftypeop_005fname-on-c_002d_002dlass-3"><span>c--ategory on c--lass: <em>t--ype</em> <strong>d--eftypeop_name</strong><a href='#index-d_002d_002deftypeop_005fname-on-c_002d_002dlass-3' class='copiable-anchor'> &para;</a></span></dt>
+<dd><pre>d--eftypeop no arg
 </pre></dd></dl>
 <pre>
 
@@ -4852,14 +5266,38 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 <pre>
 
 </pre><dl>
-<dt id="index-d_002d_002defcv_005fname-1"><span>c--ategory of c--lass: <strong>d--efcv_name</strong><a href='#index-d_002d_002defcv_005fname-1' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-d_002d_002defcv_005fname-2"><span>c--ategory of c--lass: <strong>d--efcv_name</strong><a href='#index-d_002d_002defcv_005fname-2' class='copiable-anchor'> &para;</a></span></dt>
 <dd><pre>d--efcv
 </pre></dd></dl>
 <pre>
 
 </pre><dl>
-<dt id="index-d_002d_002defop_005fname-on-c_002d_002dlass-1"><span>c--ategory on c--lass: <strong>d--efop_name</strong> <em>a--rguments...</em><a href='#index-d_002d_002defop_005fname-on-c_002d_002dlass-1' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-d_002d_002defcv_005fname-3"><span>c--ategory of c--lass: <strong>d--efcv_name</strong> <em>a--rguments...</em><a href='#index-d_002d_002defcv_005fname-3' class='copiable-anchor'> &para;</a></span></dt>
+<dd><pre>d--efcv with arguments
+</pre></dd></dl>
+<pre>
+
+</pre><dl>
+<dt id="index-d_002d_002deftypecv_005fname-of-c_002d_002dlass-2"><span>c--ategory of c--lass: <em>t--ype</em> <strong>d--eftypecv_name</strong><a href='#index-d_002d_002deftypecv_005fname-of-c_002d_002dlass-2' class='copiable-anchor'> &para;</a></span></dt>
+<dd><pre>d--eftypecv
+</pre></dd></dl>
+<pre>
+
+</pre><dl>
+<dt id="index-d_002d_002deftypecv_005fname-of-c_002d_002dlass-3"><span>c--ategory of c--lass: <em>t--ype</em> <strong>d--eftypecv_name</strong> <em>a--rguments...</em><a href='#index-d_002d_002deftypecv_005fname-of-c_002d_002dlass-3' class='copiable-anchor'> &para;</a></span></dt>
+<dd><pre>d--eftypecv with arguments
+</pre></dd></dl>
+<pre>
+
+</pre><dl>
+<dt id="index-d_002d_002defop_005fname-on-c_002d_002dlass-2"><span>c--ategory on c--lass: <strong>d--efop_name</strong> <em>a--rguments...</em><a href='#index-d_002d_002defop_005fname-on-c_002d_002dlass-2' class='copiable-anchor'> &para;</a></span></dt>
 <dd><pre>d--efop
+</pre></dd></dl>
+<pre>
+
+</pre><dl>
+<dt id="index-d_002d_002defop_005fname-on-c_002d_002dlass-3"><span>c--ategory on c--lass: <strong>d--efop_name</strong><a href='#index-d_002d_002defop_005fname-on-c_002d_002dlass-3' class='copiable-anchor'> &para;</a></span></dt>
+<dd><pre>d--efop no arg
 </pre></dd></dl>
 <pre>
 
@@ -4888,8 +5326,14 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 <pre>
 
 </pre><dl>
-<dt id="index-d_002d_002defvar_005fname-1">>Variable: </span><span><strong>d--efvar_name</strong> <em>argvar argvar1</em><a href='#index-d_002d_002defvar_005fname-1' class='copiable-anchor'> &para;</a></span></dt>
+<dt id="index-d_002d_002defvar_005fname-2">>Variable: </span><span><strong>d--efvar_name</strong><a href='#index-d_002d_002defvar_005fname-2' class='copiable-anchor'> &para;</a></span></dt>
 <dd><pre>d--efvar
+</pre></dd></dl>
+<pre>
+
+</pre><dl>
+<dt id="index-d_002d_002defvar_005fname-3">>Variable: </span><span><strong>d--efvar_name</strong> <em>arg--var arg--var1</em><a href='#index-d_002d_002defvar_005fname-3' class='copiable-anchor'> &para;</a></span></dt>
+<dd><pre>d--efvar with args
 </pre></dd></dl>
 <pre>
 
@@ -4934,6 +5378,62 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 <dd><pre>d--eftypemethod
 </pre></dd></dl>
 <pre>
+
+
+</pre><dl>
+<dt id="index-name2-1">>Function:
+ </span><span><em>data-type2</em>
+ <strong>name2</strong> <em>arguments2...</em><a href='#index-name2-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><pre>aaa2
+</pre></dd></dl>
+<pre>
+
+</pre><dl>
+<dt id="index-d_002d_002deftypefn_005fname2-1">>c--ategory2:
+ </span><span><em>t--ype2</em>
+ <strong>d--eftypefn_name2</strong><a href='#index-d_002d_002deftypefn_005fname2-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><pre>d--eftypefn no arg2
+</pre></dd></dl>
+<pre>
+
+</pre><dl>
+<dt id="index-d_002d_002deftypeop_005fname2-on-c_002d_002dlass2-2"><span>c--ategory2 on c--lass2:
+ <em>t--ype2</em>
+ <strong>d--eftypeop_name2</strong> <em>a--rguments2...</em><a href='#index-d_002d_002deftypeop_005fname2-on-c_002d_002dlass2-2' class='copiable-anchor'> &para;</a></span></dt>
+<dd><pre>d--eftypeop2
+</pre></dd></dl>
+<pre>
+
+</pre><dl>
+<dt id="index-d_002d_002deftypeop_005fname2-on-c_002d_002dlass2-3"><span>c--ategory2 on c--lass2:
+ <em>t--ype2</em>
+ <strong>d--eftypeop_name2</strong><a href='#index-d_002d_002deftypeop_005fname2-on-c_002d_002dlass2-3' class='copiable-anchor'> &para;</a></span></dt>
+<dd><pre>d--eftypeop no arg2
+</pre></dd></dl>
+<pre>
+
+</pre><dl>
+<dt id="index-d_002d_002deftypecv_005fname2-of-c_002d_002dlass2-2"><span>c--ategory2 of c--lass2:
+ <em>t--ype2</em>
+ <strong>d--eftypecv_name2</strong><a href='#index-d_002d_002deftypecv_005fname2-of-c_002d_002dlass2-2' class='copiable-anchor'> &para;</a></span></dt>
+<dd><pre>d--eftypecv2
+</pre></dd></dl>
+<pre>
+
+</pre><dl>
+<dt id="index-d_002d_002deftypecv_005fname2-of-c_002d_002dlass2-3"><span>c--ategory2 of c--lass2:
+ <em>t--ype2</em>
+ <strong>d--eftypecv_name2</strong> <em>a--rguments2...</em><a href='#index-d_002d_002deftypecv_005fname2-of-c_002d_002dlass2-3' class='copiable-anchor'> &para;</a></span></dt>
+<dd><pre>d--eftypecv with arguments2
+</pre></dd></dl>
+<pre>
+
+</pre><dl>
+<dt id="index-arg2-1">>fun2: </span><span><strong>arg2</strong><a href='#index-arg2-1' class='copiable-anchor'> &para;</a></span></dt>
+<dd><pre>fff2
+</pre></dd></dl>
+<pre>
+
 
 <code>@xref{c---hapter@@, cross r---ef name@@, t---itle@@, file n---ame@@, ma---nual@@}</code> See <a data-manual="file n---ame@" href="file n---ame@.html#c_002d_002d_002dhapter_0040">t---itle@</a> in <cite>ma---nual@</cite>.
 <code>@ref{chapter, cross ref name, title, file name, manual}</code> <a data-manual="file name" href="file name.html#chapter">title</a> in <cite>manual</cite>
@@ -5379,9 +5879,13 @@ Invalid use of @':
 <tr><th id="chapter-1_cp_letter-D">D</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-d_002d_002d_002ddd">d--dd, e--ee, f--ff</a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-copying-d_002d_002defcv_005fname"><code>d--efcv_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-copying-d_002d_002defcv_005fname-1"><code>d--efcv_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-titlepage-d_002d_002defcv_005fname"><code>d--efcv_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-titlepage-d_002d_002defcv_005fname-1"><code>d--efcv_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-d_002d_002defcv_005fname"><code>d--efcv_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-d_002d_002defcv_005fname-1"><code>d--efcv_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-d_002d_002defcv_005fname-2"><code>d--efcv_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-d_002d_002defcv_005fname-3"><code>d--efcv_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-copying-d_002d_002defivar_005fname-of-c_002d_002dlass"><code>d--efivar_name of c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-titlepage-d_002d_002defivar_005fname-of-c_002d_002dlass"><code>d--efivar_name of c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-d_002d_002defivar_005fname-of-c_002d_002dlass"><code>d--efivar_name of c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
@@ -5390,6 +5894,22 @@ Invalid use of @':
 <tr><td></td><td valign="top"><a href="#index-titlepage-d_002d_002defopt_005fname"><code>d--efopt_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-d_002d_002defopt_005fname"><code>d--efopt_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-d_002d_002defopt_005fname-1"><code>d--efopt_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-copying-d_002d_002deftypecv_005fname-of-c_002d_002dlass"><code>d--eftypecv_name of c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-copying-d_002d_002deftypecv_005fname-of-c_002d_002dlass-1"><code>d--eftypecv_name of c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-titlepage-d_002d_002deftypecv_005fname-of-c_002d_002dlass"><code>d--eftypecv_name of c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-titlepage-d_002d_002deftypecv_005fname-of-c_002d_002dlass-1"><code>d--eftypecv_name of c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-d_002d_002deftypecv_005fname-of-c_002d_002dlass"><code>d--eftypecv_name of c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-d_002d_002deftypecv_005fname-of-c_002d_002dlass-1"><code>d--eftypecv_name of c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-d_002d_002deftypecv_005fname-of-c_002d_002dlass-2"><code>d--eftypecv_name of c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-d_002d_002deftypecv_005fname-of-c_002d_002dlass-3"><code>d--eftypecv_name of c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-copying-d_002d_002deftypecv_005fname2-of-c_002d_002dlass2"><code>d--eftypecv_name2 of c--lass2</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-copying-d_002d_002deftypecv_005fname2-of-c_002d_002dlass2-1"><code>d--eftypecv_name2 of c--lass2</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-titlepage-d_002d_002deftypecv_005fname2-of-c_002d_002dlass2"><code>d--eftypecv_name2 of c--lass2</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-titlepage-d_002d_002deftypecv_005fname2-of-c_002d_002dlass2-1"><code>d--eftypecv_name2 of c--lass2</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-d_002d_002deftypecv_005fname2-of-c_002d_002dlass2"><code>d--eftypecv_name2 of c--lass2</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-d_002d_002deftypecv_005fname2-of-c_002d_002dlass2-1"><code>d--eftypecv_name2 of c--lass2</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-d_002d_002deftypecv_005fname2-of-c_002d_002dlass2-2"><code>d--eftypecv_name2 of c--lass2</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-d_002d_002deftypecv_005fname2-of-c_002d_002dlass2-3"><code>d--eftypecv_name2 of c--lass2</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-copying-d_002d_002deftypeivar_005fname-of-c_002d_002dlass"><code>d--eftypeivar_name of c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-titlepage-d_002d_002deftypeivar_005fname-of-c_002d_002dlass"><code>d--eftypeivar_name of c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-d_002d_002deftypeivar_005fname-of-c_002d_002dlass"><code>d--eftypeivar_name of c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
@@ -5403,9 +5923,13 @@ Invalid use of @':
 <tr><td></td><td valign="top"><a href="#index-d_002d_002deftypevr_005fname"><code>d--eftypevr_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-d_002d_002deftypevr_005fname-1"><code>d--eftypevr_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-copying-d_002d_002defvar_005fname"><code>d--efvar_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-copying-d_002d_002defvar_005fname-1"><code>d--efvar_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-titlepage-d_002d_002defvar_005fname"><code>d--efvar_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-titlepage-d_002d_002defvar_005fname-1"><code>d--efvar_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-d_002d_002defvar_005fname"><code>d--efvar_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-d_002d_002defvar_005fname-1"><code>d--efvar_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-d_002d_002defvar_005fname-2"><code>d--efvar_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-d_002d_002defvar_005fname-3"><code>d--efvar_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-copying-d_002d_002defvr_005fname"><code>d--efvr_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-titlepage-d_002d_002defvr_005fname"><code>d--efvr_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-d_002d_002defvr_005fname"><code>d--efvr_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
@@ -5491,6 +6015,8 @@ Invalid use of @':
  &nbsp; 
 <a href="#chapter-1_fn_letter-M"><b>M</b></a>
  &nbsp; 
+<a href="#chapter-1_fn_letter-N"><b>N</b></a>
+ &nbsp; 
 <a href="#chapter-1_fn_letter-T"><b>T</b></a>
  &nbsp; 
 <a href="#chapter-1_fn_letter-X"><b>X</b></a>
@@ -5535,6 +6061,10 @@ Invalid use of @':
 <tr><td></td><td valign="top"><a href="#index-titlepage-after"><code>after</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-after"><code>after</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-after-1"><code>after</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-copying-arg2"><code>arg2</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-titlepage-arg2"><code>arg2</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-arg2"><code>arg2</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-arg2-1"><code>arg2</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="chapter-1_fn_letter-B">B</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-copying-b"><code>b</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
@@ -5564,17 +6094,29 @@ Invalid use of @':
 <tr><td></td><td valign="top"><a href="#index-d_002d_002defmethod_005fname-on-c_002d_002dlass"><code>d--efmethod_name on c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-d_002d_002defmethod_005fname-on-c_002d_002dlass-1"><code>d--efmethod_name on c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-copying-d_002d_002defop_005fname-on-c_002d_002dlass"><code>d--efop_name on c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-copying-d_002d_002defop_005fname-on-c_002d_002dlass-1"><code>d--efop_name on c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-titlepage-d_002d_002defop_005fname-on-c_002d_002dlass"><code>d--efop_name on c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-titlepage-d_002d_002defop_005fname-on-c_002d_002dlass-1"><code>d--efop_name on c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-d_002d_002defop_005fname-on-c_002d_002dlass"><code>d--efop_name on c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-d_002d_002defop_005fname-on-c_002d_002dlass-1"><code>d--efop_name on c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-d_002d_002defop_005fname-on-c_002d_002dlass-2"><code>d--efop_name on c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-d_002d_002defop_005fname-on-c_002d_002dlass-3"><code>d--efop_name on c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-copying-d_002d_002defspec_005fname"><code>d--efspec_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-titlepage-d_002d_002defspec_005fname"><code>d--efspec_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-d_002d_002defspec_005fname"><code>d--efspec_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-d_002d_002defspec_005fname-1"><code>d--efspec_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-copying-d_002d_002deftypefn_005fname"><code>d--eftypefn_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-copying-d_002d_002deftypefn_005fname-1"><code>d--eftypefn_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-titlepage-d_002d_002deftypefn_005fname"><code>d--eftypefn_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-titlepage-d_002d_002deftypefn_005fname-1"><code>d--eftypefn_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-d_002d_002deftypefn_005fname"><code>d--eftypefn_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-d_002d_002deftypefn_005fname-1"><code>d--eftypefn_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-d_002d_002deftypefn_005fname-2"><code>d--eftypefn_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-d_002d_002deftypefn_005fname-3"><code>d--eftypefn_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-copying-d_002d_002deftypefn_005fname2"><code>d--eftypefn_name2</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-titlepage-d_002d_002deftypefn_005fname2"><code>d--eftypefn_name2</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-d_002d_002deftypefn_005fname2"><code>d--eftypefn_name2</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-d_002d_002deftypefn_005fname2-1"><code>d--eftypefn_name2</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-copying-d_002d_002deftypefun_005fname"><code>d--eftypefun_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-titlepage-d_002d_002deftypefun_005fname"><code>d--eftypefun_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-d_002d_002deftypefun_005fname"><code>d--eftypefun_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
@@ -5584,9 +6126,21 @@ Invalid use of @':
 <tr><td></td><td valign="top"><a href="#index-d_002d_002deftypemethod_005fname-on-c_002d_002dlass"><code>d--eftypemethod_name on c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-d_002d_002deftypemethod_005fname-on-c_002d_002dlass-1"><code>d--eftypemethod_name on c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-copying-d_002d_002deftypeop_005fname-on-c_002d_002dlass"><code>d--eftypeop_name on c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-copying-d_002d_002deftypeop_005fname-on-c_002d_002dlass-1"><code>d--eftypeop_name on c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-titlepage-d_002d_002deftypeop_005fname-on-c_002d_002dlass"><code>d--eftypeop_name on c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-titlepage-d_002d_002deftypeop_005fname-on-c_002d_002dlass-1"><code>d--eftypeop_name on c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-d_002d_002deftypeop_005fname-on-c_002d_002dlass"><code>d--eftypeop_name on c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-d_002d_002deftypeop_005fname-on-c_002d_002dlass-1"><code>d--eftypeop_name on c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-d_002d_002deftypeop_005fname-on-c_002d_002dlass-2"><code>d--eftypeop_name on c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-d_002d_002deftypeop_005fname-on-c_002d_002dlass-3"><code>d--eftypeop_name on c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-copying-d_002d_002deftypeop_005fname2-on-c_002d_002dlass2"><code>d--eftypeop_name2 on c--lass2</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-copying-d_002d_002deftypeop_005fname2-on-c_002d_002dlass2-1"><code>d--eftypeop_name2 on c--lass2</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-titlepage-d_002d_002deftypeop_005fname2-on-c_002d_002dlass2"><code>d--eftypeop_name2 on c--lass2</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-titlepage-d_002d_002deftypeop_005fname2-on-c_002d_002dlass2-1"><code>d--eftypeop_name2 on c--lass2</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-d_002d_002deftypeop_005fname2-on-c_002d_002dlass2"><code>d--eftypeop_name2 on c--lass2</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-d_002d_002deftypeop_005fname2-on-c_002d_002dlass2-1"><code>d--eftypeop_name2 on c--lass2</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-d_002d_002deftypeop_005fname2-on-c_002d_002dlass2-2"><code>d--eftypeop_name2 on c--lass2</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-d_002d_002deftypeop_005fname2-on-c_002d_002dlass2-3"><code>d--eftypeop_name2 on c--lass2</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-copying-d_002d_002defun_005fname"><code>d--efun_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-titlepage-d_002d_002defun_005fname"><code>d--efun_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-d_002d_002defun_005fname"><code>d--efun_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
@@ -5684,6 +6238,20 @@ Invalid use of @':
 <tr><td></td><td valign="top"><a href="#index-machin-10"><code>machin</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-machin-11"><code>machin</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
+<tr><th id="chapter-1_fn_letter-N">N</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-copying-n_002d_002dame"><code>n--ame</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-copying-n_002d_002dame-1"><code>n--ame</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-titlepage-n_002d_002dame"><code>n--ame</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-titlepage-n_002d_002dame-1"><code>n--ame</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-n_002d_002dame"><code>n--ame</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-n_002d_002dame-1"><code>n--ame</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-n_002d_002dame-2"><code>n--ame</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-n_002d_002dame-3"><code>n--ame</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-copying-name2"><code>name2</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-titlepage-name2"><code>name2</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-name2"><code>name2</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-name2-1"><code>name2</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
 <tr><th id="chapter-1_fn_letter-T">T</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-t_002d_002druc-1"><code>t--ruc</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-T_002d_002druc-1"><code>T--ruc</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
@@ -5722,6 +6290,8 @@ Invalid use of @':
 <a href="#chapter-1_fn_letter-L"><b>L</b></a>
  &nbsp; 
 <a href="#chapter-1_fn_letter-M"><b>M</b></a>
+ &nbsp; 
+<a href="#chapter-1_fn_letter-N"><b>N</b></a>
  &nbsp; 
 <a href="#chapter-1_fn_letter-T"><b>T</b></a>
  &nbsp; 
@@ -5956,9 +6526,13 @@ Menu comment
 <tr><th id="chapter-2_cp_letter-D">D</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-d_002d_002d_002ddd">d--dd, e--ee, f--ff</a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-copying-d_002d_002defcv_005fname"><code>d--efcv_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-copying-d_002d_002defcv_005fname-1"><code>d--efcv_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-titlepage-d_002d_002defcv_005fname"><code>d--efcv_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-titlepage-d_002d_002defcv_005fname-1"><code>d--efcv_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-d_002d_002defcv_005fname"><code>d--efcv_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-d_002d_002defcv_005fname-1"><code>d--efcv_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-d_002d_002defcv_005fname-2"><code>d--efcv_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-d_002d_002defcv_005fname-3"><code>d--efcv_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-copying-d_002d_002defivar_005fname-of-c_002d_002dlass"><code>d--efivar_name of c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-titlepage-d_002d_002defivar_005fname-of-c_002d_002dlass"><code>d--efivar_name of c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-d_002d_002defivar_005fname-of-c_002d_002dlass"><code>d--efivar_name of c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
@@ -5967,6 +6541,22 @@ Menu comment
 <tr><td></td><td valign="top"><a href="#index-titlepage-d_002d_002defopt_005fname"><code>d--efopt_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-d_002d_002defopt_005fname"><code>d--efopt_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-d_002d_002defopt_005fname-1"><code>d--efopt_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-copying-d_002d_002deftypecv_005fname-of-c_002d_002dlass"><code>d--eftypecv_name of c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-copying-d_002d_002deftypecv_005fname-of-c_002d_002dlass-1"><code>d--eftypecv_name of c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-titlepage-d_002d_002deftypecv_005fname-of-c_002d_002dlass"><code>d--eftypecv_name of c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-titlepage-d_002d_002deftypecv_005fname-of-c_002d_002dlass-1"><code>d--eftypecv_name of c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-d_002d_002deftypecv_005fname-of-c_002d_002dlass"><code>d--eftypecv_name of c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-d_002d_002deftypecv_005fname-of-c_002d_002dlass-1"><code>d--eftypecv_name of c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-d_002d_002deftypecv_005fname-of-c_002d_002dlass-2"><code>d--eftypecv_name of c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-d_002d_002deftypecv_005fname-of-c_002d_002dlass-3"><code>d--eftypecv_name of c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-copying-d_002d_002deftypecv_005fname2-of-c_002d_002dlass2"><code>d--eftypecv_name2 of c--lass2</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-copying-d_002d_002deftypecv_005fname2-of-c_002d_002dlass2-1"><code>d--eftypecv_name2 of c--lass2</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-titlepage-d_002d_002deftypecv_005fname2-of-c_002d_002dlass2"><code>d--eftypecv_name2 of c--lass2</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-titlepage-d_002d_002deftypecv_005fname2-of-c_002d_002dlass2-1"><code>d--eftypecv_name2 of c--lass2</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-d_002d_002deftypecv_005fname2-of-c_002d_002dlass2"><code>d--eftypecv_name2 of c--lass2</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-d_002d_002deftypecv_005fname2-of-c_002d_002dlass2-1"><code>d--eftypecv_name2 of c--lass2</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-d_002d_002deftypecv_005fname2-of-c_002d_002dlass2-2"><code>d--eftypecv_name2 of c--lass2</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-d_002d_002deftypecv_005fname2-of-c_002d_002dlass2-3"><code>d--eftypecv_name2 of c--lass2</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-copying-d_002d_002deftypeivar_005fname-of-c_002d_002dlass"><code>d--eftypeivar_name of c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-titlepage-d_002d_002deftypeivar_005fname-of-c_002d_002dlass"><code>d--eftypeivar_name of c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-d_002d_002deftypeivar_005fname-of-c_002d_002dlass"><code>d--eftypeivar_name of c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
@@ -5980,9 +6570,13 @@ Menu comment
 <tr><td></td><td valign="top"><a href="#index-d_002d_002deftypevr_005fname"><code>d--eftypevr_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-d_002d_002deftypevr_005fname-1"><code>d--eftypevr_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-copying-d_002d_002defvar_005fname"><code>d--efvar_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-copying-d_002d_002defvar_005fname-1"><code>d--efvar_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-titlepage-d_002d_002defvar_005fname"><code>d--efvar_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-titlepage-d_002d_002defvar_005fname-1"><code>d--efvar_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-d_002d_002defvar_005fname"><code>d--efvar_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-d_002d_002defvar_005fname-1"><code>d--efvar_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-d_002d_002defvar_005fname-2"><code>d--efvar_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-d_002d_002defvar_005fname-3"><code>d--efvar_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-copying-d_002d_002defvr_005fname"><code>d--efvr_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-titlepage-d_002d_002defvr_005fname"><code>d--efvr_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-d_002d_002defvr_005fname"><code>d--efvr_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
@@ -6066,6 +6660,8 @@ Menu comment
  &nbsp; 
 <a href="#chapter-2_fn_letter-M"><b>M</b></a>
  &nbsp; 
+<a href="#chapter-2_fn_letter-N"><b>N</b></a>
+ &nbsp; 
 <a href="#chapter-2_fn_letter-T"><b>T</b></a>
  &nbsp; 
 <a href="#chapter-2_fn_letter-X"><b>X</b></a>
@@ -6110,6 +6706,10 @@ Menu comment
 <tr><td></td><td valign="top"><a href="#index-titlepage-after"><code>after</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-after"><code>after</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-after-1"><code>after</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-copying-arg2"><code>arg2</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-titlepage-arg2"><code>arg2</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-arg2"><code>arg2</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-arg2-1"><code>arg2</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="chapter-2_fn_letter-B">B</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-copying-b"><code>b</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
@@ -6139,17 +6739,29 @@ Menu comment
 <tr><td></td><td valign="top"><a href="#index-d_002d_002defmethod_005fname-on-c_002d_002dlass"><code>d--efmethod_name on c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-d_002d_002defmethod_005fname-on-c_002d_002dlass-1"><code>d--efmethod_name on c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-copying-d_002d_002defop_005fname-on-c_002d_002dlass"><code>d--efop_name on c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-copying-d_002d_002defop_005fname-on-c_002d_002dlass-1"><code>d--efop_name on c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-titlepage-d_002d_002defop_005fname-on-c_002d_002dlass"><code>d--efop_name on c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-titlepage-d_002d_002defop_005fname-on-c_002d_002dlass-1"><code>d--efop_name on c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-d_002d_002defop_005fname-on-c_002d_002dlass"><code>d--efop_name on c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-d_002d_002defop_005fname-on-c_002d_002dlass-1"><code>d--efop_name on c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-d_002d_002defop_005fname-on-c_002d_002dlass-2"><code>d--efop_name on c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-d_002d_002defop_005fname-on-c_002d_002dlass-3"><code>d--efop_name on c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-copying-d_002d_002defspec_005fname"><code>d--efspec_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-titlepage-d_002d_002defspec_005fname"><code>d--efspec_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-d_002d_002defspec_005fname"><code>d--efspec_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-d_002d_002defspec_005fname-1"><code>d--efspec_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-copying-d_002d_002deftypefn_005fname"><code>d--eftypefn_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-copying-d_002d_002deftypefn_005fname-1"><code>d--eftypefn_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-titlepage-d_002d_002deftypefn_005fname"><code>d--eftypefn_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-titlepage-d_002d_002deftypefn_005fname-1"><code>d--eftypefn_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-d_002d_002deftypefn_005fname"><code>d--eftypefn_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-d_002d_002deftypefn_005fname-1"><code>d--eftypefn_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-d_002d_002deftypefn_005fname-2"><code>d--eftypefn_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-d_002d_002deftypefn_005fname-3"><code>d--eftypefn_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-copying-d_002d_002deftypefn_005fname2"><code>d--eftypefn_name2</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-titlepage-d_002d_002deftypefn_005fname2"><code>d--eftypefn_name2</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-d_002d_002deftypefn_005fname2"><code>d--eftypefn_name2</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-d_002d_002deftypefn_005fname2-1"><code>d--eftypefn_name2</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-copying-d_002d_002deftypefun_005fname"><code>d--eftypefun_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-titlepage-d_002d_002deftypefun_005fname"><code>d--eftypefun_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-d_002d_002deftypefun_005fname"><code>d--eftypefun_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
@@ -6159,9 +6771,21 @@ Menu comment
 <tr><td></td><td valign="top"><a href="#index-d_002d_002deftypemethod_005fname-on-c_002d_002dlass"><code>d--eftypemethod_name on c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-d_002d_002deftypemethod_005fname-on-c_002d_002dlass-1"><code>d--eftypemethod_name on c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-copying-d_002d_002deftypeop_005fname-on-c_002d_002dlass"><code>d--eftypeop_name on c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-copying-d_002d_002deftypeop_005fname-on-c_002d_002dlass-1"><code>d--eftypeop_name on c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-titlepage-d_002d_002deftypeop_005fname-on-c_002d_002dlass"><code>d--eftypeop_name on c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-titlepage-d_002d_002deftypeop_005fname-on-c_002d_002dlass-1"><code>d--eftypeop_name on c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-d_002d_002deftypeop_005fname-on-c_002d_002dlass"><code>d--eftypeop_name on c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-d_002d_002deftypeop_005fname-on-c_002d_002dlass-1"><code>d--eftypeop_name on c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-d_002d_002deftypeop_005fname-on-c_002d_002dlass-2"><code>d--eftypeop_name on c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-d_002d_002deftypeop_005fname-on-c_002d_002dlass-3"><code>d--eftypeop_name on c--lass</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-copying-d_002d_002deftypeop_005fname2-on-c_002d_002dlass2"><code>d--eftypeop_name2 on c--lass2</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-copying-d_002d_002deftypeop_005fname2-on-c_002d_002dlass2-1"><code>d--eftypeop_name2 on c--lass2</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-titlepage-d_002d_002deftypeop_005fname2-on-c_002d_002dlass2"><code>d--eftypeop_name2 on c--lass2</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-titlepage-d_002d_002deftypeop_005fname2-on-c_002d_002dlass2-1"><code>d--eftypeop_name2 on c--lass2</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-d_002d_002deftypeop_005fname2-on-c_002d_002dlass2"><code>d--eftypeop_name2 on c--lass2</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-d_002d_002deftypeop_005fname2-on-c_002d_002dlass2-1"><code>d--eftypeop_name2 on c--lass2</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-d_002d_002deftypeop_005fname2-on-c_002d_002dlass2-2"><code>d--eftypeop_name2 on c--lass2</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-d_002d_002deftypeop_005fname2-on-c_002d_002dlass2-3"><code>d--eftypeop_name2 on c--lass2</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-copying-d_002d_002defun_005fname"><code>d--efun_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-titlepage-d_002d_002defun_005fname"><code>d--efun_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-d_002d_002defun_005fname"><code>d--efun_name</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
@@ -6259,6 +6883,20 @@ Menu comment
 <tr><td></td><td valign="top"><a href="#index-machin-10"><code>machin</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-machin-11"><code>machin</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
+<tr><th id="chapter-2_fn_letter-N">N</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-copying-n_002d_002dame"><code>n--ame</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-copying-n_002d_002dame-1"><code>n--ame</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-titlepage-n_002d_002dame"><code>n--ame</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-titlepage-n_002d_002dame-1"><code>n--ame</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-n_002d_002dame"><code>n--ame</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-n_002d_002dame-1"><code>n--ame</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-n_002d_002dame-2"><code>n--ame</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-n_002d_002dame-3"><code>n--ame</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-copying-name2"><code>name2</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-titlepage-name2"><code>name2</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-name2"><code>name2</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-name2-1"><code>name2</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
 <tr><th id="chapter-2_fn_letter-T">T</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-t_002d_002druc-1"><code>t--ruc</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
 <tr><td></td><td valign="top"><a href="#index-T_002d_002druc-1"><code>T--ruc</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">1 chapter</a></td></tr>
@@ -6297,6 +6935,8 @@ Menu comment
 <a href="#chapter-2_fn_letter-L"><b>L</b></a>
  &nbsp; 
 <a href="#chapter-2_fn_letter-M"><b>M</b></a>
+ &nbsp; 
+<a href="#chapter-2_fn_letter-N"><b>N</b></a>
  &nbsp; 
 <a href="#chapter-2_fn_letter-T"><b>T</b></a>
  &nbsp; 
