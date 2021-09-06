@@ -16,6 +16,8 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 # 
 # Original author: Patrice Dumas <pertusus@free.fr>
+#
+# Names of methods overriden in Texinfo::Convert::Info begin with format_.
 
 package Texinfo::Convert::Plaintext;
 
@@ -446,7 +448,7 @@ sub converter_initialize($)
   return $self;
 }
 
-sub _count_context_bug_message($$$)
+sub count_context_bug_message($$$)
 {
   my ($self, $precision, $element) = @_;
 
@@ -470,9 +472,9 @@ sub _convert_element($$)
 
   my $result = '';
   $result .= $self->_convert($element);
-  $self->_count_context_bug_message('', $element);
-  $result .= $self->_footnotes($element);
-  $self->_count_context_bug_message('footnotes ', $element);
+  $self->count_context_bug_message('', $element);
+  $result .= $self->process_footnotes($element);
+  $self->count_context_bug_message('footnotes ', $element);
 
   return $result;
 }
@@ -487,9 +489,9 @@ sub convert($$)
   $self->{'empty_lines_count'} = 1;
   if (!defined($elements)) {
     $result = $self->_convert($root);
-    $self->_count_context_bug_message('no element ');
-    my $footnotes = $self->_footnotes();
-    $self->_count_context_bug_message('no element footnotes ');
+    $self->count_context_bug_message('no element ');
+    my $footnotes = $self->process_footnotes();
+    $self->count_context_bug_message('no element footnotes ');
     $result .= $footnotes;
   } else {
     foreach my $node (@$elements) {
@@ -505,7 +507,11 @@ sub convert_tree($$)
 {
   my ($self, $root) = @_;
 
-  $self->{'empty_lines_count'} = 1;
+  if (!defined($self->{'empty_lines_count'})) {
+    # setting to 1 ensures that nothing is done, as there is
+    # something done (a newline added) if equal to 0.
+    $self->{'empty_lines_count'} = 1;
+  }
   my $result;
   if ($root->{'type'} and $root->{'type'} eq 'element') {
     $result = _convert_element($self, $root);
@@ -674,7 +680,7 @@ sub convert_line($$;$)
   return $text;
 }
 
-sub convert_unfilled($$;$)
+sub _convert_unfilled($$;$)
 {
   my ($self, $converted, $conf) = @_;
   my $formatter = $self->new_formatter('unfilled', $conf);
@@ -695,7 +701,7 @@ sub count_bytes($$)
                                       $self->{'output_perl_encoding'});
 }
 
-sub _add_text_count($$)
+sub add_text_count($$)
 {
   my ($self, $text) = @_;
   if (!$self->{'count_context'}->[-1]->{'pending_text'}) {
@@ -712,8 +718,8 @@ sub _add_lines_count($$)
 
 # Update $SELF->{'count_context'}->[-1]->{'bytes'} by counting the text that
 # hasn't been counted yet.  It is faster to count the text all together than
-# piece by piece in _add_text_count.
-sub _update_count_context($)
+# piece by piece in add_text_count.
+sub update_count_context($)
 {
   my $self = shift;
   if ($self->{'count_context'}->[-1]->{'pending_text'}) {
@@ -726,13 +732,13 @@ sub _update_count_context($)
 }
 
 # Save the line and byte offset of $ROOT.
-sub _add_location($$)
+sub add_location($$)
 {
   my ($self, $root) = @_;
   my $location = { 'lines' => $self->{'count_context'}->[-1]->{'lines'} };
   push @{$self->{'count_context'}->[-1]->{'locations'}}, $location;
   if (!($root->{'extra'} and $root->{'extra'}->{'index_entry'})) {
-    _update_count_context($self);
+    update_count_context($self);
     $location->{'bytes'} = $self->{'count_context'}->[-1]->{'bytes'};
     $location->{'root'} = $root;
   } else {
@@ -741,7 +747,7 @@ sub _add_location($$)
   return $location;
 }
 
-sub _add_image($$$$;$)
+sub add_image($$$$;$)
 {
   my ($self, $root, $lines_count, $image_width, $no_align) = @_;
 
@@ -774,7 +780,7 @@ sub _update_locations_counts($$)
 {
   my ($self, $locations) = @_;
 
-  _update_count_context($self);
+  update_count_context($self);
   foreach my $location (@$locations) {
     $location->{'bytes'} += $self->{'count_context'}->[-1]->{'bytes'}
        if (defined($location->{'bytes'}));
@@ -787,7 +793,7 @@ sub _add_newline_if_needed($) {
   my $self = shift;
   if (defined($self->{'empty_lines_count'}) 
        and $self->{'empty_lines_count'} == 0) {
-    _add_text_count($self, "\n");
+    add_text_count($self, "\n");
     _add_lines_count($self, 1);
     $self->{'empty_lines_count'} = 1;
     return "\n";
@@ -823,7 +829,7 @@ sub _close_code($)
 }
 
 my $footnote_indent = 3;
-sub _footnotes($;$)
+sub process_footnotes($;$)
 {
   my ($self, $element) = @_;
 
@@ -835,7 +841,7 @@ sub _footnotes($;$)
     if ($self->get_conf('footnotestyle') eq 'end' or !defined($element)) {
       my $footnotes_header = "   ---------- Footnotes ----------\n\n";
       $result .= $footnotes_header;
-      _add_text_count($self, $footnotes_header);
+      add_text_count($self, $footnotes_header);
       _add_lines_count($self, 2);
       $self->{'empty_lines_count'} = 1;
     } else {
@@ -847,7 +853,7 @@ sub _footnotes($;$)
         'node_up' => $element->{'extra'}->{'node'},
         'extra' => {'node_content' => $node_contents }
       };
-      $result .= $self->_node($footnotes_node);
+      $result .= $self->format_node($footnotes_node);
       $self->{'node'} = $footnotes_node;
     }
     while (@{$self->{'pending_footnotes'}}) {
@@ -861,7 +867,7 @@ sub _footnotes($;$)
       if ($element) {
         my $node_contents = [@{$element->{'extra'}->{'node'}->{'extra'}->{'node_content'}},
                     {'text' => "-Footnote-$footnote->{'number'}"}];
-        $self->_add_location({'cmdname' => 'anchor',
+        $self->add_location({'cmdname' => 'anchor',
                         'extra' => {'node_content' => $node_contents }
                        });
       }
@@ -879,7 +885,7 @@ sub _footnotes($;$)
       $result .= $footnote_text;
       $self->{'text_element_context'}->[-1]->{'counter'} += 
          Texinfo::Convert::Unicode::string_width($footnote_text);
-      _add_text_count($self, $footnote_text);
+      add_text_count($self, $footnote_text);
       $self->{'empty_lines_count'} = 0;
 
       $result .= $self->_convert($footnote->{'root'}->{'args'}->[0]); 
@@ -1035,7 +1041,7 @@ sub _align_environment($$$$)
 {
   my ($self, $result, $max, $align) = @_;
 
-  _update_count_context($self);
+  update_count_context($self);
   my $counts = pop @{$self->{'count_context'}};
   my $bytes_count;
   ($result, $bytes_count) = $self->_align_lines($result, $max,
@@ -1048,7 +1054,7 @@ sub _align_environment($$$$)
   return $result;
 }
 
-sub _contents($$$)
+sub format_contents($$$)
 {
   my ($self, $section_root, $contents_or_shortcontents) = @_;
 
@@ -1128,7 +1134,7 @@ sub _menu($$)
 
   if ($menu_command->{'cmdname'} eq 'menu') {
     my $result = "* Menu:\n\n";
-    _add_text_count($self, $result);
+    add_text_count($self, $result);
     _add_lines_count($self, 2);
     if ($self->{'node'}) {
       $self->{'seenmenus'}->{$self->{'node'}} = 1;
@@ -1139,20 +1145,20 @@ sub _menu($$)
   }
 }
 
-sub _printindex($$)
+sub format_printindex($$)
 {
   my ($self, $printindex) = @_;
-  return $self->_printindex_formatted($printindex);
+  return $self->process_printindex($printindex);
 }
 
 sub _normalize_top_node($)
 {
-  my $node = shift;
-  return Texinfo::Common::normalize_top_node_name($node);
+  my $node_name = shift;
+  return Texinfo::Common::normalize_top_node_name($node_name);
 }
 
 # convert and cache a node name.  $NODE is a node element.
-sub _node_line($$)
+sub node_line($$)
 {
   my ($self, $node) = @_;
   if (!$self->{'node_lines_text'}->{$node}) {
@@ -1162,7 +1168,7 @@ sub _node_line($$)
     $self->{'node_lines_text'}->{$node}->{'text'} 
        = _normalize_top_node($self->convert_line($node_text,
                                                  {'suppress_styles' => 1}));
-    _update_count_context($self);
+    update_count_context($self);
     my $end_context = pop @{$self->{'count_context'}};
     $self->{'node_lines_text'}->{$node}->{'count'} 
       = $end_context->{'bytes'};
@@ -1173,7 +1179,7 @@ sub _node_line($$)
 
 my $index_length_to_node = 41;
 
-sub _printindex_formatted($$;$)
+sub process_printindex($$;$)
 {
   my ($self, $printindex, $in_info) = @_;
 
@@ -1208,13 +1214,13 @@ sub _printindex_formatted($$;$)
   if ($in_info) {
     my $info_printindex_magic = "\x{00}\x{08}[index\x{00}\x{08}]\n";
     $result .= $info_printindex_magic;
-    _add_text_count($self, $info_printindex_magic);
+    add_text_count($self, $info_printindex_magic);
     _add_lines_count($self, 1);
   }
   my $heading = "* Menu:\n\n";
 
   $result .= $heading;
-  _add_text_count($self, $heading);
+  add_text_count($self, $heading);
   _add_lines_count($self, 2);
 
   # first determine the line numbers for the spacing of their formatting
@@ -1303,18 +1309,17 @@ sub _printindex_formatted($$;$)
     } else {
       $entry_counts{$entry_text}++;
       $entry_nr = ' <'.$entry_counts{$entry_text}.'>';
-      _add_text_count($self, $entry_nr);
+      add_text_count($self, $entry_nr);
     }
     my $entry_line = "* $entry_text${entry_nr}: ";
-    _add_text_count($self, "* ".": ");
-    #_add_text_count($self, $entry_line);
+    add_text_count($self, "* ".": ");
     
     my $line_width = Texinfo::Convert::Unicode::string_width($entry_line);
     my $entry_line_addition = '';
     if ($line_width < $index_length_to_node) {
       my $spaces = ' ' x ($index_length_to_node - $line_width);
       $entry_line_addition .= $spaces;
-      _add_text_count($self, $spaces);
+      add_text_count($self, $spaces);
     }
     my $node = $entry_nodes{$entry};
 
@@ -1326,7 +1331,7 @@ sub _printindex_formatted($$;$)
         my $node_text = $self->gdt('(outside of any node)');
         $self->{'outside_of_any_node_text'}->{'text'} 
           = $self->convert_line($node_text);
-        _update_count_context($self);
+        update_count_context($self);
         my $end_context = pop @{$self->{'count_context'}};
         $self->{'outside_of_any_node_text'}->{'count'} 
           = $end_context->{'bytes'};
@@ -1344,12 +1349,12 @@ sub _printindex_formatted($$;$)
         $self->{'index_entries_no_node'}->{$entry} = 1;
       }
     } else {
-      my ($node_line, $byte_count) = $self->_node_line($node);
+      my ($node_line, $byte_count) = $self->node_line($node);
       $entry_line_addition .= $node_line;
       $self->{'count_context'}->[-1]->{'bytes'} += $byte_count;
     }
     $entry_line_addition .= '.';
-    _add_text_count($self, '.');
+    add_text_count($self, '.');
 
     $entry_line .= $entry_line_addition;
     $result .= $entry_line;
@@ -1369,19 +1374,19 @@ sub _printindex_formatted($$;$)
            . "$line_part\n";
     }
     _add_lines_count($self, 1);
-    _add_text_count($self, $line_part);
+    add_text_count($self, $line_part);
     $result .= $line_part;
   }
 
   $result .= "\n"; 
-  _add_text_count($self, "\n");
+  add_text_count($self, "\n");
   _add_lines_count($self, 1);
   
   return $result;
 }
 
 
-sub _node($$)
+sub format_node($$)
 {
   my $self = shift;
   my $node = shift;
@@ -1390,7 +1395,7 @@ sub _node($$)
 }
 
 # no error in plaintext
-sub _error_outside_of_any_node($$)
+sub format_error_outside_of_any_node($$)
 {
   my $self = shift;
   my $root = shift;
@@ -1402,8 +1407,8 @@ sub _anchor($$)
   my $anchor = shift;
 
   if (!($self->{'multiple_pass'} or $self->{'in_copying_header'})) {
-    $self->_add_location($anchor); 
-    $self->_error_outside_of_any_node($anchor);
+    $self->add_location($anchor); 
+    $self->format_error_outside_of_any_node($anchor);
   }
   return '';
 }
@@ -1422,12 +1427,12 @@ sub ensure_end_of_line($$)
   }
   $text .= "\n";
   $self->{'text_element_context'}->[-1]->{'counter'} = 0;
-  _add_text_count($self, "\n");
+  add_text_count($self, "\n");
   _add_lines_count($self, 1);
   return $text;
 }
 
-sub _image_formatted_text($$$$)
+sub image_formatted_text($$$$)
 {
   my ($self, $root, $basefile, $text) = @_;
 
@@ -1448,7 +1453,7 @@ sub _image_formatted_text($$$$)
   return $result;
 }
 
-sub _image($$)
+sub format_image($$)
 {
   my ($self, $root) = @_;
 
@@ -1458,7 +1463,7 @@ sub _image($$)
      {'contents' => $root->{'args'}->[0]->{'contents'}},
      {'code' => 1, %{$self->{'convert_text_options'}}});
     my ($text, $width) = $self->txt_image_text($root, $basefile);
-    my $result = $self->_image_formatted_text($root, $basefile, $text);
+    my $result = $self->image_formatted_text($root, $basefile, $text);
     my $lines_count = ($result =~ tr/\n/\n/);
     if (!defined($width)) {
       $width = Texinfo::Convert::Unicode::string_width($result);
@@ -1466,7 +1471,7 @@ sub _image($$)
     # the last line is part of the image but do not have a new line,
     # so 1 is added to $lines_count to have the number of lines of
     # the image
-    $self->_add_image($root, $lines_count+1, $width);
+    $self->add_image($root, $lines_count+1, $width);
     return ($result, $lines_count);
   }
   return ('', 0);
@@ -1513,7 +1518,7 @@ sub _convert($$)
     if ($root->{'text'} =~ /\f/) {
       $result = _get_form_feeds($root->{'text'});
     }
-    _add_text_count($self, $result);
+    add_text_count($self, $result);
     return $result;
   }
 
@@ -1529,7 +1534,7 @@ sub _convert($$)
       $result = "";
       if ($root->{'text'} =~ /\f/) {
         $result .= _get_form_feeds($root->{'text'});
-        _add_text_count($self, $result);
+        add_text_count($self, $result);
       }
       $result .= _count_added($self, $formatter->{'container'},
                 add_text($formatter->{'container'}, "\n"));
@@ -1555,7 +1560,7 @@ sub _convert($$)
         return $result;
       # the following is only possible if paragraphindent is set to asis
       } elsif ($type and $type eq 'empty_spaces_before_paragraph') {
-        _add_text_count($self, $root->{'text'});
+        add_text_count($self, $root->{'text'});
         return $root->{'text'};
       # ignore text outside of any format, but warn if ignored text not empty
       } elsif ($root->{'text'} =~ /\S/) {
@@ -1582,7 +1587,7 @@ sub _convert($$)
 
   if ($root->{'extra'} and $root->{'extra'}->{'index_entry'}
       and !$self->{'multiple_pass'} and !$self->{'in_copying_header'}) {
-    my $location = $self->_add_location($root);
+    my $location = $self->add_location($root);
     # remove a 'lines' from $location if at the very end of a node
     # since it will lead to the next node otherwise.
     if ($command and $command =~ /index/) {
@@ -1851,9 +1856,9 @@ sub _convert($$)
                    add_pending_word($formatter->{'container'}, 1));
       # add an empty word so that following spaces aren't lost
       add_next($formatter->{'container'},'');
-      my ($image, $lines_count) = $self->_image($root);
+      my ($image, $lines_count) = $self->format_image($root);
       _add_lines_count($self, $lines_count);
-      _add_text_count($self, $image);
+      add_text_count($self, $image);
       if ($image ne '' and $formatter->{'type'} ne 'paragraph') {
         $self->{'empty_lines_count'} = 0;
       }
@@ -1932,7 +1937,7 @@ sub _convert($$)
                                     'number' => $self->{'footnote_index'}}
           unless ($self->{'multiple_pass'});
       if (!$self->{'in_copying_header'}) {
-        $self->_error_outside_of_any_node($root);
+        $self->format_error_outside_of_any_node($root);
       }
       $result .= _count_added($self, $formatter->{'container'},
            add_next($formatter->{'container'},
@@ -2263,7 +2268,7 @@ sub _convert($$)
         ($self->{'format_context'}->[-1]->{'indent_level'}) * $indent_length);
       $result =~ s/\n$//; # final newline has its own tree element
       $self->{'empty_lines_count'} = 0 unless ($result eq '');
-      _add_text_count($self, $result);
+      add_text_count($self, $result);
       _add_lines_count($self, 1);
       return $result;
 
@@ -2417,7 +2422,7 @@ sub _convert($$)
       }
     } elsif ($command eq 'node') {
       $self->{'node'} = $root;
-      $result .= $self->_node($root);
+      $result .= $self->format_node($root);
       $self->{'format_context'}->[-1]->{'paragraph_count'} = 0;
     } elsif ($sectioning_commands{$command}) {
       # use settitle for empty @top
@@ -2450,7 +2455,7 @@ sub _convert($$)
                                            * $indent_length);
         $result .= _add_newline_if_needed($self);
         $self->{'empty_lines_count'} = 0 unless ($heading_underlined eq '');
-        _add_text_count($self, $heading_underlined);
+        add_text_count($self, $heading_underlined);
         $result .= $heading_underlined;
         if ($heading_underlined ne '') {
           _add_lines_count($self, 2);
@@ -2545,7 +2550,7 @@ sub _convert($$)
       return $result;
     } elsif ($command eq 'exdent') {
       if ($self->{'preformatted_context_commands'}->{$self->{'context'}->[-1]}) {
-        $result = $self->convert_unfilled({'contents' => $root->{'args'}->[0]->{'contents'}},
+        $result = $self->_convert_unfilled({'contents' => $root->{'args'}->[0]->{'contents'}},
          {'indent_level'
           => $self->{'format_context'}->[-1]->{'indent_level'} -1});
       } else {
@@ -2571,7 +2576,7 @@ sub _convert($$)
       }
       return '';
     } elsif ($command eq 'printindex') {
-      $result = $self->_printindex($root);
+      $result = $self->format_printindex($root);
       return $result;
     } elsif ($command eq 'listoffloats') {
       my $lines_count = 0;
@@ -2652,7 +2657,7 @@ sub _convert($$)
         pop @{$self->{'count_context'}};
       }
       $self->{'format_context'}->[-1]->{'paragraph_count'}++;
-      _add_text_count($self, $result);
+      add_text_count($self, $result);
       _add_lines_count($self, $lines_count);
       return $result;
     } elsif ($command eq 'sp') {
@@ -2675,10 +2680,10 @@ sub _convert($$)
             and $self->{'structuring'}->{'sectioning_root'}) {
         my $lines_count;
         ($result, $lines_count) 
-            = $self->_contents($self->{'structuring'}->{'sectioning_root'}, 
+            = $self->format_contents($self->{'structuring'}->{'sectioning_root'}, 
                               'contents');
         _add_lines_count($self, $lines_count);
-        _add_text_count($self, $result);
+        add_text_count($self, $result);
       }
       return $result;
     } elsif ($command eq 'shortcontents' 
@@ -2687,10 +2692,10 @@ sub _convert($$)
             and $self->{'structuring'}->{'sectioning_root'}) {
         my $lines_count;
         ($result, $lines_count) 
-              = $self->_contents($self->{'structuring'}->{'sectioning_root'}, 
+              = $self->format_contents($self->{'structuring'}->{'sectioning_root'}, 
                               'shortcontents');
         _add_lines_count($self, $lines_count);
-        _add_text_count($self, $result);
+        add_text_count($self, $result);
       }
       return $result;
     # all the @-commands that have an information for the formatting, like
@@ -3274,7 +3279,7 @@ sub _convert($$)
       pop @{$self->{'format_context'}};
       pop @{$self->{'text_element_context'}};
       push @{$self->{'format_context'}->[-1]->{'row'}}, $result;
-      _update_count_context($self);
+      update_count_context($self);
       my $cell_counts = pop @{$self->{'count_context'}};
       push @{$self->{'format_context'}->[-1]->{'row_counts'}}, $cell_counts;
       $result = '';

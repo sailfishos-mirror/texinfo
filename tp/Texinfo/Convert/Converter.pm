@@ -633,9 +633,7 @@ sub _set_pages_files($$)
     }
   } else {
     my $node_top;
-    #my $section_top;
     $node_top = $self->{'labels'}->{'Top'} if ($self->{'labels'});
-    #$section_top = $self->{'extra'}->{'top'} if ($self->{'extra'});
   
     my $top_node_filename = $self->_top_node_filename();
     # first determine the top node file name.
@@ -672,7 +670,7 @@ sub _set_pages_files($$)
         }
         if (!defined($file_element->{'filename'})) {
           # use section to do the file name if there is no node
-          my $command = $self->element_command($file_element);
+          my $command = $file_element->{'extra'}->{'element_command'};
           if ($command) {
             if ($command->{'cmdname'} eq 'top' and !$node_top
                 and defined($top_node_filename)) {

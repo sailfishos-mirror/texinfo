@@ -17,6 +17,8 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 # 
 # Original author: Patrice Dumas <pertusus@free.fr>
+#
+# Names of methods from Texinfo::Convert::Plaintext overriden begin with format_.
 
 package Texinfo::Convert::Info;
 
@@ -29,7 +31,6 @@ use Texinfo::Convert::Text;
 
 use Texinfo::Convert::Paragraph;
 
-require Exporter;
 use vars qw($VERSION @ISA);
 @ISA = qw(Texinfo::Convert::Plaintext);
 
@@ -43,7 +44,6 @@ $defaults{'FORMAT_MENU'} = 'menu';
 $defaults{'EXTENSION'} = 'info';
 $defaults{'USE_SETFILENAME_EXTENSION'} = 1;
 $defaults{'OUTFILE'} = undef;
-#$defaults{'TOP_NODE_UP'} = '(dir)';
 
 sub converter_defaults($$)
 {
@@ -95,11 +95,11 @@ sub output($)
   if (!defined($elements) or $elements->[0]->{'extra'}->{'no_node'}) {
     $self->file_line_warn(__("document without nodes"), 
                           $self->{'parser_info'}->{'input_file_name'});
-    my $output = $header.$self->_convert($root);
-    $self->_count_context_bug_message('no element ');
+    my $output = $header.$self->convert_tree($root);
+    $self->count_context_bug_message('no element ');
 
-    my $footnotes = $self->_footnotes();
-    $self->_count_context_bug_message('no element footnotes ');
+    my $footnotes = $self->process_footnotes();
+    $self->count_context_bug_message('no element footnotes ');
 
     $output .= $footnotes;
     if ($fh) {
@@ -119,12 +119,14 @@ sub output($)
     my @nodes = @$elements;
     while (@nodes) {
       my $node = shift @nodes;
-      my $node_text = $self->_convert_element($node);
+      my $node_text = $self->convert_tree($node);
       if (!$first_node) {
         $first_node = 1;
         if (defined($self->{'text_before_first_node'})) {
           $complete_header .= $self->{'text_before_first_node'};
-          $complete_header_bytes += Texinfo::Convert::Plaintext::count_bytes($self, $self->{'text_before_first_node'});
+          $complete_header_bytes += 
+            Texinfo::Convert::Plaintext::count_bytes($self,
+                                   $self->{'text_before_first_node'});
         }
         # for the first node, header is prepended, not complete_header
         # as 'text_before_first_node' is already part of the node
@@ -136,7 +138,7 @@ sub output($)
       } else {
         $result .= $node_text;
       }
-      $self->_update_count_context();
+      $self->update_count_context();
       if (defined($self->get_conf('SPLIT_SIZE')) 
           and $self->{'count_context'}->[-1]->{'bytes'} > 
                   $out_file_nr * $self->get_conf('SPLIT_SIZE') 
@@ -196,7 +198,7 @@ sub output($)
           return undef;
         }
         print $fh $complete_header;
-        $self->_update_count_context();
+        $self->update_count_context();
         $self->{'count_context'}->[-1]->{'bytes'} += $complete_header_bytes;
         push @indirect_files, [$self->{'output_filename'}.'-'.$out_file_nr,
                                $self->{'count_context'}->[-1]->{'bytes'}];
@@ -244,7 +246,7 @@ sub output($)
     } else {
       $prefix = 'Ref';
     }
-    my ($label_text, $byte_count) = $self->_node_line($label->{'root'});
+    my ($label_text, $byte_count) = $self->node_line($label->{'root'});
 
     if ($seen_anchors{$label_text}) {
       $self->line_error($self, sprintf(__("\@%s output more than once: %s"),
@@ -316,7 +318,8 @@ sub _info_header($)
   my $program = $self->get_conf('PROGRAM');
   my $version = $self->get_conf('PACKAGE_VERSION');
   if (defined($program) and $program ne '') {
-    $result .= add_text($paragraph, ", produced by $program version $version from ");
+    $result .=
+        add_text($paragraph, ", produced by $program version $version from ");
   } else {
     $result .= add_text($paragraph, ", produced from ");
   }
@@ -335,10 +338,10 @@ sub _info_header($)
   if ($self->{'extra'} and $self->{'extra'}->{'copying'}) {
     print STDERR "COPYING HEADER\n" if ($self->get_conf('DEBUG'));
     $self->{'in_copying_header'} = 1;
-    my $copying = $self->_convert({'contents' => 
+    my $copying = $self->convert_tree({'contents' => 
           $self->{'extra'}->{'copying'}->{'contents'}});
     $result .= $copying;
-    $result .= $self->_footnotes();
+    $result .= $self->process_footnotes();
     delete $self->{'in_copying_header'};
   }
   $self->set_global_document_commands(0, \@informative_global_commands);
@@ -356,7 +359,7 @@ sub _info_header($)
         $self->{'empty_lines_count'} = 0;
       } elsif ($command->{'cmdname'} eq 'direntry') {
         $result .= "START-INFO-DIR-ENTRY\n";
-        my $direntry = $self->_convert($command);
+        my $direntry = $self->convert_tree($command);
         $result .= $direntry;
         $result .= "END-INFO-DIR-ENTRY\n\n";
         $self->{'empty_lines_count'} = 1;
@@ -367,7 +370,7 @@ sub _info_header($)
   return $result;
 }
 
-sub _contents($$$)
+sub format_contents($$$)
 {
   my $self = shift;
   my $section_root = shift;
@@ -376,14 +379,14 @@ sub _contents($$$)
   return ('', 0);
 }
 
-sub _printindex($$)
+sub format_printindex($$)
 {
   my $self = shift;
   my $printindex = shift;
-  return $self->_printindex_formatted($printindex, 1);
+  return $self->process_printindex($printindex, 1);
 }
 
-sub _error_outside_of_any_node($$)
+sub format_error_outside_of_any_node($$)
 {
   my $self = shift;
   my $root = shift;
@@ -395,7 +398,7 @@ sub _error_outside_of_any_node($$)
 }
 
 my @directions = ('Next', 'Prev', 'Up');
-sub _node($$)
+sub format_node($$)
 {
   my $self = shift;
   my $node = shift;
@@ -404,7 +407,7 @@ sub _node($$)
   return '' if (!defined($node->{'extra'}->{'node_content'}));
   if (!$self->{'empty_lines_count'}) {
     $result .= "\n";
-    $self->_add_text_count("\n");
+    $self->add_text_count("\n");
     # if in the first node, complete the 'text_before_first_node' too.
     if (!$self->{'first_node_done'}) {
       $self->{'text_before_first_node'} .= "\n";
@@ -422,11 +425,11 @@ sub _node($$)
     $output_filename = '';
   }
 
-  $self->_add_location($node);
+  $self->add_location($node);
   my $node_begin = "\x{1F}\nFile: $output_filename,  Node: ";
   $result .= $node_begin;
-  $self->_add_text_count($node_begin);
-  my ($node_text, $byte_count) = $self->_node_line($node);
+  $self->add_text_count($node_begin);
+  my ($node_text, $byte_count) = $self->node_line($node);
   my $pre_quote = '';
   my $post_quote = '';
   if ($node_text =~ /,/) {
@@ -447,7 +450,7 @@ sub _node($$)
     if ($node->{'node_'.lc($direction)}) {
       my $node_direction = $node->{'node_'.lc($direction)};
       my $text = ",  $direction: ";
-      $self->_add_text_count($text);
+      $self->add_text_count($text);
       $result .= $text;
       if ($node_direction->{'extra'}->{'manual_content'}) {
         $result .= $self->convert_line({'type' => '_code',
@@ -456,19 +459,19 @@ sub _node($$)
                                           {'text' => ')'}]});
       }
       if ($node_direction->{'extra'}->{'node_content'}) {
-        my ($node_text, $byte_count) = $self->_node_line($node_direction);
+        my ($node_text, $byte_count) = $self->node_line($node_direction);
         $self->{'count_context'}->[-1]->{'bytes'} += $byte_count;
         $result .= $node_text;
       }
     } elsif ($direction eq 'Up' and $node->{'extra'}->{'normalized'} eq 'Top') {
       # add an up direction for Top node
       my $text = ",  $direction: ".$self->get_conf('TOP_NODE_UP');
-      $self->_add_text_count($text);
+      $self->add_text_count($text);
       $result .= $text;
     }
   }
   $result .="\n\n";
-  $self->_add_text_count("\n\n");
+  $self->add_text_count("\n\n");
   $self->{'count_context'}->[-1]->{'lines'} = 3;
   $self->{'empty_lines_count'} = 1;
 
@@ -476,7 +479,7 @@ sub _node($$)
 }
 
 my @image_files_extensions = ('.png', '.jpg');
-sub _image($$)
+sub format_image($$)
 {
   my $self = shift;
   my $root = shift;
@@ -540,11 +543,11 @@ sub _image($$)
         $result .= "\n";
       }
       my $image_lines_count = ($result =~ tr/\n/\n/) +1;
-      $self->_add_image($root, $image_lines_count, $width, 1);
+      $self->add_image($root, $image_lines_count, $width, 1);
     } else {
-      $result = $self->_image_formatted_text($root, $basefile, $text);
+      $result = $self->image_formatted_text($root, $basefile, $text);
       $lines_count = ($result =~ tr/\n/\n/);
-      $self->_add_image($root, $lines_count+1, $width);
+      $self->add_image($root, $lines_count+1, $width);
     }
     return ($result, $lines_count);
   }
