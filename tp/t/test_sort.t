@@ -10,6 +10,8 @@ use Texinfo::Convert::Text;
 use Texinfo::Parser;
 use Texinfo::Structuring;
 use Test::Deep;
+# package Texinfo::MainConfig is in Texinfo::Config
+use Texinfo::Config;
 
 ok(1, "modules loading");
 
@@ -44,12 +46,10 @@ my $registrar = $parser->registered_errors();
 my ($index_names, $merged_indices) = $parser->indices_information();
 my $index_entries = Texinfo::Structuring::merge_indices($index_names);
 my $parser_informations = $parser->global_informations();
-# FIXME this is wrong, there should be an object
-# holding only configuration that is not a parser
-$parser->{'OUTPUT_ENCODING_NAME'} = $parser_informations->{'input_encoding_name'};
-$parser->{'ENABLE_ENCODING'} = 1;
+my $main_configuration = Texinfo::MainConfig::new({'ENABLE_ENCODING' => 1});
+Texinfo::Common::set_output_encodings($main_configuration, $parser_informations);
 my ($sorted_index_entries, $index_entries_sort_strings)
-  = Texinfo::Structuring::sort_indices($parser, $registrar, $parser,
+  = Texinfo::Structuring::sort_indices($parser, $registrar, $main_configuration,
                                        $index_entries);
 
 my @entries = ();
@@ -65,7 +65,7 @@ my @entries_ref = ('!', '"', 'aaaaaaaaaaaa', 'e', 'E', 'ł', 'ẽ');
 cmp_deeply (\@entries, \@entries_ref, 'sorted index entries');
 
 my ($sorted_index_entries_by_letter, $by_letter_index_entries_sort_strings)
-  = Texinfo::Structuring::sort_indices($parser, $parser, $parser,
+  = Texinfo::Structuring::sort_indices($parser, $registrar, $main_configuration,
                                        $index_entries, 'by_letter');
 
 my @letter_entries_ref = (
