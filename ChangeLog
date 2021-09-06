@@ -4,6 +4,10 @@
 	a non defined method to get element command, access the
 	'extra' value directly.
 
+	* tp/Texinfo/Convert/Info.pm, tp/Texinfo/Convert/Plaintext.pm:
+	change name of methods/method used, such that methods used/set in
+	Info.pm are not marked as internal (beginning with _).
+
 2021-09-06  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/ParserNonXS.pm (%set_flag_index_char_ignore)
