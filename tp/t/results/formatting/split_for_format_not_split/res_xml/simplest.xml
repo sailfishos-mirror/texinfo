@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!DOCTYPE texinfo PUBLIC "-//GNU//DTD TexinfoML V5.0//EN" "http://www.gnu.org/software/texinfo/dtd/5.0/texinfo.dtd">
-<texinfo xml:lang="en">
+<texinfo>
 <filename file="simplest.xml"></filename>
 <preamble>\input texinfo @c -*-texinfo-*-
 

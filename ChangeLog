@@ -1,5 +1,12 @@
 2021-09-06  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/TexinfoXML.pm (format_header): remove document
+	wide xml:lang texinfo element attribute as it does not corresponds to
+	the document language settings in Texinfo which should be done with
+	documentlanguage elements and are not a document-wide characteristic.
+
+2021-09-06  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Converter.pm (set_global_document_commands),
 	tp/Texinfo/Convert/HTML.pm (_prepare_elements),
 	tp/Texinfo/Convert/IXIN.pm, tp/Texinfo/Convert/Info.pm,

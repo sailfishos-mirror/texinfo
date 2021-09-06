@@ -262,7 +262,7 @@ sub format_header($)
 
   my $header =  "<?xml version=\"1.0\"${encoding}?>".'
 <!DOCTYPE texinfo PUBLIC "-//GNU//DTD TexinfoML V'.$texinfo_dtd_version.'//EN" "http://www.gnu.org/software/texinfo/dtd/'.$texinfo_dtd_version.'/texinfo.dtd">
-'. $self->open_element('texinfo', ['xml:lang', $self->get_conf('documentlanguage')])."\n";
+'. $self->open_element('texinfo')."\n";
   if ($self->{'output_file'} ne '') {
     my $output_filename = $self->{'output_filename'};
     $header .= $self->open_element('filename',['file', $output_filename])
@@ -455,8 +455,6 @@ sub output($$)
       return undef;
     }
   }
-
-  $self->set_global_document_commands(-1);
 
   my $result = '';
   $result .= $self->_output_text($self->format_header(), $fh);

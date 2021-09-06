@@ -172,11 +172,18 @@ my %info_tests = (
   'unknown_region' => 1,
 );
 
+my %xml_tests = (
+ 'multiple' => 1,
+);
+
 foreach my $test (@test_cases) {
   push @{$test->[2]->{'test_formats'}}, 'plaintext';
   if ($info_tests{$test->[0]}) {
     push @{$test->[2]->{'test_formats'}}, 'info';
     push @{$test->[2]->{'test_formats'}}, 'html';
+  }
+  if ($xml_tests{$test->[0]}) {
+    push @{$test->[2]->{'test_formats'}}, 'xml';
   }
 }
 

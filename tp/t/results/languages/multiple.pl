@@ -1147,4 +1147,31 @@ $result_converted_errors{'html'}->{'multiple'} = [
 ];
 
 
+
+$result_converted{'xml'}->{'multiple'} = '<documentlanguage xml:lang="fr" spaces=" ">fr</documentlanguage>
+
+<copying endspaces=" ">
+<defivar spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="1">a de copying</indexterm><defcategory automatic="on" bracketed="on">Instance Variable</defcategory> <defclass>copying</defclass> <defclassvar>a</defclassvar> <defparam>b</defparam></definitionterm>
+</defivar>
+</copying>
+
+<node name="Top" spaces=" "><nodename>Top</nodename></node>
+
+<defivar spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="2">BBB de fr</indexterm><defcategory automatic="on" bracketed="on">Instance Variable</defcategory> <defclass>fr</defclass> <defclassvar>BBB</defclassvar> <defparam>CCC</defparam></definitionterm>
+</defivar>
+
+<documentlanguage xml:lang="de" spaces=" ">de</documentlanguage>
+
+<insertcopying></insertcopying>
+
+<documentlanguage xml:lang="pt" spaces=" ">pt</documentlanguage>
+
+<defivar spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="3">BBB da pt</indexterm><defcategory automatic="on" bracketed="on">Instance Variable</defcategory> <defclass>pt</defclass> <defclassvar>BBB</defclassvar> <defparam>CCC</defparam></definitionterm>
+</defivar>
+
+<insertcopying></insertcopying>
+
+<printindex value="vr" line="vr"></printindex>
+';
+
 1;
