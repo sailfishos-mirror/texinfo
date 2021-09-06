@@ -1,5 +1,31 @@
 2021-09-06  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Converter.pm (output, output_no_split): remove
+	calls to set_global_document_commands(), it is better if converters
+	set the global commands on a case per case basis.
+
+	* tp/Texinfo/Convert/Info.pm (_info_header),
+	tp/Texinfo/Convert/Plaintext.pm (get_informative_global_commands):
+	pass @informative_global_commands to with
+	get_informative_global_commands() to limit the vairables on which
+	set_global_document_commands() is used in Texinfo::Convert::Info
+	_info_header().
+
+	* tp/Texinfo/Convert/Plaintext.pm (%contents_commands): remove unused
+	variable.
+
+	* tp/Texinfo/Convert/Plaintext.pm (new_formatter): access 'frenchspacing'
+	through get_conf(), and not ->{'conf'}.
+
+	* tp/Texinfo/Convert/Plaintext.pm (@informative_global_commands,
+	%formatting_misc_commands): remove from @informative_global_commands
+	the @-commands that are not used through configuration or
+	translation.  Put @*contents commands in %formatting_misc_commands
+	such that they are taken into account, even if not in
+	@informative_global_commands anymore.
+
+2021-09-06  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/TexinfoXML.pm (format_header): remove document
 	wide xml:lang texinfo element attribute as it does not corresponds to
 	the document language settings in Texinfo which should be done with

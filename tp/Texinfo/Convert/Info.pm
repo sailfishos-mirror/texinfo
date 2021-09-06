@@ -330,7 +330,8 @@ sub _info_header($)
   # commands in the document.  It may not correspond to the
   # intent of the author if the global commands appears late
   # in the document.  However this is the best guess we can do.
-  $self->set_global_document_commands(1);
+  my @informative_global_commands = $self->get_informative_global_commands();
+  $self->set_global_document_commands(1, \@informative_global_commands);
   if ($self->{'extra'} and $self->{'extra'}->{'copying'}) {
     print STDERR "COPYING HEADER\n" if ($self->get_conf('DEBUG'));
     $self->{'in_copying_header'} = 1;
@@ -340,7 +341,7 @@ sub _info_header($)
     $result .= $self->_footnotes();
     delete $self->{'in_copying_header'};
   }
-  $self->set_global_document_commands(0);
+  $self->set_global_document_commands(0, \@informative_global_commands);
 
   if ($self->{'parser_info'}->{'dircategory_direntry'}) {
     $self->{'ignored_commands'}->{'direntry'} = 0;

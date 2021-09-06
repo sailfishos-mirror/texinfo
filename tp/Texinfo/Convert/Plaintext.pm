@@ -60,13 +60,20 @@ my %formatting_misc_commands = %Texinfo::Convert::Text::formatting_misc_commands
 
 my $NO_NUMBER_FOOTNOTE_SYMBOL = '*';
 
+# documentlanguage is used through gdt().
 my @informative_global_commands = ('paragraphindent', 'firstparagraphindent',
-'frenchspacing', 'documentencoding', 'footnotestyle', 'documentlanguage',
-'contents', 'shortcontents', 'summarycontents', 'deftypefnnewline');
+'frenchspacing', 'footnotestyle', 'documentlanguage', 'deftypefnnewline');
 
 my %informative_commands;
 foreach my $informative_command (@informative_global_commands) {
   $informative_commands{$informative_command} = 1;
+}
+
+# used to pass to Texinfo::Convert::Info
+sub get_informative_global_commands($)
+{
+  my $self = shift;
+  return @informative_global_commands;
 }
 
 my %no_brace_commands = %Texinfo::Common::no_brace_commands;
@@ -99,8 +106,8 @@ my %letter_no_arg_commands = %Texinfo::Common::letter_no_arg_commands;
 
 foreach my $kept_command(keys (%informative_commands),
   keys (%default_index_commands),
-  'verbatiminclude', 'insertcopying', 
-  'listoffloats', 'printindex', ) {
+  'verbatiminclude', 'insertcopying', 'contents', 'shortcontents',
+  'summarycontents', 'listoffloats', 'printindex', ) {
   $formatting_misc_commands{$kept_command} = 1;
 }
 
@@ -356,13 +363,6 @@ sub push_top_formatter($$)
   $self->{'formatters'}->[-1]->{'_top_formatter'} = 1;
 }
 
-
-my %contents_commands = (
- 'contents' => 1,
- 'shortcontents' => 1,
- 'summarycontents' => 1,
-);
-
 sub converter_defaults($$)
 {
   return %defaults;
@@ -591,7 +591,7 @@ sub new_formatter($$;$)
          'indent_level'      => $self->{'format_context'}->[-1]->{'indent_level'}, 
   };
   $container_conf->{'frenchspacing'} = 1 
-    if ($self->{'conf'}->{'frenchspacing'} eq 'on');
+    if ($self->get_conf('frenchspacing') eq 'on');
   $container_conf->{'counter'} 
     = $self->{'text_element_context'}->[-1]->{'counter'}
       if (defined($self->{'text_element_context'}->[-1]->{'counter'}));
@@ -641,7 +641,7 @@ sub new_formatter($$;$)
   my $formatter = {'container' => $container, 'upper_case' => 0,
                    'font_type_stack' => [{}],
                    'w' => 0, 'type' => $type,
-              'frenchspacing_stack' => [$self->{'conf'}->{'frenchspacing'}],
+              'frenchspacing_stack' => [$self->get_conf('frenchspacing')],
               'suppress_styles' => $conf->{'suppress_styles'}};
 
   if ($type eq 'unfilled') {

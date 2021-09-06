@@ -735,12 +735,6 @@ sub output($$)
   $self->_set_outfile();
   return undef unless $self->_create_destination_directory();
 
-  # do that now to have it available for formatting
-  # NOTE this calls Convert::Converter::_informative_command on all the 
-  # @informative_global commands.
-  # Thus sets among others language and encodings.
-  $self->set_global_document_commands(-1);
-
   if ($self->get_conf('USE_NODES')) {
     $elements = Texinfo::Structuring::split_by_node($root);
   } else {
@@ -1201,8 +1195,6 @@ sub output_no_split($$)
       return undef;
     }
   }
-
-  $self->set_global_document_commands(-1);
 
   if ($self->get_conf('USE_NODES')) {
     return $self->convert_document_nodes($root, $fh);
