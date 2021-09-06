@@ -1,5 +1,10 @@
 2021-09-06  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/IXIN.pm: do not call
+	set_global_document_commands().
+
+2021-09-06  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Converter.pm (output, output_no_split): remove
 	calls to set_global_document_commands(), it is better if converters
 	set the global commands on a case per case basis.

@@ -283,7 +283,6 @@ sub output_ixin($$)
     }
   }
 
-  $self->set_global_document_commands(-1);
   # we ignore everything before the first node
   $self->_set_ignored_type('text_root');
 
