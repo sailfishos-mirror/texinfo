@@ -258,6 +258,13 @@ my %set_flag_command_equivalent = (
 #  'txideftypefnnl'         => 'deftypefnnewline',
 );
 
+# could be moved to Texinfo::Common if needed more generally
+my %set_flag_index_char_ignore = (
+ 'txiindexatsignignore' => '@',
+ 'txiindexbackslashignore' => '\\',
+ 'txiindexlessthanignore' => '<',
+ 'txiindexhyphenignore' => '-',
+);
 
 # keep line information for those commands.
 my %keep_line_nr_brace_commands = %context_brace_commands;
@@ -2545,6 +2552,15 @@ sub _enter_index_entry($$$$$$$)
                       'command'              => $current,
                       'number'               => $number,
                     };
+  # gather set txiindex*ignore information
+  foreach my $set_variable (keys(%set_flag_index_char_ignore)) {
+    if (exists($self->{'values'}->{$set_variable})) {
+      my $ignored_char = $set_flag_index_char_ignore{$set_variable};
+      if (0) {
+      $index_entry->{'index_ignore_flags'}->{$ignored_char} = 1;
+      }
+    }
+  }
   if (defined $current->{'extra'}->{'sortas'}) {
     $index_entry->{'sortas'} = $current->{'extra'}->{'sortas'};
   }

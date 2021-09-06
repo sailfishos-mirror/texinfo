@@ -1569,8 +1569,9 @@ sub setup_index_entry_keys_formatting($$)
   my $self = shift;
   my $configuration_informations = shift;
 
+  # TODO remove once 'index_ignore_flags' is implemented everywhere
   my $ignore_chars = '';
-
+#if (0){
   # '-' must come first to avoid e.g. [<-@] looking like a character range
   $ignore_chars .= '-'
     if defined $self->{'values'}->{'txiindexhyphenignore'};
@@ -1580,7 +1581,7 @@ sub setup_index_entry_keys_formatting($$)
     if defined $self->{'values'}->{'txiindexlessthanignore'};
   $ignore_chars .= '@'
     if defined $self->{'values'}->{'txiindexatsignignore'};
-
+#}
   my $options = {'sort_string' => 1,
    Texinfo::Convert::Text::copy_options_for_convert_text(
                                     $configuration_informations)};
@@ -1607,6 +1608,10 @@ sub index_entry_sort_string($$$$;$)
     $entry_key = Texinfo::Convert::Text::convert_to_text(
                           $entry_tree_element, $convert_to_text_options);
     # FIXME do that for sortas too?
+    if (exists($main_entry->{'index_ignore_flags'})) {
+      $ignore_chars
+         .= quotemeta(join('', keys(%{$main_entry->{'index_ignore_flags'}})));
+    }
     if (defined($ignore_chars) and $ignore_chars ne '') {
       $entry_key =~ s/[$ignore_chars]//g;
     }

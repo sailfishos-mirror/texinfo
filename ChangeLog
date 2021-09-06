@@ -1,5 +1,14 @@
 2021-09-06  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (%set_flag_index_char_ignore)
+	(_enter_index_entry), tp/Texinfo/Structuring.pm
+	(index_entry_sort_string): add the ignored characters based
+	on txiindex*ignore values to index_entry dynamically in parser.
+	Use these values.  Inactive implementation, waiting for implementation
+	in XS parser to activate.  Design partly based on Gavin ideas.
+
+2021-09-06  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/DocBook.pm (%defaults, convert, convert_tree)
 	($DEFAULT_LANG, output, _convert): set the default for
 	documentlanguage as undef, but use $DEFAULT_LANG, set to 'en' as
