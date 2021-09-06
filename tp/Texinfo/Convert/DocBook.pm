@@ -59,7 +59,7 @@ my %defaults = (
   'SUBDIR'               => undef,
   'output_format'        => 'docbook',
   'SPLIT'                => 0,
-  'documentlanguage'     => 'en',
+  'documentlanguage'     => undef,
   'OPEN_QUOTE_SYMBOL'    => $lsquo,
   'CLOSE_QUOTE_SYMBOL'   => $rsquo,
 );
@@ -181,7 +181,6 @@ foreach my $command ('item', 'headitem', 'itemx', 'tab',
 }
 
 my %docbook_global_commands = (
-  'documentencoding' => 1,
   'documentlanguage' => 1,
 );
 
@@ -278,7 +277,9 @@ sub convert($$)
   my $self = shift;
   my $root = shift;
 
-  $self->set_global_document_commands(-1);
+  if (! defined($self->{'lang_stack'})) {
+    $self->{'lang_stack'} = [''];
+  }
   return $self->convert_document_sections($root);
 }
 
@@ -287,9 +288,15 @@ sub convert_tree($$)
   my $self = shift;
   my $root = shift;
 
+  if (! defined($self->{'lang_stack'})) {
+    $self->{'lang_stack'} = [''];
+  }
   return $self->_convert($root);
 }
 
+# not the same as a default for @documentlanguage as it appears
+# as an empty string on the lang_stack.
+my $DEFAULT_LANG = 'en';
 sub output($$)
 {
   my $self = shift;
@@ -311,8 +318,6 @@ sub output($$)
     }
   }
 
-  $self->set_global_document_commands(-1);
-
   my $encoding = '';
   if ($self->get_conf('OUTPUT_ENCODING_NAME') 
       and $self->get_conf('OUTPUT_ENCODING_NAME') ne 'utf-8') {
@@ -327,12 +332,20 @@ sub output($$)
     $id = '';
   }
 
+  $self->{'lang_stack'} = [];
+  my $lang = $DEFAULT_LANG;
+  if (defined($self->get_conf('documentlanguage'))) {
+    $lang = $self->get_conf('documentlanguage');
+    push @{$self->{'lang_stack'}}, $self->get_conf('documentlanguage');
+  } else {
+    push @{$self->{'lang_stack'}}, '';
+  }
   my $header =  "<?xml version=\"1.0\"${encoding}?>".'
 <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.2//EN" "http://www.oasis-open.org/docbook/xml/4.2/docbookx.dtd" [
   <!ENTITY tex "TeX">
   <!ENTITY latex "LaTeX">
 ]>
-'. "<book${id} lang=\"".$self->get_conf('documentlanguage') ."\">\n";
+'. "<book${id} lang=\"$lang\">\n";
 
   my $result = '';
   $result .= $self->_output_text($header, $fh);
@@ -687,6 +700,14 @@ sub _convert($$;$)
           if ($root->{'extra'} and $root->{'extra'}->{'associated_node'}) {
             $attribute .= " id=\"$root->{'extra'}->{'associated_node'}->{'extra'}->{'normalized'}\"";
           }
+          my $language = '';
+          if (defined($self->get_conf('documentlanguage'))) {
+            $language = $self->get_conf('documentlanguage');
+            if ($self->{'lang_stack'}->[-1] ne $self->get_conf('documentlanguage')) {
+              $attribute .= ' lang="'.$self->get_conf('documentlanguage').'"';
+            }
+          }
+          push @{$self->{'lang_stack'}}, $language;
           $result .= "<$command${attribute}>\n";
           if ($root->{'args'} and $root->{'args'}->[0]) {
             my ($arg, $end_line) = $self->_convert_argument_and_end_line($root);
@@ -1460,6 +1481,7 @@ sub _convert($$;$)
     if (!($root->{'section_childs'} and scalar(@{$root->{'section_childs'}}))
         or $command_texi eq 'top') {
       $result .= "</$command>\n";
+      pop @{$self->{'lang_stack'}};
       my $current = $root;
       while ($current->{'section_up'}
              # the most up element is a virtual sectioning root element, this
@@ -1469,6 +1491,7 @@ sub _convert($$;$)
              and $self->_level_corrected_section($current->{'section_up'}) ne 'top') {
         $current = $current->{'section_up'};
         $result .= '</'.$self->_docbook_section_element($current) .">\n";
+        pop @{$self->{'lang_stack'}};
       }
     }
   }

@@ -47,7 +47,29 @@ Glossary
 @chapter A chapter Acnkowledgements
 
 Ack!
-']
+'],
+['multiple_documentlanguage',
+'@documentlanguage ja
+
+@node Top
+@top top
+
+@node chap
+@chapter Chap no new language
+
+@documentlanguage fr
+@node chapter fr
+@chapter chapter fr
+
+@documentlanguage pt
+@node subnode pt
+@section section pt
+
+@documentlanguage fr
+@node subnode fr
+@section section fr
+
+'],
 );
 
 foreach my $test (@test_cases) {

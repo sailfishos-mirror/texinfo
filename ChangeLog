@@ -1,5 +1,19 @@
 2021-09-06  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/DocBook.pm (%defaults, convert, convert_tree)
+	($DEFAULT_LANG, output, _convert): set the default for
+	documentlanguage as undef, but use $DEFAULT_LANG, set to 'en' as
+	lang attribute for the whole document if documentlanguage is undef.
+	Use a stack of languages, with current documentlanguage value
+	pushed at sectioning command opening, removed when a sectioning
+	command is closed.  If the new language is different from the
+	container section, set a lang attribute.
+
+	* tp/Texinfo/Convert/DocBook.pm (%docbook_global_commands):
+	remove 'documentencoding'.
+
+2021-09-06  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/IXIN.pm: do not call
 	set_global_document_commands().
 
