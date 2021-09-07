@@ -574,7 +574,7 @@ sub _set_element_file($$$$)
   }
 }
 
-sub _top_node_filename($$)
+sub top_node_filename($$)
 {
   my $self = shift;
   my $document_name = shift;
@@ -647,7 +647,7 @@ sub _set_pages_files($$$$$$)
     my $node_top;
     $node_top = $self->{'labels'}->{'Top'} if ($self->{'labels'});
   
-    my $top_node_filename = $self->_top_node_filename($document_name);
+    my $top_node_filename = $self->top_node_filename($document_name);
     # first determine the top node file name.
     if ($node_top and defined($top_node_filename)) {
       my ($node_top_element) = $self->_get_element($node_top);
@@ -781,7 +781,7 @@ sub output($$)
     my $outfile;
     if ($output_file ne '') {
       if ($self->get_conf('SPLIT')) {
-        $outfile = $self->_top_node_filename($document_name);
+        $outfile = $self->top_node_filename($document_name);
         if (defined($created_directory) and $created_directory ne '') {
           $outfile = File::Spec->catfile($created_directory, $outfile);
         }
@@ -1865,6 +1865,11 @@ Returns the value of the Texinfo configuration option I<$option_string>.
 
 Set the Texinfo configuration option I<$option_string> to I<$value> if
 not set as a converter option.
+
+=item $result = $converter->top_node_filename($document_name)
+
+Returns a file name for the Top node file using either TOP_FILE
+customization value, or EXTENSION customization value and C<$document_name>.
 
 =back
 

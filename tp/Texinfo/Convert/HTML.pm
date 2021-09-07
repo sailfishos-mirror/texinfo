@@ -5729,7 +5729,7 @@ sub _set_html_pages_files($$$$$$$$)
     my $node_top;
     $node_top = $self->{'labels'}->{'Top'} if ($self->{'labels'});
   
-    my $top_node_filename = $self->_top_node_filename($document_name);
+    my $top_node_filename = $self->top_node_filename($document_name);
     # first determine the top node file name.
     if ($node_top and defined($top_node_filename)) {
       my ($node_top_element) = $self->_get_element($node_top);
@@ -7596,7 +7596,7 @@ sub output($$)
     my $outfile;
     if ($output_file ne '') {
       if ($self->get_conf('SPLIT')) {
-        $outfile = $self->_top_node_filename($document_name);
+        $outfile = $self->top_node_filename($document_name);
         if (defined($created_directory) and $created_directory ne '') {
           $outfile = File::Spec->catfile($created_directory, $outfile);
         }

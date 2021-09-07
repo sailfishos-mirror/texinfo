@@ -1,5 +1,11 @@
 2021-09-07  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Converter.pm (top_node_filename),
+	tp/Texinfo/Convert/HTML.pm: rename _top_node_filename()
+	as top_node_filename().
+
+2021-09-07  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texinfo.texi (@code{@@code}, @code{@@allowcodebreaks}):
 	make clear that @allowcodebreaks has no effect in HTML.
 
