@@ -806,10 +806,10 @@ sub output($$)
     if ($elements and @$elements) {
       foreach my $element (@$elements) {
         my $element_text = $self->convert_tree($element);
-        $output .= $self->_output_text($element_text, $fh);
+        $output .= $self->write_or_return($element_text, $fh);
       }
     } else {
-      $output .= $self->_output_text($self->convert($root), $fh);
+      $output .= $self->write_or_return($self->convert($root), $fh);
     }
     # NOTE do not close STDOUT now to avoid a perl warning.
     if ($fh and $outfile ne '-') {
@@ -1242,7 +1242,7 @@ sub output_no_split($$)
 }
 
 # output fo $fh if defined, otherwise return the text.
-sub _output_text($$$)
+sub write_or_return($$$)
 {
   my $self = shift;
   my $text = shift;
@@ -1265,11 +1265,11 @@ sub _convert_document_elements($$;$$)
   if ($elements) {
     my $result = '';
     foreach my $element (@$elements) {
-      $result .= $self->_output_text($self->convert_tree($element), $fh);
+      $result .= $self->write_or_return($self->convert_tree($element), $fh);
     }
     return $result;
   } else {
-    return $self->_output_text($self->convert_tree($root), $fh);
+    return $self->write_or_return($self->convert_tree($root), $fh);
   }
 }
 

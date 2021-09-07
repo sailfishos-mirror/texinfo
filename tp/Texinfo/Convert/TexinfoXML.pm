@@ -463,14 +463,14 @@ sub output($$)
   }
 
   my $result = '';
-  $result .= $self->_output_text(
+  $result .= $self->write_or_return(
        $self->format_header($output_file, $output_filename), $fh);
   if ($self->get_conf('USE_NODES')) {
     $result .= $self->convert_document_nodes($root, $fh);
   } else {
     $result .= $self->convert_document_sections($root, $fh);
   }
-  $result .= $self->_output_text($self->close_element('texinfo')."\n", $fh);
+  $result .= $self->write_or_return($self->close_element('texinfo')."\n", $fh);
   if ($fh and $output_file ne '-') {
     Texinfo::Common::output_files_register_closed(
                   $self->output_files_information(), $output_file);

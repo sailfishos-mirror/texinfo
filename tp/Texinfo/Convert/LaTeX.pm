@@ -958,10 +958,10 @@ sub output($$)
 
   $self->_prepare_conversion($modified_top_root);
 
-  $result .= $self->_output_text($self->_latex_header(), $fh);
+  $result .= $self->write_or_return($self->_latex_header(), $fh);
   _push_new_context($self, 'main');
-  $result .= $self->_output_text($self->convert_tree($modified_top_root), $fh);
-  $result .= $self->_output_text($self->_latex_footer(), $fh);
+  $result .= $self->write_or_return($self->convert_tree($modified_top_root), $fh);
+  $result .= $self->write_or_return($self->_latex_footer(), $fh);
 
   #print $result;
   if ($fh and $output_file ne '-') {

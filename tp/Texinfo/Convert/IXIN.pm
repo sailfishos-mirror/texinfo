@@ -885,23 +885,23 @@ sub output_ixin($$)
                     'labelslen', $self->_count_bytes($labels_text),
                     'blobsindexlen', $self->_count_bytes($blobs_index));
 
-  my $output = $self->_output_text($result, $fh);
+  my $output = $self->write_or_return($result, $fh);
 
   my $counts_text = $self->ixin_open_element('counts', \@counts_attributes);
   $counts_text .= $dts_index;
   $counts_text .= $floats_index;
   $counts_text .= $self->ixin_close_element('counts') . "\n";
-  $output .= $self->_output_text($counts_text, $fh);
+  $output .= $self->write_or_return($counts_text, $fh);
 
-  $output .= $self->_output_text($nodes_index, $fh);
-  $output .= $self->_output_text($sectioning_tree, $fh);
-  $output .= $self->_output_text($labels_text, $fh);
-  $output .= $self->_output_text($dts_text, $fh);
-  $output .= $self->_output_text($floats_text, $fh);
-  $output .= $self->_output_text($blobs_index, $fh);
+  $output .= $self->write_or_return($nodes_index, $fh);
+  $output .= $self->write_or_return($sectioning_tree, $fh);
+  $output .= $self->write_or_return($labels_text, $fh);
+  $output .= $self->write_or_return($dts_text, $fh);
+  $output .= $self->write_or_return($floats_text, $fh);
+  $output .= $self->write_or_return($blobs_index, $fh);
 
-  $output .= $self->_output_text($document_output, $fh);
-  $output .= $self->_output_text($blobs, $fh);
+  $output .= $self->write_or_return($document_output, $fh);
+  $output .= $self->write_or_return($blobs, $fh);
 
   if ($fh and $output_file ne '-') {
     Texinfo::Common::output_files_register_closed(

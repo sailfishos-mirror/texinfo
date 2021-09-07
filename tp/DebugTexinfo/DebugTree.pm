@@ -95,7 +95,7 @@ sub output($$)
     $root = {'type' => 'elements_root',
              'contents' => $elements };
   }
-  return $self->_output_text (_print_tree($self, $root), $fh);
+  return $self->write_or_return(_print_tree($self, $root), $fh);
 }
 
 sub convert($$)

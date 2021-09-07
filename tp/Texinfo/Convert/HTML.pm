@@ -7626,9 +7626,9 @@ sub output($$)
     }
 
     my $header = &{$self->{'format_begin_file'}}($self, $output_filename, undef);
-    $output .= $self->_output_text($header, $fh);
-    $output .= $self->_output_text($body, $fh);
-    $output .= $self->_output_text(&{$self->{'format_end_file'}}($self), $fh);
+    $output .= $self->write_or_return($header, $fh);
+    $output .= $self->write_or_return($body, $fh);
+    $output .= $self->write_or_return(&{$self->{'format_end_file'}}($self), $fh);
 
     # NOTE do not close STDOUT now to avoid a perl warning.
     if ($fh and $outfile ne '-') {
