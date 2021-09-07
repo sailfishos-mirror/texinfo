@@ -5392,9 +5392,9 @@ of the Emacs Lisp functions that the keystroke commands invoke.
 By default, @TeX{} will consider breaking lines at @samp{-} and
 @samp{_} characters within @code{@@code} and related commands.  This
 can be controlled with @code{@@allowcodebreaks}
-(@pxref{@code{@@allowcodebreaks}}).  The HTML output attempts to
-respect this for @samp{-}, but ultimately it is up to the browser's
-behavior.  For Info, it seems better never to make such breaks.
+(@pxref{@code{@@allowcodebreaks}}).  In the HTML output breaking
+lines is up to the browser's behavior.  For Info, it seems better
+never to make such breaks.
 
 For Info, the quotes are omitted in the output of the @code{@@code}
 command and related commands (e.g., @code{@@kbd}, @code{@@command}),
@@ -10795,7 +10795,7 @@ These commands can be given anywhere in the document.  For example,
 you may have just one problematic paragraph where you need to turn off
 the breaks, but want them in general, or vice versa.
 
-This command has no effect except in HTML and @TeX{} output.
+This command has no effect except in @TeX{} output.
 
 
 @node @code{@@w}

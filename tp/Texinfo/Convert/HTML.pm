@@ -1260,12 +1260,9 @@ sub default_commands_conversion($$)
 my %kept_misc_commands;
 
 my @informative_global_commands = ('contents', 'shortcontents',
-  'summarycontents', 'allowcodebreaks', 'documentlanguage',
-  'footnotestyle', 'documentencoding', 
+  'summarycontents', 'documentlanguage', 'footnotestyle',
   'xrefautomaticsectiontitle', 'deftypefnnewline');
-# taken from global
-# 'documentencoding'
-# 'novalidate'
+
 foreach my $misc_command(@informative_global_commands,
         'verbatiminclude', 'insertcopying', 'printindex', 'listoffloats',
         'author', 'subtitle',

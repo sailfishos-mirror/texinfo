@@ -1,5 +1,14 @@
 2021-09-07  Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texinfo.texi (@code{@@code}, @code{@@allowcodebreaks}):
+	make clear that @allowcodebreaks has no effect in HTML.
+
+	* tp/Texinfo/Convert/HTML.pm (@informative_global_commands):
+	remove allowcodebreaks and documentencoding that are not used
+	at all.
+
+2021-09-07  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texinfo.texi (@code{@@documentlanguage}): explain that
 	in DocBook lang only sets the language in the following sections.
 	Text from Gavin.
