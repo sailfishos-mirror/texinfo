@@ -130,7 +130,7 @@ sub _informative_command_value($$)
 # REMARK documentencoding handling is not reverted by resetting
 # a value with set_conf, as the encodings are set using other
 # informations (possibly based on @documentencoding) in converter.
-sub _informative_command($$)
+sub set_informative_command_value($$)
 {
   my $self = shift;
   my $root = shift;
@@ -313,7 +313,7 @@ sub set_global_document_commands($$;$)
         print STDERR "SET_global_multiple_commands($commands_location) $global_command\n";
       }
       if (defined($root)) {
-        $self->_informative_command($root);
+        $self->set_informative_command_value($root);
       } else {
         # commands not appearing in the document, this should set the
         # same value, the converter initialization value
@@ -1392,6 +1392,20 @@ sub convert_accents($$$;$)
   }
 }
 
+# Add any index sub-entries specified with @subentry, separated by commas.
+sub convert_index_subentries {
+  my ($self, $entry) = @_;
+
+  my $result = '';
+  my $tmp = $entry->{'command'};
+  while ($tmp->{'extra'} and $tmp->{'extra'}->{'subentry'}) {
+    $tmp = $tmp->{'extra'}->{'subentry'};
+    $result .= $self->convert_tree({'text' => ', '});
+    $result .= $self->convert_tree($tmp->{'args'}->[0]);
+  }
+  return $result;
+}
+
 # This method allows to count words in elements and returns an array
 # and a text already formatted.
 sub sort_element_counts($$;$$)
@@ -1460,6 +1474,7 @@ sub sort_element_counts($$;$$)
   return (\@sorted_name_counts_array, $result);
 }
 
+
 # XML related methods and variables that may be used in different
 # XML Converters.
 sub xml_protect_text($$)
@@ -1475,21 +1490,6 @@ sub xml_protect_text($$)
   $text =~ s/\"/&quot;/g;
   return $text;
 }
-
-# Add any index sub-entries specified with @subentry, separated by commas.
-sub convert_index_subentries {
-  my ($self, $entry) = @_;
-
-  my $result = '';
-  my $tmp = $entry->{'command'};
-  while ($tmp->{'extra'} and $tmp->{'extra'}->{'subentry'}) {
-    $tmp = $tmp->{'extra'}->{'subentry'};
-    $result .= $self->convert_tree({'text' => ', '});
-    $result .= $self->convert_tree($tmp->{'args'}->[0]);
-  }
-  return $result;
-}
-
 
 # 'today' is not set here.
 our %default_xml_no_arg_commands_formatting;
@@ -1865,6 +1865,13 @@ Returns the value of the Texinfo configuration option I<$option_string>.
 
 Set the Texinfo configuration option I<$option_string> to I<$value> if
 not set as a converter option.
+
+=item $converter->set_informative_command_value($element)
+
+Set the Texinfo configuration option corresponding to the tree element
+C<$element>.  The command associated to the tree element should be
+a command that sets some information, such as C<@documentlanguage>,
+C<@contents> or <@footnotestyle> for example.
 
 =item $result = $converter->top_node_filename($document_name)
 

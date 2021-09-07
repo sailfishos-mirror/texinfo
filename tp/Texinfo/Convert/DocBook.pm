@@ -655,7 +655,7 @@ sub _convert($$;$)
     } elsif (exists($docbook_misc_commands{$root->{'cmdname'}})) {
       #warn "  is dbk misc command\n";
       if ($docbook_global_commands{$root->{'cmdname'}}) {
-        $self->_informative_command($root);
+        $self->set_informative_command_value($root);
         return '';
       }
       my $command;

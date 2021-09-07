@@ -2701,7 +2701,7 @@ sub _convert($$)
     # all the @-commands that have an information for the formatting, like
     # @paragraphindent, @frenchspacing...
     } elsif ($informative_commands{$command}) {
-      $self->_informative_command($root);
+      $self->set_informative_command_value($root);
       return '';
     } else {
       $unknown_command = 1;

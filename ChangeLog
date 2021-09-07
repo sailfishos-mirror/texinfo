@@ -1,5 +1,12 @@
 2021-09-07  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Converter.pm (set_informative_command_value),
+	tp/Texinfo/Convert/DocBook.pm, tp/Texinfo/Convert/HTML.pm,
+	tp/Texinfo/Convert/LaTeX.pm, tp/Texinfo/Convert/Plaintext.pm:
+	rename _informative_command() as set_informative_command_value().
+
+2021-09-07  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Converter.pm (write_or_return)
 	tp/DebugTexinfo/DebugTree.pm, tp/Texinfo/Convert/DocBook.pm,
 	tp/Texinfo/Convert/HTML.pm, tp/Texinfo/Convert/IXIN.pm,

@@ -2742,7 +2742,7 @@ sub _convert($$)
     # in a way that can be reverted as with @firstparagraphindent.
     # use of \usepackage{indentfirst} cannot be reverted.
     } elsif ($informative_commands{$command}) {
-      $self->_informative_command($root);
+      $self->set_informative_command_value($root);
       if ($command eq 'documentlanguage') {
         my $language = $self->get_conf('documentlanguage');
         $language =~ s/_/-/;

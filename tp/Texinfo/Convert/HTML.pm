@@ -3881,7 +3881,7 @@ sub _convert_informative_command($$$$)
   return '' if ($self->in_string());
   $cmdname = 'shortcontents' if ($cmdname eq 'summarycontents');
 
-  $self->_informative_command($command);
+  $self->set_informative_command_value($command);
   if ($self->get_conf('CONTENTS_OUTPUT_LOCATION') eq 'inline'
       and ($cmdname eq 'contents' or $cmdname eq 'shortcontents')
       and $self->get_conf($cmdname)
