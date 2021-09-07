@@ -12161,6 +12161,8 @@ of various @dfn{document strings} such as ``see'' in cross-references
 Commands}), and so on.  Some strings, such as ``Node:'', ``Next:'',
 ``Menu:'', etc., are keywords in Info output, so are not translated
 there; they are translated in other output formats.
+In DocBook output @code{@@documentlanguage} sets the language for
+following sections.
 
 @cindex @file{txi-@var{cc}.tex}
 For @TeX{}, this command causes a file @file{txi-@var{locale}.tex} to
