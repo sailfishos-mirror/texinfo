@@ -5510,7 +5510,7 @@ sub _new_sectioning_command_target($$)
   my $command = shift;
 
   my ($normalized_name, $filename) 
-    = $self->_sectioning_command_normalized_filename($command);
+    = $self->normalized_sectioning_command_filename($command);
 
   my $target_base = _normalized_to_id($normalized_name);
   if ($target_base !~ /\S/ and $command->{'cmdname'} eq 'top' 

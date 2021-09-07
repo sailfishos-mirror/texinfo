@@ -496,7 +496,7 @@ sub _id_to_filename($$)
   return substr($id, 0, $self->get_conf('BASEFILENAME_LENGTH'));
 }
 
-sub _sectioning_command_normalized_filename($$)
+sub normalized_sectioning_command_filename($$)
 {
   my $self = shift;
   my $command = shift;
@@ -692,7 +692,7 @@ sub _set_pages_files($$$$$$)
                                        $destination_directory);
             } else {
               my ($normalized_name, $filename) 
-                 = $self->_sectioning_command_normalized_filename($command);
+                 = $self->normalized_sectioning_command_filename($command);
               $self->_set_element_file($file_element, $filename,
                                        $destination_directory);
             }
@@ -1812,11 +1812,11 @@ the resulting string is returned.
 
 =item ($succeeded, $created_directory) = $converter->create_destination_directory($destination_directory)
 
-Create destination directory.  I<$succeeded> is true if the creation
-was successful or uneeded, false otherwise.  I<$created_directory>
-is the directory actually created, which can be different from
-C<$destination_directory> if C<$destination_directory> already
-exists as a file, output is split and there is an extension.
+Create destination directory.  I<$succeeded> is true if the creation was
+successful or uneeded, false otherwise.  I<$created_directory> is the directory
+actually created, which is, if possible, I<$destination_directory>, but can also
+be different from I<$destination_directory> if I<$destination_directory>
+already exists as a file, output is split and there is an extension.
 
 =item ($output_file, $destination_directory, $output_filename, $document_name, $input_basefile) = $converter->determine_files_and_directory()
 
@@ -1825,16 +1825,16 @@ result depends on the presence of C<@setfilename>, on the Texinfo input file
 name, and on customization options such as OUTPUT, SUBDIR or SPLIT, as described
 in the Texinfo manual.
 
-C<$output_file> is mainly relevant when not split and should be used as the
-output file name.  In general, if not split and C<$output_file> is an empty
+I<$output_file> is mainly relevant when not split and should be used as the
+output file name.  In general, if not split and I<$output_file> is an empty
 string, it means that text should be returned by the converter instead of being
 written to an output file.  This is used in the test suite.
-C<$destination_directory> is either the directory C<$output_file> is in, or if
-split, the directory where the files should be created.  C<$output_filename>
+I<$destination_directory> is either the directory C<$output_file> is in, or if
+split, the directory where the files should be created.  I<$output_filename>
 is, in general, the file name portion of C<$output_file> (without directory)
 but can also be set based on C<@setfilename>, in particular when
-C<$output_file> is an empty string. C<$document_name> is C<$output_filename>
-without extension.  C<$input_basefile> is based on the input texinfo file name,
+C<$output_file> is an empty string. I<$document_name> is C<$output_filename>
+without extension.  I<$input_basefile> is based on the input texinfo file name,
 with the file name portion only (without directory).
 
 =item ($caption, $prepended) = $converter->float_name_caption ($float)
@@ -1861,6 +1861,14 @@ format, like the splitting for example.
 
 Returns the value of the Texinfo configuration option I<$option_string>.
 
+=item ($normalized_name, $filename) = $converter->normalized_sectioning_command_filename($element)
+
+Returns a normalized name I<$normalized_name> corresponding to a sectioning
+command tree element I<$element>, expanding the command argument using
+transliteration and characters protection.  Also returns I<$filename> 
+the corresponding filename based on C<$normalized_name> taking into
+account additional constraint on file names and adding a file extension.
+
 =item $converter->set_conf($option_string, $value)
 
 Set the Texinfo configuration option I<$option_string> to I<$value> if
@@ -1869,14 +1877,14 @@ not set as a converter option.
 =item $converter->set_informative_command_value($element)
 
 Set the Texinfo configuration option corresponding to the tree element
-C<$element>.  The command associated to the tree element should be
+I<$element>.  The command associated to the tree element should be
 a command that sets some information, such as C<@documentlanguage>,
-C<@contents> or <@footnotestyle> for example.
+C<@contents> or C<@footnotestyle> for example.
 
 =item $result = $converter->top_node_filename($document_name)
 
 Returns a file name for the Top node file using either TOP_FILE
-customization value, or EXTENSION customization value and C<$document_name>.
+customization value, or EXTENSION customization value and I<$document_name>.
 
 =back
 
