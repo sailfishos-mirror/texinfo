@@ -519,7 +519,7 @@ sub normalized_sectioning_command_filename($$)
   return ($normalized_name, $filename);
 }
 
-sub _node_filename($$)
+sub node_information_filename($$)
 {
   my $self = shift;
   my $node_info = shift;
@@ -677,7 +677,8 @@ sub _set_pages_files($$$$$$)
                 or !defined($self->{'labels'}->{$root_command->{'extra'}->{'normalized'}})) {
               $node_filename = 'unknown_node';
             } else {
-              $node_filename = $self->_node_filename($root_command->{'extra'});
+              $node_filename
+               = $self->node_information_filename($root_command->{'extra'});
             }
             $node_filename .= $extension;
             $self->_set_element_file($file_element, $node_filename,
@@ -1863,6 +1864,11 @@ format, like the splitting for example.
 =item $converter->get_conf($option_string)
 
 Returns the value of the Texinfo configuration option I<$option_string>.
+
+=item $filename = sub $converter->node_information_filename($node_info)
+
+Returns the normalized file name correponding to the I<$node_info>
+node element tree C<extra> field.
 
 =item ($normalized_name, $filename) = $converter->normalized_sectioning_command_filename($element)
 

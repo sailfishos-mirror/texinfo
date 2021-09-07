@@ -1,5 +1,11 @@
 2021-09-08  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Converter.pm (node_information_filename),
+	tp/Texinfo/Convert/HTML.pm: rename _node_filename() as
+	node_information_filename().
+
+2021-09-08  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Converter.pm (converter),
 	tp/Texinfo/Convert/Text.pm (converter),
 	tp/Texinfo/Convert/DocBook.pm, tp/Texinfo/Convert/HTML.pm,

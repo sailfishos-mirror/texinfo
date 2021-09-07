@@ -5499,7 +5499,7 @@ sub _node_id_file($$)
     $target = &$Texinfo::Config::node_target_name($node_info, $target);
   }
 
-  my $filename = $self->_node_filename($node_info);
+  my $filename = $self->node_information_filename($node_info);
 
   return ($filename, $target);
 }
