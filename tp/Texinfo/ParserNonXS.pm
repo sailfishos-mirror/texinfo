@@ -933,15 +933,15 @@ sub parse_texi_file($$)
       last;
     }
   }
-  my $root = { 'contents' => [], 'type' => 'text_root' };
+  my ($document_root, $text_root) = _setup_text_root();
   if (@first_lines) {
-    push @{$root->{'contents'}}, { 'type' => 'preamble', 'contents' => [],
-                                   'parent' => $root };
+    push @{$text_root->{'contents'}}, { 'type' => 'preamble', 'contents' => [],
+                                   'parent' => $text_root };
     foreach my $line (@first_lines) {
-      push @{$root->{'contents'}->[-1]->{'contents'}}, 
+      push @{$text_root->{'contents'}->[-1]->{'contents'}},
                                    { 'text' => $line,
                                      'type' => 'preamble_text',
-                                     'parent' => $root->{'contents'}->[-1]
+                                     'parent' => $text_root->{'contents'}->[-1]
                                    };
     }
   }
@@ -958,18 +958,18 @@ sub parse_texi_file($$)
   $self->{'info'}->{'input_file_name'} = $file_name;
   $self->{'info'}->{'input_directory'} = $directories;
   
-  my $tree = $self->_parse_texi($root);
+  my $tree = $self->_parse_texi($document_root);
 
-  # Find 'text_root', which contains everything before first node/section.
-  # if there are elements, 'text_root' is the first content, otherwise it
-  # is the root.
-  my $text_root;
-  if ($tree->{'type'} eq 'text_root') {
-    $text_root = $tree;
-  } elsif ($tree->{'contents'} and $tree->{'contents'}->[0]
-           and $tree->{'contents'}->[0]->{'type'} eq 'text_root') {
-    $text_root = $tree->{'contents'}->[0];
-  }
+  ## Find 'text_root', which contains everything before first node/section.
+  ## if there are elements, 'text_root' is the first content, otherwise it
+  ## is the root.
+  #my $text_root;
+  #if ($tree->{'type'} eq 'text_root') {
+  #  $text_root = $tree;
+  #} elsif ($tree->{'contents'} and $tree->{'contents'}->[0]
+  #         and $tree->{'contents'}->[0]->{'type'} eq 'text_root') {
+  #  $text_root = $tree->{'contents'}->[0];
+  #}
 
   # Put everything before @setfilename in a special type.  This allows to
   # ignore everything before @setfilename.
@@ -3618,13 +3618,20 @@ sub _check_valid_nesting {
   }
 }
 
+sub _setup_text_root()
+{
+  my $text_root = { 'contents' => [], 'type' => 'text_root' };
+  my $document_root = $text_root;
+  return ($document_root, $text_root);
+}
 
 # the main subroutine
 sub _parse_texi($;$)
 {
   my ($self, $root) = @_;
 
-  $root = { 'contents' => [], 'type' => 'text_root' } if (!defined($root));
+  ($root) = _setup_text_root() if (!defined($root));
+
   my $current = $root;
 
   my $line_nr;
@@ -5444,6 +5451,7 @@ sub _parse_texi($;$)
         }
       # Misc text except end of line
       } elsif (defined $misc_text) {
+        print STDERR "MISC TEXT: $misc_text\n" if ($self->{'DEBUG'});
         my $new_text = $misc_text;
         substr ($line, 0, length ($misc_text)) = '';
         $current = _merge_text($self, $current, $new_text);

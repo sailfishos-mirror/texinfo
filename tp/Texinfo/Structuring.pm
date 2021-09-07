@@ -114,6 +114,23 @@ sub section_level($)
 }
 
 
+sub no_root_command_tree($)
+{
+  my $root = shift;
+  if (!$root->{'type'} or $root->{'type'} ne 'document_root'
+      or !$root->{'contents'}
+      or scalar(@{$root->{'contents'}}) == 0
+      or ($root->{'contents'}->[0]->{'type'}
+          and $root->{'contents'}->[0]->{'type'} eq 'text_root'
+          and (scalar(@{$root->{'contents'}}) == 1
+              or (scalar(@{$root->{'contents'}}) == 2
+                  and $root->{'contents'}->[1]->{'cmdname'}
+                  and $root->{'contents'}->[1]->{'cmdname'} eq 'bye')))) {
+    return 1;
+  }
+  return 0;
+}
+
 # Go through the sectioning commands (e.g. @chapter, not @node), and
 # set:
 # 'number'
@@ -130,8 +147,7 @@ sub sectioning_structure($$$)
   my $configuration_informations = shift;
   my $root = shift;
 
-  if (!$root->{'type'} or $root->{'type'} ne 'document_root'
-      or !$root->{'contents'}) {
+  if (no_root_command_tree($root)) {
     return undef;
   }
 
@@ -819,8 +835,7 @@ sub nodes_tree($$$$$)
 sub split_by_node($)
 {
   my $root = shift;
-  if (!$root->{'type'} or $root->{'type'} ne 'document_root'
-      or !$root->{'contents'} or !@{$root->{'contents'}}) {
+  if (no_root_command_tree($root)) {
     return undef;
   }
   my $elements;
@@ -868,8 +883,7 @@ sub split_by_node($)
 sub split_by_section($)
 {
   my $root = shift;
-  if (!$root->{'type'} or $root->{'type'} ne 'document_root'
-      or !$root->{'contents'} or !@{$root->{'contents'}}) {
+  if (no_root_command_tree($root)) {
     return undef;
   }
   my $elements;

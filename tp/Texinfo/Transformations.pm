@@ -73,8 +73,7 @@ sub _correct_level($$;$)
 sub fill_gaps_in_sectioning($)
 {
   my $root = shift;
-  if (!$root->{'type'} or $root->{'type'} ne 'document_root'
-      or !$root->{'contents'}) {
+  if (Texinfo::Structuring::no_root_command_tree($root)) {
     return undef;
   }
   my @sections_list;
@@ -323,8 +322,7 @@ sub insert_nodes_for_sectioning_commands($$$$)
   my $targets_list = shift;
   my $labels = shift;
 
-  if (!$root->{'type'} or $root->{'type'} ne 'document_root'
-      or !$root->{'contents'}) {
+  if (Texinfo::Structuring::no_root_command_tree($root)) {
     return (undef, undef);
   }
   my @added_nodes;
@@ -457,8 +455,7 @@ sub _get_non_automatic_nodes_with_sections($)
 {
   my $root = shift;
 
-  if (!$root->{'type'} or $root->{'type'} ne 'document_root'
-      or !$root->{'contents'}) {
+  if (Texinfo::Structuring::no_root_command_tree($root)) {
     return undef;
   }
   my @non_automatic_nodes;

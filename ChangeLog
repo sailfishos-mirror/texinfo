@@ -1,5 +1,16 @@
 2021-09-07  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (parse_texi_file, _setup_text_root)
+	(_parse_texi), tp/Texinfo/Structuring.pm (no_root_command_tree),
+	tp/Texinfo/Transformations.pm: use a function to setup 'text_root'
+	type in tp/Texinfo/ParserNonXS.pm.  Prepare recognizing trees
+	with text_root and @bye only as trees without root command in
+	no_root_command_tree().
+	No functional change, aim is to reduce difference with future code
+	changing the tree in ParserNonXS.pm.
+
+2021-09-07  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Converter.pm (determine_files_and_directory)
 	(_set_element_file, _top_node_filename, _set_pages_files)
 	(create_destination_directory), tp/DebugTexinfo/DebugTree.pm,

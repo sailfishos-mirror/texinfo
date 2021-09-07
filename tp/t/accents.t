@@ -18,6 +18,17 @@ use Texinfo::Convert::HTML;
 
 ok(1, "modules loading");
 
+sub _find_accent($)
+{
+  my $text_root = shift;
+  my $current = $text_root;
+  while ($current->{'type'} and ($current->{'type'} eq 'text_root'
+                                 or $current->{'type'} eq 'document_root'
+                                 or $current->{'type'} eq 'paragraph')) {
+    $current = $current->{'contents'}->[0];
+  }
+  return $current;
+}
 
 sub test_accent_stack ($)
 {
@@ -27,7 +38,7 @@ sub test_accent_stack ($)
   my $reference = $test->[2]; 
   my $parser = Texinfo::Parser::parser();
   my $text_root = $parser->parse_texi_text($texi);
-  my $tree = $text_root->{'contents'}->[0]->{'contents'}->[0];
+  my $tree = _find_accent($text_root);
   my ($contents, $commands_stack) = 
     Texinfo::Convert::Utils::find_innermost_accent_contents($tree);
   my $text = Texinfo::Convert::Text::convert_to_text({'contents' => $contents});
@@ -76,7 +87,7 @@ sub test_enable_encoding ($)
   my $reference_unicode = $test->[5];
   my $parser = Texinfo::Parser::parser();
   my $text_root = $parser->parse_texi_text($texi);
-  my $tree = $text_root->{'contents'}->[0]->{'contents'}->[0];
+  my $tree = _find_accent($text_root);
 
   my ($contents, $commands_stack) = 
     Texinfo::Convert::Utils::find_innermost_accent_contents($tree);
