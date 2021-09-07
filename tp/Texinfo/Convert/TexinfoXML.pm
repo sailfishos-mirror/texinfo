@@ -247,9 +247,12 @@ sub format_text($$)
 }
 
 # output format specific
-sub format_header($)
+sub format_header($$$)
 {
   my $self = shift;
+  my $output_file = shift;
+  my $output_filename = shift;
+
   my $encoding = '';
   if ($self->get_conf('OUTPUT_ENCODING_NAME')
       and $self->get_conf('OUTPUT_ENCODING_NAME') ne 'utf-8') {
@@ -263,8 +266,7 @@ sub format_header($)
   my $header =  "<?xml version=\"1.0\"${encoding}?>".'
 <!DOCTYPE texinfo PUBLIC "-//GNU//DTD TexinfoML V'.$texinfo_dtd_version.'//EN" "http://www.gnu.org/software/texinfo/dtd/'.$texinfo_dtd_version.'/texinfo.dtd">
 '. $self->open_element('texinfo')."\n";
-  if ($self->{'output_file'} ne '') {
-    my $output_filename = $self->{'output_filename'};
+  if ($output_file ne '') {
     $header .= $self->open_element('filename',['file', $output_filename])
              .$self->close_element('filename')."\n";
   }
@@ -441,35 +443,40 @@ sub output($$)
   my $self = shift;
   my $root = shift;
 
-  $self->_set_outfile();
-  return undef unless $self->_create_destination_directory();
+  my ($output_file, $destination_directory, $output_filename)
+       = $self->determine_files_and_directory();
+  my ($succeeded, $created_directory)
+    = $self->create_destination_directory($destination_directory);
+  return undef unless $succeeded;
+
 
   my $fh;
-  if (! $self->{'output_file'} eq '') {
+  if (! $output_file eq '') {
     $fh = Texinfo::Common::output_files_open_out(
                              $self->output_files_information(), $self,
-                             $self->{'output_file'});
+                             $output_file);
     if (!$fh) {
       $self->document_error(sprintf(__("could not open %s for writing: %s"),
-                                    $self->{'output_file'}, $!));
+                                    $output_file, $!));
       return undef;
     }
   }
 
   my $result = '';
-  $result .= $self->_output_text($self->format_header(), $fh);
+  $result .= $self->_output_text(
+       $self->format_header($output_file, $output_filename), $fh);
   if ($self->get_conf('USE_NODES')) {
     $result .= $self->convert_document_nodes($root, $fh);
   } else {
     $result .= $self->convert_document_sections($root, $fh);
   }
   $result .= $self->_output_text($self->close_element('texinfo')."\n", $fh);
-  if ($fh and $self->{'output_file'} ne '-') {
+  if ($fh and $output_file ne '-') {
     Texinfo::Common::output_files_register_closed(
-                  $self->output_files_information(), $self->{'output_file'});
+                  $self->output_files_information(), $output_file);
     if (!close ($fh)) {
       $self->document_error(sprintf(__("error on closing %s: %s"),
-                                    $self->{'output_file'}, $!));
+                                    $output_file, $!));
     }
   }
 

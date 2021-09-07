@@ -1,3 +1,28 @@
+2021-09-07  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/Converter.pm (determine_files_and_directory)
+	(_set_element_file, _top_node_filename, _set_pages_files)
+	(create_destination_directory), tp/DebugTexinfo/DebugTree.pm,
+	tp/Texinfo/Convert/DocBook.pm, tp/Texinfo/Convert/HTML.pm
+	(_set_html_pages_files, _prepare_elements, _prepare_special_elements)
+	(_default_format_frame_files, _do_jslicenses_file),
+	tp/Texinfo/Convert/IXIN.pm, tp/Texinfo/Convert/Info.pm,
+	tp/Texinfo/Convert/LaTeX.pm, tp/Texinfo/Convert/TexinfoSXML.pm,
+	tp/Texinfo/Convert/TexinfoXML.pm, tp/Texinfo/Convert/Text.pm:
+	in Texinfo::Convert::Converter rename _create_destination_directory() as
+	create_destination_directory() and _set_outfile() as
+	determine_files_and_directory().  Do not set anything directly
+	in those methods, set if needed in the specific converters,
+	instead return the file and directory names.  Pass those names
+	directly to files called in output(), notably _set_element_file(),
+	_top_node_filename() and _set_pages_files() instead of using the
+	converter as a hash.  Rename _set_pages_files() as
+	_set_html_pages_files() in Texinfo::Convert::HTML and pass the
+	file names to this method and other methods called by output().
+
+	* tp/Texinfo/Convert/Converter.pm (output_no_split): close output
+	file.  This method is unused and untested.
+
 2021-09-06  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/Converter.pm (_set_pages_files): do not use

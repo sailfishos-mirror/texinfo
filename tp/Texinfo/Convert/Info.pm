@@ -57,34 +57,41 @@ sub output($)
 
   my $result;
 
-  $self->_set_outfile();
-  $self->{'input_basename'} = $STDIN_DOCU_NAME if ($self->{'input_basename'} eq '-');
+  my ($output_file, $destination_directory, $output_filename,
+     $document_name, $input_basefile) = $self->determine_files_and_directory();
+  my ($succeeded, $created_directory)
+    = $self->create_destination_directory($destination_directory);
+  return undef unless $succeeded;
+
+  # for format_node
+  $self->{'output_filename'} = $output_filename;
+
+  $input_basefile = $STDIN_DOCU_NAME if ($input_basefile eq '-');
 
   # no splitting when writing to the null device or to stdout
-  if ($Texinfo::Common::null_device_file{$self->{'output_file'}} 
-       or $self->{'output_file'} eq '-') {
+  if ($Texinfo::Common::null_device_file{$output_file}
+       or $output_file eq '-') {
     $self->force_conf('SPLIT_SIZE', undef);
   }
 
   push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0,
                                      'locations' => []};
-  my $header = $self->_info_header();
+  my $header = $self->_info_header($input_basefile, $output_filename);
   # header + text between setfilename and first node
   my $complete_header = $header;
 
   pop @{$self->{'count_context'}};
-  return undef unless $self->_create_destination_directory();
 
   my $header_bytes = Texinfo::Convert::Plaintext::count_bytes($self, $header);
   my $complete_header_bytes = $header_bytes;
   my $elements = Texinfo::Structuring::split_by_node($root);
 
   my $fh;
-  if (! $self->{'output_file'} eq '') {
+  if (! $output_file eq '') {
     if ($self->get_conf('VERBOSE')) {
-      print STDERR "Output file $self->{'output_file'}\n";
+      print STDERR "Output file $output_file\n";
     }
-    $fh = _open_info_file($self, $self->{'output_file'});
+    $fh = _open_info_file($self, $output_file);
     if (!$fh) {
       return undef;
     }
@@ -149,41 +156,40 @@ sub output($)
         }
         if ($out_file_nr == 1) {
           Texinfo::Common::output_files_register_closed(
-             $self->output_files_information(), $self->{'output_file'});
+             $self->output_files_information(), $output_file);
           if (defined($close_error)) {
             $self->document_error($self,
                   sprintf(__("error on closing %s: %s"),
-                                  $self->{'output_file'}, $close_error));
+                                  $output_file, $close_error));
             return undef;
           }
           if ($self->get_conf('VERBOSE')) {
             print STDERR "Renaming first output file as ".
-                  $self->{'output_file'}.'-'.$out_file_nr."\n";
+                  $output_file.'-'.$out_file_nr."\n";
           }
-          unless (rename($self->{'output_file'}, 
-                         $self->{'output_file'}.'-'.$out_file_nr)) {
+          unless (rename($output_file, $output_file.'-'.$out_file_nr)) {
             $self->document_error($self,
                   sprintf(__("rename %s failed: %s"),
-                                         $self->{'output_file'}, $!));
+                                         $output_file, $!));
             return undef;
           }
           # remove the main file from opened files since it was renamed
           # and add the file with a number.
-          @{$self->{'opened_files'}} = grep {$_ ne $self->{'output_file'}}
+          @{$self->{'opened_files'}} = grep {$_ ne $output_file}
                @{$self->{'opened_files'}};
           push @{$self->{'opened_files'}}, 
-                   $self->{'output_file'}.'-'.$out_file_nr;
-          push @indirect_files, [$self->{'output_filename'}.'-'.$out_file_nr,
+                   $output_file.'-'.$out_file_nr;
+          push @indirect_files, [$output_filename.'-'.$out_file_nr,
                                  $complete_header_bytes];
           #print STDERR join(' --> ', @{$indirect_files[-1]}) ."\n";
         } else {
           Texinfo::Common::output_files_register_closed(
                            $self->output_files_information(),
-                           $self->{'output_file'}.'-'.$out_file_nr);
+                           $output_file.'-'.$out_file_nr);
           if (defined($close_error)) {
             $self->document_error($self,
                   sprintf(__("error on closing %s: %s"),
-                                  $self->{'output_file'}.'-'.$out_file_nr, 
+                                  $output_file.'-'.$out_file_nr,
                                   $close_error));
             return undef;
           }
@@ -191,16 +197,16 @@ sub output($)
         $out_file_nr++;
         if ($self->get_conf('VERBOSE')) {
           print STDERR "New output file ".
-                $self->{'output_file'}.'-'.$out_file_nr."\n";
+                $output_file.'-'.$out_file_nr."\n";
         }
-        $fh = _open_info_file($self, $self->{'output_file'}.'-'.$out_file_nr); 
+        $fh = _open_info_file($self, $output_file.'-'.$out_file_nr);
         if (!$fh) {
           return undef;
         }
         print $fh $complete_header;
         $self->update_count_context();
         $self->{'count_context'}->[-1]->{'bytes'} += $complete_header_bytes;
-        push @indirect_files, [$self->{'output_filename'}.'-'.$out_file_nr,
+        push @indirect_files, [$output_filename.'-'.$out_file_nr,
                                $self->{'count_context'}->[-1]->{'bytes'}];
         #print STDERR join(' --> ', @{$indirect_files[-1]}) ."\n";
       }
@@ -209,17 +215,17 @@ sub output($)
   my $tag_text = '';
   if ($out_file_nr > 1) {
     Texinfo::Common::output_files_register_closed(
-      $self->output_files_information(), $self->{'output_file'}.'-'.$out_file_nr);
+      $self->output_files_information(), $output_file.'-'.$out_file_nr);
     if (!close ($fh)) {
       $self->document_error($self,
                sprintf(__("error on closing %s: %s"),
-                            $self->{'output_file'}.'-'.$out_file_nr, $!));
+                            $output_file.'-'.$out_file_nr, $!));
       return undef;
     }
     if ($self->get_conf('VERBOSE')) {
-      print STDERR "Outputing the split manual file $self->{'output_file'}\n";
+      print STDERR "Outputing the split manual file $output_file\n";
     }
-    $fh = _open_info_file($self, $self->{'output_file'});
+    $fh = _open_info_file($self, $output_file);
     if (!$fh) {
       return undef;
     }
@@ -272,13 +278,13 @@ sub output($)
     # 'Filehandle STDOUT reopened as FH only for input' if there are files
     # reopened after closing STDOUT.  So closing STDOUT is handled by the
     # caller.
-    unless ($self->{'output_file'} eq '-') {
+    unless ($output_file eq '-') {
       Texinfo::Common::output_files_register_closed(
-         $self->output_files_information(), $self->{'output_file'});
+         $self->output_files_information(), $output_file);
       if (!close ($fh)) {
         $self->document_error($self,
                   sprintf(__("error on closing %s: %s"),
-                              $self->{'output_file'}, $!));
+                              $output_file, $!));
       }
     }
   } else {
@@ -307,14 +313,16 @@ sub _open_info_file($$)
   return $fh;
 }
 
-sub _info_header($)
+sub _info_header($$$)
 {
   my $self = shift;
+  my $input_basefile = shift;
+  my $output_filename = shift;
 
   my $paragraph = Texinfo::Convert::Paragraph->new();
   my $result = add_text($paragraph, "This is ");
   # This ensures that spaces in file are kept.
-  $result .= add_next($paragraph, $self->{'output_filename'});
+  $result .= add_next($paragraph, $output_filename);
   my $program = $self->get_conf('PROGRAM');
   my $version = $self->get_conf('PACKAGE_VERSION');
   if (defined($program) and $program ne '') {
@@ -323,7 +331,7 @@ sub _info_header($)
   } else {
     $result .= add_text($paragraph, ", produced from ");
   }
-  $result .= add_next($paragraph, $self->{'input_basename'});
+  $result .= add_next($paragraph, $input_basefile);
   $result .= add_text($paragraph, '.');
   $result .= Texinfo::Convert::Paragraph::end($paragraph);
   $result .= "\n";
@@ -417,11 +425,11 @@ sub format_node($$)
     $self->{'first_node_done'} = 1;
   }
 
-  # May happen when only converting a fragment
-  my $output_filename = $self->{'output_filename'};
+  my $output_filename;
   if (defined($self->{'output_filename'})) {
     $output_filename = $self->{'output_filename'};
   } else {
+    # May happen when only converting a fragment
     $output_filename = '';
   }
 
@@ -508,7 +516,7 @@ sub format_image($$)
         # use the basename and not the file found.  It is agreed that it is
         # better, since in any case the files are moved.
         $image_file = $basefile.$extension;
-        last; 
+        last;
       }
     }
     my ($text, $width) = $self->txt_image_text($root, $basefile);

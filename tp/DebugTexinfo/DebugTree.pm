@@ -52,19 +52,25 @@ sub output($$)
   my $self = shift;
   my $root = shift;
 
-
-  $self->_set_outfile();
-  return undef unless $self->_create_destination_directory();
+  my ($output_file, $destination_directory) = $self->determine_files_and_directory();
+  # REMARK for this format SPLIT does not means diverse files created
+  # so the way the directory is determined/created if there is already
+  # a file with the same name does not make sense for this format.
+  # Given that this format is only to be used for debugging, this is
+  # not an issue that really needs fixing.
+  my ($succeeded, $created_directory)
+    = $self->create_destination_directory($destination_directory);
+  return undef unless $succeeded;
 
   my $fh;
-  if (! $self->{'output_file'} eq '') {
+  if (! $output_file eq '') {
     $fh = Texinfo::Common::output_files_open_out(
                              $self->output_files_information(), $self,
-                                     $self->{'output_file'});
+                                     $output_file);
     if (!$fh) {
       $self->document_error($self,
            sprintf($self->__("could not open %s for writing: %s"),
-                                    $self->{'output_file'}, $!));
+                                    $output_file, $!));
       return undef;
     }
   }

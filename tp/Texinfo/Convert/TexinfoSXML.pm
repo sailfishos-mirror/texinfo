@@ -158,17 +158,20 @@ sub format_text($$)
 }
 
 # output format specific
-sub format_header($)
+sub format_header($$$)
 {
   my $self = shift;
+  my $output_file = shift;
+  my $output_filename = shift;
+
   my $header = '';
   my $encoding = '';
   if ($self->get_conf('OUTPUT_ENCODING_NAME')
       and $self->get_conf('OUTPUT_ENCODING_NAME') ne 'utf-8') {
     $encoding = $self->get_conf('OUTPUT_ENCODING_NAME');
   }
-  if ($self->{'output_file'} ne '') {
-    my $output_filename = $self->{'output_filename'};
+  if ($output_file ne '') {
+    my $output_filename = $output_filename;
   }
   return $header;
 }

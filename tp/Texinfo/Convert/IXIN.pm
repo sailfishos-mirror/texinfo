@@ -267,18 +267,20 @@ sub output_ixin($$)
   my $self = shift;
   my $root = shift;
 
-  $self->_set_outfile();
-  return undef unless $self->_create_destination_directory();
+  my ($outfile, $destination_directory) = $self->determine_files_and_directory();
+  my ($succeeded, $created_directory)
+    = $self->create_destination_directory($destination_directory);
+  return undef unless $succeeded;
 
   my $fh;
-  if (! $self->{'output_file'} eq '') {
+  if (! $output_file eq '') {
     $fh = Texinfo::Common::output_files_open_out(
                              $self->output_files_information(), $self,
-                             $self->{'output_file'});
+                             $output_file);
     if (!$fh) {
       $self->document_error($self,
                 sprintf(__("could not open %s for writing: %s"),
-                                    $self->{'output_file'}, $!));
+                                    $output_file, $!));
       return undef;
     }
   }
@@ -292,9 +294,9 @@ sub output_ixin($$)
   $result .= $self->ixin_open_element('xid');
 
   my $output_file = $self->ixin_none_element('filename');
-  if ($self->{'output_file'} ne '') {
+  if ($output_file ne '') {
     $result .= $self->ixin_list_element('filename', 
-                           ['name', $self->{'output_file'}]);
+                           ['name', $output_file]);
   }
   my $lang = $self->get_conf('documentlanguage');
   #my $lang_code = $lang;
@@ -901,13 +903,13 @@ sub output_ixin($$)
   $output .= $self->_output_text($document_output, $fh);
   $output .= $self->_output_text($blobs, $fh);
 
-  if ($fh and $self->{'output_file'} ne '-') {
+  if ($fh and $output_file ne '-') {
     Texinfo::Common::output_files_register_closed(
-                  $self->output_files_information(), $self->{'output_file'});
+                  $self->output_files_information(), $output_file);
     if (!close ($fh)) {
       $self->document_error($self,
                 sprintf(__("error on closing %s: %s"),
-                                    $self->{'output_file'}, $!));
+                                    $output_file, $!));
     }
   }
   return $output;

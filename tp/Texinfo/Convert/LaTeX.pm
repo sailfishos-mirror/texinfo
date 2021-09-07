@@ -865,18 +865,21 @@ sub output($$)
 {
   my ($self, $root) = @_;
 
-  $self->_set_outfile();
-  return undef unless $self->_create_destination_directory();
+  my ($output_file, $destination_directory, $output_filename)
+    = $self->determine_files_and_directory();
+  my ($succeeded, $created_directory)
+    = $self->create_destination_directory($destination_directory);
+  return undef unless $succeeded;
 
   my $fh;
-  if (! $self->{'output_file'} eq '') {
+  if (! $output_file eq '') {
     $fh = Texinfo::Common::output_files_open_out(
                              $self->output_files_information(), $self,
-                             $self->{'output_file'});
+                             $output_file);
     if (!$fh) {
       $self->document_error($self,
              sprintf(__("could not open %s for writing: %s"),
-                                    $self->{'output_file'}, $!));
+                                    $output_file, $!));
       return undef;
     }
   }
@@ -961,13 +964,13 @@ sub output($$)
   $result .= $self->_output_text($self->_latex_footer(), $fh);
 
   #print $result;
-  if ($fh and $self->{'output_file'} ne '-') {
+  if ($fh and $output_file ne '-') {
     Texinfo::Common::output_files_register_closed(
-                  $self->output_files_information(), $self->{'output_file'});
+                  $self->output_files_information(), $output_file);
     if (!close ($fh)) {
       $self->document_error($self,
                    sprintf(__("error on closing %s: %s"),
-                                    $self->{'output_file'}, $!));
+                                    $output_file, $!));
     }
   }
   return $result;

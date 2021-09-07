@@ -5703,11 +5703,15 @@ sub _get_element($$;$)
   }
 }
 
-sub _set_pages_files($$)
+sub _set_html_pages_files($$$$$$$$)
 {
   my $self = shift;
   my $elements = shift;
   my $special_elements = shift;
+  my $output_file = shift;
+  my $destination_directory = shift;
+  my $output_filename = shift;
+  my $document_name = shift;
 
   # Ensure that the document has pages
   return undef if (!defined($elements) or !@$elements);
@@ -5720,22 +5724,21 @@ sub _set_pages_files($$)
   if (!$self->get_conf('SPLIT')) {
     foreach my $element (@$elements) {
       if (!defined($element->{'filename'})) {
-        $element->{'filename'} = $self->{'output_filename'};
-        $element->{'out_filename'} = $self->{'output_file'};
+        $element->{'filename'} = $output_filename;
+        $element->{'out_filename'} = $output_file;
       }
     }
   } else {
     my $node_top;
-    #my $section_top;
     $node_top = $self->{'labels'}->{'Top'} if ($self->{'labels'});
-    #$section_top = $self->{'extra'}->{'top'} if ($self->{'extra'});
   
-    my $top_node_filename = $self->_top_node_filename();
+    my $top_node_filename = $self->_top_node_filename($document_name);
     # first determine the top node file name.
     if ($node_top and defined($top_node_filename)) {
       my ($node_top_element) = $self->_get_element($node_top);
       die "BUG: No element for top node" if (!defined($node_top));
-      $self->_set_element_file($node_top_element, $top_node_filename);
+      $self->_set_element_file($node_top_element, $top_node_filename,
+                               $destination_directory);
     }
     my $file_nr = 0;
     my $previous_page;
@@ -5768,7 +5771,8 @@ sub _set_pages_files($$)
               $node_filename 
                 = $self->{'targets'}->{$root_command}->{'node_filename'};
             }
-            $self->_set_element_file($file_element, $node_filename);
+            $self->_set_element_file($file_element, $node_filename,
+                                     $destination_directory);
             last;
           }
         }
@@ -5778,20 +5782,24 @@ sub _set_pages_files($$)
           if ($command) {
             if ($command->{'cmdname'} eq 'top' and !$node_top
                 and defined($top_node_filename)) {
-              $self->_set_element_file($file_element, $top_node_filename);
+              $self->_set_element_file($file_element, $top_node_filename,
+                                       $destination_directory);
             } else {
               $self->_set_element_file($file_element,
-                 $self->{'targets'}->{$command}->{'section_filename'});
+                 $self->{'targets'}->{$command}->{'section_filename'},
+                                       $destination_directory);
             }
           } else {
             # when everything else has failed
             if ($file_nr == 0 and !$node_top 
                 and defined($top_node_filename)) {
-              $self->_set_element_file($file_element, $top_node_filename);
+              $self->_set_element_file($file_element, $top_node_filename,
+                                       $destination_directory);
             } else {
-              my $filename = $self->{'document_name'} . "_$file_nr";
+              my $filename = $document_name . "_$file_nr";
               $filename .= $extension;
-              $self->_set_element_file($element, $filename);
+              $self->_set_element_file($element, $filename,
+                                       $destination_directory);
             }
             $file_nr++;
           }
@@ -5810,7 +5818,8 @@ sub _set_pages_files($$)
       # may be determined with $self->element_is_top($element);
       my $filename = &$Texinfo::Config::element_file_name($self, $element, 
                                                           $element->{'filename'});
-      $self->_set_element_file($element, $filename) if (defined($filename));
+      $self->_set_element_file($element, $filename, $destination_directory)
+         if (defined($filename));
     }
     $self->{'file_counters'}->{$element->{'filename'}}++;
     print STDERR "Page $element ".Texinfo::Structuring::_print_element_command_texi($element).": $element->{'filename'}($self->{'file_counters'}->{$element->{'filename'}})\n"
@@ -5822,7 +5831,7 @@ sub _set_pages_files($$)
       my $filename 
        = $self->{'targets'}->{$element}->{'misc_filename'};
       if (defined($filename)) {
-        $self->_set_element_file($element, $filename);
+        $self->_set_element_file($element, $filename, $destination_directory);
         $self->{'file_counters'}->{$element->{'filename'}}++;
         print STDERR "Special page $element: $element->{'filename'}($self->{'file_counters'}->{$element->{'filename'}})\n"
           if ($self->get_conf('DEBUG'));
@@ -5840,10 +5849,12 @@ my @contents_elements_options = grep {Texinfo::Common::valid_option($_)}
 # $ROOT is a parsed Texinfo tree.  Return a list of the "elements" we need to
 # output in the HTML file(s).  Each "element" is what can go in one HTML file,
 # such as the content between @node lines in the Texinfo source.
-sub _prepare_elements($$)
+sub _prepare_elements($$$$)
 {
   my $self = shift;
   my $root = shift;
+  my $destination_directory = shift;
+  my $document_name = shift;
 
   my $elements;
 
@@ -5870,7 +5881,8 @@ sub _prepare_elements($$)
   # Do that before the other elements, to be sure that special page ids
   # are registered before elements id are.
   my $special_elements 
-    = $self->_prepare_special_elements($elements);
+    = $self->_prepare_special_elements($elements, $destination_directory,
+                                       $document_name);
   $self->set_global_document_commands(0, \@conf_for_special_elements);
 
   $self->{'special_elements'} = $special_elements 
@@ -5890,10 +5902,12 @@ sub _prepare_elements($$)
   return ($elements, $special_elements);
 }
 
-sub _prepare_special_elements($$)
+sub _prepare_special_elements($$$$)
 {
   my $self = shift;
   my $elements = shift;
+  my $destination_directory = shift;
+  my $document_name = shift;
 
   my %do_special;
   # FIXME let the user decide how @*contents are treated?
@@ -5940,7 +5954,7 @@ sub _prepare_special_elements($$)
     my $target = $self->{'misc_elements_targets'}->{$type};
     my $default_filename;
     if ($self->get_conf('SPLIT') or !$self->get_conf('MONOLITHIC')) {
-      $default_filename = $self->{'document_name'}.
+      $default_filename = $document_name.
         $self->{'misc_pages_file_string'}->{$type};
       $default_filename .= '.'.$extension if (defined($extension));
     } else {
@@ -5967,7 +5981,7 @@ sub _prepare_special_elements($$)
     if ($self->get_conf('SPLIT') or !$self->get_conf('MONOLITHIC')
         or (defined($filename) ne defined($default_filename))
         or (defined($filename) and $filename ne $default_filename)) {
-      $self->_set_element_file($element, $filename);
+      $self->_set_element_file($element, $filename, $destination_directory);
       print STDERR "NEW page for $type ($filename)\n" if ($self->get_conf('DEBUG'));
     }
     $self->{'targets'}->{$element} = {'target' => $target,
@@ -5978,7 +5992,7 @@ sub _prepare_special_elements($$)
   if ($self->get_conf('FRAMES')) {
     foreach my $type (keys(%{$self->{'frame_pages_file_string'}})) {
       my $default_filename;
-      $default_filename = $self->{'document_name'}.
+      $default_filename = $document_name.
         $self->{'frame_pages_file_string'}->{$type};
       $default_filename .= '.'.$extension if (defined($extension));
 
@@ -7062,6 +7076,7 @@ EOT
 
 sub _do_jslicenses_file {
   my $self = shift;
+  my $destination_directory = shift;
 
   my $setting = $self->get_conf('JS_WEBLABELS');
   my $path = $self->get_conf('JS_WEBLABELS_FILE');
@@ -7095,7 +7110,7 @@ sub _do_jslicenses_file {
 __("cannot use absolute path or URL `%s' for JS_WEBLABELS_FILE when generating web labels file"), $path));
     return;
   }
-  my $license_file = File::Spec->catdir($self->{'destination_directory'},
+  my $license_file = File::Spec->catdir($destination_directory,
                                         $path);
   my $fh = Texinfo::Common::output_files_open_out(
                  $self->output_files_information(), $self, $license_file);
@@ -7115,15 +7130,15 @@ __("cannot use absolute path or URL `%s' for JS_WEBLABELS_FILE when generating w
   }
 }
 
-sub _default_format_frame_files($)
+sub _default_format_frame_files($$)
 {
   my $self = shift;
+  my $destination_directory = shift;
 
   my $frame_file = $self->{'frame_pages_filenames'}->{'Frame'};
   my $frame_outfile;
-  if (defined($self->{'destination_directory'}) 
-      and $self->{'destination_directory'} ne '') {
-    $frame_outfile = File::Spec->catfile($self->{'destination_directory'}, 
+  if (defined($destination_directory) and $destination_directory ne '') {
+    $frame_outfile = File::Spec->catfile($destination_directory,
                                          $frame_file);
   } else {
     $frame_outfile = $frame_file;
@@ -7131,9 +7146,8 @@ sub _default_format_frame_files($)
   
   my $toc_frame_file = $self->{'frame_pages_filenames'}->{'Toc_Frame'};
   my $toc_frame_outfile;
-  if (defined($self->{'destination_directory'}) 
-      and $self->{'destination_directory'} ne '') {
-    $toc_frame_outfile = File::Spec->catfile($self->{'destination_directory'}, 
+  if (defined($destination_directory) and $destination_directory ne '') {
+    $toc_frame_outfile = File::Spec->catfile($destination_directory,
                                              $toc_frame_file);
   } else {
     $toc_frame_outfile = $toc_frame_file;
@@ -7224,8 +7238,13 @@ sub convert($$)
   my $result = '';
 
   # This should return undef if called on a tree without node or sections.
+  #
+  # FIXME the document_name and destination_directory arguments are undef.
+  # If a converter is reused, it could be possible to set before and reuse
+  # here something like $self->{'document_name'}
+  # but it is unclear if it is correct or not.
   my ($elements, $special_elements) 
-    = $self->_prepare_elements($root);
+    = $self->_prepare_elements($root, undef, undef);
 
   $self->_prepare_index_entries();
   $self->_prepare_footnotes();
@@ -7366,19 +7385,29 @@ sub output($$)
 
   # this sets OUTFILE, to be used if not split, but also
   # 'destination_directory' and 'output_filename' that are useful when split.
-  $self->_set_outfile();
-  return undef unless $self->_create_destination_directory();
+  my ($output_file, $destination_directory, $output_filename,
+              $document_name) = $self->determine_files_and_directory();
+  my ($succeeded, $created_directory)
+    = $self->create_destination_directory($destination_directory);
+  return undef unless $succeeded;
+
+  # set for init files
+  # FIXME use an api
+  $self->{'document_name'} = $document_name;
+  $self->{'destination_directory'} = $created_directory;
 
   # Get the list of "elements" to be processed, i.e. nodes or sections.
   # This should return undef if called on a tree without node or sections.
-  my ($elements, $special_elements) = $self->_prepare_elements($root);
+  my ($elements, $special_elements)
+    = $self->_prepare_elements($root, $destination_directory, $document_name);
 
   Texinfo::Structuring::split_pages($elements, $self->get_conf('SPLIT'));
 
   # determine file names associated with the different pages, and setup
   # the counters for special element pages.
-  if ($self->{'output_file'} ne '') {
-    $self->_set_pages_files($elements, $special_elements);
+  if ($output_file ne '') {
+    $self->_set_html_pages_files($elements, $special_elements, $output_file,
+                  $destination_directory, $output_filename, $document_name);
   }
 
   $self->_prepare_contents_elements();
@@ -7513,7 +7542,7 @@ sub output($$)
   return undef unless($init_status);
 
   if ($self->get_conf('FRAMES')) {
-    my $status = &{$self->{'format_frame_files'}}($self);
+    my $status = &{$self->{'format_frame_files'}}($self, $created_directory);
     return undef if (!$status);
   }
 
@@ -7568,19 +7597,17 @@ sub output($$)
   if (!$elements or !defined($elements->[0]->{'filename'})) {
     # no page
     my $outfile;
-    if ($self->{'output_file'} ne '') {
+    if ($output_file ne '') {
       if ($self->get_conf('SPLIT')) {
-        $outfile = $self->_top_node_filename();
-        if (defined($self->{'destination_directory'}) 
-            and $self->{'destination_directory'} ne '') {
-          $outfile = File::Spec->catfile($self->{'destination_directory'}, 
-                                         $outfile);
+        $outfile = $self->_top_node_filename($document_name);
+        if (defined($created_directory) and $created_directory ne '') {
+          $outfile = File::Spec->catfile($created_directory, $outfile);
         }
       } else {
-        $outfile = $self->{'output_file'};
+        $outfile = $output_file;
       }
       $fh = Texinfo::Common::output_files_open_out(
-              $self->output_files_information(), $self,$outfile);
+              $self->output_files_information(), $self, $outfile);
       if (!$fh) {
         $self->document_error($self,
               sprintf(__("could not open %s for writing: %s"),
@@ -7588,7 +7615,7 @@ sub output($$)
         return undef;
       }
     }
-    $self->{'current_filename'} = $self->{'output_filename'};
+    $self->{'current_filename'} = $output_filename;
 
     my $body = '';
     if ($elements and @$elements) {
@@ -7601,8 +7628,7 @@ sub output($$)
       $body .= $self->_convert($root);
     }
 
-    my $header = &{$self->{'format_begin_file'}}($self, 
-                                           $self->{'output_filename'}, undef);
+    my $header = &{$self->{'format_begin_file'}}($self, $output_filename, undef);
     $output .= $self->_output_text($header, $fh);
     $output .= $self->_output_text($body, $fh);
     $output .= $self->_output_text(&{$self->{'format_end_file'}}($self), $fh);
@@ -7617,7 +7643,7 @@ sub output($$)
                                       $outfile, $!));
       }
     }
-    return $output if ($self->{'output_file'} eq '');
+    return $output if ($output_file eq '');
   } else {
     # output with pages
     print STDERR "DO Elements with filenames\n"
@@ -7691,7 +7717,7 @@ sub output($$)
       }
     }
     if ($self->get_conf('INFO_JS_DIR')) {
-      my $jsdir = File::Spec->catdir($self->{'destination_directory'}, 
+      my $jsdir = File::Spec->catdir($created_directory,
                                      $self->get_conf('INFO_JS_DIR'));
       if (!-d $jsdir) {
         if (-f $jsdir) {
@@ -7723,7 +7749,7 @@ sub output($$)
   }
 
   if (%{$self->{'jslicenses'}}) {
-    $self->_do_jslicenses_file();
+    $self->_do_jslicenses_file($created_directory);
   }
 
   my $finish_status = $self->run_stage_handlers($root, 'finish');
@@ -7736,7 +7762,7 @@ sub output($$)
   # do node redirection pages
   $self->{'current_filename'} = undef;
   if ($self->get_conf('NODE_FILES') 
-      and $self->{'labels'} and $self->{'output_file'} ne '') {
+      and $self->{'labels'} and $output_file ne '') {
     foreach my $label (sort(keys (%{$self->{'labels'}}))) {
       my $node = $self->{'labels'}->{$label};
       my $target = $self->_get_target($node);
@@ -7759,9 +7785,8 @@ sub output($$)
         my $redirection_page 
           = &{$self->{'format_node_redirection_page'}}($self, $node);
         my $out_filename;
-        if (defined($self->{'destination_directory'}) 
-            and $self->{'destination_directory'} ne '') {
-          $out_filename = File::Spec->catfile($self->{'destination_directory'}, 
+        if (defined($created_directory) and $created_directory ne '') {
+          $out_filename = File::Spec->catfile($created_directory,
                                               $node_filename);
         } else {
           $out_filename = $node_filename;

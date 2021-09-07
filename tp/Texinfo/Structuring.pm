@@ -1926,7 +1926,7 @@ described in details in L<Texinfo::Parser/index_entries>.
 Returns the texinfo tree corresponding to a block command named
 C<$command_name> with contents C<$content> and parent in tree C<$parent>.
 
-=item $new_menu new_complete_node_menu($node, $use_sections)
+=item $new_menu = new_complete_node_menu($node, $use_sections)
 
 Returns a texinfo tree menu for node C<$node>, pointing to the children
 of the node obtained with the sectioning structure.  If C<$use_sections>

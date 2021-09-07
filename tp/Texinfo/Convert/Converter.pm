@@ -356,7 +356,7 @@ sub set_conf($$$)
 sub force_conf($$$)
 {
   my $self = shift;
-  my $conf = shift; 
+  my $conf = shift;
   my $value = shift;
   if (!Texinfo::Common::valid_option($conf)) {
     die "ABUG: unknown option $conf\n";
@@ -368,27 +368,28 @@ sub force_conf($$$)
 
 my $STDIN_DOCU_NAME = 'stdin';
 
-sub _set_outfile($$$)
+sub determine_files_and_directory($)
 {
   my $self = shift;
 
   # determine input file base name
-  my $input_basename;
+  my $input_basefile;
   if (defined($self->{'parser_info'}->{'input_file_name'})) {
     my ($directories, $suffix);
-    ($input_basename, $directories, $suffix) 
+    ($input_basefile, $directories, $suffix)
        = fileparse($self->{'parser_info'}->{'input_file_name'});
   } else {
     # This could happen if called on a piece of texinfo
-    $input_basename = '';
+    $input_basefile = '';
   }
-  $self->{'input_basename'} = $input_basename;
-  if ($input_basename eq '-') {
-    $input_basename = $STDIN_DOCU_NAME 
+
+  my $input_basename;
+  if ($input_basefile eq '-') {
+    $input_basename = $STDIN_DOCU_NAME;
   } else {
+    $input_basename = $input_basefile;
     $input_basename =~ s/\.te?x(i|info)?$//;
   }
-  $self->{'input_basename_name'} = $input_basename;
 
   my $setfilename;
   if (defined($self->get_conf('setfilename'))) {
@@ -399,87 +400,93 @@ sub _set_outfile($$$)
      $setfilename = $self->{'extra'}->{'setfilename'}->{'extra'}->{'text_arg'}
   }
 
+  my $input_basename_for_outfile = $input_basename;
+  my $setfilename_for_outfile = $setfilename;
   # PREFIX overrides both setfilename and the input file base name
   if (defined($self->get_conf('PREFIX'))) {
-    $setfilename = undef;
-    $input_basename = $self->get_conf('PREFIX');
+    $setfilename_for_outfile = undef;
+    $input_basename_for_outfile = $self->get_conf('PREFIX');
   }
 
-  # the name of the document, which is more or less the basename, without 
-  # extension
-  my $document_name;
+  # the document path, in general the outfile without
+  # extension and can be set from setfilename if outfile is not set
+  my $document_path;
   # determine output file and output file name
-  my $outfile;
+  my $output_file;
   if (!defined($self->get_conf('OUTFILE'))) {
-    if (defined($setfilename) and !$self->get_conf('NO_USE_SETFILENAME')) {
-      $outfile = $setfilename;
-      $document_name = $setfilename;
-      $document_name =~ s/\.[^\.]*$//;
+    if (defined($setfilename_for_outfile) and !$self->get_conf('NO_USE_SETFILENAME')) {
+      $output_file = $setfilename_for_outfile;
+      $document_path = $setfilename_for_outfile;
+      $document_path =~ s/\.[^\.]*$//;
       if (!$self->get_conf('USE_SETFILENAME_EXTENSION')) {
-        $outfile =~ s/\.[^\.]*$//;
-        $outfile .= '.'.$self->get_conf('EXTENSION') 
-          if (defined($self->get_conf('EXTENSION')) 
+        $output_file =~ s/\.[^\.]*$//;
+        $output_file .= '.'.$self->get_conf('EXTENSION')
+          if (defined($self->get_conf('EXTENSION'))
               and $self->get_conf('EXTENSION') ne '');
       }
-    } elsif ($input_basename ne '') {
-      $outfile = $input_basename;
-      $document_name = $input_basename;
-      $outfile .= '.'.$self->get_conf('EXTENSION') 
-        if (defined($self->get_conf('EXTENSION')) 
+    } elsif ($input_basename_for_outfile ne '') {
+      $output_file = $input_basename_for_outfile;
+      $document_path = $input_basename_for_outfile;
+      $output_file .= '.'.$self->get_conf('EXTENSION')
+        if (defined($self->get_conf('EXTENSION'))
             and $self->get_conf('EXTENSION') ne '');
     } else {
-      $outfile = '';
-      $document_name = $outfile;
+      $output_file = '';
+      $document_path = $output_file;
     }
-    if (defined($self->get_conf('SUBDIR')) and $outfile ne '') {
+    if (defined($self->get_conf('SUBDIR')) and $output_file ne '') {
       my $dir = File::Spec->canonpath($self->get_conf('SUBDIR'));
-      $outfile = File::Spec->catfile($dir, $outfile);
+      $output_file = File::Spec->catfile($dir, $output_file);
     }
   } else {
-    $document_name = $self->get_conf('OUTFILE');
-    $document_name =~ s/\.[^\.]*$//;
-    $outfile = $self->get_conf('OUTFILE');
+    $document_path = $self->get_conf('OUTFILE');
+    $document_path =~ s/\.[^\.]*$//;
+    $output_file = $self->get_conf('OUTFILE');
   }
 
-  # the output file without directories part.
-  my $output_filename = $outfile;
-  # this is a case that should happen rarely: one wants to get 
-  # the result in a string and there is a setfilename.
-  if ($outfile eq '' and defined($setfilename)
+  # the output file path, in general same as the outfile but can be
+  # set from setfilename if outfile is not set.
+  my $output_filepath = $output_file;
+  # in this case one wants to get the result in a string and there
+  # is a setfilename.  The setfilename is used to get something.
+  # This happens in the test suite.
+  if ($output_file eq '' and defined($setfilename_for_outfile)
       and !$self->get_conf('NO_USE_SETFILENAME')) {
-    $output_filename = $setfilename;
-    $document_name = $setfilename;
-    $document_name =~ s/\.[^\.]*$//;
+    $output_filepath = $setfilename_for_outfile;
+    $document_path = $setfilename_for_outfile;
+    $document_path =~ s/\.[^\.]*$//;
   }
-  my ($directories, $suffix);
+
+  # $document_name is the name of the document, which is the output
+  # file basename, $output_filename, without extension.
+  my ($document_name, $output_filename, $directories, $suffix);
   # We may be handling setfilename there, so it is not obvious that we
-  # want to use fileparse and not consider unixish separators.  However, 
-  # if this is setfilename, it should be a simple file name, so it 
+  # want to use fileparse and not consider unixish separators.  However,
+  # if this is setfilename, it should be a simple file name, so it
   # should hopefully be harmless to use fileparse
-  ($document_name, $directories, $suffix) = fileparse($document_name);
-  $self->{'document_name'} = $document_name;
-  ($output_filename, $directories, $suffix) = fileparse($output_filename);
-  $self->{'output_filename'} = $output_filename;
+  ($document_name, $directories, $suffix) = fileparse($document_path);
+  ($output_filename, $directories, $suffix) = fileparse($output_filepath);
+  my $destination_directory;
   if ($self->get_conf('SPLIT')) {
     if (defined($self->get_conf('OUTFILE'))) {
-      $self->{'destination_directory'} = $self->get_conf('OUTFILE');
+      $destination_directory = $self->get_conf('OUTFILE');
     } elsif (defined($self->get_conf('SUBDIR'))) {
-      $self->{'destination_directory'} = $self->get_conf('SUBDIR');
+      $destination_directory = $self->get_conf('SUBDIR');
     } else {
-      $self->{'destination_directory'} = $document_name;
+      $destination_directory = $document_name;
     }
   } else {
-    my ($out_filename, $output_dir, $suffix) = fileparse($outfile);
+    my ($out_filename, $output_dir, $suffix) = fileparse($output_file);
     if ($output_dir ne '') {
-      $self->{'destination_directory'} = $output_dir;
+      $destination_directory = $output_dir;
     }
   }
-  if (defined($self->{'destination_directory'}) 
-      and $self->{'destination_directory'} ne '') {
-    $self->{'destination_directory'} 
-      = File::Spec->canonpath($self->{'destination_directory'});
+  if (defined($destination_directory)
+      and $destination_directory ne '') {
+    $destination_directory = File::Spec->canonpath($destination_directory);
   }
-  $self->{'output_file'} = $outfile;
+  return ($output_file, $destination_directory, $output_filename,
+          $document_name, $input_basefile);
 }
 
 sub _id_to_filename($$)
@@ -537,11 +544,12 @@ sub _node_filename($$)
   return $filename;
 }
 
-sub _set_element_file($$$)
+sub _set_element_file($$$$)
 {
   my $self = shift;
   my $element = shift;
   my $filename = shift;
+  my $destination_directory = shift;
 
   if (!defined($filename)) {
     cluck("_set_element_file: filename not defined\n");
@@ -558,18 +566,18 @@ sub _set_element_file($$$)
     }
   }
   $element->{'filename'} = $filename;
-  if (defined($self->{'destination_directory'}) 
-      and $self->{'destination_directory'} ne '') {
+  if (defined($destination_directory) and $destination_directory ne '') {
     $element->{'out_filename'} = 
-      File::Spec->catfile($self->{'destination_directory'}, $filename);
+      File::Spec->catfile($destination_directory, $filename);
   } else {
     $element->{'out_filename'} = $filename;
   }
 }
 
-sub _top_node_filename($)
+sub _top_node_filename($$)
 {
   my $self = shift;
+  my $document_name = shift;
 
   my $top_node_filename;
   if (defined($self->get_conf('TOP_FILE')) 
@@ -581,7 +589,7 @@ sub _top_node_filename($)
       if (defined($self->get_conf('EXTENSION'))
             and $self->get_conf('EXTENSION') ne '');
 
-    $top_node_filename = $self->{'document_name'};
+    $top_node_filename = $document_name;
     if (defined($top_node_filename)) {
       $top_node_filename .= $extension;
     }
@@ -611,10 +619,14 @@ sub _get_element($$)
   }
 }
 
-sub _set_pages_files($$)
+sub _set_pages_files($$$$$$)
 {
   my $self = shift;
   my $elements = shift;
+  my $output_file = shift;
+  my $destination_directory = shift;
+  my $output_filename = shift;
+  my $document_name = shift;
 
   # Ensure that the document has pages
   return undef if (!defined($elements) or !@$elements);
@@ -627,20 +639,21 @@ sub _set_pages_files($$)
   if (!$self->get_conf('SPLIT')) {
     foreach my $element (@$elements) {
       if (!defined($element->{'filename'})) {
-        $element->{'filename'} = $self->{'output_filename'};
-        $element->{'out_filename'} = $self->{'output_file'};
+        $element->{'filename'} = $output_filename;
+        $element->{'out_filename'} = $output_file;
       }
     }
   } else {
     my $node_top;
     $node_top = $self->{'labels'}->{'Top'} if ($self->{'labels'});
   
-    my $top_node_filename = $self->_top_node_filename();
+    my $top_node_filename = $self->_top_node_filename($document_name);
     # first determine the top node file name.
     if ($node_top and defined($top_node_filename)) {
       my ($node_top_element) = $self->_get_element($node_top);
       die "BUG: No element for top node" if (!defined($node_top));
-      $self->_set_element_file($node_top_element, $top_node_filename);
+      $self->_set_element_file($node_top_element, $top_node_filename,
+                               $destination_directory);
     }
     my $file_nr = 0;
     my $previous_page;
@@ -664,7 +677,8 @@ sub _set_pages_files($$)
               $node_filename = $self->_node_filename($root_command->{'extra'});
             }
             $node_filename .= $extension;
-            $self->_set_element_file($file_element, $node_filename);
+            $self->_set_element_file($file_element, $node_filename,
+                                     $destination_directory);
             last;
           }
         }
@@ -674,21 +688,25 @@ sub _set_pages_files($$)
           if ($command) {
             if ($command->{'cmdname'} eq 'top' and !$node_top
                 and defined($top_node_filename)) {
-              $self->_set_element_file($file_element, $top_node_filename);
+              $self->_set_element_file($file_element, $top_node_filename,
+                                       $destination_directory);
             } else {
               my ($normalized_name, $filename) 
                  = $self->_sectioning_command_normalized_filename($command);
-              $self->_set_element_file($file_element, $filename)
+              $self->_set_element_file($file_element, $filename,
+                                       $destination_directory);
             }
           } else {
             # when everything else has failed
             if ($file_nr == 0 and !$node_top 
                 and defined($top_node_filename)) {
-              $self->_set_element_file($file_element, $top_node_filename);
+              $self->_set_element_file($file_element, $top_node_filename,
+                                       $destination_directory);
             } else {
-              my $filename = $self->{'document_name'} . "_$file_nr";
+              my $filename = $document_name . "_$file_nr";
               $filename .= $extension;
-              $self->_set_element_file($element, $filename);
+              $self->_set_element_file($element, $filename,
+                                       $destination_directory);
             }
             $file_nr++;
           }
@@ -708,6 +726,9 @@ sub _set_pages_files($$)
   }
 }
 
+# In general, converters override this method, but simple
+# converters can use it.  It is used for the plaintext
+# output format.
 sub output($$)
 {
   my $self = shift;
@@ -730,8 +751,11 @@ sub output($$)
     $self->set_conf('NODE_FILES', 1);
   }
 
-  $self->_set_outfile();
-  return undef unless $self->_create_destination_directory();
+  my ($output_file, $destination_directory, $output_filename,
+                  $document_name) = $self->determine_files_and_directory();
+  my ($succeeded, $created_directory)
+    = $self->create_destination_directory($destination_directory);
+  return undef unless $succeeded;
 
   if ($self->get_conf('USE_NODES')) {
     $elements = Texinfo::Structuring::split_by_node($root);
@@ -742,8 +766,9 @@ sub output($$)
   Texinfo::Structuring::split_pages($elements, $self->get_conf('SPLIT'));
 
   # determine file names associated with the different pages
-  if ($self->{'output_file'} ne '') {
-    $self->_set_pages_files($elements);
+  if ($output_file ne '') {
+    $self->_set_pages_files($elements, $output_file, $destination_directory,
+                            $output_filename, $document_name);
   }
 
   #print STDERR "$elements $elements->[0]->{'filename'}\n";
@@ -754,16 +779,14 @@ sub output($$)
   if (!$elements or !defined($elements->[0]->{'filename'})) {
     # no page
     my $outfile;
-    if ($self->{'output_file'} ne '') {
+    if ($output_file ne '') {
       if ($self->get_conf('SPLIT')) {
-        $outfile = $self->_top_node_filename();
-        if (defined($self->{'destination_directory'}) 
-            and $self->{'destination_directory'} ne '') {
-          $outfile = File::Spec->catfile($self->{'destination_directory'}, 
-                                         $outfile);
+        $outfile = $self->_top_node_filename($document_name);
+        if (defined($created_directory) and $created_directory ne '') {
+          $outfile = File::Spec->catfile($created_directory, $outfile);
         }
       } else {
-        $outfile = $self->{'output_file'};
+        $outfile = $output_file;
       }
       print STDERR "DO No pages, output in $outfile\n"
         if ($self->get_conf('DEBUG'));
@@ -798,7 +821,7 @@ sub output($$)
                                       $outfile, $!));
       }
     }
-    return $output if ($self->{'output_file'} eq '');
+    return $output if ($output_file eq '');
   } else {
     # output with pages
     print STDERR "DO Elements with filenames\n"
@@ -894,37 +917,39 @@ if (0) {
   );
 }
 
-sub _create_destination_directory($)
+sub create_destination_directory($$)
 {
   my $self = shift;
-  if (defined($self->{'destination_directory'})
-      and ! -d $self->{'destination_directory'}) {
-    if (!mkdir($self->{'destination_directory'}, oct(755))) {
+  my $destination_directory = shift;
+
+  if (defined($destination_directory)
+      and ! -d $destination_directory) {
+    if (!mkdir($destination_directory, oct(755))) {
       if ($self->get_conf('SPLIT') 
-          and $self->get_conf('EXTENSION') 
+          and $self->get_conf('EXTENSION')
           and $self->get_conf('EXTENSION') ne '') {
         my ($volume, $directories, $file) 
-           = File::Spec->splitpath($self->{'destination_directory'}, 1);
+           = File::Spec->splitpath($destination_directory, 1);
         my $new_directory = File::Spec->catpath($volume, 
                  $directories . '.' . $self->get_conf('EXTENSION'), $file);
         if (! -d $new_directory) {
           if (!mkdir($new_directory, oct(755))) {
             $self->document_error($self, sprintf(__(
               "could not create directories `%s' or `%s': %s"), 
-              $self->{'destination_directory'}, $new_directory, $!));
-            return undef;
+              $destination_directory, $new_directory, $!));
+            return (0, $destination_directory);
           }
         }
-        $self->{'destination_directory'} = $new_directory;
+        $destination_directory = $new_directory;
       } else {
         $self->document_error($self, sprintf(__(
              "could not create directory `%s': %s"), 
-             $self->{'destination_directory'}, $!));
-        return undef;
+             $destination_directory, $!));
+        return (0, $destination_directory);
       }
     }
   }
-  return 1;
+  return (1, $destination_directory);
 }
 
 sub txt_image_text($$$)
@@ -1172,33 +1197,48 @@ sub _level_corrected_section($$)
   return $command;
 }
 
-# generic output method
+# generic output method, not used anywhere.
+# FIXME remove?
 sub output_no_split($$)
 {
   my $self = shift;
   my $root = shift;
 
-  $self->_set_outfile();
-  return undef unless $self->_create_destination_directory();
+  my ($output_file, $destination_directory) = $self->determine_files_and_directory();
+  my ($succeeded, $created_directory)
+    = $self->create_destination_directory($destination_directory);
+  return undef unless $succeeded;
   
   my $fh;
-  if (! $self->{'output_file'} eq '') {
+  if (! $output_file eq '') {
     $fh = Texinfo::Common::output_files_open_out(
                              $self->output_files_information(), $self,
-                                     $self->{'output_file'});
+                                     $output_file);
     if (!$fh) {
       $self->document_error($self,
                sprintf(__("could not open %s for writing: %s"),
-                                    $self->{'output_file'}, $!));
+                                    $output_file, $!));
       return undef;
     }
   }
 
+  my $result = '';
   if ($self->get_conf('USE_NODES')) {
-    return $self->convert_document_nodes($root, $fh);
+    $result .= $self->convert_document_nodes($root, $fh);
   } else {
-    return $self->convert_document_sections($root, $fh);
+    $result .= $self->convert_document_sections($root, $fh);
   }
+
+  if ($fh and $output_file ne '-') {
+    Texinfo::Common::output_files_register_closed(
+                  $self->output_files_information(), $output_file);
+    if (!close ($fh)) {
+      $self->document_error($self,
+            sprintf(__("error on closing %s: %s"),
+                                    $output_file, $!));
+    }
+  }
+  return $result;
 }
 
 # output fo $fh if defined, otherwise return the text.
@@ -1756,21 +1796,12 @@ see L<Texinfo::Convert::Utils>.
 
 =over
 
-=item $converter->get_conf($option_string)
+=item $result = $converter->convert_accents($accent_command, \&format_accents, $in_upper_case)
 
-Returns the value of the Texinfo configuration option I<$option_string>.
-
-=item $converter->set_conf($option_string, $value)
-
-Set the Texinfo configuration option I<$option_string> to I<$value> if
-not set as a converter option.
-
-=item $converter->force_conf($option_string, $value)
-
-Set the Texinfo configuration option I<$option_string> to I<$value>.
-This should rarely be used, but the purpose of this method is to be able
-to revert a configuration that is always wrong for a given output
-format, like the splitting for example.
+I<$accent_command> is an accent command, which may have other accent
+commands nested.  The function returns the accents formatted either
+as encoded letters, or formatted using I<\&format_accents>.
+If I<$in_upper_case> is set, the result should be uppercased.
 
 =item $result = $converter->convert_document_sections($root, $file_handler)
 
@@ -1779,12 +1810,32 @@ calls C<convert_tree> on the elements.  If the optional I<$file_handler>
 is given in argument, the result are output in I<$file_handler>, otherwise
 the resulting string is returned.
 
-=item $result = $converter->convert_accents($accent_command, \&format_accents, $in_upper_case)
+=item ($succeeded, $created_directory) = $converter->create_destination_directory($destination_directory)
 
-I<$accent_command> is an accent command, which may have other accent
-commands nested.  The function returns the accents formatted either
-as encoded letters, or formatted using I<\&format_accents>.
-If I<$in_upper_case> is set, the result should be uppercased.
+Create destination directory.  I<$succeeded> is true if the creation
+was successful or uneeded, false otherwise.  I<$created_directory>
+is the directory actually created, which can be different from
+C<$destination_directory> if C<$destination_directory> already
+exists as a file, output is split and there is an extension.
+
+=item ($output_file, $destination_directory, $output_filename, $document_name, $input_basefile) = $converter->determine_files_and_directory()
+
+Determine output file and directory, as well as names related to files.  The
+result depends on the presence of C<@setfilename>, on the Texinfo input file
+name, and on customization options such as OUTPUT, SUBDIR or SPLIT, as described
+in the Texinfo manual.
+
+C<$output_file> is mainly relevant when not split and should be used as the
+output file name.  In general, if not split and C<$output_file> is an empty
+string, it means that text should be returned by the converter instead of being
+written to an output file.  This is used in the test suite.
+C<$destination_directory> is either the directory C<$output_file> is in, or if
+split, the directory where the files should be created.  C<$output_filename>
+is, in general, the file name portion of C<$output_file> (without directory)
+but can also be set based on C<@setfilename>, in particular when
+C<$output_file> is an empty string. C<$document_name> is C<$output_filename>
+without extension.  C<$input_basefile> is based on the input texinfo file name,
+with the file name portion only (without directory).
 
 =item ($caption, $prepended) = $converter->float_name_caption ($float)
 
@@ -1798,6 +1849,22 @@ of the float.
 I<$float> is a texinfo tree C<@float> element.  This function
 returns the type and number of the float as a texinfo tree with
 translations.
+
+=item $converter->force_conf($option_string, $value)
+
+Set the Texinfo configuration option I<$option_string> to I<$value>.
+This should rarely be used, but the purpose of this method is to be able
+to revert a configuration that is always wrong for a given output
+format, like the splitting for example.
+
+=item $converter->get_conf($option_string)
+
+Returns the value of the Texinfo configuration option I<$option_string>.
+
+=item $converter->set_conf($option_string, $value)
+
+Set the Texinfo configuration option I<$option_string> to I<$value> if
+not set as a converter option.
 
 =back
 

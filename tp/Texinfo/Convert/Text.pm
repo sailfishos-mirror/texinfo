@@ -200,7 +200,7 @@ sub ascii_accents($$;$)
 
 # Same as ascii_accent, but with a converter as first argument to be consistent
 # with calling conventions of fallback accent formatting functions given
-# to convert_accents/encoded_accents
+# to Convert::Converter::convert_accents() or Convert::Unicode::encoded_accents()
 sub ascii_accent_fallback($$$)
 {
   my $converter = shift;
@@ -713,7 +713,6 @@ sub output($$)
     # This could happen if called on a piece of texinfo
     $input_basename = '';
   }
-  $self->{'input_basename'} = $input_basename;
   $input_basename = $STDIN_DOCU_NAME if ($input_basename eq '-');
   $input_basename =~ s/\.te?x(i|info)?$//;
 
