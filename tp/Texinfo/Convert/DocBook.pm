@@ -749,9 +749,10 @@ sub _convert($$;$)
         }
       } elsif ($type eq 'skipline' or $type eq 'noarg') {
         if ($root->{'cmdname'} eq 'insertcopying') {
-          if ($self->{'extra'} and $self->{'extra'}->{'copying'}) {
+          if ($self->{'global_commands'}
+              and $self->{'global_commands'}->{'copying'}) {
             return $self->_convert({'contents'
-               => $self->{'extra'}->{'copying'}->{'contents'}});
+               => $self->{'global_commands'}->{'copying'}->{'contents'}});
           } else {
             return '';
           }

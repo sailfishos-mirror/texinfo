@@ -343,11 +343,11 @@ sub _info_header($$$)
   # in the document.  However this is the best guess we can do.
   my @informative_global_commands = $self->get_informative_global_commands();
   $self->set_global_document_commands(1, \@informative_global_commands);
-  if ($self->{'extra'} and $self->{'extra'}->{'copying'}) {
+  if ($self->{'global_commands'} and $self->{'global_commands'}->{'copying'}) {
     print STDERR "COPYING HEADER\n" if ($self->get_conf('DEBUG'));
     $self->{'in_copying_header'} = 1;
     my $copying = $self->convert_tree({'contents' => 
-          $self->{'extra'}->{'copying'}->{'contents'}});
+          $self->{'global_commands'}->{'copying'}->{'contents'}});
     $result .= $copying;
     $result .= $self->process_footnotes();
     delete $self->{'in_copying_header'};

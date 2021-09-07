@@ -404,7 +404,7 @@ sub converter_initialize($)
       and $self->get_conf('OUTPUT_ENCODING_NAME') eq 'utf-8') {
     # cache this to avoid redoing calls to get_conf
     $self->{'to_utf8'} = 1;
-    if (!$self->{'extra'}->{'documentencoding'}) {
+    if (!$self->{'global_commands'}->{'documentencoding'}) {
       # Do not use curly quotes or some other unnecessary non-ASCII characters
       # if '@documentencoding UTF-8' is not given.
       $self->{'convert_text_options'}->{'no_extra_unicode'} = 1;
@@ -575,7 +575,7 @@ sub _process_text($$$)
   }
 
   if ($self->{'to_utf8'}
-      and $self->{'extra'}->{'documentencoding'}) {
+      and $self->{'global_commands'}->{'documentencoding'}) {
     return Texinfo::Convert::Unicode::unicode_text($text, 
             $context->{'font_type_stack'}->[-1]->{'monospace'});
   } elsif (!$context->{'font_type_stack'}->[-1]->{'monospace'}) {
@@ -2433,12 +2433,13 @@ sub _convert($$)
           and $command ne 'part') {
         $contents = $root->{'args'}->[0]->{'contents'};
       } elsif ($command eq 'top'
-          and $self->{'extra'}->{'settitle'} 
-          and $self->{'extra'}->{'settitle'}->{'args'}
-          and @{$self->{'extra'}->{'settitle'}->{'args'}}
-          and $self->{'extra'}->{'settitle'}->{'args'}->[0]->{'contents'}
-          and @{$self->{'extra'}->{'settitle'}->{'args'}->[0]->{'contents'}}) {
-        $contents = $self->{'extra'}->{'settitle'}->{'args'}->[0]->{'contents'};
+          and $self->{'global_commands'}->{'settitle'}
+          and $self->{'global_commands'}->{'settitle'}->{'args'}
+          and @{$self->{'global_commands'}->{'settitle'}->{'args'}}
+          and $self->{'global_commands'}->{'settitle'}->{'args'}->[0]->{'contents'}
+          and @{$self->{'global_commands'}->{'settitle'}->{'args'}->[0]->{'contents'}}) {
+        $contents =
+           $self->{'global_commands'}->{'settitle'}->{'args'}->[0]->{'contents'};
       }
              
       if ($contents) {
@@ -2570,9 +2571,10 @@ sub _convert($$)
         if ($expansion);
       return '';
     } elsif ($command eq 'insertcopying') {
-      if ($self->{'extra'} and $self->{'extra'}->{'copying'}) {
+      if ($self->{'global_commands'}
+          and $self->{'global_commands'}->{'copying'}) {
         unshift @{$self->{'current_contents'}->[-1]}, 
-           {'contents' => $self->{'extra'}->{'copying'}->{'contents'}};
+         {'contents' => $self->{'global_commands'}->{'copying'}->{'contents'}};
       }
       return '';
     } elsif ($command eq 'printindex') {

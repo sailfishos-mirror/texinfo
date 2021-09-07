@@ -342,17 +342,17 @@ sub output_ixin($$)
   my %setting_commands_defaults;
   # FIXME this code is unclear and probably needs to be fixed if developemnt
   # resumes.
-  foreach my $global_command (keys(%{$self->{'extra'}})) {
+  foreach my $global_command (keys(%{$self->{'global_commands'}})) {
     if ((($Texinfo::Common::misc_commands{$global_command}
           and $Texinfo::Common::misc_commands{$global_command} =~ /^\d/)
          or $additional_setting_commands{$global_command})
         and !$global_misc_not_setting_commands{$global_command}) {
-      if (ref($self->{'extra'}->{$global_command}) eq 'ARRAY') {
+      if (ref($self->{'global_commands'}->{$global_command}) eq 'ARRAY') {
         if (defined($Texinfo::Common::document_settable_multiple_at_commands{$global_command})) {
           $setting_commands_defaults{$global_command} 
             = $Texinfo::Common::document_settable_multiple_at_commands{$global_command};
         }
-        foreach my $command (@{$self->{'extra'}->{$global_command}}) {
+        foreach my $command (@{$self->{'global_commands'}->{$global_command}}) {
           my ($element, $root_command) = _get_element($self, $command);
           # before first node
           if (!defined($root_command->{'extra'}) 
@@ -371,7 +371,7 @@ sub output_ixin($$)
           $setting_commands_defaults{$global_command} 
             = $Texinfo::Common::document_settable_unique_at_commands{$global_command};
         }
-        $setting_commands{$global_command} = $self->{'extra'}->{$global_command};
+        $setting_commands{$global_command} = $self->{'global_commands'}->{$global_command};
       }
     }
   }
@@ -409,8 +409,8 @@ sub output_ixin($$)
   $result .= $self->ixin_close_element('settings');
 
   foreach my $region ('copying', 'titlepage') {
-    if ($self->{'extra'}->{$region}) {
-      $result .= $self->convert_tree($self->{'extra'}->{$region});
+    if ($self->{'global_commands'}->{$region}) {
+      $result .= $self->convert_tree($self->{'global_commands'}->{$region});
     } else {
       $result .= $self->ixin_none_element($region);
     }
@@ -654,8 +654,8 @@ sub output_ixin($$)
   }
 
   # Gather informations on printindex @-commands associated node id
-  if ($self->{'extra'}->{'printindex'}) {
-    foreach my $command (@{$self->{'extra'}->{'printindex'}}) {
+  if ($self->{'global_commands'}->{'printindex'}) {
+    foreach my $command (@{$self->{'global_commands'}->{'printindex'}}) {
       my $associated_node_id = $self->_associated_node_id($command, 
                                                    \%node_label_number);
       if ($command->{'extra'} and $command->{'extra'}->{'misc_args'}
@@ -709,8 +709,8 @@ sub output_ixin($$)
   }
 
   # collect listoffloats information
-  if ($self->{'extra'}->{'listoffloats'}) {
-    foreach my $command (@{$self->{'extra'}->{'listoffloats'}}) {
+  if ($self->{'global_commands'}->{'listoffloats'}) {
+    foreach my $command (@{$self->{'global_commands'}->{'listoffloats'}}) {
       my $associated_node_id = $self->_associated_node_id($command, 
                                                      \%node_label_number);
       my $type = $command->{'extra'}->{'type'}->{'normalized'};

@@ -180,7 +180,7 @@ sub converter(;$)
   if (defined($conf)) {
     if ($conf->{'parser'}) {
       $converter->{'parser'} = $conf->{'parser'};
-      $converter->{'extra'} 
+      $converter->{'global_commands'}
          = $converter->{'parser'}->global_commands_information();
       $converter->{'parser_info'} = $converter->{'parser'}->global_informations();
       my $floats = $converter->{'parser'}->floats_information();
@@ -297,17 +297,18 @@ sub set_global_document_commands($$;$)
   } else {
     foreach my $global_command (@{$selected_commands}) {
       my $root;
-      if (defined($self->{'extra'}->{$global_command})
-          and ref($self->{'extra'}->{$global_command}) eq 'ARRAY') {
+      if (defined($self->{'global_commands'}->{$global_command})
+          and ref($self->{'global_commands'}->{$global_command}) eq 'ARRAY') {
         # used when $commands_location == 1
         my $index_in_global_commands = 0;
         if ($commands_location < 0) {
           $index_in_global_commands = -1;
         }
-        $root = $self->{'extra'}->{$global_command}->[$index_in_global_commands];
-      } elsif (defined($self->{'extra'}->{$global_command})) {
+        $root =
+          $self->{'global_commands'}->{$global_command}->[$index_in_global_commands];
+      } elsif (defined($self->{'global_commands'}->{$global_command})) {
         # unique command, first and last are the same
-        $root = $self->{'extra'}->{$global_command};
+        $root = $self->{'global_commands'}->{$global_command};
       }
       if ($self->get_conf('DEBUG')) {
         print STDERR "SET_global_multiple_commands($commands_location) $global_command\n";
@@ -394,10 +395,12 @@ sub determine_files_and_directory($)
   my $setfilename;
   if (defined($self->get_conf('setfilename'))) {
     $setfilename = $self->get_conf('setfilename');
-  } elsif ($self->{'extra'} and $self->{'extra'}->{'setfilename'}
-          and $self->{'extra'}->{'setfilename'}->{'extra'}
-          and defined($self->{'extra'}->{'setfilename'}->{'extra'}->{'text_arg'})) {
-     $setfilename = $self->{'extra'}->{'setfilename'}->{'extra'}->{'text_arg'}
+  } elsif ($self->{'global_commands'}
+           and $self->{'global_commands'}->{'setfilename'}
+           and $self->{'global_commands'}->{'setfilename'}->{'extra'}
+           and defined($self->{'global_commands'}->{'setfilename'}->{'extra'}->{'text_arg'})) {
+     $setfilename
+       = $self->{'global_commands'}->{'setfilename'}->{'extra'}->{'text_arg'};
   }
 
   my $input_basename_for_outfile = $input_basename;

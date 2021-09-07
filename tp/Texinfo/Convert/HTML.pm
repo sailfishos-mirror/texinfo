@@ -2965,9 +2965,9 @@ sub _convert_insertcopying_command($$$$)
   my $cmdname = shift;
   my $command = shift;
 
-  if ($self->{'extra'} and $self->{'extra'}->{'copying'}) {
+  if ($self->{'global_commands'} and $self->{'global_commands'}->{'copying'}) {
     return $self->convert_tree({'contents' 
-               => $self->{'extra'}->{'copying'}->{'contents'}});
+               => $self->{'global_commands'}->{'copying'}->{'contents'}});
   }
   return '';
 }
@@ -4720,9 +4720,9 @@ sub _default_format_titlepage($)
   my $self = shift;
 
   my $titlepage_text;
-  if ($self->{'extra'}->{'titlepage'}) {
+  if ($self->{'global_commands'}->{'titlepage'}) {
     $titlepage_text = $self->convert_tree({'contents' 
-               => $self->{'extra'}->{'titlepage'}->{'contents'}});
+               => $self->{'global_commands'}->{'titlepage'}->{'contents'}});
   } elsif ($self->{'simpletitle_tree'}) {
     my $title_text = $self->convert_tree_new_formatting_context(
                    $self->{'simpletitle_tree'}, 'simpletitle_string');
@@ -5667,8 +5667,9 @@ sub _get_element($$;$)
         return ($element, $root_command) if defined($element);
       } elsif ($region_commands{$current->{'cmdname'}}) {
         if ($current->{'cmdname'} eq 'copying' 
-            and $self->{'extra'} and $self->{'extra'}->{'insertcopying'}) {
-          foreach my $insertcopying(@{$self->{'extra'}->{'insertcopying'}}) {
+            and $self->{'global_commands'}
+            and $self->{'global_commands'}->{'insertcopying'}) {
+          foreach my $insertcopying(@{$self->{'global_commands'}->{'insertcopying'}}) {
             my ($element, $root_command) 
               = $self->_get_element($insertcopying, $find_container);
             return ($element, $root_command)
@@ -5920,7 +5921,7 @@ sub _prepare_special_elements($$$$)
       }
     }
   }
-  if ($self->{'extra'}->{'footnote'} 
+  if ($self->{'global_commands'}->{'footnote'}
       and $self->get_conf('footnotestyle') eq 'separate'
       and $elements and scalar(@$elements) > 1) {
     $do_special{'Footnotes'} = 1;
@@ -6030,13 +6031,14 @@ sub _prepare_contents_elements($)
           }
         } elsif ($self->get_conf('CONTENTS_OUTPUT_LOCATION') eq 'after_top') {
           my $section_top = undef;
-          if ($self->{'extra'} and $self->{'extra'}->{'top'}) {
-             $section_top = $self->{'extra'}->{'top'};
+          if ($self->{'global_commands'} and $self->{'global_commands'}->{'top'}) {
+             $section_top = $self->{'global_commands'}->{'top'};
              $default_filename = $self->command_filename($section_top)
           }
         } elsif ($self->get_conf('CONTENTS_OUTPUT_LOCATION') eq 'inline') {
-          if ($self->{'extra'} and $self->{'extra'}->{$cmdname}) {
-            foreach my $command(@{$self->{'extra'}->{$cmdname}}) {
+          if ($self->{'global_commands'}
+              and $self->{'global_commands'}->{$cmdname}) {
+            foreach my $command(@{$self->{'global_commands'}->{$cmdname}}) {
               my ($element, $root_command) 
                 = $self->_get_element($command);
               if (defined($element)) {
@@ -6087,9 +6089,9 @@ sub _prepare_global_targets($$)
   $self->{'global_target_elements'}->{'Last'} = $elements->[-1];
   # It is always the first printindex, even if it is not output (for example
   # it is in @copying and @titlepage, which are certainly wrong constructs).
-  if ($self->{'extra'} and $self->{'extra'}->{'printindex'}) {
+  if ($self->{'global_commands'} and $self->{'global_commands'}->{'printindex'}) {
     my ($element, $root_command) 
-     = $self->_get_element($self->{'extra'}->{'printindex'}->[0]);
+     = $self->_get_element($self->{'global_commands'}->{'printindex'}->[0]);
     if (defined($element)) {
       if ($root_command and $root_command->{'cmdname'} eq 'node' 
           and $element->{'extra'}->{'section'}) {
@@ -6110,7 +6112,7 @@ sub _prepare_global_targets($$)
   my $node_top;
   $node_top = $self->{'labels'}->{'Top'} if ($self->{'labels'});
   my $section_top;
-  $section_top = $self->{'extra'}->{'top'} if ($self->{'extra'});
+  $section_top = $self->{'global_commands'}->{'top'} if ($self->{'global_commands'});
   if ($section_top) {
     $self->{'global_target_elements'}->{'Top'} = $section_top->{'parent'};
   } elsif ($node_top) {
@@ -6186,9 +6188,9 @@ sub _prepare_footnotes($)
 {
   my $self = shift;
 
-  if ($self->{'extra'}->{'footnote'}) {
+  if ($self->{'global_commands'}->{'footnote'}) {
     my $footnote_nr = 0;
-    foreach my $footnote (@{$self->{'extra'}->{'footnote'}}) {
+    foreach my $footnote (@{$self->{'global_commands'}->{'footnote'}}) {
       $footnote_nr++;
       my $nr = $footnote_nr;
       my $footid = $footid_base.$nr;
@@ -7220,7 +7222,7 @@ sub _has_contents_or_shortcontents($)
 {
   my $self = shift;
   foreach my $cmdname ('contents', 'shortcontents') {
-    if ($self->{'extra'} and $self->{'extra'}->{$cmdname}) {
+    if ($self->{'global_commands'} and $self->{'global_commands'}->{$cmdname}) {
       return 1;
     }
   }
@@ -7462,8 +7464,8 @@ sub output($$)
   my $fulltitle;
   foreach my $fulltitle_command('settitle', 'title', 
      'shorttitlepage', 'top') {
-    if ($self->{'extra'}->{$fulltitle_command}) {
-      my $command = $self->{'extra'}->{$fulltitle_command};
+    if ($self->{'global_commands'}->{$fulltitle_command}) {
+      my $command = $self->{'global_commands'}->{$fulltitle_command};
       next if (!$command->{'args'}
                or (!$command->{'args'}->[0]->{'contents'}
                    or $command->{'extra'}->{'missing_argument'}));
@@ -7473,16 +7475,16 @@ sub output($$)
       last;
     }
   }
-  if (!$fulltitle and $self->{'extra'}->{'titlefont'}
-      and $self->{'extra'}->{'titlefont'}->[0]->{'args'}
-      and defined($self->{'extra'}->{'titlefont'}->[0]->{'args'}->[0])
-      and @{$self->{'extra'}->{'titlefont'}->[0]->{'args'}->[0]->{'contents'}}) {
-    $fulltitle = $self->{'extra'}->{'titlefont'}->[0];
+  if (!$fulltitle and $self->{'global_commands'}->{'titlefont'}
+      and $self->{'global_commands'}->{'titlefont'}->[0]->{'args'}
+      and defined($self->{'global_commands'}->{'titlefont'}->[0]->{'args'}->[0])
+      and @{$self->{'global_commands'}->{'titlefont'}->[0]->{'args'}->[0]->{'contents'}}) {
+    $fulltitle = $self->{'global_commands'}->{'titlefont'}->[0];
   }
   # prepare simpletitle
   foreach my $simpletitle_command('settitle', 'shorttitlepage') {
-    if ($self->{'extra'}->{$simpletitle_command}) {
-      my $command = $self->{'extra'}->{$simpletitle_command};
+    if ($self->{'global_commands'}->{$simpletitle_command}) {
+      my $command = $self->{'global_commands'}->{$simpletitle_command};
       next if ($command->{'extra'} 
                and $command->{'extra'}->{'missing_argument'});
       $self->{'simpletitle_tree'} = 
@@ -7512,9 +7514,9 @@ sub output($$)
   }
 
   # copying comment
-  if ($self->{'extra'}->{'copying'}) {
+  if ($self->{'global_commands'}->{'copying'}) {
     my $copying_comment = Texinfo::Convert::Text::convert_to_text(
-     {'contents' => $self->{'extra'}->{'copying'}->{'contents'}}, 
+     {'contents' => $self->{'global_commands'}->{'copying'}->{'contents'}},
      {Texinfo::Convert::Text::copy_options_for_convert_text($self)});
     if ($copying_comment ne '') {
       $self->{'copying_comment'} = &{$self->{'format_comment'}}($self, $copying_comment);
@@ -7526,11 +7528,11 @@ sub output($$)
   if (defined($self->get_conf('documentdescription'))) {
     $self->{'documentdescription_string'} 
       = $self->get_conf('documentdescription');
-  } elsif ($self->{'extra'}->{'documentdescription'}) {
+  } elsif ($self->{'global_commands'}->{'documentdescription'}) {
     $self->{'documentdescription_string'} 
       = $self->convert_tree_new_formatting_context(
        {'type' => '_string',
-        'contents' => $self->{'extra'}->{'documentdescription'}->{'contents'}},
+        'contents' => $self->{'global_commands'}->{'documentdescription'}->{'contents'}},
        'documentdescription');
     chomp($self->{'documentdescription_string'});
   }

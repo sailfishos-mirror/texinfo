@@ -711,7 +711,7 @@ sub converter_initialize($)
     if ($self->get_conf('ENABLE_ENCODING')) {
       # Do not use utf-8 encoded curly quotes if '@documentencoding UTF-8'
       # is not given.
-      if ($self->{'extra'}->{'documentencoding'}) {
+      if ($self->{'global_commands'}->{'documentencoding'}) {
         foreach my $quoted_command (@quoted_commands) {
           # Directed single quotes
           $self->{'quotes_map'}->{$quoted_command} = ["\x{2018}", "\x{2019}"];
@@ -805,8 +805,8 @@ sub _prepare_conversion($;$)
     $self->associate_other_nodes_to_sections($root);
   }
 
-  if ($self->{'extra'}->{'settitle'}) {
-    my $settitle_root = $self->{'extra'}->{'settitle'};
+  if ($self->{'global_commands'}->{'settitle'}) {
+    my $settitle_root = $self->{'global_commands'}->{'settitle'};
     if (not ($settitle_root->{'extra'}
              and $settitle_root->{'extra'}->{'missing_argument'})) {
       $self->{'settitle_tree'} =
@@ -1080,7 +1080,7 @@ sub _latex_header {
     $header .= "\\usepackage[$encoding]{inputenc}\n";
   }
   $header .= "\n";
-  #if ($self->{'extra'}->{'shortcontents'}) {
+  #if ($self->{'global_commands'}->{'shortcontents'}) {
   #  # in texlive-latex-extra in debian
   #  $header .= "\\usepackage{shorttoc}\n";
   #}
@@ -1185,8 +1185,8 @@ roundcorner=10pt}
   # setup headings before titlepage to have no headings
   # before titlepage.  They will be set to 'on' after
   # the titlepage if there is a titlepage
-  if (exists($self->{'extra'}->{'titlepage'})
-      or exists($self->{'extra'}->{'shorttitlepage'})) {
+  if (exists($self->{'global_commands'}->{'titlepage'})
+      or exists($self->{'global_commands'}->{'shorttitlepage'})) {
     $header .= "% no headings before titlepage\n";
     $header .= _set_headings($self, 'off');
     $header .= "\n";
@@ -1201,8 +1201,8 @@ sub _begin_document($)
   my $result = '';
   $result .= '\begin{document}
 ';
-  if (exists($self->{'extra'}->{'titlepage'})
-      or exists($self->{'extra'}->{'shorttitlepage'})) {
+  if (exists($self->{'global_commands'}->{'titlepage'})
+      or exists($self->{'global_commands'}->{'shorttitlepage'})) {
     $result .= "\n\\GNUTexinfofrontmatter\n";
   }
   return $result;
@@ -1386,8 +1386,8 @@ sub _set_chapter_new_page($$)
 
   # reset headings after titlepage only, or immediately
   # if there is no titlepage
-  if ((not $self->{'extra'}->{'titlepage'}
-       and not $self->{'extra'}->{'shorttitlepage'})
+  if ((not $self->{'global_commands'}->{'titlepage'}
+       and not $self->{'global_commands'}->{'shorttitlepage'})
       or $self->{'titlepage_done'}) {
     $result .= _set_headings($self, 'on');
   }
@@ -2600,9 +2600,10 @@ sub _convert($$)
         if ($expansion);
       return $result;
     } elsif ($command eq 'insertcopying') {
-      if ($self->{'extra'} and $self->{'extra'}->{'copying'}) {
+      if ($self->{'global_commands'}
+          and $self->{'global_commands'}->{'copying'}) {
         unshift @{$self->{'current_contents'}->[-1]}, 
-           {'contents' => $self->{'extra'}->{'copying'}->{'contents'}};
+           {'contents' => $self->{'global_commands'}->{'copying'}->{'contents'}};
       }
       return $result;
     } elsif ($command eq 'printindex') {

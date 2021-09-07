@@ -653,10 +653,11 @@ sub converter($)
   my $expanded_formats = $converter->{'EXPANDED_FORMATS'};;
   if ($converter->{'parser'}) {
     $converter->{'parser_info'} = $converter->{'parser'}->global_informations();
-    $converter->{'extra'} = $converter->{'parser'}->global_commands_information();
+    $converter->{'global_commands'}
+       = $converter->{'parser'}->global_commands_information();
     foreach my $global_command ('documentencoding') {
-      if (defined($converter->{'extra'}->{$global_command})) {
-        my $root = $converter->{'extra'}->{$global_command}->[0];
+      if (defined($converter->{'global_commands'}->{$global_command})) {
+        my $root = $converter->{'global_commands'}->{$global_command}->[0];
         if ($global_command eq 'documentencoding'
             and defined($root->{'extra'})
             and defined($root->{'extra'}->{'input_perl_encoding'})) {
@@ -717,10 +718,11 @@ sub output($$)
   $input_basename =~ s/\.te?x(i|info)?$//;
 
   my $setfilename;
-  $setfilename = $self->{'extra'}->{'setfilename'}->{'extra'}->{'text_arg'}
-    if ($self->{'extra'} and $self->{'extra'}->{'setfilename'}
-        and $self->{'extra'}->{'setfilename'}->{'extra'}
-        and defined($self->{'extra'}->{'setfilename'}->{'extra'}->{'text_arg'}));
+  $setfilename
+   = $self->{'global_commands'}->{'setfilename'}->{'extra'}->{'text_arg'}
+    if ($self->{'global_commands'} and $self->{'global_commands'}->{'setfilename'}
+        and $self->{'global_commands'}->{'setfilename'}->{'extra'}
+        and defined($self->{'global_commands'}->{'setfilename'}->{'extra'}->{'text_arg'}));
   my $outfile;
   if (!defined($self->{'OUTFILE'})) {
     if (defined($setfilename)) {
