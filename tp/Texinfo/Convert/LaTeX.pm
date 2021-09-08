@@ -1464,10 +1464,10 @@ sub _close_preformatted_stack($$)
 sub _title_font($$)
 {
   my $self = shift;
-  my $root = shift;
+  my $element = shift;
   # in Texinfo TeX seems a bit smaller, but LARGE seems too small
   my $result = "{\\huge \\bfseries ";
-  $result .= _convert($self, {'contents' => $root->{'args'}->[0]->{'contents'}});
+  $result .= _convert($self, {'contents' => $element->{'args'}->[0]->{'contents'}});
   $result .= '}';
   return $result;
 }
@@ -1476,7 +1476,7 @@ sub _set_environment_options($$$)
 {
   my $self = shift;
   my $command = shift;
-  my $root = shift;
+  my $element = shift;
 
   if (exists($LaTeX_environment_options{$command})) {
     return $LaTeX_environment_options{$command};
@@ -1484,9 +1484,9 @@ sub _set_environment_options($$$)
 
   if ($command eq 'enumerate') {
     my $environment = $LaTeX_environment_commands{$command}[0];
-    if ($root->{'extra'} and
-        exists($root->{'extra'}->{'enumerate_specification'})) {
-      my $specification = $root->{'extra'}->{'enumerate_specification'};
+    if ($element->{'extra'} and
+        exists($element->{'extra'}->{'enumerate_specification'})) {
+      my $specification = $element->{'extra'}->{'enumerate_specification'};
       if ($specification eq 'a') {
         return {$environment => 'label=\alph*.'};
       } elsif ($specification eq 'A') {
@@ -1503,19 +1503,19 @@ sub _set_environment_options($$$)
       }
     }
   } elsif ($command eq 'itemize') {
-    if ($root->{'args'} and $root->{'args'}->[0]->{'contents'}) {
+    if ($element->{'args'} and $element->{'args'}->[0]->{'contents'}) {
       # FIXME start a new top context?
-      my $itemize_label = _convert($self, $root->{'args'}->[0]);
+      my $itemize_label = _convert($self, $element->{'args'}->[0]);
       if ($itemize_label ne '') {
         my $environment = $LaTeX_environment_commands{$command}[0];
         return {$environment => 'label='.$itemize_label};
       }
     }
   } elsif ($item_line_commands{$command}) {
-    if ($root->{'extra'}
-        and $root->{'extra'}->{'command_as_argument'}) {
+    if ($element->{'extra'}
+        and $element->{'extra'}->{'command_as_argument'}) {
       my $command_as_argument
-        = $root->{'extra'}->{'command_as_argument'}->{'cmdname'};
+        = $element->{'extra'}->{'command_as_argument'}->{'cmdname'};
       if ($command_as_argument eq 'kbd') {
         if (_kbd_code_style($self)) {
           $command_as_argument = 'code';
@@ -1579,9 +1579,9 @@ my %LaTeX_see_index_commands_text = (
 sub _index_entry($$)
 {
   my $self = shift;
-  my $root = shift;
-  if ($root->{'extra'} and $root->{'extra'}->{'index_entry'}) {
-    my $entry = $root->{'extra'}->{'index_entry'};
+  my $element = shift;
+  if ($element->{'extra'} and $element->{'extra'}->{'index_entry'}) {
+    my $entry = $element->{'extra'}->{'index_entry'};
     my $entry_index_name = $entry->{'index_name'};
     my $index_name = $entry_index_name;
     if ($self->{'index_names'}->{$entry_index_name}->{'merged_in'}) {
@@ -1591,17 +1591,17 @@ sub _index_entry($$)
     if ($self->{'index_names'}->{$entry_index_name}->{'in_code'}) {
       $in_code = 1;
     }
-    #print STDERR "I ".Texinfo::Common::_print_element_tree_simple($root)." ".$entry_index_name."/".$index_name." ".$in_code." C ".$entry->{'index_at_command'}." T ".$entry->{'index_type_command'}."; ".join("|", sort(keys(%{$root->{'extra'}})))."\n";
+    #print STDERR "I ".Texinfo::Common::_print_element_tree_simple($element)." ".$entry_index_name."/".$index_name." ".$in_code." C ".$entry->{'index_at_command'}." T ".$entry->{'index_type_command'}."; ".join("|", sort(keys(%{$element->{'extra'}})))."\n";
     # FIXME cache?  In theory txiindexbackslashignore and consorts
     # may change dynamically.  But the current code does not set the
     # values dynamically for now.  Actually not set at all...
     my ($options, $ignore_chars)
       = Texinfo::Structuring::setup_index_entry_keys_formatting($self, $self);
-    my $current_entry = $root;
+    my $current_entry = $element;
     my $current_sortas;
-    my $subentry_commands = [$root];
-    if (exists($root->{'extra'}->{'sortas'})) {
-      $current_sortas = $root->{'extra'}->{'sortas'};
+    my $subentry_commands = [$element];
+    if (exists($element->{'extra'}->{'sortas'})) {
+      $current_sortas = $element->{'extra'}->{'sortas'};
     }
     my $subentries = [[{'contents' => $entry->{'content_normalized'}},
                          $current_sortas]];
@@ -1675,34 +1675,34 @@ sub _convert($$);
 # Convert the Texinfo tree under $ROOT
 sub _convert($$)
 {
-  my ($self, $root) = @_;
+  my ($self, $element) = @_;
 
-  #print STDERR "C ".Texinfo::Common::_print_current($root)."\n";
-  #print STDERR "C ".Texinfo::Common::_print_element_tree_simple($root)."\n";
+  #print STDERR "C ".Texinfo::Common::_print_current($element)."\n";
+  #print STDERR "C ".Texinfo::Common::_print_element_tree_simple($element)."\n";
 
-  if (($root->{'type'} and $self->{'ignored_types'}->{$root->{'type'}})
-       or ($root->{'cmdname'} 
-            and ($self->{'ignored_commands'}->{$root->{'cmdname'}}
-                 or ($inline_commands{$root->{'cmdname'}}
-                     and $root->{'cmdname'} ne 'inlinefmtifelse'
-                     and (($inline_format_commands{$root->{'cmdname'}}
-                          and (!$root->{'extra'}->{'format'}
-                               or !$self->{'expanded_formats_hash'}->{$root->{'extra'}->{'format'}}))
-                         or (!$inline_format_commands{$root->{'cmdname'}}
-                             and !defined($root->{'extra'}->{'expand_index'}))))))) {
+  if (($element->{'type'} and $self->{'ignored_types'}->{$element->{'type'}})
+       or ($element->{'cmdname'}
+            and ($self->{'ignored_commands'}->{$element->{'cmdname'}}
+                 or ($inline_commands{$element->{'cmdname'}}
+                     and $element->{'cmdname'} ne 'inlinefmtifelse'
+                     and (($inline_format_commands{$element->{'cmdname'}}
+                          and (!$element->{'extra'}->{'format'}
+                               or !$self->{'expanded_formats_hash'}->{$element->{'extra'}->{'format'}}))
+                         or (!$inline_format_commands{$element->{'cmdname'}}
+                             and !defined($element->{'extra'}->{'expand_index'}))))))) {
     return '';
   }
   my $result = '';
 
-  my $type = $root->{'type'};
-  my $command = $root->{'cmdname'};
+  my $type = $element->{'type'};
+  my $command = $element->{'cmdname'};
 
   # in ignorable spaces, keep only form feeds.
   if ($type and $self->{'ignorable_space_types'}->{$type}
       and ($type ne 'empty_spaces_before_paragraph'
            or $self->get_conf('paragraphindent') ne 'asis')) {
-    if ($root->{'text'} =~ /\f/) {
-      $result = _get_form_feeds($root->{'text'});
+    if ($element->{'text'} =~ /\f/) {
+      $result = _get_form_feeds($element->{'text'});
     }
     return $result;
   }
@@ -1719,20 +1719,20 @@ sub _convert($$)
   }
 
   # process text
-  if (defined($root->{'text'})) {
+  if (defined($element->{'text'})) {
     if (!$type or $type ne 'untranslated') {
-      my $result = _protect_text($self, $root->{'text'});
+      my $result = _protect_text($self, $element->{'text'});
       return $result;
     } else {
-      my $tree = $self->gdt($root->{'text'});
+      my $tree = $self->gdt($element->{'text'});
       my $converted = _convert($self, $tree);
       return $converted;
     }
   }
 
-  if ($root->{'extra'}) {
-    if ($root->{'extra'}->{'missing_argument'} 
-             and (!$root->{'contents'} or !@{$root->{'contents'}})) {
+  if ($element->{'extra'}) {
+    if ($element->{'extra'}->{'missing_argument'}
+             and (!$element->{'contents'} or !@{$element->{'contents'}})) {
       return '';
     }
   }
@@ -1784,9 +1784,9 @@ sub _convert($$)
       return $result;
     } elsif (exists($brace_no_arg_commands{$command})) {
       my $converted_command = $command;
-      if ($command eq 'click' and $root->{'extra'}
-        and exists($root->{'extra'}->{'clickstyle'})) {
-        $converted_command = $root->{'extra'}->{'clickstyle'};
+      if ($command eq 'click' and $element->{'extra'}
+        and exists($element->{'extra'}->{'clickstyle'})) {
+        $converted_command = $element->{'extra'}->{'clickstyle'};
       }
       if (exists($LaTeX_no_arg_brace_commands{$command_context}->{$converted_command})) {
         $result .= $LaTeX_no_arg_brace_commands{$command_context}->{$converted_command};
@@ -1800,21 +1800,21 @@ sub _convert($$)
         my $encoding = $self->{'output_encoding_name'};
         my $sc;
         my $accented_text
-           = Texinfo::Convert::Text::text_accents($root, $encoding, $sc);
+           = Texinfo::Convert::Text::text_accents($element, $encoding, $sc);
         $result .= _protect_text($self, $accented_text);
       } else {
         my $accent_arg = '';
 
         if ($LaTeX_accent_commands{$command_context}->{$command}) {
           $result .= "\\$LaTeX_accent_commands{$command_context}->{$command}\{";
-          if ($root->{'args'}) {
-            $accent_arg = _convert($self, $root->{'args'}->[0]);
+          if ($element->{'args'}) {
+            $accent_arg = _convert($self, $element->{'args'}->[0]);
           }
           $result .= $accent_arg;
           $result .= '}';
         } elsif ($command eq 'dotless') {
-          if ($root->{'args'}) {
-            $accent_arg = _convert($self, $root->{'args'}->[0]);
+          if ($element->{'args'}) {
+            $accent_arg = _convert($self, $element->{'args'}->[0]);
           }
           if ($accent_arg eq 'i' or $accent_arg eq 'j') {
             if ($command_context eq 'math') {
@@ -1833,9 +1833,9 @@ sub _convert($$)
                  and $LaTeX_accent_commands{'text'}->{$command}) {
           $result .= "\\textsl{\\$LaTeX_accent_commands{'text'}->{$command}\{";
           # we do not want accents within to be math accents
-          if ($root->{'args'}) {
+          if ($element->{'args'}) {
             push @{$self->{'formatting_context'}->[-1]->{'text_context'}}, 'text';
-            $accent_arg = _convert($self, $root->{'args'}->[0]);
+            $accent_arg = _convert($self, $element->{'args'}->[0]);
             my $old_context = pop @{$self->{'formatting_context'}->[-1]->{'text_context'}};
           }
           $result .= $accent_arg;
@@ -1844,7 +1844,7 @@ sub _convert($$)
       }
       return $result;
     } elsif (exists($LaTeX_style_brace_commands{'text'}->{$command})
-         or ($root->{'type'} and $root->{'type'} eq 'definfoenclose_command')) {
+         or ($element->{'type'} and $element->{'type'} eq 'definfoenclose_command')) {
       if ($self->{'quotes_map'}->{$command}) {
         $result .= $self->{'quotes_map'}->{$command}->[0];
       }
@@ -1854,8 +1854,8 @@ sub _convert($$)
       if ($code_style_commands{$command}) {
         $self->{'formatting_context'}->[-1]->{'code'} += 1;
       }
-      if ($root->{'args'}) {
-        $result .= _convert($self, $root->{'args'}->[0]);
+      if ($element->{'args'}) {
+        $result .= _convert($self, $element->{'args'}->[0]);
       }
       if ($LaTeX_style_brace_commands{$command_context}->{$command}) {
         $result .= '}';
@@ -1881,9 +1881,9 @@ sub _convert($$)
       } else {
         $result .= "{$kbd_formatting_latex\{";
       }
-      if ($root->{'args'}) {
+      if ($element->{'args'}) {
         $self->{'formatting_context'}->[-1]->{'code'} += 1;
-        $result .= _convert($self, $root->{'args'}->[0]);
+        $result .= _convert($self, $element->{'args'}->[0]);
         $self->{'formatting_context'}->[-1]->{'code'} -= 1;
       }
       if ($code_font) {
@@ -1895,22 +1895,22 @@ sub _convert($$)
       }
       return $result;
     } elsif ($command eq 'verb') {
-      $result .= "\\verb" .$root->{'extra'}->{'delimiter'};
+      $result .= "\\verb" .$element->{'extra'}->{'delimiter'};
       push @{$self->{'formatting_context'}->[-1]->{'text_context'}}, 'raw';
-      if ($root->{'args'}) {
-        $result .= _convert($self, $root->{'args'}->[0]);
+      if ($element->{'args'}) {
+        $result .= _convert($self, $element->{'args'}->[0]);
       }
       my $old_context = pop @{$self->{'formatting_context'}->[-1]->{'text_context'}};
       die if ($old_context ne 'raw');
-      $result .= $root->{'extra'}->{'delimiter'};
+      $result .= $element->{'extra'}->{'delimiter'};
       return $result;
     } elsif ($command eq 'image') {
-      if (defined($root->{'args'}->[0])
-          and @{$root->{'args'}->[0]->{'contents'}}) {
+      if (defined($element->{'args'}->[0])
+          and @{$element->{'args'}->[0]->{'contents'}}) {
         # distinguish text basefile used to find the file and
         # converted basefile with special characters escaped
         my $basefile = Texinfo::Convert::Text::convert_to_text(
-         {'contents' => $root->{'args'}->[0]->{'contents'}},
+         {'contents' => $element->{'args'}->[0]->{'contents'}},
          {'code' => 1, %{$self->{'convert_text_options'}}});
         # FIXME not clear at all what can be in filenames here,
         # what should be escaped and how
@@ -1937,12 +1937,12 @@ sub _convert($$)
           $image_file = $converted_basefile;
         }
         my $width;
-        if ((@{$root->{'args'}} >= 2)
-              and defined($root->{'args'}->[1])
-              and @{$root->{'args'}->[1]->{'contents'}}){
+        if ((@{$element->{'args'}} >= 2)
+              and defined($element->{'args'}->[1])
+              and @{$element->{'args'}->[1]->{'contents'}}){
           push @{$self->{'formatting_context'}->[-1]->{'text_context'}}, 'raw';
           $width = _convert($self, {'contents'
-                         => $root->{'args'}->[1]->{'contents'}});
+                         => $element->{'args'}->[1]->{'contents'}});
           my $old_context = pop @{$self->{'formatting_context'}->[-1]->{'text_context'}};
           die if ($old_context ne 'raw');
           if ($width !~ /\S/) {
@@ -1950,12 +1950,12 @@ sub _convert($$)
           }
         }
         my $height;
-        if ((@{$root->{'args'}} >= 3)
-              and defined($root->{'args'}->[2])
-              and @{$root->{'args'}->[2]->{'contents'}}) {
+        if ((@{$element->{'args'}} >= 3)
+              and defined($element->{'args'}->[2])
+              and @{$element->{'args'}->[2]->{'contents'}}) {
           push @{$self->{'formatting_context'}->[-1]->{'text_context'}}, 'raw';
           $height = _convert($self, {'contents'
-                         => $root->{'args'}->[2]->{'contents'}});
+                         => $element->{'args'}->[2]->{'contents'}});
           my $old_context = pop @{$self->{'formatting_context'}->[-1]->{'text_context'}};
           die if ($old_context ne 'raw');
           if ($height !~ /\S/) {
@@ -1980,20 +1980,20 @@ sub _convert($$)
       }
       return $result;
     } elsif ($command eq 'email') {
-      if ($root->{'args'}) {
+      if ($element->{'args'}) {
         my $name;
         my $converted_name;
         my $email;
         my $email_text;
-        if (scalar (@{$root->{'args'}}) == 2
-            and defined($root->{'args'}->[1])
-            and @{$root->{'args'}->[1]->{'contents'}}) {
-          $name = $root->{'args'}->[1]->{'contents'};
+        if (scalar (@{$element->{'args'}}) == 2
+            and defined($element->{'args'}->[1])
+            and @{$element->{'args'}->[1]->{'contents'}}) {
+          $name = $element->{'args'}->[1]->{'contents'};
           $converted_name = _convert($self, {'contents' => $name});
         }
-        if (defined($root->{'args'}->[0])
-            and @{$root->{'args'}->[0]->{'contents'}}) {
-          $email = $root->{'args'}->[0]->{'contents'};
+        if (defined($element->{'args'}->[0])
+            and @{$element->{'args'}->[0]->{'contents'}}) {
+          $email = $element->{'args'}->[0]->{'contents'};
           $email_text 
             = $self->_protect_url(Texinfo::Convert::Text::convert_to_text(
                 {'contents' => $email},
@@ -2010,24 +2010,24 @@ sub _convert($$)
       }
       return $result;
     } elsif ($command eq 'uref' or $command eq 'url') {
-      if ($root->{'args'}) {
-        if (scalar(@{$root->{'args'}}) == 3
-             and defined($root->{'args'}->[2])
-             and @{$root->{'args'}->[2]->{'contents'}}) {
+      if ($element->{'args'}) {
+        if (scalar(@{$element->{'args'}}) == 3
+             and defined($element->{'args'}->[2])
+             and @{$element->{'args'}->[2]->{'contents'}}) {
           unshift @{$self->{'current_contents'}->[-1]}, 
-            {'contents' => $root->{'args'}->[2]->{'contents'}};
-        } elsif (@{$root->{'args'}->[0]->{'contents'}}) {
-          my $url_content = $root->{'args'}->[0]->{'contents'};
+            {'contents' => $element->{'args'}->[2]->{'contents'}};
+        } elsif (@{$element->{'args'}->[0]->{'contents'}}) {
+          my $url_content = $element->{'args'}->[0]->{'contents'};
           my $url_text = $self->_protect_url(
             Texinfo::Convert::Text::convert_to_text(
                {'contents' => $url_content},
                {'code' => 1,
                 Texinfo::Convert::Text::copy_options_for_convert_text($self)}));
-          if (scalar(@{$root->{'args'}}) == 2
-             and defined($root->{'args'}->[1])
-             and @{$root->{'args'}->[1]->{'contents'}}) {
+          if (scalar(@{$element->{'args'}}) == 2
+             and defined($element->{'args'}->[1])
+             and @{$element->{'args'}->[1]->{'contents'}}) {
             my $description = _convert($self, {'contents',
-                                   $root->{'args'}->[1]->{'contents'}});
+                                   $element->{'args'}->[1]->{'contents'}});
             my $text = $self->gdt('{text} ({url})',
                           {'text' => $description, 'url' => "\\nolinkurl{$url_text}"}, 
                                        'translated_text');
@@ -2037,29 +2037,29 @@ sub _convert($$)
             $result .= "\\url{$url_text}";
             return $result;
           }
-        } elsif (scalar(@{$root->{'args'}}) == 2
-                 and defined($root->{'args'}->[1])
-                 and @{$root->{'args'}->[1]->{'contents'}}) {
+        } elsif (scalar(@{$element->{'args'}}) == 2
+                 and defined($element->{'args'}->[1])
+                 and @{$element->{'args'}->[1]->{'contents'}}) {
           unshift @{$self->{'current_contents'}->[-1]}, 
-            {'contents' => $root->{'args'}->[1]->{'contents'}};
+            {'contents' => $element->{'args'}->[1]->{'contents'}};
         }
       }
       return $result;
     } elsif ($command eq 'footnote') {
       _push_new_context($self, 'footnote');
       $result .= '\footnote{';
-      $result .= $self->_convert($root->{'args'}->[0]); 
+      $result .= $self->_convert($element->{'args'}->[0]);
       $result .= '}';
       $self->_pop_context();
       return $result;
     } elsif ($command eq 'anchor') {
-      my $anchor_label = _tree_anchor_label($root->{'extra'}->{'node_content'});
+      my $anchor_label = _tree_anchor_label($element->{'extra'}->{'node_content'});
       $result .= "\\label{$anchor_label}%\n";
       return $result;
     } elsif ($ref_commands{$command}) {
-      if (scalar(@{$root->{'args'}})) {
+      if (scalar(@{$element->{'args'}})) {
         my @args;
-        for my $arg (@{$root->{'args'}}) {
+        for my $arg (@{$element->{'args'}}) {
           if (defined $arg->{'contents'} and @{$arg->{'contents'}}) {
             push @args, $arg->{'contents'};
           } else {
@@ -2082,10 +2082,10 @@ sub _convert($$)
         # in parentheses
         if (defined($args[3])) {
           $file_contents = $args[3];
-        } elsif ($root->{'extra'}->{'node_argument'}
-                 and defined($root->{'extra'}->{'node_argument'}->{'normalized'})
-                 and $root->{'extra'}->{'node_argument'}->{'manual_content'}) {
-          $file_contents = $root->{'extra'}->{'node_argument'}->{'manual_content'};
+        } elsif ($element->{'extra'}->{'node_argument'}
+                 and defined($element->{'extra'}->{'node_argument'}->{'normalized'})
+                 and $element->{'extra'}->{'node_argument'}->{'manual_content'}) {
+          $file_contents = $element->{'extra'}->{'node_argument'}->{'manual_content'};
         }
         my $filename = '';
         if ($file_contents) {
@@ -2095,22 +2095,22 @@ sub _convert($$)
         }
         
         if ($command ne 'inforef' and $book eq '' and $filename eq ''
-            and $root->{'extra'}->{'node_argument'}
-            and defined($root->{'extra'}->{'node_argument'}->{'normalized'})
-            and !$root->{'extra'}->{'node_argument'}->{'manual_content'}
+            and $element->{'extra'}->{'node_argument'}
+            and defined($element->{'extra'}->{'node_argument'}->{'normalized'})
+            and !$element->{'extra'}->{'node_argument'}->{'manual_content'}
             and $self->{'labels'}
-            and $self->{'labels'}->{$root->{'extra'}->{'node_argument'}->{'normalized'}}) {
+            and $self->{'labels'}->{$element->{'extra'}->{'node_argument'}->{'normalized'}}) {
           # internal reference
-          # FIXME or $root->{'extra'}->{'label'}?  Both should be
-          # the same, but for node_content $root->{'extra'}->{'label'}
+          # FIXME or $element->{'extra'}->{'label'}?  Both should be
+          # the same, but for node_content $element->{'extra'}->{'label'}
           # is used, while above $self->{'labels'} is used.  It could be better
           # to be consistent
           my $reference
-           = $self->{'labels'}->{$root->{'extra'}->{'node_argument'}->{'normalized'}};
+           = $self->{'labels'}->{$element->{'extra'}->{'node_argument'}->{'normalized'}};
           my $reference_node_content;
-          if ($root->{'extra'}
-              and $root->{'extra'}->{'label'}) {
-            $reference_node_content = $root->{'extra'}->{'label'}->{'extra'}->{'node_content'};
+          if ($element->{'extra'}
+              and $element->{'extra'}->{'label'}) {
+            $reference_node_content = $element->{'extra'}->{'label'}->{'extra'}->{'node_content'};
           } else {
             # FIXME this is probably impossible
             $reference_node_content = $args[0];
@@ -2121,27 +2121,27 @@ sub _convert($$)
             $section_command = $reference->{'extra'}->{'associated_section'};
           } elsif ($reference->{'cmdname'} ne 'float') {
             my $normalized_name
-              = $root->{'extra'}->{'node_argument'}->{'normalized'};
+              = $element->{'extra'}->{'node_argument'}->{'normalized'};
             if ($self->{'normalized_nodes_associated_section'}
                 and $self->{'normalized_nodes_associated_section'}->{$normalized_name}) {
               $section_command
                 = $self->{'normalized_nodes_associated_section'}->{$normalized_name}; 
             } else {
               # an anchor.  Find associated section using top level parent @-command
-              my $current_root = $reference;
-              while ($current_root->{'parent'}) {
-                $current_root = $current_root->{'parent'};
-                if ($current_root->{'cmdname'}
-                    and $root_commands{$current_root->{'cmdname'}}) {
-                  if ($current_root->{'cmdname'} ne 'node') {
-                    $section_command = $current_root;
+              my $current = $reference;
+              while ($current->{'parent'}) {
+                $current = $current->{'parent'};
+                if ($current->{'cmdname'}
+                    and $root_commands{$current->{'cmdname'}}) {
+                  if ($current->{'cmdname'} ne 'node') {
+                    $section_command = $current;
                   } else {
-                    if ($current_root->{'extra'}->{'associated_section'}) {
-                      $section_command = $current_root->{'extra'}->{'associated_section'};
-                    } elsif (exists($current_root->{'extra'}->{'normalized'})
-                             and $self->{'normalized_nodes_associated_section'}->{$current_root->{'extra'}->{'normalized'}}) {
+                    if ($current->{'extra'}->{'associated_section'}) {
+                      $section_command = $current->{'extra'}->{'associated_section'};
+                    } elsif (exists($current->{'extra'}->{'normalized'})
+                             and $self->{'normalized_nodes_associated_section'}->{$current->{'extra'}->{'normalized'}}) {
                       $section_command
-                        = $self->{'normalized_nodes_associated_section'}->{$current_root->{'extra'}->{'normalized'}};
+                        = $self->{'normalized_nodes_associated_section'}->{$current->{'extra'}->{'normalized'}};
                     }
                   }
                   last;
@@ -2279,24 +2279,24 @@ sub _convert($$)
       }
       return $result;
     } elsif ($explained_commands{$command}) {
-      if ($root->{'args'}
-          and defined($root->{'args'}->[0])
-          and @{$root->{'args'}->[0]->{'contents'}}) {
+      if ($element->{'args'}
+          and defined($element->{'args'}->[0])
+          and @{$element->{'args'}->[0]->{'contents'}}) {
         # in abbr spaces never end a sentence.
         my $argument;
         if ($command eq 'abbr') {
           $argument = {'type' => '_dot_not_end_sentence',
-                       'contents' => $root->{'args'}->[0]->{'contents'}};
+                       'contents' => $element->{'args'}->[0]->{'contents'}};
         } else {
         # TODO in TeX, acronym is in a smaller font (1pt less).
-          $argument = { 'contents' => $root->{'args'}->[0]->{'contents'}};
+          $argument = { 'contents' => $element->{'args'}->[0]->{'contents'}};
         }
-        if (scalar (@{$root->{'args'}}) == 2
-            and defined($root->{'args'}->[-1])
-            and @{$root->{'args'}->[-1]->{'contents'}}) {
+        if (scalar (@{$element->{'args'}}) == 2
+            and defined($element->{'args'}->[-1])
+            and @{$element->{'args'}->[-1]->{'contents'}}) {
           my $prepended = $self->gdt('{abbr_or_acronym} ({explanation})', 
                            {'abbr_or_acronym' => $argument, 
-                            'explanation' => $root->{'args'}->[-1]->{'contents'}});
+                            'explanation' => $element->{'args'}->[-1]->{'contents'}});
           $result .= _convert($self, $prepended);
         } else {
           $result .= _convert($self, $argument);
@@ -2306,18 +2306,18 @@ sub _convert($$)
     } elsif ($inline_commands{$command}) {
       my $arg_index = 1;
       if ($command eq 'inlinefmtifelse'
-          and (!$root->{'extra'}->{'format'} 
-               or !$self->{'expanded_formats_hash'}->{$root->{'extra'}->{'format'}})) {
+          and (!$element->{'extra'}->{'format'}
+               or !$self->{'expanded_formats_hash'}->{$element->{'extra'}->{'format'}})) {
         $arg_index = 2;
       }
-      if (scalar(@{$root->{'args'}}) > $arg_index
-         and defined($root->{'args'}->[$arg_index])
-         and @{$root->{'args'}->[$arg_index]->{'contents'}}) {
+      if (scalar(@{$element->{'args'}}) > $arg_index
+         and defined($element->{'args'}->[$arg_index])
+         and @{$element->{'args'}->[$arg_index]->{'contents'}}) {
         if ($command eq 'inlineraw') {
           push @{$self->{'formatting_context'}->[-1]->{'text_context'}}, 'raw';
         }
         $result .= _convert($self, {'contents'
-                         => $root->{'args'}->[$arg_index]->{'contents'}});
+                         => $element->{'args'}->[$arg_index]->{'contents'}});
         if ($command eq 'inlineraw') {
           my $old_context = pop @{$self->{'formatting_context'}->[-1]->{'text_context'}};
           die if ($old_context ne 'raw');
@@ -2329,9 +2329,9 @@ sub _convert($$)
       if (not exists($block_commands{$command})) {
         push @{$self->{'formatting_context'}->[-1]->{'math_style'}}, 'one-line';
         if ($command eq 'math') {
-          if ($root->{'args'}) {
+          if ($element->{'args'}) {
             $result .= '$';
-            $result .= _convert($self, $root->{'args'}->[0]);
+            $result .= _convert($self, $element->{'args'}->[0]);
             $result .= '$';
           }
         }
@@ -2351,11 +2351,11 @@ sub _convert($$)
         }
       }
     } elsif ($command eq 'caption' or $command eq 'shortcaption') {
-      if (not defined($root->{'extra'})
-          or not defined($root->{'extra'}->{'float'})) {
+      if (not defined($element->{'extra'})
+          or not defined($element->{'extra'}->{'float'})) {
         return $result;
       }
-      my $float = $root->{'extra'}->{'float'};
+      my $float = $element->{'extra'}->{'float'};
       my $shortcaption;
       if ($command eq 'shortcaption') {
         if ($float->{'extra'}->{'caption'}) {
@@ -2371,7 +2371,7 @@ sub _convert($$)
       }
       _push_new_context($self, 'latex_caption');
       my $caption_text = _convert($self,
-         {'contents' => $root->{'args'}->[0]->{'contents'}});
+         {'contents' => $element->{'args'}->[0]->{'contents'}});
       $self->_pop_context();
       
       $result .= '\caption';
@@ -2386,16 +2386,16 @@ sub _convert($$)
       $result .= "{$caption_text}\n";
       return $result;
     } elsif ($command eq 'titlefont') {
-      $result .= _title_font($self, $root);
+      $result .= _title_font($self, $element);
       return $result;
     } elsif ($command eq 'U') {
       my $arg;
-      if ($root->{'args'}
-          and $root->{'args'}->[0]
-          and $root->{'args'}->[0]->{'contents'}
-          and $root->{'args'}->[0]->{'contents'}->[0]
-          and $root->{'args'}->[0]->{'contents'}->[0]->{'text'}) {
-        $arg = $root->{'args'}->[0]->{'contents'}->[0]->{'text'};
+      if ($element->{'args'}
+          and $element->{'args'}->[0]
+          and $element->{'args'}->[0]->{'contents'}
+          and $element->{'args'}->[0]->{'contents'}->[0]
+          and $element->{'args'}->[0]->{'contents'}->[0]->{'text'}) {
+        $arg = $element->{'args'}->[0]->{'contents'}->[0]->{'text'};
       }
       if ($arg) {
         # Syntactic checks on the value were already done in Parser.pm,
@@ -2421,7 +2421,7 @@ sub _convert($$)
       return $result;
     } elsif ($command eq 'value') {
       my $expansion = $self->gdt('@{No value for `{value}\'@}', 
-                                    {'value' => $root->{'type'}});
+                                    {'value' => $element->{'type'}});
       $expansion = {'type' => 'paragraph',
                     'contents' => [$expansion]};
       $result .= _convert($self, $expansion);
@@ -2429,7 +2429,7 @@ sub _convert($$)
     # block commands
     } elsif (exists($block_commands{$command})) {
       if ($LaTeX_environment_commands{$command}) {
-        my $environment_options = _set_environment_options($self, $command, $root);
+        my $environment_options = _set_environment_options($self, $command, $element);
         foreach my $environment (@{$LaTeX_environment_commands{$command}}) {
           $result .= "\\begin{".$environment."}";
           if (defined($environment_options) and
@@ -2463,18 +2463,18 @@ sub _convert($$)
         # this is only used to avoid @author converted as
         # a @titlepage author, for a @quotation in @titlepage @author
         $self->{'formatting_context'}->[-1]->{'in_quotation'} += 1;
-        if ($root->{'args'} and $root->{'args'}->[0]
-            and $root->{'args'}->[0]->{'contents'}
-            and @{$root->{'args'}->[0]->{'contents'}}) {
+        if ($element->{'args'} and $element->{'args'}->[0]
+            and $element->{'args'}->[0]->{'contents'}
+            and @{$element->{'args'}->[0]->{'contents'}}) {
           my $prepended = $self->gdt('@b{{quotation_arg}:} ', 
-             {'quotation_arg' => $root->{'args'}->[0]->{'contents'}});
+             {'quotation_arg' => $element->{'args'}->[0]->{'contents'}});
           $result .= $self->_convert($prepended);
         }
       } elsif ($command eq 'multitable') {
         my $columnsize;
-        if ($root->{'extra'}->{'columnfractions'}) {
-        } elsif ($root->{'extra'}->{'prototypes'}) {
-          foreach my $prototype (@{$root->{'extra'}->{'prototypes'}}) {
+        if ($element->{'extra'}->{'columnfractions'}) {
+        } elsif ($element->{'extra'}->{'prototypes'}) {
+          foreach my $prototype (@{$element->{'extra'}->{'prototypes'}}) {
             my ($formatted_prototype) = $self->_convert($prototype,
                                                        {'indent_length' => 0});
             push @$columnsize, 
@@ -2483,8 +2483,8 @@ sub _convert($$)
         }
       } elsif ($command eq 'float') {
         my $normalized_float_type = '';
-        if ($root->{'extra'}->{'type'}) {
-          $normalized_float_type = $root->{'extra'}->{'type'}->{'normalized'};
+        if ($element->{'extra'}->{'type'}) {
+          $normalized_float_type = $element->{'extra'}->{'type'}->{'normalized'};
         }
         if (not exists($self->{'normalized_float_latex'}->{$normalized_float_type})) {
           cluck("\@float $normalized_float_type: not found\n");
@@ -2496,20 +2496,20 @@ sub _convert($$)
       }
     } elsif ($command eq 'node') {
       # add the label only if not associated with a section
-      if (not $root->{'extra'}->{'associated_section'}) {
+      if (not $element->{'extra'}->{'associated_section'}) {
         my $node_label
-          = _tree_anchor_label($root->{'extra'}->{'node_content'});
+          = _tree_anchor_label($element->{'extra'}->{'node_content'});
         $result .= "\\label{$node_label}%\n";
       }
       # ignore Top node like Texinfo TeX.  When called through
       # output(), the tree elements are already removed
-      if ($root->{'extra'}->{'normalized'} eq 'Top') {
+      if ($element->{'extra'}->{'normalized'} eq 'Top') {
         return $result;
       }
     } elsif ($sectioning_commands{$command}) {
       my $heading = '';
-      if ($root->{'args'}->[0]->{'contents'}) {
-        $heading = $self->_convert({'contents' => $root->{'args'}->[0]->{'contents'}});
+      if ($element->{'args'}->[0]->{'contents'}) {
+        $heading = $self->_convert({'contents' => $element->{'args'}->[0]->{'contents'}});
       }
 
       my $section_cmd = $section_map{$command};
@@ -2518,8 +2518,8 @@ sub _convert($$)
       }
       
       my $associated_node;
-      if ($root->{'extra'}->{'associated_node'}) {
-        $associated_node = $root->{'extra'}->{'associated_node'};
+      if ($element->{'extra'}->{'associated_node'}) {
+        $associated_node = $element->{'extra'}->{'associated_node'};
         # ignore Top node like Texinfo TeX.  When called through
         # output(), the tree elements are already removed.
         # If the sections are not already removed and are removed here,
@@ -2547,13 +2547,13 @@ sub _convert($$)
         $result .= "\\label{$node_label}%\n";
       }
     } elsif (($command eq 'item' or $command eq 'itemx')
-            and $root->{'args'} and $root->{'args'}->[0] 
-            and $root->{'args'}->[0]->{'type'}
-            and $root->{'args'}->[0]->{'type'} eq 'line_arg') {
+            and $element->{'args'} and $element->{'args'}->[0]
+            and $element->{'args'}->[0]->{'type'}
+            and $element->{'args'}->[0]->{'type'} eq 'line_arg') {
       # item in @*table
-      if ($root->{'args'}->[0]->{'contents'}) {
+      if ($element->{'args'}->[0]->{'contents'}) {
         my $code_style = 0;
-        my $table_command = $root->{'parent'}->{'parent'}->{'parent'};
+        my $table_command = $element->{'parent'}->{'parent'}->{'parent'};
         if ($table_command->{'extra'}
             and $table_command->{'extra'}->{'command_as_argument'}) {
           my $command_as_argument
@@ -2565,15 +2565,15 @@ sub _convert($$)
         if ($code_style) {
           $self->{'formatting_context'}->[-1]->{'code'} += 1;
         }
-        my $converted_arg = _convert($self, $root->{'args'}->[0]);
+        my $converted_arg = _convert($self, $element->{'args'}->[0]);
         if ($code_style) {
           $self->{'formatting_context'}->[-1]->{'code'} -= 1;
         }
         $result .= "\\item[$converted_arg]\n";
       }
-      $result .= _index_entry($self, $root);
-    } elsif ($command eq 'item' and $root->{'parent'}->{'cmdname'}
-             and $item_container_commands{$root->{'parent'}->{'cmdname'}}) {
+      $result .= _index_entry($self, $element);
+    } elsif ($command eq 'item' and $element->{'parent'}->{'cmdname'}
+             and $item_container_commands{$element->{'parent'}->{'cmdname'}}) {
       # item in @enumerate and @itemize
       $result .= '\item ';
     # open a multitable cell
@@ -2583,19 +2583,19 @@ sub _convert($$)
     } elsif ($command eq 'center') {
       $result .= "\\begin{center}\n";
       $result .= $self->_convert (
-                       {'contents' => $root->{'args'}->[0]->{'contents'}});
+                       {'contents' => $element->{'args'}->[0]->{'contents'}});
       $result .= "\n\\end{center}\n";
       return $result;
     } elsif ($command eq 'exdent') {
       if (scalar(@{$self->{'formatting_context'}->[-1]->{'preformatted_context'}})) {
-        $result .= $self->_convert({'contents' => $root->{'args'}->[0]->{'contents'}})."\n";
+        $result .= $self->_convert({'contents' => $element->{'args'}->[0]->{'contents'}})."\n";
       } else {
-        $result .= $self->_convert({'contents' => $root->{'args'}->[0]->{'contents'}})."\n";
+        $result .= $self->_convert({'contents' => $element->{'args'}->[0]->{'contents'}})."\n";
       }
       return $result;
     } elsif ($command eq 'verbatiminclude') {
       my $expansion = Texinfo::Convert::Utils::expand_verbatiminclude($self,
-                                                              $self, $root);
+                                                              $self, $element);
       unshift @{$self->{'current_contents'}->[-1]}, $expansion
         if ($expansion);
       return $result;
@@ -2608,21 +2608,21 @@ sub _convert($$)
       return $result;
     } elsif ($command eq 'printindex') {
       my $index_name;
-      if ($root->{'extra'} and $root->{'extra'}->{'misc_args'}
-          and defined($root->{'extra'}->{'misc_args'}->[0])) {
-        $index_name = $root->{'extra'}->{'misc_args'}->[0];
+      if ($element->{'extra'} and $element->{'extra'}->{'misc_args'}
+          and defined($element->{'extra'}->{'misc_args'}->[0])) {
+        $index_name = $element->{'extra'}->{'misc_args'}->[0];
         if (exists($self->{'index_entries'}->{$index_name})) {
           $result .= "\\printindex[$index_name]\n";
         }
       }
       return $result;
     } elsif ($command eq 'listoffloats') {
-      if ($root->{'extra'} and $root->{'extra'}->{'type'}
-          and defined($root->{'extra'}->{'type'}->{'normalized'})
+      if ($element->{'extra'} and $element->{'extra'}->{'type'}
+          and defined($element->{'extra'}->{'type'}->{'normalized'})
           and $self->{'floats'}
-          and $self->{'floats'}->{$root->{'extra'}->{'type'}->{'normalized'}}
-          and @{$self->{'floats'}->{$root->{'extra'}->{'type'}->{'normalized'}}}) {
-        my $normalized_float_type = $root->{'extra'}->{'type'}->{'normalized'};
+          and $self->{'floats'}->{$element->{'extra'}->{'type'}->{'normalized'}}
+          and @{$self->{'floats'}->{$element->{'extra'}->{'type'}->{'normalized'}}}) {
+        my $normalized_float_type = $element->{'extra'}->{'type'}->{'normalized'};
         if (not exists($self->{'normalized_float_latex'}->{$normalized_float_type})) {
           cluck("\@listoffloats $normalized_float_type: not found\n");
           return $result;
@@ -2651,9 +2651,9 @@ sub _convert($$)
       return $result;
     } elsif ($command eq 'sp') {
       my $sp_nr = 1;
-      if ($root->{'extra'}->{'misc_args'}->[0]) {
+      if ($element->{'extra'}->{'misc_args'}->[0]) {
         # this useless copy avoids perl changing the type to integer!
-        $sp_nr = $root->{'extra'}->{'misc_args'}->[0];
+        $sp_nr = $element->{'extra'}->{'misc_args'}->[0];
       }
       # FIXME \vskip is a TeX primitive, so the syntax seems to be
       # different from LaTeX, and some people warn against using
@@ -2662,14 +2662,14 @@ sub _convert($$)
       $result .= "\\vskip $sp_nr\\baselineskip %\n";
       return $result;
     } elsif ($command eq 'need') {
-      if ($root->{'extra'}->{'misc_args'}->[0]) {
-        my $need_value = 0.001 * $root->{'extra'}->{'misc_args'}->[0];
+      if ($element->{'extra'}->{'misc_args'}->[0]) {
+        my $need_value = 0.001 * $element->{'extra'}->{'misc_args'}->[0];
         $result .= "\\needspace{${need_value}pt}%\n";
       }
       return $result;
     } elsif ($command eq 'shorttitlepage') {
       # FIXME ignore if there is alreadu a @titlepage?
-      my $title_text = _title_font($self, $root);
+      my $title_text = _title_font($self, $element);
       $result .= "\\begin{titlepage}\n";
       $result .= "{\\raggedright $title_text}\n";
       # first newpage ends the title page, phantom and second newpage
@@ -2679,7 +2679,7 @@ sub _convert($$)
       $result .= _start_mainmatter_after_titlepage($self);
       return $result;
     } elsif ($command eq 'title') {
-      my $title_text = _title_font($self, $root);
+      my $title_text = _title_font($self, $element);
       #$result .= "\\begin{flushleft}\n";
       #$result .= $title_text."\n";
       #$result .= "\\end{flushleft}\n";
@@ -2690,7 +2690,7 @@ sub _convert($$)
       $self->{'titlepage_formatting'}->{'title'} = 1;
     } elsif ($command eq 'subtitle') {
       my $subtitle_text = _convert($self,
-               {'contents' => $root->{'args'}->[0]->{'contents'}});
+               {'contents' => $element->{'args'}->[0]->{'contents'}});
       # too much vertical spacing with flushright environment
       #$result .= "\\begin{flushright}\n";
       #$result .= $subtitle_text."\n";
@@ -2705,7 +2705,7 @@ sub _convert($$)
           $result .= "\\vskip 0pt plus 1filll\n";
         }
         my $author_name = _convert($self,
-                       {'contents' => $root->{'args'}->[0]->{'contents'}});
+                       {'contents' => $element->{'args'}->[0]->{'contents'}});
         # use \leftline as in Texinfo TeX
         # FIXME In Texinfo TeX the interline space between @author lines
         # seems better
@@ -2713,10 +2713,10 @@ sub _convert($$)
         return $result;
       }
     } elsif ($command eq 'vskip') {
-      if ($root->{'extra'}->{'misc_args'}->[0]) {
+      if ($element->{'extra'}->{'misc_args'}->[0]) {
         # no need for space in front and end of line they are in the
         # argument
-        $result .= "\\vskip$root->{'extra'}->{'misc_args'}->[0]";
+        $result .= "\\vskip$element->{'extra'}->{'misc_args'}->[0]";
       }
       return $result;
     } elsif ($command eq 'contents') {
@@ -2743,13 +2743,13 @@ sub _convert($$)
     # in a way that can be reverted as with @firstparagraphindent.
     # use of \usepackage{indentfirst} cannot be reverted.
     } elsif ($informative_commands{$command}) {
-      $self->set_informative_command_value($root);
+      $self->set_informative_command_value($element);
       if ($command eq 'documentlanguage') {
         my $language = $self->get_conf('documentlanguage');
         $language =~ s/_/-/;
         $result .= "\\selectlanguage{$language}%\n";
       } elsif ($command eq 'pagesizes') {
-        my $pagesize_spec = _convert($self, $root->{'args'}->[0]);
+        my $pagesize_spec = _convert($self, $element->{'args'}->[0]);
         my @pagesize_args = split(/\s*,\s*/, $pagesize_spec);
         my @geometry;
         my $height = shift @pagesize_args;
@@ -2764,8 +2764,8 @@ sub _convert($$)
           $result .= "\\newgeometry{".join(',', @geometry)."}\n";
         }
       } elsif ($command eq 'paragraphindent'
-          and $root->{'extra'}->{'misc_args'}->[0]) {
-        my $indentation_spec = $root->{'extra'}->{'misc_args'}->[0];
+          and $element->{'extra'}->{'misc_args'}->[0]) {
+        my $indentation_spec = $element->{'extra'}->{'misc_args'}->[0];
         if ($indentation_spec eq 'asis') {
           # not implemented here, same as in TeX.
           return $result;
@@ -2777,24 +2777,24 @@ sub _convert($$)
           $result .= "\\setlength{\\parindent}{$indentation_spec_arg}\n";
         }
       } elsif ($command eq 'frenchspacing'
-               and $root->{'extra'}->{'misc_args'}->[0]) {
-        my $frenchspacing_spec = $root->{'extra'}->{'misc_args'}->[0];
+               and $element->{'extra'}->{'misc_args'}->[0]) {
+        my $frenchspacing_spec = $element->{'extra'}->{'misc_args'}->[0];
         if ($frenchspacing_spec eq 'on') {
           $result .= "\\frenchspacing\n";
         } elsif ($frenchspacing_spec eq 'off') {
           $result .= "\\nonfrenchspacing\n";
         }
       } elsif ($command eq 'setchapternewpage'
-               and $root->{'extra'}->{'misc_args'}->[0]) {
-        my $setchapternewpage_spec = $root->{'extra'}->{'misc_args'}->[0];
+               and $element->{'extra'}->{'misc_args'}->[0]) {
+        my $setchapternewpage_spec = $element->{'extra'}->{'misc_args'}->[0];
         $result .= _set_chapter_new_page($self, $setchapternewpage_spec);
       } elsif ($command eq 'headings'
-               and $root->{'extra'}->{'misc_args'}->[0]) {
-        my $headings_spec = $root->{'extra'}->{'misc_args'}->[0];
+               and $element->{'extra'}->{'misc_args'}->[0]) {
+        my $headings_spec = $element->{'extra'}->{'misc_args'}->[0];
         $result .= _set_headings($self, $headings_spec);
       } elsif ($command eq 'fonttextsize'
-               and $root->{'extra'}->{'misc_args'}->[0]) {
-        my $fontsize = $root->{'extra'}->{'misc_args'}->[0];
+               and $element->{'extra'}->{'misc_args'}->[0]) {
+        my $fontsize = $element->{'extra'}->{'misc_args'}->[0];
         # default dimension for changefontsize is pt
         $result .= "\\changefontsize{$fontsize}\n";
       }
@@ -2803,8 +2803,8 @@ sub _convert($$)
       $unknown_command = 1;
     }
     if ($unknown_command
-        and !($root->{'extra'} 
-                and ($root->{'extra'}->{'index_entry'}))
+        and !($element->{'extra'}
+                and ($element->{'extra'}->{'index_entry'}))
         # commands like def*x are not processed above, since only the def_line
         # associated is processed. If they have no name and no category they 
         # are not considered as index entries either so they have a specific
@@ -2817,24 +2817,24 @@ sub _convert($$)
   }
 
   # open 'type' constructs.
-  if ($root->{'type'}) {
-    if ($root->{'type'} eq 'index_entry_command') {
-      $result .= _index_entry($self, $root);
+  if ($element->{'type'}) {
+    if ($element->{'type'} eq 'index_entry_command') {
+      $result .= _index_entry($self, $element);
     }
-    if ($root->{'type'} eq 'def_line') {
-      if ($root->{'extra'} and $root->{'extra'}->{'def_parsed_hash'}
-             and %{$root->{'extra'}->{'def_parsed_hash'}}) {
-        my $arguments = Texinfo::Convert::Utils::definition_arguments_content($root);
+    if ($element->{'type'} eq 'def_line') {
+      if ($element->{'extra'} and $element->{'extra'}->{'def_parsed_hash'}
+             and %{$element->{'extra'}->{'def_parsed_hash'}}) {
+        my $arguments = Texinfo::Convert::Utils::definition_arguments_content($element);
         my $tree;
         my $command;
-        if ($Texinfo::Common::def_aliases{$root->{'extra'}->{'def_command'}}) {
-          $command = $Texinfo::Common::def_aliases{$root->{'extra'}->{'def_command'}};
+        if ($Texinfo::Common::def_aliases{$element->{'extra'}->{'def_command'}}) {
+          $command = $Texinfo::Common::def_aliases{$element->{'extra'}->{'def_command'}};
         } else {
-          $command = $root->{'extra'}->{'def_command'};
+          $command = $element->{'extra'}->{'def_command'};
         }
         my $name;
-        if ($root->{'extra'}->{'def_parsed_hash'}->{'name'}) {
-          $name = $root->{'extra'}->{'def_parsed_hash'}->{'name'};
+        if ($element->{'extra'}->{'def_parsed_hash'}->{'name'}) {
+          $name = $element->{'extra'}->{'def_parsed_hash'}->{'name'};
         } else {
           $name = '';
         }
@@ -2844,24 +2844,24 @@ sub _convert($$)
             or $command eq 'deftp'
             or (($command eq 'deftypefn'
                  or $command eq 'deftypevr')
-                and !$root->{'extra'}->{'def_parsed_hash'}->{'type'})) {
+                and !$element->{'extra'}->{'def_parsed_hash'}->{'type'})) {
           if ($arguments) {
             $tree = $self->gdt("\@tie{}-- {category}: {name} {arguments}", {
-                    'category' => $root->{'extra'}->{'def_parsed_hash'}->{'category'},
+                    'category' => $element->{'extra'}->{'def_parsed_hash'}->{'category'},
                     'name' => $name,
                     'arguments' => $arguments});
           } else {
             $tree = $self->gdt("\@tie{}-- {category}: {name}", {
-                    'category' => $root->{'extra'}->{'def_parsed_hash'}->{'category'},
+                    'category' => $element->{'extra'}->{'def_parsed_hash'}->{'category'},
                     'name' => $name});
           }
         } elsif ($command eq 'deftypefn'
                  or $command eq 'deftypevr') {
           if ($arguments) {
             my $strings = {
-                    'category' => $root->{'extra'}->{'def_parsed_hash'}->{'category'},
+                    'category' => $element->{'extra'}->{'def_parsed_hash'}->{'category'},
                     'name' => $name,
-                    'type' => $root->{'extra'}->{'def_parsed_hash'}->{'type'},
+                    'type' => $element->{'extra'}->{'def_parsed_hash'}->{'type'},
                     'arguments' => $arguments};
             if ($self->get_conf('deftypefnnewline') eq 'on') {
               $tree = $self->gdt("\@tie{}-- {category}:\@*{type}\@*{name} {arguments}",
@@ -2872,8 +2872,8 @@ sub _convert($$)
             }
           } else {
             my $strings = {
-                    'category' => $root->{'extra'}->{'def_parsed_hash'}->{'category'},
-                    'type' => $root->{'extra'}->{'def_parsed_hash'}->{'type'},
+                    'category' => $element->{'extra'}->{'def_parsed_hash'}->{'category'},
+                    'type' => $element->{'extra'}->{'def_parsed_hash'}->{'type'},
                     'name' => $name};
             if ($self->get_conf('deftypefnnewline') eq 'on') {
               $tree = $self->gdt("\@tie{}-- {category}:\@*{type}\@*{name}",
@@ -2885,41 +2885,41 @@ sub _convert($$)
           }
         } elsif ($command eq 'defcv'
                  or ($command eq 'deftypecv'
-                     and !$root->{'extra'}->{'def_parsed_hash'}->{'type'})) {
+                     and !$element->{'extra'}->{'def_parsed_hash'}->{'type'})) {
           if ($arguments) {
             $tree = $self->gdt("\@tie{}-- {category} of {class}: {name} {arguments}", {
-                    'category' => $root->{'extra'}->{'def_parsed_hash'}->{'category'},
+                    'category' => $element->{'extra'}->{'def_parsed_hash'}->{'category'},
                     'name' => $name,
-                    'class' => $root->{'extra'}->{'def_parsed_hash'}->{'class'},
+                    'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'},
                     'arguments' => $arguments});
           } else {
             $tree = $self->gdt("\@tie{}-- {category} of {class}: {name}", {
-                    'category' => $root->{'extra'}->{'def_parsed_hash'}->{'category'},
-                    'class' => $root->{'extra'}->{'def_parsed_hash'}->{'class'},
+                    'category' => $element->{'extra'}->{'def_parsed_hash'}->{'category'},
+                    'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'},
                     'name' => $name});
           }
         } elsif ($command eq 'defop'
                  or ($command eq 'deftypeop'
-                     and !$root->{'extra'}->{'def_parsed_hash'}->{'type'})) {
+                     and !$element->{'extra'}->{'def_parsed_hash'}->{'type'})) {
           if ($arguments) {
             $tree = $self->gdt("\@tie{}-- {category} on {class}: {name} {arguments}", {
-                    'category' => $root->{'extra'}->{'def_parsed_hash'}->{'category'},
+                    'category' => $element->{'extra'}->{'def_parsed_hash'}->{'category'},
                     'name' => $name,
-                    'class' => $root->{'extra'}->{'def_parsed_hash'}->{'class'},
+                    'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'},
                     'arguments' => $arguments});
           } else {
             $tree = $self->gdt("\@tie{}-- {category} on {class}: {name}", {
-                    'category' => $root->{'extra'}->{'def_parsed_hash'}->{'category'},
-                    'class' => $root->{'extra'}->{'def_parsed_hash'}->{'class'},
+                    'category' => $element->{'extra'}->{'def_parsed_hash'}->{'category'},
+                    'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'},
                     'name' => $name});
           }
         } elsif ($command eq 'deftypeop') {
           if ($arguments) {
             my $strings = {
-                    'category' => $root->{'extra'}->{'def_parsed_hash'}->{'category'},
+                    'category' => $element->{'extra'}->{'def_parsed_hash'}->{'category'},
                     'name' => $name,
-                    'class' => $root->{'extra'}->{'def_parsed_hash'}->{'class'},
-                    'type' => $root->{'extra'}->{'def_parsed_hash'}->{'type'},
+                    'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'},
+                    'type' => $element->{'extra'}->{'def_parsed_hash'}->{'type'},
                     'arguments' => $arguments};
             if ($self->get_conf('deftypefnnewline') eq 'on') {
               $tree 
@@ -2932,9 +2932,9 @@ sub _convert($$)
             }
           } else {
             my $strings = {
-                    'category' => $root->{'extra'}->{'def_parsed_hash'}->{'category'},
-                    'type' => $root->{'extra'}->{'def_parsed_hash'}->{'type'},
-                    'class' => $root->{'extra'}->{'def_parsed_hash'}->{'class'},
+                    'category' => $element->{'extra'}->{'def_parsed_hash'}->{'category'},
+                    'type' => $element->{'extra'}->{'def_parsed_hash'}->{'type'},
+                    'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'},
                     'name' => $name};
             if ($self->get_conf('deftypefnnewline') eq 'on') {
               $tree 
@@ -2949,10 +2949,10 @@ sub _convert($$)
         } elsif ($command eq 'deftypecv') {
           if ($arguments) {
             my $strings = {
-                    'category' => $root->{'extra'}->{'def_parsed_hash'}->{'category'},
+                    'category' => $element->{'extra'}->{'def_parsed_hash'}->{'category'},
                     'name' => $name,
-                    'class' => $root->{'extra'}->{'def_parsed_hash'}->{'class'},
-                    'type' => $root->{'extra'}->{'def_parsed_hash'}->{'type'},
+                    'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'},
+                    'type' => $element->{'extra'}->{'def_parsed_hash'}->{'type'},
                     'arguments' => $arguments};
             if ($self->get_conf('deftypefnnewline') eq 'on') {
               $tree 
@@ -2965,9 +2965,9 @@ sub _convert($$)
             }
           } else {
             my $strings = {
-                    'category' => $root->{'extra'}->{'def_parsed_hash'}->{'category'},
-                    'type' => $root->{'extra'}->{'def_parsed_hash'}->{'type'},
-                    'class' => $root->{'extra'}->{'def_parsed_hash'}->{'class'},
+                    'category' => $element->{'extra'}->{'def_parsed_hash'}->{'category'},
+                    'type' => $element->{'extra'}->{'def_parsed_hash'}->{'type'},
+                    'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'},
                     'name' => $name};
             if ($self->get_conf('deftypefnnewline') eq 'on') {
               $tree 
@@ -2986,22 +2986,22 @@ sub _convert($$)
         $result .= "\n\n";
       }
       $result .= "\n";
-      $result .= _index_entry($self, $root);
-    } elsif ($root->{'type'} eq '_code') {
+      $result .= _index_entry($self, $element);
+    } elsif ($element->{'type'} eq '_code') {
       # ...
-    } elsif ($root->{'type'} eq '_dot_not_end_sentence') {
+    } elsif ($element->{'type'} eq '_dot_not_end_sentence') {
       $self->{'formatting_context'}->[-1]->{'dot_not_end_sentence'} += 1;
-    } elsif ($root->{'type'} eq 'bracketed') {
+    } elsif ($element->{'type'} eq 'bracketed') {
       $result .= _protect_text($self, '{');
-    } elsif ($root->{'type'} eq $latex_document_type) {
+    } elsif ($element->{'type'} eq $latex_document_type) {
       # special type inserted where the document begins
       $result .= _begin_document($self);
     }
   }
 
   # The processing of contents is done here.
-  if ($root->{'contents'}) {
-    my @contents = @{$root->{'contents'}};
+  if ($element->{'contents'}) {
+    my @contents = @{$element->{'contents'}};
     push @{$self->{'current_contents'}}, \@contents;
     while (@contents) {
       my $content = shift @contents;
@@ -3011,19 +3011,19 @@ sub _convert($$)
       #foreach my $item_content (@contents) {
       #  push @str_contents, Texinfo::Common::_print_element_tree_simple($item_content);
       #}
-      #print STDERR "contents ".Texinfo::Common::_print_element_tree_simple($root).": ".join("|", @str_contents)."\n";
+      #print STDERR "contents ".Texinfo::Common::_print_element_tree_simple($element).": ".join("|", @str_contents)."\n";
     }
     pop @{$self->{'current_contents'}};
   }
 
   # now closing. First, close types.
-  if ($root->{'type'}) {
-    if ($root->{'type'} eq '_code') {
-    } elsif ($root->{'type'} eq '_dot_not_end_sentence') {
+  if ($element->{'type'}) {
+    if ($element->{'type'} eq '_code') {
+    } elsif ($element->{'type'} eq '_dot_not_end_sentence') {
       $self->{'formatting_context'}->[-1]->{'dot_not_end_sentence'} -= 1;
-    } elsif ($root->{'type'} eq 'bracketed') {
+    } elsif ($element->{'type'} eq 'bracketed') {
       $result .= _protect_text($self, '}');
-    } elsif ($root->{'type'} eq 'before_item') {
+    } elsif ($element->{'type'} eq 'before_item') {
       # LaTeX environments do not accept text before the first item, add an item
       if ($result =~ /\S/) {
         # FIXME if there is only an index element it is content and
@@ -3031,7 +3031,7 @@ sub _convert($$)
         # move_index_entries_after_items but not for @*table
         # for which there is relate_index_entries_to_table_entries
         # but it has no obvious role
-        if ($item_line_commands{$root->{'parent'}->{'cmdname'}}) {
+        if ($item_line_commands{$element->{'parent'}->{'cmdname'}}) {
           # it is important to have an empty optional argument otherwise
           # a quoted command will output the quotes, even with a detection
           # of empty argument (tested with diverse possibilities)
@@ -3040,7 +3040,7 @@ sub _convert($$)
           $result = '\item '.$result;
         }
       }
-    } elsif ($root->{'type'} eq 'row') {
+    } elsif ($element->{'type'} eq 'row') {
       # ...
     }
   }
@@ -3062,8 +3062,8 @@ sub _convert($$)
     }
     if ($command eq 'float') {
       my $normalized_float_type = '';
-      if ($root->{'extra'}->{'type'}) {
-        $normalized_float_type = $root->{'extra'}->{'type'}->{'normalized'};
+      if ($element->{'extra'}->{'type'}) {
+        $normalized_float_type = $element->{'extra'}->{'type'}->{'normalized'};
       }
       # this should never happen as we returned at the command
       # open.  If this happens it means that the tree has been modified...
@@ -3072,9 +3072,9 @@ sub _convert($$)
       }
       # do that at the end of the float to be sure that it is after
       # the caption
-      if ($root->{'extra'} and $root->{'extra'}->{'node_content'}) {
+      if ($element->{'extra'} and $element->{'extra'}->{'node_content'}) {
         my $float_label
-          = _tree_anchor_label($root->{'extra'}->{'node_content'});
+          = _tree_anchor_label($element->{'extra'}->{'node_content'});
         $result .= "\\label{$float_label}%\n";
       }
       my $latex_float_name = $self->{'normalized_float_latex'}->{$normalized_float_type};
@@ -3082,10 +3082,10 @@ sub _convert($$)
       $self->_pop_context();
     } elsif ($command eq 'quotation'
                or $command eq 'smallquotation') {
-      if ($root->{'extra'} and $root->{'extra'}->{'authors'}) {
+      if ($element->{'extra'} and $element->{'extra'}->{'authors'}) {
         # FIXME push a formatting context to have a formatting independent
         # of the context in particular the preformatted context?
-        foreach my $author (@{$root->{'extra'}->{'authors'}}) {
+        foreach my $author (@{$element->{'extra'}->{'authors'}}) {
           $result .= _convert($self,
                  $self->gdt("\@center --- \@emph{{author}}\n",
                     {'author' => $author->{'args'}->[0]->{'contents'}}));
