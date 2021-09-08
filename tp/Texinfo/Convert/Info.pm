@@ -84,7 +84,7 @@ sub output($)
 
   my $header_bytes = Texinfo::Convert::Plaintext::count_bytes($self, $header);
   my $complete_header_bytes = $header_bytes;
-  my $elements = Texinfo::Structuring::split_by_node($root);
+  my $tree_units = Texinfo::Structuring::split_by_node($root);
 
   my $fh;
   if (! $output_file eq '') {
@@ -99,7 +99,7 @@ sub output($)
   print STDERR "DOCUMENT\n" if ($self->get_conf('DEBUG'));
   my $out_file_nr = 0;
   my @indirect_files;
-  if (!defined($elements) or $elements->[0]->{'extra'}->{'no_node'}) {
+  if (!defined($tree_units) or $tree_units->[0]->{'extra'}->{'no_node'}) {
     $self->file_line_warn(__("document without nodes"), 
                           $self->{'parser_info'}->{'input_file_name'});
     my $output = $header.$self->convert_tree($root);
@@ -123,10 +123,10 @@ sub output($)
     $out_file_nr = 1;
     my $first_node = 0;
     $self->{'count_context'}->[-1]->{'bytes'} += $header_bytes;
-    my @nodes = @$elements;
-    while (@nodes) {
-      my $node = shift @nodes;
-      my $node_text = $self->convert_tree($node);
+    my @nodes_root_elements = @$tree_units;
+    while (@nodes_root_elements) {
+      my $node_root_element = shift @nodes_root_elements;
+      my $node_text = $self->convert_tree($node_root_element);
       if (!$first_node) {
         $first_node = 1;
         if (defined($self->{'text_before_first_node'})) {
@@ -149,7 +149,7 @@ sub output($)
       if (defined($self->get_conf('SPLIT_SIZE')) 
           and $self->{'count_context'}->[-1]->{'bytes'} > 
                   $out_file_nr * $self->get_conf('SPLIT_SIZE') 
-          and @nodes and $fh) {
+          and @nodes_root_elements and $fh) {
         my $close_error;
         if (!close ($fh)) {
           $close_error = $!;
@@ -397,11 +397,11 @@ sub format_printindex($$)
 sub format_error_outside_of_any_node($$)
 {
   my $self = shift;
-  my $root = shift;
+  my $element = shift;
   if (!$self->{'node'}) {
     $self->line_warn($self,
          sprintf(__("\@%s outside of any node"),
-                     $root->{'cmdname'}), $root->{'line_nr'});
+                     $element->{'cmdname'}), $element->{'line_nr'});
   }
 }
 
@@ -490,21 +490,21 @@ my @image_files_extensions = ('.png', '.jpg');
 sub format_image($$)
 {
   my $self = shift;
-  my $root = shift;
+  my $element = shift;
   my @extensions = @image_files_extensions;
 
   my $lines_count = 0;
 
-  if (defined($root->{'args'}->[0])
-      and @{$root->{'args'}->[0]->{'contents'}}) {
+  if (defined($element->{'args'}->[0])
+      and @{$element->{'args'}->[0]->{'contents'}}) {
     my $basefile = Texinfo::Convert::Text::convert_to_text(
-      {'contents' => $root->{'args'}->[0]->{'contents'}},
+      {'contents' => $element->{'args'}->[0]->{'contents'}},
       {'code' => 1,
        Texinfo::Convert::Text::copy_options_for_convert_text($self)});
-    if (defined($root->{'args'}->[4])
-        and @{$root->{'args'}->[4]->{'contents'}}) {
+    if (defined($element->{'args'}->[4])
+        and @{$element->{'args'}->[4]->{'contents'}}) {
       my $extension = Texinfo::Convert::Text::convert_to_text(
-        {'contents' => $root->{'args'}->[4]->{'contents'}},
+        {'contents' => $element->{'args'}->[4]->{'contents'}},
         {'code' => 1,
          Texinfo::Convert::Text::copy_options_for_convert_text($self)});
       unshift @extensions, ".$extension";
@@ -519,12 +519,12 @@ sub format_image($$)
         last;
       }
     }
-    my ($text, $width) = $self->txt_image_text($root, $basefile);
+    my ($text, $width) = $self->txt_image_text($element, $basefile);
     my $alt;
-    if (defined($root->{'args'}->[3])
-        and @{$root->{'args'}->[3]->{'contents'}}) {
+    if (defined($element->{'args'}->[3])
+        and @{$element->{'args'}->[3]->{'contents'}}) {
      $alt = Texinfo::Convert::Text::convert_to_text(
-       {'contents' => $root->{'args'}->[3]->{'contents'}},
+       {'contents' => $element->{'args'}->[3]->{'contents'}},
        {Texinfo::Convert::Text::copy_options_for_convert_text($self)});
     }
 
@@ -535,8 +535,8 @@ sub format_image($$)
       $image_file =~ s/\"/\\\"/g;
       $result = "\x{00}\x{08}[image src=\"$image_file\"";
 
-      if (defined($root->{'args'}->[3])
-          and @{$root->{'args'}->[3]->{'contents'}}) {
+      if (defined($element->{'args'}->[3])
+          and @{$element->{'args'}->[3]->{'contents'}}) {
         $alt =~ s/\\/\\\\/g;
         $alt =~ s/\"/\\\"/g;
         $result .= " alt=\"$alt\"";
@@ -551,11 +551,11 @@ sub format_image($$)
         $result .= "\n";
       }
       my $image_lines_count = ($result =~ tr/\n/\n/) +1;
-      $self->add_image($root, $image_lines_count, $width, 1);
+      $self->add_image($element, $image_lines_count, $width, 1);
     } else {
-      $result = $self->image_formatted_text($root, $basefile, $text);
+      $result = $self->image_formatted_text($element, $basefile, $text);
       $lines_count = ($result =~ tr/\n/\n/);
-      $self->add_image($root, $lines_count+1, $width);
+      $self->add_image($element, $lines_count+1, $width);
     }
     return ($result, $lines_count);
   }

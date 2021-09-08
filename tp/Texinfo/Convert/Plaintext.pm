@@ -455,7 +455,7 @@ sub count_context_bug_message($$$)
   if (scalar(@{$self->{'count_context'}}) != 1) {
     my $element_text;
     if ($element) {
-      $element_text 
+      $element_text
          = Texinfo::Structuring::_print_element_command_texi($element);
     } else {
       $element_text = '';
@@ -466,7 +466,7 @@ sub count_context_bug_message($$$)
   }
 }
 
-sub _convert_element($$)
+sub _convert_root_element($$)
 {
   my ($self, $element) = @_;
 
@@ -485,17 +485,17 @@ sub convert($$)
 
   my $result = '';
 
-  my $elements = Texinfo::Structuring::split_by_node($root);
+  my $tree_units = Texinfo::Structuring::split_by_node($root);
   $self->{'empty_lines_count'} = 1;
-  if (!defined($elements)) {
+  if (!defined($tree_units)) {
     $result = $self->_convert($root);
     $self->count_context_bug_message('no element ');
     my $footnotes = $self->process_footnotes();
     $self->count_context_bug_message('no element footnotes ');
     $result .= $footnotes;
   } else {
-    foreach my $node (@$elements) {
-      my $node_text = _convert_element($self, $node);
+    foreach my $node_root_element (@$tree_units) {
+      my $node_text = _convert_root_element($self, $node_root_element);
       $result .= $node_text;
     }
   }
@@ -514,7 +514,7 @@ sub convert_tree($$)
   }
   my $result;
   if ($root->{'type'} and $root->{'type'} eq 'unit') {
-    $result = _convert_element($self, $root);
+    $result = _convert_root_element($self, $root);
   } else {
     $result = $self->_convert($root);
   }
@@ -731,33 +731,31 @@ sub update_count_context($)
   }
 }
 
-# Save the line and byte offset of $ROOT.
+# Save the line and byte offset of $ELEMENT.
 sub add_location($$)
 {
-  my ($self, $root) = @_;
+  my ($self, $element) = @_;
   my $location = { 'lines' => $self->{'count_context'}->[-1]->{'lines'} };
   push @{$self->{'count_context'}->[-1]->{'locations'}}, $location;
-  if (!($root->{'extra'} and $root->{'extra'}->{'index_entry'})) {
+  if (!($element->{'extra'} and $element->{'extra'}->{'index_entry'})) {
     update_count_context($self);
     $location->{'bytes'} = $self->{'count_context'}->[-1]->{'bytes'};
-    $location->{'root'} = $root;
+    $location->{'root'} = $element;
   } else {
-    $location->{'index_entry'} = $root;
+    $location->{'index_entry'} = $element;
   }
   return $location;
 }
 
 sub add_image($$$$;$)
 {
-  my ($self, $root, $lines_count, $image_width, $no_align) = @_;
+  my ($self, $element, $lines_count, $image_width, $no_align) = @_;
 
   push @{$self->{'count_context'}->[-1]->{'images'}}, {
     'lines' => $self->{'count_context'}->[-1]->{'lines'},
     'lines_count' => $lines_count,
     'image_width'  => $image_width,
     'no_align' =>  $no_align,
-    # may be used for debugging?
-    #'_ref' => $root,
   };
 }
 
@@ -861,7 +859,7 @@ sub process_footnotes($;$)
 
       # If nested within another footnote and footnotestyle is separate,
       # the element here will be the parent element and not the footnote
-      # element, while the pxref will point to the name with the 
+      # element, while the pxref will point to the name with the
       # footnote node taken into account.  Not really problematic as
       # nested footnotes are not right.
       if ($element) {
@@ -883,7 +881,7 @@ sub process_footnotes($;$)
       my $footnote_text = ' ' x $footnote_indent 
                . "($formatted_footnote_number) ";
       $result .= $footnote_text;
-      $self->{'text_element_context'}->[-1]->{'counter'} += 
+      $self->{'text_element_context'}->[-1]->{'counter'} +=
          Texinfo::Convert::Unicode::string_width($footnote_text);
       add_text_count($self, $footnote_text);
       $self->{'empty_lines_count'} = 0;
@@ -1398,7 +1396,7 @@ sub format_node($$)
 sub format_error_outside_of_any_node($$)
 {
   my $self = shift;
-  my $root = shift;
+  my $element = shift;
 }
 
 sub _anchor($$)
@@ -1434,20 +1432,20 @@ sub ensure_end_of_line($$)
 
 sub image_formatted_text($$$$)
 {
-  my ($self, $root, $basefile, $text) = @_;
+  my ($self, $element, $basefile, $text) = @_;
 
   my $result;
   if (defined($text)) {
     $result = $text;
-  } elsif (defined($root->{'args'}->[3])
-      and @{$root->{'args'}->[3]->{'contents'}}) {
+  } elsif (defined($element->{'args'}->[3])
+      and @{$element->{'args'}->[3]->{'contents'}}) {
     $result = '[' .Texinfo::Convert::Text::convert_to_text(
-      {'contents' => $root->{'args'}->[3]->{'contents'}},
+      {'contents' => $element->{'args'}->[3]->{'contents'}},
       $self->{'convert_text_options'}) .']';
   } else {
     $self->line_warn($self, sprintf(__(
                     "could not find \@image file `%s.txt' nor alternate text"),
-                             $basefile), $root->{'line_nr'});
+                             $basefile), $element->{'line_nr'});
     $result = '['.$basefile.']';
   }
   return $result;
@@ -1455,15 +1453,15 @@ sub image_formatted_text($$$$)
 
 sub format_image($$)
 {
-  my ($self, $root) = @_;
+  my ($self, $element) = @_;
 
-  if (defined($root->{'args'}->[0])
-        and @{$root->{'args'}->[0]->{'contents'}}) {
+  if (defined($element->{'args'}->[0])
+        and @{$element->{'args'}->[0]->{'contents'}}) {
     my $basefile = Texinfo::Convert::Text::convert_to_text(
-     {'contents' => $root->{'args'}->[0]->{'contents'}},
+     {'contents' => $element->{'args'}->[0]->{'contents'}},
      {'code' => 1, %{$self->{'convert_text_options'}}});
-    my ($text, $width) = $self->txt_image_text($root, $basefile);
-    my $result = $self->image_formatted_text($root, $basefile, $text);
+    my ($text, $width) = $self->txt_image_text($element, $basefile);
+    my $result = $self->image_formatted_text($element, $basefile, $text);
     my $lines_count = ($result =~ tr/\n/\n/);
     if (!defined($width)) {
       $width = Texinfo::Convert::Unicode::string_width($result);
@@ -1471,7 +1469,7 @@ sub format_image($$)
     # the last line is part of the image but do not have a new line,
     # so 1 is added to $lines_count to have the number of lines of
     # the image
-    $self->add_image($root, $lines_count+1, $width);
+    $self->add_image($element, $lines_count+1, $width);
     return ($result, $lines_count);
   }
   return ('', 0);
@@ -1490,33 +1488,33 @@ sub _convert($$);
 # Convert the Texinfo tree under $ROOT to plain text.
 sub _convert($$)
 {
-  my ($self, $root) = @_;
+  my ($self, $element) = @_;
 
   my $formatter = $self->{'formatters'}->[-1];
 
-  if (($root->{'type'} and $self->{'ignored_types'}->{$root->{'type'}})
-       or ($root->{'cmdname'} 
-            and ($self->{'ignored_commands'}->{$root->{'cmdname'}}
-                 or ($inline_commands{$root->{'cmdname'}}
-                     and $root->{'cmdname'} ne 'inlinefmtifelse'
-                     and (($inline_format_commands{$root->{'cmdname'}}
-                          and (!$root->{'extra'}->{'format'}
-                               or !$self->{'expanded_formats_hash'}->{$root->{'extra'}->{'format'}}))
-                         or (!$inline_format_commands{$root->{'cmdname'}}
-                             and !defined($root->{'extra'}->{'expand_index'}))))))) {
+  if (($element->{'type'} and $self->{'ignored_types'}->{$element->{'type'}})
+       or ($element->{'cmdname'}
+            and ($self->{'ignored_commands'}->{$element->{'cmdname'}}
+                 or ($inline_commands{$element->{'cmdname'}}
+                     and $element->{'cmdname'} ne 'inlinefmtifelse'
+                     and (($inline_format_commands{$element->{'cmdname'}}
+                          and (!$element->{'extra'}->{'format'}
+                               or !$self->{'expanded_formats_hash'}->{$element->{'extra'}->{'format'}}))
+                         or (!$inline_format_commands{$element->{'cmdname'}}
+                             and !defined($element->{'extra'}->{'expand_index'}))))))) {
     return '';
   }
   my $result = '';
 
-  my $type = $root->{'type'};
-  my $command = $root->{'cmdname'};
+  my $type = $element->{'type'};
+  my $command = $element->{'cmdname'};
 
   # in ignorable spaces, keep only form feeds.
   if ($type and $self->{'ignorable_space_types'}->{$type}
       and ($type ne 'empty_spaces_before_paragraph'
            or $self->get_conf('paragraphindent') ne 'asis')) {
-    if ($root->{'text'} =~ /\f/) {
-      $result = _get_form_feeds($root->{'text'});
+    if ($element->{'text'} =~ /\f/) {
+      $result = _get_form_feeds($element->{'text'});
     }
     add_text_count($self, $result);
     return $result;
@@ -1532,8 +1530,8 @@ sub _convert($$)
     if ($self->{'empty_lines_count'} <= 1
         or $self->{'preformatted_context_commands'}->{$self->{'context'}->[-1]}) {
       $result = "";
-      if ($root->{'text'} =~ /\f/) {
-        $result .= _get_form_feeds($root->{'text'});
+      if ($element->{'text'} =~ /\f/) {
+        $result .= _get_form_feeds($element->{'text'});
         add_text_count($self, $result);
       }
       $result .= _count_added($self, $formatter->{'container'},
@@ -1545,49 +1543,49 @@ sub _convert($$)
   }
 
   # process text
-  if (defined($root->{'text'})) {
+  if (defined($element->{'text'})) {
     if (!$type or $type ne 'untranslated') {
       if (!$formatter->{'_top_formatter'}) {
         if ($type and ($type eq 'raw' 
                                  or $type eq 'last_raw_newline')) {
           $result = _count_added($self, $formatter->{'container'},
-                      add_next($formatter->{'container'}, $root->{'text'}));
+                      add_next($formatter->{'container'}, $element->{'text'}));
         } else {
-          my $text = _process_text($self, $root, $formatter);
+          my $text = _process_text($self, $element, $formatter);
           $result = _count_added($self, $formatter->{'container'},
                       add_text ($formatter->{'container'}, $text));
         }
         return $result;
       # the following is only possible if paragraphindent is set to asis
       } elsif ($type and $type eq 'empty_spaces_before_paragraph') {
-        add_text_count($self, $root->{'text'});
-        return $root->{'text'};
+        add_text_count($self, $element->{'text'});
+        return $element->{'text'};
       # ignore text outside of any format, but warn if ignored text not empty
-      } elsif ($root->{'text'} =~ /\S/) {
-        $self->_bug_message("ignored text not empty `$root->{'text'}'", $root);
+      } elsif ($element->{'text'} =~ /\S/) {
+        $self->_bug_message("ignored text not empty `$element->{'text'}'", $element);
         return '';
       } else {
         # miscellaneous top-level whitespace - possibly after an @image
         return _count_added($self, $formatter->{'container'},
-                  add_text($formatter->{'container'}, $root->{'text'}));
+                  add_text($formatter->{'container'}, $element->{'text'}));
       }
     } else {
-      my $tree = $self->gdt($root->{'text'});
+      my $tree = $self->gdt($element->{'text'});
       my $converted = _convert($self, $tree);
       return $converted;
     }
   }
 
-  if ($root->{'extra'}) {
-    if ($root->{'extra'}->{'missing_argument'} 
-             and (!$root->{'contents'} or !@{$root->{'contents'}})) {
+  if ($element->{'extra'}) {
+    if ($element->{'extra'}->{'missing_argument'}
+             and (!$element->{'contents'} or !@{$element->{'contents'}})) {
       return '';
     }
   }
 
-  if ($root->{'extra'} and $root->{'extra'}->{'index_entry'}
+  if ($element->{'extra'} and $element->{'extra'}->{'index_entry'}
       and !$self->{'multiple_pass'} and !$self->{'in_copying_header'}) {
-    my $location = $self->add_location($root);
+    my $location = $self->add_location($element);
     # remove a 'lines' from $location if at the very end of a node
     # since it will lead to the next node otherwise.
     if ($command and $command =~ /index/) {
@@ -1629,7 +1627,7 @@ sub _convert($$)
     if ($self->{'node'}) {
       $location->{'node'} = $self->{'node'};
     }
-    $self->{'index_entries_line_location'}->{$root} = $location;
+    $self->{'index_entries_line_location'}->{$element} = $location;
   }
 
   my $cell;
@@ -1667,7 +1665,7 @@ sub _convert($$)
         # Don't use Unicode ellipsis character.
         $text = '...';
       } else {
-        $text = Texinfo::Convert::Text::brace_no_arg_command($root, 
+        $text = Texinfo::Convert::Text::brace_no_arg_command($element,
                                            $self->{'convert_text_options'});
       }
 
@@ -1721,14 +1719,14 @@ sub _convert($$)
         $sc = 1;
       }
       my $accented_text 
-         = Texinfo::Convert::Text::text_accents($root, $encoding, $sc);
+         = Texinfo::Convert::Text::text_accents($element, $encoding, $sc);
       $result .= _count_added($self, $formatter->{'container'},
          add_text($formatter->{'container'}, $accented_text));
 
       my $accented_text_original;
       if ($formatter->{'upper_case'}) {
         $accented_text_original
-         = Texinfo::Convert::Text::text_accents($root, $encoding);
+         = Texinfo::Convert::Text::text_accents($element, $encoding);
       }
 
       if ($accented_text_original
@@ -1745,7 +1743,7 @@ sub _convert($$)
         if ($accented_text ne '');
       return $result;
     } elsif ($self->{'style_map'}->{$command} 
-         or ($root->{'type'} and $root->{'type'} eq 'definfoenclose_command')) {
+         or ($element->{'type'} and $element->{'type'} eq 'definfoenclose_command')) {
       if ($code_style_commands{$command}) {
         if (!$formatter->{'font_type_stack'}->[-1]->{'monospace'}) {
           push @{$formatter->{'font_type_stack'}}, {'monospace' => 1};
@@ -1775,9 +1773,9 @@ sub _convert($$)
           if ($formatter->{'w'} == 1);
       }
       my ($text_before, $text_after);
-      if ($root->{'type'} and $root->{'type'} eq 'definfoenclose_command') {
-        $text_before = $root->{'extra'}->{'begin'};
-        $text_after = $root->{'extra'}->{'end'};
+      if ($element->{'type'} and $element->{'type'} eq 'definfoenclose_command') {
+        $text_before = $element->{'extra'}->{'begin'};
+        $text_after = $element->{'extra'}->{'end'};
       } elsif ($non_quoted_commands_when_nested{$command} 
             and $formatter->{'font_type_stack'}->[-1]->{'code_command'}) {
         $text_before = '';
@@ -1798,17 +1796,17 @@ sub _convert($$)
       $result .= _count_added($self, $formatter->{'container'},
                add_next($formatter->{'container'}, $text_before, 1))
          if ($text_before ne '');
-      if ($root->{'args'}) {
-        $result .= _convert($self, $root->{'args'}->[0]);
+      if ($element->{'args'}) {
+        $result .= _convert($self, $element->{'args'}->[0]);
         if ($command eq 'strong' 
-             and scalar (@{$root->{'args'}->[0]->{'contents'}})
-             and $root->{'args'}->[0]->{'contents'}->[0]->{'text'}
-             and $root->{'args'}->[0]->{'contents'}->[0]->{'text'} =~ /^Note\s/i
+             and scalar (@{$element->{'args'}->[0]->{'contents'}})
+             and $element->{'args'}->[0]->{'contents'}->[0]->{'text'}
+             and $element->{'args'}->[0]->{'contents'}->[0]->{'text'} =~ /^Note\s/i
              and $self->{'output_format'}
              and $self->{'output_format'} eq 'info') {
           $self->line_warn($self, __(
     "\@strong{Note...} produces a spurious cross-reference in Info; reword to avoid that"), 
-                           $root->{'line_nr'});
+                           $element->{'line_nr'});
         }
       }
       $result .= _count_added($self, $formatter->{'container'},
@@ -1856,7 +1854,7 @@ sub _convert($$)
                    add_pending_word($formatter->{'container'}, 1));
       # add an empty word so that following spaces aren't lost
       add_next($formatter->{'container'},'');
-      my ($image, $lines_count) = $self->format_image($root);
+      my ($image, $lines_count) = $self->format_image($element);
       _add_lines_count($self, $lines_count);
       add_text_count($self, $image);
       if ($image ne '' and $formatter->{'type'} ne 'paragraph') {
@@ -1867,17 +1865,17 @@ sub _convert($$)
     } elsif ($command eq 'email') {
       # nothing is output for email, instead the command is substituted.
       my @email_contents;
-      if ($root->{'args'}) {
+      if ($element->{'args'}) {
         my $name;
         my $email;
-        if (scalar (@{$root->{'args'}}) == 2
-            and defined($root->{'args'}->[1])
-            and @{$root->{'args'}->[1]->{'contents'}}) {
-          $name = $root->{'args'}->[1]->{'contents'};
+        if (scalar (@{$element->{'args'}}) == 2
+            and defined($element->{'args'}->[1])
+            and @{$element->{'args'}->[1]->{'contents'}}) {
+          $name = $element->{'args'}->[1]->{'contents'};
         }
-        if (defined($root->{'args'}->[0])
-            and @{$root->{'args'}->[0]->{'contents'}}) {
-          $email = $root->{'args'}->[0]->{'contents'};
+        if (defined($element->{'args'}->[0])
+            and @{$element->{'args'}->[0]->{'contents'}}) {
+          $email = $element->{'args'}->[0]->{'contents'};
         }
         my $prepended;
         if ($name and $email) {
@@ -1895,21 +1893,21 @@ sub _convert($$)
       }
       return '';
     } elsif ($command eq 'uref' or $command eq 'url') {
-      if ($root->{'args'}) {
-        if (scalar(@{$root->{'args'}}) == 3
-             and defined($root->{'args'}->[2])
-             and @{$root->{'args'}->[2]->{'contents'}}) {
+      if ($element->{'args'}) {
+        if (scalar(@{$element->{'args'}}) == 3
+             and defined($element->{'args'}->[2])
+             and @{$element->{'args'}->[2]->{'contents'}}) {
           unshift @{$self->{'current_contents'}->[-1]}, 
-            {'contents' => $root->{'args'}->[2]->{'contents'}};
-        } elsif (@{$root->{'args'}->[0]->{'contents'}}) {
+            {'contents' => $element->{'args'}->[2]->{'contents'}};
+        } elsif (@{$element->{'args'}->[0]->{'contents'}}) {
           # no mangling of --- and similar in url.
           my $url = {'type' => '_code',
-              'contents' => $root->{'args'}->[0]->{'contents'}};
-          if (scalar(@{$root->{'args'}}) == 2
-             and defined($root->{'args'}->[1])
-             and @{$root->{'args'}->[1]->{'contents'}}) {
+              'contents' => $element->{'args'}->[0]->{'contents'}};
+          if (scalar(@{$element->{'args'}}) == 2
+             and defined($element->{'args'}->[1])
+             and @{$element->{'args'}->[1]->{'contents'}}) {
             my $prepended = $self->gdt('{text} ({url})', 
-                 {'text' => $root->{'args'}->[1]->{'contents'},
+                 {'text' => $element->{'args'}->[1]->{'contents'},
                   'url' => $url });
             unshift @{$self->{'current_contents'}->[-1]}, $prepended;
           } else {
@@ -1917,11 +1915,11 @@ sub _convert($$)
                                         {'url' => $url});
             unshift @{$self->{'current_contents'}->[-1]}, $prepended
           }
-        } elsif (scalar(@{$root->{'args'}}) == 2
-                 and defined($root->{'args'}->[1])
-                 and @{$root->{'args'}->[1]->{'contents'}}) {
+        } elsif (scalar(@{$element->{'args'}}) == 2
+                 and defined($element->{'args'}->[1])
+                 and @{$element->{'args'}->[1]->{'contents'}}) {
           unshift @{$self->{'current_contents'}->[-1]}, 
-            {'contents' => $root->{'args'}->[1]->{'contents'}};
+            {'contents' => $element->{'args'}->[1]->{'contents'}};
         }
       }
       return '';
@@ -1933,11 +1931,11 @@ sub _convert($$)
       } else {
         $formatted_footnote_number = $NO_NUMBER_FOOTNOTE_SYMBOL;
       }
-      push @{$self->{'pending_footnotes'}}, {'root' => $root, 
+      push @{$self->{'pending_footnotes'}}, {'root' => $element,
                                     'number' => $self->{'footnote_index'}}
           unless ($self->{'multiple_pass'});
       if (!$self->{'in_copying_header'}) {
-        $self->format_error_outside_of_any_node($root);
+        $self->format_error_outside_of_any_node($element);
       }
       $result .= _count_added($self, $formatter->{'container'},
            add_next($formatter->{'container'},
@@ -1962,12 +1960,12 @@ sub _convert($$)
     } elsif ($command eq 'anchor') {
       $result = _count_added($self, $formatter->{'container'},
                    add_pending_word($formatter->{'container'}));
-      $result .= $self->_anchor($root);
+      $result .= $self->_anchor($element);
       return $result;
     } elsif ($ref_commands{$command}) {
-      if (scalar(@{$root->{'args'}})) {
+      if (scalar(@{$element->{'args'}})) {
         my @args;
-        for my $a (@{$root->{'args'}}) {
+        for my $a (@{$element->{'args'}}) {
           if (defined $a->{'contents'} and @{$a->{'contents'}}) {
             push @args, $a->{'contents'};
           } else {
@@ -1980,9 +1978,9 @@ sub _convert($$)
         # NOTE as a consequence, the line numbers appearing in case of errors
         # correspond to the node lines numbers, and not the @ref.
         my $node_content;
-        if ($root->{'extra'}
-            and $root->{'extra'}->{'label'}) {
-          $node_content = $root->{'extra'}->{'label'}->{'extra'}->{'node_content'};
+        if ($element->{'extra'}
+            and $element->{'extra'}->{'label'}) {
+          $node_content = $element->{'extra'}->{'label'}->{'extra'}->{'node_content'};
         } else { 
           $node_content = $args[0];
         }
@@ -1990,11 +1988,11 @@ sub _convert($$)
         # if it a reference to a float with a label, $arg[1] is
         # set to '$type $number' or '$number' if there is no type.
         if (! defined($args[1]) 
-            and $root->{'extra'}
-            and $root->{'extra'}->{'label'}
-            and $root->{'extra'}->{'label'}->{'cmdname'}
-            and $root->{'extra'}->{'label'}->{'cmdname'} eq 'float') {
-          my $float = $root->{'extra'}->{'label'};
+            and $element->{'extra'}
+            and $element->{'extra'}->{'label'}
+            and $element->{'extra'}->{'label'}->{'cmdname'}
+            and $element->{'extra'}->{'label'}->{'cmdname'} eq 'float') {
+          my $float = $element->{'extra'}->{'label'};
 
           my $name = $self->float_type_number($float);
           $args[1] = $name->{'contents'};
@@ -2054,7 +2052,7 @@ sub _convert($$)
               if ($self->get_conf('INFO_SPECIAL_CHARS_WARNING')) {
                 $self->line_warn($self, sprintf(__(
                    "\@%s cross-reference name should not contain `:'"),
-                                               $command), $root->{'line_nr'});
+                                               $command), $element->{'line_nr'});
               }
               if ($self->get_conf('INFO_SPECIAL_CHARS_QUOTE')) {
                 $quoting_required = 1;
@@ -2092,7 +2090,7 @@ sub _convert($$)
               if ($self->get_conf('INFO_SPECIAL_CHARS_WARNING')) {
                 $self->line_warn($self, sprintf(__(
                    "\@%s node name should not contain `%s'"), $command, $1),
-                                 $root->{'line_nr'});
+                                 $element->{'line_nr'});
               }
               if ($self->get_conf('INFO_SPECIAL_CHARS_QUOTE')) {
                 $quoting_required = 1;
@@ -2125,7 +2123,7 @@ sub _convert($$)
             if ($self->get_conf('INFO_SPECIAL_CHARS_WARNING')) {
               $self->line_warn($self, sprintf(__(
                  "\@%s node name should not contain `:'"), $command),
-                               $root->{'line_nr'});
+                               $element->{'line_nr'});
             }
             if ($self->get_conf('INFO_SPECIAL_CHARS_QUOTE')) {
               $quoting_required = 1;
@@ -2172,11 +2170,11 @@ sub _convert($$)
                 my $char = substr($text, 0, 1);
                 $self->line_warn($self, sprintf(__(
                             "`.' or `,' must follow \@xref, not %s"),
-                                         $char), $root->{'line_nr'});
+                                         $char), $element->{'line_nr'});
               } else {
                 $self->line_warn($self,
                            __("`.' or `,' must follow \@xref"),
-                                 $root->{'line_nr'});
+                                 $element->{'line_nr'});
               }
             }
             my @added = ({'text' => '.'});
@@ -2200,23 +2198,23 @@ sub _convert($$)
       }
       return '';
     } elsif ($explained_commands{$command}) {
-      if ($root->{'args'}
-          and defined($root->{'args'}->[0])
-          and @{$root->{'args'}->[0]->{'contents'}}) {
+      if ($element->{'args'}
+          and defined($element->{'args'}->[0])
+          and @{$element->{'args'}->[0]->{'contents'}}) {
         # in abbr spaces never end a sentence.
         my $argument;
         if ($command eq 'abbr') {
           $argument = {'type' => 'frenchspacing',
-                       'contents' => $root->{'args'}->[0]->{'contents'}};
+                       'contents' => $element->{'args'}->[0]->{'contents'}};
         } else {
-          $argument = { 'contents' => $root->{'args'}->[0]->{'contents'}};
+          $argument = { 'contents' => $element->{'args'}->[0]->{'contents'}};
         }
-        if (scalar (@{$root->{'args'}}) == 2
-            and defined($root->{'args'}->[-1])
-            and @{$root->{'args'}->[-1]->{'contents'}}) {
+        if (scalar (@{$element->{'args'}}) == 2
+            and defined($element->{'args'}->[-1])
+            and @{$element->{'args'}->[-1]->{'contents'}}) {
           my $prepended = $self->gdt('{abbr_or_acronym} ({explanation})', 
                            {'abbr_or_acronym' => $argument, 
-                            'explanation' => $root->{'args'}->[-1]->{'contents'}});
+                            'explanation' => $element->{'args'}->[-1]->{'contents'}});
           unshift @{$self->{'current_contents'}->[-1]}, $prepended;
           return '';
         } else {
@@ -2231,28 +2229,28 @@ sub _convert($$)
     } elsif ($inline_commands{$command}) {
       my $arg_index = 1;
       if ($command eq 'inlinefmtifelse'
-          and (!$root->{'extra'}->{'format'} 
-               or !$self->{'expanded_formats_hash'}->{$root->{'extra'}->{'format'}})) {
+          and (!$element->{'extra'}->{'format'}
+               or !$self->{'expanded_formats_hash'}->{$element->{'extra'}->{'format'}})) {
         $arg_index = 2;
       }
-      if (scalar(@{$root->{'args'}}) > $arg_index
-         and defined($root->{'args'}->[$arg_index])
-         and @{$root->{'args'}->[$arg_index]->{'contents'}}) {
+      if (scalar(@{$element->{'args'}}) > $arg_index
+         and defined($element->{'args'}->[$arg_index])
+         and @{$element->{'args'}->[$arg_index]->{'contents'}}) {
         my $argument;
         if ($command eq 'inlineraw') {
           $argument->{'type'} = '_code';
         }
-        $argument->{'contents'} = $root->{'args'}->[$arg_index]->{'contents'};
+        $argument->{'contents'} = $element->{'args'}->[$arg_index]->{'contents'};
         unshift @{$self->{'current_contents'}->[-1]}, ($argument);
       }
       return '';
       # condition should actually be that the $command is inline
     } elsif ($math_commands{$command} and not exists($block_commands{$command})) {
       push @{$self->{'context'}}, $command;
-      if ($root->{'args'}) {
+      if ($element->{'args'}) {
         $result .= _convert($self, {'type' => 'frenchspacing',
              'contents' => [{'type' => '_code',
-                            'contents' => [$root->{'args'}->[0]]}]});
+                            'contents' => [$element->{'args'}->[0]]}]});
       }
       my $old_context = pop @{$self->{'context'}};
       die if ($old_context ne $command);
@@ -2260,7 +2258,7 @@ sub _convert($$)
     } elsif ($command eq 'titlefont') {
       push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0};
       $result = $self->convert_line ({'type' => 'frenchspacing',
-               'contents' => [$root->{'args'}->[0]]});
+               'contents' => [$element->{'args'}->[0]]});
       pop @{$self->{'count_context'}};
       $result = Texinfo::Convert::Text::heading({'level' => 0, 
         'cmdname' => 'titlefont'}, $result, $self, 
@@ -2274,12 +2272,12 @@ sub _convert($$)
 
     } elsif ($command eq 'U') {
       my $arg;
-      if ($root->{'args'}
-          and $root->{'args'}->[0]
-          and $root->{'args'}->[0]->{'contents'}
-          and $root->{'args'}->[0]->{'contents'}->[0]
-          and $root->{'args'}->[0]->{'contents'}->[0]->{'text'}) {
-        $arg = $root->{'args'}->[0]->{'contents'}->[0]->{'text'};
+      if ($element->{'args'}
+          and $element->{'args'}->[0]
+          and $element->{'args'}->[0]->{'contents'}
+          and $element->{'args'}->[0]->{'contents'}->[0]
+          and $element->{'args'}->[0]->{'contents'}->[0]->{'text'}) {
+        $arg = $element->{'args'}->[0]->{'contents'}->[0]->{'text'};
       }
       if ($arg) {
         # Syntactic checks on the value were already done in Parser.pm,
@@ -2309,7 +2307,7 @@ sub _convert($$)
 
     } elsif ($command eq 'value') {
       my $expansion = $self->gdt('@{No value for `{value}\'@}', 
-                                    {'value' => $root->{'type'}});
+                                    {'value' => $element->{'type'}});
       if ($formatter->{'_top_formatter'}) {
         $expansion = {'type' => 'paragraph',
                       'contents' => [$expansion]};
@@ -2318,9 +2316,9 @@ sub _convert($$)
       #  unshift @{$self->{'current_contents'}->[-1]}, $expansion;
       #return '';
       return $result;
-    } elsif ($root->{'args'} and $root->{'args'}->[0] 
-             and $root->{'args'}->[0]->{'type'}
-             and $root->{'args'}->[0]->{'type'} eq 'brace_command_arg') {
+    } elsif ($element->{'args'} and $element->{'args'}->[0]
+             and $element->{'args'}->[0]->{'type'}
+             and $element->{'args'}->[0]->{'type'} eq 'brace_command_arg') {
     # block commands
     } elsif (exists($block_commands{$command})) {
       # remark:
@@ -2380,28 +2378,28 @@ sub _convert($$)
       }
       if ($command eq 'quotation'
           or $command eq 'smallquotation') {
-        if ($root->{'args'} and $root->{'args'}->[0]
-            and $root->{'args'}->[0]->{'contents'}
-            and @{$root->{'args'}->[0]->{'contents'}}) {
+        if ($element->{'args'} and $element->{'args'}->[0]
+            and $element->{'args'}->[0]->{'contents'}
+            and @{$element->{'args'}->[0]->{'contents'}}) {
           my $prepended = $self->gdt('@b{{quotation_arg}:} ', 
-             {'quotation_arg' => $root->{'args'}->[0]->{'contents'}});
+             {'quotation_arg' => $element->{'args'}->[0]->{'contents'}});
           $prepended->{'type'} = 'frenchspacing';
           $result .= $self->convert_line($prepended);
-          $self->{'text_element_context'}->[-1]->{'counter'} += 
+          $self->{'text_element_context'}->[-1]->{'counter'} +=
              Texinfo::Convert::Unicode::string_width($result);
           $self->{'empty_lines_count'} = 0 unless ($result eq '');
         }
       } elsif ($menu_commands{$command}) {
-        $result .= $self->_menu($root);
+        $result .= $self->_menu($element);
       } elsif ($command eq 'multitable') {
         my $columnsize;
-        if ($root->{'extra'}->{'columnfractions'}) {
-          foreach my $fraction (@{$root->{'extra'}->{'columnfractions'}
+        if ($element->{'extra'}->{'columnfractions'}) {
+          foreach my $fraction (@{$element->{'extra'}->{'columnfractions'}
                                        ->{'extra'}->{'misc_args'}}) {
             push @$columnsize, int($fraction * $self->{'text_element_context'}->[-1]->{'max'} +0.5);
           }
-        } elsif ($root->{'extra'}->{'prototypes'}) {
-          foreach my $prototype (@{$root->{'extra'}->{'prototypes'}}) {
+        } elsif ($element->{'extra'}->{'prototypes'}) {
+          foreach my $prototype (@{$element->{'extra'}->{'prototypes'}}) {
             push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0};
             my ($formatted_prototype) = $self->convert_line($prototype, 
                                                         {'indent_length' => 0});
@@ -2416,22 +2414,22 @@ sub _convert($$)
         $self->{'document_context'}->[-1]->{'in_multitable'}++;
       } elsif ($command eq 'float') {
         $result .= _add_newline_if_needed($self);
-        if ($root->{'extra'} and $root->{'extra'}->{'node_content'}) {
-          $result .= $self->_anchor($root);
+        if ($element->{'extra'} and $element->{'extra'}->{'node_content'}) {
+          $result .= $self->_anchor($element);
         }
       }
     } elsif ($command eq 'node') {
-      $self->{'node'} = $root;
-      $result .= $self->format_node($root);
+      $self->{'node'} = $element;
+      $result .= $self->format_node($element);
       $self->{'format_context'}->[-1]->{'paragraph_count'} = 0;
     } elsif ($sectioning_commands{$command}) {
       # use settitle for empty @top
       # ignore @part
       my $contents;
-      if ($root->{'args'}->[0]->{'contents'} 
-          and @{$root->{'args'}->[0]->{'contents'}} 
+      if ($element->{'args'}->[0]->{'contents'}
+          and @{$element->{'args'}->[0]->{'contents'}}
           and $command ne 'part') {
-        $contents = $root->{'args'}->[0]->{'contents'};
+        $contents = $element->{'args'}->[0]->{'contents'};
       } elsif ($command eq 'top'
           and $self->{'global_commands'}->{'settitle'}
           and $self->{'global_commands'}->{'settitle'}->{'args'}
@@ -2450,7 +2448,7 @@ sub _convert($$)
         # @* leads to an end of line, underlying appears on the line below
         # over one line
         my $heading_underlined = 
-             Texinfo::Convert::Text::heading($root, $heading, $self,
+             Texinfo::Convert::Text::heading($element, $heading, $self,
                                              $self->get_conf('NUMBER_SECTIONS'),
                            ($self->{'format_context'}->[-1]->{'indent_level'})
                                            * $indent_length);
@@ -2465,14 +2463,14 @@ sub _convert($$)
       }
       $self->{'format_context'}->[-1]->{'paragraph_count'} = 0;
     } elsif (($command eq 'item' or $command eq 'itemx')
-            and $root->{'args'} and $root->{'args'}->[0] 
-            and $root->{'args'}->[0]->{'type'}
-            and $root->{'args'}->[0]->{'type'} eq 'line_arg') {
-      if ($root->{'args'} and @{$root->{'args'}}
-          and $root->{'args'}->[0]->{'contents'}) {
+            and $element->{'args'} and $element->{'args'}->[0]
+            and $element->{'args'}->[0]->{'type'}
+            and $element->{'args'}->[0]->{'type'} eq 'line_arg') {
+      if ($element->{'args'} and @{$element->{'args'}}
+          and $element->{'args'}->[0]->{'contents'}) {
 
-        my $converted_tree = $self->_table_item_content_tree($root,
-                                         $root->{'args'}->[0]->{'contents'});
+        my $converted_tree = $self->_table_item_content_tree($element,
+                                         $element->{'args'}->[0]->{'contents'});
 
         $converted_tree->{'type'} = 'frenchspacing';
         $result = $self->convert_line($converted_tree,
@@ -2483,38 +2481,38 @@ sub _convert($$)
           $self->{'empty_lines_count'} = 0;
         }
       }
-    } elsif ($command eq 'item' and $root->{'parent'}->{'cmdname'}
-             and $item_container_commands{$root->{'parent'}->{'cmdname'}}) {
+    } elsif ($command eq 'item' and $element->{'parent'}->{'cmdname'}
+             and $item_container_commands{$element->{'parent'}->{'cmdname'}}) {
       $self->{'format_context'}->[-1]->{'paragraph_count'} = 0;
       my $line = $self->new_formatter('line', 
           {'indent_length' => 
               ($self->{'format_context'}->[-1]->{'indent_level'} -1)
                 * $indent_length
-                 + $item_indent_format_length{$root->{'parent'}->{'cmdname'}}});
+                 + $item_indent_format_length{$element->{'parent'}->{'cmdname'}}});
       push @{$self->{'formatters'}}, $line;
-      if ($root->{'parent'}->{'cmdname'} eq 'enumerate') {
+      if ($element->{'parent'}->{'cmdname'} eq 'enumerate') {
         $result = _count_added($self, $line->{'container'},
             add_next($line->{'container'},
                Texinfo::Common::enumerate_item_representation(
-                 $root->{'parent'}->{'extra'}->{'enumerate_specification'},
-                 $root->{'extra'}->{'item_number'}) . '. '));
-      } elsif ($root->{'parent'}->{'args'}
-          and $root->{'parent'}->{'args'}->[0]) {
+                 $element->{'parent'}->{'extra'}->{'enumerate_specification'},
+                 $element->{'extra'}->{'item_number'}) . '. '));
+      } elsif ($element->{'parent'}->{'args'}
+          and $element->{'parent'}->{'args'}->[0]) {
         # this is the text prepended to items.
         
-        $result = _convert($self, $root->{'parent'}->{'args'}->[0]);
+        $result = _convert($self, $element->{'parent'}->{'args'}->[0]);
         $result .= _convert($self, { 'text' => ' ' });
       }
       $result .= _count_added($self, $line->{'container'}, 
                       Texinfo::Convert::Paragraph::end($line->{'container'}));
       pop @{$self->{'formatters'}};
-      $self->{'text_element_context'}->[-1]->{'counter'} += 
+      $self->{'text_element_context'}->[-1]->{'counter'} +=
          Texinfo::Convert::Unicode::string_width($result);
       $self->{'empty_lines_count'} = 0 unless ($result eq '');
     # open a multitable cell
     } elsif ($command eq 'headitem' or $command eq 'item'
              or $command eq 'tab') {
-      my $cell_width = $self->{'format_context'}->[-1]->{'columns_size'}->[$root->{'extra'}->{'cell_number'}-1];
+      my $cell_width = $self->{'format_context'}->[-1]->{'columns_size'}->[$element->{'extra'}->{'cell_number'}-1];
       $self->{'format_context'}->[-1]->{'item_command'} = $command
         if ($command ne 'tab');
       die if (!defined($cell_width));
@@ -2535,13 +2533,13 @@ sub _convert($$)
                                                    'locations' => []};
       $result = $self->convert_line (
                        {'type' => 'frenchspacing',
-                        'contents' => $root->{'args'}->[0]->{'contents'}},
+                        'contents' => $element->{'args'}->[0]->{'contents'}},
                        {'indent_length' => 0});
       if ($result ne '') {
         $result = $self->ensure_end_of_line($result);
 
         $result = $self->_align_environment ($result, 
-             $self->{'text_element_context'}->[-1]->{'max'}, 'center'); 
+             $self->{'text_element_context'}->[-1]->{'max'}, 'center');
         $self->{'empty_lines_count'} = 0;
       } else {
         # it has to be done here, as it is done in _align_environment above
@@ -2551,11 +2549,11 @@ sub _convert($$)
       return $result;
     } elsif ($command eq 'exdent') {
       if ($self->{'preformatted_context_commands'}->{$self->{'context'}->[-1]}) {
-        $result = $self->_convert_unfilled({'contents' => $root->{'args'}->[0]->{'contents'}},
+        $result = $self->_convert_unfilled({'contents' => $element->{'args'}->[0]->{'contents'}},
          {'indent_level'
           => $self->{'format_context'}->[-1]->{'indent_level'} -1});
       } else {
-        $result = $self->convert_line({'contents' => $root->{'args'}->[0]->{'contents'}},
+        $result = $self->convert_line({'contents' => $element->{'args'}->[0]->{'contents'}},
          {'indent_level' 
           => $self->{'format_context'}->[-1]->{'indent_level'} -1});
       }
@@ -2566,7 +2564,7 @@ sub _convert($$)
       return $result;
     } elsif ($command eq 'verbatiminclude') {
       my $expansion = Texinfo::Convert::Utils::expand_verbatiminclude($self,
-                                                               $self, $root);
+                                                               $self, $element);
       unshift @{$self->{'current_contents'}->[-1]}, $expansion
         if ($expansion);
       return '';
@@ -2578,15 +2576,15 @@ sub _convert($$)
       }
       return '';
     } elsif ($command eq 'printindex') {
-      $result = $self->format_printindex($root);
+      $result = $self->format_printindex($element);
       return $result;
     } elsif ($command eq 'listoffloats') {
       my $lines_count = 0;
-      if ($root->{'extra'} and $root->{'extra'}->{'type'}
-          and defined($root->{'extra'}->{'type'}->{'normalized'}) 
+      if ($element->{'extra'} and $element->{'extra'}->{'type'}
+          and defined($element->{'extra'}->{'type'}->{'normalized'})
           and $self->{'floats'} 
-          and $self->{'floats'}->{$root->{'extra'}->{'type'}->{'normalized'}}
-          and @{$self->{'floats'}->{$root->{'extra'}->{'type'}->{'normalized'}}}) {
+          and $self->{'floats'}->{$element->{'extra'}->{'type'}->{'normalized'}}
+          and @{$self->{'floats'}->{$element->{'extra'}->{'type'}->{'normalized'}}}) {
         push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0};
         if (!$self->{'empty_lines_count'}) {
           $result .= "\n";
@@ -2594,7 +2592,7 @@ sub _convert($$)
         }
         $result .= "* Menu:\n\n";
         $lines_count += 2;
-        foreach my $float (@{$self->{'floats'}->{$root->{'extra'}->{'type'}->{'normalized'}}}) {
+        foreach my $float (@{$self->{'floats'}->{$element->{'extra'}->{'type'}->{'normalized'}}}) {
           next if !$float->{'args'} or !$float->{'args'}->[1]
                    or !@{$float->{'args'}->[1]->{'contents'}};
           my $float_label_text = $self->convert_line({'type' => '_code',
@@ -2663,11 +2661,11 @@ sub _convert($$)
       _add_lines_count($self, $lines_count);
       return $result;
     } elsif ($command eq 'sp') {
-      if ($root->{'extra'}->{'misc_args'}->[0]) {
+      if ($element->{'extra'}->{'misc_args'}->[0]) {
         $result = _count_added($self, $formatter->{'container'},
                               add_pending_word($formatter->{'container'}));
         # this useless copy avoids perl changing the type to integer!
-        my $sp_nr = $root->{'extra'}->{'misc_args'}->[0];
+        my $sp_nr = $element->{'extra'}->{'misc_args'}->[0];
         for (my $i = 0; $i < $sp_nr; $i++) {
           $result .= _count_added($self, $formatter->{'container'},
                 end_line($formatter->{'container'}));
@@ -2703,16 +2701,16 @@ sub _convert($$)
     # all the @-commands that have an information for the formatting, like
     # @paragraphindent, @frenchspacing...
     } elsif ($informative_commands{$command}) {
-      $self->set_informative_command_value($root);
+      $self->set_informative_command_value($element);
       return '';
     } else {
       $unknown_command = 1;
     }
     if ($unknown_command
-        and !($root->{'extra'} 
-                and ($root->{'extra'}->{'index_entry'}
-                     or $root->{'extra'}->{'seeentry'}
-                     or $root->{'extra'}->{'seealso'}))
+        and !($element->{'extra'}
+                and ($element->{'extra'}->{'index_entry'}
+                     or $element->{'extra'}->{'seeentry'}
+                     or $element->{'extra'}->{'seealso'}))
         # commands like def*x are not processed above, since only the def_line
         # associated is processed. If they have no name and no category they 
         # are not considered as index entries either so they have a specific
@@ -2726,16 +2724,16 @@ sub _convert($$)
 
   # open 'type' constructs.
   my $paragraph;
-  if ($root->{'type'}) {
-    if ($root->{'type'} eq 'paragraph') {
+  if ($element->{'type'}) {
+    if ($element->{'type'} eq 'paragraph') {
       $self->{'empty_lines_count'} = 0;
       my $conf;
       # indent. Not first paragraph.
       if ($self->{'format_context'}->[-1]->{'cmdname'} eq '_top_format'
           and $self->get_conf('paragraphindent') ne 'asis' 
           and $self->get_conf('paragraphindent')
-          and (($root->{'extra'} and $root->{'extra'}->{'indent'})
-             or (!($root->{'extra'} and $root->{'extra'}->{'noindent'})
+          and (($element->{'extra'} and $element->{'extra'}->{'indent'})
+             or (!($element->{'extra'} and $element->{'extra'}->{'noindent'})
                 and ($self->{'format_context'}->[-1]->{'paragraph_count'} 
                   or $self->get_conf('firstparagraphindent') eq 'insert') 
                and !$self->{'text_element_context'}->[-1]->{'counter'}))) {
@@ -2750,13 +2748,13 @@ sub _convert($$)
         push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0,
                                                    'locations' => []};
       }
-    } elsif ($root->{'type'} eq 'preformatted'
-             or $root->{'type'} eq 'rawpreformatted') {
+    } elsif ($element->{'type'} eq 'preformatted'
+             or $element->{'type'} eq 'rawpreformatted') {
       # if in a description reuse the main menu unfilled, to keep things
       # simpler and avoid having to do a separate count.
-      if ($root->{'type'} eq 'rawpreformatted'
-          or !$root->{'parent'}->{'type'}
-          or $root->{'parent'}->{'type'} ne 'menu_entry_description') {
+      if ($element->{'type'} eq 'rawpreformatted'
+          or !$element->{'parent'}->{'type'}
+          or $element->{'parent'}->{'type'} ne 'menu_entry_description') {
         $preformatted = $self->new_formatter('unfilled');
         push @{$self->{'formatters'}}, $preformatted;
         if ($self->{'context'}->[-1] eq 'flushright') {
@@ -2764,20 +2762,20 @@ sub _convert($$)
                                                      'locations' => []};
         }
       }
-    } elsif ($root->{'type'} eq 'def_line') {
-      if ($root->{'extra'} and $root->{'extra'}->{'def_parsed_hash'}
-             and %{$root->{'extra'}->{'def_parsed_hash'}}) {
-        my $arguments = Texinfo::Convert::Utils::definition_arguments_content($root);
+    } elsif ($element->{'type'} eq 'def_line') {
+      if ($element->{'extra'} and $element->{'extra'}->{'def_parsed_hash'}
+             and %{$element->{'extra'}->{'def_parsed_hash'}}) {
+        my $arguments = Texinfo::Convert::Utils::definition_arguments_content($element);
         my $tree;
         my $command;
-        if ($Texinfo::Common::def_aliases{$root->{'extra'}->{'def_command'}}) {
-          $command = $Texinfo::Common::def_aliases{$root->{'extra'}->{'def_command'}};
+        if ($Texinfo::Common::def_aliases{$element->{'extra'}->{'def_command'}}) {
+          $command = $Texinfo::Common::def_aliases{$element->{'extra'}->{'def_command'}};
         } else {
-          $command = $root->{'extra'}->{'def_command'};
+          $command = $element->{'extra'}->{'def_command'};
         }
         my $name;
-        if ($root->{'extra'}->{'def_parsed_hash'}->{'name'}) {
-          $name = $root->{'extra'}->{'def_parsed_hash'}->{'name'};
+        if ($element->{'extra'}->{'def_parsed_hash'}->{'name'}) {
+          $name = $element->{'extra'}->{'def_parsed_hash'}->{'name'};
         } else {
           $name = '';
         }
@@ -2787,24 +2785,24 @@ sub _convert($$)
             or $command eq 'deftp'
             or (($command eq 'deftypefn'
                  or $command eq 'deftypevr')
-                and !$root->{'extra'}->{'def_parsed_hash'}->{'type'})) {
+                and !$element->{'extra'}->{'def_parsed_hash'}->{'type'})) {
           if ($arguments) {
             $tree = $self->gdt("\@tie{}-- {category}: {name} {arguments}", {
-                    'category' => $root->{'extra'}->{'def_parsed_hash'}->{'category'},
+                    'category' => $element->{'extra'}->{'def_parsed_hash'}->{'category'},
                     'name' => $name,
                     'arguments' => $arguments});
           } else {
             $tree = $self->gdt("\@tie{}-- {category}: {name}", {
-                    'category' => $root->{'extra'}->{'def_parsed_hash'}->{'category'},
+                    'category' => $element->{'extra'}->{'def_parsed_hash'}->{'category'},
                     'name' => $name});
           }
         } elsif ($command eq 'deftypefn'
                  or $command eq 'deftypevr') {
           if ($arguments) {
             my $strings = {
-                    'category' => $root->{'extra'}->{'def_parsed_hash'}->{'category'},
+                    'category' => $element->{'extra'}->{'def_parsed_hash'}->{'category'},
                     'name' => $name,
-                    'type' => $root->{'extra'}->{'def_parsed_hash'}->{'type'},
+                    'type' => $element->{'extra'}->{'def_parsed_hash'}->{'type'},
                     'arguments' => $arguments};
             if ($self->get_conf('deftypefnnewline') eq 'on') {
               $tree = $self->gdt("\@tie{}-- {category}:\@*{type}\@*{name} {arguments}",
@@ -2815,8 +2813,8 @@ sub _convert($$)
             }
           } else {
             my $strings = {
-                    'category' => $root->{'extra'}->{'def_parsed_hash'}->{'category'},
-                    'type' => $root->{'extra'}->{'def_parsed_hash'}->{'type'},
+                    'category' => $element->{'extra'}->{'def_parsed_hash'}->{'category'},
+                    'type' => $element->{'extra'}->{'def_parsed_hash'}->{'type'},
                     'name' => $name};
             if ($self->get_conf('deftypefnnewline') eq 'on') {
               $tree = $self->gdt("\@tie{}-- {category}:\@*{type}\@*{name}",
@@ -2828,41 +2826,41 @@ sub _convert($$)
           }
         } elsif ($command eq 'defcv'
                  or ($command eq 'deftypecv'
-                     and !$root->{'extra'}->{'def_parsed_hash'}->{'type'})) {
+                     and !$element->{'extra'}->{'def_parsed_hash'}->{'type'})) {
           if ($arguments) {
             $tree = $self->gdt("\@tie{}-- {category} of {class}: {name} {arguments}", {
-                    'category' => $root->{'extra'}->{'def_parsed_hash'}->{'category'},
+                    'category' => $element->{'extra'}->{'def_parsed_hash'}->{'category'},
                     'name' => $name,
-                    'class' => $root->{'extra'}->{'def_parsed_hash'}->{'class'},
+                    'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'},
                     'arguments' => $arguments});
           } else {
             $tree = $self->gdt("\@tie{}-- {category} of {class}: {name}", {
-                    'category' => $root->{'extra'}->{'def_parsed_hash'}->{'category'},
-                    'class' => $root->{'extra'}->{'def_parsed_hash'}->{'class'},
+                    'category' => $element->{'extra'}->{'def_parsed_hash'}->{'category'},
+                    'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'},
                     'name' => $name});
           }
         } elsif ($command eq 'defop'
                  or ($command eq 'deftypeop'
-                     and !$root->{'extra'}->{'def_parsed_hash'}->{'type'})) {
+                     and !$element->{'extra'}->{'def_parsed_hash'}->{'type'})) {
           if ($arguments) {
             $tree = $self->gdt("\@tie{}-- {category} on {class}: {name} {arguments}", {
-                    'category' => $root->{'extra'}->{'def_parsed_hash'}->{'category'},
+                    'category' => $element->{'extra'}->{'def_parsed_hash'}->{'category'},
                     'name' => $name,
-                    'class' => $root->{'extra'}->{'def_parsed_hash'}->{'class'},
+                    'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'},
                     'arguments' => $arguments});
           } else {
             $tree = $self->gdt("\@tie{}-- {category} on {class}: {name}", {
-                    'category' => $root->{'extra'}->{'def_parsed_hash'}->{'category'},
-                    'class' => $root->{'extra'}->{'def_parsed_hash'}->{'class'},
+                    'category' => $element->{'extra'}->{'def_parsed_hash'}->{'category'},
+                    'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'},
                     'name' => $name});
           }
         } elsif ($command eq 'deftypeop') {
           if ($arguments) {
             my $strings = {
-                    'category' => $root->{'extra'}->{'def_parsed_hash'}->{'category'},
+                    'category' => $element->{'extra'}->{'def_parsed_hash'}->{'category'},
                     'name' => $name,
-                    'class' => $root->{'extra'}->{'def_parsed_hash'}->{'class'},
-                    'type' => $root->{'extra'}->{'def_parsed_hash'}->{'type'},
+                    'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'},
+                    'type' => $element->{'extra'}->{'def_parsed_hash'}->{'type'},
                     'arguments' => $arguments};
             if ($self->get_conf('deftypefnnewline') eq 'on') {
               $tree 
@@ -2875,9 +2873,9 @@ sub _convert($$)
             }
           } else {
             my $strings = {
-                    'category' => $root->{'extra'}->{'def_parsed_hash'}->{'category'},
-                    'type' => $root->{'extra'}->{'def_parsed_hash'}->{'type'},
-                    'class' => $root->{'extra'}->{'def_parsed_hash'}->{'class'},
+                    'category' => $element->{'extra'}->{'def_parsed_hash'}->{'category'},
+                    'type' => $element->{'extra'}->{'def_parsed_hash'}->{'type'},
+                    'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'},
                     'name' => $name};
             if ($self->get_conf('deftypefnnewline') eq 'on') {
               $tree 
@@ -2892,10 +2890,10 @@ sub _convert($$)
         } elsif ($command eq 'deftypecv') {
           if ($arguments) {
             my $strings = {
-                    'category' => $root->{'extra'}->{'def_parsed_hash'}->{'category'},
+                    'category' => $element->{'extra'}->{'def_parsed_hash'}->{'category'},
                     'name' => $name,
-                    'class' => $root->{'extra'}->{'def_parsed_hash'}->{'class'},
-                    'type' => $root->{'extra'}->{'def_parsed_hash'}->{'type'},
+                    'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'},
+                    'type' => $element->{'extra'}->{'def_parsed_hash'}->{'type'},
                     'arguments' => $arguments};
             if ($self->get_conf('deftypefnnewline') eq 'on') {
               $tree 
@@ -2908,9 +2906,9 @@ sub _convert($$)
             }
           } else {
             my $strings = {
-                    'category' => $root->{'extra'}->{'def_parsed_hash'}->{'category'},
-                    'type' => $root->{'extra'}->{'def_parsed_hash'}->{'type'},
-                    'class' => $root->{'extra'}->{'def_parsed_hash'}->{'class'},
+                    'category' => $element->{'extra'}->{'def_parsed_hash'}->{'category'},
+                    'type' => $element->{'extra'}->{'def_parsed_hash'}->{'type'},
+                    'class' => $element->{'extra'}->{'def_parsed_hash'}->{'class'},
                     'name' => $name};
             if ($self->get_conf('deftypefnnewline') eq 'on') {
               $tree 
@@ -2939,9 +2937,9 @@ sub _convert($$)
         delete $self->{'text_element_context'}->[-1]->{'counter'};
         $self->{'empty_lines_count'} = 0;
       }
-    } elsif ($root->{'type'} eq 'menu_entry') {
+    } elsif ($element->{'type'} eq 'menu_entry') {
       my $entry_name_seen = 0;
-      foreach my $arg (@{$root->{'args'}}) {
+      foreach my $arg (@{$element->{'args'}}) {
         my ($pre_quote, $post_quote);
         if ($arg->{'type'} eq 'menu_entry_node') {
           $self->{'formatters'}->[-1]->{'suppress_styles'} = 1;
@@ -2962,7 +2960,7 @@ sub _convert($$)
               if ($self->get_conf('INFO_SPECIAL_CHARS_WARNING')) {
                 $self->line_warn($self, sprintf(__(
                    "menu entry node name should not contain `%s'"), $1),
-                               $root->{'line_nr'});
+                               $element->{'line_nr'});
               }
             }
             if ($self->get_conf('INFO_SPECIAL_CHARS_QUOTE')) {
@@ -2973,7 +2971,7 @@ sub _convert($$)
               if ($self->get_conf('INFO_SPECIAL_CHARS_WARNING')) {
                 $self->line_warn($self, __(
                  "menu entry node name should not contain `:'"),
-                               $root->{'line_nr'});
+                               $element->{'line_nr'});
               }
               if ($self->get_conf('INFO_SPECIAL_CHARS_QUOTE')) {
                 $pre_quote = $post_quote = "\x{7f}";
@@ -2993,7 +2991,7 @@ sub _convert($$)
             if ($self->get_conf('INFO_SPECIAL_CHARS_WARNING')) {
               $self->line_warn($self, __(
                  "menu entry name should not contain `:'"),
-                               $root->{'line_nr'});
+                               $element->{'line_nr'});
             }
             if ($self->get_conf('INFO_SPECIAL_CHARS_QUOTE')) {
               $pre_quote = $post_quote = "\x{7f}";
@@ -3009,8 +3007,8 @@ sub _convert($$)
       # have been processed yet, and we need to output any pending spaces 
       # before 'end_line' throws them away.  The argument to 'add_pending_word' 
       # does this.
-      if ($root->{'parent'}->{'type'} 
-              and $root->{'parent'}->{'type'} eq 'preformatted') {
+      if ($element->{'parent'}->{'type'}
+              and $element->{'parent'}->{'type'} eq 'preformatted') {
         $result .= _count_added($self,
                          $formatter->{'container'},
                          add_pending_word($formatter->{'container'}, 1));
@@ -3022,22 +3020,22 @@ sub _convert($$)
         $result = $self->ensure_end_of_line($result) ;
       }
 
-    } elsif ($root->{'type'} eq 'frenchspacing') {
+    } elsif ($element->{'type'} eq 'frenchspacing') {
       push @{$formatter->{'frenchspacing_stack'}}, 'on';
       set_space_protection($formatter->{'container'}, undef, undef, undef, 1);
-    } elsif ($root->{'type'} eq '_code') {
+    } elsif ($element->{'type'} eq '_code') {
       _open_code($formatter);
-    } elsif ($root->{'type'} eq 'bracketed') {
+    } elsif ($element->{'type'} eq 'bracketed') {
       $result .= _count_added($self, $formatter->{'container'}, 
                    add_text($formatter->{'container'}, '{'));
     }
   }
 
   # The processing of contents is done here.
-  if ($root->{'contents'}) {
-    my @contents = @{$root->{'contents'}};
+  if ($element->{'contents'}) {
+    my @contents = @{$element->{'contents'}};
     push @{$self->{'current_contents'}}, \@contents;
-    push @{$self->{'current_roots'}}, $root;
+    push @{$self->{'current_roots'}}, $element;
     while (@contents) {
       my $content = shift @contents;
       my $text = _convert($self, $content);
@@ -3050,19 +3048,19 @@ sub _convert($$)
   }
 
   # now closing. First, close types.
-  if ($root->{'type'}) {
-    if ($root->{'type'} eq 'frenchspacing') {
+  if ($element->{'type'}) {
+    if ($element->{'type'} eq 'frenchspacing') {
       pop @{$formatter->{'frenchspacing_stack'}};
       my $frenchspacing = 0;
       $frenchspacing = 1 if ($formatter->{'frenchspacing_stack'}->[-1] eq 'on');
       set_space_protection($formatter->{'container'}, undef,
                            undef, undef, $frenchspacing);
-    } elsif ($root->{'type'} eq '_code') {
+    } elsif ($element->{'type'} eq '_code') {
       _close_code($formatter);
-    } elsif ($root->{'type'} eq 'bracketed') {
+    } elsif ($element->{'type'} eq 'bracketed') {
       $result .= _count_added($self, $formatter->{'container'}, 
                                      add_text($formatter->{'container'}, '}'));
-    } elsif ($root->{'type'} eq 'row') {
+    } elsif ($element->{'type'} eq 'row') {
       my @cell_beginnings;
       my @cell_lines;
       my $cell_beginning = 0;
@@ -3168,7 +3166,7 @@ sub _convert($$)
       $self->{'format_context'}->[-1]->{'row_counts'} = [];
       $self->{'format_context'}->[-1]->{'row_empty_lines_count'} 
         = $self->{'empty_lines_count'};
-    } elsif ($root->{'type'} eq 'text_root') {
+    } elsif ($element->{'type'} eq 'text_root') {
       $self->{'text_before_first_node'} = $result;
     }
   }
@@ -3201,19 +3199,19 @@ sub _convert($$)
   # close commands
   if ($command) {
     if ($command eq 'float') {
-      if ($root->{'extra'}
-          and ($root->{'extra'}->{'type'}->{'normalized'} ne '' 
-               or defined($root->{'number'})
-               or $root->{'extra'}->{'caption'} or $root->{'extra'}->{'shortcaption'})) {
+      if ($element->{'extra'}
+          and ($element->{'extra'}->{'type'}->{'normalized'} ne ''
+               or defined($element->{'number'})
+               or $element->{'extra'}->{'caption'} or $element->{'extra'}->{'shortcaption'})) {
         
         $result .= _add_newline_if_needed($self);
         my ($caption, $prepended)
-             = Texinfo::Convert::Converter::float_name_caption($self, $root);
+             = Texinfo::Convert::Converter::float_name_caption($self, $element);
         if ($prepended) {
           $prepended->{'type'} = 'frenchspacing';
           my $float_number = $self->convert_line ($prepended);
           $result .= $float_number;
-          $self->{'text_element_context'}->[-1]->{'counter'} += 
+          $self->{'text_element_context'}->[-1]->{'counter'} +=
             Texinfo::Convert::Unicode::string_width($float_number);
           $self->{'empty_lines_count'} = 0;
         }
@@ -3225,8 +3223,8 @@ sub _convert($$)
       }
     } elsif (($command eq 'quotation' 
                or $command eq 'smallquotation')
-             and $root->{'extra'} and $root->{'extra'}->{'authors'}) {
-      foreach my $author (@{$root->{'extra'}->{'authors'}}) {
+             and $element->{'extra'} and $element->{'extra'}->{'authors'}) {
+      foreach my $author (@{$element->{'extra'}->{'authors'}}) {
         $result .= _convert($self, 
                  $self->gdt("\@center --- \@emph{{author}}\n",
                     {'author' => $author->{'args'}->[0]->{'contents'}}));
