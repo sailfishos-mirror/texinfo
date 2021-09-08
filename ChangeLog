@@ -1,5 +1,16 @@
 2021-09-08  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (%defaults), tp/Texinfo/Common.pm
+	(@variable_other_settables): rename SPECIAL_ELEMENTS_NAME as
+	SPECIAL_ELEMENTS_HEADING.
+
+	* tp/Texinfo/Convert/HTML.pm (_prepare_special_elements):
+	set 'name' in 'extra' for special element name instead of
+	'special_element'.   Use 'type' 'special_element' to detect
+	that an element is a special element.
+
+2021-09-08  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Config.pm (texinfo_set_format_from_init_file)
 	(GNUT_get_format_from_init_file), tp/texi2any.pl,
 	tp/init/chm.pm: use a propoer API in Texinfo::Config

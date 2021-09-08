@@ -38,8 +38,8 @@
 # done in that case, without any HTML element such that the result
 # can be in an attribute or in a comment.
 #
-# FIXME: there is already a case with a side effect, with the
-# variable $html_menu_entry_index.
+# FIXME: there are already cases with side effects, with the
+# variables $html_menu_entry_index, $foot_lines.
 # 
 # Original author: Patrice Dumas <pertusus@free.fr>
 
@@ -362,7 +362,8 @@ sub element_command($$)
   if ($element and $element->{'extra'}) {
     if ($element->{'extra'}->{'unit_command'}) {
       return $element->{'extra'}->{'unit_command'};
-    } elsif ($element->{'extra'}->{'special_element'}) {
+    } elsif (defined($element->{'type'})
+             and $element->{'type'} eq 'special_element') {
       return $element;
     }
   }
@@ -535,11 +536,11 @@ sub command_text($$;$)
     }
     my $tree;
     if (!$target->{'tree'}) {
-      if ($command->{'extra'}
-               and $command->{'extra'}->{'special_element'}) {
-        my $special_element = $command->{'extra'}->{'special_element'};
-        $tree = $self->get_conf('SPECIAL_ELEMENTS_NAME')->{$special_element};
-        $explanation = "command_text $special_element";
+      if (defined($command->{'type'})
+          and $command->{'type'} eq 'special_element') {
+        my $special_element_name = $command->{'extra'}->{'name'};
+        $tree = $self->get_conf('SPECIAL_ELEMENTS_HEADING')->{$special_element_name};
+        $explanation = "command_text $special_element_name";
       } elsif ($command->{'cmdname'} and ($command->{'cmdname'} eq 'node' 
                                           or $command->{'cmdname'} eq 'anchor')) {
         $tree = {'type' => '_code',
@@ -837,7 +838,7 @@ my %PASSIVE_ICONS = (
      'PrevFile',    '',
 );
 
-my (%BUTTONS_TEXT, %BUTTONS_GOTO, %BUTTONS_NAME, %SPECIAL_ELEMENTS_NAME);
+my (%BUTTONS_TEXT, %BUTTONS_GOTO, %BUTTONS_NAME, %SPECIAL_ELEMENTS_HEADING);
 
 my %defaults = (
   'ENABLE_ENCODING'      => 0,
@@ -938,7 +939,7 @@ my %defaults = (
   'BUTTONS_TEXT'         => \%BUTTONS_TEXT,
   'ACTIVE_ICONS'         => \%ACTIVE_ICONS,
   'PASSIVE_ICONS'        => \%PASSIVE_ICONS,
-  'SPECIAL_ELEMENTS_NAME' => \%SPECIAL_ELEMENTS_NAME,
+  'SPECIAL_ELEMENTS_HEADING' => \%SPECIAL_ELEMENTS_HEADING,
   'SPECIAL_ELEMENTS_CLASS' => {
     'About'       => 'about',
     'Contents'    => 'contents',
@@ -1080,7 +1081,7 @@ sub _translate_names($)
     $BUTTONS_NAME{'FirstInFile'.$button} = $BUTTONS_NAME{$button};
   }
 
-  %SPECIAL_ELEMENTS_NAME = (
+  %SPECIAL_ELEMENTS_HEADING = (
     'About'       => $self->gdt('About This Document'),
     'Contents'    => $self->gdt('Table of Contents'),
     'Overview'    => $self->gdt('Short Table of Contents'),
@@ -1089,7 +1090,7 @@ sub _translate_names($)
 
   # delete the tree and formatted results for special elements
   # such that they are redone with the new tree when needed.
-  foreach my $special_element (keys (%SPECIAL_ELEMENTS_NAME)) {
+  foreach my $special_element (keys (%SPECIAL_ELEMENTS_HEADING)) {
     if ($self->{'special_elements_types'}->{$special_element} and
         $self->{'targets'}->{$self->{'special_elements_types'}->{$special_element}}) {
       my $target
@@ -3849,7 +3850,7 @@ sub _contents_inline_element($$$)
       # happens when called as convert() and not output()
       #cluck "$cmdname special element not defined";
       $heading 
-        = $self->convert_tree($self->get_conf('SPECIAL_ELEMENTS_NAME')->{$special_element_name});
+        = $self->convert_tree($self->get_conf('SPECIAL_ELEMENTS_HEADING')->{$special_element_name});
     }
     $result .= ">\n";
     my $class = $self->get_conf('SPECIAL_ELEMENTS_CLASS')->{$special_element_name};
@@ -4762,10 +4763,10 @@ sub _convert_special_element_type($$$$)
 
   my $result = '';
 
-  my $special_element = $element->{'extra'}->{'special_element'};
+  my $special_element_name = $element->{'extra'}->{'name'};
   $result .= join('', $self->close_registered_sections_level(0));
   my $id = $self->command_id($element);
-  $result .= "<div class=\"${special_element}_element\"";
+  $result .= "<div class=\"${special_element_name}_element\"";
   if ($id ne '') {
     $result .= " id=\"$id\"";
   }
@@ -4777,17 +4778,16 @@ sub _convert_special_element_type($$$$)
                $self->get_conf('MISC_BUTTONS'), undef, $element);
   }
   my $heading = $self->command_text($element);
-  my $element_name = $element->{'extra'}->{'special_element'};
-  my $class = $self->get_conf('SPECIAL_ELEMENTS_CLASS')->{$element_name};
+  my $class = $self->get_conf('SPECIAL_ELEMENTS_CLASS')->{$special_element_name};
   my $level = $self->get_conf('CHAPTER_HEADER_LEVEL');
-  if ($element_name eq 'Footnotes') {
+  if ($special_element_name eq 'Footnotes') {
     $level = $self->get_conf('FOOTNOTE_SEPARATE_HEADER_LEVEL');
   }
   $result .= &{$self->{'format_heading_text'}}($self, $class.'-heading',
                      $heading, $level)."\n";
 
   my $special_element_body .= &{$self->{'format_special_element_body'}}
-                                  ($self, $special_element, $element);
+                                  ($self, $special_element_name, $element);
 
   # This may happen with footnotes in regions that are not expanded,
   # like @copying or @titlepage
@@ -4854,14 +4854,16 @@ sub _default_format_element_footer($$$$)
   my $next_is_top = ($element->{'unit_next'}
                      and $self->element_is_tree_unit_top($element->{'unit_next'}));
   my $next_is_special = (defined($element->{'unit_next'})
-    and $element->{'unit_next'}->{'extra'}->{'special_element'});
+                   and defined($element->{'unit_next'}->{'type'})
+                   and $element->{'unit_next'}->{'type'} eq 'special_element');
 
   my $end_page = (!$element->{'unit_next'}
        or (defined($element->{'filename'})
            and $element->{'filename'} ne $element->{'unit_next'}->{'filename'}
            and $self->{'file_counters'}->{$element->{'filename'}} == 1));
 
-  my $is_special = $element->{'extra'}->{'special_element'};
+  my $is_special = (defined($element->{'type'})
+                    and $element->{'type'} eq 'special_element');
 
   if (($end_page or $next_is_top or $next_is_special or $is_top)
        and $self->get_conf('VERTICAL_HEAD_NAVIGATION')
@@ -5964,7 +5966,7 @@ sub _prepare_special_elements($$$$)
     next unless ($do_special{$type});
 
     my $element = {'type' => 'special_element',
-                   'extra' => {'special_element' => $type,
+                   'extra' => {'name' => $type,
                                }};
     $element->{'extra'}->{'directions'}->{'This'} = $element;
     $self->{'special_elements_types'}->{$type} = $element;
@@ -6016,7 +6018,7 @@ sub _prepare_special_elements($$$$)
       $default_filename .= '.'.$extension if (defined($extension));
 
       my $element = {'type' => 'special_element',
-                   'extra' => {'special_element' => $type,
+                   'extra' => {'name' => $type,
                                }};
 
       # only the filename is used
@@ -6076,7 +6078,7 @@ sub _prepare_contents_elements($)
         }
 
         my $contents_element = {'type' => 'special_element',
-                                'extra' => {'special_element' => $type}};
+                                'extra' => {'name' => $type}};
         $self->{'special_elements_types'}->{$type} = $contents_element;
         my $target = $self->{'misc_elements_targets'}->{$type};
         my $filename;
@@ -6454,7 +6456,8 @@ sub _element_direction($$$$;$)
       $target = $self->{'targets'}->{$command} if ($command);
       $type = 'text_nonumber';
     } else {
-      if ($element_target->{'extra'}->{'special_element'}) {
+      if (defined($element_target->{'type'})
+          and $element_target->{'type'} eq 'special_element') {
         $command = $element_target;
       } else {
         $command = $element_target->{'extra'}->{'unit_command'};
@@ -6971,7 +6974,7 @@ sub _default_format_footnotes_text($)
      if (defined($self->get_conf('DEFAULT_RULE')) 
          and $self->get_conf('DEFAULT_RULE') ne '');
   my $footnote_heading 
-    = $self->convert_tree($self->get_conf('SPECIAL_ELEMENTS_NAME')->{'Footnotes'});
+    = $self->convert_tree($self->get_conf('SPECIAL_ELEMENTS_HEADING')->{'Footnotes'});
   my $class = $self->get_conf('SPECIAL_ELEMENTS_CLASS')->{'Footnotes'};
   my $level = $self->get_conf('FOOTNOTE_END_HEADER_LEVEL');
   $result .= &{$self->{'format_heading_text'}}($self, $class.'-heading',
@@ -7691,7 +7694,8 @@ sub output($$)
       # First do the special pages, to avoid outputting these if they are
       # empty.
       my $special_element_content;
-      if ($element->{'extra'} and $element->{'extra'}->{'special_element'}) {
+      if (defined($element->{'type'})
+          and $element->{'type'} eq 'special_element') {
         $special_element_content .= $self->_convert($element);
         if ($special_element_content eq '') {
           $self->{'file_counters'}->{$element->{'filename'}}--;
@@ -8200,7 +8204,8 @@ sub _convert($$;$)
     } elsif ($element->{'type'} eq 'preformatted'
              or $element->{'type'} eq 'rawpreformatted') {
       $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]->{'preformatted_number'}++;
-    } elsif ($element->{'type'} eq 'unit' or $element->{'type'} eq 'special_element') {
+    } elsif ($element->{'type'} eq 'unit'
+             or $element->{'type'} eq 'special_element') {
       $self->{'current_root_element'} = $element;
       $self->{'current_filename'} = $element->{'filename'};
     } elsif ($pre_class_types{$element->{'type'}}) {
