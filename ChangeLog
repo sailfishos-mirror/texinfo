@@ -1,5 +1,13 @@
 2021-09-08  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Config.pm (texinfo_set_format_from_init_file)
+	(GNUT_get_format_from_init_file), tp/texi2any.pl,
+	tp/init/chm.pm: use a propoer API in Texinfo::Config
+	to set format from init file with texinfo_set_format_from_init_file()
+	and retrieve from main program with GNUT_get_format_from_init_file().
+
+2021-09-08  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Convert/Texinfo.pm (convert_to_texinfo):
 	rename $root as $element if not a root element.
 

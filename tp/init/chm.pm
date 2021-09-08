@@ -37,7 +37,7 @@ use Texinfo::Convert::Utils;
 use Texinfo::Convert::Text;
 use Texinfo::Structuring;
 
-main::set_global_format('html');
+texinfo_set_format_from_init_file('html');
 
 texinfo_set_from_init_file('TOP_FILE', undef);
 

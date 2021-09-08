@@ -26,23 +26,27 @@
 
 package Texinfo::Config;
 
+use strict;
+
 # for __( and p__(
 use Texinfo::Common;
 
 # for carp
 use Carp;
 
-# not that there is no use strict to avoid warnings for users code
-
+# for error messages, passed from main program through initialization
+# function.
 my $real_command_name;
 
+# customization API, used from main program and from init files
 my $cmdline_options;
 my $main_program_default_options;
 my $init_files_options = {};
 
-# list options are not handled like string options.  Indeed,
-# the lists need to be defined in the main program, therefore
-# the main program list options would always take precedence
+# list options that can be set from main program are not
+# handled like string options.  Indeed, the lists need
+# to be defined in the main program, therefore the main
+# program list options would always take precedence
 # if there is a precedence, and the list options set from
 # init file would not have any effect. For list options, items
 # are added and removed by calls to texinfo_add_to_option_list
@@ -91,7 +95,7 @@ sub GNUT_load_init_file($) {
 }
 
 # L2H removed in 2021
-# return undef for var there is nothing to set.
+# return undef var when there is nothing to set.
 sub _GNUT_map_obsolete_options($$)
 {
   my $input_var = shift;
@@ -136,8 +140,10 @@ sub texinfo_set_from_init_file($$) {
   return 1;
 }
 
-# set option from the command line.  Highest precedence.
-sub GNUT_set_from_cmdline($$) {
+# set option from the command line, called from main program.
+# Highest precedence.
+sub GNUT_set_from_cmdline($$)
+{
   my $var = shift;
   my $value = shift;
 
@@ -158,7 +164,8 @@ sub GNUT_set_from_cmdline($$) {
 }
 
 # add default based, for instance, on the format.
-sub GNUT_set_main_program_default($$) {
+sub GNUT_set_main_program_default($$)
+{
   my $var = shift;
   my $value = shift;
 
@@ -173,8 +180,8 @@ sub GNUT_set_main_program_default($$) {
   return 1;
 }
 
-
-# called both from main program and init files.
+# called both from main program and init files, for %options_as_lists
+# options with lists set un main program.
 sub texinfo_add_to_option_list($$)
 {
   my $var = shift;
@@ -207,7 +214,8 @@ sub texinfo_remove_from_option_list($$)
 # This also could get and set some @-command results.
 # FIXME But it does not take into account what happens during conversion,
 # for that something like $converter->get_conf(...) has to be used.
-sub texinfo_get_conf($) {
+sub texinfo_get_conf($)
+{
   my $var = shift;
   if (exists($cmdline_options->{$var})) {
     return $cmdline_options->{$var};
@@ -228,6 +236,25 @@ sub texinfo_add_valid_option($)
 }
 
 
+#####################################################################
+# format API.  Handled differently from customization option because
+# a function from main program need to be called on formats, so
+# there is a function to get the value from main program.
+
+my $init_file_format;
+sub texinfo_set_format_from_init_file($)
+{
+  $init_file_format = shift;
+}
+
+sub GNUT_get_format_from_init_file()
+{
+  return $init_file_format;
+}
+
+
+#####################################################################
+# stages handlers API.  Used in HTML only.
 
 my @possible_stages = ('setup', 'structure', 'init', 'finish');
 my %possible_stages;
@@ -262,6 +289,8 @@ sub GNUT_get_stage_handlers()
   return $GNUT_stage_handlers;
 }
 
+#####################################################################
+# API used to override formatting.  Used in HTML only.
 
 my $GNUT_formatting_references = {};
 my $GNUT_commands_conversion = {};
@@ -392,13 +421,15 @@ sub GNUT_get_style_command_formatting($;$)
   return undef;
 }
 
-package Texinfo::MainConfig;
 
+
+#####################################################################
 # the objective of this small package is to be in another
 # scope than init files, still have access to configuration
 # options, and setup blessed object that can call a
 # get_conf() and set_conf() method like parser or converter
 # that return the same as Texinfo::Config::texinfo_get_conf
+package Texinfo::MainConfig;
 
 # this is used in tests too.  In the tests nothing from
 # Texinfo::Config is used, and it is assumed that the

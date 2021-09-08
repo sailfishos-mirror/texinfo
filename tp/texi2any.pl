@@ -549,14 +549,6 @@ sub set_format($;$$)
   return $new_format;
 }
 
-# FIXME used in init/chm.pm main::set_global_format('html'); but this
-# is not a sane interface, should be modified.
-sub set_global_format($)
-{
-  my $set_format = shift;
-  $format = set_format($set_format);
-}
-
 sub document_warn($) {
   return if (get_conf('NO_WARN'));
   my $text = shift;
@@ -992,6 +984,10 @@ sub format_name($)
   }
 }
 
+my $init_file_format = Texinfo::Config::GNUT_get_format_from_init_file();
+if (defined($init_file_format)) {
+  $format = set_format($init_file_format, $format, 1);
+}
 
 if (defined($ENV{'TEXINFO_OUTPUT_FORMAT'}) 
     and $ENV{'TEXINFO_OUTPUT_FORMAT'} ne '') {
