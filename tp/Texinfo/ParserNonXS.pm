@@ -1100,22 +1100,6 @@ sub _print_command_args_texi($)
   return '@'.$current->{'cmdname'} .$args."\n";
 }
 
-sub _print_current_keys($)
-{
-  my $current = shift;
-  my $string = _print_current($current);
-  foreach my $key (keys (%$current)) {
-    $string .= "   $key: $current->{$key}\n";
-  }
-  if ($current->{'extra'}) {
-    $string .= "    EXTRA\n";
-    foreach my $key (keys (%{$current->{'extra'}})) {
-      $string .= "    $key: $current->{'extra'}->{$key}\n";
-    }
-  }
-  return $string;
-}
-
 # For debugging
 sub _print_tree($)
 {

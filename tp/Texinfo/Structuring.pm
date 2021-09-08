@@ -1255,6 +1255,23 @@ sub _print_root_command_texi($)
   return 'UNDEF @'.$command->{'cmdname'};
 }
 
+# for debugging
+sub _print_current_keys($)
+{
+  my $current = shift;
+  my $string = Texinfo::Common::_print_current($current);
+  foreach my $key (keys (%$current)) {
+    $string .= "   $key: $current->{$key}\n";
+  }
+  if ($current->{'extra'}) {
+    $string .= "    EXTRA\n";
+    foreach my $key (keys (%{$current->{'extra'}})) {
+      $string .= "    $key: $current->{'extra'}->{$key}\n";
+    }
+  }
+  return $string;
+}
+
 # for debugging.  Used in other modules.
 sub _print_element_command_texi($)
 {
@@ -1264,7 +1281,7 @@ sub _print_element_command_texi($)
   }
   if (!$element->{'type'}) {
     return "element $element without type: ".
-       Texinfo::Parser::_print_current_keys($element);
+       _print_current_keys($element);
   }
 
   if ($element->{'type'} eq 'external_node') {

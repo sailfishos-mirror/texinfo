@@ -1,5 +1,29 @@
 2021-09-08  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_html_get_tree_root_element)
+	(command_filename, command_root_element_command)
+	(_prepare_tree_root_elements):
+	rename command_tree_unit_command() as command_root_element_command(),
+	_html_get_tree_unit() as _html_get_tree_root_element(),
+	rename _prepare_elements() as _prepare_tree_root_elements(),
+	and use root_element as those functions deal with root elements,
+	including special elements, not only tree unit elements.
+
+	* tp/Texinfo/Convert/HTML.pm (_convert_special_element_type),
+	(_convert_tree_unit_type, _html_get_tree_root_element)
+	(_prepare_tree_root_elements, _prepare_special_elements, _convert):
+	use a specific type for special elements, 'special_element' instead
+	of 'unit' and split _convert_special_element_type out of
+	_convert_tree_unit_type to format them.
+
+	* tp/Texinfo/Convert/HTML.pm (command_element): remove, it is unused,
+	also do not set target 'unit', it is not used either.
+
+	* tp/Texinfo/Structuring.pm (_print_current_keys), tp/Texinfo/ParserNonXS.pm:
+	move _print_current_keys() to Texinfo::Structuring where it is used.
+
+2021-09-08  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Converter.pm (set_tree_unit_file)
 	(_set_tree_units_files, output, _convert_document_tree_units),
 	tp/Texinfo/Convert/DocBook.pm, tp/Texinfo/Convert/HTML.pm
