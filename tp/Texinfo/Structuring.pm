@@ -830,17 +830,17 @@ sub nodes_tree($$$$$)
   return $top_node;
 }
 
-# Return a list of elements to be converted into pages.  Each element starts
-# with a @node as its first child (except possibly the first one).
+# Return a list of tree units to be converted into pages.  Each tree unit
+# starts with a @node as its first child (except possibly the first one).
 sub split_by_node($)
 {
   my $root = shift;
   if (no_root_command_tree($root)) {
     return undef;
   }
-  my $elements;
-  my $current = { 'type' => 'element', 'extra' => {'no_node' => 1}};
-  push @$elements, $current;
+  my $tree_units;
+  my $current = { 'type' => 'unit', 'extra' => {'no_node' => 1}};
+  push @$tree_units, $current;
   my @pending_parts = ();
   foreach my $content (@{$root->{'contents'}}) {
     if ($content->{'cmdname'} and $content->{'cmdname'} eq 'part'
@@ -853,14 +853,14 @@ sub split_by_node($)
         delete $current->{'extra'}->{'no_node'};
         $current->{'extra'}->{'node'} = $content;
       } else {
-        $current = { 'type' => 'element', 'extra' => {'node' => $content}};
-        $current->{'element_prev'} = $elements->[-1];
-        $elements->[-1]->{'element_next'} = $current;
-        push @$elements, $current;
+        $current = { 'type' => 'unit', 'extra' => {'node' => $content}};
+        $current->{'unit_prev'} = $tree_units->[-1];
+        $tree_units->[-1]->{'unit_next'} = $current;
+        push @$tree_units, $current;
       }
-      $elements->[-1]->{'extra'}->{'element_command'} = $content;
+      $tree_units->[-1]->{'extra'}->{'unit_command'} = $content;
       if ($content->{'extra'}->{'associated_section'}) {
-        $elements->[-1]->{'extra'}->{'section'} 
+        $tree_units->[-1]->{'extra'}->{'section'}
           = $content->{'extra'}->{'associated_section'};
       }
     }
@@ -874,21 +874,21 @@ sub split_by_node($)
     push @{$current->{'contents'}}, $content;
     $content->{'parent'} = $current;
   }
-  return $elements;
+  return $tree_units;
 }
 
-# Return a list of elements to be converted into pages.  Each element starts
-# with the @node associated with a sectioning command or with the sectioning
-# command if there is no associated node
+# Return a list of tree units to be converted into pages.  Each tree unit
+# starts with the @node associated with a sectioning command or with the
+# sectioning command if there is no associated node
 sub split_by_section($)
 {
   my $root = shift;
   if (no_root_command_tree($root)) {
     return undef;
   }
-  my $elements;
-  my $current = { 'type' => 'element', 'extra' => {'no_section' => 1}};
-  push @$elements, $current;
+  my $tree_units;
+  my $current = { 'type' => 'unit', 'extra' => {'no_section' => 1}};
+  push @$tree_units, $current;
   foreach my $content (@{$root->{'contents'}}) {
     if ($content->{'cmdname'}
         and (($content->{'cmdname'} eq 'node' 
@@ -908,13 +908,13 @@ sub split_by_section($)
           $current->{'extra'}->{'section'}
             = $new_section;
         } else {
-          $current = { 'type' => 'element', 
+          $current = { 'type' => 'unit',
                        'extra' => {'section' => $new_section}};
-          $current->{'element_prev'} = $elements->[-1];
-          $elements->[-1]->{'element_next'} = $current;
-          push @$elements, $current;
+          $current->{'unit_prev'} = $tree_units->[-1];
+          $tree_units->[-1]->{'unit_next'} = $current;
+          push @$tree_units, $current;
         }
-        $elements->[-1]->{'extra'}->{'element_command'} 
+        $tree_units->[-1]->{'extra'}->{'unit_command'}
           = $new_section;
       }
     } elsif ($content->{'cmdname'} and $content->{'cmdname'} ne 'node' 
@@ -922,13 +922,13 @@ sub split_by_section($)
       if ($current->{'extra'}->{'no_section'}) {
         delete $current->{'extra'}->{'no_section'};
         $current->{'extra'}->{'section'} = $content;
-        $current->{'extra'}->{'element_command'} = $content;
+        $current->{'extra'}->{'unit_command'} = $content;
       } elsif ($current->{'extra'}->{'section'} ne $content) {
-        $current = { 'type' => 'element', 'extra' => {'section' => $content,
-                                              'element_command' => $content}};
-        $current->{'element_prev'} = $elements->[-1];
-        $elements->[-1]->{'element_next'} = $current;
-        push @$elements, $current;
+        $current = { 'type' => 'unit', 'extra' => {'section' => $content,
+                                              'unit_command' => $content}};
+        $current->{'unit_prev'} = $tree_units->[-1];
+        $tree_units->[-1]->{'unit_next'} = $current;
+        push @$tree_units, $current;
       }
     }
     if ($content->{'cmdname'} and $content->{'cmdname'} eq 'node' 
@@ -938,7 +938,7 @@ sub split_by_section($)
     push @{$current->{'contents'}}, $content;
     $content->{'parent'} = $current;
   }
-  return $elements;
+  return $tree_units;
 }
 
 # Associate top-level elements with pages according to the splitting 
@@ -946,15 +946,15 @@ sub split_by_section($)
 # that is the first in the output page.
 sub split_pages ($$)
 {
-  my $elements = shift;
+  my $tree_units = shift;
   my $split = shift;
 
-  return undef if (!$elements or !@$elements);
+  return undef if (!$tree_units or !@$tree_units);
 
   my $split_level;
   if (!$split) {
-    foreach my $element (@$elements) {
-      $element->{'extra'}->{'first_in_page'} = $elements->[0];
+    foreach my $tree_unit (@$tree_units) {
+      $tree_unit->{'extra'}->{'first_in_page'} = $tree_units->[0];
     }
     return;
   } elsif ($split eq 'chapter') {
@@ -966,20 +966,20 @@ sub split_pages ($$)
   }
 
   my $current_first_in_page;
-  foreach my $element (@$elements) {
+  foreach my $tree_unit (@$tree_units) {
     my $level;
-    if ($element->{'extra'}->{'section'}) {
-      $level = $element->{'extra'}->{'section'}->{'level'};
-    } elsif ($element->{'extra'}->{'node'} 
-             and $element->{'extra'}->{'node'}->{'associated_section'}) {
-      $level = $element->{'extra'}->{'node'}->{'associated_section'}->{'level'};
+    if ($tree_unit->{'extra'}->{'section'}) {
+      $level = $tree_unit->{'extra'}->{'section'}->{'level'};
+    } elsif ($tree_unit->{'extra'}->{'node'}
+             and $tree_unit->{'extra'}->{'node'}->{'associated_section'}) {
+      $level = $tree_unit->{'extra'}->{'node'}->{'associated_section'}->{'level'};
     }
-    #print STDERR "level($split_level) $level "._print_element_command_texi($element)."\n";
+    #print STDERR "level($split_level) $level "._print_element_command_texi($tree_unit)."\n";
     if (!defined($split_level) or (defined($level) and $split_level >= $level)
         or !$current_first_in_page) {
-      $current_first_in_page = $element;
+      $current_first_in_page = $tree_unit;
     }
-    $element->{'extra'}->{'first_in_page'} = $current_first_in_page;
+    $tree_unit->{'extra'}->{'first_in_page'} = $current_first_in_page;
   }
 }
 
@@ -1011,31 +1011,37 @@ sub _node_element($)
 
 # Do element directions (like in texi2html) and store them 
 # in 'extra'->'directions'.
+# FIXME this knows about 'special_element' so this is most likely
+# HTML specific.  Maybe a way to make it less specific would be to test
+# for something else, maybe unit_command, and possible no_node, no_section
+# although probably the caller would not call on a tree with no regular
+# tree unit elements.  This also should determine the name of the function,
+# keep elements_directions if it can be called on something else than tree_units.
 sub elements_directions($$$)
 {
   my $configuration_informations = shift;
   my $labels = shift;
-  my $elements = shift;
-  return if (!$elements or !@$elements);
+  my $tree_units = shift;
+  return if (!$tree_units or !@$tree_units);
 
   my $node_top = $labels->{'Top'};
-  foreach my $element (@$elements) {
+  foreach my $tree_unit (@$tree_units) {
     my $directions;
-    $directions->{'This'} = $element;
-    $directions->{'Forward'} = $element->{'element_next'}
-      if ($element->{'element_next'}
-          and (($element->{'extra'}->{'special_element'}
-                and $element->{'element_next'}->{'extra'}->{'special_element'})
-               or (!$element->{'extra'}->{'special_element'}
-                and !$element->{'element_next'}->{'extra'}->{'special_element'})));
-    $directions->{'Back'} = $element->{'element_prev'}
-      if ($element->{'element_prev'}
-          and (($element->{'extra'}->{'special_element'}
-                and $element->{'element_prev'}->{'extra'}->{'special_element'})
-               or (!$element->{'extra'}->{'special_element'}
-                and !$element->{'element_prev'}->{'extra'}->{'special_element'})));
-    if ($element->{'extra'}->{'node'}) {
-      my $node = $element->{'extra'}->{'node'};
+    $directions->{'This'} = $tree_unit;
+    $directions->{'Forward'} = $tree_unit->{'unit_next'}
+      if ($tree_unit->{'unit_next'}
+          and (($tree_unit->{'extra'}->{'special_element'}
+                and $tree_unit->{'unit_next'}->{'extra'}->{'special_element'})
+               or (!$tree_unit->{'extra'}->{'special_element'}
+                and !$tree_unit->{'unit_next'}->{'extra'}->{'special_element'})));
+    $directions->{'Back'} = $tree_unit->{'unit_prev'}
+      if ($tree_unit->{'unit_prev'}
+          and (($tree_unit->{'extra'}->{'special_element'}
+                and $tree_unit->{'unit_prev'}->{'extra'}->{'special_element'})
+               or (!$tree_unit->{'extra'}->{'special_element'}
+                and !$tree_unit->{'unit_prev'}->{'extra'}->{'special_element'})));
+    if ($tree_unit->{'extra'}->{'node'}) {
+      my $node = $tree_unit->{'extra'}->{'node'};
       foreach my $direction(['NodeUp', 'node_up'], ['NodeNext', 'node_next'],
                             ['NodePrev', 'node_prev']) {
         $directions->{$direction->[0]} = _node_element($node->{$direction->[1]})
@@ -1070,20 +1076,20 @@ sub elements_directions($$$)
         }
       }
       
-      $directions->{'NodeForward'}->{'extra'}->{'directions'}->{'NodeBack'} = $element
+      $directions->{'NodeForward'}->{'extra'}->{'directions'}->{'NodeBack'} = $tree_unit
         if ($directions->{'NodeForward'}
-            and $directions->{'NodeForward'}->{'type'} eq 'element'
+            and $directions->{'NodeForward'}->{'type'} eq 'unit'
             and !$directions->{'NodeForward'}->{'extra'}->{'directions'}->{'NodeBack'});
     }
 
-    if (!$element->{'extra'}->{'section'}) {
+    if (!$tree_unit->{'extra'}->{'section'}) {
       # If there is no associated section, find the previous element section.
       # Use the FastForward of this element.
       # Use it as FastBack if the section is top level, or use the FastBack.
       my $section_element;
-      my $current = $element;
-      while ($current->{'element_prev'}) {
-        $current = $current->{'element_prev'};
+      my $current = $tree_unit;
+      while ($current->{'unit_prev'}) {
+        $current = $current->{'unit_prev'};
         if ($current->{'extra'}->{'section'}) {
           $section_element = $current;
           last;
@@ -1102,7 +1108,7 @@ sub elements_directions($$$)
         }
       }
     } else {
-      my $section = $element->{'extra'}->{'section'};
+      my $section = $tree_unit->{'extra'}->{'section'};
       foreach my $direction(['Up', 'section_up'], ['Next', 'section_next'],
                             ['Prev', 'section_prev']) {
         # in most cases $section->{$direction->[1]}->{'parent'} is defined
@@ -1140,73 +1146,75 @@ sub elements_directions($$$)
         # the element is a top level element, we adjust the next
         # toplevel element fastback
         $directions->{'FastForward'}->{'extra'}->{'directions'}->{'FastBack'}  
-          = $element if ($directions->{'FastForward'});
+          = $tree_unit if ($directions->{'FastForward'});
       }
     }
     # Use node up for Up if there is no section up.
     # Not done in the default case.
     if ($configuration_informations->get_conf('USE_UP_NODE_FOR_ELEMENT_UP')
-        and !$directions->{'Up'} and $element->{'extra'}->{'node'}
-        and $element->{'extra'}->{'node'}->{'node_up'} 
-        and (!$node_top or ($element->{'extra'}->{'node'} ne $node_top))) {
-      #print STDERR "Using node for up "._print_element_command_texi($element)."\n";
-      my $up_node_element = _node_element($element->{'extra'}->{'node'}->{'node_up'});
+        and !$directions->{'Up'} and $tree_unit->{'extra'}->{'node'}
+        and $tree_unit->{'extra'}->{'node'}->{'node_up'}
+        and (!$node_top or ($tree_unit->{'extra'}->{'node'} ne $node_top))) {
+      #print STDERR "Using node for up "._print_element_command_texi($tree_unit)."\n";
+      my $up_node_element = _node_element($tree_unit->{'extra'}->{'node'}->{'node_up'});
       $directions->{'Up'} = $up_node_element if ($up_node_element);
     }
-    if ($element->{'extra'}->{'directions'}) {
-      %{$element->{'extra'}->{'directions'}} = (%{$element->{'extra'}->{'directions'}}, 
+    if ($tree_unit->{'extra'}->{'directions'}) {
+      %{$tree_unit->{'extra'}->{'directions'}} = (%{$tree_unit->{'extra'}->{'directions'}},
                                                 %$directions)
     } else {
-      $element->{'extra'}->{'directions'} = $directions;
+      $tree_unit->{'extra'}->{'directions'} = $directions;
     }
   }
   if ($configuration_informations->get_conf('DEBUG')) {
-    foreach my $element (@$elements) {
-      print STDERR "Directions($element): "
-         . print_element_directions($element)."\n";
+    foreach my $tree_unit (@$tree_units) {
+      print STDERR "Directions($tree_unit): "
+         . print_element_directions($tree_unit)."\n";
     }
   }
 }
 
 sub elements_file_directions($)
 {
-  my $elements = shift;
-  return if (!$elements or !@$elements);
+  my $tree_units = shift;
+  return if (!$tree_units or !@$tree_units);
 
   my $current_filename;
   my $first_element_in_file;
   # need to gather the directions before the FirstInFile* directions
   # are added to the first element in the file.
   my @first_element_in_file_directions;
-  foreach my $element (@$elements) {
+  foreach my $tree_unit (@$tree_units) {
     my $directions;
     my $filename;
-    if (defined($element->{'filename'})) {
-      $filename = $element->{'filename'};
-      my $current_element = $element;
+    if (defined($tree_unit->{'filename'})) {
+      $filename = $tree_unit->{'filename'};
+      my $current_tree_unit = $tree_unit;
       if (not defined($current_filename)
           or $filename ne $current_filename) {
-        $first_element_in_file = $element;
-        @first_element_in_file_directions = keys %{$element->{'extra'}->{'directions'}};
+        $first_element_in_file = $tree_unit;
+        @first_element_in_file_directions = keys %{$tree_unit->{'extra'}->{'directions'}};
         $current_filename = $filename;
       }
-      while ($current_element->{'element_prev'}) {
-        $current_element = $current_element->{'element_prev'};
-        if (defined($current_element->{'filename'})) {
-          if ($current_element->{'filename'} ne $filename) {
-            $element->{'extra'}->{'directions'}->{'PrevFile'} = $current_element;
+      while ($current_tree_unit->{'unit_prev'}) {
+        $current_tree_unit = $current_tree_unit->{'unit_prev'};
+        if (defined($current_tree_unit->{'filename'})) {
+          if ($current_tree_unit->{'filename'} ne $filename) {
+            $tree_unit->{'extra'}->{'directions'}->{'PrevFile'}
+                 = $current_tree_unit;
             last;
           }
         } else {
           last;
         }
       }
-      $current_element = $element;
-      while ($current_element->{'element_next'}) {
-        $current_element = $current_element->{'element_next'};
-        if (defined($current_element->{'filename'})) {
-          if ($current_element->{'filename'} ne $filename) {
-            $element->{'extra'}->{'directions'}->{'NextFile'} = $current_element;
+      $current_tree_unit = $tree_unit;
+      while ($current_tree_unit->{'unit_next'}) {
+        $current_tree_unit = $current_tree_unit->{'unit_next'};
+        if (defined($current_tree_unit->{'filename'})) {
+          if ($current_tree_unit->{'filename'} ne $filename) {
+            $tree_unit->{'extra'}->{'directions'}->{'NextFile'}
+               = $current_tree_unit;
             last;
           }
         } else {
@@ -1219,7 +1227,7 @@ sub elements_file_directions($)
     if (defined($first_element_in_file)) {
       foreach my $first_in_file_direction
                 (@first_element_in_file_directions) {
-        $element->{'extra'}->{'directions'}->{'FirstInFile'.$first_in_file_direction}
+        $tree_unit->{'extra'}->{'directions'}->{'FirstInFile'.$first_in_file_direction}
           = $first_element_in_file->{'extra'}->{'directions'}->{$first_in_file_direction};
       }
     }
@@ -1269,7 +1277,7 @@ sub _print_element_command_texi($)
     return Texinfo::Convert::Texinfo::convert_to_texinfo($command);
   }
   
-  my $command = $element->{'extra'}->{'element_command'};
+  my $command = $element->{'extra'}->{'unit_command'};
   if (!defined($command)) {
     # happens when there are only nodes and sections are used as elements
     my $result = "No associated command ";
@@ -1282,6 +1290,7 @@ sub _print_element_command_texi($)
 # Used for debugging and in test suite, but not generally useful. Not
 # documented in pod section and not exportable as it should not, in
 # general, be used.
+# In general should be called with tree unit elements, but is more generic.
 sub print_element_directions($)
 {
   my $element = shift;
@@ -1745,15 +1754,15 @@ Texinfo::Structuring - information on Texinfo::Parser tree
   check_nodes_are_referenced($registrar, $config, $nodes_list, $top_node, $labels, $refs);
   associate_internal_references($registrar, $parser, $parser_informations, $labels, $refs);
   number_floats($parser->floats_information());
-  my $elements;
+  my $tree_units;
   if ($split_at_nodes) {
-    $elements = split_by_node($tree);
+    $tree_units = split_by_node($tree);
   } else {
-    $elements = split_by_section($tree);
+    $tree_units = split_by_section($tree);
   }
-  split_pages($elements, $split);
-  elements_directions($parser, $parser, $elements);
-  elements_file_directions($elements);
+  split_pages($tree_units, $split);
+  elements_directions($parser, $parser, $tree_units);
+  elements_file_directions($tree_units);
 
   my $index_names = $parser->indices_information();
   my $merged_index_entries
@@ -1786,7 +1795,7 @@ from converters.
 It is also possible to group the top-level contents of the tree, which consist
 in nodes and sectioning commands into elements that group together a node and
 the next sectioning element.  With C<split_by_node> nodes are considered
-to be the main sectioning elements, while with C<split_by_section> the 
+to be the main sectioning elements, while with C<split_by_section> the
 sectioning command elements are the main elements.  The first mode is typical
 of Info format, while the second correspond to a traditional book.
 The elements may be further split in I<pages>, which are not pages as
@@ -1836,7 +1845,7 @@ Complete nodes directions with menu directions.  Check consistency
 of menus, sectionning and nodes direction structures.
 Register errors in C<$registrar>.
 
-=item elements_directions($parser, $configuration_informations, $elements)
+=item elements_directions($parser, $configuration_informations, $tree_units)
 
 Directions are set up for the elements in the array reference given in 
 argument.  The corresponding hash reference is in 
@@ -1901,7 +1910,7 @@ The next top level element.
 
 =back
 
-=item elements_file_directions($elements)
+=item elements_file_directions($tree_units)
 
 In the directions reference described above for C<elements_directions>, sets
 the I<PrevFile> and C<NextFile> directions to the elements in previous and
@@ -2070,17 +2079,17 @@ entries with the strings that were used to sort them.
 
 Register errors in C<$registrar>.
 
-=item $elements = split_by_node($tree)
+=item $tree_units = split_by_node($tree)
 
-Returns a reference array of elements where a node is associated to
+Returns a reference array of tree units where a node is associated to
 the following sectioning commands.  Sectioning commands without nodes
 are also with the previous node, while nodes without sectioning commands
-are alone in their elements.
+are alone in their tree units.
 
-Elements are regular tree items with type I<element>, the
+Elements are regular tree items with type I<unit>, the
 associated nodes and sectioning tree items are in the array associated
-with the I<contents> key.  They have directions, namely I<element_next>
-and I<element_prev> pointing to the previous and the next element.
+with the I<contents> key.  They have directions, namely I<unit_next>
+and I<unit_prev> pointing to the previous and the next tree unit.
 
 In the I<extra> hash they have
 
@@ -2092,7 +2101,7 @@ A special case, if there are no nodes in the document, the value is set.
 
 =item node
 
-=item element_command
+=item unit_command
 
 The node command associated with the element.
 
@@ -2102,27 +2111,27 @@ The sectioning command associated with the element node.
 
 =back
 
-=item $elements = split_by_section($tree) 
+=item $tree_units = split_by_section($tree)
 
-Similarly with C<split_by_node>, returns an array of elements.  This time,
+Similarly with C<split_by_node>, returns an array of tree units.  This time,
 lone nodes are associated with the previous sections and lone sections
-makes up an element.
+makes up a tree unit.
 
-The extra hash keys set are the same, except that I<element_command> is 
+The extra hash keys set are the same, except that I<unit_command> is
 the sectioning command associated with the element, and I<no_node> is 
 replaced by I<no_section>.
 
-=item $pages = split_pages($elements, $split)
+=item $pages = split_pages($tree_units, $split)
 
-The elements from the array reference argument have an extra I<first_in_page>
-value set to the first element on the unit, and based on the
-value of I<$split>.  The possible values for I<$split> are
+The tree units from the array reference argument have an extra
+I<first_in_page> value set to the first tree unit in the group, and
+based on the value of I<$split>.  The possible values for I<$split> are
 
 =over
 
 =item chapter
 
-The elements are split at chapter or other toplevel sectioning elements.
+The tree units are split at chapter or other toplevel sectioning tree units.
 
 =item node
 
@@ -2130,11 +2139,11 @@ Each element has its own page.
 
 =item section
 
-The elements are split at sectioning commands below chapter.
+The tree units are split at sectioning commands below chapter.
 
 =item value evaluating to false
 
-No splitting, only one page is returned, holding all the elements.
+No splitting, only one page is returned, holding all the tree units.
 
 =back
 

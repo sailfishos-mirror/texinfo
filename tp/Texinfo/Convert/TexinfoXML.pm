@@ -1003,7 +1003,7 @@ sub _convert($$;$)
         # the comand closing.  So we delay the output of @bye, and store it.
         if ($root->{'cmdname'} eq 'bye' and $root->{'parent'}
             and $root->{'parent'}->{'type'}
-            and $root->{'parent'}->{'type'} eq 'element'
+            and $root->{'parent'}->{'type'} eq 'unit'
             and !($root->{'parent'}->{'extra'}
                   and ($root->{'parent'}->{'extra'}->{'no_section'}
                        or $root->{'parent'}->{'extra'}->{'no_node'}))) {
@@ -1645,21 +1645,21 @@ sub _convert($$;$)
   # The command is closed either when the corresponding tree element
   # is done, and the command is not associated to an element, or when
   # the element is closed.
-  } elsif ((($root->{'type'} and $root->{'type'} eq 'element'
-             and $root->{'extra'} and $root->{'extra'}->{'element_command'}
-             and !($root->{'extra'}->{'element_command'}->{'cmdname'}
-                   and $root->{'extra'}->{'element_command'}->{'cmdname'} eq 'node'))
+  } elsif ((($root->{'type'} and $root->{'type'} eq 'unit'
+             and $root->{'extra'} and $root->{'extra'}->{'unit_command'}
+             and !($root->{'extra'}->{'unit_command'}->{'cmdname'}
+                   and $root->{'extra'}->{'unit_command'}->{'cmdname'} eq 'node'))
             or ($root->{'cmdname'} 
                 and $Texinfo::Common::root_commands{$root->{'cmdname'}}
                 and $root->{'cmdname'} ne 'node'
                 and !($root->{'parent'} and $root->{'parent'}->{'type'}
-                     and $root->{'parent'}->{'type'} eq 'element'
+                     and $root->{'parent'}->{'type'} eq 'unit'
                      and $root->{'parent'}->{'extra'} 
-                     and $root->{'parent'}->{'extra'}->{'element_command'}
-                     and $root->{'parent'}->{'extra'}->{'element_command'} eq $root)))
+                     and $root->{'parent'}->{'extra'}->{'unit_command'}
+                     and $root->{'parent'}->{'extra'}->{'unit_command'} eq $root)))
            and !$self->get_conf('USE_NODES')) {
-    if ($root->{'type'} and $root->{'type'} eq 'element') {
-      $root = $root->{'extra'}->{'element_command'};
+    if ($root->{'type'} and $root->{'type'} eq 'unit') {
+      $root = $root->{'extra'}->{'unit_command'};
     }
     my $command = $self->_level_corrected_section($root);
     if (!($root->{'section_childs'} and scalar(@{$root->{'section_childs'}}))
@@ -1680,20 +1680,20 @@ sub _convert($$;$)
       $result .= $self->{'pending_bye'};
       delete $self->{'pending_bye'};
     }
-  } elsif ((($root->{'type'} and $root->{'type'} eq 'element'
-             and $root->{'extra'} and $root->{'extra'}->{'element_command'}
-             and $root->{'extra'}->{'element_command'}->{'cmdname'}
-             and $root->{'extra'}->{'element_command'}->{'cmdname'} eq 'node')
+  } elsif ((($root->{'type'} and $root->{'type'} eq 'unit'
+             and $root->{'extra'} and $root->{'extra'}->{'unit_command'}
+             and $root->{'extra'}->{'unit_command'}->{'cmdname'}
+             and $root->{'extra'}->{'unit_command'}->{'cmdname'} eq 'node')
             or ($root->{'cmdname'} 
                 and $root->{'cmdname'} eq 'node'
                 and !($root->{'parent'} and $root->{'parent'}->{'type'}
-                     and $root->{'parent'}->{'type'} eq 'element'
+                     and $root->{'parent'}->{'type'} eq 'unit'
                      and $root->{'parent'}->{'extra'} 
-                     and $root->{'parent'}->{'extra'}->{'element_command'}
-                     and $root->{'parent'}->{'extra'}->{'element_command'} eq $root)))
+                     and $root->{'parent'}->{'extra'}->{'unit_command'}
+                     and $root->{'parent'}->{'extra'}->{'unit_command'} eq $root)))
            and $self->get_conf('USE_NODES')) {
-    #if ($root->{'type'} and $root->{'type'} eq 'element') {
-    #  $root = $root->{'extra'}->{'element_command'};
+    #if ($root->{'type'} and $root->{'type'} eq 'unit') {
+    #  $root = $root->{'extra'}->{'unit_command'};
     #}
     $result .= $self->close_element('node');
     

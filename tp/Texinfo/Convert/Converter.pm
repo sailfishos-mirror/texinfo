@@ -547,15 +547,15 @@ sub node_information_filename($$)
   return $filename;
 }
 
-sub _set_element_file($$$$)
+sub set_tree_unit_file($$$$)
 {
   my $self = shift;
-  my $element = shift;
+  my $tree_unit = shift;
   my $filename = shift;
   my $destination_directory = shift;
 
   if (!defined($filename)) {
-    cluck("_set_element_file: filename not defined\n");
+    cluck("set_tree_unit_file: filename not defined\n");
   }
   if ($self->get_conf('CASE_INSENSITIVE_FILENAMES')) {
     if (exists($self->{'filenames'}->{lc($filename)})) {
@@ -568,12 +568,12 @@ sub _set_element_file($$$$)
       $self->{'filenames'}->{lc($filename)} = $filename;
     }
   }
-  $element->{'filename'} = $filename;
+  $tree_unit->{'filename'} = $filename;
   if (defined($destination_directory) and $destination_directory ne '') {
-    $element->{'out_filename'} = 
+    $tree_unit->{'out_filename'} =
       File::Spec->catfile($destination_directory, $filename);
   } else {
-    $element->{'out_filename'} = $filename;
+    $tree_unit->{'out_filename'} = $filename;
   }
 }
 
@@ -610,7 +610,7 @@ sub _get_element($$)
 
   while (1) {
     if ($current->{'type'}) {
-      if ($current->{'type'} eq 'element') {
+      if ($current->{'type'} eq 'unit') {
         return $current;
       }
     }
@@ -622,17 +622,17 @@ sub _get_element($$)
   }
 }
 
-sub _set_pages_files($$$$$$)
+sub _set_tree_units_files($$$$$$)
 {
   my $self = shift;
-  my $elements = shift;
+  my $tree_units = shift;
   my $output_file = shift;
   my $destination_directory = shift;
   my $output_filename = shift;
   my $document_name = shift;
 
   # Ensure that the document has pages
-  return undef if (!defined($elements) or !@$elements);
+  return undef if (!defined($tree_units) or !@$tree_units);
 
   my $extension = '';
   $extension = '.'.$self->get_conf('EXTENSION') 
@@ -640,10 +640,10 @@ sub _set_pages_files($$$$$$)
                 and $self->get_conf('EXTENSION') ne '');
 
   if (!$self->get_conf('SPLIT')) {
-    foreach my $element (@$elements) {
-      if (!defined($element->{'filename'})) {
-        $element->{'filename'} = $output_filename;
-        $element->{'out_filename'} = $output_file;
+    foreach my $tree_unit (@$tree_units) {
+      if (!defined($tree_unit->{'filename'})) {
+        $tree_unit->{'filename'} = $output_filename;
+        $tree_unit->{'out_filename'} = $output_file;
       }
     }
   } else {
@@ -653,22 +653,22 @@ sub _set_pages_files($$$$$$)
     my $top_node_filename = $self->top_node_filename($document_name);
     # first determine the top node file name.
     if ($node_top and defined($top_node_filename)) {
-      my ($node_top_element) = $self->_get_element($node_top);
+      my ($node_top_unit) = $self->_get_element($node_top);
       die "BUG: No element for top node" if (!defined($node_top));
-      $self->_set_element_file($node_top_element, $top_node_filename,
-                               $destination_directory);
+      $self->set_tree_unit_file($node_top_unit, $top_node_filename,
+                                $destination_directory);
     }
     my $file_nr = 0;
     my $previous_page;
-    foreach my $element(@$elements) {
+    foreach my $tree_unit (@$tree_units) {
       # For Top node.
-      next if (defined($element->{'filename'}));
-      if (!$element->{'extra'}->{'first_in_page'}) {
-        cluck ("No first_in_page for $element\n");
+      next if (defined($tree_unit->{'filename'}));
+      if (!$tree_unit->{'extra'}->{'first_in_page'}) {
+        cluck ("No first_in_page for $tree_unit\n");
       }
-      if (!defined($element->{'extra'}->{'first_in_page'}->{'filename'})) {
-        my $file_element = $element->{'extra'}->{'first_in_page'};
-        foreach my $root_command (@{$file_element->{'contents'}}) {
+      if (!defined($tree_unit->{'extra'}->{'first_in_page'}->{'filename'})) {
+        my $file_tree_unit = $tree_unit->{'extra'}->{'first_in_page'};
+        foreach my $root_command (@{$file_tree_unit->{'contents'}}) {
           if ($root_command->{'cmdname'} 
               and $root_command->{'cmdname'} eq 'node') {
             my $node_filename;
@@ -681,51 +681,51 @@ sub _set_pages_files($$$$$$)
                = $self->node_information_filename($root_command->{'extra'});
             }
             $node_filename .= $extension;
-            $self->_set_element_file($file_element, $node_filename,
-                                     $destination_directory);
+            $self->set_tree_unit_file($file_tree_unit, $node_filename,
+                                      $destination_directory);
             last;
           }
         }
-        if (!defined($file_element->{'filename'})) {
+        if (!defined($file_tree_unit->{'filename'})) {
           # use section to do the file name if there is no node
-          my $command = $file_element->{'extra'}->{'element_command'};
+          my $command = $file_tree_unit->{'extra'}->{'unit_command'};
           if ($command) {
             if ($command->{'cmdname'} eq 'top' and !$node_top
                 and defined($top_node_filename)) {
-              $self->_set_element_file($file_element, $top_node_filename,
-                                       $destination_directory);
+              $self->set_tree_unit_file($file_tree_unit, $top_node_filename,
+                                        $destination_directory);
             } else {
               my ($normalized_name, $filename) 
                  = $self->normalized_sectioning_command_filename($command);
-              $self->_set_element_file($file_element, $filename,
-                                       $destination_directory);
+              $self->set_tree_unit_file($file_tree_unit, $filename,
+                                        $destination_directory);
             }
           } else {
             # when everything else has failed
             if ($file_nr == 0 and !$node_top 
                 and defined($top_node_filename)) {
-              $self->_set_element_file($file_element, $top_node_filename,
-                                       $destination_directory);
+              $self->set_tree_unit_file($file_tree_unit, $top_node_filename,
+                                        $destination_directory);
             } else {
               my $filename = $document_name . "_$file_nr";
               $filename .= $extension;
-              $self->_set_element_file($element, $filename,
-                                       $destination_directory);
+              $self->set_tree_unit_file($tree_unit, $filename,
+                                        $destination_directory);
             }
             $file_nr++;
           }
         }
       }
-      $element->{'filename'} 
-         = $element->{'extra'}->{'first_in_page'}->{'filename'};
-      $element->{'out_filename'}
-         = $element->{'extra'}->{'first_in_page'}->{'out_filename'};
+      $tree_unit->{'filename'}
+         = $tree_unit->{'extra'}->{'first_in_page'}->{'filename'};
+      $tree_unit->{'out_filename'}
+         = $tree_unit->{'extra'}->{'first_in_page'}->{'out_filename'};
     }
   }
 
-  foreach my $element (@$elements) {
-    $self->{'file_counters'}->{$element->{'filename'}}++;
-    print STDERR "Page $element ".Texinfo::Structuring::_print_element_command_texi($element).": $element->{'filename'}($self->{'file_counters'}->{$element->{'filename'}})\n"
+  foreach my $tree_unit (@$tree_units) {
+    $self->{'file_counters'}->{$tree_unit->{'filename'}}++;
+    print STDERR "Page $tree_unit ".Texinfo::Structuring::_print_element_command_texi($tree_unit).": $tree_unit->{'filename'}($self->{'file_counters'}->{$tree_unit->{'filename'}})\n"
       if ($self->get_conf('DEBUG'));
   }
 }
@@ -738,7 +738,7 @@ sub output($$)
   my $self = shift;
   my $root = shift;
 
-  my $elements;
+  my $tree_units;
 
   if (defined($self->get_conf('OUTFILE'))
       and ($Texinfo::Common::null_device_file{$self->get_conf('OUTFILE')}
@@ -762,25 +762,25 @@ sub output($$)
   return undef unless $succeeded;
 
   if ($self->get_conf('USE_NODES')) {
-    $elements = Texinfo::Structuring::split_by_node($root);
+    $tree_units = Texinfo::Structuring::split_by_node($root);
   } else {
-    $elements = Texinfo::Structuring::split_by_section($root);
+    $tree_units = Texinfo::Structuring::split_by_section($root);
   }
 
-  Texinfo::Structuring::split_pages($elements, $self->get_conf('SPLIT'));
+  Texinfo::Structuring::split_pages($tree_units, $self->get_conf('SPLIT'));
 
   # determine file names associated with the different pages
   if ($output_file ne '') {
-    $self->_set_pages_files($elements, $output_file, $destination_directory,
-                            $output_filename, $document_name);
+    $self->_set_tree_units_files($tree_units, $output_file, $destination_directory,
+                                 $output_filename, $document_name);
   }
 
-  #print STDERR "$elements $elements->[0]->{'filename'}\n";
+  #print STDERR "$tree_units $tree_units->[0]->{'filename'}\n";
 
   # Now do the output
   my $fh;
   my $output = '';
-  if (!$elements or !defined($elements->[0]->{'filename'})) {
+  if (!$tree_units or !defined($tree_units->[0]->{'filename'})) {
     # no page
     my $outfile;
     if ($output_file ne '') {
@@ -807,10 +807,10 @@ sub output($$)
         if ($self->get_conf('DEBUG'));
     }
 
-    if ($elements and @$elements) {
-      foreach my $element (@$elements) {
-        my $element_text = $self->convert_tree($element);
-        $output .= $self->write_or_return($element_text, $fh);
+    if ($tree_units and @$tree_units) {
+      foreach my $tree_unit (@$tree_units) {
+        my $tree_unit_text = $self->convert_tree($tree_unit);
+        $output .= $self->write_or_return($tree_unit_text, $fh);
       }
     } else {
       $output .= $self->write_or_return($self->convert($root), $fh);
@@ -832,35 +832,35 @@ sub output($$)
       if ($self->get_conf('DEBUG'));
     my %files;
     
-    foreach my $element (@$elements) {
+    foreach my $tree_unit (@$tree_units) {
       my $file_fh;
       # open the file and output the elements
-      if (!$files{$element->{'filename'}}->{'fh'}) {
+      if (!$files{$tree_unit->{'filename'}}->{'fh'}) {
         $file_fh = Texinfo::Common::output_files_open_out(
                              $self->output_files_information(), $self,
-                             $element->{'out_filename'});
+                             $tree_unit->{'out_filename'});
         if (!$file_fh) {
           $self->document_error($self,
                 sprintf(__("could not open %s for writing: %s"),
-                                    $element->{'out_filename'}, $!));
+                                    $tree_unit->{'out_filename'}, $!));
           return undef;
         }
-        $files{$element->{'filename'}}->{'fh'} = $file_fh;
+        $files{$tree_unit->{'filename'}}->{'fh'} = $file_fh;
       } else {
-        $file_fh = $files{$element->{'filename'}}->{'fh'};
+        $file_fh = $files{$tree_unit->{'filename'}}->{'fh'};
       }
-      my $element_text = $self->convert_tree($element);
-      print $file_fh $element_text;
-      $self->{'file_counters'}->{$element->{'filename'}}--;
-      if ($self->{'file_counters'}->{$element->{'filename'}} == 0) {
+      my $tree_unit_text = $self->convert_tree($tree_unit);
+      print $file_fh $tree_unit_text;
+      $self->{'file_counters'}->{$tree_unit->{'filename'}}--;
+      if ($self->{'file_counters'}->{$tree_unit->{'filename'}} == 0) {
         # NOTE do not close STDOUT here to avoid a perl warning
-        if ($element->{'out_filename'} ne '-') {
+        if ($tree_unit->{'out_filename'} ne '-') {
           Texinfo::Common::output_files_register_closed(
-            $self->output_files_information(), $element->{'out_filename'});
+            $self->output_files_information(), $tree_unit->{'out_filename'});
           if (!close($file_fh)) {
             $self->document_error($self,
                      sprintf(__("error on closing %s: %s"),
-                                  $element->{'out_filename'}, $!));
+                                  $tree_unit->{'out_filename'}, $!));
             return undef;
           }
         }
@@ -1259,17 +1259,17 @@ sub write_or_return($$$)
   } 
 }
 
-sub _convert_document_elements($$;$$)
+sub _convert_document_tree_units($$;$$)
 {
   my $self = shift;
   my $root = shift;
-  my $elements = shift;
+  my $tree_units = shift;
   my $fh = shift;
 
-  if ($elements) {
+  if ($tree_units) {
     my $result = '';
-    foreach my $element (@$elements) {
-      $result .= $self->write_or_return($self->convert_tree($element), $fh);
+    foreach my $tree_unit (@$tree_units) {
+      $result .= $self->write_or_return($self->convert_tree($tree_unit), $fh);
     }
     return $result;
   } else {
@@ -1283,8 +1283,8 @@ sub convert_document_sections($$;$)
   my $root = shift;
   my $fh = shift;
 
-  my $elements = Texinfo::Structuring::split_by_section($root);
-  return $self->_convert_document_elements($root, $elements, $fh);
+  my $tree_units = Texinfo::Structuring::split_by_section($root);
+  return $self->_convert_document_tree_units($root, $tree_units, $fh);
 }
 
 sub convert_document_nodes($$;$)
@@ -1293,8 +1293,8 @@ sub convert_document_nodes($$;$)
   my $root = shift;
   my $fh = shift;
 
-  my $elements = Texinfo::Structuring::split_by_node($root);
-  return $self->_convert_document_elements($root, $elements, $fh);
+  my $tree_units = Texinfo::Structuring::split_by_node($root);
+  return $self->_convert_document_tree_units($root, $tree_units, $fh);
 }
 
 # if in this container, we are 'inline', within a running text
@@ -1428,7 +1428,7 @@ sub sort_element_counts($$;$$)
 
   if (!$elements) {
     @$elements = ($tree);
-  } elsif (scalar(@$elements) >= 1 
+  } elsif (scalar(@$elements) >= 1
            and (!$elements->[0]->{'extra'}->{'node'}
                 and !$elements->[0]->{'extra'}->{'section'})) {
     shift @$elements;
@@ -1439,10 +1439,10 @@ sub sort_element_counts($$;$$)
 
   require Texinfo::Convert::Texinfo;
   foreach my $element (@$elements) {
-    my $name = 'UNNAMED element';
-    if ($element->{'extra'} 
+    my $name = 'UNNAMED tree element';
+    if ($element->{'extra'}
         and ($element->{'extra'}->{'node'} or $element->{'extra'}->{'section'})) {
-      my $command = $element->{'extra'}->{'element_command'};
+      my $command = $element->{'extra'}->{'unit_command'};
       if ($command->{'cmdname'} eq 'node') {
         $name = Texinfo::Convert::Texinfo::convert_to_texinfo({'contents' 
           => $command->{'extra'}->{'nodes_manuals'}->[0]->{'node_content'}});
@@ -1453,12 +1453,12 @@ sub sort_element_counts($$;$$)
     }
     chomp($name);
     my $count;
-    my $element_content = $converter->convert_tree($element);
+    my $converted_element = $converter->convert_tree($element);
     if ($count_words) {
-      my @res = split /\W+/, $element_content;
+      my @res = split /\W+/, $converted_element;
       $count = scalar(@res);
     } else {
-      my @res = split /^/, $element_content;
+      my @res = split /^/, $converted_element;
       $count = scalar(@res);
     }
     push @name_counts_array, [$count, $name];

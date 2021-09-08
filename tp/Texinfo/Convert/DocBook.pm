@@ -1464,17 +1464,17 @@ sub _convert($$;$)
   # The command is closed either when the corresponding tree element
   # is done, and the command is not associated to an element, or when
   # the element is closed.
-  } elsif (($root->{'type'} and $root->{'type'} eq 'element'
-            and $root->{'extra'} and $root->{'extra'}->{'element_command'})
+  } elsif (($root->{'type'} and $root->{'type'} eq 'unit'
+            and $root->{'extra'} and $root->{'extra'}->{'unit_command'})
            or ($root->{'cmdname'} 
                and $Texinfo::Common::root_commands{$root->{'cmdname'}}
                and $root->{'cmdname'} ne 'node'
                and !($root->{'parent'} and $root->{'parent'}->{'type'}
-                     and $root->{'parent'}->{'type'} eq 'element'
+                     and $root->{'parent'}->{'type'} eq 'unit'
                      and $root->{'parent'}->{'extra'} 
-                     and $root->{'parent'}->{'extra'}->{'element_command'} eq $root))) {
-    if ($root->{'type'} and $root->{'type'} eq 'element') {
-      $root = $root->{'extra'}->{'element_command'};
+                     and $root->{'parent'}->{'extra'}->{'unit_command'} eq $root))) {
+    if ($root->{'type'} and $root->{'type'} eq 'unit') {
+      $root = $root->{'extra'}->{'unit_command'};
     }
     my $command = $self->_docbook_section_element($root);
     if ($command eq 'part' and !Texinfo::Common::is_content_empty($root)) {

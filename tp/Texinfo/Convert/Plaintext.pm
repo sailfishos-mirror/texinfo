@@ -513,7 +513,7 @@ sub convert_tree($$)
     $self->{'empty_lines_count'} = 1;
   }
   my $result;
-  if ($root->{'type'} and $root->{'type'} eq 'element') {
+  if ($root->{'type'} and $root->{'type'} eq 'unit') {
     $result = _convert_element($self, $root);
   } else {
     $result = $self->_convert($root);

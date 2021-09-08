@@ -287,11 +287,11 @@ $result_trees{'lone_Top_node'} = [
       }
     ],
     'extra' => {
-      'element_command' => {},
       'node' => {},
-      'section' => {}
+      'section' => {},
+      'unit_command' => {}
     },
-    'type' => 'element'
+    'type' => 'unit'
   }
 ];
 $result_trees{'lone_Top_node'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'lone_Top_node'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
@@ -331,9 +331,9 @@ $result_trees{'lone_Top_node'}[0]{'contents'}[2]{'parent'} = $result_trees{'lone
 $result_trees{'lone_Top_node'}[0]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'lone_Top_node'}[0]{'contents'}[3]{'args'}[0];
 $result_trees{'lone_Top_node'}[0]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'lone_Top_node'}[0]{'contents'}[3];
 $result_trees{'lone_Top_node'}[0]{'contents'}[3]{'parent'} = $result_trees{'lone_Top_node'}[0];
-$result_trees{'lone_Top_node'}[0]{'extra'}{'element_command'} = $result_trees{'lone_Top_node'}[0]{'contents'}[3];
 $result_trees{'lone_Top_node'}[0]{'extra'}{'node'} = $result_trees{'lone_Top_node'}[0]{'contents'}[2];
 $result_trees{'lone_Top_node'}[0]{'extra'}{'section'} = $result_trees{'lone_Top_node'}[0]{'contents'}[3];
+$result_trees{'lone_Top_node'}[0]{'extra'}{'unit_command'} = $result_trees{'lone_Top_node'}[0]{'contents'}[3];
 
 $result_texis{'lone_Top_node'} = '@setfilename lone_Top_node.info
 
@@ -467,14 +467,6 @@ $result_elements{'lone_Top_node'} = [
         'NodeUp' => {},
         'This' => {}
       },
-      'element_command' => {
-        'cmdname' => 'chapter',
-        'extra' => {
-          'spaces_before_argument' => ' '
-        },
-        'level' => 1,
-        'number' => 1
-      },
       'node' => {
         'cmdname' => 'node',
         'extra' => {
@@ -493,16 +485,24 @@ $result_elements{'lone_Top_node'} = [
           'Top' => 1
         }
       },
-      'section' => {}
+      'section' => {
+        'cmdname' => 'chapter',
+        'extra' => {
+          'spaces_before_argument' => ' '
+        },
+        'level' => 1,
+        'number' => 1
+      },
+      'unit_command' => {}
     },
-    'type' => 'element'
+    'type' => 'unit'
   }
 ];
 $result_elements{'lone_Top_node'}[0]{'extra'}{'directions'}{'NodePrev'} = $result_elements{'lone_Top_node'}[0];
 $result_elements{'lone_Top_node'}[0]{'extra'}{'directions'}{'NodeUp'} = $result_elements{'lone_Top_node'}[0];
 $result_elements{'lone_Top_node'}[0]{'extra'}{'directions'}{'This'} = $result_elements{'lone_Top_node'}[0];
 $result_elements{'lone_Top_node'}[0]{'extra'}{'node'}{'menu_up'}{'menu_child'} = $result_elements{'lone_Top_node'}[0]{'extra'}{'node'};
-$result_elements{'lone_Top_node'}[0]{'extra'}{'section'} = $result_elements{'lone_Top_node'}[0]{'extra'}{'element_command'};
+$result_elements{'lone_Top_node'}[0]{'extra'}{'unit_command'} = $result_elements{'lone_Top_node'}[0]{'extra'}{'section'};
 
 
 

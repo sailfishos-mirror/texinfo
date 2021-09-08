@@ -58,14 +58,14 @@ sub singular_format_footer($$$$)
   my $content = shift;
 
 
-  my $end_page = (!$element->{'element_next'}
+  my $end_page = (!$element->{'unit_next'}
        or (defined($element->{'filename'})
-           and $element->{'filename'} ne $element->{'element_next'}->{'filename'}
+           and $element->{'filename'} ne $element->{'unit_next'}->{'filename'}
            and $self->{'file_counters'}->{$element->{'filename'}} == 1));
 
-  if ($self->element_is_top($element)) {
+  if ($self->element_is_tree_unit_top($element)) {
     my $buttons = $self->get_conf('TOP_BUTTONS');
-    my $content_href = $self->_element_direction($element, 'Contents', 
+    my $content_href = $self->_element_direction($element, 'Contents',
                                                'href');
     my $about_href = $self->_element_direction($element, 'About',
                                                'href');
@@ -87,7 +87,7 @@ sub singular_format_footer($$$$)
        if (defined($self->get_conf('DEFAULT_RULE')));
     if ($end_page) {
       $result .= join('', $self->close_registered_sections_level(0));
-      $result .= &{$self->{'format_navigation_header_panel'}}($self, 
+      $result .= &{$self->{'format_navigation_header_panel'}}($self,
                                             $buttons, undef, $element);
     }
     return $result;
@@ -141,8 +141,8 @@ texinfo_set_from_init_file('VERTICAL_HEAD_NAVIGATION', 1);
 my @SECTION_BUTTONS =
   (
    \&singular_banner,
-   'Back', 'Forward',   'FastBack', 'FastForward',   
-   'Up', 'Top', 'Contents', 'Index', 'About' 
+   'Back', 'Forward',   'FastBack', 'FastForward',
+   'Up', 'Top', 'Contents', 'Index', 'About'
   );
 
 texinfo_set_from_init_file ('SECTION_BUTTONS', \@SECTION_BUTTONS);

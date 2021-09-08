@@ -131,11 +131,11 @@ $result_trees{'top_node_part_top'} = [
       }
     ],
     'extra' => {
-      'element_command' => {},
       'node' => {},
-      'section' => {}
+      'section' => {},
+      'unit_command' => {}
     },
-    'type' => 'element'
+    'type' => 'unit'
   }
 ];
 $result_trees{'top_node_part_top'}[0]{'contents'}[0]{'parent'} = $result_trees{'top_node_part_top'}[0];
@@ -153,9 +153,9 @@ $result_trees{'top_node_part_top'}[0]{'contents'}[3]{'args'}[0]{'contents'}[0]{'
 $result_trees{'top_node_part_top'}[0]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'top_node_part_top'}[0]{'contents'}[3];
 $result_trees{'top_node_part_top'}[0]{'contents'}[3]{'extra'}{'associated_part'} = $result_trees{'top_node_part_top'}[0]{'contents'}[2];
 $result_trees{'top_node_part_top'}[0]{'contents'}[3]{'parent'} = $result_trees{'top_node_part_top'}[0];
-$result_trees{'top_node_part_top'}[0]{'extra'}{'element_command'} = $result_trees{'top_node_part_top'}[0]{'contents'}[3];
 $result_trees{'top_node_part_top'}[0]{'extra'}{'node'} = $result_trees{'top_node_part_top'}[0]{'contents'}[1];
 $result_trees{'top_node_part_top'}[0]{'extra'}{'section'} = $result_trees{'top_node_part_top'}[0]{'contents'}[3];
+$result_trees{'top_node_part_top'}[0]{'extra'}{'unit_command'} = $result_trees{'top_node_part_top'}[0]{'contents'}[3];
 
 $result_texis{'top_node_part_top'} = '@node Top
 
@@ -271,7 +271,14 @@ $result_elements{'top_node_part_top'} = [
       'directions' => {
         'This' => {}
       },
-      'element_command' => {
+      'node' => {
+        'cmdname' => 'node',
+        'extra' => {
+          'normalized' => 'Top',
+          'spaces_before_argument' => ' '
+        }
+      },
+      'section' => {
         'cmdname' => 'top',
         'extra' => {
           'associated_part' => {
@@ -285,20 +292,13 @@ $result_elements{'top_node_part_top'} = [
         },
         'level' => 0
       },
-      'node' => {
-        'cmdname' => 'node',
-        'extra' => {
-          'normalized' => 'Top',
-          'spaces_before_argument' => ' '
-        }
-      },
-      'section' => {}
+      'unit_command' => {}
     },
-    'type' => 'element'
+    'type' => 'unit'
   }
 ];
 $result_elements{'top_node_part_top'}[0]{'extra'}{'directions'}{'This'} = $result_elements{'top_node_part_top'}[0];
-$result_elements{'top_node_part_top'}[0]{'extra'}{'section'} = $result_elements{'top_node_part_top'}[0]{'extra'}{'element_command'};
+$result_elements{'top_node_part_top'}[0]{'extra'}{'unit_command'} = $result_elements{'top_node_part_top'}[0]{'extra'}{'section'};
 
 
 

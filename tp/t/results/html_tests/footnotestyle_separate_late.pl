@@ -129,11 +129,11 @@ $result_trees{'footnotestyle_separate_late'} = [
       }
     ],
     'extra' => {
-      'element_command' => {},
       'node' => {},
-      'section' => {}
+      'section' => {},
+      'unit_command' => {}
     },
-    'type' => 'element'
+    'type' => 'unit'
   },
   {
     'contents' => [
@@ -262,13 +262,13 @@ $result_trees{'footnotestyle_separate_late'} = [
         'parent' => {}
       }
     ],
-    'element_prev' => {},
     'extra' => {
-      'element_command' => {},
       'node' => {},
-      'section' => {}
+      'section' => {},
+      'unit_command' => {}
     },
-    'type' => 'element'
+    'type' => 'unit',
+    'unit_prev' => {}
   },
   {
     'contents' => [
@@ -428,13 +428,13 @@ $result_trees{'footnotestyle_separate_late'} = [
         'parent' => {}
       }
     ],
-    'element_prev' => {},
     'extra' => {
-      'element_command' => {},
       'node' => {},
-      'section' => {}
+      'section' => {},
+      'unit_command' => {}
     },
-    'type' => 'element'
+    'type' => 'unit',
+    'unit_prev' => {}
   }
 ];
 $result_trees{'footnotestyle_separate_late'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'footnotestyle_separate_late'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
@@ -451,9 +451,9 @@ $result_trees{'footnotestyle_separate_late'}[0]{'contents'}[2]{'args'}[0]{'conte
 $result_trees{'footnotestyle_separate_late'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'footnotestyle_separate_late'}[0]{'contents'}[2];
 $result_trees{'footnotestyle_separate_late'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'footnotestyle_separate_late'}[0]{'contents'}[2];
 $result_trees{'footnotestyle_separate_late'}[0]{'contents'}[2]{'parent'} = $result_trees{'footnotestyle_separate_late'}[0];
-$result_trees{'footnotestyle_separate_late'}[0]{'extra'}{'element_command'} = $result_trees{'footnotestyle_separate_late'}[0]{'contents'}[1];
 $result_trees{'footnotestyle_separate_late'}[0]{'extra'}{'node'} = $result_trees{'footnotestyle_separate_late'}[0]{'contents'}[1];
 $result_trees{'footnotestyle_separate_late'}[0]{'extra'}{'section'} = $result_trees{'footnotestyle_separate_late'}[0]{'contents'}[2];
+$result_trees{'footnotestyle_separate_late'}[0]{'extra'}{'unit_command'} = $result_trees{'footnotestyle_separate_late'}[0]{'contents'}[1];
 $result_trees{'footnotestyle_separate_late'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'footnotestyle_separate_late'}[1]{'contents'}[0]{'args'}[0];
 $result_trees{'footnotestyle_separate_late'}[1]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'footnotestyle_separate_late'}[1]{'contents'}[0];
 $result_trees{'footnotestyle_separate_late'}[1]{'contents'}[0]{'extra'}{'node_content'}[0] = $result_trees{'footnotestyle_separate_late'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0];
@@ -470,10 +470,10 @@ $result_trees{'footnotestyle_separate_late'}[1]{'contents'}[1]{'contents'}[1]{'c
 $result_trees{'footnotestyle_separate_late'}[1]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'footnotestyle_separate_late'}[1]{'contents'}[1];
 $result_trees{'footnotestyle_separate_late'}[1]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'footnotestyle_separate_late'}[1]{'contents'}[1];
 $result_trees{'footnotestyle_separate_late'}[1]{'contents'}[1]{'parent'} = $result_trees{'footnotestyle_separate_late'}[1];
-$result_trees{'footnotestyle_separate_late'}[1]{'element_prev'} = $result_trees{'footnotestyle_separate_late'}[0];
-$result_trees{'footnotestyle_separate_late'}[1]{'extra'}{'element_command'} = $result_trees{'footnotestyle_separate_late'}[1]{'contents'}[0];
 $result_trees{'footnotestyle_separate_late'}[1]{'extra'}{'node'} = $result_trees{'footnotestyle_separate_late'}[1]{'contents'}[0];
 $result_trees{'footnotestyle_separate_late'}[1]{'extra'}{'section'} = $result_trees{'footnotestyle_separate_late'}[1]{'contents'}[1];
+$result_trees{'footnotestyle_separate_late'}[1]{'extra'}{'unit_command'} = $result_trees{'footnotestyle_separate_late'}[1]{'contents'}[0];
+$result_trees{'footnotestyle_separate_late'}[1]{'unit_prev'} = $result_trees{'footnotestyle_separate_late'}[0];
 $result_trees{'footnotestyle_separate_late'}[2]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'footnotestyle_separate_late'}[2]{'contents'}[0]{'args'}[0];
 $result_trees{'footnotestyle_separate_late'}[2]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'footnotestyle_separate_late'}[2]{'contents'}[0];
 $result_trees{'footnotestyle_separate_late'}[2]{'contents'}[0]{'extra'}{'node_content'}[0] = $result_trees{'footnotestyle_separate_late'}[2]{'contents'}[0]{'args'}[0]{'contents'}[0];
@@ -493,10 +493,10 @@ $result_trees{'footnotestyle_separate_late'}[2]{'contents'}[1]{'contents'}[3]{'a
 $result_trees{'footnotestyle_separate_late'}[2]{'contents'}[1]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'footnotestyle_separate_late'}[2]{'contents'}[1]{'contents'}[3];
 $result_trees{'footnotestyle_separate_late'}[2]{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'footnotestyle_separate_late'}[2]{'contents'}[1];
 $result_trees{'footnotestyle_separate_late'}[2]{'contents'}[1]{'parent'} = $result_trees{'footnotestyle_separate_late'}[2];
-$result_trees{'footnotestyle_separate_late'}[2]{'element_prev'} = $result_trees{'footnotestyle_separate_late'}[1];
-$result_trees{'footnotestyle_separate_late'}[2]{'extra'}{'element_command'} = $result_trees{'footnotestyle_separate_late'}[2]{'contents'}[0];
 $result_trees{'footnotestyle_separate_late'}[2]{'extra'}{'node'} = $result_trees{'footnotestyle_separate_late'}[2]{'contents'}[0];
 $result_trees{'footnotestyle_separate_late'}[2]{'extra'}{'section'} = $result_trees{'footnotestyle_separate_late'}[2]{'contents'}[1];
+$result_trees{'footnotestyle_separate_late'}[2]{'extra'}{'unit_command'} = $result_trees{'footnotestyle_separate_late'}[2]{'contents'}[0];
+$result_trees{'footnotestyle_separate_late'}[2]{'unit_prev'} = $result_trees{'footnotestyle_separate_late'}[1];
 
 $result_texis{'footnotestyle_separate_late'} = '@setfilename footnotestyle_separate_late.info
 
@@ -689,14 +689,13 @@ $result_elements{'footnotestyle_separate_late'} = [
                     'This' => {},
                     'Up' => {}
                   },
-                  'element_command' => {
+                  'node' => {
                     'cmdname' => 'node',
                     'extra' => {
                       'normalized' => 'chap-s',
                       'spaces_before_argument' => ' '
                     }
                   },
-                  'node' => {},
                   'section' => {
                     'cmdname' => 'chapter',
                     'extra' => {
@@ -704,9 +703,10 @@ $result_elements{'footnotestyle_separate_late'} = [
                     },
                     'level' => 1,
                     'number' => 2
-                  }
+                  },
+                  'unit_command' => {}
                 },
-                'type' => 'element'
+                'type' => 'unit'
               },
               'Forward' => {},
               'Next' => {},
@@ -718,14 +718,13 @@ $result_elements{'footnotestyle_separate_late'} = [
               'This' => {},
               'Up' => {}
             },
-            'element_command' => {
+            'node' => {
               'cmdname' => 'node',
               'extra' => {
                 'normalized' => 'chap-f',
                 'spaces_before_argument' => ' '
               }
             },
-            'node' => {},
             'section' => {
               'cmdname' => 'chapter',
               'extra' => {
@@ -733,32 +732,33 @@ $result_elements{'footnotestyle_separate_late'} = [
               },
               'level' => 1,
               'number' => 1
-            }
+            },
+            'unit_command' => {}
           },
-          'type' => 'element'
+          'type' => 'unit'
         },
         'Forward' => {},
         'NodeForward' => {},
         'NodeNext' => {},
         'This' => {}
       },
-      'element_command' => {
+      'node' => {
         'cmdname' => 'node',
         'extra' => {
           'normalized' => 'Top',
           'spaces_before_argument' => ' '
         }
       },
-      'node' => {},
       'section' => {
         'cmdname' => 'top',
         'extra' => {
           'spaces_before_argument' => ' '
         },
         'level' => 0
-      }
+      },
+      'unit_command' => {}
     },
-    'type' => 'element'
+    'type' => 'unit'
   },
   {},
   {}
@@ -773,7 +773,7 @@ $result_elements{'footnotestyle_separate_late'}[0]{'extra'}{'directions'}{'FastF
 $result_elements{'footnotestyle_separate_late'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'directions'}{'FastForward'}{'extra'}{'directions'}{'Prev'} = $result_elements{'footnotestyle_separate_late'}[0]{'extra'}{'directions'}{'FastForward'};
 $result_elements{'footnotestyle_separate_late'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'directions'}{'FastForward'}{'extra'}{'directions'}{'This'} = $result_elements{'footnotestyle_separate_late'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'directions'}{'FastForward'};
 $result_elements{'footnotestyle_separate_late'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'directions'}{'FastForward'}{'extra'}{'directions'}{'Up'} = $result_elements{'footnotestyle_separate_late'}[0];
-$result_elements{'footnotestyle_separate_late'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'directions'}{'FastForward'}{'extra'}{'node'} = $result_elements{'footnotestyle_separate_late'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'directions'}{'FastForward'}{'extra'}{'element_command'};
+$result_elements{'footnotestyle_separate_late'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'directions'}{'FastForward'}{'extra'}{'unit_command'} = $result_elements{'footnotestyle_separate_late'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'directions'}{'FastForward'}{'extra'}{'node'};
 $result_elements{'footnotestyle_separate_late'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'directions'}{'Forward'} = $result_elements{'footnotestyle_separate_late'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'directions'}{'FastForward'};
 $result_elements{'footnotestyle_separate_late'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'directions'}{'Next'} = $result_elements{'footnotestyle_separate_late'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'directions'}{'FastForward'};
 $result_elements{'footnotestyle_separate_late'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'directions'}{'NodeBack'} = $result_elements{'footnotestyle_separate_late'}[0];
@@ -783,12 +783,12 @@ $result_elements{'footnotestyle_separate_late'}[0]{'extra'}{'directions'}{'FastF
 $result_elements{'footnotestyle_separate_late'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'directions'}{'NodeUp'} = $result_elements{'footnotestyle_separate_late'}[0];
 $result_elements{'footnotestyle_separate_late'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'directions'}{'This'} = $result_elements{'footnotestyle_separate_late'}[0]{'extra'}{'directions'}{'FastForward'};
 $result_elements{'footnotestyle_separate_late'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'directions'}{'Up'} = $result_elements{'footnotestyle_separate_late'}[0];
-$result_elements{'footnotestyle_separate_late'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'node'} = $result_elements{'footnotestyle_separate_late'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'element_command'};
+$result_elements{'footnotestyle_separate_late'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'unit_command'} = $result_elements{'footnotestyle_separate_late'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'node'};
 $result_elements{'footnotestyle_separate_late'}[0]{'extra'}{'directions'}{'Forward'} = $result_elements{'footnotestyle_separate_late'}[0]{'extra'}{'directions'}{'FastForward'};
 $result_elements{'footnotestyle_separate_late'}[0]{'extra'}{'directions'}{'NodeForward'} = $result_elements{'footnotestyle_separate_late'}[0]{'extra'}{'directions'}{'FastForward'};
 $result_elements{'footnotestyle_separate_late'}[0]{'extra'}{'directions'}{'NodeNext'} = $result_elements{'footnotestyle_separate_late'}[0]{'extra'}{'directions'}{'FastForward'};
 $result_elements{'footnotestyle_separate_late'}[0]{'extra'}{'directions'}{'This'} = $result_elements{'footnotestyle_separate_late'}[0];
-$result_elements{'footnotestyle_separate_late'}[0]{'extra'}{'node'} = $result_elements{'footnotestyle_separate_late'}[0]{'extra'}{'element_command'};
+$result_elements{'footnotestyle_separate_late'}[0]{'extra'}{'unit_command'} = $result_elements{'footnotestyle_separate_late'}[0]{'extra'}{'node'};
 $result_elements{'footnotestyle_separate_late'}[1] = $result_elements{'footnotestyle_separate_late'}[0]{'extra'}{'directions'}{'FastForward'};
 $result_elements{'footnotestyle_separate_late'}[2] = $result_elements{'footnotestyle_separate_late'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'directions'}{'FastForward'};
 

@@ -83,10 +83,10 @@ $result_trees{'part_before_top'} = [
       }
     ],
     'extra' => {
-      'element_command' => {},
-      'section' => {}
+      'section' => {},
+      'unit_command' => {}
     },
-    'type' => 'element'
+    'type' => 'unit'
   }
 ];
 $result_trees{'part_before_top'}[0]{'contents'}[0]{'parent'} = $result_trees{'part_before_top'}[0];
@@ -98,8 +98,8 @@ $result_trees{'part_before_top'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'pa
 $result_trees{'part_before_top'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'part_before_top'}[0]{'contents'}[2];
 $result_trees{'part_before_top'}[0]{'contents'}[2]{'extra'}{'associated_part'} = $result_trees{'part_before_top'}[0]{'contents'}[1];
 $result_trees{'part_before_top'}[0]{'contents'}[2]{'parent'} = $result_trees{'part_before_top'}[0];
-$result_trees{'part_before_top'}[0]{'extra'}{'element_command'} = $result_trees{'part_before_top'}[0]{'contents'}[2];
 $result_trees{'part_before_top'}[0]{'extra'}{'section'} = $result_trees{'part_before_top'}[0]{'contents'}[2];
+$result_trees{'part_before_top'}[0]{'extra'}{'unit_command'} = $result_trees{'part_before_top'}[0]{'contents'}[2];
 
 $result_texis{'part_before_top'} = '@part part
 
@@ -166,7 +166,7 @@ $result_elements{'part_before_top'} = [
       'directions' => {
         'This' => {}
       },
-      'element_command' => {
+      'section' => {
         'cmdname' => 'top',
         'extra' => {
           'associated_part' => {
@@ -180,13 +180,13 @@ $result_elements{'part_before_top'} = [
         },
         'level' => 0
       },
-      'section' => {}
+      'unit_command' => {}
     },
-    'type' => 'element'
+    'type' => 'unit'
   }
 ];
 $result_elements{'part_before_top'}[0]{'extra'}{'directions'}{'This'} = $result_elements{'part_before_top'}[0];
-$result_elements{'part_before_top'}[0]{'extra'}{'section'} = $result_elements{'part_before_top'}[0]{'extra'}{'element_command'};
+$result_elements{'part_before_top'}[0]{'extra'}{'unit_command'} = $result_elements{'part_before_top'}[0]{'extra'}{'section'};
 
 
 

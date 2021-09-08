@@ -52,10 +52,10 @@ $result_trees{'index_below'} = [
       }
     ],
     'extra' => {
-      'element_command' => {},
-      'section' => {}
+      'section' => {},
+      'unit_command' => {}
     },
-    'type' => 'element'
+    'type' => 'unit'
   },
   {
     'contents' => [
@@ -98,12 +98,12 @@ $result_trees{'index_below'} = [
         'parent' => {}
       }
     ],
-    'element_prev' => {},
     'extra' => {
-      'element_command' => {},
-      'section' => {}
+      'section' => {},
+      'unit_command' => {}
     },
-    'type' => 'element'
+    'type' => 'unit',
+    'unit_prev' => {}
   },
   {
     'contents' => [
@@ -216,12 +216,12 @@ $result_trees{'index_below'} = [
         'parent' => {}
       }
     ],
-    'element_prev' => {},
     'extra' => {
-      'element_command' => {},
-      'section' => {}
+      'section' => {},
+      'unit_command' => {}
     },
-    'type' => 'element'
+    'type' => 'unit',
+    'unit_prev' => {}
   }
 ];
 $result_trees{'index_below'}[0]{'contents'}[0]{'parent'} = $result_trees{'index_below'}[0];
@@ -229,15 +229,15 @@ $result_trees{'index_below'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent
 $result_trees{'index_below'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'index_below'}[0]{'contents'}[1];
 $result_trees{'index_below'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'index_below'}[0]{'contents'}[1];
 $result_trees{'index_below'}[0]{'contents'}[1]{'parent'} = $result_trees{'index_below'}[0];
-$result_trees{'index_below'}[0]{'extra'}{'element_command'} = $result_trees{'index_below'}[0]{'contents'}[1];
 $result_trees{'index_below'}[0]{'extra'}{'section'} = $result_trees{'index_below'}[0]{'contents'}[1];
+$result_trees{'index_below'}[0]{'extra'}{'unit_command'} = $result_trees{'index_below'}[0]{'contents'}[1];
 $result_trees{'index_below'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'index_below'}[1]{'contents'}[0]{'args'}[0];
 $result_trees{'index_below'}[1]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'index_below'}[1]{'contents'}[0];
 $result_trees{'index_below'}[1]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'index_below'}[1]{'contents'}[0];
 $result_trees{'index_below'}[1]{'contents'}[0]{'parent'} = $result_trees{'index_below'}[1];
-$result_trees{'index_below'}[1]{'element_prev'} = $result_trees{'index_below'}[0];
-$result_trees{'index_below'}[1]{'extra'}{'element_command'} = $result_trees{'index_below'}[1]{'contents'}[0];
 $result_trees{'index_below'}[1]{'extra'}{'section'} = $result_trees{'index_below'}[1]{'contents'}[0];
+$result_trees{'index_below'}[1]{'extra'}{'unit_command'} = $result_trees{'index_below'}[1]{'contents'}[0];
+$result_trees{'index_below'}[1]{'unit_prev'} = $result_trees{'index_below'}[0];
 $result_trees{'index_below'}[2]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'index_below'}[2]{'contents'}[0]{'args'}[0];
 $result_trees{'index_below'}[2]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'index_below'}[2]{'contents'}[0];
 $result_trees{'index_below'}[2]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'index_below'}[2]{'contents'}[0];
@@ -251,9 +251,9 @@ $result_trees{'index_below'}[2]{'contents'}[0]{'contents'}[2]{'args'}[0]{'conten
 $result_trees{'index_below'}[2]{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'index_below'}[2]{'contents'}[0]{'contents'}[2];
 $result_trees{'index_below'}[2]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'index_below'}[2]{'contents'}[0];
 $result_trees{'index_below'}[2]{'contents'}[0]{'parent'} = $result_trees{'index_below'}[2];
-$result_trees{'index_below'}[2]{'element_prev'} = $result_trees{'index_below'}[1];
-$result_trees{'index_below'}[2]{'extra'}{'element_command'} = $result_trees{'index_below'}[2]{'contents'}[0];
 $result_trees{'index_below'}[2]{'extra'}{'section'} = $result_trees{'index_below'}[2]{'contents'}[0];
+$result_trees{'index_below'}[2]{'extra'}{'unit_command'} = $result_trees{'index_below'}[2]{'contents'}[0];
+$result_trees{'index_below'}[2]{'unit_prev'} = $result_trees{'index_below'}[1];
 
 $result_texis{'index_below'} = '@top top
 
@@ -350,7 +350,7 @@ $result_elements{'index_below'} = [
                     'This' => {},
                     'Up' => {}
                   },
-                  'element_command' => {
+                  'section' => {
                     'cmdname' => 'section',
                     'extra' => {
                       'spaces_before_argument' => ' '
@@ -358,14 +358,14 @@ $result_elements{'index_below'} = [
                     'level' => 2,
                     'number' => '1.1'
                   },
-                  'section' => {}
+                  'unit_command' => {}
                 },
-                'type' => 'element'
+                'type' => 'unit'
               },
               'This' => {},
               'Up' => {}
             },
-            'element_command' => {
+            'section' => {
               'cmdname' => 'chapter',
               'extra' => {
                 'spaces_before_argument' => ' '
@@ -373,23 +373,23 @@ $result_elements{'index_below'} = [
               'level' => 1,
               'number' => 1
             },
-            'section' => {}
+            'unit_command' => {}
           },
-          'type' => 'element'
+          'type' => 'unit'
         },
         'Forward' => {},
         'This' => {}
       },
-      'element_command' => {
+      'section' => {
         'cmdname' => 'top',
         'extra' => {
           'spaces_before_argument' => ' '
         },
         'level' => 0
       },
-      'section' => {}
+      'unit_command' => {}
     },
-    'type' => 'element'
+    'type' => 'unit'
   },
   {},
   {}
@@ -400,13 +400,13 @@ $result_elements{'index_below'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'
 $result_elements{'index_below'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'directions'}{'Forward'}{'extra'}{'directions'}{'FastBack'} = $result_elements{'index_below'}[0]{'extra'}{'directions'}{'FastForward'};
 $result_elements{'index_below'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'directions'}{'Forward'}{'extra'}{'directions'}{'This'} = $result_elements{'index_below'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'directions'}{'Forward'};
 $result_elements{'index_below'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'directions'}{'Forward'}{'extra'}{'directions'}{'Up'} = $result_elements{'index_below'}[0]{'extra'}{'directions'}{'FastForward'};
-$result_elements{'index_below'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'directions'}{'Forward'}{'extra'}{'section'} = $result_elements{'index_below'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'directions'}{'Forward'}{'extra'}{'element_command'};
+$result_elements{'index_below'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'directions'}{'Forward'}{'extra'}{'unit_command'} = $result_elements{'index_below'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'directions'}{'Forward'}{'extra'}{'section'};
 $result_elements{'index_below'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'directions'}{'This'} = $result_elements{'index_below'}[0]{'extra'}{'directions'}{'FastForward'};
 $result_elements{'index_below'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'directions'}{'Up'} = $result_elements{'index_below'}[0];
-$result_elements{'index_below'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'section'} = $result_elements{'index_below'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'element_command'};
+$result_elements{'index_below'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'unit_command'} = $result_elements{'index_below'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'section'};
 $result_elements{'index_below'}[0]{'extra'}{'directions'}{'Forward'} = $result_elements{'index_below'}[0]{'extra'}{'directions'}{'FastForward'};
 $result_elements{'index_below'}[0]{'extra'}{'directions'}{'This'} = $result_elements{'index_below'}[0];
-$result_elements{'index_below'}[0]{'extra'}{'section'} = $result_elements{'index_below'}[0]{'extra'}{'element_command'};
+$result_elements{'index_below'}[0]{'extra'}{'unit_command'} = $result_elements{'index_below'}[0]{'extra'}{'section'};
 $result_elements{'index_below'}[1] = $result_elements{'index_below'}[0]{'extra'}{'directions'}{'FastForward'};
 $result_elements{'index_below'}[2] = $result_elements{'index_below'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'directions'}{'Forward'};
 

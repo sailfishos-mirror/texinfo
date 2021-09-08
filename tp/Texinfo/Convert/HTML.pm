@@ -329,15 +329,15 @@ sub command_filename($$)
     if (defined($target->{'filename'})) {
       return $target->{'filename'};
     }
-    my ($element, $root_command) = $self->_get_element($command, 1);
+    my ($tree_unit, $root_command) = $self->_html_get_tree_unit($command, 1);
 
     if (defined($root_command)) {
       $target->{'root_command'} = $root_command;
     }
-    if (defined($element)) {
-      $target->{'element'} = $element;
-      $target->{'filename'} = $element->{'filename'};
-      return $element->{'filename'};
+    if (defined($tree_unit)) {
+      $target->{'unit'} = $tree_unit;
+      $target->{'filename'} = $tree_unit->{'filename'};
+      return $tree_unit->{'filename'};
     }
   }
   return undef;
@@ -351,20 +351,19 @@ sub command_element($$)
   my $target = $self->_get_target($command);
   if ($target) {
     $self->command_filename($command);
-    return $target->{'element'};
+    return $target->{'unit'};
   }
   return undef;
 }
 
-sub command_element_command($$)
+sub command_tree_unit_command($$)
 {
   my $self = shift;
   my $command = shift;
 
-  my ($element, $root_command) = $self->_get_element($command);
-  #my $element = $self->command_element($command);
-  if ($element and $element->{'extra'}) {
-    return $element->{'extra'}->{'element_command'};
+  my ($tree_unit, $root_command) = $self->_html_get_tree_unit($command);
+  if ($tree_unit and $tree_unit->{'extra'}) {
+    return $tree_unit->{'extra'}->{'unit_command'};
   }
   return undef;
 }
@@ -375,8 +374,8 @@ sub element_command($$)
   my $element = shift;
 
   if ($element and $element->{'extra'}) {
-    if ($element->{'extra'}->{'element_command'}) {
-      return $element->{'extra'}->{'element_command'};
+    if ($element->{'extra'}->{'unit_command'}) {
+      return $element->{'extra'}->{'unit_command'};
     } elsif ($element->{'extra'}->{'special_element'}) {
       return $element;
     }
@@ -428,10 +427,10 @@ sub command_href($$;$$)
     # Happens if there are no pages, for example if OUTPUT is set to ''
     # as in the test cases.  Also for things in @titlepage when
     # titlepage is not output.
-    if ($self->{'elements'} and $self->{'elements'}->[0]
-       and defined($self->{'elements'}->[0]->{'filename'})) {
+    if ($self->{'tree_units'} and $self->{'tree_units'}->[0]
+       and defined($self->{'tree_units'}->[0]->{'filename'})) {
       # In that case use the first page.
-      $target_filename = $self->{'elements'}->[0]->{'filename'};
+      $target_filename = $self->{'tree_units'}->[0]->{'filename'};
     }
   }
   if (defined($target_filename)) { 
@@ -440,13 +439,13 @@ sub command_href($$;$$)
       $href .= $target_filename;
       # omit target if the command is an element command, there is only
       # one element in file and there is a file in the href
-      my $command_element_command = $self->command_element_command($command);
+      my $command_tree_unit_command = $self->command_tree_unit_command($command);
       if (defined($filename)
-          and defined($command_element_command)
-          and ($command_element_command eq $command
-            or (defined($command_element_command->{'extra'})
-              and defined($command_element_command->{'extra'}->{'associated_section'})
-              and $command_element_command->{'extra'}->{'associated_section'}
+          and defined($command_tree_unit_command)
+          and ($command_tree_unit_command eq $command
+            or (defined($command_tree_unit_command->{'extra'})
+              and defined($command_tree_unit_command->{'extra'}->{'associated_section'})
+              and $command_tree_unit_command->{'extra'}->{'associated_section'}
                     eq $command))) {
         my $count_elements_in_file = $self->count_elements_in_filename($target_filename);
         if (defined($count_elements_in_file) and $count_elements_in_file == 1) {
@@ -648,17 +647,17 @@ sub global_element($$)
 
 # it is considered 'top' only if element corresponds to @top or 
 # element is a node
-sub element_is_top($$)
+sub element_is_tree_unit_top($$)
 {
   my $self = shift;
   my $element = shift;
   return ($self->{'global_target_elements'}->{'Top'}
     and $self->{'global_target_elements'}->{'Top'} eq $element
     and $element->{'extra'}
-    and (($element->{'extra'}->{'section'} 
+    and (($element->{'extra'}->{'section'}
          and $element->{'extra'}->{'section'}->{'cmdname'} eq 'top')
-         or ($element->{'extra'}->{'element_command'}
-             and $element->{'extra'}->{'element_command'}->{'cmdname'} eq 'node')));
+         or ($element->{'extra'}->{'unit_command'}
+             and $element->{'extra'}->{'unit_command'}->{'cmdname'} eq 'node')));
 }
 
 sub default_formatting_function($$)
@@ -1992,13 +1991,15 @@ sub _default_format_protect_text($$) {
   return $result;
 }
 
+# can be called on root commands, tree units, special elements
+# and title elements
 sub _default_format_heading_text($$$$$)
 {
   my $self = shift;
   my $cmdname = shift;
   my $text = shift;
   my $level = shift;
-  my $command = shift;
+  my $element = shift;
 
   return '' if ($text !~ /\S/);
 
@@ -2300,12 +2301,13 @@ sub _default_format_button($$)
   return ($active, $passive, $need_delimiter);
 }
 
+# called for special elements and tree units
 sub _default_format_navigation_header_panel($$$$;$)
 {
   my $self = shift;
   my $buttons = shift;
   my $cmdname = shift;
-  my $command = shift;
+  my $element = shift;
   my $vertical = shift;
 
   # if VERTICAL_HEAD_NAVIGATION, the buttons are in a vertical table which
@@ -2368,7 +2370,7 @@ sub _default_format_navigation_header($$$$)
   my $self = shift;
   my $buttons = shift;
   my $cmdname = shift;
-  my $command = shift;
+  my $element = shift;
 
   my $result = '';
   if ($self->get_conf('VERTICAL_HEAD_NAVIGATION')) {
@@ -2378,7 +2380,7 @@ sub _default_format_navigation_header($$$$)
 ';
   }
   $result .= &{$self->{'format_navigation_header_panel'}}($self, $buttons,
-                                                   $cmdname, $command,
+                                                   $cmdname, $element,
                                    $self->get_conf('VERTICAL_HEAD_NAVIGATION'));
   if ($self->get_conf('VERTICAL_HEAD_NAVIGATION')) {
     $result .= '</td>
@@ -2390,30 +2392,31 @@ sub _default_format_navigation_header($$$$)
   return $result;
 }
 
+# this can only be called on root commands and associated tree units
 sub _default_format_element_header($$$$)
 {
   my $self = shift;
   my $cmdname = shift;
   my $command = shift;
-  my $element = shift;
+  my $tree_unit = shift;
 
   my $result = '';
     
-  print STDERR "Element $element (@{$element->{'contents'}}) ".
-     Texinfo::Structuring::_print_element_command_texi($element) ."\n"
+  print STDERR "Element $tree_unit (@{$tree_unit->{'contents'}}) ".
+     Texinfo::Structuring::_print_element_command_texi($tree_unit) ."\n"
         if ($self->get_conf('DEBUG'));
 
   # Do the heading if the command is the first command in the element
-  if (($element->{'contents'}->[0] eq $command
-       or (!$element->{'contents'}->[0]->{'cmdname'} 
-            and $element->{'contents'}->[1] eq $command))
+  if (($tree_unit->{'contents'}->[0] eq $command
+       or (!$tree_unit->{'contents'}->[0]->{'cmdname'}
+            and $tree_unit->{'contents'}->[1] eq $command))
       # and there is more than one element
-      and ($element->{'element_next'} or $element->{'element_prev'})) {
-    my $is_top = $self->element_is_top($element);
-    my $first_in_page = (defined($element->{'filename'})
-           and $self->{'counter_in_file'}->{$element->{'filename'}} == 1);
-    my $previous_is_top = ($element->{'element_prev'} 
-                   and $self->element_is_top($element->{'element_prev'}));
+      and ($tree_unit->{'unit_next'} or $tree_unit->{'unit_prev'})) {
+    my $is_top = $self->element_is_tree_unit_top($tree_unit);
+    my $first_in_page = (defined($tree_unit->{'filename'})
+           and $self->{'counter_in_file'}->{$tree_unit->{'filename'}} == 1);
+    my $previous_is_top = ($tree_unit->{'unit_prev'}
+                   and $self->element_is_tree_unit_top($tree_unit->{'unit_prev'}));
 
     print STDERR "Header ($previous_is_top, $is_top, $first_in_page): "
       .Texinfo::Structuring::_print_root_command_texi($command)."\n"
@@ -2527,26 +2530,26 @@ sub _convert_heading_command($$$$$)
   print STDERR "Process $command "
         .Texinfo::Structuring::_print_root_command_texi($command)."\n"
           if ($self->get_conf('DEBUG'));
-  my $element;
+  my $tree_unit;
   if ($Texinfo::Common::root_commands{$command->{'cmdname'}} 
       and $command->{'parent'}
       and $command->{'parent'}->{'type'} 
-      and $command->{'parent'}->{'type'} eq 'element') {
-    $element = $command->{'parent'};
+      and $command->{'parent'}->{'type'} eq 'unit') {
+    $tree_unit = $command->{'parent'};
   }
-  if ($element) {
+  if ($tree_unit) {
     $result .= &{$self->{'format_element_header'}}($self, $cmdname, 
-                                            $command, $element);
+                                            $command, $tree_unit);
   }
 
   my $heading_level;
   # node is used as heading if there is nothing else.
   if ($cmdname eq 'node') {
-    if (!$element or (!$element->{'extra'}->{'section'}
-                      and $element->{'extra'}->{'node'}
-                      and $element->{'extra'}->{'node'} eq $command
-                      # bogus node may not have been normalized
-                      and defined($command->{'extra'}->{'normalized'}))) {
+    if (!$tree_unit or (!$tree_unit->{'extra'}->{'section'}
+                        and $tree_unit->{'extra'}->{'node'}
+                        and $tree_unit->{'extra'}->{'node'} eq $command
+                        # bogus node may not have been normalized
+                        and defined($command->{'extra'}->{'normalized'}))) {
       if ($command->{'extra'}->{'normalized'} eq 'Top') {
         $heading_level = 0;
       } else {
@@ -3448,7 +3451,7 @@ sub _convert_xref_commands($$$$)
      = $self->label_command($root->{'extra'}->{'node_argument'}->{'normalized'}); 
     # This is the node if USE_NODES, otherwise this may be the sectioning 
     # command (if the sectioning command is really associated to the node)
-    my $command = $self->command_element_command($node);
+    my $command = $self->command_tree_unit_command($node);
     $command = $node if (!$node->{'extra'}->{'associated_section'}
                          or $node->{'extra'}->{'associated_section'} ne $command);
 
@@ -3801,7 +3804,7 @@ sub _convert_printindex_command($$$$)
       }
       if (!$associated_command) {
         $associated_command 
-          = $self->command_element_command($index_entry_ref->{'command'});
+          = $self->command_tree_unit_command($index_entry_ref->{'command'});
         if (!$associated_command) {
           # Use Top if not associated command found
           $associated_command 
@@ -3845,11 +3848,11 @@ sub _contents_inline_element($$$)
 
   my $content = &{$self->{'format_contents'}}($self, $cmdname, $command);
   if ($content) {
-    my $element_name = $contents_command_element_name{$cmdname};
+    my $special_element_name = $contents_command_element_name{$cmdname};
     my $special_element 
-      = $self->special_element($element_name);
+      = $self->special_element($special_element_name);
     my $heading;
-    my $result = "<div class=\"${element_name}_element\"";
+    my $result = "<div class=\"${special_element_name}_element\"";
     if ($special_element) {
       my $id = $self->command_id($special_element);
       if ($id ne '') {
@@ -3860,10 +3863,10 @@ sub _contents_inline_element($$$)
       # happens when called as convert() and not output()
       #cluck "$cmdname special element not defined";
       $heading 
-        = $self->convert_tree ($self->get_conf('SPECIAL_ELEMENTS_NAME')->{$element_name});
+        = $self->convert_tree($self->get_conf('SPECIAL_ELEMENTS_NAME')->{$special_element_name});
     }
     $result .= ">\n";
-    my $class = $self->get_conf('SPECIAL_ELEMENTS_CLASS')->{$element_name};
+    my $class = $self->get_conf('SPECIAL_ELEMENTS_CLASS')->{$special_element_name};
     $result .= &{$self->{'format_heading_text'}}($self, $class.'-heading', 
                        $heading, $self->get_conf('CHAPTER_HEADER_LEVEL'))."\n";
     $result .= $content . "</div>\n";
@@ -4183,7 +4186,7 @@ sub _convert_menu_entry_type($$$)
     # the node is the element command
     if ($node->{'extra'}->{'associated_section'} 
       and !$self->get_conf('NODE_NAME_IN_MENU')
-      and !($self->command_element_command($node) eq $node)) {
+      and !($self->command_tree_unit_command($node) eq $node)) {
       $section = $node->{'extra'}->{'associated_section'};
       $href = $self->command_href($section, undef, $command);
     } else {
@@ -4681,7 +4684,7 @@ sub _convert_root_text_type($$$$)
   # if there is no element, the parent should not be an element
   if (!$command->{'parent'} 
       or !$command->{'parent'}->{'type'}
-      or $command->{'parent'}->{'type'} ne 'element') {
+      or $command->{'parent'}->{'type'} ne 'unit') {
     $result .= &{$self->{'format_footnotes_text'}}($self);
     $result .= $self->get_conf('DEFAULT_RULE') ."\n",
       if ($self->get_conf('PROGRAM_NAME_IN_FOOTER') 
@@ -4761,9 +4764,9 @@ sub _print_title($)
 
 # Function for converting the top-level elements in the conversion: a section 
 # or a node.  $ELEMENT was created in this module (in _prepare_elements), with 
-# type 'element' (it's not a tree element created by the parser).  $CONTENT
+# type 'unit' (it's not a tree unit created by the parser).  $CONTENT
 # is the contents of the node/section, already converted.
-sub _convert_element_type($$$$)
+sub _convert_tree_unit_type($$$$)
 {
   my $self = shift;
   my $type = shift;
@@ -4815,15 +4818,19 @@ sub _convert_element_type($$$$)
       return '';
     }
     $result .= $special_element_body . '</div>';
-  } elsif (!$element->{'element_prev'}) {
-    $result .= $self->_print_title();
-    if (!$element->{'element_next'}) {
-      # only one element
-      $result .= $content;
-      $result .= &{$self->{'format_footnotes_text'}}($self);
-      $result .= $self->get_conf('DEFAULT_RULE');
-      $result .= join('', $self->close_registered_sections_level(0));
-      return $result;
+  } else {
+    my $tree_unit = $element;
+    if (!$tree_unit->{'unit_prev'}) {
+
+      $result .= $self->_print_title();
+      if (!$tree_unit->{'unit_next'}) {
+        # only one element
+        $result .= $content;
+        $result .= &{$self->{'format_footnotes_text'}}($self);
+        $result .= $self->get_conf('DEFAULT_RULE');
+        $result .= join('', $self->close_registered_sections_level(0));
+        return $result;
+      }
     }
   }
   $result .= $content unless ($special_element);
@@ -4832,6 +4839,9 @@ sub _convert_element_type($$$$)
   return $result;
 }
 
+$default_types_conversion{'unit'} = \&_convert_tree_unit_type;
+
+# for tree unit elements and special elements
 sub _default_format_element_footer($$$$)
 {
   my $self = shift;
@@ -4840,15 +4850,15 @@ sub _default_format_element_footer($$$$)
   my $content = shift;
 
   my $result = '';
-  my $is_top = $self->element_is_top($element);
-  my $next_is_top = ($element->{'element_next'} 
-                     and $self->element_is_top($element->{'element_next'}));
-  my $next_is_special = (defined($element->{'element_next'})
-    and $element->{'element_next'}->{'extra'}->{'special_element'});
+  my $is_top = $self->element_is_tree_unit_top($element);
+  my $next_is_top = ($element->{'unit_next'}
+                     and $self->element_is_tree_unit_top($element->{'unit_next'}));
+  my $next_is_special = (defined($element->{'unit_next'})
+    and $element->{'unit_next'}->{'extra'}->{'special_element'});
 
-  my $end_page = (!$element->{'element_next'}
+  my $end_page = (!$element->{'unit_next'}
        or (defined($element->{'filename'}) 
-           and $element->{'filename'} ne $element->{'element_next'}->{'filename'}
+           and $element->{'filename'} ne $element->{'unit_next'}->{'filename'}
            and $self->{'file_counters'}->{$element->{'filename'}} == 1));
 
   my $is_special = $element->{'extra'}->{'special_element'};
@@ -4898,9 +4908,9 @@ sub _default_format_element_footer($$$$)
   }
   # FIXME the following condition is almost a duplication of end_page 
   # except that the file counter needs not be 1
-  if ((!$element->{'element_next'}
+  if ((!$element->{'unit_next'}
        or (defined($element->{'filename'})
-           and $element->{'filename'} ne $element->{'element_next'}->{'filename'}))
+           and $element->{'filename'} ne $element->{'unit_next'}->{'filename'}))
       and $self->get_conf('footnotestyle') eq 'end') {
     $result .= &{$self->{'format_footnotes_text'}}($self);
   }
@@ -4922,13 +4932,11 @@ sub _default_format_element_footer($$$$)
   }
   if ($buttons) {
     $result .= &{$self->{'format_navigation_header_panel'}}($self, $buttons,
-                                                     undef, $element);
+                                                          undef, $element);
   }
   
   return $result;
 }
-
-$default_types_conversion{'element'} = \&_convert_element_type;
 
 sub _new_document_context($$)
 {
@@ -5599,7 +5607,7 @@ sub _new_sectioning_command_target($$)
 sub _set_root_commands_targets_node_files($$)
 {
   my $self = shift;
-  my $elements = shift;
+  my $tree_units = shift;
 
   my $no_unidecode;
   $no_unidecode = 1 if (defined($self->get_conf('USE_UNIDECODE')) 
@@ -5626,9 +5634,9 @@ sub _set_root_commands_targets_node_files($$)
     }
   }
 
-  if ($elements) {
-    foreach my $element (@$elements) {
-      foreach my $root_command(@{$element->{'contents'}}) {
+  if ($tree_units) {
+    foreach my $tree_unit (@$tree_units) {
+      foreach my $root_command(@{$tree_unit->{'contents'}}) {
         # this happens for type 'text_root' which precedes the 
         # root commands.  The target may also already be set for top node.
         next if (!defined($root_command->{'cmdname'}) 
@@ -5641,12 +5649,12 @@ sub _set_root_commands_targets_node_files($$)
   }
 }
 
-sub _get_element($$;$);
+sub _html_get_tree_unit($$;$);
 
 # If $find_container is set, the element that holds the command is found,
 # otherwise the element that holds the command content is found.  This is 
 # mostly relevant for footnote only.
-sub _get_element($$;$)
+sub _html_get_tree_unit($$;$)
 {
   my $self = shift;
   my $command = shift;
@@ -5654,57 +5662,57 @@ sub _get_element($$;$)
 
   my $current = $command;
 
-  my ($element, $root_command);
+  my ($tree_unit, $root_command);
   while (1) {
     if ($current->{'type'}) {
-      if ($current->{'type'} eq 'element') {
+      if ($current->{'type'} eq 'unit') {
         return ($current, $root_command);
       }
     }
     if ($current->{'cmdname'}) {
       if ($root_commands{$current->{'cmdname'}}) {
         $root_command = $current;
-        return ($element, $root_command) if defined($element);
+        return ($tree_unit, $root_command) if defined($tree_unit);
       } elsif ($region_commands{$current->{'cmdname'}}) {
         if ($current->{'cmdname'} eq 'copying' 
             and $self->{'global_commands'}
             and $self->{'global_commands'}->{'insertcopying'}) {
           foreach my $insertcopying(@{$self->{'global_commands'}->{'insertcopying'}}) {
-            my ($element, $root_command) 
-              = $self->_get_element($insertcopying, $find_container);
-            return ($element, $root_command)
-              if (defined($element) or defined($root_command));
+            my ($tree_unit, $root_command)
+              = $self->_html_get_tree_unit($insertcopying, $find_container);
+            return ($tree_unit, $root_command)
+              if (defined($tree_unit) or defined($root_command));
           }
         } elsif ($current->{'cmdname'} eq 'titlepage'
                  and $self->get_conf('USE_TITLEPAGE_FOR_TITLE')
                  and $self->get_conf('SHOW_TITLE')
-                 and $self->{'elements'}->[0]) {
-          return ($self->{'elements'}->[0], 
-                  $self->{'elements'}->[0]->{'extra'}->{'element_command'});
+                 and $self->{'tree_units'}->[0]) {
+          return ($self->{'tree_units'}->[0],
+                  $self->{'tree_units'}->[0]->{'extra'}->{'unit_command'});
         }
-        die "Problem $element, $root_command" if (defined($element) 
+        die "Problem $tree_unit, $root_command" if (defined($tree_unit)
                                                   or defined($root_command));
         return (undef, undef);
       } elsif ($current->{'cmdname'} eq 'footnote' 
            and $self->{'special_elements_types'}->{'Footnotes'}
            and $find_container) {
            # in that case there is no root_command
-          $element = $self->{'special_elements_types'}->{'Footnotes'};
-          return ($element);
+          $tree_unit = $self->{'special_elements_types'}->{'Footnotes'};
+          return ($tree_unit);
       }
     }
     if ($current->{'parent'}) {
       $current = $current->{'parent'};
     } else {
-      return ($element, $root_command);
+      return ($tree_unit, $root_command);
     }
   }
 }
 
-sub _set_html_pages_files($$$$$$$$)
+sub _html_set_pages_files($$$$$$$$)
 {
   my $self = shift;
-  my $elements = shift;
+  my $tree_units = shift;
   my $special_elements = shift;
   my $output_file = shift;
   my $destination_directory = shift;
@@ -5712,7 +5720,7 @@ sub _set_html_pages_files($$$$$$$$)
   my $document_name = shift;
 
   # Ensure that the document has pages
-  return undef if (!defined($elements) or !@$elements);
+  return undef if (!defined($tree_units) or !@$tree_units);
 
   my $extension = '';
   $extension = '.'.$self->get_conf('EXTENSION') 
@@ -5720,10 +5728,10 @@ sub _set_html_pages_files($$$$$$$$)
                 and $self->get_conf('EXTENSION') ne '');
 
   if (!$self->get_conf('SPLIT')) {
-    foreach my $element (@$elements) {
-      if (!defined($element->{'filename'})) {
-        $element->{'filename'} = $output_filename;
-        $element->{'out_filename'} = $output_file;
+    foreach my $tree_unit (@$tree_units) {
+      if (!defined($tree_unit->{'filename'})) {
+        $tree_unit->{'filename'} = $output_filename;
+        $tree_unit->{'out_filename'} = $output_file;
       }
     }
   } else {
@@ -5733,22 +5741,22 @@ sub _set_html_pages_files($$$$$$$$)
     my $top_node_filename = $self->top_node_filename($document_name);
     # first determine the top node file name.
     if ($node_top and defined($top_node_filename)) {
-      my ($node_top_element) = $self->_get_element($node_top);
+      my ($node_top_tree_unit) = $self->_html_get_tree_unit($node_top);
       die "BUG: No element for top node" if (!defined($node_top));
-      $self->_set_element_file($node_top_element, $top_node_filename,
+      $self->set_tree_unit_file($node_top_tree_unit, $top_node_filename,
                                $destination_directory);
     }
     my $file_nr = 0;
     my $previous_page;
-    foreach my $element(@$elements) {
+    foreach my $tree_unit (@$tree_units) {
       # For Top node.
-      next if (defined($element->{'filename'}));
-      if (!$element->{'extra'}->{'first_in_page'}) {
-        cluck ("No first_in_page for $element\n");
+      next if (defined($tree_unit->{'filename'}));
+      if (!$tree_unit->{'extra'}->{'first_in_page'}) {
+        cluck ("No first_in_page for $tree_unit\n");
       }
-      if (!defined($element->{'extra'}->{'first_in_page'}->{'filename'})) {
-        my $file_element = $element->{'extra'}->{'first_in_page'};
-        foreach my $root_command (@{$file_element->{'contents'}}) {
+      if (!defined($tree_unit->{'extra'}->{'first_in_page'}->{'filename'})) {
+        my $file_tree_unit = $tree_unit->{'extra'}->{'first_in_page'};
+        foreach my $root_command (@{$file_tree_unit->{'contents'}}) {
           if ($root_command->{'cmdname'} 
               and $root_command->{'cmdname'} eq 'node') {
             my $node_filename;
@@ -5769,74 +5777,74 @@ sub _set_html_pages_files($$$$$$$$)
               $node_filename 
                 = $self->{'targets'}->{$root_command}->{'node_filename'};
             }
-            $self->_set_element_file($file_element, $node_filename,
-                                     $destination_directory);
+            $self->set_tree_unit_file($file_tree_unit, $node_filename,
+                                      $destination_directory);
             last;
           }
         }
-        if (!defined($file_element->{'filename'})) {
+        if (!defined($file_tree_unit->{'filename'})) {
           # use section to do the file name if there is no node
-          my $command = $self->element_command($file_element);
+          my $command = $self->element_command($file_tree_unit);
           if ($command) {
             if ($command->{'cmdname'} eq 'top' and !$node_top
                 and defined($top_node_filename)) {
-              $self->_set_element_file($file_element, $top_node_filename,
-                                       $destination_directory);
+              $self->set_tree_unit_file($file_tree_unit, $top_node_filename,
+                                        $destination_directory);
             } else {
-              $self->_set_element_file($file_element,
+              $self->set_tree_unit_file($file_tree_unit,
                  $self->{'targets'}->{$command}->{'section_filename'},
-                                       $destination_directory);
+                                        $destination_directory);
             }
           } else {
             # when everything else has failed
             if ($file_nr == 0 and !$node_top 
                 and defined($top_node_filename)) {
-              $self->_set_element_file($file_element, $top_node_filename,
-                                       $destination_directory);
+              $self->set_tree_unit_file($file_tree_unit, $top_node_filename,
+                                        $destination_directory);
             } else {
               my $filename = $document_name . "_$file_nr";
               $filename .= $extension;
-              $self->_set_element_file($element, $filename,
-                                       $destination_directory);
+              $self->set_tree_unit_file($tree_unit, $filename,
+                                        $destination_directory);
             }
             $file_nr++;
           }
         }
       }
-      $element->{'filename'} 
-         = $element->{'extra'}->{'first_in_page'}->{'filename'};
-      $element->{'out_filename'}
-         = $element->{'extra'}->{'first_in_page'}->{'out_filename'};
+      $tree_unit->{'filename'}
+         = $tree_unit->{'extra'}->{'first_in_page'}->{'filename'};
+      $tree_unit->{'out_filename'}
+         = $tree_unit->{'extra'}->{'first_in_page'}->{'out_filename'};
     }
   }
 
-  foreach my $element (@$elements) {
+  foreach my $tree_unit (@$tree_units) {
     if (defined($Texinfo::Config::element_file_name)) {
       # NOTE the information that it is associated with @top or @node Top
-      # may be determined with $self->element_is_top($element);
-      my $filename = &$Texinfo::Config::element_file_name($self, $element, 
-                                                          $element->{'filename'});
-      $self->_set_element_file($element, $filename, $destination_directory)
+      # may be determined with $self->element_is_tree_unit_top($tree_unit);
+      my $filename = &$Texinfo::Config::element_file_name($self, $tree_unit,
+                                                          $tree_unit->{'filename'});
+      $self->set_tree_unit_file($tree_unit, $filename, $destination_directory)
          if (defined($filename));
     }
-    $self->{'file_counters'}->{$element->{'filename'}}++;
-    print STDERR "Page $element ".Texinfo::Structuring::_print_element_command_texi($element).": $element->{'filename'}($self->{'file_counters'}->{$element->{'filename'}})\n"
+    $self->{'file_counters'}->{$tree_unit->{'filename'}}++;
+    print STDERR "Page $tree_unit ".Texinfo::Structuring::_print_element_command_texi($tree_unit).": $tree_unit->{'filename'}($self->{'file_counters'}->{$tree_unit->{'filename'}})\n"
       if ($self->get_conf('DEBUG'));
   }
   if ($special_elements) {
-    my $previous_element = $elements->[-1];
-    foreach my $element (@$special_elements) {
+    my $previous_tree_unit = $tree_units->[-1];
+    foreach my $special_element (@$special_elements) {
       my $filename 
-       = $self->{'targets'}->{$element}->{'misc_filename'};
+       = $self->{'targets'}->{$special_element}->{'misc_filename'};
       if (defined($filename)) {
-        $self->_set_element_file($element, $filename, $destination_directory);
-        $self->{'file_counters'}->{$element->{'filename'}}++;
-        print STDERR "Special page $element: $element->{'filename'}($self->{'file_counters'}->{$element->{'filename'}})\n"
+        $self->set_tree_unit_file($special_element, $filename, $destination_directory);
+        $self->{'file_counters'}->{$special_element->{'filename'}}++;
+        print STDERR "Special page $special_element: $special_element->{'filename'}($self->{'file_counters'}->{$special_element->{'filename'}})\n"
           if ($self->get_conf('DEBUG'));
       }
-      $element->{'element_prev'} = $previous_element;
-      $previous_element->{'element_next'} = $element;
-      $previous_element = $element;
+      $special_element->{'unit_prev'} = $previous_tree_unit;
+      $previous_tree_unit->{'unit_next'} = $special_element;
+      $previous_tree_unit = $special_element;
     }
   }
 }
@@ -5854,19 +5862,19 @@ sub _prepare_elements($$$$)
   my $destination_directory = shift;
   my $document_name = shift;
 
-  my $elements;
+  my $tree_units;
 
   if ($self->get_conf('USE_NODES')) {
-    $elements = Texinfo::Structuring::split_by_node($root);
+    $tree_units = Texinfo::Structuring::split_by_node($root);
   } else {
-    $elements = Texinfo::Structuring::split_by_section($root);
+    $tree_units = Texinfo::Structuring::split_by_section($root);
   }
 
-  $self->{'elements'} = $elements
-    if (defined($elements));
+  $self->{'tree_units'} = $tree_units
+    if (defined($tree_units));
 
-  # This may be done as soon as elements are available.
-  $self->_prepare_global_targets($elements);
+  # This may be done as soon as tree units are available.
+  $self->_prepare_tree_units_global_targets($tree_units);
 
   # the presence of contents elements in the document is used in diverse
   # places, set it once for all here
@@ -5879,31 +5887,31 @@ sub _prepare_elements($$$$)
   # Do that before the other elements, to be sure that special page ids
   # are registered before elements id are.
   my $special_elements 
-    = $self->_prepare_special_elements($elements, $destination_directory,
+    = $self->_prepare_special_elements($tree_units, $destination_directory,
                                        $document_name);
   $self->set_global_document_commands(0, \@conf_for_special_elements);
 
   $self->{'special_elements'} = $special_elements 
     if (defined($special_elements));
 
-  #if ($elements) {
-  #  foreach my $element(@{$elements}) {
+  #if ($tree_units) {
+  #  foreach my $element(@{$tree_units}) {
   #    print STDERR "ELEMENT $element->{'type'}: $element\n";
   #  }
   #}
 
-  $self->_set_root_commands_targets_node_files($elements);
+  $self->_set_root_commands_targets_node_files($tree_units);
 
   # setup untranslated strings
   $self->_translate_names();
 
-  return ($elements, $special_elements);
+  return ($tree_units, $special_elements);
 }
 
 sub _prepare_special_elements($$$$)
 {
   my $self = shift;
-  my $elements = shift;
+  my $tree_units = shift;
   my $destination_directory = shift;
   my $document_name = shift;
 
@@ -5923,12 +5931,12 @@ sub _prepare_special_elements($$$$)
   }
   if ($self->{'global_commands'}->{'footnote'}
       and $self->get_conf('footnotestyle') eq 'separate'
-      and $elements and scalar(@$elements) > 1) {
+      and $tree_units and scalar(@$tree_units) > 1) {
     $do_special{'Footnotes'} = 1;
   }
 
   if ((!defined($self->get_conf('DO_ABOUT')) 
-       and $elements and scalar(@$elements) > 1 
+       and $tree_units and scalar(@$tree_units) > 1
            and ($self->get_conf('SPLIT') or $self->get_conf('HEADERS')))
        or ($self->get_conf('DO_ABOUT'))) {
     $do_special{'About'} = 1;
@@ -5942,7 +5950,7 @@ sub _prepare_special_elements($$$$)
   foreach my $type (@{$self->{'misc_elements_order'}}) {
     next unless ($do_special{$type});
 
-    my $element = {'type' => 'element',
+    my $element = {'type' => 'unit',
                    'extra' => {'special_element' => $type,
                                }};
     $element->{'extra'}->{'directions'}->{'This'} = $element;
@@ -5979,7 +5987,7 @@ sub _prepare_special_elements($$$$)
     if ($self->get_conf('SPLIT') or !$self->get_conf('MONOLITHIC')
         or (defined($filename) ne defined($default_filename))
         or (defined($filename) and $filename ne $default_filename)) {
-      $self->_set_element_file($element, $filename, $destination_directory);
+      $self->set_tree_unit_file($element, $filename, $destination_directory);
       print STDERR "NEW page for $type ($filename)\n" if ($self->get_conf('DEBUG'));
     }
     $self->{'targets'}->{$element} = {'target' => $target,
@@ -5994,7 +6002,7 @@ sub _prepare_special_elements($$$$)
         $self->{'frame_pages_file_string'}->{$type};
       $default_filename .= '.'.$extension if (defined($extension));
 
-      my $element = {'type' => 'element',
+      my $element = {'type' => 'unit',
                    'extra' => {'special_element' => $type,
                                }};
 
@@ -6026,8 +6034,8 @@ sub _prepare_contents_elements($)
       if ($self->get_conf($cmdname)) {
         my $default_filename;
         if ($self->get_conf('CONTENTS_OUTPUT_LOCATION') eq 'after_title') {
-          if ($self->{'elements'}) {
-            $default_filename = $self->{'elements'}->[0]->{'filename'};
+          if ($self->{'tree_units'}) {
+            $default_filename = $self->{'tree_units'}->[0]->{'filename'};
           }
         } elsif ($self->get_conf('CONTENTS_OUTPUT_LOCATION') eq 'after_top') {
           my $section_top = undef;
@@ -6040,7 +6048,7 @@ sub _prepare_contents_elements($)
               and $self->{'global_commands'}->{$cmdname}) {
             foreach my $command(@{$self->{'global_commands'}->{$cmdname}}) {
               my ($element, $root_command) 
-                = $self->_get_element($command);
+                = $self->_html_get_tree_unit($command);
               if (defined($element)) {
                 $default_filename = $element->{'filename'};
                 last;
@@ -6054,58 +6062,58 @@ sub _prepare_contents_elements($)
           next;
         }
 
-        my $element = {'type' => 'element',
-                       'extra' => {'special_element' => $type}};
-        $self->{'special_elements_types'}->{$type} = $element;
+        my $contents_element = {'type' => 'unit',
+                                'extra' => {'special_element' => $type}};
+        $self->{'special_elements_types'}->{$type} = $contents_element;
         my $target = $self->{'misc_elements_targets'}->{$type};
         my $filename;
         if (defined($Texinfo::Config::special_element_target_file_name)) {
           ($target, $filename)
                = &$Texinfo::Config::special_element_target_file_name(
                                                           $self,
-                                                          $element,
+                                                          $contents_element,
                                                           $target,
                                                           $default_filename);
         }
         $filename = $default_filename if (!defined($filename));
-        print STDERR "Add content $element $type: target $target,\n".
+        print STDERR "Add content $contents_element $type: target $target,\n".
            "    filename $filename\n" if ($self->get_conf('DEBUG'));
-        $self->{'targets'}->{$element} = {'target' => $target,
-                                          'misc_filename' => $filename,
-                                          'filename' => $filename,
-                                          };
+        $self->{'targets'}->{$contents_element} = {'target' => $target,
+                                                   'misc_filename' => $filename,
+                                                   'filename' => $filename,
+                                                  };
       }
     }
   }
 }
 
-# Associate elements with the global targets, First, Last, Top, Index.
-sub _prepare_global_targets($$)
+# Associate tree units with the global targets, First, Last, Top, Index.
+sub _prepare_tree_units_global_targets($$)
 {
   my $self = shift;
-  my $elements = shift;
+  my $tree_units = shift;
 
-  $self->{'global_target_elements'}->{'First'} = $elements->[0];
-  $self->{'global_target_elements'}->{'Last'} = $elements->[-1];
+  $self->{'global_target_elements'}->{'First'} = $tree_units->[0];
+  $self->{'global_target_elements'}->{'Last'} = $tree_units->[-1];
   # It is always the first printindex, even if it is not output (for example
   # it is in @copying and @titlepage, which are certainly wrong constructs).
   if ($self->{'global_commands'} and $self->{'global_commands'}->{'printindex'}) {
-    my ($element, $root_command) 
-     = $self->_get_element($self->{'global_commands'}->{'printindex'}->[0]);
-    if (defined($element)) {
+    my ($tree_unit, $root_command)
+     = $self->_html_get_tree_unit($self->{'global_commands'}->{'printindex'}->[0]);
+    if (defined($tree_unit)) {
       if ($root_command and $root_command->{'cmdname'} eq 'node' 
-          and $element->{'extra'}->{'section'}) {
-        $root_command = $element->{'extra'}->{'section'};
+          and $tree_unit->{'extra'}->{'section'}) {
+        $root_command = $tree_unit->{'extra'}->{'section'};
       }
       if ($root_command and $root_command->{'cmdname'} ne 'node') {
         while ($root_command->{'level'} > 1
                and $root_command->{'section_up'}
                and $root_command->{'section_up'}->{'parent'}) {
           $root_command = $root_command->{'section_up'};
-          $element = $root_command->{'parent'};
+          $tree_unit = $root_command->{'parent'};
         }
       }
-      $self->{'global_target_elements'}->{'Index'} = $element;
+      $self->{'global_target_elements'}->{'Index'} = $tree_unit;
     }
   }
 
@@ -6116,13 +6124,13 @@ sub _prepare_global_targets($$)
   if ($section_top) {
     $self->{'global_target_elements'}->{'Top'} = $section_top->{'parent'};
   } elsif ($node_top) {
-    my $element_top = $node_top->{'parent'};
-    if (!$element_top) {
+    my $tree_unit_top = $node_top->{'parent'};
+    if (!$tree_unit_top) {
       die "No parent for node_top: ".Texinfo::Common::_print_current($node_top);
     }
-    $self->{'global_target_elements'}->{'Top'} = $element_top;
+    $self->{'global_target_elements'}->{'Top'} = $tree_unit_top;
   } else {
-    $self->{'global_target_elements'}->{'Top'} = $elements->[0];
+    $self->{'global_target_elements'}->{'Top'} = $tree_units->[0];
   }
   
   if ($self->get_conf('DEBUG')) {
@@ -6353,6 +6361,8 @@ foreach my $no_number_type ('text', 'tree', 'string') {
 # Return text used for linking from $ELEMENT in direction $DIRECTION.  The
 # text returned depends on $TYPE.
 #
+# This is used both for tree unit elements and external nodes
+#
 # $element can be undef.
 # $element undef happens at least when there is no output file, or for
 # the table of content when frames are used.  That call would result
@@ -6389,7 +6399,7 @@ sub _element_direction($$$$;$)
   # defined which should mostly correspond to cases when there is no
   # output file, for example in the tests.
   } elsif ((not defined($element)
-             or ($element and $self->element_is_top($element)))
+             or ($element and $self->element_is_tree_unit_top($element)))
             and defined($self->get_conf('TOP_NODE_UP_URL'))
             and ($direction eq 'Up' or $direction eq 'NodeUp')) {
     if ($type eq 'href') {
@@ -6431,7 +6441,7 @@ sub _element_direction($$$$;$)
       if ($element_target->{'extra'}->{'special_element'}) {
         $command = $element_target;
       } else {
-        $command = $element_target->{'extra'}->{'element_command'};
+        $command = $element_target->{'extra'}->{'unit_command'};
       }
       if ($type eq 'href') {
         if (defined($command)) {
@@ -7242,18 +7252,18 @@ sub convert($$)
   # If a converter is reused, it could be possible to set before and reuse
   # here something like $self->{'document_name'}
   # but it is unclear if it is correct or not.
-  my ($elements, $special_elements) 
+  my ($tree_units, $special_elements)
     = $self->_prepare_elements($root, undef, undef);
 
   $self->_prepare_index_entries();
   $self->_prepare_footnotes();
 
-  if (!defined($elements)) {
+  if (!defined($tree_units)) {
     $result = $self->_convert($root);
   } else {
-    foreach my $element (@$elements) {
-      my $element_text = $self->_convert($element);
-      $result .= $element_text;
+    foreach my $tree_unit (@$tree_units) {
+      my $tree_unit_text = $self->_convert($tree_unit);
+      $result .= $tree_unit_text;
     }
   }
 
@@ -7265,11 +7275,11 @@ sub output_internal_links($)
 {
   my $self = shift;
   my $out_string = '';
-  if ($self->{'elements'}) {
-    foreach my $element (@{$self->{'elements'}}) {
+  if ($self->{'tree_units'}) {
+    foreach my $tree_unit (@{$self->{'tree_units'}}) {
       my $text;
       my $href;
-      my $command = $self->element_command($element);
+      my $command = $self->element_command($tree_unit);
       if (defined($command)) {
         # Use '' for filename, to force a filename in href.
         $href = $self->command_href($command, '');
@@ -7397,37 +7407,37 @@ sub output($$)
 
   # Get the list of "elements" to be processed, i.e. nodes or sections.
   # This should return undef if called on a tree without node or sections.
-  my ($elements, $special_elements)
+  my ($tree_units, $special_elements)
     = $self->_prepare_elements($root, $destination_directory, $document_name);
 
-  Texinfo::Structuring::split_pages($elements, $self->get_conf('SPLIT'));
+  Texinfo::Structuring::split_pages($tree_units, $self->get_conf('SPLIT'));
 
   # determine file names associated with the different pages, and setup
   # the counters for special element pages.
   if ($output_file ne '') {
-    $self->_set_html_pages_files($elements, $special_elements, $output_file,
+    $self->_html_set_pages_files($tree_units, $special_elements, $output_file,
                   $destination_directory, $output_filename, $document_name);
   }
 
   $self->_prepare_contents_elements();
 
-  # do element directions. 
-  Texinfo::Structuring::elements_directions($self, $self->{'labels'}, $elements);
+  # do tree units directions.
+  Texinfo::Structuring::elements_directions($self, $self->{'labels'}, $tree_units);
 
   # do element directions related to files.
   # FIXME do it here or before?  Here it means that
   # PrevFile and NextFile can be set.
-  Texinfo::Structuring::elements_file_directions($elements);
+  Texinfo::Structuring::elements_file_directions($tree_units);
 
   # Associate the special elements that have no page with the main page.
   # This may only happen if not split.
   if ($special_elements 
-      and $elements and $elements->[0] 
-      and defined($elements->[0]->{'filename'})) {
+      and $tree_units and $tree_units->[0]
+      and defined($tree_units->[0]->{'filename'})) {
     foreach my $special_element (@$special_elements) {
       if (!defined($special_element->{'filename'})) {
-        $special_element->{'filename'} = $elements->[0]->{'filename'};
-        $special_element->{'out_filename'} = $elements->[0]->{'out_filename'};
+        $special_element->{'filename'} = $tree_units->[0]->{'filename'};
+        $special_element->{'out_filename'} = $tree_units->[0]->{'out_filename'};
         $self->{'file_counters'}->{$special_element->{'filename'}}++;
       }
     }
@@ -7519,7 +7529,8 @@ sub output($$)
      {'contents' => $self->{'global_commands'}->{'copying'}->{'contents'}},
      {Texinfo::Convert::Text::copy_options_for_convert_text($self)});
     if ($copying_comment ne '') {
-      $self->{'copying_comment'} = &{$self->{'format_comment'}}($self, $copying_comment);
+      $self->{'copying_comment'}
+        = &{$self->{'format_comment'}}($self, $copying_comment);
     }
   }
   $self->set_global_document_commands(0, ['documentlanguage']);
@@ -7532,7 +7543,8 @@ sub output($$)
     $self->{'documentdescription_string'} 
       = $self->convert_tree_new_formatting_context(
        {'type' => '_string',
-        'contents' => $self->{'global_commands'}->{'documentdescription'}->{'contents'}},
+        'contents' =>
+            $self->{'global_commands'}->{'documentdescription'}->{'contents'}},
        'documentdescription');
     chomp($self->{'documentdescription_string'});
   }
@@ -7593,7 +7605,7 @@ sub output($$)
   my $fh;
   my $output = '';
 
-  if (!$elements or !defined($elements->[0]->{'filename'})) {
+  if (!$tree_units or !defined($tree_units->[0]->{'filename'})) {
     # no page
     my $outfile;
     if ($output_file ne '') {
@@ -7617,10 +7629,10 @@ sub output($$)
     $self->{'current_filename'} = $output_filename;
 
     my $body = '';
-    if ($elements and @$elements) {
-      foreach my $element (@$elements) {
-        my $element_text = $self->_convert($element);
-        $body .= $element_text;
+    if ($tree_units and @$tree_units) {
+      foreach my $tree_unit (@$tree_units) {
+        my $tree_unit_text = $self->_convert($tree_unit);
+        $body .= $tree_unit_text;
       }
     } else {
       $body .= $self->_print_title();
@@ -7649,9 +7661,9 @@ sub output($$)
       if ($self->get_conf('DEBUG'));
     my %files;
     
-    # Now do the output, converting each member in @$elements in turn.
+    # Now do the output, converting each tree units and special elements in turn
     $special_elements = [] if (!defined($special_elements));
-    foreach my $element (@$elements, @$special_elements) {
+    foreach my $element (@$tree_units, @$special_elements) {
       my $file_fh;
       $self->{'current_filename'} = $element->{'filename'};
       $self->{'counter_in_file'}->{$element->{'filename'}}++;
@@ -7690,8 +7702,7 @@ sub output($$)
           return undef;
         }
         print $file_fh "".&{$self->{'format_begin_file'}}($self, 
-                                           $element->{'filename'}, 
-                                           $element);
+                              $element->{'filename'}, $element);
         $files{$element->{'filename'}}->{'fh'} = $file_fh;
       } else {
         $file_fh = $files{$element->{'filename'}}->{'fh'};
@@ -8172,7 +8183,7 @@ sub _convert($$;$)
     } elsif ($root->{'type'} eq 'preformatted'
              or $root->{'type'} eq 'rawpreformatted') {
       $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]->{'preformatted_number'}++;
-    } elsif ($root->{'type'} eq 'element') { 
+    } elsif ($root->{'type'} eq 'unit') {
       $self->{'current_element'} = $root;
       $self->{'current_filename'} = $root->{'filename'};
     } elsif ($pre_class_types{$root->{'type'}}) {
@@ -8214,7 +8225,7 @@ sub _convert($$;$)
     if ($root->{'type'} eq '_string') {
       $self->{'document_context'}->[-1]->{'string'}--;
     }
-    if ($root->{'type'} eq 'element') { 
+    if ($root->{'type'} eq 'unit') {
       delete $self->{'current_element'};
       delete $self->{'current_filename'};
     } elsif ($pre_class_types{$root->{'type'}}) {

@@ -1,5 +1,36 @@
 2021-09-08  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Converter.pm (set_tree_unit_file)
+	(_set_tree_units_files, output, _convert_document_tree_units),
+	tp/Texinfo/Convert/DocBook.pm, tp/Texinfo/Convert/HTML.pm
+	(set_tree_unit_file, _set_tree_units_files)
+	(_convert_document_tree_units, _default_format_element_header)
+	(element_is_tree_unit_top, _default_format_element_header)
+	(_convert_heading_command, _convert_tree_unit_type)
+	(_html_get_tree_unit, _html_set_pages_files)
+	(_prepare_tree_units_global_targets),
+	tp/Texinfo/Convert/IXIN.pm, tp/Texinfo/Convert/Plaintext.pm,
+	tp/Texinfo/Convert/TexinfoXML.pm, tp/Texinfo/Structuring.pm
+	(split_by_node, split_by_section, elements_file_directions),
+	tp/init/book.pm, tp/init/chm.pm, tp/t/init/mini_ker_t2h.init,
+	tp/t/init/misc_file_collision.init, tp/t/init/t2h_singular.init:
+	Rename element as tree_unit when it corresponds to the
+	section and associated node tree element, such that
+	element can be used for any tree element.
+	Rename the corresponding type as unit and associated
+	element extra fields.
+	In Texinfo::Convert::Converter, rename _set_element_file()
+	as set_tree_unit_file(), _set_pages_files() as _set_tree_units_files()
+	and _convert_document_elements() as _convert_document_tree_units().
+	In Texinfo::Convert::HTML, rename command_element_command() as
+	command_tree_unit_command(), element_is_top() as
+	element_is_tree_unit_top(), _convert_element_type() as
+	_convert_tree_unit_type(), _get_element() as _html_get_tree_unit(),
+	_set_html_pages_files() as _html_set_pages_files(),
+	_prepare_global_targets() as _prepare_tree_units_global_targets()
+
+2021-09-08  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Converter.pm (node_information_filename),
 	tp/Texinfo/Convert/HTML.pm: rename _node_filename() as
 	node_information_filename().

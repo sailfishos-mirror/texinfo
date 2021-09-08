@@ -138,10 +138,10 @@ $result_trees{'unnumbered_before_top_node'} = [
       }
     ],
     'extra' => {
-      'element_command' => {},
-      'section' => {}
+      'section' => {},
+      'unit_command' => {}
     },
-    'type' => 'element'
+    'type' => 'unit'
   }
 ];
 $result_trees{'unnumbered_before_top_node'}[0]{'contents'}[0]{'parent'} = $result_trees{'unnumbered_before_top_node'}[0];
@@ -161,8 +161,8 @@ $result_trees{'unnumbered_before_top_node'}[0]{'contents'}[2]{'contents'}[3]{'pa
 $result_trees{'unnumbered_before_top_node'}[0]{'contents'}[2]{'extra'}{'node_content'}[0] = $result_trees{'unnumbered_before_top_node'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0];
 $result_trees{'unnumbered_before_top_node'}[0]{'contents'}[2]{'extra'}{'nodes_manuals'}[0]{'node_content'}[0] = $result_trees{'unnumbered_before_top_node'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0];
 $result_trees{'unnumbered_before_top_node'}[0]{'contents'}[2]{'parent'} = $result_trees{'unnumbered_before_top_node'}[0];
-$result_trees{'unnumbered_before_top_node'}[0]{'extra'}{'element_command'} = $result_trees{'unnumbered_before_top_node'}[0]{'contents'}[1];
 $result_trees{'unnumbered_before_top_node'}[0]{'extra'}{'section'} = $result_trees{'unnumbered_before_top_node'}[0]{'contents'}[1];
+$result_trees{'unnumbered_before_top_node'}[0]{'extra'}{'unit_command'} = $result_trees{'unnumbered_before_top_node'}[0]{'contents'}[1];
 
 $result_texis{'unnumbered_before_top_node'} = '@unnumbered before nodes
 
@@ -224,20 +224,20 @@ $result_elements{'unnumbered_before_top_node'} = [
       'directions' => {
         'This' => {}
       },
-      'element_command' => {
+      'section' => {
         'cmdname' => 'unnumbered',
         'extra' => {
           'spaces_before_argument' => ' '
         },
         'level' => 1
       },
-      'section' => {}
+      'unit_command' => {}
     },
-    'type' => 'element'
+    'type' => 'unit'
   }
 ];
 $result_elements{'unnumbered_before_top_node'}[0]{'extra'}{'directions'}{'This'} = $result_elements{'unnumbered_before_top_node'}[0];
-$result_elements{'unnumbered_before_top_node'}[0]{'extra'}{'section'} = $result_elements{'unnumbered_before_top_node'}[0]{'extra'}{'element_command'};
+$result_elements{'unnumbered_before_top_node'}[0]{'extra'}{'unit_command'} = $result_elements{'unnumbered_before_top_node'}[0]{'extra'}{'section'};
 
 
 

@@ -251,10 +251,10 @@ sub chm_init($)
         my $file = $self->command_filename($index_entry_ref->{'command'});
         # happens for things in @titlepage when it is not output
         if (!defined($file)) {
-          if ($self->{'elements'} and $self->{'elements'}->[0]
-             and defined($self->{'elements'}->[0]->{'filename'})) {
+          if ($self->{'tree_units'} and $self->{'tree_units'}->[0]
+             and defined($self->{'tree_units'}->[0]->{'filename'})) {
             # In that case use the first page.
-            $file = $self->{'elements'}->[0]->{'filename'};
+            $file = $self->{'tree_units'}->[0]->{'filename'};
           } else {
             $file = '';
           }
@@ -375,9 +375,9 @@ sub chm_init($)
   my $title = convert_tree($self, $self->{'title_tree'});
   my $top_file = '';
   my $top_element = $self->global_element('Top');
-  if ($top_element and $top_element->{'extra'}->{'element_command'}) {
+  if ($top_element and $top_element->{'extra'}->{'unit_command'}) {
     $top_file 
-     = $self->command_filename($top_element->{'extra'}->{'element_command'});
+     = $self->command_filename($top_element->{'extra'}->{'unit_command'});
   }
 
   print $hhp_fh <<EOT;
@@ -400,8 +400,8 @@ Default=,"$hhc_filename","$hhk_filename","$top_file","$top_file",,,,,0x22520,,0x
 EOT
 
   my %chm_files;
-  if ($self->{'elements'}) {
-    foreach my $element (@{$self->{'elements'}}) {
+  if ($self->{'tree_units'}) {
+    foreach my $element (@{$self->{'tree_units'}}) {
       if (!$chm_files{$element->{'filename'}}) {
         print $hhp_fh "$element->{'filename'}\n";
         $chm_files{$element->{'filename'}} = 1;

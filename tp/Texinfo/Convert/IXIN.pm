@@ -189,7 +189,7 @@ sub _get_element($$)
   while (1) {
     #print STDERR Texinfo::Common::_print_current($current);
     if ($current->{'type'}) {
-      if ($current->{'type'} eq 'element') {
+      if ($current->{'type'} eq 'unit') {
         return ($current, $root_command);
       }
     }
@@ -227,11 +227,11 @@ sub _associated_node_id($$$;$)
 
     if ($root_command) {
       if (!$root_command->{'cmdname'} or $root_command->{'cmdname'} ne 'node') {
-        if ($element->{'extra'}->{'element_command'}
-            and $element->{'extra'}->{'element_command'} 
-            and $element->{'extra'}->{'element_command'}->{'cmdname'}
-            and $element->{'extra'}->{'element_command'}->{'cmdname'} eq 'node') {
-          $node_command = $element->{'extra'}->{'element_command'};
+        if ($element->{'extra'}->{'unit_command'}
+            and $element->{'extra'}->{'unit_command'}
+            and $element->{'extra'}->{'unit_command'}->{'cmdname'}
+            and $element->{'extra'}->{'unit_command'}->{'cmdname'} eq 'node') {
+          $node_command = $element->{'extra'}->{'unit_command'};
         }
       } else {
         $node_command = $root_command;
@@ -435,7 +435,7 @@ sub output_ixin($$)
     foreach my $node_element (@$elements) {
       next if ($node_element->{'extra'}->{'no_node'});
       $node_nr++;
-      my $node = $node_element->{'extra'}->{'element_command'};
+      my $node = $node_element->{'extra'}->{'unit_command'};
       push @nodes, $node;
       my $normalized_node_name = $node->{'extra'}->{'normalized'};
       foreach my $setting_command_name (keys(%current_settings)) {

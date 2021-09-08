@@ -474,7 +474,7 @@ my @node_keys = ('node_next', 'node_prev', 'node_up', 'menus',
   'associated_section');
 my %avoided_keys_tree;
 our @avoided_keys_tree = (@sections_keys, @menus_keys, @node_keys, 
-   'menu_child', 'element_next', 'directions', 'page_next', 'remaining_args');
+   'menu_child', 'unit_next', 'directions', 'page_next', 'remaining_args');
 foreach my $avoided_key(@avoided_keys_tree) {
   $avoided_keys_tree{$avoided_key} = 1;
 }
@@ -519,7 +519,7 @@ sub filter_floats_keys { [grep {!$avoided_keys_floats{$_}}
 
 my %avoided_keys_elements;
 my @avoided_keys_elements = (@contents_keys, @sections_keys, @node_keys,
-  'element_next', 'element_prev');
+  'unit_next', 'unit_prev');
 foreach my $avoided_key(@avoided_keys_elements) {
   $avoided_keys_elements{$avoided_key} = 1;
 }

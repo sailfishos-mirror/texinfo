@@ -84,10 +84,10 @@ $result_trees{'part_before_chapter'} = [
       }
     ],
     'extra' => {
-      'element_command' => {},
-      'section' => {}
+      'section' => {},
+      'unit_command' => {}
     },
-    'type' => 'element'
+    'type' => 'unit'
   }
 ];
 $result_trees{'part_before_chapter'}[0]{'contents'}[0]{'parent'} = $result_trees{'part_before_chapter'}[0];
@@ -99,8 +99,8 @@ $result_trees{'part_before_chapter'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]
 $result_trees{'part_before_chapter'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'part_before_chapter'}[0]{'contents'}[2];
 $result_trees{'part_before_chapter'}[0]{'contents'}[2]{'extra'}{'associated_part'} = $result_trees{'part_before_chapter'}[0]{'contents'}[1];
 $result_trees{'part_before_chapter'}[0]{'contents'}[2]{'parent'} = $result_trees{'part_before_chapter'}[0];
-$result_trees{'part_before_chapter'}[0]{'extra'}{'element_command'} = $result_trees{'part_before_chapter'}[0]{'contents'}[2];
 $result_trees{'part_before_chapter'}[0]{'extra'}{'section'} = $result_trees{'part_before_chapter'}[0]{'contents'}[2];
+$result_trees{'part_before_chapter'}[0]{'extra'}{'unit_command'} = $result_trees{'part_before_chapter'}[0]{'contents'}[2];
 
 $result_texis{'part_before_chapter'} = '@part part
 
@@ -158,7 +158,7 @@ $result_elements{'part_before_chapter'} = [
       'directions' => {
         'This' => {}
       },
-      'element_command' => {
+      'section' => {
         'cmdname' => 'chapter',
         'extra' => {
           'associated_part' => {
@@ -173,13 +173,13 @@ $result_elements{'part_before_chapter'} = [
         'level' => 1,
         'number' => 1
       },
-      'section' => {}
+      'unit_command' => {}
     },
-    'type' => 'element'
+    'type' => 'unit'
   }
 ];
 $result_elements{'part_before_chapter'}[0]{'extra'}{'directions'}{'This'} = $result_elements{'part_before_chapter'}[0];
-$result_elements{'part_before_chapter'}[0]{'extra'}{'section'} = $result_elements{'part_before_chapter'}[0]{'extra'}{'element_command'};
+$result_elements{'part_before_chapter'}[0]{'extra'}{'unit_command'} = $result_elements{'part_before_chapter'}[0]{'extra'}{'section'};
 
 
 

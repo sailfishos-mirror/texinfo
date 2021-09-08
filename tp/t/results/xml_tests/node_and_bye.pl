@@ -77,7 +77,7 @@ $result_trees{'node_and_bye'} = [
     'extra' => {
       'no_section' => 1
     },
-    'type' => 'element'
+    'type' => 'unit'
   }
 ];
 $result_trees{'node_and_bye'}[0]{'contents'}[0]{'parent'} = $result_trees{'node_and_bye'}[0];
@@ -131,15 +131,15 @@ $result_elements{'node_and_bye'} = [
       },
       'no_section' => 1
     },
-    'type' => 'element'
+    'type' => 'unit'
   }
 ];
 $result_elements{'node_and_bye'}[0]{'extra'}{'directions'}{'This'} = $result_elements{'node_and_bye'}[0];
 
 
 
-$result_directions_text{'node_and_bye'} = 'element: No associated command (type element)
-  This: No associated command (type element)
+$result_directions_text{'node_and_bye'} = 'element: No associated command (type unit)
+  This: No associated command (type unit)
 ';
 
 

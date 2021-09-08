@@ -38,7 +38,7 @@ texinfo_set_from_init_file('USE_NODES', undef);
 
 texinfo_set_from_init_file('BIG_RULE', '<hr>');
 
-my ($book_previous_default_filename, $book_previous_file_name, 
+my ($book_previous_default_filename, $book_previous_file_name,
     $book_unumbered_nr);
 
 sub book_init($)
@@ -63,24 +63,24 @@ sub book_print_up_toc($$)
   my $result = '';
   my $current_command = $command;
   my @up_commands;
-  while (defined($current_command->{'section_up'}) 
+  while (defined($current_command->{'section_up'})
            and ($current_command->{'section_up'} ne $current_command)
            and defined($current_command->{'section_up'}->{'cmdname'})) {
     unshift (@up_commands, $current_command->{'section_up'});
     $current_command = $current_command->{'section_up'};
   }
-  # this happens for example for top element
+  # this happens for example for top tree unit
   return '' if !(@up_commands);
   #print $fh "<ul>" . &$anchor('', $Texi2HTML::HREF{Contents}, '[' . $Texi2HTML::NAME{Contents} . ']') . " <br>\n";
   my $up = shift @up_commands;
 #print STDERR "$up $up->{'cmdname'} ".Texinfo::Structuring::_print_root_command_texi($up)."\n";
-  $result .= $converter->_attribute_class('ul', $NO_BULLET_LIST_CLASS)."><li>" 
-  . "<a href=\"".$converter->command_href($up)."\">".$converter->command_text($up) 
+  $result .= $converter->_attribute_class('ul', $NO_BULLET_LIST_CLASS)."><li>"
+  . "<a href=\"".$converter->command_href($up)."\">".$converter->command_text($up)
    . "</a> </li>\n";
   foreach my $up (@up_commands) {
     $result .= '<li>'
     .$converter->_attribute_class('ul', $NO_BULLET_LIST_CLASS)."><li>"
-    . "<a href=\"".$converter->command_href($up)."\">".$converter->command_text($up) 
+    . "<a href=\"".$converter->command_href($up)."\">".$converter->command_text($up)
    . "</a> </li>\n";
   }
   foreach my $up (@up_commands) {
@@ -95,28 +95,27 @@ sub book_format_navigation_header($$$$)
   my $self = shift;
   my $buttons = shift;
   my $cmdname = shift;
-  my $command = shift;
+  my $element = shift;
 
-  my $element = $command->{'parent'};
-  if ($element 
-      and $element->{'extra'}->{'section'}
-      and ($element->{'contents'}->[0] eq $command
-          or (!$element->{'contents'}->[0]->{'cmdname'} 
-              and $element->{'contents'}->[1] eq $command))
-      and defined($element->{'filename'})
-      and $self->{'counter_in_file'}->{$element->{'filename'}} == 1) {
+  my $tree_unit = $element->{'parent'};
+  if ($tree_unit and $tree_unit->{'extra'}->{'section'}
+      and ($tree_unit->{'contents'}->[0] eq $element
+          or (!$tree_unit->{'contents'}->[0]->{'cmdname'}
+              and $tree_unit->{'contents'}->[1] eq $element))
+      and defined($tree_unit->{'filename'})
+      and $self->{'counter_in_file'}->{$tree_unit->{'filename'}} == 1) {
     
-    return book_print_up_toc($self, $element->{'extra'}->{'section'}) .
+    return book_print_up_toc($self, $tree_unit->{'extra'}->{'section'}) .
        &{$self->default_formatting_function('format_navigation_header')}($self,
-                                 $buttons, $cmdname, $command);
+                                 $buttons, $cmdname, $element);
 
   } else {
-    return &{$self->default_formatting_function('format_navigation_header')}($self, 
-             $buttons, $cmdname, $command);
+    return &{$self->default_formatting_function('format_navigation_header')}(
+                                          $self, $buttons, $cmdname, $element);
   }
 }
 
-texinfo_register_formatting_function('format_navigation_header', 
+texinfo_register_formatting_function('format_navigation_header',
                                      \&book_format_navigation_header);
 
 sub book_print_sub_toc($$$);
@@ -133,17 +132,14 @@ sub book_print_sub_toc($$$)
   if ($content_href) {
     $result .= "<li> "."<a href=\"$content_href\">$heading</a>" . " </li>\n";
   }
-#print STDERR "SUB_TOC $element->{'text'}\n"; #sleep 1;
   if ($command->{'section_childs'} and @{$command->{'section_childs'}}) {
-#print STDERR "SUB_TOC child $element->{'child'}->{'text'}\n";
     $result .= '<li>'.$converter->_attribute_class('ul',$NO_BULLET_LIST_CLASS)
-     .">\n". book_print_sub_toc($converter, $parent_command, 
-                                $command->{'section_childs'}->[0]) 
+     .">\n". book_print_sub_toc($converter, $parent_command,
+                                $command->{'section_childs'}->[0])
      ."</ul></li>\n";
   }
   if (exists($command->{'section_next'})) {
-#print STDERR "SUB_TOC next($element->{'text'}) $element->{'next'}->{'text'}\n";
-    $result .= book_print_sub_toc($converter, $parent_command, 
+    $result .= book_print_sub_toc($converter, $parent_command,
                                   $command->{'section_next'});
   }
   return $result;
@@ -190,27 +186,27 @@ sub book_convert_heading_command($$$$$)
   print STDERR "Process $command "
         .Texinfo::Structuring::_print_root_command_texi($command)."\n"
           if ($self->get_conf('DEBUG'));
-  my $element;
-  if ($Texinfo::Common::root_commands{$command->{'cmdname'}} 
+  my $tree_unit;
+  if ($Texinfo::Common::root_commands{$command->{'cmdname'}}
       and $command->{'parent'}
       and $command->{'parent'}->{'type'}
-      and $command->{'parent'}->{'type'} eq 'element') {
-    $element = $command->{'parent'};
+      and $command->{'parent'}->{'type'} eq 'unit') {
+    $tree_unit = $command->{'parent'};
   }
-  if ($element) {
+  if ($tree_unit) {
     $result .= &{$self->{'format_element_header'}}($self, $cmdname,
-                                            $command, $element);
+                                            $command, $tree_unit);
   }
 
   my $heading_level;
   # FIXME this is done as in texi2html: node is used as heading if there 
   # is nothing else.  Is it right?
   if ($cmdname eq 'node') {
-    if (!$element or (!$element->{'extra'}->{'section'}
-                      and $element->{'extra'}->{'node'}
-                      and $element->{'extra'}->{'node'} eq $command
-                      # bogus node may not have been normalized
-                      and defined($command->{'extra'}->{'normalized'}))) {
+    if (!$tree_unit or (!$tree_unit->{'extra'}->{'section'}
+                        and $tree_unit->{'extra'}->{'node'}
+                        and $tree_unit->{'extra'}->{'node'} eq $command
+                        # bogus node may not have been normalized
+                        and defined($command->{'extra'}->{'normalized'}))) {
       if ($command->{'extra'}->{'normalized'} eq 'Top') {
         $heading_level = 0;
       } else {
@@ -283,7 +279,7 @@ sub book_element_file_name($$$)
   my $new_file_name;
   my $command = $element->{'extra'}->{'section'};
   return undef unless ($command);
-  if ($converter->element_is_top($element)) {
+  if ($converter->element_is_tree_unit_top($element)) {
     $new_file_name = "${prefix}_top.html";
   } elsif (defined($command->{'number'}) and ($command->{'number'} ne '')) {
     my $number = $command->{'number'};

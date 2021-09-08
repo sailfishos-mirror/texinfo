@@ -10,9 +10,9 @@ sub test_misc_file_name($$$)
   my $element = shift;
   my $filename = shift;
 
-  if ($converter->element_is_top($element)
-      or ($converter->{'elements'}->[2] 
-          and $converter->{'elements'}->[2] eq $element)) {
+  if ($converter->element_is_tree_unit_top($element)
+      or ($converter->{'tree_units'}->[2]
+          and $converter->{'tree_units'}->[2] eq $element)) {
     my $extension = $converter->get_conf('EXTENSION');
     my $prefix = $converter->{'document_name'};
     $filename = "${prefix}_abt"

@@ -188,11 +188,11 @@ $result_trees{'top_without_node_nodes'} = [
       }
     ],
     'extra' => {
-      'element_command' => {},
       'node' => {},
-      'section' => {}
+      'section' => {},
+      'unit_command' => {}
     },
-    'type' => 'element'
+    'type' => 'unit'
   }
 ];
 $result_trees{'top_without_node_nodes'}[0]{'contents'}[0]{'parent'} = $result_trees{'top_without_node_nodes'}[0];
@@ -220,9 +220,9 @@ $result_trees{'top_without_node_nodes'}[0]{'contents'}[3]{'contents'}[0]{'parent
 $result_trees{'top_without_node_nodes'}[0]{'contents'}[3]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'top_without_node_nodes'}[0]{'contents'}[3]{'contents'}[1];
 $result_trees{'top_without_node_nodes'}[0]{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'top_without_node_nodes'}[0]{'contents'}[3];
 $result_trees{'top_without_node_nodes'}[0]{'contents'}[3]{'parent'} = $result_trees{'top_without_node_nodes'}[0];
-$result_trees{'top_without_node_nodes'}[0]{'extra'}{'element_command'} = $result_trees{'top_without_node_nodes'}[0]{'contents'}[2];
 $result_trees{'top_without_node_nodes'}[0]{'extra'}{'node'} = $result_trees{'top_without_node_nodes'}[0]{'contents'}[2];
 $result_trees{'top_without_node_nodes'}[0]{'extra'}{'section'} = $result_trees{'top_without_node_nodes'}[0]{'contents'}[3];
+$result_trees{'top_without_node_nodes'}[0]{'extra'}{'unit_command'} = $result_trees{'top_without_node_nodes'}[0]{'contents'}[2];
 
 $result_texis{'top_without_node_nodes'} = '@top top section
 Top section
@@ -337,14 +337,13 @@ $result_elements{'top_without_node_nodes'} = [
         },
         'This' => {}
       },
-      'element_command' => {
+      'node' => {
         'cmdname' => 'node',
         'extra' => {
           'normalized' => 'second',
           'spaces_before_argument' => ' '
         }
       },
-      'node' => {},
       'section' => {
         'cmdname' => 'chapter',
         'extra' => {
@@ -352,13 +351,14 @@ $result_elements{'top_without_node_nodes'} = [
         },
         'level' => 1,
         'number' => 1
-      }
+      },
+      'unit_command' => {}
     },
-    'type' => 'element'
+    'type' => 'unit'
   }
 ];
 $result_elements{'top_without_node_nodes'}[0]{'extra'}{'directions'}{'This'} = $result_elements{'top_without_node_nodes'}[0];
-$result_elements{'top_without_node_nodes'}[0]{'extra'}{'node'} = $result_elements{'top_without_node_nodes'}[0]{'extra'}{'element_command'};
+$result_elements{'top_without_node_nodes'}[0]{'extra'}{'unit_command'} = $result_elements{'top_without_node_nodes'}[0]{'extra'}{'node'};
 
 
 

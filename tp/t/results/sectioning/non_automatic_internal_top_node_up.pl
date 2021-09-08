@@ -386,11 +386,11 @@ $result_trees{'non_automatic_internal_top_node_up'} = [
       }
     ],
     'extra' => {
-      'element_command' => {},
       'node' => {},
-      'section' => {}
+      'section' => {},
+      'unit_command' => {}
     },
-    'type' => 'element'
+    'type' => 'unit'
   },
   {
     'contents' => [
@@ -542,12 +542,12 @@ $result_trees{'non_automatic_internal_top_node_up'} = [
         'parent' => {}
       }
     ],
-    'element_prev' => {},
     'extra' => {
-      'element_command' => {},
-      'node' => {}
+      'node' => {},
+      'unit_command' => {}
     },
-    'type' => 'element'
+    'type' => 'unit',
+    'unit_prev' => {}
   }
 ];
 $result_trees{'non_automatic_internal_top_node_up'}[0]{'contents'}[0]{'parent'} = $result_trees{'non_automatic_internal_top_node_up'}[0];
@@ -606,9 +606,9 @@ $result_trees{'non_automatic_internal_top_node_up'}[0]{'contents'}[2]{'contents'
 $result_trees{'non_automatic_internal_top_node_up'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'non_automatic_internal_top_node_up'}[0]{'contents'}[2];
 $result_trees{'non_automatic_internal_top_node_up'}[0]{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'non_automatic_internal_top_node_up'}[0]{'contents'}[2];
 $result_trees{'non_automatic_internal_top_node_up'}[0]{'contents'}[2]{'parent'} = $result_trees{'non_automatic_internal_top_node_up'}[0];
-$result_trees{'non_automatic_internal_top_node_up'}[0]{'extra'}{'element_command'} = $result_trees{'non_automatic_internal_top_node_up'}[0]{'contents'}[1];
 $result_trees{'non_automatic_internal_top_node_up'}[0]{'extra'}{'node'} = $result_trees{'non_automatic_internal_top_node_up'}[0]{'contents'}[1];
 $result_trees{'non_automatic_internal_top_node_up'}[0]{'extra'}{'section'} = $result_trees{'non_automatic_internal_top_node_up'}[0]{'contents'}[2];
+$result_trees{'non_automatic_internal_top_node_up'}[0]{'extra'}{'unit_command'} = $result_trees{'non_automatic_internal_top_node_up'}[0]{'contents'}[1];
 $result_trees{'non_automatic_internal_top_node_up'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'non_automatic_internal_top_node_up'}[1]{'contents'}[0]{'args'}[0];
 $result_trees{'non_automatic_internal_top_node_up'}[1]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'non_automatic_internal_top_node_up'}[1]{'contents'}[0];
 $result_trees{'non_automatic_internal_top_node_up'}[1]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'non_automatic_internal_top_node_up'}[1]{'contents'}[0];
@@ -631,9 +631,9 @@ $result_trees{'non_automatic_internal_top_node_up'}[1]{'contents'}[0]{'extra'}{'
 $result_trees{'non_automatic_internal_top_node_up'}[1]{'contents'}[0]{'extra'}{'nodes_manuals'}[3]{'node_content'}[0] = $result_trees{'non_automatic_internal_top_node_up'}[1]{'contents'}[0]{'args'}[3]{'contents'}[0];
 $result_trees{'non_automatic_internal_top_node_up'}[1]{'contents'}[0]{'extra'}{'nodes_manuals'}[3]{'node_content'}[1] = $result_trees{'non_automatic_internal_top_node_up'}[1]{'contents'}[0]{'args'}[3]{'contents'}[1];
 $result_trees{'non_automatic_internal_top_node_up'}[1]{'contents'}[0]{'parent'} = $result_trees{'non_automatic_internal_top_node_up'}[1];
-$result_trees{'non_automatic_internal_top_node_up'}[1]{'element_prev'} = $result_trees{'non_automatic_internal_top_node_up'}[0];
-$result_trees{'non_automatic_internal_top_node_up'}[1]{'extra'}{'element_command'} = $result_trees{'non_automatic_internal_top_node_up'}[1]{'contents'}[0];
 $result_trees{'non_automatic_internal_top_node_up'}[1]{'extra'}{'node'} = $result_trees{'non_automatic_internal_top_node_up'}[1]{'contents'}[0];
+$result_trees{'non_automatic_internal_top_node_up'}[1]{'extra'}{'unit_command'} = $result_trees{'non_automatic_internal_top_node_up'}[1]{'contents'}[0];
+$result_trees{'non_automatic_internal_top_node_up'}[1]{'unit_prev'} = $result_trees{'non_automatic_internal_top_node_up'}[0];
 
 $result_texis{'non_automatic_internal_top_node_up'} = '@node Top, first, @acronym{GNU, @acronym{GNU}\'s Not Unix} manuals, @acronym{GNU, @acronym{GNU}\'s Not Unix} manuals
 @top internal top node up
@@ -783,7 +783,7 @@ $result_elements{'non_automatic_internal_top_node_up'} = [
               'NodePrev' => {},
               'This' => {}
             },
-            'element_command' => {
+            'node' => {
               'cmdname' => 'node',
               'extra' => {
                 'normalized' => 'first',
@@ -801,15 +801,14 @@ $result_elements{'non_automatic_internal_top_node_up'} = [
                 'Top' => 1
               }
             },
-            'node' => {}
+            'unit_command' => {}
           },
-          'type' => 'element'
+          'type' => 'unit'
         },
         'NodeForward' => {},
         'NodeNext' => {},
         'This' => {}
       },
-      'element_command' => {},
       'node' => {},
       'section' => {
         'cmdname' => 'top',
@@ -817,9 +816,10 @@ $result_elements{'non_automatic_internal_top_node_up'} = [
           'spaces_before_argument' => ' '
         },
         'level' => 0
-      }
+      },
+      'unit_command' => {}
     },
-    'type' => 'element'
+    'type' => 'unit'
   },
   {}
 ];
@@ -828,13 +828,13 @@ $result_elements{'non_automatic_internal_top_node_up'}[0]{'extra'}{'directions'}
 $result_elements{'non_automatic_internal_top_node_up'}[0]{'extra'}{'directions'}{'Forward'}{'extra'}{'directions'}{'NodeBack'} = $result_elements{'non_automatic_internal_top_node_up'}[0];
 $result_elements{'non_automatic_internal_top_node_up'}[0]{'extra'}{'directions'}{'Forward'}{'extra'}{'directions'}{'NodePrev'} = $result_elements{'non_automatic_internal_top_node_up'}[0];
 $result_elements{'non_automatic_internal_top_node_up'}[0]{'extra'}{'directions'}{'Forward'}{'extra'}{'directions'}{'This'} = $result_elements{'non_automatic_internal_top_node_up'}[0]{'extra'}{'directions'}{'Forward'};
-$result_elements{'non_automatic_internal_top_node_up'}[0]{'extra'}{'directions'}{'Forward'}{'extra'}{'element_command'}{'menu_up'}{'menu_child'} = $result_elements{'non_automatic_internal_top_node_up'}[0]{'extra'}{'directions'}{'Forward'}{'extra'}{'element_command'};
-$result_elements{'non_automatic_internal_top_node_up'}[0]{'extra'}{'directions'}{'Forward'}{'extra'}{'node'} = $result_elements{'non_automatic_internal_top_node_up'}[0]{'extra'}{'directions'}{'Forward'}{'extra'}{'element_command'};
+$result_elements{'non_automatic_internal_top_node_up'}[0]{'extra'}{'directions'}{'Forward'}{'extra'}{'node'}{'menu_up'}{'menu_child'} = $result_elements{'non_automatic_internal_top_node_up'}[0]{'extra'}{'directions'}{'Forward'}{'extra'}{'node'};
+$result_elements{'non_automatic_internal_top_node_up'}[0]{'extra'}{'directions'}{'Forward'}{'extra'}{'unit_command'} = $result_elements{'non_automatic_internal_top_node_up'}[0]{'extra'}{'directions'}{'Forward'}{'extra'}{'node'};
 $result_elements{'non_automatic_internal_top_node_up'}[0]{'extra'}{'directions'}{'NodeForward'} = $result_elements{'non_automatic_internal_top_node_up'}[0]{'extra'}{'directions'}{'Forward'};
 $result_elements{'non_automatic_internal_top_node_up'}[0]{'extra'}{'directions'}{'NodeNext'} = $result_elements{'non_automatic_internal_top_node_up'}[0]{'extra'}{'directions'}{'Forward'};
 $result_elements{'non_automatic_internal_top_node_up'}[0]{'extra'}{'directions'}{'This'} = $result_elements{'non_automatic_internal_top_node_up'}[0];
-$result_elements{'non_automatic_internal_top_node_up'}[0]{'extra'}{'element_command'} = $result_elements{'non_automatic_internal_top_node_up'}[0]{'extra'}{'directions'}{'Forward'}{'extra'}{'element_command'}{'menu_up'};
-$result_elements{'non_automatic_internal_top_node_up'}[0]{'extra'}{'node'} = $result_elements{'non_automatic_internal_top_node_up'}[0]{'extra'}{'directions'}{'Forward'}{'extra'}{'element_command'}{'menu_up'};
+$result_elements{'non_automatic_internal_top_node_up'}[0]{'extra'}{'node'} = $result_elements{'non_automatic_internal_top_node_up'}[0]{'extra'}{'directions'}{'Forward'}{'extra'}{'node'}{'menu_up'};
+$result_elements{'non_automatic_internal_top_node_up'}[0]{'extra'}{'unit_command'} = $result_elements{'non_automatic_internal_top_node_up'}[0]{'extra'}{'directions'}{'Forward'}{'extra'}{'node'}{'menu_up'};
 $result_elements{'non_automatic_internal_top_node_up'}[1] = $result_elements{'non_automatic_internal_top_node_up'}[0]{'extra'}{'directions'}{'Forward'};
 
 
