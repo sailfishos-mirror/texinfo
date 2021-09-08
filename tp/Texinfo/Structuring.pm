@@ -983,40 +983,39 @@ sub split_pages ($$)
   }
 }
 
-# undef in argument should be an error.  Thus only node existing should be
-# passed to this function.  Even if not existing the value returned should
-# be undef.
-sub _node_element($)
+# Returns an element associated to a label that can be used to setup a target
+# to the label.  If the target is an external node, create such element here,
+# if it is a node return the parent element that is supposed to be the
+# target for links to the node.  Otherwise there is no such element (yet),
+# for floats and anchor, return undef.
+sub _label_target_element($)
 {
-  my $node = shift;
-  if ($node->{'extra'} and $node->{'extra'}->{'manual_content'}) {
+  my $label = shift;
+  if ($label->{'extra'} and $label->{'extra'}->{'manual_content'}) {
     my $external_node = { 'type' => 'external_node',
-      'extra' => {'manual_content' => $node->{'extra'}->{'manual_content'}}};
+      'extra' => {'manual_content' => $label->{'extra'}->{'manual_content'}}};
   
-    if ($node->{'extra'}->{'node_content'}) {
+    if ($label->{'extra'}->{'node_content'}) {
       $external_node->{'extra'}->{'node_content'} 
-        = $node->{'extra'}->{'node_content'};
+        = $label->{'extra'}->{'node_content'};
       $external_node->{'extra'}->{'normalized'} = 
         Texinfo::Convert::NodeNameNormalization::normalize_node(
-          {'contents' => $node->{'extra'}->{'node_content'}});
+          {'contents' => $label->{'extra'}->{'node_content'}});
     }
     return $external_node;
-  } elsif ($node->{'cmdname'} and $node->{'cmdname'} eq 'node') {
-    return $node->{'parent'};
+  } elsif ($label->{'cmdname'} and $label->{'cmdname'} eq 'node') {
+    return $label->{'parent'};
   } else {
-    # case of a @float or an @anchor
+    # case of a @float or an @anchor, no target element defined at this stage
     return undef;
   }
 }
 
 # Do element directions (like in texi2html) and store them 
 # in 'extra'->'directions'.
-# FIXME this knows about 'special_element' so this is most likely
-# HTML specific.  Maybe a way to make it less specific would be to test
-# for something else, maybe unit_command, and possible no_node, no_section
-# although probably the caller would not call on a tree with no regular
-# tree unit elements.  This also should determine the name of the function,
-# keep elements_directions if it can be called on something else than tree_units.
+# The directions are only created if pointing to other 'unit' elements.
+# In practice there are only tree unit passed to the function, but
+# other root elements could probably be used, in theory.
 sub elements_directions($$$)
 {
   my $configuration_informations = shift;
@@ -1030,35 +1029,31 @@ sub elements_directions($$$)
     $directions->{'This'} = $tree_unit;
     $directions->{'Forward'} = $tree_unit->{'unit_next'}
       if ($tree_unit->{'unit_next'}
-          and (($tree_unit->{'extra'}->{'special_element'}
-                and $tree_unit->{'unit_next'}->{'extra'}->{'special_element'})
-               or (!$tree_unit->{'extra'}->{'special_element'}
-                and !$tree_unit->{'unit_next'}->{'extra'}->{'special_element'})));
+          and defined($tree_unit->{'unit_next'}->{'type'})
+          and $tree_unit->{'unit_next'}->{'type'} eq 'unit');
     $directions->{'Back'} = $tree_unit->{'unit_prev'}
       if ($tree_unit->{'unit_prev'}
-          and (($tree_unit->{'extra'}->{'special_element'}
-                and $tree_unit->{'unit_prev'}->{'extra'}->{'special_element'})
-               or (!$tree_unit->{'extra'}->{'special_element'}
-                and !$tree_unit->{'unit_prev'}->{'extra'}->{'special_element'})));
+          and defined($tree_unit->{'unit_prev'}->{'type'})
+          and $tree_unit->{'unit_prev'}->{'type'} eq 'unit');
     if ($tree_unit->{'extra'}->{'node'}) {
       my $node = $tree_unit->{'extra'}->{'node'};
       foreach my $direction(['NodeUp', 'node_up'], ['NodeNext', 'node_next'],
                             ['NodePrev', 'node_prev']) {
-        $directions->{$direction->[0]} = _node_element($node->{$direction->[1]})
+        $directions->{$direction->[0]} = _label_target_element($node->{$direction->[1]})
             if ($node->{$direction->[1]});
       }
       # Now do NodeForward which is something like the following node.
       my $automatic_directions = 
         (scalar(@{$node->{'extra'}->{'nodes_manuals'}}) == 1);
       if ($node->{'menu_child'}) {
-        $directions->{'NodeForward'} = _node_element($node->{'menu_child'});
+        $directions->{'NodeForward'} = _label_target_element($node->{'menu_child'});
       } elsif ($automatic_directions and $node->{'associated_section'}
                and $node->{'associated_section'}->{'section_childs'}
                and $node->{'associated_section'}->{'section_childs'}->[0]) {
         $directions->{'NodeForward'} 
           = $node->{'associated_section'}->{'section_childs'}->[0]->{'parent'};
       } elsif ($node->{'node_next'}) {
-        $directions->{'NodeForward'} = _node_element($node->{'node_next'});
+        $directions->{'NodeForward'} = _label_target_element($node->{'node_next'});
       } else {
         my $up = $node->{'node_up'};
         my @up_list = ($node);
@@ -1068,7 +1063,7 @@ sub elements_directions($$$)
                and not (grep {$up eq $_} @up_list  
                         or ($node_top and $up eq $node_top))) {
           if (defined($up->{'node_next'})) {
-            $directions->{'NodeForward'} = _node_element($up->{'node_next'});
+            $directions->{'NodeForward'} = _label_target_element($up->{'node_next'});
             last;
           }
           push @up_list, $up;
@@ -1156,7 +1151,7 @@ sub elements_directions($$$)
         and $tree_unit->{'extra'}->{'node'}->{'node_up'}
         and (!$node_top or ($tree_unit->{'extra'}->{'node'} ne $node_top))) {
       #print STDERR "Using node for up "._print_element_command_texi($tree_unit)."\n";
-      my $up_node_element = _node_element($tree_unit->{'extra'}->{'node'}->{'node_up'});
+      my $up_node_element = _label_target_element($tree_unit->{'extra'}->{'node'}->{'node_up'});
       $directions->{'Up'} = $up_node_element if ($up_node_element);
     }
     if ($tree_unit->{'extra'}->{'directions'}) {
@@ -1174,6 +1169,8 @@ sub elements_directions($$$)
   }
 }
 
+# for now, the elements can only be tree units.  It could probably
+# be other root elements for which file directions make sense, in theory.
 sub elements_file_directions($)
 {
   my $tree_units = shift;
@@ -1307,7 +1304,8 @@ sub _print_element_command_texi($)
 # Used for debugging and in test suite, but not generally useful. Not
 # documented in pod section and not exportable as it should not, in
 # general, be used.
-# In general should be called with tree unit elements, but is more generic.
+# In general would be called with tree unit elements, but is more generic
+# to account for other situations.
 sub print_element_directions($)
 {
   my $element = shift;
