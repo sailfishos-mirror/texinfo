@@ -1,5 +1,10 @@
 2021-09-08  Patrice Dumas  <pertusus@free.fr>
 
+	* Texinfo/Convert/DocBook.pm: rename $root as $element if not
+	a root element, and element as format_element for DocBook elements.
+
+2021-09-08  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_html_get_tree_root_element)
 	(command_filename, command_root_element_command)
 	(_prepare_tree_root_elements):
