@@ -119,7 +119,7 @@ sub _print_tree($$;$$);
 sub _print_tree($$;$$)
 {
   my $self = shift;
-  my $root = shift;
+  my $element = shift;
   my $level = shift;
   my $argument = shift;
   $level = 0 if (!defined($level));
@@ -129,27 +129,27 @@ sub _print_tree($$;$$)
     $result .= '%';
     $level++;
   }
-  if ($root->{'cmdname'}) {
-    $result .= "\@$root->{'cmdname'} ";
+  if ($element->{'cmdname'}) {
+    $result .= "\@$element->{'cmdname'} ";
   }
-  if (defined($root->{'type'})) {
-    $result .= "$root->{'type'} ";
+  if (defined($element->{'type'})) {
+    $result .= "$element->{'type'} ";
   }
-  if (defined($root->{'text'})) {
-    my $text = $root->{'text'};
+  if (defined($element->{'text'})) {
+    my $text = $element->{'text'};
     $text =~ s/\n/\\n/g;
     $text =~ s/\f/\\f/g;
     $text =~ s/\r/\\r/g;
     $result .= "|$text|";
   }
   $result .= "\n";
-  if ($root->{'args'}) {
-    foreach my $arg (@{$root->{'args'}}) {
+  if ($element->{'args'}) {
+    foreach my $arg (@{$element->{'args'}}) {
       $result .= _print_tree ($self, $arg, $level +1, 1);
     }
   }
-  if ($root->{'contents'}) {
-    foreach my $content (@{$root->{'contents'}}) {
+  if ($element->{'contents'}) {
+    foreach my $content (@{$element->{'contents'}}) {
       $result .= _print_tree ($self, $content, $level+1);
     }
   }

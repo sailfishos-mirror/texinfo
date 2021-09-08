@@ -119,10 +119,10 @@ sub tex4ht_prepare($$)
   my $collected_commands = Texinfo::Common::collect_commands_list_in_tree(
                                         $document_root, \@replaced_commands);
   my %format_collected_commands = ();
-  foreach my $root (@{$collected_commands}) {
-    my $command = $root->{'cmdname'};
+  foreach my $element (@{$collected_commands}) {
+    my $command = $element->{'cmdname'};
     my $format = $commands{$command}->{'style'};
-    push @{$format_collected_commands{$format}}, $root;
+    push @{$format_collected_commands{$format}}, $element;
     $commands{$command}->{'counter'}++;
   }
 
@@ -165,15 +165,15 @@ sub tex4ht_prepare($$)
           print $fh "\\csname tex4ht\\endcsname\n";
         }
       }
-      foreach my $root (@{$format_collected_commands{$format}}) {
+      foreach my $element (@{$format_collected_commands{$format}}) {
         $formats{$format}->{'counter'}++;
         my $counter = $formats{$format}->{'counter'};
-        my $command = $root->{'cmdname'};
+        my $command = $element->{'cmdname'};
         my $tree;
         if ($command eq 'math') {
-          $tree = $root->{'args'}->[0];
+          $tree = $element->{'args'}->[0];
         } else {
-          $tree = {'contents' => [@{$root->{'contents'}}]};
+          $tree = {'contents' => [@{$element->{'contents'}}]};
           if ($tree->{'contents'}->[0]
               and $tree->{'contents'}->[0]->{'type'}
               and $tree->{'contents'}->[0]->{'type'} eq 'empty_line_after_command') {
@@ -185,7 +185,7 @@ sub tex4ht_prepare($$)
           }
         }
         my $text = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
-        $formats{$format}->{'commands'}->[$counter-1] = $root;
+        $formats{$format}->{'commands'}->[$counter-1] = $element;
 
         # write to tex file
         my ($before_comment_open, $after_comment_open, $before_comment_close,

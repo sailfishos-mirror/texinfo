@@ -212,14 +212,14 @@ sub l2h_process($$)
                                         $document_root, \@replaced_commands);
   my $counter = 0;
   if (scalar(@{$collected_commands})) {
-    foreach my $root (@{$collected_commands}) {
-      my $command = $root->{'cmdname'};
+    foreach my $element (@{$collected_commands}) {
+      my $command = $element->{'cmdname'};
       $counter++;
       my $tree;
       if ($command eq 'math') {
-        $tree = $root->{'args'}->[0];
+        $tree = $element->{'args'}->[0];
       } else {
-        $tree = {'contents' => [@{$root->{'contents'}}]};
+        $tree = {'contents' => [@{$element->{'contents'}}]};
         if ($tree->{'contents'}->[0]
             and $tree->{'contents'}->[0]->{'type'}
             and $tree->{'contents'}->[0]->{'type'} eq 'empty_line_after_command') {
@@ -232,7 +232,7 @@ sub l2h_process($$)
       }
       my $text = Texinfo::Convert::Texinfo::convert_to_texinfo($tree);
       l2h_to_latex($self, $command, $text, $counter);
-      $commands_counters{$root} = $counter;
+      $commands_counters{$element} = $counter;
     }
   }
   $status = l2h_finish_to_latex($self);

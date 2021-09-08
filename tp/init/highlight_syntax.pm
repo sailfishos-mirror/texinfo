@@ -132,8 +132,8 @@ sub highlight_process($$)
   my $collected_commands = Texinfo::Common::collect_commands_in_tree($document_root, \@highlighted_commands);
   foreach my $cmdname (@highlighted_commands) {
     if (scalar(@{$collected_commands->{$cmdname}}) > 0) {
-      foreach my $root (@{$collected_commands->{$cmdname}}) {
-        my $language = _get_language($self, $cmdname, $root);
+      foreach my $element (@{$collected_commands->{$cmdname}}) {
+        my $language = _get_language($self, $cmdname, $element);
         if (defined($language)) {
           if (not exists($languages{$language})) {
             $languages{$language} = {
@@ -142,7 +142,7 @@ sub highlight_process($$)
           }
           $languages{$language}->{'counter'}++;
           my $counter = $languages{$language}->{'counter'};
-          $languages{$language}->{'commands'}->[$counter-1] = [$root, $cmdname];
+          $languages{$language}->{'commands'}->[$counter-1] = [$element, $cmdname];
           $commands{$cmdname}->{'input_counter'}++;
         }
       }
@@ -177,10 +177,10 @@ sub highlight_process($$)
     my $highlight_lang_in_line_nr = 2;
 
     my $counter = 0;
-    foreach my $root_command (@{$languages{$language}->{'commands'}}) {
+    foreach my $element_command (@{$languages{$language}->{'commands'}}) {
 
-      my $root = $root_command->[0];
-      my $tree = {'contents' => [@{$root->{'contents'}}]};
+      my $element = $element_command->[0];
+      my $tree = {'contents' => [@{$element->{'contents'}}]};
       if ($tree->{'contents'}->[0]
           and $tree->{'contents'}->[0]->{'type'}
           and $tree->{'contents'}->[0]->{'type'} eq 'empty_line_after_command') {
@@ -241,10 +241,10 @@ sub highlight_process($$)
         $separators_count++;
         if (defined($text)) {
           $got_count++;
-          my $root_command = $languages{$language}->{'commands'}->[$got_count-1];
-          my $root = $root_command->[0];
-          my $command = $root_command->[1];
-          $commands{$command}->{'results'}->{$root} = $text;
+          my $element_command = $languages{$language}->{'commands'}->[$got_count-1];
+          my $element = $element_command->[0];
+          my $command = $element_command->[1];
+          $commands{$command}->{'results'}->{$element} = $text;
           $text = undef;
         }
         #print STDERR "$language $got_count $language_fragments_nr \n";
@@ -263,9 +263,9 @@ sub highlight_process($$)
                             $language, $separators_count, $language_fragments_nr+1));
     }
     if (defined($text) and $text ne '') {
-      my $root_command = $languages{$language}->{'commands'}->[$got_count-1];
-      my $root = $root_command->[0];
-      my $command = $root_command->[1];
+      my $element_command = $languages{$language}->{'commands'}->[$got_count-1];
+      my $element = $element_command->[0];
+      my $command = $element_command->[1];
       $self->document_warn($self, sprintf(__(
                  "highlight_syntax.pm: %s: end of \@%s item %d not found"),
                                   $language, $command, $got_count));
