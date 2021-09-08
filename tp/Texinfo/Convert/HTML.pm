@@ -631,7 +631,7 @@ sub global_element($$)
   return $self->{'global_target_elements'}->{$type};
 }
 
-# it is considered 'top' only if element corresponds to @top or 
+# it is considered 'top' only if element corresponds to @top or
 # element is a node
 sub element_is_tree_unit_top($$)
 {
@@ -2043,18 +2043,18 @@ sub _default_panel_button_dynamic_direction($$;$$)
     $direction = 'FirstInFile'.$direction;
   }
 
-  my $href = $self->_element_direction($self->{'current_element'},
+  my $href = $self->_element_direction($self->{'current_root_element'},
                                            $direction, 'href');
   my $node;
 
 
   if ($self->get_conf('xrefautomaticsectiontitle') eq 'on') {
-    $node = $self->_element_direction($self->{'current_element'},
+    $node = $self->_element_direction($self->{'current_root_element'},
                                              $direction, 'section');
   }
 
   if (!defined($node)) {
-    $node = $self->_element_direction($self->{'current_element'},
+    $node = $self->_element_direction($self->{'current_root_element'},
                                       $direction, 'node');
   }
 
@@ -2162,7 +2162,7 @@ sub _default_format_button($$)
     if (defined($button_href) and !ref($button_href)
         and defined($text) and (ref($text) eq 'SCALAR') and defined($$text)) {
       # use given text
-      my $href = $self->_element_direction($self->{'current_element'}, 
+      my $href = $self->_element_direction($self->{'current_root_element'},
                                            $button_href, 'href');
       if ($href) {
         my $anchor_attributes = $self->_direction_href_attributes($button_href);
@@ -2179,12 +2179,12 @@ sub _default_format_button($$)
     } elsif (defined($button_href) and !ref($button_href)
              and defined($text) and !ref($text)) {
       if ($text =~ s/^->\s*//) {
-        $active = $self->_element_direction($self->{'current_element'},
+        $active = $self->_element_direction($self->{'current_root_element'},
                                            $button_href, $text);
       } else {
-        my $href = $self->_element_direction($self->{'current_element'}, 
+        my $href = $self->_element_direction($self->{'current_root_element'},
                                              $button_href, 'href');
-        my $text_formatted = $self->_element_direction($self->{'current_element'},
+        my $text_formatted = $self->_element_direction($self->{'current_root_element'},
                                            $button_href, $text);
         if ($href) {
           my $anchor_attributes = $self->_direction_href_attributes($button_href);
@@ -2208,7 +2208,7 @@ sub _default_format_button($$)
     }
     $need_delimiter = 0;
   } else {
-    my $href = $self->_element_direction($self->{'current_element'}, 
+    my $href = $self->_element_direction($self->{'current_root_element'},
                                          $button, 'href');
     if ($href) {
       # button is active
@@ -2239,7 +2239,7 @@ sub _default_format_button($$)
           # use icon
           $active = "<a href=\"$href\"${btitle}>".
              &{$self->{'format_button_icon_img'}}($self, $button_name, $active_icon,
-                      $self->_element_direction($self->{'current_element'},
+                      $self->_element_direction($self->{'current_root_element'},
                                        $button, 'string')) ."</a>";
           $use_icon = 1;
         }
@@ -2259,7 +2259,7 @@ sub _default_format_button($$)
         if ($passive_icon and $passive_icon ne '') {
           $passive = &{$self->{'format_button_icon_img'}}($self, $button_name, 
                                                    $passive_icon,
-                      $self->_element_direction($self->{'current_element'},
+                      $self->_element_direction($self->{'current_root_element'},
                                        $button, 'string'));
           $use_icon = 1;
         }
@@ -2524,7 +2524,7 @@ sub _convert_heading_command($$$$$)
     $tree_unit = $command->{'parent'};
   }
   if ($tree_unit) {
-    $result .= &{$self->{'format_element_header'}}($self, $cmdname, 
+    $result .= &{$self->{'format_element_header'}}($self, $cmdname,
                                             $command, $tree_unit);
   }
 
@@ -3694,7 +3694,7 @@ sub _convert_printindex_command($$$$)
   my $symbol_idx = 0;
   foreach my $letter_entry (@{$self->{'index_entries_by_letter'}->{$index_name}}) {
     my $letter = $letter_entry->{'letter'};
-    my $index_element_id = $self->_element_direction($self->{'current_element'},
+    my $index_element_id = $self->_element_direction($self->{'current_root_element'},
                                                      'This', 'target');
     if (!defined($index_element_id)) {
       $index_element_id = $target_prefix;
@@ -3835,7 +3835,7 @@ sub _contents_inline_element($$$)
   my $content = &{$self->{'format_contents'}}($self, $cmdname, $command);
   if ($content) {
     my $special_element_name = $contents_command_element_name{$cmdname};
-    my $special_element 
+    my $special_element
       = $self->special_element($special_element_name);
     my $heading;
     my $result = "<div class=\"${special_element_name}_element\"";
@@ -4655,8 +4655,8 @@ sub _convert_table_item_type($$$$)
 $default_types_conversion{'table_item'} = \&_convert_table_item_type;
 $default_types_conversion{'inter_item'} = \&_convert_table_item_type;
 
-# This type is the only one present if there are no elements.  It is 
-# therefore used to do the formatting of the element in case there are no 
+# This type is the only one present if there are no elements.  It is
+# therefore used to do the formatting of the element in case there are no
 # element.
 sub _convert_root_text_type($$$$)
 {
@@ -4802,7 +4802,7 @@ sub _convert_special_element_type($$$$)
 
 $default_types_conversion{'special_element'} = \&_convert_special_element_type;
 
-# Function for converting the top-level elements in the conversion: a section 
+# Function for converting the top-level elements in the conversion: a section
 # or a node.  $ELEMENT was created in this module (in _prepare_tree_root_elements),
 # with type 'unit' (it's not a tree element created by the parser).  $CONTENT
 # is the contents of the node/section, already converted.
@@ -4857,7 +4857,7 @@ sub _default_format_element_footer($$$$)
     and $element->{'unit_next'}->{'extra'}->{'special_element'});
 
   my $end_page = (!$element->{'unit_next'}
-       or (defined($element->{'filename'}) 
+       or (defined($element->{'filename'})
            and $element->{'filename'} ne $element->{'unit_next'}->{'filename'}
            and $self->{'file_counters'}->{$element->{'filename'}} == 1));
 
@@ -4962,7 +4962,7 @@ our %default_formatting_references = (
      'format_begin_file' => \&_default_format_begin_file, 
      'format_node_redirection_page' => \&_default_format_node_redirection_page, 
      'format_end_file' => \&_default_format_end_file, 
-     'format_special_element_body' => \&_default_format_special_element_body, 
+     'format_special_element_body' => \&_default_format_special_element_body,
      'format_footnotes_text' => \&_default_format_footnotes_text, 
      'format_program_string' => \&_default_format_program_string, 
      'format_titlepage' => \&_default_format_titlepage, 
@@ -5288,10 +5288,10 @@ sub converter_initialize($)
 sub convert_tree($$;$)
 {
   my $self = shift;
-  my $element = shift;
+  my $tree = shift;
   my $explanation = shift;
 
-  return $self->_convert($element, $explanation);
+  return $self->_convert($tree, $explanation);
 }
 
 sub _normalized_to_id($)
@@ -5652,7 +5652,7 @@ sub _set_root_commands_targets_node_files($$)
 sub _html_get_tree_root_element($$;$);
 
 # If $find_container is set, the element that holds the command is found,
-# otherwise the element that holds the command content is found.  This is 
+# otherwise the element that holds the command content is found.  This is
 # mostly relevant for footnote only.
 # If no known root element type is found, the returned root element is undef, and not
 # set to the element at the tree root
@@ -5899,12 +5899,12 @@ sub _prepare_tree_root_elements($$$$)
   $self->set_global_document_commands(-1, \@conf_for_special_elements);
   # Do that before the other elements, to be sure that special page ids
   # are registered before elements id are.
-  my $special_elements 
+  my $special_elements
     = $self->_prepare_special_elements($tree_units, $destination_directory,
                                        $document_name);
   $self->set_global_document_commands(0, \@conf_for_special_elements);
 
-  $self->{'special_elements'} = $special_elements 
+  $self->{'special_elements'} = $special_elements
     if (defined($special_elements));
 
   #if ($tree_units) {
@@ -6406,7 +6406,7 @@ sub _element_direction($$$$;$)
   }
   if ($self->{'global_target_elements'}->{$direction}) {
     $element_target = $self->{'global_target_elements'}->{$direction};
-  } elsif ($element and $element->{'extra'} 
+  } elsif ($element and $element->{'extra'}
       and $element->{'extra'}->{'directions'}
       and $element->{'extra'}->{'directions'}->{$direction}) {
     $element_target
@@ -6737,7 +6737,7 @@ sub _file_header_informations($$)
       } else {
         $element_tree = $self->command_text($command, 'tree');
       }
-      my $title_tree = $self->gdt('{element_text} ({title})', 
+      my $title_tree = $self->gdt('{element_text} ({title})',
                    { 'title' => $self->{'title_tree'}, 
                      'element_text' => $element_tree });
       $title = $self->convert_tree_new_formatting_context(
@@ -6971,13 +6971,13 @@ sub _default_format_footnotes_text($)
      if (defined($self->get_conf('DEFAULT_RULE')) 
          and $self->get_conf('DEFAULT_RULE') ne '');
   my $footnote_heading 
-    = $self->convert_tree ($self->get_conf('SPECIAL_ELEMENTS_NAME')->{'Footnotes'});
+    = $self->convert_tree($self->get_conf('SPECIAL_ELEMENTS_NAME')->{'Footnotes'});
   my $class = $self->get_conf('SPECIAL_ELEMENTS_CLASS')->{'Footnotes'};
   my $level = $self->get_conf('FOOTNOTE_END_HEADER_LEVEL');
   $result .= &{$self->{'format_heading_text'}}($self, $class.'-heading',
                                         $footnote_heading, $level)."\n";
   $result .= &{$self->{'format_special_element_body'}}($self, 'Footnotes',
-                                               $self->{'current_element'});
+                                              $self->{'current_root_element'});
   $result .= "</div>\n";
   return $result;
 }
@@ -7447,7 +7447,7 @@ sub output($$)
 
   # Associate the special elements that have no page with the main page.
   # This may only happen if not split.
-  if ($special_elements 
+  if ($special_elements
       and $tree_units and $tree_units->[0]
       and defined($tree_units->[0]->{'filename'})) {
     foreach my $special_element (@$special_elements) {
@@ -7845,20 +7845,21 @@ sub output($$)
 sub _convert_contents($$$)
 {
   my $self = shift;
-  my $root = shift;
+  my $element = shift;
   my $command_type = shift;
+
   my $content_formatted = '';
-  if (ref($root->{'contents'}) ne 'ARRAY') {
-    cluck "for $root contents not an array: $root->{'contents'}";
-    print STDERR Texinfo::Common::_print_current($root);
+  if (ref($element->{'contents'}) ne 'ARRAY') {
+    cluck "for $element contents not an array: $element->{'contents'}";
+    print STDERR Texinfo::Common::_print_current($element);
   }
 
   my $content_idx = 0;
-  foreach my $content (@{$root->{'contents'}}) {
+  foreach my $content (@{$element->{'contents'}}) {
     my $new_content = $self->_convert($content, "$command_type [$content_idx]");
     if (!defined($new_content)) {
       cluck "content not defined for $command_type [$content_idx]\n";
-      print STDERR "root is: ".Texinfo::Common::_print_current ($root);
+      print STDERR "root is: ".Texinfo::Common::_print_current ($element);
       print STDERR "content is: ".Texinfo::Common::_print_current ($content);
     } else {
       $content_formatted .= $new_content;
@@ -7936,31 +7937,31 @@ sub _protect_space($$)
   return $text;
 }
 
-# Convert tree element $ROOT, and return HTML text for the output files.
+# Convert tree element $ELEMENT, and return HTML text for the output files.
 sub _convert($$;$);
 
 sub _convert($$;$)
 {
   my $self = shift;
-  my $root = shift;
+  my $element = shift;
   # only used for debug
   my $explanation = shift;
 
   # to help debug and trace
   my $command_type = '';
-  if ($root->{'cmdname'}) {
-    $command_type = "\@$root->{'cmdname'} ";
+  if ($element->{'cmdname'}) {
+    $command_type = "\@$element->{'cmdname'} ";
   }
-  if (defined($root->{'type'})) {
-    $command_type .= $root->{'type'};
+  if (defined($element->{'type'})) {
+    $command_type .= $element->{'type'};
   }
 
   if ($self->get_conf('DEBUG')) {
     $explanation = 'NO EXPLANATION' if (!defined($explanation));
-    print STDERR "ROOT($explanation):$root (".join('|',@{$self->{'document_context'}->[-1]->{'formatting_context'}})."), ->";
-    print STDERR " cmd: $root->{'cmdname'}," if ($root->{'cmdname'});
-    print STDERR " type: $root->{'type'}" if ($root->{'type'});
-    my $text = $root->{'text'}; 
+    print STDERR "ELEMENT($explanation):$element (".join('|',@{$self->{'document_context'}->[-1]->{'formatting_context'}})."), ->";
+    print STDERR " cmd: $element->{'cmdname'}," if ($element->{'cmdname'});
+    print STDERR " type: $element->{'type'}" if ($element->{'type'});
+    my $text = $element->{'text'};
     if (defined($text)) {
       $text =~ s/\n/\\n/;
       print STDERR " text: $text";
@@ -7968,47 +7969,47 @@ sub _convert($$;$)
     print STDERR "\n";
   }
 
-  if (ref($root) ne 'HASH') {
-    cluck "_convert: root not a HASH\n";
+  if (ref($element) ne 'HASH') {
+    cluck "_convert: tree element not a HASH\n";
     return '';
   }
 
-  if (($root->{'type'}
-        and exists ($self->{'types_conversion'}->{$root->{'type'}})
-        and !defined($self->{'types_conversion'}->{$root->{'type'}}))
-       or ($root->{'cmdname'}
-            and exists($self->{'commands_conversion'}->{$root->{'cmdname'}})
-            and !defined($self->{'commands_conversion'}->{$root->{'cmdname'}}))) {
+  if (($element->{'type'}
+        and exists ($self->{'types_conversion'}->{$element->{'type'}})
+        and !defined($self->{'types_conversion'}->{$element->{'type'}}))
+       or ($element->{'cmdname'}
+            and exists($self->{'commands_conversion'}->{$element->{'cmdname'}})
+            and !defined($self->{'commands_conversion'}->{$element->{'cmdname'}}))) {
     if ($self->get_conf('DEBUG')) {
       my $string = 'IGNORED';
-      $string .= " \@$root->{'cmdname'}" if ($root->{'cmdname'});
-      $string .= " $root->{'type'}" if ($root->{'type'});
+      $string .= " \@$element->{'cmdname'}" if ($element->{'cmdname'});
+      $string .= " $element->{'type'}" if ($element->{'type'});
       print STDERR "$string\n";
     }
     return '';
   }
 
   # Process text
-  if (defined($root->{'text'})) {
+  if (defined($element->{'text'})) {
     # already converted to html, keep it as is
-    if ($root->{'type'} and $root->{'type'} eq '_converted') {
-      return $root->{'text'};
+    if ($element->{'type'} and $element->{'type'} eq '_converted') {
+      return $element->{'text'};
     }
-    if ($root->{'type'} and $root->{'type'} eq 'untranslated') {
-      my $translated = $self->gdt($root->{'text'});
+    if ($element->{'type'} and $element->{'type'} eq 'untranslated') {
+      my $translated = $self->gdt($element->{'text'});
       my $result = $self->_convert($translated);
       return $result;
     }
     my $result = &{$self->{'types_conversion'}->{'text'}} ($self, 
-                                                      $root->{'type'},
-                                                      $root,
-                                                      $root->{'text'});
+                                                      $element->{'type'},
+                                                      $element,
+                                                      $element->{'text'});
     print STDERR "DO TEXT => `$result'\n" if ($self->get_conf('DEBUG'));
     return $result;
   }
 
-  if ($root->{'extra'} and $root->{'extra'}->{'missing_argument'} 
-             and (!$root->{'contents'} or !@{$root->{'contents'}})) {
+  if ($element->{'extra'} and $element->{'extra'}->{'missing_argument'}
+             and (!$element->{'contents'} or !@{$element->{'contents'}})) {
     print STDERR "MISSING_ARGUMENT\n" if ($self->get_conf('DEBUG'));
     return '';
   }
@@ -8016,24 +8017,24 @@ sub _convert($$;$)
   # commands like @deffnx have both a cmdname and a def_line type.  It is
   # better to consider them as a def_line type, as the whole point of the
   # def_line type is to handle the same the def*x and def* line formatting. 
-  if ($root->{'cmdname'} 
-      and !($root->{'type'} and $root->{'type'} eq 'def_line'
-            or $root->{'type'} and $root->{'type'} eq 'definfoenclose_command')) {
-    my $command_name = $root->{'cmdname'};
+  if ($element->{'cmdname'}
+      and !($element->{'type'} and $element->{'type'} eq 'def_line'
+            or $element->{'type'} and $element->{'type'} eq 'definfoenclose_command')) {
+    my $command_name = $element->{'cmdname'};
     # use the same command name for all the index entry commands
-    if ($root->{'extra'} and $root->{'extra'}->{'index_entry'}
-      and $root->{'cmdname'} and $root->{'cmdname'} =~ /index$/) {
+    if ($element->{'extra'} and $element->{'extra'}->{'index_entry'}
+      and $element->{'cmdname'} and $element->{'cmdname'} =~ /index$/) {
       $command_name = 'cindex';
     }
     if ($root_commands{$command_name}) {
-      $self->{'current_root_command'} = $root;
+      $self->{'current_root_command'} = $element;
     }
     if (exists($self->{'commands_conversion'}->{$command_name})) {
       if (exists($context_brace_commands{$command_name})) {
         $self->_new_document_context($command_name);
       }
       push @{$self->{'document_context'}->[-1]->{'commands'}}, 
-        $root->{'cmdname'}; 
+        $element->{'cmdname'};
       if (exists($format_context_commands{$command_name})) {
         push @{$self->{'document_context'}->[-1]->{'formatting_context'}}, 
                                               {'cmdname' => $command_name};
@@ -8066,26 +8067,26 @@ sub _convert($$;$)
         $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]->{'space_protected'}++;
       }
       my $content_formatted;
-      if ($root->{'contents'}) {
-        $content_formatted = $self->_convert_contents($root, $command_type);
+      if ($element->{'contents'}) {
+        $content_formatted = $self->_convert_contents($element, $command_type);
       }
       my $args_formatted;
       if ($brace_commands{$command_name} 
           or ($misc_commands{$command_name} 
               and $misc_commands{$command_name} eq 'line')
           or (($command_name eq 'item' or $command_name eq 'itemx')
-               and ($root->{'parent'}->{'type'}
-                    and $root->{'parent'}->{'type'} eq 'table_term'))
+               and ($element->{'parent'}->{'type'}
+                    and $element->{'parent'}->{'type'} eq 'table_term'))
           or ($command_name eq 'quotation' 
               or $command_name eq 'smallquotation')
               or ($command_name eq 'float')) {
         $args_formatted = [];
-        if ($root->{'args'}) {
+        if ($element->{'args'}) {
           my @args_specification;
           @args_specification = @{$self->{'commands_args'}->{$command_name}}
             if (defined($self->{'commands_args'}->{$command_name}));
           my $arg_idx = 0;
-          foreach my $arg (@{$root->{'args'}}) {
+          foreach my $arg (@{$element->{'args'}}) {
             my $arg_spec = shift @args_specification;
             $arg_spec = ['normal'] if (!defined($arg_spec));
             my $arg_formatted = {'tree' => $arg};
@@ -8160,10 +8161,10 @@ sub _convert($$;$)
         pop @{$self->{'document_context'}};
       }
 
-      if ($root->{'cmdname'} eq 'node') {
-        $self->{'current_node'} = $root;
+      if ($element->{'cmdname'} eq 'node') {
+        $self->{'current_node'} = $element;
       }
-      elsif ($root->{'cmdname'} eq 'menu' and $self->{'current_node'}) {
+      elsif ($element->{'cmdname'} eq 'menu' and $self->{'current_node'}) {
         $self->{'seenmenus'}->{$self->{'current_node'}} = 1;
       }
       # args are formatted, now format the command itself
@@ -8174,11 +8175,11 @@ sub _convert($$;$)
           $result = '';
         } else {
           $result = &{$self->{'commands_conversion'}->{$command_name}}($self,
-                  $command_name, $root, $args_formatted, $content_formatted);
+                  $command_name, $element, $args_formatted, $content_formatted);
         }
       } else {
         $result = &{$self->{'commands_conversion'}->{$command_name}}($self,
-                $command_name, $root, $content_formatted);
+                $command_name, $element, $content_formatted);
       }
       return $result;
     } else {
@@ -8189,76 +8190,76 @@ sub _convert($$;$)
     if ($root_commands{$command_name}) {
       delete $self->{'current_root_command'};
     }
-  } elsif ($root->{'type'}) {
+  } elsif ($element->{'type'}) {
     push @{$self->{'document_context'}->[-1]->{'commands'}}, 
-      $root->{'cmdname'}
-        if ($root->{'cmdname'});
+      $element->{'cmdname'}
+        if ($element->{'cmdname'});
 
-    if ($root->{'type'} eq 'paragraph') {
+    if ($element->{'type'} eq 'paragraph') {
       $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]->{'paragraph_number'}++;
-    } elsif ($root->{'type'} eq 'preformatted'
-             or $root->{'type'} eq 'rawpreformatted') {
+    } elsif ($element->{'type'} eq 'preformatted'
+             or $element->{'type'} eq 'rawpreformatted') {
       $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]->{'preformatted_number'}++;
-    } elsif ($root->{'type'} eq 'unit' or $root->{'type'} eq 'special_element') {
-      $self->{'current_element'} = $root;
-      $self->{'current_filename'} = $root->{'filename'};
-    } elsif ($pre_class_types{$root->{'type'}}) {
+    } elsif ($element->{'type'} eq 'unit' or $element->{'type'} eq 'special_element') {
+      $self->{'current_root_element'} = $element;
+      $self->{'current_filename'} = $element->{'filename'};
+    } elsif ($pre_class_types{$element->{'type'}}) {
       push @{$self->{'document_context'}->[-1]->{'preformatted_classes'}},
-        $pre_class_types{$root->{'type'}};
+        $pre_class_types{$element->{'type'}};
       push @{$self->{'document_context'}->[-1]->{'composition_context'}},
-        $root->{'type'};
+        $element->{'type'};
     }
 
-    if ($self->{'code_types'}->{$root->{'type'}}) {
+    if ($self->{'code_types'}->{$element->{'type'}}) {
       push @{$self->{'document_context'}->[-1]->{'monospace'}}, 1;
     }
-    if ($root->{'type'} eq '_string') {
+    if ($element->{'type'} eq '_string') {
       $self->{'document_context'}->[-1]->{'string'}++;
     }
 
     my $content_formatted;
-    if ($root->{'type'} eq 'definfoenclose_command') {
-      if ($root->{'args'}) {
-        $content_formatted = $self->_convert($root->{'args'}->[0]);
+    if ($element->{'type'} eq 'definfoenclose_command') {
+      if ($element->{'args'}) {
+        $content_formatted = $self->_convert($element->{'args'}->[0]);
       }
-    } elsif ($root->{'contents'}) {
-      $content_formatted = $self->_convert_contents($root, $command_type);
+    } elsif ($element->{'contents'}) {
+      $content_formatted = $self->_convert_contents($element, $command_type);
     }
 
     my $result = '';
-    if (exists($self->{'types_conversion'}->{$root->{'type'}})) {
-      $result = &{$self->{'types_conversion'}->{$root->{'type'}}} ($self,
-                                                 $root->{'type'},
-                                                 $root,
+    if (exists($self->{'types_conversion'}->{$element->{'type'}})) {
+      $result = &{$self->{'types_conversion'}->{$element->{'type'}}} ($self,
+                                                 $element->{'type'},
+                                                 $element,
                                                  $content_formatted);
-      #print STDERR "Converting type $root->{'type'} -> $result\n";
+      #print STDERR "Converting type $element->{'type'} -> $result\n";
     } elsif (defined($content_formatted)) {
       $result = $content_formatted;
     }
-    if ($self->{'code_types'}->{$root->{'type'}}) {
+    if ($self->{'code_types'}->{$element->{'type'}}) {
       pop @{$self->{'document_context'}->[-1]->{'monospace'}};
     } 
-    if ($root->{'type'} eq '_string') {
+    if ($element->{'type'} eq '_string') {
       $self->{'document_context'}->[-1]->{'string'}--;
     }
-    if ($root->{'type'} eq 'unit' or $root->{'type'} eq 'special_element') {
-      delete $self->{'current_element'};
+    if ($element->{'type'} eq 'unit' or $element->{'type'} eq 'special_element') {
+      delete $self->{'current_root_element'};
       delete $self->{'current_filename'};
-    } elsif ($pre_class_types{$root->{'type'}}) {
+    } elsif ($pre_class_types{$element->{'type'}}) {
       pop @{$self->{'document_context'}->[-1]->{'preformatted_classes'}};
       pop @{$self->{'document_context'}->[-1]->{'composition_context'}};
     }
-    print STDERR "DO type ($root->{'type'}) => `$result'\n"
+    print STDERR "DO type ($element->{'type'}) => `$result'\n"
       if ($self->get_conf('DEBUG'));
     pop @{$self->{'document_context'}->[-1]->{'commands'}} 
-        if ($root->{'cmdname'});
+        if ($element->{'cmdname'});
     return $result;
     # no type, no cmdname, but contents.
-  } elsif ($root->{'contents'}) {
+  } elsif ($element->{'contents'}) {
     # this happens inside accents, for section/node names, for @images.
     my $content_formatted = '';
     my $i = 0;
-    foreach my $content (@{$root->{'contents'}}) {
+    foreach my $content (@{$element->{'contents'}}) {
       $content_formatted .= $self->_convert($content, "$command_type [$i]");
       $i++;
     }
@@ -8268,12 +8269,12 @@ sub _convert($$;$)
   } else {
     print STDERR "UNNAMED empty\n" if ($self->get_conf('DEBUG'));
     if ($self->{'types_conversion'}->{''}) {
-      return &{$self->{'types_conversion'}->{''}} ($self, $root);
+      return &{$self->{'types_conversion'}->{''}} ($self, $element);
     } else {
       return '';
     }
   }
-  print STDERR "DEBUG: HERE!($root)\n";
+  print STDERR "DEBUG: HERE!($element)\n";
 }
 
 sub _set_variables_texi2html()
