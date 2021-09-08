@@ -191,88 +191,88 @@ sub _convert($;$);
 
 sub _convert($;$)
 {
-  my $root = shift;
+  my $element = shift;
   my $in_sc = shift;
 
-  return '' if (($root->{'type'} and $ignored_types{$root->{'type'}})
-          or ($root->{'cmdname'} 
-             and ($ignored_brace_commands{$root->{'cmdname'}} 
+  return '' if (($element->{'type'} and $ignored_types{$element->{'type'}})
+          or ($element->{'cmdname'}
+             and ($ignored_brace_commands{$element->{'cmdname'}}
              # here ignore the line commands
-                 or ($root->{'args'} and $root->{'args'}->[0] 
-                     and $root->{'args'}->[0]->{'type'} 
-                     and ($root->{'args'}->[0]->{'type'} eq 'line_arg'
-                         or $root->{'args'}->[0]->{'type'} eq 'misc_arg')))));
+                 or ($element->{'args'} and $element->{'args'}->[0]
+                     and $element->{'args'}->[0]->{'type'}
+                     and ($element->{'args'}->[0]->{'type'} eq 'line_arg'
+                         or $element->{'args'}->[0]->{'type'} eq 'misc_arg')))));
   my $result = '';
-  if (defined($root->{'text'})) {
-    $result = $root->{'text'};
+  if (defined($element->{'text'})) {
+    $result = $element->{'text'};
     $result =~ s/\s+/ /go;
     $result = uc($result) if ($in_sc);
   }
-  if ($root->{'cmdname'}) {
-    my $command = $root->{'cmdname'};
-    if (defined($normalize_node_no_brace_commands{$root->{'cmdname'}})) {
-      return $normalize_node_no_brace_commands{$root->{'cmdname'}};
-    } elsif (defined($normalize_node_brace_no_arg_commands{$root->{'cmdname'}})) {
-      $command = $root->{'extra'}->{'clickstyle'}
-         if ($root->{'extra'}
-          and defined($root->{'extra'}->{'clickstyle'})
-          and defined($normalize_node_brace_no_arg_commands{$root->{'extra'}->{'clickstyle'}}));
+  if ($element->{'cmdname'}) {
+    my $command = $element->{'cmdname'};
+    if (defined($normalize_node_no_brace_commands{$element->{'cmdname'}})) {
+      return $normalize_node_no_brace_commands{$element->{'cmdname'}};
+    } elsif (defined($normalize_node_brace_no_arg_commands{$element->{'cmdname'}})) {
+      $command = $element->{'extra'}->{'clickstyle'}
+         if ($element->{'extra'}
+          and defined($element->{'extra'}->{'clickstyle'})
+          and defined($normalize_node_brace_no_arg_commands{$element->{'extra'}->{'clickstyle'}}));
       my $result = $normalize_node_brace_no_arg_commands{$command};
       if ($in_sc and $Texinfo::Common::letter_no_arg_commands{$command}) {
         $result = uc($result);
       }
       return $result;
     # commands with braces
-    } elsif ($accent_commands{$root->{'cmdname'}}) {
-      return '' if (!$root->{'args'});
-      my $accent_text = _convert($root->{'args'}->[0]);
+    } elsif ($accent_commands{$element->{'cmdname'}}) {
+      return '' if (!$element->{'args'});
+      my $accent_text = _convert($element->{'args'}->[0]);
       my $accented_char 
         = Texinfo::Convert::Unicode::unicode_accent($accent_text, 
-                                                    $root);
+                                                    $element);
       if (!defined($accented_char)) {
         # In this case, the node normalization do not follow the specification,
         # but we cannot do better
         $accented_char = Texinfo::Convert::Text::ascii_accent($accent_text,
-                                                              $root);
+                                                              $element);
       }
       if ($in_sc) {
         return uc ($accented_char);
       } else {
         return $accented_char;
       }
-    #} elsif ($root->{'cmdname'} eq 'image') {
-    #  return _convert($root->{'args'}->[0]);
-    } elsif ($Texinfo::Common::ref_commands{$root->{'cmdname'}}) {
+    #} elsif ($element->{'cmdname'} eq 'image') {
+    #  return _convert($element->{'args'}->[0]);
+    } elsif ($Texinfo::Common::ref_commands{$element->{'cmdname'}}) {
       my @args_try_order;
-      if ($root->{'cmdname'} eq 'inforef') {
+      if ($element->{'cmdname'} eq 'inforef') {
         @args_try_order = (0, 1, 2);
       } else {
         @args_try_order = (0, 1, 2, 4, 3);
       }
       foreach my $index (@args_try_order) {
-        if (defined($root->{'args'}->[$index])) {
-          my $text = _convert($root->{'args'}->[$index]);
+        if (defined($element->{'args'}->[$index])) {
+          my $text = _convert($element->{'args'}->[$index]);
           return $text if (defined($text) and $text =~ /\S/);
         }
       }
       return '';
     # Here all the commands with args are processed, if they have
     # more than one arg the first one is used.
-    } elsif ($root->{'args'} and $root->{'args'}->[0] 
-           and (($root->{'args'}->[0]->{'type'}
-                and $root->{'args'}->[0]->{'type'} eq 'brace_command_arg')
-                or $root->{'cmdname'} eq 'math')) {
-      my $sc = 1 if ($root->{'cmdname'} eq 'sc' or $in_sc);
-      return _convert($root->{'args'}->[0], $sc);
+    } elsif ($element->{'args'} and $element->{'args'}->[0]
+           and (($element->{'args'}->[0]->{'type'}
+                and $element->{'args'}->[0]->{'type'} eq 'brace_command_arg')
+                or $element->{'cmdname'} eq 'math')) {
+      my $sc = 1 if ($element->{'cmdname'} eq 'sc' or $in_sc);
+      return _convert($element->{'args'}->[0], $sc);
     }
   }
-  if ($root->{'contents'}) {
-    foreach my $content (@{$root->{'contents'}}) {
+  if ($element->{'contents'}) {
+    foreach my $content (@{$element->{'contents'}}) {
       $result .= _convert($content, $in_sc);
     }
   }
   $result = '{'.$result.'}' 
-     if ($root->{'type'} and $root->{'type'} eq 'bracketed');
+     if ($element->{'type'} and $element->{'type'} eq 'bracketed');
   return $result;
 }
 

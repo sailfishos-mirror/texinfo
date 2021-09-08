@@ -142,9 +142,9 @@ sub format_comment($$)
 sub format_text($$)
 {
   my $self = shift;
-  my $root = shift;
-  my $result = $self->protect_text($root->{'text'});
-  if (! defined($root->{'type'}) or $root->{'type'} ne 'raw') {
+  my $element = shift;
+  my $result = $self->protect_text($element->{'text'});
+  if (! defined($element->{'type'}) or $element->{'type'} ne 'raw') {
     if (!$self->{'document_context'}->[-1]->{'monospace'}->[-1]) {
       $result =~ s/``/" (textldquo (@)) "/g;
       $result =~ s/\'\'/" (textrdquo (@)) "/g;

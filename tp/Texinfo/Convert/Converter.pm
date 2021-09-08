@@ -112,17 +112,17 @@ sub output_internal_links($)
 sub _informative_command_value($$)
 {
   my $self = shift;
-  my $root = shift;
+  my $element = shift;
 
-  my $cmdname = $root->{'cmdname'};
+  my $cmdname = $element->{'cmdname'};
 
   if ($Texinfo::Common::misc_commands{$cmdname} eq 'skipline') {
     return 1;
-  } elsif (exists($root->{'extra'}->{'text_arg'})) {
-    return $root->{'extra'}->{'text_arg'};
-  } elsif ($root->{'extra'} and $root->{'extra'}->{'misc_args'}
-           and exists($root->{'extra'}->{'misc_args'}->[0])) {
-    return $root->{'extra'}->{'misc_args'}->[0];
+  } elsif (exists($element->{'extra'}->{'text_arg'})) {
+    return $element->{'extra'}->{'text_arg'};
+  } elsif ($element->{'extra'} and $element->{'extra'}->{'misc_args'}
+           and exists($element->{'extra'}->{'misc_args'}->[0])) {
+    return $element->{'extra'}->{'misc_args'}->[0];
   }
   return undef;
 }
@@ -133,12 +133,12 @@ sub _informative_command_value($$)
 sub set_informative_command_value($$)
 {
   my $self = shift;
-  my $root = shift;
+  my $element = shift;
 
-  my $cmdname = $root->{'cmdname'};
+  my $cmdname = $element->{'cmdname'};
   $cmdname = 'shortcontents' if ($cmdname eq 'summarycontents');
 
-  my $value = $self->_informative_command_value($root);
+  my $value = $self->_informative_command_value($element);
   if (defined($value)) {
     $self->set_conf($cmdname, $value);
   }
@@ -296,7 +296,7 @@ sub set_global_document_commands($$;$)
     }
   } else {
     foreach my $global_command (@{$selected_commands}) {
-      my $root;
+      my $element;
       if (defined($self->{'global_commands'}->{$global_command})
           and ref($self->{'global_commands'}->{$global_command}) eq 'ARRAY') {
         # used when $commands_location == 1
@@ -304,17 +304,17 @@ sub set_global_document_commands($$;$)
         if ($commands_location < 0) {
           $index_in_global_commands = -1;
         }
-        $root =
+        $element =
           $self->{'global_commands'}->{$global_command}->[$index_in_global_commands];
       } elsif (defined($self->{'global_commands'}->{$global_command})) {
         # unique command, first and last are the same
-        $root = $self->{'global_commands'}->{$global_command};
+        $element = $self->{'global_commands'}->{$global_command};
       }
       if ($self->get_conf('DEBUG')) {
         print STDERR "SET_global_multiple_commands($commands_location) $global_command\n";
       }
-      if (defined($root)) {
-        $self->set_informative_command_value($root);
+      if (defined($element)) {
+        $self->set_informative_command_value($element);
       } else {
         # commands not appearing in the document, this should set the
         # same value, the converter initialization value
@@ -600,7 +600,7 @@ sub top_node_filename($$)
   return $top_node_filename;
 }
 
-sub _get_element($$)
+sub _get_root_element($$)
 {
   my $self = shift;
   my $command = shift;
@@ -653,7 +653,7 @@ sub _set_tree_units_files($$$$$$)
     my $top_node_filename = $self->top_node_filename($document_name);
     # first determine the top node file name.
     if ($node_top and defined($top_node_filename)) {
-      my ($node_top_unit) = $self->_get_element($node_top);
+      my ($node_top_unit) = $self->_get_root_element($node_top);
       die "BUG: No element for top node" if (!defined($node_top));
       $self->set_tree_unit_file($node_top_unit, $top_node_filename,
                                 $destination_directory);
@@ -958,7 +958,7 @@ sub create_destination_directory($$)
 
 sub txt_image_text($$$)
 {
-  my ($self, $root, $basefile) = @_;
+  my ($self, $element, $basefile) = @_;
 
   my $txt_file = Texinfo::Common::locate_include_file($self, $basefile.'.txt');
   if (!defined($txt_file)) {
@@ -966,7 +966,7 @@ sub txt_image_text($$$)
   } else {
     my $filehandle = do { local *FH };
     if (open ($filehandle, $txt_file)) {
-      my $enc = $root->{'extra'}->{'input_perl_encoding'};
+      my $enc = $element->{'extra'}->{'input_perl_encoding'};
       binmode($filehandle, ":encoding($enc)")
         if ($enc);
       my $result = '';
@@ -989,7 +989,7 @@ sub txt_image_text($$$)
     } else {
       $self->line_warn($self,
                   sprintf(__("\@image file `%s' unreadable: %s"),
-                               $txt_file, $!), $root->{'line_nr'});
+                               $txt_file, $!), $element->{'line_nr'});
     }
   }
   return undef;
@@ -1027,13 +1027,13 @@ sub float_type_number($$)
 sub float_name_caption($$)
 {
   my $self = shift;
-  my $root = shift;
+  my $element = shift;
 
   my $caption;
-  if ($root->{'extra'}->{'caption'}) {
-    $caption = $root->{'extra'}->{'caption'};
-  } elsif ($root->{'extra'}->{'shortcaption'}) {
-    $caption = $root->{'extra'}->{'shortcaption'};
+  if ($element->{'extra'}->{'caption'}) {
+    $caption = $element->{'extra'}->{'caption'};
+  } elsif ($element->{'extra'}->{'shortcaption'}) {
+    $caption = $element->{'extra'}->{'shortcaption'};
   }
   #if ($self->get_conf('DEBUG')) {
   #  my $caption_texi =
@@ -1041,38 +1041,38 @@ sub float_name_caption($$)
   #  print STDERR "  CAPTION: $caption_texi\n";
   #}
   my $type;
-  if ($root->{'extra'}->{'type'}->{'normalized'} ne '') {
-    $type = {'contents' => $root->{'extra'}->{'type'}->{'content'}};
+  if ($element->{'extra'}->{'type'}->{'normalized'} ne '') {
+    $type = {'contents' => $element->{'extra'}->{'type'}->{'content'}};
   }
 
   my $prepended;
   if ($type) {
     if ($caption) {
-      if (defined($root->{'number'})) {
+      if (defined($element->{'number'})) {
         $prepended = $self->gdt('{float_type} {float_number}: ',
             {'float_type' => $type,
-             'float_number' => $root->{'number'}});
+             'float_number' => $element->{'number'}});
       } else {
         $prepended = $self->gdt('{float_type}: ',
           {'float_type' => $type});
       }
     } else {
-      if (defined($root->{'number'})) {
+      if (defined($element->{'number'})) {
         $prepended = $self->gdt("{float_type} {float_number}\n",
             {'float_type' => $type,
-              'float_number' => $root->{'number'}});
+              'float_number' => $element->{'number'}});
       } else {
         $prepended = $self->gdt("{float_type}\n",
             {'float_type' => $type});
       }
     }
-  } elsif (defined($root->{'number'})) {
+  } elsif (defined($element->{'number'})) {
     if ($caption) {
       $prepended = $self->gdt('{float_number}: ',
-          {'float_number' => $root->{'number'}});
+          {'float_number' => $element->{'number'}});
     } else {
       $prepended = $self->gdt("{float_number}\n",
-           {'float_number' => $root->{'number'}});
+           {'float_number' => $element->{'number'}});
     }
   }
   return ($caption, $prepended);
@@ -1083,18 +1083,18 @@ sub float_name_caption($$)
 sub _end_line_or_comment($$)
 {
   my $self = shift;
-  my $root = shift;
+  my $element = shift;
 
   my $end_line;
 
-  my $comment = $root->{'args'}->[-1]->{'extra'}->{'comment_at_end'}
-    if $root->{'args'}->[-1]->{'extra'};
+  my $comment = $element->{'args'}->[-1]->{'extra'}->{'comment_at_end'}
+    if $element->{'args'}->[-1]->{'extra'};
 
   if ($comment) {
     $end_line = $self->convert_tree($comment);
-  } elsif ($root->{'args'}->[-1]->{'extra'}
-      and $root->{'args'}->[-1]->{'extra'}->{'spaces_after_argument'}) {
-    my $text = $root->{'args'}->[-1]->{'extra'}->{'spaces_after_argument'};
+  } elsif ($element->{'args'}->[-1]->{'extra'}
+      and $element->{'args'}->[-1]->{'extra'}->{'spaces_after_argument'}) {
+    my $text = $element->{'args'}->[-1]->{'extra'}->{'spaces_after_argument'};
     if (chomp($text)) {
       $end_line = "\n";
     } else {
@@ -1159,17 +1159,17 @@ sub _collect_leading_trailing_spaces_arg($$)
 sub _table_item_content_tree($$$)
 {
   my $self = shift;
-  my $root = shift;
+  my $element = shift;
   my $contents = shift;
 
-  my $converted_tree = {'parent' => $root};
-  my $table_command = $root->{'parent'}->{'parent'}->{'parent'};
+  my $converted_tree = {'parent' => $element};
+  my $table_command = $element->{'parent'}->{'parent'}->{'parent'};
   if ($table_command->{'extra'}
      and $table_command->{'extra'}->{'command_as_argument'}) {
     my $command_as_argument
       = $table_command->{'extra'}->{'command_as_argument'};
     my $command = {'cmdname' => $command_as_argument->{'cmdname'},
-               'line_nr' => $root->{'line_nr'},
+               'line_nr' => $element->{'line_nr'},
                'parent' => $converted_tree };
     if ($command_as_argument->{'type'} eq 'definfoenclose_command') {
       $command->{'type'} = $command_as_argument->{'type'};
@@ -1189,14 +1189,14 @@ sub _table_item_content_tree($$$)
 sub _level_corrected_section($$)
 {
   my $self = shift;
-  my $root = shift;
-  my $heading_level = $root->{'level'};
+  my $element = shift;
+  my $heading_level = $element->{'level'};
   my $command;
-  if ($heading_level ne $Texinfo::Common::command_structuring_level{$root->{'cmdname'}}) {
+  if ($heading_level ne $Texinfo::Common::command_structuring_level{$element->{'cmdname'}}) {
     $command
-      = $Texinfo::Common::level_to_structuring_command{$root->{'cmdname'}}->[$heading_level];
+      = $Texinfo::Common::level_to_structuring_command{$element->{'cmdname'}}->[$heading_level];
   } else {
-    $command = $root->{'cmdname'};
+    $command = $element->{'cmdname'};
   }
   return $command;
 }

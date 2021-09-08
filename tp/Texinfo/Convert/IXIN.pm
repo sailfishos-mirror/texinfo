@@ -333,7 +333,7 @@ sub output_ixin($$)
 
   # FIXME vars: wait for Thien-Thi answer.
 
-  my $elements = Texinfo::Structuring::split_by_node($root);
+  my $tree_units = Texinfo::Structuring::split_by_node($root);
   # setting_commands is for @-commands appearing before the first node,
   # while end_of_nodes_setting_commands holds, for @-commands names, the 
   # last @-command element.
@@ -431,8 +431,8 @@ sub output_ixin($$)
   my %node_tweaks;
   my @nodes;
   my $document_output = '';
-  if ($elements) {
-    foreach my $node_element (@$elements) {
+  if ($tree_units) {
+    foreach my $node_element (@$tree_units) {
       next if ($node_element->{'extra'}->{'no_node'});
       $node_nr++;
       my $node = $node_element->{'extra'}->{'unit_command'};
