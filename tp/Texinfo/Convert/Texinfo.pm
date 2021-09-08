@@ -41,9 +41,9 @@ $VERSION = '6.8dev';
 
 
 my %misc_commands            = %Texinfo::Common::misc_commands;
-my %brace_commands           = %Texinfo::Common::brace_commands;    
-my %block_commands           = %Texinfo::Common::block_commands;    
-my %def_commands             = %Texinfo::Common::def_commands;    
+my %brace_commands           = %Texinfo::Common::brace_commands;
+my %block_commands           = %Texinfo::Common::block_commands;
+my %def_commands             = %Texinfo::Common::def_commands;
 
 my @ignored_types = ('spaces_inserted', 'bracketed_inserted',
 'command_as_argument_inserted');
@@ -62,56 +62,56 @@ for my $a (@ignored_types) {
 sub convert_to_texinfo($;$);
 sub convert_to_texinfo($;$)
 {
-  my $root = shift;
+  my $element = shift;
   my $expand_replaced = shift;
 
-  die "convert_to_texinfo: root undef\n" if (!defined($root));
-  die "convert_to_texinfo: bad root type (".ref($root).") $root\n" 
-     if (ref($root) ne 'HASH');
+  die "convert_to_texinfo: element undef\n" if (!defined($element));
+  die "convert_to_texinfo: bad element type (".ref($element).") $element\n"
+     if (ref($element) ne 'HASH');
   my $result = '';
 
-  return '' if ($root->{'type'}
-                and ($ignored_types{$root->{'type'}}
-                     or ($root->{'type'} eq 'replaced'
+  return '' if ($element->{'type'}
+                and ($ignored_types{$element->{'type'}}
+                     or ($element->{'type'} eq 'replaced'
                          and not $expand_replaced)));
-  if (defined($root->{'text'})) {
-    $result .= $root->{'text'};
+  if (defined($element->{'text'})) {
+    $result .= $element->{'text'};
   } else {
-    if ($root->{'cmdname'} 
-       or ($root->{'type'} and ($root->{'type'} eq 'def_line'
-                                or $root->{'type'} eq 'menu_entry'
-                                or $root->{'type'} eq 'menu_comment'))) {
-      $result .= _expand_cmd_args_to_texi($root, $expand_replaced);
+    if ($element->{'cmdname'}
+       or ($element->{'type'} and ($element->{'type'} eq 'def_line'
+                                or $element->{'type'} eq 'menu_entry'
+                                or $element->{'type'} eq 'menu_comment'))) {
+      $result .= _expand_cmd_args_to_texi($element, $expand_replaced);
     }
-    if ($root->{'type'}
-        and ($root->{'type'} eq 'bracketed'
-             or $root->{'type'} eq 'bracketed_def_content')) {
+    if ($element->{'type'}
+        and ($element->{'type'} eq 'bracketed'
+             or $element->{'type'} eq 'bracketed_def_content')) {
       $result .= '{';
-      if ($root->{'extra'}
-          and $root->{'extra'}->{'spaces_before_argument'}) {
-         $result .= $root->{'extra'}->{'spaces_before_argument'};
+      if ($element->{'extra'}
+          and $element->{'extra'}->{'spaces_before_argument'}) {
+         $result .= $element->{'extra'}->{'spaces_before_argument'};
       }
     }
-    if (defined($root->{'contents'})) {
-      foreach my $child (@{$root->{'contents'}}) {
+    if (defined($element->{'contents'})) {
+      foreach my $child (@{$element->{'contents'}}) {
         $result .= convert_to_texinfo($child, $expand_replaced);
       }
     }
-    if ($root->{'extra'} and $root->{'extra'}->{'spaces_after_argument'}) {
-      $result .= $root->{'extra'}->{'spaces_after_argument'};
+    if ($element->{'extra'} and $element->{'extra'}->{'spaces_after_argument'}) {
+      $result .= $element->{'extra'}->{'spaces_after_argument'};
     }
-    if ($root->{'extra'} and $root->{'extra'}->{'comment_at_end'}) {
-      $result .= convert_to_texinfo($root->{'extra'}->{'comment_at_end'},
+    if ($element->{'extra'} and $element->{'extra'}->{'comment_at_end'}) {
+      $result .= convert_to_texinfo($element->{'extra'}->{'comment_at_end'},
                          $expand_replaced);
     }
-    $result .= '}' if ($root->{'type'}
-                       and ($root->{'type'} eq 'bracketed'
-                            or $root->{'type'} eq 'bracketed_def_content'));
-    if ($root->{'cmdname'} and defined($block_commands{$root->{'cmdname'}})
-        and $block_commands{$root->{'cmdname'}} eq 'raw') {
-      $result .= '@end '.$root->{'cmdname'};
-      $result .= "\n" if ($block_commands{$root->{'cmdname'}} ne 'raw');
-    } 
+    $result .= '}' if ($element->{'type'}
+                       and ($element->{'type'} eq 'bracketed'
+                            or $element->{'type'} eq 'bracketed_def_content'));
+    if ($element->{'cmdname'} and defined($block_commands{$element->{'cmdname'}})
+        and $block_commands{$element->{'cmdname'}} eq 'raw') {
+      $result .= '@end '.$element->{'cmdname'};
+      $result .= "\n" if ($block_commands{$element->{'cmdname'}} ne 'raw');
+    }
   }
   return $result;
 }
@@ -138,7 +138,7 @@ sub _expand_cmd_args_to_texi($;$) {
   my $expand_replaced = shift;
 
   my $cmdname = $cmd->{'cmdname'};
-  $cmdname = '' if (!$cmd->{'cmdname'}); 
+  $cmdname = '' if (!$cmd->{'cmdname'});
   my $result = '';
   $result = '@'.$cmdname if ($cmdname);
 
@@ -158,7 +158,7 @@ sub _expand_cmd_args_to_texi($;$) {
         $result .= convert_to_texinfo($arg, $expand_replaced);
     }
   # for misc_commands with type special
-  } elsif (($cmd->{'extra'} or $cmdname eq 'macro' or $cmdname eq 'rmacro') 
+  } elsif (($cmd->{'extra'} or $cmdname eq 'macro' or $cmdname eq 'rmacro')
            and defined($cmd->{'extra'}->{'arg_line'})) {
     $result .= $cmd->{'extra'}->{'spaces_before_argument'}
       if $cmd->{'extra'} and $cmd->{'extra'}->{'spaces_before_argument'};
@@ -178,7 +178,7 @@ sub _expand_cmd_args_to_texi($;$) {
     $result =~ s/,$//;
   } elsif (defined($cmd->{'args'})) {
     my $braces;
-    $braces = 1 if ($cmd->{'args'}->[0]->{'type'} 
+    $braces = 1 if ($cmd->{'args'}->[0]->{'type'}
                     and ($cmd->{'args'}->[0]->{'type'} eq 'brace_command_arg'
                          or $cmd->{'args'}->[0]->{'type'} eq 'brace_command_context'));
     $result .= '{' if ($braces);
@@ -191,7 +191,7 @@ sub _expand_cmd_args_to_texi($;$) {
     }
     my $arg_nr = 0;
     foreach my $arg (@{$cmd->{'args'}}) {
-      if (exists($brace_commands{$cmdname}) or ($cmd->{'type'} 
+      if (exists($brace_commands{$cmdname}) or ($cmd->{'type'}
                     and $cmd->{'type'} eq 'definfoenclose_command')) {
         $result .= ',' if ($arg_nr);
         $arg_nr++;
@@ -229,10 +229,10 @@ Texinfo::Convert::Texinfo - Convert a Texinfo tree to Texinfo code
 
 =head1 DESCRIPTION
 
-Texinfo::Convert::Texinfo converts a Texinfo tree (described in 
-L<Texinfo::Parser>) to Texinfo code.  If the Texinfo tree results from 
+Texinfo::Convert::Texinfo converts a Texinfo tree (described in
+L<Texinfo::Parser>) to Texinfo code.  If the Texinfo tree results from
 parsing some Texinfo document, The converted Texinfo code should be
-exactly the same as the initial document, except that user defined @-macros 
+exactly the same as the initial document, except that user defined @-macros
 and C<@value> are expanded, and some invalid code is discarded.
 
 =head1 METHODS
