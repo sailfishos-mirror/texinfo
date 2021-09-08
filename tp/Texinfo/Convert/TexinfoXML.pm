@@ -167,9 +167,9 @@ sub _xml_attributes($$)
 sub element($$$)
 {
   my $self = shift;
-  my $element_name = shift;
+  my $format_element = shift;
   my $attributes = shift;
-  my $result= '<'.$element_name;
+  my $result= '<'.$format_element;
   $result .= $self->_xml_attributes($attributes) if ($attributes);
   $result .= '/>';
   return $result;
@@ -179,9 +179,9 @@ sub element($$$)
 sub open_element($$$)
 {
   my $self = shift;
-  my $element_name = shift;
+  my $format_element = shift;
   my $attributes = shift;
-  my $result= '<'."$element_name";
+  my $result= '<'."$format_element";
   $result .= $self->_xml_attributes($attributes) if ($attributes);
   $result .= '>';
   return $result;
@@ -191,8 +191,8 @@ sub open_element($$$)
 sub close_element($$)
 {
   my $self = shift;
-  my $element_name = shift;
-  my $result= "</$element_name>";
+  my $format_element = shift;
+  my $result= "</$format_element>";
   return $result;
 }
 
@@ -231,9 +231,9 @@ sub _protect_text($$)
 sub format_text($$)
 {
   my $self = shift;
-  my $root = shift;
-  my $result = $self->_protect_text($root->{'text'});
-  if (! defined($root->{'type'}) or $root->{'type'} ne 'raw') {
+  my $element = shift;
+  my $result = $self->_protect_text($element->{'text'});
+  if (! defined($element->{'type'}) or $element->{'type'} ne 'raw') {
     if (!$self->{'document_context'}->[-1]->{'monospace'}->[-1]) {
       $result =~ s/``/&textldquo;/g;
       $result =~ s/\'\'/&textrdquo;/g;
@@ -335,7 +335,7 @@ our %commands_args_elements = (
 );
 
 foreach my $ref_cmd ('pxref', 'xref', 'ref') {
-  $commands_args_elements{$ref_cmd} 
+  $commands_args_elements{$ref_cmd}
     = ['xrefnodename', 'xrefinfoname', 'xrefprinteddesc', 'xrefinfofile', 
        'xrefprintedname'];
 }
@@ -492,17 +492,17 @@ sub _format_command($$)
     return $self->format_atom($command);
   } else {
     my @spec = @{$no_arg_commands_formatting{$command}};
-    my $element_name = shift @spec;
-    return $self->element($element_name, \@spec);
+    my $format_element = shift @spec;
+    return $self->element($format_element, \@spec);
   }
 }
 
 sub _index_entry($$)
 {
   my $self = shift;
-  my $root = shift;
-  if ($root->{'extra'} and $root->{'extra'}->{'index_entry'}) {
-    my $index_entry = $root->{'extra'}->{'index_entry'};
+  my $element = shift;
+  if ($element->{'extra'} and $element->{'extra'}->{'index_entry'}) {
+    my $index_entry = $element->{'extra'}->{'index_entry'};
     my $attribute = ['index', $index_entry->{'index_name'}];
     push @$attribute, ('number', $index_entry->{'number'})
         if (defined($index_entry->{'number'}));
@@ -533,13 +533,13 @@ sub _index_entry($$)
 
 sub _infoenclose_attribute($$) {
   my $self = shift;
-  my $root = shift;
+  my $element = shift;
   my @attribute = ();
-  return @attribute if (!$root->{'extra'});
-  push @attribute, ('begin', $root->{'extra'}->{'begin'})
-    if (defined($root->{'extra'}->{'begin'}));
-  push @attribute, ('end', $root->{'extra'}->{'end'})
-    if (defined($root->{'extra'}->{'end'}));
+  return @attribute if (!$element->{'extra'});
+  push @attribute, ('begin', $element->{'extra'}->{'begin'})
+    if (defined($element->{'extra'}->{'begin'}));
+  push @attribute, ('end', $element->{'extra'}->{'end'})
+    if (defined($element->{'extra'}->{'end'}));
   return @attribute;
 }
 
@@ -547,12 +547,12 @@ sub _accent($$;$$$)
 {
   my $self = shift;
   my $text = shift;
-  my $root = shift;
+  my $element = shift;
   my $in_upper_case = shift;
   my $attributes = shift;
   $attributes = [] if (!defined($attributes));
 
-  unshift @$attributes, ('type', $accent_types{$root->{'cmdname'}});
+  unshift @$attributes, ('type', $accent_types{$element->{'cmdname'}});
   my $result = $self->open_element('accent', $attributes);
   $result .= $text;
   $result .= $self->close_element('accent');
@@ -585,11 +585,11 @@ sub _protect_in_spaces($)
 
 sub _leading_spaces($)
 {
-  my $root = shift;
-  if ($root->{'extra'} and $root->{'extra'}->{'spaces_before_argument'}
-      and $root->{'extra'}->{'spaces_before_argument'} ne '') {
+  my $element = shift;
+  if ($element->{'extra'} and $element->{'extra'}->{'spaces_before_argument'}
+      and $element->{'extra'}->{'spaces_before_argument'} ne '') {
     return ('spaces', _protect_in_spaces(
-         $root->{'extra'}->{'spaces_before_argument'}));
+         $element->{'extra'}->{'spaces_before_argument'}));
   } else {
     return ();
   }
@@ -597,11 +597,11 @@ sub _leading_spaces($)
 
 sub _leading_spaces_before_argument($)
 {
-  my $root = shift;
-  if ($root->{'extra'} and $root->{'extra'}->{'spaces_before_argument'}
-      and $root->{'extra'}->{'spaces_before_argument'} ne '') {
+  my $element = shift;
+  if ($element->{'extra'} and $element->{'extra'}->{'spaces_before_argument'}
+      and $element->{'extra'}->{'spaces_before_argument'} ne '') {
     return ('spaces', _protect_in_spaces(
-                 $root->{'extra'}->{'spaces_before_argument'}));
+                 $element->{'extra'}->{'spaces_before_argument'}));
   } else {
     return ();
   }
@@ -609,13 +609,13 @@ sub _leading_spaces_before_argument($)
 
 sub _end_line_spaces
 {
-  my $root = shift;
+  my $element = shift;
 
   my $end_spaces = undef;
-  if ($root->{'args'}->[-1]
-      and $root->{'args'}->[-1]->{'extra'}
-      and $root->{'args'}->[-1]->{'extra'}->{'spaces_after_argument'}) {
-    $end_spaces = $root->{'args'}->[-1]->{'extra'}->{'spaces_after_argument'};
+  if ($element->{'args'}->[-1]
+      and $element->{'args'}->[-1]->{'extra'}
+      and $element->{'args'}->[-1]->{'extra'}->{'spaces_after_argument'}) {
+    $end_spaces = $element->{'args'}->[-1]->{'extra'}->{'spaces_after_argument'};
     chomp $end_spaces;
   }
   return $end_spaces;
@@ -624,9 +624,9 @@ sub _end_line_spaces
 sub _arg_line($)
 {
   my $self = shift;
-  my $root = shift;
-  if ($root->{'extra'} and defined($root->{'extra'}->{'arg_line'})) {
-    my $line = $root->{'extra'}->{'arg_line'};
+  my $element = shift;
+  if ($element->{'extra'} and defined($element->{'extra'}->{'arg_line'})) {
+    my $line = $element->{'extra'}->{'arg_line'};
     chomp($line);
     if ($line ne '') {
       return ('line', $line);
@@ -638,9 +638,9 @@ sub _arg_line($)
 sub _trailing_spaces_arg($$)
 {
   my $self = shift;
-  my $root = shift;
+  my $element = shift;
   
-  my @spaces = $self->_collect_leading_trailing_spaces_arg($root);
+  my @spaces = $self->_collect_leading_trailing_spaces_arg($element);
   if (defined($spaces[1])) {
     chomp($spaces[1]);
     if ($spaces[1] ne '') {
@@ -653,12 +653,12 @@ sub _trailing_spaces_arg($$)
 sub _leading_trailing_spaces_arg($$)
 {
   my $self = shift;
-  my $root = shift;
+  my $element = shift;
 
   my @result;
-  @result = _leading_spaces_before_argument($root);
+  @result = _leading_spaces_before_argument($element);
 
-  my @spaces = $self->_collect_leading_trailing_spaces_arg($root);
+  my @spaces = $self->_collect_leading_trailing_spaces_arg($element);
   if (defined($spaces[1])) {
     chomp($spaces[1]);
     if ($spaces[1] ne '') {
@@ -671,9 +671,9 @@ sub _leading_trailing_spaces_arg($$)
 sub _texinfo_line($$)
 {
   my $self = shift;
-  my $root = shift;
+  my $element = shift;
 
-  my $line = Texinfo::Convert::Texinfo::convert_to_texinfo($root->{'args'}->[-1]);
+  my $line = Texinfo::Convert::Texinfo::convert_to_texinfo($element->{'args'}->[-1]);
   chomp($line);
   if ($line ne '') {
     return ('line', $line);
@@ -685,18 +685,20 @@ sub _texinfo_line($$)
 sub _convert_argument_and_end_line($$)
 {
   my $self = shift;
-  my $root = shift;
+  my $element = shift;
 
-  my $converted = $self->convert_tree($root->{'args'}->[-1]);
+  my $converted = $self->convert_tree($element->{'args'}->[-1]);
 
   my $end_line = '';
 
-  if ($root->{'args'}->[-1]->{'extra'} and $root->{'args'}->[-1]->{'extra'}->{'spaces_after_argument'}) {
-    $converted .= $root->{'args'}->[-1]->{'extra'}->{'spaces_after_argument'};
+  if ($element->{'args'}->[-1]->{'extra'}
+      and $element->{'args'}->[-1]->{'extra'}->{'spaces_after_argument'}) {
+    $converted .= $element->{'args'}->[-1]->{'extra'}->{'spaces_after_argument'};
   }
 
-  if ($root->{'args'}->[-1]->{'extra'} and $root->{'args'}->[-1]->{'extra'}->{'comment_at_end'}) {
-    $end_line = $self->convert_tree($root->{'args'}->[-1]->{'extra'}->{'comment_at_end'});
+  if ($element->{'args'}->[-1]->{'extra'}
+      and $element->{'args'}->[-1]->{'extra'}->{'comment_at_end'}) {
+    $end_line = $self->convert_tree($element->{'args'}->[-1]->{'extra'}->{'comment_at_end'});
   } else {
     if (chomp($converted)) {
       $end_line = "\n";
@@ -721,84 +723,84 @@ sub _convert($$;$);
 sub _convert($$;$)
 {
   my $self = shift;
-  my $root = shift;
+  my $element = shift;
 
   if (0) {
   #if (1) { #}
     print STDERR "root\n";
-    print STDERR "  Command: $root->{'cmdname'}\n" if ($root->{'cmdname'});
-    print STDERR "  Type: $root->{'type'}\n" if ($root->{'type'});
-    print STDERR "  Text: $root->{'text'}\n" if (defined($root->{'text'}));
-    #print STDERR "  Special def_command: $root->{'extra'}->{'def_command'}\n"
-    #  if (defined($root->{'extra'}) and $root->{'extra'}->{'def_command'});
+    print STDERR "  Command: $element->{'cmdname'}\n" if ($element->{'cmdname'});
+    print STDERR "  Type: $element->{'type'}\n" if ($element->{'type'});
+    print STDERR "  Text: $element->{'text'}\n" if (defined($element->{'text'}));
+    #print STDERR "  Special def_command: $element->{'extra'}->{'def_command'}\n"
+    #  if (defined($element->{'extra'}) and $element->{'extra'}->{'def_command'});
   }
 
-  return '' if ($root->{'type'} and $ignored_types{$root->{'type'}});
+  return '' if ($element->{'type'} and $ignored_types{$element->{'type'}});
   my $result = '';
-  if (defined($root->{'text'})) {
+  if (defined($element->{'text'})) {
     if ($self->{'document_context'}->[-1]->{'raw'}) {
       # ignore the newline at the end of the @xml line, and the last in xml
-      if ($root->{'type'} and ($root->{'type'} eq 'empty_line_after_command'
-                               or $root->{'type'} eq 'last_raw_newline')) {
+      if ($element->{'type'} and ($element->{'type'} eq 'empty_line_after_command'
+                               or $element->{'type'} eq 'last_raw_newline')) {
         return '';
       } else {
-        return $root->{'text'};
+        return $element->{'text'};
       }
     }
-    $result = $self->format_text($root);
+    $result = $self->format_text($element);
     return $result;
   }
-  my @close_elements;
-  if ($root->{'cmdname'}) {
-    if (defined($no_arg_commands_formatting{$root->{'cmdname'}})) {
-      if ($root->{'cmdname'} eq 'click' 
-          and $root->{'extra'} 
-          and defined($root->{'extra'}->{'clickstyle'})) {
-        return $self->element('click', ['command', $root->{'extra'}->{'clickstyle'}]);;
+  my @close_format_elements;
+  if ($element->{'cmdname'}) {
+    if (defined($no_arg_commands_formatting{$element->{'cmdname'}})) {
+      if ($element->{'cmdname'} eq 'click'
+          and $element->{'extra'}
+          and defined($element->{'extra'}->{'clickstyle'})) {
+        return $self->element('click', ['command', $element->{'extra'}->{'clickstyle'}]);;
       }
-      if ($self->{'itemize_line'} and $root->{'type'} 
-          and $root->{'type'} eq 'command_as_argument'
-          and !$root->{'args'}) {
-        return $self->element('formattingcommand', ['command', $root->{'cmdname'}]);
+      if ($self->{'itemize_line'} and $element->{'type'}
+          and $element->{'type'} eq 'command_as_argument'
+          and !$element->{'args'}) {
+        return $self->element('formattingcommand', ['command', $element->{'cmdname'}]);
       }
-      return $self->_format_command($root->{'cmdname'});
-    } elsif ($accent_types{$root->{'cmdname'}}) {
+      return $self->_format_command($element->{'cmdname'});
+    } elsif ($accent_types{$element->{'cmdname'}}) {
       if ($self->get_conf('ENABLE_ENCODING')) {
-        return $self->convert_accents($root, \&_accent);
+        return $self->convert_accents($element, \&_accent);
       } else {
         my $attributes = [];
-        if (!$root->{'args'}) {
+        if (!$element->{'args'}) {
           $result = '';
         } else {
-          $result = $self->_convert($root->{'args'}->[0]);
-          if ($root->{'extra'} and $root->{'extra'}->{'spaces'}) {
-            push @$attributes,  ('spaces', $root->{'extra'}->{'spaces'});
+          $result = $self->_convert($element->{'args'}->[0]);
+          if ($element->{'extra'} and $element->{'extra'}->{'spaces'}) {
+            push @$attributes,  ('spaces', $element->{'extra'}->{'spaces'});
           }
-          if ($root->{'args'}->[0]->{'type'} eq 'following_arg') {
+          if ($element->{'args'}->[0]->{'type'} eq 'following_arg') {
              push @$attributes, ('bracketed', 'off');
           }
         }
-        return $self->_accent($result, $root,  undef, $attributes);
+        return $self->_accent($result, $element,  undef, $attributes);
       }
-    } elsif ($root->{'cmdname'} eq 'item' or $root->{'cmdname'} eq 'itemx'
-             or $root->{'cmdname'} eq 'headitem' or $root->{'cmdname'} eq 'tab') {
-      if ($root->{'cmdname'} eq 'item'
-          and $root->{'parent'}->{'cmdname'}
-          and ($root->{'parent'}->{'cmdname'} eq 'itemize'
-               or $root->{'parent'}->{'cmdname'} eq 'enumerate')) {
-        $result .= $self->open_element('listitem', [_leading_spaces($root)]);
-        if ($root->{'parent'}->{'cmdname'} eq 'itemize'
-            and $root->{'parent'}->{'args'}
-            and @{$root->{'parent'}->{'args'}}) {
+    } elsif ($element->{'cmdname'} eq 'item' or $element->{'cmdname'} eq 'itemx'
+             or $element->{'cmdname'} eq 'headitem' or $element->{'cmdname'} eq 'tab') {
+      if ($element->{'cmdname'} eq 'item'
+          and $element->{'parent'}->{'cmdname'}
+          and ($element->{'parent'}->{'cmdname'} eq 'itemize'
+               or $element->{'parent'}->{'cmdname'} eq 'enumerate')) {
+        $result .= $self->open_element('listitem', [_leading_spaces($element)]);
+        if ($element->{'parent'}->{'cmdname'} eq 'itemize'
+            and $element->{'parent'}->{'args'}
+            and @{$element->{'parent'}->{'args'}}) {
           $result .= $self->open_element('prepend')
-            .$self->_convert($root->{'parent'}->{'args'}->[0])
+            .$self->_convert($element->{'parent'}->{'args'}->[0])
             .$self->close_element('prepend');
         }
-        unshift @close_elements, 'listitem';
-      } elsif (($root->{'cmdname'} eq 'item' or $root->{'cmdname'} eq 'itemx')
-               and $root->{'parent'}->{'type'} 
-               and $root->{'parent'}->{'type'} eq 'table_term') {
-        my $table_command = $root->{'parent'}->{'parent'}->{'parent'};
+        unshift @close_format_elements, 'listitem';
+      } elsif (($element->{'cmdname'} eq 'item' or $element->{'cmdname'} eq 'itemx')
+               and $element->{'parent'}->{'type'}
+               and $element->{'parent'}->{'type'} eq 'table_term') {
+        my $table_command = $element->{'parent'}->{'parent'}->{'parent'};
         my $format_item_command;
         my $attribute = [];
         if ($table_command->{'extra'} 
@@ -808,11 +810,11 @@ sub _convert($$;$)
           $attribute 
            = [$self->_infoenclose_attribute($table_command->{'extra'}->{'command_as_argument'})];
         }
-        $result .= $self->open_element($root->{'cmdname'}, [_leading_spaces($root)]);
+        $result .= $self->open_element($element->{'cmdname'}, [_leading_spaces($element)]);
         if ($format_item_command) {
           $result .=  $self->open_element('itemformat', ['command', $format_item_command, @$attribute]);
         }
-        $result .= $self->_index_entry($root);
+        $result .= $self->_index_entry($element);
         my $in_code;
         $in_code = 1
           if ($format_item_command 
@@ -831,12 +833,12 @@ sub _convert($$;$)
           $in_monospace_not_normal
             if (defined($in_monospace_not_normal));
 
-        $result .= $self->_convert($root->{'args'}->[0]);
-        if ($root->{'args'}->[0]->{'extra'} and $root->{'args'}->[0]->{'extra'}->{'spaces_after_argument'}) {
-          $result .= $root->{'args'}->[0]->{'extra'}->{'spaces_after_argument'};
+        $result .= $self->_convert($element->{'args'}->[0]);
+        if ($element->{'args'}->[0]->{'extra'} and $element->{'args'}->[0]->{'extra'}->{'spaces_after_argument'}) {
+          $result .= $element->{'args'}->[0]->{'extra'}->{'spaces_after_argument'};
          }
-        if ($root->{'args'}->[-1]->{'extra'} and $root->{'args'}->[-1]->{'extra'}->{'comment_at_end'}) {
-          $result .= $self->_convert($root->{'args'}->[-1]->{'extra'}->{'comment_at_end'});
+        if ($element->{'args'}->[-1]->{'extra'} and $element->{'args'}->[-1]->{'extra'}->{'comment_at_end'}) {
+          $result .= $self->_convert($element->{'args'}->[-1]->{'extra'}->{'comment_at_end'});
         }
         pop @{$self->{'document_context'}->[-1]->{'monospace'}} 
           if (defined($in_monospace_not_normal));
@@ -844,87 +846,87 @@ sub _convert($$;$)
         if ($format_item_command) {
           $result .= $self->close_element('itemformat');
         }
-        $result .= $self->close_element($root->{'cmdname'})."\n";
+        $result .= $self->close_element($element->{'cmdname'})."\n";
       } else {
-        unless (($root->{'cmdname'} eq 'item' 
-                     or $root->{'cmdname'} eq 'headitem'
-                     or $root->{'cmdname'} eq 'tab')
-                    and $root->{'parent'}->{'type'}
-                    and $root->{'parent'}->{'type'} eq 'row') {
+        unless (($element->{'cmdname'} eq 'item'
+                     or $element->{'cmdname'} eq 'headitem'
+                     or $element->{'cmdname'} eq 'tab')
+                    and $element->{'parent'}->{'type'}
+                    and $element->{'parent'}->{'type'} eq 'row') {
           print STDERR "BUG: multitable cell command not in a row "
-            .Texinfo::Common::_print_current($root);
+            .Texinfo::Common::_print_current($element);
         }
         
-        $result .= $self->open_element('entry', ['command', 
-               $root->{'cmdname'}, _leading_spaces($root)]);
-        unshift @close_elements, 'entry';
+        $result .= $self->open_element('entry', ['command',
+               $element->{'cmdname'}, _leading_spaces($element)]);
+        unshift @close_format_elements, 'entry';
       }
-    } elsif ($root->{'type'} and $root->{'type'} eq 'index_entry_command') {
-      my $element;
+    } elsif ($element->{'type'} and $element->{'type'} eq 'index_entry_command') {
+      my $format_element;
       my $attribute = [];
-      if (exists $Texinfo::Common::misc_commands{$root->{'cmdname'}}) {
-        $element = $root->{'cmdname'};
+      if (exists $Texinfo::Common::misc_commands{$element->{'cmdname'}}) {
+        $format_element = $element->{'cmdname'};
       } else {
-        $element = 'indexcommand';
-        $attribute = ['command', $root->{'cmdname'}];
+        $format_element = 'indexcommand';
+        $attribute = ['command', $element->{'cmdname'}];
       }
-      push @$attribute, ('index', $root->{'extra'}->{'index_entry'}->{'index_name'});
-      push @$attribute, _leading_spaces($root);
+      push @$attribute, ('index', $element->{'extra'}->{'index_entry'}->{'index_name'});
+      push @$attribute, _leading_spaces($element);
       my $end_line;
-      if ($root->{'args'}->[0]) {
-        $end_line = $self->_end_line_or_comment($root);
+      if ($element->{'args'}->[0]) {
+        $end_line = $self->_end_line_or_comment($element);
       } else {
         # May that happen?
         $end_line = '';
       }
-      return $self->open_element($element, ${attribute}).
-        $self->_index_entry($root).$self->close_element($element).${end_line};
-    } elsif (exists($misc_commands{$root->{'cmdname'}})) {
-      my $command = $root->{'cmdname'};
-      my $type = $misc_commands{$root->{'cmdname'}};
+      return $self->open_element($format_element, ${attribute}).
+        $self->_index_entry($element).$self->close_element($format_element).${end_line};
+    } elsif (exists($misc_commands{$element->{'cmdname'}})) {
+      my $command = $element->{'cmdname'};
+      my $type = $misc_commands{$element->{'cmdname'}};
       if ($type eq 'text') {
-        return '' if ($root->{'cmdname'} eq 'end');
+        return '' if ($element->{'cmdname'} eq 'end');
         my $attribute;
-        if ($misc_command_line_attributes{$root->{'cmdname'}}) {
-          if ($root->{'extra'} and defined($root->{'extra'}->{'text_arg'})) {
-            push @$attribute, ($misc_command_line_attributes{$root->{'cmdname'}},
-                  $root->{'extra'}->{'text_arg'});
+        if ($misc_command_line_attributes{$element->{'cmdname'}}) {
+          if ($element->{'extra'} and defined($element->{'extra'}->{'text_arg'})) {
+            push @$attribute, ($misc_command_line_attributes{$element->{'cmdname'}},
+                  $element->{'extra'}->{'text_arg'});
           }
         }
-        my ($arg, $end_line) = $self->_convert_argument_and_end_line($root);
-        push @$attribute, _leading_spaces($root);
+        my ($arg, $end_line) = $self->_convert_argument_and_end_line($element);
+        push @$attribute, _leading_spaces($element);
         return $self->open_element($command, $attribute).$arg
                 .$self->close_element($command).${end_line};
       } elsif ($type eq 'line') {
-        if ($root->{'cmdname'} eq 'node') {
+        if ($element->{'cmdname'} eq 'node') {
           my $nodename;
-          if (defined($root->{'extra'}->{'normalized'})) {
-            $nodename = $root->{'extra'}->{'normalized'};
+          if (defined($element->{'extra'}->{'normalized'})) {
+            $nodename = $element->{'extra'}->{'normalized'};
           } else {
             $nodename = '';
           }
           # FIXME avoid protection, here?
-          $result .= $self->open_element('node', ['name', $nodename, _leading_spaces($root)]);
+          $result .= $self->open_element('node', ['name', $nodename, _leading_spaces($element)]);
           push @{$self->{'document_context'}->[-1]->{'monospace'}}, 1;
-          $result .= $self->open_element('nodename', 
-            [$self->_trailing_spaces_arg($root->{'args'}->[0])])
-             .$self->_convert({'contents' => $root->{'extra'}->{'node_content'}})
+          $result .= $self->open_element('nodename',
+            [$self->_trailing_spaces_arg($element->{'args'}->[0])])
+             .$self->_convert({'contents' => $element->{'extra'}->{'node_content'}})
              .$self->close_element('nodename');
           # first arg is the node name.
           my $direction_index = 1;
           my $pending_empty_directions = '';
           foreach my $direction(@node_directions) {
-            my $element = 'node'.lc($direction);
-            if ($root->{'node_'.lc($direction)}) {
-              my $node_direction = $root->{'node_'.lc($direction)};
+            my $format_element = 'node'.lc($direction);
+            if ($element->{'node_'.lc($direction)}) {
+              my $node_direction = $element->{'node_'.lc($direction)};
               my $node_name = '';
               my $attribute = [];
-              if (! defined($root->{'extra'}->{'nodes_manuals'}->[$direction_index])) {
+              if (! defined($element->{'extra'}->{'nodes_manuals'}->[$direction_index])) {
                 push @$attribute, ('automatic', 'on');
               }
-              if ($root->{'args'}->[$direction_index]) {
+              if ($element->{'args'}->[$direction_index]) {
                 push @$attribute, $self->_leading_trailing_spaces_arg(
-                                 $root->{'args'}->[$direction_index]);
+                                 $element->{'args'}->[$direction_index]);
               }
               if ($node_direction->{'extra'}->{'manual_content'}) {
                 $node_name .= $self->_convert({
@@ -937,25 +939,25 @@ sub _convert($$;$)
                   'contents' => $node_direction->{'extra'}->{'node_content'}}));
               }
               $result .= "$pending_empty_directions".
-                $self->open_element($element, ${attribute}).$node_name.
-                $self->close_element($element);
+                $self->open_element($format_element, ${attribute}).$node_name.
+                $self->close_element($format_element);
               $pending_empty_directions = '';
             } else {
-              if ($root->{'args'}->[$direction_index]) {
+              if ($element->{'args'}->[$direction_index]) {
                 my $spaces_attribute = $self->_leading_trailing_spaces_arg(
-                                 $root->{'args'}->[$direction_index]);
-                $pending_empty_directions .= $self->open_element($element,
+                                 $element->{'args'}->[$direction_index]);
+                $pending_empty_directions .= $self->open_element($format_element,
                     [$self->_leading_trailing_spaces_arg(
-                                 $root->{'args'}->[$direction_index])])
-                            .$self->close_element($element);
+                                 $element->{'args'}->[$direction_index])])
+                            .$self->close_element($format_element);
               }
             }
             $direction_index++;
           }
           my $end_line;
-          if ($root->{'args'}->[0]) {
+          if ($element->{'args'}->[0]) {
             $end_line 
-              = $self->_end_line_or_comment($root);
+              = $self->_end_line_or_comment($element);
           } else {
             $end_line = "\n";
           }
@@ -964,11 +966,11 @@ sub _convert($$;$)
           }
           $result .= ${end_line};
           pop @{$self->{'document_context'}->[-1]->{'monospace'}};
-        } elsif ($Texinfo::Common::root_commands{$root->{'cmdname'}}) {
-          my $attribute = [_leading_spaces($root)];
-          $command = $self->_level_corrected_section($root);
-          if ($command ne $root->{'cmdname'}) {
-            unshift @$attribute, ('originalcommand', $root->{'cmdname'});
+        } elsif ($Texinfo::Common::root_commands{$element->{'cmdname'}}) {
+          my $attribute = [_leading_spaces($element)];
+          $command = $self->_level_corrected_section($element);
+          if ($command ne $element->{'cmdname'}) {
+            unshift @$attribute, ('originalcommand', $element->{'cmdname'});
           }
           $result .= $self->open_element($command, $attribute);
           my $closed_section_element;
@@ -978,8 +980,8 @@ sub _convert($$;$)
             $closed_section_element = '';
           }
 
-          if ($root->{'args'} and $root->{'args'}->[0]) {
-            my ($arg, $end_line) = $self->_convert_argument_and_end_line($root);
+          if ($element->{'args'} and $element->{'args'}->[0]) {
+            my ($arg, $end_line) = $self->_convert_argument_and_end_line($element);
             $result .= $self->open_element('sectiontitle').$arg
                       .$self->close_element('sectiontitle')
                       .$closed_section_element.$end_line;
@@ -987,13 +989,13 @@ sub _convert($$;$)
             $result .= $closed_section_element;
           }
         } else {
-          my $attribute = [_leading_spaces($root)];
-          if ($root->{'cmdname'} eq 'listoffloats' and $root->{'extra'} 
-              and $root->{'extra'}->{'type'} 
-              and defined($root->{'extra'}->{'type'}->{'normalized'})) {
-            unshift @$attribute, ('type', $root->{'extra'}->{'type'}->{'normalized'});
+          my $attribute = [_leading_spaces($element)];
+          if ($element->{'cmdname'} eq 'listoffloats' and $element->{'extra'}
+              and $element->{'extra'}->{'type'}
+              and defined($element->{'extra'}->{'type'}->{'normalized'})) {
+            unshift @$attribute, ('type', $element->{'extra'}->{'type'}->{'normalized'});
           }
-          my ($arg, $end_line) = $self->_convert_argument_and_end_line($root);
+          my ($arg, $end_line) = $self->_convert_argument_and_end_line($element);
           return $self->open_element($command, ${attribute}).$arg
                .$self->close_element($command).$end_line;
         }
@@ -1001,20 +1003,20 @@ sub _convert($$;$)
         # the command associated with an element is closed at the end of the
         # element. @bye is withing the element, but we want it to appear after
         # the comand closing.  So we delay the output of @bye, and store it.
-        if ($root->{'cmdname'} eq 'bye' and $root->{'parent'}
-            and $root->{'parent'}->{'type'}
-            and $root->{'parent'}->{'type'} eq 'unit'
-            and !($root->{'parent'}->{'extra'}
-                  and ($root->{'parent'}->{'extra'}->{'no_section'}
-                       or $root->{'parent'}->{'extra'}->{'no_node'}))) {
+        if ($element->{'cmdname'} eq 'bye' and $element->{'parent'}
+            and $element->{'parent'}->{'type'}
+            and $element->{'parent'}->{'type'} eq 'unit'
+            and !($element->{'parent'}->{'extra'}
+                  and ($element->{'parent'}->{'extra'}->{'no_section'}
+                       or $element->{'parent'}->{'extra'}->{'no_node'}))) {
           $self->{'pending_bye'} = $self->open_element($command)
                     .$self->close_element($command)."\n";
           return '';
         }
         my $attribute = [];
-        if ($root->{'args'} and $root->{'args'}->[0] 
-            and defined($root->{'args'}->[0]->{'text'})) {
-          my $line = $root->{'args'}->[0]->{'text'};
+        if ($element->{'args'} and $element->{'args'}->[0]
+            and defined($element->{'args'}->[0]->{'text'})) {
+          my $line = $element->{'args'}->[0]->{'text'};
           chomp($line);
           $attribute = ['line', $line]
              if ($line ne '');
@@ -1023,56 +1025,56 @@ sub _convert($$;$)
                  .$self->close_element($command)."\n";
       } elsif ($type eq 'noarg' or $type eq 'skipspace') {
         my $spaces = '';
-        $spaces = $root->{'extra'}->{'spaces_after_command'}
-          if ($root->{'extra'} and $root->{'extra'}->{'spaces_after_command'}
-              and $root->{'extra'}->{'spaces_after_command'} ne '');
+        $spaces = $element->{'extra'}->{'spaces_after_command'}
+          if ($element->{'extra'} and $element->{'extra'}->{'spaces_after_command'}
+              and $element->{'extra'}->{'spaces_after_command'} ne '');
         return $self->open_element($command)
                 .$self->close_element($command).$spaces;
       } elsif ($type eq 'special') {
-        if ($root->{'cmdname'} eq 'clear' or $root->{'cmdname'} eq 'set') {
+        if ($element->{'cmdname'} eq 'clear' or $element->{'cmdname'} eq 'set') {
           my $attribute = [];
-          if ($root->{'args'} and $root->{'args'}->[0]
-              and defined($root->{'args'}->[0]->{'text'})) {
-            push @$attribute, ('name', $root->{'args'}->[0]->{'text'});
+          if ($element->{'args'} and $element->{'args'}->[0]
+              and defined($element->{'args'}->[0]->{'text'})) {
+            push @$attribute, ('name', $element->{'args'}->[0]->{'text'});
           }
           my $value = '';
-          if ($root->{'cmdname'} eq 'set' and $root->{'args'} and $root->{'args'}->[1]
-              and defined($root->{'args'}->[1]->{'text'})) {
-            $value = $self->protect_text($root->{'args'}->[1]->{'text'});
+          if ($element->{'cmdname'} eq 'set' and $element->{'args'} and $element->{'args'}->[1]
+              and defined($element->{'args'}->[1]->{'text'})) {
+            $value = $self->protect_text($element->{'args'}->[1]->{'text'});
           }
-          push @$attribute, $self->_arg_line($root);
+          push @$attribute, $self->_arg_line($element);
           return $self->open_element($command, $attribute)
                          .$value.$self->close_element($command)."\n";
-        } elsif ($root->{'cmdname'} eq 'clickstyle') {
-          my $attribute = [$self->_arg_line($root)];
+        } elsif ($element->{'cmdname'} eq 'clickstyle') {
+          my $attribute = [$self->_arg_line($element)];
           my $value = '';
-          if ($root->{'args'} and $root->{'args'}->[0]
-              and defined($root->{'args'}->[0]->{'text'})) {
-            my $click_command = $root->{'args'}->[0]->{'text'};
+          if ($element->{'args'} and $element->{'args'}->[0]
+              and defined($element->{'args'}->[0]->{'text'})) {
+            my $click_command = $element->{'args'}->[0]->{'text'};
             $click_command =~ s/^\@//;
             unshift @$attribute, ('command', $click_command);
-            $value = $self->protect_text($root->{'args'}->[0]->{'text'});
+            $value = $self->protect_text($element->{'args'}->[0]->{'text'});
           };
           return $self->open_element($command, $attribute)
                          .$value.$self->close_element($command)."\n";
         } else {
           # should only be unmacro
-          my $attribute = [$self->_arg_line($root)];
-          if ($root->{'args'} and $root->{'args'}->[0]
-              and defined($root->{'args'}->[0]->{'text'})) {
-            unshift @$attribute, ('name', $root->{'args'}->[0]->{'text'});
+          my $attribute = [$self->_arg_line($element)];
+          if ($element->{'args'} and $element->{'args'}->[0]
+              and defined($element->{'args'}->[0]->{'text'})) {
+            unshift @$attribute, ('name', $element->{'args'}->[0]->{'text'});
           }
           return $self->open_element($command, $attribute)
                     .$self->close_element($command)."\n";
         }
       } elsif ($type eq 'lineraw') {
-        if ($root->{'cmdname'} eq 'c' or $root->{'cmdname'} eq 'comment') {
-          return $self->format_comment(" $root->{'cmdname'}".$root->{'args'}->[0]->{'text'})
+        if ($element->{'cmdname'} eq 'c' or $element->{'cmdname'} eq 'comment') {
+          return $self->format_comment(" $element->{'cmdname'}".$element->{'args'}->[0]->{'text'})
         } else {
           my $value = '';
-          if ($root->{'args'} and $root->{'args'}->[0]
-              and defined($root->{'args'}->[0]->{'text'})) {
-            $value = $self->protect_text($root->{'args'}->[0]->{'text'});
+          if ($element->{'args'} and $element->{'args'}->[0]
+              and defined($element->{'args'}->[0]->{'text'})) {
+            $value = $self->protect_text($element->{'args'}->[0]->{'text'});
           }
           chomp ($value);
           return $self->open_element($command).$value
@@ -1081,123 +1083,123 @@ sub _convert($$;$)
       } else {
         print STDERR "BUG: unknown misc_command style $type\n" if ($type !~ /^\d$/);
         my $args_attributes;
-        if ($misc_command_numbered_arguments_attributes{$root->{'cmdname'}}) {
-          $args_attributes = $misc_command_numbered_arguments_attributes{$root->{'cmdname'}};
+        if ($misc_command_numbered_arguments_attributes{$element->{'cmdname'}}) {
+          $args_attributes = $misc_command_numbered_arguments_attributes{$element->{'cmdname'}};
         } else {
           $args_attributes = ['value'];
         }
         my $attribute = [];
         my $arg_index = 0;
-        if (defined($root->{'extra'}) 
-            and defined($root->{'extra'}->{'misc_args'})) {
+        if (defined($element->{'extra'})
+            and defined($element->{'extra'}->{'misc_args'})) {
           foreach my $arg_attribute (@{$args_attributes}) {
-            if (defined ($root->{'extra'}->{'misc_args'}->[$arg_index])) {
+            if (defined ($element->{'extra'}->{'misc_args'}->[$arg_index])) {
               push @$attribute, ( $arg_attribute, 
-                        $root->{'extra'}->{'misc_args'}->[$arg_index]);
+                        $element->{'extra'}->{'misc_args'}->[$arg_index]);
             }
             $arg_index++;
           }
         }
         my $end_line;
-        if ($root->{'args'}->[0]) {
-          $end_line = $self->_end_line_or_comment($root);
-          push @$attribute, $self->_texinfo_line($root);
+        if ($element->{'args'}->[0]) {
+          $end_line = $self->_end_line_or_comment($element);
+          push @$attribute, $self->_texinfo_line($element);
         } else {
           $end_line = "\n";
         }
         return $self->open_element($command, $attribute)
                     .$self->close_element($command).$end_line;
       }
-    } elsif ($root->{'type'}
-             and $root->{'type'} eq 'definfoenclose_command') {
+    } elsif ($element->{'type'}
+             and $element->{'type'} eq 'definfoenclose_command') {
       my $in_monospace_not_normal;
-      if (defined($default_args_code_style{$root->{'cmdname'}})
-          and $default_args_code_style{$root->{'cmdname'}}->[0]) {
+      if (defined($default_args_code_style{$element->{'cmdname'}})
+          and $default_args_code_style{$element->{'cmdname'}}->[0]) {
         $in_monospace_not_normal = 1;
-      } elsif ($regular_font_style_commands{$root->{'cmdname'}}) {
+      } elsif ($regular_font_style_commands{$element->{'cmdname'}}) {
         $in_monospace_not_normal = 0;
       }
       push @{$self->{'document_context'}->[-1]->{'monospace'}}, 
         $in_monospace_not_normal
           if (defined($in_monospace_not_normal));
-      my $arg = $self->_convert($root->{'args'}->[0]);
-      $result .= $self->open_element('infoenclose', ['command', $root->{'cmdname'},
-                                        $self->_infoenclose_attribute($root)])
+      my $arg = $self->_convert($element->{'args'}->[0]);
+      $result .= $self->open_element('infoenclose', ['command', $element->{'cmdname'},
+                                        $self->_infoenclose_attribute($element)])
                  .$arg.$self->close_element('infoenclose');
       pop @{$self->{'document_context'}->[-1]->{'monospace'}}
         if (defined($in_monospace_not_normal));
-    } elsif ($root->{'args'}
-             and exists($Texinfo::Common::brace_commands{$root->{'cmdname'}})) {
-      if ($Texinfo::Common::context_brace_commands{$root->{'cmdname'}}) {
+    } elsif ($element->{'args'}
+             and exists($Texinfo::Common::brace_commands{$element->{'cmdname'}})) {
+      if ($Texinfo::Common::context_brace_commands{$element->{'cmdname'}}) {
         push @{$self->{'document_context'}}, {'monospace' => [0]};
       }
-      if ($Texinfo::Common::inline_format_commands{$root->{'cmdname'}}
-          and $root->{'extra'} and $root->{'extra'}->{'format'}
-          and $self->{'expanded_formats_hash'}->{$root->{'extra'}->{'format'}}) {
-        if ($root->{'cmdname'} eq 'inlineraw') {
+      if ($Texinfo::Common::inline_format_commands{$element->{'cmdname'}}
+          and $element->{'extra'} and $element->{'extra'}->{'format'}
+          and $self->{'expanded_formats_hash'}->{$element->{'extra'}->{'format'}}) {
+        if ($element->{'cmdname'} eq 'inlineraw') {
           push @{$self->{'document_context'}}, {'monospace' => [0]};
           $self->{'document_context'}->[-1]->{'raw'} = 1;
         }
-        if (scalar (@{$root->{'args'}}) == 2
-              and defined($root->{'args'}->[-1])
-              and @{$root->{'args'}->[-1]->{'contents'}}) {
+        if (scalar (@{$element->{'args'}}) == 2
+              and defined($element->{'args'}->[-1])
+              and @{$element->{'args'}->[-1]->{'contents'}}) {
           $result .= $self->_convert({'contents' 
-                        => $root->{'args'}->[-1]->{'contents'}});
+                        => $element->{'args'}->[-1]->{'contents'}});
         }
-        if ($root->{'cmdname'} eq 'inlineraw') {
+        if ($element->{'cmdname'} eq 'inlineraw') {
           pop @{$self->{'document_context'}};
         }
         return $result;
       }
-      my @elements = @{$commands_elements{$root->{'cmdname'}}};
+      my @format_elements = @{$commands_elements{$element->{'cmdname'}}};
       my $command;
-      if (scalar(@elements) > 1) {
-        $command = shift @elements;
+      if (scalar(@format_elements) > 1) {
+        $command = shift @format_elements;
       }
       # this is used for commands without args, or associated to the
       # first argument
       my $attribute = [];
-      if ($root->{'cmdname'} eq 'verb') {
-        push @$attribute, ('delimiter', $root->{'extra'}->{'delimiter'});
-      } elsif ($root->{'cmdname'} eq 'anchor') {
+      if ($element->{'cmdname'} eq 'verb') {
+        push @$attribute, ('delimiter', $element->{'extra'}->{'delimiter'});
+      } elsif ($element->{'cmdname'} eq 'anchor') {
         my $anchor_name;
-        if (defined($root->{'extra'}->{'normalized'})) {
-          $anchor_name = $root->{'extra'}->{'normalized'};
+        if (defined($element->{'extra'}->{'normalized'})) {
+          $anchor_name = $element->{'extra'}->{'normalized'};
         } else {
           $anchor_name = '';
         }
         push @$attribute, ('name', $anchor_name);
       }
       my $arg_index = 0;
-      foreach my $element (@elements) {
-        if (defined($root->{'args'}->[$arg_index])) {
+      foreach my $format_element (@format_elements) {
+        if (defined($element->{'args'}->[$arg_index])) {
           my $in_monospace_not_normal;
-          if (defined($default_args_code_style{$root->{'cmdname'}})
-              and $default_args_code_style{$root->{'cmdname'}}->[$arg_index]) {
+          if (defined($default_args_code_style{$element->{'cmdname'}})
+              and $default_args_code_style{$element->{'cmdname'}}->[$arg_index]) {
             $in_monospace_not_normal = 1;
-          } elsif ($regular_font_style_commands{$root->{'cmdname'}}) {
+          } elsif ($regular_font_style_commands{$element->{'cmdname'}}) {
             $in_monospace_not_normal = 0;
           }
           push @{$self->{'document_context'}->[-1]->{'monospace'}},
             $in_monospace_not_normal
               if (defined($in_monospace_not_normal));
-          my $arg = $self->_convert($root->{'args'}->[$arg_index]);
-          if ($root->{'args'}->[$arg_index]->{'extra'}
-              and $root->{'args'}->[$arg_index]->{'extra'}->{'spaces_after_argument'}) {
-            $arg .= $root->{'args'}->[$arg_index]
+          my $arg = $self->_convert($element->{'args'}->[$arg_index]);
+          if ($element->{'args'}->[$arg_index]->{'extra'}
+              and $element->{'args'}->[$arg_index]->{'extra'}->{'spaces_after_argument'}) {
+            $arg .= $element->{'args'}->[$arg_index]
                    ->{'extra'}->{'spaces_after_argument'};
           }
-          if (!$Texinfo::Common::context_brace_commands{$root->{'cmdname'}}
-              and $root->{'cmdname'} ne 'verb') {
+          if (!$Texinfo::Common::context_brace_commands{$element->{'cmdname'}}
+              and $element->{'cmdname'} ne 'verb') {
             push @$attribute, 
-              _leading_spaces_before_argument($root->{'args'}->[$arg_index]);
+              _leading_spaces_before_argument($element->{'args'}->[$arg_index]);
           }
           if (!defined($command) or $arg ne '' or scalar(@$attribute) > 0) {
             # ${attribute} is only set for @verb
-            push @$attribute, _leading_spaces_before_argument($root)
+            push @$attribute, _leading_spaces_before_argument($element)
                if (!defined($command));
-            $result .= $self->open_element($element, $attribute).$arg
-                      .$self->close_element($element);
+            $result .= $self->open_element($format_element, $attribute).$arg
+                      .$self->close_element($format_element);
           }
           $attribute = [];
           pop @{$self->{'document_context'}->[-1]->{'monospace'}}
@@ -1209,20 +1211,20 @@ sub _convert($$;$)
       }
       # This is for the main command
       $attribute = [];
-      if ($root->{'cmdname'} eq 'image') {
-        if ($self->_is_inline($root)) {
+      if ($element->{'cmdname'} eq 'image') {
+        if ($self->_is_inline($element)) {
           push @$attribute, ('where', 'inline');
         }
-      } elsif ($Texinfo::Common::ref_commands{$root->{'cmdname'}}) {
-        if ($root->{'args'}) {
+      } elsif ($Texinfo::Common::ref_commands{$element->{'cmdname'}}) {
+        if ($element->{'args'}) {
           my $normalized;
-          if ($root->{'extra'}->{'node_argument'}
-              and $root->{'extra'}->{'node_argument'}->{'node_content'}) {
+          if ($element->{'extra'}->{'node_argument'}
+              and $element->{'extra'}->{'node_argument'}->{'node_content'}) {
             my $normalized;
-            if (defined($root->{'extra'}->{'node_argument'}->{'normalized'})) {
-              $normalized = $root->{'extra'}->{'node_argument'}->{'normalized'};
+            if (defined($element->{'extra'}->{'node_argument'}->{'normalized'})) {
+              $normalized = $element->{'extra'}->{'node_argument'}->{'normalized'};
             } else {
-              $normalized = Texinfo::Convert::NodeNameNormalization::normalize_node( {'contents' => $root->{'extra'}->{'node_argument'}->{'node_content'} } );
+              $normalized = Texinfo::Convert::NodeNameNormalization::normalize_node( {'contents' => $element->{'extra'}->{'node_argument'}->{'node_content'} } );
             }
             if ($normalized) {
               push @$attribute, ('label', $normalized);
@@ -1230,20 +1232,20 @@ sub _convert($$;$)
           }
           my $manual;
           my $manual_arg_index = 3;
-          if ($root->{'cmdname'} eq 'inforef') {
+          if ($element->{'cmdname'} eq 'inforef') {
             $manual_arg_index = 2;
           }
-          if (defined($root->{'args'}->[$manual_arg_index])
-              and @{$root->{'args'}->[$manual_arg_index]->{'contents'}}) {
+          if (defined($element->{'args'}->[$manual_arg_index])
+              and @{$element->{'args'}->[$manual_arg_index]->{'contents'}}) {
             $manual = Texinfo::Convert::Text::convert_to_text({'contents'
-                     => $root->{'args'}->[$manual_arg_index]->{'contents'}},
+                     => $element->{'args'}->[$manual_arg_index]->{'contents'}},
                  {'code' => 1,
                   Texinfo::Convert::Text::copy_options_for_convert_text($self)});
           }
-          if (!defined($manual) and $root->{'extra'}->{'node_argument'}
-              and $root->{'extra'}->{'node_argument'}->{'manual_content'}) {
+          if (!defined($manual) and $element->{'extra'}->{'node_argument'}
+              and $element->{'extra'}->{'node_argument'}->{'manual_content'}) {
             $manual = Texinfo::Convert::Text::convert_to_text({'contents' 
-                   => $root->{'extra'}->{'node_argument'}->{'manual_content'}},
+                   => $element->{'extra'}->{'node_argument'}->{'manual_content'}},
                  {'code' => 1,
                   Texinfo::Convert::Text::copy_options_for_convert_text($self)});
           }
@@ -1258,48 +1260,48 @@ sub _convert($$;$)
         }
       }
       if (defined($command)) {
-        push @$attribute, _leading_spaces_before_argument($root);
+        push @$attribute, _leading_spaces_before_argument($element);
         $result = $self->open_element($command, $attribute).$result
                   .$self->close_element($command);
       }
-      if ($Texinfo::Common::context_brace_commands{$root->{'cmdname'}}) {
+      if ($Texinfo::Common::context_brace_commands{$element->{'cmdname'}}) {
         pop @{$self->{'document_context'}};
       }
-    } elsif (exists($Texinfo::Common::block_commands{$root->{'cmdname'}})) {
-      if ($self->{'context_block_commands'}->{$root->{'cmdname'}}) {
+    } elsif (exists($Texinfo::Common::block_commands{$element->{'cmdname'}})) {
+      if ($self->{'context_block_commands'}->{$element->{'cmdname'}}) {
         push @{$self->{'document_context'}}, {'monospace' => [0]};
       }
       my $prepended_elements = '';
       my $attribute = [];
-      $self->{'itemize_line'} = 1 if ($root->{'cmdname'} eq 'itemize');
-      if ($root->{'extra'} and $root->{'extra'}->{'command_as_argument'}) {
-        my $command_as_arg = $root->{'extra'}->{'command_as_argument'};
+      $self->{'itemize_line'} = 1 if ($element->{'cmdname'} eq 'itemize');
+      if ($element->{'extra'} and $element->{'extra'}->{'command_as_argument'}) {
+        my $command_as_arg = $element->{'extra'}->{'command_as_argument'};
         push @$attribute,
          ('commandarg', $command_as_arg->{'cmdname'},
              $self->_infoenclose_attribute($command_as_arg));
-      } elsif ($root->{'extra'}
-               and $root->{'extra'}->{'enumerate_specification'}) {
-        push @$attribute,('first', $root->{'extra'}->{'enumerate_specification'});
-      } elsif ($root->{'cmdname'} eq 'float' and $root->{'extra'}) {
-        if (defined($root->{'extra'}->{'node_content'})) {
+      } elsif ($element->{'extra'}
+               and $element->{'extra'}->{'enumerate_specification'}) {
+        push @$attribute,('first', $element->{'extra'}->{'enumerate_specification'});
+      } elsif ($element->{'cmdname'} eq 'float' and $element->{'extra'}) {
+        if (defined($element->{'extra'}->{'node_content'})) {
           my $normalized =
             Texinfo::Convert::NodeNameNormalization::normalize_node (
-                   { 'contents' => $root->{'extra'}->{'node_content'} });
+                   { 'contents' => $element->{'extra'}->{'node_content'} });
           push @$attribute, ('name', $normalized);
         }
-        if ($root->{'extra'}->{'type'} and 
-            defined($root->{'extra'}->{'type'}->{'normalized'})) {
-          push @$attribute, ('type', $root->{'extra'}->{'type'}->{'normalized'});
+        if ($element->{'extra'}->{'type'} and
+            defined($element->{'extra'}->{'type'}->{'normalized'})) {
+          push @$attribute, ('type', $element->{'extra'}->{'type'}->{'normalized'});
         }
-        if (defined($root->{'number'})) {
-          push @$attribute, ('number', $root->{'number'});
+        if (defined($element->{'number'})) {
+          push @$attribute, ('number', $element->{'number'});
         }
-      } elsif ($root->{'cmdname'} eq 'verbatim') {
+      } elsif ($element->{'cmdname'} eq 'verbatim') {
         push @$attribute, ('xml:space', 'preserve');
-      } elsif ($root->{'cmdname'} eq 'macro' 
-               or $root->{'cmdname'} eq 'rmacro') {
-        if (defined($root->{'args'})) {
-          my @args = @{$root->{'args'}};
+      } elsif ($element->{'cmdname'} eq 'macro'
+               or $element->{'cmdname'} eq 'rmacro') {
+        if (defined($element->{'args'})) {
+          my @args = @{$element->{'args'}};
           my $name_arg = shift @args;
           if (defined($name_arg) and defined($name_arg->{'text'})) {
             push @$attribute, ('name', $name_arg->{'text'});
@@ -1312,60 +1314,60 @@ sub _convert($$;$)
                 .$self->close_element('formalarg');
           }
         }
-        push @$attribute, $self->_arg_line($root);
+        push @$attribute, $self->_arg_line($element);
       }
-      if ($self->{'expanded_formats_hash'}->{$root->{'cmdname'}}) {
+      if ($self->{'expanded_formats_hash'}->{$element->{'cmdname'}}) {
         $self->{'document_context'}->[-1]->{'raw'} = 1;
       } else {
-        my $end_command = $root->{'extra'}->{'end_command'};
+        my $end_command = $element->{'extra'}->{'end_command'};
         my $end_command_space = [_leading_spaces($end_command)];
         if (scalar(@$end_command_space)) {
           $end_command_space->[0] = 'endspaces';
         }
-        $result .= $self->open_element($root->{'cmdname'}, [@$attribute, 
-                              _leading_spaces($root), @$end_command_space])
+        $result .= $self->open_element($element->{'cmdname'}, [@$attribute,
+                              _leading_spaces($element), @$end_command_space])
                       .${prepended_elements};
         my $end_line = '';
-        if ($root->{'args'}) {
-          if ($commands_args_elements{$root->{'cmdname'}}) {
+        if ($element->{'args'}) {
+          if ($commands_args_elements{$element->{'cmdname'}}) {
             my $arg_index = 0;
             my $variadic_element = undef;
-            while (defined($commands_args_elements{$root->{'cmdname'}}->[$arg_index])
+            while (defined($commands_args_elements{$element->{'cmdname'}}->[$arg_index])
                    or defined($variadic_element)) {
-              my $element;
+              my $format_element;
               if (defined($variadic_element)) {
-                $element = $variadic_element;
+                $format_element = $variadic_element;
               } else {
-                if ($commands_args_elements{$root->{'cmdname'}}->[$arg_index] eq '*') {
-                  $variadic_element = $commands_args_elements{$root->{'cmdname'}}->[$arg_index-1];
-                  $element = $variadic_element;
+                if ($commands_args_elements{$element->{'cmdname'}}->[$arg_index] eq '*') {
+                  $variadic_element = $commands_args_elements{$element->{'cmdname'}}->[$arg_index-1];
+                  $format_element = $variadic_element;
                 } else {
-                  $element = $commands_args_elements{$root->{'cmdname'}}->[$arg_index];
+                  $format_element = $commands_args_elements{$element->{'cmdname'}}->[$arg_index];
                 }
               }
-              if (defined($root->{'args'}->[$arg_index])) {
+              if (defined($element->{'args'}->[$arg_index])) {
                 my $in_code;
                  $in_code = 1
-                  if (defined($default_args_code_style{$root->{'cmdname'}})
-                    and $default_args_code_style{$root->{'cmdname'}}->[$arg_index]);
+                  if (defined($default_args_code_style{$element->{'cmdname'}})
+                    and $default_args_code_style{$element->{'cmdname'}}->[$arg_index]);
                 push @{$self->{'document_context'}->[-1]->{'monospace'}}, 1 
                   if ($in_code);
                 my $arg;
-                if ($arg_index+1 eq scalar(@{$root->{'args'}})) {
+                if ($arg_index+1 eq scalar(@{$element->{'args'}})) {
                   # last argument
                   ($arg, $end_line) 
-                    = $self->_convert_argument_and_end_line($root);
+                    = $self->_convert_argument_and_end_line($element);
                 } else {
-                  $arg = $self->_convert($root->{'args'}->[$arg_index]);
+                  $arg = $self->_convert($element->{'args'}->[$arg_index]);
                 }
                 my $spaces = [];
                 if ($arg_index != 0) {
                   push @$spaces, _leading_spaces_before_argument(
-                                              $root->{'args'}->[$arg_index]);
+                                              $element->{'args'}->[$arg_index]);
                 }
                 if ($arg ne '' or scalar(@$spaces)) {
-                  $result .= $self->open_element($element, $spaces).$arg
-                           .$self->close_element($element);
+                  $result .= $self->open_element($format_element, $spaces).$arg
+                           .$self->close_element($format_element);
                 }
                 pop @{$self->{'document_context'}->[-1]->{'monospace'}} 
                   if ($in_code);
@@ -1379,14 +1381,14 @@ sub _convert($$;$)
             # in that case the end of line is in the columnfractions line
             # or in the columnprototypes.  
 
-            if ($root->{'cmdname'} eq 'multitable') {
-              if (not $root->{'extra'}->{'columnfractions'}) {
+            if ($element->{'cmdname'} eq 'multitable') {
+              if (not $element->{'extra'}->{'columnfractions'}) {
                 # Like 'prototypes' extra value, but keeping spaces information
                 my @prototype_line;
-                if (defined $root->{'args'}[0]
-                    and defined $root->{'args'}[0]->{'type'}
-                    and $root->{'args'}[0]->{'type'} eq 'block_line_arg') {
-                  foreach my $content (@{$root->{'args'}[0]{'contents'}}) {
+                if (defined $element->{'args'}[0]
+                    and defined $element->{'args'}[0]->{'type'}
+                    and $element->{'args'}[0]->{'type'} eq 'block_line_arg') {
+                  foreach my $content (@{$element->{'args'}[0]{'contents'}}) {
                     if ($content->{'type'} and $content->{'type'} eq 'bracketed') {
                       push @prototype_line, $content;
                     } elsif ($content->{'text'}) {
@@ -1413,15 +1415,15 @@ sub _convert($$;$)
                       }
                     }
                   }
-                  $root->{'extra'}->{'prototypes_line'} = \@prototype_line;
+                  $element->{'extra'}->{'prototypes_line'} = \@prototype_line;
                 }
               }
 
-              if ($root->{'extra'}
-                    and $root->{'extra'}->{'prototypes_line'}) {
+              if ($element->{'extra'}
+                    and $element->{'extra'}->{'prototypes_line'}) {
                 $result .= $self->open_element('columnprototypes');
                 my $first_proto = 1;
-                foreach my $prototype (@{$root->{'extra'}->{'prototypes_line'}}) {
+                foreach my $prototype (@{$element->{'extra'}->{'prototypes_line'}}) {
                   if ($prototype->{'text'} and $prototype->{'text'} !~ /\S/) {
                     if (!$first_proto) {
                       my $spaces = $prototype->{'text'};
@@ -1442,11 +1444,11 @@ sub _convert($$;$)
                   $first_proto = 0;
                 }
                 $result .= $self->close_element('columnprototypes');
-                $contents_possible_comment = $root;
-              } elsif ($root->{'extra'}
-                         and $root->{'extra'}->{'columnfractions'}) {
+                $contents_possible_comment = $element;
+              } elsif ($element->{'extra'}
+                         and $element->{'extra'}->{'columnfractions'}) {
                 my $cmd;
-                foreach my $content (@{$root->{'args'}->[0]->{'contents'}}) {
+                foreach my $content (@{$element->{'args'}->[0]->{'contents'}}) {
                   if ($content->{'cmdname'}
                       and $content->{'cmdname'} eq 'columnfractions') {
                     $cmd = $content;
@@ -1455,9 +1457,9 @@ sub _convert($$;$)
                 }
                 my $attribute = [$self->_texinfo_line($cmd)];
                 $result .= $self->open_element('columnfractions', $attribute);
-                foreach my $fraction (@{$root->{'extra'}->{'columnfractions'}
+                foreach my $fraction (@{$element->{'extra'}->{'columnfractions'}
                                              ->{'extra'}->{'misc_args'}}) {
-                  $result .= $self->open_element('columnfraction', 
+                  $result .= $self->open_element('columnfraction',
                                                 ['value', $fraction])
                              .$self->close_element('columnfraction');
                 }
@@ -1468,60 +1470,60 @@ sub _convert($$;$)
               }
             } else {
               # get end of lines from @*table.
-              my $end_spaces = _end_line_spaces($root);
+              my $end_spaces = _end_line_spaces($element);
               if (defined($end_spaces)) {
                 $end_line .= $end_spaces 
                 # This also catches block @-commands with no argument that
                 # have a bogus argument, such as text on @example line
-                #print STDERR "NOT xtable: $root->{'cmdname'}\n" 
-                #  if (!$Texinfo::Common::item_line_commands{$root->{'cmdname'}});
+                #print STDERR "NOT xtable: $element->{'cmdname'}\n"
+                #  if (!$Texinfo::Common::item_line_commands{$element->{'cmdname'}});
               }
-              $contents_possible_comment = $root;
+              $contents_possible_comment = $element;
             }
             $end_line .= $self->_end_line_or_comment($contents_possible_comment);
           }
         }
         $result .= $end_line;
-        unshift @close_elements, $root->{'cmdname'};
+        unshift @close_format_elements, $element->{'cmdname'};
       }
       delete $self->{'itemize_line'} if ($self->{'itemize_line'});
     }
   }
-  if ($root->{'type'}) {
-    if (defined($type_elements{$root->{'type'}})) {
+  if ($element->{'type'}) {
+    if (defined($type_elements{$element->{'type'}})) {
       my $attribute = [];
-      if ($root->{'type'} eq 'preformatted') {
+      if ($element->{'type'} eq 'preformatted') {
         push @$attribute, ('xml:space', 'preserve');
-      } elsif ($root->{'type'} eq 'menu_entry') {
-        push @$attribute, ('leadingtext', $self->_convert($root->{'args'}->[0]));
-      } elsif (($root->{'type'} eq 'menu_entry_node' 
-                or $root->{'type'} eq 'menu_entry_name')
+      } elsif ($element->{'type'} eq 'menu_entry') {
+        push @$attribute, ('leadingtext', $self->_convert($element->{'args'}->[0]));
+      } elsif (($element->{'type'} eq 'menu_entry_node'
+                or $element->{'type'} eq 'menu_entry_name')
                and $self->{'pending_menu_entry_separator'}) {
         push @$attribute, ('separator',
                $self->_convert($self->{'pending_menu_entry_separator'}));
         delete $self->{'pending_menu_entry_separator'};
       }
-      $result .= $self->open_element($type_elements{$root->{'type'}}, $attribute);
+      $result .= $self->open_element($type_elements{$element->{'type'}}, $attribute);
     }
-    if ($root->{'type'} eq 'def_line') {
-      if ($root->{'cmdname'}) {
-        $result .= $self->open_element($root->{'cmdname'}, [_leading_spaces($root)]);
+    if ($element->{'type'} eq 'def_line') {
+      if ($element->{'cmdname'}) {
+        $result .= $self->open_element($element->{'cmdname'}, [_leading_spaces($element)]);
       }
       $result .= $self->open_element('definitionterm');
-      $result .= $self->_index_entry($root);
+      $result .= $self->_index_entry($element);
       push @{$self->{'document_context'}->[-1]->{'monospace'}}, 1;
-      if ($root->{'args'} and @{$root->{'args'}}
-          and $root->{'args'}->[0]->{'contents'}) {
+      if ($element->{'args'} and @{$element->{'args'}}
+          and $element->{'args'}->[0]->{'contents'}) {
         my $main_command;
         my $alias;
-        if ($Texinfo::Common::def_aliases{$root->{'extra'}->{'def_command'}}) {
-          $main_command = $Texinfo::Common::def_aliases{$root->{'extra'}->{'def_command'}};
+        if ($Texinfo::Common::def_aliases{$element->{'extra'}->{'def_command'}}) {
+          $main_command = $Texinfo::Common::def_aliases{$element->{'extra'}->{'def_command'}};
           $alias = 1;
         } else {
-          $main_command = $root->{'extra'}->{'def_command'};
+          $main_command = $element->{'extra'}->{'def_command'};
           $alias = 0;
         }
-        foreach my $arg (@{$root->{'args'}->[0]->{'contents'}}) {
+        foreach my $arg (@{$element->{'args'}->[0]->{'contents'}}) {
           next if $arg->{'type'}
                    and ($arg->{'type'} eq 'empty_spaces_after_command'
                          or $arg->{'type'} eq 'empty_line_after_command');
@@ -1536,15 +1538,15 @@ sub _convert($$;$)
             if ($type eq 'category' and $alias) {
               push @$attribute, ('automatic', 'on');
             }
-            my $element;
+            my $format_element;
             if ($type eq 'name') {
-              $element = $defcommand_name_type{$main_command};
+              $format_element = $defcommand_name_type{$main_command};
             } elsif ($type eq 'arg') {
-              $element = 'param';
+              $format_element = 'param';
             } elsif ($type eq 'typearg') {
-              $element = 'paramtype';
+              $format_element = 'paramtype';
             } else {
-              $element = $type;
+              $format_element = $type;
             }
             if ($arg->{'type'}
                 and ($arg->{'type'} eq 'bracketed_def_content'
@@ -1552,51 +1554,51 @@ sub _convert($$;$)
               push @$attribute, ('bracketed', 'on');
               push @$attribute, _leading_spaces_before_argument($arg);
             }
-            $result .= $self->open_element("def$element", $attribute).$content
-                      .$self->close_element("def$element");
+            $result .= $self->open_element("def$format_element", $attribute).$content
+                      .$self->close_element("def$format_element");
           }
         }
       }
       pop @{$self->{'document_context'}->[-1]->{'monospace'}};
       $result .= $self->close_element('definitionterm');
-      if ($root->{'cmdname'}) {
-        $result .= $self->close_element($root->{'cmdname'});
+      if ($element->{'cmdname'}) {
+        $result .= $self->close_element($element->{'cmdname'});
       }
       chomp ($result);
       $result .= "\n";
     }
   }
-  if ($root->{'contents'}) {
+  if ($element->{'contents'}) {
     my $in_code;
-    if ($root->{'cmdname'} 
-        and ($Texinfo::Common::preformatted_code_commands{$root->{'cmdname'}}
-             or $Texinfo::Common::math_commands{$root->{'cmdname'}})) {
+    if ($element->{'cmdname'}
+        and ($Texinfo::Common::preformatted_code_commands{$element->{'cmdname'}}
+             or $Texinfo::Common::math_commands{$element->{'cmdname'}})) {
       $in_code = 1;
     }
     push @{$self->{'document_context'}->[-1]->{'monospace'}}, 1 
       if ($in_code);
-    if (ref($root->{'contents'}) ne 'ARRAY') {
-      cluck "contents not an array($root->{'contents'}).";
+    if (ref($element->{'contents'}) ne 'ARRAY') {
+      cluck "contents not an array($element->{'contents'}).";
     }
-    foreach my $content (@{$root->{'contents'}}) {
+    foreach my $content (@{$element->{'contents'}}) {
       $result .= $self->_convert($content);
     }
     pop @{$self->{'document_context'}->[-1]->{'monospace'}}
       if ($in_code);
   }
   my $arg_nr = -1;
-  if ($root->{'type'} and $root->{'type'} eq 'menu_entry') {
-    foreach my $arg (@{$root->{'args'}}) {
+  if ($element->{'type'} and $element->{'type'} eq 'menu_entry') {
+    foreach my $arg (@{$element->{'args'}}) {
       $arg_nr++;
       # menu_entry_leading_text is added as attribute leadingtext of menu_entry
       # menu_entry_separator is recorded here and then added ass attribute
       # separator
       next if ($arg->{'type'} eq 'menu_entry_leading_text'
                or $arg->{'type'} eq 'menu_entry_separator');
-      if ($root->{'args'}->[$arg_nr +1]
-          and $root->{'args'}->[$arg_nr +1]->{'type'}
-          and $root->{'args'}->[$arg_nr +1]->{'type'} eq 'menu_entry_separator') {
-        $self->{'pending_menu_entry_separator'} = $root->{'args'}->[$arg_nr +1];
+      if ($element->{'args'}->[$arg_nr +1]
+          and $element->{'args'}->[$arg_nr +1]->{'type'}
+          and $element->{'args'}->[$arg_nr +1]->{'type'} eq 'menu_entry_separator') {
+        $self->{'pending_menu_entry_separator'} = $element->{'args'}->[$arg_nr +1];
       }
       my $in_code;
       if ($arg->{'type'} eq 'menu_entry_node') {
@@ -1609,23 +1611,23 @@ sub _convert($$;$)
         if ($in_code);
     }
   }
-  if ($root->{'type'}) {
-    if (defined($type_elements{$root->{'type'}})) {
-      $result .= $self->close_element($type_elements{$root->{'type'}});
+  if ($element->{'type'}) {
+    if (defined($type_elements{$element->{'type'}})) {
+      $result .= $self->close_element($type_elements{$element->{'type'}});
     }
   }
   $result = '{'.$result.'}' 
-     if ($root->{'type'} and $root->{'type'} eq 'bracketed'
-         and (!$root->{'parent'}->{'type'} or
-              ($root->{'parent'}->{'type'} ne 'block_line_arg'
-               and $root->{'parent'}->{'type'} ne 'line_arg')));
-  foreach my $element (@close_elements) {
-    $result .= $self->close_element($element);
+     if ($element->{'type'} and $element->{'type'} eq 'bracketed'
+         and (!$element->{'parent'}->{'type'} or
+              ($element->{'parent'}->{'type'} ne 'block_line_arg'
+               and $element->{'parent'}->{'type'} ne 'line_arg')));
+  foreach my $format_element (@close_format_elements) {
+    $result .= $self->close_element($format_element);
   }
-  if ($root->{'cmdname'} 
-      and exists($Texinfo::Common::block_commands{$root->{'cmdname'}})) {
-    my $end_command = $root->{'extra'}->{'end_command'}; 
-    if ($self->{'expanded_formats_hash'}->{$root->{'cmdname'}}) {
+  if ($element->{'cmdname'}
+      and exists($Texinfo::Common::block_commands{$element->{'cmdname'}})) {
+    my $end_command = $element->{'extra'}->{'end_command'};
+    if ($self->{'expanded_formats_hash'}->{$element->{'cmdname'}}) {
     } else {
       my $end_line = '';
       if ($end_command) {
@@ -1639,33 +1641,33 @@ sub _convert($$;$)
       }
       $result .= $end_line;
     }
-    if ($self->{'context_block_commands'}->{$root->{'cmdname'}}) {
+    if ($self->{'context_block_commands'}->{$element->{'cmdname'}}) {
       pop @{$self->{'document_context'}};
     }
   # The command is closed either when the corresponding tree element
   # is done, and the command is not associated to an element, or when
   # the element is closed.
-  } elsif ((($root->{'type'} and $root->{'type'} eq 'unit'
-             and $root->{'extra'} and $root->{'extra'}->{'unit_command'}
-             and !($root->{'extra'}->{'unit_command'}->{'cmdname'}
-                   and $root->{'extra'}->{'unit_command'}->{'cmdname'} eq 'node'))
-            or ($root->{'cmdname'} 
-                and $Texinfo::Common::root_commands{$root->{'cmdname'}}
-                and $root->{'cmdname'} ne 'node'
-                and !($root->{'parent'} and $root->{'parent'}->{'type'}
-                     and $root->{'parent'}->{'type'} eq 'unit'
-                     and $root->{'parent'}->{'extra'} 
-                     and $root->{'parent'}->{'extra'}->{'unit_command'}
-                     and $root->{'parent'}->{'extra'}->{'unit_command'} eq $root)))
+  } elsif ((($element->{'type'} and $element->{'type'} eq 'unit'
+             and $element->{'extra'} and $element->{'extra'}->{'unit_command'}
+             and !($element->{'extra'}->{'unit_command'}->{'cmdname'}
+                   and $element->{'extra'}->{'unit_command'}->{'cmdname'} eq 'node'))
+            or ($element->{'cmdname'}
+                and $Texinfo::Common::root_commands{$element->{'cmdname'}}
+                and $element->{'cmdname'} ne 'node'
+                and !($element->{'parent'} and $element->{'parent'}->{'type'}
+                     and $element->{'parent'}->{'type'} eq 'unit'
+                     and $element->{'parent'}->{'extra'}
+                     and $element->{'parent'}->{'extra'}->{'unit_command'}
+                     and $element->{'parent'}->{'extra'}->{'unit_command'} eq $element)))
            and !$self->get_conf('USE_NODES')) {
-    if ($root->{'type'} and $root->{'type'} eq 'unit') {
-      $root = $root->{'extra'}->{'unit_command'};
+    if ($element->{'type'} and $element->{'type'} eq 'unit') {
+      $element = $element->{'extra'}->{'unit_command'};
     }
-    my $command = $self->_level_corrected_section($root);
-    if (!($root->{'section_childs'} and scalar(@{$root->{'section_childs'}}))
+    my $command = $self->_level_corrected_section($element);
+    if (!($element->{'section_childs'} and scalar(@{$element->{'section_childs'}}))
         or $command eq 'top') {
       $result .= $self->close_element($command)."\n";
-      my $current = $root;
+      my $current = $element;
       while ($current->{'section_up'}
              # the most up element is a virtual sectioning root element, this
              # condition avoids getting into it
@@ -1680,20 +1682,20 @@ sub _convert($$;$)
       $result .= $self->{'pending_bye'};
       delete $self->{'pending_bye'};
     }
-  } elsif ((($root->{'type'} and $root->{'type'} eq 'unit'
-             and $root->{'extra'} and $root->{'extra'}->{'unit_command'}
-             and $root->{'extra'}->{'unit_command'}->{'cmdname'}
-             and $root->{'extra'}->{'unit_command'}->{'cmdname'} eq 'node')
-            or ($root->{'cmdname'} 
-                and $root->{'cmdname'} eq 'node'
-                and !($root->{'parent'} and $root->{'parent'}->{'type'}
-                     and $root->{'parent'}->{'type'} eq 'unit'
-                     and $root->{'parent'}->{'extra'} 
-                     and $root->{'parent'}->{'extra'}->{'unit_command'}
-                     and $root->{'parent'}->{'extra'}->{'unit_command'} eq $root)))
+  } elsif ((($element->{'type'} and $element->{'type'} eq 'unit'
+             and $element->{'extra'} and $element->{'extra'}->{'unit_command'}
+             and $element->{'extra'}->{'unit_command'}->{'cmdname'}
+             and $element->{'extra'}->{'unit_command'}->{'cmdname'} eq 'node')
+            or ($element->{'cmdname'}
+                and $element->{'cmdname'} eq 'node'
+                and !($element->{'parent'} and $element->{'parent'}->{'type'}
+                     and $element->{'parent'}->{'type'} eq 'unit'
+                     and $element->{'parent'}->{'extra'}
+                     and $element->{'parent'}->{'extra'}->{'unit_command'}
+                     and $element->{'parent'}->{'extra'}->{'unit_command'} eq $element)))
            and $self->get_conf('USE_NODES')) {
-    #if ($root->{'type'} and $root->{'type'} eq 'unit') {
-    #  $root = $root->{'extra'}->{'unit_command'};
+    #if ($element->{'type'} and $element->{'type'} eq 'unit') {
+    #  $element = $element->{'extra'}->{'unit_command'};
     #}
     $result .= $self->close_element('node');
     
