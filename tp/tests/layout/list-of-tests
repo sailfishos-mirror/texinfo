@@ -17,6 +17,11 @@ formatting_info formatting.texi --info
 formatting_plaintext formatting.texi -c FORMAT_MENU=nomenu --plaintext
 formatting_latex formatting.texi --latex
 
+# used to remove commands, for instance to count words
+formatting_textcontent formatting.texi -c TEXINFO_OUTPUT_FORMAT=textcontent
+# used to format text fragments in converters, minimal formatting
+formatting_rawtext formatting.texi -c TEXINFO_OUTPUT_FORMAT=rawtext
+
 formatting_mathjax formatting.texi --html -c HTML_MATH=mathjax
 #formatting_mediawiki formatting.texi --init mediawiki.pm
 formatting_weird_quotes formatting.texi -c 'OPEN_QUOTE_SYMBOL @' -c "CLOSE_QUOTE_SYMBOL '&lsquo;"

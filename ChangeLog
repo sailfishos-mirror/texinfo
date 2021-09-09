@@ -1,5 +1,22 @@
 2021-09-09  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Text.pm (_convert): do not replace the
+	$option hash when setting 'sc', instead increment.
+	
+	* tp/Texinfo/Convert/Text.pm (output): handle SUBDIR.  Merge
+	the converter object with the text options based on the converter
+	configuration, to have a blessed object needed in some functions.
+	Without the 'converter' field as the Text converter does not allow for
+	translation nor error reporting.
+
+	* tp/Texinfo/Convert/Text.pm (output_files_information): add.
+
+	* tp/tests/layout/list-of-tests: add tests of TEXINFO_OUTPUT_FORMAT
+	textcontent and rawtext to test Texinfo::Convert::TextContent
+	and Texinfo::Convert::Text as converters called from texi2any.pl.
+
+2021-09-09  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texinfo.texi (@code{@@float}): add example of reference
 	to float formatted in the context of the manual.
 

@@ -494,15 +494,15 @@ sub _convert($;$)
                 or $Texinfo::Common::math_commands{$element->{'cmdname'}})) {
       my $result;
       my $in_code;
-      if ($element->{'cmdname'} eq 'sc') {
-        $options = {%$options, 'sc' => 1};
-      } elsif ($Texinfo::Common::code_style_commands{$element->{'cmdname'}}
+      $options->{'sc'}++ if ($element->{'cmdname'} eq 'sc');
+      if ($Texinfo::Common::code_style_commands{$element->{'cmdname'}}
                or $Texinfo::Common::math_commands{$element->{'cmdname'}}) {
         $in_code = 1;
       }
       $options->{_code_options}++ if ($in_code);
       $result = _convert($element->{'args'}->[0], $options);
       $options->{_code_options}-- if ($in_code);
+      $options->{'sc'}-- if ($element->{'cmdname'} eq 'sc');
       return $result;
     # block commands
     } elsif ($element->{'cmdname'} eq 'quotation'
@@ -644,8 +644,6 @@ sub converter($)
   }
 
   if ($conf) {
-    # some informations are directy passed, in general duplicated
-    # in parser.
     %{$converter} = %{$conf};
     #print STDERR "CTe ".join("|", sort(keys(%{$conf})))."\n";
   }
@@ -734,6 +732,18 @@ sub output($$)
     if (defined($outfile)) {
       $outfile .= '.txt';
     }
+    if (defined($self->{'SUBDIR'})) {
+      my $destination_directory = File::Spec->canonpath($self->{'SUBDIR'});
+      if (! -d $destination_directory) {
+        if (!mkdir($destination_directory, oct(755))) {
+          #sprintf(__(
+          #   "could not create directory `%s': %s"),
+          #   $destination_directory, $!));
+          return undef;
+        }
+      }
+      $outfile = File::Spec->catfile($destination_directory, $outfile);
+    }
   } else {
     $outfile = $self->{'OUTFILE'};
   }
@@ -745,11 +755,17 @@ sub output($$)
                              $outfile);
     return undef if (!$fh);
   }
+  # mostly relevant for 'enabled_encoding', other options should be the same.
   my %options = copy_options_for_convert_text($self);
-  my $result = _convert($tree, \%options);
+  # remove $self Text converter without translation nor error reporting.
+  delete $options{'converter'};
+  # Some functions call $self->get_conf(), so the options need to be a blessed
+  # reference, merge specific Text options with $self (possibly
+  # overwriting/ignoring but values should be the same).
+  %$self = (%$self, %options);
+  my $result = _convert($tree, $self);
   if ($fh) {
     print $fh $result;
-    # it is cleaner to follow the API (but not really useful)
     Texinfo::Common::output_files_register_closed(
                   $self->{'output_files'}, $outfile);
     return undef if (!close($fh));
@@ -774,6 +790,12 @@ sub errors()
 sub converter_defaults()
 {
   return ();
+}
+
+sub output_files_information($)
+{
+  my $self = shift;
+  return $self->{'output_files'};
 }
 
 1;
