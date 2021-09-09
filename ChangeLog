@@ -1,5 +1,10 @@
 2021-09-09  Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texinfo.texi (@code{@@float}): add example of reference
+	to float formatted in the context of the manual.
+
+2021-09-09  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (element_is_inline),
 	tp/Texinfo/Convert/Converter.pm, tp/Texinfo/Convert/DocBook.pm,
 	tp/Texinfo/Convert/TexinfoXML.pm: move _is_inline() and
