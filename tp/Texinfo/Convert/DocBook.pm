@@ -1009,7 +1009,7 @@ sub _convert($$;$)
            {'contents' => $element->{'args'}->[0]->{'contents'}},
            {'code' => 1,
             Texinfo::Convert::Text::copy_options_for_convert_text($self)});
-          my $is_inline = $self->_is_inline($element);
+          my $is_inline = Texinfo::Common::element_is_inline($element);
           if ($is_inline) {
             $result .= "<inlinemediaobject>";
           } else {
@@ -1413,7 +1413,8 @@ sub _convert($$;$)
     if (ref($element->{'contents'}) ne 'ARRAY') {
       cluck "contents not an array($element->{'contents'}).";
     }
-    if (defined($self->{'pending_prepend'}) and $self->_in_inline($element)) {
+    if (defined($self->{'pending_prepend'})
+        and Texinfo::Common::element_is_inline($element, 1)) {
       $result .= $self->{'pending_prepend'};
       delete $self->{'pending_prepend'};
     }

@@ -1297,57 +1297,6 @@ sub convert_document_nodes($$;$)
   return $self->_convert_document_tree_units($root, $tree_units, $fh);
 }
 
-# if in this container, we are 'inline', within a running text
-my @inline_types = ('def_line', 'paragraph', 'preformatted',
-  'line_arg', 'block_line_arg', 'menu_entry_name', 'menu_entry_node');
-
-my %inline_types;
-foreach my $type (@inline_types) {
-  $inline_types{$type} = 1;
-}
-
-my %not_inline_commands = (%Texinfo::Common::root_commands, 
-  %Texinfo::Common::block_commands, %Texinfo::Common::context_brace_command);
-
-# Return 1 if inline in a running text, 0 if right in top-level or block
-# environment, and undef otherwise.
-sub _inline_or_block($$)
-{
-  my $self = shift;
-  my $current = shift;
-  if ($current->{'type'} and $inline_types{$current->{'type'}}) {
-    return 1;
-  } elsif ($current->{'cmdname'} 
-           and exists($not_inline_commands{$current->{'cmdname'}})) {
-    return 0;
-  } else {
-    return undef;
-  }
-}
-
-# return true if in running text context
-sub _is_inline($$)
-{
-  my $self = shift;
-  my $current = shift;
-  while ($current->{'parent'}) {
-    $current = $current->{'parent'};
-    my $inline_or_block = $self->_inline_or_block($current);
-    return ($inline_or_block) if (defined($inline_or_block));
-  }
-  return 0;
-}
-
-# return true if container or parent may hold running text
-sub _in_inline($$)
-{
-  my $self = shift;
-  my $current = shift;
-  my $inline_or_block = $self->_inline_or_block($current);
-  return ($inline_or_block) if (defined($inline_or_block));
-  return $self->_is_inline($current);
-}
-
 our %default_args_code_style = (
   'email' => [1],
   'anchor' => [1],

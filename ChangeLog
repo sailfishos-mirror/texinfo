@@ -1,3 +1,12 @@
+2021-09-09  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Common.pm (element_is_inline),
+	tp/Texinfo/Convert/Converter.pm, tp/Texinfo/Convert/DocBook.pm,
+	tp/Texinfo/Convert/TexinfoXML.pm: move _is_inline() and
+	_in_inline() from Texinfo::Convert::Converter to Texinfo::Common,
+	rename and merge in element_is_inline() adding an optional
+	argument to de able to also do the same as _in_inline().
+
 2021-09-08  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/HTML.pm (%defaults), tp/Texinfo/Common.pm

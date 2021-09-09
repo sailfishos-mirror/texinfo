@@ -1548,6 +1548,55 @@ sub is_content_empty($;$)
   }
   return 1;
 }
+
+# if in this container, we are 'inline', within a running text
+my @inline_types = ('def_line', 'paragraph', 'preformatted',
+  'line_arg', 'block_line_arg', 'menu_entry_name', 'menu_entry_node');
+
+my %inline_types;
+foreach my $type (@inline_types) {
+  $inline_types{$type} = 1;
+}
+
+my %not_inline_commands = (%root_commands, %block_commands,
+                           %context_brace_commands);
+
+# Return 1 if inline in a running text, 0 if right in top-level or block
+# environment, and undef otherwise.
+sub _inline_or_block($)
+{
+  my $current = shift;
+  if ($current->{'type'} and $inline_types{$current->{'type'}}) {
+    return 1;
+  } elsif ($current->{'cmdname'}
+           and exists($not_inline_commands{$current->{'cmdname'}})) {
+    return 0;
+  } else {
+    return undef;
+  }
+}
+
+# return true if in running text context.
+# If $CHECK_CURRENT is set, check the element itself, too, in
+# addition to the parent context.
+sub element_is_inline($;$)
+{
+  my $current = shift;
+  my $check_current = shift;
+
+  if ($check_current) {
+    my $inline_or_block = _inline_or_block($current);
+    return ($inline_or_block) if (defined($inline_or_block));
+  }
+
+  while ($current->{'parent'}) {
+    $current = $current->{'parent'};
+    my $inline_or_block = _inline_or_block($current);
+    return ($inline_or_block) if (defined($inline_or_block));
+  }
+  return 0;
+}
+
 sub normalize_top_node_name($)
 {
   my $node = shift;
@@ -2595,10 +2644,16 @@ see L<Texinfo::Convert::Converter> and L<Texinfo::Report>.
 
 =over
 
+=item $result = element_is_inline($element, $check_current)
+
+Return true if the element passed in argument is in running text
+context.  If the optional I<$check_current> argument is set,
+check the element itself, in addition to the parent context.
+
 =item $result = is_content_empty($tree, $do_not_ignore_index_entries)
 
-Return true if the C<$tree> has content that could be formatted.
-C<$do_not_ignore_index_entries> is optional.  If set, index entries
+Return true if the I<$tree> has content that could be formatted.
+I<$do_not_ignore_index_entries> is optional.  If set, index entries
 are considered to be formatted.
 
 =item $text = enumerate_item_representation($specification, $number)

@@ -55,6 +55,12 @@ T@footnote{
 @image{in_footnote}
 }
 
+U@footnote{
+Some t
+@image{in text in_footnote}
+
+}
+
 @float F,g
 
 @image{in_float}

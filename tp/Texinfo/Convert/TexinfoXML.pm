@@ -1212,7 +1212,7 @@ sub _convert($$;$)
       # This is for the main command
       $attribute = [];
       if ($element->{'cmdname'} eq 'image') {
-        if ($self->_is_inline($element)) {
+        if (Texinfo::Common::element_is_inline($element)) {
           push @$attribute, ('where', 'inline');
         }
       } elsif ($Texinfo::Common::ref_commands{$element->{'cmdname'}}) {
