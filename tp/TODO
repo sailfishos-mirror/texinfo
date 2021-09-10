@@ -35,7 +35,9 @@ Documentation
 Tree documentation in ParserNonXS.pm
 
 replaced, elided, elided_block types.
+
 'extra'->'file' in replaced @include.
+extra->'comment_at_end' likely in many line commands
 
 
 For converter writers,

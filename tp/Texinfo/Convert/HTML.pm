@@ -5669,7 +5669,7 @@ sub _html_get_tree_root_element($$;$)
   #my $debug = 0;
 
   my $current = $command;
-  #print STDERR "START ".Texinfo::Common::_print_element_tree_simple($current)."\n" if ($debug);
+  #print STDERR "START ".Texinfo::Common::debug_print_element_short($current)."\n" if ($debug);
 
   my ($root_element, $root_command);
   while (1) {
@@ -5716,10 +5716,10 @@ sub _html_get_tree_root_element($$;$)
       }
     }
     if ($current->{'parent'}) {
-      #print STDERR "PARENT ".Texinfo::Common::_print_element_tree_simple($current->{'parent'})."\n" if ($debug);
+      #print STDERR "PARENT ".Texinfo::Common::debug_print_element_short($current->{'parent'})."\n" if ($debug);
       $current = $current->{'parent'};
     } else {
-      #print STDERR "UNKNOWN ROOT ".Texinfo::Common::_print_element_tree_simple($current)."\n" if ($debug);
+      #print STDERR "UNKNOWN ROOT ".Texinfo::Common::debug_print_element_short($current)."\n" if ($debug);
       return (undef, $root_command);
     }
   }

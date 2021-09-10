@@ -1587,7 +1587,7 @@ sub _index_entry($$)
     if ($self->{'index_names'}->{$entry_index_name}->{'in_code'}) {
       $in_code = 1;
     }
-    #print STDERR "I ".Texinfo::Common::_print_element_tree_simple($element)." ".$entry_index_name."/".$index_name." ".$in_code." C ".$entry->{'index_at_command'}." T ".$entry->{'index_type_command'}."; ".join("|", sort(keys(%{$element->{'extra'}})))."\n";
+    #print STDERR "I ".Texinfo::Common::debug_print_element_short($element)." ".$entry_index_name."/".$index_name." ".$in_code." C ".$entry->{'index_at_command'}." T ".$entry->{'index_type_command'}."; ".join("|", sort(keys(%{$element->{'extra'}})))."\n";
     # FIXME cache?  In theory txiindexbackslashignore and consorts
     # may change dynamically.  But the current code does not set the
     # values dynamically for now.  Actually not set at all...
@@ -3001,9 +3001,9 @@ sub _convert($$)
       $result .= $text;
       #my @str_contents = ();
       #foreach my $item_content (@contents) {
-      #  push @str_contents, Texinfo::Common::_print_element_tree_simple($item_content);
+      #  push @str_contents, Texinfo::Common::debug_print_element_short($item_content);
       #}
-      #print STDERR "contents ".Texinfo::Common::_print_element_tree_simple($element).": ".join("|", @str_contents)."\n";
+      #print STDERR "contents ".Texinfo::Common::debug_print_element_short($element).": ".join("|", @str_contents)."\n";
     }
     pop @{$self->{'current_contents'}};
   }
