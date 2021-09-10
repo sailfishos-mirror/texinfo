@@ -122,6 +122,9 @@ sub _convert($$)
     if (exists($Texinfo::Common::no_brace_commands{$element->{'cmdname'}})) {
       return $Texinfo::Common::no_brace_commands{$element->{'cmdname'}};
     } elsif ($element->{'cmdname'} eq 'today') {
+      if ($self->get_conf('TEST')) {
+        return 'a sunny day';
+      }
       my($sec, $min, $hour, $mday, $mon, $year, $wday, $yday, $isdst)
         = localtime(time);
       $year += ($year < 70) ? 2000 : 1900;
