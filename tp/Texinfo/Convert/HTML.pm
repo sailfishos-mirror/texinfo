@@ -4657,8 +4657,8 @@ $default_types_conversion{'table_item'} = \&_convert_table_item_type;
 $default_types_conversion{'inter_item'} = \&_convert_table_item_type;
 
 # This type is the only one present if there are no elements.  It is
-# therefore used to do the formatting of the element in case there are no
-# element.
+# therefore used to do the formatting normally done in tree unit
+# in case there are no tree units (no sectioning elements nor nodes).
 sub _convert_root_text_type($$$$)
 {
   my $self = shift;
@@ -4668,7 +4668,7 @@ sub _convert_root_text_type($$$$)
 
   my $result = $content;
   #$result =~ s/^\s*//;
-  # if there is no element, the parent should not be an element
+  # if there is no tree unit, the parent should not be a tree unit
   if (!$command->{'parent'} 
       or !$command->{'parent'}->{'type'}
       or $command->{'parent'}->{'type'} ne 'unit') {
@@ -4802,10 +4802,11 @@ sub _convert_special_element_type($$$$)
 
 $default_types_conversion{'special_element'} = \&_convert_special_element_type;
 
-# Function for converting the top-level elements in the conversion: a section
-# or a node.  $ELEMENT was created in this module (in _prepare_tree_root_elements),
-# with type 'unit' (it's not a tree element created by the parser).  $CONTENT
-# is the contents of the node/section, already converted.
+# Function for converting the top-level elements in the conversion corresponding to
+# a section or a node.  The node and associated section appear together in
+# the tree unit top-level element.  $ELEMENT was created in this module (in 
+# _prepare_tree_root_elements), with type 'unit' (it's not a tree element created
+# by the parser).  $CONTENT is the contents of the node/section, already converted.
 sub _convert_tree_unit_type($$$$)
 {
   my $self = shift;
