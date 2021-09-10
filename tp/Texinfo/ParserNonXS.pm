@@ -1073,7 +1073,7 @@ sub registered_errors($)
 sub _print_current($)
 {
   my $current = shift;
-  return Texinfo::Common::_print_current($current);
+  return Texinfo::Common::debug_print_element($current);
 }
 
 # for debugging

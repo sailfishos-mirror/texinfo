@@ -551,7 +551,7 @@ sub l2h_do_tex($$)
   } elsif(($count <= 0) or ($count > $latex_count)) {
     # counter out of range
     $invalid_counter_count++;
-    $self->_bug_message("l2h: request of $count out of range [0,$latex_count]");
+    $self->present_bug_message("l2h: request of $count out of range [0,$latex_count]");
     return ("<!-- l2h: ". __LINE__ . " out of range count $count -->") 
       if ($debug);
     return '';

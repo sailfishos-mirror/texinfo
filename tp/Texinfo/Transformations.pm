@@ -760,7 +760,7 @@ sub _protect_hashchar_at_line_beginning($$$)
 
   my ($registrar, $configuration_informations) = @$argument;
 
-  #print STDERR "$type $current "._print_current($current)."\n";
+  #print STDERR "$type $current ".debug_print_element($current)."\n";
   # if the next is a hash character at line beginning, mark it
   if (defined($current->{'text'}) and $current->{'text'} =~ /\n$/
       and $current->{'parent'} and $current->{'parent'}->{'contents'}) {

@@ -999,10 +999,6 @@ sub convert_tree($$)
   my $self = shift;
   my $root = shift;
 
-  #print STDERR "* ".Texinfo::Common::_print_current($root)."\n";
-  #foreach my $content (@{$root->{'contents'}}) {
-  #  print STDERR "** ".Texinfo::Common::_print_current($content)."\n";
-  #}
   return $self->_convert($root);
 }
 
@@ -1676,9 +1672,6 @@ sub _convert($$);
 sub _convert($$)
 {
   my ($self, $element) = @_;
-
-  #print STDERR "C ".Texinfo::Common::_print_current($element)."\n";
-  #print STDERR "C ".Texinfo::Common::_print_element_tree_simple($element)."\n";
 
   if (($element->{'type'} and $self->{'ignored_types'}->{$element->{'type'}})
        or ($element->{'cmdname'}

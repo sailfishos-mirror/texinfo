@@ -1511,7 +1511,6 @@ sub is_content_empty($;$)
     return 1;
   }
   foreach my $content (@{$tree->{'contents'}}) {
-    #print STDERR _print_current($content);
     if ($content->{'cmdname'}) {
       if ($content->{'type'} and $content->{'type'} eq 'index_entry_command') {
         if ($do_not_ignore_index_entries) {
@@ -2020,7 +2019,7 @@ sub _protect_text($$)
   my $current = shift;
   my $to_protect = shift;
 
-  #print STDERR "$to_protect: $current "._print_current($current)."\n";
+  #print STDERR "$to_protect: $current ".debug_print_element($current)."\n";
   if (defined($current->{'text'}) and $current->{'text'} =~ /$to_protect/
       and !(defined($current->{'type'}) and $current->{'type'} eq 'raw')) {
     my @result = ();
@@ -2139,53 +2138,11 @@ sub find_parent_root_command($$)
   return undef;
 }
 
-# for debugging
-sub _print_current($)
-{
+# for debugging.  May be used in other modules.
+sub debug_print_element_short($) {
   my $current = shift;
   if (ref($current) ne 'HASH') {
-    return  "_print_current: $current not a hash\n";
-  }
-  my $type = '';
-  my $cmd = '';
-  my $parent_string = '';
-  my $text = '';
-  $type = "($current->{'type'})" if (defined($current->{'type'}));
-  $cmd = "\@$current->{'cmdname'}" if (defined($current->{'cmdname'}));
-  $cmd .= "($current->{'level'})" if (defined($current->{'level'}));
-  $text = "[text: $current->{'text'}]" if (defined($current->{'text'}));
-  if ($current->{'parent'}) {
-    my $parent = $current->{'parent'};
-    my $parent_cmd = '';
-    my $parent_type = '';
-    $parent_cmd = "\@$parent->{'cmdname'}" if (defined($parent->{'cmdname'}));
-    $parent_type = "($parent->{'type'})" if (defined($parent->{'type'}));
-    $parent_string = " <- $parent_cmd$parent_type\n";
-  }
-  my $args = '';
-  my $contents = '';
-  $args = "args(".scalar(@{$current->{'args'}}).')' if $current->{'args'};
-  if ($current->{'contents'}) {
-    if (ref($current->{'contents'}) ne 'ARRAY') {
-      # this is most probably a bug
-      $contents = "BUG: NOT array contents ".ref($current->{'contents'});
-    }
-    else {
-      $contents = "contents(".scalar(@{$current->{'contents'}}).')';
-    }
-  }
-  if ("$cmd$type" ne '') {
-    return "$cmd$type : $text $args $contents\n$parent_string";
-  } else {
-    return "$text $args $contents\n$parent_string";
-  }
-}
-
-# for debugging
-sub _print_element_tree_simple($) {
-  my $current = shift;
-  if (ref($current) ne 'HASH') {
-    return  "_print_element_tree_simple: $current not a hash\n";
+    return  "debug_print_element_simply: $current not a hash\n";
   }
   my $type = '';
   my $cmd = '';
@@ -2200,6 +2157,58 @@ sub _print_element_tree_simple($) {
   $contents = "[C".scalar(@{$current->{'contents'}}).']'
     if $current->{'contents'};
   return "$cmd$type$text$args$contents";
+}
+
+# for debugging
+sub debug_print_element($)
+{
+  my $current = shift;
+  if (ref($current) ne 'HASH') {
+    return  "debug_print_element: $current not a hash\n";
+  }
+  my $type = '';
+  my $cmd = '';
+  my $parent_string = '';
+  my $text = '';
+  $type = "($current->{'type'})" if (defined($current->{'type'}));
+  $cmd = "\@$current->{'cmdname'}" if (defined($current->{'cmdname'}));
+  $cmd .= "($current->{'level'})" if (defined($current->{'level'}));
+  if (defined($current->{'text'})) {
+    my $text_str = $current->{'text'};
+    $text_str =~ s/\n/\\n/g;
+    $text = "[T: $text_str]";
+  }
+  if ($current->{'parent'}) {
+    my $parent = $current->{'parent'};
+    my $parent_cmd = '';
+    my $parent_type = '';
+    $parent_cmd = "\@$parent->{'cmdname'}" if (defined($parent->{'cmdname'}));
+    $parent_type = "($parent->{'type'})" if (defined($parent->{'type'}));
+    $parent_string = " <- $parent_cmd$parent_type\n";
+  }
+  my $args = '';
+  my $contents = '';
+  $args = "[A".scalar(@{$current->{'args'}}).']' if $current->{'args'};
+  $contents = "[C".scalar(@{$current->{'contents'}}).']'
+    if $current->{'contents'};
+  return "$cmd$type$text$args$contents\n$parent_string";
+}
+
+# for debugging
+sub debug_print_element_details($)
+{
+  my $current = shift;
+  my $string = debug_print_element($current);
+  foreach my $key (keys (%$current)) {
+    $string .= "   $key: $current->{$key}\n";
+  }
+  if ($current->{'extra'}) {
+    $string .= "    EXTRA\n";
+    foreach my $key (keys (%{$current->{'extra'}})) {
+      $string .= "    $key: $current->{'extra'}->{$key}\n";
+    }
+  }
+  return $string;
 }
 
 

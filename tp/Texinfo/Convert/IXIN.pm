@@ -187,7 +187,7 @@ sub _get_element($$)
 
   my ($element, $root_command);
   while (1) {
-    #print STDERR Texinfo::Common::_print_current($current);
+    #print STDERR Texinfo::Common::debug_print_element($current);
     if ($current->{'type'}) {
       if ($current->{'type'} eq 'unit') {
         return ($current, $root_command);

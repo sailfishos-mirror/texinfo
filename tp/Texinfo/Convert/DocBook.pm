@@ -634,7 +634,7 @@ sub _convert($$;$)
                     and $element->{'parent'}->{'type'}
                     and $element->{'parent'}->{'type'} eq 'row') {
           warn "BUG: multitable cell command not in a row "
-            .Texinfo::Common::_print_current($element);
+            .Texinfo::Common::debug_print_element($element);
         }
         
         $result .= "<entry>";
@@ -769,7 +769,7 @@ sub _convert($$;$)
           return "";
         }
       } else {
-        $self->_bug_message("unknown misc_command style $type", $element)
+        $self->present_bug_message("unknown misc_command style $type", $element)
           if ($type !~ /^\d$/);
         if ($element->{'cmdname'} eq 'printindex') {
           if (defined($element->{'extra'})

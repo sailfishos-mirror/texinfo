@@ -854,7 +854,7 @@ sub _convert($$;$)
                     and $element->{'parent'}->{'type'}
                     and $element->{'parent'}->{'type'} eq 'row') {
           print STDERR "BUG: multitable cell command not in a row "
-            .Texinfo::Common::_print_current($element);
+            .Texinfo::Common::debug_print_element($element);
         }
         
         $result .= $self->open_element('entry', ['command',

@@ -869,7 +869,7 @@ sub output($$)
   }
 }
 
-sub _bug_message($$;$)
+sub present_bug_message($$;$)
 {
   my $self = shift;
   my $message = shift;
@@ -890,7 +890,7 @@ sub _bug_message($$;$)
     }
     if ($current) {
       $current_element_message = "current: ". 
-        Texinfo::Common::_print_current($current);
+        Texinfo::Common::debug_print_element($current);
     }
   }
   my $additional_information = '';
@@ -1826,6 +1826,11 @@ command tree element I<$element>, expanding the command argument using
 transliteration and characters protection.  Also returns I<$filename> 
 the corresponding filename based on C<$normalized_name> taking into
 account additional constraint on file names and adding a file extension.
+
+=item $converter->present_bug_message($message, $element)
+
+Show a bug message using I<$message> text.  Add informations on
+i<$element> tree element if given in argument.
 
 =item $converter->set_conf($option_string, $value)
 

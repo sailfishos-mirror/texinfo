@@ -460,7 +460,7 @@ sub count_context_bug_message($$$)
     } else {
       $element_text = '';
     }
-    $self->_bug_message("Too much count_context ${precision}(".
+    $self->present_bug_message("Too much count_context ${precision}(".
       scalar(@{$self->{'count_context'}}). "): ". $element_text, $element);
     die;
   }
@@ -940,7 +940,7 @@ sub _align_lines($$$$$$)
         }# else {
         # Happens in Info with the special construct as, in that 
         # case, there are no lines!  So no error...
-        #  $self->_bug_message("more than one image with lines on $image->{'lines'}");
+        #  $self->present_bug_message("more than one image with lines on $image->{'lines'}");
         # in that case, the $image->{'lines'} is not in sync with the
         # lines count.  So the second image will be treated as simple text.
         #}
@@ -1562,7 +1562,7 @@ sub _convert($$)
         return $element->{'text'};
       # ignore text outside of any format, but warn if ignored text not empty
       } elsif ($element->{'text'} =~ /\S/) {
-        $self->_bug_message("ignored text not empty `$element->{'text'}'", $element);
+        $self->present_bug_message("ignored text not empty `$element->{'text'}'", $element);
         return '';
       } else {
         # miscellaneous top-level whitespace - possibly after an @image

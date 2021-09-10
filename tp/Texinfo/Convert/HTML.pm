@@ -556,7 +556,7 @@ sub command_text($$;$)
       } else {
         if (!$command->{'args'}->[0]->{'contents'}) {
           cluck "No misc_content: "
-            .Texinfo::Common::_print_current($command);
+            .Texinfo::Common::debug_print_element($command);
         }
         if (defined($command->{'number'})
             and ($self->get_conf('NUMBER_SECTIONS')
@@ -4006,7 +4006,7 @@ sub _convert_preformatted_type($$$$)
 
   if (!defined($content)) {
     cluck "content undef in _convert_preformatted_type " 
-       .Texinfo::Common::_print_current($command);
+       .Texinfo::Common::debug_print_element($command);
   }
 
   my $current = $command;
@@ -6144,7 +6144,7 @@ sub _prepare_tree_units_global_targets($$)
   } elsif ($node_top) {
     my $tree_unit_top = $node_top->{'parent'};
     if (!$tree_unit_top) {
-      die "No parent for node_top: ".Texinfo::Common::_print_current($node_top);
+      die "No parent for node_top: ".Texinfo::Common::debug_print_element($node_top);
     }
     $self->{'global_target_elements'}->{'Top'} = $tree_unit_top;
   } else {
@@ -6434,7 +6434,7 @@ sub _element_direction($$$$;$)
     ######## debug
     if (!$element_target->{'type'}) {
       die "No type for element_target $direction $element_target: "
-       . Texinfo::Structuring::_print_current_keys($element_target)
+       . Texinfo::Common::debug_print_element_details($element_target)
        . "directions :". Texinfo::Structuring::print_element_directions($element);
     }
     ########
@@ -7855,7 +7855,7 @@ sub _convert_contents($$$)
   my $content_formatted = '';
   if (ref($element->{'contents'}) ne 'ARRAY') {
     cluck "for $element contents not an array: $element->{'contents'}";
-    print STDERR Texinfo::Common::_print_current($element);
+    print STDERR Texinfo::Common::debug_print_element($element);
   }
 
   my $content_idx = 0;
@@ -7863,8 +7863,8 @@ sub _convert_contents($$$)
     my $new_content = $self->_convert($content, "$command_type [$content_idx]");
     if (!defined($new_content)) {
       cluck "content not defined for $command_type [$content_idx]\n";
-      print STDERR "root is: ".Texinfo::Common::_print_current ($element);
-      print STDERR "content is: ".Texinfo::Common::_print_current ($content);
+      print STDERR "root is: ".Texinfo::Common::debug_print_element($element);
+      print STDERR "content is: ".Texinfo::Common::debug_print_element($content);
     } else {
       $content_formatted .= $new_content;
     }
