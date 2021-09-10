@@ -1830,7 +1830,7 @@ account additional constraint on file names and adding a file extension.
 =item $converter->present_bug_message($message, $element)
 
 Show a bug message using I<$message> text.  Add informations on
-i<$element> tree element if given in argument.
+I<$element> tree element if given in argument.
 
 =item $converter->set_conf($option_string, $value)
 
