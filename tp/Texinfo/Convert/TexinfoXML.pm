@@ -607,11 +607,12 @@ sub _leading_spaces_before_argument($)
   }
 }
 
+# return spaces only, as end of line is already returned by other functions
 sub _end_line_spaces
 {
   my $element = shift;
 
-  my $end_spaces = undef;
+  my $end_spaces = '';
   if ($element->{'args'}->[-1]
       and $element->{'args'}->[-1]->{'extra'}
       and $element->{'args'}->[-1]->{'extra'}->{'spaces_after_argument'}) {
@@ -688,24 +689,8 @@ sub _convert_argument_and_end_line($$)
   my $element = shift;
 
   my $converted = $self->convert_tree($element->{'args'}->[-1]);
-
-  my $end_line = '';
-
-  if ($element->{'args'}->[-1]->{'extra'}
-      and $element->{'args'}->[-1]->{'extra'}->{'spaces_after_argument'}) {
-    $converted .= $element->{'args'}->[-1]->{'extra'}->{'spaces_after_argument'};
-  }
-
-  if ($element->{'args'}->[-1]->{'extra'}
-      and $element->{'args'}->[-1]->{'extra'}->{'comment_at_end'}) {
-    $end_line = $self->convert_tree($element->{'args'}->[-1]->{'extra'}->{'comment_at_end'});
-  } else {
-    if (chomp($converted)) {
-      $end_line = "\n";
-    } else {
-      $end_line = "";
-    }
-  }
+  $converted .= _end_line_spaces($element);
+  my $end_line = $self->_end_line_or_comment($element);
   return ($converted, $end_line);
 }
 
@@ -833,13 +818,8 @@ sub _convert($$;$)
           $in_monospace_not_normal
             if (defined($in_monospace_not_normal));
 
-        $result .= $self->_convert($element->{'args'}->[0]);
-        if ($element->{'args'}->[0]->{'extra'} and $element->{'args'}->[0]->{'extra'}->{'spaces_after_argument'}) {
-          $result .= $element->{'args'}->[0]->{'extra'}->{'spaces_after_argument'};
-         }
-        if ($element->{'args'}->[-1]->{'extra'} and $element->{'args'}->[-1]->{'extra'}->{'comment_at_end'}) {
-          $result .= $self->_convert($element->{'args'}->[-1]->{'extra'}->{'comment_at_end'});
-        }
+        my ($arg, $end_line) = $self->_convert_argument_and_end_line($element);
+        $result .= $arg . $end_line;
         pop @{$self->{'document_context'}->[-1]->{'monospace'}} 
           if (defined($in_monospace_not_normal));
         chomp ($result);
@@ -882,23 +862,23 @@ sub _convert($$;$)
       return $self->open_element($format_element, ${attribute}).
         $self->_index_entry($element).$self->close_element($format_element).${end_line};
     } elsif (exists($misc_commands{$element->{'cmdname'}})) {
-      my $command = $element->{'cmdname'};
-      my $type = $misc_commands{$element->{'cmdname'}};
+      my $cmdname = $element->{'cmdname'};
+      my $type = $misc_commands{$cmdname};
       if ($type eq 'text') {
-        return '' if ($element->{'cmdname'} eq 'end');
+        return '' if ($cmdname eq 'end');
         my $attribute;
-        if ($misc_command_line_attributes{$element->{'cmdname'}}) {
+        if ($misc_command_line_attributes{$cmdname}) {
           if ($element->{'extra'} and defined($element->{'extra'}->{'text_arg'})) {
-            push @$attribute, ($misc_command_line_attributes{$element->{'cmdname'}},
+            push @$attribute, ($misc_command_line_attributes{$cmdname},
                   $element->{'extra'}->{'text_arg'});
           }
         }
         my ($arg, $end_line) = $self->_convert_argument_and_end_line($element);
         push @$attribute, _leading_spaces($element);
-        return $self->open_element($command, $attribute).$arg
-                .$self->close_element($command).${end_line};
+        return $self->open_element($cmdname, $attribute).$arg
+                .$self->close_element($cmdname).${end_line};
       } elsif ($type eq 'line') {
-        if ($element->{'cmdname'} eq 'node') {
+        if ($cmdname eq 'node') {
           my $nodename;
           if (defined($element->{'extra'}->{'normalized'})) {
             $nodename = $element->{'extra'}->{'normalized'};
@@ -966,16 +946,16 @@ sub _convert($$;$)
           }
           $result .= ${end_line};
           pop @{$self->{'document_context'}->[-1]->{'monospace'}};
-        } elsif ($Texinfo::Common::root_commands{$element->{'cmdname'}}) {
+        } elsif ($Texinfo::Common::root_commands{$cmdname}) {
           my $attribute = [_leading_spaces($element)];
-          $command = $self->_level_corrected_section($element);
-          if ($command ne $element->{'cmdname'}) {
-            unshift @$attribute, ('originalcommand', $element->{'cmdname'});
+          my $level_corrected_cmdname = $self->_level_corrected_section($element);
+          if ($level_corrected_cmdname ne $cmdname) {
+            unshift @$attribute, ('originalcommand', $cmdname);
           }
-          $result .= $self->open_element($command, $attribute);
+          $result .= $self->open_element($level_corrected_cmdname, $attribute);
           my $closed_section_element;
           if ($self->get_conf('USE_NODES')) {
-            $closed_section_element = $self->close_element($command);
+            $closed_section_element = $self->close_element($level_corrected_cmdname);
           } else {
             $closed_section_element = '';
           }
@@ -990,27 +970,27 @@ sub _convert($$;$)
           }
         } else {
           my $attribute = [_leading_spaces($element)];
-          if ($element->{'cmdname'} eq 'listoffloats' and $element->{'extra'}
+          if ($cmdname eq 'listoffloats' and $element->{'extra'}
               and $element->{'extra'}->{'type'}
               and defined($element->{'extra'}->{'type'}->{'normalized'})) {
             unshift @$attribute, ('type', $element->{'extra'}->{'type'}->{'normalized'});
           }
           my ($arg, $end_line) = $self->_convert_argument_and_end_line($element);
-          return $self->open_element($command, ${attribute}).$arg
-               .$self->close_element($command).$end_line;
+          return $self->open_element($cmdname, ${attribute}).$arg
+               .$self->close_element($cmdname).$end_line;
         }
       } elsif ($type eq 'skipline') {
         # the command associated with an element is closed at the end of the
         # element. @bye is withing the element, but we want it to appear after
         # the comand closing.  So we delay the output of @bye, and store it.
-        if ($element->{'cmdname'} eq 'bye' and $element->{'parent'}
+        if ($cmdname eq 'bye' and $element->{'parent'}
             and $element->{'parent'}->{'type'}
             and $element->{'parent'}->{'type'} eq 'unit'
             and !($element->{'parent'}->{'extra'}
                   and ($element->{'parent'}->{'extra'}->{'no_section'}
                        or $element->{'parent'}->{'extra'}->{'no_node'}))) {
-          $self->{'pending_bye'} = $self->open_element($command)
-                    .$self->close_element($command)."\n";
+          $self->{'pending_bye'} = $self->open_element($cmdname)
+                    .$self->close_element($cmdname)."\n";
           return '';
         }
         my $attribute = [];
@@ -1021,31 +1001,31 @@ sub _convert($$;$)
           $attribute = ['line', $line]
              if ($line ne '');
         }
-        return $self->open_element($command, $attribute)
-                 .$self->close_element($command)."\n";
+        return $self->open_element($cmdname, $attribute)
+                 .$self->close_element($cmdname)."\n";
       } elsif ($type eq 'noarg' or $type eq 'skipspace') {
         my $spaces = '';
         $spaces = $element->{'extra'}->{'spaces_after_command'}
           if ($element->{'extra'} and $element->{'extra'}->{'spaces_after_command'}
               and $element->{'extra'}->{'spaces_after_command'} ne '');
-        return $self->open_element($command)
-                .$self->close_element($command).$spaces;
+        return $self->open_element($cmdname)
+                .$self->close_element($cmdname).$spaces;
       } elsif ($type eq 'special') {
-        if ($element->{'cmdname'} eq 'clear' or $element->{'cmdname'} eq 'set') {
+        if ($cmdname eq 'clear' or $cmdname eq 'set') {
           my $attribute = [];
           if ($element->{'args'} and $element->{'args'}->[0]
               and defined($element->{'args'}->[0]->{'text'})) {
             push @$attribute, ('name', $element->{'args'}->[0]->{'text'});
           }
           my $value = '';
-          if ($element->{'cmdname'} eq 'set' and $element->{'args'} and $element->{'args'}->[1]
+          if ($cmdname eq 'set' and $element->{'args'} and $element->{'args'}->[1]
               and defined($element->{'args'}->[1]->{'text'})) {
             $value = $self->protect_text($element->{'args'}->[1]->{'text'});
           }
           push @$attribute, $self->_arg_line($element);
-          return $self->open_element($command, $attribute)
-                         .$value.$self->close_element($command)."\n";
-        } elsif ($element->{'cmdname'} eq 'clickstyle') {
+          return $self->open_element($cmdname, $attribute)
+                         .$value.$self->close_element($cmdname)."\n";
+        } elsif ($cmdname eq 'clickstyle') {
           my $attribute = [$self->_arg_line($element)];
           my $value = '';
           if ($element->{'args'} and $element->{'args'}->[0]
@@ -1055,8 +1035,8 @@ sub _convert($$;$)
             unshift @$attribute, ('command', $click_command);
             $value = $self->protect_text($element->{'args'}->[0]->{'text'});
           };
-          return $self->open_element($command, $attribute)
-                         .$value.$self->close_element($command)."\n";
+          return $self->open_element($cmdname, $attribute)
+                         .$value.$self->close_element($cmdname)."\n";
         } else {
           # should only be unmacro
           my $attribute = [$self->_arg_line($element)];
@@ -1064,12 +1044,12 @@ sub _convert($$;$)
               and defined($element->{'args'}->[0]->{'text'})) {
             unshift @$attribute, ('name', $element->{'args'}->[0]->{'text'});
           }
-          return $self->open_element($command, $attribute)
-                    .$self->close_element($command)."\n";
+          return $self->open_element($cmdname, $attribute)
+                    .$self->close_element($cmdname)."\n";
         }
       } elsif ($type eq 'lineraw') {
-        if ($element->{'cmdname'} eq 'c' or $element->{'cmdname'} eq 'comment') {
-          return $self->format_comment(" $element->{'cmdname'}".$element->{'args'}->[0]->{'text'})
+        if ($cmdname eq 'c' or $cmdname eq 'comment') {
+          return $self->format_comment(" $cmdname".$element->{'args'}->[0]->{'text'})
         } else {
           my $value = '';
           if ($element->{'args'} and $element->{'args'}->[0]
@@ -1077,14 +1057,14 @@ sub _convert($$;$)
             $value = $self->protect_text($element->{'args'}->[0]->{'text'});
           }
           chomp ($value);
-          return $self->open_element($command).$value
-                    .$self->close_element($command)."\n";
+          return $self->open_element($cmdname).$value
+                    .$self->close_element($cmdname)."\n";
         }
       } else {
         print STDERR "BUG: unknown misc_command style $type\n" if ($type !~ /^\d$/);
         my $args_attributes;
-        if ($misc_command_numbered_arguments_attributes{$element->{'cmdname'}}) {
-          $args_attributes = $misc_command_numbered_arguments_attributes{$element->{'cmdname'}};
+        if ($misc_command_numbered_arguments_attributes{$cmdname}) {
+          $args_attributes = $misc_command_numbered_arguments_attributes{$cmdname};
         } else {
           $args_attributes = ['value'];
         }
@@ -1107,8 +1087,8 @@ sub _convert($$;$)
         } else {
           $end_line = "\n";
         }
-        return $self->open_element($command, $attribute)
-                    .$self->close_element($command).$end_line;
+        return $self->open_element($cmdname, $attribute)
+                    .$self->close_element($cmdname).$end_line;
       }
     } elsif ($element->{'type'}
              and $element->{'type'} eq 'definfoenclose_command') {
@@ -1378,9 +1358,9 @@ sub _convert($$;$)
             }
           } else {
             my $contents_possible_comment;
+
             # in that case the end of line is in the columnfractions line
             # or in the columnprototypes.  
-
             if ($element->{'cmdname'} eq 'multitable') {
               if (not $element->{'extra'}->{'columnfractions'}) {
                 # Like 'prototypes' extra value, but keeping spaces information
@@ -1469,15 +1449,9 @@ sub _convert($$;$)
                 $result .= "\n";
               }
             } else {
-              # get end of lines from @*table.
-              my $end_spaces = _end_line_spaces($element);
-              if (defined($end_spaces)) {
-                $end_line .= $end_spaces 
-                # This also catches block @-commands with no argument that
-                # have a bogus argument, such as text on @example line
-                #print STDERR "NOT xtable: $element->{'cmdname'}\n"
-                #  if (!$Texinfo::Common::item_line_commands{$element->{'cmdname'}});
-              }
+              # get end of lines from @*table and block @-commands with no argument that
+              # have a bogus argument.
+              $end_line .= _end_line_spaces($element);
               $contents_possible_comment = $element;
             }
             $end_line .= $self->_end_line_or_comment($contents_possible_comment);
@@ -1631,8 +1605,7 @@ sub _convert($$;$)
     } else {
       my $end_line = '';
       if ($end_command) {
-        my $end_spaces = _end_line_spaces($end_command);
-        $end_line .= $end_spaces if (defined($end_spaces));
+        $end_line .= _end_line_spaces($end_command);
         $end_line 
          .= $self->_end_line_or_comment($end_command)
           if ($end_command->{'args'});

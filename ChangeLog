@@ -1,5 +1,12 @@
 2021-09-10  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/TexinfoXML.pm (_end_line_spaces)
+	(_convert_argument_and_end_line, _convert): less redundant code.
+	Use $cmdname instead of $command for $element->{'cmdname'}, and use
+	it more consistently.
+
+2021-09-10  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/TextContent.pm (_convert): use a fixed string for
 	@today if TEST is set.
 

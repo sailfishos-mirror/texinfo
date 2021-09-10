@@ -37,7 +37,8 @@ Tree documentation in ParserNonXS.pm
 replaced, elided, elided_block types.
 
 'extra'->'file' in replaced @include.
-extra->'comment_at_end' likely in many line commands
+extra->'comment_at_end' and extra->'spaces_after_argument' 
+likely in many line commands
 
 
 For converter writers,
