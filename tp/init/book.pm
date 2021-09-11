@@ -74,12 +74,12 @@ sub book_print_up_toc($$)
   #print $fh "<ul>" . &$anchor('', $Texi2HTML::HREF{Contents}, '[' . $Texi2HTML::NAME{Contents} . ']') . " <br>\n";
   my $up = shift @up_commands;
   #print STDERR "$up ".Texinfo::Convert::Texinfo::root_element_command_to_texinfo($up)."\n";
-  $result .= $converter->_attribute_class('ul', $NO_BULLET_LIST_CLASS)."><li>"
+  $result .= $converter->html_attribute_class('ul', $NO_BULLET_LIST_CLASS)."><li>"
   . "<a href=\"".$converter->command_href($up)."\">".$converter->command_text($up)
    . "</a> </li>\n";
   foreach my $up (@up_commands) {
     $result .= '<li>'
-    .$converter->_attribute_class('ul', $NO_BULLET_LIST_CLASS)."><li>"
+    .$converter->html_attribute_class('ul', $NO_BULLET_LIST_CLASS)."><li>"
     . "<a href=\"".$converter->command_href($up)."\">".$converter->command_text($up)
    . "</a> </li>\n";
   }
@@ -133,7 +133,7 @@ sub book_print_sub_toc($$$)
     $result .= "<li> "."<a href=\"$content_href\">$heading</a>" . " </li>\n";
   }
   if ($command->{'section_childs'} and @{$command->{'section_childs'}}) {
-    $result .= '<li>'.$converter->_attribute_class('ul',$NO_BULLET_LIST_CLASS)
+    $result .= '<li>'.$converter->html_attribute_class('ul',$NO_BULLET_LIST_CLASS)
      .">\n". book_print_sub_toc($converter, $parent_command,
                                 $command->{'section_childs'}->[0])
      ."</ul></li>\n";
@@ -245,7 +245,7 @@ sub book_convert_heading_command($$$$$)
   }
   if ($element->{'section_childs'} and @{$element->{'section_childs'}}
       and $cmdname ne 'top') {
-    $result .= $self->_attribute_class('ul', $NO_BULLET_LIST_CLASS).">\n";
+    $result .= $self->html_attribute_class('ul', $NO_BULLET_LIST_CLASS).">\n";
     $result .= book_print_sub_toc($self, $element,
                                   $element->{'section_childs'}->[0]);
     $result .= "</ul>\n";

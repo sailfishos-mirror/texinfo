@@ -334,8 +334,10 @@ sub highlight_preformatted_command($$)
       my $result_content = $commands{$cmdname}->{'results'}->{$command};
 
       $result_content =~ s/^\n/\n\n/; # a newline immediately after a <pre> is ignored.
-      my $preformatted_result_content = $self->_attribute_class('pre', $pre_class).">".$result_content."</pre>";
-      return $self->_attribute_class('div', $cmdname, $extra_classes).">\n".$preformatted_result_content.'</div>'."\n";
+      my $preformatted_result_content = $self->html_attribute_class('pre',
+                                        $pre_class).">".$result_content."</pre>";
+      return $self->html_attribute_class('div', $cmdname, $extra_classes).">\n"
+             .$preformatted_result_content.'</div>'."\n";
     }
   } elsif (defined($language)) {
     $self->document_warn($self, sprintf(__(

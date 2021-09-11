@@ -65,10 +65,10 @@ sub singular_format_footer($$$$)
 
   if ($self->element_is_tree_unit_top($element)) {
     my $buttons = $self->get_conf('TOP_BUTTONS');
-    my $content_href = $self->_element_direction($element, 'Contents',
-                                               'href');
-    my $about_href = $self->_element_direction($element, 'About',
-                                               'href');
+    my $content_href = $self->from_element_direction($element,
+                                               'Contents', 'href');
+    my $about_href = $self->from_element_direction($element,
+                                               'About', 'href');
     my $result = '';
     if ($content_href or $about_href) {
       $result .= "<blockquote>\n";
