@@ -210,7 +210,7 @@ my %def_argument_types_docbook = (
 
 my %ignored_types;
 foreach my $type (
-	    'empty_line_after_command',
+            'empty_line_after_command',
             'empty_spaces_after_close_brace', 
             'empty_spaces_after_command', 
             'empty_spaces_before_argument',
@@ -388,6 +388,7 @@ foreach my $special_unnumbered ('acknowledgements', 'colophon',
   $docbook_special_unnumbered{$special_unnumbered} = 1;
 }
 
+# element is not texinfo tree element here, but xml element
 sub _docbook_section_element($$)
 {
   my $self = shift;
@@ -506,18 +507,7 @@ sub _convert_argument_and_end_line($$)
   my $element = shift;
 
   my $converted = $self->convert_tree($element->{'args'}->[-1]);
-
-  my $end_line = '';
-
-  if ($element->{'extra'} and $element->{'extra'}->{'comment_at_end'}) {
-    $end_line = $self->convert_tree($element->{'extra'}->{'comment_at_end'});
-  } else {
-    if (chomp($converted)) {
-      $end_line = "\n";
-    } else {
-      $end_line = "";
-    }
-  }
+  my $end_line = $self->format_comment_or_return_end_line($element);
   return ($converted, $end_line);
 }
 
@@ -660,9 +650,9 @@ sub _convert($$;$)
         $self->set_informative_command_value($element);
         return '';
       }
-      my $command;
+      my $docbook_element;
       if (exists ($docbook_misc_elements_with_arg_map{$element->{'cmdname'}})) {
-        $command = $docbook_misc_elements_with_arg_map{$element->{'cmdname'}};
+        $docbook_element = $docbook_misc_elements_with_arg_map{$element->{'cmdname'}};
       }
       my $type = $docbook_misc_commands{$element->{'cmdname'}};
       if ($type eq 'text') {
@@ -697,8 +687,8 @@ sub _convert($$;$)
             # section title, so only the letter is used.
             $label = $element->{'number'};
           }
-          $command = $self->_docbook_section_element($element);
-          if (! $docbook_special_unnumbered{$command}) {
+          my $docbook_sectioning_element = $self->_docbook_section_element($element);
+          if (! $docbook_special_unnumbered{$docbook_sectioning_element}) {
             $attribute = " label=\"$label\"";
           }
           if ($element->{'extra'} and $element->{'extra'}->{'associated_node'}) {
@@ -712,14 +702,15 @@ sub _convert($$;$)
             }
           }
           push @{$self->{'lang_stack'}}, $language;
-          $result .= "<$command${attribute}>\n";
+          $result .= "<$docbook_sectioning_element${attribute}>\n";
           if ($element->{'args'} and $element->{'args'}->[0]) {
             my ($arg, $end_line) = $self->_convert_argument_and_end_line($element);
             $result .= "<title>$arg</title>$end_line";
             chomp ($result);
             $result .= "\n";
           }
-          if ($command eq 'part' and !Texinfo::Common::is_content_empty($element)) {
+          if ($docbook_sectioning_element eq 'part'
+              and !Texinfo::Common::is_content_empty($element)) {
             $result .= "<partintro>\n";
           }
         } elsif ($Texinfo::Common::sectioning_commands{$element->{'cmdname'}}) {
@@ -734,13 +725,13 @@ sub _convert($$;$)
           return '';
         } else {
           my $attribute = '';
-          if (defined($command)) {
+          if (defined($docbook_element)) {
             my ($arg, $end_line)
               = $self->_convert_argument_and_end_line($element);
-            if ($command eq '') {
+            if ($docbook_element eq '') {
               $result .= "$arg$end_line";
             } else {
-              $result .= "<$command${attribute}>$arg</$command>$end_line";
+              $result .= "<$docbook_element${attribute}>$arg</$docbook_element>$end_line";
             }
             chomp ($result);
             $result .= "\n";
@@ -1478,15 +1469,16 @@ sub _convert($$;$)
     if ($element->{'type'} and $element->{'type'} eq 'unit') {
       $element = $element->{'extra'}->{'unit_command'};
     }
-    my $command = $self->_docbook_section_element($element);
-    if ($command eq 'part' and !Texinfo::Common::is_content_empty($element)) {
+    my $docbook_sectioning_element = $self->_docbook_section_element($element);
+    if ($docbook_sectioning_element eq 'part'
+        and !Texinfo::Common::is_content_empty($element)) {
       $result .= "</partintro>\n";
     }
     my $level_adjusted_cmdname
         = Texinfo::Structuring::section_level_adjusted_command_name($element);
     if (!($element->{'section_childs'} and scalar(@{$element->{'section_childs'}}))
         or $level_adjusted_cmdname eq 'top') {
-      $result .= "</$command>\n";
+      $result .= "</$docbook_sectioning_element>\n";
       pop @{$self->{'lang_stack'}};
       my $current = $element;
       while ($current->{'section_up'}

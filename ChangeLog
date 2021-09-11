@@ -1,5 +1,11 @@
 2021-09-11  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/DocBook.pm (_convert_argument_and_end_line):
+	use $self->format_comment_or_return_end_line() to better collect
+	comments.
+
+2021-09-11  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (html_attribute_class)
 	(from_element_direction, _noticed_line_warn),
 	tp/init/book.pm, tp/init/highlight_syntax.pm,
