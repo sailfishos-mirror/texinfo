@@ -1106,13 +1106,13 @@ sub format_comment_or_return_end_line($$)
   return $end_line;
 }
 
-sub _table_item_content_tree($$$)
+sub table_item_content_tree($$$)
 {
   my $self = shift;
   my $element = shift;
   my $contents = shift;
 
-  my $converted_tree = {'parent' => $element};
+  my $table_item_tree = {'parent' => $element};
   my $table_command = $element->{'parent'}->{'parent'}->{'parent'};
   if ($table_command->{'extra'}
      and $table_command->{'extra'}->{'command_as_argument'}) {
@@ -1120,7 +1120,7 @@ sub _table_item_content_tree($$$)
       = $table_command->{'extra'}->{'command_as_argument'};
     my $command = {'cmdname' => $command_as_argument->{'cmdname'},
                'line_nr' => $element->{'line_nr'},
-               'parent' => $converted_tree };
+               'parent' => $table_item_tree };
     if ($command_as_argument->{'type'} eq 'definfoenclose_command') {
       $command->{'type'} = $command_as_argument->{'type'};
       $command->{'extra'}->{'begin'} = $command_as_argument->{'extra'}->{'begin'};
@@ -1132,8 +1132,8 @@ sub _table_item_content_tree($$$)
     $command->{'args'} = [$arg];
     $contents = [$command];
   }
-  $converted_tree->{'contents'} = $contents;
-  return $converted_tree;
+  $table_item_tree->{'contents'} = $contents;
+  return $table_item_tree;
 }
 
 sub _level_corrected_section($$)
@@ -1801,6 +1801,13 @@ Set the Texinfo configuration option corresponding to the tree element
 I<$element>.  The command associated to the tree element should be
 a command that sets some information, such as C<@documentlanguage>,
 C<@contents> or C<@footnotestyle> for example.
+
+=item $table_item_tree = $converter->table_item_content_tree($element, $contents)
+
+I<$element> should be an C<@item> or C<@itemx> tree element,
+I<$contents> should be corresponding texinfo tree contents.
+Returns a tree in which the @-command in argument of @*table
+of the I<$element> has been applied to I<$contents>.
 
 =item $result = $converter->top_node_filename($document_name)
 

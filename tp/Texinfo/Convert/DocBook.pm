@@ -618,12 +618,12 @@ sub _convert($$;$)
                and $element->{'parent'}->{'type'}
                and $element->{'parent'}->{'type'} eq 'table_term') {
 
-        my $converted_tree = $self->_table_item_content_tree($element,
+        my $table_item_tree = $self->table_item_content_tree($element,
                                          $element->{'args'}->[0]->{'contents'});
 
         $result .= "<term>";
         $result .= $self->_index_entry($element);
-        $result .= $self->_convert($converted_tree);
+        $result .= $self->_convert($table_item_tree);
         chomp ($result);
         $result .= "\n";
         $result .= "</term>";

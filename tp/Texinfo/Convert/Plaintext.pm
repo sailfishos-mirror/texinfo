@@ -2469,11 +2469,11 @@ sub _convert($$)
       if ($element->{'args'} and @{$element->{'args'}}
           and $element->{'args'}->[0]->{'contents'}) {
 
-        my $converted_tree = $self->_table_item_content_tree($element,
+        my $table_item_tree = $self->table_item_content_tree($element,
                                          $element->{'args'}->[0]->{'contents'});
 
-        $converted_tree->{'type'} = 'frenchspacing';
-        $result = $self->convert_line($converted_tree,
+        $table_item_tree->{'type'} = 'frenchspacing';
+        $result = $self->convert_line($table_item_tree,
                     {'indent_level'
                       => $self->{'format_context'}->[-1]->{'indent_level'} -1});
         if ($result ne '') {

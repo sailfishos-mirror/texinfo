@@ -3323,12 +3323,11 @@ sub _convert_item_command($$$$)
     }
   } elsif ($command->{'parent'}->{'type'}
            and $command->{'parent'}->{'type'} eq 'table_term') {
-    # FIXME instead use the code of Plaintext or DocBook.
     my $args = $content;
     if ($args->[0]) {
-      my $tree = $self->_table_item_content_tree($command,
+      my $table_item_tree = $self->table_item_content_tree($command,
                                                 [$args->[0]->{'tree'}]);
-      my $result = $self->convert_tree ($tree);
+      my $result = $self->convert_tree($table_item_tree);
       foreach my $command_name (reverse($self->commands_stack())) {
         if ($preformatted_code_commands{$command_name}) {
           $result = '<tt>' .$result. '</tt>';

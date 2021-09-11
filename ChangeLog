@@ -1,5 +1,12 @@
 2021-09-11  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Converter.pm (table_item_content_tree),
+	tp/Texinfo/Convert/DocBook.pm, tp/Texinfo/Convert/HTML.pm,
+	tp/Texinfo/Convert/Plaintext.pm: rename _table_item_content_tree()
+	as table_item_content_tree().
+
+2021-09-11  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Converter.pm (format_comment_or_return_end_line),
 	tp/Texinfo/Convert/TexinfoXML.pm, tp/Texinfo/Convert/DocBook.pm:
 	rename _end_line_or_comment() as format_comment_or_return_end_line().
