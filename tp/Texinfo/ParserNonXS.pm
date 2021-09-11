@@ -2225,8 +2225,11 @@ sub _isolate_last_space
 # retrieve a leading manual name in parentheses, if there is one.
 sub _parse_node_manual($)
 {
-  my $node = shift;
-  return Texinfo::Common::parse_node_manual ($node);
+  my $label_contents_container = shift;
+  my ($parsed_node_manual, $modified_node_content)
+    = Texinfo::Common::parse_node_manual($label_contents_container);
+  $label_contents_container->{'contents'} = $modified_node_content;
+  return $parsed_node_manual;
 }
 
 sub _parse_float_type($)

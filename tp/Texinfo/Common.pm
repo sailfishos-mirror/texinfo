@@ -1390,18 +1390,28 @@ sub _count_opened_tree_braces($$)
   return $braces_count;
 }
 
-# $NODE->{'contents'} is the Texinfo for the specification of a node.
+# $LABEL_CONTENTS_CONTAINER->{'contents'} is the Texinfo for the specification
+# of a node.  It is relevant in any situation when a label is expected,
+# @node, menu entry, float, anchor...  For the @node command, for instance,
+# it is typically $node->{'args'}->[0].
+#
 # Returned object is a hash with two fields:
 #
 #     manual_content - Texinfo tree for a manual name extracted from the
 #                      node specification.
 #     node_content - Texinfo tree for the node name on its own
 #
+# A contents array where the manual_content and node_content
+# elements substituted the initial contents is also returned,
+# typically to replace $LABEL_CONTENTS_CONTAINER->{'contents'}
+# for consistency.
+#
 # retrieve a leading manual name in parentheses, if there is one.
 sub parse_node_manual($)
 {
-  my $node = shift;
-  my @contents = @{$node->{'contents'}};
+  my $label_contents_container = shift;
+
+  my @contents = @{$label_contents_container->{'contents'}};
 
   my $manual;
   my $result;
@@ -1449,30 +1459,29 @@ sub parse_node_manual($)
     if ($braces_count == 0) {
       $result->{'manual_content'} = $manual if (defined($manual));
     } else {
-      @contents = ({ 'text' => '(', 'parent' => $node }, @$manual);
+      @contents = ({ 'text' => '(', 'parent' => $label_contents_container }, @$manual);
     }
   }
   if (@contents) {
     $result->{'node_content'} = \@contents;
   }
 
-  # Overwrite the contents array so that all the elements in 'manual_content'
-  # and 'node_content' are in the main tree.
+  # Return the contents array in which all the elements in 'manual_content'
+  # and 'node_content' have been put.
   my $new_contents = [];
   if (defined($result) and defined($result->{'manual_content'})) {
-    @$new_contents = ({ 'text' => '(', 'parent' => $node },
+    @$new_contents = ({ 'text' => '(', 'parent' => $label_contents_container },
                       @$manual);
-    push @$new_contents, {  'text' => ')', 'parent' => $node }
+    push @$new_contents, {  'text' => ')', 'parent' => $label_contents_container }
       if $end_paren;
-    push @$new_contents, { 'text' => $spaces_after, 'parent' => $node }
+    push @$new_contents, { 'text' => $spaces_after, 'parent' => $label_contents_container }
       if $spaces_after;
   }
   if (@contents) {
     @$new_contents = (@$new_contents, @contents);
   }
-  $node->{'contents'} = $new_contents;
 
-  return $result;
+  return $result, $new_contents;
 }
 
 # decompose a decimal number on a given base.
@@ -1605,11 +1614,11 @@ sub element_is_inline($;$)
 
 sub normalize_top_node_name($)
 {
-  my $node = shift;
-  if ($node =~ /^top$/i) {
+  my $node_name = shift;
+  if ($node_name =~ /^top$/i) {
     return 'Top';
   }
-  return $node;
+  return $node_name;
 }
 
 # Used in count_bytes

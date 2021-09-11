@@ -244,12 +244,15 @@ sub _new_node($$$$)
     foreach my $content (@{$node_arg->{'contents'}}) {
       $content->{'parent'} = $node_arg;
     }
-    $parsed_node = Texinfo::Common::parse_node_manual($node_arg);
+    my $modified_node_content;
+    ($parsed_node, $modified_node_content)
+       = Texinfo::Common::parse_node_manual($node_arg);
     if ($parsed_node and $parsed_node->{'node_content'}) {
       $parsed_node->{'normalized'} =
-      Texinfo::Convert::NodeNameNormalization::normalize_node (
+       Texinfo::Convert::NodeNameNormalization::normalize_node(
         { 'contents' => $parsed_node->{'node_content'} });
     }
+    $node_arg->{'contents'} = $modified_node_content;
     if (!defined($parsed_node) or !$parsed_node->{'node_content'}
         or $parsed_node->{'normalized'} !~ /[^-]/) {
       if ($appended_number) {

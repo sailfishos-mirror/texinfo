@@ -1,5 +1,11 @@
 2021-09-11  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (parse_node_manual), tp/Texinfo/ParserNonXS.pm,
+	tp/Texinfo/Structuring.pm, tp/Texinfo/Transformations.pm: do not modify the
+	input argument, let it be done by the caller.
+
+2021-09-11  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/DocBook.pm (_convert_argument_and_end_line):
 	use $self->format_comment_or_return_end_line() to better collect
 	comments.

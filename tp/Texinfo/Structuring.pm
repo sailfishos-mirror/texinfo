@@ -1489,8 +1489,10 @@ sub new_node_menu_entry
   }
   $entry->{'extra'}->{'menu_entry_name'} = $menu_entry_name;
 
-  $entry->{'extra'}->{'menu_entry_node'} =
+  my $modified_node_content;
+  ($entry->{'extra'}->{'menu_entry_node'}, $modified_node_content) =
     Texinfo::Common::parse_node_manual($menu_entry_node);
+  $menu_entry_node->{'contents'} = $modified_node_content;
   my $content = $entry->{'extra'}->{'menu_entry_node'}->{'node_content'};
   if ($content) {
     $entry->{'extra'}->{'menu_entry_node'}->{'normalized'}
