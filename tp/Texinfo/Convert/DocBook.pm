@@ -397,15 +397,15 @@ sub _docbook_section_element($$)
   if (exists $docbook_sections{$heading_level}) {
     return $docbook_sections{$heading_level};
   }
-  my $command = $self->_level_corrected_section($element);
-  if ($command eq 'unnumbered'
+  my $level_corrected_sectioning_cmdname = $self->_level_corrected_section($element);
+  if ($level_corrected_sectioning_cmdname eq 'unnumbered'
       and $element->{'extra'}->{'associated_node'}
       and $element->{'extra'}->{'associated_node'}->{'extra'}->{'normalized'}
       and $docbook_special_unnumbered{lc($element->{'extra'}->{'associated_node'}->{'extra'}->{'normalized'})}) {
     return lc($element->{'extra'}->{'associated_node'}->{'extra'}->{'normalized'});
   }
 
-  return $docbook_sections{$command};
+  return $docbook_sections{$level_corrected_sectioning_cmdname};
 }
 
 sub _index_entry($$)
@@ -1481,9 +1481,9 @@ sub _convert($$;$)
     if ($command eq 'part' and !Texinfo::Common::is_content_empty($element)) {
       $result .= "</partintro>\n";
     }
-    my $command_texi = $self->_level_corrected_section($element);
+    my $level_corrected_sectioning_cmdname = $self->_level_corrected_section($element);
     if (!($element->{'section_childs'} and scalar(@{$element->{'section_childs'}}))
-        or $command_texi eq 'top') {
+        or $level_corrected_sectioning_cmdname eq 'top') {
       $result .= "</$command>\n";
       pop @{$self->{'lang_stack'}};
       my $current = $element;
