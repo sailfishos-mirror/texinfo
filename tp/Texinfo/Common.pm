@@ -998,23 +998,27 @@ foreach my $unformatted_block_command ('ignore', 'macro', 'rmacro') {
 our %root_commands;
 
 our %command_structuring_level = (
-              'top', 0,
-              'chapter', 1,
-              'unnumbered', 1,
-              'chapheading', 1,
-              'appendix', 1,
-              'section', 2,
-              'unnumberedsec', 2,
-              'heading', 2,
-              'appendixsec', 2,
-              'subsection', 3,
-              'unnumberedsubsec', 3,
-              'subheading', 3,
-              'appendixsubsec', 3,
-              'subsubsection', 4,
-              'unnumberedsubsubsec', 4,
-              'subsubheading', 4,
-              'appendixsubsubsec', 4,
+              'top'               => 0,
+              'part'              => 0, # out of the main hierarchy
+              'chapter'           => 1,
+              'majorheading'      => 1, # same as chapheading
+              'unnumbered'        => 1,
+              'centerchap'        => 1, # like unnumbered
+              'chapheading'       => 1,
+              'appendix'          => 1,
+              'section'           => 2,
+              'unnumberedsec'     => 2,
+              'heading'           => 2,
+              'appendixsec'       => 2,
+              'appendixsection'   => 2, # same as appendixsec
+              'subsection'        => 3,
+              'unnumberedsubsec'  => 3,
+              'subheading',       => 3,
+              'appendixsubsec'    => 3,
+              'subsubsection'     => 4,
+              'unnumberedsubsubsec' => 4,
+              'subsubheading'     => 4,
+              'appendixsubsubsec' => 4,
          );
 
 our %level_to_structuring_command;
@@ -1024,7 +1028,14 @@ our %level_to_structuring_command;
   my $appendices = [ ];
   my $unnumbered = [ ];
   my $headings = [ ];
+
+  # set levels for synonyms
+  $level_to_structuring_command{'appendixsection'} = $appendices;
+  $level_to_structuring_command{'majorheading'} = $headings;
+  $level_to_structuring_command{'centerchap'} = $unnumbered;
+
   foreach my $command (keys (%command_structuring_level)) {
+    next if defined($level_to_structuring_command{$command});
     if ($command =~ /^appendix/) {
       $level_to_structuring_command{$command} = $appendices;
     } elsif ($command =~ /^unnumbered/ or $command eq 'top') {
@@ -1032,24 +1043,20 @@ our %level_to_structuring_command;
     } elsif ($command =~ /section$/ or $command eq 'chapter') {
       $level_to_structuring_command{$command} = $sections;
     } else {
+      # no mapping for part, it is outside of the main hierarchy
+      next if ($command eq 'part');
       $level_to_structuring_command{$command} = $headings;
     }
-    $level_to_structuring_command{$command}->[$command_structuring_level{$command}] 
+    my $command_level = $command_structuring_level{$command};
+    if (defined($level_to_structuring_command{$command}->[$command_level])) {
+      die "$command: level_to_structuring_command already set to "
+             .$level_to_structuring_command{$command}->[$command_level]."\n";
+    }
+    $level_to_structuring_command{$command}->[$command_level]
       = $command;
   }
-  $level_to_structuring_command{'appendixsection'} = $appendices;
-  $level_to_structuring_command{'majorheading'} = $headings;
-  $level_to_structuring_command{'centerchap'} = $unnumbered;
 }
 
-
-# out of the main hierarchy
-$command_structuring_level{'part'} = 0;
-# this are synonyms
-$command_structuring_level{'appendixsection'} = 2;
-# command_structuring_level{'majorheading'} is also 1 and not 0
-$command_structuring_level{'majorheading'} = 1;
-$command_structuring_level{'centerchap'} = 1;
 
 our %sectioning_commands;
 
