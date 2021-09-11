@@ -1531,9 +1531,10 @@ sub _set_environment_options($$$)
 sub _kbd_code_style($)
 {
   my $self = shift;
-  return (defined($self->{'conf'}->{'kbdinputstyle'})
-          and ($self->{'conf'}->{'kbdinputstyle'} eq 'code'
-            or ($self->{'conf'}->{'kbdinputstyle'} eq 'example'
+  my $kbdinputstyle = $self->get_conf('kbdinputstyle');
+  return (defined($kbdinputstyle)
+          and ($kbdinputstyle eq 'code'
+            or ($kbdinputstyle eq 'example'
               and (scalar(@{$self->{'formatting_context'}->[-1]->{'preformatted_context'}})
                    and $preformatted_code_commands{$self->{'formatting_context'}->[-1]->{'preformatted_context'}->[-1]}))));
 }

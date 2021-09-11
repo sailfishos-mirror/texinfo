@@ -207,10 +207,7 @@ sub converter(;$)
   # set $converter->{'converter_init_conf'} to the configuration
   # options obtained after setting the defaults and applying
   # the configuration passed as argument.
-  $converter->{'converter_init_conf'} = {};
-  foreach my $key (keys(%{$converter->{'conf'}})) {
-    $converter->{'converter_init_conf'}->{$key} = $converter->{'conf'}->{$key};
-  }
+  $converter->{'converter_init_conf'} = { %{$converter->{'conf'}} };
   foreach my $key (keys (%defaults)) {
     if (defined($converter->{$key})) {
       $converter->{'converter_init_conf'}->{$key} = $converter->{$key};
