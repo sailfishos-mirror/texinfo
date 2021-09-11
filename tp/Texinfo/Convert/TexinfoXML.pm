@@ -590,7 +590,8 @@ sub _leading_spaces_before_argument($)
   }
 }
 
-# return spaces only, end of line is gathered by calling _end_line_or_comment
+# return spaces only, end of line is gathered by calling
+# format_comment_or_return_end_line
 sub _end_line_spaces
 {
   my $element = shift;
@@ -719,7 +720,7 @@ sub _convert_argument_and_end_line($$)
 
   my $converted = $self->convert_tree($element->{'args'}->[-1]);
   $converted .= _end_line_spaces($element);
-  my $end_line = $self->_end_line_or_comment($element);
+  my $end_line = $self->format_comment_or_return_end_line($element);
   return ($converted, $end_line);
 }
 
@@ -890,7 +891,7 @@ sub _convert($$;$)
       push @$attribute, ('index', $element->{'extra'}->{'index_entry'}->{'index_name'});
       push @$attribute, _leading_spaces_before_argument($element);
 
-      my $end_line = $self->_end_line_or_comment($element);
+      my $end_line = $self->format_comment_or_return_end_line($element);
 
       return $self->open_element($format_element, ${attribute}).
         $self->_index_entry($element).$self->close_element($format_element)
@@ -970,7 +971,7 @@ sub _convert($$;$)
           if (! $self->get_conf('USE_NODES')) {
             $result .= $self->close_element('node');
           }
-          $result .= $self->_end_line_or_comment($element);
+          $result .= $self->format_comment_or_return_end_line($element);
           pop @{$self->{'document_context'}->[-1]->{'monospace'}};
         } elsif ($Texinfo::Common::root_commands{$cmdname}) {
           my $attribute = [_leading_spaces_before_argument($element)];
@@ -1106,7 +1107,7 @@ sub _convert($$;$)
             $arg_index++;
           }
         }
-        my $end_line = $self->_end_line_or_comment($element);
+        my $end_line = $self->format_comment_or_return_end_line($element);
         # not sure if it may happen
         $end_line = "\n" if ($end_line eq '');
         push @$attribute, $self->_texinfo_line($element);
@@ -1472,7 +1473,7 @@ sub _convert($$;$)
                   $first_proto = 0;
                 }
                 $result .= $self->close_element('columnprototypes');
-                $result .= $self->_end_line_or_comment($element);
+                $result .= $self->format_comment_or_return_end_line($element);
               } elsif ($element->{'extra'}
                          and $element->{'extra'}->{'columnfractions'}) {
                 my $cmd;
@@ -1492,7 +1493,7 @@ sub _convert($$;$)
                              .$self->close_element('columnfraction');
                 }
                 $result .= $self->close_element('columnfractions');
-                $result .= $self->_end_line_or_comment($cmd);
+                $result .= $self->format_comment_or_return_end_line($cmd);
               } else { # bogus multitable
                 $result .= "\n";
               }
@@ -1500,7 +1501,7 @@ sub _convert($$;$)
               # get end of lines from @*table and block @-commands with
               # no argument that have a bogus argument.
               $result .= _end_line_spaces($element);
-              $result .= $self->_end_line_or_comment($element);
+              $result .= $self->format_comment_or_return_end_line($element);
             }
           }
         }
@@ -1655,7 +1656,7 @@ sub _convert($$;$)
       my $end_command = $element->{'extra'}->{'end_command'};
       if ($end_command) {
         $result .= _end_line_spaces($end_command);
-        $result .= $self->_end_line_or_comment($end_command);
+        $result .= $self->format_comment_or_return_end_line($end_command);
       }
     }
     if ($self->{'context_block_commands'}->{$element->{'cmdname'}}) {

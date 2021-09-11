@@ -643,7 +643,7 @@ sub _convert($$;$)
     } elsif ($element->{'type'} and $element->{'type'} eq 'index_entry_command') {
       my $end_line;
       if ($element->{'args'}->[0]) {
-        $end_line = $self->_end_line_or_comment($element);
+        $end_line = $self->format_comment_or_return_end_line($element);
         if ($self->{'document_context'}->[-1]->{'in_preformatted'}) {
           chomp($end_line);
         }

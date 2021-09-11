@@ -1080,7 +1080,7 @@ sub float_name_caption($$)
 
 # This is used when the formatted text has no comment nor new line, but
 # one want to add the comment or new line from the original arg
-sub _end_line_or_comment($$)
+sub format_comment_or_return_end_line($$)
 {
   my $self = shift;
   my $element = shift;
@@ -1759,6 +1759,14 @@ Set the Texinfo configuration option I<$option_string> to I<$value>.
 This should rarely be used, but the purpose of this method is to be able
 to revert a configuration that is always wrong for a given output
 format, like the splitting for example.
+
+=item $end_line = $converter->format_comment_or_return_end_line($element)
+
+Format comment at end of line or return the end of line associated with
+the element.  In many cases, converters ignore comments and output is
+better formatted with new lines added independently of the presence
+of newline or comment in the initial Texinfo line, so most converters
+are better off not using this method.
 
 =item $converter->get_conf($option_string)
 
