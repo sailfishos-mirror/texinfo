@@ -1,5 +1,10 @@
 2021-09-11  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/TexinfoXML.pm (_leading_trailing_spaces_arg):
+	avoid code duplication.
+
+2021-09-11  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Converter.pm (_end_line_or_comment),
 	tp/Texinfo/Convert/TexinfoXML.pm (_texinfo_line, _convert):
 	check if 'args' exist in function and not in _convert().

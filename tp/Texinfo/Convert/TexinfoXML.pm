@@ -590,7 +590,7 @@ sub _leading_spaces_before_argument($)
   }
 }
 
-# return spaces only, as end of line is already returned by other functions
+# return spaces only, end of line is gathered by calling _end_line_or_comment
 sub _end_line_spaces
 {
   my $element = shift;
@@ -639,16 +639,8 @@ sub _leading_trailing_spaces_arg($$)
   my $self = shift;
   my $element = shift;
 
-  my @result;
-  @result = _leading_spaces_before_argument($element);
-
-  my @spaces = $self->_collect_leading_trailing_spaces_arg($element);
-  if (defined($spaces[1])) {
-    chomp($spaces[1]);
-    if ($spaces[1] ne '') {
-      push @result, ('trailingspaces', _protect_in_spaces($spaces[1]));
-    }
-  }
+  my @result = _leading_spaces_before_argument($element);
+  push @result, $self->_trailing_spaces_arg($element);
   return @result;
 }
 
@@ -914,8 +906,6 @@ sub _convert($$;$)
               $pending_empty_directions = '';
             } else {
               if ($element->{'args'}->[$direction_index]) {
-                my $spaces_attribute = $self->_leading_trailing_spaces_arg(
-                                 $element->{'args'}->[$direction_index]);
                 $pending_empty_directions .= $self->open_element($format_element,
                     [$self->_leading_trailing_spaces_arg(
                                  $element->{'args'}->[$direction_index])])
