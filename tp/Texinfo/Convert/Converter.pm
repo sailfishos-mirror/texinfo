@@ -1106,56 +1106,6 @@ sub _end_line_or_comment($$)
   return $end_line;
 }
 
-sub _collect_leading_trailing_spaces_arg($$)
-{
-  my $self = shift;
-  my $arg = shift;
-  #print STDERR "$arg->{'type'}: @{$arg->{'contents'}}\n";
-  my @result;
-  if ($arg->{'extra'} and
-      $arg->{'extra'}->{'spaces_before_argument'}) {
-    $result[0] = $arg->{'extra'}->{'spaces_before_argument'};
-  } elsif ($arg->{'contents'} and $arg->{'contents'}->[0] 
-      and defined($arg->{'contents'}->[0]->{'text'})
-      and $arg->{'contents'}->[0]->{'text'} !~ /\S/
-      and defined($arg->{'contents'}->[0]->{'type'})) {
-    #print STDERR "$arg->{'contents'}->[0]->{'type'}\n";
-    warn "Unknown leading space type $arg->{'contents'}->[0]->{'type'}\n"
-      if ($arg->{'contents'}->[0]->{'type'} ne 'empty_spaces_after_command'
-          and $arg->{'contents'}->[0]->{'type'} ne 'empty_spaces_before_argument'
-          # FIXME should we really catch this too?
-          and $arg->{'contents'}->[0]->{'type'} ne 'empty_line_after_command'
-         );
-    $result[0] = $arg->{'contents'}->[0]->{'text'};
-    return @result if (scalar(@{$arg->{'contents'}}) == 1);
-  }
-
-  if ($arg->{'extra'} and
-      $arg->{'extra'}->{'spaces_after_argument'}) {
-    $result[1] = $arg->{'extra'}->{'spaces_after_argument'};
-  } elsif ($arg->{'contents'}) {
-    my $index = -1;
-    $index-- if ($arg->{'contents'}->[-1] 
-                 and $arg->{'contents'}->[-1]->{'cmdname'}
-                 and ($arg->{'contents'}->[-1]->{'cmdname'} eq 'c'
-                      or $arg->{'contents'}->[-1]->{'cmdname'} eq 'comment'));
-    if (scalar(@{$arg->{'contents'}}) + $index > 0) {
-      if ($arg->{'contents'}->[$index] 
-          and defined($arg->{'contents'}->[$index]->{'text'})
-          and $arg->{'contents'}->[$index]->{'text'} !~ /\S/
-          and defined($arg->{'contents'}->[$index]->{'type'})) {
-      #print STDERR "$arg->{'contents'}->[$index]->{'type'}\n";
-        warn "Unknown trailing space type $arg->{'contents'}->[$index]->{'type'}\n"
-          if ($arg->{'contents'}->[$index]->{'type'} ne 'spaces_at_end'
-              and $arg->{'contents'}->[$index]->{'type'} ne 'space_at_end_block_command'
-             );
-        $result[1] = $arg->{'contents'}->[$index]->{'text'};
-      }
-    }
-  }
-  return @result;
-}
-
 sub _table_item_content_tree($$$)
 {
   my $self = shift;

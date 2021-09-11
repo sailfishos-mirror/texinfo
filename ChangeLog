@@ -1,5 +1,11 @@
 2021-09-11  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Converter.pm, tp/Texinfo/Convert/TexinfoXML.pm
+	(_collect_leading_trailing_spaces_arg): move to
+	Texinfo::Convert::TexinfoXML as it is only used there.
+
+2021-09-11  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/TexinfoXML.pm (_leading_trailing_spaces_arg):
 	avoid code duplication.
 
