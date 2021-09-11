@@ -6869,8 +6869,11 @@ arguments.
 
 =item spaces_before_argument
 
-For @-commands with opening brace followed by spaces held in a
+For @-commands with opening brace or comma followed by spaces held in a
 C<empty_spaces_before_argument> element, a reference to those spaces.
+For context brace commands, I<spaces_before_argument> is associated
+with the @-command element, for other brace commands it is associated
+with each argument elements.
 
 =item spaces
 

@@ -724,7 +724,7 @@ $result_converted{'xml'}->{'table'} = '
 </beforefirstitem><tableentry><tableterm><item spaces=" "><itemformat command="samp"><indexterm index="vr" number="1">vtable item</indexterm>vtable item</itemformat></item>
 <!-- c after item -->
 <kindex index="ky" spaces=" "><indexterm index="ky" number="1">key</indexterm></kindex>
-<itemx spaces=" "><itemformat command="samp"><indexterm index="vr" number="2">itemx vtable</indexterm>itemx vtable <!-- comment comment in itemx line --></itemformat></itemx>
+<itemx spaces=" "><itemformat command="samp"><indexterm index="vr" number="2">itemx vtable</indexterm>itemx vtable </itemformat></itemx><!-- comment comment in itemx line -->
 </tableterm><tableitem>
 </tableitem></tableentry></vtable>
 ';

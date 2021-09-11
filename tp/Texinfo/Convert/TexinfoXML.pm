@@ -354,14 +354,6 @@ my $inline_command = 'inlinefmtifelse';
 $commands_args_elements{$inline_command} = ["${inline_command}format",
              "${inline_command}contentif", "${inline_command}contentelse"];
 
-my %commands_elements;
-foreach my $command (keys(%Texinfo::Common::brace_commands)) {
-  $commands_elements{$command} = [$command];
-  if ($commands_args_elements{$command}) {
-    push @{$commands_elements{$command}}, @{$commands_args_elements{$command}};
-  }
-}
-
 my %defcommand_name_type = (
  'deffn'     => 'function',
  'defvr'     => 'variable',
@@ -721,7 +713,6 @@ sub _convert($$;$)
   }
 
   return '' if ($element->{'type'} and $ignored_types{$element->{'type'}});
-  my $result = '';
   if (defined($element->{'text'})) {
     if ($self->{'document_context'}->[-1]->{'raw'}) {
       # ignore the newline at the end of the @xml line, and the last in xml
@@ -732,10 +723,12 @@ sub _convert($$;$)
         return $element->{'text'};
       }
     }
-    $result = $self->format_text($element);
-    return $result;
+    return $self->format_text($element);
   }
+
   my @close_format_elements;
+  # for @-commands with contents, to accumulate conversion results
+  my $result = '';
   if ($element->{'cmdname'}) {
     if (defined($no_arg_commands_formatting{$element->{'cmdname'}})) {
       if ($element->{'cmdname'} eq 'click'
@@ -754,10 +747,11 @@ sub _convert($$;$)
         return $self->convert_accents($element, \&_accent);
       } else {
         my $attributes = [];
+        my $arg;
         if (!$element->{'args'}) {
-          $result = '';
+          $arg = '';
         } else {
-          $result = $self->_convert($element->{'args'}->[0]);
+          $arg = $self->_convert($element->{'args'}->[0]);
           if ($element->{'extra'} and $element->{'extra'}->{'spaces'}) {
             push @$attributes,  ('spaces', $element->{'extra'}->{'spaces'});
           }
@@ -765,7 +759,7 @@ sub _convert($$;$)
              push @$attributes, ('bracketed', 'off');
           }
         }
-        return $self->_accent($result, $element,  undef, $attributes);
+        return $self->_accent($arg, $element, undef, $attributes);
       }
     } elsif ($element->{'cmdname'} eq 'item' or $element->{'cmdname'} eq 'itemx'
              or $element->{'cmdname'} eq 'headitem' or $element->{'cmdname'} eq 'tab') {
@@ -795,11 +789,13 @@ sub _convert($$;$)
           $attribute 
            = [$self->_infoenclose_attribute($table_command->{'extra'}->{'command_as_argument'})];
         }
-        $result .= $self->open_element($element->{'cmdname'}, [_leading_spaces($element)]);
+        my $line_item_result = $self->open_element($element->{'cmdname'},
+                                                   [_leading_spaces($element)]);
         if ($format_item_command) {
-          $result .=  $self->open_element('itemformat', ['command', $format_item_command, @$attribute]);
+          $line_item_result .= $self->open_element('itemformat',
+                                   ['command', $format_item_command, @$attribute]);
         }
-        $result .= $self->_index_entry($element);
+        $line_item_result .= $self->_index_entry($element);
         my $in_code;
         $in_code = 1
           if ($format_item_command 
@@ -819,14 +815,16 @@ sub _convert($$;$)
             if (defined($in_monospace_not_normal));
 
         my ($arg, $end_line) = $self->_convert_argument_and_end_line($element);
-        $result .= $arg . $end_line;
+
         pop @{$self->{'document_context'}->[-1]->{'monospace'}} 
           if (defined($in_monospace_not_normal));
-        chomp ($result);
+
+        $line_item_result .= $arg;
         if ($format_item_command) {
-          $result .= $self->close_element('itemformat');
+          $line_item_result .= $self->close_element('itemformat');
         }
-        $result .= $self->close_element($element->{'cmdname'})."\n";
+        $line_item_result .= $self->close_element($element->{'cmdname'}).$end_line;
+        return $line_item_result;
       } else {
         unless (($element->{'cmdname'} eq 'item'
                      or $element->{'cmdname'} eq 'headitem'
@@ -1103,16 +1101,15 @@ sub _convert($$;$)
         $in_monospace_not_normal
           if (defined($in_monospace_not_normal));
       my $arg = $self->_convert($element->{'args'}->[0]);
-      $result .= $self->open_element('infoenclose', ['command', $element->{'cmdname'},
-                                        $self->_infoenclose_attribute($element)])
-                 .$arg.$self->close_element('infoenclose');
       pop @{$self->{'document_context'}->[-1]->{'monospace'}}
         if (defined($in_monospace_not_normal));
+      my $command_result = $self->open_element('infoenclose', ['command', $element->{'cmdname'},
+                                        $self->_infoenclose_attribute($element)])
+                 .$arg.$self->close_element('infoenclose');
+      return $command_result;
     } elsif ($element->{'args'}
              and exists($Texinfo::Common::brace_commands{$element->{'cmdname'}})) {
-      if ($Texinfo::Common::context_brace_commands{$element->{'cmdname'}}) {
-        push @{$self->{'document_context'}}, {'monospace' => [0]};
-      }
+
       if ($Texinfo::Common::inline_format_commands{$element->{'cmdname'}}
           and $element->{'extra'} and $element->{'extra'}->{'format'}
           and $self->{'expanded_formats_hash'}->{$element->{'extra'}->{'format'}}) {
@@ -1120,22 +1117,20 @@ sub _convert($$;$)
           push @{$self->{'document_context'}}, {'monospace' => [0]};
           $self->{'document_context'}->[-1]->{'raw'} = 1;
         }
+        my $command_result = '';
         if (scalar (@{$element->{'args'}}) == 2
               and defined($element->{'args'}->[-1])
               and @{$element->{'args'}->[-1]->{'contents'}}) {
-          $result .= $self->_convert({'contents' 
+          $command_result = $self->_convert({'contents'
                         => $element->{'args'}->[-1]->{'contents'}});
         }
         if ($element->{'cmdname'} eq 'inlineraw') {
           pop @{$self->{'document_context'}};
         }
-        return $result;
+        return $command_result;
       }
-      my @format_elements = @{$commands_elements{$element->{'cmdname'}}};
-      my $command;
-      if (scalar(@format_elements) > 1) {
-        $command = shift @format_elements;
-      }
+
+
       # this is used for commands without args, or associated to the
       # first argument
       my $attribute = [];
@@ -1150,9 +1145,34 @@ sub _convert($$;$)
         }
         push @$attribute, ('name', $anchor_name);
       }
+
+      my @format_elements;
+      my $main_cmdname;
+      if ($commands_args_elements{$element->{'cmdname'}}) {
+        # command with arguments, format the arguments using their specific
+        # elements
+        @format_elements = @{$commands_args_elements{$element->{'cmdname'}}};
+        $main_cmdname = $element->{'cmdname'};
+      } else {
+        # command with only one argument, the command itself is used as
+        # element for the first argument
+        @format_elements = ($element->{'cmdname'});
+        # leading spaces are directly associated to the @-command for @-command
+        # in context_brace_commands
+        push @$attribute, _leading_spaces_before_argument($element);
+      }
+
+      if ($Texinfo::Common::context_brace_commands{$element->{'cmdname'}}) {
+        push @{$self->{'document_context'}}, {'monospace' => [0]};
+      }
+      my $args_or_one_arg_cmd = '';
       my $arg_index = 0;
       foreach my $format_element (@format_elements) {
         if (defined($element->{'args'}->[$arg_index])) {
+          # Leading spaces are gathered here except for context_brace_commands
+          # (gathered just above).
+          push @$attribute,
+            _leading_spaces_before_argument($element->{'args'}->[$arg_index]);
           my $in_monospace_not_normal;
           if (defined($default_args_code_style{$element->{'cmdname'}})
               and $default_args_code_style{$element->{'cmdname'}}->[$arg_index]) {
@@ -1164,30 +1184,32 @@ sub _convert($$;$)
             $in_monospace_not_normal
               if (defined($in_monospace_not_normal));
           my $arg = $self->_convert($element->{'args'}->[$arg_index]);
+          pop @{$self->{'document_context'}->[-1]->{'monospace'}}
+            if (defined($in_monospace_not_normal));
+
           if ($element->{'args'}->[$arg_index]->{'extra'}
               and $element->{'args'}->[$arg_index]->{'extra'}->{'spaces_after_argument'}) {
             $arg .= $element->{'args'}->[$arg_index]
                    ->{'extra'}->{'spaces_after_argument'};
           }
-          if (!$Texinfo::Common::context_brace_commands{$element->{'cmdname'}}
-              and $element->{'cmdname'} ne 'verb') {
-            push @$attribute, 
-              _leading_spaces_before_argument($element->{'args'}->[$arg_index]);
-          }
-          if (!defined($command) or $arg ne '' or scalar(@$attribute) > 0) {
-            # ${attribute} is only set for @verb
-            push @$attribute, _leading_spaces_before_argument($element)
-               if (!defined($command));
-            $result .= $self->open_element($format_element, $attribute).$arg
+
+          if (!defined($main_cmdname) or $arg ne '' or scalar(@$attribute) > 0) {
+            $args_or_one_arg_cmd .=
+                 $self->open_element($format_element, $attribute).$arg
                       .$self->close_element($format_element);
           }
           $attribute = [];
-          pop @{$self->{'document_context'}->[-1]->{'monospace'}}
-            if (defined($in_monospace_not_normal));
         } else {
           last;
         }
         $arg_index++;
+      }
+      if ($Texinfo::Common::context_brace_commands{$element->{'cmdname'}}) {
+        pop @{$self->{'document_context'}};
+      }
+      if (not defined($main_cmdname)) {
+        # one argument @-command
+        return $args_or_one_arg_cmd;
       }
       # This is for the main command
       $attribute = [];
@@ -1239,14 +1261,13 @@ sub _convert($$;$)
           }
         }
       }
-      if (defined($command)) {
-        push @$attribute, _leading_spaces_before_argument($element);
-        $result = $self->open_element($command, $attribute).$result
-                  .$self->close_element($command);
-      }
-      if ($Texinfo::Common::context_brace_commands{$element->{'cmdname'}}) {
-        pop @{$self->{'document_context'}};
-      }
+      # this never happens as there is no @-commands with more than one
+      # argument that is also a context_brace_commands.  Leading spaces
+      # after the command brace opening are only associated with command
+      # if a context_brace_commands, therefore they are with the first argument.
+      push @$attribute, _leading_spaces_before_argument($element);
+      return $self->open_element($main_cmdname, $attribute).$args_or_one_arg_cmd
+               .$self->close_element($main_cmdname);
     } elsif (exists($Texinfo::Common::block_commands{$element->{'cmdname'}})) {
       if ($self->{'context_block_commands'}->{$element->{'cmdname'}}) {
         push @{$self->{'document_context'}}, {'monospace' => [0]};
@@ -1667,9 +1688,6 @@ sub _convert($$;$)
                      and $element->{'parent'}->{'extra'}->{'unit_command'}
                      and $element->{'parent'}->{'extra'}->{'unit_command'} eq $element)))
            and $self->get_conf('USE_NODES')) {
-    #if ($element->{'type'} and $element->{'type'} eq 'unit') {
-    #  $element = $element->{'extra'}->{'unit_command'};
-    #}
     $result .= $self->close_element('node');
     
     if ($self->{'pending_bye'}) {
