@@ -397,15 +397,16 @@ sub _docbook_section_element($$)
   if (exists $docbook_sections{$heading_level}) {
     return $docbook_sections{$heading_level};
   }
-  my $level_corrected_sectioning_cmdname = $self->_level_corrected_section($element);
-  if ($level_corrected_sectioning_cmdname eq 'unnumbered'
+  my $level_adjusted_cmdname
+     = Texinfo::Structuring::section_level_adjusted_command_name($element);
+  if ($level_adjusted_cmdname eq 'unnumbered'
       and $element->{'extra'}->{'associated_node'}
       and $element->{'extra'}->{'associated_node'}->{'extra'}->{'normalized'}
       and $docbook_special_unnumbered{lc($element->{'extra'}->{'associated_node'}->{'extra'}->{'normalized'})}) {
     return lc($element->{'extra'}->{'associated_node'}->{'extra'}->{'normalized'});
   }
 
-  return $docbook_sections{$level_corrected_sectioning_cmdname};
+  return $docbook_sections{$level_adjusted_cmdname};
 }
 
 sub _index_entry($$)
@@ -1481,9 +1482,10 @@ sub _convert($$;$)
     if ($command eq 'part' and !Texinfo::Common::is_content_empty($element)) {
       $result .= "</partintro>\n";
     }
-    my $level_corrected_sectioning_cmdname = $self->_level_corrected_section($element);
+    my $level_adjusted_cmdname
+        = Texinfo::Structuring::section_level_adjusted_command_name($element);
     if (!($element->{'section_childs'} and scalar(@{$element->{'section_childs'}}))
-        or $level_corrected_sectioning_cmdname eq 'top') {
+        or $level_adjusted_cmdname eq 'top') {
       $result .= "</$command>\n";
       pop @{$self->{'lang_stack'}};
       my $current = $element;
@@ -1492,7 +1494,7 @@ sub _convert($$;$)
              # condition avoids getting into it
              and $current->{'section_up'}->{'cmdname'}
              and !$current->{'section_next'}
-             and $self->_level_corrected_section($current->{'section_up'}) ne 'top') {
+             and Texinfo::Structuring::section_level_adjusted_command_name($current->{'section_up'}) ne 'top') {
         $current = $current->{'section_up'};
         $result .= '</'.$self->_docbook_section_element($current) .">\n";
         pop @{$self->{'lang_stack'}};

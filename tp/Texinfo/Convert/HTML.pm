@@ -2547,7 +2547,8 @@ sub _convert_heading_command($$$$$)
   } elsif (defined $element->{'level'}) {
     $heading_level = $element->{'level'};
     # if the level was changed, set the command name right
-    $cmdname_for_heading = $self->_level_corrected_section($element);
+    $cmdname_for_heading
+      = Texinfo::Structuring::section_level_adjusted_command_name($element);
   } else {
     # for *heading* @-commands which do not have a level
     # in the document as they are not associated with the

@@ -1136,21 +1136,6 @@ sub table_item_content_tree($$$)
   return $table_item_tree;
 }
 
-sub _level_corrected_section($$)
-{
-  my $self = shift;
-  my $element = shift;
-  my $heading_level = $element->{'level'};
-  my $command;
-  if ($heading_level ne $Texinfo::Common::command_structuring_level{$element->{'cmdname'}}) {
-    $command
-      = $Texinfo::Common::level_to_structuring_command{$element->{'cmdname'}}->[$heading_level];
-  } else {
-    $command = $element->{'cmdname'};
-  }
-  return $command;
-}
-
 # generic output method, not used anywhere.
 # FIXME remove?
 sub output_no_split($$)

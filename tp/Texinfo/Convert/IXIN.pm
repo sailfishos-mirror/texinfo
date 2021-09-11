@@ -528,7 +528,7 @@ sub output_ixin($$)
         my $associated_node_id = $self->_associated_node_id($section, 
                                                      \%node_label_number);
         my @attributes = ('nodeid', $associated_node_id, 'type', 
-              $self->_level_corrected_section($section));
+              Texinfo::Structuring::section_level_adjusted_command_name($section));
         $sectioning_tree .= $self->ixin_open_element('sectionentry',
                  \@attributes);
         $sectioning_tree .= $self->ixin_open_element('sectiontitle');

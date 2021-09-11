@@ -1,5 +1,14 @@
 2021-09-11  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Structuring.pm (section_level_adjusted_command_name),
+	tp/Texinfo/Convert/Converter.pm, tp/Texinfo/Convert/DocBook.pm,
+	tp/Texinfo/Convert/HTML.pm, tp/Texinfo/Convert/IXIN.pm,
+	tp/Texinfo/Convert/TexinfoXML.pm, tp/init/book.pm: move
+	_level_corrected_section() to Texinfo::Structuring and rename as
+	section_level_adjusted_command_name()
+
+2021-09-11  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_convert_heading_command),
 	tp/init/book.pm (book_convert_heading_command):
 	rename $command as $element.  Use _level_corrected_section().

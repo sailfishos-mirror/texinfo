@@ -975,14 +975,15 @@ sub _convert($$;$)
           pop @{$self->{'document_context'}->[-1]->{'monospace'}};
         } elsif ($Texinfo::Common::root_commands{$cmdname}) {
           my $attribute = [_leading_spaces_before_argument($element)];
-          my $level_corrected_cmdname = $self->_level_corrected_section($element);
-          if ($level_corrected_cmdname ne $cmdname) {
+          my $level_adjusted_cmdname
+            = Texinfo::Structuring::section_level_adjusted_command_name($element);
+          if ($level_adjusted_cmdname ne $cmdname) {
             unshift @$attribute, ('originalcommand', $cmdname);
           }
-          $result .= $self->open_element($level_corrected_cmdname, $attribute);
+          $result .= $self->open_element($level_adjusted_cmdname, $attribute);
           my $closed_section_element;
           if ($self->get_conf('USE_NODES')) {
-            $closed_section_element = $self->close_element($level_corrected_cmdname);
+            $closed_section_element = $self->close_element($level_adjusted_cmdname);
           } else {
             $closed_section_element = '';
           }
@@ -1681,19 +1682,22 @@ sub _convert($$;$)
     if ($element->{'type'} and $element->{'type'} eq 'unit') {
       $element = $element->{'extra'}->{'unit_command'};
     }
-    my $command = $self->_level_corrected_section($element);
+    my $level_adjusted_cmdname
+       = Texinfo::Structuring::section_level_adjusted_command_name($element);
     if (!($element->{'section_childs'} and scalar(@{$element->{'section_childs'}}))
-        or $command eq 'top') {
-      $result .= $self->close_element($command)."\n";
+        or $level_adjusted_cmdname eq 'top') {
+      $result .= $self->close_element($level_adjusted_cmdname)."\n";
       my $current = $element;
       while ($current->{'section_up'}
              # the most up element is a virtual sectioning root element, this
              # condition avoids getting into it
              and $current->{'section_up'}->{'cmdname'}
              and !$current->{'section_next'}
-             and $self->_level_corrected_section($current->{'section_up'}) ne 'top') {
+             and Texinfo::Structuring::section_level_adjusted_command_name($current->{'section_up'}) ne 'top') {
         $current = $current->{'section_up'};
-        $result .= $self->close_element($self->_level_corrected_section($current)) ."\n";
+        my $level_adjusted_current_cmdname
+            = Texinfo::Structuring::section_level_adjusted_command_name($current);
+        $result .= $self->close_element($level_adjusted_current_cmdname) ."\n";
       }
     }
     if ($self->{'pending_bye'}) {

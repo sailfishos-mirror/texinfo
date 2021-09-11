@@ -217,7 +217,8 @@ sub book_convert_heading_command($$$$$)
   } else {
     $heading_level = $element->{'level'};
     # if the level was changed, set the command name right
-    $cmdname_for_heading = $self->_level_corrected_section($element);
+    $cmdname_for_heading
+      = Texinfo::Structuring::section_level_adjusted_command_name($element);
   }
 
   my $heading = $self->command_text($element);

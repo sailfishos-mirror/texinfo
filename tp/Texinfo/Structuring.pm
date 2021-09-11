@@ -830,6 +830,21 @@ sub nodes_tree($$$$$)
   return $top_node;
 }
 
+sub section_level_adjusted_command_name($)
+{
+  my $element = shift;
+
+  my $heading_level = $element->{'level'};
+  my $command;
+  if ($heading_level ne $Texinfo::Common::command_structuring_level{$element->{'cmdname'}}) {
+    $command
+      = $Texinfo::Common::level_to_structuring_command{$element->{'cmdname'}}->[$heading_level];
+  } else {
+    $command = $element->{'cmdname'};
+  }
+  return $command;
+}
+
 # Return a list of tree units to be converted into pages.  Each tree unit
 # starts with a @node as its first child (except possibly the first one).
 sub split_by_node($)
@@ -1985,6 +2000,12 @@ the I<number> key of the float tree elements.
 
 Return numbered level of the tree sectioning C<$section>, as modified by
 raise/lowersections.
+
+=item $command_name = section_level_adjusted_command_name($element)
+
+Return the sectioning command name corresponding to the sectioning
+element I<$element>, adjusted in order to take into account raised
+and lowered sections, when needed.
 
 =item $sections_root, $sections_list = sectioning_structure ($registrar, $configuration_informations, $tree)
 
