@@ -6,7 +6,7 @@ Texinfo::Convert::OUTFORMAT - Convert Texinfo tree to OUTFORMAT
 
 =head1 SYNOPSIS
 
-  my $converter 
+  my $converter
     = Texinfo::Convert::OUTFORMAT->converter({'parser' => $parser});
 
   $converter->output($tree);
@@ -24,10 +24,10 @@ Texinfo::Convert::OUTFORMAT converts a Texinfo tree to OUTFORMAT.
 
 =item $converter = Texinfo::Convert::OUTFORMAT->converter($options)
 
-Initialize converter from Texinfo to OUTFORMAT.  
+Initialize converter from Texinfo to OUTFORMAT.
 
 The I<$options> hash reference holds options for the converter.  In
-this option hash reference a parser object may be associated with the 
+this option hash reference a parser object may be associated with the
 I<parser> key.  The other options should be configuration options
 described in the Texinfo manual.  Those options, when appropriate,
 override the document content.
@@ -41,12 +41,12 @@ described in the Texinfo manual.
 
 =item $result = $converter->convert($tree)
 
-Convert a Texinfo tree I<$tree> or tree portion and return 
+Convert a Texinfo tree I<$tree> or tree portion and return
 the resulting output.
 
 =item $result = $converter->convert_tree($tree)
 
-Convert a Texinfo tree portion I<$tree> and return the resulting 
+Convert a Texinfo tree portion I<$tree> and return the resulting
 output.  This function does not try to output a full document but only
 portions.  For a full document use C<convert>.
 
@@ -68,7 +68,7 @@ Copyright 2016 Free Software Foundation, Inc.
 
 This library is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
-the Free Software Foundation; either version 3 of the License, or (at 
+the Free Software Foundation; either version 3 of the License, or (at
 your option) any later version.
 
 =cut

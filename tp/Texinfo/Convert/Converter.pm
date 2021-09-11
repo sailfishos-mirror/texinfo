@@ -1088,11 +1088,11 @@ sub _end_line_or_comment($$)
   my $end_line;
 
   my $comment = $element->{'args'}->[-1]->{'extra'}->{'comment_at_end'}
-    if $element->{'args'}->[-1]->{'extra'};
+    if $element->{'args'} and $element->{'args'}->[-1]->{'extra'};
 
   if ($comment) {
     $end_line = $self->convert_tree($comment);
-  } elsif ($element->{'args'}->[-1]->{'extra'}
+  } elsif ($element->{'args'} and $element->{'args'}->[-1]->{'extra'}
       and $element->{'args'}->[-1]->{'extra'}->{'spaces_after_argument'}) {
     my $text = $element->{'args'}->[-1]->{'extra'}->{'spaces_after_argument'};
     if (chomp($text)) {
