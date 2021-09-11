@@ -328,7 +328,8 @@ sub _print_sectioning_tree($);
 sub _print_sectioning_tree($)
 {
   my $current = shift;
-  my $result = ' ' x $current->{'level'} . _print_root_command_texi($current)."\n";
+  my $result = ' ' x $current->{'level'}
+     . Texinfo::Convert::Texinfo::root_element_command_to_texinfo($current)."\n";
   foreach my $child (@{$current->{'section_childs'}}) {
     $result .= _print_sectioning_tree($child);
   }
@@ -989,7 +990,7 @@ sub split_pages ($$)
              and $tree_unit->{'extra'}->{'node'}->{'associated_section'}) {
       $level = $tree_unit->{'extra'}->{'node'}->{'associated_section'}->{'level'};
     }
-    #print STDERR "level($split_level) $level "._print_element_command_texi($tree_unit)."\n";
+    #print STDERR "level($split_level) $level ".root_or_external_element_cmd_texi($tree_unit)."\n";
     if (!defined($split_level) or (defined($level) and $split_level >= $level)
         or !$current_first_in_page) {
       $current_first_in_page = $tree_unit;
@@ -1165,7 +1166,7 @@ sub elements_directions($$$)
         and !$directions->{'Up'} and $tree_unit->{'extra'}->{'node'}
         and $tree_unit->{'extra'}->{'node'}->{'node_up'}
         and (!$node_top or ($tree_unit->{'extra'}->{'node'} ne $node_top))) {
-      #print STDERR "Using node for up "._print_element_command_texi($tree_unit)."\n";
+      #print STDERR "Node for up: ".root_or_external_element_cmd_texi($tree_unit)."\n";
       my $up_node_element = _label_target_element($tree_unit->{'extra'}->{'node'}->{'node_up'});
       $directions->{'Up'} = $up_node_element if ($up_node_element);
     }
@@ -1246,28 +1247,8 @@ sub elements_file_directions($)
   }
 }
 
-my %sectioning_commands = %Texinfo::Common::sectioning_commands;
-# for debugging.  Used in other modules.
-sub _print_root_command_texi($)
-{
-  my $command = shift;
-  my $tree;
-  if ($command->{'cmdname'}) {
-    if ($command->{'cmdname'} eq 'node') {
-      $tree = $command->{'extra'}->{'node_content'};
-    } elsif ($sectioning_commands{$command->{'cmdname'}}) {
-      $tree = $command->{'args'}->[0]->{'contents'};
-    }
-  } else {
-    return "Not a root command";
-  }
-  return '@'.$command->{'cmdname'}. ' '
-       .Texinfo::Convert::Texinfo::convert_to_texinfo({'contents' => $tree})
-          if ($tree);
-  return 'UNDEF @'.$command->{'cmdname'};
-}
-
-sub _print_element_command_texi($)
+# used in debug messages
+sub root_or_external_element_cmd_texi($)
 {
   my $element = shift;
   if (!$element) {
@@ -1288,14 +1269,14 @@ sub _print_element_command_texi($)
     return Texinfo::Convert::Texinfo::convert_to_texinfo($command);
   }
   
-  my $command = $element->{'extra'}->{'unit_command'};
-  if (!defined($command)) {
+  my $command_element = $element->{'extra'}->{'unit_command'};
+  if (!defined($command_element)) {
     # happens when there are only nodes and sections are used as elements
     my $result = "No associated command ";
     $result .= "(type $element->{'type'})" if (defined($element->{'type'}));
     return $result;
   }
-  return _print_root_command_texi($command);
+  return Texinfo::Convert::Texinfo::root_element_command_to_texinfo($command_element);
 }
 
 # Used for debugging and in test suite, but not generally useful. Not
@@ -1306,12 +1287,13 @@ sub _print_element_command_texi($)
 sub print_element_directions($)
 {
   my $element = shift;
-  my $result = 'element: '._print_element_command_texi($element)."\n";
+  my $result = 'element: '.root_or_external_element_cmd_texi($element)."\n";
 
   if ($element->{'extra'} and $element->{'extra'}->{'directions'}) {
     foreach my $direction (sort(keys(%{$element->{'extra'}->{'directions'}}))) {
       $result .= "  $direction: ".
-       _print_element_command_texi($element->{'extra'}->{'directions'}->{$direction})."\n";
+       root_or_external_element_cmd_texi(
+         $element->{'extra'}->{'directions'}->{$direction})."\n";
     }
   } else {
     $result .= "  NO DIRECTION";

@@ -1,5 +1,17 @@
 2021-09-11  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Structuring.pm (root_element_command_to_texinfo),
+	tp/Texinfo/Convert/Converter.pm, tp/Texinfo/Convert/HTML.pm,
+	tp/Texinfo/Convert/Plaintext.pm, tp/Texinfo/Convert/Texinfo.pm
+	(root_element_command_to_texinfo), tp/Texinfo/Transformations.pm,
+	tp/init/book.pm:
+	rename _print_root_command_texi() as
+	root_element_command_to_texinfo().  Move _print_root_command_texi()
+	to Texinfo::Convert::Texinfo and rename as
+	root_element_command_to_texinfo().
+
+2021-09-11  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Structuring.pm (section_level_adjusted_command_name),
 	tp/Texinfo/Convert/Converter.pm, tp/Texinfo/Convert/DocBook.pm,
 	tp/Texinfo/Convert/HTML.pm, tp/Texinfo/Convert/IXIN.pm,

@@ -456,7 +456,7 @@ sub count_context_bug_message($$$)
     my $element_text;
     if ($element) {
       $element_text
-         = Texinfo::Structuring::_print_element_command_texi($element);
+         = Texinfo::Structuring::root_or_external_element_cmd_texi($element);
     } else {
       $element_text = '';
     }

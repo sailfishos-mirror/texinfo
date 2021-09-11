@@ -45,11 +45,48 @@ my %brace_commands           = %Texinfo::Common::brace_commands;
 my %block_commands           = %Texinfo::Common::block_commands;
 my %def_commands             = %Texinfo::Common::def_commands;
 
+# used in root_element_command_to_texinfo
+my %sectioning_commands = %Texinfo::Common::sectioning_commands;
+
 my @ignored_types = ('spaces_inserted', 'bracketed_inserted',
 'command_as_argument_inserted');
 my %ignored_types;
 for my $a (@ignored_types) {
   $ignored_types{$a} = 1;
+}
+
+# used to put a node name in error messages.
+sub node_extra_to_texi($)
+{
+  my $node = shift;
+  my $result = '';
+  if ($node->{'manual_content'}) {
+    $result = '('.convert_to_texinfo({'contents'
+                              => $node->{'manual_content'}}) .')';
+  }
+  if ($node->{'node_content'}) {
+    $result .= convert_to_texinfo({'contents' => $node->{'node_content'}});
+  }
+  return $result;
+}
+
+# for debugging.
+sub root_element_command_to_texinfo($)
+{
+  my $element = shift;
+  my $tree;
+  if ($element->{'cmdname'}) {
+    if ($element->{'cmdname'} eq 'node') {
+      $tree = $element->{'extra'}->{'node_content'};
+    } elsif ($sectioning_commands{$element->{'cmdname'}}) {
+      $tree = $element->{'args'}->[0]->{'contents'};
+    }
+  } else {
+    return "Not a root command";
+  }
+  return '@'.$element->{'cmdname'}.' '.convert_to_texinfo({'contents' => $tree})
+          if ($tree);
+  return 'UNDEF @'.$element->{'cmdname'};
 }
 
 # Following subroutines deal with transforming a texinfo tree into texinfo
@@ -115,22 +152,6 @@ sub convert_to_texinfo($;$)
   }
   return $result;
 }
-
-# used to put a node name in error messages.
-sub node_extra_to_texi($)
-{
-  my $node = shift;
-  my $result = '';
-  if ($node->{'manual_content'}) {
-    $result = '('.convert_to_texinfo({'contents'
-                              => $node->{'manual_content'}}) .')';
-  }
-  if ($node->{'node_content'}) {
-    $result .= convert_to_texinfo({'contents' => $node->{'node_content'}});
-  }
-  return $result;
-}
-
 
 # expand a command argument as texinfo.
 sub _expand_cmd_args_to_texi($;$) {

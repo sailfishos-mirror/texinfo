@@ -109,8 +109,6 @@ sub fill_gaps_in_sectioning($)
         if (@correct_level_offset_commands) {
           push @{$contents[-1]->{'contents'}}, @correct_level_offset_commands;
         }
-        #print STDERR "* $current_section_level "._print_root_command_texi($current_section)."\n";
-        #print STDERR "  $next_section_level "._print_root_command_texi($next_section)."\n";
         while ($next_section_level - $current_section_level > 1) {
           $current_section_level++;
           my $new_section = {'cmdname' =>
@@ -138,7 +136,6 @@ sub fill_gaps_in_sectioning($)
                  'parent' => $new_section->{'args'}->[0]->{'contents'}->[1]}];
           push @contents, $new_section;
           push @added_sections, $new_section;
-          #print STDERR "  -> "._print_root_command_texi($new_section)."\n";
         }
         my @set_level_offset_commands = _correct_level($next_section,
                                                        $contents[-1], -1);
@@ -301,10 +298,12 @@ sub _reassociate_to_node($$$$)
         Texinfo::Convert::Texinfo::convert_to_texinfo(
             {'contents' => $current->{'extra'}->{'index_entry'}->{'content'}})
          .") not in previous node $previous_node\n";
-      print STDERR "  previous node: "._print_root_command_texi($previous_node)."\n";
+      print STDERR "  previous node: "
+        .Texinfo::Convert::Texinfo::root_element_command_to_texinfo($previous_node)."\n";
       if ($current->{'extra'}->{'index_entry'}->{'node'}) {
         print STDERR "  current node: ".
-         _print_root_command_texi($current->{'extra'}->{'index_entry'}->{'node'})."\n";
+         Texinfo::Convert::Texinfo::root_element_command_to_texinfo(
+                            $current->{'extra'}->{'index_entry'}->{'node'})."\n";
       } else {
         print STDERR "  current node not set\n";
       }

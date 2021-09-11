@@ -73,7 +73,7 @@ sub book_print_up_toc($$)
   return '' if !(@up_commands);
   #print $fh "<ul>" . &$anchor('', $Texi2HTML::HREF{Contents}, '[' . $Texi2HTML::NAME{Contents} . ']') . " <br>\n";
   my $up = shift @up_commands;
-#print STDERR "$up $up->{'cmdname'} ".Texinfo::Structuring::_print_root_command_texi($up)."\n";
+  #print STDERR "$up ".Texinfo::Convert::Texinfo::root_element_command_to_texinfo($up)."\n";
   $result .= $converter->_attribute_class('ul', $NO_BULLET_LIST_CLASS)."><li>"
   . "<a href=\"".$converter->command_href($up)."\">".$converter->command_text($up)
    . "</a> </li>\n";
@@ -184,7 +184,7 @@ sub book_convert_heading_command($$$$$)
   $result .= ">\n";
 
   print STDERR "Process $element "
-        .Texinfo::Structuring::_print_root_command_texi($element)."\n"
+        .Texinfo::Convert::Texinfo::root_element_command_to_texinfo($element)."\n"
           if ($self->get_conf('DEBUG'));
   my $tree_unit;
   if ($Texinfo::Common::root_commands{$element->{'cmdname'}}

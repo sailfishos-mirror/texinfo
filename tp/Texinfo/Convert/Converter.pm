@@ -722,7 +722,9 @@ sub _set_tree_units_files($$$$$$)
 
   foreach my $tree_unit (@$tree_units) {
     $self->{'file_counters'}->{$tree_unit->{'filename'}}++;
-    print STDERR "Page $tree_unit ".Texinfo::Structuring::_print_element_command_texi($tree_unit).": $tree_unit->{'filename'}($self->{'file_counters'}->{$tree_unit->{'filename'}})\n"
+    print STDERR "Page $tree_unit "
+     .Texinfo::Structuring::root_or_external_element_cmd_texi($tree_unit)
+     .": $tree_unit->{'filename'}($self->{'file_counters'}->{$tree_unit->{'filename'}})\n"
       if ($self->get_conf('DEBUG'));
   }
 }

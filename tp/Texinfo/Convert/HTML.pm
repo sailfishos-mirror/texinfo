@@ -2390,7 +2390,7 @@ sub _default_format_element_header($$$$)
   my $result = '';
    
   print STDERR "Element $tree_unit (@{$tree_unit->{'contents'}}) ".
-     Texinfo::Structuring::_print_element_command_texi($tree_unit) ."\n"
+     Texinfo::Structuring::root_or_external_element_cmd_texi($tree_unit) ."\n"
         if ($self->get_conf('DEBUG'));
 
   # Do the heading if the command is the first command in the element
@@ -2406,7 +2406,7 @@ sub _default_format_element_header($$$$)
                    and $self->element_is_tree_unit_top($tree_unit->{'unit_prev'}));
 
     print STDERR "Header ($previous_is_top, $is_top, $first_in_page): "
-      .Texinfo::Structuring::_print_root_command_texi($command)."\n"
+      .Texinfo::Convert::Texinfo::root_element_command_to_texinfo($command)."\n"
         if ($self->get_conf('DEBUG'));
 
     if ($is_top) {
@@ -2515,7 +2515,7 @@ sub _convert_heading_command($$$$$)
   }
 
   print STDERR "Process $element "
-        .Texinfo::Structuring::_print_root_command_texi($element)."\n"
+        .Texinfo::Convert::Texinfo::root_element_command_to_texinfo($element)."\n"
           if ($self->get_conf('DEBUG'));
   my $tree_unit;
   if ($Texinfo::Common::root_commands{$element->{'cmdname'}}
@@ -5842,7 +5842,9 @@ sub _html_set_pages_files($$$$$$$$)
          if (defined($filename));
     }
     $self->{'file_counters'}->{$tree_unit->{'filename'}}++;
-    print STDERR "Page $tree_unit ".Texinfo::Structuring::_print_element_command_texi($tree_unit).": $tree_unit->{'filename'}($self->{'file_counters'}->{$tree_unit->{'filename'}})\n"
+    print STDERR "Page $tree_unit "
+      .Texinfo::Structuring::root_or_external_element_cmd_texi($tree_unit)
+      .": $tree_unit->{'filename'}($self->{'file_counters'}->{$tree_unit->{'filename'}})\n"
       if ($self->get_conf('DEBUG'));
   }
   if ($special_elements) {
@@ -6155,7 +6157,7 @@ sub _prepare_tree_units_global_targets($$)
     foreach my $global_direction (@global_directions) {
       if (defined($self->{'global_target_elements'}->{$global_direction})) {
         print STDERR "$global_direction($self->{'global_target_elements'}->{$global_direction}): ".
-          Texinfo::Structuring::_print_element_command_texi(
+          Texinfo::Structuring::root_or_external_element_cmd_texi(
              $self->{'global_target_elements'}->{$global_direction})."\n";
       }
     }
