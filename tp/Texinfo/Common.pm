@@ -155,9 +155,9 @@ our %document_settable_unique_at_commands = (
   'documentdescription' => undef,
   'evenfootingmarks' => undef,
   'evenheadingmarks' => undef,
-  'everyfootingmarks' => 'bottom', 
+  'everyfootingmarks' => 'bottom',
   'everyheadingmarks' => 'bottom',
-  'fonttextsize' => 11, 
+  'fonttextsize' => 11,
   'footnotestyle' => 'end',    # also --footnote-style
   'novalidate' => 0,
   'oddfootingmarks' => undef,
@@ -189,7 +189,7 @@ our %default_converter_command_line_options = (
                                      # in main program.  Only directly used in HTML converter
   'NODE_FILES'           => undef,   # --node-files.  Depend on SPLIT
   'VERBOSE'              => undef,   # --verbose
-  'OUTFILE'              => undef,   # --output    If non split and not ending by /. 
+  'OUTFILE'              => undef,   # --output    If non split and not ending by /.
                                      # Setting can be format dependent
   'SUBDIR'               => undef,   # --output    If split or ending by /.
                                      # Setting can be format dependent
@@ -414,7 +414,7 @@ my %customization_variable_classes = (
 );
 
 my %valid_tree_transformations;
-foreach my $valid_transformation ('simple_menus', 
+foreach my $valid_transformation ('simple_menus',
     'fill_gaps_in_sectioning', 'move_index_entries_after_items',
     'insert_nodes_for_sectioning_commands',
     'complete_tree_nodes_menus', 'regenerate_master_menu',
@@ -425,7 +425,7 @@ foreach my $valid_transformation ('simple_menus',
 sub valid_tree_transformation ($)
 {
   my $transformation = shift;
-  return 1 if (defined($transformation) 
+  return 1 if (defined($transformation)
                and $valid_tree_transformations{$transformation});
   return 0;
 }
@@ -456,18 +456,18 @@ our %no_brace_commands;             # commands never taking braces
 # index commands are added dynamically.
 #
 # The values signification is:
-# special:     no value and macro expansion, all the line is used, and 
+# special:     no value and macro expansion, all the line is used, and
 #              analysed during parsing (_parse_special_misc_command)
-# lineraw:     no value and macro expansion, the line is kept as-is, not 
+# lineraw:     no value and macro expansion, the line is kept as-is, not
 #              analysed
 # skipline:    no argument, everything else on the line is skipped
 # text:        the line is parsed as texinfo, and the argument is converted
 #              to simple text (in _end_line)
 # line:        the line is parsed as texinfo
-# a number:    the line is parsed as texinfo and the result should be plain 
+# a number:    the line is parsed as texinfo and the result should be plain
 #              text maybe followed by a comment; the result is analysed
-#              during parsing (_parse_line_command_args).  
-#              The number is an indication of the number of arguments of 
+#              during parsing (_parse_line_command_args).
+#              The number is an indication of the number of arguments of
 #              the command.
 #
 # Beware that @item may be a 'line' command or an 'other' command
@@ -479,15 +479,15 @@ our %line_commands = (
   # set, clear
   'set'               => 'special', # special arg
   'clear'             => 'special', # special arg
-  'unmacro'           => 'special', 
+  'unmacro'           => 'special',
   # comments
   'comment'           => 'lineraw',
   'c'                 => 'lineraw',
   # special
   'definfoenclose'    => 3,
-  'alias'             => 2, 
+  'alias'             => 2,
   # number of arguments is not known in advance.
-  'columnfractions'   => 1, 
+  'columnfractions'   => 1,
   # file names
   'setfilename'       => 'text',
   'verbatiminclude'   => 'text',
@@ -503,12 +503,12 @@ our %line_commands = (
   # more relevant in preamble
   'documentencoding'  => 'text', # or 1?
   'novalidate'        => 'skipline', # no arg
-  'dircategory'       => 'line', # line. Position with regard 
+  'dircategory'       => 'line', # line. Position with regard
                                  # with direntry is significant
-  'pagesizes'         => 'line', # can have 2 args 
+  'pagesizes'         => 'line', # can have 2 args
                            # or one? 200mm,150mm 11.5in
   'finalout'          => 'skipline', # no arg
-  'paragraphindent'   => 1, # arg none asis 
+  'paragraphindent'   => 1, # arg none asis
                        # or a number and forbids anything else on the line
   'firstparagraphindent' => 1, # none insert
   'frenchspacing'     => 1, # on off
@@ -578,8 +578,17 @@ our %line_commands = (
   'itemx'             => 'line',
   # not valid for info (should be in @iftex)
   'vskip'             => 'lineraw', # arg line in TeX
-  'subentry'          => 'line', 
+  'subentry'          => 'line',
 );
+
+# TODO set when the XS parser is ready
+if (0) {
+#if (1) {
+foreach my $custom_heading_command ('everyheading', 'everyfooting', 'evenheading',
+   'evenfooting', 'oddheading', 'oddfooting') {
+  $line_commands{$custom_heading_command} = 'line';
+}
+}
 
 # commands that do not take the whole line as argument
 #
@@ -592,7 +601,7 @@ our %other_commands = (
   'indent'            => 'skipspace',
   'headitem'          => 'skipspace',
   'item'              => 'skipspace', # or line, depending on the context
-  'tab'               => 'skipspace', 
+  'tab'               => 'skipspace',
   'refill'            => 'noarg',     # obsolete
 );
 
@@ -740,7 +749,7 @@ foreach my $explained_command ('abbr', 'acronym') {
 
 our %inline_format_commands;
 our %inline_commands;
-foreach my $inline_format_command ('inlineraw', 'inlinefmt', 
+foreach my $inline_format_command ('inlineraw', 'inlinefmt',
         'inlinefmtifelse') {
   $inline_format_commands{$inline_format_command} = 1;
   $brace_commands{$inline_format_command} = 2;
@@ -778,7 +787,7 @@ foreach my $ref_command ('xref','ref','pxref','inforef') {
 
 # brace command that is not replaced with text.
 my %unformatted_brace_commands;
-foreach my $unformatted_brace_command ('anchor', 'shortcaption', 
+foreach my $unformatted_brace_command ('anchor', 'shortcaption',
     'caption', 'hyphenation', 'errormsg') {
   $unformatted_brace_commands{$unformatted_brace_command} = 1;
 }
@@ -801,7 +810,7 @@ sub gdt($)
 }
 
 our %def_map = (
-    # basic commands. 
+    # basic commands.
     # 'arg' and 'argtype' are for everything appearing after the other
     # arguments.
     'deffn',     [ 'category', 'name', 'arg' ],
@@ -888,7 +897,7 @@ foreach my $block_command('titlepage', 'copying', 'documentdescription') {
   $block_commands{$block_command} = 0;
   $region_commands{$block_command} = 1;
 }
-  
+
 our %preformatted_commands;
 our %preformatted_code_commands;
 foreach my $preformatted_command(
@@ -941,7 +950,7 @@ $block_commands{'ifcommandnotdefined'} = 'conditional';
 foreach my $block_command_one_arg('table', 'ftable', 'vtable',
   'itemize', 'enumerate', 'quotation', 'smallquotation') {
   $block_commands{$block_command_one_arg} = 1;
-  $block_item_commands{$block_command_one_arg} = 1 
+  $block_item_commands{$block_command_one_arg} = 1
     unless ($block_command_one_arg =~ /quotation/);
 }
 
@@ -1075,10 +1084,10 @@ foreach my $sectioning_command (keys (%command_structuring_level)) {
 # index commands may be too, but index command may be added with
 # @def*index so they are not added here.
 my %formatted_misc_commands;
-foreach my $formatted_misc_command ('insertcopying', 'contents', 
-   'shortcontents', 'summarycontents', 'center', 'printindex', 
-   'listoffloats', 'shorttitlepage', 'settitle', 
-   'author', 'subtitle', 'title', 'sp', 'exdent', 'headitem', 'item', 
+foreach my $formatted_misc_command ('insertcopying', 'contents',
+   'shortcontents', 'summarycontents', 'center', 'printindex',
+   'listoffloats', 'shorttitlepage', 'settitle',
+   'author', 'subtitle', 'title', 'sp', 'exdent', 'headitem', 'item',
    'itemx', 'tab', 'node', keys(%sectioning_commands)) {
   $formatted_misc_commands{$formatted_misc_command} = 1;
 }
@@ -1096,15 +1105,18 @@ foreach my $command (
   keys(%Texinfo::Common::block_commands),
   keys(%Texinfo::Common::brace_commands),
   keys(%Texinfo::Common::misc_commands),
-  keys(%Texinfo::Common::no_brace_commands), 
+  keys(%Texinfo::Common::no_brace_commands),
   qw(value),
  ) {
   $all_commands{$command} = 1;
-} 
+}
+
+
+# functions for main program
 
 # file:        file name to locate. It can be a file path.
 # directories: a reference on a array containing a list of directories to
-#              search the file in. 
+#              search the file in.
 # all_files:   if true collect all the files with that name, otherwise stop
 #              at first match.
 sub locate_init_file($$$)
@@ -1121,7 +1133,7 @@ sub locate_init_file($$$)
       next unless (-d $dir);
       my $possible_file = File::Spec->catfile($dir, $file);
       if ($all_files) {
-        push (@files, $possible_file) 
+        push (@files, $possible_file)
           if (-e $possible_file and -r $possible_file);
       } else {
         return $possible_file if (-e $possible_file and -r $possible_file);
@@ -1130,60 +1142,6 @@ sub locate_init_file($$$)
     return @files if ($all_files);
   }
   return undef;
-}
-
-sub locate_include_file($$)
-{
-  my $configuration_informations = shift;
-  my $text = shift;
-  my $file;
-
-  my $ignore_include_directories = 0;
-
-  my ($volume, $directories, $filename) = File::Spec->splitpath($text);
-  my @directories = File::Spec->splitdir($directories);
-
-  #print STDERR "$configuration_informations $text @{$configuration_informations->get_conf('INCLUDE_DIRECTORIES')}\n";
-  # If the path is absolute or begins with . or .., do not search in
-  # include directories.
-  if (File::Spec->file_name_is_absolute($text)) {
-    $ignore_include_directories = 1;
-  } else {
-    foreach my $dir (@directories) {
-      if ($dir eq File::Spec->updir() or $dir eq File::Spec->curdir()) {
-        $ignore_include_directories = 1;
-        last;
-      } elsif ($dir ne '') {
-        last;
-      }
-    }
-  }
-
-  #if ($text =~ m,^(/|\./|\.\./),) {
-  if ($ignore_include_directories) {
-    $file = $text if (-e $text and -r $text);
-  } else {
-    my @dirs;
-    if ($configuration_informations
-        and $configuration_informations->get_conf('INCLUDE_DIRECTORIES')) {
-      @dirs = @{$configuration_informations->get_conf('INCLUDE_DIRECTORIES')};
-    } else {
-      # no object with directory list and not an absolute path, never succeed
-      return undef;
-    }
-    foreach my $include_dir (@{$configuration_informations->get_conf('INCLUDE_DIRECTORIES')}) {
-      my ($include_volume, $include_directories, $include_filename) 
-         = File::Spec->splitpath($include_dir, 1);
-      
-      my $possible_file = File::Spec->catpath($include_volume, 
-        File::Spec->catdir(File::Spec->splitdir($include_directories), 
-                           @directories), $filename);
-      #$file = "$include_dir/$text" if (-e "$include_dir/$text" and -r "$include_dir/$text");
-      $file = "$possible_file" if (-e "$possible_file" and -r "$possible_file");
-      last if (defined($file));
-    }
-  }
-  return $file;
 }
 
 
@@ -1269,6 +1227,8 @@ sub output_files_unclosed_files($)
 # end of output_files API
 
 
+# functions used in main program, parser and structuring
+
 sub warn_unknown_language($) {
   my $lang = shift;
 
@@ -1282,12 +1242,12 @@ sub warn_unknown_language($) {
   }
 
   if (! $Texinfo::Documentlanguages::language_codes{$lang_code}) {
-    push @messages, sprintf(__("%s is not a valid language code"), 
+    push @messages, sprintf(__("%s is not a valid language code"),
                             $lang_code);
   }
-  if (defined($region_code) 
+  if (defined($region_code)
        and ! $Texinfo::Documentlanguages::region_codes{$region_code}) {
-    push @messages, sprintf(__("%s is not a valid region code"), 
+    push @messages, sprintf(__("%s is not a valid region code"),
                             $region_code);
   }
   return @messages;
@@ -1307,46 +1267,6 @@ sub warn_unknown_split($) {
     push @messages, sprintf(__("%s is not a valid split possibility"), $split);
   }
   return @messages;
-}
-
-# in Texinfo::Structuring?
-sub set_output_encodings($$)
-{
-  my $configuration_informations = shift;
-  my $parser_informations = shift;
-
-  $configuration_informations->set_conf('OUTPUT_ENCODING_NAME',
-               $parser_informations->{'input_encoding_name'})
-     if ($parser_informations->{'input_encoding_name'});
-  if (!$configuration_informations->get_conf('OUTPUT_PERL_ENCODING')
-       and $configuration_informations->get_conf('OUTPUT_ENCODING_NAME')) {
-    my $perl_encoding
-      = Encode::resolve_alias($configuration_informations->get_conf('OUTPUT_ENCODING_NAME'));
-    if ($perl_encoding) {
-      $configuration_informations->set_conf('OUTPUT_PERL_ENCODING', $perl_encoding);
-    }
-  }
-}
-
-sub trim_spaces_comment_from_content($)
-{
-  my $contents = shift;
-  shift @$contents 
-    if ($contents->[0] and $contents->[0]->{'type'}
-       and ($contents->[0]->{'type'} eq 'empty_line_after_command'
-            or $contents->[0]->{'type'} eq 'empty_spaces_after_command'
-            or $contents->[0]->{'type'} eq 'empty_spaces_before_argument'
-            or $contents->[0]->{'type'} eq 'empty_spaces_after_close_brace'));
-
-  while (@$contents 
-         and (($contents->[-1]->{'cmdname'}
-               and ($contents->[-1]->{'cmdname'} eq 'c' 
-                    or $contents->[-1]->{'cmdname'} eq 'comment'))
-              or ($contents->[-1]->{'type'}
-                  and ($contents->[-1]->{'type'} eq 'spaces_at_end'
-                       or $contents->[-1]->{'type'} eq 'space_at_end_block_command')))) {
-    pop @$contents;
-  }
 }
 
 sub _find_end_brace($$)
@@ -1484,6 +1404,103 @@ sub parse_node_manual($)
   return $result, $new_contents;
 }
 
+
+# misc functions also interesting for converters
+
+sub locate_include_file($$)
+{
+  my $configuration_informations = shift;
+  my $text = shift;
+  my $file;
+
+  my $ignore_include_directories = 0;
+
+  my ($volume, $directories, $filename) = File::Spec->splitpath($text);
+  my @directories = File::Spec->splitdir($directories);
+
+  #print STDERR "$configuration_informations $text @{$configuration_informations->get_conf('INCLUDE_DIRECTORIES')}\n";
+  # If the path is absolute or begins with . or .., do not search in
+  # include directories.
+  if (File::Spec->file_name_is_absolute($text)) {
+    $ignore_include_directories = 1;
+  } else {
+    foreach my $dir (@directories) {
+      if ($dir eq File::Spec->updir() or $dir eq File::Spec->curdir()) {
+        $ignore_include_directories = 1;
+        last;
+      } elsif ($dir ne '') {
+        last;
+      }
+    }
+  }
+
+  #if ($text =~ m,^(/|\./|\.\./),) {
+  if ($ignore_include_directories) {
+    $file = $text if (-e $text and -r $text);
+  } else {
+    my @dirs;
+    if ($configuration_informations
+        and $configuration_informations->get_conf('INCLUDE_DIRECTORIES')) {
+      @dirs = @{$configuration_informations->get_conf('INCLUDE_DIRECTORIES')};
+    } else {
+      # no object with directory list and not an absolute path, never succeed
+      return undef;
+    }
+    foreach my $include_dir (@{$configuration_informations->get_conf('INCLUDE_DIRECTORIES')}) {
+      my ($include_volume, $include_directories, $include_filename)
+         = File::Spec->splitpath($include_dir, 1);
+      
+      my $possible_file = File::Spec->catpath($include_volume,
+        File::Spec->catdir(File::Spec->splitdir($include_directories),
+                           @directories), $filename);
+      #$file = "$include_dir/$text" if (-e "$include_dir/$text" and -r "$include_dir/$text");
+      $file = "$possible_file" if (-e "$possible_file" and -r "$possible_file");
+      last if (defined($file));
+    }
+  }
+  return $file;
+}
+
+sub set_output_encodings($$)
+{
+  my $configuration_informations = shift;
+  my $parser_informations = shift;
+
+  $configuration_informations->set_conf('OUTPUT_ENCODING_NAME',
+               $parser_informations->{'input_encoding_name'})
+     if ($parser_informations->{'input_encoding_name'});
+  if (!$configuration_informations->get_conf('OUTPUT_PERL_ENCODING')
+       and $configuration_informations->get_conf('OUTPUT_ENCODING_NAME')) {
+    my $perl_encoding
+      = Encode::resolve_alias($configuration_informations->get_conf('OUTPUT_ENCODING_NAME'));
+    if ($perl_encoding) {
+      $configuration_informations->set_conf('OUTPUT_PERL_ENCODING', $perl_encoding);
+    }
+  }
+}
+
+sub trim_spaces_comment_from_content($)
+{
+  my $contents = shift;
+
+  shift @$contents
+    if ($contents->[0] and $contents->[0]->{'type'}
+       and ($contents->[0]->{'type'} eq 'empty_line_after_command'
+            or $contents->[0]->{'type'} eq 'empty_spaces_after_command'
+            or $contents->[0]->{'type'} eq 'empty_spaces_before_argument'
+            or $contents->[0]->{'type'} eq 'empty_spaces_after_close_brace'));
+
+  while (@$contents
+         and (($contents->[-1]->{'cmdname'}
+               and ($contents->[-1]->{'cmdname'} eq 'c'
+                    or $contents->[-1]->{'cmdname'} eq 'comment'))
+              or ($contents->[-1]->{'type'}
+                  and ($contents->[-1]->{'type'} eq 'spaces_at_end'
+                       or $contents->[-1]->{'type'} eq 'space_at_end_block_command')))) {
+    pop @$contents;
+  }
+}
+
 # decompose a decimal number on a given base.
 sub _decompose_integer($$)
 {
@@ -1542,7 +1559,7 @@ sub is_content_empty($;$)
         } else {
           next;
         }
-      } elsif ($unformatted_brace_commands{$content->{'cmdname'}} 
+      } elsif ($unformatted_brace_commands{$content->{'cmdname'}}
                or $unformatted_block_commands{$content->{'cmdname'}}) {
         next;
       } else {
@@ -1625,7 +1642,7 @@ sub normalize_top_node_name($)
 my $Encode_encoding_object;
 my $last_encoding;
 
-sub count_bytes($$;$) 
+sub count_bytes($$;$)
 {
   my $self = shift;
   my $string = shift;
@@ -1678,77 +1695,45 @@ sub count_bytes($$;$)
   #}
 }
 
-# TODO
-# also recurse into
-# extra->misc_args, extra->args_index
-# extra->index_entry extra->type
-#
-# extra that should point to other elements: 
-# command_as_argument end_command
-# associated_section part_associated_section associated_node associated_part
-# @prototypes @columnfractions titlepage quotation @author command
-# menu_entry_description menu_entry_name
-# 
-# should point to other elements, or be copied.  And some should be recursed
-# into too.
-# extra->type->content
-# extra->nodes_manuals->[]
-# extra->node_content
-# extra->node_argument
-# extra->explanation_contents
-# extra->menu_entry_node
-
-
-sub _copy_tree($$$);
-sub _copy_tree($$$)
+sub find_parent_root_command($$)
 {
+  my $parser = shift;
   my $current = shift;
-  my $parent = shift;
-  my $reference_associations = shift;
-  my $new = {};
-  $reference_associations->{$current} = $new;
-  $new->{'parent'} = $parent if ($parent);
-  foreach my $key ('type', 'cmdname', 'text') {
-    $new->{$key} = $current->{$key} if (exists($current->{$key}));
-  }
-  foreach my $key ('args', 'contents') {
-    if ($current->{$key}) {
-      if (ref($current->{$key}) ne 'ARRAY') {
-        my $command_or_type = '';
-        if ($new->{'cmdname'}) {
-          $command_or_type = '@'.$new->{'cmdname'};
-        } elsif ($new->{'type'}) {
-          $command_or_type = $new->{'type'};
+
+  my $root_command;
+  while (1) {
+    if ($current->{'cmdname'}) {
+      if ($root_commands{$current->{'cmdname'}}) {
+        return $current;
+      } elsif ($region_commands{$current->{'cmdname'}}) {
+        if ($current->{'cmdname'} eq 'copying' and $parser
+            and $parser->{'extra'} and $parser->{'extra'}->{'insertcopying'}) {
+          foreach my $insertcopying(@{$parser->{'extra'}->{'insertcopying'}}) {
+            my $root_command
+              = $parser->find_parent_root_command($insertcopying);
+            return $root_command if (defined($root_command));
+          }
+        } else {
+          return undef;
         }
-        print STDERR "Not an array [$command_or_type] $key ".ref($current->{$key})."\n";
-      }
-      $new->{$key} = [];
-      $reference_associations->{$current->{$key}} = $new->{$key};
-      foreach my $child (@{$current->{$key}}) {
-        push @{$new->{$key}}, _copy_tree($child, $new, $reference_associations);
       }
     }
-  }
-  if ($current->{'extra'}) {
-    $new->{'extra'} = {};
-    foreach my $key (keys %{$current->{'extra'}}) {
-      if ($current->{'cmdname'} and $current->{'cmdname'} eq 'multitable'
-          and $key eq 'prototypes') {
-        $new->{'extra'}->{$key} = [];
-        $reference_associations->{$current->{'extra'}->{$key}} = $new->{$key};
-        foreach my $child (@{$current->{'extra'}->{$key}}) {
-          push @{$new->{'extra'}->{$key}}, 
-                  _copy_tree($child, $new, $reference_associations);
-        }
-      } elsif (!ref($current->{'extra'}->{$key})) {
-        $new->{'extra'}->{$key} = $current->{'extra'}->{$key};
-      }
+    if ($current->{'parent'}) {
+      $current = $current->{'parent'};
+    } else {
+      return undef;
     }
   }
-  return $new;
+  # Should never get there
+  return undef;
 }
 
-# for user-defined code
+
+# functions collecting @-commands in tree, useful
+# for user-defined customization init files code.
+# Only some @-commands (global informative commands) are collected
+# in the default case.
+
 sub collect_commands_in_tree($$)
 {
   my $root = shift;
@@ -1809,7 +1794,7 @@ sub _collect_commands_list_in_tree($$$)
   foreach my $key ('args', 'contents') {
     if ($current->{$key}) {
       foreach my $child (@{$current->{$key}}) {
-        _collect_commands_list_in_tree($child, $commands_hash, 
+        _collect_commands_list_in_tree($child, $commands_hash,
                                        $collected_commands_list);
       }
     }
@@ -1833,6 +1818,80 @@ sub _collect_references($$)
   }
 }
 
+
+# functions useful for Texinfo tree transformations
+# and some tree transformations functions, mostly those
+# used in conversion to main output formats.
+
+# TODO
+# also recurse into
+# extra->misc_args, extra->args_index
+# extra->index_entry extra->type
+#
+# extra that should point to other elements:
+# command_as_argument end_command
+# associated_section part_associated_section associated_node associated_part
+# @prototypes @columnfractions titlepage quotation @author command
+# menu_entry_description menu_entry_name
+# 
+# should point to other elements, or be copied.  And some should be recursed
+# into too.
+# extra->type->content
+# extra->nodes_manuals->[]
+# extra->node_content
+# extra->node_argument
+# extra->explanation_contents
+# extra->menu_entry_node
+
+sub _copy_tree($$$);
+sub _copy_tree($$$)
+{
+  my $current = shift;
+  my $parent = shift;
+  my $reference_associations = shift;
+  my $new = {};
+  $reference_associations->{$current} = $new;
+  $new->{'parent'} = $parent if ($parent);
+  foreach my $key ('type', 'cmdname', 'text') {
+    $new->{$key} = $current->{$key} if (exists($current->{$key}));
+  }
+  foreach my $key ('args', 'contents') {
+    if ($current->{$key}) {
+      if (ref($current->{$key}) ne 'ARRAY') {
+        my $command_or_type = '';
+        if ($new->{'cmdname'}) {
+          $command_or_type = '@'.$new->{'cmdname'};
+        } elsif ($new->{'type'}) {
+          $command_or_type = $new->{'type'};
+        }
+        print STDERR "Not an array [$command_or_type] $key ".ref($current->{$key})."\n";
+      }
+      $new->{$key} = [];
+      $reference_associations->{$current->{$key}} = $new->{$key};
+      foreach my $child (@{$current->{$key}}) {
+        push @{$new->{$key}}, _copy_tree($child, $new, $reference_associations);
+      }
+    }
+  }
+  if ($current->{'extra'}) {
+    $new->{'extra'} = {};
+    foreach my $key (keys %{$current->{'extra'}}) {
+      if ($current->{'cmdname'} and $current->{'cmdname'} eq 'multitable'
+          and $key eq 'prototypes') {
+        $new->{'extra'}->{$key} = [];
+        $reference_associations->{$current->{'extra'}->{$key}} = $new->{$key};
+        foreach my $child (@{$current->{'extra'}->{$key}}) {
+          push @{$new->{'extra'}->{$key}},
+                  _copy_tree($child, $new, $reference_associations);
+        }
+      } elsif (!ref($current->{'extra'}->{$key})) {
+        $new->{'extra'}->{$key} = $current->{'extra'}->{$key};
+      }
+    }
+  }
+  return $new;
+}
+
 sub _substitute_references_in_array($$$);
 sub _substitute_references_in_array($$$)
 {
@@ -1848,7 +1907,7 @@ sub _substitute_references_in_array($$$)
     } elsif ($reference_associations->{$item}) {
       push @{$result}, $reference_associations->{$item};
     } elsif (ref($item) eq 'ARRAY') {
-      push @$result, 
+      push @$result,
         _substitute_references_in_array($item, $reference_associations,
                                         "$context [$index]");
     } elsif (defined($item->{'text'})) {
@@ -1900,7 +1959,7 @@ sub substitute_references($$$)
             $index++;
           }
         } elsif ($reference_associations->{$current->{'extra'}->{$key}}) {
-          $new->{'extra'}->{$key} 
+          $new->{'extra'}->{$key}
             = $reference_associations->{$current->{'extra'}->{$key}};
           #print STDERR "Done [$command_or_type]: $key\n";
         } else {
@@ -1911,17 +1970,17 @@ sub substitute_references($$$)
               $current->{'extra'}->{$key}, $reference_associations,
               "[$command_or_type]{$key}");
           } else {
-            if (($current->{'cmdname'} 
+            if (($current->{'cmdname'}
                  and ($current->{'cmdname'} eq 'listoffloats'
-                     or $current->{'cmdname'} eq 'float') 
+                     or $current->{'cmdname'} eq 'float')
                  and $key eq 'type')
                  or ($key eq 'index_entry')
-                 or ($current->{'type'} 
+                 or ($current->{'type'}
                      and $current->{'type'} eq 'menu_entry'
                      and $key eq 'menu_entry_node')) {
               foreach my $type_key (keys(%{$current->{'extra'}->{$key}})) {
                 if (!ref($current->{'extra'}->{$key}->{$type_key})) {
-                  $new->{'extra'}->{$key}->{$type_key} 
+                  $new->{'extra'}->{$key}->{$type_key}
                     = $current->{'extra'}->{$key}->{$type_key};
                 } elsif ($reference_associations->{$current->{'extra'}->{$key}->{$type_key}}) {
                   $new->{'extra'}->{$key}->{$type_key}
@@ -1929,7 +1988,7 @@ sub substitute_references($$$)
                 } elsif (ref($current->{'extra'}->{$key}->{$type_key}) eq 'ARRAY') {
                   $new->{'extra'}->{$key}->{$type_key}
                     = _substitute_references_in_array(
-                      $current->{'extra'}->{$key}->{$type_key}, 
+                      $current->{'extra'}->{$key}->{$type_key},
                       $reference_associations,
                       "[$command_or_type]{$key}{$type_key}");
                 } else {
@@ -1981,7 +2040,7 @@ sub modify_tree($$;$)
     for (my $i = 0; $i <= $#args; $i++) {
       my @new_args = &$operation('arg', $args[$i], $argument);
       modify_tree($args[$i], $operation, $argument);
-      # this puts the new args at the place of the old arg using the 
+      # this puts the new args at the place of the old arg using the
       # offset from the end of the array
       splice (@{$tree->{'args'}}, $i - $#args -1, 1, @new_args);
     }
@@ -1991,7 +2050,7 @@ sub modify_tree($$;$)
     for (my $i = 0; $i <= $#contents; $i++) {
       my @new_contents = &$operation('content', $contents[$i], $argument);
       modify_tree($contents[$i], $operation, $argument);
-      # this puts the new contents at the place of the old content using the 
+      # this puts the new contents at the place of the old content using the
       # offset from the end of the array
       splice (@{$tree->{'contents'}}, $i - $#contents -1, 1, @new_contents);
     }
@@ -2044,7 +2103,7 @@ sub _protect_text($$)
       if ($remaining_text =~ s/^(.*?)(($to_protect)+)//) {
         if ($1 ne '') {
           push @result, {'text' => $1, 'parent' => $current->{'parent'}};
-          $result[-1]->{'type'} = $current->{'type'} 
+          $result[-1]->{'type'} = $current->{'type'}
             if defined($current->{'type'});
         }
         if ($to_protect eq quotemeta(',')) {
@@ -2058,7 +2117,7 @@ sub _protect_text($$)
         }
       } else {
         push @result, {'text' => $remaining_text, 'parent' => $current->{'parent'}};
-        $result[-1]->{'type'} = $current->{'type'} 
+        $result[-1]->{'type'} = $current->{'type'}
           if defined($current->{'type'});
         last;
       }
@@ -2121,114 +2180,8 @@ sub protect_first_parenthesis($)
   return \@contents;
 }
 
-sub find_parent_root_command($$)
+sub move_index_entries_after_items($)
 {
-  my $parser = shift;
-  my $current = shift;
-
-  my $root_command;
-  while (1) {
-    if ($current->{'cmdname'}) {
-      if ($root_commands{$current->{'cmdname'}}) {
-        return $current;
-      } elsif ($region_commands{$current->{'cmdname'}}) {
-        if ($current->{'cmdname'} eq 'copying' and $parser
-            and $parser->{'extra'} and $parser->{'extra'}->{'insertcopying'}) {
-          foreach my $insertcopying(@{$parser->{'extra'}->{'insertcopying'}}) {
-            my $root_command
-              = $parser->find_parent_root_command($insertcopying);
-            return $root_command if (defined($root_command));
-          }
-        } else {
-          return undef;
-        }
-      }
-    }
-    if ($current->{'parent'}) {
-      $current = $current->{'parent'};
-    } else {
-      return undef;
-    }
-  }
-  # Should never get there
-  return undef;
-}
-
-# for debugging.  May be used in other modules.
-sub debug_print_element_short($) {
-  my $current = shift;
-  if (ref($current) ne 'HASH') {
-    return  "debug_print_element_simply: $current not a hash\n";
-  }
-  my $type = '';
-  my $cmd = '';
-  my $parent_string = '';
-  my $text = '';
-  $type = "($current->{'type'})" if (defined($current->{'type'}));
-  $cmd = "\@$current->{'cmdname'}" if (defined($current->{'cmdname'}));
-  $text = "[T]" if (defined($current->{'text'}));
-  my $args = '';
-  my $contents = '';
-  $args = "[A".scalar(@{$current->{'args'}}).']' if $current->{'args'};
-  $contents = "[C".scalar(@{$current->{'contents'}}).']'
-    if $current->{'contents'};
-  return "$cmd$type$text$args$contents";
-}
-
-# for debugging
-sub debug_print_element($)
-{
-  my $current = shift;
-  if (ref($current) ne 'HASH') {
-    return  "debug_print_element: $current not a hash\n";
-  }
-  my $type = '';
-  my $cmd = '';
-  my $parent_string = '';
-  my $text = '';
-  $type = "($current->{'type'})" if (defined($current->{'type'}));
-  $cmd = "\@$current->{'cmdname'}" if (defined($current->{'cmdname'}));
-  $cmd .= "($current->{'level'})" if (defined($current->{'level'}));
-  if (defined($current->{'text'})) {
-    my $text_str = $current->{'text'};
-    $text_str =~ s/\n/\\n/g;
-    $text = "[T: $text_str]";
-  }
-  if ($current->{'parent'}) {
-    my $parent = $current->{'parent'};
-    my $parent_cmd = '';
-    my $parent_type = '';
-    $parent_cmd = "\@$parent->{'cmdname'}" if (defined($parent->{'cmdname'}));
-    $parent_type = "($parent->{'type'})" if (defined($parent->{'type'}));
-    $parent_string = " <- $parent_cmd$parent_type\n";
-  }
-  my $args = '';
-  my $contents = '';
-  $args = "[A".scalar(@{$current->{'args'}}).']' if $current->{'args'};
-  $contents = "[C".scalar(@{$current->{'contents'}}).']'
-    if $current->{'contents'};
-  return "$cmd$type$text$args$contents\n$parent_string";
-}
-
-# for debugging
-sub debug_print_element_details($)
-{
-  my $current = shift;
-  my $string = debug_print_element($current);
-  foreach my $key (keys (%$current)) {
-    $string .= "   $key: $current->{$key}\n";
-  }
-  if ($current->{'extra'}) {
-    $string .= "    EXTRA\n";
-    foreach my $key (keys (%{$current->{'extra'}})) {
-      $string .= "    $key: $current->{'extra'}->{$key}\n";
-    }
-  }
-  return $string;
-}
-
-
-sub move_index_entries_after_items($) {
   # enumerate or itemize
   my $current = shift;
 
@@ -2237,8 +2190,8 @@ sub move_index_entries_after_items($) {
   my $previous;
   foreach my $item (@{$current->{'contents'}}) {
     #print STDERR "Before proceeding: $previous $item->{'cmdname'} (@{$previous->{'contents'}})\n" if ($previous and $previous->{'contents'});
-    if (defined($previous) and $item->{'cmdname'} 
-        and $item->{'cmdname'} eq 'item' 
+    if (defined($previous) and $item->{'cmdname'}
+        and $item->{'cmdname'} eq 'item'
         and $previous->{'contents'} and scalar(@{$previous->{'contents'}})) {
 
       my $previous_ending_container;
@@ -2268,7 +2221,7 @@ sub move_index_entries_after_items($) {
                and (!$gathered_index_entries[0]->{'type'}
                     or $gathered_index_entries[0]->{'type'} ne 'index_entry_command')) {
           #print STDERR "Putting back $gathered_index_entries[0] $gathered_index_entries[0]->{'cmdname'}\n";
-          push @{$previous_ending_container->{'contents'}}, 
+          push @{$previous_ending_container->{'contents'}},
              shift @gathered_index_entries;
         }
 
@@ -2286,12 +2239,12 @@ sub move_index_entries_after_items($) {
           foreach my $entry(@gathered_index_entries) {
             $entry->{'parent'} = $item_container;
           }
-          if ($item->{'extra'} 
+          if ($item->{'extra'}
               and $item->{'extra'}->{'spaces_before_argument'}
        and $item->{'extra'}->{'spaces_before_argument'} !~ /\n$/) {
             $item->{'extra'}->{'spaces_before_argument'} .= "\n";
           # TODO: could we delete all these cases down here?
-          } elsif ($item_container->{'contents'} 
+          } elsif ($item_container->{'contents'}
               and $item_container->{'contents'}->[0]
               and $item_container->{'contents'}->[0]->{'type'}) {
             if ($item_container->{'contents'}->[0]->{'type'} eq 'empty_line_after_command') {
@@ -2384,6 +2337,94 @@ sub relate_index_entries_to_table_entries_in_tree($)
                      \&_relate_index_entries_to_table_entries_in_tree);
 }
 
+# register a label, that is something that may be the target of a reference
+# and must be unique in the document.  Corresponds to @node, @anchor and
+# @float second arg.
+sub register_label($$$)
+{
+  my ($targets_list, $current, $label) = @_;
+
+  push @{$targets_list}, $current;
+  if ($label->{'node_content'}) {
+    $current->{'extra'}->{'node_content'} = $label->{'node_content'};
+  }
+}
+
+
+# functions used for debugging
+
+# for debugging.  May be used in other modules.
+sub debug_print_element_short($) {
+  my $current = shift;
+  if (ref($current) ne 'HASH') {
+    return  "debug_print_element_simply: $current not a hash\n";
+  }
+  my $type = '';
+  my $cmd = '';
+  my $parent_string = '';
+  my $text = '';
+  $type = "($current->{'type'})" if (defined($current->{'type'}));
+  $cmd = "\@$current->{'cmdname'}" if (defined($current->{'cmdname'}));
+  $text = "[T]" if (defined($current->{'text'}));
+  my $args = '';
+  my $contents = '';
+  $args = "[A".scalar(@{$current->{'args'}}).']' if $current->{'args'};
+  $contents = "[C".scalar(@{$current->{'contents'}}).']'
+    if $current->{'contents'};
+  return "$cmd$type$text$args$contents";
+}
+
+# for debugging
+sub debug_print_element($)
+{
+  my $current = shift;
+  if (ref($current) ne 'HASH') {
+    return  "debug_print_element: $current not a hash\n";
+  }
+  my $type = '';
+  my $cmd = '';
+  my $parent_string = '';
+  my $text = '';
+  $type = "($current->{'type'})" if (defined($current->{'type'}));
+  $cmd = "\@$current->{'cmdname'}" if (defined($current->{'cmdname'}));
+  $cmd .= "($current->{'level'})" if (defined($current->{'level'}));
+  if (defined($current->{'text'})) {
+    my $text_str = $current->{'text'};
+    $text_str =~ s/\n/\\n/g;
+    $text = "[T: $text_str]";
+  }
+  if ($current->{'parent'}) {
+    my $parent = $current->{'parent'};
+    my $parent_cmd = '';
+    my $parent_type = '';
+    $parent_cmd = "\@$parent->{'cmdname'}" if (defined($parent->{'cmdname'}));
+    $parent_type = "($parent->{'type'})" if (defined($parent->{'type'}));
+    $parent_string = " <- $parent_cmd$parent_type\n";
+  }
+  my $args = '';
+  my $contents = '';
+  $args = "[A".scalar(@{$current->{'args'}}).']' if $current->{'args'};
+  $contents = "[C".scalar(@{$current->{'contents'}}).']'
+    if $current->{'contents'};
+  return "$cmd$type$text$args$contents\n$parent_string";
+}
+
+# for debugging
+sub debug_print_element_details($)
+{
+  my $current = shift;
+  my $string = debug_print_element($current);
+  foreach my $key (keys (%$current)) {
+    $string .= "   $key: $current->{$key}\n";
+  }
+  if ($current->{'extra'}) {
+    $string .= "    EXTRA\n";
+    foreach my $key (keys (%{$current->{'extra'}})) {
+      $string .= "    $key: $current->{'extra'}->{$key}\n";
+    }
+  }
+  return $string;
+}
 
 sub debug_list
 {
@@ -2402,7 +2443,7 @@ sub debug_list
 
   warn "$str\n";
 }
-#
+
 sub debug_hash
 {
   my ($label) = shift;
@@ -2441,19 +2482,6 @@ sub print_tree($)
   local $Data::Dumper::Indent = 1;
 
   return Data::Dumper->Dump([$tree]);
-}
-
-# register a label, that is something that may be the target of a reference
-# and must be unique in the document.  Corresponds to @node, @anchor and
-# @float second arg.
-sub register_label($$$)
-{
-  my ($targets_list, $current, $label) = @_;
-
-  push @{$targets_list}, $current;
-  if ($label->{'node_content'}) {
-    $current->{'extra'}->{'node_content'} = $label->{'node_content'};
-  }
 }
 
 
