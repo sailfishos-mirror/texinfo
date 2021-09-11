@@ -1,6 +1,6 @@
 # A style that tries to be analogous with a book, in HTML.
 #
-# This file is in the public domain. Thus it may easily be used as an 
+# This file is in the public domain. Thus it may easily be used as an
 # example for further customizations.
 #
 # Originally written by Patrice Dumas in 2004.
@@ -149,7 +149,7 @@ sub book_convert_heading_command($$$$$)
 {
   my $self = shift;
   my $cmdname = shift;
-  my $command = shift;
+  my $element = shift;
   my $args = shift;
   my $content = shift;
 
@@ -157,18 +157,18 @@ sub book_convert_heading_command($$$$$)
 
   # not clear that it may really happen
   if ($self->in_string) {
-    $result .= $self->command_string($command) ."\n" if ($cmdname ne 'node');
+    $result .= $self->command_string($element) ."\n" if ($cmdname ne 'node');
     $result .= $content if (defined($content));
     return $result;
   }
-  my $section = $command->{'extra'}->{'associated_section'};
+  my $section = $element->{'extra'}->{'associated_section'};
   my $node;
   if ($section) {
       my $level = $section->{'level'};
       $result .= join('', $self->close_registered_sections_level($level));
       $self->register_opened_section_level($level, "</div>\n");
   } else {
-      $node = $command->{'extra'}->{'associated_node'};
+      $node = $element->{'extra'}->{'associated_node'};
   }
   $result .= '<div';
   if ($section) {
@@ -178,46 +178,49 @@ sub book_convert_heading_command($$$$$)
   } else {
       $result .= " class=\"$cmdname\"";
   }
-  my $element_id = $self->command_id($command);
+  my $element_id = $self->command_id($element);
   $result .= " id=\"$element_id\""
       if (defined($element_id) and $element_id ne '');
   $result .= ">\n";
 
-  print STDERR "Process $command "
-        .Texinfo::Structuring::_print_root_command_texi($command)."\n"
+  print STDERR "Process $element "
+        .Texinfo::Structuring::_print_root_command_texi($element)."\n"
           if ($self->get_conf('DEBUG'));
   my $tree_unit;
-  if ($Texinfo::Common::root_commands{$command->{'cmdname'}}
-      and $command->{'parent'}
-      and $command->{'parent'}->{'type'}
-      and $command->{'parent'}->{'type'} eq 'unit') {
-    $tree_unit = $command->{'parent'};
+  if ($Texinfo::Common::root_commands{$element->{'cmdname'}}
+      and $element->{'parent'}
+      and $element->{'parent'}->{'type'}
+      and $element->{'parent'}->{'type'} eq 'unit') {
+    $tree_unit = $element->{'parent'};
   }
   if ($tree_unit) {
     $result .= &{$self->{'format_element_header'}}($self, $cmdname,
-                                            $command, $tree_unit);
+                                            $element, $tree_unit);
   }
 
   my $heading_level;
-  # FIXME this is done as in texi2html: node is used as heading if there 
+  my $cmdname_for_heading = $cmdname;
+  # FIXME this is done as in HTML converter: node is used as heading if there
   # is nothing else.  Is it right?
   if ($cmdname eq 'node') {
     if (!$tree_unit or (!$tree_unit->{'extra'}->{'section'}
                         and $tree_unit->{'extra'}->{'node'}
-                        and $tree_unit->{'extra'}->{'node'} eq $command
+                        and $tree_unit->{'extra'}->{'node'} eq $element
                         # bogus node may not have been normalized
-                        and defined($command->{'extra'}->{'normalized'}))) {
-      if ($command->{'extra'}->{'normalized'} eq 'Top') {
+                        and defined($element->{'extra'}->{'normalized'}))) {
+      if ($element->{'extra'}->{'normalized'} eq 'Top') {
         $heading_level = 0;
       } else {
         $heading_level = 3;
       }
     }
   } else {
-    $heading_level = $command->{'level'};
+    $heading_level = $element->{'level'};
+    # if the level was changed, set the command name right
+    $cmdname_for_heading = $self->_level_corrected_section($element);
   }
 
-  my $heading = $self->command_text($command);
+  my $heading = $self->command_text($element);
   # $heading not defined may happen if the command is a @node, for example
   # if there is an error in the node.
   if (defined($heading) and $heading ne '' and defined($heading_level)) {
@@ -225,7 +228,7 @@ sub book_convert_heading_command($$$$$)
     if ($self->get_conf('TOC_LINKS')
         and $Texinfo::Common::root_commands{$cmdname}
         and $Texinfo::Common::sectioning_commands{$cmdname}) {
-      my $content_href = $self->command_contents_href($command, 'contents',
+      my $content_href = $self->command_contents_href($element, 'contents',
                                         $self->{'current_filename'});
       if ($content_href) {
         $heading = "<a href=\"$content_href\">$heading</a>";
@@ -235,21 +238,15 @@ sub book_convert_heading_command($$$$$)
     if ($self->in_preformatted()) {
       $result .= '<strong>'.$heading.'</strong>'."\n";
     } else {
-      # if the level was changed, set the command name right
-      if ($cmdname ne 'node'
-          and $heading_level ne $Texinfo::Common::command_structuring_level{$cmdname}) {
-        $cmdname
-          = $Texinfo::Common::level_to_structuring_command{$cmdname}->[$heading_level];
-      }
-      $result .= &{$self->{'format_heading_text'}}($self, $cmdname, $heading,
-                                            $heading_level, $command);
+      $result .= &{$self->{'format_heading_text'}}($self, $cmdname_for_heading,
+                                           $heading, $heading_level, $element);
     }
   }
-  if ($command->{'section_childs'} and @{$command->{'section_childs'}}
+  if ($element->{'section_childs'} and @{$element->{'section_childs'}}
       and $cmdname ne 'top') {
     $result .= $self->_attribute_class('ul', $NO_BULLET_LIST_CLASS).">\n";
-    $result .= book_print_sub_toc($self, $command, 
-                                  $command->{'section_childs'}->[0]);
+    $result .= book_print_sub_toc($self, $element,
+                                  $element->{'section_childs'}->[0]);
     $result .= "</ul>\n";
   }
   $result .= $content if (defined($content));
@@ -258,7 +255,7 @@ sub book_convert_heading_command($$$$$)
 }
 
 foreach my $command (keys(%Texinfo::Common::sectioning_commands), 'node') {
-  texinfo_register_command_formatting($command, 
+  texinfo_register_command_formatting($command,
                                 \&book_convert_heading_command);
 }
 

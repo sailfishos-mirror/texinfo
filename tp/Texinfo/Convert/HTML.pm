@@ -2316,7 +2316,7 @@ sub _default_format_navigation_header_panel($$$$;$)
       $result .=  qq{<td valign="middle" align="left">};
     }
     my $direction;
-    if (ref($button) eq 'ARRAY' 
+    if (ref($button) eq 'ARRAY'
         and defined($button->[0]) and !ref($button->[0])) {
       $direction = $button->[0];
     } elsif (defined($button) and !ref($button)) {
@@ -2334,7 +2334,7 @@ sub _default_format_navigation_header_panel($$$$;$)
       }
       $result .= "</td>\n";
       $result .= "</tr>\n" if $vertical;
-    } elsif (defined($active)) { 
+    } elsif (defined($active)) {
       # only active buttons are print out when not in table
       if ($need_delimiter and !$first_button) {
         $active = ', ' .$active;
@@ -2388,7 +2388,7 @@ sub _default_format_element_header($$$$)
   my $tree_unit = shift;
 
   my $result = '';
-    
+   
   print STDERR "Element $tree_unit (@{$tree_unit->{'contents'}}) ".
      Texinfo::Structuring::_print_element_command_texi($tree_unit) ."\n"
         if ($self->get_conf('DEBUG'));
@@ -2475,7 +2475,7 @@ sub _convert_heading_command($$$$$)
 {
   my $self = shift;
   my $cmdname = shift;
-  my $command = shift;
+  my $element = shift;
   my $args = shift;
   my $content = shift;
 
@@ -2483,20 +2483,20 @@ sub _convert_heading_command($$$$$)
 
   # not clear that it may really happen
   if ($self->in_string) {
-    $result .= $self->command_string($command) ."\n" if ($cmdname ne 'node');
+    $result .= $self->command_string($element) ."\n" if ($cmdname ne 'node');
     $result .= $content if (defined($content));
     return $result;
   }
 
-  my $element_id = $self->command_id($command);
+  my $element_id = $self->command_id($element);
   my $section;
-  if ($cmdname eq 'node' and $command->{'extra'}->{'associated_section'}) {
-    $section = $command->{'extra'}->{'associated_section'};
+  if ($cmdname eq 'node' and $element->{'extra'}->{'associated_section'}) {
+    $section = $element->{'extra'}->{'associated_section'};
   } elsif ($cmdname ne 'node'
-           and not $command->{'extra'}->{'associated_node'}
+           and not $element->{'extra'}->{'associated_node'}
            # to avoid *heading* @-commands
            and $Texinfo::Common::root_commands{$cmdname}) {
-    $section = $command;
+    $section = $element;
   }
 
   if ($section) {
@@ -2514,45 +2514,48 @@ sub _convert_heading_command($$$$$)
         if (defined($element_id) and $element_id ne '');
   }
 
-  print STDERR "Process $command "
-        .Texinfo::Structuring::_print_root_command_texi($command)."\n"
+  print STDERR "Process $element "
+        .Texinfo::Structuring::_print_root_command_texi($element)."\n"
           if ($self->get_conf('DEBUG'));
   my $tree_unit;
-  if ($Texinfo::Common::root_commands{$command->{'cmdname'}} 
-      and $command->{'parent'}
-      and $command->{'parent'}->{'type'} 
-      and $command->{'parent'}->{'type'} eq 'unit') {
-    $tree_unit = $command->{'parent'};
+  if ($Texinfo::Common::root_commands{$element->{'cmdname'}}
+      and $element->{'parent'}
+      and $element->{'parent'}->{'type'}
+      and $element->{'parent'}->{'type'} eq 'unit') {
+    $tree_unit = $element->{'parent'};
   }
   if ($tree_unit) {
     $result .= &{$self->{'format_element_header'}}($self, $cmdname,
-                                            $command, $tree_unit);
+                                            $element, $tree_unit);
   }
 
   my $heading_level;
+  my $cmdname_for_heading = $cmdname;
   # node is used as heading if there is nothing else.
   if ($cmdname eq 'node') {
     if (!$tree_unit or (!$tree_unit->{'extra'}->{'section'}
                         and $tree_unit->{'extra'}->{'node'}
-                        and $tree_unit->{'extra'}->{'node'} eq $command
+                        and $tree_unit->{'extra'}->{'node'} eq $element
                         # bogus node may not have been normalized
-                        and defined($command->{'extra'}->{'normalized'}))) {
-      if ($command->{'extra'}->{'normalized'} eq 'Top') {
+                        and defined($element->{'extra'}->{'normalized'}))) {
+      if ($element->{'extra'}->{'normalized'} eq 'Top') {
         $heading_level = 0;
       } else {
         $heading_level = 3;
       }
     }
-  } elsif (defined $command->{'level'}) {
-    $heading_level = $command->{'level'};
+  } elsif (defined $element->{'level'}) {
+    $heading_level = $element->{'level'};
+    # if the level was changed, set the command name right
+    $cmdname_for_heading = $self->_level_corrected_section($element);
   } else {
     # for *heading* @-commands which do not have a level
     # in the document as they are not associated with the
     # sectioning tree, but still have a $heading_level
-    $heading_level = Texinfo::Structuring::section_level($command);
+    $heading_level = Texinfo::Structuring::section_level($element);
   }
 
-  my $heading = $self->command_text($command);
+  my $heading = $self->command_text($element);
   # $heading not defined may happen if the command is a @node, for example
   # if there is an error in the node.
   if (defined($heading) and $heading ne '' and defined($heading_level)) {
@@ -2560,7 +2563,7 @@ sub _convert_heading_command($$$$$)
     if ($self->get_conf('TOC_LINKS')
         and $Texinfo::Common::root_commands{$cmdname}
         and $Texinfo::Common::sectioning_commands{$cmdname}) {
-      my $content_href = $self->command_contents_href($command, 'contents',
+      my $content_href = $self->command_contents_href($element, 'contents',
                                         $self->{'current_filename'});
       if ($content_href) {
         $heading = "<a href=\"$content_href\">$heading</a>";
@@ -2570,14 +2573,9 @@ sub _convert_heading_command($$$$$)
     if ($self->in_preformatted()) {
       $result .= '<strong>'.$heading.'</strong>'."\n";
     } else {
-      # if the level was changed, set the command name right
-      if ($cmdname ne 'node' 
-          and $heading_level ne $Texinfo::Common::command_structuring_level{$cmdname}) {
-        $cmdname 
-          = $Texinfo::Common::level_to_structuring_command{$cmdname}->[$heading_level];
-      }
-      $result .= &{$self->{'format_heading_text'}}($self, $cmdname, $heading, 
-                 $heading_level +$self->get_conf('CHAPTER_HEADER_LEVEL') -1, $command);
+      $result .= &{$self->{'format_heading_text'}}($self, $cmdname_for_heading,
+              $heading, $heading_level +$self->get_conf('CHAPTER_HEADER_LEVEL') -1,
+                                                  $element);
     }
   }
   $result .= $content if (defined($content));
@@ -2606,7 +2604,7 @@ sub _convert_heading_command($$$$$)
            or (not ($self->_has_contents_or_shortcontents()
                    and $self->get_conf('CONTENTS_OUTPUT_LOCATION')
                        eq 'inline')))) {
-    $result .= _mini_toc($self, $command);
+    $result .= _mini_toc($self, $element);
   }
   return $result;
 }
@@ -2625,7 +2623,7 @@ sub _convert_raw_command($$$$)
   if ($cmdname eq $self->{'output_format'}) {
     return $content;
   }
-  $self->noticed_line_warn(sprintf(__("raw format %s is not converted"), 
+  $self->noticed_line_warn(sprintf(__("raw format %s is not converted"),
                                    $cmdname), $command->{'line_nr'});
   return $self->protect_text($content);
 }
@@ -4803,7 +4801,7 @@ $default_types_conversion{'special_element'} = \&_convert_special_element_type;
 
 # Function for converting the top-level elements in the conversion corresponding to
 # a section or a node.  The node and associated section appear together in
-# the tree unit top-level element.  $ELEMENT was created in this module (in 
+# the tree unit top-level element.  $ELEMENT was created in this module (in
 # _prepare_tree_root_elements), with type 'unit' (it's not a tree element created
 # by the parser).  $CONTENT is the contents of the node/section, already converted.
 sub _convert_tree_unit_type($$$$)
