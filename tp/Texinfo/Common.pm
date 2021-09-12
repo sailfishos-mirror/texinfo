@@ -1958,7 +1958,7 @@ sub _substitute_references_in_array($$$)
                                         "$context [$index]");
     } elsif (defined($item->{'text'})) {
       my $new_text = _copy_tree($item, undef, $reference_associations);
-      substitute_references($item, $new_text, $reference_associations);
+      _substitute_references($item, $new_text, $reference_associations);
       push @{$result}, $new_text;
     } else {
       print STDERR "Trouble with $context [$index] (".ref($item).")\n";
@@ -1969,8 +1969,8 @@ sub _substitute_references_in_array($$$)
   return $result;
 }
 
-sub substitute_references($$$);
-sub substitute_references($$$)
+sub _substitute_references($$$);
+sub _substitute_references($$$)
 {
   my $current = shift;
   my $new = shift;
@@ -1980,7 +1980,7 @@ sub substitute_references($$$)
     if ($new->{$key}) {
       my $index = 0;
       foreach my $child (@{$new->{$key}}) {
-        substitute_references($child, $current->{$key}->[$index],
+        _substitute_references($child, $current->{$key}->[$index],
                               $reference_associations);
         $index++;
       }
@@ -2000,7 +2000,7 @@ sub substitute_references($$$)
             and $key eq 'prototypes') {
           my $index = 0;
           foreach my $child (@{$new->{'extra'}->{$key}}) {
-            substitute_references($child, $current->{'extra'}->{$key}->[$index],
+            _substitute_references($child, $current->{'extra'}->{$key}->[$index],
                                   $reference_associations);
             $index++;
           }
@@ -2057,7 +2057,7 @@ sub copy_tree($;$)
   my $parent = shift;
   my $reference_associations = {};
   my $copy = _copy_tree($current, $parent, $reference_associations);
-  substitute_references($current, $copy, $reference_associations);
+  _substitute_references($current, $copy, $reference_associations);
   return $copy;
 }
 
@@ -2795,6 +2795,11 @@ Return true if the I<$tree> has content that could be formatted.
 I<$do_not_ignore_index_entries> is optional.  If set, index entries
 are considered to be formatted.
 
+=item $file = $converter->locate_include_file($filename)
+
+Locate I<$filename> in include directories also used to find texinfo files
+included in Texinfo documents.
+
 =item move_index_entries_after_items_in_tree($tree)
 
 In C<@enumerate> and C<@itemize> from the tree, move index entries
@@ -2838,6 +2843,13 @@ because it appeared in a raw environment.
 In @*table @-commands, reassociate the index entry information from an index
 @-command appearing right after an @item line to the @item first element.
 Remove the index @-command from the tree.
+
+=item set_output_encodings($configuration_informations, $parser_informations)
+
+If not already set, set C<OUTPUT_ENCODING_NAME> based on input file
+encoding.  Also set C<OUTPUT_PERL_ENCODING> accordingly which is used
+to output in the correct encoding.  This should not be set directly by
+user-defined code such that it corresponds to C<OUTPUT_ENCODING_NAME>.
 
 =item $split_contents split_custom_heading_command_contents($contents)
 
