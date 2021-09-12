@@ -206,7 +206,7 @@ $result_converted{'latex'}->{'three_setchapternewpage_on_odd_off'} = '\\makeatle
 \\makeatletter
 \\patchcmd{\\chapter}{\\GNUTexinfoplaceholder{setchapternewpage placeholder}\\clearpage}{\\if@openright\\cleardoublepage\\else\\clearpage\\fi}{}{}
 \\makeatother
-\\GNUTexinfosetdoubleheader{No Title}%
+\\GNUTexinfosetdoubleheader{}%
 
 \\makeatletter
 \\patchcmd{\\chapter}{\\if@openright\\cleardoublepage\\else\\clearpage\\fi}{\\GNUTexinfoplaceholder{setchapternewpage placeholder}}{}{}

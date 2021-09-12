@@ -224,6 +224,8 @@ my %preformatted_code_commands = %Texinfo::Common::preformatted_code_commands;
 my %default_index_commands = %Texinfo::Common::default_index_commands;
 my %letter_no_arg_commands = %Texinfo::Common::letter_no_arg_commands;
 my %item_line_commands = %Texinfo::Common::item_line_commands;
+my %headings_specification_commands = %Texinfo::Common::headings_specification_commands;
+my %in_heading_commands = %Texinfo::Common::in_heading_commands;
 
 # commands that can appear in preamble, before \begin{document}
 my %preamble_commands;
@@ -236,6 +238,7 @@ foreach my $preamble_command ('hyphenation', 'anchor', 'errormsg',
 
 foreach my $kept_command (keys(%informative_commands),
   keys(%default_index_commands), keys(%paper_geometry_commands),
+  keys(%headings_specification_commands), keys(%in_heading_commands),
   'verbatiminclude', 'insertcopying',
   'listoffloats', 'printindex', 'indent', 'noindent', 'need', 'page',
   'shorttitlepage', 'title', 'subtitle', 'author', 'vskip') {
@@ -441,6 +444,23 @@ foreach my $accent_command (keys %{$LaTeX_accent_commands{'math'}}) {
     $LaTeX_accent_commands{'text'}->{$accent_command} = $accent_command;
   }
 }
+
+# TODO command that could be used for translation \sectionname does
+# not exist in the default case.  it is defined in the pagenote package together with 
+# \pagename which is page in the default case, but it is unclear if this
+# can be used as a basis for translations
+my %LaTeX_in_heading_commands = (
+  'thischapter' => '\chaptername{} \thechapter{} \chaptertitle{}',
+  'thischaptername' => '\chaptertitle{}',
+  'thischapternum' => '\thechapter{}',
+  #'thissection' => '\sectionname{} \thesection{} \sectiontitle{}',
+  'thissection' => 'Section \thesection{} \sectiontitle{}',
+  'thissectionname' => '\sectiontitle{}',
+  'thissectionnum' => '\thesection{}',
+  'thisfile' => '',
+  'thispage' => '\thepage{}',
+  'thistitle' => '\GNUTexinfosettitle{}',
+);
 
 my %ignored_commands = %ignored_misc_commands;
 # processed as part of the index command or type formatting
@@ -999,6 +1019,11 @@ sub convert_tree($$)
   my $self = shift;
   my $root = shift;
 
+  if (not exists($self->{'formatting_context'})
+      or scalar(@{$self->{'formatting_context'}}) == 0) {
+    _push_new_context($self, 'tree');
+  }
+
   return $self->_convert($root);
 }
 
@@ -1031,6 +1056,54 @@ my %front_main_matter_definitions = (
 '
 );
 
+# not used as it is complicated to use section and chapter title
+my $fancyhdr_preamble =
+'% called when setting single headers
+% use \nouppercase to match with Texinfo TeX style
+\newcommand{\GNUTexinfosetsingleheader}{\pagestyle{fancy}
+\fancyhf{}
+\lhead{\nouppercase{\leftmark}}
+\rhead{\thepage}
+}
+
+% called when setting double headers
+\newcommand{\GNUTexinfosetdoubleheader}{\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[RE]{\GNUTexinfosettitle}
+\fancyhead[LO]{\nouppercase{\leftmark}}
+}
+
+% for part and chapter, which call \thispagestyle{plain}
+\fancypagestyle{plain}{ %
+ \fancyhf{}
+ \fancyhead[LE,RO]{\thepage}
+}
+
+% match Texinfo TeX style
+\renewcommand{\headrulewidth}{0pt}%';
+
+my $titleps_preamble = '% plain page style, for part and chapter, which call \thispagestyle{plain}
+\renewpagestyle{plain}{\sethead[\thepage{}][][]
+                             {}{}{\thepage{}}}
+
+% single header
+\newpagestyle{single}{\sethead[\chaptername{} \thechapter{} \chaptertitle{}][][\thepage]
+                              {\chaptername{} \thechapter{} \chaptertitle{}}{}{\thepage}}
+
+% called when setting single headers
+\newcommand{\GNUTexinfosetsingleheader}{\pagestyle{single}}
+
+% double header
+\newpagestyle{double}{\sethead[\thepage{}][][\GNUTexinfosettitle]
+                              {\chaptername{} \thechapter{} \chaptertitle{}}{}{\thepage}}
+
+% called when setting double headers
+\newcommand{\GNUTexinfosetdoubleheader}{\pagestyle{double}}
+';
+
+# TODO translation
+my $default_title = 'No Title';
 
 sub _latex_header {
   my $self = shift;
@@ -1045,6 +1118,8 @@ sub _latex_header {
   # fontsize for \changefontsize. In texlive-latex-extra in debian
   # mdframed for the formatting of @cartouche
   # \usepackage[linkbordercolor={0 0 0}]{hyperref}
+  # titleps is used and not fancyhdr as with fancyhdr it is hard to get
+  # the section or chapter title
   my $header = "\\documentclass{$documentclass}\n"
 .'\usepackage{imakeidx}
 \usepackage{amsfonts}
@@ -1060,7 +1135,7 @@ sub _latex_header {
 \usepackage{fontsize}
 \usepackage{enumitem}
 \usepackage{geometry}
-\usepackage{fancyhdr}
+\usepackage{titleps}
 \usepackage{float}
 \usepackage{babel}
 % use hidelinks to remove boxes around links to be similar with Texinfo TeX
@@ -1080,6 +1155,17 @@ sub _latex_header {
   #  # in texlive-latex-extra in debian
   #  $header .= "\\usepackage{shorttoc}\n";
   #}
+  my $settitle;
+  if ($self->{'settitle_tree'}) {
+    $settitle = $self->convert_tree($self->{'settitle_tree'});
+  } else {
+    $settitle = $default_title;
+  }
+
+  # for @thistitle and headers
+  $header .= "\\newcommand{\\GNUTexinfosettitle}{$settitle}%\n";
+  $header .= "\n";
+
   if ($self->{'floats'}) {
     foreach my $normalized_float_type (sort(keys(%{$self->{'normalized_float_latex'}}))) {
       my $latex_float_name
@@ -1131,30 +1217,7 @@ sub _latex_header {
 % command that does nothing used to help with substitutions in commands
 \newcommand{\GNUTexinfoplaceholder}[1]{}
 
-% called when setting single headers
-% use \nouppercase to match with Texinfo TeX style
-\newcommand{\GNUTexinfosetsingleheader}{\pagestyle{fancy}
-\fancyhf{}
-\lhead{\nouppercase{\leftmark}}
-\rhead{\thepage}
-}
-
-% called when setting double headers
-\newcommand{\GNUTexinfosetdoubleheader}[1]{\pagestyle{fancy}
-\fancyhf{}
-\fancyhead[LE,RO]{\thepage}
-\fancyhead[RE]{#1}
-\fancyhead[LO]{\nouppercase{\leftmark}}
-}
-
-% for part and chapter, which call \thispagestyle{plain}
-\fancypagestyle{plain}{ %
- \fancyhf{}
- \fancyhead[LE,RO]{\thepage}
-}
-
-% match Texinfo TeX style
-\renewcommand{\headrulewidth}{0pt}%
+'.$titleps_preamble.'
 
 % avoid pagebreak and headings setting for a sectionning command
 \newcommand{\GNUTexinfonopagebreakheading}[2]{\let\clearpage\relax \let\cleardoublepage\relax \let\thispagestyle\GNUTexinfoplaceholder #1{#2}}
@@ -1294,8 +1357,6 @@ sub _start_mainmatter_after_titlepage($)
   return $result;
 }
 
-# TODO translation
-my $default_odd_heading = 'No Title';
 sub _set_headings($$)
 {
   my ($self, $headings_spec) = @_;
@@ -1325,18 +1386,96 @@ sub _set_headings($$)
   if ($headings_type eq 'single') {
     $result = "\\GNUTexinfosetsingleheader{}%\n";
   } elsif ($headings_type eq 'double') {
-    my $odd_heading;
-    if ($self->{'settitle_tree'}) {
-      $odd_heading = $self->_convert($self->{'settitle_tree'});
-    } else {
-      $odd_heading = $default_odd_heading;
-    }
-    $result = "\\GNUTexinfosetdoubleheader{$odd_heading}%\n";
+    $result = "\\GNUTexinfosetdoubleheader{}%\n";
   } elsif ($headings_type eq 'off') {
     $result = "\\pagestyle{empty}%\n";
   }
   return $result;
 }
+
+my %custom_headings_map = (
+  'everyheading' => ['head', ''],
+  'everyfooting' => ['foot', ''],
+  'evenheading'  => ['head', 'E'],
+  'evenfooting'  => ['foot', 'E'],
+  'oddheading',  => ['head', 'O'],
+  'oddfooting'   => ['foot', 'O'],
+);
+
+# this function converts the specification to LaTex and add or
+# replace the footing or heading specifications.
+sub _set_custom_headings($$$)
+{
+  my ($self, $cmdname, $headings_spec) = @_;
+  my ($head_or_foot, $page_spec) = @{$custom_headings_map{$cmdname}};
+
+  my $location_index = -1;
+  my @headings = ('', '', '');
+  _push_new_context($self, 'custom_heading');
+  foreach my $location_heading_spec (@$headings_spec) {
+    $location_index++;
+    my $heading = $self->_convert({'contents' => $location_heading_spec});
+    $heading =~ s/^\s*//;
+    $heading =~ s/\s*$//;
+    $headings[$location_index] = $heading;
+  }
+  _pop_context($self);
+
+  my @replaced_specs;
+  if ($page_spec eq '') {
+    @replaced_specs = ('E', 'O');
+  } else {
+    @replaced_specs = ($page_spec);
+  }
+  my $first_custom_heading;
+  $first_custom_heading = 1 if (not exists($self->{'custom_heading'}));
+  foreach my $spec (@replaced_specs) {
+    $self->{'custom_heading'}->{$head_or_foot}->{$spec} = \@headings;
+  }
+  return _format_heading_command($self, $first_custom_heading);
+}
+
+my @head_foot_order = ('head', 'foot');
+my @even_odd_order = (['E', 'bracket'], ['O', 'brace']);
+sub _format_heading_command($$)
+{
+  my $self = shift;
+  my $first_custom_heading = shift;
+
+  my $result = '';
+  if ($first_custom_heading) {
+    $result .= "\\newpagestyle{custom}{%\n";
+  } else {
+    $result .= "\\renewpagestyle{custom}{%\n";
+  }
+  foreach my $head_or_foot (@head_foot_order) {
+    if (exists($self->{'custom_heading'}->{$head_or_foot})) {
+      my $head_or_foot_spec = $self->{'custom_heading'}->{$head_or_foot};
+      $result .= '\set' . $head_or_foot;
+      foreach my $even_odd_and_separator (@even_odd_order) {
+        my ($even_or_odd, $separator) = @{$even_odd_and_separator};
+        my $headings;
+        if (exists($head_or_foot_spec->{$even_or_odd})) {
+          $headings = $head_or_foot_spec->{$even_or_odd};
+        } else {
+          $headings = ['', '', ''];
+        }
+        foreach my $heading (@{$headings}) {
+          if ($separator eq 'bracket') {
+            $result .= '['.$heading.']';
+          } else {
+            $result .= '{'.$heading.'}';
+          }
+        }
+        $result .= "%\n";
+      }
+    }
+  }
+  $result .= "}%\n";
+  $result .= "\\pagestyle{custom}%\n";
+  return $result;
+}
+
 
 # to change the chapter we substitute in the \chapter command.
 # REMARK it is fragile as it depends on the LaTeX codes. It is also
@@ -1588,10 +1727,6 @@ sub _index_entry($$)
     if ($self->{'index_names'}->{$entry_index_name}->{'in_code'}) {
       $in_code = 1;
     }
-    #print STDERR "I ".Texinfo::Common::debug_print_element_short($element)." ".$entry_index_name."/".$index_name." ".$in_code." C ".$entry->{'index_at_command'}." T ".$entry->{'index_type_command'}."; ".join("|", sort(keys(%{$element->{'extra'}})))."\n";
-    # FIXME cache?  In theory txiindexbackslashignore and consorts
-    # may change dynamically.  But the current code does not set the
-    # values dynamically for now.  Actually not set at all...
     my ($options, $ignore_chars)
       = Texinfo::Structuring::setup_index_entry_keys_formatting($self, $self);
     my $current_entry = $element;
@@ -1702,13 +1837,10 @@ sub _convert($$)
     return $result;
   }
 
-  #if ($type and ($type eq 'empty_line' 
-  #                         or $type eq 'after_description_line')) {
-  #  return '';
-  #}
   if ($type and ($type eq 'empty_line')) {
     return "\n";
   }
+  # FIXME same as ignoring.  Handle with @def*
   if ($type and ($type eq 'after_description_line')) {
     return '';
   }
@@ -2661,6 +2793,9 @@ sub _convert($$)
         $result .= "\\needspace{${need_value}pt}%\n";
       }
       return $result;
+    } elsif ($in_heading_commands{$cmdname}){
+      $result .= $LaTeX_in_heading_commands{$cmdname};
+      return $result;
     } elsif ($cmdname eq 'shorttitlepage') {
       # FIXME ignore if there is alreadu a @titlepage?
       my $title_text = _title_font($self, $element);
@@ -2729,6 +2864,17 @@ sub _convert($$)
     # FIXME right now not informative commands
     } elsif ($paper_geometry_commands{$cmdname}) {
       $result .= "\\geometry{$paper_geometry_commands{$cmdname}}%\n";
+      return $result;
+    } elsif ($headings_specification_commands{$cmdname}) {
+      if ($element->{'args'} and $element->{'args'}->[0]
+          and $element->{'args'}->[0]->{'contents'}) {
+        print STDERR Texinfo::Common::debug_print_element_short($element)."\n";
+        my $custom_headings_specification
+         = Texinfo::Common::split_custom_heading_command_contents(
+                                $element->{'args'}->[0]->{'contents'});
+        $result .= _set_custom_headings($self, $cmdname,
+                                        $custom_headings_specification);
+      }
       return $result;
     # @-commands that have an information for the formatting
     # TODO

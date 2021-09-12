@@ -206,7 +206,7 @@ $result_converted{'latex'}->{'titlepage_and_setchapternewpage_odd'} = '
 in titlepage
 \\endgroup
 \\end{titlepage}
-\\GNUTexinfosetdoubleheader{No Title}%
+\\GNUTexinfosetdoubleheader{}%
 \\GNUTexinfomainmatter
 
 ';

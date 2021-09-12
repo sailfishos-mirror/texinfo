@@ -392,6 +392,8 @@ sub valid_option($)
   return $valid_options{$option};
 }
 
+# not documented on purpose, should not be called in user-defined
+# codes
 sub add_valid_option($)
 {
   my $option = shift;
@@ -581,15 +583,6 @@ our %line_commands = (
   'subentry'          => 'line',
 );
 
-# TODO set when the XS parser is ready
-if (0) {
-#if (1) {
-foreach my $custom_heading_command ('everyheading', 'everyfooting', 'evenheading',
-   'evenfooting', 'oddheading', 'oddfooting') {
-  $line_commands{$custom_heading_command} = 'line';
-}
-}
-
 # commands that do not take the whole line as argument
 #
 # skipspace:   no argument, following spaces are skipped.
@@ -608,7 +601,8 @@ our %other_commands = (
 # only valid in heading or footing
 our %in_heading_commands;
 foreach my $in_heading_command ('thischapter', 'thischaptername',
-  'thischapternum', 'thisfile', 'thispage', 'thistitle') {
+   'thischapternum', 'thissection', 'thissectionname', 'thissectionnum',
+   'thisfile', 'thispage', 'thistitle') {
   $in_heading_commands{$in_heading_command} = 1;
 
   $other_commands{$in_heading_command} = 'noarg';
@@ -618,6 +612,12 @@ our %headings_specification_commands;
 foreach my $headings_specification_command ('everyheading', 'everyfooting',
   'evenheading', 'evenfooting', 'oddheading', 'oddfooting') {
   $headings_specification_commands{$headings_specification_command} = 1;
+
+  # TODO set when the XS parser is ready
+  if (0) {
+  #if (1) {
+  $line_commands{$headings_specification_command} = 'line';
+  }
 }
 
 # only valid in index entries
@@ -1112,7 +1112,7 @@ foreach my $command (
 }
 
 
-# functions for main program
+# functions for main program.  Should not be called in user-defined code.
 
 # file:        file name to locate. It can be a file path.
 # directories: a reference on a array containing a list of directories to
@@ -1227,7 +1227,8 @@ sub output_files_unclosed_files($)
 # end of output_files API
 
 
-# functions used in main program, parser and structuring
+# functions used in main program, parser and structuring.
+# Not supposed to be called in user-defined code.
 
 sub warn_unknown_language($) {
   my $lang = shift;
@@ -1695,9 +1696,49 @@ sub count_bytes($$;$)
   #}
 }
 
+# custom heading command line is split at @|
+sub split_custom_heading_command_contents($)
+{
+  my $contents = shift;
+
+  my $result = [];
+
+  my $nr_split_contents = 0;
+
+  my @contents = @$contents;
+
+  trim_spaces_comment_from_content(\@contents);
+
+  if (scalar(@contents) == 0) {
+    # or undef?
+    return $result;
+  }
+
+  push @$result, [];
+
+  while (scalar(@contents)) {
+    my $current_content = $contents[0];
+    print STDERR "$nr_split_contents ".scalar(@contents).": ".debug_print_element_short($current_content)."\n";
+    if (defined($current_content->{'cmdname'})
+        and $current_content->{'cmdname'} eq '|') {
+      shift @contents;
+      push @$result, [];
+      $nr_split_contents++;
+      if ($nr_split_contents >= 2) {
+        last;
+      }
+    } else {
+      push @{$result->[-1]}, shift @contents;
+    }
+  }
+  push @{$result->[-1]}, @contents;
+
+  return $result;
+}
+
 sub find_parent_root_command($$)
 {
-  my $parser = shift;
+  my $self = shift;
   my $current = shift;
 
   my $root_command;
@@ -1706,11 +1747,12 @@ sub find_parent_root_command($$)
       if ($root_commands{$current->{'cmdname'}}) {
         return $current;
       } elsif ($region_commands{$current->{'cmdname'}}) {
-        if ($current->{'cmdname'} eq 'copying' and $parser
-            and $parser->{'extra'} and $parser->{'extra'}->{'insertcopying'}) {
-          foreach my $insertcopying(@{$parser->{'extra'}->{'insertcopying'}}) {
+        if ($current->{'cmdname'} eq 'copying' and $self
+            and $self->{'global_commands'}
+            and $self->{'global_commands'}->{'insertcopying'}) {
+          foreach my $insertcopying(@{$self->{'global_commands'}->{'insertcopying'}}) {
             my $root_command
-              = $parser->find_parent_root_command($insertcopying);
+              = $self->find_parent_root_command($insertcopying);
             return $root_command if (defined($root_command));
           }
         } else {
@@ -1822,6 +1864,10 @@ sub _collect_references($$)
 # functions useful for Texinfo tree transformations
 # and some tree transformations functions, mostly those
 # used in conversion to main output formats.
+
+# Some helper functions defined here are used in other
+# modules but are not generally useful in converters
+# and therefore not public.
 
 # TODO
 # also recurse into
@@ -2340,6 +2386,8 @@ sub relate_index_entries_to_table_entries_in_tree($)
 # register a label, that is something that may be the target of a reference
 # and must be unique in the document.  Corresponds to @node, @anchor and
 # @float second arg.
+# This is common to different module, that's why it is here, but it is
+# no meant to be used in other codes.
 sub register_label($$$)
 {
   my ($targets_list, $current, $label) = @_;
@@ -2354,10 +2402,15 @@ sub register_label($$$)
 # functions used for debugging
 
 # for debugging.  May be used in other modules.
-sub debug_print_element_short($) {
+sub debug_print_element_short($)
+{
   my $current = shift;
+
+  if (!defined($current)) {
+    return "debug_print_element_simply: UNDEF\n";
+  }
   if (ref($current) ne 'HASH') {
-    return  "debug_print_element_simply: $current not a hash\n";
+    return "debug_print_element_simply: $current not a hash\n";
   }
   my $type = '';
   my $cmd = '';
@@ -2502,9 +2555,8 @@ Texinfo::Common - Classification of commands and miscellaneous methods
 
 =head1 DESCRIPTION
 
-Texinfo::Common holds interesting hashes classifying Texinfo @-commands,
-as well as miscellaneous methods that may be useful for backends
-converting texinfo trees.
+Texinfo::Common holds hashes with miscellaneous information and hashes
+classifying Texinfo @-commands, as well as miscellaneous methods.
 
 =head1 MISC INFORMATIONS
 
@@ -2512,7 +2564,6 @@ Hashes are defined as C<our> variables, and are therefore available
 outside of the module.
 
 TODO: undocumented
-
 %null_device_file %default_parser_customization_values %document_settable_multiple_at_commands %document_settable_unique_at_commands %default_converter_command_line_options %default_main_program_customization_options %default_converter_customization @variable_string_settables %document_settable_at_commands %def_map %command_index %close_paragraph_commands %command_structuring_level %level_to_structuring_command
 
 =over
@@ -2599,6 +2650,15 @@ C<@cindex>.
 
 @-commands associated with raw output format, like C<@html>, or
 C<@docbook>.
+
+=item %headings_specification_commands
+
+@-commands used to specify custom headings, like C<@everyheading>.
+
+=item %in_heading_commands
+
+Special @-commands appearing in custom headings, such as C<@thischapter>
+or C<@thistitle>.
 
 =item %inline_commands
 
@@ -2691,88 +2751,7 @@ C<@cite>, C<@code> or C<@asis>.
 
 No method is exported in the default case.
 
-Most methods takes a I<$converter> as argument, sometime optionally,
-to get some information and use methods for error reporting,
-see L<Texinfo::Convert::Converter> and L<Texinfo::Report>.
-
 =over
-
-=item $result = element_is_inline($element, $check_current)
-
-Return true if the element passed in argument is in running text
-context.  If the optional I<$check_current> argument is set,
-check the element itself, in addition to the parent context.
-
-=item $result = is_content_empty($tree, $do_not_ignore_index_entries)
-
-Return true if the I<$tree> has content that could be formatted.
-I<$do_not_ignore_index_entries> is optional.  If set, index entries
-are considered to be formatted.
-
-=item $text = enumerate_item_representation($specification, $number)
-
-This function returns the number or letter correponding to item
-number I<$number> for an C<@enumerate> specification I<$specification>,
-appearing on an C<@enumerate> line.  For example
-
-  enumerate_item_representation('c', 3)
-
-is C<e>.
-
-=item trim_spaces_comment_from_content($contents)
-
-Remove empty spaces after commands or braces at begin and
-spaces and comments at end from a content array, modifying it.
-
-=item $normalized_name = normalize_top_node_name ($node_string)
-
-Normalize the node name string given in argument, by normalizing
-Top node case.
-
-=item protect_comma_in_tree($tree)
-
-Protect comma characters, replacing C<,> with @comma{} in tree.
-
-=item protect_colon_in_tree($tree)
-
-=item protect_node_after_label_in_tree($tree)
-
-Protect colon with C<protect_colon_in_tree> and characters that
-are special in node names after a label in menu entries (tab
-dot and comma) with C<protect_node_after_label_in_tree>.
-The protection is achieved by putting protected characters
-in C<@asis{}>.
-
-=item $contents_result = protect_first_parenthesis ($contents)
-
-Return a contents array reference with first parenthesis in the
-contents array reference protected.
-
-=item protect_hashchar_at_line_beginning($registrar, $configuration_informations, $tree)
-
-Protect hash character at beginning of line if the line is a cpp
-line directive.  The I<$registrar> and I<$configuration_informations>
-arguments may be undef, if they are defined they are used for
-error reporting in case an hash character could not be protected
-because it appeared in a raw environment.
-
-=item move_index_entries_after_items_in_tree($tree)
-
-In C<@enumerate> and C<@itemize> from the tree, move index entries
-appearing just before C<@item> after the C<@item>.  Comment lines
-between index entries are moved too.
-
-=item $command = find_parent_root_command($parser, $tree_element)
-
-Find the parent root command of a tree element (sectioning command or node).
-The C<$parser> argument is optional, it is used to continue
-through C<@insertcopying> if in a C<@copying>.
-
-=item valid_tree_transformation($name)
-
-Return true if the I<$name> is a known tree transformation name
-that may be passed with C<TREE_TRANSFORMATIONS> to modify a texinfo
-tree.
 
 =item collect_commands_in_tree($tree, $commands_list)
 
@@ -2787,6 +2766,100 @@ Return a list reference containing the tree elements corresponding
 to the @-commands names specified in the I<$commands_list> found
 in I<$tree> by traversing the tree.  The order of the @-commands
 should be kept.
+
+=item $result = element_is_inline($element, $check_current)
+
+Return true if the element passed in argument is in running text
+context.  If the optional I<$check_current> argument is set,
+check the element itself, in addition to the parent context.
+
+=item $text = enumerate_item_representation($specification, $number)
+
+This function returns the number or letter correponding to item
+number I<$number> for an C<@enumerate> specification I<$specification>,
+appearing on an C<@enumerate> line.  For example
+
+  enumerate_item_representation('c', 3)
+
+is C<e>.
+
+=item $command = find_parent_root_command($object, $tree_element)
+
+Find the parent root command of a tree element (sectioning command or node).
+The I<$object> argument is optional, its C<global_commands> field is used
+to continue through C<@insertcopying> if in a C<@copying>.
+
+=item $result = is_content_empty($tree, $do_not_ignore_index_entries)
+
+Return true if the I<$tree> has content that could be formatted.
+I<$do_not_ignore_index_entries> is optional.  If set, index entries
+are considered to be formatted.
+
+=item move_index_entries_after_items_in_tree($tree)
+
+In C<@enumerate> and C<@itemize> from the tree, move index entries
+appearing just before C<@item> after the C<@item>.  Comment lines
+between index entries are moved too.
+
+=item $normalized_name = normalize_top_node_name ($node_string)
+
+Normalize the node name string given in argument, by normalizing
+Top node case.
+
+=item protect_colon_in_tree($tree)
+
+=item protect_node_after_label_in_tree($tree)
+
+Protect colon with C<protect_colon_in_tree> and characters that
+are special in node names after a label in menu entries (tab
+dot and comma) with C<protect_node_after_label_in_tree>.
+The protection is achieved by putting protected characters
+in C<@asis{}>.
+
+=item protect_comma_in_tree($tree)
+
+Protect comma characters, replacing C<,> with @comma{} in tree.
+
+=item $contents_result = protect_first_parenthesis ($contents)
+
+Return a contents array reference with first parenthesis in the
+contents array reference protected.
+
+=item protect_hashchar_at_line_beginning($registrar, $configuration_informations, $tree)
+
+Protect hash character at beginning of line if the line is a cpp
+line directive.  The I<$registrar> and I<$configuration_informations>
+arguments may be undef, if they are defined they are used for
+error reporting in case an hash character could not be protected
+because it appeared in a raw environment.
+
+=item relate_index_entries_to_table_entries_in_tree($tree)
+
+In @*table @-commands, reassociate the index entry information from an index
+@-command appearing right after an @item line to the @item first element.
+Remove the index @-command from the tree.
+
+=item $split_contents split_custom_heading_command_contents($contents)
+
+Split the I<$contents> array reference at C<@|> in at max three parts.
+Return an array reference containing the split parts.  The I<$contents>
+array reference is supposed to be C<< $element->{'args'}->[0]->{'contents'} >>
+of C<%headings_specification_commands> commands such as C<@everyheading>.
+
+=item trim_spaces_comment_from_content($contents)
+
+Remove empty spaces after commands or braces at begin and
+spaces and comments at end from a content array, modifying it.
+
+=item valid_option($name)
+
+Return true if the I<$name> is a known customization option.
+
+=item valid_tree_transformation($name)
+
+Return true if the I<$name> is a known tree transformation name
+that may be passed with C<TREE_TRANSFORMATIONS> to modify a texinfo
+tree.
 
 =back
 

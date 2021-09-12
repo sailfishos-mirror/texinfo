@@ -139,7 +139,78 @@ $result_trees{'settitle_and_headings'} = {
         }
       ],
       'cmdname' => 'chapter',
-      'contents' => [],
+      'contents' => [
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'args' => [
+            {
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'misc_arg'
+            }
+          ],
+          'cmdname' => 'page',
+          'parent' => {}
+        },
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => 'More text
+'
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
+        },
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'args' => [
+            {
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'misc_arg'
+            }
+          ],
+          'cmdname' => 'page',
+          'parent' => {}
+        },
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => 'Another page
+'
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
+        }
+      ],
       'extra' => {
         'spaces_before_argument' => ' '
       },
@@ -171,6 +242,18 @@ $result_trees{'settitle_and_headings'}{'contents'}[0]{'contents'}[4]{'parent'} =
 $result_trees{'settitle_and_headings'}{'contents'}[0]{'parent'} = $result_trees{'settitle_and_headings'};
 $result_trees{'settitle_and_headings'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'settitle_and_headings'}{'contents'}[1]{'args'}[0];
 $result_trees{'settitle_and_headings'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'settitle_and_headings'}{'contents'}[1];
+$result_trees{'settitle_and_headings'}{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'settitle_and_headings'}{'contents'}[1];
+$result_trees{'settitle_and_headings'}{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'settitle_and_headings'}{'contents'}[1]{'contents'}[1];
+$result_trees{'settitle_and_headings'}{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'settitle_and_headings'}{'contents'}[1];
+$result_trees{'settitle_and_headings'}{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'settitle_and_headings'}{'contents'}[1];
+$result_trees{'settitle_and_headings'}{'contents'}[1]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'settitle_and_headings'}{'contents'}[1]{'contents'}[3];
+$result_trees{'settitle_and_headings'}{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'settitle_and_headings'}{'contents'}[1];
+$result_trees{'settitle_and_headings'}{'contents'}[1]{'contents'}[4]{'parent'} = $result_trees{'settitle_and_headings'}{'contents'}[1];
+$result_trees{'settitle_and_headings'}{'contents'}[1]{'contents'}[5]{'args'}[0]{'parent'} = $result_trees{'settitle_and_headings'}{'contents'}[1]{'contents'}[5];
+$result_trees{'settitle_and_headings'}{'contents'}[1]{'contents'}[5]{'parent'} = $result_trees{'settitle_and_headings'}{'contents'}[1];
+$result_trees{'settitle_and_headings'}{'contents'}[1]{'contents'}[6]{'parent'} = $result_trees{'settitle_and_headings'}{'contents'}[1];
+$result_trees{'settitle_and_headings'}{'contents'}[1]{'contents'}[7]{'contents'}[0]{'parent'} = $result_trees{'settitle_and_headings'}{'contents'}[1]{'contents'}[7];
+$result_trees{'settitle_and_headings'}{'contents'}[1]{'contents'}[7]{'parent'} = $result_trees{'settitle_and_headings'}{'contents'}[1];
 $result_trees{'settitle_and_headings'}{'contents'}[1]{'parent'} = $result_trees{'settitle_and_headings'};
 
 $result_texis{'settitle_and_headings'} = '@setfilename settitle_and_headings.info
@@ -179,6 +262,14 @@ $result_texis{'settitle_and_headings'} = '@setfilename settitle_and_headings.inf
 @headings double
 
 @chapter chap
+
+@page
+
+More text
+
+@page
+
+Another page
 ';
 
 
@@ -186,6 +277,12 @@ $result_texts{'settitle_and_headings'} = '
 
 1 chap
 ******
+
+
+More text
+
+
+Another page
 ';
 
 $result_sectioning{'settitle_and_headings'} = {
@@ -212,9 +309,19 @@ $result_floats{'settitle_and_headings'} = {};
 
 
 $result_converted{'latex'}->{'settitle_and_headings'} = '
-\\GNUTexinfosetdoubleheader{Title \\leavevmode{}\\\\ for a manual}%
+\\GNUTexinfosetdoubleheader{}%
 
 \\chapter{chap}
+
+\\newpage{}%
+\\phantom{blabla}%
+
+More text
+
+\\newpage{}%
+\\phantom{blabla}%
+
+Another page
 ';
 
 1;

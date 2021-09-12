@@ -248,7 +248,7 @@ $result_converted{'latex'}->{'setchapternewpage_on_odd_titlepage'} = '\\makeatle
 in titlepage
 \\endgroup
 \\end{titlepage}
-\\GNUTexinfosetdoubleheader{No Title}%
+\\GNUTexinfosetdoubleheader{}%
 \\GNUTexinfomainmatter
 ';
 

@@ -41,6 +41,14 @@ my @file_tests = (
 @headings double
 
 @chapter chap
+
+@page
+
+More text
+
+@page
+
+Another page
 '],
 # default case
 ['titlepage_and_headings',
@@ -55,7 +63,7 @@ in titlepage
 # what happens for real documents, as in real documents,
 # LaTeX default (start chapter on odd page) is switched
 # to Texinfo default (@setchapternewpage on).  With 'file_latex',
-# the correspond to the actual output
+# they correspond to the actual output
 ['titlepage_and_setchapternewpage_odd',
 '@setfilename titlepage_and_setchapternewpage_odd.info
 
@@ -117,6 +125,48 @@ in titlepage
 in titlepage
 @end titlepage
 '],
+['custom_headings',
+'@setfilename custom_headings.info
+
+@evenheading @thispage @thissectionname @| @thissectionnum @thissection @| @thischaptername @thischapternum
+@evenfooting @thischapter @thistitle @| @thisfile @| @code{@thischaptername}
+
+@node Top
+@top top sectionning
+
+@node chapter
+@chapter ch--ap
+
+@page
+
+after ch--ap first page
+
+@page
+
+after ch--ap second page
+
+@section sec1
+
+@chapter chap 2
+
+@everyheading toto @| titi
+
+@page
+
+after everyheading before chap 3 first page
+
+@page
+
+after everyheading before chap 3 second page
+
+@chapter chap 3
+
+@page
+
+@everyfooting aa @| bb @| cc @| dd
+
+'
+],
 ['titlepage_in_top_node',
 '@setfilename titlepage_in_top_node.info
 
