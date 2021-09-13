@@ -712,6 +712,11 @@ $top_in_ref_text,
 {}, {'KEEP_TOP_EXTERNAL_REF' => 1}],
 );
 
+my @file_tests = (
+['simplest_no_node_section',
+undef, {'test_file' => 'simplest_no_node_section.texi'}
+],
+);
 
 my %info_tests = (
  'image_with_spaces' => 1,
@@ -758,8 +763,14 @@ foreach my $test (@html_text_cases) {
   push @{$test->[2]->{'test_formats'}}, 'html_text';
 }
 
+foreach my $test (@file_tests) {
+  push @{$test->[2]->{'test_formats'}}, 'file_html';
+  push @{$test->[2]->{'test_formats'}}, 'file_info';
+  push @{$test->[2]->{'test_formats'}}, ('file_xml', 'file_docbook', 'file_latex');
+}
+
 our ($arg_test_case, $arg_generate, $arg_debug);
-run_all ('converters_tests', [@test_cases, @html_text_cases],
+run_all ('converters_tests', [@test_cases, @html_text_cases, @file_tests],
    $arg_test_case, $arg_generate, $arg_debug);
 
 1;
