@@ -52,14 +52,14 @@
 # LaTeX, as, in addition to come from a possibly different margin,
 # the text is not filled at all in Texinfo, each line is left as is.
 # LaTeX flushleft and flushright are filled but not aligned.
-# 
+#
 # indentation in @example, @display... still needs to be done
 #
 # @indentedblock and @smallindentedblock
 #
 # @group should also be added together with the non filled environments.
 #
-# @need is implemented in a specific way, maybe there could be a 
+# @need is implemented in a specific way, maybe there could be a
 # definition of \mil instead.
 #
 # Nothing specific is done for @headings singleafter and @headings doubleafter
@@ -73,76 +73,91 @@
 # example titlepage_classical in t/latex_tests.t can show it.
 #
 # shorttitlepage in Texinfo TeX does not seem to break line.
-# Probably ok to do it
+# Probably ok.
 #
 # for external references it seems that Texinfo TeX points to
-# a file. 
+# a file, it could be relevant to do the same in LaTeX.
 #
-# Translations.   Need thinking.  In texi2any?  In LaTeX?  If in 
-# texi2any In general no need for something complex as gdt, as we 
-# can provide nice strings to be translated in LaTeX.
-# 
-# breaking in urls is not implemented, maybe there is some support
-# already in hyperref.  @urefbreakstyle, @/
-# 
-# Breaking in _ or - in @code is not implemented, as well as
-# @allowcodebreaks.
 #
-# The support of \global\urefurlonlylinktrue would be rather easy,
-# but maybe need to make it a proper @-command.  Similar for
-# \global\def\linkcolor and \global\def\urlcolor.  There are options
-# for colors in hyperref, like linkbordercolor but it is unlear whether
-# it can be used to distinguish links and urls.
+# Translations
 #
-# The @itemx in @*table are simply expanded as:
-# \item[key]
-# But this leads to to much spacing.  Even with setting nosep
-# enumitem option.
+# Need thinking.  In texi2any?  In LaTeX?  If in
+# texi2any in general no need for something as complex as gdt leading
+# to a Texinfo tree, as we can provide strings to be translated already in
+# LaTeX with the same property than Texinfo strings with LaTeX commands
+# allowing to be, to some extent, already not so dependent of the language
+# and/or encoding.
 #
-# There is something about form feeds to do.  There is some processing
-# of form feeds right now, which simply amounts to keeping them in
-# ignorable spaces (and with another condition that may not be relevant 
-# for LaTeX as the code comes from Plaintext). In the manual it is said
-# form feed (CTRL-l) characters in the input are handled as follows:
-#  in PDF/DVI
-#   In normal text, treated as ending any open paragraph; essentially ignored
-#   between paragraphs.
+# It seems that \chaptername doesn't become Appendix for a sectioning command
+# appearing after \appendix
 #
-# In the manual it is said that majorheading generates a larger 
-# vertical whitespace before the heading than @chapheading command.
-# It is not implemented.  However, it seems that the chapter level
-# commands in LaTeX generate bigger fonts and much more vertical whitespace
-# than in Texinfo TeX so maybe it is not needed to do something here.
+# command that could be used for translation \sectionname does not exist in the
+# default case.  it is defined in the pagenote package together with \pagename
+# which is page in the default case, but it is unclear if this can be used as a
+# basis for translations
 #
-# @fonttextsize with \changefontsize does not seems to change fonts much.
-# It seems to change in the text, but only 10pt, and does not seems to
-# change sections font sizes.
+#
+# breaking in urls is not implemented, maybe there is some support already in
+# hyperref.  @urefbreakstyle, @/
+#
+# Breaking in _ or - in @code is not implemented, as well as @allowcodebreaks.
+#
+# The support of \global\urefurlonlylinktrue would be rather easy, but maybe
+# need to make it a proper @-command.  Similarly \global\def\linkcolor and
+# \global\def\urlcolor should probably only implemented if there is a
+# corresponding @-command.  There are options for colors in hyperref, like
+# linkbordercolor but it is unlear whether it can be used to distinguish links
+# and urls.
+#
+# The @itemx in @*table are simply expanded as: \item[key] But this leads to
+# important vertical spacing, much more than in Texinfo TeX, and looks less
+# good.  Even with setting nosep enumitem option.
+#
+# There is something about form feeds to do.  There is some processing of form
+# feeds right now, which simply amounts to keeping them in ignorable spaces
+# (and with another condition that may not be relevant for LaTeX as the code
+# comes from Plaintext). In the manual it is said form feed (CTRL-l) characters
+# in the input are handled as follows: in PDF/DVI In normal text, treated as
+# ending any open paragraph; essentially ignored between paragraphs.
+#
+# In the manual it is said that majorheading generates a larger vertical
+# whitespace before the heading than @chapheading command.  It is not
+# implemented.  However, it seems that the chapter level commands in LaTeX
+# generate bigger fonts and much more vertical whitespace than in Texinfo TeX
+# so maybe it is not needed to do something here.
+#
+# @fonttextsize with \changefontsize does not seems to change fonts much.  It
+# seems to change in the text, but only 10pt, and does not seems to change
+# sections font sizes.
 #
 # The @afourpaper, @afourlatex and @afourwide commands all map to
-# papername=a4paper.  It is most likely ok for @afourlatex, but the other
-# two should be associated with other geometries.
+# papername=a4paper.  It is most likely ok for @afourlatex, but the other two
+# should be associated with other geometries.
 #
 # The \geometry command does not really reset the geometry after
-# \begin{document} according to the documentation, something else should
-# be used to switch paper definition.
+# \begin{document} according to the documentation, something else should be
+# used to switch paper definition after document begin if needed.  Not
+# necessarily a bad thing not to be able to change paper geometry after
+# the beginning of the document.
 #
-# @pagesizes uses \newgeometry which forgets about previous settings except
-# for paper size.  It could be a good thing to change geometry that way,
-# but it is not how Texinfo TeX does it.
+# @pagesizes uses \newgeometry which forgets about previous settings except for
+# paper size.  It could be a good thing to change geometry that way, but it is
+# not how Texinfo TeX does it.
 #
-# The environment used for @quotation is quote as it seems to match,
-# but the description of quote does not really match.
+# The environment used for @quotation is quote as it seems to match in term
+# of output, but the description of quote does not really match with what
+# is supposed to be the @quotation output.
 #
-# push a context for the formatting of @quotation @author, such that
-# if in a preformatted environment the @quotation @author formatting
-# will be the same as in the main text?
+# push a context for the formatting of @quotation @author, such that if in a
+# preformatted environment the @quotation @author formatting will be the same
+# as in the main text?
 #
 # Should @tie be expanded to ~?
 #
 # @dmn is not implemented
 #
-# index entry between @table and fist @item cause an empty \item[] to
-# be output.
+# index entry between @table and fist @item cause an empty \item[] to be
+# output.
 
 package Texinfo::Convert::LaTeX;
 
@@ -200,7 +215,7 @@ foreach my $informative_command (@informative_global_commands) {
 my %no_brace_commands = %Texinfo::Common::no_brace_commands;
 my %brace_no_arg_commands;
 foreach my $command (keys (%Texinfo::Common::brace_commands)) {
-  $brace_no_arg_commands{$command} = 1 
+  $brace_no_arg_commands{$command} = 1
     if ($Texinfo::Common::brace_commands{$command} eq '0');
 }
 my %accent_commands = %Texinfo::Common::accent_commands;
@@ -250,11 +265,11 @@ foreach my $def_command (keys(%def_commands)) {
 }
 
 # There are stacks that define the context.
-# style_context: for a whole context for style, for instance
-#                in a footnote.
-#       context: relevant for math versus text mode, raw
+# formatting_context: for a whole context, for instance in a
+#                footnote.
+#       text_context: relevant for math versus text mode, raw
 #                (no text protection) and preformatted. Inside
-#                style_context.
+#                formatting_context.
 
 
 my %block_raw_commands = %format_raw_commands;
