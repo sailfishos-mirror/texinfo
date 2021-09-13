@@ -3575,7 +3575,7 @@ should be e.: \\.{e} \\.{e}
 
 should be e*: \\r{e} \\r{e}
 
-should be ee[: \\t{ee}
+should be ee{[}: \\t{ee}
 
 should be e(: \\u{e} \\u{e}
 

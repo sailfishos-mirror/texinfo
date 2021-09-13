@@ -1718,7 +1718,8 @@ sub split_custom_heading_command_contents($)
 
   while (scalar(@contents)) {
     my $current_content = $contents[0];
-    print STDERR "$nr_split_contents ".scalar(@contents).": ".debug_print_element_short($current_content)."\n";
+    #print STDERR "$nr_split_contents ".scalar(@contents).": "
+    #          .debug_print_element_short($current_content)."\n";
     if (defined($current_content->{'cmdname'})
         and $current_content->{'cmdname'} eq '|') {
       shift @contents;
@@ -2581,7 +2582,7 @@ and C<plaintext>.
 
 =back
 
-=head1 COMMAND CLASSES
+=head1 @-COMMAND CLASSES
 
 Hashes are defined as C<our> variables, and are therefore available
 outside of the module.
@@ -2848,10 +2849,11 @@ Remove the index @-command from the tree.
 
 If not already set, set C<OUTPUT_ENCODING_NAME> based on input file
 encoding.  Also set C<OUTPUT_PERL_ENCODING> accordingly which is used
-to output in the correct encoding.  This should not be set directly by
-user-defined code such that it corresponds to C<OUTPUT_ENCODING_NAME>.
+to output in the correct encoding.  In general, C<OUTPUT_PERL_ENCODING>
+should not be set directly by user-defined code such that it corresponds
+to C<OUTPUT_ENCODING_NAME>.
 
-=item $split_contents split_custom_heading_command_contents($contents)
+=item $split_contents = split_custom_heading_command_contents($contents)
 
 Split the I<$contents> array reference at C<@|> in at max three parts.
 Return an array reference containing the split parts.  The I<$contents>

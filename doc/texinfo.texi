@@ -7809,6 +7809,7 @@ any cross-referencing will simply use a bare number.
 @item label
 Specifies a cross-reference label for this float.  If given, this
 float is automatically given a number, and will appear in any
+@c TODO LaTeX: figure only appears in the @listoffloats if there is a caption
 @code{@@listoffloats} output (@pxref{@code{@@listoffloats}}).  Cross
 references to @var{label} are allowed.  For example,
 @samp{see @@ref@{fig:ex1@}} will produce see @ref{fig:ex1}.

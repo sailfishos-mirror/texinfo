@@ -1,4 +1,12 @@
-2021-09-14  Patrice Dumas  <pertusus@free.fr>
+2021-09-13  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/LaTeX.pm: protect [ and ] with braces as they
+	could be interpreted as LaTeX macros optional argument delimiters
+	in some contexts.  Do not use framemethod=TikZ for mdframed for
+	the case of generated \fbox in sectioning command leading to a
+	failure.  Close preformatted before @listofloat and reopen after.
+
+2021-09-13  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Common.pm (_substitute_references): rename
 	substitute_references() as _substitute_references(). 

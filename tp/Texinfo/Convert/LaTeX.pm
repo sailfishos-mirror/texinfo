@@ -1116,7 +1116,10 @@ sub _latex_header {
   # needspace for \needspace. In texlive-latex-extra in debian
   # etoolbox for \patchcmd and \ifstrempty. In texlive-latex-recommended in debian
   # fontsize for \changefontsize. In texlive-latex-extra in debian
-  # mdframed for the formatting of @cartouche
+  # mdframed is used for the formatting of @cartouche.
+  # framemethod=TikZ is needed for roundcorner, but there
+  # is an issue with \fbox in sectioning commands when hyperref and imakeidx
+  # are present too.  No round corners for now for @cartouche.
   # \usepackage[linkbordercolor={0 0 0}]{hyperref}
   # titleps is used and not fancyhdr as with fancyhdr it is hard to get
   # the section or chapter title
@@ -1130,8 +1133,7 @@ sub _latex_header {
 \usepackage{graphicx}
 \usepackage{needspace}
 \usepackage{etoolbox}
-% a framemethod is needed for roundcorner
-\usepackage[framemethod=TikZ]{mdframed}
+\usepackage{mdframed}
 \usepackage{fontsize}
 \usepackage{enumitem}
 \usepackage{geometry}
@@ -1331,6 +1333,9 @@ sub _protect_text($$)
     $text =~ s/([#%&{}_\$])/\\$1/g;
     $text =~ s/~/\\~{}/g;
     $text =~ s/\^/\\^{}/g;
+    # in general [ and ] are literal.  But in some cases they will
+    # be interpreted as delimiter for optional LaTeX macros arguments, so protect
+    $text =~ s/([\]\[])/{$1}/g;
 
     $text =~ s/\x08/\\textbackslash{}/g;
     if ($self->{'formatting_context'}->[-1]->{'index'}) {
@@ -2754,11 +2759,17 @@ sub _convert($$)
           return $result;
         }
         my $latex_float_name = $self->{'normalized_float_latex'}->{$normalized_float_type};
+        # a listoffigures in @example leads to an error in the
+        # lof file.  So stop and restart preformatted environments
+        $preformatted_to_reopen
+            = [@{$self->{'formatting_context'}->[-1]->{'preformatted_context'}}];
+        $result .= _close_preformatted_stack($self, $preformatted_to_reopen);
         if (exists($LaTeX_floats{$latex_float_name})) {
           $result .= $LaTeX_floats{$latex_float_name}."\n";
         } else {
           $result .= "\\listof{$latex_float_name}{}\n";
         }
+        $result .= _open_preformatted_stack($self, $preformatted_to_reopen);
       }
       return $result;
     } elsif ($cmdname eq 'page') {
