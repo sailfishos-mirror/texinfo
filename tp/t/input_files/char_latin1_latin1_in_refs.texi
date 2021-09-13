@@ -1,6 +1,6 @@
 \input texinfo
 
-@setfilename char_latin1_utf8_in_refs.info
+@setfilename char_latin1_latin1_in_refs.info
 
 @documentencoding iso-8859-1
 

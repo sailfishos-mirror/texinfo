@@ -145,8 +145,11 @@ $\frac{a < b @code{tex \hbox{ code }}}{b}$ ``
 @end latex
 ';
 
+# do not only use @node Top as it is ignored in LaTeX output
 my $top_in_ref_text = 
 '@node Top
+
+@node refs node
 
 @code{@@ref@{Top,cross ref name@}} @ref{Top,cross ref name}
 @code{@@ref@{Top,,title@}} @ref{Top,,title}
@@ -1123,7 +1126,7 @@ foreach my $test (@file_tests) {
   push @{$test->[2]->{'test_formats'}}, 'file_html';
   push @{$test->[2]->{'test_formats'}}, 'file_info';
   if ($xml_file_tests{$test->[0]}) {
-    push @{$test->[2]->{'test_formats'}}, ('file_xml', 'file_docbook');
+    push @{$test->[2]->{'test_formats'}}, ('file_xml', 'file_docbook', 'file_latex');
   }
 }
 

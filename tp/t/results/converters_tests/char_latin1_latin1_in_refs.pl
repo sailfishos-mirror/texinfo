@@ -39,7 +39,7 @@ $result_trees{'char_latin1_latin1_in_refs'} = {
               'contents' => [
                 {
                   'parent' => {},
-                  'text' => 'char_latin1_utf8_in_refs.info'
+                  'text' => 'char_latin1_latin1_in_refs.info'
                 }
               ],
               'extra' => {
@@ -53,7 +53,7 @@ $result_trees{'char_latin1_latin1_in_refs'} = {
           'cmdname' => 'setfilename',
           'extra' => {
             'spaces_before_argument' => ' ',
-            'text_arg' => 'char_latin1_utf8_in_refs.info'
+            'text_arg' => 'char_latin1_latin1_in_refs.info'
           },
           'line_nr' => {
             'file_name' => 'char_latin1_latin1_in_refs.texi',
@@ -1626,7 +1626,7 @@ $result_trees{'char_latin1_latin1_in_refs'}{'contents'}[13]{'parent'} = $result_
 
 $result_texis{'char_latin1_latin1_in_refs'} = '\\input texinfo
 
-@setfilename char_latin1_utf8_in_refs.info
+@setfilename char_latin1_latin1_in_refs.info
 
 @documentencoding iso-8859-1
 

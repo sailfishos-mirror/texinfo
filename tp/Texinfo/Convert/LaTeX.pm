@@ -1050,6 +1050,7 @@ sub convert_tree($$)
 
 my %LaTeX_encoding_names_map = (
   'utf-8' => 'utf8',
+  'iso-8859-1' => 'latin1',
 );
 
 # book or report?
