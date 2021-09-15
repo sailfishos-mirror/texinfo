@@ -137,9 +137,6 @@ EMACS = ${GS}/emacs/manual
 emacs		mono	${EMACS}/html_mono/emacs.html
 emacs		node	${EMACS}/html_node/emacs/
  #
- ada-mode	mono	${EMACS}/html_mono/ada-mode.html
- ada-mode	node	${EMACS}/html_node/ada-mode/
- #
  autotype	mono	${EMACS}/html_mono/autotype.html
  autotype	node	${EMACS}/html_node/autotype/
  #
@@ -226,7 +223,7 @@ emacs		node	${EMACS}/html_node/emacs/
  #
  woman		mono	${EMACS}/html_mono/woman.html
  woman		node	${EMACS}/html_node/woman/
- # (end emacs manuals)
+ # (end emacs manuals in EMACS)
 
 easejs		mono	${GS}/easejs/manual/easejs.html
 easejs		node	${GS}/easejs/manual/
@@ -235,6 +232,8 @@ emacs-muse	node	${GS}/emacs-muse/manual/muse.html
 emacs-muse	node	${GS}/emacs-muse/manual/html_node/
 
 emms		node	${GS}/emms/manual/
+
+ada-mode	mono	https://www.nongnu.org/ada-mode/ada-mode.html
 
 findutils	mono	${GS}/findutils/manual/html_mono/find.html
 findutils	node	${GS}/findutils/manual/html_node/find_html
