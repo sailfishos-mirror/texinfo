@@ -778,8 +778,8 @@ kdbinputstyle_invalid:
     case CM_headings:
       {
         if (!strcmp (line, "off") || !strcmp (line, "on")
-            || !strcmp (line, "double") || !strcmp (line, "singleafter")
-            || !strcmp (line, "doubleafter"))
+            || !strcmp (line, "single") || !strcmp (line, "double")
+            || !strcmp (line, "singleafter") || !strcmp (line, "doubleafter"))
           {
             ADD_ARG(line);
           }

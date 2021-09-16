@@ -1,3 +1,9 @@
+2021-09-16  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/XS/parsetexi/end_line.c (parse_line_command_args)
+	<@headings>: Add missing option value 'single'.  Report from
+	Sergei Trofimovich <slyich@gmail.com>.
+
 2021-09-13  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/LaTeX.pm: protect [ and ] with braces as they
