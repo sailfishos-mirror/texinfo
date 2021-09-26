@@ -1,3 +1,13 @@
+2021-09-26  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	Fix page break between @verbatim environment and @image
+
+	* doc/texinfo.tex (\image): Do not add an initial \nobreak before
+	the image as this blocks a page break after a preceding @verbatim
+	environment, causing breaking before the final line of the
+	environment instead.  Report from Werner Lemberg.
+	* doc/texinfo-tex-test.texi (Images): Add test case.
+
 2021-09-16  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/XS/parsetexi/end_line.c (parse_line_command_args)

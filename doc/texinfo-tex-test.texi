@@ -118,6 +118,61 @@ third third third third third third third third third third
 
 (check no paragraph indent on first paragraph above, after image)
 
+@page
+
+Check page break occurs between example and image
+
+@example
+line
+line
+line
+line
+line
+line
+line
+line
+line
+line
+line
+line
+line
+line
+line
+line
+line
+line
+line
+line
+line
+line
+line
+line
+line
+line
+line
+line
+line
+line
+line
+line
+line
+line
+line
+line
+line
+line
+line
+line
+line
+line
+line
+line
+line
+@end example
+
+
+@image{image}
+
 @paragraphindent 0
 
 @chapter Macros
