@@ -1,5 +1,11 @@
 2021-10-11  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/texi2any.pl (_get_converter_default): use existing variable name.
+	* tp/Texinfo/Common.pm (%default_converter_command_line_options):
+	reindent.
+
+2021-10-11  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Config.pm (GNUT_set_from_cmdline): avoid function
 	name in warning message. Gavin report.
 

@@ -185,20 +185,24 @@ our %default_converter_command_line_options = (
   # only in HTML
   'TRANSLITERATE_FILE_NAMES' => 1,   # --transliterate-file-names
   'SPLIT'                => undef,   # --split
-  'HEADERS'              => 1,       # --headers.  Used to set diverse customization options
-                                     # in main program.  Only directly used in HTML converter
+  'HEADERS'              => 1,       # --headers.  Used to set diverse
+                                     # customization options in main program.
+                                     # Only directly used in HTML converter
   'NODE_FILES'           => undef,   # --node-files.  Depend on SPLIT
   'VERBOSE'              => undef,   # --verbose
   'OUTFILE'              => undef,   # --output    If non split and not ending by /.
                                      # Setting can be format dependent
   'SUBDIR'               => undef,   # --output    If split or ending by /.
                                      # Setting can be format dependent
-  'ENABLE_ENCODING'      => undef,   # --disable-encoding/--enable-encoding.  The documentation
-                                     # only mentions Info and plain text, but the option is used
-                                     # in many formats, with differing defaults.  The default expected
-                                     # by the converters is to be unset, although for Info and
-                                     # plain text, default is set.  If set, it is set in the formats
-                                     # converter defaults.
+  'ENABLE_ENCODING'      => undef,   # --disable-encoding/--enable-encoding.
+                                     # The documentation only mentions Info and
+                                     # plain text, but the option is used
+                                     # in many formats, with differing defaults.
+                                     # The default expected by the converters
+                                     # is to be unset, although for Info and
+                                     # plain text, default is set.  If set,
+                                     # it is set in the formats converter
+                                     # defaults.
 );
 
 # used in main program, defaults documented in manual

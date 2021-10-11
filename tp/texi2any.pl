@@ -593,8 +593,8 @@ sub handle_errors($$$)
 sub _get_converter_default($)
 {
   my $option = shift;
-  if (defined($Texinfo::Common::documented_converter_default_command_line{$option})) {
-    return $Texinfo::Common::documented_converter_default_command_line{$option};
+  if (defined($Texinfo::Common::default_converter_command_line_options{$option})) {
+    return $Texinfo::Common::default_converter_command_line_options{$option};
   } elsif (defined($Texinfo::Common::document_settable_multiple_at_commands{$option})) {
     return $Texinfo::Common::document_settable_multiple_at_commands{$option};
   } #elsif (defined(%Texinfo::Common::document_settable_unique_at_commands{$option})) {
