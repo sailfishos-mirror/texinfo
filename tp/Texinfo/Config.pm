@@ -155,8 +155,8 @@ sub GNUT_set_from_cmdline($$)
   delete $init_files_options->{$var};
   delete $main_program_default_options->{$var};
   if (!Texinfo::Common::valid_option($var)) {
-    _GNUT_document_warn(sprintf(__("%s: unknown variable %s\n"),
-                          'GNUT_set_from_cmdline', $var));
+    _GNUT_document_warn(sprintf(__("unknown variable from command line: %s\n"),
+                               $var));
     return 0;
   }
   $cmdline_options->{$var} = $value;

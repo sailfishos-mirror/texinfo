@@ -1,3 +1,8 @@
+2021-10-11  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Config.pm (GNUT_set_from_cmdline): avoid function
+	name in warning message. Gavin report.
+
 2021-09-26  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	Fix page break between @verbatim environment and @image
