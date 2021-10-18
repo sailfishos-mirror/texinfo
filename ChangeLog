@@ -1,3 +1,8 @@
+2021-10-18  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.texi (Master Menu Parts, @pxref, @top command):
+	Spelling and grammar fixes.  From Benno.
+
 2021-10-11  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/texi2any.pl (_get_converter_default): use existing variable name.
