@@ -1,3 +1,9 @@
+2021-11-01  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* doc/texinfo.texi (\L, \l): Add definitions using European
+	Computer Modern fonts so that they work correctly in a fixed-width
+	font.  Report from Karl.
+
 2021-10-18  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.texi (Master Menu Parts, @pxref, @top command):
