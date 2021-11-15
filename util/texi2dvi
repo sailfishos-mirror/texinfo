@@ -74,7 +74,7 @@ newline='
 '
 IFS="$space$tab$newline"
 
-: ${EGREP=egrep}
+: ${EGREP=grep -E}
 
 # Systems which define $COMSPEC or $ComSpec use semicolons to separate
 # directories in TEXINPUTS -- except for Cygwin and Msys, where COMSPEC

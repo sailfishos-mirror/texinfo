@@ -1,7 +1,7 @@
 # Makefile to build Texinfo from the Perl POD documentation,
 # using pod2texi.
 #
-# Copyright 2013-2019 Free Software Foundation, Inc.
+# Copyright 2013-2021 Free Software Foundation, Inc.
 # 
 # This file is free software; as a special exception the author gives
 # unlimited permission to copy and/or distribute it, with or without
@@ -61,7 +61,7 @@ $(texi_pod_doc_incl): $(perl_pod_subdir)/*.pod
 	cd $(perl_pod_subdir) \
 	&& perl -p -i.bak -e 's,X<.*?>>?,,g' *.pod \
 	&& $(pod2texi) -o $@ $(pod2texi_args) \
-	  `ls *.pod | egrep -v "(delta|unicook)"` \
+	  `ls *.pod | grep -Ev "(delta|unicook)"` \
 	&& mv $(texi_pod_subdir) $@ ../..
 
 # updating on www.gnu.org.  We do not install the split HTML files

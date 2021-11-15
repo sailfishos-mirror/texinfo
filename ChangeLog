@@ -1,3 +1,16 @@
+2021-11-15 Ville Skyttä <ville.skytta@iki.fi>  (tiny change):
+
+	No egrep or fgrep
+
+	* README-hacking, contrib/gen-dir-node,
+	contrib/perldoc-all/GNUmakefile,install-info/tests/defs.in,
+	util/texi2dvi:
+
+	Change use of egrep and fgrep to grep -E and grep -F.
+	'egrep' and 'fgrep' have been deprecated in GNU grep since
+	2007, and in current post 3.7 Git they have been made to emit
+	obsolescence warnings.
+
 2021-11-01  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.texi (\L, \l): Add definitions using European

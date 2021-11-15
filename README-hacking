@@ -295,7 +295,7 @@ gnupload --to ftp.gnu.org:texinfo !$
 update home page (texinfo.html) and commit as needed.
 including:
   pod2html $txi/Pod-Simple-Texinfo/pod2texi.pl \
-  | fgrep -v 'rev="made"' >manual/pod2texi.html
+  | grep -Fv 'rev="made"' >manual/pod2texi.html
 
 Build web documentation with
   make -C doc wwwdoc-build
