@@ -1,3 +1,8 @@
+2021-11-24  Ken Brown <kbrown@cornell.edu>
+
+	* tp/Texinfo/XS/Makefile.am: Reference gnulib libraries when
+	building MiscXS.la library.
+
 2021-11-24  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	install-info avoid accessing freed memory
