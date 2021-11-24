@@ -1,3 +1,16 @@
+2021-11-24  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	install-info avoid accessing freed memory
+
+	* install-info/install-info.c
+	(reformat_new_entries): Do not free a string.  This avoids
+	referencing freed memory in case the input was found to be
+	malformed in format_entry.
+	(format_entry): If entry is not malformed, free output argument
+	before assigning to it.
+	
+	Report and investigation from Brendan O'Dea.
+
 2021-11-15 Ville Skyttä <ville.skytta@iki.fi>  (tiny change):
 
 	No egrep or fgrep

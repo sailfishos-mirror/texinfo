@@ -1542,6 +1542,7 @@ format_entry (char *name, size_t name_len, char *desc, size_t desc_len,
   if (offset_out)
     strncat (outstr, line_out, offset_out);
 
+  free (*outstr_out);
   *outstr_out = outstr;
   *outstr_len = strlen (outstr);
   return 1;
@@ -1657,7 +1658,6 @@ reformat_new_entries (struct spec_entry *entries, int calign_cli, int align_cli,
       char *name = NULL, *desc = NULL;
       size_t name_len = 0, desc_len = 0;
       split_entry (entry->text, &name, &name_len, &desc, &desc_len);
-      free (entry->text);
 
       /* Specify sane defaults if we need to */
       if (calign_cli == -1 || align_cli == -1)
