@@ -3631,7 +3631,7 @@ DECLARE_INFO_COMMAND (info_display_file_info,
 {
   if (window->node->fullpath && *window->node->fullpath)
     {
-      int line = window_line_of_point (window);
+      int line = window_line_of_point (window) + 1;
       window_message_in_echo_area ("File name: %s, line %d of %ld (%ld%%)",
                                    window->node->subfile
                                    ? window->node->subfile

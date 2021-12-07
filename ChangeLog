@@ -1,3 +1,9 @@
+2021-12-07  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* info/session.c (info_display_file_info): Add 1 to line number so
+	that the first line is reported as line 1 rather than line 0 and that
+	the last line is reported as 100% through the node.
+
 2021-11-24  Ken Brown <kbrown@cornell.edu>
 
 	* tp/Texinfo/XS/Makefile.am: Reference gnulib libraries when
