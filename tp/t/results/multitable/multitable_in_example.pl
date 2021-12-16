@@ -402,12 +402,13 @@ $result_converted{'plaintext'}->{'multitable_in_example'} = '     truc  bidule e
 
 $result_converted{'html_text'}->{'multitable_in_example'} = '<div class="example">
 <table>
-<tr><td><pre class="example">truc</pre></td><td><pre class="example">bidule example</pre></td></tr>
+<tbody><tr><td><pre class="example">truc</pre></td><td><pre class="example">bidule example</pre></td></tr>
 <tr><td><pre class="example">begin item example
 
 new paragraph in item. example</pre></td><td><pre class="example">begin tab example
 
 new paragraph in tab. example</pre></td></tr>
+</tbody>
 </table>
 </div>
 ';

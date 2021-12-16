@@ -357,7 +357,7 @@ item. tab.
 
 
 $result_converted{'html_text'}->{'paragraph_in_cells'} = '<table>
-<tr><td>truc</td><td>bidule</td></tr>
+<tbody><tr><td>truc</td><td>bidule</td></tr>
 <tr><td>begin item
 
 <p>new paragraph in item.
@@ -365,6 +365,7 @@ $result_converted{'html_text'}->{'paragraph_in_cells'} = '<table>
 
 <p>new paragraph in tab.
 </p></td></tr>
+</tbody>
 </table>
 ';
 

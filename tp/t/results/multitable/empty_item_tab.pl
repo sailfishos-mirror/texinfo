@@ -885,14 +885,15 @@ not empty                            tab not empty
 
 
 $result_converted{'html_text'}->{'empty_item_tab'} = '<table>
-<tr><td width="100%"></td></tr>
+<tbody><tr><td width="100%"></td></tr>
 <tr><td width="100%"></td></tr>
 <tr><td width="100%">text</td></tr>
 <tr><td width="100%"></td></tr>
+</tbody>
 </table>
 
 <table>
-<tr><td width="50%"></td></tr>
+<tbody><tr><td width="50%"></td></tr>
 <tr><td width="50%"></td></tr>
 <tr><td width="50%">only item</td></tr>
 <tr><td width="50%">item text</td><td width="50%"></td></tr>
@@ -900,6 +901,7 @@ $result_converted{'html_text'}->{'empty_item_tab'} = '<table>
 <tr><td width="50%"></td><td width="50%"></td></tr>
 <tr><td width="50%"></td><td width="50%"></td></tr>
 <tr><td width="50%">not empty</td><td width="50%">tab not empty</td></tr>
+</tbody>
 </table>
 ';
 

@@ -696,14 +696,16 @@ truc   bidule
 $result_converted{'html_text'}->{'multitable'} = '
 <table>
 <thead><tr><th width="60%">mu&ndash;ltitable headitem</th><th width="40%">another tab</th></tr></thead>
-<tr><td width="60%">mu&ndash;ltitable item</td><td width="40%">multitable tab</td></tr>
+<tbody><tr><td width="60%">mu&ndash;ltitable item</td><td width="40%">multitable tab</td></tr>
 <tr><td width="60%">mu&ndash;ltitable item 2</td><td width="40%">multitable tab 2
 <span id="index-index-entry-within-multitable"></span></td></tr>
 <tr><td width="60%">lone mu&ndash;ltitable item</td></tr>
+</tbody>
 </table>
 
 <table>
-<tr><td>truc</td><td>bidule</td></tr>
+<tbody><tr><td>truc</td><td>bidule</td></tr>
+</tbody>
 </table>
 ';
 

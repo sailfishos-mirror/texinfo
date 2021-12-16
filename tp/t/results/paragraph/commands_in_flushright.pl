@@ -1573,11 +1573,12 @@ $result_converted{'html_text'}->{'commands_in_flushright'} = '
 </dl>
 
 <table>
-<tr><td width="50%">col1</td><td width="50%">col2</td></tr>
+<tbody><tr><td width="50%">col1</td><td width="50%">col2</td></tr>
 <tr><td width="50%">text
 
 <p align="right">in multitable
 </p></td><td width="50%">text col2</td></tr>
+</tbody>
 </table>
 
 <div class="float"><span id="type"></span>

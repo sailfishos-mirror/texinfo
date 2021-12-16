@@ -4935,8 +4935,9 @@ An example 2.
 
 <p>A multitable 2.
 </p><table>
+<tbody><tr><td>truc 2</td><td>bidule</td></tr>
 <tr><td>truc 2</td><td>bidule</td></tr>
-<tr><td>truc 2</td><td>bidule</td></tr>
+</tbody>
 </table>
 <p>An index entry 2
 </p>
@@ -5005,8 +5006,9 @@ An example.
 
 <p>A multitable.
 </p><table>
+<tbody><tr><td>truc</td><td>bidule</td></tr>
 <tr><td>truc</td><td>bidule</td></tr>
-<tr><td>truc</td><td>bidule</td></tr>
+</tbody>
 </table>
 <p>An index entry
 <span id="index-float-example-in-caption"></span>
@@ -5056,8 +5058,9 @@ An example 2.
 
 <p>A multitable 2.
 </p><table>
+<tbody><tr><td>truc 2</td><td>bidule</td></tr>
 <tr><td>truc 2</td><td>bidule</td></tr>
-<tr><td>truc 2</td><td>bidule</td></tr>
+</tbody>
 </table>
 <p>An index entry 2
 <span id="index-float-example-in-caption-2"></span>

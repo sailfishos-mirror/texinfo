@@ -4338,6 +4338,22 @@ sub _convert_multitable_head_type($$$$) {
 
 $default_types_conversion{'multitable_head'} = \&_convert_multitable_head_type;
 
+sub _convert_multitable_body_type($$$$) {
+  my $self = shift;
+  my $type = shift;
+  my $command = shift;
+  my $content = shift;
+
+  return $content if ($self->in_string());
+  if ($content =~ /\S/) {
+    return '<tbody>' . $content . '</tbody>' . "\n";
+  } else {
+    return '';
+  }
+}
+
+$default_types_conversion{'multitable_body'} = \&_convert_multitable_body_type;
+
 sub _convert_menu_entry_type($$$)
 {
   my $self = shift;

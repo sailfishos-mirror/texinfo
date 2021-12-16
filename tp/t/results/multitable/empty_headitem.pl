@@ -363,7 +363,8 @@ $result_converted{'plaintext'}->{'empty_headitem'} = '        Index   Value
 
 $result_converted{'html_text'}->{'empty_headitem'} = '<table>
 <thead><tr><th width="10%"></th><th width="10%">Index</th><th width="10%">Value</th></tr></thead>
-<tr><td width="10%"></td><td width="10%"><code>3</code></td><td width="10%"><code>30</code></td></tr>
+<tbody><tr><td width="10%"></td><td width="10%"><code>3</code></td><td width="10%"><code>30</code></td></tr>
+</tbody>
 </table>
 ';
 

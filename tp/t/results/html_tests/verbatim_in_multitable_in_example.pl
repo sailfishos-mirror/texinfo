@@ -441,10 +441,11 @@ ul.no-bullet {list-style: none}
 <body lang="en">
 <div class="example">
 <table>
-<tr><td width="50%"><pre class="example">in item</pre></td><td width="50%"><pre class="example">in tab</pre></td></tr>
+<tbody><tr><td width="50%"><pre class="example">in item</pre></td><td width="50%"><pre class="example">in tab</pre></td></tr>
 <tr><td width="50%"><pre class="verbatim">in first column, verbatim
 </pre></td><td width="50%"><pre class="verbatim">In included file.
 </pre></td></tr>
+</tbody>
 </table>
 </div>
 

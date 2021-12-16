@@ -261,7 +261,8 @@ $result_converted{'plaintext'}->{'w_in_multitable'} = 'aaaaaaaa bbbbbbbbbbgg
 
 
 $result_converted{'html_text'}->{'w_in_multitable'} = '<table>
-<tr><td>aaaaaaaa&nbsp;bbbbbbbbbb<!-- /@w --></td><td>gg</td></tr>
+<tbody><tr><td>aaaaaaaa&nbsp;bbbbbbbbbb<!-- /@w --></td><td>gg</td></tr>
+</tbody>
 </table>
 ';
 
