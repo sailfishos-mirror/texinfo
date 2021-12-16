@@ -165,7 +165,7 @@ foreach my $explained_command (keys(%Texinfo::Common::explained_commands)) {
 }
 
 # row in multitable. no thead in html 3.2
-sub html32_convert_row_type($$$$) {
+sub html32_convert_multitable_head_type($$$$) {
   my $self = shift;
   my $type = shift;
   my $command = shift;
@@ -173,12 +173,12 @@ sub html32_convert_row_type($$$$) {
 
   return $content if ($self->in_string());
   if ($content =~ /\S/) {
-    return '<tr>' . $content . '</tr>' . "\n";
+    return $content . "\n";
   } else {
     return '';
   }
 }
-texinfo_register_type_formatting('row', \&html32_convert_row_type);
+texinfo_register_type_formatting('multitable_head', \&html32_convert_multitable_head_type);
 
 sub html32_convert_tab_command ($$$$)
 {

@@ -4309,17 +4309,34 @@ sub _convert_row_type($$$$) {
 
   return $content if ($self->in_string());
   if ($content =~ /\S/) {
+    my $result = '<tr>' . $content . '</tr>';
     my $row_cmdname = $command->{'contents'}->[0]->{'cmdname'};
-    if ($row_cmdname eq 'headitem') {
-      return '<thead><tr>' . $content . '</tr></thead>' . "\n";
-    } else {
-      return '<tr>' . $content . '</tr>' . "\n";
+    if ($row_cmdname ne 'headitem') {
+      # if headitem, end of line added in _convert_multitable_head_type
+      $result .= "\n";
     }
+    return $result;
   } else {
     return '';
   }
 }
 $default_types_conversion{'row'} = \&_convert_row_type;
+
+sub _convert_multitable_head_type($$$$) {
+  my $self = shift;
+  my $type = shift;
+  my $command = shift;
+  my $content = shift;
+
+  return $content if ($self->in_string());
+  if ($content =~ /\S/) {
+    return '<thead>' . $content . '</thead>' . "\n";
+  } else {
+    return '';
+  }
+}
+
+$default_types_conversion{'multitable_head'} = \&_convert_multitable_head_type;
 
 sub _convert_menu_entry_type($$$)
 {

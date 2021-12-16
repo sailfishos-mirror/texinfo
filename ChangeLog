@@ -1,3 +1,12 @@
+2021-12-16  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/HTML.pm (_convert_row_type,
+	_convert_multitable_head_type), tp/init/html32.pm
+	(html32_convert_row_type, html32_convert_multitable_head_type):
+	add _convert_multitable_head_type() to convert multitable_head type,
+	to thead, consistently with other formats, instead of doing the
+	conversion in _convert_row_type().
+
 2021-12-07  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* info/session.c (info_display_file_info): Add 1 to line number so
