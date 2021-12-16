@@ -1026,8 +1026,8 @@ my %defaults = (
   'INLINE_CSS_STYLE'     => 0,
 # if set, no css is used.
   'NO_CSS'               => 0,
-  'JS_WEBLABELS'	 => 'generate',
-  'JS_WEBLABELS_FILE'	 => 'js_licenses.html', # no clash with node name
+  'JS_WEBLABELS'         => 'generate',
+  'JS_WEBLABELS_FILE'    => 'js_licenses.html', # no clash with node name
   'OPEN_QUOTE_SYMBOL'    => '&lsquo;',
   'CLOSE_QUOTE_SYMBOL'   => '&rsquo;',
   'USE_ISO'              => 1,
@@ -1048,6 +1048,7 @@ my %defaults = (
   'XREF_USE_NODE_NAME_ARG' => undef,
   'XREF_USE_FLOAT_LABEL'   => 0,
   'OVERVIEW_LINK_TO_TOC' => 1,
+  'NO_CUSTOM_HTML_ATTRIBUTE' => 0,
   'COMPLEX_FORMAT_IN_TABLE' => 0,
   'WORDS_IN_PAGE'        => 300,
   # _default_panel_button_dynamic_direction use nodes direction based on USE_NODE_DIRECTIONS
@@ -3713,7 +3714,9 @@ sub _convert_xref_commands($$$$)
       # and to provide manual name of target
       my $attribute = '';
       if ($file) {
-        $attribute = "data-manual=\"".$self->protect_text($file)."\" ";
+        if (not $self->get_conf('NO_CUSTOM_HTML_ATTRIBUTE')) {
+          $attribute = "data-manual=\"".$self->protect_text($file)."\" ";
+        }
       }
       if ($name ne '') {
         $reference = "<a ${attribute}href=\"$href\">$name</a>";

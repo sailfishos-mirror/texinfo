@@ -16336,6 +16336,9 @@ by default, but only relevant when the output is not split.
 @item NO_CSS
 Do not use CSS; default false.  @xref{HTML CSS}.
 
+@item NO_CUSTOM_HTML_ATTRIBUTE
+Do not output HTML with custom attributes in elements; default false.
+
 @item PRE_ABOUT
 Used when an About element is output.  If set to a text string,
 this text will appear at the beginning of the About element.  If set
