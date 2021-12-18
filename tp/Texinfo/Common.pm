@@ -399,7 +399,7 @@ sub valid_option($)
 
 # not documented on purpose, should not be called in user-defined
 # codes
-sub add_valid_option($)
+sub add_valid_customization_option($)
 {
   my $option = shift;
   if ($option =~ /^[A-Z][A-Z_]{2,}$/) {

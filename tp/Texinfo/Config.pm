@@ -21,8 +21,8 @@
 # prefixed by GNUT_ while functions that can be called by user init
 # files codes are prefixed by texinfo_.
 # 
-# TODO document all texinfo_ in a pod section, but wait for stabilization
-# document that GNUT_, _GNUT_ and texinfo_ are reserved prefixes.
+# TODO document all texinfo_ in a pod section, but wait for stabilization.
+# Document that GNUT_, _GNUT_ and texinfo_ are reserved prefixes.
 
 package Texinfo::Config;
 
@@ -43,13 +43,14 @@ my $cmdline_options;
 my $main_program_default_options;
 my $init_files_options = {};
 
-# list options that can be set from main program are not
-# handled like string options.  Indeed, the lists need
-# to be defined in the main program, therefore the main
+# List options that can be set from main program are not
+# handled in the same way than string options.  Indeed, the
+# lists need to be defined in the main program, therefore the main
 # program list options would always take precedence
 # if there is a precedence, and the list options set from
-# init file would not have any effect. For list options, items
-# are added and removed by calls to texinfo_add_to_option_list
+# init file would never have any effect.
+# Therefore, for list options, items are added and removed by
+# calls to texinfo_add_to_option_list
 # and texinfo_remove_from_option_list, be it from command line
 # or init files, there is no precedence, but the order of calls
 # matter.
@@ -128,8 +129,8 @@ sub texinfo_set_from_init_file($$) {
     return 1;
   }
   if (!Texinfo::Common::valid_option($var)) {
-    # carp may be better, but infortunately, it points to the routine that 
-    # loads the file, and not to the init file.
+    # carp may be better, but infortunately, it points to the routine
+    # that loads the file, and not to the init file.
     _GNUT_document_warn(sprintf(__("%s: unknown variable %s"),
                                 'texinfo_set_from_init_file', $var));
     return 0;
@@ -229,17 +230,18 @@ sub texinfo_get_conf($)
 }
 
 # to dynamically add customization options from init files
-sub texinfo_add_valid_option($)
+sub texinfo_add_valid_customization_option($)
 {
   my $option = shift;
-  return Texinfo::Common::add_valid_option($option);
+  return Texinfo::Common::add_valid_customization_option($option);
 }
 
 
-#####################################################################
-# format API.  Handled differently from customization option because
-# a function from main program need to be called on formats, so
-# there is a function to get the value from main program.
+########################################################################
+# Output format API.  Handled differently from customization option
+# because a function from main program need to be called on formats, so
+# there is a function called from the main program to get the format set
+# by in the init file.
 
 my $init_file_format;
 sub texinfo_set_format_from_init_file($)
@@ -425,17 +427,21 @@ sub GNUT_get_style_command_formatting($;$)
 
 #####################################################################
 # the objective of this small package is to be in another
-# scope than init files, still have access to configuration
-# options, and setup blessed object that can call a
-# get_conf() and set_conf() method like parser or converter
-# that return the same as Texinfo::Config::texinfo_get_conf
+# scope than init files and setup blessed objects that can call
+# get_conf() and set_conf() methods like a parser or a converter.
+#
+# For the main program, there is also the need to have
+# access to configuration options in order to have get_conf()
+# return the same as Texinfo::Config::texinfo_get_conf().
+# This is obtained by calling new() without argument.
+#
+# In tests the situation is different as nothing from the
+# Texinfo::Config space is used, it is assumed that the
+# configuration is available as a hash reference key
+# value.  This is obtained by calling new() with an hash
+# reference argument.
 package Texinfo::MainConfig;
 
-# this is used in tests too.  In the tests nothing from
-# Texinfo::Config is used, and it is assumed that the
-# configuration is available as a hash reference key
-# value, which is the case if new is called with an hash
-# reference argument.
 
 my $additional_conf = {};
 

@@ -33,7 +33,7 @@ my %languages_extensions = (
   'texinfo' => 'texi',
 );
 
-texinfo_add_valid_option('HIGHLIGHT_SYNTAX_DEFAULT');
+texinfo_add_valid_customization_option('HIGHLIGHT_SYNTAX_DEFAULT');
 
 texinfo_register_handler('structure', \&highlight_process);
 

@@ -1,3 +1,16 @@
+2021-12-17  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Common.pm (add_valid_customization_option),
+	tp/Texinfo/Config.pm (texinfo_add_valid_customization_option),
+	tp/init/highlight_syntax.pm (texinfo_add_valid_customization_option):
+	Rename Texinfo::Common add_valid_option() as
+	add_valid_customization_option() and Texinfo::Config
+	texinfo_add_valid_option() as
+	texinfo_add_valid_customization_option().
+
+	* tp/Texinfo/Config.pm: improve comments.
+
+
 2021-12-16  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/HTML.pm (%defaults, _convert_xref_commands),
