@@ -580,7 +580,7 @@ element: @node first
 $result_converted{'plaintext'}->{'node_up_external_node'} = '';
 
 
-$result_converted{'html'}->{'node_up_external_node'} = '<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+$result_converted{'html'}->{'node_up_external_node'} = '<!DOCTYPE html>
 <html>
 <!-- Created by texinfo, http://www.gnu.org/software/texinfo/ -->
 <head>

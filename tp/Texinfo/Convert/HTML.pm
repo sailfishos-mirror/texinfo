@@ -1,6 +1,6 @@
 # HTML.pm: output tree as HTML.
 #
-# Copyright 2011-2020 Free Software Foundation, Inc.
+# Copyright 2011-2021 Free Software Foundation, Inc.
 # 
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -1085,8 +1085,8 @@ my %defaults = (
                               'Toc_Frame' => '_toc_frame',
                               },
   'misc_elements_order'  => ['Footnotes', 'Contents', 'Overview', 'About'],
-  'DOCTYPE'              => '<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">',
-  'FRAMESET_DOCTYPE'     => '<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">',
+  'DOCTYPE'              => '<!DOCTYPE html>',
+  'FRAMESET_DOCTYPE'     => '<!DOCTYPE html>',
   'DEFAULT_RULE'         => '<hr>',
   'BIG_RULE'             => '<hr>',
   'MENU_SYMBOL'          => '&bull;',

@@ -406,7 +406,7 @@ $result_converted_errors{'info'}->{'top_without_node_nodes'} = [
 
 
 
-$result_converted{'html'}->{'top_without_node_nodes'} = '<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+$result_converted{'html'}->{'top_without_node_nodes'} = '<!DOCTYPE html>
 <html>
 <!-- Created by texinfo, http://www.gnu.org/software/texinfo/ -->
 <head>

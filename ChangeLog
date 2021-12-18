@@ -1,3 +1,11 @@
+2021-12-18  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	No more doctypes
+
+	* tp/Texinfo/Convert.pm (%defaults) <DOCTYPE, FRAMESET_DOCTYPE>:
+	Replace HTML 4.01 Transitional and Frameset doctype declarations
+	with simple HTML 5-type doctype string.
+
 2021-12-17  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Common.pm (add_valid_customization_option),

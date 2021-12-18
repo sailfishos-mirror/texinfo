@@ -133,7 +133,7 @@ $result_floats{'listoffloats_with_commands'} = {};
 $result_converted{'plaintext'}->{'listoffloats_with_commands'} = '';
 
 
-$result_converted{'html'}->{'listoffloats_with_commands'} = '<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+$result_converted{'html'}->{'listoffloats_with_commands'} = '<!DOCTYPE html>
 <html>
 <!-- Created by texinfo, http://www.gnu.org/software/texinfo/ -->
 <head>

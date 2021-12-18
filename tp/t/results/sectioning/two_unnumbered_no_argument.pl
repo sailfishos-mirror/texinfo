@@ -135,7 +135,7 @@ $result_floats{'two_unnumbered_no_argument'} = {};
 $result_converted{'plaintext'}->{'two_unnumbered_no_argument'} = '';
 
 
-$result_converted{'html'}->{'two_unnumbered_no_argument'} = '<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+$result_converted{'html'}->{'two_unnumbered_no_argument'} = '<!DOCTYPE html>
 <html>
 <!-- Created by texinfo, http://www.gnu.org/software/texinfo/ -->
 <head>
