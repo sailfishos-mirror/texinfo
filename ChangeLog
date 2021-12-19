@@ -1,3 +1,12 @@
+2021-12-19  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Common.pm (@variable_string_settables),
+	tp/Texinfo/Convert/Converter.pm (xml_accents), 
+	tp/Texinfo/Convert/HTML.pm (%defaults, _set_variables_texi2html),
+	doc/texinfo.texi (Other Customization Variables),
+	tp/t/accents.t: rename USE_NUMERIC_ENTITY as
+	FALLBACK_TO_NUMERIC_ENTITY.
+
 2021-12-18  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	No more doctypes

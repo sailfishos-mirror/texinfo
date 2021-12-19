@@ -1551,7 +1551,7 @@ sub xml_accents($$;$)
   my $in_upper_case = shift;
 
   my $format_accents;
-  if ($self->get_conf('USE_NUMERIC_ENTITY')) {
+  if ($self->get_conf('FALLBACK_TO_NUMERIC_ENTITY')) {
     $format_accents = \&_xml_accent_numeric_entities;
   } else {
     $format_accents = \&xml_accent;

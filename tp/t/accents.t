@@ -99,10 +99,10 @@ sub test_enable_encoding ($)
                                 \&Texinfo::Convert::Text::ascii_accent_fallback);
 
   my $html_converter = Texinfo::Convert::HTML->converter();
-  $html_converter->{'conf'}->{'USE_NUMERIC_ENTITY'} = 0;
+  $html_converter->{'conf'}->{'FALLBACK_TO_NUMERIC_ENTITY'} = 0;
   my $result_xml = Texinfo::Convert::Converter::xml_accents($html_converter, 
                                                             $tree);
-  $html_converter->{'conf'}->{'USE_NUMERIC_ENTITY'} = 1;
+  $html_converter->{'conf'}->{'FALLBACK_TO_NUMERIC_ENTITY'} = 1;
   my $result_xml_entity 
       = Texinfo::Convert::Converter::xml_accents($html_converter, $tree);
 

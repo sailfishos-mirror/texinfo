@@ -16794,7 +16794,7 @@ Preferentially use nodes to decide where elements are separated.  If
 set to false, preferentially use sectioning to decide where elements
 are separated.  The default is true.
 
-@item USE_NUMERIC_ENTITY
+@item FALLBACK_TO_NUMERIC_ENTITY
 For HTML and XML@.  If set, use numeric entities instead of ASCII
 characters when there is no named entity.  By default, set to true for
 HTML.
