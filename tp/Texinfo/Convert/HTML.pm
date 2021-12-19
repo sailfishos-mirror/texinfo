@@ -6889,15 +6889,15 @@ sub _default_format_end_file($)
   my $pre_body_close = $self->get_conf('PRE_BODY_CLOSE');
   $pre_body_close = '' if (!defined($pre_body_close));
 
-  my $setting = $self->get_conf('JS_WEBLABELS');
-  my $path = $self->get_conf('JS_WEBLABELS_FILE');
-  if ($setting and $path
-        and ($setting eq 'generate' or $setting eq 'reference')
+  my $js_setting = $self->get_conf('JS_WEBLABELS');
+  my $js_path = $self->get_conf('JS_WEBLABELS_FILE');
+  if (defined($js_setting) and defined($js_path)
+        and ($js_setting eq 'generate' or $js_setting eq 'reference')
              and %{$self->{'jslicenses_element'}}) {
     $pre_body_close .=
-"<a href='$path' rel='jslicense'><small>"
-.$self->convert_tree($self->gdt('JavaScript license information'))
-.'</small></a>';
+      "<a href='$js_path' rel='jslicense'><small>"
+      .$self->convert_tree($self->gdt('JavaScript license information'))
+      .'</small></a>';
   }
 
   return "${program_text}
@@ -7327,15 +7327,15 @@ sub _do_jslicenses_file {
   #   'omit' - do nothing
   return if (!$setting or $setting ne 'generate');
 
-  my $a = '';
-  $a .= '<!DOCTYPE html>
-<html><head><title>jslicense labels</title></head>
+  my $doctype = $self->get_conf('DOCTYPE');
+  my $a = $doctype . "\n" .
+'<html><head><title>jslicense labels</title></head>
 <body>
 <table id="jslicense-labels1">
 ';
   my $h = $self->{'jslicenses'};
 
-  for my $file (keys %{$self->{'jslicenses'}}) {
+  for my $file (sort(keys %{$self->{'jslicenses'}})) {
     $a .= "<tr>\n";
     $a .= "<td><a href=\"$file\">$file</a></td>\n";
     $a .= "<td><a href=\"$h->{$file}->[1]\">$h->{$file}->[0]</a></td>\n";

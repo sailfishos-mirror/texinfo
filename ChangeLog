@@ -1,5 +1,14 @@
 2021-12-19  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_default_format_end_file): use
+	defined() to test if defined, not true value.
+
+	* tp/Texinfo/Convert/HTML.pm (_do_jslicenses_file): use
+	DOCTYPE from customization.  Sort license files for reproducible
+	output.
+
+2021-12-19  Patrice Dumas  <pertusus@free.fr>
+
 	* doc/texinfo.texi (Other Customization Variables),
 	tp/Texinfo/Common.pm (@variable_string_settables),
 	tp/Texinfo/Convert/HTML.pm (close_html_lone_element_if_needed)
