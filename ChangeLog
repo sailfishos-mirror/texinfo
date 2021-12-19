@@ -1,3 +1,12 @@
+2021-12-19  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/ParserNonXS.pm (_parse_macro_command_line)
+	(_lookup_macro_parameter, _expand_macro_body, _parse_texi):
+	Add _lookup_macro_parameter() to find the formal argument index
+	by going through macro element args instead of adding 'args_index'
+	in _parse_macro_command_line() and removing it later from the tree.
+	Based on the C parser code.
+
 2021-12-19  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	Parsetexi.pm clear list of include directories
@@ -5,7 +14,6 @@
 	* tp/Texinfo/XS/parsetexi/input.c (clear_include_directories):
 	New function to clear the path for finding @include files
 	* tp/Texinfo/XS/parsetexi/api.c (reset_parser): Call it.
-
 
 2021-12-19  Patrice Dumas  <pertusus@free.fr>
 

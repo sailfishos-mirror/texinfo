@@ -1158,7 +1158,6 @@ sub _parse_macro_command_line($$$$$;$)
     $macro->{'args'} = [ 
       { 'type' => 'macro_name', 'text' => $macro_name, 
           'parent' => $macro } ];
-    my $index = 0;
     foreach my $formal_arg (@args) {
       push @{$macro->{'args'}}, 
         { 'type' => 'macro_arg', 'text' => $formal_arg, 
@@ -1168,8 +1167,6 @@ sub _parse_macro_command_line($$$$$;$)
                                            $command, $formal_arg), $line_nr);
         $macro->{'extra'}->{'invalid_syntax'} = 1;
       }
-      $macro->{'extra'}->{'args_index'}->{$formal_arg} = $index;
-      $index++;
     }
     # accept an @-command after the arguments in case there is a @c or
     # @comment
@@ -2070,18 +2067,29 @@ sub _expand_macro_arguments($$$$)
   return ($arguments, $line, $line_nr);
 }
 
+sub _lookup_macro_parameter($$) {
+  my $macro = shift;
+  my $name = shift;
+
+  my $args_total = scalar(@{$macro->{'element'}->{'args'}}) -1;
+  if ($args_total > 0) {
+    my $arg_index;
+    # the first argument is the macro name
+    for ($arg_index=1; $arg_index<=$args_total; $arg_index++) {
+      if (defined($macro->{'element'}->{'args'}->[$arg_index])
+          and $macro->{'element'}->{'args'}->[$arg_index]->{'text'} eq $name) {
+        return $arg_index - 1;
+      }
+    }
+  }
+  return undef
+}
+
 # $MACRO is a member of $self->{'macros'}.
 sub _expand_macro_body($$$$) {
   my ($self, $macro, $args, $line_nr) = @_;
 
   my $macrobody = $macro->{'macrobody'};
-  my $args_total = scalar(@{$macro->{'element'}->{'args'}}) -1;
-  my $args_index = $macro->{'args_index'};
-
-  my $i;
-  for ($i=0; $i<=$args_total; $i++) {
-    $args->[$i] = "" unless (defined($args->[$i]));
-  }
 
   my $result = '';
   while ($macrobody ne '') {
@@ -2091,8 +2099,9 @@ sub _expand_macro_body($$$$) {
         $result .= '\\';
       } elsif ($macrobody =~ s/^([^\\]*)\\//) {
         my $arg = $1;
-        if (defined($args_index->{$arg})) {
-          $result .= $args->[$args_index->{$arg}];
+        my $formal_arg_index = _lookup_macro_parameter($macro, $arg);
+        if (defined($formal_arg_index)) {
+          $result .= $args->[$formal_arg_index];
         } else {
           $self->_line_error(sprintf(__(
          "\\ in \@%s expansion followed `%s' instead of parameter name or \\"), 
@@ -3753,14 +3762,6 @@ sub _parse_texi($;$)
                   'element' => $current,
                   'macrobody' => $macrobody
                 };
-                # Don't need 'args_index' in final tree.
-                if (defined $current->{'extra'}->{'args_index'}) {
-                  $self->{'macros'}->{$name}->{'args_index'}
-                                       = $current->{'extra'}->{'args_index'};
-                  delete $current->{'extra'}->{'args_index'};
-                }
-              } elsif (defined $current->{'extra'}->{'args_index'}) {
-                delete $current->{'extra'}->{'args_index'};
               }
             }
           }
