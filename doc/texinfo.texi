@@ -15324,17 +15324,6 @@ contains internal whitespace, the first word is taken as the variable
 name and the remainder as the value.  For example, @code{-D 'myvar
 someval'} is equivalent to @code{@@set myvar someval}.
 
-@item --disable-encoding
-@itemx --enable-encoding
-@opindex --disable-encoding
-@opindex --enable-encoding
-@vindex ENABLE_ENCODING
-By default, or with @option{--enable-encoding}, output accented and
-special characters in Info and plain text output based on
-@samp{@@documentencoding}.  With @option{--disable-encoding}, 7-bit
-ASCII transliterations are output.  @xref{@code{@@documentencoding}},
-and @ref{Inserting Accents}.
-
 @item --docbook
 @opindex --docbook
 Generate DocBook output (rather than Info).
@@ -15355,6 +15344,18 @@ Generate a TeX DVI file using @command{texi2dvi}, rather than Info
 @opindex --dvipdf
 Generate a PDF file using @command{texi2dvi --dvipdf}, rather than
 Info (@pxref{@command{texi2any} Printed Output}).
+
+@item --enable-encoding
+@itemx --disable-encoding
+@opindex --enable-encoding
+@opindex --disable-encoding
+@vindex ENABLE_ENCODING
+By default, or with @option{--enable-encoding}, output accented and
+special characters in Info and plain text output based on
+@samp{@@documentencoding}.  With @option{--disable-encoding}, 7-bit
+ASCII transliterations are output.  @xref{@code{@@documentencoding}},
+and @ref{Inserting Accents}.
+
 
 @item --error-limit=@var{limit}
 @itemx -e @var{limit}
@@ -15448,6 +15449,26 @@ For instance, if @option{--iftex} is given, then @samp{@@iftex} and
 @samp{@@tex} blocks will be read, and @samp{@@ifnottex} blocks will be
 ignored.
 
+@item --no-ifdocbook
+@opindex --no-ifdocbook
+@itemx --no-ifhtml
+@opindex --no-ifhtml
+@itemx --no-ifinfo
+@opindex --no-ifinfo
+@itemx --no-ifplaintext
+@opindex --no-ifplaintext
+@itemx --no-iftex
+@opindex --no-iftex
+@itemx --no-ifxml
+@opindex --no-ifxml
+For the given format, do not process @samp{@@if@var{format}} and
+@samp{@@@var{format}} commands, and do process
+@samp{@@ifnot@var{format}}, regardless of the format being output.
+For instance, if @option{--no-ifhtml} is given, then @samp{@@ifhtml}
+and @samp{@@html} blocks will not be read, and @samp{@@ifnothtml}
+blocks will be.
+
+
 @item --info
 @opindex --info
 Generate Info output.  By default, if the output file contains more
@@ -15506,35 +15527,16 @@ links only at the beginning of each file.  If output is not split, do
 not include navigation links at the top of each node at all.
 @xref{Generating HTML}.
 
-@item --no-ifdocbook
-@opindex --no-ifdocbook
-@itemx --no-ifhtml
-@opindex --no-ifhtml
-@itemx --no-ifinfo
-@opindex --no-ifinfo
-@itemx --no-ifplaintext
-@opindex --no-ifplaintext
-@itemx --no-iftex
-@opindex --no-iftex
-@itemx --no-ifxml
-@opindex --no-ifxml
-For the given format, do not process @samp{@@if@var{format}} and
-@samp{@@@var{format}} commands, and do process
-@samp{@@ifnot@var{format}}, regardless of the format being output.
-For instance, if @option{--no-ifhtml} is given, then @samp{@@ifhtml}
-and @samp{@@html} blocks will not be read, and @samp{@@ifnothtml}
-blocks will be.
-
-@item --no-node-files
-@itemx --node-files
-@opindex --no-node-files
+@item --node-files
+@itemx --no-node-files
 @opindex --node-files
+@opindex --no-node-files
 @vindex NODE_FILES
-When generating HTML, create redirection files for anchors and any
-nodes not already output with the file name corresponding to the node
-name (@pxref{HTML Xref Node Name Expansion}).  This makes it possible
-for section- and chapter-level cross-manual references to succeed
-(@pxref{HTML Xref Configuration}).
+With @option{--node-files}, when generating HTML, create redirection
+files for anchors and any nodes not already output with the file name
+corresponding to the node name (@pxref{HTML Xref Node Name Expansion}).
+This makes it possible for section- and chapter-level cross-manual
+references to succeed (@pxref{HTML Xref Configuration}).
 
 If the output is split, this is enabled by default.  If the output is
 not split, @option{--node-files} enables the creation of the
@@ -15542,24 +15544,6 @@ redirection files, in addition to the monolithic main output file.
 @option{--no-node-files} suppresses the creation of redirection files
 in any case.  This option has no effect with any output format other
 than HTML@.  @xref{Generating HTML}.
-
-@item --no-number-footnotes
-@itemx --number-footnotes
-@opindex --no-number-footnotes
-@vindex NUMBER_FOOTNOTES
-Suppress automatic footnote numbering.  By default, footnotes are
-numbered sequentially within a node, i.e., the current footnote number
-is reset to 1 at the start of each node.
-
-@item --no-number-sections
-@itemx --number-sections
-@opindex --no-number-sections
-@opindex --number-sections
-@vindex NUMBER_SECTIONS
-With @option{--number_sections} (the default), output chapter,
-section, and appendix numbers as in printed manuals.  This works only
-with hierarchically structured manuals.  You should specify
-@code{--no-number-sections} if your manual is not normally structured.
 
 @item --no-validate
 @itemx --no-pointer-validate
@@ -15606,6 +15590,25 @@ has the form @samp{(@var{file})}.
 @opindex --no-warn
 @vindex NO_WARN
 Suppress warning messages (but not error messages).
+
+@item --number-footnotes
+@itemx --no-number-footnotes
+@opindex --no-number-footnotes
+@vindex NUMBER_FOOTNOTES
+With @option{--no-number-footnotes}, suppress automatic footnote
+numbering.  By default, footnotes are numbered sequentially within a node,
+i.e., the current footnote number is reset to 1 at the start of each node.
+
+@item --number-sections
+@itemx --no-number-sections
+@opindex --number-sections
+@opindex --no-number-sections
+@vindex NUMBER_SECTIONS
+With @option{--number_sections} (the default), output chapter,
+section, and appendix numbers as in printed manuals.  This works only
+with hierarchically structured manuals.  You should specify
+@code{--no-number-sections} if your manual is not normally structured.
+
 
 @item --output=@var{file}
 @itemx -o @var{file}

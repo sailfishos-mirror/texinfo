@@ -1,5 +1,14 @@
 2021-12-19  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	Documentation of --OPT vs. --no-OPT
+
+	* doc/texinfo.texi : Be clearer as to the effects of
+	--OPT versus --no-OPT and which does what.  Put --OPT
+	first and put options in alphabetical order based on this.
+	Report from Dan Jacobson.
+
+2021-12-19  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	Fix usage message
 
 	* tp/texi2any.pl (makeinfo_help): Say "columns" instead of
