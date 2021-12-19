@@ -1,3 +1,16 @@
+2021-12-19  Patrice Dumas  <pertusus@free.fr>
+
+	* doc/texinfo.texi (Other Customization Variables),
+	tp/Texinfo/Convert/HTML.pm (non_breaking_space)
+	(substitute_non_breaking_space, %BUTTONS_EXAMPLE)
+	(%defaults, _indent_with_table, _set_non_breaking_space)
+	(converter_initialize, _default_format_special_element_body):
+	use numeric entities everywhere in HTML if USE_NUMERIC_ENTITY
+	is set.  Use functions to set and get the non breaking space
+	entity.  Set OPEN_QUOTE_SYMBOL CLOSE_QUOTE_SYMBOL and
+	MENU_SYMBOL to undef in the default case, to set them
+	dynamically based on USE_NUMERIC_ENTITY.
+
 2021-12-19  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	Documentation of --OPT vs. --no-OPT

@@ -16538,9 +16538,10 @@ Warn if the nodes pointers (either explicitly or automatically set)
 are not consistent with the order of node menu entries.
 
 @item CLOSE_QUOTE_SYMBOL
-When a closing quote is needed, use this character; default @code{&rsquo;}
-in HTML, @code{&#8217;} in DocBook.  The default for Info is the same
-as @code{OPEN_QUOTE_SYMBOL} (see below).
+When a closing quote is needed, use this character; default @code{&#8217;}
+in DocBook.  Undefined in the default case in HTML and set to @code{&rsquo;}
+if @code{USE_NUMERIC_ENTITY} is not set, and to @code{&#8217;} if not set.
+The default for Info is the same as @code{OPEN_QUOTE_SYMBOL} (see below).
 
 @item CPP_LINE_DIRECTIVES
 Recognize @code{#line} directives in a ``preprocessing'' pass
@@ -16647,13 +16648,14 @@ default true.
 
 @item OPEN_QUOTE_SYMBOL
 When an opening quote is needed, e.g., for @samp{@@samp} output, use
-the specified character; default @code{&lsquo;} for HTML,
-@code{&#8216;} for DocBook.  For Info, the default depends on the
-enabled document encoding (@pxref{@code{@@documentencoding}}); if no
-document encoding is set, or the encoding is US-ASCII, etc., @samp{'}
-is used.  This character usually appears as an undirected single quote
-on modern systems.  If the document encoding is Unicode, the Info
-output uses a Unicode left quote.
+the specified character; default @code{&#8216;} for DocBook..
+Undefined in the default case in HTML and set to @code{&lsquo;}
+if @code{USE_NUMERIC_ENTITY} is not set, and to @code{&#8217;} if set.
+For Info, the default depends on the enabled document encoding
+(@pxref{@code{@@documentencoding}}); if no document encoding is set, or the
+encoding is US-ASCII, etc., @samp{'} is used.  This character usually appears
+as an undirected single quote on modern systems.  If the document encoding is
+Unicode, the Info output uses a Unicode left quote.
 
 @item OUTPUT_ENCODING_NAME
 Normalized encoding name used for output files.  Should be a usable

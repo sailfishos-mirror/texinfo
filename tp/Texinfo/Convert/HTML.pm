@@ -226,6 +226,28 @@ sub in_raw($)
   return $self->{'document_context'}->[-1]->{'raw'};
 }
 
+sub non_breaking_space($)
+{
+  my $self = shift;
+  return $self->{'non_breaking_space'};
+}
+
+my $xml_numeric_entity_nbsp = '&#'.hex('00A0').';';
+my $xml_named_entity_nbsp = '&nbsp;';
+
+my $html_default_entity_nbsp = $xml_named_entity_nbsp;
+
+sub substitute_non_breaking_space($$)
+{
+  my $self = shift;
+  my $text = shift;
+
+  my $non_breaking_space = $self->non_breaking_space();
+  # using \Q \E on the substitution leads to spurious \
+  $text =~ s/\Q$html_default_entity_nbsp\E/$non_breaking_space/g;
+  return $text;
+}
+
 sub paragraph_number($)
 {
   my $self = shift;
@@ -931,10 +953,10 @@ my %BUTTONS_ACCESSKEY =
 
 my %BUTTONS_EXAMPLE =
     (
-     'Top',         ' &nbsp; ',
-     'Contents',    ' &nbsp; ',
-     'Overview',    ' &nbsp; ',
-     'Index',       ' &nbsp; ',
+     'Top',         ' '.$html_default_entity_nbsp.' ',
+     'Contents',    ' '.$html_default_entity_nbsp.' ',
+     'Overview',    ' '.$html_default_entity_nbsp.' ',
+     'Index',       ' '.$html_default_entity_nbsp.' ',
      'This',        '1.2.3',
      'Back',        '1.2.2',
      'FastBack',    '1',
@@ -948,11 +970,11 @@ my %BUTTONS_EXAMPLE =
      'NodeBack',    '1.2.2',
      'Forward',     '1.2.4',
      'FastForward', '2',
-     'About',       ' &nbsp; ',
+     'About',       ' '.$html_default_entity_nbsp.' ',
      'First',       '1.',
      'Last',        '1.2.4',
-     'NextFile',    ' &nbsp; ',
-     'PrevFile',    ' &nbsp; ',
+     'NextFile',    ' '.$html_default_entity_nbsp.' ',
+     'PrevFile',    ' '.$html_default_entity_nbsp.' ',
     );
 
 
@@ -1028,8 +1050,8 @@ my %defaults = (
   'NO_CSS'               => 0,
   'JS_WEBLABELS'         => 'generate',
   'JS_WEBLABELS_FILE'    => 'js_licenses.html', # no clash with node name
-  'OPEN_QUOTE_SYMBOL'    => '&lsquo;',
-  'CLOSE_QUOTE_SYMBOL'   => '&rsquo;',
+  'OPEN_QUOTE_SYMBOL'    => undef,
+  'CLOSE_QUOTE_SYMBOL'   => undef,
   'USE_ISO'              => 1,
   'TOP_FILE'             => 'index.html',
   'EXTENSION'            => 'html',
@@ -1089,7 +1111,7 @@ my %defaults = (
   'FRAMESET_DOCTYPE'     => '<!DOCTYPE html>',
   'DEFAULT_RULE'         => '<hr>',
   'BIG_RULE'             => '<hr>',
-  'MENU_SYMBOL'          => '&bull;',
+  'MENU_SYMBOL'          => undef,
   'MENU_ENTRY_COLON'     => ':',
   'INDEX_ENTRY_COLON'    => ':',
   'BODYTEXT'             => undef,
@@ -1165,7 +1187,7 @@ sub _translate_names($)
      'Contents',    $self->gdt('Contents'),
      'Overview',    $self->gdt('Overview'),
      'Index',       $self->gdt('Index'),
-     ' ',           ' &nbsp; ',
+     ' ',           ' '.$self->non_breaking_space().' ',
      'This',        $self->gdt('current'),
      'Back',        ' &lt; ',
      'FastBack',    ' &lt;&lt; ',
@@ -1192,8 +1214,6 @@ sub _translate_names($)
   foreach my $button (grep {not exists($global_and_special_directions{$_}) and $_ ne ' '} keys %BUTTONS_TEXT) {
     $BUTTONS_TEXT{'FirstInFile'.$button} = $BUTTONS_TEXT{$button};
   }
-
-  #%BUTTONS_TEXT = %NAVIGATION_TEXT;
 
   %BUTTONS_GOTO = (
      'Top',         $self->gdt('Cover (top) of document'),
@@ -2848,11 +2868,13 @@ foreach my $command (keys(%inline_commands)) {
   $default_commands_conversion{$command} = \&_convert_inline_command;
 }
 
-sub _indent_with_table ($)
+sub _indent_with_table ($$)
 {
+  my $self = shift;
   my $content = shift;
 
-  return '<table><tr><td>&nbsp;</td><td>'.$content."</td></tr></table>\n";
+  return '<table><tr><td>'.$self->non_breaking_space().'</td><td>'.$content
+                ."</td></tr></table>\n";
 }
 
 my $html_menu_entry_index = 0;
@@ -2895,7 +2917,7 @@ sub _convert_preformatted_command($$$$)
   if ($content ne '' and !$self->in_string()) {
     if ($self->get_conf('COMPLEX_FORMAT_IN_TABLE')) {
       if ($indented_preformatted_commands{$cmdname}) {
-        return _indent_with_table ($content);
+        return _indent_with_table($self, $content);
       } else {
         return $content."\n";
       }
@@ -2925,7 +2947,7 @@ sub _convert_indented_command($$$$)
   
   if ($content ne '' and !$self->in_string()) {
     if ($self->get_conf('COMPLEX_FORMAT_IN_TABLE')) {
-      return _indent_with_table ($content);
+      return _indent_with_table($self, $content);
     } else {
       return $self->html_attribute_class('blockquote', $cmdname).">\n"
              .$content.'</blockquote>'."\n";
@@ -3894,16 +3916,18 @@ sub _convert_printindex_command($$$$)
   my $join = '';
   my $non_alpha_text = '';
   my $alpha_text = '';
-  $join = " &nbsp; \n<br>\n" if (@non_alpha and @alpha);
+  my $non_breaking_space = $self->non_breaking_space();
+  $join = " $non_breaking_space \n<br>\n" if (@non_alpha and @alpha);
   if (@non_alpha) {
-    $non_alpha_text = join("\n &nbsp; \n", @non_alpha) . "\n";
+    $non_alpha_text = join("\n $non_breaking_space \n", @non_alpha) . "\n";
   }
   if (@alpha) {
-    $alpha_text = join("\n &nbsp; \n", @alpha) . "\n &nbsp; \n";
+    $alpha_text = join("\n $non_breaking_space \n", @alpha)
+                    . "\n $non_breaking_space \n";
   }
   # format the summary
   my $summary = "<table><tr><th valign=\"top\">" 
-    . $self->convert_tree($self->gdt('Jump to')) .": &nbsp; </th><td>" .
+    . $self->convert_tree($self->gdt('Jump to')) .": $non_breaking_space </th><td>" .
     $non_alpha_text . $join . $alpha_text . "</td></tr></table>\n";
 
   $result .= $summary;
@@ -3912,7 +3936,7 @@ sub _convert_printindex_command($$$$)
   $result .= $self->html_attribute_class('table', "index-$index_name")
     ." border=\"0\">\n" . "<tr><td></td><th align=\"left\">"
     . $self->convert_tree($self->gdt('Index Entry'))
-    . "</th><td>&nbsp;</td><th align=\"left\"> "
+    . "</th><td>$non_breaking_space</td><th align=\"left\"> "
     .  $self->convert_tree($self->gdt('Section'))
     ."</th></tr>\n" . "<tr><td colspan=\"4\"> ".$self->get_conf('DEFAULT_RULE')
     ."</td></tr>\n";
@@ -3979,7 +4003,7 @@ sub _convert_printindex_command($$$$)
       $entries_text .= '<tr><td></td><td valign="top">' 
          . "<a href=\"$entry_href\">$entry</a>" . 
           $self->get_conf('INDEX_ENTRY_COLON') .
-        '</td><td>&nbsp;</td><td valign="top">';
+        '</td><td>'.$self->non_breaking_space().'</td><td valign="top">';
       $entries_text .= "<a href=\"$associated_command_href\">$associated_command_text</a>" 
          if ($associated_command_href);
        $entries_text .= "</td></tr>\n";
@@ -4485,7 +4509,8 @@ sub _convert_menu_entry_type($$$)
                            eq _simplify_text_for_comparison($description));
     }
   }
-  return "<tr><td align=\"left\" valign=\"top\">$name$MENU_ENTRY_COLON</td><td>&nbsp;&nbsp;</td><td align=\"left\" valign=\"top\">$description</td></tr>\n";
+  my $non_breaking_space = $self->non_breaking_space();
+  return "<tr><td align=\"left\" valign=\"top\">$name$MENU_ENTRY_COLON</td><td>${non_breaking_space}${non_breaking_space}</td><td align=\"left\" valign=\"top\">$description</td></tr>\n";
 }
 
 $default_types_conversion{'menu_entry'} = \&_convert_menu_entry_type;
@@ -4802,7 +4827,8 @@ sub _get_copiable_anchor {
   my ($self, $id) = @_;
   my $result = '';
   if ($id and $self->get_conf('COPIABLE_ANCHORS')) {
-    $result = "<a href='#$id' class='copiable-anchor'> &para;</a>";
+    my $paragraph_symbol = $self->{'paragraph_symbol'};
+    $result = "<a href='#$id' class='copiable-anchor'> $paragraph_symbol</a>";
   }
   return $result;
 }
@@ -5211,6 +5237,13 @@ sub _complete_no_arg_commands_formatting($$)
   }
 }
 
+sub _set_non_breaking_space($$)
+{
+  my $self = shift;
+  my $non_breaking_space = shift;
+  $self->{'non_breaking_space'} = $non_breaking_space;
+}
+
 my %htmlxref_entries = (
  'node' => [ 'node', 'section', 'chapter', 'mono' ],
  'section' => [ 'section', 'chapter','node', 'mono' ],
@@ -5334,7 +5367,6 @@ sub _load_htmlxref_files {
   }
 }
 
-
 sub converter_initialize($)
 {
   my $self = shift;
@@ -5347,6 +5379,43 @@ sub converter_initialize($)
   %{$self->{'css_map'}} = %css_map;
 
   _load_htmlxref_files($self);
+
+  if ($self->get_conf('USE_NUMERIC_ENTITY')) {
+    $self->_set_non_breaking_space($xml_numeric_entity_nbsp);
+    $self->{'paragraph_symbol'} = '&#'.hex('00B6').';';
+    foreach my $command (keys(%Texinfo::Convert::Unicode::unicode_entities)) {
+      $default_no_arg_commands_formatting{'normal'}->{$command}
+       = $Texinfo::Convert::Unicode::unicode_entities{$command};
+    }
+    foreach my $space_command (' ', "\t", "\n") {
+      $default_no_arg_commands_formatting{'normal'}->{$space_command}
+        = $self->non_breaking_space();
+    }
+    $default_no_arg_commands_formatting{'normal'}->{'tie'}
+      = $self->substitute_non_breaking_space(
+           $default_no_arg_commands_formatting{'normal'}->{'tie'});
+    if (not defined($self->get_conf('OPEN_QUOTE_SYMBOL'))) {
+      $self->set_conf('OPEN_QUOTE_SYMBOL', '&#'.hex('2018').';');
+    }
+    if (not defined($self->get_conf('CLOSE_QUOTE_SYMBOL'))) {
+      $self->set_conf('CLOSE_QUOTE_SYMBOL', '&#'.hex('201D').';');
+    }
+    if (not defined($self->get_conf('MENU_SYMBOL'))) {
+      $self->set_conf('MENU_SYMBOL', '&#'.hex('2022').';');
+    }
+  } else {
+    $self->_set_non_breaking_space($xml_named_entity_nbsp);
+    $self->{'paragraph_symbol'} = '&para;';
+    if (not defined($self->get_conf('OPEN_QUOTE_SYMBOL'))) {
+      $self->set_conf('OPEN_QUOTE_SYMBOL', '&lsquo;');
+    }
+    if (not defined($self->get_conf('CLOSE_QUOTE_SYMBOL'))) {
+      $self->set_conf('CLOSE_QUOTE_SYMBOL', '&rsquo;');
+    }
+     if (not defined($self->get_conf('MENU_SYMBOL'))) {
+      $self->set_conf('MENU_SYMBOL', '&bull;');
+    }
+  }
 
   my $customized_types_conversion = Texinfo::Config::GNUT_get_types_conversion();
   foreach my $type (keys(%default_types_conversion)) {
@@ -7111,7 +7180,8 @@ EOT
       $about .= 
 "    <td align=\"center\">".$button_name."</td>
     <td>".$self->get_conf('BUTTONS_GOTO')->{$button}."</td>
-    <td>".$self->get_conf('BUTTONS_EXAMPLE')->{$button}."</td>
+    <td>".$self->substitute_non_breaking_space(
+               $self->get_conf('BUTTONS_EXAMPLE')->{$button})."</td>
   </tr>
 ";
     }
@@ -7131,6 +7201,7 @@ EOT
 
 <ul>
 EOT
+    my $non_breaking_space = $self->non_breaking_space();
     $about .= '  <li> 1. ' . $self->convert_tree($self->gdt('Section One')) . "\n" .
 "    <ul>\n" .
 '      <li>1.1 ' . $self->convert_tree($self->gdt('Subsection One-One')) . "\n";
@@ -7144,7 +7215,8 @@ EOT
 "        <ul>\n" .
 '          <li>1.2.1 ' . $self->convert_tree($self->gdt('Subsubsection One-Two-One')) . "</li>\n" .
 '          <li>1.2.2 ' . $self->convert_tree($self->gdt('Subsubsection One-Two-Two')) . "</li>\n" .
-'          <li>1.2.3 ' . $self->convert_tree($self->gdt('Subsubsection One-Two-Three')) . " &nbsp; &nbsp;\n"
+'          <li>1.2.3 ' . $self->convert_tree($self->gdt('Subsubsection One-Two-Three'))
+                  . " $non_breaking_space $non_breaking_space\n"
 .
 '            <strong>&lt;== ' . $self->convert_tree($self->gdt('Current Position')) . " </strong></li>\n" .
 '          <li>1.2.4 ' . $self->convert_tree($self->gdt('Subsubsection One-Two-Four')) . "</li>\n" .
@@ -7979,9 +8051,10 @@ sub _protect_space($$)
       # Special span to avoid breaking at _-
       $text =~ s/(\S*[_-]\S*)/${open}$1<\/span>/g;
     }
-    $text .= '&nbsp;' if (chomp($text));
+    $text .= $self->non_breaking_space() if (chomp($text));
     # Protect spaces within text
-    $text =~ s/ /&nbsp;/g;
+    my $non_breaking_space = $self->non_breaking_space();
+    $text =~ s/ /$non_breaking_space/g;
     # Revert protected spaces in leading html attribute
     $text =~ s/\x{1F}/ /g;
   }
