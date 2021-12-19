@@ -3548,15 +3548,21 @@ sub _convert_item_command($$$$)
       }
       my $index_id = $self->command_id ($command);
       my $anchor;
+      my $anchor_span_open = '';
+      my $anchor_span_close = '';
       if (defined($index_id)) {
         $anchor = $self->_get_copiable_anchor($index_id);
         $index_id = " id='$index_id'";
+        if ($anchor ne '') {
+          $anchor_span_open = '<span>';
+          $anchor_span_close = '</span>';
+        }
       } else {
         $anchor = '';
         $index_id = '';
       }
     
-      return "<dt${index_id}><span>$result$anchor</span></dt>\n";
+      return "<dt${index_id}>$anchor_span_open$result$anchor$anchor_span_close</dt>\n";
     } else {
       return '';
     }
@@ -4801,10 +4807,16 @@ sub _convert_def_line_type($$$$)
         $category_result = $open.'>'.$category_result.'</span>';
       }
     }
+    my $anchor_span_open = '';
+    my $anchor_span_close = '';
     my $anchor = $self->_get_copiable_anchor($index_id);
+    if ($anchor ne '') {
+      $anchor_span_open = '<span>';
+      $anchor_span_close = '</span>';
+    }
     return "<dt$index_label>".$category_result
-              ."<span>".$self->convert_tree({'type' => '_code',
-                           'contents' => [$tree]}) . "$anchor</span></dt>\n";
+              .$anchor_span_open.$self->convert_tree({'type' => '_code',
+                           'contents' => [$tree]}) . "$anchor$anchor_span_close</dt>\n";
   } else {
     my $category_prepared = '';
     if ($command->{'extra'} and $command->{'extra'}->{'def_parsed_hash'}

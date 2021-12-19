@@ -167,7 +167,7 @@ $result_converted{'plaintext'}->{'table_command_comment'} = '\'item\'
 
 
 $result_converted{'html_text'}->{'table_command_comment'} = '<dl compact="compact">
-<dt><span><code>item</code></span></dt>
+<dt><code>item</code></dt>
 </dl>
 ';
 

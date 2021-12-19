@@ -4928,7 +4928,7 @@ An example 2.
 
 <p>A table 2.
 </p><dl compact="compact">
-<dt><span><em>truc 2</em></span></dt>
+<dt><em>truc 2</em></dt>
 <dd><p>line 2
 </p></dd>
 </dl>
@@ -4968,7 +4968,7 @@ A footnote 2.
 </p>
 <p>A table.
 </p><dl compact="compact">
-<dt><span><em>truc</em></span></dt>
+<dt><em>truc</em></dt>
 <dd><p>line
 </p></dd>
 </dl>
@@ -4999,7 +4999,7 @@ An example.
 <span id="Anchor-in-caption"></span>
 <p>A table.
 </p><dl compact="compact">
-<dt><span><em>truc</em></span></dt>
+<dt><em>truc</em></dt>
 <dd><p>line
 </p></dd>
 </dl>
@@ -5051,7 +5051,7 @@ An example 2.
 
 <p>A table 2.
 </p><dl compact="compact">
-<dt><span><em>truc 2</em></span></dt>
+<dt><em>truc 2</em></dt>
 <dd><p>line 2
 </p></dd>
 </dl>

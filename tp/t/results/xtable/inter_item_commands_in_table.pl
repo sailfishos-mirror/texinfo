@@ -3219,7 +3219,7 @@ $result_converted{'html_text'}->{'inter_item_commands_in_table'} = '
 <dl compact="compact">
 <dd><span id="index-cindex-in-table"></span>
 </dd>
-<dt><span><code>abb</code></span></dt>
+<dt><code>abb</code></dt>
 <dd><p>l&ndash;ine
 </p></dd>
 </dl>
@@ -3228,13 +3228,13 @@ $result_converted{'html_text'}->{'inter_item_commands_in_table'} = '
 <dd><span id="index-cindex-in-table-1"></span>
 <p>Texte before first item.
 </p></dd>
-<dt><span><code>abb</code></span></dt>
+<dt><code>abb</code></dt>
 </dl>
 
 <dl compact="compact">
 <dd><span id="index-samp-cindex-in-table"></span>
 </dd>
-<dt><span>&lsquo;<samp>asamp--bb</samp>&rsquo;</span></dt>
+<dt>&lsquo;<samp>asamp--bb</samp>&rsquo;</dt>
 <dd><p>l&ndash;ine samp
 </p></dd>
 </dl>
@@ -3243,7 +3243,7 @@ $result_converted{'html_text'}->{'inter_item_commands_in_table'} = '
 <dd><span id="index-samp-cindex-in-table-1"></span>
 <p>Texte before first item samp.
 </p></dd>
-<dt><span>&lsquo;<samp>asamp--bb</samp>&rsquo;</span></dt>
+<dt>&lsquo;<samp>asamp--bb</samp>&rsquo;</dt>
 </dl>
 
 <dl compact="compact">
@@ -3251,21 +3251,21 @@ $result_converted{'html_text'}->{'inter_item_commands_in_table'} = '
 <span id="index-cindex-between-lines"></span>
 
 </dd>
-<dt><span>&lsquo;<samp>asamp--bb1</samp>&rsquo;</span></dt>
+<dt>&lsquo;<samp>asamp--bb1</samp>&rsquo;</dt>
 </dl>
 
 <dl compact="compact">
 <dd><span id="index-cindex-before-line"></span>
 
 </dd>
-<dt><span>&lsquo;<samp>asamp--bb2</samp>&rsquo;</span></dt>
+<dt>&lsquo;<samp>asamp--bb2</samp>&rsquo;</dt>
 </dl>
 
 <dl compact="compact">
 <dd>
 <span id="index-cindex-after-line"></span>
 </dd>
-<dt><span>&lsquo;<samp>asamp--bb2</samp>&rsquo;</span></dt>
+<dt>&lsquo;<samp>asamp--bb2</samp>&rsquo;</dt>
 </dl>
 
 <dl compact="compact">
@@ -3273,7 +3273,7 @@ $result_converted{'html_text'}->{'inter_item_commands_in_table'} = '
 <span id="index-second"></span>
 <span id="index-third"></span>
 </dd>
-<dt><span>&lsquo;<samp>asamp--bb2</samp>&rsquo;</span></dt>
+<dt>&lsquo;<samp>asamp--bb2</samp>&rsquo;</dt>
 </dl>
 
 

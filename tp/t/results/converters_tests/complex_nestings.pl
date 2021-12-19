@@ -1464,12 +1464,12 @@ $result_converted{'html_text'}->{'complex_nestings'} = '<span id="Top"></span><h
 
 A table within the def
 </pre><dl compact="compact">
-<dt><span><tt>item</tt></span></dt>
+<dt><tt>item</tt></dt>
 <dd><pre class="example">text
 
 more text
 </pre></dd>
-<dt><span><tt>second item</tt></span></dt>
+<dt><tt>second item</tt></dt>
 </dl>
 <pre class="example">
 

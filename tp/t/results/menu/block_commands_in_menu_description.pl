@@ -879,7 +879,7 @@ ul.no-bullet {list-style: none}
 <dd><pre class="menu-preformatted">
 
 </pre></dd>
-<dt><span>table item</span></dt>
+<dt>table item</dt>
 <dd><pre class="menu-preformatted">
 
 Text.

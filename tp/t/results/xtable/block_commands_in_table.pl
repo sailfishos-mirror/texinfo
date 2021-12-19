@@ -1734,30 +1734,30 @@ $result_converted{'html_text'}->{'block_commands_in_table'} = '<div class="top" 
 <span id="Element"></span><h1 class="top">Element</h1>
 
 <dl compact="compact">
-<dt><span><em>first item</em></span></dt>
-<dt><span><em>second itemx</em></span></dt>
+<dt><em>first item</em></dt>
+<dt><em>second itemx</em></dt>
 <dd>
 <p>Text.
 </p>
 </dd>
-<dt><span><em>example</em></span></dt>
+<dt><em>example</em></dt>
 <dd><div class="example">
 <pre class="example">In example
 
 end example.
 </pre></div>
 </dd>
-<dt><span><em>empty line</em></span></dt>
+<dt><em>empty line</em></dt>
 <dd>
 <p>empty line.
 </p></dd>
-<dt><span><em>quotation</em></span></dt>
+<dt><em>quotation</em></dt>
 <dd><blockquote>
 <p>Quotation
 </p></blockquote>
 
 </dd>
-<dt><span><em>quotation after a blank line</em></span></dt>
+<dt><em>quotation after a blank line</em></dt>
 <dd>
 <blockquote>
 <p>quotation after a blank line
@@ -1785,10 +1785,10 @@ end example.
 
 <p>Something.
 </p><dl compact="compact">
-<dt><span><em>in item</em></span></dt>
+<dt><em>in item</em></dt>
 <dd><p>Text without blank line
 </p></dd>
-<dt><span><em>second item</em></span></dt>
+<dt><em>second item</em></dt>
 <dd><p>Text without blank line 2
 </p></dd>
 </dl>

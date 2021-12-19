@@ -1,5 +1,13 @@
 2021-12-19  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_convert_item_command)
+	(_convert_def_line_type): only output <span> associated with
+	copiable anchor if there is a copiable anchor.
+
+	* tp/init/html32.pm: no copiable anchor.
+
+2021-12-19  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_convert_image_command)
 	(_default_format_button_icon_img): call
 	close_html_lone_element_if_needed() for <img>.

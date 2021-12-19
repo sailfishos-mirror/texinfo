@@ -634,8 +634,8 @@ ul.no-bullet {list-style: none}
 <div align="center">in center <br> line break
 </div>
 <dl compact="compact">
-<dt><span><strong>with break <br> after</strong></span></dt>
-<dt><span><strong>withx breakx <br> afterx</strong></span></dt>
+<dt><strong>with break <br> after</strong></dt>
+<dt><strong>withx breakx <br> afterx</strong></dt>
 <dd><p>Text
 </p></dd>
 </dl>

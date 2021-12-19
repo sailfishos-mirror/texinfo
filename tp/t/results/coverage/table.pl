@@ -690,8 +690,8 @@ table itemx
 
 $result_converted{'html_text'}->{'table'} = '
 <dl compact="compact">
-<dt><span>table item</span></dt>
-<dt><span>table itemx</span></dt>
+<dt>table item</dt>
+<dt>table itemx</dt>
 <dd>
 <p>In table
 </p></dd>

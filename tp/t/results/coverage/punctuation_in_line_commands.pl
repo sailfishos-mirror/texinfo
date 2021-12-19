@@ -1215,7 +1215,7 @@ $result_converted{'html_text'}->{'punctuation_in_line_commands'} = '
 <span id="top_0021-After-punc"></span><h1 class="top">top! After punc</h1>
 
 <dl compact="compact">
-<dt><span>item! After punc</span></dt>
+<dt>item! After punc</dt>
 </dl>
 
 <blockquote>

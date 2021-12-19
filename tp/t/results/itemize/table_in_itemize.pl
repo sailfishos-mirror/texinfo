@@ -467,12 +467,12 @@ $result_converted{'plaintext'}->{'table_in_itemize'} = '   * item one
 $result_converted{'html_text'}->{'table_in_itemize'} = '<ul>
 <li> item one
 </li><li> <dl compact="compact">
-<dt><span>table one</span></dt>
+<dt>table one</dt>
 <dd><p>aaaaa
 </p>
 <p>New para.
 </p></dd>
-<dt><span>table two</span></dt>
+<dt>table two</dt>
 <dd><p>Five
 </p>
 <p>New para.

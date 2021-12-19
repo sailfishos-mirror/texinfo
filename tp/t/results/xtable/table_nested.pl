@@ -2679,10 +2679,10 @@ $result_converted{'html_text'}->{'table_nested'} = '
 
 <p>Something.
 </p><dl compact="compact">
-<dt><span><em>in item</em></span></dt>
+<dt><em>in item</em></dt>
 <dd><p>Text without blank line
 </p></dd>
-<dt><span><em>second item</em></span></dt>
+<dt><em>second item</em></dt>
 <dd><p>Text without blank line 2
 </p></dd>
 </dl>
@@ -2711,10 +2711,10 @@ Text 2
 
 Something.
 </pre><dl compact="compact">
-<dt><span><tt><em>in item</em></tt></span></dt>
+<dt><tt><em>in item</em></tt></dt>
 <dd><pre class="example">Text without blank line
 </pre></dd>
-<dt><span><tt><em>second item</em></tt></span></dt>
+<dt><tt><em>second item</em></tt></dt>
 <dd><pre class="example">Text without blank line 2
 </pre></dd>
 </dl>
@@ -2741,10 +2741,10 @@ Something.
 
 <p>Something.
 </p><dl compact="compact">
-<dt><span><em>in item</em></span></dt>
+<dt><em>in item</em></dt>
 <dd><p>Text without blank line
 </p></dd>
-<dt><span><em>second item</em></span></dt>
+<dt><em>second item</em></dt>
 <dd><p>Text without blank line 2
 </p></dd>
 </dl>

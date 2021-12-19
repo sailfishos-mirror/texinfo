@@ -542,16 +542,16 @@ $result_converted{'plaintext'}->{'inter_item_commands_in_table_in_example'} = ' 
 $result_converted{'html_text'}->{'inter_item_commands_in_table_in_example'} = '
 <div class="example">
 <dl compact="compact">
-<dt><span><tt><var>a--b</var></tt></span></dt>
+<dt><tt><var>a--b</var></tt></dt>
 <dd><pre class="example"><span id="index-index-entry-between-item-and-itemx"></span></pre></dd>
-<dt><span><tt><var>b</var></tt></span></dt>
+<dt><tt><var>b</var></tt></dt>
 <dd><pre class="example">
 
 </pre></dd>
-<dt><span><tt><var>c</var></tt></span></dt>
+<dt><tt><var>c</var></tt></dt>
 <dd><pre class="example">l--ine
 </pre></dd>
-<dt><span><tt><var>d</var></tt></span></dt>
+<dt><tt><var>d</var></tt></dt>
 </dl>
 </div>
 ';
