@@ -28,6 +28,16 @@
 
 2021-12-19  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Converter.pm
+	(xml_format_text_with_numeric_entities),
+	tp/Texinfo/Convert/DocBook.pm (_convert),
+	tp/Texinfo/Convert/HTML.pm (_convert_text): add
+	xml_format_text_with_numeric_entities() based on DocBook
+	converter text, and use it in HTML if USE_NUMERIC_ENTITY
+	is set.
+
+2021-12-19  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_parse_macro_command_line)
 	(_lookup_macro_parameter, _expand_macro_body, _parse_texi):
 	Add _lookup_macro_parameter() to find the formal argument index

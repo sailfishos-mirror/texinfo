@@ -1364,6 +1364,29 @@ sub sort_element_counts($$;$$)
 
 # XML related methods and variables that may be used in different
 # XML Converters.
+
+my $xml_numeric_entity_mdash = '&#'.hex('2014').';';
+my $xml_numeric_entity_ndash = '&#'.hex('2013').';';
+my $xml_numeric_entity_ldquo = '&#'.hex('201C').';';
+my $xml_numeric_entity_rdquo = '&#'.hex('201D').';';
+my $xml_numeric_entity_lsquo = '&#'.hex('2018').';';
+my $xml_numeric_entity_rsquo = '&#'.hex('2019').';';
+
+sub xml_format_text_with_numeric_entities($$)
+{
+  my $self = shift;
+  my $text = shift;
+ 
+  $text =~ s/``/$xml_numeric_entity_ldquo/g;
+  $text =~ s/\'\'/$xml_numeric_entity_rdquo/g;
+  $text =~ s/`/$xml_numeric_entity_lsquo/g;
+  $text =~ s/\'/$xml_numeric_entity_rsquo/g;
+  $text =~ s/---/$xml_numeric_entity_mdash/g;
+  $text =~ s/--/$xml_numeric_entity_ndash/g;
+
+  return $text;
+}
+
 sub xml_protect_text($$)
 {
   my $self = shift;
@@ -1834,6 +1857,11 @@ customization value, or EXTENSION customization value and I<$document_name>.
 Other C<Texinfo::Convert::Converter> methods target conversion to XML:
 
 =over
+
+=item $formatted_text = $converter->xml_format_text_with_numeric_entities($text)
+
+Replace quotation marks and hyphens used to represent dash in
+Texinfo text with numeric XML entities.
 
 =item $protected_text = $converter->xml_protect_text($text)
 

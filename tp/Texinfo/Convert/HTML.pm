@@ -4276,7 +4276,9 @@ sub _convert_text($$$)
     $text = Texinfo::Convert::Unicode::unicode_text($text,
                                         ($self->in_code() or $self->in_math()));
   } elsif (!$self->in_code() and !$self->in_math()) { 
-    if ($self->get_conf('USE_ISO')) {
+    if ($self->get_conf('USE_NUMERIC_ENTITY')) {
+      $text = $self->xml_format_text_with_numeric_entities($text);
+    } elsif ($self->get_conf('USE_ISO')) {
       $text =~ s/---/\&mdash\;/g;
       $text =~ s/--/\&ndash\;/g;
       $text =~ s/``/\&ldquo\;/g;

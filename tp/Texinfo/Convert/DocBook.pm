@@ -43,12 +43,6 @@ $VERSION = '6.8dev';
 
 
 my $nbsp = '&#'.hex('00A0').';';
-my $mdash = '&#'.hex('2014').';';
-my $ndash = '&#'.hex('2013').';';
-my $ldquo = '&#'.hex('201C').';';
-my $rdquo = '&#'.hex('201D').';';
-my $lsquo = '&#'.hex('2018').';';
-my $rsquo = '&#'.hex('2019').';';
 
 my %defaults = (
   #'ENABLE_ENCODING'      => 0,
@@ -60,8 +54,8 @@ my %defaults = (
   'output_format'        => 'docbook',
   'SPLIT'                => 0,
   'documentlanguage'     => undef,
-  'OPEN_QUOTE_SYMBOL'    => $lsquo,
-  'CLOSE_QUOTE_SYMBOL'   => $rsquo,
+  'OPEN_QUOTE_SYMBOL'    => '&#'.hex('2018').';',
+  'CLOSE_QUOTE_SYMBOL'   => '&#'.hex('2019').';',
   'USE_NUMERIC_ENTITY'   => 1,
 );
 
@@ -523,12 +517,7 @@ sub _convert($$;$)
     $result = $self->_protect_text($result);
     if (! defined($element->{'type'}) or $element->{'type'} ne 'raw') {
       if (!$self->{'document_context'}->[-1]->{'monospace'}->[-1]) {
-        $result =~ s/``/$ldquo/g;
-        $result =~ s/\'\'/$rdquo/g;
-        $result =~ s/`/$lsquo/g;
-        $result =~ s/\'/$rsquo/g;
-        $result =~ s/---/$mdash/g;
-        $result =~ s/--/$ndash/g;
+        $result = $self->xml_format_text_with_numeric_entities($result);
       }
     }
     #warn "had text `$element->{'text'}', returning $result\n";
