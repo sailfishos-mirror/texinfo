@@ -62,6 +62,7 @@ my %defaults = (
   'documentlanguage'     => undef,
   'OPEN_QUOTE_SYMBOL'    => $lsquo,
   'CLOSE_QUOTE_SYMBOL'   => $rsquo,
+  'USE_NUMERIC_ENTITY'   => 1,
 );
 
 my @docbook_image_extensions
@@ -456,29 +457,6 @@ sub _index_entry($$)
   return '';
 }
 
-sub docbook_accent($$$;$)
-{
-  my $self = shift;
-  my $text = shift;
-  my $command = shift;
-  my $in_upper_case = shift;
-  my $accent = $command->{'cmdname'};
-
-  if ($in_upper_case and $text =~ /^\w$/) {
-    $text = uc ($text);
-  }
-  if (exists($Texinfo::Convert::Unicode::unicode_accented_letters{$accent})
-      and exists($Texinfo::Convert::Unicode::unicode_accented_letters{$accent}->{$text})) {
-    return '&#' .
-      hex($Texinfo::Convert::Unicode::unicode_accented_letters{$accent}->{$text}). ';';
-  }
-  # FIXME it is not possible to call xml_protect_text since what is in $text
-  # may already be xml.  But this means that each time ascii_accent changes
-  # it should be changed here too.
-  return $text . '&lt;' if ($accent eq 'v');
-  return Texinfo::Convert::Text::ascii_accent($text, $command);
-}
-
 sub _parse_attribute($)
 {
   my $element = shift;
@@ -585,7 +563,7 @@ sub _convert($$;$)
     } elsif ($element->{'cmdname'} eq 'today') {
       return $self->_convert(Texinfo::Convert::Utils::expand_today($self));
     } elsif ($Texinfo::Common::accent_commands{$element->{'cmdname'}}) {
-      return $self->convert_accents($element, \&docbook_accent,
+      return $self->xml_accents($element,
                $self->{'document_context'}->[-1]->{'upper_case'}->[-1]);
     } elsif ($element->{'cmdname'} eq 'item' or $element->{'cmdname'} eq 'itemx'
              or $element->{'cmdname'} eq 'headitem' or $element->{'cmdname'} eq 'tab') {

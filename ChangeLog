@@ -1,3 +1,14 @@
+2021-12-19  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Common.pm (@variable_string_settables),
+	tp/Texinfo/Convert/Converter.pm (_format_numeric_entities_accent)
+	(xml_accent, _xml_named_entities_numeric_fallback_accent)
+	(xml_accents), tp/Texinfo/Convert/DocBook.pm (%defaults)
+	(cmdname), doc/texinfo.texi (Other Customization Variables):
+	re-add USE_NUMERIC_ENTITY with the meaning of using numeric
+	entities in priority.  In DocBook, use Texinfo::Convert::Converter
+	xml_accents and set USE_NUMERIC_ENTITY, remove docbook_accent().
+
 2021-12-19  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	Attempt to make texi2any relocatable

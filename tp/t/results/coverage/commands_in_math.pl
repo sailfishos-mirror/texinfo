@@ -2891,9 +2891,9 @@ $result_converted{'docbook'}->{'commands_in_math'} = '
 `<!-- /@w -->`simple-double-<!-- /@w -->-three---four----\'<!-- /@w -->\'
 
 </mathphrase></informalequation>
-<informalequation><mathphrase>&#252; &#220; &#241; &#226; &#233; &#333; &#236; &#233; i j &#274;`
-&#322; &#262;, &#262;, &#231; a\'\' &#551; &#229; a[
-&#259; a_ &#7841; &#462; &#261; a<superscript>h</superscript><subscript>l</subscript>
+<informalequation><mathphrase>&#252; &#220; &#241; &#226; &#233; &#333; &#236; &#233; i j &#274;&#768;
+&#322; &#262;&#807; &#262;&#807; &#231; a&#779; &#551; &#229; a&#865;
+&#259; a&#818; &#7841; &#462; &#261; a<superscript>h</superscript><subscript>l</subscript>
 
  &#160;&#160; &#160;   ! ? . @ } { 
 a sunny day

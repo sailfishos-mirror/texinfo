@@ -255,7 +255,7 @@ $result_converted{'xml'}->{'accent_with_text'} = '<para><accent type="breve">&te
 </para>';
 
 
-$result_converted{'docbook'}->{'accent_with_text'} = '<para>&#8211;a( &#8211;b &#238; &#309; &#8211;a^
+$result_converted{'docbook'}->{'accent_with_text'} = '<para>&#8211;a&#774; &#8211;b &#238; &#309; &#8211;a&#770;
 </para>';
 
 1;

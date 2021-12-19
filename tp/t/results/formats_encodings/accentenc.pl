@@ -3486,17 +3486,17 @@ $result_converted{'docbook'}->{'accentenc'} = '
 </para>
 <para>should be e=: &#275; &#275;
 </para>
-<para>should be e&#8217;<!-- /@w -->&#8217;: e\'\' e\'\'
+<para>should be e&#8217;<!-- /@w -->&#8217;: e&#779; e&#779;
 </para>
 <para>should be e.: &#279; &#279;
 </para>
-<para>should be e*: e* e*
+<para>should be e*: e&#778; e&#778;
 </para>
-<para>should be ee[: ee[
+<para>should be ee[: e&#865;e
 </para>
 <para>should be e(: &#277; &#277;
 </para>
-<para>should be e_: e_ e_
+<para>should be e_: e&#818; e&#818;
 </para>
 <para>should be .e: &#7865; &#7865;
 </para>
@@ -3532,13 +3532,13 @@ $result_converted{'docbook'}->{'accentenc'} = '
 <para>should be dotless i&quot;: &#239;
 </para>
 <!-- arg is command - @dotless{j} -->
-<para>should be dotless j&#8216;: j`
+<para>should be dotless j&#8216;: j&#768;
 </para>
-<para>should be dotless j&#8217;: j\'
+<para>should be dotless j&#8217;: j&#769;
 </para>
 <para>should be dotless j^: &#309;
 </para>
-<para>should be dotless j&quot;: j"
+<para>should be dotless j&quot;: j&#776;
 </para></chapter>
 ';
 

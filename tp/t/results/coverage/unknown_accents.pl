@@ -930,19 +930,19 @@ $result_converted{'xml'}->{'unknown_accents'} = '<para><accent type="uml" bracke
 </para>';
 
 
-$result_converted{'docbook'}->{'unknown_accents'} = '<para>&#7820; &#7821; Q" &#376;
+$result_converted{'docbook'}->{'unknown_accents'} = '<para>&#7820; &#7821; Q&#776; &#376;
 </para>
-<para>&#394; q\' &#341;
-&#377; Q\' &#340;
+<para>&#394; q&#769; &#341;
+&#377; Q&#769; &#340;
 </para>
 <para>&#7720; &#7721;
 </para>
-<para>&#7825; r^ t^ k^
-&#7824; R^ T^ K^
+<para>&#7825; r&#770; t&#770; k&#770;
+&#7824; R&#770; T&#770; K&#770;
 </para>
-<para>z` m` p`
+<para>z&#768; m&#768; p&#768;
 </para>
-<para>Z~ s~
+<para>Z&#771; s&#771;
 </para>';
 
 1;

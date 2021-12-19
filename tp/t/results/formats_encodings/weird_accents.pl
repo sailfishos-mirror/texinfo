@@ -682,15 +682,15 @@ $result_converted{'docbook'}->{'weird_accents'} = '
 <chapter label="" id="Top">
 <title>top</title>
 
-<para>&#297;=
+<para>&#297;&#772;
 </para>
-<para>&#241;,=
+<para>&#241;&#807;&#772;
 </para>
-<para>a_=
+<para>a&#818;&#772;
 </para>
-<para>.r`^
+<para>r&#768;&#803;&#770;
 </para>
-<para>r`\'=
+<para>r&#768;&#769;&#772;
 </para></chapter>
 ';
 

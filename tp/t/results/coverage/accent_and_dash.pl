@@ -65,6 +65,6 @@ $result_converted{'html_text'}->{'accent_and_dash'} = '<p>a&ndash;&#770;</p>';
 $result_converted{'xml'}->{'accent_and_dash'} = '<para><accent type="circ">a&textndash;</accent></para>';
 
 
-$result_converted{'docbook'}->{'accent_and_dash'} = '<para>a&#8211;^</para>';
+$result_converted{'docbook'}->{'accent_and_dash'} = '<para>a&#8211;&#770;</para>';
 
 1;

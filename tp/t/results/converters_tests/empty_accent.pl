@@ -69,7 +69,7 @@ $result_converted{'xml'}->{'empty_accent'} = '<para><accent type="grave"></accen
 </para>';
 
 
-$result_converted{'docbook'}->{'empty_accent'} = '<para>`
+$result_converted{'docbook'}->{'empty_accent'} = '<para>&#768;
 </para>';
 
 1;

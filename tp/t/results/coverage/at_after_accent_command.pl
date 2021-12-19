@@ -109,7 +109,7 @@ $result_converted{'xml'}->{'at_after_accent_command'} = '<para><accent type="rin
 </para>';
 
 
-$result_converted{'docbook'}->{'at_after_accent_command'} = '<para>*@. ^@.
+$result_converted{'docbook'}->{'at_after_accent_command'} = '<para>&#778;@. &#770;@.
 </para>';
 
 1;

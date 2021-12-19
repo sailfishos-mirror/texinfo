@@ -47,9 +47,9 @@ kbd: <userinput>``simple-double--three---four----''</userinput>
 @&#8217;{@dotless{i}} &#237; 
 @dotless{i} i
 @dotless{j} j
-@&#8216;{@=E} &#274;` 
+@&#8216;{@=E} &#274;&#768; 
 @l{} &#322;
-@,{@&#8217;C} &#262;,
+@,{@&#8217;C} &#262;&#807;
 @,c &#231;
 @,c@&quot;u &#231;&#252; 
 
@@ -182,26 +182,26 @@ but , ,
 <literal>@verb{:--a:}</literal> <literal>--a</literal>
 <literal>@verb{:a  &lt; &amp; @ % &quot; --    b:}</literal> <literal>a  &lt; &amp; @ % &quot; --    b</literal>
 <literal>@w{a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a}</literal> a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a<!-- /@w -->
-<literal>@H{a}</literal> a''
-<literal>@H{--a}</literal> &#8211;a''
+<literal>@H{a}</literal> a&#779;
+<literal>@H{--a}</literal> &#8211;a&#779;
 <literal>@dotaccent{a}</literal> &#551;
-<literal>@dotaccent{--a}</literal> &#8211;a.
+<literal>@dotaccent{--a}</literal> &#8211;a&#775;
 <literal>@ringaccent{a}</literal> &#229;
-<literal>@ringaccent{--a}</literal> &#8211;a*
-<literal>@tieaccent{a}</literal> a[
-<literal>@tieaccent{--a}</literal> &#8211;a[
+<literal>@ringaccent{--a}</literal> &#8211;a&#778;
+<literal>@tieaccent{a}</literal> a&#865;
+<literal>@tieaccent{--a}</literal> &#8211;a&#865;
 <literal>@u{a}</literal> &#259;
-<literal>@u{--a}</literal> &#8211;a(
-<literal>@ubaraccent{a}</literal> a_
-<literal>@ubaraccent{--a}</literal> &#8211;a_
+<literal>@u{--a}</literal> &#8211;a&#774;
+<literal>@ubaraccent{a}</literal> a&#818;
+<literal>@ubaraccent{--a}</literal> &#8211;a&#818;
 <literal>@udotaccent{a}</literal> &#7841;
-<literal>@udotaccent{--a}</literal> .&#8211;a
+<literal>@udotaccent{--a}</literal> &#8211;a&#803;
 <literal>@v{a}</literal> &#462;
-<literal>@v{--a}</literal> &#8211;a&lt;
+<literal>@v{--a}</literal> &#8211;a&#780;
 <literal>@,{c}</literal> &#231;
-<literal>@,{--c}</literal> &#8211;c,
+<literal>@,{--c}</literal> &#8211;c&#807;
 <literal>@ogonek{a}</literal> &#261;
-<literal>@ogonek{--a}</literal> &#8211;a;
+<literal>@ogonek{--a}</literal> &#8211;a&#808;
 <literal>a@sup{h}@sub{l}</literal> a<superscript>h</superscript><subscript>l</subscript>
 <literal>@footnote{in footnote}</literal> <footnote><para>in footnote</para></footnote>
 <literal>@footnote{in footnote2}</literal> <footnote><para>in footnote2</para></footnote>
@@ -237,9 +237,9 @@ After clickstyle &#8658;
 `<!-- /@w -->`simple-double-<!-- /@w -->-three---four----'<!-- /@w -->'
 
 </mathphrase></informalequation>
-<informalequation><mathphrase>&#252; &#220; &#241; &#226; &#233; &#333; &#236; &#233; i j &#274;`
-&#322; &#262;, &#262;, &#231; a'' &#551; &#229; a[
-&#259; a_ &#7841; &#462; &#261; a<superscript>h</superscript><subscript>l</subscript>
+<informalequation><mathphrase>&#252; &#220; &#241; &#226; &#233; &#333; &#236; &#233; i j &#274;&#768;
+&#322; &#262;&#807; &#262;&#807; &#231; a&#779; &#551; &#229; a&#865;
+&#259; a&#818; &#7841; &#462; &#261; a<superscript>h</superscript><subscript>l</subscript>
 
  &#160;&#160; &#160;   ! ? . @ } { 
 a sunny day
@@ -686,17 +686,17 @@ aaa</literallayout></textobject></inlinemediaobject>
 
 <para>Somehow invalid use of @,:
 
-@, ,
+@, &#807;
 
 
-@,@&quot;u ,&#252;
+@,@&quot;u &#807;&#252;
 </para>
 <para>Invalid use of @&#8217;:
 
-@&#8217; '
+@&#8217; &#769;
 
 
-@&#8217;@&quot;u '&#252;
+@&#8217;@&quot;u &#769;&#252;
 </para>
 <!-- only i or j as arg -->
 <para>@dotless{truc} truc
@@ -840,9 +840,9 @@ kbd: <userinput>``simple-double--three---four----''</userinput>
 @&#8217;{@dotless{i}} &#237; 
 @dotless{i} i
 @dotless{j} j
-@&#8216;{@=E} &#274;` 
+@&#8216;{@=E} &#274;&#768; 
 @l{} &#322;
-@,{@&#8217;C} &#262;,
+@,{@&#8217;C} &#262;&#807;
 @,c &#231;
 @,c@&quot;u &#231;&#252; 
 
@@ -975,26 +975,26 @@ but , ,
 <literal>@verb{:--a:}</literal> <literal>--a</literal>
 <literal>@verb{:a  &lt; &amp; @ % &quot; --    b:}</literal> <literal>a  &lt; &amp; @ % &quot; --    b</literal>
 <literal>@w{a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a}</literal> a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a<!-- /@w -->
-<literal>@H{a}</literal> a''
-<literal>@H{--a}</literal> &#8211;a''
+<literal>@H{a}</literal> a&#779;
+<literal>@H{--a}</literal> &#8211;a&#779;
 <literal>@dotaccent{a}</literal> &#551;
-<literal>@dotaccent{--a}</literal> &#8211;a.
+<literal>@dotaccent{--a}</literal> &#8211;a&#775;
 <literal>@ringaccent{a}</literal> &#229;
-<literal>@ringaccent{--a}</literal> &#8211;a*
-<literal>@tieaccent{a}</literal> a[
-<literal>@tieaccent{--a}</literal> &#8211;a[
+<literal>@ringaccent{--a}</literal> &#8211;a&#778;
+<literal>@tieaccent{a}</literal> a&#865;
+<literal>@tieaccent{--a}</literal> &#8211;a&#865;
 <literal>@u{a}</literal> &#259;
-<literal>@u{--a}</literal> &#8211;a(
-<literal>@ubaraccent{a}</literal> a_
-<literal>@ubaraccent{--a}</literal> &#8211;a_
+<literal>@u{--a}</literal> &#8211;a&#774;
+<literal>@ubaraccent{a}</literal> a&#818;
+<literal>@ubaraccent{--a}</literal> &#8211;a&#818;
 <literal>@udotaccent{a}</literal> &#7841;
-<literal>@udotaccent{--a}</literal> .&#8211;a
+<literal>@udotaccent{--a}</literal> &#8211;a&#803;
 <literal>@v{a}</literal> &#462;
-<literal>@v{--a}</literal> &#8211;a&lt;
+<literal>@v{--a}</literal> &#8211;a&#780;
 <literal>@,{c}</literal> &#231;
-<literal>@,{--c}</literal> &#8211;c,
+<literal>@,{--c}</literal> &#8211;c&#807;
 <literal>@ogonek{a}</literal> &#261;
-<literal>@ogonek{--a}</literal> &#8211;a;
+<literal>@ogonek{--a}</literal> &#8211;a&#808;
 <literal>a@sup{h}@sub{l}</literal> a<superscript>h</superscript><subscript>l</subscript>
 <literal>@footnote{in footnote}</literal> <footnote><para>in footnote</para></footnote>
 <literal>@footnote{in footnote2}</literal> <footnote><para>in footnote2</para></footnote>
@@ -1030,9 +1030,9 @@ After clickstyle &#8658;
 `<!-- /@w -->`simple-double-<!-- /@w -->-three---four----'<!-- /@w -->'
 
 </mathphrase></informalequation>
-<informalequation><mathphrase>&#252; &#220; &#241; &#226; &#233; &#333; &#236; &#233; i j &#274;`
-&#322; &#262;, &#262;, &#231; a'' &#551; &#229; a[
-&#259; a_ &#7841; &#462; &#261; a<superscript>h</superscript><subscript>l</subscript>
+<informalequation><mathphrase>&#252; &#220; &#241; &#226; &#233; &#333; &#236; &#233; i j &#274;&#768;
+&#322; &#262;&#807; &#262;&#807; &#231; a&#779; &#551; &#229; a&#865;
+&#259; a&#818; &#7841; &#462; &#261; a<superscript>h</superscript><subscript>l</subscript>
 
  &#160;&#160; &#160;   ! ? . @ } { 
 a sunny day
@@ -1479,17 +1479,17 @@ aaa</literallayout></textobject></inlinemediaobject>
 
 <para>Somehow invalid use of @,:
 
-@, ,
+@, &#807;
 
 
-@,@&quot;u ,&#252;
+@,@&quot;u &#807;&#252;
 </para>
 <para>Invalid use of @&#8217;:
 
-@&#8217; '
+@&#8217; &#769;
 
 
-@&#8217;@&quot;u '&#252;
+@&#8217;@&quot;u &#769;&#252;
 </para>
 <!-- only i or j as arg -->
 <para>@dotless{truc} truc
@@ -1634,9 +1634,9 @@ kbd: <userinput>``simple-double--three---four----''</userinput>
 @&#8217;{@dotless{i}} &#237; 
 @dotless{i} i
 @dotless{j} j
-@&#8216;{@=E} &#274;` 
+@&#8216;{@=E} &#274;&#768; 
 @l{} &#322;
-@,{@&#8217;C} &#262;,
+@,{@&#8217;C} &#262;&#807;
 @,c &#231;
 @,c@&quot;u &#231;&#252; 
 
@@ -1769,26 +1769,26 @@ but , ,
 <literal>@verb{:--a:}</literal> <literal>--a</literal>
 <literal>@verb{:a  &lt; &amp; @ % &quot; --    b:}</literal> <literal>a  &lt; &amp; @ % &quot; --    b</literal>
 <literal>@w{a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a}</literal> a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a<!-- /@w -->
-<literal>@H{a}</literal> a''
-<literal>@H{--a}</literal> &#8211;a''
+<literal>@H{a}</literal> a&#779;
+<literal>@H{--a}</literal> &#8211;a&#779;
 <literal>@dotaccent{a}</literal> &#551;
-<literal>@dotaccent{--a}</literal> &#8211;a.
+<literal>@dotaccent{--a}</literal> &#8211;a&#775;
 <literal>@ringaccent{a}</literal> &#229;
-<literal>@ringaccent{--a}</literal> &#8211;a*
-<literal>@tieaccent{a}</literal> a[
-<literal>@tieaccent{--a}</literal> &#8211;a[
+<literal>@ringaccent{--a}</literal> &#8211;a&#778;
+<literal>@tieaccent{a}</literal> a&#865;
+<literal>@tieaccent{--a}</literal> &#8211;a&#865;
 <literal>@u{a}</literal> &#259;
-<literal>@u{--a}</literal> &#8211;a(
-<literal>@ubaraccent{a}</literal> a_
-<literal>@ubaraccent{--a}</literal> &#8211;a_
+<literal>@u{--a}</literal> &#8211;a&#774;
+<literal>@ubaraccent{a}</literal> a&#818;
+<literal>@ubaraccent{--a}</literal> &#8211;a&#818;
 <literal>@udotaccent{a}</literal> &#7841;
-<literal>@udotaccent{--a}</literal> .&#8211;a
+<literal>@udotaccent{--a}</literal> &#8211;a&#803;
 <literal>@v{a}</literal> &#462;
-<literal>@v{--a}</literal> &#8211;a&lt;
+<literal>@v{--a}</literal> &#8211;a&#780;
 <literal>@,{c}</literal> &#231;
-<literal>@,{--c}</literal> &#8211;c,
+<literal>@,{--c}</literal> &#8211;c&#807;
 <literal>@ogonek{a}</literal> &#261;
-<literal>@ogonek{--a}</literal> &#8211;a;
+<literal>@ogonek{--a}</literal> &#8211;a&#808;
 <literal>a@sup{h}@sub{l}</literal> a<superscript>h</superscript><subscript>l</subscript>
 <literal>@footnote{in footnote}</literal> <footnote><para>in footnote</para></footnote>
 <literal>@footnote{in footnote2}</literal> <footnote><para>in footnote2</para></footnote>
@@ -1824,9 +1824,9 @@ After clickstyle &#8658;
 `<!-- /@w -->`simple-double-<!-- /@w -->-three---four----'<!-- /@w -->'
 
 </mathphrase></informalequation>
-<informalequation><mathphrase>&#252; &#220; &#241; &#226; &#233; &#333; &#236; &#233; i j &#274;`
-&#322; &#262;, &#262;, &#231; a'' &#551; &#229; a[
-&#259; a_ &#7841; &#462; &#261; a<superscript>h</superscript><subscript>l</subscript>
+<informalequation><mathphrase>&#252; &#220; &#241; &#226; &#233; &#333; &#236; &#233; i j &#274;&#768;
+&#322; &#262;&#807; &#262;&#807; &#231; a&#779; &#551; &#229; a&#865;
+&#259; a&#818; &#7841; &#462; &#261; a<superscript>h</superscript><subscript>l</subscript>
 
  &#160;&#160; &#160;   ! ? . @ } { 
 a sunny day
@@ -2273,17 +2273,17 @@ aaa</literallayout></textobject></inlinemediaobject>
 
 <para>Somehow invalid use of @,:
 
-@, ,
+@, &#807;
 
 
-@,@&quot;u ,&#252;
+@,@&quot;u &#807;&#252;
 </para>
 <para>Invalid use of @&#8217;:
 
-@&#8217; '
+@&#8217; &#769;
 
 
-@&#8217;@&quot;u '&#252;
+@&#8217;@&quot;u &#769;&#252;
 </para>
 <!-- only i or j as arg -->
 <para>@dotless{truc} truc
@@ -2446,9 +2446,9 @@ kbd: <userinput>``simple-double--three---four----''</userinput>
 @&#8217;{@dotless{i}} &#237; 
 @dotless{i} i
 @dotless{j} j
-@&#8216;{@=E} &#274;` 
+@&#8216;{@=E} &#274;&#768; 
 @l{} &#322;
-@,{@&#8217;C} &#262;,
+@,{@&#8217;C} &#262;&#807;
 @,c &#231;
 @,c@&quot;u &#231;&#252; 
 
@@ -2581,26 +2581,26 @@ but , ,
 <literal>@verb{:--a:}</literal> <literal>--a</literal>
 <literal>@verb{:a  &lt; &amp; @ % &quot; --    b:}</literal> <literal>a  &lt; &amp; @ % &quot; --    b</literal>
 <literal>@w{a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a}</literal> a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a<!-- /@w -->
-<literal>@H{a}</literal> a''
-<literal>@H{--a}</literal> &#8211;a''
+<literal>@H{a}</literal> a&#779;
+<literal>@H{--a}</literal> &#8211;a&#779;
 <literal>@dotaccent{a}</literal> &#551;
-<literal>@dotaccent{--a}</literal> &#8211;a.
+<literal>@dotaccent{--a}</literal> &#8211;a&#775;
 <literal>@ringaccent{a}</literal> &#229;
-<literal>@ringaccent{--a}</literal> &#8211;a*
-<literal>@tieaccent{a}</literal> a[
-<literal>@tieaccent{--a}</literal> &#8211;a[
+<literal>@ringaccent{--a}</literal> &#8211;a&#778;
+<literal>@tieaccent{a}</literal> a&#865;
+<literal>@tieaccent{--a}</literal> &#8211;a&#865;
 <literal>@u{a}</literal> &#259;
-<literal>@u{--a}</literal> &#8211;a(
-<literal>@ubaraccent{a}</literal> a_
-<literal>@ubaraccent{--a}</literal> &#8211;a_
+<literal>@u{--a}</literal> &#8211;a&#774;
+<literal>@ubaraccent{a}</literal> a&#818;
+<literal>@ubaraccent{--a}</literal> &#8211;a&#818;
 <literal>@udotaccent{a}</literal> &#7841;
-<literal>@udotaccent{--a}</literal> .&#8211;a
+<literal>@udotaccent{--a}</literal> &#8211;a&#803;
 <literal>@v{a}</literal> &#462;
-<literal>@v{--a}</literal> &#8211;a&lt;
+<literal>@v{--a}</literal> &#8211;a&#780;
 <literal>@,{c}</literal> &#231;
-<literal>@,{--c}</literal> &#8211;c,
+<literal>@,{--c}</literal> &#8211;c&#807;
 <literal>@ogonek{a}</literal> &#261;
-<literal>@ogonek{--a}</literal> &#8211;a;
+<literal>@ogonek{--a}</literal> &#8211;a&#808;
 <literal>a@sup{h}@sub{l}</literal> a<superscript>h</superscript><subscript>l</subscript>
 <literal>@footnote{in footnote}</literal> <footnote><para>in footnote</para></footnote>
 <literal>@footnote{in footnote2}</literal> <footnote><para>in footnote2</para></footnote>
@@ -2636,9 +2636,9 @@ After clickstyle &#8658;
 `<!-- /@w -->`simple-double-<!-- /@w -->-three---four----'<!-- /@w -->'
 
 </mathphrase></informalequation>
-<informalequation><mathphrase>&#252; &#220; &#241; &#226; &#233; &#333; &#236; &#233; i j &#274;`
-&#322; &#262;, &#262;, &#231; a'' &#551; &#229; a[
-&#259; a_ &#7841; &#462; &#261; a<superscript>h</superscript><subscript>l</subscript>
+<informalequation><mathphrase>&#252; &#220; &#241; &#226; &#233; &#333; &#236; &#233; i j &#274;&#768;
+&#322; &#262;&#807; &#262;&#807; &#231; a&#779; &#551; &#229; a&#865;
+&#259; a&#818; &#7841; &#462; &#261; a<superscript>h</superscript><subscript>l</subscript>
 
  &#160;&#160; &#160;   ! ? . @ } { 
 a sunny day
@@ -3085,17 +3085,17 @@ aaa</literallayout></textobject></inlinemediaobject>
 
 <para>Somehow invalid use of @,:
 
-@, ,
+@, &#807;
 
 
-@,@&quot;u ,&#252;
+@,@&quot;u &#807;&#252;
 </para>
 <para>Invalid use of @&#8217;:
 
-@&#8217; '
+@&#8217; &#769;
 
 
-@&#8217;@&quot;u '&#252;
+@&#8217;@&quot;u &#769;&#252;
 </para>
 <!-- only i or j as arg -->
 <para>@dotless{truc} truc
@@ -3239,9 +3239,9 @@ kbd: <userinput>``simple-double--three---four----''</userinput>
 @&#8217;{@dotless{i}} &#237; 
 @dotless{i} i
 @dotless{j} j
-@&#8216;{@=E} &#274;` 
+@&#8216;{@=E} &#274;&#768; 
 @l{} &#322;
-@,{@&#8217;C} &#262;,
+@,{@&#8217;C} &#262;&#807;
 @,c &#231;
 @,c@&quot;u &#231;&#252; 
 
@@ -3374,26 +3374,26 @@ but , ,
 <literal>@verb{:--a:}</literal> <literal>--a</literal>
 <literal>@verb{:a  &lt; &amp; @ % &quot; --    b:}</literal> <literal>a  &lt; &amp; @ % &quot; --    b</literal>
 <literal>@w{a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a}</literal> a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a<!-- /@w -->
-<literal>@H{a}</literal> a''
-<literal>@H{--a}</literal> &#8211;a''
+<literal>@H{a}</literal> a&#779;
+<literal>@H{--a}</literal> &#8211;a&#779;
 <literal>@dotaccent{a}</literal> &#551;
-<literal>@dotaccent{--a}</literal> &#8211;a.
+<literal>@dotaccent{--a}</literal> &#8211;a&#775;
 <literal>@ringaccent{a}</literal> &#229;
-<literal>@ringaccent{--a}</literal> &#8211;a*
-<literal>@tieaccent{a}</literal> a[
-<literal>@tieaccent{--a}</literal> &#8211;a[
+<literal>@ringaccent{--a}</literal> &#8211;a&#778;
+<literal>@tieaccent{a}</literal> a&#865;
+<literal>@tieaccent{--a}</literal> &#8211;a&#865;
 <literal>@u{a}</literal> &#259;
-<literal>@u{--a}</literal> &#8211;a(
-<literal>@ubaraccent{a}</literal> a_
-<literal>@ubaraccent{--a}</literal> &#8211;a_
+<literal>@u{--a}</literal> &#8211;a&#774;
+<literal>@ubaraccent{a}</literal> a&#818;
+<literal>@ubaraccent{--a}</literal> &#8211;a&#818;
 <literal>@udotaccent{a}</literal> &#7841;
-<literal>@udotaccent{--a}</literal> .&#8211;a
+<literal>@udotaccent{--a}</literal> &#8211;a&#803;
 <literal>@v{a}</literal> &#462;
-<literal>@v{--a}</literal> &#8211;a&lt;
+<literal>@v{--a}</literal> &#8211;a&#780;
 <literal>@,{c}</literal> &#231;
-<literal>@,{--c}</literal> &#8211;c,
+<literal>@,{--c}</literal> &#8211;c&#807;
 <literal>@ogonek{a}</literal> &#261;
-<literal>@ogonek{--a}</literal> &#8211;a;
+<literal>@ogonek{--a}</literal> &#8211;a&#808;
 <literal>a@sup{h}@sub{l}</literal> a<superscript>h</superscript><subscript>l</subscript>
 <literal>@footnote{in footnote}</literal> <footnote><para>in footnote</para></footnote>
 <literal>@footnote{in footnote2}</literal> <footnote><para>in footnote2</para></footnote>
@@ -3429,9 +3429,9 @@ After clickstyle &#8658;
 `<!-- /@w -->`simple-double-<!-- /@w -->-three---four----'<!-- /@w -->'
 
 </mathphrase></informalequation>
-<informalequation><mathphrase>&#252; &#220; &#241; &#226; &#233; &#333; &#236; &#233; i j &#274;`
-&#322; &#262;, &#262;, &#231; a'' &#551; &#229; a[
-&#259; a_ &#7841; &#462; &#261; a<superscript>h</superscript><subscript>l</subscript>
+<informalequation><mathphrase>&#252; &#220; &#241; &#226; &#233; &#333; &#236; &#233; i j &#274;&#768;
+&#322; &#262;&#807; &#262;&#807; &#231; a&#779; &#551; &#229; a&#865;
+&#259; a&#818; &#7841; &#462; &#261; a<superscript>h</superscript><subscript>l</subscript>
 
  &#160;&#160; &#160;   ! ? . @ } { 
 a sunny day
@@ -3878,17 +3878,17 @@ aaa</literallayout></textobject></inlinemediaobject>
 
 <para>Somehow invalid use of @,:
 
-@, ,
+@, &#807;
 
 
-@,@&quot;u ,&#252;
+@,@&quot;u &#807;&#252;
 </para>
 <para>Invalid use of @&#8217;:
 
-@&#8217; '
+@&#8217; &#769;
 
 
-@&#8217;@&quot;u '&#252;
+@&#8217;@&quot;u &#769;&#252;
 </para>
 <!-- only i or j as arg -->
 <para>@dotless{truc} truc
@@ -4028,9 +4028,9 @@ kbd: <userinput>``simple-double--three---four----''</userinput>
 @'{@dotless{i}} &#237; 
 @dotless{i} i
 @dotless{j} j
-@`{@=E} &#274;` 
+@`{@=E} &#274;&#768; 
 @l{} &#322;
-@,{@'C} &#262;,
+@,{@'C} &#262;&#807;
 @,c &#231;
 @,c@&quot;u &#231;&#252; 
 
@@ -4163,26 +4163,26 @@ but , ,
 <literal>@verb{:--a:}</literal> <literal>--a</literal>
 <literal>@verb{:a  &lt; &amp; @ % &quot; --    b:}</literal> <literal>a  &lt; &amp; @ % &quot; --    b</literal>
 <literal>@w{a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a}</literal> a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a<!-- /@w -->
-<literal>@H{a}</literal> a''
-<literal>@H{--a}</literal> --a''
+<literal>@H{a}</literal> a&#779;
+<literal>@H{--a}</literal> --a&#779;
 <literal>@dotaccent{a}</literal> &#551;
-<literal>@dotaccent{--a}</literal> --a.
+<literal>@dotaccent{--a}</literal> --a&#775;
 <literal>@ringaccent{a}</literal> &#229;
-<literal>@ringaccent{--a}</literal> --a*
-<literal>@tieaccent{a}</literal> a[
-<literal>@tieaccent{--a}</literal> --a[
+<literal>@ringaccent{--a}</literal> --a&#778;
+<literal>@tieaccent{a}</literal> a&#865;
+<literal>@tieaccent{--a}</literal> --a&#865;
 <literal>@u{a}</literal> &#259;
-<literal>@u{--a}</literal> --a(
-<literal>@ubaraccent{a}</literal> a_
-<literal>@ubaraccent{--a}</literal> --a_
+<literal>@u{--a}</literal> --a&#774;
+<literal>@ubaraccent{a}</literal> a&#818;
+<literal>@ubaraccent{--a}</literal> --a&#818;
 <literal>@udotaccent{a}</literal> &#7841;
-<literal>@udotaccent{--a}</literal> .--a
+<literal>@udotaccent{--a}</literal> --a&#803;
 <literal>@v{a}</literal> &#462;
-<literal>@v{--a}</literal> --a&lt;
+<literal>@v{--a}</literal> --a&#780;
 <literal>@,{c}</literal> &#231;
-<literal>@,{--c}</literal> --c,
+<literal>@,{--c}</literal> --c&#807;
 <literal>@ogonek{a}</literal> &#261;
-<literal>@ogonek{--a}</literal> --a;
+<literal>@ogonek{--a}</literal> --a&#808;
 <literal>a@sup{h}@sub{l}</literal> a<superscript>h</superscript><subscript>l</subscript>
 <literal>@footnote{in footnote}</literal> <footnote><para>in footnote</para></footnote>
 <literal>@footnote{in footnote2}</literal> <footnote><para>in footnote2</para></footnote>
@@ -4218,9 +4218,9 @@ After clickstyle &#8658;
 `<!-- /@w -->`simple-double-<!-- /@w -->-three---four----'<!-- /@w -->'
 
 </mathphrase></informalequation><screen>
-</screen><informalequation><mathphrase>&#252; &#220; &#241; &#226; &#233; &#333; &#236; &#233; i j &#274;`
-&#322; &#262;, &#262;, &#231; a'' &#551; &#229; a[
-&#259; a_ &#7841; &#462; &#261; a<superscript>h</superscript><subscript>l</subscript>
+</screen><informalequation><mathphrase>&#252; &#220; &#241; &#226; &#233; &#333; &#236; &#233; i j &#274;&#768;
+&#322; &#262;&#807; &#262;&#807; &#231; a&#779; &#551; &#229; a&#865;
+&#259; a&#818; &#7841; &#462; &#261; a<superscript>h</superscript><subscript>l</subscript>
 
  &#160;&#160; &#160;   ! ? . @ } { 
 a sunny day
@@ -4663,17 +4663,17 @@ aaa</literallayout></textobject></inlinemediaobject>
 
 Somehow invalid use of @,:
 
-@, ,
+@, &#807;
 
 
-@,@&quot;u ,&#252;
+@,@&quot;u &#807;&#252;
 
 Invalid use of @':
 
-@' '
+@' &#769;
 
 
-@'@&quot;u '&#252;
+@'@&quot;u &#769;&#252;
 
 <!-- only i or j as arg -->
 @dotless{truc} truc
