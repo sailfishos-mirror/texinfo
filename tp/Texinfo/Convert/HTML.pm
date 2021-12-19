@@ -6931,6 +6931,16 @@ $pre_body_close
 ";
 }
 
+sub _root_html_element_attributes_string($)
+{
+  my $self = shift;
+  if (defined($self->get_conf('HTML_ROOT_ELEMENT_ATTRIBUTES'))
+      and $self->get_conf('HTML_ROOT_ELEMENT_ATTRIBUTES') ne '') {
+    return ' '.$self->get_conf('HTML_ROOT_ELEMENT_ATTRIBUTES');
+  }
+  return '';
+}
+
 # This is used for normal output files and other files, like
 # redirection file headers.  $COMMAND is the tree element for
 # a @node that is being output in the file.
@@ -6998,6 +7008,7 @@ sub _file_header_informations($$)
     $css_lines = '';
   }
   my $doctype = $self->get_conf('DOCTYPE');
+  my $root_html_element_attributes = $self->_root_html_element_attributes_string();
   my $bodytext = $self->get_conf('BODYTEXT');
   if ($self->{'element_math'} and $self->get_conf('HTML_MATH')) {
     if ($self->get_conf('HTML_MATH') eq 'mathjax') {
@@ -7070,8 +7081,8 @@ MathJax = {
   }
 
   return ($title, $description, $encoding, $date, $css_lines, 
-          $doctype, $bodytext, $copying_comment, $after_body_open,
-          $extra_head, $program_and_version, $program_homepage,
+          $doctype, $root_html_element_attributes, $bodytext, $copying_comment,
+          $after_body_open, $extra_head, $program_and_version, $program_homepage,
           $program, $generator);
 }
 
@@ -7116,14 +7127,14 @@ sub _default_format_begin_file($$$)
   }
 
   my ($title, $description, $encoding, $date, $css_lines, 
-          $doctype, $bodytext, $copying_comment, $after_body_open,
-          $extra_head, $program_and_version, $program_homepage,
+          $doctype, $root_html_element_attributes, $bodytext, $copying_comment,
+          $after_body_open, $extra_head, $program_and_version, $program_homepage,
           $program, $generator) = $self->_file_header_informations($command);
 
   my $links = $self->_get_links ($filename, $element);
 
   my $result = "$doctype
-<html>
+<html${root_html_element_attributes}>
 <!-- Created by $program_and_version, $program_homepage -->
 <head>
 $encoding
@@ -7156,8 +7167,8 @@ sub _default_format_node_redirection_page($$)
   my $command = shift;
 
   my ($title, $description, $encoding, $date, $css_lines,
-          $doctype, $bodytext, $copying_comment, $after_body_open,
-          $extra_head, $program_and_version, $program_homepage,
+          $doctype, $root_html_element_attributes, $bodytext, $copying_comment,
+          $after_body_open, $extra_head, $program_and_version, $program_homepage,
           $program, $generator) = $self->_file_header_informations($command);
 
   my $name = $self->command_text($command);
@@ -7167,7 +7178,7 @@ sub _default_format_node_redirection_page($$)
     $self->gdt('The node you are looking for is at {href}.',
       { 'href' => {'type' => '_converted', 'text' => $direction }}));
   my $result = "$doctype
-<html>
+<html${root_html_element_attributes}>
 <!-- Created by $program_and_version, $program_homepage -->
 <!-- This file redirects to the location of a node or anchor -->
 <head>
@@ -7351,8 +7362,9 @@ sub _do_jslicenses_file {
   return if (!$setting or $setting ne 'generate');
 
   my $doctype = $self->get_conf('DOCTYPE');
+  my $root_html_element_attributes = $self->_root_html_element_attributes_string();
   my $a = $doctype . "\n" .
-'<html><head><title>jslicense labels</title></head>
+"<html${root_html_element_attributes}>".'<head><title>jslicense labels</title></head>
 <body>
 <table id="jslicense-labels1">
 ';
@@ -7420,6 +7432,7 @@ sub _default_format_frame_files($$)
                      $self->output_files_information(), $self, $frame_outfile);
   if (defined($frame_fh)) {
     my $doctype = $self->get_conf('FRAMESET_DOCTYPE');
+    my $root_html_element_attributes = $self->_root_html_element_attributes_string();
     my $top_file = '';
     if ($self->global_element('Top')) {
       my $top_element = $self->global_element('Top');
@@ -7428,7 +7441,7 @@ sub _default_format_frame_files($$)
     my $title = $self->{'title_string'};
     print $frame_fh <<EOT;
 $doctype
-<html>
+<html${root_html_element_attributes}>
 <head><title>$title</title></head>
 <frameset cols="140,*">
   <frame name="toc" src="$toc_frame_file">
