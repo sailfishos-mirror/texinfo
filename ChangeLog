@@ -1,9 +1,17 @@
 2021-12-19  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	Fix usage message
+
+	* tp/texi2any.pl (makeinfo_help): Say "columns" instead of
+	"characters".  From Dan Jacobson.
+
+2021-12-19  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	Fix usage message for help2man formatting
 
-	* tp/texi2any.pl  Change indentation of the message for the
-	-o message so that help2man treats it as a single paragraph.
+	* tp/texi2any.pl (makeinfo_help):
+	Change indentation of the message for the -o message so that
+	help2man treats it as a single paragraph.
 	Split up part of the usage message so the text for each option
 	can be translated separately.  Report from
 	Dan Jacobson <jidanni@jidanni.org> and suggested fix by

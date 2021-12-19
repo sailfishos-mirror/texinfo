@@ -690,7 +690,7 @@ the behavior is identical, and does not depend on the installed name.\n")
       --disable-encoding      do not output accented and special characters
                                 in Info output based on \@documentencoding.
       --enable-encoding       override --disable-encoding (default).
-      --fill-column=NUM       break Info lines at NUM characters (default %d).
+      --fill-column=NUM       break Info lines at NUM columns (default %d).
       --footnote-style=STYLE  output footnotes in Info according to STYLE:
                                 `separate' to put them in their own node;
                                 `end' to put them at the end of the node, in
