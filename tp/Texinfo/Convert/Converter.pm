@@ -1520,7 +1520,7 @@ sub xml_accent($$$;$$)
       # between two characters
       my $remaining_text = $text;
       # we consider that letters are either characters or entities
-      if ($remaining_text =~ s/^([\p{L}\d]|&[a-zA-Z0-9];)([\p{L}\d]|&[a-zA-Z0-9];)(.*)$/$3/) {
+      if ($remaining_text =~ s/^([\p{L}\d]|&[a-zA-Z0-9]+;)([\p{L}\d]|&[a-zA-Z0-9]+;)(.*)$/$3/) {
         return $1.$diacritics_entity.$2.$remaining_text;
       } else {
         return $text . $diacritics_entity;
