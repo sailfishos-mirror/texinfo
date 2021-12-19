@@ -2027,7 +2027,8 @@ sub _convert_image_command($$$$)
     if (!defined($alt_string) or ($alt_string eq '')) {
       $alt_string = $self->protect_text($basefile);
     }
-    return "<img src=\"".$self->protect_text($image_file)."\" alt=\"$alt_string\">";
+    return $self->close_html_lone_element_if_needed(
+      "<img src=\"".$self->protect_text($image_file)."\" alt=\"$alt_string\">");
   }
   return '';
 }
@@ -2321,7 +2322,8 @@ sub _default_format_button_icon_img($$$;$)
   } else {
     $alt = $button;
   }
-  return qq{<img src="$icon" border="0" alt="$alt" align="middle">};
+  return $self->close_html_lone_element_if_needed(
+    "<img src=\"$icon\" border=\"0\" alt=\"$alt\" align=\"middle\">");
 }
 
 sub _direction_href_attributes($$)
@@ -4794,8 +4796,10 @@ sub _convert_def_line_type($$$$)
     }
 
     if ($category_result ne '') {
-      $category_result = $self->html_attribute_class('span', 'category')
-                            .">$category_result</span>";
+      my $open = $self->html_attribute_class('span', 'category');
+      if ($open ne '') {
+        $category_result = $open.'>'.$category_result.'</span>';
+      }
     }
     my $anchor = $self->_get_copiable_anchor($index_id);
     return "<dt$index_label>".$category_result
@@ -5405,6 +5409,9 @@ sub converter_initialize($)
 
   %{$self->{'css_map'}} = %css_map;
 
+  if ($self->get_conf('PROGRAM_NAME_IN_FOOTER')) {
+    $self->{'css_map'}->{'span.smaller'} = 'font-size: smaller';
+  }
   _load_htmlxref_files($self);
 
   if ($self->get_conf('USE_NUMERIC_ENTITY')) {
@@ -6882,9 +6889,13 @@ sub _default_format_end_file($)
   my $program_text = '';
   if ($self->get_conf('PROGRAM_NAME_IN_FOOTER')) {
     my $program_string = &{$self->{'format_program_string'}}($self);
-    $program_text .= "<p><font size=\"-1\">
+    my $open = $self->html_attribute_class('span', 'smaller');
+    if ($open ne '') {
+      $program_string = $open.'>'.$program_string.'</span>';
+    }
+    $program_text .= "<p>
   $program_string
-</font></p>";
+</p>";
   }
   my $pre_body_close = $self->get_conf('PRE_BODY_CLOSE');
   $pre_body_close = '' if (!defined($pre_body_close));

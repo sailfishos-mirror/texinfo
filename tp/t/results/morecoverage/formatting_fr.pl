@@ -4904,6 +4904,7 @@ pre.menu-preformatted {font-family: serif}
 span.nolinebreak {white-space: nowrap}
 span.roman {font-family: initial; font-weight: normal}
 span.sansserif {font-family: sans-serif; font-weight: normal}
+span.smaller {font-size: smaller}
 span:hover a.copiable-anchor {visibility: visible}
 ul.no-bullet {list-style: none}
 -->
@@ -5295,9 +5296,9 @@ Menu comment
 </div>
 </div>
 <hr>
-<p><font size="-1">
-  Ce document a &eacute;t&eacute; g&eacute;n&eacute;r&eacute; le <em>a sunny day</em>.
-</font></p>
+<p>
+  <span class="smaller">Ce document a &eacute;t&eacute; g&eacute;n&eacute;r&eacute; le <em>a sunny day</em>.</span>
+</p>
 
 
 </body>

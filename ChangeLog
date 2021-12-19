@@ -1,5 +1,18 @@
 2021-12-19  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_convert_image_command)
+	(_default_format_button_icon_img): call
+	close_html_lone_element_if_needed() for <img>.
+
+	* tp/Texinfo/Convert/HTML.pm (_convert_def_line_type):
+	correct use of html_attribute_class().
+
+	* tp/Texinfo/Convert/HTML.pm (_default_format_end_file)
+	(converter_initialize): use <span> instead of <font>
+	for program name in footer.
+
+2021-12-19  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_default_format_end_file): use
 	defined() to test if defined, not true value.
 
