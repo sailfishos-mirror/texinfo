@@ -16830,6 +16830,9 @@ default false.
 If set to false, do not use the @code{Text::Unidecode} Perl module to
 transliterate more characters; default true.
 
+@item USE_XML_SYNTAX
+For HTML@. Use XML/XHTML compatible syntax.
+
 @end vtable
 
 

@@ -1,6 +1,21 @@
 2021-12-19  Patrice Dumas  <pertusus@free.fr>
 
 	* doc/texinfo.texi (Other Customization Variables),
+	tp/Texinfo/Common.pm (@variable_string_settables),
+	tp/Texinfo/Convert/HTML.pm (close_html_lone_element_if_needed)
+	(html_line_break_element, _html_close_lone_element):
+	add USE_XML_SYNTAX.  This amounts mainly to calling
+	close_html_lone_element_if_needed() on HTML elements
+	without end of element.  Add html_line_break_element() to
+	output a line break element.
+
+	* tp/Texinfo/Convert/HTML.pm (html_non_breaking_space)
+	(substitute_html_non_breaking_space): rename
+	non_breaking_space() and substitute_non_breaking_space().
+
+2021-12-19  Patrice Dumas  <pertusus@free.fr>
+
+	* doc/texinfo.texi (Other Customization Variables),
 	tp/Texinfo/Convert/HTML.pm (non_breaking_space)
 	(substitute_non_breaking_space, %BUTTONS_EXAMPLE)
 	(%defaults, _indent_with_table, _set_non_breaking_space)

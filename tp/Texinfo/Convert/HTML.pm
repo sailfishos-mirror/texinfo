@@ -168,6 +168,44 @@ sub html_attribute_class($$$;$)
   return "<$element class=\"$class$extra_class_str\"$style";
 }
 
+sub close_html_lone_element_if_needed($$) {
+  my $self = shift;
+  my $html_element = shift;
+  if ($self->get_conf('USE_XML_SYNTAX')) {
+    return _html_close_lone_element($html_element);
+  }
+  return $html_element
+}
+
+sub html_non_breaking_space($)
+{
+  my $self = shift;
+  return $self->{'non_breaking_space'};
+}
+
+my $xml_numeric_entity_nbsp = '&#'.hex('00A0').';';
+my $xml_named_entity_nbsp = '&nbsp;';
+
+my $html_default_entity_nbsp = $xml_named_entity_nbsp;
+
+sub substitute_html_non_breaking_space($$)
+{
+  my $self = shift;
+  my $text = shift;
+
+  my $non_breaking_space = $self->html_non_breaking_space();
+  # using \Q \E on the substitution leads to spurious \
+  $text =~ s/\Q$html_default_entity_nbsp\E/$non_breaking_space/g;
+  return $text;
+}
+
+sub html_line_break_element($)
+{
+  my $self = shift;
+
+  return $self->{'line_break_element'};
+}
+
 # API to access converter state for customization code
 
 sub in_math($)
@@ -224,28 +262,6 @@ sub in_raw($)
 {
   my $self = shift;
   return $self->{'document_context'}->[-1]->{'raw'};
-}
-
-sub non_breaking_space($)
-{
-  my $self = shift;
-  return $self->{'non_breaking_space'};
-}
-
-my $xml_numeric_entity_nbsp = '&#'.hex('00A0').';';
-my $xml_named_entity_nbsp = '&nbsp;';
-
-my $html_default_entity_nbsp = $xml_named_entity_nbsp;
-
-sub substitute_non_breaking_space($$)
-{
-  my $self = shift;
-  my $text = shift;
-
-  my $non_breaking_space = $self->non_breaking_space();
-  # using \Q \E on the substitution leads to spurious \
-  $text =~ s/\Q$html_default_entity_nbsp\E/$non_breaking_space/g;
-  return $text;
 }
 
 sub paragraph_number($)
@@ -1187,7 +1203,7 @@ sub _translate_names($)
      'Contents',    $self->gdt('Contents'),
      'Overview',    $self->gdt('Overview'),
      'Index',       $self->gdt('Index'),
-     ' ',           ' '.$self->non_breaking_space().' ',
+     ' ',           ' '.$self->html_non_breaking_space().' ',
      'This',        $self->gdt('current'),
      'Back',        ' &lt; ',
      'FastBack',    ' &lt;&lt; ',
@@ -2873,7 +2889,7 @@ sub _indent_with_table ($$)
   my $self = shift;
   my $content = shift;
 
-  return '<table><tr><td>'.$self->non_breaking_space().'</td><td>'.$content
+  return '<table><tr><td>'.$self->html_non_breaking_space().'</td><td>'.$content
                 ."</td></tr></table>\n";
 }
 
@@ -3050,7 +3066,7 @@ sub _convert_sp_command($$$$)
     if ($self->in_preformatted() or $self->in_string()) {
       return "\n" x $sp_nr;
     } else {
-      return "<br>\n" x $sp_nr;
+      return ($self->html_line_break_element()."\n") x $sp_nr;
     }
   }
 }
@@ -3104,7 +3120,8 @@ sub _convert_author_command($$$$)
 
   return '' if (!$args->[0] or !$command->{'extra'}->{'titlepage'});
   if (!$self->in_string()) {
-    return "<strong>$args->[0]->{'normal'}</strong><br>\n";
+    return "<strong>$args->[0]->{'normal'}</strong>"
+                .$self->html_line_break_element()."\n";
   } else {
     return $args->[0]->{'normal'}."\n";
   }
@@ -3916,8 +3933,9 @@ sub _convert_printindex_command($$$$)
   my $join = '';
   my $non_alpha_text = '';
   my $alpha_text = '';
-  my $non_breaking_space = $self->non_breaking_space();
-  $join = " $non_breaking_space \n<br>\n" if (@non_alpha and @alpha);
+  my $non_breaking_space = $self->html_non_breaking_space();
+  $join = " $non_breaking_space \n".$self->html_line_break_element()."\n"
+     if (@non_alpha and @alpha);
   if (@non_alpha) {
     $non_alpha_text = join("\n $non_breaking_space \n", @non_alpha) . "\n";
   }
@@ -4003,7 +4021,7 @@ sub _convert_printindex_command($$$$)
       $entries_text .= '<tr><td></td><td valign="top">' 
          . "<a href=\"$entry_href\">$entry</a>" . 
           $self->get_conf('INDEX_ENTRY_COLON') .
-        '</td><td>'.$self->non_breaking_space().'</td><td valign="top">';
+        '</td><td>'.$self->html_non_breaking_space().'</td><td valign="top">';
       $entries_text .= "<a href=\"$associated_command_href\">$associated_command_text</a>" 
          if ($associated_command_href);
        $entries_text .= "</td></tr>\n";
@@ -4509,8 +4527,9 @@ sub _convert_menu_entry_type($$$)
                            eq _simplify_text_for_comparison($description));
     }
   }
-  my $non_breaking_space = $self->non_breaking_space();
-  return "<tr><td align=\"left\" valign=\"top\">$name$MENU_ENTRY_COLON</td><td>${non_breaking_space}${non_breaking_space}</td><td align=\"left\" valign=\"top\">$description</td></tr>\n";
+  my $non_breaking_space = $self->html_non_breaking_space();
+  return "<tr><td align=\"left\" valign=\"top\">$name$MENU_ENTRY_COLON</td>"
+    ."<td>${non_breaking_space}${non_breaking_space}</td><td align=\"left\" valign=\"top\">$description</td></tr>\n";
 }
 
 $default_types_conversion{'menu_entry'} = \&_convert_menu_entry_type;
@@ -5244,6 +5263,14 @@ sub _set_non_breaking_space($$)
   $self->{'non_breaking_space'} = $non_breaking_space;
 }
 
+# transform <hr> to <hr/>
+sub _html_close_lone_element($)
+{
+  my $element = shift;
+  $element =~ s/^(<[a-zA-Z]+[^>]*)>$/$1\/>/;
+  return $element;
+}
+
 my %htmlxref_entries = (
  'node' => [ 'node', 'section', 'chapter', 'mono' ],
  'section' => [ 'section', 'chapter','node', 'mono' ],
@@ -5389,10 +5416,10 @@ sub converter_initialize($)
     }
     foreach my $space_command (' ', "\t", "\n") {
       $default_no_arg_commands_formatting{'normal'}->{$space_command}
-        = $self->non_breaking_space();
+        = $self->html_non_breaking_space();
     }
     $default_no_arg_commands_formatting{'normal'}->{'tie'}
-      = $self->substitute_non_breaking_space(
+      = $self->substitute_html_non_breaking_space(
            $default_no_arg_commands_formatting{'normal'}->{'tie'});
     if (not defined($self->get_conf('OPEN_QUOTE_SYMBOL'))) {
       $self->set_conf('OPEN_QUOTE_SYMBOL', '&#'.hex('2018').';');
@@ -5412,10 +5439,26 @@ sub converter_initialize($)
     if (not defined($self->get_conf('CLOSE_QUOTE_SYMBOL'))) {
       $self->set_conf('CLOSE_QUOTE_SYMBOL', '&rsquo;');
     }
-     if (not defined($self->get_conf('MENU_SYMBOL'))) {
+    if (not defined($self->get_conf('MENU_SYMBOL'))) {
       $self->set_conf('MENU_SYMBOL', '&bull;');
     }
   }
+
+  if ($self->get_conf('USE_XML_SYNTAX')) {
+    foreach my $customization_variable ('BIG_RULE', 'DEFAULT_RULE') {
+      my $variable_value = $self->get_conf($customization_variable);
+      if (defined($variable_value)) {
+        my $closed_lone_element = _html_close_lone_element($variable_value);
+        if ($closed_lone_element ne $variable_value) {
+          $self->force_conf($customization_variable, $closed_lone_element);
+        }
+      }
+    }
+    $self->{'line_break_element'} = '<br/>';
+  } else {
+    $self->{'line_break_element'} = '<br>';
+  }
+  $default_no_arg_commands_formatting{'normal'}->{'*'} = $self->html_line_break_element();
 
   my $customized_types_conversion = Texinfo::Config::GNUT_get_types_conversion();
   foreach my $type (keys(%default_types_conversion)) {
@@ -5606,7 +5649,8 @@ sub _default_format_css_lines($)
     if (@{$self->{'css_rule_lines'}});
   $css_text .= "-->\n</style>\n";
   foreach my $ref (@$css_refs) {
-    $css_text .= "<link rel=\"stylesheet\" type=\"text/css\" href=\"$ref\">\n";
+    $css_text .= $self->close_html_lone_element_if_needed(
+         "<link rel=\"stylesheet\" type=\"text/css\" href=\"$ref\">")."\n";
   }
   $self->set_conf('CSS_LINES', $css_text);
 }
@@ -6904,12 +6948,14 @@ sub _file_header_informations($$)
   } else {
     $description = $title;
   }
-  $description = "<meta name=\"description\" content=\"$description\">" 
-    if ($description ne '');
+  $description = $self->close_html_lone_element_if_needed(
+    "<meta name=\"description\" content=\"$description\">" )
+      if ($description ne '');
   my $encoding = '';
   $encoding 
-     = "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=".
-       $self->get_conf('OUTPUT_ENCODING_NAME')."\">" 
+     = $self->close_html_lone_element_if_needed(
+        "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=".
+          $self->get_conf('OUTPUT_ENCODING_NAME')."\">" )
     if (defined($self->get_conf('OUTPUT_ENCODING_NAME')) 
         and ($self->get_conf('OUTPUT_ENCODING_NAME') ne ''));
 
@@ -6917,7 +6963,9 @@ sub _file_header_informations($$)
   if ($self->get_conf('DATE_IN_HEADER')) {
     my $today = $self->convert_tree_new_formatting_context(
             {'cmdname' => 'today'}, 'DATE_IN_HEADER');
-    $date = "\n<meta name=\"date\" content=\"$today\">";
+    $date =
+      $self->close_html_lone_element_if_needed(
+        "<meta name=\"date\" content=\"$today\">")."\n";
   }
 
   my $css_lines;
@@ -6947,7 +6995,9 @@ sub _file_header_informations($$)
   my $program = $self->get_conf('PROGRAM');
   my $generator = '';
   if (defined($program) and $program ne '') {
-    $generator = "\n<meta name=\"Generator\" content=\"$program\">";
+    $generator =
+      $self->close_html_lone_element_if_needed(
+        "<meta name=\"Generator\" content=\"$program\">") . "\n";
   }
 
   if (defined($self->get_conf('INFO_JS_DIR'))) {
@@ -6963,9 +7013,9 @@ sub _file_header_informations($$)
         $jsdir =~ s,/*$,/,; # append a single slash
       }
 
-      $extra_head .=
-'<link rel="stylesheet" type="text/css" href="'.$jsdir.'info.css"/>
-<script src="'.$jsdir.'modernizr.js" type="text/javascript"></script>
+      $extra_head .= $self->close_html_lone_element_if_needed(
+        '<link rel="stylesheet" type="text/css" href="'.$jsdir.'info.css">')."\n".
+'<script src="'.$jsdir.'modernizr.js" type="text/javascript"></script>
 <script src="'.$jsdir.'info.js" type="text/javascript"></script>';
     }
     for my $key (keys %{$self->{'jslicenses_infojs'}}) {
@@ -7023,7 +7073,8 @@ sub _get_links ($$$)
         my $rel = '';
         $rel = " rel=\"".$self->get_conf('BUTTONS_REL')->{$link}.'"' 
            if (defined($self->get_conf('BUTTONS_REL')->{$link}));
-        $links .= "<link href=\"$link_href\"${rel}${link_title}>\n";
+        $links .= $self->close_html_lone_element_if_needed(
+                    "<link href=\"$link_href\"${rel}${link_title}>")."\n";
       }
     }
   }
@@ -7055,12 +7106,17 @@ sub _default_format_begin_file($$$)
 $encoding
 $copying_comment<title>$title</title>
 
-$description
-<meta name=\"keywords\" content=\"$title\">
-<meta name=\"resource-type\" content=\"document\">
-<meta name=\"distribution\" content=\"global\">${generator}$date
-<meta name=\"viewport\" content=\"width=device-width,initial-scale=1\">
-
+$description\n".
+    $self->close_html_lone_element_if_needed(
+      "<meta name=\"keywords\" content=\"$title\">")."\n".
+    $self->close_html_lone_element_if_needed(
+      "<meta name=\"resource-type\" content=\"document\">")."\n".
+     $self->close_html_lone_element_if_needed(
+      "<meta name=\"distribution\" content=\"global\">") . "\n" .
+    ${generator} . ${date} .
+    $self->close_html_lone_element_if_needed(
+      "<meta name=\"viewport\" content=\"width=device-width,initial-scale=1\">")."\n".
+"
 ${links}$css_lines
 $extra_head
 </head>
@@ -7095,14 +7151,19 @@ sub _default_format_node_redirection_page($$)
 $encoding
 $copying_comment<title>$title</title>
 
-$description
-<meta name=\"keywords\" content=\"$title\">
-<meta name=\"resource-type\" content=\"document\">
-<meta name=\"distribution\" content=\"global\">${generator}$date
-$css_lines
-<meta http-equiv=\"Refresh\" content=\"0; url=$href\">
-<meta name=\"viewport\" content=\"width=device-width,initial-scale=1\">
-$extra_head
+$description\n".
+   $self->close_html_lone_element_if_needed(
+     "<meta name=\"keywords\" content=\"$title\">")."\n".
+   $self->close_html_lone_element_if_needed(
+     "<meta name=\"resource-type\" content=\"document\">")."\n".
+   $self->close_html_lone_element_if_needed(
+     "<meta name=\"distribution\" content=\"global\">") . "\n" .
+   ${generator} . ${date} . "$css_lines\n".
+   $self->close_html_lone_element_if_needed(
+     "<meta http-equiv=\"Refresh\" content=\"0; url=$href\">")."\n".
+   $self->close_html_lone_element_if_needed(
+     "<meta name=\"viewport\" content=\"width=device-width,initial-scale=1\">")."\n".
+"$extra_head
 </head>
 
 <body $bodytext>
@@ -7180,7 +7241,7 @@ EOT
       $about .= 
 "    <td align=\"center\">".$button_name."</td>
     <td>".$self->get_conf('BUTTONS_GOTO')->{$button}."</td>
-    <td>".$self->substitute_non_breaking_space(
+    <td>".$self->substitute_html_non_breaking_space(
                $self->get_conf('BUTTONS_EXAMPLE')->{$button})."</td>
   </tr>
 ";
@@ -7201,7 +7262,7 @@ EOT
 
 <ul>
 EOT
-    my $non_breaking_space = $self->non_breaking_space();
+    my $non_breaking_space = $self->html_non_breaking_space();
     $about .= '  <li> 1. ' . $self->convert_tree($self->gdt('Section One')) . "\n" .
 "    <ul>\n" .
 '      <li>1.1 ' . $self->convert_tree($self->gdt('Subsection One-One')) . "\n";
@@ -8051,9 +8112,9 @@ sub _protect_space($$)
       # Special span to avoid breaking at _-
       $text =~ s/(\S*[_-]\S*)/${open}$1<\/span>/g;
     }
-    $text .= $self->non_breaking_space() if (chomp($text));
+    $text .= $self->html_non_breaking_space() if (chomp($text));
     # Protect spaces within text
-    my $non_breaking_space = $self->non_breaking_space();
+    my $non_breaking_space = $self->html_non_breaking_space();
     $text =~ s/ /$non_breaking_space/g;
     # Revert protected spaces in leading html attribute
     $text =~ s/\x{1F}/ /g;
