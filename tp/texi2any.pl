@@ -658,26 +658,30 @@ the behavior is identical, and does not depend on the installed name.\n")
       --dvi, --dvipdf, --ps, --pdf  call texi2dvi to generate given output,
                                 after checking validity of TEXINFO-FILE.\n")
 ."\n";
-  # TODO: avoid \n in translated strings, split each option in a translatable
-  # string.  Report from Benno Schulenberg
-  $makeinfo_help .= __("General output options:
-  -E, --macro-expand=FILE     output macro-expanded source to FILE,
-                                ignoring any \@setfilename.
-      --no-headers            suppress node separators, Node: lines, and menus
+
+  $makeinfo_help .= __("General output options:\n")
+.__(
+"  -E, --macro-expand=FILE     output macro-expanded source to FILE,
+                                ignoring any \@setfilename.\n")
+.__(
+"      --no-headers            suppress node separators, Node: lines, and menus
                                 from Info output (thus producing plain text)
                                 or from HTML (thus producing shorter output).
                                 Also, if producing Info, write to
-                                standard output by default.
-      --no-split              suppress any splitting of the output;
-                                generate only one output file.
-      --[no-]number-sections  output chapter and sectioning numbers;
-                                default is on.
-  -o, --output=DEST           output to DEST.
+                                standard output by default.\n")
+.__(
+"      --no-split              suppress any splitting of the output;
+                                generate only one output file.\n")
+.__(
+"      --[no-]number-sections  output chapter and sectioning numbers;
+                                default is on.\n")
+.__(
+"  -o, --output=DEST           output to DEST.
                                 With split output, create DEST as a directory
-                                 and put the output files there.
+                                and put the output files there.
                                 With non-split output, if DEST is already
-                                 a directory or ends with a /,
-                                 put the output file there.
+                                a directory or ends with a /,
+                                put the output file there.
                                 Otherwise, DEST names the output file.\n")
 ."\n";
   # TODO: avoid \n in translated strings, split each option in a translatable
