@@ -1,5 +1,9 @@
 2021-12-19  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/init/html32.pm: set NO_CUSTOM_HTML_ATTRIBUTE.
+
+2021-12-19  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_convert_math_command)
 	(_convert_heading_command, _contents_inline_element)
 	(_convert_special_element_type): always call
