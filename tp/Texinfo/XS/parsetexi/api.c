@@ -146,6 +146,7 @@ reset_parser (void)
   reset_parser_except_conf ();
   wipe_values ();
   clear_expanded_formats ();
+  clear_include_directories ();
   reset_conf ();
 
   free (global_documentlanguage);

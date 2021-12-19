@@ -19,6 +19,7 @@ int top_file_index (void);
 char *locate_include_file (char *filename);
 void set_input_encoding (char *encoding);
 void add_include_directory (char *filename);
+void clear_include_directories (void);
 
 char *save_string (char *string);
 void free_small_strings (void);

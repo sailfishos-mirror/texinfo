@@ -520,6 +520,17 @@ add_include_directory (char *filename)
     filename[len - 1] = '\0';
 }
 
+void
+clear_include_directories (void)
+{
+  int i;
+  for (i = 0; i < include_dirs_number; i++)
+    {
+      free (include_dirs[i]);
+    }
+  include_dirs_number = 0;
+}
+
 /* Return value to be freed by caller. */
 char *
 locate_include_file (char *filename)

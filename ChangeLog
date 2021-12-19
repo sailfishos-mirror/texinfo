@@ -1,3 +1,12 @@
+2021-12-19  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	Parsetexi.pm clear list of include directories
+
+	* tp/Texinfo/XS/parsetexi/input.c (clear_include_directories):
+	New function to clear the path for finding @include files
+	* tp/Texinfo/XS/parsetexi/api.c (reset_parser): Call it.
+
+
 2021-12-19  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Common.pm (@variable_string_settables),
