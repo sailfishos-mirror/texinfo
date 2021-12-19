@@ -129,6 +129,7 @@ but , ,
 @arrow ->
 @leq <=
 @geq >=
+@tie a b
 
 @acronym{--a,an accronym} --aan accronym
 @acronym{--a} --a
@@ -849,6 +850,7 @@ but , ,
 @arrow ->
 @leq <=
 @geq >=
+@tie a b
 
 @acronym{--a,an accronym} --aan accronym
 @acronym{--a} --a
@@ -1591,6 +1593,7 @@ but , ,
 @arrow ->
 @leq <=
 @geq >=
+@tie a b
 
 @acronym{--a,an accronym} --aan accronym
 @acronym{--a} --a
@@ -2311,6 +2314,7 @@ but , ,
 @arrow ->
 @leq <=
 @geq >=
+@tie a b
 
 @acronym{--a,an accronym} --aan accronym
 @acronym{--a} --a

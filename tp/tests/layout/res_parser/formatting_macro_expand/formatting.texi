@@ -132,6 +132,7 @@ but , ,@:
 @@arrow @arrow{}
 @@leq @leq{}
 @@geq @geq{}
+@@tie a@tie{}b
 
 @code{@@acronym@{--a,an accronym@}} @acronym{--a,an accronym}
 @code{@@acronym@{--a@}} @acronym{--a}
@@ -1134,6 +1135,7 @@ but , ,@:
 @@arrow @arrow{}
 @@leq @leq{}
 @@geq @geq{}
+@@tie a@tie{}b
 
 @code{@@acronym@{--a,an accronym@}} @acronym{--a,an accronym}
 @code{@@acronym@{--a@}} @acronym{--a}
@@ -2128,6 +2130,7 @@ but , ,@:
 @@arrow @arrow{}
 @@leq @leq{}
 @@geq @geq{}
+@@tie a@tie{}b
 
 @code{@@acronym@{--a,an accronym@}} @acronym{--a,an accronym}
 @code{@@acronym@{--a@}} @acronym{--a}
@@ -3148,6 +3151,7 @@ but , ,@:
 @@arrow @arrow{}
 @@leq @leq{}
 @@geq @geq{}
+@@tie a@tie{}b
 
 @code{@@acronym@{--a,an accronym@}} @acronym{--a,an accronym}
 @code{@@acronym@{--a@}} @acronym{--a}
@@ -4136,6 +4140,7 @@ but , ,@:
 @@arrow @arrow{}
 @@leq @leq{}
 @@geq @geq{}
+@@tie a@tie{}b
 
 @code{@@acronym@{--a,an accronym@}} @acronym{--a,an accronym}
 @code{@@acronym@{--a@}} @acronym{--a}

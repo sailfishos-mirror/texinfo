@@ -135,6 +135,7 @@ but , ,@:
 @@arrow @arrow{}
 @@leq @leq{}
 @@geq @geq{}
+@@tie a@tie{}b
 
 @code{@@acronym@{--a,an accronym@}} @acronym{--a,an accronym}
 @code{@@acronym@{--a@}} @acronym{--a}
@@ -1136,6 +1137,7 @@ but , ,&noeos;
 &arobase;arrow &rarr;
 &arobase;leq &le;
 &arobase;geq &ge;
+&arobase;tie a&nbsp;b
 </para>
 <para><code>&arobase;acronym&lbrace;--a,an accronym&rbrace;</code> <acronym><acronymword>&textndash;a</acronymword><acronymdesc>an accronym</acronymdesc></acronym>
 <code>&arobase;acronym&lbrace;--a&rbrace;</code> <acronym><acronymword>&textndash;a</acronymword></acronym>
@@ -2123,6 +2125,7 @@ but , ,&noeos;
 &arobase;arrow &rarr;
 &arobase;leq &le;
 &arobase;geq &ge;
+&arobase;tie a&nbsp;b
 </para>
 <para><code>&arobase;acronym&lbrace;--a,an accronym&rbrace;</code> <acronym><acronymword>&textndash;a</acronymword><acronymdesc>an accronym</acronymdesc></acronym>
 <code>&arobase;acronym&lbrace;--a&rbrace;</code> <acronym><acronymword>&textndash;a</acronymword></acronym>
@@ -3137,6 +3140,7 @@ but , ,&noeos;
 &arobase;arrow &rarr;
 &arobase;leq &le;
 &arobase;geq &ge;
+&arobase;tie a&nbsp;b
 </para>
 <para><code>&arobase;acronym&lbrace;--a,an accronym&rbrace;</code> <acronym><acronymword>&textndash;a</acronymword><acronymdesc>an accronym</acronymdesc></acronym>
 <code>&arobase;acronym&lbrace;--a&rbrace;</code> <acronym><acronymword>&textndash;a</acronymword></acronym>
@@ -4118,6 +4122,7 @@ but , ,&noeos;
 &arobase;arrow &rarr;
 &arobase;leq &le;
 &arobase;geq &ge;
+&arobase;tie a&nbsp;b
 
 <code>&arobase;acronym&lbrace;--a,an accronym&rbrace;</code> <acronym><acronymword>--a</acronymword><acronymdesc>an accronym</acronymdesc></acronym>
 <code>&arobase;acronym&lbrace;--a&rbrace;</code> <acronym><acronymword>--a</acronymword></acronym>

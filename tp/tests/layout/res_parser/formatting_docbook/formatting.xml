@@ -136,6 +136,7 @@ but , ,
 @arrow &#8594;
 @leq &#8804;
 @geq &#8805;
+@tie a&#160;b
 </para>
 <para><literal>@acronym{--a,an accronym}</literal> <acronym>&#8211;a</acronym> (an accronym)
 <literal>@acronym{--a}</literal> <acronym>&#8211;a</acronym>
@@ -929,6 +930,7 @@ but , ,
 @arrow &#8594;
 @leq &#8804;
 @geq &#8805;
+@tie a&#160;b
 </para>
 <para><literal>@acronym{--a,an accronym}</literal> <acronym>&#8211;a</acronym> (an accronym)
 <literal>@acronym{--a}</literal> <acronym>&#8211;a</acronym>
@@ -1723,6 +1725,7 @@ but , ,
 @arrow &#8594;
 @leq &#8804;
 @geq &#8805;
+@tie a&#160;b
 </para>
 <para><literal>@acronym{--a,an accronym}</literal> <acronym>&#8211;a</acronym> (an accronym)
 <literal>@acronym{--a}</literal> <acronym>&#8211;a</acronym>
@@ -2535,6 +2538,7 @@ but , ,
 @arrow &#8594;
 @leq &#8804;
 @geq &#8805;
+@tie a&#160;b
 </para>
 <para><literal>@acronym{--a,an accronym}</literal> <acronym>&#8211;a</acronym> (an accronym)
 <literal>@acronym{--a}</literal> <acronym>&#8211;a</acronym>
@@ -3328,6 +3332,7 @@ but , ,
 @arrow &#8594;
 @leq &#8804;
 @geq &#8805;
+@tie a&#160;b
 </para>
 <para><literal>@acronym{--a,an accronym}</literal> <acronym>&#8211;a</acronym> (an accronym)
 <literal>@acronym{--a}</literal> <acronym>&#8211;a</acronym>
@@ -4117,6 +4122,7 @@ but , ,
 @arrow &#8594;
 @leq &#8804;
 @geq &#8805;
+@tie a&#160;b
 
 <literal>@acronym{--a,an accronym}</literal> <acronym>--a</acronym> (an accronym)
 <literal>@acronym{--a}</literal> <acronym>--a</acronym>
