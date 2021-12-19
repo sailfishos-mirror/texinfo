@@ -16330,7 +16330,9 @@ Symbol used between the menu entry and the description; default
 
 @item MENU_SYMBOL
 Symbol used in front of menu entries when node names are used
-for menu entries formatting; default @samp{&bull;}.
+for menu entries formatting; default is undefined and set to
+@code{&bull;} if @code{USE_NUMERIC_ENTITY} is not set, and to
+@code{&#8217;} if not set.
 
 @item MONOLITHIC
 Output only one file including the table of contents.  Set
