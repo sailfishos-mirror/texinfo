@@ -77,8 +77,19 @@ BEGIN
     Texinfo::ModulePath::init(undef, undef, 'updirs' => 1);
   } else {
     # Look for modules in their installed locations.
-
     my $lib_dir = File::Spec->catdir($datadir, $package);
+
+    # try to make package relocatable, will only work if
+    # standard relative paths are used
+    if (! -f File::Spec->catfile($lib_dir, 'Texinfo', 'Parser.pm')
+        and -f File::Spec->catfile($command_directory, $updir, 'share', 
+                                   $package, 'Texinfo', 'Parser.pm')) {
+      $lib_dir = File::Spec->catdir($command_directory, $updir, 
+                                          'share', $package);
+      $packagedir = File::Spec->catdir($command_directory, $updir, 
+                                          'lib', $package);
+    }
+
     unshift @INC, $lib_dir;
 
     require Texinfo::ModulePath;
