@@ -2051,10 +2051,10 @@ sub _convert_math_command($$$$)
     # becomes possible
     if ($arg !~ /</) {
       $self->{'element_math'} = 1;
-      return "<em class=\'tex2jax_process\'>\\($arg\\)</em>";
+      return $self->html_attribute_class('em', 'tex2jax_process').">\\($arg\\)</em>";
     }
   }
-  return "<em class=\'math\'>$arg</em>";
+  return $self->html_attribute_class('em', 'math').">$arg</em>";
 }
 
 $default_commands_conversion{'math'} = \&_convert_math_command;
@@ -2714,7 +2714,7 @@ sub _convert_heading_command($$$$$)
     $result .= join('', $self->close_registered_sections_level($level));
     $self->register_opened_section_level($level, "</div>\n");
 
-    $result .= '<div class="' . $section->{'cmdname'} . '"';
+    $result .= $self->html_attribute_class('div', $section->{'cmdname'});
 
     $result .= " id=\"$element_id\""
         if (defined($element_id) and $element_id ne '');
@@ -4061,7 +4061,7 @@ sub _contents_inline_element($$$)
     my $special_element
       = $self->special_element($special_element_name);
     my $heading;
-    my $result = "<div class=\"${special_element_name}_element\"";
+    my $result = $self->html_attribute_class('div', "${special_element_name}_element");
     if ($special_element) {
       my $id = $self->command_id($special_element);
       if ($id ne '') {
@@ -5034,7 +5034,7 @@ sub _convert_special_element_type($$$$)
   my $special_element_name = $element->{'extra'}->{'name'};
   $result .= join('', $self->close_registered_sections_level(0));
   my $id = $self->command_id($element);
-  $result .= "<div class=\"${special_element_name}_element\"";
+  $result .= $self->html_attribute_class('div', "${special_element_name}_element");
   if ($id ne '') {
     $result .= " id=\"$id\"";
   }
