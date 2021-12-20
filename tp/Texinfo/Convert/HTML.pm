@@ -154,9 +154,20 @@ sub html_attribute_class($$$;$)
 
   my $style = '';
 
-  if ($self->get_conf('INLINE_CSS_STYLE')
-      and defined($self->{'css_map'}->{"$element.$class"})) {
-    $style = ' style="'.$self->{'css_map'}->{"$element.$class"}.'"';
+  if ($self->get_conf('INLINE_CSS_STYLE')) {
+    my @all_classes = ($class);
+    if (defined($extra_classes)) {
+      @all_classes = (@all_classes, @$extra_classes);
+    }
+    my @styles = ();
+    foreach my $style_class (@all_classes) {
+      if (defined($self->{'css_map'}->{"$element.$style_class"})) {
+        push @styles, $self->{'css_map'}->{"$element.$style_class"};
+      }
+    }
+    if (scalar(@styles) >  0) {
+      $style = ' style="'.join(';',@styles).'"';
+    }
   }
   my $extra_class_str = '';
   if (defined($extra_classes)) {
