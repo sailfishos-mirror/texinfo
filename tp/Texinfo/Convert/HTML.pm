@@ -168,13 +168,13 @@ sub html_attribute_class($$$;$)
   return "<$element class=\"$class$extra_class_str\"$style";
 }
 
-sub close_html_lone_element_if_needed($$) {
+sub close_html_lone_element($$) {
   my $self = shift;
   my $html_element = shift;
   if ($self->get_conf('USE_XML_SYNTAX')) {
-    return _html_close_lone_element($html_element);
+    return $html_element . '/>';
   }
-  return $html_element
+  return $html_element .'>';
 }
 
 sub html_non_breaking_space($)
@@ -2027,8 +2027,8 @@ sub _convert_image_command($$$$)
     if (!defined($alt_string) or ($alt_string eq '')) {
       $alt_string = $self->protect_text($basefile);
     }
-    return $self->close_html_lone_element_if_needed(
-      "<img src=\"".$self->protect_text($image_file)."\" alt=\"$alt_string\">");
+    return $self->close_html_lone_element(
+      "<img src=\"".$self->protect_text($image_file)."\" alt=\"$alt_string\"");
   }
   return '';
 }
@@ -2322,8 +2322,8 @@ sub _default_format_button_icon_img($$$;$)
   } else {
     $alt = $button;
   }
-  return $self->close_html_lone_element_if_needed(
-    "<img src=\"$icon\" border=\"0\" alt=\"$alt\" align=\"middle\">");
+  return $self->close_html_lone_element(
+    "<img src=\"$icon\" border=\"0\" alt=\"$alt\" align=\"middle\"");
 }
 
 sub _direction_href_attributes($$)
@@ -5280,7 +5280,7 @@ sub _set_non_breaking_space($$)
 }
 
 # transform <hr> to <hr/>
-sub _html_close_lone_element($)
+sub _xhtml_re_close_lone_element($)
 {
   my $element = shift;
   $element =~ s/^(<[a-zA-Z]+[^>]*)>$/$1\/>/;
@@ -5467,7 +5467,7 @@ sub converter_initialize($)
     foreach my $customization_variable ('BIG_RULE', 'DEFAULT_RULE') {
       my $variable_value = $self->get_conf($customization_variable);
       if (defined($variable_value)) {
-        my $closed_lone_element = _html_close_lone_element($variable_value);
+        my $closed_lone_element = _xhtml_re_close_lone_element($variable_value);
         if ($closed_lone_element ne $variable_value) {
           $self->force_conf($customization_variable, $closed_lone_element);
         }
@@ -5668,8 +5668,8 @@ sub _default_format_css_lines($)
     if (@{$self->{'css_rule_lines'}});
   $css_text .= "-->\n</style>\n";
   foreach my $ref (@$css_refs) {
-    $css_text .= $self->close_html_lone_element_if_needed(
-         "<link rel=\"stylesheet\" type=\"text/css\" href=\"$ref\">")."\n";
+    $css_text .= $self->close_html_lone_element(
+         "<link rel=\"stylesheet\" type=\"text/css\" href=\"$ref\"")."\n";
   }
   $self->set_conf('CSS_LINES', $css_text);
 }
@@ -6981,14 +6981,14 @@ sub _file_header_informations($$)
   } else {
     $description = $title;
   }
-  $description = $self->close_html_lone_element_if_needed(
-    "<meta name=\"description\" content=\"$description\">" )
+  $description = $self->close_html_lone_element(
+    "<meta name=\"description\" content=\"$description\"" )
       if ($description ne '');
   my $encoding = '';
   $encoding 
-     = $self->close_html_lone_element_if_needed(
+     = $self->close_html_lone_element(
         "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=".
-          $self->get_conf('OUTPUT_ENCODING_NAME')."\">" )
+          $self->get_conf('OUTPUT_ENCODING_NAME')."\"" )
     if (defined($self->get_conf('OUTPUT_ENCODING_NAME')) 
         and ($self->get_conf('OUTPUT_ENCODING_NAME') ne ''));
 
@@ -6997,8 +6997,8 @@ sub _file_header_informations($$)
     my $today = $self->convert_tree_new_formatting_context(
             {'cmdname' => 'today'}, 'DATE_IN_HEADER');
     $date =
-      $self->close_html_lone_element_if_needed(
-        "<meta name=\"date\" content=\"$today\">")."\n";
+      $self->close_html_lone_element(
+        "<meta name=\"date\" content=\"$today\"")."\n";
   }
 
   my $css_lines;
@@ -7030,8 +7030,8 @@ sub _file_header_informations($$)
   my $generator = '';
   if (defined($program) and $program ne '') {
     $generator =
-      $self->close_html_lone_element_if_needed(
-        "<meta name=\"Generator\" content=\"$program\">") . "\n";
+      $self->close_html_lone_element(
+        "<meta name=\"Generator\" content=\"$program\"") . "\n";
   }
 
   if (defined($self->get_conf('INFO_JS_DIR'))) {
@@ -7047,8 +7047,8 @@ sub _file_header_informations($$)
         $jsdir =~ s,/*$,/,; # append a single slash
       }
 
-      $extra_head .= $self->close_html_lone_element_if_needed(
-        '<link rel="stylesheet" type="text/css" href="'.$jsdir.'info.css">')."\n".
+      $extra_head .= $self->close_html_lone_element(
+        '<link rel="stylesheet" type="text/css" href="'.$jsdir.'info.css"')."\n".
 '<script src="'.$jsdir.'modernizr.js" type="text/javascript"></script>
 <script src="'.$jsdir.'info.js" type="text/javascript"></script>';
     }
@@ -7107,8 +7107,8 @@ sub _get_links ($$$)
         my $rel = '';
         $rel = " rel=\"".$self->get_conf('BUTTONS_REL')->{$link}.'"' 
            if (defined($self->get_conf('BUTTONS_REL')->{$link}));
-        $links .= $self->close_html_lone_element_if_needed(
-                    "<link href=\"$link_href\"${rel}${link_title}>")."\n";
+        $links .= $self->close_html_lone_element(
+                    "<link href=\"$link_href\"${rel}${link_title}")."\n";
       }
     }
   }
@@ -7141,15 +7141,15 @@ $encoding
 $copying_comment<title>$title</title>
 
 $description\n".
-    $self->close_html_lone_element_if_needed(
-      "<meta name=\"keywords\" content=\"$title\">")."\n".
-    $self->close_html_lone_element_if_needed(
-      "<meta name=\"resource-type\" content=\"document\">")."\n".
-     $self->close_html_lone_element_if_needed(
-      "<meta name=\"distribution\" content=\"global\">") . "\n" .
+    $self->close_html_lone_element(
+      "<meta name=\"keywords\" content=\"$title\"")."\n".
+    $self->close_html_lone_element(
+      "<meta name=\"resource-type\" content=\"document\"")."\n".
+     $self->close_html_lone_element(
+      "<meta name=\"distribution\" content=\"global\"") . "\n" .
     ${generator} . ${date} .
-    $self->close_html_lone_element_if_needed(
-      "<meta name=\"viewport\" content=\"width=device-width,initial-scale=1\">")."\n".
+    $self->close_html_lone_element(
+      "<meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"")."\n".
 "
 ${links}$css_lines
 $extra_head
@@ -7186,17 +7186,17 @@ $encoding
 $copying_comment<title>$title</title>
 
 $description\n".
-   $self->close_html_lone_element_if_needed(
-     "<meta name=\"keywords\" content=\"$title\">")."\n".
-   $self->close_html_lone_element_if_needed(
-     "<meta name=\"resource-type\" content=\"document\">")."\n".
-   $self->close_html_lone_element_if_needed(
-     "<meta name=\"distribution\" content=\"global\">") . "\n" .
+   $self->close_html_lone_element(
+     "<meta name=\"keywords\" content=\"$title\"")."\n".
+   $self->close_html_lone_element(
+     "<meta name=\"resource-type\" content=\"document\"")."\n".
+   $self->close_html_lone_element(
+     "<meta name=\"distribution\" content=\"global\"") . "\n" .
    ${generator} . ${date} . "$css_lines\n".
-   $self->close_html_lone_element_if_needed(
-     "<meta http-equiv=\"Refresh\" content=\"0; url=$href\">")."\n".
-   $self->close_html_lone_element_if_needed(
-     "<meta name=\"viewport\" content=\"width=device-width,initial-scale=1\">")."\n".
+   $self->close_html_lone_element(
+     "<meta http-equiv=\"Refresh\" content=\"0; url=$href\"")."\n".
+   $self->close_html_lone_element(
+     "<meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"")."\n".
 "$extra_head
 </head>
 

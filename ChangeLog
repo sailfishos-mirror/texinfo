@@ -1,5 +1,14 @@
 2021-12-20  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (close_html_lone_element)
+	(_xhtml_re_close_lone_element): rename _html_close_lone_element() as
+	_xhtml_re_close_lone_element().
+	Rename close_html_lone_element_if_needed() as
+	close_html_lone_element() and close instead of re-closing. Per Bothner
+	idea.
+
+2021-12-20  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/texi2any.pl: remove \n from translated strings is newly
 	modified strings.  Report from Benno Schulenberg.
 
