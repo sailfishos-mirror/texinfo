@@ -6708,13 +6708,29 @@ indents the text, but does not fill it.
 
 The @code{@@format} command is similar to @code{@@display}, except it
 leaves the text unindented.  Like @code{@@display}, it does not select
-the fixed-width font.
+the fixed-width font.  Thus,
+
+@example
+@group
+@@format
+This is an example of text written between a @@code{@@@@format} command
+and an @@code{@@@@end format} command.  As you can see
+from this example,
+the @@code{@@@@format} command does not fill the text.
+@@end format
+@end group
+@end example
+
+@noindent
+produces
 
 @format
+@group
 This is an example of text written between a @code{@@format} command
 and an @code{@@end format} command.  As you can see
 from this example,
 the @code{@@format} command does not fill the text.
+@end group
 @end format
 
 
