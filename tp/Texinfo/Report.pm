@@ -315,9 +315,9 @@ for the @-commands.  The I<$line_nr> structure is described
 in L<errors|($error_warnings_list, $error_count) = errors ($registrar)>
 above.
 
-=item $registrar->document_warn($text, $configuration_informations)
+=item $registrar->document_warn($configuration_informations, $text)
 
-=item $registrar->document_error($text, $configuration_informations)
+=item $registrar->document_error($configuration_informations, $text)
 
 Register a document-wide error or warning.  I<$text> is the error or
 warning message.  The I<$configuration_informations> object gives

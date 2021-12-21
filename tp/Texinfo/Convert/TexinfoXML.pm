@@ -450,7 +450,8 @@ sub output($$)
                              $self->output_files_information(), $self,
                              $output_file);
     if (!$fh) {
-      $self->document_error(sprintf(__("could not open %s for writing: %s"),
+      $self->document_error($self,
+                 sprintf(__("could not open %s for writing: %s"),
                                     $output_file, $!));
       return undef;
     }
@@ -469,7 +470,8 @@ sub output($$)
     Texinfo::Common::output_files_register_closed(
                   $self->output_files_information(), $output_file);
     if (!close ($fh)) {
-      $self->document_error(sprintf(__("error on closing %s: %s"),
+      $self->document_error($self,
+                  sprintf(__("error on closing %s: %s"),
                                     $output_file, $!));
     }
   }

@@ -7624,9 +7624,9 @@ sub run_stage_handlers($$$)
         #if ($converter->get_conf('VERBOSE')) {
         #  print STDERR "Handler $handler of $stage($priority) failed\n";
         #}
-        $converter->document_error(sprintf(__(
-                 "handler %s of stage %s priority %s failed"),
-                 $handler, $stage, $priority));
+        $converter->document_error($converter,
+             sprintf(__("handler %s of stage %s priority %s failed"),
+                        $handler, $stage, $priority));
         return $status;
       }
     }
@@ -8513,6 +8513,9 @@ sub _convert($$;$)
 sub _set_variables_texi2html()
 {
   my @texi2html_options = (
+  # added hopefully temporarily to be able to validate with W3C validator
+  #['DOCTYPE', '<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">'],
+  #['DOCTYPE', '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">'],
   ['FORMAT_MENU', 'menu'],
   ['NO_USE_SETFILENAME', 1],
   ['USE_SETFILENAME_EXTENSION', 0],
