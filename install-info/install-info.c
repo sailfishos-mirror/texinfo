@@ -1127,6 +1127,8 @@ parse_input (const struct line_data *lines, int nlines,
                   next->entry_sections = head;
                   next->entry_sections_tail = tail;
                   next->missing_basename = 0;
+                  next->missing_name = 0;
+                  next->missing_description = 0;
                   next->next = *entries;
                   *entries = next;
                   n_entries++;

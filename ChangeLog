@@ -1,3 +1,8 @@
+2021-12-21  Brendan O'Dea  <bod@debian.org>  (tiny change)
+
+	* install-info/install-info.c (parse_input): Allocate all
+	fields of struct spec_entry.
+
 2021-12-21  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* install-info/install-info.c (extract_menu_file_name):
