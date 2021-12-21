@@ -318,6 +318,10 @@ $result_floats{'contents_in_html_text'} = {};
 $result_converted{'html_text'}->{'contents_in_html_text'} = '<div class="top" id="top">
 <h1 class="top">top</h1>
 
+<ul class="section-toc">
+<li><a href="#Chap1" accesskey="1">Chap1</a></li>
+<li><a href="#Chap2" accesskey="2">Chap2</a></li>
+</ul>
 <div class="chapter" id="Chap1">
 <h2 class="chapter">1 Chap1</h2>
 

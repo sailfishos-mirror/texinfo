@@ -2821,11 +2821,7 @@ sub _convert_heading_command($$$$$)
   }
   if (not $table_of_contents_was_output
       and $self->get_conf('FORMAT_MENU') eq 'sectiontoc'
-      and $sectioning_commands{$cmdname}
-      and ($cmdname ne 'top'
-           or (not ($self->_has_contents_or_shortcontents()
-                   and $self->get_conf('CONTENTS_OUTPUT_LOCATION')
-                       eq 'inline')))) {
+      and $sectioning_commands{$cmdname}) {
     $result .= _mini_toc($self, $element);
   }
   return $result;

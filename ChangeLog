@@ -1,3 +1,15 @@
+2021-12-21  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	Chapter list for -c CONTENTS_OUTPUT_LOCATION=inline
+
+	* tp/Texinfo/Convert/HTML.pm (_convert_heading_command):
+	Output top-level list of chapters for Top node even if
+	CONTENTS_OUTPUT_LOCATION is 'inline'.  If @contents appeared
+	at the end of the document, then there would be no list of chapters
+	at the start at all, so risk having an unnecessary list.  Suppress
+	the list only when CONTENTS_OUTPUT_LOCATION is 'after_top' (the
+	default).  Report from Benno Schulenberg 2021-10-18.
+
 2021-12-21  Brendan O'Dea  <bod@debian.org>  (tiny change)
 
 	* install-info/install-info.c (parse_input): Allocate all
