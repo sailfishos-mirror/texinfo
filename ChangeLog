@@ -1,4 +1,9 @@
-2021-12-05  Alfred M. Szmidt  <ams@gnu.org>  (tiny change)
+2021-12-21  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* install-info/install-info.c (extract_menu_file_name):
+	Remove unused.  Report from Brendan O'Dea <bod@debian.org>.
+
+2021-12-21  Alfred M. Szmidt  <ams@gnu.org>  (tiny change)
 
 	* doc/texinfo.texi (@code{@@format}): Add example input.
 

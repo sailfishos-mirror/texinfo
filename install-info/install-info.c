@@ -363,48 +363,6 @@ extract_menu_item_name (char *item_text)
   return copy_string (item_text, p - item_text);
 }
 
-/* Given the full text of a menu entry, terminated by null or newline,
-   return just the menu item file (copied).  */
-
-char *
-extract_menu_file_name (char *item_text)
-{
-  char *p = item_text;
-
-  /* If we have text that looks like * ITEM: (FILE)NODE...,
-     extract just FILE.  Otherwise return "(none)".  */
-
-  if (*p == '*')
-    p++;
-  while (*p == ' ')
-    p++;
-
-  /* Skip to and past the colon.  */
-  while (*p && *p != '\n' && *p != ':') p++;
-  if (*p == ':') p++;
-
-  /* Skip past the open-paren.  */
-  while (1)
-    {
-      if (*p == '(')
-        break;
-      else if (*p == ' ' || *p == '\t')
-        p++;
-      else
-        return "(none)";
-    }
-  p++;
-
-  item_text = p;
-
-  /* File name ends just before the close-paren.  */
-  while (*p && *p != '\n' && *p != ')') p++;
-  if (*p != ')')
-    return "(none)";
-
-  return copy_string (item_text, p - item_text);
-}
-
 
 
 /* Return FNAME with any [.info][.gz] suffix removed.  */
