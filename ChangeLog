@@ -1,3 +1,8 @@
+2021-12-23  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/init/chm.pm (_chm_convert_tree_to_text): rename
+	convert_tree() as _chm_convert_tree_to_text().
+
 2021-12-21  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	Chapter list for -c CONTENTS_OUTPUT_LOCATION=inline
@@ -30,7 +35,7 @@
 	tp/Texinfo/Convert/TexinfoXML.pm (output): fix the call of
 	document_error().
 
-	* tp/Texinfo/Report.pm: correct the orer of arguments in
+	* tp/Texinfo/Report.pm: correct the order of arguments in
 	document_error() documentation.
 
 2021-12-20  Patrice Dumas  <pertusus@free.fr>

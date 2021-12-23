@@ -197,7 +197,7 @@ sub chm_noop($$)
   return '';
 }
 
-sub convert_tree ($$;$)
+sub _chm_convert_tree_to_text($$;$)
 {
   my $converter = shift;
   my $tree = shift;
@@ -261,7 +261,7 @@ sub chm_init($)
         }
         my $anchor = $self->command_target($index_entry_ref->{'command'});
         my $origin_href = "$file#$anchor";
-        my $entry = convert_tree($self, 
+        my $entry = _chm_convert_tree_to_text($self,
                                {'contents' => $index_entry_ref->{'content'}},
                                {'code' => $index_entry_ref->{'in_code'}});
         print $hhk_fh "<LI> <OBJECT type=\"text/sitemap\">\n<param name=\"Name\" value=\"$entry\">\n<param name=\"Local\" value=\"$origin_href\">\n</OBJECT> </LI>\n" 
@@ -276,7 +276,7 @@ sub chm_init($)
     $self->document_error($self,
            sprintf(__("chm.pm: error on closing %s: %s"),
                           $hhk_file, $!));
-    return 0;                  
+    return 0;
   }
 
   my $hhc_filename = $document_name . ".hhc";
@@ -330,7 +330,7 @@ sub chm_init($)
           $level--;
         }
       }
-      my $text = convert_tree($self, $section->{'args'}->[0]);
+      my $text = _chm_convert_tree_to_text($self, $section->{'args'}->[0]);
       $text = Texinfo::Convert::Utils::numbered_heading($self, $section, $text,
                           $self->get_conf('NUMBER_SECTIONS')); 
       my $file = $self->command_filename($section);
@@ -372,7 +372,7 @@ sub chm_init($)
   if (exists ($chm_languages{$documentlanguage})) {
     $language = $chm_languages{$documentlanguage};
   }
-  my $title = convert_tree($self, $self->{'title_tree'});
+  my $title = _chm_convert_tree_to_text($self, $self->{'title_tree'});
   my $top_file = '';
   my $top_element = $self->global_element('Top');
   if ($top_element and $top_element->{'extra'}->{'unit_command'}) {
