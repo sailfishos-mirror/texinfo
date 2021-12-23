@@ -247,8 +247,9 @@ sub html_image_file_location_name($$$$)
            = $self->Texinfo::Common::locate_include_file($image_basefile.$extension);
       if (defined($located_image_path) and $located_image_path ne '') {
         $image_path = $located_image_path;
-        # use the basename and not the file found.  It is agreed that it is
-        # better, since in any case the files are moved.
+        # use the @-command argument and not the file found using the
+        # include paths.  It is considered that the files in include paths
+        # will be moved by the caller anyway.
         $image_file = $image_basefile.$extension;
         $image_extension = $extension;
         last;
