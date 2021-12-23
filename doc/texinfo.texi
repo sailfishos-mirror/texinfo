@@ -12207,11 +12207,6 @@ the extended @TeX{} programs @command{etex} (DVI output) and
 extended @TeX{}s if they are available (@pxref{Format with
 @command{texi2dvi}}).
 
-In September 2006, the W3C Internationalization Activity released a
-new recommendation for specifying languages:
-@url{http://www.rfc-editor.org/rfc/bcp/bcp47.txt}.  When Gettext
-supports this new scheme, Texinfo will too.
-
 @cindex ISO 639-2 language codes
 @cindex ISO 3166 country codes
 @cindex Language codes
