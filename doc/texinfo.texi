@@ -6713,10 +6713,10 @@ the fixed-width font.  Thus,
 @example
 @group
 @@format
-This is an example of text written between a @@code{@@@@format} command
-and an @@code{@@@@end format} command.  As you can see
+This is an example of text written between a @@code@{@@@@format@} command
+and an @@code@{@@@@end format@} command.  As you can see
 from this example,
-the @@code{@@@@format} command does not fill the text.
+the @@code@{@@@@format@} command does not fill the text.
 @@end format
 @end group
 @end example

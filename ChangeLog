@@ -1,5 +1,10 @@
 2021-12-23  Patrice Dumas  <pertusus@free.fr>
 
+	* doc/texinfo.texi (@code{@@format}): add missing protection
+	or { and } in @format example.
+
+2021-12-23  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm, tp/Texinfo/Convert/Converter.pm:
 	rename 'out_filename' as 'out_filepath'.
 
