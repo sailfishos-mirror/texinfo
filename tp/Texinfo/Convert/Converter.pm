@@ -476,7 +476,10 @@ sub determine_files_and_directory($)
       $destination_directory = $document_name;
     }
   } else {
-    my ($out_filename, $output_dir, $suffix) = fileparse($output_file);
+    # $output_file_filename is not used, but $output_filename should be
+    # the same as long as $output_file is the same as $output_filepath
+    # which is the case except if $output_file is ''.
+    my ($output_file_filename, $output_dir, $suffix) = fileparse($output_file);
     if ($output_dir ne '') {
       $destination_directory = $output_dir;
     }
@@ -567,10 +570,10 @@ sub set_tree_unit_file($$$$)
   }
   $tree_unit->{'filename'} = $filename;
   if (defined($destination_directory) and $destination_directory ne '') {
-    $tree_unit->{'out_filename'} =
+    $tree_unit->{'out_filepath'} =
       File::Spec->catfile($destination_directory, $filename);
   } else {
-    $tree_unit->{'out_filename'} = $filename;
+    $tree_unit->{'out_filepath'} = $filename;
   }
 }
 
@@ -640,7 +643,7 @@ sub _set_tree_units_files($$$$$$)
     foreach my $tree_unit (@$tree_units) {
       if (!defined($tree_unit->{'filename'})) {
         $tree_unit->{'filename'} = $output_filename;
-        $tree_unit->{'out_filename'} = $output_file;
+        $tree_unit->{'out_filepath'} = $output_file;
       }
     }
   } else {
@@ -715,8 +718,8 @@ sub _set_tree_units_files($$$$$$)
       }
       $tree_unit->{'filename'}
          = $tree_unit->{'extra'}->{'first_in_page'}->{'filename'};
-      $tree_unit->{'out_filename'}
-         = $tree_unit->{'extra'}->{'first_in_page'}->{'out_filename'};
+      $tree_unit->{'out_filepath'}
+         = $tree_unit->{'extra'}->{'first_in_page'}->{'out_filepath'};
     }
   }
 
@@ -837,11 +840,11 @@ sub output($$)
       if (!$files{$tree_unit->{'filename'}}->{'fh'}) {
         $file_fh = Texinfo::Common::output_files_open_out(
                              $self->output_files_information(), $self,
-                             $tree_unit->{'out_filename'});
+                             $tree_unit->{'out_filepath'});
         if (!$file_fh) {
           $self->document_error($self,
                 sprintf(__("could not open %s for writing: %s"),
-                                    $tree_unit->{'out_filename'}, $!));
+                                    $tree_unit->{'out_filepath'}, $!));
           return undef;
         }
         $files{$tree_unit->{'filename'}}->{'fh'} = $file_fh;
@@ -853,13 +856,13 @@ sub output($$)
       $self->{'file_counters'}->{$tree_unit->{'filename'}}--;
       if ($self->{'file_counters'}->{$tree_unit->{'filename'}} == 0) {
         # NOTE do not close STDOUT here to avoid a perl warning
-        if ($tree_unit->{'out_filename'} ne '-') {
+        if ($tree_unit->{'out_filepath'} ne '-') {
           Texinfo::Common::output_files_register_closed(
-            $self->output_files_information(), $tree_unit->{'out_filename'});
+            $self->output_files_information(), $tree_unit->{'out_filepath'});
           if (!close($file_fh)) {
             $self->document_error($self,
                      sprintf(__("error on closing %s: %s"),
-                                  $tree_unit->{'out_filename'}, $!));
+                                  $tree_unit->{'out_filepath'}, $!));
             return undef;
           }
         }

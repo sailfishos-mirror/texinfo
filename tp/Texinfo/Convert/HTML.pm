@@ -217,6 +217,56 @@ sub html_line_break_element($)
   return $self->{'line_break_element'};
 }
 
+my @image_files_extensions = ('.png', '.jpg', '.jpeg', '.gif');
+
+# this allows init files to get the location of the image files
+# which cannot be determined from the result, as the file
+# location is not used in the element output.
+sub html_image_file_location_name($$$$)
+{
+  my $self = shift;
+  my $cmdname = shift;
+  my $command = shift;
+  my $args = shift;
+
+  my @extensions = @image_files_extensions;
+
+  my $image_file;
+  my $image_basefile;
+  my $image_extension;
+  my $image_path;
+  if (defined($args->[0]->{'monospacetext'}) and $args->[0]->{'monospacetext'} ne '') {
+    $image_basefile = $args->[0]->{'monospacetext'};
+    my $extension;
+    if (defined($args->[4]) and defined($args->[4]->{'monospacetext'})) {
+      $extension = $args->[4]->{'monospacetext'};
+      unshift @extensions, ("$extension", ".$extension");
+    }
+    foreach my $extension (@extensions) {
+      my $located_image_path
+           = $self->Texinfo::Common::locate_include_file($image_basefile.$extension);
+      if (defined($located_image_path) and $located_image_path ne '') {
+        $image_path = $located_image_path;
+        # use the basename and not the file found.  It is agreed that it is
+        # better, since in any case the files are moved.
+        $image_file = $image_basefile.$extension;
+        $image_extension = $extension;
+        last;
+      }
+    }
+    if (!defined($image_file) or $image_file eq '') {
+      if (defined($extension) and $extension ne '') {
+        $image_file = $image_basefile.$extension;
+        $image_extension = $extension;
+      } else {
+        $image_file = "$image_basefile.jpg";
+        $image_extension = 'jpg';
+      }
+    }
+  }
+  return ($image_file, $image_basefile, $image_extension, $image_path);
+}
+
 # API to access converter state for customization code
 
 sub in_math($)
@@ -1080,9 +1130,9 @@ my %defaults = (
   'OPEN_QUOTE_SYMBOL'    => undef,
   'CLOSE_QUOTE_SYMBOL'   => undef,
   'USE_ISO'              => 1,
-  'TOP_FILE'             => 'index.html',
+  'TOP_FILE'             => 'index.html', # ignores EXTENSION
   'EXTENSION'            => 'html',
-  'TOP_NODE_FILE_TARGET' => 'index.html',
+  'TOP_NODE_FILE_TARGET' => 'index.html', # ignores EXTENSION
   'USE_LINKS'            => 1,
   'FALLBACK_TO_NUMERIC_ENTITY'   => 1,
   'ENABLE_ENCODING_USE_ENTITY'   => 1,
@@ -1990,7 +2040,6 @@ sub _convert_uref_command($$$$)
 $default_commands_conversion{'uref'} = \&_convert_uref_command;
 $default_commands_conversion{'url'} = \&_convert_uref_command;
 
-my @image_files_extensions = ('.png', '.jpg', '.jpeg', '.gif');
 sub _convert_image_command($$$$)
 {
   my $self = shift;
@@ -2003,30 +2052,12 @@ sub _convert_image_command($$$$)
   if (defined($args->[0]->{'monospacetext'}) and $args->[0]->{'monospacetext'} ne '') {
     my $basefile = $args->[0]->{'monospacetext'};
     return $basefile if ($self->in_string());
-    my $extension;
-    if (defined($args->[4]) and defined($args->[4]->{'monospacetext'})) {
-      $extension = $args->[4]->{'monospacetext'};
-      unshift @extensions, ("$extension", ".$extension");
-    }
-    my $image_file;
-    foreach my $extension (@extensions) {
-      if ($self->Texinfo::Common::locate_include_file ($basefile.$extension)) {
-        # use the basename and not the file found.  It is agreed that it is
-        # better, since in any case the files are moved.
-        $image_file = $basefile.$extension;
-        last;
-      }
-    }
-    if (!defined($image_file) or $image_file eq '') {
-      if (defined($extension) and $extension ne '') {
-        $image_file = $basefile.$extension;
-      } else {
-        $image_file = "$basefile.jpg";
-      }
-      #cluck "err ($self->{'ignore_notice'})";
+    my ($image_file, $image_basefile, $image_extension, $image_path)
+      = $self->html_image_file_location_name($cmdname, $command, $args);
+    if (not defined($image_path)) {
       $self->_noticed_line_warn(sprintf(
-              __("\@image file `%s' (for HTML) not found, using `%s'"), 
-                               $basefile, $image_file), $command->{'line_nr'});
+              __("\@image file `%s' (for HTML) not found, using `%s'"),
+                         $image_basefile, $image_file), $command->{'line_nr'});
     }
     if (defined($self->get_conf('IMAGE_LINK_PREFIX'))) {
       $image_file = $self->get_conf('IMAGE_LINK_PREFIX') . $image_file;
@@ -6093,7 +6124,7 @@ sub _html_set_pages_files($$$$$$$$)
     foreach my $tree_unit (@$tree_units) {
       if (!defined($tree_unit->{'filename'})) {
         $tree_unit->{'filename'} = $output_filename;
-        $tree_unit->{'out_filename'} = $output_file;
+        $tree_unit->{'out_filepath'} = $output_file;
       }
     }
   } else {
@@ -6175,8 +6206,8 @@ sub _html_set_pages_files($$$$$$$$)
       }
       $tree_unit->{'filename'}
          = $tree_unit->{'extra'}->{'first_in_page'}->{'filename'};
-      $tree_unit->{'out_filename'}
-         = $tree_unit->{'extra'}->{'first_in_page'}->{'out_filename'};
+      $tree_unit->{'out_filepath'}
+         = $tree_unit->{'extra'}->{'first_in_page'}->{'out_filepath'};
     }
   }
 
@@ -7711,7 +7742,7 @@ sub output($$)
     foreach my $special_element (@$special_elements) {
       if (!defined($special_element->{'filename'})) {
         $special_element->{'filename'} = $tree_units->[0]->{'filename'};
-        $special_element->{'out_filename'} = $tree_units->[0]->{'out_filename'};
+        $special_element->{'out_filepath'} = $tree_units->[0]->{'out_filepath'};
         $self->{'file_counters'}->{$special_element->{'filename'}}++;
       }
     }
@@ -7881,27 +7912,38 @@ sub output($$)
 
   if (!$tree_units or !defined($tree_units->[0]->{'filename'})) {
     # no page
-    my $outfile;
+    my $no_page_out_filepath;
     if ($output_file ne '') {
+      my $no_page_output_filename;
       if ($self->get_conf('SPLIT')) {
-        $outfile = $self->top_node_filename($document_name);
+        $no_page_output_filename = $self->top_node_filename($document_name);
         if (defined($created_directory) and $created_directory ne '') {
-          $outfile = File::Spec->catfile($created_directory, $outfile);
+          $no_page_out_filepath = File::Spec->catfile($created_directory,
+                                                    $no_page_output_filename);
+        } else {
+          $no_page_out_filepath = $no_page_output_filename;
         }
       } else {
-        $outfile = $output_file;
+        $no_page_out_filepath = $output_file;
+        $no_page_output_filename = $output_filename;
       }
       $fh = Texinfo::Common::output_files_open_out(
-              $self->output_files_information(), $self, $outfile);
+              $self->output_files_information(), $self, $no_page_out_filepath);
       if (!$fh) {
         $self->document_error($self,
               sprintf(__("could not open %s for writing: %s"),
-                                      $outfile, $!));
+                                      $no_page_out_filepath, $!));
         return undef;
       }
-    }
-    $self->{'current_filename'} = $output_filename;
+      # this can be used in init file when there are no tree units.
+      # FIXME use an API?  Set in $self->{'no_page'}?
+      $self->{'filename'} = $no_page_output_filename;
+      $self->{'out_filepath'} = $no_page_out_filepath;
 
+      $self->{'current_filename'} = $no_page_output_filename;
+    } else {
+      $self->{'current_filename'} = $output_filename;
+    }
     my $body = '';
     if ($tree_units and @$tree_units) {
       foreach my $tree_unit (@$tree_units) {
@@ -7919,13 +7961,13 @@ sub output($$)
     $output .= $self->write_or_return(&{$self->{'format_end_file'}}($self), $fh);
 
     # NOTE do not close STDOUT now to avoid a perl warning.
-    if ($fh and $outfile ne '-') {
+    if ($fh and $no_page_out_filepath ne '-') {
       Texinfo::Common::output_files_register_closed(
-                  $self->output_files_information(), $outfile);
+                  $self->output_files_information(), $no_page_out_filepath);
       if (!close($fh)) {
         $self->document_error($self,
               sprintf(__("error on closing %s: %s"),
-                                      $outfile, $!));
+                                      $no_page_out_filepath, $!));
       }
     }
     return $output if ($output_file eq '');
@@ -7969,11 +8011,11 @@ sub output($$)
       if (!$files{$element->{'filename'}}->{'fh'}) {
         $file_fh = Texinfo::Common::output_files_open_out(
                          $self->output_files_information(), $self,
-                         $element->{'out_filename'});
+                         $element->{'out_filepath'});
         if (!$file_fh) {
           $self->document_error($self,
                sprintf(__("could not open %s for writing: %s"),
-                                    $element->{'out_filename'}, $!));
+                                    $element->{'out_filepath'}, $!));
           return undef;
         }
         print $file_fh "".&{$self->{'format_begin_file'}}($self, 
@@ -7989,13 +8031,13 @@ sub output($$)
         print $file_fh "". &{$self->{'format_end_file'}}($self);
 
         # NOTE do not close STDOUT here to avoid a perl warning
-        if ($element->{'out_filename'} ne '-') {
+        if ($element->{'out_filepath'} ne '-') {
           Texinfo::Common::output_files_register_closed(
-             $self->output_files_information(), $element->{'out_filename'});
+             $self->output_files_information(), $element->{'out_filepath'});
           if (!close($file_fh)) {
             $self->document_error($self,
                        sprintf(__("error on closing %s: %s"),
-                                  $element->{'out_filename'}, $!));
+                                  $element->{'out_filepath'}, $!));
             return undef;
           }
         }
