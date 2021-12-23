@@ -1161,15 +1161,18 @@ sub locate_init_file($$$)
 # output_files_register_closed() below.  This makes possible to
 # unlink all the opened files and close the files not already
 # closed.
-sub output_files_open_out($$$;$)
+sub output_files_open_out($$$;$$)
 {
   my $self = shift;
   my $configuration_informations = shift;
   my $file = shift;
   my $use_binmode = shift;
+  my $output_encoding = shift;
 
   my $encoding;
-  if (defined($configuration_informations->get_conf('OUTPUT_PERL_ENCODING'))) {
+  if (defined($output_encoding)) {
+    $encoding = $output_encoding;
+  } elsif (defined($configuration_informations->get_conf('OUTPUT_PERL_ENCODING'))) {
     $encoding = $configuration_informations->get_conf('OUTPUT_PERL_ENCODING');
   }
 

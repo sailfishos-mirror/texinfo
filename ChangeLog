@@ -1,5 +1,11 @@
 2021-12-23  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (output_files_open_out): add
+	$output_encoding argument to set the encoding irrespective
+	of document encoding.
+
+2021-12-23  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/init/chm.pm (_chm_convert_tree_to_text): rename
 	convert_tree() as _chm_convert_tree_to_text().
 
