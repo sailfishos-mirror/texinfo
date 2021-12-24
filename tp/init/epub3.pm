@@ -38,8 +38,9 @@ use File::Path;
 use File::Spec;
 use File::Copy;
 
-# AZ_OK is used
-use Archive::Zip qw( :ERROR_CODES :CONSTANTS );
+# the Archive::Zip module is required below only if needed, that is
+# if EPUB_CREATE_CONTAINER is set.
+#use Archive::Zip;
 
 use Texinfo::Common;
 
@@ -564,6 +565,8 @@ EOT
   }
 
   if ($self->get_conf('EPUB_CREATE_CONTAINER')) {
+    require Archive::Zip;
+
     my $zip = Archive::Zip->new();
     $zip->addFile($mimetype_file, $mimetype_filename);
     $zip->addTree($meta_inf_directory, $meta_inf_directory_name);
@@ -571,7 +574,7 @@ EOT
                                      $epub_document_dir_name),
                   $epub_document_dir_name);
 
-    unless ($zip->writeToFileNamed($epub_outfile) == AZ_OK) {
+    unless ($zip->writeToFileNamed($epub_outfile) == Archive::Zip->AZ_OK) {
       $self->document_error($self,
            sprintf(__("epub3.pm: error writing archive %s"),
                    $epub_outfile));
