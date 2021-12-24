@@ -2553,7 +2553,7 @@ sub _enter_index_entry($$$$$$$)
     if (exists($self->{'values'}->{$set_variable})) {
       my $ignored_char = $set_flag_index_char_ignore{$set_variable};
       if (0) {
-      $index_entry->{'index_ignore_flags'}->{$ignored_char} = 1;
+      $index_entry->{'index_ignore_chars'}->{$ignored_char} = 1;
       }
     }
   }

@@ -1,3 +1,10 @@
+2021-12-24  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Structuring.pm (index_entry_sort_string),
+	tp/Texinfo/ParserNonXS.pm (_enter_index_entry):
+	correct 'index_ignore_flags' as it should have been
+	'index_ignore_chars'.
+
 2021-12-23  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	<code> for @t

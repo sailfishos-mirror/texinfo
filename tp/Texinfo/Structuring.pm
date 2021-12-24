@@ -1588,7 +1588,7 @@ sub setup_index_entry_keys_formatting($$)
   my $self = shift;
   my $configuration_informations = shift;
 
-  # TODO remove once 'index_ignore_flags' is implemented everywhere
+  # TODO remove once 'index_ignore_chars' is implemented everywhere
   my $ignore_chars = '';
 #if (0){
   # '-' must come first to avoid e.g. [<-@] looking like a character range
@@ -1627,9 +1627,9 @@ sub index_entry_sort_string($$$$;$)
     $entry_key = Texinfo::Convert::Text::convert_to_text(
                           $entry_tree_element, $convert_to_text_options);
     # FIXME do that for sortas too?
-    if (exists($main_entry->{'index_ignore_flags'})) {
+    if (exists($main_entry->{'index_ignore_chars'})) {
       $ignore_chars
-         .= quotemeta(join('', keys(%{$main_entry->{'index_ignore_flags'}})));
+         .= quotemeta(join('', keys(%{$main_entry->{'index_ignore_chars'}})));
     }
     if (defined($ignore_chars) and $ignore_chars ne '') {
       $entry_key =~ s/[$ignore_chars]//g;
