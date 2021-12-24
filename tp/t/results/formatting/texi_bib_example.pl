@@ -5712,7 +5712,7 @@ ul.no-bullet {list-style: none}
 
 </pre></th></tr></table>
 
-<hr size="6">
+<hr style="height: 6px;">
 <div class="chapter" id="Introduction">
 <table class="header" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#Top" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>

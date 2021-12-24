@@ -5083,7 +5083,7 @@ Menu comment
 </p>
 
 
-<hr size="6">
+<hr style="height: 6px;">
 <div class="chapter" id="chapter">
 <table class="header" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#Top" title="D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent"> &lt;&lt; </a>]</td>

@@ -52,6 +52,8 @@ texinfo_set_from_init_file('NO_CSS', 1);
 texinfo_set_from_init_file('COPIABLE_ANCHORS', 0);
 texinfo_set_from_init_file('NO_CUSTOM_HTML_ATTRIBUTE', 1);
 
+texinfo_set_from_init_file('BIG_RULE', '<hr size="6">');
+
 # no accesskey in html 3.2
 texinfo_set_from_init_file('USE_ACCESSKEY', 0);
 

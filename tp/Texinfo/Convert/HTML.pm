@@ -8595,7 +8595,7 @@ sub _set_variables_texi2html()
   ['DO_ABOUT', undef],
   ['NODE_NAME_IN_INDEX', 0],
   ['CHAPTER_HEADER_LEVEL', 1],
-  ['BIG_RULE', '<hr size="6">'],
+  ['BIG_RULE', '<hr style="height: 6px;">'],
   ['FOOTNOTE_END_HEADER_LEVEL', 3],
   ['FOOTNOTE_SEPARATE_HEADER_LEVEL', 1],
   ['KEEP_TOP_EXTERNAL_REF', 1],
