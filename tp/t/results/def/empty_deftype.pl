@@ -155,6 +155,7 @@ $result_trees{'empty_deftype'} = {
               ],
               'in_code' => 1,
               'index_at_command' => 'deftypefun',
+              'index_ignore_chars' => {},
               'index_name' => 'fn',
               'index_type_command' => 'deftypefun',
               'number' => 1
@@ -360,6 +361,7 @@ $result_trees{'empty_deftype'} = {
               ],
               'in_code' => 1,
               'index_at_command' => 'defun',
+              'index_ignore_chars' => {},
               'index_name' => 'fn',
               'index_type_command' => 'defun',
               'number' => 2
@@ -609,6 +611,7 @@ $result_trees{'empty_deftype'} = {
               ],
               'in_code' => 1,
               'index_at_command' => 'deftypemethod',
+              'index_ignore_chars' => {},
               'index_name' => 'fn',
               'index_type_command' => 'deftypemethod',
               'number' => 3
@@ -836,6 +839,7 @@ $result_trees{'empty_deftype'} = {
               ],
               'in_code' => 1,
               'index_at_command' => 'defmethod',
+              'index_ignore_chars' => {},
               'index_name' => 'fn',
               'index_type_command' => 'defmethod',
               'number' => 4

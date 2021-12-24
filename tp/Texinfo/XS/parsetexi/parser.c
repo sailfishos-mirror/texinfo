@@ -328,6 +328,8 @@ wipe_global_info (void)
   GLOBAL_CASE(xrefautomaticsectiontitle);
 
 #undef GLOBAL_CASE
+
+  /* clear the rest of the fields */
   memset (&global_info, 0, sizeof (global_info));
 
   global_info.input_perl_encoding = strdup ("utf-8");

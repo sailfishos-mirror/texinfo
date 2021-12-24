@@ -69,6 +69,7 @@ $result_trees{'printindex_index_entry_in_copying_in_footnote'} = {
                                   'content_normalized' => [],
                                   'in_code' => 0,
                                   'index_at_command' => 'cindex',
+                                  'index_ignore_chars' => {},
                                   'index_name' => 'cp',
                                   'index_type_command' => 'cindex',
                                   'number' => 1,

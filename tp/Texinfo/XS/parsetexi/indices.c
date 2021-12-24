@@ -296,6 +296,7 @@ enter_index_entry (enum command_id index_type_command,
   entry->content = content;
   entry->command = current;
   entry->number = idx->index_number;
+  entry->ignored_chars = global_info.ignored_chars;
 
   k = lookup_extra (current, "sortas");
   if (k)

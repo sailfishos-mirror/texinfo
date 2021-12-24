@@ -333,6 +333,9 @@ $result_trees{'indices'} = {
               'content_normalized' => [],
               'in_code' => 0,
               'index_at_command' => 'cindex',
+              'index_ignore_chars' => {
+                '\\' => 1
+              },
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
               'node' => {},
@@ -643,6 +646,9 @@ $result_trees{'indices'} = {
               'content_normalized' => [],
               'in_code' => 0,
               'index_at_command' => 'cindex',
+              'index_ignore_chars' => {
+                '\\' => 1
+              },
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
               'node' => {},
@@ -710,6 +716,9 @@ $result_trees{'indices'} = {
               'content_normalized' => [],
               'in_code' => 0,
               'index_at_command' => 'cindex',
+              'index_ignore_chars' => {
+                '\\' => 1
+              },
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
               'node' => {},
@@ -821,6 +830,7 @@ $result_trees{'indices'} = {
               'content_normalized' => [],
               'in_code' => 0,
               'index_at_command' => 'cindex',
+              'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
               'node' => {},
@@ -915,6 +925,7 @@ $result_trees{'indices'} = {
               'content_normalized' => [],
               'in_code' => 1,
               'index_at_command' => 'findex',
+              'index_ignore_chars' => {},
               'index_name' => 'fn',
               'index_type_command' => 'findex',
               'node' => {},
@@ -1328,9 +1339,9 @@ $result_floats{'indices'} = {};
 $result_indices_sort_strings{'indices'} = {
   'cp' => [
     '\\cmd',
-    '\\cmd',
     '\\some\\command for file',
-    'a!"@b "!@ a" o"'
+    'a!"@b "!@ a" o"',
+    'cmd'
   ],
   'fn' => [
     'the person index aa'

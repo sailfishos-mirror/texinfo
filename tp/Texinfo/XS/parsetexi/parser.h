@@ -92,6 +92,9 @@ typedef struct GLOBAL_INFO {
     ELEMENT shortcontents;
     ELEMENT urefbreakstyle;
     ELEMENT xrefautomaticsectiontitle;
+
+    /* Ignored characters for index sort key */
+    IGNORED_CHARS ignored_chars;
 } GLOBAL_INFO;
 
 

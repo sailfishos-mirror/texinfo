@@ -126,6 +126,7 @@ $result_trees{'defx_after_empty_line_in_example'} = {
                   ],
                   'in_code' => 1,
                   'index_at_command' => 'deffn',
+                  'index_ignore_chars' => {},
                   'index_name' => 'fn',
                   'index_type_command' => 'deffn',
                   'number' => 1
@@ -283,6 +284,7 @@ $result_trees{'defx_after_empty_line_in_example'} = {
                   ],
                   'in_code' => 1,
                   'index_at_command' => 'deffnx',
+                  'index_ignore_chars' => {},
                   'index_name' => 'fn',
                   'index_type_command' => 'deffn',
                   'number' => 2

@@ -77,6 +77,13 @@ typedef struct ELEMENT {
        everywhere; */
 } ELEMENT;
 
+typedef struct IGNORED_CHARS {
+    int backslash;
+    int hyphen;
+    int lessthan;
+    int atsign;
+} IGNORED_CHARS;
+
 typedef struct {
     char *index_name;
     char *index_prefix;
@@ -90,6 +97,7 @@ typedef struct {
     int number; /* Index of entry in containing index, 1-based. */
     ELEMENT *region;
     char *sortas; /* the sort key for the index */
+    IGNORED_CHARS ignored_chars;
 } INDEX_ENTRY;
 
 typedef struct INDEX {

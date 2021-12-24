@@ -119,6 +119,7 @@ $result_trees{'tab_in_index'} = {
                               'content_normalized' => [],
                               'in_code' => 1,
                               'index_at_command' => 'vindex',
+                              'index_ignore_chars' => {},
                               'index_name' => 'vr',
                               'index_type_command' => 'vindex',
                               'number' => 1

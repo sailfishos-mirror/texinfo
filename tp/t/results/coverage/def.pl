@@ -98,6 +98,7 @@ $result_trees{'def'} = {
               ],
               'in_code' => 1,
               'index_at_command' => 'deffn',
+              'index_ignore_chars' => {},
               'index_name' => 'fn',
               'index_type_command' => 'deffn',
               'number' => 1
@@ -341,6 +342,7 @@ $result_trees{'def'} = {
               ],
               'in_code' => 1,
               'index_at_command' => 'deffn',
+              'index_ignore_chars' => {},
               'index_name' => 'fn',
               'index_type_command' => 'deffn',
               'number' => 2
@@ -527,6 +529,7 @@ $result_trees{'def'} = {
               ],
               'in_code' => 1,
               'index_at_command' => 'deffn',
+              'index_ignore_chars' => {},
               'index_name' => 'fn',
               'index_type_command' => 'deffn',
               'number' => 3
@@ -630,6 +633,7 @@ $result_trees{'def'} = {
               ],
               'in_code' => 1,
               'index_at_command' => 'deffnx',
+              'index_ignore_chars' => {},
               'index_name' => 'fn',
               'index_type_command' => 'deffn',
               'number' => 4
@@ -734,6 +738,7 @@ $result_trees{'def'} = {
               ],
               'in_code' => 1,
               'index_at_command' => 'deffnx',
+              'index_ignore_chars' => {},
               'index_name' => 'fn',
               'index_type_command' => 'deffn',
               'number' => 5
@@ -839,6 +844,7 @@ $result_trees{'def'} = {
               ],
               'in_code' => 1,
               'index_at_command' => 'deffnx',
+              'index_ignore_chars' => {},
               'index_name' => 'fn',
               'index_type_command' => 'deffn',
               'number' => 6
@@ -944,6 +950,7 @@ $result_trees{'def'} = {
               ],
               'in_code' => 1,
               'index_at_command' => 'deffnx',
+              'index_ignore_chars' => {},
               'index_name' => 'fn',
               'index_type_command' => 'deffn',
               'number' => 7
@@ -1049,6 +1056,7 @@ $result_trees{'def'} = {
               ],
               'in_code' => 1,
               'index_at_command' => 'deffnx',
+              'index_ignore_chars' => {},
               'index_name' => 'fn',
               'index_type_command' => 'deffn',
               'number' => 8
@@ -1180,6 +1188,7 @@ $result_trees{'def'} = {
               ],
               'in_code' => 1,
               'index_at_command' => 'deffnx',
+              'index_ignore_chars' => {},
               'index_name' => 'fn',
               'index_type_command' => 'deffn',
               'number' => 9
@@ -1258,6 +1267,7 @@ $result_trees{'def'} = {
               ],
               'in_code' => 1,
               'index_at_command' => 'deffnx',
+              'index_ignore_chars' => {},
               'index_name' => 'fn',
               'index_type_command' => 'deffn',
               'number' => 10
@@ -1346,6 +1356,7 @@ $result_trees{'def'} = {
               ],
               'in_code' => 1,
               'index_at_command' => 'deffnx',
+              'index_ignore_chars' => {},
               'index_name' => 'fn',
               'index_type_command' => 'deffn',
               'number' => 11
@@ -1428,6 +1439,7 @@ $result_trees{'def'} = {
               ],
               'in_code' => 1,
               'index_at_command' => 'deffnx',
+              'index_ignore_chars' => {},
               'index_name' => 'fn',
               'index_type_command' => 'deffn',
               'number' => 12
@@ -1555,6 +1567,7 @@ $result_trees{'def'} = {
               ],
               'in_code' => 1,
               'index_at_command' => 'deffnx',
+              'index_ignore_chars' => {},
               'index_name' => 'fn',
               'index_type_command' => 'deffn',
               'number' => 13
@@ -1707,6 +1720,7 @@ $result_trees{'def'} = {
               ],
               'in_code' => 1,
               'index_at_command' => 'deffnx',
+              'index_ignore_chars' => {},
               'index_name' => 'fn',
               'index_type_command' => 'deffn',
               'number' => 14
@@ -1859,6 +1873,7 @@ $result_trees{'def'} = {
               ],
               'in_code' => 1,
               'index_at_command' => 'deffnx',
+              'index_ignore_chars' => {},
               'index_name' => 'fn',
               'index_type_command' => 'deffn',
               'number' => 15

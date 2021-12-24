@@ -116,6 +116,7 @@ $result_trees{'def_in_style_command'} = {
               ],
               'in_code' => 1,
               'index_at_command' => 'defun',
+              'index_ignore_chars' => {},
               'index_name' => 'fn',
               'index_type_command' => 'defun',
               'number' => 1

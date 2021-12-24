@@ -159,6 +159,7 @@ $result_trees{'def_defx_mismatch'} = {
               ],
               'in_code' => 1,
               'index_at_command' => 'defun',
+              'index_ignore_chars' => {},
               'index_name' => 'fn',
               'index_type_command' => 'defun',
               'number' => 1
@@ -312,6 +313,7 @@ $result_trees{'def_defx_mismatch'} = {
               ],
               'in_code' => 1,
               'index_at_command' => 'deffnx',
+              'index_ignore_chars' => {},
               'index_name' => 'fn',
               'index_type_command' => 'deffn',
               'number' => 2

@@ -1,5 +1,33 @@
 2021-12-24  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/macro.c (clear_value): Check for
+	internal flag name and clear in global_info.
+
+	* p/Texinfo/ParserNonXS.pm (_enter_index_entry): set
+	'index_ignore_chars'.
+
+2021-12-24  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	index_ignored_chars hash on index entry
+
+	* tp/Texinfo/XS/parsetexi/tree_types.h (IGNORED_CHARS): New struct.
+	* tp/Texinfo/XS/parsetexi/parser.h (GLOBAL_INFO),
+	* tp/Texinfo/XS/parsetexi/tree_types.h (INDEX_ENTRY):
+	Add it as a field.
+	* tp/Texinfo/XS/parsetexi/macro.c (store_value): Check for
+	internal flag name and record in global_info.
+
+	* tp/Texinfo/XS/parsetexi/indices.c (enter_index_entry):
+	Save ignored_chars from global_info.
+	* tp/Texinfo/XS/parsetexi/api.c (build_single_index_data):
+	Create 'index_ignored_chars' hash on each index entry.
+	(build_global_info): Add comment to remove code in future
+	when the 'index_ignored_chars' hash is used.
+	* tp/Texinfo/XS/parsetexi/parser.c (wipe_global_info): Add
+	a comment confirming that all fields are wiped.
+
+2021-12-24  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Structuring.pm (index_entry_sort_string),
 	tp/Texinfo/ParserNonXS.pm (_enter_index_entry):
 	correct 'index_ignore_flags' as it should have been

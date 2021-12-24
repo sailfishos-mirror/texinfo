@@ -161,6 +161,7 @@ $result_trees{'preformatted'} = {
                           'content_normalized' => [],
                           'in_code' => 1,
                           'index_at_command' => 'item',
+                          'index_ignore_chars' => {},
                           'index_name' => 'vr',
                           'index_type_command' => 'vtable',
                           'number' => 1

@@ -161,6 +161,7 @@ $result_trees{'w_lines_count'} = {
               'content_normalized' => [],
               'in_code' => 1,
               'index_at_command' => 'findex',
+              'index_ignore_chars' => {},
               'index_name' => 'fn',
               'index_type_command' => 'findex',
               'node' => {},

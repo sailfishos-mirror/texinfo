@@ -66,6 +66,7 @@ $result_trees{'all_commands'} = {
               ],
               'in_code' => 1,
               'index_at_command' => 'defvr',
+              'index_ignore_chars' => {},
               'index_name' => 'vr',
               'index_type_command' => 'defvr',
               'number' => 1
@@ -219,6 +220,7 @@ $result_trees{'all_commands'} = {
               ],
               'in_code' => 1,
               'index_at_command' => 'deffn',
+              'index_ignore_chars' => {},
               'index_name' => 'fn',
               'index_type_command' => 'deffn',
               'number' => 1
@@ -357,6 +359,7 @@ $result_trees{'all_commands'} = {
               ],
               'in_code' => 1,
               'index_at_command' => 'deffn',
+              'index_ignore_chars' => {},
               'index_name' => 'fn',
               'index_type_command' => 'deffn',
               'number' => 2
@@ -526,6 +529,7 @@ $result_trees{'all_commands'} = {
               ],
               'in_code' => 1,
               'index_at_command' => 'deftypefn',
+              'index_ignore_chars' => {},
               'index_name' => 'fn',
               'index_type_command' => 'deftypefn',
               'number' => 3
@@ -680,6 +684,7 @@ $result_trees{'all_commands'} = {
               ],
               'in_code' => 1,
               'index_at_command' => 'deftypefn',
+              'index_ignore_chars' => {},
               'index_name' => 'fn',
               'index_type_command' => 'deftypefn',
               'number' => 4
@@ -871,6 +876,7 @@ $result_trees{'all_commands'} = {
               ],
               'in_code' => 1,
               'index_at_command' => 'deftypeop',
+              'index_ignore_chars' => {},
               'index_name' => 'fn',
               'index_type_command' => 'deftypeop',
               'number' => 5
@@ -1047,6 +1053,7 @@ $result_trees{'all_commands'} = {
               ],
               'in_code' => 1,
               'index_at_command' => 'deftypeop',
+              'index_ignore_chars' => {},
               'index_name' => 'fn',
               'index_type_command' => 'deftypeop',
               'number' => 6
@@ -1201,6 +1208,7 @@ $result_trees{'all_commands'} = {
               ],
               'in_code' => 1,
               'index_at_command' => 'deftypevr',
+              'index_ignore_chars' => {},
               'index_name' => 'vr',
               'index_type_command' => 'deftypevr',
               'number' => 2
@@ -1355,6 +1363,7 @@ $result_trees{'all_commands'} = {
               ],
               'in_code' => 1,
               'index_at_command' => 'defcv',
+              'index_ignore_chars' => {},
               'index_name' => 'vr',
               'index_type_command' => 'defcv',
               'number' => 3
@@ -1524,6 +1533,7 @@ $result_trees{'all_commands'} = {
               ],
               'in_code' => 1,
               'index_at_command' => 'defcv',
+              'index_ignore_chars' => {},
               'index_name' => 'vr',
               'index_type_command' => 'defcv',
               'number' => 4
@@ -1700,6 +1710,7 @@ $result_trees{'all_commands'} = {
               ],
               'in_code' => 1,
               'index_at_command' => 'deftypecv',
+              'index_ignore_chars' => {},
               'index_name' => 'vr',
               'index_type_command' => 'deftypecv',
               'number' => 5
@@ -1891,6 +1902,7 @@ $result_trees{'all_commands'} = {
               ],
               'in_code' => 1,
               'index_at_command' => 'deftypecv',
+              'index_ignore_chars' => {},
               'index_name' => 'vr',
               'index_type_command' => 'deftypecv',
               'number' => 6
@@ -2066,6 +2078,7 @@ $result_trees{'all_commands'} = {
               ],
               'in_code' => 1,
               'index_at_command' => 'defop',
+              'index_ignore_chars' => {},
               'index_name' => 'fn',
               'index_type_command' => 'defop',
               'number' => 7
@@ -2226,6 +2239,7 @@ $result_trees{'all_commands'} = {
               ],
               'in_code' => 1,
               'index_at_command' => 'defop',
+              'index_ignore_chars' => {},
               'index_name' => 'fn',
               'index_type_command' => 'defop',
               'number' => 8
@@ -2379,6 +2393,7 @@ $result_trees{'all_commands'} = {
               ],
               'in_code' => 1,
               'index_at_command' => 'deftp',
+              'index_ignore_chars' => {},
               'index_name' => 'tp',
               'index_type_command' => 'deftp',
               'number' => 1
@@ -2538,6 +2553,7 @@ $result_trees{'all_commands'} = {
               ],
               'in_code' => 1,
               'index_at_command' => 'defun',
+              'index_ignore_chars' => {},
               'index_name' => 'fn',
               'index_type_command' => 'defun',
               'number' => 9
@@ -2697,6 +2713,7 @@ $result_trees{'all_commands'} = {
               ],
               'in_code' => 1,
               'index_at_command' => 'defmac',
+              'index_ignore_chars' => {},
               'index_name' => 'fn',
               'index_type_command' => 'defmac',
               'number' => 10
@@ -2856,6 +2873,7 @@ $result_trees{'all_commands'} = {
               ],
               'in_code' => 1,
               'index_at_command' => 'defspec',
+              'index_ignore_chars' => {},
               'index_name' => 'fn',
               'index_type_command' => 'defspec',
               'number' => 11
@@ -3000,6 +3018,7 @@ $result_trees{'all_commands'} = {
               ],
               'in_code' => 1,
               'index_at_command' => 'defvar',
+              'index_ignore_chars' => {},
               'index_name' => 'vr',
               'index_type_command' => 'defvar',
               'number' => 7
@@ -3174,6 +3193,7 @@ $result_trees{'all_commands'} = {
               ],
               'in_code' => 1,
               'index_at_command' => 'defvar',
+              'index_ignore_chars' => {},
               'index_name' => 'vr',
               'index_type_command' => 'defvar',
               'number' => 8
@@ -3318,6 +3338,7 @@ $result_trees{'all_commands'} = {
               ],
               'in_code' => 1,
               'index_at_command' => 'defopt',
+              'index_ignore_chars' => {},
               'index_name' => 'vr',
               'index_type_command' => 'defopt',
               'number' => 9
@@ -3493,6 +3514,7 @@ $result_trees{'all_commands'} = {
               ],
               'in_code' => 1,
               'index_at_command' => 'deftypefun',
+              'index_ignore_chars' => {},
               'index_name' => 'fn',
               'index_type_command' => 'deftypefun',
               'number' => 12
@@ -3653,6 +3675,7 @@ $result_trees{'all_commands'} = {
               ],
               'in_code' => 1,
               'index_at_command' => 'deftypevar',
+              'index_ignore_chars' => {},
               'index_name' => 'vr',
               'index_type_command' => 'deftypevar',
               'number' => 10
@@ -3819,6 +3842,7 @@ $result_trees{'all_commands'} = {
               ],
               'in_code' => 1,
               'index_at_command' => 'defivar',
+              'index_ignore_chars' => {},
               'index_name' => 'vr',
               'index_type_command' => 'defivar',
               'number' => 11
@@ -4001,6 +4025,7 @@ $result_trees{'all_commands'} = {
               ],
               'in_code' => 1,
               'index_at_command' => 'deftypeivar',
+              'index_ignore_chars' => {},
               'index_name' => 'vr',
               'index_type_command' => 'deftypeivar',
               'number' => 12
@@ -4182,6 +4207,7 @@ $result_trees{'all_commands'} = {
               ],
               'in_code' => 1,
               'index_at_command' => 'defmethod',
+              'index_ignore_chars' => {},
               'index_name' => 'fn',
               'index_type_command' => 'defmethod',
               'number' => 13
@@ -4379,6 +4405,7 @@ $result_trees{'all_commands'} = {
               ],
               'in_code' => 1,
               'index_at_command' => 'deftypemethod',
+              'index_ignore_chars' => {},
               'index_name' => 'fn',
               'index_type_command' => 'deftypemethod',
               'number' => 14

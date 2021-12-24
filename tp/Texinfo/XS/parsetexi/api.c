@@ -813,6 +813,23 @@ build_single_index_data (INDEX *i)
       if (e->sortas)
         STORE2("sortas", newSVpv (e->sortas, 0));
 
+      /* Create ignored_chars hash. */
+      {
+#define STORE3(key) hv_store (hv, key, strlen (key), newSViv(1), 0)
+        HV *hv = newHV ();
+        if (e->ignored_chars.backslash)
+          STORE3("\\");
+        if (e->ignored_chars.hyphen)
+          STORE3("-");
+        if (e->ignored_chars.lessthan)
+          STORE3("<");
+        if (e->ignored_chars.atsign)
+          STORE3("@");
+#undef STORE3
+
+        STORE2("index_ignore_chars", newRV_inc ((SV *)hv));
+      }
+
       /* Skip these as these entries do not refer to the place in the document 
          where the index commands occurred. */
       if (!lookup_extra (e->command, "seeentry")
@@ -899,6 +916,9 @@ build_global_info (void)
         }
     }
 
+ /* TODO: Remove the following if we use the index_ignore_chars hash
+    instead. */
+#if 1
   char *txi_flags[] = { "txiindexatsignignore", "txiindexbackslashignore",
     "txiindexhyphenignore", "txiindexlessthanignore", 0};
   char **p;
@@ -908,6 +928,7 @@ build_global_info (void)
       if (fetch_value (*p))
         hv_store (hv, *p, strlen (*p), newSVpv ("1", 0), 0);
     }
+#endif
 
   return hv;
 }

@@ -659,6 +659,23 @@ store_value (char *name, char *value)
 
   v->name = strdup (name);
   v->value = strdup (value);
+
+  /* Internal Texinfo flag */
+  if (!strncmp (name, "txi", 3))
+    {
+      int val = (strcmp(value, "0") != 0);
+      if (!strcmp (name, "txiindexbackslashignore"))
+        global_info.ignored_chars.backslash = val;
+      else if (!strcmp (name, "txiindexhyphenignore"))
+        global_info.ignored_chars.hyphen = val;
+      else if (!strcmp (name, "txiindexlessthanignore"))
+        global_info.ignored_chars.lessthan = val;
+      else if (!strcmp (name, "txiindexatsignignore"))
+        global_info.ignored_chars.atsign = val;
+
+      /* also: txicodequotebacktick, txicodequoteundirected,
+         txicommandconditionals.  Deal with them here? */
+    }
 }
 
 void
@@ -672,6 +689,21 @@ clear_value (char *name)
           value_list[i].name[0] = '\0';
           value_list[i].value[0] = '\0';
         }
+    }
+  /* Internal Texinfo flag */
+  if (!strncmp (name, "txi", 3))
+    {
+      if (!strcmp (name, "txiindexbackslashignore"))
+        global_info.ignored_chars.backslash = 0;
+      else if (!strcmp (name, "txiindexhyphenignore"))
+        global_info.ignored_chars.hyphen = 0;
+      else if (!strcmp (name, "txiindexlessthanignore"))
+        global_info.ignored_chars.lessthan = 0;
+      else if (!strcmp (name, "txiindexatsignignore"))
+        global_info.ignored_chars.atsign = 0;
+
+      /* also: txicodequotebacktick, txicodequoteundirected,
+         txicommandconditionals.  Deal with them here? */
     }
 }
 

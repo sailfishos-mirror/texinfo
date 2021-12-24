@@ -180,6 +180,7 @@ $result_trees{'simple'} = {
                   ],
                   'in_code' => 1,
                   'index_at_command' => 'defivar',
+                  'index_ignore_chars' => {},
                   'index_name' => 'vr',
                   'index_type_command' => 'defivar',
                   'node' => {},

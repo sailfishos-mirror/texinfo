@@ -92,6 +92,7 @@ $result_trees{'index_and_node_same_name'} = {
               'content_normalized' => [],
               'in_code' => 0,
               'index_at_command' => 'cindex',
+              'index_ignore_chars' => {},
               'index_name' => 'cp',
               'index_type_command' => 'cindex',
               'node' => {},
