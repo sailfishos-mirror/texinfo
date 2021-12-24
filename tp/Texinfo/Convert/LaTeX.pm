@@ -17,6 +17,9 @@
 #
 # TODO
 #
+# find a way to process informative commands in ignored Top node
+# as TeX does
+#
 # Use texinfo.cnf?  Here?  in texi2any.pl?
 #
 # @multitable not implemented
@@ -620,7 +623,6 @@ foreach my $italics_command (@italics_commands) {
   $LaTeX_style_brace_commands{'math'}->{$italics_command} = '\\mathit';
 }
 
-
 my @typewriter_commands = ('t', 'code', 'samp', 'key', 'env', 'file',
  'command', 'option', 'indicateurl');
 
@@ -929,6 +931,7 @@ sub output($$)
   }
 
   # Ignore everything between Top node and the next node.
+  # TODO find a way to process informative commands as TeX does
   my $modified_top_root = {'contents' => []};
 
   my $in_top_node = 0;
@@ -1211,7 +1214,7 @@ sub _latex_header {
     }
     $header .= "\n";
   }
-  # defined additional commands used in @*table description format
+  # define additional commands used in @*table description format
   foreach my $command (sort(keys(%description_command_new_commands))) {
     $header .= '% command used in \description format for '.$command."\n";
     $header .= "\\newcommand".$description_command_new_commands{$command}."%\n";
