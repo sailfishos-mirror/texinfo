@@ -3527,7 +3527,7 @@ sub _convert_xtable_command($$$$)
     return $content;
   }
   if ($content ne '') {
-    return "<dl compact=\"compact\">\n" . $content . "</dl>\n";
+    return "<dl>\n" . $content . "</dl>\n";
   } else {
     return '';
   }

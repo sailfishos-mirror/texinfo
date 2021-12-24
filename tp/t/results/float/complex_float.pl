@@ -4930,7 +4930,7 @@ An example 2.
 </pre></div>
 
 <p>A table 2.
-</p><dl compact="compact">
+</p><dl>
 <dt><em>truc 2</em></dt>
 <dd><p>line 2
 </p></dd>
@@ -4970,7 +4970,7 @@ A footnote 2.
 <span id="index-float-example"></span>
 </p>
 <p>A table.
-</p><dl compact="compact">
+</p><dl>
 <dt><em>truc</em></dt>
 <dd><p>line
 </p></dd>
@@ -5001,7 +5001,7 @@ An example.
 
 <span id="Anchor-in-caption"></span>
 <p>A table.
-</p><dl compact="compact">
+</p><dl>
 <dt><em>truc</em></dt>
 <dd><p>line
 </p></dd>
@@ -5053,7 +5053,7 @@ An example 2.
 </pre></div>
 
 <p>A table 2.
-</p><dl compact="compact">
+</p><dl>
 <dt><em>truc 2</em></dt>
 <dd><p>line 2
 </p></dd>

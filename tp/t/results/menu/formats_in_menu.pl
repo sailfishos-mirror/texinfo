@@ -1055,7 +1055,7 @@ ul.no-bullet {list-style: none}
 
 <table class="menu" border="0" cellspacing="0">
 <tr><td align="left" valign="top">&bull; <a href="gcc.html#Top" accesskey="1">(gcc)</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">text
-<dl compact="compact">
+<dl>
 <dt>item</dt>
 <dd><pre class="menu-preformatted">* table line::
 </pre></dd>

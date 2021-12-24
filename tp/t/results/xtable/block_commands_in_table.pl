@@ -1738,7 +1738,7 @@ _second item_
 $result_converted{'html_text'}->{'block_commands_in_table'} = '<div class="top" id="Top">
 <span id="Element"></span><h1 class="top">Element</h1>
 
-<dl compact="compact">
+<dl>
 <dt><em>first item</em></dt>
 <dt><em>second itemx</em></dt>
 <dd>
@@ -1770,7 +1770,7 @@ end example.
 </dd>
 </dl>
 
-<dl compact="compact">
+<dl>
 <dt id=\'index-item-before-ignored-lines\'><span><strong>item before ignored lines</strong><a href=\'#index-item-before-ignored-lines\' class=\'copiable-anchor\'> &para;</a></span></dt>
 <dd><span id="index-vindex"></span>
 </dd>
@@ -1779,7 +1779,7 @@ end example.
 <p>Description
 </p></dd>
 </dl>
-<dl compact="compact">
+<dl>
 <dt id=\'index-item\'><span><span class="roman">item</span><a href=\'#index-item\' class=\'copiable-anchor\'> &para;</a></span></dt>
 <dt id=\'index-itemx-after-an-empty-line\'><span><span class="roman">itemx after an empty line</span><a href=\'#index-itemx-after-an-empty-line\' class=\'copiable-anchor\'> &para;</a></span></dt>
 <dd>
@@ -1789,7 +1789,7 @@ end example.
 </dl>
 
 <p>Something.
-</p><dl compact="compact">
+</p><dl>
 <dt><em>in item</em></dt>
 <dd><p>Text without blank line
 </p></dd>

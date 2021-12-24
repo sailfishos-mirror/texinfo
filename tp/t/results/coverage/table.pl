@@ -693,7 +693,7 @@ table itemx
 
 
 $result_converted{'html_text'}->{'table'} = '
-<dl compact="compact">
+<dl>
 <dt>table item</dt>
 <dt>table itemx</dt>
 <dd>
@@ -701,7 +701,7 @@ $result_converted{'html_text'}->{'table'} = '
 </p></dd>
 </dl>
 
-<dl compact="compact">
+<dl>
 <dd><span id="index-index-entry"></span>
 
 </dd>

@@ -243,7 +243,7 @@ no at-command \'code\'
 ';
 
 
-$result_converted{'html_text'}->{'accent_on_table_line'} = '<dl compact="compact">
+$result_converted{'html_text'}->{'accent_on_table_line'} = '<dl>
 <dt>first item</dt>
 <dt>no at-command <code>code</code></dt>
 </dl>

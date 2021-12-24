@@ -340,7 +340,7 @@ $result_converted{'html_text'}->{'footnote_in_center'} = '<div align="center">Ce
 shows an important feature of the centered text.
 </p>
 <div class="example">
-<dl compact="compact">
+<dl>
 <dt><tt>item</tt></dt>
 <dd><pre class="example">line
 </pre></dd>

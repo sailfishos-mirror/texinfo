@@ -2674,7 +2674,7 @@ $result_converted{'plaintext'}->{'table_nested'} = 'Quotation
 $result_converted{'html_text'}->{'table_nested'} = '
 <p>Quotation
 </p><blockquote>
-<dl compact="compact">
+<dl>
 <dt id=\'index-first-item\'><span>first item<a href=\'#index-first-item\' class=\'copiable-anchor\'> &para;</a></span></dt>
 <dt id=\'index-second-itemx\'><span>second itemx<a href=\'#index-second-itemx\' class=\'copiable-anchor\'> &para;</a></span></dt>
 <dd>
@@ -2690,7 +2690,7 @@ $result_converted{'html_text'}->{'table_nested'} = '
 </dl>
 
 <p>Something.
-</p><dl compact="compact">
+</p><dl>
 <dt><em>in item</em></dt>
 <dd><p>Text without blank line
 </p></dd>
@@ -2703,7 +2703,7 @@ $result_converted{'html_text'}->{'table_nested'} = '
 
 <p>Example
 </p><div class="example">
-<dl compact="compact">
+<dl>
 <dt id=\'index-first-item-1\'><span><tt>first item</tt><a href=\'#index-first-item-1\' class=\'copiable-anchor\'> &para;</a></span></dt>
 <dt id=\'index-second-itemx-1\'><span><tt>second itemx</tt><a href=\'#index-second-itemx-1\' class=\'copiable-anchor\'> &para;</a></span></dt>
 <dd><pre class="example">
@@ -2722,7 +2722,7 @@ Text 2
 <pre class="example">
 
 Something.
-</pre><dl compact="compact">
+</pre><dl>
 <dt><tt><em>in item</em></tt></dt>
 <dd><pre class="example">Text without blank line
 </pre></dd>
@@ -2736,7 +2736,7 @@ Something.
 <p>Double quotation
 </p><blockquote>
 <blockquote>
-<dl compact="compact">
+<dl>
 <dt id=\'index-first-item-2\'><span>first item<a href=\'#index-first-item-2\' class=\'copiable-anchor\'> &para;</a></span></dt>
 <dt id=\'index-second-itemx-2\'><span>second itemx<a href=\'#index-second-itemx-2\' class=\'copiable-anchor\'> &para;</a></span></dt>
 <dd>
@@ -2752,7 +2752,7 @@ Something.
 </dl>
 
 <p>Something.
-</p><dl compact="compact">
+</p><dl>
 <dt><em>in item</em></dt>
 <dd><p>Text without blank line
 </p></dd>

@@ -442,7 +442,7 @@ in item before end table
 ';
 
 
-$result_converted{'html_text'}->{'empty_item_itemx'} = '<dl compact="compact">
+$result_converted{'html_text'}->{'empty_item_itemx'} = '<dl>
 <dd>
 <p>VTable
 </p>

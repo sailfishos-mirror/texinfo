@@ -875,7 +875,7 @@ ul.no-bullet {list-style: none}
 </pre></li><li> <pre class="menu-preformatted">in item
 
 </pre></li></ul>
-<dl compact="compact">
+<dl>
 <dd><pre class="menu-preformatted">
 
 </pre></dd>

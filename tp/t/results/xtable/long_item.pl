@@ -220,7 +220,7 @@ _second itemx bbbbbbbbbbbbbbbbbbbbbbbbbbbbb b b b b b b b b b b b b b_
 ';
 
 
-$result_converted{'html_text'}->{'long_item'} = '<dl compact="compact">
+$result_converted{'html_text'}->{'long_item'} = '<dl>
 <dt><em>first item      aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa</em></dt>
 <dt><em>second itemx bbbbbbbbbbbbbbbbbbbbbbbbbbbbb b b b b b b b b b b b b b</em></dt>
 <dd>

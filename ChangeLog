@@ -1,5 +1,11 @@
 2021-12-24  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_convert_xtable_command):
+	remove compact="compact" from <dl>, it is not strict HTML4 and
+	it does not seem to have an effect in firefox.
+
+2021-12-24  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/Parsetexi.pm (get_parser_info),
 	tp/Texinfo/XS/parsetexi/api.c (build_global_info):
 	do not pass txiindex*ignore @set value especially, rely

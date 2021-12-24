@@ -302,7 +302,7 @@ $result_converted{'plaintext'}->{'table_in_example_in_display'} = '          ite
 
 $result_converted{'html_text'}->{'table_in_example_in_display'} = '<div class="display">
 <div class="example">
-<dl compact="compact">
+<dl>
 <dt><tt>item</tt></dt>
 <dd><pre class="example">Line
 </pre></dd>

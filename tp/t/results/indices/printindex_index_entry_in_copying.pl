@@ -1435,7 +1435,7 @@ $result_converted{'html_text'}->{'printindex_index_entry_in_copying'} = '
 <dd><p>Defun
 </p></dd></dl>
 
-<dl compact="compact">
+<dl>
 <dt id=\'index-copying-ftable-item\'><span>ftable item<a href=\'#index-copying-ftable-item\' class=\'copiable-anchor\'> &para;</a></span></dt>
 <dt id=\'index-copying-xftable-xitem\'><span>xftable xitem<a href=\'#index-copying-xftable-xitem\' class=\'copiable-anchor\'> &para;</a></span></dt>
 </dl>
@@ -1492,7 +1492,7 @@ $result_converted{'html_text'}->{'printindex_index_entry_in_copying'} = '
 <dd><p>Defun
 </p></dd></dl>
 
-<dl compact="compact">
+<dl>
 <dt id=\'index-copying-ftable-item\'><span>ftable item<a href=\'#index-copying-ftable-item\' class=\'copiable-anchor\'> &para;</a></span></dt>
 <dt id=\'index-copying-xftable-xitem\'><span>xftable xitem<a href=\'#index-copying-xftable-xitem\' class=\'copiable-anchor\'> &para;</a></span></dt>
 </dl>

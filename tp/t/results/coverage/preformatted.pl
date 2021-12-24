@@ -403,7 +403,7 @@ $result_converted{'html_text'}->{'preformatted'} = '
 </pre></div>
 
 <div class="format">
-<dl compact="compact">
+<dl>
 <dt id=\'index-item-in-table-in-format\'><span><code>item in table in format</code><a href=\'#index-item-in-table-in-format\' class=\'copiable-anchor\'> &para;</a></span></dt>
 <dd><pre class="format">
 
