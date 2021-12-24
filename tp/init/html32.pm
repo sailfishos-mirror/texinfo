@@ -246,4 +246,88 @@ texinfo_register_command_formatting('item',
                             \&html32_convert_item_command);
 texinfo_register_command_formatting('headitem',
                             \&html32_convert_item_command);
+
+sub html32_convert_center_command($$$$)
+{
+  my $self = shift;
+  my $cmdname = shift;
+  my $command = shift;
+  my $args = shift;
+
+  if ($self->in_string()) {
+    # FIXME use an API?
+    return $self->{'types_conversion'}->{'preformatted'}($self, $cmdname, $command,
+                                                         $args->[0]->{'normal'}."\n");
+  } else {
+    return '<div align="center">'.$args->[0]->{'normal'}."\n</div>";
+  }
+}
+
+texinfo_register_command_formatting('center',
+                            \&html32_convert_center_command);
+
+
+my %html32_paragraph_style = (
+      'center'     => 'center',
+      'flushleft'  => 'left',
+      'flushright' => 'right',
+      );
+
+sub html32_convert_paragraph_type($$$$)
+{
+  my $self = shift;
+  my $type = shift;
+  my $command = shift;
+  my $content = shift;
+
+  if ($self->paragraph_number() == 1) {
+    my $in_format = $self->top_format();
+    if ($in_format) {
+      # no first paragraph in those environment to avoid extra spacing
+      if ($in_format eq 'itemize'
+          or $in_format eq 'enumerate'
+          or $in_format eq 'multitable') {
+        return $content;
+      } else {
+        # FIXME Not part of the API
+        my $prepended = $self->_quotation_arg_to_prepend($command);
+        $content = $prepended.$content if (defined($prepended));
+      }
+    }
+  }
+  return $content if ($self->in_string());
+
+  if ($content =~ /\S/) {
+    my $align = $self->in_align();
+    if ($align and $html32_paragraph_style{$align}) {
+      return "<p align=\"$html32_paragraph_style{$align}\">".$content."</p>";
+    } else {
+      return "<p>".$content."</p>";
+    }
+  } else {
+    return '';
+  }
+}
+
+texinfo_register_type_formatting('paragraph', \&html32_convert_paragraph_type);
+
+
+sub html32_convert_subtitle_command($$$$)
+{
+  my $self = shift;
+  my $cmdname = shift;
+  my $command = shift;
+  my $args = shift;
+  return '' if (!$args->[0]);
+  if (!$self->in_string()) {
+    return "<h3 align=\"right\">$args->[0]->{'normal'}</h3>\n";
+  } else {
+    return $args->[0]->{'normal'};
+  }
+}
+
+texinfo_register_command_formatting('subtitle',
+                            \&html32_convert_subtitle_command);
+
+
 1;
