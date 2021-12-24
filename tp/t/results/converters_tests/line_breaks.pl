@@ -608,9 +608,18 @@ $result_converted{'html'}->{'line_breaks'} = '<!DOCTYPE html>
 a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
 a.summary-letter {text-decoration: none}
 blockquote.indentedblock {margin-right: 0em}
+div.center-align {text-align:center}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
+h1.center-align {text-align:center}
+h2.center-align {text-align:center}
+h3.center-align {text-align:center}
+h3.right-align {text-align:right}
+h4.center-align {text-align:center}
 kbd {font-style: oblique}
+p.center-align {text-align:center}
+p.left-align {text-align:left}
+p.right-align {text-align:right}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -627,11 +636,11 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<h1 class="settitle" align="center">the manual <br> new version</h1>
+<h1 class="settitle center-align">the manual <br> new version</h1>
 
 <h1>AWK As A Major Systems Programming <br> Language&mdash;Revisited</h1>
 
-<div align="center">in center <br> line break
+<div class="center-align">in center <br> line break
 </div>
 <dl>
 <dt><strong>with break <br> after</strong></dt>

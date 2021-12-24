@@ -277,9 +277,9 @@ $result_converted{'plaintext'}->{'flushleft_flushright_in_quotation'} = '     f 
 
 $result_converted{'html_text'}->{'flushleft_flushright_in_quotation'} = '
 <blockquote>
-<p align="left">f l
+<p class="left-align">f l
 </p>
-<p align="right">f r
+<p class="right-align">f r
 </p></blockquote>
 ';
 

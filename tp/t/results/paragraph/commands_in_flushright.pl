@@ -1551,10 +1551,10 @@ in flushleft
 
 
 $result_converted{'html_text'}->{'commands_in_flushright'} = '
-<p align="right">in group
+<p class="right-align">in group
 </p>
 <blockquote>
-<p align="right"><b>type:</b> in quotation
+<p class="right-align"><b>type:</b> in quotation
 </p></blockquote>
 
 <ol>
@@ -1566,9 +1566,9 @@ $result_converted{'html_text'}->{'commands_in_flushright'} = '
 <dl>
 <dt><em>table item</em></dt>
 <dt><em>table itemx</em></dt>
-<dd><p align="right">Table text
+<dd><p class="right-align">Table text
 </p>
-<p align="right">Text.
+<p class="right-align">Text.
 </p></dd>
 </dl>
 
@@ -1576,7 +1576,7 @@ $result_converted{'html_text'}->{'commands_in_flushright'} = '
 <tbody><tr><td width="50%">col1</td><td width="50%">col2</td></tr>
 <tr><td width="50%">text
 
-<p align="right">in multitable
+<p class="right-align">in multitable
 </p></td><td width="50%">text col2</td></tr>
 </tbody>
 </table>
@@ -1587,7 +1587,7 @@ $result_converted{'html_text'}->{'commands_in_flushright'} = '
 </p>
 
 <div class="float-caption"><p><strong>label 1: </strong>in caption</p></div></div>
-<p align="right">Sp:
+<p class="right-align">Sp:
 </p><br>
 <br>
 
@@ -1599,9 +1599,9 @@ $result_converted{'html_text'}->{'commands_in_flushright'} = '
 <pre class="format">in format
 </pre></div>
 
-<p align="left">in flushleft
+<p class="left-align">in flushleft
 </p>
-<div align="center">in center
+<div class="center-align">in center
 </div>
 ';
 

@@ -1,5 +1,15 @@
 2021-12-24  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (%css_map, _default_format_heading_text)
+	(_convert_center_command, _convert_subtitle_command)
+	(_convert_paragraph_type): use CSS instead of align attribute for
+	<p>, <div> and <h*> which do not have align attribute in strict HTML4.
+
+	* tp/Texinfo/Convert/HTML.pm (_convert_listoffloats_command):
+	reindent.
+
+2021-12-24  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_convert_xtable_command):
 	remove compact="compact" from <dl>, it is not strict HTML4 and
 	it does not seem to have an effect in firefox.

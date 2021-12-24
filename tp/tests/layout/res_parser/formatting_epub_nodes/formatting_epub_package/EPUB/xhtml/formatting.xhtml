@@ -785,9 +785,18 @@ truc: after a deff item
 a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
 a.summary-letter {text-decoration: none}
 blockquote.indentedblock {margin-right: 0em}
+div.center-align {text-align:center}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
+h1.center-align {text-align:center}
+h2.center-align {text-align:center}
+h3.center-align {text-align:center}
+h3.right-align {text-align:right}
+h4.center-align {text-align:center}
 kbd {font-style: oblique}
+p.center-align {text-align:center}
+p.left-align {text-align:left}
+p.right-align {text-align:right}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -806,8 +815,8 @@ ul.no-bullet {list-style: none}
 
 <body lang="en">
 <h1>title &#8211;a</h1>
-<h3 align="right">formatting subtitle &#8211;a</h3>
-<h3 align="right">subtitle 2 &#8211;a</h3>
+<h3 class="right-align">formatting subtitle &#8211;a</h3>
+<h3 class="right-align">subtitle 2 &#8211;a</h3>
 <strong>author1 &#8211;a with accents in name T&#233;&#231;a</strong><br/>
 <strong>author2 &#8211;a</strong><br/>
 <p>In titlepage
@@ -1127,7 +1136,7 @@ error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
 <blockquote>
 <p>aaa quotation
 </p></blockquote>
-<div align="center">&#8212; <em>quotation author</em>
+<div class="center-align">&#8212; <em>quotation author</em>
 </div>
 <blockquote>
 <p>indent in quotation
@@ -1617,13 +1626,13 @@ ref</a>
 
 <p>g&#8211;roupe
 </p>
-<p align="left">f&#8211;lushleft
+<p class="left-align">f&#8211;lushleft
 more text
 </p>
-<p align="right">f&#8211;lushright
+<p class="right-align">f&#8211;lushright
 more text
 </p>
-<div align="center">ce&#8211;ntered line
+<div class="center-align">ce&#8211;ntered line
 </div>
 <p>r&#8211;raggedright
 more text
@@ -2103,7 +2112,7 @@ error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
 <blockquote>
 <p>aaa quotation
 </p></blockquote>
-<div align="center">&#8212; <em>quotation author</em>
+<div class="center-align">&#8212; <em>quotation author</em>
 </div>
 <blockquote>
 <p>indent in quotation
@@ -2593,13 +2602,13 @@ ref</a>
 
 <p>g&#8211;roupe
 </p>
-<p align="left">f&#8211;lushleft
+<p class="left-align">f&#8211;lushleft
 more text
 </p>
-<p align="right">f&#8211;lushright
+<p class="right-align">f&#8211;lushright
 more text
 </p>
-<div align="center">ce&#8211;ntered line
+<div class="center-align">ce&#8211;ntered line
 </div>
 <p>r&#8211;raggedright
 more text

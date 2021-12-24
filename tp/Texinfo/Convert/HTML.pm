@@ -1426,6 +1426,15 @@ my %css_map = (
      'span.roman'         => 'font-family: initial; font-weight: normal',
      'span.nolinebreak'   => 'white-space: nowrap',
      'kbd'                => 'font-style: oblique',
+     'p.center-align'     => 'text-align:center',
+     'p.left-align'       => 'text-align:left',
+     'p.right-align'      => 'text-align:right',
+     'h1.center-align'    => 'text-align:center',
+     'h2.center-align'    => 'text-align:center',
+     'h3.center-align'    => 'text-align:center',
+     'h3.right-align'     => 'text-align:right',
+     'h4.center-align'    => 'text-align:center',
+     'div.center-align'   => 'text-align:center',
 
      # The anchor element is wrapped in a <span> rather than a block level
      # element to avoid it appearing unless the mouse pointer is directly
@@ -2253,14 +2262,17 @@ sub _default_format_heading_text($$$$$)
     $class = $cmdname;
   }
 
-  my $align = '';
-  $align = ' align="center"' if ($cmdname eq 'centerchap' or $cmdname eq 'settitle');
+  my $extra_classes = [];
+  if ($cmdname eq 'centerchap' or $cmdname eq 'settitle') {
+    push @$extra_classes, 'center-align';
+  }
   if ($level < 1) {
     $level = 1;
   } elsif ($level > $self->get_conf('MAX_HEADER_LEVEL')) {
     $level = $self->get_conf('MAX_HEADER_LEVEL');
   }
-  my $result = $self->html_attribute_class("h$level", $class) ."$align>$text</h$level>";
+  my $result = $self->html_attribute_class("h$level", $class, $extra_classes)
+                    .">$text</h$level>";
   # titlefont appears inline in text, so no end of line is
   # added. The end of line should be added by the user if needed.
   $result .= "\n" unless ($cmdname eq 'titlefont');
@@ -3146,7 +3158,8 @@ sub _convert_center_command($$$$)
     return $self->_convert_preformatted_type($cmdname, $command, 
                                              $args->[0]->{'normal'}."\n");
   } else {
-    return "<div align=\"center\">".$args->[0]->{'normal'}."\n</div>";
+    return $self->html_attribute_class('div', 'center-align').">"
+                                 .$args->[0]->{'normal'}."\n</div>";
   }
 }
 
@@ -3193,7 +3206,8 @@ sub _convert_subtitle_command($$$$)
   my $args = shift;
   return '' if (!$args->[0]);
   if (!$self->in_string()) {
-    return "<h3 align=\"right\">$args->[0]->{'normal'}</h3>\n";
+    return $self->html_attribute_class('h3', 'right-align')
+                            .">$args->[0]->{'normal'}</h3>\n";
   } else {
     return $args->[0]->{'normal'};
   }
@@ -3228,41 +3242,41 @@ sub _convert_listoffloats_command($$$$)
       and $self->{'floats'}
       and $self->{'floats'}->{$command->{'extra'}->{'type'}->{'normalized'}}
       and @{$self->{'floats'}->{$command->{'extra'}->{'type'}->{'normalized'}}}) { 
-   my $listoffloats_name = $command->{'extra'}->{'type'}->{'normalized'};
-   my $result = $self->html_attribute_class('dl', 'listoffloats').">\n" ;
-   foreach my $float (@{$self->{'floats'}->{$listoffloats_name}}) {
-     my $float_href = $self->command_href($float);
-     next if (!$float_href);
-     $result .= '<dt>';
-     my $float_text = $self->command_text($float);
-     if (defined($float_text) and $float_text ne '') {
-       if ($float_href) {
-         $result .= "<a href=\"$float_href\">$float_text</a>";
-       } else {
-         $result .= $float_text;
-       }
-     }
-     $result .= '</dt>';
-     my $caption;
-     if ($float->{'extra'}->{'shortcaption'}) {
-       $caption = $float->{'extra'}->{'shortcaption'};
-     } elsif ($float->{'extra'}->{'caption'}) {
-       $caption = $float->{'extra'}->{'caption'};
-     }
+    my $listoffloats_name = $command->{'extra'}->{'type'}->{'normalized'};
+    my $result = $self->html_attribute_class('dl', 'listoffloats').">\n" ;
+    foreach my $float (@{$self->{'floats'}->{$listoffloats_name}}) {
+      my $float_href = $self->command_href($float);
+      next if (!$float_href);
+      $result .= '<dt>';
+      my $float_text = $self->command_text($float);
+      if (defined($float_text) and $float_text ne '') {
+        if ($float_href) {
+          $result .= "<a href=\"$float_href\">$float_text</a>";
+        } else {
+          $result .= $float_text;
+        }
+      }
+      $result .= '</dt>';
+      my $caption;
+      if ($float->{'extra'}->{'shortcaption'}) {
+        $caption = $float->{'extra'}->{'shortcaption'};
+      } elsif ($float->{'extra'}->{'caption'}) {
+        $caption = $float->{'extra'}->{'caption'};
+      }
 
-     my $caption_text;
-     if ($caption) {
-       $caption_text = $self->convert_tree_new_formatting_context(
-         $caption->{'args'}->[0], $cmdname, 'listoffloats');
-     } else {
-       $caption_text = '';
-     }
-     $result .= '<dd>'.$caption_text.'</dd>'."\n";
-   }
-   return $result . "</dl>\n";
- } else {
-   return '';
- }
+      my $caption_text;
+      if ($caption) {
+        $caption_text = $self->convert_tree_new_formatting_context(
+          $caption->{'args'}->[0], $cmdname, 'listoffloats');
+      } else {
+        $caption_text = '';
+      }
+      $result .= '<dd>'.$caption_text.'</dd>'."\n";
+    }
+    return $result . "</dl>\n";
+  } else {
+    return '';
+  }
 }
 $default_commands_conversion{'listoffloats'} = \&_convert_listoffloats_command;
 
@@ -4231,7 +4245,8 @@ sub _convert_paragraph_type($$$$)
   if ($content =~ /\S/) {
     my $align = $self->in_align();
     if ($align and $paragraph_style{$align}) {
-      return "<p align=\"$paragraph_style{$align}\">".$content."</p>";
+      return $self->html_attribute_class('p',
+                    $paragraph_style{$align}.'-align').">".$content."</p>";
     } else {
       return "<p>".$content."</p>";
     }

@@ -91,7 +91,7 @@ $result_converted{'plaintext'}->{'titlefont_in_center'} = '                     
 
 
 $result_converted{'html_text'}->{'titlefont_in_center'} = '
-<div align="center"><h1 class="titlefont">A manual</h1>
+<div class="center-align"><h1 class="titlefont">A manual</h1>
 </div>';
 
 

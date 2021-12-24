@@ -73,7 +73,7 @@ $result_floats{'empty_center_with_arg'} = {};
 $result_converted{'plaintext'}->{'empty_center_with_arg'} = '';
 
 
-$result_converted{'html_text'}->{'empty_center_with_arg'} = '<div align="center"><!-- /@w -->
+$result_converted{'html_text'}->{'empty_center_with_arg'} = '<div class="center-align"><!-- /@w -->
 </div>';
 
 1;

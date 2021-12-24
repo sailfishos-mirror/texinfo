@@ -506,19 +506,19 @@ $result_converted{'html_text'}->{'quotation_and_author'} = '
 <blockquote>
 <p>A quot&mdash;ation
 </p></blockquote>
-<div align="center">&mdash; <em>Some One</em>
+<div class="center-align">&mdash; <em>Some One</em>
 </div>
 <p>Text between quotation and smallquotation
 </p>
 <blockquote>
 <p>in small&mdash;quotation.
 </p></blockquote>
-<div align="center">&mdash; <em>An Author Name</em>
+<div class="center-align">&mdash; <em>An Author Name</em>
 </div>
 <blockquote>
 <p><b>Note:</b> A Note
 </p></blockquote>
-<div align="center">&mdash; <em>Some Notifier</em>
+<div class="center-align">&mdash; <em>Some Notifier</em>
 </div>';
 
 

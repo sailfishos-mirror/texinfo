@@ -4907,9 +4907,18 @@ $result_converted{'html'}->{'texi_formatting'} = '<!DOCTYPE html>
 a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
 a.summary-letter {text-decoration: none}
 blockquote.indentedblock {margin-right: 0em}
+div.center-align {text-align:center}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
+h1.center-align {text-align:center}
+h2.center-align {text-align:center}
+h3.center-align {text-align:center}
+h3.right-align {text-align:right}
+h4.center-align {text-align:center}
 kbd {font-style: oblique}
+p.center-align {text-align:center}
+p.left-align {text-align:left}
+p.right-align {text-align:right}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -5149,7 +5158,7 @@ Previous: <a href="#subsubsection-_0060_0060simple_002ddouble_002d_002d" accessk
 <p>
 Previous: <a href="#chapter" accesskey="p" rel="prev">chapter</a>, Up: <a href="#Top" accesskey="u" rel="up">Top section</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Top" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="chapter-2"></span><h2 class="centerchap" align="center">chapter 2</h2>
+<span id="chapter-2"></span><h2 class="centerchap center-align">chapter 2</h2>
 
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#chapter2_cp_symbol-1"><b>.</b></a>
  &nbsp; 

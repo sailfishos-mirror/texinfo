@@ -252,7 +252,7 @@ $result_converted{'html_text'}->{'quotation_author_in_example'} = '
 <blockquote>
 <pre class="example">A quot---ation
 </pre></blockquote>
-<div align="center">--- <em>Some One</em>
+<div class="center-align">--- <em>Some One</em>
 </div></div>
 ';
 

@@ -4904,9 +4904,18 @@ $result_converted{'html'}->{'formatting_fr'} = '<!DOCTYPE html>
 a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
 a.summary-letter {text-decoration: none}
 blockquote.indentedblock {margin-right: 0em}
+div.center-align {text-align:center}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
+h1.center-align {text-align:center}
+h2.center-align {text-align:center}
+h3.center-align {text-align:center}
+h3.right-align {text-align:right}
+h4.center-align {text-align:center}
 kbd {font-style: oblique}
+p.center-align {text-align:center}
+p.left-align {text-align:left}
+p.right-align {text-align:right}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -4925,8 +4934,8 @@ ul.no-bullet {list-style: none}
 
 <body lang="fr">
 <h1>title &ndash;a</h1>
-<h3 align="right">formatting subtitle &ndash;a</h3>
-<h3 align="right">subtitle 2 &ndash;a</h3>
+<h3 class="right-align">formatting subtitle &ndash;a</h3>
+<h3 class="right-align">subtitle 2 &ndash;a</h3>
 <strong>author1 &ndash;a with accents in name T&eacute;&ccedil;a</strong><br>
 <strong>author2 &ndash;a</strong><br>
 <p>In titlepage
@@ -5226,7 +5235,7 @@ Menu comment
 <td valign="middle" align="left">[<a href="#Top" title="Index">Index</a>]</td>
 <td valign="middle" align="left">[<a href="#SEC_About" title="A propos (page d&rsquo;aide)"> ? </a>]</td>
 </tr></table>
-<span id="chapter-2"></span><h1 class="centerchap" align="center">chapter 2</h1>
+<span id="chapter-2"></span><h1 class="centerchap center-align">chapter 2</h1>
 
 <table><tr><th valign="top">Aller &agrave;: &nbsp; </th><td><a class="summary-letter" href="#chapter-2_cp_symbol-1"><b>.</b></a>
  &nbsp; 
