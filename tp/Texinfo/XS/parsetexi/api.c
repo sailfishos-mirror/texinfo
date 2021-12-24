@@ -916,20 +916,6 @@ build_global_info (void)
         }
     }
 
- /* TODO: Remove the following if we use the index_ignore_chars hash
-    instead. */
-#if 1
-  char *txi_flags[] = { "txiindexatsignignore", "txiindexbackslashignore",
-    "txiindexhyphenignore", "txiindexlessthanignore", 0};
-  char **p;
-
-  for (p = txi_flags; (*p); p++)
-    {
-      if (fetch_value (*p))
-        hv_store (hv, *p, strlen (*p), newSVpv ("1", 0), 0);
-    }
-#endif
-
   return hv;
 }
 

@@ -206,16 +206,6 @@ sub get_parser_info {
     $self->{'info'}->{'novalidate'} = 1;
   }
 
-  # Propagate these settings from 'info' hash to 'values' hash.
-  # The 'values' hash is not otherwise used.  Maybe we should use
-  # the 'info' hash for this instead in the pure Perl code.
-  for my $txi_flag ('txiindexatsignignore', 'txiindexbackslashignore',
-                    'txiindexhyphenignore', 'txiindexlessthanignore') {
-    if ($self->{'info'}->{$txi_flag}) {
-      $self->{'values'}->{$txi_flag} = 1;
-    }
-  }
-
   _set_errors_node_lists_labels_indices($self);
 }
 

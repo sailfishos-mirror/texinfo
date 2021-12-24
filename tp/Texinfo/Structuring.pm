@@ -1588,34 +1588,20 @@ sub setup_index_entry_keys_formatting($$)
   my $self = shift;
   my $configuration_informations = shift;
 
-  # TODO remove once 'index_ignore_chars' is implemented everywhere
-  my $ignore_chars = '';
-#if (0){
-  # '-' must come first to avoid e.g. [<-@] looking like a character range
-  $ignore_chars .= '-'
-    if defined $self->{'values'}->{'txiindexhyphenignore'};
-  $ignore_chars .= '\\\\' # string with 2 \s, for escaping inside regex
-    if defined $self->{'values'}->{'txiindexbackslashignore'};
-  $ignore_chars .= '<'
-    if defined $self->{'values'}->{'txiindexlessthanignore'};
-  $ignore_chars .= '@'
-    if defined $self->{'values'}->{'txiindexatsignignore'};
-#}
   my $options = {'sort_string' => 1,
    Texinfo::Convert::Text::copy_options_for_convert_text(
                                     $configuration_informations)};
 
-  return $options, $ignore_chars;
+  return $options;
 }
 
 # can be used for subentries
-sub index_entry_sort_string($$$$;$)
+sub index_entry_sort_string($$$$)
 {
   my $main_entry = shift;
   my $entry_tree_element = shift;
   my $sortas = shift;
   my $options = shift;
-  my $ignore_chars = shift;
 
   my $convert_to_text_options = {%$options};
   $convert_to_text_options->{'code'} = $main_entry->{'in_code'};
@@ -1628,11 +1614,11 @@ sub index_entry_sort_string($$$$;$)
                           $entry_tree_element, $convert_to_text_options);
     # FIXME do that for sortas too?
     if (exists($main_entry->{'index_ignore_chars'})) {
-      $ignore_chars
-         .= quotemeta(join('', keys(%{$main_entry->{'index_ignore_chars'}})));
-    }
-    if (defined($ignore_chars) and $ignore_chars ne '') {
-      $entry_key =~ s/[$ignore_chars]//g;
+      my $ignore_chars
+         = quotemeta(join('', keys(%{$main_entry->{'index_ignore_chars'}})));
+      if ($ignore_chars ne '') {
+        $entry_key =~ s/[$ignore_chars]//g;
+      }
     }
   }
   # This avoids varying results depending on whether the string is
@@ -1653,8 +1639,8 @@ sub sort_indices($$$$;$)
   my $index_entries = shift;
   my $sort_by_letter = shift;
 
-  my ($options, $ignore_chars) = setup_index_entry_keys_formatting($self,
-                                             $configuration_informations);
+  my $options = setup_index_entry_keys_formatting($self,
+                               $configuration_informations);
   my $sorted_index_entries;
   my $index_entries_sort_strings = {};
   foreach my $index_name (keys(%$index_entries)) {
@@ -1665,7 +1651,7 @@ sub sort_indices($$$$;$)
     foreach my $entry (@{$index_entries->{$index_name}}) {
       my $entry_key = index_entry_sort_string($entry,
                                   {'contents' => $entry->{'content'}},
-                                  $entry->{'sortas'}, $options, $ignore_chars);
+                                  $entry->{'sortas'}, $options);
       $index_entries_sort_strings->{$entry} = $entry_key;
       if ($entry_key !~ /\S/) {
         $registrar->line_warn($configuration_informations,
@@ -1925,7 +1911,7 @@ C<$node> is a node tree element.  Find the node C<$node> children based
 on the sectioning structure.  For the node associated with C<@top>
 sectioning command, the sections associated with parts are considered.
 
-=item sub index_entry_sort_string($main_entry, $entry_tree_element, $sortas, $options, $ignore_chars)
+=item sub index_entry_sort_string($main_entry, $entry_tree_element, $sortas, $options)
 
 TODO
 

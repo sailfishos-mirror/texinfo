@@ -1748,7 +1748,7 @@ sub _index_entry($$)
     if ($self->{'index_names'}->{$entry_index_name}->{'in_code'}) {
       $in_code = 1;
     }
-    my ($options, $ignore_chars)
+    my $options
       = Texinfo::Structuring::setup_index_entry_keys_formatting($self, $self);
     my $current_entry = $element;
     my $current_sortas;
@@ -1782,14 +1782,15 @@ sub _index_entry($$)
         $self->{'formatting_context'}->[-1]->{'code'} -= 1;
         # always setup a string to sort with code as we use a command
         $sortas = Texinfo::Structuring::index_entry_sort_string($entry,
-                  $subentry, $subentry_sortas, $options, $ignore_chars);
+                                 $subentry, $subentry_sortas, $options);
       } else {
         if (defined($subentry_sortas)) {
           $sortas = $subentry_sortas;
-        } elsif (defined($ignore_chars) and $ignore_chars ne '') {
+        } elsif (exists($entry->{'index_ignore_chars'})
+                 and scalar(keys(%{$entry->{'index_ignore_chars'}}) > 0)) {
           # setup a sort string if some characters are ignored
           $sortas = Texinfo::Structuring::index_entry_sort_string($entry,
-                      $subentry, $subentry_sortas, $options, $ignore_chars);
+                                   $subentry, $subentry_sortas, $options);
         }
       }
       my $result = '';

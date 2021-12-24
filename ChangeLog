@@ -1,5 +1,19 @@
 2021-12-24  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/Parsetexi.pm (get_parser_info),
+	tp/Texinfo/XS/parsetexi/api.c (build_global_info):
+	do not pass txiindex*ignore @set value especially, rely
+	on 'index_ignore_chars' in index entry.
+
+	* tp/Texinfo/Structuring.pm (setup_index_entry_keys_formatting)
+	(index_entry_sort_string, sort_indices),
+	tp/Texinfo/Convert/LaTeX.pm (_index_entry): use index entries
+	'index_ignore_chars' to set ignored characters in sorting.
+	Remove $ignore_chars return from setup_index_entry_keys_formatting()
+	and remove $ignore_chars argument of index_entry_sort_string().
+
+2021-12-24  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/macro.c (clear_value): Check for
 	internal flag name and clear in global_info.
 
