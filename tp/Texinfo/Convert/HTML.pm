@@ -1671,7 +1671,7 @@ $style_attribute_commands{'normal'} = {
       'strong'      => 'strong',
       'sub'         => 'sub',
       'sup'         => 'sup',
-      't'           => 'tt',
+      't'           => 'code',
       'var'         => 'var',
       'verb'        => 'tt',
 };

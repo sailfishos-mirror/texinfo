@@ -1,5 +1,25 @@
 2021-12-23  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	<code> for @t
+
+	* tp/Texinfo/Convert/HTML.pm (%style_attribute_commands):
+	Output @t with <code> instead of <tt>.
+	* NEWS: Mention.
+
+	<tt> is a deprecated tag in HTML5, although it is harmless
+	to use it.  Nonetheless, changing it is one less thing to
+	worry about.
+
+	In practice, @t is most often used when @code would be
+	semantically correct, but the author doesn't want quotes to
+	appear in Info output.	Here are some reasons why not:
+	- The argument was a single character
+	- There were already quotes of some kind enclosing the argument
+	- It's evident from context or the argument itself that the argument
+	  could be computer code (e.g. name of a Usenet newsgroup)
+
+2021-12-23  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.texi (@documentlanguage):
 	Remove text added on 2007-06-14 referencing possible future
 	gettext/makeinfo support of BCP 47.  If it still matters, somebody
