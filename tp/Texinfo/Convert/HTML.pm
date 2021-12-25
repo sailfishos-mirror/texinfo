@@ -7432,7 +7432,7 @@ sub _do_jslicenses_file {
     $a .= "</tr>\n";
   }
 
-  $a .= "</body></html>\n";
+  $a .= "</table>\n</body></html>\n";
 
   if (File::Spec->file_name_is_absolute($path) or $path =~ /^[A-Za-z]*:/) {
     $self->document_warn($self, sprintf(

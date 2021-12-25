@@ -39,7 +39,7 @@ formatting_inline_css formatting.texi -c 'INLINE_CSS_STYLE 1' -c DOCTYPE='<!DOCT
 formatting_fr_icons formatting.texi --document-language fr --init icons.init
 formatting_chm formatting.texi -c FORMAT_MENU=nomenu --init chm.pm
 formatting_epub formatting.texi --init epub3.pm -c 'EPUB_CREATE_CONTAINER 0'
-formatting_epub_nodes formatting.texi --split node --init epub3.pm -c 'EPUB_CREATE_CONTAINER 0'
+formatting_epub_nodes formatting.texi --split node --init epub3.pm -c 'EPUB_CREATE_CONTAINER 0' -c INFO_JS_DIR=js
 formatting formatting.texi --internal-links=@OUT_DIR@internal_links_formatting.txt
 
 #lightweight_markups_mediawiki lightweight_markups.texi --init mediawiki.pm

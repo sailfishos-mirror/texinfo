@@ -39,6 +39,9 @@ use File::Path;
 use File::Spec;
 use File::Copy;
 
+# for fileparse
+use File::Basename;
+
 # the Archive::Zip module is required below only if needed, that is
 # if EPUB_CREATE_CONTAINER is set.
 #use Archive::Zip;
@@ -70,6 +73,8 @@ texinfo_set_from_init_file('COPIABLE_ANCHORS', 0);
 # also used hardcoded for the container.
 texinfo_set_from_init_file('EXTENSION', 'xhtml');
 
+texinfo_set_from_init_file('JS_WEBLABELS_FILE', 'js_licenses.xhtml');
+
 texinfo_set_from_init_file('TOP_FILE', undef);
 # no redirections files
 texinfo_set_from_init_file('NODE_FILES', 0);
@@ -95,6 +100,11 @@ my %epub_images_extensions_mimetypes = (
   '.jpg' => 'image/jpeg',
   '.jpeg' => 'image/jpeg',
   '.gif' => 'image/gif',
+);
+
+my %epub_js_extensions_mimetypes = (
+  '.js', 'text/javascript',
+  '.css', 'text/css',
 );
 
 sub _epub_convert_tree_to_text($$;$)
@@ -193,6 +203,8 @@ my $nav_filename;
 
 my $epub_outfile;
 
+my $epub_info_js_dir_name;
+
 sub epub_setup($)
 {
   my $self = shift;
@@ -201,6 +213,20 @@ sub epub_setup($)
   %epub_images = ();
   $nav_filename = $default_nav_filename;
   
+  $epub_info_js_dir_name = undef;
+  if ($self->get_conf('INFO_JS_DIR')) {
+    # re-set INFO_JS_DIR up to have the javascript and
+    # css files in a directory rooted at $epub_document_dir_name
+    $epub_info_js_dir_name = $self->get_conf('INFO_JS_DIR');
+    # FIXME INFO_JS_DIR is used both as a filesystem directory name
+    # and as path in document, as a path in document '../' should be
+    # used whatever File::Spec->updir() is.
+    my $updir = File::Spec->updir();
+    $self->force_conf('INFO_JS_DIR', File::Spec->catdir($updir,
+                                                  $epub_info_js_dir_name));
+    # TODO make sure it is SPLIT and set SPLIT if not?
+  }
+
   # determine main epub directory and directory for xhtml files,
   # reset OUTFILE and SUBDIR to match with the epub directory
   # for XHTML output
@@ -248,6 +274,7 @@ sub epub_setup($)
     $self->force_conf('OUTFILE',
      File::Spec->catfile($epub_document_destination_directory, $xhtml_output_file));
   }
+
   my $err_remove_tree;
   File::Path::remove_tree($epub_destination_directory,
                           {'error' => $err_remove_tree});
@@ -535,8 +562,22 @@ EOT
   my $id_count = 0;
   foreach my $output_filename (@epub_output_filenames) {
     $id_count++;
+    my $properties_str = '';
+    if ($self->get_conf('INFO_JS_DIR')) {
+      $properties_str = ' properties="scripted"'
+    }
     print $opf_fh "      <item id=\"${spine_uid_str}${id_count}\" "
-     . "media-type=\"application/xhtml+xml\" href=\"${epub_xhtml_dir}/${output_filename}\"/>\n";
+     . "media-type=\"application/xhtml+xml\" href=\"${epub_xhtml_dir}/${output_filename}\"${properties_str}/>\n";
+  }
+  if ($self->get_conf('JS_WEBLABELS_FILE')) {
+    my $js_weblabels_file_name = $self->get_conf('JS_WEBLABELS_FILE');
+    my $js_licenses_file_path = File::Spec->catfile($epub_document_destination_directory,
+                                                    $js_weblabels_file_name);
+    if (-e $js_licenses_file_path) {
+      my $js_weblabels_id = 'jsweblabels';
+      print $opf_fh "      <item id=\"${js_weblabels_id}\" "
+     . "media-type=\"application/xhtml+xml\" href=\"${epub_xhtml_dir}/${js_weblabels_file_name}\"/>\n";
+    }
   }
   my $image_count = 0;
   foreach my $image_file (sort keys(%epub_images)) {
@@ -552,6 +593,30 @@ EOT
     }
     print $opf_fh "      <item id=\"image${image_count}\" "
       . "media-type=\"${image_mimetype}\" href=\"${epub_images_dir_name}/${image_file}\"/>\n";
+  }
+  if (defined($epub_info_js_dir_name)) {
+    my $info_js_destination_dir
+               = File::Spec->catdir($epub_destination_directory,
+                                    $epub_document_dir_name, $epub_info_js_dir_name);
+    my $opendir_success = opendir(JSPATH, $info_js_destination_dir);
+    if (not $opendir_success) {
+      $self->document_error($self,
+           sprintf(__("epub3.pm: readdir %s error: %s"),
+                          $info_js_destination_dir, $!));
+    } else {
+      my $js_count = 0;
+      foreach my $filename (sort(readdir(JSPATH))) {
+        my ($parsed_filename, $parsed_directory, $suffix)
+             = fileparse($filename, keys(%epub_js_extensions_mimetypes));
+        if (defined($suffix) and $suffix ne '') {
+          $js_count++;
+          my $js_mimetype = $epub_js_extensions_mimetypes{$suffix};
+          print $opf_fh "      <item id=\"infojs${js_count}\" "
+  . "media-type=\"${js_mimetype}\" href=\"${epub_info_js_dir_name}/${filename}\"/>\n";
+        }
+      }
+      closedir(JSPATH);
+    }
   }
   print $opf_fh <<EOT;
    </manifest>
