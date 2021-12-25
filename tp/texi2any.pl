@@ -383,11 +383,11 @@ my $default_expanded_format = [ $format ];
 my @conf_dirs = ();
 my @prepend_dirs = ();
 
-# $cmdline_options are set by GNUT_set_from_cmdline for text values, and also
-# accessed in main program.  The $cmdline_options passed to
-# Texinfo::Config::GNUT_initialize_config are considered to be arrays
-# in which items can be added or deleted both from the command line
-# and from init files.
+# The $cmdline_options passed to Texinfo::Config::GNUT_initialize_config
+# are considered to be arrays in which items can be added or deleted both
+# from the command line and from init files.  $cmdline_options text values
+# are set by GNUT_set_from_cmdline (aliased as set_from_cmdline) from the
+# main program.  $cmdline_options are also accessed in main program.
 # $init_files_options are managed by Texinfo::Config, set by
 # texinfo_set_from_init_file in init files.
 #

@@ -52,8 +52,6 @@ texinfo_set_from_init_file('NO_CSS', 1);
 texinfo_set_from_init_file('COPIABLE_ANCHORS', 0);
 texinfo_set_from_init_file('NO_CUSTOM_HTML_ATTRIBUTE', 1);
 
-texinfo_set_from_init_file('BIG_RULE', '<hr size="6">');
-
 # no accesskey in html 3.2
 texinfo_set_from_init_file('USE_ACCESSKEY', 0);
 
@@ -87,6 +85,19 @@ foreach my $context ('preformatted', 'normal') {
     texinfo_register_style_command_formatting($command, {}, $context);
   }
 }
+
+# reset BIG_RULE to HTML3.2 compatible rule if in TEXI2HTML mode
+texinfo_register_handler('setup', \&html32_setup);
+
+sub html32_setup($)
+{
+  my $self = shift;
+  if (defined($self->get_conf('TEXI2HTML'))) {
+    $self->set_conf('BIG_RULE', '<hr size="6">');
+  }
+  return 1;
+}
+
 
 # &quot; is not in html 3.2
 sub html32_format_protect_text($$)
@@ -236,7 +247,7 @@ sub html32_convert_item_command($$$$)
     return $content;
   } elsif ($command->{'parent'}->{'type'}
            and $command->{'parent'}->{'type'} eq 'row') {
-    return html32_convert_tab_command ($self, $cmdname, $command, $content);
+    return html32_convert_tab_command($self, $cmdname, $command, $content);
   } else {
     return &{$self->default_commands_conversion($cmdname)}($self, $cmdname, $command, $content);
   }
