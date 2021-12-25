@@ -1,5 +1,7 @@
 2021-12-24  Per Bothner  <per@bothner.com>
 
+	* js/info.js: Update document.title as pages are selected.
+
 	* js/info.js (on_keydown): Prevent the event default behavior.
 	This prevents the character sometimes getting inserted into the
 	mini-buffer.

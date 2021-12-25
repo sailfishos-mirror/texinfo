@@ -176,6 +176,10 @@
       return { type: "warning", msg: msg };
     },
 
+    window_title: function (title) {
+      return { type: "window-title", title: title };
+    },
+
     /** Search EXP in the whole manual.
         @arg {RegExp|string} exp*/
     search: function (exp) {
@@ -246,6 +250,7 @@
           res.history = action.history;
           res.text_input = null;
           res.warning = null;
+          res.window_title = null;
           res.help = false;
           res.focus = false;
           res.highlight = null;
@@ -338,6 +343,7 @@
               res.history = action.history;
               res.text_input = null;
               res.warning = null;
+              res.window_title = null;
               res.help = false;
               res.highlight = null;
               res.focus = false;
@@ -423,6 +429,11 @@
       case "echo":
         {
           res.echo = action.msg;
+          return res;
+        }
+      case "window-title":
+        {
+          res.window_title = action.title;
           return res;
         }
       case "warning":
@@ -841,6 +852,7 @@
       /** @type {HTMLElement} */
       this.prev_div = null;
       this.prev_search = null;
+      this.main_title = document.title;
     }
 
     Pages.prototype.add_div = function add_div (pageid) {
@@ -870,7 +882,7 @@
 
       /* Blur pages if help screen is on.  */
       this.element.classList[(state.help) ? "add" : "remove"] ("blurred");
-
+      let div = this.prev_div;
       if (state.current !== this.prev_id)
         {
           if (this.prev_id)
@@ -881,11 +893,17 @@
               var msg = { message_kind: "highlight", regexp: null };
               post_message (old.pageid, msg);
             }
-          var div = resolve_page (state.current, true);
+          div = resolve_page (state.current, true);
           update_history (state.current, state.history);
           this.prev_id = state.current;
           this.prev_div = div;
         }
+        if (state.action.type === "window-title") {
+            div.setAttribute("title", state.action.title);
+        }
+        let title = div.getAttribute("title") || this.main_title;
+        if (title && document.title !== title)
+            document.title = title;
 
       if (state.search
           && (this.prev_search !== state.search)
@@ -1431,6 +1449,8 @@
       var linkid = basename (window.location.pathname, /[.]x?html$/);
       links[linkid] = navigation_links (document);
       store.dispatch (actions.cache_links (links));
+      if (document.title)
+         store.dispatch (actions.window_title (document.title));
 
       if (linkid_contains_index (linkid))
         {
