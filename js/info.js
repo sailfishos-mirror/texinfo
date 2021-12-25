@@ -1595,6 +1595,7 @@
               val ();
             else
               store.dispatch (val);
+            event.preventDefault();
           }
       }
   }
