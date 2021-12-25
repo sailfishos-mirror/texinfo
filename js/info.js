@@ -223,6 +223,7 @@
         }
       case "cache-index-links":
         {
+          // Initially res.index is undefined, which is ignored.
           res.index = Object.assign ({}, res.index, action.links);
           return res;
         }
@@ -649,7 +650,12 @@
       var index = new Text_input ("index");
       index.render = function (state) {
         if (state.text_input === "index")
-          this.show (state.index);
+        {
+          if (state.index)
+            this.show (state.index);
+          else
+            store.dispatch (actions.warn ("No index in this document"))
+        }
       };
 
       var search = new Search_input ("regexp-search");
@@ -2158,7 +2164,7 @@
            backward link ids.  */
         loaded_nodes: {},
         /* Dictionary associating keyword to linkids.  */
-        index: {},
+        index: undefined,
         /* page id of the current page.  */
         current: config.INDEX_ID,
         /* dictionary associating a page id to a boolean.  */
