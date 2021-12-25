@@ -23,6 +23,7 @@
 # the conversion to XHTML.
 #
 # TODO:
+# split or not split?
 # set up a cover with @titlepage?
 # is the mini_toc relevant?
 # what about node directions?
@@ -368,6 +369,7 @@ EOT
                           $mimetype_file, $!));
     return 0;
   }
+  my $nav_id = 'nav';
   my $nav_file;
   my $title = _epub_convert_tree_to_text($self, $self->{'title_tree'});
   if ($self->{'structuring'} and $self->{'structuring'}->{'sectioning_root'}) {
@@ -393,7 +395,7 @@ EOT
 <title>$nav_file_title</title>
 </head>
 <body>
-<nav epub:type="toc">
+<nav epub:type="toc" id="$nav_id">
 <h1>$table_of_content_str</h1>
 EOT
 
@@ -411,16 +413,24 @@ EOT
       next if ($section->{'cmdname'} eq 'part');
       my $section_level = $section->{'level'};
       $section_level = 1 if ($section_level == 0);
+      # FIXME with gaps in sectioning there could be nesting issues?
       if ($level < $section_level) {
         while ($level < $section_level) {
-          print $nav_fh "<ol>\n";
+          my $leading_spaces = '';
+          print $nav_fh "\n". " " x $level . "<ol>\n";
           $level++;
         }
       } elsif ($level > $section->{'level'}) {
+        # on the same line as the a element for the first </li>
+        print $nav_fh "</li>\n". " " x ($level -1) . "</ol>\n";
+        $level--;
         while ($level > $section_level) {
-          print $nav_fh "</ol>\n";
+          print $nav_fh " " x $level . "</li>\n". " " x ($level -1) . "</ol>\n";
           $level--;
         }
+        print $nav_fh " " x $level ."</li>\n";
+      } else {
+        print $nav_fh "</li>\n";
       }
       my $text = _epub_convert_tree_to_text($self, $section->{'args'}->[0]);
       $text = Texinfo::Convert::Utils::numbered_heading($self, $section, $text,
@@ -428,10 +438,15 @@ EOT
       my $file = $self->command_filename($section);
       my $anchor = $self->command_target($section);
       my $origin_href = "$file#$anchor";
-      print $nav_fh "<li><a href=\"$origin_href\">$text</a></li>\n";
+      print $nav_fh " " x $level . "<li><a href=\"$origin_href\">$text</a>";
+    }
+    if ($level > $root_level) {
+      # on the same line as the a element for the first </li>
+      print $nav_fh "</li>\n". " " x ($level -1) . "</ol>\n";
+      $level--;
     }
     while ($level > $root_level) {
-      print $nav_fh "</ol>\n";
+      print $nav_fh " " x $level . "</li>\n". " " x ($level -1) . "</ol>\n";
       $level--;
     }
 
@@ -511,7 +526,6 @@ EOT
    <manifest>
 EOT
 
-  my $nav_id = 'nav';
   if (defined($nav_file)) {
     print $opf_fh "      <item id=\"$nav_id\" properties=\"nav\" "
       . "media-type=\"application/xhtml+xml\" href=\"${epub_xhtml_dir}/${nav_filename}\"/>\n";
@@ -537,7 +551,7 @@ EOT
       $image_mimetype = $extension . '/image';
     }
     print $opf_fh "      <item id=\"image${image_count}\" "
-      . "media-type=\"${image_mimetype}\" href=\"${epub_images_dir_name}/${image_file}\"/>";
+      . "media-type=\"${image_mimetype}\" href=\"${epub_images_dir_name}/${image_file}\"/>\n";
   }
   print $opf_fh <<EOT;
    </manifest>

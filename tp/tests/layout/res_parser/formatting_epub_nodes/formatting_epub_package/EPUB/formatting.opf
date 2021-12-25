@@ -16,7 +16,9 @@
       <item id="unit5" media-type="application/xhtml+xml" href="xhtml/subsubsection-_0060_0060simple_002ddouble_002d_002d.xhtml"/>
       <item id="unit6" media-type="application/xhtml+xml" href="xhtml/subsubsection-three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027.xhtml"/>
       <item id="unit7" media-type="application/xhtml+xml" href="xhtml/chapter2.xhtml"/>
-      <item id="image1" media-type="e--xt/image" href="images/f--ile.e--xt"/>      <item id="image2" media-type=" image/png" href="images/f--ile.png"/>   </manifest>
+      <item id="image1" media-type="e--xt/image" href="images/f--ile.e--xt"/>
+      <item id="image2" media-type=" image/png" href="images/f--ile.png"/>
+   </manifest>
    <spine>
       <itemref idref="unit1"/>
       <itemref idref="unit2"/>
