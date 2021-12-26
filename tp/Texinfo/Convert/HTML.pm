@@ -16,13 +16,15 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 #
-# There are three categories of formatting functions that can be
-# replaced by the user, together with the hash with default functions:
-#  * command tree element formatting functions registered in
+# The following categories of formatting functions can be replaced
+# by the user.  The associated hash with defaults is also shown:
+#  * command tree element formatting functions defaults in
 #    %default_commands_conversion
+#  * command tree element opening functions defaults in
+#    %default_commands_open
 #  * type tree element (element without @-command) formatting
-#    functions, registered in %default_types_conversion
-#  * other formatting functions, registered in
+#    functions, defaults in %default_types_conversion
+#  * other formatting functions, defaults in
 #    %default_formatting_references
 #
 # The functions used in the default case for all the functions
@@ -937,6 +939,15 @@ sub default_commands_conversion($$)
   return $default_commands_conversion{$command};
 }
 
+my %default_commands_open;
+
+sub default_commands_open($$)
+{
+  my $self = shift;
+  my $command = shift;
+  return $default_commands_open{$command};
+}
+
 # used for customization only (in t2h_singular.init)
 sub get_value($$)
 {
@@ -947,6 +958,57 @@ sub get_value($$)
     return $self->{'parser'}->{'values'}->{$value};
   } else {
     return undef;
+  }
+}
+
+# API to register, cancel and get inline content that should be output
+# when in an inline situation, mostly in a paragraph or preformatted
+sub register_pending_formatted_inline_content($$$)
+{
+  my $self = shift;
+  my $category = shift;
+  my $inline_content = shift;
+
+  if (not defined($self->{'pending_inline_content'})) {
+    $self->{'pending_inline_content'} = [];
+  }
+  push @{$self->{'pending_inline_content'}}, [$category, $inline_content];
+}
+
+sub cancel_pending_formatted_inline_content($$$)
+{
+  my $self = shift;
+  my $category = shift;
+
+  if (defined($self->{'pending_inline_content'})) {
+    my @other_category_contents = ();
+    while (@{$self->{'pending_inline_content'}}) {
+      my $category_inline_content = pop @{$self->{'pending_inline_content'}};
+      if ($category_inline_content->[0] eq $category) {
+        push @{$self->{'pending_inline_content'}}, @other_category_contents;
+        return $category_inline_content->[1];
+      }
+      unshift @other_category_contents, $category_inline_content;
+    }
+    push @{$self->{'pending_inline_content'}}, @other_category_contents;
+  }
+  return undef;
+}
+
+sub get_pending_formatted_inline_content($) {
+  my $self = shift;
+
+  if (not defined($self->{'pending_inline_content'})) {
+    return '';
+  } else {
+    my $result = '';
+    foreach my $category_inline_content (@{$self->{'pending_inline_content'}}) {
+      if (defined($category_inline_content->[1])) {
+        $result .= $category_inline_content->[1];
+      }
+    }
+    $self->{'pending_inline_content'} = undef;
+    return $result;
   }
 }
 
@@ -2056,8 +2118,6 @@ sub _convert_image_command($$$$)
   my $cmdname = shift;
   my $command = shift;
   my $args = shift;
-
-  my @extensions = @image_files_extensions;
 
   if (defined($args->[0]->{'monospacetext'}) and $args->[0]->{'monospacetext'} ne '') {
     my $basefile = $args->[0]->{'monospacetext'};
@@ -3418,9 +3478,8 @@ sub _convert_quotation_command($$$$$)
   my $args = shift;
   my $content = shift;
 
-  #$cmdname = $small_alias{$cmdname}
-  #  if $small_alias{$cmdname};
-  
+  $self->cancel_pending_formatted_inline_content($cmdname);
+
   my $attribution = '';
   if ($command->{'extra'} and $command->{'extra'}->{'authors'}) {
     foreach my $author (@{$command->{'extra'}->{'authors'}}) {
@@ -3430,6 +3489,7 @@ sub _convert_quotation_command($$$$$)
       $attribution .= $self->convert_tree($centered_author);
     }
   }
+
   if (!$self->in_string()) {
     return "<blockquote>\n" . $content . "</blockquote>\n" . $attribution;
   } else {
@@ -4172,6 +4232,36 @@ foreach my $small_command (keys(%small_alias)) {
     = $default_commands_conversion{$small_alias{$small_command}};
 }
 
+sub _open_quotation_command($$$)
+{
+  my $self = shift;
+  my $cmdname = shift;
+  my $command = shift;
+
+  my $formatted_quotation_arg_to_prepend;
+  if ($command->{'args'} and $command->{'args'}->[0]
+      and $command->{'args'}->[0]->{'contents'}
+      and @{$command->{'args'}->[0]->{'contents'}}) {
+    $formatted_quotation_arg_to_prepend
+     = $self->convert_tree($self->gdt('@b{{quotation_arg}:} ',
+             {'quotation_arg' => $command->{'args'}->[0]->{'contents'}}));
+  }
+  $self->register_pending_formatted_inline_content($cmdname,
+                                 $formatted_quotation_arg_to_prepend);
+  return '';
+}
+
+$default_commands_open{'quotation'} = \&_open_quotation_command;
+
+# associate same opening function for @small* command
+# as for the associated @-command
+foreach my $small_command (keys(%small_alias)) {
+  if (exists($default_commands_open{$small_alias{$small_command}})) {
+    $default_commands_open{$small_command}
+      = $default_commands_open{$small_alias{$small_command}};
+  }
+}
+
 # Keys are tree element types, values are function references to convert
 # elements of that type.  Can be overridden accessing
 # Texinfo::Config::GNUT_get_types_conversion, setup by
@@ -4200,31 +4290,14 @@ my %paragraph_style = (
       'flushright' => 'right',
       );
 
-sub _quotation_arg_to_prepend($$)
-{
-  my $self = shift;
-  my $command = shift;
-  if ($command->{'parent'} and $command->{'parent'}->{'cmdname'}
-      and ($command->{'parent'}->{'cmdname'} eq 'quotation'
-           or $command->{'parent'}->{'cmdname'} eq 'smallquotation')
-      and $command->{'parent'}->{'args'}
-      and $command->{'parent'}->{'args'}->[0]
-      and $command->{'parent'}->{'args'}->[0]->{'contents'}
-      and @{$command->{'parent'}->{'args'}->[0]->{'contents'}}) {
-    return $self->convert_tree($self->gdt('@b{{quotation_arg}:} ',
-     {'quotation_arg' => 
-      $command->{'parent'}->{'args'}->[0]->{'contents'}}));
-
-  }
-  return undef;
-}
-
 sub _convert_paragraph_type($$$$)
 {
   my $self = shift;
   my $type = shift;
   my $command = shift;
   my $content = shift;
+
+  $content = $self->get_pending_formatted_inline_content().$content;
 
   if ($self->paragraph_number() == 1) {
     my $in_format = $self->top_format();
@@ -4234,9 +4307,6 @@ sub _convert_paragraph_type($$$$)
           or $in_format eq 'enumerate'
           or $in_format eq 'multitable') {
         return $content; 
-      } else {
-        my $prepended = $self->_quotation_arg_to_prepend($command);
-        $content = $prepended.$content if (defined($prepended));
       }
     }
   }
@@ -4287,12 +4357,7 @@ sub _convert_preformatted_type($$$$)
 
   my $current = $command;
 
-  # !defined preformatted_number may happen if there is something before the
-  # first preformatted.  For example an @exdent.
-  if ($self->preformatted_number() and $self->preformatted_number() == 1) {
-    my $prepended = $self->_quotation_arg_to_prepend($command);
-    $content = $prepended.$content if (defined($prepended));
-  }
+  $content = $self->get_pending_formatted_inline_content().$content;
 
   return '' if ($content eq '');
   return $content if ($type eq 'rawpreformatted');
@@ -5560,7 +5625,7 @@ sub converter_initialize($)
   foreach my $command (keys(%misc_commands), keys(%brace_commands),
      keys (%block_commands), keys(%no_brace_commands), 'value') {
     if (exists($customized_commands_conversion->{$command})) {
-      $self->{'commands_conversion'}->{$command} 
+      $self->{'commands_conversion'}->{$command}
           = $customized_commands_conversion->{$command};
     } else {
       if ($self->get_conf('FORMAT_MENU') ne 'menu'
@@ -5572,10 +5637,23 @@ sub converter_initialize($)
         $self->{'commands_conversion'}->{$command}
            = $default_commands_conversion{$command};
         if ($command eq 'menu' and $self->get_conf('SIMPLE_MENU')) {
-          $self->{'commands_conversion'}->{$command} 
+          $self->{'commands_conversion'}->{$command}
             = $default_commands_conversion{'example'};
         }
       }
+    }
+  }
+
+  my $customized_commands_open
+     = Texinfo::Config::GNUT_get_commands_open();
+  foreach my $command (keys(%misc_commands), keys(%brace_commands),
+     keys (%block_commands), keys(%no_brace_commands), 'value') {
+    if (exists($customized_commands_open->{$command})) {
+      $self->{'commands_open'}->{$command}
+          = $customized_commands_open->{$command};
+    } elsif (exists($default_commands_open{$command})) {
+      $self->{'commands_open'}->{$command}
+           = $default_commands_open{$command};
     }
   }
 
@@ -8352,6 +8430,11 @@ sub _convert($$;$)
       } elsif ($command_name eq 'w') {
         $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]->{'space_protected'}++;
       }
+      my $result = '';
+      if (defined($self->{'commands_open'}->{$command_name})) {
+        $result .= &{$self->{'commands_open'}->{$command_name}}($self,
+                                                 $command_name, $element);
+      }
       my $content_formatted;
       if ($element->{'contents'}) {
         $content_formatted = $self->_convert_contents($element, $command_type);
@@ -8454,17 +8537,15 @@ sub _convert($$;$)
         $self->{'seenmenus'}->{$self->{'current_node'}} = 1;
       }
       # args are formatted, now format the command itself
-      my $result;
       if ($args_formatted) {
         if (!defined($self->{'commands_conversion'}->{$command_name})) {
           print STDERR "No command_conversion for $command_name\n";
-          $result = '';
         } else {
-          $result = &{$self->{'commands_conversion'}->{$command_name}}($self,
+          $result .= &{$self->{'commands_conversion'}->{$command_name}}($self,
                   $command_name, $element, $args_formatted, $content_formatted);
         }
       } else {
-        $result = &{$self->{'commands_conversion'}->{$command_name}}($self,
+        $result .= &{$self->{'commands_conversion'}->{$command_name}}($self,
                 $command_name, $element, $content_formatted);
       }
       return $result;

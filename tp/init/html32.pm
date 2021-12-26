@@ -291,6 +291,8 @@ sub html32_convert_paragraph_type($$$$)
   my $command = shift;
   my $content = shift;
 
+  $content = $self->get_pending_formatted_inline_content().$content;
+
   if ($self->paragraph_number() == 1) {
     my $in_format = $self->top_format();
     if ($in_format) {
@@ -299,10 +301,6 @@ sub html32_convert_paragraph_type($$$$)
           or $in_format eq 'enumerate'
           or $in_format eq 'multitable') {
         return $content;
-      } else {
-        # FIXME Not part of the API
-        my $prepended = $self->_quotation_arg_to_prepend($command);
-        $content = $prepended.$content if (defined($prepended));
       }
     }
   }

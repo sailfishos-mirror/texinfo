@@ -1,3 +1,22 @@
+2021-12-26  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Config.pm (texinfo_register_command_opening)
+	(GNUT_get_commands_open), tp/Texinfo/Convert/HTML.pm
+	(%default_commands_open, default_commands_open, converter_initialize)
+	(_convert, _open_quotation_command): add an API to setup
+	functions to be called when an @-command is first encountered.
+
+	* tp/Texinfo/Convert/HTML.pm
+	(register_pending_formatted_inline_content)
+	(cancel_pending_formatted_inline_content)
+	(get_pending_formatted_inline_content, _convert_quotation_command)
+	(_open_quotation_command, _convert_paragraph_type)
+	(_convert_preformatted_type), tp/init/html32.pm
+	(html32_convert_paragraph_type): add an API to register, cancel and
+	get formatted content to be prepended to inline content.
+	Use that API and the API for opening functions to handle quotation
+	argument formatting.
+
 2021-12-25  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/HTML.pm (_do_jslicenses_file): close <table>.

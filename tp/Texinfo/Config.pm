@@ -296,6 +296,7 @@ sub GNUT_get_stage_handlers()
 
 my $GNUT_formatting_references = {};
 my $GNUT_commands_conversion = {};
+my $GNUT_commands_open = {};
 my $GNUT_types_conversion = {};
 my $GNUT_no_arg_commands_formatting_strings = {};
 my $GNUT_style_commands_formatting_info = {};
@@ -326,6 +327,20 @@ sub texinfo_register_command_formatting($$)
 sub GNUT_get_commands_conversion()
 {
   return $GNUT_commands_conversion;
+}
+
+# called from init files
+sub texinfo_register_command_opening($$)
+{
+  my $command = shift;
+  my $reference = shift;
+  $GNUT_commands_open->{$command} = $reference;
+}
+
+# called from the Converter
+sub GNUT_get_commands_open()
+{
+  return $GNUT_commands_open;
 }
 
 # called from init files
