@@ -2,6 +2,13 @@
 
 	History node revision
 
+	* doc/texinfo.texi (History):  Edit.  More on Info history.  Add
+	an historical email in an @ignore block.
+
+2021-12-24  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	History node revision
+
 	* doc/texinfo.texi (History):
 	Remove acknowledgement text.  This text appeared
 	in Texinfo 2.16 (a beta test) released 9 October 1992.

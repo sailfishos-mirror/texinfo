@@ -1102,42 +1102,68 @@ Richard M. Stallman invented the Texinfo format, wrote the initial
 processors, and created Edition 1.0 of this manual.  Robert@tie{}J.
 Chassell greatly revised and extended the manual, starting with
 Edition 1.1.  Brian Fox was responsible for the standalone Texinfo
-distribution until version 3.8, and originally wrote the standalone
-@command{makeinfo} and @command{info} programs.  Karl Berry
-continued maintenance from Texinfo 3.8 (manual edition 2.22), and Gavin
-Smith has continued maintenance since Texinfo 6.0.
+distribution until version 3.8.  Karl Berry continued maintenance
+from Texinfo 3.8 (manual edition 2.22), and Gavin Smith has continued
+maintenance since Texinfo 6.0.
 
 @cindex History of Texinfo
 @cindex Texinfo history
 @subheading Beginnings
 
+@cindex NLS
+Richard Stallman included an on-line, hypertext help system called
+Info in the original implementation of Emacs (in 1975/6).
+Stallman had been inspired after seeing a presentation a couple of years
+earlier on the ``NLS'' hypertext system of Douglas Engelbart.
+
+@ignore
+From rms@santafe.edu Sat Jan 23 03:41:05 1999
+Status: RO
+X-VM-v5-Data: ([nil nil nil nil nil nil nil nil nil]
+        [nil nil nil nil nil nil nil nil nil nil nil nil "^Date:" nil nil nil ni
++l nil nil nil nil]
+        nil)
+Reply-to: rms@gnu.org
+Content-Length: 331
+Date: Sat, 23 Jan 1999 01:40:59 -0700 (MST)
+From: Richard Stallman <rms@gnu.org>
+To: bob@rattlesnake.com
+CC: karl@cs.umb.edu, kama@hippo.fido.de, bug-texinfo@gnu.org
+Subject: Re: Q: Some history questions
+
+    People at MIT also developed a nifty on-line help format called Info.
+
+That was me.  I developed Info as a sort of "poor man's hypertext"
+after I saw a presentation on NLS (Englebart's hypertext system).  I
+THINK this was in 1974, actually before Emacs, and that after
+developing Emacs in 1975 I adapted Info to work with it.
+@end ignore
+
 @cindex Scribe
 @cindex Reid, Brian
-In the 1970's at CMU, Brian Reid developed a program and format named
-Scribe to mark up documents for printing.  It used the @code{@@}
-character to introduce commands, as Texinfo does.  Much more
-consequentially, it strove to describe document contents rather than
-formatting, an idea wholeheartedly adopted by Texinfo.
+In another development, in the 1970's at CMU, Brian Reid developed
+a program and format named Scribe to mark up documents for printing.
+It used the @code{@@} character to introduce commands, as Texinfo does.
+Much more consequentially, it strove to describe document contents
+rather than formatting, an idea wholeheartedly adopted by Texinfo.
 
 @cindex Bolio
 @cindex Bo@TeX{}
-Meanwhile, people at MIT developed another, not too dissimilar format
-called Bolio.  This then was converted to using @TeX{} as its typesetting
-language: Bo@TeX{}.  The earliest Bo@TeX{} version seems to have been
-0.02 on October 31, 1984.
+Meanwhile, people at MIT developed another format called Bolio.
+Richard Stallman (RMS) worked on converting Bolio to use @TeX{} as
+its typesetting language, resulting in Bo@TeX{}.  The earliest Bo@TeX{}
+version seems to have been 0.02 on October 31, 1984.
 
 Bo@TeX{} could only be used as a markup language for documents to be
-printed, not for online documents.  Richard Stallman (RMS) worked on
-both Bolio and Bo@TeX{}.  He also developed a nifty on-line help format
-called Info, and then combined Bo@TeX{} and Info to create Texinfo, a
-mark up language for text that is intended to be read both online and
-as printed hard copy.
+printed, not for online documents.  RMS combined Bo@TeX{} and Info
+to create Texinfo, a mark-up language for text that is intended to
+be read both online and as printed hard copy.
 
-Moving forward, the original translator to create Info was written
+The original translator to create Info was written
 (primarily by RMS and Bob Chassell) in Emacs Lisp, namely the
 @code{texinfo-format-buffer} and other functions.  In the early 1990s,
 Brian Fox reimplemented the conversion program in C, now called
-@command{makeinfo}.
+@command{makeinfo}, as well as the standalone @command{info} program.
 
 @subheading Reimplementing in Perl
 
