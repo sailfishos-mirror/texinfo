@@ -1,3 +1,7 @@
+2021-12-26  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/init/html32.pm (html32_format_separate_anchor): redefine.
+
 2021-12-24  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	History node revision

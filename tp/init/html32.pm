@@ -22,6 +22,14 @@
 # Originally written by Patrice Dumas.
 #
 #-##############################################################################
+#
+# TODO there are id attributes in many places in the default HTML output
+# that should be replaced with <a name=...></a> to be compliant with HTML3.2.
+# HTML3.2 is not very interesting as an output format, this file is mostly
+# a check that the API allows to output different variants of HTML.  Therefore
+# it is not high priority to fix those cases, especially if it means copying
+# a lot of code to replace id= with a separate anchor without changing anything
+# else.
 
 use strict;
 
@@ -114,6 +122,19 @@ sub html32_format_protect_text($$)
 
 texinfo_register_formatting_function('format_protect_text', \&html32_format_protect_text);
 
+sub html32_format_separate_anchor($$;$)
+{
+  my $self = shift;
+  my $id = shift;
+  my $class = shift;
+
+  # html_attribute_class would not work with span, so if span is
+  # used, html_attribute_class should not be used
+  return $self->html_attribute_class('a', $class)." name=\"$id\"></a>";
+}
+
+texinfo_register_formatting_function('format_separate_anchor', \&html32_format_separate_anchor);
+
 sub html32_convert_text($$$$)
 {
   my $self = shift;
@@ -144,7 +165,6 @@ sub html32_convert_text($$$$)
   return $text;
 }
 texinfo_register_type_formatting('text', \&html32_convert_text);
-
 
 sub html32_convert_explained_command($$$$)
 {
