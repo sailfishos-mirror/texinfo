@@ -4941,7 +4941,7 @@ ul.no-bullet {list-style: none}
 <p>
 Next: <a href="#chapter" accesskey="n" rel="next">chapter</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Top" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Top-section"></span><h1 class="top">Top section</h1>
+<h1 class="top" id="Top-section">Top section</h1>
 
 
 
@@ -5097,7 +5097,7 @@ Next: <a href="#chapter" accesskey="n" rel="next">chapter</a> &nbsp; [<a href="#
 <p>
 Next: <a href="#chapter2" accesskey="n" rel="next">chapter 2</a>, Previous: <a href="#Top" accesskey="p" rel="prev">Top section</a>, Up: <a href="#Top" accesskey="u" rel="up">Top section</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Top" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="chapter-1"></span><h2 class="chapter">1 chapter</h2>
+<h2 class="chapter" id="chapter-1">1 chapter</h2>
 
 <p><a id="DOCF1" href="#FOOT1"><sup>1</sup></a>
 </p>
@@ -5111,7 +5111,7 @@ Next: <a href="#chapter2" accesskey="n" rel="next">chapter 2</a>, Previous: <a h
 <p>
 Up: <a href="#chapter" accesskey="u" rel="up">chapter</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Top" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="A-section"></span><h3 class="section">1.1 A section</h3>
+<h3 class="section" id="A-section">1.1 A section</h3>
 
 
 <ul class="section-toc">
@@ -5123,7 +5123,7 @@ Up: <a href="#chapter" accesskey="u" rel="up">chapter</a> &nbsp; [<a href="#SEC_
 <p>
 Up: <a href="#s_002d_002dect_002cion" accesskey="u" rel="up">A section</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Top" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="subsection-1"></span><h4 class="subsection">1.1.1 subsection</h4>
+<h4 class="subsection" id="subsection-1">1.1.1 subsection</h4>
 
 
 <span id="anchor"></span>
@@ -5137,7 +5137,7 @@ Up: <a href="#s_002d_002dect_002cion" accesskey="u" rel="up">A section</a> &nbsp
 <p>
 Next: <a href="#subsubsection-three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027" accesskey="n" rel="next">three&mdash;four&mdash;-&rdquo;</a>, Up: <a href="#subsection" accesskey="u" rel="up">subsection</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Top" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="subsubsection-_0060_0060simple_002ddouble_002d_002d-1"></span><h4 class="subsubsection">1.1.1.1 subsubsection &ldquo;simple-double&ndash;</h4>
+<h4 class="subsubsection" id="subsubsection-_0060_0060simple_002ddouble_002d_002d-1">1.1.1.1 subsubsection &ldquo;simple-double&ndash;</h4>
 
 <hr>
 </div>
@@ -5146,7 +5146,7 @@ Next: <a href="#subsubsection-three_002d_002d_002dfour_002d_002d_002d_002d_0027_
 <p>
 Previous: <a href="#subsubsection-_0060_0060simple_002ddouble_002d_002d" accesskey="p" rel="prev">subsubsection &ldquo;simple-double&ndash;</a>, Up: <a href="#subsection" accesskey="u" rel="up">subsection</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Top" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027"></span><h4 class="subsubsection">1.1.1.2 three&mdash;four&mdash;-&rdquo;</h4>
+<h4 class="subsubsection" id="three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027">1.1.1.2 three&mdash;four&mdash;-&rdquo;</h4>
 
 <hr>
 </div>
@@ -5158,7 +5158,7 @@ Previous: <a href="#subsubsection-_0060_0060simple_002ddouble_002d_002d" accessk
 <p>
 Previous: <a href="#chapter" accesskey="p" rel="prev">chapter</a>, Up: <a href="#Top" accesskey="u" rel="up">Top section</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Top" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="chapter-2"></span><h2 class="centerchap center-align">chapter 2</h2>
+<h2 class="centerchap center-align" id="chapter-2">chapter 2</h2>
 
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#chapter2_cp_symbol-1"><b>.</b></a>
  &nbsp; 

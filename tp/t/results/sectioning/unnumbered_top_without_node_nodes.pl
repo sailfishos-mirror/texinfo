@@ -732,7 +732,7 @@ ul.no-bullet {list-style: none}
 <p>
 Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a> &nbsp; </p>
 </div>
-<span id="unnumbered"></span><h2 class="unnumbered">unnumbered</h2>
+<h2 class="unnumbered" id="unnumbered">unnumbered</h2>
 
 <p>in unnumbered
 </p>
@@ -748,7 +748,7 @@ Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a> &nbsp; </p>
 <p>
 Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a> &nbsp; </p>
 </div>
-<span id="Chapter"></span><h2 class="chapter">1 Chapter</h2>
+<h2 class="chapter" id="Chapter">1 Chapter</h2>
 
 <p>Text of chapter
 </p></div>

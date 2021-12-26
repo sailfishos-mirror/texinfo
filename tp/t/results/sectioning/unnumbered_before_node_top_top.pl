@@ -443,7 +443,7 @@ ul.no-bullet {list-style: none}
 </p>
 </div>
 <div class="top" id="Top">
-<span id="top-section"></span><h2 class="unnumbered">top section</h2>
+<h2 class="unnumbered" id="top-section">top section</h2>
 <p>Top node
 </p><hr></div>
 

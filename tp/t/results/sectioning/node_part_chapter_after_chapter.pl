@@ -1124,7 +1124,7 @@ ul.no-bullet {list-style: none}
 <p>
 Next: <a href="#chapter-node" accesskey="n" rel="next">chapter node</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<span id="top"></span><h1 class="top">top</h1>
+<h1 class="top" id="top">top</h1>
 
 
 <div class="Contents_element" id="SEC_Contents">
@@ -1151,7 +1151,7 @@ Next: <a href="#chapter-node" accesskey="n" rel="next">chapter node</a> &nbsp; [
 Next: <a href="#part-chapter-node" accesskey="n" rel="next">chapter with part node</a>, Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 
-<span id="chapter-node-1"></span><h2 class="chapter">1 chapter node</h2>
+<h2 class="chapter" id="chapter-node-1">1 chapter node</h2>
 
 <hr>
 </div>
@@ -1169,7 +1169,7 @@ Previous: <a href="#chapter-node" accesskey="p" rel="prev">chapter node</a>, Up:
 <ul class="section-toc">
 <li><a href="#part-chapter-node" accesskey="1">chapter with part node</a></li>
 </ul>
-<span id="chapter-with-part-node"></span><h2 class="chapter">2 chapter with part node</h2>
+<h2 class="chapter" id="chapter-with-part-node">2 chapter with part node</h2>
 
 </div>
 

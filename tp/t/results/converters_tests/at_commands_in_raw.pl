@@ -1209,7 +1209,7 @@ $result_converted{'plaintext'}->{'at_commands_in_raw'} = '<b>in b(1).</b>
 ';
 
 
-$result_converted{'html_text'}->{'at_commands_in_raw'} = '<span id="Top"></span><h1 class="node-heading">Top</h1>
+$result_converted{'html_text'}->{'at_commands_in_raw'} = '<h1 class="node-heading" id="Top">Top</h1>
 
 
 <b>in b<a id="DOCF1" href="#FOOT1"><sup>1</sup></a>.</b>

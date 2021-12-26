@@ -950,7 +950,7 @@ ul.no-bullet {list-style: none}
 <p>
 Next: <a href="#chapter-node" accesskey="n" rel="next">chapter</a>, Up: <a href="#chapter-node" accesskey="u" rel="up">chapter</a> &nbsp; </p>
 </div>
-<span id="section"></span><h3 class="section">1 section</h3>
+<h3 class="section" id="section">1 section</h3>
 
 <hr>
 </div>
@@ -959,7 +959,7 @@ Next: <a href="#chapter-node" accesskey="n" rel="next">chapter</a>, Up: <a href=
 <p>
 Next: <a href="#Top" accesskey="n" rel="next">top</a>, Previous: <a href="#section-node" accesskey="p" rel="prev">section</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>
-<span id="chapter"></span><h3 class="section">2 chapter</h3>
+<h3 class="section" id="chapter">2 chapter</h3>
 
 
 <hr>
@@ -969,7 +969,7 @@ Next: <a href="#Top" accesskey="n" rel="next">top</a>, Previous: <a href="#secti
 <p>
 Next: <a href="#chapter-node" accesskey="n" rel="next">chapter</a> &nbsp; </p>
 </div>
-<span id="top"></span><h3 class="unnumberedsec">top</h3>
+<h3 class="unnumberedsec" id="top">top</h3>
 
 
 </div>

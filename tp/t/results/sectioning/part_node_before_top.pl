@@ -688,7 +688,7 @@ Next: <a href="#part-node-before-top" accesskey="n" rel="next">part node before 
 
 </div>
 <div class="top" id="Top">
-<span id="top"></span><h1 class="top">top</h1>
+<h1 class="top" id="top">top</h1>
 
 </div>
 

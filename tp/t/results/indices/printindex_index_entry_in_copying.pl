@@ -1423,7 +1423,7 @@ $result_converted{'html_text'}->{'printindex_index_entry_in_copying'} = '
 <p>
  &nbsp; [<a href="#Top" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="top"></span><h1 class="top">top</h1>
+<h1 class="top" id="top">top</h1>
 
 <p>Top.
 </p>
@@ -1481,7 +1481,7 @@ $result_converted{'html_text'}->{'printindex_index_entry_in_copying'} = '
 <p>
  &nbsp; [<a href="#Top" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Chapter"></span><h2 class="chapter">1 Chapter</h2>
+<h2 class="chapter" id="Chapter">1 Chapter</h2>
 
 
 <span id="index-copying-Copying-this-document"></span>

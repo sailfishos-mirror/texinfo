@@ -4927,7 +4927,7 @@ ul.no-bullet {list-style: none}
 <p>
 Next: <a href="#chapter" accesskey="n" rel="next">A chapter</a> &nbsp; </p>
 </div>
-<span id="Test-floats"></span><h1 class="top">Test floats</h1>
+<h1 class="top" id="Test-floats">Test floats</h1>
 
 <p>A list of floats at the beginning.
 </p><dl class="listoffloats">
@@ -5047,7 +5047,7 @@ A footnote.
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">Test floats</a>, Up: <a href="#Top" accesskey="u" rel="up">Test floats</a> &nbsp; </p>
 </div>
-<span id="A-chapter"></span><h2 class="chapter">1 A chapter</h2>
+<h2 class="chapter" id="A-chapter">1 A chapter</h2>
 
 <div class="float"><span id="float-with-a-lot-of-features-and-no-shortcaption"></span>
 

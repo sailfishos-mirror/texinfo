@@ -3218,7 +3218,7 @@ $result_floats{'accentenc_no_entity'} = {};
 
 $result_converted{'html_text'}->{'accentenc_no_entity'} = '
 <div class="top" id="Top-node">
-<span id="top"></span><h1 class="top">top</h1>
+<h1 class="top" id="top">top</h1>
 
 <p>should be e&lsquo;: è è
 </p>

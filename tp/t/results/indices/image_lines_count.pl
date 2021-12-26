@@ -300,7 +300,7 @@ ff
 ';
 
 
-$result_converted{'html_text'}->{'image_lines_count'} = '<span id="Top"></span><h1 class="node-heading">Top</h1>
+$result_converted{'html_text'}->{'image_lines_count'} = '<h1 class="node-heading" id="Top">Top</h1>
 
 <img src="count_image.png" alt="count_image">
 

@@ -2046,7 +2046,7 @@ $result_converted{'html_text'}->{'def_syn_indices'} = '
 <p>
  &nbsp; [<a href="#Chapter-index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="top"></span><h1 class="top">top</h1>
+<h1 class="top" id="top">top</h1>
 
 <ul class="section-toc">
 <li><a href="#Chapter-index" accesskey="1">Index</a></li>
@@ -2057,7 +2057,7 @@ $result_converted{'html_text'}->{'def_syn_indices'} = '
 <p>
  &nbsp; [<a href="#Chapter-index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Index"></span><h2 class="chapter">1 Index</h2>
+<h2 class="chapter" id="Index">1 Index</h2>
 
 <p>definedx truc
 after

@@ -513,7 +513,7 @@ Next: <a href="#node-after" accesskey="n" rel="next">node after</a> &nbsp; </p>
 
 </div>
 <div class="top" id="Top">
-<span id="top-section"></span><h2 class="unnumbered">top section</h2>
+<h2 class="unnumbered" id="top-section">top section</h2>
 
 </div>
 <div class="chapter" id="Chapter">

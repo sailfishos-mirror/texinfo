@@ -2737,7 +2737,7 @@ Out of code -- out-of-code. \'1aaa\' \'2aaa-\' \'-3bbb\' \'4aaa-bbb\'  \' 5aaa-b
 ';
 
 
-$result_converted{'html_text'}->{'test_allowcodebreaks'} = '<span id="Top"></span><h1 class="node-heading">Top</h1>
+$result_converted{'html_text'}->{'test_allowcodebreaks'} = '<h1 class="node-heading" id="Top">Top</h1>
 
 
 

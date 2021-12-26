@@ -5701,7 +5701,7 @@ ul.no-bullet {list-style: none}
 <td valign="middle" align="left">[Index]</td>
 <td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<span id="Top-1"></span><h1 class="top">Top</h1>
+<h1 class="top" id="Top-1">Top</h1>
 
 <table class="menu" border="0" cellspacing="0">
 <tr><td align="left" valign="top"><a href="#Introduction">1 Introduction</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
@@ -5729,7 +5729,7 @@ ul.no-bullet {list-style: none}
 <td valign="middle" align="left">[Index]</td>
 <td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<span id="Introduction-1"></span><h1 class="chapter">1 Introduction</h1>
+<h1 class="chapter" id="Introduction-1">1 Introduction</h1>
 
 <p>The ability of a documentation format to make cross references to a
 bibliography, a feature of LaTeX (See item [LaTeX2e] in <a href="#References">LaTeX2e</a>.)
@@ -5754,7 +5754,7 @@ currently supported in Texinfo.
 <td valign="middle" align="left">[Index]</td>
 <td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
-<span id="References-1"></span><h1 class="chapter">2 References</h1>
+<h1 class="chapter" id="References-1">2 References</h1>
 
 <ul class="no-bullet">
 <li> <span id="LaTeX2e"></span>[LaTeX2e]

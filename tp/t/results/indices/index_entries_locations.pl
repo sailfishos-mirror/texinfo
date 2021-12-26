@@ -553,7 +553,7 @@ $result_converted{'plaintext'}->{'index_entries_locations'} = 'Initial paragraph
 
 
 $result_converted{'html_text'}->{'index_entries_locations'} = '
-<span id="Top"></span><h1 class="node-heading">Top</h1>
+<h1 class="node-heading" id="Top">Top</h1>
 
 <p>Initial paragraph.
 </p>

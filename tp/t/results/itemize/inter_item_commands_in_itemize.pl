@@ -1035,7 +1035,7 @@ $result_converted{'html_text'}->{'inter_item_commands_in_itemize'} = '
 <p>
  &nbsp; </p>
 </div>
-<span id="top"></span><h1 class="top">top</h1>
+<h1 class="top" id="top">top</h1>
 
 <ul class="section-toc">
 <li><a href="#chapter" accesskey="1">chap</a></li>
@@ -1046,7 +1046,7 @@ $result_converted{'html_text'}->{'inter_item_commands_in_itemize'} = '
 <p>
  &nbsp; </p>
 </div>
-<span id="chap"></span><h2 class="chapter">1 chap</h2>
+<h2 class="chapter" id="chap">1 chap</h2>
 
 <ul class="no-bullet">
 <li><span id="index-also-a-cindex-in-itemize"></span>

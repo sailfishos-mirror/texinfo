@@ -454,7 +454,7 @@ $result_converted{'plaintext'}->{'seealso_duplicate'} = '* Menu:
 ';
 
 
-$result_converted{'html_text'}->{'seealso_duplicate'} = '<span id="Top"></span><h1 class="node-heading">Top</h1>
+$result_converted{'html_text'}->{'seealso_duplicate'} = '<h1 class="node-heading" id="Top">Top</h1>
 
 <span id="index-awk"></span>
 <span id="index-awk-1"></span>

@@ -1,5 +1,13 @@
 2021-12-26  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_default_format_heading_text)
+	(_convert_heading_command): add an $id argument to
+	_default_format_heading_text() to add an id to the heading.
+	Use that possibility in _convert_heading_command() is there
+	is no header and no id already output.  Report by Per Bothner.
+
+2021-12-26  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/init/book.pm (book_convert_heading_command): synchronize with
 	HTML.pm _convert_heading_command().
 

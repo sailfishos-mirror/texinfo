@@ -486,7 +486,7 @@ Next: <a href="#first" accesskey="n" rel="next">first</a> &nbsp; </p>
 </td></tr>
 </table>
 
-<span id="first-1"></span><h2 class="chapter">1 first</h2>
+<h2 class="chapter" id="first-1">1 first</h2>
 <hr>
 <span id="first"></span><div class="header">
 <p>

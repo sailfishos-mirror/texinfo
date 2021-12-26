@@ -3197,7 +3197,7 @@ $result_converted{'html_text'}->{'inter_item_commands_in_table'} = '
 <p>
  &nbsp; </p>
 </div>
-<span id="top"></span><h1 class="top">top</h1>
+<h1 class="top" id="top">top</h1>
 
 <ul class="section-toc">
 <li><a href="#chapter" accesskey="1">chap</a></li>
@@ -3208,7 +3208,7 @@ $result_converted{'html_text'}->{'inter_item_commands_in_table'} = '
 <p>
  &nbsp; </p>
 </div>
-<span id="chap"></span><h2 class="chapter">1 chap</h2>
+<h2 class="chapter" id="chap">1 chap</h2>
 
 <dl>
 <dt id=\'index-acode_002d_002db\'><span><code>acode--b</code><a href=\'#index-acode_002d_002db\' class=\'copiable-anchor\'> &para;</a></span></dt>

@@ -1311,7 +1311,7 @@ $result_converted{'html_text'}->{'printindex_index_entry_in_copying_no_insertcop
 <p>
  &nbsp; </p>
 </div>
-<span id="top"></span><h1 class="top">top</h1>
+<h1 class="top" id="top">top</h1>
 
 <p>Top.
 </p>
@@ -1325,7 +1325,7 @@ $result_converted{'html_text'}->{'printindex_index_entry_in_copying_no_insertcop
 <p>
  &nbsp; </p>
 </div>
-<span id="Chapter"></span><h2 class="chapter">1 Chapter</h2>
+<h2 class="chapter" id="Chapter">1 Chapter</h2>
 
 
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#t_h_fn_letter-C"><b>C</b></a>

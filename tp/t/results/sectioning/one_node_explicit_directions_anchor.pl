@@ -369,7 +369,7 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<span id="one-node"></span><h4 class="node-heading">one node</h4>
+<h4 class="node-heading" id="one-node">one node</h4>
 <p>Top node
 </p>
 <p>anchor ref <span id="ref"></span>.

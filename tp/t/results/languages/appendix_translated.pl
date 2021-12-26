@@ -379,7 +379,7 @@ ul.no-bullet {list-style: none}
 <body lang="fr">
 
 <div class="top" id="Top">
-<span id="top"></span><h1 class="top">top</h1>
+<h1 class="top" id="top">top</h1>
 
 <div class="Contents_element" id="SEC_Contents">
 <h2 class="contents-heading">Table des mati&egrave;res</h2>

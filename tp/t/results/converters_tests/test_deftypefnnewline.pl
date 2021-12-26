@@ -3412,7 +3412,7 @@ $result_converted{'html_text'}->{'test_deftypefnnewline'} = '
 <p>
  &nbsp; </p>
 </div>
-<span id="top"></span><h1 class="top">top</h1>
+<h1 class="top" id="top">top</h1>
 
 <ul class="section-toc">
 <li><a href="#chapter" accesskey="1">chap</a></li>
@@ -3423,7 +3423,7 @@ $result_converted{'html_text'}->{'test_deftypefnnewline'} = '
 <p>
  &nbsp; </p>
 </div>
-<span id="chap"></span><h2 class="chapter">1 chap</h2>
+<h2 class="chapter" id="chap">1 chap</h2>
 
 <dl class="def">
 <dt id="index-name"><span class="category">Function:<br> </span><span><em>data-type</em><br> <strong>name</strong> <em>arguments...</em><a href=\'#index-name\' class=\'copiable-anchor\'> &para;</a></span></dt>

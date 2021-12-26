@@ -585,7 +585,7 @@ ul.no-bullet {list-style: none}
 <p>
 Next: <a href="#first" accesskey="n" rel="next">first</a>, Up: <a href="http://www.gnu.org/manual/" accesskey="u" rel="up">@acronym{GNU, @acronym{GNU}\'s Not Unix} manuals</a> &nbsp; </p>
 </div>
-<span id="internal-top-node-up"></span><h1 class="top">internal top node up</h1>
+<h1 class="top" id="internal-top-node-up">internal top node up</h1>
 
 
 <hr>

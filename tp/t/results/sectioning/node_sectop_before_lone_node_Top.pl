@@ -540,7 +540,7 @@ ul.no-bullet {list-style: none}
 <p>
 Next: <a href="#chap" accesskey="n" rel="next">chap</a>, Previous: <a href="#Top" accesskey="p" rel="prev">Top</a> &nbsp; </p>
 </div>
-<span id="top-sectionning"></span><h1 class="top">top sectionning</h1>
+<h1 class="top" id="top-sectionning">top sectionning</h1>
 
 <p>in node before
 </p>
@@ -562,7 +562,7 @@ Next: <a href="#node-before" accesskey="n" rel="next">top sectionning</a> &nbsp;
 <p>
 Up: <a href="#node-before" accesskey="u" rel="up">top sectionning</a> &nbsp; </p>
 </div>
-<span id="chap-1"></span><h2 class="chapter">1 chap</h2>
+<h2 class="chapter" id="chap-1">1 chap</h2>
 
 <p>in chap
 </p></div>

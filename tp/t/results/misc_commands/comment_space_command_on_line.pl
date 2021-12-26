@@ -845,12 +845,12 @@ Text 1
 
 $result_converted{'html_text'}->{'comment_space_command_on_line'} = '
 <div class="top" id="Top">
-<span id="top-element-"></span><h1 class="top">top element&nbsp;</h1>
+<h1 class="top" id="top-element-">top element&nbsp;</h1>
 
 
 <span id="index-index-entry--"></span>
 
-<span id="Heading--"></span><h3 class="heading">Heading &nbsp;</h3>
+<h3 class="heading" id="Heading--">Heading &nbsp;</h3>
 
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#t_h_cp_letter-I"><b>I</b></a>
  &nbsp; 

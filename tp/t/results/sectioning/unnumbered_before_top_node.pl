@@ -322,7 +322,7 @@ ul.no-bullet {list-style: none}
 <div class="unnumbered" id="before-nodes">
 <h2 class="unnumbered">before nodes</h2>
 
-<span id="Top"></span><h1 class="node-heading">Top</h1>
+<h1 class="node-heading" id="Top">Top</h1>
 <p>Top node
 </p>
 <h1 class="titlefont">Title titlefont</h1>

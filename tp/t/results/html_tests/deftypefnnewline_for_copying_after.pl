@@ -822,7 +822,7 @@ ul.no-bullet {list-style: none}
 </p></dd></dl>
 
 <div class="top" id="Top">
-<span id="top"></span><h1 class="top">top</h1>
+<h1 class="top" id="top">top</h1>
 
 <dl class="def">
 <dt id="index-something"><span class="category">Function:<br> </span><span><em>void</em><br> <strong>something</strong> <em>input</em><a href=\'#index-something\' class=\'copiable-anchor\'> &para;</a></span></dt>

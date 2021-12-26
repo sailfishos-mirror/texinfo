@@ -1073,7 +1073,7 @@ ul.no-bullet {list-style: none}
 <p>
 Next: <a href="#chapter-1" accesskey="n" rel="next">chapter c1</a> &nbsp; </p>
 </div>
-<span id="top"></span><h1 class="top">top</h1>
+<h1 class="top" id="top">top</h1>
 
 
 <ul class="section-toc">
@@ -1085,7 +1085,7 @@ Next: <a href="#chapter-1" accesskey="n" rel="next">chapter c1</a> &nbsp; </p>
 <p>
 Next: <a href="#node-after-chapter-1" accesskey="n" rel="next">node after chapter 1</a>, Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>
-<span id="chapter-c1"></span><h2 class="chapter">1 chapter c1</h2>
+<h2 class="chapter" id="chapter-c1">1 chapter c1</h2>
 
 <hr>
 <span id="node-after-chapter-1"></span><div class="header">

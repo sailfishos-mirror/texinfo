@@ -1101,7 +1101,7 @@ ul.no-bullet {list-style: none}
 <body lang="fr">
 
 
-<span id="Top"></span><h1 class="node-heading">Top</h1>
+<h1 class="node-heading" id="Top">Top</h1>
 
 <dl class="def">
 <dt id="index-BBB-of-fr"><span>Variable d\'instance de fr&nbsp;: <strong>BBB</strong> <em>CCC</em><a href=\'#index-BBB-of-fr\' class=\'copiable-anchor\'> &para;</a></span></dt>

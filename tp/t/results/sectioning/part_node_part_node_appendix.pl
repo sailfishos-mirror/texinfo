@@ -1131,7 +1131,7 @@ ul.no-bullet {list-style: none}
 <p>
 Next: <a href="#chapter-node" accesskey="n" rel="next">chapter</a> &nbsp; </p>
 </div>
-<span id="top"></span><h1 class="top">top</h1>
+<h1 class="top" id="top">top</h1>
 
 
 <hr>
@@ -1148,7 +1148,7 @@ Next: <a href="#appendix-node" accesskey="n" rel="next">Appendix</a>, Previous: 
 <li><a href="#chapter-node" accesskey="1">chapter</a></li>
 </ul>
 <div class="chapter" id="chapter-node">
-<span id="chapter"></span><h2 class="chapter">1 chapter</h2>
+<h2 class="chapter" id="chapter">1 chapter</h2>
 
 <hr>
 </div>
@@ -1165,7 +1165,7 @@ Previous: <a href="#chapter-node" accesskey="p" rel="prev">chapter</a>, Up: <a h
 <li><a href="#appendix-node" accesskey="1">Appendix</a></li>
 </ul>
 <div class="appendix" id="appendix-node">
-<span id="Appendix"></span><h2 class="appendix">Appendix A Appendix</h2>
+<h2 class="appendix" id="Appendix">Appendix A Appendix</h2>
 </div>
 </div>
 

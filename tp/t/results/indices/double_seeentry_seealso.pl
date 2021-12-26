@@ -932,7 +932,7 @@ $result_converted{'html_text'}->{'double_seeentry_seealso'} = '
 <p>
  &nbsp; [<a href="#node-index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="top"></span><h1 class="top">top</h1>
+<h1 class="top" id="top">top</h1>
 
 <ul class="section-toc">
 <li><a href="#node-index" accesskey="1">Chapter Index</a></li>
@@ -943,7 +943,7 @@ $result_converted{'html_text'}->{'double_seeentry_seealso'} = '
 <p>
  &nbsp; [<a href="#node-index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Chapter-Index"></span><h2 class="chapter">1 Chapter Index</h2>
+<h2 class="chapter" id="Chapter-Index">1 Chapter Index</h2>
 
 
 </div>

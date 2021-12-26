@@ -1663,7 +1663,7 @@ ul.no-bullet {list-style: none}
 <p>
 Next: <a href="#Copying-and-floats" accesskey="n" rel="next">Copying and floats</a> &nbsp; [<a href="#Copying-and-floats" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Top-1"></span><h1 class="top">Top</h1>
+<h1 class="top" id="Top-1">Top</h1>
 
 
 <div class="float"><span id="public-domain"></span>
@@ -1686,7 +1686,7 @@ the author abandon his copyright.
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Copying-and-floats" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Copying-and-floats-1"></span><h2 class="appendix">Appendix A Copying and floats</h2>
+<h2 class="appendix" id="Copying-and-floats-1">Appendix A Copying and floats</h2>
 
 
 <div class="float"><span id="public-domain"></span>

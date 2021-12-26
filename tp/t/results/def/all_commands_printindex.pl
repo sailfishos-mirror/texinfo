@@ -5931,7 +5931,7 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<span id="Top"></span><h1 class="node-heading">Top</h1>
+<h1 class="node-heading" id="Top">Top</h1>
 <dl class="def">
 <dt id="index-d_002d_002defvr_005fname"><span class="category">c--ategory: </span><span><strong>d--efvr_name</strong><a href=\'#index-d_002d_002defvr_005fname\' class=\'copiable-anchor\'> &para;</a></span></dt>
 <dd><p>d&ndash;efvr
@@ -6067,7 +6067,7 @@ ul.no-bullet {list-style: none}
 <dd><p>d&ndash;eftypemethod
 </p></dd></dl>
 
-<span id="Functions"></span><h3 class="heading">Functions</h3>
+<h3 class="heading" id="Functions">Functions</h3>
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Top_fn_letter-D"><b>D</b></a>
  &nbsp; 
 <a class="summary-letter" href="#Top_fn_letter-N"><b>N</b></a>
@@ -6101,7 +6101,7 @@ ul.no-bullet {list-style: none}
  &nbsp; 
 </td></tr></table>
 
-<span id="Types"></span><h3 class="heading">Types</h3>
+<h3 class="heading" id="Types">Types</h3>
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Top_tp_letter-D"><b>D</b></a>
  &nbsp; 
 </td></tr></table>
@@ -6116,7 +6116,7 @@ ul.no-bullet {list-style: none}
  &nbsp; 
 </td></tr></table>
 
-<span id="Variables"></span><h3 class="heading">Variables</h3>
+<h3 class="heading" id="Variables">Variables</h3>
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Top_vr_letter-D"><b>D</b></a>
  &nbsp; 
 </td></tr></table>

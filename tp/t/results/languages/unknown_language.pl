@@ -484,7 +484,7 @@ ul.no-bullet {list-style: none}
 <body lang="unknown">
 
 <div class="top" id="Top">
-<span id="unknkown-language"></span><h1 class="top">unknkown language</h1>
+<h1 class="top" id="unknkown-language">unknkown language</h1>
 
 <p>Unknown language. See <a href="#Top">unknkown language</a>.
 </p>

@@ -762,7 +762,7 @@ ul.no-bullet {list-style: none}
 <p>
  &nbsp; </p>
 </div>
-<span id="chapter"></span><h2 class="chapter">1 chapter</h2>
+<h2 class="chapter" id="chapter">1 chapter</h2>
 </div>
 
 

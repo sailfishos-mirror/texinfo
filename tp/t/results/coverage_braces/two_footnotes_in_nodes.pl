@@ -856,7 +856,7 @@ ul.no-bullet {list-style: none}
 <p>
 Next: <a href="#chapter" accesskey="n" rel="next">chapter</a> &nbsp; </p>
 </div>
-<span id="g_t2-footnotes-in-2-nodes"></span><h1 class="top">2 footnotes in 2 nodes</h1>
+<h1 class="top" id="g_t2-footnotes-in-2-nodes">2 footnotes in 2 nodes</h1>
 
 <p>A<a id="DOCF1" href="#FOOT1"><sup>1</sup></a>
 </p>
@@ -872,7 +872,7 @@ Next: <a href="#chapter" accesskey="n" rel="next">chapter</a> &nbsp; </p>
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">2 footnotes in 2 nodes</a>, Up: <a href="#Top" accesskey="u" rel="up">2 footnotes in 2 nodes</a> &nbsp; </p>
 </div>
-<span id="chapter-1"></span><h2 class="chapter">1 chapter</h2>
+<h2 class="chapter" id="chapter-1">1 chapter</h2>
 
 <p>C<a id="DOCF3" href="#FOOT3"><sup>3</sup></a>
 </p>
@@ -1016,7 +1016,7 @@ $result_converted{'html_text'}->{'two_footnotes_in_nodes'} = '<div class="top" i
 <p>
  &nbsp; </p>
 </div>
-<span id="g_t2-footnotes-in-2-nodes"></span><h1 class="top">2 footnotes in 2 nodes</h1>
+<h1 class="top" id="g_t2-footnotes-in-2-nodes">2 footnotes in 2 nodes</h1>
 
 <p>A<a id="DOCF1" href="#FOOT1"><sup>1</sup></a>
 </p>
@@ -1032,7 +1032,7 @@ $result_converted{'html_text'}->{'two_footnotes_in_nodes'} = '<div class="top" i
 <p>
  &nbsp; </p>
 </div>
-<span id="chapter-1"></span><h2 class="chapter">1 chapter</h2>
+<h2 class="chapter" id="chapter-1">1 chapter</h2>
 
 <p>C<a id="DOCF3" href="#FOOT3"><sup>3</sup></a>
 </p>

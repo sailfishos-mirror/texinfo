@@ -315,7 +315,7 @@ ul.no-bullet {list-style: none}
 <body lang="en">
 
 <div class="section" id="Top">
-<span id="section"></span><h3 class="section">1 section</h3>
+<h3 class="section" id="section">1 section</h3>
 
 </div>
 <div class="part" id="part">

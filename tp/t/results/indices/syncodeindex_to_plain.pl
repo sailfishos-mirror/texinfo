@@ -527,7 +527,7 @@ $result_converted{'plaintext'}->{'syncodeindex_to_plain'} = 'cp index.
 
 
 $result_converted{'html_text'}->{'syncodeindex_to_plain'} = '
-<span id="Top"></span><h1 class="node-heading">Top</h1>
+<h1 class="node-heading" id="Top">Top</h1>
 
 <span id="index-_002d_002dk1"></span>
 <span id="index-_002d_002dv"></span>

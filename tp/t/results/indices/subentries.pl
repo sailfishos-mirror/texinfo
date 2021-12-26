@@ -1347,7 +1347,7 @@ $result_converted{'html_text'}->{'subentries'} = '
 <p>
  &nbsp; [<a href="#chapter-index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Index"></span><h2 class="chapter">1 Index</h2>
+<h2 class="chapter" id="Index">1 Index</h2>
 
 <span id="index-a_002d_002d_002da"></span>
 <span id="index-b_002d_002d_002db"></span>

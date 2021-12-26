@@ -240,7 +240,7 @@ ul.no-bullet {list-style: none}
 
 <body lang="en">
 <div class="subsection" id="one-node">
-<span id="The-subsection"></span><h4 class="subsection">1 The subsection</h4>
+<h4 class="subsection" id="The-subsection">1 The subsection</h4>
 <hr></div>
 
 

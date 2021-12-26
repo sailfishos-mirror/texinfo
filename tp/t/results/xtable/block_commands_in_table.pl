@@ -1736,7 +1736,7 @@ _second item_
 
 
 $result_converted{'html_text'}->{'block_commands_in_table'} = '<div class="top" id="Top">
-<span id="Element"></span><h1 class="top">Element</h1>
+<h1 class="top" id="Element">Element</h1>
 
 <dl>
 <dt><em>first item</em></dt>

@@ -379,7 +379,7 @@ $result_converted{'plaintext'}->{'index_entry_in_preformatted'} = '     text
 ';
 
 
-$result_converted{'html_text'}->{'index_entry_in_preformatted'} = '<span id="Top"></span><h1 class="node-heading">Top</h1>
+$result_converted{'html_text'}->{'index_entry_in_preformatted'} = '<h1 class="node-heading" id="Top">Top</h1>
 
 <div class="example">
 <pre class="example"><span id="index-first"></span>text

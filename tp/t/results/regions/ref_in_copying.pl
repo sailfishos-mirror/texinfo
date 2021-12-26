@@ -714,7 +714,7 @@ ul.no-bullet {list-style: none}
 <p>
 Next: <a href="#GFDL" accesskey="n" rel="next">GFDL</a> &nbsp; </p>
 </div>
-<span id="top"></span><h1 class="top">top</h1>
+<h1 class="top" id="top">top</h1>
 
 <p><a href="#GFDL">GFDL</a>
 </p>
@@ -728,7 +728,7 @@ Next: <a href="#GFDL" accesskey="n" rel="next">GFDL</a> &nbsp; </p>
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>
-<span id="GFDL-1"></span><h2 class="chapter">1 GFDL</h2>
+<h2 class="chapter" id="GFDL-1">1 GFDL</h2>
 
 </div>
 </div>

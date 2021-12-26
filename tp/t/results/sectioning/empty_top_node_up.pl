@@ -476,7 +476,7 @@ ul.no-bullet {list-style: none}
 <p>
 Next: <a href="#first" accesskey="n" rel="next">first</a> &nbsp; </p>
 </div>
-<span id="empty-top-node-up"></span><h1 class="top">empty top node up</h1>
+<h1 class="top" id="empty-top-node-up">empty top node up</h1>
 
 
 <hr>

@@ -306,7 +306,7 @@ ul.no-bullet {list-style: none}
 <body lang="en">
 <div class="top" id="top">
 <h1 class="top">top</h1>
-<span id="index-node"></span><h4 class="node-heading">index node</h4>
+<h4 class="node-heading" id="index-node">index node</h4>
 
 <span id="index-node-1"></span>
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#index-node_cp_letter-N"><b>N</b></a>

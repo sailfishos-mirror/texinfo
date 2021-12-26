@@ -228,7 +228,7 @@ $result_converted{'plaintext'}->{'footnote_no_number_separate'} = 'Para(*) (*not
 ';
 
 
-$result_converted{'html_text'}->{'footnote_no_number_separate'} = '<span id="Top"></span><h1 class="node-heading">Top</h1>
+$result_converted{'html_text'}->{'footnote_no_number_separate'} = '<h1 class="node-heading" id="Top">Top</h1>
 
 <p>Para<a id="DOCF1" href="#FOOT1"><sup>*</sup></a>.
 </p>

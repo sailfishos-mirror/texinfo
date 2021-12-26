@@ -465,7 +465,7 @@ $result_converted{'plaintext'}->{'double_syncodeindex'} = '* Menu:
 
 
 $result_converted{'html_text'}->{'double_syncodeindex'} = '
-<span id="Top"></span><h1 class="node-heading">Top</h1>
+<h1 class="node-heading" id="Top">Top</h1>
 
 <span id="index-cindex-entry"></span>
 <span id="index-findex-entry"></span>

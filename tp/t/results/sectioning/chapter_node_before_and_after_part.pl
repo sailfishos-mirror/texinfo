@@ -680,7 +680,7 @@ ul.no-bullet {list-style: none}
 <p>
 Next: <a href="#after" accesskey="n" rel="next">chapter 2</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<span id="chapter"></span><h2 class="chapter">1 chapter</h2>
+<h2 class="chapter" id="chapter">1 chapter</h2>
 
 
 <hr>
@@ -697,7 +697,7 @@ Previous: <a href="#Top" accesskey="p" rel="prev">chapter</a>, Up: <a href="#Top
 <li><a href="#after" accesskey="1">chapter 2</a></li>
 </ul>
 <div class="chapter" id="after">
-<span id="chapter-2"></span><h2 class="chapter">2 chapter 2</h2>
+<h2 class="chapter" id="chapter-2">2 chapter 2</h2>
 
 <div class="Contents_element" id="SEC_Contents">
 <h2 class="contents-heading">Table of Contents</h2>

@@ -779,7 +779,7 @@ $result_converted{'html_text'}->{'syncode_index_print_both'} = '
 <p>
  &nbsp; [<a href="#chapter-index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="top"></span><h1 class="top">top</h1>
+<h1 class="top" id="top">top</h1>
 
 <ul class="section-toc">
 <li><a href="#chapter-index" accesskey="1">index</a></li>
@@ -790,7 +790,7 @@ $result_converted{'html_text'}->{'syncode_index_print_both'} = '
 <p>
  &nbsp; [<a href="#chapter-index" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="index"></span><h2 class="chapter">1 index</h2>
+<h2 class="chapter" id="index">1 index</h2>
 
 <span id="index-c_002d_002d_002doncept"></span>
 <span id="index-f_002d_002d_002dun"></span>

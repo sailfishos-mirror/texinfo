@@ -912,7 +912,7 @@ ul.no-bullet {list-style: none}
 <p>
 Next: <a href="#node-chapter" accesskey="n" rel="next">chapter after 2 parts</a> &nbsp; </p>
 </div>
-<span id="top"></span><h1 class="top">top</h1>
+<h1 class="top" id="top">top</h1>
 
 
 </div>
@@ -936,7 +936,7 @@ Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" ac
 <li><a href="#node-chapter" accesskey="1">chapter after 2 parts</a></li>
 </ul>
 <div class="chapter" id="node-chapter">
-<span id="chapter-after-2-parts"></span><h2 class="chapter">1 chapter after 2 parts</h2>
+<h2 class="chapter" id="chapter-after-2-parts">1 chapter after 2 parts</h2>
 
 </div>
 </div>

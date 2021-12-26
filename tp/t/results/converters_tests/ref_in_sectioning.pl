@@ -2546,7 +2546,7 @@ $result_converted{'html_text'}->{'ref_in_sectioning'} = '
 <p>
  &nbsp; </p>
 </div>
-<span id="for-example-node-_0028node_0029-_0028Top_0029"></span><h1 class="top">for example <a href="#node">See <a data-manual="file name" href="file name.html#node">title</a> in <cite>Manual</cite>.</a> (see <a href="#node">See <a data-manual="file name" href="file name.html#node">title</a> in <cite>Manual</cite>.</a>) (see <cite><a data-manual="file" href="file.html#Top">Manual</a></cite>)</h1>
+<h1 class="top" id="for-example-node-_0028node_0029-_0028Top_0029">for example <a href="#node">See <a data-manual="file name" href="file name.html#node">title</a> in <cite>Manual</cite>.</a> (see <a href="#node">See <a data-manual="file name" href="file name.html#node">title</a> in <cite>Manual</cite>.</a>) (see <cite><a data-manual="file" href="file.html#Top">Manual</a></cite>)</h1>
 
 
 <div class="Contents_element">
@@ -2580,7 +2580,7 @@ $result_converted{'html_text'}->{'ref_in_sectioning'} = '
 <p>
  &nbsp; </p>
 </div>
-<span id="node_002e"></span><h2 class="chapter">1 See <a data-manual="file name" href="file name.html#node">title</a> in <cite>Manual</cite>.</h2>
+<h2 class="chapter" id="node_002e">1 See <a data-manual="file name" href="file name.html#node">title</a> in <cite>Manual</cite>.</h2>
 
 <hr>
 </div>
@@ -2589,7 +2589,7 @@ $result_converted{'html_text'}->{'ref_in_sectioning'} = '
 <p>
  &nbsp; </p>
 </div>
-<span id="node-just-node"></span><h2 class="chapter">2 <a href="#node">See <a data-manual="file name" href="file name.html#node">title</a> in <cite>Manual</cite>.</a> just node</h2>
+<h2 class="chapter" id="node-just-node">2 <a href="#node">See <a data-manual="file name" href="file name.html#node">title</a> in <cite>Manual</cite>.</a> just node</h2>
 
 <ul class="section-toc">
 <li><a href="#node-node_002c-crossref-arg2" accesskey="1"><a href="#node">cross ref name</a>  node, crossref arg2</a></li>

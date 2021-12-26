@@ -783,7 +783,7 @@ ul.no-bullet {list-style: none}
 <p>
 Next: <a href="#first" accesskey="n" rel="next">first</a>, Previous: <a href="dir.html#Top" accesskey="p" rel="prev">(dir)</a>, Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a> &nbsp; </p>
 </div>
-<span id="internal-top-node-up"></span><h1 class="top">internal top node up</h1>
+<h1 class="top" id="internal-top-node-up">internal top node up</h1>
 
 
 <hr>
