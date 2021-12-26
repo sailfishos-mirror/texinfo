@@ -38,6 +38,9 @@ texinfo_set_from_init_file('USE_NODES', undef);
 
 texinfo_set_from_init_file('BIG_RULE', '<hr>');
 
+#texinfo_set_from_init_file('DOCTYPE',
+# '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">');
+
 my ($book_previous_default_filename, $book_previous_file_name,
     $book_unumbered_nr);
 
@@ -161,27 +164,32 @@ sub book_convert_heading_command($$$$$)
     $result .= $content if (defined($content));
     return $result;
   }
-  my $section = $element->{'extra'}->{'associated_section'};
-  my $node;
-  if ($section) {
-      my $level = $section->{'level'};
-      $result .= join('', $self->close_registered_sections_level($level));
-      $self->register_opened_section_level($level, "</div>\n");
-  } else {
-      $node = $element->{'extra'}->{'associated_node'};
-  }
-  $result .= '<div';
-  if ($section) {
-      $result .= ' class="'.$section->{'cmdname'}.'"';
-  } elsif ($node) {
-      $result .= ' class="node"';
-  } else {
-      $result .= " class=\"$cmdname\"";
-  }
+
   my $element_id = $self->command_id($element);
-  $result .= " id=\"$element_id\""
-      if (defined($element_id) and $element_id ne '');
-  $result .= ">\n";
+  my $section;
+  if ($cmdname eq 'node' and $element->{'extra'}->{'associated_section'}) {
+    $section = $element->{'extra'}->{'associated_section'};
+  } elsif ($cmdname ne 'node'
+           and not $element->{'extra'}->{'associated_node'}
+           # to avoid *heading* @-commands
+           and $Texinfo::Common::root_commands{$cmdname}) {
+    $section = $element;
+  }
+
+  if ($section) {
+    my $level = $section->{'level'};
+    $result .= join('', $self->close_registered_sections_level($level));
+    $self->register_opened_section_level($level, "</div>\n");
+
+    $result .= $self->html_attribute_class('div', $section->{'cmdname'});
+
+    $result .= " id=\"$element_id\""
+        if (defined($element_id) and $element_id ne '');
+    $result .= ">\n";
+  } else {
+    $result .= "<span id=\"$element_id\"></span>"
+        if (defined($element_id) and $element_id ne '');
+  }
 
   print STDERR "Process $element "
         .Texinfo::Convert::Texinfo::root_element_command_to_texinfo($element)."\n"
@@ -214,11 +222,16 @@ sub book_convert_heading_command($$$$$)
         $heading_level = 3;
       }
     }
-  } else {
+  } elsif (defined $element->{'level'}) {
     $heading_level = $element->{'level'};
     # if the level was changed, set the command name right
     $cmdname_for_heading
       = Texinfo::Structuring::section_level_adjusted_command_name($element);
+  } else {
+    # for *heading* @-commands which do not have a level
+    # in the document as they are not associated with the
+    # sectioning tree, but still have a $heading_level
+    $heading_level = Texinfo::Structuring::section_level($element);
   }
 
   my $heading = $self->command_text($element);
@@ -240,7 +253,9 @@ sub book_convert_heading_command($$$$$)
       $result .= '<strong>'.$heading.'</strong>'."\n";
     } else {
       $result .= &{$self->{'format_heading_text'}}($self, $cmdname_for_heading,
-                                           $heading, $heading_level, $element);
+              $heading, $heading_level +$self->get_conf('CHAPTER_HEADER_LEVEL') -1,
+                                                  $element);
+
     }
   }
   if ($element->{'section_childs'} and @{$element->{'section_childs'}}
@@ -251,7 +266,6 @@ sub book_convert_heading_command($$$$$)
     $result .= "</ul>\n";
   }
   $result .= $content if (defined($content));
-  $result .= '</div>' if (! $section);
   return $result;
 }
 

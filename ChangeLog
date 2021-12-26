@@ -1,5 +1,10 @@
 2021-12-26  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/init/book.pm (book_convert_heading_command): synchronize with
+	HTML.pm _convert_heading_command().
+
+2021-12-26  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Config.pm (texinfo_register_command_opening)
 	(GNUT_get_commands_open), tp/Texinfo/Convert/HTML.pm
 	(%default_commands_open, default_commands_open, converter_initialize)
