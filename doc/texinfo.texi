@@ -1107,22 +1107,6 @@ distribution until version 3.8, and originally wrote the standalone
 continued maintenance from Texinfo 3.8 (manual edition 2.22), and Gavin
 Smith has continued maintenance since Texinfo 6.0.
 
-@cindex Pinard, Fran@,{c}ois
-@cindex Schwab, Andreas
-@cindex Weinberg, Zack
-@cindex Weisshaus, Melissa
-@cindex Zaretskii, Eli
-@cindex Zuhn, David D.
-Our thanks go out to all who helped improve this work, particularly
-the indefatigable Eli Zaretskii and Andreas Schwab, who have provided
-patches beyond counting.  Fran@,{c}ois Pinard and David@tie{}D. Zuhn,
-tirelessly recorded and reported mistakes and obscurities.  Zack
-Weinberg did the impossible by implementing the macro syntax in
-@file{texinfo.tex}.  Thanks to Melissa Weisshaus for her frequent
-reviews of nearly similar editions.  Dozens of others have contributed
-patches and suggestions, they are gratefully acknowledged in the
-@file{ChangeLog} file.  Our mistakes are our own.
-
 @cindex History of Texinfo
 @cindex Texinfo history
 @subheading Beginnings

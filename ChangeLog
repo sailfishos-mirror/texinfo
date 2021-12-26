@@ -1,5 +1,29 @@
 2021-12-24  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	History node revision
+
+	* doc/texinfo.texi (History):
+	Remove acknowledgement text.  This text appeared
+	in Texinfo 2.16 (a beta test) released 9 October 1992.
+	Likely written by Robert Chassell.  Copied here for posterity:
+
+	  Our thanks go out to all who helped improve this work,
+	  particularly to @w{Francois Pinard} and
+	  @w{David D.@: Zuhn}, who tirelessly recorded and reported
+	  mistakes and obscurities; our special thanks go to
+	  @w{Melissa Weisshaus} for her frequent and often tedious reviews
+	  of nearly similar editions.  Our mistakes are our own.
+
+	Later, by Texinfo 4.0 (September 1999), this was changed to add:
+	
+	  The indefatigable Eli Zaretskii and Andreas Schwab have
+	  provided patches beyond counting.  Zack Weinberg did the
+	  impossible by implementing the macro syntax in @file{texinfo.tex}.
+	
+	Karl Berry likely wrote this latter text.
+
+2021-12-24  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/XS/parsetexi/Parsetexi.pm (parser):
 	Remove code and comments contemplating the possibility of
 	an array or hash setting for a @set flag, as gdt does
