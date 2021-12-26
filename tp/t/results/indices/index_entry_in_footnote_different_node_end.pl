@@ -662,7 +662,7 @@ $result_converted{'plaintext'}->{'index_entry_in_footnote_different_node_end'} =
 ';
 
 
-$result_converted{'html_text'}->{'index_entry_in_footnote_different_node_end'} = '<span id="Top"></span><div class="header">
+$result_converted{'html_text'}->{'index_entry_in_footnote_different_node_end'} = '<a class="node-anchor" id="Top"></a><div class="header">
 <p>
  &nbsp; [<a href="#First" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -672,7 +672,7 @@ $result_converted{'html_text'}->{'index_entry_in_footnote_different_node_end'} =
 <p>Top node<a id="DOCF1" href="#FOOT1"><sup>1</sup></a>
 </p>
 <hr>
-<span id="First"></span><div class="header">
+<a class="node-anchor" id="First"></a><div class="header">
 <p>
  &nbsp; [<a href="#First" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -704,13 +704,13 @@ $result_converted{'html_text'}->{'index_entry_in_footnote_different_node_end'} =
 
 <h5><a id="FOOT1" href="#DOCF1">(1)</a></h5>
 <p>in footnote
-<span id="index-index-entry-in-footnote"></span>
+<a class="index-entry-anchor" id="index-index-entry-in-footnote"></a>
 </p>
 <p>Blah
 </p>
 <p>Blih
 </p>
-<span id="index-counting-entry"></span>
+<a class="index-entry-anchor" id="index-counting-entry"></a>
 </div>
 ';
 

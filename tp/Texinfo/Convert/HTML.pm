@@ -1986,7 +1986,7 @@ sub _convert_anchor_command($$$$)
   my $id = $self->command_id($command);
   if (defined($id) and $id ne '' and !@{$self->{'multiple_pass'}}
       and !$self->in_string()) {
-    return "<span id=\"$id\"></span>";
+    return &{$self->{'format_separate_anchor'}}($self, $id, 'anchor');
   }
   return '';
 }
@@ -2348,6 +2348,17 @@ sub _default_format_heading_text($$$$$;$)
   return $result;
 }
 
+sub _default_format_separate_anchor($$;$)
+{
+  my $self = shift;
+  my $id = shift;
+  my $class = shift;
+
+  # html_attribute_class would not work with span, so if span is
+  # used, html_attribute_class should not be used
+  return $self->html_attribute_class('a', $class)." id=\"$id\"></a>";
+}
+
 # Associated to a button.  Return text to use for a link in button bar.
 # Depending on USE_NODE_DIRECTIONS and xrefautomaticsectiontitle
 # use section or node for link direction and string.
@@ -2420,17 +2431,16 @@ sub _default_panel_button_dynamic_direction_section_footer($$) {
   return _default_panel_button_dynamic_direction($self, $direction, undef, 1);
 }
 
-# how to create IMG tag
-# this is only used in html, and only if ICONS is set and the button
-# is active.
+# Only used if ICONS is set and the button is active.
 sub _default_format_button_icon_img($$$;$)
 {
   my $self = shift;
   my $button = shift;
   my $icon = shift;
   my $name = shift;
+
   return '' if (!defined($icon));
-  $button = "" if (!defined ($button));
+  $button = '' if (!defined ($button));
   $name = '' if (!defined($name));
   my $alt = '';
   if ($name ne '') {
@@ -2859,8 +2869,10 @@ sub _convert_heading_command($$$$$)
     $result .= ">\n";
   } elsif (defined($element_id) and $element_id ne '') {
     if ($element_header ne '') {
-      # use a lone anchor element to have it before the header
-      $result .= "<span id=\"$element_id\"></span>";
+      # case of a @node without sectioning command and with a header.
+      # put the anchor element before the header
+      $result .= &{$self->{'format_separate_anchor'}}($self, $element_id,
+                                                     "${cmdname}-anchor");
     } else {
       $heading_id = $element_id;
     }
@@ -2922,8 +2934,9 @@ sub _convert_heading_command($$$$$)
                                               $element, $heading_id);
     }
   } elsif (defined($heading_id)) {
-    # case of a lone node and no header
-    $result .= "<span id=\"$heading_id\"></span>";
+    # case of a lone node and no header, and case of an empty @top
+    $result .= &{$self->{'format_separate_anchor'}}($self, $heading_id,
+                                                 "${cmdname}-anchor");
   }
   $result .= $content if (defined($content));
 
@@ -3432,11 +3445,9 @@ sub _convert_float_command($$$$$)
   }
 
   my $id = $self->command_id($command);
-  my $label;
+  my $id_str = '';;
   if (defined($id) and $id ne '') {
-    $label = "<span id=\"$id\"></span>";
-  } else {
-    $label = '';
+    $id_str = " id=\"$id\"";
   }
 
   if ($prepended) {
@@ -3486,7 +3497,7 @@ sub _convert_float_command($$$$$)
         . $prepended_text;
     $caption_text .= '</div>';
   }
-  return $self->html_attribute_class('div','float'). '>' .$label."\n".$content.
+  return $self->html_attribute_class('div','float'). "${id_str}>\n".$content.
      $prepended_text.$caption_text . '</div>';
 }
 $default_commands_conversion{'float'} = \&_convert_float_command;
@@ -3987,6 +3998,9 @@ foreach my $command(keys(%ref_commands)) {
   $default_commands_conversion{$command} = \&_convert_xref_commands;
 }
 
+# note that $cmdname is always cindex, in particular to make
+# customization possible, the actual @-command could be any index entry
+# @-command.
 sub _convert_index_command($$$$)
 {
   my $self = shift;
@@ -3998,7 +4012,8 @@ sub _convert_index_command($$$$)
   if (defined($index_id) and $index_id ne '' 
       and !@{$self->{'multiple_pass'}} 
       and !$self->in_string()) {
-    my $result = "<span id=\"$index_id\"></span>";
+    my $result = &{$self->{'format_separate_anchor'}}($self, $index_id,
+                                                      'index-entry-anchor');
     $result .= "\n" unless ($self->in_preformatted());
     return $result;
   }
@@ -5383,6 +5398,7 @@ our %default_formatting_references = (
      'format_element_footer' => \&_default_format_element_footer,
      'format_button' => \&_default_format_button, 
      'format_button_icon_img' => \&_default_format_button_icon_img, 
+     'format_separate_anchor' => \&_default_format_separate_anchor,
      'format_contents' => \&_default_format_contents,
      'format_frame_files' => \&_default_format_frame_files,
 );

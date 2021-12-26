@@ -922,7 +922,7 @@ $result_converted_errors{'plaintext'}->{'empty_string_index_entry'} = [
 
 $result_converted{'html_text'}->{'empty_string_index_entry'} = '<h1 class="node-heading" id="Top">Top</h1>
 
-<span id="index-"></span>
+<a class="index-entry-anchor" id="index-"></a>
 
 <dl>
 <dt id=\'index--1\'><span><code><!-- /@w --></code><a href=\'#index--1\' class=\'copiable-anchor\'> &para;</a></span></dt>

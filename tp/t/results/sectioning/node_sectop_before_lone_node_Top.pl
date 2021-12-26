@@ -548,7 +548,7 @@ Next: <a href="#chap" accesskey="n" rel="next">chap</a>, Previous: <a href="#Top
 <li><a href="#chap" accesskey="1">chap</a></li>
 </ul>
 <hr>
-<span id="Top"></span><div class="header">
+<a class="node-anchor" id="Top"></a><div class="header">
 <p>
 Next: <a href="#node-before" accesskey="n" rel="next">top sectionning</a> &nbsp; </p>
 </div>

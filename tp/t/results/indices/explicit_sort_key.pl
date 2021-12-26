@@ -1008,12 +1008,12 @@ $result_converted{'plaintext'}->{'explicit_sort_key'} = 'in a reuglar para.  \'i
 
 
 $result_converted{'html_text'}->{'explicit_sort_key'} = '<div class="top" id="Top">
-<span id="SEC_Top"></span>
+<a class="top-anchor" id="SEC_Top"></a>
 
-<span id="index-bbbbbbb-_0028first_0029"></span>
-<span id="index-aaaaaaa-_0028second_0029"></span>
-<span id="index-zero-sort-key"></span>
-<span id="index-aaa"></span>
+<a class="index-entry-anchor" id="index-bbbbbbb-_0028first_0029"></a>
+<a class="index-entry-anchor" id="index-aaaaaaa-_0028second_0029"></a>
+<a class="index-entry-anchor" id="index-zero-sort-key"></a>
+<a class="index-entry-anchor" id="index-aaa"></a>
 
 <p>in a reuglar para. <code>inside another</code>.
 </p>

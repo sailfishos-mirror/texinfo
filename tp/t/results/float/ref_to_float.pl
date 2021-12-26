@@ -474,11 +474,11 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<div class="float"><span id="Label1"></span>
+<div class="float" id="Label1">
 <p>Float
 </p><div class="float-caption"><p><strong>Text 1
 </strong></p></div></div>
-<div class="float"><span id="Label2"></span>
+<div class="float" id="Label2">
 <p>In foat 2.
 </p><div class="float-caption"><p><strong>1
 </strong></p></div></div>

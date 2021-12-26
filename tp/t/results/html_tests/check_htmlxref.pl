@@ -873,7 +873,7 @@ Next: <a href="no_existing_no_manual_direction.html#Top" accesskey="n" rel="next
 </p>
 
 <hr>
-<span id="first"></span><div class="header">
+<a class="node-anchor" id="first"></a><div class="header">
 <p>
 Next: <a href="no_existing_no_manual.html#Top" accesskey="n" rel="next">(no_existing_no_manual.info)</a> &nbsp; </p>
 </div>

@@ -713,13 +713,13 @@ Next: <a href="#g_t_0028manual_0029-name" accesskey="n" rel="next">(manual) name
 
 
 <hr>
-<span id="g_t_0028manual_0029-name"></span><div class="header">
+<a class="node-anchor" id="g_t_0028manual_0029-name"></a><div class="header">
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>
 <h4 class="node-heading">(manual) name</h4>
 
-<span id="g_t_0028manual2_0029-name2"></span>
+<a class="anchor" id="g_t_0028manual2_0029-name2"></a>
 <p><a href="#g_t_0028manual2_0029-name2">(manual2) name2</a>.
 </p></div>
 

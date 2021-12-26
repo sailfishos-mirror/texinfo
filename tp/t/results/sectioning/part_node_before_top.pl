@@ -672,7 +672,7 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<span id="part-node-before-top"></span><div class="header">
+<a class="node-anchor" id="part-node-before-top"></a><div class="header">
 <p>
 Next: <a href="#Top" accesskey="n" rel="next">top</a>, Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>

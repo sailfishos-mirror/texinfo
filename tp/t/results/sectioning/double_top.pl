@@ -377,7 +377,7 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<span id="Top"></span><div class="header">
+<a class="node-anchor" id="Top"></a><div class="header">
 <p>
 Next: <a href="#Top" accesskey="n" rel="next">ToP</a> &nbsp; </p>
 </div>

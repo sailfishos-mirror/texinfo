@@ -78,7 +78,7 @@ $result_converted{'plaintext'}->{'space_in_anchor'} = '.
 ';
 
 
-$result_converted{'html_text'}->{'space_in_anchor'} = '<span id="anchor-name"></span><p>.
+$result_converted{'html_text'}->{'space_in_anchor'} = '<a class="anchor" id="anchor-name"></a><p>.
 </p>';
 
 1;

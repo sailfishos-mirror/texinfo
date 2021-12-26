@@ -467,8 +467,8 @@ $result_converted{'plaintext'}->{'double_syncodeindex'} = '* Menu:
 $result_converted{'html_text'}->{'double_syncodeindex'} = '
 <h1 class="node-heading" id="Top">Top</h1>
 
-<span id="index-cindex-entry"></span>
-<span id="index-findex-entry"></span>
+<a class="index-entry-anchor" id="index-cindex-entry"></a>
+<a class="index-entry-anchor" id="index-findex-entry"></a>
 
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#t_h_fn_letter-C"><b>C</b></a>
  &nbsp; 

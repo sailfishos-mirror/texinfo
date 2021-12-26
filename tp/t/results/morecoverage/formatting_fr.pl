@@ -4983,16 +4983,16 @@ Menu comment
 
 </pre></div>
 
-<span id="index-t_002d_002druc"></span>
-<span id="index-T_002d_002druc"></span>
-<span id="index-_002e"></span>
-<span id="index-_003f"></span>
-<span id="index-a"></span>
-<span id="index-t_002d_002druc-1"></span>
-<span id="index-T_002d_002druc-1"></span>
-<span id="index-_002e-1"></span>
-<span id="index-_003f-1"></span>
-<span id="index-a-1"></span>
+<a class="index-entry-anchor" id="index-t_002d_002druc"></a>
+<a class="index-entry-anchor" id="index-T_002d_002druc"></a>
+<a class="index-entry-anchor" id="index-_002e"></a>
+<a class="index-entry-anchor" id="index-_003f"></a>
+<a class="index-entry-anchor" id="index-a"></a>
+<a class="index-entry-anchor" id="index-t_002d_002druc-1"></a>
+<a class="index-entry-anchor" id="index-T_002d_002druc-1"></a>
+<a class="index-entry-anchor" id="index-_002e-1"></a>
+<a class="index-entry-anchor" id="index-_003f-1"></a>
+<a class="index-entry-anchor" id="index-a-1"></a>
 
 
 <p>cp
@@ -5174,7 +5174,7 @@ Menu comment
 </td></tr>
 </table>
 
-<span id="anchor"></span>
+<a class="anchor" id="anchor"></a>
 <hr>
 <div class="subsubsection" id="subsubsection-_0060_0060simple_002ddouble_002d_002d">
 <table class="header" cellpadding="1" cellspacing="1" border="0">

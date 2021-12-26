@@ -283,7 +283,7 @@ ul.no-bullet {list-style: none}
 <body lang="en">
 <h1 class="node-heading" id="Top">Top</h1>
 
-<span id="g_t0"></span><p>.
+<a class="anchor" id="g_t0"></a><p>.
 </p>
 <p>See <a href="#g_t0">0</a>.
 </p><hr>

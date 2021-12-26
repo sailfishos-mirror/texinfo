@@ -961,11 +961,11 @@ $result_converted{'html_text'}->{'printindex_index_entry_in_copying_in_footnote'
 
 <h5><a id="FOOT1" href="#DOCF1">(1)</a></h5>
 <p>In footnote
-<span id="index-copying-Copying-this-document"></span>
+<a class="index-entry-anchor" id="index-copying-Copying-this-document"></a>
 </p>
 <h5><a id="FOOT1_2" href="#DOCF1_2">(2)</a></h5>
 <p>In footnote
-<span id="index-copying-Copying-this-document"></span>
+<a class="index-entry-anchor" id="index-copying-Copying-this-document"></a>
 </p>
 </div>
 ';

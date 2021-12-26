@@ -480,7 +480,7 @@ Next: <a href="#first" accesskey="n" rel="next">first</a> &nbsp; </p>
 
 
 <hr>
-<span id="first"></span><div class="header">
+<a class="node-anchor" id="first"></a><div class="header">
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">empty top node up</a>, Up: <a href="#Top" accesskey="u" rel="up">empty top node up</a> &nbsp; </p>
 </div>

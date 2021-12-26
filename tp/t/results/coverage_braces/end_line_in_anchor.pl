@@ -75,6 +75,6 @@ $result_floats{'end_line_in_anchor'} = {};
 $result_converted{'plaintext'}->{'end_line_in_anchor'} = '';
 
 
-$result_converted{'html_text'}->{'end_line_in_anchor'} = '<span id="an-anchor"></span>';
+$result_converted{'html_text'}->{'end_line_in_anchor'} = '<a class="anchor" id="an-anchor"></a>';
 
 1;

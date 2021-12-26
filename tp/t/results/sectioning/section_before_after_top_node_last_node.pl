@@ -522,7 +522,7 @@ Next: <a href="#node-after" accesskey="n" rel="next">node after</a> &nbsp; </p>
 <p>in chapter
 </p>
 <hr>
-<span id="node-after"></span><div class="header">
+<a class="node-anchor" id="node-after"></a><div class="header">
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">top section</a> &nbsp; </p>
 </div>

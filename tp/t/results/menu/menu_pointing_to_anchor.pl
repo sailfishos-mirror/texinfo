@@ -470,7 +470,7 @@ ul.no-bullet {list-style: none}
 
 <p>Text
 </p>
-<span id="An-anchor"></span>
+<a class="anchor" id="An-anchor"></a>
 <table class="menu" border="0" cellspacing="0">
 <tr><td align="left" valign="top">&bull; <a href="#An-anchor" accesskey="1">An anchor</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">menu entry pointing to the anchor.
 </td></tr>

@@ -940,7 +940,7 @@ Next: <a href="#first" accesskey="n" rel="next">first</a>, Up: <a href="http://w
 
 
 <hr>
-<span id="first"></span><div class="header">
+<a class="node-anchor" id="first"></a><div class="header">
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">internal top node up</a> &nbsp; </p>
 </div>

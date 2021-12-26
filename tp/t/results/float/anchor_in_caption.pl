@@ -469,10 +469,10 @@ ul.no-bullet {list-style: none}
 <dt><a href="#label">fl 1</a></dt><dd><p>in caption</p></dd>
 </dl>
 
-<div class="float"><span id="label"></span>
+<div class="float" id="label">
 <p>In float.
 </p>
-<div class="float-caption"><p><strong>fl 1: </strong>in caption<span id="in-anchor"></span></p></div></div><hr>
+<div class="float-caption"><p><strong>fl 1: </strong>in caption<a class="anchor" id="in-anchor"></a></p></div></div><hr>
 
 
 </body>

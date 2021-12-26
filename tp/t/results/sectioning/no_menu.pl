@@ -650,7 +650,7 @@ ul.no-bullet {list-style: none}
 <p>
 Next: <a href="#c1" accesskey="n" rel="next">c1</a> &nbsp; </p>
 </div>
-<span id="SEC_Top"></span>
+<a class="top-anchor" id="SEC_Top"></a>
 <ul class="section-toc">
 <li><a href="#c1" accesskey="1">c1</a></li>
 <li><a href="#c2" accesskey="2">c2</a></li>

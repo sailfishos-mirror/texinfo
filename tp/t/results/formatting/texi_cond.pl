@@ -503,7 +503,7 @@ ul.no-bullet {list-style: none}
 
 <body lang="en">
 
-<span id="Top"></span>
+<a class="node-anchor" id="Top"></a>
 This is html text.
 
 <p>This is ifhtml text.

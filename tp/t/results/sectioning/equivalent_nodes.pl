@@ -573,7 +573,7 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<span id="Top"></span><div class="header">
+<a class="node-anchor" id="Top"></a><div class="header">
 <p>
 Next: <a href="#node" accesskey="n" rel="next">&lsquo;<samp>node</samp>&rsquo;</a> &nbsp; </p>
 </div>
@@ -581,7 +581,7 @@ Next: <a href="#node" accesskey="n" rel="next">&lsquo;<samp>node</samp>&rsquo;</
 
 
 <hr>
-<span id="node"></span><div class="header">
+<a class="node-anchor" id="node"></a><div class="header">
 <p>
 Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>

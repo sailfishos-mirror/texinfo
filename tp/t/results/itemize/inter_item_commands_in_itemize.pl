@@ -1049,20 +1049,20 @@ $result_converted{'html_text'}->{'inter_item_commands_in_itemize'} = '
 <h2 class="chapter" id="chap">1 chap</h2>
 
 <ul class="no-bullet">
-<li><span id="index-also-a-cindex-in-itemize"></span>
+<li><a class="index-entry-anchor" id="index-also-a-cindex-in-itemize"></a>
 </li><li>- e&ndash;mph item
 </li></ul>
 
 <ul>
-<li><span id="index-index-entry-within-itemize"></span>
+<li><a class="index-entry-anchor" id="index-index-entry-within-itemize"></a>
 </li><li> i&ndash;tem 1
-</li><li> <span id="index-index-entry-right-after-_0040item"></span>
+</li><li> <a class="index-entry-anchor" id="index-index-entry-right-after-_0040item"></a>
 i&ndash;tem 2
 </li></ul>
 
 <ul>
 <li>T&ndash;ext before items.
-<span id="index-also-a-cindex-in-itemize-1"></span>
+<a class="index-entry-anchor" id="index-also-a-cindex-in-itemize-1"></a>
 </li><li> bullet item
 </li></ul>
 </div>

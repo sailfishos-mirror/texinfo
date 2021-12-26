@@ -4971,12 +4971,12 @@ A footnote 2.
 
 <p>After the listoffloats.
 </p>
-<div class="float"><span id="text-with-a-lot-of-features"></span>
+<div class="float" id="text-with-a-lot-of-features">
 <p>An example of float <small class="enddots">...</small>
 </p>
 
 <p>An index entry
-<span id="index-float-example"></span>
+<a class="index-entry-anchor" id="index-float-example"></a>
 </p>
 <p>A table.
 </p><dl>
@@ -5008,7 +5008,7 @@ An example.
 <pre class="example">example
 </pre></div>
 
-<span id="Anchor-in-caption"></span>
+<a class="anchor" id="Anchor-in-caption"></a>
 <p>A table.
 </p><dl>
 <dt><em>truc</em></dt>
@@ -5023,7 +5023,7 @@ An example.
 </tbody>
 </table>
 <p>An index entry
-<span id="index-float-example-in-caption"></span>
+<a class="index-entry-anchor" id="index-float-example-in-caption"></a>
 </p>
 <p>An itemize.
 </p><ul class="no-bullet">
@@ -5049,7 +5049,7 @@ Previous: <a href="#Top" accesskey="p" rel="prev">Test floats</a>, Up: <a href="
 </div>
 <h2 class="chapter" id="A-chapter">1 A chapter</h2>
 
-<div class="float"><span id="float-with-a-lot-of-features-and-no-shortcaption"></span>
+<div class="float" id="float-with-a-lot-of-features-and-no-shortcaption">
 
 <p>Float text of a float with a lot of features.
 </p>
@@ -5075,7 +5075,7 @@ An example 2.
 </tbody>
 </table>
 <p>An index entry 2
-<span id="index-float-example-in-caption-2"></span>
+<a class="index-entry-anchor" id="index-float-example-in-caption-2"></a>
 </p>
 <p>An itemize 2.
 </p><ul class="no-bullet">
@@ -5083,7 +5083,7 @@ An example 2.
 line
 </li></ul>
 
-<span id="Anchor-in-caption-2"></span>
+<a class="anchor" id="Anchor-in-caption-2"></a>
 <p>A ref 2.
 See <a href="#Top">xref Text with features caption</a>.
 A footnote 2.

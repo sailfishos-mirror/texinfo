@@ -439,7 +439,7 @@ ul.no-bullet {list-style: none}
 <body lang="en">
 <h1 class="node-heading" id="Top">Top</h1>
 
-<div class="float"><span id="label--"></span>
+<div class="float" id="label--">
 <p>Float
 </p><div class="float-caption"><p><strong>Text &nbsp; 1
 </strong></p></div></div>

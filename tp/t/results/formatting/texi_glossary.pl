@@ -1662,7 +1662,7 @@ ul.no-bullet {list-style: none}
 </tr></table>
 <h1 class="chapter" id="glossary-1">1 glossary</h1>
 
-<p>name2 <span id="id2"></span>text2
+<p>name2 <a class="anchor" id="id2"></a>text2
 </p>
 
 </div>

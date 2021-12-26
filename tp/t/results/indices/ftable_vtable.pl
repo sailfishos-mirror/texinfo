@@ -956,7 +956,7 @@ $result_converted{'html_text'}->{'ftable_vtable'} = '
 <dt id=\'index-var3\'><span><em>var3</em><a href=\'#index-var3\' class=\'copiable-anchor\'> &para;</a></span></dt>
 </dl>
 
-<span id="index-function1-1"></span>
+<a class="index-entry-anchor" id="index-function1-1"></a>
 
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#t_h_fn_letter-F"><b>F</b></a>
  &nbsp; 

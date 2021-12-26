@@ -714,9 +714,9 @@ ul.no-bullet {list-style: none}
 <body lang="en">
 <h1 class="node-heading" id="Top">Top</h1>
 
-<span id="anch"></span><p>.
+<a class="anchor" id="anch"></a><p>.
 </p>
-<div class="float"><span id="floa"></span>
+<div class="float" id="floa">
 <p>In float
 </p><div class="float-caption"><p><strong>truc 1
 </strong></p></div></div>

@@ -385,8 +385,8 @@ $result_converted{'plaintext'}->{'default_cp_index_and_one_letter_syncodeindex'}
 $result_converted{'html_text'}->{'default_cp_index_and_one_letter_syncodeindex'} = '<h1 class="node-heading" id="Top">Top</h1>
 
 
-<span id="index-_002d_002dcindex"></span>
-<span id="index-_002d_002dcpindex"></span>
+<a class="index-entry-anchor" id="index-_002d_002dcindex"></a>
+<a class="index-entry-anchor" id="index-_002d_002dcpindex"></a>
 
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#t_h_fn_symbol-1"><b>-</b></a>
 </td></tr></table>

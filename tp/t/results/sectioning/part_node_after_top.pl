@@ -662,7 +662,7 @@ Next: <a href="#part-node-after-top" accesskey="n" rel="next">part node after to
 
 
 <hr>
-<span id="part-node-after-top"></span><div class="header">
+<a class="node-anchor" id="part-node-after-top"></a><div class="header">
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" accesskey="u" rel="up">top</a> &nbsp; </p>
 </div>

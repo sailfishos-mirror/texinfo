@@ -534,10 +534,10 @@ ul.no-bullet {list-style: none}
 
 <h5><a id="FOOT1" href="#DOCF1">(1)</a></h5>
 <p>In footnote.
-<span id="Copying-footnote"></span></p>
+<a class="anchor" id="Copying-footnote"></a></p>
 <h5><a id="FOOT1_2" href="#DOCF1_2">(2)</a></h5>
 <p>In footnote.
-<span id="Copying-footnote"></span></p>
+<a class="anchor" id="Copying-footnote"></a></p>
 </div>
 <hr>
 

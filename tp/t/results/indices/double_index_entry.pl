@@ -666,27 +666,27 @@ $result_converted{'plaintext'}->{'double_index_entry'} = 'Text
 ';
 
 
-$result_converted{'html_text'}->{'double_index_entry'} = '<span id="Top"></span><div class="header">
+$result_converted{'html_text'}->{'double_index_entry'} = '<a class="node-anchor" id="Top"></a><div class="header">
 <p>
  &nbsp; [<a href="#other-node" title="Index" rel="index">Index</a>]</p>
 </div>
 <h1 class="node-heading">Top</h1>
 
-<span id="index-aaa"></span>
+<a class="index-entry-anchor" id="index-aaa"></a>
 
 <p>Text
 </p>
-<span id="index-aaa-1"></span>
+<a class="index-entry-anchor" id="index-aaa-1"></a>
 
 
 <hr>
-<span id="other-node"></span><div class="header">
+<a class="node-anchor" id="other-node"></a><div class="header">
 <p>
  &nbsp; [<a href="#other-node" title="Index" rel="index">Index</a>]</p>
 </div>
 <h4 class="node-heading">other node</h4>
 
-<span id="index-aaa-2"></span>
+<a class="index-entry-anchor" id="index-aaa-2"></a>
 
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#t_h_cp_letter-A"><b>A</b></a>
  &nbsp; 

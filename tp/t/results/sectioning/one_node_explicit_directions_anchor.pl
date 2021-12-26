@@ -372,7 +372,7 @@ ul.no-bullet {list-style: none}
 <h4 class="node-heading" id="one-node">one node</h4>
 <p>Top node
 </p>
-<p>anchor ref <span id="ref"></span>.
+<p>anchor ref <a class="anchor" id="ref"></a>.
 </p>
 <p>ref to ref <a href="#ref">ref</a>.
 </p><hr>

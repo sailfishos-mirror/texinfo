@@ -740,7 +740,7 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<span id="Top"></span><div class="header">
+<a class="node-anchor" id="Top"></a><div class="header">
 <p>
  &nbsp; </p>
 </div>
@@ -748,7 +748,7 @@ ul.no-bullet {list-style: none}
 <p>Top node
 </p>
 <hr>
-<span id="second-node"></span><div class="header">
+<a class="node-anchor" id="second-node"></a><div class="header">
 <p>
  &nbsp; </p>
 </div>

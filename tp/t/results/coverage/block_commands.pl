@@ -465,7 +465,7 @@ $result_converted{'html_text'}->{'block_commands'} = '
 <p><b>warning:</b> in quotation
 </p></blockquote>
 
-<div class="float"><span id="b-float"></span>
+<div class="float" id="b-float">
 <p>In float
 </p>
 

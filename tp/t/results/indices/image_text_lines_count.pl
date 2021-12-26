@@ -303,7 +303,7 @@ $result_converted{'html_text'}->{'image_text_lines_count'} = '<h1 class="node-he
 
 <img src="count_image_text.jpg" alt="count_image_text">
 
-<span id="index-index-entry"></span>
+<a class="index-entry-anchor" id="index-index-entry"></a>
 
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#t_h_cp_letter-I"><b>I</b></a>
  &nbsp; 

@@ -1054,7 +1054,7 @@ $result_converted{'plaintext'}->{'spaces_in_node_names'} = '*note a  ::
 ';
 
 
-$result_converted{'html_text'}->{'spaces_in_node_names'} = '<span id="Top"></span><div class="header">
+$result_converted{'html_text'}->{'spaces_in_node_names'} = '<a class="node-anchor" id="Top"></a><div class="header">
 <p>
  &nbsp; </p>
 </div>
@@ -1062,21 +1062,21 @@ $result_converted{'html_text'}->{'spaces_in_node_names'} = '<span id="Top"></spa
 
 
 <hr>
-<span id="a--"></span><div class="header">
+<a class="node-anchor" id="a--"></a><div class="header">
 <p>
  &nbsp; </p>
 </div>
 <h4 class="node-heading">a&nbsp;&nbsp;</h4>
 
 <hr>
-<span id="b-"></span><div class="header">
+<a class="node-anchor" id="b-"></a><div class="header">
 <p>
  &nbsp; </p>
 </div>
 <h4 class="node-heading">b<tt>  </tt></h4>
 
 <hr>
-<span id="c-"></span><div class="header">
+<a class="node-anchor" id="c-"></a><div class="header">
 <p>
  &nbsp; </p>
 </div>

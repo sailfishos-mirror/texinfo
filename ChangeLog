@@ -7,6 +7,17 @@
 
 2021-12-26  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_convert_anchor_command)
+	(_default_format_separate_anchor, _convert_heading_command)
+	(_convert_index_command): add a specific formatting function to
+	format separate anchors.  Use <a> for separate anchors instead of
+	<span> and add a class.
+
+	* tp/Texinfo/Convert/HTML.pm (_convert_float_command): integrate the
+	id in the float <div>.
+
+2021-12-26  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/init/book.pm (book_convert_heading_command): synchronize with
 	HTML.pm _convert_heading_command().
 

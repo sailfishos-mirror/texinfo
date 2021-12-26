@@ -1666,15 +1666,15 @@ Next: <a href="#Copying-and-floats" accesskey="n" rel="next">Copying and floats<
 <h1 class="top" id="Top-1">Top</h1>
 
 
-<div class="float"><span id="public-domain"></span>
+<div class="float" id="public-domain">
 
 <p>Public domain is not really a licence, as it means than
 the author abandon his copyright.
 </p>
 <div class="float-caption"><p><strong>Copyright notice 1: </strong>The Public Domain notice<a id="DOCF1" href="#FOOT1"><sup>1</sup></a>
 </p>
-<span id="public-domain-anchor"></span><span id="index-copying-indexed-caption"></span>
-<span id="index-copying-indexed-caption-function"></span>
+<a class="anchor" id="public-domain-anchor"></a><a class="index-entry-anchor" id="index-copying-indexed-caption"></a>
+<a class="index-entry-anchor" id="index-copying-indexed-caption-function"></a>
 </div></div>
 
 <ul class="section-toc">
@@ -1689,25 +1689,25 @@ Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" ac
 <h2 class="appendix" id="Copying-and-floats-1">Appendix A Copying and floats</h2>
 
 
-<div class="float"><span id="public-domain"></span>
+<div class="float" id="public-domain">
 
 <p>Public domain is not really a licence, as it means than
 the author abandon his copyright.
 </p>
 <div class="float-caption"><p><strong>Copyright notice 1: </strong>The Public Domain notice<a id="DOCF1_2" href="#FOOT1_2"><sup>2</sup></a>
 </p>
-<span id="public-domain-anchor"></span><span id="index-copying-indexed-caption"></span>
-<span id="index-copying-indexed-caption-function"></span>
+<a class="anchor" id="public-domain-anchor"></a><a class="index-entry-anchor" id="index-copying-indexed-caption"></a>
+<a class="index-entry-anchor" id="index-copying-indexed-caption-function"></a>
 </div></div>
-<div class="float"><span id="public-domain"></span>
+<div class="float" id="public-domain">
 
 <p>Public domain is not really a licence, as it means than
 the author abandon his copyright.
 </p>
 <div class="float-caption"><p><strong>Copyright notice 1: </strong>The Public Domain notice<a id="DOCF1_3" href="#FOOT1_3"><sup>3</sup></a>
 </p>
-<span id="public-domain-anchor"></span><span id="index-copying-indexed-caption"></span>
-<span id="index-copying-indexed-caption-function"></span>
+<a class="anchor" id="public-domain-anchor"></a><a class="index-entry-anchor" id="index-copying-indexed-caption"></a>
+<a class="index-entry-anchor" id="index-copying-indexed-caption-function"></a>
 </div></div>
 <dl class="listoffloats">
 <dt><a href="#public-domain">Copyright notice 1</a></dt><dd><p>The Public Domain notice<a id="t_hlistoffloats_DOCF1_4" href="#t_hlistoffloats_FOOT1_4"><sup>4</sup></a>
@@ -1757,25 +1757,25 @@ the author abandon his copyright.
 
 <h5><a id="FOOT1" href="#DOCF1">(1)</a></h5>
 <p>The caption copying footnote
-<span id="caption-copying-footnote-anchor"></span></p>
-<span id="index-copying-indexed-caption-copying-footnote"></span>
-<span id="index-copying-public-domain-function"></span>
+<a class="anchor" id="caption-copying-footnote-anchor"></a></p>
+<a class="index-entry-anchor" id="index-copying-indexed-caption-copying-footnote"></a>
+<a class="index-entry-anchor" id="index-copying-public-domain-function"></a>
 
 <p>see <a href="#Copying-and-floats">Copying and floats</a>.
 </p>
 <h5><a id="FOOT1_2" href="#DOCF1_2">(2)</a></h5>
 <p>The caption copying footnote
-<span id="caption-copying-footnote-anchor"></span></p>
-<span id="index-copying-indexed-caption-copying-footnote"></span>
-<span id="index-copying-public-domain-function"></span>
+<a class="anchor" id="caption-copying-footnote-anchor"></a></p>
+<a class="index-entry-anchor" id="index-copying-indexed-caption-copying-footnote"></a>
+<a class="index-entry-anchor" id="index-copying-public-domain-function"></a>
 
 <p>see <a href="#Copying-and-floats">Copying and floats</a>.
 </p>
 <h5><a id="FOOT1_3" href="#DOCF1_3">(3)</a></h5>
 <p>The caption copying footnote
-<span id="caption-copying-footnote-anchor"></span></p>
-<span id="index-copying-indexed-caption-copying-footnote"></span>
-<span id="index-copying-public-domain-function"></span>
+<a class="anchor" id="caption-copying-footnote-anchor"></a></p>
+<a class="index-entry-anchor" id="index-copying-indexed-caption-copying-footnote"></a>
+<a class="index-entry-anchor" id="index-copying-public-domain-function"></a>
 
 <p>see <a href="#Copying-and-floats">Copying and floats</a>.
 </p>

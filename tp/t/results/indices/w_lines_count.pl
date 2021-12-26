@@ -447,11 +447,11 @@ $result_converted{'plaintext'}->{'w_lines_count'} = 'xzcompilationxdmbufferxmsub
 
 
 $result_converted{'html_text'}->{'w_lines_count'} = '<div class="top" id="Top">
-<span id="SEC_Top"></span>
+<a class="top-anchor" id="SEC_Top"></a>
 <p>xzcompilationxdmbufferxmsubsequentmxCtxaxxmcommandsmadvancemfrommthere.  
 <code><span class="nolinebreak">C-u</span></code><!-- /@w --> starts again from the beginning
 </p>
-<span id="index-compilation_002dnext_002derror"></span>
+<a class="index-entry-anchor" id="index-compilation_002dnext_002derror"></a>
 <p>Compilation mode also defines the keys <tt class="key">SPC</tt> and <tt class="key">DEL</tt> to
 </p>
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#t_h_fn_letter-C"><b>C</b></a>

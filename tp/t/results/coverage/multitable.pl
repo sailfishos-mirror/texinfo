@@ -699,7 +699,7 @@ $result_converted{'html_text'}->{'multitable'} = '
 <thead><tr><th width="60%">mu&ndash;ltitable headitem</th><th width="40%">another tab</th></tr></thead>
 <tbody><tr><td width="60%">mu&ndash;ltitable item</td><td width="40%">multitable tab</td></tr>
 <tr><td width="60%">mu&ndash;ltitable item 2</td><td width="40%">multitable tab 2
-<span id="index-index-entry-within-multitable"></span></td></tr>
+<a class="index-entry-anchor" id="index-index-entry-within-multitable"></a></td></tr>
 <tr><td width="60%">lone mu&ndash;ltitable item</td></tr>
 </tbody>
 </table>

@@ -792,8 +792,8 @@ $result_converted{'html_text'}->{'syncode_index_print_both'} = '
 </div>
 <h2 class="chapter" id="index">1 index</h2>
 
-<span id="index-c_002d_002d_002doncept"></span>
-<span id="index-f_002d_002d_002dun"></span>
+<a class="index-entry-anchor" id="index-c_002d_002d_002doncept"></a>
+<a class="index-entry-anchor" id="index-f_002d_002d_002dun"></a>
 
 
 <p>Print fn

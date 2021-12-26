@@ -563,11 +563,11 @@ ul.no-bullet {list-style: none}
 </p></dd>
 </dl>
 
-<div class="float"><span id="label"></span>
+<div class="float" id="label">
 <p>In float.
 </p>
 <div class="float-caption"><p><strong>fl 1: </strong>in caption
-<span id="index-index-entry"></span>
+<a class="index-entry-anchor" id="index-index-entry"></a>
 </p></div></div>
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Top_cp_letter-I"><b>I</b></a>
  &nbsp; 

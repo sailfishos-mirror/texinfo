@@ -474,11 +474,11 @@ ul.no-bullet {list-style: none}
 
 
 <p>Copying.
-<span id="Copying-information"></span></p>
+<a class="anchor" id="Copying-information"></a></p>
 
 
 <p>Copying.
-<span id="Copying-information"></span></p>
+<a class="anchor" id="Copying-information"></a></p>
 
 <p>See <a href="#Copying-information">Copying information</a>.
 </p>

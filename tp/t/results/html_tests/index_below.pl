@@ -508,7 +508,7 @@ ul.no-bullet {list-style: none}
 </div>
 <h3 class="section">1.1 sec</h3>
 
-<span id="index-entry"></span>
+<a class="index-entry-anchor" id="index-entry"></a>
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#sec_cp_letter-E"><b>E</b></a>
  &nbsp; 
 </td></tr></table>

@@ -1772,7 +1772,7 @@ end example.
 
 <dl>
 <dt id=\'index-item-before-ignored-lines\'><span><strong>item before ignored lines</strong><a href=\'#index-item-before-ignored-lines\' class=\'copiable-anchor\'> &para;</a></span></dt>
-<dd><span id="index-vindex"></span>
+<dd><a class="index-entry-anchor" id="index-vindex"></a>
 </dd>
 <dt id=\'index-itemx-now\'><span><strong>itemx now</strong><a href=\'#index-itemx-now\' class=\'copiable-anchor\'> &para;</a></span></dt>
 <dd>

@@ -4960,16 +4960,16 @@ Next: <a href="#chapter" accesskey="n" rel="next">chapter</a> &nbsp; [<a href="#
 
 </pre></div>
 
-<span id="index-t_002d_002druc"></span>
-<span id="index-T_002d_002druc"></span>
-<span id="index-_002e"></span>
-<span id="index-_003f"></span>
-<span id="index-a"></span>
-<span id="index-t_002d_002druc-1"></span>
-<span id="index-T_002d_002druc-1"></span>
-<span id="index-_002e-1"></span>
-<span id="index-_003f-1"></span>
-<span id="index-a-1"></span>
+<a class="index-entry-anchor" id="index-t_002d_002druc"></a>
+<a class="index-entry-anchor" id="index-T_002d_002druc"></a>
+<a class="index-entry-anchor" id="index-_002e"></a>
+<a class="index-entry-anchor" id="index-_003f"></a>
+<a class="index-entry-anchor" id="index-a"></a>
+<a class="index-entry-anchor" id="index-t_002d_002druc-1"></a>
+<a class="index-entry-anchor" id="index-T_002d_002druc-1"></a>
+<a class="index-entry-anchor" id="index-_002e-1"></a>
+<a class="index-entry-anchor" id="index-_003f-1"></a>
+<a class="index-entry-anchor" id="index-a-1"></a>
 
 
 <p>cp
@@ -5126,7 +5126,7 @@ Up: <a href="#s_002d_002dect_002cion" accesskey="u" rel="up">A section</a> &nbsp
 <h4 class="subsection" id="subsection-1">1.1.1 subsection</h4>
 
 
-<span id="anchor"></span>
+<a class="anchor" id="anchor"></a>
 <ul class="section-toc">
 <li><a href="#subsubsection-_0060_0060simple_002ddouble_002d_002d" accesskey="1">subsubsection &ldquo;simple-double&ndash;</a></li>
 <li><a href="#subsubsection-three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027" accesskey="2">three&mdash;four&mdash;-&rdquo;</a></li>

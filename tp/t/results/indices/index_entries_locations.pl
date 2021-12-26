@@ -558,16 +558,16 @@ $result_converted{'html_text'}->{'index_entries_locations'} = '
 <p>Initial paragraph.
 </p>
 <p>Paragraph
-<span id="index-entry-in-paragraph"></span>
+<a class="index-entry-anchor" id="index-entry-in-paragraph"></a>
 end paragraph.
-<span id="index-entry-at-end-of-paragraph_002e"></span>
+<a class="index-entry-anchor" id="index-entry-at-end-of-paragraph_002e"></a>
 </p>
 <p>New paragraph.
 </p>
-<span id="index-Entry-before-paragraph"></span>
+<a class="index-entry-anchor" id="index-Entry-before-paragraph"></a>
 <p>Another paragraph.
 </p>
-<span id="index-lone-entry"></span>
+<a class="index-entry-anchor" id="index-lone-entry"></a>
 
 <p>Last paragraph.
 </p>

@@ -848,7 +848,7 @@ $result_converted{'html_text'}->{'comment_space_command_on_line'} = '
 <h1 class="top" id="top-element-">top element&nbsp;</h1>
 
 
-<span id="index-index-entry--"></span>
+<a class="index-entry-anchor" id="index-index-entry--"></a>
 
 <h3 class="heading" id="Heading--">Heading &nbsp;</h3>
 
@@ -866,7 +866,7 @@ $result_converted{'html_text'}->{'comment_space_command_on_line'} = '
  &nbsp; 
 </td></tr></table>
 
-<div class="float"><span id="label"></span>
+<div class="float" id="label">
 <p>float
 </p><div class="float-caption"><p><strong>Text 1
 </strong></p></div></div>

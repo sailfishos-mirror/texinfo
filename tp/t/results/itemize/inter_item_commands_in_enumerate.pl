@@ -1511,33 +1511,33 @@ $result_converted{'html_text'}->{'inter_item_commands_in_enumerate'} = '
 
 <ol>
 <li>
-<span id="index-index-inter-in-enumerate-between-lines"></span>
+<a class="index-entry-anchor" id="index-index-inter-in-enumerate-between-lines"></a>
 
 </li><li> enumerate item
 </li></ol>
 
 <ol>
 <li>
-<span id="index-index-inter-in-enumerate-after-line"></span>
+<a class="index-entry-anchor" id="index-index-inter-in-enumerate-after-line"></a>
 </li><li> enumerate item
 </li></ol>
 
 <ol>
-<li><span id="index-index-inter-in-enumerate-before-line"></span>
+<li><a class="index-entry-anchor" id="index-index-inter-in-enumerate-before-line"></a>
 
 </li><li> enumerate item
 </li></ol>
 
 <ol>
 <li>Title
-<span id="index-cindex"></span>
+<a class="index-entry-anchor" id="index-cindex"></a>
 </li><li> enum
 </li></ol>
 
 <ol>
-<li><span id="index-first-idx"></span>
-<span id="index-sedond-idx"></span>
-<span id="index-another"></span>
+<li><a class="index-entry-anchor" id="index-first-idx"></a>
+<a class="index-entry-anchor" id="index-sedond-idx"></a>
+<a class="index-entry-anchor" id="index-another"></a>
 </li><li> enum
 </li></ol>
 

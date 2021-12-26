@@ -529,9 +529,9 @@ $result_converted{'plaintext'}->{'syncodeindex_to_plain'} = 'cp index.
 $result_converted{'html_text'}->{'syncodeindex_to_plain'} = '
 <h1 class="node-heading" id="Top">Top</h1>
 
-<span id="index-_002d_002dk1"></span>
-<span id="index-_002d_002dv"></span>
-<span id="index-_002d_002dc"></span>
+<a class="index-entry-anchor" id="index-_002d_002dk1"></a>
+<a class="index-entry-anchor" id="index-_002d_002dv"></a>
+<a class="index-entry-anchor" id="index-_002d_002dc"></a>
 
 <p>cp index.
 </p><table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#t_h_cp_symbol-1"><b>-</b></a>

@@ -1169,7 +1169,7 @@ ul.no-bullet {list-style: none}
 
 <body lang="en">
 
-<span id="Top"></span><div class="header">
+<a class="node-anchor" id="Top"></a><div class="header">
 <p>
 Next: <a href="#NODE" accesskey="n" rel="next"><small>NODE</small></a> &nbsp; </p>
 </div>
@@ -1190,7 +1190,7 @@ MENU-EXAMPLE COMMENT
 </th></tr></table>
 
 <hr>
-<span id="NODE"></span><div class="header">
+<a class="node-anchor" id="NODE"></a><div class="header">
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>

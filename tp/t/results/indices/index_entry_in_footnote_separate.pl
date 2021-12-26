@@ -698,7 +698,7 @@ $result_converted{'plaintext'}->{'index_entry_in_footnote_separate'} = 'Top node
 ';
 
 
-$result_converted{'html_text'}->{'index_entry_in_footnote_separate'} = '<span id="Top"></span><div class="header">
+$result_converted{'html_text'}->{'index_entry_in_footnote_separate'} = '<a class="node-anchor" id="Top"></a><div class="header">
 <p>
  &nbsp; [<a href="#First" title="Index" rel="index">Index</a>]</p>
 </div>
@@ -708,7 +708,7 @@ $result_converted{'html_text'}->{'index_entry_in_footnote_separate'} = '<span id
 <p>Top node<a id="DOCF1" href="#FOOT1"><sup>1</sup></a>
 </p>
 <hr>
-<span id="First"></span><div class="header">
+<a class="node-anchor" id="First"></a><div class="header">
 <p>
  &nbsp; [<a href="#First" title="Index" rel="index">Index</a>]</p>
 </div>

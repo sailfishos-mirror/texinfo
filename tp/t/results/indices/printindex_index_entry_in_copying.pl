@@ -1427,7 +1427,7 @@ $result_converted{'html_text'}->{'printindex_index_entry_in_copying'} = '
 
 <p>Top.
 </p>
-<span id="index-copying-Copying-this-document"></span>
+<a class="index-entry-anchor" id="index-copying-Copying-this-document"></a>
 
 <dl class="def">
 <dt id="index-copying-fun"><span class="category">Function: </span><span><strong>fun</strong> <em>arg</em><a href=\'#index-copying-fun\' class=\'copiable-anchor\'> &para;</a></span></dt>
@@ -1484,7 +1484,7 @@ $result_converted{'html_text'}->{'printindex_index_entry_in_copying'} = '
 <h2 class="chapter" id="Chapter">1 Chapter</h2>
 
 
-<span id="index-copying-Copying-this-document"></span>
+<a class="index-entry-anchor" id="index-copying-Copying-this-document"></a>
 
 <dl class="def">
 <dt id="index-copying-fun"><span class="category">Function: </span><span><strong>fun</strong> <em>arg</em><a href=\'#index-copying-fun\' class=\'copiable-anchor\'> &para;</a></span></dt>

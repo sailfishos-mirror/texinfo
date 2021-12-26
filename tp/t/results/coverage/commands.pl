@@ -573,7 +573,7 @@ File &rarr; Open.
 <a href="mailto:a">b</a> <code>code --- -- \'\' ``</code>
 &mdash; &ndash; &rdquo; &ldquo;. <small>SMALL CAPS</small>.
 </p>
-<span id="index-index-entry-_0060_0060in-text_0027_0027-LaTeX"></span>
+<a class="index-entry-anchor" id="index-index-entry-_0060_0060in-text_0027_0027-LaTeX"></a>
 
 <h2 class="majorheading" id="majorheading-in-b">majorheading <b>in b</b></h2>
 ';

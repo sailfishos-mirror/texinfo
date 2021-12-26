@@ -272,7 +272,7 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<div class="float"><span id="Label"></span>
+<div class="float" id="Label">
 
 <p>In float.
 </p>

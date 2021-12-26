@@ -479,7 +479,7 @@ ul.no-bullet {list-style: none}
 <dt><a href="#label">fl 1</a></dt><dd><p>in caption<a id="t_hlistoffloats_DOCF1_1" href="#t_hlistoffloats_FOOT1_1"><sup>1</sup></a></p></dd>
 </dl>
 
-<div class="float"><span id="label"></span>
+<div class="float" id="label">
 <p>In float.
 </p>
 <div class="float-caption"><p><strong>fl 1: </strong>in caption<a id="DOCF1" href="#FOOT1"><sup>2</sup></a></p></div></div><div class="footnote">

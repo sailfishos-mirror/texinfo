@@ -3225,7 +3225,7 @@ $result_converted{'html_text'}->{'inter_item_commands_in_table'} = '
 
 <dl>
 <dt id=\'index-avar_002d_002db\'><span><var>avar&ndash;b</var><a href=\'#index-avar_002d_002db\' class=\'copiable-anchor\'> &para;</a></span></dt>
-<dd><span id="index-index-entry-between-item-and-itemx"></span>
+<dd><a class="index-entry-anchor" id="index-index-entry-between-item-and-itemx"></a>
 </dd>
 <dt id=\'index-b\'><span><var>b</var><a href=\'#index-b\' class=\'copiable-anchor\'> &para;</a></span></dt>
 <dd><p>l&ndash;ine
@@ -3235,7 +3235,7 @@ $result_converted{'html_text'}->{'inter_item_commands_in_table'} = '
 </dl>
 
 <dl>
-<dd><span id="index-cindex-in-table"></span>
+<dd><a class="index-entry-anchor" id="index-cindex-in-table"></a>
 </dd>
 <dt><code>abb</code></dt>
 <dd><p>l&ndash;ine
@@ -3243,14 +3243,14 @@ $result_converted{'html_text'}->{'inter_item_commands_in_table'} = '
 </dl>
 
 <dl>
-<dd><span id="index-cindex-in-table-1"></span>
+<dd><a class="index-entry-anchor" id="index-cindex-in-table-1"></a>
 <p>Texte before first item.
 </p></dd>
 <dt><code>abb</code></dt>
 </dl>
 
 <dl>
-<dd><span id="index-samp-cindex-in-table"></span>
+<dd><a class="index-entry-anchor" id="index-samp-cindex-in-table"></a>
 </dd>
 <dt>&lsquo;<samp>asamp--bb</samp>&rsquo;</dt>
 <dd><p>l&ndash;ine samp
@@ -3258,7 +3258,7 @@ $result_converted{'html_text'}->{'inter_item_commands_in_table'} = '
 </dl>
 
 <dl>
-<dd><span id="index-samp-cindex-in-table-1"></span>
+<dd><a class="index-entry-anchor" id="index-samp-cindex-in-table-1"></a>
 <p>Texte before first item samp.
 </p></dd>
 <dt>&lsquo;<samp>asamp--bb</samp>&rsquo;</dt>
@@ -3266,14 +3266,14 @@ $result_converted{'html_text'}->{'inter_item_commands_in_table'} = '
 
 <dl>
 <dd>
-<span id="index-cindex-between-lines"></span>
+<a class="index-entry-anchor" id="index-cindex-between-lines"></a>
 
 </dd>
 <dt>&lsquo;<samp>asamp--bb1</samp>&rsquo;</dt>
 </dl>
 
 <dl>
-<dd><span id="index-cindex-before-line"></span>
+<dd><a class="index-entry-anchor" id="index-cindex-before-line"></a>
 
 </dd>
 <dt>&lsquo;<samp>asamp--bb2</samp>&rsquo;</dt>
@@ -3281,15 +3281,15 @@ $result_converted{'html_text'}->{'inter_item_commands_in_table'} = '
 
 <dl>
 <dd>
-<span id="index-cindex-after-line"></span>
+<a class="index-entry-anchor" id="index-cindex-after-line"></a>
 </dd>
 <dt>&lsquo;<samp>asamp--bb2</samp>&rsquo;</dt>
 </dl>
 
 <dl>
-<dd><span id="index-cindex-first"></span>
-<span id="index-second"></span>
-<span id="index-third"></span>
+<dd><a class="index-entry-anchor" id="index-cindex-first"></a>
+<a class="index-entry-anchor" id="index-second"></a>
+<a class="index-entry-anchor" id="index-third"></a>
 </dd>
 <dt>&lsquo;<samp>asamp--bb2</samp>&rsquo;</dt>
 </dl>

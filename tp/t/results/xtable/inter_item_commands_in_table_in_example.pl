@@ -544,7 +544,7 @@ $result_converted{'html_text'}->{'inter_item_commands_in_table_in_example'} = '
 <div class="example">
 <dl>
 <dt><tt><var>a--b</var></tt></dt>
-<dd><pre class="example"><span id="index-index-entry-between-item-and-itemx"></span></pre></dd>
+<dd><pre class="example"><a class="index-entry-anchor" id="index-index-entry-between-item-and-itemx"></a></pre></dd>
 <dt><tt><var>b</var></tt></dt>
 <dd><pre class="example">
 

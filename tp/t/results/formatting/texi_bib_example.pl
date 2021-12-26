@@ -5757,7 +5757,7 @@ currently supported in Texinfo.
 <h1 class="chapter" id="References-1">2 References</h1>
 
 <ul class="no-bullet">
-<li> <span id="LaTeX2e"></span>[LaTeX2e]
+<li> <a class="anchor" id="LaTeX2e"></a>[LaTeX2e]
  Leslie Lamport, LaTeX User&rsquo;s Guide and
 Reference Manual, 2nd edition, Addison-Wesley, Reading,
 Massachusetts, 1994.

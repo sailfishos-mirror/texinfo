@@ -1224,11 +1224,11 @@ $result_converted{'html_text'}->{'punctuation_in_line_commands'} = '
 </p><p>exdent quotation! After punc
 </p></blockquote>
 
-<div class="float"><span id="float-label_0021-After-punc"></span>
+<div class="float" id="float-label_0021-After-punc">
 <p>In float
 </p>
 <div class="float-caption"><p><strong>float type! After punc 1: </strong>shortcaption! After punc</p></div></div>
-<div class="float"><span id="label-with-caption"></span>
+<div class="float" id="label-with-caption">
 <p>In float with caption.
 </p>
 <div class="float-caption"><p><strong>float type! After punc 2: </strong>caption! After punc</p></div></div>
@@ -1237,7 +1237,7 @@ $result_converted{'html_text'}->{'punctuation_in_line_commands'} = '
 <dt><a href="#label-with-caption">float type! After punc 2</a></dt><dd><p>caption! After punc</p></dd>
 </dl>
 
-<span id="index-index_0021-After-punc"></span>
+<a class="index-entry-anchor" id="index-index_0021-After-punc"></a>
 
 <h3 class="heading" id="heading_0021-After-punc">heading! After punc</h3>
 
