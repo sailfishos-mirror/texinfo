@@ -77,16 +77,11 @@ sub parser (;$$)
           add_include_directory ($d);
         }
       } elsif ($key eq 'values') {
-        # This is used by Texinfo::Translations::gdt for substituted values
         for my $v (keys %{$conf->{'values'}}) {
           if (!ref($conf->{'values'}->{$v})) {
             store_value ($v, $conf->{'values'}->{$v});
-          } elsif (ref($conf->{'values'}->{$v}) eq 'HASH') {
-            store_value ($v, "<<HASH VALUE>>");
-          } elsif (ref($conf->{'values'}->{$v}) eq 'ARRAY') {
-            store_value ($v, "<<ARRAY VALUE>>");
           } else {
-            store_value ($v, "<<UNKNOWN VALUE>>");
+            warn "bug: non-scalar \@value\n";
           }
         }
       } elsif ($key eq 'EXPANDED_FORMATS') {
