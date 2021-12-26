@@ -206,8 +206,10 @@ sub book_convert_heading_command($$$$$)
     $result .= ">\n";
   } elsif (defined($element_id) and $element_id ne '') {
     if ($element_header ne '') {
-      # use a lone anchor element to have it before the header
-      $result .= "<span id=\"$element_id\"></span>";
+      # case of a @node without sectioning command and with a header.
+      # put the anchor element before the header
+      $result .= &{$self->{'format_separate_anchor'}}($self, $element_id,
+                                                     "${cmdname}-anchor");
     } else {
       $heading_id = $element_id;
     }
@@ -269,8 +271,9 @@ sub book_convert_heading_command($$$$$)
                                               $element, $heading_id);
     }
   } elsif (defined($heading_id)) {
-    # case of a lone node and no header
-    $result .= "<span id=\"$heading_id\"></span>";
+    # case of a lone node and no header, and case of an empty @top
+    $result .= &{$self->{'format_separate_anchor'}}($self, $heading_id,
+                                                 "${cmdname}-anchor");
   }
 
   if ($element->{'section_childs'} and @{$element->{'section_childs'}}
