@@ -176,21 +176,6 @@ sub book_convert_heading_command($$$$$)
     $section = $element;
   }
 
-  if ($section) {
-    my $level = $section->{'level'};
-    $result .= join('', $self->close_registered_sections_level($level));
-    $self->register_opened_section_level($level, "</div>\n");
-
-    $result .= $self->html_attribute_class('div', $section->{'cmdname'});
-
-    $result .= " id=\"$element_id\""
-        if (defined($element_id) and $element_id ne '');
-    $result .= ">\n";
-  } else {
-    $result .= "<span id=\"$element_id\"></span>"
-        if (defined($element_id) and $element_id ne '');
-  }
-
   print STDERR "Process $element "
         .Texinfo::Convert::Texinfo::root_element_command_to_texinfo($element)."\n"
           if ($self->get_conf('DEBUG'));
@@ -201,15 +186,38 @@ sub book_convert_heading_command($$$$$)
       and $element->{'parent'}->{'type'} eq 'unit') {
     $tree_unit = $element->{'parent'};
   }
+  my $element_header = '';
   if ($tree_unit) {
-    $result .= &{$self->{'format_element_header'}}($self, $cmdname,
+    $element_header = &{$self->{'format_element_header'}}($self, $cmdname,
                                             $element, $tree_unit);
   }
 
+  # if set, the id is associated to the heading text
+  my $heading_id;
+  if ($section) {
+    my $level = $section->{'level'};
+    $result .= join('', $self->close_registered_sections_level($level));
+    $self->register_opened_section_level($level, "</div>\n");
+
+    $result .= $self->html_attribute_class('div', $section->{'cmdname'});
+
+    $result .= " id=\"$element_id\""
+        if (defined($element_id) and $element_id ne '');
+    $result .= ">\n";
+  } elsif (defined($element_id) and $element_id ne '') {
+    if ($element_header ne '') {
+      # use a lone anchor element to have it before the header
+      $result .= "<span id=\"$element_id\"></span>";
+    } else {
+      $heading_id = $element_id;
+    }
+  }
+
+  $result .= $element_header;
+
   my $heading_level;
   my $cmdname_for_heading = $cmdname;
-  # FIXME this is done as in HTML converter: node is used as heading if there
-  # is nothing else.  Is it right?
+  # node is used as heading if there is nothing else.
   if ($cmdname eq 'node') {
     if (!$tree_unit or (!$tree_unit->{'extra'}->{'section'}
                         and $tree_unit->{'extra'}->{'node'}
@@ -250,14 +258,21 @@ sub book_convert_heading_command($$$$$)
     }
 
     if ($self->in_preformatted()) {
-      $result .= '<strong>'.$heading.'</strong>'."\n";
+      my $id_str = '';
+      if (defined($heading_id)) {
+        $id_str = " id=\"$heading_id\"";
+      }
+      $result .= "<strong${id_str}>".$heading.'</strong>'."\n";
     } else {
       $result .= &{$self->{'format_heading_text'}}($self, $cmdname_for_heading,
               $heading, $heading_level +$self->get_conf('CHAPTER_HEADER_LEVEL') -1,
-                                                  $element);
-
+                                              $element, $heading_id);
     }
+  } elsif (defined($heading_id)) {
+    # case of a lone node and no header
+    $result .= "<span id=\"$heading_id\"></span>";
   }
+
   if ($element->{'section_childs'} and @{$element->{'section_childs'}}
       and $cmdname ne 'top') {
     $result .= $self->html_attribute_class('ul', $NO_BULLET_LIST_CLASS).">\n";
