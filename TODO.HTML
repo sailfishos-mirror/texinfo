@@ -1,0 +1,151 @@
+This file discusses issues related to HTML being used alongside or
+instead of Info as a documentation format.  As this has been discussed
+for many years without much progress being made, it was thought helpful
+to create a file like this to collect all the issues in one place.  Then,
+we could avoid having the same discussions over and over again.  Anybody
+raising the question could be referred to this file so they could be
+aware of the current situation.
+
+* Why?
+
+(Excerpt from mail to bug-texinfo@gnu.org in April 2019).
+
+> Documentation for GNU packages and others is often installed in the
+> Info format, a plain text format.  Using a plaintext based format for
+> documentation does not take advantage of bitmapped displays that have
+> been available for decades.  It does not allow styling of text or
+> reflowing of text.  Much information is lost in the conversion from
+> Texinfo to Info and any attempt in, for example, Emacs to re-add this
+> information is unreliable.
+> 
+> Nonetheless, Info viewers have continued to have advantages over web
+> browsers.  They are fast, and have features for searching the manual
+> with index lookup.  They allow the use of keyboard commands.
+
+Links to these discussions:
+https://lists.gnu.org/archive/html/bug-texinfo/2019-04/msg00001.html
+https://lists.gnu.org/archive/html/bug-texinfo/2019-10/msg00010.html
+https://lists.gnu.org/archive/html/bug-texinfo/2019-11/msg00003.html
+
+Image support would be another advantage of HTML.
+
+* Requirements
+
+Simply using the system web browser to access HTML manuals is not
+acceptable as an Info replacement.
+
+Search in the document's indices should be allowed.
+
+There should also be facility for handling intermanual-links and searching
+a path for manuals installed in multiple locations on a system.
+
+* Browser software
+
+> In attempt to bring some of the benefits of the Info viewers to HTML
+> documentation in web browsers, in 2017, as part of Google Summer of
+> Code, Matthieu Lirzin worked on a JavaScript interface that works with
+> the HTML that texi2any produces.  His work is substantially complete.
+> A manual with this interface added is at
+> https://www.gnu.org/software/texinfo/manual/texinfo-html/Overview.html.
+> All the important keyboard commands that work in the Info viewers are
+> implemented, including index lookup.
+
+However, this system is only appropriate for online manuals, not for
+locally installed manuals.  It only handles one manual at a time and
+does not handle searching for a manual.
+
+Another system has been developed using the embedded WebKitGTK browser:
+
+https://git.savannah.gnu.org/cgit/texinfo.git/log/?h=webkitgtk-info
+
+Video demo https://www.gnu.org/software/texinfo/video/demo.webm
+(from November 2019)
+
+* Location of locally installed HTML files
+
+(This was discussed on a GNU project internal mailing list in October 2020.)
+
+It hasn't been agreed where Texinfo documention in HTML should be installed
+locally.
+
+The GNU coding standards specify a 'docdir' directory for a package.  For
+example, '/usr/local/share/doc/YOURPKG'.  It would be natural to install
+Texinfo HTML documentation under '/usr/local/share/doc/YOURPKG/html'.
+
+Another issue is whether installed manuals should be "split" or "non-split",
+meaning whether a manual is one large HTML file or a collection of smaller
+HTML files.
+
+* Finding manuals
+
+Users need to be able to find a manual by name.  They should also be
+able to follow cross-references in browser software to other Texinfo
+manuals they have installed.
+
+Manual names are distinct from package names.  For example,
+"emacs" would be the package name for many manuals ("tramp",
+"org", "calc", etc.).  Hence, a user might not find the tramp
+manual under /usr/local/share/doc/tramp/html but somewhere under
+/usr/local/share/doc/emacs.
+
+One suggestion is to have a directory of HTML manuals stored, akin to the
+"dir" file in the Info system.  Browser software could use this directory
+to locate manuals.
+
+Another suggestion was to install all Texinfo HTML manuals together in
+the same directory (e.g. /usr/share/doc/texinfo/html); however, there wasn't
+agreement on where that directory could be.
+
+Debian does have some guidance on where HTML documentation could
+be installed -
+
+https://www.debian.org/doc/debian-policy/ch-docs.html#additional-documentation
+
+- but file locations on Debian are not completely consistent (e.g. the
+make manual is under /usr/share/doc/make-doc/make.html, while gdb
+is under /usr/share/doc/gdb-doc/html/gdb).
+
+It was also an issue as to how to get the manual name from a link.
+Texinfo manuals are put on the web with a variety of URL formats and
+it is not possible to reliably get a manual name from a URL or even
+to tell if a URL is to a Texinfo manual or to some other webpapge.  It's
+unlikely we could persuade everybody to change their URL formats to
+be something a browser could parse reliably to get the manual name.  Here
+are some examples of URL's and the manual names:
+
+https://www.gnu.org/software/trans-coord/manual/cvs/html_node/ - "cvs"
+https://gmplib.org/manual/ - "gmp"
+http://lilypond.org/doc/v2.22/Documentation/internals/ - "lilypond-internals"
+https://gcc.gnu.org/onlinedocs/gfortran/ - "gfortran"
+
+In recent Texinfo releases, links to other manuals are annotated with the
+"data-manual" attribute.  This solves the problem of getting the manual
+name.
+
+Prior to this, we mooted the idea of outputting links in HTML documents
+differently if they were to be installed locally rather than put on the web.
+For example, link to "../auth/index.html" instead of
+"https://www.gnu.org/software/emacs/manual/html_node/auth/index.html".  With
+the right installation standards, this would have allowed inter-manual
+links to work in regular web browsers (although only for a single
+installation location).
+
+* Where to store non-English manuals
+
+Possibly in a subdirectory named with the language code
+
+* Coordinate with other projects
+
+It's hard to make progress on this due to the need to coordinate with
+different projects.  It's a chicken-and-egg problem: an HTML Info
+program could not be released until people had documentation installed
+where the program could read it, but people are also not motivated
+to install documentation in a place that no program would use it.
+
+Changes would be needed in other projects
+
+* Automake - rules for generating and installing HTML documentation
+* Emacs - Info mode
+* GNOME/other desktop environments - integrate Texinfo browsing into
+help system
+
