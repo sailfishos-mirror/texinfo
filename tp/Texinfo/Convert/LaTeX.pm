@@ -112,10 +112,6 @@
 # linkbordercolor but it is unlear whether it can be used to distinguish links
 # and urls.
 #
-# The @itemx in @*table are simply expanded as: \item[key] But this leads to
-# important vertical spacing, much more than in Texinfo TeX, and looks less
-# good.  Even with setting nosep enumitem option.
-#
 # There is something about form feeds to do.  There is some processing of form
 # feeds right now, which simply amounts to keeping them in ignorable spaces
 # (and with another condition that may not be relevant for LaTeX as the code
@@ -644,29 +640,46 @@ foreach my $quoted_command (@quoted_commands) {
 # use \ttfamily to have a cumulative effect with \textsl
 my $kbd_formatting_latex = '\ttfamily\textsl';
 
-# format in description for @*table argument
+# Format in description for @*table argument
+
+# note that if each command was formatted with format= option of
+# enumitem \description, the command would need to be formatted
+# with a final command.  However, since a parbox with each items
+# on different lines is used to avoid having too much spacing, there
+# is no such constraint, but it is better to have commands to simplify
+# code result and avoid changing global conditions.
 my %description_command_format;
+
+my $description_command_new_commands_prefix = 'GNUTexinfotablestyle';
+
+# if new commands are setup for descriptions, they are in this hash
+my %description_command_new_commands = ();
 
 foreach my $command (keys(%{$LaTeX_style_brace_commands{'text'}})) {
   my $description_format = $LaTeX_style_brace_commands{'text'}->{$command};
-  if ($description_format ne '' and $description_format !~ /\\text[a-z]{2}$/) {
-    # use \normalfont to avoid default bold if not already a font switching
-    # command (useful for emph in practice).
-    $description_format = '\normalfont'.$description_format;
+  if (($description_format ne '' and $description_format !~ /\\text[a-z]{2}$/)
+      or $command eq 'kbd') {
+    my $specific_format_command
+      = "\\${description_command_new_commands_prefix}$command";
+    my $command_definition;
+    if ($command eq 'kbd') {
+      # used for the distinct style
+      $command_definition
+       = "$specific_format_command\[1]{{$kbd_formatting_latex\{#1}}}";
+    } else {
+      # use \normalfont to avoid default bold if not already a font switching
+      # command (useful for emph in practice).
+      $command_definition =
+        "$specific_format_command\[1]{{\\normalfont$description_format\{#1}}}";
+    }
+    $description_command_new_commands{$command} = $command_definition;
+    $description_command_format{$command} = $specific_format_command;
+  } else {
+    $description_command_format{$command} = $description_format;
   }
-  $description_command_format{$command} = $description_format;
 }
 
-# used for the distinct style
-$description_command_format{'kbd'} = $kbd_formatting_latex;
-
-# style @-commands that can appear in tables need to be
-# formatted with a final command.  For quoted commands this command
-# has to be setup. Prepare that setup.
-my $description_command_new_commands_prefix = 'GNUTexinfotablestyle';
-
-my %description_command_new_commands = ();
-
+# Setup command used to format in tables for quoted commands.
 foreach my $quoted_command (@quoted_commands) {
   delete $description_command_format{$quoted_command};
   my $specific_format_command
@@ -675,7 +688,7 @@ foreach my $quoted_command (@quoted_commands) {
   # does not happen currently
   if ($description_format eq '') {
     $description_command_new_commands{$quoted_command} =
-            "$specific_format_command\[1]{\\ifstrempty{#1}{}{`#1'}}";
+            "$specific_format_command\[1]{\\ifstrempty{#1}{}{{`#1'}}";
   } else {
     my $prepended_normalfont = '';
     if ($description_format !~ /\\text[a-z]{2}$/) {
@@ -690,7 +703,7 @@ foreach my $quoted_command (@quoted_commands) {
     # but works for
     #   \item[] some text
     $description_command_new_commands{$quoted_command} =
-            "$specific_format_command\[1]{\\ifstrempty{#1}{}{$prepended_normalfont`$description_format\{#1}'}}";
+            "$specific_format_command\[1]{\\ifstrempty{#1}{}{{$prepended_normalfont`$description_format\{#1}'}}}";
   }
   $description_command_format{$quoted_command} = $specific_format_command;
 }
@@ -1307,7 +1320,9 @@ sub _push_new_context($$)
        'code' => 0,
        'dot_not_end_sentence' => 0,
        'in_quotation' => 0,
-       'type' => $context_name
+       'type' => $context_name,
+       'nr_table_items_context' => [],
+       'table_command_format' => [],
      };
 }
 
@@ -1670,22 +1685,27 @@ sub _set_environment_options($$$)
         return {$environment => 'label='.$itemize_label};
       }
     }
-  } elsif ($item_line_commands{$command}) {
-    if ($element->{'extra'}
-        and $element->{'extra'}->{'command_as_argument'}) {
-      my $command_as_argument
-        = $element->{'extra'}->{'command_as_argument'}->{'cmdname'};
-      if ($command_as_argument eq 'kbd') {
-        if (_kbd_code_style($self)) {
-          $command_as_argument = 'code';
-        }
+  }
+  return undef;
+}
+
+sub _xtable_description_command_format($$)
+{
+  my $self = shift;
+  my $element = shift;
+
+  if ($element->{'extra'}
+      and $element->{'extra'}->{'command_as_argument'}) {
+    my $command_as_argument
+      = $element->{'extra'}->{'command_as_argument'}->{'cmdname'};
+    if ($command_as_argument eq 'kbd') {
+      if (_kbd_code_style($self)) {
+        $command_as_argument = 'code';
       }
-      if (exists($description_command_format{$command_as_argument})
-          and $description_command_format{$command_as_argument} ne '') {
-        my $environment = $LaTeX_environment_commands{$command}[0];
-        return {$environment => 'format='
-                .$description_command_format{$command_as_argument}};
-      }
+    }
+    if (exists($description_command_format{$command_as_argument})
+        and $description_command_format{$command_as_argument} ne '') {
+      return $description_command_format{$command_as_argument}
     }
   }
   return undef;
@@ -2596,7 +2616,12 @@ sub _convert($$)
       } elsif ($block_raw_commands{$cmdname}) {
         push @{$self->{'formatting_context'}->[-1]->{'text_context'}}, 'raw';
       }
-      if ($cmdname eq 'titlepage') {
+      if ($item_line_commands{$cmdname}) {
+        my $description_command_format
+          = _xtable_description_command_format($self, $element);
+        push @{$self->{'formatting_context'}->[-1]->{'table_command_format'}},
+                $description_command_format;
+      } elsif ($cmdname eq 'titlepage') {
         # start a group such that the changes are forgotten when closed
         # define glues dimensions that are used in titlepage formatting.
         # Taken from Texinfo TeX.
@@ -2702,6 +2727,7 @@ sub _convert($$)
             and $element->{'args'}->[0]->{'type'}
             and $element->{'args'}->[0]->{'type'} eq 'line_arg') {
       # item in @*table
+      my $last_item = 0;
       if ($element->{'args'}->[0]->{'contents'}) {
         my $code_style = 0;
         my $table_command = $element->{'parent'}->{'parent'}->{'parent'};
@@ -2720,9 +2746,24 @@ sub _convert($$)
         if ($code_style) {
           $self->{'formatting_context'}->[-1]->{'code'} -= 1;
         }
-        $result .= "\\item[$converted_arg]\n";
+        $self->{'formatting_context'}->[-1]->{'nr_table_items_context'}->[-1] -= 1;
+        my $description_format_command
+          = $self->{'formatting_context'}->[-1]->{'table_command_format'}->[-1];
+        if (defined($description_format_command)) {
+          $converted_arg = "${description_format_command}\{${converted_arg}\}";
+        }
+        $result .= $converted_arg;
+        if ($self->{'formatting_context'}->[-1]->{'nr_table_items_context'}->[-1] > 0) {
+          $result .= '\\\\'."\n";
+        } else {
+          $last_item = 1;
+        }
       }
-      $result .= _index_entry($self, $element);
+      my $index_entry = _index_entry($self, $element);
+      if ($index_entry ne '' and $last_item) {
+        $result .= "\n";
+      }
+      $result .= $index_entry;
     } elsif ($cmdname eq 'item' and $element->{'parent'}->{'cmdname'}
              and $item_container_commands{$element->{'parent'}->{'cmdname'}}) {
       # item in @enumerate and @itemize
@@ -3157,6 +3198,18 @@ sub _convert($$)
       }
       $result .= "\n";
       $result .= _index_entry($self, $element);
+    } elsif ($element->{'type'} eq 'table_term') {
+      $result .= '\item[{\parbox[b]{\linewidth}{%'."\n";
+      # count @item/@itemx to add //\n to each except for the last
+      my $nr_item = 0;
+      foreach my $content (@{$element->{'contents'}}) {
+        if ($content->{'cmdname'} and
+            ($content->{'cmdname'} eq 'item'
+             or $content->{'cmdname'} eq 'itemx')) {
+          $nr_item++;
+        }
+      }
+      push @{$self->{'formatting_context'}->[-1]->{'nr_table_items_context'}}, $nr_item;
     } elsif ($element->{'type'} eq '_code') {
       # ...
     } elsif ($element->{'type'} eq '_dot_not_end_sentence') {
@@ -3191,6 +3244,9 @@ sub _convert($$)
     if ($type eq '_code') {
     } elsif ($type eq '_dot_not_end_sentence') {
       $self->{'formatting_context'}->[-1]->{'dot_not_end_sentence'} -= 1;
+    } elsif ($type eq 'table_term') {
+      $result .= '}}]'."\n";
+      pop @{$self->{'formatting_context'}->[-1]->{'nr_table_items_context'}};
     } elsif ($type eq 'bracketed') {
       $result .= _protect_text($self, '}');
     } elsif ($type eq 'before_item') {
@@ -3221,6 +3277,8 @@ sub _convert($$)
       $result .= _end_title_page($self);
       $result .= "\\endgroup\n";
       $self->{'titlepage_formatting'}->{'in_titlepage'} = 0;
+    } elsif ($item_line_commands{$cmdname}) {
+      pop @{$self->{'formatting_context'}->[-1]->{'table_command_format'}};
     }
     if ($LaTeX_environment_commands{$cmdname}) {
       foreach my $environment (reverse @{$LaTeX_environment_commands{$cmdname}}) {

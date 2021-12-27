@@ -27,11 +27,32 @@
 \makeindex[name=tp]%
 \makeindex[name=truc]%
 
+% command used in \description format for dfn
+\newcommand\GNUTexinfotablestyledfn[1]{{\normalfont\emph{#1}}}%
+
+% command used in \description format for emph
+\newcommand\GNUTexinfotablestyleemph[1]{{\normalfont\emph{#1}}}%
+
+% command used in \description format for hyphenation
+\newcommand\GNUTexinfotablestylehyphenation[1]{{\normalfont\hyphenation{#1}}}%
+
 % command used in \description format for indicateurl
-\newcommand\GNUTexinfotablestyleindicateurl[1]{\ifstrempty{#1}{}{`\texttt{#1}'}}%
+\newcommand\GNUTexinfotablestyleindicateurl[1]{\ifstrempty{#1}{}{{`\texttt{#1}'}}}%
 
 % command used in \description format for samp
-\newcommand\GNUTexinfotablestylesamp[1]{\ifstrempty{#1}{}{`\texttt{#1}'}}%
+\newcommand\GNUTexinfotablestylesamp[1]{\ifstrempty{#1}{}{{`\texttt{#1}'}}}%
+
+% command used in \description format for sub
+\newcommand\GNUTexinfotablestylesub[1]{{\normalfont\textsubscript{#1}}}%
+
+% command used in \description format for sup
+\newcommand\GNUTexinfotablestylesup[1]{{\normalfont\textsuperscript{#1}}}%
+
+% command used in \description format for var
+\newcommand\GNUTexinfotablestylevar[1]{{\normalfont\emph{#1}}}%
+
+% command used in \description format for w
+\newcommand\GNUTexinfotablestylew[1]{{\normalfont\hbox{#1}}}%
 
 % redefine the \mainmatter command such that it does not clear page
 % as if in double page
@@ -989,38 +1010,45 @@ Section ``s--ect,ion'' in \texttt{a comma, in file}
 Section ``title with uref2 \href{href://http/myhost.com/index2.html}{uref2 (\nolinkurl{href://http/myhost.com/index2.html})}'' in \textit{printed manual with uref4 \href{href://http/myhost.com/index4.html}{uref4 (\nolinkurl{href://http/myhost.com/index4.html})}}
 \hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [title with uref2 \href{href://http/myhost.com/index2.html}{uref2 (\nolinkurl{href://http/myhost.com/index2.html})}], page~\pageref*{anchor:chapter}}
 
-\begin{description}[format=\textbf]
-\item[a--strong]
+\begin{description}
+\item[{\parbox[b]{\linewidth}{%
+\textbf{a--strong}}}]
 l--ine
 \end{description}
 
 \begin{description}
-\item[a--asis]
+\item[{\parbox[b]{\linewidth}{%
+a--asis\\
 \index[cp]{a--asis@\texttt{a{-}{-}asis}}%
-\item[b]
+b
 \index[cp]{b@\texttt{b}}%
+}}]
 l--ine
 \end{description}
 
-\begin{description}[format=\normalfont\emph]
-\item[a]
+\begin{description}
+\item[{\parbox[b]{\linewidth}{%
+\GNUTexinfotablestyleemph{a}\\
 \index[fn]{a@\texttt{a}}%
 \index[cp]{index entry between item and itemx}%
-\item[b]
+\GNUTexinfotablestyleemph{b}
 \index[fn]{b@\texttt{b}}%
+}}]
 l--ine
 \end{description}
 
-\begin{description}[format=\texttt]
+\begin{description}
 \item[] Title
-\item[a{-}{-}code]
+\item[{\parbox[b]{\linewidth}{%
+\texttt{a{-}{-}code}}}]
 Value--table code
 \end{description}
 
-\begin{description}[format=\GNUTexinfotablestylesamp]
+\begin{description}
 \item[] Title
-\item[a{-}{-}samp]
-\item[a2{-}{-}samp]
+\item[{\parbox[b]{\linewidth}{%
+\GNUTexinfotablestylesamp{a{-}{-}samp}\\
+\GNUTexinfotablestylesamp{a2{-}{-}samp}}}]
 Value--table samp
 \end{description}
 
@@ -1136,21 +1164,25 @@ Invalid use of @':\leavevmode{}\\
 \end{itemize}
 
 \begin{description}
-\item[a]
+\item[{\parbox[b]{\linewidth}{%
+a}}]
 l--ine
 \end{description}
 
 \begin{description}
-\item[a--missing style formatting]
+\item[{\parbox[b]{\linewidth}{%
+a--missing style formatting}}]
 l--ine
 \end{description}
 
 \begin{description}
-\item[a]
+\item[{\parbox[b]{\linewidth}{%
+a\\
 \index[fn]{a@\texttt{a}}%
 \index[cp]{index entry between item and itemx}%
-\item[b]
+b
 \index[fn]{b@\texttt{b}}%
+}}]
 l--ine
 \end{description}
 
@@ -2094,38 +2126,45 @@ Section ``s--ect,ion'' in \texttt{a comma, in file}
 Section ``title with uref2 \href{href://http/myhost.com/index2.html}{uref2 (\nolinkurl{href://http/myhost.com/index2.html})}'' in \textit{printed manual with uref4 \href{href://http/myhost.com/index4.html}{uref4 (\nolinkurl{href://http/myhost.com/index4.html})}}
 \hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [title with uref2 \href{href://http/myhost.com/index2.html}{uref2 (\nolinkurl{href://http/myhost.com/index2.html})}], page~\pageref*{anchor:chapter}}
 
-\begin{description}[format=\textbf]
-\item[a--strong]
+\begin{description}
+\item[{\parbox[b]{\linewidth}{%
+\textbf{a--strong}}}]
 l--ine
 \end{description}
 
 \begin{description}
-\item[a--asis]
+\item[{\parbox[b]{\linewidth}{%
+a--asis\\
 \index[cp]{a--asis@\texttt{a{-}{-}asis}}%
-\item[b]
+b
 \index[cp]{b@\texttt{b}}%
+}}]
 l--ine
 \end{description}
 
-\begin{description}[format=\normalfont\emph]
-\item[a]
+\begin{description}
+\item[{\parbox[b]{\linewidth}{%
+\GNUTexinfotablestyleemph{a}\\
 \index[fn]{a@\texttt{a}}%
 \index[cp]{index entry between item and itemx}%
-\item[b]
+\GNUTexinfotablestyleemph{b}
 \index[fn]{b@\texttt{b}}%
+}}]
 l--ine
 \end{description}
 
-\begin{description}[format=\texttt]
+\begin{description}
 \item[] Title
-\item[a{-}{-}code]
+\item[{\parbox[b]{\linewidth}{%
+\texttt{a{-}{-}code}}}]
 Value--table code
 \end{description}
 
-\begin{description}[format=\GNUTexinfotablestylesamp]
+\begin{description}
 \item[] Title
-\item[a{-}{-}samp]
-\item[a2{-}{-}samp]
+\item[{\parbox[b]{\linewidth}{%
+\GNUTexinfotablestylesamp{a{-}{-}samp}\\
+\GNUTexinfotablestylesamp{a2{-}{-}samp}}}]
 Value--table samp
 \end{description}
 
@@ -2241,21 +2280,25 @@ Invalid use of @':\leavevmode{}\\
 \end{itemize}
 
 \begin{description}
-\item[a]
+\item[{\parbox[b]{\linewidth}{%
+a}}]
 l--ine
 \end{description}
 
 \begin{description}
-\item[a--missing style formatting]
+\item[{\parbox[b]{\linewidth}{%
+a--missing style formatting}}]
 l--ine
 \end{description}
 
 \begin{description}
-\item[a]
+\item[{\parbox[b]{\linewidth}{%
+a\\
 \index[fn]{a@\texttt{a}}%
 \index[cp]{index entry between item and itemx}%
-\item[b]
+b
 \index[fn]{b@\texttt{b}}%
+}}]
 l--ine
 \end{description}
 
@@ -3214,38 +3257,45 @@ Section ``s--ect,ion'' in \texttt{a comma, in file}
 Section ``title with uref2 \href{href://http/myhost.com/index2.html}{uref2 (\nolinkurl{href://http/myhost.com/index2.html})}'' in \textit{printed manual with uref4 \href{href://http/myhost.com/index4.html}{uref4 (\nolinkurl{href://http/myhost.com/index4.html})}}
 \hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [title with uref2 \href{href://http/myhost.com/index2.html}{uref2 (\nolinkurl{href://http/myhost.com/index2.html})}], page~\pageref*{anchor:chapter}}
 
-\begin{description}[format=\textbf]
-\item[a--strong]
+\begin{description}
+\item[{\parbox[b]{\linewidth}{%
+\textbf{a--strong}}}]
 l--ine
 \end{description}
 
 \begin{description}
-\item[a--asis]
+\item[{\parbox[b]{\linewidth}{%
+a--asis\\
 \index[cp]{a--asis@\texttt{a{-}{-}asis}}%
-\item[b]
+b
 \index[cp]{b@\texttt{b}}%
+}}]
 l--ine
 \end{description}
 
-\begin{description}[format=\normalfont\emph]
-\item[a]
+\begin{description}
+\item[{\parbox[b]{\linewidth}{%
+\GNUTexinfotablestyleemph{a}\\
 \index[fn]{a@\texttt{a}}%
 \index[cp]{index entry between item and itemx}%
-\item[b]
+\GNUTexinfotablestyleemph{b}
 \index[fn]{b@\texttt{b}}%
+}}]
 l--ine
 \end{description}
 
-\begin{description}[format=\texttt]
+\begin{description}
 \item[] Title
-\item[a{-}{-}code]
+\item[{\parbox[b]{\linewidth}{%
+\texttt{a{-}{-}code}}}]
 Value--table code
 \end{description}
 
-\begin{description}[format=\GNUTexinfotablestylesamp]
+\begin{description}
 \item[] Title
-\item[a{-}{-}samp]
-\item[a2{-}{-}samp]
+\item[{\parbox[b]{\linewidth}{%
+\GNUTexinfotablestylesamp{a{-}{-}samp}\\
+\GNUTexinfotablestylesamp{a2{-}{-}samp}}}]
 Value--table samp
 \end{description}
 
@@ -3361,21 +3411,25 @@ Invalid use of @':\leavevmode{}\\
 \end{itemize}
 
 \begin{description}
-\item[a]
+\item[{\parbox[b]{\linewidth}{%
+a}}]
 l--ine
 \end{description}
 
 \begin{description}
-\item[a--missing style formatting]
+\item[{\parbox[b]{\linewidth}{%
+a--missing style formatting}}]
 l--ine
 \end{description}
 
 \begin{description}
-\item[a]
+\item[{\parbox[b]{\linewidth}{%
+a\\
 \index[fn]{a@\texttt{a}}%
 \index[cp]{index entry between item and itemx}%
-\item[b]
+b
 \index[fn]{b@\texttt{b}}%
+}}]
 l--ine
 \end{description}
 
@@ -4317,38 +4371,45 @@ Section ``s--ect,ion'' in \texttt{a comma, in file}
 Section ``title with uref2 \href{href://http/myhost.com/index2.html}{uref2 (\nolinkurl{href://http/myhost.com/index2.html})}'' in \textit{printed manual with uref4 \href{href://http/myhost.com/index4.html}{uref4 (\nolinkurl{href://http/myhost.com/index4.html})}}
 \hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [title with uref2 \href{href://http/myhost.com/index2.html}{uref2 (\nolinkurl{href://http/myhost.com/index2.html})}], page~\pageref*{anchor:chapter}}
 
-\begin{description}[format=\textbf]
-\item[a--strong]
+\begin{description}
+\item[{\parbox[b]{\linewidth}{%
+\textbf{a--strong}}}]
 l--ine
 \end{description}
 
 \begin{description}
-\item[a--asis]
+\item[{\parbox[b]{\linewidth}{%
+a--asis\\
 \index[cp]{a--asis@\texttt{a{-}{-}asis}}%
-\item[b]
+b
 \index[cp]{b@\texttt{b}}%
+}}]
 l--ine
 \end{description}
 
-\begin{description}[format=\normalfont\emph]
-\item[a]
+\begin{description}
+\item[{\parbox[b]{\linewidth}{%
+\GNUTexinfotablestyleemph{a}\\
 \index[fn]{a@\texttt{a}}%
 \index[cp]{index entry between item and itemx}%
-\item[b]
+\GNUTexinfotablestyleemph{b}
 \index[fn]{b@\texttt{b}}%
+}}]
 l--ine
 \end{description}
 
-\begin{description}[format=\texttt]
+\begin{description}
 \item[] Title
-\item[a{-}{-}code]
+\item[{\parbox[b]{\linewidth}{%
+\texttt{a{-}{-}code}}}]
 Value--table code
 \end{description}
 
-\begin{description}[format=\GNUTexinfotablestylesamp]
+\begin{description}
 \item[] Title
-\item[a{-}{-}samp]
-\item[a2{-}{-}samp]
+\item[{\parbox[b]{\linewidth}{%
+\GNUTexinfotablestylesamp{a{-}{-}samp}\\
+\GNUTexinfotablestylesamp{a2{-}{-}samp}}}]
 Value--table samp
 \end{description}
 
@@ -4464,21 +4525,25 @@ Invalid use of @':\leavevmode{}\\
 \end{itemize}
 
 \begin{description}
-\item[a]
+\item[{\parbox[b]{\linewidth}{%
+a}}]
 l--ine
 \end{description}
 
 \begin{description}
-\item[a--missing style formatting]
+\item[{\parbox[b]{\linewidth}{%
+a--missing style formatting}}]
 l--ine
 \end{description}
 
 \begin{description}
-\item[a]
+\item[{\parbox[b]{\linewidth}{%
+a\\
 \index[fn]{a@\texttt{a}}%
 \index[cp]{index entry between item and itemx}%
-\item[b]
+b
 \index[fn]{b@\texttt{b}}%
+}}]
 l--ine
 \end{description}
 
@@ -5433,38 +5498,45 @@ Section ``s{-}{-}ect,ion'' in \texttt{a comma, in file}
 Section ``title with uref2 \href{href://http/myhost.com/index2.html}{uref2 (\nolinkurl{href://http/myhost.com/index2.html})}'' in \textit{printed manual with uref4 \href{href://http/myhost.com/index4.html}{uref4 (\nolinkurl{href://http/myhost.com/index4.html})}}
 \hyperref[anchor:chapter]{\chaptername~\ref*{anchor:chapter} [title with uref2 \href{href://http/myhost.com/index2.html}{uref2 (\nolinkurl{href://http/myhost.com/index2.html})}], page~\pageref*{anchor:chapter}}
 
-\begin{description}[format=\textbf]
-\item[a{-}{-}strong]
+\begin{description}
+\item[{\parbox[b]{\linewidth}{%
+\textbf{a{-}{-}strong}}}]
 l{-}{-}ine
 \end{description}
 
 \begin{description}
-\item[a{-}{-}asis]
+\item[{\parbox[b]{\linewidth}{%
+a{-}{-}asis\\
 \index[cp]{a--asis@\texttt{a{-}{-}asis}}%
-\item[b]
+b
 \index[cp]{b@\texttt{b}}%
+}}]
 l{-}{-}ine
 \end{description}
 
-\begin{description}[format=\normalfont\emph]
-\item[a]
+\begin{description}
+\item[{\parbox[b]{\linewidth}{%
+\GNUTexinfotablestyleemph{a}\\
 \index[fn]{a@\texttt{a}}%
 \index[cp]{index entry between item and itemx}%
-\item[b]
+\GNUTexinfotablestyleemph{b}
 \index[fn]{b@\texttt{b}}%
+}}]
 l{-}{-}ine
 \end{description}
 
-\begin{description}[format=\texttt]
+\begin{description}
 \item[] Title
-\item[a{-}{-}code]
+\item[{\parbox[b]{\linewidth}{%
+\texttt{a{-}{-}code}}}]
 Value{-}{-}table code
 \end{description}
 
-\begin{description}[format=\GNUTexinfotablestylesamp]
+\begin{description}
 \item[] Title
-\item[a{-}{-}samp]
-\item[a2{-}{-}samp]
+\item[{\parbox[b]{\linewidth}{%
+\GNUTexinfotablestylesamp{a{-}{-}samp}\\
+\GNUTexinfotablestylesamp{a2{-}{-}samp}}}]
 Value{-}{-}table samp
 \end{description}
 
@@ -5580,21 +5652,25 @@ Invalid use of @':\leavevmode{}\\
 \end{itemize}
 
 \begin{description}
-\item[a]
+\item[{\parbox[b]{\linewidth}{%
+a}}]
 l{-}{-}ine
 \end{description}
 
 \begin{description}
-\item[a{-}{-}missing style formatting]
+\item[{\parbox[b]{\linewidth}{%
+a{-}{-}missing style formatting}}]
 l{-}{-}ine
 \end{description}
 
 \begin{description}
-\item[a]
+\item[{\parbox[b]{\linewidth}{%
+a\\
 \index[fn]{a@\texttt{a}}%
 \index[cp]{index entry between item and itemx}%
-\item[b]
+b
 \index[fn]{b@\texttt{b}}%
+}}]
 l{-}{-}ine
 \end{description}
 

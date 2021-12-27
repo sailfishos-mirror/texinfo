@@ -21,11 +21,32 @@
 
 \newcommand{\GNUTexinfosettitle}{Title \leavevmode{}\\ for a manual}%
 
+% command used in \description format for dfn
+\newcommand\GNUTexinfotablestyledfn[1]{{\normalfont\emph{#1}}}%
+
+% command used in \description format for emph
+\newcommand\GNUTexinfotablestyleemph[1]{{\normalfont\emph{#1}}}%
+
+% command used in \description format for hyphenation
+\newcommand\GNUTexinfotablestylehyphenation[1]{{\normalfont\hyphenation{#1}}}%
+
 % command used in \description format for indicateurl
-\newcommand\GNUTexinfotablestyleindicateurl[1]{\ifstrempty{#1}{}{`\texttt{#1}'}}%
+\newcommand\GNUTexinfotablestyleindicateurl[1]{\ifstrempty{#1}{}{{`\texttt{#1}'}}}%
 
 % command used in \description format for samp
-\newcommand\GNUTexinfotablestylesamp[1]{\ifstrempty{#1}{}{`\texttt{#1}'}}%
+\newcommand\GNUTexinfotablestylesamp[1]{\ifstrempty{#1}{}{{`\texttt{#1}'}}}%
+
+% command used in \description format for sub
+\newcommand\GNUTexinfotablestylesub[1]{{\normalfont\textsubscript{#1}}}%
+
+% command used in \description format for sup
+\newcommand\GNUTexinfotablestylesup[1]{{\normalfont\textsuperscript{#1}}}%
+
+% command used in \description format for var
+\newcommand\GNUTexinfotablestylevar[1]{{\normalfont\emph{#1}}}%
+
+% command used in \description format for w
+\newcommand\GNUTexinfotablestylew[1]{{\normalfont\hbox{#1}}}%
 
 % redefine the \mainmatter command such that it does not clear page
 % as if in double page

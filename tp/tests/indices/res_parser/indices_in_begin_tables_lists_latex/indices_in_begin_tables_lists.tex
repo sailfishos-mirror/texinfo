@@ -25,11 +25,32 @@
 \makeindex[name=fn]%
 \makeindex[name=vr]%
 
+% command used in \description format for dfn
+\newcommand\GNUTexinfotablestyledfn[1]{{\normalfont\emph{#1}}}%
+
+% command used in \description format for emph
+\newcommand\GNUTexinfotablestyleemph[1]{{\normalfont\emph{#1}}}%
+
+% command used in \description format for hyphenation
+\newcommand\GNUTexinfotablestylehyphenation[1]{{\normalfont\hyphenation{#1}}}%
+
 % command used in \description format for indicateurl
-\newcommand\GNUTexinfotablestyleindicateurl[1]{\ifstrempty{#1}{}{`\texttt{#1}'}}%
+\newcommand\GNUTexinfotablestyleindicateurl[1]{\ifstrempty{#1}{}{{`\texttt{#1}'}}}%
 
 % command used in \description format for samp
-\newcommand\GNUTexinfotablestylesamp[1]{\ifstrempty{#1}{}{`\texttt{#1}'}}%
+\newcommand\GNUTexinfotablestylesamp[1]{\ifstrempty{#1}{}{{`\texttt{#1}'}}}%
+
+% command used in \description format for sub
+\newcommand\GNUTexinfotablestylesub[1]{{\normalfont\textsubscript{#1}}}%
+
+% command used in \description format for sup
+\newcommand\GNUTexinfotablestylesup[1]{{\normalfont\textsuperscript{#1}}}%
+
+% command used in \description format for var
+\newcommand\GNUTexinfotablestylevar[1]{{\normalfont\emph{#1}}}%
+
+% command used in \description format for w
+\newcommand\GNUTexinfotablestylew[1]{{\normalfont\hbox{#1}}}%
 
 % redefine the \mainmatter command such that it does not clear page
 % as if in double page
@@ -150,84 +171,100 @@ enum
 enum
 \end{enumerate}
 
-\begin{description}[format=\texttt]
-\item[acode{-}{-}b]
+\begin{description}
+\item[{\parbox[b]{\linewidth}{%
+\texttt{acode{-}{-}b}
 \index[vr]{acode--b@\texttt{acode{-}{-}b}}%
+}}]
 l--ine
 \end{description}
 
 \begin{description}
-\item[aasis--b]
+\item[{\parbox[b]{\linewidth}{%
+aasis--b\\
 \index[vr]{aasis--b@\texttt{aasis{-}{-}b}}%
-\item[b]
+b
 \index[vr]{b@\texttt{b}}%
+}}]
 l--ine
 \end{description}
 
-\begin{description}[format=\normalfont\emph]
-\item[avar--b]
+\begin{description}
+\item[{\parbox[b]{\linewidth}{%
+\GNUTexinfotablestylevar{avar--b}\\
 \index[fn]{avar--b@\texttt{avar{-}{-}b}}%
 \index[cp]{index entry between item and itemx}%
-\item[b]
+\GNUTexinfotablestylevar{b}
 \index[fn]{b@\texttt{b}}%
+}}]
 l--ine
-\item[c]
+\item[{\parbox[b]{\linewidth}{%
+\GNUTexinfotablestylevar{c}\\
 \index[fn]{c@\texttt{c}}%
 
 
-\item[d]
+\GNUTexinfotablestylevar{d}
 \index[fn]{d@\texttt{d}}%
+}}]
 
 \end{description}
 
-\begin{description}[format=\texttt]
+\begin{description}
 \item[] \index[cp]{cindex in table}%
-\item[abb]
+\item[{\parbox[b]{\linewidth}{%
+\texttt{abb}}}]
 l--ine
 \end{description}
 
-\begin{description}[format=\texttt]
+\begin{description}
 \item[] \index[cp]{cindex in table}%
 Texte before first item.
-\item[abb]
+\item[{\parbox[b]{\linewidth}{%
+\texttt{abb}}}]
 \end{description}
 
-\begin{description}[format=\GNUTexinfotablestylesamp]
+\begin{description}
 \item[] \index[cp]{samp cindex in table}%
-\item[asamp{-}{-}bb]
+\item[{\parbox[b]{\linewidth}{%
+\GNUTexinfotablestylesamp{asamp{-}{-}bb}}}]
 l--ine samp
 \end{description}
 
-\begin{description}[format=\GNUTexinfotablestylesamp]
+\begin{description}
 \item[] \index[cp]{samp cindex in table}%
 Texte before first item samp.
-\item[asamp{-}{-}bb]
+\item[{\parbox[b]{\linewidth}{%
+\GNUTexinfotablestylesamp{asamp{-}{-}bb}}}]
 \end{description}
 
-\begin{description}[format=\GNUTexinfotablestylesamp]
+\begin{description}
 \item[] 
 \index[cp]{cindex between lines}%
 
-\item[asamp{-}{-}bb1]
+\item[{\parbox[b]{\linewidth}{%
+\GNUTexinfotablestylesamp{asamp{-}{-}bb1}}}]
 \end{description}
 
-\begin{description}[format=\GNUTexinfotablestylesamp]
+\begin{description}
 \item[] \index[cp]{cindex before line}%
 
-\item[asamp{-}{-}bb2]
+\item[{\parbox[b]{\linewidth}{%
+\GNUTexinfotablestylesamp{asamp{-}{-}bb2}}}]
 \end{description}
 
-\begin{description}[format=\GNUTexinfotablestylesamp]
+\begin{description}
 \item[] 
 \index[cp]{cindex after line}%
-\item[asamp{-}{-}bb2]
+\item[{\parbox[b]{\linewidth}{%
+\GNUTexinfotablestylesamp{asamp{-}{-}bb2}}}]
 \end{description}
 
-\begin{description}[format=\GNUTexinfotablestylesamp]
+\begin{description}
 \item[] \index[cp]{cindex first}%
 \index[cp]{second}%
 \index[cp]{third}%
-\item[asamp{-}{-}bb2]
+\item[{\parbox[b]{\linewidth}{%
+\GNUTexinfotablestylesamp{asamp{-}{-}bb2}}}]
 \end{description}
 
 \chapter{printindex}
