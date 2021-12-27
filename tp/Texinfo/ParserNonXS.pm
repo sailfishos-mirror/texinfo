@@ -1409,7 +1409,7 @@ sub _check_no_text($)
   return $after_paragraph;
 }
 
-# put everything after the last @item/@itemx in an item_table type container
+# put everything after the last @item/@itemx in a table_item type container
 # and distinguish table_term and table_entry.
 sub _gather_previous_item($$;$$)
 {
@@ -1432,10 +1432,10 @@ sub _gather_previous_item($$;$$)
   } else {
     $type = 'table_item';
   }
-  my $table_gathered = {'type' => $type,
-                       'contents' => []};
-  # remove everything that is not an @item/@items or before_item to 
-  # put it in the table_item, starting from the end.
+  my $table_after_terms = {'type' => $type,
+                           'contents' => []};
+  # remove everything that is not an @item/@itemx or before_item to 
+  # put it in the table_item/inter_item, starting from the end.
   my $contents_count = scalar(@{$current->{'contents'}});
   for (my $i = 0; $i < $contents_count; $i++) {
     if ($current->{'contents'}->[-1]->{'cmdname'} 
@@ -1444,11 +1444,12 @@ sub _gather_previous_item($$;$$)
       last;
     } else {
       my $item_content = pop @{$current->{'contents'}};
-      $item_content->{'parent'} = $table_gathered;
-      unshift @{$table_gathered->{'contents'}}, $item_content;
+      $item_content->{'parent'} = $table_after_terms;
+      unshift @{$table_after_terms->{'contents'}}, $item_content;
     }
   }
   if ($type eq 'table_item') {
+    # setup a table_entry
     my $table_entry = {'type' => 'table_entry',
                     'parent' => $current,
                     'contents' => []};
@@ -1456,10 +1457,14 @@ sub _gather_previous_item($$;$$)
                     'parent' => $table_entry,
                     'contents' => []};
     push @{$table_entry->{'contents'}}, $table_term;
+    # put everything starting from the end until reaching the previous
+    # table entry or beginning of the table in table term.
     my $contents_count = scalar(@{$current->{'contents'}});
     for (my $i = 0; $i < $contents_count; $i++) {
       if ($current->{'contents'}->[-1]->{'type'} 
+           # reached the beginning of the table
            and ($current->{'contents'}->[-1]->{'type'} eq 'before_item'
+                # reached the previous table entry
                 or $current->{'contents'}->[-1]->{'type'} eq 'table_entry')) {
         last;
       } else {
@@ -1478,18 +1483,18 @@ sub _gather_previous_item($$;$$)
       }
     }
     push @{$current->{'contents'}}, $table_entry;
-    if (scalar(@{$table_gathered->{'contents'}})) {
-      push @{$table_entry->{'contents'}}, $table_gathered;
-      $table_gathered->{'parent'} = $table_entry;
+    if (scalar(@{$table_after_terms->{'contents'}})) {
+      push @{$table_entry->{'contents'}}, $table_after_terms;
+      $table_after_terms->{'parent'} = $table_entry;
     }
   } else {
-    my $after_paragraph = _check_no_text($table_gathered);
+    my $after_paragraph = _check_no_text($table_after_terms);
     if ($after_paragraph) {
       $self->_line_error(__("\@itemx must follow \@item"), $line_nr);
     }
-    if (scalar(@{$table_gathered->{'contents'}})) {
-      push @{$current->{'contents'}}, $table_gathered;
-      $table_gathered->{'parent'} = $current;
+    if (scalar(@{$table_after_terms->{'contents'}})) {
+      push @{$current->{'contents'}}, $table_after_terms;
+      $table_after_terms->{'parent'} = $current;
     }
   }
 }
@@ -6781,7 +6786,8 @@ holds the content that is to go into the second column of the table.
 
 If there is any content before an C<@itemx> (normally only comments,
 empty lines or maybe index entries are allowed), it will be in
-a container with type I<inter_item>.
+a container with type I<inter_item> at the same level of C<@item>
+and C<@item>, in a I<table_term>.
 
 =item def_line
 

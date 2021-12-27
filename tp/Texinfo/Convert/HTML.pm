@@ -2061,7 +2061,7 @@ sub _convert_footnote_command($$$$)
     if (!defined($footnote_id_numbers{$footid})) {
       $footnote_id_numbers{$footid} = $foot_num;
     } else {
-      # This should rarely happen, except for @footnote is @copying and
+      # This should rarely happen, except for @footnote in @copying and
       # multiple @insertcopying...
       # Here it is not checked that there is no clash with another anchor. 
       # However, unless there are more than 1000 footnotes this should not 
