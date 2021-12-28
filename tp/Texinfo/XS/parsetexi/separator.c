@@ -105,13 +105,13 @@ handle_open_brace (ELEMENT *current, char **line_inout)
           switch (command)
             {
             case CM_footnote:
-              push_context (ct_footnote);
+              push_context (ct_brace_command);
               break;
             case CM_caption:
-              push_context (ct_caption);
+              push_context (ct_brace_command);
               break;
             case CM_shortcaption:
-              push_context (ct_shortcaption);
+              push_context (ct_brace_command);
               break;
             case CM_math:
               push_context (ct_math);
@@ -258,7 +258,7 @@ handle_close_brace (ELEMENT *current, char **line_inout)
         {
           (void) pop_context ();
           /* The Perl code here checks that the popped context and the
-             parent command match as strings. */
+             parent command match. */
         }
       else if (command_data(current->parent->cmd).data > 0)
         {
@@ -533,10 +533,7 @@ handle_close_brace (ELEMENT *current, char **line_inout)
       goto funexit;
     }
   /* context brace command (e.g. @footnote) when there is a paragraph inside */
-  else if (current_context() == ct_footnote
-           || current_context() == ct_caption
-           || current_context() == ct_shortcaption
-           || current_context() == ct_math)
+  else if (current_context() == ct_brace_command)
     {
       current = end_paragraph (current, 0, 0);
       if (current->parent

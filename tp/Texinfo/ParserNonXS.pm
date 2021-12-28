@@ -4982,7 +4982,7 @@ sub _parse_texi($;$)
               if ($math_commands{$command}) {
                 $self->_push_context('math', $command);
               } else {
-                $self->_push_context($command, $command);
+                $self->_push_context('brace_command', $command);
               }
               $line =~ s/([^\S\f\n]*)//;
               $current->{'type'} = 'brace_command_context';
@@ -5062,7 +5062,7 @@ sub _parse_texi($;$)
               and exists $brace_commands{$current->{'parent'}->{'cmdname'}}) {
             # for math and footnote out of paragraph
             if ($context_brace_commands{$current->{'parent'}->{'cmdname'}}) {
-              my $command_context = $current->{'parent'}->{'cmdname'};
+              my $command_context = 'brace_command';
               if ($math_commands{$current->{'parent'}->{'cmdname'}}) {
                 $command_context = 'math';
               }
@@ -5187,9 +5187,8 @@ sub _parse_texi($;$)
               my $current_command = $current->{'parent'};
               if ($inline_commands{$current_command->{'cmdname'}}) {
                 if ($current_command->{'cmdname'} eq 'inlineraw') {
-                  my ($error) = $self->_pop_context(
-                               [$current_command->{'cmdname'}], $line_nr, $current,
-                                ' inlineraw');
+                  my ($error) = $self->_pop_context(['inlineraw'],
+                                        $line_nr, $current, ' inlineraw');
                   die if ($error);
                 }
               }
@@ -5289,17 +5288,13 @@ sub _parse_texi($;$)
             push @{$current->{'contents'}}, {'text' => '}',
                                              'parent' => $current };
           # footnote caption closing, when there is a paragraph inside.
-          } elsif ($context_brace_commands{$self->_top_context()}) {
+          } elsif ($self->_top_context() eq 'brace_command') {
              # closing the context under broader situations
              $current = _end_paragraph($self, $current, $line_nr);
              if ($current->{'parent'}
                  and $current->{'parent'}->{'cmdname'}
                  and $context_brace_commands{$current->{'parent'}->{'cmdname'}}) {
-              my $command_context = $current->{'parent'}->{'cmdname'};
-              if ($math_commands{$current->{'parent'}->{'cmdname'}}) {
-                $command_context = 'math';
-              }
-              my ($error) = $self->_pop_context([$command_context],
+              my ($error) = $self->_pop_context(['brace_command'],
                        $line_nr, $current,
                        "for brace isolated $current->{'parent'}->{'cmdname'}");
               die if ($error);
@@ -6180,7 +6175,7 @@ I<$labels_information> is preferred.
 =back
 
 Information on C<@float> is also available, grouped by type of
-floats, each type correponding to potential C<@listoffloats>.
+floats, each type corresponding to potential C<@listoffloats>.
 This information is available through the method C<floats_information>.
 
 =over
@@ -6783,7 +6778,7 @@ will be in I<menu_comment>.
 Taken from C<@macro> definition and put in the C<args> key array of
 the macro, I<macro_name> is the type of the text fragment corresponding
 to the macro name, I<macro_arg> is the type of the text fragments
-correponding to macro formal arguments.
+corresponding to macro formal arguments.
 
 =item before_item
 

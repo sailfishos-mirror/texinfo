@@ -1,5 +1,15 @@
 2021-12-28  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/context_stack.h (context),
+	tp/Texinfo/XS/parsetexi/separator.c (handle_open_brace)
+	(handle_close_brace),
+	tp/Texinfo/ParserNonXS.pm (_parse_texi): use 'brace_command' as
+	context for non @math brace commands with context.
+	Do not test for math context when closing with paragraph, as there
+	is no paragraph in math context.
+
+2021-12-28  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Converter.pm (table_item_content_tree): take into
 	account extra key command_as_argument_kbd_code to set code extra key
 	for the formatting command.

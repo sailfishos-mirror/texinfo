@@ -26,9 +26,7 @@ enum context {
     ct_rawpreformatted,
     ct_menu,
     ct_math,
-    ct_footnote,
-    ct_caption,
-    ct_shortcaption,
+    ct_brace_command,
     ct_inlineraw
 };
 
