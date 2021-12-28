@@ -133,7 +133,7 @@ sub _convert($$)
       return Texinfo::Convert::Text::brace_no_arg_command($element, undef);
     } elsif ($Texinfo::Common::accent_commands{$element->{'cmdname'}}) {
       my %options = Texinfo::Convert::Text::copy_options_for_convert_text($self);
-      my $result = Texinfo::Convert::Text::text_accents ($element,
+      my $result = Texinfo::Convert::Text::text_accents($element,
                                         $options{'enabled_encoding'});
       return $result;
     }
@@ -152,12 +152,16 @@ sub _convert($$)
       $args = $element->{'args'};
     }
     foreach my $arg (@{$args}) {
-      $result .= _convert ($self, $arg);
+      $result .= _convert($self, $arg);
+    }
+    if ($element->{'parent'}->{'type'}
+        and $element->{'parent'}->{'type'} eq 'table_term') {
+      $result .= "\n";
     }
   }
   if ($element->{'contents'}) {
     foreach my $content (@{$element->{'contents'}}) {
-      $result .= _convert ($self, $content);
+      $result .= _convert($self, $content);
     }
   }
   $result = '{'.$result.'}'

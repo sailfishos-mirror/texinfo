@@ -1,5 +1,10 @@
 2021-12-28  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/TextContent.pm (_convert): add an end of line
+	after a 'table_term' @-command since there are none in the tree.
+
+2021-12-28  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (converter_initialize): do not modify
 	$default_no_arg_commands_formatting{'normal'} based on configuration,
 	modify a duplicate.

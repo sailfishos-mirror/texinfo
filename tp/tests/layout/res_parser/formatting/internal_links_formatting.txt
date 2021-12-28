@@ -110,6 +110,38 @@ formatting.html#index-index-entry-within-multitable	cp	index entry within multit
 formatting.html#index-index-entry-within-multitable-1	cp	index entry within multitable
 formatting.html#index-t_002d_002druc	cp	t-ruc
 formatting.html#index-T_002d_002druc	cp	T-ruc
+formatting.html#index-copying-vtable-i_002d_002dtem-code-kbdinputstyle	cp	vtable i--tem code kbdinputstyle
+formatting.html#index-titlepage-vtable-i_002d_002dtem-code-kbdinputstyle	cp	vtable i--tem code kbdinputstyle
+formatting.html#index-vtable-i_002d_002dtem-code-kbdinputstyle	cp	vtable i--tem code kbdinputstyle
+formatting.html#index-vtable-i_002d_002dtem-code-kbdinputstyle-1	cp	vtable i--tem code kbdinputstyle
+formatting.html#index-copying-vtable-i_002d_002dtem-default-kbdinputstyle	cp	vtable i--tem default kbdinputstyle
+formatting.html#index-titlepage-vtable-i_002d_002dtem-default-kbdinputstyle	cp	vtable i--tem default kbdinputstyle
+formatting.html#index-vtable-i_002d_002dtem-default-kbdinputstyle	cp	vtable i--tem default kbdinputstyle
+formatting.html#index-vtable-i_002d_002dtem-default-kbdinputstyle-1	cp	vtable i--tem default kbdinputstyle
+formatting.html#index-copying-vtable-i_002d_002dtem-distinct-kbdinputstyle	cp	vtable i--tem distinct kbdinputstyle
+formatting.html#index-titlepage-vtable-i_002d_002dtem-distinct-kbdinputstyle	cp	vtable i--tem distinct kbdinputstyle
+formatting.html#index-vtable-i_002d_002dtem-distinct-kbdinputstyle	cp	vtable i--tem distinct kbdinputstyle
+formatting.html#index-vtable-i_002d_002dtem-distinct-kbdinputstyle-1	cp	vtable i--tem distinct kbdinputstyle
+formatting.html#index-copying-vtable-i_002d_002dtem-example-kbdinputstyle	cp	vtable i--tem example kbdinputstyle
+formatting.html#index-titlepage-vtable-i_002d_002dtem-example-kbdinputstyle	cp	vtable i--tem example kbdinputstyle
+formatting.html#index-vtable-i_002d_002dtem-example-kbdinputstyle	cp	vtable i--tem example kbdinputstyle
+formatting.html#index-vtable-i_002d_002dtem-example-kbdinputstyle-1	cp	vtable i--tem example kbdinputstyle
+formatting.html#index-copying-vtable-i_002d_002dtem-in-example-code-kbdinputstyle	cp	vtable i--tem in example code kbdinputstyle
+formatting.html#index-titlepage-vtable-i_002d_002dtem-in-example-code-kbdinputstyle	cp	vtable i--tem in example code kbdinputstyle
+formatting.html#index-vtable-i_002d_002dtem-in-example-code-kbdinputstyle	cp	vtable i--tem in example code kbdinputstyle
+formatting.html#index-vtable-i_002d_002dtem-in-example-code-kbdinputstyle-1	cp	vtable i--tem in example code kbdinputstyle
+formatting.html#index-copying-vtable-i_002d_002dtem-in-example-default-kbdinputstyle	cp	vtable i--tem in example default kbdinputstyle
+formatting.html#index-titlepage-vtable-i_002d_002dtem-in-example-default-kbdinputstyle	cp	vtable i--tem in example default kbdinputstyle
+formatting.html#index-vtable-i_002d_002dtem-in-example-default-kbdinputstyle	cp	vtable i--tem in example default kbdinputstyle
+formatting.html#index-vtable-i_002d_002dtem-in-example-default-kbdinputstyle-1	cp	vtable i--tem in example default kbdinputstyle
+formatting.html#index-copying-vtable-i_002d_002dtem-in-example-distinct-kbdinputstyle	cp	vtable i--tem in example distinct kbdinputstyle
+formatting.html#index-titlepage-vtable-i_002d_002dtem-in-example-distinct-kbdinputstyle	cp	vtable i--tem in example distinct kbdinputstyle
+formatting.html#index-vtable-i_002d_002dtem-in-example-distinct-kbdinputstyle	cp	vtable i--tem in example distinct kbdinputstyle
+formatting.html#index-vtable-i_002d_002dtem-in-example-distinct-kbdinputstyle-1	cp	vtable i--tem in example distinct kbdinputstyle
+formatting.html#index-copying-vtable-i_002d_002dtem-in-example-example-kbdinputstyle	cp	vtable i--tem in example example kbdinputstyle
+formatting.html#index-titlepage-vtable-i_002d_002dtem-in-example-example-kbdinputstyle	cp	vtable i--tem in example example kbdinputstyle
+formatting.html#index-vtable-i_002d_002dtem-in-example-example-kbdinputstyle	cp	vtable i--tem in example example kbdinputstyle
+formatting.html#index-vtable-i_002d_002dtem-in-example-example-kbdinputstyle-1	cp	vtable i--tem in example example kbdinputstyle
 formatting.html#index-copying-_002d_002dfoption	fn	--foption
 formatting.html#index-titlepage-_002d_002dfoption	fn	--foption
 formatting.html#index-_002d_002dfoption	fn	--foption

@@ -247,16 +247,24 @@ TH d th ! ? #
 b i r sc t sansserif slanted
 
 default kbdinputstyle
+vtable i--tem default kbdinputstyle
 in example default kbdinputstyle
+vtable i--tem in example default kbdinputstyle
 
 code kbdinputstyle
+vtable i--tem code kbdinputstyle
 in example code kbdinputstyle
+vtable i--tem in example code kbdinputstyle
 
 example kbdinputstyle
+vtable i--tem example kbdinputstyle
 in example example kbdinputstyle
+vtable i--tem in example example kbdinputstyle
 
 distinct kbdinputstyle
+vtable i--tem distinct kbdinputstyle
 in example distinct kbdinputstyle
+vtable i--tem in example distinct kbdinputstyle
 
 A quot---ation
 
@@ -580,17 +588,25 @@ chapter.
 extcross ref with uref href://http/myhost.com/index.htmluref1title with uref2 href://http/myhost.com/index2.htmluref2info file with uref3 href://http/myhost.com/index3.htmluref3printed manual with uref4 href://http/myhost.com/index4.htmluref4
 chaptercross ref with uref href://http/myhost.com/index.htmluref1title with uref2 href://http/myhost.com/index2.htmluref2
 
-a--strongl--ine
+a--strong
+l--ine
 
-a--asisbl--ine
+a--asis
+b
+l--ine
 
-abl--ine
+a
+b
+l--ine
 
 Title
-a--codeValue--table code
+a--code
+Value--table code
 
 Title
-a--sampa2--sampValue--table samp
+a--samp
+a2--samp
+Value--table samp
 
 c--artouche
 
@@ -674,11 +690,15 @@ e--mph item
 i--tem 1
 i--tem 2
 
-al--ine
+a
+l--ine
 
-a--missing style formattingl--ine
+a--missing style formatting
+l--ine
 
-abl--ine
+a
+b
+l--ine
 
 fun
 truc machin bidule chose and 
@@ -968,16 +988,24 @@ TH d th ! ? #
 b i r sc t sansserif slanted
 
 default kbdinputstyle
+vtable i--tem default kbdinputstyle
 in example default kbdinputstyle
+vtable i--tem in example default kbdinputstyle
 
 code kbdinputstyle
+vtable i--tem code kbdinputstyle
 in example code kbdinputstyle
+vtable i--tem in example code kbdinputstyle
 
 example kbdinputstyle
+vtable i--tem example kbdinputstyle
 in example example kbdinputstyle
+vtable i--tem in example example kbdinputstyle
 
 distinct kbdinputstyle
+vtable i--tem distinct kbdinputstyle
 in example distinct kbdinputstyle
+vtable i--tem in example distinct kbdinputstyle
 
 A quot---ation
 
@@ -1301,17 +1329,25 @@ chapter.
 extcross ref with uref href://http/myhost.com/index.htmluref1title with uref2 href://http/myhost.com/index2.htmluref2info file with uref3 href://http/myhost.com/index3.htmluref3printed manual with uref4 href://http/myhost.com/index4.htmluref4
 chaptercross ref with uref href://http/myhost.com/index.htmluref1title with uref2 href://http/myhost.com/index2.htmluref2
 
-a--strongl--ine
+a--strong
+l--ine
 
-a--asisbl--ine
+a--asis
+b
+l--ine
 
-abl--ine
+a
+b
+l--ine
 
 Title
-a--codeValue--table code
+a--code
+Value--table code
 
 Title
-a--sampa2--sampValue--table samp
+a--samp
+a2--samp
+Value--table samp
 
 c--artouche
 
@@ -1395,11 +1431,15 @@ e--mph item
 i--tem 1
 i--tem 2
 
-al--ine
+a
+l--ine
 
-a--missing style formattingl--ine
+a--missing style formatting
+l--ine
 
-abl--ine
+a
+b
+l--ine
 
 fun
 truc machin bidule chose and 
@@ -1711,16 +1751,24 @@ TH d th ! ? #
 b i r sc t sansserif slanted
 
 default kbdinputstyle
+vtable i--tem default kbdinputstyle
 in example default kbdinputstyle
+vtable i--tem in example default kbdinputstyle
 
 code kbdinputstyle
+vtable i--tem code kbdinputstyle
 in example code kbdinputstyle
+vtable i--tem in example code kbdinputstyle
 
 example kbdinputstyle
+vtable i--tem example kbdinputstyle
 in example example kbdinputstyle
+vtable i--tem in example example kbdinputstyle
 
 distinct kbdinputstyle
+vtable i--tem distinct kbdinputstyle
 in example distinct kbdinputstyle
+vtable i--tem in example distinct kbdinputstyle
 
 A quot---ation
 
@@ -2044,17 +2092,25 @@ chapter.
 extcross ref with uref href://http/myhost.com/index.htmluref1title with uref2 href://http/myhost.com/index2.htmluref2info file with uref3 href://http/myhost.com/index3.htmluref3printed manual with uref4 href://http/myhost.com/index4.htmluref4
 chaptercross ref with uref href://http/myhost.com/index.htmluref1title with uref2 href://http/myhost.com/index2.htmluref2
 
-a--strongl--ine
+a--strong
+l--ine
 
-a--asisbl--ine
+a--asis
+b
+l--ine
 
-abl--ine
+a
+b
+l--ine
 
 Title
-a--codeValue--table code
+a--code
+Value--table code
 
 Title
-a--sampa2--sampValue--table samp
+a--samp
+a2--samp
+Value--table samp
 
 c--artouche
 
@@ -2138,11 +2194,15 @@ e--mph item
 i--tem 1
 i--tem 2
 
-al--ine
+a
+l--ine
 
-a--missing style formattingl--ine
+a--missing style formatting
+l--ine
 
-abl--ine
+a
+b
+l--ine
 
 fun
 truc machin bidule chose and 
@@ -2432,16 +2492,24 @@ TH d th ! ? #
 b i r sc t sansserif slanted
 
 default kbdinputstyle
+vtable i--tem default kbdinputstyle
 in example default kbdinputstyle
+vtable i--tem in example default kbdinputstyle
 
 code kbdinputstyle
+vtable i--tem code kbdinputstyle
 in example code kbdinputstyle
+vtable i--tem in example code kbdinputstyle
 
 example kbdinputstyle
+vtable i--tem example kbdinputstyle
 in example example kbdinputstyle
+vtable i--tem in example example kbdinputstyle
 
 distinct kbdinputstyle
+vtable i--tem distinct kbdinputstyle
 in example distinct kbdinputstyle
+vtable i--tem in example distinct kbdinputstyle
 
 A quot---ation
 
@@ -2765,17 +2833,25 @@ chapter.
 extcross ref with uref href://http/myhost.com/index.htmluref1title with uref2 href://http/myhost.com/index2.htmluref2info file with uref3 href://http/myhost.com/index3.htmluref3printed manual with uref4 href://http/myhost.com/index4.htmluref4
 chaptercross ref with uref href://http/myhost.com/index.htmluref1title with uref2 href://http/myhost.com/index2.htmluref2
 
-a--strongl--ine
+a--strong
+l--ine
 
-a--asisbl--ine
+a--asis
+b
+l--ine
 
-abl--ine
+a
+b
+l--ine
 
 Title
-a--codeValue--table code
+a--code
+Value--table code
 
 Title
-a--sampa2--sampValue--table samp
+a--samp
+a2--samp
+Value--table samp
 
 c--artouche
 
@@ -2859,11 +2935,15 @@ e--mph item
 i--tem 1
 i--tem 2
 
-al--ine
+a
+l--ine
 
-a--missing style formattingl--ine
+a--missing style formatting
+l--ine
 
-abl--ine
+a
+b
+l--ine
 
 fun
 truc machin bidule chose and 

@@ -261,17 +261,25 @@ error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
 <informalequation><mathphrase><emphasis role="bold">b</emphasis> <emphasis>i</emphasis> r SC <literal>t</literal> sansserif slanted
 </mathphrase></informalequation>
 <para><userinput>default kbdinputstyle</userinput>
-</para><screen><userinput>in example default kbdinputstyle</userinput>
-</screen>
+</para><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem default kbdinputstyle</primary></indexterm><userinput>vtable i--tem default kbdinputstyle</userinput>
+</term></varlistentry></variablelist><screen><userinput>in example default kbdinputstyle</userinput>
+</screen><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem in example default kbdinputstyle</primary></indexterm><userinput>vtable i--tem in example default kbdinputstyle</userinput>
+</term></varlistentry></variablelist>
 <para><userinput>code kbdinputstyle</userinput>
-</para><screen><userinput>in example code kbdinputstyle</userinput>
-</screen>
+</para><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem code kbdinputstyle</primary></indexterm><userinput>vtable i--tem code kbdinputstyle</userinput>
+</term></varlistentry></variablelist><screen><userinput>in example code kbdinputstyle</userinput>
+</screen><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem in example code kbdinputstyle</primary></indexterm><userinput>vtable i--tem in example code kbdinputstyle</userinput>
+</term></varlistentry></variablelist>
 <para><userinput>example kbdinputstyle</userinput>
-</para><screen><userinput>in example example kbdinputstyle</userinput>
-</screen>
+</para><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem example kbdinputstyle</primary></indexterm><userinput>vtable i--tem example kbdinputstyle</userinput>
+</term></varlistentry></variablelist><screen><userinput>in example example kbdinputstyle</userinput>
+</screen><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem in example example kbdinputstyle</primary></indexterm><userinput>vtable i--tem in example example kbdinputstyle</userinput>
+</term></varlistentry></variablelist>
 <para><userinput>distinct kbdinputstyle</userinput>
-</para><screen><userinput>in example distinct kbdinputstyle</userinput>
-</screen>
+</para><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem distinct kbdinputstyle</primary></indexterm><userinput>vtable i--tem distinct kbdinputstyle</userinput>
+</term></varlistentry></variablelist><screen><userinput>in example distinct kbdinputstyle</userinput>
+</screen><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem in example distinct kbdinputstyle</primary></indexterm><userinput>vtable i--tem in example distinct kbdinputstyle</userinput>
+</term></varlistentry></variablelist>
 <blockquote><para>A quot&#8212;ation
 </para></blockquote>
 <note><para>A Note
@@ -1055,17 +1063,25 @@ error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
 <informalequation><mathphrase><emphasis role="bold">b</emphasis> <emphasis>i</emphasis> r SC <literal>t</literal> sansserif slanted
 </mathphrase></informalequation>
 <para><userinput>default kbdinputstyle</userinput>
-</para><screen><userinput>in example default kbdinputstyle</userinput>
-</screen>
+</para><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem default kbdinputstyle</primary></indexterm><userinput>vtable i--tem default kbdinputstyle</userinput>
+</term></varlistentry></variablelist><screen><userinput>in example default kbdinputstyle</userinput>
+</screen><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem in example default kbdinputstyle</primary></indexterm><userinput>vtable i--tem in example default kbdinputstyle</userinput>
+</term></varlistentry></variablelist>
 <para><userinput>code kbdinputstyle</userinput>
-</para><screen><userinput>in example code kbdinputstyle</userinput>
-</screen>
+</para><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem code kbdinputstyle</primary></indexterm><userinput>vtable i--tem code kbdinputstyle</userinput>
+</term></varlistentry></variablelist><screen><userinput>in example code kbdinputstyle</userinput>
+</screen><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem in example code kbdinputstyle</primary></indexterm><userinput>vtable i--tem in example code kbdinputstyle</userinput>
+</term></varlistentry></variablelist>
 <para><userinput>example kbdinputstyle</userinput>
-</para><screen><userinput>in example example kbdinputstyle</userinput>
-</screen>
+</para><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem example kbdinputstyle</primary></indexterm><userinput>vtable i--tem example kbdinputstyle</userinput>
+</term></varlistentry></variablelist><screen><userinput>in example example kbdinputstyle</userinput>
+</screen><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem in example example kbdinputstyle</primary></indexterm><userinput>vtable i--tem in example example kbdinputstyle</userinput>
+</term></varlistentry></variablelist>
 <para><userinput>distinct kbdinputstyle</userinput>
-</para><screen><userinput>in example distinct kbdinputstyle</userinput>
-</screen>
+</para><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem distinct kbdinputstyle</primary></indexterm><userinput>vtable i--tem distinct kbdinputstyle</userinput>
+</term></varlistentry></variablelist><screen><userinput>in example distinct kbdinputstyle</userinput>
+</screen><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem in example distinct kbdinputstyle</primary></indexterm><userinput>vtable i--tem in example distinct kbdinputstyle</userinput>
+</term></varlistentry></variablelist>
 <blockquote><para>A quot&#8212;ation
 </para></blockquote>
 <note><para>A Note
@@ -1850,17 +1866,25 @@ error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
 <informalequation><mathphrase><emphasis role="bold">b</emphasis> <emphasis>i</emphasis> r SC <literal>t</literal> sansserif slanted
 </mathphrase></informalequation>
 <para><userinput>default kbdinputstyle</userinput>
-</para><screen><userinput>in example default kbdinputstyle</userinput>
-</screen>
+</para><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem default kbdinputstyle</primary></indexterm><userinput>vtable i--tem default kbdinputstyle</userinput>
+</term></varlistentry></variablelist><screen><userinput>in example default kbdinputstyle</userinput>
+</screen><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem in example default kbdinputstyle</primary></indexterm><userinput>vtable i--tem in example default kbdinputstyle</userinput>
+</term></varlistentry></variablelist>
 <para><userinput>code kbdinputstyle</userinput>
-</para><screen><userinput>in example code kbdinputstyle</userinput>
-</screen>
+</para><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem code kbdinputstyle</primary></indexterm><userinput>vtable i--tem code kbdinputstyle</userinput>
+</term></varlistentry></variablelist><screen><userinput>in example code kbdinputstyle</userinput>
+</screen><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem in example code kbdinputstyle</primary></indexterm><userinput>vtable i--tem in example code kbdinputstyle</userinput>
+</term></varlistentry></variablelist>
 <para><userinput>example kbdinputstyle</userinput>
-</para><screen><userinput>in example example kbdinputstyle</userinput>
-</screen>
+</para><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem example kbdinputstyle</primary></indexterm><userinput>vtable i--tem example kbdinputstyle</userinput>
+</term></varlistentry></variablelist><screen><userinput>in example example kbdinputstyle</userinput>
+</screen><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem in example example kbdinputstyle</primary></indexterm><userinput>vtable i--tem in example example kbdinputstyle</userinput>
+</term></varlistentry></variablelist>
 <para><userinput>distinct kbdinputstyle</userinput>
-</para><screen><userinput>in example distinct kbdinputstyle</userinput>
-</screen>
+</para><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem distinct kbdinputstyle</primary></indexterm><userinput>vtable i--tem distinct kbdinputstyle</userinput>
+</term></varlistentry></variablelist><screen><userinput>in example distinct kbdinputstyle</userinput>
+</screen><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem in example distinct kbdinputstyle</primary></indexterm><userinput>vtable i--tem in example distinct kbdinputstyle</userinput>
+</term></varlistentry></variablelist>
 <blockquote><para>A quot&#8212;ation
 </para></blockquote>
 <note><para>A Note
@@ -2663,17 +2687,25 @@ error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
 <informalequation><mathphrase><emphasis role="bold">b</emphasis> <emphasis>i</emphasis> r SC <literal>t</literal> sansserif slanted
 </mathphrase></informalequation>
 <para><userinput>default kbdinputstyle</userinput>
-</para><screen><userinput>in example default kbdinputstyle</userinput>
-</screen>
+</para><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem default kbdinputstyle</primary></indexterm><userinput>vtable i--tem default kbdinputstyle</userinput>
+</term></varlistentry></variablelist><screen><userinput>in example default kbdinputstyle</userinput>
+</screen><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem in example default kbdinputstyle</primary></indexterm><userinput>vtable i--tem in example default kbdinputstyle</userinput>
+</term></varlistentry></variablelist>
 <para><userinput>code kbdinputstyle</userinput>
-</para><screen><userinput>in example code kbdinputstyle</userinput>
-</screen>
+</para><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem code kbdinputstyle</primary></indexterm><userinput>vtable i--tem code kbdinputstyle</userinput>
+</term></varlistentry></variablelist><screen><userinput>in example code kbdinputstyle</userinput>
+</screen><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem in example code kbdinputstyle</primary></indexterm><userinput>vtable i--tem in example code kbdinputstyle</userinput>
+</term></varlistentry></variablelist>
 <para><userinput>example kbdinputstyle</userinput>
-</para><screen><userinput>in example example kbdinputstyle</userinput>
-</screen>
+</para><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem example kbdinputstyle</primary></indexterm><userinput>vtable i--tem example kbdinputstyle</userinput>
+</term></varlistentry></variablelist><screen><userinput>in example example kbdinputstyle</userinput>
+</screen><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem in example example kbdinputstyle</primary></indexterm><userinput>vtable i--tem in example example kbdinputstyle</userinput>
+</term></varlistentry></variablelist>
 <para><userinput>distinct kbdinputstyle</userinput>
-</para><screen><userinput>in example distinct kbdinputstyle</userinput>
-</screen>
+</para><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem distinct kbdinputstyle</primary></indexterm><userinput>vtable i--tem distinct kbdinputstyle</userinput>
+</term></varlistentry></variablelist><screen><userinput>in example distinct kbdinputstyle</userinput>
+</screen><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem in example distinct kbdinputstyle</primary></indexterm><userinput>vtable i--tem in example distinct kbdinputstyle</userinput>
+</term></varlistentry></variablelist>
 <blockquote><para>A quot&#8212;ation
 </para></blockquote>
 <note><para>A Note
@@ -3457,17 +3489,25 @@ error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
 <informalequation><mathphrase><emphasis role="bold">b</emphasis> <emphasis>i</emphasis> r SC <literal>t</literal> sansserif slanted
 </mathphrase></informalequation>
 <para><userinput>default kbdinputstyle</userinput>
-</para><screen><userinput>in example default kbdinputstyle</userinput>
-</screen>
+</para><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem default kbdinputstyle</primary></indexterm><userinput>vtable i--tem default kbdinputstyle</userinput>
+</term></varlistentry></variablelist><screen><userinput>in example default kbdinputstyle</userinput>
+</screen><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem in example default kbdinputstyle</primary></indexterm><userinput>vtable i--tem in example default kbdinputstyle</userinput>
+</term></varlistentry></variablelist>
 <para><userinput>code kbdinputstyle</userinput>
-</para><screen><userinput>in example code kbdinputstyle</userinput>
-</screen>
+</para><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem code kbdinputstyle</primary></indexterm><userinput>vtable i--tem code kbdinputstyle</userinput>
+</term></varlistentry></variablelist><screen><userinput>in example code kbdinputstyle</userinput>
+</screen><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem in example code kbdinputstyle</primary></indexterm><userinput>vtable i--tem in example code kbdinputstyle</userinput>
+</term></varlistentry></variablelist>
 <para><userinput>example kbdinputstyle</userinput>
-</para><screen><userinput>in example example kbdinputstyle</userinput>
-</screen>
+</para><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem example kbdinputstyle</primary></indexterm><userinput>vtable i--tem example kbdinputstyle</userinput>
+</term></varlistentry></variablelist><screen><userinput>in example example kbdinputstyle</userinput>
+</screen><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem in example example kbdinputstyle</primary></indexterm><userinput>vtable i--tem in example example kbdinputstyle</userinput>
+</term></varlistentry></variablelist>
 <para><userinput>distinct kbdinputstyle</userinput>
-</para><screen><userinput>in example distinct kbdinputstyle</userinput>
-</screen>
+</para><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem distinct kbdinputstyle</primary></indexterm><userinput>vtable i--tem distinct kbdinputstyle</userinput>
+</term></varlistentry></variablelist><screen><userinput>in example distinct kbdinputstyle</userinput>
+</screen><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem in example distinct kbdinputstyle</primary></indexterm><userinput>vtable i--tem in example distinct kbdinputstyle</userinput>
+</term></varlistentry></variablelist>
 <blockquote><para>A quot&#8212;ation
 </para></blockquote>
 <note><para>A Note
@@ -4247,17 +4287,25 @@ error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
 </screen><informalequation><mathphrase><emphasis role="bold">b</emphasis> <emphasis>i</emphasis> r SC <literal>t</literal> sansserif slanted
 </mathphrase></informalequation><screen>
 <userinput>default kbdinputstyle</userinput>
-</screen><screen><userinput>in example default kbdinputstyle</userinput>
-</screen><screen>
+</screen><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem default kbdinputstyle</primary></indexterm><userinput>vtable i--tem default kbdinputstyle</userinput>
+</term></varlistentry></variablelist><screen><userinput>in example default kbdinputstyle</userinput>
+</screen><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem in example default kbdinputstyle</primary></indexterm><userinput>vtable i--tem in example default kbdinputstyle</userinput>
+</term></varlistentry></variablelist><screen>
 <userinput>code kbdinputstyle</userinput>
-</screen><screen><userinput>in example code kbdinputstyle</userinput>
-</screen><screen>
+</screen><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem code kbdinputstyle</primary></indexterm><userinput>vtable i--tem code kbdinputstyle</userinput>
+</term></varlistentry></variablelist><screen><userinput>in example code kbdinputstyle</userinput>
+</screen><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem in example code kbdinputstyle</primary></indexterm><userinput>vtable i--tem in example code kbdinputstyle</userinput>
+</term></varlistentry></variablelist><screen>
 <userinput>example kbdinputstyle</userinput>
-</screen><screen><userinput>in example example kbdinputstyle</userinput>
-</screen><screen>
+</screen><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem example kbdinputstyle</primary></indexterm><userinput>vtable i--tem example kbdinputstyle</userinput>
+</term></varlistentry></variablelist><screen><userinput>in example example kbdinputstyle</userinput>
+</screen><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem in example example kbdinputstyle</primary></indexterm><userinput>vtable i--tem in example example kbdinputstyle</userinput>
+</term></varlistentry></variablelist><screen>
 <userinput>distinct kbdinputstyle</userinput>
-</screen><screen><userinput>in example distinct kbdinputstyle</userinput>
-</screen><screen>
+</screen><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem distinct kbdinputstyle</primary></indexterm><userinput>vtable i--tem distinct kbdinputstyle</userinput>
+</term></varlistentry></variablelist><screen><userinput>in example distinct kbdinputstyle</userinput>
+</screen><variablelist><varlistentry><term><indexterm role="vr"><primary>vtable i--tem in example distinct kbdinputstyle</primary></indexterm><userinput>vtable i--tem in example distinct kbdinputstyle</userinput>
+</term></varlistentry></variablelist><screen>
 </screen><blockquote><screen>A quot---ation
 </screen></blockquote><screen>
 </screen><note><screen>A Note

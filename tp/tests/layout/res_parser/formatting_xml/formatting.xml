@@ -267,26 +267,50 @@ After clickstyle @result{}
 @end displaymath
 
 @kbd{default kbdinputstyle}
+@vtable @kbd
+@item vtable i--tem default kbdinputstyle
+@end vtable
 @example
 @kbd{in example default kbdinputstyle}
+@vtable @kbd
+@item vtable i--tem in example default kbdinputstyle
+@end vtable
 @end example
 
 @kbdinputstyle code
 @kbd{code kbdinputstyle}
+@vtable @kbd
+@item vtable i--tem code kbdinputstyle
+@end vtable
 @example
 @kbd{in example code kbdinputstyle}
+@vtable @kbd
+@item vtable i--tem in example code kbdinputstyle
+@end vtable
 @end example
 
 @kbdinputstyle example
 @kbd{example kbdinputstyle}
+@vtable @kbd
+@item vtable i--tem example kbdinputstyle
+@end vtable
 @example
 @kbd{in example example kbdinputstyle}
+@vtable @kbd
+@item vtable i--tem in example example kbdinputstyle
+@end vtable
 @end example
 
 @kbdinputstyle distinct
 @kbd{distinct kbdinputstyle}
+@vtable @kbd
+@item vtable i--tem distinct kbdinputstyle
+@end vtable
 @example
 @kbd{in example distinct kbdinputstyle}
+@vtable @kbd
+@item vtable i--tem in example distinct kbdinputstyle
+@end vtable
 @end example
 
 @quotation 
@@ -1268,27 +1292,51 @@ After clickstyle &result;
 </displaymath>
 
 <para><kbd>default kbdinputstyle</kbd>
-</para><example endspaces=" ">
+</para><vtable commandarg="kbd" spaces=" " endspaces=" ">
+<tableentry><tableterm><item spaces=" "><itemformat command="kbd"><indexterm index="vr" number="1" mergedindex="cp">vtable i--tem default kbdinputstyle</indexterm>vtable i--tem default kbdinputstyle</itemformat></item>
+</tableterm></tableentry></vtable>
+<example endspaces=" ">
 <pre xml:space="preserve"><kbd>in example default kbdinputstyle</kbd>
-</pre></example>
+</pre><vtable commandarg="kbd" spaces=" " endspaces=" ">
+<tableentry><tableterm><item spaces=" "><itemformat command="kbd"><indexterm index="vr" number="2" mergedindex="cp">vtable i--tem in example default kbdinputstyle</indexterm>vtable i--tem in example default kbdinputstyle</itemformat></item>
+</tableterm></tableentry></vtable>
+</example>
 
 <kbdinputstyle value="code" line="code"></kbdinputstyle>
 <para><kbd>code kbdinputstyle</kbd>
-</para><example endspaces=" ">
+</para><vtable commandarg="kbd" spaces=" " endspaces=" ">
+<tableentry><tableterm><item spaces=" "><itemformat command="kbd"><indexterm index="vr" number="3" mergedindex="cp">vtable i--tem code kbdinputstyle</indexterm>vtable i--tem code kbdinputstyle</itemformat></item>
+</tableterm></tableentry></vtable>
+<example endspaces=" ">
 <pre xml:space="preserve"><kbd>in example code kbdinputstyle</kbd>
-</pre></example>
+</pre><vtable commandarg="kbd" spaces=" " endspaces=" ">
+<tableentry><tableterm><item spaces=" "><itemformat command="kbd"><indexterm index="vr" number="4" mergedindex="cp">vtable i--tem in example code kbdinputstyle</indexterm>vtable i--tem in example code kbdinputstyle</itemformat></item>
+</tableterm></tableentry></vtable>
+</example>
 
 <kbdinputstyle value="example" line="example"></kbdinputstyle>
 <para><kbd>example kbdinputstyle</kbd>
-</para><example endspaces=" ">
+</para><vtable commandarg="kbd" spaces=" " endspaces=" ">
+<tableentry><tableterm><item spaces=" "><itemformat command="kbd"><indexterm index="vr" number="5" mergedindex="cp">vtable i--tem example kbdinputstyle</indexterm>vtable i--tem example kbdinputstyle</itemformat></item>
+</tableterm></tableentry></vtable>
+<example endspaces=" ">
 <pre xml:space="preserve"><kbd>in example example kbdinputstyle</kbd>
-</pre></example>
+</pre><vtable commandarg="kbd" spaces=" " endspaces=" ">
+<tableentry><tableterm><item spaces=" "><itemformat command="kbd"><indexterm index="vr" number="6" mergedindex="cp">vtable i--tem in example example kbdinputstyle</indexterm>vtable i--tem in example example kbdinputstyle</itemformat></item>
+</tableterm></tableentry></vtable>
+</example>
 
 <kbdinputstyle value="distinct" line="distinct"></kbdinputstyle>
 <para><kbd>distinct kbdinputstyle</kbd>
-</para><example endspaces=" ">
+</para><vtable commandarg="kbd" spaces=" " endspaces=" ">
+<tableentry><tableterm><item spaces=" "><itemformat command="kbd"><indexterm index="vr" number="7" mergedindex="cp">vtable i--tem distinct kbdinputstyle</indexterm>vtable i--tem distinct kbdinputstyle</itemformat></item>
+</tableterm></tableentry></vtable>
+<example endspaces=" ">
 <pre xml:space="preserve"><kbd>in example distinct kbdinputstyle</kbd>
-</pre></example>
+</pre><vtable commandarg="kbd" spaces=" " endspaces=" ">
+<tableentry><tableterm><item spaces=" "><itemformat command="kbd"><indexterm index="vr" number="8" mergedindex="cp">vtable i--tem in example distinct kbdinputstyle</indexterm>vtable i--tem in example distinct kbdinputstyle</itemformat></item>
+</tableterm></tableentry></vtable>
+</example>
 
 <quotation endspaces=" "> 
 <para>A quot&textmdash;ation
@@ -1559,7 +1607,7 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 
 <!-- c from t/19def.t all_commands -->
 
-<defvr spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="1" mergedindex="cp">d--efvr_name</indexterm><defcategory>c--ategory</defcategory> <defvariable>d--efvr_name</defvariable></definitionterm>
+<defvr spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="9" mergedindex="cp">d--efvr_name</indexterm><defcategory>c--ategory</defcategory> <defvariable>d--efvr_name</defvariable></definitionterm>
 <definitionitem><para>d&textndash;efvr
 </para></definitionitem></defvr>
 
@@ -1587,23 +1635,23 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 <definitionitem><para>d&textndash;eftypeop no arg
 </para></definitionitem></deftypeop>
 
-<deftypevr spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="2" mergedindex="cp">d--eftypevr_name</indexterm><defcategory>c--ategory</defcategory> <deftype>t--ype</deftype> <defvariable>d--eftypevr_name</defvariable></definitionterm>
+<deftypevr spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="10" mergedindex="cp">d--eftypevr_name</indexterm><defcategory>c--ategory</defcategory> <deftype>t--ype</deftype> <defvariable>d--eftypevr_name</defvariable></definitionterm>
 <definitionitem><para>d&textndash;eftypevr
 </para></definitionitem></deftypevr>
 
-<defcv spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="3" mergedindex="cp">d--efcv_name</indexterm><defcategory>c--ategory</defcategory> <defclass>c--lass</defclass> <defclassvar>d--efcv_name</defclassvar></definitionterm>
+<defcv spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="11" mergedindex="cp">d--efcv_name</indexterm><defcategory>c--ategory</defcategory> <defclass>c--lass</defclass> <defclassvar>d--efcv_name</defclassvar></definitionterm>
 <definitionitem><para>d&textndash;efcv
 </para></definitionitem></defcv>
 
-<defcv spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="4" mergedindex="cp">d--efcv_name</indexterm><defcategory>c--ategory</defcategory> <defclass>c--lass</defclass> <defclassvar>d--efcv_name</defclassvar> <defparam>a--rguments...</defparam></definitionterm>
+<defcv spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="12" mergedindex="cp">d--efcv_name</indexterm><defcategory>c--ategory</defcategory> <defclass>c--lass</defclass> <defclassvar>d--efcv_name</defclassvar> <defparam>a--rguments...</defparam></definitionterm>
 <definitionitem><para>d&textndash;efcv with arguments
 </para></definitionitem></defcv>
 
-<deftypecv spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="5" mergedindex="cp">d--eftypecv_name of c--lass</indexterm><defcategory>c--ategory</defcategory> <defclass>c--lass</defclass> <deftype>t--ype</deftype> <defclassvar>d--eftypecv_name</defclassvar></definitionterm>
+<deftypecv spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="13" mergedindex="cp">d--eftypecv_name of c--lass</indexterm><defcategory>c--ategory</defcategory> <defclass>c--lass</defclass> <deftype>t--ype</deftype> <defclassvar>d--eftypecv_name</defclassvar></definitionterm>
 <definitionitem><para>d&textndash;eftypecv
 </para></definitionitem></deftypecv>
 
-<deftypecv spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="6" mergedindex="cp">d--eftypecv_name of c--lass</indexterm><defcategory>c--ategory</defcategory> <defclass>c--lass</defclass> <deftype>t--ype</deftype> <defclassvar>d--eftypecv_name</defclassvar> <defparam>a--rguments...</defparam></definitionterm>
+<deftypecv spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="14" mergedindex="cp">d--eftypecv_name of c--lass</indexterm><defcategory>c--ategory</defcategory> <defclass>c--lass</defclass> <deftype>t--ype</deftype> <defclassvar>d--eftypecv_name</defclassvar> <defparam>a--rguments...</defparam></definitionterm>
 <definitionitem><para>d&textndash;eftypecv with arguments
 </para></definitionitem></deftypecv>
 
@@ -1631,15 +1679,15 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 <definitionitem><para>d&textndash;efspec
 </para></definitionitem></defspec>
 
-<defvar spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="7" mergedindex="cp">d--efvar_name</indexterm><defcategory automatic="on" bracketed="on">Variable</defcategory> <defvariable>d--efvar_name</defvariable></definitionterm>
+<defvar spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="15" mergedindex="cp">d--efvar_name</indexterm><defcategory automatic="on" bracketed="on">Variable</defcategory> <defvariable>d--efvar_name</defvariable></definitionterm>
 <definitionitem><para>d&textndash;efvar
 </para></definitionitem></defvar>
 
-<defvar spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="8" mergedindex="cp">d--efvar_name</indexterm><defcategory automatic="on" bracketed="on">Variable</defcategory> <defvariable>d--efvar_name</defvariable> <defparam>arg--var</defparam> <defparam>arg--var1</defparam></definitionterm>
+<defvar spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="16" mergedindex="cp">d--efvar_name</indexterm><defcategory automatic="on" bracketed="on">Variable</defcategory> <defvariable>d--efvar_name</defvariable> <defparam>arg--var</defparam> <defparam>arg--var1</defparam></definitionterm>
 <definitionitem><para>d&textndash;efvar with args
 </para></definitionitem></defvar>
 
-<defopt spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="9" mergedindex="cp">d--efopt_name</indexterm><defcategory automatic="on" bracketed="on">User Option</defcategory> <defvariable>d--efopt_name</defvariable></definitionterm>
+<defopt spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="17" mergedindex="cp">d--efopt_name</indexterm><defcategory automatic="on" bracketed="on">User Option</defcategory> <defvariable>d--efopt_name</defvariable></definitionterm>
 <definitionitem><para>d&textndash;efopt
 </para></definitionitem></defopt>
 
@@ -1647,15 +1695,15 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 <definitionitem><para>d&textndash;eftypefun
 </para></definitionitem></deftypefun>
 
-<deftypevar spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="10" mergedindex="cp">d--eftypevar_name</indexterm><defcategory automatic="on" bracketed="on">Variable</defcategory> <deftype>t--ype</deftype> <defvariable>d--eftypevar_name</defvariable></definitionterm>
+<deftypevar spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="18" mergedindex="cp">d--eftypevar_name</indexterm><defcategory automatic="on" bracketed="on">Variable</defcategory> <deftype>t--ype</deftype> <defvariable>d--eftypevar_name</defvariable></definitionterm>
 <definitionitem><para>d&textndash;eftypevar
 </para></definitionitem></deftypevar>
 
-<defivar spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="11" mergedindex="cp">d--efivar_name of c--lass</indexterm><defcategory automatic="on" bracketed="on">Instance Variable</defcategory> <defclass>c--lass</defclass> <defclassvar>d--efivar_name</defclassvar></definitionterm>
+<defivar spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="19" mergedindex="cp">d--efivar_name of c--lass</indexterm><defcategory automatic="on" bracketed="on">Instance Variable</defcategory> <defclass>c--lass</defclass> <defclassvar>d--efivar_name</defclassvar></definitionterm>
 <definitionitem><para>d&textndash;efivar
 </para></definitionitem></defivar>
 
-<deftypeivar spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="12" mergedindex="cp">d--eftypeivar_name of c--lass</indexterm><defcategory automatic="on" bracketed="on">Instance Variable</defcategory> <defclass>c--lass</defclass> <deftype>t--ype</deftype> <defclassvar>d--eftypeivar_name</defclassvar></definitionterm>
+<deftypeivar spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="20" mergedindex="cp">d--eftypeivar_name of c--lass</indexterm><defcategory automatic="on" bracketed="on">Instance Variable</defcategory> <defclass>c--lass</defclass> <deftype>t--ype</deftype> <defclassvar>d--eftypeivar_name</defclassvar></definitionterm>
 <definitionitem><para>d&textndash;eftypeivar
 </para></definitionitem></deftypeivar>
 
@@ -1685,11 +1733,11 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 <definitionitem><para>d&textndash;eftypeop no arg2
 </para></definitionitem></deftypeop>
 
-<deftypecv spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="13" mergedindex="cp">d--eftypecv_name2 of c--lass2</indexterm><defcategory>c--ategory2</defcategory> <defclass>c--lass2</defclass> <deftype>t--ype2</deftype> <defclassvar>d--eftypecv_name2</defclassvar></definitionterm>
+<deftypecv spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="21" mergedindex="cp">d--eftypecv_name2 of c--lass2</indexterm><defcategory>c--ategory2</defcategory> <defclass>c--lass2</defclass> <deftype>t--ype2</deftype> <defclassvar>d--eftypecv_name2</defclassvar></definitionterm>
 <definitionitem><para>d&textndash;eftypecv2
 </para></definitionitem></deftypecv>
 
-<deftypecv spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="14" mergedindex="cp">d--eftypecv_name2 of c--lass2</indexterm><defcategory>c--ategory2</defcategory> <defclass>c--lass2</defclass> <deftype>t--ype2</deftype> <defclassvar>d--eftypecv_name2</defclassvar> <defparam>a--rguments2...</defparam></definitionterm>
+<deftypecv spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="22" mergedindex="cp">d--eftypecv_name2 of c--lass2</indexterm><defcategory>c--ategory2</defcategory> <defclass>c--lass2</defclass> <deftype>t--ype2</deftype> <defclassvar>d--eftypecv_name2</defclassvar> <defparam>a--rguments2...</defparam></definitionterm>
 <definitionitem><para>d&textndash;eftypecv with arguments2
 </para></definitionitem></deftypecv>
 
@@ -1774,9 +1822,9 @@ ref</inforefrefname><inforefinfoname spaces=" ">a comma&comma; in file</inforefi
 </para></tableitem></tableentry></table>
 
 <vtable commandarg="asis" spaces=" " endspaces=" ">
-<tableentry><tableterm><item spaces=" "><itemformat command="asis"><indexterm index="vr" number="15" mergedindex="cp">a--asis</indexterm>a&textndash;asis</itemformat></item>
+<tableentry><tableterm><item spaces=" "><itemformat command="asis"><indexterm index="vr" number="23" mergedindex="cp">a--asis</indexterm>a&textndash;asis</itemformat></item>
 <!-- c comment between item and itemx -->
-<itemx spaces=" "><itemformat command="asis"><indexterm index="vr" number="16" mergedindex="cp">b</indexterm>b</itemformat></itemx>
+<itemx spaces=" "><itemformat command="asis"><indexterm index="vr" number="24" mergedindex="cp">b</indexterm>b</itemformat></itemx>
 </tableterm><tableitem><para>l&textndash;ine
 </para></tableitem></tableentry></vtable>
 
@@ -2256,27 +2304,51 @@ After clickstyle &result;
 </displaymath>
 
 <para><kbd>default kbdinputstyle</kbd>
-</para><example endspaces=" ">
+</para><vtable commandarg="kbd" spaces=" " endspaces=" ">
+<tableentry><tableterm><item spaces=" "><itemformat command="kbd"><indexterm index="vr" number="25" mergedindex="cp">vtable i--tem default kbdinputstyle</indexterm>vtable i--tem default kbdinputstyle</itemformat></item>
+</tableterm></tableentry></vtable>
+<example endspaces=" ">
 <pre xml:space="preserve"><kbd>in example default kbdinputstyle</kbd>
-</pre></example>
+</pre><vtable commandarg="kbd" spaces=" " endspaces=" ">
+<tableentry><tableterm><item spaces=" "><itemformat command="kbd"><indexterm index="vr" number="26" mergedindex="cp">vtable i--tem in example default kbdinputstyle</indexterm>vtable i--tem in example default kbdinputstyle</itemformat></item>
+</tableterm></tableentry></vtable>
+</example>
 
 <kbdinputstyle value="code" line="code"></kbdinputstyle>
 <para><kbd>code kbdinputstyle</kbd>
-</para><example endspaces=" ">
+</para><vtable commandarg="kbd" spaces=" " endspaces=" ">
+<tableentry><tableterm><item spaces=" "><itemformat command="kbd"><indexterm index="vr" number="27" mergedindex="cp">vtable i--tem code kbdinputstyle</indexterm>vtable i--tem code kbdinputstyle</itemformat></item>
+</tableterm></tableentry></vtable>
+<example endspaces=" ">
 <pre xml:space="preserve"><kbd>in example code kbdinputstyle</kbd>
-</pre></example>
+</pre><vtable commandarg="kbd" spaces=" " endspaces=" ">
+<tableentry><tableterm><item spaces=" "><itemformat command="kbd"><indexterm index="vr" number="28" mergedindex="cp">vtable i--tem in example code kbdinputstyle</indexterm>vtable i--tem in example code kbdinputstyle</itemformat></item>
+</tableterm></tableentry></vtable>
+</example>
 
 <kbdinputstyle value="example" line="example"></kbdinputstyle>
 <para><kbd>example kbdinputstyle</kbd>
-</para><example endspaces=" ">
+</para><vtable commandarg="kbd" spaces=" " endspaces=" ">
+<tableentry><tableterm><item spaces=" "><itemformat command="kbd"><indexterm index="vr" number="29" mergedindex="cp">vtable i--tem example kbdinputstyle</indexterm>vtable i--tem example kbdinputstyle</itemformat></item>
+</tableterm></tableentry></vtable>
+<example endspaces=" ">
 <pre xml:space="preserve"><kbd>in example example kbdinputstyle</kbd>
-</pre></example>
+</pre><vtable commandarg="kbd" spaces=" " endspaces=" ">
+<tableentry><tableterm><item spaces=" "><itemformat command="kbd"><indexterm index="vr" number="30" mergedindex="cp">vtable i--tem in example example kbdinputstyle</indexterm>vtable i--tem in example example kbdinputstyle</itemformat></item>
+</tableterm></tableentry></vtable>
+</example>
 
 <kbdinputstyle value="distinct" line="distinct"></kbdinputstyle>
 <para><kbd>distinct kbdinputstyle</kbd>
-</para><example endspaces=" ">
+</para><vtable commandarg="kbd" spaces=" " endspaces=" ">
+<tableentry><tableterm><item spaces=" "><itemformat command="kbd"><indexterm index="vr" number="31" mergedindex="cp">vtable i--tem distinct kbdinputstyle</indexterm>vtable i--tem distinct kbdinputstyle</itemformat></item>
+</tableterm></tableentry></vtable>
+<example endspaces=" ">
 <pre xml:space="preserve"><kbd>in example distinct kbdinputstyle</kbd>
-</pre></example>
+</pre><vtable commandarg="kbd" spaces=" " endspaces=" ">
+<tableentry><tableterm><item spaces=" "><itemformat command="kbd"><indexterm index="vr" number="32" mergedindex="cp">vtable i--tem in example distinct kbdinputstyle</indexterm>vtable i--tem in example distinct kbdinputstyle</itemformat></item>
+</tableterm></tableentry></vtable>
+</example>
 
 <quotation endspaces=" "> 
 <para>A quot&textmdash;ation
@@ -2547,7 +2619,7 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 
 <!-- c from t/19def.t all_commands -->
 
-<defvr spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="17" mergedindex="cp">d--efvr_name</indexterm><defcategory>c--ategory</defcategory> <defvariable>d--efvr_name</defvariable></definitionterm>
+<defvr spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="33" mergedindex="cp">d--efvr_name</indexterm><defcategory>c--ategory</defcategory> <defvariable>d--efvr_name</defvariable></definitionterm>
 <definitionitem><para>d&textndash;efvr
 </para></definitionitem></defvr>
 
@@ -2575,23 +2647,23 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 <definitionitem><para>d&textndash;eftypeop no arg
 </para></definitionitem></deftypeop>
 
-<deftypevr spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="18" mergedindex="cp">d--eftypevr_name</indexterm><defcategory>c--ategory</defcategory> <deftype>t--ype</deftype> <defvariable>d--eftypevr_name</defvariable></definitionterm>
+<deftypevr spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="34" mergedindex="cp">d--eftypevr_name</indexterm><defcategory>c--ategory</defcategory> <deftype>t--ype</deftype> <defvariable>d--eftypevr_name</defvariable></definitionterm>
 <definitionitem><para>d&textndash;eftypevr
 </para></definitionitem></deftypevr>
 
-<defcv spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="19" mergedindex="cp">d--efcv_name</indexterm><defcategory>c--ategory</defcategory> <defclass>c--lass</defclass> <defclassvar>d--efcv_name</defclassvar></definitionterm>
+<defcv spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="35" mergedindex="cp">d--efcv_name</indexterm><defcategory>c--ategory</defcategory> <defclass>c--lass</defclass> <defclassvar>d--efcv_name</defclassvar></definitionterm>
 <definitionitem><para>d&textndash;efcv
 </para></definitionitem></defcv>
 
-<defcv spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="20" mergedindex="cp">d--efcv_name</indexterm><defcategory>c--ategory</defcategory> <defclass>c--lass</defclass> <defclassvar>d--efcv_name</defclassvar> <defparam>a--rguments...</defparam></definitionterm>
+<defcv spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="36" mergedindex="cp">d--efcv_name</indexterm><defcategory>c--ategory</defcategory> <defclass>c--lass</defclass> <defclassvar>d--efcv_name</defclassvar> <defparam>a--rguments...</defparam></definitionterm>
 <definitionitem><para>d&textndash;efcv with arguments
 </para></definitionitem></defcv>
 
-<deftypecv spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="21" mergedindex="cp">d--eftypecv_name of c--lass</indexterm><defcategory>c--ategory</defcategory> <defclass>c--lass</defclass> <deftype>t--ype</deftype> <defclassvar>d--eftypecv_name</defclassvar></definitionterm>
+<deftypecv spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="37" mergedindex="cp">d--eftypecv_name of c--lass</indexterm><defcategory>c--ategory</defcategory> <defclass>c--lass</defclass> <deftype>t--ype</deftype> <defclassvar>d--eftypecv_name</defclassvar></definitionterm>
 <definitionitem><para>d&textndash;eftypecv
 </para></definitionitem></deftypecv>
 
-<deftypecv spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="22" mergedindex="cp">d--eftypecv_name of c--lass</indexterm><defcategory>c--ategory</defcategory> <defclass>c--lass</defclass> <deftype>t--ype</deftype> <defclassvar>d--eftypecv_name</defclassvar> <defparam>a--rguments...</defparam></definitionterm>
+<deftypecv spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="38" mergedindex="cp">d--eftypecv_name of c--lass</indexterm><defcategory>c--ategory</defcategory> <defclass>c--lass</defclass> <deftype>t--ype</deftype> <defclassvar>d--eftypecv_name</defclassvar> <defparam>a--rguments...</defparam></definitionterm>
 <definitionitem><para>d&textndash;eftypecv with arguments
 </para></definitionitem></deftypecv>
 
@@ -2619,15 +2691,15 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 <definitionitem><para>d&textndash;efspec
 </para></definitionitem></defspec>
 
-<defvar spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="23" mergedindex="cp">d--efvar_name</indexterm><defcategory automatic="on" bracketed="on">Variable</defcategory> <defvariable>d--efvar_name</defvariable></definitionterm>
+<defvar spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="39" mergedindex="cp">d--efvar_name</indexterm><defcategory automatic="on" bracketed="on">Variable</defcategory> <defvariable>d--efvar_name</defvariable></definitionterm>
 <definitionitem><para>d&textndash;efvar
 </para></definitionitem></defvar>
 
-<defvar spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="24" mergedindex="cp">d--efvar_name</indexterm><defcategory automatic="on" bracketed="on">Variable</defcategory> <defvariable>d--efvar_name</defvariable> <defparam>arg--var</defparam> <defparam>arg--var1</defparam></definitionterm>
+<defvar spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="40" mergedindex="cp">d--efvar_name</indexterm><defcategory automatic="on" bracketed="on">Variable</defcategory> <defvariable>d--efvar_name</defvariable> <defparam>arg--var</defparam> <defparam>arg--var1</defparam></definitionterm>
 <definitionitem><para>d&textndash;efvar with args
 </para></definitionitem></defvar>
 
-<defopt spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="25" mergedindex="cp">d--efopt_name</indexterm><defcategory automatic="on" bracketed="on">User Option</defcategory> <defvariable>d--efopt_name</defvariable></definitionterm>
+<defopt spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="41" mergedindex="cp">d--efopt_name</indexterm><defcategory automatic="on" bracketed="on">User Option</defcategory> <defvariable>d--efopt_name</defvariable></definitionterm>
 <definitionitem><para>d&textndash;efopt
 </para></definitionitem></defopt>
 
@@ -2635,15 +2707,15 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 <definitionitem><para>d&textndash;eftypefun
 </para></definitionitem></deftypefun>
 
-<deftypevar spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="26" mergedindex="cp">d--eftypevar_name</indexterm><defcategory automatic="on" bracketed="on">Variable</defcategory> <deftype>t--ype</deftype> <defvariable>d--eftypevar_name</defvariable></definitionterm>
+<deftypevar spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="42" mergedindex="cp">d--eftypevar_name</indexterm><defcategory automatic="on" bracketed="on">Variable</defcategory> <deftype>t--ype</deftype> <defvariable>d--eftypevar_name</defvariable></definitionterm>
 <definitionitem><para>d&textndash;eftypevar
 </para></definitionitem></deftypevar>
 
-<defivar spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="27" mergedindex="cp">d--efivar_name of c--lass</indexterm><defcategory automatic="on" bracketed="on">Instance Variable</defcategory> <defclass>c--lass</defclass> <defclassvar>d--efivar_name</defclassvar></definitionterm>
+<defivar spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="43" mergedindex="cp">d--efivar_name of c--lass</indexterm><defcategory automatic="on" bracketed="on">Instance Variable</defcategory> <defclass>c--lass</defclass> <defclassvar>d--efivar_name</defclassvar></definitionterm>
 <definitionitem><para>d&textndash;efivar
 </para></definitionitem></defivar>
 
-<deftypeivar spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="28" mergedindex="cp">d--eftypeivar_name of c--lass</indexterm><defcategory automatic="on" bracketed="on">Instance Variable</defcategory> <defclass>c--lass</defclass> <deftype>t--ype</deftype> <defclassvar>d--eftypeivar_name</defclassvar></definitionterm>
+<deftypeivar spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="44" mergedindex="cp">d--eftypeivar_name of c--lass</indexterm><defcategory automatic="on" bracketed="on">Instance Variable</defcategory> <defclass>c--lass</defclass> <deftype>t--ype</deftype> <defclassvar>d--eftypeivar_name</defclassvar></definitionterm>
 <definitionitem><para>d&textndash;eftypeivar
 </para></definitionitem></deftypeivar>
 
@@ -2673,11 +2745,11 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 <definitionitem><para>d&textndash;eftypeop no arg2
 </para></definitionitem></deftypeop>
 
-<deftypecv spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="29" mergedindex="cp">d--eftypecv_name2 of c--lass2</indexterm><defcategory>c--ategory2</defcategory> <defclass>c--lass2</defclass> <deftype>t--ype2</deftype> <defclassvar>d--eftypecv_name2</defclassvar></definitionterm>
+<deftypecv spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="45" mergedindex="cp">d--eftypecv_name2 of c--lass2</indexterm><defcategory>c--ategory2</defcategory> <defclass>c--lass2</defclass> <deftype>t--ype2</deftype> <defclassvar>d--eftypecv_name2</defclassvar></definitionterm>
 <definitionitem><para>d&textndash;eftypecv2
 </para></definitionitem></deftypecv>
 
-<deftypecv spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="30" mergedindex="cp">d--eftypecv_name2 of c--lass2</indexterm><defcategory>c--ategory2</defcategory> <defclass>c--lass2</defclass> <deftype>t--ype2</deftype> <defclassvar>d--eftypecv_name2</defclassvar> <defparam>a--rguments2...</defparam></definitionterm>
+<deftypecv spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="46" mergedindex="cp">d--eftypecv_name2 of c--lass2</indexterm><defcategory>c--ategory2</defcategory> <defclass>c--lass2</defclass> <deftype>t--ype2</deftype> <defclassvar>d--eftypecv_name2</defclassvar> <defparam>a--rguments2...</defparam></definitionterm>
 <definitionitem><para>d&textndash;eftypecv with arguments2
 </para></definitionitem></deftypecv>
 
@@ -2762,9 +2834,9 @@ ref</inforefrefname><inforefinfoname spaces=" ">a comma&comma; in file</inforefi
 </para></tableitem></tableentry></table>
 
 <vtable commandarg="asis" spaces=" " endspaces=" ">
-<tableentry><tableterm><item spaces=" "><itemformat command="asis"><indexterm index="vr" number="31" mergedindex="cp">a--asis</indexterm>a&textndash;asis</itemformat></item>
+<tableentry><tableterm><item spaces=" "><itemformat command="asis"><indexterm index="vr" number="47" mergedindex="cp">a--asis</indexterm>a&textndash;asis</itemformat></item>
 <!-- c comment between item and itemx -->
-<itemx spaces=" "><itemformat command="asis"><indexterm index="vr" number="32" mergedindex="cp">b</indexterm>b</itemformat></itemx>
+<itemx spaces=" "><itemformat command="asis"><indexterm index="vr" number="48" mergedindex="cp">b</indexterm>b</itemformat></itemx>
 </tableterm><tableitem><para>l&textndash;ine
 </para></tableitem></tableentry></vtable>
 
@@ -3271,27 +3343,51 @@ After clickstyle &result;
 </displaymath>
 
 <para><kbd>default kbdinputstyle</kbd>
-</para><example endspaces=" ">
+</para><vtable commandarg="kbd" spaces=" " endspaces=" ">
+<tableentry><tableterm><item spaces=" "><itemformat command="kbd"><indexterm index="vr" number="49" mergedindex="cp">vtable i--tem default kbdinputstyle</indexterm>vtable i--tem default kbdinputstyle</itemformat></item>
+</tableterm></tableentry></vtable>
+<example endspaces=" ">
 <pre xml:space="preserve"><kbd>in example default kbdinputstyle</kbd>
-</pre></example>
+</pre><vtable commandarg="kbd" spaces=" " endspaces=" ">
+<tableentry><tableterm><item spaces=" "><itemformat command="kbd"><indexterm index="vr" number="50" mergedindex="cp">vtable i--tem in example default kbdinputstyle</indexterm>vtable i--tem in example default kbdinputstyle</itemformat></item>
+</tableterm></tableentry></vtable>
+</example>
 
 <kbdinputstyle value="code" line="code"></kbdinputstyle>
 <para><kbd>code kbdinputstyle</kbd>
-</para><example endspaces=" ">
+</para><vtable commandarg="kbd" spaces=" " endspaces=" ">
+<tableentry><tableterm><item spaces=" "><itemformat command="kbd"><indexterm index="vr" number="51" mergedindex="cp">vtable i--tem code kbdinputstyle</indexterm>vtable i--tem code kbdinputstyle</itemformat></item>
+</tableterm></tableentry></vtable>
+<example endspaces=" ">
 <pre xml:space="preserve"><kbd>in example code kbdinputstyle</kbd>
-</pre></example>
+</pre><vtable commandarg="kbd" spaces=" " endspaces=" ">
+<tableentry><tableterm><item spaces=" "><itemformat command="kbd"><indexterm index="vr" number="52" mergedindex="cp">vtable i--tem in example code kbdinputstyle</indexterm>vtable i--tem in example code kbdinputstyle</itemformat></item>
+</tableterm></tableentry></vtable>
+</example>
 
 <kbdinputstyle value="example" line="example"></kbdinputstyle>
 <para><kbd>example kbdinputstyle</kbd>
-</para><example endspaces=" ">
+</para><vtable commandarg="kbd" spaces=" " endspaces=" ">
+<tableentry><tableterm><item spaces=" "><itemformat command="kbd"><indexterm index="vr" number="53" mergedindex="cp">vtable i--tem example kbdinputstyle</indexterm>vtable i--tem example kbdinputstyle</itemformat></item>
+</tableterm></tableentry></vtable>
+<example endspaces=" ">
 <pre xml:space="preserve"><kbd>in example example kbdinputstyle</kbd>
-</pre></example>
+</pre><vtable commandarg="kbd" spaces=" " endspaces=" ">
+<tableentry><tableterm><item spaces=" "><itemformat command="kbd"><indexterm index="vr" number="54" mergedindex="cp">vtable i--tem in example example kbdinputstyle</indexterm>vtable i--tem in example example kbdinputstyle</itemformat></item>
+</tableterm></tableentry></vtable>
+</example>
 
 <kbdinputstyle value="distinct" line="distinct"></kbdinputstyle>
 <para><kbd>distinct kbdinputstyle</kbd>
-</para><example endspaces=" ">
+</para><vtable commandarg="kbd" spaces=" " endspaces=" ">
+<tableentry><tableterm><item spaces=" "><itemformat command="kbd"><indexterm index="vr" number="55" mergedindex="cp">vtable i--tem distinct kbdinputstyle</indexterm>vtable i--tem distinct kbdinputstyle</itemformat></item>
+</tableterm></tableentry></vtable>
+<example endspaces=" ">
 <pre xml:space="preserve"><kbd>in example distinct kbdinputstyle</kbd>
-</pre></example>
+</pre><vtable commandarg="kbd" spaces=" " endspaces=" ">
+<tableentry><tableterm><item spaces=" "><itemformat command="kbd"><indexterm index="vr" number="56" mergedindex="cp">vtable i--tem in example distinct kbdinputstyle</indexterm>vtable i--tem in example distinct kbdinputstyle</itemformat></item>
+</tableterm></tableentry></vtable>
+</example>
 
 <quotation endspaces=" "> 
 <para>A quot&textmdash;ation
@@ -3562,7 +3658,7 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 
 <!-- c from t/19def.t all_commands -->
 
-<defvr spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="33" mergedindex="cp">d--efvr_name</indexterm><defcategory>c--ategory</defcategory> <defvariable>d--efvr_name</defvariable></definitionterm>
+<defvr spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="57" mergedindex="cp">d--efvr_name</indexterm><defcategory>c--ategory</defcategory> <defvariable>d--efvr_name</defvariable></definitionterm>
 <definitionitem><para>d&textndash;efvr
 </para></definitionitem></defvr>
 
@@ -3590,23 +3686,23 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 <definitionitem><para>d&textndash;eftypeop no arg
 </para></definitionitem></deftypeop>
 
-<deftypevr spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="34" mergedindex="cp">d--eftypevr_name</indexterm><defcategory>c--ategory</defcategory> <deftype>t--ype</deftype> <defvariable>d--eftypevr_name</defvariable></definitionterm>
+<deftypevr spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="58" mergedindex="cp">d--eftypevr_name</indexterm><defcategory>c--ategory</defcategory> <deftype>t--ype</deftype> <defvariable>d--eftypevr_name</defvariable></definitionterm>
 <definitionitem><para>d&textndash;eftypevr
 </para></definitionitem></deftypevr>
 
-<defcv spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="35" mergedindex="cp">d--efcv_name</indexterm><defcategory>c--ategory</defcategory> <defclass>c--lass</defclass> <defclassvar>d--efcv_name</defclassvar></definitionterm>
+<defcv spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="59" mergedindex="cp">d--efcv_name</indexterm><defcategory>c--ategory</defcategory> <defclass>c--lass</defclass> <defclassvar>d--efcv_name</defclassvar></definitionterm>
 <definitionitem><para>d&textndash;efcv
 </para></definitionitem></defcv>
 
-<defcv spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="36" mergedindex="cp">d--efcv_name</indexterm><defcategory>c--ategory</defcategory> <defclass>c--lass</defclass> <defclassvar>d--efcv_name</defclassvar> <defparam>a--rguments...</defparam></definitionterm>
+<defcv spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="60" mergedindex="cp">d--efcv_name</indexterm><defcategory>c--ategory</defcategory> <defclass>c--lass</defclass> <defclassvar>d--efcv_name</defclassvar> <defparam>a--rguments...</defparam></definitionterm>
 <definitionitem><para>d&textndash;efcv with arguments
 </para></definitionitem></defcv>
 
-<deftypecv spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="37" mergedindex="cp">d--eftypecv_name of c--lass</indexterm><defcategory>c--ategory</defcategory> <defclass>c--lass</defclass> <deftype>t--ype</deftype> <defclassvar>d--eftypecv_name</defclassvar></definitionterm>
+<deftypecv spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="61" mergedindex="cp">d--eftypecv_name of c--lass</indexterm><defcategory>c--ategory</defcategory> <defclass>c--lass</defclass> <deftype>t--ype</deftype> <defclassvar>d--eftypecv_name</defclassvar></definitionterm>
 <definitionitem><para>d&textndash;eftypecv
 </para></definitionitem></deftypecv>
 
-<deftypecv spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="38" mergedindex="cp">d--eftypecv_name of c--lass</indexterm><defcategory>c--ategory</defcategory> <defclass>c--lass</defclass> <deftype>t--ype</deftype> <defclassvar>d--eftypecv_name</defclassvar> <defparam>a--rguments...</defparam></definitionterm>
+<deftypecv spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="62" mergedindex="cp">d--eftypecv_name of c--lass</indexterm><defcategory>c--ategory</defcategory> <defclass>c--lass</defclass> <deftype>t--ype</deftype> <defclassvar>d--eftypecv_name</defclassvar> <defparam>a--rguments...</defparam></definitionterm>
 <definitionitem><para>d&textndash;eftypecv with arguments
 </para></definitionitem></deftypecv>
 
@@ -3634,15 +3730,15 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 <definitionitem><para>d&textndash;efspec
 </para></definitionitem></defspec>
 
-<defvar spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="39" mergedindex="cp">d--efvar_name</indexterm><defcategory automatic="on" bracketed="on">Variable</defcategory> <defvariable>d--efvar_name</defvariable></definitionterm>
+<defvar spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="63" mergedindex="cp">d--efvar_name</indexterm><defcategory automatic="on" bracketed="on">Variable</defcategory> <defvariable>d--efvar_name</defvariable></definitionterm>
 <definitionitem><para>d&textndash;efvar
 </para></definitionitem></defvar>
 
-<defvar spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="40" mergedindex="cp">d--efvar_name</indexterm><defcategory automatic="on" bracketed="on">Variable</defcategory> <defvariable>d--efvar_name</defvariable> <defparam>arg--var</defparam> <defparam>arg--var1</defparam></definitionterm>
+<defvar spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="64" mergedindex="cp">d--efvar_name</indexterm><defcategory automatic="on" bracketed="on">Variable</defcategory> <defvariable>d--efvar_name</defvariable> <defparam>arg--var</defparam> <defparam>arg--var1</defparam></definitionterm>
 <definitionitem><para>d&textndash;efvar with args
 </para></definitionitem></defvar>
 
-<defopt spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="41" mergedindex="cp">d--efopt_name</indexterm><defcategory automatic="on" bracketed="on">User Option</defcategory> <defvariable>d--efopt_name</defvariable></definitionterm>
+<defopt spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="65" mergedindex="cp">d--efopt_name</indexterm><defcategory automatic="on" bracketed="on">User Option</defcategory> <defvariable>d--efopt_name</defvariable></definitionterm>
 <definitionitem><para>d&textndash;efopt
 </para></definitionitem></defopt>
 
@@ -3650,15 +3746,15 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 <definitionitem><para>d&textndash;eftypefun
 </para></definitionitem></deftypefun>
 
-<deftypevar spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="42" mergedindex="cp">d--eftypevar_name</indexterm><defcategory automatic="on" bracketed="on">Variable</defcategory> <deftype>t--ype</deftype> <defvariable>d--eftypevar_name</defvariable></definitionterm>
+<deftypevar spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="66" mergedindex="cp">d--eftypevar_name</indexterm><defcategory automatic="on" bracketed="on">Variable</defcategory> <deftype>t--ype</deftype> <defvariable>d--eftypevar_name</defvariable></definitionterm>
 <definitionitem><para>d&textndash;eftypevar
 </para></definitionitem></deftypevar>
 
-<defivar spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="43" mergedindex="cp">d--efivar_name of c--lass</indexterm><defcategory automatic="on" bracketed="on">Instance Variable</defcategory> <defclass>c--lass</defclass> <defclassvar>d--efivar_name</defclassvar></definitionterm>
+<defivar spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="67" mergedindex="cp">d--efivar_name of c--lass</indexterm><defcategory automatic="on" bracketed="on">Instance Variable</defcategory> <defclass>c--lass</defclass> <defclassvar>d--efivar_name</defclassvar></definitionterm>
 <definitionitem><para>d&textndash;efivar
 </para></definitionitem></defivar>
 
-<deftypeivar spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="44" mergedindex="cp">d--eftypeivar_name of c--lass</indexterm><defcategory automatic="on" bracketed="on">Instance Variable</defcategory> <defclass>c--lass</defclass> <deftype>t--ype</deftype> <defclassvar>d--eftypeivar_name</defclassvar></definitionterm>
+<deftypeivar spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="68" mergedindex="cp">d--eftypeivar_name of c--lass</indexterm><defcategory automatic="on" bracketed="on">Instance Variable</defcategory> <defclass>c--lass</defclass> <deftype>t--ype</deftype> <defclassvar>d--eftypeivar_name</defclassvar></definitionterm>
 <definitionitem><para>d&textndash;eftypeivar
 </para></definitionitem></deftypeivar>
 
@@ -3688,11 +3784,11 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 <definitionitem><para>d&textndash;eftypeop no arg2
 </para></definitionitem></deftypeop>
 
-<deftypecv spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="45" mergedindex="cp">d--eftypecv_name2 of c--lass2</indexterm><defcategory>c--ategory2</defcategory> <defclass>c--lass2</defclass> <deftype>t--ype2</deftype> <defclassvar>d--eftypecv_name2</defclassvar></definitionterm>
+<deftypecv spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="69" mergedindex="cp">d--eftypecv_name2 of c--lass2</indexterm><defcategory>c--ategory2</defcategory> <defclass>c--lass2</defclass> <deftype>t--ype2</deftype> <defclassvar>d--eftypecv_name2</defclassvar></definitionterm>
 <definitionitem><para>d&textndash;eftypecv2
 </para></definitionitem></deftypecv>
 
-<deftypecv spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="46" mergedindex="cp">d--eftypecv_name2 of c--lass2</indexterm><defcategory>c--ategory2</defcategory> <defclass>c--lass2</defclass> <deftype>t--ype2</deftype> <defclassvar>d--eftypecv_name2</defclassvar> <defparam>a--rguments2...</defparam></definitionterm>
+<deftypecv spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="70" mergedindex="cp">d--eftypecv_name2 of c--lass2</indexterm><defcategory>c--ategory2</defcategory> <defclass>c--lass2</defclass> <deftype>t--ype2</deftype> <defclassvar>d--eftypecv_name2</defclassvar> <defparam>a--rguments2...</defparam></definitionterm>
 <definitionitem><para>d&textndash;eftypecv with arguments2
 </para></definitionitem></deftypecv>
 
@@ -3777,9 +3873,9 @@ ref</inforefrefname><inforefinfoname spaces=" ">a comma&comma; in file</inforefi
 </para></tableitem></tableentry></table>
 
 <vtable commandarg="asis" spaces=" " endspaces=" ">
-<tableentry><tableterm><item spaces=" "><itemformat command="asis"><indexterm index="vr" number="47" mergedindex="cp">a--asis</indexterm>a&textndash;asis</itemformat></item>
+<tableentry><tableterm><item spaces=" "><itemformat command="asis"><indexterm index="vr" number="71" mergedindex="cp">a--asis</indexterm>a&textndash;asis</itemformat></item>
 <!-- c comment between item and itemx -->
-<itemx spaces=" "><itemformat command="asis"><indexterm index="vr" number="48" mergedindex="cp">b</indexterm>b</itemformat></itemx>
+<itemx spaces=" "><itemformat command="asis"><indexterm index="vr" number="72" mergedindex="cp">b</indexterm>b</itemformat></itemx>
 </tableterm><tableitem><para>l&textndash;ine
 </para></tableitem></tableentry></vtable>
 
@@ -4253,27 +4349,51 @@ After clickstyle &result;
 </displaymath>
 <pre xml:space="preserve">
 <kbd>default kbdinputstyle</kbd>
-</pre><example endspaces=" ">
+</pre><vtable commandarg="kbd" spaces=" " endspaces=" ">
+<tableentry><tableterm><item spaces=" "><itemformat command="kbd"><indexterm index="vr" number="73" mergedindex="cp">vtable i--tem default kbdinputstyle</indexterm>vtable i--tem default kbdinputstyle</itemformat></item>
+</tableterm></tableentry></vtable>
+<example endspaces=" ">
 <pre xml:space="preserve"><kbd>in example default kbdinputstyle</kbd>
-</pre></example>
+</pre><vtable commandarg="kbd" spaces=" " endspaces=" ">
+<tableentry><tableterm><item spaces=" "><itemformat command="kbd"><indexterm index="vr" number="74" mergedindex="cp">vtable i--tem in example default kbdinputstyle</indexterm>vtable i--tem in example default kbdinputstyle</itemformat></item>
+</tableterm></tableentry></vtable>
+</example>
 <pre xml:space="preserve">
 <kbdinputstyle value="code" line="code"></kbdinputstyle>
 <kbd>code kbdinputstyle</kbd>
-</pre><example endspaces=" ">
+</pre><vtable commandarg="kbd" spaces=" " endspaces=" ">
+<tableentry><tableterm><item spaces=" "><itemformat command="kbd"><indexterm index="vr" number="75" mergedindex="cp">vtable i--tem code kbdinputstyle</indexterm>vtable i--tem code kbdinputstyle</itemformat></item>
+</tableterm></tableentry></vtable>
+<example endspaces=" ">
 <pre xml:space="preserve"><kbd>in example code kbdinputstyle</kbd>
-</pre></example>
+</pre><vtable commandarg="kbd" spaces=" " endspaces=" ">
+<tableentry><tableterm><item spaces=" "><itemformat command="kbd"><indexterm index="vr" number="76" mergedindex="cp">vtable i--tem in example code kbdinputstyle</indexterm>vtable i--tem in example code kbdinputstyle</itemformat></item>
+</tableterm></tableentry></vtable>
+</example>
 <pre xml:space="preserve">
 <kbdinputstyle value="example" line="example"></kbdinputstyle>
 <kbd>example kbdinputstyle</kbd>
-</pre><example endspaces=" ">
+</pre><vtable commandarg="kbd" spaces=" " endspaces=" ">
+<tableentry><tableterm><item spaces=" "><itemformat command="kbd"><indexterm index="vr" number="77" mergedindex="cp">vtable i--tem example kbdinputstyle</indexterm>vtable i--tem example kbdinputstyle</itemformat></item>
+</tableterm></tableentry></vtable>
+<example endspaces=" ">
 <pre xml:space="preserve"><kbd>in example example kbdinputstyle</kbd>
-</pre></example>
+</pre><vtable commandarg="kbd" spaces=" " endspaces=" ">
+<tableentry><tableterm><item spaces=" "><itemformat command="kbd"><indexterm index="vr" number="78" mergedindex="cp">vtable i--tem in example example kbdinputstyle</indexterm>vtable i--tem in example example kbdinputstyle</itemformat></item>
+</tableterm></tableentry></vtable>
+</example>
 <pre xml:space="preserve">
 <kbdinputstyle value="distinct" line="distinct"></kbdinputstyle>
 <kbd>distinct kbdinputstyle</kbd>
-</pre><example endspaces=" ">
+</pre><vtable commandarg="kbd" spaces=" " endspaces=" ">
+<tableentry><tableterm><item spaces=" "><itemformat command="kbd"><indexterm index="vr" number="79" mergedindex="cp">vtable i--tem distinct kbdinputstyle</indexterm>vtable i--tem distinct kbdinputstyle</itemformat></item>
+</tableterm></tableentry></vtable>
+<example endspaces=" ">
 <pre xml:space="preserve"><kbd>in example distinct kbdinputstyle</kbd>
-</pre></example>
+</pre><vtable commandarg="kbd" spaces=" " endspaces=" ">
+<tableentry><tableterm><item spaces=" "><itemformat command="kbd"><indexterm index="vr" number="80" mergedindex="cp">vtable i--tem in example distinct kbdinputstyle</indexterm>vtable i--tem in example distinct kbdinputstyle</itemformat></item>
+</tableterm></tableentry></vtable>
+</example>
 <pre xml:space="preserve">
 </pre><quotation endspaces=" "> 
 <pre xml:space="preserve">A quot---ation
@@ -4544,7 +4664,7 @@ text in def item for second def item
 <pre xml:space="preserve">
 <!-- c from t/19def.t all_commands -->
 
-</pre><defvr spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="49" mergedindex="cp">d--efvr_name</indexterm><defcategory>c--ategory</defcategory> <defvariable>d--efvr_name</defvariable></definitionterm>
+</pre><defvr spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="81" mergedindex="cp">d--efvr_name</indexterm><defcategory>c--ategory</defcategory> <defvariable>d--efvr_name</defvariable></definitionterm>
 <definitionitem><pre xml:space="preserve">d--efvr
 </pre></definitionitem></defvr>
 <pre xml:space="preserve">
@@ -4572,23 +4692,23 @@ text in def item for second def item
 <definitionitem><pre xml:space="preserve">d--eftypeop no arg
 </pre></definitionitem></deftypeop>
 <pre xml:space="preserve">
-</pre><deftypevr spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="50" mergedindex="cp">d--eftypevr_name</indexterm><defcategory>c--ategory</defcategory> <deftype>t--ype</deftype> <defvariable>d--eftypevr_name</defvariable></definitionterm>
+</pre><deftypevr spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="82" mergedindex="cp">d--eftypevr_name</indexterm><defcategory>c--ategory</defcategory> <deftype>t--ype</deftype> <defvariable>d--eftypevr_name</defvariable></definitionterm>
 <definitionitem><pre xml:space="preserve">d--eftypevr
 </pre></definitionitem></deftypevr>
 <pre xml:space="preserve">
-</pre><defcv spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="51" mergedindex="cp">d--efcv_name</indexterm><defcategory>c--ategory</defcategory> <defclass>c--lass</defclass> <defclassvar>d--efcv_name</defclassvar></definitionterm>
+</pre><defcv spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="83" mergedindex="cp">d--efcv_name</indexterm><defcategory>c--ategory</defcategory> <defclass>c--lass</defclass> <defclassvar>d--efcv_name</defclassvar></definitionterm>
 <definitionitem><pre xml:space="preserve">d--efcv
 </pre></definitionitem></defcv>
 <pre xml:space="preserve">
-</pre><defcv spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="52" mergedindex="cp">d--efcv_name</indexterm><defcategory>c--ategory</defcategory> <defclass>c--lass</defclass> <defclassvar>d--efcv_name</defclassvar> <defparam>a--rguments...</defparam></definitionterm>
+</pre><defcv spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="84" mergedindex="cp">d--efcv_name</indexterm><defcategory>c--ategory</defcategory> <defclass>c--lass</defclass> <defclassvar>d--efcv_name</defclassvar> <defparam>a--rguments...</defparam></definitionterm>
 <definitionitem><pre xml:space="preserve">d--efcv with arguments
 </pre></definitionitem></defcv>
 <pre xml:space="preserve">
-</pre><deftypecv spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="53" mergedindex="cp">d--eftypecv_name of c--lass</indexterm><defcategory>c--ategory</defcategory> <defclass>c--lass</defclass> <deftype>t--ype</deftype> <defclassvar>d--eftypecv_name</defclassvar></definitionterm>
+</pre><deftypecv spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="85" mergedindex="cp">d--eftypecv_name of c--lass</indexterm><defcategory>c--ategory</defcategory> <defclass>c--lass</defclass> <deftype>t--ype</deftype> <defclassvar>d--eftypecv_name</defclassvar></definitionterm>
 <definitionitem><pre xml:space="preserve">d--eftypecv
 </pre></definitionitem></deftypecv>
 <pre xml:space="preserve">
-</pre><deftypecv spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="54" mergedindex="cp">d--eftypecv_name of c--lass</indexterm><defcategory>c--ategory</defcategory> <defclass>c--lass</defclass> <deftype>t--ype</deftype> <defclassvar>d--eftypecv_name</defclassvar> <defparam>a--rguments...</defparam></definitionterm>
+</pre><deftypecv spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="86" mergedindex="cp">d--eftypecv_name of c--lass</indexterm><defcategory>c--ategory</defcategory> <defclass>c--lass</defclass> <deftype>t--ype</deftype> <defclassvar>d--eftypecv_name</defclassvar> <defparam>a--rguments...</defparam></definitionterm>
 <definitionitem><pre xml:space="preserve">d--eftypecv with arguments
 </pre></definitionitem></deftypecv>
 <pre xml:space="preserve">
@@ -4616,15 +4736,15 @@ text in def item for second def item
 <definitionitem><pre xml:space="preserve">d--efspec
 </pre></definitionitem></defspec>
 <pre xml:space="preserve">
-</pre><defvar spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="55" mergedindex="cp">d--efvar_name</indexterm><defcategory automatic="on" bracketed="on">Variable</defcategory> <defvariable>d--efvar_name</defvariable></definitionterm>
+</pre><defvar spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="87" mergedindex="cp">d--efvar_name</indexterm><defcategory automatic="on" bracketed="on">Variable</defcategory> <defvariable>d--efvar_name</defvariable></definitionterm>
 <definitionitem><pre xml:space="preserve">d--efvar
 </pre></definitionitem></defvar>
 <pre xml:space="preserve">
-</pre><defvar spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="56" mergedindex="cp">d--efvar_name</indexterm><defcategory automatic="on" bracketed="on">Variable</defcategory> <defvariable>d--efvar_name</defvariable> <defparam>arg--var</defparam> <defparam>arg--var1</defparam></definitionterm>
+</pre><defvar spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="88" mergedindex="cp">d--efvar_name</indexterm><defcategory automatic="on" bracketed="on">Variable</defcategory> <defvariable>d--efvar_name</defvariable> <defparam>arg--var</defparam> <defparam>arg--var1</defparam></definitionterm>
 <definitionitem><pre xml:space="preserve">d--efvar with args
 </pre></definitionitem></defvar>
 <pre xml:space="preserve">
-</pre><defopt spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="57" mergedindex="cp">d--efopt_name</indexterm><defcategory automatic="on" bracketed="on">User Option</defcategory> <defvariable>d--efopt_name</defvariable></definitionterm>
+</pre><defopt spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="89" mergedindex="cp">d--efopt_name</indexterm><defcategory automatic="on" bracketed="on">User Option</defcategory> <defvariable>d--efopt_name</defvariable></definitionterm>
 <definitionitem><pre xml:space="preserve">d--efopt
 </pre></definitionitem></defopt>
 <pre xml:space="preserve">
@@ -4632,15 +4752,15 @@ text in def item for second def item
 <definitionitem><pre xml:space="preserve">d--eftypefun
 </pre></definitionitem></deftypefun>
 <pre xml:space="preserve">
-</pre><deftypevar spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="58" mergedindex="cp">d--eftypevar_name</indexterm><defcategory automatic="on" bracketed="on">Variable</defcategory> <deftype>t--ype</deftype> <defvariable>d--eftypevar_name</defvariable></definitionterm>
+</pre><deftypevar spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="90" mergedindex="cp">d--eftypevar_name</indexterm><defcategory automatic="on" bracketed="on">Variable</defcategory> <deftype>t--ype</deftype> <defvariable>d--eftypevar_name</defvariable></definitionterm>
 <definitionitem><pre xml:space="preserve">d--eftypevar
 </pre></definitionitem></deftypevar>
 <pre xml:space="preserve">
-</pre><defivar spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="59" mergedindex="cp">d--efivar_name of c--lass</indexterm><defcategory automatic="on" bracketed="on">Instance Variable</defcategory> <defclass>c--lass</defclass> <defclassvar>d--efivar_name</defclassvar></definitionterm>
+</pre><defivar spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="91" mergedindex="cp">d--efivar_name of c--lass</indexterm><defcategory automatic="on" bracketed="on">Instance Variable</defcategory> <defclass>c--lass</defclass> <defclassvar>d--efivar_name</defclassvar></definitionterm>
 <definitionitem><pre xml:space="preserve">d--efivar
 </pre></definitionitem></defivar>
 <pre xml:space="preserve">
-</pre><deftypeivar spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="60" mergedindex="cp">d--eftypeivar_name of c--lass</indexterm><defcategory automatic="on" bracketed="on">Instance Variable</defcategory> <defclass>c--lass</defclass> <deftype>t--ype</deftype> <defclassvar>d--eftypeivar_name</defclassvar></definitionterm>
+</pre><deftypeivar spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="92" mergedindex="cp">d--eftypeivar_name of c--lass</indexterm><defcategory automatic="on" bracketed="on">Instance Variable</defcategory> <defclass>c--lass</defclass> <deftype>t--ype</deftype> <defclassvar>d--eftypeivar_name</defclassvar></definitionterm>
 <definitionitem><pre xml:space="preserve">d--eftypeivar
 </pre></definitionitem></deftypeivar>
 <pre xml:space="preserve">
@@ -4670,11 +4790,11 @@ text in def item for second def item
 <definitionitem><pre xml:space="preserve">d--eftypeop no arg2
 </pre></definitionitem></deftypeop>
 <pre xml:space="preserve">
-</pre><deftypecv spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="61" mergedindex="cp">d--eftypecv_name2 of c--lass2</indexterm><defcategory>c--ategory2</defcategory> <defclass>c--lass2</defclass> <deftype>t--ype2</deftype> <defclassvar>d--eftypecv_name2</defclassvar></definitionterm>
+</pre><deftypecv spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="93" mergedindex="cp">d--eftypecv_name2 of c--lass2</indexterm><defcategory>c--ategory2</defcategory> <defclass>c--lass2</defclass> <deftype>t--ype2</deftype> <defclassvar>d--eftypecv_name2</defclassvar></definitionterm>
 <definitionitem><pre xml:space="preserve">d--eftypecv2
 </pre></definitionitem></deftypecv>
 <pre xml:space="preserve">
-</pre><deftypecv spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="62" mergedindex="cp">d--eftypecv_name2 of c--lass2</indexterm><defcategory>c--ategory2</defcategory> <defclass>c--lass2</defclass> <deftype>t--ype2</deftype> <defclassvar>d--eftypecv_name2</defclassvar> <defparam>a--rguments2...</defparam></definitionterm>
+</pre><deftypecv spaces=" " endspaces=" "><definitionterm><indexterm index="vr" number="94" mergedindex="cp">d--eftypecv_name2 of c--lass2</indexterm><defcategory>c--ategory2</defcategory> <defclass>c--lass2</defclass> <deftype>t--ype2</deftype> <defclassvar>d--eftypecv_name2</defclassvar> <defparam>a--rguments2...</defparam></definitionterm>
 <definitionitem><pre xml:space="preserve">d--eftypecv with arguments2
 </pre></definitionitem></deftypecv>
 <pre xml:space="preserve">
@@ -4759,9 +4879,9 @@ ref</inforefrefname><inforefinfoname spaces=" ">a comma&comma; in file</inforefi
 </pre></tableitem></tableentry></table>
 <pre xml:space="preserve">
 </pre><vtable commandarg="asis" spaces=" " endspaces=" ">
-<tableentry><tableterm><item spaces=" "><itemformat command="asis"><indexterm index="vr" number="63" mergedindex="cp">a--asis</indexterm>a--asis</itemformat></item>
+<tableentry><tableterm><item spaces=" "><itemformat command="asis"><indexterm index="vr" number="95" mergedindex="cp">a--asis</indexterm>a--asis</itemformat></item>
 <pre xml:space="preserve"><!-- c comment between item and itemx -->
-</pre><itemx spaces=" "><itemformat command="asis"><indexterm index="vr" number="64" mergedindex="cp">b</indexterm>b</itemformat></itemx>
+</pre><itemx spaces=" "><itemformat command="asis"><indexterm index="vr" number="96" mergedindex="cp">b</indexterm>b</itemformat></itemx>
 </tableterm><tableitem><pre xml:space="preserve">l--ine
 </pre></tableitem></tableentry></vtable>
 <pre xml:space="preserve">
