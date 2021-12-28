@@ -5582,18 +5582,22 @@ sub converter_initialize($)
   }
   _load_htmlxref_files($self);
 
+  # duplicate such as not to modify the defaults
+  my $conf_default_no_arg_commands_formatting_normal
+    = { %{$default_no_arg_commands_formatting{'normal'}} };
+
   if ($self->get_conf('USE_NUMERIC_ENTITY')) {
     $self->_set_non_breaking_space($xml_numeric_entity_nbsp);
     $self->{'paragraph_symbol'} = '&#'.hex('00B6').';';
     foreach my $command (keys(%Texinfo::Convert::Unicode::unicode_entities)) {
-      $default_no_arg_commands_formatting{'normal'}->{$command}
+      $conf_default_no_arg_commands_formatting_normal->{$command}
        = $Texinfo::Convert::Unicode::unicode_entities{$command};
     }
     foreach my $space_command (' ', "\t", "\n") {
-      $default_no_arg_commands_formatting{'normal'}->{$space_command}
+      $conf_default_no_arg_commands_formatting_normal->{$space_command}
         = $self->html_non_breaking_space();
     }
-    $default_no_arg_commands_formatting{'normal'}->{'tie'}
+    $conf_default_no_arg_commands_formatting_normal->{'tie'}
       = $self->substitute_html_non_breaking_space(
            $default_no_arg_commands_formatting{'normal'}->{'tie'});
     if (not defined($self->get_conf('OPEN_QUOTE_SYMBOL'))) {
@@ -5633,7 +5637,7 @@ sub converter_initialize($)
   } else {
     $self->{'line_break_element'} = '<br>';
   }
-  $default_no_arg_commands_formatting{'normal'}->{'*'} = $self->html_line_break_element();
+  $conf_default_no_arg_commands_formatting_normal->{'*'} = $self->html_line_break_element();
 
   my $customized_types_conversion = Texinfo::Config::GNUT_get_types_conversion();
   foreach my $type (keys(%default_types_conversion)) {
@@ -5702,17 +5706,23 @@ sub converter_initialize($)
         $self->{'no_arg_commands_formatting'}->{$context}->{$command}
            = $no_arg_command_customized_formatting;
       } else {
-        if (defined($default_no_arg_commands_formatting{$context}->{$command})) {
+        my $context_default_default_no_arg_commands_formatting
+          = $default_no_arg_commands_formatting{$context};
+        if ($context eq 'normal') {
+          $context_default_default_no_arg_commands_formatting
+           = $conf_default_no_arg_commands_formatting_normal;
+        }
+        if (defined($context_default_default_no_arg_commands_formatting->{$command})) {
           if ($self->get_conf('ENABLE_ENCODING') 
               and Texinfo::Convert::Unicode::unicode_for_brace_no_arg_command(
                              $command, $self->get_conf('OUTPUT_ENCODING_NAME'))
-              and !$self->_use_entity_is_entity($default_no_arg_commands_formatting{$context}->{$command})) {
+              and !$self->_use_entity_is_entity($context_default_default_no_arg_commands_formatting->{$command})) {
             $self->{'no_arg_commands_formatting'}->{$context}->{$command}
               = Texinfo::Convert::Unicode::unicode_for_brace_no_arg_command(
                            $command, $self->get_conf('OUTPUT_ENCODING_NAME'));
           } else {
             $self->{'no_arg_commands_formatting'}->{$context}->{$command}
-              = $default_no_arg_commands_formatting{$context}->{$command};
+              = $context_default_default_no_arg_commands_formatting->{$command};
           }
         }
       }
