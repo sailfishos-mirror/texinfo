@@ -594,7 +594,7 @@ $result_trees{'macro_in_misc_commands'} = {
               'contents' => [
                 {
                   'parent' => {},
-                  'text' => 'some text ignored atext'
+                  'text' => 'on line following oddfooting atext'
                 }
               ],
               'extra' => {
@@ -4014,7 +4014,7 @@ line following documentlanguage
 @pagesizes 200mm,150mm
 @afourpaper
 @headings on line following headings atext
-@oddfooting some text ignored atext
+@oddfooting on line following oddfooting atext
 @everyheading on line following everyheading atext
 
 @macro needarg

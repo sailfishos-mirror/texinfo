@@ -720,7 +720,7 @@ line following documentlanguage
 @pagesizes @pagesizesarg{}
 @afourpapermacro{}
 @headings on line following headings @text{}
-@oddfooting some text ignored @text{}
+@oddfooting on line following oddfooting @text{}
 @everyheading on line following everyheading @text{}
 
 @macro needarg
