@@ -92,7 +92,8 @@ handle_other_command (ELEMENT *current, char **line_inout,
   arg_spec = command_data(cmd).data;
   if (arg_spec == OTHER_noarg)
     {
-      if (command_data(cmd).flags & CF_in_heading)
+      if (command_data(cmd).flags & CF_in_heading
+          && command_data(current_context_command()).data != LINE_heading_spec)
         {
           line_error ("@%s should only appear in heading or footing",
                       command_name(cmd));
@@ -345,8 +346,10 @@ handle_line_command (ELEMENT *current, char **line_inout,
   /* All the cases using the raw line.
      TODO: I don't understand what the difference is between these.
      LINE_skipline is used where the command takes no argument at all. */
+  /* LINE_heading_spec is the same as LINE_lineraw, a flag like CF_heading_spec
+     could be used instead of there is a possibility for more flags */
   if (arg_spec == LINE_skipline || arg_spec == LINE_lineraw
-           || arg_spec == LINE_special)
+      || arg_spec == LINE_special || arg_spec == LINE_heading_spec)
     {
       ELEMENT *args = 0;
       enum command_id equivalent_cmd = 0;
@@ -391,7 +394,8 @@ handle_line_command (ELEMENT *current, char **line_inout,
       misc = new_element (ET_NONE);
       misc->cmd = cmd;
 
-      if (arg_spec == LINE_skipline || arg_spec == LINE_lineraw)
+      if (arg_spec == LINE_skipline || arg_spec == LINE_lineraw
+              || arg_spec == LINE_heading_spec)
         {
           ELEMENT *arg;
           args = new_element (ET_NONE);

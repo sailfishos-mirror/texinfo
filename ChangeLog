@@ -1,5 +1,17 @@
 2021-12-28  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/command_data.txt,
+	tp/Texinfo/XS/parsetexi/commands.h,
+	tp/Texinfo/XS/parsetexi/handle_commands.c (handle_other_command)
+	(handle_line_command): use LINE_heading_spec as data for headings
+	specifications commands (like @enveheading...).  A flag such as
+	CF_heading_spec could also have been used, but there are no flags
+	available anymore.
+	Check that the last context command is LINE_heading_spec for
+	CF_in_heading commands.
+
+2021-12-28  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/context_stack.c (push_context)
 	(current_context_command), tp/Texinfo/XS/parsetexi/end_line.c,
 	tp/Texinfo/XS/parsetexi/handle_commands.c,

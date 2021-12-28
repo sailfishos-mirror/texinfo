@@ -104,13 +104,12 @@ bsixpaper               line                            LINE_skipline
 headings                line,global                     1
 setchapternewpage       line,global_unique              1
 
-# only relevant in TeX, and special
-everyheading            line,global_unique              LINE_lineraw
-everyfooting            line,global_unique              LINE_lineraw
-evenheading             line,global_unique              LINE_lineraw
-evenfooting             line,global_unique              LINE_lineraw
-oddheading              line,global_unique              LINE_lineraw
-oddfooting              line,global_unique              LINE_lineraw
+everyheading            line,global_unique              LINE_heading_spec
+everyfooting            line,global_unique              LINE_heading_spec
+evenheading             line,global_unique              LINE_heading_spec
+evenfooting             line,global_unique              LINE_heading_spec
+oddheading              line,global_unique              LINE_heading_spec
+oddfooting              line,global_unique              LINE_heading_spec
 
 smallbook               line                            LINE_skipline
 syncodeindex            line                            2

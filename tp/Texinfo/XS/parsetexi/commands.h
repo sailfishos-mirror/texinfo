@@ -86,7 +86,10 @@ void wipe_user_commands (void);
      CF_code_style, CF_deprecated are hardly used.
 
    Candidates for flags:
-     CF_close_paragraph
+     CF_close_paragraph, CF_heading_spec
+
+   Instead of CF_heading_spec, LINE_heading_spec was used because there
+   are no flags available anymore
 
    Could combine CF_MACRO, CF_ALIAS, and CF_INFOENCLOSE into 2 bits.
  */
@@ -97,6 +100,7 @@ void wipe_user_commands (void);
 #define LINE_skipline -3
 #define LINE_text -6
 #define LINE_line -7
+#define LINE_heading_spec -8
 
 /* Types of other command (has CF_other flag). */
 #define OTHER_skipspace -1
