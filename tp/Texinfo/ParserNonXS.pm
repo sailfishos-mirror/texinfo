@@ -1330,6 +1330,21 @@ sub _in_code($$)
   return 0;
 }
 
+sub _kbd_formatted_as_code($$)
+{
+  my ($self, $current) = @_;
+
+  if ($self->_top_context() eq 'preformatted'
+      and $self->{'kbdinputstyle'} ne 'distinct') {
+    return 1;
+  } elsif ($self->{'kbdinputstyle'} eq 'code'
+             or ($self->{'kbdinputstyle'} eq 'example'
+                 and $self->_in_code($current->{'parent'}))) {
+    return 1;
+  }
+  return 0;
+}
+
 # close brace commands, that don't set a new context (ie @caption, @footnote)
 sub _close_all_style_commands($$$;$$)
 {
@@ -3966,6 +3981,10 @@ sub _parse_texi($;$)
           $current->{'type'} = 'command_as_argument' if (!$current->{'type'});
           $current->{'parent'}->{'parent'}->{'extra'}->{'command_as_argument'} 
             = $current;
+          if ($current->{'cmdname'} eq 'kbd'
+              and _kbd_formatted_as_code($self, $current->{'parent'}->{'parent'})) {
+            $current->{'parent'}->{'parent'}->{'extra'}->{'command_as_argument_kbd_code'} = 1;
+          }
           $current = $current->{'parent'};
         # now accent commands
         } elsif ($accent_commands{$current->{'cmdname'}}) {
@@ -4879,15 +4898,9 @@ sub _parse_texi($;$)
           $current = $current->{'contents'}->[-1];
           if ($command eq 'click') {
             $current->{'extra'}->{'clickstyle'} = $self->{'clickstyle'};
-          } elsif ($command eq 'kbd') {
-            if ($self->_top_context() eq 'preformatted'
-                and $self->{'kbdinputstyle'} ne 'distinct') {
-              $current->{'extra'}->{'code'} = 1;
-            } elsif ($self->{'kbdinputstyle'} eq 'code'
-                     or ($self->{'kbdinputstyle'} eq 'example'
-                         and $self->_in_code($current->{'parent'}))) {
-              $current->{'extra'}->{'code'} = 1;
-            }
+          } elsif ($command eq 'kbd'
+                   and _kbd_formatted_as_code($self, $current)) {
+            $current->{'extra'}->{'code'} = 1;
           }
           if ($self->{'definfoenclose'}->{$command}) {
             $current->{'type'} = 'definfoenclose_command';
@@ -5233,11 +5246,16 @@ sub _parse_texi($;$)
 
             } elsif (_command_with_command_as_argument($current->{'parent'}->{'parent'})
                  and scalar(@{$current->{'contents'}}) == 0) {
-               print STDERR "FOR PARENT \@$current->{'parent'}->{'parent'}->{'parent'}->{'cmdname'} command_as_argument braces $current->{'cmdname'}\n" if ($self->{'DEBUG'});
+               print STDERR "FOR PARENT \@$current->{'parent'}->{'parent'}->{'parent'}->{'cmdname'} command_as_argument braces $current->{'parent'}->{'cmdname'}\n" if ($self->{'DEBUG'});
                $current->{'parent'}->{'type'} = 'command_as_argument' 
                   if (!$current->{'parent'}->{'type'});
                $current->{'parent'}->{'parent'}->{'parent'}->{'extra'}->{'command_as_argument'} 
                   = $current->{'parent'};
+               if ($current->{'parent'}->{'cmdname'} eq 'kbd'
+                   and _kbd_formatted_as_code($self,
+                                              $current->{'parent'}->{'parent'}->{'parent'})) {
+                 $current->{'parent'}->{'parent'}->{'parent'}->{'extra'}->{'command_as_argument_kbd_code'} = 1;
+               }
             } elsif ($in_index_commands{$current->{'parent'}->{'cmdname'}}) {
               my $command = $current->{'parent'}->{'cmdname'};
 
@@ -6505,6 +6523,8 @@ details below.
 
 =item command_as_argument
 
+=item command_as_argument_kbd_code
+
 This is the type of a command given in argument of C<@itemize>,
 C<@table>, C<@vtable> or C<@ftable>.  For example in
 
@@ -7012,6 +7032,11 @@ argument.
 
 The I<command_as_argument> extra key points to the @-command on
 as argument on the @-command line.
+
+If the command in argument for C<@table>, C<@vtable> or C<@ftable>
+is C<@kbd> and the context and C<@kbdinputstyle> is such that C<@kbd>
+should be formatted as code, the I<command_as_argument_kbd_code>
+extra key is set to 1.
 
 =item paragraph
 

@@ -813,6 +813,35 @@ start_empty_line_after_command (ELEMENT *current, char **line_inout,
 }
 
 
+/* if kbd should be formatted as code */
+int
+kbd_formatted_as_code (ELEMENT *current)
+{
+  if (current_context () == ct_preformatted
+      && global_kbdinputstyle != kbd_distinct
+      || global_kbdinputstyle == kbd_code)
+    {
+       return 1;
+    }
+  else if (global_kbdinputstyle == kbd_example)
+    {
+      /* TODO: Understand what is going on here. */
+      ELEMENT *tmp = current->parent;
+      while (tmp->parent
+             && (command_flags(tmp->parent) & CF_brace)
+             && command_data(tmp->parent->cmd).data != BRACE_context)
+        {
+          if (command_flags(tmp->parent) & CF_code_style)
+            {
+              return 1;
+            }
+          tmp = tmp->parent->parent;
+        }
+    }
+  return 0;
+}
+
+
 /* If the parent element takes a command as an argument, like
    @itemize @bullet. */
 int
@@ -1415,6 +1444,11 @@ superfluous_arg:
             current->type = ET_command_as_argument;
           add_extra_element (current->parent->parent, 
                                  "command_as_argument", current);
+          if (current->cmd == CM_kbd
+              && kbd_formatted_as_code(current->parent->parent)) {
+            add_extra_integer (current->parent->parent,
+                               "command_as_argument_kbd_code", 1);
+          }
           current = current->parent;
         }
       else if (command_flags(current) & CF_accent)

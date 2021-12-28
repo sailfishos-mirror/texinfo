@@ -477,10 +477,17 @@ in example
 @item i--tem out of example
 @end table
 
+@table @kbd{}
+@item braced i--tem out of example
+@end table
+
 in example
 @example
 @table @kbd
 @item i--tem in example
+@end table
+@table @kbd{}
+@item braced i--tem in example
 @end table
 @end example
 @end macro

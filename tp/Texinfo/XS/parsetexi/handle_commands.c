@@ -1092,27 +1092,9 @@ handle_brace_command (ELEMENT *current, char **line_inout, enum command_id cmd)
     }
   else if (cmd == CM_kbd)
     {
-      if (current_context () == ct_preformatted
-          && global_kbdinputstyle != kbd_distinct
-          || global_kbdinputstyle == kbd_code)
+      if (kbd_formatted_as_code(current))
         {
           add_extra_integer (e, "code", 1);
-        }
-      else if (global_kbdinputstyle == kbd_example)
-        {
-          /* TODO: Understand what is going on here. */
-          ELEMENT *tmp = current->parent;
-          while (tmp->parent
-                 && (command_flags(tmp->parent) & CF_brace)
-                 && command_data(tmp->parent->cmd).data != BRACE_context)
-            {
-              if (command_flags(tmp->parent) & CF_code_style)
-                {
-                  add_extra_integer (e, "code", 1);
-                  break;
-                }
-              tmp = tmp->parent->parent;
-            }
         }
     }
   else if (command_data(cmd).flags & CF_INFOENCLOSE)
