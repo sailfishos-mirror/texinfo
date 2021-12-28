@@ -2342,20 +2342,20 @@ $result_converted{'html_text'}->{'kbdinputstyle_in_table'} = '
 </p>
 
 <dl>
-<dt><kbd>i--tem out of example</kbd></dt>
+<dt><code>i--tem out of example</code></dt>
 </dl>
 
 <dl>
-<dt><kbd>braced i--tem out of example</kbd></dt>
+<dt><code>braced i--tem out of example</code></dt>
 </dl>
 
 <p>in example
 </p><div class="example">
 <dl>
-<dt><tt><kbd>i--tem in example</kbd></tt></dt>
+<dt><tt><code>i--tem in example</code></tt></dt>
 </dl>
 <dl>
-<dt><tt><kbd>braced i--tem in example</kbd></tt></dt>
+<dt><tt><code>braced i--tem in example</code></tt></dt>
 </dl>
 </div>
 

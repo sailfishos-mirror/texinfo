@@ -1123,6 +1123,9 @@ sub table_item_content_tree($$$)
     my $command = {'cmdname' => $command_as_argument->{'cmdname'},
                'line_nr' => $element->{'line_nr'},
                'parent' => $table_item_tree };
+    if ($table_command->{'extra'}->{'command_as_argument_kbd_code'}) {
+      $command->{'extra'}->{'code'} = 1;
+    }
     if ($command_as_argument->{'type'} eq 'definfoenclose_command') {
       $command->{'type'} = $command_as_argument->{'type'};
       $command->{'extra'}->{'begin'} = $command_as_argument->{'extra'}->{'begin'};
@@ -1816,7 +1819,7 @@ Returns the value of the Texinfo configuration option I<$option_string>.
 
 =item $filename = sub $converter->node_information_filename($node_info)
 
-Returns the normalized file name correponding to the I<$node_info>
+Returns the normalized file name corresponding to the I<$node_info>
 node element tree C<extra> field.
 
 =item ($normalized_name, $filename) = $converter->normalized_sectioning_command_filename($element)
