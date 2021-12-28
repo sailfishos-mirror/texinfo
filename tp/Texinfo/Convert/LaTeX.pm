@@ -2940,7 +2940,6 @@ sub _convert($$)
     } elsif ($headings_specification_commands{$cmdname}) {
       if ($element->{'args'} and $element->{'args'}->[0]
           and $element->{'args'}->[0]->{'contents'}) {
-        print STDERR Texinfo::Common::debug_print_element_short($element)."\n";
         my $custom_headings_specification
          = Texinfo::Common::split_custom_heading_command_contents(
                                 $element->{'args'}->[0]->{'contents'});
