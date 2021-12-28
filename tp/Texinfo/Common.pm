@@ -145,6 +145,12 @@ our %document_settable_multiple_at_commands = (
   'shortcontents' => 0,
   'urefbreakstyle' => 'after',
   'xrefautomaticsectiontitle' => 'off',
+  'everyheading'      => undef,
+  'everyfooting'      => undef,
+  'evenheading'       => undef,
+  'evenfooting'       => undef,
+  'oddheading'        => undef,
+  'oddfooting'        => undef,
 );
 
 # @-commands that should be unique.  Associated with customization values too.
@@ -166,12 +172,6 @@ our %document_settable_unique_at_commands = (
   'pagesizes' => undef,
   'setchapternewpage' => 'on',
   'setfilename' => undef,
-  'everyheading'      => undef,
-  'everyfooting'      => undef,
-  'evenheading'       => undef,
-  'evenfooting'       => undef,
-  'oddheading'        => undef,
-  'oddfooting'        => undef,
   # FIXME add afourpaper and similar?
 );
 

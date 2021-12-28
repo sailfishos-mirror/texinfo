@@ -104,12 +104,12 @@ bsixpaper               line                            LINE_skipline
 headings                line,global                     1
 setchapternewpage       line,global_unique              1
 
-everyheading            line,global_unique              LINE_heading_spec
-everyfooting            line,global_unique              LINE_heading_spec
-evenheading             line,global_unique              LINE_heading_spec
-evenfooting             line,global_unique              LINE_heading_spec
-oddheading              line,global_unique              LINE_heading_spec
-oddfooting              line,global_unique              LINE_heading_spec
+everyheading            line,global                     LINE_heading_spec
+everyfooting            line,global                     LINE_heading_spec
+evenheading             line,global                     LINE_heading_spec
+evenfooting             line,global                     LINE_heading_spec
+oddheading              line,global                     LINE_heading_spec
+oddfooting              line,global                     LINE_heading_spec
 
 smallbook               line                            LINE_skipline
 syncodeindex            line                            2

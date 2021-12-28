@@ -435,6 +435,22 @@ float
 '@everyheading something @thispage @thischapternum
 
 In text @thispage @thischapternum text.
+
+In code @code{@thissection}.
+'],
+['heading_command_in_commands',
+'
+@code{
+@everyheading in code
+}
+
+@example
+@everyheading in example
+@end example
+
+@quotation
+@everyheading in quotation
+@end quotation
 '],
 ['vskip',
 '@vskip 0pt plus 1filll

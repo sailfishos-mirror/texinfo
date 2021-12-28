@@ -1,5 +1,11 @@
 2021-12-28  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (%document_settable_multiple_at_commands),
+	tp/Texinfo/XS/parsetexi/command_data.txt: make *heading commands
+	global multiple commands.
+
+2021-12-28  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (%in_full_text_commands):
 	allow in heading commands to be in brace style commands.
 
