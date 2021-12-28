@@ -655,10 +655,10 @@ my $description_command_new_commands_prefix = 'GNUTexinfotablestyle';
 # if new commands are setup for descriptions, they are in this hash
 my %description_command_new_commands = ();
 
-foreach my $command (keys(%{$LaTeX_style_brace_commands{'text'}})) {
+foreach my $command (keys(%{$LaTeX_style_brace_commands{'text'}}), 'kbd') {
   my $description_format = $LaTeX_style_brace_commands{'text'}->{$command};
-  if (($description_format ne '' and $description_format !~ /\\text[a-z]{2}$/)
-      or $command eq 'kbd') {
+  if ($command eq 'kbd' or
+      ($description_format ne '' and $description_format !~ /\\text[a-z]{2}$/)) {
     my $specific_format_command
       = "\\${description_command_new_commands_prefix}$command";
     my $command_definition;

@@ -39,6 +39,9 @@
 % command used in \description format for indicateurl
 \newcommand\GNUTexinfotablestyleindicateurl[1]{\ifstrempty{#1}{}{{`\texttt{#1}'}}}%
 
+% command used in \description format for kbd
+\newcommand\GNUTexinfotablestylekbd[1]{{\ttfamily\textsl{#1}}}%
+
 % command used in \description format for samp
 \newcommand\GNUTexinfotablestylesamp[1]{\ifstrempty{#1}{}{{`\texttt{#1}'}}}%
 
@@ -390,7 +393,7 @@ $$
 {\ttfamily\textsl{default kbdinputstyle}}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
-vtable i{-}{-}tem default kbdinputstyle
+\GNUTexinfotablestylekbd{vtable i{-}{-}tem default kbdinputstyle}
 \index[cp]{vtable i--tem default kbdinputstyle@\texttt{vtable i{-}{-}tem default kbdinputstyle}}%
 }}]
 \end{description}
@@ -398,7 +401,7 @@ vtable i{-}{-}tem default kbdinputstyle
 {\ttfamily\textsl{in example default kbdinputstyle}}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
-vtable i{-}{-}tem in example default kbdinputstyle
+\GNUTexinfotablestylekbd{vtable i{-}{-}tem in example default kbdinputstyle}
 \index[cp]{vtable i--tem in example default kbdinputstyle@\texttt{vtable i{-}{-}tem in example default kbdinputstyle}}%
 }}]
 \end{description}
@@ -424,7 +427,7 @@ vtable i{-}{-}tem in example default kbdinputstyle
 {\ttfamily\textsl{example kbdinputstyle}}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
-vtable i{-}{-}tem example kbdinputstyle
+\GNUTexinfotablestylekbd{vtable i{-}{-}tem example kbdinputstyle}
 \index[cp]{vtable i--tem example kbdinputstyle@\texttt{vtable i{-}{-}tem example kbdinputstyle}}%
 }}]
 \end{description}
@@ -441,7 +444,7 @@ vtable i{-}{-}tem example kbdinputstyle
 {\ttfamily\textsl{distinct kbdinputstyle}}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
-vtable i{-}{-}tem distinct kbdinputstyle
+\GNUTexinfotablestylekbd{vtable i{-}{-}tem distinct kbdinputstyle}
 \index[cp]{vtable i--tem distinct kbdinputstyle@\texttt{vtable i{-}{-}tem distinct kbdinputstyle}}%
 }}]
 \end{description}
@@ -449,7 +452,7 @@ vtable i{-}{-}tem distinct kbdinputstyle
 {\ttfamily\textsl{in example distinct kbdinputstyle}}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
-vtable i{-}{-}tem in example distinct kbdinputstyle
+\GNUTexinfotablestylekbd{vtable i{-}{-}tem in example distinct kbdinputstyle}
 \index[cp]{vtable i--tem in example distinct kbdinputstyle@\texttt{vtable i{-}{-}tem in example distinct kbdinputstyle}}%
 }}]
 \end{description}
@@ -1554,7 +1557,7 @@ $$
 {\ttfamily\textsl{default kbdinputstyle}}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
-vtable i{-}{-}tem default kbdinputstyle
+\GNUTexinfotablestylekbd{vtable i{-}{-}tem default kbdinputstyle}
 \index[cp]{vtable i--tem default kbdinputstyle@\texttt{vtable i{-}{-}tem default kbdinputstyle}}%
 }}]
 \end{description}
@@ -1562,7 +1565,7 @@ vtable i{-}{-}tem default kbdinputstyle
 {\ttfamily\textsl{in example default kbdinputstyle}}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
-vtable i{-}{-}tem in example default kbdinputstyle
+\GNUTexinfotablestylekbd{vtable i{-}{-}tem in example default kbdinputstyle}
 \index[cp]{vtable i--tem in example default kbdinputstyle@\texttt{vtable i{-}{-}tem in example default kbdinputstyle}}%
 }}]
 \end{description}
@@ -1588,7 +1591,7 @@ vtable i{-}{-}tem in example default kbdinputstyle
 {\ttfamily\textsl{example kbdinputstyle}}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
-vtable i{-}{-}tem example kbdinputstyle
+\GNUTexinfotablestylekbd{vtable i{-}{-}tem example kbdinputstyle}
 \index[cp]{vtable i--tem example kbdinputstyle@\texttt{vtable i{-}{-}tem example kbdinputstyle}}%
 }}]
 \end{description}
@@ -1605,7 +1608,7 @@ vtable i{-}{-}tem example kbdinputstyle
 {\ttfamily\textsl{distinct kbdinputstyle}}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
-vtable i{-}{-}tem distinct kbdinputstyle
+\GNUTexinfotablestylekbd{vtable i{-}{-}tem distinct kbdinputstyle}
 \index[cp]{vtable i--tem distinct kbdinputstyle@\texttt{vtable i{-}{-}tem distinct kbdinputstyle}}%
 }}]
 \end{description}
@@ -1613,7 +1616,7 @@ vtable i{-}{-}tem distinct kbdinputstyle
 {\ttfamily\textsl{in example distinct kbdinputstyle}}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
-vtable i{-}{-}tem in example distinct kbdinputstyle
+\GNUTexinfotablestylekbd{vtable i{-}{-}tem in example distinct kbdinputstyle}
 \index[cp]{vtable i--tem in example distinct kbdinputstyle@\texttt{vtable i{-}{-}tem in example distinct kbdinputstyle}}%
 }}]
 \end{description}
@@ -2733,7 +2736,7 @@ $$
 {\ttfamily\textsl{default kbdinputstyle}}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
-vtable i{-}{-}tem default kbdinputstyle
+\GNUTexinfotablestylekbd{vtable i{-}{-}tem default kbdinputstyle}
 \index[cp]{vtable i--tem default kbdinputstyle@\texttt{vtable i{-}{-}tem default kbdinputstyle}}%
 }}]
 \end{description}
@@ -2741,7 +2744,7 @@ vtable i{-}{-}tem default kbdinputstyle
 {\ttfamily\textsl{in example default kbdinputstyle}}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
-vtable i{-}{-}tem in example default kbdinputstyle
+\GNUTexinfotablestylekbd{vtable i{-}{-}tem in example default kbdinputstyle}
 \index[cp]{vtable i--tem in example default kbdinputstyle@\texttt{vtable i{-}{-}tem in example default kbdinputstyle}}%
 }}]
 \end{description}
@@ -2767,7 +2770,7 @@ vtable i{-}{-}tem in example default kbdinputstyle
 {\ttfamily\textsl{example kbdinputstyle}}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
-vtable i{-}{-}tem example kbdinputstyle
+\GNUTexinfotablestylekbd{vtable i{-}{-}tem example kbdinputstyle}
 \index[cp]{vtable i--tem example kbdinputstyle@\texttt{vtable i{-}{-}tem example kbdinputstyle}}%
 }}]
 \end{description}
@@ -2784,7 +2787,7 @@ vtable i{-}{-}tem example kbdinputstyle
 {\ttfamily\textsl{distinct kbdinputstyle}}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
-vtable i{-}{-}tem distinct kbdinputstyle
+\GNUTexinfotablestylekbd{vtable i{-}{-}tem distinct kbdinputstyle}
 \index[cp]{vtable i--tem distinct kbdinputstyle@\texttt{vtable i{-}{-}tem distinct kbdinputstyle}}%
 }}]
 \end{description}
@@ -2792,7 +2795,7 @@ vtable i{-}{-}tem distinct kbdinputstyle
 {\ttfamily\textsl{in example distinct kbdinputstyle}}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
-vtable i{-}{-}tem in example distinct kbdinputstyle
+\GNUTexinfotablestylekbd{vtable i{-}{-}tem in example distinct kbdinputstyle}
 \index[cp]{vtable i--tem in example distinct kbdinputstyle@\texttt{vtable i{-}{-}tem in example distinct kbdinputstyle}}%
 }}]
 \end{description}
@@ -3895,7 +3898,7 @@ $$
 {\ttfamily\textsl{default kbdinputstyle}}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
-vtable i{-}{-}tem default kbdinputstyle
+\GNUTexinfotablestylekbd{vtable i{-}{-}tem default kbdinputstyle}
 \index[cp]{vtable i--tem default kbdinputstyle@\texttt{vtable i{-}{-}tem default kbdinputstyle}}%
 }}]
 \end{description}
@@ -3903,7 +3906,7 @@ vtable i{-}{-}tem default kbdinputstyle
 {\ttfamily\textsl{in example default kbdinputstyle}}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
-vtable i{-}{-}tem in example default kbdinputstyle
+\GNUTexinfotablestylekbd{vtable i{-}{-}tem in example default kbdinputstyle}
 \index[cp]{vtable i--tem in example default kbdinputstyle@\texttt{vtable i{-}{-}tem in example default kbdinputstyle}}%
 }}]
 \end{description}
@@ -3929,7 +3932,7 @@ vtable i{-}{-}tem in example default kbdinputstyle
 {\ttfamily\textsl{example kbdinputstyle}}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
-vtable i{-}{-}tem example kbdinputstyle
+\GNUTexinfotablestylekbd{vtable i{-}{-}tem example kbdinputstyle}
 \index[cp]{vtable i--tem example kbdinputstyle@\texttt{vtable i{-}{-}tem example kbdinputstyle}}%
 }}]
 \end{description}
@@ -3946,7 +3949,7 @@ vtable i{-}{-}tem example kbdinputstyle
 {\ttfamily\textsl{distinct kbdinputstyle}}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
-vtable i{-}{-}tem distinct kbdinputstyle
+\GNUTexinfotablestylekbd{vtable i{-}{-}tem distinct kbdinputstyle}
 \index[cp]{vtable i--tem distinct kbdinputstyle@\texttt{vtable i{-}{-}tem distinct kbdinputstyle}}%
 }}]
 \end{description}
@@ -3954,7 +3957,7 @@ vtable i{-}{-}tem distinct kbdinputstyle
 {\ttfamily\textsl{in example distinct kbdinputstyle}}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
-vtable i{-}{-}tem in example distinct kbdinputstyle
+\GNUTexinfotablestylekbd{vtable i{-}{-}tem in example distinct kbdinputstyle}
 \index[cp]{vtable i--tem in example distinct kbdinputstyle@\texttt{vtable i{-}{-}tem in example distinct kbdinputstyle}}%
 }}]
 \end{description}
@@ -5068,7 +5071,7 @@ $$
 {\ttfamily\textsl{default kbdinputstyle}}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
-vtable i{-}{-}tem default kbdinputstyle
+\GNUTexinfotablestylekbd{vtable i{-}{-}tem default kbdinputstyle}
 \index[cp]{vtable i--tem default kbdinputstyle@\texttt{vtable i{-}{-}tem default kbdinputstyle}}%
 }}]
 \end{description}
@@ -5076,7 +5079,7 @@ vtable i{-}{-}tem default kbdinputstyle
 {\ttfamily\textsl{in example default kbdinputstyle}}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
-vtable i{-}{-}tem in example default kbdinputstyle
+\GNUTexinfotablestylekbd{vtable i{-}{-}tem in example default kbdinputstyle}
 \index[cp]{vtable i--tem in example default kbdinputstyle@\texttt{vtable i{-}{-}tem in example default kbdinputstyle}}%
 }}]
 \end{description}
@@ -5119,7 +5122,7 @@ vtable i{-}{-}tem in example default kbdinputstyle
 {\ttfamily\textsl{distinct kbdinputstyle}}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
-vtable i{-}{-}tem distinct kbdinputstyle
+\GNUTexinfotablestylekbd{vtable i{-}{-}tem distinct kbdinputstyle}
 \index[cp]{vtable i--tem distinct kbdinputstyle@\texttt{vtable i{-}{-}tem distinct kbdinputstyle}}%
 }}]
 \end{description}
@@ -5127,7 +5130,7 @@ vtable i{-}{-}tem distinct kbdinputstyle
 {\ttfamily\textsl{in example distinct kbdinputstyle}}
 \begin{description}
 \item[{\parbox[b]{\linewidth}{%
-vtable i{-}{-}tem in example distinct kbdinputstyle
+\GNUTexinfotablestylekbd{vtable i{-}{-}tem in example distinct kbdinputstyle}
 \index[cp]{vtable i--tem in example distinct kbdinputstyle@\texttt{vtable i{-}{-}tem in example distinct kbdinputstyle}}%
 }}]
 \end{description}

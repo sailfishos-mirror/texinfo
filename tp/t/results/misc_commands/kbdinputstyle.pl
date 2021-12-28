@@ -1617,4 +1617,126 @@ $result_errors{'kbdinputstyle'} = [];
 $result_floats{'kbdinputstyle'} = {};
 
 
+
+$result_converted{'plaintext'}->{'kbdinputstyle'} = '@kbdinputstyle code
+
+   \'in code out of example in nested code\'.  \'kbd out of example\'.  \'kbd
+in code\'.
+
+   in example
+     in code in example in nested code.
+     kbd in example.
+     kbd in code in example.
+
+   @kbdinputstyle example
+
+   \'in code out of example in nested code\'.  \'kbd out of example\'.  \'kbd
+in code\'.
+
+   in example
+     in code in example in nested code.
+     kbd in example.
+     kbd in code in example.
+
+   @kbdinputstyle distinct
+
+   \'in code out of example in nested code\'.  \'kbd out of example\'.  \'kbd
+in code\'.
+
+   in example
+     in code in example in nested code.
+     kbd in example.
+     kbd in code in example.
+';
+
+
+$result_converted{'html_text'}->{'kbdinputstyle'} = '
+<p>@kbdinputstyle code
+</p>
+
+<p><code>in code out of example <code>in nested code</code></code>.
+<code>kbd out of example</code>.
+<code>kbd <code>in code</code></code>.
+</p>
+<p>in example
+</p><div class="example">
+<pre class="example"><code>in code in example <code>in nested code</code></code>.
+<code>kbd in example</code>.
+<code>kbd <code>in code</code> in example</code>.
+</pre></div>
+
+<p>@kbdinputstyle example
+</p>
+
+<p><code>in code out of example <code>in nested code</code></code>.
+<kbd>kbd out of example</kbd>.
+<code>kbd <code>in code</code></code>.
+</p>
+<p>in example
+</p><div class="example">
+<pre class="example"><code>in code in example <code>in nested code</code></code>.
+<code>kbd in example</code>.
+<code>kbd <code>in code</code> in example</code>.
+</pre></div>
+
+<p>@kbdinputstyle distinct
+</p>
+
+<p><code>in code out of example <code>in nested code</code></code>.
+<kbd>kbd out of example</kbd>.
+<code>kbd <kbd>in code</kbd></code>.
+</p>
+<p>in example
+</p><div class="example">
+<pre class="example"><code>in code in example <code>in nested code</code></code>.
+<kbd>kbd in example</kbd>.
+<code>kbd <kbd>in code</kbd> in example</code>.
+</pre></div>
+';
+
+
+$result_converted{'latex'}->{'kbdinputstyle'} = '
+@kbdinputstyle code
+
+
+\\texttt{in code out of example \\texttt{in nested code}}.
+\\texttt{kbd out of example}.
+\\texttt{kbd \\texttt{in code}}.
+
+in example
+\\par\\begingroup\\obeylines\\obeyspaces\\frenchspacing\\leftskip=2em\\relax\\parskip=0pt\\relax\\ttfamily{}%
+\\texttt{in code in example \\texttt{in nested code}}.
+\\texttt{kbd in example}.
+\\texttt{kbd \\texttt{in code} in example}.
+\\endgroup{}%
+
+@kbdinputstyle example
+
+
+\\texttt{in code out of example \\texttt{in nested code}}.
+{\\ttfamily\\textsl{kbd out of example}}.
+\\texttt{kbd {\\ttfamily\\textsl{in code}}}.
+
+in example
+\\par\\begingroup\\obeylines\\obeyspaces\\frenchspacing\\leftskip=2em\\relax\\parskip=0pt\\relax\\ttfamily{}%
+\\texttt{in code in example \\texttt{in nested code}}.
+\\texttt{kbd in example}.
+\\texttt{kbd \\texttt{in code} in example}.
+\\endgroup{}%
+
+@kbdinputstyle distinct
+
+
+\\texttt{in code out of example \\texttt{in nested code}}.
+{\\ttfamily\\textsl{kbd out of example}}.
+\\texttt{kbd {\\ttfamily\\textsl{in code}}}.
+
+in example
+\\par\\begingroup\\obeylines\\obeyspaces\\frenchspacing\\leftskip=2em\\relax\\parskip=0pt\\relax\\ttfamily{}%
+\\texttt{in code in example \\texttt{in nested code}}.
+{\\ttfamily\\textsl{kbd in example}}.
+\\texttt{kbd {\\ttfamily\\textsl{in code}} in example}.
+\\endgroup{}%
+';
+
 1;

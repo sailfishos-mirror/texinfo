@@ -1,5 +1,10 @@
 2021-12-28  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/LaTeX.pm: really setup kbd formatting
+	for table terms.
+
+2021-12-28  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/TextContent.pm (_convert): add an end of line
 	after a 'table_term' @-command since there are none in the tree.
 

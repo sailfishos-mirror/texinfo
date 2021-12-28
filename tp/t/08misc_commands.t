@@ -128,38 +128,6 @@ summarycontents @summarycontents line following summarycontents
 ['invalid_kbdinputstyle',
 'kbdinputstyle @kbdinputstyle wrong arg on line following kbdinputstyle
 '],
-['kbdinputstyle',
-'@macro codekbdmacro
-@code{in code out of example @code{in nested code}}.
-@kbd{kbd out of example}.
-@code{kbd @kbd{in code}}.
-
-in example
-@example
-@code{in code in example @code{in nested code}}.
-@kbd{kbd in example}.
-@code{kbd @kbd{in code} in example}.
-@end example
-@end macro
-
-@@kbdinputstyle code
-
-@kbdinputstyle code
-
-@codekbdmacro{}
-
-@@kbdinputstyle example
-
-@kbdinputstyle example
-
-@codekbdmacro{}
-
-@@kbdinputstyle distinct
-
-@kbdinputstyle distinct
-
-@codekbdmacro{}
-'],
 ['index_entries',
 '@cindex cindex entry
 
@@ -470,7 +438,71 @@ In text @thispage @thischapternum text.
 '],
 ['vskip',
 '@vskip 0pt plus 1filll
-']
+'],
+['kbdinputstyle',
+'@macro codekbdmacro
+@code{in code out of example @code{in nested code}}.
+@kbd{kbd out of example}.
+@code{kbd @kbd{in code}}.
+
+in example
+@example
+@code{in code in example @code{in nested code}}.
+@kbd{kbd in example}.
+@code{kbd @kbd{in code} in example}.
+@end example
+@end macro
+
+@@kbdinputstyle code
+
+@kbdinputstyle code
+
+@codekbdmacro{}
+
+@@kbdinputstyle example
+
+@kbdinputstyle example
+
+@codekbdmacro{}
+
+@@kbdinputstyle distinct
+
+@kbdinputstyle distinct
+
+@codekbdmacro{}
+'],
+['kbdinputstyle_in_table',
+'@macro codekbdmacro
+@table @kbd
+@item i--tem out of example
+@end table
+
+in example
+@example
+@table @kbd
+@item i--tem in example
+@end table
+@end example
+@end macro
+
+@@kbdinputstyle code
+
+@kbdinputstyle code
+
+@codekbdmacro{}
+
+@@kbdinputstyle example
+
+@kbdinputstyle example
+
+@codekbdmacro{}
+
+@@kbdinputstyle distinct
+
+@kbdinputstyle distinct
+
+@codekbdmacro{}
+'],
 );
 
 my %info_tests = (
@@ -499,6 +531,8 @@ my %docbook_tests = (
 
 my %latex_tests = (
   'noindent_indent' => 1,
+  'kbdinputstyle' => 1,
+  'kbdinputstyle_in_table' => 1,
 );
 
 foreach my $test (@converted_test_cases) {
