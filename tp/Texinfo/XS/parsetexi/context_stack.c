@@ -19,6 +19,7 @@
 #include "parser.h"
 
 static enum context *stack;
+static enum command_id *commands_stack;
 static size_t top; /* One above last pushed context. */
 static size_t space;
 
@@ -29,11 +30,13 @@ reset_context_stack (void)
 }
 
 void
-push_context (enum context c)
+push_context (enum context c, enum command_id cmd)
 {
   if (top >= space)
     {
       stack = realloc (stack, (space += 5) * sizeof (enum context));
+      commands_stack
+        = realloc (commands_stack, (space += 5) * sizeof (enum command_id));
     }
 
   debug (">>>>>>>>>>>>>>>>>PUSHING STACK AT %d  -- %s", top,
@@ -42,7 +45,9 @@ push_context (enum context c)
          : c == ct_def ? "def"
          : c == ct_menu ? "menu"
          : "");
-  stack[top++] = c;
+  stack[top] = c;
+  commands_stack[top] = cmd;
+  top++;
 }
 
 enum context
@@ -62,6 +67,15 @@ current_context (void)
     return ct_NONE;
 
   return stack[top - 1];
+}
+
+enum command_id
+current_context_command (void)
+{
+  if (top == 0)
+    return CM_NONE;
+
+  return commands_stack[top - 1];
 }
 
 

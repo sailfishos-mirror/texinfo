@@ -84,7 +84,7 @@ enter_menu_entry_node (ELEMENT *current)
   preformatted = new_element (ET_preformatted);
   add_to_element_contents (current, preformatted);
   current = preformatted;
-  push_context (ct_preformatted);
+  push_context (ct_preformatted, CM_NONE); /* menu_entry_description */
   return current;
 }
 

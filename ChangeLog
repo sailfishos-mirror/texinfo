@@ -1,5 +1,13 @@
 2021-12-28  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/context_stack.c (push_context)
+	(current_context_command), tp/Texinfo/XS/parsetexi/end_line.c,
+	tp/Texinfo/XS/parsetexi/handle_commands.c,
+	tp/Texinfo/XS/parsetexi/menus.c, tp/Texinfo/XS/parsetexi/separator.c:
+	add a stack for commands associated with contexts.
+
+2021-12-28  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/context_stack.h (context),
 	tp/Texinfo/XS/parsetexi/separator.c (handle_open_brace)
 	(handle_close_brace),

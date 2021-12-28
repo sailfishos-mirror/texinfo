@@ -1277,7 +1277,7 @@ end_line_starting_block (ELEMENT *current)
       add_to_element_contents (current, menu_comment);
       current = menu_comment;
       debug ("MENU_COMMENT OPEN");
-      push_context (ct_preformatted);
+      push_context (ct_preformatted, CM_NONE); /* menu_comment */
     }
   current = begin_preformatted (current);
 
@@ -1786,7 +1786,7 @@ end_line_misc_line (ELEMENT *current)
                   e = new_element (ET_menu_comment);
                   add_to_element_contents (current, e);
                   current = e;
-                  push_context (ct_preformatted);
+                  push_context (ct_preformatted, CM_NONE); /* menu_comment */
                 }
             }
           if (close_preformatted_command (end_id))
@@ -1947,7 +1947,7 @@ end_line (ELEMENT *current)
           destroy_element (empty_line);
           add_to_element_contents (current, e);
 
-          push_context (ct_preformatted);
+          push_context (ct_preformatted, CM_NONE); /* menu_comment */
           debug ("MENU: END DESCRIPTION, OPEN COMMENT");
         }
       else if (in_paragraph_context (current_context ()))
@@ -2040,7 +2040,7 @@ end_line (ELEMENT *current)
                   add_to_element_contents (current, e);
                   current = e;
                 }
-              push_context (ct_preformatted);
+              push_context (ct_preformatted, CM_NONE); /* menu_comment or menu_description */
             }
           else
             {
@@ -2051,7 +2051,7 @@ end_line (ELEMENT *current)
               e = new_element (ET_preformatted);
               add_to_element_contents (current, e);
               current = e;
-              push_context (ct_preformatted);
+              push_context (ct_preformatted, CM_NONE); /* menu_comment */
               debug ("THEN MENU_COMMENT OPEN");
             }
           {

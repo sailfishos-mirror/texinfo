@@ -5003,7 +5003,7 @@ sub _parse_texi($;$)
                             'extra' => {'command' => $current}
                                       };
               }
-              $self->_push_context($command, $command)
+              $self->_push_context('inlineraw', $command)
                 if ($command eq 'inlineraw');
             }
             print STDERR "OPENED \@$current->{'parent'}->{'cmdname'}, remaining: "

@@ -105,16 +105,16 @@ handle_open_brace (ELEMENT *current, char **line_inout)
           switch (command)
             {
             case CM_footnote:
-              push_context (ct_brace_command);
+              push_context (ct_brace_command, command);
               break;
             case CM_caption:
-              push_context (ct_brace_command);
+              push_context (ct_brace_command, command);
               break;
             case CM_shortcaption:
-              push_context (ct_brace_command);
+              push_context (ct_brace_command, command);
               break;
             case CM_math:
-              push_context (ct_math);
+              push_context (ct_math, command);
               break;
             default:
               fatal ("no context for command");
@@ -148,7 +148,7 @@ handle_open_brace (ELEMENT *current, char **line_inout)
               add_extra_element (e, "command", current);
 
               if (command == CM_inlineraw)
-                push_context (ct_inlineraw);
+                push_context (ct_inlineraw, command);
             }
         }
       debug ("OPENED");

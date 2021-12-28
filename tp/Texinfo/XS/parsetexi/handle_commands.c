@@ -617,7 +617,7 @@ handle_line_command (ELEMENT *current, char **line_inout,
               add_extra_string (misc, "def_command", base_name);
 
               after_paragraph = check_no_text (current);
-              push_context (ct_def);
+              push_context (ct_def, cmd);
               misc->type = ET_def_line;
               if (current->cmd == base_command)
                 {
@@ -696,7 +696,7 @@ handle_line_command (ELEMENT *current, char **line_inout,
       /* add 'line' to context_stack.  This will be the
          case while we read the argument on this line. */
       if (!(command_data(cmd).flags & CF_def))
-        push_context (ct_line);
+        push_context (ct_line, cmd);
       start_empty_line_after_command (current, &line, misc);
     }
 
@@ -916,7 +916,7 @@ handle_block_command (ELEMENT *current, char **line_inout,
       if (flags & CF_def)
         {
           ELEMENT *def_line;
-          push_context (ct_def);
+          push_context (ct_def, cmd);
           block = new_element (ET_NONE);
           block->cmd = cmd;
           block->line_nr = line_nr;
@@ -943,12 +943,12 @@ handle_block_command (ELEMENT *current, char **line_inout,
       if (command_data(cmd).data != BLOCK_raw)
         {
           if (command_data(cmd).flags & CF_preformatted)
-            push_context (ct_preformatted);
+            push_context (ct_preformatted, cmd);
           else if (cmd == CM_displaymath)
-            push_context (ct_math);
+            push_context (ct_math, cmd);
           else if (command_data(cmd).flags & CF_format_raw)
             {
-              push_context (ct_rawpreformatted);
+              push_context (ct_rawpreformatted, cmd);
               if (!format_expanded_p (command_name(cmd)))
                 {
                   ELEMENT *e;
@@ -993,9 +993,9 @@ handle_block_command (ELEMENT *current, char **line_inout,
           if (command_data(cmd).flags & CF_menu)
             {
               if (current_context () == ct_preformatted)
-                push_context (ct_preformatted);
+                push_context (ct_preformatted, cmd);
               else
-                push_context (ct_menu);
+                push_context (ct_menu, cmd);
 
               if (cmd == CM_direntry)
                 add_to_contents_as_array (&global_info.dircategory_direntry, 
@@ -1041,7 +1041,7 @@ handle_block_command (ELEMENT *current, char **line_inout,
 
             current = bla;
             if (!(command_data(cmd).flags & CF_def))
-              push_context (ct_line);
+              push_context (ct_line, cmd);
 
             /* Note that an ET_empty_line_after_command gets reparented in the 
                contents in 'end_line'. */

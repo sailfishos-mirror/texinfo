@@ -39,9 +39,10 @@ enum context {
    || (c) == ct_rawpreformatted \
    || (c) == ct_inlineraw)
 
-void push_context (enum context c);
+void push_context (enum context c, enum command_id cmd);
 enum context pop_context (void);
 enum context current_context (void);
+enum command_id current_context_command (void);
 void reset_context_stack (void);
 
 
