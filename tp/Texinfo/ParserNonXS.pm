@@ -396,14 +396,14 @@ foreach my $out_format (keys(%format_raw_commands)) {
 delete $in_full_text_commands{'caption'};
 delete $in_full_text_commands{'shortcaption'};
 foreach my $block_command (keys(%block_commands)) {
-  $in_full_text_commands{$block_command} = 1 
+  $in_full_text_commands{$block_command} = 1
     if ($block_commands{$block_command} eq 'conditional');
 }
 
 
-# commands that may appear inside sectioning commands 
+# commands that may appear inside sectioning commands
 my %in_full_line_commands_no_refs = %in_full_text_commands;
-foreach my $not_in_full_line_commands_no_refs ('titlefont', 
+foreach my $not_in_full_line_commands_no_refs ('titlefont',
                                    'anchor', 'footnote', 'verb') {
   delete $in_full_line_commands_no_refs{$not_in_full_line_commands_no_refs};
 }
@@ -417,11 +417,20 @@ foreach my $not_in_simple_text_command('xref', 'ref', 'pxref', 'inforef') {
 my %in_simple_text_headings_commands = (%in_simple_text_commands,
                                         %in_heading_commands);
 
+# should not appear in any line command except for heading commands.
+# Therefore they are set here, such that they do not end up in
+# %in_full_line_commands_no_refs.  Alternatively they could have been
+# put in %in_full_text_commands and then removed as
+# $not_in_full_line_commands_no_refs.
+foreach my $in_full_text_no_in_simple_text (keys(%in_heading_commands)) {
+  $in_full_text_commands{$in_full_text_no_in_simple_text} = 1;
+}
+
 # commands that only accept simple text as argument in any context.
 my %simple_text_commands;
 foreach my $line_command(keys(%line_commands)) {
-  if ($line_commands{$line_command} =~ /^\d+$/ 
-      or ($line_commands{$line_command} eq 'line' 
+  if ($line_commands{$line_command} =~ /^\d+$/
+      or ($line_commands{$line_command} eq 'line'
           and !($sectioning_commands{$line_command}
                 or $def_commands{$line_command}
                 or $headings_specification_commands{$line_command}))
@@ -499,7 +508,6 @@ foreach my $command (keys(%block_commands)) {
     $default_valid_nestings{$command} = \%in_simple_text_commands;
   }
 }
-
 
 my @preformatted_contexts = ('preformatted', 'rawpreformatted');
 my %preformatted_contexts;

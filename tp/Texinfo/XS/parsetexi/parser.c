@@ -920,7 +920,8 @@ check_valid_nesting (ELEMENT *current, enum command_id cmd)
             && (command_data(outer).data >= 0
                 || (command_data(outer).data == LINE_line
                     && !(outer_flags & (CF_def | CF_sectioning)))
-                || command_data(outer).data == LINE_text)
+                || command_data(outer).data == LINE_text
+                || command_data(outer).data == LINE_heading_spec)
             && outer != CM_center
             && outer != CM_exdent)
       || ((outer_flags & CF_brace)
@@ -994,6 +995,16 @@ check_valid_nesting (ELEMENT *current, enum command_id cmd)
       if (cmd_flags & CF_block
           && command_data(cmd).data == BLOCK_conditional)
         ok = 1;
+
+      if (cmd_flags & CF_in_heading)
+        { /* in heading commands can only appear in headings and style
+             brace commands */
+          ok = 0;
+          if (command_data(outer).data == LINE_heading_spec
+              || (outer_flags & CF_brace)
+                 && command_data(outer).data == BRACE_style)
+              ok = 1;
+        }
 
       /* Now add more restrictions for "full line no refs" commands and "simple 
          text" commands. */

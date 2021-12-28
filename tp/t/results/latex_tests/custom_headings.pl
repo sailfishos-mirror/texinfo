@@ -1075,17 +1075,7 @@ $result_menus{'custom_headings'} = {
   }
 };
 
-$result_errors{'custom_headings'} = [
-  {
-    'error_line' => ':4: warning: @thischaptername should not appear in @code
-',
-    'file_name' => '',
-    'line_nr' => 4,
-    'macro' => '',
-    'text' => '@thischaptername should not appear in @code',
-    'type' => 'warning'
-  }
-];
+$result_errors{'custom_headings'} = [];
 
 
 $result_floats{'custom_headings'} = {};

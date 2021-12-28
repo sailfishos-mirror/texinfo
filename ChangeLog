@@ -1,5 +1,15 @@
 2021-12-28  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (%in_full_text_commands):
+	allow in heading commands to be in brace style commands.
+
+	* tp/Texinfo/XS/parsetexi/parser.c (check_valid_nesting):
+	put LINE_heading_spec commands in simple_text_command, and
+	restrict in heading commands to be in in brace style commands
+	or in LINE_heading_spec commands only.
+
+2021-12-28  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (%line_commands),
 	tp/Texinfo/XS/parsetexi/handle_commands.c (handle_line_command):
 	set headings specifiction commands to be parsed as line commands.
