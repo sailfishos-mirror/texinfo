@@ -346,10 +346,8 @@ handle_line_command (ELEMENT *current, char **line_inout,
   /* All the cases using the raw line.
      TODO: I don't understand what the difference is between these.
      LINE_skipline is used where the command takes no argument at all. */
-  /* LINE_heading_spec is the same as LINE_lineraw, a flag like CF_heading_spec
-     could be used instead of there is a possibility for more flags */
   if (arg_spec == LINE_skipline || arg_spec == LINE_lineraw
-      || arg_spec == LINE_special || arg_spec == LINE_heading_spec)
+      || arg_spec == LINE_special)
     {
       ELEMENT *args = 0;
       enum command_id equivalent_cmd = 0;
@@ -394,8 +392,7 @@ handle_line_command (ELEMENT *current, char **line_inout,
       misc = new_element (ET_NONE);
       misc->cmd = cmd;
 
-      if (arg_spec == LINE_skipline || arg_spec == LINE_lineraw
-              || arg_spec == LINE_heading_spec)
+      if (arg_spec == LINE_skipline || arg_spec == LINE_lineraw)
         {
           ELEMENT *arg;
           args = new_element (ET_NONE);

@@ -112,6 +112,18 @@ roundcorner=10pt}
 
 
 \begin{document}
+\newpagestyle{custom}{%
+\sethead[\thepage{} \sectiontitle{}][\thesection{} Section \thesection{} \sectiontitle{}][\chaptertitle{} \thechapter{}]%
+{}{}{}%
+}%
+\pagestyle{custom}%
+\renewpagestyle{custom}{%
+\sethead[\thepage{} \sectiontitle{}][\thesection{} Section \thesection{} \sectiontitle{}][\chaptertitle{} \thechapter{}]%
+{}{}{}%
+\setfoot[\chaptername{} \thechapter{} \chaptertitle{} \GNUTexinfosettitle{}][][\texttt{\chaptertitle{}}]%
+{}{}{}%
+}%
+\pagestyle{custom}%
 
 \chapter{ch--ap}
 \label{anchor:chapter}%
@@ -130,6 +142,13 @@ after ch--ap second page
 
 \chapter{chap 2}
 
+\renewpagestyle{custom}{%
+\sethead[toto][titi][]%
+{toto}{titi}{}%
+\setfoot[\chaptername{} \thechapter{} \chaptertitle{} \GNUTexinfosettitle{}][][\texttt{\chaptertitle{}}]%
+{}{}{}%
+}%
+\pagestyle{custom}%
 
 \newpage{}%
 \phantom{blabla}%
@@ -146,5 +165,12 @@ after everyheading before chap 3 second page
 \newpage{}%
 \phantom{blabla}%
 
+\renewpagestyle{custom}{%
+\sethead[toto][titi][]%
+{toto}{titi}{}%
+\setfoot[aa][bb][cc  dd]%
+{aa}{bb}{cc  dd}%
+}%
+\pagestyle{custom}%
 
 \end{document}

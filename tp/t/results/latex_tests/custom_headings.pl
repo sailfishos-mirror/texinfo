@@ -47,18 +47,79 @@ $result_trees{'custom_headings'} = {
         {
           'args' => [
             {
+              'contents' => [
+                {
+                  'cmdname' => 'thispage',
+                  'parent' => {}
+                },
+                {
+                  'parent' => {},
+                  'text' => ' '
+                },
+                {
+                  'cmdname' => 'thissectionname',
+                  'parent' => {}
+                },
+                {
+                  'parent' => {},
+                  'text' => ' '
+                },
+                {
+                  'cmdname' => '|',
+                  'parent' => {}
+                },
+                {
+                  'parent' => {},
+                  'text' => ' '
+                },
+                {
+                  'cmdname' => 'thissectionnum',
+                  'parent' => {}
+                },
+                {
+                  'parent' => {},
+                  'text' => ' '
+                },
+                {
+                  'cmdname' => 'thissection',
+                  'parent' => {}
+                },
+                {
+                  'parent' => {},
+                  'text' => ' '
+                },
+                {
+                  'cmdname' => '|',
+                  'parent' => {}
+                },
+                {
+                  'parent' => {},
+                  'text' => ' '
+                },
+                {
+                  'cmdname' => 'thischaptername',
+                  'parent' => {}
+                },
+                {
+                  'parent' => {},
+                  'text' => ' '
+                },
+                {
+                  'cmdname' => 'thischapternum',
+                  'parent' => {}
+                }
+              ],
+              'extra' => {
+                'spaces_after_argument' => '
+'
+              },
               'parent' => {},
-              'text' => ' @thispage @thissectionname @| @thissectionnum @thissection @| @thischaptername @thischapternum
-',
-              'type' => 'misc_arg'
+              'type' => 'line_arg'
             }
           ],
           'cmdname' => 'evenheading',
           'extra' => {
-            'misc_args' => [
-              ' @thispage @thissectionname @| @thissectionnum @thissection @| @thischaptername @thischapternum
-'
-            ]
+            'spaces_before_argument' => ' '
           },
           'line_nr' => {
             'file_name' => '',
@@ -70,18 +131,81 @@ $result_trees{'custom_headings'} = {
         {
           'args' => [
             {
+              'contents' => [
+                {
+                  'cmdname' => 'thischapter',
+                  'parent' => {}
+                },
+                {
+                  'parent' => {},
+                  'text' => ' '
+                },
+                {
+                  'cmdname' => 'thistitle',
+                  'parent' => {}
+                },
+                {
+                  'parent' => {},
+                  'text' => ' '
+                },
+                {
+                  'cmdname' => '|',
+                  'parent' => {}
+                },
+                {
+                  'parent' => {},
+                  'text' => ' '
+                },
+                {
+                  'cmdname' => 'thisfile',
+                  'parent' => {}
+                },
+                {
+                  'parent' => {},
+                  'text' => ' '
+                },
+                {
+                  'cmdname' => '|',
+                  'parent' => {}
+                },
+                {
+                  'parent' => {},
+                  'text' => ' '
+                },
+                {
+                  'args' => [
+                    {
+                      'contents' => [
+                        {
+                          'cmdname' => 'thischaptername',
+                          'parent' => {}
+                        }
+                      ],
+                      'parent' => {},
+                      'type' => 'brace_command_arg'
+                    }
+                  ],
+                  'cmdname' => 'code',
+                  'contents' => [],
+                  'line_nr' => {
+                    'file_name' => '',
+                    'line_nr' => 4,
+                    'macro' => ''
+                  },
+                  'parent' => {}
+                }
+              ],
+              'extra' => {
+                'spaces_after_argument' => '
+'
+              },
               'parent' => {},
-              'text' => ' @thischapter @thistitle @| @thisfile @| @code{@thischaptername}
-',
-              'type' => 'misc_arg'
+              'type' => 'line_arg'
             }
           ],
           'cmdname' => 'evenfooting',
           'extra' => {
-            'misc_args' => [
-              ' @thischapter @thistitle @| @thisfile @| @code{@thischaptername}
-'
-            ]
+            'spaces_before_argument' => ' '
           },
           'line_nr' => {
             'file_name' => '',
@@ -393,18 +517,31 @@ $result_trees{'custom_headings'} = {
         {
           'args' => [
             {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => 'toto '
+                },
+                {
+                  'cmdname' => '|',
+                  'parent' => {}
+                },
+                {
+                  'parent' => {},
+                  'text' => ' titi'
+                }
+              ],
+              'extra' => {
+                'spaces_after_argument' => '
+'
+              },
               'parent' => {},
-              'text' => ' toto @| titi
-',
-              'type' => 'misc_arg'
+              'type' => 'line_arg'
             }
           ],
           'cmdname' => 'everyheading',
           'extra' => {
-            'misc_args' => [
-              ' toto @| titi
-'
-            ]
+            'spaces_before_argument' => ' '
           },
           'line_nr' => {
             'file_name' => '',
@@ -548,18 +685,47 @@ $result_trees{'custom_headings'} = {
         {
           'args' => [
             {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => 'aa '
+                },
+                {
+                  'cmdname' => '|',
+                  'parent' => {}
+                },
+                {
+                  'parent' => {},
+                  'text' => ' bb '
+                },
+                {
+                  'cmdname' => '|',
+                  'parent' => {}
+                },
+                {
+                  'parent' => {},
+                  'text' => ' cc '
+                },
+                {
+                  'cmdname' => '|',
+                  'parent' => {}
+                },
+                {
+                  'parent' => {},
+                  'text' => ' dd'
+                }
+              ],
+              'extra' => {
+                'spaces_after_argument' => '
+'
+              },
               'parent' => {},
-              'text' => ' aa @| bb @| cc @| dd
-',
-              'type' => 'misc_arg'
+              'type' => 'line_arg'
             }
           ],
           'cmdname' => 'everyfooting',
           'extra' => {
-            'misc_args' => [
-              ' aa @| bb @| cc @| dd
-'
-            ]
+            'spaces_before_argument' => ' '
           },
           'line_nr' => {
             'file_name' => '',
@@ -594,8 +760,36 @@ $result_trees{'custom_headings'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'conte
 $result_trees{'custom_headings'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'custom_headings'}{'contents'}[0]{'contents'}[0];
 $result_trees{'custom_headings'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'custom_headings'}{'contents'}[0];
 $result_trees{'custom_headings'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'custom_headings'}{'contents'}[0];
+$result_trees{'custom_headings'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'custom_headings'}{'contents'}[0]{'contents'}[2]{'args'}[0];
+$result_trees{'custom_headings'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'custom_headings'}{'contents'}[0]{'contents'}[2]{'args'}[0];
+$result_trees{'custom_headings'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'custom_headings'}{'contents'}[0]{'contents'}[2]{'args'}[0];
+$result_trees{'custom_headings'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[3]{'parent'} = $result_trees{'custom_headings'}{'contents'}[0]{'contents'}[2]{'args'}[0];
+$result_trees{'custom_headings'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[4]{'parent'} = $result_trees{'custom_headings'}{'contents'}[0]{'contents'}[2]{'args'}[0];
+$result_trees{'custom_headings'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[5]{'parent'} = $result_trees{'custom_headings'}{'contents'}[0]{'contents'}[2]{'args'}[0];
+$result_trees{'custom_headings'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[6]{'parent'} = $result_trees{'custom_headings'}{'contents'}[0]{'contents'}[2]{'args'}[0];
+$result_trees{'custom_headings'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[7]{'parent'} = $result_trees{'custom_headings'}{'contents'}[0]{'contents'}[2]{'args'}[0];
+$result_trees{'custom_headings'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[8]{'parent'} = $result_trees{'custom_headings'}{'contents'}[0]{'contents'}[2]{'args'}[0];
+$result_trees{'custom_headings'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[9]{'parent'} = $result_trees{'custom_headings'}{'contents'}[0]{'contents'}[2]{'args'}[0];
+$result_trees{'custom_headings'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[10]{'parent'} = $result_trees{'custom_headings'}{'contents'}[0]{'contents'}[2]{'args'}[0];
+$result_trees{'custom_headings'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[11]{'parent'} = $result_trees{'custom_headings'}{'contents'}[0]{'contents'}[2]{'args'}[0];
+$result_trees{'custom_headings'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[12]{'parent'} = $result_trees{'custom_headings'}{'contents'}[0]{'contents'}[2]{'args'}[0];
+$result_trees{'custom_headings'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[13]{'parent'} = $result_trees{'custom_headings'}{'contents'}[0]{'contents'}[2]{'args'}[0];
+$result_trees{'custom_headings'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[14]{'parent'} = $result_trees{'custom_headings'}{'contents'}[0]{'contents'}[2]{'args'}[0];
 $result_trees{'custom_headings'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'custom_headings'}{'contents'}[0]{'contents'}[2];
 $result_trees{'custom_headings'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'custom_headings'}{'contents'}[0];
+$result_trees{'custom_headings'}{'contents'}[0]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'custom_headings'}{'contents'}[0]{'contents'}[3]{'args'}[0];
+$result_trees{'custom_headings'}{'contents'}[0]{'contents'}[3]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'custom_headings'}{'contents'}[0]{'contents'}[3]{'args'}[0];
+$result_trees{'custom_headings'}{'contents'}[0]{'contents'}[3]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'custom_headings'}{'contents'}[0]{'contents'}[3]{'args'}[0];
+$result_trees{'custom_headings'}{'contents'}[0]{'contents'}[3]{'args'}[0]{'contents'}[3]{'parent'} = $result_trees{'custom_headings'}{'contents'}[0]{'contents'}[3]{'args'}[0];
+$result_trees{'custom_headings'}{'contents'}[0]{'contents'}[3]{'args'}[0]{'contents'}[4]{'parent'} = $result_trees{'custom_headings'}{'contents'}[0]{'contents'}[3]{'args'}[0];
+$result_trees{'custom_headings'}{'contents'}[0]{'contents'}[3]{'args'}[0]{'contents'}[5]{'parent'} = $result_trees{'custom_headings'}{'contents'}[0]{'contents'}[3]{'args'}[0];
+$result_trees{'custom_headings'}{'contents'}[0]{'contents'}[3]{'args'}[0]{'contents'}[6]{'parent'} = $result_trees{'custom_headings'}{'contents'}[0]{'contents'}[3]{'args'}[0];
+$result_trees{'custom_headings'}{'contents'}[0]{'contents'}[3]{'args'}[0]{'contents'}[7]{'parent'} = $result_trees{'custom_headings'}{'contents'}[0]{'contents'}[3]{'args'}[0];
+$result_trees{'custom_headings'}{'contents'}[0]{'contents'}[3]{'args'}[0]{'contents'}[8]{'parent'} = $result_trees{'custom_headings'}{'contents'}[0]{'contents'}[3]{'args'}[0];
+$result_trees{'custom_headings'}{'contents'}[0]{'contents'}[3]{'args'}[0]{'contents'}[9]{'parent'} = $result_trees{'custom_headings'}{'contents'}[0]{'contents'}[3]{'args'}[0];
+$result_trees{'custom_headings'}{'contents'}[0]{'contents'}[3]{'args'}[0]{'contents'}[10]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'custom_headings'}{'contents'}[0]{'contents'}[3]{'args'}[0]{'contents'}[10]{'args'}[0];
+$result_trees{'custom_headings'}{'contents'}[0]{'contents'}[3]{'args'}[0]{'contents'}[10]{'args'}[0]{'parent'} = $result_trees{'custom_headings'}{'contents'}[0]{'contents'}[3]{'args'}[0]{'contents'}[10];
+$result_trees{'custom_headings'}{'contents'}[0]{'contents'}[3]{'args'}[0]{'contents'}[10]{'parent'} = $result_trees{'custom_headings'}{'contents'}[0]{'contents'}[3]{'args'}[0];
 $result_trees{'custom_headings'}{'contents'}[0]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'custom_headings'}{'contents'}[0]{'contents'}[3];
 $result_trees{'custom_headings'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'custom_headings'}{'contents'}[0];
 $result_trees{'custom_headings'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'custom_headings'}{'contents'}[0];
@@ -637,6 +831,9 @@ $result_trees{'custom_headings'}{'contents'}[5]{'parent'} = $result_trees{'custo
 $result_trees{'custom_headings'}{'contents'}[6]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'custom_headings'}{'contents'}[6]{'args'}[0];
 $result_trees{'custom_headings'}{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'custom_headings'}{'contents'}[6];
 $result_trees{'custom_headings'}{'contents'}[6]{'contents'}[0]{'parent'} = $result_trees{'custom_headings'}{'contents'}[6];
+$result_trees{'custom_headings'}{'contents'}[6]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'custom_headings'}{'contents'}[6]{'contents'}[1]{'args'}[0];
+$result_trees{'custom_headings'}{'contents'}[6]{'contents'}[1]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'custom_headings'}{'contents'}[6]{'contents'}[1]{'args'}[0];
+$result_trees{'custom_headings'}{'contents'}[6]{'contents'}[1]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'custom_headings'}{'contents'}[6]{'contents'}[1]{'args'}[0];
 $result_trees{'custom_headings'}{'contents'}[6]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'custom_headings'}{'contents'}[6]{'contents'}[1];
 $result_trees{'custom_headings'}{'contents'}[6]{'contents'}[1]{'parent'} = $result_trees{'custom_headings'}{'contents'}[6];
 $result_trees{'custom_headings'}{'contents'}[6]{'contents'}[2]{'parent'} = $result_trees{'custom_headings'}{'contents'}[6];
@@ -659,6 +856,13 @@ $result_trees{'custom_headings'}{'contents'}[7]{'contents'}[0]{'parent'} = $resu
 $result_trees{'custom_headings'}{'contents'}[7]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'custom_headings'}{'contents'}[7]{'contents'}[1];
 $result_trees{'custom_headings'}{'contents'}[7]{'contents'}[1]{'parent'} = $result_trees{'custom_headings'}{'contents'}[7];
 $result_trees{'custom_headings'}{'contents'}[7]{'contents'}[2]{'parent'} = $result_trees{'custom_headings'}{'contents'}[7];
+$result_trees{'custom_headings'}{'contents'}[7]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'custom_headings'}{'contents'}[7]{'contents'}[3]{'args'}[0];
+$result_trees{'custom_headings'}{'contents'}[7]{'contents'}[3]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'custom_headings'}{'contents'}[7]{'contents'}[3]{'args'}[0];
+$result_trees{'custom_headings'}{'contents'}[7]{'contents'}[3]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'custom_headings'}{'contents'}[7]{'contents'}[3]{'args'}[0];
+$result_trees{'custom_headings'}{'contents'}[7]{'contents'}[3]{'args'}[0]{'contents'}[3]{'parent'} = $result_trees{'custom_headings'}{'contents'}[7]{'contents'}[3]{'args'}[0];
+$result_trees{'custom_headings'}{'contents'}[7]{'contents'}[3]{'args'}[0]{'contents'}[4]{'parent'} = $result_trees{'custom_headings'}{'contents'}[7]{'contents'}[3]{'args'}[0];
+$result_trees{'custom_headings'}{'contents'}[7]{'contents'}[3]{'args'}[0]{'contents'}[5]{'parent'} = $result_trees{'custom_headings'}{'contents'}[7]{'contents'}[3]{'args'}[0];
+$result_trees{'custom_headings'}{'contents'}[7]{'contents'}[3]{'args'}[0]{'contents'}[6]{'parent'} = $result_trees{'custom_headings'}{'contents'}[7]{'contents'}[3]{'args'}[0];
 $result_trees{'custom_headings'}{'contents'}[7]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'custom_headings'}{'contents'}[7]{'contents'}[3];
 $result_trees{'custom_headings'}{'contents'}[7]{'contents'}[3]{'parent'} = $result_trees{'custom_headings'}{'contents'}[7];
 $result_trees{'custom_headings'}{'contents'}[7]{'contents'}[4]{'parent'} = $result_trees{'custom_headings'}{'contents'}[7];
@@ -871,7 +1075,17 @@ $result_menus{'custom_headings'} = {
   }
 };
 
-$result_errors{'custom_headings'} = [];
+$result_errors{'custom_headings'} = [
+  {
+    'error_line' => ':4: warning: @thischaptername should not appear in @code
+',
+    'file_name' => '',
+    'line_nr' => 4,
+    'macro' => '',
+    'text' => '@thischaptername should not appear in @code',
+    'type' => 'warning'
+  }
+];
 
 
 $result_floats{'custom_headings'} = {};
@@ -879,6 +1093,18 @@ $result_floats{'custom_headings'} = {};
 
 
 $result_converted{'latex'}->{'custom_headings'} = '
+\\newpagestyle{custom}{%
+\\sethead[\\thepage{} \\sectiontitle{}][\\thesection{} Section \\thesection{} \\sectiontitle{}][\\chaptertitle{} \\thechapter{}]%
+{}{}{}%
+}%
+\\pagestyle{custom}%
+\\renewpagestyle{custom}{%
+\\sethead[\\thepage{} \\sectiontitle{}][\\thesection{} Section \\thesection{} \\sectiontitle{}][\\chaptertitle{} \\thechapter{}]%
+{}{}{}%
+\\setfoot[\\chaptername{} \\thechapter{} \\chaptertitle{} \\GNUTexinfosettitle{}][][\\texttt{\\chaptertitle{}}]%
+{}{}{}%
+}%
+\\pagestyle{custom}%
 
 \\chapter{ch--ap}
 \\label{anchor:chapter}%
@@ -897,6 +1123,13 @@ after ch--ap second page
 
 \\chapter{chap 2}
 
+\\renewpagestyle{custom}{%
+\\sethead[toto][titi][]%
+{toto}{titi}{}%
+\\setfoot[\\chaptername{} \\thechapter{} \\chaptertitle{} \\GNUTexinfosettitle{}][][\\texttt{\\chaptertitle{}}]%
+{}{}{}%
+}%
+\\pagestyle{custom}%
 
 \\newpage{}%
 \\phantom{blabla}%
@@ -913,6 +1146,13 @@ after everyheading before chap 3 second page
 \\newpage{}%
 \\phantom{blabla}%
 
+\\renewpagestyle{custom}{%
+\\sethead[toto][titi][]%
+{toto}{titi}{}%
+\\setfoot[aa][bb][cc  dd]%
+{aa}{bb}{cc  dd}%
+}%
+\\pagestyle{custom}%
 
 ';
 

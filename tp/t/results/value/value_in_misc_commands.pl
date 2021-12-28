@@ -315,18 +315,23 @@ $result_trees{'value_in_misc_commands'} = {
         {
           'args' => [
             {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => 'some text ignored atext'
+                }
+              ],
+              'extra' => {
+                'spaces_after_argument' => '
+'
+              },
               'parent' => {},
-              'text' => ' some text ignored @value{text}
-',
-              'type' => 'misc_arg'
+              'type' => 'line_arg'
             }
           ],
           'cmdname' => 'oddfooting',
           'extra' => {
-            'misc_args' => [
-              ' some text ignored @value{text}
-'
-            ]
+            'spaces_before_argument' => ' '
           },
           'line_nr' => {
             'file_name' => '',
@@ -338,18 +343,23 @@ $result_trees{'value_in_misc_commands'} = {
         {
           'args' => [
             {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => 'on line following everyheading atext'
+                }
+              ],
+              'extra' => {
+                'spaces_after_argument' => '
+'
+              },
               'parent' => {},
-              'text' => ' on line following everyheading @value{text}
-',
-              'type' => 'misc_arg'
+              'type' => 'line_arg'
             }
           ],
           'cmdname' => 'everyheading',
           'extra' => {
-            'misc_args' => [
-              ' on line following everyheading @value{text}
-'
-            ]
+            'spaces_before_argument' => ' '
           },
           'line_nr' => {
             'file_name' => '',
@@ -2803,8 +2813,10 @@ $result_trees{'value_in_misc_commands'}{'contents'}[2]{'contents'}[8]{'parent'} 
 $result_trees{'value_in_misc_commands'}{'contents'}[2]{'contents'}[9]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'value_in_misc_commands'}{'contents'}[2]{'contents'}[9]{'args'}[0];
 $result_trees{'value_in_misc_commands'}{'contents'}[2]{'contents'}[9]{'args'}[0]{'parent'} = $result_trees{'value_in_misc_commands'}{'contents'}[2]{'contents'}[9];
 $result_trees{'value_in_misc_commands'}{'contents'}[2]{'contents'}[9]{'parent'} = $result_trees{'value_in_misc_commands'}{'contents'}[2];
+$result_trees{'value_in_misc_commands'}{'contents'}[2]{'contents'}[10]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'value_in_misc_commands'}{'contents'}[2]{'contents'}[10]{'args'}[0];
 $result_trees{'value_in_misc_commands'}{'contents'}[2]{'contents'}[10]{'args'}[0]{'parent'} = $result_trees{'value_in_misc_commands'}{'contents'}[2]{'contents'}[10];
 $result_trees{'value_in_misc_commands'}{'contents'}[2]{'contents'}[10]{'parent'} = $result_trees{'value_in_misc_commands'}{'contents'}[2];
+$result_trees{'value_in_misc_commands'}{'contents'}[2]{'contents'}[11]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'value_in_misc_commands'}{'contents'}[2]{'contents'}[11]{'args'}[0];
 $result_trees{'value_in_misc_commands'}{'contents'}[2]{'contents'}[11]{'args'}[0]{'parent'} = $result_trees{'value_in_misc_commands'}{'contents'}[2]{'contents'}[11];
 $result_trees{'value_in_misc_commands'}{'contents'}[2]{'contents'}[11]{'parent'} = $result_trees{'value_in_misc_commands'}{'contents'}[2];
 $result_trees{'value_in_misc_commands'}{'contents'}[2]{'contents'}[12]{'parent'} = $result_trees{'value_in_misc_commands'}{'contents'}[2];
@@ -3130,8 +3142,8 @@ Text line followed by a comment on the same line and another below @c comment @v
 @pagesizes 200mm,150mm
 @afourpaper
 @headings on line following headings atext
-@oddfooting some text ignored @value{text}
-@everyheading on line following everyheading @value{text}
+@oddfooting some text ignored atext
+@everyheading on line following everyheading atext
 
 @set need_arg 0.1
 

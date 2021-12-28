@@ -540,20 +540,6 @@ our %line_commands = (
                             # interacts with setchapternewpage
   'setchapternewpage' => 1, # off on odd
 
-  # only relevant in TeX, and special
-  #'everyheading'      => 'line',  # @*heading @*footing use @|
-  #'everyfooting'      => 'line',  # + @thispage @thissectionname
-  #'evenheading'       => 'line',  # @thissectionnum @thissection
-  #'evenfooting'       => 'line',  # @thischaptername @thischapternum
-  #'oddheading'        => 'line',  # @thischapter @thistitle @thisfile
-  #'oddfooting'        => 'line',
-  'everyheading'      => 'lineraw',  # @*heading @*footing use @|
-  'everyfooting'      => 'lineraw',  # + @thispage @thissectionname
-  'evenheading'       => 'lineraw',  # @thissectionnum @thissection
-  'evenfooting'       => 'lineraw',  # @thischaptername @thischapternum
-  'oddheading'        => 'lineraw',  # @thischapter @thistitle @thisfile
-  'oddfooting'        => 'lineraw',
-
   'smallbook'         => 'skipline', # no arg
   'syncodeindex'      => 2,   # args are index identifiers
   'synindex'          => 2,
@@ -616,16 +602,13 @@ foreach my $in_heading_command ('thischapter', 'thischaptername',
   $other_commands{$in_heading_command} = 'noarg';
 }
 
+# %in_heading_commands and @| are only valid in the following @-commands
 our %headings_specification_commands;
 foreach my $headings_specification_command ('everyheading', 'everyfooting',
   'evenheading', 'evenfooting', 'oddheading', 'oddfooting') {
   $headings_specification_commands{$headings_specification_command} = 1;
 
-  # TODO set when the XS parser is ready
-  if (0) {
-  #if (1) {
   $line_commands{$headings_specification_command} = 'line';
-  }
 }
 
 # only valid in index entries

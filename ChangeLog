@@ -1,5 +1,16 @@
 2021-12-28  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (%line_commands),
+	tp/Texinfo/XS/parsetexi/handle_commands.c (handle_line_command):
+	set headings specifiction commands to be parsed as line commands.
+	In the XS parser it amounts to not considering that they are raw
+	line commands.
+
+	* tp/Texinfo/XS/parsetexi/command_data.txt: add thissection,
+	thissectionname, thissectionnum.
+
+2021-12-28  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/command_data.txt,
 	tp/Texinfo/XS/parsetexi/commands.h,
 	tp/Texinfo/XS/parsetexi/handle_commands.c (handle_other_command)

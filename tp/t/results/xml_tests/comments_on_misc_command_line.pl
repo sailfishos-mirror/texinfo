@@ -228,18 +228,52 @@ $result_trees{'comments_on_misc_command_line'} = {
     {
       'args' => [
         {
-          'parent' => {},
-          'text' => ' @thispage @| aaa @c everyheading (lineraw)
+          'contents' => [
+            {
+              'cmdname' => 'thispage',
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => ' '
+            },
+            {
+              'cmdname' => '|',
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => ' aaa'
+            }
+          ],
+          'extra' => {
+            'comment_at_end' => {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' everyheading (lineraw)
 ',
-          'type' => 'misc_arg'
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' everyheading (lineraw)
+'
+                ]
+              },
+              'parent' => {}
+            },
+            'spaces_after_argument' => ' '
+          },
+          'parent' => {},
+          'type' => 'line_arg'
         }
       ],
       'cmdname' => 'everyheading',
       'extra' => {
-        'misc_args' => [
-          ' @thispage @| aaa @c everyheading (lineraw)
-'
-        ]
+        'spaces_before_argument' => ' '
       },
       'line_nr' => {
         'file_name' => '',
@@ -330,6 +364,12 @@ $result_trees{'comments_on_misc_command_line'}{'contents'}[5]{'args'}[0]{'extra'
 $result_trees{'comments_on_misc_command_line'}{'contents'}[5]{'args'}[0]{'extra'}{'comment_at_end'}{'parent'} = $result_trees{'comments_on_misc_command_line'}{'contents'}[5]{'args'}[0];
 $result_trees{'comments_on_misc_command_line'}{'contents'}[5]{'args'}[0]{'parent'} = $result_trees{'comments_on_misc_command_line'}{'contents'}[5];
 $result_trees{'comments_on_misc_command_line'}{'contents'}[5]{'parent'} = $result_trees{'comments_on_misc_command_line'};
+$result_trees{'comments_on_misc_command_line'}{'contents'}[6]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'comments_on_misc_command_line'}{'contents'}[6]{'args'}[0];
+$result_trees{'comments_on_misc_command_line'}{'contents'}[6]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'comments_on_misc_command_line'}{'contents'}[6]{'args'}[0];
+$result_trees{'comments_on_misc_command_line'}{'contents'}[6]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'comments_on_misc_command_line'}{'contents'}[6]{'args'}[0];
+$result_trees{'comments_on_misc_command_line'}{'contents'}[6]{'args'}[0]{'contents'}[3]{'parent'} = $result_trees{'comments_on_misc_command_line'}{'contents'}[6]{'args'}[0];
+$result_trees{'comments_on_misc_command_line'}{'contents'}[6]{'args'}[0]{'extra'}{'comment_at_end'}{'args'}[0]{'parent'} = $result_trees{'comments_on_misc_command_line'}{'contents'}[6]{'args'}[0]{'extra'}{'comment_at_end'};
+$result_trees{'comments_on_misc_command_line'}{'contents'}[6]{'args'}[0]{'extra'}{'comment_at_end'}{'parent'} = $result_trees{'comments_on_misc_command_line'}{'contents'}[6]{'args'}[0];
 $result_trees{'comments_on_misc_command_line'}{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'comments_on_misc_command_line'}{'contents'}[6];
 $result_trees{'comments_on_misc_command_line'}{'contents'}[6]{'parent'} = $result_trees{'comments_on_misc_command_line'};
 $result_trees{'comments_on_misc_command_line'}{'contents'}[7]{'parent'} = $result_trees{'comments_on_misc_command_line'};
@@ -381,7 +421,7 @@ $result_converted{'xml'}->{'comments_on_misc_command_line'} = '<setfilename file
 <raisesections line=" @c raisesections (skipline)"></raisesections>
 <insertcopying line="  @comment  (noarg)"></insertcopying>
 <pagesizes spaces=" ">200mm </pagesizes><!-- c pagesizes  (line) -->
-<everyheading> @thispage @| aaa @c everyheading (lineraw)</everyheading>
+<everyheading spaces=" "><thispage></thispage> <divideheading/> aaa </everyheading><!-- c everyheading (lineraw) -->
 
 <indent></indent><para><!-- c indent (skipspace) -->
 Para.

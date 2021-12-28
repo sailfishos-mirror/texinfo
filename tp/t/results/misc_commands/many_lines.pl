@@ -120,18 +120,23 @@ $result_trees{'many_lines'} = {
         {
           'args' => [
             {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => 'on line following oddfooting'
+                }
+              ],
+              'extra' => {
+                'spaces_after_argument' => '
+'
+              },
               'parent' => {},
-              'text' => ' on line following oddfooting
-',
-              'type' => 'misc_arg'
+              'type' => 'line_arg'
             }
           ],
           'cmdname' => 'oddfooting',
           'extra' => {
-            'misc_args' => [
-              ' on line following oddfooting
-'
-            ]
+            'spaces_before_argument' => ' '
           },
           'line_nr' => {
             'file_name' => '',
@@ -147,18 +152,23 @@ $result_trees{'many_lines'} = {
         {
           'args' => [
             {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => 'on line following everyheading'
+                }
+              ],
+              'extra' => {
+                'spaces_after_argument' => '
+'
+              },
               'parent' => {},
-              'text' => ' on line following everyheading
-',
-              'type' => 'misc_arg'
+              'type' => 'line_arg'
             }
           ],
           'cmdname' => 'everyheading',
           'extra' => {
-            'misc_args' => [
-              ' on line following everyheading
-'
-            ]
+            'spaces_before_argument' => ' '
           },
           'line_nr' => {
             'file_name' => '',
@@ -174,18 +184,23 @@ $result_trees{'many_lines'} = {
         {
           'args' => [
             {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => 'on line following everyfooting'
+                }
+              ],
+              'extra' => {
+                'spaces_after_argument' => '
+'
+              },
               'parent' => {},
-              'text' => ' on line following everyfooting
-',
-              'type' => 'misc_arg'
+              'type' => 'line_arg'
             }
           ],
           'cmdname' => 'everyfooting',
           'extra' => {
-            'misc_args' => [
-              ' on line following everyfooting
-'
-            ]
+            'spaces_before_argument' => ' '
           },
           'line_nr' => {
             'file_name' => '',
@@ -201,18 +216,23 @@ $result_trees{'many_lines'} = {
         {
           'args' => [
             {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => 'on line following evenheading'
+                }
+              ],
+              'extra' => {
+                'spaces_after_argument' => '
+'
+              },
               'parent' => {},
-              'text' => ' on line following evenheading
-',
-              'type' => 'misc_arg'
+              'type' => 'line_arg'
             }
           ],
           'cmdname' => 'evenheading',
           'extra' => {
-            'misc_args' => [
-              ' on line following evenheading
-'
-            ]
+            'spaces_before_argument' => ' '
           },
           'line_nr' => {
             'file_name' => '',
@@ -228,18 +248,23 @@ $result_trees{'many_lines'} = {
         {
           'args' => [
             {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => 'on line following evenfooting'
+                }
+              ],
+              'extra' => {
+                'spaces_after_argument' => '
+'
+              },
               'parent' => {},
-              'text' => ' on line following evenfooting
-',
-              'type' => 'misc_arg'
+              'type' => 'line_arg'
             }
           ],
           'cmdname' => 'evenfooting',
           'extra' => {
-            'misc_args' => [
-              ' on line following evenfooting
-'
-            ]
+            'spaces_before_argument' => ' '
           },
           'line_nr' => {
             'file_name' => '',
@@ -255,18 +280,23 @@ $result_trees{'many_lines'} = {
         {
           'args' => [
             {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => 'on line following'
+                }
+              ],
+              'extra' => {
+                'spaces_after_argument' => '
+'
+              },
               'parent' => {},
-              'text' => ' on line following
-',
-              'type' => 'misc_arg'
+              'type' => 'line_arg'
             }
           ],
           'cmdname' => 'oddheading',
           'extra' => {
-            'misc_args' => [
-              ' on line following
-'
-            ]
+            'spaces_before_argument' => ' '
           },
           'line_nr' => {
             'file_name' => '',
@@ -1180,21 +1210,27 @@ $result_trees{'many_lines'}{'contents'}[0]{'contents'}[7]{'args'}[0]{'contents'}
 $result_trees{'many_lines'}{'contents'}[0]{'contents'}[7]{'args'}[0]{'parent'} = $result_trees{'many_lines'}{'contents'}[0]{'contents'}[7];
 $result_trees{'many_lines'}{'contents'}[0]{'contents'}[7]{'parent'} = $result_trees{'many_lines'}{'contents'}[0];
 $result_trees{'many_lines'}{'contents'}[0]{'contents'}[8]{'parent'} = $result_trees{'many_lines'}{'contents'}[0];
+$result_trees{'many_lines'}{'contents'}[0]{'contents'}[9]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'many_lines'}{'contents'}[0]{'contents'}[9]{'args'}[0];
 $result_trees{'many_lines'}{'contents'}[0]{'contents'}[9]{'args'}[0]{'parent'} = $result_trees{'many_lines'}{'contents'}[0]{'contents'}[9];
 $result_trees{'many_lines'}{'contents'}[0]{'contents'}[9]{'parent'} = $result_trees{'many_lines'}{'contents'}[0];
 $result_trees{'many_lines'}{'contents'}[0]{'contents'}[10]{'parent'} = $result_trees{'many_lines'}{'contents'}[0];
+$result_trees{'many_lines'}{'contents'}[0]{'contents'}[11]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'many_lines'}{'contents'}[0]{'contents'}[11]{'args'}[0];
 $result_trees{'many_lines'}{'contents'}[0]{'contents'}[11]{'args'}[0]{'parent'} = $result_trees{'many_lines'}{'contents'}[0]{'contents'}[11];
 $result_trees{'many_lines'}{'contents'}[0]{'contents'}[11]{'parent'} = $result_trees{'many_lines'}{'contents'}[0];
 $result_trees{'many_lines'}{'contents'}[0]{'contents'}[12]{'parent'} = $result_trees{'many_lines'}{'contents'}[0];
+$result_trees{'many_lines'}{'contents'}[0]{'contents'}[13]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'many_lines'}{'contents'}[0]{'contents'}[13]{'args'}[0];
 $result_trees{'many_lines'}{'contents'}[0]{'contents'}[13]{'args'}[0]{'parent'} = $result_trees{'many_lines'}{'contents'}[0]{'contents'}[13];
 $result_trees{'many_lines'}{'contents'}[0]{'contents'}[13]{'parent'} = $result_trees{'many_lines'}{'contents'}[0];
 $result_trees{'many_lines'}{'contents'}[0]{'contents'}[14]{'parent'} = $result_trees{'many_lines'}{'contents'}[0];
+$result_trees{'many_lines'}{'contents'}[0]{'contents'}[15]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'many_lines'}{'contents'}[0]{'contents'}[15]{'args'}[0];
 $result_trees{'many_lines'}{'contents'}[0]{'contents'}[15]{'args'}[0]{'parent'} = $result_trees{'many_lines'}{'contents'}[0]{'contents'}[15];
 $result_trees{'many_lines'}{'contents'}[0]{'contents'}[15]{'parent'} = $result_trees{'many_lines'}{'contents'}[0];
 $result_trees{'many_lines'}{'contents'}[0]{'contents'}[16]{'parent'} = $result_trees{'many_lines'}{'contents'}[0];
+$result_trees{'many_lines'}{'contents'}[0]{'contents'}[17]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'many_lines'}{'contents'}[0]{'contents'}[17]{'args'}[0];
 $result_trees{'many_lines'}{'contents'}[0]{'contents'}[17]{'args'}[0]{'parent'} = $result_trees{'many_lines'}{'contents'}[0]{'contents'}[17];
 $result_trees{'many_lines'}{'contents'}[0]{'contents'}[17]{'parent'} = $result_trees{'many_lines'}{'contents'}[0];
 $result_trees{'many_lines'}{'contents'}[0]{'contents'}[18]{'parent'} = $result_trees{'many_lines'}{'contents'}[0];
+$result_trees{'many_lines'}{'contents'}[0]{'contents'}[19]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'many_lines'}{'contents'}[0]{'contents'}[19]{'args'}[0];
 $result_trees{'many_lines'}{'contents'}[0]{'contents'}[19]{'args'}[0]{'parent'} = $result_trees{'many_lines'}{'contents'}[0]{'contents'}[19];
 $result_trees{'many_lines'}{'contents'}[0]{'contents'}[19]{'parent'} = $result_trees{'many_lines'}{'contents'}[0];
 $result_trees{'many_lines'}{'contents'}[0]{'contents'}[20]{'parent'} = $result_trees{'many_lines'}{'contents'}[0];

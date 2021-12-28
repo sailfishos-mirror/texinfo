@@ -10,18 +10,35 @@ $result_trees{'command_in_heading_footing'} = {
     {
       'args' => [
         {
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => 'something '
+            },
+            {
+              'cmdname' => 'thispage',
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => ' '
+            },
+            {
+              'cmdname' => 'thischapternum',
+              'parent' => {}
+            }
+          ],
+          'extra' => {
+            'spaces_after_argument' => '
+'
+          },
           'parent' => {},
-          'text' => ' something @thispage @thischapternum
-',
-          'type' => 'misc_arg'
+          'type' => 'line_arg'
         }
       ],
       'cmdname' => 'everyheading',
       'extra' => {
-        'misc_args' => [
-          ' something @thispage @thischapternum
-'
-        ]
+        'spaces_before_argument' => ' '
       },
       'line_nr' => {
         'file_name' => '',
@@ -66,6 +83,10 @@ $result_trees{'command_in_heading_footing'} = {
   ],
   'type' => 'text_root'
 };
+$result_trees{'command_in_heading_footing'}{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'command_in_heading_footing'}{'contents'}[0]{'args'}[0];
+$result_trees{'command_in_heading_footing'}{'contents'}[0]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'command_in_heading_footing'}{'contents'}[0]{'args'}[0];
+$result_trees{'command_in_heading_footing'}{'contents'}[0]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'command_in_heading_footing'}{'contents'}[0]{'args'}[0];
+$result_trees{'command_in_heading_footing'}{'contents'}[0]{'args'}[0]{'contents'}[3]{'parent'} = $result_trees{'command_in_heading_footing'}{'contents'}[0]{'args'}[0];
 $result_trees{'command_in_heading_footing'}{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'command_in_heading_footing'}{'contents'}[0];
 $result_trees{'command_in_heading_footing'}{'contents'}[0]{'parent'} = $result_trees{'command_in_heading_footing'};
 $result_trees{'command_in_heading_footing'}{'contents'}[1]{'parent'} = $result_trees{'command_in_heading_footing'};

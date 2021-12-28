@@ -166,6 +166,9 @@ tab                     other                           OTHER_skipspace
 thischapter             other,in_heading                OTHER_noarg
 thischaptername         other,in_heading                OTHER_noarg
 thischapternum          other,in_heading                OTHER_noarg
+thissection             other,in_heading                OTHER_noarg
+thissectionname         other,in_heading                OTHER_noarg
+thissectionnum          other,in_heading                OTHER_noarg
 thisfile                other,in_heading                OTHER_noarg
 thispage                other,in_heading                OTHER_noarg
 thistitle               other,in_heading                OTHER_noarg

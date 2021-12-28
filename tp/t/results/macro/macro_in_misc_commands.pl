@@ -591,18 +591,23 @@ $result_trees{'macro_in_misc_commands'} = {
         {
           'args' => [
             {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => 'some text ignored atext'
+                }
+              ],
+              'extra' => {
+                'spaces_after_argument' => '
+'
+              },
               'parent' => {},
-              'text' => ' some text ignored @text{}
-',
-              'type' => 'misc_arg'
+              'type' => 'line_arg'
             }
           ],
           'cmdname' => 'oddfooting',
           'extra' => {
-            'misc_args' => [
-              ' some text ignored @text{}
-'
-            ]
+            'spaces_before_argument' => ' '
           },
           'line_nr' => {
             'file_name' => '',
@@ -614,18 +619,23 @@ $result_trees{'macro_in_misc_commands'} = {
         {
           'args' => [
             {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => 'on line following everyheading atext'
+                }
+              ],
+              'extra' => {
+                'spaces_after_argument' => '
+'
+              },
               'parent' => {},
-              'text' => ' on line following everyheading @text{}
-',
-              'type' => 'misc_arg'
+              'type' => 'line_arg'
             }
           ],
           'cmdname' => 'everyheading',
           'extra' => {
-            'misc_args' => [
-              ' on line following everyheading @text{}
-'
-            ]
+            'spaces_before_argument' => ' '
           },
           'line_nr' => {
             'file_name' => '',
@@ -3579,8 +3589,10 @@ $result_trees{'macro_in_misc_commands'}{'contents'}[2]{'contents'}[20]{'parent'}
 $result_trees{'macro_in_misc_commands'}{'contents'}[2]{'contents'}[21]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'macro_in_misc_commands'}{'contents'}[2]{'contents'}[21]{'args'}[0];
 $result_trees{'macro_in_misc_commands'}{'contents'}[2]{'contents'}[21]{'args'}[0]{'parent'} = $result_trees{'macro_in_misc_commands'}{'contents'}[2]{'contents'}[21];
 $result_trees{'macro_in_misc_commands'}{'contents'}[2]{'contents'}[21]{'parent'} = $result_trees{'macro_in_misc_commands'}{'contents'}[2];
+$result_trees{'macro_in_misc_commands'}{'contents'}[2]{'contents'}[22]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'macro_in_misc_commands'}{'contents'}[2]{'contents'}[22]{'args'}[0];
 $result_trees{'macro_in_misc_commands'}{'contents'}[2]{'contents'}[22]{'args'}[0]{'parent'} = $result_trees{'macro_in_misc_commands'}{'contents'}[2]{'contents'}[22];
 $result_trees{'macro_in_misc_commands'}{'contents'}[2]{'contents'}[22]{'parent'} = $result_trees{'macro_in_misc_commands'}{'contents'}[2];
+$result_trees{'macro_in_misc_commands'}{'contents'}[2]{'contents'}[23]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'macro_in_misc_commands'}{'contents'}[2]{'contents'}[23]{'args'}[0];
 $result_trees{'macro_in_misc_commands'}{'contents'}[2]{'contents'}[23]{'args'}[0]{'parent'} = $result_trees{'macro_in_misc_commands'}{'contents'}[2]{'contents'}[23];
 $result_trees{'macro_in_misc_commands'}{'contents'}[2]{'contents'}[23]{'parent'} = $result_trees{'macro_in_misc_commands'}{'contents'}[2];
 $result_trees{'macro_in_misc_commands'}{'contents'}[2]{'contents'}[24]{'parent'} = $result_trees{'macro_in_misc_commands'}{'contents'}[2];
@@ -4002,8 +4014,8 @@ line following documentlanguage
 @pagesizes 200mm,150mm
 @afourpaper
 @headings on line following headings atext
-@oddfooting some text ignored @text{}
-@everyheading on line following everyheading @text{}
+@oddfooting some text ignored atext
+@everyheading on line following everyheading atext
 
 @macro needarg
 0.1

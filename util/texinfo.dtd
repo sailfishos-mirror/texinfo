@@ -168,8 +168,9 @@
 <!ENTITY % Inline.fullline "%Inline.line; | titlefont | anchor">
 
 <!-- on headings specification lines -->
-<!ENTITY % Inline.headingmark "divideheading | thischapter | thischaptername |
-                        | thischapternum | thisfile | thispage | thistitle">
+<!ENTITY % Inline.headingmark "divideheading | thischapter | thischaptername
+           | thischapternum | thissection | thissectionname | thissectionnum
+           | thisfile | thispage | thistitle">
 <!ENTITY % Inline.headingline "%Inline.linesimpletext | %Inline.headingmark">
 
 <!-- in paragraphs -->
@@ -467,6 +468,9 @@
 <!ELEMENT thischapter EMPTY>
 <!ELEMENT thischaptername EMPTY>
 <!ELEMENT thischapternum EMPTY>
+<!ELEMENT thissection EMPTY>
+<!ELEMENT thissectionname EMPTY>
+<!ELEMENT thissectionnum EMPTY>
 <!ELEMENT thisfile EMPTY>
 <!ELEMENT thispage EMPTY>
 <!ELEMENT thistitle EMPTY>
