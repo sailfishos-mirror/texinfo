@@ -382,6 +382,13 @@ example with @@-commands and other special characters
 '],
 );
 
+my $test_accents_sc_text = '@u{--a}
+@^{--a}
+@aa{} @AA{} @^e @^E @~{@dotless{i}} @dotless{i} @udotaccent{r} @v{@\'{r}} @={@,{@~{n}}}.
+@equiv{}
+@sc{@aa{} @AA{} @^e @^E @~{@dotless{i}} @dotless{i} @udotaccent{r} @v{@\'{r}} @={@,{@~{n}}}}.
+';
+
 my @test_cases_text = (
 ['commands_in_email',
 '@email{endots @enddots{} @code{in code}}'
@@ -418,6 +425,14 @@ AA @^e --- -- \'` \'\' ``', {'ENABLE_ENCODING' => 1}, {'USE_ISO' => 0,
 '@documentencoding utf-8
 
 AA @^e --- -- \'` \'\' ``', {'ENABLE_ENCODING' => 1}, {'USE_ISO' => 0}],
+['utf8_use_numeric_entity',
+'@documentencoding utf-8
+
+AA @^e --- -- \'` \'\' ``', {}, {'USE_NUMERIC_ENTITY' => 1}],
+['utf8_enable_encoding_use_numeric_entity',
+'@documentencoding utf-8
+
+AA @^e --- -- \'` \'\' ``', {'ENABLE_ENCODING' => 1}, {'USE_NUMERIC_ENTITY' => 1}],
 ['ref_in_preformatted',
 '@node Top
 
@@ -432,21 +447,37 @@ node name}
 
 @node nnn the node name
 '],
-);
-
-# problem is that the result is code with accented letters,
-# it may not come out right.  So this test is left unused for now.
-# Also could be in converters_tests
-my @todo = (
-['enable_encoding',
+# The following tests that are not HTML specific could be
+# in converters_tests (to check what is HTML specific,
+# and what applies to other converters based on XML).
+['test_accents_sc_default',
 '@documentencoding utf-8
 
-@u{--a}
-@^{--a}
-@AA{} @~{@dotless{i}} @dotless{i}.
-@equiv{}
-@sc{@AA{} @~{@dotless{i}} @dotless{i}}.
-',{'ENABLE_ENCODING' => 1}]
+'.$test_accents_sc_text],
+['test_accents_sc_enable_encoding',
+'@documentencoding utf-8
+
+'.$test_accents_sc_text, {'ENABLE_ENCODING' => 1}],
+['test_accents_sc_default_latin1',
+'@documentencoding ISO-8859-1
+
+'.$test_accents_sc_text],
+['test_accents_sc_enable_encoding_latin1',
+'@documentencoding ISO-8859-1
+
+'.$test_accents_sc_text, {'ENABLE_ENCODING' => 1}],
+['test_accents_sc_no_use_entity_enable_encoding',
+'@documentencoding utf-8
+
+'.$test_accents_sc_text, {'ENABLE_ENCODING' => 1}, {'ENABLE_ENCODING_USE_ENTITY' => 0}],
+['test_accents_sc_no_use_entity',
+'@documentencoding utf-8
+
+'.$test_accents_sc_text, {}, {'ENABLE_ENCODING_USE_ENTITY' => 0}],
+['test_accents_sc_use_numeric_entity',
+'@documentencoding utf-8
+
+'.$test_accents_sc_text, {}, {'USE_NUMERIC_ENTITY' => 1}],
 );
 
 # test that the node name that goes in the redirection file is reproducible.

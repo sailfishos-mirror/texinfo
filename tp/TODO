@@ -66,36 +66,38 @@ unicode sorting.
 my $collator = Unicode::Collate::Locale->new('locale' => $locale_name, 'normalization' => 'NFKD')
 @sorted = $collator->sort(@not_sorted);
 
-Currently there is no error for something like 
 
-  @chapter @code{@anchor{TTO}}
+Some dubious nesting could be warned against.  In the Perl Parser
+there is a 'context_command_stack' that could be used for that.  Wait
+for this stack to be in the XS Parser before doing it.
 
-there should be an error as for the following construct:
+Some erroneous constructs not already warned against:
 
-  @chapter @anchor{TTez}
+ @chapter @code{@anchor{TTO}}
 
-This would certainly imply adding, on top of the 'context_stack', a 
-stack of opened @-commands (although maybe not every @-commands?).  This 
-would allow to catch many other dubious nesting, such as @table in @menu, 
-@caption in @caption and also would certainly allow to handle the 2 cases 
-below.  This should, however, slow down the computation even more.
+ @chapter @anchor{TTez}
 
-maybe checking for incorrectly nested @titlepage, @copying and 
-@documentdescription (which is already done in the "regions stack") 
+ @table in @menu
+
+ @caption in @caption
+
+ nested footnotes
+
+ @example
+ @heading A heading
+ @end example
+ Example in heading/heading_in_example.
+
+maybe checking for incorrectly nested @titlepage, @copying and
+@documentdescription (which is already done in the "regions stack")
 could be done the same way.
 
-warn nested footnotes.
 
-Following should be an error:
-@example
-@heading A heading
-@end example
-Example in heading/heading_in_example.
+There is no warning with a block command between @def* and @def*x,
+only for paragraph.  Not sure that this can be detected with
+'context_command_stack'.
 
-Similar, but not exactly the same issue, there is no warning with a
-block command between @def* and @def*x, only for paragraph.
-
- @defun a b c d e f 
+ @defun a b c d e f
 
  @itemize @minus
  truc
@@ -146,9 +148,6 @@ to a possible test of CASE_INSENSITIVE_FILENAMES.
 Unit test of end_line_count for Texinfo/Convert/Paragraph.pm .... containers.
 
 In html test empty @top for title, with different cases for anchors.
-
-Test @sc{@aa{}} and @sc{@'e} in HTML with 8bit and utf8, with and without
-enable encoding and entities.
 
 in html test footnotestyle separate.  There are such tests in tp/tests,
 maybe they are sufficient, but they are only done for long checks.

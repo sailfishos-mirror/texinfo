@@ -155,6 +155,8 @@ sub chrx(@)
 }
 
 # some come from encodings/weird_accents.texi
+# the results correspond to:
+#  8bit, XML named entity no fallback, XML named entity fallback to numeric, utf8
 foreach my $test (
   ['@~e',                   'no 8bit encoding',    "e~", 'e~', '&#7869;', 
                                                    chrx('1ebd')],

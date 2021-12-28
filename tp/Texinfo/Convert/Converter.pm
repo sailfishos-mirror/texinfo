@@ -1586,6 +1586,7 @@ sub _xml_named_entities_numeric_fallback_accent($$;$)
   my $text = shift;
   my $command = shift;
   my $in_upper_case = shift;
+
   return $self->xml_accent($text, $command, $in_upper_case, 1);
 }
 
