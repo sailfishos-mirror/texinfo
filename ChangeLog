@@ -1,5 +1,15 @@
 2021-12-29  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	ASCII_PUNCTUATION for any encoding
+
+	* tp/Texinfo/Convert/Text.pm (brace_no_arg_command):
+	Obey 'ascii_punctuation' setting regardless of the encoding.
+	This means it works for '@documentencoding ISO-8859-1';
+	specifically, outputting @copyright{} as (C) rather than an
+	0xA9 byte.
+
+2021-12-29  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	Change internal setting
 
 	* tp/Texinfo/Convert/Plaintext.pm: Set 'ascii_punctuation' setting

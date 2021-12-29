@@ -248,10 +248,8 @@ sub brace_no_arg_command($;$)
       and defined($element->{'extra'}->{'clickstyle'})
       and defined($text_brace_no_arg_commands{$element->{'extra'}->{'clickstyle'}}));
   my $result;
-  if ((defined($encoding)
-       and $Texinfo::Encoding::eight_bit_encoding_aliases{$encoding})
-      or !$options->{'ascii_punctuation'}
-      or !exists($Texinfo::Convert::Unicode::extra_unicode_map{$command})) {
+  if (!$options->{'ascii_punctuation'}
+        or !exists($Texinfo::Convert::Unicode::extra_unicode_map{$command})) {
     $result = Texinfo::Convert::Unicode::brace_no_arg_command($command, $encoding);
   }
   if (!defined($result) and $options and $options->{'converter'}) {
