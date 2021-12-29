@@ -160,7 +160,9 @@ reset_parser (void)
 int
 parse_file (char *filename)
 {
+  /*
   debug_output = 0;
+  */
   Root = parse_texi_file (filename);
   if (Root)
     return 0;

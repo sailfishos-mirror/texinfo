@@ -105,7 +105,7 @@ sub parser (;$$)
       } elsif ($key eq 'CPP_LINE_DIRECTIVES') {
         conf_set_CPP_LINE_DIRECTIVES($conf->{$key});
       } elsif ($key eq 'DEBUG') {
-        set_debug($conf->{$key}) if $conf->{'key'};
+        set_debug($conf->{$key}) if $conf->{$key};
       } elsif ($key eq 'accept_internalvalue') {
         set_accept_internalvalue();
       } elsif ($key eq 'novalidate'

@@ -1,5 +1,13 @@
 2021-12-29  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/XS/parsetexi/Parsetexi.pm (parser): fix typo in
+	passing DEBUG code.
+
+	* tp/Texinfo/XS/parsetexi/api.c (parse_file): do not set
+	debug_output to 0 unconditionally.
+
+2021-12-29  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm: use undef for _push_context
 	command argument if the context pushed corresponds to a type.
 
