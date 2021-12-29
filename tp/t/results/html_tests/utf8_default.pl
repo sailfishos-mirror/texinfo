@@ -5,7 +5,7 @@ use vars qw(%result_texis %result_texts %result_trees %result_errors
 
 use utf8;
 
-$result_trees{'utf8_no_use_entity'} = {
+$result_trees{'utf8_default'} = {
   'contents' => [
     {
       'args' => [
@@ -83,33 +83,33 @@ $result_trees{'utf8_no_use_entity'} = {
   ],
   'type' => 'text_root'
 };
-$result_trees{'utf8_no_use_entity'}{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'utf8_no_use_entity'}{'contents'}[0]{'args'}[0];
-$result_trees{'utf8_no_use_entity'}{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'utf8_no_use_entity'}{'contents'}[0];
-$result_trees{'utf8_no_use_entity'}{'contents'}[0]{'parent'} = $result_trees{'utf8_no_use_entity'};
-$result_trees{'utf8_no_use_entity'}{'contents'}[1]{'parent'} = $result_trees{'utf8_no_use_entity'};
-$result_trees{'utf8_no_use_entity'}{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'utf8_no_use_entity'}{'contents'}[2];
-$result_trees{'utf8_no_use_entity'}{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'utf8_no_use_entity'}{'contents'}[2]{'contents'}[1]{'args'}[0];
-$result_trees{'utf8_no_use_entity'}{'contents'}[2]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'utf8_no_use_entity'}{'contents'}[2]{'contents'}[1];
-$result_trees{'utf8_no_use_entity'}{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'utf8_no_use_entity'}{'contents'}[2];
-$result_trees{'utf8_no_use_entity'}{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'utf8_no_use_entity'}{'contents'}[2];
-$result_trees{'utf8_no_use_entity'}{'contents'}[2]{'parent'} = $result_trees{'utf8_no_use_entity'};
+$result_trees{'utf8_default'}{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'utf8_default'}{'contents'}[0]{'args'}[0];
+$result_trees{'utf8_default'}{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'utf8_default'}{'contents'}[0];
+$result_trees{'utf8_default'}{'contents'}[0]{'parent'} = $result_trees{'utf8_default'};
+$result_trees{'utf8_default'}{'contents'}[1]{'parent'} = $result_trees{'utf8_default'};
+$result_trees{'utf8_default'}{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'utf8_default'}{'contents'}[2];
+$result_trees{'utf8_default'}{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'utf8_default'}{'contents'}[2]{'contents'}[1]{'args'}[0];
+$result_trees{'utf8_default'}{'contents'}[2]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'utf8_default'}{'contents'}[2]{'contents'}[1];
+$result_trees{'utf8_default'}{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'utf8_default'}{'contents'}[2];
+$result_trees{'utf8_default'}{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'utf8_default'}{'contents'}[2];
+$result_trees{'utf8_default'}{'contents'}[2]{'parent'} = $result_trees{'utf8_default'};
 
-$result_texis{'utf8_no_use_entity'} = '@documentencoding utf-8
+$result_texis{'utf8_default'} = '@documentencoding utf-8
 
 AA @^e --- -- \'` \'\' ``';
 
 
-$result_texts{'utf8_no_use_entity'} = '
+$result_texts{'utf8_default'} = '
 AA e^ -- - \'` " "';
 
-$result_errors{'utf8_no_use_entity'} = [];
+$result_errors{'utf8_default'} = [];
 
 
-$result_floats{'utf8_no_use_entity'} = {};
+$result_floats{'utf8_default'} = {};
 
 
 
-$result_converted{'html_text'}->{'utf8_no_use_entity'} = '
+$result_converted{'html_text'}->{'utf8_default'} = '
 <p>AA &ecirc; &mdash; &ndash; &rsquo;&lsquo; &rdquo; &ldquo;</p>';
 
 1;

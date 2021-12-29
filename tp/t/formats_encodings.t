@@ -327,10 +327,6 @@ $at_commands_in_refs_text,
 );
 
 my @html_text_cases = (
-['accentenc_no_entity',
-$latin1_accents_text, {'ENABLE_ENCODING' => 1},
-                      {'ENABLE_ENCODING_USE_ENTITY' => 0}
-],
 ['accentenc_enable_encoding',
 $latin1_accents_text, {'ENABLE_ENCODING' => 1}
 ],

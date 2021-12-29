@@ -3262,21 +3262,21 @@ $result_converted{'html_text'}->{'accentenc_enable_encoding'} = '
 </p>
 <p>should be e; : &#281; &#281;
 </p>
-<p>upside down: &iquest; &iexcl;
+<p>upside down: ¿ ¡
 </p>
-<p>A-with-circle: &aring;,&Aring;
+<p>A-with-circle: å,Å
 </p>
-<p>AE, OE ligatures: &aelig; &AElig; &oelig; &OElig;
+<p>AE, OE ligatures: æ Æ &oelig; &OElig;
 </p>
 <p>dotless i, j: i j
 </p>
 <p>Polish suppressed-L: &#322; &#321;
 </p>
-<p>O-with-slash: &oslash; &Oslash;
+<p>O-with-slash: ø Ø
 </p>
-<p>es-zet or sharp S: &szlig;
+<p>es-zet or sharp S: ß
 </p>
-<p>pounds sterling: &pound;
+<p>pounds sterling: £
 </p>
 <p>should be dotless i&lsquo;: ì
 </p>

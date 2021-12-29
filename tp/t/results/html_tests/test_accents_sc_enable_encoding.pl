@@ -870,11 +870,11 @@ $result_floats{'test_accents_sc_enable_encoding'} = {};
 
 
 $result_converted{'html_text'}->{'test_accents_sc_enable_encoding'} = '
-<p>&ndash;ă
-&ndash;â
-&aring; &Aring; ê Ê ĩ ı ṛ ŕ̌ ņ̃̄.
-&equiv;
-<small>&Aring; &Aring; Ê Ê Ĩ I Ṛ Ŕ̌ Ņ̃̄</small>.
+<p>–ă
+–â
+å Å ê Ê ĩ ı ṛ ŕ̌ ņ̃̄.
+≡
+<small>Å Å Ê Ê Ĩ I Ṛ Ŕ̌ Ņ̃̄</small>.
 </p>';
 
 1;

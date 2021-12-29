@@ -1197,7 +1197,6 @@ my %defaults = (
   'EXTENSION'            => 'html',
   'TOP_NODE_FILE_TARGET' => 'index.html', # ignores EXTENSION
   'USE_LINKS'            => 1,
-  'ENABLE_ENCODING_USE_ENTITY'   => 1,
   'DATE_IN_HEADER'       => 0,
   'AVOID_MENU_REDUNDANCY' => 0,
   'HEADERS'              => 1,
@@ -4473,9 +4472,8 @@ sub _convert_text($$$)
   return $text if ($self->in_raw());
   $text = uc($text) if ($self->in_upper_case());
   $text = $self->protect_text($text);
-  if ($self->get_conf('ENABLE_ENCODING') and 
-      !$self->get_conf('ENABLE_ENCODING_USE_ENTITY')
-      and $self->get_conf('OUTPUT_ENCODING_NAME') 
+  if ($self->get_conf('ENABLE_ENCODING')
+      and $self->get_conf('OUTPUT_ENCODING_NAME')
       and $self->get_conf('OUTPUT_ENCODING_NAME') eq 'utf-8') {
     $text = Texinfo::Convert::Unicode::unicode_text($text,
                                         ($self->in_code() or $self->in_math()));
@@ -5402,14 +5400,6 @@ our %default_formatting_references = (
      'format_frame_files' => \&_default_format_frame_files,
 );
 
-sub _use_entity_is_entity($$)
-{
-  my $self = shift;
-  my $text = shift;
-  return 0 if (!$self->get_conf('ENABLE_ENCODING_USE_ENTITY'));
-  return 1 if ($text =~ /^&/ and $text =~ /;$/);
-}
-
 sub _complete_no_arg_commands_formatting($$)
 {
   my $self = shift;
@@ -5714,8 +5704,7 @@ sub converter_initialize($)
         if (defined($context_default_default_no_arg_commands_formatting->{$command})) {
           if ($self->get_conf('ENABLE_ENCODING') 
               and Texinfo::Convert::Unicode::brace_no_arg_command(
-                             $command, $self->get_conf('OUTPUT_ENCODING_NAME'))
-              and !$self->_use_entity_is_entity($context_default_default_no_arg_commands_formatting->{$command})) {
+                             $command, $self->get_conf('OUTPUT_ENCODING_NAME'))) {
             $self->{'no_arg_commands_formatting'}->{$context}->{$command}
               = Texinfo::Convert::Unicode::brace_no_arg_command(
                            $command, $self->get_conf('OUTPUT_ENCODING_NAME'));
@@ -8717,7 +8706,6 @@ sub _set_variables_texi2html()
   ['USE_TITLEPAGE_FOR_TITLE', 1],
   ['MENU_ENTRY_COLON', ''],
   ['INDEX_ENTRY_COLON', ''],
-  ['ENABLE_ENCODING_USE_ENTITY', 1],
   ['DO_ABOUT', undef],
   ['NODE_NAME_IN_INDEX', 0],
   ['CHAPTER_HEADER_LEVEL', 1],

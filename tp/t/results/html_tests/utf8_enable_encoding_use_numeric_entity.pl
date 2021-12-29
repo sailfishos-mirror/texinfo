@@ -110,6 +110,6 @@ $result_floats{'utf8_enable_encoding_use_numeric_entity'} = {};
 
 
 $result_converted{'html_text'}->{'utf8_enable_encoding_use_numeric_entity'} = '
-<p>AA ê &#8212; &#8211; &#8217;&#8216; &#8221; &#8220;</p>';
+<p>AA ê — – ’‘ ” “</p>';
 
 1;

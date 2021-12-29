@@ -395,33 +395,15 @@ my @test_cases_text = (
 ],
 ['no_use_iso',
 'AA @^e --- -- \'` \'\' ``', {}, {'USE_ISO' => 0}],
-['utf8_no_use_entity',
+['utf8_default',
 '@documentencoding utf-8
 
-AA @^e --- -- \'` \'\' ``', {}, {'ENABLE_ENCODING_USE_ENTITY' => 0}],
-['utf8_no_use_entity_enable_encoding',
-'@documentencoding utf-8
-
-AA @^e --- -- \'` \'\' ``', {'ENABLE_ENCODING' => 1},
-                            {'ENABLE_ENCODING_USE_ENTITY' => 0}],
+AA @^e --- -- \'` \'\' ``'],
 ['utf8_enable_encoding',
 '@documentencoding utf-8
 
 AA @^e --- -- \'` \'\' ``', {'ENABLE_ENCODING' => 1}],
-['utf8_no_use_entity_no_use_iso',
-'@documentencoding utf-8
-
-AA @^e --- -- \'` \'\' ``', {}, {'ENABLE_ENCODING_USE_ENTITY' => 0,
-                                 'USE_ISO' => 0}],
-['utf8_no_use_entity_enable_encoding_no_use_iso',
-'@documentencoding utf-8
-
-AA @^e --- -- \'` \'\' ``', {'ENABLE_ENCODING' => 1}, {'USE_ISO' => 0,
-                                  'ENABLE_ENCODING_USE_ENTITY' => 0}],
-['utf8_enable_encoding_no_use_iso', # this one leads to transiliterated text as
-                                    # ENABLE_ENCODING_USE_ENTITY is set
-                                    # so even ENABLE_ENCODING transformation
-                                    # to utf-8 characters is not done
+['utf8_enable_encoding_no_use_iso',
 '@documentencoding utf-8
 
 AA @^e --- -- \'` \'\' ``', {'ENABLE_ENCODING' => 1}, {'USE_ISO' => 0}],
@@ -466,14 +448,6 @@ node name}
 '@documentencoding ISO-8859-1
 
 '.$test_accents_sc_text, {'ENABLE_ENCODING' => 1}],
-['test_accents_sc_no_use_entity_enable_encoding',
-'@documentencoding utf-8
-
-'.$test_accents_sc_text, {'ENABLE_ENCODING' => 1}, {'ENABLE_ENCODING_USE_ENTITY' => 0}],
-['test_accents_sc_no_use_entity',
-'@documentencoding utf-8
-
-'.$test_accents_sc_text, {}, {'ENABLE_ENCODING_USE_ENTITY' => 0}],
 ['test_accents_sc_use_numeric_entity',
 '@documentencoding utf-8
 

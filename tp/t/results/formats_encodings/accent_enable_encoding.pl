@@ -3253,17 +3253,17 @@ should be e‘: è è
 $result_converted{'html_text'}->{'accent_enable_encoding'} = '<div class="top" id="Top-node">
 <h1 class="top" id="top">top</h1>
 
-<p>should be e&lsquo;: è è
+<p>should be e‘: è è
 </p>
-<p>should be e&rsquo;: é é
+<p>should be e’: é é
 </p>
 <p>should be e^: ê ê
 </p>
 <p>should be u&quot;: ü ü
 </p>
-<p>should be i&lsquo;: ì ì
+<p>should be i‘: ì ì
 </p>
-<p>should be i&rsquo;: í í
+<p>should be i’: í í
 </p>
 <p>should be i^: î î
 </p>
@@ -3275,7 +3275,7 @@ $result_converted{'html_text'}->{'accent_enable_encoding'} = '<div class="top" i
 </p>
 <p>should be e=: ē ē
 </p>
-<p>should be e&rsquo;<!-- /@w -->&rsquo;: e̋ e̋
+<p>should be e’<!-- /@w -->’: e̋ e̋
 </p>
 <p>should be e.: ė ė
 </p>
@@ -3295,33 +3295,33 @@ $result_converted{'html_text'}->{'accent_enable_encoding'} = '<div class="top" i
 </p>
 <p>should be e; : ę ę
 </p>
-<p>upside down: &iquest; &iexcl;
+<p>upside down: ¿ ¡
 </p>
-<p>A-with-circle: &aring;,&Aring;
+<p>A-with-circle: å,Å
 </p>
-<p>AE, OE ligatures: &aelig; &AElig; &oelig; &OElig;
+<p>AE, OE ligatures: æ Æ œ Œ
 </p>
 <p>dotless i, j: ı j
 </p>
-<p>Polish suppressed-L: &#322; &#321;
+<p>Polish suppressed-L: ł Ł
 </p>
-<p>O-with-slash: &oslash; &Oslash;
+<p>O-with-slash: ø Ø
 </p>
-<p>es-zet or sharp S: &szlig;
+<p>es-zet or sharp S: ß
 </p>
-<p>pounds sterling: &pound;
+<p>pounds sterling: £
 </p>
-<p>should be dotless i&lsquo;: ì
+<p>should be dotless i‘: ì
 </p>
-<p>should be dotless i&rsquo;: í
+<p>should be dotless i’: í
 </p>
 <p>should be dotless i^: î
 </p>
 <p>should be dotless i&quot;: ï
 </p>
-<p>should be dotless j&lsquo;: j̀
+<p>should be dotless j‘: j̀
 </p>
-<p>should be dotless j&rsquo;: j́
+<p>should be dotless j’: j́
 </p>
 <p>should be dotless j^: ĵ
 </p>
