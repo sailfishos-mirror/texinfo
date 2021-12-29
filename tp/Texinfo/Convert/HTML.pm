@@ -1197,7 +1197,6 @@ my %defaults = (
   'EXTENSION'            => 'html',
   'TOP_NODE_FILE_TARGET' => 'index.html', # ignores EXTENSION
   'USE_LINKS'            => 1,
-  'FALLBACK_TO_NUMERIC_ENTITY'   => 1,
   'ENABLE_ENCODING_USE_ENTITY'   => 1,
   'DATE_IN_HEADER'       => 0,
   'AVOID_MENU_REDUNDANCY' => 0,
@@ -8712,7 +8711,6 @@ sub _set_variables_texi2html()
   ['USE_REL_REV', 0],
   ['USE_LINKS', 0],
   ['USE_NODES', 0],
-  ['FALLBACK_TO_NUMERIC_ENTITY', 1],
   ['SPLIT', ''],
   ['PROGRAM_NAME_IN_FOOTER', 1],
   ['HEADER_IN_TABLE', 1],

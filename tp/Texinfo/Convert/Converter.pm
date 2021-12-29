@@ -1550,7 +1550,6 @@ sub xml_accent($$$;$$$)
   my $text = shift;
   my $command = shift;
   my $in_upper_case = shift;
-  my $fallback_to_numeric_entities = shift;
   my $use_numeric_entities = shift;
   my $accent = $command->{'cmdname'};
   
@@ -1568,11 +1567,9 @@ sub xml_accent($$$;$$$)
       if (defined($xml_accent_entities{$accent})
           and defined($xml_accent_text_with_entities{$accent})
           and ($text =~ /^[$xml_accent_text_with_entities{$accent}]$/));
-    if ($fallback_to_numeric_entities) {
-      my $formatted_accent = _format_numeric_entities_accent($accent, $text);
-      if (defined($formatted_accent)) {
-        return $formatted_accent;
-      }
+    my $formatted_accent = _format_numeric_entities_accent($accent, $text);
+    if (defined($formatted_accent)) {
+      return $formatted_accent;
     }
   }
 
@@ -1583,16 +1580,6 @@ sub xml_accent($$$;$$$)
   return Texinfo::Convert::Text::ascii_accent($text, $command);
 }
 
-sub _xml_named_entities_numeric_fallback_accent($$;$)
-{
-  my $self = shift;
-  my $text = shift;
-  my $command = shift;
-  my $in_upper_case = shift;
-
-  return $self->xml_accent($text, $command, $in_upper_case, 1);
-}
-
 sub _xml_numeric_entities_accent($$$;$)
 {
   my $self = shift;
@@ -1600,7 +1587,7 @@ sub _xml_numeric_entities_accent($$$;$)
   my $command = shift;
   my $in_upper_case = shift;
 
-  return xml_accent($self, $text, $command, $in_upper_case, undef, 1);
+  return xml_accent($self, $text, $command, $in_upper_case, 1);
 }
 
 sub xml_accents($$;$)
@@ -1612,8 +1599,6 @@ sub xml_accents($$;$)
   my $format_accents;
   if ($self->get_conf('USE_NUMERIC_ENTITY')) {
     $format_accents = \&_xml_numeric_entities_accent;
-  } elsif ($self->get_conf('FALLBACK_TO_NUMERIC_ENTITY')) {
-    $format_accents = \&_xml_named_entities_numeric_fallback_accent;
   } else {
     $format_accents = \&xml_accent;
   }
@@ -1878,18 +1863,16 @@ Protect special XML characters (&, E<lt>, E<gt>, ") of I<$text>.
 
 Returns an XML comment for I<$text>.
 
-=item $result = xml_accent($text, $accent_command, $in_upper_case, $fallback_to_numeric_entities, $use_numeric_entities)
+=item $result = xml_accent($text, $accent_command, $in_upper_case, $use_numeric_entities)
 
 I<$text> is the text appearing within an accent command.  I<$accent_command>
 should be a Texinfo tree element corresponding to an accent command taking
 an argument.  I<$in_upper_case> is optional, and, if set, the text is put
 in upper case.  The function returns the accented letter as XML named entity
-if possible.  I<$fallback_to_numeric_entities> is also optional, and, if set, and
-there is no XML entity, the numerical entity corresponding to Unicode
-points is preferred to an ASCII transliteration.  If I<$fallback_to_numeric_entities>
-is set numerical entities are also used for diacritics instead of ASCII
-characters.  I<$use_numeric_entities> is optional.  If set, numerical entities
-are used instead of named entities if possible.
+if possible, falling back to numeric entities if there is no named entity
+and to an ASCII transliteration as last resort.  I<$use_numeric_entities>
+is optional.  If set, numerical entities are used instead of named entities
+if possible.
 
 =item $result = $converter->xml_accents($accent_command, $in_upper_case)
 

@@ -34,8 +34,8 @@ sub test_accent_stack ($)
 {
   my $test = shift;
   my $texi = $test->[0];
-  my $name = $test->[1]; 
-  my $reference = $test->[2]; 
+  my $name = $test->[1];
+  my $reference = $test->[2];
   my $parser = Texinfo::Parser::parser();
   my $text_root = $parser->parse_texi_text($texi);
   my $tree = _find_accent($text_root);
@@ -58,7 +58,7 @@ e}', 'comment', 'e|~'],
           ['@~{@TeX{}}','brace_no_arg_command', 'TeX|~'],
           ['@~{@TeX{}@^{a@dotless{i}}}','text_and_accent', 'i|~|^|dotless'],
           ['@~{@^{a}@ringaccent b}}','two_accents', 'a|~|^'],
-        ) { 
+        ) {
   test_accent_stack($test);
 }
 
@@ -80,10 +80,10 @@ sub test_enable_encoding ($)
 {
   my $test = shift;
   my $texi = $test->[0];
-  my $name = $test->[1]; 
+  my $name = $test->[1];
   my $reference = $test->[2];
   my $reference_xml = $test->[3];
-  my $reference_xml_entity = $test->[4];
+  my $reference_xml_numeric_entity = $test->[4];
   my $reference_unicode = $test->[5];
   my $parser = Texinfo::Parser::parser();
   my $text_root = $parser->parse_texi_text($texi);
@@ -99,11 +99,10 @@ sub test_enable_encoding ($)
                                 \&Texinfo::Convert::Text::ascii_accent_fallback);
 
   my $html_converter = Texinfo::Convert::HTML->converter();
-  $html_converter->{'conf'}->{'FALLBACK_TO_NUMERIC_ENTITY'} = 0;
   my $result_xml = Texinfo::Convert::Converter::xml_accents($html_converter, 
                                                             $tree);
-  $html_converter->{'conf'}->{'FALLBACK_TO_NUMERIC_ENTITY'} = 1;
-  my $result_xml_entity 
+  $html_converter->{'conf'}->{'USE_NUMERIC_ENTITY'} = 1;
+  my $result_xml_numeric_entity
       = Texinfo::Convert::Converter::xml_accents($html_converter, $tree);
 
   ($contents, $commands_stack) =
@@ -127,13 +126,11 @@ sub test_enable_encoding ($)
     is ($result_xml, $reference_xml, "$name xml");
   } else {
     print STDERR "$name xml: $result_xml\n";
-    #print STDERR "<p>$texi $name xml: $result_xml\n</p>";
   }
-  if (defined($reference_xml_entity)) {
-    is ($result_xml_entity, $reference_xml_entity, "$name xml");
+  if (defined($reference_xml_numeric_entity)) {
+    is ($result_xml_numeric_entity, $reference_xml_numeric_entity, "$name xml numeric");
   } else {
-    print STDERR "$name xml entity: $result_xml_entity\n";
-    #print STDERR "<p>$texi $name xml entity: $result_xml_entity\n</p>";
+    print STDERR "$name xml entity: $result_xml_numeric_entity\n";
   }
   if (defined($reference_unicode)) {
     is ($result_unicode, $reference_unicode, "$name unicode");
@@ -156,34 +153,34 @@ sub chrx(@)
 
 # some come from encodings/weird_accents.texi
 # the results correspond to:
-#  8bit, XML named entity no fallback, XML named entity fallback to numeric, utf8
+#  8bit, XML named entity fallback to numeric, XML numeric entity, utf8
 foreach my $test (
-  ['@~e',                   'no 8bit encoding',    "e~", 'e~', '&#7869;', 
+  ['@~e',                   'no 8bit encoding',    "e~", '&#7869;', '&#7869;',
                                                    chrx('1ebd')],
-  ['@~n',                   'simple encoding',     chr(241), '&ntilde;', 
-                                                   '&ntilde;', chrx('00f1')],
-  ['@~{n}' ,                'brace encoding',      chr(241), '&ntilde;', 
-                                                   '&ntilde;', chrx('00f1')],
-  ['@^{@dotless{i}}',       'dotless',             chr(238), '&icirc;', 
-                                                   '&icirc;', chrx('00ee')],
-  ['@~{@dotless{i}}',       'no 8bit dotless',     'i~', 'i~', '&#297;',
+  ['@~n',                   'simple encoding',     chr(241), '&ntilde;',
+                                                   '&#241;', chrx('00f1')],
+  ['@~{n}' ,                'brace encoding',      chr(241), '&ntilde;',
+                                                   '&#241;', chrx('00f1')],
+  ['@^{@dotless{i}}',       'dotless',             chr(238), '&icirc;',
+                                                   '&#238;', chrx('00ee')],
+  ['@~{@dotless{i}}',       'no 8bit dotless',     'i~', '&#297;', '&#297;',
                                                    chrx('0129')],
-  ['@={@~{@dotless{i}}}',   'no 8 cplx dotless',   'i~=', 'i~=', '&#297;&#772;',
+  ['@={@~{@dotless{i}}}',   'no 8 cplx dotless',   'i~=', '&#297;&#772;', '&#297;&#772;',
                                                    chrx('0129','0304')],
-  ['@={@^{@dotless{i}}}',   'complex dotless',     chr(238).'=', '&icirc;=', 
-                                                   '&icirc;&#772;',
+  ['@={@^{@dotless{i}}}',   'complex dotless',     chr(238).'=', '&icirc;&#772;',
+                                                   '&#238;&#772;',
                                                    chrx('00ee','0304')],
-  ['@={@,{@~{n}}}',         'complex encoding',    chr(241).',=', '&ntilde;,=',
-                                                   '&ntilde;&#807;&#772;', 
+  ['@={@,{@~{n}}}',         'complex encoding',    chr(241).',=', '&ntilde;&#807;&#772;',
+                                                   '&#241;&#807;&#772;',
                                                    chrx('0146','0303','0304')],
-  ['@udotaccent{r}',        'udotaccent',          '.r', '.r', '&#7771;',
+  ['@udotaccent{r}',        'udotaccent',          '.r', '&#7771;', '&#7771;',
                                                    chrx('1e5b')],
-  ['@={@ubaraccent{a}}',    'complex ubaraccent',  'a_=', 'a_=', 'a&#818;&#772;',
+  ['@={@ubaraccent{a}}',    'complex ubaraccent',  'a_=', 'a&#818;&#772;', 'a&#818;&#772;',
                                                    chrx('0101','0332')],
-  ['@^{@udotaccent{@`r}}',  'complex udotaccent',  '.r`^', '.r`^', 'r&#768;&#803;&#770;',
+  ['@^{@udotaccent{@`r}}',  'complex udotaccent',  '.r`^', 'r&#768;&#803;&#770;', 'r&#768;&#803;&#770;',
                                                    chrx('1e5b','0300','0302')],
-  ['@v{@\'{r}}',            'utf8 possible inside', 'r\'<', 'r\'&lt;', 
-                                                    '&#341;&#780;', 
+  ['@v{@\'{r}}',            'utf8 possible inside', 'r\'<', '&#341;&#780;',
+                                                    '&#341;&#780;',
                                                     chrx('0155','030c')],
             ) {
   test_enable_encoding($test);

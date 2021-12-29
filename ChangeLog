@@ -8,6 +8,14 @@
 
 2021-12-29  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (@variable_string_settables),
+	tp/Texinfo/Convert/Converter.pm (xml_accent)
+	(_xml_numeric_entities_accent, xml_accents),
+	tp/Texinfo/Convert/HTML.pm (%defaults): remove
+	FALLBACK_TO_NUMERIC_ENTITY, effect is set always on.
+
+2021-12-29  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Text.pm (%text_brace_no_arg_commands): use a
 	simpler formatting (") for quotedblleft and quotedblright in ASCII
 	more consistent with formatting of `` and ''.
