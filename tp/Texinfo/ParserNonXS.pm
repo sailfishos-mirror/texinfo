@@ -1757,7 +1757,6 @@ sub _close_current($$$;$$)
 
     } elsif ($current->{'type'} eq 'menu_comment' 
           or $current->{'type'} eq 'menu_entry_description') {
-      $self->_pop_context(['preformatted'], $line_nr, $current);
       # close empty menu_comment
       if ($current->{'type'} eq 'menu_comment'
           and !@{$current->{'contents'}}) {
@@ -2670,8 +2669,6 @@ sub _end_line($$$)
         $current = $current->{'parent'};
         pop @{$current->{'contents'}} if ($empty_preformatted);
       }
-      $self->_pop_context(['preformatted'], $line_nr, $current,
-                          'in empty line after menu_entry_description');
       
       # first parent is menu_entry
       $current = $current->{'parent'}->{'parent'};
@@ -2687,7 +2684,6 @@ sub _end_line($$$)
       push @{$current->{'contents'}}, { 'type' => 'after_description_line', 
                                         'text' => $empty_line->{'text'},
                                         'parent' => $current };
-      $self->_push_context('preformatted', undef); # menu_comment
       print STDERR "MENU: END DESCRIPTION, OPEN COMMENT\n" if ($self->{'DEBUG'});
     } elsif (!$no_paragraph_contexts{$self->_top_context()}) {
       $current = _end_paragraph($self, $current, $line_nr);
@@ -2763,8 +2759,6 @@ sub _end_line($$$)
                                     'contents' => [] };
           $current = $current->{'contents'}->[-1];
         }
-        # menu_comment or menu_description ($menu_type_reopened)
-        $self->_push_context('preformatted', undef);
       } else {
         push @{$menu->{'contents'}}, {'type' => 'menu_comment',
                                     'parent' => $menu,
@@ -2774,7 +2768,6 @@ sub _end_line($$$)
                                   'parent' => $current,
                                   'contents' => [] };
         $current = $current->{'contents'}->[-1];
-        $self->_push_context('preformatted', undef); # menu_comment
         print STDERR "THEN MENU_COMMENT OPEN\n" if ($self->{'DEBUG'});
       }
       while (@{$menu_entry->{'args'}}) {
@@ -3055,7 +3048,6 @@ sub _end_line($$$)
                                        'contents' => [] };
       $current = $current->{'contents'}->[-1];
       print STDERR "MENU_COMMENT OPEN\n" if ($self->{'DEBUG'});
-      $self->_push_context('preformatted', undef); # menu_comment
     }
     $current = _begin_preformatted($self, $current);
 
@@ -3284,7 +3276,6 @@ sub _end_line($$$)
                                              'parent' => $current,
                                              'contents' => [] };
             $current = $current->{'contents'}->[-1];
-            $self->_push_context('preformatted', undef); # menu_comment
           }
         } else {
           # block command not found for @end
@@ -3529,8 +3520,6 @@ sub _enter_menu_entry_node($$$)
                                    'parent' => $current,
                                    'contents' => [] };
   $current = $current->{'contents'}->[-1];
-  # not clear what is the correct associated command
-  $self->_push_context('preformatted', undef); # menu_entry_description
   return $current;
 }
 
@@ -4106,8 +4095,6 @@ sub _parse_texi($;$)
             }
             $current = $current->{'parent'}->{'parent'}->{'parent'};
           }
-          $self->_pop_context(['preformatted'], $line_nr, $current,
-                              'after menu leading star');
           push @{$current->{'contents'}}, { 'type' => 'menu_entry',
                                             'parent' => $current,
                                           };
@@ -4775,8 +4762,6 @@ sub _parse_texi($;$)
               pop @{$menu->{'contents'}}
                 if (!@{$current->{'contents'}});
 
-              $self->_pop_context(['preformatted'], $line_nr, $current,
-                                  'in new menu');
               if ($menu->{'type'} and $menu->{'type'} eq 'menu_entry') {
                 $menu = $menu->{'parent'};
               }

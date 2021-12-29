@@ -322,10 +322,6 @@ close_current (ELEMENT *current,
           break;
         case ET_menu_comment:
         case ET_menu_entry_description:
-          c = pop_context ();
-          if (c != ct_preformatted)
-            fatal ("preformatted context expected");
-
           /* Remove empty menu_comment */
           if (current->type == ET_menu_comment
               && current->contents.number == 0)

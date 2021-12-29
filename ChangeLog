@@ -1,5 +1,17 @@
 2021-12-29  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_close_current, _end_line)
+	(_enter_menu_entry_node, _parse_texi),
+	tp/Texinfo/XS/parsetexi/close.c (close_current),
+	tp/Texinfo/XS/parsetexi/end_line.c (end_line_starting_block, end_line)
+	(end_line_misc_line), tp/Texinfo/XS/parsetexi/handle_commands.c
+	(handle_block_command), tp/Texinfo/XS/parsetexi/menus.c
+	(enter_menu_entry_node, handle_menu): do not open a preformatted
+	context for menu types (description, comment...) the main menu
+	preformatted context can be used instead.
+
+2021-12-29  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (%no_paragraph_context, _close_commands)
 	(_parse_texi), tp/Texinfo/XS/parsetexi/close.c (close_commands),
 	tp/Texinfo/XS/parsetexi/context_stack.c (push_context),

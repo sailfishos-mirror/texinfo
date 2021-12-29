@@ -84,7 +84,6 @@ enter_menu_entry_node (ELEMENT *current)
   preformatted = new_element (ET_preformatted);
   add_to_element_contents (current, preformatted);
   current = preformatted;
-  push_context (ct_preformatted, CM_NONE); /* menu_entry_description */
   return current;
 }
 
@@ -157,9 +156,6 @@ handle_menu (ELEMENT **current_inout, char **line_inout)
              3rd parent @menu. */
           current = current->parent->parent->parent;
         }
-
-      if (pop_context () != ct_preformatted)
-        fatal ("preformatted context expected");
 
       menu_entry = new_element (ET_menu_entry);
       leading_text = new_element (ET_menu_entry_leading_text);
