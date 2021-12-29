@@ -12302,6 +12302,12 @@ this:
      charset=@var{enc}">
 @end example
 
+In HTML output, if the option @option{--enable-encoding} is given
+to @command{texi2any}, accent constructs and special characters, such
+as @code{@@'e} or @code{``}, are output as the actual 8-bit or UTF-8
+character in the given encoding where possible.  Otherwise HTML entities
+are used for those characters.
+
 In XML and DocBook output, UTF-8 is always used for the output,
 according to the conventions of those formats.
 
@@ -16346,7 +16352,7 @@ Symbol used between the menu entry and the description; default
 Symbol used in front of menu entries when node names are used
 for menu entries formatting; default is undefined and set to
 @code{&bull;} if @code{USE_NUMERIC_ENTITY} is not set, and to
-@code{&#8217;} if not set.
+@code{&#8217;} if set.
 
 @item MONOLITHIC
 Output only one file including the table of contents.  Set
@@ -16566,7 +16572,9 @@ are not consistent with the order of node menu entries.
 @item CLOSE_QUOTE_SYMBOL
 When a closing quote is needed, use this character; default @code{&#8217;}
 in DocBook.  Undefined in the default case in HTML and set to @code{&rsquo;}
-if @code{USE_NUMERIC_ENTITY} is not set, and to @code{&#8217;} if not set.
+if @code{USE_NUMERIC_ENTITY} is not set, to @code{&#8217;} if set, and
+to a quote character if @option{--enable-encoding} is set and the output
+encoding includes that character.
 The default for Info is the same as @code{OPEN_QUOTE_SYMBOL} (see below).
 
 @item CPP_LINE_DIRECTIVES
@@ -16596,11 +16604,6 @@ source is also expanded to the corresponding file.  Default false.
 For debugging.  If set, the tree constructed upon parsing a Texinfo
 document is output to standard error; default false.
 
-@item ENABLE_ENCODING_USE_ENTITY
-For HTML, XML@.  If @option{--enable-encoding} is set, and there is an
-entity corresponding with the letter or the symbol being output,
-prefer the entity.  Set by default for HTML, but not XML.
-
 @item EXTERNAL_CROSSREF_SPLIT
 For cross-references to other manuals, this determines if the other
 manual is considered to be split or monolithic.  By default, it is set
@@ -16610,12 +16613,6 @@ Xref Configuration}.
 @item EXTENSION
 The extension added to the output file name.  The default is different
 for each output format.
-
-@item FALLBACK_TO_NUMERIC_ENTITY
-@c actually also for DocBook, but it is not interesting to document it
-For HTML and XML@.  If set, use numeric entities instead of ASCII
-characters when there is no named entity.  By default, set to true for
-HTML.
 
 @item FORMAT_MENU
 @opindex --no-headers
@@ -16676,7 +16673,9 @@ default true.
 When an opening quote is needed, e.g., for @samp{@@samp} output, use
 the specified character; default @code{&#8216;} for DocBook..
 Undefined in the default case in HTML and set to @code{&lsquo;}
-if @code{USE_NUMERIC_ENTITY} is not set, and to @code{&#8217;} if set.
+if @code{USE_NUMERIC_ENTITY} is not set, to @code{&#8217;} if set, and
+to a quote character if @option{--enable-encoding} is set and the output
+encoding includes that character.
 For Info, the default depends on the enabled document encoding
 (@pxref{@code{@@documentencoding}}); if no document encoding is set, or the
 encoding is US-ASCII, etc., @samp{'} is used.  This character usually appears
