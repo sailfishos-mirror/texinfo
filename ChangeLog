@@ -1,5 +1,17 @@
 2021-12-29  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	ASCII_PUNCTUATION documentation.
+
+	* NEWS: Mention.
+	* doc/texinfo.texi (Other Customization Variables): Add
+	ASCII_PUNCTUATION.
+	(Inserting Quotation Marks): Remove text explaining which character
+	encodings particular quotation marks are in.  Move discussion of TeX
+	fonts later in node.
+	(@documentencoding): State that UTF-8 is the default.
+
+2021-12-29  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	ASCII_PUNCTUATION for any encoding
 
 	* tp/Texinfo/Convert/Text.pm (brace_no_arg_command):

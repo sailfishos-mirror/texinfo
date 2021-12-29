@@ -9735,34 +9735,6 @@ Texinfo supports several other quotation marks used in languages other
 than English.  Below is a table with the commands Texinfo provides for
 inserting quotation marks.
 
-@cindex UTF-8
-@cindex ISO 8859-15
-@cindex Latin 9
-@cindex ISO 8859-1
-@cindex Latin 1
-In order to get the symbols for the quotation marks in encoded Info
-output, it is necessary to specify @code{@@documentencoding UTF-8}.
-(@xref{@code{@@documentencoding}}.)  Double guillemets are also
-present in ISO 8859-1 (aka Latin@tie{}1) and ISO 8859-15 (aka
-Latin@tie{}9).
-
-@cindex European Computer Modern fonts
-@cindex EC fonts
-The standard @TeX{} fonts support the usual quotation marks used in
-English (the ones produced with single and doubled ASCII
-single quotes).  For the other quotation marks, @TeX{} uses European
-Computer Modern (EC) fonts (@file{ecrm1000} and other variants).
-These fonts are freely available, of course; you can download them
-from @url{http://ctan.org/pkg/ec}, among other places.
-
-@cindex CM-Super fonts
-The free EC fonts are bitmap fonts created with Metafont.  Especially
-for on-line viewing, Type@tie{}1 (vector) versions of the fonts are
-preferable; these are available in the CM-Super font package
-(@url{http://ctan.org/pkg/cm-super}).
-
-Both distributions include installation instructions.
-
 @cindex Single quotation marks
 @cindex Double quotation marks
 @cindex Left quotation marks
@@ -9830,6 +9802,23 @@ For the double angle quotation marks, Adobe and @LaTeX{} glyph names
 are also supported:  @code{@@guillemotleft} and
 @code{@@guillemotright}.  These names are incorrect; a
 ``guillemot'' is a bird species (a type of auk).
+
+@cindex European Computer Modern fonts
+@cindex EC fonts
+The standard @TeX{} fonts support the usual quotation marks used in
+English (the ones produced with single and doubled ASCII
+single quotes).  For the other quotation marks, @TeX{} uses European
+Computer Modern (EC) fonts (@file{ecrm1000} and other variants).
+These fonts are freely available, of course; you can download them
+from @url{http://ctan.org/pkg/ec}, among other places.
+
+@cindex CM-Super fonts
+The free EC fonts are bitmap fonts created with Metafont.  Especially
+for on-line viewing, Type@tie{}1 (vector) versions of the fonts are
+preferable; these are available in the CM-Super font package
+(@url{http://ctan.org/pkg/cm-super}).
+
+Both distributions include installation instructions.
 
 Traditions for quotation mark usage vary to a great extent between
 languages (@url{http://en.wikipedia.org/wiki/Quotation_mark}).
@@ -12255,7 +12244,7 @@ Texinfo supports these encodings:
 This has no particular effect, but it's included for completeness.
 
 @item UTF-8
-The vast global character encoding, expressed in 8-bit bytes.
+The default.  The vast global character encoding, expressed in 8-bit bytes.
 
 @item ISO-8859-1
 @itemx ISO-8859-15
@@ -16563,6 +16552,13 @@ multiple formats, or affect global behavior, or otherwise don't fit
 into the categories of the previous sections.
 
 @vtable @code
+@item ASCII_PUNCTUATION
+For Info output.  When set, use plain ASCII characters to represent
+quotation marks, rather than the directional quotation marks available
+in UTF-8.  Also use ASCII for a few other constructs; for example, the
+copyright sign (@command{@@copyright@{@}}, becoming @samp{(C)}),
+and the bullet symbol (@command{@@bullet@{@}}, becoming @samp{*}).
+
 @item CHECK_NORMAL_MENU_STRUCTURE
 Warn if the nodes pointers (either explicitly or automatically set)
 are not consistent with the order of node menu entries.
