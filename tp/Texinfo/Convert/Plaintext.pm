@@ -326,7 +326,7 @@ foreach my $command ('var', 'cite', 'dmn', keys(%code_style_commands)) {
 
 my %defaults = (
   'ENABLE_ENCODING'      => 1,
-  'NO_UTF8_PUNCTUATION'  => 0,
+  'ASCII_PUNCTUATION'    => 0,
   'FORMAT_MENU'          => 'nomenu',
   #'EXTENSION'            => 'info',
   'EXTENSION'            => 'txt',
@@ -405,7 +405,7 @@ sub converter_initialize($)
       and $self->get_conf('OUTPUT_ENCODING_NAME') eq 'utf-8') {
     # cache this to avoid redoing calls to get_conf
     $self->{'to_utf8'} = 1;
-    if (!$self->get_conf('NO_UTF8_PUNCTUATION')) {
+    if (!$self->get_conf('ASCII_PUNCTUATION')) {
       $self->{'convert_text_options'}->{'extra_utf8'} = 1;
       foreach my $quoted_command (@quoted_commands) {
         # Directed single quotes
@@ -573,7 +573,7 @@ sub _process_text($$$)
   }
 
   if ($self->{'to_utf8'}
-      and !$self->get_conf('NO_UTF8_PUNCTUATION')) {
+      and !$self->get_conf('ASCII_PUNCTUATION')) {
     return Texinfo::Convert::Unicode::unicode_text($text, 
             $context->{'font_type_stack'}->[-1]->{'monospace'});
   } elsif (!$context->{'font_type_stack'}->[-1]->{'monospace'}) {

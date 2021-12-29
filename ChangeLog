@@ -1,3 +1,11 @@
+2021-12-29  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	Rename variable to ASCII_PUNCTUATION
+
+	* tp/Texinfo/Common.pm (@variable_string_settables):
+	Change NO_UTF8_PUNCTUATION variable to ASCII_PUNCTUATION.  All
+	references updated.
+
 2021-12-29  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/Text.pm (%text_brace_no_arg_commands): use a
