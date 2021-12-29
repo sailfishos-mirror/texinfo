@@ -817,9 +817,7 @@ start_empty_line_after_command (ELEMENT *current, char **line_inout,
 int
 kbd_formatted_as_code (ELEMENT *current)
 {
-  if (current_context () == ct_preformatted
-      && global_kbdinputstyle != kbd_distinct
-      || global_kbdinputstyle == kbd_code)
+  if (global_kbdinputstyle == kbd_code)
     {
        return 1;
     }
@@ -837,6 +835,8 @@ kbd_formatted_as_code (ELEMENT *current)
             }
           tmp = tmp->parent->parent;
         }
+      if (in_preformatted_context_not_menu ())
+        return 1;
     }
   return 0;
 }

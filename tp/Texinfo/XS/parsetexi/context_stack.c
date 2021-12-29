@@ -139,3 +139,26 @@ current_region (void)
 
   return region_stack[region_top - 1];
 }
+
+
+/* used for @kbd */
+int
+in_preformatted_context_not_menu()
+{
+  if (top == 0)
+    return 0;
+
+  int i;
+  for (i = top -1; i >= 0; i--)
+    {
+      enum context ct;
+      enum command_id cmd;
+      ct = stack[i];
+      if (ct != ct_line && ct != ct_preformatted)
+        return 0;
+      cmd = commands_stack[i];
+      if (! (command_data(cmd).flags & CF_menu) && ct == ct_preformatted)
+        return 1;
+    }
+  return 0;
+}

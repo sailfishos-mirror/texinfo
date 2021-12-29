@@ -50,4 +50,7 @@ ELEMENT *current_region (void);
 enum command_id current_region_cmd (void);
 
 void reset_region_stack (void);
+
+
+int in_preformatted_context_not_menu(void);
 #endif

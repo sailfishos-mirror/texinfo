@@ -1344,17 +1344,38 @@ sub _in_code($$)
   return 0;
 }
 
+sub _in_preformatted_context_not_menu($)
+{
+  my $self = shift;
+
+  for (my $i = scalar(@{$self->{'context_command_stack'}}) -1; $i > 0; $i--) {
+    my $context = $self->{'context_stack'}->[$i];
+    # allow going through line context, for @*table to find the
+    # outside context, and also assuming that they are in the same context
+    # in term of preformatted.  Maybe def could be traversed too.
+    if ($context ne 'line' and $context ne 'preformatted') {
+      return 0;
+    }
+    my $command_name = $self->{'context_command_stack'}->[$i];
+    if (defined($command_name) and not $menu_commands{$command_name}
+        and $context eq 'preformatted') {
+      return 1;
+    }
+  }
+  return 0;
+}
+
 sub _kbd_formatted_as_code($$)
 {
   my ($self, $current) = @_;
 
-  if ($self->_top_context() eq 'preformatted'
-      and $self->{'kbdinputstyle'} ne 'distinct') {
+  if ($self->{'kbdinputstyle'} eq 'code') {
     return 1;
-  } elsif ($self->{'kbdinputstyle'} eq 'code'
-             or ($self->{'kbdinputstyle'} eq 'example'
-                 and $self->_in_code($current->{'parent'}))) {
-    return 1;
+  } elsif ($self->{'kbdinputstyle'} eq 'example') {
+    if ($self->_in_code($current->{'parent'})
+        or $self->_in_preformatted_context_not_menu()) {
+      return 1;
+    }
   }
   return 0;
 }

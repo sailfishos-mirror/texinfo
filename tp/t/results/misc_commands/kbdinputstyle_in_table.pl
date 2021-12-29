@@ -1079,6 +1079,9 @@ $result_trees{'kbdinputstyle_in_table'} = {
                 {
                   'cmdname' => 'kbd',
                   'contents' => [],
+                  'extra' => {
+                    'code' => 1
+                  },
                   'line_nr' => {
                     'file_name' => '',
                     'line_nr' => 31,
@@ -1171,6 +1174,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
           ],
           'extra' => {
             'command_as_argument' => {},
+            'command_as_argument_kbd_code' => 1,
             'end_command' => {},
             'spaces_before_argument' => ' '
           },
@@ -1195,6 +1199,9 @@ $result_trees{'kbdinputstyle_in_table'} = {
                   ],
                   'cmdname' => 'kbd',
                   'contents' => [],
+                  'extra' => {
+                    'code' => 1
+                  },
                   'line_nr' => {
                     'file_name' => '',
                     'line_nr' => 31,
@@ -1287,6 +1294,7 @@ $result_trees{'kbdinputstyle_in_table'} = {
           ],
           'extra' => {
             'command_as_argument' => {},
+            'command_as_argument_kbd_code' => 1,
             'end_command' => {},
             'spaces_before_argument' => ' '
           },
@@ -2373,10 +2381,10 @@ $result_converted{'html_text'}->{'kbdinputstyle_in_table'} = '
 <p>in example
 </p><div class="example">
 <dl>
-<dt><tt><kbd>i--tem in example</kbd></tt></dt>
+<dt><tt><code>i--tem in example</code></tt></dt>
 </dl>
 <dl>
-<dt><tt><kbd>braced i--tem in example</kbd></tt></dt>
+<dt><tt><code>braced i--tem in example</code></tt></dt>
 </dl>
 </div>
 

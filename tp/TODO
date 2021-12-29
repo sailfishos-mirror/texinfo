@@ -17,12 +17,6 @@ Before next release
 Bugs
 ====
 
-in kbd_formatted_as_code, looking only at the $self->_top_context()
-to determine if in preformatted is not enough, as on a @table line
-for instance, the top_context will be line, and probably on a @def*
-line it will be def.  Maybe wait for the implementation of the
-context_stack in the XS parser to fix that issue.
-
 
 Profiling
 =========
