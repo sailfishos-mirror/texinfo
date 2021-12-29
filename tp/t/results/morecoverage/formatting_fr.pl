@@ -4710,7 +4710,7 @@ In copying
 INFO-DIR-SECTION Formatting é ‘@ TeX’ test
 START-INFO-DIR-ENTRY
 * Truc: (formatting).           The GNU documentation truc.
-* ‘@ é ≡’: (formatting).  "-- something"
+* ‘@ é ≡’: (formatting).  “— something”
                            ‘cmd’ à
 END-INFO-DIR-ENTRY
 
@@ -4744,8 +4744,8 @@ Insertcopying in normal text
 * .:                                     Top.                  (line 22)
 * ?:                                     Top.                  (line 22)
 * a:                                     Top.                  (line 22)
-* t-ruc:                                 Top.                  (line 22)
-* T-ruc:                                 Top.                  (line 22)
+* t–ruc:                                 Top.                  (line 22)
+* T–ruc:                                 Top.                  (line 22)
 
    fn
 
@@ -4776,10 +4776,10 @@ File: formatting.info,  Node: chapter,  Next: chapter2,  Prev: Top,  Up: Top
 
 * Menu:
 
-* s--ect,ion:: s-ect,ion
+* s--ect,ion:: s–ect,ion
 
 Menu comment
-"simple-double-three--four---"
+“simple-double–three—four—-”
 
 
 
@@ -4816,14 +4816,14 @@ File: formatting.info,  Node: subsection,  Up: s--ect,ion
 
 File: formatting.info,  Node: subsubsection ``simple-double--,  Next: subsubsection three---four----\'\',  Up: subsection
 
-1.1.1.1 subsubsection "simple-double-
+1.1.1.1 subsubsection “simple-double–
 .....................................
 
 
 File: formatting.info,  Node: subsubsection three---four----\'\',  Prev: subsubsection ``simple-double--,  Up: subsection
 
-1.1.1.2 three--four---"
-.......................
+1.1.1.2 three—four—-”
+.....................
 
 
 File: formatting.info,  Node: chapter2,  Prev: chapter,  Up: Top
@@ -4837,8 +4837,8 @@ chapter 2
 * .:                                     Top.                  (line 22)
 * ?:                                     Top.                  (line 22)
 * a:                                     Top.                  (line 22)
-* t-ruc:                                 Top.                  (line 22)
-* T-ruc:                                 Top.                  (line 22)
+* t–ruc:                                 Top.                  (line 22)
+* T–ruc:                                 Top.                  (line 22)
 
  [index ]
 * Menu:
@@ -4852,15 +4852,15 @@ chapter 2
 
 
 Tag Table:
-Node: Top305
-Node: chapter1383
-Ref: chapter-Footnote-11607
-Node: s--ect,ion1627
-Node: subsection1828
-Ref: anchor2007
-Node: subsubsection ``simple-double--2007
-Node: subsubsection three---four----\'\'2207
-Node: chapter22379
+Node: Top310
+Node: chapter1392
+Ref: chapter-Footnote-11626
+Node: s--ect,ion1646
+Node: subsection1847
+Ref: anchor2026
+Node: subsubsection ``simple-double--2026
+Node: subsubsection three---four----\'\'2230
+Node: chapter22404
 
 End Tag Table
 

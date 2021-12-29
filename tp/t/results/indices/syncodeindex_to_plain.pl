@@ -487,7 +487,7 @@ cp index.
 * Menu:
 
 * --k1:                                  Top.                   (line 3)
-* -c:                                    Top.                   (line 3)
+* –c:                                    Top.                   (line 3)
 
    vr index.
 
@@ -515,7 +515,7 @@ $result_converted{'plaintext'}->{'syncodeindex_to_plain'} = 'cp index.
 * Menu:
 
 * --k1:                                  Top.                   (line 0)
-* -c:                                    Top.                   (line 0)
+* –c:                                    Top.                   (line 0)
 
    vr index.
 

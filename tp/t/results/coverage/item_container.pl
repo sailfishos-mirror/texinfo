@@ -382,9 +382,9 @@ $result_floats{'item_container'} = {};
 
 
 
-$result_converted{'plaintext'}->{'item_container'} = '   + i-tem +
+$result_converted{'plaintext'}->{'item_container'} = '   + i–tem +
 
-   • b-ullet
+   • b–ullet
 
    • no itemize argument
 ';

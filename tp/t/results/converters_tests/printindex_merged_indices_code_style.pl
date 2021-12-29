@@ -771,11 +771,11 @@ $result_indices_sort_strings{'printindex_merged_indices_code_style'} = {
 
 $result_converted{'plaintext'}->{'printindex_merged_indices_code_style'} = '* Menu:
 
-* c"b:                                   Top.                   (line 0)
-* cdi"h:                                 Top.                   (line 0)
+* c“b:                                   Top.                   (line 0)
+* cdi“h:                                 Top.                   (line 0)
 * ddi``g:                                Top.                   (line 0)
 * f``g:                                  Top.                   (line 0)
-* v"j:                                   Top.                   (line 0)
+* v“j:                                   Top.                   (line 0)
 
 ';
 

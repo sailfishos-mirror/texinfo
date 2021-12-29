@@ -3357,27 +3357,27 @@ $result_converted{'plaintext'}->{'test_deftypefnnewline'} = 'top
  -- c--ategory:
           t--ype
           d--eftypefn_name
-     d-eftypefn no arg
+     d–eftypefn no arg
 
  -- c--ategory on c--lass:
           t--ype
           d--eftypeop_name a--rguments...
-     d-eftypeop
+     d–eftypeop
 
  -- c--ategory on c--lass:
           t--ype
           d--eftypeop_name
-     d-eftypeop no arg
+     d–eftypeop no arg
 
  -- c--ategory of c--lass:
           t--ype
           d--eftypecv_name
-     d-eftypecv
+     d–eftypecv
 
  -- c--ategory of c--lass:
           t--ype
           d--eftypecv_name a--rguments...
-     d-eftypecv with arguments
+     d–eftypecv with arguments
 
  -- fun: arg
      fff
@@ -3386,19 +3386,19 @@ $result_converted{'plaintext'}->{'test_deftypefnnewline'} = 'top
      aaa2
 
  -- c--ategory2: t--ype2 d--eftypefn_name2
-     d-eftypefn no arg2
+     d–eftypefn no arg2
 
  -- c--ategory2 on c--lass2: t--ype2 d--eftypeop_name2 a--rguments2...
-     d-eftypeop2
+     d–eftypeop2
 
  -- c--ategory2 on c--lass2: t--ype2 d--eftypeop_name2
-     d-eftypeop no arg2
+     d–eftypeop no arg2
 
  -- c--ategory2 of c--lass2: t--ype2 d--eftypecv_name2
-     d-eftypecv2
+     d–eftypecv2
 
  -- c--ategory2 of c--lass2: t--ype2 d--eftypecv_name2 a--rguments2...
-     d-eftypecv with arguments2
+     d–eftypecv with arguments2
 
  -- fun2: arg2
      fff2

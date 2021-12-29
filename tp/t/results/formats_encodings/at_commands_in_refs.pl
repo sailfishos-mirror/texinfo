@@ -22728,8 +22728,8 @@ $result_converted{'plaintext'}->{'at_commands_in_refs'} = 'Top
 14 « » « » ‹ ›
 **************
 
-15 " " -- - \' \'
-***************
+15 “ ” — – ‘ ’
+**************
 
 16 AAA (fff) AAA BBB
 ********************
@@ -23811,8 +23811,8 @@ File: ,  Node: « » « » ‹ ›,  Next: `` \'\' --- -- ` \',  Prev: “ ” �
 
 File: ,  Node: `` \'\' --- -- ` \',  Next: AAA (fff) AAA BBB,  Prev: « » « » ‹ ›,  Up: Top
 
-15 " " -- - \' \'
-***************
+15 “ ” — – ‘ ’
+**************
 
 
 File: ,  Node: AAA (fff) AAA BBB,  Next: CCC (rrr) CCC DDD,  Prev: `` \'\' --- -- ` \',  Up: Top
@@ -23962,18 +23962,18 @@ Node: ı Ḕ Ḉ2563
 Node: “ ” ‘ ’ „ ‚2690
 Node: « » « » ‹ ›2832
 Node: `` \'\' --- -- ` \'2976
-Node: AAA (fff) AAA BBB3108
-Node: CCC (rrr) CCC DDD3248
-Node: the someone <someone@somewher> <no_explain@there>3421
-Node: [f--ile1]  [image src="f--ile.png" alt="alt" text="Image description\\"\\"\\\\." ]3721
-Node:  @ {} . 4071
-Node: cite asis in @w b in r SC *str* t VAR dfn i4274
-Node: env code option samp command file C-x <ESC>4526
-Node: 8.27in4816
-Node: sansserif slanted4950
-Node: indicateurl5074
-Node: _{g}H 3^{rd}5200
-Node: <http://somewhere_aaa> text (url) ls5339
+Node: AAA (fff) AAA BBB3118
+Node: CCC (rrr) CCC DDD3258
+Node: the someone <someone@somewher> <no_explain@there>3431
+Node: [f--ile1]  [image src="f--ile.png" alt="alt" text="Image description\\"\\"\\\\." ]3731
+Node:  @ {} . 4081
+Node: cite asis in @w b in r SC *str* t VAR dfn i4284
+Node: env code option samp command file C-x <ESC>4536
+Node: 8.27in4826
+Node: sansserif slanted4960
+Node: indicateurl5084
+Node: _{g}H 3^{rd}5210
+Node: <http://somewhere_aaa> text (url) ls5349
 
 End Tag Table
 

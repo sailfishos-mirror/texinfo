@@ -573,7 +573,7 @@ sub _process_text($$$)
   }
 
   if ($self->{'to_utf8'}
-      and $self->{'global_commands'}->{'documentencoding'}) {
+      and !$self->get_conf('NO_UTF8_PUNCTUATION')) {
     return Texinfo::Convert::Unicode::unicode_text($text, 
             $context->{'font_type_stack'}->[-1]->{'monospace'});
   } elsif (!$context->{'font_type_stack'}->[-1]->{'monospace'}) {

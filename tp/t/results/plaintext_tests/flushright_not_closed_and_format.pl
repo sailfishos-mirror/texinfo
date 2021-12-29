@@ -160,7 +160,7 @@ $result_floats{'flushright_not_closed_and_format'} = {};
 
 $result_converted{'plaintext'}->{'flushright_not_closed_and_format'} = '                                                             flushright
 
-                                                          A quot--ation
+                                                           A quot—ation
 ';
 
 1;

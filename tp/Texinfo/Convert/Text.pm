@@ -248,9 +248,10 @@ sub brace_no_arg_command($;$)
       and defined($element->{'extra'}->{'clickstyle'})
       and defined($text_brace_no_arg_commands{$element->{'extra'}->{'clickstyle'}}));
   my $result;
-  if (!$encoding or $encoding ne 'utf-8'
-      or ($options->{'extra_utf8'}
-            or !$Texinfo::Convert::Unicode::extra_unicode_map{$command})) {
+  if ((defined($encoding)
+       and $Texinfo::Encoding::eight_bit_encoding_aliases{$encoding})
+      or $options->{'extra_utf8'}
+      or !exists($Texinfo::Convert::Unicode::extra_unicode_map{$command})) {
     $result = Texinfo::Convert::Unicode::brace_no_arg_command($command, $encoding);
   }
   if (!defined($result) and $options and $options->{'converter'}) {

@@ -3155,27 +3155,27 @@ $result_converted{'plaintext'}->{'inter_item_commands_in_table'} = 'top
 ******
 
 ‘acode--b’
-     l-ine
+     l–ine
 
-aasis-b
+aasis–b
 b
-     l-ine
+     l–ine
 
-AVAR-B
+AVAR–B
 B
-     l-ine
+     l–ine
 C
 
 D
 
 ‘abb’
-     l-ine
+     l–ine
 
      Texte before first item.
 ‘abb’
 
 ‘asamp--bb’
-     l-ine samp
+     l–ine samp
 
      Texte before first item samp.
 ‘asamp--bb’

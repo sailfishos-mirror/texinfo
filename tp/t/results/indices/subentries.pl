@@ -1283,10 +1283,10 @@ File: subentries.info,  Node: chapter index,  Prev: Top,  Up: Top
  [index ]
 * Menu:
 
-* a--a:                                  chapter index.         (line 6)
-* b--b, c--c:                            chapter index.         (line 6)
-* d--dd, e--ee, f--ff:                   chapter index.         (line 6)
-* g--gg, h--hh jjj, k--kk, l--ll:        chapter index.         (line 6)
+* a—a:                                   chapter index.         (line 6)
+* b—b, c—c:                              chapter index.         (line 6)
+* d—dd, e—ee, f—ff:                      chapter index.         (line 6)
+* g—gg, h—hh jjj, k—kk, l—ll:            chapter index.         (line 6)
 
  [index ]
 * Menu:
@@ -1316,10 +1316,10 @@ $result_converted{'plaintext'}->{'subentries'} = '1 Index
 
 * Menu:
 
-* a--a:                                  chapter index.         (line 3)
-* b--b, c--c:                            chapter index.         (line 3)
-* d--dd, e--ee, f--ff:                   chapter index.         (line 3)
-* g--gg, h--hh jjj, k--kk, l--ll:        chapter index.         (line 3)
+* a—a:                                   chapter index.         (line 3)
+* b—b, c—c:                              chapter index.         (line 3)
+* d—dd, e—ee, f—ff:                      chapter index.         (line 3)
+* g—gg, h—hh jjj, k—kk, l—ll:            chapter index.         (line 3)
 
 * Menu:
 

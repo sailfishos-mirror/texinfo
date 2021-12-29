@@ -253,7 +253,7 @@ $result_floats{'no_documentencoding_and_insertions'} = {};
 
 
 
-$result_converted{'plaintext'}->{'no_documentencoding_and_insertions'} = '- -- " " \' \' ‘in code’.  ẽ.
+$result_converted{'plaintext'}->{'no_documentencoding_and_insertions'} = '– — ” “ ‘ ’ ‘in code’.  ẽ.
 
      -- --- \'\' `` ` \' in code. ẽ.
 ';

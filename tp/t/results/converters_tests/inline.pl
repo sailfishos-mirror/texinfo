@@ -850,7 +850,7 @@ $result_floats{'inline'} = {};
 
 
 
-$result_converted{'plaintext'}->{'inline'} = ', plaintext ", , ,
+$result_converted{'plaintext'}->{'inline'} = ', plaintext “, , ,
 
    , raw plaintext ``, , ,
 ';

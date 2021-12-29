@@ -147,7 +147,7 @@ $result_floats{'email_possibilities'} = {};
 
 
 
-$result_converted{'plaintext'}->{'email_possibilities'} = '-b <--a> -b <--a>
+$result_converted{'plaintext'}->{'email_possibilities'} = '–b <--a> –b <--a>
 ';
 
 

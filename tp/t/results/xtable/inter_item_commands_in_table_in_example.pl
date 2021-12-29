@@ -531,7 +531,7 @@ $result_indices_sort_strings{'inter_item_commands_in_table_in_example'} = {
 
 
 
-$result_converted{'plaintext'}->{'inter_item_commands_in_table_in_example'} = '     A-B
+$result_converted{'plaintext'}->{'inter_item_commands_in_table_in_example'} = '     A–B
      B
 
      C

@@ -736,7 +736,7 @@ Print fn
  [index ]
 * Menu:
 
-* c--oncept:                             chapter index.         (line 6)
+* c—oncept:                              chapter index.         (line 6)
 * f---un:                                chapter index.         (line 6)
 
 
@@ -766,7 +766,7 @@ Print fn
 
 * Menu:
 
-* c--oncept:                             chapter index.         (line 6)
+* c—oncept:                              chapter index.         (line 6)
 * f---un:                                chapter index.         (line 6)
 
 ';

@@ -1217,11 +1217,11 @@ $result_converted{'info'}->{'multitable_anchor_and_index_entry'} = 'This is , pr
 
 File: ,  Node: Top,  Up: (dir)
 
-mu-ltitable headitem          another tab
+mu–ltitable headitem          another tab
 --------------------------------------------------------------------------
-mu-ltitable item              multitable tab
-mu-ltitable item 2            multitable tab 2
-lone mu-ltitable item
+mu–ltitable item              multitable tab
+mu–ltitable item 2            multitable tab 2
+lone mu–ltitable item
 
 A   G
 B
@@ -1251,8 +1251,8 @@ mdsfk2
 
 Tag Table:
 Node: Top27
-Ref: anchor in multitable269
-Ref: mark388
+Ref: anchor in multitable275
+Ref: mark396
 
 End Tag Table
 

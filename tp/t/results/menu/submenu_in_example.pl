@@ -867,13 +867,13 @@ $result_converted{'plaintext'}->{'submenu_in_example'} = '
 
 * Menu:
 
-          A quot--ation in submenu
+          A quot—ation in submenu
 
      subheading in menu
      ------------------
 
 
-       1. e-numerate
+       1. e–numerate
 
 ';
 

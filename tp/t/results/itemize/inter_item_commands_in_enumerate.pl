@@ -1470,7 +1470,7 @@ $result_converted{'plaintext'}->{'inter_item_commands_in_enumerate'} = 'top
 1 chap
 ******
 
-  1. e-numerate
+  1. e–numerate
 
   1. enumerate item
 

@@ -232,8 +232,8 @@ $result_floats{'quotation_author'} = {};
 
 $result_converted{'plaintext'}->{'quotation_author'} = '     quotation quotation continues.
 
-                           -- _First Author_
-                          -- _Sẽcond author_
+                           — _First Author_
+                           — _Sẽcond author_
 ';
 
 

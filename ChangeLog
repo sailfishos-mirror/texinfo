@@ -1,3 +1,11 @@
+2021-12-29  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/Plaintext.pm (_process_text): use NO_UTF8_PUNCTUATION
+	instead of @documentencoding for quotes and dash ini text.
+	* tp/Texinfo/Convert/Text.pm (brace_no_arg_command): make explicit
+	that the eight bit encodings known in Texinfo always go through
+	Texinfo::Convert::Unicode::brace_no_arg_command().
+
 2021-12-29  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* tp/Texinfo/Convert/Text.pm (brace_no_arg_command):

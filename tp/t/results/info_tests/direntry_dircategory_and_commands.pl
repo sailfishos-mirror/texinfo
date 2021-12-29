@@ -674,9 +674,9 @@ $result_floats{'direntry_dircategory_and_commands'} = {};
 
 $result_converted{'info'}->{'direntry_dircategory_and_commands'} = 'This is , produced from .
 
-INFO-DIR-SECTION "category--TH ERE?"
+INFO-DIR-SECTION “category—TH ERE?”
 START-INFO-DIR-ENTRY
-* foo: (foo).   "hello--THERE?"
+* foo: (foo).   “hello—THERE?”
 END-INFO-DIR-ENTRY
 
 INFO-DIR-SECTION cat2
@@ -697,7 +697,7 @@ Text
 
 
 Tag Table:
-Node: Top264
+Node: Top274
 
 End Tag Table
 
