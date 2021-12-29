@@ -35,8 +35,8 @@ subheading
 
 in verbatim
 
-   * i-tem 1
-   * i-tem 2
+   • i-tem 1
+   • i-tem 2
 
   1. e-numerate
 
@@ -66,8 +66,8 @@ f-lushleft
                             ce-ntered line
 
      in macro, a format_command containing some other commands.
-        * i--tem 1
-        * i--tem 2
+        • i--tem 1
+        • i--tem 2
 
        1. e--numerate
 
@@ -130,8 +130,8 @@ f-lushleft
 
 
 
-        * i--tem 1
-        * i--tem 2
+        • i--tem 1
+        • i--tem 2
 
        1. e--numerate
 
@@ -161,8 +161,8 @@ f-lushleft
                             ce-ntered line
 
           in macro, a format_command containing some other commands.
-             * i--tem 1
-             * i--tem 2
+             • i--tem 1
+             • i--tem 2
 
             1. e--numerate
 
@@ -221,8 +221,8 @@ f-lushleft
 
      in verbatim
 
-        * i-tem 1
-        * i-tem 2
+        • i-tem 1
+        • i-tem 2
 
        1. e-numerate
 
@@ -252,8 +252,8 @@ f-lushleft
                             ce-ntered line
 
           in macro, a format_command containing some other commands.
-             * i--tem 1
-             * i--tem 2
+             • i--tem 1
+             • i--tem 2
 
             1. e--numerate
 
@@ -310,8 +310,8 @@ f-lushleft
 
      in verbatim
 
-        * i-tem 1
-        * i-tem 2
+        • i-tem 1
+        • i-tem 2
 
        1. e-numerate
 
@@ -341,8 +341,8 @@ f-lushleft
                             ce-ntered line
 
           in macro, a format_command containing some other commands.
-             * i--tem 1
-             * i--tem 2
+             • i--tem 1
+             • i--tem 2
 
             1. e--numerate
 
@@ -405,8 +405,8 @@ f-lushleft
 
 
 
-             * i--tem 1
-             * i--tem 2
+             • i--tem 1
+             • i--tem 2
 
             1. e--numerate
 
@@ -436,8 +436,8 @@ f-lushleft
                             ce-ntered line
 
                in macro, a format_command containing some other commands.
-                  * i--tem 1
-                  * i--tem 2
+                  • i--tem 1
+                  • i--tem 2
 
                  1. e--numerate
 
@@ -496,8 +496,8 @@ f-lushleft
 
      in verbatim
 
-        * i-tem 1
-        * i-tem 2
+        • i-tem 1
+        • i-tem 2
 
        1. e-numerate
 
@@ -527,8 +527,8 @@ f-lushleft
                             ce-ntered line
 
           in macro, a format_command containing some other commands.
-             * i--tem 1
-             * i--tem 2
+             • i--tem 1
+             • i--tem 2
 
             1. e--numerate
 
@@ -585,8 +585,8 @@ f-lushleft
 
      in verbatim
 
-        * i-tem 1
-        * i-tem 2
+        • i-tem 1
+        • i-tem 2
 
        1. e-numerate
 
@@ -616,8 +616,8 @@ f-lushleft
                             ce-ntered line
 
           in macro, a format_command containing some other commands.
-             * i--tem 1
-             * i--tem 2
+             • i--tem 1
+             • i--tem 2
 
             1. e--numerate
 
@@ -680,8 +680,8 @@ f-lushleft
 
 
 
-             * i--tem 1
-             * i--tem 2
+             • i--tem 1
+             • i--tem 2
 
             1. e--numerate
 
@@ -711,8 +711,8 @@ f-lushleft
                             ce-ntered line
 
                in macro, a format_command containing some other commands.
-                  * i--tem 1
-                  * i--tem 2
+                  • i--tem 1
+                  • i--tem 2
 
                  1. e--numerate
 
@@ -774,8 +774,8 @@ subheading
 
 in verbatim
 
-   * i-tem 1
-   * i-tem 2
+   • i-tem 1
+   • i-tem 2
 
   1. e-numerate
 
@@ -806,8 +806,8 @@ f-lushleft
              ce-ntered line
 
      in macro, a format_command containing some other commands.
-        * i--tem 1
-        * i--tem 2
+        • i--tem 1
+        • i--tem 2
 
        1. e--numerate
 
@@ -866,8 +866,8 @@ multitable item 2                           multitable tab 2 Call macro in mutit
                                             
                                             in verbatim
                                             
-                                               * i-tem 1
-                                               * i-tem 2
+                                               • i-tem 1
+                                               • i-tem 2
                                             
                                               1. e-numerate
                                             
@@ -897,8 +897,8 @@ multitable item 2                           multitable tab 2 Call macro in mutit
                                                             ce-ntered line
                                             
                                                  in macro, a format_command containing some other commands.
-                                                    * i--tem 1
-                                                    * i--tem 2
+                                                    • i--tem 1
+                                                    • i--tem 2
                                             
                                                    1. e--numerate
                                             
@@ -962,8 +962,8 @@ mutitable in format_command
 
 
 
-        * i--tem 1
-        * i--tem 2
+        • i--tem 1
+        • i--tem 2
 
        1. e--numerate
 
@@ -994,8 +994,8 @@ mutitable in format_command
              ce-ntered line
 
           in macro, a format_command containing some other commands.
-             * i--tem 1
-             * i--tem 2
+             • i--tem 1
+             • i--tem 2
 
             1. e--numerate
 
@@ -1059,8 +1059,8 @@ mutitable in format_command
 
 
 
-        * i--tem 1
-        * i--tem 2
+        • i--tem 1
+        • i--tem 2
 
        1. e--numerate
 
@@ -1090,8 +1090,8 @@ mutitable in format_command
                             ce-ntered line
 
           in macro, a format_command containing some other commands.
-             * i--tem 1
-             * i--tem 2
+             • i--tem 1
+             • i--tem 2
 
             1. e--numerate
 
@@ -1156,8 +1156,8 @@ mutitable in format_command
 
 
 
-        * i--tem 1
-        * i--tem 2
+        • i--tem 1
+        • i--tem 2
 
        1. e--numerate
 
@@ -1187,8 +1187,8 @@ mutitable in format_command
                             ce-ntered line
 
           in macro, a format_command containing some other commands.
-             * i--tem 1
-             * i--tem 2
+             • i--tem 1
+             • i--tem 2
 
             1. e--numerate
 
@@ -1253,8 +1253,8 @@ mutitable in format_command
 
 
 
-             * i--tem 1
-             * i--tem 2
+             • i--tem 1
+             • i--tem 2
 
             1. e--numerate
 
@@ -1284,8 +1284,8 @@ mutitable in format_command
                             ce-ntered line
 
                in macro, a format_command containing some other commands.
-                  * i--tem 1
-                  * i--tem 2
+                  • i--tem 1
+                  • i--tem 2
 
                  1. e--numerate
 
@@ -1346,8 +1346,8 @@ mutitable in format_command
 
      in verbatim
 
-        * i-tem 1
-        * i-tem 2
+        • i-tem 1
+        • i-tem 2
 
        1. e-numerate
 
@@ -1377,8 +1377,8 @@ mutitable in format_command
                             ce-ntered line
 
           in macro, a format_command containing some other commands.
-             * i--tem 1
-             * i--tem 2
+             • i--tem 1
+             • i--tem 2
 
             1. e--numerate
 
@@ -1441,8 +1441,8 @@ mutitable in format_command
 
 
 
-             * i--tem 1
-             * i--tem 2
+             • i--tem 1
+             • i--tem 2
 
             1. e--numerate
 
@@ -1472,8 +1472,8 @@ mutitable in format_command
                             ce-ntered line
 
                in macro, a format_command containing some other commands.
-                  * i--tem 1
-                  * i--tem 2
+                  • i--tem 1
+                  • i--tem 2
 
                  1. e--numerate
 
@@ -1533,8 +1533,8 @@ mutitable in format_command
 
      in verbatim
 
-        * i-tem 1
-        * i-tem 2
+        • i-tem 1
+        • i-tem 2
 
        1. e-numerate
 
@@ -1564,8 +1564,8 @@ mutitable in format_command
                             ce-ntered line
 
           in macro, a format_command containing some other commands.
-             * i--tem 1
-             * i--tem 2
+             • i--tem 1
+             • i--tem 2
 
             1. e--numerate
 
@@ -1623,8 +1623,8 @@ a line
 
      in verbatim
 
-        * i-tem 1
-        * i-tem 2
+        • i-tem 1
+        • i-tem 2
 
        1. e-numerate
 
@@ -1654,8 +1654,8 @@ a line
                             ce-ntered line
 
           in macro, a format_command containing some other commands.
-             * i--tem 1
-             * i--tem 2
+             • i--tem 1
+             • i--tem 2
 
             1. e--numerate
 
@@ -1714,8 +1714,8 @@ a line
 
      in verbatim
 
-        * i-tem 1
-        * i-tem 2
+        • i-tem 1
+        • i-tem 2
 
        1. e-numerate
 
@@ -1745,8 +1745,8 @@ a line
                             ce-ntered line
 
           in macro, a format_command containing some other commands.
-             * i--tem 1
-             * i--tem 2
+             • i--tem 1
+             • i--tem 2
 
             1. e--numerate
 
@@ -1810,8 +1810,8 @@ a line2
 
 
 
-             * i--tem 1
-             * i--tem 2
+             • i--tem 1
+             • i--tem 2
 
             1. e--numerate
 
@@ -1841,8 +1841,8 @@ a line2
                             ce-ntered line
 
                in macro, a format_command containing some other commands.
-                  * i--tem 1
-                  * i--tem 2
+                  • i--tem 1
+                  • i--tem 2
 
                  1. e--numerate
 
@@ -1901,8 +1901,8 @@ subheading
 
 in verbatim
 
-   * i-tem 1
-   * i-tem 2
+   • i-tem 1
+   • i-tem 2
 
   1. e-numerate
 
@@ -1932,8 +1932,8 @@ f-lushleft
                             ce-ntered line
 
      in macro, a format_command containing some other commands.
-        * i--tem 1
-        * i--tem 2
+        • i--tem 1
+        • i--tem 2
 
        1. e--numerate
 
@@ -1990,8 +1990,8 @@ subheading
 
 in verbatim
 
-   * i-tem 1
-   * i-tem 2
+   • i-tem 1
+   • i-tem 2
 
   1. e-numerate
 
@@ -2021,8 +2021,8 @@ f-lushleft
                             ce-ntered line
 
      in macro, a format_command containing some other commands.
-        * i--tem 1
-        * i--tem 2
+        • i--tem 1
+        • i--tem 2
 
        1. e--numerate
 
@@ -2085,8 +2085,8 @@ f-lushleft
 
 
 
-        * i--tem 1
-        * i--tem 2
+        • i--tem 1
+        • i--tem 2
 
        1. e--numerate
 
@@ -2116,8 +2116,8 @@ f-lushleft
                             ce-ntered line
 
           in macro, a format_command containing some other commands.
-             * i--tem 1
-             * i--tem 2
+             • i--tem 1
+             • i--tem 2
 
             1. e--numerate
 
@@ -2176,8 +2176,8 @@ subheading
 
 in verbatim
 
-   * i-tem 1
-   * i-tem 2
+   • i-tem 1
+   • i-tem 2
 
   1. e-numerate
 
@@ -2207,8 +2207,8 @@ f-lushleft
                             ce-ntered line
 
      in macro, a format_command containing some other commands.
-        * i--tem 1
-        * i--tem 2
+        • i--tem 1
+        • i--tem 2
 
        1. e--numerate
 
@@ -2272,8 +2272,8 @@ call macro in flushleft in format_command
 
 
 
-        * i--tem 1
-        * i--tem 2
+        • i--tem 1
+        • i--tem 2
 
        1. e--numerate
 
@@ -2303,8 +2303,8 @@ call macro in flushleft in format_command
                             ce-ntered line
 
           in macro, a format_command containing some other commands.
-             * i--tem 1
-             * i--tem 2
+             • i--tem 1
+             • i--tem 2
 
             1. e--numerate
 
@@ -2362,8 +2362,8 @@ subheading
 
 in verbatim
 
-   *                                                                 i-tem 1
-   *                                                                 i-tem 2
+   •                                                                 i-tem 1
+   •                                                                 i-tem 2
 
   1.                                                              e-numerate
 
@@ -2393,8 +2393,8 @@ f-lushleft
                             ce-ntered line
 
      in macro, a format_command containing some other commands.
-        * i--tem 1
-        * i--tem 2
+        • i--tem 1
+        • i--tem 2
 
        1. e--numerate
 
@@ -2457,8 +2457,8 @@ f-lushleft
 
 
 
-        * i--tem 1
-        * i--tem 2
+        • i--tem 1
+        • i--tem 2
 
        1. e--numerate
 
@@ -2488,8 +2488,8 @@ f-lushleft
                             ce-ntered line
 
           in macro, a format_command containing some other commands.
-             * i--tem 1
-             * i--tem 2
+             • i--tem 1
+             • i--tem 2
 
             1. e--numerate
 

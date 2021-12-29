@@ -591,7 +591,7 @@ $result_floats{'itemize_in_example'} = {};
 
 
 
-$result_converted{'plaintext'}->{'itemize_in_example'} = '        * first
+$result_converted{'plaintext'}->{'itemize_in_example'} = '        • first
 
           more.
 
@@ -599,7 +599,7 @@ $result_converted{'plaintext'}->{'itemize_in_example'} = '        * first
 
         + item +
 
-        * a-n itemize line in an itemize line
+        • a-n itemize line in an itemize line
 ';
 
 

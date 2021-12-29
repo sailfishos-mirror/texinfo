@@ -1173,12 +1173,12 @@ $result_indices_sort_strings{'at_commands_in_raw'} = {
 
 
 $result_converted{'plaintext'}->{'at_commands_in_raw'} = '<b>in b(1).</b>
-   \'in kbd before tex\'(2).
+   ‘in kbd before tex’(2).
 
    {No value for \'flag\'}
    .
 
-   \'in kbd after tex\'.
+   ‘in kbd after tex’.
 
    *Note anchor in html::.
 

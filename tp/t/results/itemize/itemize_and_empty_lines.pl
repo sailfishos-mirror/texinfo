@@ -1882,33 +1882,33 @@ $result_converted{'plaintext'}->{'itemize_and_empty_lines'} = '   youhou first i
    youhou 
           quotation after a blank line
 
-   * first item
-   *      In example
+   • first item
+   •      In example
 
           end example.
-   * 
+   • 
      empty line.
-   * 
+   • 
           In second example
-   *      Quotation
+   •      Quotation
 
-   * 
+   • 
           quotation after a blank line
 
    An itemize
-   - truc line
+   − truc line
    After itemize
 
    A nested itemize
-   - truc line
-        * in nested itemize
+   − truc line
+        • in nested itemize
      After inside nested itemize.
    After nested itemize
 
-   * the version number of Texinfo and the program(s) or manual(s)
+   • the version number of Texinfo and the program(s) or manual(s)
      involved.
-   * hardware and operating system names and versions.
-   * something aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaa b b
+   • hardware and operating system names and versions.
+   • something aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaa b b
      bbbbbbbbbbbbbbbbbbbbbbb.
 ';
 

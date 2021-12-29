@@ -324,7 +324,7 @@ $result_indices_sort_strings{'code_in_def'} = {
 
 
 $result_converted{'plaintext'}->{'code_in_def'} = ' -- Function: int foo (const std::vector<int>& bar)
-     Documentation of \'foo\'.
+     Documentation of ‘foo’.
 ';
 
 1;

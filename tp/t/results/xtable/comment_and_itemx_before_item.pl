@@ -187,7 +187,7 @@ $result_floats{'comment_and_itemx_before_item'} = {};
 
 
 
-$result_converted{'plaintext'}->{'comment_and_itemx_before_item'} = '\'in itemx\'
+$result_converted{'plaintext'}->{'comment_and_itemx_before_item'} = '‘in itemx’
 ';
 
 

@@ -302,7 +302,7 @@ $result_floats{'tab_in_table_in_example'} = {};
 
 
 $result_converted{'plaintext'}->{'tab_in_table_in_example'} = '          in tab
-     \'table item\'
+     ‘table item’
           T
           other tab
 ';

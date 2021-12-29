@@ -815,7 +815,7 @@ $result_converted{'plaintext'}->{'block_commands_in_menu_description'} = 'top
 
 * (manual)::
 
-   * in item
+   • in item
 
 
 table item

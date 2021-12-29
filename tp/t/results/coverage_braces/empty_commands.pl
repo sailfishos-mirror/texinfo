@@ -273,7 +273,7 @@ $result_floats{'empty_commands'} = {};
 
 
 $result_converted{'plaintext'}->{'empty_commands'} = '
-\'\'(1) ̃
+‘’(1) ̃
 
    ---------- Footnotes ----------
 

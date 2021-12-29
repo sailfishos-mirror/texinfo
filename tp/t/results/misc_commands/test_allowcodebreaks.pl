@@ -2711,27 +2711,27 @@ $result_floats{'test_allowcodebreaks'} = {};
 
 
 
-$result_converted{'plaintext'}->{'test_allowcodebreaks'} = 'Before first allowcodebreaks Out of code -- out-of-code.  \'1aaa\' \'2aaa-\'
-\'-3bbb\' \'4aaa-bbb\' \' 5aaa-bb\' \'6aaa-bb \' \'ccc 7aaa-bbb\' \'ccc 8aaa-bbb
-ddd\' \'9aaa-bbb rrr_vv\' \'fff-- --- minus-b aa-ttéff_gg aar-oman anc-hor\'
+$result_converted{'plaintext'}->{'test_allowcodebreaks'} = 'Before first allowcodebreaks Out of code -- out-of-code.  ‘1aaa’ ‘2aaa-’
+‘-3bbb’ ‘4aaa-bbb’ ‘ 5aaa-bb’ ‘6aaa-bb ’ ‘ccc 7aaa-bbb’ ‘ccc 8aaa-bbb
+ddd’ ‘9aaa-bbb rrr_vv’ ‘fff-- --- minus−b aa-ttéff_gg aar-oman anc-hor’
 
      in-example
 
-   After false Out of code -- out-of-code.  \'1aaa\' \'2aaa-\' \'-3bbb\'
-\'4aaa-bbb\' \' 5aaa-bb\' \'6aaa-bb \' \'ccc 7aaa-bbb\' \'ccc 8aaa-bbb ddd\'
-\'9aaa-bbb rrr_vv\' \'fff-- --- minus-b aa-ttéff_gg aar-oman anc-hor\'
+   After false Out of code -- out-of-code.  ‘1aaa’ ‘2aaa-’ ‘-3bbb’
+‘4aaa-bbb’ ‘ 5aaa-bb’ ‘6aaa-bb ’ ‘ccc 7aaa-bbb’ ‘ccc 8aaa-bbb ddd’
+‘9aaa-bbb rrr_vv’ ‘fff-- --- minus−b aa-ttéff_gg aar-oman anc-hor’
 
      in-example
 
    In w:
-Out of code -- out-of-code. \'1aaa\' \'2aaa-\' \'-3bbb\' \'4aaa-bbb\'  \' 5aaa-bb\' \'6aaa-bb \' \'ccc 7aaa-bbb\' \'ccc 8aaa-bbb ddd\' \'9aaa-bbb rrr_vv\' \'fff-- --- minus-b aa-ttéff_gg aar-oman  anc-hor
-\' 
+Out of code -- out-of-code. ‘1aaa’ ‘2aaa-’ ‘-3bbb’ ‘4aaa-bbb’  ‘ 5aaa-bb’ ‘6aaa-bb ’ ‘ccc 7aaa-bbb’ ‘ccc 8aaa-bbb ddd’ ‘9aaa-bbb rrr_vv’ ‘fff-- --- minus−b aa-ttéff_gg aar-oman  anc-hor
+’ 
 
      in-example
 
-   After true Out of code -- out-of-code.  \'1aaa\' \'2aaa-\' \'-3bbb\'
-\'4aaa-bbb\' \' 5aaa-bb\' \'6aaa-bb \' \'ccc 7aaa-bbb\' \'ccc 8aaa-bbb ddd\'
-\'9aaa-bbb rrr_vv\' \'fff-- --- minus-b aa-ttéff_gg aar-oman anc-hor\'
+   After true Out of code -- out-of-code.  ‘1aaa’ ‘2aaa-’ ‘-3bbb’
+‘4aaa-bbb’ ‘ 5aaa-bb’ ‘6aaa-bb ’ ‘ccc 7aaa-bbb’ ‘ccc 8aaa-bbb ddd’
+‘9aaa-bbb rrr_vv’ ‘fff-- --- minus−b aa-ttéff_gg aar-oman anc-hor’
 
      in-example
 ';

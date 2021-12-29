@@ -681,11 +681,11 @@ $result_converted{'info'}->{'ref_tests'} = 'This is , produced from .
 File: ,  Node: Top,  Up: (dir)
 
 *note (m)in ref followed by comma::, *note (m)in ref not followed by
-comma:: after ref.  \'*note (m)in ref followed by end command::\'.
+comma:: after ref.  ‘*note (m)in ref followed by end command::’.
 
    *note name: (m)in ref followed by comma, *note name: (m)in ref not
-followed by comma. after ref.  \'*note name: (m)in ref followed by end
-command.\'.  *note name: (m)in ref ending with a dot. after ref.
+followed by comma. after ref.  ‘*note name: (m)in ref followed by end
+command.’.  *note name: (m)in ref ending with a dot. after ref.
 
 
 

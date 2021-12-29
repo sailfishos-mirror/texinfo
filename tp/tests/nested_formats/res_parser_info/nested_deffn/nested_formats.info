@@ -43,8 +43,8 @@ subheading
 
 in verbatim
 
-   * i-tem 1
-   * i-tem 2
+   • i-tem 1
+   • i-tem 2
 
   1. e-numerate
 
@@ -75,8 +75,8 @@ f-lushleft
 
  -- fun: arg arg1
      in macro, a format_command containing some other commands.
-        * i-tem 1
-        * i-tem 2
+        • i-tem 1
+        • i-tem 2
 
        1. e-numerate
 
@@ -143,8 +143,8 @@ f-lushleft
 
      in verbatim
 
-        * i-tem 1
-        * i-tem 2
+        • i-tem 1
+        • i-tem 2
 
        1. e-numerate
 
@@ -175,8 +175,8 @@ f-lushleft
 
       -- fun: arg arg1
           in macro, a format_command containing some other commands.
-             * i-tem 1
-             * i-tem 2
+             • i-tem 1
+             • i-tem 2
 
             1. e-numerate
 
@@ -242,8 +242,8 @@ f-lushleft
 
      in verbatim
 
-        * i-tem 1
-        * i-tem 2
+        • i-tem 1
+        • i-tem 2
 
        1. e-numerate
 
@@ -274,8 +274,8 @@ f-lushleft
 
       -- fun: arg arg1
           in macro, a format_command containing some other commands.
-             * i-tem 1
-             * i-tem 2
+             • i-tem 1
+             • i-tem 2
 
             1. e-numerate
 
@@ -340,8 +340,8 @@ f-lushleft
 
      in verbatim
 
-        * i-tem 1
-        * i-tem 2
+        • i-tem 1
+        • i-tem 2
 
        1. e-numerate
 
@@ -372,8 +372,8 @@ f-lushleft
 
       -- fun: arg arg1
           in macro, a format_command containing some other commands.
-             * i-tem 1
-             * i-tem 2
+             • i-tem 1
+             • i-tem 2
 
             1. e-numerate
 
@@ -440,8 +440,8 @@ f-lushleft
 
           in verbatim
 
-             * i-tem 1
-             * i-tem 2
+             • i-tem 1
+             • i-tem 2
 
             1. e-numerate
 
@@ -473,8 +473,8 @@ f-lushleft
            -- fun: arg arg1
                in macro, a format_command containing some other
                commands.
-                  * i-tem 1
-                  * i-tem 2
+                  • i-tem 1
+                  • i-tem 2
 
                  1. e-numerate
 
@@ -540,8 +540,8 @@ f-lushleft
 
      in verbatim
 
-        * i-tem 1
-        * i-tem 2
+        • i-tem 1
+        • i-tem 2
 
        1. e-numerate
 
@@ -572,8 +572,8 @@ f-lushleft
 
       -- fun: arg arg1
           in macro, a format_command containing some other commands.
-             * i-tem 1
-             * i-tem 2
+             • i-tem 1
+             • i-tem 2
 
             1. e-numerate
 
@@ -638,8 +638,8 @@ f-lushleft
 
      in verbatim
 
-        * i-tem 1
-        * i-tem 2
+        • i-tem 1
+        • i-tem 2
 
        1. e-numerate
 
@@ -670,8 +670,8 @@ f-lushleft
 
       -- fun: arg arg1
           in macro, a format_command containing some other commands.
-             * i-tem 1
-             * i-tem 2
+             • i-tem 1
+             • i-tem 2
 
             1. e-numerate
 
@@ -738,8 +738,8 @@ f-lushleft
 
           in verbatim
 
-             * i-tem 1
-             * i-tem 2
+             • i-tem 1
+             • i-tem 2
 
             1. e-numerate
 
@@ -771,8 +771,8 @@ f-lushleft
            -- fun: arg arg1
                in macro, a format_command containing some other
                commands.
-                  * i-tem 1
-                  * i-tem 2
+                  • i-tem 1
+                  • i-tem 2
 
                  1. e-numerate
 
@@ -841,8 +841,8 @@ subheading
 
 in verbatim
 
-   * i-tem 1
-   * i-tem 2
+   • i-tem 1
+   • i-tem 2
 
   1. e-numerate
 
@@ -875,8 +875,8 @@ f-lushleft
  -- fun: arg arg1
      in macro, a format_command
      containing some other commands.
-        * i-tem 1
-        * i-tem 2
+        • i-tem 1
+        • i-tem 2
 
        1. e-numerate
 
@@ -943,8 +943,8 @@ multitable item 2                           multitable tab 2 Call macro in mutit
                                             
                                             in verbatim
                                             
-                                               * i-tem 1
-                                               * i-tem 2
+                                               • i-tem 1
+                                               • i-tem 2
                                             
                                               1. e-numerate
                                             
@@ -976,8 +976,8 @@ multitable item 2                           multitable tab 2 Call macro in mutit
                                              -- fun: arg arg1
                                                  in macro, a format_command containing some
                                                  other commands.
-                                                    * i-tem 1
-                                                    * i-tem 2
+                                                    • i-tem 1
+                                                    • i-tem 2
                                             
                                                    1. e-numerate
                                             
@@ -1045,8 +1045,8 @@ mutitable in format_command
 
      in verbatim
 
-        * i-tem 1
-        * i-tem 2
+        • i-tem 1
+        • i-tem 2
 
        1. e-numerate
 
@@ -1079,8 +1079,8 @@ mutitable in format_command
       -- fun: arg arg1
           in macro, a format_command
           containing some other commands.
-             * i-tem 1
-             * i-tem 2
+             • i-tem 1
+             • i-tem 2
 
             1. e-numerate
 
@@ -1152,8 +1152,8 @@ mutitable in format_command
 
 
 
-        * i--tem 1
-        * i--tem 2
+        • i--tem 1
+        • i--tem 2
 
        1. e--numerate
 
@@ -1184,8 +1184,8 @@ mutitable in format_command
 
       -- fun: arg arg1
           in macro, a format_command containing some other commands.
-             * i--tem 1
-             * i--tem 2
+             • i--tem 1
+             • i--tem 2
 
             1. e--numerate
 
@@ -1258,8 +1258,8 @@ mutitable in format_command
 
 
 
-        * i--tem 1
-        * i--tem 2
+        • i--tem 1
+        • i--tem 2
 
        1. e--numerate
 
@@ -1290,8 +1290,8 @@ mutitable in format_command
 
       -- fun: arg arg1
           in macro, a format_command containing some other commands.
-             * i--tem 1
-             * i--tem 2
+             • i--tem 1
+             • i--tem 2
 
             1. e--numerate
 
@@ -1365,8 +1365,8 @@ mutitable in format_command
 
 
 
-             * i--tem 1
-             * i--tem 2
+             • i--tem 1
+             • i--tem 2
 
             1. e--numerate
 
@@ -1397,8 +1397,8 @@ mutitable in format_command
 
            -- fun: arg arg1
                in macro, a format_command containing some other commands.
-                  * i--tem 1
-                  * i--tem 2
+                  • i--tem 1
+                  • i--tem 2
 
                  1. e--numerate
 
@@ -1467,8 +1467,8 @@ mutitable in format_command
 
      in verbatim
 
-        * i-tem 1
-        * i-tem 2
+        • i-tem 1
+        • i-tem 2
 
        1. e-numerate
 
@@ -1499,8 +1499,8 @@ mutitable in format_command
 
       -- fun: arg arg1
           in macro, a format_command containing some other commands.
-             * i-tem 1
-             * i-tem 2
+             • i-tem 1
+             • i-tem 2
 
             1. e-numerate
 
@@ -1567,8 +1567,8 @@ mutitable in format_command
 
           in verbatim
 
-             * i-tem 1
-             * i-tem 2
+             • i-tem 1
+             • i-tem 2
 
             1. e-numerate
 
@@ -1600,8 +1600,8 @@ mutitable in format_command
            -- fun: arg arg1
                in macro, a format_command containing some other
                commands.
-                  * i-tem 1
-                  * i-tem 2
+                  • i-tem 1
+                  • i-tem 2
 
                  1. e-numerate
 
@@ -1668,8 +1668,8 @@ mutitable in format_command
 
      in verbatim
 
-        * i-tem 1
-        * i-tem 2
+        • i-tem 1
+        • i-tem 2
 
        1. e-numerate
 
@@ -1700,8 +1700,8 @@ mutitable in format_command
 
       -- fun: arg arg1
           in macro, a format_command containing some other commands.
-             * i-tem 1
-             * i-tem 2
+             • i-tem 1
+             • i-tem 2
 
             1. e-numerate
 
@@ -1767,8 +1767,8 @@ a line
 
      in verbatim
 
-        * i-tem 1
-        * i-tem 2
+        • i-tem 1
+        • i-tem 2
 
        1. e-numerate
 
@@ -1799,8 +1799,8 @@ a line
 
       -- fun: arg arg1
           in macro, a format_command containing some other commands.
-             * i-tem 1
-             * i-tem 2
+             • i-tem 1
+             • i-tem 2
 
             1. e-numerate
 
@@ -1867,8 +1867,8 @@ a line
 
      in verbatim
 
-        * i-tem 1
-        * i-tem 2
+        • i-tem 1
+        • i-tem 2
 
        1. e-numerate
 
@@ -1899,8 +1899,8 @@ a line
 
       -- fun: arg arg1
           in macro, a format_command containing some other commands.
-             * i-tem 1
-             * i-tem 2
+             • i-tem 1
+             • i-tem 2
 
             1. e-numerate
 
@@ -1968,8 +1968,8 @@ a line2
 
           in verbatim
 
-             * i-tem 1
-             * i-tem 2
+             • i-tem 1
+             • i-tem 2
 
             1. e-numerate
 
@@ -2001,8 +2001,8 @@ a line2
            -- fun: arg arg1
                in macro, a format_command containing some other
                commands.
-                  * i-tem 1
-                  * i-tem 2
+                  • i-tem 1
+                  • i-tem 2
 
                  1. e-numerate
 
@@ -2068,8 +2068,8 @@ subheading
 
 in verbatim
 
-   * i-tem 1
-   * i-tem 2
+   • i-tem 1
+   • i-tem 2
 
   1. e-numerate
 
@@ -2100,8 +2100,8 @@ f-lushleft
 
  -- fun: arg arg1
      in macro, a format_command containing some other commands.
-        * i-tem 1
-        * i-tem 2
+        • i-tem 1
+        • i-tem 2
 
        1. e-numerate
 
@@ -2166,8 +2166,8 @@ subheading
 
 in verbatim
 
-   * i-tem 1
-   * i-tem 2
+   • i-tem 1
+   • i-tem 2
 
   1. e-numerate
 
@@ -2198,8 +2198,8 @@ f-lushleft
 
  -- fun: arg arg1
      in macro, a format_command containing some other commands.
-        * i-tem 1
-        * i-tem 2
+        • i-tem 1
+        • i-tem 2
 
        1. e-numerate
 
@@ -2266,8 +2266,8 @@ f-lushleft
 
      in verbatim
 
-        * i-tem 1
-        * i-tem 2
+        • i-tem 1
+        • i-tem 2
 
        1. e-numerate
 
@@ -2298,8 +2298,8 @@ f-lushleft
 
       -- fun: arg arg1
           in macro, a format_command containing some other commands.
-             * i-tem 1
-             * i-tem 2
+             • i-tem 1
+             • i-tem 2
 
             1. e-numerate
 
@@ -2365,8 +2365,8 @@ subheading
 
 in verbatim
 
-   * i-tem 1
-   * i-tem 2
+   • i-tem 1
+   • i-tem 2
 
   1. e-numerate
 
@@ -2397,8 +2397,8 @@ f-lushleft
 
  -- fun: arg arg1
      in macro, a format_command containing some other commands.
-        * i-tem 1
-        * i-tem 2
+        • i-tem 1
+        • i-tem 2
 
        1. e-numerate
 
@@ -2466,8 +2466,8 @@ call macro in flushleft in format_command
 
      in verbatim
 
-        * i-tem 1
-        * i-tem 2
+        • i-tem 1
+        • i-tem 2
 
        1. e-numerate
 
@@ -2498,8 +2498,8 @@ call macro in flushleft in format_command
 
       -- fun: arg arg1
           in macro, a format_command containing some other commands.
-             * i-tem 1
-             * i-tem 2
+             • i-tem 1
+             • i-tem 2
 
             1. e-numerate
 
@@ -2564,8 +2564,8 @@ subheading
 
 in verbatim
 
-   *                                                                 i-tem 1
-   *                                                                 i-tem 2
+   •                                                                 i-tem 1
+   •                                                                 i-tem 2
 
   1.                                                              e-numerate
 
@@ -2596,8 +2596,8 @@ f-lushleft
 
  -- fun: arg arg1
              in macro, a format_command containing some other commands.
-        *                                                                 i-tem 1
-        *                                                                 i-tem 2
+        •                                                                 i-tem 1
+        •                                                                 i-tem 2
 
        1.                                                              e-numerate
 
@@ -2664,8 +2664,8 @@ f-lushleft
 
      in verbatim
 
-        *                                                                 i-tem 1
-        *                                                                 i-tem 2
+        •                                                                 i-tem 1
+        •                                                                 i-tem 2
 
        1.                                                              e-numerate
 
@@ -2696,8 +2696,8 @@ f-lushleft
 
       -- fun: arg arg1
              in macro, a format_command containing some other commands.
-             *                                                                 i-tem 1
-             *                                                                 i-tem 2
+             •                                                                 i-tem 1
+             •                                                                 i-tem 2
 
             1.                                                              e-numerate
 

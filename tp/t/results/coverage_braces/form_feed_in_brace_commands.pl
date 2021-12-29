@@ -278,7 +278,7 @@ $result_converted{'xml'}->{'form_feed_in_brace_commands'} = '<para><option> &for
 </para>';
 
 
-$result_converted{'plaintext'}->{'form_feed_in_brace_commands'} = '\' aa\'
+$result_converted{'plaintext'}->{'form_feed_in_brace_commands'} = '‘ aa’
 
    something fff <aaa>(1) (2).
 

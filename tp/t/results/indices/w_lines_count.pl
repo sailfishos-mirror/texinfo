@@ -411,7 +411,7 @@ $result_converted{'info'}->{'w_lines_count'} = 'This is , produced from .
 File: ,  Node: Top,  Up: (dir)
 
 xzcompilationxdmbufferxmsubsequentmxCtxaxxmcommandsmadvancemfrommthere.
-\'C-u\' starts again from the beginning
+‘C-u’ starts again from the beginning
 
    Compilation mode also defines the keys <SPC> and <DEL> to
 
@@ -435,7 +435,7 @@ End:
 
 
 $result_converted{'plaintext'}->{'w_lines_count'} = 'xzcompilationxdmbufferxmsubsequentmxCtxaxxmcommandsmadvancemfrommthere.
-\'C-u\' starts again from the beginning
+‘C-u’ starts again from the beginning
 
    Compilation mode also defines the keys <SPC> and <DEL> to
 

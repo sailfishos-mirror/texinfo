@@ -129,7 +129,7 @@ $result_floats{'command_brace_no_arg_punctuation'} = {};
 
 
 
-$result_converted{'plaintext'}->{'command_brace_no_arg_punctuation'} = 'TeX.  And LaTeX.  (C).  (R).  End.
+$result_converted{'plaintext'}->{'command_brace_no_arg_punctuation'} = 'TeX.  And LaTeX.  ©.  ®.  End.
 ';
 
 1;

@@ -224,7 +224,7 @@ $result_floats{'nested_args'} = {};
 
 
 
-$result_converted{'plaintext'}->{'nested_args'} = '*Note descr in b: (\'manual\')@ in samp.
+$result_converted{'plaintext'}->{'nested_args'} = '*Note descr in b: (‘manual’)@ in samp.
 ';
 
 

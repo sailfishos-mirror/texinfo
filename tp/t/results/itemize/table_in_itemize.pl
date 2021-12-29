@@ -451,8 +451,8 @@ $result_floats{'table_in_itemize'} = {};
 
 
 
-$result_converted{'plaintext'}->{'table_in_itemize'} = '   * item one
-   * table one
+$result_converted{'plaintext'}->{'table_in_itemize'} = '   • item one
+   • table one
           aaaaa
 
           New para.
@@ -460,7 +460,7 @@ $result_converted{'plaintext'}->{'table_in_itemize'} = '   * item one
           Five
 
           New para.
-   * item three
+   • item three
 ';
 
 

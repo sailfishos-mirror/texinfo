@@ -967,7 +967,7 @@ $result_converted{'info'}->{'explicit_sort_key'} = 'This is , produced from .
 
 File: ,  Node: Top,  Up: (dir)
 
-in a reuglar para.  \'inside another\'.
+in a reuglar para.  ‘inside another’.
 
    .  <and cmd>.
 
@@ -993,7 +993,7 @@ End:
 ';
 
 
-$result_converted{'plaintext'}->{'explicit_sort_key'} = 'in a reuglar para.  \'inside another\'.
+$result_converted{'plaintext'}->{'explicit_sort_key'} = 'in a reuglar para.  ‘inside another’.
 
    .  <and cmd>.
 

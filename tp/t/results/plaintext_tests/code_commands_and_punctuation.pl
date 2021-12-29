@@ -93,7 +93,7 @@ $result_floats{'code_commands_and_punctuation'} = {};
 
 
 
-$result_converted{'plaintext'}->{'code_commands_and_punctuation'} = '\'AA\'.  \'aa\'.  After.
+$result_converted{'plaintext'}->{'code_commands_and_punctuation'} = '‘AA’.  ‘aa’.  After.
 ';
 
 1;

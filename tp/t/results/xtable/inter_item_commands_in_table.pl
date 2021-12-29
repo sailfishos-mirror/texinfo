@@ -3154,7 +3154,7 @@ $result_converted{'plaintext'}->{'inter_item_commands_in_table'} = 'top
 1 chap
 ******
 
-\'acode--b\'
+‘acode--b’
      l-ine
 
 aasis-b
@@ -3168,25 +3168,25 @@ C
 
 D
 
-\'abb\'
+‘abb’
      l-ine
 
      Texte before first item.
-\'abb\'
+‘abb’
 
-\'asamp--bb\'
+‘asamp--bb’
      l-ine samp
 
      Texte before first item samp.
-\'asamp--bb\'
+‘asamp--bb’
 
-\'asamp--bb1\'
+‘asamp--bb1’
 
-\'asamp--bb2\'
+‘asamp--bb2’
 
-\'asamp--bb2\'
+‘asamp--bb2’
 
-\'asamp--bb2\'
+‘asamp--bb2’
 
 ';
 

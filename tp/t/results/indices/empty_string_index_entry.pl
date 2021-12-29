@@ -813,7 +813,7 @@ $result_converted{'info'}->{'empty_string_index_entry'} = 'This is , produced fr
 
 File: ,  Node: Top,  Up: (dir)
 
-\'\'
+‘’
 
  -- Function: 
  -- Function: 
@@ -872,7 +872,7 @@ $result_converted_errors{'info'}->{'empty_string_index_entry'} = [
 
 
 
-$result_converted{'plaintext'}->{'empty_string_index_entry'} = '\'\'
+$result_converted{'plaintext'}->{'empty_string_index_entry'} = '‘’
 
  -- Function: 
  -- Function: 

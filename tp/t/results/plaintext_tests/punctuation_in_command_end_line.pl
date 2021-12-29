@@ -412,8 +412,8 @@ $result_floats{'punctuation_in_command_end_line'} = {};
 
 
 
-$result_converted{'plaintext'}->{'punctuation_in_command_end_line'} = 'Text.  Email .  <.> dmn 1. and text.  indicateurl \'.\' and then kbd \'.\'
-and math . and cite \'.\' and emph _._  text.  asis in code \'.\' text.  a
+$result_converted{'plaintext'}->{'punctuation_in_command_end_line'} = 'Text.  Email .  <.> dmn 1. and text.  indicateurl ‘.’ and then kbd ‘.’
+and math . and cite ‘.’ and emph _._  text.  asis in code ‘.’ text.  a
 dot before a emph open ._  and in emph._
 ';
 

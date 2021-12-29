@@ -2307,33 +2307,33 @@ $result_floats{'kbdinputstyle_in_table'} = {};
 
 $result_converted{'plaintext'}->{'kbdinputstyle_in_table'} = '@kbdinputstyle code
 
-\'i--tem out of example\'
+‘i--tem out of example’
 
-\'braced i--tem out of example\'
+‘braced i--tem out of example’
 
    in example
-     \'i--tem in example\'
-     \'braced i--tem in example\'
+     ‘i--tem in example’
+     ‘braced i--tem in example’
 
    @kbdinputstyle example
 
-\'i--tem out of example\'
+‘i--tem out of example’
 
-\'braced i--tem out of example\'
+‘braced i--tem out of example’
 
    in example
-     \'i--tem in example\'
-     \'braced i--tem in example\'
+     ‘i--tem in example’
+     ‘braced i--tem in example’
 
    @kbdinputstyle distinct
 
-\'i--tem out of example\'
+‘i--tem out of example’
 
-\'braced i--tem out of example\'
+‘braced i--tem out of example’
 
    in example
-     \'i--tem in example\'
-     \'braced i--tem in example\'
+     ‘i--tem in example’
+     ‘braced i--tem in example’
 ';
 
 

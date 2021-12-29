@@ -421,8 +421,8 @@ $result_floats{'punctuation_and_code_style_commands'} = {};
 
 
 
-$result_converted{'plaintext'}->{'punctuation_and_code_style_commands'} = '\'aaa\'.  \'ẽ\'.  \'å\'.  \'AAA\'.  \'Ẽ\'.  \'Å\'.  \'double AAA\'.  \'double Ẽ\'.
-\'double Å\'.  End.
+$result_converted{'plaintext'}->{'punctuation_and_code_style_commands'} = '‘aaa’.  ‘ẽ’.  ‘å’.  ‘AAA’.  ‘Ẽ’.  ‘Å’.  ‘double AAA’.  ‘double Ẽ’.
+‘double Å’.  End.
 ';
 
 1;

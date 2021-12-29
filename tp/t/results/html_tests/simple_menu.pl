@@ -2175,17 +2175,17 @@ File: ,  Node: Top,  Next: (ggg),  Up: (dir)
 * Menu:
 
 * (ggg):: description
-   * idescr
+   • idescr
 AAA
 
 CCC
 
-   * iaa
+   • iaa
 
 
 BBB
 
-   * ibb
+   • ibb
 * (manual)::
 
 comment
@@ -2195,17 +2195,17 @@ in description
 * (after_description)::
 
 * (detailggg):: detaildescription
-   * idetaildescr
+   • idetaildescr
 detailAAA
 
 detailCCC
 
-   * detailiaa
+   • detailiaa
 
 
 detailBBB
 
-   * detailibb
+   • detailibb
 * (detailmanual)::
 
 detailcomment

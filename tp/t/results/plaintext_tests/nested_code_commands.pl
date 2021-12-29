@@ -1561,27 +1561,27 @@ $result_floats{'nested_code_commands'} = {};
 
 
 
-$result_converted{'plaintext'}->{'nested_code_commands'} = '\'aA fg\'.  \'cc gg\'.  \'in command fg\' \'in code in command\' \'in samp \'in
-code\'\' \'in code \'in samp\'\' IN VAR \'IN CODE\' \'in code IN VAR\'
+$result_converted{'plaintext'}->{'nested_code_commands'} = '‘aA fg’.  ‘cc gg’.  ‘in command fg’ ‘in code in command’ ‘in samp ‘in
+code’’ ‘in code ‘in samp’’ IN VAR ‘IN CODE’ ‘in code IN VAR’
 
      in code
      aA fg
      hh
      in command fg
      in code in command
-     \'in samp in code\'
-     in code \'in samp\'
+     ‘in samp in code’
+     in code ‘in samp’
      IN VAR IN CODE
      in code IN VAR
 
-     \'in disp\'
-     \'aA fg\'
-     \'in command fg\'
-     \'in code in command\'
-     \'in samp \'in code\'\'
-     \'in code \'in samp\'\'
-     IN VAR \'IN CODE\'
-     \'in code IN VAR\'
+     ‘in disp’
+     ‘aA fg’
+     ‘in command fg’
+     ‘in code in command’
+     ‘in samp ‘in code’’
+     ‘in code ‘in samp’’
+     IN VAR ‘IN CODE’
+     ‘in code IN VAR’
 ';
 
 1;

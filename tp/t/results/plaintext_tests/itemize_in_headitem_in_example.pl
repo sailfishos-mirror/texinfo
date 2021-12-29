@@ -711,15 +711,15 @@ $result_floats{'itemize_in_headitem_in_example'} = {};
 
 $result_converted{'plaintext'}->{'itemize_in_headitem_in_example'} = '          a
 
-        * bbb
+        • bbb
           ccc
 
           ddd
-        * eee
+        • eee
 
-        * fff
+        • fff
           ggg
-        * hhh
+        • hhh
 
 ';
 

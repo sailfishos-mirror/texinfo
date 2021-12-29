@@ -408,7 +408,7 @@ fl 1: in caption(1)
 
    ---------- Footnotes ----------
 
-   (1) in footnote error->
+   (1) in footnote error→
 
 ';
 

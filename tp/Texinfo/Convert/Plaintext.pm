@@ -326,6 +326,7 @@ foreach my $command ('var', 'cite', 'dmn', keys(%code_style_commands)) {
 
 my %defaults = (
   'ENABLE_ENCODING'      => 1,
+  'NO_UTF8_PUNCTUATION'  => 0,
   'FORMAT_MENU'          => 'nomenu',
   #'EXTENSION'            => 'info',
   'EXTENSION'            => 'txt',
@@ -404,9 +405,7 @@ sub converter_initialize($)
       and $self->get_conf('OUTPUT_ENCODING_NAME') eq 'utf-8') {
     # cache this to avoid redoing calls to get_conf
     $self->{'to_utf8'} = 1;
-    if (!$self->{'global_commands'}->{'documentencoding'}) {
-      # Do not use curly quotes or some other unnecessary non-ASCII characters
-      # if '@documentencoding UTF-8' is not given.
+    if ($self->get_conf('NO_UTF8_PUNCTUATION')) {
       $self->{'convert_text_options'}->{'no_extra_unicode'} = 1;
     } else {
       foreach my $quoted_command (@quoted_commands) {

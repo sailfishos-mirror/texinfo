@@ -4805,7 +4805,7 @@ _truc_
      line
 
 An itemize.
-   - truc line
+   − truc line
 
 A ref.  *Note xref Text with features: Top.  A footnote.  (1).
 
@@ -4826,7 +4826,7 @@ truc   bidule
 An index entry
 
 An itemize.
-   - truc line
+   − truc line
 
 A ref.  *Note xref Text with features caption: Top.  A footnote.  (2).
 
@@ -4859,7 +4859,7 @@ truc   bidule
 An index entry 2
 
 An itemize 2.
-   - truc 2 line
+   − truc 2 line
 
 A ref 2.  *Note xref Text with features caption: Top.  A footnote 2.
 (1).

@@ -532,11 +532,11 @@ $result_floats{'kbd'} = {};
 
 
 
-$result_converted{'plaintext'}->{'kbd'} = 'kbd: \'in kbd\'.
+$result_converted{'plaintext'}->{'kbd'} = 'kbd: ‘in kbd’.
 
-   kbd in code: \'in first in nested kbd\'.
+   kbd in code: ‘in first in nested kbd’.
 
-   kbd in kbd: \'in top kbd in nested kbd\'.
+   kbd in kbd: ‘in top kbd in nested kbd’.
 
    kbd in @example:
 
@@ -546,7 +546,7 @@ $result_converted{'plaintext'}->{'kbd'} = 'kbd: \'in kbd\'.
    kbd in @format:
 
 in format
-\'in format in kbd\'.
+‘in format in kbd’.
 ';
 
 

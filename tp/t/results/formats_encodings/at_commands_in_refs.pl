@@ -22695,20 +22695,20 @@ $result_converted{'plaintext'}->{'at_commands_in_refs'} = 'Top
 3 @ { } \\ #
 ***********
 
-4 LaTeX TeX * , (C) ... ...
-***************************
+4 LaTeX TeX • , © ... ...
+*************************
 
-5 == error-> € ¡ ==> -
-**********************
+5 ≡ error→ € ¡ ↦ −
+******************
 
-6 ≥ ≤ ->
-********
+6 ≥ ≤ →
+*******
 
-7 ª º -!- £ -| ¿ (R)
-********************
+7 ª º ★ £ ⊣ ¿ ®
+***************
 
-8 => ° a b a sunny day å
-************************
+8 ⇒ ° a b a sunny day å
+***********************
 
 9 Å æ œ Æ Œ ø Ø ß ł Ł Ð ð Þ þ
 *****************************
@@ -22747,10 +22747,10 @@ $result_converted{'plaintext'}->{'at_commands_in_refs'} = 'Top
 20  @ {} . 
 ***********
 
-21 \'cite asis\' in @w b in r SC *str* t VAR "dfn" i
+21 ‘cite asis’ in @w b in r SC *str* t VAR “dfn” i
 **************************************************
 
-22 \'env\' \'code\' \'option\' \'samp\' \'command\' \'file\' \'C-x <ESC>\'
+22 ‘env’ ‘code’ ‘option’ ‘samp’ ‘command’ ‘file’ ‘C-x <ESC>’
 ************************************************************
 
 23 8.27in
@@ -22759,7 +22759,7 @@ $result_converted{'plaintext'}->{'at_commands_in_refs'} = 'Top
 24 sansserif slanted
 ********************
 
-25 \'indicateurl\'
+25 ‘indicateurl’
 ****************
 
 26 _{g}H 3^{rd}
@@ -22775,15 +22775,15 @@ $result_converted{'plaintext'}->{'at_commands_in_refs'} = 'Top
 
    *note @ { } \\ #::
 
-   *note LaTeX TeX * , (C) ... ...::
+   *note LaTeX TeX • , © ... ...::
 
-   *note == error-> € ¡ ==> -::
+   *note ≡ error→ € ¡ ↦ −::
 
-   *note ≥ ≤ ->::
+   *note ≥ ≤ →::
 
-   *note ª º -!- £ -| ¿ (R)::
+   *note ª º ★ £ ⊣ ¿ ®::
 
-   *note => ° a b a sunny day å::
+   *note ⇒ ° a b a sunny day å::
 
    *note Å æ œ Æ Œ ø Ø ß ł Ł Ð ð Þ þ::
 
@@ -23695,11 +23695,11 @@ Top
 *     !
  .  . ? @::
 * @ { } \\ #::
-* LaTeX TeX * , (C) ... ...::
-* == error-> € ¡ ==> -::
-* ≥ ≤ ->::
-* ª º -!- £ -| ¿ (R)::
-* => ° a b a sunny day å::
+* LaTeX TeX • , © ... ...::
+* ≡ error→ € ¡ ↦ −::
+* ≥ ≤ →::
+* ª º ★ £ ⊣ ¿ ®::
+* ⇒ ° a b a sunny day å::
 * Å æ œ Æ Œ ø Ø ß ł Ł Ð ð Þ þ::
 * ä ẽ î â à é ç ē e̊ e̋ ę::
 * ė ĕ e̲ ẹ ě j e͡e::
@@ -23736,44 +23736,44 @@ File: ,  Node:     !
 ***************
 
 
-File: ,  Node: @ { } \\ #,  Next: LaTeX TeX * , (C) ... ...,  Prev:     !
+File: ,  Node: @ { } \\ #,  Next: LaTeX TeX • , © ... ...,  Prev:     !
 . . ? @,  Up: Top
 
 3 @ { } \\ #
 ***********
 
 
-File: ,  Node: LaTeX TeX * , (C) ... ...,  Next: == error-> € ¡ ==> -,  Prev: @ { } \\ #,  Up: Top
+File: ,  Node: LaTeX TeX • , © ... ...,  Next: ≡ error→ € ¡ ↦ −,  Prev: @ { } \\ #,  Up: Top
 
-4 LaTeX TeX * , (C) ... ...
-***************************
-
-
-File: ,  Node: == error-> € ¡ ==> -,  Next: ≥ ≤ ->,  Prev: LaTeX TeX * , (C) ... ...,  Up: Top
-
-5 == error-> € ¡ ==> -
-**********************
+4 LaTeX TeX • , © ... ...
+*************************
 
 
-File: ,  Node: ≥ ≤ ->,  Next: ª º -!- £ -| ¿ (R),  Prev: == error-> € ¡ ==> -,  Up: Top
+File: ,  Node: ≡ error→ € ¡ ↦ −,  Next: ≥ ≤ →,  Prev: LaTeX TeX • , © ... ...,  Up: Top
 
-6 ≥ ≤ ->
-********
-
-
-File: ,  Node: ª º -!- £ -| ¿ (R),  Next: => ° a b a sunny day å,  Prev: ≥ ≤ ->,  Up: Top
-
-7 ª º -!- £ -| ¿ (R)
-********************
+5 ≡ error→ € ¡ ↦ −
+******************
 
 
-File: ,  Node: => ° a b a sunny day å,  Next: Å æ œ Æ Œ ø Ø ß ł Ł Ð ð Þ þ,  Prev: ª º -!- £ -| ¿ (R),  Up: Top
+File: ,  Node: ≥ ≤ →,  Next: ª º ★ £ ⊣ ¿ ®,  Prev: ≡ error→ € ¡ ↦ −,  Up: Top
 
-8 => ° a b a sunny day å
-************************
+6 ≥ ≤ →
+*******
 
 
-File: ,  Node: Å æ œ Æ Œ ø Ø ß ł Ł Ð ð Þ þ,  Next: ä ẽ î â à é ç ē e̊ e̋ ę,  Prev: => ° a b a sunny day å,  Up: Top
+File: ,  Node: ª º ★ £ ⊣ ¿ ®,  Next: ⇒ ° a b a sunny day å,  Prev: ≥ ≤ →,  Up: Top
+
+7 ª º ★ £ ⊣ ¿ ®
+***************
+
+
+File: ,  Node: ⇒ ° a b a sunny day å,  Next: Å æ œ Æ Œ ø Ø ß ł Ł Ð ð Þ þ,  Prev: ª º ★ £ ⊣ ¿ ®,  Up: Top
+
+8 ⇒ ° a b a sunny day å
+***********************
+
+
+File: ,  Node: Å æ œ Æ Œ ø Ø ß ł Ł Ð ð Þ þ,  Next: ä ẽ î â à é ç ē e̊ e̋ ę,  Prev: ⇒ ° a b a sunny day å,  Up: Top
 
 9 Å æ œ Æ Œ ø Ø ß ł Ł Ð ð Þ þ
 *****************************
@@ -23848,13 +23848,13 @@ File: ,  Node:  @ {} . ,  Next: cite asis in @w b in r SC *str* t VAR dfn i,  Pr
 
 File: ,  Node: cite asis in @w b in r SC *str* t VAR dfn i,  Next: env code option samp command file C-x <ESC>,  Prev:  @ {} . ,  Up: Top
 
-21 \'cite asis\' in @w b in r SC *str* t VAR "dfn" i
+21 ‘cite asis’ in @w b in r SC *str* t VAR “dfn” i
 **************************************************
 
 
 File: ,  Node: env code option samp command file C-x <ESC>,  Next: 8.27in,  Prev: cite asis in @w b in r SC *str* t VAR dfn i,  Up: Top
 
-22 \'env\' \'code\' \'option\' \'samp\' \'command\' \'file\' \'C-x <ESC>\'
+22 ‘env’ ‘code’ ‘option’ ‘samp’ ‘command’ ‘file’ ‘C-x <ESC>’
 ************************************************************
 
 
@@ -23872,7 +23872,7 @@ File: ,  Node: sansserif slanted,  Next: indicateurl,  Prev: 8.27in,  Up: Top
 
 File: ,  Node: indicateurl,  Next: _{g}H 3^{rd},  Prev: sansserif slanted,  Up: Top
 
-25 \'indicateurl\'
+25 ‘indicateurl’
 ****************
 
 
@@ -23894,15 +23894,15 @@ File: ,  Node: <http://somewhere_aaa> text (url) ls,  Prev: _{g}H 3^{rd},  Up: T
 
    *note @ { } \\ #::
 
-   *note LaTeX TeX * , (C) ... ...::
+   *note LaTeX TeX • , © ... ...::
 
-   *note == error-> € ¡ ==> -::
+   *note ≡ error→ € ¡ ↦ −::
 
-   *note ≥ ≤ ->::
+   *note ≥ ≤ →::
 
-   *note ª º -!- £ -| ¿ (R)::
+   *note ª º ★ £ ⊣ ¿ ®::
 
-   *note => ° a b a sunny day å::
+   *note ⇒ ° a b a sunny day å::
 
    *note Å æ œ Æ Œ ø Ø ß ł Ł Ð ð Þ þ::
 
@@ -23946,34 +23946,34 @@ File: ,  Node: <http://somewhere_aaa> text (url) ls,  Prev: _{g}H 3^{rd},  Up: T
 
 Tag Table:
 Node: Top27
-Node: { }866
+Node: { }873
 Node:     !
-. . ? @945
-Node: @ { } \\ #1050
-Node: LaTeX TeX * , (C) ... ...1169
-Node: == error-> € ¡ ==> -1330
-Node: ≥ ≤ ->1485
-Node: ª º -!- £ -| ¿ (R)1610
-Node: => ° a b a sunny day å1760
-Node: Å æ œ Æ Œ ø Ø ß ł Ł Ð ð Þ þ1947
-Node: ä ẽ î â à é ç ē e̊ e̋ ę2169
-Node: ė ĕ e̲ ẹ ě j e͡e2380
-Node: ı Ḕ Ḉ2541
-Node: “ ” ‘ ’ „ ‚2668
-Node: « » « » ‹ ›2810
-Node: `` \'\' --- -- ` \'2954
-Node: AAA (fff) AAA BBB3086
-Node: CCC (rrr) CCC DDD3226
-Node: the someone <someone@somewher> <no_explain@there>3399
-Node: [f--ile1]  [image src="f--ile.png" alt="alt" text="Image description\\"\\"\\\\." ]3699
-Node:  @ {} . 4049
-Node: cite asis in @w b in r SC *str* t VAR dfn i4252
-Node: env code option samp command file C-x <ESC>4496
-Node: 8.27in4758
-Node: sansserif slanted4892
-Node: indicateurl5016
-Node: _{g}H 3^{rd}5138
-Node: <http://somewhere_aaa> text (url) ls5277
+. . ? @952
+Node: @ { } \\ #1057
+Node: LaTeX TeX • , © ... ...1177
+Node: ≡ error→ € ¡ ↦ −1342
+Node: ≥ ≤ →1503
+Node: ª º ★ £ ⊣ ¿ ®1633
+Node: ⇒ ° a b a sunny day å1780
+Node: Å æ œ Æ Œ ø Ø ß ł Ł Ð ð Þ þ1968
+Node: ä ẽ î â à é ç ē e̊ e̋ ę2191
+Node: ė ĕ e̲ ẹ ě j e͡e2402
+Node: ı Ḕ Ḉ2563
+Node: “ ” ‘ ’ „ ‚2690
+Node: « » « » ‹ ›2832
+Node: `` \'\' --- -- ` \'2976
+Node: AAA (fff) AAA BBB3108
+Node: CCC (rrr) CCC DDD3248
+Node: the someone <someone@somewher> <no_explain@there>3421
+Node: [f--ile1]  [image src="f--ile.png" alt="alt" text="Image description\\"\\"\\\\." ]3721
+Node:  @ {} . 4071
+Node: cite asis in @w b in r SC *str* t VAR dfn i4274
+Node: env code option samp command file C-x <ESC>4526
+Node: 8.27in4816
+Node: sansserif slanted4950
+Node: indicateurl5074
+Node: _{g}H 3^{rd}5200
+Node: <http://somewhere_aaa> text (url) ls5339
 
 End Tag Table
 
@@ -24003,12 +24003,12 @@ $result_converted_errors{'info'}->{'at_commands_in_refs'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':43: warning: @node name should not contain `,\': LaTeX TeX * , (C) ... ...
-',
+    'error_line' => ":43: warning: \@node name should not contain `,': LaTeX TeX \x{2022} , \x{a9} ... ...
+",
     'file_name' => '',
     'line_nr' => 43,
     'macro' => '',
-    'text' => '@node name should not contain `,\': LaTeX TeX * , (C) ... ...',
+    'text' => "\@node name should not contain `,': LaTeX TeX \x{2022} , \x{a9} ... ...",
     'type' => 'warning'
   },
   {

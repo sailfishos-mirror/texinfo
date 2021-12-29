@@ -50,8 +50,8 @@ subheading
 
 in verbatim
 
-   * i-tem 1
-   * i-tem 2
+   • i-tem 1
+   • i-tem 2
 
   1. e-numerate
 
@@ -83,8 +83,8 @@ f-lushleft
 * Menu:
 
 in macro, a format_command containing some other commands.
-   * i-tem 1
-   * i-tem 2
+   • i-tem 1
+   • i-tem 2
 
   1. e-numerate
 
@@ -165,8 +165,8 @@ in verbatim
 
 
 
-   * i-tem 1
-   * i-tem 2
+   • i-tem 1
+   • i-tem 2
 
   1. e-numerate
 
@@ -198,8 +198,8 @@ f-lushleft
 * Menu:
 
 in macro, a format_command containing some other commands.
-   * i-tem 1
-   * i-tem 2
+   • i-tem 1
+   • i-tem 2
 
   1. e-numerate
 
@@ -272,8 +272,8 @@ f-lushleft
 
      in verbatim
 
-        * i-tem 1
-        * i-tem 2
+        • i-tem 1
+        • i-tem 2
 
        1. e-numerate
 
@@ -305,8 +305,8 @@ f-lushleft
 * Menu:
 
      in macro, a format_command containing some other commands.
-        * i-tem 1
-        * i-tem 2
+        • i-tem 1
+        • i-tem 2
 
        1. e-numerate
 
@@ -378,8 +378,8 @@ f-lushleft
 
      in verbatim
 
-        * i-tem 1
-        * i-tem 2
+        • i-tem 1
+        • i-tem 2
 
        1. e-numerate
 
@@ -411,8 +411,8 @@ f-lushleft
 * Menu:
 
      in macro, a format_command containing some other commands.
-        * i-tem 1
-        * i-tem 2
+        • i-tem 1
+        • i-tem 2
 
        1. e-numerate
 
@@ -493,8 +493,8 @@ f-lushleft
 
 
 
-        * i-tem 1
-        * i-tem 2
+        • i-tem 1
+        • i-tem 2
 
        1. e-numerate
 
@@ -526,8 +526,8 @@ f-lushleft
 * Menu:
 
      in macro, a format_command containing some other commands.
-        * i-tem 1
-        * i-tem 2
+        • i-tem 1
+        • i-tem 2
 
        1. e-numerate
 
@@ -600,8 +600,8 @@ f-lushleft
 
      in verbatim
 
-        * i-tem 1
-        * i-tem 2
+        • i-tem 1
+        • i-tem 2
 
        1. e-numerate
 
@@ -633,8 +633,8 @@ f-lushleft
 * Menu:
 
      in macro, a format_command containing some other commands.
-        * i-tem 1
-        * i-tem 2
+        • i-tem 1
+        • i-tem 2
 
        1. e-numerate
 
@@ -706,8 +706,8 @@ f-lushleft
 
      in verbatim
 
-        * i-tem 1
-        * i-tem 2
+        • i-tem 1
+        • i-tem 2
 
        1. e-numerate
 
@@ -739,8 +739,8 @@ f-lushleft
 * Menu:
 
      in macro, a format_command containing some other commands.
-        * i-tem 1
-        * i-tem 2
+        • i-tem 1
+        • i-tem 2
 
        1. e-numerate
 
@@ -821,8 +821,8 @@ f-lushleft
 
 
 
-        * i-tem 1
-        * i-tem 2
+        • i-tem 1
+        • i-tem 2
 
        1. e-numerate
 
@@ -854,8 +854,8 @@ f-lushleft
 * Menu:
 
      in macro, a format_command containing some other commands.
-        * i-tem 1
-        * i-tem 2
+        • i-tem 1
+        • i-tem 2
 
        1. e-numerate
 
@@ -931,8 +931,8 @@ subheading
 
 in verbatim
 
-   * i-tem 1
-   * i-tem 2
+   • i-tem 1
+   • i-tem 2
 
   1. e-numerate
 
@@ -965,8 +965,8 @@ f-lushleft
 * Menu:
 
 in macro, a format_command containing some other commands.
-   * i-tem 1
-   * i-tem 2
+   • i-tem 1
+   • i-tem 2
 
   1. e-numerate
 
@@ -1040,8 +1040,8 @@ multitable item 2                           multitable tab 2 Call macro in mutit
                                             
                                             in verbatim
                                             
-                                               * i-tem 1
-                                               * i-tem 2
+                                               • i-tem 1
+                                               • i-tem 2
                                             
                                               1. e-numerate
                                             
@@ -1073,8 +1073,8 @@ multitable item 2                           multitable tab 2 Call macro in mutit
                                             * Menu:
                                             
                                             in macro, a format_command containing some other commands.
-                                               * i-tem 1
-                                               * i-tem 2
+                                               • i-tem 1
+                                               • i-tem 2
                                             
                                               1. e-numerate
                                             
@@ -1156,8 +1156,8 @@ in verbatim
 
 
 
-   * i-tem 1
-   * i-tem 2
+   • i-tem 1
+   • i-tem 2
 
   1. e-numerate
 
@@ -1190,8 +1190,8 @@ f-lushleft
 * Menu:
 
 in macro, a format_command containing some other commands.
-   * i-tem 1
-   * i-tem 2
+   • i-tem 1
+   • i-tem 2
 
   1. e-numerate
 
@@ -1271,8 +1271,8 @@ f-lushleft
 
 
 
-        * i--tem 1
-        * i--tem 2
+        • i--tem 1
+        • i--tem 2
 
        1. e--numerate
 
@@ -1304,8 +1304,8 @@ f-lushleft
 * Menu:
 
      in macro, a format_command containing some other commands.
-        * i-tem 1
-        * i-tem 2
+        • i-tem 1
+        • i-tem 2
 
        1. e-numerate
 
@@ -1386,8 +1386,8 @@ f-lushleft
 
 
 
-        * i--tem 1
-        * i--tem 2
+        • i--tem 1
+        • i--tem 2
 
        1. e--numerate
 
@@ -1419,8 +1419,8 @@ f-lushleft
 * Menu:
 
      in macro, a format_command containing some other commands.
-        * i-tem 1
-        * i-tem 2
+        • i-tem 1
+        • i-tem 2
 
        1. e-numerate
 
@@ -1503,8 +1503,8 @@ f-lushleft
 
 
 
-        * i-tem 1
-        * i-tem 2
+        • i-tem 1
+        • i-tem 2
 
        1. e-numerate
 
@@ -1536,8 +1536,8 @@ f-lushleft
 * Menu:
 
      in macro, a format_command containing some other commands.
-        * i-tem 1
-        * i-tem 2
+        • i-tem 1
+        • i-tem 2
 
        1. e-numerate
 
@@ -1613,8 +1613,8 @@ f-lushleft
 
      in verbatim
 
-        * i-tem 1
-        * i-tem 2
+        • i-tem 1
+        • i-tem 2
 
        1. e-numerate
 
@@ -1646,8 +1646,8 @@ f-lushleft
 * Menu:
 
      in macro, a format_command containing some other commands.
-        * i-tem 1
-        * i-tem 2
+        • i-tem 1
+        • i-tem 2
 
        1. e-numerate
 
@@ -1728,8 +1728,8 @@ f-lushleft
 
 
 
-        * i-tem 1
-        * i-tem 2
+        • i-tem 1
+        • i-tem 2
 
        1. e-numerate
 
@@ -1761,8 +1761,8 @@ f-lushleft
 * Menu:
 
      in macro, a format_command containing some other commands.
-        * i-tem 1
-        * i-tem 2
+        • i-tem 1
+        • i-tem 2
 
        1. e-numerate
 
@@ -1836,8 +1836,8 @@ f-lushleft
 
      in verbatim
 
-        * i-tem 1
-        * i-tem 2
+        • i-tem 1
+        • i-tem 2
 
        1. e-numerate
 
@@ -1869,8 +1869,8 @@ f-lushleft
 * Menu:
 
      in macro, a format_command containing some other commands.
-        * i-tem 1
-        * i-tem 2
+        • i-tem 1
+        • i-tem 2
 
        1. e-numerate
 
@@ -1943,8 +1943,8 @@ a line
 
      in verbatim
 
-        * i-tem 1
-        * i-tem 2
+        • i-tem 1
+        • i-tem 2
 
        1. e-numerate
 
@@ -1976,8 +1976,8 @@ a line
 * Menu:
 
      in macro, a format_command containing some other commands.
-        * i-tem 1
-        * i-tem 2
+        • i-tem 1
+        • i-tem 2
 
        1. e-numerate
 
@@ -2051,8 +2051,8 @@ a line
 
      in verbatim
 
-        * i-tem 1
-        * i-tem 2
+        • i-tem 1
+        • i-tem 2
 
        1. e-numerate
 
@@ -2084,8 +2084,8 @@ a line
 * Menu:
 
      in macro, a format_command containing some other commands.
-        * i-tem 1
-        * i-tem 2
+        • i-tem 1
+        • i-tem 2
 
        1. e-numerate
 
@@ -2167,8 +2167,8 @@ a line2
 
 
 
-        * i-tem 1
-        * i-tem 2
+        • i-tem 1
+        • i-tem 2
 
        1. e-numerate
 
@@ -2200,8 +2200,8 @@ a line2
 * Menu:
 
      in macro, a format_command containing some other commands.
-        * i-tem 1
-        * i-tem 2
+        • i-tem 1
+        • i-tem 2
 
        1. e-numerate
 
@@ -2274,8 +2274,8 @@ subheading
 
 in verbatim
 
-   * i-tem 1
-   * i-tem 2
+   • i-tem 1
+   • i-tem 2
 
   1. e-numerate
 
@@ -2307,8 +2307,8 @@ f-lushleft
 * Menu:
 
 in macro, a format_command containing some other commands.
-   * i-tem 1
-   * i-tem 2
+   • i-tem 1
+   • i-tem 2
 
   1. e-numerate
 
@@ -2380,8 +2380,8 @@ subheading
 
 in verbatim
 
-   * i-tem 1
-   * i-tem 2
+   • i-tem 1
+   • i-tem 2
 
   1. e-numerate
 
@@ -2413,8 +2413,8 @@ f-lushleft
 * Menu:
 
 in macro, a format_command containing some other commands.
-   * i-tem 1
-   * i-tem 2
+   • i-tem 1
+   • i-tem 2
 
   1. e-numerate
 
@@ -2495,8 +2495,8 @@ in verbatim
 
 
 
-   * i-tem 1
-   * i-tem 2
+   • i-tem 1
+   • i-tem 2
 
   1. e-numerate
 
@@ -2528,8 +2528,8 @@ f-lushleft
 * Menu:
 
 in macro, a format_command containing some other commands.
-   * i-tem 1
-   * i-tem 2
+   • i-tem 1
+   • i-tem 2
 
   1. e-numerate
 
@@ -2602,8 +2602,8 @@ subheading
 
 in verbatim
 
-   * i-tem 1
-   * i-tem 2
+   • i-tem 1
+   • i-tem 2
 
   1. e-numerate
 
@@ -2635,8 +2635,8 @@ f-lushleft
 * Menu:
 
 in macro, a format_command containing some other commands.
-   * i-tem 1
-   * i-tem 2
+   • i-tem 1
+   • i-tem 2
 
   1. e-numerate
 
@@ -2718,8 +2718,8 @@ in verbatim
 
 
 
-   * i-tem 1
-   * i-tem 2
+   • i-tem 1
+   • i-tem 2
 
   1. e-numerate
 
@@ -2751,8 +2751,8 @@ f-lushleft
 * Menu:
 
 in macro, a format_command containing some other commands.
-   * i-tem 1
-   * i-tem 2
+   • i-tem 1
+   • i-tem 2
 
   1. e-numerate
 
@@ -2824,8 +2824,8 @@ subheading
 
 in verbatim
 
-   *                                                                 i-tem 1
-   *                                                                 i-tem 2
+   •                                                                 i-tem 1
+   •                                                                 i-tem 2
 
   1.                                                              e-numerate
 
@@ -2857,8 +2857,8 @@ f-lushleft
 * Menu:
 
 in macro, a format_command containing some other commands.
-   * i-tem 1
-   * i-tem 2
+   • i-tem 1
+   • i-tem 2
 
   1. e-numerate
 
@@ -2939,8 +2939,8 @@ in verbatim
 
 
 
-   * i-tem 1
-   * i-tem 2
+   • i-tem 1
+   • i-tem 2
 
   1. e-numerate
 
@@ -2972,8 +2972,8 @@ f-lushleft
 * Menu:
 
 in macro, a format_command containing some other commands.
-   * i-tem 1
-   * i-tem 2
+   • i-tem 1
+   • i-tem 2
 
   1. e-numerate
 

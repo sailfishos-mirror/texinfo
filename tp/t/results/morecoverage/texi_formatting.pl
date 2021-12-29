@@ -4707,11 +4707,11 @@ $result_indices_sort_strings{'texi_formatting'} = {
 $result_converted{'info'}->{'texi_formatting'} = 'This is formatting.info, produced from formatting.texi.
 
 In copying
-INFO-DIR-SECTION Formatting é \'@ TeX\' test
+INFO-DIR-SECTION Formatting é ‘@ TeX’ test
 START-INFO-DIR-ENTRY
 * Truc: (formatting).           The GNU documentation truc.
-* \'@ é ==\': (formatting).  "-- something"
-                           \'cmd\' à
+* ‘@ é ≡’: (formatting).  "-- something"
+                           ‘cmd’ à
 END-INFO-DIR-ENTRY
 
 
@@ -4852,15 +4852,15 @@ chapter 2
 
 
 Tag Table:
-Node: Top292
-Node: chapter1370
-Ref: chapter-Footnote-11594
-Node: s--ect,ion1614
-Node: subsection1815
-Ref: anchor1994
-Node: subsubsection ``simple-double--1994
-Node: subsubsection three---four----\'\'2194
-Node: chapter22366
+Node: Top305
+Node: chapter1383
+Ref: chapter-Footnote-11607
+Node: s--ect,ion1627
+Node: subsection1828
+Ref: anchor2007
+Node: subsubsection ``simple-double--2007
+Node: subsubsection three---four----\'\'2207
+Node: chapter22379
 
 End Tag Table
 

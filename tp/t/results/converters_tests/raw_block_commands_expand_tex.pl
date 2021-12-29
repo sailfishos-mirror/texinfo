@@ -582,7 +582,7 @@ $result_floats{'raw_block_commands_expand_tex'} = {};
 
 
 
-$result_converted{'plaintext'}->{'raw_block_commands_expand_tex'} = '$\\underline{a < b \'tex \\hbox{ code }\'}$ ``}
+$result_converted{'plaintext'}->{'raw_block_commands_expand_tex'} = '$\\underline{a < b ‘tex \\hbox{ code }’}$ ``}
 
 ';
 

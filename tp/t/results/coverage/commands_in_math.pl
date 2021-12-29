@@ -2811,18 +2811,18 @@ $result_converted{'plaintext'}->{'commands_in_math'} = '*``simple-double--three-
         ! ? . @ } {
 a sunny day
 
-->
+→
 u
-TeX LaTeX * (C) ... ... ==
-error-> ==> - -!- -| =>
+TeX LaTeX • © ... ... ≡
+error→ ↦ − ★ ⊣ ⇒
 å Å æ œ Æ Œ ø Ø ß ł Ł Ð
 Þ ð þ ¡ ¿ £
-(R) ª º ,
+® ª º ,
 
 “ ”
 ‘ ’ „ ‚ «
 » « » ‹
-› ° € -> ≤ ≥
+› ° € → ≤ ≥
 ';
 
 

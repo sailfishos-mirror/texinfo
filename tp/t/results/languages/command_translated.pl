@@ -263,10 +263,10 @@ $result_floats{'command_translated'} = {};
 
 
 
-$result_converted{'plaintext'}->{'command_translated'} = 'top erreur->
-************
+$result_converted{'plaintext'}->{'command_translated'} = 'top erreur→
+***********
 
-erreur->
+erreur→
 ';
 
 
@@ -275,10 +275,10 @@ $result_converted{'info'}->{'command_translated'} = 'This is , produced from .
 
 File: ,  Node: Top,  Up: (dir)
 
-top erreur->
-************
+top erreur→
+***********
 
-erreur->
+erreur→
 
 
 Tag Table:

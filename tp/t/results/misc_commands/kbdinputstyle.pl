@@ -1620,8 +1620,8 @@ $result_floats{'kbdinputstyle'} = {};
 
 $result_converted{'plaintext'}->{'kbdinputstyle'} = '@kbdinputstyle code
 
-   \'in code out of example in nested code\'.  \'kbd out of example\'.  \'kbd
-in code\'.
+   ‘in code out of example in nested code’.  ‘kbd out of example’.  ‘kbd
+in code’.
 
    in example
      in code in example in nested code.
@@ -1630,8 +1630,8 @@ in code\'.
 
    @kbdinputstyle example
 
-   \'in code out of example in nested code\'.  \'kbd out of example\'.  \'kbd
-in code\'.
+   ‘in code out of example in nested code’.  ‘kbd out of example’.  ‘kbd
+in code’.
 
    in example
      in code in example in nested code.
@@ -1640,8 +1640,8 @@ in code\'.
 
    @kbdinputstyle distinct
 
-   \'in code out of example in nested code\'.  \'kbd out of example\'.  \'kbd
-in code\'.
+   ‘in code out of example in nested code’.  ‘kbd out of example’.  ‘kbd
+in code’.
 
    in example
      in code in example in nested code.

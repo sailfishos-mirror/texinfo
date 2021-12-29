@@ -145,7 +145,7 @@ $result_floats{'comment_first_on_itemize_line'} = {};
 
 
 
-$result_converted{'plaintext'}->{'comment_first_on_itemize_line'} = '   * first
+$result_converted{'plaintext'}->{'comment_first_on_itemize_line'} = '   • first
 ';
 
 

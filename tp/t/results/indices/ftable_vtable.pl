@@ -877,7 +877,7 @@ _function2x_
      Text
 _fun3_
 
-_var1 error->_
+_var1 error→_
 _varx2_
      Text
 _var3_
@@ -893,7 +893,7 @@ _var3_
  [index ]
 * Menu:
 
-* var1 error->:                          Top.                  (line  8)
+* var1 error→:                           Top.                  (line  8)
 * var3:                                  Top.                  (line 11)
 * varx2:                                 Top.                  (line  9)
 
@@ -916,7 +916,7 @@ _function2x_
      Text
 _fun3_
 
-_var1 error->_
+_var1 error→_
 _varx2_
      Text
 _var3_
@@ -930,7 +930,7 @@ _var3_
 
 * Menu:
 
-* var1 error->:                          Top.                   (line 5)
+* var1 error→:                           Top.                   (line 5)
 * var3:                                  Top.                   (line 8)
 * varx2:                                 Top.                   (line 6)
 

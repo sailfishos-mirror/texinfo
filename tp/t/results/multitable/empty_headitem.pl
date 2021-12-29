@@ -357,7 +357,7 @@ $result_floats{'empty_headitem'} = {};
 
 $result_converted{'plaintext'}->{'empty_headitem'} = '        Index   Value
 ------------------------
-        \'3\'     \'30\'
+        ‘3’     ‘30’
 ';
 
 

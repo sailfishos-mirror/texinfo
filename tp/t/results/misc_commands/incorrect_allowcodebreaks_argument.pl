@@ -105,7 +105,7 @@ $result_floats{'incorrect_allowcodebreaks_argument'} = {};
 
 
 
-$result_converted{'plaintext'}->{'incorrect_allowcodebreaks_argument'} = '\'b a\'
+$result_converted{'plaintext'}->{'incorrect_allowcodebreaks_argument'} = '‘b a’
 ';
 
 
