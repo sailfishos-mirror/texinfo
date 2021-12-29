@@ -2220,8 +2220,7 @@ end_line (ELEMENT *current)
            && (current->contents.list[1]->cmd == CM_c
                || current->contents.list[1]->cmd == CM_comment))
     {
-      if (current->type == ET_preformatted
-          || current->type == ET_rawpreformatted)
+      if (current->type == ET_preformatted)
         {
           /* Empty line after a @menu, or before a preformatted.  Reparent
              to the menu or other format. */

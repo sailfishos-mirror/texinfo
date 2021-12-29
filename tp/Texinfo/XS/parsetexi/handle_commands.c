@@ -55,8 +55,7 @@ check_no_text (ELEMENT *current)
           after_paragraph = 1;
           break;
         }
-      else if (t == ET_preformatted
-               || t == ET_rawpreformatted)
+      else if (t == ET_preformatted)
         {
           for (j = 0; j < f->contents.number; j++)
             {
@@ -993,10 +992,7 @@ handle_block_command (ELEMENT *current, char **line_inout,
 
           if (command_data(cmd).flags & CF_menu)
             {
-              if (current_context () == ct_preformatted)
-                push_context (ct_preformatted, cmd);
-              else
-                push_context (ct_menu, cmd);
+              push_context (ct_preformatted, cmd);
 
               if (cmd == CM_direntry)
                 add_to_contents_as_array (&global_info.dircategory_direntry, 

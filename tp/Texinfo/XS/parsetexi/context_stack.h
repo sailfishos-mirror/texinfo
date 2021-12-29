@@ -24,7 +24,6 @@ enum context {
     ct_def,
     ct_preformatted,
     ct_rawpreformatted,
-    ct_menu,
     ct_math,
     ct_brace_command,
     ct_inlineraw
@@ -33,7 +32,6 @@ enum context {
 /* Contexts where an empty line doesn't start a new paragraph. */
 #define in_paragraph_context(c) \
   !((c) == ct_math \
-   || (c) == ct_menu \
    || (c) == ct_def \
    || (c) == ct_preformatted \
    || (c) == ct_rawpreformatted \

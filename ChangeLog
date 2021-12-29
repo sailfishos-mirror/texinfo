@@ -1,5 +1,21 @@
 2021-12-29  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (%no_paragraph_context, _close_commands)
+	(_parse_texi), tp/Texinfo/XS/parsetexi/close.c (close_commands),
+	tp/Texinfo/XS/parsetexi/context_stack.c (push_context),
+	tp/Texinfo/XS/parsetexi/context_stack.h,
+	tp/Texinfo/XS/parsetexi/handle_commands.c (handle_block_command):
+	always push a preformatted on context stack when entering a menu, no
+	more menu context, it is better to check the command on the context
+	command stack.
+
+	* tp/Texinfo/ParserNonXS.pm (_check_no_text, _end_line),
+	tp/Texinfo/XS/parsetexi/end_line.c (end_line),
+	tp/Texinfo/XS/parsetexi/handle_commands.c (check_no_text): do not test
+	for rawpreformatted type when there can only be a preformatted type.
+
+2021-12-29  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/XS/parsetexi/Parsetexi.pm (parser): fix typo in
 	passing DEBUG code.
 

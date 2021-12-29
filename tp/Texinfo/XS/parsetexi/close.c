@@ -385,7 +385,8 @@ close_commands (ELEMENT *current, enum command_id closed_command,
 
   if (closed_command && current->cmd == closed_command)
     {
-      if (command_data(current->cmd).flags & CF_preformatted)
+      if (command_data(current->cmd).flags & CF_preformatted
+          || command_data(current->cmd).flags & CF_menu)
         {
           if (pop_context () != ct_preformatted)
             fatal ("preformatted context expected");
@@ -395,13 +396,6 @@ close_commands (ELEMENT *current, enum command_id closed_command,
           if (pop_context () != ct_rawpreformatted)
             fatal ("rawpreformatted context expected");
           // TODO: pop expanded formats stack
-        }
-      else if (command_data(current->cmd).flags & CF_menu)
-        {
-          enum context c;
-          c = pop_context ();
-          if (c != ct_menu && c != ct_preformatted)
-            fatal ("menu or preformatted context expected");
         }
       else if (current->cmd == CM_math || current->cmd == CM_displaymath)
         {

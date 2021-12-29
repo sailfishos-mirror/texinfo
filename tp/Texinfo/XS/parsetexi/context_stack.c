@@ -39,12 +39,12 @@ push_context (enum context c, enum command_id cmd)
         = realloc (commands_stack, (space += 5) * sizeof (enum command_id));
     }
 
-  debug (">>>>>>>>>>>>>>>>>PUSHING STACK AT %d  -- %s", top,
+  debug (">>>>>>>>>>>>>>>>>PUSHING STACK AT %d  -- %s @%s", top,
          c == ct_preformatted ? "preformatted"
          : c == ct_line ? "line"
          : c == ct_def ? "def"
-         : c == ct_menu ? "menu"
-         : "");
+         : c == ct_brace_command ? "brace_command"
+         : "", command_name(cmd));
   stack[top] = c;
   commands_stack[top] = cmd;
   top++;

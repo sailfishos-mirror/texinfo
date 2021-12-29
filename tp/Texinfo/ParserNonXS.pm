@@ -518,7 +518,7 @@ foreach my $preformatted_context (@preformatted_contexts) {
 # contexts on the context_stack stack where empty line doesn't trigger
 # a paragraph
 my %no_paragraph_contexts;
-foreach my $no_paragraph_context ('math', 'menu', @preformatted_contexts, 
+foreach my $no_paragraph_context ('math', @preformatted_contexts,
                                   'def', 'inlineraw') {
   $no_paragraph_contexts{$no_paragraph_context} = 1;
 };
@@ -1397,6 +1397,7 @@ sub _end_preformatted($$$;$$)
 
   $current = _close_all_style_commands($self, $current, $line_nr,
                                        $closed_command, $interrupting_command);
+  # TODO only preformatted
   if ($current->{'type'} and $preformatted_contexts{$current->{'type'}}) {
     print STDERR "CLOSE PREFORMATTED $current->{'type'}\n" if ($self->{'DEBUG'});
     # completly remove void preformatted contexts
@@ -1419,7 +1420,7 @@ sub _check_no_text($)
     if ($content->{'type'} and $content->{'type'} eq 'paragraph') {
       $after_paragraph = 1;
       last;
-    } elsif ($content->{'type'} and $preformatted_contexts{$content->{'type'}}) {
+    } elsif ($content->{'type'} and $content->{'type'} eq 'preformatted') {
       foreach my $preformatted_content (@{$content->{'contents'}}) {
         if ((defined($preformatted_content->{'text'}) 
              and $preformatted_content->{'text'} =~ /\S/)
@@ -1812,15 +1813,12 @@ sub _close_commands($$$;$$)
   my $closed_element;
   if ($closed_command and $current->{'cmdname'}
       and $current->{'cmdname'} eq $closed_command) {
-    if ($preformatted_commands{$current->{'cmdname'}}) {
+    if ($preformatted_commands{$current->{'cmdname'}}
+        or $menu_commands{$current->{'cmdname'}}) {
       $self->_pop_context(['preformatted'], $line_nr, $current,
                           "for $closed_command");
     } elsif ($format_raw_commands{$current->{'cmdname'}}) {
       $self->_pop_context(['rawpreformatted'], $line_nr, $current,
-                          "for $closed_command");
-    } elsif ($menu_commands{$current->{'cmdname'}}) {
-      # may be in menu, but context is preformatted if in a preformatted too.
-      $self->_pop_context(['menu', 'preformatted'], $line_nr, $current,
                           "for $closed_command");
     } elsif ($math_commands{$current->{'cmdname'}}) {
       $self->_pop_context(['math'], $line_nr, $current,
@@ -3382,8 +3380,7 @@ sub _end_line($$$)
                and $current->{'contents'}->[-2]->{'type'} eq 'empty_line_after_command'))) {
     # empty line after a @menu or before a preformatted. Reparent to the menu
     # or other format
-    if ($current->{'type'}
-        and $preformatted_contexts{$current->{'type'}}) {
+    if ($current->{'type'} and $current->{'type'} eq 'preformatted') {
       my $parent = $current->{'parent'};
       if ($parent->{'type'} and $parent->{'type'} eq 'menu_comment'
           and scalar(@{$parent->{'contents'}}) == 1) {
@@ -4468,7 +4465,7 @@ sub _parse_texi($;$)
                 }
                 $parent = $parent->{'parent'};
               }
-            } 
+            }
 
             # complete the line if there was a user macro expansion
             if ($line !~ /\n/) {
@@ -4853,11 +4850,7 @@ sub _parse_texi($;$)
                 push @{$self->{'regions_stack'}}, $block;
               }
               if ($menu_commands{$command}) {
-                if ($self->_top_context() eq 'preformatted') {
-                  $self->_push_context('preformatted', $command);
-                } else {
-                  $self->_push_context('menu', $command);
-                }
+                $self->_push_context('preformatted', $command);
                 push @{$self->{'info'}->{'dircategory_direntry'}}, $block
                   if ($command eq 'direntry');
                 if ($self->{'current_node'}) {
@@ -5296,7 +5289,7 @@ sub _parse_texi($;$)
                  };                          
             }
             $current = $current->{'parent'}->{'parent'};
-            $current = _begin_preformatted ($self, $current)
+            $current = _begin_preformatted($self, $current)
                if ($close_preformatted_commands{$closed_command});
           # lone braces accepted right in a rawpreformatted
           } elsif ($current->{'type'}
@@ -5318,7 +5311,7 @@ sub _parse_texi($;$)
               my $closed_command = $current->{'parent'}->{'cmdname'};
               _register_global_command($self, $current->{'parent'}, $line_nr);
               $current = $current->{'parent'}->{'parent'};
-              $current = _begin_preformatted ($self, $current)
+              $current = _begin_preformatted($self, $current)
                  if ($close_preformatted_commands{$closed_command});
             }
           } else {
