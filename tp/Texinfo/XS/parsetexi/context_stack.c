@@ -75,7 +75,13 @@ current_context_command (void)
   if (top == 0)
     return CM_NONE;
 
-  return commands_stack[top - 1];
+  int i;
+  for (i = top -1; i >= 0; i--)
+    {
+      if (commands_stack[i] != CM_NONE)
+        return commands_stack[i];
+    }
+  return CM_NONE;
 }
 
 

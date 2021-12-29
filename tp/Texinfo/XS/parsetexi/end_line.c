@@ -1779,7 +1779,7 @@ end_line_misc_line (ELEMENT *current)
               add_to_element_contents (closed_command, end_elt);
 
               if (command_flags(closed_command) & CF_menu
-                  && current_context () == ct_menu)
+                  && command_data(current_context_command()).flags & CF_menu)
                 {
                   ELEMENT *e;
                   debug ("CLOSE menu but still in menu context");

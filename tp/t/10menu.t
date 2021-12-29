@@ -391,6 +391,38 @@ in cartouche in menu comment in menu in example
 @end menu
 @end example
 '],
+['submenu_in_example',
+'@node Top
+
+@example
+
+in example
+
+@menu
+in submenu
+
+@menu
+@end menu
+
+@menu
+in submenu
+@end menu
+
+@menu
+@quotation
+A quot---ation in submenu
+@end quotation
+@end menu
+
+@subheading subheading in menu
+
+@enumerate
+@item e--numerate
+@end enumerate
+
+@end menu
+@end example
+'],
 ['menu_pointing_to_anchor',
 '@node Top
 @top top

@@ -1,3 +1,18 @@
+2021-12-29  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/ParserNonXS.pm: use undef for _push_context
+	command argument if the context pushed corresponds to a type.
+
+	* tp/Texinfo/ParserNonXS.pm (_top_context_command),
+	tp/Texinfo/XS/parsetexi/context_stack.c (current_context_command):
+	ignore unset commands starting from the top of the stack.
+
+	* tp/Texinfo/ParserNonXS.pm (_end_line),
+	tp/Texinfo/XS/parsetexi/end_line.c (end_line_misc_line): use
+	current_context_command/_top_context_command to find if in a menu
+	instead of the context stack to find if in a menu even if the
+	context is preformatted.
+
 2021-12-28  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Common.pm (%document_settable_multiple_at_commands),

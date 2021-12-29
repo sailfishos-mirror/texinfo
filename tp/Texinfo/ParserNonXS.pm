@@ -539,10 +539,10 @@ sub _init_context_stack($;$)
 
 sub _push_context($$$)
 {
-  my ($self, $context, $command_or_type) = @_;
+  my ($self, $context, $command) = @_;
 
   push @{$self->{'context_stack'}}, $context;
-  push @{$self->{'context_command_stack'}}, $command_or_type;
+  push @{$self->{'context_command_stack'}}, $command;
 }
 
 # if needed it could be possible to guard against removing '_root' context
@@ -577,10 +577,16 @@ sub _top_context($)
   return $self->{'context_stack'}->[-1];
 }
 
+# find first non undef command
 sub _top_context_command($)
 {
   my $self = shift;
-  return $self->{'context_command_stack'}->[-1];
+  for (my $i = scalar(@{$self->{'context_command_stack'}}) -1; $i > 0; $i--) {
+    if (defined($self->{'context_command_stack'}->[$i])) {
+      return $self->{'context_command_stack'}->[$i];
+    }
+  }
+  return undef;
 }
 
 
@@ -2683,7 +2689,7 @@ sub _end_line($$$)
       push @{$current->{'contents'}}, { 'type' => 'after_description_line', 
                                         'text' => $empty_line->{'text'},
                                         'parent' => $current };
-      $self->_push_context('preformatted', 'menu_comment');
+      $self->_push_context('preformatted', undef); # menu_comment
       print STDERR "MENU: END DESCRIPTION, OPEN COMMENT\n" if ($self->{'DEBUG'});
     } elsif (!$no_paragraph_contexts{$self->_top_context()}) {
       $current = _end_paragraph($self, $current, $line_nr);
@@ -2759,7 +2765,8 @@ sub _end_line($$$)
                                     'contents' => [] };
           $current = $current->{'contents'}->[-1];
         }
-        $self->_push_context('preformatted', $menu_type_reopened);
+        # menu_comment or menu_description ($menu_type_reopened)
+        $self->_push_context('preformatted', undef);
       } else {
         push @{$menu->{'contents'}}, {'type' => 'menu_comment',
                                     'parent' => $menu,
@@ -2769,7 +2776,7 @@ sub _end_line($$$)
                                   'parent' => $current,
                                   'contents' => [] };
         $current = $current->{'contents'}->[-1];
-        $self->_push_context('preformatted', 'menu_comment');
+        $self->_push_context('preformatted', undef); # menu_comment
         print STDERR "THEN MENU_COMMENT OPEN\n" if ($self->{'DEBUG'});
       }
       while (@{$menu_entry->{'args'}}) {
@@ -3050,7 +3057,7 @@ sub _end_line($$$)
                                        'contents' => [] };
       $current = $current->{'contents'}->[-1];
       print STDERR "MENU_COMMENT OPEN\n" if ($self->{'DEBUG'});
-      $self->_push_context('preformatted', 'menu_comment');
+      $self->_push_context('preformatted', undef); # menu_comment
     }
     $current = _begin_preformatted($self, $current);
 
@@ -3271,14 +3278,15 @@ sub _end_line($$$)
 
           # closing a menu command, but still in a menu. Open a menu_comment
           if ($menu_commands{$closed_command->{'cmdname'}} 
-              and $self->_top_context() eq 'menu') {
+              and defined($self->_top_context_command())
+              and $menu_commands{$self->_top_context_command()}) {
             print STDERR "CLOSE MENU but still in menu context\n"
               if ($self->{'DEBUG'});
             push @{$current->{'contents'}}, {'type' => 'menu_comment',
                                              'parent' => $current,
                                              'contents' => [] };
             $current = $current->{'contents'}->[-1];
-            $self->_push_context('preformatted', 'menu_comment');
+            $self->_push_context('preformatted', undef); # menu_comment
           }
         } else {
           # block command not found for @end
@@ -3524,8 +3532,8 @@ sub _enter_menu_entry_node($$$)
                                    'parent' => $current,
                                    'contents' => [] };
   $current = $current->{'contents'}->[-1];
-  # not clear what is the correct associated command or type
-  $self->_push_context('preformatted', 'menu_entry_description');
+  # not clear what is the correct associated command
+  $self->_push_context('preformatted', undef); # menu_entry_description
   return $current;
 }
 
