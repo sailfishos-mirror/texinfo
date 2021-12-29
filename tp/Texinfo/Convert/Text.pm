@@ -250,7 +250,7 @@ sub brace_no_arg_command($;$)
   my $result;
   if ((defined($encoding)
        and $Texinfo::Encoding::eight_bit_encoding_aliases{$encoding})
-      or $options->{'extra_utf8'}
+      or !$options->{'ascii_punctuation'}
       or !exists($Texinfo::Convert::Unicode::extra_unicode_map{$command})) {
     $result = Texinfo::Convert::Unicode::brace_no_arg_command($command, $encoding);
   }

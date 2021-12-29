@@ -1588,7 +1588,7 @@ sub setup_index_entry_keys_formatting($$)
   my $self = shift;
   my $configuration_informations = shift;
 
-  my $options = {'sort_string' => 1,
+  my $options = {'sort_string' => 1, 'ascii_punctuation' => 1,
    Texinfo::Convert::Text::copy_options_for_convert_text(
                                     $configuration_informations)};
 

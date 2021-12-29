@@ -401,12 +401,16 @@ sub converter_initialize($)
   $self->{'convert_text_options'} 
       = {Texinfo::Convert::Text::copy_options_for_convert_text($self)};
 
-  if ($self->get_conf('ENABLE_ENCODING') and $self->get_conf('OUTPUT_ENCODING_NAME')
+  if ($self->get_conf('ASCII_PUNCTUATION')) {
+    $self->{'convert_text_options'}->{'ascii_punctuation'} = 1;
+  }
+
+  if ($self->get_conf('ENABLE_ENCODING')
+      and $self->get_conf('OUTPUT_ENCODING_NAME')
       and $self->get_conf('OUTPUT_ENCODING_NAME') eq 'utf-8') {
     # cache this to avoid redoing calls to get_conf
     $self->{'to_utf8'} = 1;
-    if (!$self->get_conf('ASCII_PUNCTUATION')) {
-      $self->{'convert_text_options'}->{'extra_utf8'} = 1;
+    if (!$self->{'convert_text_options'}->{'ascii_punctuation'}) {
       foreach my $quoted_command (@quoted_commands) {
         # Directed single quotes
         $self->{'style_map'}->{$quoted_command} = ["\x{2018}", "\x{2019}"];

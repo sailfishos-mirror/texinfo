@@ -1,5 +1,17 @@
 2021-12-29  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	Change internal setting
+
+	* tp/Texinfo/Convert/Plaintext.pm: Set 'ascii_punctuation' setting
+	if ASCII_PUNCTUATION is set as a customization variable, regardless
+	of whether the output encoding is UTF-8.  This replaces 'extra_utf8'.
+	* tp/Texinfo/Convert/Text.pm (brace_no_arg_command): Check
+	'ascii_punctuation'.
+	* tp/Texinfo/Structuring.pm (setup_index_entry_keys_formatting):
+	Set 'ascii_punctuation' as an option for Texinfo::Convert::Text.
+
+2021-12-29  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	Rename variable to ASCII_PUNCTUATION
 
 	* tp/Texinfo/Common.pm (@variable_string_settables):
