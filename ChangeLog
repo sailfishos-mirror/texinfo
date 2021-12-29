@@ -1,5 +1,15 @@
 2021-12-29  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	Rename internal option
+
+	* tp/Texinfo/Convert/Plaintext.pm (converter_initialize),
+	* tp/Texinfo/Convert/Text.pm (brace_no_arg_command):
+	Use 'extra_utf8' as name of an option instead of 'no_extra_unicode'.
+	* tp/t/test_sort.t: Supply this option so as not to change test
+	results.
+
+2021-12-29  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	Customization variable for turning off UTF-8 punctuation
 
 	* tp/Texinfo/Common.pm (@variable_string_settables):

@@ -248,7 +248,7 @@ sub brace_no_arg_command($;$)
       and defined($element->{'extra'}->{'clickstyle'})
       and defined($text_brace_no_arg_commands{$element->{'extra'}->{'clickstyle'}}));
   my $result;
-  if (!$options->{'no_extra_unicode'}
+  if ($options->{'extra_utf8'}
       or !$Texinfo::Convert::Unicode::extra_unicode_map{$command}) {
     $result = Texinfo::Convert::Unicode::unicode_for_brace_no_arg_command(
                        $command, $encoding);
