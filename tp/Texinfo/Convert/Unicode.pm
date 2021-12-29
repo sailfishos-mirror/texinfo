@@ -516,10 +516,6 @@ our %unicode_map = (
                'tie'               => '',
 #               'tie'               => '0020',
                'textdegree'        => '00B0',
-               'quotedblleft'      => '201C',
-               'quotedblright'     => '201D',
-               'quoteleft'         => '2018',
-               'quoteright'        => '2019',
                'quotedblbase'      => '201E',
                'quotesinglbase'    => '201A',
                'guillemetleft'     => '00AB',
@@ -530,7 +526,8 @@ our %unicode_map = (
                'guilsinglright'    => '203A',
              );
 
-# For commands where ASCII output is acceptable
+# For commands where ASCII output is acceptable and may be wanted by the users
+# as ASCII instead of encoded characters
 our %extra_unicode_map = (
                'bullet'            => '2022',
                'copyright'         => '00A9',
@@ -546,6 +543,10 @@ our %extra_unicode_map = (
                'point'             => '2605',
                'print'             => '22A3',
                'result'            => '21D2',
+               'quotedblleft'      => '201C',
+               'quotedblright'     => '201D',
+               'quoteleft'         => '2018',
+               'quoteright'        => '2019',
                # this should only happen if the @clickstyle argument isn't a 
                # command with braces and no argument.
                'click'             => '2192',

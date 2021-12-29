@@ -20998,7 +20998,7 @@ Top
 * a" e~ i^ a^ a` e\' c, e= e* e\'\' e;::
 * e. e( e_ .e e< j ee[::
 * i E=` C\',::
-* `` \'\' ` \' ,, ,::
+* " " ` \' ,, ,::
 * << >> << >> < >::
 * `` \'\' --- -- ` \'::
 * AAA (fff) AAA BBB::
@@ -21051,8 +21051,8 @@ Top
 12 i E=` C\',
 ************
 
-13 `` \'\' ` \' ,, ,
-*****************
+13 " " ` \' ,, ,
+***************
 
 14 << >> << >> < >
 ******************
@@ -21121,7 +21121,7 @@ e. e( e_ .e e< j ee[
 
 i E=` C\',
 
-`` \'\' ` \' ,, ,
+" " ` \' ,, ,
 
 << >> << >> < >
 
@@ -22837,12 +22837,12 @@ $result_converted_errors{'file_info'}->{'at_commands_in_refs_latin1'} = [
     'type' => 'warning'
   },
   {
-    'error_line' => ':73: warning: @node name should not contain `,\': `` \'\' ` \' ,, ,
+    'error_line' => ':73: warning: @node name should not contain `,\': " " ` \' ,, ,
 ',
     'file_name' => '',
     'line_nr' => 73,
     'macro' => '',
-    'text' => '@node name should not contain `,\': `` \'\' ` \' ,, ,',
+    'text' => '@node name should not contain `,\': " " ` \' ,, ,',
     'type' => 'warning'
   },
   {

@@ -2787,7 +2787,7 @@ aa AA ae oe AE OE /o /O ss /l /L D
 TH d th ! ? #
 (R) a o , 
 
-`` \'\' 
+" " 
 ` \' ,, , <<
 >> << >> <
 > o Euro -> <= >=
