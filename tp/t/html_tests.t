@@ -382,11 +382,16 @@ example with @@-commands and other special characters
 '],
 );
 
-my $test_accents_sc_text = '@u{--a}
+my $test_accents_sc_no_brace_commands_quotes = '@u{--a}
 @^{--a}
 @aa{} @AA{} @^e @^E @~{@dotless{i}} @dotless{i} @udotaccent{r} @v{@\'{r}} @={@,{@~{n}}}.
 @equiv{}
 @sc{@aa{} @AA{} @^e @^E @~{@dotless{i}} @dotless{i} @udotaccent{r} @v{@\'{r}} @={@,{@~{n}}}}.
+
+--- -- \'` \'\' ``
+
+@exclamdown{} @comma{} @copyright{} @dots{} @enddots{} @quotedblleft{} @error{} @expansion{}
+@minus{} @registeredsymbol{}
 ';
 
 my @test_cases_text = (
@@ -429,29 +434,37 @@ node name}
 
 @node nnn the node name
 '],
-# The following tests that are not HTML specific could be
-# in converters_tests (to check what is HTML specific,
+# The following tests that are not HTML specific could also be
+# in converters_tests (need to check what is HTML specific,
 # and what applies to other converters based on XML).
 ['test_accents_sc_default',
 '@documentencoding utf-8
 
-'.$test_accents_sc_text],
+'.$test_accents_sc_no_brace_commands_quotes],
 ['test_accents_sc_enable_encoding',
 '@documentencoding utf-8
 
-'.$test_accents_sc_text, {'ENABLE_ENCODING' => 1}],
+'.$test_accents_sc_no_brace_commands_quotes, {'ENABLE_ENCODING' => 1}],
 ['test_accents_sc_default_latin1',
 '@documentencoding ISO-8859-1
 
-'.$test_accents_sc_text],
+'.$test_accents_sc_no_brace_commands_quotes],
 ['test_accents_sc_enable_encoding_latin1',
 '@documentencoding ISO-8859-1
 
-'.$test_accents_sc_text, {'ENABLE_ENCODING' => 1}],
+'.$test_accents_sc_no_brace_commands_quotes, {'ENABLE_ENCODING' => 1}],
+['test_accents_sc_default_usascii',
+'@documentencoding US-ASCII
+
+'.$test_accents_sc_no_brace_commands_quotes],
+['test_accents_sc_enable_encoding_usascii',
+'@documentencoding US-ASCII
+
+'.$test_accents_sc_no_brace_commands_quotes, {'ENABLE_ENCODING' => 1}],
 ['test_accents_sc_use_numeric_entity',
 '@documentencoding utf-8
 
-'.$test_accents_sc_text, {}, {'USE_NUMERIC_ENTITY' => 1}],
+'.$test_accents_sc_no_brace_commands_quotes, {}, {'USE_NUMERIC_ENTITY' => 1}],
 );
 
 # test that the node name that goes in the redirection file is reproducible.

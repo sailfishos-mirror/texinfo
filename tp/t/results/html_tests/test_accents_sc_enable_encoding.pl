@@ -737,6 +737,247 @@ $result_trees{'test_accents_sc_enable_encoding'} = {
       ],
       'parent' => {},
       'type' => 'paragraph'
+    },
+    {
+      'parent' => {},
+      'text' => '
+',
+      'type' => 'empty_line'
+    },
+    {
+      'contents' => [
+        {
+          'parent' => {},
+          'text' => '--- -- \'` \'\' ``
+'
+        }
+      ],
+      'parent' => {},
+      'type' => 'paragraph'
+    },
+    {
+      'parent' => {},
+      'text' => '
+',
+      'type' => 'empty_line'
+    },
+    {
+      'contents' => [
+        {
+          'args' => [
+            {
+              'contents' => [],
+              'parent' => {},
+              'type' => 'brace_command_arg'
+            }
+          ],
+          'cmdname' => 'exclamdown',
+          'contents' => [],
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 11,
+            'macro' => ''
+          },
+          'parent' => {}
+        },
+        {
+          'parent' => {},
+          'text' => ' '
+        },
+        {
+          'args' => [
+            {
+              'contents' => [],
+              'parent' => {},
+              'type' => 'brace_command_arg'
+            }
+          ],
+          'cmdname' => 'comma',
+          'contents' => [],
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 11,
+            'macro' => ''
+          },
+          'parent' => {}
+        },
+        {
+          'parent' => {},
+          'text' => ' '
+        },
+        {
+          'args' => [
+            {
+              'contents' => [],
+              'parent' => {},
+              'type' => 'brace_command_arg'
+            }
+          ],
+          'cmdname' => 'copyright',
+          'contents' => [],
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 11,
+            'macro' => ''
+          },
+          'parent' => {}
+        },
+        {
+          'parent' => {},
+          'text' => ' '
+        },
+        {
+          'args' => [
+            {
+              'contents' => [],
+              'parent' => {},
+              'type' => 'brace_command_arg'
+            }
+          ],
+          'cmdname' => 'dots',
+          'contents' => [],
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 11,
+            'macro' => ''
+          },
+          'parent' => {}
+        },
+        {
+          'parent' => {},
+          'text' => ' '
+        },
+        {
+          'args' => [
+            {
+              'contents' => [],
+              'parent' => {},
+              'type' => 'brace_command_arg'
+            }
+          ],
+          'cmdname' => 'enddots',
+          'contents' => [],
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 11,
+            'macro' => ''
+          },
+          'parent' => {}
+        },
+        {
+          'parent' => {},
+          'text' => ' '
+        },
+        {
+          'args' => [
+            {
+              'contents' => [],
+              'parent' => {},
+              'type' => 'brace_command_arg'
+            }
+          ],
+          'cmdname' => 'quotedblleft',
+          'contents' => [],
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 11,
+            'macro' => ''
+          },
+          'parent' => {}
+        },
+        {
+          'parent' => {},
+          'text' => ' '
+        },
+        {
+          'args' => [
+            {
+              'contents' => [],
+              'parent' => {},
+              'type' => 'brace_command_arg'
+            }
+          ],
+          'cmdname' => 'error',
+          'contents' => [],
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 11,
+            'macro' => ''
+          },
+          'parent' => {}
+        },
+        {
+          'parent' => {},
+          'text' => ' '
+        },
+        {
+          'args' => [
+            {
+              'contents' => [],
+              'parent' => {},
+              'type' => 'brace_command_arg'
+            }
+          ],
+          'cmdname' => 'expansion',
+          'contents' => [],
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 11,
+            'macro' => ''
+          },
+          'parent' => {}
+        },
+        {
+          'parent' => {},
+          'text' => '
+'
+        },
+        {
+          'args' => [
+            {
+              'contents' => [],
+              'parent' => {},
+              'type' => 'brace_command_arg'
+            }
+          ],
+          'cmdname' => 'minus',
+          'contents' => [],
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 12,
+            'macro' => ''
+          },
+          'parent' => {}
+        },
+        {
+          'parent' => {},
+          'text' => ' '
+        },
+        {
+          'args' => [
+            {
+              'contents' => [],
+              'parent' => {},
+              'type' => 'brace_command_arg'
+            }
+          ],
+          'cmdname' => 'registeredsymbol',
+          'contents' => [],
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 12,
+            'macro' => ''
+          },
+          'parent' => {}
+        },
+        {
+          'parent' => {},
+          'text' => '
+'
+        }
+      ],
+      'parent' => {},
+      'type' => 'paragraph'
     }
   ],
   'type' => 'text_root'
@@ -843,6 +1084,41 @@ $result_trees{'test_accents_sc_enable_encoding'}{'contents'}[2]{'contents'}[24]{
 $result_trees{'test_accents_sc_enable_encoding'}{'contents'}[2]{'contents'}[24]{'parent'} = $result_trees{'test_accents_sc_enable_encoding'}{'contents'}[2];
 $result_trees{'test_accents_sc_enable_encoding'}{'contents'}[2]{'contents'}[25]{'parent'} = $result_trees{'test_accents_sc_enable_encoding'}{'contents'}[2];
 $result_trees{'test_accents_sc_enable_encoding'}{'contents'}[2]{'parent'} = $result_trees{'test_accents_sc_enable_encoding'};
+$result_trees{'test_accents_sc_enable_encoding'}{'contents'}[3]{'parent'} = $result_trees{'test_accents_sc_enable_encoding'};
+$result_trees{'test_accents_sc_enable_encoding'}{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'test_accents_sc_enable_encoding'}{'contents'}[4];
+$result_trees{'test_accents_sc_enable_encoding'}{'contents'}[4]{'parent'} = $result_trees{'test_accents_sc_enable_encoding'};
+$result_trees{'test_accents_sc_enable_encoding'}{'contents'}[5]{'parent'} = $result_trees{'test_accents_sc_enable_encoding'};
+$result_trees{'test_accents_sc_enable_encoding'}{'contents'}[6]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_enable_encoding'}{'contents'}[6]{'contents'}[0];
+$result_trees{'test_accents_sc_enable_encoding'}{'contents'}[6]{'contents'}[0]{'parent'} = $result_trees{'test_accents_sc_enable_encoding'}{'contents'}[6];
+$result_trees{'test_accents_sc_enable_encoding'}{'contents'}[6]{'contents'}[1]{'parent'} = $result_trees{'test_accents_sc_enable_encoding'}{'contents'}[6];
+$result_trees{'test_accents_sc_enable_encoding'}{'contents'}[6]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_enable_encoding'}{'contents'}[6]{'contents'}[2];
+$result_trees{'test_accents_sc_enable_encoding'}{'contents'}[6]{'contents'}[2]{'parent'} = $result_trees{'test_accents_sc_enable_encoding'}{'contents'}[6];
+$result_trees{'test_accents_sc_enable_encoding'}{'contents'}[6]{'contents'}[3]{'parent'} = $result_trees{'test_accents_sc_enable_encoding'}{'contents'}[6];
+$result_trees{'test_accents_sc_enable_encoding'}{'contents'}[6]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_enable_encoding'}{'contents'}[6]{'contents'}[4];
+$result_trees{'test_accents_sc_enable_encoding'}{'contents'}[6]{'contents'}[4]{'parent'} = $result_trees{'test_accents_sc_enable_encoding'}{'contents'}[6];
+$result_trees{'test_accents_sc_enable_encoding'}{'contents'}[6]{'contents'}[5]{'parent'} = $result_trees{'test_accents_sc_enable_encoding'}{'contents'}[6];
+$result_trees{'test_accents_sc_enable_encoding'}{'contents'}[6]{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_enable_encoding'}{'contents'}[6]{'contents'}[6];
+$result_trees{'test_accents_sc_enable_encoding'}{'contents'}[6]{'contents'}[6]{'parent'} = $result_trees{'test_accents_sc_enable_encoding'}{'contents'}[6];
+$result_trees{'test_accents_sc_enable_encoding'}{'contents'}[6]{'contents'}[7]{'parent'} = $result_trees{'test_accents_sc_enable_encoding'}{'contents'}[6];
+$result_trees{'test_accents_sc_enable_encoding'}{'contents'}[6]{'contents'}[8]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_enable_encoding'}{'contents'}[6]{'contents'}[8];
+$result_trees{'test_accents_sc_enable_encoding'}{'contents'}[6]{'contents'}[8]{'parent'} = $result_trees{'test_accents_sc_enable_encoding'}{'contents'}[6];
+$result_trees{'test_accents_sc_enable_encoding'}{'contents'}[6]{'contents'}[9]{'parent'} = $result_trees{'test_accents_sc_enable_encoding'}{'contents'}[6];
+$result_trees{'test_accents_sc_enable_encoding'}{'contents'}[6]{'contents'}[10]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_enable_encoding'}{'contents'}[6]{'contents'}[10];
+$result_trees{'test_accents_sc_enable_encoding'}{'contents'}[6]{'contents'}[10]{'parent'} = $result_trees{'test_accents_sc_enable_encoding'}{'contents'}[6];
+$result_trees{'test_accents_sc_enable_encoding'}{'contents'}[6]{'contents'}[11]{'parent'} = $result_trees{'test_accents_sc_enable_encoding'}{'contents'}[6];
+$result_trees{'test_accents_sc_enable_encoding'}{'contents'}[6]{'contents'}[12]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_enable_encoding'}{'contents'}[6]{'contents'}[12];
+$result_trees{'test_accents_sc_enable_encoding'}{'contents'}[6]{'contents'}[12]{'parent'} = $result_trees{'test_accents_sc_enable_encoding'}{'contents'}[6];
+$result_trees{'test_accents_sc_enable_encoding'}{'contents'}[6]{'contents'}[13]{'parent'} = $result_trees{'test_accents_sc_enable_encoding'}{'contents'}[6];
+$result_trees{'test_accents_sc_enable_encoding'}{'contents'}[6]{'contents'}[14]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_enable_encoding'}{'contents'}[6]{'contents'}[14];
+$result_trees{'test_accents_sc_enable_encoding'}{'contents'}[6]{'contents'}[14]{'parent'} = $result_trees{'test_accents_sc_enable_encoding'}{'contents'}[6];
+$result_trees{'test_accents_sc_enable_encoding'}{'contents'}[6]{'contents'}[15]{'parent'} = $result_trees{'test_accents_sc_enable_encoding'}{'contents'}[6];
+$result_trees{'test_accents_sc_enable_encoding'}{'contents'}[6]{'contents'}[16]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_enable_encoding'}{'contents'}[6]{'contents'}[16];
+$result_trees{'test_accents_sc_enable_encoding'}{'contents'}[6]{'contents'}[16]{'parent'} = $result_trees{'test_accents_sc_enable_encoding'}{'contents'}[6];
+$result_trees{'test_accents_sc_enable_encoding'}{'contents'}[6]{'contents'}[17]{'parent'} = $result_trees{'test_accents_sc_enable_encoding'}{'contents'}[6];
+$result_trees{'test_accents_sc_enable_encoding'}{'contents'}[6]{'contents'}[18]{'args'}[0]{'parent'} = $result_trees{'test_accents_sc_enable_encoding'}{'contents'}[6]{'contents'}[18];
+$result_trees{'test_accents_sc_enable_encoding'}{'contents'}[6]{'contents'}[18]{'parent'} = $result_trees{'test_accents_sc_enable_encoding'}{'contents'}[6];
+$result_trees{'test_accents_sc_enable_encoding'}{'contents'}[6]{'contents'}[19]{'parent'} = $result_trees{'test_accents_sc_enable_encoding'}{'contents'}[6];
+$result_trees{'test_accents_sc_enable_encoding'}{'contents'}[6]{'parent'} = $result_trees{'test_accents_sc_enable_encoding'};
 
 $result_texis{'test_accents_sc_enable_encoding'} = '@documentencoding utf-8
 
@@ -851,6 +1127,11 @@ $result_texis{'test_accents_sc_enable_encoding'} = '@documentencoding utf-8
 @aa{} @AA{} @^e @^E @~{@dotless{i}} @dotless{i} @udotaccent{r} @v{@\'{r}} @={@,{@~{n}}}.
 @equiv{}
 @sc{@aa{} @AA{} @^e @^E @~{@dotless{i}} @dotless{i} @udotaccent{r} @v{@\'{r}} @={@,{@~{n}}}}.
+
+--- -- \'` \'\' ``
+
+@exclamdown{} @comma{} @copyright{} @dots{} @enddots{} @quotedblleft{} @error{} @expansion{}
+@minus{} @registeredsymbol{}
 ';
 
 
@@ -860,6 +1141,11 @@ $result_texts{'test_accents_sc_enable_encoding'} = '
 aa AA e^ E^ i~ i .r r\'< n~,=.
 ==
 AA AA E^ E^ I~ I .R R\'< N~,=.
+
+-- - \'` " "
+
+! , (C) ... ... " error--> ==>
+- (R)
 ';
 
 $result_errors{'test_accents_sc_enable_encoding'} = [];
@@ -875,6 +1161,11 @@ $result_converted{'html_text'}->{'test_accents_sc_enable_encoding'} = '
 å Å ê Ê ĩ ı ṛ ŕ̌ ņ̃̄.
 ≡
 <small>Å Å Ê Ê Ĩ I Ṛ Ŕ̌ Ņ̃̄</small>.
+</p>
+<p>— – ’‘ ” “
+</p>
+<p>¡ , © … <small class="enddots">...</small> “ error→ ↦
+− ®
 </p>';
 
 1;
