@@ -5714,11 +5714,11 @@ sub converter_initialize($)
         }
         if (defined($context_default_default_no_arg_commands_formatting->{$command})) {
           if ($self->get_conf('ENABLE_ENCODING') 
-              and Texinfo::Convert::Unicode::unicode_for_brace_no_arg_command(
+              and Texinfo::Convert::Unicode::brace_no_arg_command(
                              $command, $self->get_conf('OUTPUT_ENCODING_NAME'))
               and !$self->_use_entity_is_entity($context_default_default_no_arg_commands_formatting->{$command})) {
             $self->{'no_arg_commands_formatting'}->{$context}->{$command}
-              = Texinfo::Convert::Unicode::unicode_for_brace_no_arg_command(
+              = Texinfo::Convert::Unicode::brace_no_arg_command(
                            $command, $self->get_conf('OUTPUT_ENCODING_NAME'));
           } else {
             $self->{'no_arg_commands_formatting'}->{$context}->{$command}

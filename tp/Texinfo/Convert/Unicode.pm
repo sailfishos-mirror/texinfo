@@ -57,7 +57,7 @@ use vars qw($VERSION @ISA @EXPORT_OK %EXPORT_TAGS);
 %EXPORT_TAGS = ( 'all' => [ qw(
   unicode_accent
   encoded_accents
-  unicode_for_brace_no_arg_command
+  brace_no_arg_command
   unicode_text
   string_width
 ) ] );
@@ -1469,9 +1469,9 @@ sub encoded_accents($$$$$;$)
   return undef;
 }
 
-# returns the unicode for a command with brace and no arg
-# if it is known that it is present for the encoding
-sub unicode_for_brace_no_arg_command($$) {
+# returns the text for a command with brace and no arg
+# if it is known that it is present for $encoding
+sub brace_no_arg_command($$) {
   my $command = shift;
   my $encoding = shift;
   
@@ -1629,9 +1629,9 @@ the result is lower-cased.
 Return I<$text> with characters encoded in unicode.  If I<$in_code> 
 is set, the text is considered to be in code style.
 
-=item $result = unicode_for_brace_no_arg_command($command_name, $encoding)
+=item $result = brace_no_arg_command($command_name, $encoding)
 
-Return the unicode representing a command with brace and no argument
+Return the text representing a command with brace and no argument
 I<$command_name> (like C<@bullet{}>, C<@aa{}> or C<@guilsinglleft{}>), 
 or undef if there is no available encoded character for encoding 
 I<$encoding>. 
