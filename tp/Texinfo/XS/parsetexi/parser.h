@@ -135,7 +135,7 @@ ELEMENT *handle_separator (ELEMENT *current, char separator,
                            char **line_inout);
 
 /* In parser.c */
-ELEMENT *parse_texi (ELEMENT *root_elt);
+ELEMENT *parse_texi (ELEMENT *root_elt, ELEMENT *current_elt);
 void push_conditional_stack (enum command_id cond);
 enum command_id pop_conditional_stack (void);
 extern size_t conditional_number;
@@ -191,7 +191,7 @@ void wipe_global_info (void);
 
 extern COUNTER count_remaining_args, count_items, count_cells;
 
-ELEMENT *setup_text_root(void);
+ELEMENT *setup_document_root_and_text_root (void);
 
 /* In multitable.c */
 ELEMENT *item_line_parent (ELEMENT *current);

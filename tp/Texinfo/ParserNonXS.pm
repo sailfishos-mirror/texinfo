@@ -874,9 +874,9 @@ sub parse_texi_text($$;$$$$)
   $self = parser() if (!defined($self));
   $self->{'input'} = [{'pending' => $lines_array}];
 
-  my ($root) = _setup_text_root();
+  my ($document_root, $text_root) = _setup_document_root_and_text_root();
 
-  my $tree = $self->_parse_texi($root);
+  my $tree = $self->_parse_texi($document_root, $text_root);
 
   $self->_set_global_informations();
 
@@ -931,8 +931,7 @@ sub parse_texi_file($$)
   my @first_lines;
 
   my $pending_first_texi_line;
-  # the first line not empty and not with \input is kept in 
-  # $pending_first_texi_line and put in the pending lines just below
+  # gather the empty lines and the \input line in a container
   while ($line = <$filehandle>) {
     $line_nr++;
     if ($line =~ /^ *\\input/ or $line =~ /^\s*$/) {
@@ -940,11 +939,13 @@ sub parse_texi_file($$)
       $line =~ s/\x{7F}.*\s*//;
       push @first_lines, $line;
     } else {
+      # the first line not empty and not with \input is kept in
+      # $pending_first_texi_line and put in the pending lines just below
       $pending_first_texi_line = $line;
       last;
     }
   }
-  my ($document_root, $text_root) = _setup_text_root();
+  my ($document_root, $text_root) = _setup_document_root_and_text_root();
   if (@first_lines) {
     push @{$text_root->{'contents'}}, {'type' => 'preamble_before_beginning',
                                        'contents' => [], 'parent' => $text_root };
@@ -969,7 +970,7 @@ sub parse_texi_file($$)
   $self->{'info'}->{'input_file_name'} = $file_name;
   $self->{'info'}->{'input_directory'} = $directories;
   
-  my $tree = $self->_parse_texi($document_root);
+  my $tree = $self->_parse_texi($document_root, $text_root);
 
   # Put everything before @setfilename in a special type.  This allows to
   # ignore everything before @setfilename.
@@ -1011,7 +1012,8 @@ sub parse_texi_line($$;$$$$)
 
   $self = parser() if (!defined($self));
   $self->{'input'} = [{'pending' => $lines_array}];
-  my $tree = $self->_parse_texi({'contents' => [], 'type' => 'root_line'});
+  my $root = {'contents' => [], 'type' => 'root_line'};
+  my $tree = $self->_parse_texi($root, $root);
   return $tree;
 }
 
@@ -3664,7 +3666,7 @@ sub _check_valid_nesting {
   }
 }
 
-sub _setup_text_root()
+sub _setup_document_root_and_text_root()
 {
   my $text_root = { 'contents' => [], 'type' => 'text_root' };
   my $document_root = { 'contents' => [$text_root], 'type' => 'document_root' };
@@ -3673,16 +3675,9 @@ sub _setup_text_root()
 }
 
 # the main subroutine
-sub _parse_texi($$)
+sub _parse_texi($$$)
 {
-  my ($self, $root) = @_;
-
-  my $current;
-  if ($root->{'type'} and $root->{'type'} eq 'document_root') {
-    $current = $root->{'contents'}->[0];
-  } else {
-    $current = $root;
-  }
+  my ($self, $root, $current) = @_;
 
   my $line_nr;
   

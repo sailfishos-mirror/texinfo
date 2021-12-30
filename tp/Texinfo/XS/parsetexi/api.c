@@ -174,18 +174,23 @@ parse_file (char *filename)
 void
 parse_string (char *string)
 {
+  ELEMENT *root_elt = new_element (ET_root_line);
+
   reset_parser_except_conf ();
   input_push_text (strdup (string), 0);
-  Root = parse_texi (new_element (ET_root_line));
+  Root = parse_texi (root_elt, root_elt);
 }
 
 /* Used for parse_texi_text.  STRING should be a UTF-8 buffer. */
 void
 parse_text (char *string)
 {
+  ELEMENT *text_root = setup_document_root_and_text_root ();
+  ELEMENT *document_root = text_root->parent;
+
   reset_parser_except_conf ();
   input_push_text_with_line_nos (strdup (string), 1);
-  Root = parse_texi (setup_text_root());
+  Root = parse_texi (document_root, text_root);
 }
 
 

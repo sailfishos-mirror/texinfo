@@ -1,5 +1,15 @@
 2021-12-30  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_setup_document_root_and_text_root)
+	(parse_texi_text, parse_texi_file, parse_texi_line, _parse_texi),
+	tp/Texinfo/XS/parsetexi/api.c (parse_file, parse_text),
+	tp/Texinfo/XS/parsetexi/parser.c (setup_document_root_and_text_root),
+	(parse_texi_file, parse_texi): pass both root element and current
+	element to parse_texi().
+	Rename setup_text_root() as setup_document_root_and_text_root().
+
+2021-12-30  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/DocBook.pm, tp/Texinfo/Convert/HTML.pm,
 	tp/Texinfo/Convert/LaTeX.pm,
 	tp/Texinfo/Convert/NodeNameNormalization.pm,

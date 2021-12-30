@@ -337,7 +337,7 @@ wipe_global_info (void)
 }
 
 ELEMENT *
-setup_text_root()
+setup_document_root_and_text_root ()
 {
   ELEMENT *text_root = new_element (ET_text_root);
   ELEMENT *document_root = new_element (ET_document_root);
@@ -351,7 +351,7 @@ parse_texi_file (char *filename)
 {
   char *p, *q;
   char *linep, *line = 0;
-  ELEMENT *text_root = setup_text_root ();
+  ELEMENT *text_root = setup_document_root_and_text_root ();
   ELEMENT *preamble_before_beginning = 0;
   ELEMENT *document_root = text_root->parent;
   char c;
@@ -412,7 +412,7 @@ parse_texi_file (char *filename)
   if (preamble_before_beginning)
     add_to_element_contents (text_root, preamble_before_beginning);
 
-  return parse_texi (document_root);
+  return parse_texi (document_root, text_root);
 }
 
 
@@ -1935,16 +1935,14 @@ check_line_directive (char *line)
   return 1;
 }
 
-/* Pass in and return root of a "Texinfo tree". */
+/* Pass in and return root of a "Texinfo tree".  Starting point for adding
+   to the tree is current_elt */
 ELEMENT *
-parse_texi (ELEMENT *root_elt)
+parse_texi (ELEMENT *root_elt, ELEMENT *current_elt)
 {
-  ELEMENT *current = root_elt;
+  ELEMENT *current = current_elt;
   static char *allocated_line;
   char *line;
-
-  if (root_elt->type == ET_document_root)
-    current = root_elt->contents.list[0];
 
   /* Read input file line-by-line. */
   while (1)
