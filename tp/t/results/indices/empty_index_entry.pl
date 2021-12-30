@@ -254,8 +254,6 @@ $result_texts{'empty_index_entry'} = '
 
 ';
 
-$result_sectioning{'empty_index_entry'} = {};
-
 $result_nodes{'empty_index_entry'} = {
   'cmdname' => 'node',
   'extra' => {

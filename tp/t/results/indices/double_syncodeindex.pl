@@ -339,8 +339,6 @@ $result_texts{'double_syncodeindex'} = '
 
 ';
 
-$result_sectioning{'double_syncodeindex'} = {};
-
 $result_nodes{'double_syncodeindex'} = {
   'cmdname' => 'node',
   'extra' => {

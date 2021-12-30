@@ -277,8 +277,6 @@ fdotext
 f--ile
 ';
 
-$result_sectioning{'image_extension'} = {};
-
 $result_nodes{'image_extension'} = {
   'cmdname' => 'node',
   'extra' => {

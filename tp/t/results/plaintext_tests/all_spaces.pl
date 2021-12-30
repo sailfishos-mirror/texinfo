@@ -774,8 +774,6 @@ IDEOGRAPHIC SPACE: |　|
 
 ';
 
-$result_sectioning{'all_spaces'} = {};
-
 $result_nodes{'all_spaces'} = {
   'cmdname' => 'node',
   'extra' => {

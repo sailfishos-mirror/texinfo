@@ -805,8 +805,6 @@ T
 
 ';
 
-$result_sectioning{'ref_in_def'} = {};
-
 $result_nodes{'ref_in_def'} = {
   'cmdname' => 'node',
   'extra' => {

@@ -736,8 +736,6 @@ x:y: z:t n m o
 
 ';
 
-$result_sectioning{'colon_in_index_entry'} = {};
-
 $result_nodes{'colon_in_index_entry'} = {
   'cmdname' => 'node',
   'extra' => {

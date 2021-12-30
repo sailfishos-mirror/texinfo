@@ -561,8 +561,6 @@ second node
 
 ';
 
-$result_sectioning{'explicit_node_directions'} = {};
-
 $result_nodes{'explicit_node_directions'} = {
   'cmdname' => 'node',
   'extra' => {

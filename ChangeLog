@@ -1,5 +1,14 @@
 2021-12-30  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Structuring.pm (sectioning_structure): do not
+	use no_root_command_tree() to check if there is no section
+	structure, use the tree directly to define $sec_root.
+
+	* tp/Texinfo/Convert/LaTeX.pm (output): no need to modify the
+	tree structure anymore.
+
+2021-12-30  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_setup_document_root_and_text_root)
 	(parse_texi_text, parse_texi_file, parse_texi_line, _parse_texi),
 	tp/Texinfo/XS/parsetexi/api.c (parse_file, parse_text),

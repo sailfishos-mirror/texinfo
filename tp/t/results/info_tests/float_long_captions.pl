@@ -422,8 +422,6 @@ Text, text2
 
 ';
 
-$result_sectioning{'float_long_captions'} = {};
-
 $result_nodes{'float_long_captions'} = {
   'cmdname' => 'node',
   'extra' => {

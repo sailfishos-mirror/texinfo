@@ -1093,8 +1093,6 @@ macro cp
 
 ';
 
-$result_sectioning{'macro_in_index_commands'} = {};
-
 $result_nodes{'macro_in_index_commands'} = {
   'cmdname' => 'node',
   'extra' => {

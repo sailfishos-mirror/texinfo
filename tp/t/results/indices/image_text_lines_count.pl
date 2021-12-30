@@ -218,8 +218,6 @@ count_image_text
 
 ';
 
-$result_sectioning{'image_text_lines_count'} = {};
-
 $result_nodes{'image_text_lines_count'} = {
   'cmdname' => 'node',
   'extra' => {

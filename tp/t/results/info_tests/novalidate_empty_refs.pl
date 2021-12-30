@@ -381,8 +381,6 @@ $result_texts{'novalidate_empty_refs'} = '
 
 ';
 
-$result_sectioning{'novalidate_empty_refs'} = {};
-
 $result_nodes{'novalidate_empty_refs'} = {
   'cmdname' => 'node',
   'extra' => {

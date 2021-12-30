@@ -192,8 +192,6 @@ Para.
 Para2.
 ';
 
-$result_sectioning{'footnote_no_number_separate'} = {};
-
 $result_nodes{'footnote_no_number_separate'} = {
   'cmdname' => 'node',
   'extra' => {

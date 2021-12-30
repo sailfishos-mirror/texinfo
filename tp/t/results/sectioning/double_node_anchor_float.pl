@@ -623,8 +623,6 @@ Text, float1
 
 ';
 
-$result_sectioning{'double_node_anchor_float'} = {};
-
 $result_nodes{'double_node_anchor_float'} = {
   'cmdname' => 'node',
   'extra' => {

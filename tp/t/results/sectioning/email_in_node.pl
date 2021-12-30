@@ -199,8 +199,6 @@ $result_texis{'email_in_node'} = '@node @email{ a } @email{c , d} @email{ , e}
 
 $result_texts{'email_in_node'} = '';
 
-$result_sectioning{'email_in_node'} = {};
-
 $result_nodes{'email_in_node'} = {
   'cmdname' => 'node',
   'extra' => {

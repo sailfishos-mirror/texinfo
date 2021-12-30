@@ -239,8 +239,6 @@ Top
 very long
 ';
 
-$result_sectioning{'ref_in_center'} = {};
-
 $result_nodes{'ref_in_center'} = {
   'cmdname' => 'node',
   'extra' => {

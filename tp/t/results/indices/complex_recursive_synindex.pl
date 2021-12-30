@@ -1088,8 +1088,6 @@ ddd
 eee
 ';
 
-$result_sectioning{'complex_recursive_synindex'} = {};
-
 $result_nodes{'complex_recursive_synindex'} = {
   'cmdname' => 'node',
   'extra' => {

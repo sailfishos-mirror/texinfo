@@ -961,8 +961,6 @@ Instance Variable of pt: BBB CCC
 
 ';
 
-$result_sectioning{'multiple'} = {};
-
 $result_nodes{'multiple'} = {
   'cmdname' => 'node',
   'extra' => {

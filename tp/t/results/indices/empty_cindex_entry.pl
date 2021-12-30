@@ -96,8 +96,6 @@ $result_texis{'empty_cindex_entry'} = '@node Top
 
 $result_texts{'empty_cindex_entry'} = '';
 
-$result_sectioning{'empty_cindex_entry'} = {};
-
 $result_nodes{'empty_cindex_entry'} = {
   'cmdname' => 'node',
   'extra' => {

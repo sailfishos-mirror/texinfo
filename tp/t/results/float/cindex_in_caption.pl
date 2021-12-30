@@ -390,8 +390,6 @@ In float.
 
 ';
 
-$result_sectioning{'cindex_in_caption'} = {};
-
 $result_nodes{'cindex_in_caption'} = {
   'cmdname' => 'node',
   'extra' => {

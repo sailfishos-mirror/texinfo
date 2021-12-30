@@ -499,8 +499,6 @@ overlap。
 
 ';
 
-$result_sectioning{'chinese_mixed_with_en'} = {};
-
 $result_nodes{'chinese_mixed_with_en'} = {
   'cmdname' => 'node',
   'extra' => {

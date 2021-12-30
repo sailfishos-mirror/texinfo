@@ -15773,8 +15773,6 @@ Variables
 =========
 ';
 
-$result_sectioning{'all_commands_delimiters_printindex'} = {};
-
 $result_nodes{'all_commands_delimiters_printindex'} = {
   'cmdname' => 'node',
   'extra' => {

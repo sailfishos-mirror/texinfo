@@ -501,8 +501,6 @@ Float text1
 
 ';
 
-$result_sectioning{'error_in_footnote'} = {};
-
 $result_nodes{'error_in_footnote'} = {
   'cmdname' => 'node',
   'extra' => {

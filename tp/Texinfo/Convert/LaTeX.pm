@@ -934,21 +934,12 @@ sub output($$)
     }
   }
 
-  # add one level if not a document_root, to always have
-  # the same tree structure
-  my $top_root;
-  if (not $root->{'type'} or $root->{'type'} ne 'document_root') {
-    $top_root = {'contents' => [$root]};
-  } else {
-    $top_root = $root;
-  }
-
   # Ignore everything between Top node and the next node.
   # TODO find a way to process informative commands as TeX does
-  my $modified_top_root = {'contents' => []};
+  my $modified_root = {'contents' => []};
 
   my $in_top_node = 0;
-  foreach my $element_content (@{$top_root->{'contents'}}) {
+  foreach my $element_content (@{$root->{'contents'}}) {
     if ($element_content->{'cmdname'}
         and $element_content->{'cmdname'} eq 'node') {
       if ($element_content->{'extra'}->{'normalized'} eq 'Top') {
@@ -957,11 +948,11 @@ sub output($$)
         if ($in_top_node) {
           $in_top_node = 0;
         }
-        push @{$modified_top_root->{'contents'}},
+        push @{$modified_root->{'contents'}},
           $element_content;
       }
     } elsif (not $in_top_node) {
-      push @{$modified_top_root->{'contents'}},
+      push @{$modified_root->{'contents'}},
         $element_content;
     }
   }
@@ -973,10 +964,10 @@ sub output($$)
   # at the first paragraph.
   my $begin_document_type = {'type' => $latex_document_type};
   # already a top node sectioning or node command
-  if (defined($modified_top_root->{'contents'}->[0]->{'cmdname'})) {
-    unshift @{$modified_top_root->{'contents'}}, $begin_document_type;
+  if (defined($modified_root->{'contents'}->[0]->{'cmdname'})) {
+    unshift @{$modified_root->{'contents'}}, $begin_document_type;
   } else {
-    my $first_element = shift @{$modified_top_root->{'contents'}};
+    my $first_element = shift @{$modified_root->{'contents'}};
     my @first_element_contents = @{$first_element->{'contents'}};
     my $new_first_element = {'contents' => []};
     if ($first_element->{'type'}) {
@@ -994,24 +985,24 @@ sub output($$)
              shift @first_element_contents;
     }
     $begin_document_type->{'contents'} = \@first_element_contents;
-    unshift @{$modified_top_root->{'contents'}},
+    unshift @{$modified_root->{'contents'}},
       ($new_first_element, $begin_document_type);
   }
 
   # nothing after Top node the end, mark that Top node is ignored.
   if ($in_top_node) {
-    push @{$modified_top_root->{'contents'}},
+    push @{$modified_root->{'contents'}},
         {'type' => 'paragraph', 'contents' => [
         {'text' => "\n(`Top' node ignored)\n", 'type' => 'ignored_top_node'}]};
   }
 
   my $result = '';
 
-  $self->_prepare_conversion($modified_top_root);
+  $self->_prepare_conversion($modified_root);
 
   $result .= $self->write_or_return($self->_latex_header(), $fh);
   _push_new_context($self, 'main');
-  $result .= $self->write_or_return($self->convert_tree($modified_top_root), $fh);
+  $result .= $self->write_or_return($self->convert_tree($modified_root), $fh);
   $result .= $self->write_or_return($self->_latex_footer(), $fh);
 
   #print $result;

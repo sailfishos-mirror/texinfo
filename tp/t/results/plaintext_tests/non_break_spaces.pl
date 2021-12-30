@@ -147,8 +147,6 @@ NO-BREAK SPACE: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa bbbbbb
 NARROW NO-BREAK SPACE: ccccccccccccccccccccccccccccccccccccccccccccccccccccccccc dddddddddddddddddddd
 ';
 
-$result_sectioning{'non_break_spaces'} = {};
-
 $result_nodes{'non_break_spaces'} = {
   'cmdname' => 'node',
   'extra' => {

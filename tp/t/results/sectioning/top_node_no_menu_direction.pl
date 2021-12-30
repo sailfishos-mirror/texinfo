@@ -380,8 +380,6 @@ $result_texts{'top_node_no_menu_direction'} = '
 
 ';
 
-$result_sectioning{'top_node_no_menu_direction'} = {};
-
 $result_nodes{'top_node_no_menu_direction'} = {
   'cmdname' => 'node',
   'extra' => {

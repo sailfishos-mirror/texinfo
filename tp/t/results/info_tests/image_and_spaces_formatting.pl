@@ -1036,8 +1036,6 @@ Text. words       words.
 
 ';
 
-$result_sectioning{'image_and_spaces_formatting'} = {};
-
 $result_nodes{'image_and_spaces_formatting'} = {
   'cmdname' => 'node',
   'extra' => {

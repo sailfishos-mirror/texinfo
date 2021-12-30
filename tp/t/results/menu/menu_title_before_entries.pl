@@ -288,8 +288,6 @@ Horizontal space
 
 ';
 
-$result_sectioning{'menu_title_before_entries'} = {};
-
 $result_nodes{'menu_title_before_entries'} = {
   'cmdname' => 'node',
   'extra' => {

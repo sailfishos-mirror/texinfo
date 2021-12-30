@@ -311,8 +311,6 @@ TOP. tOP.
 * tOP::
 ';
 
-$result_sectioning{'top_node_normalization'} = {};
-
 $result_nodes{'top_node_normalization'} = {
   'cmdname' => 'node',
   'extra' => {

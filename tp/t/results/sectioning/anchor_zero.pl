@@ -186,8 +186,6 @@ $result_texts{'anchor_zero'} = '
 0.
 ';
 
-$result_sectioning{'anchor_zero'} = {};
-
 $result_nodes{'anchor_zero'} = {
   'cmdname' => 'node',
   'extra' => {

@@ -332,8 +332,6 @@ $result_texis{'on_node_line'} = '@node @ref{a, b, c, filename}, (@pxref{(someman
 
 $result_texts{'on_node_line'} = '';
 
-$result_sectioning{'on_node_line'} = {};
-
 $result_nodes{'on_node_line'} = {
   'cmdname' => 'node',
   'extra' => {

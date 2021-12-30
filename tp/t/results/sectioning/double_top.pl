@@ -237,8 +237,6 @@ $result_texts{'double_top'} = '
 .
 ';
 
-$result_sectioning{'double_top'} = {};
-
 $result_nodes{'double_top'} = {
   'cmdname' => 'node',
   'extra' => {

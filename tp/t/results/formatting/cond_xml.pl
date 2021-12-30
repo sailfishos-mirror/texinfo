@@ -412,8 +412,6 @@ This is ifnottex text.
 
 ';
 
-$result_sectioning{'cond_xml'} = {};
-
 $result_nodes{'cond_xml'} = {
   'cmdname' => 'node',
   'extra' => {

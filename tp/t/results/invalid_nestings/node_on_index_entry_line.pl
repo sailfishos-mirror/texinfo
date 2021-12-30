@@ -252,8 +252,6 @@ $result_texts{'node_on_index_entry_line'} = '
 Content
 ';
 
-$result_sectioning{'node_on_index_entry_line'} = {};
-
 $result_nodes{'node_on_index_entry_line'} = {
   'cmdname' => 'node',
   'extra' => {

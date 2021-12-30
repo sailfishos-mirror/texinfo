@@ -372,8 +372,6 @@ $result_texts{'empty_menu_entry_name'} = '
 
 ';
 
-$result_sectioning{'empty_menu_entry_name'} = {};
-
 $result_nodes{'empty_menu_entry_name'} = {
   'cmdname' => 'node',
   'extra' => {

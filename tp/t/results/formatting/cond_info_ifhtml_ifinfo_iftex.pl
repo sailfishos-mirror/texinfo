@@ -446,8 +446,6 @@ This is iftex text.
 
 ';
 
-$result_sectioning{'cond_info_ifhtml_ifinfo_iftex'} = {};
-
 $result_nodes{'cond_info_ifhtml_ifinfo_iftex'} = {
   'cmdname' => 'node',
   'extra' => {

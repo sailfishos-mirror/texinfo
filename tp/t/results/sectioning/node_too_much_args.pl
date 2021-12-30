@@ -115,8 +115,6 @@ $result_texis{'node_too_much_args'} = '@node Top, , ,  (dir)';
 
 $result_texts{'node_too_much_args'} = '';
 
-$result_sectioning{'node_too_much_args'} = {};
-
 $result_nodes{'node_too_much_args'} = {
   'cmdname' => 'node',
   'extra' => {

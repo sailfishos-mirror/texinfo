@@ -1177,8 +1177,6 @@ mark
 anchor in multitable
 ';
 
-$result_sectioning{'multitable_anchor_and_index_entry'} = {};
-
 $result_nodes{'multitable_anchor_and_index_entry'} = {
   'cmdname' => 'node',
   'extra' => {

@@ -233,8 +233,6 @@ $result_texts{'empty_nodes_with_commands'} = '
 
 ';
 
-$result_sectioning{'empty_nodes_with_commands'} = {};
-
 $result_errors{'empty_nodes_with_commands'} = [
   {
     'error_line' => ':2: empty argument in @node

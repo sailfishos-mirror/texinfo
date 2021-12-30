@@ -267,8 +267,6 @@ $result_texts{'default_cp_index_and_one_letter_syncodeindex'} = '
 
 ';
 
-$result_sectioning{'default_cp_index_and_one_letter_syncodeindex'} = {};
-
 $result_nodes{'default_cp_index_and_one_letter_syncodeindex'} = {
   'cmdname' => 'node',
   'extra' => {

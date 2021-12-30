@@ -561,8 +561,6 @@ Top node
 
 ';
 
-$result_sectioning{'index_entry_in_footnote_separate'} = {};
-
 $result_nodes{'index_entry_in_footnote_separate'} = {
   'cmdname' => 'node',
   'extra' => {

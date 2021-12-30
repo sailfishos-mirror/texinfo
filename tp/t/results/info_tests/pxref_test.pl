@@ -375,8 +375,6 @@ Hey ((m) in pxref) and continue ((m) in pxref) and end.
 (m) n. (m) n.
 ';
 
-$result_sectioning{'pxref_test'} = {};
-
 $result_nodes{'pxref_test'} = {
   'cmdname' => 'node',
   'extra' => {

@@ -130,8 +130,6 @@ $result_texts{'style_not_closed_before_first_node'} = 'in code
 In node
 ';
 
-$result_sectioning{'style_not_closed_before_first_node'} = {};
-
 $result_nodes{'style_not_closed_before_first_node'} = {
   'cmdname' => 'node',
   'extra' => {

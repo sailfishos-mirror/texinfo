@@ -193,8 +193,6 @@ $result_texts{'verb_in_xref'} = '
 Top.
 ';
 
-$result_sectioning{'verb_in_xref'} = {};
-
 $result_nodes{'verb_in_xref'} = {
   'cmdname' => 'node',
   'extra' => {

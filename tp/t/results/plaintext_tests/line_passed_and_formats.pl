@@ -2937,8 +2937,6 @@ menu
 end menu
 ';
 
-$result_sectioning{'line_passed_and_formats'} = {};
-
 $result_nodes{'line_passed_and_formats'} = {
   'cmdname' => 'node',
   'extra' => {

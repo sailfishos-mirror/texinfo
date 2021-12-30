@@ -1392,8 +1392,6 @@ explanation
 
 ';
 
-$result_sectioning{'complex_nestings'} = {};
-
 $result_nodes{'complex_nestings'} = {
   'cmdname' => 'node',
   'extra' => {

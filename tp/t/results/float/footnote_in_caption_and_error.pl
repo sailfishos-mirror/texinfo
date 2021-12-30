@@ -328,8 +328,6 @@ In float.
 
 ';
 
-$result_sectioning{'footnote_in_caption_and_error'} = {};
-
 $result_nodes{'footnote_in_caption_and_error'} = {
   'cmdname' => 'node',
   'extra' => {

@@ -418,8 +418,6 @@ End line.
 words.
 ';
 
-$result_sectioning{'image_and_punctuation'} = {};
-
 $result_nodes{'image_and_punctuation'} = {
   'cmdname' => 'node',
   'extra' => {

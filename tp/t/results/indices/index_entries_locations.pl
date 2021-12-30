@@ -458,8 +458,6 @@ Last paragraph.
 
 ';
 
-$result_sectioning{'index_entries_locations'} = {};
-
 $result_nodes{'index_entries_locations'} = {
   'cmdname' => 'node',
   'extra' => {

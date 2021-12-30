@@ -133,8 +133,6 @@ $result_texts{'encoding_us_ascii'} = '
 
 ';
 
-$result_sectioning{'encoding_us_ascii'} = {};
-
 $result_nodes{'encoding_us_ascii'} = {
   'cmdname' => 'node',
   'extra' => {

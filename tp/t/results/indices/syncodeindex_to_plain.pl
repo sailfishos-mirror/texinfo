@@ -391,8 +391,6 @@ cp index.
 vr index.
 ';
 
-$result_sectioning{'syncodeindex_to_plain'} = {};
-
 $result_nodes{'syncodeindex_to_plain'} = {
   'cmdname' => 'node',
   'extra' => {

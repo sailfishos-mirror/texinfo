@@ -2521,8 +2521,6 @@ in para
 f--ile.
 ';
 
-$result_sectioning{'image_formatting'} = {};
-
 $result_nodes{'image_formatting'} = {
   'cmdname' => 'node',
   'extra' => {

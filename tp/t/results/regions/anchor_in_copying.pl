@@ -352,8 +352,6 @@ Copying information.
 
 ';
 
-$result_sectioning{'anchor_in_copying'} = {};
-
 $result_nodes{'anchor_in_copying'} = {
   'cmdname' => 'node',
   'extra' => {

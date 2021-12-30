@@ -789,8 +789,6 @@ subheading in menu
 
 ';
 
-$result_sectioning{'submenu_in_example'} = {};
-
 $result_nodes{'submenu_in_example'} = {
   'cmdname' => 'node',
   'extra' => {

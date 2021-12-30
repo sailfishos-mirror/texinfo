@@ -254,8 +254,6 @@ $result_texts{'menu_in_style_command'} = '
 * (truc)::
 ';
 
-$result_sectioning{'menu_in_style_command'} = {};
-
 $result_nodes{'menu_in_style_command'} = {
   'cmdname' => 'node',
   'extra' => {

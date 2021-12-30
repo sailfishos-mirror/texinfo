@@ -1002,8 +1002,6 @@ Macros that should not be defined: . with arg.
 
 ';
 
-$result_sectioning{'at_commands_in_raw'} = {};
-
 $result_nodes{'at_commands_in_raw'} = {
   'cmdname' => 'node',
   'extra' => {

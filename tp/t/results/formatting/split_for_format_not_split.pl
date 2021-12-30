@@ -201,8 +201,6 @@ This is a very simple texi manual   <>.
 
 ';
 
-$result_sectioning{'split_for_format_not_split'} = {};
-
 $result_nodes{'split_for_format_not_split'} = {
   'cmdname' => 'node',
   'extra' => {

@@ -578,8 +578,6 @@ test_var include: This is the included file (include-value2.txi) <> --.
 
 test_var verbatiminclude: ';
 
-$result_sectioning{'value_expansion_in_include'} = {};
-
 $result_nodes{'value_expansion_in_include'} = {
   'cmdname' => 'node',
   'extra' => {

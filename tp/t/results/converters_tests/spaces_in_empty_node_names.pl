@@ -811,8 +811,6 @@ $result_texts{'spaces_in_empty_node_names'} = '
   
 ';
 
-$result_sectioning{'spaces_in_empty_node_names'} = {};
-
 $result_nodes{'spaces_in_empty_node_names'} = {
   'cmdname' => 'node',
   'extra' => {

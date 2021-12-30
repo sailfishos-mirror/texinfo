@@ -219,8 +219,6 @@ $result_texts{'menu_node_unterminated'} = '
 * Example: Examples of Login Verification Functions
 ';
 
-$result_sectioning{'menu_node_unterminated'} = {};
-
 $result_nodes{'menu_node_unterminated'} = {
   'cmdname' => 'node',
   'extra' => {

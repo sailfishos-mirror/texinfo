@@ -99,8 +99,6 @@ $result_texis{'node_and_bye'} = '@node Top
 $result_texts{'node_and_bye'} = '
 ';
 
-$result_sectioning{'node_and_bye'} = {};
-
 $result_nodes{'node_and_bye'} = {
   'cmdname' => 'node',
   'extra' => {

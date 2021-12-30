@@ -466,8 +466,6 @@ AAA1: AAA2 arg3
 
 ';
 
-$result_sectioning{'space_in_def_for_index'} = {};
-
 $result_nodes{'space_in_def_for_index'} = {
   'cmdname' => 'node',
   'extra' => {

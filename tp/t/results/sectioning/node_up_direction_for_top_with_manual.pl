@@ -121,8 +121,6 @@ $result_texis{'node_up_direction_for_top_with_manual'} = '@node Top,,,(dir)top
 
 $result_texts{'node_up_direction_for_top_with_manual'} = '';
 
-$result_sectioning{'node_up_direction_for_top_with_manual'} = {};
-
 $result_nodes{'node_up_direction_for_top_with_manual'} = {
   'cmdname' => 'node',
   'extra' => {

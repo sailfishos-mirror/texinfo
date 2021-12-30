@@ -313,8 +313,6 @@ $result_texts{'unknown_region'} = '
 Instance Variable of AAA: BBB CCC
 ';
 
-$result_sectioning{'unknown_region'} = {};
-
 $result_nodes{'unknown_region'} = {
   'cmdname' => 'node',
   'extra' => {

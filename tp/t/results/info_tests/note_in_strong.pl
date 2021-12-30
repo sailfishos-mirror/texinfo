@@ -412,8 +412,6 @@ $result_texts{'note_in_strong'} = '
 15 note-bbb.
 ';
 
-$result_sectioning{'note_in_strong'} = {};
-
 $result_nodes{'note_in_strong'} = {
   'cmdname' => 'node',
   'extra' => {

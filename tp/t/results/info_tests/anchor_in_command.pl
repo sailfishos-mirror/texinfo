@@ -259,8 +259,6 @@ aaa TeX in emph after
 emph emph2 .
 ';
 
-$result_sectioning{'anchor_in_command'} = {};
-
 $result_nodes{'anchor_in_command'} = {
   'cmdname' => 'node',
   'extra' => {

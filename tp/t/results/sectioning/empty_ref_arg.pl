@@ -448,8 +448,6 @@ Top
 Top
 ';
 
-$result_sectioning{'empty_ref_arg'} = {};
-
 $result_nodes{'empty_ref_arg'} = {
   'cmdname' => 'node',
   'extra' => {

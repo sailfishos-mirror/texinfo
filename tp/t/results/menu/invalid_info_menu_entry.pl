@@ -761,8 +761,6 @@ $result_texts{'invalid_info_menu_entry'} = '
 * name: (f)node	n. d3
 ';
 
-$result_sectioning{'invalid_info_menu_entry'} = {};
-
 $result_nodes{'invalid_info_menu_entry'} = {
   'cmdname' => 'node',
   'extra' => {

@@ -645,8 +645,6 @@ $result_texts{'transliterated_split_equivalent_nodes'} = '
 
 ';
 
-$result_sectioning{'transliterated_split_equivalent_nodes'} = {};
-
 $result_nodes{'transliterated_split_equivalent_nodes'} = {
   'cmdname' => 'node',
   'extra' => {

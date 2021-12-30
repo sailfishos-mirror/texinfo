@@ -106,8 +106,6 @@ $result_texis{'image_not_found'} = '@node Top
 $result_texts{'image_not_found'} = 'n_f_image
 ';
 
-$result_sectioning{'image_not_found'} = {};
-
 $result_nodes{'image_not_found'} = {
   'cmdname' => 'node',
   'extra' => {

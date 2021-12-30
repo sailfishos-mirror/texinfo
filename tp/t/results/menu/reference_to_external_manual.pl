@@ -229,8 +229,6 @@ $result_texts{'reference_to_external_manual'} = '
 * (info)::
 ';
 
-$result_sectioning{'reference_to_external_manual'} = {};
-
 $result_nodes{'reference_to_external_manual'} = {
   'cmdname' => 'node',
   'extra' => {

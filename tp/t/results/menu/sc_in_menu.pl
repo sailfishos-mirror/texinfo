@@ -1027,8 +1027,6 @@ EXAMPLE COMMENT
 
 ';
 
-$result_sectioning{'sc_in_menu'} = {};
-
 $result_nodes{'sc_in_menu'} = {
   'cmdname' => 'node',
   'extra' => {

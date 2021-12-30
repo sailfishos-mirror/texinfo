@@ -475,8 +475,6 @@ $result_texts{'next_no_prev_to_node'} = '
 
 ';
 
-$result_sectioning{'next_no_prev_to_node'} = {};
-
 $result_nodes{'next_no_prev_to_node'} = {
   'cmdname' => 'node',
   'extra' => {

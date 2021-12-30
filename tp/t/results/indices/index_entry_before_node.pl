@@ -610,8 +610,6 @@ Para.
 
 ';
 
-$result_sectioning{'index_entry_before_node'} = {};
-
 $result_nodes{'index_entry_before_node'} = {
   'cmdname' => 'node',
   'extra' => {

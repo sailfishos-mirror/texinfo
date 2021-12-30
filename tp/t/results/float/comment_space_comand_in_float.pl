@@ -296,8 +296,6 @@ Float
 
 ';
 
-$result_sectioning{'comment_space_comand_in_float'} = {};
-
 $result_nodes{'comment_space_comand_in_float'} = {
   'cmdname' => 'node',
   'extra' => {

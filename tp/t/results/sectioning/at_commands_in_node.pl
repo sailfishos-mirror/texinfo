@@ -369,8 +369,6 @@ $result_texis{'at_commands_in_node'} = '@node A @sc{sc} node @"i @"{@dotless{i}}
 
 $result_texts{'at_commands_in_node'} = '';
 
-$result_sectioning{'at_commands_in_node'} = {};
-
 $result_nodes{'at_commands_in_node'} = {
   'cmdname' => 'node',
   'extra' => {

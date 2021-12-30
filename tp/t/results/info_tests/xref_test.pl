@@ -428,8 +428,6 @@ $result_texts{'xref_test'} = '
 (m)in ref followed by symbol# g.
 ';
 
-$result_sectioning{'xref_test'} = {};
-
 $result_nodes{'xref_test'} = {
   'cmdname' => 'node',
   'extra' => {

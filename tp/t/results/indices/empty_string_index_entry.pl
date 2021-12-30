@@ -744,8 +744,6 @@ Function:
 
 ';
 
-$result_sectioning{'empty_string_index_entry'} = {};
-
 $result_nodes{'empty_string_index_entry'} = {
   'cmdname' => 'node',
   'extra' => {

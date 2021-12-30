@@ -905,8 +905,6 @@ Ref to @samp{node} node.
 
 ';
 
-$result_sectioning{'equivalent_nodes'} = {};
-
 $result_nodes{'equivalent_nodes'} = {
   'cmdname' => 'node',
   'extra' => {

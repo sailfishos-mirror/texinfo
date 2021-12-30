@@ -69,8 +69,6 @@ $result_texis{'no_top_node'} = '@node node Top not Top node
 
 $result_texts{'no_top_node'} = '';
 
-$result_sectioning{'no_top_node'} = {};
-
 $result_nodes{'no_top_node'} = {
   'cmdname' => 'node',
   'extra' => {

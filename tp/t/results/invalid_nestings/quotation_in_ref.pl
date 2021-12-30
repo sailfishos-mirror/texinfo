@@ -214,8 +214,6 @@ Topquotation in ref
 .
 ';
 
-$result_sectioning{'quotation_in_ref'} = {};
-
 $result_nodes{'quotation_in_ref'} = {
   'cmdname' => 'node',
   'extra' => {

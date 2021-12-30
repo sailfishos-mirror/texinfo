@@ -131,8 +131,6 @@ $result_texts{'unknown_encoding'} = '
 
 ';
 
-$result_sectioning{'unknown_encoding'} = {};
-
 $result_nodes{'unknown_encoding'} = {
   'cmdname' => 'node',
   'extra' => {

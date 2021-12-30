@@ -313,8 +313,6 @@ $result_texts{'simple'} = '
 Instance Variable of AAA: BBB CCC
 ';
 
-$result_sectioning{'simple'} = {};
-
 $result_nodes{'simple'} = {
   'cmdname' => 'node',
   'extra' => {

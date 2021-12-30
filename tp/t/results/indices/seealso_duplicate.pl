@@ -386,8 +386,6 @@ $result_texts{'seealso_duplicate'} = '
 
 ';
 
-$result_sectioning{'seealso_duplicate'} = {};
-
 $result_nodes{'seealso_duplicate'} = {
   'cmdname' => 'node',
   'extra' => {

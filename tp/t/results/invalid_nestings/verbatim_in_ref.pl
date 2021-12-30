@@ -183,8 +183,6 @@ $result_texts{'verbatim_in_ref'} = '
 Topverbat text
 .';
 
-$result_sectioning{'verbatim_in_ref'} = {};
-
 $result_nodes{'verbatim_in_ref'} = {
   'cmdname' => 'node',
   'extra' => {

@@ -673,8 +673,6 @@ $result_texts{'printindex_merged_indices_code_style'} = '
 
 ';
 
-$result_sectioning{'printindex_merged_indices_code_style'} = {};
-
 $result_nodes{'printindex_merged_indices_code_style'} = {
   'cmdname' => 'node',
   'extra' => {

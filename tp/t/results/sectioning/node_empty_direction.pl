@@ -74,8 +74,6 @@ $result_texis{'node_empty_direction'} = '@node name, ';
 
 $result_texts{'node_empty_direction'} = '';
 
-$result_sectioning{'node_empty_direction'} = {};
-
 $result_nodes{'node_empty_direction'} = {
   'cmdname' => 'node',
   'extra' => {

@@ -147,11 +147,7 @@ sub sectioning_structure($$$)
   my $configuration_informations = shift;
   my $root = shift;
 
-  if (no_root_command_tree($root)) {
-    return undef;
-  }
-
-  my $sec_root = {};
+  my $sec_root;
   my $previous_section;
   my $previous_toplevel;
 
@@ -241,9 +237,9 @@ sub sectioning_structure($$$)
         if ($new_upper_part_element) {
           # In that case the root has to be updated because the first 
           # 'part' just appeared
-          $content->{'section_up'} = $sec_root;
           $sec_root->{'level'} = $level - 1;
           push @{$sec_root->{'section_childs'}}, $content;
+          $content->{'section_up'} = $sec_root;
           $number_top_level = $level;
           $number_top_level++ if (!$number_top_level);
         } else {
@@ -261,9 +257,9 @@ sub sectioning_structure($$$)
       }
     } else { # first section determines the level of the root.  It is 
       # typically -1 when there is a @top.
-      $content->{'section_up'} = $sec_root;
       $sec_root->{'level'} = $level - 1;
       $sec_root->{'section_childs'} = [$content];
+      $content->{'section_up'} = $sec_root;
       $number_top_level = $level;
       # if $level of top sectioning element is 0, which means that
       # it is a @top, $number_top_level is 1 as it is associated to

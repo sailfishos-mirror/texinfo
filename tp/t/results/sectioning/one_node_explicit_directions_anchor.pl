@@ -253,8 +253,6 @@ anchor ref .
 ref to ref ref.
 ';
 
-$result_sectioning{'one_node_explicit_directions_anchor'} = {};
-
 $result_nodes{'one_node_explicit_directions_anchor'} = {
   'cmdname' => 'node',
   'extra' => {

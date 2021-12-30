@@ -730,8 +730,6 @@ $result_texts{'node_line_arguments'} = '
 
 ';
 
-$result_sectioning{'node_line_arguments'} = {};
-
 $result_nodes{'node_line_arguments'} = {
   'cmdname' => 'node',
   'extra' => {

@@ -227,8 +227,6 @@ Top node
 
 ';
 
-$result_sectioning{'index_entry_in_footnote'} = {};
-
 $result_nodes{'index_entry_in_footnote'} = {
   'cmdname' => 'node',
   'extra' => {

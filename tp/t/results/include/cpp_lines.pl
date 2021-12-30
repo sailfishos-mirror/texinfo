@@ -910,8 +910,6 @@ after verb
 
 ';
 
-$result_sectioning{'cpp_lines'} = {};
-
 $result_nodes{'cpp_lines'} = {
   'cmdname' => 'node',
   'extra' => {

@@ -186,8 +186,6 @@ bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb vvvvvvvvvvvvvvvv note
 a
 ';
 
-$result_sectioning{'note_in_strong_end_of_line'} = {};
-
 $result_nodes{'note_in_strong_end_of_line'} = {
   'cmdname' => 'node',
   'extra' => {

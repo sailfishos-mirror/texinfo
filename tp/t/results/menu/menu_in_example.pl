@@ -680,8 +680,6 @@ in cartouche in menu comment in menu in example
 * a menu name:(other) node. 
 ';
 
-$result_sectioning{'menu_in_example'} = {};
-
 $result_nodes{'menu_in_example'} = {
   'cmdname' => 'node',
   'extra' => {

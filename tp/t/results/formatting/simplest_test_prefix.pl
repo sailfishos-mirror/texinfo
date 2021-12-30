@@ -201,8 +201,6 @@ This is a very simple texi manual   <>.
 
 ';
 
-$result_sectioning{'simplest_test_prefix'} = {};
-
 $result_nodes{'simplest_test_prefix'} = {
   'cmdname' => 'node',
   'extra' => {

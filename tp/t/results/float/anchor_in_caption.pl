@@ -317,8 +317,6 @@ In float.
 
 ';
 
-$result_sectioning{'anchor_in_caption'} = {};
-
 $result_nodes{'anchor_in_caption'} = {
   'cmdname' => 'node',
   'extra' => {

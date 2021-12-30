@@ -556,8 +556,6 @@ $result_texts{'space_in_node'} = '
 
 ';
 
-$result_sectioning{'space_in_node'} = {};
-
 $result_nodes{'space_in_node'} = {
   'cmdname' => 'node',
   'extra' => {

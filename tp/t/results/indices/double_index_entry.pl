@@ -543,8 +543,6 @@ Text
 
 ';
 
-$result_sectioning{'double_index_entry'} = {};
-
 $result_nodes{'double_index_entry'} = {
   'cmdname' => 'node',
   'extra' => {

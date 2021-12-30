@@ -903,8 +903,6 @@ b
 c  
 ';
 
-$result_sectioning{'spaces_in_node_names'} = {};
-
 $result_nodes{'spaces_in_node_names'} = {
   'cmdname' => 'node',
   'extra' => {

@@ -228,8 +228,6 @@ $result_texts{'nested_footnotes_separate'} = '
 F
 ';
 
-$result_sectioning{'nested_footnotes_separate'} = {};
-
 $result_nodes{'nested_footnotes_separate'} = {
   'cmdname' => 'node',
   'extra' => {

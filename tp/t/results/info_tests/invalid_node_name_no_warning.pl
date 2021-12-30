@@ -988,8 +988,6 @@ nodename. a. node,comma.
 bidule:.
 ';
 
-$result_sectioning{'invalid_node_name_no_warning'} = {};
-
 $result_nodes{'invalid_node_name_no_warning'} = {
   'cmdname' => 'node',
   'extra' => {

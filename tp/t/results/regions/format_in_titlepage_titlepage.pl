@@ -243,8 +243,6 @@ $result_texts{'format_in_titlepage_titlepage'} = '
 
 ';
 
-$result_sectioning{'format_in_titlepage_titlepage'} = {};
-
 $result_nodes{'format_in_titlepage_titlepage'} = {
   'cmdname' => 'node',
   'extra' => {

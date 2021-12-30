@@ -380,8 +380,6 @@ a: b c
 * (mynode)::
 ';
 
-$result_sectioning{'menu_in_deffn'} = {};
-
 $result_nodes{'menu_in_deffn'} = {
   'cmdname' => 'node',
   'extra' => {

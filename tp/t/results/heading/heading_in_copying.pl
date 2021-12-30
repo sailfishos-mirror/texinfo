@@ -372,8 +372,6 @@ $result_texts{'heading_in_copying'} = '
 
 ';
 
-$result_sectioning{'heading_in_copying'} = {};
-
 $result_nodes{'heading_in_copying'} = {
   'cmdname' => 'node',
   'extra' => {

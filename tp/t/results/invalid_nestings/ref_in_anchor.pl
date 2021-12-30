@@ -146,8 +146,6 @@ $result_texis{'ref_in_anchor'} = '@node Top
 
 $result_texts{'ref_in_anchor'} = '';
 
-$result_sectioning{'ref_in_anchor'} = {};
-
 $result_nodes{'ref_in_anchor'} = {
   'cmdname' => 'node',
   'extra' => {

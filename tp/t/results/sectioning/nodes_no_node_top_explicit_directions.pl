@@ -405,8 +405,6 @@ $result_texts{'nodes_no_node_top_explicit_directions'} = 'first node
 second node
 ';
 
-$result_sectioning{'nodes_no_node_top_explicit_directions'} = {};
-
 $result_nodes{'nodes_no_node_top_explicit_directions'} = {
   'cmdname' => 'node',
   'extra' => {

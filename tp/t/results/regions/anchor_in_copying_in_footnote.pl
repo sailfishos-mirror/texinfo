@@ -387,8 +387,6 @@ Copying footnote.
 
 ';
 
-$result_sectioning{'anchor_in_copying_in_footnote'} = {};
-
 $result_nodes{'anchor_in_copying_in_footnote'} = {
   'cmdname' => 'node',
   'extra' => {

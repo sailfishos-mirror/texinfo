@@ -1256,8 +1256,6 @@ Even more
 
 ';
 
-$result_sectioning{'in_table'} = {};
-
 $result_nodes{'in_table'} = {
   'cmdname' => 'node',
   'extra' => {

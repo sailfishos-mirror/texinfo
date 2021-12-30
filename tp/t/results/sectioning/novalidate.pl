@@ -327,8 +327,6 @@ $result_texts{'novalidate'} = '
 unknown ref.
 ';
 
-$result_sectioning{'novalidate'} = {};
-
 $result_nodes{'novalidate'} = {
   'cmdname' => 'node',
   'extra' => {

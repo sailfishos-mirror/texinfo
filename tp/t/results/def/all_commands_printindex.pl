@@ -5671,8 +5671,6 @@ Variables
 =========
 ';
 
-$result_sectioning{'all_commands_printindex'} = {};
-
 $result_nodes{'all_commands_printindex'} = {
   'cmdname' => 'node',
   'extra' => {

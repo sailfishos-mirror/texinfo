@@ -373,8 +373,6 @@ $result_texts{'backslash_in_arg'} = '
 
 ';
 
-$result_sectioning{'backslash_in_arg'} = {};
-
 $result_nodes{'backslash_in_arg'} = {
   'cmdname' => 'node',
   'extra' => {

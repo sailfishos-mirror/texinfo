@@ -3620,8 +3620,6 @@ In text f@i--le..  a@<"%@  < & @ % " .
 
 ';
 
-$result_sectioning{'test_image'} = {};
-
 $result_nodes{'test_image'} = {
   'cmdname' => 'node',
   'extra' => {

@@ -650,8 +650,6 @@ $result_texts{'ref_tests'} = '
 
 ';
 
-$result_sectioning{'ref_tests'} = {};
-
 $result_nodes{'ref_tests'} = {
   'cmdname' => 'node',
   'extra' => {

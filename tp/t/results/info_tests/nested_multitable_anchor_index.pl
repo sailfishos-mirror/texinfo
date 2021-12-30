@@ -848,8 +848,6 @@ mark.
 mark inside.
 ';
 
-$result_sectioning{'nested_multitable_anchor_index'} = {};
-
 $result_nodes{'nested_multitable_anchor_index'} = {
   'cmdname' => 'node',
   'extra' => {

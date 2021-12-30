@@ -272,8 +272,6 @@ $result_texts{'detailmenu_unknown_node'} = '
 * unknown::
 ';
 
-$result_sectioning{'detailmenu_unknown_node'} = {};
-
 $result_nodes{'detailmenu_unknown_node'} = {
   'cmdname' => 'node',
   'extra' => {

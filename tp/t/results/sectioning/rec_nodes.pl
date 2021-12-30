@@ -1325,8 +1325,6 @@ in node following second
 * node up node following second::
 ';
 
-$result_sectioning{'rec_nodes'} = {};
-
 $result_nodes{'rec_nodes'} = {
   'cmdname' => 'node',
   'extra' => {

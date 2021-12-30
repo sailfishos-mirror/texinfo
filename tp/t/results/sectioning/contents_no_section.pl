@@ -196,8 +196,6 @@ $result_texts{'contents_no_section'} = '
 
 ';
 
-$result_sectioning{'contents_no_section'} = {};
-
 $result_nodes{'contents_no_section'} = {
   'cmdname' => 'node',
   'extra' => {

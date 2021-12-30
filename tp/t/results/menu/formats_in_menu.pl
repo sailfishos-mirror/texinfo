@@ -933,8 +933,6 @@ Menu comment
 
 ';
 
-$result_sectioning{'formats_in_menu'} = {};
-
 $result_nodes{'formats_in_menu'} = {
   'cmdname' => 'node',
   'extra' => {

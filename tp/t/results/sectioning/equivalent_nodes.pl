@@ -407,8 +407,6 @@ $result_texts{'equivalent_nodes'} = '
 node.
 ';
 
-$result_sectioning{'equivalent_nodes'} = {};
-
 $result_nodes{'equivalent_nodes'} = {
   'cmdname' => 'node',
   'extra' => {

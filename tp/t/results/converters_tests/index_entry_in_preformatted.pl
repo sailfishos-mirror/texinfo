@@ -339,8 +339,6 @@ text
 text2
 ';
 
-$result_sectioning{'index_entry_in_preformatted'} = {};
-
 $result_nodes{'index_entry_in_preformatted'} = {
   'cmdname' => 'node',
   'extra' => {

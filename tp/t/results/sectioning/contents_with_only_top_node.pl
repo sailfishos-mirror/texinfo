@@ -109,8 +109,6 @@ $result_texts{'contents_with_only_top_node'} = '
 
 ';
 
-$result_sectioning{'contents_with_only_top_node'} = {};
-
 $result_nodes{'contents_with_only_top_node'} = {
   'cmdname' => 'node',
   'extra' => {

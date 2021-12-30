@@ -707,8 +707,6 @@ Menu comment
 
 ';
 
-$result_sectioning{'entry_after_detailmenu'} = {};
-
 $result_nodes{'entry_after_detailmenu'} = {
   'cmdname' => 'node',
   'extra' => {

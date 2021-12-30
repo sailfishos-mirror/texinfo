@@ -429,8 +429,6 @@ This is ifnottex text.
 
 ';
 
-$result_sectioning{'cond'} = {};
-
 $result_nodes{'cond'} = {
   'cmdname' => 'node',
   'extra' => {

@@ -403,8 +403,6 @@ node name
 
 ';
 
-$result_sectioning{'ref_in_preformatted'} = {};
-
 $result_nodes{'ref_in_preformatted'} = {
   'cmdname' => 'node',
   'extra' => {

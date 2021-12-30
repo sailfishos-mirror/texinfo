@@ -2686,8 +2686,6 @@ anc-hor
 in-example
 ';
 
-$result_sectioning{'test_allowcodebreaks'} = {};
-
 $result_nodes{'test_allowcodebreaks'} = {
   'cmdname' => 'node',
   'extra' => {

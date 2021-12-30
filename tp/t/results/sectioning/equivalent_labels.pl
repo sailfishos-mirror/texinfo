@@ -496,8 +496,6 @@ In float
 * floa::
 ';
 
-$result_sectioning{'equivalent_labels'} = {};
-
 $result_nodes{'equivalent_labels'} = {
   'cmdname' => 'node',
   'extra' => {

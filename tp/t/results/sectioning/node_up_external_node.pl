@@ -379,8 +379,6 @@ $result_texts{'node_up_external_node'} = '
 
 ';
 
-$result_sectioning{'node_up_external_node'} = {};
-
 $result_nodes{'node_up_external_node'} = {
   'cmdname' => 'node',
   'extra' => {

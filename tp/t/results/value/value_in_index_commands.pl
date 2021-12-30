@@ -951,8 +951,6 @@ value truc
 value cp
 ';
 
-$result_sectioning{'value_in_index_commands'} = {};
-
 $result_nodes{'value_in_index_commands'} = {
   'cmdname' => 'node',
   'extra' => {

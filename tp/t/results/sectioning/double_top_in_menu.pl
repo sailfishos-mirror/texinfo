@@ -426,8 +426,6 @@ $result_texts{'double_top_in_menu'} = 'Top node
 second node.
 ';
 
-$result_sectioning{'double_top_in_menu'} = {};
-
 $result_nodes{'double_top_in_menu'} = {
   'cmdname' => 'node',
   'extra' => {

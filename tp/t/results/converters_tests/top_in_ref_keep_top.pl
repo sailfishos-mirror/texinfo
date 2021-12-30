@@ -4349,8 +4349,6 @@ $result_texts{'top_in_ref_keep_top'} = '
 @inforef{Top,,file name} Top
 ';
 
-$result_sectioning{'top_in_ref_keep_top'} = {};
-
 $result_nodes{'top_in_ref_keep_top'} = {
   'cmdname' => 'node',
   'extra' => {

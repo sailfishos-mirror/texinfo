@@ -185,8 +185,6 @@ seond para}.}';
 $result_texts{'footnote_in_ref'} = '
 Top';
 
-$result_sectioning{'footnote_in_ref'} = {};
-
 $result_nodes{'footnote_in_ref'} = {
   'cmdname' => 'node',
   'extra' => {

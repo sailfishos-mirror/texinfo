@@ -266,8 +266,6 @@ $result_texts{'space_at_menu_end'} = '
 A para.
 ';
 
-$result_sectioning{'space_at_menu_end'} = {};
-
 $result_nodes{'space_at_menu_end'} = {
   'cmdname' => 'node',
   'extra' => {

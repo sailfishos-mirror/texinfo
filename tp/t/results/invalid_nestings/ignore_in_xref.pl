@@ -188,8 +188,6 @@ $result_texts{'ignore_in_xref'} = '
 Top.
 ';
 
-$result_sectioning{'ignore_in_xref'} = {};
-
 $result_nodes{'ignore_in_xref'} = {
   'cmdname' => 'node',
   'extra' => {

@@ -2201,8 +2201,6 @@ T
 
 ';
 
-$result_sectioning{'commands_and_spaces'} = {};
-
 $result_nodes{'commands_and_spaces'} = {
   'cmdname' => 'node',
   'extra' => {

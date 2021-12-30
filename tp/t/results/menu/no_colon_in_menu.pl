@@ -163,8 +163,6 @@ $result_texts{'no_colon_in_menu'} = '
 * a
 ';
 
-$result_sectioning{'no_colon_in_menu'} = {};
-
 $result_nodes{'no_colon_in_menu'} = {
   'cmdname' => 'node',
   'extra' => {

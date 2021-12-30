@@ -498,8 +498,6 @@ $result_texis{'character_and_spaces_in_node'} = '
 $result_texts{'character_and_spaces_in_node'} = '
 ';
 
-$result_sectioning{'character_and_spaces_in_node'} = {};
-
 $result_nodes{'character_and_spaces_in_node'} = {
   'cmdname' => 'node',
   'extra' => {

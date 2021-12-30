@@ -825,8 +825,6 @@ var3
 
 ';
 
-$result_sectioning{'ftable_vtable'} = {};
-
 $result_nodes{'ftable_vtable'} = {
   'cmdname' => 'node',
   'extra' => {

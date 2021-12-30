@@ -383,8 +383,6 @@ second level node.
 
 ';
 
-$result_sectioning{'node_referenced_in_ref'} = {};
-
 $result_nodes{'node_referenced_in_ref'} = {
   'cmdname' => 'node',
   'extra' => {

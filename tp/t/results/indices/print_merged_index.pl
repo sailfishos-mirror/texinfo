@@ -138,8 +138,6 @@ $result_texis{'print_merged_index'} = '@syncodeindex fn cp
 
 $result_texts{'print_merged_index'} = '';
 
-$result_sectioning{'print_merged_index'} = {};
-
 $result_nodes{'print_merged_index'} = {
   'cmdname' => 'node',
   'extra' => {

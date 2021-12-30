@@ -388,8 +388,6 @@ $result_texts{'multiple_menus'} = '
 * (b)b::
 ';
 
-$result_sectioning{'multiple_menus'} = {};
-
 $result_nodes{'multiple_menus'} = {
   'cmdname' => 'node',
   'extra' => {

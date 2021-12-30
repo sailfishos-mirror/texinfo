@@ -523,8 +523,6 @@ $result_texts{'node_nested_parentheses'} = '
 * ())) error::
 ';
 
-$result_sectioning{'node_nested_parentheses'} = {};
-
 $result_nodes{'node_nested_parentheses'} = {
   'cmdname' => 'node',
   'extra' => {

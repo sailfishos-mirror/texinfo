@@ -2568,8 +2568,6 @@ Text and then index entries
 
 ';
 
-$result_sectioning{'nodes_before_top'} = {};
-
 $result_nodes{'nodes_before_top'} = {
   'cmdname' => 'node',
   'extra' => {
