@@ -17,11 +17,11 @@ $result_trees{'japanese_utf8'} = {
                   'parent' => {},
                   'text' => '\\input texinfo @c -*- coding: utf-8; mode: texinfo; -*-
 ',
-                  'type' => 'preamble_text'
+                  'type' => 'text_before_beginning'
                 }
               ],
               'parent' => {},
-              'type' => 'preamble'
+              'type' => 'preamble_before_beginning'
             },
             {
               'args' => [

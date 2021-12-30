@@ -258,7 +258,7 @@ foreach my $type ('empty_line_after_command',
 }
 
 my %ignored_types;
-foreach my $type ('preamble',
+foreach my $type ('preamble_before_beginning',
             'preamble_before_setfilename') {
   $ignored_types{$type} = 1;
 }

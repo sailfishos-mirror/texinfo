@@ -17,11 +17,11 @@ $result_trees{'cond_xml'} = {
                   'parent' => {},
                   'text' => '\\input texinfo
 ',
-                  'type' => 'preamble_text'
+                  'type' => 'text_before_beginning'
                 }
               ],
               'parent' => {},
-              'type' => 'preamble'
+              'type' => 'preamble_before_beginning'
             }
           ],
           'parent' => {},
@@ -437,8 +437,8 @@ $result_floats{'cond_xml'} = {};
 
 
 
-$result_converted{'xml'}->{'cond_xml'} = '<preamble>\\input texinfo
-</preamble><setfilename file="cond.info" spaces=" ">cond.info</setfilename>
+$result_converted{'xml'}->{'cond_xml'} = '<preamblebeforebeginning>\\input texinfo
+</preamblebeforebeginning><setfilename file="cond.info" spaces=" ">cond.info</setfilename>
 
 <node name="Top" spaces=" "><nodename>Top</nodename></node>
 

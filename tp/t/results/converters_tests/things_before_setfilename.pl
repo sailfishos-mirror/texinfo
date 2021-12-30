@@ -17,17 +17,17 @@ $result_trees{'things_before_setfilename'} = {
                   'parent' => {},
                   'text' => '\\input texinfo
 ',
-                  'type' => 'preamble_text'
+                  'type' => 'text_before_beginning'
                 },
                 {
                   'parent' => {},
                   'text' => '
 ',
-                  'type' => 'preamble_text'
+                  'type' => 'text_before_beginning'
                 }
               ],
               'parent' => {},
-              'type' => 'preamble'
+              'type' => 'preamble_before_beginning'
             },
             {
               'args' => [
@@ -1562,9 +1562,9 @@ ul.no-bullet {list-style: none}
 ';
 
 
-$result_converted{'xml'}->{'things_before_setfilename'} = '<preamble>\\input texinfo
+$result_converted{'xml'}->{'things_before_setfilename'} = '<preamblebeforebeginning>\\input texinfo
 
-</preamble><anchor name="An-anchor">An anchor</anchor>
+</preamblebeforebeginning><anchor name="An-anchor">An anchor</anchor>
 
 <para>Ref to the anchor:
 <ref label="An-anchor"><xrefnodename>An anchor</xrefnodename></ref>

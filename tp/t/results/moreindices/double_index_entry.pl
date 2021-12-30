@@ -15,11 +15,11 @@ $result_trees{'double_index_entry'} = {
               'parent' => {},
               'text' => '
 ',
-              'type' => 'preamble_text'
+              'type' => 'text_before_beginning'
             }
           ],
           'parent' => {},
-          'type' => 'preamble'
+          'type' => 'preamble_before_beginning'
         }
       ],
       'parent' => {},

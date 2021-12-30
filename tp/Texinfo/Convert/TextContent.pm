@@ -45,7 +45,7 @@ foreach my $ignored_command (
 }
 
 my %ignored_types;
-foreach my $type ('empty_line_after_command', 'preamble',
+foreach my $type ('empty_line_after_command', 'preamble_before_beginning',
             'empty_spaces_after_command',
             'empty_spaces_before_paragraph',
             'empty_spaces_after_close_brace') {

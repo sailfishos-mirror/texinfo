@@ -17,11 +17,11 @@ $result_trees{'documentlanguage_set_option_info'} = {
                   'parent' => {},
                   'text' => '\\input texinfo @c -*-texinfo-*-
 ',
-                  'type' => 'preamble_text'
+                  'type' => 'text_before_beginning'
                 }
               ],
               'parent' => {},
-              'type' => 'preamble'
+              'type' => 'preamble_before_beginning'
             },
             {
               'args' => [

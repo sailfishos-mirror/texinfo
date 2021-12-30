@@ -1,5 +1,24 @@
 2021-12-30  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/DocBook.pm, tp/Texinfo/Convert/HTML.pm,
+	tp/Texinfo/Convert/LaTeX.pm,
+	tp/Texinfo/Convert/NodeNameNormalization.pm,
+	tp/Texinfo/Convert/Plaintext.pm, tp/Texinfo/Convert/TexinfoXML.pm,
+	tp/Texinfo/Convert/Text.pm, tp/Texinfo/Convert/TextContent.pm,
+	tp/Texinfo/ParserNonXS.pm (parse_texi_file),
+	tp/Texinfo/XS/parsetexi/element_types.txt,
+	tp/Texinfo/XS/parsetexi/parser.c (parse_texi_file):
+	rename preamble type as preamble_before_beginning and
+	preamble_text as text_before_beginning.
+
+	* tp/Texinfo/ParserNonXS.pm (parse_texi_text, _parse_texi):
+	defined $root in parse_texi_text() instead of _parse_texi().
+
+	* tp/Texinfo/XS/parsetexi/Parsetexi.pm (parse_texi_file): simplify
+	code with the new tree geometry.
+
+2021-12-30  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_close_commands, _setup_text_root)
 	(_parse_texi),
 	tp/Texinfo/XS/parsetexi/api.c (parse_text),

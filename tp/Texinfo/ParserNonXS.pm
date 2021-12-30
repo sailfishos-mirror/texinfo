@@ -873,7 +873,10 @@ sub parse_texi_text($$;$$$$)
 
   $self = parser() if (!defined($self));
   $self->{'input'} = [{'pending' => $lines_array}];
-  my $tree = $self->_parse_texi();
+
+  my ($root) = _setup_text_root();
+
+  my $tree = $self->_parse_texi($root);
 
   $self->_set_global_informations();
 
@@ -943,12 +946,12 @@ sub parse_texi_file($$)
   }
   my ($document_root, $text_root) = _setup_text_root();
   if (@first_lines) {
-    push @{$text_root->{'contents'}}, { 'type' => 'preamble', 'contents' => [],
-                                   'parent' => $text_root };
+    push @{$text_root->{'contents'}}, {'type' => 'preamble_before_beginning',
+                                       'contents' => [], 'parent' => $text_root };
     foreach my $line (@first_lines) {
       push @{$text_root->{'contents'}->[-1]->{'contents'}},
                                    { 'text' => $line,
-                                     'type' => 'preamble_text',
+                                     'type' => 'text_before_beginning',
                                      'parent' => $text_root->{'contents'}->[-1]
                                    };
     }
@@ -968,21 +971,10 @@ sub parse_texi_file($$)
   
   my $tree = $self->_parse_texi($document_root);
 
-  ## Find 'text_root', which contains everything before first node/section.
-  ## if there are elements, 'text_root' is the first content, otherwise it
-  ## is the root.
-  #my $text_root;
-  #if ($tree->{'type'} eq 'text_root') {
-  #  $text_root = $tree;
-  #} elsif ($tree->{'contents'} and $tree->{'contents'}->[0]
-  #         and $tree->{'contents'}->[0]->{'type'} eq 'text_root') {
-  #  $text_root = $tree->{'contents'}->[0];
-  #}
-
   # Put everything before @setfilename in a special type.  This allows to
   # ignore everything before @setfilename.
-  if ($self->{'IGNORE_BEFORE_SETFILENAME'} and $text_root and 
-      $self->{'extra'} and $self->{'extra'}->{'setfilename'}
+  if ($self->{'IGNORE_BEFORE_SETFILENAME'}
+      and $self->{'extra'}->{'setfilename'}
       and $self->{'extra'}->{'setfilename'}->{'parent'} eq $text_root) {
     my $before_setfilename = {'type' => 'preamble_before_setfilename',
                               'parent' => $text_root,
@@ -3681,11 +3673,9 @@ sub _setup_text_root()
 }
 
 # the main subroutine
-sub _parse_texi($;$)
+sub _parse_texi($$)
 {
   my ($self, $root) = @_;
-
-  ($root) = _setup_text_root() if (!defined($root));
 
   my $current;
   if ($root->{'type'} and $root->{'type'} eq 'document_root') {
@@ -3921,7 +3911,7 @@ sub _parse_texi($;$)
       my $at_command_length;
       
       my ($at_command, $open_brace, $asterisk, $single_letter_command,
-        $separator_match, $misc_text) = _parse_texi_regex ($line);
+        $separator_match, $misc_text) = _parse_texi_regex($line);
 
       if ($at_command) {
         $at_command_length = length($at_command) + 1;
@@ -6654,7 +6644,7 @@ C<@verb>, C<@html>, C<@macro> body).
 
 The last end of line in a raw block (except for C<@verbatim>).
 
-=item preamble_text
+=item text_before_beginning
 
 Text appearing before real content, including the C<\input texinfo.tex>.
 
@@ -6687,7 +6677,7 @@ and C<text_root> becomes the first element in the contents of C<document_root>.
 C<root_line> is the type of the root tree when parsing Texinfo line
 fragments using C<parse_texi_line>.
 
-=item preamble
+=item preamble_before_beginning
 
 This container holds the text appearing before the first content, including
 the C<\input texinfo.tex> line and following blank lines.

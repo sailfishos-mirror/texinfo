@@ -2,8 +2,8 @@
 <!DOCTYPE texinfo PUBLIC "-//GNU//DTD TexinfoML V6.8//EN" "http://www.gnu.org/software/texinfo/dtd/6.8/texinfo.dtd">
 <texinfo>
 <filename file="formatting.xml"></filename>
-<preamble>\input texinfo @c -*-texinfo-*-
-</preamble><setfilename file="formatting.info" spaces=" ">formatting.info</setfilename>
+<preamblebeforebeginning>\input texinfo @c -*-texinfo-*-
+</preamblebeforebeginning><setfilename file="formatting.info" spaces=" ">formatting.info</setfilename>
 
 <dircategory spaces=" ">Formatting <accent type="acute" bracketed="off">e</accent> <code>&arobase; &tex;</code> test</dircategory>
 <direntry endspaces=" ">

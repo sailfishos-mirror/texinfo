@@ -17,11 +17,11 @@ $result_trees{'top_node_up_implicit'} = {
                   'parent' => {},
                   'text' => '\\input texinfo  @c public domain
 ',
-                  'type' => 'preamble_text'
+                  'type' => 'text_before_beginning'
                 }
               ],
               'parent' => {},
-              'type' => 'preamble'
+              'type' => 'preamble_before_beginning'
             }
           ],
           'parent' => {},

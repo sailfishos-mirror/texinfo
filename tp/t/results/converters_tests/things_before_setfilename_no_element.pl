@@ -17,17 +17,17 @@ $result_trees{'things_before_setfilename_no_element'} = {
                   'parent' => {},
                   'text' => '\\input texinfo
 ',
-                  'type' => 'preamble_text'
+                  'type' => 'text_before_beginning'
                 },
                 {
                   'parent' => {},
                   'text' => '
 ',
-                  'type' => 'preamble_text'
+                  'type' => 'text_before_beginning'
                 }
               ],
               'parent' => {},
-              'type' => 'preamble'
+              'type' => 'preamble_before_beginning'
             },
             {
               'args' => [
@@ -1425,9 +1425,9 @@ $result_converted_errors{'html'}->{'things_before_setfilename_no_element'} = [
 
 
 
-$result_converted{'xml'}->{'things_before_setfilename_no_element'} = '<preamble>\\input texinfo
+$result_converted{'xml'}->{'things_before_setfilename_no_element'} = '<preamblebeforebeginning>\\input texinfo
 
-</preamble><anchor name="An-anchor">An anchor</anchor>
+</preamblebeforebeginning><anchor name="An-anchor">An anchor</anchor>
 
 <para>Ref to the anchor:
 <ref label="An-anchor"><xrefnodename>An anchor</xrefnodename></ref>

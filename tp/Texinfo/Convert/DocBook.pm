@@ -212,7 +212,7 @@ foreach my $type (
             'empty_spaces_before_paragraph',
             'menu_entry_leading_text',
             'menu_entry_separator',
-            'preamble',
+            'preamble_before_beginning',
             'preamble_before_setfilename',
             'spaces_at_end',
   ) {

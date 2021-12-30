@@ -2,9 +2,9 @@
 <!DOCTYPE texinfo PUBLIC "-//GNU//DTD TexinfoML V5.0//EN" "http://www.gnu.org/software/texinfo/dtd/5.0/texinfo.dtd">
 <texinfo>
 <filename file="char_latin1_latin1_in_refs.xml"></filename>
-<preamble>\input texinfo
+<preamblebeforebeginning>\input texinfo
 
-</preamble><setfilename file="char_latin1_latin1_in_refs.info" spaces=" ">char_latin1_latin1_in_refs.info</setfilename>
+</preamblebeforebeginning><setfilename file="char_latin1_latin1_in_refs.info" spaces=" ">char_latin1_latin1_in_refs.info</setfilename>
 
 <documentencoding encoding="iso-8859-1" spaces=" ">iso-8859-1</documentencoding>
 

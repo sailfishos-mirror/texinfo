@@ -352,7 +352,7 @@ parse_texi_file (char *filename)
   char *p, *q;
   char *linep, *line = 0;
   ELEMENT *text_root = setup_text_root ();
-  ELEMENT *preamble = 0;
+  ELEMENT *preamble_before_beginning = 0;
   ELEMENT *document_root = text_root->parent;
   char c;
 
@@ -380,8 +380,8 @@ parse_texi_file (char *filename)
       *p = c;
     }
 
-  /* Put all lines up to a line starting "\input" inside a "preamble"
-     element. */
+  /* Put all the empty lines up to a line starting "\input" inside a
+     "preamble_before_beginning" element. */
   while (1)
     {
       ELEMENT *l;
@@ -395,22 +395,22 @@ parse_texi_file (char *filename)
       linep += strspn (linep, whitespace_chars);
       if (*linep && !looking_at (linep, "\\input"))
         {
-          /* This line is not part of the preamble.  Shove back
-             into input stream. */
+          /* This line is not part of the preamble_before_beginning.
+             Shove back into input stream. */
           input_push (line, 0, line_nr.file_name, line_nr.line_nr);
           break;
         }
 
-      if (!preamble)
-        preamble = new_element (ET_preamble);
+      if (!preamble_before_beginning)
+        preamble_before_beginning = new_element (ET_preamble_before_beginning);
 
-      l = new_element (ET_preamble_text);
+      l = new_element (ET_text_before_beginning);
       text_append (&l->text, line);
-      add_to_element_contents (preamble, l);
+      add_to_element_contents (preamble_before_beginning, l);
     }
 
-  if (preamble)
-    add_to_element_contents (text_root, preamble);
+  if (preamble_before_beginning)
+    add_to_element_contents (text_root, preamble_before_beginning);
 
   return parse_texi (document_root);
 }

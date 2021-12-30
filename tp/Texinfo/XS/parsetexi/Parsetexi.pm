@@ -212,7 +212,7 @@ use File::Basename; # for fileparse
 sub _maybe_ignore_before_setfilename {
   my ($self, $text_root) = @_;
 
-  if ($self->{'IGNORE_BEFORE_SETFILENAME'} and $text_root
+  if ($self->{'IGNORE_BEFORE_SETFILENAME'}
       and $self->{'extra'}->{'setfilename'}
       and $self->{'extra'}->{'setfilename'}->{'parent'} eq $text_root) {
     my $before_setfilename = {'type' => 'preamble_before_setfilename',
@@ -256,13 +256,7 @@ sub parse_texi_file ($$)
 
   _associate_node_menus ($self, $TREE);
 
-  my $text_root;
-  if ($TREE->{'type'} eq 'text_root') {
-    $text_root = $TREE;
-  } elsif ($TREE->{'contents'} and $TREE->{'contents'}->[0]
-      and $TREE->{'contents'}->[0]->{'type'} eq 'text_root') {
-    $text_root = $TREE->{'contents'}->[0];
-  }
+  my $text_root = $TREE->{'contents'}->[0];
 
   _maybe_ignore_before_setfilename($self, $text_root);
 

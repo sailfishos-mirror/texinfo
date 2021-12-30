@@ -205,7 +205,7 @@
 <!-- ELEMENTS -->
 
 <!-- TOP Level Element -->
-<!ELEMENT texinfo (filename?, preamble?, (%metainformation;
+<!ELEMENT texinfo (filename?, preamblebeforebeginning?, (%metainformation;
                     | %section.all; | %main.content;)*, bye?)>
 <!ATTLIST texinfo xml:lang (%languagecodes;) 'en'>
 
@@ -255,8 +255,8 @@
           %lineattr;
           command  NMTOKEN #REQUIRED>
 
-<!-- preamble -->
-<!ELEMENT preamble (#PCDATA)>
+<!-- preamble before texinfo code beginning (empty lines and \input) -->
+<!ELEMENT preamblebeforebeginning (#PCDATA)>
 
 <!-- ToC -->
 <!ELEMENT contents      EMPTY>

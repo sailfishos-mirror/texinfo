@@ -2,9 +2,9 @@
 <!DOCTYPE texinfo PUBLIC "-//GNU//DTD TexinfoML V5.0//EN" "http://www.gnu.org/software/texinfo/dtd/5.0/texinfo.dtd">
 <texinfo>
 <filename file="simplest_no_node_section.xml"></filename>
-<preamble>\input texinfo @c -*-texinfo-*-
+<preamblebeforebeginning>\input texinfo @c -*-texinfo-*-
 
-</preamble><setfilename file="simplest_no_node_section.info" spaces=" ">simplest_no_node_section.info</setfilename>
+</preamblebeforebeginning><setfilename file="simplest_no_node_section.info" spaces=" ">simplest_no_node_section.info</setfilename>
 
 <para>This is a very simple texi manual <spacecmd type="spc"/> &lt;&gt;.
 </para>

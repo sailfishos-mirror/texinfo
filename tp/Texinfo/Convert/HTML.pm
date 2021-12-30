@@ -4310,7 +4310,7 @@ sub default_types_conversion($$)
 }
 
 # Ignored commands
-foreach my $type ('empty_line_after_command', 'preamble',
+foreach my $type ('empty_line_after_command', 'preamble_before_beginning',
             'preamble_before_setfilename',
             'empty_spaces_after_command', 'spaces_at_end',
             'empty_spaces_before_argument', 'empty_spaces_before_paragraph',
