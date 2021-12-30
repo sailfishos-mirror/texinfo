@@ -8,38 +8,45 @@ use utf8;
 $result_trees{'def_existing_index'} = {
   'contents' => [
     {
-      'args' => [
+      'contents' => [
         {
-          'contents' => [
+          'args' => [
             {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => 'cp'
+                }
+              ],
+              'extra' => {
+                'spaces_after_argument' => '
+'
+              },
               'parent' => {},
-              'text' => 'cp'
+              'type' => 'line_arg'
             }
           ],
+          'cmdname' => 'defcodeindex',
           'extra' => {
-            'spaces_after_argument' => '
-'
+            'spaces_before_argument' => ' '
           },
-          'parent' => {},
-          'type' => 'line_arg'
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 1,
+            'macro' => ''
+          },
+          'parent' => {}
         }
       ],
-      'cmdname' => 'defcodeindex',
-      'extra' => {
-        'spaces_before_argument' => ' '
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
-      },
-      'parent' => {}
+      'parent' => {},
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
-$result_trees{'def_existing_index'}{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'def_existing_index'}{'contents'}[0]{'args'}[0];
-$result_trees{'def_existing_index'}{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'def_existing_index'}{'contents'}[0];
+$result_trees{'def_existing_index'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'def_existing_index'}{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'def_existing_index'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'def_existing_index'}{'contents'}[0]{'contents'}[0];
+$result_trees{'def_existing_index'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'def_existing_index'}{'contents'}[0];
 $result_trees{'def_existing_index'}{'contents'}[0]{'parent'} = $result_trees{'def_existing_index'};
 
 $result_texis{'def_existing_index'} = '@defcodeindex cp

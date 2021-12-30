@@ -8,83 +8,90 @@ use utf8;
 $result_trees{'item_tab_outside_of_table_lists'} = {
   'contents' => [
     {
-      'args' => [
+      'contents' => [
+        {
+          'args' => [
+            {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => 'itemx outside.'
+                }
+              ],
+              'extra' => {
+                'spaces_after_argument' => '
+'
+              },
+              'parent' => {},
+              'type' => 'line_arg'
+            }
+          ],
+          'cmdname' => 'itemx',
+          'extra' => {
+            'spaces_before_argument' => ' '
+          },
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 1,
+            'macro' => ''
+          },
+          'parent' => {}
+        },
+        {
+          'parent' => {},
+          'text' => ' ',
+          'type' => 'empty_spaces_after_command'
+        },
         {
           'contents' => [
             {
               'parent' => {},
-              'text' => 'itemx outside.'
+              'text' => 'headitem outside.
+'
+            },
+            {
+              'parent' => {},
+              'text' => ' someitem outside.
+'
             }
           ],
-          'extra' => {
-            'spaces_after_argument' => '
-'
-          },
           'parent' => {},
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'itemx',
-      'extra' => {
-        'spaces_before_argument' => ' '
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
-      },
-      'parent' => {}
-    },
-    {
-      'parent' => {},
-      'text' => ' ',
-      'type' => 'empty_spaces_after_command'
-    },
-    {
-      'contents' => [
-        {
-          'parent' => {},
-          'text' => 'headitem outside.
-'
+          'type' => 'paragraph'
         },
         {
           'parent' => {},
-          'text' => ' someitem outside.
-'
-        }
-      ],
-      'parent' => {},
-      'type' => 'paragraph'
-    },
-    {
-      'parent' => {},
-      'text' => ' ',
-      'type' => 'empty_spaces_after_command'
-    },
-    {
-      'contents' => [
+          'text' => ' ',
+          'type' => 'empty_spaces_after_command'
+        },
         {
-          'parent' => {},
-          'text' => 'tab outside
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => 'tab outside
 '
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
         }
       ],
       'parent' => {},
-      'type' => 'paragraph'
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
-$result_trees{'item_tab_outside_of_table_lists'}{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'item_tab_outside_of_table_lists'}{'contents'}[0]{'args'}[0];
-$result_trees{'item_tab_outside_of_table_lists'}{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'item_tab_outside_of_table_lists'}{'contents'}[0];
+$result_trees{'item_tab_outside_of_table_lists'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'item_tab_outside_of_table_lists'}{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'item_tab_outside_of_table_lists'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'item_tab_outside_of_table_lists'}{'contents'}[0]{'contents'}[0];
+$result_trees{'item_tab_outside_of_table_lists'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'item_tab_outside_of_table_lists'}{'contents'}[0];
+$result_trees{'item_tab_outside_of_table_lists'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'item_tab_outside_of_table_lists'}{'contents'}[0];
+$result_trees{'item_tab_outside_of_table_lists'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'item_tab_outside_of_table_lists'}{'contents'}[0]{'contents'}[2];
+$result_trees{'item_tab_outside_of_table_lists'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'item_tab_outside_of_table_lists'}{'contents'}[0]{'contents'}[2];
+$result_trees{'item_tab_outside_of_table_lists'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'item_tab_outside_of_table_lists'}{'contents'}[0];
+$result_trees{'item_tab_outside_of_table_lists'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'item_tab_outside_of_table_lists'}{'contents'}[0];
+$result_trees{'item_tab_outside_of_table_lists'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'item_tab_outside_of_table_lists'}{'contents'}[0]{'contents'}[4];
+$result_trees{'item_tab_outside_of_table_lists'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'item_tab_outside_of_table_lists'}{'contents'}[0];
 $result_trees{'item_tab_outside_of_table_lists'}{'contents'}[0]{'parent'} = $result_trees{'item_tab_outside_of_table_lists'};
-$result_trees{'item_tab_outside_of_table_lists'}{'contents'}[1]{'parent'} = $result_trees{'item_tab_outside_of_table_lists'};
-$result_trees{'item_tab_outside_of_table_lists'}{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'item_tab_outside_of_table_lists'}{'contents'}[2];
-$result_trees{'item_tab_outside_of_table_lists'}{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'item_tab_outside_of_table_lists'}{'contents'}[2];
-$result_trees{'item_tab_outside_of_table_lists'}{'contents'}[2]{'parent'} = $result_trees{'item_tab_outside_of_table_lists'};
-$result_trees{'item_tab_outside_of_table_lists'}{'contents'}[3]{'parent'} = $result_trees{'item_tab_outside_of_table_lists'};
-$result_trees{'item_tab_outside_of_table_lists'}{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'item_tab_outside_of_table_lists'}{'contents'}[4];
-$result_trees{'item_tab_outside_of_table_lists'}{'contents'}[4]{'parent'} = $result_trees{'item_tab_outside_of_table_lists'};
 
 $result_texis{'item_tab_outside_of_table_lists'} = '@itemx itemx outside.
  headitem outside.

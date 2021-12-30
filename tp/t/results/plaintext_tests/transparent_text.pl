@@ -10,85 +10,92 @@ $result_trees{'transparent_text'} = {
     {
       'contents' => [
         {
-          'parent' => {},
-          'text' => 'AA'
-        },
-        {
-          'args' => [
+          'contents' => [
             {
-              'contents' => [
+              'parent' => {},
+              'text' => 'AA'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'parent' => {},
+                          'text' => 'in footnote'
+                        }
+                      ],
+                      'parent' => {},
+                      'type' => 'paragraph'
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'brace_command_context'
+                }
+              ],
+              'cmdname' => 'footnote',
+              'contents' => [],
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 1,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => '). B ('
+            },
+            {
+              'args' => [
                 {
                   'contents' => [
                     {
                       'parent' => {},
-                      'text' => 'in footnote'
+                      'text' => 'C'
                     }
                   ],
                   'parent' => {},
-                  'type' => 'paragraph'
+                  'type' => 'brace_command_arg'
                 }
               ],
-              'parent' => {},
-              'type' => 'brace_command_context'
-            }
-          ],
-          'cmdname' => 'footnote',
-          'contents' => [],
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '). B ('
-        },
-        {
-          'args' => [
+              'cmdname' => 'emph',
+              'contents' => [],
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 1,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
             {
-              'contents' => [
-                {
-                  'parent' => {},
-                  'text' => 'C'
-                }
-              ],
               'parent' => {},
-              'type' => 'brace_command_arg'
+              'text' => '). D.
+'
             }
           ],
-          'cmdname' => 'emph',
-          'contents' => [],
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
           'parent' => {},
-          'text' => '). D.
-'
+          'type' => 'paragraph'
         }
       ],
       'parent' => {},
-      'type' => 'paragraph'
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
+$result_trees{'transparent_text'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'transparent_text'}{'contents'}[0]{'contents'}[0];
+$result_trees{'transparent_text'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'transparent_text'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'transparent_text'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'transparent_text'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
+$result_trees{'transparent_text'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'transparent_text'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
+$result_trees{'transparent_text'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'transparent_text'}{'contents'}[0]{'contents'}[0];
+$result_trees{'transparent_text'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'transparent_text'}{'contents'}[0]{'contents'}[0];
+$result_trees{'transparent_text'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'transparent_text'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'args'}[0];
+$result_trees{'transparent_text'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'transparent_text'}{'contents'}[0]{'contents'}[0]{'contents'}[3];
+$result_trees{'transparent_text'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'transparent_text'}{'contents'}[0]{'contents'}[0];
+$result_trees{'transparent_text'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'transparent_text'}{'contents'}[0]{'contents'}[0];
 $result_trees{'transparent_text'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'transparent_text'}{'contents'}[0];
-$result_trees{'transparent_text'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'transparent_text'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'transparent_text'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'transparent_text'}{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'transparent_text'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'transparent_text'}{'contents'}[0]{'contents'}[1];
-$result_trees{'transparent_text'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'transparent_text'}{'contents'}[0];
-$result_trees{'transparent_text'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'transparent_text'}{'contents'}[0];
-$result_trees{'transparent_text'}{'contents'}[0]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'transparent_text'}{'contents'}[0]{'contents'}[3]{'args'}[0];
-$result_trees{'transparent_text'}{'contents'}[0]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'transparent_text'}{'contents'}[0]{'contents'}[3];
-$result_trees{'transparent_text'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'transparent_text'}{'contents'}[0];
-$result_trees{'transparent_text'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'transparent_text'}{'contents'}[0];
 $result_trees{'transparent_text'}{'contents'}[0]{'parent'} = $result_trees{'transparent_text'};
 
 $result_texis{'transparent_text'} = 'AA@footnote{in footnote}). B (@emph{C}). D.

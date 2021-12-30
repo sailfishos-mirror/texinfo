@@ -10,97 +10,104 @@ $result_trees{'double_style_paragraph'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'contents' => [
             {
-              'contents' => [
+              'args' => [
                 {
-                  'args' => [
+                  'contents' => [
                     {
-                      'contents' => [
+                      'args' => [
                         {
-                          'parent' => {},
-                          'text' => '
+                          'contents' => [
+                            {
+                              'parent' => {},
+                              'text' => '
 '
-                        },
-                        {
-                          'parent' => {},
-                          'text' => 'First para.
+                            },
+                            {
+                              'parent' => {},
+                              'text' => 'First para.
 '
-                        },
-                        {
-                          'parent' => {},
-                          'text' => '
+                            },
+                            {
+                              'parent' => {},
+                              'text' => '
 ',
-                          'type' => 'empty_line'
+                              'type' => 'empty_line'
+                            }
+                          ],
+                          'parent' => {},
+                          'type' => 'brace_command_arg'
                         }
                       ],
-                      'parent' => {},
-                      'type' => 'brace_command_arg'
+                      'cmdname' => 'strong',
+                      'contents' => [],
+                      'line_nr' => {
+                        'file_name' => '',
+                        'line_nr' => 1,
+                        'macro' => ''
+                      },
+                      'parent' => {}
                     }
                   ],
-                  'cmdname' => 'strong',
-                  'contents' => [],
-                  'line_nr' => {
-                    'file_name' => '',
-                    'line_nr' => 1,
-                    'macro' => ''
-                  },
-                  'parent' => {}
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
                 }
               ],
-              'parent' => {},
-              'type' => 'brace_command_arg'
+              'cmdname' => 'emph',
+              'contents' => [],
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 1,
+                'macro' => ''
+              },
+              'parent' => {}
             }
           ],
-          'cmdname' => 'emph',
-          'contents' => [],
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
-          },
-          'parent' => {}
+          'parent' => {},
+          'type' => 'paragraph'
+        },
+        {
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => 'Second para.
+'
+            },
+            {
+              'parent' => {},
+              'text' => '
+'
+            },
+            {
+              'parent' => {},
+              'text' => '
+'
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
         }
       ],
       'parent' => {},
-      'type' => 'paragraph'
-    },
-    {
-      'contents' => [
-        {
-          'parent' => {},
-          'text' => 'Second para.
-'
-        },
-        {
-          'parent' => {},
-          'text' => '
-'
-        },
-        {
-          'parent' => {},
-          'text' => '
-'
-        }
-      ],
-      'parent' => {},
-      'type' => 'paragraph'
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
-$result_trees{'double_style_paragraph'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'double_style_paragraph'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'double_style_paragraph'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'double_style_paragraph'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'double_style_paragraph'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'double_style_paragraph'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'double_style_paragraph'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'double_style_paragraph'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'double_style_paragraph'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'double_style_paragraph'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'double_style_paragraph'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'double_style_paragraph'}{'contents'}[0]{'contents'}[0];
+$result_trees{'double_style_paragraph'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'double_style_paragraph'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'double_style_paragraph'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'double_style_paragraph'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'double_style_paragraph'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'double_style_paragraph'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'double_style_paragraph'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'double_style_paragraph'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'double_style_paragraph'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'double_style_paragraph'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'double_style_paragraph'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'double_style_paragraph'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'double_style_paragraph'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'double_style_paragraph'}{'contents'}[0]{'contents'}[0];
 $result_trees{'double_style_paragraph'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'double_style_paragraph'}{'contents'}[0];
+$result_trees{'double_style_paragraph'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'double_style_paragraph'}{'contents'}[0]{'contents'}[1];
+$result_trees{'double_style_paragraph'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'double_style_paragraph'}{'contents'}[0]{'contents'}[1];
+$result_trees{'double_style_paragraph'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'double_style_paragraph'}{'contents'}[0]{'contents'}[1];
+$result_trees{'double_style_paragraph'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'double_style_paragraph'}{'contents'}[0];
 $result_trees{'double_style_paragraph'}{'contents'}[0]{'parent'} = $result_trees{'double_style_paragraph'};
-$result_trees{'double_style_paragraph'}{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'double_style_paragraph'}{'contents'}[1];
-$result_trees{'double_style_paragraph'}{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'double_style_paragraph'}{'contents'}[1];
-$result_trees{'double_style_paragraph'}{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'double_style_paragraph'}{'contents'}[1];
-$result_trees{'double_style_paragraph'}{'contents'}[1]{'parent'} = $result_trees{'double_style_paragraph'};
 
 $result_texis{'double_style_paragraph'} = '@emph{@strong{
 First para.

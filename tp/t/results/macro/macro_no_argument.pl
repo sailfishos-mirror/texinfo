@@ -8,22 +8,29 @@ use utf8;
 $result_trees{'macro_no_argument'} = {
   'contents' => [
     {
-      'cmdname' => 'macro',
-      'contents' => [],
-      'extra' => {
-        'arg_line' => '',
-        'invalid_syntax' => 1
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
-      },
-      'parent' => {}
+      'contents' => [
+        {
+          'cmdname' => 'macro',
+          'contents' => [],
+          'extra' => {
+            'arg_line' => '',
+            'invalid_syntax' => 1
+          },
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 1,
+            'macro' => ''
+          },
+          'parent' => {}
+        }
+      ],
+      'parent' => {},
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
+$result_trees{'macro_no_argument'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'macro_no_argument'}{'contents'}[0];
 $result_trees{'macro_no_argument'}{'contents'}[0]{'parent'} = $result_trees{'macro_no_argument'};
 
 $result_texis{'macro_no_argument'} = '@macro@end macro';

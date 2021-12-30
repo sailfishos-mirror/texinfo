@@ -10,17 +10,24 @@ $result_trees{'text_on_conditional_line_expanded'} = {
     {
       'contents' => [
         {
-          'parent' => {},
-          'text' => 'a
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => 'a
 '
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
         }
       ],
       'parent' => {},
-      'type' => 'paragraph'
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
+$result_trees{'text_on_conditional_line_expanded'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'text_on_conditional_line_expanded'}{'contents'}[0]{'contents'}[0];
 $result_trees{'text_on_conditional_line_expanded'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'text_on_conditional_line_expanded'}{'contents'}[0];
 $result_trees{'text_on_conditional_line_expanded'}{'contents'}[0]{'parent'} = $result_trees{'text_on_conditional_line_expanded'};
 

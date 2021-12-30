@@ -8,12 +8,45 @@ use utf8;
 $result_trees{'nested_ignore'} = {
   'contents' => [
     {
-      'cmdname' => 'ignore',
       'contents' => [
         {
-          'extra' => {
-            'command' => {}
+          'cmdname' => 'ignore',
+          'contents' => [
+            {
+              'extra' => {
+                'command' => {}
+              },
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line_after_command'
+            },
+            {
+              'parent' => {},
+              'text' => '@ignore
+',
+              'type' => 'raw'
+            },
+            {
+              'parent' => {},
+              'text' => '',
+              'type' => 'raw'
+            },
+            {
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'last_raw_newline'
+            }
+          ],
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 1,
+            'macro' => ''
           },
+          'parent' => {}
+        },
+        {
           'parent' => {},
           'text' => '
 ',
@@ -21,48 +54,48 @@ $result_trees{'nested_ignore'} = {
         },
         {
           'parent' => {},
-          'text' => '@ignore
-',
-          'type' => 'raw'
-        },
-        {
-          'parent' => {},
-          'text' => '',
-          'type' => 'raw'
-        },
-        {
-          'parent' => {},
           'text' => '
 ',
-          'type' => 'last_raw_newline'
-        }
-      ],
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
-      },
-      'parent' => {}
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line_after_command'
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'cmdname' => 'ignore',
-      'contents' => [
+          'type' => 'empty_line'
+        },
         {
-          'extra' => {
-            'command' => {}
+          'cmdname' => 'ignore',
+          'contents' => [
+            {
+              'extra' => {
+                'command' => {}
+              },
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line_after_command'
+            },
+            {
+              'parent' => {},
+              'text' => '@end iftex
+',
+              'type' => 'raw'
+            },
+            {
+              'parent' => {},
+              'text' => '@ifinfo',
+              'type' => 'raw'
+            },
+            {
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'last_raw_newline'
+            }
+          ],
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 6,
+            'macro' => ''
           },
+          'parent' => {}
+        },
+        {
           'parent' => {},
           'text' => '
 ',
@@ -70,110 +103,84 @@ $result_trees{'nested_ignore'} = {
         },
         {
           'parent' => {},
-          'text' => '@end iftex
+          'text' => '
 ',
-          'type' => 'raw'
+          'type' => 'empty_line'
         },
         {
-          'parent' => {},
-          'text' => '@ifinfo',
-          'type' => 'raw'
+          'cmdname' => 'ignore',
+          'contents' => [
+            {
+              'extra' => {
+                'command' => {}
+              },
+              'parent' => {},
+              'text' => ' 
+',
+              'type' => 'empty_line_after_command'
+            },
+            {
+              'parent' => {},
+              'text' => '@end ifclear
+',
+              'type' => 'raw'
+            },
+            {
+              'parent' => {},
+              'text' => '@ifclear',
+              'type' => 'raw'
+            },
+            {
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'last_raw_newline'
+            }
+          ],
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 11,
+            'macro' => ''
+          },
+          'parent' => {}
         },
         {
           'parent' => {},
           'text' => '
-',
-          'type' => 'last_raw_newline'
-        }
-      ],
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 6,
-        'macro' => ''
-      },
-      'parent' => {}
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line_after_command'
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'cmdname' => 'ignore',
-      'contents' => [
-        {
-          'extra' => {
-            'command' => {}
-          },
-          'parent' => {},
-          'text' => ' 
 ',
           'type' => 'empty_line_after_command'
-        },
-        {
-          'parent' => {},
-          'text' => '@end ifclear
-',
-          'type' => 'raw'
-        },
-        {
-          'parent' => {},
-          'text' => '@ifclear',
-          'type' => 'raw'
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'last_raw_newline'
         }
       ],
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 11,
-        'macro' => ''
-      },
-      'parent' => {}
-    },
-    {
       'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line_after_command'
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
-$result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[0]{'extra'}{'command'} = $result_trees{'nested_ignore'}{'contents'}[0];
+$result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'command'} = $result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[0];
+$result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[0];
+$result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[0];
+$result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[0];
+$result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[0];
 $result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'nested_ignore'}{'contents'}[0];
 $result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'nested_ignore'}{'contents'}[0];
 $result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'nested_ignore'}{'contents'}[0];
+$result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'extra'}{'command'} = $result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[3];
+$result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[3];
+$result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[3];
+$result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[3]{'contents'}[2]{'parent'} = $result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[3];
+$result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[3]{'contents'}[3]{'parent'} = $result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[3];
 $result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'nested_ignore'}{'contents'}[0];
+$result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'nested_ignore'}{'contents'}[0];
+$result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'nested_ignore'}{'contents'}[0];
+$result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'extra'}{'command'} = $result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[6];
+$result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'parent'} = $result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[6];
+$result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'parent'} = $result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[6];
+$result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[6]{'contents'}[2]{'parent'} = $result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[6];
+$result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[6]{'contents'}[3]{'parent'} = $result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[6];
+$result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[6]{'parent'} = $result_trees{'nested_ignore'}{'contents'}[0];
+$result_trees{'nested_ignore'}{'contents'}[0]{'contents'}[7]{'parent'} = $result_trees{'nested_ignore'}{'contents'}[0];
 $result_trees{'nested_ignore'}{'contents'}[0]{'parent'} = $result_trees{'nested_ignore'};
-$result_trees{'nested_ignore'}{'contents'}[1]{'parent'} = $result_trees{'nested_ignore'};
-$result_trees{'nested_ignore'}{'contents'}[2]{'parent'} = $result_trees{'nested_ignore'};
-$result_trees{'nested_ignore'}{'contents'}[3]{'contents'}[0]{'extra'}{'command'} = $result_trees{'nested_ignore'}{'contents'}[3];
-$result_trees{'nested_ignore'}{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'nested_ignore'}{'contents'}[3];
-$result_trees{'nested_ignore'}{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'nested_ignore'}{'contents'}[3];
-$result_trees{'nested_ignore'}{'contents'}[3]{'contents'}[2]{'parent'} = $result_trees{'nested_ignore'}{'contents'}[3];
-$result_trees{'nested_ignore'}{'contents'}[3]{'contents'}[3]{'parent'} = $result_trees{'nested_ignore'}{'contents'}[3];
-$result_trees{'nested_ignore'}{'contents'}[3]{'parent'} = $result_trees{'nested_ignore'};
-$result_trees{'nested_ignore'}{'contents'}[4]{'parent'} = $result_trees{'nested_ignore'};
-$result_trees{'nested_ignore'}{'contents'}[5]{'parent'} = $result_trees{'nested_ignore'};
-$result_trees{'nested_ignore'}{'contents'}[6]{'contents'}[0]{'extra'}{'command'} = $result_trees{'nested_ignore'}{'contents'}[6];
-$result_trees{'nested_ignore'}{'contents'}[6]{'contents'}[0]{'parent'} = $result_trees{'nested_ignore'}{'contents'}[6];
-$result_trees{'nested_ignore'}{'contents'}[6]{'contents'}[1]{'parent'} = $result_trees{'nested_ignore'}{'contents'}[6];
-$result_trees{'nested_ignore'}{'contents'}[6]{'contents'}[2]{'parent'} = $result_trees{'nested_ignore'}{'contents'}[6];
-$result_trees{'nested_ignore'}{'contents'}[6]{'contents'}[3]{'parent'} = $result_trees{'nested_ignore'}{'contents'}[6];
-$result_trees{'nested_ignore'}{'contents'}[6]{'parent'} = $result_trees{'nested_ignore'};
-$result_trees{'nested_ignore'}{'contents'}[7]{'parent'} = $result_trees{'nested_ignore'};
 
 $result_texis{'nested_ignore'} = '@ignore
 @ignore

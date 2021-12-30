@@ -8,6 +8,11 @@ use utf8;
 $result_trees{'lone_bye'} = {
   'contents' => [
     {
+      'contents' => [],
+      'parent' => {},
+      'type' => 'text_root'
+    },
+    {
       'args' => [
         {
           'parent' => {},
@@ -20,10 +25,11 @@ $result_trees{'lone_bye'} = {
       'parent' => {}
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
-$result_trees{'lone_bye'}{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'lone_bye'}{'contents'}[0];
 $result_trees{'lone_bye'}{'contents'}[0]{'parent'} = $result_trees{'lone_bye'};
+$result_trees{'lone_bye'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'lone_bye'}{'contents'}[1];
+$result_trees{'lone_bye'}{'contents'}[1]{'parent'} = $result_trees{'lone_bye'};
 
 $result_texis{'lone_bye'} = '@bye
 ';

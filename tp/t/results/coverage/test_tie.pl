@@ -10,42 +10,49 @@ $result_trees{'test_tie'} = {
     {
       'contents' => [
         {
-          'parent' => {},
-          'text' => 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'
-        },
-        {
-          'args' => [
+          'contents' => [
             {
-              'contents' => [],
               'parent' => {},
-              'type' => 'brace_command_arg'
+              'text' => 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [],
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                }
+              ],
+              'cmdname' => 'tie',
+              'contents' => [],
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 1,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => 'BBBBBBBBBBB
+'
             }
           ],
-          'cmdname' => 'tie',
-          'contents' => [],
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
           'parent' => {},
-          'text' => 'BBBBBBBBBBB
-'
+          'type' => 'paragraph'
         }
       ],
       'parent' => {},
-      'type' => 'paragraph'
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
+$result_trees{'test_tie'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_tie'}{'contents'}[0]{'contents'}[0];
+$result_trees{'test_tie'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'test_tie'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
+$result_trees{'test_tie'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'test_tie'}{'contents'}[0]{'contents'}[0];
+$result_trees{'test_tie'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'test_tie'}{'contents'}[0]{'contents'}[0];
 $result_trees{'test_tie'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_tie'}{'contents'}[0];
-$result_trees{'test_tie'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'test_tie'}{'contents'}[0]{'contents'}[1];
-$result_trees{'test_tie'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'test_tie'}{'contents'}[0];
-$result_trees{'test_tie'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'test_tie'}{'contents'}[0];
 $result_trees{'test_tie'}{'contents'}[0]{'parent'} = $result_trees{'test_tie'};
 
 $result_texis{'test_tie'} = 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA@tie{}BBBBBBBBBBB

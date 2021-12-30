@@ -10,211 +10,218 @@ $result_trees{'modified_translation'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'contents' => [
             {
+              'args' => [
+                {
+                  'contents' => [],
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                }
+              ],
+              'cmdname' => 'error',
               'contents' => [],
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 1,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
               'parent' => {},
-              'type' => 'brace_command_arg'
+              'text' => '.
+'
             }
           ],
-          'cmdname' => 'error',
-          'contents' => [],
+          'parent' => {},
+          'type' => 'paragraph'
+        },
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'args' => [
+            {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => 'fr'
+                }
+              ],
+              'extra' => {
+                'spaces_after_argument' => '
+'
+              },
+              'parent' => {},
+              'type' => 'line_arg'
+            }
+          ],
+          'cmdname' => 'documentlanguage',
+          'extra' => {
+            'spaces_before_argument' => ' ',
+            'text_arg' => 'fr'
+          },
           'line_nr' => {
             'file_name' => '',
-            'line_nr' => 1,
+            'line_nr' => 3,
             'macro' => ''
           },
           'parent' => {}
         },
         {
           'parent' => {},
-          'text' => '.
-'
-        }
-      ],
-      'parent' => {},
-      'type' => 'paragraph'
-    },
-    {
-      'parent' => {},
-      'text' => '
+          'text' => '
 ',
-      'type' => 'empty_line'
-    },
-    {
-      'args' => [
+          'type' => 'empty_line'
+        },
         {
           'contents' => [
             {
               'parent' => {},
-              'text' => 'fr'
+              'text' => 'fr '
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [],
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                }
+              ],
+              'cmdname' => 'error',
+              'contents' => [],
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 5,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => '.
+'
             }
           ],
-          'extra' => {
-            'spaces_after_argument' => '
-'
-          },
           'parent' => {},
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'documentlanguage',
-      'extra' => {
-        'spaces_before_argument' => ' ',
-        'text_arg' => 'fr'
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 3,
-        'macro' => ''
-      },
-      'parent' => {}
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'contents' => [
+          'type' => 'paragraph'
+        },
         {
           'parent' => {},
-          'text' => 'fr '
+          'text' => '
+',
+          'type' => 'empty_line'
         },
         {
           'args' => [
             {
-              'contents' => [],
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => 'pt'
+                }
+              ],
+              'extra' => {
+                'spaces_after_argument' => '
+'
+              },
               'parent' => {},
-              'type' => 'brace_command_arg'
+              'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'error',
-          'contents' => [],
+          'cmdname' => 'documentlanguage',
+          'extra' => {
+            'spaces_before_argument' => ' ',
+            'text_arg' => 'pt'
+          },
           'line_nr' => {
             'file_name' => '',
-            'line_nr' => 5,
+            'line_nr' => 7,
             'macro' => ''
           },
           'parent' => {}
         },
         {
           'parent' => {},
-          'text' => '.
-'
-        }
-      ],
-      'parent' => {},
-      'type' => 'paragraph'
-    },
-    {
-      'parent' => {},
-      'text' => '
+          'text' => '
 ',
-      'type' => 'empty_line'
-    },
-    {
-      'args' => [
+          'type' => 'empty_line'
+        },
         {
           'contents' => [
             {
               'parent' => {},
-              'text' => 'pt'
-            }
-          ],
-          'extra' => {
-            'spaces_after_argument' => '
-'
-          },
-          'parent' => {},
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'documentlanguage',
-      'extra' => {
-        'spaces_before_argument' => ' ',
-        'text_arg' => 'pt'
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 7,
-        'macro' => ''
-      },
-      'parent' => {}
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'contents' => [
-        {
-          'parent' => {},
-          'text' => 'pt '
-        },
-        {
-          'args' => [
+              'text' => 'pt '
+            },
             {
+              'args' => [
+                {
+                  'contents' => [],
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                }
+              ],
+              'cmdname' => 'error',
               'contents' => [],
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 9,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
               'parent' => {},
-              'type' => 'brace_command_arg'
+              'text' => '.
+'
             }
           ],
-          'cmdname' => 'error',
-          'contents' => [],
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 9,
-            'macro' => ''
-          },
-          'parent' => {}
+          'parent' => {},
+          'type' => 'paragraph'
         },
         {
           'parent' => {},
-          'text' => '.
-'
+          'text' => '
+',
+          'type' => 'empty_line'
         }
       ],
       'parent' => {},
-      'type' => 'paragraph'
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
-$result_trees{'modified_translation'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'modified_translation'}{'contents'}[0]{'contents'}[0];
+$result_trees{'modified_translation'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'modified_translation'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'modified_translation'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'modified_translation'}{'contents'}[0]{'contents'}[0];
+$result_trees{'modified_translation'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'modified_translation'}{'contents'}[0]{'contents'}[0];
 $result_trees{'modified_translation'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'modified_translation'}{'contents'}[0];
 $result_trees{'modified_translation'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'modified_translation'}{'contents'}[0];
+$result_trees{'modified_translation'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'modified_translation'}{'contents'}[0]{'contents'}[2]{'args'}[0];
+$result_trees{'modified_translation'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'modified_translation'}{'contents'}[0]{'contents'}[2];
+$result_trees{'modified_translation'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'modified_translation'}{'contents'}[0];
+$result_trees{'modified_translation'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'modified_translation'}{'contents'}[0];
+$result_trees{'modified_translation'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'modified_translation'}{'contents'}[0]{'contents'}[4];
+$result_trees{'modified_translation'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'modified_translation'}{'contents'}[0]{'contents'}[4]{'contents'}[1];
+$result_trees{'modified_translation'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'parent'} = $result_trees{'modified_translation'}{'contents'}[0]{'contents'}[4];
+$result_trees{'modified_translation'}{'contents'}[0]{'contents'}[4]{'contents'}[2]{'parent'} = $result_trees{'modified_translation'}{'contents'}[0]{'contents'}[4];
+$result_trees{'modified_translation'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'modified_translation'}{'contents'}[0];
+$result_trees{'modified_translation'}{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'modified_translation'}{'contents'}[0];
+$result_trees{'modified_translation'}{'contents'}[0]{'contents'}[6]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'modified_translation'}{'contents'}[0]{'contents'}[6]{'args'}[0];
+$result_trees{'modified_translation'}{'contents'}[0]{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'modified_translation'}{'contents'}[0]{'contents'}[6];
+$result_trees{'modified_translation'}{'contents'}[0]{'contents'}[6]{'parent'} = $result_trees{'modified_translation'}{'contents'}[0];
+$result_trees{'modified_translation'}{'contents'}[0]{'contents'}[7]{'parent'} = $result_trees{'modified_translation'}{'contents'}[0];
+$result_trees{'modified_translation'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'parent'} = $result_trees{'modified_translation'}{'contents'}[0]{'contents'}[8];
+$result_trees{'modified_translation'}{'contents'}[0]{'contents'}[8]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'modified_translation'}{'contents'}[0]{'contents'}[8]{'contents'}[1];
+$result_trees{'modified_translation'}{'contents'}[0]{'contents'}[8]{'contents'}[1]{'parent'} = $result_trees{'modified_translation'}{'contents'}[0]{'contents'}[8];
+$result_trees{'modified_translation'}{'contents'}[0]{'contents'}[8]{'contents'}[2]{'parent'} = $result_trees{'modified_translation'}{'contents'}[0]{'contents'}[8];
+$result_trees{'modified_translation'}{'contents'}[0]{'contents'}[8]{'parent'} = $result_trees{'modified_translation'}{'contents'}[0];
+$result_trees{'modified_translation'}{'contents'}[0]{'contents'}[9]{'parent'} = $result_trees{'modified_translation'}{'contents'}[0];
 $result_trees{'modified_translation'}{'contents'}[0]{'parent'} = $result_trees{'modified_translation'};
-$result_trees{'modified_translation'}{'contents'}[1]{'parent'} = $result_trees{'modified_translation'};
-$result_trees{'modified_translation'}{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'modified_translation'}{'contents'}[2]{'args'}[0];
-$result_trees{'modified_translation'}{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'modified_translation'}{'contents'}[2];
-$result_trees{'modified_translation'}{'contents'}[2]{'parent'} = $result_trees{'modified_translation'};
-$result_trees{'modified_translation'}{'contents'}[3]{'parent'} = $result_trees{'modified_translation'};
-$result_trees{'modified_translation'}{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'modified_translation'}{'contents'}[4];
-$result_trees{'modified_translation'}{'contents'}[4]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'modified_translation'}{'contents'}[4]{'contents'}[1];
-$result_trees{'modified_translation'}{'contents'}[4]{'contents'}[1]{'parent'} = $result_trees{'modified_translation'}{'contents'}[4];
-$result_trees{'modified_translation'}{'contents'}[4]{'contents'}[2]{'parent'} = $result_trees{'modified_translation'}{'contents'}[4];
-$result_trees{'modified_translation'}{'contents'}[4]{'parent'} = $result_trees{'modified_translation'};
-$result_trees{'modified_translation'}{'contents'}[5]{'parent'} = $result_trees{'modified_translation'};
-$result_trees{'modified_translation'}{'contents'}[6]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'modified_translation'}{'contents'}[6]{'args'}[0];
-$result_trees{'modified_translation'}{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'modified_translation'}{'contents'}[6];
-$result_trees{'modified_translation'}{'contents'}[6]{'parent'} = $result_trees{'modified_translation'};
-$result_trees{'modified_translation'}{'contents'}[7]{'parent'} = $result_trees{'modified_translation'};
-$result_trees{'modified_translation'}{'contents'}[8]{'contents'}[0]{'parent'} = $result_trees{'modified_translation'}{'contents'}[8];
-$result_trees{'modified_translation'}{'contents'}[8]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'modified_translation'}{'contents'}[8]{'contents'}[1];
-$result_trees{'modified_translation'}{'contents'}[8]{'contents'}[1]{'parent'} = $result_trees{'modified_translation'}{'contents'}[8];
-$result_trees{'modified_translation'}{'contents'}[8]{'contents'}[2]{'parent'} = $result_trees{'modified_translation'}{'contents'}[8];
-$result_trees{'modified_translation'}{'contents'}[8]{'parent'} = $result_trees{'modified_translation'};
-$result_trees{'modified_translation'}{'contents'}[9]{'parent'} = $result_trees{'modified_translation'};
 
 $result_texis{'modified_translation'} = '@error{}.
 

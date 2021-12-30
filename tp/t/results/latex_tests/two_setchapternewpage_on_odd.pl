@@ -8,115 +8,122 @@ use utf8;
 $result_trees{'two_setchapternewpage_on_odd'} = {
   'contents' => [
     {
-      'args' => [
+      'contents' => [
         {
-          'contents' => [
+          'args' => [
             {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => 'two_setchapternewpage_on_odd.info'
+                }
+              ],
+              'extra' => {
+                'spaces_after_argument' => '
+'
+              },
               'parent' => {},
-              'text' => 'two_setchapternewpage_on_odd.info'
+              'type' => 'line_arg'
             }
           ],
+          'cmdname' => 'setfilename',
           'extra' => {
-            'spaces_after_argument' => '
-'
+            'spaces_before_argument' => ' ',
+            'text_arg' => 'two_setchapternewpage_on_odd.info'
           },
-          'parent' => {},
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'setfilename',
-      'extra' => {
-        'spaces_before_argument' => ' ',
-        'text_arg' => 'two_setchapternewpage_on_odd.info'
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
-      },
-      'parent' => {}
-    },
-    {
-      'args' => [
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 1,
+            'macro' => ''
+          },
+          'parent' => {}
+        },
         {
-          'contents' => [
+          'args' => [
             {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => 'on'
+                }
+              ],
+              'extra' => {
+                'spaces_after_argument' => '
+'
+              },
               'parent' => {},
-              'text' => 'on'
+              'type' => 'line_arg'
             }
           ],
+          'cmdname' => 'setchapternewpage',
           'extra' => {
-            'spaces_after_argument' => '
-'
+            'misc_args' => [
+              'on'
+            ],
+            'spaces_before_argument' => ' '
           },
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 2,
+            'macro' => ''
+          },
+          'parent' => {}
+        },
+        {
           'parent' => {},
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'setchapternewpage',
-      'extra' => {
-        'misc_args' => [
-          'on'
-        ],
-        'spaces_before_argument' => ' '
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 2,
-        'macro' => ''
-      },
-      'parent' => {}
-    },
-    {
-      'parent' => {},
-      'text' => '
+          'text' => '
 ',
-      'type' => 'empty_line'
-    },
-    {
-      'args' => [
+          'type' => 'empty_line'
+        },
         {
-          'contents' => [
+          'args' => [
             {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => 'odd'
+                }
+              ],
+              'extra' => {
+                'spaces_after_argument' => '
+'
+              },
               'parent' => {},
-              'text' => 'odd'
+              'type' => 'line_arg'
             }
           ],
+          'cmdname' => 'setchapternewpage',
           'extra' => {
-            'spaces_after_argument' => '
-'
+            'misc_args' => [
+              'odd'
+            ],
+            'spaces_before_argument' => ' '
           },
-          'parent' => {},
-          'type' => 'line_arg'
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 4,
+            'macro' => ''
+          },
+          'parent' => {}
         }
       ],
-      'cmdname' => 'setchapternewpage',
-      'extra' => {
-        'misc_args' => [
-          'odd'
-        ],
-        'spaces_before_argument' => ' '
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 4,
-        'macro' => ''
-      },
-      'parent' => {}
+      'parent' => {},
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
-$result_trees{'two_setchapternewpage_on_odd'}{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'two_setchapternewpage_on_odd'}{'contents'}[0]{'args'}[0];
-$result_trees{'two_setchapternewpage_on_odd'}{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'two_setchapternewpage_on_odd'}{'contents'}[0];
+$result_trees{'two_setchapternewpage_on_odd'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'two_setchapternewpage_on_odd'}{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'two_setchapternewpage_on_odd'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'two_setchapternewpage_on_odd'}{'contents'}[0]{'contents'}[0];
+$result_trees{'two_setchapternewpage_on_odd'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'two_setchapternewpage_on_odd'}{'contents'}[0];
+$result_trees{'two_setchapternewpage_on_odd'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'two_setchapternewpage_on_odd'}{'contents'}[0]{'contents'}[1]{'args'}[0];
+$result_trees{'two_setchapternewpage_on_odd'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'two_setchapternewpage_on_odd'}{'contents'}[0]{'contents'}[1];
+$result_trees{'two_setchapternewpage_on_odd'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'two_setchapternewpage_on_odd'}{'contents'}[0];
+$result_trees{'two_setchapternewpage_on_odd'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'two_setchapternewpage_on_odd'}{'contents'}[0];
+$result_trees{'two_setchapternewpage_on_odd'}{'contents'}[0]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'two_setchapternewpage_on_odd'}{'contents'}[0]{'contents'}[3]{'args'}[0];
+$result_trees{'two_setchapternewpage_on_odd'}{'contents'}[0]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'two_setchapternewpage_on_odd'}{'contents'}[0]{'contents'}[3];
+$result_trees{'two_setchapternewpage_on_odd'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'two_setchapternewpage_on_odd'}{'contents'}[0];
 $result_trees{'two_setchapternewpage_on_odd'}{'contents'}[0]{'parent'} = $result_trees{'two_setchapternewpage_on_odd'};
-$result_trees{'two_setchapternewpage_on_odd'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'two_setchapternewpage_on_odd'}{'contents'}[1]{'args'}[0];
-$result_trees{'two_setchapternewpage_on_odd'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'two_setchapternewpage_on_odd'}{'contents'}[1];
-$result_trees{'two_setchapternewpage_on_odd'}{'contents'}[1]{'parent'} = $result_trees{'two_setchapternewpage_on_odd'};
-$result_trees{'two_setchapternewpage_on_odd'}{'contents'}[2]{'parent'} = $result_trees{'two_setchapternewpage_on_odd'};
-$result_trees{'two_setchapternewpage_on_odd'}{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'two_setchapternewpage_on_odd'}{'contents'}[3]{'args'}[0];
-$result_trees{'two_setchapternewpage_on_odd'}{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'two_setchapternewpage_on_odd'}{'contents'}[3];
-$result_trees{'two_setchapternewpage_on_odd'}{'contents'}[3]{'parent'} = $result_trees{'two_setchapternewpage_on_odd'};
 
 $result_texis{'two_setchapternewpage_on_odd'} = '@setfilename two_setchapternewpage_on_odd.info
 @setchapternewpage on

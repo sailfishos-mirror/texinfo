@@ -8,37 +8,6 @@ use utf8;
 $result_trees{'sc_with_utf8_enable_encoding'} = {
   'contents' => [
     {
-      'args' => [
-        {
-          'contents' => [
-            {
-              'parent' => {},
-              'text' => 'utf-8'
-            }
-          ],
-          'extra' => {
-            'spaces_after_argument' => '
-'
-          },
-          'parent' => {},
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'documentencoding',
-      'extra' => {
-        'input_encoding_name' => 'utf-8',
-        'input_perl_encoding' => 'utf-8-strict',
-        'spaces_before_argument' => ' ',
-        'text_arg' => 'utf-8'
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
-      },
-      'parent' => {}
-    },
-    {
       'contents' => [
         {
           'args' => [
@@ -46,42 +15,80 @@ $result_trees{'sc_with_utf8_enable_encoding'} = {
               'contents' => [
                 {
                   'parent' => {},
-                  'text' => 'in sc'
+                  'text' => 'utf-8'
                 }
               ],
+              'extra' => {
+                'spaces_after_argument' => '
+'
+              },
               'parent' => {},
-              'type' => 'brace_command_arg'
+              'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'sc',
-          'contents' => [],
+          'cmdname' => 'documentencoding',
+          'extra' => {
+            'input_encoding_name' => 'utf-8',
+            'input_perl_encoding' => 'utf-8-strict',
+            'spaces_before_argument' => ' ',
+            'text_arg' => 'utf-8'
+          },
           'line_nr' => {
             'file_name' => '',
-            'line_nr' => 2,
+            'line_nr' => 1,
             'macro' => ''
           },
           'parent' => {}
         },
         {
-          'parent' => {},
-          'text' => '.
+          'contents' => [
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'in sc'
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                }
+              ],
+              'cmdname' => 'sc',
+              'contents' => [],
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 2,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => '.
 '
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
         }
       ],
       'parent' => {},
-      'type' => 'paragraph'
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
-$result_trees{'sc_with_utf8_enable_encoding'}{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'sc_with_utf8_enable_encoding'}{'contents'}[0]{'args'}[0];
-$result_trees{'sc_with_utf8_enable_encoding'}{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'sc_with_utf8_enable_encoding'}{'contents'}[0];
+$result_trees{'sc_with_utf8_enable_encoding'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'sc_with_utf8_enable_encoding'}{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'sc_with_utf8_enable_encoding'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'sc_with_utf8_enable_encoding'}{'contents'}[0]{'contents'}[0];
+$result_trees{'sc_with_utf8_enable_encoding'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'sc_with_utf8_enable_encoding'}{'contents'}[0];
+$result_trees{'sc_with_utf8_enable_encoding'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'sc_with_utf8_enable_encoding'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0];
+$result_trees{'sc_with_utf8_enable_encoding'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'sc_with_utf8_enable_encoding'}{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'sc_with_utf8_enable_encoding'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'sc_with_utf8_enable_encoding'}{'contents'}[0]{'contents'}[1];
+$result_trees{'sc_with_utf8_enable_encoding'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'sc_with_utf8_enable_encoding'}{'contents'}[0]{'contents'}[1];
+$result_trees{'sc_with_utf8_enable_encoding'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'sc_with_utf8_enable_encoding'}{'contents'}[0];
 $result_trees{'sc_with_utf8_enable_encoding'}{'contents'}[0]{'parent'} = $result_trees{'sc_with_utf8_enable_encoding'};
-$result_trees{'sc_with_utf8_enable_encoding'}{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'sc_with_utf8_enable_encoding'}{'contents'}[1]{'contents'}[0]{'args'}[0];
-$result_trees{'sc_with_utf8_enable_encoding'}{'contents'}[1]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'sc_with_utf8_enable_encoding'}{'contents'}[1]{'contents'}[0];
-$result_trees{'sc_with_utf8_enable_encoding'}{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'sc_with_utf8_enable_encoding'}{'contents'}[1];
-$result_trees{'sc_with_utf8_enable_encoding'}{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'sc_with_utf8_enable_encoding'}{'contents'}[1];
-$result_trees{'sc_with_utf8_enable_encoding'}{'contents'}[1]{'parent'} = $result_trees{'sc_with_utf8_enable_encoding'};
 
 $result_texis{'sc_with_utf8_enable_encoding'} = '@documentencoding utf-8
 @sc{in sc}.

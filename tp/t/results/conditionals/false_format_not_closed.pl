@@ -8,33 +8,40 @@ use utf8;
 $result_trees{'false_format_not_closed'} = {
   'contents' => [
     {
-      'cmdname' => 'html',
       'contents' => [
         {
-          'contents' => [],
-          'parent' => {},
-          'type' => 'elided_block'
-        },
-        {
-          'parent' => {},
-          'text' => '
+          'cmdname' => 'html',
+          'contents' => [
+            {
+              'contents' => [],
+              'parent' => {},
+              'type' => 'elided_block'
+            },
+            {
+              'parent' => {},
+              'text' => '
 ',
-          'type' => 'empty_line_after_command'
-        },
-        {
-          'parent' => {},
-          'text' => '',
-          'type' => 'empty_line'
+              'type' => 'empty_line_after_command'
+            },
+            {
+              'parent' => {},
+              'text' => '',
+              'type' => 'empty_line'
+            }
+          ],
+          'parent' => {}
         }
       ],
-      'parent' => {}
+      'parent' => {},
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
+$result_trees{'false_format_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'false_format_not_closed'}{'contents'}[0]{'contents'}[0];
+$result_trees{'false_format_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'false_format_not_closed'}{'contents'}[0]{'contents'}[0];
+$result_trees{'false_format_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'false_format_not_closed'}{'contents'}[0]{'contents'}[0];
 $result_trees{'false_format_not_closed'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'false_format_not_closed'}{'contents'}[0];
-$result_trees{'false_format_not_closed'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'false_format_not_closed'}{'contents'}[0];
-$result_trees{'false_format_not_closed'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'false_format_not_closed'}{'contents'}[0];
 $result_trees{'false_format_not_closed'}{'contents'}[0]{'parent'} = $result_trees{'false_format_not_closed'};
 
 $result_texis{'false_format_not_closed'} = '@html

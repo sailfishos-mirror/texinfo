@@ -8,194 +8,201 @@ use utf8;
 $result_trees{'punctuation'} = {
   'contents' => [
     {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
       'contents' => [
         {
           'parent' => {},
-          'text' => 'Dot. Exclam! Question? Dot.  Exclam!  Question?  GAAA.
-'
-        }
-      ],
-      'parent' => {},
-      'type' => 'paragraph'
-    },
-    {
-      'parent' => {},
-      'text' => '
+          'text' => '
 ',
-      'type' => 'empty_line'
-    },
-    {
-      'contents' => [
+          'type' => 'empty_line'
+        },
         {
-          'parent' => {},
-          'text' => 'End of lines Dot.
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => 'Dot. Exclam! Question? Dot.  Exclam!  Question?  GAAA.
 '
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
         },
         {
           'parent' => {},
-          'text' => 'Exclam!
-'
-        },
-        {
-          'parent' => {},
-          'text' => 'Question?
-'
-        },
-        {
-          'parent' => {},
-          'text' => 'End.
-'
-        }
-      ],
-      'parent' => {},
-      'type' => 'paragraph'
-    },
-    {
-      'parent' => {},
-      'text' => '
+          'text' => '
 ',
-      'type' => 'empty_line'
-    },
-    {
-      'contents' => [
+          'type' => 'empty_line'
+        },
         {
-          'parent' => {},
-          'text' => 'End of lines and spaces
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => 'End of lines Dot.
 '
+            },
+            {
+              'parent' => {},
+              'text' => 'Exclam!
+'
+            },
+            {
+              'parent' => {},
+              'text' => 'Question?
+'
+            },
+            {
+              'parent' => {},
+              'text' => 'End.
+'
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
         },
         {
           'parent' => {},
-          'text' => 'Dot.
-'
-        },
-        {
-          'parent' => {},
-          'text' => 'Exclam!
-'
-        },
-        {
-          'parent' => {},
-          'text' => 'Question?
-'
-        },
-        {
-          'parent' => {},
-          'text' => 'End.
-'
-        }
-      ],
-      'parent' => {},
-      'type' => 'paragraph'
-    },
-    {
-      'parent' => {},
-      'text' => '
+          'text' => '
 ',
-      'type' => 'empty_line'
-    },
-    {
-      'contents' => [
+          'type' => 'empty_line'
+        },
+        {
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => 'End of lines and spaces
+'
+            },
+            {
+              'parent' => {},
+              'text' => 'Dot.
+'
+            },
+            {
+              'parent' => {},
+              'text' => 'Exclam!
+'
+            },
+            {
+              'parent' => {},
+              'text' => 'Question?
+'
+            },
+            {
+              'parent' => {},
+              'text' => 'End.
+'
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
+        },
         {
           'parent' => {},
-          'text' => 'With paren.) paren.)  Symb.)"\'] Symb.)"\']  End.
-'
-        }
-      ],
-      'parent' => {},
-      'type' => 'paragraph'
-    },
-    {
-      'parent' => {},
-      'text' => '
+          'text' => '
 ',
-      'type' => 'empty_line'
-    },
-    {
-      'contents' => [
+          'type' => 'empty_line'
+        },
         {
-          'parent' => {},
-          'text' => 'End of lines paren.)
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => 'With paren.) paren.)  Symb.)"\'] Symb.)"\']  End.
 '
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
         },
         {
           'parent' => {},
-          'text' => 'Symb.)"\']
-'
-        },
-        {
-          'parent' => {},
-          'text' => 'End.
-'
-        }
-      ],
-      'parent' => {},
-      'type' => 'paragraph'
-    },
-    {
-      'parent' => {},
-      'text' => '
+          'text' => '
 ',
-      'type' => 'empty_line'
-    },
-    {
-      'contents' => [
+          'type' => 'empty_line'
+        },
         {
-          'parent' => {},
-          'text' => 'End of lines and spaces paren.)
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => 'End of lines paren.)
 '
+            },
+            {
+              'parent' => {},
+              'text' => 'Symb.)"\']
+'
+            },
+            {
+              'parent' => {},
+              'text' => 'End.
+'
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
         },
         {
           'parent' => {},
-          'text' => 'Symb.)"\']
-'
+          'text' => '
+',
+          'type' => 'empty_line'
         },
         {
-          'parent' => {},
-          'text' => 'End.
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => 'End of lines and spaces paren.)
 '
+            },
+            {
+              'parent' => {},
+              'text' => 'Symb.)"\']
+'
+            },
+            {
+              'parent' => {},
+              'text' => 'End.
+'
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
         }
       ],
       'parent' => {},
-      'type' => 'paragraph'
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
+$result_trees{'punctuation'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation'}{'contents'}[0];
+$result_trees{'punctuation'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'punctuation'}{'contents'}[0]{'contents'}[1];
+$result_trees{'punctuation'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'punctuation'}{'contents'}[0];
+$result_trees{'punctuation'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'punctuation'}{'contents'}[0];
+$result_trees{'punctuation'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'punctuation'}{'contents'}[0]{'contents'}[3];
+$result_trees{'punctuation'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'punctuation'}{'contents'}[0]{'contents'}[3];
+$result_trees{'punctuation'}{'contents'}[0]{'contents'}[3]{'contents'}[2]{'parent'} = $result_trees{'punctuation'}{'contents'}[0]{'contents'}[3];
+$result_trees{'punctuation'}{'contents'}[0]{'contents'}[3]{'contents'}[3]{'parent'} = $result_trees{'punctuation'}{'contents'}[0]{'contents'}[3];
+$result_trees{'punctuation'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'punctuation'}{'contents'}[0];
+$result_trees{'punctuation'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'punctuation'}{'contents'}[0];
+$result_trees{'punctuation'}{'contents'}[0]{'contents'}[5]{'contents'}[0]{'parent'} = $result_trees{'punctuation'}{'contents'}[0]{'contents'}[5];
+$result_trees{'punctuation'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'parent'} = $result_trees{'punctuation'}{'contents'}[0]{'contents'}[5];
+$result_trees{'punctuation'}{'contents'}[0]{'contents'}[5]{'contents'}[2]{'parent'} = $result_trees{'punctuation'}{'contents'}[0]{'contents'}[5];
+$result_trees{'punctuation'}{'contents'}[0]{'contents'}[5]{'contents'}[3]{'parent'} = $result_trees{'punctuation'}{'contents'}[0]{'contents'}[5];
+$result_trees{'punctuation'}{'contents'}[0]{'contents'}[5]{'contents'}[4]{'parent'} = $result_trees{'punctuation'}{'contents'}[0]{'contents'}[5];
+$result_trees{'punctuation'}{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'punctuation'}{'contents'}[0];
+$result_trees{'punctuation'}{'contents'}[0]{'contents'}[6]{'parent'} = $result_trees{'punctuation'}{'contents'}[0];
+$result_trees{'punctuation'}{'contents'}[0]{'contents'}[7]{'contents'}[0]{'parent'} = $result_trees{'punctuation'}{'contents'}[0]{'contents'}[7];
+$result_trees{'punctuation'}{'contents'}[0]{'contents'}[7]{'parent'} = $result_trees{'punctuation'}{'contents'}[0];
+$result_trees{'punctuation'}{'contents'}[0]{'contents'}[8]{'parent'} = $result_trees{'punctuation'}{'contents'}[0];
+$result_trees{'punctuation'}{'contents'}[0]{'contents'}[9]{'contents'}[0]{'parent'} = $result_trees{'punctuation'}{'contents'}[0]{'contents'}[9];
+$result_trees{'punctuation'}{'contents'}[0]{'contents'}[9]{'contents'}[1]{'parent'} = $result_trees{'punctuation'}{'contents'}[0]{'contents'}[9];
+$result_trees{'punctuation'}{'contents'}[0]{'contents'}[9]{'contents'}[2]{'parent'} = $result_trees{'punctuation'}{'contents'}[0]{'contents'}[9];
+$result_trees{'punctuation'}{'contents'}[0]{'contents'}[9]{'parent'} = $result_trees{'punctuation'}{'contents'}[0];
+$result_trees{'punctuation'}{'contents'}[0]{'contents'}[10]{'parent'} = $result_trees{'punctuation'}{'contents'}[0];
+$result_trees{'punctuation'}{'contents'}[0]{'contents'}[11]{'contents'}[0]{'parent'} = $result_trees{'punctuation'}{'contents'}[0]{'contents'}[11];
+$result_trees{'punctuation'}{'contents'}[0]{'contents'}[11]{'contents'}[1]{'parent'} = $result_trees{'punctuation'}{'contents'}[0]{'contents'}[11];
+$result_trees{'punctuation'}{'contents'}[0]{'contents'}[11]{'contents'}[2]{'parent'} = $result_trees{'punctuation'}{'contents'}[0]{'contents'}[11];
+$result_trees{'punctuation'}{'contents'}[0]{'contents'}[11]{'parent'} = $result_trees{'punctuation'}{'contents'}[0];
 $result_trees{'punctuation'}{'contents'}[0]{'parent'} = $result_trees{'punctuation'};
-$result_trees{'punctuation'}{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'punctuation'}{'contents'}[1];
-$result_trees{'punctuation'}{'contents'}[1]{'parent'} = $result_trees{'punctuation'};
-$result_trees{'punctuation'}{'contents'}[2]{'parent'} = $result_trees{'punctuation'};
-$result_trees{'punctuation'}{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'punctuation'}{'contents'}[3];
-$result_trees{'punctuation'}{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'punctuation'}{'contents'}[3];
-$result_trees{'punctuation'}{'contents'}[3]{'contents'}[2]{'parent'} = $result_trees{'punctuation'}{'contents'}[3];
-$result_trees{'punctuation'}{'contents'}[3]{'contents'}[3]{'parent'} = $result_trees{'punctuation'}{'contents'}[3];
-$result_trees{'punctuation'}{'contents'}[3]{'parent'} = $result_trees{'punctuation'};
-$result_trees{'punctuation'}{'contents'}[4]{'parent'} = $result_trees{'punctuation'};
-$result_trees{'punctuation'}{'contents'}[5]{'contents'}[0]{'parent'} = $result_trees{'punctuation'}{'contents'}[5];
-$result_trees{'punctuation'}{'contents'}[5]{'contents'}[1]{'parent'} = $result_trees{'punctuation'}{'contents'}[5];
-$result_trees{'punctuation'}{'contents'}[5]{'contents'}[2]{'parent'} = $result_trees{'punctuation'}{'contents'}[5];
-$result_trees{'punctuation'}{'contents'}[5]{'contents'}[3]{'parent'} = $result_trees{'punctuation'}{'contents'}[5];
-$result_trees{'punctuation'}{'contents'}[5]{'contents'}[4]{'parent'} = $result_trees{'punctuation'}{'contents'}[5];
-$result_trees{'punctuation'}{'contents'}[5]{'parent'} = $result_trees{'punctuation'};
-$result_trees{'punctuation'}{'contents'}[6]{'parent'} = $result_trees{'punctuation'};
-$result_trees{'punctuation'}{'contents'}[7]{'contents'}[0]{'parent'} = $result_trees{'punctuation'}{'contents'}[7];
-$result_trees{'punctuation'}{'contents'}[7]{'parent'} = $result_trees{'punctuation'};
-$result_trees{'punctuation'}{'contents'}[8]{'parent'} = $result_trees{'punctuation'};
-$result_trees{'punctuation'}{'contents'}[9]{'contents'}[0]{'parent'} = $result_trees{'punctuation'}{'contents'}[9];
-$result_trees{'punctuation'}{'contents'}[9]{'contents'}[1]{'parent'} = $result_trees{'punctuation'}{'contents'}[9];
-$result_trees{'punctuation'}{'contents'}[9]{'contents'}[2]{'parent'} = $result_trees{'punctuation'}{'contents'}[9];
-$result_trees{'punctuation'}{'contents'}[9]{'parent'} = $result_trees{'punctuation'};
-$result_trees{'punctuation'}{'contents'}[10]{'parent'} = $result_trees{'punctuation'};
-$result_trees{'punctuation'}{'contents'}[11]{'contents'}[0]{'parent'} = $result_trees{'punctuation'}{'contents'}[11];
-$result_trees{'punctuation'}{'contents'}[11]{'contents'}[1]{'parent'} = $result_trees{'punctuation'}{'contents'}[11];
-$result_trees{'punctuation'}{'contents'}[11]{'contents'}[2]{'parent'} = $result_trees{'punctuation'}{'contents'}[11];
-$result_trees{'punctuation'}{'contents'}[11]{'parent'} = $result_trees{'punctuation'};
 
 $result_texis{'punctuation'} = '
 Dot. Exclam! Question? Dot.  Exclam!  Question?  GAAA.

@@ -8,95 +8,102 @@ use utf8;
 $result_trees{'quote_dash_in_display'} = {
   'contents' => [
     {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'cmdname' => 'display',
       'contents' => [
         {
-          'extra' => {
-            'command' => {}
-          },
           'parent' => {},
           'text' => '
 ',
-          'type' => 'empty_line_after_command'
+          'type' => 'empty_line'
         },
         {
+          'cmdname' => 'display',
           'contents' => [
             {
-              'parent' => {},
-              'text' => 'and now -- yes---now and ``so\'\'.
-'
-            },
-            {
+              'extra' => {
+                'command' => {}
+              },
               'parent' => {},
               'text' => '
 ',
-              'type' => 'empty_line'
-            }
-          ],
-          'parent' => {},
-          'type' => 'preformatted'
-        },
-        {
-          'args' => [
+              'type' => 'empty_line_after_command'
+            },
             {
               'contents' => [
                 {
                   'parent' => {},
-                  'text' => 'display'
+                  'text' => 'and now -- yes---now and ``so\'\'.
+'
+                },
+                {
+                  'parent' => {},
+                  'text' => '
+',
+                  'type' => 'empty_line'
                 }
               ],
-              'extra' => {
-                'spaces_after_argument' => '
-'
-              },
               'parent' => {},
-              'type' => 'line_arg'
+              'type' => 'preformatted'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'display'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
+                  'parent' => {},
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'end',
+              'extra' => {
+                'command_argument' => 'display',
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'display'
+              },
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 5,
+                'macro' => ''
+              },
+              'parent' => {}
             }
           ],
-          'cmdname' => 'end',
           'extra' => {
-            'command_argument' => 'display',
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'display'
+            'end_command' => {}
           },
           'line_nr' => {
             'file_name' => '',
-            'line_nr' => 5,
+            'line_nr' => 2,
             'macro' => ''
           },
           'parent' => {}
         }
       ],
-      'extra' => {
-        'end_command' => {}
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 2,
-        'macro' => ''
-      },
-      'parent' => {}
+      'parent' => {},
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
+$result_trees{'quote_dash_in_display'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'quote_dash_in_display'}{'contents'}[0];
+$result_trees{'quote_dash_in_display'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'extra'}{'command'} = $result_trees{'quote_dash_in_display'}{'contents'}[0]{'contents'}[1];
+$result_trees{'quote_dash_in_display'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'quote_dash_in_display'}{'contents'}[0]{'contents'}[1];
+$result_trees{'quote_dash_in_display'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'quote_dash_in_display'}{'contents'}[0]{'contents'}[1]{'contents'}[1];
+$result_trees{'quote_dash_in_display'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'quote_dash_in_display'}{'contents'}[0]{'contents'}[1]{'contents'}[1];
+$result_trees{'quote_dash_in_display'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'quote_dash_in_display'}{'contents'}[0]{'contents'}[1];
+$result_trees{'quote_dash_in_display'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'quote_dash_in_display'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'args'}[0];
+$result_trees{'quote_dash_in_display'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'quote_dash_in_display'}{'contents'}[0]{'contents'}[1]{'contents'}[2];
+$result_trees{'quote_dash_in_display'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'quote_dash_in_display'}{'contents'}[0]{'contents'}[1];
+$result_trees{'quote_dash_in_display'}{'contents'}[0]{'contents'}[1]{'extra'}{'end_command'} = $result_trees{'quote_dash_in_display'}{'contents'}[0]{'contents'}[1]{'contents'}[2];
+$result_trees{'quote_dash_in_display'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'quote_dash_in_display'}{'contents'}[0];
 $result_trees{'quote_dash_in_display'}{'contents'}[0]{'parent'} = $result_trees{'quote_dash_in_display'};
-$result_trees{'quote_dash_in_display'}{'contents'}[1]{'contents'}[0]{'extra'}{'command'} = $result_trees{'quote_dash_in_display'}{'contents'}[1];
-$result_trees{'quote_dash_in_display'}{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'quote_dash_in_display'}{'contents'}[1];
-$result_trees{'quote_dash_in_display'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'quote_dash_in_display'}{'contents'}[1]{'contents'}[1];
-$result_trees{'quote_dash_in_display'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'quote_dash_in_display'}{'contents'}[1]{'contents'}[1];
-$result_trees{'quote_dash_in_display'}{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'quote_dash_in_display'}{'contents'}[1];
-$result_trees{'quote_dash_in_display'}{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'quote_dash_in_display'}{'contents'}[1]{'contents'}[2]{'args'}[0];
-$result_trees{'quote_dash_in_display'}{'contents'}[1]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'quote_dash_in_display'}{'contents'}[1]{'contents'}[2];
-$result_trees{'quote_dash_in_display'}{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'quote_dash_in_display'}{'contents'}[1];
-$result_trees{'quote_dash_in_display'}{'contents'}[1]{'extra'}{'end_command'} = $result_trees{'quote_dash_in_display'}{'contents'}[1]{'contents'}[2];
-$result_trees{'quote_dash_in_display'}{'contents'}[1]{'parent'} = $result_trees{'quote_dash_in_display'};
 
 $result_texis{'quote_dash_in_display'} = '
 @display

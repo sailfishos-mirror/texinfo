@@ -8,32 +8,39 @@ use utf8;
 $result_trees{'empty_center'} = {
   'contents' => [
     {
-      'args' => [
+      'contents' => [
         {
-          'contents' => [],
-          'extra' => {
-            'spaces_after_argument' => ' 
+          'args' => [
+            {
+              'contents' => [],
+              'extra' => {
+                'spaces_after_argument' => ' 
 '
+              },
+              'parent' => {},
+              'type' => 'line_arg'
+            }
+          ],
+          'cmdname' => 'center',
+          'extra' => {
+            'missing_argument' => 1
           },
-          'parent' => {},
-          'type' => 'line_arg'
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 1,
+            'macro' => ''
+          },
+          'parent' => {}
         }
       ],
-      'cmdname' => 'center',
-      'extra' => {
-        'missing_argument' => 1
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
-      },
-      'parent' => {}
+      'parent' => {},
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
-$result_trees{'empty_center'}{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'empty_center'}{'contents'}[0];
+$result_trees{'empty_center'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'empty_center'}{'contents'}[0]{'contents'}[0];
+$result_trees{'empty_center'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_center'}{'contents'}[0];
 $result_trees{'empty_center'}{'contents'}[0]{'parent'} = $result_trees{'empty_center'};
 
 $result_texis{'empty_center'} = '@center 

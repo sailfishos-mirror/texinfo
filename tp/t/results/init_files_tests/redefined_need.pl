@@ -8,41 +8,48 @@ use utf8;
 $result_trees{'redefined_need'} = {
   'contents' => [
     {
-      'args' => [
+      'contents' => [
         {
-          'contents' => [
+          'args' => [
             {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => '0.1'
+                }
+              ],
+              'extra' => {
+                'spaces_after_argument' => '
+'
+              },
               'parent' => {},
-              'text' => '0.1'
+              'type' => 'line_arg'
             }
           ],
+          'cmdname' => 'need',
           'extra' => {
-            'spaces_after_argument' => '
-'
+            'misc_args' => [
+              '0.1'
+            ],
+            'spaces_before_argument' => ' '
           },
-          'parent' => {},
-          'type' => 'line_arg'
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 1,
+            'macro' => ''
+          },
+          'parent' => {}
         }
       ],
-      'cmdname' => 'need',
-      'extra' => {
-        'misc_args' => [
-          '0.1'
-        ],
-        'spaces_before_argument' => ' '
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
-      },
-      'parent' => {}
+      'parent' => {},
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
-$result_trees{'redefined_need'}{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'redefined_need'}{'contents'}[0]{'args'}[0];
-$result_trees{'redefined_need'}{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'redefined_need'}{'contents'}[0];
+$result_trees{'redefined_need'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'redefined_need'}{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'redefined_need'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'redefined_need'}{'contents'}[0]{'contents'}[0];
+$result_trees{'redefined_need'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'redefined_need'}{'contents'}[0];
 $result_trees{'redefined_need'}{'contents'}[0]{'parent'} = $result_trees{'redefined_need'};
 
 $result_texis{'redefined_need'} = '@need 0.1

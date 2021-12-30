@@ -8,51 +8,100 @@ use utf8;
 $result_trees{'empty_quotation'} = {
   'contents' => [
     {
-      'args' => [
-        {
-          'contents' => [
-            {
-              'parent' => {},
-              'text' => 'empty_quotation.info'
-            }
-          ],
-          'extra' => {
-            'spaces_after_argument' => '
-'
-          },
-          'parent' => {},
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'setfilename',
-      'extra' => {
-        'spaces_before_argument' => ' ',
-        'text_arg' => 'empty_quotation.info'
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
-      },
-      'parent' => {}
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'cmdname' => 'quotation',
       'contents' => [
         {
+          'args' => [
+            {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => 'empty_quotation.info'
+                }
+              ],
+              'extra' => {
+                'spaces_after_argument' => '
+'
+              },
+              'parent' => {},
+              'type' => 'line_arg'
+            }
+          ],
+          'cmdname' => 'setfilename',
           'extra' => {
-            'command' => {}
+            'spaces_before_argument' => ' ',
+            'text_arg' => 'empty_quotation.info'
           },
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 1,
+            'macro' => ''
+          },
+          'parent' => {}
+        },
+        {
           'parent' => {},
           'text' => '
 ',
-          'type' => 'empty_line_after_command'
+          'type' => 'empty_line'
+        },
+        {
+          'cmdname' => 'quotation',
+          'contents' => [
+            {
+              'extra' => {
+                'command' => {}
+              },
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line_after_command'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'quotation'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
+                  'parent' => {},
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'end',
+              'extra' => {
+                'command_argument' => 'quotation',
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'quotation'
+              },
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 4,
+                'macro' => ''
+              },
+              'parent' => {}
+            }
+          ],
+          'extra' => {
+            'end_command' => {}
+          },
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 3,
+            'macro' => ''
+          },
+          'parent' => {}
+        },
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
         },
         {
           'args' => [
@@ -60,7 +109,7 @@ $result_trees{'empty_quotation'} = {
               'contents' => [
                 {
                   'parent' => {},
-                  'text' => 'quotation'
+                  'text' => 'Empty'
                 }
               ],
               'extra' => {
@@ -68,145 +117,79 @@ $result_trees{'empty_quotation'} = {
 '
               },
               'parent' => {},
-              'type' => 'line_arg'
+              'type' => 'block_line_arg'
             }
           ],
-          'cmdname' => 'end',
-          'extra' => {
-            'command_argument' => 'quotation',
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'quotation'
-          },
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 4,
-            'macro' => ''
-          },
-          'parent' => {}
-        }
-      ],
-      'extra' => {
-        'end_command' => {}
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 3,
-        'macro' => ''
-      },
-      'parent' => {}
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'args' => [
-        {
-          'contents' => [
-            {
-              'parent' => {},
-              'text' => 'Empty'
-            }
-          ],
-          'extra' => {
-            'spaces_after_argument' => '
-'
-          },
-          'parent' => {},
-          'type' => 'block_line_arg'
-        }
-      ],
-      'cmdname' => 'quotation',
-      'contents' => [
-        {
-          'args' => [
-            {
-              'contents' => [
-                {
-                  'parent' => {},
-                  'text' => 'quotation'
-                }
-              ],
-              'extra' => {
-                'spaces_after_argument' => '
-'
-              },
-              'parent' => {},
-              'type' => 'line_arg'
-            }
-          ],
-          'cmdname' => 'end',
-          'extra' => {
-            'command_argument' => 'quotation',
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'quotation'
-          },
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 7,
-            'macro' => ''
-          },
-          'parent' => {}
-        }
-      ],
-      'extra' => {
-        'end_command' => {},
-        'spaces_before_argument' => ' '
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 6,
-        'macro' => ''
-      },
-      'parent' => {}
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'args' => [
-        {
+          'cmdname' => 'quotation',
           'contents' => [
             {
               'args' => [
                 {
-                  'contents' => [],
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'quotation'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'parent' => {},
-                  'type' => 'brace_command_arg'
+                  'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'asis',
-              'contents' => [],
+              'cmdname' => 'end',
+              'extra' => {
+                'command_argument' => 'quotation',
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'quotation'
+              },
               'line_nr' => {
                 'file_name' => '',
-                'line_nr' => 9,
+                'line_nr' => 7,
                 'macro' => ''
               },
               'parent' => {}
             }
           ],
           'extra' => {
-            'spaces_after_argument' => '
-'
+            'end_command' => {},
+            'spaces_before_argument' => ' '
           },
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 6,
+            'macro' => ''
+          },
+          'parent' => {}
+        },
+        {
           'parent' => {},
-          'type' => 'block_line_arg'
-        }
-      ],
-      'cmdname' => 'quotation',
-      'contents' => [
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
         {
           'args' => [
             {
               'contents' => [
                 {
-                  'parent' => {},
-                  'text' => 'quotation'
+                  'args' => [
+                    {
+                      'contents' => [],
+                      'parent' => {},
+                      'type' => 'brace_command_arg'
+                    }
+                  ],
+                  'cmdname' => 'asis',
+                  'contents' => [],
+                  'line_nr' => {
+                    'file_name' => '',
+                    'line_nr' => 9,
+                    'macro' => ''
+                  },
+                  'parent' => {}
                 }
               ],
               'extra' => {
@@ -214,66 +197,66 @@ $result_trees{'empty_quotation'} = {
 '
               },
               'parent' => {},
-              'type' => 'line_arg'
+              'type' => 'block_line_arg'
             }
           ],
-          'cmdname' => 'end',
-          'extra' => {
-            'command_argument' => 'quotation',
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'quotation'
-          },
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 10,
-            'macro' => ''
-          },
-          'parent' => {}
-        }
-      ],
-      'extra' => {
-        'end_command' => {},
-        'spaces_before_argument' => ' '
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 9,
-        'macro' => ''
-      },
-      'parent' => {}
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'args' => [
-        {
+          'cmdname' => 'quotation',
           'contents' => [
             {
-              'cmdname' => '*',
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'quotation'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
+                  'parent' => {},
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'end',
+              'extra' => {
+                'command_argument' => 'quotation',
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'quotation'
+              },
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 10,
+                'macro' => ''
+              },
               'parent' => {}
             }
           ],
           'extra' => {
-            'spaces_after_argument' => '
-'
+            'end_command' => {},
+            'spaces_before_argument' => ' '
           },
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 9,
+            'macro' => ''
+          },
+          'parent' => {}
+        },
+        {
           'parent' => {},
-          'type' => 'block_line_arg'
-        }
-      ],
-      'cmdname' => 'quotation',
-      'contents' => [
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
         {
           'args' => [
             {
               'contents' => [
                 {
-                  'parent' => {},
-                  'text' => 'quotation'
+                  'cmdname' => '*',
+                  'parent' => {}
                 }
               ],
               'extra' => {
@@ -281,73 +264,97 @@ $result_trees{'empty_quotation'} = {
 '
               },
               'parent' => {},
-              'type' => 'line_arg'
+              'type' => 'block_line_arg'
             }
           ],
-          'cmdname' => 'end',
+          'cmdname' => 'quotation',
+          'contents' => [
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'quotation'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
+                  'parent' => {},
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'end',
+              'extra' => {
+                'command_argument' => 'quotation',
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'quotation'
+              },
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 13,
+                'macro' => ''
+              },
+              'parent' => {}
+            }
+          ],
           'extra' => {
-            'command_argument' => 'quotation',
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'quotation'
+            'end_command' => {},
+            'spaces_before_argument' => ' '
           },
           'line_nr' => {
             'file_name' => '',
-            'line_nr' => 13,
+            'line_nr' => 12,
             'macro' => ''
           },
           'parent' => {}
         }
       ],
-      'extra' => {
-        'end_command' => {},
-        'spaces_before_argument' => ' '
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 12,
-        'macro' => ''
-      },
-      'parent' => {}
+      'parent' => {},
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
-$result_trees{'empty_quotation'}{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_quotation'}{'contents'}[0]{'args'}[0];
-$result_trees{'empty_quotation'}{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'empty_quotation'}{'contents'}[0];
+$result_trees{'empty_quotation'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_quotation'}{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'empty_quotation'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'empty_quotation'}{'contents'}[0]{'contents'}[0];
+$result_trees{'empty_quotation'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_quotation'}{'contents'}[0];
+$result_trees{'empty_quotation'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'empty_quotation'}{'contents'}[0];
+$result_trees{'empty_quotation'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'extra'}{'command'} = $result_trees{'empty_quotation'}{'contents'}[0]{'contents'}[2];
+$result_trees{'empty_quotation'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'empty_quotation'}{'contents'}[0]{'contents'}[2];
+$result_trees{'empty_quotation'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_quotation'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0];
+$result_trees{'empty_quotation'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'empty_quotation'}{'contents'}[0]{'contents'}[2]{'contents'}[1];
+$result_trees{'empty_quotation'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'empty_quotation'}{'contents'}[0]{'contents'}[2];
+$result_trees{'empty_quotation'}{'contents'}[0]{'contents'}[2]{'extra'}{'end_command'} = $result_trees{'empty_quotation'}{'contents'}[0]{'contents'}[2]{'contents'}[1];
+$result_trees{'empty_quotation'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'empty_quotation'}{'contents'}[0];
+$result_trees{'empty_quotation'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'empty_quotation'}{'contents'}[0];
+$result_trees{'empty_quotation'}{'contents'}[0]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_quotation'}{'contents'}[0]{'contents'}[4]{'args'}[0];
+$result_trees{'empty_quotation'}{'contents'}[0]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'empty_quotation'}{'contents'}[0]{'contents'}[4];
+$result_trees{'empty_quotation'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_quotation'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'args'}[0];
+$result_trees{'empty_quotation'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'empty_quotation'}{'contents'}[0]{'contents'}[4]{'contents'}[0];
+$result_trees{'empty_quotation'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'empty_quotation'}{'contents'}[0]{'contents'}[4];
+$result_trees{'empty_quotation'}{'contents'}[0]{'contents'}[4]{'extra'}{'end_command'} = $result_trees{'empty_quotation'}{'contents'}[0]{'contents'}[4]{'contents'}[0];
+$result_trees{'empty_quotation'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'empty_quotation'}{'contents'}[0];
+$result_trees{'empty_quotation'}{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'empty_quotation'}{'contents'}[0];
+$result_trees{'empty_quotation'}{'contents'}[0]{'contents'}[6]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'empty_quotation'}{'contents'}[0]{'contents'}[6]{'args'}[0]{'contents'}[0];
+$result_trees{'empty_quotation'}{'contents'}[0]{'contents'}[6]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_quotation'}{'contents'}[0]{'contents'}[6]{'args'}[0];
+$result_trees{'empty_quotation'}{'contents'}[0]{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'empty_quotation'}{'contents'}[0]{'contents'}[6];
+$result_trees{'empty_quotation'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_quotation'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'args'}[0];
+$result_trees{'empty_quotation'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'empty_quotation'}{'contents'}[0]{'contents'}[6]{'contents'}[0];
+$result_trees{'empty_quotation'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'parent'} = $result_trees{'empty_quotation'}{'contents'}[0]{'contents'}[6];
+$result_trees{'empty_quotation'}{'contents'}[0]{'contents'}[6]{'extra'}{'end_command'} = $result_trees{'empty_quotation'}{'contents'}[0]{'contents'}[6]{'contents'}[0];
+$result_trees{'empty_quotation'}{'contents'}[0]{'contents'}[6]{'parent'} = $result_trees{'empty_quotation'}{'contents'}[0];
+$result_trees{'empty_quotation'}{'contents'}[0]{'contents'}[7]{'parent'} = $result_trees{'empty_quotation'}{'contents'}[0];
+$result_trees{'empty_quotation'}{'contents'}[0]{'contents'}[8]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_quotation'}{'contents'}[0]{'contents'}[8]{'args'}[0];
+$result_trees{'empty_quotation'}{'contents'}[0]{'contents'}[8]{'args'}[0]{'parent'} = $result_trees{'empty_quotation'}{'contents'}[0]{'contents'}[8];
+$result_trees{'empty_quotation'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_quotation'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'args'}[0];
+$result_trees{'empty_quotation'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'empty_quotation'}{'contents'}[0]{'contents'}[8]{'contents'}[0];
+$result_trees{'empty_quotation'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'parent'} = $result_trees{'empty_quotation'}{'contents'}[0]{'contents'}[8];
+$result_trees{'empty_quotation'}{'contents'}[0]{'contents'}[8]{'extra'}{'end_command'} = $result_trees{'empty_quotation'}{'contents'}[0]{'contents'}[8]{'contents'}[0];
+$result_trees{'empty_quotation'}{'contents'}[0]{'contents'}[8]{'parent'} = $result_trees{'empty_quotation'}{'contents'}[0];
 $result_trees{'empty_quotation'}{'contents'}[0]{'parent'} = $result_trees{'empty_quotation'};
-$result_trees{'empty_quotation'}{'contents'}[1]{'parent'} = $result_trees{'empty_quotation'};
-$result_trees{'empty_quotation'}{'contents'}[2]{'contents'}[0]{'extra'}{'command'} = $result_trees{'empty_quotation'}{'contents'}[2];
-$result_trees{'empty_quotation'}{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'empty_quotation'}{'contents'}[2];
-$result_trees{'empty_quotation'}{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_quotation'}{'contents'}[2]{'contents'}[1]{'args'}[0];
-$result_trees{'empty_quotation'}{'contents'}[2]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'empty_quotation'}{'contents'}[2]{'contents'}[1];
-$result_trees{'empty_quotation'}{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'empty_quotation'}{'contents'}[2];
-$result_trees{'empty_quotation'}{'contents'}[2]{'extra'}{'end_command'} = $result_trees{'empty_quotation'}{'contents'}[2]{'contents'}[1];
-$result_trees{'empty_quotation'}{'contents'}[2]{'parent'} = $result_trees{'empty_quotation'};
-$result_trees{'empty_quotation'}{'contents'}[3]{'parent'} = $result_trees{'empty_quotation'};
-$result_trees{'empty_quotation'}{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_quotation'}{'contents'}[4]{'args'}[0];
-$result_trees{'empty_quotation'}{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'empty_quotation'}{'contents'}[4];
-$result_trees{'empty_quotation'}{'contents'}[4]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_quotation'}{'contents'}[4]{'contents'}[0]{'args'}[0];
-$result_trees{'empty_quotation'}{'contents'}[4]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'empty_quotation'}{'contents'}[4]{'contents'}[0];
-$result_trees{'empty_quotation'}{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'empty_quotation'}{'contents'}[4];
-$result_trees{'empty_quotation'}{'contents'}[4]{'extra'}{'end_command'} = $result_trees{'empty_quotation'}{'contents'}[4]{'contents'}[0];
-$result_trees{'empty_quotation'}{'contents'}[4]{'parent'} = $result_trees{'empty_quotation'};
-$result_trees{'empty_quotation'}{'contents'}[5]{'parent'} = $result_trees{'empty_quotation'};
-$result_trees{'empty_quotation'}{'contents'}[6]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'empty_quotation'}{'contents'}[6]{'args'}[0]{'contents'}[0];
-$result_trees{'empty_quotation'}{'contents'}[6]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_quotation'}{'contents'}[6]{'args'}[0];
-$result_trees{'empty_quotation'}{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'empty_quotation'}{'contents'}[6];
-$result_trees{'empty_quotation'}{'contents'}[6]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_quotation'}{'contents'}[6]{'contents'}[0]{'args'}[0];
-$result_trees{'empty_quotation'}{'contents'}[6]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'empty_quotation'}{'contents'}[6]{'contents'}[0];
-$result_trees{'empty_quotation'}{'contents'}[6]{'contents'}[0]{'parent'} = $result_trees{'empty_quotation'}{'contents'}[6];
-$result_trees{'empty_quotation'}{'contents'}[6]{'extra'}{'end_command'} = $result_trees{'empty_quotation'}{'contents'}[6]{'contents'}[0];
-$result_trees{'empty_quotation'}{'contents'}[6]{'parent'} = $result_trees{'empty_quotation'};
-$result_trees{'empty_quotation'}{'contents'}[7]{'parent'} = $result_trees{'empty_quotation'};
-$result_trees{'empty_quotation'}{'contents'}[8]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_quotation'}{'contents'}[8]{'args'}[0];
-$result_trees{'empty_quotation'}{'contents'}[8]{'args'}[0]{'parent'} = $result_trees{'empty_quotation'}{'contents'}[8];
-$result_trees{'empty_quotation'}{'contents'}[8]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_quotation'}{'contents'}[8]{'contents'}[0]{'args'}[0];
-$result_trees{'empty_quotation'}{'contents'}[8]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'empty_quotation'}{'contents'}[8]{'contents'}[0];
-$result_trees{'empty_quotation'}{'contents'}[8]{'contents'}[0]{'parent'} = $result_trees{'empty_quotation'}{'contents'}[8];
-$result_trees{'empty_quotation'}{'contents'}[8]{'extra'}{'end_command'} = $result_trees{'empty_quotation'}{'contents'}[8]{'contents'}[0];
-$result_trees{'empty_quotation'}{'contents'}[8]{'parent'} = $result_trees{'empty_quotation'};
 
 $result_texis{'empty_quotation'} = '@setfilename empty_quotation.info
 

@@ -8,140 +8,147 @@ use utf8;
 $result_trees{'macro_in_value'} = {
   'contents' => [
     {
-      'args' => [
-        {
-          'parent' => {},
-          'text' => 'ab',
-          'type' => 'macro_name'
-        }
-      ],
-      'cmdname' => 'macro',
       'contents' => [
         {
-          'parent' => {},
-          'text' => 'a
+          'args' => [
+            {
+              'parent' => {},
+              'text' => 'ab',
+              'type' => 'macro_name'
+            }
+          ],
+          'cmdname' => 'macro',
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => 'a
 ',
-          'type' => 'raw'
+              'type' => 'raw'
+            },
+            {
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'raw'
+            },
+            {
+              'parent' => {},
+              'text' => 'b',
+              'type' => 'raw'
+            },
+            {
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'last_raw_newline'
+            }
+          ],
+          'extra' => {
+            'arg_line' => ' ab
+'
+          },
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 1,
+            'macro' => ''
+          },
+          'parent' => {}
         },
         {
           'parent' => {},
           'text' => '
 ',
-          'type' => 'raw'
-        },
-        {
-          'parent' => {},
-          'text' => 'b',
-          'type' => 'raw'
+          'type' => 'empty_line_after_command'
         },
         {
           'parent' => {},
           'text' => '
 ',
-          'type' => 'last_raw_newline'
-        }
-      ],
-      'extra' => {
-        'arg_line' => ' ab
-'
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
-      },
-      'parent' => {}
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line_after_command'
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'args' => [
+          'type' => 'empty_line'
+        },
         {
-          'parent' => {},
-          'text' => 'flagab',
-          'type' => 'misc_arg'
+          'args' => [
+            {
+              'parent' => {},
+              'text' => 'flagab',
+              'type' => 'misc_arg'
+            },
+            {
+              'parent' => {},
+              'text' => '@ab',
+              'type' => 'misc_arg'
+            }
+          ],
+          'cmdname' => 'set',
+          'extra' => {
+            'arg_line' => ' flagab @ab
+',
+            'misc_args' => [
+              'flagab',
+              '@ab'
+            ]
+          },
+          'parent' => {}
         },
         {
           'parent' => {},
-          'text' => '@ab',
-          'type' => 'misc_arg'
-        }
-      ],
-      'cmdname' => 'set',
-      'extra' => {
-        'arg_line' => ' flagab @ab
+          'text' => '
 ',
-        'misc_args' => [
-          'flagab',
-          '@ab'
-        ]
-      },
-      'parent' => {}
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'contents' => [
+          'type' => 'empty_line'
+        },
+        {
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => 'flagab: a
+'
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
+        },
         {
           'parent' => {},
-          'text' => 'flagab: a
-'
-        }
-      ],
-      'parent' => {},
-      'type' => 'paragraph'
-    },
-    {
-      'parent' => {},
-      'text' => '
+          'text' => '
 ',
-      'type' => 'empty_line'
-    },
-    {
-      'contents' => [
+          'type' => 'empty_line'
+        },
         {
-          'parent' => {},
-          'text' => 'b
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => 'b
 '
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
         }
       ],
       'parent' => {},
-      'type' => 'paragraph'
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
-$result_trees{'macro_in_value'}{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'macro_in_value'}{'contents'}[0];
+$result_trees{'macro_in_value'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'macro_in_value'}{'contents'}[0]{'contents'}[0];
+$result_trees{'macro_in_value'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'macro_in_value'}{'contents'}[0]{'contents'}[0];
+$result_trees{'macro_in_value'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'macro_in_value'}{'contents'}[0]{'contents'}[0];
+$result_trees{'macro_in_value'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'macro_in_value'}{'contents'}[0]{'contents'}[0];
+$result_trees{'macro_in_value'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'macro_in_value'}{'contents'}[0]{'contents'}[0];
 $result_trees{'macro_in_value'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'macro_in_value'}{'contents'}[0];
 $result_trees{'macro_in_value'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'macro_in_value'}{'contents'}[0];
 $result_trees{'macro_in_value'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'macro_in_value'}{'contents'}[0];
+$result_trees{'macro_in_value'}{'contents'}[0]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'macro_in_value'}{'contents'}[0]{'contents'}[3];
+$result_trees{'macro_in_value'}{'contents'}[0]{'contents'}[3]{'args'}[1]{'parent'} = $result_trees{'macro_in_value'}{'contents'}[0]{'contents'}[3];
 $result_trees{'macro_in_value'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'macro_in_value'}{'contents'}[0];
+$result_trees{'macro_in_value'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'macro_in_value'}{'contents'}[0];
+$result_trees{'macro_in_value'}{'contents'}[0]{'contents'}[5]{'contents'}[0]{'parent'} = $result_trees{'macro_in_value'}{'contents'}[0]{'contents'}[5];
+$result_trees{'macro_in_value'}{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'macro_in_value'}{'contents'}[0];
+$result_trees{'macro_in_value'}{'contents'}[0]{'contents'}[6]{'parent'} = $result_trees{'macro_in_value'}{'contents'}[0];
+$result_trees{'macro_in_value'}{'contents'}[0]{'contents'}[7]{'contents'}[0]{'parent'} = $result_trees{'macro_in_value'}{'contents'}[0]{'contents'}[7];
+$result_trees{'macro_in_value'}{'contents'}[0]{'contents'}[7]{'parent'} = $result_trees{'macro_in_value'}{'contents'}[0];
 $result_trees{'macro_in_value'}{'contents'}[0]{'parent'} = $result_trees{'macro_in_value'};
-$result_trees{'macro_in_value'}{'contents'}[1]{'parent'} = $result_trees{'macro_in_value'};
-$result_trees{'macro_in_value'}{'contents'}[2]{'parent'} = $result_trees{'macro_in_value'};
-$result_trees{'macro_in_value'}{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'macro_in_value'}{'contents'}[3];
-$result_trees{'macro_in_value'}{'contents'}[3]{'args'}[1]{'parent'} = $result_trees{'macro_in_value'}{'contents'}[3];
-$result_trees{'macro_in_value'}{'contents'}[3]{'parent'} = $result_trees{'macro_in_value'};
-$result_trees{'macro_in_value'}{'contents'}[4]{'parent'} = $result_trees{'macro_in_value'};
-$result_trees{'macro_in_value'}{'contents'}[5]{'contents'}[0]{'parent'} = $result_trees{'macro_in_value'}{'contents'}[5];
-$result_trees{'macro_in_value'}{'contents'}[5]{'parent'} = $result_trees{'macro_in_value'};
-$result_trees{'macro_in_value'}{'contents'}[6]{'parent'} = $result_trees{'macro_in_value'};
-$result_trees{'macro_in_value'}{'contents'}[7]{'contents'}[0]{'parent'} = $result_trees{'macro_in_value'}{'contents'}[7];
-$result_trees{'macro_in_value'}{'contents'}[7]{'parent'} = $result_trees{'macro_in_value'};
 
 $result_texis{'macro_in_value'} = '@macro ab
 a

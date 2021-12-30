@@ -8,91 +8,12 @@ use utf8;
 $result_trees{'no_documentencoding_and_insertions'} = {
   'contents' => [
     {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
       'contents' => [
         {
-          'parent' => {},
-          'text' => '-- --- \'\' `` ` \' '
-        },
-        {
-          'args' => [
-            {
-              'contents' => [
-                {
-                  'parent' => {},
-                  'text' => 'in code'
-                }
-              ],
-              'parent' => {},
-              'type' => 'brace_command_arg'
-            }
-          ],
-          'cmdname' => 'code',
-          'contents' => [],
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 2,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '. '
-        },
-        {
-          'args' => [
-            {
-              'contents' => [
-                {
-                  'parent' => {},
-                  'text' => 'e'
-                }
-              ],
-              'parent' => {},
-              'type' => 'following_arg'
-            }
-          ],
-          'cmdname' => '~',
-          'contents' => [],
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 2,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '.
-'
-        }
-      ],
-      'parent' => {},
-      'type' => 'paragraph'
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'cmdname' => 'example',
-      'contents' => [
-        {
-          'extra' => {
-            'command' => {}
-          },
           'parent' => {},
           'text' => '
 ',
-          'type' => 'empty_line_after_command'
+          'type' => 'empty_line'
         },
         {
           'contents' => [
@@ -117,7 +38,7 @@ $result_trees{'no_documentencoding_and_insertions'} = {
               'contents' => [],
               'line_nr' => {
                 'file_name' => '',
-                'line_nr' => 5,
+                'line_nr' => 2,
                 'macro' => ''
               },
               'parent' => {}
@@ -143,7 +64,7 @@ $result_trees{'no_documentencoding_and_insertions'} = {
               'contents' => [],
               'line_nr' => {
                 'file_name' => '',
-                'line_nr' => 5,
+                'line_nr' => 2,
                 'macro' => ''
               },
               'parent' => {}
@@ -155,81 +76,167 @@ $result_trees{'no_documentencoding_and_insertions'} = {
             }
           ],
           'parent' => {},
-          'type' => 'preformatted'
+          'type' => 'paragraph'
         },
         {
-          'args' => [
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'cmdname' => 'example',
+          'contents' => [
+            {
+              'extra' => {
+                'command' => {}
+              },
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line_after_command'
+            },
             {
               'contents' => [
                 {
                   'parent' => {},
-                  'text' => 'example'
+                  'text' => '-- --- \'\' `` ` \' '
+                },
+                {
+                  'args' => [
+                    {
+                      'contents' => [
+                        {
+                          'parent' => {},
+                          'text' => 'in code'
+                        }
+                      ],
+                      'parent' => {},
+                      'type' => 'brace_command_arg'
+                    }
+                  ],
+                  'cmdname' => 'code',
+                  'contents' => [],
+                  'line_nr' => {
+                    'file_name' => '',
+                    'line_nr' => 5,
+                    'macro' => ''
+                  },
+                  'parent' => {}
+                },
+                {
+                  'parent' => {},
+                  'text' => '. '
+                },
+                {
+                  'args' => [
+                    {
+                      'contents' => [
+                        {
+                          'parent' => {},
+                          'text' => 'e'
+                        }
+                      ],
+                      'parent' => {},
+                      'type' => 'following_arg'
+                    }
+                  ],
+                  'cmdname' => '~',
+                  'contents' => [],
+                  'line_nr' => {
+                    'file_name' => '',
+                    'line_nr' => 5,
+                    'macro' => ''
+                  },
+                  'parent' => {}
+                },
+                {
+                  'parent' => {},
+                  'text' => '.
+'
                 }
               ],
-              'extra' => {
-                'spaces_after_argument' => '
-'
-              },
               'parent' => {},
-              'type' => 'line_arg'
+              'type' => 'preformatted'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'example'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
+                  'parent' => {},
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'end',
+              'extra' => {
+                'command_argument' => 'example',
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'example'
+              },
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 6,
+                'macro' => ''
+              },
+              'parent' => {}
             }
           ],
-          'cmdname' => 'end',
           'extra' => {
-            'command_argument' => 'example',
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'example'
+            'end_command' => {}
           },
           'line_nr' => {
             'file_name' => '',
-            'line_nr' => 6,
+            'line_nr' => 4,
             'macro' => ''
           },
           'parent' => {}
         }
       ],
-      'extra' => {
-        'end_command' => {}
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 4,
-        'macro' => ''
-      },
-      'parent' => {}
+      'parent' => {},
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
+$result_trees{'no_documentencoding_and_insertions'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'no_documentencoding_and_insertions'}{'contents'}[0];
+$result_trees{'no_documentencoding_and_insertions'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'no_documentencoding_and_insertions'}{'contents'}[0]{'contents'}[1];
+$result_trees{'no_documentencoding_and_insertions'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'no_documentencoding_and_insertions'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0];
+$result_trees{'no_documentencoding_and_insertions'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'no_documentencoding_and_insertions'}{'contents'}[0]{'contents'}[1]{'contents'}[1];
+$result_trees{'no_documentencoding_and_insertions'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'no_documentencoding_and_insertions'}{'contents'}[0]{'contents'}[1];
+$result_trees{'no_documentencoding_and_insertions'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'no_documentencoding_and_insertions'}{'contents'}[0]{'contents'}[1];
+$result_trees{'no_documentencoding_and_insertions'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'no_documentencoding_and_insertions'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'args'}[0];
+$result_trees{'no_documentencoding_and_insertions'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'no_documentencoding_and_insertions'}{'contents'}[0]{'contents'}[1]{'contents'}[3];
+$result_trees{'no_documentencoding_and_insertions'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'no_documentencoding_and_insertions'}{'contents'}[0]{'contents'}[1];
+$result_trees{'no_documentencoding_and_insertions'}{'contents'}[0]{'contents'}[1]{'contents'}[4]{'parent'} = $result_trees{'no_documentencoding_and_insertions'}{'contents'}[0]{'contents'}[1];
+$result_trees{'no_documentencoding_and_insertions'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'no_documentencoding_and_insertions'}{'contents'}[0];
+$result_trees{'no_documentencoding_and_insertions'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'no_documentencoding_and_insertions'}{'contents'}[0];
+$result_trees{'no_documentencoding_and_insertions'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'extra'}{'command'} = $result_trees{'no_documentencoding_and_insertions'}{'contents'}[0]{'contents'}[3];
+$result_trees{'no_documentencoding_and_insertions'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'no_documentencoding_and_insertions'}{'contents'}[0]{'contents'}[3];
+$result_trees{'no_documentencoding_and_insertions'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'no_documentencoding_and_insertions'}{'contents'}[0]{'contents'}[3]{'contents'}[1];
+$result_trees{'no_documentencoding_and_insertions'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'no_documentencoding_and_insertions'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'contents'}[1]{'args'}[0];
+$result_trees{'no_documentencoding_and_insertions'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'no_documentencoding_and_insertions'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'contents'}[1];
+$result_trees{'no_documentencoding_and_insertions'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'no_documentencoding_and_insertions'}{'contents'}[0]{'contents'}[3]{'contents'}[1];
+$result_trees{'no_documentencoding_and_insertions'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'no_documentencoding_and_insertions'}{'contents'}[0]{'contents'}[3]{'contents'}[1];
+$result_trees{'no_documentencoding_and_insertions'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'no_documentencoding_and_insertions'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'args'}[0];
+$result_trees{'no_documentencoding_and_insertions'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'no_documentencoding_and_insertions'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'contents'}[3];
+$result_trees{'no_documentencoding_and_insertions'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'no_documentencoding_and_insertions'}{'contents'}[0]{'contents'}[3]{'contents'}[1];
+$result_trees{'no_documentencoding_and_insertions'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'contents'}[4]{'parent'} = $result_trees{'no_documentencoding_and_insertions'}{'contents'}[0]{'contents'}[3]{'contents'}[1];
+$result_trees{'no_documentencoding_and_insertions'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'no_documentencoding_and_insertions'}{'contents'}[0]{'contents'}[3];
+$result_trees{'no_documentencoding_and_insertions'}{'contents'}[0]{'contents'}[3]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'no_documentencoding_and_insertions'}{'contents'}[0]{'contents'}[3]{'contents'}[2]{'args'}[0];
+$result_trees{'no_documentencoding_and_insertions'}{'contents'}[0]{'contents'}[3]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'no_documentencoding_and_insertions'}{'contents'}[0]{'contents'}[3]{'contents'}[2];
+$result_trees{'no_documentencoding_and_insertions'}{'contents'}[0]{'contents'}[3]{'contents'}[2]{'parent'} = $result_trees{'no_documentencoding_and_insertions'}{'contents'}[0]{'contents'}[3];
+$result_trees{'no_documentencoding_and_insertions'}{'contents'}[0]{'contents'}[3]{'extra'}{'end_command'} = $result_trees{'no_documentencoding_and_insertions'}{'contents'}[0]{'contents'}[3]{'contents'}[2];
+$result_trees{'no_documentencoding_and_insertions'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'no_documentencoding_and_insertions'}{'contents'}[0];
 $result_trees{'no_documentencoding_and_insertions'}{'contents'}[0]{'parent'} = $result_trees{'no_documentencoding_and_insertions'};
-$result_trees{'no_documentencoding_and_insertions'}{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'no_documentencoding_and_insertions'}{'contents'}[1];
-$result_trees{'no_documentencoding_and_insertions'}{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'no_documentencoding_and_insertions'}{'contents'}[1]{'contents'}[1]{'args'}[0];
-$result_trees{'no_documentencoding_and_insertions'}{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'no_documentencoding_and_insertions'}{'contents'}[1]{'contents'}[1];
-$result_trees{'no_documentencoding_and_insertions'}{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'no_documentencoding_and_insertions'}{'contents'}[1];
-$result_trees{'no_documentencoding_and_insertions'}{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'no_documentencoding_and_insertions'}{'contents'}[1];
-$result_trees{'no_documentencoding_and_insertions'}{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'no_documentencoding_and_insertions'}{'contents'}[1]{'contents'}[3]{'args'}[0];
-$result_trees{'no_documentencoding_and_insertions'}{'contents'}[1]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'no_documentencoding_and_insertions'}{'contents'}[1]{'contents'}[3];
-$result_trees{'no_documentencoding_and_insertions'}{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'no_documentencoding_and_insertions'}{'contents'}[1];
-$result_trees{'no_documentencoding_and_insertions'}{'contents'}[1]{'contents'}[4]{'parent'} = $result_trees{'no_documentencoding_and_insertions'}{'contents'}[1];
-$result_trees{'no_documentencoding_and_insertions'}{'contents'}[1]{'parent'} = $result_trees{'no_documentencoding_and_insertions'};
-$result_trees{'no_documentencoding_and_insertions'}{'contents'}[2]{'parent'} = $result_trees{'no_documentencoding_and_insertions'};
-$result_trees{'no_documentencoding_and_insertions'}{'contents'}[3]{'contents'}[0]{'extra'}{'command'} = $result_trees{'no_documentencoding_and_insertions'}{'contents'}[3];
-$result_trees{'no_documentencoding_and_insertions'}{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'no_documentencoding_and_insertions'}{'contents'}[3];
-$result_trees{'no_documentencoding_and_insertions'}{'contents'}[3]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'no_documentencoding_and_insertions'}{'contents'}[3]{'contents'}[1];
-$result_trees{'no_documentencoding_and_insertions'}{'contents'}[3]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'no_documentencoding_and_insertions'}{'contents'}[3]{'contents'}[1]{'contents'}[1]{'args'}[0];
-$result_trees{'no_documentencoding_and_insertions'}{'contents'}[3]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'no_documentencoding_and_insertions'}{'contents'}[3]{'contents'}[1]{'contents'}[1];
-$result_trees{'no_documentencoding_and_insertions'}{'contents'}[3]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'no_documentencoding_and_insertions'}{'contents'}[3]{'contents'}[1];
-$result_trees{'no_documentencoding_and_insertions'}{'contents'}[3]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'no_documentencoding_and_insertions'}{'contents'}[3]{'contents'}[1];
-$result_trees{'no_documentencoding_and_insertions'}{'contents'}[3]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'no_documentencoding_and_insertions'}{'contents'}[3]{'contents'}[1]{'contents'}[3]{'args'}[0];
-$result_trees{'no_documentencoding_and_insertions'}{'contents'}[3]{'contents'}[1]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'no_documentencoding_and_insertions'}{'contents'}[3]{'contents'}[1]{'contents'}[3];
-$result_trees{'no_documentencoding_and_insertions'}{'contents'}[3]{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'no_documentencoding_and_insertions'}{'contents'}[3]{'contents'}[1];
-$result_trees{'no_documentencoding_and_insertions'}{'contents'}[3]{'contents'}[1]{'contents'}[4]{'parent'} = $result_trees{'no_documentencoding_and_insertions'}{'contents'}[3]{'contents'}[1];
-$result_trees{'no_documentencoding_and_insertions'}{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'no_documentencoding_and_insertions'}{'contents'}[3];
-$result_trees{'no_documentencoding_and_insertions'}{'contents'}[3]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'no_documentencoding_and_insertions'}{'contents'}[3]{'contents'}[2]{'args'}[0];
-$result_trees{'no_documentencoding_and_insertions'}{'contents'}[3]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'no_documentencoding_and_insertions'}{'contents'}[3]{'contents'}[2];
-$result_trees{'no_documentencoding_and_insertions'}{'contents'}[3]{'contents'}[2]{'parent'} = $result_trees{'no_documentencoding_and_insertions'}{'contents'}[3];
-$result_trees{'no_documentencoding_and_insertions'}{'contents'}[3]{'extra'}{'end_command'} = $result_trees{'no_documentencoding_and_insertions'}{'contents'}[3]{'contents'}[2];
-$result_trees{'no_documentencoding_and_insertions'}{'contents'}[3]{'parent'} = $result_trees{'no_documentencoding_and_insertions'};
 
 $result_texis{'no_documentencoding_and_insertions'} = '
 -- --- \'\' `` ` \' @code{in code}. @~e.

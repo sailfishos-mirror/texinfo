@@ -8,14 +8,21 @@ use utf8;
 $result_trees{'unknown_value'} = {
   'contents' => [
     {
-      'cmdname' => 'value',
-      'contents' => [],
+      'contents' => [
+        {
+          'cmdname' => 'value',
+          'contents' => [],
+          'parent' => {},
+          'type' => 'unknown'
+        }
+      ],
       'parent' => {},
-      'type' => 'unknown'
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
+$result_trees{'unknown_value'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'unknown_value'}{'contents'}[0];
 $result_trees{'unknown_value'}{'contents'}[0]{'parent'} = $result_trees{'unknown_value'};
 
 $result_texis{'unknown_value'} = '@value{unknown}';

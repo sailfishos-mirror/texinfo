@@ -8,40 +8,47 @@ use utf8;
 $result_trees{'anchor_not_closed'} = {
   'contents' => [
     {
-      'args' => [
+      'contents' => [
         {
-          'contents' => [
+          'args' => [
             {
-              'parent' => {},
-              'text' => 'my anchor
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => 'my anchor
 '
-            },
-            {
-              'parent' => {},
-              'text' => '
+                },
+                {
+                  'parent' => {},
+                  'text' => '
 ',
-              'type' => 'empty_line'
+                  'type' => 'empty_line'
+                }
+              ],
+              'parent' => {},
+              'type' => 'brace_command_arg'
             }
           ],
-          'parent' => {},
-          'type' => 'brace_command_arg'
+          'cmdname' => 'anchor',
+          'contents' => [],
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 1,
+            'macro' => ''
+          },
+          'parent' => {}
         }
       ],
-      'cmdname' => 'anchor',
-      'contents' => [],
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
-      },
-      'parent' => {}
+      'parent' => {},
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
-$result_trees{'anchor_not_closed'}{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'anchor_not_closed'}{'contents'}[0]{'args'}[0];
-$result_trees{'anchor_not_closed'}{'contents'}[0]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'anchor_not_closed'}{'contents'}[0]{'args'}[0];
-$result_trees{'anchor_not_closed'}{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'anchor_not_closed'}{'contents'}[0];
+$result_trees{'anchor_not_closed'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'anchor_not_closed'}{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'anchor_not_closed'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'anchor_not_closed'}{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'anchor_not_closed'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'anchor_not_closed'}{'contents'}[0]{'contents'}[0];
+$result_trees{'anchor_not_closed'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'anchor_not_closed'}{'contents'}[0];
 $result_trees{'anchor_not_closed'}{'contents'}[0]{'parent'} = $result_trees{'anchor_not_closed'};
 
 $result_texis{'anchor_not_closed'} = '@anchor{my anchor

@@ -10,16 +10,23 @@ $result_trees{'no_nodes'} = {
     {
       'contents' => [
         {
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => 'Text.'
+            }
+          ],
           'parent' => {},
-          'text' => 'Text.'
+          'type' => 'paragraph'
         }
       ],
       'parent' => {},
-      'type' => 'paragraph'
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
+$result_trees{'no_nodes'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'no_nodes'}{'contents'}[0]{'contents'}[0];
 $result_trees{'no_nodes'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'no_nodes'}{'contents'}[0];
 $result_trees{'no_nodes'}{'contents'}[0]{'parent'} = $result_trees{'no_nodes'};
 

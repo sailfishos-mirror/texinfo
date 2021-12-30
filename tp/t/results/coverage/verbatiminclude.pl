@@ -8,48 +8,55 @@ use utf8;
 $result_trees{'verbatiminclude'} = {
   'contents' => [
     {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'args' => [
+      'contents' => [
         {
-          'contents' => [
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'args' => [
             {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => 'incl-incl.txi'
+                }
+              ],
+              'extra' => {
+                'spaces_after_argument' => '
+'
+              },
               'parent' => {},
-              'text' => 'incl-incl.txi'
+              'type' => 'line_arg'
             }
           ],
+          'cmdname' => 'verbatiminclude',
           'extra' => {
-            'spaces_after_argument' => '
-'
+            'input_perl_encoding' => 'utf-8',
+            'spaces_before_argument' => ' ',
+            'text_arg' => 'incl-incl.txi'
           },
-          'parent' => {},
-          'type' => 'line_arg'
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 2,
+            'macro' => ''
+          },
+          'parent' => {}
         }
       ],
-      'cmdname' => 'verbatiminclude',
-      'extra' => {
-        'input_perl_encoding' => 'utf-8',
-        'spaces_before_argument' => ' ',
-        'text_arg' => 'incl-incl.txi'
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 2,
-        'macro' => ''
-      },
-      'parent' => {}
+      'parent' => {},
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
+$result_trees{'verbatiminclude'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'verbatiminclude'}{'contents'}[0];
+$result_trees{'verbatiminclude'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'verbatiminclude'}{'contents'}[0]{'contents'}[1]{'args'}[0];
+$result_trees{'verbatiminclude'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'verbatiminclude'}{'contents'}[0]{'contents'}[1];
+$result_trees{'verbatiminclude'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'verbatiminclude'}{'contents'}[0];
 $result_trees{'verbatiminclude'}{'contents'}[0]{'parent'} = $result_trees{'verbatiminclude'};
-$result_trees{'verbatiminclude'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'verbatiminclude'}{'contents'}[1]{'args'}[0];
-$result_trees{'verbatiminclude'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'verbatiminclude'}{'contents'}[1];
-$result_trees{'verbatiminclude'}{'contents'}[1]{'parent'} = $result_trees{'verbatiminclude'};
 
 $result_texis{'verbatiminclude'} = '
 @verbatiminclude incl-incl.txi

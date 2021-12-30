@@ -10,140 +10,147 @@ $result_trees{'comments'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'contents' => [
             {
-              'contents' => [
+              'args' => [
                 {
-                  'parent' => {},
-                  'text' => ' comment @c comment
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => ' comment @c comment
 ',
-                  'type' => 'raw'
-                },
-                {
+                      'type' => 'raw'
+                    },
+                    {
+                      'parent' => {},
+                      'text' => 'in a verb ',
+                      'type' => 'raw'
+                    }
+                  ],
                   'parent' => {},
-                  'text' => 'in a verb ',
-                  'type' => 'raw'
+                  'type' => 'brace_command_arg'
                 }
               ],
-              'parent' => {},
-              'type' => 'brace_command_arg'
-            }
-          ],
-          'cmdname' => 'verb',
-          'contents' => [],
-          'extra' => {
-            'delimiter' => 'a'
-          },
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
+              'cmdname' => 'verb',
+              'contents' => [],
+              'extra' => {
+                'delimiter' => 'a'
+              },
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 1,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
             {
-              'parent' => {},
-              'text' => ' comment
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' comment
 ',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' comment
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' comment
 '
-            ]
-          },
-          'parent' => {}
-        }
-      ],
-      'parent' => {},
-      'type' => 'paragraph'
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'contents' => [
-        {
+                ]
+              },
+              'parent' => {}
+            }
+          ],
           'parent' => {},
-          'text' => 'something '
+          'type' => 'paragraph'
         },
         {
-          'args' => [
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'contents' => [
             {
-              'contents' => [
+              'parent' => {},
+              'text' => 'something '
+            },
+            {
+              'args' => [
                 {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => ' in verb',
+                      'type' => 'raw'
+                    }
+                  ],
                   'parent' => {},
-                  'text' => ' in verb',
-                  'type' => 'raw'
+                  'type' => 'brace_command_arg'
                 }
               ],
-              'parent' => {},
-              'type' => 'brace_command_arg'
-            }
-          ],
-          'cmdname' => 'verb',
-          'contents' => [],
-          'extra' => {
-            'delimiter' => ','
-          },
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 4,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => ' '
-        },
-        {
-          'args' => [
+              'cmdname' => 'verb',
+              'contents' => [],
+              'extra' => {
+                'delimiter' => ','
+              },
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 4,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
             {
               'parent' => {},
-              'text' => ' other comment',
-              'type' => 'misc_arg'
+              'text' => ' '
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' other comment',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' other comment'
+                ]
+              },
+              'parent' => {}
             }
           ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' other comment'
-            ]
-          },
-          'parent' => {}
+          'parent' => {},
+          'type' => 'paragraph'
         }
       ],
       'parent' => {},
-      'type' => 'paragraph'
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
-$result_trees{'comments'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'comments'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'comments'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'comments'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'comments'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'comments'}{'contents'}[0]{'contents'}[0];
+$result_trees{'comments'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'comments'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'comments'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'comments'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'comments'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'comments'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'comments'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'comments'}{'contents'}[0]{'contents'}[0];
+$result_trees{'comments'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'comments'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
+$result_trees{'comments'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'comments'}{'contents'}[0]{'contents'}[0];
 $result_trees{'comments'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'comments'}{'contents'}[0];
-$result_trees{'comments'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'comments'}{'contents'}[0]{'contents'}[1];
 $result_trees{'comments'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'comments'}{'contents'}[0];
+$result_trees{'comments'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'comments'}{'contents'}[0]{'contents'}[2];
+$result_trees{'comments'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'comments'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0];
+$result_trees{'comments'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'comments'}{'contents'}[0]{'contents'}[2]{'contents'}[1];
+$result_trees{'comments'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'comments'}{'contents'}[0]{'contents'}[2];
+$result_trees{'comments'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'comments'}{'contents'}[0]{'contents'}[2];
+$result_trees{'comments'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'comments'}{'contents'}[0]{'contents'}[2]{'contents'}[3];
+$result_trees{'comments'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'parent'} = $result_trees{'comments'}{'contents'}[0]{'contents'}[2];
+$result_trees{'comments'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'comments'}{'contents'}[0];
 $result_trees{'comments'}{'contents'}[0]{'parent'} = $result_trees{'comments'};
-$result_trees{'comments'}{'contents'}[1]{'parent'} = $result_trees{'comments'};
-$result_trees{'comments'}{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'comments'}{'contents'}[2];
-$result_trees{'comments'}{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'comments'}{'contents'}[2]{'contents'}[1]{'args'}[0];
-$result_trees{'comments'}{'contents'}[2]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'comments'}{'contents'}[2]{'contents'}[1];
-$result_trees{'comments'}{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'comments'}{'contents'}[2];
-$result_trees{'comments'}{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'comments'}{'contents'}[2];
-$result_trees{'comments'}{'contents'}[2]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'comments'}{'contents'}[2]{'contents'}[3];
-$result_trees{'comments'}{'contents'}[2]{'contents'}[3]{'parent'} = $result_trees{'comments'}{'contents'}[2];
-$result_trees{'comments'}{'contents'}[2]{'parent'} = $result_trees{'comments'};
 
 $result_texis{'comments'} = '@verb{a comment @c comment
 in a verb a}@c comment

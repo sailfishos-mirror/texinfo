@@ -8,54 +8,61 @@ use utf8;
 $result_trees{'hyphenation'} = {
   'contents' => [
     {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'args' => [
+      'contents' => [
         {
-          'contents' => [
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'args' => [
             {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => 'some-where '
+                }
+              ],
               'parent' => {},
-              'text' => 'some-where '
+              'type' => 'brace_command_arg'
             }
           ],
+          'cmdname' => 'hyphenation',
+          'contents' => [],
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 2,
+            'macro' => ''
+          },
+          'parent' => {}
+        },
+        {
           'parent' => {},
-          'type' => 'brace_command_arg'
+          'text' => '
+',
+          'type' => 'empty_spaces_after_close_brace'
+        },
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
         }
       ],
-      'cmdname' => 'hyphenation',
-      'contents' => [],
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 2,
-        'macro' => ''
-      },
-      'parent' => {}
-    },
-    {
       'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_spaces_after_close_brace'
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
+$result_trees{'hyphenation'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'hyphenation'}{'contents'}[0];
+$result_trees{'hyphenation'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'hyphenation'}{'contents'}[0]{'contents'}[1]{'args'}[0];
+$result_trees{'hyphenation'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'hyphenation'}{'contents'}[0]{'contents'}[1];
+$result_trees{'hyphenation'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'hyphenation'}{'contents'}[0];
+$result_trees{'hyphenation'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'hyphenation'}{'contents'}[0];
+$result_trees{'hyphenation'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'hyphenation'}{'contents'}[0];
 $result_trees{'hyphenation'}{'contents'}[0]{'parent'} = $result_trees{'hyphenation'};
-$result_trees{'hyphenation'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'hyphenation'}{'contents'}[1]{'args'}[0];
-$result_trees{'hyphenation'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'hyphenation'}{'contents'}[1];
-$result_trees{'hyphenation'}{'contents'}[1]{'parent'} = $result_trees{'hyphenation'};
-$result_trees{'hyphenation'}{'contents'}[2]{'parent'} = $result_trees{'hyphenation'};
-$result_trees{'hyphenation'}{'contents'}[3]{'parent'} = $result_trees{'hyphenation'};
 
 $result_texis{'hyphenation'} = '
 @hyphenation{some-where }

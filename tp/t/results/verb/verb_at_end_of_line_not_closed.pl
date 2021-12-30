@@ -10,54 +10,61 @@ $result_trees{'verb_at_end_of_line_not_closed'} = {
     {
       'contents' => [
         {
-          'parent' => {},
-          'text' => 'verb at end of line '
-        },
-        {
-          'args' => [
+          'contents' => [
             {
-              'contents' => [
+              'parent' => {},
+              'text' => 'verb at end of line '
+            },
+            {
+              'args' => [
                 {
-                  'parent' => {},
-                  'text' => '
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => '
 ',
-                  'type' => 'raw'
-                },
-                {
-                  'parent' => {},
-                  'text' => '
+                      'type' => 'raw'
+                    },
+                    {
+                      'parent' => {},
+                      'text' => '
 ',
-                  'type' => 'raw'
+                      'type' => 'raw'
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
                 }
               ],
-              'parent' => {},
-              'type' => 'brace_command_arg'
+              'cmdname' => 'verb',
+              'contents' => [],
+              'extra' => {
+                'delimiter' => ''
+              },
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 1,
+                'macro' => ''
+              },
+              'parent' => {}
             }
           ],
-          'cmdname' => 'verb',
-          'contents' => [],
-          'extra' => {
-            'delimiter' => ''
-          },
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
-          },
-          'parent' => {}
+          'parent' => {},
+          'type' => 'paragraph'
         }
       ],
       'parent' => {},
-      'type' => 'paragraph'
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
+$result_trees{'verb_at_end_of_line_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'verb_at_end_of_line_not_closed'}{'contents'}[0]{'contents'}[0];
+$result_trees{'verb_at_end_of_line_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'verb_at_end_of_line_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
+$result_trees{'verb_at_end_of_line_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'verb_at_end_of_line_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
+$result_trees{'verb_at_end_of_line_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'verb_at_end_of_line_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
+$result_trees{'verb_at_end_of_line_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'verb_at_end_of_line_not_closed'}{'contents'}[0]{'contents'}[0];
 $result_trees{'verb_at_end_of_line_not_closed'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'verb_at_end_of_line_not_closed'}{'contents'}[0];
-$result_trees{'verb_at_end_of_line_not_closed'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'verb_at_end_of_line_not_closed'}{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'verb_at_end_of_line_not_closed'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'verb_at_end_of_line_not_closed'}{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'verb_at_end_of_line_not_closed'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'verb_at_end_of_line_not_closed'}{'contents'}[0]{'contents'}[1];
-$result_trees{'verb_at_end_of_line_not_closed'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'verb_at_end_of_line_not_closed'}{'contents'}[0];
 $result_trees{'verb_at_end_of_line_not_closed'}{'contents'}[0]{'parent'} = $result_trees{'verb_at_end_of_line_not_closed'};
 
 $result_texis{'verb_at_end_of_line_not_closed'} = 'verb at end of line @verb{

@@ -8,27 +8,34 @@ use utf8;
 $result_trees{'vskip'} = {
   'contents' => [
     {
-      'args' => [
+      'contents' => [
         {
-          'parent' => {},
-          'text' => ' 0pt plus 1filll
+          'args' => [
+            {
+              'parent' => {},
+              'text' => ' 0pt plus 1filll
 ',
-          'type' => 'misc_arg'
+              'type' => 'misc_arg'
+            }
+          ],
+          'cmdname' => 'vskip',
+          'extra' => {
+            'misc_args' => [
+              ' 0pt plus 1filll
+'
+            ]
+          },
+          'parent' => {}
         }
       ],
-      'cmdname' => 'vskip',
-      'extra' => {
-        'misc_args' => [
-          ' 0pt plus 1filll
-'
-        ]
-      },
-      'parent' => {}
+      'parent' => {},
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
-$result_trees{'vskip'}{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'vskip'}{'contents'}[0];
+$result_trees{'vskip'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'vskip'}{'contents'}[0]{'contents'}[0];
+$result_trees{'vskip'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'vskip'}{'contents'}[0];
 $result_trees{'vskip'}{'contents'}[0]{'parent'} = $result_trees{'vskip'};
 
 $result_texis{'vskip'} = '@vskip 0pt plus 1filll

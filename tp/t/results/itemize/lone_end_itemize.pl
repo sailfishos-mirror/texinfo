@@ -7,7 +7,7 @@ use utf8;
 
 $result_trees{'lone_end_itemize'} = {
   'contents' => [],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
 
 $result_texis{'lone_end_itemize'} = '';

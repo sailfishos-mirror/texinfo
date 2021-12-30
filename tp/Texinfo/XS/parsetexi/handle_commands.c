@@ -320,22 +320,9 @@ handle_line_command (ELEMENT *current, char **line_inout,
     {
       ELEMENT *closed_elt; /* Not used */
       current = close_commands (current, 0, &closed_elt, cmd);
-      if (current->type == ET_text_root)
-        {
-          if (cmd != CM_bye)
-            {
-              /* Use document_root when we have nodes or sections. */
-              ELEMENT *new_root = new_element (ET_document_root);
-              add_to_element_contents (new_root, current);
-              current = new_root;
-            }
-        }
-      else
-        {
-          current = current->parent;
-          if (!current)
-            fatal ("no parent element");
-        }
+      current = current->parent;
+      if (!current)
+        fatal ("no parent element");
     }
 
   /* Look up information about this command ( skipline text 

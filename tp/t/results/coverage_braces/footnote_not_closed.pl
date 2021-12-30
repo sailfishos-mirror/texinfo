@@ -10,73 +10,80 @@ $result_trees{'footnote_not_closed'} = {
     {
       'contents' => [
         {
-          'parent' => {},
-          'text' => 'AAA'
-        },
-        {
-          'args' => [
+          'contents' => [
             {
-              'contents' => [
+              'parent' => {},
+              'text' => 'AAA'
+            },
+            {
+              'args' => [
                 {
                   'contents' => [
                     {
-                      'parent' => {},
-                      'text' => 'in footnote
+                      'contents' => [
+                        {
+                          'parent' => {},
+                          'text' => 'in footnote
 '
-                    }
-                  ],
-                  'parent' => {},
-                  'type' => 'paragraph'
-                },
-                {
-                  'parent' => {},
-                  'text' => '
+                        }
+                      ],
+                      'parent' => {},
+                      'type' => 'paragraph'
+                    },
+                    {
+                      'parent' => {},
+                      'text' => '
 ',
-                  'type' => 'empty_line'
-                },
-                {
-                  'contents' => [
+                      'type' => 'empty_line'
+                    },
                     {
-                      'parent' => {},
-                      'text' => 'Second paragraph.
+                      'contents' => [
+                        {
+                          'parent' => {},
+                          'text' => 'Second paragraph.
 '
+                        }
+                      ],
+                      'parent' => {},
+                      'type' => 'paragraph'
                     }
                   ],
                   'parent' => {},
-                  'type' => 'paragraph'
+                  'type' => 'brace_command_context'
                 }
               ],
-              'parent' => {},
-              'type' => 'brace_command_context'
+              'cmdname' => 'footnote',
+              'contents' => [],
+              'extra' => {
+                'spaces_before_argument' => ' '
+              },
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 1,
+                'macro' => ''
+              },
+              'parent' => {}
             }
           ],
-          'cmdname' => 'footnote',
-          'contents' => [],
-          'extra' => {
-            'spaces_before_argument' => ' '
-          },
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
-          },
-          'parent' => {}
+          'parent' => {},
+          'type' => 'paragraph'
         }
       ],
       'parent' => {},
-      'type' => 'paragraph'
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
+$result_trees{'footnote_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'footnote_not_closed'}{'contents'}[0]{'contents'}[0];
+$result_trees{'footnote_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'footnote_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'footnote_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'footnote_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
+$result_trees{'footnote_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'footnote_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
+$result_trees{'footnote_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'footnote_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[2];
+$result_trees{'footnote_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'footnote_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
+$result_trees{'footnote_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'footnote_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
+$result_trees{'footnote_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'footnote_not_closed'}{'contents'}[0]{'contents'}[0];
 $result_trees{'footnote_not_closed'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'footnote_not_closed'}{'contents'}[0];
-$result_trees{'footnote_not_closed'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'footnote_not_closed'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'footnote_not_closed'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'footnote_not_closed'}{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'footnote_not_closed'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'footnote_not_closed'}{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'footnote_not_closed'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'footnote_not_closed'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[2];
-$result_trees{'footnote_not_closed'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'footnote_not_closed'}{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'footnote_not_closed'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'footnote_not_closed'}{'contents'}[0]{'contents'}[1];
-$result_trees{'footnote_not_closed'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'footnote_not_closed'}{'contents'}[0];
 $result_trees{'footnote_not_closed'}{'contents'}[0]{'parent'} = $result_trees{'footnote_not_closed'};
 
 $result_texis{'footnote_not_closed'} = 'AAA@footnote{ in footnote

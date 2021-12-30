@@ -1808,7 +1808,9 @@ sub _close_commands($$$;$$)
            and $current->{'cmdname'} eq $closed_command) 
          # stop if at the root
          and $current->{'parent'}
-     # stop if in a root command 
+         # stop if at a root type
+         and not ($current->{'type'} and $current->{'type'} eq 'text_root')
+     # stop if in a root command
      # or in a context_brace_commands and searching for a specific 
      # end block command (with $closed_command set).  
      # This second condition means that a footnote is not closed when 
@@ -3673,7 +3675,8 @@ sub _check_valid_nesting {
 sub _setup_text_root()
 {
   my $text_root = { 'contents' => [], 'type' => 'text_root' };
-  my $document_root = $text_root;
+  my $document_root = { 'contents' => [$text_root], 'type' => 'document_root' };
+  $text_root->{'parent'} = $document_root;
   return ($document_root, $text_root);
 }
 
@@ -3684,7 +3687,12 @@ sub _parse_texi($;$)
 
   ($root) = _setup_text_root() if (!defined($root));
 
-  my $current = $root;
+  my $current;
+  if ($root->{'type'} and $root->{'type'} eq 'document_root') {
+    $current = $root->{'contents'}->[0];
+  } else {
+    $current = $root;
+  }
 
   my $line_nr;
   
@@ -4451,19 +4459,8 @@ sub _parse_texi($;$)
           if ($root_commands{$command} or $command eq 'bye') {
             $current = _close_commands($self, $current, $line_nr, undef, 
                                        $command);
-            # root_level commands leads to setting a new root
-            # for the whole document and stuffing the preceding text
-            # as the first content, this is done only once.
-            if ($current->{'type'} and $current->{'type'} eq 'text_root') {
-              if ($command ne 'bye') {
-                $root = { 'type' => 'document_root', 'contents' => [$current] };
-                $current->{'parent'} = $root;
-                $current = $root;
-              }
-            } else {
-              die if (!defined($current->{'parent'}));
-              $current = $current->{'parent'};
-            }
+            die if (!defined($current->{'parent'}));
+            $current = $current->{'parent'};
           }
 
           # skipline text line lineraw /^\d$/

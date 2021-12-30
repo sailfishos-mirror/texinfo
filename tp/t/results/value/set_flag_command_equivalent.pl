@@ -8,109 +8,116 @@ use utf8;
 $result_trees{'set_flag_command_equivalent'} = {
   'contents' => [
     {
-      'args' => [
-        {
-          'contents' => [
-            {
-              'parent' => {},
-              'text' => 'on'
-            },
-            {
-              'parent' => {},
-              'text' => '
-',
-              'type' => 'spaces_at_end'
-            }
-          ],
-          'parent' => {},
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'codequoteundirected',
-      'extra' => {
-        'misc_args' => [
-          'on'
-        ],
-        'spaces_before_argument' => ' '
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
-      },
-      'parent' => {}
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
       'contents' => [
         {
-          'parent' => {},
-          'text' => '.
-'
-        }
-      ],
-      'parent' => {},
-      'type' => 'paragraph'
-    },
-    {
-      'parent' => {},
-      'text' => '
+          'args' => [
+            {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => 'on'
+                },
+                {
+                  'parent' => {},
+                  'text' => '
 ',
-      'type' => 'empty_line'
-    },
-    {
-      'args' => [
+                  'type' => 'spaces_at_end'
+                }
+              ],
+              'parent' => {},
+              'type' => 'line_arg'
+            }
+          ],
+          'cmdname' => 'codequoteundirected',
+          'extra' => {
+            'misc_args' => [
+              'on'
+            ],
+            'spaces_before_argument' => ' '
+          },
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 1,
+            'macro' => ''
+          },
+          'parent' => {}
+        },
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
         {
           'contents' => [
             {
               'parent' => {},
-              'text' => 'off'
-            },
-            {
-              'parent' => {},
-              'text' => '
-',
-              'type' => 'spaces_at_end'
+              'text' => '.
+'
             }
           ],
           'parent' => {},
-          'type' => 'line_arg'
+          'type' => 'paragraph'
+        },
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'args' => [
+            {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => 'off'
+                },
+                {
+                  'parent' => {},
+                  'text' => '
+',
+                  'type' => 'spaces_at_end'
+                }
+              ],
+              'parent' => {},
+              'type' => 'line_arg'
+            }
+          ],
+          'cmdname' => 'codequoteundirected',
+          'extra' => {
+            'misc_args' => [
+              'off'
+            ],
+            'spaces_before_argument' => ' '
+          },
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 5,
+            'macro' => ''
+          },
+          'parent' => {}
         }
       ],
-      'cmdname' => 'codequoteundirected',
-      'extra' => {
-        'misc_args' => [
-          'off'
-        ],
-        'spaces_before_argument' => ' '
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 5,
-        'macro' => ''
-      },
-      'parent' => {}
+      'parent' => {},
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
-$result_trees{'set_flag_command_equivalent'}{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'set_flag_command_equivalent'}{'contents'}[0]{'args'}[0];
-$result_trees{'set_flag_command_equivalent'}{'contents'}[0]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'set_flag_command_equivalent'}{'contents'}[0]{'args'}[0];
-$result_trees{'set_flag_command_equivalent'}{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'set_flag_command_equivalent'}{'contents'}[0];
+$result_trees{'set_flag_command_equivalent'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'set_flag_command_equivalent'}{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'set_flag_command_equivalent'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'set_flag_command_equivalent'}{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'set_flag_command_equivalent'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'set_flag_command_equivalent'}{'contents'}[0]{'contents'}[0];
+$result_trees{'set_flag_command_equivalent'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'set_flag_command_equivalent'}{'contents'}[0];
+$result_trees{'set_flag_command_equivalent'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'set_flag_command_equivalent'}{'contents'}[0];
+$result_trees{'set_flag_command_equivalent'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'set_flag_command_equivalent'}{'contents'}[0]{'contents'}[2];
+$result_trees{'set_flag_command_equivalent'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'set_flag_command_equivalent'}{'contents'}[0];
+$result_trees{'set_flag_command_equivalent'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'set_flag_command_equivalent'}{'contents'}[0];
+$result_trees{'set_flag_command_equivalent'}{'contents'}[0]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'set_flag_command_equivalent'}{'contents'}[0]{'contents'}[4]{'args'}[0];
+$result_trees{'set_flag_command_equivalent'}{'contents'}[0]{'contents'}[4]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'set_flag_command_equivalent'}{'contents'}[0]{'contents'}[4]{'args'}[0];
+$result_trees{'set_flag_command_equivalent'}{'contents'}[0]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'set_flag_command_equivalent'}{'contents'}[0]{'contents'}[4];
+$result_trees{'set_flag_command_equivalent'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'set_flag_command_equivalent'}{'contents'}[0];
 $result_trees{'set_flag_command_equivalent'}{'contents'}[0]{'parent'} = $result_trees{'set_flag_command_equivalent'};
-$result_trees{'set_flag_command_equivalent'}{'contents'}[1]{'parent'} = $result_trees{'set_flag_command_equivalent'};
-$result_trees{'set_flag_command_equivalent'}{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'set_flag_command_equivalent'}{'contents'}[2];
-$result_trees{'set_flag_command_equivalent'}{'contents'}[2]{'parent'} = $result_trees{'set_flag_command_equivalent'};
-$result_trees{'set_flag_command_equivalent'}{'contents'}[3]{'parent'} = $result_trees{'set_flag_command_equivalent'};
-$result_trees{'set_flag_command_equivalent'}{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'set_flag_command_equivalent'}{'contents'}[4]{'args'}[0];
-$result_trees{'set_flag_command_equivalent'}{'contents'}[4]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'set_flag_command_equivalent'}{'contents'}[4]{'args'}[0];
-$result_trees{'set_flag_command_equivalent'}{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'set_flag_command_equivalent'}{'contents'}[4];
-$result_trees{'set_flag_command_equivalent'}{'contents'}[4]{'parent'} = $result_trees{'set_flag_command_equivalent'};
 
 $result_texis{'set_flag_command_equivalent'} = '@codequoteundirected on
 

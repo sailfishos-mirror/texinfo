@@ -8,34 +8,6 @@ use utf8;
 $result_trees{'incorrect_allowcodebreaks_argument'} = {
   'contents' => [
     {
-      'args' => [
-        {
-          'contents' => [
-            {
-              'parent' => {},
-              'text' => '_arg'
-            }
-          ],
-          'extra' => {
-            'spaces_after_argument' => '
-'
-          },
-          'parent' => {},
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'allowcodebreaks',
-      'extra' => {
-        'spaces_before_argument' => ' '
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
-      },
-      'parent' => {}
-    },
-    {
       'contents' => [
         {
           'args' => [
@@ -43,42 +15,77 @@ $result_trees{'incorrect_allowcodebreaks_argument'} = {
               'contents' => [
                 {
                   'parent' => {},
-                  'text' => 'b a'
+                  'text' => '_arg'
                 }
               ],
+              'extra' => {
+                'spaces_after_argument' => '
+'
+              },
               'parent' => {},
-              'type' => 'brace_command_arg'
+              'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'code',
-          'contents' => [],
+          'cmdname' => 'allowcodebreaks',
+          'extra' => {
+            'spaces_before_argument' => ' '
+          },
           'line_nr' => {
             'file_name' => '',
-            'line_nr' => 2,
+            'line_nr' => 1,
             'macro' => ''
           },
           'parent' => {}
         },
         {
-          'parent' => {},
-          'text' => '
+          'contents' => [
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'b a'
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                }
+              ],
+              'cmdname' => 'code',
+              'contents' => [],
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 2,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => '
 '
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
         }
       ],
       'parent' => {},
-      'type' => 'paragraph'
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
-$result_trees{'incorrect_allowcodebreaks_argument'}{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'incorrect_allowcodebreaks_argument'}{'contents'}[0]{'args'}[0];
-$result_trees{'incorrect_allowcodebreaks_argument'}{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'incorrect_allowcodebreaks_argument'}{'contents'}[0];
+$result_trees{'incorrect_allowcodebreaks_argument'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'incorrect_allowcodebreaks_argument'}{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'incorrect_allowcodebreaks_argument'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'incorrect_allowcodebreaks_argument'}{'contents'}[0]{'contents'}[0];
+$result_trees{'incorrect_allowcodebreaks_argument'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'incorrect_allowcodebreaks_argument'}{'contents'}[0];
+$result_trees{'incorrect_allowcodebreaks_argument'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'incorrect_allowcodebreaks_argument'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0];
+$result_trees{'incorrect_allowcodebreaks_argument'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'incorrect_allowcodebreaks_argument'}{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'incorrect_allowcodebreaks_argument'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'incorrect_allowcodebreaks_argument'}{'contents'}[0]{'contents'}[1];
+$result_trees{'incorrect_allowcodebreaks_argument'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'incorrect_allowcodebreaks_argument'}{'contents'}[0]{'contents'}[1];
+$result_trees{'incorrect_allowcodebreaks_argument'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'incorrect_allowcodebreaks_argument'}{'contents'}[0];
 $result_trees{'incorrect_allowcodebreaks_argument'}{'contents'}[0]{'parent'} = $result_trees{'incorrect_allowcodebreaks_argument'};
-$result_trees{'incorrect_allowcodebreaks_argument'}{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'incorrect_allowcodebreaks_argument'}{'contents'}[1]{'contents'}[0]{'args'}[0];
-$result_trees{'incorrect_allowcodebreaks_argument'}{'contents'}[1]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'incorrect_allowcodebreaks_argument'}{'contents'}[1]{'contents'}[0];
-$result_trees{'incorrect_allowcodebreaks_argument'}{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'incorrect_allowcodebreaks_argument'}{'contents'}[1];
-$result_trees{'incorrect_allowcodebreaks_argument'}{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'incorrect_allowcodebreaks_argument'}{'contents'}[1];
-$result_trees{'incorrect_allowcodebreaks_argument'}{'contents'}[1]{'parent'} = $result_trees{'incorrect_allowcodebreaks_argument'};
 
 $result_texis{'incorrect_allowcodebreaks_argument'} = '@allowcodebreaks _arg
 @code{b a}

@@ -10,42 +10,49 @@ $result_trees{'w_end_sentence'} = {
     {
       'contents' => [
         {
-          'parent' => {},
-          'text' => 'a. '
-        },
-        {
-          'args' => [
+          'contents' => [
             {
-              'contents' => [
+              'parent' => {},
+              'text' => 'a. '
+            },
+            {
+              'args' => [
                 {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'b'
+                    }
+                  ],
                   'parent' => {},
-                  'text' => 'b'
+                  'type' => 'brace_command_arg'
                 }
               ],
-              'parent' => {},
-              'type' => 'brace_command_arg'
+              'cmdname' => 'w',
+              'contents' => [],
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 1,
+                'macro' => ''
+              },
+              'parent' => {}
             }
           ],
-          'cmdname' => 'w',
-          'contents' => [],
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
-          },
-          'parent' => {}
+          'parent' => {},
+          'type' => 'paragraph'
         }
       ],
       'parent' => {},
-      'type' => 'paragraph'
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
+$result_trees{'w_end_sentence'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'w_end_sentence'}{'contents'}[0]{'contents'}[0];
+$result_trees{'w_end_sentence'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'w_end_sentence'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
+$result_trees{'w_end_sentence'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'w_end_sentence'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
+$result_trees{'w_end_sentence'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'w_end_sentence'}{'contents'}[0]{'contents'}[0];
 $result_trees{'w_end_sentence'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'w_end_sentence'}{'contents'}[0];
-$result_trees{'w_end_sentence'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'w_end_sentence'}{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'w_end_sentence'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'w_end_sentence'}{'contents'}[0]{'contents'}[1];
-$result_trees{'w_end_sentence'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'w_end_sentence'}{'contents'}[0];
 $result_trees{'w_end_sentence'}{'contents'}[0]{'parent'} = $result_trees{'w_end_sentence'};
 
 $result_texis{'w_end_sentence'} = 'a. @w{b}';

@@ -8,38 +8,45 @@ use utf8;
 $result_trees{'out_of_multitable'} = {
   'contents' => [
     {
-      'args' => [
+      'contents' => [
         {
-          'contents' => [
+          'args' => [
             {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => '0.6 0.4 aaa'
+                }
+              ],
               'parent' => {},
-              'text' => '0.6 0.4 aaa'
+              'type' => 'line_arg'
             }
           ],
-          'parent' => {},
-          'type' => 'line_arg'
+          'cmdname' => 'columnfractions',
+          'extra' => {
+            'misc_args' => [
+              '0.6',
+              '0.4'
+            ],
+            'spaces_before_argument' => ' '
+          },
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 1,
+            'macro' => ''
+          },
+          'parent' => {}
         }
       ],
-      'cmdname' => 'columnfractions',
-      'extra' => {
-        'misc_args' => [
-          '0.6',
-          '0.4'
-        ],
-        'spaces_before_argument' => ' '
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
-      },
-      'parent' => {}
+      'parent' => {},
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
-$result_trees{'out_of_multitable'}{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'out_of_multitable'}{'contents'}[0]{'args'}[0];
-$result_trees{'out_of_multitable'}{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'out_of_multitable'}{'contents'}[0];
+$result_trees{'out_of_multitable'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'out_of_multitable'}{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'out_of_multitable'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'out_of_multitable'}{'contents'}[0]{'contents'}[0];
+$result_trees{'out_of_multitable'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'out_of_multitable'}{'contents'}[0];
 $result_trees{'out_of_multitable'}{'contents'}[0]{'parent'} = $result_trees{'out_of_multitable'};
 
 $result_texis{'out_of_multitable'} = '@columnfractions 0.6 0.4 aaa';

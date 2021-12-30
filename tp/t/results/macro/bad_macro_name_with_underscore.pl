@@ -8,64 +8,71 @@ use utf8;
 $result_trees{'bad_macro_name_with_underscore'} = {
   'contents' => [
     {
-      'args' => [
-        {
-          'parent' => {},
-          'text' => 'the_macro',
-          'type' => 'macro_name'
-        },
-        {
-          'parent' => {},
-          'text' => 'arg1',
-          'type' => 'macro_arg'
-        },
-        {
-          'parent' => {},
-          'text' => 'arg2',
-          'type' => 'macro_arg'
-        }
-      ],
-      'cmdname' => 'macro',
       'contents' => [
         {
-          'parent' => {},
-          'text' => 'In macro',
-          'type' => 'raw'
+          'args' => [
+            {
+              'parent' => {},
+              'text' => 'the_macro',
+              'type' => 'macro_name'
+            },
+            {
+              'parent' => {},
+              'text' => 'arg1',
+              'type' => 'macro_arg'
+            },
+            {
+              'parent' => {},
+              'text' => 'arg2',
+              'type' => 'macro_arg'
+            }
+          ],
+          'cmdname' => 'macro',
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => 'In macro',
+              'type' => 'raw'
+            },
+            {
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'last_raw_newline'
+            }
+          ],
+          'extra' => {
+            'arg_line' => ' the_macro {arg1, arg2}
+'
+          },
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 1,
+            'macro' => ''
+          },
+          'parent' => {}
         },
         {
           'parent' => {},
           'text' => '
 ',
-          'type' => 'last_raw_newline'
+          'type' => 'empty_line_after_command'
         }
       ],
-      'extra' => {
-        'arg_line' => ' the_macro {arg1, arg2}
-'
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
-      },
-      'parent' => {}
-    },
-    {
       'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line_after_command'
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
-$result_trees{'bad_macro_name_with_underscore'}{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'bad_macro_name_with_underscore'}{'contents'}[0];
-$result_trees{'bad_macro_name_with_underscore'}{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'bad_macro_name_with_underscore'}{'contents'}[0];
-$result_trees{'bad_macro_name_with_underscore'}{'contents'}[0]{'args'}[2]{'parent'} = $result_trees{'bad_macro_name_with_underscore'}{'contents'}[0];
+$result_trees{'bad_macro_name_with_underscore'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'bad_macro_name_with_underscore'}{'contents'}[0]{'contents'}[0];
+$result_trees{'bad_macro_name_with_underscore'}{'contents'}[0]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'bad_macro_name_with_underscore'}{'contents'}[0]{'contents'}[0];
+$result_trees{'bad_macro_name_with_underscore'}{'contents'}[0]{'contents'}[0]{'args'}[2]{'parent'} = $result_trees{'bad_macro_name_with_underscore'}{'contents'}[0]{'contents'}[0];
+$result_trees{'bad_macro_name_with_underscore'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'bad_macro_name_with_underscore'}{'contents'}[0]{'contents'}[0];
+$result_trees{'bad_macro_name_with_underscore'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'bad_macro_name_with_underscore'}{'contents'}[0]{'contents'}[0];
 $result_trees{'bad_macro_name_with_underscore'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'bad_macro_name_with_underscore'}{'contents'}[0];
 $result_trees{'bad_macro_name_with_underscore'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'bad_macro_name_with_underscore'}{'contents'}[0];
 $result_trees{'bad_macro_name_with_underscore'}{'contents'}[0]{'parent'} = $result_trees{'bad_macro_name_with_underscore'};
-$result_trees{'bad_macro_name_with_underscore'}{'contents'}[1]{'parent'} = $result_trees{'bad_macro_name_with_underscore'};
 
 $result_texis{'bad_macro_name_with_underscore'} = '@macro the_macro {arg1, arg2}
 In macro

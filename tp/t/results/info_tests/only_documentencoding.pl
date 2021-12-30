@@ -8,37 +8,44 @@ use utf8;
 $result_trees{'only_documentencoding'} = {
   'contents' => [
     {
-      'args' => [
+      'contents' => [
         {
-          'contents' => [
+          'args' => [
             {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => 'ISO-8859-1'
+                }
+              ],
               'parent' => {},
-              'text' => 'ISO-8859-1'
+              'type' => 'line_arg'
             }
           ],
-          'parent' => {},
-          'type' => 'line_arg'
+          'cmdname' => 'documentencoding',
+          'extra' => {
+            'input_encoding_name' => 'iso-8859-1',
+            'input_perl_encoding' => 'iso-8859-1',
+            'spaces_before_argument' => ' ',
+            'text_arg' => 'ISO-8859-1'
+          },
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 1,
+            'macro' => ''
+          },
+          'parent' => {}
         }
       ],
-      'cmdname' => 'documentencoding',
-      'extra' => {
-        'input_encoding_name' => 'iso-8859-1',
-        'input_perl_encoding' => 'iso-8859-1',
-        'spaces_before_argument' => ' ',
-        'text_arg' => 'ISO-8859-1'
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
-      },
-      'parent' => {}
+      'parent' => {},
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
-$result_trees{'only_documentencoding'}{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'only_documentencoding'}{'contents'}[0]{'args'}[0];
-$result_trees{'only_documentencoding'}{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'only_documentencoding'}{'contents'}[0];
+$result_trees{'only_documentencoding'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'only_documentencoding'}{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'only_documentencoding'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'only_documentencoding'}{'contents'}[0]{'contents'}[0];
+$result_trees{'only_documentencoding'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'only_documentencoding'}{'contents'}[0];
 $result_trees{'only_documentencoding'}{'contents'}[0]{'parent'} = $result_trees{'only_documentencoding'};
 
 $result_texis{'only_documentencoding'} = '@documentencoding ISO-8859-1';

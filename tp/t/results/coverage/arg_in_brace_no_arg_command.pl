@@ -10,43 +10,50 @@ $result_trees{'arg_in_brace_no_arg_command'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'contents' => [
             {
-              'contents' => [
+              'args' => [
                 {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'in tex'
+                    }
+                  ],
                   'parent' => {},
-                  'text' => 'in tex'
+                  'type' => 'brace_command_arg'
                 }
               ],
+              'cmdname' => 'TeX',
+              'contents' => [],
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 1,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
               'parent' => {},
-              'type' => 'brace_command_arg'
+              'text' => '
+'
             }
           ],
-          'cmdname' => 'TeX',
-          'contents' => [],
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
           'parent' => {},
-          'text' => '
-'
+          'type' => 'paragraph'
         }
       ],
       'parent' => {},
-      'type' => 'paragraph'
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
-$result_trees{'arg_in_brace_no_arg_command'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'arg_in_brace_no_arg_command'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'arg_in_brace_no_arg_command'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'arg_in_brace_no_arg_command'}{'contents'}[0]{'contents'}[0];
+$result_trees{'arg_in_brace_no_arg_command'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'arg_in_brace_no_arg_command'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'arg_in_brace_no_arg_command'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'arg_in_brace_no_arg_command'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'arg_in_brace_no_arg_command'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'arg_in_brace_no_arg_command'}{'contents'}[0]{'contents'}[0];
+$result_trees{'arg_in_brace_no_arg_command'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'arg_in_brace_no_arg_command'}{'contents'}[0]{'contents'}[0];
 $result_trees{'arg_in_brace_no_arg_command'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'arg_in_brace_no_arg_command'}{'contents'}[0];
-$result_trees{'arg_in_brace_no_arg_command'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'arg_in_brace_no_arg_command'}{'contents'}[0];
 $result_trees{'arg_in_brace_no_arg_command'}{'contents'}[0]{'parent'} = $result_trees{'arg_in_brace_no_arg_command'};
 
 $result_texis{'arg_in_brace_no_arg_command'} = '@TeX{in tex}

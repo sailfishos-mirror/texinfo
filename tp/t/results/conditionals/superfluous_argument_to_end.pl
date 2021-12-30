@@ -10,17 +10,24 @@ $result_trees{'superfluous_argument_to_end'} = {
     {
       'contents' => [
         {
-          'parent' => {},
-          'text' => 'not html
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => 'not html
 '
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
         }
       ],
       'parent' => {},
-      'type' => 'paragraph'
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
+$result_trees{'superfluous_argument_to_end'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'superfluous_argument_to_end'}{'contents'}[0]{'contents'}[0];
 $result_trees{'superfluous_argument_to_end'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'superfluous_argument_to_end'}{'contents'}[0];
 $result_trees{'superfluous_argument_to_end'}{'contents'}[0]{'parent'} = $result_trees{'superfluous_argument_to_end'};
 

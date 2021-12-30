@@ -8,119 +8,126 @@ use utf8;
 $result_trees{'value_in_macro_formal_arg'} = {
   'contents' => [
     {
-      'args' => [
-        {
-          'parent' => {},
-          'text' => 'argument',
-          'type' => 'misc_arg'
-        },
-        {
-          'parent' => {},
-          'text' => 'arg',
-          'type' => 'misc_arg'
-        }
-      ],
-      'cmdname' => 'set',
-      'extra' => {
-        'arg_line' => ' argument arg 
-',
-        'misc_args' => [
-          'argument',
-          'arg'
-        ]
-      },
-      'parent' => {}
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'args' => [
-        {
-          'parent' => {},
-          'text' => 'testvalue',
-          'type' => 'macro_name'
-        },
-        {
-          'parent' => {},
-          'text' => 'arg',
-          'type' => 'macro_arg'
-        },
-        {
-          'parent' => {},
-          'text' => 'the@value{argument',
-          'type' => 'macro_arg'
-        }
-      ],
-      'cmdname' => 'macro',
       'contents' => [
         {
-          'parent' => {},
-          'text' => 'result: @emph{\\arg\\} the \\the\\ thearg \\thearg\\ with value \\the@value{argument}\\',
-          'type' => 'raw'
+          'args' => [
+            {
+              'parent' => {},
+              'text' => 'argument',
+              'type' => 'misc_arg'
+            },
+            {
+              'parent' => {},
+              'text' => 'arg',
+              'type' => 'misc_arg'
+            }
+          ],
+          'cmdname' => 'set',
+          'extra' => {
+            'arg_line' => ' argument arg 
+',
+            'misc_args' => [
+              'argument',
+              'arg'
+            ]
+          },
+          'parent' => {}
         },
         {
           'parent' => {},
           'text' => '
 ',
-          'type' => 'last_raw_newline'
-        }
-      ],
-      'extra' => {
-        'arg_line' => ' testvalue { arg , the@value{argument} }
+          'type' => 'empty_line'
+        },
+        {
+          'args' => [
+            {
+              'parent' => {},
+              'text' => 'testvalue',
+              'type' => 'macro_name'
+            },
+            {
+              'parent' => {},
+              'text' => 'arg',
+              'type' => 'macro_arg'
+            },
+            {
+              'parent' => {},
+              'text' => 'the@value{argument',
+              'type' => 'macro_arg'
+            }
+          ],
+          'cmdname' => 'macro',
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => 'result: @emph{\\arg\\} the \\the\\ thearg \\thearg\\ with value \\the@value{argument}\\',
+              'type' => 'raw'
+            },
+            {
+              'parent' => {},
+              'text' => '
 ',
-        'invalid_syntax' => 1
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 3,
-        'macro' => ''
-      },
-      'parent' => {}
-    },
-    {
-      'parent' => {},
-      'text' => '
+              'type' => 'last_raw_newline'
+            }
+          ],
+          'extra' => {
+            'arg_line' => ' testvalue { arg , the@value{argument} }
 ',
-      'type' => 'empty_line_after_command'
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'contents' => [
+            'invalid_syntax' => 1
+          },
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 3,
+            'macro' => ''
+          },
+          'parent' => {}
+        },
         {
           'parent' => {},
-          'text' => 'macro_arg1
+          'text' => '
+',
+          'type' => 'empty_line_after_command'
+        },
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => 'macro_arg1
 '
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
         }
       ],
       'parent' => {},
-      'type' => 'paragraph'
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
-$result_trees{'value_in_macro_formal_arg'}{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'value_in_macro_formal_arg'}{'contents'}[0];
-$result_trees{'value_in_macro_formal_arg'}{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'value_in_macro_formal_arg'}{'contents'}[0];
+$result_trees{'value_in_macro_formal_arg'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'value_in_macro_formal_arg'}{'contents'}[0]{'contents'}[0];
+$result_trees{'value_in_macro_formal_arg'}{'contents'}[0]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'value_in_macro_formal_arg'}{'contents'}[0]{'contents'}[0];
+$result_trees{'value_in_macro_formal_arg'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'value_in_macro_formal_arg'}{'contents'}[0];
+$result_trees{'value_in_macro_formal_arg'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'value_in_macro_formal_arg'}{'contents'}[0];
+$result_trees{'value_in_macro_formal_arg'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'value_in_macro_formal_arg'}{'contents'}[0]{'contents'}[2];
+$result_trees{'value_in_macro_formal_arg'}{'contents'}[0]{'contents'}[2]{'args'}[1]{'parent'} = $result_trees{'value_in_macro_formal_arg'}{'contents'}[0]{'contents'}[2];
+$result_trees{'value_in_macro_formal_arg'}{'contents'}[0]{'contents'}[2]{'args'}[2]{'parent'} = $result_trees{'value_in_macro_formal_arg'}{'contents'}[0]{'contents'}[2];
+$result_trees{'value_in_macro_formal_arg'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'value_in_macro_formal_arg'}{'contents'}[0]{'contents'}[2];
+$result_trees{'value_in_macro_formal_arg'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'value_in_macro_formal_arg'}{'contents'}[0]{'contents'}[2];
+$result_trees{'value_in_macro_formal_arg'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'value_in_macro_formal_arg'}{'contents'}[0];
+$result_trees{'value_in_macro_formal_arg'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'value_in_macro_formal_arg'}{'contents'}[0];
+$result_trees{'value_in_macro_formal_arg'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'value_in_macro_formal_arg'}{'contents'}[0];
+$result_trees{'value_in_macro_formal_arg'}{'contents'}[0]{'contents'}[5]{'contents'}[0]{'parent'} = $result_trees{'value_in_macro_formal_arg'}{'contents'}[0]{'contents'}[5];
+$result_trees{'value_in_macro_formal_arg'}{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'value_in_macro_formal_arg'}{'contents'}[0];
 $result_trees{'value_in_macro_formal_arg'}{'contents'}[0]{'parent'} = $result_trees{'value_in_macro_formal_arg'};
-$result_trees{'value_in_macro_formal_arg'}{'contents'}[1]{'parent'} = $result_trees{'value_in_macro_formal_arg'};
-$result_trees{'value_in_macro_formal_arg'}{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'value_in_macro_formal_arg'}{'contents'}[2];
-$result_trees{'value_in_macro_formal_arg'}{'contents'}[2]{'args'}[1]{'parent'} = $result_trees{'value_in_macro_formal_arg'}{'contents'}[2];
-$result_trees{'value_in_macro_formal_arg'}{'contents'}[2]{'args'}[2]{'parent'} = $result_trees{'value_in_macro_formal_arg'}{'contents'}[2];
-$result_trees{'value_in_macro_formal_arg'}{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'value_in_macro_formal_arg'}{'contents'}[2];
-$result_trees{'value_in_macro_formal_arg'}{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'value_in_macro_formal_arg'}{'contents'}[2];
-$result_trees{'value_in_macro_formal_arg'}{'contents'}[2]{'parent'} = $result_trees{'value_in_macro_formal_arg'};
-$result_trees{'value_in_macro_formal_arg'}{'contents'}[3]{'parent'} = $result_trees{'value_in_macro_formal_arg'};
-$result_trees{'value_in_macro_formal_arg'}{'contents'}[4]{'parent'} = $result_trees{'value_in_macro_formal_arg'};
-$result_trees{'value_in_macro_formal_arg'}{'contents'}[5]{'contents'}[0]{'parent'} = $result_trees{'value_in_macro_formal_arg'}{'contents'}[5];
-$result_trees{'value_in_macro_formal_arg'}{'contents'}[5]{'parent'} = $result_trees{'value_in_macro_formal_arg'};
 
 $result_texis{'value_in_macro_formal_arg'} = '@set argument arg 
 

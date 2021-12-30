@@ -8,22 +8,29 @@ use utf8;
 $result_trees{'commands_in_ifset'} = {
   'contents' => [
     {
-      'parent' => {},
-      'text' => '
+      'contents' => [
+        {
+          'parent' => {},
+          'text' => '
 ',
-      'type' => 'empty_line'
-    },
-    {
-      'parent' => {},
-      'text' => '
+          'type' => 'empty_line'
+        },
+        {
+          'parent' => {},
+          'text' => '
 ',
-      'type' => 'empty_line'
+          'type' => 'empty_line'
+        }
+      ],
+      'parent' => {},
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
+$result_trees{'commands_in_ifset'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'commands_in_ifset'}{'contents'}[0];
+$result_trees{'commands_in_ifset'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'commands_in_ifset'}{'contents'}[0];
 $result_trees{'commands_in_ifset'}{'contents'}[0]{'parent'} = $result_trees{'commands_in_ifset'};
-$result_trees{'commands_in_ifset'}{'contents'}[1]{'parent'} = $result_trees{'commands_in_ifset'};
 
 $result_texis{'commands_in_ifset'} = '
 

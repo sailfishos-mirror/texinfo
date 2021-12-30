@@ -336,14 +336,24 @@ wipe_global_info (void)
   global_info.input_encoding_name = strdup ("utf-8");
 }
 
+ELEMENT *
+setup_text_root()
+{
+  ELEMENT *text_root = new_element (ET_text_root);
+  ELEMENT *document_root = new_element (ET_document_root);
+  add_to_element_contents (document_root, text_root);
+  return text_root;
+}
+
 
 ELEMENT *
 parse_texi_file (char *filename)
 {
   char *p, *q;
   char *linep, *line = 0;
-  ELEMENT *root = new_element (ET_text_root);
+  ELEMENT *text_root = setup_text_root ();
   ELEMENT *preamble = 0;
+  ELEMENT *document_root = text_root->parent;
   char c;
 
   int status;
@@ -400,9 +410,9 @@ parse_texi_file (char *filename)
     }
 
   if (preamble)
-    add_to_element_contents (root, preamble);
+    add_to_element_contents (text_root, preamble);
 
-  return parse_texi (root);
+  return parse_texi (document_root);
 }
 
 
@@ -1932,6 +1942,9 @@ parse_texi (ELEMENT *root_elt)
   ELEMENT *current = root_elt;
   static char *allocated_line;
   char *line;
+
+  if (root_elt->type == ET_document_root)
+    current = root_elt->contents.list[0];
 
   /* Read input file line-by-line. */
   while (1)

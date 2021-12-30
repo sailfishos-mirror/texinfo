@@ -6,9 +6,16 @@ use vars qw(%result_texis %result_texts %result_trees %result_errors
 use utf8;
 
 $result_trees{'bad_ifset_argument'} = {
-  'contents' => [],
-  'type' => 'text_root'
+  'contents' => [
+    {
+      'contents' => [],
+      'parent' => {},
+      'type' => 'text_root'
+    }
+  ],
+  'type' => 'document_root'
 };
+$result_trees{'bad_ifset_argument'}{'contents'}[0]{'parent'} = $result_trees{'bad_ifset_argument'};
 
 $result_texis{'bad_ifset_argument'} = '';
 

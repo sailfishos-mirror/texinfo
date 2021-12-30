@@ -8,350 +8,357 @@ use utf8;
 $result_trees{'nested_ifset_ifclear'} = {
   'contents' => [
     {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'args' => [
-        {
-          'parent' => {},
-          'text' => 'conditionals',
-          'type' => 'macro_name'
-        }
-      ],
-      'cmdname' => 'macro',
       'contents' => [
         {
           'parent' => {},
-          'text' => '@ifset somevar
+          'text' => '
 ',
-          'type' => 'raw'
+          'type' => 'empty_line'
         },
         {
-          'parent' => {},
-          'text' => '@ifset anothervar
+          'args' => [
+            {
+              'parent' => {},
+              'text' => 'conditionals',
+              'type' => 'macro_name'
+            }
+          ],
+          'cmdname' => 'macro',
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => '@ifset somevar
 ',
-          'type' => 'raw'
-        },
-        {
-          'parent' => {},
-          'text' => 'Both somevar and anothervar are set.
+              'type' => 'raw'
+            },
+            {
+              'parent' => {},
+              'text' => '@ifset anothervar
 ',
-          'type' => 'raw'
-        },
-        {
-          'parent' => {},
-          'text' => '@end ifset
+              'type' => 'raw'
+            },
+            {
+              'parent' => {},
+              'text' => 'Both somevar and anothervar are set.
 ',
-          'type' => 'raw'
-        },
-        {
-          'parent' => {},
-          'text' => '@ifclear anothervar
+              'type' => 'raw'
+            },
+            {
+              'parent' => {},
+              'text' => '@end ifset
 ',
-          'type' => 'raw'
-        },
-        {
-          'parent' => {},
-          'text' => 'Somevar is set, anothervar is not.
+              'type' => 'raw'
+            },
+            {
+              'parent' => {},
+              'text' => '@ifclear anothervar
 ',
-          'type' => 'raw'
-        },
-        {
-          'parent' => {},
-          'text' => '@end ifclear
+              'type' => 'raw'
+            },
+            {
+              'parent' => {},
+              'text' => 'Somevar is set, anothervar is not.
 ',
-          'type' => 'raw'
-        },
-        {
-          'parent' => {},
-          'text' => '@end ifset',
-          'type' => 'raw'
+              'type' => 'raw'
+            },
+            {
+              'parent' => {},
+              'text' => '@end ifclear
+',
+              'type' => 'raw'
+            },
+            {
+              'parent' => {},
+              'text' => '@end ifset',
+              'type' => 'raw'
+            },
+            {
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'last_raw_newline'
+            }
+          ],
+          'extra' => {
+            'arg_line' => ' conditionals{}
+'
+          },
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 2,
+            'macro' => ''
+          },
+          'parent' => {}
         },
         {
           'parent' => {},
           'text' => '
 ',
-          'type' => 'last_raw_newline'
-        }
-      ],
-      'extra' => {
-        'arg_line' => ' conditionals{}
+          'type' => 'empty_line_after_command'
+        },
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'args' => [
+            {
+              'parent' => {},
+              'text' => 'somevar',
+              'type' => 'misc_arg'
+            },
+            {
+              'parent' => {},
+              'text' => '',
+              'type' => 'misc_arg'
+            }
+          ],
+          'cmdname' => 'set',
+          'extra' => {
+            'arg_line' => ' somevar
+',
+            'misc_args' => [
+              'somevar',
+              ''
+            ]
+          },
+          'parent' => {}
+        },
+        {
+          'args' => [
+            {
+              'parent' => {},
+              'text' => 'anothervar',
+              'type' => 'misc_arg'
+            },
+            {
+              'parent' => {},
+              'text' => '',
+              'type' => 'misc_arg'
+            }
+          ],
+          'cmdname' => 'set',
+          'extra' => {
+            'arg_line' => ' anothervar
+',
+            'misc_args' => [
+              'anothervar',
+              ''
+            ]
+          },
+          'parent' => {}
+        },
+        {
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => 'Both somevar and anothervar are set.
 '
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 2,
-        'macro' => ''
-      },
-      'parent' => {}
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line_after_command'
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'args' => [
-        {
+            }
+          ],
           'parent' => {},
-          'text' => 'somevar',
-          'type' => 'misc_arg'
+          'type' => 'paragraph'
         },
         {
           'parent' => {},
-          'text' => '',
-          'type' => 'misc_arg'
-        }
-      ],
-      'cmdname' => 'set',
-      'extra' => {
-        'arg_line' => ' somevar
+          'text' => '
 ',
-        'misc_args' => [
-          'somevar',
-          ''
-        ]
-      },
-      'parent' => {}
-    },
-    {
-      'args' => [
-        {
-          'parent' => {},
-          'text' => 'anothervar',
-          'type' => 'misc_arg'
+          'type' => 'empty_line'
         },
         {
-          'parent' => {},
-          'text' => '',
-          'type' => 'misc_arg'
-        }
-      ],
-      'cmdname' => 'set',
-      'extra' => {
-        'arg_line' => ' anothervar
+          'args' => [
+            {
+              'parent' => {},
+              'text' => 'somevar',
+              'type' => 'misc_arg'
+            },
+            {
+              'parent' => {},
+              'text' => '',
+              'type' => 'misc_arg'
+            }
+          ],
+          'cmdname' => 'set',
+          'extra' => {
+            'arg_line' => ' somevar
 ',
-        'misc_args' => [
-          'anothervar',
-          ''
-        ]
-      },
-      'parent' => {}
-    },
-    {
-      'contents' => [
+            'misc_args' => [
+              'somevar',
+              ''
+            ]
+          },
+          'parent' => {}
+        },
         {
-          'parent' => {},
-          'text' => 'Both somevar and anothervar are set.
+          'args' => [
+            {
+              'parent' => {},
+              'text' => 'anothervar',
+              'type' => 'misc_arg'
+            }
+          ],
+          'cmdname' => 'clear',
+          'extra' => {
+            'arg_line' => ' anothervar
+',
+            'misc_args' => [
+              'anothervar'
+            ]
+          },
+          'parent' => {}
+        },
+        {
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => 'Somevar is set, anothervar is not.
 '
-        }
-      ],
-      'parent' => {},
-      'type' => 'paragraph'
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'args' => [
-        {
+            }
+          ],
           'parent' => {},
-          'text' => 'somevar',
-          'type' => 'misc_arg'
+          'type' => 'paragraph'
         },
         {
           'parent' => {},
-          'text' => '',
-          'type' => 'misc_arg'
-        }
-      ],
-      'cmdname' => 'set',
-      'extra' => {
-        'arg_line' => ' somevar
+          'text' => '
 ',
-        'misc_args' => [
-          'somevar',
-          ''
-        ]
-      },
-      'parent' => {}
-    },
-    {
-      'args' => [
+          'type' => 'empty_line'
+        },
         {
-          'parent' => {},
-          'text' => 'anothervar',
-          'type' => 'misc_arg'
-        }
-      ],
-      'cmdname' => 'clear',
-      'extra' => {
-        'arg_line' => ' anothervar
+          'args' => [
+            {
+              'parent' => {},
+              'text' => 'somevar',
+              'type' => 'misc_arg'
+            }
+          ],
+          'cmdname' => 'clear',
+          'extra' => {
+            'arg_line' => ' somevar
 ',
-        'misc_args' => [
-          'anothervar'
-        ]
-      },
-      'parent' => {}
-    },
-    {
-      'contents' => [
+            'misc_args' => [
+              'somevar'
+            ]
+          },
+          'parent' => {}
+        },
         {
-          'parent' => {},
-          'text' => 'Somevar is set, anothervar is not.
-'
-        }
-      ],
-      'parent' => {},
-      'type' => 'paragraph'
-    },
-    {
-      'parent' => {},
-      'text' => '
+          'args' => [
+            {
+              'parent' => {},
+              'text' => 'anothervar',
+              'type' => 'misc_arg'
+            },
+            {
+              'parent' => {},
+              'text' => '',
+              'type' => 'misc_arg'
+            }
+          ],
+          'cmdname' => 'set',
+          'extra' => {
+            'arg_line' => ' anothervar
 ',
-      'type' => 'empty_line'
-    },
-    {
-      'args' => [
-        {
-          'parent' => {},
-          'text' => 'somevar',
-          'type' => 'misc_arg'
-        }
-      ],
-      'cmdname' => 'clear',
-      'extra' => {
-        'arg_line' => ' somevar
-',
-        'misc_args' => [
-          'somevar'
-        ]
-      },
-      'parent' => {}
-    },
-    {
-      'args' => [
-        {
-          'parent' => {},
-          'text' => 'anothervar',
-          'type' => 'misc_arg'
+            'misc_args' => [
+              'anothervar',
+              ''
+            ]
+          },
+          'parent' => {}
         },
         {
           'parent' => {},
-          'text' => '',
-          'type' => 'misc_arg'
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'args' => [
+            {
+              'parent' => {},
+              'text' => 'somevar',
+              'type' => 'misc_arg'
+            }
+          ],
+          'cmdname' => 'clear',
+          'extra' => {
+            'arg_line' => ' somevar
+',
+            'misc_args' => [
+              'somevar'
+            ]
+          },
+          'parent' => {}
+        },
+        {
+          'args' => [
+            {
+              'parent' => {},
+              'text' => 'anothervar',
+              'type' => 'misc_arg'
+            }
+          ],
+          'cmdname' => 'clear',
+          'extra' => {
+            'arg_line' => ' anothervar
+',
+            'misc_args' => [
+              'anothervar'
+            ]
+          },
+          'parent' => {}
         }
       ],
-      'cmdname' => 'set',
-      'extra' => {
-        'arg_line' => ' anothervar
-',
-        'misc_args' => [
-          'anothervar',
-          ''
-        ]
-      },
-      'parent' => {}
-    },
-    {
       'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'args' => [
-        {
-          'parent' => {},
-          'text' => 'somevar',
-          'type' => 'misc_arg'
-        }
-      ],
-      'cmdname' => 'clear',
-      'extra' => {
-        'arg_line' => ' somevar
-',
-        'misc_args' => [
-          'somevar'
-        ]
-      },
-      'parent' => {}
-    },
-    {
-      'args' => [
-        {
-          'parent' => {},
-          'text' => 'anothervar',
-          'type' => 'misc_arg'
-        }
-      ],
-      'cmdname' => 'clear',
-      'extra' => {
-        'arg_line' => ' anothervar
-',
-        'misc_args' => [
-          'anothervar'
-        ]
-      },
-      'parent' => {}
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
+$result_trees{'nested_ifset_ifclear'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'nested_ifset_ifclear'}{'contents'}[0];
+$result_trees{'nested_ifset_ifclear'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'nested_ifset_ifclear'}{'contents'}[0]{'contents'}[1];
+$result_trees{'nested_ifset_ifclear'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'nested_ifset_ifclear'}{'contents'}[0]{'contents'}[1];
+$result_trees{'nested_ifset_ifclear'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'nested_ifset_ifclear'}{'contents'}[0]{'contents'}[1];
+$result_trees{'nested_ifset_ifclear'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'nested_ifset_ifclear'}{'contents'}[0]{'contents'}[1];
+$result_trees{'nested_ifset_ifclear'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'nested_ifset_ifclear'}{'contents'}[0]{'contents'}[1];
+$result_trees{'nested_ifset_ifclear'}{'contents'}[0]{'contents'}[1]{'contents'}[4]{'parent'} = $result_trees{'nested_ifset_ifclear'}{'contents'}[0]{'contents'}[1];
+$result_trees{'nested_ifset_ifclear'}{'contents'}[0]{'contents'}[1]{'contents'}[5]{'parent'} = $result_trees{'nested_ifset_ifclear'}{'contents'}[0]{'contents'}[1];
+$result_trees{'nested_ifset_ifclear'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'parent'} = $result_trees{'nested_ifset_ifclear'}{'contents'}[0]{'contents'}[1];
+$result_trees{'nested_ifset_ifclear'}{'contents'}[0]{'contents'}[1]{'contents'}[7]{'parent'} = $result_trees{'nested_ifset_ifclear'}{'contents'}[0]{'contents'}[1];
+$result_trees{'nested_ifset_ifclear'}{'contents'}[0]{'contents'}[1]{'contents'}[8]{'parent'} = $result_trees{'nested_ifset_ifclear'}{'contents'}[0]{'contents'}[1];
+$result_trees{'nested_ifset_ifclear'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'nested_ifset_ifclear'}{'contents'}[0];
+$result_trees{'nested_ifset_ifclear'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'nested_ifset_ifclear'}{'contents'}[0];
+$result_trees{'nested_ifset_ifclear'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'nested_ifset_ifclear'}{'contents'}[0];
+$result_trees{'nested_ifset_ifclear'}{'contents'}[0]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'nested_ifset_ifclear'}{'contents'}[0]{'contents'}[4];
+$result_trees{'nested_ifset_ifclear'}{'contents'}[0]{'contents'}[4]{'args'}[1]{'parent'} = $result_trees{'nested_ifset_ifclear'}{'contents'}[0]{'contents'}[4];
+$result_trees{'nested_ifset_ifclear'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'nested_ifset_ifclear'}{'contents'}[0];
+$result_trees{'nested_ifset_ifclear'}{'contents'}[0]{'contents'}[5]{'args'}[0]{'parent'} = $result_trees{'nested_ifset_ifclear'}{'contents'}[0]{'contents'}[5];
+$result_trees{'nested_ifset_ifclear'}{'contents'}[0]{'contents'}[5]{'args'}[1]{'parent'} = $result_trees{'nested_ifset_ifclear'}{'contents'}[0]{'contents'}[5];
+$result_trees{'nested_ifset_ifclear'}{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'nested_ifset_ifclear'}{'contents'}[0];
+$result_trees{'nested_ifset_ifclear'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'parent'} = $result_trees{'nested_ifset_ifclear'}{'contents'}[0]{'contents'}[6];
+$result_trees{'nested_ifset_ifclear'}{'contents'}[0]{'contents'}[6]{'parent'} = $result_trees{'nested_ifset_ifclear'}{'contents'}[0];
+$result_trees{'nested_ifset_ifclear'}{'contents'}[0]{'contents'}[7]{'parent'} = $result_trees{'nested_ifset_ifclear'}{'contents'}[0];
+$result_trees{'nested_ifset_ifclear'}{'contents'}[0]{'contents'}[8]{'args'}[0]{'parent'} = $result_trees{'nested_ifset_ifclear'}{'contents'}[0]{'contents'}[8];
+$result_trees{'nested_ifset_ifclear'}{'contents'}[0]{'contents'}[8]{'args'}[1]{'parent'} = $result_trees{'nested_ifset_ifclear'}{'contents'}[0]{'contents'}[8];
+$result_trees{'nested_ifset_ifclear'}{'contents'}[0]{'contents'}[8]{'parent'} = $result_trees{'nested_ifset_ifclear'}{'contents'}[0];
+$result_trees{'nested_ifset_ifclear'}{'contents'}[0]{'contents'}[9]{'args'}[0]{'parent'} = $result_trees{'nested_ifset_ifclear'}{'contents'}[0]{'contents'}[9];
+$result_trees{'nested_ifset_ifclear'}{'contents'}[0]{'contents'}[9]{'parent'} = $result_trees{'nested_ifset_ifclear'}{'contents'}[0];
+$result_trees{'nested_ifset_ifclear'}{'contents'}[0]{'contents'}[10]{'contents'}[0]{'parent'} = $result_trees{'nested_ifset_ifclear'}{'contents'}[0]{'contents'}[10];
+$result_trees{'nested_ifset_ifclear'}{'contents'}[0]{'contents'}[10]{'parent'} = $result_trees{'nested_ifset_ifclear'}{'contents'}[0];
+$result_trees{'nested_ifset_ifclear'}{'contents'}[0]{'contents'}[11]{'parent'} = $result_trees{'nested_ifset_ifclear'}{'contents'}[0];
+$result_trees{'nested_ifset_ifclear'}{'contents'}[0]{'contents'}[12]{'args'}[0]{'parent'} = $result_trees{'nested_ifset_ifclear'}{'contents'}[0]{'contents'}[12];
+$result_trees{'nested_ifset_ifclear'}{'contents'}[0]{'contents'}[12]{'parent'} = $result_trees{'nested_ifset_ifclear'}{'contents'}[0];
+$result_trees{'nested_ifset_ifclear'}{'contents'}[0]{'contents'}[13]{'args'}[0]{'parent'} = $result_trees{'nested_ifset_ifclear'}{'contents'}[0]{'contents'}[13];
+$result_trees{'nested_ifset_ifclear'}{'contents'}[0]{'contents'}[13]{'args'}[1]{'parent'} = $result_trees{'nested_ifset_ifclear'}{'contents'}[0]{'contents'}[13];
+$result_trees{'nested_ifset_ifclear'}{'contents'}[0]{'contents'}[13]{'parent'} = $result_trees{'nested_ifset_ifclear'}{'contents'}[0];
+$result_trees{'nested_ifset_ifclear'}{'contents'}[0]{'contents'}[14]{'parent'} = $result_trees{'nested_ifset_ifclear'}{'contents'}[0];
+$result_trees{'nested_ifset_ifclear'}{'contents'}[0]{'contents'}[15]{'args'}[0]{'parent'} = $result_trees{'nested_ifset_ifclear'}{'contents'}[0]{'contents'}[15];
+$result_trees{'nested_ifset_ifclear'}{'contents'}[0]{'contents'}[15]{'parent'} = $result_trees{'nested_ifset_ifclear'}{'contents'}[0];
+$result_trees{'nested_ifset_ifclear'}{'contents'}[0]{'contents'}[16]{'args'}[0]{'parent'} = $result_trees{'nested_ifset_ifclear'}{'contents'}[0]{'contents'}[16];
+$result_trees{'nested_ifset_ifclear'}{'contents'}[0]{'contents'}[16]{'parent'} = $result_trees{'nested_ifset_ifclear'}{'contents'}[0];
 $result_trees{'nested_ifset_ifclear'}{'contents'}[0]{'parent'} = $result_trees{'nested_ifset_ifclear'};
-$result_trees{'nested_ifset_ifclear'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'nested_ifset_ifclear'}{'contents'}[1];
-$result_trees{'nested_ifset_ifclear'}{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'nested_ifset_ifclear'}{'contents'}[1];
-$result_trees{'nested_ifset_ifclear'}{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'nested_ifset_ifclear'}{'contents'}[1];
-$result_trees{'nested_ifset_ifclear'}{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'nested_ifset_ifclear'}{'contents'}[1];
-$result_trees{'nested_ifset_ifclear'}{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'nested_ifset_ifclear'}{'contents'}[1];
-$result_trees{'nested_ifset_ifclear'}{'contents'}[1]{'contents'}[4]{'parent'} = $result_trees{'nested_ifset_ifclear'}{'contents'}[1];
-$result_trees{'nested_ifset_ifclear'}{'contents'}[1]{'contents'}[5]{'parent'} = $result_trees{'nested_ifset_ifclear'}{'contents'}[1];
-$result_trees{'nested_ifset_ifclear'}{'contents'}[1]{'contents'}[6]{'parent'} = $result_trees{'nested_ifset_ifclear'}{'contents'}[1];
-$result_trees{'nested_ifset_ifclear'}{'contents'}[1]{'contents'}[7]{'parent'} = $result_trees{'nested_ifset_ifclear'}{'contents'}[1];
-$result_trees{'nested_ifset_ifclear'}{'contents'}[1]{'contents'}[8]{'parent'} = $result_trees{'nested_ifset_ifclear'}{'contents'}[1];
-$result_trees{'nested_ifset_ifclear'}{'contents'}[1]{'parent'} = $result_trees{'nested_ifset_ifclear'};
-$result_trees{'nested_ifset_ifclear'}{'contents'}[2]{'parent'} = $result_trees{'nested_ifset_ifclear'};
-$result_trees{'nested_ifset_ifclear'}{'contents'}[3]{'parent'} = $result_trees{'nested_ifset_ifclear'};
-$result_trees{'nested_ifset_ifclear'}{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'nested_ifset_ifclear'}{'contents'}[4];
-$result_trees{'nested_ifset_ifclear'}{'contents'}[4]{'args'}[1]{'parent'} = $result_trees{'nested_ifset_ifclear'}{'contents'}[4];
-$result_trees{'nested_ifset_ifclear'}{'contents'}[4]{'parent'} = $result_trees{'nested_ifset_ifclear'};
-$result_trees{'nested_ifset_ifclear'}{'contents'}[5]{'args'}[0]{'parent'} = $result_trees{'nested_ifset_ifclear'}{'contents'}[5];
-$result_trees{'nested_ifset_ifclear'}{'contents'}[5]{'args'}[1]{'parent'} = $result_trees{'nested_ifset_ifclear'}{'contents'}[5];
-$result_trees{'nested_ifset_ifclear'}{'contents'}[5]{'parent'} = $result_trees{'nested_ifset_ifclear'};
-$result_trees{'nested_ifset_ifclear'}{'contents'}[6]{'contents'}[0]{'parent'} = $result_trees{'nested_ifset_ifclear'}{'contents'}[6];
-$result_trees{'nested_ifset_ifclear'}{'contents'}[6]{'parent'} = $result_trees{'nested_ifset_ifclear'};
-$result_trees{'nested_ifset_ifclear'}{'contents'}[7]{'parent'} = $result_trees{'nested_ifset_ifclear'};
-$result_trees{'nested_ifset_ifclear'}{'contents'}[8]{'args'}[0]{'parent'} = $result_trees{'nested_ifset_ifclear'}{'contents'}[8];
-$result_trees{'nested_ifset_ifclear'}{'contents'}[8]{'args'}[1]{'parent'} = $result_trees{'nested_ifset_ifclear'}{'contents'}[8];
-$result_trees{'nested_ifset_ifclear'}{'contents'}[8]{'parent'} = $result_trees{'nested_ifset_ifclear'};
-$result_trees{'nested_ifset_ifclear'}{'contents'}[9]{'args'}[0]{'parent'} = $result_trees{'nested_ifset_ifclear'}{'contents'}[9];
-$result_trees{'nested_ifset_ifclear'}{'contents'}[9]{'parent'} = $result_trees{'nested_ifset_ifclear'};
-$result_trees{'nested_ifset_ifclear'}{'contents'}[10]{'contents'}[0]{'parent'} = $result_trees{'nested_ifset_ifclear'}{'contents'}[10];
-$result_trees{'nested_ifset_ifclear'}{'contents'}[10]{'parent'} = $result_trees{'nested_ifset_ifclear'};
-$result_trees{'nested_ifset_ifclear'}{'contents'}[11]{'parent'} = $result_trees{'nested_ifset_ifclear'};
-$result_trees{'nested_ifset_ifclear'}{'contents'}[12]{'args'}[0]{'parent'} = $result_trees{'nested_ifset_ifclear'}{'contents'}[12];
-$result_trees{'nested_ifset_ifclear'}{'contents'}[12]{'parent'} = $result_trees{'nested_ifset_ifclear'};
-$result_trees{'nested_ifset_ifclear'}{'contents'}[13]{'args'}[0]{'parent'} = $result_trees{'nested_ifset_ifclear'}{'contents'}[13];
-$result_trees{'nested_ifset_ifclear'}{'contents'}[13]{'args'}[1]{'parent'} = $result_trees{'nested_ifset_ifclear'}{'contents'}[13];
-$result_trees{'nested_ifset_ifclear'}{'contents'}[13]{'parent'} = $result_trees{'nested_ifset_ifclear'};
-$result_trees{'nested_ifset_ifclear'}{'contents'}[14]{'parent'} = $result_trees{'nested_ifset_ifclear'};
-$result_trees{'nested_ifset_ifclear'}{'contents'}[15]{'args'}[0]{'parent'} = $result_trees{'nested_ifset_ifclear'}{'contents'}[15];
-$result_trees{'nested_ifset_ifclear'}{'contents'}[15]{'parent'} = $result_trees{'nested_ifset_ifclear'};
-$result_trees{'nested_ifset_ifclear'}{'contents'}[16]{'args'}[0]{'parent'} = $result_trees{'nested_ifset_ifclear'}{'contents'}[16];
-$result_trees{'nested_ifset_ifclear'}{'contents'}[16]{'parent'} = $result_trees{'nested_ifset_ifclear'};
 
 $result_texis{'nested_ifset_ifclear'} = '
 @macro conditionals{}

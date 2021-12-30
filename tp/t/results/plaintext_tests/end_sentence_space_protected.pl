@@ -10,29 +10,36 @@ $result_trees{'end_sentence_space_protected'} = {
     {
       'contents' => [
         {
-          'parent' => {},
-          'text' => 'Some text. '
-        },
-        {
-          'cmdname' => '
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => 'Some text. '
+            },
+            {
+              'cmdname' => '
 ',
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => 'Next sentence.
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => 'Next sentence.
 '
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
         }
       ],
       'parent' => {},
-      'type' => 'paragraph'
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
+$result_trees{'end_sentence_space_protected'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'end_sentence_space_protected'}{'contents'}[0]{'contents'}[0];
+$result_trees{'end_sentence_space_protected'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'end_sentence_space_protected'}{'contents'}[0]{'contents'}[0];
+$result_trees{'end_sentence_space_protected'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'end_sentence_space_protected'}{'contents'}[0]{'contents'}[0];
 $result_trees{'end_sentence_space_protected'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'end_sentence_space_protected'}{'contents'}[0];
-$result_trees{'end_sentence_space_protected'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'end_sentence_space_protected'}{'contents'}[0];
-$result_trees{'end_sentence_space_protected'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'end_sentence_space_protected'}{'contents'}[0];
 $result_trees{'end_sentence_space_protected'}{'contents'}[0]{'parent'} = $result_trees{'end_sentence_space_protected'};
 
 $result_texis{'end_sentence_space_protected'} = 'Some text. @

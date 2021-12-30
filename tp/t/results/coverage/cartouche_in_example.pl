@@ -8,30 +8,9 @@ use utf8;
 $result_trees{'cartouche_in_example'} = {
   'contents' => [
     {
-      'cmdname' => 'example',
       'contents' => [
         {
-          'extra' => {
-            'command' => {}
-          },
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line_after_command'
-        },
-        {
-          'contents' => [
-            {
-              'parent' => {},
-              'text' => 'In example
-'
-            }
-          ],
-          'parent' => {},
-          'type' => 'preformatted'
-        },
-        {
-          'cmdname' => 'cartouche',
+          'cmdname' => 'example',
           'contents' => [
             {
               'extra' => {
@@ -46,7 +25,82 @@ $result_trees{'cartouche_in_example'} = {
               'contents' => [
                 {
                   'parent' => {},
-                  'text' => 'In cartouche in example
+                  'text' => 'In example
+'
+                }
+              ],
+              'parent' => {},
+              'type' => 'preformatted'
+            },
+            {
+              'cmdname' => 'cartouche',
+              'contents' => [
+                {
+                  'extra' => {
+                    'command' => {}
+                  },
+                  'parent' => {},
+                  'text' => '
+',
+                  'type' => 'empty_line_after_command'
+                },
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'In cartouche in example
+'
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'preformatted'
+                },
+                {
+                  'args' => [
+                    {
+                      'contents' => [
+                        {
+                          'parent' => {},
+                          'text' => 'cartouche'
+                        }
+                      ],
+                      'extra' => {
+                        'spaces_after_argument' => '
+'
+                      },
+                      'parent' => {},
+                      'type' => 'line_arg'
+                    }
+                  ],
+                  'cmdname' => 'end',
+                  'extra' => {
+                    'command_argument' => 'cartouche',
+                    'spaces_before_argument' => ' ',
+                    'text_arg' => 'cartouche'
+                  },
+                  'line_nr' => {
+                    'file_name' => '',
+                    'line_nr' => 5,
+                    'macro' => ''
+                  },
+                  'parent' => {}
+                }
+              ],
+              'extra' => {
+                'end_command' => {}
+              },
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 3,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => 'end example
 '
                 }
               ],
@@ -59,7 +113,7 @@ $result_trees{'cartouche_in_example'} = {
                   'contents' => [
                     {
                       'parent' => {},
-                      'text' => 'cartouche'
+                      'text' => 'example'
                     }
                   ],
                   'extra' => {
@@ -72,13 +126,13 @@ $result_trees{'cartouche_in_example'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'cartouche',
+                'command_argument' => 'example',
                 'spaces_before_argument' => ' ',
-                'text_arg' => 'cartouche'
+                'text_arg' => 'example'
               },
               'line_nr' => {
                 'file_name' => '',
-                'line_nr' => 5,
+                'line_nr' => 7,
                 'macro' => ''
               },
               'parent' => {}
@@ -89,85 +143,38 @@ $result_trees{'cartouche_in_example'} = {
           },
           'line_nr' => {
             'file_name' => '',
-            'line_nr' => 3,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
-          'contents' => [
-            {
-              'parent' => {},
-              'text' => 'end example
-'
-            }
-          ],
-          'parent' => {},
-          'type' => 'preformatted'
-        },
-        {
-          'args' => [
-            {
-              'contents' => [
-                {
-                  'parent' => {},
-                  'text' => 'example'
-                }
-              ],
-              'extra' => {
-                'spaces_after_argument' => '
-'
-              },
-              'parent' => {},
-              'type' => 'line_arg'
-            }
-          ],
-          'cmdname' => 'end',
-          'extra' => {
-            'command_argument' => 'example',
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'example'
-          },
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 7,
+            'line_nr' => 1,
             'macro' => ''
           },
           'parent' => {}
         }
       ],
-      'extra' => {
-        'end_command' => {}
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
-      },
-      'parent' => {}
+      'parent' => {},
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
-$result_trees{'cartouche_in_example'}{'contents'}[0]{'contents'}[0]{'extra'}{'command'} = $result_trees{'cartouche_in_example'}{'contents'}[0];
+$result_trees{'cartouche_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'command'} = $result_trees{'cartouche_in_example'}{'contents'}[0]{'contents'}[0];
+$result_trees{'cartouche_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'cartouche_in_example'}{'contents'}[0]{'contents'}[0];
+$result_trees{'cartouche_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'cartouche_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
+$result_trees{'cartouche_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'cartouche_in_example'}{'contents'}[0]{'contents'}[0];
+$result_trees{'cartouche_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[0]{'extra'}{'command'} = $result_trees{'cartouche_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
+$result_trees{'cartouche_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'cartouche_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
+$result_trees{'cartouche_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'cartouche_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[1];
+$result_trees{'cartouche_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'cartouche_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
+$result_trees{'cartouche_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'cartouche_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[2]{'args'}[0];
+$result_trees{'cartouche_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'cartouche_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[2];
+$result_trees{'cartouche_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'cartouche_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
+$result_trees{'cartouche_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'extra'}{'end_command'} = $result_trees{'cartouche_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[2];
+$result_trees{'cartouche_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'cartouche_in_example'}{'contents'}[0]{'contents'}[0];
+$result_trees{'cartouche_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'cartouche_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[3];
+$result_trees{'cartouche_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'cartouche_in_example'}{'contents'}[0]{'contents'}[0];
+$result_trees{'cartouche_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'cartouche_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'args'}[0];
+$result_trees{'cartouche_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'cartouche_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[4];
+$result_trees{'cartouche_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'cartouche_in_example'}{'contents'}[0]{'contents'}[0];
+$result_trees{'cartouche_in_example'}{'contents'}[0]{'contents'}[0]{'extra'}{'end_command'} = $result_trees{'cartouche_in_example'}{'contents'}[0]{'contents'}[0]{'contents'}[4];
 $result_trees{'cartouche_in_example'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'cartouche_in_example'}{'contents'}[0];
-$result_trees{'cartouche_in_example'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'cartouche_in_example'}{'contents'}[0]{'contents'}[1];
-$result_trees{'cartouche_in_example'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'cartouche_in_example'}{'contents'}[0];
-$result_trees{'cartouche_in_example'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'extra'}{'command'} = $result_trees{'cartouche_in_example'}{'contents'}[0]{'contents'}[2];
-$result_trees{'cartouche_in_example'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'cartouche_in_example'}{'contents'}[0]{'contents'}[2];
-$result_trees{'cartouche_in_example'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'cartouche_in_example'}{'contents'}[0]{'contents'}[2]{'contents'}[1];
-$result_trees{'cartouche_in_example'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'cartouche_in_example'}{'contents'}[0]{'contents'}[2];
-$result_trees{'cartouche_in_example'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'cartouche_in_example'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'args'}[0];
-$result_trees{'cartouche_in_example'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'cartouche_in_example'}{'contents'}[0]{'contents'}[2]{'contents'}[2];
-$result_trees{'cartouche_in_example'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'cartouche_in_example'}{'contents'}[0]{'contents'}[2];
-$result_trees{'cartouche_in_example'}{'contents'}[0]{'contents'}[2]{'extra'}{'end_command'} = $result_trees{'cartouche_in_example'}{'contents'}[0]{'contents'}[2]{'contents'}[2];
-$result_trees{'cartouche_in_example'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'cartouche_in_example'}{'contents'}[0];
-$result_trees{'cartouche_in_example'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'cartouche_in_example'}{'contents'}[0]{'contents'}[3];
-$result_trees{'cartouche_in_example'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'cartouche_in_example'}{'contents'}[0];
-$result_trees{'cartouche_in_example'}{'contents'}[0]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'cartouche_in_example'}{'contents'}[0]{'contents'}[4]{'args'}[0];
-$result_trees{'cartouche_in_example'}{'contents'}[0]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'cartouche_in_example'}{'contents'}[0]{'contents'}[4];
-$result_trees{'cartouche_in_example'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'cartouche_in_example'}{'contents'}[0];
-$result_trees{'cartouche_in_example'}{'contents'}[0]{'extra'}{'end_command'} = $result_trees{'cartouche_in_example'}{'contents'}[0]{'contents'}[4];
 $result_trees{'cartouche_in_example'}{'contents'}[0]{'parent'} = $result_trees{'cartouche_in_example'};
 
 $result_texis{'cartouche_in_example'} = '@example

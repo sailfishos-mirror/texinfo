@@ -373,7 +373,9 @@ close_commands (ELEMENT *current, enum command_id closed_command,
   while (current->parent
          && (!closed_command || current->cmd != closed_command)
      /* Stop if in a root command. */
-         && !(current->cmd && command_flags(current) & CF_root))
+         && !(current->cmd && command_flags(current) & CF_root)
+     /* stop if at a root type */
+         && !(current->type == ET_text_root))
     {
       close_command_cleanup (current);
       current = close_current (current, closed_command, interrupting);

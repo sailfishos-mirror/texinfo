@@ -8,73 +8,80 @@ use utf8;
 $result_trees{'macro_for_ignored_line_command'} = {
   'contents' => [
     {
-      'args' => [
-        {
-          'parent' => {},
-          'text' => 'pagemacro',
-          'type' => 'macro_name'
-        }
-      ],
-      'cmdname' => 'macro',
       'contents' => [
         {
-          'parent' => {},
-          'text' => '@page',
-          'type' => 'raw'
+          'args' => [
+            {
+              'parent' => {},
+              'text' => 'pagemacro',
+              'type' => 'macro_name'
+            }
+          ],
+          'cmdname' => 'macro',
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => '@page',
+              'type' => 'raw'
+            },
+            {
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'last_raw_newline'
+            }
+          ],
+          'extra' => {
+            'arg_line' => ' pagemacro
+'
+          },
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 1,
+            'macro' => ''
+          },
+          'parent' => {}
         },
         {
           'parent' => {},
           'text' => '
 ',
-          'type' => 'last_raw_newline'
-        }
-      ],
-      'extra' => {
-        'arg_line' => ' pagemacro
-'
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
-      },
-      'parent' => {}
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line_after_command'
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'args' => [
+          'type' => 'empty_line_after_command'
+        },
         {
           'parent' => {},
-          'text' => ' on the line
+          'text' => '
 ',
-          'type' => 'misc_arg'
+          'type' => 'empty_line'
+        },
+        {
+          'args' => [
+            {
+              'parent' => {},
+              'text' => ' on the line
+',
+              'type' => 'misc_arg'
+            }
+          ],
+          'cmdname' => 'page',
+          'parent' => {}
         }
       ],
-      'cmdname' => 'page',
-      'parent' => {}
+      'parent' => {},
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
-$result_trees{'macro_for_ignored_line_command'}{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'macro_for_ignored_line_command'}{'contents'}[0];
+$result_trees{'macro_for_ignored_line_command'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'macro_for_ignored_line_command'}{'contents'}[0]{'contents'}[0];
+$result_trees{'macro_for_ignored_line_command'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'macro_for_ignored_line_command'}{'contents'}[0]{'contents'}[0];
+$result_trees{'macro_for_ignored_line_command'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'macro_for_ignored_line_command'}{'contents'}[0]{'contents'}[0];
 $result_trees{'macro_for_ignored_line_command'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'macro_for_ignored_line_command'}{'contents'}[0];
 $result_trees{'macro_for_ignored_line_command'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'macro_for_ignored_line_command'}{'contents'}[0];
+$result_trees{'macro_for_ignored_line_command'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'macro_for_ignored_line_command'}{'contents'}[0];
+$result_trees{'macro_for_ignored_line_command'}{'contents'}[0]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'macro_for_ignored_line_command'}{'contents'}[0]{'contents'}[3];
+$result_trees{'macro_for_ignored_line_command'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'macro_for_ignored_line_command'}{'contents'}[0];
 $result_trees{'macro_for_ignored_line_command'}{'contents'}[0]{'parent'} = $result_trees{'macro_for_ignored_line_command'};
-$result_trees{'macro_for_ignored_line_command'}{'contents'}[1]{'parent'} = $result_trees{'macro_for_ignored_line_command'};
-$result_trees{'macro_for_ignored_line_command'}{'contents'}[2]{'parent'} = $result_trees{'macro_for_ignored_line_command'};
-$result_trees{'macro_for_ignored_line_command'}{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'macro_for_ignored_line_command'}{'contents'}[3];
-$result_trees{'macro_for_ignored_line_command'}{'contents'}[3]{'parent'} = $result_trees{'macro_for_ignored_line_command'};
 
 $result_texis{'macro_for_ignored_line_command'} = '@macro pagemacro
 @page

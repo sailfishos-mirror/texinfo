@@ -10,118 +10,125 @@ $result_trees{'cartouche_in_style_command'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'contents' => [
-                {
-                  'parent' => {},
-                  'text' => '
-'
-                }
-              ],
-              'parent' => {},
-              'type' => 'brace_command_arg'
-            }
-          ],
-          'cmdname' => 'code',
-          'contents' => [],
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
-          },
-          'parent' => {}
-        }
-      ],
-      'parent' => {},
-      'type' => 'paragraph'
-    },
-    {
-      'cmdname' => 'cartouche',
-      'contents' => [
-        {
-          'extra' => {
-            'command' => {}
-          },
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line_after_command'
-        },
-        {
           'contents' => [
             {
-              'parent' => {},
-              'text' => 'cartouche
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => '
 '
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                }
+              ],
+              'cmdname' => 'code',
+              'contents' => [],
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 1,
+                'macro' => ''
+              },
+              'parent' => {}
             }
           ],
           'parent' => {},
           'type' => 'paragraph'
         },
         {
-          'args' => [
+          'cmdname' => 'cartouche',
+          'contents' => [
+            {
+              'extra' => {
+                'command' => {}
+              },
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line_after_command'
+            },
             {
               'contents' => [
                 {
                   'parent' => {},
-                  'text' => 'cartouche'
+                  'text' => 'cartouche
+'
                 }
               ],
-              'extra' => {
-                'spaces_after_argument' => '
-'
-              },
               'parent' => {},
-              'type' => 'line_arg'
+              'type' => 'paragraph'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'cartouche'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
+                  'parent' => {},
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'end',
+              'extra' => {
+                'command_argument' => 'cartouche',
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'cartouche'
+              },
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 4,
+                'macro' => ''
+              },
+              'parent' => {}
             }
           ],
-          'cmdname' => 'end',
           'extra' => {
-            'command_argument' => 'cartouche',
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'cartouche'
+            'end_command' => {}
           },
           'line_nr' => {
             'file_name' => '',
-            'line_nr' => 4,
+            'line_nr' => 2,
             'macro' => ''
           },
           'parent' => {}
+        },
+        {
+          'parent' => {},
+          'text' => '
+'
         }
       ],
-      'extra' => {
-        'end_command' => {}
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 2,
-        'macro' => ''
-      },
-      'parent' => {}
-    },
-    {
       'parent' => {},
-      'text' => '
-'
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
-$result_trees{'cartouche_in_style_command'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'cartouche_in_style_command'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'cartouche_in_style_command'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'cartouche_in_style_command'}{'contents'}[0]{'contents'}[0];
+$result_trees{'cartouche_in_style_command'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'cartouche_in_style_command'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'cartouche_in_style_command'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'cartouche_in_style_command'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'cartouche_in_style_command'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'cartouche_in_style_command'}{'contents'}[0]{'contents'}[0];
 $result_trees{'cartouche_in_style_command'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'cartouche_in_style_command'}{'contents'}[0];
+$result_trees{'cartouche_in_style_command'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'extra'}{'command'} = $result_trees{'cartouche_in_style_command'}{'contents'}[0]{'contents'}[1];
+$result_trees{'cartouche_in_style_command'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'cartouche_in_style_command'}{'contents'}[0]{'contents'}[1];
+$result_trees{'cartouche_in_style_command'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'cartouche_in_style_command'}{'contents'}[0]{'contents'}[1]{'contents'}[1];
+$result_trees{'cartouche_in_style_command'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'cartouche_in_style_command'}{'contents'}[0]{'contents'}[1];
+$result_trees{'cartouche_in_style_command'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'cartouche_in_style_command'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'args'}[0];
+$result_trees{'cartouche_in_style_command'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'cartouche_in_style_command'}{'contents'}[0]{'contents'}[1]{'contents'}[2];
+$result_trees{'cartouche_in_style_command'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'cartouche_in_style_command'}{'contents'}[0]{'contents'}[1];
+$result_trees{'cartouche_in_style_command'}{'contents'}[0]{'contents'}[1]{'extra'}{'end_command'} = $result_trees{'cartouche_in_style_command'}{'contents'}[0]{'contents'}[1]{'contents'}[2];
+$result_trees{'cartouche_in_style_command'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'cartouche_in_style_command'}{'contents'}[0];
+$result_trees{'cartouche_in_style_command'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'cartouche_in_style_command'}{'contents'}[0];
 $result_trees{'cartouche_in_style_command'}{'contents'}[0]{'parent'} = $result_trees{'cartouche_in_style_command'};
-$result_trees{'cartouche_in_style_command'}{'contents'}[1]{'contents'}[0]{'extra'}{'command'} = $result_trees{'cartouche_in_style_command'}{'contents'}[1];
-$result_trees{'cartouche_in_style_command'}{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'cartouche_in_style_command'}{'contents'}[1];
-$result_trees{'cartouche_in_style_command'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'cartouche_in_style_command'}{'contents'}[1]{'contents'}[1];
-$result_trees{'cartouche_in_style_command'}{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'cartouche_in_style_command'}{'contents'}[1];
-$result_trees{'cartouche_in_style_command'}{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'cartouche_in_style_command'}{'contents'}[1]{'contents'}[2]{'args'}[0];
-$result_trees{'cartouche_in_style_command'}{'contents'}[1]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'cartouche_in_style_command'}{'contents'}[1]{'contents'}[2];
-$result_trees{'cartouche_in_style_command'}{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'cartouche_in_style_command'}{'contents'}[1];
-$result_trees{'cartouche_in_style_command'}{'contents'}[1]{'extra'}{'end_command'} = $result_trees{'cartouche_in_style_command'}{'contents'}[1]{'contents'}[2];
-$result_trees{'cartouche_in_style_command'}{'contents'}[1]{'parent'} = $result_trees{'cartouche_in_style_command'};
-$result_trees{'cartouche_in_style_command'}{'contents'}[2]{'parent'} = $result_trees{'cartouche_in_style_command'};
 
 $result_texis{'cartouche_in_style_command'} = '@code{
 }@cartouche

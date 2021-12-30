@@ -10,93 +10,100 @@ $result_trees{'noindent_in_paragraph'} = {
     {
       'contents' => [
         {
-          'parent' => {},
-          'text' => 'Begin para
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => 'Begin para
 '
+            },
+            {
+              'cmdname' => 'noindent',
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 2,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
+              'extra' => {
+                'command' => {}
+              },
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line_after_command'
+            },
+            {
+              'parent' => {},
+              'text' => 'after noindent.
+'
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
         },
         {
-          'cmdname' => 'noindent',
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 2,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
-          'extra' => {
-            'command' => {}
-          },
           'parent' => {},
           'text' => '
 ',
-          'type' => 'empty_line_after_command'
+          'type' => 'empty_line'
         },
         {
-          'parent' => {},
-          'text' => 'after noindent.
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => 'Begin para2
 '
+            },
+            {
+              'cmdname' => 'noindent',
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 6,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
+              'extra' => {
+                'command' => {}
+              },
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line_after_command'
+            },
+            {
+              'parent' => {},
+              'text' => 'after noindent2.
+'
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
         }
       ],
       'parent' => {},
-      'type' => 'paragraph'
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'contents' => [
-        {
-          'parent' => {},
-          'text' => 'Begin para2
-'
-        },
-        {
-          'cmdname' => 'noindent',
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 6,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
-          'extra' => {
-            'command' => {}
-          },
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line_after_command'
-        },
-        {
-          'parent' => {},
-          'text' => 'after noindent2.
-'
-        }
-      ],
-      'parent' => {},
-      'type' => 'paragraph'
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
+$result_trees{'noindent_in_paragraph'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'noindent_in_paragraph'}{'contents'}[0]{'contents'}[0];
+$result_trees{'noindent_in_paragraph'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'noindent_in_paragraph'}{'contents'}[0]{'contents'}[0];
+$result_trees{'noindent_in_paragraph'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'extra'}{'command'} = $result_trees{'noindent_in_paragraph'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
+$result_trees{'noindent_in_paragraph'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'noindent_in_paragraph'}{'contents'}[0]{'contents'}[0];
+$result_trees{'noindent_in_paragraph'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'noindent_in_paragraph'}{'contents'}[0]{'contents'}[0];
 $result_trees{'noindent_in_paragraph'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'noindent_in_paragraph'}{'contents'}[0];
 $result_trees{'noindent_in_paragraph'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'noindent_in_paragraph'}{'contents'}[0];
-$result_trees{'noindent_in_paragraph'}{'contents'}[0]{'contents'}[2]{'extra'}{'command'} = $result_trees{'noindent_in_paragraph'}{'contents'}[0]{'contents'}[1];
+$result_trees{'noindent_in_paragraph'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'noindent_in_paragraph'}{'contents'}[0]{'contents'}[2];
+$result_trees{'noindent_in_paragraph'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'noindent_in_paragraph'}{'contents'}[0]{'contents'}[2];
+$result_trees{'noindent_in_paragraph'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'extra'}{'command'} = $result_trees{'noindent_in_paragraph'}{'contents'}[0]{'contents'}[2]{'contents'}[1];
+$result_trees{'noindent_in_paragraph'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'noindent_in_paragraph'}{'contents'}[0]{'contents'}[2];
+$result_trees{'noindent_in_paragraph'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'parent'} = $result_trees{'noindent_in_paragraph'}{'contents'}[0]{'contents'}[2];
 $result_trees{'noindent_in_paragraph'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'noindent_in_paragraph'}{'contents'}[0];
-$result_trees{'noindent_in_paragraph'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'noindent_in_paragraph'}{'contents'}[0];
 $result_trees{'noindent_in_paragraph'}{'contents'}[0]{'parent'} = $result_trees{'noindent_in_paragraph'};
-$result_trees{'noindent_in_paragraph'}{'contents'}[1]{'parent'} = $result_trees{'noindent_in_paragraph'};
-$result_trees{'noindent_in_paragraph'}{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'noindent_in_paragraph'}{'contents'}[2];
-$result_trees{'noindent_in_paragraph'}{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'noindent_in_paragraph'}{'contents'}[2];
-$result_trees{'noindent_in_paragraph'}{'contents'}[2]{'contents'}[2]{'extra'}{'command'} = $result_trees{'noindent_in_paragraph'}{'contents'}[2]{'contents'}[1];
-$result_trees{'noindent_in_paragraph'}{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'noindent_in_paragraph'}{'contents'}[2];
-$result_trees{'noindent_in_paragraph'}{'contents'}[2]{'contents'}[3]{'parent'} = $result_trees{'noindent_in_paragraph'}{'contents'}[2];
-$result_trees{'noindent_in_paragraph'}{'contents'}[2]{'parent'} = $result_trees{'noindent_in_paragraph'};
 
 $result_texis{'noindent_in_paragraph'} = 'Begin para
 @noindent

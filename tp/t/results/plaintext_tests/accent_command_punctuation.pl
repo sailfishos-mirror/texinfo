@@ -10,42 +10,49 @@ $result_trees{'accent_command_punctuation'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'contents' => [
             {
-              'contents' => [
+              'args' => [
                 {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'e'
+                    }
+                  ],
                   'parent' => {},
-                  'text' => 'e'
+                  'type' => 'brace_command_arg'
                 }
               ],
+              'cmdname' => 'dotaccent',
+              'contents' => [],
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 1,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
               'parent' => {},
-              'type' => 'brace_command_arg'
+              'text' => ' after'
             }
           ],
-          'cmdname' => 'dotaccent',
-          'contents' => [],
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
           'parent' => {},
-          'text' => ' after'
+          'type' => 'paragraph'
         }
       ],
       'parent' => {},
-      'type' => 'paragraph'
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
-$result_trees{'accent_command_punctuation'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'accent_command_punctuation'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'accent_command_punctuation'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'accent_command_punctuation'}{'contents'}[0]{'contents'}[0];
+$result_trees{'accent_command_punctuation'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'accent_command_punctuation'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'accent_command_punctuation'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'accent_command_punctuation'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'accent_command_punctuation'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'accent_command_punctuation'}{'contents'}[0]{'contents'}[0];
+$result_trees{'accent_command_punctuation'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'accent_command_punctuation'}{'contents'}[0]{'contents'}[0];
 $result_trees{'accent_command_punctuation'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'accent_command_punctuation'}{'contents'}[0];
-$result_trees{'accent_command_punctuation'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'accent_command_punctuation'}{'contents'}[0];
 $result_trees{'accent_command_punctuation'}{'contents'}[0]{'parent'} = $result_trees{'accent_command_punctuation'};
 
 $result_texis{'accent_command_punctuation'} = '@dotaccent{e} after';

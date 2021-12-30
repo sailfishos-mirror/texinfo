@@ -10,149 +10,156 @@ $result_trees{'paragraph_in_style_command'} = {
     {
       'contents' => [
         {
-          'parent' => {},
-          'text' => 'a 2 paragraphs sample '
-        },
-        {
-          'args' => [
+          'contents' => [
             {
-              'contents' => [
+              'parent' => {},
+              'text' => 'a 2 paragraphs sample '
+            },
+            {
+              'args' => [
                 {
-                  'parent' => {},
-                  'text' => 'in first paragraph
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'in first paragraph
 '
-                },
-                {
-                  'parent' => {},
-                  'text' => '
+                    },
+                    {
+                      'parent' => {},
+                      'text' => '
 ',
-                  'type' => 'empty_line'
+                      'type' => 'empty_line'
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
                 }
               ],
-              'parent' => {},
-              'type' => 'brace_command_arg'
+              'cmdname' => 'samp',
+              'contents' => [],
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 1,
+                'macro' => ''
+              },
+              'parent' => {}
             }
           ],
-          'cmdname' => 'samp',
-          'contents' => [],
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
-          },
-          'parent' => {}
-        }
-      ],
-      'parent' => {},
-      'type' => 'paragraph'
-    },
-    {
-      'contents' => [
-        {
           'parent' => {},
-          'text' => 'in second.
-'
-        }
-      ],
-      'parent' => {},
-      'type' => 'paragraph'
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'contents' => [
-        {
-          'parent' => {},
-          'text' => 'a 3 paragraphs sample '
+          'type' => 'paragraph'
         },
         {
-          'args' => [
+          'contents' => [
             {
-              'contents' => [
-                {
-                  'parent' => {},
-                  'text' => 'in first paragraph
-'
-                },
-                {
-                  'parent' => {},
-                  'text' => '
-',
-                  'type' => 'empty_line'
-                }
-              ],
               'parent' => {},
-              'type' => 'brace_command_arg'
+              'text' => 'in second.
+'
             }
           ],
-          'cmdname' => 'samp',
-          'contents' => [],
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 5,
-            'macro' => ''
-          },
-          'parent' => {}
-        }
-      ],
-      'parent' => {},
-      'type' => 'paragraph'
-    },
-    {
-      'contents' => [
+          'parent' => {},
+          'type' => 'paragraph'
+        },
         {
           'parent' => {},
-          'text' => 'in second
-'
-        }
-      ],
-      'parent' => {},
-      'type' => 'paragraph'
-    },
-    {
-      'parent' => {},
-      'text' => '
+          'text' => '
 ',
-      'type' => 'empty_line'
-    },
-    {
-      'contents' => [
+          'type' => 'empty_line'
+        },
+        {
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => 'a 3 paragraphs sample '
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'in first paragraph
+'
+                    },
+                    {
+                      'parent' => {},
+                      'text' => '
+',
+                      'type' => 'empty_line'
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                }
+              ],
+              'cmdname' => 'samp',
+              'contents' => [],
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 5,
+                'macro' => ''
+              },
+              'parent' => {}
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
+        },
+        {
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => 'in second
+'
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
+        },
         {
           'parent' => {},
-          'text' => 'in third.
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => 'in third.
 '
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
         }
       ],
       'parent' => {},
-      'type' => 'paragraph'
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
+$result_trees{'paragraph_in_style_command'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'paragraph_in_style_command'}{'contents'}[0]{'contents'}[0];
+$result_trees{'paragraph_in_style_command'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'paragraph_in_style_command'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
+$result_trees{'paragraph_in_style_command'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'paragraph_in_style_command'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
+$result_trees{'paragraph_in_style_command'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'paragraph_in_style_command'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
+$result_trees{'paragraph_in_style_command'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'paragraph_in_style_command'}{'contents'}[0]{'contents'}[0];
 $result_trees{'paragraph_in_style_command'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'paragraph_in_style_command'}{'contents'}[0];
-$result_trees{'paragraph_in_style_command'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'paragraph_in_style_command'}{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'paragraph_in_style_command'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'paragraph_in_style_command'}{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'paragraph_in_style_command'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'paragraph_in_style_command'}{'contents'}[0]{'contents'}[1];
+$result_trees{'paragraph_in_style_command'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'paragraph_in_style_command'}{'contents'}[0]{'contents'}[1];
 $result_trees{'paragraph_in_style_command'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'paragraph_in_style_command'}{'contents'}[0];
+$result_trees{'paragraph_in_style_command'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'paragraph_in_style_command'}{'contents'}[0];
+$result_trees{'paragraph_in_style_command'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'paragraph_in_style_command'}{'contents'}[0]{'contents'}[3];
+$result_trees{'paragraph_in_style_command'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'paragraph_in_style_command'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0];
+$result_trees{'paragraph_in_style_command'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'paragraph_in_style_command'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0];
+$result_trees{'paragraph_in_style_command'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'paragraph_in_style_command'}{'contents'}[0]{'contents'}[3]{'contents'}[1];
+$result_trees{'paragraph_in_style_command'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'paragraph_in_style_command'}{'contents'}[0]{'contents'}[3];
+$result_trees{'paragraph_in_style_command'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'paragraph_in_style_command'}{'contents'}[0];
+$result_trees{'paragraph_in_style_command'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'paragraph_in_style_command'}{'contents'}[0]{'contents'}[4];
+$result_trees{'paragraph_in_style_command'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'paragraph_in_style_command'}{'contents'}[0];
+$result_trees{'paragraph_in_style_command'}{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'paragraph_in_style_command'}{'contents'}[0];
+$result_trees{'paragraph_in_style_command'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'parent'} = $result_trees{'paragraph_in_style_command'}{'contents'}[0]{'contents'}[6];
+$result_trees{'paragraph_in_style_command'}{'contents'}[0]{'contents'}[6]{'parent'} = $result_trees{'paragraph_in_style_command'}{'contents'}[0];
 $result_trees{'paragraph_in_style_command'}{'contents'}[0]{'parent'} = $result_trees{'paragraph_in_style_command'};
-$result_trees{'paragraph_in_style_command'}{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'paragraph_in_style_command'}{'contents'}[1];
-$result_trees{'paragraph_in_style_command'}{'contents'}[1]{'parent'} = $result_trees{'paragraph_in_style_command'};
-$result_trees{'paragraph_in_style_command'}{'contents'}[2]{'parent'} = $result_trees{'paragraph_in_style_command'};
-$result_trees{'paragraph_in_style_command'}{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'paragraph_in_style_command'}{'contents'}[3];
-$result_trees{'paragraph_in_style_command'}{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'paragraph_in_style_command'}{'contents'}[3]{'contents'}[1]{'args'}[0];
-$result_trees{'paragraph_in_style_command'}{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'paragraph_in_style_command'}{'contents'}[3]{'contents'}[1]{'args'}[0];
-$result_trees{'paragraph_in_style_command'}{'contents'}[3]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'paragraph_in_style_command'}{'contents'}[3]{'contents'}[1];
-$result_trees{'paragraph_in_style_command'}{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'paragraph_in_style_command'}{'contents'}[3];
-$result_trees{'paragraph_in_style_command'}{'contents'}[3]{'parent'} = $result_trees{'paragraph_in_style_command'};
-$result_trees{'paragraph_in_style_command'}{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'paragraph_in_style_command'}{'contents'}[4];
-$result_trees{'paragraph_in_style_command'}{'contents'}[4]{'parent'} = $result_trees{'paragraph_in_style_command'};
-$result_trees{'paragraph_in_style_command'}{'contents'}[5]{'parent'} = $result_trees{'paragraph_in_style_command'};
-$result_trees{'paragraph_in_style_command'}{'contents'}[6]{'contents'}[0]{'parent'} = $result_trees{'paragraph_in_style_command'}{'contents'}[6];
-$result_trees{'paragraph_in_style_command'}{'contents'}[6]{'parent'} = $result_trees{'paragraph_in_style_command'};
 
 $result_texis{'paragraph_in_style_command'} = 'a 2 paragraphs sample @samp{in first paragraph
 

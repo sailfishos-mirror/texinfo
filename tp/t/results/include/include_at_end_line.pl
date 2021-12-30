@@ -8,61 +8,68 @@ use utf8;
 $result_trees{'include_at_end_line'} = {
   'contents' => [
     {
-      'args' => [
+      'contents' => [
+        {
+          'args' => [
+            {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => 'inc_file.texi'
+                },
+                {
+                  'cmdname' => '
+',
+                  'parent' => {}
+                }
+              ],
+              'parent' => {},
+              'type' => 'line_arg'
+            }
+          ],
+          'cmdname' => 'include',
+          'extra' => {
+            'spaces_before_argument' => ' ',
+            'text_arg' => 'inc_file.texi'
+          },
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 1,
+            'macro' => ''
+          },
+          'parent' => {}
+        },
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
         {
           'contents' => [
             {
               'parent' => {},
-              'text' => 'inc_file.texi'
-            },
-            {
-              'cmdname' => '
-',
-              'parent' => {}
+              'text' => 'After.'
             }
           ],
           'parent' => {},
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'include',
-      'extra' => {
-        'spaces_before_argument' => ' ',
-        'text_arg' => 'inc_file.texi'
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
-      },
-      'parent' => {}
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'contents' => [
-        {
-          'parent' => {},
-          'text' => 'After.'
+          'type' => 'paragraph'
         }
       ],
       'parent' => {},
-      'type' => 'paragraph'
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
-$result_trees{'include_at_end_line'}{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'include_at_end_line'}{'contents'}[0]{'args'}[0];
-$result_trees{'include_at_end_line'}{'contents'}[0]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'include_at_end_line'}{'contents'}[0]{'args'}[0];
-$result_trees{'include_at_end_line'}{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'include_at_end_line'}{'contents'}[0];
+$result_trees{'include_at_end_line'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'include_at_end_line'}{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'include_at_end_line'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'include_at_end_line'}{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'include_at_end_line'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'include_at_end_line'}{'contents'}[0]{'contents'}[0];
+$result_trees{'include_at_end_line'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'include_at_end_line'}{'contents'}[0];
+$result_trees{'include_at_end_line'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'include_at_end_line'}{'contents'}[0];
+$result_trees{'include_at_end_line'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'include_at_end_line'}{'contents'}[0]{'contents'}[2];
+$result_trees{'include_at_end_line'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'include_at_end_line'}{'contents'}[0];
 $result_trees{'include_at_end_line'}{'contents'}[0]{'parent'} = $result_trees{'include_at_end_line'};
-$result_trees{'include_at_end_line'}{'contents'}[1]{'parent'} = $result_trees{'include_at_end_line'};
-$result_trees{'include_at_end_line'}{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'include_at_end_line'}{'contents'}[2];
-$result_trees{'include_at_end_line'}{'contents'}[2]{'parent'} = $result_trees{'include_at_end_line'};
 
 $result_texis{'include_at_end_line'} = '@include inc_file.texi@
 

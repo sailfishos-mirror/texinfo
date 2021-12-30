@@ -8,61 +8,68 @@ use utf8;
 $result_trees{'menu_no_closed_in_entry'} = {
   'contents' => [
     {
-      'cmdname' => 'menu',
       'contents' => [
         {
-          'extra' => {
-            'command' => {}
-          },
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line_after_command'
-        },
-        {
-          'args' => [
+          'cmdname' => 'menu',
+          'contents' => [
             {
+              'extra' => {
+                'command' => {}
+              },
               'parent' => {},
-              'text' => '* ',
-              'type' => 'menu_entry_leading_text'
+              'text' => '
+',
+              'type' => 'empty_line_after_command'
             },
             {
-              'contents' => [
+              'args' => [
                 {
                   'parent' => {},
-                  'text' => 'a1'
+                  'text' => '* ',
+                  'type' => 'menu_entry_leading_text'
+                },
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'a1'
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'menu_entry_name'
+                },
+                {
+                  'parent' => {},
+                  'text' => ':',
+                  'type' => 'menu_entry_separator'
                 }
               ],
               'parent' => {},
-              'type' => 'menu_entry_name'
-            },
-            {
-              'parent' => {},
-              'text' => ':',
-              'type' => 'menu_entry_separator'
+              'type' => 'menu_entry'
             }
           ],
-          'parent' => {},
-          'type' => 'menu_entry'
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 1,
+            'macro' => ''
+          },
+          'parent' => {}
         }
       ],
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
-      },
-      'parent' => {}
+      'parent' => {},
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
-$result_trees{'menu_no_closed_in_entry'}{'contents'}[0]{'contents'}[0]{'extra'}{'command'} = $result_trees{'menu_no_closed_in_entry'}{'contents'}[0];
+$result_trees{'menu_no_closed_in_entry'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'command'} = $result_trees{'menu_no_closed_in_entry'}{'contents'}[0]{'contents'}[0];
+$result_trees{'menu_no_closed_in_entry'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'menu_no_closed_in_entry'}{'contents'}[0]{'contents'}[0];
+$result_trees{'menu_no_closed_in_entry'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'menu_no_closed_in_entry'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
+$result_trees{'menu_no_closed_in_entry'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'menu_no_closed_in_entry'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[1];
+$result_trees{'menu_no_closed_in_entry'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[1]{'parent'} = $result_trees{'menu_no_closed_in_entry'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
+$result_trees{'menu_no_closed_in_entry'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[2]{'parent'} = $result_trees{'menu_no_closed_in_entry'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
+$result_trees{'menu_no_closed_in_entry'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'menu_no_closed_in_entry'}{'contents'}[0]{'contents'}[0];
 $result_trees{'menu_no_closed_in_entry'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'menu_no_closed_in_entry'}{'contents'}[0];
-$result_trees{'menu_no_closed_in_entry'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'menu_no_closed_in_entry'}{'contents'}[0]{'contents'}[1];
-$result_trees{'menu_no_closed_in_entry'}{'contents'}[0]{'contents'}[1]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'menu_no_closed_in_entry'}{'contents'}[0]{'contents'}[1]{'args'}[1];
-$result_trees{'menu_no_closed_in_entry'}{'contents'}[0]{'contents'}[1]{'args'}[1]{'parent'} = $result_trees{'menu_no_closed_in_entry'}{'contents'}[0]{'contents'}[1];
-$result_trees{'menu_no_closed_in_entry'}{'contents'}[0]{'contents'}[1]{'args'}[2]{'parent'} = $result_trees{'menu_no_closed_in_entry'}{'contents'}[0]{'contents'}[1];
-$result_trees{'menu_no_closed_in_entry'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'menu_no_closed_in_entry'}{'contents'}[0];
 $result_trees{'menu_no_closed_in_entry'}{'contents'}[0]{'parent'} = $result_trees{'menu_no_closed_in_entry'};
 
 $result_texis{'menu_no_closed_in_entry'} = '@menu

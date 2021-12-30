@@ -8,55 +8,62 @@ use utf8;
 $result_trees{'spaces_before_value'} = {
   'contents' => [
     {
-      'args' => [
+      'contents' => [
         {
-          'parent' => {},
-          'text' => 'var',
-          'type' => 'misc_arg'
+          'args' => [
+            {
+              'parent' => {},
+              'text' => 'var',
+              'type' => 'misc_arg'
+            },
+            {
+              'parent' => {},
+              'text' => 'val',
+              'type' => 'misc_arg'
+            }
+          ],
+          'cmdname' => 'set',
+          'extra' => {
+            'arg_line' => ' var val
+',
+            'misc_args' => [
+              'var',
+              'val'
+            ]
+          },
+          'parent' => {}
         },
         {
           'parent' => {},
-          'text' => 'val',
-          'type' => 'misc_arg'
-        }
-      ],
-      'cmdname' => 'set',
-      'extra' => {
-        'arg_line' => ' var val
+          'text' => '
 ',
-        'misc_args' => [
-          'var',
-          'val'
-        ]
-      },
-      'parent' => {}
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'contents' => [
+          'type' => 'empty_line'
+        },
         {
-          'parent' => {},
-          'text' => 'val
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => 'val
 '
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
         }
       ],
       'parent' => {},
-      'type' => 'paragraph'
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
-$result_trees{'spaces_before_value'}{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'spaces_before_value'}{'contents'}[0];
-$result_trees{'spaces_before_value'}{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'spaces_before_value'}{'contents'}[0];
+$result_trees{'spaces_before_value'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'spaces_before_value'}{'contents'}[0]{'contents'}[0];
+$result_trees{'spaces_before_value'}{'contents'}[0]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'spaces_before_value'}{'contents'}[0]{'contents'}[0];
+$result_trees{'spaces_before_value'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'spaces_before_value'}{'contents'}[0];
+$result_trees{'spaces_before_value'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'spaces_before_value'}{'contents'}[0];
+$result_trees{'spaces_before_value'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'spaces_before_value'}{'contents'}[0]{'contents'}[2];
+$result_trees{'spaces_before_value'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'spaces_before_value'}{'contents'}[0];
 $result_trees{'spaces_before_value'}{'contents'}[0]{'parent'} = $result_trees{'spaces_before_value'};
-$result_trees{'spaces_before_value'}{'contents'}[1]{'parent'} = $result_trees{'spaces_before_value'};
-$result_trees{'spaces_before_value'}{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'spaces_before_value'}{'contents'}[2];
-$result_trees{'spaces_before_value'}{'contents'}[2]{'parent'} = $result_trees{'spaces_before_value'};
 
 $result_texis{'spaces_before_value'} = '@set var val
 

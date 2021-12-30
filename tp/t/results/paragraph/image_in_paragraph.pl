@@ -10,99 +10,106 @@ $result_trees{'image_in_paragraph'} = {
     {
       'contents' => [
         {
-          'parent' => {},
-          'text' => 'Para. '
-        },
-        {
-          'args' => [
+          'contents' => [
             {
-              'contents' => [
-                {
-                  'parent' => {},
-                  'text' => 'aa'
-                }
-              ],
               'parent' => {},
-              'type' => 'brace_command_arg'
+              'text' => 'Para. '
             },
             {
-              'contents' => [
+              'args' => [
                 {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'aa'
+                    }
+                  ],
                   'parent' => {},
-                  'text' => 'bb'
+                  'type' => 'brace_command_arg'
+                },
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'bb'
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                },
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'cc'
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                },
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'dd'
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                },
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => '.ee'
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
                 }
               ],
-              'parent' => {},
-              'type' => 'brace_command_arg'
+              'cmdname' => 'image',
+              'contents' => [],
+              'extra' => {
+                'input_perl_encoding' => 'utf-8'
+              },
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 1,
+                'macro' => ''
+              },
+              'parent' => {}
             },
             {
-              'contents' => [
-                {
-                  'parent' => {},
-                  'text' => 'cc'
-                }
-              ],
               'parent' => {},
-              'type' => 'brace_command_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'parent' => {},
-                  'text' => 'dd'
-                }
-              ],
-              'parent' => {},
-              'type' => 'brace_command_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'parent' => {},
-                  'text' => '.ee'
-                }
-              ],
-              'parent' => {},
-              'type' => 'brace_command_arg'
+              'text' => '. After image.
+'
             }
           ],
-          'cmdname' => 'image',
-          'contents' => [],
-          'extra' => {
-            'input_perl_encoding' => 'utf-8'
-          },
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
           'parent' => {},
-          'text' => '. After image.
-'
+          'type' => 'paragraph'
         }
       ],
       'parent' => {},
-      'type' => 'paragraph'
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
+$result_trees{'image_in_paragraph'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'image_in_paragraph'}{'contents'}[0]{'contents'}[0];
+$result_trees{'image_in_paragraph'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'image_in_paragraph'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
+$result_trees{'image_in_paragraph'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'image_in_paragraph'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
+$result_trees{'image_in_paragraph'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'image_in_paragraph'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[1];
+$result_trees{'image_in_paragraph'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[1]{'parent'} = $result_trees{'image_in_paragraph'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
+$result_trees{'image_in_paragraph'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[2]{'contents'}[0]{'parent'} = $result_trees{'image_in_paragraph'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[2];
+$result_trees{'image_in_paragraph'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[2]{'parent'} = $result_trees{'image_in_paragraph'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
+$result_trees{'image_in_paragraph'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[3]{'contents'}[0]{'parent'} = $result_trees{'image_in_paragraph'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[3];
+$result_trees{'image_in_paragraph'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[3]{'parent'} = $result_trees{'image_in_paragraph'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
+$result_trees{'image_in_paragraph'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[4]{'contents'}[0]{'parent'} = $result_trees{'image_in_paragraph'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[4];
+$result_trees{'image_in_paragraph'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[4]{'parent'} = $result_trees{'image_in_paragraph'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
+$result_trees{'image_in_paragraph'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'image_in_paragraph'}{'contents'}[0]{'contents'}[0];
+$result_trees{'image_in_paragraph'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'image_in_paragraph'}{'contents'}[0]{'contents'}[0];
 $result_trees{'image_in_paragraph'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'image_in_paragraph'}{'contents'}[0];
-$result_trees{'image_in_paragraph'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'image_in_paragraph'}{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'image_in_paragraph'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'image_in_paragraph'}{'contents'}[0]{'contents'}[1];
-$result_trees{'image_in_paragraph'}{'contents'}[0]{'contents'}[1]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'image_in_paragraph'}{'contents'}[0]{'contents'}[1]{'args'}[1];
-$result_trees{'image_in_paragraph'}{'contents'}[0]{'contents'}[1]{'args'}[1]{'parent'} = $result_trees{'image_in_paragraph'}{'contents'}[0]{'contents'}[1];
-$result_trees{'image_in_paragraph'}{'contents'}[0]{'contents'}[1]{'args'}[2]{'contents'}[0]{'parent'} = $result_trees{'image_in_paragraph'}{'contents'}[0]{'contents'}[1]{'args'}[2];
-$result_trees{'image_in_paragraph'}{'contents'}[0]{'contents'}[1]{'args'}[2]{'parent'} = $result_trees{'image_in_paragraph'}{'contents'}[0]{'contents'}[1];
-$result_trees{'image_in_paragraph'}{'contents'}[0]{'contents'}[1]{'args'}[3]{'contents'}[0]{'parent'} = $result_trees{'image_in_paragraph'}{'contents'}[0]{'contents'}[1]{'args'}[3];
-$result_trees{'image_in_paragraph'}{'contents'}[0]{'contents'}[1]{'args'}[3]{'parent'} = $result_trees{'image_in_paragraph'}{'contents'}[0]{'contents'}[1];
-$result_trees{'image_in_paragraph'}{'contents'}[0]{'contents'}[1]{'args'}[4]{'contents'}[0]{'parent'} = $result_trees{'image_in_paragraph'}{'contents'}[0]{'contents'}[1]{'args'}[4];
-$result_trees{'image_in_paragraph'}{'contents'}[0]{'contents'}[1]{'args'}[4]{'parent'} = $result_trees{'image_in_paragraph'}{'contents'}[0]{'contents'}[1];
-$result_trees{'image_in_paragraph'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'image_in_paragraph'}{'contents'}[0];
-$result_trees{'image_in_paragraph'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'image_in_paragraph'}{'contents'}[0];
 $result_trees{'image_in_paragraph'}{'contents'}[0]{'parent'} = $result_trees{'image_in_paragraph'};
 
 $result_texis{'image_in_paragraph'} = 'Para. @image{aa,bb,cc,dd,.ee}. After image.

@@ -8,14 +8,21 @@ use utf8;
 $result_trees{'bad_ifclear_argument'} = {
   'contents' => [
     {
-      'parent' => {},
-      'text' => '
+      'contents' => [
+        {
+          'parent' => {},
+          'text' => '
 ',
-      'type' => 'empty_line'
+          'type' => 'empty_line'
+        }
+      ],
+      'parent' => {},
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
+$result_trees{'bad_ifclear_argument'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'bad_ifclear_argument'}{'contents'}[0];
 $result_trees{'bad_ifclear_argument'}{'contents'}[0]{'parent'} = $result_trees{'bad_ifclear_argument'};
 
 $result_texis{'bad_ifclear_argument'} = '

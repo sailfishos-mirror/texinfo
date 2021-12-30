@@ -8,73 +8,113 @@ use utf8;
 $result_trees{'quotation_author_in_example'} = {
   'contents' => [
     {
-      'args' => [
-        {
-          'contents' => [
-            {
-              'parent' => {},
-              'text' => 'quotation_author_in_example.info'
-            }
-          ],
-          'extra' => {
-            'spaces_after_argument' => '
-'
-          },
-          'parent' => {},
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'setfilename',
-      'extra' => {
-        'spaces_before_argument' => ' ',
-        'text_arg' => 'quotation_author_in_example.info'
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
-      },
-      'parent' => {}
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'cmdname' => 'example',
       'contents' => [
         {
+          'args' => [
+            {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => 'quotation_author_in_example.info'
+                }
+              ],
+              'extra' => {
+                'spaces_after_argument' => '
+'
+              },
+              'parent' => {},
+              'type' => 'line_arg'
+            }
+          ],
+          'cmdname' => 'setfilename',
           'extra' => {
-            'command' => {}
+            'spaces_before_argument' => ' ',
+            'text_arg' => 'quotation_author_in_example.info'
           },
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 1,
+            'macro' => ''
+          },
+          'parent' => {}
+        },
+        {
           'parent' => {},
           'text' => '
 ',
-          'type' => 'empty_line_after_command'
+          'type' => 'empty_line'
         },
         {
-          'cmdname' => 'quotation',
+          'cmdname' => 'example',
           'contents' => [
             {
               'extra' => {
                 'command' => {}
               },
               'parent' => {},
-              'text' => ' 
+              'text' => '
 ',
               'type' => 'empty_line_after_command'
             },
             {
+              'cmdname' => 'quotation',
               'contents' => [
+                {
+                  'extra' => {
+                    'command' => {}
+                  },
+                  'parent' => {},
+                  'text' => ' 
+',
+                  'type' => 'empty_line_after_command'
+                },
+                {
+                  'contents' => [
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'parent' => {},
+                              'text' => 'Some One'
+                            }
+                          ],
+                          'extra' => {
+                            'spaces_after_argument' => '
+'
+                          },
+                          'parent' => {},
+                          'type' => 'line_arg'
+                        }
+                      ],
+                      'cmdname' => 'author',
+                      'extra' => {
+                        'quotation' => {},
+                        'spaces_before_argument' => ' '
+                      },
+                      'line_nr' => {
+                        'file_name' => '',
+                        'line_nr' => 5,
+                        'macro' => ''
+                      },
+                      'parent' => {}
+                    },
+                    {
+                      'parent' => {},
+                      'text' => 'A quot---ation
+'
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'preformatted'
+                },
                 {
                   'args' => [
                     {
                       'contents' => [
                         {
                           'parent' => {},
-                          'text' => 'Some One'
+                          'text' => 'quotation'
                         }
                       ],
                       'extra' => {
@@ -85,26 +125,32 @@ $result_trees{'quotation_author_in_example'} = {
                       'type' => 'line_arg'
                     }
                   ],
-                  'cmdname' => 'author',
+                  'cmdname' => 'end',
                   'extra' => {
-                    'quotation' => {},
-                    'spaces_before_argument' => ' '
+                    'command_argument' => 'quotation',
+                    'spaces_before_argument' => ' ',
+                    'text_arg' => 'quotation'
                   },
                   'line_nr' => {
                     'file_name' => '',
-                    'line_nr' => 5,
+                    'line_nr' => 7,
                     'macro' => ''
                   },
                   'parent' => {}
-                },
-                {
-                  'parent' => {},
-                  'text' => 'A quot---ation
-'
                 }
               ],
-              'parent' => {},
-              'type' => 'preformatted'
+              'extra' => {
+                'authors' => [
+                  {}
+                ],
+                'end_command' => {}
+              },
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 4,
+                'macro' => ''
+              },
+              'parent' => {}
             },
             {
               'args' => [
@@ -112,7 +158,7 @@ $result_trees{'quotation_author_in_example'} = {
                   'contents' => [
                     {
                       'parent' => {},
-                      'text' => 'quotation'
+                      'text' => 'example'
                     }
                   ],
                   'extra' => {
@@ -125,100 +171,61 @@ $result_trees{'quotation_author_in_example'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'quotation',
+                'command_argument' => 'example',
                 'spaces_before_argument' => ' ',
-                'text_arg' => 'quotation'
+                'text_arg' => 'example'
               },
               'line_nr' => {
                 'file_name' => '',
-                'line_nr' => 7,
+                'line_nr' => 8,
                 'macro' => ''
               },
               'parent' => {}
             }
           ],
           'extra' => {
-            'authors' => [
-              {}
-            ],
             'end_command' => {}
           },
           'line_nr' => {
             'file_name' => '',
-            'line_nr' => 4,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'contents' => [
-                {
-                  'parent' => {},
-                  'text' => 'example'
-                }
-              ],
-              'extra' => {
-                'spaces_after_argument' => '
-'
-              },
-              'parent' => {},
-              'type' => 'line_arg'
-            }
-          ],
-          'cmdname' => 'end',
-          'extra' => {
-            'command_argument' => 'example',
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'example'
-          },
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 8,
+            'line_nr' => 3,
             'macro' => ''
           },
           'parent' => {}
         }
       ],
-      'extra' => {
-        'end_command' => {}
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 3,
-        'macro' => ''
-      },
-      'parent' => {}
+      'parent' => {},
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
-$result_trees{'quotation_author_in_example'}{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'quotation_author_in_example'}{'contents'}[0]{'args'}[0];
-$result_trees{'quotation_author_in_example'}{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'quotation_author_in_example'}{'contents'}[0];
+$result_trees{'quotation_author_in_example'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'quotation_author_in_example'}{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'quotation_author_in_example'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'quotation_author_in_example'}{'contents'}[0]{'contents'}[0];
+$result_trees{'quotation_author_in_example'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'quotation_author_in_example'}{'contents'}[0];
+$result_trees{'quotation_author_in_example'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'quotation_author_in_example'}{'contents'}[0];
+$result_trees{'quotation_author_in_example'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'extra'}{'command'} = $result_trees{'quotation_author_in_example'}{'contents'}[0]{'contents'}[2];
+$result_trees{'quotation_author_in_example'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'quotation_author_in_example'}{'contents'}[0]{'contents'}[2];
+$result_trees{'quotation_author_in_example'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'command'} = $result_trees{'quotation_author_in_example'}{'contents'}[0]{'contents'}[2]{'contents'}[1];
+$result_trees{'quotation_author_in_example'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'quotation_author_in_example'}{'contents'}[0]{'contents'}[2]{'contents'}[1];
+$result_trees{'quotation_author_in_example'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'quotation_author_in_example'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[0];
+$result_trees{'quotation_author_in_example'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'quotation_author_in_example'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'quotation_author_in_example'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'extra'}{'quotation'} = $result_trees{'quotation_author_in_example'}{'contents'}[0]{'contents'}[2]{'contents'}[1];
+$result_trees{'quotation_author_in_example'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'quotation_author_in_example'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[1];
+$result_trees{'quotation_author_in_example'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'quotation_author_in_example'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[1];
+$result_trees{'quotation_author_in_example'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'quotation_author_in_example'}{'contents'}[0]{'contents'}[2]{'contents'}[1];
+$result_trees{'quotation_author_in_example'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'quotation_author_in_example'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[2]{'args'}[0];
+$result_trees{'quotation_author_in_example'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'quotation_author_in_example'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[2];
+$result_trees{'quotation_author_in_example'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'quotation_author_in_example'}{'contents'}[0]{'contents'}[2]{'contents'}[1];
+$result_trees{'quotation_author_in_example'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'extra'}{'authors'}[0] = $result_trees{'quotation_author_in_example'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0];
+$result_trees{'quotation_author_in_example'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'extra'}{'end_command'} = $result_trees{'quotation_author_in_example'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[2];
+$result_trees{'quotation_author_in_example'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'quotation_author_in_example'}{'contents'}[0]{'contents'}[2];
+$result_trees{'quotation_author_in_example'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'quotation_author_in_example'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'args'}[0];
+$result_trees{'quotation_author_in_example'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'quotation_author_in_example'}{'contents'}[0]{'contents'}[2]{'contents'}[2];
+$result_trees{'quotation_author_in_example'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'quotation_author_in_example'}{'contents'}[0]{'contents'}[2];
+$result_trees{'quotation_author_in_example'}{'contents'}[0]{'contents'}[2]{'extra'}{'end_command'} = $result_trees{'quotation_author_in_example'}{'contents'}[0]{'contents'}[2]{'contents'}[2];
+$result_trees{'quotation_author_in_example'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'quotation_author_in_example'}{'contents'}[0];
 $result_trees{'quotation_author_in_example'}{'contents'}[0]{'parent'} = $result_trees{'quotation_author_in_example'};
-$result_trees{'quotation_author_in_example'}{'contents'}[1]{'parent'} = $result_trees{'quotation_author_in_example'};
-$result_trees{'quotation_author_in_example'}{'contents'}[2]{'contents'}[0]{'extra'}{'command'} = $result_trees{'quotation_author_in_example'}{'contents'}[2];
-$result_trees{'quotation_author_in_example'}{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'quotation_author_in_example'}{'contents'}[2];
-$result_trees{'quotation_author_in_example'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'command'} = $result_trees{'quotation_author_in_example'}{'contents'}[2]{'contents'}[1];
-$result_trees{'quotation_author_in_example'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'quotation_author_in_example'}{'contents'}[2]{'contents'}[1];
-$result_trees{'quotation_author_in_example'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'quotation_author_in_example'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[0];
-$result_trees{'quotation_author_in_example'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'quotation_author_in_example'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'quotation_author_in_example'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'extra'}{'quotation'} = $result_trees{'quotation_author_in_example'}{'contents'}[2]{'contents'}[1];
-$result_trees{'quotation_author_in_example'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'quotation_author_in_example'}{'contents'}[2]{'contents'}[1]{'contents'}[1];
-$result_trees{'quotation_author_in_example'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'quotation_author_in_example'}{'contents'}[2]{'contents'}[1]{'contents'}[1];
-$result_trees{'quotation_author_in_example'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'quotation_author_in_example'}{'contents'}[2]{'contents'}[1];
-$result_trees{'quotation_author_in_example'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'quotation_author_in_example'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'args'}[0];
-$result_trees{'quotation_author_in_example'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'quotation_author_in_example'}{'contents'}[2]{'contents'}[1]{'contents'}[2];
-$result_trees{'quotation_author_in_example'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'quotation_author_in_example'}{'contents'}[2]{'contents'}[1];
-$result_trees{'quotation_author_in_example'}{'contents'}[2]{'contents'}[1]{'extra'}{'authors'}[0] = $result_trees{'quotation_author_in_example'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0];
-$result_trees{'quotation_author_in_example'}{'contents'}[2]{'contents'}[1]{'extra'}{'end_command'} = $result_trees{'quotation_author_in_example'}{'contents'}[2]{'contents'}[1]{'contents'}[2];
-$result_trees{'quotation_author_in_example'}{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'quotation_author_in_example'}{'contents'}[2];
-$result_trees{'quotation_author_in_example'}{'contents'}[2]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'quotation_author_in_example'}{'contents'}[2]{'contents'}[2]{'args'}[0];
-$result_trees{'quotation_author_in_example'}{'contents'}[2]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'quotation_author_in_example'}{'contents'}[2]{'contents'}[2];
-$result_trees{'quotation_author_in_example'}{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'quotation_author_in_example'}{'contents'}[2];
-$result_trees{'quotation_author_in_example'}{'contents'}[2]{'extra'}{'end_command'} = $result_trees{'quotation_author_in_example'}{'contents'}[2]{'contents'}[2];
-$result_trees{'quotation_author_in_example'}{'contents'}[2]{'parent'} = $result_trees{'quotation_author_in_example'};
 
 $result_texis{'quotation_author_in_example'} = '@setfilename quotation_author_in_example.info
 

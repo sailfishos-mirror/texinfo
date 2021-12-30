@@ -8,118 +8,125 @@ use utf8;
 $result_trees{'block_command_alias'} = {
   'contents' => [
     {
-      'args' => [
-        {
-          'contents' => [
-            {
-              'parent' => {},
-              'text' => 'lang=lisp'
-            }
-          ],
-          'extra' => {
-            'spaces_after_argument' => '
-'
-          },
-          'parent' => {},
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'alias',
-      'extra' => {
-        'misc_args' => [
-          'lang',
-          'lisp'
-        ],
-        'spaces_before_argument' => ' '
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
-      },
-      'parent' => {}
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'cmdname' => 'lisp',
       'contents' => [
         {
+          'args' => [
+            {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => 'lang=lisp'
+                }
+              ],
+              'extra' => {
+                'spaces_after_argument' => '
+'
+              },
+              'parent' => {},
+              'type' => 'line_arg'
+            }
+          ],
+          'cmdname' => 'alias',
           'extra' => {
-            'command' => {}
+            'misc_args' => [
+              'lang',
+              'lisp'
+            ],
+            'spaces_before_argument' => ' '
           },
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 1,
+            'macro' => ''
+          },
+          'parent' => {}
+        },
+        {
           'parent' => {},
           'text' => '
 ',
-          'type' => 'empty_line_after_command'
+          'type' => 'empty_line'
         },
         {
+          'cmdname' => 'lisp',
           'contents' => [
             {
+              'extra' => {
+                'command' => {}
+              },
               'parent' => {},
-              'text' => 'in lang
-'
+              'text' => '
+',
+              'type' => 'empty_line_after_command'
             },
             {
-              'args' => [
+              'contents' => [
                 {
-                  'contents' => [
+                  'parent' => {},
+                  'text' => 'in lang
+'
+                },
+                {
+                  'args' => [
                     {
+                      'contents' => [
+                        {
+                          'parent' => {},
+                          'text' => 'lang'
+                        }
+                      ],
+                      'extra' => {
+                        'spaces_after_argument' => '
+'
+                      },
                       'parent' => {},
-                      'text' => 'lang'
+                      'type' => 'line_arg'
                     }
                   ],
+                  'cmdname' => 'end',
                   'extra' => {
-                    'spaces_after_argument' => '
-'
+                    'spaces_before_argument' => ' ',
+                    'text_arg' => 'lang'
                   },
-                  'parent' => {},
-                  'type' => 'line_arg'
+                  'line_nr' => {
+                    'file_name' => '',
+                    'line_nr' => 5,
+                    'macro' => ''
+                  },
+                  'parent' => {}
                 }
               ],
-              'cmdname' => 'end',
-              'extra' => {
-                'spaces_before_argument' => ' ',
-                'text_arg' => 'lang'
-              },
-              'line_nr' => {
-                'file_name' => '',
-                'line_nr' => 5,
-                'macro' => ''
-              },
-              'parent' => {}
+              'parent' => {},
+              'type' => 'preformatted'
             }
           ],
-          'parent' => {},
-          'type' => 'preformatted'
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 3,
+            'macro' => ''
+          },
+          'parent' => {}
         }
       ],
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 3,
-        'macro' => ''
-      },
-      'parent' => {}
+      'parent' => {},
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
-$result_trees{'block_command_alias'}{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'block_command_alias'}{'contents'}[0]{'args'}[0];
-$result_trees{'block_command_alias'}{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'block_command_alias'}{'contents'}[0];
+$result_trees{'block_command_alias'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'block_command_alias'}{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'block_command_alias'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'block_command_alias'}{'contents'}[0]{'contents'}[0];
+$result_trees{'block_command_alias'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'block_command_alias'}{'contents'}[0];
+$result_trees{'block_command_alias'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'block_command_alias'}{'contents'}[0];
+$result_trees{'block_command_alias'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'extra'}{'command'} = $result_trees{'block_command_alias'}{'contents'}[0]{'contents'}[2];
+$result_trees{'block_command_alias'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'block_command_alias'}{'contents'}[0]{'contents'}[2];
+$result_trees{'block_command_alias'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'block_command_alias'}{'contents'}[0]{'contents'}[2]{'contents'}[1];
+$result_trees{'block_command_alias'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'block_command_alias'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[0];
+$result_trees{'block_command_alias'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'block_command_alias'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[1];
+$result_trees{'block_command_alias'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'block_command_alias'}{'contents'}[0]{'contents'}[2]{'contents'}[1];
+$result_trees{'block_command_alias'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'block_command_alias'}{'contents'}[0]{'contents'}[2];
+$result_trees{'block_command_alias'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'block_command_alias'}{'contents'}[0];
 $result_trees{'block_command_alias'}{'contents'}[0]{'parent'} = $result_trees{'block_command_alias'};
-$result_trees{'block_command_alias'}{'contents'}[1]{'parent'} = $result_trees{'block_command_alias'};
-$result_trees{'block_command_alias'}{'contents'}[2]{'contents'}[0]{'extra'}{'command'} = $result_trees{'block_command_alias'}{'contents'}[2];
-$result_trees{'block_command_alias'}{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'block_command_alias'}{'contents'}[2];
-$result_trees{'block_command_alias'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'block_command_alias'}{'contents'}[2]{'contents'}[1];
-$result_trees{'block_command_alias'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'block_command_alias'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[0];
-$result_trees{'block_command_alias'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'block_command_alias'}{'contents'}[2]{'contents'}[1]{'contents'}[1];
-$result_trees{'block_command_alias'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'block_command_alias'}{'contents'}[2]{'contents'}[1];
-$result_trees{'block_command_alias'}{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'block_command_alias'}{'contents'}[2];
-$result_trees{'block_command_alias'}{'contents'}[2]{'parent'} = $result_trees{'block_command_alias'};
 
 $result_texis{'block_command_alias'} = '@alias lang=lisp
 

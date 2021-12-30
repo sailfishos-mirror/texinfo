@@ -8,101 +8,108 @@ use utf8;
 $result_trees{'paragraph_count_and_example'} = {
   'contents' => [
     {
-      'cmdname' => 'example',
       'contents' => [
         {
+          'cmdname' => 'example',
+          'contents' => [
+            {
+              'extra' => {
+                'command' => {}
+              },
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line_after_command'
+            },
+            {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => 'in example
+'
+                }
+              ],
+              'parent' => {},
+              'type' => 'preformatted'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'example'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
+                  'parent' => {},
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'end',
+              'extra' => {
+                'command_argument' => 'example',
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'example'
+              },
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 3,
+                'macro' => ''
+              },
+              'parent' => {}
+            }
+          ],
           'extra' => {
-            'command' => {}
+            'end_command' => {}
           },
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 1,
+            'macro' => ''
+          },
+          'parent' => {}
+        },
+        {
           'parent' => {},
           'text' => '
 ',
-          'type' => 'empty_line_after_command'
+          'type' => 'empty_line'
         },
         {
           'contents' => [
             {
               'parent' => {},
-              'text' => 'in example
+              'text' => 'After.
 '
             }
           ],
           'parent' => {},
-          'type' => 'preformatted'
-        },
-        {
-          'args' => [
-            {
-              'contents' => [
-                {
-                  'parent' => {},
-                  'text' => 'example'
-                }
-              ],
-              'extra' => {
-                'spaces_after_argument' => '
-'
-              },
-              'parent' => {},
-              'type' => 'line_arg'
-            }
-          ],
-          'cmdname' => 'end',
-          'extra' => {
-            'command_argument' => 'example',
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'example'
-          },
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 3,
-            'macro' => ''
-          },
-          'parent' => {}
-        }
-      ],
-      'extra' => {
-        'end_command' => {}
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
-      },
-      'parent' => {}
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'contents' => [
-        {
-          'parent' => {},
-          'text' => 'After.
-'
+          'type' => 'paragraph'
         }
       ],
       'parent' => {},
-      'type' => 'paragraph'
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
-$result_trees{'paragraph_count_and_example'}{'contents'}[0]{'contents'}[0]{'extra'}{'command'} = $result_trees{'paragraph_count_and_example'}{'contents'}[0];
+$result_trees{'paragraph_count_and_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'command'} = $result_trees{'paragraph_count_and_example'}{'contents'}[0]{'contents'}[0];
+$result_trees{'paragraph_count_and_example'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'paragraph_count_and_example'}{'contents'}[0]{'contents'}[0];
+$result_trees{'paragraph_count_and_example'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'paragraph_count_and_example'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
+$result_trees{'paragraph_count_and_example'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'paragraph_count_and_example'}{'contents'}[0]{'contents'}[0];
+$result_trees{'paragraph_count_and_example'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'paragraph_count_and_example'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0];
+$result_trees{'paragraph_count_and_example'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'paragraph_count_and_example'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
+$result_trees{'paragraph_count_and_example'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'paragraph_count_and_example'}{'contents'}[0]{'contents'}[0];
+$result_trees{'paragraph_count_and_example'}{'contents'}[0]{'contents'}[0]{'extra'}{'end_command'} = $result_trees{'paragraph_count_and_example'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
 $result_trees{'paragraph_count_and_example'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'paragraph_count_and_example'}{'contents'}[0];
-$result_trees{'paragraph_count_and_example'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'paragraph_count_and_example'}{'contents'}[0]{'contents'}[1];
 $result_trees{'paragraph_count_and_example'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'paragraph_count_and_example'}{'contents'}[0];
-$result_trees{'paragraph_count_and_example'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'paragraph_count_and_example'}{'contents'}[0]{'contents'}[2]{'args'}[0];
-$result_trees{'paragraph_count_and_example'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'paragraph_count_and_example'}{'contents'}[0]{'contents'}[2];
+$result_trees{'paragraph_count_and_example'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'paragraph_count_and_example'}{'contents'}[0]{'contents'}[2];
 $result_trees{'paragraph_count_and_example'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'paragraph_count_and_example'}{'contents'}[0];
-$result_trees{'paragraph_count_and_example'}{'contents'}[0]{'extra'}{'end_command'} = $result_trees{'paragraph_count_and_example'}{'contents'}[0]{'contents'}[2];
 $result_trees{'paragraph_count_and_example'}{'contents'}[0]{'parent'} = $result_trees{'paragraph_count_and_example'};
-$result_trees{'paragraph_count_and_example'}{'contents'}[1]{'parent'} = $result_trees{'paragraph_count_and_example'};
-$result_trees{'paragraph_count_and_example'}{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'paragraph_count_and_example'}{'contents'}[2];
-$result_trees{'paragraph_count_and_example'}{'contents'}[2]{'parent'} = $result_trees{'paragraph_count_and_example'};
 
 $result_texis{'paragraph_count_and_example'} = '@example
 in example

@@ -8,60 +8,67 @@ use utf8;
 $result_trees{'tex_not_closed'} = {
   'contents' => [
     {
-      'cmdname' => 'tex',
       'contents' => [
         {
-          'extra' => {
-            'command' => {}
-          },
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line_after_command'
-        },
-        {
+          'cmdname' => 'tex',
           'contents' => [
             {
+              'extra' => {
+                'command' => {}
+              },
               'parent' => {},
               'text' => '
 ',
-              'type' => 'empty_line'
+              'type' => 'empty_line_after_command'
             },
             {
-              'parent' => {},
-              'text' => 'This is some \\LaTeX'
-            },
-            {
-              'parent' => {},
-              'text' => '{'
-            },
-            {
-              'parent' => {},
-              'text' => '}
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => '
+',
+                  'type' => 'empty_line'
+                },
+                {
+                  'parent' => {},
+                  'text' => 'This is some \\LaTeX'
+                },
+                {
+                  'parent' => {},
+                  'text' => '{'
+                },
+                {
+                  'parent' => {},
+                  'text' => '}
 '
+                }
+              ],
+              'parent' => {},
+              'type' => 'rawpreformatted'
             }
           ],
-          'parent' => {},
-          'type' => 'rawpreformatted'
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 1,
+            'macro' => ''
+          },
+          'parent' => {}
         }
       ],
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
-      },
-      'parent' => {}
+      'parent' => {},
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
-$result_trees{'tex_not_closed'}{'contents'}[0]{'contents'}[0]{'extra'}{'command'} = $result_trees{'tex_not_closed'}{'contents'}[0];
+$result_trees{'tex_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'command'} = $result_trees{'tex_not_closed'}{'contents'}[0]{'contents'}[0];
+$result_trees{'tex_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'tex_not_closed'}{'contents'}[0]{'contents'}[0];
+$result_trees{'tex_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'tex_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
+$result_trees{'tex_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'tex_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
+$result_trees{'tex_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'tex_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
+$result_trees{'tex_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'tex_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
+$result_trees{'tex_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'tex_not_closed'}{'contents'}[0]{'contents'}[0];
 $result_trees{'tex_not_closed'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'tex_not_closed'}{'contents'}[0];
-$result_trees{'tex_not_closed'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'tex_not_closed'}{'contents'}[0]{'contents'}[1];
-$result_trees{'tex_not_closed'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'tex_not_closed'}{'contents'}[0]{'contents'}[1];
-$result_trees{'tex_not_closed'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'tex_not_closed'}{'contents'}[0]{'contents'}[1];
-$result_trees{'tex_not_closed'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'tex_not_closed'}{'contents'}[0]{'contents'}[1];
-$result_trees{'tex_not_closed'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'tex_not_closed'}{'contents'}[0];
 $result_trees{'tex_not_closed'}{'contents'}[0]{'parent'} = $result_trees{'tex_not_closed'};
 
 $result_texis{'tex_not_closed'} = '@tex

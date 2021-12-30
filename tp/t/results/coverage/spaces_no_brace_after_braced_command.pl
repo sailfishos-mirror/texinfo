@@ -10,29 +10,36 @@ $result_trees{'spaces_no_brace_after_braced_command'} = {
     {
       'contents' => [
         {
-          'cmdname' => 'code',
-          'contents' => [],
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => 'b
+          'contents' => [
+            {
+              'cmdname' => 'code',
+              'contents' => [],
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 1,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => 'b
 '
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
         }
       ],
       'parent' => {},
-      'type' => 'paragraph'
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
+$result_trees{'spaces_no_brace_after_braced_command'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'spaces_no_brace_after_braced_command'}{'contents'}[0]{'contents'}[0];
+$result_trees{'spaces_no_brace_after_braced_command'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'spaces_no_brace_after_braced_command'}{'contents'}[0]{'contents'}[0];
 $result_trees{'spaces_no_brace_after_braced_command'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'spaces_no_brace_after_braced_command'}{'contents'}[0];
-$result_trees{'spaces_no_brace_after_braced_command'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'spaces_no_brace_after_braced_command'}{'contents'}[0];
 $result_trees{'spaces_no_brace_after_braced_command'}{'contents'}[0]{'parent'} = $result_trees{'spaces_no_brace_after_braced_command'};
 
 $result_texis{'spaces_no_brace_after_braced_command'} = '@codeb

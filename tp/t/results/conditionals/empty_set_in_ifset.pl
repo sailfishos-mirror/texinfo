@@ -8,55 +8,62 @@ use utf8;
 $result_trees{'empty_set_in_ifset'} = {
   'contents' => [
     {
-      'args' => [
+      'contents' => [
         {
-          'parent' => {},
-          'text' => 'a',
-          'type' => 'misc_arg'
+          'args' => [
+            {
+              'parent' => {},
+              'text' => 'a',
+              'type' => 'misc_arg'
+            },
+            {
+              'parent' => {},
+              'text' => '',
+              'type' => 'misc_arg'
+            }
+          ],
+          'cmdname' => 'set',
+          'extra' => {
+            'arg_line' => ' a
+',
+            'misc_args' => [
+              'a',
+              ''
+            ]
+          },
+          'parent' => {}
         },
         {
           'parent' => {},
-          'text' => '',
-          'type' => 'misc_arg'
-        }
-      ],
-      'cmdname' => 'set',
-      'extra' => {
-        'arg_line' => ' a
+          'text' => '
 ',
-        'misc_args' => [
-          'a',
-          ''
-        ]
-      },
-      'parent' => {}
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'contents' => [
+          'type' => 'empty_line'
+        },
         {
-          'parent' => {},
-          'text' => 'a is set to:||.
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => 'a is set to:||.
 '
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
         }
       ],
       'parent' => {},
-      'type' => 'paragraph'
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
-$result_trees{'empty_set_in_ifset'}{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'empty_set_in_ifset'}{'contents'}[0];
-$result_trees{'empty_set_in_ifset'}{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'empty_set_in_ifset'}{'contents'}[0];
+$result_trees{'empty_set_in_ifset'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'empty_set_in_ifset'}{'contents'}[0]{'contents'}[0];
+$result_trees{'empty_set_in_ifset'}{'contents'}[0]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'empty_set_in_ifset'}{'contents'}[0]{'contents'}[0];
+$result_trees{'empty_set_in_ifset'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_set_in_ifset'}{'contents'}[0];
+$result_trees{'empty_set_in_ifset'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'empty_set_in_ifset'}{'contents'}[0];
+$result_trees{'empty_set_in_ifset'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'empty_set_in_ifset'}{'contents'}[0]{'contents'}[2];
+$result_trees{'empty_set_in_ifset'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'empty_set_in_ifset'}{'contents'}[0];
 $result_trees{'empty_set_in_ifset'}{'contents'}[0]{'parent'} = $result_trees{'empty_set_in_ifset'};
-$result_trees{'empty_set_in_ifset'}{'contents'}[1]{'parent'} = $result_trees{'empty_set_in_ifset'};
-$result_trees{'empty_set_in_ifset'}{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'empty_set_in_ifset'}{'contents'}[2];
-$result_trees{'empty_set_in_ifset'}{'contents'}[2]{'parent'} = $result_trees{'empty_set_in_ifset'};
 
 $result_texis{'empty_set_in_ifset'} = '@set a
 

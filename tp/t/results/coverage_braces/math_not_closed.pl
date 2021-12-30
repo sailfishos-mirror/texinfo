@@ -10,36 +10,43 @@ $result_trees{'math_not_closed'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'contents' => [
             {
-              'contents' => [
+              'args' => [
                 {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => '\\delta + 2'
+                    }
+                  ],
                   'parent' => {},
-                  'text' => '\\delta + 2'
+                  'type' => 'brace_command_context'
                 }
               ],
-              'parent' => {},
-              'type' => 'brace_command_context'
+              'cmdname' => 'math',
+              'contents' => [],
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 1,
+                'macro' => ''
+              },
+              'parent' => {}
             }
           ],
-          'cmdname' => 'math',
-          'contents' => [],
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
-          },
-          'parent' => {}
+          'parent' => {},
+          'type' => 'paragraph'
         }
       ],
       'parent' => {},
-      'type' => 'paragraph'
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
-$result_trees{'math_not_closed'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'math_not_closed'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'math_not_closed'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'math_not_closed'}{'contents'}[0]{'contents'}[0];
+$result_trees{'math_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'math_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'math_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'math_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'math_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'math_not_closed'}{'contents'}[0]{'contents'}[0];
 $result_trees{'math_not_closed'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'math_not_closed'}{'contents'}[0];
 $result_trees{'math_not_closed'}{'contents'}[0]{'parent'} = $result_trees{'math_not_closed'};
 

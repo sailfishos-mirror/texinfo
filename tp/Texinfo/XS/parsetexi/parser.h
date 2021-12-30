@@ -191,6 +191,8 @@ void wipe_global_info (void);
 
 extern COUNTER count_remaining_args, count_items, count_cells;
 
+ELEMENT *setup_text_root(void);
+
 /* In multitable.c */
 ELEMENT *item_line_parent (ELEMENT *current);
 ELEMENT *item_multitable_parent (ELEMENT *current);

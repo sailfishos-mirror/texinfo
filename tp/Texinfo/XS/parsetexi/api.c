@@ -185,7 +185,7 @@ parse_text (char *string)
 {
   reset_parser_except_conf ();
   input_push_text_with_line_nos (strdup (string), 1);
-  Root = parse_texi (new_element (ET_text_root));
+  Root = parse_texi (setup_text_root());
 }
 
 

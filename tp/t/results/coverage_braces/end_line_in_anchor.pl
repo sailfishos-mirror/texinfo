@@ -8,55 +8,62 @@ use utf8;
 $result_trees{'end_line_in_anchor'} = {
   'contents' => [
     {
-      'args' => [
+      'contents' => [
         {
-          'contents' => [
+          'args' => [
             {
-              'parent' => {},
-              'text' => 'an
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => 'an
 '
-            },
-            {
+                },
+                {
+                  'parent' => {},
+                  'text' => 'anchor'
+                }
+              ],
               'parent' => {},
-              'text' => 'anchor'
+              'type' => 'brace_command_arg'
             }
           ],
+          'cmdname' => 'anchor',
+          'contents' => [],
+          'extra' => {
+            'node_content' => [
+              {},
+              {}
+            ],
+            'normalized' => 'an-anchor'
+          },
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 2,
+            'macro' => ''
+          },
+          'parent' => {}
+        },
+        {
           'parent' => {},
-          'type' => 'brace_command_arg'
+          'text' => '
+',
+          'type' => 'empty_spaces_after_close_brace'
         }
       ],
-      'cmdname' => 'anchor',
-      'contents' => [],
-      'extra' => {
-        'node_content' => [
-          {},
-          {}
-        ],
-        'normalized' => 'an-anchor'
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 2,
-        'macro' => ''
-      },
-      'parent' => {}
-    },
-    {
       'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_spaces_after_close_brace'
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
-$result_trees{'end_line_in_anchor'}{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'end_line_in_anchor'}{'contents'}[0]{'args'}[0];
-$result_trees{'end_line_in_anchor'}{'contents'}[0]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'end_line_in_anchor'}{'contents'}[0]{'args'}[0];
-$result_trees{'end_line_in_anchor'}{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'end_line_in_anchor'}{'contents'}[0];
-$result_trees{'end_line_in_anchor'}{'contents'}[0]{'extra'}{'node_content'}[0] = $result_trees{'end_line_in_anchor'}{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'end_line_in_anchor'}{'contents'}[0]{'extra'}{'node_content'}[1] = $result_trees{'end_line_in_anchor'}{'contents'}[0]{'args'}[0]{'contents'}[1];
+$result_trees{'end_line_in_anchor'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'end_line_in_anchor'}{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'end_line_in_anchor'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'end_line_in_anchor'}{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'end_line_in_anchor'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'end_line_in_anchor'}{'contents'}[0]{'contents'}[0];
+$result_trees{'end_line_in_anchor'}{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}[0] = $result_trees{'end_line_in_anchor'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
+$result_trees{'end_line_in_anchor'}{'contents'}[0]{'contents'}[0]{'extra'}{'node_content'}[1] = $result_trees{'end_line_in_anchor'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1];
+$result_trees{'end_line_in_anchor'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'end_line_in_anchor'}{'contents'}[0];
+$result_trees{'end_line_in_anchor'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'end_line_in_anchor'}{'contents'}[0];
 $result_trees{'end_line_in_anchor'}{'contents'}[0]{'parent'} = $result_trees{'end_line_in_anchor'};
-$result_trees{'end_line_in_anchor'}{'contents'}[1]{'parent'} = $result_trees{'end_line_in_anchor'};
 
 $result_texis{'end_line_in_anchor'} = '@anchor{an
 anchor}

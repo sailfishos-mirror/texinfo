@@ -10,62 +10,69 @@ $result_trees{'inlineiffmtifelse_not_closed_three_arg'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'contents' => [
             {
-              'contents' => [
+              'args' => [
                 {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'html'
+                    }
+                  ],
                   'parent' => {},
-                  'text' => 'html'
-                }
-              ],
-              'parent' => {},
-              'type' => 'brace_command_arg'
-            },
-            {
-              'contents' => [],
-              'parent' => {},
-              'type' => 'elided'
-            },
-            {
-              'contents' => [
+                  'type' => 'brace_command_arg'
+                },
                 {
+                  'contents' => [],
                   'parent' => {},
-                  'text' => 'ggggg
+                  'type' => 'elided'
+                },
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'ggggg
 '
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_before_argument' => ' '
+                  },
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
                 }
               ],
+              'cmdname' => 'inlinefmtifelse',
+              'contents' => [],
               'extra' => {
-                'spaces_before_argument' => ' '
+                'expand_index' => 2,
+                'format' => 'html'
               },
-              'parent' => {},
-              'type' => 'brace_command_arg'
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 1,
+                'macro' => ''
+              },
+              'parent' => {}
             }
           ],
-          'cmdname' => 'inlinefmtifelse',
-          'contents' => [],
-          'extra' => {
-            'expand_index' => 2,
-            'format' => 'html'
-          },
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
-          },
-          'parent' => {}
+          'parent' => {},
+          'type' => 'paragraph'
         }
       ],
       'parent' => {},
-      'type' => 'paragraph'
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
-$result_trees{'inlineiffmtifelse_not_closed_three_arg'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'inlineiffmtifelse_not_closed_three_arg'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'inlineiffmtifelse_not_closed_three_arg'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'inlineiffmtifelse_not_closed_three_arg'}{'contents'}[0]{'contents'}[0];
-$result_trees{'inlineiffmtifelse_not_closed_three_arg'}{'contents'}[0]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'inlineiffmtifelse_not_closed_three_arg'}{'contents'}[0]{'contents'}[0];
-$result_trees{'inlineiffmtifelse_not_closed_three_arg'}{'contents'}[0]{'contents'}[0]{'args'}[2]{'contents'}[0]{'parent'} = $result_trees{'inlineiffmtifelse_not_closed_three_arg'}{'contents'}[0]{'contents'}[0]{'args'}[2];
-$result_trees{'inlineiffmtifelse_not_closed_three_arg'}{'contents'}[0]{'contents'}[0]{'args'}[2]{'parent'} = $result_trees{'inlineiffmtifelse_not_closed_three_arg'}{'contents'}[0]{'contents'}[0];
+$result_trees{'inlineiffmtifelse_not_closed_three_arg'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'inlineiffmtifelse_not_closed_three_arg'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'inlineiffmtifelse_not_closed_three_arg'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'inlineiffmtifelse_not_closed_three_arg'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'inlineiffmtifelse_not_closed_three_arg'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'inlineiffmtifelse_not_closed_three_arg'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'inlineiffmtifelse_not_closed_three_arg'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[2]{'contents'}[0]{'parent'} = $result_trees{'inlineiffmtifelse_not_closed_three_arg'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[2];
+$result_trees{'inlineiffmtifelse_not_closed_three_arg'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[2]{'parent'} = $result_trees{'inlineiffmtifelse_not_closed_three_arg'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'inlineiffmtifelse_not_closed_three_arg'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'inlineiffmtifelse_not_closed_three_arg'}{'contents'}[0]{'contents'}[0];
 $result_trees{'inlineiffmtifelse_not_closed_three_arg'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'inlineiffmtifelse_not_closed_three_arg'}{'contents'}[0];
 $result_trees{'inlineiffmtifelse_not_closed_three_arg'}{'contents'}[0]{'parent'} = $result_trees{'inlineiffmtifelse_not_closed_three_arg'};
 

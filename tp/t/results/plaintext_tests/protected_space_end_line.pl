@@ -10,182 +10,189 @@ $result_trees{'protected_space_end_line'} = {
     {
       'contents' => [
         {
-          'parent' => {},
-          'text' => 'First para
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => 'First para
 '
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
+        },
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => 'This is a very simple texi manual followed by tab a <>.
+'
+            },
+            {
+              'parent' => {},
+              'text' => 'followed by '
+            },
+            {
+              'cmdname' => ' ',
+              'parent' => {}
+            },
+            {
+              'cmdname' => ' ',
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => 'newline.
+'
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
+        },
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => 'This is a very simple texi manual followed by tab a <>.
+'
+            },
+            {
+              'parent' => {},
+              'text' => 'followed '
+            },
+            {
+              'cmdname' => ' ',
+              'parent' => {}
+            },
+            {
+              'cmdname' => ' ',
+              'parent' => {}
+            },
+            {
+              'cmdname' => ' ',
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => 'newline.
+'
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
+        },
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => 'This is a very simple texi manual followed by tab a <>. '
+            },
+            {
+              'cmdname' => ' ',
+              'parent' => {}
+            },
+            {
+              'cmdname' => ' ',
+              'parent' => {}
+            },
+            {
+              'cmdname' => ' ',
+              'parent' => {}
+            },
+            {
+              'cmdname' => ' ',
+              'parent' => {}
+            },
+            {
+              'cmdname' => ' ',
+              'parent' => {}
+            },
+            {
+              'cmdname' => ' ',
+              'parent' => {}
+            },
+            {
+              'cmdname' => ' ',
+              'parent' => {}
+            },
+            {
+              'cmdname' => ' ',
+              'parent' => {}
+            },
+            {
+              'cmdname' => ' ',
+              'parent' => {}
+            },
+            {
+              'cmdname' => '
+',
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => 'text.
+'
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
         }
       ],
       'parent' => {},
-      'type' => 'paragraph'
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'contents' => [
-        {
-          'parent' => {},
-          'text' => 'This is a very simple texi manual followed by tab a <>.
-'
-        },
-        {
-          'parent' => {},
-          'text' => 'followed by '
-        },
-        {
-          'cmdname' => ' ',
-          'parent' => {}
-        },
-        {
-          'cmdname' => ' ',
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => 'newline.
-'
-        }
-      ],
-      'parent' => {},
-      'type' => 'paragraph'
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'contents' => [
-        {
-          'parent' => {},
-          'text' => 'This is a very simple texi manual followed by tab a <>.
-'
-        },
-        {
-          'parent' => {},
-          'text' => 'followed '
-        },
-        {
-          'cmdname' => ' ',
-          'parent' => {}
-        },
-        {
-          'cmdname' => ' ',
-          'parent' => {}
-        },
-        {
-          'cmdname' => ' ',
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => 'newline.
-'
-        }
-      ],
-      'parent' => {},
-      'type' => 'paragraph'
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'contents' => [
-        {
-          'parent' => {},
-          'text' => 'This is a very simple texi manual followed by tab a <>. '
-        },
-        {
-          'cmdname' => ' ',
-          'parent' => {}
-        },
-        {
-          'cmdname' => ' ',
-          'parent' => {}
-        },
-        {
-          'cmdname' => ' ',
-          'parent' => {}
-        },
-        {
-          'cmdname' => ' ',
-          'parent' => {}
-        },
-        {
-          'cmdname' => ' ',
-          'parent' => {}
-        },
-        {
-          'cmdname' => ' ',
-          'parent' => {}
-        },
-        {
-          'cmdname' => ' ',
-          'parent' => {}
-        },
-        {
-          'cmdname' => ' ',
-          'parent' => {}
-        },
-        {
-          'cmdname' => ' ',
-          'parent' => {}
-        },
-        {
-          'cmdname' => '
-',
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => 'text.
-'
-        }
-      ],
-      'parent' => {},
-      'type' => 'paragraph'
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
+$result_trees{'protected_space_end_line'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'protected_space_end_line'}{'contents'}[0]{'contents'}[0];
 $result_trees{'protected_space_end_line'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'protected_space_end_line'}{'contents'}[0];
+$result_trees{'protected_space_end_line'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'protected_space_end_line'}{'contents'}[0];
+$result_trees{'protected_space_end_line'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'protected_space_end_line'}{'contents'}[0]{'contents'}[2];
+$result_trees{'protected_space_end_line'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'protected_space_end_line'}{'contents'}[0]{'contents'}[2];
+$result_trees{'protected_space_end_line'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'protected_space_end_line'}{'contents'}[0]{'contents'}[2];
+$result_trees{'protected_space_end_line'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'parent'} = $result_trees{'protected_space_end_line'}{'contents'}[0]{'contents'}[2];
+$result_trees{'protected_space_end_line'}{'contents'}[0]{'contents'}[2]{'contents'}[4]{'parent'} = $result_trees{'protected_space_end_line'}{'contents'}[0]{'contents'}[2];
+$result_trees{'protected_space_end_line'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'protected_space_end_line'}{'contents'}[0];
+$result_trees{'protected_space_end_line'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'protected_space_end_line'}{'contents'}[0];
+$result_trees{'protected_space_end_line'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'protected_space_end_line'}{'contents'}[0]{'contents'}[4];
+$result_trees{'protected_space_end_line'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'parent'} = $result_trees{'protected_space_end_line'}{'contents'}[0]{'contents'}[4];
+$result_trees{'protected_space_end_line'}{'contents'}[0]{'contents'}[4]{'contents'}[2]{'parent'} = $result_trees{'protected_space_end_line'}{'contents'}[0]{'contents'}[4];
+$result_trees{'protected_space_end_line'}{'contents'}[0]{'contents'}[4]{'contents'}[3]{'parent'} = $result_trees{'protected_space_end_line'}{'contents'}[0]{'contents'}[4];
+$result_trees{'protected_space_end_line'}{'contents'}[0]{'contents'}[4]{'contents'}[4]{'parent'} = $result_trees{'protected_space_end_line'}{'contents'}[0]{'contents'}[4];
+$result_trees{'protected_space_end_line'}{'contents'}[0]{'contents'}[4]{'contents'}[5]{'parent'} = $result_trees{'protected_space_end_line'}{'contents'}[0]{'contents'}[4];
+$result_trees{'protected_space_end_line'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'protected_space_end_line'}{'contents'}[0];
+$result_trees{'protected_space_end_line'}{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'protected_space_end_line'}{'contents'}[0];
+$result_trees{'protected_space_end_line'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'parent'} = $result_trees{'protected_space_end_line'}{'contents'}[0]{'contents'}[6];
+$result_trees{'protected_space_end_line'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'parent'} = $result_trees{'protected_space_end_line'}{'contents'}[0]{'contents'}[6];
+$result_trees{'protected_space_end_line'}{'contents'}[0]{'contents'}[6]{'contents'}[2]{'parent'} = $result_trees{'protected_space_end_line'}{'contents'}[0]{'contents'}[6];
+$result_trees{'protected_space_end_line'}{'contents'}[0]{'contents'}[6]{'contents'}[3]{'parent'} = $result_trees{'protected_space_end_line'}{'contents'}[0]{'contents'}[6];
+$result_trees{'protected_space_end_line'}{'contents'}[0]{'contents'}[6]{'contents'}[4]{'parent'} = $result_trees{'protected_space_end_line'}{'contents'}[0]{'contents'}[6];
+$result_trees{'protected_space_end_line'}{'contents'}[0]{'contents'}[6]{'contents'}[5]{'parent'} = $result_trees{'protected_space_end_line'}{'contents'}[0]{'contents'}[6];
+$result_trees{'protected_space_end_line'}{'contents'}[0]{'contents'}[6]{'contents'}[6]{'parent'} = $result_trees{'protected_space_end_line'}{'contents'}[0]{'contents'}[6];
+$result_trees{'protected_space_end_line'}{'contents'}[0]{'contents'}[6]{'contents'}[7]{'parent'} = $result_trees{'protected_space_end_line'}{'contents'}[0]{'contents'}[6];
+$result_trees{'protected_space_end_line'}{'contents'}[0]{'contents'}[6]{'contents'}[8]{'parent'} = $result_trees{'protected_space_end_line'}{'contents'}[0]{'contents'}[6];
+$result_trees{'protected_space_end_line'}{'contents'}[0]{'contents'}[6]{'contents'}[9]{'parent'} = $result_trees{'protected_space_end_line'}{'contents'}[0]{'contents'}[6];
+$result_trees{'protected_space_end_line'}{'contents'}[0]{'contents'}[6]{'contents'}[10]{'parent'} = $result_trees{'protected_space_end_line'}{'contents'}[0]{'contents'}[6];
+$result_trees{'protected_space_end_line'}{'contents'}[0]{'contents'}[6]{'contents'}[11]{'parent'} = $result_trees{'protected_space_end_line'}{'contents'}[0]{'contents'}[6];
+$result_trees{'protected_space_end_line'}{'contents'}[0]{'contents'}[6]{'parent'} = $result_trees{'protected_space_end_line'}{'contents'}[0];
 $result_trees{'protected_space_end_line'}{'contents'}[0]{'parent'} = $result_trees{'protected_space_end_line'};
-$result_trees{'protected_space_end_line'}{'contents'}[1]{'parent'} = $result_trees{'protected_space_end_line'};
-$result_trees{'protected_space_end_line'}{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'protected_space_end_line'}{'contents'}[2];
-$result_trees{'protected_space_end_line'}{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'protected_space_end_line'}{'contents'}[2];
-$result_trees{'protected_space_end_line'}{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'protected_space_end_line'}{'contents'}[2];
-$result_trees{'protected_space_end_line'}{'contents'}[2]{'contents'}[3]{'parent'} = $result_trees{'protected_space_end_line'}{'contents'}[2];
-$result_trees{'protected_space_end_line'}{'contents'}[2]{'contents'}[4]{'parent'} = $result_trees{'protected_space_end_line'}{'contents'}[2];
-$result_trees{'protected_space_end_line'}{'contents'}[2]{'parent'} = $result_trees{'protected_space_end_line'};
-$result_trees{'protected_space_end_line'}{'contents'}[3]{'parent'} = $result_trees{'protected_space_end_line'};
-$result_trees{'protected_space_end_line'}{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'protected_space_end_line'}{'contents'}[4];
-$result_trees{'protected_space_end_line'}{'contents'}[4]{'contents'}[1]{'parent'} = $result_trees{'protected_space_end_line'}{'contents'}[4];
-$result_trees{'protected_space_end_line'}{'contents'}[4]{'contents'}[2]{'parent'} = $result_trees{'protected_space_end_line'}{'contents'}[4];
-$result_trees{'protected_space_end_line'}{'contents'}[4]{'contents'}[3]{'parent'} = $result_trees{'protected_space_end_line'}{'contents'}[4];
-$result_trees{'protected_space_end_line'}{'contents'}[4]{'contents'}[4]{'parent'} = $result_trees{'protected_space_end_line'}{'contents'}[4];
-$result_trees{'protected_space_end_line'}{'contents'}[4]{'contents'}[5]{'parent'} = $result_trees{'protected_space_end_line'}{'contents'}[4];
-$result_trees{'protected_space_end_line'}{'contents'}[4]{'parent'} = $result_trees{'protected_space_end_line'};
-$result_trees{'protected_space_end_line'}{'contents'}[5]{'parent'} = $result_trees{'protected_space_end_line'};
-$result_trees{'protected_space_end_line'}{'contents'}[6]{'contents'}[0]{'parent'} = $result_trees{'protected_space_end_line'}{'contents'}[6];
-$result_trees{'protected_space_end_line'}{'contents'}[6]{'contents'}[1]{'parent'} = $result_trees{'protected_space_end_line'}{'contents'}[6];
-$result_trees{'protected_space_end_line'}{'contents'}[6]{'contents'}[2]{'parent'} = $result_trees{'protected_space_end_line'}{'contents'}[6];
-$result_trees{'protected_space_end_line'}{'contents'}[6]{'contents'}[3]{'parent'} = $result_trees{'protected_space_end_line'}{'contents'}[6];
-$result_trees{'protected_space_end_line'}{'contents'}[6]{'contents'}[4]{'parent'} = $result_trees{'protected_space_end_line'}{'contents'}[6];
-$result_trees{'protected_space_end_line'}{'contents'}[6]{'contents'}[5]{'parent'} = $result_trees{'protected_space_end_line'}{'contents'}[6];
-$result_trees{'protected_space_end_line'}{'contents'}[6]{'contents'}[6]{'parent'} = $result_trees{'protected_space_end_line'}{'contents'}[6];
-$result_trees{'protected_space_end_line'}{'contents'}[6]{'contents'}[7]{'parent'} = $result_trees{'protected_space_end_line'}{'contents'}[6];
-$result_trees{'protected_space_end_line'}{'contents'}[6]{'contents'}[8]{'parent'} = $result_trees{'protected_space_end_line'}{'contents'}[6];
-$result_trees{'protected_space_end_line'}{'contents'}[6]{'contents'}[9]{'parent'} = $result_trees{'protected_space_end_line'}{'contents'}[6];
-$result_trees{'protected_space_end_line'}{'contents'}[6]{'contents'}[10]{'parent'} = $result_trees{'protected_space_end_line'}{'contents'}[6];
-$result_trees{'protected_space_end_line'}{'contents'}[6]{'contents'}[11]{'parent'} = $result_trees{'protected_space_end_line'}{'contents'}[6];
-$result_trees{'protected_space_end_line'}{'contents'}[6]{'parent'} = $result_trees{'protected_space_end_line'};
 
 $result_texis{'protected_space_end_line'} = 'First para
 

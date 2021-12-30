@@ -8,78 +8,85 @@ use utf8;
 $result_trees{'macro_zero'} = {
   'contents' => [
     {
-      'args' => [
-        {
-          'parent' => {},
-          'text' => 'zero',
-          'type' => 'macro_name'
-        }
-      ],
-      'cmdname' => 'macro',
       'contents' => [
         {
-          'parent' => {},
-          'text' => '0',
-          'type' => 'raw'
+          'args' => [
+            {
+              'parent' => {},
+              'text' => 'zero',
+              'type' => 'macro_name'
+            }
+          ],
+          'cmdname' => 'macro',
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => '0',
+              'type' => 'raw'
+            },
+            {
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'last_raw_newline'
+            }
+          ],
+          'extra' => {
+            'arg_line' => ' zero
+'
+          },
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 1,
+            'macro' => ''
+          },
+          'parent' => {}
         },
         {
           'parent' => {},
           'text' => '
 ',
-          'type' => 'last_raw_newline'
-        }
-      ],
-      'extra' => {
-        'arg_line' => ' zero
-'
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
-      },
-      'parent' => {}
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line_after_command'
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'contents' => [
-        {
-          'parent' => {},
-          'text' => 'Macro
-'
+          'type' => 'empty_line_after_command'
         },
         {
           'parent' => {},
-          'text' => '0
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => 'Macro
 '
+            },
+            {
+              'parent' => {},
+              'text' => '0
+'
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
         }
       ],
       'parent' => {},
-      'type' => 'paragraph'
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
-$result_trees{'macro_zero'}{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'macro_zero'}{'contents'}[0];
+$result_trees{'macro_zero'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'macro_zero'}{'contents'}[0]{'contents'}[0];
+$result_trees{'macro_zero'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'macro_zero'}{'contents'}[0]{'contents'}[0];
+$result_trees{'macro_zero'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'macro_zero'}{'contents'}[0]{'contents'}[0];
 $result_trees{'macro_zero'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'macro_zero'}{'contents'}[0];
 $result_trees{'macro_zero'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'macro_zero'}{'contents'}[0];
+$result_trees{'macro_zero'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'macro_zero'}{'contents'}[0];
+$result_trees{'macro_zero'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'macro_zero'}{'contents'}[0]{'contents'}[3];
+$result_trees{'macro_zero'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'macro_zero'}{'contents'}[0]{'contents'}[3];
+$result_trees{'macro_zero'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'macro_zero'}{'contents'}[0];
 $result_trees{'macro_zero'}{'contents'}[0]{'parent'} = $result_trees{'macro_zero'};
-$result_trees{'macro_zero'}{'contents'}[1]{'parent'} = $result_trees{'macro_zero'};
-$result_trees{'macro_zero'}{'contents'}[2]{'parent'} = $result_trees{'macro_zero'};
-$result_trees{'macro_zero'}{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'macro_zero'}{'contents'}[3];
-$result_trees{'macro_zero'}{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'macro_zero'}{'contents'}[3];
-$result_trees{'macro_zero'}{'contents'}[3]{'parent'} = $result_trees{'macro_zero'};
 
 $result_texis{'macro_zero'} = '@macro zero
 0

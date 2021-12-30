@@ -10,46 +10,53 @@ $result_trees{'inlineiffmtifelse_not_closed'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'contents' => [
             {
-              'contents' => [
+              'args' => [
                 {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'html'
+                    }
+                  ],
                   'parent' => {},
-                  'text' => 'html'
+                  'type' => 'brace_command_arg'
+                },
+                {
+                  'contents' => [],
+                  'parent' => {},
+                  'type' => 'elided'
                 }
               ],
-              'parent' => {},
-              'type' => 'brace_command_arg'
-            },
-            {
+              'cmdname' => 'inlinefmtifelse',
               'contents' => [],
-              'parent' => {},
-              'type' => 'elided'
+              'extra' => {
+                'expand_index' => 2,
+                'format' => 'html'
+              },
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 1,
+                'macro' => ''
+              },
+              'parent' => {}
             }
           ],
-          'cmdname' => 'inlinefmtifelse',
-          'contents' => [],
-          'extra' => {
-            'expand_index' => 2,
-            'format' => 'html'
-          },
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
-          },
-          'parent' => {}
+          'parent' => {},
+          'type' => 'paragraph'
         }
       ],
       'parent' => {},
-      'type' => 'paragraph'
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
-$result_trees{'inlineiffmtifelse_not_closed'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'inlineiffmtifelse_not_closed'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'inlineiffmtifelse_not_closed'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'inlineiffmtifelse_not_closed'}{'contents'}[0]{'contents'}[0];
-$result_trees{'inlineiffmtifelse_not_closed'}{'contents'}[0]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'inlineiffmtifelse_not_closed'}{'contents'}[0]{'contents'}[0];
+$result_trees{'inlineiffmtifelse_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'inlineiffmtifelse_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'inlineiffmtifelse_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'inlineiffmtifelse_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'inlineiffmtifelse_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'inlineiffmtifelse_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'inlineiffmtifelse_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'inlineiffmtifelse_not_closed'}{'contents'}[0]{'contents'}[0];
 $result_trees{'inlineiffmtifelse_not_closed'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'inlineiffmtifelse_not_closed'}{'contents'}[0];
 $result_trees{'inlineiffmtifelse_not_closed'}{'contents'}[0]{'parent'} = $result_trees{'inlineiffmtifelse_not_closed'};
 

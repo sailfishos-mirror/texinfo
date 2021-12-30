@@ -10,47 +10,54 @@ $result_trees{'no_use_iso'} = {
     {
       'contents' => [
         {
-          'parent' => {},
-          'text' => 'AA '
-        },
-        {
-          'args' => [
+          'contents' => [
             {
-              'contents' => [
+              'parent' => {},
+              'text' => 'AA '
+            },
+            {
+              'args' => [
                 {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'e'
+                    }
+                  ],
                   'parent' => {},
-                  'text' => 'e'
+                  'type' => 'following_arg'
                 }
               ],
+              'cmdname' => '^',
+              'contents' => [],
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 1,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
               'parent' => {},
-              'type' => 'following_arg'
+              'text' => ' --- -- \'` \'\' ``'
             }
           ],
-          'cmdname' => '^',
-          'contents' => [],
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
           'parent' => {},
-          'text' => ' --- -- \'` \'\' ``'
+          'type' => 'paragraph'
         }
       ],
       'parent' => {},
-      'type' => 'paragraph'
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
+$result_trees{'no_use_iso'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'no_use_iso'}{'contents'}[0]{'contents'}[0];
+$result_trees{'no_use_iso'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'no_use_iso'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
+$result_trees{'no_use_iso'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'no_use_iso'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
+$result_trees{'no_use_iso'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'no_use_iso'}{'contents'}[0]{'contents'}[0];
+$result_trees{'no_use_iso'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'no_use_iso'}{'contents'}[0]{'contents'}[0];
 $result_trees{'no_use_iso'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'no_use_iso'}{'contents'}[0];
-$result_trees{'no_use_iso'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'no_use_iso'}{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'no_use_iso'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'no_use_iso'}{'contents'}[0]{'contents'}[1];
-$result_trees{'no_use_iso'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'no_use_iso'}{'contents'}[0];
-$result_trees{'no_use_iso'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'no_use_iso'}{'contents'}[0];
 $result_trees{'no_use_iso'}{'contents'}[0]{'parent'} = $result_trees{'no_use_iso'};
 
 $result_texis{'no_use_iso'} = 'AA @^e --- -- \'` \'\' ``';

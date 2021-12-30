@@ -8,62 +8,69 @@ use utf8;
 $result_trees{'sole_image'} = {
   'contents' => [
     {
-      'args' => [
+      'contents' => [
+        {
+          'args' => [
+            {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => 'aa'
+                }
+              ],
+              'parent' => {},
+              'type' => 'brace_command_arg'
+            }
+          ],
+          'cmdname' => 'image',
+          'contents' => [],
+          'extra' => {
+            'input_perl_encoding' => 'utf-8'
+          },
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 1,
+            'macro' => ''
+          },
+          'parent' => {}
+        },
+        {
+          'parent' => {},
+          'text' => '
+'
+        },
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
         {
           'contents' => [
             {
               'parent' => {},
-              'text' => 'aa'
+              'text' => 'next para
+'
             }
           ],
           'parent' => {},
-          'type' => 'brace_command_arg'
-        }
-      ],
-      'cmdname' => 'image',
-      'contents' => [],
-      'extra' => {
-        'input_perl_encoding' => 'utf-8'
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
-      },
-      'parent' => {}
-    },
-    {
-      'parent' => {},
-      'text' => '
-'
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'contents' => [
-        {
-          'parent' => {},
-          'text' => 'next para
-'
+          'type' => 'paragraph'
         }
       ],
       'parent' => {},
-      'type' => 'paragraph'
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
-$result_trees{'sole_image'}{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'sole_image'}{'contents'}[0]{'args'}[0];
-$result_trees{'sole_image'}{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'sole_image'}{'contents'}[0];
+$result_trees{'sole_image'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'sole_image'}{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'sole_image'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'sole_image'}{'contents'}[0]{'contents'}[0];
+$result_trees{'sole_image'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'sole_image'}{'contents'}[0];
+$result_trees{'sole_image'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'sole_image'}{'contents'}[0];
+$result_trees{'sole_image'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'sole_image'}{'contents'}[0];
+$result_trees{'sole_image'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'sole_image'}{'contents'}[0]{'contents'}[3];
+$result_trees{'sole_image'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'sole_image'}{'contents'}[0];
 $result_trees{'sole_image'}{'contents'}[0]{'parent'} = $result_trees{'sole_image'};
-$result_trees{'sole_image'}{'contents'}[1]{'parent'} = $result_trees{'sole_image'};
-$result_trees{'sole_image'}{'contents'}[2]{'parent'} = $result_trees{'sole_image'};
-$result_trees{'sole_image'}{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'sole_image'}{'contents'}[3];
-$result_trees{'sole_image'}{'contents'}[3]{'parent'} = $result_trees{'sole_image'};
 
 $result_texis{'sole_image'} = '@image{aa}
 

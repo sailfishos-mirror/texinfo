@@ -8,58 +8,65 @@ use utf8;
 $result_trees{'noindent_empty_para'} = {
   'contents' => [
     {
-      'cmdname' => 'noindent',
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
-      },
-      'parent' => {}
-    },
-    {
-      'extra' => {
-        'command' => {}
-      },
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line_after_command'
-    },
-    {
-      'contents' => [],
-      'extra' => {
-        'noindent' => 1
-      },
-      'parent' => {},
-      'type' => 'paragraph'
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
       'contents' => [
         {
+          'cmdname' => 'noindent',
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 1,
+            'macro' => ''
+          },
+          'parent' => {}
+        },
+        {
+          'extra' => {
+            'command' => {}
+          },
           'parent' => {},
-          'text' => 'aaa
+          'text' => '
+',
+          'type' => 'empty_line_after_command'
+        },
+        {
+          'contents' => [],
+          'extra' => {
+            'noindent' => 1
+          },
+          'parent' => {},
+          'type' => 'paragraph'
+        },
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => 'aaa
 '
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
         }
       ],
       'parent' => {},
-      'type' => 'paragraph'
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
+$result_trees{'noindent_empty_para'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'noindent_empty_para'}{'contents'}[0];
+$result_trees{'noindent_empty_para'}{'contents'}[0]{'contents'}[1]{'extra'}{'command'} = $result_trees{'noindent_empty_para'}{'contents'}[0]{'contents'}[0];
+$result_trees{'noindent_empty_para'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'noindent_empty_para'}{'contents'}[0];
+$result_trees{'noindent_empty_para'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'noindent_empty_para'}{'contents'}[0];
+$result_trees{'noindent_empty_para'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'noindent_empty_para'}{'contents'}[0];
+$result_trees{'noindent_empty_para'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'noindent_empty_para'}{'contents'}[0]{'contents'}[4];
+$result_trees{'noindent_empty_para'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'noindent_empty_para'}{'contents'}[0];
 $result_trees{'noindent_empty_para'}{'contents'}[0]{'parent'} = $result_trees{'noindent_empty_para'};
-$result_trees{'noindent_empty_para'}{'contents'}[1]{'extra'}{'command'} = $result_trees{'noindent_empty_para'}{'contents'}[0];
-$result_trees{'noindent_empty_para'}{'contents'}[1]{'parent'} = $result_trees{'noindent_empty_para'};
-$result_trees{'noindent_empty_para'}{'contents'}[2]{'parent'} = $result_trees{'noindent_empty_para'};
-$result_trees{'noindent_empty_para'}{'contents'}[3]{'parent'} = $result_trees{'noindent_empty_para'};
-$result_trees{'noindent_empty_para'}{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'noindent_empty_para'}{'contents'}[4];
-$result_trees{'noindent_empty_para'}{'contents'}[4]{'parent'} = $result_trees{'noindent_empty_para'};
 
 $result_texis{'noindent_empty_para'} = '@noindent
 

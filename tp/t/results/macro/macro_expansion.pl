@@ -8,102 +8,75 @@ use utf8;
 $result_trees{'macro_expansion'} = {
   'contents' => [
     {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'args' => [
-        {
-          'parent' => {},
-          'text' => 'macroone',
-          'type' => 'macro_name'
-        },
-        {
-          'parent' => {},
-          'text' => 'arg1',
-          'type' => 'macro_arg'
-        },
-        {
-          'parent' => {},
-          'text' => 'arg2',
-          'type' => 'macro_arg'
-        }
-      ],
-      'cmdname' => 'macro',
       'contents' => [
-        {
-          'parent' => {},
-          'text' => 'result of a macro with \\arg1\\ and 
-',
-          'type' => 'raw'
-        },
-        {
-          'parent' => {},
-          'text' => '@verbatim
-',
-          'type' => 'raw'
-        },
-        {
-          'parent' => {},
-          'text' => '\\arg2\\
-',
-          'type' => 'raw'
-        },
-        {
-          'parent' => {},
-          'text' => '@end verbatim',
-          'type' => 'raw'
-        },
         {
           'parent' => {},
           'text' => '
 ',
-          'type' => 'last_raw_newline'
-        }
-      ],
-      'extra' => {
-        'arg_line' => ' macroone {arg1, arg2 }
-'
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 2,
-        'macro' => ''
-      },
-      'parent' => {}
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line_after_command'
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'contents' => [
+          'type' => 'empty_line'
+        },
         {
-          'parent' => {},
-          'text' => '2 simple args. result of a macro with first arg and 
-'
-        }
-      ],
-      'parent' => {},
-      'type' => 'paragraph'
-    },
-    {
-      'cmdname' => 'verbatim',
-      'contents' => [
-        {
+          'args' => [
+            {
+              'parent' => {},
+              'text' => 'macroone',
+              'type' => 'macro_name'
+            },
+            {
+              'parent' => {},
+              'text' => 'arg1',
+              'type' => 'macro_arg'
+            },
+            {
+              'parent' => {},
+              'text' => 'arg2',
+              'type' => 'macro_arg'
+            }
+          ],
+          'cmdname' => 'macro',
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => 'result of a macro with \\arg1\\ and 
+',
+              'type' => 'raw'
+            },
+            {
+              'parent' => {},
+              'text' => '@verbatim
+',
+              'type' => 'raw'
+            },
+            {
+              'parent' => {},
+              'text' => '\\arg2\\
+',
+              'type' => 'raw'
+            },
+            {
+              'parent' => {},
+              'text' => '@end verbatim',
+              'type' => 'raw'
+            },
+            {
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'last_raw_newline'
+            }
+          ],
           'extra' => {
-            'command' => {}
+            'arg_line' => ' macroone {arg1, arg2 }
+'
           },
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 2,
+            'macro' => ''
+          },
+          'parent' => {}
+        },
+        {
           'parent' => {},
           'text' => '
 ',
@@ -111,56 +84,120 @@ $result_trees{'macro_expansion'} = {
         },
         {
           'parent' => {},
-          'text' => 'second arg
+          'text' => '
 ',
-          'type' => 'raw'
-        }
-      ],
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 9,
-        'macro' => 'macroone'
-      },
-      'parent' => {}
-    },
-    {
-      'contents' => [
-        {
-          'parent' => {},
-          'text' => '.
-'
-        }
-      ],
-      'parent' => {},
-      'type' => 'paragraph'
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'contents' => [
-        {
-          'parent' => {},
-          'text' => 'comma in command. result of a macro with aaa '
+          'type' => 'empty_line'
         },
         {
-          'args' => [
+          'contents' => [
             {
-              'contents' => [
-                {
-                  'parent' => {},
-                  'text' => 'a macro , '
-                }
-              ],
               'parent' => {},
-              'type' => 'brace_command_arg'
+              'text' => '2 simple args. result of a macro with first arg and 
+'
             }
           ],
-          'cmdname' => 'samp',
-          'contents' => [],
+          'parent' => {},
+          'type' => 'paragraph'
+        },
+        {
+          'cmdname' => 'verbatim',
+          'contents' => [
+            {
+              'extra' => {
+                'command' => {}
+              },
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line_after_command'
+            },
+            {
+              'parent' => {},
+              'text' => 'second arg
+',
+              'type' => 'raw'
+            }
+          ],
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 9,
+            'macro' => 'macroone'
+          },
+          'parent' => {}
+        },
+        {
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => '.
+'
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
+        },
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => 'comma in command. result of a macro with aaa '
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'a macro , '
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                }
+              ],
+              'cmdname' => 'samp',
+              'contents' => [],
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 11,
+                'macro' => 'macroone'
+              },
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => ' bbb and 
+'
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
+        },
+        {
+          'cmdname' => 'verbatim',
+          'contents' => [
+            {
+              'extra' => {
+                'command' => {}
+              },
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line_after_command'
+            },
+            {
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'raw'
+            }
+          ],
           'line_nr' => {
             'file_name' => '',
             'line_nr' => 11,
@@ -169,378 +206,348 @@ $result_trees{'macro_expansion'} = {
           'parent' => {}
         },
         {
-          'parent' => {},
-          'text' => ' bbb and 
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => '.
 '
-        }
-      ],
-      'parent' => {},
-      'type' => 'paragraph'
-    },
-    {
-      'cmdname' => 'verbatim',
-      'contents' => [
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
+        },
         {
-          'extra' => {
-            'command' => {}
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => 'call on the line. result of a macro with  and 
+'
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
+        },
+        {
+          'cmdname' => 'verbatim',
+          'contents' => [
+            {
+              'extra' => {
+                'command' => {}
+              },
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line_after_command'
+            },
+            {
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'raw'
+            }
+          ],
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 13,
+            'macro' => 'macroone'
           },
+          'parent' => {}
+        },
+        {
           'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line_after_command'
+          'text' => ' ',
+          'type' => 'empty_spaces_after_command'
+        },
+        {
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => 'my arg.
+'
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
         },
         {
           'parent' => {},
           'text' => '
 ',
-          'type' => 'raw'
-        }
-      ],
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 11,
-        'macro' => 'macroone'
-      },
-      'parent' => {}
-    },
-    {
-      'contents' => [
+          'type' => 'empty_line'
+        },
         {
-          'parent' => {},
-          'text' => '.
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => 'recursive call. result of a macro with first arg and 
 '
-        }
-      ],
-      'parent' => {},
-      'type' => 'paragraph'
-    },
-    {
-      'parent' => {},
-      'text' => '
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
+        },
+        {
+          'cmdname' => 'verbatim',
+          'contents' => [
+            {
+              'extra' => {
+                'command' => {}
+              },
+              'parent' => {},
+              'text' => '
 ',
-      'type' => 'empty_line'
-    },
-    {
-      'contents' => [
-        {
-          'parent' => {},
-          'text' => 'call on the line. result of a macro with  and 
-'
-        }
-      ],
-      'parent' => {},
-      'type' => 'paragraph'
-    },
-    {
-      'cmdname' => 'verbatim',
-      'contents' => [
-        {
-          'extra' => {
-            'command' => {}
+              'type' => 'empty_line_after_command'
+            },
+            {
+              'parent' => {},
+              'text' => '@macroone{nested second arg}
+',
+              'type' => 'raw'
+            }
+          ],
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 15,
+            'macro' => 'macroone'
           },
+          'parent' => {}
+        },
+        {
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => '.
+'
+            }
+          ],
           'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line_after_command'
+          'type' => 'paragraph'
         },
         {
           'parent' => {},
           'text' => '
 ',
-          'type' => 'raw'
-        }
-      ],
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 13,
-        'macro' => 'macroone'
-      },
-      'parent' => {}
-    },
-    {
-      'parent' => {},
-      'text' => ' ',
-      'type' => 'empty_spaces_after_command'
-    },
-    {
-      'contents' => [
+          'type' => 'empty_line'
+        },
         {
-          'parent' => {},
-          'text' => 'my arg.
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => 'protect stuff. result of a macro with first , arg and 
 '
-        }
-      ],
-      'parent' => {},
-      'type' => 'paragraph'
-    },
-    {
-      'parent' => {},
-      'text' => '
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
+        },
+        {
+          'cmdname' => 'verbatim',
+          'contents' => [
+            {
+              'extra' => {
+                'command' => {}
+              },
+              'parent' => {},
+              'text' => '
 ',
-      'type' => 'empty_line'
-    },
-    {
-      'contents' => [
-        {
-          'parent' => {},
-          'text' => 'recursive call. result of a macro with first arg and 
-'
-        }
-      ],
-      'parent' => {},
-      'type' => 'paragraph'
-    },
-    {
-      'cmdname' => 'verbatim',
-      'contents' => [
-        {
-          'extra' => {
-            'command' => {}
+              'type' => 'empty_line_after_command'
+            },
+            {
+              'parent' => {},
+              'text' => '{} \\ 
+',
+              'type' => 'raw'
+            }
+          ],
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 17,
+            'macro' => 'macroone'
           },
+          'parent' => {}
+        },
+        {
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => '.
+'
+            }
+          ],
           'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line_after_command'
+          'type' => 'paragraph'
         },
         {
           'parent' => {},
-          'text' => '@macroone{nested second arg}
+          'text' => '
 ',
-          'type' => 'raw'
-        }
-      ],
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 15,
-        'macro' => 'macroone'
-      },
-      'parent' => {}
-    },
-    {
-      'contents' => [
+          'type' => 'empty_line'
+        },
+        {
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => 'multi-line arg. result of a macro with arg 1
+'
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
+        },
         {
           'parent' => {},
-          'text' => '.
-'
-        }
-      ],
-      'parent' => {},
-      'type' => 'paragraph'
-    },
-    {
-      'parent' => {},
-      'text' => '
+          'text' => '
 ',
-      'type' => 'empty_line'
-    },
-    {
-      'contents' => [
+          'type' => 'empty_line'
+        },
         {
-          'parent' => {},
-          'text' => 'protect stuff. result of a macro with first , arg and 
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => 'now and 
 '
-        }
-      ],
-      'parent' => {},
-      'type' => 'paragraph'
-    },
-    {
-      'cmdname' => 'verbatim',
-      'contents' => [
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
+        },
         {
-          'extra' => {
-            'command' => {}
+          'cmdname' => 'verbatim',
+          'contents' => [
+            {
+              'extra' => {
+                'command' => {}
+              },
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line_after_command'
+            },
+            {
+              'parent' => {},
+              'text' => 'arg3
+',
+              'type' => 'raw'
+            },
+            {
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'raw'
+            },
+            {
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'raw'
+            }
+          ],
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 23,
+            'macro' => 'macroone'
           },
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line_after_command'
+          'parent' => {}
         },
         {
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => '.'
+            }
+          ],
           'parent' => {},
-          'text' => '{} \\ 
-',
-          'type' => 'raw'
-        }
-      ],
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 17,
-        'macro' => 'macroone'
-      },
-      'parent' => {}
-    },
-    {
-      'contents' => [
-        {
-          'parent' => {},
-          'text' => '.
-'
+          'type' => 'paragraph'
         }
       ],
       'parent' => {},
-      'type' => 'paragraph'
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'contents' => [
-        {
-          'parent' => {},
-          'text' => 'multi-line arg. result of a macro with arg 1
-'
-        }
-      ],
-      'parent' => {},
-      'type' => 'paragraph'
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'contents' => [
-        {
-          'parent' => {},
-          'text' => 'now and 
-'
-        }
-      ],
-      'parent' => {},
-      'type' => 'paragraph'
-    },
-    {
-      'cmdname' => 'verbatim',
-      'contents' => [
-        {
-          'extra' => {
-            'command' => {}
-          },
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line_after_command'
-        },
-        {
-          'parent' => {},
-          'text' => 'arg3
-',
-          'type' => 'raw'
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'raw'
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'raw'
-        }
-      ],
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 23,
-        'macro' => 'macroone'
-      },
-      'parent' => {}
-    },
-    {
-      'contents' => [
-        {
-          'parent' => {},
-          'text' => '.'
-        }
-      ],
-      'parent' => {},
-      'type' => 'paragraph'
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
+$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0];
+$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[1];
+$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[1]{'args'}[1]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[1];
+$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[1]{'args'}[2]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[1];
+$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[1];
+$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[1];
+$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[1];
+$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[1];
+$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[1]{'contents'}[4]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[1];
+$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0];
+$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0];
+$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0];
+$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[4];
+$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0];
+$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[5]{'contents'}[0]{'extra'}{'command'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[5];
+$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[5]{'contents'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[5];
+$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[5];
+$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0];
+$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[6];
+$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[6]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0];
+$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[7]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0];
+$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[8];
+$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[8]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[8]{'contents'}[1]{'args'}[0];
+$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[8]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[8]{'contents'}[1];
+$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[8]{'contents'}[1]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[8];
+$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[8]{'contents'}[2]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[8];
+$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[8]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0];
+$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[9]{'contents'}[0]{'extra'}{'command'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[9];
+$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[9]{'contents'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[9];
+$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[9]{'contents'}[1]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[9];
+$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[9]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0];
+$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[10]{'contents'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[10];
+$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[10]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0];
+$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[11]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0];
+$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[12]{'contents'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[12];
+$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[12]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0];
+$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[13]{'contents'}[0]{'extra'}{'command'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[13];
+$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[13]{'contents'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[13];
+$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[13]{'contents'}[1]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[13];
+$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[13]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0];
+$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[14]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0];
+$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[15]{'contents'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[15];
+$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[15]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0];
+$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[16]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0];
+$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[17]{'contents'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[17];
+$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[17]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0];
+$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[18]{'contents'}[0]{'extra'}{'command'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[18];
+$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[18]{'contents'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[18];
+$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[18]{'contents'}[1]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[18];
+$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[18]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0];
+$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[19]{'contents'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[19];
+$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[19]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0];
+$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[20]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0];
+$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[21]{'contents'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[21];
+$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[21]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0];
+$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[22]{'contents'}[0]{'extra'}{'command'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[22];
+$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[22]{'contents'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[22];
+$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[22]{'contents'}[1]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[22];
+$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[22]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0];
+$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[23]{'contents'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[23];
+$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[23]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0];
+$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[24]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0];
+$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[25]{'contents'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[25];
+$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[25]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0];
+$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[26]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0];
+$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[27]{'contents'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[27];
+$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[27]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0];
+$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[28]{'contents'}[0]{'extra'}{'command'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[28];
+$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[28]{'contents'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[28];
+$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[28]{'contents'}[1]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[28];
+$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[28]{'contents'}[2]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[28];
+$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[28]{'contents'}[3]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[28];
+$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[28]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0];
+$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[29]{'contents'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[29];
+$result_trees{'macro_expansion'}{'contents'}[0]{'contents'}[29]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[0];
 $result_trees{'macro_expansion'}{'contents'}[0]{'parent'} = $result_trees{'macro_expansion'};
-$result_trees{'macro_expansion'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[1];
-$result_trees{'macro_expansion'}{'contents'}[1]{'args'}[1]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[1];
-$result_trees{'macro_expansion'}{'contents'}[1]{'args'}[2]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[1];
-$result_trees{'macro_expansion'}{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[1];
-$result_trees{'macro_expansion'}{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[1];
-$result_trees{'macro_expansion'}{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[1];
-$result_trees{'macro_expansion'}{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[1];
-$result_trees{'macro_expansion'}{'contents'}[1]{'contents'}[4]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[1];
-$result_trees{'macro_expansion'}{'contents'}[1]{'parent'} = $result_trees{'macro_expansion'};
-$result_trees{'macro_expansion'}{'contents'}[2]{'parent'} = $result_trees{'macro_expansion'};
-$result_trees{'macro_expansion'}{'contents'}[3]{'parent'} = $result_trees{'macro_expansion'};
-$result_trees{'macro_expansion'}{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[4];
-$result_trees{'macro_expansion'}{'contents'}[4]{'parent'} = $result_trees{'macro_expansion'};
-$result_trees{'macro_expansion'}{'contents'}[5]{'contents'}[0]{'extra'}{'command'} = $result_trees{'macro_expansion'}{'contents'}[5];
-$result_trees{'macro_expansion'}{'contents'}[5]{'contents'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[5];
-$result_trees{'macro_expansion'}{'contents'}[5]{'contents'}[1]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[5];
-$result_trees{'macro_expansion'}{'contents'}[5]{'parent'} = $result_trees{'macro_expansion'};
-$result_trees{'macro_expansion'}{'contents'}[6]{'contents'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[6];
-$result_trees{'macro_expansion'}{'contents'}[6]{'parent'} = $result_trees{'macro_expansion'};
-$result_trees{'macro_expansion'}{'contents'}[7]{'parent'} = $result_trees{'macro_expansion'};
-$result_trees{'macro_expansion'}{'contents'}[8]{'contents'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[8];
-$result_trees{'macro_expansion'}{'contents'}[8]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[8]{'contents'}[1]{'args'}[0];
-$result_trees{'macro_expansion'}{'contents'}[8]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[8]{'contents'}[1];
-$result_trees{'macro_expansion'}{'contents'}[8]{'contents'}[1]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[8];
-$result_trees{'macro_expansion'}{'contents'}[8]{'contents'}[2]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[8];
-$result_trees{'macro_expansion'}{'contents'}[8]{'parent'} = $result_trees{'macro_expansion'};
-$result_trees{'macro_expansion'}{'contents'}[9]{'contents'}[0]{'extra'}{'command'} = $result_trees{'macro_expansion'}{'contents'}[9];
-$result_trees{'macro_expansion'}{'contents'}[9]{'contents'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[9];
-$result_trees{'macro_expansion'}{'contents'}[9]{'contents'}[1]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[9];
-$result_trees{'macro_expansion'}{'contents'}[9]{'parent'} = $result_trees{'macro_expansion'};
-$result_trees{'macro_expansion'}{'contents'}[10]{'contents'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[10];
-$result_trees{'macro_expansion'}{'contents'}[10]{'parent'} = $result_trees{'macro_expansion'};
-$result_trees{'macro_expansion'}{'contents'}[11]{'parent'} = $result_trees{'macro_expansion'};
-$result_trees{'macro_expansion'}{'contents'}[12]{'contents'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[12];
-$result_trees{'macro_expansion'}{'contents'}[12]{'parent'} = $result_trees{'macro_expansion'};
-$result_trees{'macro_expansion'}{'contents'}[13]{'contents'}[0]{'extra'}{'command'} = $result_trees{'macro_expansion'}{'contents'}[13];
-$result_trees{'macro_expansion'}{'contents'}[13]{'contents'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[13];
-$result_trees{'macro_expansion'}{'contents'}[13]{'contents'}[1]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[13];
-$result_trees{'macro_expansion'}{'contents'}[13]{'parent'} = $result_trees{'macro_expansion'};
-$result_trees{'macro_expansion'}{'contents'}[14]{'parent'} = $result_trees{'macro_expansion'};
-$result_trees{'macro_expansion'}{'contents'}[15]{'contents'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[15];
-$result_trees{'macro_expansion'}{'contents'}[15]{'parent'} = $result_trees{'macro_expansion'};
-$result_trees{'macro_expansion'}{'contents'}[16]{'parent'} = $result_trees{'macro_expansion'};
-$result_trees{'macro_expansion'}{'contents'}[17]{'contents'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[17];
-$result_trees{'macro_expansion'}{'contents'}[17]{'parent'} = $result_trees{'macro_expansion'};
-$result_trees{'macro_expansion'}{'contents'}[18]{'contents'}[0]{'extra'}{'command'} = $result_trees{'macro_expansion'}{'contents'}[18];
-$result_trees{'macro_expansion'}{'contents'}[18]{'contents'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[18];
-$result_trees{'macro_expansion'}{'contents'}[18]{'contents'}[1]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[18];
-$result_trees{'macro_expansion'}{'contents'}[18]{'parent'} = $result_trees{'macro_expansion'};
-$result_trees{'macro_expansion'}{'contents'}[19]{'contents'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[19];
-$result_trees{'macro_expansion'}{'contents'}[19]{'parent'} = $result_trees{'macro_expansion'};
-$result_trees{'macro_expansion'}{'contents'}[20]{'parent'} = $result_trees{'macro_expansion'};
-$result_trees{'macro_expansion'}{'contents'}[21]{'contents'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[21];
-$result_trees{'macro_expansion'}{'contents'}[21]{'parent'} = $result_trees{'macro_expansion'};
-$result_trees{'macro_expansion'}{'contents'}[22]{'contents'}[0]{'extra'}{'command'} = $result_trees{'macro_expansion'}{'contents'}[22];
-$result_trees{'macro_expansion'}{'contents'}[22]{'contents'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[22];
-$result_trees{'macro_expansion'}{'contents'}[22]{'contents'}[1]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[22];
-$result_trees{'macro_expansion'}{'contents'}[22]{'parent'} = $result_trees{'macro_expansion'};
-$result_trees{'macro_expansion'}{'contents'}[23]{'contents'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[23];
-$result_trees{'macro_expansion'}{'contents'}[23]{'parent'} = $result_trees{'macro_expansion'};
-$result_trees{'macro_expansion'}{'contents'}[24]{'parent'} = $result_trees{'macro_expansion'};
-$result_trees{'macro_expansion'}{'contents'}[25]{'contents'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[25];
-$result_trees{'macro_expansion'}{'contents'}[25]{'parent'} = $result_trees{'macro_expansion'};
-$result_trees{'macro_expansion'}{'contents'}[26]{'parent'} = $result_trees{'macro_expansion'};
-$result_trees{'macro_expansion'}{'contents'}[27]{'contents'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[27];
-$result_trees{'macro_expansion'}{'contents'}[27]{'parent'} = $result_trees{'macro_expansion'};
-$result_trees{'macro_expansion'}{'contents'}[28]{'contents'}[0]{'extra'}{'command'} = $result_trees{'macro_expansion'}{'contents'}[28];
-$result_trees{'macro_expansion'}{'contents'}[28]{'contents'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[28];
-$result_trees{'macro_expansion'}{'contents'}[28]{'contents'}[1]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[28];
-$result_trees{'macro_expansion'}{'contents'}[28]{'contents'}[2]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[28];
-$result_trees{'macro_expansion'}{'contents'}[28]{'contents'}[3]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[28];
-$result_trees{'macro_expansion'}{'contents'}[28]{'parent'} = $result_trees{'macro_expansion'};
-$result_trees{'macro_expansion'}{'contents'}[29]{'contents'}[0]{'parent'} = $result_trees{'macro_expansion'}{'contents'}[29];
-$result_trees{'macro_expansion'}{'contents'}[29]{'parent'} = $result_trees{'macro_expansion'};
 
 $result_texis{'macro_expansion'} = '
 @macro macroone {arg1, arg2 }

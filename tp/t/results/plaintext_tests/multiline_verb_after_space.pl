@@ -10,59 +10,66 @@ $result_trees{'multiline_verb_after_space'} = {
     {
       'contents' => [
         {
-          'parent' => {},
-          'text' => 'AA '
-        },
-        {
-          'args' => [
+          'contents' => [
             {
-              'contents' => [
+              'parent' => {},
+              'text' => 'AA '
+            },
+            {
+              'args' => [
                 {
-                  'parent' => {},
-                  'text' => 'aa
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'aa
 ',
-                  'type' => 'raw'
-                },
-                {
+                      'type' => 'raw'
+                    },
+                    {
+                      'parent' => {},
+                      'text' => 'bb',
+                      'type' => 'raw'
+                    }
+                  ],
                   'parent' => {},
-                  'text' => 'bb',
-                  'type' => 'raw'
+                  'type' => 'brace_command_arg'
                 }
               ],
+              'cmdname' => 'verb',
+              'contents' => [],
+              'extra' => {
+                'delimiter' => '*'
+              },
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 1,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
               'parent' => {},
-              'type' => 'brace_command_arg'
+              'text' => '.
+'
             }
           ],
-          'cmdname' => 'verb',
-          'contents' => [],
-          'extra' => {
-            'delimiter' => '*'
-          },
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
           'parent' => {},
-          'text' => '.
-'
+          'type' => 'paragraph'
         }
       ],
       'parent' => {},
-      'type' => 'paragraph'
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
+$result_trees{'multiline_verb_after_space'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'multiline_verb_after_space'}{'contents'}[0]{'contents'}[0];
+$result_trees{'multiline_verb_after_space'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'multiline_verb_after_space'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
+$result_trees{'multiline_verb_after_space'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'multiline_verb_after_space'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
+$result_trees{'multiline_verb_after_space'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'multiline_verb_after_space'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
+$result_trees{'multiline_verb_after_space'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'multiline_verb_after_space'}{'contents'}[0]{'contents'}[0];
+$result_trees{'multiline_verb_after_space'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'multiline_verb_after_space'}{'contents'}[0]{'contents'}[0];
 $result_trees{'multiline_verb_after_space'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'multiline_verb_after_space'}{'contents'}[0];
-$result_trees{'multiline_verb_after_space'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'multiline_verb_after_space'}{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'multiline_verb_after_space'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'multiline_verb_after_space'}{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'multiline_verb_after_space'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'multiline_verb_after_space'}{'contents'}[0]{'contents'}[1];
-$result_trees{'multiline_verb_after_space'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'multiline_verb_after_space'}{'contents'}[0];
-$result_trees{'multiline_verb_after_space'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'multiline_verb_after_space'}{'contents'}[0];
 $result_trees{'multiline_verb_after_space'}{'contents'}[0]{'parent'} = $result_trees{'multiline_verb_after_space'};
 
 $result_texis{'multiline_verb_after_space'} = 'AA @verb{*aa

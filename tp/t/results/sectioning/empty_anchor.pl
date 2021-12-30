@@ -8,36 +8,11 @@ use utf8;
 $result_trees{'empty_anchor'} = {
   'contents' => [
     {
-      'args' => [
-        {
-          'contents' => [],
-          'parent' => {},
-          'type' => 'brace_command_arg'
-        }
-      ],
-      'cmdname' => 'anchor',
-      'contents' => [],
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
-      },
-      'parent' => {}
-    },
-    {
       'contents' => [
-        {
-          'parent' => {},
-          'text' => '. 
-'
-        },
         {
           'args' => [
             {
               'contents' => [],
-              'extra' => {
-                'spaces_before_argument' => '   '
-              },
               'parent' => {},
               'type' => 'brace_command_arg'
             }
@@ -46,30 +21,62 @@ $result_trees{'empty_anchor'} = {
           'contents' => [],
           'line_nr' => {
             'file_name' => '',
-            'line_nr' => 2,
+            'line_nr' => 1,
             'macro' => ''
           },
           'parent' => {}
         },
         {
-          'parent' => {},
-          'text' => '.
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => '. 
 '
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [],
+                  'extra' => {
+                    'spaces_before_argument' => '   '
+                  },
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                }
+              ],
+              'cmdname' => 'anchor',
+              'contents' => [],
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 2,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => '.
+'
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
         }
       ],
       'parent' => {},
-      'type' => 'paragraph'
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
-$result_trees{'empty_anchor'}{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'empty_anchor'}{'contents'}[0];
+$result_trees{'empty_anchor'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'empty_anchor'}{'contents'}[0]{'contents'}[0];
+$result_trees{'empty_anchor'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_anchor'}{'contents'}[0];
+$result_trees{'empty_anchor'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'empty_anchor'}{'contents'}[0]{'contents'}[1];
+$result_trees{'empty_anchor'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'empty_anchor'}{'contents'}[0]{'contents'}[1]{'contents'}[1];
+$result_trees{'empty_anchor'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'empty_anchor'}{'contents'}[0]{'contents'}[1];
+$result_trees{'empty_anchor'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'empty_anchor'}{'contents'}[0]{'contents'}[1];
+$result_trees{'empty_anchor'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'empty_anchor'}{'contents'}[0];
 $result_trees{'empty_anchor'}{'contents'}[0]{'parent'} = $result_trees{'empty_anchor'};
-$result_trees{'empty_anchor'}{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'empty_anchor'}{'contents'}[1];
-$result_trees{'empty_anchor'}{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'empty_anchor'}{'contents'}[1]{'contents'}[1];
-$result_trees{'empty_anchor'}{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'empty_anchor'}{'contents'}[1];
-$result_trees{'empty_anchor'}{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'empty_anchor'}{'contents'}[1];
-$result_trees{'empty_anchor'}{'contents'}[1]{'parent'} = $result_trees{'empty_anchor'};
 
 $result_texis{'empty_anchor'} = '@anchor{}. 
 @anchor{   }.

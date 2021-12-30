@@ -8,91 +8,98 @@ use utf8;
 $result_trees{'leading_spaces_no_ignore'} = {
   'contents' => [
     {
-      'args' => [
-        {
-          'parent' => {},
-          'text' => 'mymacro',
-          'type' => 'macro_name'
-        }
-      ],
-      'cmdname' => 'macro',
       'contents' => [
         {
-          'parent' => {},
-          'text' => '  Some  here
+          'args' => [
+            {
+              'parent' => {},
+              'text' => 'mymacro',
+              'type' => 'macro_name'
+            }
+          ],
+          'cmdname' => 'macro',
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => '  Some  here
 ',
-          'type' => 'raw'
-        },
-        {
-          'parent' => {},
-          'text' => '  text',
-          'type' => 'raw'
+              'type' => 'raw'
+            },
+            {
+              'parent' => {},
+              'text' => '  text',
+              'type' => 'raw'
+            },
+            {
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'last_raw_newline'
+            }
+          ],
+          'extra' => {
+            'arg_line' => ' mymacro
+'
+          },
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 1,
+            'macro' => ''
+          },
+          'parent' => {}
         },
         {
           'parent' => {},
           'text' => '
 ',
-          'type' => 'last_raw_newline'
-        }
-      ],
-      'extra' => {
-        'arg_line' => ' mymacro
-'
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
-      },
-      'parent' => {}
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line_after_command'
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'parent' => {},
-      'text' => '  ',
-      'type' => 'empty_spaces_before_paragraph'
-    },
-    {
-      'contents' => [
-        {
-          'parent' => {},
-          'text' => 'Some  here
-'
+          'type' => 'empty_line_after_command'
         },
         {
           'parent' => {},
-          'text' => '  text
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'parent' => {},
+          'text' => '  ',
+          'type' => 'empty_spaces_before_paragraph'
+        },
+        {
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => 'Some  here
 '
+            },
+            {
+              'parent' => {},
+              'text' => '  text
+'
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
         }
       ],
       'parent' => {},
-      'type' => 'paragraph'
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
-$result_trees{'leading_spaces_no_ignore'}{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'leading_spaces_no_ignore'}{'contents'}[0];
+$result_trees{'leading_spaces_no_ignore'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'leading_spaces_no_ignore'}{'contents'}[0]{'contents'}[0];
+$result_trees{'leading_spaces_no_ignore'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'leading_spaces_no_ignore'}{'contents'}[0]{'contents'}[0];
+$result_trees{'leading_spaces_no_ignore'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'leading_spaces_no_ignore'}{'contents'}[0]{'contents'}[0];
+$result_trees{'leading_spaces_no_ignore'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'leading_spaces_no_ignore'}{'contents'}[0]{'contents'}[0];
 $result_trees{'leading_spaces_no_ignore'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'leading_spaces_no_ignore'}{'contents'}[0];
 $result_trees{'leading_spaces_no_ignore'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'leading_spaces_no_ignore'}{'contents'}[0];
 $result_trees{'leading_spaces_no_ignore'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'leading_spaces_no_ignore'}{'contents'}[0];
+$result_trees{'leading_spaces_no_ignore'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'leading_spaces_no_ignore'}{'contents'}[0];
+$result_trees{'leading_spaces_no_ignore'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'leading_spaces_no_ignore'}{'contents'}[0]{'contents'}[4];
+$result_trees{'leading_spaces_no_ignore'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'parent'} = $result_trees{'leading_spaces_no_ignore'}{'contents'}[0]{'contents'}[4];
+$result_trees{'leading_spaces_no_ignore'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'leading_spaces_no_ignore'}{'contents'}[0];
 $result_trees{'leading_spaces_no_ignore'}{'contents'}[0]{'parent'} = $result_trees{'leading_spaces_no_ignore'};
-$result_trees{'leading_spaces_no_ignore'}{'contents'}[1]{'parent'} = $result_trees{'leading_spaces_no_ignore'};
-$result_trees{'leading_spaces_no_ignore'}{'contents'}[2]{'parent'} = $result_trees{'leading_spaces_no_ignore'};
-$result_trees{'leading_spaces_no_ignore'}{'contents'}[3]{'parent'} = $result_trees{'leading_spaces_no_ignore'};
-$result_trees{'leading_spaces_no_ignore'}{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'leading_spaces_no_ignore'}{'contents'}[4];
-$result_trees{'leading_spaces_no_ignore'}{'contents'}[4]{'contents'}[1]{'parent'} = $result_trees{'leading_spaces_no_ignore'}{'contents'}[4];
-$result_trees{'leading_spaces_no_ignore'}{'contents'}[4]{'parent'} = $result_trees{'leading_spaces_no_ignore'};
 
 $result_texis{'leading_spaces_no_ignore'} = '@macro mymacro
   Some  here

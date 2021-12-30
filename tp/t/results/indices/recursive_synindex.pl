@@ -8,138 +8,145 @@ use utf8;
 $result_trees{'recursive_synindex'} = {
   'contents' => [
     {
-      'args' => [
+      'contents' => [
         {
-          'contents' => [
+          'args' => [
             {
-              'parent' => {},
-              'text' => 'aaa'
-            }
-          ],
-          'extra' => {
-            'spaces_after_argument' => '
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => 'aaa'
+                }
+              ],
+              'extra' => {
+                'spaces_after_argument' => '
 '
-          },
-          'parent' => {},
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'defindex',
-      'extra' => {
-        'misc_args' => [
-          'aaa'
-        ],
-        'spaces_before_argument' => ' '
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
-      },
-      'parent' => {}
-    },
-    {
-      'args' => [
-        {
-          'contents' => [
-            {
+              },
               'parent' => {},
-              'text' => 'bbb'
+              'type' => 'line_arg'
             }
           ],
+          'cmdname' => 'defindex',
           'extra' => {
-            'spaces_after_argument' => '
-'
+            'misc_args' => [
+              'aaa'
+            ],
+            'spaces_before_argument' => ' '
           },
-          'parent' => {},
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'defindex',
-      'extra' => {
-        'misc_args' => [
-          'bbb'
-        ],
-        'spaces_before_argument' => ' '
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 2,
-        'macro' => ''
-      },
-      'parent' => {}
-    },
-    {
-      'args' => [
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 1,
+            'macro' => ''
+          },
+          'parent' => {}
+        },
         {
-          'contents' => [
+          'args' => [
             {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => 'bbb'
+                }
+              ],
+              'extra' => {
+                'spaces_after_argument' => '
+'
+              },
               'parent' => {},
-              'text' => 'aaa bbb'
+              'type' => 'line_arg'
             }
           ],
+          'cmdname' => 'defindex',
           'extra' => {
-            'spaces_after_argument' => '
-'
+            'misc_args' => [
+              'bbb'
+            ],
+            'spaces_before_argument' => ' '
           },
-          'parent' => {},
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'synindex',
-      'extra' => {
-        'misc_args' => [
-          'aaa',
-          'bbb'
-        ],
-        'spaces_before_argument' => ' '
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 3,
-        'macro' => ''
-      },
-      'parent' => {}
-    },
-    {
-      'args' => [
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 2,
+            'macro' => ''
+          },
+          'parent' => {}
+        },
         {
-          'contents' => [
+          'args' => [
             {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => 'aaa bbb'
+                }
+              ],
+              'extra' => {
+                'spaces_after_argument' => '
+'
+              },
               'parent' => {},
-              'text' => 'bbb aaa'
+              'type' => 'line_arg'
             }
           ],
-          'parent' => {},
-          'type' => 'line_arg'
+          'cmdname' => 'synindex',
+          'extra' => {
+            'misc_args' => [
+              'aaa',
+              'bbb'
+            ],
+            'spaces_before_argument' => ' '
+          },
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 3,
+            'macro' => ''
+          },
+          'parent' => {}
+        },
+        {
+          'args' => [
+            {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => 'bbb aaa'
+                }
+              ],
+              'parent' => {},
+              'type' => 'line_arg'
+            }
+          ],
+          'cmdname' => 'synindex',
+          'extra' => {
+            'spaces_before_argument' => ' '
+          },
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 4,
+            'macro' => ''
+          },
+          'parent' => {}
         }
       ],
-      'cmdname' => 'synindex',
-      'extra' => {
-        'spaces_before_argument' => ' '
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 4,
-        'macro' => ''
-      },
-      'parent' => {}
+      'parent' => {},
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
-$result_trees{'recursive_synindex'}{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'recursive_synindex'}{'contents'}[0]{'args'}[0];
-$result_trees{'recursive_synindex'}{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'recursive_synindex'}{'contents'}[0];
+$result_trees{'recursive_synindex'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'recursive_synindex'}{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'recursive_synindex'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'recursive_synindex'}{'contents'}[0]{'contents'}[0];
+$result_trees{'recursive_synindex'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'recursive_synindex'}{'contents'}[0];
+$result_trees{'recursive_synindex'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'recursive_synindex'}{'contents'}[0]{'contents'}[1]{'args'}[0];
+$result_trees{'recursive_synindex'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'recursive_synindex'}{'contents'}[0]{'contents'}[1];
+$result_trees{'recursive_synindex'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'recursive_synindex'}{'contents'}[0];
+$result_trees{'recursive_synindex'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'recursive_synindex'}{'contents'}[0]{'contents'}[2]{'args'}[0];
+$result_trees{'recursive_synindex'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'recursive_synindex'}{'contents'}[0]{'contents'}[2];
+$result_trees{'recursive_synindex'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'recursive_synindex'}{'contents'}[0];
+$result_trees{'recursive_synindex'}{'contents'}[0]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'recursive_synindex'}{'contents'}[0]{'contents'}[3]{'args'}[0];
+$result_trees{'recursive_synindex'}{'contents'}[0]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'recursive_synindex'}{'contents'}[0]{'contents'}[3];
+$result_trees{'recursive_synindex'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'recursive_synindex'}{'contents'}[0];
 $result_trees{'recursive_synindex'}{'contents'}[0]{'parent'} = $result_trees{'recursive_synindex'};
-$result_trees{'recursive_synindex'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'recursive_synindex'}{'contents'}[1]{'args'}[0];
-$result_trees{'recursive_synindex'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'recursive_synindex'}{'contents'}[1];
-$result_trees{'recursive_synindex'}{'contents'}[1]{'parent'} = $result_trees{'recursive_synindex'};
-$result_trees{'recursive_synindex'}{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'recursive_synindex'}{'contents'}[2]{'args'}[0];
-$result_trees{'recursive_synindex'}{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'recursive_synindex'}{'contents'}[2];
-$result_trees{'recursive_synindex'}{'contents'}[2]{'parent'} = $result_trees{'recursive_synindex'};
-$result_trees{'recursive_synindex'}{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'recursive_synindex'}{'contents'}[3]{'args'}[0];
-$result_trees{'recursive_synindex'}{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'recursive_synindex'}{'contents'}[3];
-$result_trees{'recursive_synindex'}{'contents'}[3]{'parent'} = $result_trees{'recursive_synindex'};
 
 $result_texis{'recursive_synindex'} = '@defindex aaa
 @defindex bbb

@@ -8,246 +8,253 @@ use utf8;
 $result_trees{'protect_spaces_on_line'} = {
   'contents' => [
     {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
       'contents' => [
         {
-          'parent' => {},
-          'text' => 'Before samp. '
-        },
-        {
-          'args' => [
-            {
-              'contents' => [
-                {
-                  'parent' => {},
-                  'text' => 'a'
-                }
-              ],
-              'parent' => {},
-              'type' => 'brace_command_arg'
-            }
-          ],
-          'cmdname' => 'samp',
-          'contents' => [],
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 2,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '. after samp, w '
-        },
-        {
-          'args' => [
-            {
-              'contents' => [
-                {
-                  'parent' => {},
-                  'text' => 'in   w. after dot'
-                }
-              ],
-              'parent' => {},
-              'type' => 'brace_command_arg'
-            }
-          ],
-          'cmdname' => 'w',
-          'contents' => [],
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 2,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '  afterw
-'
-        }
-      ],
-      'parent' => {},
-      'type' => 'paragraph'
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'cmdname' => 'quotation',
-      'contents' => [
-        {
-          'extra' => {
-            'command' => {}
-          },
           'parent' => {},
           'text' => '
 ',
-          'type' => 'empty_line_after_command'
+          'type' => 'empty_line'
         },
         {
-          'args' => [
+          'contents' => [
             {
-              'contents' => [
+              'parent' => {},
+              'text' => 'Before samp. '
+            },
+            {
+              'args' => [
                 {
-                  'parent' => {},
-                  'text' => 'before samp. '
-                },
-                {
-                  'args' => [
+                  'contents' => [
                     {
-                      'contents' => [
-                        {
-                          'parent' => {},
-                          'text' => 'a'
-                        }
-                      ],
                       'parent' => {},
-                      'type' => 'brace_command_arg'
+                      'text' => 'a'
                     }
                   ],
-                  'cmdname' => 'samp',
-                  'contents' => [],
-                  'line_nr' => {
-                    'file_name' => '',
-                    'line_nr' => 5,
-                    'macro' => ''
-                  },
-                  'parent' => {}
-                },
-                {
                   'parent' => {},
-                  'text' => '. after samp, w '
-                },
-                {
-                  'args' => [
-                    {
-                      'contents' => [
-                        {
-                          'parent' => {},
-                          'text' => 'in   w. after dot'
-                        }
-                      ],
-                      'parent' => {},
-                      'type' => 'brace_command_arg'
-                    }
-                  ],
-                  'cmdname' => 'w',
-                  'contents' => [],
-                  'line_nr' => {
-                    'file_name' => '',
-                    'line_nr' => 5,
-                    'macro' => ''
-                  },
-                  'parent' => {}
-                },
-                {
-                  'parent' => {},
-                  'text' => '  afterw'
+                  'type' => 'brace_command_arg'
                 }
               ],
-              'extra' => {
-                'spaces_after_argument' => '
-'
+              'cmdname' => 'samp',
+              'contents' => [],
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 2,
+                'macro' => ''
               },
+              'parent' => {}
+            },
+            {
               'parent' => {},
-              'type' => 'line_arg'
+              'text' => '. after samp, w '
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'in   w. after dot'
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                }
+              ],
+              'cmdname' => 'w',
+              'contents' => [],
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 2,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => '  afterw
+'
             }
           ],
-          'cmdname' => 'exdent',
+          'parent' => {},
+          'type' => 'paragraph'
+        },
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'cmdname' => 'quotation',
+          'contents' => [
+            {
+              'extra' => {
+                'command' => {}
+              },
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line_after_command'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'before samp. '
+                    },
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'parent' => {},
+                              'text' => 'a'
+                            }
+                          ],
+                          'parent' => {},
+                          'type' => 'brace_command_arg'
+                        }
+                      ],
+                      'cmdname' => 'samp',
+                      'contents' => [],
+                      'line_nr' => {
+                        'file_name' => '',
+                        'line_nr' => 5,
+                        'macro' => ''
+                      },
+                      'parent' => {}
+                    },
+                    {
+                      'parent' => {},
+                      'text' => '. after samp, w '
+                    },
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'parent' => {},
+                              'text' => 'in   w. after dot'
+                            }
+                          ],
+                          'parent' => {},
+                          'type' => 'brace_command_arg'
+                        }
+                      ],
+                      'cmdname' => 'w',
+                      'contents' => [],
+                      'line_nr' => {
+                        'file_name' => '',
+                        'line_nr' => 5,
+                        'macro' => ''
+                      },
+                      'parent' => {}
+                    },
+                    {
+                      'parent' => {},
+                      'text' => '  afterw'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
+                  'parent' => {},
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'exdent',
+              'extra' => {
+                'spaces_before_argument' => ' '
+              },
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 5,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'quotation'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
+                  'parent' => {},
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'end',
+              'extra' => {
+                'command_argument' => 'quotation',
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'quotation'
+              },
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 6,
+                'macro' => ''
+              },
+              'parent' => {}
+            }
+          ],
           'extra' => {
-            'spaces_before_argument' => ' '
+            'end_command' => {}
           },
           'line_nr' => {
             'file_name' => '',
-            'line_nr' => 5,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'contents' => [
-                {
-                  'parent' => {},
-                  'text' => 'quotation'
-                }
-              ],
-              'extra' => {
-                'spaces_after_argument' => '
-'
-              },
-              'parent' => {},
-              'type' => 'line_arg'
-            }
-          ],
-          'cmdname' => 'end',
-          'extra' => {
-            'command_argument' => 'quotation',
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'quotation'
-          },
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 6,
+            'line_nr' => 4,
             'macro' => ''
           },
           'parent' => {}
         }
       ],
-      'extra' => {
-        'end_command' => {}
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 4,
-        'macro' => ''
-      },
-      'parent' => {}
+      'parent' => {},
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
+$result_trees{'protect_spaces_on_line'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'protect_spaces_on_line'}{'contents'}[0];
+$result_trees{'protect_spaces_on_line'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'protect_spaces_on_line'}{'contents'}[0]{'contents'}[1];
+$result_trees{'protect_spaces_on_line'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'protect_spaces_on_line'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0];
+$result_trees{'protect_spaces_on_line'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'protect_spaces_on_line'}{'contents'}[0]{'contents'}[1]{'contents'}[1];
+$result_trees{'protect_spaces_on_line'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'protect_spaces_on_line'}{'contents'}[0]{'contents'}[1];
+$result_trees{'protect_spaces_on_line'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'protect_spaces_on_line'}{'contents'}[0]{'contents'}[1];
+$result_trees{'protect_spaces_on_line'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'protect_spaces_on_line'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'args'}[0];
+$result_trees{'protect_spaces_on_line'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'protect_spaces_on_line'}{'contents'}[0]{'contents'}[1]{'contents'}[3];
+$result_trees{'protect_spaces_on_line'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'protect_spaces_on_line'}{'contents'}[0]{'contents'}[1];
+$result_trees{'protect_spaces_on_line'}{'contents'}[0]{'contents'}[1]{'contents'}[4]{'parent'} = $result_trees{'protect_spaces_on_line'}{'contents'}[0]{'contents'}[1];
+$result_trees{'protect_spaces_on_line'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'protect_spaces_on_line'}{'contents'}[0];
+$result_trees{'protect_spaces_on_line'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'protect_spaces_on_line'}{'contents'}[0];
+$result_trees{'protect_spaces_on_line'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'extra'}{'command'} = $result_trees{'protect_spaces_on_line'}{'contents'}[0]{'contents'}[3];
+$result_trees{'protect_spaces_on_line'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'protect_spaces_on_line'}{'contents'}[0]{'contents'}[3];
+$result_trees{'protect_spaces_on_line'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'protect_spaces_on_line'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0];
+$result_trees{'protect_spaces_on_line'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'protect_spaces_on_line'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[1]{'args'}[0];
+$result_trees{'protect_spaces_on_line'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'protect_spaces_on_line'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[1];
+$result_trees{'protect_spaces_on_line'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'protect_spaces_on_line'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0];
+$result_trees{'protect_spaces_on_line'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'protect_spaces_on_line'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0];
+$result_trees{'protect_spaces_on_line'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'protect_spaces_on_line'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[3]{'args'}[0];
+$result_trees{'protect_spaces_on_line'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'protect_spaces_on_line'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[3];
+$result_trees{'protect_spaces_on_line'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[3]{'parent'} = $result_trees{'protect_spaces_on_line'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0];
+$result_trees{'protect_spaces_on_line'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[4]{'parent'} = $result_trees{'protect_spaces_on_line'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0];
+$result_trees{'protect_spaces_on_line'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'protect_spaces_on_line'}{'contents'}[0]{'contents'}[3]{'contents'}[1];
+$result_trees{'protect_spaces_on_line'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'protect_spaces_on_line'}{'contents'}[0]{'contents'}[3];
+$result_trees{'protect_spaces_on_line'}{'contents'}[0]{'contents'}[3]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'protect_spaces_on_line'}{'contents'}[0]{'contents'}[3]{'contents'}[2]{'args'}[0];
+$result_trees{'protect_spaces_on_line'}{'contents'}[0]{'contents'}[3]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'protect_spaces_on_line'}{'contents'}[0]{'contents'}[3]{'contents'}[2];
+$result_trees{'protect_spaces_on_line'}{'contents'}[0]{'contents'}[3]{'contents'}[2]{'parent'} = $result_trees{'protect_spaces_on_line'}{'contents'}[0]{'contents'}[3];
+$result_trees{'protect_spaces_on_line'}{'contents'}[0]{'contents'}[3]{'extra'}{'end_command'} = $result_trees{'protect_spaces_on_line'}{'contents'}[0]{'contents'}[3]{'contents'}[2];
+$result_trees{'protect_spaces_on_line'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'protect_spaces_on_line'}{'contents'}[0];
 $result_trees{'protect_spaces_on_line'}{'contents'}[0]{'parent'} = $result_trees{'protect_spaces_on_line'};
-$result_trees{'protect_spaces_on_line'}{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'protect_spaces_on_line'}{'contents'}[1];
-$result_trees{'protect_spaces_on_line'}{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'protect_spaces_on_line'}{'contents'}[1]{'contents'}[1]{'args'}[0];
-$result_trees{'protect_spaces_on_line'}{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'protect_spaces_on_line'}{'contents'}[1]{'contents'}[1];
-$result_trees{'protect_spaces_on_line'}{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'protect_spaces_on_line'}{'contents'}[1];
-$result_trees{'protect_spaces_on_line'}{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'protect_spaces_on_line'}{'contents'}[1];
-$result_trees{'protect_spaces_on_line'}{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'protect_spaces_on_line'}{'contents'}[1]{'contents'}[3]{'args'}[0];
-$result_trees{'protect_spaces_on_line'}{'contents'}[1]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'protect_spaces_on_line'}{'contents'}[1]{'contents'}[3];
-$result_trees{'protect_spaces_on_line'}{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'protect_spaces_on_line'}{'contents'}[1];
-$result_trees{'protect_spaces_on_line'}{'contents'}[1]{'contents'}[4]{'parent'} = $result_trees{'protect_spaces_on_line'}{'contents'}[1];
-$result_trees{'protect_spaces_on_line'}{'contents'}[1]{'parent'} = $result_trees{'protect_spaces_on_line'};
-$result_trees{'protect_spaces_on_line'}{'contents'}[2]{'parent'} = $result_trees{'protect_spaces_on_line'};
-$result_trees{'protect_spaces_on_line'}{'contents'}[3]{'contents'}[0]{'extra'}{'command'} = $result_trees{'protect_spaces_on_line'}{'contents'}[3];
-$result_trees{'protect_spaces_on_line'}{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'protect_spaces_on_line'}{'contents'}[3];
-$result_trees{'protect_spaces_on_line'}{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'protect_spaces_on_line'}{'contents'}[3]{'contents'}[1]{'args'}[0];
-$result_trees{'protect_spaces_on_line'}{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'protect_spaces_on_line'}{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'protect_spaces_on_line'}{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'protect_spaces_on_line'}{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[1];
-$result_trees{'protect_spaces_on_line'}{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'protect_spaces_on_line'}{'contents'}[3]{'contents'}[1]{'args'}[0];
-$result_trees{'protect_spaces_on_line'}{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'protect_spaces_on_line'}{'contents'}[3]{'contents'}[1]{'args'}[0];
-$result_trees{'protect_spaces_on_line'}{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'protect_spaces_on_line'}{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[3]{'args'}[0];
-$result_trees{'protect_spaces_on_line'}{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'protect_spaces_on_line'}{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[3];
-$result_trees{'protect_spaces_on_line'}{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[3]{'parent'} = $result_trees{'protect_spaces_on_line'}{'contents'}[3]{'contents'}[1]{'args'}[0];
-$result_trees{'protect_spaces_on_line'}{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[4]{'parent'} = $result_trees{'protect_spaces_on_line'}{'contents'}[3]{'contents'}[1]{'args'}[0];
-$result_trees{'protect_spaces_on_line'}{'contents'}[3]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'protect_spaces_on_line'}{'contents'}[3]{'contents'}[1];
-$result_trees{'protect_spaces_on_line'}{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'protect_spaces_on_line'}{'contents'}[3];
-$result_trees{'protect_spaces_on_line'}{'contents'}[3]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'protect_spaces_on_line'}{'contents'}[3]{'contents'}[2]{'args'}[0];
-$result_trees{'protect_spaces_on_line'}{'contents'}[3]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'protect_spaces_on_line'}{'contents'}[3]{'contents'}[2];
-$result_trees{'protect_spaces_on_line'}{'contents'}[3]{'contents'}[2]{'parent'} = $result_trees{'protect_spaces_on_line'}{'contents'}[3];
-$result_trees{'protect_spaces_on_line'}{'contents'}[3]{'extra'}{'end_command'} = $result_trees{'protect_spaces_on_line'}{'contents'}[3]{'contents'}[2];
-$result_trees{'protect_spaces_on_line'}{'contents'}[3]{'parent'} = $result_trees{'protect_spaces_on_line'};
 
 $result_texis{'protect_spaces_on_line'} = '
 Before samp. @samp{a}. after samp, w @w{in   w. after dot}  afterw

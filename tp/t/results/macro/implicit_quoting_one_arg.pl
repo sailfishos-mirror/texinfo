@@ -8,110 +8,117 @@ use utf8;
 $result_trees{'implicit_quoting_one_arg'} = {
   'contents' => [
     {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'args' => [
-        {
-          'parent' => {},
-          'text' => 'FIXME',
-          'type' => 'macro_name'
-        },
-        {
-          'parent' => {},
-          'text' => 'a',
-          'type' => 'macro_arg'
-        }
-      ],
-      'cmdname' => 'macro',
       'contents' => [
-        {
-          'parent' => {},
-          'text' => '@strong{FIXME: \\a\\}',
-          'type' => 'raw'
-        },
         {
           'parent' => {},
           'text' => '
 ',
-          'type' => 'last_raw_newline'
-        }
-      ],
-      'extra' => {
-        'arg_line' => ' FIXME{a}
-'
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 2,
-        'macro' => ''
-      },
-      'parent' => {}
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line_after_command'
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'contents' => [
+          'type' => 'empty_line'
+        },
         {
           'args' => [
             {
-              'contents' => [
-                {
-                  'parent' => {},
-                  'text' => 'FIXME: Many arguments, separated by commas, are processed here'
-                }
-              ],
               'parent' => {},
-              'type' => 'brace_command_arg'
+              'text' => 'FIXME',
+              'type' => 'macro_name'
+            },
+            {
+              'parent' => {},
+              'text' => 'a',
+              'type' => 'macro_arg'
             }
           ],
-          'cmdname' => 'strong',
-          'contents' => [],
+          'cmdname' => 'macro',
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => '@strong{FIXME: \\a\\}',
+              'type' => 'raw'
+            },
+            {
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'last_raw_newline'
+            }
+          ],
+          'extra' => {
+            'arg_line' => ' FIXME{a}
+'
+          },
           'line_nr' => {
             'file_name' => '',
-            'line_nr' => 6,
-            'macro' => 'FIXME'
+            'line_nr' => 2,
+            'macro' => ''
           },
           'parent' => {}
         },
         {
           'parent' => {},
           'text' => '
+',
+          'type' => 'empty_line_after_command'
+        },
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'contents' => [
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'FIXME: Many arguments, separated by commas, are processed here'
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                }
+              ],
+              'cmdname' => 'strong',
+              'contents' => [],
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 6,
+                'macro' => 'FIXME'
+              },
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => '
 '
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
         }
       ],
       'parent' => {},
-      'type' => 'paragraph'
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
+$result_trees{'implicit_quoting_one_arg'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'implicit_quoting_one_arg'}{'contents'}[0];
+$result_trees{'implicit_quoting_one_arg'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'implicit_quoting_one_arg'}{'contents'}[0]{'contents'}[1];
+$result_trees{'implicit_quoting_one_arg'}{'contents'}[0]{'contents'}[1]{'args'}[1]{'parent'} = $result_trees{'implicit_quoting_one_arg'}{'contents'}[0]{'contents'}[1];
+$result_trees{'implicit_quoting_one_arg'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'implicit_quoting_one_arg'}{'contents'}[0]{'contents'}[1];
+$result_trees{'implicit_quoting_one_arg'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'implicit_quoting_one_arg'}{'contents'}[0]{'contents'}[1];
+$result_trees{'implicit_quoting_one_arg'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'implicit_quoting_one_arg'}{'contents'}[0];
+$result_trees{'implicit_quoting_one_arg'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'implicit_quoting_one_arg'}{'contents'}[0];
+$result_trees{'implicit_quoting_one_arg'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'implicit_quoting_one_arg'}{'contents'}[0];
+$result_trees{'implicit_quoting_one_arg'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'implicit_quoting_one_arg'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'args'}[0];
+$result_trees{'implicit_quoting_one_arg'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'implicit_quoting_one_arg'}{'contents'}[0]{'contents'}[4]{'contents'}[0];
+$result_trees{'implicit_quoting_one_arg'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'implicit_quoting_one_arg'}{'contents'}[0]{'contents'}[4];
+$result_trees{'implicit_quoting_one_arg'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'parent'} = $result_trees{'implicit_quoting_one_arg'}{'contents'}[0]{'contents'}[4];
+$result_trees{'implicit_quoting_one_arg'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'implicit_quoting_one_arg'}{'contents'}[0];
 $result_trees{'implicit_quoting_one_arg'}{'contents'}[0]{'parent'} = $result_trees{'implicit_quoting_one_arg'};
-$result_trees{'implicit_quoting_one_arg'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'implicit_quoting_one_arg'}{'contents'}[1];
-$result_trees{'implicit_quoting_one_arg'}{'contents'}[1]{'args'}[1]{'parent'} = $result_trees{'implicit_quoting_one_arg'}{'contents'}[1];
-$result_trees{'implicit_quoting_one_arg'}{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'implicit_quoting_one_arg'}{'contents'}[1];
-$result_trees{'implicit_quoting_one_arg'}{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'implicit_quoting_one_arg'}{'contents'}[1];
-$result_trees{'implicit_quoting_one_arg'}{'contents'}[1]{'parent'} = $result_trees{'implicit_quoting_one_arg'};
-$result_trees{'implicit_quoting_one_arg'}{'contents'}[2]{'parent'} = $result_trees{'implicit_quoting_one_arg'};
-$result_trees{'implicit_quoting_one_arg'}{'contents'}[3]{'parent'} = $result_trees{'implicit_quoting_one_arg'};
-$result_trees{'implicit_quoting_one_arg'}{'contents'}[4]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'implicit_quoting_one_arg'}{'contents'}[4]{'contents'}[0]{'args'}[0];
-$result_trees{'implicit_quoting_one_arg'}{'contents'}[4]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'implicit_quoting_one_arg'}{'contents'}[4]{'contents'}[0];
-$result_trees{'implicit_quoting_one_arg'}{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'implicit_quoting_one_arg'}{'contents'}[4];
-$result_trees{'implicit_quoting_one_arg'}{'contents'}[4]{'contents'}[1]{'parent'} = $result_trees{'implicit_quoting_one_arg'}{'contents'}[4];
-$result_trees{'implicit_quoting_one_arg'}{'contents'}[4]{'parent'} = $result_trees{'implicit_quoting_one_arg'};
 
 $result_texis{'implicit_quoting_one_arg'} = '
 @macro FIXME{a}

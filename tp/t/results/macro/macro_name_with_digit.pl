@@ -8,129 +8,136 @@ use utf8;
 $result_trees{'macro_name_with_digit'} = {
   'contents' => [
     {
-      'args' => [
-        {
-          'parent' => {},
-          'text' => 'macro1',
-          'type' => 'macro_name'
-        }
-      ],
-      'cmdname' => 'macro',
       'contents' => [
         {
-          'parent' => {},
-          'text' => 'macro1',
-          'type' => 'raw'
+          'args' => [
+            {
+              'parent' => {},
+              'text' => 'macro1',
+              'type' => 'macro_name'
+            }
+          ],
+          'cmdname' => 'macro',
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => 'macro1',
+              'type' => 'raw'
+            },
+            {
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'last_raw_newline'
+            }
+          ],
+          'extra' => {
+            'arg_line' => ' macro1
+'
+          },
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 1,
+            'macro' => ''
+          },
+          'parent' => {}
         },
         {
           'parent' => {},
           'text' => '
 ',
-          'type' => 'last_raw_newline'
-        }
-      ],
-      'extra' => {
-        'arg_line' => ' macro1
-'
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
-      },
-      'parent' => {}
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line_after_command'
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'args' => [
-        {
-          'parent' => {},
-          'text' => 'macro11',
-          'type' => 'macro_name'
-        },
-        {
-          'parent' => {},
-          'text' => 'arg',
-          'type' => 'macro_arg'
-        }
-      ],
-      'cmdname' => 'macro',
-      'contents' => [
-        {
-          'parent' => {},
-          'text' => 'expand \\arg\\',
-          'type' => 'raw'
+          'type' => 'empty_line_after_command'
         },
         {
           'parent' => {},
           'text' => '
 ',
-          'type' => 'last_raw_newline'
-        }
-      ],
-      'extra' => {
-        'arg_line' => ' macro11 {arg}
+          'type' => 'empty_line'
+        },
+        {
+          'args' => [
+            {
+              'parent' => {},
+              'text' => 'macro11',
+              'type' => 'macro_name'
+            },
+            {
+              'parent' => {},
+              'text' => 'arg',
+              'type' => 'macro_arg'
+            }
+          ],
+          'cmdname' => 'macro',
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => 'expand \\arg\\',
+              'type' => 'raw'
+            },
+            {
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'last_raw_newline'
+            }
+          ],
+          'extra' => {
+            'arg_line' => ' macro11 {arg}
 '
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 5,
-        'macro' => ''
-      },
-      'parent' => {}
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line_after_command'
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'contents' => [
+          },
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 5,
+            'macro' => ''
+          },
+          'parent' => {}
+        },
         {
           'parent' => {},
-          'text' => 'expand some thing macro1
+          'text' => '
+',
+          'type' => 'empty_line_after_command'
+        },
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => 'expand some thing macro1
 '
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
         }
       ],
       'parent' => {},
-      'type' => 'paragraph'
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
-$result_trees{'macro_name_with_digit'}{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'macro_name_with_digit'}{'contents'}[0];
+$result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[0];
+$result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[0];
+$result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[0];
 $result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'macro_name_with_digit'}{'contents'}[0];
 $result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'macro_name_with_digit'}{'contents'}[0];
+$result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'macro_name_with_digit'}{'contents'}[0];
+$result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[3];
+$result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[3]{'args'}[1]{'parent'} = $result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[3];
+$result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[3];
+$result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[3];
+$result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'macro_name_with_digit'}{'contents'}[0];
+$result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'macro_name_with_digit'}{'contents'}[0];
+$result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'macro_name_with_digit'}{'contents'}[0];
+$result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'parent'} = $result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[6];
+$result_trees{'macro_name_with_digit'}{'contents'}[0]{'contents'}[6]{'parent'} = $result_trees{'macro_name_with_digit'}{'contents'}[0];
 $result_trees{'macro_name_with_digit'}{'contents'}[0]{'parent'} = $result_trees{'macro_name_with_digit'};
-$result_trees{'macro_name_with_digit'}{'contents'}[1]{'parent'} = $result_trees{'macro_name_with_digit'};
-$result_trees{'macro_name_with_digit'}{'contents'}[2]{'parent'} = $result_trees{'macro_name_with_digit'};
-$result_trees{'macro_name_with_digit'}{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'macro_name_with_digit'}{'contents'}[3];
-$result_trees{'macro_name_with_digit'}{'contents'}[3]{'args'}[1]{'parent'} = $result_trees{'macro_name_with_digit'}{'contents'}[3];
-$result_trees{'macro_name_with_digit'}{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'macro_name_with_digit'}{'contents'}[3];
-$result_trees{'macro_name_with_digit'}{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'macro_name_with_digit'}{'contents'}[3];
-$result_trees{'macro_name_with_digit'}{'contents'}[3]{'parent'} = $result_trees{'macro_name_with_digit'};
-$result_trees{'macro_name_with_digit'}{'contents'}[4]{'parent'} = $result_trees{'macro_name_with_digit'};
-$result_trees{'macro_name_with_digit'}{'contents'}[5]{'parent'} = $result_trees{'macro_name_with_digit'};
-$result_trees{'macro_name_with_digit'}{'contents'}[6]{'contents'}[0]{'parent'} = $result_trees{'macro_name_with_digit'}{'contents'}[6];
-$result_trees{'macro_name_with_digit'}{'contents'}[6]{'parent'} = $result_trees{'macro_name_with_digit'};
 
 $result_texis{'macro_name_with_digit'} = '@macro macro1
 macro1

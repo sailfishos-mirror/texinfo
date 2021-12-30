@@ -10,269 +10,276 @@ $result_trees{'inlineifsetifclear'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'contents' => [
             {
-              'contents' => [
+              'args' => [
                 {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'aaa'
+                    }
+                  ],
                   'parent' => {},
-                  'text' => 'aaa'
+                  'type' => 'brace_command_arg'
+                },
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'iclear first '
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_before_argument' => ' '
+                  },
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
                 }
               ],
-              'parent' => {},
-              'type' => 'brace_command_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'parent' => {},
-                  'text' => 'iclear first '
-                }
-              ],
-              'extra' => {
-                'spaces_before_argument' => ' '
-              },
-              'parent' => {},
-              'type' => 'brace_command_arg'
-            }
-          ],
-          'cmdname' => 'inlineifclear',
-          'contents' => [],
-          'extra' => {
-            'expand_index' => 1,
-            'format' => 'aaa'
-          },
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '.
-'
-        }
-      ],
-      'parent' => {},
-      'type' => 'paragraph'
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'contents' => [
-        {
-          'args' => [
-            {
-              'contents' => [
-                {
-                  'parent' => {},
-                  'text' => 'aaa'
-                }
-              ],
-              'parent' => {},
-              'type' => 'brace_command_arg'
-            },
-            {
+              'cmdname' => 'inlineifclear',
               'contents' => [],
-              'parent' => {},
-              'type' => 'elided'
-            }
-          ],
-          'cmdname' => 'inlineifset',
-          'contents' => [],
-          'extra' => {
-            'format' => 'aaa'
-          },
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 3,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '.
-'
-        }
-      ],
-      'parent' => {},
-      'type' => 'paragraph'
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'args' => [
-        {
-          'parent' => {},
-          'text' => 'aaa',
-          'type' => 'misc_arg'
-        },
-        {
-          'parent' => {},
-          'text' => '',
-          'type' => 'misc_arg'
-        }
-      ],
-      'cmdname' => 'set',
-      'extra' => {
-        'arg_line' => ' aaa
-',
-        'misc_args' => [
-          'aaa',
-          ''
-        ]
-      },
-      'parent' => {}
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'contents' => [
-        {
-          'args' => [
-            {
-              'contents' => [
-                {
-                  'parent' => {},
-                  'text' => 'aaa'
-                }
-              ],
-              'parent' => {},
-              'type' => 'brace_command_arg'
-            },
-            {
-              'contents' => [],
-              'parent' => {},
-              'type' => 'elided'
-            }
-          ],
-          'cmdname' => 'inlineifclear',
-          'contents' => [],
-          'extra' => {
-            'format' => 'aaa'
-          },
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 7,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '.
-'
-        }
-      ],
-      'parent' => {},
-      'type' => 'paragraph'
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'contents' => [
-        {
-          'args' => [
-            {
-              'contents' => [
-                {
-                  'parent' => {},
-                  'text' => 'aaa'
-                }
-              ],
-              'parent' => {},
-              'type' => 'brace_command_arg'
-            },
-            {
-              'contents' => [
-                {
-                  'parent' => {},
-                  'text' => 'ifset second '
-                }
-              ],
               'extra' => {
-                'spaces_before_argument' => ' '
+                'expand_index' => 1,
+                'format' => 'aaa'
               },
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 1,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
               'parent' => {},
-              'type' => 'brace_command_arg'
+              'text' => '.
+'
             }
           ],
-          'cmdname' => 'inlineifset',
-          'contents' => [],
+          'parent' => {},
+          'type' => 'paragraph'
+        },
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'contents' => [
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'aaa'
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                },
+                {
+                  'contents' => [],
+                  'parent' => {},
+                  'type' => 'elided'
+                }
+              ],
+              'cmdname' => 'inlineifset',
+              'contents' => [],
+              'extra' => {
+                'format' => 'aaa'
+              },
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 3,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => '.
+'
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
+        },
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'args' => [
+            {
+              'parent' => {},
+              'text' => 'aaa',
+              'type' => 'misc_arg'
+            },
+            {
+              'parent' => {},
+              'text' => '',
+              'type' => 'misc_arg'
+            }
+          ],
+          'cmdname' => 'set',
           'extra' => {
-            'expand_index' => 1,
-            'format' => 'aaa'
-          },
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 9,
-            'macro' => ''
+            'arg_line' => ' aaa
+',
+            'misc_args' => [
+              'aaa',
+              ''
+            ]
           },
           'parent' => {}
         },
         {
           'parent' => {},
-          'text' => '.
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'contents' => [
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'aaa'
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                },
+                {
+                  'contents' => [],
+                  'parent' => {},
+                  'type' => 'elided'
+                }
+              ],
+              'cmdname' => 'inlineifclear',
+              'contents' => [],
+              'extra' => {
+                'format' => 'aaa'
+              },
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 7,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => '.
 '
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
+        },
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'contents' => [
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'aaa'
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                },
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'ifset second '
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_before_argument' => ' '
+                  },
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                }
+              ],
+              'cmdname' => 'inlineifset',
+              'contents' => [],
+              'extra' => {
+                'expand_index' => 1,
+                'format' => 'aaa'
+              },
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 9,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => '.
+'
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
         }
       ],
       'parent' => {},
-      'type' => 'paragraph'
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
-$result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[0];
-$result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[0]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[0]{'args'}[1];
-$result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[0];
+$result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[1];
+$result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[0];
+$result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[0];
 $result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[0];
 $result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[0];
+$result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0];
+$result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[2]{'contents'}[0];
+$result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[2]{'contents'}[0];
+$result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[2];
+$result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[2];
+$result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[0];
+$result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[0];
+$result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[4];
+$result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[4]{'args'}[1]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[4];
+$result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[0];
+$result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[0];
+$result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'args'}[0];
+$result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[6]{'contents'}[0];
+$result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[6]{'contents'}[0];
+$result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[6];
+$result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[6];
+$result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[6]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[0];
+$result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[7]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[0];
+$result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'args'}[0];
+$result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[8]{'contents'}[0];
+$result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'args'}[1];
+$result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[8]{'contents'}[0];
+$result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[8];
+$result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[8]{'contents'}[1]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[8];
+$result_trees{'inlineifsetifclear'}{'contents'}[0]{'contents'}[8]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[0];
 $result_trees{'inlineifsetifclear'}{'contents'}[0]{'parent'} = $result_trees{'inlineifsetifclear'};
-$result_trees{'inlineifsetifclear'}{'contents'}[1]{'parent'} = $result_trees{'inlineifsetifclear'};
-$result_trees{'inlineifsetifclear'}{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[2]{'contents'}[0]{'args'}[0];
-$result_trees{'inlineifsetifclear'}{'contents'}[2]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[2]{'contents'}[0];
-$result_trees{'inlineifsetifclear'}{'contents'}[2]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[2]{'contents'}[0];
-$result_trees{'inlineifsetifclear'}{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[2];
-$result_trees{'inlineifsetifclear'}{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[2];
-$result_trees{'inlineifsetifclear'}{'contents'}[2]{'parent'} = $result_trees{'inlineifsetifclear'};
-$result_trees{'inlineifsetifclear'}{'contents'}[3]{'parent'} = $result_trees{'inlineifsetifclear'};
-$result_trees{'inlineifsetifclear'}{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[4];
-$result_trees{'inlineifsetifclear'}{'contents'}[4]{'args'}[1]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[4];
-$result_trees{'inlineifsetifclear'}{'contents'}[4]{'parent'} = $result_trees{'inlineifsetifclear'};
-$result_trees{'inlineifsetifclear'}{'contents'}[5]{'parent'} = $result_trees{'inlineifsetifclear'};
-$result_trees{'inlineifsetifclear'}{'contents'}[6]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[6]{'contents'}[0]{'args'}[0];
-$result_trees{'inlineifsetifclear'}{'contents'}[6]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[6]{'contents'}[0];
-$result_trees{'inlineifsetifclear'}{'contents'}[6]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[6]{'contents'}[0];
-$result_trees{'inlineifsetifclear'}{'contents'}[6]{'contents'}[0]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[6];
-$result_trees{'inlineifsetifclear'}{'contents'}[6]{'contents'}[1]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[6];
-$result_trees{'inlineifsetifclear'}{'contents'}[6]{'parent'} = $result_trees{'inlineifsetifclear'};
-$result_trees{'inlineifsetifclear'}{'contents'}[7]{'parent'} = $result_trees{'inlineifsetifclear'};
-$result_trees{'inlineifsetifclear'}{'contents'}[8]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[8]{'contents'}[0]{'args'}[0];
-$result_trees{'inlineifsetifclear'}{'contents'}[8]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[8]{'contents'}[0];
-$result_trees{'inlineifsetifclear'}{'contents'}[8]{'contents'}[0]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[8]{'contents'}[0]{'args'}[1];
-$result_trees{'inlineifsetifclear'}{'contents'}[8]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[8]{'contents'}[0];
-$result_trees{'inlineifsetifclear'}{'contents'}[8]{'contents'}[0]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[8];
-$result_trees{'inlineifsetifclear'}{'contents'}[8]{'contents'}[1]{'parent'} = $result_trees{'inlineifsetifclear'}{'contents'}[8];
-$result_trees{'inlineifsetifclear'}{'contents'}[8]{'parent'} = $result_trees{'inlineifsetifclear'};
 
 $result_texis{'inlineifsetifclear'} = '@inlineifclear{aaa, iclear first }.
 

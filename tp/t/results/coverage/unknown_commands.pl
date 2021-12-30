@@ -10,24 +10,31 @@ $result_trees{'unknown_commands'} = {
     {
       'contents' => [
         {
-          'parent' => {},
-          'text' => '
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => '
 '
-        },
-        {
-          'parent' => {},
-          'text' => '#
+            },
+            {
+              'parent' => {},
+              'text' => '#
 '
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
         }
       ],
       'parent' => {},
-      'type' => 'paragraph'
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
+$result_trees{'unknown_commands'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'unknown_commands'}{'contents'}[0]{'contents'}[0];
+$result_trees{'unknown_commands'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'unknown_commands'}{'contents'}[0]{'contents'}[0];
 $result_trees{'unknown_commands'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'unknown_commands'}{'contents'}[0];
-$result_trees{'unknown_commands'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'unknown_commands'}{'contents'}[0];
 $result_trees{'unknown_commands'}{'contents'}[0]{'parent'} = $result_trees{'unknown_commands'};
 
 $result_texis{'unknown_commands'} = '

@@ -10,36 +10,43 @@ $result_trees{'accent_and_dash'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'contents' => [
             {
-              'contents' => [
+              'args' => [
                 {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'a--'
+                    }
+                  ],
                   'parent' => {},
-                  'text' => 'a--'
+                  'type' => 'brace_command_arg'
                 }
               ],
-              'parent' => {},
-              'type' => 'brace_command_arg'
+              'cmdname' => '^',
+              'contents' => [],
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 1,
+                'macro' => ''
+              },
+              'parent' => {}
             }
           ],
-          'cmdname' => '^',
-          'contents' => [],
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
-          },
-          'parent' => {}
+          'parent' => {},
+          'type' => 'paragraph'
         }
       ],
       'parent' => {},
-      'type' => 'paragraph'
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
-$result_trees{'accent_and_dash'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'accent_and_dash'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'accent_and_dash'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'accent_and_dash'}{'contents'}[0]{'contents'}[0];
+$result_trees{'accent_and_dash'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'accent_and_dash'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'accent_and_dash'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'accent_and_dash'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'accent_and_dash'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'accent_and_dash'}{'contents'}[0]{'contents'}[0];
 $result_trees{'accent_and_dash'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'accent_and_dash'}{'contents'}[0];
 $result_trees{'accent_and_dash'}{'contents'}[0]{'parent'} = $result_trees{'accent_and_dash'};
 

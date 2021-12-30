@@ -10,18 +10,25 @@ $result_trees{'one_line_no_content'} = {
     {
       'contents' => [
         {
-          'parent' => {},
-          'text' => '\\input texinfo.tex
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => '\\input texinfo.tex
 ',
-          'type' => 'preamble_text'
+              'type' => 'preamble_text'
+            }
+          ],
+          'parent' => {},
+          'type' => 'preamble'
         }
       ],
       'parent' => {},
-      'type' => 'preamble'
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
+$result_trees{'one_line_no_content'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'one_line_no_content'}{'contents'}[0]{'contents'}[0];
 $result_trees{'one_line_no_content'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'one_line_no_content'}{'contents'}[0];
 $result_trees{'one_line_no_content'}{'contents'}[0]{'parent'} = $result_trees{'one_line_no_content'};
 

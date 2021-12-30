@@ -8,46 +8,18 @@ use utf8;
 $result_trees{'comments_in_text'} = {
   'contents' => [
     {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'args' => [
-        {
-          'parent' => {},
-          'text' => ' lone comment
-',
-          'type' => 'misc_arg'
-        }
-      ],
-      'cmdname' => 'c',
-      'extra' => {
-        'misc_args' => [
-          ' lone comment
-'
-        ]
-      },
-      'parent' => {}
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
       'contents' => [
         {
           'parent' => {},
-          'text' => 'Text line followed by a comment on the same line and another below '
+          'text' => '
+',
+          'type' => 'empty_line'
         },
         {
           'args' => [
             {
               'parent' => {},
-              'text' => ' comment
+              'text' => ' lone comment
 ',
               'type' => 'misc_arg'
             }
@@ -55,25 +27,7 @@ $result_trees{'comments_in_text'} = {
           'cmdname' => 'c',
           'extra' => {
             'misc_args' => [
-              ' comment
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' comment
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' comment
+              ' lone comment
 '
             ]
           },
@@ -81,91 +35,144 @@ $result_trees{'comments_in_text'} = {
         },
         {
           'parent' => {},
-          'text' => 'Text line after the comment followed by a comment '
+          'text' => '
+',
+          'type' => 'empty_line'
         },
         {
-          'args' => [
+          'contents' => [
             {
               'parent' => {},
-              'text' => ' c
+              'text' => 'Text line followed by a comment on the same line and another below '
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' comment
 ',
-              'type' => 'misc_arg'
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' comment
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' comment
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' comment
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => 'Text line after the comment followed by a comment '
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' c
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'comment',
+              'extra' => {
+                'misc_args' => [
+                  ' c
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => 'Text line after the text line followed by the comment.
+'
             }
           ],
-          'cmdname' => 'comment',
-          'extra' => {
-            'misc_args' => [
-              ' c
-'
-            ]
-          },
-          'parent' => {}
+          'parent' => {},
+          'type' => 'paragraph'
         },
         {
           'parent' => {},
-          'text' => 'Text line after the text line followed by the comment.
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => 'Comment at the end of the line '
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' comment
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' comment
 '
+                ]
+              },
+              'parent' => {}
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
         }
       ],
       'parent' => {},
-      'type' => 'paragraph'
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'contents' => [
-        {
-          'parent' => {},
-          'text' => 'Comment at the end of the line '
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' comment
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' comment
-'
-            ]
-          },
-          'parent' => {}
-        }
-      ],
-      'parent' => {},
-      'type' => 'paragraph'
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
+$result_trees{'comments_in_text'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'comments_in_text'}{'contents'}[0];
+$result_trees{'comments_in_text'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'comments_in_text'}{'contents'}[0]{'contents'}[1];
+$result_trees{'comments_in_text'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'comments_in_text'}{'contents'}[0];
+$result_trees{'comments_in_text'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'comments_in_text'}{'contents'}[0];
+$result_trees{'comments_in_text'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'comments_in_text'}{'contents'}[0]{'contents'}[3];
+$result_trees{'comments_in_text'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'comments_in_text'}{'contents'}[0]{'contents'}[3]{'contents'}[1];
+$result_trees{'comments_in_text'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'comments_in_text'}{'contents'}[0]{'contents'}[3];
+$result_trees{'comments_in_text'}{'contents'}[0]{'contents'}[3]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'comments_in_text'}{'contents'}[0]{'contents'}[3]{'contents'}[2];
+$result_trees{'comments_in_text'}{'contents'}[0]{'contents'}[3]{'contents'}[2]{'parent'} = $result_trees{'comments_in_text'}{'contents'}[0]{'contents'}[3];
+$result_trees{'comments_in_text'}{'contents'}[0]{'contents'}[3]{'contents'}[3]{'parent'} = $result_trees{'comments_in_text'}{'contents'}[0]{'contents'}[3];
+$result_trees{'comments_in_text'}{'contents'}[0]{'contents'}[3]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'comments_in_text'}{'contents'}[0]{'contents'}[3]{'contents'}[4];
+$result_trees{'comments_in_text'}{'contents'}[0]{'contents'}[3]{'contents'}[4]{'parent'} = $result_trees{'comments_in_text'}{'contents'}[0]{'contents'}[3];
+$result_trees{'comments_in_text'}{'contents'}[0]{'contents'}[3]{'contents'}[5]{'parent'} = $result_trees{'comments_in_text'}{'contents'}[0]{'contents'}[3];
+$result_trees{'comments_in_text'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'comments_in_text'}{'contents'}[0];
+$result_trees{'comments_in_text'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'comments_in_text'}{'contents'}[0];
+$result_trees{'comments_in_text'}{'contents'}[0]{'contents'}[5]{'contents'}[0]{'parent'} = $result_trees{'comments_in_text'}{'contents'}[0]{'contents'}[5];
+$result_trees{'comments_in_text'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'comments_in_text'}{'contents'}[0]{'contents'}[5]{'contents'}[1];
+$result_trees{'comments_in_text'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'parent'} = $result_trees{'comments_in_text'}{'contents'}[0]{'contents'}[5];
+$result_trees{'comments_in_text'}{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'comments_in_text'}{'contents'}[0];
 $result_trees{'comments_in_text'}{'contents'}[0]{'parent'} = $result_trees{'comments_in_text'};
-$result_trees{'comments_in_text'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'comments_in_text'}{'contents'}[1];
-$result_trees{'comments_in_text'}{'contents'}[1]{'parent'} = $result_trees{'comments_in_text'};
-$result_trees{'comments_in_text'}{'contents'}[2]{'parent'} = $result_trees{'comments_in_text'};
-$result_trees{'comments_in_text'}{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'comments_in_text'}{'contents'}[3];
-$result_trees{'comments_in_text'}{'contents'}[3]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'comments_in_text'}{'contents'}[3]{'contents'}[1];
-$result_trees{'comments_in_text'}{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'comments_in_text'}{'contents'}[3];
-$result_trees{'comments_in_text'}{'contents'}[3]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'comments_in_text'}{'contents'}[3]{'contents'}[2];
-$result_trees{'comments_in_text'}{'contents'}[3]{'contents'}[2]{'parent'} = $result_trees{'comments_in_text'}{'contents'}[3];
-$result_trees{'comments_in_text'}{'contents'}[3]{'contents'}[3]{'parent'} = $result_trees{'comments_in_text'}{'contents'}[3];
-$result_trees{'comments_in_text'}{'contents'}[3]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'comments_in_text'}{'contents'}[3]{'contents'}[4];
-$result_trees{'comments_in_text'}{'contents'}[3]{'contents'}[4]{'parent'} = $result_trees{'comments_in_text'}{'contents'}[3];
-$result_trees{'comments_in_text'}{'contents'}[3]{'contents'}[5]{'parent'} = $result_trees{'comments_in_text'}{'contents'}[3];
-$result_trees{'comments_in_text'}{'contents'}[3]{'parent'} = $result_trees{'comments_in_text'};
-$result_trees{'comments_in_text'}{'contents'}[4]{'parent'} = $result_trees{'comments_in_text'};
-$result_trees{'comments_in_text'}{'contents'}[5]{'contents'}[0]{'parent'} = $result_trees{'comments_in_text'}{'contents'}[5];
-$result_trees{'comments_in_text'}{'contents'}[5]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'comments_in_text'}{'contents'}[5]{'contents'}[1];
-$result_trees{'comments_in_text'}{'contents'}[5]{'contents'}[1]{'parent'} = $result_trees{'comments_in_text'}{'contents'}[5];
-$result_trees{'comments_in_text'}{'contents'}[5]{'parent'} = $result_trees{'comments_in_text'};
 
 $result_texis{'comments_in_text'} = '
 @c lone comment

@@ -10,12 +10,18 @@ $result_trees{'text_before_and_after_bye'} = {
     {
       'contents' => [
         {
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => 'Before bye '
+            }
+          ],
           'parent' => {},
-          'text' => 'Before bye '
+          'type' => 'paragraph'
         }
       ],
       'parent' => {},
-      'type' => 'paragraph'
+      'type' => 'text_root'
     },
     {
       'args' => [
@@ -30,8 +36,9 @@ $result_trees{'text_before_and_after_bye'} = {
       'parent' => {}
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
+$result_trees{'text_before_and_after_bye'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'text_before_and_after_bye'}{'contents'}[0]{'contents'}[0];
 $result_trees{'text_before_and_after_bye'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'text_before_and_after_bye'}{'contents'}[0];
 $result_trees{'text_before_and_after_bye'}{'contents'}[0]{'parent'} = $result_trees{'text_before_and_after_bye'};
 $result_trees{'text_before_and_after_bye'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'text_before_and_after_bye'}{'contents'}[1];

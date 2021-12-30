@@ -8,44 +8,51 @@ use utf8;
 $result_trees{'text_space_comment'} = {
   'contents' => [
     {
-      'parent' => {},
-      'text' => ' ',
-      'type' => 'empty_spaces_before_paragraph'
-    },
-    {
       'contents' => [
         {
           'parent' => {},
-          'text' => 'text  '
+          'text' => ' ',
+          'type' => 'empty_spaces_before_paragraph'
         },
         {
-          'args' => [
+          'contents' => [
             {
               'parent' => {},
-              'text' => ' space comment',
-              'type' => 'misc_arg'
+              'text' => 'text  '
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' space comment',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' space comment'
+                ]
+              },
+              'parent' => {}
             }
           ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' space comment'
-            ]
-          },
-          'parent' => {}
+          'parent' => {},
+          'type' => 'paragraph'
         }
       ],
       'parent' => {},
-      'type' => 'paragraph'
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
+$result_trees{'text_space_comment'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'text_space_comment'}{'contents'}[0];
+$result_trees{'text_space_comment'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'text_space_comment'}{'contents'}[0]{'contents'}[1];
+$result_trees{'text_space_comment'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'text_space_comment'}{'contents'}[0]{'contents'}[1]{'contents'}[1];
+$result_trees{'text_space_comment'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'text_space_comment'}{'contents'}[0]{'contents'}[1];
+$result_trees{'text_space_comment'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'text_space_comment'}{'contents'}[0];
 $result_trees{'text_space_comment'}{'contents'}[0]{'parent'} = $result_trees{'text_space_comment'};
-$result_trees{'text_space_comment'}{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'text_space_comment'}{'contents'}[1];
-$result_trees{'text_space_comment'}{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'text_space_comment'}{'contents'}[1]{'contents'}[1];
-$result_trees{'text_space_comment'}{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'text_space_comment'}{'contents'}[1];
-$result_trees{'text_space_comment'}{'contents'}[1]{'parent'} = $result_trees{'text_space_comment'};
 
 $result_texis{'text_space_comment'} = ' text  @c space comment';
 

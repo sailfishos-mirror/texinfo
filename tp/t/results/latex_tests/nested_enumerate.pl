@@ -8,489 +8,14 @@ use utf8;
 $result_trees{'nested_enumerate'} = {
   'contents' => [
     {
-      'args' => [
-        {
-          'contents' => [
-            {
-              'parent' => {},
-              'text' => 'nested_enumerate.info'
-            }
-          ],
-          'extra' => {
-            'spaces_after_argument' => '
-'
-          },
-          'parent' => {},
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'setfilename',
-      'extra' => {
-        'spaces_before_argument' => ' ',
-        'text_arg' => 'nested_enumerate.info'
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
-      },
-      'parent' => {}
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'cmdname' => 'enumerate',
       'contents' => [
-        {
-          'extra' => {
-            'command' => {}
-          },
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line_after_command'
-        },
-        {
-          'contents' => [
-            {
-              'parent' => {},
-              'text' => '   ',
-              'type' => 'empty_spaces_before_paragraph'
-            }
-          ],
-          'parent' => {},
-          'type' => 'before_item'
-        },
-        {
-          'cmdname' => 'item',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'parent' => {},
-                  'text' => 'First level item
-'
-                },
-                {
-                  'parent' => {},
-                  'text' => '   '
-                }
-              ],
-              'parent' => {},
-              'type' => 'paragraph'
-            }
-          ],
-          'extra' => {
-            'item_number' => 1,
-            'spaces_before_argument' => ' '
-          },
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 4,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
-          'cmdname' => 'item',
-          'contents' => [
-            {
-              'contents' => [
-                {
-                  'parent' => {},
-                  'text' => 'First level item
-'
-                }
-              ],
-              'parent' => {},
-              'type' => 'paragraph'
-            },
-            {
-              'cmdname' => 'enumerate',
-              'contents' => [
-                {
-                  'extra' => {
-                    'command' => {}
-                  },
-                  'parent' => {},
-                  'text' => '
-',
-                  'type' => 'empty_line_after_command'
-                },
-                {
-                  'contents' => [
-                    {
-                      'parent' => {},
-                      'text' => '     ',
-                      'type' => 'empty_spaces_before_paragraph'
-                    }
-                  ],
-                  'parent' => {},
-                  'type' => 'before_item'
-                },
-                {
-                  'cmdname' => 'item',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'parent' => {},
-                          'text' => 'Second level item
-'
-                        },
-                        {
-                          'parent' => {},
-                          'text' => '     '
-                        }
-                      ],
-                      'parent' => {},
-                      'type' => 'paragraph'
-                    }
-                  ],
-                  'extra' => {
-                    'item_number' => 1,
-                    'spaces_before_argument' => ' '
-                  },
-                  'line_nr' => {
-                    'file_name' => '',
-                    'line_nr' => 7,
-                    'macro' => ''
-                  },
-                  'parent' => {}
-                },
-                {
-                  'cmdname' => 'item',
-                  'contents' => [
-                    {
-                      'contents' => [
-                        {
-                          'parent' => {},
-                          'text' => 'Second level item
-'
-                        }
-                      ],
-                      'parent' => {},
-                      'type' => 'paragraph'
-                    },
-                    {
-                      'cmdname' => 'enumerate',
-                      'contents' => [
-                        {
-                          'extra' => {
-                            'command' => {}
-                          },
-                          'parent' => {},
-                          'text' => '
-',
-                          'type' => 'empty_line_after_command'
-                        },
-                        {
-                          'contents' => [
-                            {
-                              'parent' => {},
-                              'text' => '       ',
-                              'type' => 'empty_spaces_before_paragraph'
-                            }
-                          ],
-                          'parent' => {},
-                          'type' => 'before_item'
-                        },
-                        {
-                          'cmdname' => 'item',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'parent' => {},
-                                  'text' => 'Third level item
-'
-                                },
-                                {
-                                  'parent' => {},
-                                  'text' => '       '
-                                }
-                              ],
-                              'parent' => {},
-                              'type' => 'paragraph'
-                            }
-                          ],
-                          'extra' => {
-                            'item_number' => 1,
-                            'spaces_before_argument' => ' '
-                          },
-                          'line_nr' => {
-                            'file_name' => '',
-                            'line_nr' => 10,
-                            'macro' => ''
-                          },
-                          'parent' => {}
-                        },
-                        {
-                          'cmdname' => 'item',
-                          'contents' => [
-                            {
-                              'contents' => [
-                                {
-                                  'parent' => {},
-                                  'text' => 'Third level item
-'
-                                }
-                              ],
-                              'parent' => {},
-                              'type' => 'paragraph'
-                            },
-                            {
-                              'cmdname' => 'enumerate',
-                              'contents' => [
-                                {
-                                  'extra' => {
-                                    'command' => {}
-                                  },
-                                  'parent' => {},
-                                  'text' => '
-',
-                                  'type' => 'empty_line_after_command'
-                                },
-                                {
-                                  'contents' => [
-                                    {
-                                      'parent' => {},
-                                      'text' => '         ',
-                                      'type' => 'empty_spaces_before_paragraph'
-                                    }
-                                  ],
-                                  'parent' => {},
-                                  'type' => 'before_item'
-                                },
-                                {
-                                  'cmdname' => 'item',
-                                  'contents' => [
-                                    {
-                                      'contents' => [
-                                        {
-                                          'parent' => {},
-                                          'text' => 'Fourth level item
-'
-                                        },
-                                        {
-                                          'parent' => {},
-                                          'text' => '         '
-                                        }
-                                      ],
-                                      'parent' => {},
-                                      'type' => 'paragraph'
-                                    }
-                                  ],
-                                  'extra' => {
-                                    'item_number' => 1,
-                                    'spaces_before_argument' => ' '
-                                  },
-                                  'line_nr' => {
-                                    'file_name' => '',
-                                    'line_nr' => 13,
-                                    'macro' => ''
-                                  },
-                                  'parent' => {}
-                                },
-                                {
-                                  'cmdname' => 'item',
-                                  'contents' => [
-                                    {
-                                      'contents' => [
-                                        {
-                                          'parent' => {},
-                                          'text' => 'Fourth level item
-'
-                                        }
-                                      ],
-                                      'parent' => {},
-                                      'type' => 'paragraph'
-                                    }
-                                  ],
-                                  'extra' => {
-                                    'item_number' => 2,
-                                    'spaces_before_argument' => ' '
-                                  },
-                                  'line_nr' => {
-                                    'file_name' => '',
-                                    'line_nr' => 14,
-                                    'macro' => ''
-                                  },
-                                  'parent' => {}
-                                },
-                                {
-                                  'args' => [
-                                    {
-                                      'contents' => [
-                                        {
-                                          'parent' => {},
-                                          'text' => 'enumerate'
-                                        }
-                                      ],
-                                      'extra' => {
-                                        'spaces_after_argument' => '
-'
-                                      },
-                                      'parent' => {},
-                                      'type' => 'line_arg'
-                                    }
-                                  ],
-                                  'cmdname' => 'end',
-                                  'extra' => {
-                                    'command_argument' => 'enumerate',
-                                    'spaces_before_argument' => ' ',
-                                    'text_arg' => 'enumerate'
-                                  },
-                                  'line_nr' => {
-                                    'file_name' => '',
-                                    'line_nr' => 15,
-                                    'macro' => ''
-                                  },
-                                  'parent' => {}
-                                }
-                              ],
-                              'extra' => {
-                                'end_command' => {},
-                                'enumerate_specification' => '1'
-                              },
-                              'line_nr' => {
-                                'file_name' => '',
-                                'line_nr' => 12,
-                                'macro' => ''
-                              },
-                              'parent' => {}
-                            }
-                          ],
-                          'extra' => {
-                            'item_number' => 2,
-                            'spaces_before_argument' => ' '
-                          },
-                          'line_nr' => {
-                            'file_name' => '',
-                            'line_nr' => 11,
-                            'macro' => ''
-                          },
-                          'parent' => {}
-                        },
-                        {
-                          'args' => [
-                            {
-                              'contents' => [
-                                {
-                                  'parent' => {},
-                                  'text' => 'enumerate'
-                                }
-                              ],
-                              'extra' => {
-                                'spaces_after_argument' => '
-'
-                              },
-                              'parent' => {},
-                              'type' => 'line_arg'
-                            }
-                          ],
-                          'cmdname' => 'end',
-                          'extra' => {
-                            'command_argument' => 'enumerate',
-                            'spaces_before_argument' => ' ',
-                            'text_arg' => 'enumerate'
-                          },
-                          'line_nr' => {
-                            'file_name' => '',
-                            'line_nr' => 16,
-                            'macro' => ''
-                          },
-                          'parent' => {}
-                        }
-                      ],
-                      'extra' => {
-                        'end_command' => {},
-                        'enumerate_specification' => '1'
-                      },
-                      'line_nr' => {
-                        'file_name' => '',
-                        'line_nr' => 9,
-                        'macro' => ''
-                      },
-                      'parent' => {}
-                    }
-                  ],
-                  'extra' => {
-                    'item_number' => 2,
-                    'spaces_before_argument' => ' '
-                  },
-                  'line_nr' => {
-                    'file_name' => '',
-                    'line_nr' => 8,
-                    'macro' => ''
-                  },
-                  'parent' => {}
-                },
-                {
-                  'args' => [
-                    {
-                      'contents' => [
-                        {
-                          'parent' => {},
-                          'text' => 'enumerate'
-                        }
-                      ],
-                      'extra' => {
-                        'spaces_after_argument' => '
-'
-                      },
-                      'parent' => {},
-                      'type' => 'line_arg'
-                    }
-                  ],
-                  'cmdname' => 'end',
-                  'extra' => {
-                    'command_argument' => 'enumerate',
-                    'spaces_before_argument' => ' ',
-                    'text_arg' => 'enumerate'
-                  },
-                  'line_nr' => {
-                    'file_name' => '',
-                    'line_nr' => 17,
-                    'macro' => ''
-                  },
-                  'parent' => {}
-                }
-              ],
-              'extra' => {
-                'end_command' => {},
-                'enumerate_specification' => '1'
-              },
-              'line_nr' => {
-                'file_name' => '',
-                'line_nr' => 6,
-                'macro' => ''
-              },
-              'parent' => {}
-            }
-          ],
-          'extra' => {
-            'item_number' => 2,
-            'spaces_before_argument' => ' '
-          },
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 5,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
         {
           'args' => [
             {
               'contents' => [
                 {
                   'parent' => {},
-                  'text' => 'enumerate'
+                  'text' => 'nested_enumerate.info'
                 }
               ],
               'extra' => {
@@ -501,109 +26,591 @@ $result_trees{'nested_enumerate'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'end',
+          'cmdname' => 'setfilename',
           'extra' => {
-            'command_argument' => 'enumerate',
             'spaces_before_argument' => ' ',
-            'text_arg' => 'enumerate'
+            'text_arg' => 'nested_enumerate.info'
           },
           'line_nr' => {
             'file_name' => '',
-            'line_nr' => 18,
+            'line_nr' => 1,
             'macro' => ''
           },
           'parent' => {}
+        },
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'cmdname' => 'enumerate',
+          'contents' => [
+            {
+              'extra' => {
+                'command' => {}
+              },
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line_after_command'
+            },
+            {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => '   ',
+                  'type' => 'empty_spaces_before_paragraph'
+                }
+              ],
+              'parent' => {},
+              'type' => 'before_item'
+            },
+            {
+              'cmdname' => 'item',
+              'contents' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'First level item
+'
+                    },
+                    {
+                      'parent' => {},
+                      'text' => '   '
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'paragraph'
+                }
+              ],
+              'extra' => {
+                'item_number' => 1,
+                'spaces_before_argument' => ' '
+              },
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 4,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
+              'cmdname' => 'item',
+              'contents' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'First level item
+'
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'paragraph'
+                },
+                {
+                  'cmdname' => 'enumerate',
+                  'contents' => [
+                    {
+                      'extra' => {
+                        'command' => {}
+                      },
+                      'parent' => {},
+                      'text' => '
+',
+                      'type' => 'empty_line_after_command'
+                    },
+                    {
+                      'contents' => [
+                        {
+                          'parent' => {},
+                          'text' => '     ',
+                          'type' => 'empty_spaces_before_paragraph'
+                        }
+                      ],
+                      'parent' => {},
+                      'type' => 'before_item'
+                    },
+                    {
+                      'cmdname' => 'item',
+                      'contents' => [
+                        {
+                          'contents' => [
+                            {
+                              'parent' => {},
+                              'text' => 'Second level item
+'
+                            },
+                            {
+                              'parent' => {},
+                              'text' => '     '
+                            }
+                          ],
+                          'parent' => {},
+                          'type' => 'paragraph'
+                        }
+                      ],
+                      'extra' => {
+                        'item_number' => 1,
+                        'spaces_before_argument' => ' '
+                      },
+                      'line_nr' => {
+                        'file_name' => '',
+                        'line_nr' => 7,
+                        'macro' => ''
+                      },
+                      'parent' => {}
+                    },
+                    {
+                      'cmdname' => 'item',
+                      'contents' => [
+                        {
+                          'contents' => [
+                            {
+                              'parent' => {},
+                              'text' => 'Second level item
+'
+                            }
+                          ],
+                          'parent' => {},
+                          'type' => 'paragraph'
+                        },
+                        {
+                          'cmdname' => 'enumerate',
+                          'contents' => [
+                            {
+                              'extra' => {
+                                'command' => {}
+                              },
+                              'parent' => {},
+                              'text' => '
+',
+                              'type' => 'empty_line_after_command'
+                            },
+                            {
+                              'contents' => [
+                                {
+                                  'parent' => {},
+                                  'text' => '       ',
+                                  'type' => 'empty_spaces_before_paragraph'
+                                }
+                              ],
+                              'parent' => {},
+                              'type' => 'before_item'
+                            },
+                            {
+                              'cmdname' => 'item',
+                              'contents' => [
+                                {
+                                  'contents' => [
+                                    {
+                                      'parent' => {},
+                                      'text' => 'Third level item
+'
+                                    },
+                                    {
+                                      'parent' => {},
+                                      'text' => '       '
+                                    }
+                                  ],
+                                  'parent' => {},
+                                  'type' => 'paragraph'
+                                }
+                              ],
+                              'extra' => {
+                                'item_number' => 1,
+                                'spaces_before_argument' => ' '
+                              },
+                              'line_nr' => {
+                                'file_name' => '',
+                                'line_nr' => 10,
+                                'macro' => ''
+                              },
+                              'parent' => {}
+                            },
+                            {
+                              'cmdname' => 'item',
+                              'contents' => [
+                                {
+                                  'contents' => [
+                                    {
+                                      'parent' => {},
+                                      'text' => 'Third level item
+'
+                                    }
+                                  ],
+                                  'parent' => {},
+                                  'type' => 'paragraph'
+                                },
+                                {
+                                  'cmdname' => 'enumerate',
+                                  'contents' => [
+                                    {
+                                      'extra' => {
+                                        'command' => {}
+                                      },
+                                      'parent' => {},
+                                      'text' => '
+',
+                                      'type' => 'empty_line_after_command'
+                                    },
+                                    {
+                                      'contents' => [
+                                        {
+                                          'parent' => {},
+                                          'text' => '         ',
+                                          'type' => 'empty_spaces_before_paragraph'
+                                        }
+                                      ],
+                                      'parent' => {},
+                                      'type' => 'before_item'
+                                    },
+                                    {
+                                      'cmdname' => 'item',
+                                      'contents' => [
+                                        {
+                                          'contents' => [
+                                            {
+                                              'parent' => {},
+                                              'text' => 'Fourth level item
+'
+                                            },
+                                            {
+                                              'parent' => {},
+                                              'text' => '         '
+                                            }
+                                          ],
+                                          'parent' => {},
+                                          'type' => 'paragraph'
+                                        }
+                                      ],
+                                      'extra' => {
+                                        'item_number' => 1,
+                                        'spaces_before_argument' => ' '
+                                      },
+                                      'line_nr' => {
+                                        'file_name' => '',
+                                        'line_nr' => 13,
+                                        'macro' => ''
+                                      },
+                                      'parent' => {}
+                                    },
+                                    {
+                                      'cmdname' => 'item',
+                                      'contents' => [
+                                        {
+                                          'contents' => [
+                                            {
+                                              'parent' => {},
+                                              'text' => 'Fourth level item
+'
+                                            }
+                                          ],
+                                          'parent' => {},
+                                          'type' => 'paragraph'
+                                        }
+                                      ],
+                                      'extra' => {
+                                        'item_number' => 2,
+                                        'spaces_before_argument' => ' '
+                                      },
+                                      'line_nr' => {
+                                        'file_name' => '',
+                                        'line_nr' => 14,
+                                        'macro' => ''
+                                      },
+                                      'parent' => {}
+                                    },
+                                    {
+                                      'args' => [
+                                        {
+                                          'contents' => [
+                                            {
+                                              'parent' => {},
+                                              'text' => 'enumerate'
+                                            }
+                                          ],
+                                          'extra' => {
+                                            'spaces_after_argument' => '
+'
+                                          },
+                                          'parent' => {},
+                                          'type' => 'line_arg'
+                                        }
+                                      ],
+                                      'cmdname' => 'end',
+                                      'extra' => {
+                                        'command_argument' => 'enumerate',
+                                        'spaces_before_argument' => ' ',
+                                        'text_arg' => 'enumerate'
+                                      },
+                                      'line_nr' => {
+                                        'file_name' => '',
+                                        'line_nr' => 15,
+                                        'macro' => ''
+                                      },
+                                      'parent' => {}
+                                    }
+                                  ],
+                                  'extra' => {
+                                    'end_command' => {},
+                                    'enumerate_specification' => '1'
+                                  },
+                                  'line_nr' => {
+                                    'file_name' => '',
+                                    'line_nr' => 12,
+                                    'macro' => ''
+                                  },
+                                  'parent' => {}
+                                }
+                              ],
+                              'extra' => {
+                                'item_number' => 2,
+                                'spaces_before_argument' => ' '
+                              },
+                              'line_nr' => {
+                                'file_name' => '',
+                                'line_nr' => 11,
+                                'macro' => ''
+                              },
+                              'parent' => {}
+                            },
+                            {
+                              'args' => [
+                                {
+                                  'contents' => [
+                                    {
+                                      'parent' => {},
+                                      'text' => 'enumerate'
+                                    }
+                                  ],
+                                  'extra' => {
+                                    'spaces_after_argument' => '
+'
+                                  },
+                                  'parent' => {},
+                                  'type' => 'line_arg'
+                                }
+                              ],
+                              'cmdname' => 'end',
+                              'extra' => {
+                                'command_argument' => 'enumerate',
+                                'spaces_before_argument' => ' ',
+                                'text_arg' => 'enumerate'
+                              },
+                              'line_nr' => {
+                                'file_name' => '',
+                                'line_nr' => 16,
+                                'macro' => ''
+                              },
+                              'parent' => {}
+                            }
+                          ],
+                          'extra' => {
+                            'end_command' => {},
+                            'enumerate_specification' => '1'
+                          },
+                          'line_nr' => {
+                            'file_name' => '',
+                            'line_nr' => 9,
+                            'macro' => ''
+                          },
+                          'parent' => {}
+                        }
+                      ],
+                      'extra' => {
+                        'item_number' => 2,
+                        'spaces_before_argument' => ' '
+                      },
+                      'line_nr' => {
+                        'file_name' => '',
+                        'line_nr' => 8,
+                        'macro' => ''
+                      },
+                      'parent' => {}
+                    },
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'parent' => {},
+                              'text' => 'enumerate'
+                            }
+                          ],
+                          'extra' => {
+                            'spaces_after_argument' => '
+'
+                          },
+                          'parent' => {},
+                          'type' => 'line_arg'
+                        }
+                      ],
+                      'cmdname' => 'end',
+                      'extra' => {
+                        'command_argument' => 'enumerate',
+                        'spaces_before_argument' => ' ',
+                        'text_arg' => 'enumerate'
+                      },
+                      'line_nr' => {
+                        'file_name' => '',
+                        'line_nr' => 17,
+                        'macro' => ''
+                      },
+                      'parent' => {}
+                    }
+                  ],
+                  'extra' => {
+                    'end_command' => {},
+                    'enumerate_specification' => '1'
+                  },
+                  'line_nr' => {
+                    'file_name' => '',
+                    'line_nr' => 6,
+                    'macro' => ''
+                  },
+                  'parent' => {}
+                }
+              ],
+              'extra' => {
+                'item_number' => 2,
+                'spaces_before_argument' => ' '
+              },
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 5,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'enumerate'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
+                  'parent' => {},
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'end',
+              'extra' => {
+                'command_argument' => 'enumerate',
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'enumerate'
+              },
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 18,
+                'macro' => ''
+              },
+              'parent' => {}
+            }
+          ],
+          'extra' => {
+            'end_command' => {},
+            'enumerate_specification' => '1'
+          },
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 3,
+            'macro' => ''
+          },
+          'parent' => {}
+        },
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
         }
       ],
-      'extra' => {
-        'end_command' => {},
-        'enumerate_specification' => '1'
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 3,
-        'macro' => ''
-      },
-      'parent' => {}
-    },
-    {
       'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
-$result_trees{'nested_enumerate'}{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[0]{'args'}[0];
-$result_trees{'nested_enumerate'}{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[0];
+$result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[0];
+$result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[0];
+$result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[0];
+$result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'extra'}{'command'} = $result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2];
+$result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2];
+$result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[1];
+$result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2];
+$result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[0];
+$result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[0];
+$result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[2];
+$result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2];
+$result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[0];
+$result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3];
+$result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[0]{'extra'}{'command'} = $result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1];
+$result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1];
+$result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[1];
+$result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1];
+$result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[2]{'contents'}[0];
+$result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[2]{'contents'}[0];
+$result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[2];
+$result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1];
+$result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[0];
+$result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3];
+$result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[0]{'extra'}{'command'} = $result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1];
+$result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1];
+$result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[1];
+$result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1];
+$result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[2]{'contents'}[0];
+$result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[2]{'contents'}[0];
+$result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[2];
+$result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1];
+$result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[0];
+$result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3];
+$result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[0]{'extra'}{'command'} = $result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1];
+$result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1];
+$result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[1];
+$result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1];
+$result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[2]{'contents'}[0];
+$result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[2]{'contents'}[0];
+$result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[2];
+$result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1];
+$result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[0];
+$result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3];
+$result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1];
+$result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[4]{'args'}[0];
+$result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[4];
+$result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[4]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1];
+$result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'extra'}{'end_command'} = $result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[4];
+$result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3];
+$result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1];
+$result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[4]{'args'}[0];
+$result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[4];
+$result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[4]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1];
+$result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'extra'}{'end_command'} = $result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[4];
+$result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3];
+$result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1];
+$result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[4]{'args'}[0];
+$result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[4];
+$result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[4]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1];
+$result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'extra'}{'end_command'} = $result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[4];
+$result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3];
+$result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2];
+$result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[4]{'args'}[0];
+$result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[4];
+$result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[4]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2];
+$result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'extra'}{'end_command'} = $result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'contents'}[4];
+$result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[0];
+$result_trees{'nested_enumerate'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[0];
 $result_trees{'nested_enumerate'}{'contents'}[0]{'parent'} = $result_trees{'nested_enumerate'};
-$result_trees{'nested_enumerate'}{'contents'}[1]{'parent'} = $result_trees{'nested_enumerate'};
-$result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[0]{'extra'}{'command'} = $result_trees{'nested_enumerate'}{'contents'}[2];
-$result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[2];
-$result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[1];
-$result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[2];
-$result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[2]{'contents'}[0];
-$result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[2]{'contents'}[0];
-$result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[2];
-$result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[2];
-$result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[0];
-$result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3];
-$result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[0]{'extra'}{'command'} = $result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1];
-$result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1];
-$result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[1];
-$result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1];
-$result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[2]{'contents'}[0];
-$result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[2]{'contents'}[0];
-$result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[2];
-$result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1];
-$result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[0];
-$result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3];
-$result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[0]{'extra'}{'command'} = $result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1];
-$result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1];
-$result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[1];
-$result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1];
-$result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[2]{'contents'}[0];
-$result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[2]{'contents'}[0];
-$result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[2];
-$result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1];
-$result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[0];
-$result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3];
-$result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[0]{'extra'}{'command'} = $result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1];
-$result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1];
-$result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[1];
-$result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1];
-$result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[2]{'contents'}[0];
-$result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[2]{'contents'}[0];
-$result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[2];
-$result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1];
-$result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[0];
-$result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3];
-$result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1];
-$result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[4]{'args'}[0];
-$result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[4];
-$result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[4]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1];
-$result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'extra'}{'end_command'} = $result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[4];
-$result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3];
-$result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1];
-$result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[4]{'args'}[0];
-$result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[4];
-$result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[4]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1];
-$result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'extra'}{'end_command'} = $result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'contents'}[4];
-$result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3];
-$result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1];
-$result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[4]{'args'}[0];
-$result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[4];
-$result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[4]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1];
-$result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'extra'}{'end_command'} = $result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'contents'}[4];
-$result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3];
-$result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[3]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[2];
-$result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[4]{'args'}[0];
-$result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[4];
-$result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[4]{'parent'} = $result_trees{'nested_enumerate'}{'contents'}[2];
-$result_trees{'nested_enumerate'}{'contents'}[2]{'extra'}{'end_command'} = $result_trees{'nested_enumerate'}{'contents'}[2]{'contents'}[4];
-$result_trees{'nested_enumerate'}{'contents'}[2]{'parent'} = $result_trees{'nested_enumerate'};
-$result_trees{'nested_enumerate'}{'contents'}[3]{'parent'} = $result_trees{'nested_enumerate'};
 
 $result_texis{'nested_enumerate'} = '@setfilename nested_enumerate.info
 

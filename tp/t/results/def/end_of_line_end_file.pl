@@ -8,49 +8,56 @@ use utf8;
 $result_trees{'end_of_line_end_file'} = {
   'contents' => [
     {
-      'cmdname' => 'deffn',
       'contents' => [
         {
-          'args' => [
+          'cmdname' => 'deffn',
+          'contents' => [
             {
-              'contents' => [
+              'args' => [
                 {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'category deffn_name arguments '
+                    }
+                  ],
                   'parent' => {},
-                  'text' => 'category deffn_name arguments '
+                  'type' => 'block_line_arg'
                 }
               ],
+              'extra' => {
+                'def_command' => 'deffn',
+                'original_def_cmdname' => 'deffn'
+              },
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 1,
+                'macro' => ''
+              },
               'parent' => {},
-              'type' => 'block_line_arg'
+              'type' => 'def_line'
             }
           ],
           'extra' => {
-            'def_command' => 'deffn',
-            'original_def_cmdname' => 'deffn'
+            'spaces_before_argument' => ' '
           },
           'line_nr' => {
             'file_name' => '',
             'line_nr' => 1,
             'macro' => ''
           },
-          'parent' => {},
-          'type' => 'def_line'
+          'parent' => {}
         }
       ],
-      'extra' => {
-        'spaces_before_argument' => ' '
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
-      },
-      'parent' => {}
+      'parent' => {},
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
-$result_trees{'end_of_line_end_file'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'end_of_line_end_file'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'end_of_line_end_file'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'end_of_line_end_file'}{'contents'}[0]{'contents'}[0];
+$result_trees{'end_of_line_end_file'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'end_of_line_end_file'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'end_of_line_end_file'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'end_of_line_end_file'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'end_of_line_end_file'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'end_of_line_end_file'}{'contents'}[0]{'contents'}[0];
 $result_trees{'end_of_line_end_file'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'end_of_line_end_file'}{'contents'}[0];
 $result_trees{'end_of_line_end_file'}{'contents'}[0]{'parent'} = $result_trees{'end_of_line_end_file'};
 

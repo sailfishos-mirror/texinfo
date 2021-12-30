@@ -8,12 +8,34 @@ use utf8;
 $result_trees{'verbatim_and_verbatiminclude'} = {
   'contents' => [
     {
-      'cmdname' => 'verbatim',
       'contents' => [
         {
-          'extra' => {
-            'command' => {}
+          'cmdname' => 'verbatim',
+          'contents' => [
+            {
+              'extra' => {
+                'command' => {}
+              },
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line_after_command'
+            },
+            {
+              'parent' => {},
+              'text' => 'In verbatim                @@                        aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa       bbbbbbbbbbbbbb
+',
+              'type' => 'raw'
+            }
+          ],
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 1,
+            'macro' => ''
           },
+          'parent' => {}
+        },
+        {
           'parent' => {},
           'text' => '
 ',
@@ -21,107 +43,15 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
         },
         {
           'parent' => {},
-          'text' => 'In verbatim                @@                        aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa       bbbbbbbbbbbbbb
-',
-          'type' => 'raw'
-        }
-      ],
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
-      },
-      'parent' => {}
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line_after_command'
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'contents' => [
-        {
-          'parent' => {},
-          'text' => 'Text before
-'
-        }
-      ],
-      'parent' => {},
-      'type' => 'paragraph'
-    },
-    {
-      'cmdname' => 'verbatim',
-      'contents' => [
-        {
-          'extra' => {
-            'command' => {}
-          },
-          'parent' => {},
           'text' => '
 ',
-          'type' => 'empty_line_after_command'
-        },
-        {
-          'parent' => {},
-          'text' => 'in verbatime
-',
-          'type' => 'raw'
-        }
-      ],
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 6,
-        'macro' => ''
-      },
-      'parent' => {}
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line_after_command'
-    },
-    {
-      'contents' => [
-        {
-          'parent' => {},
-          'text' => 'Text after
-'
-        }
-      ],
-      'parent' => {},
-      'type' => 'paragraph'
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'cmdname' => 'quotation',
-      'contents' => [
-        {
-          'extra' => {
-            'command' => {}
-          },
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line_after_command'
+          'type' => 'empty_line'
         },
         {
           'contents' => [
             {
               'parent' => {},
-              'text' => 'In quotation
+              'text' => 'Text before
 '
             }
           ],
@@ -142,20 +72,14 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
             },
             {
               'parent' => {},
-              'text' => 'In verbatim in quotation
-',
-              'type' => 'raw'
-            },
-            {
-              'parent' => {},
-              'text' => 'In verbatim                @@                        aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa       bbbbbbbbbbbbbb
+              'text' => 'in verbatime
 ',
               'type' => 'raw'
             }
           ],
           'line_nr' => {
             'file_name' => '',
-            'line_nr' => 13,
+            'line_nr' => 6,
             'macro' => ''
           },
           'parent' => {}
@@ -167,12 +91,197 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
           'type' => 'empty_line_after_command'
         },
         {
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => 'Text after
+'
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
+        },
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'cmdname' => 'quotation',
+          'contents' => [
+            {
+              'extra' => {
+                'command' => {}
+              },
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line_after_command'
+            },
+            {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => 'In quotation
+'
+                }
+              ],
+              'parent' => {},
+              'type' => 'paragraph'
+            },
+            {
+              'cmdname' => 'verbatim',
+              'contents' => [
+                {
+                  'extra' => {
+                    'command' => {}
+                  },
+                  'parent' => {},
+                  'text' => '
+',
+                  'type' => 'empty_line_after_command'
+                },
+                {
+                  'parent' => {},
+                  'text' => 'In verbatim in quotation
+',
+                  'type' => 'raw'
+                },
+                {
+                  'parent' => {},
+                  'text' => 'In verbatim                @@                        aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa       bbbbbbbbbbbbbb
+',
+                  'type' => 'raw'
+                }
+              ],
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 13,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line_after_command'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'quotation'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
+                  'parent' => {},
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'end',
+              'extra' => {
+                'command_argument' => 'quotation',
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'quotation'
+              },
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 17,
+                'macro' => ''
+              },
+              'parent' => {}
+            }
+          ],
+          'extra' => {
+            'end_command' => {}
+          },
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 11,
+            'macro' => ''
+          },
+          'parent' => {}
+        },
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => 'Before
+'
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
+        },
+        {
+          'cmdname' => 'verbatim',
+          'contents' => [
+            {
+              'extra' => {
+                'command' => {}
+              },
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line_after_command'
+            },
+            {
+              'parent' => {},
+              'text' => 'In verbatim test text
+',
+              'type' => 'raw'
+            }
+          ],
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 20,
+            'macro' => ''
+          },
+          'parent' => {}
+        },
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line_after_command'
+        },
+        {
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => 'After
+'
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
+        },
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
           'args' => [
             {
               'contents' => [
                 {
                   'parent' => {},
-                  'text' => 'quotation'
+                  'text' => 'verb.txt'
                 }
               ],
               'extra' => {
@@ -183,149 +292,130 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
               'type' => 'line_arg'
             }
           ],
-          'cmdname' => 'end',
+          'cmdname' => 'verbatiminclude',
           'extra' => {
-            'command_argument' => 'quotation',
+            'input_perl_encoding' => 'utf-8',
             'spaces_before_argument' => ' ',
-            'text_arg' => 'quotation'
+            'text_arg' => 'verb.txt'
           },
           'line_nr' => {
             'file_name' => '',
-            'line_nr' => 17,
+            'line_nr' => 25,
             'macro' => ''
           },
           'parent' => {}
-        }
-      ],
-      'extra' => {
-        'end_command' => {}
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 11,
-        'macro' => ''
-      },
-      'parent' => {}
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'contents' => [
-        {
-          'parent' => {},
-          'text' => 'Before
-'
-        }
-      ],
-      'parent' => {},
-      'type' => 'paragraph'
-    },
-    {
-      'cmdname' => 'verbatim',
-      'contents' => [
-        {
-          'extra' => {
-            'command' => {}
-          },
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line_after_command'
         },
         {
           'parent' => {},
-          'text' => 'In verbatim test text
+          'text' => '
 ',
-          'type' => 'raw'
-        }
-      ],
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 20,
-        'macro' => ''
-      },
-      'parent' => {}
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line_after_command'
-    },
-    {
-      'contents' => [
+          'type' => 'empty_line'
+        },
         {
-          'parent' => {},
-          'text' => 'After
-'
-        }
-      ],
-      'parent' => {},
-      'type' => 'paragraph'
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'args' => [
-        {
+          'cmdname' => 'quotation',
           'contents' => [
             {
+              'extra' => {
+                'command' => {}
+              },
               'parent' => {},
-              'text' => 'verb.txt'
+              'text' => '
+',
+              'type' => 'empty_line_after_command'
+            },
+            {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => 'In quotation include 
+'
+                }
+              ],
+              'parent' => {},
+              'type' => 'paragraph'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'verb.txt'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
+                  'parent' => {},
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'verbatiminclude',
+              'extra' => {
+                'input_perl_encoding' => 'utf-8',
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'verb.txt'
+              },
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 29,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'quotation'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
+                  'parent' => {},
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'end',
+              'extra' => {
+                'command_argument' => 'quotation',
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'quotation'
+              },
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 30,
+                'macro' => ''
+              },
+              'parent' => {}
             }
           ],
           'extra' => {
-            'spaces_after_argument' => '
-'
+            'end_command' => {}
           },
-          'parent' => {},
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'verbatiminclude',
-      'extra' => {
-        'input_perl_encoding' => 'utf-8',
-        'spaces_before_argument' => ' ',
-        'text_arg' => 'verb.txt'
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 25,
-        'macro' => ''
-      },
-      'parent' => {}
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'cmdname' => 'quotation',
-      'contents' => [
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 27,
+            'macro' => ''
+          },
+          'parent' => {}
+        },
         {
-          'extra' => {
-            'command' => {}
-          },
           'parent' => {},
           'text' => '
 ',
-          'type' => 'empty_line_after_command'
+          'type' => 'empty_line'
         },
         {
           'contents' => [
             {
               'parent' => {},
-              'text' => 'In quotation include 
+              'text' => 'Before include
 '
             }
           ],
@@ -357,264 +447,267 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
           },
           'line_nr' => {
             'file_name' => '',
-            'line_nr' => 29,
+            'line_nr' => 33,
             'macro' => ''
           },
           'parent' => {}
         },
         {
-          'args' => [
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => 'After
+'
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
+        },
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'cmdname' => 'example',
+          'contents' => [
+            {
+              'extra' => {
+                'command' => {}
+              },
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line_after_command'
+            },
             {
               'contents' => [
                 {
                   'parent' => {},
-                  'text' => 'quotation'
+                  'text' => 'In example
+'
+                },
+                {
+                  'parent' => {},
+                  'text' => '
+',
+                  'type' => 'empty_line'
                 }
               ],
-              'extra' => {
-                'spaces_after_argument' => '
-'
-              },
               'parent' => {},
-              'type' => 'line_arg'
+              'type' => 'preformatted'
+            },
+            {
+              'cmdname' => 'verbatim',
+              'contents' => [
+                {
+                  'extra' => {
+                    'command' => {}
+                  },
+                  'parent' => {},
+                  'text' => '
+',
+                  'type' => 'empty_line_after_command'
+                },
+                {
+                  'parent' => {},
+                  'text' => 'In verbatim in example
+',
+                  'type' => 'raw'
+                },
+                {
+                  'parent' => {},
+                  'text' => 'In verbatim                @@                        aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa       bbbbbbbbbbbbbb
+',
+                  'type' => 'raw'
+                }
+              ],
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 39,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line_after_command'
+            },
+            {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => '
+',
+                  'type' => 'empty_line'
+                }
+              ],
+              'parent' => {},
+              'type' => 'preformatted'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'example'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
+                  'parent' => {},
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'end',
+              'extra' => {
+                'command_argument' => 'example',
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'example'
+              },
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 44,
+                'macro' => ''
+              },
+              'parent' => {}
             }
           ],
-          'cmdname' => 'end',
           'extra' => {
-            'command_argument' => 'quotation',
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'quotation'
+            'end_command' => {}
           },
           'line_nr' => {
             'file_name' => '',
-            'line_nr' => 30,
+            'line_nr' => 36,
             'macro' => ''
           },
           'parent' => {}
-        }
-      ],
-      'extra' => {
-        'end_command' => {}
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 27,
-        'macro' => ''
-      },
-      'parent' => {}
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'contents' => [
+        },
         {
-          'parent' => {},
-          'text' => 'Before include
-'
-        }
-      ],
-      'parent' => {},
-      'type' => 'paragraph'
-    },
-    {
-      'args' => [
-        {
-          'contents' => [
-            {
-              'parent' => {},
-              'text' => 'verb.txt'
-            }
-          ],
-          'extra' => {
-            'spaces_after_argument' => '
-'
-          },
-          'parent' => {},
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'verbatiminclude',
-      'extra' => {
-        'input_perl_encoding' => 'utf-8',
-        'spaces_before_argument' => ' ',
-        'text_arg' => 'verb.txt'
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 33,
-        'macro' => ''
-      },
-      'parent' => {}
-    },
-    {
-      'contents' => [
-        {
-          'parent' => {},
-          'text' => 'After
-'
-        }
-      ],
-      'parent' => {},
-      'type' => 'paragraph'
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'cmdname' => 'example',
-      'contents' => [
-        {
-          'extra' => {
-            'command' => {}
-          },
           'parent' => {},
           'text' => '
 ',
-          'type' => 'empty_line_after_command'
+          'type' => 'empty_line'
         },
         {
+          'cmdname' => 'quotation',
           'contents' => [
             {
+              'extra' => {
+                'command' => {}
+              },
               'parent' => {},
-              'text' => 'In example
+              'text' => '
+',
+              'type' => 'empty_line_after_command'
+            },
+            {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => 'In quotation with spaces
 '
+                }
+              ],
+              'parent' => {},
+              'type' => 'paragraph'
             },
             {
               'parent' => {},
               'text' => '
 ',
               'type' => 'empty_line'
-            }
-          ],
-          'parent' => {},
-          'type' => 'preformatted'
-        },
-        {
-          'cmdname' => 'verbatim',
-          'contents' => [
+            },
             {
-              'extra' => {
-                'command' => {}
+              'cmdname' => 'verbatim',
+              'contents' => [
+                {
+                  'extra' => {
+                    'command' => {}
+                  },
+                  'parent' => {},
+                  'text' => '
+',
+                  'type' => 'empty_line_after_command'
+                },
+                {
+                  'parent' => {},
+                  'text' => 'In verbatim in quotation with spaces
+',
+                  'type' => 'raw'
+                },
+                {
+                  'parent' => {},
+                  'text' => 'In verbatim                @@                        aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa       bbbbbbbbbbbbbb
+',
+                  'type' => 'raw'
+                }
+              ],
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 49,
+                'macro' => ''
               },
+              'parent' => {}
+            },
+            {
               'parent' => {},
               'text' => '
 ',
               'type' => 'empty_line_after_command'
             },
-            {
-              'parent' => {},
-              'text' => 'In verbatim in example
-',
-              'type' => 'raw'
-            },
-            {
-              'parent' => {},
-              'text' => 'In verbatim                @@                        aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa       bbbbbbbbbbbbbb
-',
-              'type' => 'raw'
-            }
-          ],
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 39,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line_after_command'
-        },
-        {
-          'contents' => [
             {
               'parent' => {},
               'text' => '
 ',
               'type' => 'empty_line'
-            }
-          ],
-          'parent' => {},
-          'type' => 'preformatted'
-        },
-        {
-          'args' => [
+            },
             {
-              'contents' => [
+              'args' => [
                 {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'quotation'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'parent' => {},
-                  'text' => 'example'
+                  'type' => 'line_arg'
                 }
               ],
+              'cmdname' => 'end',
               'extra' => {
-                'spaces_after_argument' => '
-'
+                'command_argument' => 'quotation',
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'quotation'
               },
-              'parent' => {},
-              'type' => 'line_arg'
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 54,
+                'macro' => ''
+              },
+              'parent' => {}
             }
           ],
-          'cmdname' => 'end',
           'extra' => {
-            'command_argument' => 'example',
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'example'
+            'end_command' => {}
           },
           'line_nr' => {
             'file_name' => '',
-            'line_nr' => 44,
+            'line_nr' => 46,
             'macro' => ''
           },
           'parent' => {}
-        }
-      ],
-      'extra' => {
-        'end_command' => {}
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 36,
-        'macro' => ''
-      },
-      'parent' => {}
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'cmdname' => 'quotation',
-      'contents' => [
-        {
-          'extra' => {
-            'command' => {}
-          },
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line_after_command'
-        },
-        {
-          'contents' => [
-            {
-              'parent' => {},
-              'text' => 'In quotation with spaces
-'
-            }
-          ],
-          'parent' => {},
-          'type' => 'paragraph'
         },
         {
           'parent' => {},
@@ -623,7 +716,7 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
           'type' => 'empty_line'
         },
         {
-          'cmdname' => 'verbatim',
+          'cmdname' => 'quotation',
           'contents' => [
             {
               'extra' => {
@@ -635,321 +728,235 @@ $result_trees{'verbatim_and_verbatiminclude'} = {
               'type' => 'empty_line_after_command'
             },
             {
-              'parent' => {},
-              'text' => 'In verbatim in quotation with spaces
-',
-              'type' => 'raw'
-            },
-            {
-              'parent' => {},
-              'text' => 'In verbatim                @@                        aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa       bbbbbbbbbbbbbb
-',
-              'type' => 'raw'
-            }
-          ],
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 49,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line_after_command'
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'args' => [
-            {
               'contents' => [
                 {
                   'parent' => {},
-                  'text' => 'quotation'
+                  'text' => 'In quotation 
+'
                 }
               ],
-              'extra' => {
-                'spaces_after_argument' => '
-'
-              },
               'parent' => {},
-              'type' => 'line_arg'
-            }
-          ],
-          'cmdname' => 'end',
-          'extra' => {
-            'command_argument' => 'quotation',
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'quotation'
-          },
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 54,
-            'macro' => ''
-          },
-          'parent' => {}
-        }
-      ],
-      'extra' => {
-        'end_command' => {}
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 46,
-        'macro' => ''
-      },
-      'parent' => {}
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'cmdname' => 'quotation',
-      'contents' => [
-        {
-          'extra' => {
-            'command' => {}
-          },
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line_after_command'
-        },
-        {
-          'contents' => [
+              'type' => 'paragraph'
+            },
             {
               'parent' => {},
-              'text' => 'In quotation 
-'
-            }
-          ],
-          'parent' => {},
-          'type' => 'paragraph'
-        },
-        {
-          'parent' => {},
-          'text' => '
+              'text' => '
 ',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'verbatim',
-          'contents' => [
+              'type' => 'empty_line'
+            },
             {
-              'extra' => {
-                'command' => {}
+              'cmdname' => 'verbatim',
+              'contents' => [
+                {
+                  'extra' => {
+                    'command' => {}
+                  },
+                  'parent' => {},
+                  'text' => '
+',
+                  'type' => 'empty_line_after_command'
+                },
+                {
+                  'parent' => {},
+                  'text' => 'In verbatim in quotation
+',
+                  'type' => 'raw'
+                }
+              ],
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 59,
+                'macro' => ''
               },
+              'parent' => {}
+            },
+            {
               'parent' => {},
               'text' => '
 ',
               'type' => 'empty_line_after_command'
             },
             {
-              'parent' => {},
-              'text' => 'In verbatim in quotation
-',
-              'type' => 'raw'
-            }
-          ],
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 59,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line_after_command'
-        },
-        {
-          'contents' => [
-            {
-              'parent' => {},
-              'text' => 'in quotation after end verbaatim
-'
-            }
-          ],
-          'parent' => {},
-          'type' => 'paragraph'
-        },
-        {
-          'args' => [
-            {
               'contents' => [
                 {
                   'parent' => {},
-                  'text' => 'quotation'
+                  'text' => 'in quotation after end verbaatim
+'
                 }
               ],
-              'extra' => {
-                'spaces_after_argument' => '
-'
-              },
               'parent' => {},
-              'type' => 'line_arg'
+              'type' => 'paragraph'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'quotation'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
+                  'parent' => {},
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'end',
+              'extra' => {
+                'command_argument' => 'quotation',
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'quotation'
+              },
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 63,
+                'macro' => ''
+              },
+              'parent' => {}
             }
           ],
-          'cmdname' => 'end',
           'extra' => {
-            'command_argument' => 'quotation',
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'quotation'
+            'end_command' => {}
           },
           'line_nr' => {
             'file_name' => '',
-            'line_nr' => 63,
+            'line_nr' => 56,
             'macro' => ''
           },
           'parent' => {}
         }
       ],
-      'extra' => {
-        'end_command' => {}
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 56,
-        'macro' => ''
-      },
-      'parent' => {}
+      'parent' => {},
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[0]{'extra'}{'command'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'command'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[0];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[0];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[0];
 $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0];
 $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[3];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'extra'}{'command'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[4];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[4];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[4];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[6];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[6]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[7]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'extra'}{'command'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[8];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[8];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[8]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[8]{'contents'}[1];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[8]{'contents'}[1]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[8];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[8]{'contents'}[2]{'contents'}[0]{'extra'}{'command'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[8]{'contents'}[2];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[8]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[8]{'contents'}[2];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[8]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[8]{'contents'}[2];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[8]{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[8]{'contents'}[2];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[8]{'contents'}[2]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[8];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[8]{'contents'}[3]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[8];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[8]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[8]{'contents'}[4]{'args'}[0];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[8]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[8]{'contents'}[4];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[8]{'contents'}[4]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[8];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[8]{'extra'}{'end_command'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[8]{'contents'}[4];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[8]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[9]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[10]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[10];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[10]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[11]{'contents'}[0]{'extra'}{'command'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[11];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[11]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[11];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[11]{'contents'}[1]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[11];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[11]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[12]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[13]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[13];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[13]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[14]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[15]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[15]{'args'}[0];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[15]{'args'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[15];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[15]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[16]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[17]{'contents'}[0]{'extra'}{'command'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[17];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[17]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[17];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[17]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[17]{'contents'}[1];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[17]{'contents'}[1]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[17];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[17]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[17]{'contents'}[2]{'args'}[0];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[17]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[17]{'contents'}[2];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[17]{'contents'}[2]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[17];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[17]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[17]{'contents'}[3]{'args'}[0];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[17]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[17]{'contents'}[3];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[17]{'contents'}[3]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[17];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[17]{'extra'}{'end_command'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[17]{'contents'}[3];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[17]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[18]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[19]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[19];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[19]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[20]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[20]{'args'}[0];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[20]{'args'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[20];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[20]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[21]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[21];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[21]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[22]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[23]{'contents'}[0]{'extra'}{'command'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[23];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[23]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[23];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[23]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[23]{'contents'}[1];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[23]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[23]{'contents'}[1];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[23]{'contents'}[1]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[23];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[23]{'contents'}[2]{'contents'}[0]{'extra'}{'command'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[23]{'contents'}[2];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[23]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[23]{'contents'}[2];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[23]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[23]{'contents'}[2];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[23]{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[23]{'contents'}[2];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[23]{'contents'}[2]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[23];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[23]{'contents'}[3]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[23];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[23]{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[23]{'contents'}[4];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[23]{'contents'}[4]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[23];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[23]{'contents'}[5]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[23]{'contents'}[5]{'args'}[0];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[23]{'contents'}[5]{'args'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[23]{'contents'}[5];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[23]{'contents'}[5]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[23];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[23]{'extra'}{'end_command'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[23]{'contents'}[5];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[23]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[24]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[25]{'contents'}[0]{'extra'}{'command'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[25];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[25]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[25];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[25]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[25]{'contents'}[1];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[25]{'contents'}[1]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[25];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[25]{'contents'}[2]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[25];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[25]{'contents'}[3]{'contents'}[0]{'extra'}{'command'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[25]{'contents'}[3];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[25]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[25]{'contents'}[3];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[25]{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[25]{'contents'}[3];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[25]{'contents'}[3]{'contents'}[2]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[25]{'contents'}[3];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[25]{'contents'}[3]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[25];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[25]{'contents'}[4]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[25];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[25]{'contents'}[5]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[25];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[25]{'contents'}[6]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[25]{'contents'}[6]{'args'}[0];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[25]{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[25]{'contents'}[6];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[25]{'contents'}[6]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[25];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[25]{'extra'}{'end_command'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[25]{'contents'}[6];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[25]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[26]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[27]{'contents'}[0]{'extra'}{'command'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[27];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[27]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[27];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[27]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[27]{'contents'}[1];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[27]{'contents'}[1]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[27];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[27]{'contents'}[2]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[27];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[27]{'contents'}[3]{'contents'}[0]{'extra'}{'command'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[27]{'contents'}[3];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[27]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[27]{'contents'}[3];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[27]{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[27]{'contents'}[3];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[27]{'contents'}[3]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[27];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[27]{'contents'}[4]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[27];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[27]{'contents'}[5]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[27]{'contents'}[5];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[27]{'contents'}[5]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[27];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[27]{'contents'}[6]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[27]{'contents'}[6]{'args'}[0];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[27]{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[27]{'contents'}[6];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[27]{'contents'}[6]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[27];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[27]{'extra'}{'end_command'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[27]{'contents'}[6];
+$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'contents'}[27]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0];
 $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'};
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[1]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'};
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[2]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'};
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[3];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[3]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'};
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[4]{'contents'}[0]{'extra'}{'command'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[4];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[4];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[4]{'contents'}[1]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[4];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[4]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'};
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[5]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'};
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[6]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[6];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[6]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'};
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[7]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'};
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[8]{'contents'}[0]{'extra'}{'command'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[8];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[8]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[8];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[8]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[8]{'contents'}[1];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[8]{'contents'}[1]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[8];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[8]{'contents'}[2]{'contents'}[0]{'extra'}{'command'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[8]{'contents'}[2];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[8]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[8]{'contents'}[2];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[8]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[8]{'contents'}[2];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[8]{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[8]{'contents'}[2];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[8]{'contents'}[2]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[8];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[8]{'contents'}[3]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[8];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[8]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[8]{'contents'}[4]{'args'}[0];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[8]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[8]{'contents'}[4];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[8]{'contents'}[4]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[8];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[8]{'extra'}{'end_command'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[8]{'contents'}[4];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[8]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'};
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[9]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'};
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[10]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[10];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[10]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'};
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[11]{'contents'}[0]{'extra'}{'command'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[11];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[11]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[11];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[11]{'contents'}[1]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[11];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[11]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'};
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[12]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'};
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[13]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[13];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[13]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'};
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[14]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'};
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[15]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[15]{'args'}[0];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[15]{'args'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[15];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[15]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'};
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[16]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'};
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[17]{'contents'}[0]{'extra'}{'command'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[17];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[17]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[17];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[17]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[17]{'contents'}[1];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[17]{'contents'}[1]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[17];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[17]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[17]{'contents'}[2]{'args'}[0];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[17]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[17]{'contents'}[2];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[17]{'contents'}[2]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[17];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[17]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[17]{'contents'}[3]{'args'}[0];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[17]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[17]{'contents'}[3];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[17]{'contents'}[3]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[17];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[17]{'extra'}{'end_command'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[17]{'contents'}[3];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[17]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'};
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[18]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'};
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[19]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[19];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[19]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'};
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[20]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[20]{'args'}[0];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[20]{'args'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[20];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[20]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'};
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[21]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[21];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[21]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'};
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[22]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'};
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[23]{'contents'}[0]{'extra'}{'command'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[23];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[23]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[23];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[23]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[23]{'contents'}[1];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[23]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[23]{'contents'}[1];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[23]{'contents'}[1]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[23];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[23]{'contents'}[2]{'contents'}[0]{'extra'}{'command'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[23]{'contents'}[2];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[23]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[23]{'contents'}[2];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[23]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[23]{'contents'}[2];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[23]{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[23]{'contents'}[2];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[23]{'contents'}[2]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[23];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[23]{'contents'}[3]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[23];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[23]{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[23]{'contents'}[4];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[23]{'contents'}[4]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[23];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[23]{'contents'}[5]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[23]{'contents'}[5]{'args'}[0];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[23]{'contents'}[5]{'args'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[23]{'contents'}[5];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[23]{'contents'}[5]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[23];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[23]{'extra'}{'end_command'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[23]{'contents'}[5];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[23]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'};
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[24]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'};
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[25]{'contents'}[0]{'extra'}{'command'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[25];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[25]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[25];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[25]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[25]{'contents'}[1];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[25]{'contents'}[1]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[25];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[25]{'contents'}[2]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[25];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[25]{'contents'}[3]{'contents'}[0]{'extra'}{'command'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[25]{'contents'}[3];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[25]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[25]{'contents'}[3];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[25]{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[25]{'contents'}[3];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[25]{'contents'}[3]{'contents'}[2]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[25]{'contents'}[3];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[25]{'contents'}[3]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[25];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[25]{'contents'}[4]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[25];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[25]{'contents'}[5]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[25];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[25]{'contents'}[6]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[25]{'contents'}[6]{'args'}[0];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[25]{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[25]{'contents'}[6];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[25]{'contents'}[6]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[25];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[25]{'extra'}{'end_command'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[25]{'contents'}[6];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[25]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'};
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[26]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'};
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[27]{'contents'}[0]{'extra'}{'command'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[27];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[27]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[27];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[27]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[27]{'contents'}[1];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[27]{'contents'}[1]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[27];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[27]{'contents'}[2]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[27];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[27]{'contents'}[3]{'contents'}[0]{'extra'}{'command'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[27]{'contents'}[3];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[27]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[27]{'contents'}[3];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[27]{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[27]{'contents'}[3];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[27]{'contents'}[3]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[27];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[27]{'contents'}[4]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[27];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[27]{'contents'}[5]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[27]{'contents'}[5];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[27]{'contents'}[5]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[27];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[27]{'contents'}[6]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[27]{'contents'}[6]{'args'}[0];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[27]{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[27]{'contents'}[6];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[27]{'contents'}[6]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[27];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[27]{'extra'}{'end_command'} = $result_trees{'verbatim_and_verbatiminclude'}{'contents'}[27]{'contents'}[6];
-$result_trees{'verbatim_and_verbatiminclude'}{'contents'}[27]{'parent'} = $result_trees{'verbatim_and_verbatiminclude'};
 
 $result_texis{'verbatim_and_verbatiminclude'} = '@verbatim
 In verbatim                @@                        aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa       bbbbbbbbbbbbbb

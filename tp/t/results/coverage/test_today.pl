@@ -10,36 +10,43 @@ $result_trees{'test_today'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'contents' => [
             {
+              'args' => [
+                {
+                  'contents' => [],
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                }
+              ],
+              'cmdname' => 'today',
               'contents' => [],
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 1,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
               'parent' => {},
-              'type' => 'brace_command_arg'
+              'text' => '.'
             }
           ],
-          'cmdname' => 'today',
-          'contents' => [],
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
           'parent' => {},
-          'text' => '.'
+          'type' => 'paragraph'
         }
       ],
       'parent' => {},
-      'type' => 'paragraph'
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
-$result_trees{'test_today'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'test_today'}{'contents'}[0]{'contents'}[0];
+$result_trees{'test_today'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'test_today'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'test_today'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_today'}{'contents'}[0]{'contents'}[0];
+$result_trees{'test_today'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'test_today'}{'contents'}[0]{'contents'}[0];
 $result_trees{'test_today'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_today'}{'contents'}[0];
-$result_trees{'test_today'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'test_today'}{'contents'}[0];
 $result_trees{'test_today'}{'contents'}[0]{'parent'} = $result_trees{'test_today'};
 
 $result_texis{'test_today'} = '@today{}.';

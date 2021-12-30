@@ -8,35 +8,42 @@ use utf8;
 $result_trees{'image_link_prefix'} = {
   'contents' => [
     {
-      'args' => [
+      'contents' => [
         {
-          'contents' => [
+          'args' => [
             {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => 'image'
+                }
+              ],
               'parent' => {},
-              'text' => 'image'
+              'type' => 'brace_command_arg'
             }
           ],
-          'parent' => {},
-          'type' => 'brace_command_arg'
+          'cmdname' => 'image',
+          'contents' => [],
+          'extra' => {
+            'input_perl_encoding' => 'utf-8'
+          },
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 1,
+            'macro' => ''
+          },
+          'parent' => {}
         }
       ],
-      'cmdname' => 'image',
-      'contents' => [],
-      'extra' => {
-        'input_perl_encoding' => 'utf-8'
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
-      },
-      'parent' => {}
+      'parent' => {},
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
-$result_trees{'image_link_prefix'}{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'image_link_prefix'}{'contents'}[0]{'args'}[0];
-$result_trees{'image_link_prefix'}{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'image_link_prefix'}{'contents'}[0];
+$result_trees{'image_link_prefix'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'image_link_prefix'}{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'image_link_prefix'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'image_link_prefix'}{'contents'}[0]{'contents'}[0];
+$result_trees{'image_link_prefix'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'image_link_prefix'}{'contents'}[0];
 $result_trees{'image_link_prefix'}{'contents'}[0]{'parent'} = $result_trees{'image_link_prefix'};
 
 $result_texis{'image_link_prefix'} = '@image{image}';

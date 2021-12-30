@@ -8,49 +8,56 @@ use utf8;
 $result_trees{'consecutive_conditionals'} = {
   'contents' => [
     {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'args' => [
+      'contents' => [
         {
           'parent' => {},
-          'text' => 'b',
-          'type' => 'misc_arg'
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'args' => [
+            {
+              'parent' => {},
+              'text' => 'b',
+              'type' => 'misc_arg'
+            },
+            {
+              'parent' => {},
+              'text' => '',
+              'type' => 'misc_arg'
+            }
+          ],
+          'cmdname' => 'set',
+          'extra' => {
+            'arg_line' => ' b
+',
+            'misc_args' => [
+              'b',
+              ''
+            ]
+          },
+          'parent' => {}
         },
         {
           'parent' => {},
-          'text' => '',
-          'type' => 'misc_arg'
+          'text' => '
+',
+          'type' => 'empty_line'
         }
       ],
-      'cmdname' => 'set',
-      'extra' => {
-        'arg_line' => ' b
-',
-        'misc_args' => [
-          'b',
-          ''
-        ]
-      },
-      'parent' => {}
-    },
-    {
       'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
+$result_trees{'consecutive_conditionals'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'consecutive_conditionals'}{'contents'}[0];
+$result_trees{'consecutive_conditionals'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'consecutive_conditionals'}{'contents'}[0]{'contents'}[1];
+$result_trees{'consecutive_conditionals'}{'contents'}[0]{'contents'}[1]{'args'}[1]{'parent'} = $result_trees{'consecutive_conditionals'}{'contents'}[0]{'contents'}[1];
+$result_trees{'consecutive_conditionals'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'consecutive_conditionals'}{'contents'}[0];
+$result_trees{'consecutive_conditionals'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'consecutive_conditionals'}{'contents'}[0];
 $result_trees{'consecutive_conditionals'}{'contents'}[0]{'parent'} = $result_trees{'consecutive_conditionals'};
-$result_trees{'consecutive_conditionals'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'consecutive_conditionals'}{'contents'}[1];
-$result_trees{'consecutive_conditionals'}{'contents'}[1]{'args'}[1]{'parent'} = $result_trees{'consecutive_conditionals'}{'contents'}[1];
-$result_trees{'consecutive_conditionals'}{'contents'}[1]{'parent'} = $result_trees{'consecutive_conditionals'};
-$result_trees{'consecutive_conditionals'}{'contents'}[2]{'parent'} = $result_trees{'consecutive_conditionals'};
 
 $result_texis{'consecutive_conditionals'} = '
 @set b

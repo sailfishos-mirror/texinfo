@@ -8,12 +8,58 @@ use utf8;
 $result_trees{'command_in_heading_footing'} = {
   'contents' => [
     {
-      'args' => [
+      'contents' => [
+        {
+          'args' => [
+            {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => 'something '
+                },
+                {
+                  'cmdname' => 'thispage',
+                  'parent' => {}
+                },
+                {
+                  'parent' => {},
+                  'text' => ' '
+                },
+                {
+                  'cmdname' => 'thischapternum',
+                  'parent' => {}
+                }
+              ],
+              'extra' => {
+                'spaces_after_argument' => '
+'
+              },
+              'parent' => {},
+              'type' => 'line_arg'
+            }
+          ],
+          'cmdname' => 'everyheading',
+          'extra' => {
+            'spaces_before_argument' => ' '
+          },
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 1,
+            'macro' => ''
+          },
+          'parent' => {}
+        },
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
         {
           'contents' => [
             {
               'parent' => {},
-              'text' => 'something '
+              'text' => 'In text '
             },
             {
               'cmdname' => 'thispage',
@@ -26,126 +72,87 @@ $result_trees{'command_in_heading_footing'} = {
             {
               'cmdname' => 'thischapternum',
               'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => ' text.
+'
             }
           ],
-          'extra' => {
-            'spaces_after_argument' => '
-'
-          },
           'parent' => {},
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'everyheading',
-      'extra' => {
-        'spaces_before_argument' => ' '
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
-      },
-      'parent' => {}
-    },
-    {
-      'parent' => {},
-      'text' => '
+          'type' => 'paragraph'
+        },
+        {
+          'parent' => {},
+          'text' => '
 ',
-      'type' => 'empty_line'
-    },
-    {
-      'contents' => [
-        {
-          'parent' => {},
-          'text' => 'In text '
+          'type' => 'empty_line'
         },
         {
-          'cmdname' => 'thispage',
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => ' '
-        },
-        {
-          'cmdname' => 'thischapternum',
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => ' text.
-'
-        }
-      ],
-      'parent' => {},
-      'type' => 'paragraph'
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'contents' => [
-        {
-          'parent' => {},
-          'text' => 'In code '
-        },
-        {
-          'args' => [
+          'contents' => [
             {
-              'contents' => [
+              'parent' => {},
+              'text' => 'In code '
+            },
+            {
+              'args' => [
                 {
-                  'cmdname' => 'thissection',
-                  'parent' => {}
+                  'contents' => [
+                    {
+                      'cmdname' => 'thissection',
+                      'parent' => {}
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
                 }
               ],
+              'cmdname' => 'code',
+              'contents' => [],
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 5,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
               'parent' => {},
-              'type' => 'brace_command_arg'
+              'text' => '.
+'
             }
           ],
-          'cmdname' => 'code',
-          'contents' => [],
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 5,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
           'parent' => {},
-          'text' => '.
-'
+          'type' => 'paragraph'
         }
       ],
       'parent' => {},
-      'type' => 'paragraph'
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
-$result_trees{'command_in_heading_footing'}{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'command_in_heading_footing'}{'contents'}[0]{'args'}[0];
-$result_trees{'command_in_heading_footing'}{'contents'}[0]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'command_in_heading_footing'}{'contents'}[0]{'args'}[0];
-$result_trees{'command_in_heading_footing'}{'contents'}[0]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'command_in_heading_footing'}{'contents'}[0]{'args'}[0];
-$result_trees{'command_in_heading_footing'}{'contents'}[0]{'args'}[0]{'contents'}[3]{'parent'} = $result_trees{'command_in_heading_footing'}{'contents'}[0]{'args'}[0];
-$result_trees{'command_in_heading_footing'}{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'command_in_heading_footing'}{'contents'}[0];
+$result_trees{'command_in_heading_footing'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'command_in_heading_footing'}{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'command_in_heading_footing'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'command_in_heading_footing'}{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'command_in_heading_footing'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'command_in_heading_footing'}{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'command_in_heading_footing'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[3]{'parent'} = $result_trees{'command_in_heading_footing'}{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'command_in_heading_footing'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'command_in_heading_footing'}{'contents'}[0]{'contents'}[0];
+$result_trees{'command_in_heading_footing'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'command_in_heading_footing'}{'contents'}[0];
+$result_trees{'command_in_heading_footing'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'command_in_heading_footing'}{'contents'}[0];
+$result_trees{'command_in_heading_footing'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'command_in_heading_footing'}{'contents'}[0]{'contents'}[2];
+$result_trees{'command_in_heading_footing'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'command_in_heading_footing'}{'contents'}[0]{'contents'}[2];
+$result_trees{'command_in_heading_footing'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'command_in_heading_footing'}{'contents'}[0]{'contents'}[2];
+$result_trees{'command_in_heading_footing'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'parent'} = $result_trees{'command_in_heading_footing'}{'contents'}[0]{'contents'}[2];
+$result_trees{'command_in_heading_footing'}{'contents'}[0]{'contents'}[2]{'contents'}[4]{'parent'} = $result_trees{'command_in_heading_footing'}{'contents'}[0]{'contents'}[2];
+$result_trees{'command_in_heading_footing'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'command_in_heading_footing'}{'contents'}[0];
+$result_trees{'command_in_heading_footing'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'command_in_heading_footing'}{'contents'}[0];
+$result_trees{'command_in_heading_footing'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'command_in_heading_footing'}{'contents'}[0]{'contents'}[4];
+$result_trees{'command_in_heading_footing'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'command_in_heading_footing'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0];
+$result_trees{'command_in_heading_footing'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'command_in_heading_footing'}{'contents'}[0]{'contents'}[4]{'contents'}[1];
+$result_trees{'command_in_heading_footing'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'parent'} = $result_trees{'command_in_heading_footing'}{'contents'}[0]{'contents'}[4];
+$result_trees{'command_in_heading_footing'}{'contents'}[0]{'contents'}[4]{'contents'}[2]{'parent'} = $result_trees{'command_in_heading_footing'}{'contents'}[0]{'contents'}[4];
+$result_trees{'command_in_heading_footing'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'command_in_heading_footing'}{'contents'}[0];
 $result_trees{'command_in_heading_footing'}{'contents'}[0]{'parent'} = $result_trees{'command_in_heading_footing'};
-$result_trees{'command_in_heading_footing'}{'contents'}[1]{'parent'} = $result_trees{'command_in_heading_footing'};
-$result_trees{'command_in_heading_footing'}{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'command_in_heading_footing'}{'contents'}[2];
-$result_trees{'command_in_heading_footing'}{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'command_in_heading_footing'}{'contents'}[2];
-$result_trees{'command_in_heading_footing'}{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'command_in_heading_footing'}{'contents'}[2];
-$result_trees{'command_in_heading_footing'}{'contents'}[2]{'contents'}[3]{'parent'} = $result_trees{'command_in_heading_footing'}{'contents'}[2];
-$result_trees{'command_in_heading_footing'}{'contents'}[2]{'contents'}[4]{'parent'} = $result_trees{'command_in_heading_footing'}{'contents'}[2];
-$result_trees{'command_in_heading_footing'}{'contents'}[2]{'parent'} = $result_trees{'command_in_heading_footing'};
-$result_trees{'command_in_heading_footing'}{'contents'}[3]{'parent'} = $result_trees{'command_in_heading_footing'};
-$result_trees{'command_in_heading_footing'}{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'command_in_heading_footing'}{'contents'}[4];
-$result_trees{'command_in_heading_footing'}{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'command_in_heading_footing'}{'contents'}[4]{'contents'}[1]{'args'}[0];
-$result_trees{'command_in_heading_footing'}{'contents'}[4]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'command_in_heading_footing'}{'contents'}[4]{'contents'}[1];
-$result_trees{'command_in_heading_footing'}{'contents'}[4]{'contents'}[1]{'parent'} = $result_trees{'command_in_heading_footing'}{'contents'}[4];
-$result_trees{'command_in_heading_footing'}{'contents'}[4]{'contents'}[2]{'parent'} = $result_trees{'command_in_heading_footing'}{'contents'}[4];
-$result_trees{'command_in_heading_footing'}{'contents'}[4]{'parent'} = $result_trees{'command_in_heading_footing'};
 
 $result_texis{'command_in_heading_footing'} = '@everyheading something @thispage @thischapternum
 

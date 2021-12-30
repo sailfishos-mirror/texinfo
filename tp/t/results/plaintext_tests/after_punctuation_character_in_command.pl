@@ -10,54 +10,61 @@ $result_trees{'after_punctuation_character_in_command'} = {
     {
       'contents' => [
         {
-          'parent' => {},
-          'text' => 'Text.'
-        },
-        {
-          'args' => [
+          'contents' => [
             {
-              'contents' => [
+              'parent' => {},
+              'text' => 'Text.'
+            },
+            {
+              'args' => [
                 {
-                  'parent' => {},
-                  'text' => ')
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => ')
 '
-                },
-                {
+                    },
+                    {
+                      'parent' => {},
+                      'text' => 'follows'
+                    }
+                  ],
                   'parent' => {},
-                  'text' => 'follows'
+                  'type' => 'brace_command_arg'
                 }
               ],
+              'cmdname' => 'asis',
+              'contents' => [],
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 1,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
               'parent' => {},
-              'type' => 'brace_command_arg'
+              'text' => '.
+'
             }
           ],
-          'cmdname' => 'asis',
-          'contents' => [],
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
           'parent' => {},
-          'text' => '.
-'
+          'type' => 'paragraph'
         }
       ],
       'parent' => {},
-      'type' => 'paragraph'
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
+$result_trees{'after_punctuation_character_in_command'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'after_punctuation_character_in_command'}{'contents'}[0]{'contents'}[0];
+$result_trees{'after_punctuation_character_in_command'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'after_punctuation_character_in_command'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
+$result_trees{'after_punctuation_character_in_command'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'after_punctuation_character_in_command'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
+$result_trees{'after_punctuation_character_in_command'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'after_punctuation_character_in_command'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
+$result_trees{'after_punctuation_character_in_command'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'after_punctuation_character_in_command'}{'contents'}[0]{'contents'}[0];
+$result_trees{'after_punctuation_character_in_command'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'after_punctuation_character_in_command'}{'contents'}[0]{'contents'}[0];
 $result_trees{'after_punctuation_character_in_command'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'after_punctuation_character_in_command'}{'contents'}[0];
-$result_trees{'after_punctuation_character_in_command'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'after_punctuation_character_in_command'}{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'after_punctuation_character_in_command'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'after_punctuation_character_in_command'}{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'after_punctuation_character_in_command'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'after_punctuation_character_in_command'}{'contents'}[0]{'contents'}[1];
-$result_trees{'after_punctuation_character_in_command'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'after_punctuation_character_in_command'}{'contents'}[0];
-$result_trees{'after_punctuation_character_in_command'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'after_punctuation_character_in_command'}{'contents'}[0];
 $result_trees{'after_punctuation_character_in_command'}{'contents'}[0]{'parent'} = $result_trees{'after_punctuation_character_in_command'};
 
 $result_texis{'after_punctuation_character_in_command'} = 'Text.@asis{)

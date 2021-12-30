@@ -8,88 +8,95 @@ use utf8;
 $result_trees{'raggedright'} = {
   'contents' => [
     {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'cmdname' => 'raggedright',
       'contents' => [
         {
-          'extra' => {
-            'command' => {}
-          },
           'parent' => {},
           'text' => '
 ',
-          'type' => 'empty_line_after_command'
+          'type' => 'empty_line'
         },
         {
+          'cmdname' => 'raggedright',
           'contents' => [
             {
+              'extra' => {
+                'command' => {}
+              },
               'parent' => {},
-              'text' => 'in raggedright
-'
-            }
-          ],
-          'parent' => {},
-          'type' => 'paragraph'
-        },
-        {
-          'args' => [
+              'text' => '
+',
+              'type' => 'empty_line_after_command'
+            },
             {
               'contents' => [
                 {
                   'parent' => {},
-                  'text' => 'raggedright'
+                  'text' => 'in raggedright
+'
                 }
               ],
-              'extra' => {
-                'spaces_after_argument' => '
-'
-              },
               'parent' => {},
-              'type' => 'line_arg'
+              'type' => 'paragraph'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'raggedright'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
+                  'parent' => {},
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'end',
+              'extra' => {
+                'command_argument' => 'raggedright',
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'raggedright'
+              },
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 4,
+                'macro' => ''
+              },
+              'parent' => {}
             }
           ],
-          'cmdname' => 'end',
           'extra' => {
-            'command_argument' => 'raggedright',
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'raggedright'
+            'end_command' => {}
           },
           'line_nr' => {
             'file_name' => '',
-            'line_nr' => 4,
+            'line_nr' => 2,
             'macro' => ''
           },
           'parent' => {}
         }
       ],
-      'extra' => {
-        'end_command' => {}
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 2,
-        'macro' => ''
-      },
-      'parent' => {}
+      'parent' => {},
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
+$result_trees{'raggedright'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'raggedright'}{'contents'}[0];
+$result_trees{'raggedright'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'extra'}{'command'} = $result_trees{'raggedright'}{'contents'}[0]{'contents'}[1];
+$result_trees{'raggedright'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'raggedright'}{'contents'}[0]{'contents'}[1];
+$result_trees{'raggedright'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'raggedright'}{'contents'}[0]{'contents'}[1]{'contents'}[1];
+$result_trees{'raggedright'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'raggedright'}{'contents'}[0]{'contents'}[1];
+$result_trees{'raggedright'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'raggedright'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'args'}[0];
+$result_trees{'raggedright'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'raggedright'}{'contents'}[0]{'contents'}[1]{'contents'}[2];
+$result_trees{'raggedright'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'raggedright'}{'contents'}[0]{'contents'}[1];
+$result_trees{'raggedright'}{'contents'}[0]{'contents'}[1]{'extra'}{'end_command'} = $result_trees{'raggedright'}{'contents'}[0]{'contents'}[1]{'contents'}[2];
+$result_trees{'raggedright'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'raggedright'}{'contents'}[0];
 $result_trees{'raggedright'}{'contents'}[0]{'parent'} = $result_trees{'raggedright'};
-$result_trees{'raggedright'}{'contents'}[1]{'contents'}[0]{'extra'}{'command'} = $result_trees{'raggedright'}{'contents'}[1];
-$result_trees{'raggedright'}{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'raggedright'}{'contents'}[1];
-$result_trees{'raggedright'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'raggedright'}{'contents'}[1]{'contents'}[1];
-$result_trees{'raggedright'}{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'raggedright'}{'contents'}[1];
-$result_trees{'raggedright'}{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'raggedright'}{'contents'}[1]{'contents'}[2]{'args'}[0];
-$result_trees{'raggedright'}{'contents'}[1]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'raggedright'}{'contents'}[1]{'contents'}[2];
-$result_trees{'raggedright'}{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'raggedright'}{'contents'}[1];
-$result_trees{'raggedright'}{'contents'}[1]{'extra'}{'end_command'} = $result_trees{'raggedright'}{'contents'}[1]{'contents'}[2];
-$result_trees{'raggedright'}{'contents'}[1]{'parent'} = $result_trees{'raggedright'};
 
 $result_texis{'raggedright'} = '
 @raggedright

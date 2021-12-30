@@ -10,324 +10,156 @@ $result_trees{'displaymath'} = {
     {
       'contents' => [
         {
-          'parent' => {},
-          'text' => 'Simple
-'
-        }
-      ],
-      'parent' => {},
-      'type' => 'paragraph'
-    },
-    {
-      'cmdname' => 'displaymath',
-      'contents' => [
-        {
-          'extra' => {
-            'command' => {}
-          },
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line_after_command'
-        },
-        {
-          'parent' => {},
-          'text' => '--'
-        },
-        {
           'contents' => [
             {
               'parent' => {},
-              'text' => 'x^i'
+              'text' => 'Simple
+'
             }
           ],
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 3,
-            'macro' => ''
-          },
           'parent' => {},
-          'type' => 'bracketed'
+          'type' => 'paragraph'
         },
         {
-          'parent' => {},
-          'text' => '\\over'
-        },
-        {
+          'cmdname' => 'displaymath',
           'contents' => [
             {
-              'parent' => {},
-              'text' => '\\tan y'
-            }
-          ],
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 3,
-            'macro' => ''
-          },
-          'parent' => {},
-          'type' => 'bracketed'
-        },
-        {
-          'parent' => {},
-          'text' => '
-'
-        },
-        {
-          'args' => [
-            {
-              'contents' => [
-                {
-                  'parent' => {},
-                  'text' => 'displaymath'
-                }
-              ],
               'extra' => {
-                'spaces_after_argument' => '
-'
+                'command' => {}
               },
               'parent' => {},
-              'type' => 'line_arg'
-            }
-          ],
-          'cmdname' => 'end',
-          'extra' => {
-            'command_argument' => 'displaymath',
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'displaymath'
-          },
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 4,
-            'macro' => ''
-          },
-          'parent' => {}
-        }
-      ],
-      'extra' => {
-        'end_command' => {}
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 2,
-        'macro' => ''
-      },
-      'parent' => {}
-    },
-    {
-      'parent' => {},
-      'text' => '
+              'text' => '
 ',
-      'type' => 'empty_line'
-    },
-    {
-      'contents' => [
-        {
-          'parent' => {},
-          'text' => 'Math with '
-        },
-        {
-          'cmdname' => '@',
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '-command
-'
-        }
-      ],
-      'parent' => {},
-      'type' => 'paragraph'
-    },
-    {
-      'cmdname' => 'displaymath',
-      'contents' => [
-        {
-          'extra' => {
-            'command' => {}
-          },
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line_after_command'
-        },
-        {
-          'args' => [
+              'type' => 'empty_line_after_command'
+            },
             {
-              'contents' => [
-                {
-                  'parent' => {},
-                  'text' => 'math code'
-                }
-              ],
               'parent' => {},
-              'type' => 'brace_command_arg'
-            }
-          ],
-          'cmdname' => 'code',
-          'contents' => [],
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 8,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => ' a < b \\sum'
-        },
-        {
-          'args' => [
+              'text' => '--'
+            },
             {
               'contents' => [
                 {
                   'parent' => {},
-                  'text' => 'i'
+                  'text' => 'x^i'
                 }
               ],
-              'parent' => {},
-              'type' => 'brace_command_arg'
-            }
-          ],
-          'cmdname' => 'sub',
-          'contents' => [],
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 8,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => ' q'
-        },
-        {
-          'args' => [
-            {
-              'contents' => [
-                {
-                  'parent' => {},
-                  'text' => '2'
-                }
-              ],
-              'parent' => {},
-              'type' => 'brace_command_arg'
-            }
-          ],
-          'cmdname' => 'sup',
-          'contents' => [],
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 8,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '
-'
-        },
-        {
-          'args' => [
-            {
-              'contents' => [
-                {
-                  'parent' => {},
-                  'text' => 'displaymath'
-                }
-              ],
-              'extra' => {
-                'spaces_after_argument' => '
-'
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 3,
+                'macro' => ''
               },
               'parent' => {},
-              'type' => 'line_arg'
-            }
-          ],
-          'cmdname' => 'end',
-          'extra' => {
-            'command_argument' => 'displaymath',
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'displaymath'
-          },
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 9,
-            'macro' => ''
-          },
-          'parent' => {}
-        }
-      ],
-      'extra' => {
-        'end_command' => {}
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 7,
-        'macro' => ''
-      },
-      'parent' => {}
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'contents' => [
-        {
-          'parent' => {},
-          'text' => 'Complex
+              'type' => 'bracketed'
+            },
+            {
+              'parent' => {},
+              'text' => '\\over'
+            },
+            {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => '\\tan y'
+                }
+              ],
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 3,
+                'macro' => ''
+              },
+              'parent' => {},
+              'type' => 'bracketed'
+            },
+            {
+              'parent' => {},
+              'text' => '
 '
-        }
-      ],
-      'parent' => {},
-      'type' => 'paragraph'
-    },
-    {
-      'cmdname' => 'displaymath',
-      'contents' => [
-        {
-          'extra' => {
-            'command' => {}
-          },
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line_after_command'
-        },
-        {
-          'parent' => {},
-          'text' => ' \\underline'
-        },
-        {
-          'contents' => [
+            },
             {
               'args' => [
                 {
                   'contents' => [
                     {
                       'parent' => {},
-                      'text' => 'math \\hbox'
-                    },
+                      'text' => 'displaymath'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
+                  'parent' => {},
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'end',
+              'extra' => {
+                'command_argument' => 'displaymath',
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'displaymath'
+              },
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 4,
+                'macro' => ''
+              },
+              'parent' => {}
+            }
+          ],
+          'extra' => {
+            'end_command' => {}
+          },
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 2,
+            'macro' => ''
+          },
+          'parent' => {}
+        },
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => 'Math with '
+            },
+            {
+              'cmdname' => '@',
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => '-command
+'
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
+        },
+        {
+          'cmdname' => 'displaymath',
+          'contents' => [
+            {
+              'extra' => {
+                'command' => {}
+              },
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line_after_command'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
                     {
-                      'contents' => [
-                        {
-                          'parent' => {},
-                          'text' => ' code '
-                        }
-                      ],
-                      'line_nr' => {
-                        'file_name' => '',
-                        'line_nr' => 13,
-                        'macro' => ''
-                      },
                       'parent' => {},
-                      'type' => 'bracketed'
+                      'text' => 'math code'
                     }
                   ],
                   'parent' => {},
@@ -338,58 +170,180 @@ $result_trees{'displaymath'} = {
               'contents' => [],
               'line_nr' => {
                 'file_name' => '',
-                'line_nr' => 13,
+                'line_nr' => 8,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => ' a < b \\sum'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'i'
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                }
+              ],
+              'cmdname' => 'sub',
+              'contents' => [],
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 8,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => ' q'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => '2'
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                }
+              ],
+              'cmdname' => 'sup',
+              'contents' => [],
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 8,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => '
+'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'displaymath'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
+                  'parent' => {},
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'end',
+              'extra' => {
+                'command_argument' => 'displaymath',
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'displaymath'
+              },
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 9,
                 'macro' => ''
               },
               'parent' => {}
             }
           ],
+          'extra' => {
+            'end_command' => {}
+          },
           'line_nr' => {
             'file_name' => '',
-            'line_nr' => 13,
+            'line_nr' => 7,
             'macro' => ''
           },
-          'parent' => {},
-          'type' => 'bracketed'
-        },
-        {
-          'parent' => {},
-          'text' => ' '
-        },
-        {
-          'cmdname' => '\\',
           'parent' => {}
         },
         {
           'parent' => {},
-          'text' => 'i \\sum_'
+          'text' => '
+',
+          'type' => 'empty_line'
         },
         {
           'contents' => [
             {
               'parent' => {},
-              'text' => 'i'
+              'text' => 'Complex
+'
             }
           ],
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 13,
-            'macro' => ''
-          },
           'parent' => {},
-          'type' => 'bracketed'
+          'type' => 'paragraph'
         },
         {
+          'cmdname' => 'displaymath',
           'contents' => [
             {
+              'extra' => {
+                'command' => {}
+              },
               'parent' => {},
-              'text' => '\\underline'
+              'text' => '
+',
+              'type' => 'empty_line_after_command'
+            },
+            {
+              'parent' => {},
+              'text' => ' \\underline'
             },
             {
               'contents' => [
                 {
-                  'parent' => {},
-                  'text' => 'f'
+                  'args' => [
+                    {
+                      'contents' => [
+                        {
+                          'parent' => {},
+                          'text' => 'math \\hbox'
+                        },
+                        {
+                          'contents' => [
+                            {
+                              'parent' => {},
+                              'text' => ' code '
+                            }
+                          ],
+                          'line_nr' => {
+                            'file_name' => '',
+                            'line_nr' => 13,
+                            'macro' => ''
+                          },
+                          'parent' => {},
+                          'type' => 'bracketed'
+                        }
+                      ],
+                      'parent' => {},
+                      'type' => 'brace_command_arg'
+                    }
+                  ],
+                  'cmdname' => 'code',
+                  'contents' => [],
+                  'line_nr' => {
+                    'file_name' => '',
+                    'line_nr' => 13,
+                    'macro' => ''
+                  },
+                  'parent' => {}
                 }
               ],
               'line_nr' => {
@@ -399,238 +353,291 @@ $result_trees{'displaymath'} = {
               },
               'parent' => {},
               'type' => 'bracketed'
-            }
-          ],
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 13,
-            'macro' => ''
-          },
-          'parent' => {},
-          'type' => 'bracketed'
-        },
-        {
-          'parent' => {},
-          'text' => '
-'
-        },
-        {
-          'args' => [
+            },
+            {
+              'parent' => {},
+              'text' => ' '
+            },
+            {
+              'cmdname' => '\\',
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => 'i \\sum_'
+            },
             {
               'contents' => [
                 {
                   'parent' => {},
-                  'text' => 'displaymath'
+                  'text' => 'i'
                 }
               ],
-              'extra' => {
-                'spaces_after_argument' => '
-'
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 13,
+                'macro' => ''
               },
               'parent' => {},
-              'type' => 'line_arg'
-            }
-          ],
-          'cmdname' => 'end',
-          'extra' => {
-            'command_argument' => 'displaymath',
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'displaymath'
-          },
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 14,
-            'macro' => ''
-          },
-          'parent' => {}
-        }
-      ],
-      'extra' => {
-        'end_command' => {}
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 12,
-        'macro' => ''
-      },
-      'parent' => {}
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'contents' => [
-        {
-          'parent' => {},
-          'text' => 'With a comment
-'
-        }
-      ],
-      'parent' => {},
-      'type' => 'paragraph'
-    },
-    {
-      'cmdname' => 'displaymath',
-      'contents' => [
-        {
-          'extra' => {
-            'command' => {}
-          },
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line_after_command'
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' comment in displaymath
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' comment in displaymath
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => 'a/2
-'
-        },
-        {
-          'args' => [
+              'type' => 'bracketed'
+            },
             {
               'contents' => [
                 {
                   'parent' => {},
-                  'text' => 'displaymath'
+                  'text' => '\\underline'
+                },
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'f'
+                    }
+                  ],
+                  'line_nr' => {
+                    'file_name' => '',
+                    'line_nr' => 13,
+                    'macro' => ''
+                  },
+                  'parent' => {},
+                  'type' => 'bracketed'
                 }
               ],
-              'extra' => {
-                'spaces_after_argument' => '
-'
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 13,
+                'macro' => ''
               },
               'parent' => {},
-              'type' => 'line_arg'
+              'type' => 'bracketed'
+            },
+            {
+              'parent' => {},
+              'text' => '
+'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'displaymath'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
+                  'parent' => {},
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'end',
+              'extra' => {
+                'command_argument' => 'displaymath',
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'displaymath'
+              },
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 14,
+                'macro' => ''
+              },
+              'parent' => {}
             }
           ],
-          'cmdname' => 'end',
           'extra' => {
-            'command_argument' => 'displaymath',
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'displaymath'
+            'end_command' => {}
           },
           'line_nr' => {
             'file_name' => '',
-            'line_nr' => 20,
+            'line_nr' => 12,
+            'macro' => ''
+          },
+          'parent' => {}
+        },
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => 'With a comment
+'
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
+        },
+        {
+          'cmdname' => 'displaymath',
+          'contents' => [
+            {
+              'extra' => {
+                'command' => {}
+              },
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line_after_command'
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' comment in displaymath
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' comment in displaymath
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => 'a/2
+'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'displaymath'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
+                  'parent' => {},
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'end',
+              'extra' => {
+                'command_argument' => 'displaymath',
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'displaymath'
+              },
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 20,
+                'macro' => ''
+              },
+              'parent' => {}
+            }
+          ],
+          'extra' => {
+            'end_command' => {}
+          },
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 17,
             'macro' => ''
           },
           'parent' => {}
         }
       ],
-      'extra' => {
-        'end_command' => {}
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 17,
-        'macro' => ''
-      },
-      'parent' => {}
+      'parent' => {},
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[0];
 $result_trees{'displaymath'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[0];
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'extra'}{'command'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[1];
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[1];
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[1];
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[1]{'contents'}[2];
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[1];
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[1];
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[1]{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[1]{'contents'}[4];
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[1]{'contents'}[4]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[1];
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[1]{'contents'}[5]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[1];
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'args'}[0];
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[1]{'contents'}[6];
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[1];
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[1]{'extra'}{'end_command'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[1]{'contents'}[6];
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'displaymath'}{'contents'}[0];
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'displaymath'}{'contents'}[0];
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[3];
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[3];
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[3]{'contents'}[2]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[3];
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'displaymath'}{'contents'}[0];
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'extra'}{'command'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[4];
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[4];
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0];
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[4]{'contents'}[1];
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[4];
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[4]{'contents'}[2]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[4];
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[4]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[4]{'contents'}[3]{'args'}[0];
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[4]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[4]{'contents'}[3];
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[4]{'contents'}[3]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[4];
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[4]{'contents'}[4]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[4];
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[4]{'contents'}[5]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[4]{'contents'}[5]{'args'}[0];
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[4]{'contents'}[5]{'args'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[4]{'contents'}[5];
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[4]{'contents'}[5]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[4];
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[4]{'contents'}[6]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[4];
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[4]{'contents'}[7]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[4]{'contents'}[7]{'args'}[0];
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[4]{'contents'}[7]{'args'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[4]{'contents'}[7];
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[4]{'contents'}[7]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[4];
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[4]{'extra'}{'end_command'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[4]{'contents'}[7];
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'displaymath'}{'contents'}[0];
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'displaymath'}{'contents'}[0];
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[6];
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[6]{'parent'} = $result_trees{'displaymath'}{'contents'}[0];
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[7]{'contents'}[0]{'extra'}{'command'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[7];
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[7]{'contents'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[7];
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[7]{'contents'}[1]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[7];
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[7]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[7]{'contents'}[2]{'contents'}[0]{'args'}[0];
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[7]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[7]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[1];
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[7]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[7]{'contents'}[2]{'contents'}[0]{'args'}[0];
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[7]{'contents'}[2]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[7]{'contents'}[2]{'contents'}[0];
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[7]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[7]{'contents'}[2];
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[7]{'contents'}[2]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[7];
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[7]{'contents'}[3]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[7];
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[7]{'contents'}[4]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[7];
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[7]{'contents'}[5]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[7];
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[7]{'contents'}[6]{'contents'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[7]{'contents'}[6];
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[7]{'contents'}[6]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[7];
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[7]{'contents'}[7]{'contents'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[7]{'contents'}[7];
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[7]{'contents'}[7]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[7]{'contents'}[7]{'contents'}[1];
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[7]{'contents'}[7]{'contents'}[1]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[7]{'contents'}[7];
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[7]{'contents'}[7]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[7];
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[7]{'contents'}[8]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[7];
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[7]{'contents'}[9]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[7]{'contents'}[9]{'args'}[0];
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[7]{'contents'}[9]{'args'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[7]{'contents'}[9];
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[7]{'contents'}[9]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[7];
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[7]{'extra'}{'end_command'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[7]{'contents'}[9];
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[7]{'parent'} = $result_trees{'displaymath'}{'contents'}[0];
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[8]{'parent'} = $result_trees{'displaymath'}{'contents'}[0];
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[9]{'contents'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[9];
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[9]{'parent'} = $result_trees{'displaymath'}{'contents'}[0];
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[10]{'contents'}[0]{'extra'}{'command'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[10];
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[10]{'contents'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[10];
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[10]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[10]{'contents'}[1];
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[10]{'contents'}[1]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[10];
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[10]{'contents'}[2]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[10];
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[10]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[10]{'contents'}[3]{'args'}[0];
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[10]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[10]{'contents'}[3];
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[10]{'contents'}[3]{'parent'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[10];
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[10]{'extra'}{'end_command'} = $result_trees{'displaymath'}{'contents'}[0]{'contents'}[10]{'contents'}[3];
+$result_trees{'displaymath'}{'contents'}[0]{'contents'}[10]{'parent'} = $result_trees{'displaymath'}{'contents'}[0];
 $result_trees{'displaymath'}{'contents'}[0]{'parent'} = $result_trees{'displaymath'};
-$result_trees{'displaymath'}{'contents'}[1]{'contents'}[0]{'extra'}{'command'} = $result_trees{'displaymath'}{'contents'}[1];
-$result_trees{'displaymath'}{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[1];
-$result_trees{'displaymath'}{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'displaymath'}{'contents'}[1];
-$result_trees{'displaymath'}{'contents'}[1]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[1]{'contents'}[2];
-$result_trees{'displaymath'}{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'displaymath'}{'contents'}[1];
-$result_trees{'displaymath'}{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'displaymath'}{'contents'}[1];
-$result_trees{'displaymath'}{'contents'}[1]{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[1]{'contents'}[4];
-$result_trees{'displaymath'}{'contents'}[1]{'contents'}[4]{'parent'} = $result_trees{'displaymath'}{'contents'}[1];
-$result_trees{'displaymath'}{'contents'}[1]{'contents'}[5]{'parent'} = $result_trees{'displaymath'}{'contents'}[1];
-$result_trees{'displaymath'}{'contents'}[1]{'contents'}[6]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[1]{'contents'}[6]{'args'}[0];
-$result_trees{'displaymath'}{'contents'}[1]{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[1]{'contents'}[6];
-$result_trees{'displaymath'}{'contents'}[1]{'contents'}[6]{'parent'} = $result_trees{'displaymath'}{'contents'}[1];
-$result_trees{'displaymath'}{'contents'}[1]{'extra'}{'end_command'} = $result_trees{'displaymath'}{'contents'}[1]{'contents'}[6];
-$result_trees{'displaymath'}{'contents'}[1]{'parent'} = $result_trees{'displaymath'};
-$result_trees{'displaymath'}{'contents'}[2]{'parent'} = $result_trees{'displaymath'};
-$result_trees{'displaymath'}{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[3];
-$result_trees{'displaymath'}{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'displaymath'}{'contents'}[3];
-$result_trees{'displaymath'}{'contents'}[3]{'contents'}[2]{'parent'} = $result_trees{'displaymath'}{'contents'}[3];
-$result_trees{'displaymath'}{'contents'}[3]{'parent'} = $result_trees{'displaymath'};
-$result_trees{'displaymath'}{'contents'}[4]{'contents'}[0]{'extra'}{'command'} = $result_trees{'displaymath'}{'contents'}[4];
-$result_trees{'displaymath'}{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[4];
-$result_trees{'displaymath'}{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[4]{'contents'}[1]{'args'}[0];
-$result_trees{'displaymath'}{'contents'}[4]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[4]{'contents'}[1];
-$result_trees{'displaymath'}{'contents'}[4]{'contents'}[1]{'parent'} = $result_trees{'displaymath'}{'contents'}[4];
-$result_trees{'displaymath'}{'contents'}[4]{'contents'}[2]{'parent'} = $result_trees{'displaymath'}{'contents'}[4];
-$result_trees{'displaymath'}{'contents'}[4]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[4]{'contents'}[3]{'args'}[0];
-$result_trees{'displaymath'}{'contents'}[4]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[4]{'contents'}[3];
-$result_trees{'displaymath'}{'contents'}[4]{'contents'}[3]{'parent'} = $result_trees{'displaymath'}{'contents'}[4];
-$result_trees{'displaymath'}{'contents'}[4]{'contents'}[4]{'parent'} = $result_trees{'displaymath'}{'contents'}[4];
-$result_trees{'displaymath'}{'contents'}[4]{'contents'}[5]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[4]{'contents'}[5]{'args'}[0];
-$result_trees{'displaymath'}{'contents'}[4]{'contents'}[5]{'args'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[4]{'contents'}[5];
-$result_trees{'displaymath'}{'contents'}[4]{'contents'}[5]{'parent'} = $result_trees{'displaymath'}{'contents'}[4];
-$result_trees{'displaymath'}{'contents'}[4]{'contents'}[6]{'parent'} = $result_trees{'displaymath'}{'contents'}[4];
-$result_trees{'displaymath'}{'contents'}[4]{'contents'}[7]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[4]{'contents'}[7]{'args'}[0];
-$result_trees{'displaymath'}{'contents'}[4]{'contents'}[7]{'args'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[4]{'contents'}[7];
-$result_trees{'displaymath'}{'contents'}[4]{'contents'}[7]{'parent'} = $result_trees{'displaymath'}{'contents'}[4];
-$result_trees{'displaymath'}{'contents'}[4]{'extra'}{'end_command'} = $result_trees{'displaymath'}{'contents'}[4]{'contents'}[7];
-$result_trees{'displaymath'}{'contents'}[4]{'parent'} = $result_trees{'displaymath'};
-$result_trees{'displaymath'}{'contents'}[5]{'parent'} = $result_trees{'displaymath'};
-$result_trees{'displaymath'}{'contents'}[6]{'contents'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[6];
-$result_trees{'displaymath'}{'contents'}[6]{'parent'} = $result_trees{'displaymath'};
-$result_trees{'displaymath'}{'contents'}[7]{'contents'}[0]{'extra'}{'command'} = $result_trees{'displaymath'}{'contents'}[7];
-$result_trees{'displaymath'}{'contents'}[7]{'contents'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[7];
-$result_trees{'displaymath'}{'contents'}[7]{'contents'}[1]{'parent'} = $result_trees{'displaymath'}{'contents'}[7];
-$result_trees{'displaymath'}{'contents'}[7]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[7]{'contents'}[2]{'contents'}[0]{'args'}[0];
-$result_trees{'displaymath'}{'contents'}[7]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[7]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[1];
-$result_trees{'displaymath'}{'contents'}[7]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'displaymath'}{'contents'}[7]{'contents'}[2]{'contents'}[0]{'args'}[0];
-$result_trees{'displaymath'}{'contents'}[7]{'contents'}[2]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[7]{'contents'}[2]{'contents'}[0];
-$result_trees{'displaymath'}{'contents'}[7]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[7]{'contents'}[2];
-$result_trees{'displaymath'}{'contents'}[7]{'contents'}[2]{'parent'} = $result_trees{'displaymath'}{'contents'}[7];
-$result_trees{'displaymath'}{'contents'}[7]{'contents'}[3]{'parent'} = $result_trees{'displaymath'}{'contents'}[7];
-$result_trees{'displaymath'}{'contents'}[7]{'contents'}[4]{'parent'} = $result_trees{'displaymath'}{'contents'}[7];
-$result_trees{'displaymath'}{'contents'}[7]{'contents'}[5]{'parent'} = $result_trees{'displaymath'}{'contents'}[7];
-$result_trees{'displaymath'}{'contents'}[7]{'contents'}[6]{'contents'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[7]{'contents'}[6];
-$result_trees{'displaymath'}{'contents'}[7]{'contents'}[6]{'parent'} = $result_trees{'displaymath'}{'contents'}[7];
-$result_trees{'displaymath'}{'contents'}[7]{'contents'}[7]{'contents'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[7]{'contents'}[7];
-$result_trees{'displaymath'}{'contents'}[7]{'contents'}[7]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[7]{'contents'}[7]{'contents'}[1];
-$result_trees{'displaymath'}{'contents'}[7]{'contents'}[7]{'contents'}[1]{'parent'} = $result_trees{'displaymath'}{'contents'}[7]{'contents'}[7];
-$result_trees{'displaymath'}{'contents'}[7]{'contents'}[7]{'parent'} = $result_trees{'displaymath'}{'contents'}[7];
-$result_trees{'displaymath'}{'contents'}[7]{'contents'}[8]{'parent'} = $result_trees{'displaymath'}{'contents'}[7];
-$result_trees{'displaymath'}{'contents'}[7]{'contents'}[9]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[7]{'contents'}[9]{'args'}[0];
-$result_trees{'displaymath'}{'contents'}[7]{'contents'}[9]{'args'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[7]{'contents'}[9];
-$result_trees{'displaymath'}{'contents'}[7]{'contents'}[9]{'parent'} = $result_trees{'displaymath'}{'contents'}[7];
-$result_trees{'displaymath'}{'contents'}[7]{'extra'}{'end_command'} = $result_trees{'displaymath'}{'contents'}[7]{'contents'}[9];
-$result_trees{'displaymath'}{'contents'}[7]{'parent'} = $result_trees{'displaymath'};
-$result_trees{'displaymath'}{'contents'}[8]{'parent'} = $result_trees{'displaymath'};
-$result_trees{'displaymath'}{'contents'}[9]{'contents'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[9];
-$result_trees{'displaymath'}{'contents'}[9]{'parent'} = $result_trees{'displaymath'};
-$result_trees{'displaymath'}{'contents'}[10]{'contents'}[0]{'extra'}{'command'} = $result_trees{'displaymath'}{'contents'}[10];
-$result_trees{'displaymath'}{'contents'}[10]{'contents'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[10];
-$result_trees{'displaymath'}{'contents'}[10]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[10]{'contents'}[1];
-$result_trees{'displaymath'}{'contents'}[10]{'contents'}[1]{'parent'} = $result_trees{'displaymath'}{'contents'}[10];
-$result_trees{'displaymath'}{'contents'}[10]{'contents'}[2]{'parent'} = $result_trees{'displaymath'}{'contents'}[10];
-$result_trees{'displaymath'}{'contents'}[10]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[10]{'contents'}[3]{'args'}[0];
-$result_trees{'displaymath'}{'contents'}[10]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'displaymath'}{'contents'}[10]{'contents'}[3];
-$result_trees{'displaymath'}{'contents'}[10]{'contents'}[3]{'parent'} = $result_trees{'displaymath'}{'contents'}[10];
-$result_trees{'displaymath'}{'contents'}[10]{'extra'}{'end_command'} = $result_trees{'displaymath'}{'contents'}[10]{'contents'}[3];
-$result_trees{'displaymath'}{'contents'}[10]{'parent'} = $result_trees{'displaymath'};
 
 $result_texis{'displaymath'} = 'Simple
 @displaymath

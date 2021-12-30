@@ -10,37 +10,44 @@ $result_trees{'empty_accent'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'contents' => [
             {
+              'args' => [
+                {
+                  'contents' => [],
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
+                }
+              ],
+              'cmdname' => '`',
               'contents' => [],
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 1,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
               'parent' => {},
-              'type' => 'brace_command_arg'
+              'text' => '
+'
             }
           ],
-          'cmdname' => '`',
-          'contents' => [],
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
           'parent' => {},
-          'text' => '
-'
+          'type' => 'paragraph'
         }
       ],
       'parent' => {},
-      'type' => 'paragraph'
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
-$result_trees{'empty_accent'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'empty_accent'}{'contents'}[0]{'contents'}[0];
+$result_trees{'empty_accent'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'empty_accent'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'empty_accent'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_accent'}{'contents'}[0]{'contents'}[0];
+$result_trees{'empty_accent'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'empty_accent'}{'contents'}[0]{'contents'}[0];
 $result_trees{'empty_accent'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_accent'}{'contents'}[0];
-$result_trees{'empty_accent'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'empty_accent'}{'contents'}[0];
 $result_trees{'empty_accent'}{'contents'}[0]{'parent'} = $result_trees{'empty_accent'};
 
 $result_texis{'empty_accent'} = '@`{}

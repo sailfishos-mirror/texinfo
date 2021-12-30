@@ -8,254 +8,39 @@ use utf8;
 $result_trees{'raw_block_commands_expand_tex'} = {
   'contents' => [
     {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'cmdname' => 'html',
       'contents' => [
         {
-          'extra' => {
-            'command' => {}
-          },
           'parent' => {},
           'text' => '
 ',
-          'type' => 'empty_line_after_command'
+          'type' => 'empty_line'
         },
         {
+          'cmdname' => 'html',
           'contents' => [
             {
+              'extra' => {
+                'command' => {}
+              },
               'parent' => {},
-              'text' => '<blink>html</blink> ``'
+              'text' => '
+',
+              'type' => 'empty_line_after_command'
             },
-            {
-              'parent' => {},
-              'text' => '}
-'
-            }
-          ],
-          'parent' => {},
-          'type' => 'rawpreformatted'
-        },
-        {
-          'args' => [
             {
               'contents' => [
                 {
                   'parent' => {},
-                  'text' => 'html'
-                }
-              ],
-              'extra' => {
-                'spaces_after_argument' => '
-'
-              },
-              'parent' => {},
-              'type' => 'line_arg'
-            }
-          ],
-          'cmdname' => 'end',
-          'extra' => {
-            'command_argument' => 'html',
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'html'
-          },
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 4,
-            'macro' => ''
-          },
-          'parent' => {}
-        }
-      ],
-      'extra' => {
-        'end_command' => {}
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 2,
-        'macro' => ''
-      },
-      'parent' => {}
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'cmdname' => 'xml',
-      'contents' => [
-        {
-          'extra' => {
-            'command' => {}
-          },
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line_after_command'
-        },
-        {
-          'contents' => [
-            {
-              'parent' => {},
-              'text' => '<para>xml</para> ``'
-            },
-            {
-              'parent' => {},
-              'text' => '}
-'
-            }
-          ],
-          'parent' => {},
-          'type' => 'rawpreformatted'
-        },
-        {
-          'args' => [
-            {
-              'contents' => [
+                  'text' => '<blink>html</blink> ``'
+                },
                 {
                   'parent' => {},
-                  'text' => 'xml'
+                  'text' => '}
+'
                 }
               ],
-              'extra' => {
-                'spaces_after_argument' => '
-'
-              },
               'parent' => {},
-              'type' => 'line_arg'
-            }
-          ],
-          'cmdname' => 'end',
-          'extra' => {
-            'command_argument' => 'xml',
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'xml'
-          },
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 8,
-            'macro' => ''
-          },
-          'parent' => {}
-        }
-      ],
-      'extra' => {
-        'end_command' => {}
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 6,
-        'macro' => ''
-      },
-      'parent' => {}
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'cmdname' => 'docbook',
-      'contents' => [
-        {
-          'extra' => {
-            'command' => {}
-          },
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line_after_command'
-        },
-        {
-          'contents' => [
-            {
-              'parent' => {},
-              'text' => '<emphasis>docbook</emphasis> ``'
-            },
-            {
-              'parent' => {},
-              'text' => '}
-'
-            }
-          ],
-          'parent' => {},
-          'type' => 'rawpreformatted'
-        },
-        {
-          'args' => [
-            {
-              'contents' => [
-                {
-                  'parent' => {},
-                  'text' => 'docbook'
-                }
-              ],
-              'extra' => {
-                'spaces_after_argument' => '
-'
-              },
-              'parent' => {},
-              'type' => 'line_arg'
-            }
-          ],
-          'cmdname' => 'end',
-          'extra' => {
-            'command_argument' => 'docbook',
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'docbook'
-          },
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 12,
-            'macro' => ''
-          },
-          'parent' => {}
-        }
-      ],
-      'extra' => {
-        'end_command' => {}
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 10,
-        'macro' => ''
-      },
-      'parent' => {}
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'cmdname' => 'tex',
-      'contents' => [
-        {
-          'extra' => {
-            'command' => {}
-          },
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line_after_command'
-        },
-        {
-          'contents' => [
-            {
-              'parent' => {},
-              'text' => '$\\underline'
-            },
-            {
-              'parent' => {},
-              'text' => '{a < b '
+              'type' => 'rawpreformatted'
             },
             {
               'args' => [
@@ -263,118 +48,73 @@ $result_trees{'raw_block_commands_expand_tex'} = {
                   'contents' => [
                     {
                       'parent' => {},
-                      'text' => 'tex \\hbox'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'parent' => {},
-                          'text' => ' code '
-                        }
-                      ],
-                      'line_nr' => {
-                        'file_name' => '',
-                        'line_nr' => 15,
-                        'macro' => ''
-                      },
-                      'parent' => {},
-                      'type' => 'bracketed'
+                      'text' => 'html'
                     }
                   ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'parent' => {},
-                  'type' => 'brace_command_arg'
+                  'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'code',
-              'contents' => [],
+              'cmdname' => 'end',
+              'extra' => {
+                'command_argument' => 'html',
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'html'
+              },
               'line_nr' => {
                 'file_name' => '',
-                'line_nr' => 15,
+                'line_nr' => 4,
                 'macro' => ''
               },
               'parent' => {}
-            },
-            {
-              'parent' => {},
-              'text' => '}$ ``'
-            },
-            {
-              'parent' => {},
-              'text' => '}
-'
             }
           ],
-          'parent' => {},
-          'type' => 'rawpreformatted'
+          'extra' => {
+            'end_command' => {}
+          },
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 2,
+            'macro' => ''
+          },
+          'parent' => {}
         },
         {
-          'args' => [
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'cmdname' => 'xml',
+          'contents' => [
+            {
+              'extra' => {
+                'command' => {}
+              },
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line_after_command'
+            },
             {
               'contents' => [
                 {
                   'parent' => {},
-                  'text' => 'tex'
+                  'text' => '<para>xml</para> ``'
+                },
+                {
+                  'parent' => {},
+                  'text' => '}
+'
                 }
               ],
-              'extra' => {
-                'spaces_after_argument' => '
-'
-              },
               'parent' => {},
-              'type' => 'line_arg'
-            }
-          ],
-          'cmdname' => 'end',
-          'extra' => {
-            'command_argument' => 'tex',
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'tex'
-          },
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 16,
-            'macro' => ''
-          },
-          'parent' => {}
-        }
-      ],
-      'extra' => {
-        'end_command' => {}
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 14,
-        'macro' => ''
-      },
-      'parent' => {}
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'cmdname' => 'latex',
-      'contents' => [
-        {
-          'extra' => {
-            'command' => {}
-          },
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line_after_command'
-        },
-        {
-          'contents' => [
-            {
-              'parent' => {},
-              'text' => '$\\frac'
-            },
-            {
-              'parent' => {},
-              'text' => '{a < b '
+              'type' => 'rawpreformatted'
             },
             {
               'args' => [
@@ -382,168 +122,435 @@ $result_trees{'raw_block_commands_expand_tex'} = {
                   'contents' => [
                     {
                       'parent' => {},
-                      'text' => 'tex \\hbox'
-                    },
-                    {
-                      'contents' => [
-                        {
-                          'parent' => {},
-                          'text' => ' code '
-                        }
-                      ],
-                      'line_nr' => {
-                        'file_name' => '',
-                        'line_nr' => 19,
-                        'macro' => ''
-                      },
-                      'parent' => {},
-                      'type' => 'bracketed'
+                      'text' => 'xml'
                     }
                   ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'parent' => {},
-                  'type' => 'brace_command_arg'
+                  'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'code',
-              'contents' => [],
+              'cmdname' => 'end',
+              'extra' => {
+                'command_argument' => 'xml',
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'xml'
+              },
               'line_nr' => {
                 'file_name' => '',
-                'line_nr' => 19,
+                'line_nr' => 8,
                 'macro' => ''
               },
               'parent' => {}
-            },
-            {
-              'parent' => {},
-              'text' => '}'
-            },
-            {
-              'parent' => {},
-              'text' => '{b'
-            },
-            {
-              'parent' => {},
-              'text' => '}$ ``
-'
             }
           ],
-          'parent' => {},
-          'type' => 'rawpreformatted'
+          'extra' => {
+            'end_command' => {}
+          },
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 6,
+            'macro' => ''
+          },
+          'parent' => {}
         },
         {
-          'args' => [
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'cmdname' => 'docbook',
+          'contents' => [
+            {
+              'extra' => {
+                'command' => {}
+              },
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line_after_command'
+            },
             {
               'contents' => [
                 {
                   'parent' => {},
-                  'text' => 'latex'
+                  'text' => '<emphasis>docbook</emphasis> ``'
+                },
+                {
+                  'parent' => {},
+                  'text' => '}
+'
                 }
               ],
-              'extra' => {
-                'spaces_after_argument' => '
-'
-              },
               'parent' => {},
-              'type' => 'line_arg'
+              'type' => 'rawpreformatted'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'docbook'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
+                  'parent' => {},
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'end',
+              'extra' => {
+                'command_argument' => 'docbook',
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'docbook'
+              },
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 12,
+                'macro' => ''
+              },
+              'parent' => {}
             }
           ],
-          'cmdname' => 'end',
           'extra' => {
-            'command_argument' => 'latex',
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'latex'
+            'end_command' => {}
           },
           'line_nr' => {
             'file_name' => '',
-            'line_nr' => 20,
+            'line_nr' => 10,
+            'macro' => ''
+          },
+          'parent' => {}
+        },
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'cmdname' => 'tex',
+          'contents' => [
+            {
+              'extra' => {
+                'command' => {}
+              },
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line_after_command'
+            },
+            {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => '$\\underline'
+                },
+                {
+                  'parent' => {},
+                  'text' => '{a < b '
+                },
+                {
+                  'args' => [
+                    {
+                      'contents' => [
+                        {
+                          'parent' => {},
+                          'text' => 'tex \\hbox'
+                        },
+                        {
+                          'contents' => [
+                            {
+                              'parent' => {},
+                              'text' => ' code '
+                            }
+                          ],
+                          'line_nr' => {
+                            'file_name' => '',
+                            'line_nr' => 15,
+                            'macro' => ''
+                          },
+                          'parent' => {},
+                          'type' => 'bracketed'
+                        }
+                      ],
+                      'parent' => {},
+                      'type' => 'brace_command_arg'
+                    }
+                  ],
+                  'cmdname' => 'code',
+                  'contents' => [],
+                  'line_nr' => {
+                    'file_name' => '',
+                    'line_nr' => 15,
+                    'macro' => ''
+                  },
+                  'parent' => {}
+                },
+                {
+                  'parent' => {},
+                  'text' => '}$ ``'
+                },
+                {
+                  'parent' => {},
+                  'text' => '}
+'
+                }
+              ],
+              'parent' => {},
+              'type' => 'rawpreformatted'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'tex'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
+                  'parent' => {},
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'end',
+              'extra' => {
+                'command_argument' => 'tex',
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'tex'
+              },
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 16,
+                'macro' => ''
+              },
+              'parent' => {}
+            }
+          ],
+          'extra' => {
+            'end_command' => {}
+          },
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 14,
+            'macro' => ''
+          },
+          'parent' => {}
+        },
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'cmdname' => 'latex',
+          'contents' => [
+            {
+              'extra' => {
+                'command' => {}
+              },
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line_after_command'
+            },
+            {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => '$\\frac'
+                },
+                {
+                  'parent' => {},
+                  'text' => '{a < b '
+                },
+                {
+                  'args' => [
+                    {
+                      'contents' => [
+                        {
+                          'parent' => {},
+                          'text' => 'tex \\hbox'
+                        },
+                        {
+                          'contents' => [
+                            {
+                              'parent' => {},
+                              'text' => ' code '
+                            }
+                          ],
+                          'line_nr' => {
+                            'file_name' => '',
+                            'line_nr' => 19,
+                            'macro' => ''
+                          },
+                          'parent' => {},
+                          'type' => 'bracketed'
+                        }
+                      ],
+                      'parent' => {},
+                      'type' => 'brace_command_arg'
+                    }
+                  ],
+                  'cmdname' => 'code',
+                  'contents' => [],
+                  'line_nr' => {
+                    'file_name' => '',
+                    'line_nr' => 19,
+                    'macro' => ''
+                  },
+                  'parent' => {}
+                },
+                {
+                  'parent' => {},
+                  'text' => '}'
+                },
+                {
+                  'parent' => {},
+                  'text' => '{b'
+                },
+                {
+                  'parent' => {},
+                  'text' => '}$ ``
+'
+                }
+              ],
+              'parent' => {},
+              'type' => 'rawpreformatted'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'latex'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
+                  'parent' => {},
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'end',
+              'extra' => {
+                'command_argument' => 'latex',
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'latex'
+              },
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 20,
+                'macro' => ''
+              },
+              'parent' => {}
+            }
+          ],
+          'extra' => {
+            'end_command' => {}
+          },
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 18,
             'macro' => ''
           },
           'parent' => {}
         }
       ],
-      'extra' => {
-        'end_command' => {}
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 18,
-        'macro' => ''
-      },
-      'parent' => {}
+      'parent' => {},
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'extra'}{'command'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[1];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[1];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[1]{'contents'}[1];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[1]{'contents'}[1];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[1];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'args'}[0];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[1]{'contents'}[2];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[1];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[1]{'extra'}{'end_command'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[1]{'contents'}[2];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'extra'}{'command'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[3];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[3];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[3]{'contents'}[1];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[3]{'contents'}[1];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[3];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[3]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[3]{'contents'}[2]{'args'}[0];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[3]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[3]{'contents'}[2];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[3]{'contents'}[2]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[3];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[3]{'extra'}{'end_command'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[3]{'contents'}[2];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[5]{'contents'}[0]{'extra'}{'command'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[5];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[5]{'contents'}[0]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[5];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[5]{'contents'}[1];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[5]{'contents'}[1];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[5];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[5]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[5]{'contents'}[2]{'args'}[0];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[5]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[5]{'contents'}[2];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[5]{'contents'}[2]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[5];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[5]{'extra'}{'end_command'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[5]{'contents'}[2];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[6]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[7]{'contents'}[0]{'extra'}{'command'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[7];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[7]{'contents'}[0]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[7];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[7]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[7]{'contents'}[1];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[7]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[7]{'contents'}[1];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[7]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[7]{'contents'}[1]{'contents'}[2]{'args'}[0];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[7]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[7]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[1];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[7]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[7]{'contents'}[1]{'contents'}[2]{'args'}[0];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[7]{'contents'}[1]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[7]{'contents'}[1]{'contents'}[2];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[7]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[7]{'contents'}[1];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[7]{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[7]{'contents'}[1];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[7]{'contents'}[1]{'contents'}[4]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[7]{'contents'}[1];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[7]{'contents'}[1]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[7];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[7]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[7]{'contents'}[2]{'args'}[0];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[7]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[7]{'contents'}[2];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[7]{'contents'}[2]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[7];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[7]{'extra'}{'end_command'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[7]{'contents'}[2];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[7]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[8]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[9]{'contents'}[0]{'extra'}{'command'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[9];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[9]{'contents'}[0]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[9];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[9]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[9]{'contents'}[1];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[9]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[9]{'contents'}[1];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[9]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[9]{'contents'}[1]{'contents'}[2]{'args'}[0];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[9]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[9]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[1];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[9]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[9]{'contents'}[1]{'contents'}[2]{'args'}[0];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[9]{'contents'}[1]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[9]{'contents'}[1]{'contents'}[2];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[9]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[9]{'contents'}[1];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[9]{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[9]{'contents'}[1];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[9]{'contents'}[1]{'contents'}[4]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[9]{'contents'}[1];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[9]{'contents'}[1]{'contents'}[5]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[9]{'contents'}[1];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[9]{'contents'}[1]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[9];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[9]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[9]{'contents'}[2]{'args'}[0];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[9]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[9]{'contents'}[2];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[9]{'contents'}[2]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[9];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[9]{'extra'}{'end_command'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[9]{'contents'}[2];
+$result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'contents'}[9]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0];
 $result_trees{'raw_block_commands_expand_tex'}{'contents'}[0]{'parent'} = $result_trees{'raw_block_commands_expand_tex'};
-$result_trees{'raw_block_commands_expand_tex'}{'contents'}[1]{'contents'}[0]{'extra'}{'command'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[1];
-$result_trees{'raw_block_commands_expand_tex'}{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[1];
-$result_trees{'raw_block_commands_expand_tex'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[1]{'contents'}[1];
-$result_trees{'raw_block_commands_expand_tex'}{'contents'}[1]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[1]{'contents'}[1];
-$result_trees{'raw_block_commands_expand_tex'}{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[1];
-$result_trees{'raw_block_commands_expand_tex'}{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[1]{'contents'}[2]{'args'}[0];
-$result_trees{'raw_block_commands_expand_tex'}{'contents'}[1]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[1]{'contents'}[2];
-$result_trees{'raw_block_commands_expand_tex'}{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[1];
-$result_trees{'raw_block_commands_expand_tex'}{'contents'}[1]{'extra'}{'end_command'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[1]{'contents'}[2];
-$result_trees{'raw_block_commands_expand_tex'}{'contents'}[1]{'parent'} = $result_trees{'raw_block_commands_expand_tex'};
-$result_trees{'raw_block_commands_expand_tex'}{'contents'}[2]{'parent'} = $result_trees{'raw_block_commands_expand_tex'};
-$result_trees{'raw_block_commands_expand_tex'}{'contents'}[3]{'contents'}[0]{'extra'}{'command'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[3];
-$result_trees{'raw_block_commands_expand_tex'}{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[3];
-$result_trees{'raw_block_commands_expand_tex'}{'contents'}[3]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[3]{'contents'}[1];
-$result_trees{'raw_block_commands_expand_tex'}{'contents'}[3]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[3]{'contents'}[1];
-$result_trees{'raw_block_commands_expand_tex'}{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[3];
-$result_trees{'raw_block_commands_expand_tex'}{'contents'}[3]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[3]{'contents'}[2]{'args'}[0];
-$result_trees{'raw_block_commands_expand_tex'}{'contents'}[3]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[3]{'contents'}[2];
-$result_trees{'raw_block_commands_expand_tex'}{'contents'}[3]{'contents'}[2]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[3];
-$result_trees{'raw_block_commands_expand_tex'}{'contents'}[3]{'extra'}{'end_command'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[3]{'contents'}[2];
-$result_trees{'raw_block_commands_expand_tex'}{'contents'}[3]{'parent'} = $result_trees{'raw_block_commands_expand_tex'};
-$result_trees{'raw_block_commands_expand_tex'}{'contents'}[4]{'parent'} = $result_trees{'raw_block_commands_expand_tex'};
-$result_trees{'raw_block_commands_expand_tex'}{'contents'}[5]{'contents'}[0]{'extra'}{'command'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[5];
-$result_trees{'raw_block_commands_expand_tex'}{'contents'}[5]{'contents'}[0]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[5];
-$result_trees{'raw_block_commands_expand_tex'}{'contents'}[5]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[5]{'contents'}[1];
-$result_trees{'raw_block_commands_expand_tex'}{'contents'}[5]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[5]{'contents'}[1];
-$result_trees{'raw_block_commands_expand_tex'}{'contents'}[5]{'contents'}[1]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[5];
-$result_trees{'raw_block_commands_expand_tex'}{'contents'}[5]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[5]{'contents'}[2]{'args'}[0];
-$result_trees{'raw_block_commands_expand_tex'}{'contents'}[5]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[5]{'contents'}[2];
-$result_trees{'raw_block_commands_expand_tex'}{'contents'}[5]{'contents'}[2]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[5];
-$result_trees{'raw_block_commands_expand_tex'}{'contents'}[5]{'extra'}{'end_command'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[5]{'contents'}[2];
-$result_trees{'raw_block_commands_expand_tex'}{'contents'}[5]{'parent'} = $result_trees{'raw_block_commands_expand_tex'};
-$result_trees{'raw_block_commands_expand_tex'}{'contents'}[6]{'parent'} = $result_trees{'raw_block_commands_expand_tex'};
-$result_trees{'raw_block_commands_expand_tex'}{'contents'}[7]{'contents'}[0]{'extra'}{'command'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[7];
-$result_trees{'raw_block_commands_expand_tex'}{'contents'}[7]{'contents'}[0]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[7];
-$result_trees{'raw_block_commands_expand_tex'}{'contents'}[7]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[7]{'contents'}[1];
-$result_trees{'raw_block_commands_expand_tex'}{'contents'}[7]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[7]{'contents'}[1];
-$result_trees{'raw_block_commands_expand_tex'}{'contents'}[7]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[7]{'contents'}[1]{'contents'}[2]{'args'}[0];
-$result_trees{'raw_block_commands_expand_tex'}{'contents'}[7]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[7]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[1];
-$result_trees{'raw_block_commands_expand_tex'}{'contents'}[7]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[7]{'contents'}[1]{'contents'}[2]{'args'}[0];
-$result_trees{'raw_block_commands_expand_tex'}{'contents'}[7]{'contents'}[1]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[7]{'contents'}[1]{'contents'}[2];
-$result_trees{'raw_block_commands_expand_tex'}{'contents'}[7]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[7]{'contents'}[1];
-$result_trees{'raw_block_commands_expand_tex'}{'contents'}[7]{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[7]{'contents'}[1];
-$result_trees{'raw_block_commands_expand_tex'}{'contents'}[7]{'contents'}[1]{'contents'}[4]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[7]{'contents'}[1];
-$result_trees{'raw_block_commands_expand_tex'}{'contents'}[7]{'contents'}[1]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[7];
-$result_trees{'raw_block_commands_expand_tex'}{'contents'}[7]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[7]{'contents'}[2]{'args'}[0];
-$result_trees{'raw_block_commands_expand_tex'}{'contents'}[7]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[7]{'contents'}[2];
-$result_trees{'raw_block_commands_expand_tex'}{'contents'}[7]{'contents'}[2]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[7];
-$result_trees{'raw_block_commands_expand_tex'}{'contents'}[7]{'extra'}{'end_command'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[7]{'contents'}[2];
-$result_trees{'raw_block_commands_expand_tex'}{'contents'}[7]{'parent'} = $result_trees{'raw_block_commands_expand_tex'};
-$result_trees{'raw_block_commands_expand_tex'}{'contents'}[8]{'parent'} = $result_trees{'raw_block_commands_expand_tex'};
-$result_trees{'raw_block_commands_expand_tex'}{'contents'}[9]{'contents'}[0]{'extra'}{'command'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[9];
-$result_trees{'raw_block_commands_expand_tex'}{'contents'}[9]{'contents'}[0]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[9];
-$result_trees{'raw_block_commands_expand_tex'}{'contents'}[9]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[9]{'contents'}[1];
-$result_trees{'raw_block_commands_expand_tex'}{'contents'}[9]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[9]{'contents'}[1];
-$result_trees{'raw_block_commands_expand_tex'}{'contents'}[9]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[9]{'contents'}[1]{'contents'}[2]{'args'}[0];
-$result_trees{'raw_block_commands_expand_tex'}{'contents'}[9]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[9]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[1];
-$result_trees{'raw_block_commands_expand_tex'}{'contents'}[9]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[9]{'contents'}[1]{'contents'}[2]{'args'}[0];
-$result_trees{'raw_block_commands_expand_tex'}{'contents'}[9]{'contents'}[1]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[9]{'contents'}[1]{'contents'}[2];
-$result_trees{'raw_block_commands_expand_tex'}{'contents'}[9]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[9]{'contents'}[1];
-$result_trees{'raw_block_commands_expand_tex'}{'contents'}[9]{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[9]{'contents'}[1];
-$result_trees{'raw_block_commands_expand_tex'}{'contents'}[9]{'contents'}[1]{'contents'}[4]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[9]{'contents'}[1];
-$result_trees{'raw_block_commands_expand_tex'}{'contents'}[9]{'contents'}[1]{'contents'}[5]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[9]{'contents'}[1];
-$result_trees{'raw_block_commands_expand_tex'}{'contents'}[9]{'contents'}[1]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[9];
-$result_trees{'raw_block_commands_expand_tex'}{'contents'}[9]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[9]{'contents'}[2]{'args'}[0];
-$result_trees{'raw_block_commands_expand_tex'}{'contents'}[9]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[9]{'contents'}[2];
-$result_trees{'raw_block_commands_expand_tex'}{'contents'}[9]{'contents'}[2]{'parent'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[9];
-$result_trees{'raw_block_commands_expand_tex'}{'contents'}[9]{'extra'}{'end_command'} = $result_trees{'raw_block_commands_expand_tex'}{'contents'}[9]{'contents'}[2];
-$result_trees{'raw_block_commands_expand_tex'}{'contents'}[9]{'parent'} = $result_trees{'raw_block_commands_expand_tex'};
 
 $result_texis{'raw_block_commands_expand_tex'} = '
 @html

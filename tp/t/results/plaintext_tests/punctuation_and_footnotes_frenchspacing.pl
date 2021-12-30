@@ -8,632 +8,639 @@ use utf8;
 $result_trees{'punctuation_and_footnotes_frenchspacing'} = {
   'contents' => [
     {
-      'args' => [
+      'contents' => [
+        {
+          'args' => [
+            {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => 'on'
+                }
+              ],
+              'extra' => {
+                'spaces_after_argument' => '
+'
+              },
+              'parent' => {},
+              'type' => 'line_arg'
+            }
+          ],
+          'cmdname' => 'frenchspacing',
+          'extra' => {
+            'misc_args' => [
+              'on'
+            ],
+            'spaces_before_argument' => ' '
+          },
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 1,
+            'macro' => ''
+          },
+          'parent' => {}
+        },
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
         {
           'contents' => [
             {
               'parent' => {},
-              'text' => 'on'
+              'text' => 'Text.'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'parent' => {},
+                          'text' => 'after period'
+                        }
+                      ],
+                      'parent' => {},
+                      'type' => 'paragraph'
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'brace_command_context'
+                }
+              ],
+              'cmdname' => 'footnote',
+              'contents' => [],
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 3,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => ' Sentence 
+'
+            },
+            {
+              'parent' => {},
+              'text' => 'end.'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'parent' => {},
+                          'text' => 'after period double'
+                        }
+                      ],
+                      'parent' => {},
+                      'type' => 'paragraph'
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'brace_command_context'
+                }
+              ],
+              'cmdname' => 'footnote',
+              'contents' => [],
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 4,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => '  S2.'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'parent' => {},
+                          'text' => 'after period triple'
+                        }
+                      ],
+                      'parent' => {},
+                      'type' => 'paragraph'
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'brace_command_context'
+                }
+              ],
+              'cmdname' => 'footnote',
+              'contents' => [],
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 4,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => '   S3.
+'
             }
           ],
-          'extra' => {
-            'spaces_after_argument' => '
-'
-          },
           'parent' => {},
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'frenchspacing',
-      'extra' => {
-        'misc_args' => [
-          'on'
-        ],
-        'spaces_before_argument' => ' '
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
-      },
-      'parent' => {}
-    },
-    {
-      'parent' => {},
-      'text' => '
+          'type' => 'paragraph'
+        },
+        {
+          'parent' => {},
+          'text' => '
 ',
-      'type' => 'empty_line'
-    },
-    {
-      'contents' => [
-        {
-          'parent' => {},
-          'text' => 'Text.'
+          'type' => 'empty_line'
         },
         {
-          'args' => [
+          'contents' => [
             {
-              'contents' => [
+              'parent' => {},
+              'text' => 'No PERIOD.'
+            },
+            {
+              'args' => [
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'parent' => {},
+                          'text' => 'no period'
+                        }
+                      ],
                       'parent' => {},
-                      'text' => 'after period'
+                      'type' => 'paragraph'
                     }
                   ],
                   'parent' => {},
-                  'type' => 'paragraph'
+                  'type' => 'brace_command_context'
                 }
               ],
+              'cmdname' => 'footnote',
+              'contents' => [],
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 6,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
               'parent' => {},
-              'type' => 'brace_command_context'
-            }
-          ],
-          'cmdname' => 'footnote',
-          'contents' => [],
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 3,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => ' Sentence 
+              'text' => ' worD.'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'parent' => {},
+                          'text' => 'no period double'
+                        }
+                      ],
+                      'parent' => {},
+                      'type' => 'paragraph'
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'brace_command_context'
+                }
+              ],
+              'cmdname' => 'footnote',
+              'contents' => [],
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 6,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => '  w2 
 '
-        },
-        {
-          'parent' => {},
-          'text' => 'end.'
-        },
-        {
-          'args' => [
+            },
             {
-              'contents' => [
+              'parent' => {},
+              'text' => 'wW.'
+            },
+            {
+              'args' => [
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'parent' => {},
+                          'text' => 'no period triple'
+                        }
+                      ],
                       'parent' => {},
-                      'text' => 'after period double'
+                      'type' => 'paragraph'
                     }
                   ],
                   'parent' => {},
-                  'type' => 'paragraph'
+                  'type' => 'brace_command_context'
                 }
               ],
-              'parent' => {},
-              'type' => 'brace_command_context'
-            }
-          ],
-          'cmdname' => 'footnote',
-          'contents' => [],
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 4,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '  S2.'
-        },
-        {
-          'args' => [
+              'cmdname' => 'footnote',
+              'contents' => [],
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 7,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
             {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'parent' => {},
-                      'text' => 'after period triple'
-                    }
-                  ],
-                  'parent' => {},
-                  'type' => 'paragraph'
-                }
-              ],
               'parent' => {},
-              'type' => 'brace_command_context'
-            }
-          ],
-          'cmdname' => 'footnote',
-          'contents' => [],
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 4,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '   S3.
+              'text' => '   S3.
 '
-        }
-      ],
-      'parent' => {},
-      'type' => 'paragraph'
-    },
-    {
-      'parent' => {},
-      'text' => '
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
+        },
+        {
+          'parent' => {},
+          'text' => '
 ',
-      'type' => 'empty_line'
-    },
-    {
-      'contents' => [
-        {
-          'parent' => {},
-          'text' => 'No PERIOD.'
+          'type' => 'empty_line'
         },
         {
-          'args' => [
+          'contents' => [
             {
-              'contents' => [
+              'parent' => {},
+              'text' => 'Force PERIOD'
+            },
+            {
+              'cmdname' => '.',
+              'parent' => {}
+            },
+            {
+              'args' => [
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'parent' => {},
+                          'text' => 'after forced period'
+                        }
+                      ],
                       'parent' => {},
-                      'text' => 'no period'
+                      'type' => 'paragraph'
                     }
                   ],
                   'parent' => {},
-                  'type' => 'paragraph'
+                  'type' => 'brace_command_context'
                 }
               ],
-              'parent' => {},
-              'type' => 'brace_command_context'
-            }
-          ],
-          'cmdname' => 'footnote',
-          'contents' => [],
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 6,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => ' worD.'
-        },
-        {
-          'args' => [
+              'cmdname' => 'footnote',
+              'contents' => [],
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 9,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
             {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'parent' => {},
-                      'text' => 'no period double'
-                    }
-                  ],
-                  'parent' => {},
-                  'type' => 'paragraph'
-                }
-              ],
               'parent' => {},
-              'type' => 'brace_command_context'
-            }
-          ],
-          'cmdname' => 'footnote',
-          'contents' => [],
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 6,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '  w2 
+              'text' => ' Sentence 
 '
-        },
-        {
-          'parent' => {},
-          'text' => 'wW.'
-        },
-        {
-          'args' => [
+            },
             {
-              'contents' => [
+              'parent' => {},
+              'text' => 'W'
+            },
+            {
+              'cmdname' => '.',
+              'parent' => {}
+            },
+            {
+              'args' => [
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'parent' => {},
+                          'text' => 'after forced period double'
+                        }
+                      ],
                       'parent' => {},
-                      'text' => 'no period triple'
+                      'type' => 'paragraph'
                     }
                   ],
                   'parent' => {},
-                  'type' => 'paragraph'
+                  'type' => 'brace_command_context'
                 }
               ],
+              'cmdname' => 'footnote',
+              'contents' => [],
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 10,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
               'parent' => {},
-              'type' => 'brace_command_context'
+              'text' => '  S2 
+'
+            },
+            {
+              'parent' => {},
+              'text' => 'W'
+            },
+            {
+              'cmdname' => '.',
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'contents' => [
+                        {
+                          'parent' => {},
+                          'text' => 'after forced period triple'
+                        }
+                      ],
+                      'parent' => {},
+                      'type' => 'paragraph'
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'brace_command_context'
+                }
+              ],
+              'cmdname' => 'footnote',
+              'contents' => [],
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 11,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => '   S3.
+'
             }
           ],
-          'cmdname' => 'footnote',
-          'contents' => [],
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 7,
-            'macro' => ''
-          },
-          'parent' => {}
+          'parent' => {},
+          'type' => 'paragraph'
         },
         {
           'parent' => {},
-          'text' => '   S3.
-'
-        }
-      ],
-      'parent' => {},
-      'type' => 'paragraph'
-    },
-    {
-      'parent' => {},
-      'text' => '
+          'text' => '
 ',
-      'type' => 'empty_line'
-    },
-    {
-      'contents' => [
-        {
-          'parent' => {},
-          'text' => 'Force PERIOD'
+          'type' => 'empty_line'
         },
         {
-          'cmdname' => '.',
-          'parent' => {}
-        },
-        {
-          'args' => [
+          'contents' => [
             {
-              'contents' => [
+              'parent' => {},
+              'text' => 'Force no period.'
+            },
+            {
+              'cmdname' => ':',
+              'parent' => {}
+            },
+            {
+              'args' => [
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'parent' => {},
+                          'text' => 'after forced no period'
+                        }
+                      ],
                       'parent' => {},
-                      'text' => 'after forced period'
+                      'type' => 'paragraph'
                     }
                   ],
                   'parent' => {},
-                  'type' => 'paragraph'
+                  'type' => 'brace_command_context'
                 }
               ],
-              'parent' => {},
-              'type' => 'brace_command_context'
-            }
-          ],
-          'cmdname' => 'footnote',
-          'contents' => [],
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 9,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => ' Sentence 
-'
-        },
-        {
-          'parent' => {},
-          'text' => 'W'
-        },
-        {
-          'cmdname' => '.',
-          'parent' => {}
-        },
-        {
-          'args' => [
+              'cmdname' => 'footnote',
+              'contents' => [],
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 13,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
             {
-              'contents' => [
+              'parent' => {},
+              'text' => ' Sentence 
+'
+            },
+            {
+              'parent' => {},
+              'text' => 'w.'
+            },
+            {
+              'cmdname' => ':',
+              'parent' => {}
+            },
+            {
+              'args' => [
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'parent' => {},
+                          'text' => 'after forced no period double'
+                        }
+                      ],
                       'parent' => {},
-                      'text' => 'after forced period double'
+                      'type' => 'paragraph'
                     }
                   ],
                   'parent' => {},
-                  'type' => 'paragraph'
+                  'type' => 'brace_command_context'
                 }
               ],
-              'parent' => {},
-              'type' => 'brace_command_context'
-            }
-          ],
-          'cmdname' => 'footnote',
-          'contents' => [],
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 10,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '  S2 
-'
-        },
-        {
-          'parent' => {},
-          'text' => 'W'
-        },
-        {
-          'cmdname' => '.',
-          'parent' => {}
-        },
-        {
-          'args' => [
+              'cmdname' => 'footnote',
+              'contents' => [],
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 14,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
             {
-              'contents' => [
+              'parent' => {},
+              'text' => '  S2 
+'
+            },
+            {
+              'parent' => {},
+              'text' => 'w.'
+            },
+            {
+              'cmdname' => ':',
+              'parent' => {}
+            },
+            {
+              'args' => [
                 {
                   'contents' => [
                     {
+                      'contents' => [
+                        {
+                          'parent' => {},
+                          'text' => 'after forced no period triple'
+                        }
+                      ],
                       'parent' => {},
-                      'text' => 'after forced period triple'
+                      'type' => 'paragraph'
                     }
                   ],
                   'parent' => {},
-                  'type' => 'paragraph'
+                  'type' => 'brace_command_context'
                 }
               ],
+              'cmdname' => 'footnote',
+              'contents' => [],
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 15,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
               'parent' => {},
-              'type' => 'brace_command_context'
+              'text' => '   S3.
+'
             }
           ],
-          'cmdname' => 'footnote',
-          'contents' => [],
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 11,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
           'parent' => {},
-          'text' => '   S3.
-'
+          'type' => 'paragraph'
         }
       ],
       'parent' => {},
-      'type' => 'paragraph'
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'contents' => [
-        {
-          'parent' => {},
-          'text' => 'Force no period.'
-        },
-        {
-          'cmdname' => ':',
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'parent' => {},
-                      'text' => 'after forced no period'
-                    }
-                  ],
-                  'parent' => {},
-                  'type' => 'paragraph'
-                }
-              ],
-              'parent' => {},
-              'type' => 'brace_command_context'
-            }
-          ],
-          'cmdname' => 'footnote',
-          'contents' => [],
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 13,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => ' Sentence 
-'
-        },
-        {
-          'parent' => {},
-          'text' => 'w.'
-        },
-        {
-          'cmdname' => ':',
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'parent' => {},
-                      'text' => 'after forced no period double'
-                    }
-                  ],
-                  'parent' => {},
-                  'type' => 'paragraph'
-                }
-              ],
-              'parent' => {},
-              'type' => 'brace_command_context'
-            }
-          ],
-          'cmdname' => 'footnote',
-          'contents' => [],
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 14,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '  S2 
-'
-        },
-        {
-          'parent' => {},
-          'text' => 'w.'
-        },
-        {
-          'cmdname' => ':',
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'contents' => [
-                {
-                  'contents' => [
-                    {
-                      'parent' => {},
-                      'text' => 'after forced no period triple'
-                    }
-                  ],
-                  'parent' => {},
-                  'type' => 'paragraph'
-                }
-              ],
-              'parent' => {},
-              'type' => 'brace_command_context'
-            }
-          ],
-          'cmdname' => 'footnote',
-          'contents' => [],
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 15,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '   S3.
-'
-        }
-      ],
-      'parent' => {},
-      'type' => 'paragraph'
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'args'}[0];
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[0];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[2];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[2]{'contents'}[1];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[2];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[2];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[2];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[2]{'contents'}[4]{'args'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[2]{'contents'}[4]{'args'}[0]{'contents'}[0];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[2]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[2]{'contents'}[4]{'args'}[0];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[2]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[2]{'contents'}[4];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[2]{'contents'}[4]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[2];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[2]{'contents'}[5]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[2];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[2]{'contents'}[6]{'args'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[2]{'contents'}[6]{'args'}[0]{'contents'}[0];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[2]{'contents'}[6]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[2]{'contents'}[6]{'args'}[0];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[2]{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[2]{'contents'}[6];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[2]{'contents'}[6]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[2];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[2]{'contents'}[7]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[2];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[4];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[4]{'contents'}[1];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[4];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[4]{'contents'}[2]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[4];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[4]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[4]{'contents'}[3]{'args'}[0]{'contents'}[0];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[4]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[4]{'contents'}[3]{'args'}[0];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[4]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[4]{'contents'}[3];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[4]{'contents'}[3]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[4];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[4]{'contents'}[4]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[4];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[4]{'contents'}[5]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[4];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[4]{'contents'}[6]{'args'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[4]{'contents'}[6]{'args'}[0]{'contents'}[0];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[4]{'contents'}[6]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[4]{'contents'}[6]{'args'}[0];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[4]{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[4]{'contents'}[6];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[4]{'contents'}[6]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[4];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[4]{'contents'}[7]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[4];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[6];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[6];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[6]{'contents'}[2]{'args'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[6]{'contents'}[2]{'args'}[0]{'contents'}[0];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[6]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[6]{'contents'}[2]{'args'}[0];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[6]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[6]{'contents'}[2];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[6]{'contents'}[2]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[6];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[6]{'contents'}[3]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[6];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[6]{'contents'}[4]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[6];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[6]{'contents'}[5]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[6];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[6]{'contents'}[6]{'args'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[6]{'contents'}[6]{'args'}[0]{'contents'}[0];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[6]{'contents'}[6]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[6]{'contents'}[6]{'args'}[0];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[6]{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[6]{'contents'}[6];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[6]{'contents'}[6]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[6];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[6]{'contents'}[7]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[6];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[6]{'contents'}[8]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[6];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[6]{'contents'}[9]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[6];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[6]{'contents'}[10]{'args'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[6]{'contents'}[10]{'args'}[0]{'contents'}[0];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[6]{'contents'}[10]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[6]{'contents'}[10]{'args'}[0];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[6]{'contents'}[10]{'args'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[6]{'contents'}[10];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[6]{'contents'}[10]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[6];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[6]{'contents'}[11]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[6];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[6]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[7]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[8];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[8]{'contents'}[1]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[8];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[8]{'contents'}[2]{'args'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[8]{'contents'}[2]{'args'}[0]{'contents'}[0];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[8]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[8]{'contents'}[2]{'args'}[0];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[8]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[8]{'contents'}[2];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[8]{'contents'}[2]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[8];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[8]{'contents'}[3]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[8];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[8]{'contents'}[4]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[8];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[8]{'contents'}[5]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[8];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[8]{'contents'}[6]{'args'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[8]{'contents'}[6]{'args'}[0]{'contents'}[0];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[8]{'contents'}[6]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[8]{'contents'}[6]{'args'}[0];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[8]{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[8]{'contents'}[6];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[8]{'contents'}[6]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[8];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[8]{'contents'}[7]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[8];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[8]{'contents'}[8]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[8];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[8]{'contents'}[9]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[8];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[8]{'contents'}[10]{'args'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[8]{'contents'}[10]{'args'}[0]{'contents'}[0];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[8]{'contents'}[10]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[8]{'contents'}[10]{'args'}[0];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[8]{'contents'}[10]{'args'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[8]{'contents'}[10];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[8]{'contents'}[10]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[8];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[8]{'contents'}[11]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[8];
+$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'contents'}[8]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0];
 $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'};
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[1]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'};
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[2];
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[2]{'contents'}[1]{'args'}[0];
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[2]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[2]{'contents'}[1];
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[2];
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[2];
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[2]{'contents'}[3]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[2];
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[2]{'contents'}[4]{'args'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[2]{'contents'}[4]{'args'}[0]{'contents'}[0];
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[2]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[2]{'contents'}[4]{'args'}[0];
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[2]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[2]{'contents'}[4];
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[2]{'contents'}[4]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[2];
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[2]{'contents'}[5]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[2];
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[2]{'contents'}[6]{'args'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[2]{'contents'}[6]{'args'}[0]{'contents'}[0];
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[2]{'contents'}[6]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[2]{'contents'}[6]{'args'}[0];
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[2]{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[2]{'contents'}[6];
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[2]{'contents'}[6]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[2];
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[2]{'contents'}[7]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[2];
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[2]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'};
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[3]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'};
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[4];
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[4]{'contents'}[1]{'args'}[0];
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[4]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[4]{'contents'}[1];
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[4]{'contents'}[1]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[4];
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[4]{'contents'}[2]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[4];
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[4]{'contents'}[3]{'args'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[4]{'contents'}[3]{'args'}[0]{'contents'}[0];
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[4]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[4]{'contents'}[3]{'args'}[0];
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[4]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[4]{'contents'}[3];
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[4]{'contents'}[3]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[4];
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[4]{'contents'}[4]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[4];
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[4]{'contents'}[5]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[4];
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[4]{'contents'}[6]{'args'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[4]{'contents'}[6]{'args'}[0]{'contents'}[0];
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[4]{'contents'}[6]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[4]{'contents'}[6]{'args'}[0];
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[4]{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[4]{'contents'}[6];
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[4]{'contents'}[6]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[4];
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[4]{'contents'}[7]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[4];
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[4]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'};
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[5]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'};
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[6]{'contents'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[6];
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[6]{'contents'}[1]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[6];
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[6]{'contents'}[2]{'args'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[6]{'contents'}[2]{'args'}[0]{'contents'}[0];
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[6]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[6]{'contents'}[2]{'args'}[0];
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[6]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[6]{'contents'}[2];
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[6]{'contents'}[2]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[6];
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[6]{'contents'}[3]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[6];
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[6]{'contents'}[4]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[6];
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[6]{'contents'}[5]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[6];
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[6]{'contents'}[6]{'args'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[6]{'contents'}[6]{'args'}[0]{'contents'}[0];
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[6]{'contents'}[6]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[6]{'contents'}[6]{'args'}[0];
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[6]{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[6]{'contents'}[6];
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[6]{'contents'}[6]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[6];
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[6]{'contents'}[7]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[6];
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[6]{'contents'}[8]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[6];
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[6]{'contents'}[9]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[6];
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[6]{'contents'}[10]{'args'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[6]{'contents'}[10]{'args'}[0]{'contents'}[0];
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[6]{'contents'}[10]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[6]{'contents'}[10]{'args'}[0];
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[6]{'contents'}[10]{'args'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[6]{'contents'}[10];
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[6]{'contents'}[10]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[6];
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[6]{'contents'}[11]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[6];
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[6]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'};
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[7]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'};
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[8]{'contents'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[8];
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[8]{'contents'}[1]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[8];
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[8]{'contents'}[2]{'args'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[8]{'contents'}[2]{'args'}[0]{'contents'}[0];
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[8]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[8]{'contents'}[2]{'args'}[0];
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[8]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[8]{'contents'}[2];
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[8]{'contents'}[2]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[8];
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[8]{'contents'}[3]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[8];
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[8]{'contents'}[4]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[8];
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[8]{'contents'}[5]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[8];
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[8]{'contents'}[6]{'args'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[8]{'contents'}[6]{'args'}[0]{'contents'}[0];
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[8]{'contents'}[6]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[8]{'contents'}[6]{'args'}[0];
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[8]{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[8]{'contents'}[6];
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[8]{'contents'}[6]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[8];
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[8]{'contents'}[7]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[8];
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[8]{'contents'}[8]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[8];
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[8]{'contents'}[9]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[8];
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[8]{'contents'}[10]{'args'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[8]{'contents'}[10]{'args'}[0]{'contents'}[0];
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[8]{'contents'}[10]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[8]{'contents'}[10]{'args'}[0];
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[8]{'contents'}[10]{'args'}[0]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[8]{'contents'}[10];
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[8]{'contents'}[10]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[8];
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[8]{'contents'}[11]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[8];
-$result_trees{'punctuation_and_footnotes_frenchspacing'}{'contents'}[8]{'parent'} = $result_trees{'punctuation_and_footnotes_frenchspacing'};
 
 $result_texis{'punctuation_and_footnotes_frenchspacing'} = '@frenchspacing on
 

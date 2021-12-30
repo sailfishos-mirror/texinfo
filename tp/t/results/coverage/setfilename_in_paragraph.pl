@@ -10,51 +10,58 @@ $result_trees{'setfilename_in_paragraph'} = {
     {
       'contents' => [
         {
-          'parent' => {},
-          'text' => 'Some text
-'
-        }
-      ],
-      'parent' => {},
-      'type' => 'paragraph'
-    },
-    {
-      'args' => [
-        {
           'contents' => [
             {
               'parent' => {},
-              'text' => 'filename.info'
+              'text' => 'Some text
+'
             }
           ],
-          'extra' => {
-            'spaces_after_argument' => '
-'
-          },
           'parent' => {},
-          'type' => 'line_arg'
+          'type' => 'paragraph'
+        },
+        {
+          'args' => [
+            {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => 'filename.info'
+                }
+              ],
+              'extra' => {
+                'spaces_after_argument' => '
+'
+              },
+              'parent' => {},
+              'type' => 'line_arg'
+            }
+          ],
+          'cmdname' => 'setfilename',
+          'extra' => {
+            'spaces_before_argument' => ' ',
+            'text_arg' => 'filename.info'
+          },
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 2,
+            'macro' => ''
+          },
+          'parent' => {}
         }
       ],
-      'cmdname' => 'setfilename',
-      'extra' => {
-        'spaces_before_argument' => ' ',
-        'text_arg' => 'filename.info'
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 2,
-        'macro' => ''
-      },
-      'parent' => {}
+      'parent' => {},
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
+$result_trees{'setfilename_in_paragraph'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'setfilename_in_paragraph'}{'contents'}[0]{'contents'}[0];
 $result_trees{'setfilename_in_paragraph'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'setfilename_in_paragraph'}{'contents'}[0];
+$result_trees{'setfilename_in_paragraph'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'setfilename_in_paragraph'}{'contents'}[0]{'contents'}[1]{'args'}[0];
+$result_trees{'setfilename_in_paragraph'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'setfilename_in_paragraph'}{'contents'}[0]{'contents'}[1];
+$result_trees{'setfilename_in_paragraph'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'setfilename_in_paragraph'}{'contents'}[0];
 $result_trees{'setfilename_in_paragraph'}{'contents'}[0]{'parent'} = $result_trees{'setfilename_in_paragraph'};
-$result_trees{'setfilename_in_paragraph'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'setfilename_in_paragraph'}{'contents'}[1]{'args'}[0];
-$result_trees{'setfilename_in_paragraph'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'setfilename_in_paragraph'}{'contents'}[1];
-$result_trees{'setfilename_in_paragraph'}{'contents'}[1]{'parent'} = $result_trees{'setfilename_in_paragraph'};
 
 $result_texis{'setfilename_in_paragraph'} = 'Some text
 @setfilename filename.info

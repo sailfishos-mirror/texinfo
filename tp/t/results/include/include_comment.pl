@@ -10,17 +10,24 @@ $result_trees{'include_comment'} = {
     {
       'contents' => [
         {
-          'parent' => {},
-          'text' => 'In included file.
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => 'In included file.
 '
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
         }
       ],
       'parent' => {},
-      'type' => 'paragraph'
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
+$result_trees{'include_comment'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'include_comment'}{'contents'}[0]{'contents'}[0];
 $result_trees{'include_comment'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'include_comment'}{'contents'}[0];
 $result_trees{'include_comment'}{'contents'}[0]{'parent'} = $result_trees{'include_comment'};
 

@@ -8,34 +8,41 @@ use utf8;
 $result_trees{'double_include'} = {
   'contents' => [
     {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
       'contents' => [
         {
           'parent' => {},
-          'text' => 'In included file.
-'
+          'text' => '
+',
+          'type' => 'empty_line'
         },
         {
-          'parent' => {},
-          'text' => 'In included file.
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => 'In included file.
 '
+            },
+            {
+              'parent' => {},
+              'text' => 'In included file.
+'
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
         }
       ],
       'parent' => {},
-      'type' => 'paragraph'
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
+$result_trees{'double_include'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'double_include'}{'contents'}[0];
+$result_trees{'double_include'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'double_include'}{'contents'}[0]{'contents'}[1];
+$result_trees{'double_include'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'double_include'}{'contents'}[0]{'contents'}[1];
+$result_trees{'double_include'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'double_include'}{'contents'}[0];
 $result_trees{'double_include'}{'contents'}[0]{'parent'} = $result_trees{'double_include'};
-$result_trees{'double_include'}{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'double_include'}{'contents'}[1];
-$result_trees{'double_include'}{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'double_include'}{'contents'}[1];
-$result_trees{'double_include'}{'contents'}[1]{'parent'} = $result_trees{'double_include'};
 
 $result_texis{'double_include'} = '
 In included file.

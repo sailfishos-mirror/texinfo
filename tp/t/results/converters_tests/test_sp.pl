@@ -10,298 +10,305 @@ $result_trees{'test_sp'} = {
     {
       'contents' => [
         {
-          'parent' => {},
-          'text' => 'Para
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => 'Para
 '
-        }
-      ],
-      'parent' => {},
-      'type' => 'paragraph'
-    },
-    {
-      'args' => [
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
+        },
+        {
+          'args' => [
+            {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => '1'
+                }
+              ],
+              'extra' => {
+                'spaces_after_argument' => '
+'
+              },
+              'parent' => {},
+              'type' => 'line_arg'
+            }
+          ],
+          'cmdname' => 'sp',
+          'extra' => {
+            'misc_args' => [
+              '1'
+            ],
+            'spaces_before_argument' => ' '
+          },
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 2,
+            'macro' => ''
+          },
+          'parent' => {}
+        },
         {
           'contents' => [
             {
               'parent' => {},
-              'text' => '1'
+              'text' => 'other para
+'
+            },
+            {
+              'parent' => {},
+              'text' => 'Now lone '
+            },
+            {
+              'cmdname' => '@',
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => 'sp:
+'
             }
           ],
+          'parent' => {},
+          'type' => 'paragraph'
+        },
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'args' => [
+            {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => '1'
+                }
+              ],
+              'extra' => {
+                'spaces_after_argument' => '
+'
+              },
+              'parent' => {},
+              'type' => 'line_arg'
+            }
+          ],
+          'cmdname' => 'sp',
           'extra' => {
-            'spaces_after_argument' => '
-'
+            'misc_args' => [
+              '1'
+            ],
+            'spaces_before_argument' => ' '
           },
-          'parent' => {},
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'sp',
-      'extra' => {
-        'misc_args' => [
-          '1'
-        ],
-        'spaces_before_argument' => ' '
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 2,
-        'macro' => ''
-      },
-      'parent' => {}
-    },
-    {
-      'contents' => [
-        {
-          'parent' => {},
-          'text' => 'other para
-'
-        },
-        {
-          'parent' => {},
-          'text' => 'Now lone '
-        },
-        {
-          'cmdname' => '@',
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 6,
+            'macro' => ''
+          },
           'parent' => {}
         },
         {
           'parent' => {},
-          'text' => 'sp:
-'
-        }
-      ],
-      'parent' => {},
-      'type' => 'paragraph'
-    },
-    {
-      'parent' => {},
-      'text' => '
+          'text' => '
 ',
-      'type' => 'empty_line'
-    },
-    {
-      'args' => [
+          'type' => 'empty_line'
+        },
+        {
+          'args' => [
+            {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => '2'
+                }
+              ],
+              'extra' => {
+                'spaces_after_argument' => '
+'
+              },
+              'parent' => {},
+              'type' => 'line_arg'
+            }
+          ],
+          'cmdname' => 'sp',
+          'extra' => {
+            'misc_args' => [
+              '2'
+            ],
+            'spaces_before_argument' => ' '
+          },
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 8,
+            'macro' => ''
+          },
+          'parent' => {}
+        },
         {
           'contents' => [
             {
               'parent' => {},
-              'text' => '1'
+              'text' => 'Para after sp
+'
             }
           ],
-          'extra' => {
-            'spaces_after_argument' => '
-'
-          },
           'parent' => {},
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'sp',
-      'extra' => {
-        'misc_args' => [
-          '1'
-        ],
-        'spaces_before_argument' => ' '
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 6,
-        'macro' => ''
-      },
-      'parent' => {}
-    },
-    {
-      'parent' => {},
-      'text' => '
+          'type' => 'paragraph'
+        },
+        {
+          'parent' => {},
+          'text' => '
 ',
-      'type' => 'empty_line'
-    },
-    {
-      'args' => [
+          'type' => 'empty_line'
+        },
         {
           'contents' => [
             {
               'parent' => {},
-              'text' => '2'
+              'text' => 'A
+'
             }
           ],
+          'parent' => {},
+          'type' => 'paragraph'
+        },
+        {
+          'args' => [
+            {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => '2'
+                }
+              ],
+              'extra' => {
+                'spaces_after_argument' => '
+'
+              },
+              'parent' => {},
+              'type' => 'line_arg'
+            }
+          ],
+          'cmdname' => 'sp',
           'extra' => {
-            'spaces_after_argument' => '
-'
+            'misc_args' => [
+              '2'
+            ],
+            'spaces_before_argument' => ' '
           },
-          'parent' => {},
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'sp',
-      'extra' => {
-        'misc_args' => [
-          '2'
-        ],
-        'spaces_before_argument' => ' '
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 8,
-        'macro' => ''
-      },
-      'parent' => {}
-    },
-    {
-      'contents' => [
-        {
-          'parent' => {},
-          'text' => 'Para after sp
-'
-        }
-      ],
-      'parent' => {},
-      'type' => 'paragraph'
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'contents' => [
-        {
-          'parent' => {},
-          'text' => 'A
-'
-        }
-      ],
-      'parent' => {},
-      'type' => 'paragraph'
-    },
-    {
-      'args' => [
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 12,
+            'macro' => ''
+          },
+          'parent' => {}
+        },
         {
           'contents' => [
             {
               'parent' => {},
-              'text' => '2'
+              'text' => 'B
+'
             }
           ],
-          'extra' => {
-            'spaces_after_argument' => '
-'
-          },
           'parent' => {},
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'sp',
-      'extra' => {
-        'misc_args' => [
-          '2'
-        ],
-        'spaces_before_argument' => ' '
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 12,
-        'macro' => ''
-      },
-      'parent' => {}
-    },
-    {
-      'contents' => [
+          'type' => 'paragraph'
+        },
         {
           'parent' => {},
-          'text' => 'B
-'
-        }
-      ],
-      'parent' => {},
-      'type' => 'paragraph'
-    },
-    {
-      'parent' => {},
-      'text' => '
+          'text' => '
 ',
-      'type' => 'empty_line'
-    },
-    {
-      'contents' => [
-        {
-          'parent' => {},
-          'text' => 'sp after para
-'
-        }
-      ],
-      'parent' => {},
-      'type' => 'paragraph'
-    },
-    {
-      'args' => [
+          'type' => 'empty_line'
+        },
         {
           'contents' => [
             {
               'parent' => {},
-              'text' => '1'
+              'text' => 'sp after para
+'
             }
           ],
-          'extra' => {
-            'spaces_after_argument' => '
-'
-          },
           'parent' => {},
-          'type' => 'line_arg'
+          'type' => 'paragraph'
+        },
+        {
+          'args' => [
+            {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => '1'
+                }
+              ],
+              'extra' => {
+                'spaces_after_argument' => '
+'
+              },
+              'parent' => {},
+              'type' => 'line_arg'
+            }
+          ],
+          'cmdname' => 'sp',
+          'extra' => {
+            'misc_args' => [
+              '1'
+            ],
+            'spaces_before_argument' => ' '
+          },
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 16,
+            'macro' => ''
+          },
+          'parent' => {}
         }
       ],
-      'cmdname' => 'sp',
-      'extra' => {
-        'misc_args' => [
-          '1'
-        ],
-        'spaces_before_argument' => ' '
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 16,
-        'macro' => ''
-      },
-      'parent' => {}
+      'parent' => {},
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
+$result_trees{'test_sp'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_sp'}{'contents'}[0]{'contents'}[0];
 $result_trees{'test_sp'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_sp'}{'contents'}[0];
+$result_trees{'test_sp'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_sp'}{'contents'}[0]{'contents'}[1]{'args'}[0];
+$result_trees{'test_sp'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'test_sp'}{'contents'}[0]{'contents'}[1];
+$result_trees{'test_sp'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'test_sp'}{'contents'}[0];
+$result_trees{'test_sp'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'test_sp'}{'contents'}[0]{'contents'}[2];
+$result_trees{'test_sp'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'test_sp'}{'contents'}[0]{'contents'}[2];
+$result_trees{'test_sp'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'test_sp'}{'contents'}[0]{'contents'}[2];
+$result_trees{'test_sp'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'parent'} = $result_trees{'test_sp'}{'contents'}[0]{'contents'}[2];
+$result_trees{'test_sp'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'test_sp'}{'contents'}[0];
+$result_trees{'test_sp'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'test_sp'}{'contents'}[0];
+$result_trees{'test_sp'}{'contents'}[0]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_sp'}{'contents'}[0]{'contents'}[4]{'args'}[0];
+$result_trees{'test_sp'}{'contents'}[0]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'test_sp'}{'contents'}[0]{'contents'}[4];
+$result_trees{'test_sp'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'test_sp'}{'contents'}[0];
+$result_trees{'test_sp'}{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'test_sp'}{'contents'}[0];
+$result_trees{'test_sp'}{'contents'}[0]{'contents'}[6]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_sp'}{'contents'}[0]{'contents'}[6]{'args'}[0];
+$result_trees{'test_sp'}{'contents'}[0]{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'test_sp'}{'contents'}[0]{'contents'}[6];
+$result_trees{'test_sp'}{'contents'}[0]{'contents'}[6]{'parent'} = $result_trees{'test_sp'}{'contents'}[0];
+$result_trees{'test_sp'}{'contents'}[0]{'contents'}[7]{'contents'}[0]{'parent'} = $result_trees{'test_sp'}{'contents'}[0]{'contents'}[7];
+$result_trees{'test_sp'}{'contents'}[0]{'contents'}[7]{'parent'} = $result_trees{'test_sp'}{'contents'}[0];
+$result_trees{'test_sp'}{'contents'}[0]{'contents'}[8]{'parent'} = $result_trees{'test_sp'}{'contents'}[0];
+$result_trees{'test_sp'}{'contents'}[0]{'contents'}[9]{'contents'}[0]{'parent'} = $result_trees{'test_sp'}{'contents'}[0]{'contents'}[9];
+$result_trees{'test_sp'}{'contents'}[0]{'contents'}[9]{'parent'} = $result_trees{'test_sp'}{'contents'}[0];
+$result_trees{'test_sp'}{'contents'}[0]{'contents'}[10]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_sp'}{'contents'}[0]{'contents'}[10]{'args'}[0];
+$result_trees{'test_sp'}{'contents'}[0]{'contents'}[10]{'args'}[0]{'parent'} = $result_trees{'test_sp'}{'contents'}[0]{'contents'}[10];
+$result_trees{'test_sp'}{'contents'}[0]{'contents'}[10]{'parent'} = $result_trees{'test_sp'}{'contents'}[0];
+$result_trees{'test_sp'}{'contents'}[0]{'contents'}[11]{'contents'}[0]{'parent'} = $result_trees{'test_sp'}{'contents'}[0]{'contents'}[11];
+$result_trees{'test_sp'}{'contents'}[0]{'contents'}[11]{'parent'} = $result_trees{'test_sp'}{'contents'}[0];
+$result_trees{'test_sp'}{'contents'}[0]{'contents'}[12]{'parent'} = $result_trees{'test_sp'}{'contents'}[0];
+$result_trees{'test_sp'}{'contents'}[0]{'contents'}[13]{'contents'}[0]{'parent'} = $result_trees{'test_sp'}{'contents'}[0]{'contents'}[13];
+$result_trees{'test_sp'}{'contents'}[0]{'contents'}[13]{'parent'} = $result_trees{'test_sp'}{'contents'}[0];
+$result_trees{'test_sp'}{'contents'}[0]{'contents'}[14]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_sp'}{'contents'}[0]{'contents'}[14]{'args'}[0];
+$result_trees{'test_sp'}{'contents'}[0]{'contents'}[14]{'args'}[0]{'parent'} = $result_trees{'test_sp'}{'contents'}[0]{'contents'}[14];
+$result_trees{'test_sp'}{'contents'}[0]{'contents'}[14]{'parent'} = $result_trees{'test_sp'}{'contents'}[0];
 $result_trees{'test_sp'}{'contents'}[0]{'parent'} = $result_trees{'test_sp'};
-$result_trees{'test_sp'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_sp'}{'contents'}[1]{'args'}[0];
-$result_trees{'test_sp'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'test_sp'}{'contents'}[1];
-$result_trees{'test_sp'}{'contents'}[1]{'parent'} = $result_trees{'test_sp'};
-$result_trees{'test_sp'}{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'test_sp'}{'contents'}[2];
-$result_trees{'test_sp'}{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'test_sp'}{'contents'}[2];
-$result_trees{'test_sp'}{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'test_sp'}{'contents'}[2];
-$result_trees{'test_sp'}{'contents'}[2]{'contents'}[3]{'parent'} = $result_trees{'test_sp'}{'contents'}[2];
-$result_trees{'test_sp'}{'contents'}[2]{'parent'} = $result_trees{'test_sp'};
-$result_trees{'test_sp'}{'contents'}[3]{'parent'} = $result_trees{'test_sp'};
-$result_trees{'test_sp'}{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_sp'}{'contents'}[4]{'args'}[0];
-$result_trees{'test_sp'}{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'test_sp'}{'contents'}[4];
-$result_trees{'test_sp'}{'contents'}[4]{'parent'} = $result_trees{'test_sp'};
-$result_trees{'test_sp'}{'contents'}[5]{'parent'} = $result_trees{'test_sp'};
-$result_trees{'test_sp'}{'contents'}[6]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_sp'}{'contents'}[6]{'args'}[0];
-$result_trees{'test_sp'}{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'test_sp'}{'contents'}[6];
-$result_trees{'test_sp'}{'contents'}[6]{'parent'} = $result_trees{'test_sp'};
-$result_trees{'test_sp'}{'contents'}[7]{'contents'}[0]{'parent'} = $result_trees{'test_sp'}{'contents'}[7];
-$result_trees{'test_sp'}{'contents'}[7]{'parent'} = $result_trees{'test_sp'};
-$result_trees{'test_sp'}{'contents'}[8]{'parent'} = $result_trees{'test_sp'};
-$result_trees{'test_sp'}{'contents'}[9]{'contents'}[0]{'parent'} = $result_trees{'test_sp'}{'contents'}[9];
-$result_trees{'test_sp'}{'contents'}[9]{'parent'} = $result_trees{'test_sp'};
-$result_trees{'test_sp'}{'contents'}[10]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_sp'}{'contents'}[10]{'args'}[0];
-$result_trees{'test_sp'}{'contents'}[10]{'args'}[0]{'parent'} = $result_trees{'test_sp'}{'contents'}[10];
-$result_trees{'test_sp'}{'contents'}[10]{'parent'} = $result_trees{'test_sp'};
-$result_trees{'test_sp'}{'contents'}[11]{'contents'}[0]{'parent'} = $result_trees{'test_sp'}{'contents'}[11];
-$result_trees{'test_sp'}{'contents'}[11]{'parent'} = $result_trees{'test_sp'};
-$result_trees{'test_sp'}{'contents'}[12]{'parent'} = $result_trees{'test_sp'};
-$result_trees{'test_sp'}{'contents'}[13]{'contents'}[0]{'parent'} = $result_trees{'test_sp'}{'contents'}[13];
-$result_trees{'test_sp'}{'contents'}[13]{'parent'} = $result_trees{'test_sp'};
-$result_trees{'test_sp'}{'contents'}[14]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'test_sp'}{'contents'}[14]{'args'}[0];
-$result_trees{'test_sp'}{'contents'}[14]{'args'}[0]{'parent'} = $result_trees{'test_sp'}{'contents'}[14];
-$result_trees{'test_sp'}{'contents'}[14]{'parent'} = $result_trees{'test_sp'};
 
 $result_texis{'test_sp'} = 'Para
 @sp 1

@@ -10,110 +10,117 @@ $result_trees{'indicateurl_end_lines'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'contents' => [
             {
-              'contents' => [
+              'args' => [
                 {
-                  'parent' => {},
-                  'text' => 'http://begin
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'http://begin
 '
-                },
-                {
+                    },
+                    {
+                      'parent' => {},
+                      'text' => 'continue on other line'
+                    }
+                  ],
                   'parent' => {},
-                  'text' => 'continue on other line'
+                  'type' => 'brace_command_arg'
                 }
               ],
+              'cmdname' => 'indicateurl',
+              'contents' => [],
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 1,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
               'parent' => {},
-              'type' => 'brace_command_arg'
+              'text' => '
+'
             }
           ],
-          'cmdname' => 'indicateurl',
-          'contents' => [],
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
-          },
-          'parent' => {}
+          'parent' => {},
+          'type' => 'paragraph'
         },
         {
           'parent' => {},
           'text' => '
-'
-        }
-      ],
-      'parent' => {},
-      'type' => 'paragraph'
-    },
-    {
-      'parent' => {},
-      'text' => '
 ',
-      'type' => 'empty_line'
-    },
-    {
-      'contents' => [
+          'type' => 'empty_line'
+        },
         {
-          'args' => [
+          'contents' => [
             {
-              'contents' => [
+              'args' => [
                 {
-                  'parent' => {},
-                  'text' => 'http://begin2
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'http://begin2
 '
-                },
-                {
-                  'parent' => {},
-                  'text' => '
+                    },
+                    {
+                      'parent' => {},
+                      'text' => '
 ',
-                  'type' => 'empty_line'
+                      'type' => 'empty_line'
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
                 }
               ],
-              'parent' => {},
-              'type' => 'brace_command_arg'
+              'cmdname' => 'indicateurl',
+              'contents' => [],
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 4,
+                'macro' => ''
+              },
+              'parent' => {}
             }
           ],
-          'cmdname' => 'indicateurl',
-          'contents' => [],
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 4,
-            'macro' => ''
-          },
-          'parent' => {}
-        }
-      ],
-      'parent' => {},
-      'type' => 'paragraph'
-    },
-    {
-      'contents' => [
-        {
           'parent' => {},
-          'text' => 'cut by blank line
+          'type' => 'paragraph'
+        },
+        {
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => 'cut by blank line
 '
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
         }
       ],
       'parent' => {},
-      'type' => 'paragraph'
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
-$result_trees{'indicateurl_end_lines'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'indicateurl_end_lines'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'indicateurl_end_lines'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'indicateurl_end_lines'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'indicateurl_end_lines'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'indicateurl_end_lines'}{'contents'}[0]{'contents'}[0];
+$result_trees{'indicateurl_end_lines'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'indicateurl_end_lines'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'indicateurl_end_lines'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'indicateurl_end_lines'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'indicateurl_end_lines'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'indicateurl_end_lines'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'indicateurl_end_lines'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'indicateurl_end_lines'}{'contents'}[0]{'contents'}[0];
+$result_trees{'indicateurl_end_lines'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'indicateurl_end_lines'}{'contents'}[0]{'contents'}[0];
 $result_trees{'indicateurl_end_lines'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'indicateurl_end_lines'}{'contents'}[0];
 $result_trees{'indicateurl_end_lines'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'indicateurl_end_lines'}{'contents'}[0];
+$result_trees{'indicateurl_end_lines'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'indicateurl_end_lines'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0];
+$result_trees{'indicateurl_end_lines'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'indicateurl_end_lines'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0];
+$result_trees{'indicateurl_end_lines'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'indicateurl_end_lines'}{'contents'}[0]{'contents'}[2]{'contents'}[0];
+$result_trees{'indicateurl_end_lines'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'indicateurl_end_lines'}{'contents'}[0]{'contents'}[2];
+$result_trees{'indicateurl_end_lines'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'indicateurl_end_lines'}{'contents'}[0];
+$result_trees{'indicateurl_end_lines'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'indicateurl_end_lines'}{'contents'}[0]{'contents'}[3];
+$result_trees{'indicateurl_end_lines'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'indicateurl_end_lines'}{'contents'}[0];
 $result_trees{'indicateurl_end_lines'}{'contents'}[0]{'parent'} = $result_trees{'indicateurl_end_lines'};
-$result_trees{'indicateurl_end_lines'}{'contents'}[1]{'parent'} = $result_trees{'indicateurl_end_lines'};
-$result_trees{'indicateurl_end_lines'}{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'indicateurl_end_lines'}{'contents'}[2]{'contents'}[0]{'args'}[0];
-$result_trees{'indicateurl_end_lines'}{'contents'}[2]{'contents'}[0]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'indicateurl_end_lines'}{'contents'}[2]{'contents'}[0]{'args'}[0];
-$result_trees{'indicateurl_end_lines'}{'contents'}[2]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'indicateurl_end_lines'}{'contents'}[2]{'contents'}[0];
-$result_trees{'indicateurl_end_lines'}{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'indicateurl_end_lines'}{'contents'}[2];
-$result_trees{'indicateurl_end_lines'}{'contents'}[2]{'parent'} = $result_trees{'indicateurl_end_lines'};
-$result_trees{'indicateurl_end_lines'}{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'indicateurl_end_lines'}{'contents'}[3];
-$result_trees{'indicateurl_end_lines'}{'contents'}[3]{'parent'} = $result_trees{'indicateurl_end_lines'};
 
 $result_texis{'indicateurl_end_lines'} = '@indicateurl{http://begin
 continue on other line}

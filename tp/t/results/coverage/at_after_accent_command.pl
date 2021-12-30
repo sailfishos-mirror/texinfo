@@ -10,58 +10,65 @@ $result_trees{'at_after_accent_command'} = {
     {
       'contents' => [
         {
-          'cmdname' => 'ringaccent',
-          'contents' => [],
-          'extra' => {
-            'spaces' => ' '
-          },
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
-          'cmdname' => '@',
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '. '
-        },
-        {
-          'cmdname' => '^',
-          'contents' => [],
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
-          'cmdname' => '@',
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '.
+          'contents' => [
+            {
+              'cmdname' => 'ringaccent',
+              'contents' => [],
+              'extra' => {
+                'spaces' => ' '
+              },
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 1,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
+              'cmdname' => '@',
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => '. '
+            },
+            {
+              'cmdname' => '^',
+              'contents' => [],
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 1,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
+              'cmdname' => '@',
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => '.
 '
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
         }
       ],
       'parent' => {},
-      'type' => 'paragraph'
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
+$result_trees{'at_after_accent_command'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'at_after_accent_command'}{'contents'}[0]{'contents'}[0];
+$result_trees{'at_after_accent_command'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'at_after_accent_command'}{'contents'}[0]{'contents'}[0];
+$result_trees{'at_after_accent_command'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'at_after_accent_command'}{'contents'}[0]{'contents'}[0];
+$result_trees{'at_after_accent_command'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'at_after_accent_command'}{'contents'}[0]{'contents'}[0];
+$result_trees{'at_after_accent_command'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'at_after_accent_command'}{'contents'}[0]{'contents'}[0];
+$result_trees{'at_after_accent_command'}{'contents'}[0]{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'at_after_accent_command'}{'contents'}[0]{'contents'}[0];
 $result_trees{'at_after_accent_command'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'at_after_accent_command'}{'contents'}[0];
-$result_trees{'at_after_accent_command'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'at_after_accent_command'}{'contents'}[0];
-$result_trees{'at_after_accent_command'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'at_after_accent_command'}{'contents'}[0];
-$result_trees{'at_after_accent_command'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'at_after_accent_command'}{'contents'}[0];
-$result_trees{'at_after_accent_command'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'at_after_accent_command'}{'contents'}[0];
-$result_trees{'at_after_accent_command'}{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'at_after_accent_command'}{'contents'}[0];
 $result_trees{'at_after_accent_command'}{'contents'}[0]{'parent'} = $result_trees{'at_after_accent_command'};
 
 $result_texis{'at_after_accent_command'} = '@ringaccent @@. @^@@.

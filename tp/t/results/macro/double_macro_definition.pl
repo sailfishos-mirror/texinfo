@@ -8,75 +8,82 @@ use utf8;
 $result_trees{'double_macro_definition'} = {
   'contents' => [
     {
-      'args' => [
+      'contents' => [
+        {
+          'args' => [
+            {
+              'parent' => {},
+              'text' => 'foo',
+              'type' => 'macro_name'
+            }
+          ],
+          'cmdname' => 'macro',
+          'contents' => [],
+          'extra' => {
+            'arg_line' => ' foo
+'
+          },
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 1,
+            'macro' => ''
+          },
+          'parent' => {}
+        },
         {
           'parent' => {},
-          'text' => 'foo',
-          'type' => 'macro_name'
-        }
-      ],
-      'cmdname' => 'macro',
-      'contents' => [],
-      'extra' => {
-        'arg_line' => ' foo
-'
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
-      },
-      'parent' => {}
-    },
-    {
-      'parent' => {},
-      'text' => '
+          'text' => '
 ',
-      'type' => 'empty_line_after_command'
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'args' => [
+          'type' => 'empty_line_after_command'
+        },
         {
           'parent' => {},
-          'text' => 'foo',
-          'type' => 'macro_name'
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'args' => [
+            {
+              'parent' => {},
+              'text' => 'foo',
+              'type' => 'macro_name'
+            }
+          ],
+          'cmdname' => 'macro',
+          'contents' => [],
+          'extra' => {
+            'arg_line' => ' foo
+'
+          },
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 4,
+            'macro' => ''
+          },
+          'parent' => {}
+        },
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line_after_command'
         }
       ],
-      'cmdname' => 'macro',
-      'contents' => [],
-      'extra' => {
-        'arg_line' => ' foo
-'
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 4,
-        'macro' => ''
-      },
-      'parent' => {}
-    },
-    {
       'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line_after_command'
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
-$result_trees{'double_macro_definition'}{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'double_macro_definition'}{'contents'}[0];
+$result_trees{'double_macro_definition'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'double_macro_definition'}{'contents'}[0]{'contents'}[0];
+$result_trees{'double_macro_definition'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'double_macro_definition'}{'contents'}[0];
+$result_trees{'double_macro_definition'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'double_macro_definition'}{'contents'}[0];
+$result_trees{'double_macro_definition'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'double_macro_definition'}{'contents'}[0];
+$result_trees{'double_macro_definition'}{'contents'}[0]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'double_macro_definition'}{'contents'}[0]{'contents'}[3];
+$result_trees{'double_macro_definition'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'double_macro_definition'}{'contents'}[0];
+$result_trees{'double_macro_definition'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'double_macro_definition'}{'contents'}[0];
 $result_trees{'double_macro_definition'}{'contents'}[0]{'parent'} = $result_trees{'double_macro_definition'};
-$result_trees{'double_macro_definition'}{'contents'}[1]{'parent'} = $result_trees{'double_macro_definition'};
-$result_trees{'double_macro_definition'}{'contents'}[2]{'parent'} = $result_trees{'double_macro_definition'};
-$result_trees{'double_macro_definition'}{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'double_macro_definition'}{'contents'}[3];
-$result_trees{'double_macro_definition'}{'contents'}[3]{'parent'} = $result_trees{'double_macro_definition'};
-$result_trees{'double_macro_definition'}{'contents'}[4]{'parent'} = $result_trees{'double_macro_definition'};
 
 $result_texis{'double_macro_definition'} = '@macro foo
 @end macro

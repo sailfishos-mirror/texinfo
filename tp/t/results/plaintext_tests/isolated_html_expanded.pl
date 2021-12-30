@@ -8,88 +8,95 @@ use utf8;
 $result_trees{'isolated_html_expanded'} = {
   'contents' => [
     {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'cmdname' => 'html',
       'contents' => [
         {
-          'extra' => {
-            'command' => {}
-          },
           'parent' => {},
           'text' => '
 ',
-          'type' => 'empty_line_after_command'
+          'type' => 'empty_line'
         },
         {
+          'cmdname' => 'html',
           'contents' => [
             {
+              'extra' => {
+                'command' => {}
+              },
               'parent' => {},
-              'text' => 'html
-'
-            }
-          ],
-          'parent' => {},
-          'type' => 'rawpreformatted'
-        },
-        {
-          'args' => [
+              'text' => '
+',
+              'type' => 'empty_line_after_command'
+            },
             {
               'contents' => [
                 {
                   'parent' => {},
-                  'text' => 'html'
+                  'text' => 'html
+'
                 }
               ],
-              'extra' => {
-                'spaces_after_argument' => '
-'
-              },
               'parent' => {},
-              'type' => 'line_arg'
+              'type' => 'rawpreformatted'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'html'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
+                  'parent' => {},
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'end',
+              'extra' => {
+                'command_argument' => 'html',
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'html'
+              },
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 4,
+                'macro' => ''
+              },
+              'parent' => {}
             }
           ],
-          'cmdname' => 'end',
           'extra' => {
-            'command_argument' => 'html',
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'html'
+            'end_command' => {}
           },
           'line_nr' => {
             'file_name' => '',
-            'line_nr' => 4,
+            'line_nr' => 2,
             'macro' => ''
           },
           'parent' => {}
         }
       ],
-      'extra' => {
-        'end_command' => {}
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 2,
-        'macro' => ''
-      },
-      'parent' => {}
+      'parent' => {},
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
+$result_trees{'isolated_html_expanded'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'isolated_html_expanded'}{'contents'}[0];
+$result_trees{'isolated_html_expanded'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'extra'}{'command'} = $result_trees{'isolated_html_expanded'}{'contents'}[0]{'contents'}[1];
+$result_trees{'isolated_html_expanded'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'isolated_html_expanded'}{'contents'}[0]{'contents'}[1];
+$result_trees{'isolated_html_expanded'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'isolated_html_expanded'}{'contents'}[0]{'contents'}[1]{'contents'}[1];
+$result_trees{'isolated_html_expanded'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'isolated_html_expanded'}{'contents'}[0]{'contents'}[1];
+$result_trees{'isolated_html_expanded'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'isolated_html_expanded'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'args'}[0];
+$result_trees{'isolated_html_expanded'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'isolated_html_expanded'}{'contents'}[0]{'contents'}[1]{'contents'}[2];
+$result_trees{'isolated_html_expanded'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'isolated_html_expanded'}{'contents'}[0]{'contents'}[1];
+$result_trees{'isolated_html_expanded'}{'contents'}[0]{'contents'}[1]{'extra'}{'end_command'} = $result_trees{'isolated_html_expanded'}{'contents'}[0]{'contents'}[1]{'contents'}[2];
+$result_trees{'isolated_html_expanded'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'isolated_html_expanded'}{'contents'}[0];
 $result_trees{'isolated_html_expanded'}{'contents'}[0]{'parent'} = $result_trees{'isolated_html_expanded'};
-$result_trees{'isolated_html_expanded'}{'contents'}[1]{'contents'}[0]{'extra'}{'command'} = $result_trees{'isolated_html_expanded'}{'contents'}[1];
-$result_trees{'isolated_html_expanded'}{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'isolated_html_expanded'}{'contents'}[1];
-$result_trees{'isolated_html_expanded'}{'contents'}[1]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'isolated_html_expanded'}{'contents'}[1]{'contents'}[1];
-$result_trees{'isolated_html_expanded'}{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'isolated_html_expanded'}{'contents'}[1];
-$result_trees{'isolated_html_expanded'}{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'isolated_html_expanded'}{'contents'}[1]{'contents'}[2]{'args'}[0];
-$result_trees{'isolated_html_expanded'}{'contents'}[1]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'isolated_html_expanded'}{'contents'}[1]{'contents'}[2];
-$result_trees{'isolated_html_expanded'}{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'isolated_html_expanded'}{'contents'}[1];
-$result_trees{'isolated_html_expanded'}{'contents'}[1]{'extra'}{'end_command'} = $result_trees{'isolated_html_expanded'}{'contents'}[1]{'contents'}[2];
-$result_trees{'isolated_html_expanded'}{'contents'}[1]{'parent'} = $result_trees{'isolated_html_expanded'};
 
 $result_texis{'isolated_html_expanded'} = '
 @html

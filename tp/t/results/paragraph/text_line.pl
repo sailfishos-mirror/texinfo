@@ -8,35 +8,42 @@ use utf8;
 $result_trees{'text_line'} = {
   'contents' => [
     {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
       'contents' => [
         {
           'parent' => {},
-          'text' => 'text
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => 'text
 '
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
+        },
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
         }
       ],
       'parent' => {},
-      'type' => 'paragraph'
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
+$result_trees{'text_line'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'text_line'}{'contents'}[0];
+$result_trees{'text_line'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'text_line'}{'contents'}[0]{'contents'}[1];
+$result_trees{'text_line'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'text_line'}{'contents'}[0];
+$result_trees{'text_line'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'text_line'}{'contents'}[0];
 $result_trees{'text_line'}{'contents'}[0]{'parent'} = $result_trees{'text_line'};
-$result_trees{'text_line'}{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'text_line'}{'contents'}[1];
-$result_trees{'text_line'}{'contents'}[1]{'parent'} = $result_trees{'text_line'};
-$result_trees{'text_line'}{'contents'}[2]{'parent'} = $result_trees{'text_line'};
 
 $result_texis{'text_line'} = '
 text

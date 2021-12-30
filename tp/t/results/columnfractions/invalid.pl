@@ -8,8 +8,45 @@ use utf8;
 $result_trees{'invalid'} = {
   'contents' => [
     {
-      'args' => [
+      'contents' => [
         {
+          'args' => [
+            {
+              'contents' => [
+                {
+                  'args' => [
+                    {
+                      'contents' => [
+                        {
+                          'parent' => {},
+                          'text' => '2x.2 2.23x'
+                        }
+                      ],
+                      'extra' => {
+                        'spaces_after_argument' => '
+'
+                      },
+                      'parent' => {},
+                      'type' => 'line_arg'
+                    }
+                  ],
+                  'cmdname' => 'columnfractions',
+                  'extra' => {
+                    'spaces_before_argument' => ' '
+                  },
+                  'line_nr' => {
+                    'file_name' => '',
+                    'line_nr' => 1,
+                    'macro' => ''
+                  },
+                  'parent' => {}
+                }
+              ],
+              'parent' => {},
+              'type' => 'block_line_arg'
+            }
+          ],
+          'cmdname' => 'multitable',
           'contents' => [
             {
               'args' => [
@@ -17,85 +54,55 @@ $result_trees{'invalid'} = {
                   'contents' => [
                     {
                       'parent' => {},
-                      'text' => '2x.2 2.23x'
+                      'text' => 'multitable'
                     }
                   ],
-                  'extra' => {
-                    'spaces_after_argument' => '
-'
-                  },
                   'parent' => {},
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'columnfractions',
+              'cmdname' => 'end',
               'extra' => {
-                'spaces_before_argument' => ' '
+                'command_argument' => 'multitable',
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'multitable'
               },
               'line_nr' => {
                 'file_name' => '',
-                'line_nr' => 1,
+                'line_nr' => 2,
                 'macro' => ''
               },
               'parent' => {}
             }
           ],
-          'parent' => {},
-          'type' => 'block_line_arg'
-        }
-      ],
-      'cmdname' => 'multitable',
-      'contents' => [
-        {
-          'args' => [
-            {
-              'contents' => [
-                {
-                  'parent' => {},
-                  'text' => 'multitable'
-                }
-              ],
-              'parent' => {},
-              'type' => 'line_arg'
-            }
-          ],
-          'cmdname' => 'end',
           'extra' => {
-            'command_argument' => 'multitable',
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'multitable'
+            'end_command' => {},
+            'max_columns' => 0,
+            'spaces_before_argument' => ' '
           },
           'line_nr' => {
             'file_name' => '',
-            'line_nr' => 2,
+            'line_nr' => 1,
             'macro' => ''
           },
           'parent' => {}
         }
       ],
-      'extra' => {
-        'end_command' => {},
-        'max_columns' => 0,
-        'spaces_before_argument' => ' '
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
-      },
-      'parent' => {}
+      'parent' => {},
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
-$result_trees{'invalid'}{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'invalid'}{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'invalid'}{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'invalid'}{'contents'}[0]{'args'}[0]{'contents'}[0];
-$result_trees{'invalid'}{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'invalid'}{'contents'}[0]{'args'}[0];
-$result_trees{'invalid'}{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'invalid'}{'contents'}[0];
+$result_trees{'invalid'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'invalid'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'invalid'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'invalid'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0];
 $result_trees{'invalid'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'invalid'}{'contents'}[0]{'contents'}[0]{'args'}[0];
 $result_trees{'invalid'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'invalid'}{'contents'}[0]{'contents'}[0];
+$result_trees{'invalid'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'invalid'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'invalid'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'invalid'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'invalid'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'invalid'}{'contents'}[0]{'contents'}[0];
+$result_trees{'invalid'}{'contents'}[0]{'contents'}[0]{'extra'}{'end_command'} = $result_trees{'invalid'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'invalid'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'invalid'}{'contents'}[0];
-$result_trees{'invalid'}{'contents'}[0]{'extra'}{'end_command'} = $result_trees{'invalid'}{'contents'}[0]{'contents'}[0];
 $result_trees{'invalid'}{'contents'}[0]{'parent'} = $result_trees{'invalid'};
 
 $result_texis{'invalid'} = '@multitable @columnfractions 2x.2 2.23x

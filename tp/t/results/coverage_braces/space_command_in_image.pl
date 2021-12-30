@@ -8,117 +8,124 @@ use utf8;
 $result_trees{'space_command_in_image'} = {
   'contents' => [
     {
-      'args' => [
+      'contents' => [
         {
-          'contents' => [
+          'args' => [
             {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => 'f--ile'
+                }
+              ],
               'parent' => {},
-              'text' => 'f--ile'
-            }
-          ],
-          'parent' => {},
-          'type' => 'brace_command_arg'
-        },
-        {
-          'contents' => [],
-          'parent' => {},
-          'type' => 'brace_command_arg'
-        },
-        {
-          'contents' => [],
-          'parent' => {},
-          'type' => 'brace_command_arg'
-        },
-        {
-          'contents' => [
+              'type' => 'brace_command_arg'
+            },
             {
-              'cmdname' => ' ',
-              'parent' => {}
+              'contents' => [],
+              'parent' => {},
+              'type' => 'brace_command_arg'
+            },
+            {
+              'contents' => [],
+              'parent' => {},
+              'type' => 'brace_command_arg'
+            },
+            {
+              'contents' => [
+                {
+                  'cmdname' => ' ',
+                  'parent' => {}
+                }
+              ],
+              'parent' => {},
+              'type' => 'brace_command_arg'
             }
           ],
+          'cmdname' => 'image',
+          'contents' => [],
+          'extra' => {
+            'input_perl_encoding' => 'utf-8'
+          },
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 1,
+            'macro' => ''
+          },
+          'parent' => {}
+        },
+        {
           'parent' => {},
-          'type' => 'brace_command_arg'
+          'text' => ' '
+        },
+        {
+          'args' => [
+            {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => 'f--ile'
+                }
+              ],
+              'parent' => {},
+              'type' => 'brace_command_arg'
+            },
+            {
+              'contents' => [],
+              'parent' => {},
+              'type' => 'brace_command_arg'
+            },
+            {
+              'contents' => [],
+              'parent' => {},
+              'type' => 'brace_command_arg'
+            },
+            {
+              'contents' => [
+                {
+                  'cmdname' => ':',
+                  'parent' => {}
+                }
+              ],
+              'parent' => {},
+              'type' => 'brace_command_arg'
+            }
+          ],
+          'cmdname' => 'image',
+          'contents' => [],
+          'extra' => {
+            'input_perl_encoding' => 'utf-8'
+          },
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 1,
+            'macro' => ''
+          },
+          'parent' => {}
         }
       ],
-      'cmdname' => 'image',
-      'contents' => [],
-      'extra' => {
-        'input_perl_encoding' => 'utf-8'
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
-      },
-      'parent' => {}
-    },
-    {
       'parent' => {},
-      'text' => ' '
-    },
-    {
-      'args' => [
-        {
-          'contents' => [
-            {
-              'parent' => {},
-              'text' => 'f--ile'
-            }
-          ],
-          'parent' => {},
-          'type' => 'brace_command_arg'
-        },
-        {
-          'contents' => [],
-          'parent' => {},
-          'type' => 'brace_command_arg'
-        },
-        {
-          'contents' => [],
-          'parent' => {},
-          'type' => 'brace_command_arg'
-        },
-        {
-          'contents' => [
-            {
-              'cmdname' => ':',
-              'parent' => {}
-            }
-          ],
-          'parent' => {},
-          'type' => 'brace_command_arg'
-        }
-      ],
-      'cmdname' => 'image',
-      'contents' => [],
-      'extra' => {
-        'input_perl_encoding' => 'utf-8'
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
-      },
-      'parent' => {}
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
-$result_trees{'space_command_in_image'}{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'space_command_in_image'}{'contents'}[0]{'args'}[0];
-$result_trees{'space_command_in_image'}{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'space_command_in_image'}{'contents'}[0];
-$result_trees{'space_command_in_image'}{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'space_command_in_image'}{'contents'}[0];
-$result_trees{'space_command_in_image'}{'contents'}[0]{'args'}[2]{'parent'} = $result_trees{'space_command_in_image'}{'contents'}[0];
-$result_trees{'space_command_in_image'}{'contents'}[0]{'args'}[3]{'contents'}[0]{'parent'} = $result_trees{'space_command_in_image'}{'contents'}[0]{'args'}[3];
-$result_trees{'space_command_in_image'}{'contents'}[0]{'args'}[3]{'parent'} = $result_trees{'space_command_in_image'}{'contents'}[0];
+$result_trees{'space_command_in_image'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'space_command_in_image'}{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'space_command_in_image'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'space_command_in_image'}{'contents'}[0]{'contents'}[0];
+$result_trees{'space_command_in_image'}{'contents'}[0]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'space_command_in_image'}{'contents'}[0]{'contents'}[0];
+$result_trees{'space_command_in_image'}{'contents'}[0]{'contents'}[0]{'args'}[2]{'parent'} = $result_trees{'space_command_in_image'}{'contents'}[0]{'contents'}[0];
+$result_trees{'space_command_in_image'}{'contents'}[0]{'contents'}[0]{'args'}[3]{'contents'}[0]{'parent'} = $result_trees{'space_command_in_image'}{'contents'}[0]{'contents'}[0]{'args'}[3];
+$result_trees{'space_command_in_image'}{'contents'}[0]{'contents'}[0]{'args'}[3]{'parent'} = $result_trees{'space_command_in_image'}{'contents'}[0]{'contents'}[0];
+$result_trees{'space_command_in_image'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'space_command_in_image'}{'contents'}[0];
+$result_trees{'space_command_in_image'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'space_command_in_image'}{'contents'}[0];
+$result_trees{'space_command_in_image'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'space_command_in_image'}{'contents'}[0]{'contents'}[2]{'args'}[0];
+$result_trees{'space_command_in_image'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'space_command_in_image'}{'contents'}[0]{'contents'}[2];
+$result_trees{'space_command_in_image'}{'contents'}[0]{'contents'}[2]{'args'}[1]{'parent'} = $result_trees{'space_command_in_image'}{'contents'}[0]{'contents'}[2];
+$result_trees{'space_command_in_image'}{'contents'}[0]{'contents'}[2]{'args'}[2]{'parent'} = $result_trees{'space_command_in_image'}{'contents'}[0]{'contents'}[2];
+$result_trees{'space_command_in_image'}{'contents'}[0]{'contents'}[2]{'args'}[3]{'contents'}[0]{'parent'} = $result_trees{'space_command_in_image'}{'contents'}[0]{'contents'}[2]{'args'}[3];
+$result_trees{'space_command_in_image'}{'contents'}[0]{'contents'}[2]{'args'}[3]{'parent'} = $result_trees{'space_command_in_image'}{'contents'}[0]{'contents'}[2];
+$result_trees{'space_command_in_image'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'space_command_in_image'}{'contents'}[0];
 $result_trees{'space_command_in_image'}{'contents'}[0]{'parent'} = $result_trees{'space_command_in_image'};
-$result_trees{'space_command_in_image'}{'contents'}[1]{'parent'} = $result_trees{'space_command_in_image'};
-$result_trees{'space_command_in_image'}{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'space_command_in_image'}{'contents'}[2]{'args'}[0];
-$result_trees{'space_command_in_image'}{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'space_command_in_image'}{'contents'}[2];
-$result_trees{'space_command_in_image'}{'contents'}[2]{'args'}[1]{'parent'} = $result_trees{'space_command_in_image'}{'contents'}[2];
-$result_trees{'space_command_in_image'}{'contents'}[2]{'args'}[2]{'parent'} = $result_trees{'space_command_in_image'}{'contents'}[2];
-$result_trees{'space_command_in_image'}{'contents'}[2]{'args'}[3]{'contents'}[0]{'parent'} = $result_trees{'space_command_in_image'}{'contents'}[2]{'args'}[3];
-$result_trees{'space_command_in_image'}{'contents'}[2]{'args'}[3]{'parent'} = $result_trees{'space_command_in_image'}{'contents'}[2];
-$result_trees{'space_command_in_image'}{'contents'}[2]{'parent'} = $result_trees{'space_command_in_image'};
 
 $result_texis{'space_command_in_image'} = '@image{f--ile,,,@ } @image{f--ile,,,@:}';
 

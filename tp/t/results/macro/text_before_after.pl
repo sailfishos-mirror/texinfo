@@ -10,66 +10,73 @@ $result_trees{'text_before_after'} = {
     {
       'contents' => [
         {
-          'parent' => {},
-          'text' => 'before '
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => 'mymacro',
-              'type' => 'macro_name'
-            }
-          ],
-          'cmdname' => 'macro',
           'contents' => [
             {
               'parent' => {},
-              'text' => 'in macro',
-              'type' => 'raw'
+              'text' => 'before '
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => 'mymacro',
+                  'type' => 'macro_name'
+                }
+              ],
+              'cmdname' => 'macro',
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => 'in macro',
+                  'type' => 'raw'
+                },
+                {
+                  'parent' => {},
+                  'text' => '
+',
+                  'type' => 'last_raw_newline'
+                }
+              ],
+              'extra' => {
+                'arg_line' => ' mymacro
+'
+              },
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 1,
+                'macro' => ''
+              },
+              'parent' => {}
             },
             {
               'parent' => {},
-              'text' => '
-',
-              'type' => 'last_raw_newline'
+              'text' => ' ',
+              'type' => 'empty_spaces_after_command'
+            },
+            {
+              'parent' => {},
+              'text' => 'after
+'
             }
           ],
-          'extra' => {
-            'arg_line' => ' mymacro
-'
-          },
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
           'parent' => {},
-          'text' => ' ',
-          'type' => 'empty_spaces_after_command'
-        },
-        {
-          'parent' => {},
-          'text' => 'after
-'
+          'type' => 'paragraph'
         }
       ],
       'parent' => {},
-      'type' => 'paragraph'
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
+$result_trees{'text_before_after'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'text_before_after'}{'contents'}[0]{'contents'}[0];
+$result_trees{'text_before_after'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'text_before_after'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
+$result_trees{'text_before_after'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'text_before_after'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
+$result_trees{'text_before_after'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'text_before_after'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
+$result_trees{'text_before_after'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'text_before_after'}{'contents'}[0]{'contents'}[0];
+$result_trees{'text_before_after'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'text_before_after'}{'contents'}[0]{'contents'}[0];
+$result_trees{'text_before_after'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'text_before_after'}{'contents'}[0]{'contents'}[0];
 $result_trees{'text_before_after'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'text_before_after'}{'contents'}[0];
-$result_trees{'text_before_after'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'text_before_after'}{'contents'}[0]{'contents'}[1];
-$result_trees{'text_before_after'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'text_before_after'}{'contents'}[0]{'contents'}[1];
-$result_trees{'text_before_after'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'text_before_after'}{'contents'}[0]{'contents'}[1];
-$result_trees{'text_before_after'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'text_before_after'}{'contents'}[0];
-$result_trees{'text_before_after'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'text_before_after'}{'contents'}[0];
-$result_trees{'text_before_after'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'text_before_after'}{'contents'}[0];
 $result_trees{'text_before_after'}{'contents'}[0]{'parent'} = $result_trees{'text_before_after'};
 
 $result_texis{'text_before_after'} = 'before @macro mymacro

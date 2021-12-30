@@ -8,84 +8,9 @@ use utf8;
 $result_trees{'raw'} = {
   'contents' => [
     {
-      'cmdname' => 'tex',
       'contents' => [
         {
-          'extra' => {
-            'command' => {}
-          },
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line_after_command'
-        },
-        {
-          'contents' => [
-            {
-              'parent' => {},
-              'text' => 'in <tex>
-'
-            }
-          ],
-          'parent' => {},
-          'type' => 'rawpreformatted'
-        },
-        {
-          'args' => [
-            {
-              'contents' => [
-                {
-                  'parent' => {},
-                  'text' => 'tex'
-                }
-              ],
-              'extra' => {
-                'spaces_after_argument' => '
-'
-              },
-              'parent' => {},
-              'type' => 'line_arg'
-            }
-          ],
-          'cmdname' => 'end',
-          'extra' => {
-            'command_argument' => 'tex',
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'tex'
-          },
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 3,
-            'macro' => ''
-          },
-          'parent' => {}
-        }
-      ],
-      'extra' => {
-        'end_command' => {}
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
-      },
-      'parent' => {}
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'contents' => [
-        {
-          'parent' => {},
-          'text' => 'Para
-'
-        },
-        {
-          'cmdname' => 'xml',
+          'cmdname' => 'tex',
           'contents' => [
             {
               'extra' => {
@@ -100,7 +25,7 @@ $result_trees{'raw'} = {
               'contents' => [
                 {
                   'parent' => {},
-                  'text' => '<in />
+                  'text' => 'in <tex>
 '
                 }
               ],
@@ -113,7 +38,7 @@ $result_trees{'raw'} = {
                   'contents' => [
                     {
                       'parent' => {},
-                      'text' => 'xml'
+                      'text' => 'tex'
                     }
                   ],
                   'extra' => {
@@ -126,13 +51,13 @@ $result_trees{'raw'} = {
               ],
               'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'xml',
+                'command_argument' => 'tex',
                 'spaces_before_argument' => ' ',
-                'text_arg' => 'xml'
+                'text_arg' => 'tex'
               },
               'line_nr' => {
                 'file_name' => '',
-                'line_nr' => 8,
+                'line_nr' => 3,
                 'macro' => ''
               },
               'parent' => {}
@@ -143,39 +68,121 @@ $result_trees{'raw'} = {
           },
           'line_nr' => {
             'file_name' => '',
-            'line_nr' => 6,
+            'line_nr' => 1,
             'macro' => ''
           },
           'parent' => {}
+        },
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => 'Para
+'
+            },
+            {
+              'cmdname' => 'xml',
+              'contents' => [
+                {
+                  'extra' => {
+                    'command' => {}
+                  },
+                  'parent' => {},
+                  'text' => '
+',
+                  'type' => 'empty_line_after_command'
+                },
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => '<in />
+'
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'rawpreformatted'
+                },
+                {
+                  'args' => [
+                    {
+                      'contents' => [
+                        {
+                          'parent' => {},
+                          'text' => 'xml'
+                        }
+                      ],
+                      'extra' => {
+                        'spaces_after_argument' => '
+'
+                      },
+                      'parent' => {},
+                      'type' => 'line_arg'
+                    }
+                  ],
+                  'cmdname' => 'end',
+                  'extra' => {
+                    'command_argument' => 'xml',
+                    'spaces_before_argument' => ' ',
+                    'text_arg' => 'xml'
+                  },
+                  'line_nr' => {
+                    'file_name' => '',
+                    'line_nr' => 8,
+                    'macro' => ''
+                  },
+                  'parent' => {}
+                }
+              ],
+              'extra' => {
+                'end_command' => {}
+              },
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 6,
+                'macro' => ''
+              },
+              'parent' => {}
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
         }
       ],
       'parent' => {},
-      'type' => 'paragraph'
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
-$result_trees{'raw'}{'contents'}[0]{'contents'}[0]{'extra'}{'command'} = $result_trees{'raw'}{'contents'}[0];
+$result_trees{'raw'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'extra'}{'command'} = $result_trees{'raw'}{'contents'}[0]{'contents'}[0];
+$result_trees{'raw'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'raw'}{'contents'}[0]{'contents'}[0];
+$result_trees{'raw'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'raw'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
+$result_trees{'raw'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'raw'}{'contents'}[0]{'contents'}[0];
+$result_trees{'raw'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'raw'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0];
+$result_trees{'raw'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'raw'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
+$result_trees{'raw'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'raw'}{'contents'}[0]{'contents'}[0];
+$result_trees{'raw'}{'contents'}[0]{'contents'}[0]{'extra'}{'end_command'} = $result_trees{'raw'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
 $result_trees{'raw'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'raw'}{'contents'}[0];
-$result_trees{'raw'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'raw'}{'contents'}[0]{'contents'}[1];
 $result_trees{'raw'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'raw'}{'contents'}[0];
-$result_trees{'raw'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'raw'}{'contents'}[0]{'contents'}[2]{'args'}[0];
-$result_trees{'raw'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'raw'}{'contents'}[0]{'contents'}[2];
+$result_trees{'raw'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'raw'}{'contents'}[0]{'contents'}[2];
+$result_trees{'raw'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'command'} = $result_trees{'raw'}{'contents'}[0]{'contents'}[2]{'contents'}[1];
+$result_trees{'raw'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'raw'}{'contents'}[0]{'contents'}[2]{'contents'}[1];
+$result_trees{'raw'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'raw'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[1];
+$result_trees{'raw'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'raw'}{'contents'}[0]{'contents'}[2]{'contents'}[1];
+$result_trees{'raw'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'raw'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[2]{'args'}[0];
+$result_trees{'raw'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'raw'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[2];
+$result_trees{'raw'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'raw'}{'contents'}[0]{'contents'}[2]{'contents'}[1];
+$result_trees{'raw'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'extra'}{'end_command'} = $result_trees{'raw'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[2];
+$result_trees{'raw'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'raw'}{'contents'}[0]{'contents'}[2];
 $result_trees{'raw'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'raw'}{'contents'}[0];
-$result_trees{'raw'}{'contents'}[0]{'extra'}{'end_command'} = $result_trees{'raw'}{'contents'}[0]{'contents'}[2];
 $result_trees{'raw'}{'contents'}[0]{'parent'} = $result_trees{'raw'};
-$result_trees{'raw'}{'contents'}[1]{'parent'} = $result_trees{'raw'};
-$result_trees{'raw'}{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'raw'}{'contents'}[2];
-$result_trees{'raw'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'command'} = $result_trees{'raw'}{'contents'}[2]{'contents'}[1];
-$result_trees{'raw'}{'contents'}[2]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'raw'}{'contents'}[2]{'contents'}[1];
-$result_trees{'raw'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'raw'}{'contents'}[2]{'contents'}[1]{'contents'}[1];
-$result_trees{'raw'}{'contents'}[2]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'raw'}{'contents'}[2]{'contents'}[1];
-$result_trees{'raw'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'raw'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'args'}[0];
-$result_trees{'raw'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'raw'}{'contents'}[2]{'contents'}[1]{'contents'}[2];
-$result_trees{'raw'}{'contents'}[2]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'raw'}{'contents'}[2]{'contents'}[1];
-$result_trees{'raw'}{'contents'}[2]{'contents'}[1]{'extra'}{'end_command'} = $result_trees{'raw'}{'contents'}[2]{'contents'}[1]{'contents'}[2];
-$result_trees{'raw'}{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'raw'}{'contents'}[2];
-$result_trees{'raw'}{'contents'}[2]{'parent'} = $result_trees{'raw'};
 
 $result_texis{'raw'} = '@tex
 in <tex>

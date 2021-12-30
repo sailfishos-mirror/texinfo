@@ -8,55 +8,62 @@ use utf8;
 $result_trees{'not_only_characters'} = {
   'contents' => [
     {
-      'args' => [
+      'contents' => [
         {
-          'parent' => {},
-          'text' => '-e_\'::;',
-          'type' => 'misc_arg'
+          'args' => [
+            {
+              'parent' => {},
+              'text' => '-e_\'::;',
+              'type' => 'misc_arg'
+            },
+            {
+              'parent' => {},
+              'text' => 'hh',
+              'type' => 'misc_arg'
+            }
+          ],
+          'cmdname' => 'set',
+          'extra' => {
+            'arg_line' => ' -e_\'::; hh
+',
+            'misc_args' => [
+              '-e_\'::;',
+              'hh'
+            ]
+          },
+          'parent' => {}
         },
         {
           'parent' => {},
-          'text' => 'hh',
-          'type' => 'misc_arg'
-        }
-      ],
-      'cmdname' => 'set',
-      'extra' => {
-        'arg_line' => ' -e_\'::; hh
+          'text' => '
 ',
-        'misc_args' => [
-          '-e_\'::;',
-          'hh'
-        ]
-      },
-      'parent' => {}
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'contents' => [
+          'type' => 'empty_line'
+        },
         {
-          'parent' => {},
-          'text' => 'Say hh.
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => 'Say hh.
 '
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
         }
       ],
       'parent' => {},
-      'type' => 'paragraph'
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
-$result_trees{'not_only_characters'}{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'not_only_characters'}{'contents'}[0];
-$result_trees{'not_only_characters'}{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'not_only_characters'}{'contents'}[0];
+$result_trees{'not_only_characters'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'not_only_characters'}{'contents'}[0]{'contents'}[0];
+$result_trees{'not_only_characters'}{'contents'}[0]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'not_only_characters'}{'contents'}[0]{'contents'}[0];
+$result_trees{'not_only_characters'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'not_only_characters'}{'contents'}[0];
+$result_trees{'not_only_characters'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'not_only_characters'}{'contents'}[0];
+$result_trees{'not_only_characters'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'not_only_characters'}{'contents'}[0]{'contents'}[2];
+$result_trees{'not_only_characters'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'not_only_characters'}{'contents'}[0];
 $result_trees{'not_only_characters'}{'contents'}[0]{'parent'} = $result_trees{'not_only_characters'};
-$result_trees{'not_only_characters'}{'contents'}[1]{'parent'} = $result_trees{'not_only_characters'};
-$result_trees{'not_only_characters'}{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'not_only_characters'}{'contents'}[2];
-$result_trees{'not_only_characters'}{'contents'}[2]{'parent'} = $result_trees{'not_only_characters'};
 
 $result_texis{'not_only_characters'} = '@set -e_\'::; hh
 

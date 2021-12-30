@@ -8,49 +8,56 @@ use utf8;
 $result_trees{'printindex_before_document'} = {
   'contents' => [
     {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'args' => [
+      'contents' => [
         {
-          'contents' => [
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'args' => [
             {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => 'cp'
+                }
+              ],
+              'extra' => {
+                'spaces_after_argument' => '
+'
+              },
               'parent' => {},
-              'text' => 'cp'
+              'type' => 'line_arg'
             }
           ],
+          'cmdname' => 'printindex',
           'extra' => {
-            'spaces_after_argument' => '
-'
+            'misc_args' => [
+              'cp'
+            ],
+            'spaces_before_argument' => ' '
           },
-          'parent' => {},
-          'type' => 'line_arg'
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 2,
+            'macro' => ''
+          },
+          'parent' => {}
         }
       ],
-      'cmdname' => 'printindex',
-      'extra' => {
-        'misc_args' => [
-          'cp'
-        ],
-        'spaces_before_argument' => ' '
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 2,
-        'macro' => ''
-      },
-      'parent' => {}
+      'parent' => {},
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
+$result_trees{'printindex_before_document'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'printindex_before_document'}{'contents'}[0];
+$result_trees{'printindex_before_document'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'printindex_before_document'}{'contents'}[0]{'contents'}[1]{'args'}[0];
+$result_trees{'printindex_before_document'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'printindex_before_document'}{'contents'}[0]{'contents'}[1];
+$result_trees{'printindex_before_document'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'printindex_before_document'}{'contents'}[0];
 $result_trees{'printindex_before_document'}{'contents'}[0]{'parent'} = $result_trees{'printindex_before_document'};
-$result_trees{'printindex_before_document'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'printindex_before_document'}{'contents'}[1]{'args'}[0];
-$result_trees{'printindex_before_document'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'printindex_before_document'}{'contents'}[1];
-$result_trees{'printindex_before_document'}{'contents'}[1]{'parent'} = $result_trees{'printindex_before_document'};
 
 $result_texis{'printindex_before_document'} = '
 @printindex cp

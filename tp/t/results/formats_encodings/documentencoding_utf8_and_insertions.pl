@@ -8,122 +8,43 @@ use utf8;
 $result_trees{'documentencoding_utf8_and_insertions'} = {
   'contents' => [
     {
-      'args' => [
-        {
-          'contents' => [
-            {
-              'parent' => {},
-              'text' => 'utf-8'
-            }
-          ],
-          'extra' => {
-            'spaces_after_argument' => '
-'
-          },
-          'parent' => {},
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'documentencoding',
-      'extra' => {
-        'input_encoding_name' => 'utf-8',
-        'input_perl_encoding' => 'utf-8-strict',
-        'spaces_before_argument' => ' ',
-        'text_arg' => 'utf-8'
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
-      },
-      'parent' => {}
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
       'contents' => [
-        {
-          'parent' => {},
-          'text' => '-- --- \'\' `` ` \' '
-        },
         {
           'args' => [
             {
               'contents' => [
                 {
                   'parent' => {},
-                  'text' => 'in code'
+                  'text' => 'utf-8'
                 }
               ],
-              'parent' => {},
-              'type' => 'brace_command_arg'
-            }
-          ],
-          'cmdname' => 'code',
-          'contents' => [],
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 3,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '. '
-        },
-        {
-          'args' => [
-            {
-              'contents' => [
-                {
-                  'parent' => {},
-                  'text' => 'e'
-                }
-              ],
-              'parent' => {},
-              'type' => 'following_arg'
-            }
-          ],
-          'cmdname' => '~',
-          'contents' => [],
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 3,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '.
+              'extra' => {
+                'spaces_after_argument' => '
 '
-        }
-      ],
-      'parent' => {},
-      'type' => 'paragraph'
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'cmdname' => 'example',
-      'contents' => [
-        {
+              },
+              'parent' => {},
+              'type' => 'line_arg'
+            }
+          ],
+          'cmdname' => 'documentencoding',
           'extra' => {
-            'command' => {}
+            'input_encoding_name' => 'utf-8',
+            'input_perl_encoding' => 'utf-8-strict',
+            'spaces_before_argument' => ' ',
+            'text_arg' => 'utf-8'
           },
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 1,
+            'macro' => ''
+          },
+          'parent' => {}
+        },
+        {
           'parent' => {},
           'text' => '
 ',
-          'type' => 'empty_line_after_command'
+          'type' => 'empty_line'
         },
         {
           'contents' => [
@@ -148,7 +69,7 @@ $result_trees{'documentencoding_utf8_and_insertions'} = {
               'contents' => [],
               'line_nr' => {
                 'file_name' => '',
-                'line_nr' => 6,
+                'line_nr' => 3,
                 'macro' => ''
               },
               'parent' => {}
@@ -174,7 +95,7 @@ $result_trees{'documentencoding_utf8_and_insertions'} = {
               'contents' => [],
               'line_nr' => {
                 'file_name' => '',
-                'line_nr' => 6,
+                'line_nr' => 3,
                 'macro' => ''
               },
               'parent' => {}
@@ -186,84 +107,170 @@ $result_trees{'documentencoding_utf8_and_insertions'} = {
             }
           ],
           'parent' => {},
-          'type' => 'preformatted'
+          'type' => 'paragraph'
         },
         {
-          'args' => [
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'cmdname' => 'example',
+          'contents' => [
+            {
+              'extra' => {
+                'command' => {}
+              },
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line_after_command'
+            },
             {
               'contents' => [
                 {
                   'parent' => {},
-                  'text' => 'example'
+                  'text' => '-- --- \'\' `` ` \' '
+                },
+                {
+                  'args' => [
+                    {
+                      'contents' => [
+                        {
+                          'parent' => {},
+                          'text' => 'in code'
+                        }
+                      ],
+                      'parent' => {},
+                      'type' => 'brace_command_arg'
+                    }
+                  ],
+                  'cmdname' => 'code',
+                  'contents' => [],
+                  'line_nr' => {
+                    'file_name' => '',
+                    'line_nr' => 6,
+                    'macro' => ''
+                  },
+                  'parent' => {}
+                },
+                {
+                  'parent' => {},
+                  'text' => '. '
+                },
+                {
+                  'args' => [
+                    {
+                      'contents' => [
+                        {
+                          'parent' => {},
+                          'text' => 'e'
+                        }
+                      ],
+                      'parent' => {},
+                      'type' => 'following_arg'
+                    }
+                  ],
+                  'cmdname' => '~',
+                  'contents' => [],
+                  'line_nr' => {
+                    'file_name' => '',
+                    'line_nr' => 6,
+                    'macro' => ''
+                  },
+                  'parent' => {}
+                },
+                {
+                  'parent' => {},
+                  'text' => '.
+'
                 }
               ],
-              'extra' => {
-                'spaces_after_argument' => '
-'
-              },
               'parent' => {},
-              'type' => 'line_arg'
+              'type' => 'preformatted'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'example'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
+                  'parent' => {},
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'end',
+              'extra' => {
+                'command_argument' => 'example',
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'example'
+              },
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 7,
+                'macro' => ''
+              },
+              'parent' => {}
             }
           ],
-          'cmdname' => 'end',
           'extra' => {
-            'command_argument' => 'example',
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'example'
+            'end_command' => {}
           },
           'line_nr' => {
             'file_name' => '',
-            'line_nr' => 7,
+            'line_nr' => 5,
             'macro' => ''
           },
           'parent' => {}
         }
       ],
-      'extra' => {
-        'end_command' => {}
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 5,
-        'macro' => ''
-      },
-      'parent' => {}
+      'parent' => {},
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
-$result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0]{'args'}[0];
-$result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0];
+$result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0]{'contents'}[0];
+$result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0];
+$result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0];
+$result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0]{'contents'}[2];
+$result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0];
+$result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0]{'contents'}[2]{'contents'}[1];
+$result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0]{'contents'}[2];
+$result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0]{'contents'}[2];
+$result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'args'}[0];
+$result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0]{'contents'}[2]{'contents'}[3];
+$result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'parent'} = $result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0]{'contents'}[2];
+$result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0]{'contents'}[2]{'contents'}[4]{'parent'} = $result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0]{'contents'}[2];
+$result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0];
+$result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0];
+$result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'extra'}{'command'} = $result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0]{'contents'}[4];
+$result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0]{'contents'}[4];
+$result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0]{'contents'}[4]{'contents'}[1];
+$result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'contents'}[1]{'args'}[0];
+$result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'contents'}[1];
+$result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0]{'contents'}[4]{'contents'}[1];
+$result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0]{'contents'}[4]{'contents'}[1];
+$result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'contents'}[3]{'args'}[0];
+$result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'contents'}[3];
+$result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0]{'contents'}[4]{'contents'}[1];
+$result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'contents'}[4]{'parent'} = $result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0]{'contents'}[4]{'contents'}[1];
+$result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'parent'} = $result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0]{'contents'}[4];
+$result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0]{'contents'}[4]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0]{'contents'}[4]{'contents'}[2]{'args'}[0];
+$result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0]{'contents'}[4]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0]{'contents'}[4]{'contents'}[2];
+$result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0]{'contents'}[4]{'contents'}[2]{'parent'} = $result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0]{'contents'}[4];
+$result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0]{'contents'}[4]{'extra'}{'end_command'} = $result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0]{'contents'}[4]{'contents'}[2];
+$result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0];
 $result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[0]{'parent'} = $result_trees{'documentencoding_utf8_and_insertions'};
-$result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[1]{'parent'} = $result_trees{'documentencoding_utf8_and_insertions'};
-$result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[2];
-$result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[2]{'contents'}[1]{'args'}[0];
-$result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[2]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[2]{'contents'}[1];
-$result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[2];
-$result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[2];
-$result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[2]{'contents'}[3]{'args'}[0];
-$result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[2]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[2]{'contents'}[3];
-$result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[2]{'contents'}[3]{'parent'} = $result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[2];
-$result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[2]{'contents'}[4]{'parent'} = $result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[2];
-$result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[2]{'parent'} = $result_trees{'documentencoding_utf8_and_insertions'};
-$result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[3]{'parent'} = $result_trees{'documentencoding_utf8_and_insertions'};
-$result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[4]{'contents'}[0]{'extra'}{'command'} = $result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[4];
-$result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[4];
-$result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[4]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[4]{'contents'}[1];
-$result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'args'}[0];
-$result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[4]{'contents'}[1]{'contents'}[1];
-$result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[4]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[4]{'contents'}[1];
-$result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[4]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[4]{'contents'}[1];
-$result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[4]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[4]{'contents'}[1]{'contents'}[3]{'args'}[0];
-$result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[4]{'contents'}[1]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[4]{'contents'}[1]{'contents'}[3];
-$result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[4]{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[4]{'contents'}[1];
-$result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[4]{'contents'}[1]{'contents'}[4]{'parent'} = $result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[4]{'contents'}[1];
-$result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[4]{'contents'}[1]{'parent'} = $result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[4];
-$result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[4]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[4]{'contents'}[2]{'args'}[0];
-$result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[4]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[4]{'contents'}[2];
-$result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[4]{'contents'}[2]{'parent'} = $result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[4];
-$result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[4]{'extra'}{'end_command'} = $result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[4]{'contents'}[2];
-$result_trees{'documentencoding_utf8_and_insertions'}{'contents'}[4]{'parent'} = $result_trees{'documentencoding_utf8_and_insertions'};
 
 $result_texis{'documentencoding_utf8_and_insertions'} = '@documentencoding utf-8
 

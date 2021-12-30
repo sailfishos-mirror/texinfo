@@ -10,59 +10,66 @@ $result_trees{'accent_no_closed_paragraph'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'contents' => [
             {
-              'contents' => [
+              'args' => [
                 {
-                  'parent' => {},
-                  'text' => 'e
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'e
 '
-                },
-                {
-                  'parent' => {},
-                  'text' => '
+                    },
+                    {
+                      'parent' => {},
+                      'text' => '
 ',
-                  'type' => 'empty_line'
+                      'type' => 'empty_line'
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'brace_command_arg'
                 }
               ],
-              'parent' => {},
-              'type' => 'brace_command_arg'
+              'cmdname' => '~',
+              'contents' => [],
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 1,
+                'macro' => ''
+              },
+              'parent' => {}
             }
           ],
-          'cmdname' => '~',
-          'contents' => [],
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
-          },
-          'parent' => {}
-        }
-      ],
-      'parent' => {},
-      'type' => 'paragraph'
-    },
-    {
-      'contents' => [
-        {
           'parent' => {},
-          'text' => 'other para.
+          'type' => 'paragraph'
+        },
+        {
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => 'other para.
 '
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
         }
       ],
       'parent' => {},
-      'type' => 'paragraph'
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
-$result_trees{'accent_no_closed_paragraph'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'accent_no_closed_paragraph'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'accent_no_closed_paragraph'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'accent_no_closed_paragraph'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'accent_no_closed_paragraph'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'accent_no_closed_paragraph'}{'contents'}[0]{'contents'}[0];
+$result_trees{'accent_no_closed_paragraph'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'accent_no_closed_paragraph'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'accent_no_closed_paragraph'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'accent_no_closed_paragraph'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'accent_no_closed_paragraph'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'accent_no_closed_paragraph'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'accent_no_closed_paragraph'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'accent_no_closed_paragraph'}{'contents'}[0]{'contents'}[0];
 $result_trees{'accent_no_closed_paragraph'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'accent_no_closed_paragraph'}{'contents'}[0];
+$result_trees{'accent_no_closed_paragraph'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'accent_no_closed_paragraph'}{'contents'}[0]{'contents'}[1];
+$result_trees{'accent_no_closed_paragraph'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'accent_no_closed_paragraph'}{'contents'}[0];
 $result_trees{'accent_no_closed_paragraph'}{'contents'}[0]{'parent'} = $result_trees{'accent_no_closed_paragraph'};
-$result_trees{'accent_no_closed_paragraph'}{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'accent_no_closed_paragraph'}{'contents'}[1];
-$result_trees{'accent_no_closed_paragraph'}{'contents'}[1]{'parent'} = $result_trees{'accent_no_closed_paragraph'};
 
 $result_texis{'accent_no_closed_paragraph'} = '@~{e
 

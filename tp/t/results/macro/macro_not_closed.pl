@@ -8,37 +8,44 @@ use utf8;
 $result_trees{'macro_not_closed'} = {
   'contents' => [
     {
-      'args' => [
-        {
-          'parent' => {},
-          'text' => 'name',
-          'type' => 'macro_name'
-        }
-      ],
-      'cmdname' => 'macro',
       'contents' => [
         {
-          'parent' => {},
-          'text' => 'in macro
+          'args' => [
+            {
+              'parent' => {},
+              'text' => 'name',
+              'type' => 'macro_name'
+            }
+          ],
+          'cmdname' => 'macro',
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => 'in macro
 ',
-          'type' => 'raw'
+              'type' => 'raw'
+            }
+          ],
+          'extra' => {
+            'arg_line' => ' name
+'
+          },
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 1,
+            'macro' => ''
+          },
+          'parent' => {}
         }
       ],
-      'extra' => {
-        'arg_line' => ' name
-'
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
-      },
-      'parent' => {}
+      'parent' => {},
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
-$result_trees{'macro_not_closed'}{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'macro_not_closed'}{'contents'}[0];
+$result_trees{'macro_not_closed'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'macro_not_closed'}{'contents'}[0]{'contents'}[0];
+$result_trees{'macro_not_closed'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'macro_not_closed'}{'contents'}[0]{'contents'}[0];
 $result_trees{'macro_not_closed'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'macro_not_closed'}{'contents'}[0];
 $result_trees{'macro_not_closed'}{'contents'}[0]{'parent'} = $result_trees{'macro_not_closed'};
 

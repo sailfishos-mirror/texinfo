@@ -6,9 +6,16 @@ use vars qw(%result_texis %result_texts %result_trees %result_errors
 use utf8;
 
 $result_trees{'empty'} = {
-  'contents' => [],
-  'type' => 'text_root'
+  'contents' => [
+    {
+      'contents' => [],
+      'parent' => {},
+      'type' => 'text_root'
+    }
+  ],
+  'type' => 'document_root'
 };
+$result_trees{'empty'}{'contents'}[0]{'parent'} = $result_trees{'empty'};
 
 $result_texis{'empty'} = '';
 

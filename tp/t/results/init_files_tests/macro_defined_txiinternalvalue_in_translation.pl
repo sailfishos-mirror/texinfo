@@ -8,90 +8,97 @@ use utf8;
 $result_trees{'macro_defined_txiinternalvalue_in_translation'} = {
   'contents' => [
     {
-      'args' => [
+      'contents' => [
         {
-          'contents' => [
+          'args' => [
             {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => '1'
+                }
+              ],
+              'extra' => {
+                'spaces_after_argument' => '
+'
+              },
               'parent' => {},
-              'text' => '1'
+              'type' => 'line_arg'
             }
           ],
+          'cmdname' => 'sp',
           'extra' => {
-            'spaces_after_argument' => '
-'
+            'misc_args' => [
+              '1'
+            ],
+            'spaces_before_argument' => ' '
           },
-          'parent' => {},
-          'type' => 'line_arg'
-        }
-      ],
-      'cmdname' => 'sp',
-      'extra' => {
-        'misc_args' => [
-          '1'
-        ],
-        'spaces_before_argument' => ' '
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
-      },
-      'parent' => {}
-    },
-    {
-      'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
-    },
-    {
-      'args' => [
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 1,
+            'macro' => ''
+          },
+          'parent' => {}
+        },
         {
-          'contents' => [
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'args' => [
             {
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => '2'
+                }
+              ],
+              'extra' => {
+                'spaces_after_argument' => '
+'
+              },
               'parent' => {},
-              'text' => '2'
+              'type' => 'line_arg'
             }
           ],
+          'cmdname' => 'sp',
           'extra' => {
-            'spaces_after_argument' => '
-'
+            'misc_args' => [
+              '2'
+            ],
+            'spaces_before_argument' => ' '
           },
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 3,
+            'macro' => ''
+          },
+          'parent' => {}
+        },
+        {
           'parent' => {},
-          'type' => 'line_arg'
+          'text' => '
+',
+          'type' => 'empty_line'
         }
       ],
-      'cmdname' => 'sp',
-      'extra' => {
-        'misc_args' => [
-          '2'
-        ],
-        'spaces_before_argument' => ' '
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 3,
-        'macro' => ''
-      },
-      'parent' => {}
-    },
-    {
       'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line'
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
-$result_trees{'macro_defined_txiinternalvalue_in_translation'}{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'macro_defined_txiinternalvalue_in_translation'}{'contents'}[0]{'args'}[0];
-$result_trees{'macro_defined_txiinternalvalue_in_translation'}{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'macro_defined_txiinternalvalue_in_translation'}{'contents'}[0];
+$result_trees{'macro_defined_txiinternalvalue_in_translation'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'macro_defined_txiinternalvalue_in_translation'}{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'macro_defined_txiinternalvalue_in_translation'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'macro_defined_txiinternalvalue_in_translation'}{'contents'}[0]{'contents'}[0];
+$result_trees{'macro_defined_txiinternalvalue_in_translation'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'macro_defined_txiinternalvalue_in_translation'}{'contents'}[0];
+$result_trees{'macro_defined_txiinternalvalue_in_translation'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'macro_defined_txiinternalvalue_in_translation'}{'contents'}[0];
+$result_trees{'macro_defined_txiinternalvalue_in_translation'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'macro_defined_txiinternalvalue_in_translation'}{'contents'}[0]{'contents'}[2]{'args'}[0];
+$result_trees{'macro_defined_txiinternalvalue_in_translation'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'macro_defined_txiinternalvalue_in_translation'}{'contents'}[0]{'contents'}[2];
+$result_trees{'macro_defined_txiinternalvalue_in_translation'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'macro_defined_txiinternalvalue_in_translation'}{'contents'}[0];
+$result_trees{'macro_defined_txiinternalvalue_in_translation'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'macro_defined_txiinternalvalue_in_translation'}{'contents'}[0];
 $result_trees{'macro_defined_txiinternalvalue_in_translation'}{'contents'}[0]{'parent'} = $result_trees{'macro_defined_txiinternalvalue_in_translation'};
-$result_trees{'macro_defined_txiinternalvalue_in_translation'}{'contents'}[1]{'parent'} = $result_trees{'macro_defined_txiinternalvalue_in_translation'};
-$result_trees{'macro_defined_txiinternalvalue_in_translation'}{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'macro_defined_txiinternalvalue_in_translation'}{'contents'}[2]{'args'}[0];
-$result_trees{'macro_defined_txiinternalvalue_in_translation'}{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'macro_defined_txiinternalvalue_in_translation'}{'contents'}[2];
-$result_trees{'macro_defined_txiinternalvalue_in_translation'}{'contents'}[2]{'parent'} = $result_trees{'macro_defined_txiinternalvalue_in_translation'};
-$result_trees{'macro_defined_txiinternalvalue_in_translation'}{'contents'}[3]{'parent'} = $result_trees{'macro_defined_txiinternalvalue_in_translation'};
 
 $result_texis{'macro_defined_txiinternalvalue_in_translation'} = '@sp 1
 

@@ -10,17 +10,24 @@ $result_trees{'one_line'} = {
     {
       'contents' => [
         {
-          'parent' => {},
-          'text' => 'AB
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => 'AB
 '
+            }
+          ],
+          'parent' => {},
+          'type' => 'paragraph'
         }
       ],
       'parent' => {},
-      'type' => 'paragraph'
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
+$result_trees{'one_line'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'one_line'}{'contents'}[0]{'contents'}[0];
 $result_trees{'one_line'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'one_line'}{'contents'}[0];
 $result_trees{'one_line'}{'contents'}[0]{'parent'} = $result_trees{'one_line'};
 

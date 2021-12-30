@@ -8,106 +8,113 @@ use utf8;
 $result_trees{'macro_and_args'} = {
   'contents' => [
     {
-      'args' => [
+      'contents' => [
         {
-          'parent' => {},
-          'text' => 'good',
-          'type' => 'macro_name'
-        },
-        {
-          'parent' => {},
-          'text' => 'aaa',
-          'type' => 'macro_arg'
-        },
-        {
-          'parent' => {},
-          'text' => '2b-bb',
-          'type' => 'macro_arg'
-        }
-      ],
-      'cmdname' => 'macro',
-      'contents' => [],
-      'extra' => {
-        'arg_line' => ' good { aaa, 2b-bb}
+          'args' => [
+            {
+              'parent' => {},
+              'text' => 'good',
+              'type' => 'macro_name'
+            },
+            {
+              'parent' => {},
+              'text' => 'aaa',
+              'type' => 'macro_arg'
+            },
+            {
+              'parent' => {},
+              'text' => '2b-bb',
+              'type' => 'macro_arg'
+            }
+          ],
+          'cmdname' => 'macro',
+          'contents' => [],
+          'extra' => {
+            'arg_line' => ' good { aaa, 2b-bb}
 '
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 1,
-        'macro' => ''
-      },
-      'parent' => {}
-    },
-    {
-      'parent' => {},
-      'text' => '
+          },
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 1,
+            'macro' => ''
+          },
+          'parent' => {}
+        },
+        {
+          'parent' => {},
+          'text' => '
 ',
-      'type' => 'empty_line_after_command'
-    },
-    {
-      'parent' => {},
-      'text' => '
+          'type' => 'empty_line_after_command'
+        },
+        {
+          'parent' => {},
+          'text' => '
 ',
-      'type' => 'empty_line'
-    },
-    {
-      'args' => [
+          'type' => 'empty_line'
+        },
         {
-          'parent' => {},
-          'text' => 'bad',
-          'type' => 'macro_name'
+          'args' => [
+            {
+              'parent' => {},
+              'text' => 'bad',
+              'type' => 'macro_name'
+            },
+            {
+              'parent' => {},
+              'text' => 'ggg"@@^_ ff',
+              'type' => 'macro_arg'
+            },
+            {
+              'parent' => {},
+              'text' => 'nnn_b',
+              'type' => 'macro_arg'
+            },
+            {
+              'parent' => {},
+              'text' => 'ccc v',
+              'type' => 'macro_arg'
+            }
+          ],
+          'cmdname' => 'macro',
+          'contents' => [],
+          'extra' => {
+            'arg_line' => ' bad { ggg"@@^_ ff, nnn_b, ccc v}
+',
+            'invalid_syntax' => 1
+          },
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 4,
+            'macro' => ''
+          },
+          'parent' => {}
         },
         {
           'parent' => {},
-          'text' => 'ggg"@@^_ ff',
-          'type' => 'macro_arg'
-        },
-        {
-          'parent' => {},
-          'text' => 'nnn_b',
-          'type' => 'macro_arg'
-        },
-        {
-          'parent' => {},
-          'text' => 'ccc v',
-          'type' => 'macro_arg'
+          'text' => '
+',
+          'type' => 'empty_line_after_command'
         }
       ],
-      'cmdname' => 'macro',
-      'contents' => [],
-      'extra' => {
-        'arg_line' => ' bad { ggg"@@^_ ff, nnn_b, ccc v}
-',
-        'invalid_syntax' => 1
-      },
-      'line_nr' => {
-        'file_name' => '',
-        'line_nr' => 4,
-        'macro' => ''
-      },
-      'parent' => {}
-    },
-    {
       'parent' => {},
-      'text' => '
-',
-      'type' => 'empty_line_after_command'
+      'type' => 'text_root'
     }
   ],
-  'type' => 'text_root'
+  'type' => 'document_root'
 };
-$result_trees{'macro_and_args'}{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'macro_and_args'}{'contents'}[0];
-$result_trees{'macro_and_args'}{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'macro_and_args'}{'contents'}[0];
-$result_trees{'macro_and_args'}{'contents'}[0]{'args'}[2]{'parent'} = $result_trees{'macro_and_args'}{'contents'}[0];
+$result_trees{'macro_and_args'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'macro_and_args'}{'contents'}[0]{'contents'}[0];
+$result_trees{'macro_and_args'}{'contents'}[0]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'macro_and_args'}{'contents'}[0]{'contents'}[0];
+$result_trees{'macro_and_args'}{'contents'}[0]{'contents'}[0]{'args'}[2]{'parent'} = $result_trees{'macro_and_args'}{'contents'}[0]{'contents'}[0];
+$result_trees{'macro_and_args'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'macro_and_args'}{'contents'}[0];
+$result_trees{'macro_and_args'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'macro_and_args'}{'contents'}[0];
+$result_trees{'macro_and_args'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'macro_and_args'}{'contents'}[0];
+$result_trees{'macro_and_args'}{'contents'}[0]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'macro_and_args'}{'contents'}[0]{'contents'}[3];
+$result_trees{'macro_and_args'}{'contents'}[0]{'contents'}[3]{'args'}[1]{'parent'} = $result_trees{'macro_and_args'}{'contents'}[0]{'contents'}[3];
+$result_trees{'macro_and_args'}{'contents'}[0]{'contents'}[3]{'args'}[2]{'parent'} = $result_trees{'macro_and_args'}{'contents'}[0]{'contents'}[3];
+$result_trees{'macro_and_args'}{'contents'}[0]{'contents'}[3]{'args'}[3]{'parent'} = $result_trees{'macro_and_args'}{'contents'}[0]{'contents'}[3];
+$result_trees{'macro_and_args'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'macro_and_args'}{'contents'}[0];
+$result_trees{'macro_and_args'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'macro_and_args'}{'contents'}[0];
 $result_trees{'macro_and_args'}{'contents'}[0]{'parent'} = $result_trees{'macro_and_args'};
-$result_trees{'macro_and_args'}{'contents'}[1]{'parent'} = $result_trees{'macro_and_args'};
-$result_trees{'macro_and_args'}{'contents'}[2]{'parent'} = $result_trees{'macro_and_args'};
-$result_trees{'macro_and_args'}{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'macro_and_args'}{'contents'}[3];
-$result_trees{'macro_and_args'}{'contents'}[3]{'args'}[1]{'parent'} = $result_trees{'macro_and_args'}{'contents'}[3];
-$result_trees{'macro_and_args'}{'contents'}[3]{'args'}[2]{'parent'} = $result_trees{'macro_and_args'}{'contents'}[3];
-$result_trees{'macro_and_args'}{'contents'}[3]{'args'}[3]{'parent'} = $result_trees{'macro_and_args'}{'contents'}[3];
-$result_trees{'macro_and_args'}{'contents'}[3]{'parent'} = $result_trees{'macro_and_args'};
-$result_trees{'macro_and_args'}{'contents'}[4]{'parent'} = $result_trees{'macro_and_args'};
 
 $result_texis{'macro_and_args'} = '@macro good { aaa, 2b-bb}
 @end macro
