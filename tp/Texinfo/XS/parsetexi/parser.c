@@ -509,12 +509,9 @@ end_preformatted (ELEMENT *current,
 {
   current = close_all_style_commands (current,
                                       closed_command, interrupting_command);
-  if (current->type == ET_preformatted
-      || current->type == ET_rawpreformatted)
+  if (current->type == ET_preformatted)
     {
-      debug ("CLOSE PREFORMATTED %s",
-             current->type == ET_preformatted ? "preformatted"
-                                              : "rawpreformatted");
+      debug ("CLOSE PREFORMATTED");
       if (current->contents.number == 0)
         {
           current = current->parent;

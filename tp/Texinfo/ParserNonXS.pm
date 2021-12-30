@@ -510,6 +510,7 @@ foreach my $command (keys(%block_commands)) {
 }
 
 my @preformatted_contexts = ('preformatted', 'rawpreformatted');
+#my @preformatted_contexts = ('preformatted');
 my %preformatted_contexts;
 foreach my $preformatted_context (@preformatted_contexts) {
   $preformatted_contexts{$preformatted_context} = 1;
@@ -518,7 +519,7 @@ foreach my $preformatted_context (@preformatted_contexts) {
 # contexts on the context_stack stack where empty line doesn't trigger
 # a paragraph
 my %no_paragraph_contexts;
-foreach my $no_paragraph_context ('math', @preformatted_contexts,
+foreach my $no_paragraph_context ('math', 'preformatted', 'rawpreformatted',
                                   'def', 'inlineraw') {
   $no_paragraph_contexts{$no_paragraph_context} = 1;
 };
@@ -1251,9 +1252,12 @@ sub _begin_preformatted($$)
 
   my $top_context = $self->_top_context();
   if ($preformatted_contexts{$top_context}) {
+  #if ($top_context eq 'rawpreformatted') {
+  #  cluck;
+  #}
     push @{$current->{'contents'}},
           { 'type' => $top_context,
-            'parent' => $current, 'contents' => [] };
+            'parent' => $current };
     $current = $current->{'contents'}->[-1];
     print STDERR "PREFORMATTED $top_context\n" if ($self->{'DEBUG'});
   }
@@ -1418,9 +1422,9 @@ sub _end_preformatted($$$;$$)
 
   $current = _close_all_style_commands($self, $current, $line_nr,
                                        $closed_command, $interrupting_command);
-  # TODO only preformatted
-  if ($current->{'type'} and $preformatted_contexts{$current->{'type'}}) {
-    print STDERR "CLOSE PREFORMATTED $current->{'type'}\n" if ($self->{'DEBUG'});
+
+  if ($current->{'type'} and $current->{'type'} eq 'preformatted') {
+    print STDERR "CLOSE PREFORMATTED\n" if ($self->{'DEBUG'});
     # completly remove void preformatted contexts
     if (!@{$current->{'contents'}}) {
       my $removed = pop @{$current->{'parent'}->{'contents'}};
@@ -1887,9 +1891,13 @@ sub _merge_text {
   }
 
   if (!defined($current->{'contents'})) {
-    $self->_bug_message("No contents in _merge_text", 
-                            undef, $current);
-    die;
+    # this can happen for preformatted since they do not have an initialized
+    # contents to match better the XS parser
+    #$self->_bug_message("No contents in _merge_text",
+    #                        undef, $current);
+    #cluck;
+    #die;
+    $current->{'contents'} = [];
   }
 
   if (!$no_merge_with_following_text
@@ -3276,6 +3284,17 @@ sub _end_line($$$)
       print STDERR "END COMMAND $end_command\n" if ($self->{'DEBUG'});
       my $end = pop @{$current->{'contents'}};
       if ($block_commands{$end_command} ne 'conditional') {
+        # here close some empty types.  Typically empty preformatted
+        # that would have been closed anyway in _close_commands, but
+        # also other types (rawpreformatted, before_item), some which
+        # may also have been closed anyway.
+        if (not defined($current->{'cmdname'}) and $current->{'type'}
+            and !@{$current->{'contents'}} and $current->{'parent'}) {
+           my $removed = pop @{$current->{'parent'}->{'contents'}};
+           print STDERR "popping at end command $end_command: $removed->{'type'}\n"
+              if ($self->{'DEBUG'});
+           $current = $current->{'parent'};
+        }
         my $closed_command;
         ($closed_command, $current)
           = _close_commands($self, $current, $line_nr, $end_command);
@@ -3313,7 +3332,7 @@ sub _end_line($$$)
            and scalar(@{$self->{'input'}}) > 1)
       # TODO remove this condition if/when the XS parser has been updated
       # to output @include with type replaced when the file was found
-        or (scalar(@{$current->{'contents'}})
+        or ($current->{'contents'} and scalar(@{$current->{'contents'}})
              and exists($current->{'contents'}->[-1]->{'type'})
              and $current->{'contents'}->[-1]->{'type'} eq 'replaced')) {
       # TODO keep the information
@@ -4370,7 +4389,6 @@ sub _parse_texi($;$)
                             {'cell_number' => $row->{'cells_count'}} };
                       push @{$row->{'contents'}}, $misc;
                       $current = $row->{'contents'}->[-1];
-                      #$current = $self->_begin_preformatted($current);
                       print STDERR "TAB\n" if ($self->{'DEBUG'});
                     }
                   } else {

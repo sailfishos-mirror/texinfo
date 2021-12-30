@@ -1,3 +1,16 @@
+2021-12-30  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/ParserNonXS.pm (_end_preformatted, _end_line),
+	tp/Texinfo/XS/parsetexi/end_line.c (end_line_misc_line),
+	tp/Texinfo/XS/parsetexi/parser.c (end_preformatted):
+	only close preformatted type in end_preformatted().
+	Close all the empty types after an @end command.
+
+	* tp/Texinfo/ParserNonXS.pm (_begin_preformatted, _merge_text)
+	(_end_line): do not initialize 'contents' for preformatted to match with
+	what is done in XS parser.
+
+
 2021-12-29  Patrice Dumas  <pertusus@free.fr>
 
 	* doc/texinfo.texi (HTML Customization Variables),
