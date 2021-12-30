@@ -32,6 +32,8 @@
 # indices?
 # cross manual references?
 # list of tables/list of floats
+# add landmarks?  Examples: epub:type="toc", epub:type="loi" (list of illustrations)
+#                           epub:type="bodymatter" (Start of Content)
 
 use strict;
 
@@ -569,12 +571,13 @@ EOT
     print $opf_fh "      <item id=\"${spine_uid_str}${id_count}\" "
      . "media-type=\"application/xhtml+xml\" href=\"${epub_xhtml_dir}/${output_filename}\"${properties_str}/>\n";
   }
+  my $js_weblabels_id;
   if ($self->get_conf('JS_WEBLABELS_FILE')) {
     my $js_weblabels_file_name = $self->get_conf('JS_WEBLABELS_FILE');
     my $js_licenses_file_path = File::Spec->catfile($epub_document_destination_directory,
                                                     $js_weblabels_file_name);
     if (-e $js_licenses_file_path) {
-      my $js_weblabels_id = 'jsweblabels';
+      $js_weblabels_id = 'jsweblabels';
       print $opf_fh "      <item id=\"${js_weblabels_id}\" "
      . "media-type=\"application/xhtml+xml\" href=\"${epub_xhtml_dir}/${js_weblabels_file_name}\"/>\n";
     }
@@ -631,6 +634,17 @@ EOT
   foreach my $output_filename (@epub_output_filenames) {
     $id_count++;
     print $opf_fh "      <itemref idref=\"${spine_uid_str}${id_count}\"/>\n";
+  }
+  # Depending on the reader, the js_labels file should better be in the <spine> or
+  # not.  The standard allows both showing the linear="no" elements as part
+  # of the default reading order or not.  It is probably better for the
+  # js_labels to be in the spine if they can be viewed in any way.
+  # Foliate does not show the js_labels file upon clicking if not in
+  # the <spine>.
+  # Calibre shows the js_labels file upon clicking if not in the <spine>, and
+  # steps in the js_labels file if in the spine.
+  if (defined($js_weblabels_id)) {
+    print $opf_fh "      <itemref idref=\"${js_weblabels_id}\" linear=\"no\"/>\n";
   }
 
   print $opf_fh <<EOT;

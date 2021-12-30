@@ -31,5 +31,6 @@
       <itemref idref="unit5"/>
       <itemref idref="unit6"/>
       <itemref idref="unit7"/>
+      <itemref idref="jsweblabels" linear="no"/>
    </spine>
 </package>

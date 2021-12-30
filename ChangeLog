@@ -1,5 +1,9 @@
 2021-12-30  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/init/epub3.pm (epub_finish): put jslabels file id in <spine>.
+
+2021-12-30  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm: prefix context strings by ct_
 	to have specific names (similar with XS parser context enum names).
 
