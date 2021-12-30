@@ -1278,6 +1278,12 @@ end_line_starting_block (ELEMENT *current)
       current = menu_comment;
       debug ("MENU_COMMENT OPEN");
     }
+  if (command_flags(current) & CF_format_raw)
+    {
+      ELEMENT *rawpreformatted = new_element (ET_rawpreformatted);
+      add_to_element_contents (current, rawpreformatted);
+      current = rawpreformatted;
+    }
   current = begin_preformatted (current);
 
   return current;

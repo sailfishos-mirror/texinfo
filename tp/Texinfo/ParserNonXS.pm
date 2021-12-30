@@ -509,13 +509,6 @@ foreach my $command (keys(%block_commands)) {
   }
 }
 
-my @preformatted_contexts = ('preformatted', 'rawpreformatted');
-#my @preformatted_contexts = ('preformatted');
-my %preformatted_contexts;
-foreach my $preformatted_context (@preformatted_contexts) {
-  $preformatted_contexts{$preformatted_context} = 1;
-}
-
 # contexts on the context_stack stack where empty line doesn't trigger
 # a paragraph
 my %no_paragraph_contexts;
@@ -1250,16 +1243,12 @@ sub _begin_preformatted($$)
 {
   my ($self, $current) = @_;
 
-  my $top_context = $self->_top_context();
-  if ($preformatted_contexts{$top_context}) {
-  #if ($top_context eq 'rawpreformatted') {
-  #  cluck;
-  #}
+  if ($self->_top_context() eq 'preformatted') {
     push @{$current->{'contents'}},
-          { 'type' => $top_context,
+          { 'type' => 'preformatted',
             'parent' => $current };
     $current = $current->{'contents'}->[-1];
-    print STDERR "PREFORMATTED $top_context\n" if ($self->{'DEBUG'});
+    print STDERR "PREFORMATTED\n" if ($self->{'DEBUG'});
   }
   return $current;
 }
@@ -3077,6 +3066,12 @@ sub _end_line($$$)
                                        'contents' => [] };
       $current = $current->{'contents'}->[-1];
       print STDERR "MENU_COMMENT OPEN\n" if ($self->{'DEBUG'});
+    }
+    if ($current->{'cmdname'} and $format_raw_commands{$current->{'cmdname'}}) {
+      push @{$current->{'contents'}},
+          { 'type' => 'rawpreformatted',
+            'parent' => $current };
+      $current = $current->{'contents'}->[-1];
     }
     $current = _begin_preformatted($self, $current);
 

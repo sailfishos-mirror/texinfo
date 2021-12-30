@@ -467,21 +467,12 @@ begin_paragraph (ELEMENT *current)
 ELEMENT *
 begin_preformatted (ELEMENT *current)
 {
-  if (current_context() == ct_preformatted
-      || current_context() == ct_rawpreformatted)
+  if (current_context() == ct_preformatted)
     {
-      ELEMENT *e;
-      enum element_type et;
-
-      if (current_context() == ct_preformatted)
-        et = ET_preformatted;
-      else
-        et = ET_rawpreformatted;
-      e = new_element (et);
-      add_to_element_contents (current, e);
-      current = e;
-      debug ("PREFORMATTED %s", et == ET_preformatted ? "preformatted"
-                                                      : "rawpreformatted");
+      ELEMENT *preformatted = new_element (ET_preformatted);
+      add_to_element_contents (current, preformatted);
+      current = preformatted;
+      debug ("PREFORMATTED");
     }
   return current;
 }
