@@ -1,5 +1,10 @@
 2021-12-30  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm: prefix context strings by ct_
+	to have specific names (similar with XS parser context enum names).
+
+2021-12-30  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_begin_preformatted, _end_line),
 	tp/Texinfo/XS/parsetexi/end_line.c (end_line_starting_block),
 	tp/Texinfo/XS/parsetexi/parser.c (begin_preformatted):
