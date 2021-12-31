@@ -2736,12 +2736,12 @@ sub _default_format_element_header($$$$)
        or (!$tree_unit->{'contents'}->[0]->{'cmdname'}
             and $tree_unit->{'contents'}->[1] eq $command))
       # and there is more than one element
-      and ($tree_unit->{'unit_next'} or $tree_unit->{'unit_prev'})) {
+      and ($tree_unit->{'structure'}->{'unit_next'} or $tree_unit->{'structure'}->{'unit_prev'})) {
     my $is_top = $self->element_is_tree_unit_top($tree_unit);
     my $first_in_page = (defined($tree_unit->{'filename'})
            and $self->{'counter_in_file'}->{$tree_unit->{'filename'}} == 1);
-    my $previous_is_top = ($tree_unit->{'unit_prev'}
-                   and $self->element_is_tree_unit_top($tree_unit->{'unit_prev'}));
+    my $previous_is_top = ($tree_unit->{'structure'}->{'unit_prev'}
+                   and $self->element_is_tree_unit_top($tree_unit->{'structure'}->{'unit_prev'}));
 
     print STDERR "Header ($previous_is_top, $is_top, $first_in_page): "
       .Texinfo::Convert::Texinfo::root_element_command_to_texinfo($command)."\n"
@@ -5215,9 +5215,9 @@ sub _convert_tree_unit_type($$$$)
   }
   my $result = '';
   my $tree_unit = $element;
-  if (!$tree_unit->{'unit_prev'}) {
+  if (!$tree_unit->{'structure'}->{'unit_prev'}) {
     $result .= $self->_print_title();
-    if (!$tree_unit->{'unit_next'}) {
+    if (!$tree_unit->{'structure'}->{'unit_next'}) {
       # only one unit, use simplfied formatting
       $result .= $content;
       # if there is one unit it also means that there is no formatting
@@ -5250,15 +5250,15 @@ sub _default_format_element_footer($$$$)
 
   my $result = '';
   my $is_top = $self->element_is_tree_unit_top($element);
-  my $next_is_top = ($element->{'unit_next'}
-                     and $self->element_is_tree_unit_top($element->{'unit_next'}));
-  my $next_is_special = (defined($element->{'unit_next'})
-                   and defined($element->{'unit_next'}->{'type'})
-                   and $element->{'unit_next'}->{'type'} eq 'special_element');
+  my $next_is_top = ($element->{'structure'}->{'unit_next'}
+                     and $self->element_is_tree_unit_top($element->{'structure'}->{'unit_next'}));
+  my $next_is_special = (defined($element->{'structure'}->{'unit_next'})
+                   and defined($element->{'structure'}->{'unit_next'}->{'type'})
+                   and $element->{'structure'}->{'unit_next'}->{'type'} eq 'special_element');
 
-  my $end_page = (!$element->{'unit_next'}
+  my $end_page = (!$element->{'structure'}->{'unit_next'}
        or (defined($element->{'filename'})
-           and $element->{'filename'} ne $element->{'unit_next'}->{'filename'}
+           and $element->{'filename'} ne $element->{'structure'}->{'unit_next'}->{'filename'}
            and $self->{'file_counters'}->{$element->{'filename'}} == 1));
 
   my $is_special = (defined($element->{'type'})
@@ -5310,9 +5310,9 @@ sub _default_format_element_footer($$$$)
   # FIXME the following condition is almost a duplication of the
   # condition appearing in end_page except that the file counter
   # needs not to be 1
-  if ((!$element->{'unit_next'}
+  if ((!$element->{'structure'}->{'unit_next'}
        or (defined($element->{'filename'})
-           and $element->{'filename'} ne $element->{'unit_next'}->{'filename'}))
+           and $element->{'filename'} ne $element->{'structure'}->{'unit_next'}->{'filename'}))
       and $self->get_conf('footnotestyle') eq 'end') {
     $result .= &{$self->{'format_footnotes_text'}}($self);
   }
@@ -6345,8 +6345,8 @@ sub _html_set_pages_files($$$$$$$$)
         print STDERR "Special page $special_element: $special_element->{'filename'}($self->{'file_counters'}->{$special_element->{'filename'}})\n"
           if ($self->get_conf('DEBUG'));
       }
-      $special_element->{'unit_prev'} = $previous_tree_unit;
-      $previous_tree_unit->{'unit_next'} = $special_element;
+      $special_element->{'structure'}->{'unit_prev'} = $previous_tree_unit;
+      $previous_tree_unit->{'structure'}->{'unit_next'} = $special_element;
       $previous_tree_unit = $special_element;
     }
   }

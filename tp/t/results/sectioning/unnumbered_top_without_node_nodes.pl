@@ -333,9 +333,10 @@ $result_trees{'unnumbered_top_without_node_nodes'} = [
       'section' => {},
       'unit_command' => {}
     },
-    'structure' => {},
-    'type' => 'unit',
-    'unit_prev' => {}
+    'structure' => {
+      'unit_prev' => {}
+    },
+    'type' => 'unit'
   }
 ];
 $result_trees{'unnumbered_top_without_node_nodes'}[0]{'contents'}[0]{'parent'} = $result_trees{'unnumbered_top_without_node_nodes'}[0];
@@ -388,7 +389,7 @@ $result_trees{'unnumbered_top_without_node_nodes'}[1]{'contents'}[1]{'parent'} =
 $result_trees{'unnumbered_top_without_node_nodes'}[1]{'extra'}{'node'} = $result_trees{'unnumbered_top_without_node_nodes'}[1]{'contents'}[0];
 $result_trees{'unnumbered_top_without_node_nodes'}[1]{'extra'}{'section'} = $result_trees{'unnumbered_top_without_node_nodes'}[1]{'contents'}[1];
 $result_trees{'unnumbered_top_without_node_nodes'}[1]{'extra'}{'unit_command'} = $result_trees{'unnumbered_top_without_node_nodes'}[1]{'contents'}[0];
-$result_trees{'unnumbered_top_without_node_nodes'}[1]{'unit_prev'} = $result_trees{'unnumbered_top_without_node_nodes'}[0];
+$result_trees{'unnumbered_top_without_node_nodes'}[1]{'structure'}{'unit_prev'} = $result_trees{'unnumbered_top_without_node_nodes'}[0];
 
 $result_texis{'unnumbered_top_without_node_nodes'} = '@node a node,,,(dir)
 @unnumbered unnumbered

@@ -268,9 +268,10 @@ $result_trees{'footnotestyle_separate_late'} = [
       'section' => {},
       'unit_command' => {}
     },
-    'structure' => {},
-    'type' => 'unit',
-    'unit_prev' => {}
+    'structure' => {
+      'unit_prev' => {}
+    },
+    'type' => 'unit'
   },
   {
     'contents' => [
@@ -435,9 +436,10 @@ $result_trees{'footnotestyle_separate_late'} = [
       'section' => {},
       'unit_command' => {}
     },
-    'structure' => {},
-    'type' => 'unit',
-    'unit_prev' => {}
+    'structure' => {
+      'unit_prev' => {}
+    },
+    'type' => 'unit'
   }
 ];
 $result_trees{'footnotestyle_separate_late'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'footnotestyle_separate_late'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
@@ -476,7 +478,7 @@ $result_trees{'footnotestyle_separate_late'}[1]{'contents'}[1]{'parent'} = $resu
 $result_trees{'footnotestyle_separate_late'}[1]{'extra'}{'node'} = $result_trees{'footnotestyle_separate_late'}[1]{'contents'}[0];
 $result_trees{'footnotestyle_separate_late'}[1]{'extra'}{'section'} = $result_trees{'footnotestyle_separate_late'}[1]{'contents'}[1];
 $result_trees{'footnotestyle_separate_late'}[1]{'extra'}{'unit_command'} = $result_trees{'footnotestyle_separate_late'}[1]{'contents'}[0];
-$result_trees{'footnotestyle_separate_late'}[1]{'unit_prev'} = $result_trees{'footnotestyle_separate_late'}[0];
+$result_trees{'footnotestyle_separate_late'}[1]{'structure'}{'unit_prev'} = $result_trees{'footnotestyle_separate_late'}[0];
 $result_trees{'footnotestyle_separate_late'}[2]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'footnotestyle_separate_late'}[2]{'contents'}[0]{'args'}[0];
 $result_trees{'footnotestyle_separate_late'}[2]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'footnotestyle_separate_late'}[2]{'contents'}[0];
 $result_trees{'footnotestyle_separate_late'}[2]{'contents'}[0]{'extra'}{'node_content'}[0] = $result_trees{'footnotestyle_separate_late'}[2]{'contents'}[0]{'args'}[0]{'contents'}[0];
@@ -499,7 +501,7 @@ $result_trees{'footnotestyle_separate_late'}[2]{'contents'}[1]{'parent'} = $resu
 $result_trees{'footnotestyle_separate_late'}[2]{'extra'}{'node'} = $result_trees{'footnotestyle_separate_late'}[2]{'contents'}[0];
 $result_trees{'footnotestyle_separate_late'}[2]{'extra'}{'section'} = $result_trees{'footnotestyle_separate_late'}[2]{'contents'}[1];
 $result_trees{'footnotestyle_separate_late'}[2]{'extra'}{'unit_command'} = $result_trees{'footnotestyle_separate_late'}[2]{'contents'}[0];
-$result_trees{'footnotestyle_separate_late'}[2]{'unit_prev'} = $result_trees{'footnotestyle_separate_late'}[1];
+$result_trees{'footnotestyle_separate_late'}[2]{'structure'}{'unit_prev'} = $result_trees{'footnotestyle_separate_late'}[1];
 
 $result_texis{'footnotestyle_separate_late'} = '@setfilename footnotestyle_separate_late.info
 

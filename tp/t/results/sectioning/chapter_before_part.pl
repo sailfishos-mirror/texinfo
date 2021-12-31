@@ -96,9 +96,10 @@ $result_trees{'chapter_before_part'} = [
       'section' => {},
       'unit_command' => {}
     },
-    'structure' => {},
-    'type' => 'unit',
-    'unit_prev' => {}
+    'structure' => {
+      'unit_prev' => {}
+    },
+    'type' => 'unit'
   }
 ];
 $result_trees{'chapter_before_part'}[0]{'contents'}[0]{'parent'} = $result_trees{'chapter_before_part'}[0];
@@ -113,7 +114,7 @@ $result_trees{'chapter_before_part'}[1]{'contents'}[0]{'args'}[0]{'parent'} = $r
 $result_trees{'chapter_before_part'}[1]{'contents'}[0]{'parent'} = $result_trees{'chapter_before_part'}[1];
 $result_trees{'chapter_before_part'}[1]{'extra'}{'section'} = $result_trees{'chapter_before_part'}[1]{'contents'}[0];
 $result_trees{'chapter_before_part'}[1]{'extra'}{'unit_command'} = $result_trees{'chapter_before_part'}[1]{'contents'}[0];
-$result_trees{'chapter_before_part'}[1]{'unit_prev'} = $result_trees{'chapter_before_part'}[0];
+$result_trees{'chapter_before_part'}[1]{'structure'}{'unit_prev'} = $result_trees{'chapter_before_part'}[0];
 
 $result_texis{'chapter_before_part'} = '@chapter chapter
 

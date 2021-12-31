@@ -341,9 +341,10 @@ $result_trees{'part_node_part_appendix'} = [
       'section' => {},
       'unit_command' => {}
     },
-    'structure' => {},
-    'type' => 'unit',
-    'unit_prev' => {}
+    'structure' => {
+      'unit_prev' => {}
+    },
+    'type' => 'unit'
   },
   {
     'contents' => [
@@ -421,9 +422,10 @@ $result_trees{'part_node_part_appendix'} = [
       'section' => {},
       'unit_command' => {}
     },
-    'structure' => {},
-    'type' => 'unit',
-    'unit_prev' => {}
+    'structure' => {
+      'unit_prev' => {}
+    },
+    'type' => 'unit'
   }
 ];
 $result_trees{'part_node_part_appendix'}[0]{'contents'}[0]{'parent'} = $result_trees{'part_node_part_appendix'}[0];
@@ -474,7 +476,7 @@ $result_trees{'part_node_part_appendix'}[1]{'contents'}[2]{'parent'} = $result_t
 $result_trees{'part_node_part_appendix'}[1]{'extra'}{'node'} = $result_trees{'part_node_part_appendix'}[1]{'contents'}[1];
 $result_trees{'part_node_part_appendix'}[1]{'extra'}{'section'} = $result_trees{'part_node_part_appendix'}[1]{'contents'}[2];
 $result_trees{'part_node_part_appendix'}[1]{'extra'}{'unit_command'} = $result_trees{'part_node_part_appendix'}[1]{'contents'}[2];
-$result_trees{'part_node_part_appendix'}[1]{'unit_prev'} = $result_trees{'part_node_part_appendix'}[0];
+$result_trees{'part_node_part_appendix'}[1]{'structure'}{'unit_prev'} = $result_trees{'part_node_part_appendix'}[0];
 $result_trees{'part_node_part_appendix'}[2]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'part_node_part_appendix'}[2]{'contents'}[0]{'args'}[0];
 $result_trees{'part_node_part_appendix'}[2]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'part_node_part_appendix'}[2]{'contents'}[0];
 $result_trees{'part_node_part_appendix'}[2]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'part_node_part_appendix'}[2]{'contents'}[0];
@@ -485,7 +487,7 @@ $result_trees{'part_node_part_appendix'}[2]{'contents'}[1]{'extra'}{'associated_
 $result_trees{'part_node_part_appendix'}[2]{'contents'}[1]{'parent'} = $result_trees{'part_node_part_appendix'}[2];
 $result_trees{'part_node_part_appendix'}[2]{'extra'}{'section'} = $result_trees{'part_node_part_appendix'}[2]{'contents'}[1];
 $result_trees{'part_node_part_appendix'}[2]{'extra'}{'unit_command'} = $result_trees{'part_node_part_appendix'}[2]{'contents'}[1];
-$result_trees{'part_node_part_appendix'}[2]{'unit_prev'} = $result_trees{'part_node_part_appendix'}[1];
+$result_trees{'part_node_part_appendix'}[2]{'structure'}{'unit_prev'} = $result_trees{'part_node_part_appendix'}[1];
 
 $result_texis{'part_node_part_appendix'} = '@node Top
 @top top

@@ -578,9 +578,10 @@ $result_trees{'two_nodes_at_the_end'} = [
       'section' => {},
       'unit_command' => {}
     },
-    'structure' => {},
-    'type' => 'unit',
-    'unit_prev' => {}
+    'structure' => {
+      'unit_prev' => {}
+    },
+    'type' => 'unit'
   }
 ];
 $result_trees{'two_nodes_at_the_end'}[0]{'contents'}[0]{'parent'} = $result_trees{'two_nodes_at_the_end'}[0];
@@ -669,7 +670,7 @@ $result_trees{'two_nodes_at_the_end'}[1]{'contents'}[3]{'parent'} = $result_tree
 $result_trees{'two_nodes_at_the_end'}[1]{'extra'}{'node'} = $result_trees{'two_nodes_at_the_end'}[1]{'contents'}[0];
 $result_trees{'two_nodes_at_the_end'}[1]{'extra'}{'section'} = $result_trees{'two_nodes_at_the_end'}[1]{'contents'}[1];
 $result_trees{'two_nodes_at_the_end'}[1]{'extra'}{'unit_command'} = $result_trees{'two_nodes_at_the_end'}[1]{'contents'}[1];
-$result_trees{'two_nodes_at_the_end'}[1]{'unit_prev'} = $result_trees{'two_nodes_at_the_end'}[0];
+$result_trees{'two_nodes_at_the_end'}[1]{'structure'}{'unit_prev'} = $result_trees{'two_nodes_at_the_end'}[0];
 
 $result_texis{'two_nodes_at_the_end'} = '@node Top
 @top top

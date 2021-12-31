@@ -1,5 +1,14 @@
 2021-12-31  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_default_format_element_header)
+	(_convert_tree_unit_type, _default_format_element_footer)
+	(_html_set_pages_files), tp/Texinfo/Structuring.pm (split_by_node)
+	(split_by_section, elements_directions, elements_file_directions):
+	put unit_prev and unit_next in structure.
+
+
+2021-12-31  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (from_element_direction)
 	(_prepare_special_elements), tp/Texinfo/Structuring.pm
 	(elements_directions, elements_file_directions)

@@ -370,9 +370,10 @@ $result_trees{'explicit_node_directions'} = [
       'node' => {},
       'unit_command' => {}
     },
-    'structure' => {},
-    'type' => 'unit',
-    'unit_prev' => {}
+    'structure' => {
+      'unit_prev' => {}
+    },
+    'type' => 'unit'
   },
   {
     'contents' => [
@@ -460,9 +461,10 @@ $result_trees{'explicit_node_directions'} = [
       'node' => {},
       'unit_command' => {}
     },
-    'structure' => {},
-    'type' => 'unit',
-    'unit_prev' => {}
+    'structure' => {
+      'unit_prev' => {}
+    },
+    'type' => 'unit'
   }
 ];
 $result_trees{'explicit_node_directions'}[0]{'contents'}[0]{'parent'} = $result_trees{'explicit_node_directions'}[0];
@@ -523,7 +525,7 @@ $result_trees{'explicit_node_directions'}[1]{'contents'}[0]{'extra'}{'nodes_manu
 $result_trees{'explicit_node_directions'}[1]{'contents'}[0]{'parent'} = $result_trees{'explicit_node_directions'}[1];
 $result_trees{'explicit_node_directions'}[1]{'extra'}{'node'} = $result_trees{'explicit_node_directions'}[1]{'contents'}[0];
 $result_trees{'explicit_node_directions'}[1]{'extra'}{'unit_command'} = $result_trees{'explicit_node_directions'}[1]{'contents'}[0];
-$result_trees{'explicit_node_directions'}[1]{'unit_prev'} = $result_trees{'explicit_node_directions'}[0];
+$result_trees{'explicit_node_directions'}[1]{'structure'}{'unit_prev'} = $result_trees{'explicit_node_directions'}[0];
 $result_trees{'explicit_node_directions'}[2]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'explicit_node_directions'}[2]{'contents'}[0]{'args'}[0];
 $result_trees{'explicit_node_directions'}[2]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'explicit_node_directions'}[2]{'contents'}[0];
 $result_trees{'explicit_node_directions'}[2]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'explicit_node_directions'}[2]{'contents'}[0];
@@ -538,7 +540,7 @@ $result_trees{'explicit_node_directions'}[2]{'contents'}[0]{'extra'}{'nodes_manu
 $result_trees{'explicit_node_directions'}[2]{'contents'}[0]{'parent'} = $result_trees{'explicit_node_directions'}[2];
 $result_trees{'explicit_node_directions'}[2]{'extra'}{'node'} = $result_trees{'explicit_node_directions'}[2]{'contents'}[0];
 $result_trees{'explicit_node_directions'}[2]{'extra'}{'unit_command'} = $result_trees{'explicit_node_directions'}[2]{'contents'}[0];
-$result_trees{'explicit_node_directions'}[2]{'unit_prev'} = $result_trees{'explicit_node_directions'}[1];
+$result_trees{'explicit_node_directions'}[2]{'structure'}{'unit_prev'} = $result_trees{'explicit_node_directions'}[1];
 
 $result_texis{'explicit_node_directions'} = '@node Top
 Top node

@@ -273,9 +273,10 @@ $result_trees{'double_part'} = [
       'section' => {},
       'unit_command' => {}
     },
-    'structure' => {},
-    'type' => 'unit',
-    'unit_prev' => {}
+    'structure' => {
+      'unit_prev' => {}
+    },
+    'type' => 'unit'
   },
   {
     'contents' => [
@@ -414,9 +415,10 @@ $result_trees{'double_part'} = [
       'section' => {},
       'unit_command' => {}
     },
-    'structure' => {},
-    'type' => 'unit',
-    'unit_prev' => {}
+    'structure' => {
+      'unit_prev' => {}
+    },
+    'type' => 'unit'
   }
 ];
 $result_trees{'double_part'}[0]{'contents'}[0]{'parent'} = $result_trees{'double_part'}[0];
@@ -460,7 +462,7 @@ $result_trees{'double_part'}[1]{'contents'}[0]{'parent'} = $result_trees{'double
 $result_trees{'double_part'}[1]{'extra'}{'first_in_page'} = $result_trees{'double_part'}[1];
 $result_trees{'double_part'}[1]{'extra'}{'section'} = $result_trees{'double_part'}[1]{'contents'}[0];
 $result_trees{'double_part'}[1]{'extra'}{'unit_command'} = $result_trees{'double_part'}[1]{'contents'}[0];
-$result_trees{'double_part'}[1]{'unit_prev'} = $result_trees{'double_part'}[0];
+$result_trees{'double_part'}[1]{'structure'}{'unit_prev'} = $result_trees{'double_part'}[0];
 $result_trees{'double_part'}[2]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'double_part'}[2]{'contents'}[0]{'args'}[0];
 $result_trees{'double_part'}[2]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'double_part'}[2]{'contents'}[0];
 $result_trees{'double_part'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'double_part'}[2]{'contents'}[0]{'contents'}[0];
@@ -481,7 +483,7 @@ $result_trees{'double_part'}[2]{'extra'}{'first_in_page'} = $result_trees{'doubl
 $result_trees{'double_part'}[2]{'extra'}{'node'} = $result_trees{'double_part'}[2]{'contents'}[1];
 $result_trees{'double_part'}[2]{'extra'}{'section'} = $result_trees{'double_part'}[2]{'contents'}[2];
 $result_trees{'double_part'}[2]{'extra'}{'unit_command'} = $result_trees{'double_part'}[2]{'contents'}[2];
-$result_trees{'double_part'}[2]{'unit_prev'} = $result_trees{'double_part'}[1];
+$result_trees{'double_part'}[2]{'structure'}{'unit_prev'} = $result_trees{'double_part'}[1];
 
 $result_texis{'double_part'} = '@node Top
 @top top

@@ -264,9 +264,10 @@ $result_trees{'internal_top_node_up'} = [
       'node' => {},
       'unit_command' => {}
     },
-    'structure' => {},
-    'type' => 'unit',
-    'unit_prev' => {}
+    'structure' => {
+      'unit_prev' => {}
+    },
+    'type' => 'unit'
   }
 ];
 $result_trees{'internal_top_node_up'}[0]{'contents'}[0]{'parent'} = $result_trees{'internal_top_node_up'}[0];
@@ -307,7 +308,7 @@ $result_trees{'internal_top_node_up'}[1]{'contents'}[0]{'extra'}{'nodes_manuals'
 $result_trees{'internal_top_node_up'}[1]{'contents'}[0]{'parent'} = $result_trees{'internal_top_node_up'}[1];
 $result_trees{'internal_top_node_up'}[1]{'extra'}{'node'} = $result_trees{'internal_top_node_up'}[1]{'contents'}[0];
 $result_trees{'internal_top_node_up'}[1]{'extra'}{'unit_command'} = $result_trees{'internal_top_node_up'}[1]{'contents'}[0];
-$result_trees{'internal_top_node_up'}[1]{'unit_prev'} = $result_trees{'internal_top_node_up'}[0];
+$result_trees{'internal_top_node_up'}[1]{'structure'}{'unit_prev'} = $result_trees{'internal_top_node_up'}[0];
 
 $result_texis{'internal_top_node_up'} = '@node Top
 @top internal top node up

@@ -839,9 +839,10 @@ $result_trees{'redirection_same_labels'} = [
       'section' => {},
       'unit_command' => {}
     },
-    'structure' => {},
-    'type' => 'unit',
-    'unit_prev' => {}
+    'structure' => {
+      'unit_prev' => {}
+    },
+    'type' => 'unit'
   },
   {
     'contents' => [
@@ -1123,9 +1124,10 @@ $result_trees{'redirection_same_labels'} = [
       'section' => {},
       'unit_command' => {}
     },
-    'structure' => {},
-    'type' => 'unit',
-    'unit_prev' => {}
+    'structure' => {
+      'unit_prev' => {}
+    },
+    'type' => 'unit'
   }
 ];
 $result_trees{'redirection_same_labels'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'redirection_same_labels'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
@@ -1245,7 +1247,7 @@ $result_trees{'redirection_same_labels'}[1]{'contents'}[3]{'parent'} = $result_t
 $result_trees{'redirection_same_labels'}[1]{'extra'}{'node'} = $result_trees{'redirection_same_labels'}[1]{'contents'}[0];
 $result_trees{'redirection_same_labels'}[1]{'extra'}{'section'} = $result_trees{'redirection_same_labels'}[1]{'contents'}[1];
 $result_trees{'redirection_same_labels'}[1]{'extra'}{'unit_command'} = $result_trees{'redirection_same_labels'}[1]{'contents'}[1];
-$result_trees{'redirection_same_labels'}[1]{'unit_prev'} = $result_trees{'redirection_same_labels'}[0];
+$result_trees{'redirection_same_labels'}[1]{'structure'}{'unit_prev'} = $result_trees{'redirection_same_labels'}[0];
 $result_trees{'redirection_same_labels'}[2]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'redirection_same_labels'}[2]{'contents'}[0]{'args'}[0];
 $result_trees{'redirection_same_labels'}[2]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'redirection_same_labels'}[2]{'contents'}[0];
 $result_trees{'redirection_same_labels'}[2]{'contents'}[0]{'extra'}{'node_content'}[0] = $result_trees{'redirection_same_labels'}[2]{'contents'}[0]{'args'}[0]{'contents'}[0];
@@ -1285,7 +1287,7 @@ $result_trees{'redirection_same_labels'}[2]{'contents'}[2]{'parent'} = $result_t
 $result_trees{'redirection_same_labels'}[2]{'extra'}{'node'} = $result_trees{'redirection_same_labels'}[2]{'contents'}[0];
 $result_trees{'redirection_same_labels'}[2]{'extra'}{'section'} = $result_trees{'redirection_same_labels'}[2]{'contents'}[1];
 $result_trees{'redirection_same_labels'}[2]{'extra'}{'unit_command'} = $result_trees{'redirection_same_labels'}[2]{'contents'}[1];
-$result_trees{'redirection_same_labels'}[2]{'unit_prev'} = $result_trees{'redirection_same_labels'}[1];
+$result_trees{'redirection_same_labels'}[2]{'structure'}{'unit_prev'} = $result_trees{'redirection_same_labels'}[1];
 
 $result_texis{'redirection_same_labels'} = '@setfilename redirection_same_labels.info
 

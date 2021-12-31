@@ -134,9 +134,10 @@ $result_trees{'top_part_chapter'} = [
       'section' => {},
       'unit_command' => {}
     },
-    'structure' => {},
-    'type' => 'unit',
-    'unit_prev' => {}
+    'structure' => {
+      'unit_prev' => {}
+    },
+    'type' => 'unit'
   }
 ];
 $result_trees{'top_part_chapter'}[0]{'contents'}[0]{'parent'} = $result_trees{'top_part_chapter'}[0];
@@ -156,7 +157,7 @@ $result_trees{'top_part_chapter'}[1]{'contents'}[1]{'extra'}{'associated_part'} 
 $result_trees{'top_part_chapter'}[1]{'contents'}[1]{'parent'} = $result_trees{'top_part_chapter'}[1];
 $result_trees{'top_part_chapter'}[1]{'extra'}{'section'} = $result_trees{'top_part_chapter'}[1]{'contents'}[1];
 $result_trees{'top_part_chapter'}[1]{'extra'}{'unit_command'} = $result_trees{'top_part_chapter'}[1]{'contents'}[1];
-$result_trees{'top_part_chapter'}[1]{'unit_prev'} = $result_trees{'top_part_chapter'}[0];
+$result_trees{'top_part_chapter'}[1]{'structure'}{'unit_prev'} = $result_trees{'top_part_chapter'}[0];
 
 $result_texis{'top_part_chapter'} = '@top top
 

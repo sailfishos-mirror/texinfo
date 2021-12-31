@@ -385,9 +385,10 @@ $result_trees{'non_automatic_top_node_up_url'} = [
       'node' => {},
       'unit_command' => {}
     },
-    'structure' => {},
-    'type' => 'unit',
-    'unit_prev' => {}
+    'structure' => {
+      'unit_prev' => {}
+    },
+    'type' => 'unit'
   }
 ];
 $result_trees{'non_automatic_top_node_up_url'}[0]{'contents'}[0]{'parent'} = $result_trees{'non_automatic_top_node_up_url'}[0];
@@ -450,7 +451,7 @@ $result_trees{'non_automatic_top_node_up_url'}[1]{'contents'}[0]{'extra'}{'nodes
 $result_trees{'non_automatic_top_node_up_url'}[1]{'contents'}[0]{'parent'} = $result_trees{'non_automatic_top_node_up_url'}[1];
 $result_trees{'non_automatic_top_node_up_url'}[1]{'extra'}{'node'} = $result_trees{'non_automatic_top_node_up_url'}[1]{'contents'}[0];
 $result_trees{'non_automatic_top_node_up_url'}[1]{'extra'}{'unit_command'} = $result_trees{'non_automatic_top_node_up_url'}[1]{'contents'}[0];
-$result_trees{'non_automatic_top_node_up_url'}[1]{'unit_prev'} = $result_trees{'non_automatic_top_node_up_url'}[0];
+$result_trees{'non_automatic_top_node_up_url'}[1]{'structure'}{'unit_prev'} = $result_trees{'non_automatic_top_node_up_url'}[0];
 
 $result_texis{'non_automatic_top_node_up_url'} = '@node Top, first, (dir), (dir)
 @top internal top node up

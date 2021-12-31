@@ -547,9 +547,10 @@ $result_trees{'non_automatic_internal_top_node_up'} = [
       'node' => {},
       'unit_command' => {}
     },
-    'structure' => {},
-    'type' => 'unit',
-    'unit_prev' => {}
+    'structure' => {
+      'unit_prev' => {}
+    },
+    'type' => 'unit'
   }
 ];
 $result_trees{'non_automatic_internal_top_node_up'}[0]{'contents'}[0]{'parent'} = $result_trees{'non_automatic_internal_top_node_up'}[0];
@@ -635,7 +636,7 @@ $result_trees{'non_automatic_internal_top_node_up'}[1]{'contents'}[0]{'extra'}{'
 $result_trees{'non_automatic_internal_top_node_up'}[1]{'contents'}[0]{'parent'} = $result_trees{'non_automatic_internal_top_node_up'}[1];
 $result_trees{'non_automatic_internal_top_node_up'}[1]{'extra'}{'node'} = $result_trees{'non_automatic_internal_top_node_up'}[1]{'contents'}[0];
 $result_trees{'non_automatic_internal_top_node_up'}[1]{'extra'}{'unit_command'} = $result_trees{'non_automatic_internal_top_node_up'}[1]{'contents'}[0];
-$result_trees{'non_automatic_internal_top_node_up'}[1]{'unit_prev'} = $result_trees{'non_automatic_internal_top_node_up'}[0];
+$result_trees{'non_automatic_internal_top_node_up'}[1]{'structure'}{'unit_prev'} = $result_trees{'non_automatic_internal_top_node_up'}[0];
 
 $result_texis{'non_automatic_internal_top_node_up'} = '@node Top, first, @acronym{GNU, @acronym{GNU}\'s Not Unix} manuals, @acronym{GNU, @acronym{GNU}\'s Not Unix} manuals
 @top internal top node up

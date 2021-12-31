@@ -845,8 +845,8 @@ sub split_by_node($)
         $current->{'extra'}->{'node'} = $content;
       } else {
         $current = { 'type' => 'unit', 'extra' => {'node' => $content}};
-        $current->{'unit_prev'} = $tree_units->[-1];
-        $tree_units->[-1]->{'unit_next'} = $current;
+        $current->{'structure'}->{'unit_prev'} = $tree_units->[-1];
+        $tree_units->[-1]->{'structure'}->{'unit_next'} = $current;
         push @$tree_units, $current;
       }
       $tree_units->[-1]->{'extra'}->{'unit_command'} = $content;
@@ -898,8 +898,8 @@ sub split_by_section($)
         $current = { 'type' => 'unit',
                      'extra' => {'section' => $new_section,
                                  'unit_command' => $new_section}};
-        $current->{'unit_prev'} = $tree_units->[-1];
-        $tree_units->[-1]->{'unit_next'} = $current;
+        $current->{'structure'}->{'unit_prev'} = $tree_units->[-1];
+        $tree_units->[-1]->{'structure'}->{'unit_next'} = $current;
         push @$tree_units, $current;
       }
     } elsif ($content->{'cmdname'} and $content->{'cmdname'} ne 'node'
@@ -911,8 +911,8 @@ sub split_by_section($)
       } elsif ($current->{'extra'}->{'section'} ne $content) {
         $current = { 'type' => 'unit', 'extra' => {'section' => $content,
                                               'unit_command' => $content}};
-        $current->{'unit_prev'} = $tree_units->[-1];
-        $tree_units->[-1]->{'unit_next'} = $current;
+        $current->{'structure'}->{'unit_prev'} = $tree_units->[-1];
+        $tree_units->[-1]->{'structure'}->{'unit_next'} = $current;
         push @$tree_units, $current;
       }
     }
@@ -1012,14 +1012,14 @@ sub elements_directions($$$)
   foreach my $tree_unit (@$tree_units) {
     my $directions;
     $directions->{'This'} = $tree_unit;
-    $directions->{'Forward'} = $tree_unit->{'unit_next'}
-      if ($tree_unit->{'unit_next'}
-          and defined($tree_unit->{'unit_next'}->{'type'})
-          and $tree_unit->{'unit_next'}->{'type'} eq 'unit');
-    $directions->{'Back'} = $tree_unit->{'unit_prev'}
-      if ($tree_unit->{'unit_prev'}
-          and defined($tree_unit->{'unit_prev'}->{'type'})
-          and $tree_unit->{'unit_prev'}->{'type'} eq 'unit');
+    $directions->{'Forward'} = $tree_unit->{'structure'}->{'unit_next'}
+      if ($tree_unit->{'structure'}->{'unit_next'}
+          and defined($tree_unit->{'structure'}->{'unit_next'}->{'type'})
+          and $tree_unit->{'structure'}->{'unit_next'}->{'type'} eq 'unit');
+    $directions->{'Back'} = $tree_unit->{'structure'}->{'unit_prev'}
+      if ($tree_unit->{'structure'}->{'unit_prev'}
+          and defined($tree_unit->{'structure'}->{'unit_prev'}->{'type'})
+          and $tree_unit->{'structure'}->{'unit_prev'}->{'type'} eq 'unit');
     if ($tree_unit->{'extra'}->{'node'}) {
       my $node = $tree_unit->{'extra'}->{'node'};
       foreach my $direction(['NodeUp', 'node_up'], ['NodeNext', 'node_next'],
@@ -1068,8 +1068,8 @@ sub elements_directions($$$)
       # Use it as FastBack if the section is top level, or use the FastBack.
       my $section_element;
       my $current = $tree_unit;
-      while ($current->{'unit_prev'}) {
-        $current = $current->{'unit_prev'};
+      while ($current->{'structure'}->{'unit_prev'}) {
+        $current = $current->{'structure'}->{'unit_prev'};
         if ($current->{'extra'}->{'section'}) {
           $section_element = $current;
           last;
@@ -1178,8 +1178,8 @@ sub elements_file_directions($)
         @first_element_in_file_directions = keys %{$tree_unit->{'structure'}->{'directions'}};
         $current_filename = $filename;
       }
-      while ($current_tree_unit->{'unit_prev'}) {
-        $current_tree_unit = $current_tree_unit->{'unit_prev'};
+      while ($current_tree_unit->{'structure'}->{'unit_prev'}) {
+        $current_tree_unit = $current_tree_unit->{'structure'}->{'unit_prev'};
         if (defined($current_tree_unit->{'filename'})) {
           if ($current_tree_unit->{'filename'} ne $filename) {
             $tree_unit->{'structure'}->{'directions'}->{'PrevFile'}
@@ -1191,8 +1191,8 @@ sub elements_file_directions($)
         }
       }
       $current_tree_unit = $tree_unit;
-      while ($current_tree_unit->{'unit_next'}) {
-        $current_tree_unit = $current_tree_unit->{'unit_next'};
+      while ($current_tree_unit->{'structure'}->{'unit_next'}) {
+        $current_tree_unit = $current_tree_unit->{'structure'}->{'unit_next'};
         if (defined($current_tree_unit->{'filename'})) {
           if ($current_tree_unit->{'filename'} ne $filename) {
             $tree_unit->{'structure'}->{'directions'}->{'NextFile'}
