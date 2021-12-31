@@ -18,6 +18,7 @@ See the manual for detailed information.
    as if it was false.
  . New customization variable ASCII_PUNCTUATION to use plain ASCII characters
    for quotation marks and a few other symbols
+ . IGNORE_BEFORE_SETFILENAME customization variable removed.  Always set.
  . HTML output:
      . use <code> tag for the output of @t instead of <tt>
 
