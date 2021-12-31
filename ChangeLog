@@ -1,5 +1,14 @@
 2021-12-30  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (%default_parser_specific_customization),
+	tp/Texinfo/ParserNonXS.pm (parse_texi_file),
+	tp/Texinfo/XS/parsetexi/Parsetexi.pm
+	(_maybe_ignore_before_setfilename),
+	doc/texinfo.texi (Other Customization Variables):
+	remove IGNORE_BEFORE_SETFILENAME (always set).
+
+2021-12-30  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (%parser_state_configuration)
 	(_set_global_informations, parse_texi_file, _register_global_command),
 	tp/Texinfo/XS/parsetexi/Parsetexi.pm (get_parser_info)

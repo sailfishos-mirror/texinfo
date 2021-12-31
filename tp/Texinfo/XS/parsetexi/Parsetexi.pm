@@ -207,14 +207,12 @@ sub get_parser_info {
 
 use File::Basename; # for fileparse
 
-# Handle 'IGNORE_BEFORE_SETFILENAME' conf value.
 # Put everything before @setfilename in a special type.  This allows
 # ignoring everything before @setfilename.
 sub _maybe_ignore_before_setfilename {
   my ($self, $before_node_section) = @_;
 
-  if ($self->{'IGNORE_BEFORE_SETFILENAME'}
-      and $self->global_commands_information()->{'setfilename'}
+  if ($self->global_commands_information()->{'setfilename'}
       and $self->global_commands_information()->{'setfilename'}->{'parent'}
                                                  eq $before_node_section) {
     my $before_setfilename = {'type' => 'preamble_before_setfilename',

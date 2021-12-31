@@ -981,8 +981,7 @@ sub parse_texi_file($$)
 
   # Put everything before @setfilename in a special type.  This allows to
   # ignore everything before @setfilename.
-  if ($self->{'IGNORE_BEFORE_SETFILENAME'}
-      and $self->global_commands_information()->{'setfilename'}
+  if ($self->global_commands_information()->{'setfilename'}
       and $self->global_commands_information()->{'setfilename'}->{'parent'}
                                                  eq $before_node_section) {
     my $before_setfilename = {'type' => 'preamble_before_setfilename',
@@ -6013,12 +6012,6 @@ conditional blocks should be expanded.  Default is empty.
 An array reference of directories in which C<@include> files should be
 searched for.  Default contains the working directory, F<.>.
 
-=item IGNORE_BEFORE_SETFILENAME
-
-If set, and C<@setfilename> exists, everything before C<@setfilename>
-is put in a special container type, @C<preamble_before_setfilename>.
-This option is set in the default case.
-
 =item IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME
 
 If set, spaces after an @-command name that take braces are ignored.
@@ -6696,8 +6689,7 @@ the C<\input texinfo.tex> line and following blank lines.
 
 =item preamble_before_setfilename
 
-This container holds everything that appears before C<@setfilename>
-if I<IGNORE_BEFORE_SETFILENAME> parser option is set.
+This container holds everything that appears before C<@setfilename>.
 
 =item paragraph
 

@@ -112,7 +112,6 @@ my %default_parser_common_customization = (
 
 # Customization variables obeyed only by the parser, and the default values.
 my %default_parser_specific_customization = (
-  'IGNORE_BEFORE_SETFILENAME' => 1,
   'IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME' => 1,
   'CPP_LINE_DIRECTIVES' => 1, # handle cpp like synchronization lines
   'MAX_MACRO_CALL_NESTING' => 100000, # max number of nested macro calls
