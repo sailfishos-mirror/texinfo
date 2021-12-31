@@ -1,5 +1,11 @@
 2021-12-30  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_parse_texi): check if top_context_command
+	is not undef too, which would correspond to the root context, for
+	heading specification context command check.
+
+2021-12-30  Patrice Dumas  <pertusus@free.fr>
+
 	* INSTALL: describe TEXINFO_XS_PARSER use.
 
 	* tp/Texinfo/XS/parsetexi/README: update.

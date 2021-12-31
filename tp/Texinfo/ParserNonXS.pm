@@ -3951,7 +3951,7 @@ sub _parse_texi($$$)
           $arguments = [$line];
           $line = "\n" if ($has_end_of_line);
         }
-        my $expanded = _expand_macro_body ($self,
+        my $expanded = _expand_macro_body($self,
                                    $self->{'macros'}->{$command},
                                    $arguments, $line_nr);
         print STDERR "MACROBODY: $expanded".'||||||'."\n" 
@@ -4318,7 +4318,9 @@ sub _parse_texi($$$)
             if ($in_heading_commands{$command}) {
               # TODO use a more generic system for check of @-command nesting
               # in command on context stack
-              if (not $headings_specification_commands{$self->_top_context_command()}) {
+              my $top_context_command = $self->_top_context_command();
+              if (not defined($top_context_command)
+                  or not $headings_specification_commands{$top_context_command}) {
                 $self->_line_error(
                   sprintf(__("\@%s should only appear in heading or footing"),
                         $command), $line_nr);
