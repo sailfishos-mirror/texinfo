@@ -1800,11 +1800,11 @@ sub _close_commands($$$;$$)
         # stop if the command is found
   while (!($closed_command and $current->{'cmdname'}
            and $current->{'cmdname'} eq $closed_command) 
-         # stop if at the root
+         # Stop if at the root
          and $current->{'parent'}
-         # stop if at a root type
+         # Stop if at a type at the root
          and not ($current->{'type'} and $current->{'type'} eq 'text_root')
-     # stop if in a root command
+     # Stop if in a root command
      # or in a context_brace_commands and searching for a specific 
      # end block command (with $closed_command set).  
      # This second condition means that a footnote is not closed when 
@@ -6037,8 +6037,7 @@ as an argument is used to parse into a tree.
 
 When C<parse_texi_line> is used, the resulting tree is rooted at
 a C<root_line> type container.  Otherwise, the resulting tree should be
-rooted at a C<text_root> type container if it does not contain nodes or
-sections, at a C<document_root> type container otherwise.
+rooted at a C<document_root> type container.
 
 =over
 
@@ -6659,18 +6658,20 @@ other elements appearing in their C<contents>.
 
 =over
 
-=item text_root
-
 =item document_root
 
 =item root_line
 
-These types correspond to document roots.  C<text_root> is the document
-root when there is no C<@node> or sectioning command.  When
-such a command appears, a new root container is used, C<document_root>,
-and C<text_root> becomes the first element in the contents of C<document_root>.
 C<root_line> is the type of the root tree when parsing Texinfo line
-fragments using C<parse_texi_line>.
+fragments using C<parse_texi_line>.  C<document_root> is the document
+root otherwise.
+
+C<document_root> first content should be C<text_root>, then nodes and
+sections @-commands elements, and also C<@bye> element.
+
+=item text_root
+
+Content before nodes and sectioning commands at the beginning of C<document_root>.
 
 =item preamble_before_beginning
 
