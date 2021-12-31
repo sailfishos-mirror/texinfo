@@ -1,5 +1,12 @@
 2021-12-30  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/IXIN.pm (output_ixin),
+	tp/Texinfo/Convert/TexinfoXML.pm (_set_ignored_type):
+	do not ignore before first node.  Remove now unused
+	_set_ignored_type().
+
+2021-12-30  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Structuring.pm (no_root_command_tree),
 	tp/Texinfo/Transformations.pm (fill_gaps_in_sectioning)
 	(insert_nodes_for_sectioning_commands)

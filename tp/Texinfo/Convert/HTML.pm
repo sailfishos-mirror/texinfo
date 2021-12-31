@@ -6125,9 +6125,8 @@ sub _set_root_commands_targets_node_files($$)
   if ($tree_units) {
     foreach my $tree_unit (@$tree_units) {
       foreach my $root_command(@{$tree_unit->{'contents'}}) {
-        # this happens for type 'text_root' which precedes the 
-        # root commands.  The target may also already be set for the top node
-        # tree unit.
+        # this happens for types which would precede the root commands.
+        # The target may already be set for the top node tree unit.
         next if (!defined($root_command->{'cmdname'}) 
                  or $self->{'targets'}->{$root_command});
         if ($Texinfo::Common::sectioning_commands{$root_command->{'cmdname'}}) {

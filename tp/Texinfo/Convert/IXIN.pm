@@ -285,9 +285,6 @@ sub output_ixin($$)
     }
   }
 
-  # we ignore everything before the first node
-  $self->_set_ignored_type('text_root');
-
   my $result = $self->ixin_header();
 
   $result .= $self->ixin_open_element('meta');
