@@ -195,9 +195,10 @@ sub get_parser_info {
   $self->{'internal_references'} = $INTL_XREFS;
   $self->{'floats'} = $FLOATS;
   $self->{'info'} = $GLOBAL_INFO;
-  $self->{'extra'} = $GLOBAL_INFO2;
+  $self->{'commands_info'} = $GLOBAL_INFO2;
 
-  if ($self->get_conf('novalidate') or $self->{'extra'}->{'novalidate'}) {
+  if ($self->get_conf('novalidate')
+      or $self->global_commands_information()->{'novalidate'}) {
     $self->{'info'}->{'novalidate'} = 1;
   }
 
@@ -213,11 +214,12 @@ sub _maybe_ignore_before_setfilename {
   my ($self, $before_node_section) = @_;
 
   if ($self->{'IGNORE_BEFORE_SETFILENAME'}
-      and $self->{'extra'}->{'setfilename'}
-      and $self->{'extra'}->{'setfilename'}->{'parent'} eq $before_node_section) {
+      and $self->global_commands_information()->{'setfilename'}
+      and $self->global_commands_information()->{'setfilename'}->{'parent'}
+                                                 eq $before_node_section) {
     my $before_setfilename = {'type' => 'preamble_before_setfilename',
-      'parent' => $before_node_section,
-      'contents' => []};
+                              'parent' => $before_node_section,
+                              'contents' => []};
     while (@{$before_node_section->{'contents'}}
         and (!$before_node_section->{'contents'}->[0]->{'cmdname'}
           or $before_node_section->{'contents'}->[0]->{'cmdname'} ne 'setfilename')) {
@@ -225,14 +227,8 @@ sub _maybe_ignore_before_setfilename {
       $content->{'parent'} = $before_setfilename;
       push @{$before_setfilename->{'contents'}}, $content;
     }
-    if (!@{$before_node_section->{'contents'}}) {
-      # not found
-      #splice @{$before_node_section->{'contents'}}, 0, 0, @$before_setfilename;
-      $before_node_section->{'contents'} = $before_setfilename->{'contents'};
-    } else {
-      unshift (@{$before_node_section->{'contents'}}, $before_setfilename)
-        if (@{$before_setfilename->{'contents'}});
-    }
+    unshift (@{$before_node_section->{'contents'}}, $before_setfilename)
+      if (@{$before_setfilename->{'contents'}});
   }
 }
 
@@ -366,7 +362,7 @@ sub internal_references_information($)
 sub global_commands_information($)
 {
   my $self = shift;
-  return $self->{'extra'};
+  return $self->{'commands_info'};
 }
 
 sub global_informations($)

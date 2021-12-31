@@ -1,5 +1,15 @@
 2021-12-30  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (%parser_state_configuration)
+	(_set_global_informations, parse_texi_file, _register_global_command),
+	tp/Texinfo/XS/parsetexi/Parsetexi.pm (get_parser_info)
+	(_maybe_ignore_before_setfilename, global_commands_information):
+	use commands_info instead of extra as key for parser global
+	commands informations.
+	Synchronize code used to set preamble_before_setfilename.
+
+2021-12-30  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_expand_macro_body): ignore arg value
 	if there are less arguments given to the macro than the argument
 	found.
