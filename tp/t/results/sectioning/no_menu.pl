@@ -160,10 +160,10 @@ $result_trees{'no_menu'} = {
         'line_nr' => 5,
         'macro' => ''
       },
-      'number' => 1,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 1
       }
     },
     {
@@ -241,10 +241,10 @@ $result_trees{'no_menu'} = {
         'line_nr' => 8,
         'macro' => ''
       },
-      'number' => 2,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 2
       }
     },
     {
@@ -315,10 +315,10 @@ $result_trees{'no_menu'} = {
         'line_nr' => 11,
         'macro' => ''
       },
-      'number' => 3,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 3
       }
     }
   ],
@@ -411,10 +411,10 @@ $result_sectioning{'no_menu'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'number' => 1,
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 1
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -431,11 +431,11 @@ $result_sectioning{'no_menu'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'number' => 2,
           'section_prev' => {},
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 2
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -452,11 +452,11 @@ $result_sectioning{'no_menu'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'number' => 3,
           'section_prev' => {},
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 3
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -506,9 +506,9 @@ $result_nodes{'no_menu'} = {
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'number' => 1,
         'structure' => {
-          'level' => 1
+          'level' => 1,
+          'number' => 1
         }
       },
       'normalized' => 'c1',
@@ -522,9 +522,9 @@ $result_nodes{'no_menu'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'number' => 2,
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 2
           }
         },
         'normalized' => 'c2',
@@ -538,9 +538,9 @@ $result_nodes{'no_menu'} = {
             'extra' => {
               'spaces_before_argument' => ' '
             },
-            'number' => 3,
             'structure' => {
-              'level' => 1
+              'level' => 1,
+              'number' => 3
             }
           },
           'normalized' => 'c3',

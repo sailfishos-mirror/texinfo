@@ -206,10 +206,10 @@ $result_trees{'section_on_defx_line'} = {
         'line_nr' => 2,
         'macro' => ''
       },
-      'number' => 1,
       'parent' => {},
       'structure' => {
-        'level' => 2
+        'level' => 2,
+        'number' => 1
       }
     }
   ],
@@ -266,10 +266,10 @@ $result_sectioning{'section_on_defx_line'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'number' => 1,
       'section_up' => {},
       'structure' => {
-        'level' => 2
+        'level' => 2,
+        'number' => 1
       }
     }
   ],

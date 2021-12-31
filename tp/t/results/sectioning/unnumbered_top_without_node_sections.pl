@@ -339,10 +339,10 @@ $result_trees{'unnumbered_top_without_node_sections'} = [
           'line_nr' => 10,
           'macro' => ''
         },
-        'number' => 1,
         'parent' => {},
         'structure' => {
-          'level' => 1
+          'level' => 1,
+          'number' => 1
         }
       }
     ],
@@ -485,11 +485,11 @@ $result_sectioning{'unnumbered_top_without_node_sections'} = {
         },
         'spaces_before_argument' => ' '
       },
-      'number' => 1,
       'section_prev' => {},
       'section_up' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 1
       },
       'toplevel_prev' => {},
       'toplevel_up' => {}
@@ -621,9 +621,9 @@ $result_elements{'unnumbered_top_without_node_sections'} = [
                     'extra' => {
                       'spaces_before_argument' => ' '
                     },
-                    'number' => 1,
                     'structure' => {
-                      'level' => 1
+                      'level' => 1,
+                      'number' => 1
                     }
                   },
                   'unit_command' => {}

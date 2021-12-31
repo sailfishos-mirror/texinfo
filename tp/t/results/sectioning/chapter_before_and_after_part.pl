@@ -47,10 +47,10 @@ $result_trees{'chapter_before_and_after_part'} = [
           'line_nr' => 1,
           'macro' => ''
         },
-        'number' => 1,
         'parent' => {},
         'structure' => {
-          'level' => 1
+          'level' => 1,
+          'number' => 1
         }
       }
     ],
@@ -154,10 +154,10 @@ $result_trees{'chapter_before_and_after_part'} = [
           'line_nr' => 5,
           'macro' => ''
         },
-        'number' => 2,
         'parent' => {},
         'structure' => {
-          'level' => 1
+          'level' => 1,
+          'number' => 2
         }
       }
     ],
@@ -221,10 +221,10 @@ $result_sectioning{'chapter_before_and_after_part'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'number' => 1,
       'section_up' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 1
       }
     },
     {
@@ -236,10 +236,10 @@ $result_sectioning{'chapter_before_and_after_part'} = {
             'associated_part' => {},
             'spaces_before_argument' => ' '
           },
-          'number' => 2,
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 2
           },
           'toplevel_prev' => {}
         },
@@ -279,9 +279,9 @@ $result_elements{'chapter_before_and_after_part'} = [
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'number' => 1,
         'structure' => {
-          'level' => 1
+          'level' => 1,
+          'number' => 1
         }
       },
       'unit_command' => {}
@@ -304,9 +304,9 @@ $result_elements{'chapter_before_and_after_part'} = [
                 },
                 'spaces_before_argument' => ' '
               },
-              'number' => 2,
               'structure' => {
-                'level' => 1
+                'level' => 1,
+                'number' => 2
               }
             },
             'unit_command' => {}

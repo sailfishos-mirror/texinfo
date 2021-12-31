@@ -2844,10 +2844,10 @@ $result_trees{'htmlxref'} = {
         'line_nr' => 68,
         'macro' => ''
       },
-      'number' => 1,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 1
       }
     },
     {},
@@ -3488,10 +3488,10 @@ $result_sectioning{'htmlxref'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'number' => 1,
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 1
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -3535,9 +3535,9 @@ $result_nodes{'htmlxref'} = {
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'number' => 1,
         'structure' => {
-          'level' => 1
+          'level' => 1,
+          'number' => 1
         }
       },
       'normalized' => 'other-nodes',

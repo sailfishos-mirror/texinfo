@@ -190,10 +190,10 @@ $result_trees{'text_before_top_and_contents_after_title'} = {
         'line_nr' => 9,
         'macro' => ''
       },
-      'number' => 1,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 1
       }
     }
   ],
@@ -273,10 +273,10 @@ $result_sectioning{'text_before_top_and_contents_after_title'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'number' => 1,
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 1
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}

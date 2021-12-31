@@ -184,10 +184,10 @@ $result_trees{'section_in_nested_block_commands'} = {
         'line_nr' => 9,
         'macro' => ''
       },
-      'number' => 1,
       'parent' => {},
       'structure' => {
-        'level' => 2
+        'level' => 2,
+        'number' => 1
       }
     }
   ],
@@ -247,10 +247,10 @@ $result_sectioning{'section_in_nested_block_commands'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'number' => 1,
       'section_up' => {},
       'structure' => {
-        'level' => 2
+        'level' => 2,
+        'number' => 1
       }
     }
   ],

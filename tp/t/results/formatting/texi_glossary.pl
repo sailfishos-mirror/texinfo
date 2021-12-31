@@ -869,10 +869,10 @@ $result_trees{'texi_glossary'} = {
                         'line_nr' => 46,
                         'macro' => ''
                       },
-                      'number' => 1,
                       'parent' => {},
                       'structure' => {
-                        'level' => 1
+                        'level' => 1,
+                        'number' => 1
                       }
                     },
                     'type' => 'paragraph'
@@ -1432,10 +1432,10 @@ $result_sectioning{'texi_glossary'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'number' => 1,
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 1
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -1479,9 +1479,9 @@ $result_nodes{'texi_glossary'} = {
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'number' => 1,
         'structure' => {
-          'level' => 1
+          'level' => 1,
+          'number' => 1
         }
       },
       'normalized' => 'glossary',

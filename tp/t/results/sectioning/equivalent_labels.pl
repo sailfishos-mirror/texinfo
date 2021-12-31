@@ -191,8 +191,10 @@ $result_trees{'equivalent_labels'} = {
             'line_nr' => 5,
             'macro' => ''
           },
-          'number' => 1,
-          'parent' => {}
+          'parent' => {},
+          'structure' => {
+            'float_number' => 1
+          }
         },
         {
           'parent' => {},
@@ -567,7 +569,9 @@ $result_menus{'equivalent_labels'} = {
       'menu_up_hash' => {
         'Top' => 1
       },
-      'number' => 1
+      'structure' => {
+        'float_number' => 1
+      }
     },
     'menu_up' => {},
     'menu_up_hash' => {
@@ -625,7 +629,9 @@ $result_floats{'equivalent_labels'} = {
           'normalized' => 'truc'
         }
       },
-      'number' => 1
+      'structure' => {
+        'float_number' => 1
+      }
     }
   ]
 };

@@ -166,8 +166,10 @@ $result_trees{'float_in_style_command'} = {
             'line_nr' => 2,
             'macro' => ''
           },
-          'number' => 1,
-          'parent' => {}
+          'parent' => {},
+          'structure' => {
+            'float_number' => 1
+          }
         }
       ],
       'parent' => {},
@@ -277,7 +279,9 @@ $result_floats{'float_in_style_command'} = {
           'normalized' => 'A'
         }
       },
-      'number' => 1
+      'structure' => {
+        'float_number' => 1
+      }
     }
   ]
 };

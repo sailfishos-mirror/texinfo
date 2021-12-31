@@ -440,10 +440,10 @@ $result_trees{'anchor_in_footnote_separate'} = {
         'line_nr' => 14,
         'macro' => ''
       },
-      'number' => 1,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 1
       }
     }
   ],
@@ -569,10 +569,10 @@ $result_sectioning{'anchor_in_footnote_separate'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'number' => 1,
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 1
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -616,9 +616,9 @@ $result_nodes{'anchor_in_footnote_separate'} = {
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'number' => 1,
         'structure' => {
-          'level' => 1
+          'level' => 1,
+          'number' => 1
         }
       },
       'normalized' => 'chapter',

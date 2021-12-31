@@ -320,8 +320,10 @@ $result_trees{'block_commands'} = {
             'line_nr' => 10,
             'macro' => ''
           },
-          'number' => 1,
-          'parent' => {}
+          'parent' => {},
+          'structure' => {
+            'float_number' => 1
+          }
         }
       ],
       'parent' => {},
@@ -444,7 +446,9 @@ $result_floats{'block_commands'} = {
           'normalized' => 'a float'
         }
       },
-      'number' => 1
+      'structure' => {
+        'float_number' => 1
+      }
     }
   ]
 };

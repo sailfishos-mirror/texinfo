@@ -579,10 +579,10 @@ $result_trees{'two_footnotes_in_nodes_separate'} = {
         'line_nr' => 18,
         'macro' => ''
       },
-      'number' => 1,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 1
       }
     }
   ],
@@ -748,10 +748,10 @@ $result_sectioning{'two_footnotes_in_nodes_separate'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'number' => 1,
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 1
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -795,9 +795,9 @@ $result_nodes{'two_footnotes_in_nodes_separate'} = {
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'number' => 1,
         'structure' => {
-          'level' => 1
+          'level' => 1,
+          'number' => 1
         }
       },
       'normalized' => 'chapter',

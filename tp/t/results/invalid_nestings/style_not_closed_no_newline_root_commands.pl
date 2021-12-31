@@ -341,10 +341,10 @@ $result_trees{'style_not_closed_no_newline_root_commands'} = {
         'line_nr' => 10,
         'macro' => ''
       },
-      'number' => 1,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 1
       }
     },
     {
@@ -465,10 +465,10 @@ $result_sectioning{'style_not_closed_no_newline_root_commands'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'number' => 1,
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 1
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -512,9 +512,9 @@ $result_nodes{'style_not_closed_no_newline_root_commands'} = {
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'number' => 1,
         'structure' => {
-          'level' => 1
+          'level' => 1,
+          'number' => 1
         }
       },
       'normalized' => 'chapter',

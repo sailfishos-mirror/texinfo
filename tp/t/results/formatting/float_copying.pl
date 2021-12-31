@@ -619,8 +619,10 @@ $result_trees{'float_copying'} = {
                 'line_nr' => 7,
                 'macro' => ''
               },
-              'number' => 1,
-              'parent' => {}
+              'parent' => {},
+              'structure' => {
+                'float_number' => 1
+              }
             },
             {
               'args' => [
@@ -1457,10 +1459,10 @@ $result_trees{'float_copying'} = {
         'line_nr' => 46,
         'macro' => ''
       },
-      'number' => 'A',
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 'A'
       }
     },
     {
@@ -1828,10 +1830,10 @@ $result_sectioning{'float_copying'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'number' => 'A',
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 'A'
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -1875,9 +1877,9 @@ $result_nodes{'float_copying'} = {
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'number' => 'A',
         'structure' => {
-          'level' => 1
+          'level' => 1,
+          'number' => 'A'
         }
       },
       'isindex' => 1,
@@ -1962,7 +1964,9 @@ $result_floats{'float_copying'} = {
           'normalized' => 'Copyright notice'
         }
       },
-      'number' => 1
+      'structure' => {
+        'float_number' => 1
+      }
     }
   ]
 };

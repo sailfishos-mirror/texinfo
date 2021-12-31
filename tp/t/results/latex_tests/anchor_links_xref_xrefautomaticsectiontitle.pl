@@ -871,10 +871,10 @@ $result_trees{'anchor_links_xref_xrefautomaticsectiontitle'} = {
         'line_nr' => 20,
         'macro' => ''
       },
-      'number' => 1,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 1
       }
     }
   ],
@@ -1098,10 +1098,10 @@ $result_sectioning{'anchor_links_xref_xrefautomaticsectiontitle'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'number' => 1,
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 1
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -1145,9 +1145,9 @@ $result_nodes{'anchor_links_xref_xrefautomaticsectiontitle'} = {
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'number' => 1,
         'structure' => {
-          'level' => 1
+          'level' => 1,
+          'number' => 1
         }
       },
       'normalized' => 'chap',

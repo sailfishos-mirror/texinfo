@@ -82,10 +82,10 @@ $result_trees{'section_on_index_entry_line'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'number' => 1,
       'parent' => {},
       'structure' => {
-        'level' => 2
+        'level' => 2,
+        'number' => 1
       }
     }
   ],
@@ -121,10 +121,10 @@ $result_sectioning{'section_on_index_entry_line'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'number' => 1,
       'section_up' => {},
       'structure' => {
-        'level' => 2
+        'level' => 2,
+        'number' => 1
       }
     }
   ],

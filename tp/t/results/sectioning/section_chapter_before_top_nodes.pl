@@ -123,10 +123,10 @@ $result_trees{'section_chapter_before_top_nodes'} = {
         'line_nr' => 4,
         'macro' => ''
       },
-      'number' => 1,
       'parent' => {},
       'structure' => {
-        'level' => 2
+        'level' => 2,
+        'number' => 1
       }
     },
     {
@@ -320,10 +320,10 @@ $result_trees{'section_chapter_before_top_nodes'} = {
         'line_nr' => 7,
         'macro' => ''
       },
-      'number' => 2,
       'parent' => {},
       'structure' => {
-        'level' => 2
+        'level' => 2,
+        'number' => 2
       }
     },
     {
@@ -646,10 +646,10 @@ $result_sectioning{'section_chapter_before_top_nodes'} = {
         },
         'spaces_before_argument' => ' '
       },
-      'number' => 1,
       'section_up' => {},
       'structure' => {
-        'level' => 2
+        'level' => 2,
+        'number' => 1
       }
     },
     {
@@ -664,11 +664,11 @@ $result_sectioning{'section_chapter_before_top_nodes'} = {
         },
         'spaces_before_argument' => ' '
       },
-      'number' => 2,
       'section_prev' => {},
       'section_up' => {},
       'structure' => {
-        'level' => 2
+        'level' => 2,
+        'number' => 2
       },
       'toplevel_prev' => {}
     },
@@ -727,9 +727,9 @@ $result_nodes{'section_chapter_before_top_nodes'} = {
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'number' => 2,
         'structure' => {
-          'level' => 2
+          'level' => 2,
+          'number' => 2
         }
       },
       'normalized' => 'chapter-node',
@@ -743,9 +743,9 @@ $result_nodes{'section_chapter_before_top_nodes'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'number' => 1,
           'structure' => {
-            'level' => 2
+            'level' => 2,
+            'number' => 1
           }
         },
         'normalized' => 'section-node',

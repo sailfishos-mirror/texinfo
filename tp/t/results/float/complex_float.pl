@@ -2472,8 +2472,10 @@ $result_trees{'complex_float'} = {
             'line_nr' => 12,
             'macro' => ''
           },
-          'number' => 1,
-          'parent' => {}
+          'parent' => {},
+          'structure' => {
+            'float_number' => 1
+          }
         },
         {
           'parent' => {},
@@ -3759,8 +3761,10 @@ $result_trees{'complex_float'} = {
             'line_nr' => 94,
             'macro' => ''
           },
-          'number' => '1.1',
-          'parent' => {}
+          'parent' => {},
+          'structure' => {
+            'float_number' => '1.1'
+          }
         },
         {
           'parent' => {},
@@ -3825,10 +3829,10 @@ $result_trees{'complex_float'} = {
         'line_nr' => 92,
         'macro' => ''
       },
-      'number' => 1,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 1
       }
     }
   ],
@@ -4593,10 +4597,10 @@ $result_sectioning{'complex_float'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'number' => 1,
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 1
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -4640,9 +4644,9 @@ $result_nodes{'complex_float'} = {
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'number' => 1,
         'structure' => {
-          'level' => 1
+          'level' => 1,
+          'number' => 1
         }
       },
       'normalized' => 'chapter',
@@ -4741,7 +4745,9 @@ $result_floats{'complex_float'} = {
           'normalized' => 'Text'
         }
       },
-      'number' => 1
+      'structure' => {
+        'float_number' => 1
+      }
     },
     {
       'cmdname' => 'float',
@@ -4766,9 +4772,9 @@ $result_floats{'complex_float'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'number' => 1,
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 1
           }
         },
         'normalized' => 'float-with-a-lot-of-features-and-no-shortcaption',
@@ -4782,7 +4788,9 @@ $result_floats{'complex_float'} = {
           'normalized' => 'Text'
         }
       },
-      'number' => '1.1'
+      'structure' => {
+        'float_number' => '1.1'
+      }
     }
   ]
 };

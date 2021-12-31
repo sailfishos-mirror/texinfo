@@ -681,10 +681,10 @@ $result_trees{'redirection_same_labels'} = [
           'line_nr' => 15,
           'macro' => ''
         },
-        'number' => 1,
         'parent' => {},
         'structure' => {
-          'level' => 1
+          'level' => 1,
+          'number' => 1
         }
       },
       {
@@ -1059,10 +1059,10 @@ $result_trees{'redirection_same_labels'} = [
           'line_nr' => 27,
           'macro' => ''
         },
-        'number' => 2,
         'parent' => {},
         'structure' => {
-          'level' => 1
+          'level' => 1,
+          'number' => 2
         }
       },
       {
@@ -1380,10 +1380,10 @@ $result_sectioning{'redirection_same_labels'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'number' => 1,
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 1
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -1400,11 +1400,11 @@ $result_sectioning{'redirection_same_labels'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'number' => 2,
           'section_prev' => {},
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 2
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -1452,9 +1452,9 @@ $result_nodes{'redirection_same_labels'} = {
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'number' => 1,
         'structure' => {
-          'level' => 1
+          'level' => 1,
+          'number' => 1
         }
       },
       'normalized' => 'umlaut',
@@ -1500,9 +1500,9 @@ $result_nodes{'redirection_same_labels'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'number' => 2,
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 2
           }
         },
         'normalized' => 'circumflex',
@@ -1730,9 +1730,9 @@ $result_elements{'redirection_same_labels'} = [
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'number' => 1,
               'structure' => {
-                'level' => 1
+                'level' => 1,
+                'number' => 1
               }
             },
             'unit_command' => {}
@@ -1749,9 +1749,9 @@ $result_elements{'redirection_same_labels'} = [
                     'extra' => {
                       'spaces_before_argument' => ' '
                     },
-                    'number' => 2,
                     'structure' => {
-                      'level' => 1
+                      'level' => 1,
+                      'number' => 2
                     }
                   },
                   'unit_command' => {}

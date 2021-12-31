@@ -96,10 +96,10 @@ $result_trees{'index_below'} = [
           'line_nr' => 3,
           'macro' => ''
         },
-        'number' => 1,
         'parent' => {},
         'structure' => {
-          'level' => 1
+          'level' => 1,
+          'number' => 1
         }
       }
     ],
@@ -219,10 +219,10 @@ $result_trees{'index_below'} = [
           'line_nr' => 5,
           'macro' => ''
         },
-        'number' => '1.1',
         'parent' => {},
         'structure' => {
-          'level' => 2
+          'level' => 2,
+          'number' => '1.1'
         }
       }
     ],
@@ -302,23 +302,23 @@ $result_sectioning{'index_below'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'number' => 1,
           'section_childs' => [
             {
               'cmdname' => 'section',
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'number' => '1.1',
               'section_up' => {},
               'structure' => {
-                'level' => 2
+                'level' => 2,
+                'number' => '1.1'
               }
             }
           ],
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 1
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -376,9 +376,9 @@ $result_elements{'index_below'} = [
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'number' => 1,
               'structure' => {
-                'level' => 1
+                'level' => 1,
+                'number' => 1
               }
             },
             'unit_command' => {}
@@ -394,9 +394,9 @@ $result_elements{'index_below'} = [
                     'extra' => {
                       'spaces_before_argument' => ' '
                     },
-                    'number' => '1.1',
                     'structure' => {
-                      'level' => 2
+                      'level' => 2,
+                      'number' => '1.1'
                     }
                   },
                   'unit_command' => {}

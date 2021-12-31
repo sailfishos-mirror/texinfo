@@ -281,10 +281,10 @@ $result_trees{'lone_Top_node'} = [
           'line_nr' => 10,
           'macro' => ''
         },
-        'number' => 1,
         'parent' => {},
         'structure' => {
-          'level' => 1
+          'level' => 1,
+          'number' => 1
         }
       }
     ],
@@ -373,10 +373,10 @@ $result_sectioning{'lone_Top_node'} = {
         },
         'spaces_before_argument' => ' '
       },
-      'number' => 1,
       'section_up' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 1
       }
     }
   ],
@@ -400,9 +400,9 @@ $result_nodes{'lone_Top_node'} = {
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'number' => 1,
         'structure' => {
-          'level' => 1
+          'level' => 1,
+          'number' => 1
         }
       },
       'normalized' => 'First',
@@ -494,9 +494,9 @@ $result_elements{'lone_Top_node'} = [
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'number' => 1,
         'structure' => {
-          'level' => 1
+          'level' => 1,
+          'number' => 1
         }
       },
       'unit_command' => {}

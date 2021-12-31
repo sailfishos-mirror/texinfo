@@ -1079,18 +1079,18 @@ sub format_contents($$$)
     while ($section) {
       push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0};
       my $section_title_tree;
-      if (defined($section->{'number'}) 
+      if (defined($section->{'structure'}->{'number'})
           and ($self->get_conf('NUMBER_SECTIONS')
                or !defined($self->get_conf('NUMBER_SECTIONS')))) {
         if ($section->{'cmdname'} eq 'appendix'
             and $section->{'structure'}->{'level'} == 1) {
           $section_title_tree = $self->gdt('Appendix {number} {section_title}',
-                           {'number' => {'text' => $section->{'number'}},
+                           {'number' => {'text' => $section->{'structure'}->{'number'}},
                             'section_title' 
                               => {'contents' => $section->{'args'}->[0]->{'contents'}}});
         } else {
           $section_title_tree = $self->gdt('{number} {section_title}',
-                           {'number' => {'text' => $section->{'number'}},
+                           {'number' => {'text' => $section->{'structure'}->{'number'}},
                             'section_title' 
                               => {'contents' => $section->{'args'}->[0]->{'contents'}}});
         }
@@ -3205,7 +3205,7 @@ sub _convert($$)
     if ($command eq 'float') {
       if ($element->{'extra'}
           and ($element->{'extra'}->{'type'}->{'normalized'} ne ''
-               or defined($element->{'number'})
+               or defined($element->{'structure'}->{'float_number'})
                or $element->{'extra'}->{'caption'} or $element->{'extra'}->{'shortcaption'})) {
         
         $result .= _add_newline_if_needed($self);

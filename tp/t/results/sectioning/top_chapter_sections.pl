@@ -147,10 +147,10 @@ $result_trees{'top_chapter_sections'} = [
           'line_nr' => 5,
           'macro' => ''
         },
-        'number' => 1,
         'parent' => {},
         'structure' => {
-          'level' => 1
+          'level' => 1,
+          'number' => 1
         }
       }
     ],
@@ -199,10 +199,10 @@ $result_trees{'top_chapter_sections'} = [
           'line_nr' => 7,
           'macro' => ''
         },
-        'number' => '1.1',
         'parent' => {},
         'structure' => {
-          'level' => 2
+          'level' => 2,
+          'number' => '1.1'
         }
       }
     ],
@@ -251,10 +251,10 @@ $result_trees{'top_chapter_sections'} = [
           'line_nr' => 9,
           'macro' => ''
         },
-        'number' => 2,
         'parent' => {},
         'structure' => {
-          'level' => 1
+          'level' => 1,
+          'number' => 2
         }
       }
     ],
@@ -303,10 +303,10 @@ $result_trees{'top_chapter_sections'} = [
           'line_nr' => 11,
           'macro' => ''
         },
-        'number' => '2.1',
         'parent' => {},
         'structure' => {
-          'level' => 2
+          'level' => 2,
+          'number' => '2.1'
         }
       }
     ],
@@ -355,10 +355,10 @@ $result_trees{'top_chapter_sections'} = [
           'line_nr' => 13,
           'macro' => ''
         },
-        'number' => '2.1.1',
         'parent' => {},
         'structure' => {
-          'level' => 3
+          'level' => 3,
+          'number' => '2.1.1'
         }
       }
     ],
@@ -407,10 +407,10 @@ $result_trees{'top_chapter_sections'} = [
           'line_nr' => 15,
           'macro' => ''
         },
-        'number' => '2.1.2',
         'parent' => {},
         'structure' => {
-          'level' => 3
+          'level' => 3,
+          'number' => '2.1.2'
         }
       }
     ],
@@ -452,10 +452,10 @@ $result_trees{'top_chapter_sections'} = [
           'line_nr' => 17,
           'macro' => ''
         },
-        'number' => 3,
         'parent' => {},
         'structure' => {
-          'level' => 1
+          'level' => 1,
+          'number' => 3
         }
       }
     ],
@@ -605,24 +605,24 @@ $result_sectioning{'top_chapter_sections'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'number' => 1,
           'section_childs' => [
             {
               'cmdname' => 'section',
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'number' => '1.1',
               'section_up' => {},
               'structure' => {
-                'level' => 2
+                'level' => 2,
+                'number' => '1.1'
               }
             }
           ],
           'section_prev' => {},
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 1
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -632,24 +632,22 @@ $result_sectioning{'top_chapter_sections'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'number' => 2,
           'section_childs' => [
             {
               'cmdname' => 'section',
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'number' => '2.1',
               'section_childs' => [
                 {
                   'cmdname' => 'subsection',
                   'extra' => {
                     'spaces_before_argument' => ' '
                   },
-                  'number' => '2.1.1',
                   'section_up' => {},
                   'structure' => {
-                    'level' => 3
+                    'level' => 3,
+                    'number' => '2.1.1'
                   }
                 },
                 {
@@ -657,24 +655,26 @@ $result_sectioning{'top_chapter_sections'} = {
                   'extra' => {
                     'spaces_before_argument' => ' '
                   },
-                  'number' => '2.1.2',
                   'section_prev' => {},
                   'section_up' => {},
                   'structure' => {
-                    'level' => 3
+                    'level' => 3,
+                    'number' => '2.1.2'
                   }
                 }
               ],
               'section_up' => {},
               'structure' => {
-                'level' => 2
+                'level' => 2,
+                'number' => '2.1'
               }
             }
           ],
           'section_prev' => {},
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 2
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -684,11 +684,11 @@ $result_sectioning{'top_chapter_sections'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'number' => 3,
           'section_prev' => {},
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 3
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -772,9 +772,9 @@ $result_elements{'top_chapter_sections'} = [
                     'extra' => {
                       'spaces_before_argument' => ' '
                     },
-                    'number' => 1,
                     'structure' => {
-                      'level' => 1
+                      'level' => 1,
+                      'number' => 1
                     }
                   },
                   'unit_command' => {}
@@ -790,9 +790,9 @@ $result_elements{'top_chapter_sections'} = [
                           'extra' => {
                             'spaces_before_argument' => ' '
                           },
-                          'number' => 2,
                           'structure' => {
-                            'level' => 1
+                            'level' => 1,
+                            'number' => 2
                           }
                         },
                         'unit_command' => {}
@@ -806,9 +806,9 @@ $result_elements{'top_chapter_sections'} = [
                                 'extra' => {
                                   'spaces_before_argument' => ' '
                                 },
-                                'number' => '1.1',
                                 'structure' => {
-                                  'level' => 2
+                                  'level' => 2,
+                                  'number' => '1.1'
                                 }
                               },
                               'unit_command' => {}
@@ -833,9 +833,9 @@ $result_elements{'top_chapter_sections'} = [
                                 'extra' => {
                                   'spaces_before_argument' => ' '
                                 },
-                                'number' => 3,
                                 'structure' => {
-                                  'level' => 1
+                                  'level' => 1,
+                                  'number' => 3
                                 }
                               },
                               'unit_command' => {}
@@ -849,9 +849,9 @@ $result_elements{'top_chapter_sections'} = [
                                       'extra' => {
                                         'spaces_before_argument' => ' '
                                       },
-                                      'number' => '2.1.2',
                                       'structure' => {
-                                        'level' => 3
+                                        'level' => 3,
+                                        'number' => '2.1.2'
                                       }
                                     },
                                     'unit_command' => {}
@@ -865,9 +865,9 @@ $result_elements{'top_chapter_sections'} = [
                                             'extra' => {
                                               'spaces_before_argument' => ' '
                                             },
-                                            'number' => '2.1.1',
                                             'structure' => {
-                                              'level' => 3
+                                              'level' => 3,
+                                              'number' => '2.1.1'
                                             }
                                           },
                                           'unit_command' => {}
@@ -881,9 +881,9 @@ $result_elements{'top_chapter_sections'} = [
                                                   'extra' => {
                                                     'spaces_before_argument' => ' '
                                                   },
-                                                  'number' => '2.1',
                                                   'structure' => {
-                                                    'level' => 2
+                                                    'level' => 2,
+                                                    'number' => '2.1'
                                                   }
                                                 },
                                                 'unit_command' => {}

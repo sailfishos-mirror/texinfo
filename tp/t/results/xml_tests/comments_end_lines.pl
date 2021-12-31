@@ -873,8 +873,10 @@ $result_trees{'comments_end_lines'} = {
             'line_nr' => 28,
             'macro' => ''
           },
-          'number' => 1,
-          'parent' => {}
+          'parent' => {},
+          'structure' => {
+            'float_number' => 1
+          }
         },
         {
           'parent' => {},
@@ -1285,7 +1287,9 @@ $result_floats{'comments_end_lines'} = {
           'normalized' => 'f'
         }
       },
-      'number' => 1
+      'structure' => {
+        'float_number' => 1
+      }
     }
   ]
 };

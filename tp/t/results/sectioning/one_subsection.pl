@@ -39,10 +39,10 @@ $result_trees{'one_subsection'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'number' => 1,
       'parent' => {},
       'structure' => {
-        'level' => 3
+        'level' => 3,
+        'number' => 1
       }
     }
   ],
@@ -68,10 +68,10 @@ $result_sectioning{'one_subsection'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'number' => 1,
       'section_up' => {},
       'structure' => {
-        'level' => 3
+        'level' => 3,
+        'number' => 1
       }
     }
   ],

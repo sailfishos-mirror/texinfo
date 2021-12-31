@@ -122,10 +122,10 @@ $result_trees{'no_argument_and_contents'} = {
         'line_nr' => 5,
         'macro' => ''
       },
-      'number' => 1,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 1
       }
     }
   ],
@@ -176,10 +176,10 @@ $result_sectioning{'no_argument_and_contents'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'number' => 1,
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 1
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}

@@ -483,10 +483,10 @@ $result_trees{'nodes_after_top_before_section_nodes'} = [
           'line_nr' => 13,
           'macro' => ''
         },
-        'number' => 1,
         'parent' => {},
         'structure' => {
-          'level' => 3
+          'level' => 3,
+          'number' => 1
         }
       }
     ],
@@ -621,10 +621,10 @@ $result_sectioning{'nodes_after_top_before_section_nodes'} = {
         },
         'spaces_before_argument' => ' '
       },
-      'number' => 1,
       'section_up' => {},
       'structure' => {
-        'level' => 3
+        'level' => 3,
+        'number' => 1
       }
     }
   ],
@@ -654,9 +654,9 @@ $result_nodes{'nodes_after_top_before_section_nodes'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'number' => 1,
           'structure' => {
-            'level' => 3
+            'level' => 3,
+            'number' => 1
           }
         },
         'normalized' => 'third-node',
@@ -784,9 +784,9 @@ $result_elements{'nodes_after_top_before_section_nodes'} = [
                     'extra' => {
                       'spaces_before_argument' => ' '
                     },
-                    'number' => 1,
                     'structure' => {
-                      'level' => 3
+                      'level' => 3,
+                      'number' => 1
                     }
                   },
                   'unit_command' => {}

@@ -436,8 +436,10 @@ $result_trees{'punctuation_in_line_commands'} = {
             'line_nr' => 14,
             'macro' => ''
           },
-          'number' => 1,
-          'parent' => {}
+          'parent' => {},
+          'structure' => {
+            'float_number' => 1
+          }
         },
         {
           'parent' => {},
@@ -574,8 +576,10 @@ $result_trees{'punctuation_in_line_commands'} = {
             'line_nr' => 19,
             'macro' => ''
           },
-          'number' => 2,
-          'parent' => {}
+          'parent' => {},
+          'structure' => {
+            'float_number' => 2
+          }
         },
         {
           'parent' => {},
@@ -1132,7 +1136,9 @@ $result_floats{'punctuation_in_line_commands'} = {
           'normalized' => 'float type! After punc'
         }
       },
-      'number' => 1
+      'structure' => {
+        'float_number' => 1
+      }
     },
     {
       'cmdname' => 'float',
@@ -1163,7 +1169,9 @@ $result_floats{'punctuation_in_line_commands'} = {
           'normalized' => 'float type! After punc'
         }
       },
-      'number' => 2
+      'structure' => {
+        'float_number' => 2
+      }
     }
   ]
 };

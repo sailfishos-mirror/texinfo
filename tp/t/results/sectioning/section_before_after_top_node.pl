@@ -212,10 +212,10 @@ $result_trees{'section_before_after_top_node'} = {
         'line_nr' => 8,
         'macro' => ''
       },
-      'number' => 1,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 1
       }
     }
   ],
@@ -308,11 +308,11 @@ $result_sectioning{'section_before_after_top_node'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'number' => 1,
       'section_prev' => {},
       'section_up' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 1
       },
       'toplevel_prev' => {},
       'toplevel_up' => {}

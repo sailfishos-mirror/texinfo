@@ -449,10 +449,10 @@ $result_trees{'custom_headings'} = {
         'line_nr' => 10,
         'macro' => ''
       },
-      'number' => 1,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 1
       }
     },
     {
@@ -489,10 +489,10 @@ $result_trees{'custom_headings'} = {
         'line_nr' => 20,
         'macro' => ''
       },
-      'number' => '1.1',
       'parent' => {},
       'structure' => {
-        'level' => 2
+        'level' => 2,
+        'number' => '1.1'
       }
     },
     {
@@ -641,10 +641,10 @@ $result_trees{'custom_headings'} = {
         'line_nr' => 22,
         'macro' => ''
       },
-      'number' => 2,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 2
       }
     },
     {
@@ -757,10 +757,10 @@ $result_trees{'custom_headings'} = {
         'line_nr' => 34,
         'macro' => ''
       },
-      'number' => 3,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 3
       }
     }
   ],
@@ -981,23 +981,23 @@ $result_sectioning{'custom_headings'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'number' => 1,
           'section_childs' => [
             {
               'cmdname' => 'section',
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'number' => '1.1',
               'section_up' => {},
               'structure' => {
-                'level' => 2
+                'level' => 2,
+                'number' => '1.1'
               }
             }
           ],
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 1
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -1007,11 +1007,11 @@ $result_sectioning{'custom_headings'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'number' => 2,
           'section_prev' => {},
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 2
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -1021,11 +1021,11 @@ $result_sectioning{'custom_headings'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'number' => 3,
           'section_prev' => {},
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 3
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -1078,9 +1078,9 @@ $result_nodes{'custom_headings'} = {
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'number' => 1,
         'structure' => {
-          'level' => 1
+          'level' => 1,
+          'number' => 1
         }
       },
       'normalized' => 'chapter',

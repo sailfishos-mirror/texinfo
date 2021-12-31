@@ -456,10 +456,10 @@ $result_trees{'semi_auto'} = {
         'line_nr' => 10,
         'macro' => ''
       },
-      'number' => 1,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 1
       }
     },
     {
@@ -537,10 +537,10 @@ $result_trees{'semi_auto'} = {
         'line_nr' => 17,
         'macro' => ''
       },
-      'number' => '1.1',
       'parent' => {},
       'structure' => {
-        'level' => 2
+        'level' => 2,
+        'number' => '1.1'
       }
     },
     {
@@ -653,10 +653,10 @@ $result_trees{'semi_auto'} = {
         'line_nr' => 20,
         'macro' => ''
       },
-      'number' => '1.2',
       'parent' => {},
       'structure' => {
-        'level' => 2
+        'level' => 2,
+        'number' => '1.2'
       }
     }
   ],
@@ -820,7 +820,6 @@ $result_sectioning{'semi_auto'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'number' => 1,
           'section_childs' => [
             {
               'cmdname' => 'section',
@@ -834,10 +833,10 @@ $result_sectioning{'semi_auto'} = {
                 },
                 'spaces_before_argument' => ' '
               },
-              'number' => '1.1',
               'section_up' => {},
               'structure' => {
-                'level' => 2
+                'level' => 2,
+                'number' => '1.1'
               }
             },
             {
@@ -852,17 +851,18 @@ $result_sectioning{'semi_auto'} = {
                 },
                 'spaces_before_argument' => ' '
               },
-              'number' => '1.2',
               'section_prev' => {},
               'section_up' => {},
               'structure' => {
-                'level' => 2
+                'level' => 2,
+                'number' => '1.2'
               }
             }
           ],
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 1
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -909,9 +909,9 @@ $result_nodes{'semi_auto'} = {
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'number' => 1,
         'structure' => {
-          'level' => 1
+          'level' => 1,
+          'number' => 1
         }
       },
       'normalized' => 'Chap1',
@@ -925,9 +925,9 @@ $result_nodes{'semi_auto'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'number' => '1.1',
           'structure' => {
-            'level' => 2
+            'level' => 2,
+            'number' => '1.1'
           }
         },
         'normalized' => 'Sec-in-chapter',
@@ -941,9 +941,9 @@ $result_nodes{'semi_auto'} = {
             'extra' => {
               'spaces_before_argument' => ' '
             },
-            'number' => '1.2',
             'structure' => {
-              'level' => 2
+              'level' => 2,
+              'number' => '1.2'
             }
           },
           'normalized' => 'Section-non-auto',

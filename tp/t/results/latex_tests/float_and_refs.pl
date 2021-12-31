@@ -352,8 +352,10 @@ $result_trees{'float_and_refs'} = {
             'line_nr' => 9,
             'macro' => ''
           },
-          'number' => '1.1',
-          'parent' => {}
+          'parent' => {},
+          'structure' => {
+            'float_number' => '1.1'
+          }
         },
         {
           'parent' => {},
@@ -527,8 +529,10 @@ $result_trees{'float_and_refs'} = {
             'line_nr' => 15,
             'macro' => ''
           },
-          'number' => '1.1',
-          'parent' => {}
+          'parent' => {},
+          'structure' => {
+            'float_number' => '1.1'
+          }
         },
         {
           'parent' => {},
@@ -702,8 +706,10 @@ $result_trees{'float_and_refs'} = {
             'line_nr' => 21,
             'macro' => ''
           },
-          'number' => '1.1',
-          'parent' => {}
+          'parent' => {},
+          'structure' => {
+            'float_number' => '1.1'
+          }
         },
         {
           'parent' => {},
@@ -720,10 +726,10 @@ $result_trees{'float_and_refs'} = {
         'line_nr' => 7,
         'macro' => ''
       },
-      'number' => 1,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 1
       }
     },
     {
@@ -1714,10 +1720,10 @@ $result_trees{'float_and_refs'} = {
         'line_nr' => 27,
         'macro' => ''
       },
-      'number' => 2,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 2
       }
     },
     {
@@ -1853,10 +1859,10 @@ $result_trees{'float_and_refs'} = {
         'line_nr' => 47,
         'macro' => ''
       },
-      'number' => 3,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 3
       }
     }
   ],
@@ -2271,10 +2277,10 @@ $result_sectioning{'float_and_refs'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'number' => 1,
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 1
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -2284,11 +2290,11 @@ $result_sectioning{'float_and_refs'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'number' => 2,
           'section_prev' => {},
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 2
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -2298,11 +2304,11 @@ $result_sectioning{'float_and_refs'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'number' => 3,
           'section_prev' => {},
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 3
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -2354,9 +2360,9 @@ $result_nodes{'float_and_refs'} = {
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'number' => 1,
         'structure' => {
-          'level' => 1
+          'level' => 1,
+          'number' => 1
         }
       },
       'normalized' => 'chapter',
@@ -2404,9 +2410,9 @@ $result_floats{'float_and_refs'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'number' => 1,
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 1
           }
         },
         'normalized' => 'no-type',
@@ -2421,7 +2427,9 @@ $result_floats{'float_and_refs'} = {
           'normalized' => ''
         }
       },
-      'number' => '1.1'
+      'structure' => {
+        'float_number' => '1.1'
+      }
     }
   ],
   'Figure' => [
@@ -2460,7 +2468,9 @@ $result_floats{'float_and_refs'} = {
           'normalized' => 'Figure'
         }
       },
-      'number' => '1.1'
+      'structure' => {
+        'float_number' => '1.1'
+      }
     }
   ],
   'Thing' => [
@@ -2499,7 +2509,9 @@ $result_floats{'float_and_refs'} = {
           'normalized' => 'Thing'
         }
       },
-      'number' => '1.1'
+      'structure' => {
+        'float_number' => '1.1'
+      }
     }
   ]
 };

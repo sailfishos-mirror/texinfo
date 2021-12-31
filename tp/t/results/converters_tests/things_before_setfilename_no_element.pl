@@ -397,8 +397,10 @@ $result_trees{'things_before_setfilename_no_element'} = {
                 'line_nr' => 19,
                 'macro' => ''
               },
-              'number' => 1,
-              'parent' => {}
+              'parent' => {},
+              'structure' => {
+                'float_number' => 1
+              }
             },
             {
               'parent' => {},
@@ -593,8 +595,10 @@ $result_trees{'things_before_setfilename_no_element'} = {
                 'line_nr' => 26,
                 'macro' => ''
               },
-              'number' => 1,
-              'parent' => {}
+              'parent' => {},
+              'structure' => {
+                'float_number' => 1
+              }
             },
             {
               'parent' => {},
@@ -1300,7 +1304,9 @@ $result_floats{'things_before_setfilename_no_element'} = {
           'normalized' => ''
         }
       },
-      'number' => 1
+      'structure' => {
+        'float_number' => 1
+      }
     }
   ],
   'Text' => [
@@ -1332,7 +1338,9 @@ $result_floats{'things_before_setfilename_no_element'} = {
           'normalized' => 'Text'
         }
       },
-      'number' => 1
+      'structure' => {
+        'float_number' => 1
+      }
     }
   ]
 };

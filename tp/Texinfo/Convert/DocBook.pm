@@ -647,12 +647,12 @@ sub _convert($$;$)
           # able to figure it out.  For @unnumbered or if ! NUMBER_SECTIONS
           # having a label (empty) is important.
           my $label = '';
-          if (defined($element->{'number'})
+          if (defined($element->{'structure'}->{'number'})
             and ($self->get_conf('NUMBER_SECTIONS')
                  or !defined($self->get_conf('NUMBER_SECTIONS')))) {
             # Looking at docbook2html output, Appendix is appended in the 
             # section title, so only the letter is used.
-            $label = $element->{'number'};
+            $label = $element->{'structure'}->{'number'};
           }
           my $docbook_sectioning_element = $self->_docbook_section_element($element);
           if (! $docbook_special_unnumbered{$docbook_sectioning_element}) {

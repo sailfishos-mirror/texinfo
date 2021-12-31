@@ -93,10 +93,10 @@ $result_trees{'part_chapter_appendix'} = {
         'line_nr' => 4,
         'macro' => ''
       },
-      'number' => 1,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 1
       }
     },
     {
@@ -126,10 +126,10 @@ $result_trees{'part_chapter_appendix'} = {
         'line_nr' => 6,
         'macro' => ''
       },
-      'number' => 'A',
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 'A'
       }
     }
   ],
@@ -181,10 +181,10 @@ $result_sectioning{'part_chapter_appendix'} = {
             'associated_part' => {},
             'spaces_before_argument' => ' '
           },
-          'number' => 1,
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 1
           }
         },
         'spaces_before_argument' => ' '
@@ -202,11 +202,11 @@ $result_sectioning{'part_chapter_appendix'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'number' => 'A',
       'section_prev' => {},
       'section_up' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 'A'
       },
       'toplevel_prev' => {}
     }

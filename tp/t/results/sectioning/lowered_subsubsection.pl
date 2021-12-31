@@ -392,10 +392,10 @@ $result_trees{'lowered_subsubsection'} = {
         'line_nr' => 9,
         'macro' => ''
       },
-      'number' => 1,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 1
       }
     },
     {
@@ -589,10 +589,10 @@ $result_trees{'lowered_subsubsection'} = {
         'line_nr' => 16,
         'macro' => ''
       },
-      'number' => '1.1',
       'parent' => {},
       'structure' => {
-        'level' => 2
+        'level' => 2,
+        'number' => '1.1'
       }
     },
     {
@@ -843,10 +843,10 @@ $result_trees{'lowered_subsubsection'} = {
         'line_nr' => 23,
         'macro' => ''
       },
-      'number' => '1.1.1',
       'parent' => {},
       'structure' => {
-        'level' => 3
+        'level' => 3,
+        'number' => '1.1.1'
       }
     },
     {
@@ -936,10 +936,10 @@ $result_trees{'lowered_subsubsection'} = {
         'line_nr' => 31,
         'macro' => ''
       },
-      'number' => '1.1.1.1',
       'parent' => {},
       'structure' => {
-        'level' => 4
+        'level' => 4,
+        'number' => '1.1.1.1'
       }
     },
     {
@@ -1134,10 +1134,10 @@ $result_trees{'lowered_subsubsection'} = {
         'line_nr' => 35,
         'macro' => ''
       },
-      'number' => '1.1.1.2',
       'parent' => {},
       'structure' => {
-        'level' => 4
+        'level' => 4,
+        'number' => '1.1.1.2'
       }
     },
     {
@@ -1245,10 +1245,10 @@ $result_trees{'lowered_subsubsection'} = {
         'line_nr' => 42,
         'macro' => ''
       },
-      'number' => '1.1.1.3',
       'parent' => {},
       'structure' => {
-        'level' => 4
+        'level' => 4,
+        'number' => '1.1.1.3'
       }
     },
     {
@@ -1545,7 +1545,6 @@ $result_sectioning{'lowered_subsubsection'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'number' => 1,
           'section_childs' => [
             {
               'cmdname' => 'section',
@@ -1559,7 +1558,6 @@ $result_sectioning{'lowered_subsubsection'} = {
                 },
                 'spaces_before_argument' => ' '
               },
-              'number' => '1.1',
               'section_childs' => [
                 {
                   'cmdname' => 'subsection',
@@ -1573,7 +1571,6 @@ $result_sectioning{'lowered_subsubsection'} = {
                     },
                     'spaces_before_argument' => ' '
                   },
-                  'number' => '1.1.1',
                   'section_childs' => [
                     {
                       'cmdname' => 'subsubsection',
@@ -1587,10 +1584,10 @@ $result_sectioning{'lowered_subsubsection'} = {
                         },
                         'spaces_before_argument' => ' '
                       },
-                      'number' => '1.1.1.1',
                       'section_up' => {},
                       'structure' => {
-                        'level' => 4
+                        'level' => 4,
+                        'number' => '1.1.1.1'
                       }
                     },
                     {
@@ -1606,11 +1603,11 @@ $result_sectioning{'lowered_subsubsection'} = {
                         'sections_level' => -1,
                         'spaces_before_argument' => ' '
                       },
-                      'number' => '1.1.1.2',
                       'section_prev' => {},
                       'section_up' => {},
                       'structure' => {
-                        'level' => 4
+                        'level' => 4,
+                        'number' => '1.1.1.2'
                       }
                     },
                     {
@@ -1626,29 +1623,32 @@ $result_sectioning{'lowered_subsubsection'} = {
                         'sections_level' => -1,
                         'spaces_before_argument' => ' '
                       },
-                      'number' => '1.1.1.3',
                       'section_prev' => {},
                       'section_up' => {},
                       'structure' => {
-                        'level' => 4
+                        'level' => 4,
+                        'number' => '1.1.1.3'
                       }
                     }
                   ],
                   'section_up' => {},
                   'structure' => {
-                    'level' => 3
+                    'level' => 3,
+                    'number' => '1.1.1'
                   }
                 }
               ],
               'section_up' => {},
               'structure' => {
-                'level' => 2
+                'level' => 2,
+                'number' => '1.1'
               }
             }
           ],
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 1
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -1697,9 +1697,9 @@ $result_nodes{'lowered_subsubsection'} = {
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'number' => 1,
         'structure' => {
-          'level' => 1
+          'level' => 1,
+          'number' => 1
         }
       },
       'normalized' => 'Chapter',
@@ -1713,9 +1713,9 @@ $result_nodes{'lowered_subsubsection'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'number' => '1.1',
           'structure' => {
-            'level' => 2
+            'level' => 2,
+            'number' => '1.1'
           }
         },
         'normalized' => 'Section',
@@ -1729,9 +1729,9 @@ $result_nodes{'lowered_subsubsection'} = {
             'extra' => {
               'spaces_before_argument' => ' '
             },
-            'number' => '1.1.1',
             'structure' => {
-              'level' => 3
+              'level' => 3,
+              'number' => '1.1.1'
             }
           },
           'normalized' => 'Subsection',
@@ -1745,9 +1745,9 @@ $result_nodes{'lowered_subsubsection'} = {
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'number' => '1.1.1.1',
               'structure' => {
-                'level' => 4
+                'level' => 4,
+                'number' => '1.1.1.1'
               }
             },
             'normalized' => 'Subsubsection',
@@ -1762,9 +1762,9 @@ $result_nodes{'lowered_subsubsection'} = {
                   'sections_level' => -1,
                   'spaces_before_argument' => ' '
                 },
-                'number' => '1.1.1.2',
                 'structure' => {
-                  'level' => 4
+                  'level' => 4,
+                  'number' => '1.1.1.2'
                 }
               },
               'normalized' => 'Lowered-subsec',
@@ -1779,9 +1779,9 @@ $result_nodes{'lowered_subsubsection'} = {
                     'sections_level' => -1,
                     'spaces_before_argument' => ' '
                   },
-                  'number' => '1.1.1.3',
                   'structure' => {
-                    'level' => 4
+                    'level' => 4,
+                    'number' => '1.1.1.3'
                   }
                 },
                 'normalized' => 'Lowered-subsubsection',

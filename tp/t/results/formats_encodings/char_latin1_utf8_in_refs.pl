@@ -646,10 +646,10 @@ $result_trees{'char_latin1_utf8_in_refs'} = {
         'line_nr' => 21,
         'macro' => ''
       },
-      'number' => 1,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 1
       }
     },
     {
@@ -727,10 +727,10 @@ $result_trees{'char_latin1_utf8_in_refs'} = {
         'line_nr' => 24,
         'macro' => ''
       },
-      'number' => 2,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 2
       }
     },
     {
@@ -808,10 +808,10 @@ $result_trees{'char_latin1_utf8_in_refs'} = {
         'line_nr' => 27,
         'macro' => ''
       },
-      'number' => 3,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 3
       }
     },
     {
@@ -889,10 +889,10 @@ $result_trees{'char_latin1_utf8_in_refs'} = {
         'line_nr' => 30,
         'macro' => ''
       },
-      'number' => 4,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 4
       }
     },
     {
@@ -1414,10 +1414,10 @@ $result_trees{'char_latin1_utf8_in_refs'} = {
         'line_nr' => 33,
         'macro' => ''
       },
-      'number' => 5,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 5
       }
     },
     {
@@ -1757,10 +1757,10 @@ $result_sectioning{'char_latin1_utf8_in_refs'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'number' => 1,
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 1
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -1777,11 +1777,11 @@ $result_sectioning{'char_latin1_utf8_in_refs'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'number' => 2,
           'section_prev' => {},
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 2
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -1798,11 +1798,11 @@ $result_sectioning{'char_latin1_utf8_in_refs'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'number' => 3,
           'section_prev' => {},
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 3
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -1819,11 +1819,11 @@ $result_sectioning{'char_latin1_utf8_in_refs'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'number' => 4,
           'section_prev' => {},
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 4
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -1840,11 +1840,11 @@ $result_sectioning{'char_latin1_utf8_in_refs'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'number' => 5,
           'section_prev' => {},
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 5
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -1905,9 +1905,9 @@ $result_nodes{'char_latin1_utf8_in_refs'} = {
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'number' => 1,
         'structure' => {
-          'level' => 1
+          'level' => 1,
+          'number' => 1
         }
       },
       'normalized' => '_00e4-_00eb-_00ef-_00f6-_00fc-_00ff-_00c4-_00cb-_00cf-_00d6-_00dc',
@@ -1921,9 +1921,9 @@ $result_nodes{'char_latin1_utf8_in_refs'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'number' => 2,
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 2
           }
         },
         'normalized' => '_00e9',
@@ -1937,9 +1937,9 @@ $result_nodes{'char_latin1_utf8_in_refs'} = {
             'extra' => {
               'spaces_before_argument' => ' '
             },
-            'number' => 3,
             'structure' => {
-              'level' => 1
+              'level' => 1,
+              'number' => 3
             }
           },
           'normalized' => '_00e0-_00e8-_00f9',
@@ -1953,9 +1953,9 @@ $result_nodes{'char_latin1_utf8_in_refs'} = {
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'number' => 4,
               'structure' => {
-                'level' => 1
+                'level' => 1,
+                'number' => 4
               }
             },
             'normalized' => '_00e2-_00ea-_00ee-_00f4-_00fb-_00c2-_00ca-_00ce-_00d4-_00db',
@@ -1969,9 +1969,9 @@ $result_nodes{'char_latin1_utf8_in_refs'} = {
                 'extra' => {
                   'spaces_before_argument' => ' '
                 },
-                'number' => 5,
                 'structure' => {
-                  'level' => 1
+                  'level' => 1,
+                  'number' => 5
                 }
               },
               'normalized' => '_00e7',

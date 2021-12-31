@@ -903,10 +903,10 @@ $result_trees{'complex_split_at_node'} = [
           'line_nr' => 13,
           'macro' => ''
         },
-        'number' => 1,
         'parent' => {},
         'structure' => {
-          'level' => 1
+          'level' => 1,
+          'number' => 1
         }
       }
     ],
@@ -2057,10 +2057,10 @@ $result_trees{'complex_split_at_node'} = [
           'line_nr' => 57,
           'macro' => ''
         },
-        'number' => '1.1',
         'parent' => {},
         'structure' => {
-          'level' => 2
+          'level' => 2,
+          'number' => '1.1'
         }
       }
     ],
@@ -2335,10 +2335,10 @@ $result_trees{'complex_split_at_node'} = [
           'line_nr' => 67,
           'macro' => ''
         },
-        'number' => 2,
         'parent' => {},
         'structure' => {
-          'level' => 1
+          'level' => 1,
+          'number' => 2
         }
       }
     ],
@@ -3375,7 +3375,6 @@ $result_sectioning{'complex_split_at_node'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'number' => 1,
           'section_childs' => [
             {
               'cmdname' => 'unnumberedsec',
@@ -3516,17 +3515,18 @@ $result_sectioning{'complex_split_at_node'} = {
                 },
                 'spaces_before_argument' => '  '
               },
-              'number' => '1.1',
               'section_prev' => {},
               'section_up' => {},
               'structure' => {
-                'level' => 2
+                'level' => 2,
+                'number' => '1.1'
               }
             }
           ],
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 1
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -3543,11 +3543,11 @@ $result_sectioning{'complex_split_at_node'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'number' => 2,
           'section_prev' => {},
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 2
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -3654,9 +3654,9 @@ $result_nodes{'complex_split_at_node'} = {
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'number' => 1,
         'structure' => {
-          'level' => 1
+          'level' => 1,
+          'number' => 1
         }
       },
       'normalized' => 'First-node',
@@ -3818,9 +3818,9 @@ $result_nodes{'complex_split_at_node'} = {
               'extra' => {
                 'spaces_before_argument' => '  '
               },
-              'number' => '1.1',
               'structure' => {
-                'level' => 2
+                'level' => 2,
+                'number' => '1.1'
               }
             },
             'normalized' => 'numbered',
@@ -4290,9 +4290,9 @@ $result_elements{'complex_split_at_node'} = [
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'number' => 1,
               'structure' => {
-                'level' => 1
+                'level' => 1,
+                'number' => 1
               }
             },
             'unit_command' => {}
@@ -4309,9 +4309,9 @@ $result_elements{'complex_split_at_node'} = [
                     'extra' => {
                       'spaces_before_argument' => ' '
                     },
-                    'number' => 2,
                     'structure' => {
-                      'level' => 1
+                      'level' => 1,
+                      'number' => 2
                     }
                   },
                   'unit_command' => {}
@@ -4333,9 +4333,9 @@ $result_elements{'complex_split_at_node'} = [
                                 'extra' => {
                                   'spaces_before_argument' => '  '
                                 },
-                                'number' => '1.1',
                                 'structure' => {
-                                  'level' => 2
+                                  'level' => 2,
+                                  'number' => '1.1'
                                 }
                               },
                               'unit_command' => {}

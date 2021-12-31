@@ -405,10 +405,10 @@ $result_trees{'index_entry_at_end_node'} = {
         'line_nr' => 11,
         'macro' => ''
       },
-      'number' => 1,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 1
       }
     },
     {
@@ -518,10 +518,10 @@ $result_trees{'index_entry_at_end_node'} = {
         'line_nr' => 18,
         'macro' => ''
       },
-      'number' => 'A',
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 'A'
       }
     }
   ],
@@ -666,10 +666,10 @@ $result_sectioning{'index_entry_at_end_node'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'number' => 1,
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 1
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -687,11 +687,11 @@ $result_sectioning{'index_entry_at_end_node'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'number' => 'A',
           'section_prev' => {},
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 'A'
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -739,9 +739,9 @@ $result_nodes{'index_entry_at_end_node'} = {
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'number' => 1,
         'structure' => {
-          'level' => 1
+          'level' => 1,
+          'number' => 1
         }
       },
       'normalized' => 'chapter',
@@ -755,9 +755,9 @@ $result_nodes{'index_entry_at_end_node'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'number' => 'A',
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 'A'
           }
         },
         'isindex' => 1,

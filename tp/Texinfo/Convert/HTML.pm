@@ -696,19 +696,21 @@ sub command_text($$;$)
           cluck "No misc_content: "
             .Texinfo::Common::debug_print_element($command);
         }
-        if (defined($command->{'number'})
+        if (defined($command->{'structure'}->{'number'})
             and ($self->get_conf('NUMBER_SECTIONS')
                  or !defined($self->get_conf('NUMBER_SECTIONS')))) {
           if ($command->{'cmdname'} eq 'appendix'
               and $command->{'structure'}->{'level'} == 1) {
             $tree = $self->gdt('Appendix {number} {section_title}',
-                             {'number' => {'text' => $command->{'number'}},
+                             {'number'
+                                => {'text' => $command->{'structure'}->{'number'}},
                               'section_title'
                                 => {'contents' 
                                     => $command->{'args'}->[0]->{'contents'}}});
           } else {
             $tree = $self->gdt('{number} {section_title}',
-                             {'number' => {'text' => $command->{'number'}},
+                             {'number'
+                                => {'text' => $command->{'structure'}->{'number'}},
                               'section_title'
                                 => {'contents' 
                                     => $command->{'args'}->[0]->{'contents'}}});

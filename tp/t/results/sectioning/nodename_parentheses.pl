@@ -429,10 +429,10 @@ $result_trees{'nodename_parentheses'} = {
         'line_nr' => 11,
         'macro' => ''
       },
-      'number' => 1,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 1
       }
     },
     {
@@ -627,10 +627,10 @@ $result_trees{'nodename_parentheses'} = {
         'line_nr' => 16,
         'macro' => ''
       },
-      'number' => 2,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 2
       }
     },
     {
@@ -797,10 +797,10 @@ $result_trees{'nodename_parentheses'} = {
         'line_nr' => 23,
         'macro' => ''
       },
-      'number' => 3,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 3
       }
     }
   ],
@@ -1013,10 +1013,10 @@ $result_sectioning{'nodename_parentheses'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'number' => 1,
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 1
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -1033,11 +1033,11 @@ $result_sectioning{'nodename_parentheses'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'number' => 2,
           'section_prev' => {},
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 2
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -1054,11 +1054,11 @@ $result_sectioning{'nodename_parentheses'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'number' => 3,
           'section_prev' => {},
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 3
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -1110,9 +1110,9 @@ $result_nodes{'nodename_parentheses'} = {
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'number' => 1,
         'structure' => {
-          'level' => 1
+          'level' => 1,
+          'number' => 1
         }
       },
       'normalized' => 'Node-_0028with-parentheses_0029',
@@ -1126,9 +1126,9 @@ $result_nodes{'nodename_parentheses'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'number' => 2,
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 2
           }
         },
         'normalized' => 'Other-node',
@@ -1142,9 +1142,9 @@ $result_nodes{'nodename_parentheses'} = {
             'extra' => {
               'spaces_before_argument' => ' '
             },
-            'number' => 3,
             'structure' => {
-              'level' => 1
+              'level' => 1,
+              'number' => 3
             }
           },
           'normalized' => 'node',

@@ -46,10 +46,10 @@ $result_trees{'section_before_chapter'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'number' => 1,
       'parent' => {},
       'structure' => {
-        'level' => 2
+        'level' => 2,
+        'number' => 1
       }
     },
     {
@@ -79,10 +79,10 @@ $result_trees{'section_before_chapter'} = {
         'line_nr' => 3,
         'macro' => ''
       },
-      'number' => 2,
       'parent' => {},
       'structure' => {
-        'level' => 2
+        'level' => 2,
+        'number' => 2
       }
     }
   ],
@@ -117,10 +117,10 @@ $result_sectioning{'section_before_chapter'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'number' => 1,
       'section_up' => {},
       'structure' => {
-        'level' => 2
+        'level' => 2,
+        'number' => 1
       }
     },
     {
@@ -128,11 +128,11 @@ $result_sectioning{'section_before_chapter'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'number' => 2,
       'section_prev' => {},
       'section_up' => {},
       'structure' => {
-        'level' => 2
+        'level' => 2,
+        'number' => 2
       },
       'toplevel_prev' => {}
     }

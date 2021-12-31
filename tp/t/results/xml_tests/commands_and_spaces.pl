@@ -805,8 +805,10 @@ $result_trees{'commands_and_spaces'} = {
             'line_nr' => 30,
             'macro' => ''
           },
-          'number' => 1,
-          'parent' => {}
+          'parent' => {},
+          'structure' => {
+            'float_number' => 1
+          }
         },
         {
           'parent' => {},
@@ -2294,7 +2296,9 @@ $result_floats{'commands_and_spaces'} = {
           'normalized' => 'ff'
         }
       },
-      'number' => 1
+      'structure' => {
+        'float_number' => 1
+      }
     }
   ]
 };

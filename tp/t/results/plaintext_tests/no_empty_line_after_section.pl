@@ -155,10 +155,10 @@ $result_trees{'no_empty_line_after_section'} = {
         'line_nr' => 5,
         'macro' => ''
       },
-      'number' => 1,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 1
       }
     },
     {
@@ -259,10 +259,10 @@ $result_trees{'no_empty_line_after_section'} = {
         'line_nr' => 10,
         'macro' => ''
       },
-      'number' => '1.1',
       'parent' => {},
       'structure' => {
-        'level' => 2
+        'level' => 2,
+        'number' => '1.1'
       }
     },
     {
@@ -331,10 +331,10 @@ $result_trees{'no_empty_line_after_section'} = {
         'line_nr' => 14,
         'macro' => ''
       },
-      'number' => '1.2',
       'parent' => {},
       'structure' => {
-        'level' => 2
+        'level' => 2,
+        'number' => '1.2'
       }
     }
   ],
@@ -436,17 +436,16 @@ $result_sectioning{'no_empty_line_after_section'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'number' => 1,
           'section_childs' => [
             {
               'cmdname' => 'section',
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'number' => '1.1',
               'section_up' => {},
               'structure' => {
-                'level' => 2
+                'level' => 2,
+                'number' => '1.1'
               }
             },
             {
@@ -454,17 +453,18 @@ $result_sectioning{'no_empty_line_after_section'} = {
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'number' => '1.2',
               'section_prev' => {},
               'section_up' => {},
               'structure' => {
-                'level' => 2
+                'level' => 2,
+                'number' => '1.2'
               }
             }
           ],
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 1
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}

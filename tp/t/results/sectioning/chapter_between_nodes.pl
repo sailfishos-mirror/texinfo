@@ -306,10 +306,10 @@ $result_trees{'chapter_between_nodes'} = {
         'line_nr' => 11,
         'macro' => ''
       },
-      'number' => 1,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 1
       }
     },
     {
@@ -449,10 +449,10 @@ $result_trees{'chapter_between_nodes'} = {
         'line_nr' => 16,
         'macro' => ''
       },
-      'number' => '1.1',
       'parent' => {},
       'structure' => {
-        'level' => 2
+        'level' => 2,
+        'number' => '1.1'
       }
     }
   ],
@@ -581,7 +581,6 @@ $result_sectioning{'chapter_between_nodes'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'number' => 1,
           'section_childs' => [
             {
               'cmdname' => 'section',
@@ -595,16 +594,17 @@ $result_sectioning{'chapter_between_nodes'} = {
                 },
                 'spaces_before_argument' => ' '
               },
-              'number' => '1.1',
               'section_up' => {},
               'structure' => {
-                'level' => 2
+                'level' => 2,
+                'number' => '1.1'
               }
             }
           ],
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 1
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -649,9 +649,9 @@ $result_nodes{'chapter_between_nodes'} = {
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'number' => '1.1',
         'structure' => {
-          'level' => 2
+          'level' => 2,
+          'number' => '1.1'
         }
       },
       'normalized' => 'section-node',

@@ -541,10 +541,10 @@ $result_trees{'part_node_chapter_after_top'} = [
           'line_nr' => 15,
           'macro' => ''
         },
-        'number' => 1,
         'parent' => {},
         'structure' => {
-          'level' => 1
+          'level' => 1,
+          'number' => 1
         }
       }
     ],
@@ -710,10 +710,10 @@ $result_sectioning{'part_node_chapter_after_top'} = {
             'associated_part' => {},
             'spaces_before_argument' => ' '
           },
-          'number' => 1,
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 1
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -781,9 +781,9 @@ $result_nodes{'part_node_chapter_after_top'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'number' => 1,
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 1
           }
         },
         'normalized' => 'chapter',
@@ -921,9 +921,9 @@ $result_elements{'part_node_chapter_after_top'} = [
                 },
                 'spaces_before_argument' => ' '
               },
-              'number' => 1,
               'structure' => {
-                'level' => 1
+                'level' => 1,
+                'number' => 1
               }
             },
             'unit_command' => {}

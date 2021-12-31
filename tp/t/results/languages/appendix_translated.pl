@@ -179,10 +179,10 @@ $result_trees{'appendix_translated'} = {
         'line_nr' => 6,
         'macro' => ''
       },
-      'number' => 'A',
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 'A'
       }
     }
   ],
@@ -249,10 +249,10 @@ $result_sectioning{'appendix_translated'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'number' => 'A',
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 'A'
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}

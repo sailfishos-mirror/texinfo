@@ -296,10 +296,10 @@ $result_trees{'node_sectop_before_lone_node_Top'} = {
         'line_nr' => 13,
         'macro' => ''
       },
-      'number' => 1,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 1
       }
     }
   ],
@@ -403,10 +403,10 @@ $result_sectioning{'node_sectop_before_lone_node_Top'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'number' => 1,
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 1
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -456,9 +456,9 @@ $result_nodes{'node_sectop_before_lone_node_Top'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'number' => 1,
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 1
           }
         },
         'normalized' => 'chap',

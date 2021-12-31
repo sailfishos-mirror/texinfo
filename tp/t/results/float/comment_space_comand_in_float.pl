@@ -154,8 +154,10 @@ $result_trees{'comment_space_comand_in_float'} = {
             'line_nr' => 3,
             'macro' => ''
           },
-          'number' => 1,
-          'parent' => {}
+          'parent' => {},
+          'structure' => {
+            'float_number' => 1
+          }
         },
         {
           'parent' => {},
@@ -342,7 +344,9 @@ $result_floats{'comment_space_comand_in_float'} = {
           'normalized' => 'Text @ '
         }
       },
-      'number' => 1
+      'structure' => {
+        'float_number' => 1
+      }
     }
   ]
 };

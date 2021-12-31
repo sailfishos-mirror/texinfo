@@ -2470,10 +2470,10 @@ $result_trees{'formatting_fr'} = {
         'line_nr' => 85,
         'macro' => ''
       },
-      'number' => 1,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 1
       }
     },
     {
@@ -2900,10 +2900,10 @@ $result_trees{'formatting_fr'} = {
         'line_nr' => 100,
         'macro' => ''
       },
-      'number' => '1.1',
       'parent' => {},
       'structure' => {
-        'level' => 2
+        'level' => 2,
+        'number' => '1.1'
       }
     },
     {
@@ -3194,10 +3194,10 @@ $result_trees{'formatting_fr'} = {
         'line_nr' => 114,
         'macro' => ''
       },
-      'number' => '1.1.1',
       'parent' => {},
       'structure' => {
-        'level' => 3
+        'level' => 3,
+        'number' => '1.1.1'
       }
     },
     {
@@ -3275,10 +3275,10 @@ $result_trees{'formatting_fr'} = {
         'line_nr' => 124,
         'macro' => ''
       },
-      'number' => '1.1.1.1',
       'parent' => {},
       'structure' => {
-        'level' => 4
+        'level' => 4,
+        'number' => '1.1.1.1'
       }
     },
     {
@@ -3356,10 +3356,10 @@ $result_trees{'formatting_fr'} = {
         'line_nr' => 127,
         'macro' => ''
       },
-      'number' => '1.1.1.2',
       'parent' => {},
       'structure' => {
-        'level' => 4
+        'level' => 4,
+        'number' => '1.1.1.2'
       }
     },
     {
@@ -4333,7 +4333,6 @@ $result_sectioning{'formatting_fr'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'number' => 1,
           'section_childs' => [
             {
               'cmdname' => 'section',
@@ -4347,7 +4346,6 @@ $result_sectioning{'formatting_fr'} = {
                 },
                 'spaces_before_argument' => ' '
               },
-              'number' => '1.1',
               'section_childs' => [
                 {
                   'cmdname' => 'subsection',
@@ -4361,7 +4359,6 @@ $result_sectioning{'formatting_fr'} = {
                     },
                     'spaces_before_argument' => ' '
                   },
-                  'number' => '1.1.1',
                   'section_childs' => [
                     {
                       'cmdname' => 'subsubsection',
@@ -4375,10 +4372,10 @@ $result_sectioning{'formatting_fr'} = {
                         },
                         'spaces_before_argument' => ' '
                       },
-                      'number' => '1.1.1.1',
                       'section_up' => {},
                       'structure' => {
-                        'level' => 4
+                        'level' => 4,
+                        'number' => '1.1.1.1'
                       }
                     },
                     {
@@ -4393,29 +4390,32 @@ $result_sectioning{'formatting_fr'} = {
                         },
                         'spaces_before_argument' => ' '
                       },
-                      'number' => '1.1.1.2',
                       'section_prev' => {},
                       'section_up' => {},
                       'structure' => {
-                        'level' => 4
+                        'level' => 4,
+                        'number' => '1.1.1.2'
                       }
                     }
                   ],
                   'section_up' => {},
                   'structure' => {
-                    'level' => 3
+                    'level' => 3,
+                    'number' => '1.1.1'
                   }
                 }
               ],
               'section_up' => {},
               'structure' => {
-                'level' => 2
+                'level' => 2,
+                'number' => '1.1'
               }
             }
           ],
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 1
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -4490,9 +4490,9 @@ $result_nodes{'formatting_fr'} = {
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'number' => 1,
         'structure' => {
-          'level' => 1
+          'level' => 1,
+          'number' => 1
         }
       },
       'normalized' => 'chapter',

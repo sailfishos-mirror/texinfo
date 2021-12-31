@@ -240,10 +240,10 @@ $result_trees{'fonttextsize'} = {
         'line_nr' => 9,
         'macro' => ''
       },
-      'number' => 1,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 1
       }
     },
     {
@@ -280,10 +280,10 @@ $result_trees{'fonttextsize'} = {
         'line_nr' => 11,
         'macro' => ''
       },
-      'number' => '1.1',
       'parent' => {},
       'structure' => {
-        'level' => 2
+        'level' => 2,
+        'number' => '1.1'
       }
     },
     {
@@ -362,10 +362,10 @@ $result_trees{'fonttextsize'} = {
         'line_nr' => 13,
         'macro' => ''
       },
-      'number' => '1.1.1',
       'parent' => {},
       'structure' => {
-        'level' => 3
+        'level' => 3,
+        'number' => '1.1.1'
       }
     },
     {
@@ -448,10 +448,10 @@ $result_trees{'fonttextsize'} = {
         'line_nr' => 17,
         'macro' => ''
       },
-      'number' => '1.1.2',
       'parent' => {},
       'structure' => {
-        'level' => 3
+        'level' => 3,
+        'number' => '1.1.2'
       }
     },
     {
@@ -534,10 +534,10 @@ $result_trees{'fonttextsize'} = {
         'line_nr' => 22,
         'macro' => ''
       },
-      'number' => '1.1.3',
       'parent' => {},
       'structure' => {
-        'level' => 3
+        'level' => 3,
+        'number' => '1.1.3'
       }
     },
     {
@@ -585,10 +585,10 @@ $result_trees{'fonttextsize'} = {
         'line_nr' => 27,
         'macro' => ''
       },
-      'number' => '1.1.4',
       'parent' => {},
       'structure' => {
-        'level' => 3
+        'level' => 3,
+        'number' => '1.1.4'
       }
     }
   ],
@@ -751,24 +751,22 @@ $result_sectioning{'fonttextsize'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'number' => 1,
           'section_childs' => [
             {
               'cmdname' => 'section',
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'number' => '1.1',
               'section_childs' => [
                 {
                   'cmdname' => 'subsection',
                   'extra' => {
                     'spaces_before_argument' => ' '
                   },
-                  'number' => '1.1.1',
                   'section_up' => {},
                   'structure' => {
-                    'level' => 3
+                    'level' => 3,
+                    'number' => '1.1.1'
                   }
                 },
                 {
@@ -776,11 +774,11 @@ $result_sectioning{'fonttextsize'} = {
                   'extra' => {
                     'spaces_before_argument' => ' '
                   },
-                  'number' => '1.1.2',
                   'section_prev' => {},
                   'section_up' => {},
                   'structure' => {
-                    'level' => 3
+                    'level' => 3,
+                    'number' => '1.1.2'
                   }
                 },
                 {
@@ -788,11 +786,11 @@ $result_sectioning{'fonttextsize'} = {
                   'extra' => {
                     'spaces_before_argument' => ' '
                   },
-                  'number' => '1.1.3',
                   'section_prev' => {},
                   'section_up' => {},
                   'structure' => {
-                    'level' => 3
+                    'level' => 3,
+                    'number' => '1.1.3'
                   }
                 },
                 {
@@ -800,23 +798,25 @@ $result_sectioning{'fonttextsize'} = {
                   'extra' => {
                     'spaces_before_argument' => ' '
                   },
-                  'number' => '1.1.4',
                   'section_prev' => {},
                   'section_up' => {},
                   'structure' => {
-                    'level' => 3
+                    'level' => 3,
+                    'number' => '1.1.4'
                   }
                 }
               ],
               'section_up' => {},
               'structure' => {
-                'level' => 2
+                'level' => 2,
+                'number' => '1.1'
               }
             }
           ],
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 1
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -868,9 +868,9 @@ $result_nodes{'fonttextsize'} = {
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'number' => 1,
         'structure' => {
-          'level' => 1
+          'level' => 1,
+          'number' => 1
         }
       },
       'normalized' => 'chapter',

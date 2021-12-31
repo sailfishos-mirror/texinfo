@@ -84,10 +84,10 @@ $result_trees{'section_in_footnote'} = {
         'line_nr' => 4,
         'macro' => ''
       },
-      'number' => 1,
       'parent' => {},
       'structure' => {
-        'level' => 2
+        'level' => 2,
+        'number' => 1
       }
     }
   ],
@@ -123,10 +123,10 @@ $result_sectioning{'section_in_footnote'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'number' => 1,
       'section_up' => {},
       'structure' => {
-        'level' => 2
+        'level' => 2,
+        'number' => 1
       }
     }
   ],

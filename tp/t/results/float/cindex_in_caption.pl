@@ -247,8 +247,10 @@ $result_trees{'cindex_in_caption'} = {
             'line_nr' => 5,
             'macro' => ''
           },
-          'number' => 1,
-          'parent' => {}
+          'parent' => {},
+          'structure' => {
+            'float_number' => 1
+          }
         },
         {
           'parent' => {},
@@ -441,7 +443,9 @@ $result_floats{'cindex_in_caption'} = {
           'normalized' => 'fl'
         }
       },
-      'number' => 1
+      'structure' => {
+        'float_number' => 1
+      }
     }
   ]
 };

@@ -311,8 +311,9 @@ sub book_element_file_name($$$)
   return undef unless ($command);
   if ($converter->element_is_tree_unit_top($element)) {
     $new_file_name = "${prefix}_top.html";
-  } elsif (defined($command->{'number'}) and ($command->{'number'} ne '')) {
-    my $number = $command->{'number'};
+  } elsif (defined($command->{'structure'}->{'number'})
+           and ($command->{'structure'}->{'number'} ne '')) {
+    my $number = $command->{'structure'}->{'number'};
     $number .= '.' unless ($number =~ /\.$/);
     $new_file_name = "${prefix}_$number" . 'html';
   } else {

@@ -773,10 +773,10 @@ $result_trees{'special_docbook_unnumbered'} = {
         'line_nr' => 29,
         'macro' => ''
       },
-      'number' => 1,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 1
       }
     }
   ],
@@ -1042,11 +1042,11 @@ $result_sectioning{'special_docbook_unnumbered'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'number' => 1,
           'section_prev' => {},
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 1
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -1147,9 +1147,9 @@ $result_nodes{'special_docbook_unnumbered'} = {
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'number' => 1,
               'structure' => {
-                'level' => 1
+                'level' => 1,
+                'number' => 1
               }
             },
             'normalized' => 'acknowledgements',

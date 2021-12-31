@@ -2966,8 +2966,10 @@ $result_trees{'test_image'} = {
             'line_nr' => 23,
             'macro' => ''
           },
-          'number' => 1,
-          'parent' => {}
+          'parent' => {},
+          'structure' => {
+            'float_number' => 1
+          }
         },
         {
           'parent' => {},
@@ -3895,7 +3897,9 @@ $result_floats{'test_image'} = {
           'normalized' => 'Image'
         }
       },
-      'number' => 1
+      'structure' => {
+        'float_number' => 1
+      }
     }
   ]
 };

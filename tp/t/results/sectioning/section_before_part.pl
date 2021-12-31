@@ -46,10 +46,10 @@ $result_trees{'section_before_part'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'number' => 1,
       'parent' => {},
       'structure' => {
-        'level' => 2
+        'level' => 2,
+        'number' => 1
       }
     },
     {
@@ -146,10 +146,10 @@ $result_sectioning{'section_before_part'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'number' => 1,
       'section_up' => {},
       'structure' => {
-        'level' => 2
+        'level' => 2,
+        'number' => 1
       }
     },
     {

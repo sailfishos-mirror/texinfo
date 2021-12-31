@@ -243,8 +243,10 @@ $result_trees{'footnote_in_caption_and_error'} = {
             'line_nr' => 5,
             'macro' => ''
           },
-          'number' => 1,
-          'parent' => {}
+          'parent' => {},
+          'structure' => {
+            'float_number' => 1
+          }
         }
       ],
       'extra' => {
@@ -387,7 +389,9 @@ $result_floats{'footnote_in_caption_and_error'} = {
           'normalized' => 'fl'
         }
       },
-      'number' => 1
+      'structure' => {
+        'float_number' => 1
+      }
     }
   ]
 };

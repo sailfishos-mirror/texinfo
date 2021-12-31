@@ -248,8 +248,9 @@ sub numbered_heading($$$;$)
   my $numbered = shift;
 
   my $number;
-  if (defined($current->{'number'}) and ($numbered or !defined($numbered))) {
-    $number = $current->{'number'};
+  if (defined($current->{'structure'}->{'number'})
+      and ($numbered or !defined($numbered))) {
+    $number = $current->{'structure'}->{'number'};
   }
 
   my $result;

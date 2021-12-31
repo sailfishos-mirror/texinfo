@@ -115,10 +115,10 @@ $result_trees{'section_before_top'} = {
         'line_nr' => 2,
         'macro' => ''
       },
-      'number' => 1,
       'parent' => {},
       'structure' => {
-        'level' => 2
+        'level' => 2,
+        'number' => 1
       }
     },
     {
@@ -391,10 +391,10 @@ $result_sectioning{'section_before_top'} = {
         },
         'spaces_before_argument' => ' '
       },
-      'number' => 1,
       'section_up' => {},
       'structure' => {
-        'level' => 2
+        'level' => 2,
+        'number' => 1
       }
     },
     {
@@ -449,9 +449,9 @@ $result_nodes{'section_before_top'} = {
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'number' => 1,
         'structure' => {
-          'level' => 2
+          'level' => 2,
+          'number' => 1
         }
       },
       'normalized' => 'section-node',

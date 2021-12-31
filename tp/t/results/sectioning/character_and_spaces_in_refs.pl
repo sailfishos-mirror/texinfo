@@ -1377,10 +1377,10 @@ $result_trees{'character_and_spaces_in_refs'} = {
         'line_nr' => 24,
         'macro' => ''
       },
-      'number' => 1,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 1
       }
     },
     {},
@@ -1714,10 +1714,10 @@ $result_sectioning{'character_and_spaces_in_refs'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'number' => 1,
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 1
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -1761,9 +1761,9 @@ $result_nodes{'character_and_spaces_in_refs'} = {
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'number' => 1,
         'structure' => {
-          'level' => 1
+          'level' => 1,
+          'number' => 1
         }
       },
       'normalized' => 'other-nodes',

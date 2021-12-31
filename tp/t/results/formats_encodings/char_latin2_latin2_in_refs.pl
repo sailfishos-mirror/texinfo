@@ -525,10 +525,10 @@ $result_trees{'char_latin2_latin2_in_refs'} = {
         'line_nr' => 19,
         'macro' => ''
       },
-      'number' => 1,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 1
       }
     },
     {
@@ -689,10 +689,10 @@ $result_sectioning{'char_latin2_latin2_in_refs'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'number' => 1,
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 1
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -737,9 +737,9 @@ $result_nodes{'char_latin2_latin2_in_refs'} = {
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'number' => 1,
         'structure' => {
-          'level' => 1
+          'level' => 1,
+          'number' => 1
         }
       },
       'normalized' => '_0104-_0105-_02db-_0118-_0119',

@@ -270,14 +270,17 @@ sub sectioning_structure($$$)
     if (!$unnumbered_commands{$content->{'cmdname'}}) {
       # construct the number, if not below an unnumbered
       if (!$command_unnumbered[$number_top_level]) {
-        $content->{'number'} = $command_numbers[$number_top_level];
+        my $section_number = $command_numbers[$number_top_level];
         for (my $i = $number_top_level+1; $i <= $content->{'structure'}->{'level'}; $i++) {
-          $content->{'number'} .= ".$command_numbers[$i]";
+          $section_number .= ".$command_numbers[$i]";
           # If there is an unnumbered above, then no number is added.
           if ($command_unnumbered[$i]) {
-            delete $content->{'number'};
+            $section_number = undef;
             last;
           }
+        }
+        if (defined($section_number)) {
+          $content->{'structure'}->{'number'} = $section_number;
         }
       }
     }
@@ -1348,12 +1351,13 @@ sub number_floats($)
           $up = $up->{'section_up'};
         }
         if (!$unnumbered_commands{$up->{'cmdname'}}) {
-          $nr_in_chapter{$up->{'number'}}++;
-          $number = $up->{'number'} . '.' . $nr_in_chapter{$up->{'number'}};
+          $nr_in_chapter{$up->{'structure'}->{'number'}}++;
+          $number = $up->{'structure'}->{'number'} .
+            '.' . $nr_in_chapter{$up->{'structure'}->{'number'}};
         }
       }
       $number = $float_index if (!defined($number));
-      $float->{'number'} = $number;
+      $float->{'structure'}->{'float_number'} = $number;
     }
   }
 }

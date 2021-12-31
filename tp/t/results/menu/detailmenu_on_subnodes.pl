@@ -792,10 +792,10 @@ $result_trees{'detailmenu_on_subnodes'} = {
         'line_nr' => 21,
         'macro' => ''
       },
-      'number' => 1,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 1
       }
     },
     {
@@ -873,10 +873,10 @@ $result_trees{'detailmenu_on_subnodes'} = {
         'line_nr' => 28,
         'macro' => ''
       },
-      'number' => '1.1',
       'parent' => {},
       'structure' => {
-        'level' => 2
+        'level' => 2,
+        'number' => '1.1'
       }
     },
     {
@@ -1127,10 +1127,10 @@ $result_trees{'detailmenu_on_subnodes'} = {
         'line_nr' => 31,
         'macro' => ''
       },
-      'number' => 2,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 2
       }
     },
     {
@@ -1208,10 +1208,10 @@ $result_trees{'detailmenu_on_subnodes'} = {
         'line_nr' => 39,
         'macro' => ''
       },
-      'number' => '2.1',
       'parent' => {},
       'structure' => {
-        'level' => 2
+        'level' => 2,
+        'number' => '2.1'
       }
     },
     {
@@ -1579,7 +1579,6 @@ $result_sectioning{'detailmenu_on_subnodes'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'number' => 1,
           'section_childs' => [
             {
               'cmdname' => 'section',
@@ -1593,16 +1592,17 @@ $result_sectioning{'detailmenu_on_subnodes'} = {
                 },
                 'spaces_before_argument' => ' '
               },
-              'number' => '1.1',
               'section_up' => {},
               'structure' => {
-                'level' => 2
+                'level' => 2,
+                'number' => '1.1'
               }
             }
           ],
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 1
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -1619,7 +1619,6 @@ $result_sectioning{'detailmenu_on_subnodes'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'number' => 2,
           'section_childs' => [
             {
               'cmdname' => 'section',
@@ -1633,10 +1632,10 @@ $result_sectioning{'detailmenu_on_subnodes'} = {
                 },
                 'spaces_before_argument' => ' '
               },
-              'number' => '2.1',
               'section_up' => {},
               'structure' => {
-                'level' => 2
+                'level' => 2,
+                'number' => '2.1'
               }
             },
             {
@@ -1661,7 +1660,8 @@ $result_sectioning{'detailmenu_on_subnodes'} = {
           'section_prev' => {},
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 2
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -1713,9 +1713,9 @@ $result_nodes{'detailmenu_on_subnodes'} = {
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'number' => 1,
         'structure' => {
-          'level' => 1
+          'level' => 1,
+          'number' => 1
         }
       },
       'normalized' => 'chapter',
@@ -1729,9 +1729,9 @@ $result_nodes{'detailmenu_on_subnodes'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'number' => '1.1',
           'structure' => {
-            'level' => 2
+            'level' => 2,
+            'number' => '1.1'
           }
         },
         'normalized' => 'section',
@@ -1762,9 +1762,9 @@ $result_nodes{'detailmenu_on_subnodes'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'number' => 2,
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 2
           }
         },
         'normalized' => 'chapter-2',
@@ -1778,9 +1778,9 @@ $result_nodes{'detailmenu_on_subnodes'} = {
             'extra' => {
               'spaces_before_argument' => ' '
             },
-            'number' => '2.1',
             'structure' => {
-              'level' => 2
+              'level' => 2,
+              'number' => '2.1'
             }
           },
           'normalized' => 'section-chap-2',

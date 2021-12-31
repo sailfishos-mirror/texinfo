@@ -377,8 +377,10 @@ $result_trees{'placed_things_before_node'} = {
             'line_nr' => 17,
             'macro' => ''
           },
-          'number' => 1,
-          'parent' => {}
+          'parent' => {},
+          'structure' => {
+            'float_number' => 1
+          }
         },
         {
           'parent' => {},
@@ -1059,7 +1061,9 @@ $result_floats{'placed_things_before_node'} = {
           'normalized' => ''
         }
       },
-      'number' => 1
+      'structure' => {
+        'float_number' => 1
+      }
     }
   ]
 };

@@ -149,10 +149,10 @@ $result_trees{'section_in_math'} = {
         'line_nr' => 4,
         'macro' => ''
       },
-      'number' => 1,
       'parent' => {},
       'structure' => {
-        'level' => 2
+        'level' => 2,
+        'number' => 1
       }
     },
     {
@@ -182,10 +182,10 @@ $result_trees{'section_in_math'} = {
         'line_nr' => 8,
         'macro' => ''
       },
-      'number' => 2,
       'parent' => {},
       'structure' => {
-        'level' => 2
+        'level' => 2,
+        'number' => 2
       }
     }
   ],
@@ -245,10 +245,10 @@ $result_sectioning{'section_in_math'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'number' => 1,
       'section_up' => {},
       'structure' => {
-        'level' => 2
+        'level' => 2,
+        'number' => 1
       }
     },
     {
@@ -256,11 +256,11 @@ $result_sectioning{'section_in_math'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'number' => 2,
       'section_prev' => {},
       'section_up' => {},
       'structure' => {
-        'level' => 2
+        'level' => 2,
+        'number' => 2
       },
       'toplevel_prev' => {}
     }

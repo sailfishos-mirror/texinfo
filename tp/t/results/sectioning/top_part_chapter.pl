@@ -129,10 +129,10 @@ $result_trees{'top_part_chapter'} = [
           'line_nr' => 5,
           'macro' => ''
         },
-        'number' => 1,
         'parent' => {},
         'structure' => {
-          'level' => 1
+          'level' => 1,
+          'number' => 1
         }
       }
     ],
@@ -204,10 +204,10 @@ $result_sectioning{'top_part_chapter'} = {
             'associated_part' => {},
             'spaces_before_argument' => ' '
           },
-          'number' => 1,
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 1
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -275,9 +275,9 @@ $result_elements{'top_part_chapter'} = [
                 },
                 'spaces_before_argument' => ' '
               },
-              'number' => 1,
               'structure' => {
-                'level' => 1
+                'level' => 1,
+                'number' => 1
               }
             },
             'unit_command' => {}

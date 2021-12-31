@@ -4884,10 +4884,10 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 35,
         'macro' => ''
       },
-      'number' => 1,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 1
       }
     },
     {
@@ -5125,10 +5125,10 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 38,
         'macro' => ''
       },
-      'number' => 2,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 2
       }
     },
     {
@@ -5416,10 +5416,10 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 41,
         'macro' => ''
       },
-      'number' => 3,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 3
       }
     },
     {
@@ -5799,10 +5799,10 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 44,
         'macro' => ''
       },
-      'number' => 4,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 4
       }
     },
     {
@@ -6136,10 +6136,10 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 47,
         'macro' => ''
       },
-      'number' => 5,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 5
       }
     },
     {
@@ -6335,10 +6335,10 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 50,
         'macro' => ''
       },
-      'number' => 6,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 6
       }
     },
     {
@@ -6718,10 +6718,10 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 53,
         'macro' => ''
       },
-      'number' => 7,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 7
       }
     },
     {
@@ -7009,10 +7009,10 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 56,
         'macro' => ''
       },
-      'number' => 8,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 8
       }
     },
     {
@@ -7714,10 +7714,10 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 59,
         'macro' => ''
       },
-      'number' => 9,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 9
       }
     },
     {
@@ -8427,10 +8427,10 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 62,
         'macro' => ''
       },
-      'number' => 10,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 10
       }
     },
     {
@@ -8880,10 +8880,10 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 65,
         'macro' => ''
       },
-      'number' => 11,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 11
       }
     },
     {
@@ -9181,10 +9181,10 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 68,
         'macro' => ''
       },
-      'number' => 12,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 12
       }
     },
     {
@@ -9518,10 +9518,10 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 71,
         'macro' => ''
       },
-      'number' => 13,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 13
       }
     },
     {
@@ -9855,10 +9855,10 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 74,
         'macro' => ''
       },
-      'number' => 14,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 14
       }
     },
     {
@@ -9936,10 +9936,10 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 77,
         'macro' => ''
       },
-      'number' => 15,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 15
       }
     },
     {
@@ -10203,10 +10203,10 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 80,
         'macro' => ''
       },
-      'number' => 16,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 16
       }
     },
     {
@@ -10470,10 +10470,10 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 84,
         'macro' => ''
       },
-      'number' => 17,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 17
       }
     },
     {
@@ -10701,10 +10701,10 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 88,
         'macro' => ''
       },
-      'number' => 18,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 18
       }
     },
     {
@@ -10966,10 +10966,10 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 92,
         'macro' => ''
       },
-      'number' => 19,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 19
       }
     },
     {
@@ -11091,10 +11091,10 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 97,
         'macro' => ''
       },
-      'number' => 20,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 20
       }
     },
     {
@@ -11760,10 +11760,10 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 101,
         'macro' => ''
       },
-      'number' => 21,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 21
       }
     },
     {
@@ -12257,10 +12257,10 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 104,
         'macro' => ''
       },
-      'number' => 22,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 22
       }
     },
     {
@@ -12384,10 +12384,10 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 107,
         'macro' => ''
       },
-      'number' => 23,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 23
       }
     },
     {
@@ -12557,10 +12557,10 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 110,
         'macro' => ''
       },
-      'number' => 24,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 24
       }
     },
     {
@@ -12674,10 +12674,10 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 113,
         'macro' => ''
       },
-      'number' => 25,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 25
       }
     },
     {
@@ -12847,10 +12847,10 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 116,
         'macro' => ''
       },
-      'number' => 26,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 26
       }
     },
     {
@@ -17519,10 +17519,10 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 119,
         'macro' => ''
       },
-      'number' => 27,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 27
       }
     },
     {
@@ -21158,10 +21158,10 @@ $result_sectioning{'at_commands_in_refs'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'number' => 1,
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 1
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -21178,11 +21178,11 @@ $result_sectioning{'at_commands_in_refs'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'number' => 2,
           'section_prev' => {},
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 2
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -21199,11 +21199,11 @@ $result_sectioning{'at_commands_in_refs'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'number' => 3,
           'section_prev' => {},
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 3
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -21220,11 +21220,11 @@ $result_sectioning{'at_commands_in_refs'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'number' => 4,
           'section_prev' => {},
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 4
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -21241,11 +21241,11 @@ $result_sectioning{'at_commands_in_refs'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'number' => 5,
           'section_prev' => {},
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 5
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -21262,11 +21262,11 @@ $result_sectioning{'at_commands_in_refs'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'number' => 6,
           'section_prev' => {},
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 6
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -21283,11 +21283,11 @@ $result_sectioning{'at_commands_in_refs'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'number' => 7,
           'section_prev' => {},
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 7
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -21304,11 +21304,11 @@ $result_sectioning{'at_commands_in_refs'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'number' => 8,
           'section_prev' => {},
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 8
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -21325,11 +21325,11 @@ $result_sectioning{'at_commands_in_refs'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'number' => 9,
           'section_prev' => {},
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 9
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -21346,11 +21346,11 @@ $result_sectioning{'at_commands_in_refs'} = {
             },
             'spaces_before_argument' => '  '
           },
-          'number' => 10,
           'section_prev' => {},
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 10
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -21367,11 +21367,11 @@ $result_sectioning{'at_commands_in_refs'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'number' => 11,
           'section_prev' => {},
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 11
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -21388,11 +21388,11 @@ $result_sectioning{'at_commands_in_refs'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'number' => 12,
           'section_prev' => {},
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 12
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -21409,11 +21409,11 @@ $result_sectioning{'at_commands_in_refs'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'number' => 13,
           'section_prev' => {},
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 13
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -21430,11 +21430,11 @@ $result_sectioning{'at_commands_in_refs'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'number' => 14,
           'section_prev' => {},
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 14
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -21451,11 +21451,11 @@ $result_sectioning{'at_commands_in_refs'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'number' => 15,
           'section_prev' => {},
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 15
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -21472,11 +21472,11 @@ $result_sectioning{'at_commands_in_refs'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'number' => 16,
           'section_prev' => {},
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 16
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -21493,11 +21493,11 @@ $result_sectioning{'at_commands_in_refs'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'number' => 17,
           'section_prev' => {},
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 17
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -21514,11 +21514,11 @@ $result_sectioning{'at_commands_in_refs'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'number' => 18,
           'section_prev' => {},
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 18
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -21535,11 +21535,11 @@ $result_sectioning{'at_commands_in_refs'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'number' => 19,
           'section_prev' => {},
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 19
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -21556,11 +21556,11 @@ $result_sectioning{'at_commands_in_refs'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'number' => 20,
           'section_prev' => {},
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 20
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -21577,11 +21577,11 @@ $result_sectioning{'at_commands_in_refs'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'number' => 21,
           'section_prev' => {},
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 21
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -21598,11 +21598,11 @@ $result_sectioning{'at_commands_in_refs'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'number' => 22,
           'section_prev' => {},
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 22
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -21619,11 +21619,11 @@ $result_sectioning{'at_commands_in_refs'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'number' => 23,
           'section_prev' => {},
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 23
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -21640,11 +21640,11 @@ $result_sectioning{'at_commands_in_refs'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'number' => 24,
           'section_prev' => {},
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 24
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -21661,11 +21661,11 @@ $result_sectioning{'at_commands_in_refs'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'number' => 25,
           'section_prev' => {},
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 25
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -21682,11 +21682,11 @@ $result_sectioning{'at_commands_in_refs'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'number' => 26,
           'section_prev' => {},
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 26
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -21703,11 +21703,11 @@ $result_sectioning{'at_commands_in_refs'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'number' => 27,
           'section_prev' => {},
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 27
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -21855,9 +21855,9 @@ $result_nodes{'at_commands_in_refs'} = {
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'number' => 1,
         'structure' => {
-          'level' => 1
+          'level' => 1,
+          'number' => 1
         }
       },
       'normalized' => '-_007b-_007d',
@@ -21871,9 +21871,9 @@ $result_nodes{'at_commands_in_refs'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'number' => 2,
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 2
           }
         },
         'normalized' => '----_0021---_002e--_002e-_003f-_0040',
@@ -21887,9 +21887,9 @@ $result_nodes{'at_commands_in_refs'} = {
             'extra' => {
               'spaces_before_argument' => ' '
             },
-            'number' => 3,
             'structure' => {
-              'level' => 1
+              'level' => 1,
+              'number' => 3
             }
           },
           'normalized' => '_0040-_007b-_007d-_005c-_0023',
@@ -21903,9 +21903,9 @@ $result_nodes{'at_commands_in_refs'} = {
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'number' => 4,
               'structure' => {
-                'level' => 1
+                'level' => 1,
+                'number' => 4
               }
             },
             'normalized' => 'LaTeX-TeX-_2022-_002c-_00a9-_2026-_002e_002e_002e',
@@ -21919,9 +21919,9 @@ $result_nodes{'at_commands_in_refs'} = {
                 'extra' => {
                   'spaces_before_argument' => ' '
                 },
-                'number' => 5,
                 'structure' => {
-                  'level' => 1
+                  'level' => 1,
+                  'number' => 5
                 }
               },
               'normalized' => '_2261-error_002d_002d_003e-_20ac-_00a1-_21a6-_2212',
@@ -21935,9 +21935,9 @@ $result_nodes{'at_commands_in_refs'} = {
                   'extra' => {
                     'spaces_before_argument' => ' '
                   },
-                  'number' => 6,
                   'structure' => {
-                    'level' => 1
+                    'level' => 1,
+                    'number' => 6
                   }
                 },
                 'normalized' => '_2265-_2264-_2192',
@@ -21951,9 +21951,9 @@ $result_nodes{'at_commands_in_refs'} = {
                     'extra' => {
                       'spaces_before_argument' => ' '
                     },
-                    'number' => 7,
                     'structure' => {
-                      'level' => 1
+                      'level' => 1,
+                      'number' => 7
                     }
                   },
                   'normalized' => '_00aa-_00ba-_2605-_00a3-_22a3-_00bf-_00ae',
@@ -21967,9 +21967,9 @@ $result_nodes{'at_commands_in_refs'} = {
                       'extra' => {
                         'spaces_before_argument' => ' '
                       },
-                      'number' => 8,
                       'structure' => {
-                        'level' => 1
+                        'level' => 1,
+                        'number' => 8
                       }
                     },
                     'normalized' => '_21d2-_00b0-a-b--_00e5',
@@ -21983,9 +21983,9 @@ $result_nodes{'at_commands_in_refs'} = {
                         'extra' => {
                           'spaces_before_argument' => ' '
                         },
-                        'number' => 9,
                         'structure' => {
-                          'level' => 1
+                          'level' => 1,
+                          'number' => 9
                         }
                       },
                       'normalized' => '_00c5-_00e6-_0153-_00c6-_0152-_00f8-_00d8-_00df-_0142-_0141-_00d0-_00f0-_00de-_00fe',
@@ -21999,9 +21999,9 @@ $result_nodes{'at_commands_in_refs'} = {
                           'extra' => {
                             'spaces_before_argument' => '  '
                           },
-                          'number' => 10,
                           'structure' => {
-                            'level' => 1
+                            'level' => 1,
+                            'number' => 10
                           }
                         },
                         'normalized' => '_00e4-_1ebd-_00ee-_00e2-_00e0-_00e9-_00e7-_0113-e_030a-e_030b-_0119',
@@ -22015,9 +22015,9 @@ $result_nodes{'at_commands_in_refs'} = {
                             'extra' => {
                               'spaces_before_argument' => ' '
                             },
-                            'number' => 11,
                             'structure' => {
-                              'level' => 1
+                              'level' => 1,
+                              'number' => 11
                             }
                           },
                           'normalized' => '_0117-_0115-e_0332-_1eb9-_011b-j-e_0361e',
@@ -22031,9 +22031,9 @@ $result_nodes{'at_commands_in_refs'} = {
                               'extra' => {
                                 'spaces_before_argument' => ' '
                               },
-                              'number' => 12,
                               'structure' => {
-                                'level' => 1
+                                'level' => 1,
+                                'number' => 12
                               }
                             },
                             'normalized' => '_0131-_1e14-_1e08',
@@ -22047,9 +22047,9 @@ $result_nodes{'at_commands_in_refs'} = {
                                 'extra' => {
                                   'spaces_before_argument' => ' '
                                 },
-                                'number' => 13,
                                 'structure' => {
-                                  'level' => 1
+                                  'level' => 1,
+                                  'number' => 13
                                 }
                               },
                               'normalized' => '_201c-_201d-_2018-_2019-_201e-_201a',
@@ -22063,9 +22063,9 @@ $result_nodes{'at_commands_in_refs'} = {
                                   'extra' => {
                                     'spaces_before_argument' => ' '
                                   },
-                                  'number' => 14,
                                   'structure' => {
-                                    'level' => 1
+                                    'level' => 1,
+                                    'number' => 14
                                   }
                                 },
                                 'normalized' => '_00ab-_00bb-_00ab-_00bb-_2039-_203a',
@@ -22079,9 +22079,9 @@ $result_nodes{'at_commands_in_refs'} = {
                                     'extra' => {
                                       'spaces_before_argument' => ' '
                                     },
-                                    'number' => 15,
                                     'structure' => {
-                                      'level' => 1
+                                      'level' => 1,
+                                      'number' => 15
                                     }
                                   },
                                   'normalized' => '_0060_0060-_0027_0027-_002d_002d_002d-_002d_002d-_0060-_0027',
@@ -22095,9 +22095,9 @@ $result_nodes{'at_commands_in_refs'} = {
                                       'extra' => {
                                         'spaces_before_argument' => ' '
                                       },
-                                      'number' => 16,
                                       'structure' => {
-                                        'level' => 1
+                                        'level' => 1,
+                                        'number' => 16
                                       }
                                     },
                                     'normalized' => 'AAA-AAA-BBB',
@@ -22111,9 +22111,9 @@ $result_nodes{'at_commands_in_refs'} = {
                                         'extra' => {
                                           'spaces_before_argument' => ' '
                                         },
-                                        'number' => 17,
                                         'structure' => {
-                                          'level' => 1
+                                          'level' => 1,
+                                          'number' => 17
                                         }
                                       },
                                       'normalized' => 'CCC-CCC-DDD',
@@ -22127,9 +22127,9 @@ $result_nodes{'at_commands_in_refs'} = {
                                           'extra' => {
                                             'spaces_before_argument' => ' '
                                           },
-                                          'number' => 18,
                                           'structure' => {
-                                            'level' => 1
+                                            'level' => 1,
+                                            'number' => 18
                                           }
                                         },
                                         'normalized' => 'someone_0040somewher-no_005fexplain_0040there',
@@ -22143,9 +22143,9 @@ $result_nodes{'at_commands_in_refs'} = {
                                             'extra' => {
                                               'spaces_before_argument' => ' '
                                             },
-                                            'number' => 19,
                                             'structure' => {
-                                              'level' => 1
+                                              'level' => 1,
+                                              'number' => 19
                                             }
                                           },
                                           'normalized' => 'f_002d_002dile1-f_002d_002dile',
@@ -22159,9 +22159,9 @@ $result_nodes{'at_commands_in_refs'} = {
                                               'extra' => {
                                                 'spaces_before_argument' => ' '
                                               },
-                                              'number' => 20,
                                               'structure' => {
-                                                'level' => 1
+                                                'level' => 1,
+                                                'number' => 20
                                               }
                                             },
                                             'normalized' => '-_0040-_007b_007d-_002e-',
@@ -22175,9 +22175,9 @@ $result_nodes{'at_commands_in_refs'} = {
                                                 'extra' => {
                                                   'spaces_before_argument' => ' '
                                                 },
-                                                'number' => 21,
                                                 'structure' => {
-                                                  'level' => 1
+                                                  'level' => 1,
+                                                  'number' => 21
                                                 }
                                               },
                                               'normalized' => 'cite-asis-in-_0040w-b-in-r-SC-str-t-var-dfn-i',
@@ -22191,9 +22191,9 @@ $result_nodes{'at_commands_in_refs'} = {
                                                   'extra' => {
                                                     'spaces_before_argument' => ' '
                                                   },
-                                                  'number' => 22,
                                                   'structure' => {
-                                                    'level' => 1
+                                                    'level' => 1,
+                                                    'number' => 22
                                                   }
                                                 },
                                                 'normalized' => 'env-code-option-samp-command-file-C_002dx-ESC',
@@ -22207,9 +22207,9 @@ $result_nodes{'at_commands_in_refs'} = {
                                                     'extra' => {
                                                       'spaces_before_argument' => ' '
                                                     },
-                                                    'number' => 23,
                                                     'structure' => {
-                                                      'level' => 1
+                                                      'level' => 1,
+                                                      'number' => 23
                                                     }
                                                   },
                                                   'normalized' => '8_002e27in',
@@ -22223,9 +22223,9 @@ $result_nodes{'at_commands_in_refs'} = {
                                                       'extra' => {
                                                         'spaces_before_argument' => ' '
                                                       },
-                                                      'number' => 24,
                                                       'structure' => {
-                                                        'level' => 1
+                                                        'level' => 1,
+                                                        'number' => 24
                                                       }
                                                     },
                                                     'normalized' => 'sansserif-slanted',
@@ -22239,9 +22239,9 @@ $result_nodes{'at_commands_in_refs'} = {
                                                         'extra' => {
                                                           'spaces_before_argument' => ' '
                                                         },
-                                                        'number' => 25,
                                                         'structure' => {
-                                                          'level' => 1
+                                                          'level' => 1,
+                                                          'number' => 25
                                                         }
                                                       },
                                                       'normalized' => 'indicateurl',
@@ -22255,9 +22255,9 @@ $result_nodes{'at_commands_in_refs'} = {
                                                           'extra' => {
                                                             'spaces_before_argument' => ' '
                                                           },
-                                                          'number' => 26,
                                                           'structure' => {
-                                                            'level' => 1
+                                                            'level' => 1,
+                                                            'number' => 26
                                                           }
                                                         },
                                                         'normalized' => 'gH-3rd',
@@ -22271,9 +22271,9 @@ $result_nodes{'at_commands_in_refs'} = {
                                                             'extra' => {
                                                               'spaces_before_argument' => ' '
                                                             },
-                                                            'number' => 27,
                                                             'structure' => {
-                                                              'level' => 1
+                                                              'level' => 1,
+                                                              'number' => 27
                                                             }
                                                           },
                                                           'normalized' => 'http_003a_002f_002fsomewhere_005faaa-url-_002fman_002ecgi_002f1_002fls',

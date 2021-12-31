@@ -257,10 +257,10 @@ $result_trees{'test_index'} = {
                       'line_nr' => 229,
                       'macro' => ''
                     },
-                    'number' => 'B',
                     'parent' => {},
                     'structure' => {
-                      'level' => 1
+                      'level' => 1,
+                      'number' => 'B'
                     }
                   }
                 },
@@ -2895,10 +2895,10 @@ $result_trees{'test_index'} = {
         'line_nr' => 32,
         'macro' => ''
       },
-      'number' => 1,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 1
       }
     },
     {},
@@ -3137,10 +3137,10 @@ $result_trees{'test_index'} = {
         'line_nr' => 206,
         'macro' => ''
       },
-      'number' => 'A',
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 'A'
       }
     },
     {
@@ -3177,10 +3177,10 @@ $result_trees{'test_index'} = {
         'line_nr' => 219,
         'macro' => ''
       },
-      'number' => 'A.1',
       'parent' => {},
       'structure' => {
-        'level' => 2
+        'level' => 2,
+        'number' => 'A.1'
       }
     },
     {
@@ -3217,10 +3217,10 @@ $result_trees{'test_index'} = {
         'line_nr' => 221,
         'macro' => ''
       },
-      'number' => 'A.1.1',
       'parent' => {},
       'structure' => {
-        'level' => 3
+        'level' => 3,
+        'number' => 'A.1.1'
       }
     },
     {
@@ -3292,10 +3292,10 @@ $result_trees{'test_index'} = {
         'line_nr' => 223,
         'macro' => ''
       },
-      'number' => 'A.1.1.1',
       'parent' => {},
       'structure' => {
-        'level' => 4
+        'level' => 4,
+        'number' => 'A.1.1.1'
       }
     },
     {
@@ -4371,10 +4371,10 @@ $result_sectioning{'test_index'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'number' => 1,
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 1
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -4392,50 +4392,50 @@ $result_sectioning{'test_index'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'number' => 'A',
           'section_childs' => [
             {
               'cmdname' => 'appendixsec',
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'number' => 'A.1',
               'section_childs' => [
                 {
                   'cmdname' => 'appendixsubsec',
                   'extra' => {
                     'spaces_before_argument' => ' '
                   },
-                  'number' => 'A.1.1',
                   'section_childs' => [
                     {
                       'cmdname' => 'appendixsubsubsec',
                       'extra' => {
                         'spaces_before_argument' => ' '
                       },
-                      'number' => 'A.1.1.1',
                       'section_up' => {},
                       'structure' => {
-                        'level' => 4
+                        'level' => 4,
+                        'number' => 'A.1.1.1'
                       }
                     }
                   ],
                   'section_up' => {},
                   'structure' => {
-                    'level' => 3
+                    'level' => 3,
+                    'number' => 'A.1.1'
                   }
                 }
               ],
               'section_up' => {},
               'structure' => {
-                'level' => 2
+                'level' => 2,
+                'number' => 'A.1'
               }
             }
           ],
           'section_prev' => {},
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 'A'
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -4458,11 +4458,11 @@ $result_sectioning{'test_index'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'number' => 'B',
           'section_prev' => {},
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 'B'
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -4521,9 +4521,9 @@ $result_nodes{'test_index'} = {
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'number' => 1,
         'structure' => {
-          'level' => 1
+          'level' => 1,
+          'number' => 1
         }
       },
       'normalized' => 'name',
@@ -4537,9 +4537,9 @@ $result_nodes{'test_index'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'number' => 'A',
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 'A'
           }
         },
         'isindex' => 1,

@@ -515,7 +515,8 @@ $result_trees{'equivalent_nodes'} = {
             'line_nr' => 17,
             'macro' => ''
           },
-          'parent' => {}
+          'parent' => {},
+          'structure' => {}
         },
         {
           'parent' => {},
@@ -1041,7 +1042,8 @@ $result_floats{'equivalent_nodes'} = {
           ],
           'normalized' => 'Figure'
         }
-      }
+      },
+      'structure' => {}
     }
   ]
 };

@@ -80,10 +80,10 @@ $result_trees{'part_before_chapter'} = [
           'line_nr' => 3,
           'macro' => ''
         },
-        'number' => 1,
         'parent' => {},
         'structure' => {
-          'level' => 1
+          'level' => 1,
+          'number' => 1
         }
       }
     ],
@@ -131,10 +131,10 @@ $result_sectioning{'part_before_chapter'} = {
             'associated_part' => {},
             'spaces_before_argument' => ' '
           },
-          'number' => 1,
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 1
           }
         },
         'spaces_before_argument' => ' '
@@ -180,9 +180,9 @@ $result_elements{'part_before_chapter'} = [
           },
           'spaces_before_argument' => ' '
         },
-        'number' => 1,
         'structure' => {
-          'level' => 1
+          'level' => 1,
+          'number' => 1
         }
       },
       'unit_command' => {}

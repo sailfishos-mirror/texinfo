@@ -98,8 +98,10 @@ $result_trees{'empty_listoffloats_with_floats'} = {
             'line_nr' => 2,
             'macro' => ''
           },
-          'number' => 1,
-          'parent' => {}
+          'parent' => {},
+          'structure' => {
+            'float_number' => 1
+          }
         },
         {
           'parent' => {},
@@ -227,8 +229,10 @@ $result_trees{'empty_listoffloats_with_floats'} = {
             'line_nr' => 6,
             'macro' => ''
           },
-          'number' => 2,
-          'parent' => {}
+          'parent' => {},
+          'structure' => {
+            'float_number' => 2
+          }
         },
         {
           'parent' => {},
@@ -301,7 +305,8 @@ $result_trees{'empty_listoffloats_with_floats'} = {
             'line_nr' => 11,
             'macro' => ''
           },
-          'parent' => {}
+          'parent' => {},
+          'structure' => {}
         },
         {
           'parent' => {},
@@ -411,7 +416,8 @@ $result_trees{'empty_listoffloats_with_floats'} = {
             'line_nr' => 15,
             'macro' => ''
           },
-          'parent' => {}
+          'parent' => {},
+          'structure' => {}
         },
         {
           'parent' => {},
@@ -574,7 +580,9 @@ $result_floats{'empty_listoffloats_with_floats'} = {
           'normalized' => ''
         }
       },
-      'number' => 1
+      'structure' => {
+        'float_number' => 1
+      }
     },
     {
       'cmdname' => 'float',
@@ -599,7 +607,9 @@ $result_floats{'empty_listoffloats_with_floats'} = {
           'normalized' => ''
         }
       },
-      'number' => 2
+      'structure' => {
+        'float_number' => 2
+      }
     },
     {
       'cmdname' => 'float',
@@ -615,7 +625,8 @@ $result_floats{'empty_listoffloats_with_floats'} = {
         'type' => {
           'normalized' => ''
         }
-      }
+      },
+      'structure' => {}
     },
     {
       'cmdname' => 'float',
@@ -637,7 +648,8 @@ $result_floats{'empty_listoffloats_with_floats'} = {
         'type' => {
           'normalized' => ''
         }
-      }
+      },
+      'structure' => {}
     }
   ]
 };

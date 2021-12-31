@@ -464,10 +464,10 @@ $result_trees{'two_nodes_at_the_end'} = [
           'line_nr' => 11,
           'macro' => ''
         },
-        'number' => 1,
         'parent' => {},
         'structure' => {
-          'level' => 1
+          'level' => 1,
+          'number' => 1
         }
       },
       {
@@ -738,10 +738,10 @@ $result_sectioning{'two_nodes_at_the_end'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'number' => 1,
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 1
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -785,9 +785,9 @@ $result_nodes{'two_nodes_at_the_end'} = {
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'number' => 1,
         'structure' => {
-          'level' => 1
+          'level' => 1,
+          'number' => 1
         }
       },
       'normalized' => 'chapter-1',
@@ -959,9 +959,9 @@ $result_elements{'two_nodes_at_the_end'} = [
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'number' => 1,
               'structure' => {
-                'level' => 1
+                'level' => 1,
+                'number' => 1
               }
             },
             'unit_command' => {}

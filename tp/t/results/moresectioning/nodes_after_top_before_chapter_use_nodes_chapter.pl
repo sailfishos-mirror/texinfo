@@ -539,10 +539,10 @@ $result_trees{'nodes_after_top_before_chapter_use_nodes_chapter'} = {
         'line_nr' => 18,
         'macro' => ''
       },
-      'number' => 1,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 1
       }
     },
     {
@@ -696,10 +696,10 @@ $result_sectioning{'nodes_after_top_before_chapter_use_nodes_chapter'} = {
         },
         'spaces_before_argument' => ' '
       },
-      'number' => 1,
       'section_up' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 1
       }
     }
   ],
@@ -729,9 +729,9 @@ $result_nodes{'nodes_after_top_before_chapter_use_nodes_chapter'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'number' => 1,
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 1
           }
         },
         'normalized' => 'third-node',

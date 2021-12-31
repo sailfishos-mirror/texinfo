@@ -71,10 +71,10 @@ $result_trees{'character_number_leading_toc_stoc'} = {
         'line_nr' => 2,
         'macro' => ''
       },
-      'number' => 1,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 1
       }
     },
     {
@@ -256,10 +256,10 @@ $result_sectioning{'character_number_leading_toc_stoc'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'number' => 1,
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 1
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}

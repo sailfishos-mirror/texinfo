@@ -861,8 +861,10 @@ $result_trees{'commands_in_flushright'} = {
                 'line_nr' => 35,
                 'macro' => ''
               },
-              'number' => 1,
-              'parent' => {}
+              'parent' => {},
+              'structure' => {
+                'float_number' => 1
+              }
             },
             {
               'parent' => {},
@@ -1511,7 +1513,9 @@ $result_floats{'commands_in_flushright'} = {
           'normalized' => 'label'
         }
       },
-      'number' => 1
+      'structure' => {
+        'float_number' => 1
+      }
     }
   ]
 };

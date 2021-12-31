@@ -154,8 +154,10 @@ $result_trees{'float_long_captions'} = {
             'line_nr' => 3,
             'macro' => ''
           },
-          'number' => 1,
-          'parent' => {}
+          'parent' => {},
+          'structure' => {
+            'float_number' => 1
+          }
         },
         {
           'parent' => {},
@@ -280,8 +282,10 @@ $result_trees{'float_long_captions'} = {
             'line_nr' => 7,
             'macro' => ''
           },
-          'number' => 2,
-          'parent' => {}
+          'parent' => {},
+          'structure' => {
+            'float_number' => 2
+          }
         },
         {
           'parent' => {},
@@ -471,7 +475,9 @@ $result_floats{'float_long_captions'} = {
           'normalized' => 'Text'
         }
       },
-      'number' => 1
+      'structure' => {
+        'float_number' => 1
+      }
     },
     {
       'cmdname' => 'float',
@@ -501,7 +507,9 @@ $result_floats{'float_long_captions'} = {
           'normalized' => 'Text'
         }
       },
-      'number' => 2
+      'structure' => {
+        'float_number' => 2
+      }
     }
   ]
 };

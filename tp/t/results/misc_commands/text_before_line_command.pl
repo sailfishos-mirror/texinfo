@@ -286,10 +286,10 @@ $result_trees{'text_before_line_command'} = {
         'line_nr' => 4,
         'macro' => ''
       },
-      'number' => 1,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 1
       }
     }
   ],
@@ -372,10 +372,10 @@ $result_sectioning{'text_before_line_command'} = {
         },
         'spaces_before_argument' => ' '
       },
-      'number' => 1,
       'section_up' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 1
       }
     }
   ],
@@ -393,9 +393,9 @@ $result_nodes{'text_before_line_command'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'number' => 1,
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 1
       }
     },
     'normalized' => 'LD-Version-Scripts',

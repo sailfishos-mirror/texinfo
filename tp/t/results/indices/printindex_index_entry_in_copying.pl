@@ -951,10 +951,10 @@ $result_trees{'printindex_index_entry_in_copying'} = {
         'line_nr' => 30,
         'macro' => ''
       },
-      'number' => 1,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 1
       }
     }
   ],
@@ -1176,10 +1176,10 @@ $result_sectioning{'printindex_index_entry_in_copying'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'number' => 1,
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 1
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -1223,9 +1223,9 @@ $result_nodes{'printindex_index_entry_in_copying'} = {
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'number' => 1,
         'structure' => {
-          'level' => 1
+          'level' => 1,
+          'number' => 1
         }
       },
       'isindex' => 1,

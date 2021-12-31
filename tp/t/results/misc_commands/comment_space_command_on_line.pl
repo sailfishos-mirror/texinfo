@@ -513,8 +513,10 @@ $result_trees{'comment_space_command_on_line'} = {
             'line_nr' => 14,
             'macro' => ''
           },
-          'number' => 1,
-          'parent' => {}
+          'parent' => {},
+          'structure' => {
+            'float_number' => 1
+          }
         },
         {
           'parent' => {},
@@ -822,7 +824,9 @@ $result_floats{'comment_space_command_on_line'} = {
           'normalized' => 'Text'
         }
       },
-      'number' => 1
+      'structure' => {
+        'float_number' => 1
+      }
     }
   ]
 };

@@ -84,10 +84,10 @@ $result_trees{'loweredheading'} = {
         'line_nr' => 2,
         'macro' => ''
       },
-      'number' => 1,
       'parent' => {},
       'structure' => {
-        'level' => 3
+        'level' => 3,
+        'number' => 1
       }
     },
     {
@@ -138,10 +138,10 @@ $result_sectioning{'loweredheading'} = {
         'sections_level' => -1,
         'spaces_before_argument' => ' '
       },
-      'number' => 1,
       'section_up' => {},
       'structure' => {
-        'level' => 3
+        'level' => 3,
+        'number' => 1
       }
     }
   ],

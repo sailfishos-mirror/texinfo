@@ -204,7 +204,8 @@ $result_trees{'caption_in_example'} = {
             'line_nr' => 1,
             'macro' => ''
           },
-          'parent' => {}
+          'parent' => {},
+          'structure' => {}
         }
       ],
       'parent' => {},
@@ -307,7 +308,8 @@ $result_floats{'caption_in_example'} = {
           ],
           'normalized' => 'float'
         }
-      }
+      },
+      'structure' => {}
     }
   ]
 };

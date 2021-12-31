@@ -3593,10 +3593,10 @@ $result_trees{'refs_formatting'} = {
         'line_nr' => 2,
         'macro' => ''
       },
-      'number' => 1,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 1
       }
     }
   ],
@@ -4345,10 +4345,10 @@ $result_sectioning{'refs_formatting'} = {
         },
         'spaces_before_argument' => ' '
       },
-      'number' => 1,
       'section_up' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 1
       }
     }
   ],
@@ -4366,9 +4366,9 @@ $result_nodes{'refs_formatting'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'number' => 1,
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 1
       }
     },
     'normalized' => 'chapter',

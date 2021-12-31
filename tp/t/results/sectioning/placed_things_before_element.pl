@@ -377,8 +377,10 @@ $result_trees{'placed_things_before_element'} = {
             'line_nr' => 17,
             'macro' => ''
           },
-          'number' => 1,
-          'parent' => {}
+          'parent' => {},
+          'structure' => {
+            'float_number' => 1
+          }
         },
         {
           'parent' => {},
@@ -739,10 +741,10 @@ $result_trees{'placed_things_before_element'} = {
         'line_nr' => 30,
         'macro' => ''
       },
-      'number' => 1,
       'parent' => {},
       'structure' => {
-        'level' => 2
+        'level' => 2,
+        'number' => 1
       }
     }
   ],
@@ -937,10 +939,10 @@ $result_sectioning{'placed_things_before_element'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'number' => 1,
       'section_up' => {},
       'structure' => {
-        'level' => 2
+        'level' => 2,
+        'number' => 1
       }
     }
   ],
@@ -982,7 +984,9 @@ $result_floats{'placed_things_before_element'} = {
           'normalized' => ''
         }
       },
-      'number' => 1
+      'structure' => {
+        'float_number' => 1
+      }
     }
   ]
 };

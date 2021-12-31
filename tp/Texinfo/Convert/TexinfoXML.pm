@@ -1312,8 +1312,8 @@ sub _convert($$;$)
             defined($element->{'extra'}->{'type'}->{'normalized'})) {
           push @$attribute, ('type', $element->{'extra'}->{'type'}->{'normalized'});
         }
-        if (defined($element->{'number'})) {
-          push @$attribute, ('number', $element->{'number'});
+        if (defined($element->{'structure'}->{'float_number'})) {
+          push @$attribute, ('number', $element->{'structure'}->{'float_number'});
         }
       } elsif ($element->{'cmdname'} eq 'verbatim') {
         push @$attribute, ('xml:space', 'preserve');

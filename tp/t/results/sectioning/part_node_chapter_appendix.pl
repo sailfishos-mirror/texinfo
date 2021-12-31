@@ -335,10 +335,10 @@ $result_trees{'part_node_chapter_appendix'} = [
           'line_nr' => 11,
           'macro' => ''
         },
-        'number' => 1,
         'parent' => {},
         'structure' => {
-          'level' => 1
+          'level' => 1,
+          'number' => 1
         }
       }
     ],
@@ -381,10 +381,10 @@ $result_trees{'part_node_chapter_appendix'} = [
           'line_nr' => 13,
           'macro' => ''
         },
-        'number' => 'A',
         'parent' => {},
         'structure' => {
-          'level' => 1
+          'level' => 1,
+          'number' => 'A'
         }
       }
     ],
@@ -520,10 +520,10 @@ $result_sectioning{'part_node_chapter_appendix'} = {
             'associated_part' => {},
             'spaces_before_argument' => ' '
           },
-          'number' => 1,
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 1
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -544,11 +544,11 @@ $result_sectioning{'part_node_chapter_appendix'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'number' => 'A',
       'section_prev' => {},
       'section_up' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 'A'
       },
       'toplevel_prev' => {},
       'toplevel_up' => {}
@@ -603,9 +603,9 @@ $result_nodes{'part_node_chapter_appendix'} = {
           },
           'spaces_before_argument' => ' '
         },
-        'number' => 1,
         'structure' => {
-          'level' => 1
+          'level' => 1,
+          'number' => 1
         }
       },
       'normalized' => 'chapter-node',
@@ -712,9 +712,9 @@ $result_elements{'part_node_chapter_appendix'} = [
                 },
                 'spaces_before_argument' => ' '
               },
-              'number' => 1,
               'structure' => {
-                'level' => 1
+                'level' => 1,
+                'number' => 1
               }
             },
             'unit_command' => {}
@@ -730,9 +730,9 @@ $result_elements{'part_node_chapter_appendix'} = [
                     'extra' => {
                       'spaces_before_argument' => ' '
                     },
-                    'number' => 'A',
                     'structure' => {
-                      'level' => 1
+                      'level' => 1,
+                      'number' => 'A'
                     }
                   },
                   'unit_command' => {}

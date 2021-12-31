@@ -1190,10 +1190,10 @@ $result_trees{'sample_utf8'} = {
         'line_nr' => 42,
         'macro' => ''
       },
-      'number' => 1,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 1
       }
     },
     {
@@ -1288,10 +1288,10 @@ $result_trees{'sample_utf8'} = {
         'line_nr' => 62,
         'macro' => ''
       },
-      'number' => 2,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 2
       }
     },
     {
@@ -1762,10 +1762,10 @@ $result_sectioning{'sample_utf8'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'number' => 1,
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 1
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -1782,11 +1782,11 @@ $result_sectioning{'sample_utf8'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'number' => 2,
           'section_prev' => {},
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 2
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -1859,9 +1859,9 @@ $result_nodes{'sample_utf8'} = {
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'number' => 1,
         'structure' => {
-          'level' => 1
+          'level' => 1,
+          'number' => 1
         }
       },
       'normalized' => '_7b2c_4e00_7ae0_ff08First-Chapter_ff09',
@@ -1875,9 +1875,9 @@ $result_nodes{'sample_utf8'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'number' => 2,
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 2
           }
         },
         'normalized' => 'Second-Chapter-AE-_0104_0118-ae-_0105_0119',

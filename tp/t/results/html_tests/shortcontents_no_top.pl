@@ -46,10 +46,10 @@ $result_trees{'shortcontents_no_top'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'number' => 1,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 1
       }
     },
     {
@@ -86,10 +86,10 @@ $result_trees{'shortcontents_no_top'} = {
         'line_nr' => 3,
         'macro' => ''
       },
-      'number' => 2,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 2
       }
     },
     {
@@ -143,10 +143,10 @@ $result_trees{'shortcontents_no_top'} = {
         'line_nr' => 5,
         'macro' => ''
       },
-      'number' => '2.1',
       'parent' => {},
       'structure' => {
-        'level' => 2
+        'level' => 2,
+        'number' => '2.1'
       }
     }
   ],
@@ -196,10 +196,10 @@ $result_sectioning{'shortcontents_no_top'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'number' => 1,
       'section_up' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 1
       }
     },
     {
@@ -207,24 +207,24 @@ $result_sectioning{'shortcontents_no_top'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'number' => 2,
       'section_childs' => [
         {
           'cmdname' => 'section',
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'number' => '2.1',
           'section_up' => {},
           'structure' => {
-            'level' => 2
+            'level' => 2,
+            'number' => '2.1'
           }
         }
       ],
       'section_prev' => {},
       'section_up' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 2
       },
       'toplevel_prev' => {}
     }

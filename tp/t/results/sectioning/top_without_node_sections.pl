@@ -194,10 +194,10 @@ $result_trees{'top_without_node_sections'} = [
           'line_nr' => 5,
           'macro' => ''
         },
-        'number' => 1,
         'parent' => {},
         'structure' => {
-          'level' => 1
+          'level' => 1,
+          'number' => 1
         }
       }
     ],
@@ -284,10 +284,10 @@ $result_sectioning{'top_without_node_sections'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'number' => 1,
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 1
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -316,9 +316,9 @@ $result_nodes{'top_without_node_sections'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'number' => 1,
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 1
       }
     },
     'normalized' => 'second',
@@ -379,9 +379,9 @@ $result_elements{'top_without_node_sections'} = [
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'number' => 1,
               'structure' => {
-                'level' => 1
+                'level' => 1,
+                'number' => 1
               }
             },
             'unit_command' => {}

@@ -80,10 +80,10 @@ $result_trees{'one_subsection_and_node'} = {
         'line_nr' => 2,
         'macro' => ''
       },
-      'number' => 1,
       'parent' => {},
       'structure' => {
-        'level' => 3
+        'level' => 3,
+        'number' => 1
       }
     }
   ],
@@ -122,10 +122,10 @@ $result_sectioning{'one_subsection_and_node'} = {
         },
         'spaces_before_argument' => ' '
       },
-      'number' => 1,
       'section_up' => {},
       'structure' => {
-        'level' => 3
+        'level' => 3,
+        'number' => 1
       }
     }
   ],
@@ -143,9 +143,9 @@ $result_nodes{'one_subsection_and_node'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'number' => 1,
       'structure' => {
-        'level' => 3
+        'level' => 3,
+        'number' => 1
       }
     },
     'normalized' => 'one-node',

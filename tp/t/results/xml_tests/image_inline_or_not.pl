@@ -1603,8 +1603,10 @@ $result_trees{'image_inline_or_not'} = {
             'line_nr' => 55,
             'macro' => ''
           },
-          'number' => '1.1',
-          'parent' => {}
+          'parent' => {},
+          'structure' => {
+            'float_number' => '1.1'
+          }
         }
       ],
       'extra' => {
@@ -1615,10 +1617,10 @@ $result_trees{'image_inline_or_not'} = {
         'line_nr' => 42,
         'macro' => ''
       },
-      'number' => 1,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 1
       }
     }
   ],
@@ -1985,10 +1987,10 @@ $result_sectioning{'image_inline_or_not'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'number' => 1,
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 1
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -2032,9 +2034,9 @@ $result_nodes{'image_inline_or_not'} = {
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'number' => 1,
         'structure' => {
-          'level' => 1
+          'level' => 1,
+          'number' => 1
         }
       },
       'normalized' => 'node_005fimage',
@@ -2121,9 +2123,9 @@ $result_floats{'image_inline_or_not'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'number' => 1,
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 1
           }
         },
         'normalized' => 'g',
@@ -2137,7 +2139,9 @@ $result_floats{'image_inline_or_not'} = {
           'normalized' => 'F'
         }
       },
-      'number' => '1.1'
+      'structure' => {
+        'float_number' => '1.1'
+      }
     }
   ]
 };

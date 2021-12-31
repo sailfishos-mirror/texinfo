@@ -85,10 +85,10 @@ $result_trees{'hole_in_sectioning'} = {
         'line_nr' => 3,
         'macro' => ''
       },
-      'number' => 1,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 1
       }
     },
     {
@@ -125,10 +125,10 @@ $result_trees{'hole_in_sectioning'} = {
         'line_nr' => 5,
         'macro' => ''
       },
-      'number' => '1.1',
       'parent' => {},
       'structure' => {
-        'level' => 2
+        'level' => 2,
+        'number' => '1.1'
       }
     },
     {
@@ -165,10 +165,10 @@ $result_trees{'hole_in_sectioning'} = {
         'line_nr' => 7,
         'macro' => ''
       },
-      'number' => '1.1.1',
       'parent' => {},
       'structure' => {
-        'level' => 3
+        'level' => 3,
+        'number' => '1.1.1'
       }
     },
     {
@@ -198,10 +198,10 @@ $result_trees{'hole_in_sectioning'} = {
         'line_nr' => 9,
         'macro' => ''
       },
-      'number' => '1.1.2',
       'parent' => {},
       'structure' => {
-        'level' => 3
+        'level' => 3,
+        'number' => '1.1.2'
       }
     }
   ],
@@ -269,24 +269,22 @@ $result_sectioning{'hole_in_sectioning'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'number' => 1,
           'section_childs' => [
             {
               'cmdname' => 'section',
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'number' => '1.1',
               'section_childs' => [
                 {
                   'cmdname' => 'subsubsection',
                   'extra' => {
                     'spaces_before_argument' => ' '
                   },
-                  'number' => '1.1.1',
                   'section_up' => {},
                   'structure' => {
-                    'level' => 3
+                    'level' => 3,
+                    'number' => '1.1.1'
                   }
                 },
                 {
@@ -294,23 +292,25 @@ $result_sectioning{'hole_in_sectioning'} = {
                   'extra' => {
                     'spaces_before_argument' => ' '
                   },
-                  'number' => '1.1.2',
                   'section_prev' => {},
                   'section_up' => {},
                   'structure' => {
-                    'level' => 3
+                    'level' => 3,
+                    'number' => '1.1.2'
                   }
                 }
               ],
               'section_up' => {},
               'structure' => {
-                'level' => 2
+                'level' => 2,
+                'number' => '1.1'
               }
             }
           ],
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 1
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}

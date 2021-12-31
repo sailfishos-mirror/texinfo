@@ -155,10 +155,10 @@ $result_trees{'node_sectop_before_chapter_no_node'} = {
         'line_nr' => 6,
         'macro' => ''
       },
-      'number' => 1,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 1
       }
     }
   ],
@@ -219,10 +219,10 @@ $result_sectioning{'node_sectop_before_chapter_no_node'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'number' => 1,
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 1
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}

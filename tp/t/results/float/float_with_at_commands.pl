@@ -337,8 +337,10 @@ $result_trees{'float_with_at_commands'} = {
             'line_nr' => 1,
             'macro' => ''
           },
-          'number' => 1,
-          'parent' => {}
+          'parent' => {},
+          'structure' => {
+            'float_number' => 1
+          }
         },
         {
           'parent' => {},
@@ -551,7 +553,9 @@ $result_floats{'float_with_at_commands'} = {
           'normalized' => 'entr@\'ee'
         }
       },
-      'number' => 1
+      'structure' => {
+        'float_number' => 1
+      }
     }
   ]
 };

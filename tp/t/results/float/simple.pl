@@ -139,8 +139,10 @@ $result_trees{'simple'} = {
             'line_nr' => 1,
             'macro' => ''
           },
-          'number' => 1,
-          'parent' => {}
+          'parent' => {},
+          'structure' => {
+            'float_number' => 1
+          }
         }
       ],
       'parent' => {},
@@ -218,7 +220,9 @@ $result_floats{'simple'} = {
           'normalized' => 'Type'
         }
       },
-      'number' => 1
+      'structure' => {
+        'float_number' => 1
+      }
     }
   ]
 };

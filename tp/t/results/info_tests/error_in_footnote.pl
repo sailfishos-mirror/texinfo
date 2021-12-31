@@ -303,8 +303,10 @@ $result_trees{'error_in_footnote'} = {
             'line_nr' => 4,
             'macro' => ''
           },
-          'number' => 1,
-          'parent' => {}
+          'parent' => {},
+          'structure' => {
+            'float_number' => 1
+          }
         },
         {
           'parent' => {},
@@ -569,7 +571,9 @@ $result_floats{'error_in_footnote'} = {
           'normalized' => 'Text'
         }
       },
-      'number' => 1
+      'structure' => {
+        'float_number' => 1
+      }
     }
   ]
 };

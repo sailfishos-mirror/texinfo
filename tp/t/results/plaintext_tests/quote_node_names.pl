@@ -1248,10 +1248,10 @@ $result_trees{'quote_node_names'} = {
         'line_nr' => 28,
         'macro' => ''
       },
-      'number' => 1,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 1
       }
     },
     {},
@@ -1289,10 +1289,10 @@ $result_trees{'quote_node_names'} = {
         'line_nr' => 33,
         'macro' => ''
       },
-      'number' => 2,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 2
       }
     },
     {},
@@ -1330,10 +1330,10 @@ $result_trees{'quote_node_names'} = {
         'line_nr' => 36,
         'macro' => ''
       },
-      'number' => 3,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 3
       }
     },
     {},
@@ -1389,10 +1389,10 @@ $result_trees{'quote_node_names'} = {
         'line_nr' => 39,
         'macro' => ''
       },
-      'number' => 4,
       'parent' => {},
       'structure' => {
-        'level' => 1
+        'level' => 1,
+        'number' => 4
       }
     },
     {
@@ -1788,10 +1788,10 @@ $result_sectioning{'quote_node_names'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'number' => 1,
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 1
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -1808,11 +1808,11 @@ $result_sectioning{'quote_node_names'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'number' => 2,
           'section_prev' => {},
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 2
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -1829,11 +1829,11 @@ $result_sectioning{'quote_node_names'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'number' => 3,
           'section_prev' => {},
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 3
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -1850,11 +1850,11 @@ $result_sectioning{'quote_node_names'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'number' => 4,
           'section_prev' => {},
           'section_up' => {},
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 4
           },
           'toplevel_prev' => {},
           'toplevel_up' => {}
@@ -1908,9 +1908,9 @@ $result_nodes{'quote_node_names'} = {
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'number' => 1,
         'structure' => {
-          'level' => 1
+          'level' => 1,
+          'number' => 1
         }
       },
       'normalized' => 'blah_003ablah',
@@ -1924,9 +1924,9 @@ $result_nodes{'quote_node_names'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'number' => 2,
           'structure' => {
-            'level' => 1
+            'level' => 1,
+            'number' => 2
           }
         },
         'normalized' => 'blumpty_002efump',
@@ -1940,9 +1940,9 @@ $result_nodes{'quote_node_names'} = {
             'extra' => {
               'spaces_before_argument' => ' '
             },
-            'number' => 3,
             'structure' => {
-              'level' => 1
+              'level' => 1,
+              'number' => 3
             }
           },
           'normalized' => 'normal-node',
@@ -1956,9 +1956,9 @@ $result_nodes{'quote_node_names'} = {
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'number' => 4,
               'structure' => {
-                'level' => 1
+                'level' => 1,
+                'number' => 4
               }
             },
             'normalized' => 'secret_002cnode',
