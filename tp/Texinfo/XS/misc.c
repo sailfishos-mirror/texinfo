@@ -177,12 +177,12 @@ xs_abort_empty_line (HV *self, HV *current, SV *additional_spaces_in)
 
       /* Change type to "empty_spaces_before_paragraph" unless we are in
          one of these contexts. */
-      if (strcmp (top_context, "math")
-          && strcmp (top_context, "menu")
-          && strcmp (top_context, "preformatted")
-          && strcmp (top_context, "rawpreformatted")
-          && strcmp (top_context, "def")
-          && strcmp (top_context, "inlineraw"))
+      if (strcmp (top_context, "ct_math")
+          && strcmp (top_context, "ct_menu")
+          && strcmp (top_context, "ct_preformatted")
+          && strcmp (top_context, "ct_rawpreformatted")
+          && strcmp (top_context, "ct_def")
+          && strcmp (top_context, "ct_inlineraw"))
         {
           hv_store (spaces_elt, "type", strlen ("type"),
                     newSVpv ("empty_spaces_before_paragraph", 0), 0);
@@ -340,7 +340,7 @@ xs_merge_text (HV *self, HV *current, SV *text_in)
       contents_ref = newRV_inc ((SV *) contents_array);
       hv_store (current, "contents", strlen ("contents"),
                 contents_ref, 0);
-      fprintf (stderr, "NEW CONTENTS %p\n", contents_array);
+      /* fprintf (stderr, "NEW CONTENTS %p\n", contents_array); */
       goto NEW_TEXT;
     }
   else

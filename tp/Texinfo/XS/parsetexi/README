@@ -1,8 +1,5 @@
-This is an experimental program intended to replicate the functionality 
-in tp/Texinfo/Parser.pm.
+This program replicates the functionality in tp/Texinfo/ParserNonXS.pm.
 
-
-Set TEXINFO_XS_PARSER in environment to use.
 
 =====================================================================
 Notes -

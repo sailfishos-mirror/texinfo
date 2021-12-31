@@ -4318,7 +4318,7 @@ sub _parse_texi($$$)
             if ($in_heading_commands{$command}) {
               # TODO use a more generic system for check of @-command nesting
               # in command on context stack
-              if (not $headings_specification_commands{$self->_top_context_command}) {
+              if (not $headings_specification_commands{$self->_top_context_command()}) {
                 $self->_line_error(
                   sprintf(__("\@%s should only appear in heading or footing"),
                         $command), $line_nr);
