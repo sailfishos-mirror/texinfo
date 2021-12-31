@@ -359,31 +359,31 @@ aaa quotation
 ';
 
 $result_sectioning{'text_before_line_command'} = {
-  'section_childs' => [
-    {
-      'cmdname' => 'chapter',
-      'extra' => {
-        'associated_node' => {
-          'cmdname' => 'node',
-          'extra' => {
-            'normalized' => 'LD-Version-Scripts',
-            'spaces_before_argument' => ' '
-          }
-        },
-        'spaces_before_argument' => ' '
-      },
-      'section_up' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 1
-      }
-    }
-  ],
   'structure' => {
-    'level' => 0
+    'level' => 0,
+    'section_childs' => [
+      {
+        'cmdname' => 'chapter',
+        'extra' => {
+          'associated_node' => {
+            'cmdname' => 'node',
+            'extra' => {
+              'normalized' => 'LD-Version-Scripts',
+              'spaces_before_argument' => ' '
+            }
+          },
+          'spaces_before_argument' => ' '
+        },
+        'structure' => {
+          'level' => 1,
+          'number' => 1,
+          'section_up' => {}
+        }
+      }
+    ]
   }
 };
-$result_sectioning{'text_before_line_command'}{'section_childs'}[0]{'section_up'} = $result_sectioning{'text_before_line_command'};
+$result_sectioning{'text_before_line_command'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'text_before_line_command'};
 
 $result_nodes{'text_before_line_command'} = {
   'cmdname' => 'node',

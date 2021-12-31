@@ -99,36 +99,36 @@ S
 ';
 
 $result_sectioning{'section_below_unnumbered_no_top'} = {
-  'section_childs' => [
-    {
-      'cmdname' => 'unnumbered',
-      'extra' => {
-        'spaces_before_argument' => ' '
-      },
-      'section_childs' => [
-        {
-          'cmdname' => 'section',
-          'extra' => {
-            'spaces_before_argument' => ' '
-          },
-          'section_up' => {},
-          'structure' => {
-            'level' => 2
-          }
-        }
-      ],
-      'section_up' => {},
-      'structure' => {
-        'level' => 1
-      }
-    }
-  ],
   'structure' => {
-    'level' => 0
+    'level' => 0,
+    'section_childs' => [
+      {
+        'cmdname' => 'unnumbered',
+        'extra' => {
+          'spaces_before_argument' => ' '
+        },
+        'structure' => {
+          'level' => 1,
+          'section_childs' => [
+            {
+              'cmdname' => 'section',
+              'extra' => {
+                'spaces_before_argument' => ' '
+              },
+              'structure' => {
+                'level' => 2,
+                'section_up' => {}
+              }
+            }
+          ],
+          'section_up' => {}
+        }
+      }
+    ]
   }
 };
-$result_sectioning{'section_below_unnumbered_no_top'}{'section_childs'}[0]{'section_childs'}[0]{'section_up'} = $result_sectioning{'section_below_unnumbered_no_top'}{'section_childs'}[0];
-$result_sectioning{'section_below_unnumbered_no_top'}{'section_childs'}[0]{'section_up'} = $result_sectioning{'section_below_unnumbered_no_top'};
+$result_sectioning{'section_below_unnumbered_no_top'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'section_below_unnumbered_no_top'}{'structure'}{'section_childs'}[0];
+$result_sectioning{'section_below_unnumbered_no_top'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'section_below_unnumbered_no_top'};
 
 $result_errors{'section_below_unnumbered_no_top'} = [];
 

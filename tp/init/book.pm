@@ -66,11 +66,11 @@ sub book_print_up_toc($$)
   my $result = '';
   my $current_command = $command;
   my @up_commands;
-  while (defined($current_command->{'section_up'})
-           and ($current_command->{'section_up'} ne $current_command)
-           and defined($current_command->{'section_up'}->{'cmdname'})) {
-    unshift (@up_commands, $current_command->{'section_up'});
-    $current_command = $current_command->{'section_up'};
+  while (defined($current_command->{'structure'}->{'section_up'})
+           and ($current_command->{'structure'}->{'section_up'} ne $current_command)
+           and defined($current_command->{'structure'}->{'section_up'}->{'cmdname'})) {
+    unshift (@up_commands, $current_command->{'structure'}->{'section_up'});
+    $current_command = $current_command->{'structure'}->{'section_up'};
   }
   # this happens for example for top tree unit
   return '' if !(@up_commands);
@@ -135,15 +135,16 @@ sub book_print_sub_toc($$$)
   if ($content_href) {
     $result .= "<li> "."<a href=\"$content_href\">$heading</a>" . " </li>\n";
   }
-  if ($command->{'section_childs'} and @{$command->{'section_childs'}}) {
+  if ($command->{'structure'}->{'section_childs'}
+      and @{$command->{'structure'}->{'section_childs'}}) {
     $result .= '<li>'.$converter->html_attribute_class('ul',$NO_BULLET_LIST_CLASS)
      .">\n". book_print_sub_toc($converter, $parent_command,
-                                $command->{'section_childs'}->[0])
+                                $command->{'structure'}->{'section_childs'}->[0])
      ."</ul></li>\n";
   }
-  if (exists($command->{'section_next'})) {
+  if (exists($command->{'structure'}->{'section_next'})) {
     $result .= book_print_sub_toc($converter, $parent_command,
-                                  $command->{'section_next'});
+                                  $command->{'structure'}->{'section_next'});
   }
   return $result;
 }
@@ -276,11 +277,12 @@ sub book_convert_heading_command($$$$$)
                                                  "${cmdname}-anchor");
   }
 
-  if ($element->{'section_childs'} and @{$element->{'section_childs'}}
+  if ($element->{'structure'}->{'section_childs'}
+      and @{$element->{'structure'}->{'section_childs'}}
       and $cmdname ne 'top') {
     $result .= $self->html_attribute_class('ul', $NO_BULLET_LIST_CLASS).">\n";
     $result .= book_print_sub_toc($self, $element,
-                                  $element->{'section_childs'}->[0]);
+                                  $element->{'structure'}->{'section_childs'}->[0]);
     $result .= "</ul>\n";
   }
   $result .= $content if (defined($content));

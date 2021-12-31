@@ -98,29 +98,29 @@ $result_texis{'top_no_argument_and_top_node'} = '@node Top
 $result_texts{'top_no_argument_and_top_node'} = '';
 
 $result_sectioning{'top_no_argument_and_top_node'} = {
-  'section_childs' => [
-    {
-      'cmdname' => 'top',
-      'extra' => {
-        'associated_node' => {
-          'cmdname' => 'node',
-          'extra' => {
-            'normalized' => 'Top',
-            'spaces_before_argument' => ' '
-          }
-        }
-      },
-      'section_up' => {},
-      'structure' => {
-        'level' => 0
-      }
-    }
-  ],
   'structure' => {
-    'level' => -1
+    'level' => -1,
+    'section_childs' => [
+      {
+        'cmdname' => 'top',
+        'extra' => {
+          'associated_node' => {
+            'cmdname' => 'node',
+            'extra' => {
+              'normalized' => 'Top',
+              'spaces_before_argument' => ' '
+            }
+          }
+        },
+        'structure' => {
+          'level' => 0,
+          'section_up' => {}
+        }
+      }
+    ]
   }
 };
-$result_sectioning{'top_no_argument_and_top_node'}{'section_childs'}[0]{'section_up'} = $result_sectioning{'top_no_argument_and_top_node'};
+$result_sectioning{'top_no_argument_and_top_node'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'top_no_argument_and_top_node'};
 
 $result_nodes{'top_no_argument_and_top_node'} = {
   'cmdname' => 'node',

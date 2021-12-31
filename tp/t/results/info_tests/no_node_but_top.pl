@@ -61,23 +61,23 @@ $result_texts{'no_node_but_top'} = 'top
 ';
 
 $result_sectioning{'no_node_but_top'} = {
-  'section_childs' => [
-    {
-      'cmdname' => 'top',
-      'extra' => {
-        'spaces_before_argument' => ' '
-      },
-      'section_up' => {},
-      'structure' => {
-        'level' => 0
-      }
-    }
-  ],
   'structure' => {
-    'level' => -1
+    'level' => -1,
+    'section_childs' => [
+      {
+        'cmdname' => 'top',
+        'extra' => {
+          'spaces_before_argument' => ' '
+        },
+        'structure' => {
+          'level' => 0,
+          'section_up' => {}
+        }
+      }
+    ]
   }
 };
-$result_sectioning{'no_node_but_top'}{'section_childs'}[0]{'section_up'} = $result_sectioning{'no_node_but_top'};
+$result_sectioning{'no_node_but_top'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'no_node_but_top'};
 
 $result_errors{'no_node_but_top'} = [];
 

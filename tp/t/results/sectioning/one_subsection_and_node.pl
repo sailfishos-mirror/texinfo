@@ -109,31 +109,31 @@ $result_texts{'one_subsection_and_node'} = '1 The subsection
 ';
 
 $result_sectioning{'one_subsection_and_node'} = {
-  'section_childs' => [
-    {
-      'cmdname' => 'subsection',
-      'extra' => {
-        'associated_node' => {
-          'cmdname' => 'node',
-          'extra' => {
-            'normalized' => 'one-node',
-            'spaces_before_argument' => ' '
-          }
-        },
-        'spaces_before_argument' => ' '
-      },
-      'section_up' => {},
-      'structure' => {
-        'level' => 3,
-        'number' => 1
-      }
-    }
-  ],
   'structure' => {
-    'level' => 2
+    'level' => 2,
+    'section_childs' => [
+      {
+        'cmdname' => 'subsection',
+        'extra' => {
+          'associated_node' => {
+            'cmdname' => 'node',
+            'extra' => {
+              'normalized' => 'one-node',
+              'spaces_before_argument' => ' '
+            }
+          },
+          'spaces_before_argument' => ' '
+        },
+        'structure' => {
+          'level' => 3,
+          'number' => 1,
+          'section_up' => {}
+        }
+      }
+    ]
   }
 };
-$result_sectioning{'one_subsection_and_node'}{'section_childs'}[0]{'section_up'} = $result_sectioning{'one_subsection_and_node'};
+$result_sectioning{'one_subsection_and_node'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'one_subsection_and_node'};
 
 $result_nodes{'one_subsection_and_node'} = {
   'cmdname' => 'node',

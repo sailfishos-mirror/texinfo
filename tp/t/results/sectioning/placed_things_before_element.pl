@@ -933,24 +933,24 @@ Anchor in footnote
 ';
 
 $result_sectioning{'placed_things_before_element'} = {
-  'section_childs' => [
-    {
-      'cmdname' => 'section',
-      'extra' => {
-        'spaces_before_argument' => ' '
-      },
-      'section_up' => {},
-      'structure' => {
-        'level' => 2,
-        'number' => 1
-      }
-    }
-  ],
   'structure' => {
-    'level' => 1
+    'level' => 1,
+    'section_childs' => [
+      {
+        'cmdname' => 'section',
+        'extra' => {
+          'spaces_before_argument' => ' '
+        },
+        'structure' => {
+          'level' => 2,
+          'number' => 1,
+          'section_up' => {}
+        }
+      }
+    ]
   }
 };
-$result_sectioning{'placed_things_before_element'}{'section_childs'}[0]{'section_up'} = $result_sectioning{'placed_things_before_element'};
+$result_sectioning{'placed_things_before_element'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'placed_things_before_element'};
 
 $result_errors{'placed_things_before_element'} = [
   {

@@ -1062,10 +1062,11 @@ sub format_contents($$$)
   my $contents = 1 if ($contents_or_shortcontents eq 'contents');
 
   # no sections
-  return ('', 0) if (!$section_root or !$section_root->{'section_childs'});
-  my $root_level = $section_root->{'section_childs'}->[0]->{'structure'}->{'level'};
-  foreach my $top_section(@{$section_root->{'section_childs'}}) {
-    $root_level = $top_section->{'structure'}->{'level'} 
+  return ('', 0) if (!$section_root
+                     or !$section_root->{'structure'}->{'section_childs'});
+  my $root_level = $section_root->{'structure'}->{'section_childs'}->[0]->{'structure'}->{'level'};
+  foreach my $top_section (@{$section_root->{'structure'}->{'section_childs'}}) {
+    $root_level = $top_section->{'structure'}->{'level'}
       if ($top_section->{'structure'}->{'level'} < $root_level);
   }
 
@@ -1073,7 +1074,7 @@ sub format_contents($$$)
   my $lines_count = 0;
   # This is done like that because the tree may not be well formed if
   # there is a @part after a @chapter for example.
-  foreach my $top_section (@{$section_root->{'section_childs'}}) {
+  foreach my $top_section (@{$section_root->{'structure'}->{'section_childs'}}) {
     my $section = $top_section;
  SECTION:
     while ($section) {
@@ -1086,12 +1087,12 @@ sub format_contents($$$)
             and $section->{'structure'}->{'level'} == 1) {
           $section_title_tree = $self->gdt('Appendix {number} {section_title}',
                            {'number' => {'text' => $section->{'structure'}->{'number'}},
-                            'section_title' 
+                            'section_title'
                               => {'contents' => $section->{'args'}->[0]->{'contents'}}});
         } else {
           $section_title_tree = $self->gdt('{number} {section_title}',
                            {'number' => {'text' => $section->{'structure'}->{'number'}},
-                            'section_title' 
+                            'section_title'
                               => {'contents' => $section->{'args'}->[0]->{'contents'}}});
         }
       } else {
@@ -1108,19 +1109,19 @@ sub format_contents($$$)
       ($result .= (' ' x $repeat_count)) if $repeat_count > 0;
       $result .= $text;
       $lines_count++;
-      if ($section->{'section_childs'} 
+      if ($section->{'structure'}->{'section_childs'}
           and ($contents or $section->{'structure'}->{'level'} < $root_level+1)) {
-        $section = $section->{'section_childs'}->[0];
-      } elsif ($section->{'section_next'}) {
+        $section = $section->{'structure'}->{'section_childs'}->[0];
+      } elsif ($section->{'structure'}->{'section_next'}) {
         last if ($section eq $top_section);
-        $section = $section->{'section_next'};
+        $section = $section->{'structure'}->{'section_next'};
       } else {
         last if ($section eq $top_section);
-        while ($section->{'section_up'}) {
-          $section = $section->{'section_up'};
+        while ($section->{'structure'}->{'section_up'}) {
+          $section = $section->{'structure'}->{'section_up'};
           last SECTION if ($section eq $top_section);
-          if ($section->{'section_next'}) {
-            $section = $section->{'section_next'};
+          if ($section->{'structure'}->{'section_next'}) {
+            $section = $section->{'structure'}->{'section_next'};
             last;
           }
         }

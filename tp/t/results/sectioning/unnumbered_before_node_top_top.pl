@@ -222,45 +222,45 @@ Top node
 ';
 
 $result_sectioning{'unnumbered_before_node_top_top'} = {
-  'section_childs' => [
-    {
-      'cmdname' => 'unnumbered',
-      'extra' => {
-        'spaces_before_argument' => ' '
-      },
-      'section_up' => {},
-      'structure' => {
-        'level' => 1
-      }
-    },
-    {
-      'cmdname' => 'top',
-      'extra' => {
-        'associated_node' => {
-          'cmdname' => 'node',
-          'extra' => {
-            'normalized' => 'Top',
-            'spaces_before_argument' => ' '
-          }
-        },
-        'spaces_before_argument' => ' '
-      },
-      'section_prev' => {},
-      'section_up' => {},
-      'structure' => {
-        'level' => 1
-      },
-      'toplevel_prev' => {}
-    }
-  ],
   'structure' => {
-    'level' => 0
+    'level' => 0,
+    'section_childs' => [
+      {
+        'cmdname' => 'unnumbered',
+        'extra' => {
+          'spaces_before_argument' => ' '
+        },
+        'structure' => {
+          'level' => 1,
+          'section_up' => {}
+        }
+      },
+      {
+        'cmdname' => 'top',
+        'extra' => {
+          'associated_node' => {
+            'cmdname' => 'node',
+            'extra' => {
+              'normalized' => 'Top',
+              'spaces_before_argument' => ' '
+            }
+          },
+          'spaces_before_argument' => ' '
+        },
+        'structure' => {
+          'level' => 1,
+          'section_prev' => {},
+          'section_up' => {},
+          'toplevel_prev' => {}
+        }
+      }
+    ]
   }
 };
-$result_sectioning{'unnumbered_before_node_top_top'}{'section_childs'}[0]{'section_up'} = $result_sectioning{'unnumbered_before_node_top_top'};
-$result_sectioning{'unnumbered_before_node_top_top'}{'section_childs'}[1]{'section_prev'} = $result_sectioning{'unnumbered_before_node_top_top'}{'section_childs'}[0];
-$result_sectioning{'unnumbered_before_node_top_top'}{'section_childs'}[1]{'section_up'} = $result_sectioning{'unnumbered_before_node_top_top'};
-$result_sectioning{'unnumbered_before_node_top_top'}{'section_childs'}[1]{'toplevel_prev'} = $result_sectioning{'unnumbered_before_node_top_top'}{'section_childs'}[0];
+$result_sectioning{'unnumbered_before_node_top_top'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'unnumbered_before_node_top_top'};
+$result_sectioning{'unnumbered_before_node_top_top'}{'structure'}{'section_childs'}[1]{'structure'}{'section_prev'} = $result_sectioning{'unnumbered_before_node_top_top'}{'structure'}{'section_childs'}[0];
+$result_sectioning{'unnumbered_before_node_top_top'}{'structure'}{'section_childs'}[1]{'structure'}{'section_up'} = $result_sectioning{'unnumbered_before_node_top_top'};
+$result_sectioning{'unnumbered_before_node_top_top'}{'structure'}{'section_childs'}[1]{'structure'}{'toplevel_prev'} = $result_sectioning{'unnumbered_before_node_top_top'}{'structure'}{'section_childs'}[0];
 
 $result_nodes{'unnumbered_before_node_top_top'} = {
   'cmdname' => 'node',

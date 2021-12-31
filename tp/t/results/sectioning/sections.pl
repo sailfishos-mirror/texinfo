@@ -62,24 +62,24 @@ $result_texts{'sections'} = '1 a chapter
 ';
 
 $result_sectioning{'sections'} = {
-  'section_childs' => [
-    {
-      'cmdname' => 'chapter',
-      'extra' => {
-        'spaces_before_argument' => ' '
-      },
-      'section_up' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 1
-      }
-    }
-  ],
   'structure' => {
-    'level' => 0
+    'level' => 0,
+    'section_childs' => [
+      {
+        'cmdname' => 'chapter',
+        'extra' => {
+          'spaces_before_argument' => ' '
+        },
+        'structure' => {
+          'level' => 1,
+          'number' => 1,
+          'section_up' => {}
+        }
+      }
+    ]
   }
 };
-$result_sectioning{'sections'}{'section_childs'}[0]{'section_up'} = $result_sectioning{'sections'};
+$result_sectioning{'sections'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'sections'};
 
 $result_errors{'sections'} = [];
 

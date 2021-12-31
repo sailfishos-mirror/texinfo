@@ -4332,31 +4332,31 @@ $result_texts{'refs_formatting'} = '1 chapter
 ';
 
 $result_sectioning{'refs_formatting'} = {
-  'section_childs' => [
-    {
-      'cmdname' => 'chapter',
-      'extra' => {
-        'associated_node' => {
-          'cmdname' => 'node',
-          'extra' => {
-            'normalized' => 'chapter',
-            'spaces_before_argument' => ' '
-          }
-        },
-        'spaces_before_argument' => ' '
-      },
-      'section_up' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 1
-      }
-    }
-  ],
   'structure' => {
-    'level' => 0
+    'level' => 0,
+    'section_childs' => [
+      {
+        'cmdname' => 'chapter',
+        'extra' => {
+          'associated_node' => {
+            'cmdname' => 'node',
+            'extra' => {
+              'normalized' => 'chapter',
+              'spaces_before_argument' => ' '
+            }
+          },
+          'spaces_before_argument' => ' '
+        },
+        'structure' => {
+          'level' => 1,
+          'number' => 1,
+          'section_up' => {}
+        }
+      }
+    ]
   }
 };
-$result_sectioning{'refs_formatting'}{'section_childs'}[0]{'section_up'} = $result_sectioning{'refs_formatting'};
+$result_sectioning{'refs_formatting'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'refs_formatting'};
 
 $result_nodes{'refs_formatting'} = {
   'cmdname' => 'node',

@@ -134,35 +134,35 @@ part
 ';
 
 $result_sectioning{'chapter_before_part'} = {
-  'section_childs' => [
-    {
-      'cmdname' => 'chapter',
-      'extra' => {
-        'spaces_before_argument' => ' '
-      },
-      'section_up' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 1
-      }
-    },
-    {
-      'cmdname' => 'part',
-      'extra' => {
-        'spaces_before_argument' => ' '
-      },
-      'section_up' => {},
-      'structure' => {
-        'level' => 0
-      }
-    }
-  ],
   'structure' => {
-    'level' => -1
+    'level' => -1,
+    'section_childs' => [
+      {
+        'cmdname' => 'chapter',
+        'extra' => {
+          'spaces_before_argument' => ' '
+        },
+        'structure' => {
+          'level' => 1,
+          'number' => 1,
+          'section_up' => {}
+        }
+      },
+      {
+        'cmdname' => 'part',
+        'extra' => {
+          'spaces_before_argument' => ' '
+        },
+        'structure' => {
+          'level' => 0,
+          'section_up' => {}
+        }
+      }
+    ]
   }
 };
-$result_sectioning{'chapter_before_part'}{'section_childs'}[0]{'section_up'} = $result_sectioning{'chapter_before_part'};
-$result_sectioning{'chapter_before_part'}{'section_childs'}[1]{'section_up'} = $result_sectioning{'chapter_before_part'};
+$result_sectioning{'chapter_before_part'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'chapter_before_part'};
+$result_sectioning{'chapter_before_part'}{'structure'}{'section_childs'}[1]{'structure'}{'section_up'} = $result_sectioning{'chapter_before_part'};
 
 $result_errors{'chapter_before_part'} = [
   {

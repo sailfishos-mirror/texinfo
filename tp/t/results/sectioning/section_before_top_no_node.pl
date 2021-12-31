@@ -110,39 +110,39 @@ top
 ';
 
 $result_sectioning{'section_before_top_no_node'} = {
-  'section_childs' => [
-    {
-      'cmdname' => 'section',
-      'extra' => {
-        'spaces_before_argument' => ' '
-      },
-      'section_up' => {},
-      'structure' => {
-        'level' => 2,
-        'number' => 1
-      }
-    },
-    {
-      'cmdname' => 'top',
-      'extra' => {
-        'spaces_before_argument' => ' '
-      },
-      'section_prev' => {},
-      'section_up' => {},
-      'structure' => {
-        'level' => 2
-      },
-      'toplevel_prev' => {}
-    }
-  ],
   'structure' => {
-    'level' => 1
+    'level' => 1,
+    'section_childs' => [
+      {
+        'cmdname' => 'section',
+        'extra' => {
+          'spaces_before_argument' => ' '
+        },
+        'structure' => {
+          'level' => 2,
+          'number' => 1,
+          'section_up' => {}
+        }
+      },
+      {
+        'cmdname' => 'top',
+        'extra' => {
+          'spaces_before_argument' => ' '
+        },
+        'structure' => {
+          'level' => 2,
+          'section_prev' => {},
+          'section_up' => {},
+          'toplevel_prev' => {}
+        }
+      }
+    ]
   }
 };
-$result_sectioning{'section_before_top_no_node'}{'section_childs'}[0]{'section_up'} = $result_sectioning{'section_before_top_no_node'};
-$result_sectioning{'section_before_top_no_node'}{'section_childs'}[1]{'section_prev'} = $result_sectioning{'section_before_top_no_node'}{'section_childs'}[0];
-$result_sectioning{'section_before_top_no_node'}{'section_childs'}[1]{'section_up'} = $result_sectioning{'section_before_top_no_node'};
-$result_sectioning{'section_before_top_no_node'}{'section_childs'}[1]{'toplevel_prev'} = $result_sectioning{'section_before_top_no_node'}{'section_childs'}[0];
+$result_sectioning{'section_before_top_no_node'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'section_before_top_no_node'};
+$result_sectioning{'section_before_top_no_node'}{'structure'}{'section_childs'}[1]{'structure'}{'section_prev'} = $result_sectioning{'section_before_top_no_node'}{'structure'}{'section_childs'}[0];
+$result_sectioning{'section_before_top_no_node'}{'structure'}{'section_childs'}[1]{'structure'}{'section_up'} = $result_sectioning{'section_before_top_no_node'};
+$result_sectioning{'section_before_top_no_node'}{'structure'}{'section_childs'}[1]{'structure'}{'toplevel_prev'} = $result_sectioning{'section_before_top_no_node'}{'structure'}{'section_childs'}[0];
 
 $result_errors{'section_before_top_no_node'} = [
   {

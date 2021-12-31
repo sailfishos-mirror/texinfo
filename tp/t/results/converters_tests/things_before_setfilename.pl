@@ -1359,30 +1359,30 @@ Anchor in footnote
 ';
 
 $result_sectioning{'things_before_setfilename'} = {
-  'section_childs' => [
-    {
-      'cmdname' => 'top',
-      'extra' => {
-        'associated_node' => {
-          'cmdname' => 'node',
-          'extra' => {
-            'normalized' => 'Top',
-            'spaces_before_argument' => ' '
-          }
-        },
-        'spaces_before_argument' => ' '
-      },
-      'section_up' => {},
-      'structure' => {
-        'level' => 0
-      }
-    }
-  ],
   'structure' => {
-    'level' => -1
+    'level' => -1,
+    'section_childs' => [
+      {
+        'cmdname' => 'top',
+        'extra' => {
+          'associated_node' => {
+            'cmdname' => 'node',
+            'extra' => {
+              'normalized' => 'Top',
+              'spaces_before_argument' => ' '
+            }
+          },
+          'spaces_before_argument' => ' '
+        },
+        'structure' => {
+          'level' => 0,
+          'section_up' => {}
+        }
+      }
+    ]
   }
 };
-$result_sectioning{'things_before_setfilename'}{'section_childs'}[0]{'section_up'} = $result_sectioning{'things_before_setfilename'};
+$result_sectioning{'things_before_setfilename'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'things_before_setfilename'};
 
 $result_nodes{'things_before_setfilename'} = {
   'cmdname' => 'node',

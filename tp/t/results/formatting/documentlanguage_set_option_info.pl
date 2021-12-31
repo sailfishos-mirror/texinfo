@@ -323,30 +323,30 @@ Text.
 ';
 
 $result_sectioning{'documentlanguage_set_option_info'} = {
-  'section_childs' => [
-    {
-      'cmdname' => 'top',
-      'extra' => {
-        'associated_node' => {
-          'cmdname' => 'node',
-          'extra' => {
-            'normalized' => 'Top',
-            'spaces_before_argument' => ' '
-          }
-        },
-        'spaces_before_argument' => ' '
-      },
-      'section_up' => {},
-      'structure' => {
-        'level' => 0
-      }
-    }
-  ],
   'structure' => {
-    'level' => -1
+    'level' => -1,
+    'section_childs' => [
+      {
+        'cmdname' => 'top',
+        'extra' => {
+          'associated_node' => {
+            'cmdname' => 'node',
+            'extra' => {
+              'normalized' => 'Top',
+              'spaces_before_argument' => ' '
+            }
+          },
+          'spaces_before_argument' => ' '
+        },
+        'structure' => {
+          'level' => 0,
+          'section_up' => {}
+        }
+      }
+    ]
   }
 };
-$result_sectioning{'documentlanguage_set_option_info'}{'section_childs'}[0]{'section_up'} = $result_sectioning{'documentlanguage_set_option_info'};
+$result_sectioning{'documentlanguage_set_option_info'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'documentlanguage_set_option_info'};
 
 $result_nodes{'documentlanguage_set_option_info'} = {
   'cmdname' => 'node',

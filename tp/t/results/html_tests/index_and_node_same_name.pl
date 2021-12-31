@@ -212,23 +212,23 @@ $result_texts{'index_and_node_same_name'} = 'top
 ';
 
 $result_sectioning{'index_and_node_same_name'} = {
-  'section_childs' => [
-    {
-      'cmdname' => 'top',
-      'extra' => {
-        'spaces_before_argument' => ' '
-      },
-      'section_up' => {},
-      'structure' => {
-        'level' => 0
-      }
-    }
-  ],
   'structure' => {
-    'level' => -1
+    'level' => -1,
+    'section_childs' => [
+      {
+        'cmdname' => 'top',
+        'extra' => {
+          'spaces_before_argument' => ' '
+        },
+        'structure' => {
+          'level' => 0,
+          'section_up' => {}
+        }
+      }
+    ]
   }
 };
-$result_sectioning{'index_and_node_same_name'}{'section_childs'}[0]{'section_up'} = $result_sectioning{'index_and_node_same_name'};
+$result_sectioning{'index_and_node_same_name'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'index_and_node_same_name'};
 
 $result_nodes{'index_and_node_same_name'} = {
   'cmdname' => 'node',

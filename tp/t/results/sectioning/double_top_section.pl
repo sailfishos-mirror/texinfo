@@ -158,40 +158,40 @@ Second top.
 ';
 
 $result_sectioning{'double_top_section'} = {
-  'section_childs' => [
-    {
-      'cmdname' => 'top',
-      'extra' => {
-        'spaces_before_argument' => ' '
-      },
-      'section_up' => {},
-      'structure' => {
-        'level' => 0
-      }
-    },
-    {
-      'cmdname' => 'top',
-      'extra' => {
-        'spaces_before_argument' => ' '
-      },
-      'section_prev' => {},
-      'section_up' => {},
-      'structure' => {
-        'level' => 0
-      },
-      'toplevel_prev' => {},
-      'toplevel_up' => {}
-    }
-  ],
   'structure' => {
-    'level' => -1
+    'level' => -1,
+    'section_childs' => [
+      {
+        'cmdname' => 'top',
+        'extra' => {
+          'spaces_before_argument' => ' '
+        },
+        'structure' => {
+          'level' => 0,
+          'section_up' => {}
+        }
+      },
+      {
+        'cmdname' => 'top',
+        'extra' => {
+          'spaces_before_argument' => ' '
+        },
+        'structure' => {
+          'level' => 0,
+          'section_prev' => {},
+          'section_up' => {},
+          'toplevel_prev' => {},
+          'toplevel_up' => {}
+        }
+      }
+    ]
   }
 };
-$result_sectioning{'double_top_section'}{'section_childs'}[0]{'section_up'} = $result_sectioning{'double_top_section'};
-$result_sectioning{'double_top_section'}{'section_childs'}[1]{'section_prev'} = $result_sectioning{'double_top_section'}{'section_childs'}[0];
-$result_sectioning{'double_top_section'}{'section_childs'}[1]{'section_up'} = $result_sectioning{'double_top_section'};
-$result_sectioning{'double_top_section'}{'section_childs'}[1]{'toplevel_prev'} = $result_sectioning{'double_top_section'}{'section_childs'}[0];
-$result_sectioning{'double_top_section'}{'section_childs'}[1]{'toplevel_up'} = $result_sectioning{'double_top_section'}{'section_childs'}[0];
+$result_sectioning{'double_top_section'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'double_top_section'};
+$result_sectioning{'double_top_section'}{'structure'}{'section_childs'}[1]{'structure'}{'section_prev'} = $result_sectioning{'double_top_section'}{'structure'}{'section_childs'}[0];
+$result_sectioning{'double_top_section'}{'structure'}{'section_childs'}[1]{'structure'}{'section_up'} = $result_sectioning{'double_top_section'};
+$result_sectioning{'double_top_section'}{'structure'}{'section_childs'}[1]{'structure'}{'toplevel_prev'} = $result_sectioning{'double_top_section'}{'structure'}{'section_childs'}[0];
+$result_sectioning{'double_top_section'}{'structure'}{'section_childs'}[1]{'structure'}{'toplevel_up'} = $result_sectioning{'double_top_section'}{'structure'}{'section_childs'}[0];
 
 $result_errors{'double_top_section'} = [
   {

@@ -667,7 +667,7 @@ sub command_text($$;$)
   my $target = $self->_get_target($command);
   if ($target) {
     my $explanation;
-    $explanation = "command_text \@$command->{'cmdname'}" 
+    $explanation = "command_text:$type \@$command->{'cmdname'}"
        if ($command->{'cmdname'});
     if (defined($target->{$type})) {
       return $target->{$type};
@@ -853,6 +853,8 @@ sub from_element_direction($$$$;$)
     ########
     if ($element_target->{'type'} eq 'external_node') {
       my $external_node = $element_target->{'extra'};
+      #print STDERR "FROM_ELEMENT_DIRECTION ext node $type $direction\n"
+      #  if ($self->get_conf('DEBUG'));
       if ($type eq 'href') {
         return $self->command_href($external_node, $filename);
       } elsif ($type eq 'text' or $type eq 'node') {
@@ -900,6 +902,8 @@ sub from_element_direction($$$$;$)
   } elsif ($type eq 'target') {
     return undef;
   } elsif ($command) {
+    #print STDERR "FROM_ELEMENT_DIRECTION $type $direction\n"
+    #  if ($self->get_conf('DEBUG'));
     return $self->command_text($command, $type);
   }
 }
@@ -1023,14 +1027,21 @@ sub convert_tree_new_formatting_context($$;$$)
   my $tree = shift;
   my $context_string = shift;
   my $multiple_pass = shift;
+
+  my $context_string_str = '';
   if (defined($context_string)) {
     $self->_new_document_context($context_string);
+    $context_string_str = "C($context_string)";
   }
+  my $multiple_pass_str = '';
   if ($multiple_pass) {
     $self->{'ignore_notice'}++;
     push @{$self->{'multiple_pass'}}, $multiple_pass;
+    $multiple_pass_str = '|M'
   }
-  my $result = $self->convert_tree($tree);
+  print STDERR "new_fmt_ctx ${context_string_str}${multiple_pass_str}\n"
+        if ($self->get_conf('DEBUG'));
+  my $result = $self->convert_tree($tree, "new_fmt_ctx ${context_string_str}");
   if (defined($context_string)) {
     pop @{$self->{'document_context'}};
   }
@@ -1320,7 +1331,9 @@ foreach my $hash (\%BUTTONS_REL, \%BUTTONS_ACCESSKEY,
 sub _translate_names($)
 {
   my $self = shift;
-  #print STDERR "encoding_name: ".$self->get_conf('OUTPUT_ENCODING_NAME')." documentlanguage: ".$self->get_conf('documentlanguage')."\n";
+  print STDERR "\nTRANSLATE_NAMES encoding_name: ".$self->get_conf('OUTPUT_ENCODING_NAME')
+    ." documentlanguage: ".$self->get_conf('documentlanguage')."\n"
+   if ($self->get_conf('DEBUG'));
 
 
   %BUTTONS_TEXT = (
@@ -1460,6 +1473,8 @@ sub _translate_names($)
       $self->_complete_no_arg_commands_formatting($command);
     }
   }
+
+  print STDERR "END TRANSLATE_NAMES\n\n" if ($self->get_conf('DEBUG'));
 }
 
 
@@ -1685,7 +1700,7 @@ sub _convert_no_arg_command($$$)
   my $translated_tree = Texinfo::Convert::Utils::translated_command_tree($self,
                                                                        $cmdname);
   if ($translated_tree) {
-    return $self->convert_tree($translated_tree);
+    return $self->convert_tree($translated_tree, "convert no arg $cmdname translated");
   }
   if ($self->in_preformatted() or $self->in_math()) {
     $result = $self->{'no_arg_commands_formatting'}->{'preformatted'}->{$cmdname};
@@ -1708,7 +1723,7 @@ sub _convert_today_command($$$)
   my $command = shift;
 
   my $tree = $self->Texinfo::Convert::Utils::expand_today();
-  return $self->convert_tree($tree);
+  return $self->convert_tree($tree, 'convert today');
 }
 
 $default_commands_conversion{'today'} = \&_convert_today_command;
@@ -1921,10 +1936,11 @@ sub _convert_explained_command($$$$)
     $with_explanation = 1;
     $explanation_string = $args->[1]->{'string'};
 
-    # Convert the expanation of the acronym.  Must do this before we save
+    # Convert the explanation of the acronym.  Must do this before we save
     # the explanation for the future, otherwise we get infinite recursion
     # for recursively-defined acronyms.
-    $explanation_result = $self->convert_tree( $args->[1]->{'tree'} );
+    $explanation_result = $self->convert_tree($args->[1]->{'tree'},
+                                              "convert $cmdname explanation");
 
     $self->{'explained_commands'}->{$cmdname}->{$normalized_type} =
        $command->{'args'}->[1]->{'contents'};
@@ -1966,7 +1982,7 @@ sub _convert_explained_command($$$$)
           {'explained_string' => {'type' => '_converted',
                    'text' => $result},
            'explanation' => {'type' => '_converted',
-                   'text' => $explanation_result}}));
+                   'text' => $explanation_result}}), "convert explained $cmdname");
   }
 
   return $result;
@@ -2730,7 +2746,7 @@ sub _default_format_element_header($$$$)
 
   my $result = '';
    
-  print STDERR "Element $tree_unit (@{$tree_unit->{'contents'}}) ".
+  print STDERR "FORMAT elt header $tree_unit (@{$tree_unit->{'contents'}}) ".
      Texinfo::Structuring::root_or_external_element_cmd_texi($tree_unit) ."\n"
         if ($self->get_conf('DEBUG'));
 
@@ -2840,7 +2856,7 @@ sub _convert_heading_command($$$$$)
     $section = $element;
   }
 
-  print STDERR "Process $element "
+  print STDERR "CONVERT elt heading $element "
         .Texinfo::Convert::Texinfo::root_element_command_to_texinfo($element)."\n"
           if ($self->get_conf('DEBUG'));
   my $tree_unit;
@@ -3176,7 +3192,7 @@ sub _convert_verbatiminclude_command($$$$)
   my $verbatim_include_verbatim 
     = Texinfo::Convert::Utils::expand_verbatiminclude($self, $self, $command);
   if (defined($verbatim_include_verbatim)) {
-    return $self->convert_tree($verbatim_include_verbatim);
+    return $self->convert_tree($verbatim_include_verbatim, 'convert verbatiminclude');
   } else {
     return '';
   }
@@ -3316,7 +3332,8 @@ sub _convert_insertcopying_command($$$$)
 
   if ($self->{'global_commands'} and $self->{'global_commands'}->{'copying'}) {
     return $self->convert_tree({'contents' 
-               => $self->{'global_commands'}->{'copying'}->{'contents'}});
+               => $self->{'global_commands'}->{'copying'}->{'contents'}},
+                               'convert insertcopying');
   }
   return '';
 }
@@ -3518,7 +3535,7 @@ sub _convert_quotation_command($$$$$)
       my $centered_author = $self->gdt("\@center --- \@emph{{author}}\n",
          {'author' => $author->{'args'}->[0]->{'contents'}});
       $centered_author->{'parent'} = $command;
-      $attribution .= $self->convert_tree($centered_author);
+      $attribution .= $self->convert_tree($centered_author, 'convert quotation author');
     }
   }
 
@@ -3684,7 +3701,7 @@ sub _convert_item_command($$$$)
     if ($args->[0]) {
       my $table_item_tree = $self->table_item_content_tree($command,
                                                 [$args->[0]->{'tree'}]);
-      my $result = $self->convert_tree($table_item_tree);
+      my $result = $self->convert_tree($table_item_tree, 'convert table_item_tree');
       foreach my $command_name (reverse($self->commands_stack())) {
         if ($preformatted_code_commands{$command_name}) {
           $result = '<tt>' .$result. '</tt>';
@@ -3992,7 +4009,7 @@ sub _convert_xref_commands($$$$)
       return '';
     }
   }
-  return $self->convert_tree($tree);
+  return $self->convert_tree($tree, "convert xref $cmdname");
 }
 foreach my $command(keys(%ref_commands)) {
   $default_commands_conversion{$command} = \&_convert_xref_commands;
@@ -4118,7 +4135,9 @@ sub _convert_printindex_command($$$$)
   foreach my $letter_entry (@{$self->{'index_entries_by_letter'}->{$index_name}}) {
     my $letter = $letter_entry->{'letter'};
     my $entries_text = '';
+    my $entry_nr = -1;
     foreach my $index_entry_ref (@{$letter_entry->{'entries'}}) {
+      $entry_nr++;
       # to avoid double error messages set ignore_notice if an entry was
       # already formatted once, for example if there are multiple printindex.
       my $already_formatted;
@@ -4132,9 +4151,11 @@ sub _convert_printindex_command($$$$)
       my $entry;
       if ($index_entry_ref->{'in_code'}) {
         $entry = $self->convert_tree({'type' => '_code',
-                                      'contents' => $index_entry_ref->{'content'}});
+                                      'contents' => $index_entry_ref->{'content'}},
+                                      "index $index_name l $letter index entry $entry_nr");
       } else {
-        $entry = $self->convert_tree({'contents' => $index_entry_ref->{'content'}});
+        $entry = $self->convert_tree({'contents' => $index_entry_ref->{'content'}},
+                                      "index $index_name l $letter index entry $entry_nr");
       }
       # cannot introduce a _code type element, since convert_index_subentries
       # expects an index command directly as argument.
@@ -4204,6 +4225,7 @@ sub _contents_inline_element($$$)
   my $cmdname = shift;
   my $command = shift;
 
+  print STDERR "CONTENTS_INLINE $cmdname\n" if ($self->get_conf('DEBUG'));
   my $content = &{$self->{'format_contents'}}($self, $cmdname, $command);
   if ($content) {
     my $special_element_name = $contents_command_element_name{$cmdname};
@@ -4221,7 +4243,8 @@ sub _contents_inline_element($$$)
       # happens when called as convert() and not output()
       #cluck "$cmdname special element not defined";
       $heading 
-        = $self->convert_tree($self->get_conf('SPECIAL_ELEMENTS_HEADING')->{$special_element_name});
+        = $self->convert_tree($self->get_conf('SPECIAL_ELEMENTS_HEADING')->{$special_element_name},
+                              "convert $cmdname special heading");
     }
     $result .= ">\n";
     my $class = $self->get_conf('SPECIAL_ELEMENTS_CLASS')->{$special_element_name};
@@ -4280,7 +4303,8 @@ sub _open_quotation_command($$$)
       and @{$command->{'args'}->[0]->{'contents'}}) {
     $formatted_quotation_arg_to_prepend
      = $self->convert_tree($self->gdt('@b{{quotation_arg}:} ',
-             {'quotation_arg' => $command->{'args'}->[0]->{'contents'}}));
+             {'quotation_arg' => $command->{'args'}->[0]->{'contents'}}),
+                           "open $cmdname prepended arg");
   }
   $self->register_pending_formatted_inline_content($cmdname,
                                  $formatted_quotation_arg_to_prepend);
@@ -4615,7 +4639,8 @@ sub _convert_menu_entry_type($$$)
       my $arg = shift @args;
       if ($arg->{'type'} and $arg->{'type'} eq 'menu_entry_node') {
         my $name = $self->convert_tree(
-           {'type' => '_code', 'contents' => $arg->{'contents'}});
+           {'type' => '_code', 'contents' => $arg->{'contents'}},
+                         "menu_arg menu_entry_node preformatted [$i]");
         if ($href ne '' and !$self->in_string()) {
           $result .= "<a href=\"$href\"$rel$accesskey>".$name."</a>";
         } else {
@@ -4662,7 +4687,8 @@ sub _convert_menu_entry_type($$$)
   }
   if (!defined($name) or $name eq '') {
     if ($command->{'extra'}->{'menu_entry_name'}) {
-      $name = $self->convert_tree($command->{'extra'}->{'menu_entry_name'});
+      $name = $self->convert_tree($command->{'extra'}->{'menu_entry_name'},
+                                  'convert menu_entry_name');
     }
     if (!defined($name) or $name eq '') {
       if ($node_entry->{'manual_content'}) {
@@ -4682,7 +4708,7 @@ sub _convert_menu_entry_type($$$)
   }
   my $description = '';
   if ($command->{'extra'}->{'menu_entry_description'}) {
-    $description = $self->convert_tree ($command->{'extra'}->{'menu_entry_description'},
+    $description = $self->convert_tree($command->{'extra'}->{'menu_entry_description'},
                                         "menu_arg description");
     if ($self->get_conf('AVOID_MENU_REDUNDANCY')) {
       $description = '' if (_simplify_text_for_comparison($name_no_number) 
@@ -5107,7 +5133,8 @@ sub _default_format_titlepage($)
   my $titlepage_text;
   if ($self->{'global_commands'}->{'titlepage'}) {
     $titlepage_text = $self->convert_tree({'contents' 
-               => $self->{'global_commands'}->{'titlepage'}->{'contents'}});
+               => $self->{'global_commands'}->{'titlepage'}->{'contents'}},
+                                          'convert titlepage');
   } elsif ($self->{'simpletitle_tree'}) {
     my $title_text = $self->convert_tree_new_formatting_context(
                    $self->{'simpletitle_tree'}, 'simpletitle_string');
@@ -5781,6 +5808,12 @@ sub convert_tree($$;$)
   my $tree = shift;
   my $explanation = shift;
 
+  # when formatting accents, goes through xml_accent without
+  # explanation, as explanation is not in the standard API, but
+  # otherwise the coverage of explanations should be pretty good
+  #cluck if (! defined($explanation));
+  #print STDERR "CONVERT_TREE".(defined($explanation) ? " ".$explanation : '')."\n"
+  #    if ($self->get_conf('DEBUG'));
   return $self->_convert($tree, $explanation);
 }
 
@@ -6582,8 +6615,12 @@ sub _prepare_contents_elements($)
                                                           $default_filename);
         }
         $filename = $default_filename if (!defined($filename));
-        print STDERR "Add content $contents_element $type: target $target,\n".
-           "    filename $filename\n" if ($self->get_conf('DEBUG'));
+        if ($self->get_conf('DEBUG')) {
+          my $str_filename = $filename;
+          $str_filename = 'UNDEF' if (not defined($str_filename));
+          print STDERR "Add content $contents_element $type: target $target,\n".
+             "    filename $str_filename\n";
+        }
         $self->{'targets'}->{$contents_element} = {'target' => $target,
                                                    'misc_filename' => $filename,
                                                    'filename' => $filename,
@@ -6616,9 +6653,9 @@ sub _prepare_tree_units_global_targets($$)
       # find the first level 1 sectioning element to associate the printindex with
       if ($root_command and $root_command->{'cmdname'} ne 'node') {
         while ($root_command->{'structure'}->{'level'} > 1
-               and $root_command->{'section_up'}
-               and $root_command->{'section_up'}->{'parent'}) {
-          $root_command = $root_command->{'section_up'};
+               and $root_command->{'structure'}->{'section_up'}
+               and $root_command->{'structure'}->{'section_up'}->{'parent'}) {
+          $root_command = $root_command->{'structure'}->{'section_up'};
           $root_element = $root_command->{'parent'};
         }
       }
@@ -6861,12 +6898,13 @@ sub _mini_toc
   my $entry_index = 0;
   my $accesskey;
 
-  if ($command->{'section_childs'} and @{$command->{'section_childs'}}) {
+  if ($command->{'structure'}->{'section_childs'}
+      and @{$command->{'structure'}->{'section_childs'}}) {
     $result .= $self->html_attribute_class('ul', 'section-toc').">\n";
 
-    foreach my $section (@{$command->{'section_childs'}}) {
+    foreach my $section (@{$command->{'structure'}->{'section_childs'}}) {
       my $tree = $self->command_text($section, 'tree_nonumber');
-      my $text = $self->_convert($tree);
+      my $text = $self->_convert($tree, "mini_toc \@$section->{'cmdname'}");
 
       $entry_index++;
       $accesskey = '';
@@ -6900,16 +6938,16 @@ sub _default_format_contents($$;$$)
   my $filename = shift;
   $filename = $self->{'current_filename'} if (!defined($filename));
 
-  return '' 
+  return ''
    if (!$self->{'structuring'} or !$self->{'structuring'}->{'sectioning_root'});
 
   my $section_root = $self->{'structuring'}->{'sectioning_root'};
   my $contents;
   $contents = 1 if ($cmdname eq 'contents');
 
-  my $min_root_level = $section_root->{'section_childs'}->[0]->{'structure'}->{'level'};
-  my $max_root_level = $section_root->{'section_childs'}->[0]->{'structure'}->{'level'};
-  foreach my $top_section(@{$section_root->{'section_childs'}}) {
+  my $min_root_level = $section_root->{'structure'}->{'section_childs'}->[0]->{'structure'}->{'level'};
+  my $max_root_level = $section_root->{'structure'}->{'section_childs'}->[0]->{'structure'}->{'level'};
+  foreach my $top_section (@{$section_root->{'structure'}->{'section_childs'}}) {
     $min_root_level = $top_section->{'structure'}->{'level'}
       if ($top_section->{'structure'}->{'level'} < $min_root_level);
     $max_root_level = $top_section->{'structure'}->{'level'}
@@ -6932,12 +6970,11 @@ sub _default_format_contents($$;$$)
   }
 
   my $toplevel_contents;
-  if (@{$section_root->{'section_childs'}} > 1) { 
-  #    or $section_root->{'section_childs'}->[0]->{'cmdname'} ne 'top') {
+  if (@{$section_root->{'structure'}->{'section_childs'}} > 1) {
     $result .= $self->html_attribute_class('ul', $ul_class) .">\n";
     $toplevel_contents = 1;
   }
-  foreach my $top_section (@{$section_root->{'section_childs'}}) {
+  foreach my $top_section (@{$section_root->{'structure'}->{'section_childs'}}) {
     my $section = $top_section;
  SECTION:
     while ($section) {
@@ -6974,47 +7011,48 @@ sub _default_format_contents($$;$$)
             $result .= "<li>$text";
           }
         }
-      } elsif ($section->{'section_childs'} and @{$section->{'section_childs'}}
+      } elsif ($section->{'structure'}->{'section_childs'}
+               and @{$section->{'structure'}->{'section_childs'}}
                and $toplevel_contents) {
         $result .= "<li>";
       }
       # for shortcontents don't do child if child is not toplevel
-      if ($section->{'section_childs'}
+      if ($section->{'structure'}->{'section_childs'}
           and ($contents or $section->{'structure'}->{'level'} < $max_root_level)) {
         # no indenting for shortcontents
         $result .= "\n". ' ' x (2*($section->{'structure'}->{'level'} - $min_root_level))
           if ($contents);
         $result .= $self->html_attribute_class('ul', $ul_class) .">\n";
-        $section = $section->{'section_childs'}->[0];
-      } elsif ($section->{'section_next'} and $section->{'cmdname'} ne 'top') {
+        $section = $section->{'structure'}->{'section_childs'}->[0];
+      } elsif ($section->{'structure'}->{'section_next'}
+               and $section->{'cmdname'} ne 'top') {
         $result .= "</li>\n";
         last if ($section eq $top_section);
-        $section = $section->{'section_next'};
+        $section = $section->{'structure'}->{'section_next'};
       } else {
         #last if ($section eq $top_section);
         if ($section eq $top_section) {
           $result .= "</li>\n" unless ($section->{'cmdname'} eq 'top');
           last;
         }
-        while ($section->{'section_up'}) {
-          $section = $section->{'section_up'};
+        while ($section->{'structure'}->{'section_up'}) {
+          $section = $section->{'structure'}->{'section_up'};
           $result .= "</li>\n". ' ' x (2*($section->{'structure'}->{'level'} - $min_root_level))
             . "</ul>";
           if ($section eq $top_section) {
             $result .= "</li>\n" if ($toplevel_contents);
             last SECTION;
           }
-          if ($section->{'section_next'}) {
+          if ($section->{'structure'}->{'section_next'}) {
             $result .= "</li>\n";
-            $section = $section->{'section_next'};
+            $section = $section->{'structure'}->{'section_next'};
             last;
           }
         }
       }
     }
   }
-  if (@{$section_root->{'section_childs'}} > 1) {
-   #   or $section_root->{'section_childs'}->[0]->{'cmdname'} ne 'top') {
+  if (@{$section_root->{'structure'}->{'section_childs'}} > 1) {
     $result .= "\n</ul>";
   }
   if ($contents and !defined($self->get_conf('AFTER_TOC_LINES'))
@@ -7323,7 +7361,7 @@ sub _default_format_node_redirection_page($$)
   my $name = $self->command_text($command);
   my $href = $self->command_href($command);
   my $direction = "<a href=\"$href\">$name</a>";
-  my $string = $self->convert_tree (
+  my $string = $self->convert_tree(
     $self->gdt('The node you are looking for is at {href}.',
       { 'href' => {'type' => '_converted', 'text' => $direction }}));
   my $result = "$doctype
@@ -7366,7 +7404,8 @@ sub _default_format_footnotes_text($)
      if (defined($self->get_conf('DEFAULT_RULE')) 
          and $self->get_conf('DEFAULT_RULE') ne '');
   my $footnote_heading 
-    = $self->convert_tree($self->get_conf('SPECIAL_ELEMENTS_HEADING')->{'Footnotes'});
+    = $self->convert_tree($self->get_conf('SPECIAL_ELEMENTS_HEADING')->{'Footnotes'},
+                          'convert footnotes special heading');
   my $class = $self->get_conf('SPECIAL_ELEMENTS_CLASS')->{'Footnotes'};
   my $level = $self->get_conf('FOOTNOTE_END_HEADER_LEVEL');
   $result .= &{$self->{'format_heading_text'}}($self, $class.'-heading',
@@ -7675,12 +7714,16 @@ sub convert($$)
   $self->_prepare_footnotes();
 
   if (!defined($tree_units)) {
-    $result = $self->_convert($root);
+    print STDERR "\nC NO UNIT\n" if ($self->get_conf('DEBUG'));
+    $result = $self->_convert($root, 'convert no unit');
     $result .= &{$self->{'format_footnotes_text'}}($self);
   } else {
+    my $unit_nr = 0;
     foreach my $tree_unit (@$tree_units) {
-      my $tree_unit_text = $self->_convert($tree_unit);
+      print STDERR "\nC UNIT $unit_nr\n" if ($self->get_conf('DEBUG'));
+      my $tree_unit_text = $self->_convert($tree_unit, "convert unit $unit_nr");
       $result .= $tree_unit_text;
+      $unit_nr++;
     }
   }
 
@@ -8058,13 +8101,17 @@ sub output($$)
     }
     my $body = '';
     if ($tree_units and @$tree_units) {
+      my $unit_nr = 0;
       foreach my $tree_unit (@$tree_units) {
-        my $tree_unit_text = $self->_convert($tree_unit);
+        print STDERR "\nUNIT NO-PAGE $unit_nr\n" if ($self->get_conf('DEBUG'));
+        my $tree_unit_text = $self->_convert($tree_unit, "no-page output unit $unit_nr");
         $body .= $tree_unit_text;
+        $unit_nr++;
       }
     } else {
       $body .= $self->_print_title();
-      $body .= $self->_convert($root);
+      print STDERR "\nNO UNIT NO PAGE\n" if ($self->get_conf('DEBUG'));
+      $body .= $self->_convert($root, 'no-page output no unit');
       $body .= &{$self->{'format_footnotes_text'}}($self);
     }
 
@@ -8090,6 +8137,7 @@ sub output($$)
       if ($self->get_conf('DEBUG'));
     my %files;
     
+    my $unit_nr = -1;
     # Now do the output, converting each tree units and special elements in turn
     $special_elements = [] if (!defined($special_elements));
     foreach my $element (@$tree_units, @$special_elements) {
@@ -8101,12 +8149,14 @@ sub output($$)
         $self->{'element_math'} = 0;
       }
 
+      $unit_nr++;
       # First do the special pages, to avoid outputting these if they are
       # empty.
       my $special_element_content;
       if (defined($element->{'type'})
           and $element->{'type'} eq 'special_element') {
-        $special_element_content .= $self->_convert($element);
+        print STDERR "\nUNIT SPECIAL\n" if ($self->get_conf('DEBUG'));
+        $special_element_content .= $self->_convert($element, "output s-unit $unit_nr");
         if ($special_element_content eq '') {
           $self->{'file_counters'}->{$element->{'filename'}}--;
           next ;
@@ -8118,7 +8168,8 @@ sub output($$)
       if (defined($special_element_content)) {
         $body = $special_element_content;
       } else {
-        $body = $self->_convert($element);
+        print STDERR "\nUNIT $unit_nr\n" if ($self->get_conf('DEBUG'));
+        $body = $self->_convert($element, "output unit $unit_nr");
       }
 
       if (!$files{$element->{'filename'}}->{'fh'}) {
@@ -8270,7 +8321,7 @@ sub _convert_contents($$$)
 
   my $content_idx = 0;
   foreach my $content (@{$element->{'contents'}}) {
-    my $new_content = $self->_convert($content, "$command_type [$content_idx]");
+    my $new_content = $self->_convert($content, "$command_type c[$content_idx]");
     if (!defined($new_content)) {
       cluck "content not defined for $command_type [$content_idx]\n";
       print STDERR "root is: ".Texinfo::Common::debug_print_element($element);
@@ -8380,7 +8431,7 @@ sub _convert($$;$)
     }
     if ($element->{'type'} and $element->{'type'} eq 'untranslated') {
       my $translated = $self->gdt($element->{'text'});
-      my $result = $self->_convert($translated);
+      my $result = $self->_convert($translated, 'translated TEXT');
       return $result;
     }
     my $result = &{$self->{'types_conversion'}->{'text'}} ($self, 
@@ -8479,7 +8530,7 @@ sub _convert($$;$)
             $arg_spec = ['normal'] if (!defined($arg_spec));
             my $arg_formatted = {'tree' => $arg};
             foreach my $arg_type (@$arg_spec) {
-              my $explanation = "$command_type \[$arg_idx\]$arg_type";
+              my $explanation = "$command_type A[$arg_idx]$arg_type";
               if ($arg_type eq 'normal') {
                 $arg_formatted->{'normal'} = $self->_convert($arg, $explanation);
               } elsif ($arg_type eq 'monospace') {
@@ -8647,7 +8698,7 @@ sub _convert($$;$)
     my $content_formatted = '';
     my $i = 0;
     foreach my $content (@{$element->{'contents'}}) {
-      $content_formatted .= $self->_convert($content, "$command_type [$i]");
+      $content_formatted .= $self->_convert($content, "$command_type C[$i]");
       $i++;
     }
     print STDERR "UNNAMED HOLDER => `$content_formatted'\n"

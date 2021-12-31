@@ -131,25 +131,25 @@ Bar
 ';
 
 $result_sectioning{'loweredheading'} = {
-  'section_childs' => [
-    {
-      'cmdname' => 'section',
-      'extra' => {
-        'sections_level' => -1,
-        'spaces_before_argument' => ' '
-      },
-      'section_up' => {},
-      'structure' => {
-        'level' => 3,
-        'number' => 1
-      }
-    }
-  ],
   'structure' => {
-    'level' => 2
+    'level' => 2,
+    'section_childs' => [
+      {
+        'cmdname' => 'section',
+        'extra' => {
+          'sections_level' => -1,
+          'spaces_before_argument' => ' '
+        },
+        'structure' => {
+          'level' => 3,
+          'number' => 1,
+          'section_up' => {}
+        }
+      }
+    ]
   }
 };
-$result_sectioning{'loweredheading'}{'section_childs'}[0]{'section_up'} = $result_sectioning{'loweredheading'};
+$result_sectioning{'loweredheading'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'loweredheading'};
 
 $result_errors{'loweredheading'} = [];
 

@@ -56,8 +56,7 @@ my @test_cases = (
 @appendix dernier
 
 @contents
-'
-],
+'],
 ['command_translated',
 '@documentlanguage fr
 

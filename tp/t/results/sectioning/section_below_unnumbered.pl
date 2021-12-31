@@ -699,74 +699,74 @@ Should be unnumbered.
 ';
 
 $result_sectioning{'section_below_unnumbered'} = {
-  'section_childs' => [
-    {
-      'cmdname' => 'top',
-      'extra' => {
-        'associated_node' => {
-          'cmdname' => 'node',
-          'extra' => {
-            'normalized' => 'Top',
-            'spaces_before_argument' => ' '
-          }
-        },
-        'spaces_before_argument' => ' '
-      },
-      'section_childs' => [
-        {
-          'cmdname' => 'unnumbered',
-          'extra' => {
-            'associated_node' => {
-              'cmdname' => 'node',
-              'extra' => {
-                'normalized' => 'Unn',
-                'spaces_before_argument' => ' '
-              }
-            },
-            'spaces_before_argument' => ' '
+  'structure' => {
+    'level' => -1,
+    'section_childs' => [
+      {
+        'cmdname' => 'top',
+        'extra' => {
+          'associated_node' => {
+            'cmdname' => 'node',
+            'extra' => {
+              'normalized' => 'Top',
+              'spaces_before_argument' => ' '
+            }
           },
+          'spaces_before_argument' => ' '
+        },
+        'structure' => {
+          'level' => 0,
           'section_childs' => [
             {
-              'cmdname' => 'section',
+              'cmdname' => 'unnumbered',
               'extra' => {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => 'Sec',
+                    'normalized' => 'Unn',
                     'spaces_before_argument' => ' '
                   }
                 },
                 'spaces_before_argument' => ' '
               },
-              'section_up' => {},
               'structure' => {
-                'level' => 2
+                'level' => 1,
+                'section_childs' => [
+                  {
+                    'cmdname' => 'section',
+                    'extra' => {
+                      'associated_node' => {
+                        'cmdname' => 'node',
+                        'extra' => {
+                          'normalized' => 'Sec',
+                          'spaces_before_argument' => ' '
+                        }
+                      },
+                      'spaces_before_argument' => ' '
+                    },
+                    'structure' => {
+                      'level' => 2,
+                      'section_up' => {}
+                    }
+                  }
+                ],
+                'section_up' => {},
+                'toplevel_prev' => {},
+                'toplevel_up' => {}
               }
             }
           ],
-          'section_up' => {},
-          'structure' => {
-            'level' => 1
-          },
-          'toplevel_prev' => {},
-          'toplevel_up' => {}
+          'section_up' => {}
         }
-      ],
-      'section_up' => {},
-      'structure' => {
-        'level' => 0
       }
-    }
-  ],
-  'structure' => {
-    'level' => -1
+    ]
   }
 };
-$result_sectioning{'section_below_unnumbered'}{'section_childs'}[0]{'section_childs'}[0]{'section_childs'}[0]{'section_up'} = $result_sectioning{'section_below_unnumbered'}{'section_childs'}[0]{'section_childs'}[0];
-$result_sectioning{'section_below_unnumbered'}{'section_childs'}[0]{'section_childs'}[0]{'section_up'} = $result_sectioning{'section_below_unnumbered'}{'section_childs'}[0];
-$result_sectioning{'section_below_unnumbered'}{'section_childs'}[0]{'section_childs'}[0]{'toplevel_prev'} = $result_sectioning{'section_below_unnumbered'}{'section_childs'}[0];
-$result_sectioning{'section_below_unnumbered'}{'section_childs'}[0]{'section_childs'}[0]{'toplevel_up'} = $result_sectioning{'section_below_unnumbered'}{'section_childs'}[0];
-$result_sectioning{'section_below_unnumbered'}{'section_childs'}[0]{'section_up'} = $result_sectioning{'section_below_unnumbered'};
+$result_sectioning{'section_below_unnumbered'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'section_below_unnumbered'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0];
+$result_sectioning{'section_below_unnumbered'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'section_below_unnumbered'}{'structure'}{'section_childs'}[0];
+$result_sectioning{'section_below_unnumbered'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_prev'} = $result_sectioning{'section_below_unnumbered'}{'structure'}{'section_childs'}[0];
+$result_sectioning{'section_below_unnumbered'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'toplevel_up'} = $result_sectioning{'section_below_unnumbered'}{'structure'}{'section_childs'}[0];
+$result_sectioning{'section_below_unnumbered'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'section_below_unnumbered'};
 
 $result_nodes{'section_below_unnumbered'} = {
   'cmdname' => 'node',

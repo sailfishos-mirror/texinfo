@@ -802,30 +802,30 @@ and cmd.
 ';
 
 $result_sectioning{'explicit_sort_key'} = {
-  'section_childs' => [
-    {
-      'cmdname' => 'top',
-      'extra' => {
-        'associated_node' => {
-          'cmdname' => 'node',
-          'extra' => {
-            'isindex' => 1,
-            'normalized' => 'Top',
-            'spaces_before_argument' => ' '
-          }
-        }
-      },
-      'section_up' => {},
-      'structure' => {
-        'level' => 0
-      }
-    }
-  ],
   'structure' => {
-    'level' => -1
+    'level' => -1,
+    'section_childs' => [
+      {
+        'cmdname' => 'top',
+        'extra' => {
+          'associated_node' => {
+            'cmdname' => 'node',
+            'extra' => {
+              'isindex' => 1,
+              'normalized' => 'Top',
+              'spaces_before_argument' => ' '
+            }
+          }
+        },
+        'structure' => {
+          'level' => 0,
+          'section_up' => {}
+        }
+      }
+    ]
   }
 };
-$result_sectioning{'explicit_sort_key'}{'section_childs'}[0]{'section_up'} = $result_sectioning{'explicit_sort_key'};
+$result_sectioning{'explicit_sort_key'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'explicit_sort_key'};
 
 $result_nodes{'explicit_sort_key'} = {
   'cmdname' => 'node',

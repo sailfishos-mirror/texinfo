@@ -288,24 +288,24 @@ Another page
 ';
 
 $result_sectioning{'settitle_and_headings'} = {
-  'section_childs' => [
-    {
-      'cmdname' => 'chapter',
-      'extra' => {
-        'spaces_before_argument' => ' '
-      },
-      'section_up' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 1
-      }
-    }
-  ],
   'structure' => {
-    'level' => 0
+    'level' => 0,
+    'section_childs' => [
+      {
+        'cmdname' => 'chapter',
+        'extra' => {
+          'spaces_before_argument' => ' '
+        },
+        'structure' => {
+          'level' => 1,
+          'number' => 1,
+          'section_up' => {}
+        }
+      }
+    ]
   }
 };
-$result_sectioning{'settitle_and_headings'}{'section_childs'}[0]{'section_up'} = $result_sectioning{'settitle_and_headings'};
+$result_sectioning{'settitle_and_headings'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'settitle_and_headings'};
 
 $result_errors{'settitle_and_headings'} = [];
 

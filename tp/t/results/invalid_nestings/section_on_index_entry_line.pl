@@ -115,24 +115,24 @@ Somethin
 ';
 
 $result_sectioning{'section_on_index_entry_line'} = {
-  'section_childs' => [
-    {
-      'cmdname' => 'section',
-      'extra' => {
-        'spaces_before_argument' => ' '
-      },
-      'section_up' => {},
-      'structure' => {
-        'level' => 2,
-        'number' => 1
-      }
-    }
-  ],
   'structure' => {
-    'level' => 1
+    'level' => 1,
+    'section_childs' => [
+      {
+        'cmdname' => 'section',
+        'extra' => {
+          'spaces_before_argument' => ' '
+        },
+        'structure' => {
+          'level' => 2,
+          'number' => 1,
+          'section_up' => {}
+        }
+      }
+    ]
   }
 };
-$result_sectioning{'section_on_index_entry_line'}{'section_childs'}[0]{'section_up'} = $result_sectioning{'section_on_index_entry_line'};
+$result_sectioning{'section_on_index_entry_line'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'section_on_index_entry_line'};
 
 $result_errors{'section_on_index_entry_line'} = [
   {

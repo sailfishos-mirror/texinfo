@@ -76,21 +76,21 @@ A.
 ';
 
 $result_sectioning{'top_no_argument_and_content'} = {
-  'section_childs' => [
-    {
-      'cmdname' => 'top',
-      'extra' => {},
-      'section_up' => {},
-      'structure' => {
-        'level' => 0
-      }
-    }
-  ],
   'structure' => {
-    'level' => -1
+    'level' => -1,
+    'section_childs' => [
+      {
+        'cmdname' => 'top',
+        'extra' => {},
+        'structure' => {
+          'level' => 0,
+          'section_up' => {}
+        }
+      }
+    ]
   }
 };
-$result_sectioning{'top_no_argument_and_content'}{'section_childs'}[0]{'section_up'} = $result_sectioning{'top_no_argument_and_content'};
+$result_sectioning{'top_no_argument_and_content'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'top_no_argument_and_content'};
 
 $result_errors{'top_no_argument_and_content'} = [];
 

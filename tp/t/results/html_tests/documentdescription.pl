@@ -388,23 +388,23 @@ top
 ';
 
 $result_sectioning{'documentdescription'} = {
-  'section_childs' => [
-    {
-      'cmdname' => 'top',
-      'extra' => {
-        'spaces_before_argument' => ' '
-      },
-      'section_up' => {},
-      'structure' => {
-        'level' => 0
-      }
-    }
-  ],
   'structure' => {
-    'level' => -1
+    'level' => -1,
+    'section_childs' => [
+      {
+        'cmdname' => 'top',
+        'extra' => {
+          'spaces_before_argument' => ' '
+        },
+        'structure' => {
+          'level' => 0,
+          'section_up' => {}
+        }
+      }
+    ]
   }
 };
-$result_sectioning{'documentdescription'}{'section_childs'}[0]{'section_up'} = $result_sectioning{'documentdescription'};
+$result_sectioning{'documentdescription'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'documentdescription'};
 
 $result_errors{'documentdescription'} = [];
 

@@ -1443,18 +1443,19 @@ sub _convert($$;$)
     }
     my $level_adjusted_cmdname
         = Texinfo::Structuring::section_level_adjusted_command_name($element);
-    if (!($element->{'section_childs'} and scalar(@{$element->{'section_childs'}}))
+    if (!($element->{'structure'}->{'section_childs'}
+          and scalar(@{$element->{'structure'}->{'section_childs'}}))
         or $level_adjusted_cmdname eq 'top') {
       $result .= "</$docbook_sectioning_element>\n";
       pop @{$self->{'lang_stack'}};
       my $current = $element;
-      while ($current->{'section_up'}
+      while ($current->{'structure'}->{'section_up'}
              # the most up element is a virtual sectioning root element, this
              # condition avoids getting into it
-             and $current->{'section_up'}->{'cmdname'}
-             and !$current->{'section_next'}
-             and Texinfo::Structuring::section_level_adjusted_command_name($current->{'section_up'}) ne 'top') {
-        $current = $current->{'section_up'};
+             and $current->{'structure'}->{'section_up'}->{'cmdname'}
+             and !$current->{'structure'}->{'section_next'}
+             and Texinfo::Structuring::section_level_adjusted_command_name($current->{'structure'}->{'section_up'}) ne 'top') {
+        $current = $current->{'structure'}->{'section_up'};
         $result .= '</'.$self->_docbook_section_element($current) .">\n";
         pop @{$self->{'lang_stack'}};
       }

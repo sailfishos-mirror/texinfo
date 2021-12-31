@@ -62,24 +62,24 @@ $result_texts{'one_subsection'} = '1 The subsection
 ';
 
 $result_sectioning{'one_subsection'} = {
-  'section_childs' => [
-    {
-      'cmdname' => 'subsection',
-      'extra' => {
-        'spaces_before_argument' => ' '
-      },
-      'section_up' => {},
-      'structure' => {
-        'level' => 3,
-        'number' => 1
-      }
-    }
-  ],
   'structure' => {
-    'level' => 2
+    'level' => 2,
+    'section_childs' => [
+      {
+        'cmdname' => 'subsection',
+        'extra' => {
+          'spaces_before_argument' => ' '
+        },
+        'structure' => {
+          'level' => 3,
+          'number' => 1,
+          'section_up' => {}
+        }
+      }
+    ]
   }
 };
-$result_sectioning{'one_subsection'}{'section_childs'}[0]{'section_up'} = $result_sectioning{'one_subsection'};
+$result_sectioning{'one_subsection'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'one_subsection'};
 
 $result_errors{'one_subsection'} = [];
 

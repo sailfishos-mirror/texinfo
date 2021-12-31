@@ -519,7 +519,7 @@ sub output_ixin($$)
   $sectioning_tree  .= $self->ixin_open_element('sectioningtree');
   if ($self->{'structuring'} and $self->{'structuring'}->{'sectioning_root'}) {
     my $section_root = $self->{'structuring'}->{'sectioning_root'};
-    foreach my $top_section (@{$section_root->{'section_childs'}}) {
+    foreach my $top_section (@{$section_root->{'structure'}->{'section_childs'}}) {
       my $section = $top_section;
  SECTION:
       while ($section) {
@@ -539,29 +539,29 @@ sub output_ixin($$)
         if ($section->{'cmdname'} eq 'top') {
           $sectioning_tree .= $self->ixin_close_element('sectionentry');
         }
-        if ($section->{'section_childs'}) {
-          $section = $section->{'section_childs'}->[0];
-        } elsif ($section->{'section_next'}) {
+        if ($section->{'structure'}->{'section_childs'}) {
+          $section = $section->{'structure'}->{'section_childs'}->[0];
+        } elsif ($section->{'structure'}->{'section_next'}) {
           $sectioning_tree .= $self->ixin_close_element('sectionentry');
           last if ($section eq $top_section);
-          $section = $section->{'section_next'};
+          $section = $section->{'structure'}->{'section_next'};
         } else {
           if ($section eq $top_section) {
             $sectioning_tree .= $self->ixin_close_element('sectionentry')
               unless ($section->{'cmdname'} eq 'top');
             last;
           }
-          while ($section->{'section_up'}) {
-            $section = $section->{'section_up'};
+          while ($section->{'structure'}->{'section_up'}) {
+            $section = $section->{'structure'}->{'section_up'};
             $sectioning_tree .= $self->ixin_close_element('sectionentry');
             if ($section eq $top_section) {
               $sectioning_tree .= $self->ixin_close_element('sectionentry')
                  unless ($section->{'cmdname'} eq 'top');
               last SECTION;
             }
-            if ($section->{'section_next'}) {
+            if ($section->{'structure'}->{'section_next'}) {
               $sectioning_tree .= $self->ixin_close_element('sectionentry');
-              $section = $section->{'section_next'};
+              $section = $section->{'structure'}->{'section_next'};
               last;
             }
           }

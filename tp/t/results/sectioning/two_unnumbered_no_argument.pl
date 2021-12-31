@@ -83,38 +83,38 @@ $result_texis{'two_unnumbered_no_argument'} = '@unnumbered
 $result_texts{'two_unnumbered_no_argument'} = '';
 
 $result_sectioning{'two_unnumbered_no_argument'} = {
-  'section_childs' => [
-    {
-      'cmdname' => 'unnumbered',
-      'extra' => {
-        'missing_argument' => 1
-      },
-      'section_up' => {},
-      'structure' => {
-        'level' => 1
-      }
-    },
-    {
-      'cmdname' => 'unnumbered',
-      'extra' => {
-        'missing_argument' => 1
-      },
-      'section_prev' => {},
-      'section_up' => {},
-      'structure' => {
-        'level' => 1
-      },
-      'toplevel_prev' => {}
-    }
-  ],
   'structure' => {
-    'level' => 0
+    'level' => 0,
+    'section_childs' => [
+      {
+        'cmdname' => 'unnumbered',
+        'extra' => {
+          'missing_argument' => 1
+        },
+        'structure' => {
+          'level' => 1,
+          'section_up' => {}
+        }
+      },
+      {
+        'cmdname' => 'unnumbered',
+        'extra' => {
+          'missing_argument' => 1
+        },
+        'structure' => {
+          'level' => 1,
+          'section_prev' => {},
+          'section_up' => {},
+          'toplevel_prev' => {}
+        }
+      }
+    ]
   }
 };
-$result_sectioning{'two_unnumbered_no_argument'}{'section_childs'}[0]{'section_up'} = $result_sectioning{'two_unnumbered_no_argument'};
-$result_sectioning{'two_unnumbered_no_argument'}{'section_childs'}[1]{'section_prev'} = $result_sectioning{'two_unnumbered_no_argument'}{'section_childs'}[0];
-$result_sectioning{'two_unnumbered_no_argument'}{'section_childs'}[1]{'section_up'} = $result_sectioning{'two_unnumbered_no_argument'};
-$result_sectioning{'two_unnumbered_no_argument'}{'section_childs'}[1]{'toplevel_prev'} = $result_sectioning{'two_unnumbered_no_argument'}{'section_childs'}[0];
+$result_sectioning{'two_unnumbered_no_argument'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'two_unnumbered_no_argument'};
+$result_sectioning{'two_unnumbered_no_argument'}{'structure'}{'section_childs'}[1]{'structure'}{'section_prev'} = $result_sectioning{'two_unnumbered_no_argument'}{'structure'}{'section_childs'}[0];
+$result_sectioning{'two_unnumbered_no_argument'}{'structure'}{'section_childs'}[1]{'structure'}{'section_up'} = $result_sectioning{'two_unnumbered_no_argument'};
+$result_sectioning{'two_unnumbered_no_argument'}{'structure'}{'section_childs'}[1]{'structure'}{'toplevel_prev'} = $result_sectioning{'two_unnumbered_no_argument'}{'structure'}{'section_childs'}[0];
 
 $result_errors{'two_unnumbered_no_argument'} = [
   {

@@ -326,31 +326,31 @@ $result_texts{'comment_on_menu_line'} = '
 ';
 
 $result_sectioning{'comment_on_menu_line'} = {
-  'section_childs' => [
-    {
-      'cmdname' => 'chapter',
-      'extra' => {
-        'associated_node' => {
-          'cmdname' => 'node',
-          'extra' => {
-            'normalized' => 'Top',
-            'spaces_before_argument' => ' '
-          }
-        },
-        'spaces_before_argument' => ' '
-      },
-      'section_up' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 1
-      }
-    }
-  ],
   'structure' => {
-    'level' => 0
+    'level' => 0,
+    'section_childs' => [
+      {
+        'cmdname' => 'chapter',
+        'extra' => {
+          'associated_node' => {
+            'cmdname' => 'node',
+            'extra' => {
+              'normalized' => 'Top',
+              'spaces_before_argument' => ' '
+            }
+          },
+          'spaces_before_argument' => ' '
+        },
+        'structure' => {
+          'level' => 1,
+          'number' => 1,
+          'section_up' => {}
+        }
+      }
+    ]
   }
 };
-$result_sectioning{'comment_on_menu_line'}{'section_childs'}[0]{'section_up'} = $result_sectioning{'comment_on_menu_line'};
+$result_sectioning{'comment_on_menu_line'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'comment_on_menu_line'};
 
 $result_nodes{'comment_on_menu_line'} = {
   'cmdname' => 'node',

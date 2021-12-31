@@ -307,8 +307,8 @@ sub chm_init($)
 
   if ($self->{'structuring'} and $self->{'structuring'}->{'sectioning_root'}) {
     my $section_root = $self->{'structuring'}->{'sectioning_root'};
-    my $upper_level = $section_root->{'section_childs'}->[0]->{'structure'}->{'level'};
-    foreach my $top_section(@{$section_root->{'section_childs'}}) {
+    my $upper_level = $section_root->{'structure'}->{'section_childs'}->[0]->{'structure'}->{'level'};
+    foreach my $top_section (@{$section_root->{'structure'}->{'section_childs'}}) {
       $upper_level = $top_section->{'structure'}->{'level'}
       if ($top_section->{'structure'}->{'level'} < $upper_level);
     }

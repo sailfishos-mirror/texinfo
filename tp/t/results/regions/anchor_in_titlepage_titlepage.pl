@@ -293,23 +293,23 @@ in titlepage.
 ';
 
 $result_sectioning{'anchor_in_titlepage_titlepage'} = {
-  'section_childs' => [
-    {
-      'cmdname' => 'top',
-      'extra' => {
-        'spaces_before_argument' => ' '
-      },
-      'section_up' => {},
-      'structure' => {
-        'level' => 0
-      }
-    }
-  ],
   'structure' => {
-    'level' => -1
+    'level' => -1,
+    'section_childs' => [
+      {
+        'cmdname' => 'top',
+        'extra' => {
+          'spaces_before_argument' => ' '
+        },
+        'structure' => {
+          'level' => 0,
+          'section_up' => {}
+        }
+      }
+    ]
   }
 };
-$result_sectioning{'anchor_in_titlepage_titlepage'}{'section_childs'}[0]{'section_up'} = $result_sectioning{'anchor_in_titlepage_titlepage'};
+$result_sectioning{'anchor_in_titlepage_titlepage'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'anchor_in_titlepage_titlepage'};
 
 $result_nodes{'anchor_in_titlepage_titlepage'} = {
   'cmdname' => 'node',
