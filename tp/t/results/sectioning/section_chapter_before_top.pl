@@ -41,14 +41,16 @@ $result_trees{'section_chapter_before_top'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 2,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 1,
         'macro' => ''
       },
       'number' => 1,
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 2
+      }
     },
     {
       'args' => [
@@ -79,14 +81,16 @@ $result_trees{'section_chapter_before_top'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 2,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 3,
         'macro' => ''
       },
       'number' => 2,
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 2
+      }
     },
     {
       'args' => [
@@ -110,13 +114,15 @@ $result_trees{'section_chapter_before_top'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 2,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 5,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 2
+      }
     }
   ],
   'type' => 'document_root'
@@ -153,26 +159,29 @@ top
 ';
 
 $result_sectioning{'section_chapter_before_top'} = {
-  'level' => 1,
   'section_childs' => [
     {
       'cmdname' => 'section',
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 2,
       'number' => 1,
-      'section_up' => {}
+      'section_up' => {},
+      'structure' => {
+        'level' => 2
+      }
     },
     {
       'cmdname' => 'chapter',
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 2,
       'number' => 2,
       'section_prev' => {},
       'section_up' => {},
+      'structure' => {
+        'level' => 2
+      },
       'toplevel_prev' => {}
     },
     {
@@ -180,12 +189,17 @@ $result_sectioning{'section_chapter_before_top'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 2,
       'section_prev' => {},
       'section_up' => {},
+      'structure' => {
+        'level' => 2
+      },
       'toplevel_prev' => {}
     }
-  ]
+  ],
+  'structure' => {
+    'level' => 1
+  }
 };
 $result_sectioning{'section_chapter_before_top'}{'section_childs'}[0]{'section_up'} = $result_sectioning{'section_chapter_before_top'};
 $result_sectioning{'section_chapter_before_top'}{'section_childs'}[1]{'section_prev'} = $result_sectioning{'section_chapter_before_top'}{'section_childs'}[0];

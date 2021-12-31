@@ -256,13 +256,15 @@ $result_trees{'node_part_chapter_after_chapter'} = [
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'level' => 0,
         'line_nr' => {
           'file_name' => '',
           'line_nr' => 2,
           'macro' => ''
         },
-        'parent' => {}
+        'parent' => {},
+        'structure' => {
+          'level' => 0
+        }
       }
     ],
     'extra' => {
@@ -352,14 +354,16 @@ $result_trees{'node_part_chapter_after_chapter'} = [
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'level' => 1,
         'line_nr' => {
           'file_name' => '',
           'line_nr' => 11,
           'macro' => ''
         },
         'number' => 1,
-        'parent' => {}
+        'parent' => {},
+        'structure' => {
+          'level' => 1
+        }
       }
     ],
     'extra' => {
@@ -444,13 +448,15 @@ $result_trees{'node_part_chapter_after_chapter'} = [
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'level' => 0,
         'line_nr' => {
           'file_name' => '',
           'line_nr' => 14,
           'macro' => ''
         },
-        'parent' => {}
+        'parent' => {},
+        'structure' => {
+          'level' => 0
+        }
       },
       {
         'args' => [
@@ -499,14 +505,16 @@ $result_trees{'node_part_chapter_after_chapter'} = [
           'associated_part' => {},
           'spaces_before_argument' => ' '
         },
-        'level' => 1,
         'line_nr' => {
           'file_name' => '',
           'line_nr' => 16,
           'macro' => ''
         },
         'number' => 2,
-        'parent' => {}
+        'parent' => {},
+        'structure' => {
+          'level' => 1
+        }
       }
     ],
     'extra' => {
@@ -636,7 +644,6 @@ part
 ';
 
 $result_sectioning{'node_part_chapter_after_chapter'} = {
-  'level' => -1,
   'section_childs' => [
     {
       'cmdname' => 'top',
@@ -650,7 +657,6 @@ $result_sectioning{'node_part_chapter_after_chapter'} = {
         },
         'spaces_before_argument' => ' '
       },
-      'level' => 0,
       'section_childs' => [
         {
           'cmdname' => 'chapter',
@@ -664,14 +670,19 @@ $result_sectioning{'node_part_chapter_after_chapter'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'level' => 1,
           'number' => 1,
           'section_up' => {},
+          'structure' => {
+            'level' => 1
+          },
           'toplevel_prev' => {},
           'toplevel_up' => {}
         }
       ],
-      'section_up' => {}
+      'section_up' => {},
+      'structure' => {
+        'level' => 0
+      }
     },
     {
       'cmdname' => 'part',
@@ -689,22 +700,29 @@ $result_sectioning{'node_part_chapter_after_chapter'} = {
             'associated_part' => {},
             'spaces_before_argument' => ' '
           },
-          'level' => 1,
           'number' => 2,
           'section_up' => {},
+          'structure' => {
+            'level' => 1
+          },
           'toplevel_prev' => {},
           'toplevel_up' => {}
         },
         'spaces_before_argument' => ' '
       },
-      'level' => 0,
       'section_childs' => [
         {}
       ],
       'section_prev' => {},
-      'section_up' => {}
+      'section_up' => {},
+      'structure' => {
+        'level' => 0
+      }
     }
-  ]
+  ],
+  'structure' => {
+    'level' => -1
+  }
 };
 $result_sectioning{'node_part_chapter_after_chapter'}{'section_childs'}[0]{'section_childs'}[0]{'section_up'} = $result_sectioning{'node_part_chapter_after_chapter'}{'section_childs'}[0];
 $result_sectioning{'node_part_chapter_after_chapter'}{'section_childs'}[0]{'section_childs'}[0]{'toplevel_prev'} = $result_sectioning{'node_part_chapter_after_chapter'}{'section_childs'}[0];
@@ -726,7 +744,9 @@ $result_nodes{'node_part_chapter_after_chapter'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 0
+      'structure' => {
+        'level' => 0
+      }
     },
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
@@ -739,8 +759,10 @@ $result_nodes{'node_part_chapter_after_chapter'} = {
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'level' => 1,
-        'number' => 1
+        'number' => 1,
+        'structure' => {
+          'level' => 1
+        }
       },
       'normalized' => 'chapter-node',
       'spaces_before_argument' => ' '
@@ -756,12 +778,16 @@ $result_nodes{'node_part_chapter_after_chapter'} = {
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'level' => 0
+              'structure' => {
+                'level' => 0
+              }
             },
             'spaces_before_argument' => ' '
           },
-          'level' => 1,
-          'number' => 2
+          'number' => 2,
+          'structure' => {
+            'level' => 1
+          }
         },
         'normalized' => 'part-chapter-node',
         'spaces_before_argument' => ' '
@@ -883,7 +909,9 @@ $result_elements{'node_part_chapter_after_chapter'} = [
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'level' => 0
+        'structure' => {
+          'level' => 0
+        }
       },
       'unit_command' => {}
     },
@@ -897,8 +925,10 @@ $result_elements{'node_part_chapter_after_chapter'} = [
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'level' => 1,
-              'number' => 1
+              'number' => 1,
+              'structure' => {
+                'level' => 1
+              }
             },
             'unit_command' => {}
           },
@@ -917,12 +947,16 @@ $result_elements{'node_part_chapter_after_chapter'} = [
                         'extra' => {
                           'spaces_before_argument' => ' '
                         },
-                        'level' => 0
+                        'structure' => {
+                          'level' => 0
+                        }
                       },
                       'spaces_before_argument' => ' '
                     },
-                    'level' => 1,
-                    'number' => 2
+                    'number' => 2,
+                    'structure' => {
+                      'level' => 1
+                    }
                   },
                   'unit_command' => {}
                 },

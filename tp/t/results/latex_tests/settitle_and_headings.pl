@@ -214,14 +214,16 @@ $result_trees{'settitle_and_headings'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 1,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 6,
         'macro' => ''
       },
       'number' => 1,
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 1
+      }
     }
   ],
   'type' => 'document_root'
@@ -286,18 +288,22 @@ Another page
 ';
 
 $result_sectioning{'settitle_and_headings'} = {
-  'level' => 0,
   'section_childs' => [
     {
       'cmdname' => 'chapter',
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 1,
       'number' => 1,
-      'section_up' => {}
+      'section_up' => {},
+      'structure' => {
+        'level' => 1
+      }
     }
-  ]
+  ],
+  'structure' => {
+    'level' => 0
+  }
 };
 $result_sectioning{'settitle_and_headings'}{'section_childs'}[0]{'section_up'} = $result_sectioning{'settitle_and_headings'};
 

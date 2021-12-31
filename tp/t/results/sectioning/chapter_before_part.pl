@@ -42,14 +42,16 @@ $result_trees{'chapter_before_part'} = [
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'level' => 1,
         'line_nr' => {
           'file_name' => '',
           'line_nr' => 1,
           'macro' => ''
         },
         'number' => 1,
-        'parent' => {}
+        'parent' => {},
+        'structure' => {
+          'level' => 1
+        }
       }
     ],
     'extra' => {
@@ -83,13 +85,15 @@ $result_trees{'chapter_before_part'} = [
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'level' => 0,
         'line_nr' => {
           'file_name' => '',
           'line_nr' => 3,
           'macro' => ''
         },
-        'parent' => {}
+        'parent' => {},
+        'structure' => {
+          'level' => 0
+        }
       }
     ],
     'extra' => {
@@ -130,26 +134,32 @@ part
 ';
 
 $result_sectioning{'chapter_before_part'} = {
-  'level' => -1,
   'section_childs' => [
     {
       'cmdname' => 'chapter',
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 1,
       'number' => 1,
-      'section_up' => {}
+      'section_up' => {},
+      'structure' => {
+        'level' => 1
+      }
     },
     {
       'cmdname' => 'part',
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 0,
-      'section_up' => {}
+      'section_up' => {},
+      'structure' => {
+        'level' => 0
+      }
     }
-  ]
+  ],
+  'structure' => {
+    'level' => -1
+  }
 };
 $result_sectioning{'chapter_before_part'}{'section_childs'}[0]{'section_up'} = $result_sectioning{'chapter_before_part'};
 $result_sectioning{'chapter_before_part'}{'section_childs'}[1]{'section_up'} = $result_sectioning{'chapter_before_part'};
@@ -178,8 +188,10 @@ $result_elements{'chapter_before_part'} = [
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'level' => 1,
-        'number' => 1
+        'number' => 1,
+        'structure' => {
+          'level' => 1
+        }
       },
       'unit_command' => {}
     },
@@ -192,7 +204,9 @@ $result_elements{'chapter_before_part'} = [
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'level' => 0
+              'structure' => {
+                'level' => 0
+              }
             },
             'unit_command' => {}
           },

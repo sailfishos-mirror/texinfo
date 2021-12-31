@@ -34,14 +34,16 @@ $result_trees{'one_subsection'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 3,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 1,
         'macro' => ''
       },
       'number' => 1,
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 3
+      }
     }
   ],
   'type' => 'document_root'
@@ -60,18 +62,22 @@ $result_texts{'one_subsection'} = '1 The subsection
 ';
 
 $result_sectioning{'one_subsection'} = {
-  'level' => 2,
   'section_childs' => [
     {
       'cmdname' => 'subsection',
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 3,
       'number' => 1,
-      'section_up' => {}
+      'section_up' => {},
+      'structure' => {
+        'level' => 3
+      }
     }
-  ]
+  ],
+  'structure' => {
+    'level' => 2
+  }
 };
 $result_sectioning{'one_subsection'}{'section_childs'}[0]{'section_up'} = $result_sectioning{'one_subsection'};
 

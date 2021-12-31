@@ -137,13 +137,15 @@ $result_trees{'anchor_in_titlepage_titlepage'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 0,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 6,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 0
+      }
     },
     {
       'args' => [
@@ -291,17 +293,21 @@ in titlepage.
 ';
 
 $result_sectioning{'anchor_in_titlepage_titlepage'} = {
-  'level' => -1,
   'section_childs' => [
     {
       'cmdname' => 'top',
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 0,
-      'section_up' => {}
+      'section_up' => {},
+      'structure' => {
+        'level' => 0
+      }
     }
-  ]
+  ],
+  'structure' => {
+    'level' => -1
+  }
 };
 $result_sectioning{'anchor_in_titlepage_titlepage'}{'section_childs'}[0]{'section_up'} = $result_sectioning{'anchor_in_titlepage_titlepage'};
 

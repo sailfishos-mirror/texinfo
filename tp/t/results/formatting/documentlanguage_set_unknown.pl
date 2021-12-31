@@ -240,13 +240,15 @@ $result_trees{'documentlanguage_set_unknown'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 0,
       'line_nr' => {
         'file_name' => 'documentlanguage_set.texi',
         'line_nr' => 8,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 0
+      }
     },
     {
       'args' => [
@@ -321,7 +323,6 @@ Text.
 ';
 
 $result_sectioning{'documentlanguage_set_unknown'} = {
-  'level' => -1,
   'section_childs' => [
     {
       'cmdname' => 'top',
@@ -335,10 +336,15 @@ $result_sectioning{'documentlanguage_set_unknown'} = {
         },
         'spaces_before_argument' => ' '
       },
-      'level' => 0,
-      'section_up' => {}
+      'section_up' => {},
+      'structure' => {
+        'level' => 0
+      }
     }
-  ]
+  ],
+  'structure' => {
+    'level' => -1
+  }
 };
 $result_sectioning{'documentlanguage_set_unknown'}{'section_childs'}[0]{'section_up'} = $result_sectioning{'documentlanguage_set_unknown'};
 
@@ -350,7 +356,9 @@ $result_nodes{'documentlanguage_set_unknown'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 0
+      'structure' => {
+        'level' => 0
+      }
     },
     'normalized' => 'Top',
     'spaces_before_argument' => ' '

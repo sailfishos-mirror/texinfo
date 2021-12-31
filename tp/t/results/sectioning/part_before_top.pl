@@ -42,13 +42,15 @@ $result_trees{'part_before_top'} = [
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'level' => 0,
         'line_nr' => {
           'file_name' => '',
           'line_nr' => 1,
           'macro' => ''
         },
-        'parent' => {}
+        'parent' => {},
+        'structure' => {
+          'level' => 0
+        }
       },
       {
         'args' => [
@@ -73,13 +75,15 @@ $result_trees{'part_before_top'} = [
           'associated_part' => {},
           'spaces_before_argument' => ' '
         },
-        'level' => 0,
         'line_nr' => {
           'file_name' => '',
           'line_nr' => 3,
           'macro' => ''
         },
-        'parent' => {}
+        'parent' => {},
+        'structure' => {
+          'level' => 0
+        }
       }
     ],
     'extra' => {
@@ -116,7 +120,6 @@ top
 ';
 
 $result_sectioning{'part_before_top'} = {
-  'level' => -1,
   'section_childs' => [
     {
       'cmdname' => 'part',
@@ -127,17 +130,24 @@ $result_sectioning{'part_before_top'} = {
             'associated_part' => {},
             'spaces_before_argument' => ' '
           },
-          'level' => 0,
           'section_prev' => {},
-          'section_up' => {}
+          'section_up' => {},
+          'structure' => {
+            'level' => 0
+          }
         },
         'spaces_before_argument' => ' '
       },
-      'level' => 0,
-      'section_up' => {}
+      'section_up' => {},
+      'structure' => {
+        'level' => 0
+      }
     },
     {}
-  ]
+  ],
+  'structure' => {
+    'level' => -1
+  }
 };
 $result_sectioning{'part_before_top'}{'section_childs'}[0]{'extra'}{'part_associated_section'}{'extra'}{'associated_part'} = $result_sectioning{'part_before_top'}{'section_childs'}[0];
 $result_sectioning{'part_before_top'}{'section_childs'}[0]{'extra'}{'part_associated_section'}{'section_prev'} = $result_sectioning{'part_before_top'}{'section_childs'}[0];
@@ -172,11 +182,15 @@ $result_elements{'part_before_top'} = [
             'extra' => {
               'spaces_before_argument' => ' '
             },
-            'level' => 0
+            'structure' => {
+              'level' => 0
+            }
           },
           'spaces_before_argument' => ' '
         },
-        'level' => 0
+        'structure' => {
+          'level' => 0
+        }
       },
       'unit_command' => {}
     },

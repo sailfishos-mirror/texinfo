@@ -336,13 +336,13 @@ $result_trees{'comment_space_command_on_line'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'level' => 2,
           'line_nr' => {
             'file_name' => '',
             'line_nr' => 10,
             'macro' => ''
           },
-          'parent' => {}
+          'parent' => {},
+          'structure' => {}
         },
         {
           'parent' => {},
@@ -587,13 +587,15 @@ $result_trees{'comment_space_command_on_line'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 0,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 4,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 0
+      }
     },
     {
       'args' => [
@@ -731,7 +733,6 @@ float
 ';
 
 $result_sectioning{'comment_space_command_on_line'} = {
-  'level' => -1,
   'section_childs' => [
     {
       'cmdname' => 'top',
@@ -746,10 +747,15 @@ $result_sectioning{'comment_space_command_on_line'} = {
         },
         'spaces_before_argument' => ' '
       },
-      'level' => 0,
-      'section_up' => {}
+      'section_up' => {},
+      'structure' => {
+        'level' => 0
+      }
     }
-  ]
+  ],
+  'structure' => {
+    'level' => -1
+  }
 };
 $result_sectioning{'comment_space_command_on_line'}{'section_childs'}[0]{'section_up'} = $result_sectioning{'comment_space_command_on_line'};
 
@@ -761,7 +767,9 @@ $result_nodes{'comment_space_command_on_line'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 0
+      'structure' => {
+        'level' => 0
+      }
     },
     'isindex' => 1,
     'normalized' => 'Top',
@@ -799,7 +807,9 @@ $result_floats{'comment_space_command_on_line'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'level' => 0
+          'structure' => {
+            'level' => 0
+          }
         },
         'normalized' => 'label',
         'spaces_before_argument' => ' ',

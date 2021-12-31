@@ -154,14 +154,16 @@ $result_trees{'section_in_table'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 2,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 4,
         'macro' => ''
       },
       'number' => 1,
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 2
+      }
     }
   ],
   'type' => 'document_root'
@@ -207,18 +209,22 @@ After
 ';
 
 $result_sectioning{'section_in_table'} = {
-  'level' => 1,
   'section_childs' => [
     {
       'cmdname' => 'section',
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 2,
       'number' => 1,
-      'section_up' => {}
+      'section_up' => {},
+      'structure' => {
+        'level' => 2
+      }
     }
-  ]
+  ],
+  'structure' => {
+    'level' => 1
+  }
 };
 $result_sectioning{'section_in_table'}{'section_childs'}[0]{'section_up'} = $result_sectioning{'section_in_table'};
 

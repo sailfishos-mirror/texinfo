@@ -2381,7 +2381,7 @@ sub _convert($$)
             # If an unwanted comma is added, follow the argument with a command such as @:
             if ($reference->{'cmdname'} and $reference->{'cmdname'} eq 'node'
                 and $section_command) {
-              if ($section_command->{'level'} > 1) {
+              if ($section_command->{'structure'}->{'level'} > 1) {
                 # TODO command that could be used for translation \sectionname does
                 # not exist in the default case.  it is defined in the pagenote package together with 
                 # \pagename which is page in the default case, but it is unclear if this

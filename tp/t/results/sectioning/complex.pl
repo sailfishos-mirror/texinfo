@@ -510,13 +510,15 @@ $result_trees{'complex'} = [
           }
         ],
         'extra' => {},
-        'level' => 0,
         'line_nr' => {
           'file_name' => '',
           'line_nr' => 2,
           'macro' => ''
         },
-        'parent' => {}
+        'parent' => {},
+        'structure' => {
+          'level' => 0
+        }
       }
     ],
     'extra' => {
@@ -896,14 +898,16 @@ $result_trees{'complex'} = [
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'level' => 1,
         'line_nr' => {
           'file_name' => '',
           'line_nr' => 13,
           'macro' => ''
         },
         'number' => 1,
-        'parent' => {}
+        'parent' => {},
+        'structure' => {
+          'level' => 1
+        }
       }
     ],
     'extra' => {
@@ -1275,13 +1279,15 @@ $result_trees{'complex'} = [
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'level' => 2,
         'line_nr' => {
           'file_name' => '',
           'line_nr' => 24,
           'macro' => ''
         },
-        'parent' => {}
+        'parent' => {},
+        'structure' => {
+          'level' => 2
+        }
       }
     ],
     'extra' => {
@@ -1366,13 +1372,15 @@ $result_trees{'complex'} = [
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'level' => 3,
         'line_nr' => {
           'file_name' => '',
           'line_nr' => 34,
           'macro' => ''
         },
-        'parent' => {}
+        'parent' => {},
+        'structure' => {
+          'level' => 3
+        }
       }
     ],
     'extra' => {
@@ -1457,13 +1465,15 @@ $result_trees{'complex'} = [
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'level' => 3,
         'line_nr' => {
           'file_name' => '',
           'line_nr' => 37,
           'macro' => ''
         },
-        'parent' => {}
+        'parent' => {},
+        'structure' => {
+          'level' => 3
+        }
       }
     ],
     'extra' => {
@@ -1548,13 +1558,15 @@ $result_trees{'complex'} = [
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'level' => 3,
         'line_nr' => {
           'file_name' => '',
           'line_nr' => 40,
           'macro' => ''
         },
-        'parent' => {}
+        'parent' => {},
+        'structure' => {
+          'level' => 3
+        }
       }
     ],
     'extra' => {
@@ -1639,13 +1651,15 @@ $result_trees{'complex'} = [
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'level' => 3,
         'line_nr' => {
           'file_name' => '',
           'line_nr' => 43,
           'macro' => ''
         },
-        'parent' => {}
+        'parent' => {},
+        'structure' => {
+          'level' => 3
+        }
       }
     ],
     'extra' => {
@@ -1846,13 +1860,15 @@ $result_trees{'complex'} = [
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'level' => 2,
         'line_nr' => {
           'file_name' => '',
           'line_nr' => 46,
           'macro' => ''
         },
-        'parent' => {}
+        'parent' => {},
+        'structure' => {
+          'level' => 2
+        }
       }
     ],
     'extra' => {
@@ -1943,13 +1959,15 @@ $result_trees{'complex'} = [
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'level' => 3,
         'line_nr' => {
           'file_name' => '',
           'line_nr' => 53,
           'macro' => ''
         },
-        'parent' => {}
+        'parent' => {},
+        'structure' => {
+          'level' => 3
+        }
       }
     ],
     'extra' => {
@@ -2034,14 +2052,16 @@ $result_trees{'complex'} = [
         'extra' => {
           'spaces_before_argument' => '  '
         },
-        'level' => 2,
         'line_nr' => {
           'file_name' => '',
           'line_nr' => 57,
           'macro' => ''
         },
         'number' => '1.1',
-        'parent' => {}
+        'parent' => {},
+        'structure' => {
+          'level' => 2
+        }
       },
       {
         'args' => [
@@ -2298,14 +2318,16 @@ $result_trees{'complex'} = [
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'level' => 1,
         'line_nr' => {
           'file_name' => '',
           'line_nr' => 67,
           'macro' => ''
         },
         'number' => 2,
-        'parent' => {}
+        'parent' => {},
+        'structure' => {
+          'level' => 1
+        }
       }
     ],
     'extra' => {
@@ -2407,13 +2429,15 @@ $result_trees{'complex'} = [
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'level' => 1,
         'line_nr' => {
           'file_name' => '',
           'line_nr' => 72,
           'macro' => ''
         },
-        'parent' => {}
+        'parent' => {},
+        'structure' => {
+          'level' => 1
+        }
       }
     ],
     'extra' => {
@@ -2575,13 +2599,15 @@ $result_trees{'complex'} = [
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'level' => 1,
         'line_nr' => {
           'file_name' => '',
           'line_nr' => 77,
           'macro' => ''
         },
-        'parent' => {}
+        'parent' => {},
+        'structure' => {
+          'level' => 1
+        }
       },
       {
         'args' => [
@@ -3294,7 +3320,6 @@ directions and lone node.
 ';
 
 $result_sectioning{'complex'} = {
-  'level' => -1,
   'section_childs' => [
     {
       'cmdname' => 'top',
@@ -3307,7 +3332,6 @@ $result_sectioning{'complex'} = {
           }
         }
       },
-      'level' => 0,
       'section_childs' => [
         {
           'cmdname' => 'chapter',
@@ -3321,7 +3345,6 @@ $result_sectioning{'complex'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'level' => 1,
           'number' => 1,
           'section_childs' => [
             {
@@ -3336,7 +3359,6 @@ $result_sectioning{'complex'} = {
                 },
                 'spaces_before_argument' => ' '
               },
-              'level' => 2,
               'section_childs' => [
                 {
                   'cmdname' => 'unnumberedsubsec',
@@ -3350,8 +3372,10 @@ $result_sectioning{'complex'} = {
                     },
                     'spaces_before_argument' => ' '
                   },
-                  'level' => 3,
-                  'section_up' => {}
+                  'section_up' => {},
+                  'structure' => {
+                    'level' => 3
+                  }
                 },
                 {
                   'cmdname' => 'subsection',
@@ -3365,9 +3389,11 @@ $result_sectioning{'complex'} = {
                     },
                     'spaces_before_argument' => ' '
                   },
-                  'level' => 3,
                   'section_prev' => {},
-                  'section_up' => {}
+                  'section_up' => {},
+                  'structure' => {
+                    'level' => 3
+                  }
                 },
                 {
                   'cmdname' => 'unnumberedsubsec',
@@ -3381,9 +3407,11 @@ $result_sectioning{'complex'} = {
                     },
                     'spaces_before_argument' => ' '
                   },
-                  'level' => 3,
                   'section_prev' => {},
-                  'section_up' => {}
+                  'section_up' => {},
+                  'structure' => {
+                    'level' => 3
+                  }
                 },
                 {
                   'cmdname' => 'subsection',
@@ -3397,12 +3425,17 @@ $result_sectioning{'complex'} = {
                     },
                     'spaces_before_argument' => ' '
                   },
-                  'level' => 3,
                   'section_prev' => {},
-                  'section_up' => {}
+                  'section_up' => {},
+                  'structure' => {
+                    'level' => 3
+                  }
                 }
               ],
-              'section_up' => {}
+              'section_up' => {},
+              'structure' => {
+                'level' => 2
+              }
             },
             {
               'cmdname' => 'unnumberedsec',
@@ -3416,7 +3449,6 @@ $result_sectioning{'complex'} = {
                 },
                 'spaces_before_argument' => ' '
               },
-              'level' => 2,
               'section_childs' => [
                 {
                   'cmdname' => 'subsection',
@@ -3430,12 +3462,17 @@ $result_sectioning{'complex'} = {
                     },
                     'spaces_before_argument' => ' '
                   },
-                  'level' => 3,
-                  'section_up' => {}
+                  'section_up' => {},
+                  'structure' => {
+                    'level' => 3
+                  }
                 }
               ],
               'section_prev' => {},
-              'section_up' => {}
+              'section_up' => {},
+              'structure' => {
+                'level' => 2
+              }
             },
             {
               'cmdname' => 'section',
@@ -3449,13 +3486,18 @@ $result_sectioning{'complex'} = {
                 },
                 'spaces_before_argument' => '  '
               },
-              'level' => 2,
               'number' => '1.1',
               'section_prev' => {},
-              'section_up' => {}
+              'section_up' => {},
+              'structure' => {
+                'level' => 2
+              }
             }
           ],
           'section_up' => {},
+          'structure' => {
+            'level' => 1
+          },
           'toplevel_prev' => {},
           'toplevel_up' => {}
         },
@@ -3471,10 +3513,12 @@ $result_sectioning{'complex'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'level' => 1,
           'number' => 2,
           'section_prev' => {},
           'section_up' => {},
+          'structure' => {
+            'level' => 1
+          },
           'toplevel_prev' => {},
           'toplevel_up' => {}
         },
@@ -3490,9 +3534,11 @@ $result_sectioning{'complex'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'level' => 1,
           'section_prev' => {},
           'section_up' => {},
+          'structure' => {
+            'level' => 1
+          },
           'toplevel_prev' => {},
           'toplevel_up' => {}
         },
@@ -3508,16 +3554,24 @@ $result_sectioning{'complex'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'level' => 1,
           'section_prev' => {},
           'section_up' => {},
+          'structure' => {
+            'level' => 1
+          },
           'toplevel_prev' => {},
           'toplevel_up' => {}
         }
       ],
-      'section_up' => {}
+      'section_up' => {},
+      'structure' => {
+        'level' => 0
+      }
     }
-  ]
+  ],
+  'structure' => {
+    'level' => -1
+  }
 };
 $result_sectioning{'complex'}{'section_childs'}[0]{'section_childs'}[0]{'section_childs'}[0]{'section_childs'}[0]{'section_up'} = $result_sectioning{'complex'}{'section_childs'}[0]{'section_childs'}[0]{'section_childs'}[0];
 $result_sectioning{'complex'}{'section_childs'}[0]{'section_childs'}[0]{'section_childs'}[0]{'section_childs'}[1]{'section_prev'} = $result_sectioning{'complex'}{'section_childs'}[0]{'section_childs'}[0]{'section_childs'}[0]{'section_childs'}[0];
@@ -3555,7 +3609,9 @@ $result_nodes{'complex'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'level' => 0
+      'structure' => {
+        'level' => 0
+      }
     },
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
@@ -3568,8 +3624,10 @@ $result_nodes{'complex'} = {
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'level' => 1,
-        'number' => 1
+        'number' => 1,
+        'structure' => {
+          'level' => 1
+        }
       },
       'normalized' => 'First-node',
       'spaces_before_argument' => ' '
@@ -3582,7 +3640,9 @@ $result_nodes{'complex'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'level' => 2
+          'structure' => {
+            'level' => 2
+          }
         },
         'normalized' => 'unnumbered',
         'spaces_before_argument' => ' '
@@ -3595,7 +3655,9 @@ $result_nodes{'complex'} = {
             'extra' => {
               'spaces_before_argument' => ' '
             },
-            'level' => 3
+            'structure' => {
+              'level' => 3
+            }
           },
           'normalized' => 'unnumbered-sub',
           'spaces_before_argument' => ' '
@@ -3608,7 +3670,9 @@ $result_nodes{'complex'} = {
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'level' => 3
+              'structure' => {
+                'level' => 3
+              }
             },
             'normalized' => 'numbered-sub',
             'spaces_before_argument' => ' '
@@ -3621,7 +3685,9 @@ $result_nodes{'complex'} = {
                 'extra' => {
                   'spaces_before_argument' => ' '
                 },
-                'level' => 3
+                'structure' => {
+                  'level' => 3
+                }
               },
               'normalized' => 'unnumbered-sub2',
               'spaces_before_argument' => ' '
@@ -3634,7 +3700,9 @@ $result_nodes{'complex'} = {
                   'extra' => {
                     'spaces_before_argument' => ' '
                   },
-                  'level' => 3
+                  'structure' => {
+                    'level' => 3
+                  }
                 },
                 'normalized' => 'numbered-sub2',
                 'spaces_before_argument' => ' '
@@ -3673,7 +3741,9 @@ $result_nodes{'complex'} = {
             'extra' => {
               'spaces_before_argument' => ' '
             },
-            'level' => 2
+            'structure' => {
+              'level' => 2
+            }
           },
           'normalized' => 'unnumbered2',
           'spaces_before_argument' => ' '
@@ -3686,7 +3756,9 @@ $result_nodes{'complex'} = {
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'level' => 3
+              'structure' => {
+                'level' => 3
+              }
             },
             'normalized' => 'numbered-sub3',
             'spaces_before_argument' => ' '
@@ -3716,8 +3788,10 @@ $result_nodes{'complex'} = {
               'extra' => {
                 'spaces_before_argument' => '  '
               },
-              'level' => 2,
-              'number' => '1.1'
+              'number' => '1.1',
+              'structure' => {
+                'level' => 2
+              }
             },
             'normalized' => 'numbered',
             'spaces_before_argument' => ' '
@@ -4170,7 +4244,9 @@ $result_elements{'complex'} = [
       'section' => {
         'cmdname' => 'top',
         'extra' => {},
-        'level' => 0
+        'structure' => {
+          'level' => 0
+        }
       },
       'unit_command' => {}
     },
@@ -4184,8 +4260,10 @@ $result_elements{'complex'} = [
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'level' => 1,
-              'number' => 1
+              'number' => 1,
+              'structure' => {
+                'level' => 1
+              }
             },
             'unit_command' => {}
           },
@@ -4201,8 +4279,10 @@ $result_elements{'complex'} = [
                     'extra' => {
                       'spaces_before_argument' => ' '
                     },
-                    'level' => 1,
-                    'number' => 2
+                    'number' => 2,
+                    'structure' => {
+                      'level' => 1
+                    }
                   },
                   'unit_command' => {}
                 },
@@ -4216,8 +4296,10 @@ $result_elements{'complex'} = [
                           'extra' => {
                             'spaces_before_argument' => '  '
                           },
-                          'level' => 2,
-                          'number' => '1.1'
+                          'number' => '1.1',
+                          'structure' => {
+                            'level' => 2
+                          }
                         },
                         'unit_command' => {}
                       },
@@ -4231,7 +4313,9 @@ $result_elements{'complex'} = [
                                 'extra' => {
                                   'spaces_before_argument' => ' '
                                 },
-                                'level' => 3
+                                'structure' => {
+                                  'level' => 3
+                                }
                               },
                               'unit_command' => {}
                             },
@@ -4245,7 +4329,9 @@ $result_elements{'complex'} = [
                                       'extra' => {
                                         'spaces_before_argument' => ' '
                                       },
-                                      'level' => 2
+                                      'structure' => {
+                                        'level' => 2
+                                      }
                                     },
                                     'unit_command' => {}
                                   },
@@ -4259,7 +4345,9 @@ $result_elements{'complex'} = [
                                             'extra' => {
                                               'spaces_before_argument' => ' '
                                             },
-                                            'level' => 3
+                                            'structure' => {
+                                              'level' => 3
+                                            }
                                           },
                                           'unit_command' => {}
                                         },
@@ -4273,7 +4361,9 @@ $result_elements{'complex'} = [
                                                   'extra' => {
                                                     'spaces_before_argument' => ' '
                                                   },
-                                                  'level' => 3
+                                                  'structure' => {
+                                                    'level' => 3
+                                                  }
                                                 },
                                                 'unit_command' => {}
                                               },
@@ -4287,7 +4377,9 @@ $result_elements{'complex'} = [
                                                         'extra' => {
                                                           'spaces_before_argument' => ' '
                                                         },
-                                                        'level' => 3
+                                                        'structure' => {
+                                                          'level' => 3
+                                                        }
                                                       },
                                                       'unit_command' => {}
                                                     },
@@ -4301,7 +4393,9 @@ $result_elements{'complex'} = [
                                                               'extra' => {
                                                                 'spaces_before_argument' => ' '
                                                               },
-                                                              'level' => 3
+                                                              'structure' => {
+                                                                'level' => 3
+                                                              }
                                                             },
                                                             'unit_command' => {}
                                                           },
@@ -4315,7 +4409,9 @@ $result_elements{'complex'} = [
                                                                     'extra' => {
                                                                       'spaces_before_argument' => ' '
                                                                     },
-                                                                    'level' => 2
+                                                                    'structure' => {
+                                                                      'level' => 2
+                                                                    }
                                                                   },
                                                                   'unit_command' => {}
                                                                 },
@@ -4446,7 +4542,9 @@ $result_elements{'complex'} = [
                           'extra' => {
                             'spaces_before_argument' => ' '
                           },
-                          'level' => 1
+                          'structure' => {
+                            'level' => 1
+                          }
                         },
                         'unit_command' => {}
                       },
@@ -4462,7 +4560,9 @@ $result_elements{'complex'} = [
                                 'extra' => {
                                   'spaces_before_argument' => ' '
                                 },
-                                'level' => 1
+                                'structure' => {
+                                  'level' => 1
+                                }
                               },
                               'unit_command' => {}
                             },

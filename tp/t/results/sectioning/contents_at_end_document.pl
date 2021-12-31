@@ -142,13 +142,15 @@ $result_trees{'contents_at_end_document'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 0,
       'line_nr' => {
         'file_name' => 'contents_at_end_document.texi',
         'line_nr' => 6,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 0
+      }
     },
     {
       'args' => [
@@ -202,14 +204,16 @@ $result_trees{'contents_at_end_document'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 1,
       'line_nr' => {
         'file_name' => 'contents_at_end_document.texi',
         'line_nr' => 8,
         'macro' => ''
       },
       'number' => 1,
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 1
+      }
     },
     {
       'args' => [
@@ -280,7 +284,6 @@ top
 ';
 
 $result_sectioning{'contents_at_end_document'} = {
-  'level' => -1,
   'section_childs' => [
     {
       'cmdname' => 'top',
@@ -294,23 +297,30 @@ $result_sectioning{'contents_at_end_document'} = {
         },
         'spaces_before_argument' => ' '
       },
-      'level' => 0,
       'section_childs' => [
         {
           'cmdname' => 'chapter',
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'level' => 1,
           'number' => 1,
           'section_up' => {},
+          'structure' => {
+            'level' => 1
+          },
           'toplevel_prev' => {},
           'toplevel_up' => {}
         }
       ],
-      'section_up' => {}
+      'section_up' => {},
+      'structure' => {
+        'level' => 0
+      }
     }
-  ]
+  ],
+  'structure' => {
+    'level' => -1
+  }
 };
 $result_sectioning{'contents_at_end_document'}{'section_childs'}[0]{'section_childs'}[0]{'section_up'} = $result_sectioning{'contents_at_end_document'}{'section_childs'}[0];
 $result_sectioning{'contents_at_end_document'}{'section_childs'}[0]{'section_childs'}[0]{'toplevel_prev'} = $result_sectioning{'contents_at_end_document'}{'section_childs'}[0];
@@ -325,7 +335,9 @@ $result_nodes{'contents_at_end_document'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 0
+      'structure' => {
+        'level' => 0
+      }
     },
     'normalized' => 'Top',
     'spaces_before_argument' => ' '

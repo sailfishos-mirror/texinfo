@@ -42,13 +42,15 @@ $result_trees{'index_below'} = [
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'level' => 0,
         'line_nr' => {
           'file_name' => '',
           'line_nr' => 1,
           'macro' => ''
         },
-        'parent' => {}
+        'parent' => {},
+        'structure' => {
+          'level' => 0
+        }
       }
     ],
     'extra' => {
@@ -89,14 +91,16 @@ $result_trees{'index_below'} = [
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'level' => 1,
         'line_nr' => {
           'file_name' => '',
           'line_nr' => 3,
           'macro' => ''
         },
         'number' => 1,
-        'parent' => {}
+        'parent' => {},
+        'structure' => {
+          'level' => 1
+        }
       }
     ],
     'extra' => {
@@ -210,14 +214,16 @@ $result_trees{'index_below'} = [
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'level' => 2,
         'line_nr' => {
           'file_name' => '',
           'line_nr' => 5,
           'macro' => ''
         },
         'number' => '1.1',
-        'parent' => {}
+        'parent' => {},
+        'structure' => {
+          'level' => 2
+        }
       }
     ],
     'extra' => {
@@ -284,21 +290,18 @@ $result_texts{'index_below'} = 'top
 ';
 
 $result_sectioning{'index_below'} = {
-  'level' => -1,
   'section_childs' => [
     {
       'cmdname' => 'top',
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 0,
       'section_childs' => [
         {
           'cmdname' => 'chapter',
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'level' => 1,
           'number' => 1,
           'section_childs' => [
             {
@@ -306,19 +309,30 @@ $result_sectioning{'index_below'} = {
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'level' => 2,
               'number' => '1.1',
-              'section_up' => {}
+              'section_up' => {},
+              'structure' => {
+                'level' => 2
+              }
             }
           ],
           'section_up' => {},
+          'structure' => {
+            'level' => 1
+          },
           'toplevel_prev' => {},
           'toplevel_up' => {}
         }
       ],
-      'section_up' => {}
+      'section_up' => {},
+      'structure' => {
+        'level' => 0
+      }
     }
-  ]
+  ],
+  'structure' => {
+    'level' => -1
+  }
 };
 $result_sectioning{'index_below'}{'section_childs'}[0]{'section_childs'}[0]{'section_childs'}[0]{'section_up'} = $result_sectioning{'index_below'}{'section_childs'}[0]{'section_childs'}[0];
 $result_sectioning{'index_below'}{'section_childs'}[0]{'section_childs'}[0]{'section_up'} = $result_sectioning{'index_below'}{'section_childs'}[0];
@@ -347,7 +361,9 @@ $result_elements{'index_below'} = [
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'level' => 0
+        'structure' => {
+          'level' => 0
+        }
       },
       'unit_command' => {}
     },
@@ -360,8 +376,10 @@ $result_elements{'index_below'} = [
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'level' => 1,
-              'number' => 1
+              'number' => 1,
+              'structure' => {
+                'level' => 1
+              }
             },
             'unit_command' => {}
           },
@@ -376,8 +394,10 @@ $result_elements{'index_below'} = [
                     'extra' => {
                       'spaces_before_argument' => ' '
                     },
-                    'level' => 2,
-                    'number' => '1.1'
+                    'number' => '1.1',
+                    'structure' => {
+                      'level' => 2
+                    }
                   },
                   'unit_command' => {}
                 },

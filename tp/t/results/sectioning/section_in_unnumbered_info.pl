@@ -473,13 +473,15 @@ $result_trees{'section_in_unnumbered_info'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 0,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 3,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 0
+      }
     },
     {
       'args' => [
@@ -667,14 +669,16 @@ $result_trees{'section_in_unnumbered_info'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 1,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 18,
         'macro' => ''
       },
       'number' => 1,
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 1
+      }
     },
     {
       'args' => [
@@ -746,14 +750,16 @@ $result_trees{'section_in_unnumbered_info'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 2,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 25,
         'macro' => ''
       },
       'number' => '1.1',
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 2
+      }
     },
     {
       'args' => [
@@ -941,13 +947,15 @@ $result_trees{'section_in_unnumbered_info'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 1,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 28,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 1
+      }
     },
     {
       'args' => [
@@ -1019,13 +1027,15 @@ $result_trees{'section_in_unnumbered_info'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 2,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 35,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 2
+      }
     },
     {
       'args' => [
@@ -1270,14 +1280,16 @@ $result_trees{'section_in_unnumbered_info'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 1,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 38,
         'macro' => ''
       },
       'number' => 2,
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 1
+      }
     },
     {
       'args' => [
@@ -1636,13 +1648,15 @@ $result_trees{'section_in_unnumbered_info'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 2,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 46,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 2
+      }
     },
     {
       'args' => [
@@ -1714,13 +1728,15 @@ $result_trees{'section_in_unnumbered_info'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 3,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 56,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 3
+      }
     },
     {
       'args' => [
@@ -1792,13 +1808,15 @@ $result_trees{'section_in_unnumbered_info'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 3,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 59,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 3
+      }
     },
     {
       'args' => [
@@ -1870,13 +1888,15 @@ $result_trees{'section_in_unnumbered_info'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 3,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 62,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 3
+      }
     },
     {
       'args' => [
@@ -1948,13 +1968,15 @@ $result_trees{'section_in_unnumbered_info'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 3,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 65,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 3
+      }
     },
     {
       'args' => [
@@ -2142,13 +2164,15 @@ $result_trees{'section_in_unnumbered_info'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 2,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 68,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 2
+      }
     },
     {
       'args' => [
@@ -2226,13 +2250,15 @@ $result_trees{'section_in_unnumbered_info'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 3,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 75,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 3
+      }
     },
     {
       'args' => [
@@ -2648,14 +2674,16 @@ $result_trees{'section_in_unnumbered_info'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 1,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 79,
         'macro' => ''
       },
       'number' => 3,
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 1
+      }
     },
     {
       'args' => [
@@ -3014,13 +3042,15 @@ $result_trees{'section_in_unnumbered_info'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 2,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 90,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 2
+      }
     },
     {
       'args' => [
@@ -3092,13 +3122,15 @@ $result_trees{'section_in_unnumbered_info'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 3,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 100,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 3
+      }
     },
     {
       'args' => [
@@ -3170,13 +3202,15 @@ $result_trees{'section_in_unnumbered_info'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 3,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 103,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 3
+      }
     },
     {
       'args' => [
@@ -3248,13 +3282,15 @@ $result_trees{'section_in_unnumbered_info'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 3,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 106,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 3
+      }
     },
     {
       'args' => [
@@ -3326,13 +3362,15 @@ $result_trees{'section_in_unnumbered_info'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 3,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 109,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 3
+      }
     },
     {
       'args' => [
@@ -3404,14 +3442,16 @@ $result_trees{'section_in_unnumbered_info'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 2,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 112,
         'macro' => ''
       },
       'number' => '3.1',
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 2
+      }
     },
     {
       'args' => [
@@ -3599,13 +3639,15 @@ $result_trees{'section_in_unnumbered_info'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 2,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 115,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 2
+      }
     },
     {
       'args' => [
@@ -3677,13 +3719,15 @@ $result_trees{'section_in_unnumbered_info'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 3,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 122,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 3
+      }
     },
     {
       'args' => [
@@ -3871,14 +3915,16 @@ $result_trees{'section_in_unnumbered_info'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 2,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 125,
         'macro' => ''
       },
       'number' => '3.2',
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 2
+      }
     },
     {
       'args' => [
@@ -3950,14 +3996,16 @@ $result_trees{'section_in_unnumbered_info'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 3,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 132,
         'macro' => ''
       },
       'number' => '3.2.1',
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 3
+      }
     },
     {
       'args' => [
@@ -4145,13 +4193,15 @@ $result_trees{'section_in_unnumbered_info'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 2,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 135,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 2
+      }
     },
     {
       'args' => [
@@ -4223,13 +4273,15 @@ $result_trees{'section_in_unnumbered_info'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 3,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 142,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 3
+      }
     },
     {
       'args' => [
@@ -4417,13 +4469,15 @@ $result_trees{'section_in_unnumbered_info'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 1,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 145,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 1
+      }
     },
     {
       'args' => [
@@ -4782,13 +4836,15 @@ $result_trees{'section_in_unnumbered_info'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 2,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 152,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 2
+      }
     },
     {
       'args' => [
@@ -4860,13 +4916,15 @@ $result_trees{'section_in_unnumbered_info'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 3,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 162,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 3
+      }
     },
     {
       'args' => [
@@ -4938,13 +4996,15 @@ $result_trees{'section_in_unnumbered_info'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 3,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 165,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 3
+      }
     },
     {
       'args' => [
@@ -5016,13 +5076,15 @@ $result_trees{'section_in_unnumbered_info'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 3,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 168,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 3
+      }
     },
     {
       'args' => [
@@ -5087,13 +5149,15 @@ $result_trees{'section_in_unnumbered_info'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 3,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 171,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 3
+      }
     }
   ],
   'type' => 'document_root'
@@ -6130,7 +6194,6 @@ numbered subsection2 4
 ';
 
 $result_sectioning{'section_in_unnumbered_info'} = {
-  'level' => -1,
   'section_childs' => [
     {
       'cmdname' => 'top',
@@ -6144,7 +6207,6 @@ $result_sectioning{'section_in_unnumbered_info'} = {
         },
         'spaces_before_argument' => ' '
       },
-      'level' => 0,
       'section_childs' => [
         {
           'cmdname' => 'chapter',
@@ -6158,7 +6220,6 @@ $result_sectioning{'section_in_unnumbered_info'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'level' => 1,
           'number' => 1,
           'section_childs' => [
             {
@@ -6173,12 +6234,17 @@ $result_sectioning{'section_in_unnumbered_info'} = {
                 },
                 'spaces_before_argument' => ' '
               },
-              'level' => 2,
               'number' => '1.1',
-              'section_up' => {}
+              'section_up' => {},
+              'structure' => {
+                'level' => 2
+              }
             }
           ],
           'section_up' => {},
+          'structure' => {
+            'level' => 1
+          },
           'toplevel_prev' => {},
           'toplevel_up' => {}
         },
@@ -6194,7 +6260,6 @@ $result_sectioning{'section_in_unnumbered_info'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'level' => 1,
           'section_childs' => [
             {
               'cmdname' => 'section',
@@ -6208,12 +6273,17 @@ $result_sectioning{'section_in_unnumbered_info'} = {
                 },
                 'spaces_before_argument' => ' '
               },
-              'level' => 2,
-              'section_up' => {}
+              'section_up' => {},
+              'structure' => {
+                'level' => 2
+              }
             }
           ],
           'section_prev' => {},
           'section_up' => {},
+          'structure' => {
+            'level' => 1
+          },
           'toplevel_prev' => {},
           'toplevel_up' => {}
         },
@@ -6229,7 +6299,6 @@ $result_sectioning{'section_in_unnumbered_info'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'level' => 1,
           'number' => 2,
           'section_childs' => [
             {
@@ -6244,7 +6313,6 @@ $result_sectioning{'section_in_unnumbered_info'} = {
                 },
                 'spaces_before_argument' => ' '
               },
-              'level' => 2,
               'section_childs' => [
                 {
                   'cmdname' => 'unnumberedsubsec',
@@ -6258,8 +6326,10 @@ $result_sectioning{'section_in_unnumbered_info'} = {
                     },
                     'spaces_before_argument' => ' '
                   },
-                  'level' => 3,
-                  'section_up' => {}
+                  'section_up' => {},
+                  'structure' => {
+                    'level' => 3
+                  }
                 },
                 {
                   'cmdname' => 'subsection',
@@ -6273,9 +6343,11 @@ $result_sectioning{'section_in_unnumbered_info'} = {
                     },
                     'spaces_before_argument' => ' '
                   },
-                  'level' => 3,
                   'section_prev' => {},
-                  'section_up' => {}
+                  'section_up' => {},
+                  'structure' => {
+                    'level' => 3
+                  }
                 },
                 {
                   'cmdname' => 'unnumberedsubsec',
@@ -6289,9 +6361,11 @@ $result_sectioning{'section_in_unnumbered_info'} = {
                     },
                     'spaces_before_argument' => ' '
                   },
-                  'level' => 3,
                   'section_prev' => {},
-                  'section_up' => {}
+                  'section_up' => {},
+                  'structure' => {
+                    'level' => 3
+                  }
                 },
                 {
                   'cmdname' => 'subsection',
@@ -6305,12 +6379,17 @@ $result_sectioning{'section_in_unnumbered_info'} = {
                     },
                     'spaces_before_argument' => ' '
                   },
-                  'level' => 3,
                   'section_prev' => {},
-                  'section_up' => {}
+                  'section_up' => {},
+                  'structure' => {
+                    'level' => 3
+                  }
                 }
               ],
-              'section_up' => {}
+              'section_up' => {},
+              'structure' => {
+                'level' => 2
+              }
             },
             {
               'cmdname' => 'unnumberedsec',
@@ -6324,7 +6403,6 @@ $result_sectioning{'section_in_unnumbered_info'} = {
                 },
                 'spaces_before_argument' => ' '
               },
-              'level' => 2,
               'section_childs' => [
                 {
                   'cmdname' => 'subsection',
@@ -6338,16 +6416,24 @@ $result_sectioning{'section_in_unnumbered_info'} = {
                     },
                     'spaces_before_argument' => ' '
                   },
-                  'level' => 3,
-                  'section_up' => {}
+                  'section_up' => {},
+                  'structure' => {
+                    'level' => 3
+                  }
                 }
               ],
               'section_prev' => {},
-              'section_up' => {}
+              'section_up' => {},
+              'structure' => {
+                'level' => 2
+              }
             }
           ],
           'section_prev' => {},
           'section_up' => {},
+          'structure' => {
+            'level' => 1
+          },
           'toplevel_prev' => {},
           'toplevel_up' => {}
         },
@@ -6363,7 +6449,6 @@ $result_sectioning{'section_in_unnumbered_info'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'level' => 1,
           'number' => 3,
           'section_childs' => [
             {
@@ -6378,7 +6463,6 @@ $result_sectioning{'section_in_unnumbered_info'} = {
                 },
                 'spaces_before_argument' => ' '
               },
-              'level' => 2,
               'section_childs' => [
                 {
                   'cmdname' => 'unnumberedsubsec',
@@ -6392,8 +6476,10 @@ $result_sectioning{'section_in_unnumbered_info'} = {
                     },
                     'spaces_before_argument' => ' '
                   },
-                  'level' => 3,
-                  'section_up' => {}
+                  'section_up' => {},
+                  'structure' => {
+                    'level' => 3
+                  }
                 },
                 {
                   'cmdname' => 'subsection',
@@ -6407,9 +6493,11 @@ $result_sectioning{'section_in_unnumbered_info'} = {
                     },
                     'spaces_before_argument' => ' '
                   },
-                  'level' => 3,
                   'section_prev' => {},
-                  'section_up' => {}
+                  'section_up' => {},
+                  'structure' => {
+                    'level' => 3
+                  }
                 },
                 {
                   'cmdname' => 'unnumberedsubsec',
@@ -6423,9 +6511,11 @@ $result_sectioning{'section_in_unnumbered_info'} = {
                     },
                     'spaces_before_argument' => ' '
                   },
-                  'level' => 3,
                   'section_prev' => {},
-                  'section_up' => {}
+                  'section_up' => {},
+                  'structure' => {
+                    'level' => 3
+                  }
                 },
                 {
                   'cmdname' => 'subsection',
@@ -6439,12 +6529,17 @@ $result_sectioning{'section_in_unnumbered_info'} = {
                     },
                     'spaces_before_argument' => ' '
                   },
-                  'level' => 3,
                   'section_prev' => {},
-                  'section_up' => {}
+                  'section_up' => {},
+                  'structure' => {
+                    'level' => 3
+                  }
                 }
               ],
-              'section_up' => {}
+              'section_up' => {},
+              'structure' => {
+                'level' => 2
+              }
             },
             {
               'cmdname' => 'section',
@@ -6458,10 +6553,12 @@ $result_sectioning{'section_in_unnumbered_info'} = {
                 },
                 'spaces_before_argument' => ' '
               },
-              'level' => 2,
               'number' => '3.1',
               'section_prev' => {},
-              'section_up' => {}
+              'section_up' => {},
+              'structure' => {
+                'level' => 2
+              }
             },
             {
               'cmdname' => 'unnumberedsec',
@@ -6475,7 +6572,6 @@ $result_sectioning{'section_in_unnumbered_info'} = {
                 },
                 'spaces_before_argument' => ' '
               },
-              'level' => 2,
               'section_childs' => [
                 {
                   'cmdname' => 'subsection',
@@ -6489,12 +6585,17 @@ $result_sectioning{'section_in_unnumbered_info'} = {
                     },
                     'spaces_before_argument' => ' '
                   },
-                  'level' => 3,
-                  'section_up' => {}
+                  'section_up' => {},
+                  'structure' => {
+                    'level' => 3
+                  }
                 }
               ],
               'section_prev' => {},
-              'section_up' => {}
+              'section_up' => {},
+              'structure' => {
+                'level' => 2
+              }
             },
             {
               'cmdname' => 'section',
@@ -6508,7 +6609,6 @@ $result_sectioning{'section_in_unnumbered_info'} = {
                 },
                 'spaces_before_argument' => ' '
               },
-              'level' => 2,
               'number' => '3.2',
               'section_childs' => [
                 {
@@ -6523,13 +6623,18 @@ $result_sectioning{'section_in_unnumbered_info'} = {
                     },
                     'spaces_before_argument' => ' '
                   },
-                  'level' => 3,
                   'number' => '3.2.1',
-                  'section_up' => {}
+                  'section_up' => {},
+                  'structure' => {
+                    'level' => 3
+                  }
                 }
               ],
               'section_prev' => {},
-              'section_up' => {}
+              'section_up' => {},
+              'structure' => {
+                'level' => 2
+              }
             },
             {
               'cmdname' => 'unnumberedsec',
@@ -6543,7 +6648,6 @@ $result_sectioning{'section_in_unnumbered_info'} = {
                 },
                 'spaces_before_argument' => ' '
               },
-              'level' => 2,
               'section_childs' => [
                 {
                   'cmdname' => 'subsection',
@@ -6557,16 +6661,24 @@ $result_sectioning{'section_in_unnumbered_info'} = {
                     },
                     'spaces_before_argument' => ' '
                   },
-                  'level' => 3,
-                  'section_up' => {}
+                  'section_up' => {},
+                  'structure' => {
+                    'level' => 3
+                  }
                 }
               ],
               'section_prev' => {},
-              'section_up' => {}
+              'section_up' => {},
+              'structure' => {
+                'level' => 2
+              }
             }
           ],
           'section_prev' => {},
           'section_up' => {},
+          'structure' => {
+            'level' => 1
+          },
           'toplevel_prev' => {},
           'toplevel_up' => {}
         },
@@ -6582,7 +6694,6 @@ $result_sectioning{'section_in_unnumbered_info'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'level' => 1,
           'section_childs' => [
             {
               'cmdname' => 'unnumberedsec',
@@ -6596,7 +6707,6 @@ $result_sectioning{'section_in_unnumbered_info'} = {
                 },
                 'spaces_before_argument' => ' '
               },
-              'level' => 2,
               'section_childs' => [
                 {
                   'cmdname' => 'unnumberedsubsec',
@@ -6610,8 +6720,10 @@ $result_sectioning{'section_in_unnumbered_info'} = {
                     },
                     'spaces_before_argument' => ' '
                   },
-                  'level' => 3,
-                  'section_up' => {}
+                  'section_up' => {},
+                  'structure' => {
+                    'level' => 3
+                  }
                 },
                 {
                   'cmdname' => 'subsection',
@@ -6625,9 +6737,11 @@ $result_sectioning{'section_in_unnumbered_info'} = {
                     },
                     'spaces_before_argument' => ' '
                   },
-                  'level' => 3,
                   'section_prev' => {},
-                  'section_up' => {}
+                  'section_up' => {},
+                  'structure' => {
+                    'level' => 3
+                  }
                 },
                 {
                   'cmdname' => 'unnumberedsubsec',
@@ -6641,9 +6755,11 @@ $result_sectioning{'section_in_unnumbered_info'} = {
                     },
                     'spaces_before_argument' => ' '
                   },
-                  'level' => 3,
                   'section_prev' => {},
-                  'section_up' => {}
+                  'section_up' => {},
+                  'structure' => {
+                    'level' => 3
+                  }
                 },
                 {
                   'cmdname' => 'subsection',
@@ -6657,23 +6773,37 @@ $result_sectioning{'section_in_unnumbered_info'} = {
                     },
                     'spaces_before_argument' => ' '
                   },
-                  'level' => 3,
                   'section_prev' => {},
-                  'section_up' => {}
+                  'section_up' => {},
+                  'structure' => {
+                    'level' => 3
+                  }
                 }
               ],
-              'section_up' => {}
+              'section_up' => {},
+              'structure' => {
+                'level' => 2
+              }
             }
           ],
           'section_prev' => {},
           'section_up' => {},
+          'structure' => {
+            'level' => 1
+          },
           'toplevel_prev' => {},
           'toplevel_up' => {}
         }
       ],
-      'section_up' => {}
+      'section_up' => {},
+      'structure' => {
+        'level' => 0
+      }
     }
-  ]
+  ],
+  'structure' => {
+    'level' => -1
+  }
 };
 $result_sectioning{'section_in_unnumbered_info'}{'section_childs'}[0]{'section_childs'}[0]{'section_childs'}[0]{'section_up'} = $result_sectioning{'section_in_unnumbered_info'}{'section_childs'}[0]{'section_childs'}[0];
 $result_sectioning{'section_in_unnumbered_info'}{'section_childs'}[0]{'section_childs'}[0]{'section_up'} = $result_sectioning{'section_in_unnumbered_info'}{'section_childs'}[0];
@@ -6744,7 +6874,9 @@ $result_nodes{'section_in_unnumbered_info'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 0
+      'structure' => {
+        'level' => 0
+      }
     },
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
@@ -6757,8 +6889,10 @@ $result_nodes{'section_in_unnumbered_info'} = {
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'level' => 1,
-        'number' => 1
+        'number' => 1,
+        'structure' => {
+          'level' => 1
+        }
       },
       'normalized' => 'chapter',
       'spaces_before_argument' => ' '
@@ -6771,8 +6905,10 @@ $result_nodes{'section_in_unnumbered_info'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'level' => 2,
-          'number' => '1.1'
+          'number' => '1.1',
+          'structure' => {
+            'level' => 2
+          }
         },
         'normalized' => 'section-in-chapter',
         'spaces_before_argument' => ' '
@@ -6802,7 +6938,9 @@ $result_nodes{'section_in_unnumbered_info'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'level' => 1
+          'structure' => {
+            'level' => 1
+          }
         },
         'normalized' => 'unnumbered',
         'spaces_before_argument' => ' '
@@ -6815,7 +6953,9 @@ $result_nodes{'section_in_unnumbered_info'} = {
             'extra' => {
               'spaces_before_argument' => ' '
             },
-            'level' => 2
+            'structure' => {
+              'level' => 2
+            }
           },
           'normalized' => 'section-in-unnumbered',
           'spaces_before_argument' => ' '
@@ -6845,8 +6985,10 @@ $result_nodes{'section_in_unnumbered_info'} = {
             'extra' => {
               'spaces_before_argument' => ' '
             },
-            'level' => 1,
-            'number' => 2
+            'number' => 2,
+            'structure' => {
+              'level' => 1
+            }
           },
           'normalized' => 'chapter-2',
           'spaces_before_argument' => ' '
@@ -6859,7 +7001,9 @@ $result_nodes{'section_in_unnumbered_info'} = {
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'level' => 2
+              'structure' => {
+                'level' => 2
+              }
             },
             'normalized' => 'unnumberedsec-2',
             'spaces_before_argument' => ' '
@@ -6872,7 +7016,9 @@ $result_nodes{'section_in_unnumbered_info'} = {
                 'extra' => {
                   'spaces_before_argument' => ' '
                 },
-                'level' => 3
+                'structure' => {
+                  'level' => 3
+                }
               },
               'normalized' => 'unnumbered-sub-2',
               'spaces_before_argument' => ' '
@@ -6885,7 +7031,9 @@ $result_nodes{'section_in_unnumbered_info'} = {
                   'extra' => {
                     'spaces_before_argument' => ' '
                   },
-                  'level' => 3
+                  'structure' => {
+                    'level' => 3
+                  }
                 },
                 'normalized' => 'numbered-sub-2',
                 'spaces_before_argument' => ' '
@@ -6898,7 +7046,9 @@ $result_nodes{'section_in_unnumbered_info'} = {
                     'extra' => {
                       'spaces_before_argument' => ' '
                     },
-                    'level' => 3
+                    'structure' => {
+                      'level' => 3
+                    }
                   },
                   'normalized' => 'unnumbered-sub2-2',
                   'spaces_before_argument' => ' '
@@ -6911,7 +7061,9 @@ $result_nodes{'section_in_unnumbered_info'} = {
                       'extra' => {
                         'spaces_before_argument' => ' '
                       },
-                      'level' => 3
+                      'structure' => {
+                        'level' => 3
+                      }
                     },
                     'normalized' => 'numbered-sub2-2',
                     'spaces_before_argument' => ' '
@@ -6950,7 +7102,9 @@ $result_nodes{'section_in_unnumbered_info'} = {
                 'extra' => {
                   'spaces_before_argument' => ' '
                 },
-                'level' => 2
+                'structure' => {
+                  'level' => 2
+                }
               },
               'normalized' => 'unnumberedsec-2_002d1',
               'spaces_before_argument' => ' '
@@ -6963,7 +7117,9 @@ $result_nodes{'section_in_unnumbered_info'} = {
                   'extra' => {
                     'spaces_before_argument' => ' '
                   },
-                  'level' => 3
+                  'structure' => {
+                    'level' => 3
+                  }
                 },
                 'normalized' => 'numbered-sub-2_002d1',
                 'spaces_before_argument' => ' '
@@ -7013,8 +7169,10 @@ $result_nodes{'section_in_unnumbered_info'} = {
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'level' => 1,
-              'number' => 3
+              'number' => 3,
+              'structure' => {
+                'level' => 1
+              }
             },
             'normalized' => 'chapter-3',
             'spaces_before_argument' => ' '
@@ -7027,7 +7185,9 @@ $result_nodes{'section_in_unnumbered_info'} = {
                 'extra' => {
                   'spaces_before_argument' => ' '
                 },
-                'level' => 2
+                'structure' => {
+                  'level' => 2
+                }
               },
               'normalized' => 'unnumberedsec-3',
               'spaces_before_argument' => ' '
@@ -7040,7 +7200,9 @@ $result_nodes{'section_in_unnumbered_info'} = {
                   'extra' => {
                     'spaces_before_argument' => ' '
                   },
-                  'level' => 3
+                  'structure' => {
+                    'level' => 3
+                  }
                 },
                 'normalized' => 'unnumbered-sub-3',
                 'spaces_before_argument' => ' '
@@ -7053,7 +7215,9 @@ $result_nodes{'section_in_unnumbered_info'} = {
                     'extra' => {
                       'spaces_before_argument' => ' '
                     },
-                    'level' => 3
+                    'structure' => {
+                      'level' => 3
+                    }
                   },
                   'normalized' => 'numbered-sub-3',
                   'spaces_before_argument' => ' '
@@ -7066,7 +7230,9 @@ $result_nodes{'section_in_unnumbered_info'} = {
                       'extra' => {
                         'spaces_before_argument' => ' '
                       },
-                      'level' => 3
+                      'structure' => {
+                        'level' => 3
+                      }
                     },
                     'normalized' => 'unnumbered-sub2-3',
                     'spaces_before_argument' => ' '
@@ -7079,7 +7245,9 @@ $result_nodes{'section_in_unnumbered_info'} = {
                         'extra' => {
                           'spaces_before_argument' => ' '
                         },
-                        'level' => 3
+                        'structure' => {
+                          'level' => 3
+                        }
                       },
                       'normalized' => 'numbered-sub2-3',
                       'spaces_before_argument' => ' '
@@ -7118,8 +7286,10 @@ $result_nodes{'section_in_unnumbered_info'} = {
                   'extra' => {
                     'spaces_before_argument' => ' '
                   },
-                  'level' => 2,
-                  'number' => '3.1'
+                  'number' => '3.1',
+                  'structure' => {
+                    'level' => 2
+                  }
                 },
                 'normalized' => 'section-3_002d1',
                 'spaces_before_argument' => ' '
@@ -7132,7 +7302,9 @@ $result_nodes{'section_in_unnumbered_info'} = {
                     'extra' => {
                       'spaces_before_argument' => ' '
                     },
-                    'level' => 2
+                    'structure' => {
+                      'level' => 2
+                    }
                   },
                   'normalized' => 'unnumberedsec-3_002d2',
                   'spaces_before_argument' => ' '
@@ -7145,7 +7317,9 @@ $result_nodes{'section_in_unnumbered_info'} = {
                       'extra' => {
                         'spaces_before_argument' => ' '
                       },
-                      'level' => 3
+                      'structure' => {
+                        'level' => 3
+                      }
                     },
                     'normalized' => 'numbered-sub-3_002d2',
                     'spaces_before_argument' => ' '
@@ -7175,8 +7349,10 @@ $result_nodes{'section_in_unnumbered_info'} = {
                       'extra' => {
                         'spaces_before_argument' => ' '
                       },
-                      'level' => 2,
-                      'number' => '3.2'
+                      'number' => '3.2',
+                      'structure' => {
+                        'level' => 2
+                      }
                     },
                     'normalized' => 'section-3_002d3',
                     'spaces_before_argument' => ' '
@@ -7189,8 +7365,10 @@ $result_nodes{'section_in_unnumbered_info'} = {
                         'extra' => {
                           'spaces_before_argument' => ' '
                         },
-                        'level' => 3,
-                        'number' => '3.2.1'
+                        'number' => '3.2.1',
+                        'structure' => {
+                          'level' => 3
+                        }
                       },
                       'normalized' => 'subsection-3_002d3',
                       'spaces_before_argument' => ' '
@@ -7220,7 +7398,9 @@ $result_nodes{'section_in_unnumbered_info'} = {
                         'extra' => {
                           'spaces_before_argument' => ' '
                         },
-                        'level' => 2
+                        'structure' => {
+                          'level' => 2
+                        }
                       },
                       'normalized' => 'unnumberedsec-3_002d4',
                       'spaces_before_argument' => ' '
@@ -7233,7 +7413,9 @@ $result_nodes{'section_in_unnumbered_info'} = {
                           'extra' => {
                             'spaces_before_argument' => ' '
                           },
-                          'level' => 3
+                          'structure' => {
+                            'level' => 3
+                          }
                         },
                         'normalized' => 'numbered-sub-3_002d4',
                         'spaces_before_argument' => ' '
@@ -7292,7 +7474,9 @@ $result_nodes{'section_in_unnumbered_info'} = {
                 'extra' => {
                   'spaces_before_argument' => ' '
                 },
-                'level' => 1
+                'structure' => {
+                  'level' => 1
+                }
               },
               'normalized' => 'unnumbered-4',
               'spaces_before_argument' => ' '
@@ -7305,7 +7489,9 @@ $result_nodes{'section_in_unnumbered_info'} = {
                   'extra' => {
                     'spaces_before_argument' => ' '
                   },
-                  'level' => 2
+                  'structure' => {
+                    'level' => 2
+                  }
                 },
                 'normalized' => 'unnumberedsec-4',
                 'spaces_before_argument' => ' '
@@ -7318,7 +7504,9 @@ $result_nodes{'section_in_unnumbered_info'} = {
                     'extra' => {
                       'spaces_before_argument' => ' '
                     },
-                    'level' => 3
+                    'structure' => {
+                      'level' => 3
+                    }
                   },
                   'normalized' => 'unnumbered-sub-4',
                   'spaces_before_argument' => ' '
@@ -7331,7 +7519,9 @@ $result_nodes{'section_in_unnumbered_info'} = {
                       'extra' => {
                         'spaces_before_argument' => ' '
                       },
-                      'level' => 3
+                      'structure' => {
+                        'level' => 3
+                      }
                     },
                     'normalized' => 'numbered-sub-4',
                     'spaces_before_argument' => ' '
@@ -7344,7 +7534,9 @@ $result_nodes{'section_in_unnumbered_info'} = {
                         'extra' => {
                           'spaces_before_argument' => ' '
                         },
-                        'level' => 3
+                        'structure' => {
+                          'level' => 3
+                        }
                       },
                       'normalized' => 'unnumbered-sub2-4',
                       'spaces_before_argument' => ' '
@@ -7357,7 +7549,9 @@ $result_nodes{'section_in_unnumbered_info'} = {
                           'extra' => {
                             'spaces_before_argument' => ' '
                           },
-                          'level' => 3
+                          'structure' => {
+                            'level' => 3
+                          }
                         },
                         'normalized' => 'numbered-sub2-4',
                         'spaces_before_argument' => ' '

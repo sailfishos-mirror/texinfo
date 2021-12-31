@@ -266,13 +266,15 @@ $result_trees{'paragraphindent_and_preamble'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 0,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 8,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 0
+      }
     },
     {
       'args' => [
@@ -365,7 +367,6 @@ After paragraphindent.
 ';
 
 $result_sectioning{'paragraphindent_and_preamble'} = {
-  'level' => -1,
   'section_childs' => [
     {
       'cmdname' => 'top',
@@ -379,10 +380,15 @@ $result_sectioning{'paragraphindent_and_preamble'} = {
         },
         'spaces_before_argument' => ' '
       },
-      'level' => 0,
-      'section_up' => {}
+      'section_up' => {},
+      'structure' => {
+        'level' => 0
+      }
     }
-  ]
+  ],
+  'structure' => {
+    'level' => -1
+  }
 };
 $result_sectioning{'paragraphindent_and_preamble'}{'section_childs'}[0]{'section_up'} = $result_sectioning{'paragraphindent_and_preamble'};
 
@@ -394,7 +400,9 @@ $result_nodes{'paragraphindent_and_preamble'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 0
+      'structure' => {
+        'level' => 0
+      }
     },
     'normalized' => 'Top',
     'spaces_before_argument' => ' '

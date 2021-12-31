@@ -281,14 +281,16 @@ $result_trees{'text_before_line_command'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 1,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 4,
         'macro' => ''
       },
       'number' => 1,
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 1
+      }
     }
   ],
   'type' => 'document_root'
@@ -357,7 +359,6 @@ aaa quotation
 ';
 
 $result_sectioning{'text_before_line_command'} = {
-  'level' => 0,
   'section_childs' => [
     {
       'cmdname' => 'chapter',
@@ -371,11 +372,16 @@ $result_sectioning{'text_before_line_command'} = {
         },
         'spaces_before_argument' => ' '
       },
-      'level' => 1,
       'number' => 1,
-      'section_up' => {}
+      'section_up' => {},
+      'structure' => {
+        'level' => 1
+      }
     }
-  ]
+  ],
+  'structure' => {
+    'level' => 0
+  }
 };
 $result_sectioning{'text_before_line_command'}{'section_childs'}[0]{'section_up'} = $result_sectioning{'text_before_line_command'};
 
@@ -387,8 +393,10 @@ $result_nodes{'text_before_line_command'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 1,
-      'number' => 1
+      'number' => 1,
+      'structure' => {
+        'level' => 1
+      }
     },
     'normalized' => 'LD-Version-Scripts',
     'spaces_before_argument' => ' '

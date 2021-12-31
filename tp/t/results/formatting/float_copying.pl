@@ -1033,13 +1033,15 @@ $result_trees{'float_copying'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 0,
       'line_nr' => {
         'file_name' => 'float_copying.texi',
         'line_nr' => 31,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 0
+      }
     },
     {},
     {
@@ -1301,13 +1303,13 @@ $result_trees{'float_copying'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'level' => 3,
           'line_nr' => {
             'file_name' => 'float_copying.texi',
             'line_nr' => 60,
             'macro' => ''
           },
-          'parent' => {}
+          'parent' => {},
+          'structure' => {}
         },
         {
           'args' => [
@@ -1370,13 +1372,13 @@ $result_trees{'float_copying'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'level' => 3,
           'line_nr' => {
             'file_name' => 'float_copying.texi',
             'line_nr' => 63,
             'macro' => ''
           },
-          'parent' => {}
+          'parent' => {},
+          'structure' => {}
         },
         {
           'args' => [
@@ -1450,14 +1452,16 @@ $result_trees{'float_copying'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 1,
       'line_nr' => {
         'file_name' => 'float_copying.texi',
         'line_nr' => 46,
         'macro' => ''
       },
       'number' => 'A',
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 1
+      }
     },
     {
       'args' => [
@@ -1797,7 +1801,6 @@ printindex
 ';
 
 $result_sectioning{'float_copying'} = {
-  'level' => -1,
   'section_childs' => [
     {
       'cmdname' => 'top',
@@ -1811,7 +1814,6 @@ $result_sectioning{'float_copying'} = {
         },
         'spaces_before_argument' => ' '
       },
-      'level' => 0,
       'section_childs' => [
         {
           'cmdname' => 'appendix',
@@ -1826,16 +1828,24 @@ $result_sectioning{'float_copying'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'level' => 1,
           'number' => 'A',
           'section_up' => {},
+          'structure' => {
+            'level' => 1
+          },
           'toplevel_prev' => {},
           'toplevel_up' => {}
         }
       ],
-      'section_up' => {}
+      'section_up' => {},
+      'structure' => {
+        'level' => 0
+      }
     }
-  ]
+  ],
+  'structure' => {
+    'level' => -1
+  }
 };
 $result_sectioning{'float_copying'}{'section_childs'}[0]{'section_childs'}[0]{'section_up'} = $result_sectioning{'float_copying'}{'section_childs'}[0];
 $result_sectioning{'float_copying'}{'section_childs'}[0]{'section_childs'}[0]{'toplevel_prev'} = $result_sectioning{'float_copying'}{'section_childs'}[0];
@@ -1850,7 +1860,9 @@ $result_nodes{'float_copying'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 0
+      'structure' => {
+        'level' => 0
+      }
     },
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
@@ -1863,8 +1875,10 @@ $result_nodes{'float_copying'} = {
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'level' => 1,
-        'number' => 'A'
+        'number' => 'A',
+        'structure' => {
+          'level' => 1
+        }
       },
       'isindex' => 1,
       'normalized' => 'Copying-and-floats',

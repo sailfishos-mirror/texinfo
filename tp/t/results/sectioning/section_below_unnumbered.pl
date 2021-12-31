@@ -251,13 +251,15 @@ $result_trees{'section_below_unnumbered'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 0,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 5,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 0
+      }
     },
     {
       'args' => [
@@ -445,13 +447,15 @@ $result_trees{'section_below_unnumbered'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 1,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 15,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 1
+      }
     },
     {
       'args' => [
@@ -540,13 +544,15 @@ $result_trees{'section_below_unnumbered'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 2,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 22,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 2
+      }
     },
     {
       'args' => [
@@ -693,7 +699,6 @@ Should be unnumbered.
 ';
 
 $result_sectioning{'section_below_unnumbered'} = {
-  'level' => -1,
   'section_childs' => [
     {
       'cmdname' => 'top',
@@ -707,7 +712,6 @@ $result_sectioning{'section_below_unnumbered'} = {
         },
         'spaces_before_argument' => ' '
       },
-      'level' => 0,
       'section_childs' => [
         {
           'cmdname' => 'unnumbered',
@@ -721,7 +725,6 @@ $result_sectioning{'section_below_unnumbered'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'level' => 1,
           'section_childs' => [
             {
               'cmdname' => 'section',
@@ -735,18 +738,29 @@ $result_sectioning{'section_below_unnumbered'} = {
                 },
                 'spaces_before_argument' => ' '
               },
-              'level' => 2,
-              'section_up' => {}
+              'section_up' => {},
+              'structure' => {
+                'level' => 2
+              }
             }
           ],
           'section_up' => {},
+          'structure' => {
+            'level' => 1
+          },
           'toplevel_prev' => {},
           'toplevel_up' => {}
         }
       ],
-      'section_up' => {}
+      'section_up' => {},
+      'structure' => {
+        'level' => 0
+      }
     }
-  ]
+  ],
+  'structure' => {
+    'level' => -1
+  }
 };
 $result_sectioning{'section_below_unnumbered'}{'section_childs'}[0]{'section_childs'}[0]{'section_childs'}[0]{'section_up'} = $result_sectioning{'section_below_unnumbered'}{'section_childs'}[0]{'section_childs'}[0];
 $result_sectioning{'section_below_unnumbered'}{'section_childs'}[0]{'section_childs'}[0]{'section_up'} = $result_sectioning{'section_below_unnumbered'}{'section_childs'}[0];
@@ -762,7 +776,9 @@ $result_nodes{'section_below_unnumbered'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 0
+      'structure' => {
+        'level' => 0
+      }
     },
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
@@ -775,7 +791,9 @@ $result_nodes{'section_below_unnumbered'} = {
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'level' => 1
+        'structure' => {
+          'level' => 1
+        }
       },
       'normalized' => 'Unn',
       'spaces_before_argument' => ' '
@@ -788,7 +806,9 @@ $result_nodes{'section_below_unnumbered'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'level' => 2
+          'structure' => {
+            'level' => 2
+          }
         },
         'normalized' => 'Sec',
         'spaces_before_argument' => ' '

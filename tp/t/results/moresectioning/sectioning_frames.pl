@@ -675,13 +675,15 @@ $result_trees{'sectioning_frames'} = {
         }
       ],
       'extra' => {},
-      'level' => 0,
       'line_nr' => {
         'file_name' => 'sectioning.texi',
         'line_nr' => 4,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 0
+      }
     },
     {
       'args' => [
@@ -1050,14 +1052,16 @@ $result_trees{'sectioning_frames'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 1,
       'line_nr' => {
         'file_name' => 'sectioning.texi',
         'line_nr' => 30,
         'macro' => ''
       },
       'number' => 1,
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 1
+      }
     },
     {
       'args' => [
@@ -1416,13 +1420,15 @@ $result_trees{'sectioning_frames'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 2,
       'line_nr' => {
         'file_name' => 'sectioning.texi',
         'line_nr' => 41,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 2
+      }
     },
     {
       'args' => [
@@ -1494,13 +1500,15 @@ $result_trees{'sectioning_frames'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 3,
       'line_nr' => {
         'file_name' => 'sectioning.texi',
         'line_nr' => 51,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 3
+      }
     },
     {
       'args' => [
@@ -1572,13 +1580,15 @@ $result_trees{'sectioning_frames'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 3,
       'line_nr' => {
         'file_name' => 'sectioning.texi',
         'line_nr' => 54,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 3
+      }
     },
     {
       'args' => [
@@ -1650,13 +1660,15 @@ $result_trees{'sectioning_frames'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 3,
       'line_nr' => {
         'file_name' => 'sectioning.texi',
         'line_nr' => 57,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 3
+      }
     },
     {
       'args' => [
@@ -1728,13 +1740,15 @@ $result_trees{'sectioning_frames'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 3,
       'line_nr' => {
         'file_name' => 'sectioning.texi',
         'line_nr' => 60,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 3
+      }
     },
     {
       'args' => [
@@ -1922,13 +1936,15 @@ $result_trees{'sectioning_frames'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 2,
       'line_nr' => {
         'file_name' => 'sectioning.texi',
         'line_nr' => 63,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 2
+      }
     },
     {
       'args' => [
@@ -2006,13 +2022,15 @@ $result_trees{'sectioning_frames'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 3,
       'line_nr' => {
         'file_name' => 'sectioning.texi',
         'line_nr' => 70,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 3
+      }
     },
     {
       'args' => [
@@ -2084,14 +2102,16 @@ $result_trees{'sectioning_frames'} = {
       'extra' => {
         'spaces_before_argument' => '  '
       },
-      'level' => 2,
       'line_nr' => {
         'file_name' => 'sectioning.texi',
         'line_nr' => 74,
         'macro' => ''
       },
       'number' => '1.1',
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 2
+      }
     },
     {
       'args' => [
@@ -2335,14 +2355,16 @@ $result_trees{'sectioning_frames'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 1,
       'line_nr' => {
         'file_name' => 'sectioning.texi',
         'line_nr' => 84,
         'macro' => ''
       },
       'number' => 2,
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 1
+      }
     },
     {
       'args' => [
@@ -2437,13 +2459,15 @@ $result_trees{'sectioning_frames'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 1,
       'line_nr' => {
         'file_name' => 'sectioning.texi',
         'line_nr' => 89,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 1
+      }
     },
     {
       'args' => [
@@ -3124,7 +3148,6 @@ unnumbered chapter text.
 ';
 
 $result_sectioning{'sectioning_frames'} = {
-  'level' => -1,
   'section_childs' => [
     {
       'cmdname' => 'top',
@@ -3137,7 +3160,6 @@ $result_sectioning{'sectioning_frames'} = {
           }
         }
       },
-      'level' => 0,
       'section_childs' => [
         {
           'cmdname' => 'chapter',
@@ -3151,7 +3173,6 @@ $result_sectioning{'sectioning_frames'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'level' => 1,
           'number' => 1,
           'section_childs' => [
             {
@@ -3166,7 +3187,6 @@ $result_sectioning{'sectioning_frames'} = {
                 },
                 'spaces_before_argument' => ' '
               },
-              'level' => 2,
               'section_childs' => [
                 {
                   'cmdname' => 'unnumberedsubsec',
@@ -3180,8 +3200,10 @@ $result_sectioning{'sectioning_frames'} = {
                     },
                     'spaces_before_argument' => ' '
                   },
-                  'level' => 3,
-                  'section_up' => {}
+                  'section_up' => {},
+                  'structure' => {
+                    'level' => 3
+                  }
                 },
                 {
                   'cmdname' => 'subsection',
@@ -3195,9 +3217,11 @@ $result_sectioning{'sectioning_frames'} = {
                     },
                     'spaces_before_argument' => ' '
                   },
-                  'level' => 3,
                   'section_prev' => {},
-                  'section_up' => {}
+                  'section_up' => {},
+                  'structure' => {
+                    'level' => 3
+                  }
                 },
                 {
                   'cmdname' => 'unnumberedsubsec',
@@ -3211,9 +3235,11 @@ $result_sectioning{'sectioning_frames'} = {
                     },
                     'spaces_before_argument' => ' '
                   },
-                  'level' => 3,
                   'section_prev' => {},
-                  'section_up' => {}
+                  'section_up' => {},
+                  'structure' => {
+                    'level' => 3
+                  }
                 },
                 {
                   'cmdname' => 'subsection',
@@ -3227,12 +3253,17 @@ $result_sectioning{'sectioning_frames'} = {
                     },
                     'spaces_before_argument' => ' '
                   },
-                  'level' => 3,
                   'section_prev' => {},
-                  'section_up' => {}
+                  'section_up' => {},
+                  'structure' => {
+                    'level' => 3
+                  }
                 }
               ],
-              'section_up' => {}
+              'section_up' => {},
+              'structure' => {
+                'level' => 2
+              }
             },
             {
               'cmdname' => 'unnumberedsec',
@@ -3246,7 +3277,6 @@ $result_sectioning{'sectioning_frames'} = {
                 },
                 'spaces_before_argument' => ' '
               },
-              'level' => 2,
               'section_childs' => [
                 {
                   'cmdname' => 'subsection',
@@ -3260,12 +3290,17 @@ $result_sectioning{'sectioning_frames'} = {
                     },
                     'spaces_before_argument' => ' '
                   },
-                  'level' => 3,
-                  'section_up' => {}
+                  'section_up' => {},
+                  'structure' => {
+                    'level' => 3
+                  }
                 }
               ],
               'section_prev' => {},
-              'section_up' => {}
+              'section_up' => {},
+              'structure' => {
+                'level' => 2
+              }
             },
             {
               'cmdname' => 'section',
@@ -3279,13 +3314,18 @@ $result_sectioning{'sectioning_frames'} = {
                 },
                 'spaces_before_argument' => '  '
               },
-              'level' => 2,
               'number' => '1.1',
               'section_prev' => {},
-              'section_up' => {}
+              'section_up' => {},
+              'structure' => {
+                'level' => 2
+              }
             }
           ],
           'section_up' => {},
+          'structure' => {
+            'level' => 1
+          },
           'toplevel_prev' => {},
           'toplevel_up' => {}
         },
@@ -3301,10 +3341,12 @@ $result_sectioning{'sectioning_frames'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'level' => 1,
           'number' => 2,
           'section_prev' => {},
           'section_up' => {},
+          'structure' => {
+            'level' => 1
+          },
           'toplevel_prev' => {},
           'toplevel_up' => {}
         },
@@ -3320,16 +3362,24 @@ $result_sectioning{'sectioning_frames'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'level' => 1,
           'section_prev' => {},
           'section_up' => {},
+          'structure' => {
+            'level' => 1
+          },
           'toplevel_prev' => {},
           'toplevel_up' => {}
         }
       ],
-      'section_up' => {}
+      'section_up' => {},
+      'structure' => {
+        'level' => 0
+      }
     }
-  ]
+  ],
+  'structure' => {
+    'level' => -1
+  }
 };
 $result_sectioning{'sectioning_frames'}{'section_childs'}[0]{'section_childs'}[0]{'section_childs'}[0]{'section_childs'}[0]{'section_up'} = $result_sectioning{'sectioning_frames'}{'section_childs'}[0]{'section_childs'}[0]{'section_childs'}[0];
 $result_sectioning{'sectioning_frames'}{'section_childs'}[0]{'section_childs'}[0]{'section_childs'}[0]{'section_childs'}[1]{'section_prev'} = $result_sectioning{'sectioning_frames'}{'section_childs'}[0]{'section_childs'}[0]{'section_childs'}[0]{'section_childs'}[0];
@@ -3363,7 +3413,9 @@ $result_nodes{'sectioning_frames'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'level' => 0
+      'structure' => {
+        'level' => 0
+      }
     },
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
@@ -3376,8 +3428,10 @@ $result_nodes{'sectioning_frames'} = {
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'level' => 1,
-        'number' => 1
+        'number' => 1,
+        'structure' => {
+          'level' => 1
+        }
       },
       'normalized' => 'First-node',
       'spaces_before_argument' => ' '
@@ -3390,7 +3444,9 @@ $result_nodes{'sectioning_frames'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'level' => 2
+          'structure' => {
+            'level' => 2
+          }
         },
         'normalized' => 'unnumbered',
         'spaces_before_argument' => ' '
@@ -3403,7 +3459,9 @@ $result_nodes{'sectioning_frames'} = {
             'extra' => {
               'spaces_before_argument' => ' '
             },
-            'level' => 3
+            'structure' => {
+              'level' => 3
+            }
           },
           'normalized' => 'unnumbered-sub',
           'spaces_before_argument' => ' '
@@ -3416,7 +3474,9 @@ $result_nodes{'sectioning_frames'} = {
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'level' => 3
+              'structure' => {
+                'level' => 3
+              }
             },
             'normalized' => 'numbered-sub',
             'spaces_before_argument' => ' '
@@ -3429,7 +3489,9 @@ $result_nodes{'sectioning_frames'} = {
                 'extra' => {
                   'spaces_before_argument' => ' '
                 },
-                'level' => 3
+                'structure' => {
+                  'level' => 3
+                }
               },
               'normalized' => 'unnumbered-sub2',
               'spaces_before_argument' => ' '
@@ -3442,7 +3504,9 @@ $result_nodes{'sectioning_frames'} = {
                   'extra' => {
                     'spaces_before_argument' => ' '
                   },
-                  'level' => 3
+                  'structure' => {
+                    'level' => 3
+                  }
                 },
                 'normalized' => 'numbered-sub2',
                 'spaces_before_argument' => ' '
@@ -3481,7 +3545,9 @@ $result_nodes{'sectioning_frames'} = {
             'extra' => {
               'spaces_before_argument' => ' '
             },
-            'level' => 2
+            'structure' => {
+              'level' => 2
+            }
           },
           'normalized' => 'unnumbered2',
           'spaces_before_argument' => ' '
@@ -3494,7 +3560,9 @@ $result_nodes{'sectioning_frames'} = {
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'level' => 3
+              'structure' => {
+                'level' => 3
+              }
             },
             'normalized' => 'numbered-sub3',
             'spaces_before_argument' => ' '
@@ -3524,8 +3592,10 @@ $result_nodes{'sectioning_frames'} = {
               'extra' => {
                 'spaces_before_argument' => '  '
               },
-              'level' => 2,
-              'number' => '1.1'
+              'number' => '1.1',
+              'structure' => {
+                'level' => 2
+              }
             },
             'normalized' => 'numbered',
             'spaces_before_argument' => ' '

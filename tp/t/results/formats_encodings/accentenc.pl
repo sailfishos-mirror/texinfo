@@ -2596,13 +2596,15 @@ $result_trees{'accentenc'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 0,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 4,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 0
+      }
     }
   ],
   'type' => 'document_root'
@@ -3165,7 +3167,6 @@ should be dotless j": j"
 ';
 
 $result_sectioning{'accentenc'} = {
-  'level' => -1,
   'section_childs' => [
     {
       'cmdname' => 'top',
@@ -3179,10 +3180,15 @@ $result_sectioning{'accentenc'} = {
         },
         'spaces_before_argument' => ' '
       },
-      'level' => 0,
-      'section_up' => {}
+      'section_up' => {},
+      'structure' => {
+        'level' => 0
+      }
     }
-  ]
+  ],
+  'structure' => {
+    'level' => -1
+  }
 };
 $result_sectioning{'accentenc'}{'section_childs'}[0]{'section_up'} = $result_sectioning{'accentenc'};
 
@@ -3194,7 +3200,9 @@ $result_nodes{'accentenc'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 0
+      'structure' => {
+        'level' => 0
+      }
     },
     'normalized' => 'Top-node',
     'spaces_before_argument' => ' '

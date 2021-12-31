@@ -228,13 +228,15 @@ $result_trees{'protected_node_parentheses'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 0,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 3,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 0
+      }
     },
     {
       'args' => [
@@ -533,7 +535,6 @@ top
 ';
 
 $result_sectioning{'protected_node_parentheses'} = {
-  'level' => -1,
   'section_childs' => [
     {
       'cmdname' => 'top',
@@ -547,10 +548,15 @@ $result_sectioning{'protected_node_parentheses'} = {
         },
         'spaces_before_argument' => ' '
       },
-      'level' => 0,
-      'section_up' => {}
+      'section_up' => {},
+      'structure' => {
+        'level' => 0
+      }
     }
-  ]
+  ],
+  'structure' => {
+    'level' => -1
+  }
 };
 $result_sectioning{'protected_node_parentheses'}{'section_childs'}[0]{'section_up'} = $result_sectioning{'protected_node_parentheses'};
 
@@ -562,7 +568,9 @@ $result_nodes{'protected_node_parentheses'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 0
+      'structure' => {
+        'level' => 0
+      }
     },
     'normalized' => 'Top',
     'spaces_before_argument' => ' '

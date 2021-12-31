@@ -195,7 +195,7 @@ sub book_convert_heading_command($$$$$)
   # if set, the id is associated to the heading text
   my $heading_id;
   if ($section) {
-    my $level = $section->{'level'};
+    my $level = $section->{'structure'}->{'level'};
     $result .= join('', $self->close_registered_sections_level($level));
     $self->register_opened_section_level($level, "</div>\n");
 
@@ -232,8 +232,8 @@ sub book_convert_heading_command($$$$$)
         $heading_level = 3;
       }
     }
-  } elsif (defined $element->{'level'}) {
-    $heading_level = $element->{'level'};
+  } elsif (defined $element->{'structure'}->{'level'}) {
+    $heading_level = $element->{'structure'}->{'level'};
     # if the level was changed, set the command name right
     $cmdname_for_heading
       = Texinfo::Structuring::section_level_adjusted_command_name($element);

@@ -131,13 +131,15 @@ $result_trees{'ref_to_top'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 0,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 3,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 0
+      }
     }
   ],
   'type' => 'document_root'
@@ -177,7 +179,6 @@ TOP.
 ';
 
 $result_sectioning{'ref_to_top'} = {
-  'level' => -1,
   'section_childs' => [
     {
       'cmdname' => 'top',
@@ -191,10 +192,15 @@ $result_sectioning{'ref_to_top'} = {
         },
         'spaces_before_argument' => ' '
       },
-      'level' => 0,
-      'section_up' => {}
+      'section_up' => {},
+      'structure' => {
+        'level' => 0
+      }
     }
-  ]
+  ],
+  'structure' => {
+    'level' => -1
+  }
 };
 $result_sectioning{'ref_to_top'}{'section_childs'}[0]{'section_up'} = $result_sectioning{'ref_to_top'};
 
@@ -206,7 +212,9 @@ $result_nodes{'ref_to_top'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 0
+      'structure' => {
+        'level' => 0
+      }
     },
     'normalized' => 'Top',
     'spaces_before_argument' => ' '

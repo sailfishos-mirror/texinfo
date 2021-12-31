@@ -662,13 +662,15 @@ $result_trees{'explicit_sort_key'} = {
         }
       ],
       'extra' => {},
-      'level' => 0,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 2,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 0
+      }
     }
   ],
   'type' => 'document_root'
@@ -800,7 +802,6 @@ and cmd.
 ';
 
 $result_sectioning{'explicit_sort_key'} = {
-  'level' => -1,
   'section_childs' => [
     {
       'cmdname' => 'top',
@@ -814,10 +815,15 @@ $result_sectioning{'explicit_sort_key'} = {
           }
         }
       },
-      'level' => 0,
-      'section_up' => {}
+      'section_up' => {},
+      'structure' => {
+        'level' => 0
+      }
     }
-  ]
+  ],
+  'structure' => {
+    'level' => -1
+  }
 };
 $result_sectioning{'explicit_sort_key'}{'section_childs'}[0]{'section_up'} = $result_sectioning{'explicit_sort_key'};
 
@@ -827,7 +833,9 @@ $result_nodes{'explicit_sort_key'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'level' => 0
+      'structure' => {
+        'level' => 0
+      }
     },
     'isindex' => 1,
     'normalized' => 'Top',

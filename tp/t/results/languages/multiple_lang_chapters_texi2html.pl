@@ -546,13 +546,15 @@ $result_trees{'multiple_lang_chapters_texi2html'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 0,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 13,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 0
+      }
     },
     {
       'args' => [
@@ -870,14 +872,16 @@ $result_trees{'multiple_lang_chapters_texi2html'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 1,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 25,
         'macro' => ''
       },
       'number' => 1,
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 1
+      }
     },
     {
       'args' => [
@@ -1195,14 +1199,16 @@ $result_trees{'multiple_lang_chapters_texi2html'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 1,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 33,
         'macro' => ''
       },
       'number' => 2,
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 1
+      }
     },
     {
       'args' => [
@@ -1474,14 +1480,16 @@ $result_trees{'multiple_lang_chapters_texi2html'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 1,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 41,
         'macro' => ''
       },
       'number' => 3,
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 1
+      }
     },
     {
       'args' => [
@@ -1582,14 +1590,16 @@ $result_trees{'multiple_lang_chapters_texi2html'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 1,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 48,
         'macro' => ''
       },
       'number' => 4,
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 1
+      }
     },
     {
       'args' => [
@@ -1707,14 +1717,16 @@ $result_trees{'multiple_lang_chapters_texi2html'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 1,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 52,
         'macro' => ''
       },
       'number' => 5,
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 1
+      }
     }
   ],
   'type' => 'document_root'
@@ -2043,7 +2055,6 @@ In brazilian. chapter ja.
 ';
 
 $result_sectioning{'multiple_lang_chapters_texi2html'} = {
-  'level' => -1,
   'section_childs' => [
     {
       'cmdname' => 'top',
@@ -2057,7 +2068,6 @@ $result_sectioning{'multiple_lang_chapters_texi2html'} = {
         },
         'spaces_before_argument' => ' '
       },
-      'level' => 0,
       'section_childs' => [
         {
           'cmdname' => 'chapter',
@@ -2071,9 +2081,11 @@ $result_sectioning{'multiple_lang_chapters_texi2html'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'level' => 1,
           'number' => 1,
           'section_up' => {},
+          'structure' => {
+            'level' => 1
+          },
           'toplevel_prev' => {},
           'toplevel_up' => {}
         },
@@ -2089,10 +2101,12 @@ $result_sectioning{'multiple_lang_chapters_texi2html'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'level' => 1,
           'number' => 2,
           'section_prev' => {},
           'section_up' => {},
+          'structure' => {
+            'level' => 1
+          },
           'toplevel_prev' => {},
           'toplevel_up' => {}
         },
@@ -2108,10 +2122,12 @@ $result_sectioning{'multiple_lang_chapters_texi2html'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'level' => 1,
           'number' => 3,
           'section_prev' => {},
           'section_up' => {},
+          'structure' => {
+            'level' => 1
+          },
           'toplevel_prev' => {},
           'toplevel_up' => {}
         },
@@ -2127,10 +2143,12 @@ $result_sectioning{'multiple_lang_chapters_texi2html'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'level' => 1,
           'number' => 4,
           'section_prev' => {},
           'section_up' => {},
+          'structure' => {
+            'level' => 1
+          },
           'toplevel_prev' => {},
           'toplevel_up' => {}
         },
@@ -2146,17 +2164,25 @@ $result_sectioning{'multiple_lang_chapters_texi2html'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'level' => 1,
           'number' => 5,
           'section_prev' => {},
           'section_up' => {},
+          'structure' => {
+            'level' => 1
+          },
           'toplevel_prev' => {},
           'toplevel_up' => {}
         }
       ],
-      'section_up' => {}
+      'section_up' => {},
+      'structure' => {
+        'level' => 0
+      }
     }
-  ]
+  ],
+  'structure' => {
+    'level' => -1
+  }
 };
 $result_sectioning{'multiple_lang_chapters_texi2html'}{'section_childs'}[0]{'section_childs'}[0]{'section_up'} = $result_sectioning{'multiple_lang_chapters_texi2html'}{'section_childs'}[0];
 $result_sectioning{'multiple_lang_chapters_texi2html'}{'section_childs'}[0]{'section_childs'}[0]{'toplevel_prev'} = $result_sectioning{'multiple_lang_chapters_texi2html'}{'section_childs'}[0];
@@ -2187,7 +2213,9 @@ $result_nodes{'multiple_lang_chapters_texi2html'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 0
+      'structure' => {
+        'level' => 0
+      }
     },
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
@@ -2200,8 +2228,10 @@ $result_nodes{'multiple_lang_chapters_texi2html'} = {
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'level' => 1,
-        'number' => 1
+        'number' => 1,
+        'structure' => {
+          'level' => 1
+        }
       },
       'normalized' => 'chapter-ja',
       'spaces_before_argument' => ' '
@@ -2214,8 +2244,10 @@ $result_nodes{'multiple_lang_chapters_texi2html'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'level' => 1,
-          'number' => 2
+          'number' => 2,
+          'structure' => {
+            'level' => 1
+          }
         },
         'normalized' => 'chapter-en',
         'spaces_before_argument' => ' '
@@ -2228,8 +2260,10 @@ $result_nodes{'multiple_lang_chapters_texi2html'} = {
             'extra' => {
               'spaces_before_argument' => ' '
             },
-            'level' => 1,
-            'number' => 3
+            'number' => 3,
+            'structure' => {
+              'level' => 1
+            }
           },
           'normalized' => 'chapter-fr_005fFR',
           'spaces_before_argument' => ' '
@@ -2242,8 +2276,10 @@ $result_nodes{'multiple_lang_chapters_texi2html'} = {
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'level' => 1,
-              'number' => 4
+              'number' => 4,
+              'structure' => {
+                'level' => 1
+              }
             },
             'normalized' => 'chapter-de',
             'spaces_before_argument' => ' '
@@ -2256,8 +2292,10 @@ $result_nodes{'multiple_lang_chapters_texi2html'} = {
                 'extra' => {
                   'spaces_before_argument' => ' '
                 },
-                'level' => 1,
-                'number' => 5
+                'number' => 5,
+                'structure' => {
+                  'level' => 1
+                }
               },
               'normalized' => 'chapter-pt_005fBR',
               'spaces_before_argument' => ' '

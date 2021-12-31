@@ -699,7 +699,8 @@ sub command_text($$;$)
         if (defined($command->{'number'})
             and ($self->get_conf('NUMBER_SECTIONS')
                  or !defined($self->get_conf('NUMBER_SECTIONS')))) {
-          if ($command->{'cmdname'} eq 'appendix' and $command->{'level'} == 1) {
+          if ($command->{'cmdname'} eq 'appendix'
+              and $command->{'structure'}->{'level'} == 1) {
             $tree = $self->gdt('Appendix {number} {section_title}',
                              {'number' => {'text' => $command->{'number'}},
                               'section_title'
@@ -2856,7 +2857,7 @@ sub _convert_heading_command($$$$$)
   # if set, the id is associated to the heading text
   my $heading_id;
   if ($section) {
-    my $level = $section->{'level'};
+    my $level = $section->{'structure'}->{'level'};
     $result .= join('', $self->close_registered_sections_level($level));
     $self->register_opened_section_level($level, "</div>\n");
 
@@ -2893,8 +2894,8 @@ sub _convert_heading_command($$$$$)
         $heading_level = 3;
       }
     }
-  } elsif (defined $element->{'level'}) {
-    $heading_level = $element->{'level'};
+  } elsif (defined $element->{'structure'}->{'level'}) {
+    $heading_level = $element->{'structure'}->{'level'};
     # if the level was changed, set the command name right
     $cmdname_for_heading
       = Texinfo::Structuring::section_level_adjusted_command_name($element);
@@ -6612,7 +6613,7 @@ sub _prepare_tree_units_global_targets($$)
       }
       # find the first level 1 sectioning element to associate the printindex with
       if ($root_command and $root_command->{'cmdname'} ne 'node') {
-        while ($root_command->{'level'} > 1
+        while ($root_command->{'structure'}->{'level'} > 1
                and $root_command->{'section_up'}
                and $root_command->{'section_up'}->{'parent'}) {
           $root_command = $root_command->{'section_up'};
@@ -6904,13 +6905,13 @@ sub _default_format_contents($$;$$)
   my $contents;
   $contents = 1 if ($cmdname eq 'contents');
 
-  my $min_root_level = $section_root->{'section_childs'}->[0]->{'level'};
-  my $max_root_level = $section_root->{'section_childs'}->[0]->{'level'};
+  my $min_root_level = $section_root->{'section_childs'}->[0]->{'structure'}->{'level'};
+  my $max_root_level = $section_root->{'section_childs'}->[0]->{'structure'}->{'level'};
   foreach my $top_section(@{$section_root->{'section_childs'}}) {
-    $min_root_level = $top_section->{'level'}
-      if ($top_section->{'level'} < $min_root_level);
-    $max_root_level = $top_section->{'level'}
-      if ($top_section->{'level'} > $max_root_level);
+    $min_root_level = $top_section->{'structure'}->{'level'}
+      if ($top_section->{'structure'}->{'level'} < $min_root_level);
+    $max_root_level = $top_section->{'structure'}->{'level'}
+      if ($top_section->{'structure'}->{'level'} > $max_root_level);
   }
   # chapter level elements are considered top-level here.
   $max_root_level = 1 if ($max_root_level < 1);
@@ -6949,7 +6950,7 @@ sub _default_format_contents($$;$$)
         my $toc_id = $self->command_contents_target($section, $cmdname);
         if ($text ne '') {
           # no indenting for shortcontents
-          $result .= (' ' x (2*($section->{'level'} - $min_root_level))) 
+          $result .= (' ' x (2*($section->{'structure'}->{'level'} - $min_root_level)))
             if ($contents);
           if ($toc_id ne '' or $href ne '') {
             my $toc_name_attribute = '';
@@ -6977,9 +6978,9 @@ sub _default_format_contents($$;$$)
       }
       # for shortcontents don't do child if child is not toplevel
       if ($section->{'section_childs'}
-          and ($contents or $section->{'level'} < $max_root_level)) {
+          and ($contents or $section->{'structure'}->{'level'} < $max_root_level)) {
         # no indenting for shortcontents
-        $result .= "\n". ' ' x (2*($section->{'level'} - $min_root_level))
+        $result .= "\n". ' ' x (2*($section->{'structure'}->{'level'} - $min_root_level))
           if ($contents);
         $result .= $self->html_attribute_class('ul', $ul_class) .">\n";
         $section = $section->{'section_childs'}->[0];
@@ -6995,7 +6996,7 @@ sub _default_format_contents($$;$$)
         }
         while ($section->{'section_up'}) {
           $section = $section->{'section_up'};
-          $result .= "</li>\n". ' ' x (2*($section->{'level'} - $min_root_level))
+          $result .= "</li>\n". ' ' x (2*($section->{'structure'}->{'level'} - $min_root_level))
             . "</ul>";
           if ($section eq $top_section) {
             $result .= "</li>\n" if ($toplevel_contents);

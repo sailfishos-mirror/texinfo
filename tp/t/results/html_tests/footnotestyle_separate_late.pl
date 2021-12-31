@@ -119,13 +119,15 @@ $result_trees{'footnotestyle_separate_late'} = [
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'level' => 0,
         'line_nr' => {
           'file_name' => '',
           'line_nr' => 4,
           'macro' => ''
         },
-        'parent' => {}
+        'parent' => {},
+        'structure' => {
+          'level' => 0
+        }
       }
     ],
     'extra' => {
@@ -253,14 +255,16 @@ $result_trees{'footnotestyle_separate_late'} = [
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'level' => 1,
         'line_nr' => {
           'file_name' => '',
           'line_nr' => 7,
           'macro' => ''
         },
         'number' => 1,
-        'parent' => {}
+        'parent' => {},
+        'structure' => {
+          'level' => 1
+        }
       }
     ],
     'extra' => {
@@ -421,14 +425,16 @@ $result_trees{'footnotestyle_separate_late'} = [
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'level' => 1,
         'line_nr' => {
           'file_name' => '',
           'line_nr' => 12,
           'macro' => ''
         },
         'number' => 2,
-        'parent' => {}
+        'parent' => {},
+        'structure' => {
+          'level' => 1
+        }
       }
     ],
     'extra' => {
@@ -539,7 +545,6 @@ top
 ';
 
 $result_sectioning{'footnotestyle_separate_late'} = {
-  'level' => -1,
   'section_childs' => [
     {
       'cmdname' => 'top',
@@ -553,7 +558,6 @@ $result_sectioning{'footnotestyle_separate_late'} = {
         },
         'spaces_before_argument' => ' '
       },
-      'level' => 0,
       'section_childs' => [
         {
           'cmdname' => 'chapter',
@@ -567,9 +571,11 @@ $result_sectioning{'footnotestyle_separate_late'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'level' => 1,
           'number' => 1,
           'section_up' => {},
+          'structure' => {
+            'level' => 1
+          },
           'toplevel_prev' => {},
           'toplevel_up' => {}
         },
@@ -585,17 +591,25 @@ $result_sectioning{'footnotestyle_separate_late'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'level' => 1,
           'number' => 2,
           'section_prev' => {},
           'section_up' => {},
+          'structure' => {
+            'level' => 1
+          },
           'toplevel_prev' => {},
           'toplevel_up' => {}
         }
       ],
-      'section_up' => {}
+      'section_up' => {},
+      'structure' => {
+        'level' => 0
+      }
     }
-  ]
+  ],
+  'structure' => {
+    'level' => -1
+  }
 };
 $result_sectioning{'footnotestyle_separate_late'}{'section_childs'}[0]{'section_childs'}[0]{'section_up'} = $result_sectioning{'footnotestyle_separate_late'}{'section_childs'}[0];
 $result_sectioning{'footnotestyle_separate_late'}{'section_childs'}[0]{'section_childs'}[0]{'toplevel_prev'} = $result_sectioning{'footnotestyle_separate_late'}{'section_childs'}[0];
@@ -614,7 +628,9 @@ $result_nodes{'footnotestyle_separate_late'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 0
+      'structure' => {
+        'level' => 0
+      }
     },
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
@@ -627,8 +643,10 @@ $result_nodes{'footnotestyle_separate_late'} = {
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'level' => 1,
-        'number' => 1
+        'number' => 1,
+        'structure' => {
+          'level' => 1
+        }
       },
       'normalized' => 'chap-f',
       'spaces_before_argument' => ' '
@@ -641,8 +659,10 @@ $result_nodes{'footnotestyle_separate_late'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'level' => 1,
-          'number' => 2
+          'number' => 2,
+          'structure' => {
+            'level' => 1
+          }
         },
         'normalized' => 'chap-s',
         'spaces_before_argument' => ' '
@@ -688,7 +708,9 @@ $result_elements{'footnotestyle_separate_late'} = [
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'level' => 0
+        'structure' => {
+          'level' => 0
+        }
       },
       'unit_command' => {}
     },
@@ -708,8 +730,10 @@ $result_elements{'footnotestyle_separate_late'} = [
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'level' => 1,
-              'number' => 1
+              'number' => 1,
+              'structure' => {
+                'level' => 1
+              }
             },
             'unit_command' => {}
           },
@@ -731,8 +755,10 @@ $result_elements{'footnotestyle_separate_late'} = [
                     'extra' => {
                       'spaces_before_argument' => ' '
                     },
-                    'level' => 1,
-                    'number' => 2
+                    'number' => 2,
+                    'structure' => {
+                      'level' => 1
+                    }
                   },
                   'unit_command' => {}
                 },

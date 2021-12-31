@@ -42,13 +42,15 @@ $result_trees{'unnumbered_before_top_node'} = [
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'level' => 1,
         'line_nr' => {
           'file_name' => '',
           'line_nr' => 1,
           'macro' => ''
         },
-        'parent' => {}
+        'parent' => {},
+        'structure' => {
+          'level' => 1
+        }
       },
       {
         'args' => [
@@ -183,17 +185,21 @@ Title titlefont
 ';
 
 $result_sectioning{'unnumbered_before_top_node'} = {
-  'level' => 0,
   'section_childs' => [
     {
       'cmdname' => 'unnumbered',
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 1,
-      'section_up' => {}
+      'section_up' => {},
+      'structure' => {
+        'level' => 1
+      }
     }
-  ]
+  ],
+  'structure' => {
+    'level' => 0
+  }
 };
 $result_sectioning{'unnumbered_before_top_node'}{'section_childs'}[0]{'section_up'} = $result_sectioning{'unnumbered_before_top_node'};
 
@@ -227,7 +233,9 @@ $result_elements{'unnumbered_before_top_node'} = [
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'level' => 1
+        'structure' => {
+          'level' => 1
+        }
       },
       'unit_command' => {}
     },

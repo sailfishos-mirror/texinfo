@@ -2978,13 +2978,15 @@ $result_trees{'encoding_index_ascii'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 0,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 6,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 0
+      }
     }
   ],
   'type' => 'document_root'
@@ -3536,7 +3538,6 @@ top
 ';
 
 $result_sectioning{'encoding_index_ascii'} = {
-  'level' => -1,
   'section_childs' => [
     {
       'cmdname' => 'top',
@@ -3551,10 +3552,15 @@ $result_sectioning{'encoding_index_ascii'} = {
         },
         'spaces_before_argument' => ' '
       },
-      'level' => 0,
-      'section_up' => {}
+      'section_up' => {},
+      'structure' => {
+        'level' => 0
+      }
     }
-  ]
+  ],
+  'structure' => {
+    'level' => -1
+  }
 };
 $result_sectioning{'encoding_index_ascii'}{'section_childs'}[0]{'section_up'} = $result_sectioning{'encoding_index_ascii'};
 
@@ -3566,7 +3572,9 @@ $result_nodes{'encoding_index_ascii'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 0
+      'structure' => {
+        'level' => 0
+      }
     },
     'isindex' => 1,
     'normalized' => 'Top',

@@ -41,13 +41,15 @@ $result_trees{'hole_in_sectioning'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 0,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 0
+      }
     },
     {
       'args' => [
@@ -78,14 +80,16 @@ $result_trees{'hole_in_sectioning'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 1,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 3,
         'macro' => ''
       },
       'number' => 1,
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 1
+      }
     },
     {
       'args' => [
@@ -116,14 +120,16 @@ $result_trees{'hole_in_sectioning'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 2,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 5,
         'macro' => ''
       },
       'number' => '1.1',
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 2
+      }
     },
     {
       'args' => [
@@ -154,14 +160,16 @@ $result_trees{'hole_in_sectioning'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 3,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 7,
         'macro' => ''
       },
       'number' => '1.1.1',
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 3
+      }
     },
     {
       'args' => [
@@ -185,14 +193,16 @@ $result_trees{'hole_in_sectioning'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 3,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 9,
         'macro' => ''
       },
       'number' => '1.1.2',
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 3
+      }
     }
   ],
   'type' => 'document_root'
@@ -247,21 +257,18 @@ $result_texts{'hole_in_sectioning'} = 'Top
 ';
 
 $result_sectioning{'hole_in_sectioning'} = {
-  'level' => -1,
   'section_childs' => [
     {
       'cmdname' => 'top',
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 0,
       'section_childs' => [
         {
           'cmdname' => 'chapter',
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'level' => 1,
           'number' => 1,
           'section_childs' => [
             {
@@ -269,7 +276,6 @@ $result_sectioning{'hole_in_sectioning'} = {
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'level' => 2,
               'number' => '1.1',
               'section_childs' => [
                 {
@@ -277,32 +283,48 @@ $result_sectioning{'hole_in_sectioning'} = {
                   'extra' => {
                     'spaces_before_argument' => ' '
                   },
-                  'level' => 3,
                   'number' => '1.1.1',
-                  'section_up' => {}
+                  'section_up' => {},
+                  'structure' => {
+                    'level' => 3
+                  }
                 },
                 {
                   'cmdname' => 'subsection',
                   'extra' => {
                     'spaces_before_argument' => ' '
                   },
-                  'level' => 3,
                   'number' => '1.1.2',
                   'section_prev' => {},
-                  'section_up' => {}
+                  'section_up' => {},
+                  'structure' => {
+                    'level' => 3
+                  }
                 }
               ],
-              'section_up' => {}
+              'section_up' => {},
+              'structure' => {
+                'level' => 2
+              }
             }
           ],
           'section_up' => {},
+          'structure' => {
+            'level' => 1
+          },
           'toplevel_prev' => {},
           'toplevel_up' => {}
         }
       ],
-      'section_up' => {}
+      'section_up' => {},
+      'structure' => {
+        'level' => 0
+      }
     }
-  ]
+  ],
+  'structure' => {
+    'level' => -1
+  }
 };
 $result_sectioning{'hole_in_sectioning'}{'section_childs'}[0]{'section_childs'}[0]{'section_childs'}[0]{'section_childs'}[0]{'section_up'} = $result_sectioning{'hole_in_sectioning'}{'section_childs'}[0]{'section_childs'}[0]{'section_childs'}[0];
 $result_sectioning{'hole_in_sectioning'}{'section_childs'}[0]{'section_childs'}[0]{'section_childs'}[0]{'section_childs'}[1]{'section_prev'} = $result_sectioning{'hole_in_sectioning'}{'section_childs'}[0]{'section_childs'}[0]{'section_childs'}[0]{'section_childs'}[0];

@@ -184,13 +184,13 @@ $result_trees{'macro_in_misc_commands'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'level' => 3,
           'line_nr' => {
             'file_name' => '',
             'line_nr' => 11,
             'macro' => ''
           },
-          'parent' => {}
+          'parent' => {},
+          'structure' => {}
         },
         {
           'parent' => {},
@@ -3282,13 +3282,15 @@ $result_trees{'macro_in_misc_commands'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 0,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 10,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 0
+      }
     },
     {
       'args' => [
@@ -3490,14 +3492,16 @@ $result_trees{'macro_in_misc_commands'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 1,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 204,
         'macro' => ''
       },
       'number' => 1,
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 1
+      }
     },
     {
       'args' => [
@@ -4269,7 +4273,6 @@ line after exdent
 ';
 
 $result_sectioning{'macro_in_misc_commands'} = {
-  'level' => -1,
   'section_childs' => [
     {
       'cmdname' => 'top',
@@ -4283,7 +4286,6 @@ $result_sectioning{'macro_in_misc_commands'} = {
         },
         'spaces_before_argument' => ' '
       },
-      'level' => 0,
       'section_childs' => [
         {
           'cmdname' => 'chapter',
@@ -4297,16 +4299,24 @@ $result_sectioning{'macro_in_misc_commands'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'level' => 1,
           'number' => 1,
           'section_up' => {},
+          'structure' => {
+            'level' => 1
+          },
           'toplevel_prev' => {},
           'toplevel_up' => {}
         }
       ],
-      'section_up' => {}
+      'section_up' => {},
+      'structure' => {
+        'level' => 0
+      }
     }
-  ]
+  ],
+  'structure' => {
+    'level' => -1
+  }
 };
 $result_sectioning{'macro_in_misc_commands'}{'section_childs'}[0]{'section_childs'}[0]{'section_up'} = $result_sectioning{'macro_in_misc_commands'}{'section_childs'}[0];
 $result_sectioning{'macro_in_misc_commands'}{'section_childs'}[0]{'section_childs'}[0]{'toplevel_prev'} = $result_sectioning{'macro_in_misc_commands'}{'section_childs'}[0];
@@ -4321,7 +4331,9 @@ $result_nodes{'macro_in_misc_commands'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 0
+      'structure' => {
+        'level' => 0
+      }
     },
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
@@ -4334,8 +4346,10 @@ $result_nodes{'macro_in_misc_commands'} = {
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'level' => 1,
-        'number' => 1
+        'number' => 1,
+        'structure' => {
+          'level' => 1
+        }
       },
       'normalized' => 'node-atext',
       'spaces_before_argument' => ' '

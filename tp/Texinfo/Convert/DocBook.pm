@@ -389,7 +389,7 @@ sub _docbook_section_element($$)
   my $self = shift;
   my $element = shift;
 
-  my $heading_level = $element->{'level'};
+  my $heading_level = $element->{'structure'}->{'level'};
   if (exists $docbook_sections{$heading_level}) {
     return $docbook_sections{$heading_level};
   }

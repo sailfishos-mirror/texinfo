@@ -42,13 +42,15 @@ $result_trees{'part_before_section'} = [
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'level' => 0,
         'line_nr' => {
           'file_name' => '',
           'line_nr' => 1,
           'macro' => ''
         },
-        'parent' => {}
+        'parent' => {},
+        'structure' => {
+          'level' => 0
+        }
       },
       {
         'args' => [
@@ -73,14 +75,16 @@ $result_trees{'part_before_section'} = [
           'associated_part' => {},
           'spaces_before_argument' => ' '
         },
-        'level' => 1,
         'line_nr' => {
           'file_name' => '',
           'line_nr' => 3,
           'macro' => ''
         },
         'number' => 1,
-        'parent' => {}
+        'parent' => {},
+        'structure' => {
+          'level' => 1
+        }
       }
     ],
     'extra' => {
@@ -117,7 +121,6 @@ $result_texts{'part_before_section'} = 'part
 ';
 
 $result_sectioning{'part_before_section'} = {
-  'level' => -1,
   'section_childs' => [
     {
       'cmdname' => 'part',
@@ -128,19 +131,26 @@ $result_sectioning{'part_before_section'} = {
             'associated_part' => {},
             'spaces_before_argument' => ' '
           },
-          'level' => 1,
           'number' => 1,
-          'section_up' => {}
+          'section_up' => {},
+          'structure' => {
+            'level' => 1
+          }
         },
         'spaces_before_argument' => ' '
       },
-      'level' => 0,
       'section_childs' => [
         {}
       ],
-      'section_up' => {}
+      'section_up' => {},
+      'structure' => {
+        'level' => 0
+      }
     }
-  ]
+  ],
+  'structure' => {
+    'level' => -1
+  }
 };
 $result_sectioning{'part_before_section'}{'section_childs'}[0]{'extra'}{'part_associated_section'}{'extra'}{'associated_part'} = $result_sectioning{'part_before_section'}{'section_childs'}[0];
 $result_sectioning{'part_before_section'}{'section_childs'}[0]{'extra'}{'part_associated_section'}{'section_up'} = $result_sectioning{'part_before_section'}{'section_childs'}[0];
@@ -174,12 +184,16 @@ $result_elements{'part_before_section'} = [
             'extra' => {
               'spaces_before_argument' => ' '
             },
-            'level' => 0
+            'structure' => {
+              'level' => 0
+            }
           },
           'spaces_before_argument' => ' '
         },
-        'level' => 1,
-        'number' => 1
+        'number' => 1,
+        'structure' => {
+          'level' => 1
+        }
       },
       'unit_command' => {}
     },

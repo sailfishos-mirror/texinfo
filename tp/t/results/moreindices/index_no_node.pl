@@ -357,13 +357,15 @@ $result_trees{'index_no_node'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 1,
       'line_nr' => {
         'file_name' => 'index_no_node.texi',
         'line_nr' => 10,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 1
+      }
     },
     {
       'args' => [
@@ -740,13 +742,15 @@ $result_trees{'index_no_node'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 1,
       'line_nr' => {
         'file_name' => 'index_no_node.texi',
         'line_nr' => 19,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 1
+      }
     },
     {
       'args' => [
@@ -936,13 +940,15 @@ $result_trees{'index_no_node'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 2,
       'line_nr' => {
         'file_name' => 'index_no_node.texi',
         'line_nr' => 34,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 2
+      }
     },
     {
       'args' => [
@@ -1101,14 +1107,16 @@ $result_trees{'index_no_node'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 1,
       'line_nr' => {
         'file_name' => 'index_no_node.texi',
         'line_nr' => 42,
         'macro' => ''
       },
       'number' => 1,
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 1
+      }
     },
     {
       'args' => [
@@ -1156,14 +1164,16 @@ $result_trees{'index_no_node'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 1,
       'line_nr' => {
         'file_name' => 'index_no_node.texi',
         'line_nr' => 49,
         'macro' => ''
       },
       'number' => 2,
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 1
+      }
     },
     {
       'args' => [
@@ -1432,34 +1442,39 @@ In chapter 2
 ';
 
 $result_sectioning{'index_no_node'} = {
-  'level' => 0,
   'section_childs' => [
     {
       'cmdname' => 'unnumbered',
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 1,
-      'section_up' => {}
+      'section_up' => {},
+      'structure' => {
+        'level' => 1
+      }
     },
     {
       'cmdname' => 'top',
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 1,
       'section_childs' => [
         {
           'cmdname' => 'section',
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'level' => 2,
-          'section_up' => {}
+          'section_up' => {},
+          'structure' => {
+            'level' => 2
+          }
         }
       ],
       'section_prev' => {},
       'section_up' => {},
+      'structure' => {
+        'level' => 1
+      },
       'toplevel_prev' => {}
     },
     {
@@ -1467,10 +1482,12 @@ $result_sectioning{'index_no_node'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 1,
       'number' => 1,
       'section_prev' => {},
       'section_up' => {},
+      'structure' => {
+        'level' => 1
+      },
       'toplevel_prev' => {},
       'toplevel_up' => {}
     },
@@ -1479,14 +1496,19 @@ $result_sectioning{'index_no_node'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 1,
       'number' => 2,
       'section_prev' => {},
       'section_up' => {},
+      'structure' => {
+        'level' => 1
+      },
       'toplevel_prev' => {},
       'toplevel_up' => {}
     }
-  ]
+  ],
+  'structure' => {
+    'level' => 0
+  }
 };
 $result_sectioning{'index_no_node'}{'section_childs'}[0]{'section_up'} = $result_sectioning{'index_no_node'};
 $result_sectioning{'index_no_node'}{'section_childs'}[1]{'section_childs'}[0]{'section_up'} = $result_sectioning{'index_no_node'}{'section_childs'}[1];

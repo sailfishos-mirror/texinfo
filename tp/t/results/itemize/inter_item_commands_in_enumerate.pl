@@ -118,13 +118,15 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 0,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 4,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 0
+      }
     },
     {
       'args' => [
@@ -1112,14 +1114,16 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 1,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 7,
         'macro' => ''
       },
       'number' => 1,
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 1
+      }
     }
   ],
   'type' => 'document_root'
@@ -1358,7 +1362,6 @@ Title
 ';
 
 $result_sectioning{'inter_item_commands_in_enumerate'} = {
-  'level' => -1,
   'section_childs' => [
     {
       'cmdname' => 'top',
@@ -1372,7 +1375,6 @@ $result_sectioning{'inter_item_commands_in_enumerate'} = {
         },
         'spaces_before_argument' => ' '
       },
-      'level' => 0,
       'section_childs' => [
         {
           'cmdname' => 'chapter',
@@ -1386,16 +1388,24 @@ $result_sectioning{'inter_item_commands_in_enumerate'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'level' => 1,
           'number' => 1,
           'section_up' => {},
+          'structure' => {
+            'level' => 1
+          },
           'toplevel_prev' => {},
           'toplevel_up' => {}
         }
       ],
-      'section_up' => {}
+      'section_up' => {},
+      'structure' => {
+        'level' => 0
+      }
     }
-  ]
+  ],
+  'structure' => {
+    'level' => -1
+  }
 };
 $result_sectioning{'inter_item_commands_in_enumerate'}{'section_childs'}[0]{'section_childs'}[0]{'section_up'} = $result_sectioning{'inter_item_commands_in_enumerate'}{'section_childs'}[0];
 $result_sectioning{'inter_item_commands_in_enumerate'}{'section_childs'}[0]{'section_childs'}[0]{'toplevel_prev'} = $result_sectioning{'inter_item_commands_in_enumerate'}{'section_childs'}[0];
@@ -1410,7 +1420,9 @@ $result_nodes{'inter_item_commands_in_enumerate'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 0
+      'structure' => {
+        'level' => 0
+      }
     },
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
@@ -1423,8 +1435,10 @@ $result_nodes{'inter_item_commands_in_enumerate'} = {
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'level' => 1,
-        'number' => 1
+        'number' => 1,
+        'structure' => {
+          'level' => 1
+        }
       },
       'normalized' => 'chapter',
       'spaces_before_argument' => ' '

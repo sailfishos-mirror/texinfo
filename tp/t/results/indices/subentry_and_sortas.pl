@@ -111,13 +111,15 @@ $result_trees{'subentry_and_sortas'} = {
         }
       ],
       'extra' => {},
-      'level' => 0,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 4,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 0
+      }
     },
     {
       'args' => [
@@ -518,14 +520,16 @@ $result_trees{'subentry_and_sortas'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 1,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 7,
         'macro' => ''
       },
       'number' => 1,
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 1
+      }
     }
   ],
   'type' => 'document_root'
@@ -626,7 +630,6 @@ $result_texts{'subentry_and_sortas'} = '
 ';
 
 $result_sectioning{'subentry_and_sortas'} = {
-  'level' => -1,
   'section_childs' => [
     {
       'cmdname' => 'top',
@@ -639,7 +642,6 @@ $result_sectioning{'subentry_and_sortas'} = {
           }
         }
       },
-      'level' => 0,
       'section_childs' => [
         {
           'cmdname' => 'chapter',
@@ -654,16 +656,24 @@ $result_sectioning{'subentry_and_sortas'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'level' => 1,
           'number' => 1,
           'section_up' => {},
+          'structure' => {
+            'level' => 1
+          },
           'toplevel_prev' => {},
           'toplevel_up' => {}
         }
       ],
-      'section_up' => {}
+      'section_up' => {},
+      'structure' => {
+        'level' => 0
+      }
     }
-  ]
+  ],
+  'structure' => {
+    'level' => -1
+  }
 };
 $result_sectioning{'subentry_and_sortas'}{'section_childs'}[0]{'section_childs'}[0]{'section_up'} = $result_sectioning{'subentry_and_sortas'}{'section_childs'}[0];
 $result_sectioning{'subentry_and_sortas'}{'section_childs'}[0]{'section_childs'}[0]{'toplevel_prev'} = $result_sectioning{'subentry_and_sortas'}{'section_childs'}[0];
@@ -676,7 +686,9 @@ $result_nodes{'subentry_and_sortas'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'level' => 0
+      'structure' => {
+        'level' => 0
+      }
     },
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
@@ -689,8 +701,10 @@ $result_nodes{'subentry_and_sortas'} = {
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'level' => 1,
-        'number' => 1
+        'number' => 1,
+        'structure' => {
+          'level' => 1
+        }
       },
       'isindex' => 1,
       'normalized' => 'chapter-index',

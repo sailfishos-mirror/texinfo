@@ -1659,13 +1659,15 @@ $result_trees{'numbering_captions_listoffloats'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 0,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 2,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 0
+      }
     },
     {
       'args' => [
@@ -2799,14 +2801,16 @@ $result_trees{'numbering_captions_listoffloats'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 1,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 65,
         'macro' => ''
       },
       'number' => 1,
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 1
+      }
     },
     {
       'args' => [
@@ -2991,14 +2995,16 @@ $result_trees{'numbering_captions_listoffloats'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 2,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 102,
         'macro' => ''
       },
       'number' => '1.1',
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 2
+      }
     },
     {
       'args' => [
@@ -3527,13 +3533,15 @@ $result_trees{'numbering_captions_listoffloats'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 1,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 111,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 1
+      }
     },
     {
       'args' => [
@@ -3786,13 +3794,15 @@ $result_trees{'numbering_captions_listoffloats'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 2,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 130,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 2
+      }
     },
     {
       'args' => [
@@ -4149,14 +4159,16 @@ $result_trees{'numbering_captions_listoffloats'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 1,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 140,
         'macro' => ''
       },
       'number' => 2,
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 1
+      }
     },
     {
       'args' => [
@@ -4575,13 +4587,15 @@ $result_trees{'numbering_captions_listoffloats'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 2,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 152,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 2
+      }
     },
     {
       'args' => [
@@ -4834,14 +4848,16 @@ $result_trees{'numbering_captions_listoffloats'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 1,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 168,
         'macro' => ''
       },
       'number' => 'A',
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 1
+      }
     },
     {
       'args' => [
@@ -5487,13 +5503,15 @@ $result_trees{'numbering_captions_listoffloats'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 1,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 178,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 1
+      }
     },
     {
       'args' => [
@@ -6739,7 +6757,6 @@ A ref to float without type label but no type.
 ';
 
 $result_sectioning{'numbering_captions_listoffloats'} = {
-  'level' => -1,
   'section_childs' => [
     {
       'cmdname' => 'top',
@@ -6753,7 +6770,6 @@ $result_sectioning{'numbering_captions_listoffloats'} = {
         },
         'spaces_before_argument' => ' '
       },
-      'level' => 0,
       'section_childs' => [
         {
           'cmdname' => 'chapter',
@@ -6767,7 +6783,6 @@ $result_sectioning{'numbering_captions_listoffloats'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'level' => 1,
           'number' => 1,
           'section_childs' => [
             {
@@ -6782,12 +6797,17 @@ $result_sectioning{'numbering_captions_listoffloats'} = {
                 },
                 'spaces_before_argument' => ' '
               },
-              'level' => 2,
               'number' => '1.1',
-              'section_up' => {}
+              'section_up' => {},
+              'structure' => {
+                'level' => 2
+              }
             }
           ],
           'section_up' => {},
+          'structure' => {
+            'level' => 1
+          },
           'toplevel_prev' => {},
           'toplevel_up' => {}
         },
@@ -6803,7 +6823,6 @@ $result_sectioning{'numbering_captions_listoffloats'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'level' => 1,
           'section_childs' => [
             {
               'cmdname' => 'section',
@@ -6817,12 +6836,17 @@ $result_sectioning{'numbering_captions_listoffloats'} = {
                 },
                 'spaces_before_argument' => ' '
               },
-              'level' => 2,
-              'section_up' => {}
+              'section_up' => {},
+              'structure' => {
+                'level' => 2
+              }
             }
           ],
           'section_prev' => {},
           'section_up' => {},
+          'structure' => {
+            'level' => 1
+          },
           'toplevel_prev' => {},
           'toplevel_up' => {}
         },
@@ -6838,7 +6862,6 @@ $result_sectioning{'numbering_captions_listoffloats'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'level' => 1,
           'number' => 2,
           'section_childs' => [
             {
@@ -6853,12 +6876,17 @@ $result_sectioning{'numbering_captions_listoffloats'} = {
                 },
                 'spaces_before_argument' => ' '
               },
-              'level' => 2,
-              'section_up' => {}
+              'section_up' => {},
+              'structure' => {
+                'level' => 2
+              }
             }
           ],
           'section_prev' => {},
           'section_up' => {},
+          'structure' => {
+            'level' => 1
+          },
           'toplevel_prev' => {},
           'toplevel_up' => {}
         },
@@ -6874,10 +6902,12 @@ $result_sectioning{'numbering_captions_listoffloats'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'level' => 1,
           'number' => 'A',
           'section_prev' => {},
           'section_up' => {},
+          'structure' => {
+            'level' => 1
+          },
           'toplevel_prev' => {},
           'toplevel_up' => {}
         },
@@ -6893,16 +6923,24 @@ $result_sectioning{'numbering_captions_listoffloats'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'level' => 1,
           'section_prev' => {},
           'section_up' => {},
+          'structure' => {
+            'level' => 1
+          },
           'toplevel_prev' => {},
           'toplevel_up' => {}
         }
       ],
-      'section_up' => {}
+      'section_up' => {},
+      'structure' => {
+        'level' => 0
+      }
     }
-  ]
+  ],
+  'structure' => {
+    'level' => -1
+  }
 };
 $result_sectioning{'numbering_captions_listoffloats'}{'section_childs'}[0]{'section_childs'}[0]{'section_childs'}[0]{'section_up'} = $result_sectioning{'numbering_captions_listoffloats'}{'section_childs'}[0]{'section_childs'}[0];
 $result_sectioning{'numbering_captions_listoffloats'}{'section_childs'}[0]{'section_childs'}[0]{'section_up'} = $result_sectioning{'numbering_captions_listoffloats'}{'section_childs'}[0];
@@ -6936,7 +6974,9 @@ $result_nodes{'numbering_captions_listoffloats'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 0
+      'structure' => {
+        'level' => 0
+      }
     },
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
@@ -6949,8 +6989,10 @@ $result_nodes{'numbering_captions_listoffloats'} = {
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'level' => 1,
-        'number' => 1
+        'number' => 1,
+        'structure' => {
+          'level' => 1
+        }
       },
       'normalized' => 'chapter',
       'spaces_before_argument' => ' '
@@ -6963,8 +7005,10 @@ $result_nodes{'numbering_captions_listoffloats'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'level' => 2,
-          'number' => '1.1'
+          'number' => '1.1',
+          'structure' => {
+            'level' => 2
+          }
         },
         'normalized' => 'section',
         'spaces_before_argument' => ' '
@@ -6994,7 +7038,9 @@ $result_nodes{'numbering_captions_listoffloats'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'level' => 1
+          'structure' => {
+            'level' => 1
+          }
         },
         'normalized' => 'Unnumbered',
         'spaces_before_argument' => ' '
@@ -7007,7 +7053,9 @@ $result_nodes{'numbering_captions_listoffloats'} = {
             'extra' => {
               'spaces_before_argument' => ' '
             },
-            'level' => 2
+            'structure' => {
+              'level' => 2
+            }
           },
           'normalized' => 'Section-within-unnumbered',
           'spaces_before_argument' => ' '
@@ -7037,8 +7085,10 @@ $result_nodes{'numbering_captions_listoffloats'} = {
             'extra' => {
               'spaces_before_argument' => ' '
             },
-            'level' => 1,
-            'number' => 2
+            'number' => 2,
+            'structure' => {
+              'level' => 1
+            }
           },
           'normalized' => 'Chapter-with-unnumbsubsec',
           'spaces_before_argument' => ' '
@@ -7051,7 +7101,9 @@ $result_nodes{'numbering_captions_listoffloats'} = {
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'level' => 2
+              'structure' => {
+                'level' => 2
+              }
             },
             'normalized' => 'unnumbered-sec',
             'spaces_before_argument' => ' '
@@ -7081,8 +7133,10 @@ $result_nodes{'numbering_captions_listoffloats'} = {
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'level' => 1,
-              'number' => 'A'
+              'number' => 'A',
+              'structure' => {
+                'level' => 1
+              }
             },
             'normalized' => 'Appendix-for-float',
             'spaces_before_argument' => ' '
@@ -7095,7 +7149,9 @@ $result_nodes{'numbering_captions_listoffloats'} = {
                 'extra' => {
                   'spaces_before_argument' => ' '
                 },
-                'level' => 1
+                'structure' => {
+                  'level' => 1
+                }
               },
               'normalized' => 'list-of-floats',
               'spaces_before_argument' => ' '
@@ -7286,7 +7342,9 @@ $result_floats{'numbering_captions_listoffloats'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'level' => 0
+          'structure' => {
+            'level' => 0
+          }
         },
         'normalized' => 'label-but-no-type',
         'shortcaption' => {
@@ -7422,8 +7480,10 @@ $result_floats{'numbering_captions_listoffloats'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'level' => 1,
-          'number' => 1
+          'number' => 1,
+          'structure' => {
+            'level' => 1
+          }
         },
         'normalized' => 'label-but-no-type-in-chapter',
         'shortcaption' => {
@@ -7461,7 +7521,9 @@ $result_floats{'numbering_captions_listoffloats'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'level' => 1
+          'structure' => {
+            'level' => 1
+          }
         },
         'normalized' => 'label-but-no-type-in-unnumbered',
         'shortcaption' => {
@@ -7499,7 +7561,9 @@ $result_floats{'numbering_captions_listoffloats'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'level' => 2
+          'structure' => {
+            'level' => 2
+          }
         },
         'normalized' => 'label-but-no-type-in-unnumbered-subsec-in-chapter',
         'shortcaption' => {
@@ -7669,8 +7733,10 @@ $result_floats{'numbering_captions_listoffloats'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'level' => 2,
-          'number' => '1.1'
+          'number' => '1.1',
+          'structure' => {
+            'level' => 2
+          }
         },
         'normalized' => 'text-in-section',
         'spaces_before_argument' => ' ',
@@ -7744,7 +7810,9 @@ $result_floats{'numbering_captions_listoffloats'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'level' => 2
+          'structure' => {
+            'level' => 2
+          }
         },
         'normalized' => 'Section-within-unnumbered-float',
         'shortcaption' => {
@@ -7787,8 +7855,10 @@ $result_floats{'numbering_captions_listoffloats'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'level' => 1,
-          'number' => 2
+          'number' => 2,
+          'structure' => {
+            'level' => 1
+          }
         },
         'normalized' => 'Chapter-with-subsec-float',
         'shortcaption' => {
@@ -7868,8 +7938,10 @@ $result_floats{'numbering_captions_listoffloats'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'level' => 1,
-          'number' => 'A'
+          'number' => 'A',
+          'structure' => {
+            'level' => 1
+          }
         },
         'normalized' => 'appendix-sec-float',
         'shortcaption' => {

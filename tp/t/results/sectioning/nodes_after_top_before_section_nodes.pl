@@ -478,14 +478,16 @@ $result_trees{'nodes_after_top_before_section_nodes'} = [
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'level' => 3,
         'line_nr' => {
           'file_name' => '',
           'line_nr' => 13,
           'macro' => ''
         },
         'number' => 1,
-        'parent' => {}
+        'parent' => {},
+        'structure' => {
+          'level' => 3
+        }
       }
     ],
     'extra' => {
@@ -606,7 +608,6 @@ second node
 ';
 
 $result_sectioning{'nodes_after_top_before_section_nodes'} = {
-  'level' => 2,
   'section_childs' => [
     {
       'cmdname' => 'subsection',
@@ -620,11 +621,16 @@ $result_sectioning{'nodes_after_top_before_section_nodes'} = {
         },
         'spaces_before_argument' => ' '
       },
-      'level' => 3,
       'number' => 1,
-      'section_up' => {}
+      'section_up' => {},
+      'structure' => {
+        'level' => 3
+      }
     }
-  ]
+  ],
+  'structure' => {
+    'level' => 2
+  }
 };
 $result_sectioning{'nodes_after_top_before_section_nodes'}{'section_childs'}[0]{'section_up'} = $result_sectioning{'nodes_after_top_before_section_nodes'};
 
@@ -648,8 +654,10 @@ $result_nodes{'nodes_after_top_before_section_nodes'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'level' => 3,
-          'number' => 1
+          'number' => 1,
+          'structure' => {
+            'level' => 3
+          }
         },
         'normalized' => 'third-node',
         'spaces_before_argument' => ' '
@@ -776,8 +784,10 @@ $result_elements{'nodes_after_top_before_section_nodes'} = [
                     'extra' => {
                       'spaces_before_argument' => ' '
                     },
-                    'level' => 3,
-                    'number' => 1
+                    'number' => 1,
+                    'structure' => {
+                      'level' => 3
+                    }
                   },
                   'unit_command' => {}
                 },

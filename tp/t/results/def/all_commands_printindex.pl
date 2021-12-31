@@ -4557,13 +4557,13 @@ $result_trees{'all_commands_printindex'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'level' => 2,
           'line_nr' => {
             'file_name' => '',
             'line_nr' => 110,
             'macro' => ''
           },
-          'parent' => {}
+          'parent' => {},
+          'structure' => {}
         },
         {
           'args' => [
@@ -4623,13 +4623,13 @@ $result_trees{'all_commands_printindex'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'level' => 2,
           'line_nr' => {
             'file_name' => '',
             'line_nr' => 113,
             'macro' => ''
           },
-          'parent' => {}
+          'parent' => {},
+          'structure' => {}
         },
         {
           'args' => [
@@ -4689,13 +4689,13 @@ $result_trees{'all_commands_printindex'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'level' => 2,
           'line_nr' => {
             'file_name' => '',
             'line_nr' => 116,
             'macro' => ''
           },
-          'parent' => {}
+          'parent' => {},
+          'structure' => {}
         },
         {
           'args' => [

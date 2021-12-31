@@ -13474,13 +13474,13 @@ $result_trees{'all_commands_delimiters_printindex'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'level' => 2,
           'line_nr' => {
             'file_name' => '',
             'line_nr' => 153,
             'macro' => ''
           },
-          'parent' => {}
+          'parent' => {},
+          'structure' => {}
         },
         {
           'args' => [
@@ -13540,13 +13540,13 @@ $result_trees{'all_commands_delimiters_printindex'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'level' => 2,
           'line_nr' => {
             'file_name' => '',
             'line_nr' => 156,
             'macro' => ''
           },
-          'parent' => {}
+          'parent' => {},
+          'structure' => {}
         },
         {
           'args' => [
@@ -13606,13 +13606,13 @@ $result_trees{'all_commands_delimiters_printindex'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'level' => 2,
           'line_nr' => {
             'file_name' => '',
             'line_nr' => 159,
             'macro' => ''
           },
-          'parent' => {}
+          'parent' => {},
+          'structure' => {}
         },
         {
           'args' => [

@@ -386,13 +386,15 @@ $result_trees{'special_docbook_unnumbered'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 0,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 2,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 0
+      }
     },
     {
       'args' => [
@@ -481,13 +483,15 @@ $result_trees{'special_docbook_unnumbered'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 1,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 14,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 1
+      }
     },
     {
       'args' => [
@@ -576,13 +580,15 @@ $result_trees{'special_docbook_unnumbered'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 1,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 19,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 1
+      }
     },
     {
       'args' => [
@@ -671,13 +677,15 @@ $result_trees{'special_docbook_unnumbered'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 1,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 24,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 1
+      }
     },
     {
       'args' => [
@@ -760,14 +768,16 @@ $result_trees{'special_docbook_unnumbered'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 1,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 29,
         'macro' => ''
       },
       'number' => 1,
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 1
+      }
     }
   ],
   'type' => 'document_root'
@@ -947,7 +957,6 @@ Ack!
 ';
 
 $result_sectioning{'special_docbook_unnumbered'} = {
-  'level' => -1,
   'section_childs' => [
     {
       'cmdname' => 'top',
@@ -961,7 +970,6 @@ $result_sectioning{'special_docbook_unnumbered'} = {
         },
         'spaces_before_argument' => ' '
       },
-      'level' => 0,
       'section_childs' => [
         {
           'cmdname' => 'unnumbered',
@@ -975,8 +983,10 @@ $result_sectioning{'special_docbook_unnumbered'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'level' => 1,
           'section_up' => {},
+          'structure' => {
+            'level' => 1
+          },
           'toplevel_prev' => {},
           'toplevel_up' => {}
         },
@@ -992,9 +1002,11 @@ $result_sectioning{'special_docbook_unnumbered'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'level' => 1,
           'section_prev' => {},
           'section_up' => {},
+          'structure' => {
+            'level' => 1
+          },
           'toplevel_prev' => {},
           'toplevel_up' => {}
         },
@@ -1010,9 +1022,11 @@ $result_sectioning{'special_docbook_unnumbered'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'level' => 1,
           'section_prev' => {},
           'section_up' => {},
+          'structure' => {
+            'level' => 1
+          },
           'toplevel_prev' => {},
           'toplevel_up' => {}
         },
@@ -1028,17 +1042,25 @@ $result_sectioning{'special_docbook_unnumbered'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'level' => 1,
           'number' => 1,
           'section_prev' => {},
           'section_up' => {},
+          'structure' => {
+            'level' => 1
+          },
           'toplevel_prev' => {},
           'toplevel_up' => {}
         }
       ],
-      'section_up' => {}
+      'section_up' => {},
+      'structure' => {
+        'level' => 0
+      }
     }
-  ]
+  ],
+  'structure' => {
+    'level' => -1
+  }
 };
 $result_sectioning{'special_docbook_unnumbered'}{'section_childs'}[0]{'section_childs'}[0]{'section_up'} = $result_sectioning{'special_docbook_unnumbered'}{'section_childs'}[0];
 $result_sectioning{'special_docbook_unnumbered'}{'section_childs'}[0]{'section_childs'}[0]{'toplevel_prev'} = $result_sectioning{'special_docbook_unnumbered'}{'section_childs'}[0];
@@ -1065,7 +1087,9 @@ $result_nodes{'special_docbook_unnumbered'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 0
+      'structure' => {
+        'level' => 0
+      }
     },
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
@@ -1078,7 +1102,9 @@ $result_nodes{'special_docbook_unnumbered'} = {
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'level' => 1
+        'structure' => {
+          'level' => 1
+        }
       },
       'normalized' => 'Dedication',
       'spaces_before_argument' => ' '
@@ -1091,7 +1117,9 @@ $result_nodes{'special_docbook_unnumbered'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'level' => 1
+          'structure' => {
+            'level' => 1
+          }
         },
         'normalized' => 'preface',
         'spaces_before_argument' => ' '
@@ -1104,7 +1132,9 @@ $result_nodes{'special_docbook_unnumbered'} = {
             'extra' => {
               'spaces_before_argument' => ' '
             },
-            'level' => 1
+            'structure' => {
+              'level' => 1
+            }
           },
           'normalized' => 'colophon',
           'spaces_before_argument' => ' '
@@ -1117,8 +1147,10 @@ $result_nodes{'special_docbook_unnumbered'} = {
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'level' => 1,
-              'number' => 1
+              'number' => 1,
+              'structure' => {
+                'level' => 1
+              }
             },
             'normalized' => 'acknowledgements',
             'spaces_before_argument' => ' '

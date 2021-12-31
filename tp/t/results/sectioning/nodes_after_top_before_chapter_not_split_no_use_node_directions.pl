@@ -455,14 +455,16 @@ $result_trees{'nodes_after_top_before_chapter_not_split_no_use_node_directions'}
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 1,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 13,
         'macro' => ''
       },
       'number' => 1,
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 1
+      }
     }
   ],
   'type' => 'document_root'
@@ -565,7 +567,6 @@ second node
 ';
 
 $result_sectioning{'nodes_after_top_before_chapter_not_split_no_use_node_directions'} = {
-  'level' => 0,
   'section_childs' => [
     {
       'cmdname' => 'chapter',
@@ -579,11 +580,16 @@ $result_sectioning{'nodes_after_top_before_chapter_not_split_no_use_node_directi
         },
         'spaces_before_argument' => ' '
       },
-      'level' => 1,
       'number' => 1,
-      'section_up' => {}
+      'section_up' => {},
+      'structure' => {
+        'level' => 1
+      }
     }
-  ]
+  ],
+  'structure' => {
+    'level' => 0
+  }
 };
 $result_sectioning{'nodes_after_top_before_chapter_not_split_no_use_node_directions'}{'section_childs'}[0]{'section_up'} = $result_sectioning{'nodes_after_top_before_chapter_not_split_no_use_node_directions'};
 
@@ -607,8 +613,10 @@ $result_nodes{'nodes_after_top_before_chapter_not_split_no_use_node_directions'}
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'level' => 1,
-          'number' => 1
+          'number' => 1,
+          'structure' => {
+            'level' => 1
+          }
         },
         'normalized' => 'third-node',
         'spaces_before_argument' => ' '

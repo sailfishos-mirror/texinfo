@@ -482,13 +482,15 @@ $result_trees{'same_index_entry_merged_indices'} = {
         }
       ],
       'extra' => {},
-      'level' => 0,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 4,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 0
+      }
     }
   ],
   'type' => 'document_root'
@@ -592,7 +594,6 @@ This variable represents MMM Mode.
 ';
 
 $result_sectioning{'same_index_entry_merged_indices'} = {
-  'level' => -1,
   'section_childs' => [
     {
       'cmdname' => 'top',
@@ -606,10 +607,15 @@ $result_sectioning{'same_index_entry_merged_indices'} = {
           }
         }
       },
-      'level' => 0,
-      'section_up' => {}
+      'section_up' => {},
+      'structure' => {
+        'level' => 0
+      }
     }
-  ]
+  ],
+  'structure' => {
+    'level' => -1
+  }
 };
 $result_sectioning{'same_index_entry_merged_indices'}{'section_childs'}[0]{'section_up'} = $result_sectioning{'same_index_entry_merged_indices'};
 
@@ -619,7 +625,9 @@ $result_nodes{'same_index_entry_merged_indices'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'level' => 0
+      'structure' => {
+        'level' => 0
+      }
     },
     'isindex' => 1,
     'normalized' => 'Top',

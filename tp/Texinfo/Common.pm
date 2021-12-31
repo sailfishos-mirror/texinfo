@@ -2433,7 +2433,8 @@ sub debug_print_element($)
   my $text = '';
   $type = "($current->{'type'})" if (defined($current->{'type'}));
   $cmd = "\@$current->{'cmdname'}" if (defined($current->{'cmdname'}));
-  $cmd .= "($current->{'level'})" if (defined($current->{'level'}));
+  $cmd .= "($current->{'structure'}->{'level'})"
+        if (defined($current->{'structure'}->{'level'}));
   if (defined($current->{'text'})) {
     my $text_str = $current->{'text'};
     $text_str =~ s/\n/\\n/g;

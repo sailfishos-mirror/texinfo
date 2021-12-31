@@ -864,14 +864,16 @@ $result_trees{'texi_glossary'} = {
                       'extra' => {
                         'spaces_before_argument' => ' '
                       },
-                      'level' => 1,
                       'line_nr' => {
                         'file_name' => 'glossary.texi',
                         'line_nr' => 46,
                         'macro' => ''
                       },
                       'number' => 1,
-                      'parent' => {}
+                      'parent' => {},
+                      'structure' => {
+                        'level' => 1
+                      }
                     },
                     'type' => 'paragraph'
                   }
@@ -1079,13 +1081,15 @@ $result_trees{'texi_glossary'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 0,
       'line_nr' => {
         'file_name' => 'glossary.texi',
         'line_nr' => 36,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 0
+      }
     },
     {
       'args' => [
@@ -1402,7 +1406,6 @@ name2 text2
 ';
 
 $result_sectioning{'texi_glossary'} = {
-  'level' => -1,
   'section_childs' => [
     {
       'cmdname' => 'top',
@@ -1416,7 +1419,6 @@ $result_sectioning{'texi_glossary'} = {
         },
         'spaces_before_argument' => ' '
       },
-      'level' => 0,
       'section_childs' => [
         {
           'cmdname' => 'chapter',
@@ -1430,16 +1432,24 @@ $result_sectioning{'texi_glossary'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'level' => 1,
           'number' => 1,
           'section_up' => {},
+          'structure' => {
+            'level' => 1
+          },
           'toplevel_prev' => {},
           'toplevel_up' => {}
         }
       ],
-      'section_up' => {}
+      'section_up' => {},
+      'structure' => {
+        'level' => 0
+      }
     }
-  ]
+  ],
+  'structure' => {
+    'level' => -1
+  }
 };
 $result_sectioning{'texi_glossary'}{'section_childs'}[0]{'section_childs'}[0]{'section_up'} = $result_sectioning{'texi_glossary'}{'section_childs'}[0];
 $result_sectioning{'texi_glossary'}{'section_childs'}[0]{'section_childs'}[0]{'toplevel_prev'} = $result_sectioning{'texi_glossary'}{'section_childs'}[0];
@@ -1454,7 +1464,9 @@ $result_nodes{'texi_glossary'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 0
+      'structure' => {
+        'level' => 0
+      }
     },
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
@@ -1467,8 +1479,10 @@ $result_nodes{'texi_glossary'} = {
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'level' => 1,
-        'number' => 1
+        'number' => 1,
+        'structure' => {
+          'level' => 1
+        }
       },
       'normalized' => 'glossary',
       'spaces_before_argument' => ' '

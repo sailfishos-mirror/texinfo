@@ -216,13 +216,13 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
             'extra' => {
               'spaces_before_argument' => ' '
             },
-            'level' => 3,
             'line_nr' => {
               'file_name' => '',
               'line_nr' => 8,
               'macro' => ''
             },
-            'parent' => {}
+            'parent' => {},
+            'structure' => {}
           },
           {
             'parent' => {},
@@ -545,13 +545,13 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
             'extra' => {
               'spaces_before_argument' => ' '
             },
-            'level' => 3,
             'line_nr' => {
               'file_name' => '',
               'line_nr' => 16,
               'macro' => ''
             },
-            'parent' => {}
+            'parent' => {},
+            'structure' => {}
           },
           {
             'parent' => {},
@@ -1044,14 +1044,16 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
                               'extra' => {
                                 'spaces_before_argument' => ' '
                               },
-                              'level' => 1,
                               'line_nr' => {
                                 'file_name' => '',
                                 'line_nr' => 24,
                                 'macro' => ''
                               },
                               'number' => 1,
-                              'parent' => {}
+                              'parent' => {},
+                              'structure' => {
+                                'level' => 1
+                              }
                             }
                           ],
                           'extra' => {
@@ -1432,13 +1434,15 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'level' => 0,
         'line_nr' => {
           'file_name' => '',
           'line_nr' => 2,
           'macro' => ''
         },
-        'parent' => {}
+        'parent' => {},
+        'structure' => {
+          'level' => 0
+        }
       }
     ],
     'extra' => {
@@ -1757,7 +1761,6 @@ local   node
 ';
 
 $result_sectioning{'character_and_spaces_in_refs_out'} = {
-  'level' => -1,
   'section_childs' => [
     {
       'cmdname' => 'top',
@@ -1771,7 +1774,6 @@ $result_sectioning{'character_and_spaces_in_refs_out'} = {
         },
         'spaces_before_argument' => ' '
       },
-      'level' => 0,
       'section_childs' => [
         {
           'cmdname' => 'chapter',
@@ -1785,16 +1787,24 @@ $result_sectioning{'character_and_spaces_in_refs_out'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'level' => 1,
           'number' => 1,
           'section_up' => {},
+          'structure' => {
+            'level' => 1
+          },
           'toplevel_prev' => {},
           'toplevel_up' => {}
         }
       ],
-      'section_up' => {}
+      'section_up' => {},
+      'structure' => {
+        'level' => 0
+      }
     }
-  ]
+  ],
+  'structure' => {
+    'level' => -1
+  }
 };
 $result_sectioning{'character_and_spaces_in_refs_out'}{'section_childs'}[0]{'section_childs'}[0]{'section_up'} = $result_sectioning{'character_and_spaces_in_refs_out'}{'section_childs'}[0];
 $result_sectioning{'character_and_spaces_in_refs_out'}{'section_childs'}[0]{'section_childs'}[0]{'toplevel_prev'} = $result_sectioning{'character_and_spaces_in_refs_out'}{'section_childs'}[0];
@@ -1809,7 +1819,9 @@ $result_nodes{'character_and_spaces_in_refs_out'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 0
+      'structure' => {
+        'level' => 0
+      }
     },
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
@@ -1822,8 +1834,10 @@ $result_nodes{'character_and_spaces_in_refs_out'} = {
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'level' => 1,
-        'number' => 1
+        'number' => 1,
+        'structure' => {
+          'level' => 1
+        }
       },
       'normalized' => 'other-nodes',
       'spaces_before_argument' => ' '
@@ -2029,7 +2043,9 @@ $result_elements{'character_and_spaces_in_refs_out'} = [
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'level' => 0
+        'structure' => {
+          'level' => 0
+        }
       },
       'unit_command' => {}
     },
@@ -2043,8 +2059,10 @@ $result_elements{'character_and_spaces_in_refs_out'} = [
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'level' => 1,
-              'number' => 1
+              'number' => 1,
+              'structure' => {
+                'level' => 1
+              }
             },
             'unit_command' => {}
           },

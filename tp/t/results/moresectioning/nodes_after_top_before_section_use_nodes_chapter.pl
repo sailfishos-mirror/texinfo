@@ -534,14 +534,16 @@ $result_trees{'nodes_after_top_before_section_use_nodes_chapter'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 3,
       'line_nr' => {
         'file_name' => 'nodes_after_top_before_section.texi',
         'line_nr' => 18,
         'macro' => ''
       },
       'number' => 1,
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 3
+      }
     },
     {
       'args' => [
@@ -681,7 +683,6 @@ second node
 ';
 
 $result_sectioning{'nodes_after_top_before_section_use_nodes_chapter'} = {
-  'level' => 2,
   'section_childs' => [
     {
       'cmdname' => 'subsection',
@@ -695,11 +696,16 @@ $result_sectioning{'nodes_after_top_before_section_use_nodes_chapter'} = {
         },
         'spaces_before_argument' => ' '
       },
-      'level' => 3,
       'number' => 1,
-      'section_up' => {}
+      'section_up' => {},
+      'structure' => {
+        'level' => 3
+      }
     }
-  ]
+  ],
+  'structure' => {
+    'level' => 2
+  }
 };
 $result_sectioning{'nodes_after_top_before_section_use_nodes_chapter'}{'section_childs'}[0]{'section_up'} = $result_sectioning{'nodes_after_top_before_section_use_nodes_chapter'};
 
@@ -723,8 +729,10 @@ $result_nodes{'nodes_after_top_before_section_use_nodes_chapter'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'level' => 3,
-          'number' => 1
+          'number' => 1,
+          'structure' => {
+            'level' => 3
+          }
         },
         'normalized' => 'third-node',
         'spaces_before_argument' => ' '

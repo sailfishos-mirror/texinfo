@@ -69,14 +69,16 @@ $result_trees{'unclosed_verb_on_section_line'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 2,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 1,
         'macro' => ''
       },
       'number' => 1,
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 2
+      }
     }
   ],
   'type' => 'document_root'
@@ -104,18 +106,22 @@ Now text.
 ';
 
 $result_sectioning{'unclosed_verb_on_section_line'} = {
-  'level' => 1,
   'section_childs' => [
     {
       'cmdname' => 'section',
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 2,
       'number' => 1,
-      'section_up' => {}
+      'section_up' => {},
+      'structure' => {
+        'level' => 2
+      }
     }
-  ]
+  ],
+  'structure' => {
+    'level' => 1
+  }
 };
 $result_sectioning{'unclosed_verb_on_section_line'}{'section_childs'}[0]{'section_up'} = $result_sectioning{'unclosed_verb_on_section_line'};
 

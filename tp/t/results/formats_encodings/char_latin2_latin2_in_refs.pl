@@ -433,13 +433,15 @@ $result_trees{'char_latin2_latin2_in_refs'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 0,
       'line_nr' => {
         'file_name' => 'char_latin2_latin2_in_refs.texi',
         'line_nr' => 7,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 0
+      }
     },
     {},
     {
@@ -518,14 +520,16 @@ $result_trees{'char_latin2_latin2_in_refs'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 1,
       'line_nr' => {
         'file_name' => 'char_latin2_latin2_in_refs.texi',
         'line_nr' => 19,
         'macro' => ''
       },
       'number' => 1,
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 1
+      }
     },
     {
       'args' => [
@@ -658,7 +662,6 @@ top
 ';
 
 $result_sectioning{'char_latin2_latin2_in_refs'} = {
-  'level' => -1,
   'section_childs' => [
     {
       'cmdname' => 'top',
@@ -673,7 +676,6 @@ $result_sectioning{'char_latin2_latin2_in_refs'} = {
         },
         'spaces_before_argument' => ' '
       },
-      'level' => 0,
       'section_childs' => [
         {
           'cmdname' => 'chapter',
@@ -687,16 +689,24 @@ $result_sectioning{'char_latin2_latin2_in_refs'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'level' => 1,
           'number' => 1,
           'section_up' => {},
+          'structure' => {
+            'level' => 1
+          },
           'toplevel_prev' => {},
           'toplevel_up' => {}
         }
       ],
-      'section_up' => {}
+      'section_up' => {},
+      'structure' => {
+        'level' => 0
+      }
     }
-  ]
+  ],
+  'structure' => {
+    'level' => -1
+  }
 };
 $result_sectioning{'char_latin2_latin2_in_refs'}{'section_childs'}[0]{'section_childs'}[0]{'section_up'} = $result_sectioning{'char_latin2_latin2_in_refs'}{'section_childs'}[0];
 $result_sectioning{'char_latin2_latin2_in_refs'}{'section_childs'}[0]{'section_childs'}[0]{'toplevel_prev'} = $result_sectioning{'char_latin2_latin2_in_refs'}{'section_childs'}[0];
@@ -711,7 +721,9 @@ $result_nodes{'char_latin2_latin2_in_refs'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 0
+      'structure' => {
+        'level' => 0
+      }
     },
     'isindex' => 1,
     'normalized' => 'Top',
@@ -725,8 +737,10 @@ $result_nodes{'char_latin2_latin2_in_refs'} = {
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'level' => 1,
-        'number' => 1
+        'number' => 1,
+        'structure' => {
+          'level' => 1
+        }
       },
       'normalized' => '_0104-_0105-_02db-_0118-_0119',
       'spaces_before_argument' => ' '

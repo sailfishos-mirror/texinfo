@@ -199,13 +199,15 @@ $result_trees{'top_node_up_url'} = [
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'level' => 0,
         'line_nr' => {
           'file_name' => '',
           'line_nr' => 2,
           'macro' => ''
         },
-        'parent' => {}
+        'parent' => {},
+        'structure' => {
+          'level' => 0
+        }
       }
     ],
     'extra' => {
@@ -329,7 +331,6 @@ $result_texts{'top_node_up_url'} = 'internal top node up
 ';
 
 $result_sectioning{'top_node_up_url'} = {
-  'level' => -1,
   'section_childs' => [
     {
       'cmdname' => 'top',
@@ -343,10 +344,15 @@ $result_sectioning{'top_node_up_url'} = {
         },
         'spaces_before_argument' => ' '
       },
-      'level' => 0,
-      'section_up' => {}
+      'section_up' => {},
+      'structure' => {
+        'level' => 0
+      }
     }
-  ]
+  ],
+  'structure' => {
+    'level' => -1
+  }
 };
 $result_sectioning{'top_node_up_url'}{'section_childs'}[0]{'section_up'} = $result_sectioning{'top_node_up_url'};
 
@@ -358,7 +364,9 @@ $result_nodes{'top_node_up_url'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 0
+      'structure' => {
+        'level' => 0
+      }
     },
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
@@ -445,7 +453,9 @@ $result_elements{'top_node_up_url'} = [
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'level' => 0
+        'structure' => {
+          'level' => 0
+        }
       },
       'unit_command' => {}
     },

@@ -1186,13 +1186,15 @@ $result_trees{'quote_node_names'} = {
         }
       ],
       'extra' => {},
-      'level' => 0,
       'line_nr' => {
         'file_name' => 'nodequote.texi',
         'line_nr' => 2,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 0
+      }
     },
     {},
     {
@@ -1241,14 +1243,16 @@ $result_trees{'quote_node_names'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 1,
       'line_nr' => {
         'file_name' => 'nodequote.texi',
         'line_nr' => 28,
         'macro' => ''
       },
       'number' => 1,
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 1
+      }
     },
     {},
     {
@@ -1280,14 +1284,16 @@ $result_trees{'quote_node_names'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 1,
       'line_nr' => {
         'file_name' => 'nodequote.texi',
         'line_nr' => 33,
         'macro' => ''
       },
       'number' => 2,
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 1
+      }
     },
     {},
     {
@@ -1319,14 +1325,16 @@ $result_trees{'quote_node_names'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 1,
       'line_nr' => {
         'file_name' => 'nodequote.texi',
         'line_nr' => 36,
         'macro' => ''
       },
       'number' => 3,
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 1
+      }
     },
     {},
     {
@@ -1376,14 +1384,16 @@ $result_trees{'quote_node_names'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 1,
       'line_nr' => {
         'file_name' => 'nodequote.texi',
         'line_nr' => 39,
         'macro' => ''
       },
       'number' => 4,
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 1
+      }
     },
     {
       'args' => [
@@ -1753,7 +1763,6 @@ stuff here.
 ';
 
 $result_sectioning{'quote_node_names'} = {
-  'level' => -1,
   'section_childs' => [
     {
       'cmdname' => 'top',
@@ -1766,7 +1775,6 @@ $result_sectioning{'quote_node_names'} = {
           }
         }
       },
-      'level' => 0,
       'section_childs' => [
         {
           'cmdname' => 'chapter',
@@ -1780,9 +1788,11 @@ $result_sectioning{'quote_node_names'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'level' => 1,
           'number' => 1,
           'section_up' => {},
+          'structure' => {
+            'level' => 1
+          },
           'toplevel_prev' => {},
           'toplevel_up' => {}
         },
@@ -1798,10 +1808,12 @@ $result_sectioning{'quote_node_names'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'level' => 1,
           'number' => 2,
           'section_prev' => {},
           'section_up' => {},
+          'structure' => {
+            'level' => 1
+          },
           'toplevel_prev' => {},
           'toplevel_up' => {}
         },
@@ -1817,10 +1829,12 @@ $result_sectioning{'quote_node_names'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'level' => 1,
           'number' => 3,
           'section_prev' => {},
           'section_up' => {},
+          'structure' => {
+            'level' => 1
+          },
           'toplevel_prev' => {},
           'toplevel_up' => {}
         },
@@ -1836,17 +1850,25 @@ $result_sectioning{'quote_node_names'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'level' => 1,
           'number' => 4,
           'section_prev' => {},
           'section_up' => {},
+          'structure' => {
+            'level' => 1
+          },
           'toplevel_prev' => {},
           'toplevel_up' => {}
         }
       ],
-      'section_up' => {}
+      'section_up' => {},
+      'structure' => {
+        'level' => 0
+      }
     }
-  ]
+  ],
+  'structure' => {
+    'level' => -1
+  }
 };
 $result_sectioning{'quote_node_names'}{'section_childs'}[0]{'section_childs'}[0]{'section_up'} = $result_sectioning{'quote_node_names'}{'section_childs'}[0];
 $result_sectioning{'quote_node_names'}{'section_childs'}[0]{'section_childs'}[0]{'toplevel_prev'} = $result_sectioning{'quote_node_names'}{'section_childs'}[0];
@@ -1871,7 +1893,9 @@ $result_nodes{'quote_node_names'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'level' => 0
+      'structure' => {
+        'level' => 0
+      }
     },
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
@@ -1884,8 +1908,10 @@ $result_nodes{'quote_node_names'} = {
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'level' => 1,
-        'number' => 1
+        'number' => 1,
+        'structure' => {
+          'level' => 1
+        }
       },
       'normalized' => 'blah_003ablah',
       'spaces_before_argument' => ' '
@@ -1898,8 +1924,10 @@ $result_nodes{'quote_node_names'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'level' => 1,
-          'number' => 2
+          'number' => 2,
+          'structure' => {
+            'level' => 1
+          }
         },
         'normalized' => 'blumpty_002efump',
         'spaces_before_argument' => ' '
@@ -1912,8 +1940,10 @@ $result_nodes{'quote_node_names'} = {
             'extra' => {
               'spaces_before_argument' => ' '
             },
-            'level' => 1,
-            'number' => 3
+            'number' => 3,
+            'structure' => {
+              'level' => 1
+            }
           },
           'normalized' => 'normal-node',
           'spaces_before_argument' => ' '
@@ -1926,8 +1956,10 @@ $result_nodes{'quote_node_names'} = {
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'level' => 1,
-              'number' => 4
+              'number' => 4,
+              'structure' => {
+                'level' => 1
+              }
             },
             'normalized' => 'secret_002cnode',
             'spaces_before_argument' => ' '

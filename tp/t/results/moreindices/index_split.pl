@@ -542,13 +542,15 @@ $result_trees{'index_split'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 0,
       'line_nr' => {
         'file_name' => 'index_split.texi',
         'line_nr' => 6,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 0
+      }
     },
     {
       'args' => [
@@ -1454,14 +1456,16 @@ $result_trees{'index_split'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 1,
       'line_nr' => {
         'file_name' => 'index_split.texi',
         'line_nr' => 37,
         'macro' => ''
       },
       'number' => 1,
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 1
+      }
     },
     {
       'args' => [
@@ -1849,14 +1853,16 @@ $result_trees{'index_split'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 2,
       'line_nr' => {
         'file_name' => 'index_split.texi',
         'line_nr' => 52,
         'macro' => ''
       },
       'number' => '1.1',
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 2
+      }
     },
     {
       'args' => [
@@ -1945,14 +1951,16 @@ $result_trees{'index_split'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 3,
       'line_nr' => {
         'file_name' => 'index_split.texi',
         'line_nr' => 67,
         'macro' => ''
       },
       'number' => '1.1.1',
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 3
+      }
     },
     {
       'args' => [
@@ -2173,14 +2181,16 @@ $result_trees{'index_split'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 3,
       'line_nr' => {
         'file_name' => 'index_split.texi',
         'line_nr' => 72,
         'macro' => ''
       },
       'number' => '1.1.2',
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 3
+      }
     },
     {
       'args' => [
@@ -2269,14 +2279,16 @@ $result_trees{'index_split'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 2,
       'line_nr' => {
         'file_name' => 'index_split.texi',
         'line_nr' => 83,
         'macro' => ''
       },
       'number' => '1.2',
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 2
+      }
     },
     {
       'args' => [
@@ -2433,14 +2445,16 @@ $result_trees{'index_split'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 2,
       'line_nr' => {
         'file_name' => 'index_split.texi',
         'line_nr' => 88,
         'macro' => ''
       },
       'number' => '1.3',
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 2
+      }
     },
     {
       'args' => [
@@ -3099,14 +3113,16 @@ $result_trees{'index_split'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 1,
       'line_nr' => {
         'file_name' => 'index_split.texi',
         'line_nr' => 117,
         'macro' => ''
       },
       'number' => 2,
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 1
+      }
     },
     {
       'args' => [
@@ -3791,7 +3807,6 @@ Second chapter
 ';
 
 $result_sectioning{'index_split'} = {
-  'level' => -1,
   'section_childs' => [
     {
       'cmdname' => 'top',
@@ -3806,7 +3821,6 @@ $result_sectioning{'index_split'} = {
         },
         'spaces_before_argument' => ' '
       },
-      'level' => 0,
       'section_childs' => [
         {
           'cmdname' => 'chapter',
@@ -3821,7 +3835,6 @@ $result_sectioning{'index_split'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'level' => 1,
           'number' => 1,
           'section_childs' => [
             {
@@ -3837,7 +3850,6 @@ $result_sectioning{'index_split'} = {
                 },
                 'spaces_before_argument' => ' '
               },
-              'level' => 2,
               'number' => '1.1',
               'section_childs' => [
                 {
@@ -3852,9 +3864,11 @@ $result_sectioning{'index_split'} = {
                     },
                     'spaces_before_argument' => ' '
                   },
-                  'level' => 3,
                   'number' => '1.1.1',
-                  'section_up' => {}
+                  'section_up' => {},
+                  'structure' => {
+                    'level' => 3
+                  }
                 },
                 {
                   'cmdname' => 'subsection',
@@ -3869,13 +3883,18 @@ $result_sectioning{'index_split'} = {
                     },
                     'spaces_before_argument' => ' '
                   },
-                  'level' => 3,
                   'number' => '1.1.2',
                   'section_prev' => {},
-                  'section_up' => {}
+                  'section_up' => {},
+                  'structure' => {
+                    'level' => 3
+                  }
                 }
               ],
-              'section_up' => {}
+              'section_up' => {},
+              'structure' => {
+                'level' => 2
+              }
             },
             {
               'cmdname' => 'section',
@@ -3889,10 +3908,12 @@ $result_sectioning{'index_split'} = {
                 },
                 'spaces_before_argument' => ' '
               },
-              'level' => 2,
               'number' => '1.2',
               'section_prev' => {},
-              'section_up' => {}
+              'section_up' => {},
+              'structure' => {
+                'level' => 2
+              }
             },
             {
               'cmdname' => 'section',
@@ -3907,13 +3928,18 @@ $result_sectioning{'index_split'} = {
                 },
                 'spaces_before_argument' => ' '
               },
-              'level' => 2,
               'number' => '1.3',
               'section_prev' => {},
-              'section_up' => {}
+              'section_up' => {},
+              'structure' => {
+                'level' => 2
+              }
             }
           ],
           'section_up' => {},
+          'structure' => {
+            'level' => 1
+          },
           'toplevel_prev' => {},
           'toplevel_up' => {}
         },
@@ -3929,17 +3955,25 @@ $result_sectioning{'index_split'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'level' => 1,
           'number' => 2,
           'section_prev' => {},
           'section_up' => {},
+          'structure' => {
+            'level' => 1
+          },
           'toplevel_prev' => {},
           'toplevel_up' => {}
         }
       ],
-      'section_up' => {}
+      'section_up' => {},
+      'structure' => {
+        'level' => 0
+      }
     }
-  ]
+  ],
+  'structure' => {
+    'level' => -1
+  }
 };
 $result_sectioning{'index_split'}{'section_childs'}[0]{'section_childs'}[0]{'section_childs'}[0]{'section_childs'}[0]{'section_up'} = $result_sectioning{'index_split'}{'section_childs'}[0]{'section_childs'}[0]{'section_childs'}[0];
 $result_sectioning{'index_split'}{'section_childs'}[0]{'section_childs'}[0]{'section_childs'}[0]{'section_childs'}[1]{'section_prev'} = $result_sectioning{'index_split'}{'section_childs'}[0]{'section_childs'}[0]{'section_childs'}[0]{'section_childs'}[0];
@@ -3966,7 +4000,9 @@ $result_nodes{'index_split'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 0
+      'structure' => {
+        'level' => 0
+      }
     },
     'isindex' => 1,
     'normalized' => 'Top',
@@ -3996,8 +4032,10 @@ $result_nodes{'index_split'} = {
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'level' => 1,
-        'number' => 1
+        'number' => 1,
+        'structure' => {
+          'level' => 1
+        }
       },
       'isindex' => 1,
       'normalized' => 'first',
@@ -4011,8 +4049,10 @@ $result_nodes{'index_split'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'level' => 2,
-          'number' => '1.1'
+          'number' => '1.1',
+          'structure' => {
+            'level' => 2
+          }
         },
         'isindex' => 1,
         'normalized' => 'section-1',
@@ -4026,8 +4066,10 @@ $result_nodes{'index_split'} = {
             'extra' => {
               'spaces_before_argument' => ' '
             },
-            'level' => 3,
-            'number' => '1.1.1'
+            'number' => '1.1.1',
+            'structure' => {
+              'level' => 3
+            }
           },
           'normalized' => 'subsection-1',
           'spaces_before_argument' => ' '
@@ -4040,8 +4082,10 @@ $result_nodes{'index_split'} = {
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'level' => 3,
-              'number' => '1.1.2'
+              'number' => '1.1.2',
+              'structure' => {
+                'level' => 3
+              }
             },
             'isindex' => 1,
             'normalized' => 'subsection-2',
@@ -4075,8 +4119,10 @@ $result_nodes{'index_split'} = {
             'extra' => {
               'spaces_before_argument' => ' '
             },
-            'level' => 2,
-            'number' => '1.2'
+            'number' => '1.2',
+            'structure' => {
+              'level' => 2
+            }
           },
           'normalized' => 'section-2',
           'spaces_before_argument' => ' '
@@ -4089,8 +4135,10 @@ $result_nodes{'index_split'} = {
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'level' => 2,
-              'number' => '1.3'
+              'number' => '1.3',
+              'structure' => {
+                'level' => 2
+              }
             },
             'isindex' => 1,
             'normalized' => 'section-3',
@@ -4136,8 +4184,10 @@ $result_nodes{'index_split'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'level' => 1,
-          'number' => 2
+          'number' => 2,
+          'structure' => {
+            'level' => 1
+          }
         },
         'normalized' => 'second-chapter',
         'spaces_before_argument' => ' '

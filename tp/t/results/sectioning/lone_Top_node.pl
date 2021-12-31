@@ -276,14 +276,16 @@ $result_trees{'lone_Top_node'} = [
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'level' => 1,
         'line_nr' => {
           'file_name' => '',
           'line_nr' => 10,
           'macro' => ''
         },
         'number' => 1,
-        'parent' => {}
+        'parent' => {},
+        'structure' => {
+          'level' => 1
+        }
       }
     ],
     'extra' => {
@@ -358,7 +360,6 @@ $result_texts{'lone_Top_node'} = '
 ';
 
 $result_sectioning{'lone_Top_node'} = {
-  'level' => 0,
   'section_childs' => [
     {
       'cmdname' => 'chapter',
@@ -372,11 +373,16 @@ $result_sectioning{'lone_Top_node'} = {
         },
         'spaces_before_argument' => ' '
       },
-      'level' => 1,
       'number' => 1,
-      'section_up' => {}
+      'section_up' => {},
+      'structure' => {
+        'level' => 1
+      }
     }
-  ]
+  ],
+  'structure' => {
+    'level' => 0
+  }
 };
 $result_sectioning{'lone_Top_node'}{'section_childs'}[0]{'section_up'} = $result_sectioning{'lone_Top_node'};
 
@@ -394,8 +400,10 @@ $result_nodes{'lone_Top_node'} = {
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'level' => 1,
-        'number' => 1
+        'number' => 1,
+        'structure' => {
+          'level' => 1
+        }
       },
       'normalized' => 'First',
       'spaces_before_argument' => ' '
@@ -486,8 +494,10 @@ $result_elements{'lone_Top_node'} = [
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'level' => 1,
-        'number' => 1
+        'number' => 1,
+        'structure' => {
+          'level' => 1
+        }
       },
       'unit_command' => {}
     },

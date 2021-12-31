@@ -30,6 +30,8 @@ use Texinfo::Convert::Texinfo;
 # misc functions and data
 use Texinfo::Convert::Utils;
 
+#use Texinfo::Structuring;
+
 use Data::Dumper;
 use Carp qw(cluck carp);
 
@@ -310,10 +312,13 @@ sub heading($$$;$$)
   } else {
     $indent_length = 0;
   }
-  if (!defined $current->{'level'}) {
-    $current->{'level'} = Texinfo::Structuring::section_level($current);
+  my $section_level;
+  if (!defined($current->{'structure'}->{'level'})) {
+    $section_level = Texinfo::Structuring::section_level($current);
+  } else {
+    $section_level = $current->{'structure'}->{'level'};
   }
-  $result .=($underline_symbol{$current->{'level'}} 
+  $result .= ($underline_symbol{$section_level}
      x (Texinfo::Convert::Unicode::string_width($text) - $indent_length))."\n";
   return $result;
 }

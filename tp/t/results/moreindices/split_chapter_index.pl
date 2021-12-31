@@ -322,13 +322,15 @@ $result_trees{'split_chapter_index'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 0,
       'line_nr' => {
         'file_name' => 'split_chapter_index.texi',
         'line_nr' => 6,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 0
+      }
     },
     {
       'args' => [
@@ -911,14 +913,16 @@ $result_trees{'split_chapter_index'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 1,
       'line_nr' => {
         'file_name' => 'split_chapter_index.texi',
         'line_nr' => 17,
         'macro' => ''
       },
       'number' => 1,
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 1
+      }
     },
     {
       'args' => [
@@ -1200,14 +1204,16 @@ $result_trees{'split_chapter_index'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 2,
       'line_nr' => {
         'file_name' => 'split_chapter_index.texi',
         'line_nr' => 38,
         'macro' => ''
       },
       'number' => '1.1',
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 2
+      }
     },
     {
       'args' => [
@@ -1343,14 +1349,16 @@ $result_trees{'split_chapter_index'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 3,
       'line_nr' => {
         'file_name' => 'split_chapter_index.texi',
         'line_nr' => 49,
         'macro' => ''
       },
       'number' => '1.1.1',
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 3
+      }
     },
     {
       'args' => [
@@ -1665,7 +1673,6 @@ In subsection 1
 ';
 
 $result_sectioning{'split_chapter_index'} = {
-  'level' => -1,
   'section_childs' => [
     {
       'cmdname' => 'top',
@@ -1679,7 +1686,6 @@ $result_sectioning{'split_chapter_index'} = {
         },
         'spaces_before_argument' => ' '
       },
-      'level' => 0,
       'section_childs' => [
         {
           'cmdname' => 'chapter',
@@ -1694,7 +1700,6 @@ $result_sectioning{'split_chapter_index'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'level' => 1,
           'number' => 1,
           'section_childs' => [
             {
@@ -1709,7 +1714,6 @@ $result_sectioning{'split_chapter_index'} = {
                 },
                 'spaces_before_argument' => ' '
               },
-              'level' => 2,
               'number' => '1.1',
               'section_childs' => [
                 {
@@ -1724,22 +1728,36 @@ $result_sectioning{'split_chapter_index'} = {
                     },
                     'spaces_before_argument' => ' '
                   },
-                  'level' => 3,
                   'number' => '1.1.1',
-                  'section_up' => {}
+                  'section_up' => {},
+                  'structure' => {
+                    'level' => 3
+                  }
                 }
               ],
-              'section_up' => {}
+              'section_up' => {},
+              'structure' => {
+                'level' => 2
+              }
             }
           ],
           'section_up' => {},
+          'structure' => {
+            'level' => 1
+          },
           'toplevel_prev' => {},
           'toplevel_up' => {}
         }
       ],
-      'section_up' => {}
+      'section_up' => {},
+      'structure' => {
+        'level' => 0
+      }
     }
-  ]
+  ],
+  'structure' => {
+    'level' => -1
+  }
 };
 $result_sectioning{'split_chapter_index'}{'section_childs'}[0]{'section_childs'}[0]{'section_childs'}[0]{'section_childs'}[0]{'section_up'} = $result_sectioning{'split_chapter_index'}{'section_childs'}[0]{'section_childs'}[0]{'section_childs'}[0];
 $result_sectioning{'split_chapter_index'}{'section_childs'}[0]{'section_childs'}[0]{'section_childs'}[0]{'section_up'} = $result_sectioning{'split_chapter_index'}{'section_childs'}[0]{'section_childs'}[0];
@@ -1756,7 +1774,9 @@ $result_nodes{'split_chapter_index'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 0
+      'structure' => {
+        'level' => 0
+      }
     },
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
@@ -1769,8 +1789,10 @@ $result_nodes{'split_chapter_index'} = {
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'level' => 1,
-        'number' => 1
+        'number' => 1,
+        'structure' => {
+          'level' => 1
+        }
       },
       'isindex' => 1,
       'normalized' => 'first',
@@ -1784,8 +1806,10 @@ $result_nodes{'split_chapter_index'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'level' => 2,
-          'number' => '1.1'
+          'number' => '1.1',
+          'structure' => {
+            'level' => 2
+          }
         },
         'normalized' => 'section-1',
         'spaces_before_argument' => ' '
@@ -1798,8 +1822,10 @@ $result_nodes{'split_chapter_index'} = {
             'extra' => {
               'spaces_before_argument' => ' '
             },
-            'level' => 3,
-            'number' => '1.1.1'
+            'number' => '1.1.1',
+            'structure' => {
+              'level' => 3
+            }
           },
           'normalized' => 'subsection-1',
           'spaces_before_argument' => ' '

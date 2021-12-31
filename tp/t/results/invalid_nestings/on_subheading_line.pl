@@ -157,13 +157,13 @@ $result_trees{'on_subheading_line'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'level' => 3,
           'line_nr' => {
             'file_name' => '',
             'line_nr' => 1,
             'macro' => ''
           },
-          'parent' => {}
+          'parent' => {},
+          'structure' => {}
         }
       ],
       'parent' => {},

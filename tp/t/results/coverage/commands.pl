@@ -439,13 +439,13 @@ $result_trees{'commands'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'level' => 1,
           'line_nr' => {
             'file_name' => '',
             'line_nr' => 9,
             'macro' => ''
           },
-          'parent' => {}
+          'parent' => {},
+          'structure' => {}
         }
       ],
       'parent' => {},

@@ -430,17 +430,17 @@ EOT
 
     # similar code as in chm.pm
     my $section_root = $self->{'structuring'}->{'sectioning_root'};
-    my $upper_level = $section_root->{'section_childs'}->[0]->{'level'};
+    my $upper_level = $section_root->{'section_childs'}->[0]->{'structure'}->{'level'};
     foreach my $top_section(@{$section_root->{'section_childs'}}) {
-      $upper_level = $top_section->{'level'}
-      if ($top_section->{'level'} < $upper_level);
+      $upper_level = $top_section->{'structure'}->{'level'}
+      if ($top_section->{'structure'}->{'level'} < $upper_level);
     }
     $upper_level = 1 if ($upper_level <= 0);
     my $root_level = $upper_level - 1;
     my $level = $root_level;
     foreach my $section (@{$self->{'structuring'}->{'sections_list'}}) {
       next if ($section->{'cmdname'} eq 'part');
-      my $section_level = $section->{'level'};
+      my $section_level = $section->{'structure'}->{'level'};
       $section_level = 1 if ($section_level == 0);
       # FIXME with gaps in sectioning there could be nesting issues?
       if ($level < $section_level) {
@@ -449,7 +449,7 @@ EOT
           print $nav_fh "\n". " " x $level . "<ol>\n";
           $level++;
         }
-      } elsif ($level > $section->{'level'}) {
+      } elsif ($level > $section->{'structure'}->{'level'}) {
         # on the same line as the a element for the first </li>
         print $nav_fh "</li>\n". " " x ($level -1) . "</ol>\n";
         $level--;

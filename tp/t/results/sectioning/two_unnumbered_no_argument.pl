@@ -29,13 +29,15 @@ $result_trees{'two_unnumbered_no_argument'} = {
       'extra' => {
         'missing_argument' => 1
       },
-      'level' => 1,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 1
+      }
     },
     {
       'args' => [
@@ -54,13 +56,15 @@ $result_trees{'two_unnumbered_no_argument'} = {
       'extra' => {
         'missing_argument' => 1
       },
-      'level' => 1,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 2,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 1
+      }
     }
   ],
   'type' => 'document_root'
@@ -79,27 +83,33 @@ $result_texis{'two_unnumbered_no_argument'} = '@unnumbered
 $result_texts{'two_unnumbered_no_argument'} = '';
 
 $result_sectioning{'two_unnumbered_no_argument'} = {
-  'level' => 0,
   'section_childs' => [
     {
       'cmdname' => 'unnumbered',
       'extra' => {
         'missing_argument' => 1
       },
-      'level' => 1,
-      'section_up' => {}
+      'section_up' => {},
+      'structure' => {
+        'level' => 1
+      }
     },
     {
       'cmdname' => 'unnumbered',
       'extra' => {
         'missing_argument' => 1
       },
-      'level' => 1,
       'section_prev' => {},
       'section_up' => {},
+      'structure' => {
+        'level' => 1
+      },
       'toplevel_prev' => {}
     }
-  ]
+  ],
+  'structure' => {
+    'level' => 0
+  }
 };
 $result_sectioning{'two_unnumbered_no_argument'}{'section_childs'}[0]{'section_up'} = $result_sectioning{'two_unnumbered_no_argument'};
 $result_sectioning{'two_unnumbered_no_argument'}{'section_childs'}[1]{'section_prev'} = $result_sectioning{'two_unnumbered_no_argument'}{'section_childs'}[0];

@@ -1001,14 +1001,16 @@ $result_trees{'node_footnote_use_node'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 1,
       'line_nr' => {
         'file_name' => 'node_footnote.texi',
         'line_nr' => 25,
         'macro' => ''
       },
       'number' => 1,
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 1
+      }
     },
     {
       'args' => [
@@ -1432,7 +1434,6 @@ Footnote 3.
 ';
 
 $result_sectioning{'node_footnote_use_node'} = {
-  'level' => 0,
   'section_childs' => [
     {
       'cmdname' => 'chapter',
@@ -1446,11 +1447,16 @@ $result_sectioning{'node_footnote_use_node'} = {
         },
         'spaces_before_argument' => ' '
       },
-      'level' => 1,
       'number' => 1,
-      'section_up' => {}
+      'section_up' => {},
+      'structure' => {
+        'level' => 1
+      }
     }
-  ]
+  ],
+  'structure' => {
+    'level' => 0
+  }
 };
 $result_sectioning{'node_footnote_use_node'}{'section_childs'}[0]{'section_up'} = $result_sectioning{'node_footnote_use_node'};
 
@@ -1480,8 +1486,10 @@ $result_nodes{'node_footnote_use_node'} = {
             'extra' => {
               'spaces_before_argument' => ' '
             },
-            'level' => 1,
-            'number' => 1
+            'number' => 1,
+            'structure' => {
+              'level' => 1
+            }
           },
           'normalized' => 'chapter',
           'spaces_before_argument' => ' '

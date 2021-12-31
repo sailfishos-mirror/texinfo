@@ -123,13 +123,15 @@ $result_trees{'text_before_top_and_summarycontents_after_title'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 0,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 5,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 0
+      }
     },
     {
       'args' => [
@@ -183,14 +185,16 @@ $result_trees{'text_before_top_and_summarycontents_after_title'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 1,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 9,
         'macro' => ''
       },
       'number' => 1,
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 1
+      }
     }
   ],
   'type' => 'document_root'
@@ -250,7 +254,6 @@ In top.
 ';
 
 $result_sectioning{'text_before_top_and_summarycontents_after_title'} = {
-  'level' => -1,
   'section_childs' => [
     {
       'cmdname' => 'top',
@@ -264,23 +267,30 @@ $result_sectioning{'text_before_top_and_summarycontents_after_title'} = {
         },
         'spaces_before_argument' => ' '
       },
-      'level' => 0,
       'section_childs' => [
         {
           'cmdname' => 'chapter',
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'level' => 1,
           'number' => 1,
           'section_up' => {},
+          'structure' => {
+            'level' => 1
+          },
           'toplevel_prev' => {},
           'toplevel_up' => {}
         }
       ],
-      'section_up' => {}
+      'section_up' => {},
+      'structure' => {
+        'level' => 0
+      }
     }
-  ]
+  ],
+  'structure' => {
+    'level' => -1
+  }
 };
 $result_sectioning{'text_before_top_and_summarycontents_after_title'}{'section_childs'}[0]{'section_childs'}[0]{'section_up'} = $result_sectioning{'text_before_top_and_summarycontents_after_title'}{'section_childs'}[0];
 $result_sectioning{'text_before_top_and_summarycontents_after_title'}{'section_childs'}[0]{'section_childs'}[0]{'toplevel_prev'} = $result_sectioning{'text_before_top_and_summarycontents_after_title'}{'section_childs'}[0];
@@ -295,7 +305,9 @@ $result_nodes{'text_before_top_and_summarycontents_after_title'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 0
+      'structure' => {
+        'level' => 0
+      }
     },
     'normalized' => 'Top',
     'spaces_before_argument' => ' '

@@ -72,13 +72,13 @@ $result_trees{'heading_in_example'} = {
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'level' => 2,
               'line_nr' => {
                 'file_name' => '',
                 'line_nr' => 2,
                 'macro' => ''
               },
-              'parent' => {}
+              'parent' => {},
+              'structure' => {}
             },
             {
               'args' => [

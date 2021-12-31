@@ -42,14 +42,16 @@ $result_trees{'chapter_before_and_after_part'} = [
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'level' => 1,
         'line_nr' => {
           'file_name' => '',
           'line_nr' => 1,
           'macro' => ''
         },
         'number' => 1,
-        'parent' => {}
+        'parent' => {},
+        'structure' => {
+          'level' => 1
+        }
       }
     ],
     'extra' => {
@@ -90,13 +92,15 @@ $result_trees{'chapter_before_and_after_part'} = [
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'level' => 0,
         'line_nr' => {
           'file_name' => '',
           'line_nr' => 3,
           'macro' => ''
         },
-        'parent' => {}
+        'parent' => {},
+        'structure' => {
+          'level' => 0
+        }
       },
       {
         'args' => [
@@ -145,14 +149,16 @@ $result_trees{'chapter_before_and_after_part'} = [
           'associated_part' => {},
           'spaces_before_argument' => ' '
         },
-        'level' => 1,
         'line_nr' => {
           'file_name' => '',
           'line_nr' => 5,
           'macro' => ''
         },
         'number' => 2,
-        'parent' => {}
+        'parent' => {},
+        'structure' => {
+          'level' => 1
+        }
       }
     ],
     'extra' => {
@@ -209,16 +215,17 @@ part
 ';
 
 $result_sectioning{'chapter_before_and_after_part'} = {
-  'level' => -1,
   'section_childs' => [
     {
       'cmdname' => 'chapter',
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 1,
       'number' => 1,
-      'section_up' => {}
+      'section_up' => {},
+      'structure' => {
+        'level' => 1
+      }
     },
     {
       'cmdname' => 'part',
@@ -229,20 +236,27 @@ $result_sectioning{'chapter_before_and_after_part'} = {
             'associated_part' => {},
             'spaces_before_argument' => ' '
           },
-          'level' => 1,
           'number' => 2,
           'section_up' => {},
+          'structure' => {
+            'level' => 1
+          },
           'toplevel_prev' => {}
         },
         'spaces_before_argument' => ' '
       },
-      'level' => 0,
       'section_childs' => [
         {}
       ],
-      'section_up' => {}
+      'section_up' => {},
+      'structure' => {
+        'level' => 0
+      }
     }
-  ]
+  ],
+  'structure' => {
+    'level' => -1
+  }
 };
 $result_sectioning{'chapter_before_and_after_part'}{'section_childs'}[0]{'section_up'} = $result_sectioning{'chapter_before_and_after_part'};
 $result_sectioning{'chapter_before_and_after_part'}{'section_childs'}[1]{'extra'}{'part_associated_section'}{'extra'}{'associated_part'} = $result_sectioning{'chapter_before_and_after_part'}{'section_childs'}[1];
@@ -265,8 +279,10 @@ $result_elements{'chapter_before_and_after_part'} = [
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'level' => 1,
-        'number' => 1
+        'number' => 1,
+        'structure' => {
+          'level' => 1
+        }
       },
       'unit_command' => {}
     },
@@ -282,12 +298,16 @@ $result_elements{'chapter_before_and_after_part'} = [
                   'extra' => {
                     'spaces_before_argument' => ' '
                   },
-                  'level' => 0
+                  'structure' => {
+                    'level' => 0
+                  }
                 },
                 'spaces_before_argument' => ' '
               },
-              'level' => 1,
-              'number' => 2
+              'number' => 2,
+              'structure' => {
+                'level' => 1
+              }
             },
             'unit_command' => {}
           },

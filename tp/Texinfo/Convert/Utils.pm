@@ -255,7 +255,8 @@ sub numbered_heading($$$;$)
   my $result;
   if ($self) {
     if (defined($number)) {
-      if ($current->{'cmdname'} eq 'appendix' and $current->{'level'} == 1) {
+      if ($current->{'cmdname'} eq 'appendix'
+          and $current->{'structure'}->{'level'} == 1) {
         $result = $self->gdt('Appendix {number} {section_title}',
                    {'number' => $number, 'section_title' => $text},
                    'translated_text');
@@ -270,7 +271,8 @@ sub numbered_heading($$$;$)
   } else {
     $result = $text;
     $result = $number.' '.$result if (defined($number));
-    if ($current->{'cmdname'} eq 'appendix' and $current->{'level'} == 1) {
+    if ($current->{'cmdname'} eq 'appendix'
+        and $current->{'structure'}->{'level'} == 1) {
       $result = 'Appendix '.$result;
     }
   }

@@ -691,13 +691,13 @@ $result_trees{'punctuation_in_line_commands'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'level' => 2,
           'line_nr' => {
             'file_name' => '',
             'line_nr' => 28,
             'macro' => ''
           },
-          'parent' => {}
+          'parent' => {},
+          'structure' => {}
         },
         {
           'parent' => {},
@@ -836,13 +836,15 @@ $result_trees{'punctuation_in_line_commands'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 0,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 3,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 0
+      }
     }
   ],
   'type' => 'document_root'
@@ -1035,7 +1037,6 @@ center! After punc
 ';
 
 $result_sectioning{'punctuation_in_line_commands'} = {
-  'level' => -1,
   'section_childs' => [
     {
       'cmdname' => 'top',
@@ -1050,10 +1051,15 @@ $result_sectioning{'punctuation_in_line_commands'} = {
         },
         'spaces_before_argument' => ' '
       },
-      'level' => 0,
-      'section_up' => {}
+      'section_up' => {},
+      'structure' => {
+        'level' => 0
+      }
     }
-  ]
+  ],
+  'structure' => {
+    'level' => -1
+  }
 };
 $result_sectioning{'punctuation_in_line_commands'}{'section_childs'}[0]{'section_up'} = $result_sectioning{'punctuation_in_line_commands'};
 
@@ -1065,7 +1071,9 @@ $result_nodes{'punctuation_in_line_commands'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 0
+      'structure' => {
+        'level' => 0
+      }
     },
     'isindex' => 1,
     'normalized' => 'node_0021-After-punc',
@@ -1103,7 +1111,9 @@ $result_floats{'punctuation_in_line_commands'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'level' => 0
+          'structure' => {
+            'level' => 0
+          }
         },
         'normalized' => 'float-label_0021-After-punc',
         'shortcaption' => {

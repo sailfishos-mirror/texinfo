@@ -734,14 +734,16 @@ $result_trees{'placed_things_before_element'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 2,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 30,
         'macro' => ''
       },
       'number' => 1,
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 2
+      }
     }
   ],
   'type' => 'document_root'
@@ -929,18 +931,22 @@ Anchor in footnote
 ';
 
 $result_sectioning{'placed_things_before_element'} = {
-  'level' => 1,
   'section_childs' => [
     {
       'cmdname' => 'section',
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 2,
       'number' => 1,
-      'section_up' => {}
+      'section_up' => {},
+      'structure' => {
+        'level' => 2
+      }
     }
-  ]
+  ],
+  'structure' => {
+    'level' => 1
+  }
 };
 $result_sectioning{'placed_things_before_element'}{'section_childs'}[0]{'section_up'} = $result_sectioning{'placed_things_before_element'};
 

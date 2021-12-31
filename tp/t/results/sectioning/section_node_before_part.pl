@@ -89,14 +89,16 @@ $result_trees{'section_node_before_part'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 2,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 3,
         'macro' => ''
       },
       'number' => 1,
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 2
+      }
     },
     {
       'args' => [
@@ -120,13 +122,15 @@ $result_trees{'section_node_before_part'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 0,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 5,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 0
+      }
     }
   ],
   'type' => 'document_root'
@@ -163,7 +167,6 @@ part
 ';
 
 $result_sectioning{'section_node_before_part'} = {
-  'level' => -1,
   'section_childs' => [
     {
       'cmdname' => 'section',
@@ -177,19 +180,26 @@ $result_sectioning{'section_node_before_part'} = {
         },
         'spaces_before_argument' => ' '
       },
-      'level' => 2,
       'number' => 1,
-      'section_up' => {}
+      'section_up' => {},
+      'structure' => {
+        'level' => 2
+      }
     },
     {
       'cmdname' => 'part',
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 0,
-      'section_up' => {}
+      'section_up' => {},
+      'structure' => {
+        'level' => 0
+      }
     }
-  ]
+  ],
+  'structure' => {
+    'level' => -1
+  }
 };
 $result_sectioning{'section_node_before_part'}{'section_childs'}[0]{'section_up'} = $result_sectioning{'section_node_before_part'};
 $result_sectioning{'section_node_before_part'}{'section_childs'}[1]{'section_up'} = $result_sectioning{'section_node_before_part'};
@@ -202,8 +212,10 @@ $result_nodes{'section_node_before_part'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 2,
-      'number' => 1
+      'number' => 1,
+      'structure' => {
+        'level' => 2
+      }
     },
     'normalized' => 'Top',
     'spaces_before_argument' => ' '

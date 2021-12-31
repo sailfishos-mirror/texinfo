@@ -424,13 +424,13 @@ $result_trees{'submenu_in_example'} = {
                       'extra' => {
                         'spaces_before_argument' => ' '
                       },
-                      'level' => 3,
                       'line_nr' => {
                         'file_name' => '',
                         'line_nr' => 23,
                         'macro' => ''
                       },
-                      'parent' => {}
+                      'parent' => {},
+                      'structure' => {}
                     },
                     {
                       'contents' => [

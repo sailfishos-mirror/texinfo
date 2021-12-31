@@ -131,13 +131,15 @@ $result_trees{'empty_lines_at_beginning_no_setfilename'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 0,
       'line_nr' => {
         'file_name' => 'empty_lines_at_beginning_no_setfilename.texi',
         'line_nr' => 7,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 0
+      }
     },
     {
       'args' => [
@@ -193,7 +195,6 @@ top
 ';
 
 $result_sectioning{'empty_lines_at_beginning_no_setfilename'} = {
-  'level' => -1,
   'section_childs' => [
     {
       'cmdname' => 'top',
@@ -207,10 +208,15 @@ $result_sectioning{'empty_lines_at_beginning_no_setfilename'} = {
         },
         'spaces_before_argument' => ' '
       },
-      'level' => 0,
-      'section_up' => {}
+      'section_up' => {},
+      'structure' => {
+        'level' => 0
+      }
     }
-  ]
+  ],
+  'structure' => {
+    'level' => -1
+  }
 };
 $result_sectioning{'empty_lines_at_beginning_no_setfilename'}{'section_childs'}[0]{'section_up'} = $result_sectioning{'empty_lines_at_beginning_no_setfilename'};
 
@@ -222,7 +228,9 @@ $result_nodes{'empty_lines_at_beginning_no_setfilename'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 0
+      'structure' => {
+        'level' => 0
+      }
     },
     'normalized' => 'Top',
     'spaces_before_argument' => ' '

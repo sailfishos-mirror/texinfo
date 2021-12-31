@@ -320,13 +320,13 @@ $result_trees{'also_not_line'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'level' => 3,
           'line_nr' => {
             'file_name' => '',
             'line_nr' => 18,
             'macro' => ''
           },
-          'parent' => {}
+          'parent' => {},
+          'structure' => {}
         },
         {
           'parent' => {},

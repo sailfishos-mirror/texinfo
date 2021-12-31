@@ -41,13 +41,15 @@ $result_trees{'unnumbered_before_top'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 1,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 1
+      }
     },
     {
       'args' => [
@@ -71,13 +73,15 @@ $result_trees{'unnumbered_before_top'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 1,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 3,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 1
+      }
     }
   ],
   'type' => 'document_root'
@@ -105,27 +109,33 @@ top
 ';
 
 $result_sectioning{'unnumbered_before_top'} = {
-  'level' => 0,
   'section_childs' => [
     {
       'cmdname' => 'unnumbered',
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 1,
-      'section_up' => {}
+      'section_up' => {},
+      'structure' => {
+        'level' => 1
+      }
     },
     {
       'cmdname' => 'top',
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 1,
       'section_prev' => {},
       'section_up' => {},
+      'structure' => {
+        'level' => 1
+      },
       'toplevel_prev' => {}
     }
-  ]
+  ],
+  'structure' => {
+    'level' => 0
+  }
 };
 $result_sectioning{'unnumbered_before_top'}{'section_childs'}[0]{'section_up'} = $result_sectioning{'unnumbered_before_top'};
 $result_sectioning{'unnumbered_before_top'}{'section_childs'}[1]{'section_prev'} = $result_sectioning{'unnumbered_before_top'}{'section_childs'}[0];

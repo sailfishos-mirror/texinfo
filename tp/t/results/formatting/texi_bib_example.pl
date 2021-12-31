@@ -4005,13 +4005,15 @@ $result_trees{'texi_bib_example'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 0,
       'line_nr' => {
         'file_name' => 'bib-example.texi',
         'line_nr' => 32,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 0
+      }
     },
     {
       'args' => [
@@ -4225,14 +4227,16 @@ $result_trees{'texi_bib_example'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 1,
       'line_nr' => {
         'file_name' => 'bib-example.texi',
         'line_nr' => 41,
         'macro' => ''
       },
       'number' => 1,
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 1
+      }
     },
     {},
     {
@@ -4452,14 +4456,16 @@ $result_trees{'texi_bib_example'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 1,
       'line_nr' => {
         'file_name' => 'bib-example.texi',
         'line_nr' => 48,
         'macro' => ''
       },
       'number' => 2,
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 1
+      }
     },
     {
       'args' => [
@@ -5408,7 +5414,6 @@ Massachusetts, 1994.
 ';
 
 $result_sectioning{'texi_bib_example'} = {
-  'level' => -1,
   'section_childs' => [
     {
       'cmdname' => 'top',
@@ -5422,7 +5427,6 @@ $result_sectioning{'texi_bib_example'} = {
         },
         'spaces_before_argument' => ' '
       },
-      'level' => 0,
       'section_childs' => [
         {
           'cmdname' => 'chapter',
@@ -5436,9 +5440,11 @@ $result_sectioning{'texi_bib_example'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'level' => 1,
           'number' => 1,
           'section_up' => {},
+          'structure' => {
+            'level' => 1
+          },
           'toplevel_prev' => {},
           'toplevel_up' => {}
         },
@@ -5454,17 +5460,25 @@ $result_sectioning{'texi_bib_example'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'level' => 1,
           'number' => 2,
           'section_prev' => {},
           'section_up' => {},
+          'structure' => {
+            'level' => 1
+          },
           'toplevel_prev' => {},
           'toplevel_up' => {}
         }
       ],
-      'section_up' => {}
+      'section_up' => {},
+      'structure' => {
+        'level' => 0
+      }
     }
-  ]
+  ],
+  'structure' => {
+    'level' => -1
+  }
 };
 $result_sectioning{'texi_bib_example'}{'section_childs'}[0]{'section_childs'}[0]{'section_up'} = $result_sectioning{'texi_bib_example'}{'section_childs'}[0];
 $result_sectioning{'texi_bib_example'}{'section_childs'}[0]{'section_childs'}[0]{'toplevel_prev'} = $result_sectioning{'texi_bib_example'}{'section_childs'}[0];
@@ -5483,7 +5497,9 @@ $result_nodes{'texi_bib_example'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 0
+      'structure' => {
+        'level' => 0
+      }
     },
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
@@ -5496,8 +5512,10 @@ $result_nodes{'texi_bib_example'} = {
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'level' => 1,
-        'number' => 1
+        'number' => 1,
+        'structure' => {
+          'level' => 1
+        }
       },
       'normalized' => 'Introduction',
       'spaces_before_argument' => ' '
@@ -5510,8 +5528,10 @@ $result_nodes{'texi_bib_example'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'level' => 1,
-          'number' => 2
+          'number' => 2,
+          'structure' => {
+            'level' => 1
+          }
         },
         'normalized' => 'References',
         'spaces_before_argument' => ' '

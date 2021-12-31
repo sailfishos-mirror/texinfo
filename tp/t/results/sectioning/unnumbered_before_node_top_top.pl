@@ -59,13 +59,15 @@ $result_trees{'unnumbered_before_node_top_top'} = [
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'level' => 1,
         'line_nr' => {
           'file_name' => '',
           'line_nr' => 1,
           'macro' => ''
         },
-        'parent' => {}
+        'parent' => {},
+        'structure' => {
+          'level' => 1
+        }
       }
     ],
     'extra' => {
@@ -152,13 +154,15 @@ $result_trees{'unnumbered_before_node_top_top'} = [
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'level' => 1,
         'line_nr' => {
           'file_name' => '',
           'line_nr' => 6,
           'macro' => ''
         },
-        'parent' => {}
+        'parent' => {},
+        'structure' => {
+          'level' => 1
+        }
       }
     ],
     'extra' => {
@@ -218,15 +222,16 @@ Top node
 ';
 
 $result_sectioning{'unnumbered_before_node_top_top'} = {
-  'level' => 0,
   'section_childs' => [
     {
       'cmdname' => 'unnumbered',
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 1,
-      'section_up' => {}
+      'section_up' => {},
+      'structure' => {
+        'level' => 1
+      }
     },
     {
       'cmdname' => 'top',
@@ -240,12 +245,17 @@ $result_sectioning{'unnumbered_before_node_top_top'} = {
         },
         'spaces_before_argument' => ' '
       },
-      'level' => 1,
       'section_prev' => {},
       'section_up' => {},
+      'structure' => {
+        'level' => 1
+      },
       'toplevel_prev' => {}
     }
-  ]
+  ],
+  'structure' => {
+    'level' => 0
+  }
 };
 $result_sectioning{'unnumbered_before_node_top_top'}{'section_childs'}[0]{'section_up'} = $result_sectioning{'unnumbered_before_node_top_top'};
 $result_sectioning{'unnumbered_before_node_top_top'}{'section_childs'}[1]{'section_prev'} = $result_sectioning{'unnumbered_before_node_top_top'}{'section_childs'}[0];
@@ -260,7 +270,9 @@ $result_nodes{'unnumbered_before_node_top_top'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 1
+      'structure' => {
+        'level' => 1
+      }
     },
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
@@ -299,7 +311,9 @@ $result_elements{'unnumbered_before_node_top_top'} = [
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'level' => 1
+        'structure' => {
+          'level' => 1
+        }
       },
       'unit_command' => {}
     },
@@ -319,7 +333,9 @@ $result_elements{'unnumbered_before_node_top_top'} = [
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'level' => 1
+              'structure' => {
+                'level' => 1
+              }
             },
             'unit_command' => {}
           },

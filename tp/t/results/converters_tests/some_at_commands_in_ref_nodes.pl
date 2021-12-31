@@ -504,13 +504,15 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 0,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 3,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 0
+      }
     },
     {
       'args' => [
@@ -1410,14 +1412,16 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
       'extra' => {
         'spaces_before_argument' => '  '
       },
-      'level' => 1,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 10,
         'macro' => ''
       },
       'number' => 1,
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 1
+      }
     }
   ],
   'type' => 'document_root'
@@ -1693,7 +1697,6 @@ see a strong ref with SC, a i trema i", a dotless i trema i" E=` and exclamdown 
 ';
 
 $result_sectioning{'some_at_commands_in_ref_nodes'} = {
-  'level' => -1,
   'section_childs' => [
     {
       'cmdname' => 'top',
@@ -1707,7 +1710,6 @@ $result_sectioning{'some_at_commands_in_ref_nodes'} = {
         },
         'spaces_before_argument' => ' '
       },
-      'level' => 0,
       'section_childs' => [
         {
           'cmdname' => 'chapter',
@@ -1721,16 +1723,24 @@ $result_sectioning{'some_at_commands_in_ref_nodes'} = {
             },
             'spaces_before_argument' => '  '
           },
-          'level' => 1,
           'number' => 1,
           'section_up' => {},
+          'structure' => {
+            'level' => 1
+          },
           'toplevel_prev' => {},
           'toplevel_up' => {}
         }
       ],
-      'section_up' => {}
+      'section_up' => {},
+      'structure' => {
+        'level' => 0
+      }
     }
-  ]
+  ],
+  'structure' => {
+    'level' => -1
+  }
 };
 $result_sectioning{'some_at_commands_in_ref_nodes'}{'section_childs'}[0]{'section_childs'}[0]{'section_up'} = $result_sectioning{'some_at_commands_in_ref_nodes'}{'section_childs'}[0];
 $result_sectioning{'some_at_commands_in_ref_nodes'}{'section_childs'}[0]{'section_childs'}[0]{'toplevel_prev'} = $result_sectioning{'some_at_commands_in_ref_nodes'}{'section_childs'}[0];
@@ -1745,7 +1755,9 @@ $result_nodes{'some_at_commands_in_ref_nodes'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 0
+      'structure' => {
+        'level' => 0
+      }
     },
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
@@ -1758,8 +1770,10 @@ $result_nodes{'some_at_commands_in_ref_nodes'} = {
         'extra' => {
           'spaces_before_argument' => '  '
         },
-        'level' => 1,
-        'number' => 1
+        'number' => 1,
+        'structure' => {
+          'level' => 1
+        }
       },
       'normalized' => 'A-SC-_00d1-_00c5-TeX-node-_00ef-_00ef-_1e14-_0142-_1e08-_00a1',
       'spaces_before_argument' => ' '

@@ -269,13 +269,13 @@ $result_trees{'htmlxref_nodes'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'level' => 3,
           'line_nr' => {
             'file_name' => 'test_refs.texi',
             'line_nr' => 11,
             'macro' => ''
           },
-          'parent' => {}
+          'parent' => {},
+          'structure' => {}
         },
         {
           'parent' => {},
@@ -981,13 +981,13 @@ $result_trees{'htmlxref_nodes'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'level' => 3,
           'line_nr' => {
             'file_name' => 'test_refs.texi',
             'line_nr' => 37,
             'macro' => ''
           },
-          'parent' => {}
+          'parent' => {},
+          'structure' => {}
         },
         {
           'parent' => {},
@@ -1188,13 +1188,13 @@ $result_trees{'htmlxref_nodes'} = {
           'extra' => {
             'spaces_before_argument' => ' '
           },
-          'level' => 3,
           'line_nr' => {
             'file_name' => 'test_refs.texi',
             'line_nr' => 45,
             'macro' => ''
           },
-          'parent' => {}
+          'parent' => {},
+          'structure' => {}
         },
         {
           'parent' => {},
@@ -2259,13 +2259,15 @@ $result_trees{'htmlxref_nodes'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 0,
       'line_nr' => {
         'file_name' => 'test_refs.texi',
         'line_nr' => 5,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 0
+      }
     },
     {
       'args' => [
@@ -2837,14 +2839,16 @@ $result_trees{'htmlxref_nodes'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 1,
       'line_nr' => {
         'file_name' => 'test_refs.texi',
         'line_nr' => 68,
         'macro' => ''
       },
       'number' => 1,
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 1
+      }
     },
     {},
     {},
@@ -3458,7 +3462,6 @@ id: local-node
 ';
 
 $result_sectioning{'htmlxref_nodes'} = {
-  'level' => -1,
   'section_childs' => [
     {
       'cmdname' => 'top',
@@ -3472,7 +3475,6 @@ $result_sectioning{'htmlxref_nodes'} = {
         },
         'spaces_before_argument' => ' '
       },
-      'level' => 0,
       'section_childs' => [
         {
           'cmdname' => 'chapter',
@@ -3486,16 +3488,24 @@ $result_sectioning{'htmlxref_nodes'} = {
             },
             'spaces_before_argument' => ' '
           },
-          'level' => 1,
           'number' => 1,
           'section_up' => {},
+          'structure' => {
+            'level' => 1
+          },
           'toplevel_prev' => {},
           'toplevel_up' => {}
         }
       ],
-      'section_up' => {}
+      'section_up' => {},
+      'structure' => {
+        'level' => 0
+      }
     }
-  ]
+  ],
+  'structure' => {
+    'level' => -1
+  }
 };
 $result_sectioning{'htmlxref_nodes'}{'section_childs'}[0]{'section_childs'}[0]{'section_up'} = $result_sectioning{'htmlxref_nodes'}{'section_childs'}[0];
 $result_sectioning{'htmlxref_nodes'}{'section_childs'}[0]{'section_childs'}[0]{'toplevel_prev'} = $result_sectioning{'htmlxref_nodes'}{'section_childs'}[0];
@@ -3510,7 +3520,9 @@ $result_nodes{'htmlxref_nodes'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 0
+      'structure' => {
+        'level' => 0
+      }
     },
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
@@ -3523,8 +3535,10 @@ $result_nodes{'htmlxref_nodes'} = {
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'level' => 1,
-        'number' => 1
+        'number' => 1,
+        'structure' => {
+          'level' => 1
+        }
       },
       'normalized' => 'other-nodes',
       'spaces_before_argument' => ' '

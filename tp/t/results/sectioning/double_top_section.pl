@@ -58,13 +58,15 @@ $result_trees{'double_top_section'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 0,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 0
+      }
     },
     {
       'args' => [
@@ -106,13 +108,15 @@ $result_trees{'double_top_section'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 0,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 5,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 0
+      }
     }
   ],
   'type' => 'document_root'
@@ -154,28 +158,34 @@ Second top.
 ';
 
 $result_sectioning{'double_top_section'} = {
-  'level' => -1,
   'section_childs' => [
     {
       'cmdname' => 'top',
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 0,
-      'section_up' => {}
+      'section_up' => {},
+      'structure' => {
+        'level' => 0
+      }
     },
     {
       'cmdname' => 'top',
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 0,
       'section_prev' => {},
       'section_up' => {},
+      'structure' => {
+        'level' => 0
+      },
       'toplevel_prev' => {},
       'toplevel_up' => {}
     }
-  ]
+  ],
+  'structure' => {
+    'level' => -1
+  }
 };
 $result_sectioning{'double_top_section'}{'section_childs'}[0]{'section_up'} = $result_sectioning{'double_top_section'};
 $result_sectioning{'double_top_section'}{'section_childs'}[1]{'section_prev'} = $result_sectioning{'double_top_section'}{'section_childs'}[0];

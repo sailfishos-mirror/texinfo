@@ -3588,14 +3588,16 @@ $result_trees{'refs_formatting'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 1,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 2,
         'macro' => ''
       },
       'number' => 1,
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 1
+      }
     }
   ],
   'type' => 'document_root'
@@ -4330,7 +4332,6 @@ $result_texts{'refs_formatting'} = '1 chapter
 ';
 
 $result_sectioning{'refs_formatting'} = {
-  'level' => 0,
   'section_childs' => [
     {
       'cmdname' => 'chapter',
@@ -4344,11 +4345,16 @@ $result_sectioning{'refs_formatting'} = {
         },
         'spaces_before_argument' => ' '
       },
-      'level' => 1,
       'number' => 1,
-      'section_up' => {}
+      'section_up' => {},
+      'structure' => {
+        'level' => 1
+      }
     }
-  ]
+  ],
+  'structure' => {
+    'level' => 0
+  }
 };
 $result_sectioning{'refs_formatting'}{'section_childs'}[0]{'section_up'} = $result_sectioning{'refs_formatting'};
 
@@ -4360,8 +4366,10 @@ $result_nodes{'refs_formatting'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 1,
-      'number' => 1
+      'number' => 1,
+      'structure' => {
+        'level' => 1
+      }
     },
     'normalized' => 'chapter',
     'spaces_before_argument' => ' '

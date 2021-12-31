@@ -34,14 +34,16 @@ $result_trees{'sections'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 1,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 1,
         'macro' => ''
       },
       'number' => 1,
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 1
+      }
     }
   ],
   'type' => 'document_root'
@@ -60,18 +62,22 @@ $result_texts{'sections'} = '1 a chapter
 ';
 
 $result_sectioning{'sections'} = {
-  'level' => 0,
   'section_childs' => [
     {
       'cmdname' => 'chapter',
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 1,
       'number' => 1,
-      'section_up' => {}
+      'section_up' => {},
+      'structure' => {
+        'level' => 1
+      }
     }
-  ]
+  ],
+  'structure' => {
+    'level' => 0
+  }
 };
 $result_sectioning{'sections'}{'section_childs'}[0]{'section_up'} = $result_sectioning{'sections'};
 

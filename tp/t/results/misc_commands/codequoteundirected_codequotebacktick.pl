@@ -4212,13 +4212,15 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 0,
       'line_nr' => {
         'file_name' => '',
         'line_nr' => 40,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {
+        'level' => 0
+      }
     }
   ],
   'type' => 'document_root'
@@ -5111,7 +5113,6 @@ samp: ``simple-double--three---four----\'\' `simple\' quotedblleft: "
 ';
 
 $result_sectioning{'codequoteundirected_codequotebacktick'} = {
-  'level' => -1,
   'section_childs' => [
     {
       'cmdname' => 'top',
@@ -5125,10 +5126,15 @@ $result_sectioning{'codequoteundirected_codequotebacktick'} = {
         },
         'spaces_before_argument' => ' '
       },
-      'level' => 0,
-      'section_up' => {}
+      'section_up' => {},
+      'structure' => {
+        'level' => 0
+      }
     }
-  ]
+  ],
+  'structure' => {
+    'level' => -1
+  }
 };
 $result_sectioning{'codequoteundirected_codequotebacktick'}{'section_childs'}[0]{'section_up'} = $result_sectioning{'codequoteundirected_codequotebacktick'};
 
@@ -5140,7 +5146,9 @@ $result_nodes{'codequoteundirected_codequotebacktick'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 0
+      'structure' => {
+        'level' => 0
+      }
     },
     'normalized' => 'Top',
     'spaces_before_argument' => ' '

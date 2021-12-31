@@ -78,13 +78,13 @@ $result_trees{'heading_in_copying'} = {
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'level' => 2,
               'line_nr' => {
                 'file_name' => '',
                 'line_nr' => 3,
                 'macro' => ''
               },
-              'parent' => {}
+              'parent' => {},
+              'structure' => {}
             },
             {
               'args' => [
@@ -184,13 +184,13 @@ $result_trees{'heading_in_copying'} = {
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'level' => 3,
               'line_nr' => {
                 'file_name' => '',
                 'line_nr' => 6,
                 'macro' => ''
               },
-              'parent' => {}
+              'parent' => {},
+              'structure' => {}
             },
             {
               'args' => [

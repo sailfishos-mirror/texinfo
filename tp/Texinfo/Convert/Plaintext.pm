@@ -1063,10 +1063,10 @@ sub format_contents($$$)
 
   # no sections
   return ('', 0) if (!$section_root or !$section_root->{'section_childs'});
-  my $root_level = $section_root->{'section_childs'}->[0]->{'level'};
+  my $root_level = $section_root->{'section_childs'}->[0]->{'structure'}->{'level'};
   foreach my $top_section(@{$section_root->{'section_childs'}}) {
-    $root_level = $top_section->{'level'} 
-      if ($top_section->{'level'} < $root_level);
+    $root_level = $top_section->{'structure'}->{'level'} 
+      if ($top_section->{'structure'}->{'level'} < $root_level);
   }
 
   my $result = '';
@@ -1082,7 +1082,8 @@ sub format_contents($$$)
       if (defined($section->{'number'}) 
           and ($self->get_conf('NUMBER_SECTIONS')
                or !defined($self->get_conf('NUMBER_SECTIONS')))) {
-        if ($section->{'cmdname'} eq 'appendix' and $section->{'level'} == 1) {
+        if ($section->{'cmdname'} eq 'appendix'
+            and $section->{'structure'}->{'level'} == 1) {
           $section_title_tree = $self->gdt('Appendix {number} {section_title}',
                            {'number' => {'text' => $section->{'number'}},
                             'section_title' 
@@ -1103,12 +1104,12 @@ sub format_contents($$$)
       my $text = $section_title;
       chomp ($text);
       $text .= "\n";
-      my $repeat_count = 2 * ($section->{'level'} - ($root_level+1));
+      my $repeat_count = 2 * ($section->{'structure'}->{'level'} - ($root_level+1));
       ($result .= (' ' x $repeat_count)) if $repeat_count > 0;
       $result .= $text;
       $lines_count++;
       if ($section->{'section_childs'} 
-          and ($contents or $section->{'level'} < $root_level+1)) {
+          and ($contents or $section->{'structure'}->{'level'} < $root_level+1)) {
         $section = $section->{'section_childs'}->[0];
       } elsif ($section->{'section_next'}) {
         last if ($section eq $top_section);
@@ -2263,7 +2264,7 @@ sub _convert($$)
       $result = $self->convert_line ({'type' => 'frenchspacing',
                'contents' => [$element->{'args'}->[0]]});
       pop @{$self->{'count_context'}};
-      $result = Texinfo::Convert::Text::heading({'level' => 0, 
+      $result = Texinfo::Convert::Text::heading({'structure' => {'level' => 0},
         'cmdname' => 'titlefont'}, $result, $self, 
         $self->get_conf('NUMBER_SECTIONS'),
         ($self->{'format_context'}->[-1]->{'indent_level'}) * $indent_length);

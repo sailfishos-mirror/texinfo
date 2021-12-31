@@ -199,13 +199,15 @@ $result_trees{'part_node_after_top'} = [
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'level' => 0,
         'line_nr' => {
           'file_name' => '',
           'line_nr' => 2,
           'macro' => ''
         },
-        'parent' => {}
+        'parent' => {},
+        'structure' => {
+          'level' => 0
+        }
       },
       {
         'args' => [
@@ -281,13 +283,15 @@ $result_trees{'part_node_after_top'} = [
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'level' => 0,
         'line_nr' => {
           'file_name' => '',
           'line_nr' => 9,
           'macro' => ''
         },
-        'parent' => {}
+        'parent' => {},
+        'structure' => {
+          'level' => 0
+        }
       }
     ],
     'extra' => {
@@ -365,7 +369,6 @@ part
 ';
 
 $result_sectioning{'part_node_after_top'} = {
-  'level' => -1,
   'section_childs' => [
     {
       'cmdname' => 'top',
@@ -379,19 +382,26 @@ $result_sectioning{'part_node_after_top'} = {
         },
         'spaces_before_argument' => ' '
       },
-      'level' => 0,
-      'section_up' => {}
+      'section_up' => {},
+      'structure' => {
+        'level' => 0
+      }
     },
     {
       'cmdname' => 'part',
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 0,
       'section_prev' => {},
-      'section_up' => {}
+      'section_up' => {},
+      'structure' => {
+        'level' => 0
+      }
     }
-  ]
+  ],
+  'structure' => {
+    'level' => -1
+  }
 };
 $result_sectioning{'part_node_after_top'}{'section_childs'}[0]{'section_up'} = $result_sectioning{'part_node_after_top'};
 $result_sectioning{'part_node_after_top'}{'section_childs'}[1]{'section_prev'} = $result_sectioning{'part_node_after_top'}{'section_childs'}[0];
@@ -405,7 +415,9 @@ $result_nodes{'part_node_after_top'} = {
       'extra' => {
         'spaces_before_argument' => ' '
       },
-      'level' => 0
+      'structure' => {
+        'level' => 0
+      }
     },
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
@@ -511,7 +523,9 @@ $result_elements{'part_node_after_top'} = [
         'extra' => {
           'spaces_before_argument' => ' '
         },
-        'level' => 0
+        'structure' => {
+          'level' => 0
+        }
       },
       'unit_command' => {}
     },
@@ -524,7 +538,9 @@ $result_elements{'part_node_after_top'} = [
               'extra' => {
                 'spaces_before_argument' => ' '
               },
-              'level' => 0
+              'structure' => {
+                'level' => 0
+              }
             },
             'unit_command' => {}
           },
