@@ -871,7 +871,8 @@ $result_converted{'html_text'}->{'comment_space_command_on_line'} = '
 </p><div class="float-caption"><p><strong>Text 1
 </strong></p></div></div>
 
-<hr></div>
+<hr>
+</div>
 ';
 
 

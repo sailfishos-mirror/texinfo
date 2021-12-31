@@ -74,9 +74,7 @@ $result_trees{'node_and_bye'} = [
         'parent' => {}
       }
     ],
-    'extra' => {
-      'no_section' => 1
-    },
+    'extra' => {},
     'type' => 'unit'
   }
 ];
@@ -126,8 +124,7 @@ $result_elements{'node_and_bye'} = [
     'extra' => {
       'directions' => {
         'This' => {}
-      },
-      'no_section' => 1
+      }
     },
     'type' => 'unit'
   }

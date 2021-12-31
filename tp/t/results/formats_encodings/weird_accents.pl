@@ -656,7 +656,8 @@ $result_converted{'html_text'}->{'weird_accents'} = '
 <p>r&#768;&#803;&#770;
 </p>
 <p>r&#768;&#769;&#772;
-</p><hr></div>
+</p><hr>
+</div>
 ';
 
 

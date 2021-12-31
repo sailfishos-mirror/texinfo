@@ -1012,13 +1012,13 @@ sub _convert($$;$)
       } elsif ($type eq 'skipline') {
         # the command associated with an element is closed at the end of the
         # element. @bye is withing the element, but we want it to appear after
-        # the comand closing.  So we delay the output of @bye, and store it.
+        # the command closing.  So we delay the output of @bye, and store it.
         if ($cmdname eq 'bye' and $element->{'parent'}
             and $element->{'parent'}->{'type'}
             and $element->{'parent'}->{'type'} eq 'unit'
-            and !($element->{'parent'}->{'extra'}
-                  and ($element->{'parent'}->{'extra'}->{'no_section'}
-                       or $element->{'parent'}->{'extra'}->{'no_node'}))) {
+            and !(not defined $element->{'parent'}->{'extra'}->{'section'}
+                  or ($element->{'parent'}->{'extra'}
+                      and $element->{'parent'}->{'extra'}->{'no_node'}))) {
           $self->{'pending_bye'} = $self->open_element($cmdname)
                     .$self->close_element($cmdname)."\n";
           return '';

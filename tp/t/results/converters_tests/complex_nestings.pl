@@ -1483,7 +1483,8 @@ explanation
 <pre class="example">
 
 </pre></div>
-<hr>';
+<hr>
+';
 
 
 $result_converted{'xml'}->{'complex_nestings'} = '<node name="Top" spaces=" "><nodename>Top</nodename></node>

@@ -2601,7 +2601,8 @@ $result_converted{'html_text'}->{'image_formatting'} = '<h1 class="node-heading"
 
 <p>in para
 <img src="f--ile.png" alt="a very long alt argument that could span more than one line who knows">.
-</p><hr>';
+</p><hr>
+';
 
 $result_converted_errors{'html_text'}->{'image_formatting'} = [
   {

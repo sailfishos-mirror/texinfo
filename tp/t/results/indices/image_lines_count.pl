@@ -317,6 +317,7 @@ $result_converted{'html_text'}->{'image_lines_count'} = '<h1 class="node-heading
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#t_h_cp_letter-I"><b>I</b></a>
  &nbsp; 
 </td></tr></table>
-<hr>';
+<hr>
+';
 
 1;

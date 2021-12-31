@@ -461,7 +461,8 @@ ul.no-bullet {list-style: none}
 <p>Top.
 </p>
 <p>Second paragraph.
-</p><hr></div>
+</p><hr>
+</div>
 
 
 

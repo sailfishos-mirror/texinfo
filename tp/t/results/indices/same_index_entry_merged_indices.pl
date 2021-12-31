@@ -776,7 +776,8 @@ $result_converted{'html_text'}->{'same_index_entry_merged_indices'} = '
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#t_h_fn_letter-M"><b>M</b></a>
  &nbsp; 
 </td></tr></table>
-<hr></div>
+<hr>
+</div>
 ';
 
 1;

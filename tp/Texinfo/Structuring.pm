@@ -895,15 +895,12 @@ sub split_by_node($)
 sub split_by_section($)
 {
   my $root = shift;
-  if (no_root_command_tree($root)) {
-    return undef;
-  }
   my $tree_units;
-  my $current = { 'type' => 'unit', 'extra' => {'no_section' => 1}};
+  my $current = { 'type' => 'unit' };
   push @$tree_units, $current;
   foreach my $content (@{$root->{'contents'}}) {
     if ($content->{'cmdname'}
-        and (($content->{'cmdname'} eq 'node' 
+        and (($content->{'cmdname'} eq 'node'
               and $content->{'extra'}->{'associated_section'})
              or ($content->{'cmdname'} eq 'part'
                  and $content->{'extra'}->{'part_associated_section'}))) {
@@ -913,26 +910,24 @@ sub split_by_section($)
       } else {
         $new_section = $content->{'extra'}->{'part_associated_section'};
       }
-      if (! $current->{'extra'}->{'section'}
+      if (not defined($current->{'extra'})
+               or not defined($current->{'extra'}->{'section'})) {
+        $current->{'extra'}->{'section'} = $new_section;
+        $current->{'extra'}->{'unit_command'} = $new_section;
+      } elsif (!$current->{'extra'}->{'section'}
         or $new_section ne $current->{'extra'}->{'section'}) {
-        if ($current->{'extra'}->{'no_section'}) {
-          delete $current->{'extra'}->{'no_section'};
-          $current->{'extra'}->{'section'}
-            = $new_section;
-        } else {
-          $current = { 'type' => 'unit',
-                       'extra' => {'section' => $new_section}};
-          $current->{'unit_prev'} = $tree_units->[-1];
-          $tree_units->[-1]->{'unit_next'} = $current;
-          push @$tree_units, $current;
-        }
-        $tree_units->[-1]->{'extra'}->{'unit_command'}
-          = $new_section;
+        $current = { 'type' => 'unit',
+                     'extra' => {'section' => $new_section,
+                                 'unit_command' => $new_section}};
+        $current->{'unit_prev'} = $tree_units->[-1];
+        $tree_units->[-1]->{'unit_next'} = $current;
+        push @$tree_units, $current;
       }
-    } elsif ($content->{'cmdname'} and $content->{'cmdname'} ne 'node' 
+    } elsif ($content->{'cmdname'} and $content->{'cmdname'} ne 'node'
                                    and $content->{'cmdname'} ne 'bye') {
-      if ($current->{'extra'}->{'no_section'}) {
-        delete $current->{'extra'}->{'no_section'};
+      # FIXME check that it is a sectioning command?
+      if (not defined($current->{'extra'})
+               or not defined($current->{'extra'}->{'section'})) {
         $current->{'extra'}->{'section'} = $content;
         $current->{'extra'}->{'unit_command'} = $content;
       } elsif ($current->{'extra'}->{'section'} ne $content) {
@@ -943,7 +938,7 @@ sub split_by_section($)
         push @$tree_units, $current;
       }
     }
-    if ($content->{'cmdname'} and $content->{'cmdname'} eq 'node' 
+    if ($content->{'cmdname'} and $content->{'cmdname'} eq 'node'
         and $content->{'extra'}->{'associated_section'}) {
       $current->{'extra'}->{'node'} = $content;
     }
@@ -953,8 +948,8 @@ sub split_by_section($)
   return $tree_units;
 }
 
-# Associate top-level elements with pages according to the splitting 
-# specification.  Set 'first_in_page' on each top-level element to the element 
+# Associate top-level elements with pages according to the splitting
+# specification.  Set 'first_in_page' on each top-level element to the element
 # that is the first in the output page.
 sub split_pages ($$)
 {
@@ -2102,8 +2097,7 @@ lone nodes are associated with the previous sections and lone sections
 makes up a tree unit.
 
 The extra hash keys set are the same, except that I<unit_command> is
-the sectioning command associated with the element, and I<no_node> is 
-replaced by I<no_section>.
+the sectioning command associated with the element.
 
 =item $pages = split_pages($tree_units, $split)
 

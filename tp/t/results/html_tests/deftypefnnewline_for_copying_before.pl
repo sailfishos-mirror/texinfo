@@ -771,7 +771,8 @@ ul.no-bullet {list-style: none}
 <dd><p>do something with input
 </p></dd></dl>
 
-<hr></div>
+<hr>
+</div>
 
 
 

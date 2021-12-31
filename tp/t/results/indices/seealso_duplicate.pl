@@ -471,6 +471,7 @@ $result_converted{'html_text'}->{'seealso_duplicate'} = '<h1 class="node-heading
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#t_h_cp_letter-A"><b>A</b></a>
  &nbsp; 
 </td></tr></table>
-<hr>';
+<hr>
+';
 
 1;

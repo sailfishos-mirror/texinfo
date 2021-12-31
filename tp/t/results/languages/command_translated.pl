@@ -345,7 +345,8 @@ ul.no-bullet {list-style: none}
 <h1 class="top" id="top-error_002d_002d_003e">top erreur&rarr;</h1>
 
 <p>erreur&rarr;
-</p><hr></div>
+</p><hr>
+</div>
 
 
 

@@ -254,7 +254,8 @@ ul.no-bullet {list-style: none}
 </div>
 <div class="top" id="top">
 <h1 class="top">top</h1>
-<hr></div>
+<hr>
+</div>
 
 
 

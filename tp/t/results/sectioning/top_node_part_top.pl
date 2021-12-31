@@ -384,7 +384,8 @@ ul.no-bullet {list-style: none}
 <hr>
 
 <h1 class="top" id="top">top</h1>
-<hr></div>
+<hr>
+</div>
 
 
 

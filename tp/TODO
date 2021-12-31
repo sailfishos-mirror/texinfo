@@ -13,6 +13,8 @@ xmllint --nonet --noout --valid commands.xml
 Before next release
 ===================
 
+HTML.pm l 8024 check if setting MATHJAX_SCRIPT and MATHJAX_SOURCE is not
+set and HTML_MATH is mathjax shouldn't be done before.
 
 Bugs
 ====

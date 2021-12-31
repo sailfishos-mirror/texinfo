@@ -446,7 +446,8 @@ ul.no-bullet {list-style: none}
 <h2 class="chapter">1 Chapter</h2>
 
 <p>in chapter
-</p><hr></div>
+</p><hr>
+</div>
 
 
 

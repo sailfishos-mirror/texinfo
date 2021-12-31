@@ -165,7 +165,8 @@ $result_converted{'html_text'}->{'footnote_no_node'} = '<div class="top" id="top
 <h5><a id="FOOT1" href="#DOCF1">(1)</a></h5>
 <p>In footnote</p>
 </div>
-<hr></div>
+<hr>
+</div>
 ';
 
 1;

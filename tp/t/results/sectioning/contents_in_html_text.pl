@@ -360,7 +360,8 @@ $result_converted{'html_text'}->{'contents_in_html_text'} = '<div class="top" id
 </ul>
 </div>
 </div>
-<hr></div>
+<hr>
+</div>
 </div>
 ';
 

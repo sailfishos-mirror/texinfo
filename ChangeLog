@@ -1,5 +1,20 @@
 2021-12-30  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (%default_types_conversion),
+	(_convert_tree_unit_type, convert, output): do not use the
+	text_root type to make sure that footnotes and rules are output
+	when there are no tree units.  Do it in the output() and convert()
+	functions.
+
+	* tp/Texinfo/Structuring.pm (split_by_section),
+	tp/Texinfo/Convert/TexinfoXML.pm (_convert): do not use
+	no_root_command_tree() to check if there is no section.
+	If there is no section, instead of setting extra no_section
+	key, simply do not set extra section key.
+
+
+2021-12-30  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Structuring.pm (sectioning_structure): do not
 	use no_root_command_tree() to check if there is no section
 	structure, use the tree directly to define $sec_root.

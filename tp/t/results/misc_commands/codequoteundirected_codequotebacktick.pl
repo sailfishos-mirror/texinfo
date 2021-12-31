@@ -5376,7 +5376,8 @@ samp: &lsquo;<samp>``simple-double--three---four----\'\' `simple\' quotedblleft:
 
 </pre></div>
 
-<hr></div>
+<hr>
+</div>
 ';
 
 

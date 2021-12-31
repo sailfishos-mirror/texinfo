@@ -488,6 +488,7 @@ $result_converted{'html_text'}->{'double_syncodeindex'} = '
 <a class="summary-letter" href="#t_h_fn_letter-F"><b>F</b></a>
  &nbsp; 
 </td></tr></table>
-<hr>';
+<hr>
+';
 
 1;

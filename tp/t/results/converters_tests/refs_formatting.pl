@@ -4501,7 +4501,8 @@ $result_converted{'html_text'}->{'refs_formatting'} = '<div class="chapter" id="
 <code>@inforef{chapter}</code> See &lsquo;chapter&rsquo;
 <code>@inforef{chapter, cross ref name}</code> See &lsquo;cross ref name&rsquo;
 <code>@inforef{chapter,,file name}</code> See <a data-manual="file name" href="file name.html#chapter">(file name)chapter</a>
-</p><hr></div>
+</p><hr>
+</div>
 ';
 
 

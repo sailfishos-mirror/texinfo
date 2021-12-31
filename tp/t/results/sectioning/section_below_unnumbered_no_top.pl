@@ -189,7 +189,8 @@ ul.no-bullet {list-style: none}
 </ul>
 <div class="section" id="S">
 <h3 class="section">S</h3>
-<hr></div>
+<hr>
+</div>
 </div>
 
 

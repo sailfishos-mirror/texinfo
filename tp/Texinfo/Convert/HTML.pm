@@ -2949,7 +2949,6 @@ sub _convert_heading_command($$$$$)
           = $self->_contents_inline_element($content_command_name, undef);
         if ($contents_text ne '') {
           $result .= $contents_text;
-          #$result .= $contents_text . $self->get_conf('DEFAULT_RULE')."\n";
           $table_of_contents_was_output = 1;
         }
       }
@@ -5076,33 +5075,6 @@ sub _convert_table_item_type($$$$)
 $default_types_conversion{'table_item'} = \&_convert_table_item_type;
 $default_types_conversion{'inter_item'} = \&_convert_table_item_type;
 
-# This type is the only one present if there are no elements.  It is
-# therefore used to do the formatting normally done in tree unit
-# in case there are no tree units (no sectioning elements nor nodes).
-sub _convert_root_text_type($$$$)
-{
-  my $self = shift;
-  my $type = shift;
-  my $command = shift;
-  my $content = shift;
-
-  my $result = $content;
-  #$result =~ s/^\s*//;
-  # if there is no tree unit, the parent should not be a tree unit
-  if (!$command->{'parent'} 
-      or !$command->{'parent'}->{'type'}
-      or $command->{'parent'}->{'type'} ne 'unit') {
-    $result .= &{$self->{'format_footnotes_text'}}($self);
-    $result .= $self->get_conf('DEFAULT_RULE') ."\n",
-      if ($self->get_conf('PROGRAM_NAME_IN_FOOTER') 
-          and defined($self->get_conf('DEFAULT_RULE'))
-          and !$self->in_string());
-  }
-  return $result;
-}
-
-$default_types_conversion{'text_root'} = \&_convert_root_text_type;
-
 sub _contents_shortcontents_in_title($)
 {
   my $self = shift;
@@ -5246,10 +5218,14 @@ sub _convert_tree_unit_type($$$$)
   if (!$tree_unit->{'unit_prev'}) {
     $result .= $self->_print_title();
     if (!$tree_unit->{'unit_next'}) {
-      # only one element
+      # only one unit, use simplfied formatting
       $result .= $content;
+      # if there is one unit it also means that there is no formatting
+      # of footnotes in a separate unit.  And if footnotestyle is end
+      # the footnotes won't be done in format_element_footer either.
       $result .= &{$self->{'format_footnotes_text'}}($self);
-      $result .= $self->get_conf('DEFAULT_RULE');
+      $result .= $self->get_conf('DEFAULT_RULE')."\n";
+      # do it here, as it is won't be done at end of page in format_element_footer
       $result .= join('', $self->close_registered_sections_level(0));
       return $result;
     }
@@ -5329,8 +5305,9 @@ sub _default_format_element_footer($$$$)
       }
     }
   }
-  # FIXME the following condition is almost a duplication of end_page 
-  # except that the file counter needs not be 1
+  # FIXME the following condition is almost a duplication of the
+  # condition appearing in end_page except that the file counter
+  # needs not to be 1
   if ((!$element->{'unit_next'}
        or (defined($element->{'filename'})
            and $element->{'filename'} ne $element->{'unit_next'}->{'filename'}))
@@ -6147,7 +6124,8 @@ sub _set_root_commands_targets_node_files($$)
     foreach my $tree_unit (@$tree_units) {
       foreach my $root_command(@{$tree_unit->{'contents'}}) {
         # this happens for type 'text_root' which precedes the 
-        # root commands.  The target may also already be set for top node.
+        # root commands.  The target may also already be set for the top node
+        # tree unit.
         next if (!defined($root_command->{'cmdname'}) 
                  or $self->{'targets'}->{$root_command});
         if ($Texinfo::Common::sectioning_commands{$root_command->{'cmdname'}}) {
@@ -7694,6 +7672,11 @@ sub convert($$)
 
   if (!defined($tree_units)) {
     $result = $self->_convert($root);
+    # FIXME API unclean
+    $result .= &{$self->{'format_footnotes_text'}}($self);
+    $result .= $self->get_conf('DEFAULT_RULE') ."\n",
+      if ($self->get_conf('PROGRAM_NAME_IN_FOOTER')
+          and defined($self->get_conf('DEFAULT_RULE')));
   } else {
     foreach my $tree_unit (@$tree_units) {
       my $tree_unit_text = $self->_convert($tree_unit);
@@ -8082,6 +8065,11 @@ sub output($$)
     } else {
       $body .= $self->_print_title();
       $body .= $self->_convert($root);
+    # FIXME API unclean
+      $body .= &{$self->{'format_footnotes_text'}}($self);
+      $body .= $self->get_conf('DEFAULT_RULE') ."\n",
+        if ($self->get_conf('PROGRAM_NAME_IN_FOOTER')
+          and defined($self->get_conf('DEFAULT_RULE')));
     }
 
     my $header = &{$self->{'format_begin_file'}}($self, $output_filename, undef);

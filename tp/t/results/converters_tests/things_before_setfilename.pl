@@ -1553,7 +1553,8 @@ ul.no-bullet {list-style: none}
 <p>Ref to footnote anchor
 <a href="#Anchor-in-footnote">Anchor in footnote</a>
 </p>
-<hr></div>
+<hr>
+</div>
 
 
 

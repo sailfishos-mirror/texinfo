@@ -490,7 +490,8 @@ ul.no-bullet {list-style: none}
 </p>
 
 <p>Another unknown language. See <a href="#Top">unknkown language</a>.
-</p><hr></div>
+</p><hr>
+</div>
 
 
 

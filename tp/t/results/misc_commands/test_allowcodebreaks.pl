@@ -2781,6 +2781,7 @@ anc-hor<a class="anchor" id="A-node2"></a></samp>&rsquo;
 <div class="example">
 <pre class="example"><code>in-example</code>
 </pre></div>
-<hr>';
+<hr>
+';
 
 1;

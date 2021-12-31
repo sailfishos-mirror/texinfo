@@ -246,7 +246,8 @@ $result_converted{'html_text'}->{'no_empty_line_between_headings'} = '<div class
 </ul>
 <div class="section" id="Section">
 <h3 class="section">1.1 Section</h3>
-<hr></div>
+<hr>
+</div>
 </div>
 </div>
 ';

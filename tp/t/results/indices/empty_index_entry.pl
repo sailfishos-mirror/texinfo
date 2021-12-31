@@ -321,6 +321,7 @@ $result_converted{'html_text'}->{'empty_index_entry'} = '<h1 class="node-heading
 <dt><span class="category">: </span><strong></strong></dt>
 </dl>
 
-<hr>';
+<hr>
+';
 
 1;

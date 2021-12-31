@@ -404,7 +404,8 @@ ul.no-bullet {list-style: none}
 <h1 class="node-heading" id="Top">Top</h1>
 
 <p>See <a href="#in-titlepage">in titlepage</a>.
-</p><hr></div>
+</p><hr>
+</div>
 
 
 

@@ -370,7 +370,8 @@ ul.no-bullet {list-style: none}
 <h1 class="top" id="top">top</h1>
 
 <p>a sunny day.
-</p><hr></div>
+</p><hr>
+</div>
 
 
 

@@ -931,7 +931,8 @@ $result_converted{'html_text'}->{'empty_string_index_entry'} = '<h1 class="node-
 <dt id="index--3"><span class="category">Function: </span><span><strong><!-- /@w --></strong> <em> </em><a href=\'#index--3\' class=\'copiable-anchor\'> &para;</a></span></dt>
 </dl>
 
-<hr>';
+<hr>
+';
 
 $result_converted_errors{'html_text'}->{'empty_string_index_entry'} = [
   {

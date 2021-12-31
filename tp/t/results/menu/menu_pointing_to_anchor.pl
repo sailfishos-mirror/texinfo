@@ -475,7 +475,8 @@ ul.no-bullet {list-style: none}
 <tr><td align="left" valign="top">&bull; <a href="#An-anchor" accesskey="1">An anchor</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">menu entry pointing to the anchor.
 </td></tr>
 </table>
-<hr></div>
+<hr>
+</div>
 
 
 

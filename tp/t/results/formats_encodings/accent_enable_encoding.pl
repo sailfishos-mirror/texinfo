@@ -3326,7 +3326,8 @@ $result_converted{'html_text'}->{'accent_enable_encoding'} = '<div class="top" i
 <p>should be dotless j^: ĵ
 </p>
 <p>should be dotless j&quot;: j̈
-</p><hr></div>
+</p><hr>
+</div>
 ';
 
 

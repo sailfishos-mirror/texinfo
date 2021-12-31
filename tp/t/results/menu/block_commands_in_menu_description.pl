@@ -901,7 +901,8 @@ Text.
 <pre class="verbatim">
 </pre></td></tr>
 </table>
-<hr></div>
+<hr>
+</div>
 
 
 

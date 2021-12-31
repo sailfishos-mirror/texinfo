@@ -502,7 +502,8 @@ end inlineraw
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
 
 </pre></th></tr></table>
-<hr></div>
+<hr>
+</div>
 
 
 
