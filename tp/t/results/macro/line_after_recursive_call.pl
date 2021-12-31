@@ -82,7 +82,7 @@ $result_trees{'line_after_recursive_call'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

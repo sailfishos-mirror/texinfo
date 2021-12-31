@@ -10,7 +10,7 @@ $result_trees{'invalid_info_menu_entry'} = {
     {
       'contents' => [],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

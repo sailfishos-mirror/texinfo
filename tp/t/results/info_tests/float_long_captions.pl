@@ -10,7 +10,7 @@ $result_trees{'float_long_captions'} = {
     {
       'contents' => [],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

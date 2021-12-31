@@ -228,7 +228,7 @@ $result_trees{'tab_in_table_in_example'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

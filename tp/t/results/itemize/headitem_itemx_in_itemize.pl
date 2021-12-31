@@ -143,7 +143,7 @@ $result_trees{'headitem_itemx_in_itemize'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

@@ -165,7 +165,7 @@ $result_trees{'headitem_in_table'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

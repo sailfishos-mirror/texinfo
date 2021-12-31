@@ -10,7 +10,7 @@ $result_trees{'unclosed_verb_on_section_line'} = {
     {
       'contents' => [],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

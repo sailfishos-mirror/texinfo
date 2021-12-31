@@ -76,7 +76,7 @@ $result_trees{'item_tab_outside_of_table_lists'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

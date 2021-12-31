@@ -10,7 +10,7 @@ $result_trees{'verb_in_xref'} = {
     {
       'contents' => [],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

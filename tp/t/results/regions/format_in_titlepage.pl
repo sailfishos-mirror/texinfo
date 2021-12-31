@@ -146,7 +146,7 @@ $result_trees{'format_in_titlepage'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

@@ -10,7 +10,7 @@ $result_trees{'colon_in_index_entry'} = {
     {
       'contents' => [],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

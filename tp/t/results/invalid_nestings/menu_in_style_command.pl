@@ -10,7 +10,7 @@ $result_trees{'menu_in_style_command'} = {
     {
       'contents' => [],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

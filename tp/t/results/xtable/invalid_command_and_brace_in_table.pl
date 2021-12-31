@@ -111,7 +111,7 @@ $result_trees{'invalid_command_and_brace_in_table'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

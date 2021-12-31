@@ -332,7 +332,7 @@ $result_trees{'text_on_display_command_line'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

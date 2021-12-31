@@ -60,7 +60,7 @@ $result_trees{'node_in_copying_not_closed'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

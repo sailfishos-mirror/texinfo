@@ -17,7 +17,7 @@ $result_trees{'reference_to_external_manual'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

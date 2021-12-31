@@ -48,7 +48,7 @@ $result_trees{'non_break_spaces'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

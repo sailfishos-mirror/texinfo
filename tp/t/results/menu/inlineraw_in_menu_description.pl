@@ -10,7 +10,7 @@ $result_trees{'inlineraw_in_menu_description'} = {
     {
       'contents' => [],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

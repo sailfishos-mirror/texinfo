@@ -183,7 +183,7 @@ $result_trees{'end_ifset_in_format'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

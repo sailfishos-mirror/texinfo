@@ -55,7 +55,7 @@ $result_trees{'section_in_footnote'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

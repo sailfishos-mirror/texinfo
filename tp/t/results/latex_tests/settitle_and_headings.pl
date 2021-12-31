@@ -119,7 +119,7 @@ $result_trees{'settitle_and_headings'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

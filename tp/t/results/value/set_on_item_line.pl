@@ -579,7 +579,7 @@ $result_trees{'set_on_item_line'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

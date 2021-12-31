@@ -267,7 +267,7 @@ $result_trees{'nested_in_sc'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

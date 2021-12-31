@@ -70,7 +70,7 @@ $result_trees{'more_sections_than_nodes'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

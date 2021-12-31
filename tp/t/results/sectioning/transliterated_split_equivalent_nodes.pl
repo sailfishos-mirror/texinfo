@@ -11,7 +11,7 @@ $result_trees{'transliterated_split_equivalent_nodes'} = [
       {
         'contents' => [],
         'parent' => {},
-        'type' => 'text_root'
+        'type' => 'before_node_section'
       },
       {
         'args' => [

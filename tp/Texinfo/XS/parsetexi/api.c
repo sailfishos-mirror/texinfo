@@ -185,12 +185,12 @@ parse_string (char *string)
 void
 parse_text (char *string)
 {
-  ELEMENT *text_root = setup_document_root_and_text_root ();
-  ELEMENT *document_root = text_root->parent;
+  ELEMENT *before_node_section = setup_document_root_and_before_node_section ();
+  ELEMENT *document_root = before_node_section->parent;
 
   reset_parser_except_conf ();
   input_push_text_with_line_nos (strdup (string), 1);
-  Root = parse_texi (document_root, text_root);
+  Root = parse_texi (document_root, before_node_section);
 }
 
 
@@ -301,7 +301,7 @@ element_to_perl_hash (ELEMENT *e)
      created.  Largely by trial and error to match the Perl code.  Some of
      them don't make sense, like @arrow{}, @image, or for accent commands. */
   if (e->contents.number > 0
-      || e->type == ET_text_root
+      || e->type == ET_before_node_section
       || e->type == ET_root_line
       || e->type == ET_bracketed
       || e->type == ET_bracketed_def_content

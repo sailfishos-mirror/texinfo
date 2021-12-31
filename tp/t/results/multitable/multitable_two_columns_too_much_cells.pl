@@ -319,7 +319,7 @@ $result_trees{'multitable_two_columns_too_much_cells'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

@@ -35,7 +35,7 @@ $result_trees{'invalid_accent_punctuation'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

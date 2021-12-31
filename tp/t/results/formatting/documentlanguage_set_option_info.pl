@@ -147,7 +147,7 @@ $result_trees{'documentlanguage_set_option_info'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

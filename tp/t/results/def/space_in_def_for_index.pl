@@ -10,7 +10,7 @@ $result_trees{'space_in_def_for_index'} = {
     {
       'contents' => [],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

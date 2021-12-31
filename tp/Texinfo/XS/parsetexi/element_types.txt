@@ -42,9 +42,9 @@ spaces
 spaces_inserted
 
 # Other special types
-text_root
 document_root
 root_line
+before_node_section
 preamble_before_beginning
 preamble_before_setfilename
 paragraph

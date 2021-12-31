@@ -17,7 +17,7 @@ $result_trees{'some_at_commands_in_ref_nodes'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

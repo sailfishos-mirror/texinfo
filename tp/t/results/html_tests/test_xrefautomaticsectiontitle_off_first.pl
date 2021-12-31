@@ -54,7 +54,7 @@ $result_trees{'test_xrefautomaticsectiontitle_off_first'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

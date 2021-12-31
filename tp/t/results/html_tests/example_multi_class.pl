@@ -248,7 +248,7 @@ $result_trees{'example_multi_class'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

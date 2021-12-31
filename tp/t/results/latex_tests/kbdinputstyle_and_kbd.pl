@@ -613,7 +613,7 @@ $result_trees{'kbdinputstyle_and_kbd'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

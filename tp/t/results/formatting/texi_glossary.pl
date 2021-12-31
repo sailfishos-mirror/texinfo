@@ -341,7 +341,7 @@ $result_trees{'texi_glossary'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

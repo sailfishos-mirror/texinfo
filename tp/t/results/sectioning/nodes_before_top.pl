@@ -46,7 +46,7 @@ $result_trees{'nodes_before_top'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

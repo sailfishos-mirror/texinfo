@@ -60,7 +60,7 @@ $result_trees{'verb_and_char_end_of_line_not_closed'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

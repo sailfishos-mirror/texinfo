@@ -10,7 +10,7 @@ $result_trees{'nodes_after_top_before_chapter_not_split_no_use_node_directions'}
     {
       'contents' => [],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

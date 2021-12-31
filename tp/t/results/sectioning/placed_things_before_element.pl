@@ -603,7 +603,7 @@ $result_trees{'placed_things_before_element'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

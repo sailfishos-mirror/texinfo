@@ -243,7 +243,7 @@ $result_trees{'misc_raw_comments'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

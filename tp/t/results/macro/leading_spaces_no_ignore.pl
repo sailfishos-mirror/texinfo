@@ -83,7 +83,7 @@ $result_trees{'leading_spaces_no_ignore'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

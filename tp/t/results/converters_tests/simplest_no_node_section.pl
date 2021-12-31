@@ -95,7 +95,7 @@ $result_trees{'simplest_no_node_section'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

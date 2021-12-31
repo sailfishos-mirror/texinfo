@@ -99,7 +99,7 @@ $result_trees{'definfoenclose_with_empty_arg'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

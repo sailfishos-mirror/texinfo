@@ -10,7 +10,7 @@ $result_trees{'explicit_sort_key'} = {
     {
       'contents' => [],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

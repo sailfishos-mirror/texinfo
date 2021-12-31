@@ -164,7 +164,7 @@ $result_trees{'index_no_node'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

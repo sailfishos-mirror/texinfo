@@ -158,7 +158,7 @@ $result_trees{'japanese_utf8'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

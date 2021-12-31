@@ -64,7 +64,7 @@ $result_trees{'htmlxref_only_mono'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

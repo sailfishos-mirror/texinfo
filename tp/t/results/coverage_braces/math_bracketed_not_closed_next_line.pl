@@ -61,7 +61,7 @@ $result_trees{'math_bracketed_not_closed_next_line'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

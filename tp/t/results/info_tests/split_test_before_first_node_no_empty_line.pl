@@ -57,7 +57,7 @@ $result_trees{'split_test_before_first_node_no_empty_line'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

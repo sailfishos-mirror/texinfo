@@ -407,7 +407,7 @@ $result_trees{'characters_and_commands_in_var'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

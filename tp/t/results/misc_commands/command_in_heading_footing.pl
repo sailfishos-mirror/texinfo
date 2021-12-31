@@ -127,7 +127,7 @@ $result_trees{'command_in_heading_footing'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

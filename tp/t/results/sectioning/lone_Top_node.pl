@@ -47,7 +47,7 @@ $result_trees{'lone_Top_node'} = [
           }
         ],
         'parent' => {},
-        'type' => 'text_root'
+        'type' => 'before_node_section'
       },
       {
         'args' => [

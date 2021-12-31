@@ -20,9 +20,9 @@ ok(1, "modules loading");
 
 sub _find_accent($)
 {
-  my $text_root = shift;
-  my $current = $text_root;
-  while ($current->{'type'} and ($current->{'type'} eq 'text_root'
+  my $root = shift;
+  my $current = $root;
+  while ($current->{'type'} and ($current->{'type'} eq 'before_node_section'
                                  or $current->{'type'} eq 'document_root'
                                  or $current->{'type'} eq 'paragraph')) {
     $current = $current->{'contents'}->[0];
@@ -37,10 +37,10 @@ sub test_accent_stack ($)
   my $name = $test->[1];
   my $reference = $test->[2];
   my $parser = Texinfo::Parser::parser();
-  my $text_root = $parser->parse_texi_text($texi);
-  my $tree = _find_accent($text_root);
+  my $root = $parser->parse_texi_text($texi);
+  my $accent_tree = _find_accent($root);
   my ($contents, $commands_stack) = 
-    Texinfo::Convert::Utils::find_innermost_accent_contents($tree);
+    Texinfo::Convert::Utils::find_innermost_accent_contents($accent_tree);
   my $text = Texinfo::Convert::Text::convert_to_text({'contents' => $contents});
   my @stack = map {$_->{'cmdname'}} @$commands_stack;
   if (defined($reference)) {
@@ -86,11 +86,11 @@ sub test_enable_encoding ($)
   my $reference_xml_numeric_entity = $test->[4];
   my $reference_unicode = $test->[5];
   my $parser = Texinfo::Parser::parser();
-  my $text_root = $parser->parse_texi_text($texi);
-  my $tree = _find_accent($text_root);
+  my $root = $parser->parse_texi_text($texi);
+  my $accent_tree = _find_accent($root);
 
   my ($contents, $commands_stack) = 
-    Texinfo::Convert::Utils::find_innermost_accent_contents($tree);
+    Texinfo::Convert::Utils::find_innermost_accent_contents($accent_tree);
   my $text = Texinfo::Convert::Text::convert_to_text({'contents' => $contents});
 
   my $result = 
@@ -100,13 +100,13 @@ sub test_enable_encoding ($)
 
   my $html_converter = Texinfo::Convert::HTML->converter();
   my $result_xml = Texinfo::Convert::Converter::xml_accents($html_converter, 
-                                                            $tree);
+                                                            $accent_tree);
   $html_converter->{'conf'}->{'USE_NUMERIC_ENTITY'} = 1;
   my $result_xml_numeric_entity
-      = Texinfo::Convert::Converter::xml_accents($html_converter, $tree);
+      = Texinfo::Convert::Converter::xml_accents($html_converter, $accent_tree);
 
   ($contents, $commands_stack) =
-    Texinfo::Convert::Utils::find_innermost_accent_contents($tree);
+    Texinfo::Convert::Utils::find_innermost_accent_contents($accent_tree);
   $text = Texinfo::Convert::Text::convert_to_text({'contents' => $contents},
                                {'enabled_encoding' => 'utf-8'});
   my $result_unicode = Texinfo::Convert::Unicode::_format_unicode_accents_stack(

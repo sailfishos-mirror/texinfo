@@ -70,7 +70,7 @@ $result_trees{'contents_no_section'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

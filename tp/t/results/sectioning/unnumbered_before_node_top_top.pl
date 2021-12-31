@@ -11,7 +11,7 @@ $result_trees{'unnumbered_before_node_top_top'} = [
       {
         'contents' => [],
         'parent' => {},
-        'type' => 'text_root'
+        'type' => 'before_node_section'
       },
       {
         'args' => [

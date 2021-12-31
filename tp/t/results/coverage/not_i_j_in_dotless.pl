@@ -90,7 +90,7 @@ $result_trees{'not_i_j_in_dotless'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

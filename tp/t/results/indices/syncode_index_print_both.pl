@@ -84,7 +84,7 @@ $result_trees{'syncode_index_print_both'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

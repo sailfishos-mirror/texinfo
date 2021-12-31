@@ -237,7 +237,7 @@ $result_trees{'detailmenu_in_description'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

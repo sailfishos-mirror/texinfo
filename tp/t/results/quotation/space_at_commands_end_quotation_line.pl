@@ -249,7 +249,7 @@ $result_trees{'space_at_commands_end_quotation_line'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

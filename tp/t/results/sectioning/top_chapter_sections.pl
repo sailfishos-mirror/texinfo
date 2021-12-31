@@ -11,7 +11,7 @@ $result_trees{'top_chapter_sections'} = [
       {
         'contents' => [],
         'parent' => {},
-        'type' => 'text_root'
+        'type' => 'before_node_section'
       },
       {
         'args' => [

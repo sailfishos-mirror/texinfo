@@ -11,7 +11,7 @@ $result_trees{'character_and_spaces_in_refs_out'} = [
       {
         'contents' => [],
         'parent' => {},
-        'type' => 'text_root'
+        'type' => 'before_node_section'
       },
       {
         'args' => [

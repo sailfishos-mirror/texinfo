@@ -70,7 +70,7 @@ $result_trees{'navigation_section_no_header'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

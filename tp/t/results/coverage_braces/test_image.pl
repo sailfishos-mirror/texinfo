@@ -656,7 +656,7 @@ $result_trees{'test_image'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

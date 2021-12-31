@@ -10,7 +10,7 @@ $result_trees{'block_commands_in_table'} = {
     {
       'contents' => [],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

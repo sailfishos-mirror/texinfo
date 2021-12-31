@@ -17,7 +17,7 @@ $result_trees{'protected_node_parentheses'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

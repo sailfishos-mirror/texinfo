@@ -46,7 +46,7 @@ $result_trees{'inter_item_commands_in_itemize'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

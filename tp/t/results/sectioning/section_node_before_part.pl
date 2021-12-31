@@ -17,7 +17,7 @@ $result_trees{'section_node_before_part'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

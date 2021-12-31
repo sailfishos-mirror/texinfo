@@ -517,7 +517,7 @@ $result_trees{'punctuation_and_footnotes'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

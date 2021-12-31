@@ -983,7 +983,7 @@ $result_trees{'test_accents_sc_default_usascii'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

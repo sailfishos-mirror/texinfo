@@ -10,7 +10,7 @@ $result_trees{'contents_in_html_text'} = {
     {
       'contents' => [],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

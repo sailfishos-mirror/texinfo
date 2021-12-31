@@ -64,7 +64,7 @@ $result_trees{'cond_info_no-ifhtml_no-ifinfo_no-iftex'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

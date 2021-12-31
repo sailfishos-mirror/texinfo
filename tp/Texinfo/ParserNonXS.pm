@@ -276,7 +276,7 @@ foreach my $brace_command (keys (%brace_commands)) {
 }
 
 my %type_with_paragraph;
-foreach my $type ('before_item', 'text_root', 'document_root',
+foreach my $type ('before_item', 'before_node_section', 'document_root',
                   'brace_command_context') {
   $type_with_paragraph{$type} = 1;
 }
@@ -874,9 +874,10 @@ sub parse_texi_text($$;$$$$)
   $self = parser() if (!defined($self));
   $self->{'input'} = [{'pending' => $lines_array}];
 
-  my ($document_root, $text_root) = _setup_document_root_and_text_root();
+  my ($document_root, $before_node_section)
+     = _setup_document_root_and_before_node_section();
 
-  my $tree = $self->_parse_texi($document_root, $text_root);
+  my $tree = $self->_parse_texi($document_root, $before_node_section);
 
   $self->_set_global_informations();
 
@@ -945,16 +946,18 @@ sub parse_texi_file($$)
       last;
     }
   }
-  my ($document_root, $text_root) = _setup_document_root_and_text_root();
+  my ($document_root, $before_node_section)
+     = _setup_document_root_and_before_node_section();
   if (@first_lines) {
-    push @{$text_root->{'contents'}}, {'type' => 'preamble_before_beginning',
-                                       'contents' => [], 'parent' => $text_root };
+    push @{$before_node_section->{'contents'}},
+                              {'type' => 'preamble_before_beginning',
+                               'contents' => [], 'parent' => $before_node_section };
     foreach my $line (@first_lines) {
-      push @{$text_root->{'contents'}->[-1]->{'contents'}},
-                                   { 'text' => $line,
-                                     'type' => 'text_before_beginning',
-                                     'parent' => $text_root->{'contents'}->[-1]
-                                   };
+      push @{$before_node_section->{'contents'}->[-1]->{'contents'}},
+                          { 'text' => $line,
+                            'type' => 'text_before_beginning',
+                            'parent' => $before_node_section->{'contents'}->[-1]
+                          };
     }
   }
   my ($directories, $suffix);
@@ -970,22 +973,22 @@ sub parse_texi_file($$)
   $self->{'info'}->{'input_file_name'} = $file_name;
   $self->{'info'}->{'input_directory'} = $directories;
   
-  my $tree = $self->_parse_texi($document_root, $text_root);
+  my $tree = $self->_parse_texi($document_root, $before_node_section);
 
   # Put everything before @setfilename in a special type.  This allows to
   # ignore everything before @setfilename.
   if ($self->{'IGNORE_BEFORE_SETFILENAME'}
       and $self->{'extra'}->{'setfilename'}
-      and $self->{'extra'}->{'setfilename'}->{'parent'} eq $text_root) {
+      and $self->{'extra'}->{'setfilename'}->{'parent'} eq $before_node_section) {
     my $before_setfilename = {'type' => 'preamble_before_setfilename',
-                              'parent' => $text_root,
+                              'parent' => $before_node_section,
                               'contents' => []};
-    while ($text_root->{'contents'}->[0] ne $self->{'extra'}->{'setfilename'}) {
-      my $content = shift @{$text_root->{'contents'}};
+    while ($before_node_section->{'contents'}->[0] ne $self->{'extra'}->{'setfilename'}) {
+      my $content = shift @{$before_node_section->{'contents'}};
       $content->{'parent'} = $before_setfilename;
       push @{$before_setfilename->{'contents'}}, $content;
     }
-    unshift (@{$text_root->{'contents'}}, $before_setfilename)
+    unshift (@{$before_node_section->{'contents'}}, $before_setfilename)
       if (@{$before_setfilename->{'contents'}});
   }
 
@@ -1803,7 +1806,8 @@ sub _close_commands($$$;$$)
          # Stop if at the root
          and $current->{'parent'}
          # Stop if at a type at the root
-         and not ($current->{'type'} and $current->{'type'} eq 'text_root')
+         and not ($current->{'type'}
+                  and $current->{'type'} eq 'before_node_section')
      # Stop if in a root command
      # or in a context_brace_commands and searching for a specific 
      # end block command (with $closed_command set).  
@@ -3666,12 +3670,13 @@ sub _check_valid_nesting {
   }
 }
 
-sub _setup_document_root_and_text_root()
+sub _setup_document_root_and_before_node_section()
 {
-  my $text_root = { 'contents' => [], 'type' => 'text_root' };
-  my $document_root = { 'contents' => [$text_root], 'type' => 'document_root' };
-  $text_root->{'parent'} = $document_root;
-  return ($document_root, $text_root);
+  my $before_node_section = { 'contents' => [], 'type' => 'before_node_section' };
+  my $document_root = { 'contents' => [$before_node_section],
+                        'type' => 'document_root' };
+  $before_node_section->{'parent'} = $document_root;
+  return ($document_root, $before_node_section);
 }
 
 # the main subroutine
@@ -6666,10 +6671,10 @@ C<root_line> is the type of the root tree when parsing Texinfo line
 fragments using C<parse_texi_line>.  C<document_root> is the document
 root otherwise.
 
-C<document_root> first content should be C<text_root>, then nodes and
+C<document_root> first content should be C<before_node_section>, then nodes and
 sections @-commands elements, and also C<@bye> element.
 
-=item text_root
+=item before_node_section
 
 Content before nodes and sectioning commands at the beginning of C<document_root>.
 

@@ -52,7 +52,7 @@ $result_trees{'not_only_characters'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

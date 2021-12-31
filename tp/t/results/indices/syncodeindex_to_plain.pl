@@ -49,7 +49,7 @@ $result_trees{'syncodeindex_to_plain'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

@@ -133,7 +133,7 @@ $result_trees{'macro_in_macro_arg_simpler'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

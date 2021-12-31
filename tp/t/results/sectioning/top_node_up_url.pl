@@ -11,7 +11,7 @@ $result_trees{'top_node_up_url'} = [
       {
         'contents' => [],
         'parent' => {},
-        'type' => 'text_root'
+        'type' => 'before_node_section'
       },
       {
         'args' => [

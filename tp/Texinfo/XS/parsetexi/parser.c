@@ -337,12 +337,12 @@ wipe_global_info (void)
 }
 
 ELEMENT *
-setup_document_root_and_text_root ()
+setup_document_root_and_before_node_section ()
 {
-  ELEMENT *text_root = new_element (ET_text_root);
+  ELEMENT *before_node_section = new_element (ET_before_node_section);
   ELEMENT *document_root = new_element (ET_document_root);
-  add_to_element_contents (document_root, text_root);
-  return text_root;
+  add_to_element_contents (document_root, before_node_section);
+  return before_node_section;
 }
 
 
@@ -351,9 +351,9 @@ parse_texi_file (char *filename)
 {
   char *p, *q;
   char *linep, *line = 0;
-  ELEMENT *text_root = setup_document_root_and_text_root ();
+  ELEMENT *before_node_section = setup_document_root_and_before_node_section ();
   ELEMENT *preamble_before_beginning = 0;
-  ELEMENT *document_root = text_root->parent;
+  ELEMENT *document_root = before_node_section->parent;
   char c;
 
   int status;
@@ -410,9 +410,9 @@ parse_texi_file (char *filename)
     }
 
   if (preamble_before_beginning)
-    add_to_element_contents (text_root, preamble_before_beginning);
+    add_to_element_contents (before_node_section, preamble_before_beginning);
 
-  return parse_texi (document_root, text_root);
+  return parse_texi (document_root, before_node_section);
 }
 
 
@@ -421,7 +421,7 @@ begin_paragraph_p (ELEMENT *current)
 {
   return (current->type == ET_NONE /* "True for @-commands" */
            || current->type == ET_before_item
-           || current->type == ET_text_root
+           || current->type == ET_before_node_section
            || current->type == ET_document_root
            || current->type == ET_brace_command_context)
          && in_paragraph_context (current_context ());

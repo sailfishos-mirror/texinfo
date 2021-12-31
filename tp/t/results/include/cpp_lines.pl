@@ -109,7 +109,7 @@ $result_trees{'cpp_lines'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

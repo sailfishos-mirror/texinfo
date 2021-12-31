@@ -122,7 +122,7 @@ $result_trees{'set_form_feed'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

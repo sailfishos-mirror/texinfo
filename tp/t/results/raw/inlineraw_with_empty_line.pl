@@ -174,7 +174,7 @@ $result_trees{'inlineraw_with_empty_line'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

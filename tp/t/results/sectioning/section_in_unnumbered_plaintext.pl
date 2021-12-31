@@ -17,7 +17,7 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

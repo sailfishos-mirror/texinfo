@@ -11,7 +11,7 @@ $result_trees{'two_nodes_between_chapters'} = [
       {
         'contents' => [],
         'parent' => {},
-        'type' => 'text_root'
+        'type' => 'before_node_section'
       },
       {
         'args' => [

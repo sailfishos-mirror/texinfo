@@ -285,7 +285,7 @@ $result_trees{'brace_commands_spaces_end_of_lines'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

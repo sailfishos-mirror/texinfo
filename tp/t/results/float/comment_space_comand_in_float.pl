@@ -10,7 +10,7 @@ $result_trees{'comment_space_comand_in_float'} = {
     {
       'contents' => [],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

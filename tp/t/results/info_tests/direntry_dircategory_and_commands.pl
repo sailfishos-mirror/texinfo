@@ -414,7 +414,7 @@ $result_trees{'direntry_dircategory_and_commands'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

@@ -50,7 +50,7 @@ $result_trees{'section_on_def_line'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

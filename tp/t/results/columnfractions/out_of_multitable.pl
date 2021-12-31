@@ -39,7 +39,7 @@ $result_trees{'out_of_multitable'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

@@ -13380,7 +13380,7 @@ $result_trees{'all_commands_delimiters'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

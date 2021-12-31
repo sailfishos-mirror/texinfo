@@ -324,7 +324,7 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

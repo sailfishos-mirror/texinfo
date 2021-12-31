@@ -70,7 +70,7 @@ $result_trees{'contents_at_end_document_after_node'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

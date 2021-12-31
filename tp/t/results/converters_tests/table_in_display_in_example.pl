@@ -243,7 +243,7 @@ $result_trees{'table_in_display_in_example'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

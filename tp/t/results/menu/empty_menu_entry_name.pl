@@ -10,7 +10,7 @@ $result_trees{'empty_menu_entry_name'} = {
     {
       'contents' => [],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

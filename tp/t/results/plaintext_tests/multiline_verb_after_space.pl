@@ -58,7 +58,7 @@ $result_trees{'multiline_verb_after_space'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

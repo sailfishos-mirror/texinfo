@@ -101,7 +101,7 @@ $result_trees{'char_latin2_latin2_in_refs'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

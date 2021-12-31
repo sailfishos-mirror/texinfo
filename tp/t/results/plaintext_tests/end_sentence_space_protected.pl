@@ -31,7 +31,7 @@ $result_trees{'end_sentence_space_protected'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

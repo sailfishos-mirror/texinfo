@@ -226,7 +226,7 @@ $result_trees{'form_feed_in_brace_commands'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

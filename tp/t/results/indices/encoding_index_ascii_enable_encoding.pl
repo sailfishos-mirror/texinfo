@@ -83,7 +83,7 @@ $result_trees{'encoding_index_ascii_enable_encoding'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

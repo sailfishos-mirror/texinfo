@@ -612,7 +612,7 @@ $result_trees{'float_copying'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

@@ -70,7 +70,7 @@ $result_trees{'simplest_test_prefix_info'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

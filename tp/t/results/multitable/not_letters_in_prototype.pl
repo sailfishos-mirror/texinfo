@@ -163,7 +163,7 @@ $result_trees{'not_letters_in_prototype'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

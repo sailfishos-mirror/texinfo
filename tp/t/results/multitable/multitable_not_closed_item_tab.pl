@@ -142,7 +142,7 @@ $result_trees{'multitable_not_closed_item_tab'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

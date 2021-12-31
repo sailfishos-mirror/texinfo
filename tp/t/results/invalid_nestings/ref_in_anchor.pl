@@ -10,7 +10,7 @@ $result_trees{'ref_in_anchor'} = {
     {
       'contents' => [],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

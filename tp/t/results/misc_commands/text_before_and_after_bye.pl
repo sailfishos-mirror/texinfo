@@ -21,7 +21,7 @@ $result_trees{'text_before_and_after_bye'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

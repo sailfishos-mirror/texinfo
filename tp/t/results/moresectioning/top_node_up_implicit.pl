@@ -88,7 +88,7 @@ $result_trees{'top_node_up_implicit'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

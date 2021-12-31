@@ -142,7 +142,7 @@ $result_trees{'empty_quotation_with_arg_followed_by_quotation'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

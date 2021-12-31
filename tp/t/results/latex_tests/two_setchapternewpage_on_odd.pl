@@ -108,7 +108,7 @@ $result_trees{'two_setchapternewpage_on_odd'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

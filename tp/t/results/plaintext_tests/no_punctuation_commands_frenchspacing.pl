@@ -359,7 +359,7 @@ $result_trees{'no_punctuation_commands_frenchspacing'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

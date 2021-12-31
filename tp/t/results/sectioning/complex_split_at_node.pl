@@ -11,7 +11,7 @@ $result_trees{'complex_split_at_node'} = [
       {
         'contents' => [],
         'parent' => {},
-        'type' => 'text_root'
+        'type' => 'before_node_section'
       },
       {
         'args' => [

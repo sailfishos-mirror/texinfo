@@ -76,7 +76,7 @@ $result_trees{'nodes_after_top_before_section_use_nodes_chapter'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

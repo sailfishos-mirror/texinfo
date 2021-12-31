@@ -119,7 +119,7 @@ $result_trees{'space_macro_after_end'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

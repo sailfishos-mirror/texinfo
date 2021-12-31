@@ -47,7 +47,7 @@ $result_trees{'consecutive_conditionals'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

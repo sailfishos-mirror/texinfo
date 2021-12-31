@@ -583,7 +583,7 @@ $result_trees{'printindex_index_entry_in_copying_no_insertcopying'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

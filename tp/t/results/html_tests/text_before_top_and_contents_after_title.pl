@@ -34,7 +34,7 @@ $result_trees{'text_before_top_and_contents_after_title'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

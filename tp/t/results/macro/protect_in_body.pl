@@ -147,7 +147,7 @@ $result_trees{'protect_in_body'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

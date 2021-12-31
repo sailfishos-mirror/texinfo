@@ -86,7 +86,7 @@ $result_trees{'empty_lines_at_beginning_no_setfilename_no_element'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

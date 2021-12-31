@@ -2317,7 +2317,7 @@ $result_trees{'comments_on_block_command_lines'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

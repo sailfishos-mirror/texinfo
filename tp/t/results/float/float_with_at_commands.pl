@@ -416,7 +416,7 @@ $result_trees{'float_with_at_commands'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

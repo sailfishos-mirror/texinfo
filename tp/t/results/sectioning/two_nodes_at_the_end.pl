@@ -11,7 +11,7 @@ $result_trees{'two_nodes_at_the_end'} = [
       {
         'contents' => [],
         'parent' => {},
-        'type' => 'text_root'
+        'type' => 'before_node_section'
       },
       {
         'args' => [

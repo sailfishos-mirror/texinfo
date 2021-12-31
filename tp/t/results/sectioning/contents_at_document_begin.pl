@@ -93,7 +93,7 @@ $result_trees{'contents_at_document_begin'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

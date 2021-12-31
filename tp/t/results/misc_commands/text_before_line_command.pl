@@ -65,7 +65,7 @@ $result_trees{'text_before_line_command'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

@@ -157,7 +157,7 @@ $result_trees{'html_in_copying'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

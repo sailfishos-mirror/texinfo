@@ -142,7 +142,7 @@ $result_trees{'uref_with_commands_characters'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

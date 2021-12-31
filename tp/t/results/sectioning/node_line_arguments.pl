@@ -17,7 +17,7 @@ $result_trees{'node_line_arguments'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

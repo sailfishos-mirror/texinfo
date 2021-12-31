@@ -540,7 +540,7 @@ $result_trees{'itemize_in_headitem_in_example'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

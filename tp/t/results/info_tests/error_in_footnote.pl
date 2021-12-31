@@ -17,7 +17,7 @@ $result_trees{'error_in_footnote'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

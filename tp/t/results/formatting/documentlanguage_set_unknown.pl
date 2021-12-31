@@ -147,7 +147,7 @@ $result_trees{'documentlanguage_set_unknown'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

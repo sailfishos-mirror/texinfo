@@ -10,7 +10,7 @@ $result_trees{'ifnotinfo_exception'} = {
     {
       'contents' => [],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

@@ -108,7 +108,7 @@ $result_trees{'value_in_macro_formal_arg'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

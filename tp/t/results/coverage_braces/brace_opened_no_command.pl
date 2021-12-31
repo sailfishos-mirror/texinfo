@@ -62,7 +62,7 @@ $result_trees{'brace_opened_no_command'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

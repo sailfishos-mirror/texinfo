@@ -10,7 +10,7 @@ $result_trees{'anchor_in_caption'} = {
     {
       'contents' => [],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

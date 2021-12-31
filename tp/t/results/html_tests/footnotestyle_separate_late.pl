@@ -47,7 +47,7 @@ $result_trees{'footnotestyle_separate_late'} = [
           }
         ],
         'parent' => {},
-        'type' => 'text_root'
+        'type' => 'before_node_section'
       },
       {
         'args' => [

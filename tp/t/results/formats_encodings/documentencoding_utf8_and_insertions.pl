@@ -233,7 +233,7 @@ $result_trees{'documentencoding_utf8_and_insertions'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

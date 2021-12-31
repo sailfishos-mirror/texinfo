@@ -10,7 +10,7 @@ $result_trees{'sections_test_no_use_nodes'} = {
     {
       'contents' => [],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

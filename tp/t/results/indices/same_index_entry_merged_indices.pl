@@ -49,7 +49,7 @@ $result_trees{'same_index_entry_merged_indices'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

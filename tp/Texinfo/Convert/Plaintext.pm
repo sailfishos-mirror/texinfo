@@ -3169,7 +3169,7 @@ sub _convert($$)
       $self->{'format_context'}->[-1]->{'row_counts'} = [];
       $self->{'format_context'}->[-1]->{'row_empty_lines_count'} 
         = $self->{'empty_lines_count'};
-    } elsif ($element->{'type'} eq 'text_root') {
+    } elsif ($element->{'type'} eq 'before_node_section') {
       $self->{'text_before_first_node'} = $result;
     }
   }

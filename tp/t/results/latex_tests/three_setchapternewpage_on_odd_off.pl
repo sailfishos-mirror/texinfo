@@ -145,7 +145,7 @@ $result_trees{'three_setchapternewpage_on_odd_off'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

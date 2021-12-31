@@ -71,7 +71,7 @@ $result_trees{'no_titlepage_and_setchapternewpage_on'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

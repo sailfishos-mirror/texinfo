@@ -39,7 +39,7 @@ $result_trees{'def_existing_index'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

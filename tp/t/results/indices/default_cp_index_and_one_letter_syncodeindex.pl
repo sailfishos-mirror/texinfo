@@ -10,7 +10,7 @@ $result_trees{'default_cp_index_and_one_letter_syncodeindex'} = {
     {
       'contents' => [],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

@@ -155,7 +155,7 @@ $result_trees{'section_in_nested_block_commands'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

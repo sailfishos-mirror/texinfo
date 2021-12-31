@@ -10,7 +10,7 @@ $result_trees{'index_entry_at_end_node'} = {
     {
       'contents' => [],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

@@ -473,7 +473,7 @@ $result_trees{'direntry_dircategory_info_split'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

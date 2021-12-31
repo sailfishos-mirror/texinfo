@@ -64,7 +64,7 @@ $result_trees{'value_in_invalid_documentencoding'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

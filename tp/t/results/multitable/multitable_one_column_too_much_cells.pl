@@ -338,7 +338,7 @@ $result_trees{'multitable_one_column_too_much_cells'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

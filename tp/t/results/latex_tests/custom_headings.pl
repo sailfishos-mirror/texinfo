@@ -222,7 +222,7 @@ $result_trees{'custom_headings'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

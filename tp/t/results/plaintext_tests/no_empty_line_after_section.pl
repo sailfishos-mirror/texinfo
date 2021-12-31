@@ -22,7 +22,7 @@ $result_trees{'no_empty_line_after_section'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

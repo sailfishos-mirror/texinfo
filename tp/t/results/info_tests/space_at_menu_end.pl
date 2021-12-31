@@ -10,7 +10,7 @@ $result_trees{'space_at_menu_end'} = {
     {
       'contents' => [],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

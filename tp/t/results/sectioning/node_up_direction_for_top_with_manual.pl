@@ -10,7 +10,7 @@ $result_trees{'node_up_direction_for_top_with_manual'} = {
     {
       'contents' => [],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

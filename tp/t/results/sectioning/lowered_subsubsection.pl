@@ -10,7 +10,7 @@ $result_trees{'lowered_subsubsection'} = {
     {
       'contents' => [],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

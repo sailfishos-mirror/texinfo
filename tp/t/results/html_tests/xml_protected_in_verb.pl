@@ -122,7 +122,7 @@ $result_trees{'xml_protected_in_verb'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

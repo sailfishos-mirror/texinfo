@@ -17,7 +17,7 @@ $result_trees{'invalid_node_name_warning'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

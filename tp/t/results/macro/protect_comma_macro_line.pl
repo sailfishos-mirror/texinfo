@@ -112,7 +112,7 @@ $result_trees{'protect_comma_macro_line'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

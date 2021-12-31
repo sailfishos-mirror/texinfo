@@ -463,7 +463,7 @@ $result_trees{'no_category_or_no_name'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

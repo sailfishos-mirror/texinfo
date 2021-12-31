@@ -70,7 +70,7 @@ $result_trees{'navigation_node_vertical'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

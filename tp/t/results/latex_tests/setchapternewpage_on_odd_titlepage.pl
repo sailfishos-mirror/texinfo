@@ -178,7 +178,7 @@ $result_trees{'setchapternewpage_on_odd_titlepage'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

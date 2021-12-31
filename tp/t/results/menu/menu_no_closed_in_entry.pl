@@ -57,7 +57,7 @@ $result_trees{'menu_no_closed_in_entry'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

@@ -10,7 +10,7 @@ $result_trees{'no_empty_line_between_headings'} = {
     {
       'contents' => [],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

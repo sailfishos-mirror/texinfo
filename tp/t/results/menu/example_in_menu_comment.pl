@@ -237,7 +237,7 @@ $result_trees{'example_in_menu_comment'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

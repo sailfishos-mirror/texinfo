@@ -17,7 +17,7 @@ $result_trees{'contents_with_only_top_node'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

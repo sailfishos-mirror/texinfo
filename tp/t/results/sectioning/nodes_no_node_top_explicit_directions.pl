@@ -11,7 +11,7 @@ $result_trees{'nodes_no_node_top_explicit_directions'} = [
       {
         'contents' => [],
         'parent' => {},
-        'type' => 'text_root'
+        'type' => 'before_node_section'
       },
       {
         'args' => [

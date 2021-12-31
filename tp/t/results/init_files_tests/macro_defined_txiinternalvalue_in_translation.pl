@@ -85,7 +85,7 @@ $result_trees{'macro_defined_txiinternalvalue_in_translation'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

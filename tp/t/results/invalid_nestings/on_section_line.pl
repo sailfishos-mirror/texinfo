@@ -10,7 +10,7 @@ $result_trees{'on_section_line'} = {
     {
       'contents' => [],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

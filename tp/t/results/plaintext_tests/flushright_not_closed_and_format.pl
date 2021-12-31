@@ -112,7 +112,7 @@ $result_trees{'flushright_not_closed_and_format'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

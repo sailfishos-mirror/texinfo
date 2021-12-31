@@ -131,7 +131,7 @@ $result_trees{'verbatim_in_smallformat'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

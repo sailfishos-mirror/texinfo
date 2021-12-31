@@ -35,7 +35,7 @@ $result_trees{'section_on_index_entry_line'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

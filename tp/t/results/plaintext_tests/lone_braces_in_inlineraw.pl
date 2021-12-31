@@ -72,7 +72,7 @@ $result_trees{'lone_braces_in_inlineraw'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

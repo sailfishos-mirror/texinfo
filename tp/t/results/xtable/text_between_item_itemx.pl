@@ -165,7 +165,7 @@ $result_trees{'text_between_item_itemx'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

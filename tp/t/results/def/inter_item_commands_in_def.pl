@@ -552,7 +552,7 @@ $result_trees{'inter_item_commands_in_def'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

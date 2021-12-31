@@ -22,7 +22,7 @@ $result_trees{'superfluous_argument_to_end'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

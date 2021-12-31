@@ -332,7 +332,7 @@ $result_trees{'comments_in_example'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

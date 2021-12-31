@@ -57,7 +57,7 @@ $result_trees{'include_with_setfilename'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

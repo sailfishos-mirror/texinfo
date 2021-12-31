@@ -46,7 +46,7 @@ $result_trees{'double_seeentry_seealso'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

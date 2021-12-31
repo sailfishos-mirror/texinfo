@@ -153,7 +153,7 @@ $result_trees{'section_on_defx_line'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

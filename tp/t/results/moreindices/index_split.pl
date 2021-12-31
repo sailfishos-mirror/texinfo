@@ -70,7 +70,7 @@ $result_trees{'index_split'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

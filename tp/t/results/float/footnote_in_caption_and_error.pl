@@ -10,7 +10,7 @@ $result_trees{'footnote_in_caption_and_error'} = {
     {
       'contents' => [],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

@@ -10,7 +10,7 @@ $result_trees{'note_in_strong_end_of_line'} = {
     {
       'contents' => [],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

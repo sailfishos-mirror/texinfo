@@ -222,7 +222,7 @@ $result_trees{'tab_in_index'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

@@ -338,7 +338,7 @@ $result_trees{'before_node_and_section'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {},
     {

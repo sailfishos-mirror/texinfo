@@ -123,7 +123,7 @@ $result_trees{'double_recursive_macro_call'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

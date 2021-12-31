@@ -94,7 +94,7 @@ $result_trees{'include_after_empty_line_arg'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

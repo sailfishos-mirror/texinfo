@@ -46,7 +46,7 @@ $result_trees{'node_sectop_before_lone_node_Top'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

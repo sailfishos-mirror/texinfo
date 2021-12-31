@@ -156,7 +156,7 @@ xs_abort_empty_line (HV *self, HV *current, SV *additional_spaces_in)
          one of these types. */
       if (current_type
           && strcmp (current_type, "before_item")
-          && strcmp (current_type, "text_root")
+          && strcmp (current_type, "before_node_section")
           && strcmp (current_type, "document_root")
           && strcmp (current_type, "brace_command_context"))
         goto delete_type;

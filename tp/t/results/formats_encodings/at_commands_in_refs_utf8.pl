@@ -77,7 +77,7 @@ $result_trees{'at_commands_in_refs_utf8'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

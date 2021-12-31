@@ -135,7 +135,7 @@ $result_trees{'headitem_itemx_in_enumerate'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

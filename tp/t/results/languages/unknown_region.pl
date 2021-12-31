@@ -46,7 +46,7 @@ $result_trees{'unknown_region'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

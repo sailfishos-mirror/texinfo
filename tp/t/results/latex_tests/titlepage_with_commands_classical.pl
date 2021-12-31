@@ -577,7 +577,7 @@ $result_trees{'titlepage_with_commands_classical'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

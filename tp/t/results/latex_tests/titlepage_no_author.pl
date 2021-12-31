@@ -127,7 +127,7 @@ $result_trees{'titlepage_no_author'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

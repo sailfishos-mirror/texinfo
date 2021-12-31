@@ -68,7 +68,7 @@ $result_trees{'macro_for_ignored_line_command'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

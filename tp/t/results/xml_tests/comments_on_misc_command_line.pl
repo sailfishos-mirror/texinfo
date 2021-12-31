@@ -341,7 +341,7 @@ $result_trees{'comments_on_misc_command_line'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

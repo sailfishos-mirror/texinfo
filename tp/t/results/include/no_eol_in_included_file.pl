@@ -32,7 +32,7 @@ $result_trees{'no_eol_in_included_file'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

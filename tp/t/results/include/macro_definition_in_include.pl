@@ -72,7 +72,7 @@ $result_trees{'macro_definition_in_include'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

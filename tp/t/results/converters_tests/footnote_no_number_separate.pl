@@ -10,7 +10,7 @@ $result_trees{'footnote_no_number_separate'} = {
     {
       'contents' => [],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

@@ -93,7 +93,7 @@ $result_trees{'image_inline_or_not'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

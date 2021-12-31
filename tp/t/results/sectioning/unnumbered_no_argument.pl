@@ -10,7 +10,7 @@ $result_trees{'unnumbered_no_argument'} = {
     {
       'contents' => [],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

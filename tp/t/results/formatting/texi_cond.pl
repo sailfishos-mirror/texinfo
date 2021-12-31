@@ -64,7 +64,7 @@ $result_trees{'texi_cond'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

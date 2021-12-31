@@ -42,7 +42,7 @@ $result_trees{'anchor_in_footnote_separate'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

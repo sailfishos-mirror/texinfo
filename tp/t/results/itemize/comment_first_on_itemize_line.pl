@@ -116,7 +116,7 @@ $result_trees{'comment_first_on_itemize_line'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

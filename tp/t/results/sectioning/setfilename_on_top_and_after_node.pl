@@ -10,7 +10,7 @@ $result_trees{'setfilename_on_top_and_after_node'} = {
     {
       'contents' => [],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

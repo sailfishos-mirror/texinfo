@@ -77,7 +77,7 @@ $result_trees{'implicit_quoting_recursion'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

@@ -46,7 +46,7 @@ $result_trees{'chapter_between_nodes'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

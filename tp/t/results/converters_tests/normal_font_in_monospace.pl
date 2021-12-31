@@ -206,7 +206,7 @@ $result_trees{'normal_font_in_monospace'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

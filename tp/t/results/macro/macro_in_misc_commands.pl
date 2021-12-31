@@ -101,7 +101,7 @@ $result_trees{'macro_in_misc_commands'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

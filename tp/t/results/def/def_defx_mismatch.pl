@@ -405,7 +405,7 @@ $result_trees{'def_defx_mismatch'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

@@ -46,7 +46,7 @@ $result_trees{'command_translated'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

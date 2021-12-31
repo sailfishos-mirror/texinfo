@@ -167,7 +167,7 @@ $result_trees{'anchor_in_copying_in_footnote'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

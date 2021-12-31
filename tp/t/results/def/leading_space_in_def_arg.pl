@@ -154,7 +154,7 @@ $result_trees{'leading_space_in_def_arg'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

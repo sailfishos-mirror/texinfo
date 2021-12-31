@@ -62,7 +62,7 @@ $result_trees{'inlineiffmtifelse_not_closed_three_arg'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

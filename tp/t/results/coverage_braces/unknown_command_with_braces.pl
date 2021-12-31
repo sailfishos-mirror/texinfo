@@ -107,7 +107,7 @@ $result_trees{'unknown_command_with_braces'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

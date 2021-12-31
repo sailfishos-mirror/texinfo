@@ -10,7 +10,7 @@ $result_trees{'no_node_but_top'} = {
     {
       'contents' => [],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

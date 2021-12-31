@@ -10,7 +10,7 @@ $result_trees{'w_lines_count'} = {
     {
       'contents' => [],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

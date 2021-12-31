@@ -10,7 +10,7 @@ $result_trees{'menu_title_before_entries'} = {
     {
       'contents' => [],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

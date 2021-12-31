@@ -67,7 +67,7 @@ $result_trees{'verb_not_closed_with_char'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

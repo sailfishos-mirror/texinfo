@@ -260,7 +260,7 @@ $result_trees{'command_conditionals_user_defined'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

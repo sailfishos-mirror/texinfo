@@ -98,7 +98,7 @@ $result_trees{'paragraphindent_and_preamble'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

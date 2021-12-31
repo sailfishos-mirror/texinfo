@@ -250,7 +250,7 @@ $result_trees{'def_not_closed_in_menu_description'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

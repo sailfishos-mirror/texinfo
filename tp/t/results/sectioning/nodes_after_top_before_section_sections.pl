@@ -11,7 +11,7 @@ $result_trees{'nodes_after_top_before_section_sections'} = [
       {
         'contents' => [],
         'parent' => {},
-        'type' => 'text_root'
+        'type' => 'before_node_section'
       },
       {
         'args' => [

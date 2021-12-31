@@ -258,7 +258,7 @@ $result_trees{'multitable_with_empty_item_tab'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

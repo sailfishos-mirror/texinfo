@@ -46,7 +46,7 @@ $result_trees{'section_before_after_top_node_last_node'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

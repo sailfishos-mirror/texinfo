@@ -70,7 +70,7 @@ $result_trees{'node_footnote_separated'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

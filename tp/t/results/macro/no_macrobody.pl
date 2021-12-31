@@ -72,7 +72,7 @@ $result_trees{'no_macrobody'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

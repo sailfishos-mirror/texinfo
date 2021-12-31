@@ -61,7 +61,7 @@ $result_trees{'unclosed_verb_on_misc_line'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

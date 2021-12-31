@@ -36,7 +36,7 @@ $result_trees{'unknown_macro_on_line_command'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

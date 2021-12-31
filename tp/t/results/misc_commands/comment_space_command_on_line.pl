@@ -65,7 +65,7 @@ $result_trees{'comment_space_command_on_line'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

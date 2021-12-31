@@ -10,7 +10,7 @@ $result_trees{'complex_recursive_synindex'} = {
     {
       'contents' => [],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

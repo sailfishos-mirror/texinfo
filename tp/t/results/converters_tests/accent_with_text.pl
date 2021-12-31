@@ -192,7 +192,7 @@ $result_trees{'accent_with_text'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

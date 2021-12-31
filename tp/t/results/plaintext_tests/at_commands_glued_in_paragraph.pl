@@ -492,7 +492,7 @@ $result_trees{'at_commands_glued_in_paragraph'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

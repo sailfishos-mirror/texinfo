@@ -10,7 +10,7 @@ $result_trees{'submenu_in_example'} = {
     {
       'contents' => [],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

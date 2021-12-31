@@ -10,7 +10,7 @@ $result_trees{'end_conditional_not_at_line_begining'} = {
     {
       'contents' => [],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

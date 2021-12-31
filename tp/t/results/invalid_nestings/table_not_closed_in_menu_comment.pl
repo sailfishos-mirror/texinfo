@@ -246,7 +246,7 @@ $result_trees{'table_not_closed_in_menu_comment'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

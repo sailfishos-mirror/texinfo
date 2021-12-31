@@ -10,7 +10,7 @@ $result_trees{'line_passed_and_formats'} = {
     {
       'contents' => [],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

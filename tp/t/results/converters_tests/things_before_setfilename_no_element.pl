@@ -1011,7 +1011,7 @@ $result_trees{'things_before_setfilename_no_element'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

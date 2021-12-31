@@ -95,7 +95,7 @@ $result_trees{'encoding_index_latin1'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

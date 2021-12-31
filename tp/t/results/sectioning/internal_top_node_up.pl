@@ -11,7 +11,7 @@ $result_trees{'internal_top_node_up'} = [
       {
         'contents' => [],
         'parent' => {},
-        'type' => 'text_root'
+        'type' => 'before_node_section'
       },
       {
         'args' => [

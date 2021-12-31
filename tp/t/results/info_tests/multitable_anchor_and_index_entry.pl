@@ -10,7 +10,7 @@ $result_trees{'multitable_anchor_and_index_entry'} = {
     {
       'contents' => [],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

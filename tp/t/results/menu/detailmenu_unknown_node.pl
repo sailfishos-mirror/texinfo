@@ -10,7 +10,7 @@ $result_trees{'detailmenu_unknown_node'} = {
     {
       'contents' => [],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

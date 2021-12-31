@@ -34,7 +34,7 @@ $result_trees{'no_argument_and_contents'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

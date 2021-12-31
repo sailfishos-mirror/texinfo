@@ -17,7 +17,7 @@ $result_trees{'ref_tests'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

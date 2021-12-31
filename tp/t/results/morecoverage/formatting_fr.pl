@@ -526,7 +526,7 @@ $result_trees{'formatting_fr'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

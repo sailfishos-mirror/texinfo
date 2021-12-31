@@ -109,7 +109,7 @@ $result_trees{'insert_copying_and_paragraph'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

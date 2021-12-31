@@ -145,7 +145,7 @@ $result_trees{'lone_braces_in_html'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

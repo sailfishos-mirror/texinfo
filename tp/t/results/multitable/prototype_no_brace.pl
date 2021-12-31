@@ -136,7 +136,7 @@ $result_trees{'prototype_no_brace'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'

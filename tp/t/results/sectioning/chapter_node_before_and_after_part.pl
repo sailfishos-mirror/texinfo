@@ -17,7 +17,7 @@ $result_trees{'chapter_node_before_and_after_part'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [

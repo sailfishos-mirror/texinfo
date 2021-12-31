@@ -42,7 +42,7 @@ $result_trees{'nested_footnotes_separate'} = {
         }
       ],
       'parent' => {},
-      'type' => 'text_root'
+      'type' => 'before_node_section'
     },
     {
       'args' => [
