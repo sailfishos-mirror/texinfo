@@ -2278,7 +2278,6 @@ ul.no-bullet {list-style: none}
 
 <div class="top" id="Top">
 <a class="top-anchor" id="SEC_Top"></a>
-<hr>
 </div>
 
 

@@ -1798,8 +1798,7 @@ end example.
 </p></dd>
 </dl>
 <p>After table.
-</p><hr>
-</div>
+</p></div>
 ';
 
 

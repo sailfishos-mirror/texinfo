@@ -249,7 +249,6 @@ ul.no-bullet {list-style: none}
 </ul>
 <div class="chapter" id="chapter">
 <h2 class="chapter">1 chapter</h2>
-<hr>
 </div>
 </div>
 

@@ -384,7 +384,6 @@ $result_converted{'html_text'}->{'index_entry_in_preformatted'} = '<h1 class="no
 
 <a class="index-entry-anchor" id="index-other"></a>text2
 <a class="index-entry-anchor" id="index-last"></a></pre></div>
-<hr>
 ';
 
 

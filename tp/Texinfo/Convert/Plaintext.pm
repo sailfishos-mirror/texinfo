@@ -833,7 +833,8 @@ sub process_footnotes($;$)
 {
   my ($self, $element) = @_;
 
-  $element = undef if ($element and $element->{'extra'}->{'no_node'});
+  $element = undef if ($element and (not defined ($element->{'extra'})
+                          or not defined $element->{'extra'}->{'node'}));
 
   my $result = '';
   if (scalar(@{$self->{'pending_footnotes'}})) {

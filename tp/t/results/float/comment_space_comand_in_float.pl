@@ -444,7 +444,6 @@ ul.no-bullet {list-style: none}
 <dl class="listoffloats">
 <dt><a href="#label--">Text &nbsp; 1</a></dt><dd></dd>
 </dl>
-<hr>
 
 
 

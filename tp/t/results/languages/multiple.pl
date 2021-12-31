@@ -1140,7 +1140,6 @@ ul.no-bullet {list-style: none}
 <a class="summary-letter" href="#Top_vr_letter-B"><b>B</b></a>
  &nbsp; 
 </td></tr></table>
-<hr>
 
 
 

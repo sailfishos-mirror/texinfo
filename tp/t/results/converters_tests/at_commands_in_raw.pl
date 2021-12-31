@@ -1261,7 +1261,6 @@ $result_converted{'html_text'}->{'at_commands_in_raw'} = '<h1 class="node-headin
 <h5><a id="FOOT2" href="#DOCF2">(2)</a></h5>
 <p>second footnote</p>
 </div>
-<hr>
 ';
 
 

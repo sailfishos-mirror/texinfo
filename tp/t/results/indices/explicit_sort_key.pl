@@ -1050,7 +1050,6 @@ $result_converted{'html_text'}->{'explicit_sort_key'} = '<div class="top" id="To
 <a class="summary-letter" href="#t_h_SK_letter-B"><b>B</b></a>
  &nbsp; 
 </td></tr></table>
-<hr>
 </div>
 ';
 

@@ -847,11 +847,8 @@ sub section_level_adjusted_command_name($)
 sub split_by_node($)
 {
   my $root = shift;
-  if (no_root_command_tree($root)) {
-    return undef;
-  }
   my $tree_units;
-  my $current = { 'type' => 'unit', 'extra' => {'no_node' => 1}};
+  my $current = { 'type' => 'unit' };
   push @$tree_units, $current;
   my @pending_parts = ();
   foreach my $content (@{$root->{'contents'}}) {
@@ -861,8 +858,7 @@ sub split_by_node($)
       next;
     }
     if ($content->{'cmdname'} and $content->{'cmdname'} eq 'node') {
-      if ($current->{'extra'}->{'no_node'}) {
-        delete $current->{'extra'}->{'no_node'};
+      if (not $current->{'extra'} or not $current->{'extra'}->{'node'}) {
         $current->{'extra'}->{'node'} = $content;
       } else {
         $current = { 'type' => 'unit', 'extra' => {'node' => $content}};
@@ -2073,10 +2069,6 @@ and I<unit_prev> pointing to the previous and the next tree unit.
 In the I<extra> hash they have
 
 =over
-
-=item no_node
-
-A special case, if there are no nodes in the document, the value is set.
 
 =item node
 

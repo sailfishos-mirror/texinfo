@@ -467,7 +467,6 @@ $result_converted{'html_text'}->{'w_lines_count'} = '<div class="top" id="Top">
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#t_h_fn_letter-C"><b>C</b></a>
  &nbsp; 
 </td></tr></table>
-<hr>
 </div>
 ';
 

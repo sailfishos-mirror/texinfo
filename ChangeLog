@@ -1,5 +1,17 @@
 2021-12-30  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_convert_tree_unit_type, convert)
+	(output): only output a rule if there is something after.
+
+	* tp/Texinfo/Structuring.pm (split_by_node),
+	tp/Texinfo/Convert/Info.pm (output), tp/Texinfo/Convert/Plaintext.pm
+	(process_footnotes), tp/Texinfo/Convert/TexinfoXML.pm (_convert):
+	do not use no_root_command_tree() to check if there is no node.
+	If there is no node, instead of setting extra no_node
+	key, simply do not set extra node key.
+
+2021-12-30  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (%default_types_conversion),
 	(_convert_tree_unit_type, convert, output): do not use the
 	text_root type to make sure that footnotes and rules are output

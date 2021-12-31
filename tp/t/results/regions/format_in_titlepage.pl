@@ -335,7 +335,6 @@ ul.no-bullet {list-style: none}
 
 <h1 class="node-heading" id="Top">Top</h1>
 
-<hr>
 
 
 

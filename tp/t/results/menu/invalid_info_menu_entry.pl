@@ -941,7 +941,6 @@ ul.no-bullet {list-style: none}
 <tr><td align="left" valign="top">&bull; <a href="f.html#node-n" accesskey="5">name</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">d3
 </td></tr>
 </table>
-<hr>
 
 
 

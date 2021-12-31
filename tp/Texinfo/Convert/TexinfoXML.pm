@@ -1017,8 +1017,7 @@ sub _convert($$;$)
             and $element->{'parent'}->{'type'}
             and $element->{'parent'}->{'type'} eq 'unit'
             and !(not defined $element->{'parent'}->{'extra'}->{'section'}
-                  or ($element->{'parent'}->{'extra'}
-                      and $element->{'parent'}->{'extra'}->{'no_node'}))) {
+                  or not defined $element->{'parent'}->{'extra'}->{'node'})) {
           $self->{'pending_bye'} = $self->open_element($cmdname)
                     .$self->close_element($cmdname)."\n";
           return '';

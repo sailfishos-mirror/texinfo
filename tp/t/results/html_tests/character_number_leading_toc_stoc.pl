@@ -385,7 +385,6 @@ ul.no-bullet {list-style: none}
 
 
 
-<hr>
 </div>
 </div>
 </div>

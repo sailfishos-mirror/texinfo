@@ -957,7 +957,6 @@ in example
 
 </pre></td></tr></table>
 </div>
-<hr>
 
 
 

@@ -1091,7 +1091,6 @@ Menu comment
 <pre class="menu-comment">
 
 </pre></th></tr></table>
-<hr>
 
 
 

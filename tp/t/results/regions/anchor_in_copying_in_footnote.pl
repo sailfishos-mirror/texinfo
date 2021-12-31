@@ -537,7 +537,6 @@ ul.no-bullet {list-style: none}
 <p>In footnote.
 <a class="anchor" id="Copying-footnote"></a></p>
 </div>
-<hr>
 
 
 

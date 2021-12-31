@@ -240,7 +240,6 @@ $result_converted{'html_text'}->{'footnote_no_number_separate'} = '<h1 class="no
 <h5><a id="FOOT2" href="#DOCF2">(*)</a></h5>
 <p>Footnote 2.</p>
 </div>
-<hr>
 ';
 
 

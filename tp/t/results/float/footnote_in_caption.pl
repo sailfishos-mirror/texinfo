@@ -489,7 +489,6 @@ ul.no-bullet {list-style: none}
 <h5><a id="FOOT1" href="#DOCF1">(2)</a></h5>
 <p>in footnote</p>
 </div>
-<hr>
 
 
 

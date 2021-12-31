@@ -284,8 +284,7 @@ ul.no-bullet {list-style: none}
 <a class="anchor" id="g_t0"></a><p>.
 </p>
 <p>See <a href="#g_t0">0</a>.
-</p><hr>
-
+</p>
 
 
 </body>

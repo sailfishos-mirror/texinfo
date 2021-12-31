@@ -1483,7 +1483,6 @@ explanation
 <pre class="example">
 
 </pre></div>
-<hr>
 ';
 
 

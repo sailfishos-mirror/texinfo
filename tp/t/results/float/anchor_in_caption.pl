@@ -470,8 +470,7 @@ ul.no-bullet {list-style: none}
 <div class="float" id="label">
 <p>In float.
 </p>
-<div class="float-caption"><p><strong>fl 1: </strong>in caption<a class="anchor" id="in-anchor"></a></p></div></div><hr>
-
+<div class="float-caption"><p><strong>fl 1: </strong>in caption<a class="anchor" id="in-anchor"></a></p></div></div>
 
 
 </body>

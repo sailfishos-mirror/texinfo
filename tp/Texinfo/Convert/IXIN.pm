@@ -433,7 +433,8 @@ sub output_ixin($$)
   my $document_output = '';
   if ($tree_units) {
     foreach my $node_element (@$tree_units) {
-      next if ($node_element->{'extra'}->{'no_node'});
+      next if (not defined ($node_element->{'extra'})
+               or not defined($node_element->{'extra'}->{'node'}));
       $node_nr++;
       my $node = $node_element->{'extra'}->{'unit_command'};
       push @nodes, $node;

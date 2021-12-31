@@ -281,7 +281,6 @@ ul.no-bullet {list-style: none}
 <div class="part" id="part">
 <h1 class="part">part</h1>
 <hr>
-<hr>
 </div>
 
 

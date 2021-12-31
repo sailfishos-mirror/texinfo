@@ -832,7 +832,6 @@ ul.no-bullet {list-style: none}
 </ul>
 <div class="appendixsec" id="appendixsec">
 <h3 class="appendixsec">A.1 appendixsec</h3>
-<hr>
 </div>
 </div>
 </div>

@@ -207,7 +207,6 @@ $result_converted{'html_text'}->{'part_before_section'} = '<div class="part" id=
 </ul>
 <div class="section" id="section">
 <h2 class="chapter">1 section</h2>
-<hr>
 </div>
 </div>
 ';

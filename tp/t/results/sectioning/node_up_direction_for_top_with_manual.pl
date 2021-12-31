@@ -221,7 +221,6 @@ ul.no-bullet {list-style: none}
 
 <body lang="en">
 <h1 class="node-heading" id="Top">Top</h1>
-<hr>
 
 
 

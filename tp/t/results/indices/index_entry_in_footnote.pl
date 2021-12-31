@@ -329,7 +329,6 @@ $result_converted{'html_text'}->{'index_entry_in_footnote'} = '<h1 class="node-h
 <a class="index-entry-anchor" id="index-index-entry-in-footnote"></a>
 </p>
 </div>
-<hr>
 ';
 
 1;

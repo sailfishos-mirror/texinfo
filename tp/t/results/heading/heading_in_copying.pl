@@ -472,7 +472,6 @@ ul.no-bullet {list-style: none}
 <a class="index-entry-anchor" id="index-copying-cindex-copying"></a>
 
 <h4 class="subheading" id="second-in-copying-_0040-subheading">second in copying @ <em>subheading</em></h4>
-<hr>
 
 
 

@@ -515,7 +515,6 @@ $result_converted{'html_text'}->{'transparent_sort_chars'} = '
 <a class="summary-letter" href="#t_h_cp_letter-V"><b>V</b></a>
  &nbsp; 
 </td></tr></table>
-<hr>
 </div>
 ';
 

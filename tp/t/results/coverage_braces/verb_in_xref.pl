@@ -239,7 +239,6 @@ $result_converted{'html_text'}->{'verb_in_xref'} = '<h1 class="node-heading" id=
 verb
 
 ggg </tt></a>.
-</p><hr>
-';
+</p>';
 
 1;

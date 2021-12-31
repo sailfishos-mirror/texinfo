@@ -394,7 +394,6 @@ ul.no-bullet {list-style: none}
 <div class="appendix" id="dernier">
 <h2 class="appendix">Annexe A dernier</h2>
 
-<hr>
 </div>
 </div>
 

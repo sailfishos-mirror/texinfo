@@ -221,8 +221,7 @@ ul.no-bullet {list-style: none}
 
 <body lang="en">
 <div class="top" id="start">
-<a class="top-anchor" id="SEC_Top"></a><hr>
-</div>
+<a class="top-anchor" id="SEC_Top"></a></div>
 
 
 

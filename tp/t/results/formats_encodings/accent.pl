@@ -3326,8 +3326,7 @@ $result_converted{'html_text'}->{'accent'} = '<div class="top" id="Top-node">
 <p>should be dotless j^: &#309;
 </p>
 <p>should be dotless j&quot;: j&#776;
-</p><hr>
-</div>
+</p></div>
 ';
 
 

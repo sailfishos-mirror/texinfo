@@ -831,7 +831,6 @@ $result_converted{'html_text'}->{'printindex_merged_indices_code_style'} = '<h1 
 <a class="summary-letter" href="#t_h_fn_letter-V"><b>V</b></a>
  &nbsp; 
 </td></tr></table>
-<hr>
 ';
 
 

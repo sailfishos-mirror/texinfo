@@ -3995,7 +3995,6 @@ In text <img src="f@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; .ext@i--le.. 
 &lt;&quot;%@  &lt; &amp; @ % &quot; ">.</p></dd>
 </dl>
 
-<hr>
 
 
 
@@ -4237,7 +4236,6 @@ In text <img src="f@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; .ext@i--le.. 
 &lt;&quot;%@  &lt; &amp; @ % &quot; ">.</p></dd>
 </dl>
 
-<hr>
 ';
 
 $result_converted_errors{'html_text'}->{'test_image'} = [

@@ -1260,7 +1260,6 @@ $result_converted{'html_text'}->{'punctuation_in_line_commands'} = '
 </td></tr></table>
 
 
-<hr>
 </div>
 ';
 

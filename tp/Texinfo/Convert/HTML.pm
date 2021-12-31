@@ -5224,7 +5224,9 @@ sub _convert_tree_unit_type($$$$)
       # of footnotes in a separate unit.  And if footnotestyle is end
       # the footnotes won't be done in format_element_footer either.
       $result .= &{$self->{'format_footnotes_text'}}($self);
-      $result .= $self->get_conf('DEFAULT_RULE')."\n";
+      $result .= $self->get_conf('DEFAULT_RULE') ."\n"
+        if ($self->get_conf('PROGRAM_NAME_IN_FOOTER')
+          and defined($self->get_conf('DEFAULT_RULE')));
       # do it here, as it is won't be done at end of page in format_element_footer
       $result .= join('', $self->close_registered_sections_level(0));
       return $result;
@@ -7672,11 +7674,7 @@ sub convert($$)
 
   if (!defined($tree_units)) {
     $result = $self->_convert($root);
-    # FIXME API unclean
     $result .= &{$self->{'format_footnotes_text'}}($self);
-    $result .= $self->get_conf('DEFAULT_RULE') ."\n",
-      if ($self->get_conf('PROGRAM_NAME_IN_FOOTER')
-          and defined($self->get_conf('DEFAULT_RULE')));
   } else {
     foreach my $tree_unit (@$tree_units) {
       my $tree_unit_text = $self->_convert($tree_unit);
@@ -8065,11 +8063,7 @@ sub output($$)
     } else {
       $body .= $self->_print_title();
       $body .= $self->_convert($root);
-    # FIXME API unclean
       $body .= &{$self->{'format_footnotes_text'}}($self);
-      $body .= $self->get_conf('DEFAULT_RULE') ."\n",
-        if ($self->get_conf('PROGRAM_NAME_IN_FOOTER')
-          and defined($self->get_conf('DEFAULT_RULE')));
     }
 
     my $header = &{$self->{'format_begin_file'}}($self, $output_filename, undef);

@@ -241,7 +241,6 @@ ul.no-bullet {list-style: none}
 <body lang="en">
 <div class="subsection" id="one-node">
 <h4 class="subsection" id="The-subsection">1 The subsection</h4>
-<hr>
 </div>
 
 

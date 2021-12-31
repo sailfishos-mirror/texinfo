@@ -146,8 +146,7 @@ ul.no-bullet {list-style: none}
 <div class="top" id="SEC_Top">
 
 <p>A.
-</p><hr>
-</div>
+</p></div>
 
 
 
