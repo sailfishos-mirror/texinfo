@@ -75,6 +75,7 @@ $result_trees{'node_and_bye'} = [
       }
     ],
     'extra' => {},
+    'structure' => {},
     'type' => 'unit'
   }
 ];
@@ -121,7 +122,8 @@ $result_floats{'node_and_bye'} = {};
 
 $result_elements{'node_and_bye'} = [
   {
-    'extra' => {
+    'extra' => {},
+    'structure' => {
       'directions' => {
         'This' => {}
       }
@@ -129,7 +131,7 @@ $result_elements{'node_and_bye'} = [
     'type' => 'unit'
   }
 ];
-$result_elements{'node_and_bye'}[0]{'extra'}{'directions'}{'This'} = $result_elements{'node_and_bye'}[0];
+$result_elements{'node_and_bye'}[0]{'structure'}{'directions'}{'This'} = $result_elements{'node_and_bye'}[0];
 
 
 

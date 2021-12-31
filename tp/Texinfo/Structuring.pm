@@ -926,8 +926,8 @@ sub split_by_section($)
   return $tree_units;
 }
 
-# Associate top-level elements with pages according to the splitting
-# specification.  Set 'first_in_page' on each top-level element to the element
+# Associate top-level units with pages according to the splitting
+# specification.  Set 'first_in_page' on each unit to the unit
 # that is the first in the output page.
 sub split_pages ($$)
 {
@@ -997,7 +997,7 @@ sub _label_target_element($)
 }
 
 # Do element directions (like in texi2html) and store them 
-# in 'extra'->'directions'.
+# in 'structure->'directions'.
 # The directions are only created if pointing to other 'unit' elements.
 # In practice there are only tree unit passed to the function, but
 # other root elements could probably be used, in theory.
@@ -1056,10 +1056,10 @@ sub elements_directions($$$)
         }
       }
       
-      $directions->{'NodeForward'}->{'extra'}->{'directions'}->{'NodeBack'} = $tree_unit
+      $directions->{'NodeForward'}->{'structure'}->{'directions'}->{'NodeBack'} = $tree_unit
         if ($directions->{'NodeForward'}
             and $directions->{'NodeForward'}->{'type'} eq 'unit'
-            and !$directions->{'NodeForward'}->{'extra'}->{'directions'}->{'NodeBack'});
+            and !$directions->{'NodeForward'}->{'structure'}->{'directions'}->{'NodeBack'});
     }
 
     if (!$tree_unit->{'extra'}->{'section'}) {
@@ -1076,15 +1076,15 @@ sub elements_directions($$$)
         }
       }
       if ($section_element) {
-        if ($section_element->{'extra'}->{'directions'}->{'FastForward'}) {
+        if ($section_element->{'structure'}->{'directions'}->{'FastForward'}) {
           $directions->{'FastForward'} 
-            = $section_element->{'extra'}->{'directions'}->{'FastForward'};
+            = $section_element->{'structure'}->{'directions'}->{'FastForward'};
         }
         if ($section_element->{'extra'}->{'section'}->{'level'} <= 1) {
           $directions->{'FastBack'} = $section_element;
-        } elsif ($section_element->{'extra'}->{'directions'}->{'Fastback'}) {
+        } elsif ($section_element->{'structure'}->{'directions'}->{'Fastback'}) {
           $directions->{'FastBack'} 
-            = $section_element->{'extra'}->{'directions'}->{'Fastback'};
+            = $section_element->{'structure'}->{'directions'}->{'Fastback'};
         }
       }
     } else {
@@ -1125,7 +1125,7 @@ sub elements_directions($$$)
       } elsif ($section->{'level'} <= 1) {
         # the element is a top level element, we adjust the next
         # toplevel element fastback
-        $directions->{'FastForward'}->{'extra'}->{'directions'}->{'FastBack'}  
+        $directions->{'FastForward'}->{'structure'}->{'directions'}->{'FastBack'}  
           = $tree_unit if ($directions->{'FastForward'});
       }
     }
@@ -1139,11 +1139,11 @@ sub elements_directions($$$)
       my $up_node_element = _label_target_element($tree_unit->{'extra'}->{'node'}->{'node_up'});
       $directions->{'Up'} = $up_node_element if ($up_node_element);
     }
-    if ($tree_unit->{'extra'}->{'directions'}) {
-      %{$tree_unit->{'extra'}->{'directions'}} = (%{$tree_unit->{'extra'}->{'directions'}},
+    if ($tree_unit->{'structure'}->{'directions'}) {
+      %{$tree_unit->{'structure'}->{'directions'}} = (%{$tree_unit->{'structure'}->{'directions'}},
                                                 %$directions)
     } else {
-      $tree_unit->{'extra'}->{'directions'} = $directions;
+      $tree_unit->{'structure'}->{'directions'} = $directions;
     }
   }
   if ($configuration_informations->get_conf('DEBUG')) {
@@ -1175,14 +1175,14 @@ sub elements_file_directions($)
       if (not defined($current_filename)
           or $filename ne $current_filename) {
         $first_element_in_file = $tree_unit;
-        @first_element_in_file_directions = keys %{$tree_unit->{'extra'}->{'directions'}};
+        @first_element_in_file_directions = keys %{$tree_unit->{'structure'}->{'directions'}};
         $current_filename = $filename;
       }
       while ($current_tree_unit->{'unit_prev'}) {
         $current_tree_unit = $current_tree_unit->{'unit_prev'};
         if (defined($current_tree_unit->{'filename'})) {
           if ($current_tree_unit->{'filename'} ne $filename) {
-            $tree_unit->{'extra'}->{'directions'}->{'PrevFile'}
+            $tree_unit->{'structure'}->{'directions'}->{'PrevFile'}
                  = $current_tree_unit;
             last;
           }
@@ -1195,7 +1195,7 @@ sub elements_file_directions($)
         $current_tree_unit = $current_tree_unit->{'unit_next'};
         if (defined($current_tree_unit->{'filename'})) {
           if ($current_tree_unit->{'filename'} ne $filename) {
-            $tree_unit->{'extra'}->{'directions'}->{'NextFile'}
+            $tree_unit->{'structure'}->{'directions'}->{'NextFile'}
                = $current_tree_unit;
             last;
           }
@@ -1209,8 +1209,8 @@ sub elements_file_directions($)
     if (defined($first_element_in_file)) {
       foreach my $first_in_file_direction
                 (@first_element_in_file_directions) {
-        $tree_unit->{'extra'}->{'directions'}->{'FirstInFile'.$first_in_file_direction}
-          = $first_element_in_file->{'extra'}->{'directions'}->{$first_in_file_direction};
+        $tree_unit->{'structure'}->{'directions'}->{'FirstInFile'.$first_in_file_direction}
+          = $first_element_in_file->{'structure'}->{'directions'}->{$first_in_file_direction};
       }
     }
   }
@@ -1258,11 +1258,11 @@ sub print_element_directions($)
   my $element = shift;
   my $result = 'element: '.root_or_external_element_cmd_texi($element)."\n";
 
-  if ($element->{'extra'} and $element->{'extra'}->{'directions'}) {
-    foreach my $direction (sort(keys(%{$element->{'extra'}->{'directions'}}))) {
+  if ($element->{'extra'} and $element->{'structure'}->{'directions'}) {
+    foreach my $direction (sort(keys(%{$element->{'structure'}->{'directions'}}))) {
       $result .= "  $direction: ".
        root_or_external_element_cmd_texi(
-         $element->{'extra'}->{'directions'}->{$direction})."\n";
+         $element->{'structure'}->{'directions'}->{$direction})."\n";
     }
   } else {
     $result .= "  NO DIRECTION";
@@ -1800,7 +1800,7 @@ Register errors in C<$registrar>.
 
 Directions are set up for the elements in the array reference given in 
 argument.  The corresponding hash reference is in 
-C<< {'extra'}->{'directions'} >>
+C<< {'structure'}->{'directions'} >>
 and keys correspond to directions while values are elements.
 
 The following directions are set up:

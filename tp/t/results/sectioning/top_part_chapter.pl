@@ -55,6 +55,7 @@ $result_trees{'top_part_chapter'} = [
       'section' => {},
       'unit_command' => {}
     },
+    'structure' => {},
     'type' => 'unit'
   },
   {
@@ -133,6 +134,7 @@ $result_trees{'top_part_chapter'} = [
       'section' => {},
       'unit_command' => {}
     },
+    'structure' => {},
     'type' => 'unit',
     'unit_prev' => {}
   }
@@ -229,14 +231,19 @@ $result_floats{'top_part_chapter'} = {};
 $result_elements{'top_part_chapter'} = [
   {
     'extra' => {
+      'section' => {
+        'cmdname' => 'top',
+        'extra' => {
+          'spaces_before_argument' => ' '
+        },
+        'level' => 0
+      },
+      'unit_command' => {}
+    },
+    'structure' => {
       'directions' => {
         'FastForward' => {
           'extra' => {
-            'directions' => {
-              'Back' => {},
-              'FastBack' => {},
-              'This' => {}
-            },
             'section' => {
               'cmdname' => 'chapter',
               'extra' => {
@@ -254,34 +261,33 @@ $result_elements{'top_part_chapter'} = [
             },
             'unit_command' => {}
           },
+          'structure' => {
+            'directions' => {
+              'Back' => {},
+              'FastBack' => {},
+              'This' => {}
+            }
+          },
           'type' => 'unit'
         },
         'Forward' => {},
         'Next' => {},
         'This' => {}
-      },
-      'section' => {
-        'cmdname' => 'top',
-        'extra' => {
-          'spaces_before_argument' => ' '
-        },
-        'level' => 0
-      },
-      'unit_command' => {}
+      }
     },
     'type' => 'unit'
   },
   {}
 ];
-$result_elements{'top_part_chapter'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'directions'}{'Back'} = $result_elements{'top_part_chapter'}[0];
-$result_elements{'top_part_chapter'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'directions'}{'FastBack'} = $result_elements{'top_part_chapter'}[0];
-$result_elements{'top_part_chapter'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'directions'}{'This'} = $result_elements{'top_part_chapter'}[0]{'extra'}{'directions'}{'FastForward'};
-$result_elements{'top_part_chapter'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'unit_command'} = $result_elements{'top_part_chapter'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'section'};
-$result_elements{'top_part_chapter'}[0]{'extra'}{'directions'}{'Forward'} = $result_elements{'top_part_chapter'}[0]{'extra'}{'directions'}{'FastForward'};
-$result_elements{'top_part_chapter'}[0]{'extra'}{'directions'}{'Next'} = $result_elements{'top_part_chapter'}[0]{'extra'}{'directions'}{'FastForward'};
-$result_elements{'top_part_chapter'}[0]{'extra'}{'directions'}{'This'} = $result_elements{'top_part_chapter'}[0];
 $result_elements{'top_part_chapter'}[0]{'extra'}{'unit_command'} = $result_elements{'top_part_chapter'}[0]{'extra'}{'section'};
-$result_elements{'top_part_chapter'}[1] = $result_elements{'top_part_chapter'}[0]{'extra'}{'directions'}{'FastForward'};
+$result_elements{'top_part_chapter'}[0]{'structure'}{'directions'}{'FastForward'}{'extra'}{'unit_command'} = $result_elements{'top_part_chapter'}[0]{'structure'}{'directions'}{'FastForward'}{'extra'}{'section'};
+$result_elements{'top_part_chapter'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'} = $result_elements{'top_part_chapter'}[0];
+$result_elements{'top_part_chapter'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastBack'} = $result_elements{'top_part_chapter'}[0];
+$result_elements{'top_part_chapter'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'This'} = $result_elements{'top_part_chapter'}[0]{'structure'}{'directions'}{'FastForward'};
+$result_elements{'top_part_chapter'}[0]{'structure'}{'directions'}{'Forward'} = $result_elements{'top_part_chapter'}[0]{'structure'}{'directions'}{'FastForward'};
+$result_elements{'top_part_chapter'}[0]{'structure'}{'directions'}{'Next'} = $result_elements{'top_part_chapter'}[0]{'structure'}{'directions'}{'FastForward'};
+$result_elements{'top_part_chapter'}[0]{'structure'}{'directions'}{'This'} = $result_elements{'top_part_chapter'}[0];
+$result_elements{'top_part_chapter'}[1] = $result_elements{'top_part_chapter'}[0]{'structure'}{'directions'}{'FastForward'};
 
 
 

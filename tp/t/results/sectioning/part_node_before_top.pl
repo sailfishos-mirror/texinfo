@@ -327,6 +327,7 @@ $result_trees{'part_node_before_top'} = [
       'section' => {},
       'unit_command' => {}
     },
+    'structure' => {},
     'type' => 'unit'
   }
 ];
@@ -536,12 +537,6 @@ $result_floats{'part_node_before_top'} = {};
 $result_elements{'part_node_before_top'} = [
   {
     'extra' => {
-      'directions' => {
-        'NodeBack' => {},
-        'NodeForward' => {},
-        'NodeNext' => {},
-        'This' => {}
-      },
       'node' => {
         'cmdname' => 'node',
         'extra' => {
@@ -576,15 +571,23 @@ $result_elements{'part_node_before_top'} = [
       },
       'unit_command' => {}
     },
+    'structure' => {
+      'directions' => {
+        'NodeBack' => {},
+        'NodeForward' => {},
+        'NodeNext' => {},
+        'This' => {}
+      }
+    },
     'type' => 'unit'
   }
 ];
-$result_elements{'part_node_before_top'}[0]{'extra'}{'directions'}{'NodeBack'} = $result_elements{'part_node_before_top'}[0];
-$result_elements{'part_node_before_top'}[0]{'extra'}{'directions'}{'NodeForward'} = $result_elements{'part_node_before_top'}[0];
-$result_elements{'part_node_before_top'}[0]{'extra'}{'directions'}{'NodeNext'} = $result_elements{'part_node_before_top'}[0];
-$result_elements{'part_node_before_top'}[0]{'extra'}{'directions'}{'This'} = $result_elements{'part_node_before_top'}[0];
 $result_elements{'part_node_before_top'}[0]{'extra'}{'node'}{'menu_child'}{'menu_up'} = $result_elements{'part_node_before_top'}[0]{'extra'}{'node'};
 $result_elements{'part_node_before_top'}[0]{'extra'}{'unit_command'} = $result_elements{'part_node_before_top'}[0]{'extra'}{'section'};
+$result_elements{'part_node_before_top'}[0]{'structure'}{'directions'}{'NodeBack'} = $result_elements{'part_node_before_top'}[0];
+$result_elements{'part_node_before_top'}[0]{'structure'}{'directions'}{'NodeForward'} = $result_elements{'part_node_before_top'}[0];
+$result_elements{'part_node_before_top'}[0]{'structure'}{'directions'}{'NodeNext'} = $result_elements{'part_node_before_top'}[0];
+$result_elements{'part_node_before_top'}[0]{'structure'}{'directions'}{'This'} = $result_elements{'part_node_before_top'}[0];
 
 
 

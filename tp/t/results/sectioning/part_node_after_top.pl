@@ -254,6 +254,7 @@ $result_trees{'part_node_after_top'} = [
       'section' => {},
       'unit_command' => {}
     },
+    'structure' => {},
     'type' => 'unit'
   },
   {
@@ -293,6 +294,7 @@ $result_trees{'part_node_after_top'} = [
       'section' => {},
       'unit_command' => {}
     },
+    'structure' => {},
     'type' => 'unit',
     'unit_prev' => {}
   }
@@ -485,33 +487,6 @@ $result_floats{'part_node_after_top'} = {};
 $result_elements{'part_node_after_top'} = [
   {
     'extra' => {
-      'directions' => {
-        'FastForward' => {
-          'extra' => {
-            'directions' => {
-              'Back' => {},
-              'FastBack' => {},
-              'Prev' => {},
-              'This' => {}
-            },
-            'section' => {
-              'cmdname' => 'part',
-              'extra' => {
-                'spaces_before_argument' => ' '
-              },
-              'level' => 0
-            },
-            'unit_command' => {}
-          },
-          'type' => 'unit'
-        },
-        'Forward' => {},
-        'Next' => {},
-        'NodeBack' => {},
-        'NodeForward' => {},
-        'NodeNext' => {},
-        'This' => {}
-      },
       'node' => {
         'cmdname' => 'node',
         'extra' => {
@@ -539,24 +514,55 @@ $result_elements{'part_node_after_top'} = [
       },
       'unit_command' => {}
     },
+    'structure' => {
+      'directions' => {
+        'FastForward' => {
+          'extra' => {
+            'section' => {
+              'cmdname' => 'part',
+              'extra' => {
+                'spaces_before_argument' => ' '
+              },
+              'level' => 0
+            },
+            'unit_command' => {}
+          },
+          'structure' => {
+            'directions' => {
+              'Back' => {},
+              'FastBack' => {},
+              'Prev' => {},
+              'This' => {}
+            }
+          },
+          'type' => 'unit'
+        },
+        'Forward' => {},
+        'Next' => {},
+        'NodeBack' => {},
+        'NodeForward' => {},
+        'NodeNext' => {},
+        'This' => {}
+      }
+    },
     'type' => 'unit'
   },
   {}
 ];
-$result_elements{'part_node_after_top'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'directions'}{'Back'} = $result_elements{'part_node_after_top'}[0];
-$result_elements{'part_node_after_top'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'directions'}{'FastBack'} = $result_elements{'part_node_after_top'}[0];
-$result_elements{'part_node_after_top'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'directions'}{'Prev'} = $result_elements{'part_node_after_top'}[0];
-$result_elements{'part_node_after_top'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'directions'}{'This'} = $result_elements{'part_node_after_top'}[0]{'extra'}{'directions'}{'FastForward'};
-$result_elements{'part_node_after_top'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'unit_command'} = $result_elements{'part_node_after_top'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'section'};
-$result_elements{'part_node_after_top'}[0]{'extra'}{'directions'}{'Forward'} = $result_elements{'part_node_after_top'}[0]{'extra'}{'directions'}{'FastForward'};
-$result_elements{'part_node_after_top'}[0]{'extra'}{'directions'}{'Next'} = $result_elements{'part_node_after_top'}[0]{'extra'}{'directions'}{'FastForward'};
-$result_elements{'part_node_after_top'}[0]{'extra'}{'directions'}{'NodeBack'} = $result_elements{'part_node_after_top'}[0];
-$result_elements{'part_node_after_top'}[0]{'extra'}{'directions'}{'NodeForward'} = $result_elements{'part_node_after_top'}[0];
-$result_elements{'part_node_after_top'}[0]{'extra'}{'directions'}{'NodeNext'} = $result_elements{'part_node_after_top'}[0];
-$result_elements{'part_node_after_top'}[0]{'extra'}{'directions'}{'This'} = $result_elements{'part_node_after_top'}[0];
 $result_elements{'part_node_after_top'}[0]{'extra'}{'node'}{'menu_child'}{'menu_up'} = $result_elements{'part_node_after_top'}[0]{'extra'}{'node'};
 $result_elements{'part_node_after_top'}[0]{'extra'}{'unit_command'} = $result_elements{'part_node_after_top'}[0]{'extra'}{'section'};
-$result_elements{'part_node_after_top'}[1] = $result_elements{'part_node_after_top'}[0]{'extra'}{'directions'}{'FastForward'};
+$result_elements{'part_node_after_top'}[0]{'structure'}{'directions'}{'FastForward'}{'extra'}{'unit_command'} = $result_elements{'part_node_after_top'}[0]{'structure'}{'directions'}{'FastForward'}{'extra'}{'section'};
+$result_elements{'part_node_after_top'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'} = $result_elements{'part_node_after_top'}[0];
+$result_elements{'part_node_after_top'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastBack'} = $result_elements{'part_node_after_top'}[0];
+$result_elements{'part_node_after_top'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Prev'} = $result_elements{'part_node_after_top'}[0];
+$result_elements{'part_node_after_top'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'This'} = $result_elements{'part_node_after_top'}[0]{'structure'}{'directions'}{'FastForward'};
+$result_elements{'part_node_after_top'}[0]{'structure'}{'directions'}{'Forward'} = $result_elements{'part_node_after_top'}[0]{'structure'}{'directions'}{'FastForward'};
+$result_elements{'part_node_after_top'}[0]{'structure'}{'directions'}{'Next'} = $result_elements{'part_node_after_top'}[0]{'structure'}{'directions'}{'FastForward'};
+$result_elements{'part_node_after_top'}[0]{'structure'}{'directions'}{'NodeBack'} = $result_elements{'part_node_after_top'}[0];
+$result_elements{'part_node_after_top'}[0]{'structure'}{'directions'}{'NodeForward'} = $result_elements{'part_node_after_top'}[0];
+$result_elements{'part_node_after_top'}[0]{'structure'}{'directions'}{'NodeNext'} = $result_elements{'part_node_after_top'}[0];
+$result_elements{'part_node_after_top'}[0]{'structure'}{'directions'}{'This'} = $result_elements{'part_node_after_top'}[0];
+$result_elements{'part_node_after_top'}[1] = $result_elements{'part_node_after_top'}[0]{'structure'}{'directions'}{'FastForward'};
 
 
 

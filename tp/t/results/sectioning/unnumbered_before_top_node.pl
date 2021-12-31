@@ -141,6 +141,7 @@ $result_trees{'unnumbered_before_top_node'} = [
       'section' => {},
       'unit_command' => {}
     },
+    'structure' => {},
     'type' => 'unit'
   }
 ];
@@ -221,9 +222,6 @@ $result_floats{'unnumbered_before_top_node'} = {};
 $result_elements{'unnumbered_before_top_node'} = [
   {
     'extra' => {
-      'directions' => {
-        'This' => {}
-      },
       'section' => {
         'cmdname' => 'unnumbered',
         'extra' => {
@@ -233,11 +231,16 @@ $result_elements{'unnumbered_before_top_node'} = [
       },
       'unit_command' => {}
     },
+    'structure' => {
+      'directions' => {
+        'This' => {}
+      }
+    },
     'type' => 'unit'
   }
 ];
-$result_elements{'unnumbered_before_top_node'}[0]{'extra'}{'directions'}{'This'} = $result_elements{'unnumbered_before_top_node'}[0];
 $result_elements{'unnumbered_before_top_node'}[0]{'extra'}{'unit_command'} = $result_elements{'unnumbered_before_top_node'}[0]{'extra'}{'section'};
+$result_elements{'unnumbered_before_top_node'}[0]{'structure'}{'directions'}{'This'} = $result_elements{'unnumbered_before_top_node'}[0];
 
 
 

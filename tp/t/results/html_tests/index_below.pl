@@ -55,6 +55,7 @@ $result_trees{'index_below'} = [
       'section' => {},
       'unit_command' => {}
     },
+    'structure' => {},
     'type' => 'unit'
   },
   {
@@ -102,6 +103,7 @@ $result_trees{'index_below'} = [
       'section' => {},
       'unit_command' => {}
     },
+    'structure' => {},
     'type' => 'unit',
     'unit_prev' => {}
   },
@@ -221,6 +223,7 @@ $result_trees{'index_below'} = [
       'section' => {},
       'unit_command' => {}
     },
+    'structure' => {},
     'type' => 'unit',
     'unit_prev' => {}
   }
@@ -337,35 +340,19 @@ $result_indices_sort_strings{'index_below'} = {
 $result_elements{'index_below'} = [
   {
     'extra' => {
+      'section' => {
+        'cmdname' => 'top',
+        'extra' => {
+          'spaces_before_argument' => ' '
+        },
+        'level' => 0
+      },
+      'unit_command' => {}
+    },
+    'structure' => {
       'directions' => {
         'FastForward' => {
           'extra' => {
-            'directions' => {
-              'Back' => {},
-              'FastBack' => {},
-              'Forward' => {
-                'extra' => {
-                  'directions' => {
-                    'Back' => {},
-                    'FastBack' => {},
-                    'This' => {},
-                    'Up' => {}
-                  },
-                  'section' => {
-                    'cmdname' => 'section',
-                    'extra' => {
-                      'spaces_before_argument' => ' '
-                    },
-                    'level' => 2,
-                    'number' => '1.1'
-                  },
-                  'unit_command' => {}
-                },
-                'type' => 'unit'
-              },
-              'This' => {},
-              'Up' => {}
-            },
             'section' => {
               'cmdname' => 'chapter',
               'extra' => {
@@ -376,40 +363,62 @@ $result_elements{'index_below'} = [
             },
             'unit_command' => {}
           },
+          'structure' => {
+            'directions' => {
+              'Back' => {},
+              'FastBack' => {},
+              'Forward' => {
+                'extra' => {
+                  'section' => {
+                    'cmdname' => 'section',
+                    'extra' => {
+                      'spaces_before_argument' => ' '
+                    },
+                    'level' => 2,
+                    'number' => '1.1'
+                  },
+                  'unit_command' => {}
+                },
+                'structure' => {
+                  'directions' => {
+                    'Back' => {},
+                    'FastBack' => {},
+                    'This' => {},
+                    'Up' => {}
+                  }
+                },
+                'type' => 'unit'
+              },
+              'This' => {},
+              'Up' => {}
+            }
+          },
           'type' => 'unit'
         },
         'Forward' => {},
         'This' => {}
-      },
-      'section' => {
-        'cmdname' => 'top',
-        'extra' => {
-          'spaces_before_argument' => ' '
-        },
-        'level' => 0
-      },
-      'unit_command' => {}
+      }
     },
     'type' => 'unit'
   },
   {},
   {}
 ];
-$result_elements{'index_below'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'directions'}{'Back'} = $result_elements{'index_below'}[0];
-$result_elements{'index_below'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'directions'}{'FastBack'} = $result_elements{'index_below'}[0];
-$result_elements{'index_below'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'directions'}{'Forward'}{'extra'}{'directions'}{'Back'} = $result_elements{'index_below'}[0]{'extra'}{'directions'}{'FastForward'};
-$result_elements{'index_below'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'directions'}{'Forward'}{'extra'}{'directions'}{'FastBack'} = $result_elements{'index_below'}[0]{'extra'}{'directions'}{'FastForward'};
-$result_elements{'index_below'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'directions'}{'Forward'}{'extra'}{'directions'}{'This'} = $result_elements{'index_below'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'directions'}{'Forward'};
-$result_elements{'index_below'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'directions'}{'Forward'}{'extra'}{'directions'}{'Up'} = $result_elements{'index_below'}[0]{'extra'}{'directions'}{'FastForward'};
-$result_elements{'index_below'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'directions'}{'Forward'}{'extra'}{'unit_command'} = $result_elements{'index_below'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'directions'}{'Forward'}{'extra'}{'section'};
-$result_elements{'index_below'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'directions'}{'This'} = $result_elements{'index_below'}[0]{'extra'}{'directions'}{'FastForward'};
-$result_elements{'index_below'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'directions'}{'Up'} = $result_elements{'index_below'}[0];
-$result_elements{'index_below'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'unit_command'} = $result_elements{'index_below'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'section'};
-$result_elements{'index_below'}[0]{'extra'}{'directions'}{'Forward'} = $result_elements{'index_below'}[0]{'extra'}{'directions'}{'FastForward'};
-$result_elements{'index_below'}[0]{'extra'}{'directions'}{'This'} = $result_elements{'index_below'}[0];
 $result_elements{'index_below'}[0]{'extra'}{'unit_command'} = $result_elements{'index_below'}[0]{'extra'}{'section'};
-$result_elements{'index_below'}[1] = $result_elements{'index_below'}[0]{'extra'}{'directions'}{'FastForward'};
-$result_elements{'index_below'}[2] = $result_elements{'index_below'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'directions'}{'Forward'};
+$result_elements{'index_below'}[0]{'structure'}{'directions'}{'FastForward'}{'extra'}{'unit_command'} = $result_elements{'index_below'}[0]{'structure'}{'directions'}{'FastForward'}{'extra'}{'section'};
+$result_elements{'index_below'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'} = $result_elements{'index_below'}[0];
+$result_elements{'index_below'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastBack'} = $result_elements{'index_below'}[0];
+$result_elements{'index_below'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Forward'}{'extra'}{'unit_command'} = $result_elements{'index_below'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Forward'}{'extra'}{'section'};
+$result_elements{'index_below'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Forward'}{'structure'}{'directions'}{'Back'} = $result_elements{'index_below'}[0]{'structure'}{'directions'}{'FastForward'};
+$result_elements{'index_below'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Forward'}{'structure'}{'directions'}{'FastBack'} = $result_elements{'index_below'}[0]{'structure'}{'directions'}{'FastForward'};
+$result_elements{'index_below'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Forward'}{'structure'}{'directions'}{'This'} = $result_elements{'index_below'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Forward'};
+$result_elements{'index_below'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Forward'}{'structure'}{'directions'}{'Up'} = $result_elements{'index_below'}[0]{'structure'}{'directions'}{'FastForward'};
+$result_elements{'index_below'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'This'} = $result_elements{'index_below'}[0]{'structure'}{'directions'}{'FastForward'};
+$result_elements{'index_below'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Up'} = $result_elements{'index_below'}[0];
+$result_elements{'index_below'}[0]{'structure'}{'directions'}{'Forward'} = $result_elements{'index_below'}[0]{'structure'}{'directions'}{'FastForward'};
+$result_elements{'index_below'}[0]{'structure'}{'directions'}{'This'} = $result_elements{'index_below'}[0];
+$result_elements{'index_below'}[1] = $result_elements{'index_below'}[0]{'structure'}{'directions'}{'FastForward'};
+$result_elements{'index_below'}[2] = $result_elements{'index_below'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Forward'};
 
 
 

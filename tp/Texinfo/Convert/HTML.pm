@@ -819,10 +819,10 @@ sub from_element_direction($$$$;$)
   if ($self->{'global_target_elements'}->{$direction}) {
     $element_target = $self->{'global_target_elements'}->{$direction};
   } elsif ($element and $element->{'extra'}
-      and $element->{'extra'}->{'directions'}
-      and $element->{'extra'}->{'directions'}->{$direction}) {
+      and $element->{'structure'}->{'directions'}
+      and $element->{'structure'}->{'directions'}->{$direction}) {
     $element_target
-      = $element->{'extra'}->{'directions'}->{$direction};
+      = $element->{'structure'}->{'directions'}->{$direction};
   # output TOP_NODE_UP related infos even if element is not
   # defined which should mostly correspond to cases when there is no
   # output file, for example in the tests.
@@ -6456,7 +6456,7 @@ sub _prepare_special_elements($$$$)
     my $element = {'type' => 'special_element',
                    'extra' => {'name' => $type,
                                }};
-    $element->{'extra'}->{'directions'}->{'This'} = $element;
+    $element->{'structure'}->{'directions'}->{'This'} = $element;
     $self->{'special_elements_types'}->{$type} = $element;
     push @$special_elements, $element;
 

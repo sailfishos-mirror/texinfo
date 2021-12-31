@@ -291,6 +291,7 @@ $result_trees{'lone_Top_node'} = [
       'section' => {},
       'unit_command' => {}
     },
+    'structure' => {},
     'type' => 'unit'
   }
 ];
@@ -462,11 +463,6 @@ $result_floats{'lone_Top_node'} = {};
 $result_elements{'lone_Top_node'} = [
   {
     'extra' => {
-      'directions' => {
-        'NodePrev' => {},
-        'NodeUp' => {},
-        'This' => {}
-      },
       'node' => {
         'cmdname' => 'node',
         'extra' => {
@@ -495,14 +491,21 @@ $result_elements{'lone_Top_node'} = [
       },
       'unit_command' => {}
     },
+    'structure' => {
+      'directions' => {
+        'NodePrev' => {},
+        'NodeUp' => {},
+        'This' => {}
+      }
+    },
     'type' => 'unit'
   }
 ];
-$result_elements{'lone_Top_node'}[0]{'extra'}{'directions'}{'NodePrev'} = $result_elements{'lone_Top_node'}[0];
-$result_elements{'lone_Top_node'}[0]{'extra'}{'directions'}{'NodeUp'} = $result_elements{'lone_Top_node'}[0];
-$result_elements{'lone_Top_node'}[0]{'extra'}{'directions'}{'This'} = $result_elements{'lone_Top_node'}[0];
 $result_elements{'lone_Top_node'}[0]{'extra'}{'node'}{'menu_up'}{'menu_child'} = $result_elements{'lone_Top_node'}[0]{'extra'}{'node'};
 $result_elements{'lone_Top_node'}[0]{'extra'}{'unit_command'} = $result_elements{'lone_Top_node'}[0]{'extra'}{'section'};
+$result_elements{'lone_Top_node'}[0]{'structure'}{'directions'}{'NodePrev'} = $result_elements{'lone_Top_node'}[0];
+$result_elements{'lone_Top_node'}[0]{'structure'}{'directions'}{'NodeUp'} = $result_elements{'lone_Top_node'}[0];
+$result_elements{'lone_Top_node'}[0]{'structure'}{'directions'}{'This'} = $result_elements{'lone_Top_node'}[0];
 
 
 

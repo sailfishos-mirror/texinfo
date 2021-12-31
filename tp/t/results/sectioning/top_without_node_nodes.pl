@@ -192,6 +192,7 @@ $result_trees{'top_without_node_nodes'} = [
       'section' => {},
       'unit_command' => {}
     },
+    'structure' => {},
     'type' => 'unit'
   }
 ];
@@ -324,19 +325,6 @@ $result_floats{'top_without_node_nodes'} = {};
 $result_elements{'top_without_node_nodes'} = [
   {
     'extra' => {
-      'directions' => {
-        'NodeUp' => {
-          'extra' => {
-            'manual_content' => [
-              {
-                'text' => 'dir'
-              }
-            ]
-          },
-          'type' => 'external_node'
-        },
-        'This' => {}
-      },
       'node' => {
         'cmdname' => 'node',
         'extra' => {
@@ -354,11 +342,26 @@ $result_elements{'top_without_node_nodes'} = [
       },
       'unit_command' => {}
     },
+    'structure' => {
+      'directions' => {
+        'NodeUp' => {
+          'extra' => {
+            'manual_content' => [
+              {
+                'text' => 'dir'
+              }
+            ]
+          },
+          'type' => 'external_node'
+        },
+        'This' => {}
+      }
+    },
     'type' => 'unit'
   }
 ];
-$result_elements{'top_without_node_nodes'}[0]{'extra'}{'directions'}{'This'} = $result_elements{'top_without_node_nodes'}[0];
 $result_elements{'top_without_node_nodes'}[0]{'extra'}{'unit_command'} = $result_elements{'top_without_node_nodes'}[0]{'extra'}{'node'};
+$result_elements{'top_without_node_nodes'}[0]{'structure'}{'directions'}{'This'} = $result_elements{'top_without_node_nodes'}[0];
 
 
 

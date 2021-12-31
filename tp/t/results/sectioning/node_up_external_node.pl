@@ -182,6 +182,7 @@ $result_trees{'node_up_external_node'} = [
       'node' => {},
       'unit_command' => {}
     },
+    'structure' => {},
     'type' => 'unit'
   },
   {
@@ -309,6 +310,7 @@ $result_trees{'node_up_external_node'} = [
       'node' => {},
       'unit_command' => {}
     },
+    'structure' => {},
     'type' => 'unit',
     'unit_prev' => {}
   }
@@ -467,9 +469,34 @@ $result_floats{'node_up_external_node'} = {};
 $result_elements{'node_up_external_node'} = [
   {
     'extra' => {
+      'node' => {
+        'cmdname' => 'node',
+        'extra' => {
+          'normalized' => 'Top',
+          'spaces_before_argument' => ' '
+        },
+        'menu_child' => {
+          'cmdname' => 'node',
+          'extra' => {
+            'normalized' => 'first',
+            'spaces_before_argument' => ' '
+          },
+          'menu_up' => {},
+          'menu_up_hash' => {
+            'Top' => 1
+          }
+        }
+      },
+      'unit_command' => {}
+    },
+    'structure' => {
       'directions' => {
         'Forward' => {
           'extra' => {
+            'node' => {},
+            'unit_command' => {}
+          },
+          'structure' => {
             'directions' => {
               'Back' => {},
               'NodeBack' => {},
@@ -510,52 +537,31 @@ $result_elements{'node_up_external_node'} = [
                 'type' => 'external_node'
               },
               'This' => {}
-            },
-            'node' => {
-              'cmdname' => 'node',
-              'extra' => {
-                'normalized' => 'first',
-                'spaces_before_argument' => ' '
-              },
-              'menu_up' => {
-                'cmdname' => 'node',
-                'extra' => {
-                  'normalized' => 'Top',
-                  'spaces_before_argument' => ' '
-                },
-                'menu_child' => {}
-              },
-              'menu_up_hash' => {
-                'Top' => 1
-              }
-            },
-            'unit_command' => {}
+            }
           },
           'type' => 'unit'
         },
         'NodeForward' => {},
         'NodeNext' => {},
         'This' => {}
-      },
-      'node' => {},
-      'unit_command' => {}
+      }
     },
     'type' => 'unit'
   },
   {}
 ];
-$result_elements{'node_up_external_node'}[0]{'extra'}{'directions'}{'Forward'}{'extra'}{'directions'}{'Back'} = $result_elements{'node_up_external_node'}[0];
-$result_elements{'node_up_external_node'}[0]{'extra'}{'directions'}{'Forward'}{'extra'}{'directions'}{'NodeBack'} = $result_elements{'node_up_external_node'}[0];
-$result_elements{'node_up_external_node'}[0]{'extra'}{'directions'}{'Forward'}{'extra'}{'directions'}{'NodeNext'}{'extra'}{'manual_content'} = $result_elements{'node_up_external_node'}[0]{'extra'}{'directions'}{'Forward'}{'extra'}{'directions'}{'NodeForward'}{'extra'}{'manual_content'};
-$result_elements{'node_up_external_node'}[0]{'extra'}{'directions'}{'Forward'}{'extra'}{'directions'}{'This'} = $result_elements{'node_up_external_node'}[0]{'extra'}{'directions'}{'Forward'};
-$result_elements{'node_up_external_node'}[0]{'extra'}{'directions'}{'Forward'}{'extra'}{'node'}{'menu_up'}{'menu_child'} = $result_elements{'node_up_external_node'}[0]{'extra'}{'directions'}{'Forward'}{'extra'}{'node'};
-$result_elements{'node_up_external_node'}[0]{'extra'}{'directions'}{'Forward'}{'extra'}{'unit_command'} = $result_elements{'node_up_external_node'}[0]{'extra'}{'directions'}{'Forward'}{'extra'}{'node'};
-$result_elements{'node_up_external_node'}[0]{'extra'}{'directions'}{'NodeForward'} = $result_elements{'node_up_external_node'}[0]{'extra'}{'directions'}{'Forward'};
-$result_elements{'node_up_external_node'}[0]{'extra'}{'directions'}{'NodeNext'} = $result_elements{'node_up_external_node'}[0]{'extra'}{'directions'}{'Forward'};
-$result_elements{'node_up_external_node'}[0]{'extra'}{'directions'}{'This'} = $result_elements{'node_up_external_node'}[0];
-$result_elements{'node_up_external_node'}[0]{'extra'}{'node'} = $result_elements{'node_up_external_node'}[0]{'extra'}{'directions'}{'Forward'}{'extra'}{'node'}{'menu_up'};
-$result_elements{'node_up_external_node'}[0]{'extra'}{'unit_command'} = $result_elements{'node_up_external_node'}[0]{'extra'}{'directions'}{'Forward'}{'extra'}{'node'}{'menu_up'};
-$result_elements{'node_up_external_node'}[1] = $result_elements{'node_up_external_node'}[0]{'extra'}{'directions'}{'Forward'};
+$result_elements{'node_up_external_node'}[0]{'extra'}{'node'}{'menu_child'}{'menu_up'} = $result_elements{'node_up_external_node'}[0]{'extra'}{'node'};
+$result_elements{'node_up_external_node'}[0]{'extra'}{'unit_command'} = $result_elements{'node_up_external_node'}[0]{'extra'}{'node'};
+$result_elements{'node_up_external_node'}[0]{'structure'}{'directions'}{'Forward'}{'extra'}{'node'} = $result_elements{'node_up_external_node'}[0]{'extra'}{'node'}{'menu_child'};
+$result_elements{'node_up_external_node'}[0]{'structure'}{'directions'}{'Forward'}{'extra'}{'unit_command'} = $result_elements{'node_up_external_node'}[0]{'extra'}{'node'}{'menu_child'};
+$result_elements{'node_up_external_node'}[0]{'structure'}{'directions'}{'Forward'}{'structure'}{'directions'}{'Back'} = $result_elements{'node_up_external_node'}[0];
+$result_elements{'node_up_external_node'}[0]{'structure'}{'directions'}{'Forward'}{'structure'}{'directions'}{'NodeBack'} = $result_elements{'node_up_external_node'}[0];
+$result_elements{'node_up_external_node'}[0]{'structure'}{'directions'}{'Forward'}{'structure'}{'directions'}{'NodeNext'}{'extra'}{'manual_content'} = $result_elements{'node_up_external_node'}[0]{'structure'}{'directions'}{'Forward'}{'structure'}{'directions'}{'NodeForward'}{'extra'}{'manual_content'};
+$result_elements{'node_up_external_node'}[0]{'structure'}{'directions'}{'Forward'}{'structure'}{'directions'}{'This'} = $result_elements{'node_up_external_node'}[0]{'structure'}{'directions'}{'Forward'};
+$result_elements{'node_up_external_node'}[0]{'structure'}{'directions'}{'NodeForward'} = $result_elements{'node_up_external_node'}[0]{'structure'}{'directions'}{'Forward'};
+$result_elements{'node_up_external_node'}[0]{'structure'}{'directions'}{'NodeNext'} = $result_elements{'node_up_external_node'}[0]{'structure'}{'directions'}{'Forward'};
+$result_elements{'node_up_external_node'}[0]{'structure'}{'directions'}{'This'} = $result_elements{'node_up_external_node'}[0];
+$result_elements{'node_up_external_node'}[1] = $result_elements{'node_up_external_node'}[0]{'structure'}{'directions'}{'Forward'};
 
 
 

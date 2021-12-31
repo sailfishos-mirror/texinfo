@@ -471,6 +471,7 @@ $result_trees{'nodes_after_top_before_section_sections'} = [
       'section' => {},
       'unit_command' => {}
     },
+    'structure' => {},
     'type' => 'unit'
   }
 ];
@@ -695,12 +696,6 @@ $result_floats{'nodes_after_top_before_section_sections'} = {};
 $result_elements{'nodes_after_top_before_section_sections'} = [
   {
     'extra' => {
-      'directions' => {
-        'FastBack' => undef,
-        'NodePrev' => {},
-        'NodeUp' => {},
-        'This' => {}
-      },
       'node' => {
         'cmdname' => 'node',
         'extra' => {
@@ -741,16 +736,24 @@ $result_elements{'nodes_after_top_before_section_sections'} = [
       },
       'unit_command' => {}
     },
+    'structure' => {
+      'directions' => {
+        'FastBack' => undef,
+        'NodePrev' => {},
+        'NodeUp' => {},
+        'This' => {}
+      }
+    },
     'type' => 'unit'
   }
 ];
-$result_elements{'nodes_after_top_before_section_sections'}[0]{'extra'}{'directions'}{'NodePrev'} = $result_elements{'nodes_after_top_before_section_sections'}[0];
-$result_elements{'nodes_after_top_before_section_sections'}[0]{'extra'}{'directions'}{'NodeUp'} = $result_elements{'nodes_after_top_before_section_sections'}[0];
-$result_elements{'nodes_after_top_before_section_sections'}[0]{'extra'}{'directions'}{'This'} = $result_elements{'nodes_after_top_before_section_sections'}[0];
 $result_elements{'nodes_after_top_before_section_sections'}[0]{'extra'}{'node'}{'menu_prev'}{'menu_next'} = $result_elements{'nodes_after_top_before_section_sections'}[0]{'extra'}{'node'};
 $result_elements{'nodes_after_top_before_section_sections'}[0]{'extra'}{'node'}{'menu_prev'}{'menu_up'}{'menu_child'} = $result_elements{'nodes_after_top_before_section_sections'}[0]{'extra'}{'node'}{'menu_prev'};
 $result_elements{'nodes_after_top_before_section_sections'}[0]{'extra'}{'node'}{'menu_up'} = $result_elements{'nodes_after_top_before_section_sections'}[0]{'extra'}{'node'}{'menu_prev'}{'menu_up'};
 $result_elements{'nodes_after_top_before_section_sections'}[0]{'extra'}{'unit_command'} = $result_elements{'nodes_after_top_before_section_sections'}[0]{'extra'}{'section'};
+$result_elements{'nodes_after_top_before_section_sections'}[0]{'structure'}{'directions'}{'NodePrev'} = $result_elements{'nodes_after_top_before_section_sections'}[0];
+$result_elements{'nodes_after_top_before_section_sections'}[0]{'structure'}{'directions'}{'NodeUp'} = $result_elements{'nodes_after_top_before_section_sections'}[0];
+$result_elements{'nodes_after_top_before_section_sections'}[0]{'structure'}{'directions'}{'This'} = $result_elements{'nodes_after_top_before_section_sections'}[0];
 
 
 

@@ -135,6 +135,7 @@ $result_trees{'top_node_part_top'} = [
       'section' => {},
       'unit_command' => {}
     },
+    'structure' => {},
     'type' => 'unit'
   }
 ];
@@ -268,9 +269,6 @@ $result_floats{'top_node_part_top'} = {};
 $result_elements{'top_node_part_top'} = [
   {
     'extra' => {
-      'directions' => {
-        'This' => {}
-      },
       'node' => {
         'cmdname' => 'node',
         'extra' => {
@@ -294,11 +292,16 @@ $result_elements{'top_node_part_top'} = [
       },
       'unit_command' => {}
     },
+    'structure' => {
+      'directions' => {
+        'This' => {}
+      }
+    },
     'type' => 'unit'
   }
 ];
-$result_elements{'top_node_part_top'}[0]{'extra'}{'directions'}{'This'} = $result_elements{'top_node_part_top'}[0];
 $result_elements{'top_node_part_top'}[0]{'extra'}{'unit_command'} = $result_elements{'top_node_part_top'}[0]{'extra'}{'section'};
+$result_elements{'top_node_part_top'}[0]{'structure'}{'directions'}{'This'} = $result_elements{'top_node_part_top'}[0];
 
 
 

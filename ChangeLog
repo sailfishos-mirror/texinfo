@@ -1,5 +1,13 @@
 2021-12-31  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (from_element_direction)
+	(_prepare_special_elements), tp/Texinfo/Structuring.pm
+	(elements_directions, elements_file_directions)
+	(print_element_directions): put directions in
+	{'structure'}->{'directions'}, not in {'extra'}->{'directions'}.
+
+2021-12-31  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/TexinfoXML.pm (_convert): use unit_command
 	extra key unit type to determine if assocaited with a node
 	or a section instead of not having either node or section defined,

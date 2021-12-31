@@ -327,6 +327,7 @@ $result_trees{'two_nodes_at_the_end'} = [
       'section' => {},
       'unit_command' => {}
     },
+    'structure' => {},
     'type' => 'unit'
   },
   {
@@ -577,6 +578,7 @@ $result_trees{'two_nodes_at_the_end'} = [
       'section' => {},
       'unit_command' => {}
     },
+    'structure' => {},
     'type' => 'unit',
     'unit_prev' => {}
   }
@@ -879,62 +881,62 @@ $result_floats{'two_nodes_at_the_end'} = {};
 $result_elements{'two_nodes_at_the_end'} = [
   {
     'extra' => {
-      'directions' => {
-        'FastForward' => {
+      'node' => {
+        'cmdname' => 'node',
+        'extra' => {
+          'normalized' => 'Top',
+          'spaces_before_argument' => ' '
+        },
+        'menu_child' => {
+          'cmdname' => 'node',
           'extra' => {
-            'directions' => {
-              'Back' => {},
-              'FastBack' => {},
-              'NodeBack' => {},
-              'NodeForward' => {},
-              'NodeNext' => {},
-              'NodePrev' => {},
-              'NodeUp' => {},
-              'This' => {},
-              'Up' => {}
+            'normalized' => 'chapter-1',
+            'spaces_before_argument' => ' '
+          },
+          'menu_next' => {
+            'cmdname' => 'node',
+            'extra' => {
+              'normalized' => 'node-after-chapter-1',
+              'spaces_before_argument' => ' '
             },
-            'node' => {
+            'menu_next' => {
               'cmdname' => 'node',
               'extra' => {
-                'normalized' => 'chapter-1',
+                'normalized' => 'node-after-chapter-2',
                 'spaces_before_argument' => ' '
               },
-              'menu_next' => {
-                'cmdname' => 'node',
-                'extra' => {
-                  'normalized' => 'node-after-chapter-1',
-                  'spaces_before_argument' => ' '
-                },
-                'menu_next' => {
-                  'cmdname' => 'node',
-                  'extra' => {
-                    'normalized' => 'node-after-chapter-2',
-                    'spaces_before_argument' => ' '
-                  },
-                  'menu_prev' => {},
-                  'menu_up' => {
-                    'cmdname' => 'node',
-                    'extra' => {
-                      'normalized' => 'Top',
-                      'spaces_before_argument' => ' '
-                    },
-                    'menu_child' => {}
-                  },
-                  'menu_up_hash' => {
-                    'Top' => 1
-                  }
-                },
-                'menu_prev' => {},
-                'menu_up' => {},
-                'menu_up_hash' => {
-                  'Top' => 1
-                }
-              },
+              'menu_prev' => {},
               'menu_up' => {},
               'menu_up_hash' => {
                 'Top' => 1
               }
             },
+            'menu_prev' => {},
+            'menu_up' => {},
+            'menu_up_hash' => {
+              'Top' => 1
+            }
+          },
+          'menu_up' => {},
+          'menu_up_hash' => {
+            'Top' => 1
+          }
+        }
+      },
+      'section' => {
+        'cmdname' => 'top',
+        'extra' => {
+          'spaces_before_argument' => ' '
+        },
+        'level' => 0
+      },
+      'unit_command' => {}
+    },
+    'structure' => {
+      'directions' => {
+        'FastForward' => {
+          'extra' => {
+            'node' => {},
             'section' => {
               'cmdname' => 'chapter',
               'extra' => {
@@ -945,49 +947,53 @@ $result_elements{'two_nodes_at_the_end'} = [
             },
             'unit_command' => {}
           },
+          'structure' => {
+            'directions' => {
+              'Back' => {},
+              'FastBack' => {},
+              'NodeBack' => {},
+              'NodeForward' => {},
+              'NodeNext' => {},
+              'NodePrev' => {},
+              'NodeUp' => {},
+              'This' => {},
+              'Up' => {}
+            }
+          },
           'type' => 'unit'
         },
         'Forward' => {},
         'NodeForward' => {},
         'NodeNext' => {},
         'This' => {}
-      },
-      'node' => {},
-      'section' => {
-        'cmdname' => 'top',
-        'extra' => {
-          'spaces_before_argument' => ' '
-        },
-        'level' => 0
-      },
-      'unit_command' => {}
+      }
     },
     'type' => 'unit'
   },
   {}
 ];
-$result_elements{'two_nodes_at_the_end'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'directions'}{'Back'} = $result_elements{'two_nodes_at_the_end'}[0];
-$result_elements{'two_nodes_at_the_end'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'directions'}{'FastBack'} = $result_elements{'two_nodes_at_the_end'}[0];
-$result_elements{'two_nodes_at_the_end'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'directions'}{'NodeBack'} = $result_elements{'two_nodes_at_the_end'}[0];
-$result_elements{'two_nodes_at_the_end'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'directions'}{'NodeForward'} = $result_elements{'two_nodes_at_the_end'}[0]{'extra'}{'directions'}{'FastForward'};
-$result_elements{'two_nodes_at_the_end'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'directions'}{'NodeNext'} = $result_elements{'two_nodes_at_the_end'}[0]{'extra'}{'directions'}{'FastForward'};
-$result_elements{'two_nodes_at_the_end'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'directions'}{'NodePrev'} = $result_elements{'two_nodes_at_the_end'}[0];
-$result_elements{'two_nodes_at_the_end'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'directions'}{'NodeUp'} = $result_elements{'two_nodes_at_the_end'}[0];
-$result_elements{'two_nodes_at_the_end'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'directions'}{'This'} = $result_elements{'two_nodes_at_the_end'}[0]{'extra'}{'directions'}{'FastForward'};
-$result_elements{'two_nodes_at_the_end'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'directions'}{'Up'} = $result_elements{'two_nodes_at_the_end'}[0];
-$result_elements{'two_nodes_at_the_end'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'node'}{'menu_next'}{'menu_next'}{'menu_prev'} = $result_elements{'two_nodes_at_the_end'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'node'}{'menu_next'};
-$result_elements{'two_nodes_at_the_end'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'node'}{'menu_next'}{'menu_next'}{'menu_up'}{'menu_child'} = $result_elements{'two_nodes_at_the_end'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'node'};
-$result_elements{'two_nodes_at_the_end'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'node'}{'menu_next'}{'menu_prev'} = $result_elements{'two_nodes_at_the_end'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'node'};
-$result_elements{'two_nodes_at_the_end'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'node'}{'menu_next'}{'menu_up'} = $result_elements{'two_nodes_at_the_end'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'node'}{'menu_next'}{'menu_next'}{'menu_up'};
-$result_elements{'two_nodes_at_the_end'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'node'}{'menu_up'} = $result_elements{'two_nodes_at_the_end'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'node'}{'menu_next'}{'menu_next'}{'menu_up'};
-$result_elements{'two_nodes_at_the_end'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'unit_command'} = $result_elements{'two_nodes_at_the_end'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'section'};
-$result_elements{'two_nodes_at_the_end'}[0]{'extra'}{'directions'}{'Forward'} = $result_elements{'two_nodes_at_the_end'}[0]{'extra'}{'directions'}{'FastForward'};
-$result_elements{'two_nodes_at_the_end'}[0]{'extra'}{'directions'}{'NodeForward'} = $result_elements{'two_nodes_at_the_end'}[0]{'extra'}{'directions'}{'FastForward'};
-$result_elements{'two_nodes_at_the_end'}[0]{'extra'}{'directions'}{'NodeNext'} = $result_elements{'two_nodes_at_the_end'}[0]{'extra'}{'directions'}{'FastForward'};
-$result_elements{'two_nodes_at_the_end'}[0]{'extra'}{'directions'}{'This'} = $result_elements{'two_nodes_at_the_end'}[0];
-$result_elements{'two_nodes_at_the_end'}[0]{'extra'}{'node'} = $result_elements{'two_nodes_at_the_end'}[0]{'extra'}{'directions'}{'FastForward'}{'extra'}{'node'}{'menu_next'}{'menu_next'}{'menu_up'};
+$result_elements{'two_nodes_at_the_end'}[0]{'extra'}{'node'}{'menu_child'}{'menu_next'}{'menu_next'}{'menu_prev'} = $result_elements{'two_nodes_at_the_end'}[0]{'extra'}{'node'}{'menu_child'}{'menu_next'};
+$result_elements{'two_nodes_at_the_end'}[0]{'extra'}{'node'}{'menu_child'}{'menu_next'}{'menu_next'}{'menu_up'} = $result_elements{'two_nodes_at_the_end'}[0]{'extra'}{'node'};
+$result_elements{'two_nodes_at_the_end'}[0]{'extra'}{'node'}{'menu_child'}{'menu_next'}{'menu_prev'} = $result_elements{'two_nodes_at_the_end'}[0]{'extra'}{'node'}{'menu_child'};
+$result_elements{'two_nodes_at_the_end'}[0]{'extra'}{'node'}{'menu_child'}{'menu_next'}{'menu_up'} = $result_elements{'two_nodes_at_the_end'}[0]{'extra'}{'node'};
+$result_elements{'two_nodes_at_the_end'}[0]{'extra'}{'node'}{'menu_child'}{'menu_up'} = $result_elements{'two_nodes_at_the_end'}[0]{'extra'}{'node'};
 $result_elements{'two_nodes_at_the_end'}[0]{'extra'}{'unit_command'} = $result_elements{'two_nodes_at_the_end'}[0]{'extra'}{'section'};
-$result_elements{'two_nodes_at_the_end'}[1] = $result_elements{'two_nodes_at_the_end'}[0]{'extra'}{'directions'}{'FastForward'};
+$result_elements{'two_nodes_at_the_end'}[0]{'structure'}{'directions'}{'FastForward'}{'extra'}{'node'} = $result_elements{'two_nodes_at_the_end'}[0]{'extra'}{'node'}{'menu_child'};
+$result_elements{'two_nodes_at_the_end'}[0]{'structure'}{'directions'}{'FastForward'}{'extra'}{'unit_command'} = $result_elements{'two_nodes_at_the_end'}[0]{'structure'}{'directions'}{'FastForward'}{'extra'}{'section'};
+$result_elements{'two_nodes_at_the_end'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Back'} = $result_elements{'two_nodes_at_the_end'}[0];
+$result_elements{'two_nodes_at_the_end'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'FastBack'} = $result_elements{'two_nodes_at_the_end'}[0];
+$result_elements{'two_nodes_at_the_end'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'NodeBack'} = $result_elements{'two_nodes_at_the_end'}[0];
+$result_elements{'two_nodes_at_the_end'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'NodeForward'} = $result_elements{'two_nodes_at_the_end'}[0]{'structure'}{'directions'}{'FastForward'};
+$result_elements{'two_nodes_at_the_end'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'NodeNext'} = $result_elements{'two_nodes_at_the_end'}[0]{'structure'}{'directions'}{'FastForward'};
+$result_elements{'two_nodes_at_the_end'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'NodePrev'} = $result_elements{'two_nodes_at_the_end'}[0];
+$result_elements{'two_nodes_at_the_end'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'NodeUp'} = $result_elements{'two_nodes_at_the_end'}[0];
+$result_elements{'two_nodes_at_the_end'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'This'} = $result_elements{'two_nodes_at_the_end'}[0]{'structure'}{'directions'}{'FastForward'};
+$result_elements{'two_nodes_at_the_end'}[0]{'structure'}{'directions'}{'FastForward'}{'structure'}{'directions'}{'Up'} = $result_elements{'two_nodes_at_the_end'}[0];
+$result_elements{'two_nodes_at_the_end'}[0]{'structure'}{'directions'}{'Forward'} = $result_elements{'two_nodes_at_the_end'}[0]{'structure'}{'directions'}{'FastForward'};
+$result_elements{'two_nodes_at_the_end'}[0]{'structure'}{'directions'}{'NodeForward'} = $result_elements{'two_nodes_at_the_end'}[0]{'structure'}{'directions'}{'FastForward'};
+$result_elements{'two_nodes_at_the_end'}[0]{'structure'}{'directions'}{'NodeNext'} = $result_elements{'two_nodes_at_the_end'}[0]{'structure'}{'directions'}{'FastForward'};
+$result_elements{'two_nodes_at_the_end'}[0]{'structure'}{'directions'}{'This'} = $result_elements{'two_nodes_at_the_end'}[0];
+$result_elements{'two_nodes_at_the_end'}[1] = $result_elements{'two_nodes_at_the_end'}[0]{'structure'}{'directions'}{'FastForward'};
 
 
 

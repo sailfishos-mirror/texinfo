@@ -87,6 +87,7 @@ $result_trees{'part_before_section'} = [
       'section' => {},
       'unit_command' => {}
     },
+    'structure' => {},
     'type' => 'unit'
   }
 ];
@@ -165,9 +166,6 @@ $result_floats{'part_before_section'} = {};
 $result_elements{'part_before_section'} = [
   {
     'extra' => {
-      'directions' => {
-        'This' => {}
-      },
       'section' => {
         'cmdname' => 'section',
         'extra' => {
@@ -185,11 +183,16 @@ $result_elements{'part_before_section'} = [
       },
       'unit_command' => {}
     },
+    'structure' => {
+      'directions' => {
+        'This' => {}
+      }
+    },
     'type' => 'unit'
   }
 ];
-$result_elements{'part_before_section'}[0]{'extra'}{'directions'}{'This'} = $result_elements{'part_before_section'}[0];
 $result_elements{'part_before_section'}[0]{'extra'}{'unit_command'} = $result_elements{'part_before_section'}[0]{'extra'}{'section'};
+$result_elements{'part_before_section'}[0]{'structure'}{'directions'}{'This'} = $result_elements{'part_before_section'}[0];
 
 
 
