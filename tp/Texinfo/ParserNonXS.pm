@@ -2150,7 +2150,9 @@ sub _expand_macro_body($$$$) {
         my $arg = $1;
         my $formal_arg_index = _lookup_macro_parameter($macro, $arg);
         if (defined($formal_arg_index)) {
-          $result .= $args->[$formal_arg_index];
+          if ($formal_arg_index < scalar(@$args)) {
+            $result .= $args->[$formal_arg_index];
+          }
         } else {
           $self->_line_error(sprintf(__(
          "\\ in \@%s expansion followed `%s' instead of parameter name or \\"), 

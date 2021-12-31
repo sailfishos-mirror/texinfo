@@ -1,5 +1,11 @@
 2021-12-30  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_expand_macro_body): ignore arg value
+	if there are less arguments given to the macro than the argument
+	found.
+
+2021-12-30  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_parse_texi): check if top_context_command
 	is not undef too, which would correspond to the root context, for
 	heading specification context command check.
