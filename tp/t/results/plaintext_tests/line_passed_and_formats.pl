@@ -2364,8 +2364,7 @@ $result_trees{'line_passed_and_formats'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     }
   ],
   'type' => 'document_root'

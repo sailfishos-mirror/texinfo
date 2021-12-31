@@ -231,8 +231,7 @@ $result_trees{'next_no_prev_to_node'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -322,8 +321,7 @@ $result_trees{'next_no_prev_to_node'} = {
         'line_nr' => 8,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -393,8 +391,7 @@ $result_trees{'next_no_prev_to_node'} = {
         'line_nr' => 10,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     }
   ],
   'type' => 'document_root'

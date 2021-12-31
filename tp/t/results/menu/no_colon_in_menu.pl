@@ -128,8 +128,7 @@ $result_trees{'no_colon_in_menu'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     }
   ],
   'type' => 'document_root'
@@ -184,8 +183,7 @@ $result_nodes{'no_colon_in_menu'} = {
         }
       }
     }
-  ],
-  'structure' => {}
+  ]
 };
 
 $result_menus{'no_colon_in_menu'} = {
@@ -193,8 +191,7 @@ $result_menus{'no_colon_in_menu'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'no_colon_in_menu'} = [];

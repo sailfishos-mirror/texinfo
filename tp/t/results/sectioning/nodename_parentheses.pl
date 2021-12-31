@@ -51,8 +51,7 @@ $result_trees{'nodename_parentheses'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -333,10 +332,7 @@ $result_trees{'nodename_parentheses'} = {
         'line_nr' => 2,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 0
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -377,8 +373,7 @@ $result_trees{'nodename_parentheses'} = {
         'line_nr' => 10,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -431,11 +426,7 @@ $result_trees{'nodename_parentheses'} = {
         'line_nr' => 11,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 1
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -476,8 +467,7 @@ $result_trees{'nodename_parentheses'} = {
         'line_nr' => 15,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -630,11 +620,7 @@ $result_trees{'nodename_parentheses'} = {
         'line_nr' => 16,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 2
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -690,8 +676,7 @@ $result_trees{'nodename_parentheses'} = {
         'line_nr' => 22,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -801,11 +786,7 @@ $result_trees{'nodename_parentheses'} = {
         'line_nr' => 23,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 3
-      }
+      'parent' => {}
     }
   ],
   'type' => 'document_root'

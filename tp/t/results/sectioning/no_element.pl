@@ -448,10 +448,7 @@ $result_trees{'no_element'} = {
             'line_nr' => 21,
             'macro' => ''
           },
-          'parent' => {},
-          'structure' => {
-            'float_number' => 1
-          }
+          'parent' => {}
         },
         {
           'parent' => {},

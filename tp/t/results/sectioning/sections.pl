@@ -39,11 +39,7 @@ $result_trees{'sections'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 1
-      }
+      'parent' => {}
     }
   ],
   'type' => 'document_root'

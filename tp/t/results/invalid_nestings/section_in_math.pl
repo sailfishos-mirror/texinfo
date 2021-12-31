@@ -149,11 +149,7 @@ $result_trees{'section_in_math'} = {
         'line_nr' => 4,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 2,
-        'number' => 1
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -182,11 +178,7 @@ $result_trees{'section_in_math'} = {
         'line_nr' => 8,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 2,
-        'number' => 2
-      }
+      'parent' => {}
     }
   ],
   'type' => 'document_root'

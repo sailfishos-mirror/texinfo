@@ -127,8 +127,7 @@ $result_trees{'check_htmlxref'} = {
         'line_nr' => 2,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -502,10 +501,7 @@ $result_trees{'check_htmlxref'} = {
         'line_nr' => 3,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 0
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -570,8 +566,7 @@ $result_trees{'check_htmlxref'} = {
         'line_nr' => 13,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     }
   ],
   'type' => 'document_root'

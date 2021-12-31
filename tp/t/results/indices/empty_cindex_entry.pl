@@ -75,8 +75,7 @@ $result_trees{'empty_cindex_entry'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     }
   ],
   'type' => 'document_root'
@@ -102,8 +101,7 @@ $result_nodes{'empty_cindex_entry'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_menus{'empty_cindex_entry'} = {
@@ -111,8 +109,7 @@ $result_menus{'empty_cindex_entry'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'empty_cindex_entry'} = [

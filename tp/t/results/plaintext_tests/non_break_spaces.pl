@@ -112,8 +112,7 @@ $result_trees{'non_break_spaces'} = {
         'line_nr' => 3,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     }
   ],
   'type' => 'document_root'
@@ -153,8 +152,7 @@ $result_nodes{'non_break_spaces'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_menus{'non_break_spaces'} = {
@@ -162,8 +160,7 @@ $result_menus{'non_break_spaces'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'non_break_spaces'} = [];

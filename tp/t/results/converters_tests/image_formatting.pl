@@ -2096,8 +2096,7 @@ $result_trees{'image_formatting'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     }
   ],
   'type' => 'document_root'
@@ -2527,8 +2526,7 @@ $result_nodes{'image_formatting'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_menus{'image_formatting'} = {
@@ -2536,8 +2534,7 @@ $result_menus{'image_formatting'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'image_formatting'} = [];

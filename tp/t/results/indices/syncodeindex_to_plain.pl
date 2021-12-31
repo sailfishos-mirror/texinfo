@@ -317,8 +317,7 @@ $result_trees{'syncodeindex_to_plain'} = {
         'line_nr' => 3,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     }
   ],
   'type' => 'document_root'
@@ -398,8 +397,7 @@ $result_nodes{'syncodeindex_to_plain'} = {
     'isindex' => 1,
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_menus{'syncodeindex_to_plain'} = {
@@ -408,8 +406,7 @@ $result_menus{'syncodeindex_to_plain'} = {
     'isindex' => 1,
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'syncodeindex_to_plain'} = [];

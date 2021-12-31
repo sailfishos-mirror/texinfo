@@ -124,8 +124,7 @@ $result_trees{'inforef_too_much_args'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     }
   ],
   'type' => 'document_root'
@@ -163,8 +162,7 @@ $result_nodes{'inforef_too_much_args'} = {
   'extra' => {
     'normalized' => 'chapter',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_menus{'inforef_too_much_args'} = {
@@ -172,8 +170,7 @@ $result_menus{'inforef_too_much_args'} = {
   'extra' => {
     'normalized' => 'chapter',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'inforef_too_much_args'} = [

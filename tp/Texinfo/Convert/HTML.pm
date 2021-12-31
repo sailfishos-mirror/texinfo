@@ -2861,10 +2861,8 @@ sub _convert_heading_command($$$$$)
           if ($self->get_conf('DEBUG'));
   my $tree_unit;
   if ($Texinfo::Common::root_commands{$element->{'cmdname'}}
-      and $element->{'parent'}
-      and $element->{'parent'}->{'type'}
-      and $element->{'parent'}->{'type'} eq 'unit') {
-    $tree_unit = $element->{'parent'};
+      and $element->{'structure'}->{'associated_unit'}) {
+    $tree_unit = $element->{'structure'}->{'associated_unit'};
   }
   my $element_header = '';
   if ($tree_unit) {
@@ -6236,7 +6234,10 @@ sub _html_get_tree_root_element($$;$)
           return ($root_element);
       }
     }
-    if ($current->{'parent'}) {
+    if ($current->{'structure'}->{'associated_unit'}) {
+      #print STDERR "ASSOCIATED_UNIT ".Texinfo::Common::debug_print_element_short($current->{'structure'}->{'associated_unit'})."\n" if ($debug);
+      $current = $current->{'structure'}->{'associated_unit'};
+    } elsif ($current->{'parent'}) {
       #print STDERR "PARENT ".Texinfo::Common::debug_print_element_short($current->{'parent'})."\n" if ($debug);
       $current = $current->{'parent'};
     } else {
@@ -6654,9 +6655,9 @@ sub _prepare_tree_units_global_targets($$)
       if ($root_command and $root_command->{'cmdname'} ne 'node') {
         while ($root_command->{'structure'}->{'level'} > 1
                and $root_command->{'structure'}->{'section_up'}
-               and $root_command->{'structure'}->{'section_up'}->{'parent'}) {
+               and $root_command->{'structure'}->{'section_up'}->{'structure'}->{'associated_unit'}) {
           $root_command = $root_command->{'structure'}->{'section_up'};
-          $root_element = $root_command->{'parent'};
+          $root_element = $root_command->{'structure'}->{'associated_unit'};
         }
       }
       $self->{'global_target_elements'}->{'Index'} = $root_element;
@@ -6668,9 +6669,9 @@ sub _prepare_tree_units_global_targets($$)
   my $section_top;
   $section_top = $self->{'global_commands'}->{'top'} if ($self->{'global_commands'});
   if ($section_top) {
-    $self->{'global_target_elements'}->{'Top'} = $section_top->{'parent'};
+    $self->{'global_target_elements'}->{'Top'} = $section_top->{'structure'}->{'associated_unit'};
   } elsif ($node_top) {
-    my $tree_unit_top = $node_top->{'parent'};
+    my $tree_unit_top = $node_top->{'structure'}->{'associated_unit'};
     if (!$tree_unit_top) {
       die "No parent for node_top: ".Texinfo::Common::debug_print_element($node_top);
     }

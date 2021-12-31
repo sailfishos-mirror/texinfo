@@ -112,8 +112,7 @@ $result_trees{'index_split_nodes'} = {
         'line_nr' => 5,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -548,10 +547,7 @@ $result_trees{'index_split_nodes'} = {
         'line_nr' => 6,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 0
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -902,8 +898,7 @@ $result_trees{'index_split_nodes'} = {
         'line_nr' => 23,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -1463,11 +1458,7 @@ $result_trees{'index_split_nodes'} = {
         'line_nr' => 37,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 1
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -1509,8 +1500,7 @@ $result_trees{'index_split_nodes'} = {
         'line_nr' => 51,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -1861,11 +1851,7 @@ $result_trees{'index_split_nodes'} = {
         'line_nr' => 52,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 2,
-        'number' => '1.1'
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -1906,8 +1892,7 @@ $result_trees{'index_split_nodes'} = {
         'line_nr' => 66,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -1960,11 +1945,7 @@ $result_trees{'index_split_nodes'} = {
         'line_nr' => 67,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 3,
-        'number' => '1.1.1'
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -2006,8 +1987,7 @@ $result_trees{'index_split_nodes'} = {
         'line_nr' => 71,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -2191,11 +2171,7 @@ $result_trees{'index_split_nodes'} = {
         'line_nr' => 72,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 3,
-        'number' => '1.1.2'
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -2236,8 +2212,7 @@ $result_trees{'index_split_nodes'} = {
         'line_nr' => 82,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -2290,11 +2265,7 @@ $result_trees{'index_split_nodes'} = {
         'line_nr' => 83,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 2,
-        'number' => '1.2'
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -2336,8 +2307,7 @@ $result_trees{'index_split_nodes'} = {
         'line_nr' => 87,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -2457,11 +2427,7 @@ $result_trees{'index_split_nodes'} = {
         'line_nr' => 88,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 2,
-        'number' => '1.3'
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -2605,8 +2571,7 @@ $result_trees{'index_split_nodes'} = {
         'line_nr' => 94,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -2909,8 +2874,7 @@ $result_trees{'index_split_nodes'} = {
         'line_nr' => 99,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -3033,8 +2997,7 @@ $result_trees{'index_split_nodes'} = {
         'line_nr' => 112,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -3075,8 +3038,7 @@ $result_trees{'index_split_nodes'} = {
         'line_nr' => 116,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -3129,11 +3091,7 @@ $result_trees{'index_split_nodes'} = {
         'line_nr' => 117,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 2
-      }
+      'parent' => {}
     },
     {
       'args' => [

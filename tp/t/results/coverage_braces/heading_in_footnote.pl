@@ -56,8 +56,7 @@ $result_trees{'heading_in_footnote'} = {
                         'line_nr' => 3,
                         'macro' => ''
                       },
-                      'parent' => {},
-                      'structure' => {}
+                      'parent' => {}
                     },
                     {
                       'args' => [

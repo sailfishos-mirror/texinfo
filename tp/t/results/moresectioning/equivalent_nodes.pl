@@ -184,8 +184,7 @@ $result_trees{'equivalent_nodes'} = {
         'line_nr' => 5,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -384,8 +383,7 @@ $result_trees{'equivalent_nodes'} = {
         'line_nr' => 7,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -517,8 +515,7 @@ $result_trees{'equivalent_nodes'} = {
             'line_nr' => 17,
             'macro' => ''
           },
-          'parent' => {},
-          'structure' => {}
+          'parent' => {}
         },
         {
           'parent' => {},
@@ -733,8 +730,7 @@ $result_trees{'equivalent_nodes'} = {
         'line_nr' => 15,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [

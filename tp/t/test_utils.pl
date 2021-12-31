@@ -232,7 +232,13 @@ sub unsplit($)
     return;
   }
   foreach my $content (@{$root->{'contents'}}) {
-    $content->{'parent'} = $root;
+    if ($content->{'structure'} and $content->{'structure'}->{'associated_unit'}) {
+      delete $content->{'structure'}->{'associated_unit'};
+      if (scalar(keys(%{$content->{'structure'}})) == 0) {
+        delete $content->{'structure'};
+      }
+    }
+    #$content->{'parent'} = $root;
   }
   return;
 }
@@ -463,7 +469,8 @@ sub new_test($;$$$)
   return $test;
 }
 
-my @contents_keys = ('contents', 'args', 'parent', 'line_nr', 'node_content', 
+my @contents_keys = ('contents', 'args', 'parent',
+  'line_nr', 'node_content', 
   'nodes_manuals', 'misc_content', 'invalid_nesting', 
   'block_command_line_contents', 'spaces_after_command');
 my @menus_keys = ('menu_next', 'menu_up', 'menu_prev', 'menu_up_hash');
@@ -473,7 +480,7 @@ my @sections_keys = ('section_next', 'section_prev', 'section_up',
 my @node_keys = ('node_next', 'node_prev', 'node_up', 'menus', 
   'associated_section');
 my %avoided_keys_tree;
-our @avoided_keys_tree = (@sections_keys, @menus_keys, @node_keys, 
+our @avoided_keys_tree = (@sections_keys, @menus_keys, @node_keys, 'structure',
    'menu_child', 'unit_next', 'directions', 'page_next', 'remaining_args');
 foreach my $avoided_key(@avoided_keys_tree) {
   $avoided_keys_tree{$avoided_key} = 1;

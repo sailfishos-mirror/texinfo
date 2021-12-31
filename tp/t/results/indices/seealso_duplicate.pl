@@ -322,8 +322,7 @@ $result_trees{'seealso_duplicate'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     }
   ],
   'type' => 'document_root'
@@ -393,8 +392,7 @@ $result_nodes{'seealso_duplicate'} = {
     'isindex' => 1,
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_menus{'seealso_duplicate'} = {
@@ -403,8 +401,7 @@ $result_menus{'seealso_duplicate'} = {
     'isindex' => 1,
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'seealso_duplicate'} = [];

@@ -259,8 +259,7 @@ $result_trees{'simple'} = {
         'line_nr' => 3,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     }
   ],
   'type' => 'document_root'
@@ -319,8 +318,7 @@ $result_nodes{'simple'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_menus{'simple'} = {
@@ -328,8 +326,7 @@ $result_menus{'simple'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'simple'} = [];

@@ -397,10 +397,7 @@ $result_trees{'things_before_setfilename_no_element'} = {
                 'line_nr' => 19,
                 'macro' => ''
               },
-              'parent' => {},
-              'structure' => {
-                'float_number' => 1
-              }
+              'parent' => {}
             },
             {
               'parent' => {},
@@ -595,10 +592,7 @@ $result_trees{'things_before_setfilename_no_element'} = {
                 'line_nr' => 26,
                 'macro' => ''
               },
-              'parent' => {},
-              'structure' => {
-                'float_number' => 1
-              }
+              'parent' => {}
             },
             {
               'parent' => {},

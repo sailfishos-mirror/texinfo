@@ -51,8 +51,7 @@ $result_trees{'space_in_menu'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -221,10 +220,7 @@ $result_trees{'space_in_menu'} = {
         'line_nr' => 2,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 0
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -265,8 +261,7 @@ $result_trees{'space_in_menu'} = {
         'line_nr' => 10,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -313,11 +308,7 @@ $result_trees{'space_in_menu'} = {
         'line_nr' => 11,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 1
-      }
+      'parent' => {}
     }
   ],
   'type' => 'document_root'

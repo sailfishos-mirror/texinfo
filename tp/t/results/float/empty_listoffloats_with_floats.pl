@@ -98,10 +98,7 @@ $result_trees{'empty_listoffloats_with_floats'} = {
             'line_nr' => 2,
             'macro' => ''
           },
-          'parent' => {},
-          'structure' => {
-            'float_number' => 1
-          }
+          'parent' => {}
         },
         {
           'parent' => {},
@@ -229,10 +226,7 @@ $result_trees{'empty_listoffloats_with_floats'} = {
             'line_nr' => 6,
             'macro' => ''
           },
-          'parent' => {},
-          'structure' => {
-            'float_number' => 2
-          }
+          'parent' => {}
         },
         {
           'parent' => {},
@@ -305,8 +299,7 @@ $result_trees{'empty_listoffloats_with_floats'} = {
             'line_nr' => 11,
             'macro' => ''
           },
-          'parent' => {},
-          'structure' => {}
+          'parent' => {}
         },
         {
           'parent' => {},
@@ -416,8 +409,7 @@ $result_trees{'empty_listoffloats_with_floats'} = {
             'line_nr' => 15,
             'macro' => ''
           },
-          'parent' => {},
-          'structure' => {}
+          'parent' => {}
         },
         {
           'parent' => {},

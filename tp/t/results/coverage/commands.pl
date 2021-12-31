@@ -444,8 +444,7 @@ $result_trees{'commands'} = {
             'line_nr' => 9,
             'macro' => ''
           },
-          'parent' => {},
-          'structure' => {}
+          'parent' => {}
         }
       ],
       'parent' => {},

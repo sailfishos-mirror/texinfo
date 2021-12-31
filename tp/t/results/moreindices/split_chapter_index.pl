@@ -111,8 +111,7 @@ $result_trees{'split_chapter_index'} = {
         'line_nr' => 5,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -328,10 +327,7 @@ $result_trees{'split_chapter_index'} = {
         'line_nr' => 6,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 0
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -373,8 +369,7 @@ $result_trees{'split_chapter_index'} = {
         'line_nr' => 16,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -920,11 +915,7 @@ $result_trees{'split_chapter_index'} = {
         'line_nr' => 17,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 1
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -965,8 +956,7 @@ $result_trees{'split_chapter_index'} = {
         'line_nr' => 37,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -1212,11 +1202,7 @@ $result_trees{'split_chapter_index'} = {
         'line_nr' => 38,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 2,
-        'number' => '1.1'
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -1257,8 +1243,7 @@ $result_trees{'split_chapter_index'} = {
         'line_nr' => 48,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -1358,11 +1343,7 @@ $result_trees{'split_chapter_index'} = {
         'line_nr' => 49,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 3,
-        'number' => '1.1.1'
-      }
+      'parent' => {}
     },
     {
       'args' => [

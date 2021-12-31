@@ -71,8 +71,7 @@ $result_trees{'loweredheading'} = {
             'line_nr' => 3,
             'macro' => ''
           },
-          'parent' => {},
-          'structure' => {}
+          'parent' => {}
         }
       ],
       'extra' => {
@@ -84,11 +83,7 @@ $result_trees{'loweredheading'} = {
         'line_nr' => 2,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 3,
-        'number' => 1
-      }
+      'parent' => {}
     },
     {
       'args' => [

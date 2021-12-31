@@ -81,8 +81,7 @@ $result_trees{'section_below_unnumbered'} = {
         'line_nr' => 4,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -257,10 +256,7 @@ $result_trees{'section_below_unnumbered'} = {
         'line_nr' => 5,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 0
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -301,8 +297,7 @@ $result_trees{'section_below_unnumbered'} = {
         'line_nr' => 14,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -454,10 +449,7 @@ $result_trees{'section_below_unnumbered'} = {
         'line_nr' => 15,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -498,8 +490,7 @@ $result_trees{'section_below_unnumbered'} = {
         'line_nr' => 21,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -552,10 +543,7 @@ $result_trees{'section_below_unnumbered'} = {
         'line_nr' => 22,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 2
-      }
+      'parent' => {}
     },
     {
       'args' => [

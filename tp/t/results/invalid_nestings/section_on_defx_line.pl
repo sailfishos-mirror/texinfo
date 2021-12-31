@@ -206,11 +206,7 @@ $result_trees{'section_on_defx_line'} = {
         'line_nr' => 2,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 2,
-        'number' => 1
-      }
+      'parent' => {}
     }
   ],
   'type' => 'document_root'

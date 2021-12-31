@@ -362,8 +362,7 @@ $result_trees{'float_copying'} = {
                                                 'line_nr' => 45,
                                                 'macro' => ''
                                               },
-                                              'parent' => {},
-                                              'structure' => {}
+                                              'parent' => {}
                                             },
                                             'node_argument' => {
                                               'node_content' => [
@@ -620,10 +619,7 @@ $result_trees{'float_copying'} = {
                 'line_nr' => 7,
                 'macro' => ''
               },
-              'parent' => {},
-              'structure' => {
-                'float_number' => 1
-              }
+              'parent' => {}
             },
             {
               'args' => [
@@ -715,8 +711,7 @@ $result_trees{'float_copying'} = {
         'line_nr' => 30,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -1042,10 +1037,7 @@ $result_trees{'float_copying'} = {
         'line_nr' => 31,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 0
-      }
+      'parent' => {}
     },
     {},
     {
@@ -1312,8 +1304,7 @@ $result_trees{'float_copying'} = {
             'line_nr' => 60,
             'macro' => ''
           },
-          'parent' => {},
-          'structure' => {}
+          'parent' => {}
         },
         {
           'args' => [
@@ -1381,8 +1372,7 @@ $result_trees{'float_copying'} = {
             'line_nr' => 63,
             'macro' => ''
           },
-          'parent' => {},
-          'structure' => {}
+          'parent' => {}
         },
         {
           'args' => [
@@ -1461,11 +1451,7 @@ $result_trees{'float_copying'} = {
         'line_nr' => 46,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 'A'
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -1955,7 +1941,8 @@ $result_floats{'float_copying'} = {
           'cmdname' => 'caption',
           'extra' => {
             'float' => {}
-          }
+          },
+          'structure' => {}
         },
         'end_command' => {
           'cmdname' => 'end',

@@ -893,8 +893,7 @@ $result_trees{'macro_in_index_commands'} = {
         'line_nr' => 36,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     }
   ],
   'type' => 'document_root'

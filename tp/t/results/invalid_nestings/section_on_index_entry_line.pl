@@ -82,11 +82,7 @@ $result_trees{'section_on_index_entry_line'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 2,
-        'number' => 1
-      }
+      'parent' => {}
     }
   ],
   'type' => 'document_root'

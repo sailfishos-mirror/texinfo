@@ -58,8 +58,7 @@ $result_trees{'character_and_spaces_in_node'} = {
         'line_nr' => 2,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -155,8 +154,7 @@ $result_trees{'character_and_spaces_in_node'} = {
         'line_nr' => 3,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -252,8 +250,7 @@ $result_trees{'character_and_spaces_in_node'} = {
         'line_nr' => 4,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -343,8 +340,7 @@ $result_trees{'character_and_spaces_in_node'} = {
         'line_nr' => 5,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -423,8 +419,7 @@ $result_trees{'character_and_spaces_in_node'} = {
         'line_nr' => 6,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     }
   ],
   'type' => 'document_root'

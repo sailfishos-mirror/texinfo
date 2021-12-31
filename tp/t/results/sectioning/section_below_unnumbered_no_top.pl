@@ -39,10 +39,7 @@ $result_trees{'section_below_unnumbered_no_top'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -71,10 +68,7 @@ $result_trees{'section_below_unnumbered_no_top'} = {
         'line_nr' => 2,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 2
-      }
+      'parent' => {}
     }
   ],
   'type' => 'document_root'

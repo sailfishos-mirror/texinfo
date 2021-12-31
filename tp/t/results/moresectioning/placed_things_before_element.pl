@@ -464,10 +464,7 @@ $result_trees{'placed_things_before_element'} = {
             'line_nr' => 22,
             'macro' => ''
           },
-          'parent' => {},
-          'structure' => {
-            'float_number' => 1
-          }
+          'parent' => {}
         },
         {
           'parent' => {},
@@ -834,11 +831,7 @@ $result_trees{'placed_things_before_element'} = {
         'line_nr' => 35,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 2,
-        'number' => 1
-      }
+      'parent' => {}
     },
     {
       'args' => [

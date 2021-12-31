@@ -514,8 +514,7 @@ $result_trees{'direntry_dircategory_info_split'} = {
         'line_nr' => 19,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -845,10 +844,7 @@ $result_trees{'direntry_dircategory_info_split'} = {
         'line_nr' => 20,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 0
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -889,8 +885,7 @@ $result_trees{'direntry_dircategory_info_split'} = {
         'line_nr' => 32,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -943,11 +938,7 @@ $result_trees{'direntry_dircategory_info_split'} = {
         'line_nr' => 33,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 1
-      }
+      'parent' => {}
     },
     {
       'args' => [

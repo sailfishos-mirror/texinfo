@@ -210,8 +210,7 @@ $result_trees{'node_referenced_in_ref'} = {
                     'line_nr' => 11,
                     'macro' => ''
                   },
-                  'parent' => {},
-                  'structure' => {}
+                  'parent' => {}
                 },
                 'node_argument' => {
                   'node_content' => [
@@ -263,8 +262,7 @@ $result_trees{'node_referenced_in_ref'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -312,8 +310,7 @@ $result_trees{'node_referenced_in_ref'} = {
         'line_nr' => 9,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {}
   ],

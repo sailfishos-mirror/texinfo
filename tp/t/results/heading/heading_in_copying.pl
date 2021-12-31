@@ -83,8 +83,7 @@ $result_trees{'heading_in_copying'} = {
                 'line_nr' => 3,
                 'macro' => ''
               },
-              'parent' => {},
-              'structure' => {}
+              'parent' => {}
             },
             {
               'args' => [
@@ -189,8 +188,7 @@ $result_trees{'heading_in_copying'} = {
                 'line_nr' => 6,
                 'macro' => ''
               },
-              'parent' => {},
-              'structure' => {}
+              'parent' => {}
             },
             {
               'args' => [
@@ -306,8 +304,7 @@ $result_trees{'heading_in_copying'} = {
         'line_nr' => 9,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     }
   ],
   'type' => 'document_root'
@@ -378,8 +375,7 @@ $result_nodes{'heading_in_copying'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_menus{'heading_in_copying'} = {
@@ -387,8 +383,7 @@ $result_menus{'heading_in_copying'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'heading_in_copying'} = [];

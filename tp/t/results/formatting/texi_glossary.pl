@@ -382,8 +382,7 @@ $result_trees{'texi_glossary'} = {
         'line_nr' => 35,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -870,11 +869,7 @@ $result_trees{'texi_glossary'} = {
                         'line_nr' => 46,
                         'macro' => ''
                       },
-                      'parent' => {},
-                      'structure' => {
-                        'level' => 1,
-                        'number' => 1
-                      }
+                      'parent' => {}
                     },
                     'type' => 'paragraph'
                   }
@@ -1087,10 +1082,7 @@ $result_trees{'texi_glossary'} = {
         'line_nr' => 36,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 0
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -1131,8 +1123,7 @@ $result_trees{'texi_glossary'} = {
         'line_nr' => 45,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {}
   ],

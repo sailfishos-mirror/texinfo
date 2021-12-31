@@ -91,8 +91,7 @@ $result_trees{'same_index_entry_merged_indices'} = {
         'line_nr' => 3,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -488,10 +487,7 @@ $result_trees{'same_index_entry_merged_indices'} = {
         'line_nr' => 4,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 0
-      }
+      'parent' => {}
     }
   ],
   'type' => 'document_root'
@@ -607,8 +603,7 @@ $result_sectioning{'same_index_entry_merged_indices'} = {
               'isindex' => 1,
               'normalized' => 'Top',
               'spaces_before_argument' => ' '
-            },
-            'structure' => {}
+            }
           }
         },
         'structure' => {
@@ -634,8 +629,7 @@ $result_nodes{'same_index_entry_merged_indices'} = {
     'isindex' => 1,
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_menus{'same_index_entry_merged_indices'} = {
@@ -644,8 +638,7 @@ $result_menus{'same_index_entry_merged_indices'} = {
     'isindex' => 1,
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'same_index_entry_merged_indices'} = [];

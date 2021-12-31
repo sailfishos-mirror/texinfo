@@ -260,8 +260,7 @@ $result_trees{'empty_menu_entry_name'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -302,8 +301,7 @@ $result_trees{'empty_menu_entry_name'} = {
         'line_nr' => 8,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     }
   ],
   'type' => 'document_root'

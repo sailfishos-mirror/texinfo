@@ -143,8 +143,7 @@ $result_trees{'simplest_test_prefix_info'} = {
         'line_nr' => 5,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -207,8 +206,7 @@ $result_nodes{'simplest_test_prefix_info'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_menus{'simplest_test_prefix_info'} = {
@@ -216,8 +214,7 @@ $result_menus{'simplest_test_prefix_info'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'simplest_test_prefix_info'} = [];

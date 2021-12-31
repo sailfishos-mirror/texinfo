@@ -219,11 +219,7 @@ $result_trees{'settitle_and_headings'} = {
         'line_nr' => 6,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 1
-      }
+      'parent' => {}
     }
   ],
   'type' => 'document_root'

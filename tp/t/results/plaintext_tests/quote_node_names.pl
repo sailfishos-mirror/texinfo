@@ -51,8 +51,7 @@ $result_trees{'quote_node_names'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -144,8 +143,7 @@ $result_trees{'quote_node_names'} = {
                     'line_nr' => 35,
                     'macro' => ''
                   },
-                  'parent' => {},
-                  'structure' => {}
+                  'parent' => {}
                 },
                 'node_argument' => {
                   'node_content' => [
@@ -295,8 +293,7 @@ $result_trees{'quote_node_names'} = {
                     'line_nr' => 27,
                     'macro' => ''
                   },
-                  'parent' => {},
-                  'structure' => {}
+                  'parent' => {}
                 },
                 'node_argument' => {
                   'node_content' => [
@@ -446,8 +443,7 @@ $result_trees{'quote_node_names'} = {
                     'line_nr' => 32,
                     'macro' => ''
                   },
-                  'parent' => {},
-                  'structure' => {}
+                  'parent' => {}
                 },
                 'node_argument' => {
                   'node_content' => [
@@ -668,8 +664,7 @@ $result_trees{'quote_node_names'} = {
                     'line_nr' => 38,
                     'macro' => ''
                   },
-                  'parent' => {},
-                  'structure' => {}
+                  'parent' => {}
                 },
                 'node_argument' => {
                   'node_content' => [
@@ -1196,10 +1191,7 @@ $result_trees{'quote_node_names'} = {
         'line_nr' => 2,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 0
-      }
+      'parent' => {}
     },
     {},
     {
@@ -1253,11 +1245,7 @@ $result_trees{'quote_node_names'} = {
         'line_nr' => 28,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 1
-      }
+      'parent' => {}
     },
     {},
     {
@@ -1294,11 +1282,7 @@ $result_trees{'quote_node_names'} = {
         'line_nr' => 33,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 2
-      }
+      'parent' => {}
     },
     {},
     {
@@ -1335,11 +1319,7 @@ $result_trees{'quote_node_names'} = {
         'line_nr' => 36,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 3
-      }
+      'parent' => {}
     },
     {},
     {
@@ -1394,11 +1374,7 @@ $result_trees{'quote_node_names'} = {
         'line_nr' => 39,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 4
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -1457,8 +1433,7 @@ $result_trees{'quote_node_names'} = {
         'line_nr' => 41,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     }
   ],
   'type' => 'document_root'

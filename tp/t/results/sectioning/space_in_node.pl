@@ -317,8 +317,7 @@ $result_trees{'space_in_node'} = {
         'line_nr' => 2,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -366,8 +365,7 @@ $result_trees{'space_in_node'} = {
         'line_nr' => 10,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -415,8 +413,7 @@ $result_trees{'space_in_node'} = {
         'line_nr' => 12,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -457,8 +454,7 @@ $result_trees{'space_in_node'} = {
         'line_nr' => 14,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     }
   ],
   'type' => 'document_root'

@@ -259,8 +259,7 @@ $result_trees{'unknown_region'} = {
         'line_nr' => 3,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     }
   ],
   'type' => 'document_root'
@@ -319,8 +318,7 @@ $result_nodes{'unknown_region'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_menus{'unknown_region'} = {
@@ -328,8 +326,7 @@ $result_menus{'unknown_region'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'unknown_region'} = [

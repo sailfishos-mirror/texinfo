@@ -51,8 +51,7 @@ $result_trees{'next_in_menu_is_below'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -204,10 +203,7 @@ $result_trees{'next_in_menu_is_below'} = {
         'line_nr' => 2,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 0
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -248,8 +244,7 @@ $result_trees{'next_in_menu_is_below'} = {
         'line_nr' => 8,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -458,11 +453,7 @@ $result_trees{'next_in_menu_is_below'} = {
         'line_nr' => 9,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 1
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -503,8 +494,7 @@ $result_trees{'next_in_menu_is_below'} = {
         'line_nr' => 16,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -656,11 +646,7 @@ $result_trees{'next_in_menu_is_below'} = {
         'line_nr' => 17,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 2,
-        'number' => '1.1'
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -701,8 +687,7 @@ $result_trees{'next_in_menu_is_below'} = {
         'line_nr' => 23,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -731,11 +716,7 @@ $result_trees{'next_in_menu_is_below'} = {
         'line_nr' => 24,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 3,
-        'number' => '1.1.1'
-      }
+      'parent' => {}
     }
   ],
   'type' => 'document_root'

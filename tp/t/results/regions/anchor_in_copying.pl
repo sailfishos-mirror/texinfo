@@ -278,8 +278,7 @@ $result_trees{'anchor_in_copying'} = {
         'line_nr' => 9,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     }
   ],
   'type' => 'document_root'
@@ -358,8 +357,7 @@ $result_nodes{'anchor_in_copying'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_menus{'anchor_in_copying'} = {
@@ -367,8 +365,7 @@ $result_menus{'anchor_in_copying'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'anchor_in_copying'} = [];

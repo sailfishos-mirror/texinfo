@@ -365,8 +365,7 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
         'line_nr' => 13,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -579,10 +578,7 @@ $result_trees{'deftypefnnewline_for_copying_after'} = {
         'line_nr' => 14,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 0
-      }
+      'parent' => {}
     }
   ],
   'type' => 'document_root'
@@ -715,8 +711,7 @@ $result_sectioning{'deftypefnnewline_for_copying_after'} = {
             'extra' => {
               'normalized' => 'Top',
               'spaces_before_argument' => ' '
-            },
-            'structure' => {}
+            }
           },
           'spaces_before_argument' => ' '
         },
@@ -744,8 +739,7 @@ $result_nodes{'deftypefnnewline_for_copying_after'} = {
     },
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_menus{'deftypefnnewline_for_copying_after'} = {
@@ -753,8 +747,7 @@ $result_menus{'deftypefnnewline_for_copying_after'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'deftypefnnewline_for_copying_after'} = [];

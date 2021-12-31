@@ -82,8 +82,7 @@ $result_trees{'value_in_misc_commands'} = {
         'line_nr' => 3,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -130,8 +129,7 @@ $result_trees{'value_in_misc_commands'} = {
             'line_nr' => 5,
             'macro' => ''
           },
-          'parent' => {},
-          'structure' => {}
+          'parent' => {}
         },
         {
           'parent' => {},
@@ -2759,10 +2757,7 @@ $result_trees{'value_in_misc_commands'} = {
         'line_nr' => 4,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 0
-      }
+      'parent' => {}
     },
     {
       'args' => [

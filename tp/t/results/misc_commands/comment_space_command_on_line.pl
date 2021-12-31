@@ -124,8 +124,7 @@ $result_trees{'comment_space_command_on_line'} = {
         'line_nr' => 3,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -342,8 +341,7 @@ $result_trees{'comment_space_command_on_line'} = {
             'line_nr' => 10,
             'macro' => ''
           },
-          'parent' => {},
-          'structure' => {}
+          'parent' => {}
         },
         {
           'parent' => {},
@@ -514,10 +512,7 @@ $result_trees{'comment_space_command_on_line'} = {
             'line_nr' => 14,
             'macro' => ''
           },
-          'parent' => {},
-          'structure' => {
-            'float_number' => 1
-          }
+          'parent' => {}
         },
         {
           'parent' => {},
@@ -595,10 +590,7 @@ $result_trees{'comment_space_command_on_line'} = {
         'line_nr' => 4,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 0
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -748,8 +740,7 @@ $result_sectioning{'comment_space_command_on_line'} = {
               'isindex' => 1,
               'normalized' => 'Top',
               'spaces_before_argument' => ' '
-            },
-            'structure' => {}
+            }
           },
           'spaces_before_argument' => ' '
         },
@@ -778,8 +769,7 @@ $result_nodes{'comment_space_command_on_line'} = {
     'isindex' => 1,
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_menus{'comment_space_command_on_line'} = {
@@ -788,8 +778,7 @@ $result_menus{'comment_space_command_on_line'} = {
     'isindex' => 1,
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'comment_space_command_on_line'} = [];

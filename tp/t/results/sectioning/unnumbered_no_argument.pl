@@ -34,10 +34,7 @@ $result_trees{'unnumbered_no_argument'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1
-      }
+      'parent' => {}
     }
   ],
   'type' => 'document_root'

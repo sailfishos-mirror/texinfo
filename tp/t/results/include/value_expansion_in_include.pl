@@ -464,8 +464,7 @@ $result_trees{'value_expansion_in_include'} = {
         'line_nr' => 10,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     }
   ],
   'type' => 'document_root'

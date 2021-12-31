@@ -199,8 +199,7 @@ $result_trees{'one_node_explicit_directions_anchor'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     }
   ],
   'type' => 'document_root'

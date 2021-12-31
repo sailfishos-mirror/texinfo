@@ -302,8 +302,7 @@ $result_trees{'nodes_after_top_before_chapter'} = {
         'line_nr' => 6,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -419,8 +418,7 @@ $result_trees{'nodes_after_top_before_chapter'} = {
         'line_nr' => 13,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -499,8 +497,7 @@ $result_trees{'nodes_after_top_before_chapter'} = {
         'line_nr' => 17,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -542,11 +539,7 @@ $result_trees{'nodes_after_top_before_chapter'} = {
         'line_nr' => 18,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 1
-      }
+      'parent' => {}
     },
     {
       'args' => [

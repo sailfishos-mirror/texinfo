@@ -199,8 +199,7 @@ $result_trees{'japanese_utf8'} = {
         'line_nr' => 8,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -616,10 +615,7 @@ $result_trees{'japanese_utf8'} = {
         'line_nr' => 9,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 0
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -660,8 +656,7 @@ $result_trees{'japanese_utf8'} = {
         'line_nr' => 30,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -720,11 +715,7 @@ $result_trees{'japanese_utf8'} = {
         'line_nr' => 31,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 1
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -765,8 +756,7 @@ $result_trees{'japanese_utf8'} = {
         'line_nr' => 36,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -819,11 +809,7 @@ $result_trees{'japanese_utf8'} = {
         'line_nr' => 37,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 2
-      }
+      'parent' => {}
     },
     {
       'args' => [

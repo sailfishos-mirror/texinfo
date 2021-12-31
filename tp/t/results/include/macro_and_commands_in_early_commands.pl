@@ -275,8 +275,7 @@ $result_trees{'macro_and_commands_in_early_commands'} = {
         'line_nr' => 18,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -423,10 +422,7 @@ $result_trees{'macro_and_commands_in_early_commands'} = {
         'line_nr' => 19,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 0
-      }
+      'parent' => {}
     }
   ],
   'type' => 'document_root'

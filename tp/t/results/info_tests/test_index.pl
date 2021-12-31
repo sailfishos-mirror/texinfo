@@ -51,8 +51,7 @@ $result_trees{'test_index'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -216,8 +215,7 @@ $result_trees{'test_index'} = {
                                 'line_nr' => 205,
                                 'macro' => ''
                               },
-                              'parent' => {},
-                              'structure' => {}
+                              'parent' => {}
                             },
                             'number' => 7
                           },
@@ -259,11 +257,7 @@ $result_trees{'test_index'} = {
                       'line_nr' => 229,
                       'macro' => ''
                     },
-                    'parent' => {},
-                    'structure' => {
-                      'level' => 1,
-                      'number' => 'B'
-                    }
+                    'parent' => {}
                   }
                 },
                 'node_argument' => {
@@ -1212,10 +1206,7 @@ $result_trees{'test_index'} = {
         'line_nr' => 2,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 0
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -1256,8 +1247,7 @@ $result_trees{'test_index'} = {
         'line_nr' => 31,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -2898,11 +2888,7 @@ $result_trees{'test_index'} = {
         'line_nr' => 32,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 1
-      }
+      'parent' => {}
     },
     {},
     {
@@ -3140,11 +3126,7 @@ $result_trees{'test_index'} = {
         'line_nr' => 206,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 'A'
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -3180,11 +3162,7 @@ $result_trees{'test_index'} = {
         'line_nr' => 219,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 2,
-        'number' => 'A.1'
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -3220,11 +3198,7 @@ $result_trees{'test_index'} = {
         'line_nr' => 221,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 3,
-        'number' => 'A.1.1'
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -3277,8 +3251,7 @@ $result_trees{'test_index'} = {
             'line_nr' => 225,
             'macro' => ''
           },
-          'parent' => {},
-          'structure' => {}
+          'parent' => {}
         },
         {
           'parent' => {},
@@ -3295,11 +3268,7 @@ $result_trees{'test_index'} = {
         'line_nr' => 223,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 4,
-        'number' => 'A.1.1.1'
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -3335,10 +3304,7 @@ $result_trees{'test_index'} = {
         'line_nr' => 227,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1
-      }
+      'parent' => {}
     },
     {},
     {

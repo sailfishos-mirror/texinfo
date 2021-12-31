@@ -863,12 +863,12 @@ sub split_by_node($)
     if (@pending_parts) {
       foreach my $part (@pending_parts) {
         push @{$current->{'contents'}}, $part;
-        $part->{'parent'} = $current;
+        $part->{'structure'}->{'associated_unit'} = $current;
       }
       @pending_parts = ();
     }
     push @{$current->{'contents'}}, $content;
-    $content->{'parent'} = $current;
+    $content->{'structure'}->{'associated_unit'} = $current;
   }
   return $tree_units;
 }
@@ -926,7 +926,7 @@ sub split_by_section($)
       $current->{'extra'}->{'node'} = $content;
     }
     push @{$current->{'contents'}}, $content;
-    $content->{'parent'} = $current;
+    $content->{'structure'}->{'associated_unit'} = $current;
   }
   return $tree_units;
 }
@@ -994,7 +994,7 @@ sub _label_target_element($)
     }
     return $external_node;
   } elsif ($label->{'cmdname'} and $label->{'cmdname'} eq 'node') {
-    return $label->{'parent'};
+    return $label->{'structure'}->{'associated_unit'};
   } else {
     # case of a @float or an @anchor, no target element defined at this stage
     return undef;
@@ -1042,7 +1042,7 @@ sub elements_directions($$$)
                and $node->{'associated_section'}->{'structure'}->{'section_childs'}
                and $node->{'associated_section'}->{'structure'}->{'section_childs'}->[0]) {
         $directions->{'NodeForward'}
-          = $node->{'associated_section'}->{'structure'}->{'section_childs'}->[0]->{'parent'};
+          = $node->{'associated_section'}->{'structure'}->{'section_childs'}->[0]->{'structure'}->{'associated_unit'};
       } elsif ($node->{'structure'}->{'node_next'}) {
         $directions->{'NodeForward'} = _label_target_element($node->{'structure'}->{'node_next'});
       } else {
@@ -1097,16 +1097,16 @@ sub elements_directions($$$)
       my $section = $tree_unit->{'extra'}->{'section'};
       foreach my $direction(['Up', 'section_up'], ['Next', 'section_next'],
                             ['Prev', 'section_prev']) {
-        # in most cases $section->{$direction->[1]}->{'parent'} is defined
+        # in most cases $section->{$direction->[1]}->{'structure'}->{'associated_unit'} is defined
         # but it may not be the case for the up of @top.
         # The section may be its own up in cases like
         #  @part part
         #  @chapter chapter
         # in that cas the direction is not set up
-        $directions->{$direction->[0]} = $section->{'structure'}->{$direction->[1]}->{'parent'}
+        $directions->{$direction->[0]} = $section->{'structure'}->{$direction->[1]}->{'structure'}->{'associated_unit'}
           if ($section->{'structure'}->{$direction->[1]}
-              and $section->{'structure'}->{$direction->[1]}->{'parent'}
-              and $section->{'structure'}->{$direction->[1]}->{'parent'} ne $section->{'parent'});
+              and $section->{'structure'}->{$direction->[1]}->{'structure'}->{'associated_unit'}
+              and $section->{'structure'}->{$direction->[1]}->{'structure'}->{'associated_unit'} ne $section->{'structure'}->{'associated_unit'});
       }
 
       my $up = $section;
@@ -1121,16 +1121,16 @@ sub elements_directions($$$)
           and $up->{'structure'}->{'section_childs'}
           and @{$up->{'structure'}->{'section_childs'}}) {
         $directions->{'FastForward'}
-           = $up->{'structure'}->{'section_childs'}->[0]->{'parent'};
+           = $up->{'structure'}->{'section_childs'}->[0]->{'structure'}->{'associated_unit'};
       } elsif ($up->{'structure'}->{'toplevel_next'}) {
-        $directions->{'FastForward'} = $up->{'structure'}->{'toplevel_next'}->{'parent'};
+        $directions->{'FastForward'} = $up->{'structure'}->{'toplevel_next'}->{'structure'}->{'associated_unit'};
       } elsif ($up->{'structure'}->{'section_next'}) {
-        $directions->{'FastForward'} = $up->{'structure'}->{'section_next'}->{'parent'};
+        $directions->{'FastForward'} = $up->{'structure'}->{'section_next'}->{'structure'}->{'associated_unit'};
       }
       # if the element isn't at the highest level, fastback is the
       # highest parent element
       if ($up and $up ne $section) {
-        $directions->{'FastBack'} = $up->{'parent'};
+        $directions->{'FastBack'} = $up->{'structure'}->{'associated_unit'};
       } elsif ($section->{'structure'}->{'level'} <= 1) {
         # the element is a top level element, we adjust the next
         # toplevel element fastback

@@ -83,8 +83,7 @@ $result_trees{'heading_in_quotation'} = {
                 'line_nr' => 3,
                 'macro' => ''
               },
-              'parent' => {},
-              'structure' => {}
+              'parent' => {}
             },
             {
               'parent' => {},

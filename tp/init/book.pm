@@ -182,10 +182,8 @@ sub book_convert_heading_command($$$$$)
           if ($self->get_conf('DEBUG'));
   my $tree_unit;
   if ($Texinfo::Common::root_commands{$element->{'cmdname'}}
-      and $element->{'parent'}
-      and $element->{'parent'}->{'type'}
-      and $element->{'parent'}->{'type'} eq 'unit') {
-    $tree_unit = $element->{'parent'};
+      and $element->{'structure'}->{'associated_unit'}) {
+    $tree_unit = $element->{'structure'}->{'associated_unit'};
   }
   my $element_header = '';
   if ($tree_unit) {

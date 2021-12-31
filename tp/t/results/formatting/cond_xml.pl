@@ -305,8 +305,7 @@ $result_trees{'cond_xml'} = {
         'line_nr' => 4,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -418,8 +417,7 @@ $result_nodes{'cond_xml'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_menus{'cond_xml'} = {
@@ -427,8 +425,7 @@ $result_menus{'cond_xml'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'cond_xml'} = [];

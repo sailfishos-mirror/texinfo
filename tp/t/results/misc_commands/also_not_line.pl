@@ -325,8 +325,7 @@ $result_trees{'also_not_line'} = {
             'line_nr' => 18,
             'macro' => ''
           },
-          'parent' => {},
-          'structure' => {}
+          'parent' => {}
         },
         {
           'parent' => {},

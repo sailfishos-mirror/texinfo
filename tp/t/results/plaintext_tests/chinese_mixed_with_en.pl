@@ -358,8 +358,7 @@ $result_trees{'chinese_mixed_with_en'} = {
         'line_nr' => 6,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -505,8 +504,7 @@ $result_nodes{'chinese_mixed_with_en'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_menus{'chinese_mixed_with_en'} = {
@@ -514,8 +512,7 @@ $result_menus{'chinese_mixed_with_en'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'chinese_mixed_with_en'} = [];

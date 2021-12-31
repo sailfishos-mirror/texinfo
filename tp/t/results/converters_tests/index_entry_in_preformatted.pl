@@ -273,8 +273,7 @@ $result_trees{'index_entry_in_preformatted'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     }
   ],
   'type' => 'document_root'
@@ -345,8 +344,7 @@ $result_nodes{'index_entry_in_preformatted'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_menus{'index_entry_in_preformatted'} = {
@@ -354,8 +352,7 @@ $result_menus{'index_entry_in_preformatted'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'index_entry_in_preformatted'} = [];

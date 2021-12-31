@@ -69,10 +69,7 @@ $result_trees{'no_empty_line_after_section'} = {
         'line_nr' => 2,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 0
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -155,11 +152,7 @@ $result_trees{'no_empty_line_after_section'} = {
         'line_nr' => 5,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 1
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -259,11 +252,7 @@ $result_trees{'no_empty_line_after_section'} = {
         'line_nr' => 10,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 2,
-        'number' => '1.1'
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -331,11 +320,7 @@ $result_trees{'no_empty_line_after_section'} = {
         'line_nr' => 14,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 2,
-        'number' => '1.2'
-      }
+      'parent' => {}
     }
   ],
   'type' => 'document_root'

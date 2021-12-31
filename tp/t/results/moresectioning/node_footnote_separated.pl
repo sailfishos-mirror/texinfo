@@ -459,8 +459,7 @@ $result_trees{'node_footnote_separated'} = {
         'line_nr' => 5,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -628,8 +627,7 @@ $result_trees{'node_footnote_separated'} = {
         'line_nr' => 14,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -797,8 +795,7 @@ $result_trees{'node_footnote_separated'} = {
         'line_nr' => 19,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -839,8 +836,7 @@ $result_trees{'node_footnote_separated'} = {
         'line_nr' => 24,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -1010,11 +1006,7 @@ $result_trees{'node_footnote_separated'} = {
         'line_nr' => 25,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 1
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -1182,8 +1174,7 @@ $result_trees{'node_footnote_separated'} = {
         'line_nr' => 31,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [

@@ -143,8 +143,7 @@ $result_trees{'char_latin2_latin2_in_refs'} = {
         'line_nr' => 6,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -228,8 +227,7 @@ $result_trees{'char_latin2_latin2_in_refs'} = {
                     'line_nr' => 18,
                     'macro' => ''
                   },
-                  'parent' => {},
-                  'structure' => {}
+                  'parent' => {}
                 },
                 'node_argument' => {
                   'node_content' => [
@@ -440,10 +438,7 @@ $result_trees{'char_latin2_latin2_in_refs'} = {
         'line_nr' => 7,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 0
-      }
+      'parent' => {}
     },
     {},
     {
@@ -527,11 +522,7 @@ $result_trees{'char_latin2_latin2_in_refs'} = {
         'line_nr' => 19,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 1
-      }
+      'parent' => {}
     },
     {
       'args' => [

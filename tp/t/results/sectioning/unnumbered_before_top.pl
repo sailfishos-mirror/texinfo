@@ -46,10 +46,7 @@ $result_trees{'unnumbered_before_top'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -78,10 +75,7 @@ $result_trees{'unnumbered_before_top'} = {
         'line_nr' => 3,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1
-      }
+      'parent' => {}
     }
   ],
   'type' => 'document_root'

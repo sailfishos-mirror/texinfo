@@ -79,8 +79,7 @@ $result_trees{'section_before_top'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -116,11 +115,7 @@ $result_trees{'section_before_top'} = {
         'line_nr' => 2,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 2,
-        'number' => 1
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -161,8 +156,7 @@ $result_trees{'section_before_top'} = {
         'line_nr' => 4,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -308,10 +302,7 @@ $result_trees{'section_before_top'} = {
         'line_nr' => 5,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 2
-      }
+      'parent' => {}
     }
   ],
   'type' => 'document_root'

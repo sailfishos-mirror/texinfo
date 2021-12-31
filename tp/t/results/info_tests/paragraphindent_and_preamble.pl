@@ -139,8 +139,7 @@ $result_trees{'paragraphindent_and_preamble'} = {
         'line_nr' => 7,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -272,10 +271,7 @@ $result_trees{'paragraphindent_and_preamble'} = {
         'line_nr' => 8,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 0
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -379,8 +375,7 @@ $result_sectioning{'paragraphindent_and_preamble'} = {
             'extra' => {
               'normalized' => 'Top',
               'spaces_before_argument' => ' '
-            },
-            'structure' => {}
+            }
           },
           'spaces_before_argument' => ' '
         },
@@ -408,8 +403,7 @@ $result_nodes{'paragraphindent_and_preamble'} = {
     },
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_menus{'paragraphindent_and_preamble'} = {
@@ -417,8 +411,7 @@ $result_menus{'paragraphindent_and_preamble'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'paragraphindent_and_preamble'} = [];

@@ -1,3 +1,15 @@
+2022-01-01  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Structuring.pm (split_by_node, split_by_section)
+	(_label_target_element, elements_directions),
+	tp/Texinfo/Convert/DocBook.pm (_convert), tp/Texinfo/Convert/HTML.pm
+	(_convert_heading_command, _html_get_tree_root_element)
+	(_prepare_tree_units_global_targets), tp/Texinfo/Convert/TexinfoXML.pm
+	(_convert), tp/init/book.pm (book_convert_heading_command): when
+	splitting associate tree unit elements to node and section elements
+	through 'structure'->{'associated_unit'} and not by reparenting to
+	the tree units.
+
 2021-12-31  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Structuring.pm (check_nodes_are_referenced)

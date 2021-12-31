@@ -625,8 +625,7 @@ $result_trees{'invalid_info_menu_entry'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     }
   ],
   'type' => 'document_root'

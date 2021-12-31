@@ -58,8 +58,7 @@ $result_trees{'double_node_anchor_float'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -178,8 +177,7 @@ $result_trees{'double_node_anchor_float'} = {
         'line_nr' => 3,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -282,8 +280,7 @@ $result_trees{'double_node_anchor_float'} = {
             'line_nr' => 11,
             'macro' => ''
           },
-          'parent' => {},
-          'structure' => {}
+          'parent' => {}
         },
         {
           'parent' => {},
@@ -367,8 +364,7 @@ $result_trees{'double_node_anchor_float'} = {
             'line_nr' => 14,
             'macro' => ''
           },
-          'parent' => {},
-          'structure' => {}
+          'parent' => {}
         },
         {
           'parent' => {},
@@ -456,10 +452,7 @@ $result_trees{'double_node_anchor_float'} = {
             'line_nr' => 17,
             'macro' => ''
           },
-          'parent' => {},
-          'structure' => {
-            'float_number' => 1
-          }
+          'parent' => {}
         },
         {
           'parent' => {},
@@ -484,8 +477,7 @@ $result_trees{'double_node_anchor_float'} = {
         'line_nr' => 9,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -522,8 +514,7 @@ $result_trees{'double_node_anchor_float'} = {
         'line_nr' => 20,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     }
   ],
   'type' => 'document_root'
@@ -636,8 +627,7 @@ $result_nodes{'double_node_anchor_float'} = {
   'extra' => {
     'normalized' => 'node1',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_menus{'double_node_anchor_float'} = {
@@ -645,8 +635,7 @@ $result_menus{'double_node_anchor_float'} = {
   'extra' => {
     'normalized' => 'node1',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'double_node_anchor_float'} = [

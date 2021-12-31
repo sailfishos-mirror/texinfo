@@ -498,8 +498,7 @@ $result_trees{'entry_after_detailmenu'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -540,8 +539,7 @@ $result_trees{'entry_after_detailmenu'} = {
         'line_nr' => 18,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -582,8 +580,7 @@ $result_trees{'entry_after_detailmenu'} = {
         'line_nr' => 19,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     }
   ],
   'type' => 'document_root'

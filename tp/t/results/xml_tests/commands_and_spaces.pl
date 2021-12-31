@@ -805,10 +805,7 @@ $result_trees{'commands_and_spaces'} = {
             'line_nr' => 30,
             'macro' => ''
           },
-          'parent' => {},
-          'structure' => {
-            'float_number' => 1
-          }
+          'parent' => {}
         },
         {
           'parent' => {},
@@ -1829,8 +1826,7 @@ $result_trees{'commands_and_spaces'} = {
         'line_nr' => 9,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     }
   ],
   'type' => 'document_root'

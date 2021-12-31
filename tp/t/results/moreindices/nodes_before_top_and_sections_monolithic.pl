@@ -428,8 +428,7 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
         'line_nr' => 6,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -659,8 +658,7 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
         'line_nr' => 18,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -908,8 +906,7 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
         'line_nr' => 28,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -1233,10 +1230,7 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
         'line_nr' => 39,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 0
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -1611,8 +1605,7 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
         'line_nr' => 50,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -1893,8 +1886,7 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
         'line_nr' => 62,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -2116,8 +2108,7 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
         'line_nr' => 70,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -2413,8 +2404,7 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
         'line_nr' => 76,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -2494,8 +2484,7 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
         'line_nr' => 86,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -2568,11 +2557,7 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
         'line_nr' => 87,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 1
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -2708,8 +2693,7 @@ $result_trees{'nodes_before_top_and_sections_monolithic'} = {
         'line_nr' => 91,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [

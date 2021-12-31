@@ -259,8 +259,7 @@ $result_trees{'double_top_in_menu'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [

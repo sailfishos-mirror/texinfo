@@ -873,10 +873,7 @@ $result_trees{'comments_end_lines'} = {
             'line_nr' => 28,
             'macro' => ''
           },
-          'parent' => {},
-          'structure' => {
-            'float_number' => 1
-          }
+          'parent' => {}
         },
         {
           'parent' => {},

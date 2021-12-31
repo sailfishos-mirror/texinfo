@@ -10,115 +10,112 @@ $result_trees{'chapter_before_part'} = [
     'contents' => [
       {
         'contents' => [],
-        'parent' => {},
+        'parent' => {
+          'contents' => [
+            {},
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'chapter'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
+                  'parent' => {},
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'chapter',
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => '
+',
+                  'type' => 'empty_line'
+                }
+              ],
+              'extra' => {
+                'spaces_before_argument' => ' '
+              },
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 1,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'part'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
+                  'parent' => {},
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'part',
+              'contents' => [],
+              'extra' => {
+                'spaces_before_argument' => ' '
+              },
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 3,
+                'macro' => ''
+              },
+              'parent' => {}
+            }
+          ],
+          'type' => 'document_root'
+        },
         'type' => 'before_node_section'
       },
-      {
-        'args' => [
-          {
-            'contents' => [
-              {
-                'parent' => {},
-                'text' => 'chapter'
-              }
-            ],
-            'extra' => {
-              'spaces_after_argument' => '
-'
-            },
-            'parent' => {},
-            'type' => 'line_arg'
-          }
-        ],
-        'cmdname' => 'chapter',
-        'contents' => [
-          {
-            'parent' => {},
-            'text' => '
-',
-            'type' => 'empty_line'
-          }
-        ],
-        'extra' => {
-          'spaces_before_argument' => ' '
-        },
-        'line_nr' => {
-          'file_name' => '',
-          'line_nr' => 1,
-          'macro' => ''
-        },
-        'parent' => {},
-        'structure' => {
-          'level' => 1,
-          'number' => 1
-        }
-      }
+      {}
     ],
     'extra' => {
       'section' => {},
       'unit_command' => {}
     },
-    'structure' => {},
     'type' => 'unit'
   },
   {
     'contents' => [
-      {
-        'args' => [
-          {
-            'contents' => [
-              {
-                'parent' => {},
-                'text' => 'part'
-              }
-            ],
-            'extra' => {
-              'spaces_after_argument' => '
-'
-            },
-            'parent' => {},
-            'type' => 'line_arg'
-          }
-        ],
-        'cmdname' => 'part',
-        'contents' => [],
-        'extra' => {
-          'spaces_before_argument' => ' '
-        },
-        'line_nr' => {
-          'file_name' => '',
-          'line_nr' => 3,
-          'macro' => ''
-        },
-        'parent' => {},
-        'structure' => {
-          'level' => 0
-        }
-      }
+      {}
     ],
     'extra' => {
       'section' => {},
       'unit_command' => {}
     },
-    'structure' => {
-      'unit_prev' => {}
-    },
     'type' => 'unit'
   }
 ];
-$result_trees{'chapter_before_part'}[0]{'contents'}[0]{'parent'} = $result_trees{'chapter_before_part'}[0];
-$result_trees{'chapter_before_part'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'chapter_before_part'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'chapter_before_part'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'chapter_before_part'}[0]{'contents'}[1];
-$result_trees{'chapter_before_part'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'chapter_before_part'}[0]{'contents'}[1];
-$result_trees{'chapter_before_part'}[0]{'contents'}[1]{'parent'} = $result_trees{'chapter_before_part'}[0];
-$result_trees{'chapter_before_part'}[0]{'extra'}{'section'} = $result_trees{'chapter_before_part'}[0]{'contents'}[1];
-$result_trees{'chapter_before_part'}[0]{'extra'}{'unit_command'} = $result_trees{'chapter_before_part'}[0]{'contents'}[1];
-$result_trees{'chapter_before_part'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'chapter_before_part'}[1]{'contents'}[0]{'args'}[0];
-$result_trees{'chapter_before_part'}[1]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'chapter_before_part'}[1]{'contents'}[0];
-$result_trees{'chapter_before_part'}[1]{'contents'}[0]{'parent'} = $result_trees{'chapter_before_part'}[1];
-$result_trees{'chapter_before_part'}[1]{'extra'}{'section'} = $result_trees{'chapter_before_part'}[1]{'contents'}[0];
-$result_trees{'chapter_before_part'}[1]{'extra'}{'unit_command'} = $result_trees{'chapter_before_part'}[1]{'contents'}[0];
-$result_trees{'chapter_before_part'}[1]{'structure'}{'unit_prev'} = $result_trees{'chapter_before_part'}[0];
+$result_trees{'chapter_before_part'}[0]{'contents'}[0]{'parent'}{'contents'}[0] = $result_trees{'chapter_before_part'}[0]{'contents'}[0];
+$result_trees{'chapter_before_part'}[0]{'contents'}[0]{'parent'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'chapter_before_part'}[0]{'contents'}[0]{'parent'}{'contents'}[1]{'args'}[0];
+$result_trees{'chapter_before_part'}[0]{'contents'}[0]{'parent'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'chapter_before_part'}[0]{'contents'}[0]{'parent'}{'contents'}[1];
+$result_trees{'chapter_before_part'}[0]{'contents'}[0]{'parent'}{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'chapter_before_part'}[0]{'contents'}[0]{'parent'}{'contents'}[1];
+$result_trees{'chapter_before_part'}[0]{'contents'}[0]{'parent'}{'contents'}[1]{'parent'} = $result_trees{'chapter_before_part'}[0]{'contents'}[0]{'parent'};
+$result_trees{'chapter_before_part'}[0]{'contents'}[0]{'parent'}{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'chapter_before_part'}[0]{'contents'}[0]{'parent'}{'contents'}[2]{'args'}[0];
+$result_trees{'chapter_before_part'}[0]{'contents'}[0]{'parent'}{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'chapter_before_part'}[0]{'contents'}[0]{'parent'}{'contents'}[2];
+$result_trees{'chapter_before_part'}[0]{'contents'}[0]{'parent'}{'contents'}[2]{'parent'} = $result_trees{'chapter_before_part'}[0]{'contents'}[0]{'parent'};
+$result_trees{'chapter_before_part'}[0]{'contents'}[1] = $result_trees{'chapter_before_part'}[0]{'contents'}[0]{'parent'}{'contents'}[1];
+$result_trees{'chapter_before_part'}[0]{'extra'}{'section'} = $result_trees{'chapter_before_part'}[0]{'contents'}[0]{'parent'}{'contents'}[1];
+$result_trees{'chapter_before_part'}[0]{'extra'}{'unit_command'} = $result_trees{'chapter_before_part'}[0]{'contents'}[0]{'parent'}{'contents'}[1];
+$result_trees{'chapter_before_part'}[1]{'contents'}[0] = $result_trees{'chapter_before_part'}[0]{'contents'}[0]{'parent'}{'contents'}[2];
+$result_trees{'chapter_before_part'}[1]{'extra'}{'section'} = $result_trees{'chapter_before_part'}[0]{'contents'}[0]{'parent'}{'contents'}[2];
+$result_trees{'chapter_before_part'}[1]{'extra'}{'unit_command'} = $result_trees{'chapter_before_part'}[0]{'contents'}[0]{'parent'}{'contents'}[2];
 
 $result_texis{'chapter_before_part'} = '@chapter chapter
 
@@ -143,26 +140,64 @@ $result_sectioning{'chapter_before_part'} = {
           'spaces_before_argument' => ' '
         },
         'structure' => {
+          'associated_unit' => {
+            'extra' => {
+              'section' => {},
+              'unit_command' => {}
+            },
+            'structure' => {
+              'directions' => {
+                'Forward' => {
+                  'extra' => {
+                    'section' => {
+                      'cmdname' => 'part',
+                      'extra' => {
+                        'spaces_before_argument' => ' '
+                      },
+                      'structure' => {
+                        'associated_unit' => {},
+                        'level' => 0,
+                        'section_up' => {}
+                      }
+                    },
+                    'unit_command' => {}
+                  },
+                  'structure' => {
+                    'directions' => {
+                      'Back' => {},
+                      'This' => {}
+                    },
+                    'unit_prev' => {}
+                  },
+                  'type' => 'unit'
+                },
+                'This' => {}
+              },
+              'unit_next' => {}
+            },
+            'type' => 'unit'
+          },
           'level' => 1,
           'number' => 1,
           'section_up' => {}
         }
       },
-      {
-        'cmdname' => 'part',
-        'extra' => {
-          'spaces_before_argument' => ' '
-        },
-        'structure' => {
-          'level' => 0,
-          'section_up' => {}
-        }
-      }
+      {}
     ]
   }
 };
+$result_sectioning{'chapter_before_part'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'extra'}{'section'} = $result_sectioning{'chapter_before_part'}{'structure'}{'section_childs'}[0];
+$result_sectioning{'chapter_before_part'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'extra'}{'unit_command'} = $result_sectioning{'chapter_before_part'}{'structure'}{'section_childs'}[0];
+$result_sectioning{'chapter_before_part'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'Forward'}{'extra'}{'section'}{'structure'}{'associated_unit'} = $result_sectioning{'chapter_before_part'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'Forward'};
+$result_sectioning{'chapter_before_part'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'Forward'}{'extra'}{'section'}{'structure'}{'section_up'} = $result_sectioning{'chapter_before_part'};
+$result_sectioning{'chapter_before_part'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'Forward'}{'extra'}{'unit_command'} = $result_sectioning{'chapter_before_part'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'Forward'}{'extra'}{'section'};
+$result_sectioning{'chapter_before_part'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'Forward'}{'structure'}{'directions'}{'Back'} = $result_sectioning{'chapter_before_part'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'};
+$result_sectioning{'chapter_before_part'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'Forward'}{'structure'}{'directions'}{'This'} = $result_sectioning{'chapter_before_part'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'Forward'};
+$result_sectioning{'chapter_before_part'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'Forward'}{'structure'}{'unit_prev'} = $result_sectioning{'chapter_before_part'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'};
+$result_sectioning{'chapter_before_part'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'This'} = $result_sectioning{'chapter_before_part'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'};
+$result_sectioning{'chapter_before_part'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'unit_next'} = $result_sectioning{'chapter_before_part'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'Forward'};
 $result_sectioning{'chapter_before_part'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'chapter_before_part'};
-$result_sectioning{'chapter_before_part'}{'structure'}{'section_childs'}[1]{'structure'}{'section_up'} = $result_sectioning{'chapter_before_part'};
+$result_sectioning{'chapter_before_part'}{'structure'}{'section_childs'}[1] = $result_sectioning{'chapter_before_part'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'structure'}{'directions'}{'Forward'}{'extra'}{'section'};
 
 $result_errors{'chapter_before_part'} = [
   {
@@ -189,6 +224,7 @@ $result_elements{'chapter_before_part'} = [
           'spaces_before_argument' => ' '
         },
         'structure' => {
+          'associated_unit' => {},
           'level' => 1,
           'number' => 1
         }
@@ -205,6 +241,7 @@ $result_elements{'chapter_before_part'} = [
                 'spaces_before_argument' => ' '
               },
               'structure' => {
+                'associated_unit' => {},
                 'level' => 0
               }
             },
@@ -225,7 +262,9 @@ $result_elements{'chapter_before_part'} = [
   },
   {}
 ];
+$result_elements{'chapter_before_part'}[0]{'extra'}{'section'}{'structure'}{'associated_unit'} = $result_elements{'chapter_before_part'}[0];
 $result_elements{'chapter_before_part'}[0]{'extra'}{'unit_command'} = $result_elements{'chapter_before_part'}[0]{'extra'}{'section'};
+$result_elements{'chapter_before_part'}[0]{'structure'}{'directions'}{'Forward'}{'extra'}{'section'}{'structure'}{'associated_unit'} = $result_elements{'chapter_before_part'}[0]{'structure'}{'directions'}{'Forward'};
 $result_elements{'chapter_before_part'}[0]{'structure'}{'directions'}{'Forward'}{'extra'}{'unit_command'} = $result_elements{'chapter_before_part'}[0]{'structure'}{'directions'}{'Forward'}{'extra'}{'section'};
 $result_elements{'chapter_before_part'}[0]{'structure'}{'directions'}{'Forward'}{'structure'}{'directions'}{'Back'} = $result_elements{'chapter_before_part'}[0];
 $result_elements{'chapter_before_part'}[0]{'structure'}{'directions'}{'Forward'}{'structure'}{'directions'}{'This'} = $result_elements{'chapter_before_part'}[0]{'structure'}{'directions'}{'Forward'};

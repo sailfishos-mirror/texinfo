@@ -102,8 +102,7 @@ $result_trees{'known_encoding'} = {
         'line_nr' => 4,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     }
   ],
   'type' => 'document_root'
@@ -139,8 +138,7 @@ $result_nodes{'known_encoding'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_menus{'known_encoding'} = {
@@ -148,8 +146,7 @@ $result_menus{'known_encoding'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'known_encoding'} = [

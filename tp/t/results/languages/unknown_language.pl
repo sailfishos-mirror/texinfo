@@ -87,8 +87,7 @@ $result_trees{'unknown_language'} = {
         'line_nr' => 3,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -257,10 +256,7 @@ $result_trees{'unknown_language'} = {
         'line_nr' => 4,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 0
-      }
+      'parent' => {}
     }
   ],
   'type' => 'document_root'
@@ -336,8 +332,7 @@ $result_sectioning{'unknown_language'} = {
             'extra' => {
               'normalized' => 'Top',
               'spaces_before_argument' => ' '
-            },
-            'structure' => {}
+            }
           },
           'spaces_before_argument' => ' '
         },
@@ -365,8 +360,7 @@ $result_nodes{'unknown_language'} = {
     },
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_menus{'unknown_language'} = {
@@ -374,8 +368,7 @@ $result_menus{'unknown_language'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'unknown_language'} = [

@@ -87,8 +87,7 @@ $result_trees{'loop_nodes'} = {
         'line_nr' => 3,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -240,10 +239,7 @@ $result_trees{'loop_nodes'} = {
         'line_nr' => 4,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 0
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -435,8 +431,7 @@ $result_trees{'loop_nodes'} = {
         'line_nr' => 10,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -628,8 +623,7 @@ $result_trees{'loop_nodes'} = {
         'line_nr' => 16,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -670,8 +664,7 @@ $result_trees{'loop_nodes'} = {
         'line_nr' => 22,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     }
   ],
   'type' => 'document_root'

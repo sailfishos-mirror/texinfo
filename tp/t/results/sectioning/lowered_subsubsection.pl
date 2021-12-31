@@ -51,8 +51,7 @@ $result_trees{'lowered_subsubsection'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -197,10 +196,7 @@ $result_trees{'lowered_subsubsection'} = {
         'line_nr' => 2,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 0
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -241,8 +237,7 @@ $result_trees{'lowered_subsubsection'} = {
         'line_nr' => 8,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -394,11 +389,7 @@ $result_trees{'lowered_subsubsection'} = {
         'line_nr' => 9,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 1
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -439,8 +430,7 @@ $result_trees{'lowered_subsubsection'} = {
         'line_nr' => 15,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -592,11 +582,7 @@ $result_trees{'lowered_subsubsection'} = {
         'line_nr' => 16,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 2,
-        'number' => '1.1'
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -637,8 +623,7 @@ $result_trees{'lowered_subsubsection'} = {
         'line_nr' => 22,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -847,11 +832,7 @@ $result_trees{'lowered_subsubsection'} = {
         'line_nr' => 23,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 3,
-        'number' => '1.1.1'
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -892,8 +873,7 @@ $result_trees{'lowered_subsubsection'} = {
         'line_nr' => 30,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -941,11 +921,7 @@ $result_trees{'lowered_subsubsection'} = {
         'line_nr' => 31,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 4,
-        'number' => '1.1.1.1'
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -986,8 +962,7 @@ $result_trees{'lowered_subsubsection'} = {
         'line_nr' => 34,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -1140,11 +1115,7 @@ $result_trees{'lowered_subsubsection'} = {
         'line_nr' => 35,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 4,
-        'number' => '1.1.1.2'
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -1185,8 +1156,7 @@ $result_trees{'lowered_subsubsection'} = {
         'line_nr' => 41,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -1252,11 +1222,7 @@ $result_trees{'lowered_subsubsection'} = {
         'line_nr' => 42,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 4,
-        'number' => '1.1.1.3'
-      }
+      'parent' => {}
     },
     {
       'args' => [

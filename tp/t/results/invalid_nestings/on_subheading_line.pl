@@ -162,8 +162,7 @@ $result_trees{'on_subheading_line'} = {
             'line_nr' => 1,
             'macro' => ''
           },
-          'parent' => {},
-          'structure' => {}
+          'parent' => {}
         }
       ],
       'parent' => {},

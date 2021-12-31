@@ -181,8 +181,7 @@ $result_trees{'index_entry_in_footnote'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     }
   ],
   'type' => 'document_root'
@@ -234,8 +233,7 @@ $result_nodes{'index_entry_in_footnote'} = {
     'isindex' => 1,
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_menus{'index_entry_in_footnote'} = {
@@ -244,8 +242,7 @@ $result_menus{'index_entry_in_footnote'} = {
     'isindex' => 1,
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'index_entry_in_footnote'} = [];

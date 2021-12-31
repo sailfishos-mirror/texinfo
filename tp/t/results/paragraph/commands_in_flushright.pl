@@ -861,10 +861,7 @@ $result_trees{'commands_in_flushright'} = {
                 'line_nr' => 35,
                 'macro' => ''
               },
-              'parent' => {},
-              'structure' => {
-                'float_number' => 1
-              }
+              'parent' => {}
             },
             {
               'parent' => {},

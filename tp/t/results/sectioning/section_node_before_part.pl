@@ -58,8 +58,7 @@ $result_trees{'section_node_before_part'} = {
         'line_nr' => 2,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -95,11 +94,7 @@ $result_trees{'section_node_before_part'} = {
         'line_nr' => 3,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 2,
-        'number' => 1
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -128,10 +123,7 @@ $result_trees{'section_node_before_part'} = {
         'line_nr' => 5,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 0
-      }
+      'parent' => {}
     }
   ],
   'type' => 'document_root'
@@ -179,8 +171,7 @@ $result_sectioning{'section_node_before_part'} = {
             'extra' => {
               'normalized' => 'Top',
               'spaces_before_argument' => ' '
-            },
-            'structure' => {}
+            }
           },
           'spaces_before_argument' => ' '
         },
@@ -221,8 +212,7 @@ $result_nodes{'section_node_before_part'} = {
     },
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_menus{'section_node_before_part'} = {
@@ -230,8 +220,7 @@ $result_menus{'section_node_before_part'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'section_node_before_part'} = [

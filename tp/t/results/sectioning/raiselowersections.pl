@@ -86,8 +86,7 @@ $result_trees{'raiselowersections'} = {
         'line_nr' => 3,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -283,10 +282,7 @@ $result_trees{'raiselowersections'} = {
         'line_nr' => 4,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 0
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -327,8 +323,7 @@ $result_trees{'raiselowersections'} = {
         'line_nr' => 10,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -568,11 +563,7 @@ $result_trees{'raiselowersections'} = {
         'line_nr' => 11,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 1
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -613,8 +604,7 @@ $result_trees{'raiselowersections'} = {
         'line_nr' => 12,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -767,11 +757,7 @@ $result_trees{'raiselowersections'} = {
         'line_nr' => 13,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 2,
-        'number' => '1.1'
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -812,8 +798,7 @@ $result_trees{'raiselowersections'} = {
         'line_nr' => 19,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -966,11 +951,7 @@ $result_trees{'raiselowersections'} = {
         'line_nr' => 20,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 3,
-        'number' => '1.1.1'
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -1011,8 +992,7 @@ $result_trees{'raiselowersections'} = {
         'line_nr' => 26,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -1097,11 +1077,7 @@ $result_trees{'raiselowersections'} = {
         'line_nr' => 27,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 4,
-        'number' => '1.1.1.1'
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -1142,8 +1118,7 @@ $result_trees{'raiselowersections'} = {
         'line_nr' => 30,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -1213,11 +1188,7 @@ $result_trees{'raiselowersections'} = {
         'line_nr' => 31,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 2
-      }
+      'parent' => {}
     },
     {
       'args' => [

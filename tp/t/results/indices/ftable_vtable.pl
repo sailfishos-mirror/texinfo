@@ -676,8 +676,7 @@ $result_trees{'ftable_vtable'} = {
         'line_nr' => 2,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     }
   ],
   'type' => 'document_root'
@@ -832,8 +831,7 @@ $result_nodes{'ftable_vtable'} = {
     'isindex' => 1,
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_menus{'ftable_vtable'} = {
@@ -842,8 +840,7 @@ $result_menus{'ftable_vtable'} = {
     'isindex' => 1,
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'ftable_vtable'} = [];

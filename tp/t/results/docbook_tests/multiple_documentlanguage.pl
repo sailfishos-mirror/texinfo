@@ -87,8 +87,7 @@ $result_trees{'multiple_documentlanguage'} = {
         'line_nr' => 3,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -124,10 +123,7 @@ $result_trees{'multiple_documentlanguage'} = {
         'line_nr' => 4,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 0
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -168,8 +164,7 @@ $result_trees{'multiple_documentlanguage'} = {
         'line_nr' => 6,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -234,11 +229,7 @@ $result_trees{'multiple_documentlanguage'} = {
         'line_nr' => 7,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 1
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -279,8 +270,7 @@ $result_trees{'multiple_documentlanguage'} = {
         'line_nr' => 10,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -345,11 +335,7 @@ $result_trees{'multiple_documentlanguage'} = {
         'line_nr' => 11,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 2
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -390,8 +376,7 @@ $result_trees{'multiple_documentlanguage'} = {
         'line_nr' => 14,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -456,11 +441,7 @@ $result_trees{'multiple_documentlanguage'} = {
         'line_nr' => 15,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 2,
-        'number' => '2.1'
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -501,8 +482,7 @@ $result_trees{'multiple_documentlanguage'} = {
         'line_nr' => 18,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -538,11 +518,7 @@ $result_trees{'multiple_documentlanguage'} = {
         'line_nr' => 19,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 2,
-        'number' => '2.2'
-      }
+      'parent' => {}
     }
   ],
   'type' => 'document_root'

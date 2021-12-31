@@ -400,8 +400,7 @@ $result_trees{'invalid_node_name_no_warning'} = {
         'line_nr' => 2,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -467,8 +466,7 @@ $result_trees{'invalid_node_name_no_warning'} = {
         'line_nr' => 10,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -541,8 +539,7 @@ $result_trees{'invalid_node_name_no_warning'} = {
         'line_nr' => 12,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -824,8 +821,7 @@ $result_trees{'invalid_node_name_no_warning'} = {
         'line_nr' => 14,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     }
   ],
   'type' => 'document_root'

@@ -305,8 +305,7 @@ $result_trees{'cond_info'} = {
         'line_nr' => 4,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -418,8 +417,7 @@ $result_nodes{'cond_info'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_menus{'cond_info'} = {
@@ -427,8 +425,7 @@ $result_menus{'cond_info'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'cond_info'} = [];

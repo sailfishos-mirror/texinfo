@@ -693,8 +693,7 @@ $result_trees{'cpp_lines'} = {
         'line_nr' => 70,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [

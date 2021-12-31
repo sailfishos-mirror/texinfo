@@ -322,8 +322,7 @@ $result_trees{'note_in_strong'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     }
   ],
   'type' => 'document_root'
@@ -418,8 +417,7 @@ $result_nodes{'note_in_strong'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_menus{'note_in_strong'} = {
@@ -427,8 +425,7 @@ $result_menus{'note_in_strong'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'note_in_strong'} = [];

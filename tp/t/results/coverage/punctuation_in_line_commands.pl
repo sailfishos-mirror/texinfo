@@ -59,8 +59,7 @@ $result_trees{'punctuation_in_line_commands'} = {
         'line_nr' => 2,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -437,10 +436,7 @@ $result_trees{'punctuation_in_line_commands'} = {
             'line_nr' => 14,
             'macro' => ''
           },
-          'parent' => {},
-          'structure' => {
-            'float_number' => 1
-          }
+          'parent' => {}
         },
         {
           'parent' => {},
@@ -577,10 +573,7 @@ $result_trees{'punctuation_in_line_commands'} = {
             'line_nr' => 19,
             'macro' => ''
           },
-          'parent' => {},
-          'structure' => {
-            'float_number' => 2
-          }
+          'parent' => {}
         },
         {
           'parent' => {},
@@ -701,8 +694,7 @@ $result_trees{'punctuation_in_line_commands'} = {
             'line_nr' => 28,
             'macro' => ''
           },
-          'parent' => {},
-          'structure' => {}
+          'parent' => {}
         },
         {
           'parent' => {},
@@ -846,10 +838,7 @@ $result_trees{'punctuation_in_line_commands'} = {
         'line_nr' => 3,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 0
-      }
+      'parent' => {}
     }
   ],
   'type' => 'document_root'
@@ -1054,8 +1043,7 @@ $result_sectioning{'punctuation_in_line_commands'} = {
               'isindex' => 1,
               'normalized' => 'node_0021-After-punc',
               'spaces_before_argument' => ' '
-            },
-            'structure' => {}
+            }
           },
           'spaces_before_argument' => ' '
         },
@@ -1084,8 +1072,7 @@ $result_nodes{'punctuation_in_line_commands'} = {
     'isindex' => 1,
     'normalized' => 'node_0021-After-punc',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_menus{'punctuation_in_line_commands'} = {
@@ -1094,8 +1081,7 @@ $result_menus{'punctuation_in_line_commands'} = {
     'isindex' => 1,
     'normalized' => 'node_0021-After-punc',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'punctuation_in_line_commands'} = [];

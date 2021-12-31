@@ -111,8 +111,7 @@ $result_trees{'nodes_before_after_top'} = {
         'line_nr' => 3,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -153,8 +152,7 @@ $result_trees{'nodes_before_after_top'} = {
         'line_nr' => 7,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -207,10 +205,7 @@ $result_trees{'nodes_before_after_top'} = {
         'line_nr' => 8,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 0
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -275,8 +270,7 @@ $result_trees{'nodes_before_after_top'} = {
         'line_nr' => 12,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -317,8 +311,7 @@ $result_trees{'nodes_before_after_top'} = {
         'line_nr' => 16,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -365,11 +358,7 @@ $result_trees{'nodes_before_after_top'} = {
         'line_nr' => 17,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 1
-      }
+      'parent' => {}
     }
   ],
   'type' => 'document_root'

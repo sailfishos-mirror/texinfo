@@ -103,11 +103,7 @@ $result_trees{'section_on_def_line'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 2,
-        'number' => 1
-      }
+      'parent' => {}
     }
   ],
   'type' => 'document_root'

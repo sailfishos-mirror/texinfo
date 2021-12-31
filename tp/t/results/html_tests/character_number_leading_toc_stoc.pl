@@ -39,10 +39,7 @@ $result_trees{'character_number_leading_toc_stoc'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 0
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -71,11 +68,7 @@ $result_trees{'character_number_leading_toc_stoc'} = {
         'line_nr' => 2,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 1
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -104,10 +97,7 @@ $result_trees{'character_number_leading_toc_stoc'} = {
         'line_nr' => 3,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -189,10 +179,7 @@ $result_trees{'character_number_leading_toc_stoc'} = {
         'line_nr' => 4,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 2
-      }
+      'parent' => {}
     }
   ],
   'type' => 'document_root'

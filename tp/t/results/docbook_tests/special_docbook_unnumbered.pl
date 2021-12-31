@@ -51,8 +51,7 @@ $result_trees{'special_docbook_unnumbered'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -392,10 +391,7 @@ $result_trees{'special_docbook_unnumbered'} = {
         'line_nr' => 2,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 0
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -436,8 +432,7 @@ $result_trees{'special_docbook_unnumbered'} = {
         'line_nr' => 13,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -490,10 +485,7 @@ $result_trees{'special_docbook_unnumbered'} = {
         'line_nr' => 14,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -534,8 +526,7 @@ $result_trees{'special_docbook_unnumbered'} = {
         'line_nr' => 18,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -588,10 +579,7 @@ $result_trees{'special_docbook_unnumbered'} = {
         'line_nr' => 19,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -632,8 +620,7 @@ $result_trees{'special_docbook_unnumbered'} = {
         'line_nr' => 23,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -686,10 +673,7 @@ $result_trees{'special_docbook_unnumbered'} = {
         'line_nr' => 24,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -730,8 +714,7 @@ $result_trees{'special_docbook_unnumbered'} = {
         'line_nr' => 28,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -778,11 +761,7 @@ $result_trees{'special_docbook_unnumbered'} = {
         'line_nr' => 29,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 1
-      }
+      'parent' => {}
     }
   ],
   'type' => 'document_root'

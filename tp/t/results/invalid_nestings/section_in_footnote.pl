@@ -84,11 +84,7 @@ $result_trees{'section_in_footnote'} = {
         'line_nr' => 4,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 2,
-        'number' => 1
-      }
+      'parent' => {}
     }
   ],
   'type' => 'document_root'

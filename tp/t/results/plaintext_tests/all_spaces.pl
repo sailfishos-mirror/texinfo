@@ -558,8 +558,7 @@ $result_trees{'all_spaces'} = {
         'line_nr' => 3,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     }
   ],
   'type' => 'document_root'
@@ -780,8 +779,7 @@ $result_nodes{'all_spaces'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_menus{'all_spaces'} = {
@@ -789,8 +787,7 @@ $result_menus{'all_spaces'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'all_spaces'} = [];

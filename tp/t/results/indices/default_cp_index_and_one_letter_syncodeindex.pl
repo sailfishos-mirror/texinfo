@@ -216,8 +216,7 @@ $result_trees{'default_cp_index_and_one_letter_syncodeindex'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     }
   ],
   'type' => 'document_root'
@@ -274,8 +273,7 @@ $result_nodes{'default_cp_index_and_one_letter_syncodeindex'} = {
     'isindex' => 1,
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_menus{'default_cp_index_and_one_letter_syncodeindex'} = {
@@ -284,8 +282,7 @@ $result_menus{'default_cp_index_and_one_letter_syncodeindex'} = {
     'isindex' => 1,
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'default_cp_index_and_one_letter_syncodeindex'} = [];

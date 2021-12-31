@@ -346,8 +346,7 @@ $result_trees{'index_entry_in_footnote_different_node_end'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -427,8 +426,7 @@ $result_trees{'index_entry_in_footnote_different_node_end'} = {
         'line_nr' => 17,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     }
   ],
   'type' => 'document_root'

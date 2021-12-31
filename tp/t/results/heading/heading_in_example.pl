@@ -77,8 +77,7 @@ $result_trees{'heading_in_example'} = {
                 'line_nr' => 2,
                 'macro' => ''
               },
-              'parent' => {},
-              'structure' => {}
+              'parent' => {}
             },
             {
               'args' => [

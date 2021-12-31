@@ -204,8 +204,7 @@ $result_trees{'caption_in_example'} = {
             'line_nr' => 1,
             'macro' => ''
           },
-          'parent' => {},
-          'structure' => {}
+          'parent' => {}
         }
       ],
       'parent' => {},

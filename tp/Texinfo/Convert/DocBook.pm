@@ -1429,10 +1429,9 @@ sub _convert($$;$)
            or ($element->{'cmdname'}
                and $Texinfo::Common::root_commands{$element->{'cmdname'}}
                and $element->{'cmdname'} ne 'node'
-               and !($element->{'parent'} and $element->{'parent'}->{'type'}
-                     and $element->{'parent'}->{'type'} eq 'unit'
-                     and $element->{'parent'}->{'extra'} 
-                     and $element->{'parent'}->{'extra'}->{'unit_command'} eq $element))) {
+               and !($element->{'structure'}->{'associated_unit'}
+                     and $element->{'structure'}->{'associated_unit'}->{'extra'}
+                     and $element->{'structure'}->{'associated_unit'}->{'extra'}->{'unit_command'} eq $element))) {
     if ($element->{'type'} and $element->{'type'} eq 'unit') {
       $element = $element->{'extra'}->{'unit_command'};
     }

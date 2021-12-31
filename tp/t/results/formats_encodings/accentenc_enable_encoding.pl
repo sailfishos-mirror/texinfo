@@ -89,8 +89,7 @@ $result_trees{'accentenc_enable_encoding'} = {
         'line_nr' => 3,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -2602,10 +2601,7 @@ $result_trees{'accentenc_enable_encoding'} = {
         'line_nr' => 4,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 0
-      }
+      'parent' => {}
     }
   ],
   'type' => 'document_root'
@@ -3179,8 +3175,7 @@ $result_sectioning{'accentenc_enable_encoding'} = {
             'extra' => {
               'normalized' => 'Top-node',
               'spaces_before_argument' => ' '
-            },
-            'structure' => {}
+            }
           },
           'spaces_before_argument' => ' '
         },
@@ -3208,8 +3203,7 @@ $result_nodes{'accentenc_enable_encoding'} = {
     },
     'normalized' => 'Top-node',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_menus{'accentenc_enable_encoding'} = {
@@ -3217,8 +3211,7 @@ $result_menus{'accentenc_enable_encoding'} = {
   'extra' => {
     'normalized' => 'Top-node',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'accentenc_enable_encoding'} = [];

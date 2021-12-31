@@ -100,10 +100,7 @@ $result_trees{'ref_to_float'} = {
             'line_nr' => 1,
             'macro' => ''
           },
-          'parent' => {},
-          'structure' => {
-            'float_number' => 1
-          }
+          'parent' => {}
         },
         {
           'parent' => {},
@@ -194,10 +191,7 @@ $result_trees{'ref_to_float'} = {
             'line_nr' => 5,
             'macro' => ''
           },
-          'parent' => {},
-          'structure' => {
-            'float_number' => 1
-          }
+          'parent' => {}
         },
         {
           'parent' => {},

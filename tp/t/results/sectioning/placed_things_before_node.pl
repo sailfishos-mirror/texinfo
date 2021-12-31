@@ -377,10 +377,7 @@ $result_trees{'placed_things_before_node'} = {
             'line_nr' => 17,
             'macro' => ''
           },
-          'parent' => {},
-          'structure' => {
-            'float_number' => 1
-          }
+          'parent' => {}
         },
         {
           'parent' => {},
@@ -646,8 +643,7 @@ $result_trees{'placed_things_before_node'} = {
         'line_nr' => 30,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -783,10 +779,7 @@ $result_trees{'placed_things_before_node'} = {
         'line_nr' => 31,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 0
-      }
+      'parent' => {}
     }
   ],
   'type' => 'document_root'
@@ -991,8 +984,7 @@ $result_sectioning{'placed_things_before_node'} = {
             'extra' => {
               'normalized' => 'Top',
               'spaces_before_argument' => ' '
-            },
-            'structure' => {}
+            }
           },
           'spaces_before_argument' => ' '
         },
@@ -1020,8 +1012,7 @@ $result_nodes{'placed_things_before_node'} = {
     },
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_menus{'placed_things_before_node'} = {
@@ -1029,8 +1020,7 @@ $result_menus{'placed_things_before_node'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'placed_things_before_node'} = [

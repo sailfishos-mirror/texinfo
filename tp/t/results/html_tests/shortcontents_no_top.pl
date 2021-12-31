@@ -46,11 +46,7 @@ $result_trees{'shortcontents_no_top'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 1
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -86,11 +82,7 @@ $result_trees{'shortcontents_no_top'} = {
         'line_nr' => 3,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 2
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -143,11 +135,7 @@ $result_trees{'shortcontents_no_top'} = {
         'line_nr' => 5,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 2,
-        'number' => '2.1'
-      }
+      'parent' => {}
     }
   ],
   'type' => 'document_root'

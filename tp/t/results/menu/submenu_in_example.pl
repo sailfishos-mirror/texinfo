@@ -429,8 +429,7 @@ $result_trees{'submenu_in_example'} = {
                         'line_nr' => 23,
                         'macro' => ''
                       },
-                      'parent' => {},
-                      'structure' => {}
+                      'parent' => {}
                     },
                     {
                       'contents' => [
@@ -643,8 +642,7 @@ $result_trees{'submenu_in_example'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     }
   ],
   'type' => 'document_root'
@@ -795,8 +793,7 @@ $result_nodes{'submenu_in_example'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_menus{'submenu_in_example'} = {
@@ -804,8 +801,7 @@ $result_menus{'submenu_in_example'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'submenu_in_example'} = [

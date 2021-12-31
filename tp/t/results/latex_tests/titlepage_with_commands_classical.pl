@@ -618,8 +618,7 @@ $result_trees{'titlepage_with_commands_classical'} = {
         'line_nr' => 27,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -655,10 +654,7 @@ $result_trees{'titlepage_with_commands_classical'} = {
         'line_nr' => 28,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 0
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -699,8 +695,7 @@ $result_trees{'titlepage_with_commands_classical'} = {
         'line_nr' => 30,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -753,11 +748,7 @@ $result_trees{'titlepage_with_commands_classical'} = {
         'line_nr' => 31,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 1
-      }
+      'parent' => {}
     }
   ],
   'type' => 'document_root'

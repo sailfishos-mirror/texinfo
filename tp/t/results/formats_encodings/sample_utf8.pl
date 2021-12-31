@@ -478,8 +478,7 @@ $result_trees{'sample_utf8'} = {
         'line_nr' => 27,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -779,10 +778,7 @@ $result_trees{'sample_utf8'} = {
         'line_nr' => 28,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 0
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -823,8 +819,7 @@ $result_trees{'sample_utf8'} = {
         'line_nr' => 41,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -1192,11 +1187,7 @@ $result_trees{'sample_utf8'} = {
         'line_nr' => 42,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 1
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -1237,8 +1228,7 @@ $result_trees{'sample_utf8'} = {
         'line_nr' => 61,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -1291,11 +1281,7 @@ $result_trees{'sample_utf8'} = {
         'line_nr' => 62,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 2
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -1337,8 +1323,7 @@ $result_trees{'sample_utf8'} = {
         'line_nr' => 66,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -1411,10 +1396,7 @@ $result_trees{'sample_utf8'} = {
         'line_nr' => 67,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1
-      }
+      'parent' => {}
     },
     {
       'args' => [

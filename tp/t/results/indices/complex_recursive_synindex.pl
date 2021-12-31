@@ -908,8 +908,7 @@ $result_trees{'complex_recursive_synindex'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     }
   ],
   'type' => 'document_root'

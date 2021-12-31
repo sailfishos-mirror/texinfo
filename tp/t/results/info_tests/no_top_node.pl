@@ -51,8 +51,7 @@ $result_trees{'no_top_node'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     }
   ],
   'type' => 'document_root'
@@ -75,8 +74,7 @@ $result_nodes{'no_top_node'} = {
   'extra' => {
     'normalized' => 'node-Top-not-Top-node',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_menus{'no_top_node'} = {
@@ -84,8 +82,7 @@ $result_menus{'no_top_node'} = {
   'extra' => {
     'normalized' => 'node-Top-not-Top-node',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'no_top_node'} = [];

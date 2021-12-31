@@ -211,8 +211,7 @@ $result_trees{'anchor_in_command'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     }
   ],
   'type' => 'document_root'
@@ -265,8 +264,7 @@ $result_nodes{'anchor_in_command'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_menus{'anchor_in_command'} = {
@@ -274,8 +272,7 @@ $result_menus{'anchor_in_command'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'anchor_in_command'} = [];

@@ -397,10 +397,7 @@ $result_trees{'things_before_setfilename'} = {
                 'line_nr' => 19,
                 'macro' => ''
               },
-              'parent' => {},
-              'structure' => {
-                'float_number' => 1
-              }
+              'parent' => {}
             },
             {
               'parent' => {},
@@ -595,10 +592,7 @@ $result_trees{'things_before_setfilename'} = {
                 'line_nr' => 26,
                 'macro' => ''
               },
-              'parent' => {},
-              'structure' => {
-                'float_number' => 1
-              }
+              'parent' => {}
             },
             {
               'parent' => {},
@@ -950,8 +944,7 @@ $result_trees{'things_before_setfilename'} = {
         'line_nr' => 46,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -1093,10 +1086,7 @@ $result_trees{'things_before_setfilename'} = {
         'line_nr' => 47,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 0
-      }
+      'parent' => {}
     }
   ],
   'type' => 'document_root'
@@ -1371,8 +1361,7 @@ $result_sectioning{'things_before_setfilename'} = {
             'extra' => {
               'normalized' => 'Top',
               'spaces_before_argument' => ' '
-            },
-            'structure' => {}
+            }
           },
           'spaces_before_argument' => ' '
         },
@@ -1400,8 +1389,7 @@ $result_nodes{'things_before_setfilename'} = {
     },
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_menus{'things_before_setfilename'} = {
@@ -1409,8 +1397,7 @@ $result_menus{'things_before_setfilename'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'things_before_setfilename'} = [

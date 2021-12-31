@@ -166,10 +166,7 @@ $result_trees{'float_in_style_command'} = {
             'line_nr' => 2,
             'macro' => ''
           },
-          'parent' => {},
-          'structure' => {
-            'float_number' => 1
-          }
+          'parent' => {}
         }
       ],
       'parent' => {},

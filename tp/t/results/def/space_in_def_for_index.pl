@@ -393,8 +393,7 @@ $result_trees{'space_in_def_for_index'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     }
   ],
   'type' => 'document_root'
@@ -473,8 +472,7 @@ $result_nodes{'space_in_def_for_index'} = {
     'isindex' => 1,
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_menus{'space_in_def_for_index'} = {
@@ -483,8 +481,7 @@ $result_menus{'space_in_def_for_index'} = {
     'isindex' => 1,
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'space_in_def_for_index'} = [];

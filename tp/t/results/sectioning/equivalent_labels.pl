@@ -81,8 +81,7 @@ $result_trees{'equivalent_labels'} = {
             'line_nr' => 3,
             'macro' => ''
           },
-          'parent' => {},
-          'structure' => {}
+          'parent' => {}
         },
         {
           'contents' => [
@@ -192,10 +191,7 @@ $result_trees{'equivalent_labels'} = {
             'line_nr' => 5,
             'macro' => ''
           },
-          'parent' => {},
-          'structure' => {
-            'float_number' => 1
-          }
+          'parent' => {}
         },
         {
           'parent' => {},
@@ -409,8 +405,7 @@ $result_trees{'equivalent_labels'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     }
   ],
   'type' => 'document_root'

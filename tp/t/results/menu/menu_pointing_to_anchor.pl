@@ -51,8 +51,7 @@ $result_trees{'menu_pointing_to_anchor'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -122,8 +121,7 @@ $result_trees{'menu_pointing_to_anchor'} = {
             'line_nr' => 6,
             'macro' => ''
           },
-          'parent' => {},
-          'structure' => {}
+          'parent' => {}
         },
         {
           'parent' => {},
@@ -256,10 +254,7 @@ $result_trees{'menu_pointing_to_anchor'} = {
         'line_nr' => 2,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 0
-      }
+      'parent' => {}
     }
   ],
   'type' => 'document_root'

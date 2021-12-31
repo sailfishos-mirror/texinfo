@@ -99,8 +99,7 @@ $result_trees{'style_not_closed_before_first_node'} = {
         'line_nr' => 3,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     }
   ],
   'type' => 'document_root'

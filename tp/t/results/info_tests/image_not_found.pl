@@ -82,8 +82,7 @@ $result_trees{'image_not_found'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     }
   ],
   'type' => 'document_root'
@@ -112,8 +111,7 @@ $result_nodes{'image_not_found'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_menus{'image_not_found'} = {
@@ -121,8 +119,7 @@ $result_menus{'image_not_found'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'image_not_found'} = [];

@@ -134,8 +134,7 @@ $result_trees{'image_inline_or_not'} = {
         'line_nr' => 5,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -1113,10 +1112,7 @@ $result_trees{'image_inline_or_not'} = {
         'line_nr' => 6,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 0
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -1178,8 +1174,7 @@ $result_trees{'image_inline_or_not'} = {
         'line_nr' => 41,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -1605,10 +1600,7 @@ $result_trees{'image_inline_or_not'} = {
             'line_nr' => 55,
             'macro' => ''
           },
-          'parent' => {},
-          'structure' => {
-            'float_number' => '1.1'
-          }
+          'parent' => {}
         }
       ],
       'extra' => {
@@ -1619,11 +1611,7 @@ $result_trees{'image_inline_or_not'} = {
         'line_nr' => 42,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 1
-      }
+      'parent' => {}
     }
   ],
   'type' => 'document_root'

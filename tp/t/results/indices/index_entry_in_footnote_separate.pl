@@ -378,8 +378,7 @@ $result_trees{'index_entry_in_footnote_separate'} = {
         'line_nr' => 2,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -459,8 +458,7 @@ $result_trees{'index_entry_in_footnote_separate'} = {
         'line_nr' => 18,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     }
   ],
   'type' => 'document_root'

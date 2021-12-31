@@ -87,8 +87,7 @@ $result_trees{'appendix_translated'} = {
         'line_nr' => 3,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -124,10 +123,7 @@ $result_trees{'appendix_translated'} = {
         'line_nr' => 4,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 0
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -180,11 +176,7 @@ $result_trees{'appendix_translated'} = {
         'line_nr' => 6,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 'A'
-      }
+      'parent' => {}
     }
   ],
   'type' => 'document_root'
@@ -242,8 +234,7 @@ $result_sectioning{'appendix_translated'} = {
             'extra' => {
               'normalized' => 'Top',
               'spaces_before_argument' => ' '
-            },
-            'structure' => {}
+            }
           },
           'spaces_before_argument' => ' '
         },
@@ -289,8 +280,7 @@ $result_nodes{'appendix_translated'} = {
     },
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_menus{'appendix_translated'} = {
@@ -298,8 +288,7 @@ $result_menus{'appendix_translated'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'appendix_translated'} = [];

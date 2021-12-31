@@ -188,8 +188,7 @@ $result_trees{'novalidate_empty_refs'} = {
         'line_nr' => 4,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -387,8 +386,7 @@ $result_nodes{'novalidate_empty_refs'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_menus{'novalidate_empty_refs'} = {
@@ -396,8 +394,7 @@ $result_menus{'novalidate_empty_refs'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'novalidate_empty_refs'} = [

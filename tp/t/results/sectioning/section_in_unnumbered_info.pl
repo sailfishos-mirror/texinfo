@@ -58,8 +58,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'line_nr' => 2,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -479,10 +478,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'line_nr' => 3,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 0
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -523,8 +519,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'line_nr' => 17,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -676,11 +671,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'line_nr' => 18,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 1
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -721,8 +712,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'line_nr' => 24,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -758,11 +748,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'line_nr' => 25,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 2,
-        'number' => '1.1'
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -803,8 +789,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'line_nr' => 27,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -956,10 +941,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'line_nr' => 28,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -1000,8 +982,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'line_nr' => 34,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -1037,10 +1018,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'line_nr' => 35,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 2
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -1081,8 +1059,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'line_nr' => 37,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -1291,11 +1268,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'line_nr' => 38,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 2
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -1336,8 +1309,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'line_nr' => 45,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -1660,10 +1632,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'line_nr' => 46,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 2
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -1704,8 +1673,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'line_nr' => 55,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -1741,10 +1709,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'line_nr' => 56,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 3
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -1785,8 +1750,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'line_nr' => 58,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -1822,10 +1786,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'line_nr' => 59,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 3
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -1866,8 +1827,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'line_nr' => 61,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -1903,10 +1863,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'line_nr' => 62,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 3
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -1947,8 +1904,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'line_nr' => 64,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -1984,10 +1940,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'line_nr' => 65,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 3
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -2028,8 +1981,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'line_nr' => 67,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -2181,10 +2133,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'line_nr' => 68,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 2
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -2225,8 +2174,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'line_nr' => 74,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -2268,10 +2216,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'line_nr' => 75,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 3
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -2312,8 +2257,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'line_nr' => 78,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -2693,11 +2637,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'line_nr' => 79,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 3
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -2738,8 +2678,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'line_nr' => 89,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -3062,10 +3001,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'line_nr' => 90,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 2
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -3106,8 +3042,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'line_nr' => 99,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -3143,10 +3078,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'line_nr' => 100,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 3
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -3187,8 +3119,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'line_nr' => 102,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -3224,10 +3155,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'line_nr' => 103,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 3
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -3268,8 +3196,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'line_nr' => 105,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -3305,10 +3232,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'line_nr' => 106,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 3
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -3349,8 +3273,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'line_nr' => 108,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -3386,10 +3309,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'line_nr' => 109,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 3
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -3430,8 +3350,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'line_nr' => 111,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -3467,11 +3386,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'line_nr' => 112,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 2,
-        'number' => '3.1'
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -3512,8 +3427,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'line_nr' => 114,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -3665,10 +3579,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'line_nr' => 115,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 2
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -3709,8 +3620,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'line_nr' => 121,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -3746,10 +3656,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'line_nr' => 122,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 3
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -3790,8 +3697,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'line_nr' => 124,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -3943,11 +3849,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'line_nr' => 125,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 2,
-        'number' => '3.2'
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -3988,8 +3890,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'line_nr' => 131,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -4025,11 +3926,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'line_nr' => 132,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 3,
-        'number' => '3.2.1'
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -4070,8 +3967,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'line_nr' => 134,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -4223,10 +4119,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'line_nr' => 135,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 2
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -4267,8 +4160,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'line_nr' => 141,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -4304,10 +4196,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'line_nr' => 142,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 3
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -4348,8 +4237,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'line_nr' => 144,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -4501,10 +4389,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'line_nr' => 145,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -4545,8 +4430,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'line_nr' => 151,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -4869,10 +4753,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'line_nr' => 152,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 2
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -4913,8 +4794,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'line_nr' => 161,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -4950,10 +4830,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'line_nr' => 162,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 3
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -4994,8 +4871,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'line_nr' => 164,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -5031,10 +4907,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'line_nr' => 165,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 3
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -5075,8 +4948,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'line_nr' => 167,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -5112,10 +4984,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'line_nr' => 168,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 3
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -5156,8 +5025,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'line_nr' => 170,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -5186,10 +5054,7 @@ $result_trees{'section_in_unnumbered_info'} = {
         'line_nr' => 171,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 3
-      }
+      'parent' => {}
     }
   ],
   'type' => 'document_root'

@@ -303,8 +303,7 @@ $result_trees{'float_copying'} = {
                                                 'line_nr' => 35,
                                                 'macro' => ''
                                               },
-                                              'parent' => {},
-                                              'structure' => {}
+                                              'parent' => {}
                                             },
                                             'node_argument' => {
                                               'node_content' => [
@@ -561,10 +560,7 @@ $result_trees{'float_copying'} = {
                 'line_nr' => 3,
                 'macro' => ''
               },
-              'parent' => {},
-              'structure' => {
-                'float_number' => 1
-              }
+              'parent' => {}
             },
             {
               'args' => [
@@ -656,8 +652,7 @@ $result_trees{'float_copying'} = {
         'line_nr' => 26,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -832,10 +827,7 @@ $result_trees{'float_copying'} = {
         'line_nr' => 27,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 0
-      }
+      'parent' => {}
     },
     {},
     {
@@ -1014,11 +1006,7 @@ $result_trees{'float_copying'} = {
         'line_nr' => 36,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 'A'
-      }
+      'parent' => {}
     }
   ],
   'type' => 'document_root'
@@ -1381,7 +1369,8 @@ $result_floats{'float_copying'} = {
           'cmdname' => 'caption',
           'extra' => {
             'float' => {}
-          }
+          },
+          'structure' => {}
         },
         'end_command' => {
           'cmdname' => 'end',

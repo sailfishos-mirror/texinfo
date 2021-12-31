@@ -231,8 +231,7 @@ $result_trees{'ref_in_preformatted'} = {
                         'line_nr' => 12,
                         'macro' => ''
                       },
-                      'parent' => {},
-                      'structure' => {}
+                      'parent' => {}
                     },
                     'node_argument' => {
                       'node_content' => [
@@ -326,8 +325,7 @@ $result_trees{'ref_in_preformatted'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {}
   ],

@@ -142,8 +142,7 @@ $result_trees{'macro_in_misc_commands'} = {
         'line_nr' => 9,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -190,8 +189,7 @@ $result_trees{'macro_in_misc_commands'} = {
             'line_nr' => 11,
             'macro' => ''
           },
-          'parent' => {},
-          'structure' => {}
+          'parent' => {}
         },
         {
           'parent' => {},
@@ -3288,10 +3286,7 @@ $result_trees{'macro_in_misc_commands'} = {
         'line_nr' => 10,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 0
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -3332,8 +3327,7 @@ $result_trees{'macro_in_misc_commands'} = {
         'line_nr' => 203,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -3499,11 +3493,7 @@ $result_trees{'macro_in_misc_commands'} = {
         'line_nr' => 204,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 1
-      }
+      'parent' => {}
     },
     {
       'args' => [

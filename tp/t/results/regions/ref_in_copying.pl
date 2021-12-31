@@ -78,8 +78,7 @@ $result_trees{'ref_in_copying'} = {
                         'line_nr' => 14,
                         'macro' => ''
                       },
-                      'parent' => {},
-                      'structure' => {}
+                      'parent' => {}
                     },
                     'node_argument' => {
                       'node_content' => [
@@ -194,8 +193,7 @@ $result_trees{'ref_in_copying'} = {
         'line_nr' => 5,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -370,10 +368,7 @@ $result_trees{'ref_in_copying'} = {
         'line_nr' => 6,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 0
-      }
+      'parent' => {}
     },
     {},
     {
@@ -410,11 +405,7 @@ $result_trees{'ref_in_copying'} = {
         'line_nr' => 15,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 1
-      }
+      'parent' => {}
     }
   ],
   'type' => 'document_root'

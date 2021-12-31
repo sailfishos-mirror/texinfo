@@ -145,8 +145,7 @@ $result_trees{'anchor_zero'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     }
   ],
   'type' => 'document_root'
@@ -192,8 +191,7 @@ $result_nodes{'anchor_zero'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_menus{'anchor_zero'} = {
@@ -201,8 +199,7 @@ $result_menus{'anchor_zero'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'anchor_zero'} = [];

@@ -105,8 +105,7 @@ $result_trees{'htmlxref_only_split_nodes'} = {
         'line_nr' => 4,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -275,8 +274,7 @@ $result_trees{'htmlxref_only_split_nodes'} = {
             'line_nr' => 11,
             'macro' => ''
           },
-          'parent' => {},
-          'structure' => {}
+          'parent' => {}
         },
         {
           'parent' => {},
@@ -987,8 +985,7 @@ $result_trees{'htmlxref_only_split_nodes'} = {
             'line_nr' => 37,
             'macro' => ''
           },
-          'parent' => {},
-          'structure' => {}
+          'parent' => {}
         },
         {
           'parent' => {},
@@ -1194,8 +1191,7 @@ $result_trees{'htmlxref_only_split_nodes'} = {
             'line_nr' => 45,
             'macro' => ''
           },
-          'parent' => {},
-          'structure' => {}
+          'parent' => {}
         },
         {
           'parent' => {},
@@ -1416,8 +1412,7 @@ $result_trees{'htmlxref_only_split_nodes'} = {
                     'line_nr' => 85,
                     'macro' => ''
                   },
-                  'parent' => {},
-                  'structure' => {}
+                  'parent' => {}
                 },
                 'node_argument' => {
                   'node_content' => [
@@ -1719,8 +1714,7 @@ $result_trees{'htmlxref_only_split_nodes'} = {
                     'line_nr' => 90,
                     'macro' => ''
                   },
-                  'parent' => {},
-                  'structure' => {}
+                  'parent' => {}
                 },
                 'node_argument' => {
                   'node_content' => [
@@ -2163,8 +2157,7 @@ $result_trees{'htmlxref_only_split_nodes'} = {
                     'line_nr' => 95,
                     'macro' => ''
                   },
-                  'parent' => {},
-                  'structure' => {}
+                  'parent' => {}
                 },
                 'node_argument' => {
                   'node_content' => [
@@ -2268,10 +2261,7 @@ $result_trees{'htmlxref_only_split_nodes'} = {
         'line_nr' => 5,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 0
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -2367,8 +2357,7 @@ $result_trees{'htmlxref_only_split_nodes'} = {
         'line_nr' => 67,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -2849,11 +2838,7 @@ $result_trees{'htmlxref_only_split_nodes'} = {
         'line_nr' => 68,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 1
-      }
+      'parent' => {}
     },
     {},
     {},

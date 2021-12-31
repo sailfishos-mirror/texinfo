@@ -52,8 +52,7 @@ $result_trees{'w_lines_count'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -281,10 +280,7 @@ $result_trees{'w_lines_count'} = {
         'line_nr' => 2,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 0
-      }
+      'parent' => {}
     }
   ],
   'type' => 'document_root'
@@ -362,8 +358,7 @@ $result_sectioning{'w_lines_count'} = {
               'isindex' => 1,
               'normalized' => 'Top',
               'spaces_before_argument' => ' '
-            },
-            'structure' => {}
+            }
           }
         },
         'structure' => {
@@ -389,8 +384,7 @@ $result_nodes{'w_lines_count'} = {
     'isindex' => 1,
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_menus{'w_lines_count'} = {
@@ -399,8 +393,7 @@ $result_menus{'w_lines_count'} = {
     'isindex' => 1,
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'w_lines_count'} = [];

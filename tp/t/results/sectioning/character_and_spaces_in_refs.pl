@@ -51,8 +51,7 @@ $result_trees{'character_and_spaces_in_refs'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -221,8 +220,7 @@ $result_trees{'character_and_spaces_in_refs'} = {
             'line_nr' => 8,
             'macro' => ''
           },
-          'parent' => {},
-          'structure' => {}
+          'parent' => {}
         },
         {
           'parent' => {},
@@ -550,8 +548,7 @@ $result_trees{'character_and_spaces_in_refs'} = {
             'line_nr' => 16,
             'macro' => ''
           },
-          'parent' => {},
-          'structure' => {}
+          'parent' => {}
         },
         {
           'parent' => {},
@@ -678,8 +675,7 @@ $result_trees{'character_and_spaces_in_refs'} = {
                     'line_nr' => 32,
                     'macro' => ''
                   },
-                  'parent' => {},
-                  'structure' => {}
+                  'parent' => {}
                 },
                 'node_argument' => {
                   'node_content' => [
@@ -811,8 +807,7 @@ $result_trees{'character_and_spaces_in_refs'} = {
                     'line_nr' => 34,
                     'macro' => ''
                   },
-                  'parent' => {},
-                  'structure' => {}
+                  'parent' => {}
                 },
                 'node_argument' => {
                   'node_content' => [
@@ -975,8 +970,7 @@ $result_trees{'character_and_spaces_in_refs'} = {
                     'line_nr' => 36,
                     'macro' => ''
                   },
-                  'parent' => {},
-                  'structure' => {}
+                  'parent' => {}
                 },
                 'node_argument' => {
                   'node_content' => [
@@ -1016,10 +1010,7 @@ $result_trees{'character_and_spaces_in_refs'} = {
         'line_nr' => 2,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 0
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -1115,8 +1106,7 @@ $result_trees{'character_and_spaces_in_refs'} = {
         'line_nr' => 23,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -1382,11 +1372,7 @@ $result_trees{'character_and_spaces_in_refs'} = {
         'line_nr' => 24,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 1
-      }
+      'parent' => {}
     },
     {},
     {},

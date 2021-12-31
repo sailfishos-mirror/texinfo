@@ -618,8 +618,7 @@ $result_trees{'colon_in_index_entry'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     }
   ],
   'type' => 'document_root'
@@ -743,8 +742,7 @@ $result_nodes{'colon_in_index_entry'} = {
     'isindex' => 1,
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_menus{'colon_in_index_entry'} = {
@@ -753,8 +751,7 @@ $result_menus{'colon_in_index_entry'} = {
     'isindex' => 1,
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'colon_in_index_entry'} = [];

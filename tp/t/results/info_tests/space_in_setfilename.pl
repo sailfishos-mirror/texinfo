@@ -117,8 +117,7 @@ $result_trees{'space_in_setfilename'} = {
         'line_nr' => 3,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     }
   ],
   'type' => 'document_root'
@@ -152,8 +151,7 @@ $result_nodes{'space_in_setfilename'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_menus{'space_in_setfilename'} = {
@@ -161,8 +159,7 @@ $result_menus{'space_in_setfilename'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'space_in_setfilename'} = [

@@ -679,8 +679,7 @@ $result_trees{'ref_in_def'} = {
         'line_nr' => 2,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     }
   ],
   'type' => 'document_root'
@@ -811,8 +810,7 @@ $result_nodes{'ref_in_def'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_menus{'ref_in_def'} = {
@@ -820,8 +818,7 @@ $result_menus{'ref_in_def'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'ref_in_def'} = [];

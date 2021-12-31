@@ -75,8 +75,7 @@ $result_trees{'ref_in_sectioning'} = {
         'line_nr' => 3,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -141,8 +140,7 @@ $result_trees{'ref_in_sectioning'} = {
                     'line_nr' => 11,
                     'macro' => ''
                   },
-                  'parent' => {},
-                  'structure' => {}
+                  'parent' => {}
                 },
                 'node_argument' => {
                   'node_content' => [
@@ -465,10 +463,7 @@ $result_trees{'ref_in_sectioning'} = {
         'line_nr' => 4,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 0
-      }
+      'parent' => {}
     },
     {},
     {
@@ -575,11 +570,7 @@ $result_trees{'ref_in_sectioning'} = {
         'line_nr' => 12,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 1
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -620,8 +611,7 @@ $result_trees{'ref_in_sectioning'} = {
         'line_nr' => 14,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -688,11 +678,7 @@ $result_trees{'ref_in_sectioning'} = {
         'line_nr' => 15,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 2
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -772,11 +758,7 @@ $result_trees{'ref_in_sectioning'} = {
         'line_nr' => 17,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 2,
-        'number' => '2.1'
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -897,11 +879,7 @@ $result_trees{'ref_in_sectioning'} = {
         'line_nr' => 19,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 2,
-        'number' => '2.2'
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -1007,11 +985,7 @@ $result_trees{'ref_in_sectioning'} = {
         'line_nr' => 21,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 2,
-        'number' => '2.3'
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -1105,11 +1079,7 @@ $result_trees{'ref_in_sectioning'} = {
         'line_nr' => 23,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 2,
-        'number' => '2.4'
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -1203,11 +1173,7 @@ $result_trees{'ref_in_sectioning'} = {
         'line_nr' => 25,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 2,
-        'number' => '2.5'
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -1290,11 +1256,7 @@ $result_trees{'ref_in_sectioning'} = {
         'line_nr' => 27,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 2,
-        'number' => '2.6'
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -1371,11 +1333,7 @@ $result_trees{'ref_in_sectioning'} = {
         'line_nr' => 29,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 2,
-        'number' => '2.7'
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -1466,11 +1424,7 @@ $result_trees{'ref_in_sectioning'} = {
         'line_nr' => 31,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 2,
-        'number' => '2.8'
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -1567,11 +1521,7 @@ $result_trees{'ref_in_sectioning'} = {
         'line_nr' => 33,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 2,
-        'number' => '2.9'
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -1653,11 +1603,7 @@ $result_trees{'ref_in_sectioning'} = {
         'line_nr' => 35,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 2,
-        'number' => '2.10'
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -1742,11 +1688,7 @@ $result_trees{'ref_in_sectioning'} = {
         'line_nr' => 37,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 2,
-        'number' => '2.11'
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -1820,11 +1762,7 @@ $result_trees{'ref_in_sectioning'} = {
         'line_nr' => 39,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 2,
-        'number' => '2.12'
-      }
+      'parent' => {}
     }
   ],
   'type' => 'document_root'

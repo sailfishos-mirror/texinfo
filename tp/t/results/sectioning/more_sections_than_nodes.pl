@@ -51,8 +51,7 @@ $result_trees{'more_sections_than_nodes'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -318,10 +317,7 @@ $result_trees{'more_sections_than_nodes'} = {
         'line_nr' => 2,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 0
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -357,11 +353,7 @@ $result_trees{'more_sections_than_nodes'} = {
         'line_nr' => 10,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 1
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -402,8 +394,7 @@ $result_trees{'more_sections_than_nodes'} = {
         'line_nr' => 12,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -439,11 +430,7 @@ $result_trees{'more_sections_than_nodes'} = {
         'line_nr' => 13,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 2
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -479,11 +466,7 @@ $result_trees{'more_sections_than_nodes'} = {
         'line_nr' => 15,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 2,
-        'number' => '2.1'
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -579,8 +562,7 @@ $result_trees{'more_sections_than_nodes'} = {
         'line_nr' => 17,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -732,11 +714,7 @@ $result_trees{'more_sections_than_nodes'} = {
         'line_nr' => 18,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 3
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -772,11 +750,7 @@ $result_trees{'more_sections_than_nodes'} = {
         'line_nr' => 24,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 2,
-        'number' => '3.1'
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -817,8 +791,7 @@ $result_trees{'more_sections_than_nodes'} = {
         'line_nr' => 26,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -854,11 +827,7 @@ $result_trees{'more_sections_than_nodes'} = {
         'line_nr' => 27,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 2,
-        'number' => '3.2'
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -894,11 +863,7 @@ $result_trees{'more_sections_than_nodes'} = {
         'line_nr' => 29,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 2,
-        'number' => '3.3'
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -934,11 +899,7 @@ $result_trees{'more_sections_than_nodes'} = {
         'line_nr' => 31,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 4
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -974,11 +935,7 @@ $result_trees{'more_sections_than_nodes'} = {
         'line_nr' => 33,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 2,
-        'number' => '4.1'
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -1014,11 +971,7 @@ $result_trees{'more_sections_than_nodes'} = {
         'line_nr' => 35,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 3,
-        'number' => '4.1.1'
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -1097,8 +1050,7 @@ $result_trees{'more_sections_than_nodes'} = {
         'line_nr' => 37,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -1134,11 +1086,7 @@ $result_trees{'more_sections_than_nodes'} = {
         'line_nr' => 38,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 3,
-        'number' => '4.1.2'
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -1167,11 +1115,7 @@ $result_trees{'more_sections_than_nodes'} = {
         'line_nr' => 40,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 'A'
-      }
+      'parent' => {}
     }
   ],
   'type' => 'document_root'

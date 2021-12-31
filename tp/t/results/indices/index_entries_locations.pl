@@ -357,8 +357,7 @@ $result_trees{'index_entries_locations'} = {
         'line_nr' => 2,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     }
   ],
   'type' => 'document_root'
@@ -465,8 +464,7 @@ $result_nodes{'index_entries_locations'} = {
     'isindex' => 1,
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_menus{'index_entries_locations'} = {
@@ -475,8 +473,7 @@ $result_menus{'index_entries_locations'} = {
     'isindex' => 1,
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'index_entries_locations'} = [];

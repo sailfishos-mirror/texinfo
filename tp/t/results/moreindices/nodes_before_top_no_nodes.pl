@@ -369,8 +369,7 @@ $result_trees{'nodes_before_top_no_nodes'} = {
         'line_nr' => 6,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -589,8 +588,7 @@ $result_trees{'nodes_before_top_no_nodes'} = {
         'line_nr' => 14,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -949,8 +947,7 @@ $result_trees{'nodes_before_top_no_nodes'} = {
         'line_nr' => 23,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -1325,8 +1322,7 @@ $result_trees{'nodes_before_top_no_nodes'} = {
         'line_nr' => 38,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -1607,8 +1603,7 @@ $result_trees{'nodes_before_top_no_nodes'} = {
         'line_nr' => 50,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -1830,8 +1825,7 @@ $result_trees{'nodes_before_top_no_nodes'} = {
         'line_nr' => 58,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -2127,8 +2121,7 @@ $result_trees{'nodes_before_top_no_nodes'} = {
         'line_nr' => 64,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [

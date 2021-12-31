@@ -255,8 +255,7 @@ $result_trees{'printindex_index_entry_in_copying_in_footnote'} = {
         'line_nr' => 13,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -442,10 +441,7 @@ $result_trees{'printindex_index_entry_in_copying_in_footnote'} = {
         'line_nr' => 14,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 0
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -486,8 +482,7 @@ $result_trees{'printindex_index_entry_in_copying_in_footnote'} = {
         'line_nr' => 23,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -546,11 +541,7 @@ $result_trees{'printindex_index_entry_in_copying_in_footnote'} = {
         'line_nr' => 24,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 1
-      }
+      'parent' => {}
     }
   ],
   'type' => 'document_root'

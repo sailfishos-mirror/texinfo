@@ -2128,10 +2128,7 @@ $result_trees{'comments_on_block_command_lines'} = {
             'line_nr' => 69,
             'macro' => ''
           },
-          'parent' => {},
-          'structure' => {
-            'float_number' => 1
-          }
+          'parent' => {}
         },
         {
           'parent' => {},

@@ -362,10 +362,7 @@ $result_trees{'index_no_node'} = {
         'line_nr' => 10,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -747,10 +744,7 @@ $result_trees{'index_no_node'} = {
         'line_nr' => 19,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -945,10 +939,7 @@ $result_trees{'index_no_node'} = {
         'line_nr' => 34,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 2
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -1112,11 +1103,7 @@ $result_trees{'index_no_node'} = {
         'line_nr' => 42,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 1
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -1169,11 +1156,7 @@ $result_trees{'index_no_node'} = {
         'line_nr' => 49,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 2
-      }
+      'parent' => {}
     },
     {
       'args' => [

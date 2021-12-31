@@ -171,8 +171,7 @@ $result_trees{'multiple_lang_chapters'} = {
         'line_nr' => 12,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -581,10 +580,7 @@ $result_trees{'multiple_lang_chapters'} = {
         'line_nr' => 13,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 0
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -625,8 +621,7 @@ $result_trees{'multiple_lang_chapters'} = {
         'line_nr' => 24,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -908,11 +903,7 @@ $result_trees{'multiple_lang_chapters'} = {
         'line_nr' => 25,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 1
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -953,8 +944,7 @@ $result_trees{'multiple_lang_chapters'} = {
         'line_nr' => 32,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -1236,11 +1226,7 @@ $result_trees{'multiple_lang_chapters'} = {
         'line_nr' => 33,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 2
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -1281,8 +1267,7 @@ $result_trees{'multiple_lang_chapters'} = {
         'line_nr' => 40,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -1518,11 +1503,7 @@ $result_trees{'multiple_lang_chapters'} = {
         'line_nr' => 41,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 3
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -1563,8 +1544,7 @@ $result_trees{'multiple_lang_chapters'} = {
         'line_nr' => 47,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -1629,11 +1609,7 @@ $result_trees{'multiple_lang_chapters'} = {
         'line_nr' => 48,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 4
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -1674,8 +1650,7 @@ $result_trees{'multiple_lang_chapters'} = {
         'line_nr' => 51,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -1757,11 +1732,7 @@ $result_trees{'multiple_lang_chapters'} = {
         'line_nr' => 52,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 5
-      }
+      'parent' => {}
     }
   ],
   'type' => 'document_root'

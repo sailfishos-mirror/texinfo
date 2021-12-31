@@ -46,11 +46,7 @@ $result_trees{'section_before_top_no_node'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 2,
-        'number' => 1
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -79,10 +75,7 @@ $result_trees{'section_before_top_no_node'} = {
         'line_nr' => 3,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 2
-      }
+      'parent' => {}
     }
   ],
   'type' => 'document_root'

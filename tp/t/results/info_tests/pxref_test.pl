@@ -304,8 +304,7 @@ $result_trees{'pxref_test'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     }
   ],
   'type' => 'document_root'
@@ -381,8 +380,7 @@ $result_nodes{'pxref_test'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_menus{'pxref_test'} = {
@@ -390,8 +388,7 @@ $result_menus{'pxref_test'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'pxref_test'} = [];

@@ -153,8 +153,7 @@ $result_trees{'verb_in_xref'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     }
   ],
   'type' => 'document_root'
@@ -199,8 +198,7 @@ $result_nodes{'verb_in_xref'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_menus{'verb_in_xref'} = {
@@ -208,8 +206,7 @@ $result_menus{'verb_in_xref'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  },
-  'structure' => {}
+  }
 };
 
 $result_errors{'verb_in_xref'} = [

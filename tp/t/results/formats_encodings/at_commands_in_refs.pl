@@ -51,8 +51,7 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -4765,10 +4764,7 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 2,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 0
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -4833,8 +4829,7 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 34,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -4886,11 +4881,7 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 35,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 1
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -5027,8 +5018,7 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 37,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -5128,11 +5118,7 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 38,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 2
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -5286,8 +5272,7 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 40,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -5420,11 +5405,7 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 41,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 3
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -5628,8 +5609,7 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 43,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -5804,11 +5784,7 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 44,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 4
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -5987,8 +5963,7 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 46,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -6142,11 +6117,7 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 47,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 5
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -6250,8 +6221,7 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 49,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -6342,11 +6312,7 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 50,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 6
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -6550,8 +6516,7 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 52,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -6726,11 +6691,7 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 53,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 7
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -6884,8 +6845,7 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 55,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -7018,11 +6978,7 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 56,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 8
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -7401,8 +7357,7 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 58,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -7724,11 +7679,7 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 59,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 9
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -8105,8 +8056,7 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 61,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -8438,11 +8388,7 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 62,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 10
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -8681,8 +8627,7 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 64,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -8892,11 +8837,7 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 65,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 11
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -9051,8 +8992,7 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 67,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -9194,11 +9134,7 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 68,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 12
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -9377,8 +9313,7 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 70,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -9532,11 +9467,7 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 71,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 13
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -9715,8 +9646,7 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 73,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -9870,11 +9800,7 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 74,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 14
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -9915,8 +9841,7 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 76,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -9952,11 +9877,7 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 77,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 15
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -10094,8 +10015,7 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 79,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -10220,11 +10140,7 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 80,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 16
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -10362,8 +10278,7 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 82,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -10488,11 +10403,7 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 84,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 17
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -10610,8 +10521,7 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 87,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -10720,11 +10630,7 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 88,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 18
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -10859,8 +10765,7 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 90,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -10986,11 +10891,7 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 92,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 19
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -11053,8 +10954,7 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 95,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -11112,11 +11012,7 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 97,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 20
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -11467,8 +11363,7 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 100,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -11782,11 +11677,7 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 101,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 21
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -12047,8 +11938,7 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 103,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -12280,11 +12170,7 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 104,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 22
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -12349,8 +12235,7 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 106,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -12408,11 +12293,7 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 107,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 23
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -12501,8 +12382,7 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 109,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -12582,11 +12462,7 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 110,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 24
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -12645,8 +12521,7 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 112,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -12700,11 +12575,7 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 113,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 25
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -12793,8 +12664,7 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 115,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -12874,11 +12744,7 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 116,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 26
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -13025,8 +12891,7 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 118,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -17547,11 +17412,7 @@ $result_trees{'at_commands_in_refs'} = {
         'line_nr' => 119,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 27
-      }
+      'parent' => {}
     },
     {
       'args' => [

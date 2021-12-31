@@ -200,8 +200,7 @@ $result_trees{'node_on_index_entry_line'} = {
         'line_nr' => 2,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     }
   ],
   'type' => 'document_root'

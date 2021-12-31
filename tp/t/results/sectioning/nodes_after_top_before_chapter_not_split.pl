@@ -236,8 +236,7 @@ $result_trees{'nodes_after_top_before_chapter_not_split'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -353,8 +352,7 @@ $result_trees{'nodes_after_top_before_chapter_not_split'} = {
         'line_nr' => 8,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -433,8 +431,7 @@ $result_trees{'nodes_after_top_before_chapter_not_split'} = {
         'line_nr' => 12,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -463,11 +460,7 @@ $result_trees{'nodes_after_top_before_chapter_not_split'} = {
         'line_nr' => 13,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 1
-      }
+      'parent' => {}
     }
   ],
   'type' => 'document_root'

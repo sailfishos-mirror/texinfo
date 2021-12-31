@@ -94,8 +94,7 @@ $result_trees{'node_up_direction_for_top_with_manual'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     }
   ],
   'type' => 'document_root'

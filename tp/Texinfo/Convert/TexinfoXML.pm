@@ -1004,10 +1004,8 @@ sub _convert($$;$)
         # the command associated with an element is closed at the end of the
         # element. @bye is withing the element, but we want it to appear after
         # the command closing.  So we delay the output of @bye, and store it.
-        if ($cmdname eq 'bye' and $element->{'parent'}
-            and $element->{'parent'}->{'type'}
-            and $element->{'parent'}->{'type'} eq 'unit'
-            and defined($element->{'parent'}->{'extra'}->{'unit_command'})) {
+        if ($cmdname eq 'bye' and $element->{'structure'}->{'associated_unit'}
+            and defined($element->{'structure'}->{'associated_unit'}->{'extra'}->{'unit_command'})) {
           $self->{'pending_bye'} = $self->open_element($cmdname)
                     .$self->close_element($cmdname)."\n";
           return '';
@@ -1664,11 +1662,10 @@ sub _convert($$;$)
             or ($element->{'cmdname'}
                 and $Texinfo::Common::root_commands{$element->{'cmdname'}}
                 and $element->{'cmdname'} ne 'node'
-                and !($element->{'parent'} and $element->{'parent'}->{'type'}
-                     and $element->{'parent'}->{'type'} eq 'unit'
-                     and $element->{'parent'}->{'extra'}
-                     and $element->{'parent'}->{'extra'}->{'unit_command'}
-                     and $element->{'parent'}->{'extra'}->{'unit_command'} eq $element)))
+                and !($element->{'structure'}->{'associated_unit'}
+                     and $element->{'structure'}->{'associated_unit'}->{'extra'}
+                     and $element->{'structure'}->{'associated_unit'}->{'extra'}->{'unit_command'}
+                     and $element->{'structure'}->{'associated_unit'}->{'extra'}->{'unit_command'} eq $element)))
            and !$self->get_conf('USE_NODES')) {
     if ($element->{'type'} and $element->{'type'} eq 'unit') {
       $element = $element->{'extra'}->{'unit_command'};
@@ -1702,11 +1699,10 @@ sub _convert($$;$)
              and $element->{'extra'}->{'unit_command'}->{'cmdname'} eq 'node')
             or ($element->{'cmdname'}
                 and $element->{'cmdname'} eq 'node'
-                and !($element->{'parent'} and $element->{'parent'}->{'type'}
-                     and $element->{'parent'}->{'type'} eq 'unit'
-                     and $element->{'parent'}->{'extra'}
-                     and $element->{'parent'}->{'extra'}->{'unit_command'}
-                     and $element->{'parent'}->{'extra'}->{'unit_command'} eq $element)))
+                and !($element->{'structure'}->{'associated_unit'}
+                     and $element->{'structure'}->{'associated_unit'}->{'extra'}
+                     and $element->{'structure'}->{'associated_unit'}->{'extra'}->{'unit_command'}
+                     and $element->{'structure'}->{'associated_unit'}->{'extra'}->{'unit_command'} eq $element)))
            and $self->get_conf('USE_NODES')) {
     $result .= $self->close_element('node');
     

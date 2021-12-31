@@ -109,8 +109,7 @@ $result_trees{'sectioning_frames'} = {
         'line_nr' => 3,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -681,10 +680,7 @@ $result_trees{'sectioning_frames'} = {
         'line_nr' => 4,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 0
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -763,8 +759,7 @@ $result_trees{'sectioning_frames'} = {
         'line_nr' => 29,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -1059,11 +1054,7 @@ $result_trees{'sectioning_frames'} = {
         'line_nr' => 30,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 1
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -1104,8 +1095,7 @@ $result_trees{'sectioning_frames'} = {
         'line_nr' => 40,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -1428,10 +1418,7 @@ $result_trees{'sectioning_frames'} = {
         'line_nr' => 41,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 2
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -1472,8 +1459,7 @@ $result_trees{'sectioning_frames'} = {
         'line_nr' => 50,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -1509,10 +1495,7 @@ $result_trees{'sectioning_frames'} = {
         'line_nr' => 51,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 3
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -1553,8 +1536,7 @@ $result_trees{'sectioning_frames'} = {
         'line_nr' => 53,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -1590,10 +1572,7 @@ $result_trees{'sectioning_frames'} = {
         'line_nr' => 54,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 3
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -1634,8 +1613,7 @@ $result_trees{'sectioning_frames'} = {
         'line_nr' => 56,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -1671,10 +1649,7 @@ $result_trees{'sectioning_frames'} = {
         'line_nr' => 57,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 3
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -1715,8 +1690,7 @@ $result_trees{'sectioning_frames'} = {
         'line_nr' => 59,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -1752,10 +1726,7 @@ $result_trees{'sectioning_frames'} = {
         'line_nr' => 60,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 3
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -1796,8 +1767,7 @@ $result_trees{'sectioning_frames'} = {
         'line_nr' => 62,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -1949,10 +1919,7 @@ $result_trees{'sectioning_frames'} = {
         'line_nr' => 63,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 2
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -1993,8 +1960,7 @@ $result_trees{'sectioning_frames'} = {
         'line_nr' => 69,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -2036,10 +2002,7 @@ $result_trees{'sectioning_frames'} = {
         'line_nr' => 70,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 3
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -2080,8 +2043,7 @@ $result_trees{'sectioning_frames'} = {
         'line_nr' => 73,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -2117,11 +2079,7 @@ $result_trees{'sectioning_frames'} = {
         'line_nr' => 74,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 2,
-        'number' => '1.1'
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -2214,8 +2172,7 @@ $result_trees{'sectioning_frames'} = {
         'line_nr' => 76,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -2318,8 +2275,7 @@ $result_trees{'sectioning_frames'} = {
         'line_nr' => 80,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -2372,11 +2328,7 @@ $result_trees{'sectioning_frames'} = {
         'line_nr' => 84,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1,
-        'number' => 2
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -2417,8 +2369,7 @@ $result_trees{'sectioning_frames'} = {
         'line_nr' => 88,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [
@@ -2477,10 +2428,7 @@ $result_trees{'sectioning_frames'} = {
         'line_nr' => 89,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {
-        'level' => 1
-      }
+      'parent' => {}
     },
     {
       'args' => [
@@ -2583,8 +2531,7 @@ $result_trees{'sectioning_frames'} = {
         'line_nr' => 94,
         'macro' => ''
       },
-      'parent' => {},
-      'structure' => {}
+      'parent' => {}
     },
     {
       'args' => [

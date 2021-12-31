@@ -139,10 +139,7 @@ $result_trees{'simple'} = {
             'line_nr' => 1,
             'macro' => ''
           },
-          'parent' => {},
-          'structure' => {
-            'float_number' => 1
-          }
+          'parent' => {}
         }
       ],
       'parent' => {},
