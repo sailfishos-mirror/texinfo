@@ -116,7 +116,8 @@ $result_trees{'def_in_copying'} = {
         'line_nr' => 8,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -915,7 +916,8 @@ $result_sectioning{'def_in_copying'} = {
               'isindex' => 1,
               'normalized' => 'Top',
               'spaces_before_argument' => ' '
-            }
+            },
+            'structure' => {}
           },
           'spaces_before_argument' => ' '
         },
@@ -944,7 +946,8 @@ $result_nodes{'def_in_copying'} = {
     'isindex' => 1,
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'def_in_copying'} = {
@@ -953,7 +956,8 @@ $result_menus{'def_in_copying'} = {
     'isindex' => 1,
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'def_in_copying'} = [];

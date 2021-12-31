@@ -113,7 +113,8 @@ $result_trees{'print_merged_index'} = {
         'line_nr' => 2,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     }
   ],
   'type' => 'document_root'
@@ -144,7 +145,8 @@ $result_nodes{'print_merged_index'} = {
     'isindex' => 1,
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'print_merged_index'} = {
@@ -153,7 +155,8 @@ $result_menus{'print_merged_index'} = {
     'isindex' => 1,
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'print_merged_index'} = [

@@ -426,7 +426,8 @@ $result_trees{'node_nested_parentheses'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     }
   ],
   'type' => 'document_root'
@@ -529,15 +530,6 @@ $result_nodes{'node_nested_parentheses'} = {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   },
-  'menu_child' => {
-    'extra' => {
-      'manual_content' => [
-        {
-          'text' => '(some) file'
-        }
-      ]
-    }
-  },
   'menus' => [
     {
       'cmdname' => 'menu',
@@ -553,9 +545,20 @@ $result_nodes{'node_nested_parentheses'} = {
       }
     }
   ],
-  'node_next' => {}
+  'structure' => {
+    'menu_child' => {
+      'extra' => {
+        'manual_content' => [
+          {
+            'text' => '(some) file'
+          }
+        ]
+      }
+    },
+    'node_next' => {}
+  }
 };
-$result_nodes{'node_nested_parentheses'}{'node_next'} = $result_nodes{'node_nested_parentheses'}{'menu_child'};
+$result_nodes{'node_nested_parentheses'}{'structure'}{'node_next'} = $result_nodes{'node_nested_parentheses'}{'structure'}{'menu_child'};
 
 $result_menus{'node_nested_parentheses'} = {
   'cmdname' => 'node',
@@ -563,13 +566,15 @@ $result_menus{'node_nested_parentheses'} = {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   },
-  'menu_child' => {
-    'extra' => {
-      'manual_content' => [
-        {
-          'text' => '(some) file'
-        }
-      ]
+  'structure' => {
+    'menu_child' => {
+      'extra' => {
+        'manual_content' => [
+          {
+            'text' => '(some) file'
+          }
+        ]
+      }
     }
   }
 };

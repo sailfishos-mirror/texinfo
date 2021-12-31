@@ -81,7 +81,8 @@ $result_trees{'equivalent_labels'} = {
             'line_nr' => 3,
             'macro' => ''
           },
-          'parent' => {}
+          'parent' => {},
+          'structure' => {}
         },
         {
           'contents' => [
@@ -408,7 +409,8 @@ $result_trees{'equivalent_labels'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     }
   ],
   'type' => 'document_root'
@@ -504,13 +506,6 @@ $result_nodes{'equivalent_labels'} = {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   },
-  'menu_child' => {
-    'cmdname' => 'anchor',
-    'extra' => {
-      'normalized' => 'anch'
-    },
-    'node_prev' => {}
-  },
   'menus' => [
     {
       'cmdname' => 'menu',
@@ -526,10 +521,21 @@ $result_nodes{'equivalent_labels'} = {
       }
     }
   ],
-  'node_next' => {}
+  'structure' => {
+    'menu_child' => {
+      'cmdname' => 'anchor',
+      'extra' => {
+        'normalized' => 'anch'
+      },
+      'structure' => {
+        'node_prev' => {}
+      }
+    },
+    'node_next' => {}
+  }
 };
-$result_nodes{'equivalent_labels'}{'menu_child'}{'node_prev'} = $result_nodes{'equivalent_labels'};
-$result_nodes{'equivalent_labels'}{'node_next'} = $result_nodes{'equivalent_labels'}{'menu_child'};
+$result_nodes{'equivalent_labels'}{'structure'}{'menu_child'}{'structure'}{'node_prev'} = $result_nodes{'equivalent_labels'};
+$result_nodes{'equivalent_labels'}{'structure'}{'node_next'} = $result_nodes{'equivalent_labels'}{'structure'}{'menu_child'};
 
 $result_menus{'equivalent_labels'} = {
   'cmdname' => 'node',
@@ -537,51 +543,55 @@ $result_menus{'equivalent_labels'} = {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   },
-  'menu_child' => {
-    'cmdname' => 'anchor',
-    'extra' => {
-      'normalized' => 'anch'
-    },
-    'menu_next' => {
-      'cmdname' => 'float',
+  'structure' => {
+    'menu_child' => {
+      'cmdname' => 'anchor',
       'extra' => {
-        'end_command' => {
-          'cmdname' => 'end',
-          'extra' => {
-            'command_argument' => 'float',
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'float'
-          }
-        },
-        'normalized' => 'floa',
-        'spaces_before_argument' => ' ',
-        'type' => {
-          'content' => [
-            {
-              'text' => 'truc'
-            }
-          ],
-          'normalized' => 'truc'
-        }
-      },
-      'menu_prev' => {},
-      'menu_up' => {},
-      'menu_up_hash' => {
-        'Top' => 1
+        'normalized' => 'anch'
       },
       'structure' => {
-        'float_number' => 1
+        'menu_next' => {
+          'cmdname' => 'float',
+          'extra' => {
+            'end_command' => {
+              'cmdname' => 'end',
+              'extra' => {
+                'command_argument' => 'float',
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'float'
+              }
+            },
+            'normalized' => 'floa',
+            'spaces_before_argument' => ' ',
+            'type' => {
+              'content' => [
+                {
+                  'text' => 'truc'
+                }
+              ],
+              'normalized' => 'truc'
+            }
+          },
+          'structure' => {
+            'float_number' => 1,
+            'menu_prev' => {},
+            'menu_up' => {},
+            'menu_up_hash' => {
+              'Top' => 1
+            }
+          }
+        },
+        'menu_up' => {},
+        'menu_up_hash' => {
+          'Top' => 1
+        }
       }
-    },
-    'menu_up' => {},
-    'menu_up_hash' => {
-      'Top' => 1
     }
   }
 };
-$result_menus{'equivalent_labels'}{'menu_child'}{'menu_next'}{'menu_prev'} = $result_menus{'equivalent_labels'}{'menu_child'};
-$result_menus{'equivalent_labels'}{'menu_child'}{'menu_next'}{'menu_up'} = $result_menus{'equivalent_labels'};
-$result_menus{'equivalent_labels'}{'menu_child'}{'menu_up'} = $result_menus{'equivalent_labels'};
+$result_menus{'equivalent_labels'}{'structure'}{'menu_child'}{'structure'}{'menu_next'}{'structure'}{'menu_prev'} = $result_menus{'equivalent_labels'}{'structure'}{'menu_child'};
+$result_menus{'equivalent_labels'}{'structure'}{'menu_child'}{'structure'}{'menu_next'}{'structure'}{'menu_up'} = $result_menus{'equivalent_labels'};
+$result_menus{'equivalent_labels'}{'structure'}{'menu_child'}{'structure'}{'menu_up'} = $result_menus{'equivalent_labels'};
 
 $result_errors{'equivalent_labels'} = [
   {

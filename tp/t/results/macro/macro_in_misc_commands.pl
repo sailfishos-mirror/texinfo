@@ -142,7 +142,8 @@ $result_trees{'macro_in_misc_commands'} = {
         'line_nr' => 9,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -3331,7 +3332,8 @@ $result_trees{'macro_in_misc_commands'} = {
         'line_nr' => 203,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -4284,7 +4286,8 @@ $result_sectioning{'macro_in_misc_commands'} = {
             'extra' => {
               'normalized' => 'Top',
               'spaces_before_argument' => ' '
-            }
+            },
+            'structure' => {}
           },
           'spaces_before_argument' => ' '
         },
@@ -4299,7 +4302,8 @@ $result_sectioning{'macro_in_misc_commands'} = {
                   'extra' => {
                     'normalized' => 'node-atext',
                     'spaces_before_argument' => ' '
-                  }
+                  },
+                  'structure' => {}
                 },
                 'spaces_before_argument' => ' '
               },
@@ -4338,25 +4342,6 @@ $result_nodes{'macro_in_misc_commands'} = {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   },
-  'menu_child' => {
-    'cmdname' => 'node',
-    'extra' => {
-      'associated_section' => {
-        'cmdname' => 'chapter',
-        'extra' => {
-          'spaces_before_argument' => ' '
-        },
-        'structure' => {
-          'level' => 1,
-          'number' => 1
-        }
-      },
-      'normalized' => 'node-atext',
-      'spaces_before_argument' => ' '
-    },
-    'node_prev' => {},
-    'node_up' => {}
-  },
   'menus' => [
     {
       'cmdname' => 'menu',
@@ -4372,11 +4357,34 @@ $result_nodes{'macro_in_misc_commands'} = {
       }
     }
   ],
-  'node_next' => {}
+  'structure' => {
+    'menu_child' => {
+      'cmdname' => 'node',
+      'extra' => {
+        'associated_section' => {
+          'cmdname' => 'chapter',
+          'extra' => {
+            'spaces_before_argument' => ' '
+          },
+          'structure' => {
+            'level' => 1,
+            'number' => 1
+          }
+        },
+        'normalized' => 'node-atext',
+        'spaces_before_argument' => ' '
+      },
+      'structure' => {
+        'node_prev' => {},
+        'node_up' => {}
+      }
+    },
+    'node_next' => {}
+  }
 };
-$result_nodes{'macro_in_misc_commands'}{'menu_child'}{'node_prev'} = $result_nodes{'macro_in_misc_commands'};
-$result_nodes{'macro_in_misc_commands'}{'menu_child'}{'node_up'} = $result_nodes{'macro_in_misc_commands'};
-$result_nodes{'macro_in_misc_commands'}{'node_next'} = $result_nodes{'macro_in_misc_commands'}{'menu_child'};
+$result_nodes{'macro_in_misc_commands'}{'structure'}{'menu_child'}{'structure'}{'node_prev'} = $result_nodes{'macro_in_misc_commands'};
+$result_nodes{'macro_in_misc_commands'}{'structure'}{'menu_child'}{'structure'}{'node_up'} = $result_nodes{'macro_in_misc_commands'};
+$result_nodes{'macro_in_misc_commands'}{'structure'}{'node_next'} = $result_nodes{'macro_in_misc_commands'}{'structure'}{'menu_child'};
 
 $result_menus{'macro_in_misc_commands'} = {
   'cmdname' => 'node',
@@ -4384,19 +4392,23 @@ $result_menus{'macro_in_misc_commands'} = {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   },
-  'menu_child' => {
-    'cmdname' => 'node',
-    'extra' => {
-      'normalized' => 'node-atext',
-      'spaces_before_argument' => ' '
-    },
-    'menu_up' => {},
-    'menu_up_hash' => {
-      'Top' => 1
+  'structure' => {
+    'menu_child' => {
+      'cmdname' => 'node',
+      'extra' => {
+        'normalized' => 'node-atext',
+        'spaces_before_argument' => ' '
+      },
+      'structure' => {
+        'menu_up' => {},
+        'menu_up_hash' => {
+          'Top' => 1
+        }
+      }
     }
   }
 };
-$result_menus{'macro_in_misc_commands'}{'menu_child'}{'menu_up'} = $result_menus{'macro_in_misc_commands'};
+$result_menus{'macro_in_misc_commands'}{'structure'}{'menu_child'}{'structure'}{'menu_up'} = $result_menus{'macro_in_misc_commands'};
 
 $result_errors{'macro_in_misc_commands'} = [
   {

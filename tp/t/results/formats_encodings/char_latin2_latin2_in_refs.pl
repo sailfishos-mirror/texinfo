@@ -143,7 +143,8 @@ $result_trees{'char_latin2_latin2_in_refs'} = {
         'line_nr' => 6,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -227,7 +228,8 @@ $result_trees{'char_latin2_latin2_in_refs'} = {
                     'line_nr' => 18,
                     'macro' => ''
                   },
-                  'parent' => {}
+                  'parent' => {},
+                  'structure' => {}
                 },
                 'node_argument' => {
                   'node_content' => [
@@ -674,7 +676,8 @@ $result_sectioning{'char_latin2_latin2_in_refs'} = {
               'isindex' => 1,
               'normalized' => 'Top',
               'spaces_before_argument' => ' '
-            }
+            },
+            'structure' => {}
           },
           'spaces_before_argument' => ' '
         },
@@ -689,7 +692,8 @@ $result_sectioning{'char_latin2_latin2_in_refs'} = {
                   'extra' => {
                     'normalized' => '_0104-_0105-_02db-_0118-_0119',
                     'spaces_before_argument' => ' '
-                  }
+                  },
+                  'structure' => {}
                 },
                 'spaces_before_argument' => ' '
               },
@@ -729,25 +733,6 @@ $result_nodes{'char_latin2_latin2_in_refs'} = {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   },
-  'menu_child' => {
-    'cmdname' => 'node',
-    'extra' => {
-      'associated_section' => {
-        'cmdname' => 'chapter',
-        'extra' => {
-          'spaces_before_argument' => ' '
-        },
-        'structure' => {
-          'level' => 1,
-          'number' => 1
-        }
-      },
-      'normalized' => '_0104-_0105-_02db-_0118-_0119',
-      'spaces_before_argument' => ' '
-    },
-    'node_prev' => {},
-    'node_up' => {}
-  },
   'menus' => [
     {
       'cmdname' => 'menu',
@@ -763,11 +748,34 @@ $result_nodes{'char_latin2_latin2_in_refs'} = {
       }
     }
   ],
-  'node_next' => {}
+  'structure' => {
+    'menu_child' => {
+      'cmdname' => 'node',
+      'extra' => {
+        'associated_section' => {
+          'cmdname' => 'chapter',
+          'extra' => {
+            'spaces_before_argument' => ' '
+          },
+          'structure' => {
+            'level' => 1,
+            'number' => 1
+          }
+        },
+        'normalized' => '_0104-_0105-_02db-_0118-_0119',
+        'spaces_before_argument' => ' '
+      },
+      'structure' => {
+        'node_prev' => {},
+        'node_up' => {}
+      }
+    },
+    'node_next' => {}
+  }
 };
-$result_nodes{'char_latin2_latin2_in_refs'}{'menu_child'}{'node_prev'} = $result_nodes{'char_latin2_latin2_in_refs'};
-$result_nodes{'char_latin2_latin2_in_refs'}{'menu_child'}{'node_up'} = $result_nodes{'char_latin2_latin2_in_refs'};
-$result_nodes{'char_latin2_latin2_in_refs'}{'node_next'} = $result_nodes{'char_latin2_latin2_in_refs'}{'menu_child'};
+$result_nodes{'char_latin2_latin2_in_refs'}{'structure'}{'menu_child'}{'structure'}{'node_prev'} = $result_nodes{'char_latin2_latin2_in_refs'};
+$result_nodes{'char_latin2_latin2_in_refs'}{'structure'}{'menu_child'}{'structure'}{'node_up'} = $result_nodes{'char_latin2_latin2_in_refs'};
+$result_nodes{'char_latin2_latin2_in_refs'}{'structure'}{'node_next'} = $result_nodes{'char_latin2_latin2_in_refs'}{'structure'}{'menu_child'};
 
 $result_menus{'char_latin2_latin2_in_refs'} = {
   'cmdname' => 'node',
@@ -776,19 +784,23 @@ $result_menus{'char_latin2_latin2_in_refs'} = {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   },
-  'menu_child' => {
-    'cmdname' => 'node',
-    'extra' => {
-      'normalized' => '_0104-_0105-_02db-_0118-_0119',
-      'spaces_before_argument' => ' '
-    },
-    'menu_up' => {},
-    'menu_up_hash' => {
-      'Top' => 1
+  'structure' => {
+    'menu_child' => {
+      'cmdname' => 'node',
+      'extra' => {
+        'normalized' => '_0104-_0105-_02db-_0118-_0119',
+        'spaces_before_argument' => ' '
+      },
+      'structure' => {
+        'menu_up' => {},
+        'menu_up_hash' => {
+          'Top' => 1
+        }
+      }
     }
   }
 };
-$result_menus{'char_latin2_latin2_in_refs'}{'menu_child'}{'menu_up'} = $result_menus{'char_latin2_latin2_in_refs'};
+$result_menus{'char_latin2_latin2_in_refs'}{'structure'}{'menu_child'}{'structure'}{'menu_up'} = $result_menus{'char_latin2_latin2_in_refs'};
 
 $result_errors{'char_latin2_latin2_in_refs'} = [];
 

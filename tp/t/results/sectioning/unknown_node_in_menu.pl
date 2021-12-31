@@ -168,7 +168,8 @@ $result_trees{'unknown_node_in_menu'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     }
   ],
   'type' => 'document_root'
@@ -230,7 +231,8 @@ $result_nodes{'unknown_node_in_menu'} = {
         }
       }
     }
-  ]
+  ],
+  'structure' => {}
 };
 
 $result_menus{'unknown_node_in_menu'} = {
@@ -238,7 +240,8 @@ $result_menus{'unknown_node_in_menu'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'unknown_node_in_menu'} = [

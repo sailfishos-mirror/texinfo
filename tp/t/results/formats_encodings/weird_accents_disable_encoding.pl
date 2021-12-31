@@ -89,7 +89,8 @@ $result_trees{'weird_accents_disable_encoding'} = {
         'line_nr' => 3,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -590,7 +591,8 @@ $result_sectioning{'weird_accents_disable_encoding'} = {
             'extra' => {
               'normalized' => 'Top',
               'spaces_before_argument' => ' '
-            }
+            },
+            'structure' => {}
           },
           'spaces_before_argument' => ' '
         },
@@ -618,7 +620,8 @@ $result_nodes{'weird_accents_disable_encoding'} = {
     },
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'weird_accents_disable_encoding'} = {
@@ -626,7 +629,8 @@ $result_menus{'weird_accents_disable_encoding'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'weird_accents_disable_encoding'} = [];

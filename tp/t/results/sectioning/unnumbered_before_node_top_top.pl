@@ -118,7 +118,8 @@ $result_trees{'unnumbered_before_node_top_top'} = [
           'line_nr' => 5,
           'macro' => ''
         },
-        'parent' => {}
+        'parent' => {},
+        'structure' => {}
       },
       {
         'args' => [
@@ -243,7 +244,8 @@ $result_sectioning{'unnumbered_before_node_top_top'} = {
             'extra' => {
               'normalized' => 'Top',
               'spaces_before_argument' => ' '
-            }
+            },
+            'structure' => {}
           },
           'spaces_before_argument' => ' '
         },
@@ -276,7 +278,8 @@ $result_nodes{'unnumbered_before_node_top_top'} = {
     },
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'unnumbered_before_node_top_top'} = {
@@ -284,7 +287,8 @@ $result_menus{'unnumbered_before_node_top_top'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'unnumbered_before_node_top_top'} = [
@@ -326,7 +330,8 @@ $result_elements{'unnumbered_before_node_top_top'} = [
               'extra' => {
                 'normalized' => 'Top',
                 'spaces_before_argument' => ' '
-              }
+              },
+              'structure' => {}
             },
             'section' => {
               'cmdname' => 'top',

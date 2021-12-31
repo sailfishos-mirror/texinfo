@@ -58,7 +58,8 @@ $result_trees{'node_line_arguments'} = {
         'line_nr' => 2,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -116,7 +117,8 @@ $result_trees{'node_line_arguments'} = {
         'line_nr' => 3,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -193,7 +195,8 @@ $result_trees{'node_line_arguments'} = {
         'line_nr' => 4,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -289,7 +292,8 @@ $result_trees{'node_line_arguments'} = {
         'line_nr' => 5,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -392,7 +396,8 @@ $result_trees{'node_line_arguments'} = {
         'line_nr' => 6,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -457,7 +462,8 @@ $result_trees{'node_line_arguments'} = {
         'line_nr' => 8,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -617,7 +623,8 @@ $result_trees{'node_line_arguments'} = {
         'line_nr' => 10,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     }
   ],
   'type' => 'document_root'
@@ -735,7 +742,8 @@ $result_nodes{'node_line_arguments'} = {
   'extra' => {
     'normalized' => 'one-arg1',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'node_line_arguments'} = {
@@ -743,7 +751,8 @@ $result_menus{'node_line_arguments'} = {
   'extra' => {
     'normalized' => 'one-arg1',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'node_line_arguments'} = [

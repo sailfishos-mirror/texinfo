@@ -105,7 +105,8 @@ $result_trees{'a_comma_after_node'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     }
   ],
   'type' => 'document_root'
@@ -141,7 +142,8 @@ $result_nodes{'a_comma_after_node'} = {
   'extra' => {
     'normalized' => 'Commands',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'a_comma_after_node'} = {
@@ -149,7 +151,8 @@ $result_menus{'a_comma_after_node'} = {
   'extra' => {
     'normalized' => 'Commands',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'a_comma_after_node'} = [

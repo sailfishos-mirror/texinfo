@@ -782,7 +782,8 @@ $result_trees{'value_in_index_commands'} = {
         'line_nr' => 22,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     }
   ],
   'type' => 'document_root'
@@ -957,7 +958,8 @@ $result_nodes{'value_in_index_commands'} = {
     'isindex' => 1,
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'value_in_index_commands'} = {
@@ -966,7 +968,8 @@ $result_menus{'value_in_index_commands'} = {
     'isindex' => 1,
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'value_in_index_commands'} = [

@@ -4750,7 +4750,8 @@ $result_trees{'all_commands_printindex'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     }
   ],
   'type' => 'document_root'
@@ -5677,7 +5678,8 @@ $result_nodes{'all_commands_printindex'} = {
     'isindex' => 1,
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'all_commands_printindex'} = {
@@ -5686,7 +5688,8 @@ $result_menus{'all_commands_printindex'} = {
     'isindex' => 1,
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'all_commands_printindex'} = [];

@@ -231,7 +231,8 @@ $result_trees{'ref_in_preformatted'} = {
                         'line_nr' => 12,
                         'macro' => ''
                       },
-                      'parent' => {}
+                      'parent' => {},
+                      'structure' => {}
                     },
                     'node_argument' => {
                       'node_content' => [
@@ -325,7 +326,8 @@ $result_trees{'ref_in_preformatted'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {}
   ],
@@ -409,15 +411,6 @@ $result_nodes{'ref_in_preformatted'} = {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   },
-  'menu_child' => {
-    'cmdname' => 'node',
-    'extra' => {
-      'normalized' => 'nnn-the-node-name',
-      'spaces_before_argument' => ' '
-    },
-    'node_prev' => {},
-    'node_up' => {}
-  },
   'menus' => [
     {
       'cmdname' => 'menu',
@@ -433,11 +426,24 @@ $result_nodes{'ref_in_preformatted'} = {
       }
     }
   ],
-  'node_next' => {}
+  'structure' => {
+    'menu_child' => {
+      'cmdname' => 'node',
+      'extra' => {
+        'normalized' => 'nnn-the-node-name',
+        'spaces_before_argument' => ' '
+      },
+      'structure' => {
+        'node_prev' => {},
+        'node_up' => {}
+      }
+    },
+    'node_next' => {}
+  }
 };
-$result_nodes{'ref_in_preformatted'}{'menu_child'}{'node_prev'} = $result_nodes{'ref_in_preformatted'};
-$result_nodes{'ref_in_preformatted'}{'menu_child'}{'node_up'} = $result_nodes{'ref_in_preformatted'};
-$result_nodes{'ref_in_preformatted'}{'node_next'} = $result_nodes{'ref_in_preformatted'}{'menu_child'};
+$result_nodes{'ref_in_preformatted'}{'structure'}{'menu_child'}{'structure'}{'node_prev'} = $result_nodes{'ref_in_preformatted'};
+$result_nodes{'ref_in_preformatted'}{'structure'}{'menu_child'}{'structure'}{'node_up'} = $result_nodes{'ref_in_preformatted'};
+$result_nodes{'ref_in_preformatted'}{'structure'}{'node_next'} = $result_nodes{'ref_in_preformatted'}{'structure'}{'menu_child'};
 
 $result_menus{'ref_in_preformatted'} = {
   'cmdname' => 'node',
@@ -445,19 +451,23 @@ $result_menus{'ref_in_preformatted'} = {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   },
-  'menu_child' => {
-    'cmdname' => 'node',
-    'extra' => {
-      'normalized' => 'nnn-the-node-name',
-      'spaces_before_argument' => ' '
-    },
-    'menu_up' => {},
-    'menu_up_hash' => {
-      'Top' => 1
+  'structure' => {
+    'menu_child' => {
+      'cmdname' => 'node',
+      'extra' => {
+        'normalized' => 'nnn-the-node-name',
+        'spaces_before_argument' => ' '
+      },
+      'structure' => {
+        'menu_up' => {},
+        'menu_up_hash' => {
+          'Top' => 1
+        }
+      }
     }
   }
 };
-$result_menus{'ref_in_preformatted'}{'menu_child'}{'menu_up'} = $result_menus{'ref_in_preformatted'};
+$result_menus{'ref_in_preformatted'}{'structure'}{'menu_child'}{'structure'}{'menu_up'} = $result_menus{'ref_in_preformatted'};
 
 $result_errors{'ref_in_preformatted'} = [];
 

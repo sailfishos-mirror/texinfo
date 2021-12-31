@@ -125,7 +125,8 @@ $result_trees{'encoding_index_ascii_enable_encoding'} = {
         'line_nr' => 5,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -3550,7 +3551,8 @@ $result_sectioning{'encoding_index_ascii_enable_encoding'} = {
               'isindex' => 1,
               'normalized' => 'Top',
               'spaces_before_argument' => ' '
-            }
+            },
+            'structure' => {}
           },
           'spaces_before_argument' => ' '
         },
@@ -3579,7 +3581,8 @@ $result_nodes{'encoding_index_ascii_enable_encoding'} = {
     'isindex' => 1,
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'encoding_index_ascii_enable_encoding'} = {
@@ -3588,7 +3591,8 @@ $result_menus{'encoding_index_ascii_enable_encoding'} = {
     'isindex' => 1,
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'encoding_index_ascii_enable_encoding'} = [];

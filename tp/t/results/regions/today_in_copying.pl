@@ -139,7 +139,8 @@ $result_trees{'today_in_copying'} = {
         'line_nr' => 5,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -254,7 +255,8 @@ $result_sectioning{'today_in_copying'} = {
             'extra' => {
               'normalized' => 'Top',
               'spaces_before_argument' => ' '
-            }
+            },
+            'structure' => {}
           },
           'spaces_before_argument' => ' '
         },
@@ -282,7 +284,8 @@ $result_nodes{'today_in_copying'} = {
     },
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'today_in_copying'} = {
@@ -290,7 +293,8 @@ $result_menus{'today_in_copying'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'today_in_copying'} = [];

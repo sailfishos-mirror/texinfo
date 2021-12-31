@@ -314,7 +314,8 @@ $result_trees{'multiple_menus'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     }
   ],
   'type' => 'document_root'
@@ -394,16 +395,6 @@ $result_nodes{'multiple_menus'} = {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   },
-  'menu_child' => {
-    'extra' => {
-      'manual_content' => [
-        {
-          'text' => 'b'
-        }
-      ],
-      'normalized' => 'b'
-    }
-  },
   'menus' => [
     {
       'cmdname' => 'menu',
@@ -432,9 +423,21 @@ $result_nodes{'multiple_menus'} = {
       }
     }
   ],
-  'node_next' => {}
+  'structure' => {
+    'menu_child' => {
+      'extra' => {
+        'manual_content' => [
+          {
+            'text' => 'b'
+          }
+        ],
+        'normalized' => 'b'
+      }
+    },
+    'node_next' => {}
+  }
 };
-$result_nodes{'multiple_menus'}{'node_next'} = $result_nodes{'multiple_menus'}{'menu_child'};
+$result_nodes{'multiple_menus'}{'structure'}{'node_next'} = $result_nodes{'multiple_menus'}{'structure'}{'menu_child'};
 
 $result_menus{'multiple_menus'} = {
   'cmdname' => 'node',
@@ -442,14 +445,16 @@ $result_menus{'multiple_menus'} = {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   },
-  'menu_child' => {
-    'extra' => {
-      'manual_content' => [
-        {
-          'text' => 'b'
-        }
-      ],
-      'normalized' => 'b'
+  'structure' => {
+    'menu_child' => {
+      'extra' => {
+        'manual_content' => [
+          {
+            'text' => 'b'
+          }
+        ],
+        'normalized' => 'b'
+      }
     }
   }
 };

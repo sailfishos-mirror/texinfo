@@ -87,7 +87,8 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
         'line_nr' => 3,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -167,7 +168,8 @@ $result_trees{'inter_item_commands_in_enumerate'} = {
         'line_nr' => 6,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -1373,7 +1375,8 @@ $result_sectioning{'inter_item_commands_in_enumerate'} = {
             'extra' => {
               'normalized' => 'Top',
               'spaces_before_argument' => ' '
-            }
+            },
+            'structure' => {}
           },
           'spaces_before_argument' => ' '
         },
@@ -1388,7 +1391,8 @@ $result_sectioning{'inter_item_commands_in_enumerate'} = {
                   'extra' => {
                     'normalized' => 'chapter',
                     'spaces_before_argument' => ' '
-                  }
+                  },
+                  'structure' => {}
                 },
                 'spaces_before_argument' => ' '
               },
@@ -1427,35 +1431,40 @@ $result_nodes{'inter_item_commands_in_enumerate'} = {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   },
-  'node_next' => {
-    'cmdname' => 'node',
-    'extra' => {
-      'associated_section' => {
-        'cmdname' => 'chapter',
-        'extra' => {
-          'spaces_before_argument' => ' '
+  'structure' => {
+    'node_next' => {
+      'cmdname' => 'node',
+      'extra' => {
+        'associated_section' => {
+          'cmdname' => 'chapter',
+          'extra' => {
+            'spaces_before_argument' => ' '
+          },
+          'structure' => {
+            'level' => 1,
+            'number' => 1
+          }
         },
-        'structure' => {
-          'level' => 1,
-          'number' => 1
-        }
+        'normalized' => 'chapter',
+        'spaces_before_argument' => ' '
       },
-      'normalized' => 'chapter',
-      'spaces_before_argument' => ' '
-    },
-    'node_prev' => {},
-    'node_up' => {}
+      'structure' => {
+        'node_prev' => {},
+        'node_up' => {}
+      }
+    }
   }
 };
-$result_nodes{'inter_item_commands_in_enumerate'}{'node_next'}{'node_prev'} = $result_nodes{'inter_item_commands_in_enumerate'};
-$result_nodes{'inter_item_commands_in_enumerate'}{'node_next'}{'node_up'} = $result_nodes{'inter_item_commands_in_enumerate'};
+$result_nodes{'inter_item_commands_in_enumerate'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'inter_item_commands_in_enumerate'};
+$result_nodes{'inter_item_commands_in_enumerate'}{'structure'}{'node_next'}{'structure'}{'node_up'} = $result_nodes{'inter_item_commands_in_enumerate'};
 
 $result_menus{'inter_item_commands_in_enumerate'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'inter_item_commands_in_enumerate'} = [];

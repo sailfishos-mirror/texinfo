@@ -117,7 +117,8 @@ $result_trees{'text_before_line_command'} = {
         'line_nr' => 3,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -370,7 +371,8 @@ $result_sectioning{'text_before_line_command'} = {
             'extra' => {
               'normalized' => 'LD-Version-Scripts',
               'spaces_before_argument' => ' '
-            }
+            },
+            'structure' => {}
           },
           'spaces_before_argument' => ' '
         },
@@ -400,7 +402,8 @@ $result_nodes{'text_before_line_command'} = {
     },
     'normalized' => 'LD-Version-Scripts',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'text_before_line_command'} = {
@@ -408,7 +411,8 @@ $result_menus{'text_before_line_command'} = {
   'extra' => {
     'normalized' => 'LD-Version-Scripts',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'text_before_line_command'} = [

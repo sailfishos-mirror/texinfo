@@ -319,7 +319,8 @@ $result_trees{'texi_cond'} = {
         'line_nr' => 4,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -434,7 +435,8 @@ $result_nodes{'texi_cond'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'texi_cond'} = {
@@ -442,7 +444,8 @@ $result_menus{'texi_cond'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'texi_cond'} = [];

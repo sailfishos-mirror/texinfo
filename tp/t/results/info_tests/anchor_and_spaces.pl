@@ -51,7 +51,8 @@ $result_trees{'anchor_and_spaces'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -282,7 +283,8 @@ $result_sectioning{'anchor_and_spaces'} = {
             'extra' => {
               'normalized' => 'Top',
               'spaces_before_argument' => ' '
-            }
+            },
+            'structure' => {}
           },
           'spaces_before_argument' => ' '
         },
@@ -310,7 +312,8 @@ $result_nodes{'anchor_and_spaces'} = {
     },
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'anchor_and_spaces'} = {
@@ -318,7 +321,8 @@ $result_menus{'anchor_and_spaces'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'anchor_and_spaces'} = [];

@@ -94,7 +94,8 @@ $result_trees{'node_up_direction_for_top_with_manual'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     }
   ],
   'type' => 'document_root'
@@ -127,14 +128,17 @@ $result_nodes{'node_up_direction_for_top_with_manual'} = {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   },
-  'node_up' => {
-    'extra' => {
-      'manual_content' => [
-        {
-          'text' => 'dir'
-        }
-      ],
-      'normalized' => 'Top'
+  'structure' => {
+    'node_up' => {
+      'extra' => {
+        'manual_content' => [
+          {
+            'text' => 'dir'
+          }
+        ],
+        'normalized' => 'Top'
+      },
+      'structure' => {}
     }
   }
 };
@@ -144,7 +148,8 @@ $result_menus{'node_up_direction_for_top_with_manual'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'node_up_direction_for_top_with_manual'} = [];

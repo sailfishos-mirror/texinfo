@@ -58,7 +58,8 @@ $result_trees{'top_in_ref'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -3612,7 +3613,8 @@ $result_trees{'top_in_ref'} = {
         'line_nr' => 3,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     }
   ],
   'type' => 'document_root'
@@ -4355,23 +4357,28 @@ $result_nodes{'top_in_ref'} = {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   },
-  'node_next' => {
-    'cmdname' => 'node',
-    'extra' => {
-      'normalized' => 'refs-node',
-      'spaces_before_argument' => ' '
-    },
-    'node_prev' => {}
+  'structure' => {
+    'node_next' => {
+      'cmdname' => 'node',
+      'extra' => {
+        'normalized' => 'refs-node',
+        'spaces_before_argument' => ' '
+      },
+      'structure' => {
+        'node_prev' => {}
+      }
+    }
   }
 };
-$result_nodes{'top_in_ref'}{'node_next'}{'node_prev'} = $result_nodes{'top_in_ref'};
+$result_nodes{'top_in_ref'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'top_in_ref'};
 
 $result_menus{'top_in_ref'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'top_in_ref'} = [

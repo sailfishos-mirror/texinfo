@@ -1171,7 +1171,8 @@ $result_trees{'complex_nestings'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     }
   ],
   'type' => 'document_root'
@@ -1397,7 +1398,8 @@ $result_nodes{'complex_nestings'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'complex_nestings'} = {
@@ -1405,7 +1407,8 @@ $result_menus{'complex_nestings'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'complex_nestings'} = [];

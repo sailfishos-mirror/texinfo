@@ -184,7 +184,8 @@ $result_trees{'equivalent_nodes_no_node'} = {
         'line_nr' => 5,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -383,7 +384,8 @@ $result_trees{'equivalent_nodes_no_node'} = {
         'line_nr' => 7,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -731,7 +733,8 @@ $result_trees{'equivalent_nodes_no_node'} = {
         'line_nr' => 15,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -912,15 +915,6 @@ $result_nodes{'equivalent_nodes_no_node'} = {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   },
-  'menu_child' => {
-    'cmdname' => 'node',
-    'extra' => {
-      'normalized' => 'node',
-      'spaces_before_argument' => ' '
-    },
-    'node_prev' => {},
-    'node_up' => {}
-  },
   'menus' => [
     {
       'cmdname' => 'menu',
@@ -936,11 +930,24 @@ $result_nodes{'equivalent_nodes_no_node'} = {
       }
     }
   ],
-  'node_next' => {}
+  'structure' => {
+    'menu_child' => {
+      'cmdname' => 'node',
+      'extra' => {
+        'normalized' => 'node',
+        'spaces_before_argument' => ' '
+      },
+      'structure' => {
+        'node_prev' => {},
+        'node_up' => {}
+      }
+    },
+    'node_next' => {}
+  }
 };
-$result_nodes{'equivalent_nodes_no_node'}{'menu_child'}{'node_prev'} = $result_nodes{'equivalent_nodes_no_node'};
-$result_nodes{'equivalent_nodes_no_node'}{'menu_child'}{'node_up'} = $result_nodes{'equivalent_nodes_no_node'};
-$result_nodes{'equivalent_nodes_no_node'}{'node_next'} = $result_nodes{'equivalent_nodes_no_node'}{'menu_child'};
+$result_nodes{'equivalent_nodes_no_node'}{'structure'}{'menu_child'}{'structure'}{'node_prev'} = $result_nodes{'equivalent_nodes_no_node'};
+$result_nodes{'equivalent_nodes_no_node'}{'structure'}{'menu_child'}{'structure'}{'node_up'} = $result_nodes{'equivalent_nodes_no_node'};
+$result_nodes{'equivalent_nodes_no_node'}{'structure'}{'node_next'} = $result_nodes{'equivalent_nodes_no_node'}{'structure'}{'menu_child'};
 
 $result_menus{'equivalent_nodes_no_node'} = {
   'cmdname' => 'node',
@@ -948,19 +955,23 @@ $result_menus{'equivalent_nodes_no_node'} = {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   },
-  'menu_child' => {
-    'cmdname' => 'node',
-    'extra' => {
-      'normalized' => 'node',
-      'spaces_before_argument' => ' '
-    },
-    'menu_up' => {},
-    'menu_up_hash' => {
-      'Top' => 1
+  'structure' => {
+    'menu_child' => {
+      'cmdname' => 'node',
+      'extra' => {
+        'normalized' => 'node',
+        'spaces_before_argument' => ' '
+      },
+      'structure' => {
+        'menu_up' => {},
+        'menu_up_hash' => {
+          'Top' => 1
+        }
+      }
     }
   }
 };
-$result_menus{'equivalent_nodes_no_node'}{'menu_child'}{'menu_up'} = $result_menus{'equivalent_nodes_no_node'};
+$result_menus{'equivalent_nodes_no_node'}{'structure'}{'menu_child'}{'structure'}{'menu_up'} = $result_menus{'equivalent_nodes_no_node'};
 
 $result_errors{'equivalent_nodes_no_node'} = [
   {

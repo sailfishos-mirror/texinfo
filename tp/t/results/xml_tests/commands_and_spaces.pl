@@ -1829,7 +1829,8 @@ $result_trees{'commands_and_spaces'} = {
         'line_nr' => 9,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     }
   ],
   'type' => 'document_root'
@@ -2209,31 +2210,33 @@ $result_nodes{'commands_and_spaces'} = {
     'normalized' => 'a',
     'spaces_before_argument' => ' '
   },
-  'node_next' => {
-    'extra' => {
-      'manual_content' => [
-        {
-          'text' => 'b'
-        }
-      ]
-    }
-  },
-  'node_prev' => {
-    'extra' => {
-      'manual_content' => [
-        {
-          'text' => 'c'
-        }
-      ]
-    }
-  },
-  'node_up' => {
-    'extra' => {
-      'manual_content' => [
-        {
-          'text' => 'd'
-        }
-      ]
+  'structure' => {
+    'node_next' => {
+      'extra' => {
+        'manual_content' => [
+          {
+            'text' => 'b'
+          }
+        ]
+      }
+    },
+    'node_prev' => {
+      'extra' => {
+        'manual_content' => [
+          {
+            'text' => 'c'
+          }
+        ]
+      }
+    },
+    'node_up' => {
+      'extra' => {
+        'manual_content' => [
+          {
+            'text' => 'd'
+          }
+        ]
+      }
     }
   }
 };
@@ -2243,7 +2246,8 @@ $result_menus{'commands_and_spaces'} = {
   'extra' => {
     'normalized' => 'a',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'commands_and_spaces'} = [

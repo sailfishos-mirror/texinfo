@@ -568,7 +568,8 @@ $result_trees{'formatting_fr'} = {
         'line_nr' => 10,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -2134,7 +2135,8 @@ $result_trees{'formatting_fr'} = {
         'line_nr' => 84,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -2540,7 +2542,8 @@ $result_trees{'formatting_fr'} = {
         'line_nr' => 99,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -2945,7 +2948,8 @@ $result_trees{'formatting_fr'} = {
         'line_nr' => 113,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -3239,7 +3243,8 @@ $result_trees{'formatting_fr'} = {
         'line_nr' => 123,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -3320,7 +3325,8 @@ $result_trees{'formatting_fr'} = {
         'line_nr' => 126,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -3402,7 +3408,8 @@ $result_trees{'formatting_fr'} = {
         'line_nr' => 129,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -4318,7 +4325,8 @@ $result_sectioning{'formatting_fr'} = {
               'isindex' => 1,
               'normalized' => 'Top',
               'spaces_before_argument' => ' '
-            }
+            },
+            'structure' => {}
           },
           'spaces_before_argument' => ' '
         },
@@ -4333,7 +4341,8 @@ $result_sectioning{'formatting_fr'} = {
                   'extra' => {
                     'normalized' => 'chapter',
                     'spaces_before_argument' => ' '
-                  }
+                  },
+                  'structure' => {}
                 },
                 'spaces_before_argument' => ' '
               },
@@ -4349,7 +4358,8 @@ $result_sectioning{'formatting_fr'} = {
                         'extra' => {
                           'normalized' => 's_002d_002dect_002cion',
                           'spaces_before_argument' => ' '
-                        }
+                        },
+                        'structure' => {}
                       },
                       'spaces_before_argument' => ' '
                     },
@@ -4365,7 +4375,8 @@ $result_sectioning{'formatting_fr'} = {
                               'extra' => {
                                 'normalized' => 'subsection',
                                 'spaces_before_argument' => ' '
-                              }
+                              },
+                              'structure' => {}
                             },
                             'spaces_before_argument' => ' '
                           },
@@ -4381,7 +4392,8 @@ $result_sectioning{'formatting_fr'} = {
                                     'extra' => {
                                       'normalized' => 'subsubsection-_0060_0060simple_002ddouble_002d_002d',
                                       'spaces_before_argument' => ' '
-                                    }
+                                    },
+                                    'structure' => {}
                                   },
                                   'spaces_before_argument' => ' '
                                 },
@@ -4399,7 +4411,8 @@ $result_sectioning{'formatting_fr'} = {
                                     'extra' => {
                                       'normalized' => 'subsubsection-three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027',
                                       'spaces_before_argument' => ' '
-                                    }
+                                    },
+                                    'structure' => {}
                                   },
                                   'spaces_before_argument' => ' '
                                 },
@@ -4433,7 +4446,8 @@ $result_sectioning{'formatting_fr'} = {
                     'isindex' => 1,
                     'normalized' => 'chapter2',
                     'spaces_before_argument' => ' '
-                  }
+                  },
+                  'structure' => {}
                 },
                 'spaces_before_argument' => ' '
               },
@@ -4482,44 +4496,6 @@ $result_nodes{'formatting_fr'} = {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   },
-  'menu_child' => {
-    'cmdname' => 'node',
-    'extra' => {
-      'associated_section' => {
-        'cmdname' => 'chapter',
-        'extra' => {
-          'spaces_before_argument' => ' '
-        },
-        'structure' => {
-          'level' => 1,
-          'number' => 1
-        }
-      },
-      'normalized' => 'chapter',
-      'spaces_before_argument' => ' '
-    },
-    'node_next' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'associated_section' => {
-          'cmdname' => 'centerchap',
-          'extra' => {
-            'spaces_before_argument' => ' '
-          },
-          'structure' => {
-            'level' => 1
-          }
-        },
-        'isindex' => 1,
-        'normalized' => 'chapter2',
-        'spaces_before_argument' => ' '
-      },
-      'node_prev' => {},
-      'node_up' => {}
-    },
-    'node_prev' => {},
-    'node_up' => {}
-  },
   'menus' => [
     {
       'cmdname' => 'menu',
@@ -4535,13 +4511,57 @@ $result_nodes{'formatting_fr'} = {
       }
     }
   ],
-  'node_next' => {}
+  'structure' => {
+    'menu_child' => {
+      'cmdname' => 'node',
+      'extra' => {
+        'associated_section' => {
+          'cmdname' => 'chapter',
+          'extra' => {
+            'spaces_before_argument' => ' '
+          },
+          'structure' => {
+            'level' => 1,
+            'number' => 1
+          }
+        },
+        'normalized' => 'chapter',
+        'spaces_before_argument' => ' '
+      },
+      'structure' => {
+        'node_next' => {
+          'cmdname' => 'node',
+          'extra' => {
+            'associated_section' => {
+              'cmdname' => 'centerchap',
+              'extra' => {
+                'spaces_before_argument' => ' '
+              },
+              'structure' => {
+                'level' => 1
+              }
+            },
+            'isindex' => 1,
+            'normalized' => 'chapter2',
+            'spaces_before_argument' => ' '
+          },
+          'structure' => {
+            'node_prev' => {},
+            'node_up' => {}
+          }
+        },
+        'node_prev' => {},
+        'node_up' => {}
+      }
+    },
+    'node_next' => {}
+  }
 };
-$result_nodes{'formatting_fr'}{'menu_child'}{'node_next'}{'node_prev'} = $result_nodes{'formatting_fr'}{'menu_child'};
-$result_nodes{'formatting_fr'}{'menu_child'}{'node_next'}{'node_up'} = $result_nodes{'formatting_fr'};
-$result_nodes{'formatting_fr'}{'menu_child'}{'node_prev'} = $result_nodes{'formatting_fr'};
-$result_nodes{'formatting_fr'}{'menu_child'}{'node_up'} = $result_nodes{'formatting_fr'};
-$result_nodes{'formatting_fr'}{'node_next'} = $result_nodes{'formatting_fr'}{'menu_child'};
+$result_nodes{'formatting_fr'}{'structure'}{'menu_child'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'formatting_fr'}{'structure'}{'menu_child'};
+$result_nodes{'formatting_fr'}{'structure'}{'menu_child'}{'structure'}{'node_next'}{'structure'}{'node_up'} = $result_nodes{'formatting_fr'};
+$result_nodes{'formatting_fr'}{'structure'}{'menu_child'}{'structure'}{'node_prev'} = $result_nodes{'formatting_fr'};
+$result_nodes{'formatting_fr'}{'structure'}{'menu_child'}{'structure'}{'node_up'} = $result_nodes{'formatting_fr'};
+$result_nodes{'formatting_fr'}{'structure'}{'node_next'} = $result_nodes{'formatting_fr'}{'structure'}{'menu_child'};
 
 $result_menus{'formatting_fr'} = {
   'cmdname' => 'node',
@@ -4550,34 +4570,40 @@ $result_menus{'formatting_fr'} = {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   },
-  'menu_child' => {
-    'cmdname' => 'node',
-    'extra' => {
-      'normalized' => 'chapter',
-      'spaces_before_argument' => ' '
-    },
-    'menu_next' => {
+  'structure' => {
+    'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'isindex' => 1,
-        'normalized' => 'chapter2',
+        'normalized' => 'chapter',
         'spaces_before_argument' => ' '
       },
-      'menu_prev' => {},
-      'menu_up' => {},
-      'menu_up_hash' => {
-        'Top' => 1
+      'structure' => {
+        'menu_next' => {
+          'cmdname' => 'node',
+          'extra' => {
+            'isindex' => 1,
+            'normalized' => 'chapter2',
+            'spaces_before_argument' => ' '
+          },
+          'structure' => {
+            'menu_prev' => {},
+            'menu_up' => {},
+            'menu_up_hash' => {
+              'Top' => 1
+            }
+          }
+        },
+        'menu_up' => {},
+        'menu_up_hash' => {
+          'Top' => 1
+        }
       }
-    },
-    'menu_up' => {},
-    'menu_up_hash' => {
-      'Top' => 1
     }
   }
 };
-$result_menus{'formatting_fr'}{'menu_child'}{'menu_next'}{'menu_prev'} = $result_menus{'formatting_fr'}{'menu_child'};
-$result_menus{'formatting_fr'}{'menu_child'}{'menu_next'}{'menu_up'} = $result_menus{'formatting_fr'};
-$result_menus{'formatting_fr'}{'menu_child'}{'menu_up'} = $result_menus{'formatting_fr'};
+$result_menus{'formatting_fr'}{'structure'}{'menu_child'}{'structure'}{'menu_next'}{'structure'}{'menu_prev'} = $result_menus{'formatting_fr'}{'structure'}{'menu_child'};
+$result_menus{'formatting_fr'}{'structure'}{'menu_child'}{'structure'}{'menu_next'}{'structure'}{'menu_up'} = $result_menus{'formatting_fr'};
+$result_menus{'formatting_fr'}{'structure'}{'menu_child'}{'structure'}{'menu_up'} = $result_menus{'formatting_fr'};
 
 $result_errors{'formatting_fr'} = [
   {

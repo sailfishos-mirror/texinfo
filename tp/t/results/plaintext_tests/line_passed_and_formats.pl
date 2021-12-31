@@ -2364,7 +2364,8 @@ $result_trees{'line_passed_and_formats'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     }
   ],
   'type' => 'document_root'
@@ -2943,16 +2944,6 @@ $result_nodes{'line_passed_and_formats'} = {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   },
-  'menu_child' => {
-    'extra' => {
-      'manual_content' => [
-        {
-          'text' => 'manual'
-        }
-      ],
-      'normalized' => 'node'
-    }
-  },
   'menus' => [
     {
       'cmdname' => 'menu',
@@ -2968,9 +2959,21 @@ $result_nodes{'line_passed_and_formats'} = {
       }
     }
   ],
-  'node_next' => {}
+  'structure' => {
+    'menu_child' => {
+      'extra' => {
+        'manual_content' => [
+          {
+            'text' => 'manual'
+          }
+        ],
+        'normalized' => 'node'
+      }
+    },
+    'node_next' => {}
+  }
 };
-$result_nodes{'line_passed_and_formats'}{'node_next'} = $result_nodes{'line_passed_and_formats'}{'menu_child'};
+$result_nodes{'line_passed_and_formats'}{'structure'}{'node_next'} = $result_nodes{'line_passed_and_formats'}{'structure'}{'menu_child'};
 
 $result_menus{'line_passed_and_formats'} = {
   'cmdname' => 'node',
@@ -2978,14 +2981,16 @@ $result_menus{'line_passed_and_formats'} = {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   },
-  'menu_child' => {
-    'extra' => {
-      'manual_content' => [
-        {
-          'text' => 'manual'
-        }
-      ],
-      'normalized' => 'node'
+  'structure' => {
+    'menu_child' => {
+      'extra' => {
+        'manual_content' => [
+          {
+            'text' => 'manual'
+          }
+        ],
+        'normalized' => 'node'
+      }
     }
   }
 };

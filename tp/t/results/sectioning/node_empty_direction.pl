@@ -56,7 +56,8 @@ $result_trees{'node_empty_direction'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     }
   ],
   'type' => 'document_root'
@@ -79,7 +80,8 @@ $result_nodes{'node_empty_direction'} = {
   'extra' => {
     'normalized' => 'name',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'node_empty_direction'} = {
@@ -87,7 +89,8 @@ $result_menus{'node_empty_direction'} = {
   'extra' => {
     'normalized' => 'name',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'node_empty_direction'} = [];

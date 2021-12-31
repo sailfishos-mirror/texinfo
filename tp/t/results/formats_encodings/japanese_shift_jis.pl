@@ -199,7 +199,8 @@ $result_trees{'japanese_shift_jis'} = {
         'line_nr' => 8,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -659,7 +660,8 @@ $result_trees{'japanese_shift_jis'} = {
         'line_nr' => 30,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -763,7 +765,8 @@ $result_trees{'japanese_shift_jis'} = {
         'line_nr' => 36,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -1033,7 +1036,8 @@ $result_sectioning{'japanese_shift_jis'} = {
             'extra' => {
               'normalized' => 'Top',
               'spaces_before_argument' => ' '
-            }
+            },
+            'structure' => {}
           },
           'spaces_before_argument' => ' '
         },
@@ -1048,7 +1052,8 @@ $result_sectioning{'japanese_shift_jis'} = {
                   'extra' => {
                     'normalized' => 'Preface',
                     'spaces_before_argument' => ' '
-                  }
+                  },
+                  'structure' => {}
                 },
                 'spaces_before_argument' => ' '
               },
@@ -1068,7 +1073,8 @@ $result_sectioning{'japanese_shift_jis'} = {
                   'extra' => {
                     'normalized' => 'Introduction',
                     'spaces_before_argument' => ' '
-                  }
+                  },
+                  'structure' => {}
                 },
                 'spaces_before_argument' => ' '
               },
@@ -1112,44 +1118,6 @@ $result_nodes{'japanese_shift_jis'} = {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   },
-  'menu_child' => {
-    'cmdname' => 'node',
-    'extra' => {
-      'associated_section' => {
-        'cmdname' => 'chapter',
-        'extra' => {
-          'spaces_before_argument' => ' '
-        },
-        'structure' => {
-          'level' => 1,
-          'number' => 1
-        }
-      },
-      'normalized' => 'Preface',
-      'spaces_before_argument' => ' '
-    },
-    'node_next' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'associated_section' => {
-          'cmdname' => 'chapter',
-          'extra' => {
-            'spaces_before_argument' => ' '
-          },
-          'structure' => {
-            'level' => 1,
-            'number' => 2
-          }
-        },
-        'normalized' => 'Introduction',
-        'spaces_before_argument' => ' '
-      },
-      'node_prev' => {},
-      'node_up' => {}
-    },
-    'node_prev' => {},
-    'node_up' => {}
-  },
   'menus' => [
     {
       'cmdname' => 'menu',
@@ -1165,13 +1133,57 @@ $result_nodes{'japanese_shift_jis'} = {
       }
     }
   ],
-  'node_next' => {}
+  'structure' => {
+    'menu_child' => {
+      'cmdname' => 'node',
+      'extra' => {
+        'associated_section' => {
+          'cmdname' => 'chapter',
+          'extra' => {
+            'spaces_before_argument' => ' '
+          },
+          'structure' => {
+            'level' => 1,
+            'number' => 1
+          }
+        },
+        'normalized' => 'Preface',
+        'spaces_before_argument' => ' '
+      },
+      'structure' => {
+        'node_next' => {
+          'cmdname' => 'node',
+          'extra' => {
+            'associated_section' => {
+              'cmdname' => 'chapter',
+              'extra' => {
+                'spaces_before_argument' => ' '
+              },
+              'structure' => {
+                'level' => 1,
+                'number' => 2
+              }
+            },
+            'normalized' => 'Introduction',
+            'spaces_before_argument' => ' '
+          },
+          'structure' => {
+            'node_prev' => {},
+            'node_up' => {}
+          }
+        },
+        'node_prev' => {},
+        'node_up' => {}
+      }
+    },
+    'node_next' => {}
+  }
 };
-$result_nodes{'japanese_shift_jis'}{'menu_child'}{'node_next'}{'node_prev'} = $result_nodes{'japanese_shift_jis'}{'menu_child'};
-$result_nodes{'japanese_shift_jis'}{'menu_child'}{'node_next'}{'node_up'} = $result_nodes{'japanese_shift_jis'};
-$result_nodes{'japanese_shift_jis'}{'menu_child'}{'node_prev'} = $result_nodes{'japanese_shift_jis'};
-$result_nodes{'japanese_shift_jis'}{'menu_child'}{'node_up'} = $result_nodes{'japanese_shift_jis'};
-$result_nodes{'japanese_shift_jis'}{'node_next'} = $result_nodes{'japanese_shift_jis'}{'menu_child'};
+$result_nodes{'japanese_shift_jis'}{'structure'}{'menu_child'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'japanese_shift_jis'}{'structure'}{'menu_child'};
+$result_nodes{'japanese_shift_jis'}{'structure'}{'menu_child'}{'structure'}{'node_next'}{'structure'}{'node_up'} = $result_nodes{'japanese_shift_jis'};
+$result_nodes{'japanese_shift_jis'}{'structure'}{'menu_child'}{'structure'}{'node_prev'} = $result_nodes{'japanese_shift_jis'};
+$result_nodes{'japanese_shift_jis'}{'structure'}{'menu_child'}{'structure'}{'node_up'} = $result_nodes{'japanese_shift_jis'};
+$result_nodes{'japanese_shift_jis'}{'structure'}{'node_next'} = $result_nodes{'japanese_shift_jis'}{'structure'}{'menu_child'};
 
 $result_menus{'japanese_shift_jis'} = {
   'cmdname' => 'node',
@@ -1179,33 +1191,39 @@ $result_menus{'japanese_shift_jis'} = {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   },
-  'menu_child' => {
-    'cmdname' => 'node',
-    'extra' => {
-      'normalized' => 'Preface',
-      'spaces_before_argument' => ' '
-    },
-    'menu_next' => {
+  'structure' => {
+    'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'Introduction',
+        'normalized' => 'Preface',
         'spaces_before_argument' => ' '
       },
-      'menu_prev' => {},
-      'menu_up' => {},
-      'menu_up_hash' => {
-        'Top' => 1
+      'structure' => {
+        'menu_next' => {
+          'cmdname' => 'node',
+          'extra' => {
+            'normalized' => 'Introduction',
+            'spaces_before_argument' => ' '
+          },
+          'structure' => {
+            'menu_prev' => {},
+            'menu_up' => {},
+            'menu_up_hash' => {
+              'Top' => 1
+            }
+          }
+        },
+        'menu_up' => {},
+        'menu_up_hash' => {
+          'Top' => 1
+        }
       }
-    },
-    'menu_up' => {},
-    'menu_up_hash' => {
-      'Top' => 1
     }
   }
 };
-$result_menus{'japanese_shift_jis'}{'menu_child'}{'menu_next'}{'menu_prev'} = $result_menus{'japanese_shift_jis'}{'menu_child'};
-$result_menus{'japanese_shift_jis'}{'menu_child'}{'menu_next'}{'menu_up'} = $result_menus{'japanese_shift_jis'};
-$result_menus{'japanese_shift_jis'}{'menu_child'}{'menu_up'} = $result_menus{'japanese_shift_jis'};
+$result_menus{'japanese_shift_jis'}{'structure'}{'menu_child'}{'structure'}{'menu_next'}{'structure'}{'menu_prev'} = $result_menus{'japanese_shift_jis'}{'structure'}{'menu_child'};
+$result_menus{'japanese_shift_jis'}{'structure'}{'menu_child'}{'structure'}{'menu_next'}{'structure'}{'menu_up'} = $result_menus{'japanese_shift_jis'};
+$result_menus{'japanese_shift_jis'}{'structure'}{'menu_child'}{'structure'}{'menu_up'} = $result_menus{'japanese_shift_jis'};
 
 $result_errors{'japanese_shift_jis'} = [
   {

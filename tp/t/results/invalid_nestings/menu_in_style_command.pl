@@ -204,7 +204,8 @@ $result_trees{'menu_in_style_command'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     }
   ],
   'type' => 'document_root'
@@ -260,15 +261,6 @@ $result_nodes{'menu_in_style_command'} = {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   },
-  'menu_child' => {
-    'extra' => {
-      'manual_content' => [
-        {
-          'text' => 'truc'
-        }
-      ]
-    }
-  },
   'menus' => [
     {
       'cmdname' => 'menu',
@@ -284,9 +276,20 @@ $result_nodes{'menu_in_style_command'} = {
       }
     }
   ],
-  'node_next' => {}
+  'structure' => {
+    'menu_child' => {
+      'extra' => {
+        'manual_content' => [
+          {
+            'text' => 'truc'
+          }
+        ]
+      }
+    },
+    'node_next' => {}
+  }
 };
-$result_nodes{'menu_in_style_command'}{'node_next'} = $result_nodes{'menu_in_style_command'}{'menu_child'};
+$result_nodes{'menu_in_style_command'}{'structure'}{'node_next'} = $result_nodes{'menu_in_style_command'}{'structure'}{'menu_child'};
 
 $result_menus{'menu_in_style_command'} = {
   'cmdname' => 'node',
@@ -294,13 +297,15 @@ $result_menus{'menu_in_style_command'} = {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   },
-  'menu_child' => {
-    'extra' => {
-      'manual_content' => [
-        {
-          'text' => 'truc'
-        }
-      ]
+  'structure' => {
+    'menu_child' => {
+      'extra' => {
+        'manual_content' => [
+          {
+            'text' => 'truc'
+          }
+        ]
+      }
     }
   }
 };

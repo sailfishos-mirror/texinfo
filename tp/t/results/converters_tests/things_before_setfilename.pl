@@ -950,7 +950,8 @@ $result_trees{'things_before_setfilename'} = {
         'line_nr' => 46,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -1370,7 +1371,8 @@ $result_sectioning{'things_before_setfilename'} = {
             'extra' => {
               'normalized' => 'Top',
               'spaces_before_argument' => ' '
-            }
+            },
+            'structure' => {}
           },
           'spaces_before_argument' => ' '
         },
@@ -1398,7 +1400,8 @@ $result_nodes{'things_before_setfilename'} = {
     },
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'things_before_setfilename'} = {
@@ -1406,7 +1409,8 @@ $result_menus{'things_before_setfilename'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'things_before_setfilename'} = [

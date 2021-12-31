@@ -802,7 +802,8 @@ $result_trees{'at_commands_in_raw'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     }
   ],
   'type' => 'document_root'
@@ -1008,7 +1009,8 @@ $result_nodes{'at_commands_in_raw'} = {
     'isindex' => 1,
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'at_commands_in_raw'} = {
@@ -1017,7 +1019,8 @@ $result_menus{'at_commands_in_raw'} = {
     'isindex' => 1,
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'at_commands_in_raw'} = [

@@ -147,7 +147,8 @@ $result_trees{'top_without_node_sections'} = [
           'line_nr' => 4,
           'macro' => ''
         },
-        'parent' => {}
+        'parent' => {},
+        'structure' => {}
       },
       {
         'args' => [
@@ -284,7 +285,8 @@ $result_sectioning{'top_without_node_sections'} = {
                   'extra' => {
                     'normalized' => 'second',
                     'spaces_before_argument' => ' '
-                  }
+                  },
+                  'structure' => {}
                 },
                 'spaces_before_argument' => ' '
               },
@@ -324,13 +326,16 @@ $result_nodes{'top_without_node_sections'} = {
     'normalized' => 'second',
     'spaces_before_argument' => ' '
   },
-  'node_up' => {
-    'extra' => {
-      'manual_content' => [
-        {
-          'text' => 'dir'
-        }
-      ]
+  'structure' => {
+    'node_up' => {
+      'extra' => {
+        'manual_content' => [
+          {
+            'text' => 'dir'
+          }
+        ]
+      },
+      'structure' => {}
     }
   }
 };
@@ -340,7 +345,8 @@ $result_menus{'top_without_node_sections'} = {
   'extra' => {
     'normalized' => 'second',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'top_without_node_sections'} = [];
@@ -372,7 +378,8 @@ $result_elements{'top_without_node_sections'} = [
               'extra' => {
                 'normalized' => 'second',
                 'spaces_before_argument' => ' '
-              }
+              },
+              'structure' => {}
             },
             'section' => {
               'cmdname' => 'chapter',

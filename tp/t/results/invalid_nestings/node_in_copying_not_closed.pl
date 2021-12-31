@@ -101,7 +101,8 @@ $result_trees{'node_in_copying_not_closed'} = {
         'line_nr' => 6,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -212,7 +213,8 @@ $result_sectioning{'node_in_copying_not_closed'} = {
             'extra' => {
               'normalized' => 'Top',
               'spaces_before_argument' => ' '
-            }
+            },
+            'structure' => {}
           },
           'spaces_before_argument' => ' '
         },
@@ -240,7 +242,8 @@ $result_nodes{'node_in_copying_not_closed'} = {
     },
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'node_in_copying_not_closed'} = {
@@ -248,7 +251,8 @@ $result_menus{'node_in_copying_not_closed'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'node_in_copying_not_closed'} = [

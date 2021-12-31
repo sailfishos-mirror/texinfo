@@ -83,7 +83,8 @@ $result_trees{'anchor_in_footnote_separate'} = {
         'line_nr' => 2,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -362,7 +363,8 @@ $result_trees{'anchor_in_footnote_separate'} = {
         'line_nr' => 13,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -554,7 +556,8 @@ $result_sectioning{'anchor_in_footnote_separate'} = {
             'extra' => {
               'normalized' => 'Top',
               'spaces_before_argument' => ' '
-            }
+            },
+            'structure' => {}
           },
           'spaces_before_argument' => ' '
         },
@@ -569,7 +572,8 @@ $result_sectioning{'anchor_in_footnote_separate'} = {
                   'extra' => {
                     'normalized' => 'chapter',
                     'spaces_before_argument' => ' '
-                  }
+                  },
+                  'structure' => {}
                 },
                 'spaces_before_argument' => ' '
               },
@@ -608,25 +612,6 @@ $result_nodes{'anchor_in_footnote_separate'} = {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   },
-  'menu_child' => {
-    'cmdname' => 'node',
-    'extra' => {
-      'associated_section' => {
-        'cmdname' => 'chapter',
-        'extra' => {
-          'spaces_before_argument' => ' '
-        },
-        'structure' => {
-          'level' => 1,
-          'number' => 1
-        }
-      },
-      'normalized' => 'chapter',
-      'spaces_before_argument' => ' '
-    },
-    'node_prev' => {},
-    'node_up' => {}
-  },
   'menus' => [
     {
       'cmdname' => 'menu',
@@ -642,11 +627,34 @@ $result_nodes{'anchor_in_footnote_separate'} = {
       }
     }
   ],
-  'node_next' => {}
+  'structure' => {
+    'menu_child' => {
+      'cmdname' => 'node',
+      'extra' => {
+        'associated_section' => {
+          'cmdname' => 'chapter',
+          'extra' => {
+            'spaces_before_argument' => ' '
+          },
+          'structure' => {
+            'level' => 1,
+            'number' => 1
+          }
+        },
+        'normalized' => 'chapter',
+        'spaces_before_argument' => ' '
+      },
+      'structure' => {
+        'node_prev' => {},
+        'node_up' => {}
+      }
+    },
+    'node_next' => {}
+  }
 };
-$result_nodes{'anchor_in_footnote_separate'}{'menu_child'}{'node_prev'} = $result_nodes{'anchor_in_footnote_separate'};
-$result_nodes{'anchor_in_footnote_separate'}{'menu_child'}{'node_up'} = $result_nodes{'anchor_in_footnote_separate'};
-$result_nodes{'anchor_in_footnote_separate'}{'node_next'} = $result_nodes{'anchor_in_footnote_separate'}{'menu_child'};
+$result_nodes{'anchor_in_footnote_separate'}{'structure'}{'menu_child'}{'structure'}{'node_prev'} = $result_nodes{'anchor_in_footnote_separate'};
+$result_nodes{'anchor_in_footnote_separate'}{'structure'}{'menu_child'}{'structure'}{'node_up'} = $result_nodes{'anchor_in_footnote_separate'};
+$result_nodes{'anchor_in_footnote_separate'}{'structure'}{'node_next'} = $result_nodes{'anchor_in_footnote_separate'}{'structure'}{'menu_child'};
 
 $result_menus{'anchor_in_footnote_separate'} = {
   'cmdname' => 'node',
@@ -654,19 +662,23 @@ $result_menus{'anchor_in_footnote_separate'} = {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   },
-  'menu_child' => {
-    'cmdname' => 'node',
-    'extra' => {
-      'normalized' => 'chapter',
-      'spaces_before_argument' => ' '
-    },
-    'menu_up' => {},
-    'menu_up_hash' => {
-      'Top' => 1
+  'structure' => {
+    'menu_child' => {
+      'cmdname' => 'node',
+      'extra' => {
+        'normalized' => 'chapter',
+        'spaces_before_argument' => ' '
+      },
+      'structure' => {
+        'menu_up' => {},
+        'menu_up_hash' => {
+          'Top' => 1
+        }
+      }
     }
   }
 };
-$result_menus{'anchor_in_footnote_separate'}{'menu_child'}{'menu_up'} = $result_menus{'anchor_in_footnote_separate'};
+$result_menus{'anchor_in_footnote_separate'}{'structure'}{'menu_child'}{'structure'}{'menu_up'} = $result_menus{'anchor_in_footnote_separate'};
 
 $result_errors{'anchor_in_footnote_separate'} = [];
 

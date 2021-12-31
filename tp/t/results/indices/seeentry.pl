@@ -87,7 +87,8 @@ $result_trees{'seeentry'} = {
         'line_nr' => 3,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -161,7 +162,8 @@ $result_trees{'seeentry'} = {
         'line_nr' => 6,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -671,7 +673,8 @@ $result_sectioning{'seeentry'} = {
             'extra' => {
               'normalized' => 'Top',
               'spaces_before_argument' => ' '
-            }
+            },
+            'structure' => {}
           }
         },
         'structure' => {
@@ -686,7 +689,8 @@ $result_sectioning{'seeentry'} = {
                     'isindex' => 1,
                     'normalized' => 'chapter-index',
                     'spaces_before_argument' => ' '
-                  }
+                  },
+                  'structure' => {}
                 },
                 'spaces_before_argument' => ' '
               },
@@ -723,36 +727,41 @@ $result_nodes{'seeentry'} = {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   },
-  'node_next' => {
-    'cmdname' => 'node',
-    'extra' => {
-      'associated_section' => {
-        'cmdname' => 'chapter',
-        'extra' => {
-          'spaces_before_argument' => ' '
+  'structure' => {
+    'node_next' => {
+      'cmdname' => 'node',
+      'extra' => {
+        'associated_section' => {
+          'cmdname' => 'chapter',
+          'extra' => {
+            'spaces_before_argument' => ' '
+          },
+          'structure' => {
+            'level' => 1,
+            'number' => 1
+          }
         },
-        'structure' => {
-          'level' => 1,
-          'number' => 1
-        }
+        'isindex' => 1,
+        'normalized' => 'chapter-index',
+        'spaces_before_argument' => ' '
       },
-      'isindex' => 1,
-      'normalized' => 'chapter-index',
-      'spaces_before_argument' => ' '
-    },
-    'node_prev' => {},
-    'node_up' => {}
+      'structure' => {
+        'node_prev' => {},
+        'node_up' => {}
+      }
+    }
   }
 };
-$result_nodes{'seeentry'}{'node_next'}{'node_prev'} = $result_nodes{'seeentry'};
-$result_nodes{'seeentry'}{'node_next'}{'node_up'} = $result_nodes{'seeentry'};
+$result_nodes{'seeentry'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'seeentry'};
+$result_nodes{'seeentry'}{'structure'}{'node_next'}{'structure'}{'node_up'} = $result_nodes{'seeentry'};
 
 $result_menus{'seeentry'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'seeentry'} = [];

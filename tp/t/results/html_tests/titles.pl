@@ -167,7 +167,8 @@ $result_trees{'titles'} = {
         'line_nr' => 4,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -368,7 +369,8 @@ $result_sectioning{'titles'} = {
             'extra' => {
               'normalized' => 'Top',
               'spaces_before_argument' => ' '
-            }
+            },
+            'structure' => {}
           },
           'spaces_before_argument' => ' '
         },
@@ -396,7 +398,8 @@ $result_nodes{'titles'} = {
     },
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'titles'} = {
@@ -404,7 +407,8 @@ $result_menus{'titles'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'titles'} = [];

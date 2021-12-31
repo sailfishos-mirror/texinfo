@@ -51,7 +51,8 @@ $result_trees{'top_no_argument_and_node'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -109,7 +110,8 @@ $result_sectioning{'top_no_argument_and_node'} = {
             'extra' => {
               'normalized' => 'start',
               'spaces_before_argument' => ' '
-            }
+            },
+            'structure' => {}
           }
         },
         'structure' => {
@@ -134,7 +136,8 @@ $result_nodes{'top_no_argument_and_node'} = {
     },
     'normalized' => 'start',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'top_no_argument_and_node'} = {
@@ -142,7 +145,8 @@ $result_menus{'top_no_argument_and_node'} = {
   'extra' => {
     'normalized' => 'start',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'top_no_argument_and_node'} = [];

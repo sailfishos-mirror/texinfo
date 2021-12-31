@@ -304,7 +304,8 @@ $result_trees{'backslash_in_arg'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     }
   ],
   'type' => 'document_root'
@@ -379,7 +380,8 @@ $result_nodes{'backslash_in_arg'} = {
     'isindex' => 1,
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'backslash_in_arg'} = {
@@ -388,7 +390,8 @@ $result_menus{'backslash_in_arg'} = {
     'isindex' => 1,
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'backslash_in_arg'} = [];

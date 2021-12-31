@@ -173,7 +173,8 @@ $result_trees{'image_text_lines_count'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     }
   ],
   'type' => 'document_root'
@@ -224,7 +225,8 @@ $result_nodes{'image_text_lines_count'} = {
     'isindex' => 1,
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'image_text_lines_count'} = {
@@ -233,7 +235,8 @@ $result_menus{'image_text_lines_count'} = {
     'isindex' => 1,
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'image_text_lines_count'} = [];

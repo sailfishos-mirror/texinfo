@@ -551,7 +551,8 @@ $result_trees{'printindex_merged_indices_code_style'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     }
   ],
   'type' => 'document_root'
@@ -679,7 +680,8 @@ $result_nodes{'printindex_merged_indices_code_style'} = {
     'isindex' => 1,
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'printindex_merged_indices_code_style'} = {
@@ -688,7 +690,8 @@ $result_menus{'printindex_merged_indices_code_style'} = {
     'isindex' => 1,
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'printindex_merged_indices_code_style'} = [];

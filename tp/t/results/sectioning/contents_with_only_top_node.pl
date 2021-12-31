@@ -82,7 +82,8 @@ $result_trees{'contents_with_only_top_node'} = {
         'line_nr' => 2,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     }
   ],
   'type' => 'document_root'
@@ -114,7 +115,8 @@ $result_nodes{'contents_with_only_top_node'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'contents_with_only_top_node'} = {
@@ -122,7 +124,8 @@ $result_menus{'contents_with_only_top_node'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'contents_with_only_top_node'} = [];

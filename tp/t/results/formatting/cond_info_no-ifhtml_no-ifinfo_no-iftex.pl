@@ -305,7 +305,8 @@ $result_trees{'cond_info_no-ifhtml_no-ifinfo_no-iftex'} = {
         'line_nr' => 4,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -417,7 +418,8 @@ $result_nodes{'cond_info_no-ifhtml_no-ifinfo_no-iftex'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'cond_info_no-ifhtml_no-ifinfo_no-iftex'} = {
@@ -425,7 +427,8 @@ $result_menus{'cond_info_no-ifhtml_no-ifinfo_no-iftex'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'cond_info_no-ifhtml_no-ifinfo_no-iftex'} = [];

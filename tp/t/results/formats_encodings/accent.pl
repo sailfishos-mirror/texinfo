@@ -51,7 +51,8 @@ $result_trees{'accent'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -3133,7 +3134,8 @@ $result_sectioning{'accent'} = {
             'extra' => {
               'normalized' => 'Top-node',
               'spaces_before_argument' => ' '
-            }
+            },
+            'structure' => {}
           },
           'spaces_before_argument' => ' '
         },
@@ -3161,7 +3163,8 @@ $result_nodes{'accent'} = {
     },
     'normalized' => 'Top-node',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'accent'} = {
@@ -3169,7 +3172,8 @@ $result_menus{'accent'} = {
   'extra' => {
     'normalized' => 'Top-node',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'accent'} = [];

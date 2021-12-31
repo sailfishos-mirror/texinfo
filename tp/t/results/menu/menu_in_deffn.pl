@@ -313,7 +313,8 @@ $result_trees{'menu_in_deffn'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     }
   ],
   'type' => 'document_root'
@@ -385,7 +386,8 @@ $result_nodes{'menu_in_deffn'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'menu_in_deffn'} = {
@@ -393,7 +395,8 @@ $result_menus{'menu_in_deffn'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'menu_in_deffn'} = [

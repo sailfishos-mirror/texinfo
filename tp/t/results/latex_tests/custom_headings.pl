@@ -263,7 +263,8 @@ $result_trees{'custom_headings'} = {
         'line_nr' => 6,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -343,7 +344,8 @@ $result_trees{'custom_headings'} = {
         'line_nr' => 9,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -966,7 +968,8 @@ $result_sectioning{'custom_headings'} = {
             'extra' => {
               'normalized' => 'Top',
               'spaces_before_argument' => ' '
-            }
+            },
+            'structure' => {}
           },
           'spaces_before_argument' => ' '
         },
@@ -981,7 +984,8 @@ $result_sectioning{'custom_headings'} = {
                   'extra' => {
                     'normalized' => 'chapter',
                     'spaces_before_argument' => ' '
-                  }
+                  },
+                  'structure' => {}
                 },
                 'spaces_before_argument' => ' '
               },
@@ -1070,35 +1074,40 @@ $result_nodes{'custom_headings'} = {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   },
-  'node_next' => {
-    'cmdname' => 'node',
-    'extra' => {
-      'associated_section' => {
-        'cmdname' => 'chapter',
-        'extra' => {
-          'spaces_before_argument' => ' '
+  'structure' => {
+    'node_next' => {
+      'cmdname' => 'node',
+      'extra' => {
+        'associated_section' => {
+          'cmdname' => 'chapter',
+          'extra' => {
+            'spaces_before_argument' => ' '
+          },
+          'structure' => {
+            'level' => 1,
+            'number' => 1
+          }
         },
-        'structure' => {
-          'level' => 1,
-          'number' => 1
-        }
+        'normalized' => 'chapter',
+        'spaces_before_argument' => ' '
       },
-      'normalized' => 'chapter',
-      'spaces_before_argument' => ' '
-    },
-    'node_prev' => {},
-    'node_up' => {}
+      'structure' => {
+        'node_prev' => {},
+        'node_up' => {}
+      }
+    }
   }
 };
-$result_nodes{'custom_headings'}{'node_next'}{'node_prev'} = $result_nodes{'custom_headings'};
-$result_nodes{'custom_headings'}{'node_next'}{'node_up'} = $result_nodes{'custom_headings'};
+$result_nodes{'custom_headings'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'custom_headings'};
+$result_nodes{'custom_headings'}{'structure'}{'node_next'}{'structure'}{'node_up'} = $result_nodes{'custom_headings'};
 
 $result_menus{'custom_headings'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'custom_headings'} = [];

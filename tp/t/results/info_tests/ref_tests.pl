@@ -526,7 +526,8 @@ $result_trees{'ref_tests'} = {
         'line_nr' => 2,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     }
   ],
   'type' => 'document_root'
@@ -655,7 +656,8 @@ $result_nodes{'ref_tests'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'ref_tests'} = {
@@ -663,7 +665,8 @@ $result_menus{'ref_tests'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'ref_tests'} = [];

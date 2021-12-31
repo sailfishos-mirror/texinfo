@@ -98,7 +98,8 @@ $result_trees{'split_test_before_first_node_no_empty_line'} = {
         'line_nr' => 4,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -311,7 +312,8 @@ $result_trees{'split_test_before_first_node_no_empty_line'} = {
         'line_nr' => 13,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -471,7 +473,8 @@ $result_sectioning{'split_test_before_first_node_no_empty_line'} = {
             'extra' => {
               'normalized' => 'Top',
               'spaces_before_argument' => ' '
-            }
+            },
+            'structure' => {}
           },
           'spaces_before_argument' => ' '
         },
@@ -486,7 +489,8 @@ $result_sectioning{'split_test_before_first_node_no_empty_line'} = {
                   'extra' => {
                     'normalized' => 'chap1',
                     'spaces_before_argument' => ' '
-                  }
+                  },
+                  'structure' => {}
                 },
                 'spaces_before_argument' => ' '
               },
@@ -525,25 +529,6 @@ $result_nodes{'split_test_before_first_node_no_empty_line'} = {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   },
-  'menu_child' => {
-    'cmdname' => 'node',
-    'extra' => {
-      'associated_section' => {
-        'cmdname' => 'chapter',
-        'extra' => {
-          'spaces_before_argument' => ' '
-        },
-        'structure' => {
-          'level' => 1,
-          'number' => 1
-        }
-      },
-      'normalized' => 'chap1',
-      'spaces_before_argument' => ' '
-    },
-    'node_prev' => {},
-    'node_up' => {}
-  },
   'menus' => [
     {
       'cmdname' => 'menu',
@@ -559,11 +544,34 @@ $result_nodes{'split_test_before_first_node_no_empty_line'} = {
       }
     }
   ],
-  'node_next' => {}
+  'structure' => {
+    'menu_child' => {
+      'cmdname' => 'node',
+      'extra' => {
+        'associated_section' => {
+          'cmdname' => 'chapter',
+          'extra' => {
+            'spaces_before_argument' => ' '
+          },
+          'structure' => {
+            'level' => 1,
+            'number' => 1
+          }
+        },
+        'normalized' => 'chap1',
+        'spaces_before_argument' => ' '
+      },
+      'structure' => {
+        'node_prev' => {},
+        'node_up' => {}
+      }
+    },
+    'node_next' => {}
+  }
 };
-$result_nodes{'split_test_before_first_node_no_empty_line'}{'menu_child'}{'node_prev'} = $result_nodes{'split_test_before_first_node_no_empty_line'};
-$result_nodes{'split_test_before_first_node_no_empty_line'}{'menu_child'}{'node_up'} = $result_nodes{'split_test_before_first_node_no_empty_line'};
-$result_nodes{'split_test_before_first_node_no_empty_line'}{'node_next'} = $result_nodes{'split_test_before_first_node_no_empty_line'}{'menu_child'};
+$result_nodes{'split_test_before_first_node_no_empty_line'}{'structure'}{'menu_child'}{'structure'}{'node_prev'} = $result_nodes{'split_test_before_first_node_no_empty_line'};
+$result_nodes{'split_test_before_first_node_no_empty_line'}{'structure'}{'menu_child'}{'structure'}{'node_up'} = $result_nodes{'split_test_before_first_node_no_empty_line'};
+$result_nodes{'split_test_before_first_node_no_empty_line'}{'structure'}{'node_next'} = $result_nodes{'split_test_before_first_node_no_empty_line'}{'structure'}{'menu_child'};
 
 $result_menus{'split_test_before_first_node_no_empty_line'} = {
   'cmdname' => 'node',
@@ -571,19 +579,23 @@ $result_menus{'split_test_before_first_node_no_empty_line'} = {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   },
-  'menu_child' => {
-    'cmdname' => 'node',
-    'extra' => {
-      'normalized' => 'chap1',
-      'spaces_before_argument' => ' '
-    },
-    'menu_up' => {},
-    'menu_up_hash' => {
-      'Top' => 1
+  'structure' => {
+    'menu_child' => {
+      'cmdname' => 'node',
+      'extra' => {
+        'normalized' => 'chap1',
+        'spaces_before_argument' => ' '
+      },
+      'structure' => {
+        'menu_up' => {},
+        'menu_up_hash' => {
+          'Top' => 1
+        }
+      }
     }
   }
 };
-$result_menus{'split_test_before_first_node_no_empty_line'}{'menu_child'}{'menu_up'} = $result_menus{'split_test_before_first_node_no_empty_line'};
+$result_menus{'split_test_before_first_node_no_empty_line'}{'structure'}{'menu_child'}{'structure'}{'menu_up'} = $result_menus{'split_test_before_first_node_no_empty_line'};
 
 $result_errors{'split_test_before_first_node_no_empty_line'} = [];
 

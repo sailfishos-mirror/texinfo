@@ -87,7 +87,8 @@ $result_trees{'unnumbered_top_without_node_sections'} = [
           'line_nr' => 1,
           'macro' => ''
         },
-        'parent' => {}
+        'parent' => {},
+        'structure' => {}
       },
       {
         'args' => [
@@ -292,7 +293,8 @@ $result_trees{'unnumbered_top_without_node_sections'} = [
           'line_nr' => 9,
           'macro' => ''
         },
-        'parent' => {}
+        'parent' => {},
+        'structure' => {}
       },
       {
         'args' => [
@@ -454,7 +456,8 @@ $result_sectioning{'unnumbered_top_without_node_sections'} = {
             'extra' => {
               'normalized' => 'a-node',
               'spaces_before_argument' => ' '
-            }
+            },
+            'structure' => {}
           },
           'spaces_before_argument' => ' '
         },
@@ -483,7 +486,8 @@ $result_sectioning{'unnumbered_top_without_node_sections'} = {
             'extra' => {
               'normalized' => 'second',
               'spaces_before_argument' => ' '
-            }
+            },
+            'structure' => {}
           },
           'spaces_before_argument' => ' '
         },
@@ -523,13 +527,16 @@ $result_nodes{'unnumbered_top_without_node_sections'} = {
     'normalized' => 'a-node',
     'spaces_before_argument' => ' '
   },
-  'node_up' => {
-    'extra' => {
-      'manual_content' => [
-        {
-          'text' => 'dir'
-        }
-      ]
+  'structure' => {
+    'node_up' => {
+      'extra' => {
+        'manual_content' => [
+          {
+            'text' => 'dir'
+          }
+        ]
+      },
+      'structure' => {}
     }
   }
 };
@@ -539,7 +546,8 @@ $result_menus{'unnumbered_top_without_node_sections'} = {
   'extra' => {
     'normalized' => 'a-node',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'unnumbered_top_without_node_sections'} = [
@@ -575,7 +583,8 @@ $result_elements{'unnumbered_top_without_node_sections'} = [
         'extra' => {
           'normalized' => 'a-node',
           'spaces_before_argument' => ' '
-        }
+        },
+        'structure' => {}
       },
       'section' => {
         'cmdname' => 'unnumbered',
@@ -614,7 +623,8 @@ $result_elements{'unnumbered_top_without_node_sections'} = [
                     'extra' => {
                       'normalized' => 'second',
                       'spaces_before_argument' => ' '
-                    }
+                    },
+                    'structure' => {}
                   },
                   'section' => {
                     'cmdname' => 'chapter',

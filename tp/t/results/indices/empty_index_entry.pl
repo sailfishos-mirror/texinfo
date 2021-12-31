@@ -210,7 +210,8 @@ $result_trees{'empty_index_entry'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     }
   ],
   'type' => 'document_root'
@@ -260,7 +261,8 @@ $result_nodes{'empty_index_entry'} = {
     'isindex' => 1,
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'empty_index_entry'} = {
@@ -269,7 +271,8 @@ $result_menus{'empty_index_entry'} = {
     'isindex' => 1,
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'empty_index_entry'} = [

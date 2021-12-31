@@ -3038,7 +3038,8 @@ $result_trees{'test_image'} = {
         'line_nr' => 12,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     }
   ],
   'type' => 'document_root'
@@ -3627,7 +3628,8 @@ $result_nodes{'test_image'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'test_image'} = {
@@ -3635,7 +3637,8 @@ $result_menus{'test_image'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'test_image'} = [

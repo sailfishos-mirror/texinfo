@@ -851,7 +851,7 @@ sub process_footnotes($;$)
                                      {'text' => '-Footnotes'}];
       my $footnotes_node = {
         'cmdname' => 'node',
-        'node_up' => $element->{'extra'}->{'node'},
+        'structure' => {'node_up' => $element->{'extra'}->{'node'}},
         'extra' => {'node_content' => $node_contents }
       };
       $result .= $self->format_node($footnotes_node);

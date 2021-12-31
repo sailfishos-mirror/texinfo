@@ -368,7 +368,8 @@ $result_trees{'empty_ref_arg'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     }
   ],
   'type' => 'document_root'
@@ -453,7 +454,8 @@ $result_nodes{'empty_ref_arg'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'empty_ref_arg'} = {
@@ -461,7 +463,8 @@ $result_menus{'empty_ref_arg'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'empty_ref_arg'} = [

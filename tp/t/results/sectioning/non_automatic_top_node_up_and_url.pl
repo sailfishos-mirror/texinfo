@@ -229,7 +229,8 @@ $result_trees{'non_automatic_top_node_up_and_url'} = [
           'line_nr' => 1,
           'macro' => ''
         },
-        'parent' => {}
+        'parent' => {},
+        'structure' => {}
       },
       {
         'args' => [
@@ -542,7 +543,8 @@ $result_trees{'non_automatic_top_node_up_and_url'} = [
           'line_nr' => 8,
           'macro' => ''
         },
-        'parent' => {}
+        'parent' => {},
+        'structure' => {}
       }
     ],
     'extra' => {
@@ -670,7 +672,8 @@ $result_sectioning{'non_automatic_top_node_up_and_url'} = {
             'extra' => {
               'normalized' => 'Top',
               'spaces_before_argument' => ' '
-            }
+            },
+            'structure' => {}
           },
           'spaces_before_argument' => ' '
         },
@@ -699,14 +702,6 @@ $result_nodes{'non_automatic_top_node_up_and_url'} = {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   },
-  'menu_child' => {
-    'cmdname' => 'node',
-    'extra' => {
-      'normalized' => 'first',
-      'spaces_before_argument' => ' '
-    },
-    'node_prev' => {}
-  },
   'menus' => [
     {
       'cmdname' => 'menu',
@@ -722,10 +717,22 @@ $result_nodes{'non_automatic_top_node_up_and_url'} = {
       }
     }
   ],
-  'node_next' => {}
+  'structure' => {
+    'menu_child' => {
+      'cmdname' => 'node',
+      'extra' => {
+        'normalized' => 'first',
+        'spaces_before_argument' => ' '
+      },
+      'structure' => {
+        'node_prev' => {}
+      }
+    },
+    'node_next' => {}
+  }
 };
-$result_nodes{'non_automatic_top_node_up_and_url'}{'menu_child'}{'node_prev'} = $result_nodes{'non_automatic_top_node_up_and_url'};
-$result_nodes{'non_automatic_top_node_up_and_url'}{'node_next'} = $result_nodes{'non_automatic_top_node_up_and_url'}{'menu_child'};
+$result_nodes{'non_automatic_top_node_up_and_url'}{'structure'}{'menu_child'}{'structure'}{'node_prev'} = $result_nodes{'non_automatic_top_node_up_and_url'};
+$result_nodes{'non_automatic_top_node_up_and_url'}{'structure'}{'node_next'} = $result_nodes{'non_automatic_top_node_up_and_url'}{'structure'}{'menu_child'};
 
 $result_menus{'non_automatic_top_node_up_and_url'} = {
   'cmdname' => 'node',
@@ -733,19 +740,23 @@ $result_menus{'non_automatic_top_node_up_and_url'} = {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   },
-  'menu_child' => {
-    'cmdname' => 'node',
-    'extra' => {
-      'normalized' => 'first',
-      'spaces_before_argument' => ' '
-    },
-    'menu_up' => {},
-    'menu_up_hash' => {
-      'Top' => 1
+  'structure' => {
+    'menu_child' => {
+      'cmdname' => 'node',
+      'extra' => {
+        'normalized' => 'first',
+        'spaces_before_argument' => ' '
+      },
+      'structure' => {
+        'menu_up' => {},
+        'menu_up_hash' => {
+          'Top' => 1
+        }
+      }
     }
   }
 };
-$result_menus{'non_automatic_top_node_up_and_url'}{'menu_child'}{'menu_up'} = $result_menus{'non_automatic_top_node_up_and_url'};
+$result_menus{'non_automatic_top_node_up_and_url'}{'structure'}{'menu_child'}{'structure'}{'menu_up'} = $result_menus{'non_automatic_top_node_up_and_url'};
 
 $result_errors{'non_automatic_top_node_up_and_url'} = [
   {
@@ -790,15 +801,19 @@ $result_elements{'non_automatic_top_node_up_and_url'} = [
           'normalized' => 'Top',
           'spaces_before_argument' => ' '
         },
-        'menu_child' => {
-          'cmdname' => 'node',
-          'extra' => {
-            'normalized' => 'first',
-            'spaces_before_argument' => ' '
-          },
-          'menu_up' => {},
-          'menu_up_hash' => {
-            'Top' => 1
+        'structure' => {
+          'menu_child' => {
+            'cmdname' => 'node',
+            'extra' => {
+              'normalized' => 'first',
+              'spaces_before_argument' => ' '
+            },
+            'structure' => {
+              'menu_up' => {},
+              'menu_up_hash' => {
+                'Top' => 1
+              }
+            }
           }
         }
       },
@@ -840,10 +855,10 @@ $result_elements{'non_automatic_top_node_up_and_url'} = [
   },
   {}
 ];
-$result_elements{'non_automatic_top_node_up_and_url'}[0]{'extra'}{'node'}{'menu_child'}{'menu_up'} = $result_elements{'non_automatic_top_node_up_and_url'}[0]{'extra'}{'node'};
+$result_elements{'non_automatic_top_node_up_and_url'}[0]{'extra'}{'node'}{'structure'}{'menu_child'}{'structure'}{'menu_up'} = $result_elements{'non_automatic_top_node_up_and_url'}[0]{'extra'}{'node'};
 $result_elements{'non_automatic_top_node_up_and_url'}[0]{'extra'}{'unit_command'} = $result_elements{'non_automatic_top_node_up_and_url'}[0]{'extra'}{'node'};
-$result_elements{'non_automatic_top_node_up_and_url'}[0]{'structure'}{'directions'}{'Forward'}{'extra'}{'node'} = $result_elements{'non_automatic_top_node_up_and_url'}[0]{'extra'}{'node'}{'menu_child'};
-$result_elements{'non_automatic_top_node_up_and_url'}[0]{'structure'}{'directions'}{'Forward'}{'extra'}{'unit_command'} = $result_elements{'non_automatic_top_node_up_and_url'}[0]{'extra'}{'node'}{'menu_child'};
+$result_elements{'non_automatic_top_node_up_and_url'}[0]{'structure'}{'directions'}{'Forward'}{'extra'}{'node'} = $result_elements{'non_automatic_top_node_up_and_url'}[0]{'extra'}{'node'}{'structure'}{'menu_child'};
+$result_elements{'non_automatic_top_node_up_and_url'}[0]{'structure'}{'directions'}{'Forward'}{'extra'}{'unit_command'} = $result_elements{'non_automatic_top_node_up_and_url'}[0]{'extra'}{'node'}{'structure'}{'menu_child'};
 $result_elements{'non_automatic_top_node_up_and_url'}[0]{'structure'}{'directions'}{'Forward'}{'structure'}{'directions'}{'Back'} = $result_elements{'non_automatic_top_node_up_and_url'}[0];
 $result_elements{'non_automatic_top_node_up_and_url'}[0]{'structure'}{'directions'}{'Forward'}{'structure'}{'directions'}{'FastBack'} = $result_elements{'non_automatic_top_node_up_and_url'}[0];
 $result_elements{'non_automatic_top_node_up_and_url'}[0]{'structure'}{'directions'}{'Forward'}{'structure'}{'directions'}{'NodeBack'} = $result_elements{'non_automatic_top_node_up_and_url'}[0];

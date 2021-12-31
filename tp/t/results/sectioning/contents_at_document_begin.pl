@@ -134,7 +134,8 @@ $result_trees{'contents_at_document_begin'} = {
         'line_nr' => 7,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -295,7 +296,8 @@ $result_sectioning{'contents_at_document_begin'} = {
             'extra' => {
               'normalized' => 'Top',
               'spaces_before_argument' => ' '
-            }
+            },
+            'structure' => {}
           },
           'spaces_before_argument' => ' '
         },
@@ -341,7 +343,8 @@ $result_nodes{'contents_at_document_begin'} = {
     },
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'contents_at_document_begin'} = {
@@ -349,7 +352,8 @@ $result_menus{'contents_at_document_begin'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'contents_at_document_begin'} = [];

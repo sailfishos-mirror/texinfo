@@ -79,7 +79,8 @@ $result_trees{'node_in_copying'} = {
         'line_nr' => 2,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     }
   ],
   'type' => 'document_root'
@@ -109,7 +110,8 @@ $result_nodes{'node_in_copying'} = {
   'extra' => {
     'normalized' => 'node',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'node_in_copying'} = {
@@ -117,7 +119,8 @@ $result_menus{'node_in_copying'} = {
   'extra' => {
     'normalized' => 'node',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'node_in_copying'} = [

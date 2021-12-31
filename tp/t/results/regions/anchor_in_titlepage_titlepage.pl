@@ -235,7 +235,8 @@ $result_trees{'anchor_in_titlepage_titlepage'} = {
         'line_nr' => 7,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     }
   ],
   'type' => 'document_root'
@@ -316,7 +317,8 @@ $result_nodes{'anchor_in_titlepage_titlepage'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'anchor_in_titlepage_titlepage'} = {
@@ -324,7 +326,8 @@ $result_menus{'anchor_in_titlepage_titlepage'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'anchor_in_titlepage_titlepage'} = [];

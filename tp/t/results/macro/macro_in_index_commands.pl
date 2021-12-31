@@ -893,7 +893,8 @@ $result_trees{'macro_in_index_commands'} = {
         'line_nr' => 36,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     }
   ],
   'type' => 'document_root'
@@ -1099,7 +1100,8 @@ $result_nodes{'macro_in_index_commands'} = {
     'isindex' => 1,
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'macro_in_index_commands'} = {
@@ -1108,7 +1110,8 @@ $result_menus{'macro_in_index_commands'} = {
     'isindex' => 1,
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'macro_in_index_commands'} = [

@@ -193,7 +193,8 @@ $result_trees{'comment_on_menu_line'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -267,7 +268,8 @@ $result_trees{'comment_on_menu_line'} = {
         'line_nr' => 8,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     }
   ],
   'type' => 'document_root'
@@ -337,7 +339,8 @@ $result_sectioning{'comment_on_menu_line'} = {
             'extra' => {
               'normalized' => 'Top',
               'spaces_before_argument' => ' '
-            }
+            },
+            'structure' => {}
           },
           'spaces_before_argument' => ' '
         },
@@ -368,15 +371,6 @@ $result_nodes{'comment_on_menu_line'} = {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   },
-  'menu_child' => {
-    'cmdname' => 'node',
-    'extra' => {
-      'normalized' => 'first',
-      'spaces_before_argument' => ' '
-    },
-    'node_prev' => {},
-    'node_up' => {}
-  },
   'menus' => [
     {
       'cmdname' => 'menu',
@@ -393,11 +387,24 @@ $result_nodes{'comment_on_menu_line'} = {
       }
     }
   ],
-  'node_next' => {}
+  'structure' => {
+    'menu_child' => {
+      'cmdname' => 'node',
+      'extra' => {
+        'normalized' => 'first',
+        'spaces_before_argument' => ' '
+      },
+      'structure' => {
+        'node_prev' => {},
+        'node_up' => {}
+      }
+    },
+    'node_next' => {}
+  }
 };
-$result_nodes{'comment_on_menu_line'}{'menu_child'}{'node_prev'} = $result_nodes{'comment_on_menu_line'};
-$result_nodes{'comment_on_menu_line'}{'menu_child'}{'node_up'} = $result_nodes{'comment_on_menu_line'};
-$result_nodes{'comment_on_menu_line'}{'node_next'} = $result_nodes{'comment_on_menu_line'}{'menu_child'};
+$result_nodes{'comment_on_menu_line'}{'structure'}{'menu_child'}{'structure'}{'node_prev'} = $result_nodes{'comment_on_menu_line'};
+$result_nodes{'comment_on_menu_line'}{'structure'}{'menu_child'}{'structure'}{'node_up'} = $result_nodes{'comment_on_menu_line'};
+$result_nodes{'comment_on_menu_line'}{'structure'}{'node_next'} = $result_nodes{'comment_on_menu_line'}{'structure'}{'menu_child'};
 
 $result_menus{'comment_on_menu_line'} = {
   'cmdname' => 'node',
@@ -405,19 +412,23 @@ $result_menus{'comment_on_menu_line'} = {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   },
-  'menu_child' => {
-    'cmdname' => 'node',
-    'extra' => {
-      'normalized' => 'first',
-      'spaces_before_argument' => ' '
-    },
-    'menu_up' => {},
-    'menu_up_hash' => {
-      'Top' => 1
+  'structure' => {
+    'menu_child' => {
+      'cmdname' => 'node',
+      'extra' => {
+        'normalized' => 'first',
+        'spaces_before_argument' => ' '
+      },
+      'structure' => {
+        'menu_up' => {},
+        'menu_up_hash' => {
+          'Top' => 1
+        }
+      }
     }
   }
 };
-$result_menus{'comment_on_menu_line'}{'menu_child'}{'menu_up'} = $result_menus{'comment_on_menu_line'};
+$result_menus{'comment_on_menu_line'}{'structure'}{'menu_child'}{'structure'}{'menu_up'} = $result_menus{'comment_on_menu_line'};
 
 $result_errors{'comment_on_menu_line'} = [];
 

@@ -1648,7 +1648,8 @@ $result_trees{'codequoteundirected_codequotebacktick'} = {
         'line_nr' => 39,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -5124,7 +5125,8 @@ $result_sectioning{'codequoteundirected_codequotebacktick'} = {
             'extra' => {
               'normalized' => 'Top',
               'spaces_before_argument' => ' '
-            }
+            },
+            'structure' => {}
           },
           'spaces_before_argument' => ' '
         },
@@ -5152,7 +5154,8 @@ $result_nodes{'codequoteundirected_codequotebacktick'} = {
     },
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'codequoteundirected_codequotebacktick'} = {
@@ -5160,7 +5163,8 @@ $result_menus{'codequoteundirected_codequotebacktick'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'codequoteundirected_codequotebacktick'} = [

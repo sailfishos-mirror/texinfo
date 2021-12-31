@@ -309,7 +309,8 @@ $result_trees{'anchor_in_copying_in_footnote'} = {
         'line_nr' => 10,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     }
   ],
   'type' => 'document_root'
@@ -392,7 +393,8 @@ $result_nodes{'anchor_in_copying_in_footnote'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'anchor_in_copying_in_footnote'} = {
@@ -400,7 +402,8 @@ $result_menus{'anchor_in_copying_in_footnote'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'anchor_in_copying_in_footnote'} = [];

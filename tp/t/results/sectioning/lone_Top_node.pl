@@ -211,7 +211,8 @@ $result_trees{'lone_Top_node'} = [
           'line_nr' => 3,
           'macro' => ''
         },
-        'parent' => {}
+        'parent' => {},
+        'structure' => {}
       },
       {
         'args' => [
@@ -252,7 +253,8 @@ $result_trees{'lone_Top_node'} = [
           'line_nr' => 9,
           'macro' => ''
         },
-        'parent' => {}
+        'parent' => {},
+        'structure' => {}
       },
       {
         'args' => [
@@ -371,7 +373,8 @@ $result_sectioning{'lone_Top_node'} = {
             'extra' => {
               'normalized' => 'First',
               'spaces_before_argument' => ' '
-            }
+            },
+            'structure' => {}
           },
           'spaces_before_argument' => ' '
         },
@@ -392,25 +395,6 @@ $result_nodes{'lone_Top_node'} = {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   },
-  'menu_child' => {
-    'cmdname' => 'node',
-    'extra' => {
-      'associated_section' => {
-        'cmdname' => 'chapter',
-        'extra' => {
-          'spaces_before_argument' => ' '
-        },
-        'structure' => {
-          'level' => 1,
-          'number' => 1
-        }
-      },
-      'normalized' => 'First',
-      'spaces_before_argument' => ' '
-    },
-    'node_prev' => {},
-    'node_up' => {}
-  },
   'menus' => [
     {
       'cmdname' => 'menu',
@@ -426,11 +410,34 @@ $result_nodes{'lone_Top_node'} = {
       }
     }
   ],
-  'node_next' => {}
+  'structure' => {
+    'menu_child' => {
+      'cmdname' => 'node',
+      'extra' => {
+        'associated_section' => {
+          'cmdname' => 'chapter',
+          'extra' => {
+            'spaces_before_argument' => ' '
+          },
+          'structure' => {
+            'level' => 1,
+            'number' => 1
+          }
+        },
+        'normalized' => 'First',
+        'spaces_before_argument' => ' '
+      },
+      'structure' => {
+        'node_prev' => {},
+        'node_up' => {}
+      }
+    },
+    'node_next' => {}
+  }
 };
-$result_nodes{'lone_Top_node'}{'menu_child'}{'node_prev'} = $result_nodes{'lone_Top_node'};
-$result_nodes{'lone_Top_node'}{'menu_child'}{'node_up'} = $result_nodes{'lone_Top_node'};
-$result_nodes{'lone_Top_node'}{'node_next'} = $result_nodes{'lone_Top_node'}{'menu_child'};
+$result_nodes{'lone_Top_node'}{'structure'}{'menu_child'}{'structure'}{'node_prev'} = $result_nodes{'lone_Top_node'};
+$result_nodes{'lone_Top_node'}{'structure'}{'menu_child'}{'structure'}{'node_up'} = $result_nodes{'lone_Top_node'};
+$result_nodes{'lone_Top_node'}{'structure'}{'node_next'} = $result_nodes{'lone_Top_node'}{'structure'}{'menu_child'};
 
 $result_menus{'lone_Top_node'} = {
   'cmdname' => 'node',
@@ -438,19 +445,23 @@ $result_menus{'lone_Top_node'} = {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   },
-  'menu_child' => {
-    'cmdname' => 'node',
-    'extra' => {
-      'normalized' => 'First',
-      'spaces_before_argument' => ' '
-    },
-    'menu_up' => {},
-    'menu_up_hash' => {
-      'Top' => 1
+  'structure' => {
+    'menu_child' => {
+      'cmdname' => 'node',
+      'extra' => {
+        'normalized' => 'First',
+        'spaces_before_argument' => ' '
+      },
+      'structure' => {
+        'menu_up' => {},
+        'menu_up_hash' => {
+          'Top' => 1
+        }
+      }
     }
   }
 };
-$result_menus{'lone_Top_node'}{'menu_child'}{'menu_up'} = $result_menus{'lone_Top_node'};
+$result_menus{'lone_Top_node'}{'structure'}{'menu_child'}{'structure'}{'menu_up'} = $result_menus{'lone_Top_node'};
 
 $result_errors{'lone_Top_node'} = [
   {
@@ -477,16 +488,20 @@ $result_elements{'lone_Top_node'} = [
           'normalized' => 'First',
           'spaces_before_argument' => ' '
         },
-        'menu_up' => {
-          'cmdname' => 'node',
-          'extra' => {
-            'normalized' => 'Top',
-            'spaces_before_argument' => ' '
+        'structure' => {
+          'menu_up' => {
+            'cmdname' => 'node',
+            'extra' => {
+              'normalized' => 'Top',
+              'spaces_before_argument' => ' '
+            },
+            'structure' => {
+              'menu_child' => {}
+            }
           },
-          'menu_child' => {}
-        },
-        'menu_up_hash' => {
-          'Top' => 1
+          'menu_up_hash' => {
+            'Top' => 1
+          }
         }
       },
       'section' => {
@@ -511,7 +526,7 @@ $result_elements{'lone_Top_node'} = [
     'type' => 'unit'
   }
 ];
-$result_elements{'lone_Top_node'}[0]{'extra'}{'node'}{'menu_up'}{'menu_child'} = $result_elements{'lone_Top_node'}[0]{'extra'}{'node'};
+$result_elements{'lone_Top_node'}[0]{'extra'}{'node'}{'structure'}{'menu_up'}{'structure'}{'menu_child'} = $result_elements{'lone_Top_node'}[0]{'extra'}{'node'};
 $result_elements{'lone_Top_node'}[0]{'extra'}{'unit_command'} = $result_elements{'lone_Top_node'}[0]{'extra'}{'section'};
 $result_elements{'lone_Top_node'}[0]{'structure'}{'directions'}{'NodePrev'} = $result_elements{'lone_Top_node'}[0];
 $result_elements{'lone_Top_node'}[0]{'structure'}{'directions'}{'NodeUp'} = $result_elements{'lone_Top_node'}[0];

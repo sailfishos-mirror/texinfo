@@ -262,7 +262,8 @@ $result_trees{'novalidate'} = {
         'line_nr' => 4,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     }
   ],
   'type' => 'document_root'
@@ -348,9 +349,11 @@ $result_nodes{'novalidate'} = {
       }
     }
   ],
-  'node_next' => {
-    'extra' => {
-      'normalized' => 'unknown-node'
+  'structure' => {
+    'node_next' => {
+      'extra' => {
+        'normalized' => 'unknown-node'
+      }
     }
   }
 };
@@ -360,7 +363,8 @@ $result_menus{'novalidate'} = {
   'extra' => {
     'normalized' => 'first',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'novalidate'} = [];

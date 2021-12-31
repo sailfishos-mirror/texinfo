@@ -87,7 +87,8 @@ $result_trees{'float_and_refs'} = {
         'line_nr' => 3,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -167,7 +168,8 @@ $result_trees{'float_and_refs'} = {
         'line_nr' => 6,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -2262,7 +2264,8 @@ $result_sectioning{'float_and_refs'} = {
             'extra' => {
               'normalized' => 'Top',
               'spaces_before_argument' => ' '
-            }
+            },
+            'structure' => {}
           },
           'spaces_before_argument' => ' '
         },
@@ -2277,7 +2280,8 @@ $result_sectioning{'float_and_refs'} = {
                   'extra' => {
                     'normalized' => 'chapter',
                     'spaces_before_argument' => ' '
-                  }
+                  },
+                  'structure' => {}
                 },
                 'spaces_before_argument' => ' '
               },
@@ -2352,35 +2356,40 @@ $result_nodes{'float_and_refs'} = {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   },
-  'node_next' => {
-    'cmdname' => 'node',
-    'extra' => {
-      'associated_section' => {
-        'cmdname' => 'chapter',
-        'extra' => {
-          'spaces_before_argument' => ' '
+  'structure' => {
+    'node_next' => {
+      'cmdname' => 'node',
+      'extra' => {
+        'associated_section' => {
+          'cmdname' => 'chapter',
+          'extra' => {
+            'spaces_before_argument' => ' '
+          },
+          'structure' => {
+            'level' => 1,
+            'number' => 1
+          }
         },
-        'structure' => {
-          'level' => 1,
-          'number' => 1
-        }
+        'normalized' => 'chapter',
+        'spaces_before_argument' => ' '
       },
-      'normalized' => 'chapter',
-      'spaces_before_argument' => ' '
-    },
-    'node_prev' => {},
-    'node_up' => {}
+      'structure' => {
+        'node_prev' => {},
+        'node_up' => {}
+      }
+    }
   }
 };
-$result_nodes{'float_and_refs'}{'node_next'}{'node_prev'} = $result_nodes{'float_and_refs'};
-$result_nodes{'float_and_refs'}{'node_next'}{'node_up'} = $result_nodes{'float_and_refs'};
+$result_nodes{'float_and_refs'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'float_and_refs'};
+$result_nodes{'float_and_refs'}{'structure'}{'node_next'}{'structure'}{'node_up'} = $result_nodes{'float_and_refs'};
 
 $result_menus{'float_and_refs'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'float_and_refs'} = [];

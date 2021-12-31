@@ -117,7 +117,8 @@ $result_trees{'indices'} = {
         'line_nr' => 5,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -198,7 +199,8 @@ $result_trees{'indices'} = {
         'line_nr' => 8,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -1238,7 +1240,8 @@ $result_sectioning{'indices'} = {
             'extra' => {
               'normalized' => 'Top',
               'spaces_before_argument' => ' '
-            }
+            },
+            'structure' => {}
           },
           'spaces_before_argument' => ' '
         },
@@ -1254,7 +1257,8 @@ $result_sectioning{'indices'} = {
                     'isindex' => 1,
                     'normalized' => 'chapter',
                     'spaces_before_argument' => ' '
-                  }
+                  },
+                  'structure' => {}
                 },
                 'spaces_before_argument' => ' '
               },
@@ -1293,36 +1297,41 @@ $result_nodes{'indices'} = {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   },
-  'node_next' => {
-    'cmdname' => 'node',
-    'extra' => {
-      'associated_section' => {
-        'cmdname' => 'chapter',
-        'extra' => {
-          'spaces_before_argument' => ' '
+  'structure' => {
+    'node_next' => {
+      'cmdname' => 'node',
+      'extra' => {
+        'associated_section' => {
+          'cmdname' => 'chapter',
+          'extra' => {
+            'spaces_before_argument' => ' '
+          },
+          'structure' => {
+            'level' => 1,
+            'number' => 1
+          }
         },
-        'structure' => {
-          'level' => 1,
-          'number' => 1
-        }
+        'isindex' => 1,
+        'normalized' => 'chapter',
+        'spaces_before_argument' => ' '
       },
-      'isindex' => 1,
-      'normalized' => 'chapter',
-      'spaces_before_argument' => ' '
-    },
-    'node_prev' => {},
-    'node_up' => {}
+      'structure' => {
+        'node_prev' => {},
+        'node_up' => {}
+      }
+    }
   }
 };
-$result_nodes{'indices'}{'node_next'}{'node_prev'} = $result_nodes{'indices'};
-$result_nodes{'indices'}{'node_next'}{'node_up'} = $result_nodes{'indices'};
+$result_nodes{'indices'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'indices'};
+$result_nodes{'indices'}{'structure'}{'node_next'}{'structure'}{'node_up'} = $result_nodes{'indices'};
 
 $result_menus{'indices'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'indices'} = [

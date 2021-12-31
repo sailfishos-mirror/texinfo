@@ -59,7 +59,8 @@ $result_trees{'punctuation_in_line_commands'} = {
         'line_nr' => 2,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -1053,7 +1054,8 @@ $result_sectioning{'punctuation_in_line_commands'} = {
               'isindex' => 1,
               'normalized' => 'node_0021-After-punc',
               'spaces_before_argument' => ' '
-            }
+            },
+            'structure' => {}
           },
           'spaces_before_argument' => ' '
         },
@@ -1082,7 +1084,8 @@ $result_nodes{'punctuation_in_line_commands'} = {
     'isindex' => 1,
     'normalized' => 'node_0021-After-punc',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'punctuation_in_line_commands'} = {
@@ -1091,7 +1094,8 @@ $result_menus{'punctuation_in_line_commands'} = {
     'isindex' => 1,
     'normalized' => 'node_0021-After-punc',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'punctuation_in_line_commands'} = [];

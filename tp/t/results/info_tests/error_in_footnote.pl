@@ -409,7 +409,8 @@ $result_trees{'error_in_footnote'} = {
         'line_nr' => 2,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     }
   ],
   'type' => 'document_root'
@@ -508,7 +509,8 @@ $result_nodes{'error_in_footnote'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'error_in_footnote'} = {
@@ -516,7 +518,8 @@ $result_menus{'error_in_footnote'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'error_in_footnote'} = [

@@ -126,7 +126,8 @@ $result_trees{'section_before_after_top_node_last_node'} = {
         'line_nr' => 5,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -263,7 +264,8 @@ $result_trees{'section_before_after_top_node_last_node'} = {
         'line_nr' => 12,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     }
   ],
   'type' => 'document_root'
@@ -350,7 +352,8 @@ $result_sectioning{'section_before_after_top_node_last_node'} = {
             'extra' => {
               'normalized' => 'Top',
               'spaces_before_argument' => ' '
-            }
+            },
+            'structure' => {}
           },
           'spaces_before_argument' => ' '
         },
@@ -402,23 +405,28 @@ $result_nodes{'section_before_after_top_node_last_node'} = {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   },
-  'node_next' => {
-    'cmdname' => 'node',
-    'extra' => {
-      'normalized' => 'node-after',
-      'spaces_before_argument' => ' '
-    },
-    'node_prev' => {}
+  'structure' => {
+    'node_next' => {
+      'cmdname' => 'node',
+      'extra' => {
+        'normalized' => 'node-after',
+        'spaces_before_argument' => ' '
+      },
+      'structure' => {
+        'node_prev' => {}
+      }
+    }
   }
 };
-$result_nodes{'section_before_after_top_node_last_node'}{'node_next'}{'node_prev'} = $result_nodes{'section_before_after_top_node_last_node'};
+$result_nodes{'section_before_after_top_node_last_node'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'section_before_after_top_node_last_node'};
 
 $result_menus{'section_before_after_top_node_last_node'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'section_before_after_top_node_last_node'} = [

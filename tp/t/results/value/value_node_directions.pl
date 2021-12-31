@@ -151,7 +151,8 @@ $result_trees{'value_node_directions'} = {
         'line_nr' => 3,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -304,7 +305,8 @@ $result_trees{'value_node_directions'} = {
         'line_nr' => 7,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -437,7 +439,8 @@ $result_trees{'value_node_directions'} = {
         'line_nr' => 10,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -580,7 +583,8 @@ $result_sectioning{'value_node_directions'} = {
             'extra' => {
               'normalized' => 'Top',
               'spaces_before_argument' => ' '
-            }
+            },
+            'structure' => {}
           },
           'spaces_before_argument' => ' '
         },
@@ -595,7 +599,8 @@ $result_sectioning{'value_node_directions'} = {
                   'extra' => {
                     'normalized' => 'bar',
                     'spaces_before_argument' => ' '
-                  }
+                  },
+                  'structure' => {}
                 },
                 'spaces_before_argument' => ' '
               },
@@ -615,7 +620,8 @@ $result_sectioning{'value_node_directions'} = {
                   'extra' => {
                     'normalized' => 'BarFoo',
                     'spaces_before_argument' => ' '
-                  }
+                  },
+                  'structure' => {}
                 },
                 'spaces_before_argument' => ' '
               },
@@ -659,22 +665,7 @@ $result_nodes{'value_node_directions'} = {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   },
-  'node_next' => {
-    'cmdname' => 'node',
-    'extra' => {
-      'associated_section' => {
-        'cmdname' => 'chapter',
-        'extra' => {
-          'spaces_before_argument' => ' '
-        },
-        'structure' => {
-          'level' => 1,
-          'number' => 1
-        }
-      },
-      'normalized' => 'bar',
-      'spaces_before_argument' => ' '
-    },
+  'structure' => {
     'node_next' => {
       'cmdname' => 'node',
       'extra' => {
@@ -685,24 +676,63 @@ $result_nodes{'value_node_directions'} = {
           },
           'structure' => {
             'level' => 1,
-            'number' => 2
+            'number' => 1
           }
         },
-        'normalized' => 'BarFoo',
+        'normalized' => 'bar',
         'spaces_before_argument' => ' '
       },
-      'node_prev' => {},
-      'node_up' => {
-        'extra' => {
-          'manual_content' => [
-            {
-              'text' => 'dir'
+      'structure' => {
+        'node_next' => {
+          'cmdname' => 'node',
+          'extra' => {
+            'associated_section' => {
+              'cmdname' => 'chapter',
+              'extra' => {
+                'spaces_before_argument' => ' '
+              },
+              'structure' => {
+                'level' => 1,
+                'number' => 2
+              }
+            },
+            'normalized' => 'BarFoo',
+            'spaces_before_argument' => ' '
+          },
+          'structure' => {
+            'node_prev' => {},
+            'node_up' => {
+              'extra' => {
+                'manual_content' => [
+                  {
+                    'text' => 'dir'
+                  }
+                ]
+              }
             }
-          ]
+          }
+        },
+        'node_prev' => {},
+        'node_up' => {
+          'extra' => {
+            'manual_content' => [
+              {
+                'text' => 'dir'
+              }
+            ]
+          }
         }
       }
     },
-    'node_prev' => {},
+    'node_prev' => {
+      'extra' => {
+        'manual_content' => [
+          {
+            'text' => 'dir'
+          }
+        ]
+      }
+    },
     'node_up' => {
       'extra' => {
         'manual_content' => [
@@ -712,35 +742,18 @@ $result_nodes{'value_node_directions'} = {
         ]
       }
     }
-  },
-  'node_prev' => {
-    'extra' => {
-      'manual_content' => [
-        {
-          'text' => 'dir'
-        }
-      ]
-    }
-  },
-  'node_up' => {
-    'extra' => {
-      'manual_content' => [
-        {
-          'text' => 'dir'
-        }
-      ]
-    }
   }
 };
-$result_nodes{'value_node_directions'}{'node_next'}{'node_next'}{'node_prev'} = $result_nodes{'value_node_directions'}{'node_next'};
-$result_nodes{'value_node_directions'}{'node_next'}{'node_prev'} = $result_nodes{'value_node_directions'};
+$result_nodes{'value_node_directions'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'value_node_directions'}{'structure'}{'node_next'};
+$result_nodes{'value_node_directions'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'value_node_directions'};
 
 $result_menus{'value_node_directions'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'value_node_directions'} = [];

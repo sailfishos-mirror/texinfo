@@ -455,9 +455,9 @@ sub format_node($$)
   }
   $self->{'count_context'}->[-1]->{'bytes'} += $byte_count;
   $result .= $pre_quote . $node_text . $post_quote;
-  foreach my $direction(@directions) {
-    if ($node->{'node_'.lc($direction)}) {
-      my $node_direction = $node->{'node_'.lc($direction)};
+  foreach my $direction (@directions) {
+    if ($node->{'structure'}->{'node_'.lc($direction)}) {
+      my $node_direction = $node->{'structure'}->{'node_'.lc($direction)};
       my $text = ",  $direction: ";
       $self->add_text_count($text);
       $result .= $text;

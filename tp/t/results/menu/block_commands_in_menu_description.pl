@@ -51,7 +51,8 @@ $result_trees{'block_commands_in_menu_description'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -735,7 +736,8 @@ $result_sectioning{'block_commands_in_menu_description'} = {
             'extra' => {
               'normalized' => 'Top',
               'spaces_before_argument' => ' '
-            }
+            },
+            'structure' => {}
           },
           'spaces_before_argument' => ' '
         },
@@ -764,15 +766,6 @@ $result_nodes{'block_commands_in_menu_description'} = {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   },
-  'menu_child' => {
-    'extra' => {
-      'manual_content' => [
-        {
-          'text' => 'manual'
-        }
-      ]
-    }
-  },
   'menus' => [
     {
       'cmdname' => 'menu',
@@ -788,9 +781,20 @@ $result_nodes{'block_commands_in_menu_description'} = {
       }
     }
   ],
-  'node_next' => {}
+  'structure' => {
+    'menu_child' => {
+      'extra' => {
+        'manual_content' => [
+          {
+            'text' => 'manual'
+          }
+        ]
+      }
+    },
+    'node_next' => {}
+  }
 };
-$result_nodes{'block_commands_in_menu_description'}{'node_next'} = $result_nodes{'block_commands_in_menu_description'}{'menu_child'};
+$result_nodes{'block_commands_in_menu_description'}{'structure'}{'node_next'} = $result_nodes{'block_commands_in_menu_description'}{'structure'}{'menu_child'};
 
 $result_menus{'block_commands_in_menu_description'} = {
   'cmdname' => 'node',
@@ -798,13 +802,15 @@ $result_menus{'block_commands_in_menu_description'} = {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   },
-  'menu_child' => {
-    'extra' => {
-      'manual_content' => [
-        {
-          'text' => 'manual'
-        }
-      ]
+  'structure' => {
+    'menu_child' => {
+      'extra' => {
+        'manual_content' => [
+          {
+            'text' => 'manual'
+          }
+        ]
+      }
     }
   }
 };

@@ -908,7 +908,8 @@ $result_trees{'complex_recursive_synindex'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     }
   ],
   'type' => 'document_root'
@@ -1094,7 +1095,8 @@ $result_nodes{'complex_recursive_synindex'} = {
     'isindex' => 1,
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'complex_recursive_synindex'} = {
@@ -1103,7 +1105,8 @@ $result_menus{'complex_recursive_synindex'} = {
     'isindex' => 1,
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'complex_recursive_synindex'} = [

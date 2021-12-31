@@ -315,7 +315,8 @@ $result_trees{'spaces_in_empty_node_names'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -364,7 +365,8 @@ $result_trees{'spaces_in_empty_node_names'} = {
         'line_nr' => 9,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -430,7 +432,8 @@ $result_trees{'spaces_in_empty_node_names'} = {
         'line_nr' => 11,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -672,7 +675,8 @@ $result_trees{'spaces_in_empty_node_names'} = {
         'line_nr' => 13,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     }
   ],
   'type' => 'document_root'
@@ -831,7 +835,8 @@ $result_nodes{'spaces_in_empty_node_names'} = {
         }
       }
     }
-  ]
+  ],
+  'structure' => {}
 };
 
 $result_menus{'spaces_in_empty_node_names'} = {
@@ -839,7 +844,8 @@ $result_menus{'spaces_in_empty_node_names'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'spaces_in_empty_node_names'} = [

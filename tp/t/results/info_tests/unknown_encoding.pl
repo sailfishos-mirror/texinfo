@@ -100,7 +100,8 @@ $result_trees{'unknown_encoding'} = {
         'line_nr' => 4,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     }
   ],
   'type' => 'document_root'
@@ -136,7 +137,8 @@ $result_nodes{'unknown_encoding'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'unknown_encoding'} = {
@@ -144,7 +146,8 @@ $result_menus{'unknown_encoding'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'unknown_encoding'} = [

@@ -514,7 +514,8 @@ $result_trees{'direntry_dircategory_info_split'} = {
         'line_nr' => 19,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -888,7 +889,8 @@ $result_trees{'direntry_dircategory_info_split'} = {
         'line_nr' => 32,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -1182,7 +1184,8 @@ $result_sectioning{'direntry_dircategory_info_split'} = {
             'extra' => {
               'normalized' => 'Top',
               'spaces_before_argument' => ' '
-            }
+            },
+            'structure' => {}
           },
           'spaces_before_argument' => ' '
         },
@@ -1197,7 +1200,8 @@ $result_sectioning{'direntry_dircategory_info_split'} = {
                   'extra' => {
                     'normalized' => 'chapter',
                     'spaces_before_argument' => ' '
-                  }
+                  },
+                  'structure' => {}
                 },
                 'spaces_before_argument' => ' '
               },
@@ -1236,25 +1240,6 @@ $result_nodes{'direntry_dircategory_info_split'} = {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   },
-  'menu_child' => {
-    'cmdname' => 'node',
-    'extra' => {
-      'associated_section' => {
-        'cmdname' => 'chapter',
-        'extra' => {
-          'spaces_before_argument' => ' '
-        },
-        'structure' => {
-          'level' => 1,
-          'number' => 1
-        }
-      },
-      'normalized' => 'chapter',
-      'spaces_before_argument' => ' '
-    },
-    'node_prev' => {},
-    'node_up' => {}
-  },
   'menus' => [
     {
       'cmdname' => 'menu',
@@ -1270,11 +1255,34 @@ $result_nodes{'direntry_dircategory_info_split'} = {
       }
     }
   ],
-  'node_next' => {}
+  'structure' => {
+    'menu_child' => {
+      'cmdname' => 'node',
+      'extra' => {
+        'associated_section' => {
+          'cmdname' => 'chapter',
+          'extra' => {
+            'spaces_before_argument' => ' '
+          },
+          'structure' => {
+            'level' => 1,
+            'number' => 1
+          }
+        },
+        'normalized' => 'chapter',
+        'spaces_before_argument' => ' '
+      },
+      'structure' => {
+        'node_prev' => {},
+        'node_up' => {}
+      }
+    },
+    'node_next' => {}
+  }
 };
-$result_nodes{'direntry_dircategory_info_split'}{'menu_child'}{'node_prev'} = $result_nodes{'direntry_dircategory_info_split'};
-$result_nodes{'direntry_dircategory_info_split'}{'menu_child'}{'node_up'} = $result_nodes{'direntry_dircategory_info_split'};
-$result_nodes{'direntry_dircategory_info_split'}{'node_next'} = $result_nodes{'direntry_dircategory_info_split'}{'menu_child'};
+$result_nodes{'direntry_dircategory_info_split'}{'structure'}{'menu_child'}{'structure'}{'node_prev'} = $result_nodes{'direntry_dircategory_info_split'};
+$result_nodes{'direntry_dircategory_info_split'}{'structure'}{'menu_child'}{'structure'}{'node_up'} = $result_nodes{'direntry_dircategory_info_split'};
+$result_nodes{'direntry_dircategory_info_split'}{'structure'}{'node_next'} = $result_nodes{'direntry_dircategory_info_split'}{'structure'}{'menu_child'};
 
 $result_menus{'direntry_dircategory_info_split'} = {
   'cmdname' => 'node',
@@ -1282,19 +1290,23 @@ $result_menus{'direntry_dircategory_info_split'} = {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   },
-  'menu_child' => {
-    'cmdname' => 'node',
-    'extra' => {
-      'normalized' => 'chapter',
-      'spaces_before_argument' => ' '
-    },
-    'menu_up' => {},
-    'menu_up_hash' => {
-      'Top' => 1
+  'structure' => {
+    'menu_child' => {
+      'cmdname' => 'node',
+      'extra' => {
+        'normalized' => 'chapter',
+        'spaces_before_argument' => ' '
+      },
+      'structure' => {
+        'menu_up' => {},
+        'menu_up_hash' => {
+          'Top' => 1
+        }
+      }
     }
   }
 };
-$result_menus{'direntry_dircategory_info_split'}{'menu_child'}{'menu_up'} = $result_menus{'direntry_dircategory_info_split'};
+$result_menus{'direntry_dircategory_info_split'}{'structure'}{'menu_child'}{'structure'}{'menu_up'} = $result_menus{'direntry_dircategory_info_split'};
 
 $result_errors{'direntry_dircategory_info_split'} = [
   {

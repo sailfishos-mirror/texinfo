@@ -2234,7 +2234,8 @@ $result_trees{'test_allowcodebreaks'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     }
   ],
   'type' => 'document_root'
@@ -2691,7 +2692,8 @@ $result_nodes{'test_allowcodebreaks'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'test_allowcodebreaks'} = {
@@ -2699,7 +2701,8 @@ $result_menus{'test_allowcodebreaks'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'test_allowcodebreaks'} = [];

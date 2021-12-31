@@ -210,7 +210,8 @@ $result_trees{'node_referenced_in_ref'} = {
                     'line_nr' => 11,
                     'macro' => ''
                   },
-                  'parent' => {}
+                  'parent' => {},
+                  'structure' => {}
                 },
                 'node_argument' => {
                   'node_content' => [
@@ -262,7 +263,8 @@ $result_trees{'node_referenced_in_ref'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -310,7 +312,8 @@ $result_trees{'node_referenced_in_ref'} = {
         'line_nr' => 9,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {}
   ],
@@ -389,15 +392,6 @@ $result_nodes{'node_referenced_in_ref'} = {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   },
-  'menu_child' => {
-    'cmdname' => 'node',
-    'extra' => {
-      'normalized' => 'first-level-node',
-      'spaces_before_argument' => ' '
-    },
-    'node_prev' => {},
-    'node_up' => {}
-  },
   'menus' => [
     {
       'cmdname' => 'menu',
@@ -413,11 +407,24 @@ $result_nodes{'node_referenced_in_ref'} = {
       }
     }
   ],
-  'node_next' => {}
+  'structure' => {
+    'menu_child' => {
+      'cmdname' => 'node',
+      'extra' => {
+        'normalized' => 'first-level-node',
+        'spaces_before_argument' => ' '
+      },
+      'structure' => {
+        'node_prev' => {},
+        'node_up' => {}
+      }
+    },
+    'node_next' => {}
+  }
 };
-$result_nodes{'node_referenced_in_ref'}{'menu_child'}{'node_prev'} = $result_nodes{'node_referenced_in_ref'};
-$result_nodes{'node_referenced_in_ref'}{'menu_child'}{'node_up'} = $result_nodes{'node_referenced_in_ref'};
-$result_nodes{'node_referenced_in_ref'}{'node_next'} = $result_nodes{'node_referenced_in_ref'}{'menu_child'};
+$result_nodes{'node_referenced_in_ref'}{'structure'}{'menu_child'}{'structure'}{'node_prev'} = $result_nodes{'node_referenced_in_ref'};
+$result_nodes{'node_referenced_in_ref'}{'structure'}{'menu_child'}{'structure'}{'node_up'} = $result_nodes{'node_referenced_in_ref'};
+$result_nodes{'node_referenced_in_ref'}{'structure'}{'node_next'} = $result_nodes{'node_referenced_in_ref'}{'structure'}{'menu_child'};
 
 $result_menus{'node_referenced_in_ref'} = {
   'cmdname' => 'node',
@@ -425,19 +432,23 @@ $result_menus{'node_referenced_in_ref'} = {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   },
-  'menu_child' => {
-    'cmdname' => 'node',
-    'extra' => {
-      'normalized' => 'first-level-node',
-      'spaces_before_argument' => ' '
-    },
-    'menu_up' => {},
-    'menu_up_hash' => {
-      'Top' => 1
+  'structure' => {
+    'menu_child' => {
+      'cmdname' => 'node',
+      'extra' => {
+        'normalized' => 'first-level-node',
+        'spaces_before_argument' => ' '
+      },
+      'structure' => {
+        'menu_up' => {},
+        'menu_up_hash' => {
+          'Top' => 1
+        }
+      }
     }
   }
 };
-$result_menus{'node_referenced_in_ref'}{'menu_child'}{'menu_up'} = $result_menus{'node_referenced_in_ref'};
+$result_menus{'node_referenced_in_ref'}{'structure'}{'menu_child'}{'structure'}{'menu_up'} = $result_menus{'node_referenced_in_ref'};
 
 $result_errors{'node_referenced_in_ref'} = [];
 

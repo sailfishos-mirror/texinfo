@@ -51,7 +51,8 @@ $result_trees{'direntry_dircategory_after_first_node'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -321,7 +322,8 @@ $result_sectioning{'direntry_dircategory_after_first_node'} = {
             'extra' => {
               'normalized' => 'Top',
               'spaces_before_argument' => ' '
-            }
+            },
+            'structure' => {}
           },
           'spaces_before_argument' => ' '
         },
@@ -349,7 +351,8 @@ $result_nodes{'direntry_dircategory_after_first_node'} = {
     },
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'direntry_dircategory_after_first_node'} = {
@@ -357,7 +360,8 @@ $result_menus{'direntry_dircategory_after_first_node'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'direntry_dircategory_after_first_node'} = [

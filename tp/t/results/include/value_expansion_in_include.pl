@@ -464,7 +464,8 @@ $result_trees{'value_expansion_in_include'} = {
         'line_nr' => 10,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     }
   ],
   'type' => 'document_root'
@@ -583,7 +584,8 @@ $result_nodes{'value_expansion_in_include'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'value_expansion_in_include'} = {
@@ -591,7 +593,8 @@ $result_menus{'value_expansion_in_include'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'value_expansion_in_include'} = [

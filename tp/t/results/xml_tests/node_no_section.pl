@@ -51,7 +51,8 @@ $result_trees{'node_no_section'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     }
   ],
   'type' => 'document_root'
@@ -74,7 +75,8 @@ $result_nodes{'node_no_section'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'node_no_section'} = {
@@ -82,7 +84,8 @@ $result_menus{'node_no_section'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'node_no_section'} = [];

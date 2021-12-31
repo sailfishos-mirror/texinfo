@@ -147,7 +147,8 @@ $result_trees{'ignore_in_xref'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     }
   ],
   'type' => 'document_root'
@@ -193,7 +194,8 @@ $result_nodes{'ignore_in_xref'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'ignore_in_xref'} = {
@@ -201,7 +203,8 @@ $result_menus{'ignore_in_xref'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'ignore_in_xref'} = [

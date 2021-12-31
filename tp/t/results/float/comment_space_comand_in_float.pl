@@ -241,7 +241,8 @@ $result_trees{'comment_space_comand_in_float'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     }
   ],
   'type' => 'document_root'
@@ -303,7 +304,8 @@ $result_nodes{'comment_space_comand_in_float'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'comment_space_comand_in_float'} = {
@@ -311,7 +313,8 @@ $result_menus{'comment_space_comand_in_float'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'comment_space_comand_in_float'} = [];

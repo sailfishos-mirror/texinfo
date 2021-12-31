@@ -75,7 +75,8 @@ $result_trees{'ref_in_sectioning'} = {
         'line_nr' => 3,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -140,7 +141,8 @@ $result_trees{'ref_in_sectioning'} = {
                     'line_nr' => 11,
                     'macro' => ''
                   },
-                  'parent' => {}
+                  'parent' => {},
+                  'structure' => {}
                 },
                 'node_argument' => {
                   'node_content' => [
@@ -618,7 +620,8 @@ $result_trees{'ref_in_sectioning'} = {
         'line_nr' => 14,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -2177,7 +2180,8 @@ $result_sectioning{'ref_in_sectioning'} = {
             'extra' => {
               'normalized' => 'Top',
               'spaces_before_argument' => ' '
-            }
+            },
+            'structure' => {}
           },
           'spaces_before_argument' => ' '
         },
@@ -2192,7 +2196,8 @@ $result_sectioning{'ref_in_sectioning'} = {
                   'extra' => {
                     'normalized' => 'node',
                     'spaces_before_argument' => ' '
-                  }
+                  },
+                  'structure' => {}
                 },
                 'spaces_before_argument' => ' '
               },
@@ -2212,7 +2217,8 @@ $result_sectioning{'ref_in_sectioning'} = {
                   'extra' => {
                     'normalized' => 'chap',
                     'spaces_before_argument' => ' '
-                  }
+                  },
+                  'structure' => {}
                 },
                 'spaces_before_argument' => ' '
               },
@@ -2424,44 +2430,6 @@ $result_nodes{'ref_in_sectioning'} = {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   },
-  'menu_child' => {
-    'cmdname' => 'node',
-    'extra' => {
-      'associated_section' => {
-        'cmdname' => 'chapter',
-        'extra' => {
-          'spaces_before_argument' => ' '
-        },
-        'structure' => {
-          'level' => 1,
-          'number' => 1
-        }
-      },
-      'normalized' => 'node',
-      'spaces_before_argument' => ' '
-    },
-    'node_next' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'associated_section' => {
-          'cmdname' => 'chapter',
-          'extra' => {
-            'spaces_before_argument' => ' '
-          },
-          'structure' => {
-            'level' => 1,
-            'number' => 2
-          }
-        },
-        'normalized' => 'chap',
-        'spaces_before_argument' => ' '
-      },
-      'node_prev' => {},
-      'node_up' => {}
-    },
-    'node_prev' => {},
-    'node_up' => {}
-  },
   'menus' => [
     {
       'cmdname' => 'menu',
@@ -2477,13 +2445,57 @@ $result_nodes{'ref_in_sectioning'} = {
       }
     }
   ],
-  'node_next' => {}
+  'structure' => {
+    'menu_child' => {
+      'cmdname' => 'node',
+      'extra' => {
+        'associated_section' => {
+          'cmdname' => 'chapter',
+          'extra' => {
+            'spaces_before_argument' => ' '
+          },
+          'structure' => {
+            'level' => 1,
+            'number' => 1
+          }
+        },
+        'normalized' => 'node',
+        'spaces_before_argument' => ' '
+      },
+      'structure' => {
+        'node_next' => {
+          'cmdname' => 'node',
+          'extra' => {
+            'associated_section' => {
+              'cmdname' => 'chapter',
+              'extra' => {
+                'spaces_before_argument' => ' '
+              },
+              'structure' => {
+                'level' => 1,
+                'number' => 2
+              }
+            },
+            'normalized' => 'chap',
+            'spaces_before_argument' => ' '
+          },
+          'structure' => {
+            'node_prev' => {},
+            'node_up' => {}
+          }
+        },
+        'node_prev' => {},
+        'node_up' => {}
+      }
+    },
+    'node_next' => {}
+  }
 };
-$result_nodes{'ref_in_sectioning'}{'menu_child'}{'node_next'}{'node_prev'} = $result_nodes{'ref_in_sectioning'}{'menu_child'};
-$result_nodes{'ref_in_sectioning'}{'menu_child'}{'node_next'}{'node_up'} = $result_nodes{'ref_in_sectioning'};
-$result_nodes{'ref_in_sectioning'}{'menu_child'}{'node_prev'} = $result_nodes{'ref_in_sectioning'};
-$result_nodes{'ref_in_sectioning'}{'menu_child'}{'node_up'} = $result_nodes{'ref_in_sectioning'};
-$result_nodes{'ref_in_sectioning'}{'node_next'} = $result_nodes{'ref_in_sectioning'}{'menu_child'};
+$result_nodes{'ref_in_sectioning'}{'structure'}{'menu_child'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'ref_in_sectioning'}{'structure'}{'menu_child'};
+$result_nodes{'ref_in_sectioning'}{'structure'}{'menu_child'}{'structure'}{'node_next'}{'structure'}{'node_up'} = $result_nodes{'ref_in_sectioning'};
+$result_nodes{'ref_in_sectioning'}{'structure'}{'menu_child'}{'structure'}{'node_prev'} = $result_nodes{'ref_in_sectioning'};
+$result_nodes{'ref_in_sectioning'}{'structure'}{'menu_child'}{'structure'}{'node_up'} = $result_nodes{'ref_in_sectioning'};
+$result_nodes{'ref_in_sectioning'}{'structure'}{'node_next'} = $result_nodes{'ref_in_sectioning'}{'structure'}{'menu_child'};
 
 $result_menus{'ref_in_sectioning'} = {
   'cmdname' => 'node',
@@ -2491,33 +2503,39 @@ $result_menus{'ref_in_sectioning'} = {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   },
-  'menu_child' => {
-    'cmdname' => 'node',
-    'extra' => {
-      'normalized' => 'node',
-      'spaces_before_argument' => ' '
-    },
-    'menu_next' => {
+  'structure' => {
+    'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'chap',
+        'normalized' => 'node',
         'spaces_before_argument' => ' '
       },
-      'menu_prev' => {},
-      'menu_up' => {},
-      'menu_up_hash' => {
-        'Top' => 1
+      'structure' => {
+        'menu_next' => {
+          'cmdname' => 'node',
+          'extra' => {
+            'normalized' => 'chap',
+            'spaces_before_argument' => ' '
+          },
+          'structure' => {
+            'menu_prev' => {},
+            'menu_up' => {},
+            'menu_up_hash' => {
+              'Top' => 1
+            }
+          }
+        },
+        'menu_up' => {},
+        'menu_up_hash' => {
+          'Top' => 1
+        }
       }
-    },
-    'menu_up' => {},
-    'menu_up_hash' => {
-      'Top' => 1
     }
   }
 };
-$result_menus{'ref_in_sectioning'}{'menu_child'}{'menu_next'}{'menu_prev'} = $result_menus{'ref_in_sectioning'}{'menu_child'};
-$result_menus{'ref_in_sectioning'}{'menu_child'}{'menu_next'}{'menu_up'} = $result_menus{'ref_in_sectioning'};
-$result_menus{'ref_in_sectioning'}{'menu_child'}{'menu_up'} = $result_menus{'ref_in_sectioning'};
+$result_menus{'ref_in_sectioning'}{'structure'}{'menu_child'}{'structure'}{'menu_next'}{'structure'}{'menu_prev'} = $result_menus{'ref_in_sectioning'}{'structure'}{'menu_child'};
+$result_menus{'ref_in_sectioning'}{'structure'}{'menu_child'}{'structure'}{'menu_next'}{'structure'}{'menu_up'} = $result_menus{'ref_in_sectioning'};
+$result_menus{'ref_in_sectioning'}{'structure'}{'menu_child'}{'structure'}{'menu_up'} = $result_menus{'ref_in_sectioning'};
 
 $result_errors{'ref_in_sectioning'} = [
   {

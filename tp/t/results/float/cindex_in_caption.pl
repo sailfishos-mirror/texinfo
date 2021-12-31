@@ -317,7 +317,8 @@ $result_trees{'cindex_in_caption'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     }
   ],
   'type' => 'document_root'
@@ -398,7 +399,8 @@ $result_nodes{'cindex_in_caption'} = {
     'isindex' => 1,
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'cindex_in_caption'} = {
@@ -407,7 +409,8 @@ $result_menus{'cindex_in_caption'} = {
     'isindex' => 1,
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'cindex_in_caption'} = [];

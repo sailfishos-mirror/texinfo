@@ -150,7 +150,8 @@ $result_trees{'footnote_no_number'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     }
   ],
   'type' => 'document_root'
@@ -197,7 +198,8 @@ $result_nodes{'footnote_no_number'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'footnote_no_number'} = {
@@ -205,7 +207,8 @@ $result_menus{'footnote_no_number'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'footnote_no_number'} = [];

@@ -317,7 +317,8 @@ $result_trees{'space_in_node'} = {
         'line_nr' => 2,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -365,7 +366,8 @@ $result_trees{'space_in_node'} = {
         'line_nr' => 10,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -413,7 +415,8 @@ $result_trees{'space_in_node'} = {
         'line_nr' => 12,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -454,7 +457,8 @@ $result_trees{'space_in_node'} = {
         'line_nr' => 14,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     }
   ],
   'type' => 'document_root'
@@ -562,33 +566,6 @@ $result_nodes{'space_in_node'} = {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   },
-  'menu_child' => {
-    'cmdname' => 'node',
-    'extra' => {
-      'normalized' => 'Chap-first-here',
-      'spaces_before_argument' => '  '
-    },
-    'node_next' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'normalized' => 'Test-title',
-        'spaces_before_argument' => ' '
-      },
-      'node_next' => {
-        'cmdname' => 'node',
-        'extra' => {
-          'normalized' => 'Last-with-spaces',
-          'spaces_before_argument' => '   '
-        },
-        'node_prev' => {},
-        'node_up' => {}
-      },
-      'node_prev' => {},
-      'node_up' => {}
-    },
-    'node_prev' => {},
-    'node_up' => {}
-  },
   'menus' => [
     {
       'cmdname' => 'menu',
@@ -604,15 +581,50 @@ $result_nodes{'space_in_node'} = {
       }
     }
   ],
-  'node_next' => {}
+  'structure' => {
+    'menu_child' => {
+      'cmdname' => 'node',
+      'extra' => {
+        'normalized' => 'Chap-first-here',
+        'spaces_before_argument' => '  '
+      },
+      'structure' => {
+        'node_next' => {
+          'cmdname' => 'node',
+          'extra' => {
+            'normalized' => 'Test-title',
+            'spaces_before_argument' => ' '
+          },
+          'structure' => {
+            'node_next' => {
+              'cmdname' => 'node',
+              'extra' => {
+                'normalized' => 'Last-with-spaces',
+                'spaces_before_argument' => '   '
+              },
+              'structure' => {
+                'node_prev' => {},
+                'node_up' => {}
+              }
+            },
+            'node_prev' => {},
+            'node_up' => {}
+          }
+        },
+        'node_prev' => {},
+        'node_up' => {}
+      }
+    },
+    'node_next' => {}
+  }
 };
-$result_nodes{'space_in_node'}{'menu_child'}{'node_next'}{'node_next'}{'node_prev'} = $result_nodes{'space_in_node'}{'menu_child'}{'node_next'};
-$result_nodes{'space_in_node'}{'menu_child'}{'node_next'}{'node_next'}{'node_up'} = $result_nodes{'space_in_node'};
-$result_nodes{'space_in_node'}{'menu_child'}{'node_next'}{'node_prev'} = $result_nodes{'space_in_node'}{'menu_child'};
-$result_nodes{'space_in_node'}{'menu_child'}{'node_next'}{'node_up'} = $result_nodes{'space_in_node'};
-$result_nodes{'space_in_node'}{'menu_child'}{'node_prev'} = $result_nodes{'space_in_node'};
-$result_nodes{'space_in_node'}{'menu_child'}{'node_up'} = $result_nodes{'space_in_node'};
-$result_nodes{'space_in_node'}{'node_next'} = $result_nodes{'space_in_node'}{'menu_child'};
+$result_nodes{'space_in_node'}{'structure'}{'menu_child'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'space_in_node'}{'structure'}{'menu_child'}{'structure'}{'node_next'};
+$result_nodes{'space_in_node'}{'structure'}{'menu_child'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_up'} = $result_nodes{'space_in_node'};
+$result_nodes{'space_in_node'}{'structure'}{'menu_child'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'space_in_node'}{'structure'}{'menu_child'};
+$result_nodes{'space_in_node'}{'structure'}{'menu_child'}{'structure'}{'node_next'}{'structure'}{'node_up'} = $result_nodes{'space_in_node'};
+$result_nodes{'space_in_node'}{'structure'}{'menu_child'}{'structure'}{'node_prev'} = $result_nodes{'space_in_node'};
+$result_nodes{'space_in_node'}{'structure'}{'menu_child'}{'structure'}{'node_up'} = $result_nodes{'space_in_node'};
+$result_nodes{'space_in_node'}{'structure'}{'node_next'} = $result_nodes{'space_in_node'}{'structure'}{'menu_child'};
 
 $result_menus{'space_in_node'} = {
   'cmdname' => 'node',
@@ -620,47 +632,55 @@ $result_menus{'space_in_node'} = {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   },
-  'menu_child' => {
-    'cmdname' => 'node',
-    'extra' => {
-      'normalized' => 'Chap-first-here',
-      'spaces_before_argument' => '  '
-    },
-    'menu_next' => {
+  'structure' => {
+    'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'Test-title',
-        'spaces_before_argument' => ' '
+        'normalized' => 'Chap-first-here',
+        'spaces_before_argument' => '  '
       },
-      'menu_next' => {
-        'cmdname' => 'node',
-        'extra' => {
-          'normalized' => 'Last-with-spaces',
-          'spaces_before_argument' => '   '
+      'structure' => {
+        'menu_next' => {
+          'cmdname' => 'node',
+          'extra' => {
+            'normalized' => 'Test-title',
+            'spaces_before_argument' => ' '
+          },
+          'structure' => {
+            'menu_next' => {
+              'cmdname' => 'node',
+              'extra' => {
+                'normalized' => 'Last-with-spaces',
+                'spaces_before_argument' => '   '
+              },
+              'structure' => {
+                'menu_prev' => {},
+                'menu_up' => {},
+                'menu_up_hash' => {
+                  'Top' => 1
+                }
+              }
+            },
+            'menu_prev' => {},
+            'menu_up' => {},
+            'menu_up_hash' => {
+              'Top' => 1
+            }
+          }
         },
-        'menu_prev' => {},
         'menu_up' => {},
         'menu_up_hash' => {
           'Top' => 1
         }
-      },
-      'menu_prev' => {},
-      'menu_up' => {},
-      'menu_up_hash' => {
-        'Top' => 1
       }
-    },
-    'menu_up' => {},
-    'menu_up_hash' => {
-      'Top' => 1
     }
   }
 };
-$result_menus{'space_in_node'}{'menu_child'}{'menu_next'}{'menu_next'}{'menu_prev'} = $result_menus{'space_in_node'}{'menu_child'}{'menu_next'};
-$result_menus{'space_in_node'}{'menu_child'}{'menu_next'}{'menu_next'}{'menu_up'} = $result_menus{'space_in_node'};
-$result_menus{'space_in_node'}{'menu_child'}{'menu_next'}{'menu_prev'} = $result_menus{'space_in_node'}{'menu_child'};
-$result_menus{'space_in_node'}{'menu_child'}{'menu_next'}{'menu_up'} = $result_menus{'space_in_node'};
-$result_menus{'space_in_node'}{'menu_child'}{'menu_up'} = $result_menus{'space_in_node'};
+$result_menus{'space_in_node'}{'structure'}{'menu_child'}{'structure'}{'menu_next'}{'structure'}{'menu_next'}{'structure'}{'menu_prev'} = $result_menus{'space_in_node'}{'structure'}{'menu_child'}{'structure'}{'menu_next'};
+$result_menus{'space_in_node'}{'structure'}{'menu_child'}{'structure'}{'menu_next'}{'structure'}{'menu_next'}{'structure'}{'menu_up'} = $result_menus{'space_in_node'};
+$result_menus{'space_in_node'}{'structure'}{'menu_child'}{'structure'}{'menu_next'}{'structure'}{'menu_prev'} = $result_menus{'space_in_node'}{'structure'}{'menu_child'};
+$result_menus{'space_in_node'}{'structure'}{'menu_child'}{'structure'}{'menu_next'}{'structure'}{'menu_up'} = $result_menus{'space_in_node'};
+$result_menus{'space_in_node'}{'structure'}{'menu_child'}{'structure'}{'menu_up'} = $result_menus{'space_in_node'};
 
 $result_errors{'space_in_node'} = [];
 

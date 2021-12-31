@@ -160,7 +160,8 @@ $result_trees{'email_in_node'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     }
   ],
   'type' => 'document_root'
@@ -204,7 +205,8 @@ $result_nodes{'email_in_node'} = {
   'extra' => {
     'normalized' => 'a-c-',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'email_in_node'} = {
@@ -212,7 +214,8 @@ $result_menus{'email_in_node'} = {
   'extra' => {
     'normalized' => 'a-c-',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'email_in_node'} = [];

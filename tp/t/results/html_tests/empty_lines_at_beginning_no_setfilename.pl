@@ -100,7 +100,8 @@ $result_trees{'empty_lines_at_beginning_no_setfilename'} = {
         'line_nr' => 6,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -206,7 +207,8 @@ $result_sectioning{'empty_lines_at_beginning_no_setfilename'} = {
             'extra' => {
               'normalized' => 'Top',
               'spaces_before_argument' => ' '
-            }
+            },
+            'structure' => {}
           },
           'spaces_before_argument' => ' '
         },
@@ -234,7 +236,8 @@ $result_nodes{'empty_lines_at_beginning_no_setfilename'} = {
     },
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'empty_lines_at_beginning_no_setfilename'} = {
@@ -242,7 +245,8 @@ $result_menus{'empty_lines_at_beginning_no_setfilename'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'empty_lines_at_beginning_no_setfilename'} = [];

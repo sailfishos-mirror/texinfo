@@ -259,7 +259,8 @@ $result_trees{'footnote_in_caption'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     }
   ],
   'type' => 'document_root'
@@ -324,7 +325,8 @@ $result_nodes{'footnote_in_caption'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'footnote_in_caption'} = {
@@ -332,7 +334,8 @@ $result_menus{'footnote_in_caption'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'footnote_in_caption'} = [];

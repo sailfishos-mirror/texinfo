@@ -87,7 +87,8 @@ $result_trees{'multiple_documentlanguage'} = {
         'line_nr' => 3,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -167,7 +168,8 @@ $result_trees{'multiple_documentlanguage'} = {
         'line_nr' => 6,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -277,7 +279,8 @@ $result_trees{'multiple_documentlanguage'} = {
         'line_nr' => 10,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -387,7 +390,8 @@ $result_trees{'multiple_documentlanguage'} = {
         'line_nr' => 14,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -497,7 +501,8 @@ $result_trees{'multiple_documentlanguage'} = {
         'line_nr' => 18,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -655,7 +660,8 @@ $result_sectioning{'multiple_documentlanguage'} = {
             'extra' => {
               'normalized' => 'Top',
               'spaces_before_argument' => ' '
-            }
+            },
+            'structure' => {}
           },
           'spaces_before_argument' => ' '
         },
@@ -670,7 +676,8 @@ $result_sectioning{'multiple_documentlanguage'} = {
                   'extra' => {
                     'normalized' => 'chap',
                     'spaces_before_argument' => ' '
-                  }
+                  },
+                  'structure' => {}
                 },
                 'spaces_before_argument' => ' '
               },
@@ -690,7 +697,8 @@ $result_sectioning{'multiple_documentlanguage'} = {
                   'extra' => {
                     'normalized' => 'chapter-fr',
                     'spaces_before_argument' => ' '
-                  }
+                  },
+                  'structure' => {}
                 },
                 'spaces_before_argument' => ' '
               },
@@ -706,7 +714,8 @@ $result_sectioning{'multiple_documentlanguage'} = {
                         'extra' => {
                           'normalized' => 'subnode-pt',
                           'spaces_before_argument' => ' '
-                        }
+                        },
+                        'structure' => {}
                       },
                       'spaces_before_argument' => ' '
                     },
@@ -724,7 +733,8 @@ $result_sectioning{'multiple_documentlanguage'} = {
                         'extra' => {
                           'normalized' => 'subnode-fr',
                           'spaces_before_argument' => ' '
-                        }
+                        },
+                        'structure' => {}
                       },
                       'spaces_before_argument' => ' '
                     },
@@ -776,22 +786,7 @@ $result_nodes{'multiple_documentlanguage'} = {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   },
-  'node_next' => {
-    'cmdname' => 'node',
-    'extra' => {
-      'associated_section' => {
-        'cmdname' => 'chapter',
-        'extra' => {
-          'spaces_before_argument' => ' '
-        },
-        'structure' => {
-          'level' => 1,
-          'number' => 1
-        }
-      },
-      'normalized' => 'chap',
-      'spaces_before_argument' => ' '
-    },
+  'structure' => {
     'node_next' => {
       'cmdname' => 'node',
       'extra' => {
@@ -802,30 +797,52 @@ $result_nodes{'multiple_documentlanguage'} = {
           },
           'structure' => {
             'level' => 1,
-            'number' => 2
+            'number' => 1
           }
         },
-        'normalized' => 'chapter-fr',
+        'normalized' => 'chap',
         'spaces_before_argument' => ' '
       },
-      'node_prev' => {},
-      'node_up' => {}
-    },
-    'node_prev' => {},
-    'node_up' => {}
+      'structure' => {
+        'node_next' => {
+          'cmdname' => 'node',
+          'extra' => {
+            'associated_section' => {
+              'cmdname' => 'chapter',
+              'extra' => {
+                'spaces_before_argument' => ' '
+              },
+              'structure' => {
+                'level' => 1,
+                'number' => 2
+              }
+            },
+            'normalized' => 'chapter-fr',
+            'spaces_before_argument' => ' '
+          },
+          'structure' => {
+            'node_prev' => {},
+            'node_up' => {}
+          }
+        },
+        'node_prev' => {},
+        'node_up' => {}
+      }
+    }
   }
 };
-$result_nodes{'multiple_documentlanguage'}{'node_next'}{'node_next'}{'node_prev'} = $result_nodes{'multiple_documentlanguage'}{'node_next'};
-$result_nodes{'multiple_documentlanguage'}{'node_next'}{'node_next'}{'node_up'} = $result_nodes{'multiple_documentlanguage'};
-$result_nodes{'multiple_documentlanguage'}{'node_next'}{'node_prev'} = $result_nodes{'multiple_documentlanguage'};
-$result_nodes{'multiple_documentlanguage'}{'node_next'}{'node_up'} = $result_nodes{'multiple_documentlanguage'};
+$result_nodes{'multiple_documentlanguage'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'multiple_documentlanguage'}{'structure'}{'node_next'};
+$result_nodes{'multiple_documentlanguage'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_up'} = $result_nodes{'multiple_documentlanguage'};
+$result_nodes{'multiple_documentlanguage'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'multiple_documentlanguage'};
+$result_nodes{'multiple_documentlanguage'}{'structure'}{'node_next'}{'structure'}{'node_up'} = $result_nodes{'multiple_documentlanguage'};
 
 $result_menus{'multiple_documentlanguage'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'multiple_documentlanguage'} = [];

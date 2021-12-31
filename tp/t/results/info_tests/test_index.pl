@@ -51,7 +51,8 @@ $result_trees{'test_index'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -215,7 +216,8 @@ $result_trees{'test_index'} = {
                                 'line_nr' => 205,
                                 'macro' => ''
                               },
-                              'parent' => {}
+                              'parent' => {},
+                              'structure' => {}
                             },
                             'number' => 7
                           },
@@ -1254,7 +1256,8 @@ $result_trees{'test_index'} = {
         'line_nr' => 31,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -4356,7 +4359,8 @@ $result_sectioning{'test_index'} = {
             'extra' => {
               'normalized' => 'Top',
               'spaces_before_argument' => ' '
-            }
+            },
+            'structure' => {}
           },
           'spaces_before_argument' => ' '
         },
@@ -4371,7 +4375,8 @@ $result_sectioning{'test_index'} = {
                   'extra' => {
                     'normalized' => 'name',
                     'spaces_before_argument' => ' '
-                  }
+                  },
+                  'structure' => {}
                 },
                 'spaces_before_argument' => ' '
               },
@@ -4392,7 +4397,8 @@ $result_sectioning{'test_index'} = {
                     'isindex' => 1,
                     'normalized' => 'name1-looooooooooooooooooooooooooooooooooooooooooooooooooooooooong',
                     'spaces_before_argument' => ' '
-                  }
+                  },
+                  'structure' => {}
                 },
                 'spaces_before_argument' => ' '
               },
@@ -4513,45 +4519,6 @@ $result_nodes{'test_index'} = {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   },
-  'menu_child' => {
-    'cmdname' => 'node',
-    'extra' => {
-      'associated_section' => {
-        'cmdname' => 'chapter',
-        'extra' => {
-          'spaces_before_argument' => ' '
-        },
-        'structure' => {
-          'level' => 1,
-          'number' => 1
-        }
-      },
-      'normalized' => 'name',
-      'spaces_before_argument' => ' '
-    },
-    'node_next' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'associated_section' => {
-          'cmdname' => 'appendix',
-          'extra' => {
-            'spaces_before_argument' => ' '
-          },
-          'structure' => {
-            'level' => 1,
-            'number' => 'A'
-          }
-        },
-        'isindex' => 1,
-        'normalized' => 'name1-looooooooooooooooooooooooooooooooooooooooooooooooooooooooong',
-        'spaces_before_argument' => ' '
-      },
-      'node_prev' => {},
-      'node_up' => {}
-    },
-    'node_prev' => {},
-    'node_up' => {}
-  },
   'menus' => [
     {
       'cmdname' => 'menu',
@@ -4567,13 +4534,58 @@ $result_nodes{'test_index'} = {
       }
     }
   ],
-  'node_next' => {}
+  'structure' => {
+    'menu_child' => {
+      'cmdname' => 'node',
+      'extra' => {
+        'associated_section' => {
+          'cmdname' => 'chapter',
+          'extra' => {
+            'spaces_before_argument' => ' '
+          },
+          'structure' => {
+            'level' => 1,
+            'number' => 1
+          }
+        },
+        'normalized' => 'name',
+        'spaces_before_argument' => ' '
+      },
+      'structure' => {
+        'node_next' => {
+          'cmdname' => 'node',
+          'extra' => {
+            'associated_section' => {
+              'cmdname' => 'appendix',
+              'extra' => {
+                'spaces_before_argument' => ' '
+              },
+              'structure' => {
+                'level' => 1,
+                'number' => 'A'
+              }
+            },
+            'isindex' => 1,
+            'normalized' => 'name1-looooooooooooooooooooooooooooooooooooooooooooooooooooooooong',
+            'spaces_before_argument' => ' '
+          },
+          'structure' => {
+            'node_prev' => {},
+            'node_up' => {}
+          }
+        },
+        'node_prev' => {},
+        'node_up' => {}
+      }
+    },
+    'node_next' => {}
+  }
 };
-$result_nodes{'test_index'}{'menu_child'}{'node_next'}{'node_prev'} = $result_nodes{'test_index'}{'menu_child'};
-$result_nodes{'test_index'}{'menu_child'}{'node_next'}{'node_up'} = $result_nodes{'test_index'};
-$result_nodes{'test_index'}{'menu_child'}{'node_prev'} = $result_nodes{'test_index'};
-$result_nodes{'test_index'}{'menu_child'}{'node_up'} = $result_nodes{'test_index'};
-$result_nodes{'test_index'}{'node_next'} = $result_nodes{'test_index'}{'menu_child'};
+$result_nodes{'test_index'}{'structure'}{'menu_child'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'test_index'}{'structure'}{'menu_child'};
+$result_nodes{'test_index'}{'structure'}{'menu_child'}{'structure'}{'node_next'}{'structure'}{'node_up'} = $result_nodes{'test_index'};
+$result_nodes{'test_index'}{'structure'}{'menu_child'}{'structure'}{'node_prev'} = $result_nodes{'test_index'};
+$result_nodes{'test_index'}{'structure'}{'menu_child'}{'structure'}{'node_up'} = $result_nodes{'test_index'};
+$result_nodes{'test_index'}{'structure'}{'node_next'} = $result_nodes{'test_index'}{'structure'}{'menu_child'};
 
 $result_menus{'test_index'} = {
   'cmdname' => 'node',
@@ -4581,34 +4593,40 @@ $result_menus{'test_index'} = {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   },
-  'menu_child' => {
-    'cmdname' => 'node',
-    'extra' => {
-      'normalized' => 'name',
-      'spaces_before_argument' => ' '
-    },
-    'menu_next' => {
+  'structure' => {
+    'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'isindex' => 1,
-        'normalized' => 'name1-looooooooooooooooooooooooooooooooooooooooooooooooooooooooong',
+        'normalized' => 'name',
         'spaces_before_argument' => ' '
       },
-      'menu_prev' => {},
-      'menu_up' => {},
-      'menu_up_hash' => {
-        'Top' => 1
+      'structure' => {
+        'menu_next' => {
+          'cmdname' => 'node',
+          'extra' => {
+            'isindex' => 1,
+            'normalized' => 'name1-looooooooooooooooooooooooooooooooooooooooooooooooooooooooong',
+            'spaces_before_argument' => ' '
+          },
+          'structure' => {
+            'menu_prev' => {},
+            'menu_up' => {},
+            'menu_up_hash' => {
+              'Top' => 1
+            }
+          }
+        },
+        'menu_up' => {},
+        'menu_up_hash' => {
+          'Top' => 1
+        }
       }
-    },
-    'menu_up' => {},
-    'menu_up_hash' => {
-      'Top' => 1
     }
   }
 };
-$result_menus{'test_index'}{'menu_child'}{'menu_next'}{'menu_prev'} = $result_menus{'test_index'}{'menu_child'};
-$result_menus{'test_index'}{'menu_child'}{'menu_next'}{'menu_up'} = $result_menus{'test_index'};
-$result_menus{'test_index'}{'menu_child'}{'menu_up'} = $result_menus{'test_index'};
+$result_menus{'test_index'}{'structure'}{'menu_child'}{'structure'}{'menu_next'}{'structure'}{'menu_prev'} = $result_menus{'test_index'}{'structure'}{'menu_child'};
+$result_menus{'test_index'}{'structure'}{'menu_child'}{'structure'}{'menu_next'}{'structure'}{'menu_up'} = $result_menus{'test_index'};
+$result_menus{'test_index'}{'structure'}{'menu_child'}{'structure'}{'menu_up'} = $result_menus{'test_index'};
 
 $result_errors{'test_index'} = [
   {

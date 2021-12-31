@@ -102,7 +102,8 @@ $result_trees{'encoding_us_ascii'} = {
         'line_nr' => 4,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     }
   ],
   'type' => 'document_root'
@@ -138,7 +139,8 @@ $result_nodes{'encoding_us_ascii'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'encoding_us_ascii'} = {
@@ -146,7 +148,8 @@ $result_menus{'encoding_us_ascii'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'encoding_us_ascii'} = [];

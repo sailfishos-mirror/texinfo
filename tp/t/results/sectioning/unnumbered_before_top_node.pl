@@ -136,7 +136,8 @@ $result_trees{'unnumbered_before_top_node'} = [
           'line_nr' => 3,
           'macro' => ''
         },
-        'parent' => {}
+        'parent' => {},
+        'structure' => {}
       }
     ],
     'extra' => {
@@ -208,7 +209,8 @@ $result_nodes{'unnumbered_before_top_node'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'unnumbered_before_top_node'} = {
@@ -216,7 +218,8 @@ $result_menus{'unnumbered_before_top_node'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'unnumbered_before_top_node'} = [];

@@ -58,7 +58,8 @@ $result_trees{'top_in_ref_keep_top'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -3612,7 +3613,8 @@ $result_trees{'top_in_ref_keep_top'} = {
         'line_nr' => 3,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     }
   ],
   'type' => 'document_root'
@@ -4355,23 +4357,28 @@ $result_nodes{'top_in_ref_keep_top'} = {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   },
-  'node_next' => {
-    'cmdname' => 'node',
-    'extra' => {
-      'normalized' => 'refs-node',
-      'spaces_before_argument' => ' '
-    },
-    'node_prev' => {}
+  'structure' => {
+    'node_next' => {
+      'cmdname' => 'node',
+      'extra' => {
+        'normalized' => 'refs-node',
+        'spaces_before_argument' => ' '
+      },
+      'structure' => {
+        'node_prev' => {}
+      }
+    }
   }
 };
-$result_nodes{'top_in_ref_keep_top'}{'node_next'}{'node_prev'} = $result_nodes{'top_in_ref_keep_top'};
+$result_nodes{'top_in_ref_keep_top'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'top_in_ref_keep_top'};
 
 $result_menus{'top_in_ref_keep_top'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'top_in_ref_keep_top'} = [

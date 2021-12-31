@@ -75,7 +75,8 @@ $result_trees{'text_before_top_and_summarycontents_after_title'} = {
         'line_nr' => 4,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -265,7 +266,8 @@ $result_sectioning{'text_before_top_and_summarycontents_after_title'} = {
             'extra' => {
               'normalized' => 'Top',
               'spaces_before_argument' => ' '
-            }
+            },
+            'structure' => {}
           },
           'spaces_before_argument' => ' '
         },
@@ -311,7 +313,8 @@ $result_nodes{'text_before_top_and_summarycontents_after_title'} = {
     },
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'text_before_top_and_summarycontents_after_title'} = {
@@ -319,7 +322,8 @@ $result_menus{'text_before_top_and_summarycontents_after_title'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'text_before_top_and_summarycontents_after_title'} = [];

@@ -875,7 +875,8 @@ $result_trees{'image_and_spaces_formatting'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     }
   ],
   'type' => 'document_root'
@@ -1041,7 +1042,8 @@ $result_nodes{'image_and_spaces_formatting'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'image_and_spaces_formatting'} = {
@@ -1049,7 +1051,8 @@ $result_menus{'image_and_spaces_formatting'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'image_and_spaces_formatting'} = [];

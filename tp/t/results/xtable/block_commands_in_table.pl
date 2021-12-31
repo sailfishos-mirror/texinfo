@@ -51,7 +51,8 @@ $result_trees{'block_commands_in_table'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -1645,7 +1646,8 @@ $result_sectioning{'block_commands_in_table'} = {
             'extra' => {
               'normalized' => 'Top',
               'spaces_before_argument' => ' '
-            }
+            },
+            'structure' => {}
           },
           'spaces_before_argument' => ' '
         },
@@ -1673,7 +1675,8 @@ $result_nodes{'block_commands_in_table'} = {
     },
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'block_commands_in_table'} = {
@@ -1681,7 +1684,8 @@ $result_menus{'block_commands_in_table'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'block_commands_in_table'} = [];

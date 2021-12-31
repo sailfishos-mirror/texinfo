@@ -182,7 +182,8 @@ $result_trees{'reference_to_external_manual'} = {
         'line_nr' => 2,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     }
   ],
   'type' => 'document_root'
@@ -235,15 +236,6 @@ $result_nodes{'reference_to_external_manual'} = {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   },
-  'menu_child' => {
-    'extra' => {
-      'manual_content' => [
-        {
-          'text' => 'info'
-        }
-      ]
-    }
-  },
   'menus' => [
     {
       'cmdname' => 'menu',
@@ -259,9 +251,20 @@ $result_nodes{'reference_to_external_manual'} = {
       }
     }
   ],
-  'node_next' => {}
+  'structure' => {
+    'menu_child' => {
+      'extra' => {
+        'manual_content' => [
+          {
+            'text' => 'info'
+          }
+        ]
+      }
+    },
+    'node_next' => {}
+  }
 };
-$result_nodes{'reference_to_external_manual'}{'node_next'} = $result_nodes{'reference_to_external_manual'}{'menu_child'};
+$result_nodes{'reference_to_external_manual'}{'structure'}{'node_next'} = $result_nodes{'reference_to_external_manual'}{'structure'}{'menu_child'};
 
 $result_menus{'reference_to_external_manual'} = {
   'cmdname' => 'node',
@@ -269,13 +272,15 @@ $result_menus{'reference_to_external_manual'} = {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   },
-  'menu_child' => {
-    'extra' => {
-      'manual_content' => [
-        {
-          'text' => 'info'
-        }
-      ]
+  'structure' => {
+    'menu_child' => {
+      'extra' => {
+        'manual_content' => [
+          {
+            'text' => 'info'
+          }
+        ]
+      }
     }
   }
 };

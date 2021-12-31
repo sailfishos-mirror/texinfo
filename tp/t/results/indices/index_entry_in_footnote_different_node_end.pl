@@ -346,7 +346,8 @@ $result_trees{'index_entry_in_footnote_different_node_end'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -426,7 +427,8 @@ $result_trees{'index_entry_in_footnote_different_node_end'} = {
         'line_nr' => 17,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     }
   ],
   'type' => 'document_root'
@@ -531,16 +533,6 @@ $result_nodes{'index_entry_in_footnote_different_node_end'} = {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   },
-  'menu_child' => {
-    'cmdname' => 'node',
-    'extra' => {
-      'isindex' => 1,
-      'normalized' => 'First',
-      'spaces_before_argument' => ' '
-    },
-    'node_prev' => {},
-    'node_up' => {}
-  },
   'menus' => [
     {
       'cmdname' => 'menu',
@@ -556,11 +548,25 @@ $result_nodes{'index_entry_in_footnote_different_node_end'} = {
       }
     }
   ],
-  'node_next' => {}
+  'structure' => {
+    'menu_child' => {
+      'cmdname' => 'node',
+      'extra' => {
+        'isindex' => 1,
+        'normalized' => 'First',
+        'spaces_before_argument' => ' '
+      },
+      'structure' => {
+        'node_prev' => {},
+        'node_up' => {}
+      }
+    },
+    'node_next' => {}
+  }
 };
-$result_nodes{'index_entry_in_footnote_different_node_end'}{'menu_child'}{'node_prev'} = $result_nodes{'index_entry_in_footnote_different_node_end'};
-$result_nodes{'index_entry_in_footnote_different_node_end'}{'menu_child'}{'node_up'} = $result_nodes{'index_entry_in_footnote_different_node_end'};
-$result_nodes{'index_entry_in_footnote_different_node_end'}{'node_next'} = $result_nodes{'index_entry_in_footnote_different_node_end'}{'menu_child'};
+$result_nodes{'index_entry_in_footnote_different_node_end'}{'structure'}{'menu_child'}{'structure'}{'node_prev'} = $result_nodes{'index_entry_in_footnote_different_node_end'};
+$result_nodes{'index_entry_in_footnote_different_node_end'}{'structure'}{'menu_child'}{'structure'}{'node_up'} = $result_nodes{'index_entry_in_footnote_different_node_end'};
+$result_nodes{'index_entry_in_footnote_different_node_end'}{'structure'}{'node_next'} = $result_nodes{'index_entry_in_footnote_different_node_end'}{'structure'}{'menu_child'};
 
 $result_menus{'index_entry_in_footnote_different_node_end'} = {
   'cmdname' => 'node',
@@ -568,20 +574,24 @@ $result_menus{'index_entry_in_footnote_different_node_end'} = {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   },
-  'menu_child' => {
-    'cmdname' => 'node',
-    'extra' => {
-      'isindex' => 1,
-      'normalized' => 'First',
-      'spaces_before_argument' => ' '
-    },
-    'menu_up' => {},
-    'menu_up_hash' => {
-      'Top' => 1
+  'structure' => {
+    'menu_child' => {
+      'cmdname' => 'node',
+      'extra' => {
+        'isindex' => 1,
+        'normalized' => 'First',
+        'spaces_before_argument' => ' '
+      },
+      'structure' => {
+        'menu_up' => {},
+        'menu_up_hash' => {
+          'Top' => 1
+        }
+      }
     }
   }
 };
-$result_menus{'index_entry_in_footnote_different_node_end'}{'menu_child'}{'menu_up'} = $result_menus{'index_entry_in_footnote_different_node_end'};
+$result_menus{'index_entry_in_footnote_different_node_end'}{'structure'}{'menu_child'}{'structure'}{'menu_up'} = $result_menus{'index_entry_in_footnote_different_node_end'};
 
 $result_errors{'index_entry_in_footnote_different_node_end'} = [];
 

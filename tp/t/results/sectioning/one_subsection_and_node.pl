@@ -51,7 +51,8 @@ $result_trees{'one_subsection_and_node'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -120,7 +121,8 @@ $result_sectioning{'one_subsection_and_node'} = {
             'extra' => {
               'normalized' => 'one-node',
               'spaces_before_argument' => ' '
-            }
+            },
+            'structure' => {}
           },
           'spaces_before_argument' => ' '
         },
@@ -150,7 +152,8 @@ $result_nodes{'one_subsection_and_node'} = {
     },
     'normalized' => 'one-node',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'one_subsection_and_node'} = {
@@ -158,7 +161,8 @@ $result_menus{'one_subsection_and_node'} = {
   'extra' => {
     'normalized' => 'one-node',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'one_subsection_and_node'} = [];

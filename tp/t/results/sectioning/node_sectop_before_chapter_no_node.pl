@@ -87,7 +87,8 @@ $result_trees{'node_sectop_before_chapter_no_node'} = {
         'line_nr' => 3,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -211,7 +212,8 @@ $result_sectioning{'node_sectop_before_chapter_no_node'} = {
             'extra' => {
               'normalized' => 'Top',
               'spaces_before_argument' => ' '
-            }
+            },
+            'structure' => {}
           },
           'spaces_before_argument' => ' '
         },
@@ -257,7 +259,8 @@ $result_nodes{'node_sectop_before_chapter_no_node'} = {
     },
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'node_sectop_before_chapter_no_node'} = {
@@ -265,7 +268,8 @@ $result_menus{'node_sectop_before_chapter_no_node'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'node_sectop_before_chapter_no_node'} = [];

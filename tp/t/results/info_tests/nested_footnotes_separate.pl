@@ -183,7 +183,8 @@ $result_trees{'nested_footnotes_separate'} = {
         'line_nr' => 2,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     }
   ],
   'type' => 'document_root'
@@ -233,7 +234,8 @@ $result_nodes{'nested_footnotes_separate'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'nested_footnotes_separate'} = {
@@ -241,7 +243,8 @@ $result_menus{'nested_footnotes_separate'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'nested_footnotes_separate'} = [];

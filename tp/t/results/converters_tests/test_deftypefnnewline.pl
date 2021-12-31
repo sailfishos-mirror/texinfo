@@ -124,7 +124,8 @@ $result_trees{'test_deftypefnnewline'} = {
         'line_nr' => 5,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -204,7 +205,8 @@ $result_trees{'test_deftypefnnewline'} = {
         'line_nr' => 8,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -3243,7 +3245,8 @@ $result_sectioning{'test_deftypefnnewline'} = {
             'extra' => {
               'normalized' => 'Top',
               'spaces_before_argument' => ' '
-            }
+            },
+            'structure' => {}
           },
           'spaces_before_argument' => ' '
         },
@@ -3258,7 +3261,8 @@ $result_sectioning{'test_deftypefnnewline'} = {
                   'extra' => {
                     'normalized' => 'chapter',
                     'spaces_before_argument' => ' '
-                  }
+                  },
+                  'structure' => {}
                 },
                 'spaces_before_argument' => ' '
               },
@@ -3297,35 +3301,40 @@ $result_nodes{'test_deftypefnnewline'} = {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   },
-  'node_next' => {
-    'cmdname' => 'node',
-    'extra' => {
-      'associated_section' => {
-        'cmdname' => 'chapter',
-        'extra' => {
-          'spaces_before_argument' => ' '
+  'structure' => {
+    'node_next' => {
+      'cmdname' => 'node',
+      'extra' => {
+        'associated_section' => {
+          'cmdname' => 'chapter',
+          'extra' => {
+            'spaces_before_argument' => ' '
+          },
+          'structure' => {
+            'level' => 1,
+            'number' => 1
+          }
         },
-        'structure' => {
-          'level' => 1,
-          'number' => 1
-        }
+        'normalized' => 'chapter',
+        'spaces_before_argument' => ' '
       },
-      'normalized' => 'chapter',
-      'spaces_before_argument' => ' '
-    },
-    'node_prev' => {},
-    'node_up' => {}
+      'structure' => {
+        'node_prev' => {},
+        'node_up' => {}
+      }
+    }
   }
 };
-$result_nodes{'test_deftypefnnewline'}{'node_next'}{'node_prev'} = $result_nodes{'test_deftypefnnewline'};
-$result_nodes{'test_deftypefnnewline'}{'node_next'}{'node_up'} = $result_nodes{'test_deftypefnnewline'};
+$result_nodes{'test_deftypefnnewline'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'test_deftypefnnewline'};
+$result_nodes{'test_deftypefnnewline'}{'structure'}{'node_next'}{'structure'}{'node_up'} = $result_nodes{'test_deftypefnnewline'};
 
 $result_menus{'test_deftypefnnewline'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'test_deftypefnnewline'} = [];

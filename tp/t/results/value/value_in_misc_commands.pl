@@ -82,7 +82,8 @@ $result_trees{'value_in_misc_commands'} = {
         'line_nr' => 3,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -3352,7 +3353,8 @@ $result_sectioning{'value_in_misc_commands'} = {
             'extra' => {
               'normalized' => 'Top',
               'spaces_before_argument' => ' '
-            }
+            },
+            'structure' => {}
           },
           'spaces_before_argument' => ' '
         },
@@ -3380,7 +3382,8 @@ $result_nodes{'value_in_misc_commands'} = {
     },
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'value_in_misc_commands'} = {
@@ -3388,7 +3391,8 @@ $result_menus{'value_in_misc_commands'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'value_in_misc_commands'} = [

@@ -188,7 +188,8 @@ $result_trees{'documentlanguage_set_option_info'} = {
         'line_nr' => 7,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -334,7 +335,8 @@ $result_sectioning{'documentlanguage_set_option_info'} = {
             'extra' => {
               'normalized' => 'Top',
               'spaces_before_argument' => ' '
-            }
+            },
+            'structure' => {}
           },
           'spaces_before_argument' => ' '
         },
@@ -362,7 +364,8 @@ $result_nodes{'documentlanguage_set_option_info'} = {
     },
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'documentlanguage_set_option_info'} = {
@@ -370,7 +373,8 @@ $result_menus{'documentlanguage_set_option_info'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'documentlanguage_set_option_info'} = [];

@@ -143,7 +143,8 @@ $result_trees{'note_in_strong_end_of_line'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     }
   ],
   'type' => 'document_root'
@@ -191,7 +192,8 @@ $result_nodes{'note_in_strong_end_of_line'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'note_in_strong_end_of_line'} = {
@@ -199,7 +201,8 @@ $result_menus{'note_in_strong_end_of_line'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'note_in_strong_end_of_line'} = [];

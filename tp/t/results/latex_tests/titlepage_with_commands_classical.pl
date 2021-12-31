@@ -618,7 +618,8 @@ $result_trees{'titlepage_with_commands_classical'} = {
         'line_nr' => 27,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -698,7 +699,8 @@ $result_trees{'titlepage_with_commands_classical'} = {
         'line_nr' => 30,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -925,7 +927,8 @@ $result_sectioning{'titlepage_with_commands_classical'} = {
             'extra' => {
               'normalized' => 'Top',
               'spaces_before_argument' => ' '
-            }
+            },
+            'structure' => {}
           },
           'spaces_before_argument' => ' '
         },
@@ -940,7 +943,8 @@ $result_sectioning{'titlepage_with_commands_classical'} = {
                   'extra' => {
                     'normalized' => 'chapter',
                     'spaces_before_argument' => ' '
-                  }
+                  },
+                  'structure' => {}
                 },
                 'spaces_before_argument' => ' '
               },
@@ -979,35 +983,40 @@ $result_nodes{'titlepage_with_commands_classical'} = {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   },
-  'node_next' => {
-    'cmdname' => 'node',
-    'extra' => {
-      'associated_section' => {
-        'cmdname' => 'chapter',
-        'extra' => {
-          'spaces_before_argument' => ' '
+  'structure' => {
+    'node_next' => {
+      'cmdname' => 'node',
+      'extra' => {
+        'associated_section' => {
+          'cmdname' => 'chapter',
+          'extra' => {
+            'spaces_before_argument' => ' '
+          },
+          'structure' => {
+            'level' => 1,
+            'number' => 1
+          }
         },
-        'structure' => {
-          'level' => 1,
-          'number' => 1
-        }
+        'normalized' => 'chapter',
+        'spaces_before_argument' => ' '
       },
-      'normalized' => 'chapter',
-      'spaces_before_argument' => ' '
-    },
-    'node_prev' => {},
-    'node_up' => {}
+      'structure' => {
+        'node_prev' => {},
+        'node_up' => {}
+      }
+    }
   }
 };
-$result_nodes{'titlepage_with_commands_classical'}{'node_next'}{'node_prev'} = $result_nodes{'titlepage_with_commands_classical'};
-$result_nodes{'titlepage_with_commands_classical'}{'node_next'}{'node_up'} = $result_nodes{'titlepage_with_commands_classical'};
+$result_nodes{'titlepage_with_commands_classical'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'titlepage_with_commands_classical'};
+$result_nodes{'titlepage_with_commands_classical'}{'structure'}{'node_next'}{'structure'}{'node_up'} = $result_nodes{'titlepage_with_commands_classical'};
 
 $result_menus{'titlepage_with_commands_classical'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'titlepage_with_commands_classical'} = [

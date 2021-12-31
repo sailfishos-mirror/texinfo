@@ -83,7 +83,8 @@ $result_trees{'transparent_sort_chars'} = {
         'line_nr' => 3,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -406,7 +407,8 @@ $result_sectioning{'transparent_sort_chars'} = {
               'isindex' => 1,
               'normalized' => 'Top',
               'spaces_before_argument' => ' '
-            }
+            },
+            'structure' => {}
           }
         },
         'structure' => {
@@ -432,7 +434,8 @@ $result_nodes{'transparent_sort_chars'} = {
     'isindex' => 1,
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'transparent_sort_chars'} = {
@@ -441,7 +444,8 @@ $result_menus{'transparent_sort_chars'} = {
     'isindex' => 1,
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'transparent_sort_chars'} = [];

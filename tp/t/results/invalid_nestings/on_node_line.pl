@@ -276,7 +276,8 @@ $result_trees{'on_node_line'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     }
   ],
   'type' => 'document_root'
@@ -338,23 +339,25 @@ $result_nodes{'on_node_line'} = {
     'normalized' => 'a',
     'spaces_before_argument' => ' '
   },
-  'node_next' => {
-    'extra' => {
-      'manual_content' => [
-        {
-          'cmdname' => 'pxref',
-          'extra' => {
-            'node_argument' => {
-              'manual_content' => [
-                {
-                  'text' => 'somemanual'
-                }
-              ]
+  'structure' => {
+    'node_next' => {
+      'extra' => {
+        'manual_content' => [
+          {
+            'cmdname' => 'pxref',
+            'extra' => {
+              'node_argument' => {
+                'manual_content' => [
+                  {
+                    'text' => 'somemanual'
+                  }
+                ]
+              }
             }
           }
-        }
-      ],
-      'normalized' => '-'
+        ],
+        'normalized' => '-'
+      }
     }
   }
 };
@@ -364,7 +367,8 @@ $result_menus{'on_node_line'} = {
   'extra' => {
     'normalized' => 'a',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'on_node_line'} = [

@@ -348,7 +348,8 @@ $result_trees{'float_long_captions'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     }
   ],
   'type' => 'document_root'
@@ -431,7 +432,8 @@ $result_nodes{'float_long_captions'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'float_long_captions'} = {
@@ -439,7 +441,8 @@ $result_menus{'float_long_captions'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'float_long_captions'} = [];

@@ -91,7 +91,8 @@ $result_trees{'node_too_much_args'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     }
   ],
   'type' => 'document_root'
@@ -121,13 +122,15 @@ $result_nodes{'node_too_much_args'} = {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   },
-  'node_up' => {
-    'extra' => {
-      'manual_content' => [
-        {
-          'text' => 'dir'
-        }
-      ]
+  'structure' => {
+    'node_up' => {
+      'extra' => {
+        'manual_content' => [
+          {
+            'text' => 'dir'
+          }
+        ]
+      }
     }
   }
 };
@@ -137,7 +140,8 @@ $result_menus{'node_too_much_args'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'node_too_much_args'} = [

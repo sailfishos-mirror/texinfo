@@ -78,7 +78,8 @@ $result_trees{'ref_in_copying'} = {
                         'line_nr' => 14,
                         'macro' => ''
                       },
-                      'parent' => {}
+                      'parent' => {},
+                      'structure' => {}
                     },
                     'node_argument' => {
                       'node_content' => [
@@ -193,7 +194,8 @@ $result_trees{'ref_in_copying'} = {
         'line_nr' => 5,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -516,7 +518,8 @@ $result_sectioning{'ref_in_copying'} = {
             'extra' => {
               'normalized' => 'Top',
               'spaces_before_argument' => ' '
-            }
+            },
+            'structure' => {}
           },
           'spaces_before_argument' => ' '
         },
@@ -531,7 +534,8 @@ $result_sectioning{'ref_in_copying'} = {
                   'extra' => {
                     'normalized' => 'GFDL',
                     'spaces_before_argument' => ' '
-                  }
+                  },
+                  'structure' => {}
                 },
                 'spaces_before_argument' => ' '
               },
@@ -570,25 +574,6 @@ $result_nodes{'ref_in_copying'} = {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   },
-  'menu_child' => {
-    'cmdname' => 'node',
-    'extra' => {
-      'associated_section' => {
-        'cmdname' => 'chapter',
-        'extra' => {
-          'spaces_before_argument' => ' '
-        },
-        'structure' => {
-          'level' => 1,
-          'number' => 1
-        }
-      },
-      'normalized' => 'GFDL',
-      'spaces_before_argument' => ' '
-    },
-    'node_prev' => {},
-    'node_up' => {}
-  },
   'menus' => [
     {
       'cmdname' => 'menu',
@@ -604,11 +589,34 @@ $result_nodes{'ref_in_copying'} = {
       }
     }
   ],
-  'node_next' => {}
+  'structure' => {
+    'menu_child' => {
+      'cmdname' => 'node',
+      'extra' => {
+        'associated_section' => {
+          'cmdname' => 'chapter',
+          'extra' => {
+            'spaces_before_argument' => ' '
+          },
+          'structure' => {
+            'level' => 1,
+            'number' => 1
+          }
+        },
+        'normalized' => 'GFDL',
+        'spaces_before_argument' => ' '
+      },
+      'structure' => {
+        'node_prev' => {},
+        'node_up' => {}
+      }
+    },
+    'node_next' => {}
+  }
 };
-$result_nodes{'ref_in_copying'}{'menu_child'}{'node_prev'} = $result_nodes{'ref_in_copying'};
-$result_nodes{'ref_in_copying'}{'menu_child'}{'node_up'} = $result_nodes{'ref_in_copying'};
-$result_nodes{'ref_in_copying'}{'node_next'} = $result_nodes{'ref_in_copying'}{'menu_child'};
+$result_nodes{'ref_in_copying'}{'structure'}{'menu_child'}{'structure'}{'node_prev'} = $result_nodes{'ref_in_copying'};
+$result_nodes{'ref_in_copying'}{'structure'}{'menu_child'}{'structure'}{'node_up'} = $result_nodes{'ref_in_copying'};
+$result_nodes{'ref_in_copying'}{'structure'}{'node_next'} = $result_nodes{'ref_in_copying'}{'structure'}{'menu_child'};
 
 $result_menus{'ref_in_copying'} = {
   'cmdname' => 'node',
@@ -616,19 +624,23 @@ $result_menus{'ref_in_copying'} = {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   },
-  'menu_child' => {
-    'cmdname' => 'node',
-    'extra' => {
-      'normalized' => 'GFDL',
-      'spaces_before_argument' => ' '
-    },
-    'menu_up' => {},
-    'menu_up_hash' => {
-      'Top' => 1
+  'structure' => {
+    'menu_child' => {
+      'cmdname' => 'node',
+      'extra' => {
+        'normalized' => 'GFDL',
+        'spaces_before_argument' => ' '
+      },
+      'structure' => {
+        'menu_up' => {},
+        'menu_up_hash' => {
+          'Top' => 1
+        }
+      }
     }
   }
 };
-$result_menus{'ref_in_copying'}{'menu_child'}{'menu_up'} = $result_menus{'ref_in_copying'};
+$result_menus{'ref_in_copying'}{'structure'}{'menu_child'}{'structure'}{'menu_up'} = $result_menus{'ref_in_copying'};
 
 $result_errors{'ref_in_copying'} = [];
 

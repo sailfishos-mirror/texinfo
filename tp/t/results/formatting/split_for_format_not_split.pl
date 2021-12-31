@@ -143,7 +143,8 @@ $result_trees{'split_for_format_not_split'} = {
         'line_nr' => 5,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -206,7 +207,8 @@ $result_nodes{'split_for_format_not_split'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'split_for_format_not_split'} = {
@@ -214,7 +216,8 @@ $result_menus{'split_for_format_not_split'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'split_for_format_not_split'} = [];

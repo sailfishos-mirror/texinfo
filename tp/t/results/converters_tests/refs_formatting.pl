@@ -51,7 +51,8 @@ $result_trees{'refs_formatting'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -4343,7 +4344,8 @@ $result_sectioning{'refs_formatting'} = {
             'extra' => {
               'normalized' => 'chapter',
               'spaces_before_argument' => ' '
-            }
+            },
+            'structure' => {}
           },
           'spaces_before_argument' => ' '
         },
@@ -4373,7 +4375,8 @@ $result_nodes{'refs_formatting'} = {
     },
     'normalized' => 'chapter',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'refs_formatting'} = {
@@ -4381,7 +4384,8 @@ $result_menus{'refs_formatting'} = {
   'extra' => {
     'normalized' => 'chapter',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'refs_formatting'} = [

@@ -51,7 +51,8 @@ $result_trees{'menu_pointing_to_anchor'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -121,7 +122,8 @@ $result_trees{'menu_pointing_to_anchor'} = {
             'line_nr' => 6,
             'macro' => ''
           },
-          'parent' => {}
+          'parent' => {},
+          'structure' => {}
         },
         {
           'parent' => {},
@@ -333,7 +335,8 @@ $result_sectioning{'menu_pointing_to_anchor'} = {
             'extra' => {
               'normalized' => 'Top',
               'spaces_before_argument' => ' '
-            }
+            },
+            'structure' => {}
           },
           'spaces_before_argument' => ' '
         },
@@ -362,13 +365,6 @@ $result_nodes{'menu_pointing_to_anchor'} = {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   },
-  'menu_child' => {
-    'cmdname' => 'anchor',
-    'extra' => {
-      'normalized' => 'An-anchor'
-    },
-    'node_prev' => {}
-  },
   'menus' => [
     {
       'cmdname' => 'menu',
@@ -384,10 +380,21 @@ $result_nodes{'menu_pointing_to_anchor'} = {
       }
     }
   ],
-  'node_next' => {}
+  'structure' => {
+    'menu_child' => {
+      'cmdname' => 'anchor',
+      'extra' => {
+        'normalized' => 'An-anchor'
+      },
+      'structure' => {
+        'node_prev' => {}
+      }
+    },
+    'node_next' => {}
+  }
 };
-$result_nodes{'menu_pointing_to_anchor'}{'menu_child'}{'node_prev'} = $result_nodes{'menu_pointing_to_anchor'};
-$result_nodes{'menu_pointing_to_anchor'}{'node_next'} = $result_nodes{'menu_pointing_to_anchor'}{'menu_child'};
+$result_nodes{'menu_pointing_to_anchor'}{'structure'}{'menu_child'}{'structure'}{'node_prev'} = $result_nodes{'menu_pointing_to_anchor'};
+$result_nodes{'menu_pointing_to_anchor'}{'structure'}{'node_next'} = $result_nodes{'menu_pointing_to_anchor'}{'structure'}{'menu_child'};
 
 $result_menus{'menu_pointing_to_anchor'} = {
   'cmdname' => 'node',
@@ -395,18 +402,22 @@ $result_menus{'menu_pointing_to_anchor'} = {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   },
-  'menu_child' => {
-    'cmdname' => 'anchor',
-    'extra' => {
-      'normalized' => 'An-anchor'
-    },
-    'menu_up' => {},
-    'menu_up_hash' => {
-      'Top' => 1
+  'structure' => {
+    'menu_child' => {
+      'cmdname' => 'anchor',
+      'extra' => {
+        'normalized' => 'An-anchor'
+      },
+      'structure' => {
+        'menu_up' => {},
+        'menu_up_hash' => {
+          'Top' => 1
+        }
+      }
     }
   }
 };
-$result_menus{'menu_pointing_to_anchor'}{'menu_child'}{'menu_up'} = $result_menus{'menu_pointing_to_anchor'};
+$result_menus{'menu_pointing_to_anchor'}{'structure'}{'menu_child'}{'structure'}{'menu_up'} = $result_menus{'menu_pointing_to_anchor'};
 
 $result_errors{'menu_pointing_to_anchor'} = [];
 

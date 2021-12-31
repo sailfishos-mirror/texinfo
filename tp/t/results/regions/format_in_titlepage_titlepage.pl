@@ -194,7 +194,8 @@ $result_trees{'format_in_titlepage_titlepage'} = {
         'line_nr' => 9,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     }
   ],
   'type' => 'document_root'
@@ -248,7 +249,8 @@ $result_nodes{'format_in_titlepage_titlepage'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'format_in_titlepage_titlepage'} = {
@@ -256,7 +258,8 @@ $result_menus{'format_in_titlepage_titlepage'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'format_in_titlepage_titlepage'} = [];

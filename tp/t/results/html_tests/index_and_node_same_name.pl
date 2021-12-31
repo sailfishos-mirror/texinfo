@@ -169,7 +169,8 @@ $result_trees{'index_and_node_same_name'} = {
         'line_nr' => 2,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     }
   ],
   'type' => 'document_root'
@@ -236,7 +237,8 @@ $result_nodes{'index_and_node_same_name'} = {
     'isindex' => 1,
     'normalized' => 'index-node',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'index_and_node_same_name'} = {
@@ -245,7 +247,8 @@ $result_menus{'index_and_node_same_name'} = {
     'isindex' => 1,
     'normalized' => 'index-node',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'index_and_node_same_name'} = [];

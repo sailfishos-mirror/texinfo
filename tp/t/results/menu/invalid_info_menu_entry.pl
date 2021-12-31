@@ -625,7 +625,8 @@ $result_trees{'invalid_info_menu_entry'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     }
   ],
   'type' => 'document_root'
@@ -767,16 +768,6 @@ $result_nodes{'invalid_info_menu_entry'} = {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   },
-  'menu_child' => {
-    'extra' => {
-      'manual_content' => [
-        {
-          'text' => 'f'
-        }
-      ],
-      'normalized' => 'a_003a'
-    }
-  },
   'menus' => [
     {
       'cmdname' => 'menu',
@@ -792,9 +783,21 @@ $result_nodes{'invalid_info_menu_entry'} = {
       }
     }
   ],
-  'node_next' => {}
+  'structure' => {
+    'menu_child' => {
+      'extra' => {
+        'manual_content' => [
+          {
+            'text' => 'f'
+          }
+        ],
+        'normalized' => 'a_003a'
+      }
+    },
+    'node_next' => {}
+  }
 };
-$result_nodes{'invalid_info_menu_entry'}{'node_next'} = $result_nodes{'invalid_info_menu_entry'}{'menu_child'};
+$result_nodes{'invalid_info_menu_entry'}{'structure'}{'node_next'} = $result_nodes{'invalid_info_menu_entry'}{'structure'}{'menu_child'};
 
 $result_menus{'invalid_info_menu_entry'} = {
   'cmdname' => 'node',
@@ -802,14 +805,16 @@ $result_menus{'invalid_info_menu_entry'} = {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   },
-  'menu_child' => {
-    'extra' => {
-      'manual_content' => [
-        {
-          'text' => 'f'
-        }
-      ],
-      'normalized' => 'a_003a'
+  'structure' => {
+    'menu_child' => {
+      'extra' => {
+        'manual_content' => [
+          {
+            'text' => 'f'
+          }
+        ],
+        'normalized' => 'a_003a'
+      }
     }
   }
 };

@@ -87,7 +87,8 @@ $result_trees{'node_sectop_before_lone_node_Top'} = {
         'line_nr' => 3,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -208,7 +209,8 @@ $result_trees{'node_sectop_before_lone_node_Top'} = {
         'line_nr' => 8,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -249,7 +251,8 @@ $result_trees{'node_sectop_before_lone_node_Top'} = {
         'line_nr' => 12,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -388,7 +391,8 @@ $result_sectioning{'node_sectop_before_lone_node_Top'} = {
             'extra' => {
               'normalized' => 'node-before',
               'spaces_before_argument' => ' '
-            }
+            },
+            'structure' => {}
           },
           'spaces_before_argument' => ' '
         },
@@ -403,7 +407,8 @@ $result_sectioning{'node_sectop_before_lone_node_Top'} = {
                   'extra' => {
                     'normalized' => 'chap',
                     'spaces_before_argument' => ' '
-                  }
+                  },
+                  'structure' => {}
                 },
                 'spaces_before_argument' => ' '
               },
@@ -433,51 +438,58 @@ $result_nodes{'node_sectop_before_lone_node_Top'} = {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   },
-  'node_next' => {
-    'cmdname' => 'node',
-    'extra' => {
-      'associated_section' => {
-        'cmdname' => 'top',
-        'extra' => {
-          'spaces_before_argument' => ' '
-        },
-        'structure' => {
-          'level' => 0
-        }
-      },
-      'normalized' => 'node-before',
-      'spaces_before_argument' => ' '
-    },
+  'structure' => {
     'node_next' => {
       'cmdname' => 'node',
       'extra' => {
         'associated_section' => {
-          'cmdname' => 'chapter',
+          'cmdname' => 'top',
           'extra' => {
             'spaces_before_argument' => ' '
           },
           'structure' => {
-            'level' => 1,
-            'number' => 1
+            'level' => 0
           }
         },
-        'normalized' => 'chap',
+        'normalized' => 'node-before',
         'spaces_before_argument' => ' '
       },
-      'node_up' => {}
-    },
-    'node_prev' => {}
+      'structure' => {
+        'node_next' => {
+          'cmdname' => 'node',
+          'extra' => {
+            'associated_section' => {
+              'cmdname' => 'chapter',
+              'extra' => {
+                'spaces_before_argument' => ' '
+              },
+              'structure' => {
+                'level' => 1,
+                'number' => 1
+              }
+            },
+            'normalized' => 'chap',
+            'spaces_before_argument' => ' '
+          },
+          'structure' => {
+            'node_up' => {}
+          }
+        },
+        'node_prev' => {}
+      }
+    }
   }
 };
-$result_nodes{'node_sectop_before_lone_node_Top'}{'node_next'}{'node_next'}{'node_up'} = $result_nodes{'node_sectop_before_lone_node_Top'}{'node_next'};
-$result_nodes{'node_sectop_before_lone_node_Top'}{'node_next'}{'node_prev'} = $result_nodes{'node_sectop_before_lone_node_Top'};
+$result_nodes{'node_sectop_before_lone_node_Top'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_up'} = $result_nodes{'node_sectop_before_lone_node_Top'}{'structure'}{'node_next'};
+$result_nodes{'node_sectop_before_lone_node_Top'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'node_sectop_before_lone_node_Top'};
 
 $result_menus{'node_sectop_before_lone_node_Top'} = {
   'cmdname' => 'node',
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'node_sectop_before_lone_node_Top'} = [];

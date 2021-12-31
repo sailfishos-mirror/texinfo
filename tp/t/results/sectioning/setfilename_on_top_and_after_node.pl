@@ -51,7 +51,8 @@ $result_trees{'setfilename_on_top_and_after_node'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -190,7 +191,8 @@ $result_sectioning{'setfilename_on_top_and_after_node'} = {
             'extra' => {
               'normalized' => 'Top',
               'spaces_before_argument' => ' '
-            }
+            },
+            'structure' => {}
           },
           'spaces_before_argument' => ' '
         },
@@ -218,7 +220,8 @@ $result_nodes{'setfilename_on_top_and_after_node'} = {
     },
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'setfilename_on_top_and_after_node'} = {
@@ -226,7 +229,8 @@ $result_menus{'setfilename_on_top_and_after_node'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'setfilename_on_top_and_after_node'} = [

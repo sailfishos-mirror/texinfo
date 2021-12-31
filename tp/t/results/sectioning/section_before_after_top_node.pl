@@ -126,7 +126,8 @@ $result_trees{'section_before_after_top_node'} = {
         'line_nr' => 5,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -294,7 +295,8 @@ $result_sectioning{'section_before_after_top_node'} = {
             'extra' => {
               'normalized' => 'Top',
               'spaces_before_argument' => ' '
-            }
+            },
+            'structure' => {}
           },
           'spaces_before_argument' => ' '
         },
@@ -345,7 +347,8 @@ $result_nodes{'section_before_after_top_node'} = {
     },
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'section_before_after_top_node'} = {
@@ -353,7 +356,8 @@ $result_menus{'section_before_after_top_node'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'section_before_after_top_node'} = [

@@ -199,7 +199,8 @@ $result_trees{'one_node_explicit_directions_anchor'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     }
   ],
   'type' => 'document_root'
@@ -259,13 +260,16 @@ $result_nodes{'one_node_explicit_directions_anchor'} = {
     'normalized' => 'one-node',
     'spaces_before_argument' => ' '
   },
-  'node_up' => {
-    'extra' => {
-      'manual_content' => [
-        {
-          'text' => 'dir'
-        }
-      ]
+  'structure' => {
+    'node_up' => {
+      'extra' => {
+        'manual_content' => [
+          {
+            'text' => 'dir'
+          }
+        ]
+      },
+      'structure' => {}
     }
   }
 };
@@ -275,7 +279,8 @@ $result_menus{'one_node_explicit_directions_anchor'} = {
   'extra' => {
     'normalized' => 'one-node',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'one_node_explicit_directions_anchor'} = [];

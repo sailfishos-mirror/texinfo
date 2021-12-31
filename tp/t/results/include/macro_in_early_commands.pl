@@ -354,7 +354,8 @@ $result_trees{'macro_in_early_commands'} = {
         'line_nr' => 25,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -639,7 +640,8 @@ $result_sectioning{'macro_in_early_commands'} = {
             'extra' => {
               'normalized' => 'Top',
               'spaces_before_argument' => ' '
-            }
+            },
+            'structure' => {}
           },
           'spaces_before_argument' => ' '
         },
@@ -667,7 +669,8 @@ $result_nodes{'macro_in_early_commands'} = {
     },
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'macro_in_early_commands'} = {
@@ -675,7 +678,8 @@ $result_menus{'macro_in_early_commands'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'macro_in_early_commands'} = [];

@@ -134,7 +134,8 @@ $result_trees{'image_inline_or_not'} = {
         'line_nr' => 5,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -1177,7 +1178,8 @@ $result_trees{'image_inline_or_not'} = {
         'line_nr' => 41,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -1972,7 +1974,8 @@ $result_sectioning{'image_inline_or_not'} = {
             'extra' => {
               'normalized' => 'Top',
               'spaces_before_argument' => ' '
-            }
+            },
+            'structure' => {}
           },
           'spaces_before_argument' => ' '
         },
@@ -1987,7 +1990,8 @@ $result_sectioning{'image_inline_or_not'} = {
                   'extra' => {
                     'normalized' => 'node_005fimage',
                     'spaces_before_argument' => ' '
-                  }
+                  },
+                  'structure' => {}
                 },
                 'spaces_before_argument' => ' '
               },
@@ -2026,25 +2030,6 @@ $result_nodes{'image_inline_or_not'} = {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   },
-  'menu_child' => {
-    'cmdname' => 'node',
-    'extra' => {
-      'associated_section' => {
-        'cmdname' => 'chapter',
-        'extra' => {
-          'spaces_before_argument' => ' '
-        },
-        'structure' => {
-          'level' => 1,
-          'number' => 1
-        }
-      },
-      'normalized' => 'node_005fimage',
-      'spaces_before_argument' => ' '
-    },
-    'node_prev' => {},
-    'node_up' => {}
-  },
   'menus' => [
     {
       'cmdname' => 'menu',
@@ -2060,11 +2045,34 @@ $result_nodes{'image_inline_or_not'} = {
       }
     }
   ],
-  'node_next' => {}
+  'structure' => {
+    'menu_child' => {
+      'cmdname' => 'node',
+      'extra' => {
+        'associated_section' => {
+          'cmdname' => 'chapter',
+          'extra' => {
+            'spaces_before_argument' => ' '
+          },
+          'structure' => {
+            'level' => 1,
+            'number' => 1
+          }
+        },
+        'normalized' => 'node_005fimage',
+        'spaces_before_argument' => ' '
+      },
+      'structure' => {
+        'node_prev' => {},
+        'node_up' => {}
+      }
+    },
+    'node_next' => {}
+  }
 };
-$result_nodes{'image_inline_or_not'}{'menu_child'}{'node_prev'} = $result_nodes{'image_inline_or_not'};
-$result_nodes{'image_inline_or_not'}{'menu_child'}{'node_up'} = $result_nodes{'image_inline_or_not'};
-$result_nodes{'image_inline_or_not'}{'node_next'} = $result_nodes{'image_inline_or_not'}{'menu_child'};
+$result_nodes{'image_inline_or_not'}{'structure'}{'menu_child'}{'structure'}{'node_prev'} = $result_nodes{'image_inline_or_not'};
+$result_nodes{'image_inline_or_not'}{'structure'}{'menu_child'}{'structure'}{'node_up'} = $result_nodes{'image_inline_or_not'};
+$result_nodes{'image_inline_or_not'}{'structure'}{'node_next'} = $result_nodes{'image_inline_or_not'}{'structure'}{'menu_child'};
 
 $result_menus{'image_inline_or_not'} = {
   'cmdname' => 'node',
@@ -2072,29 +2080,33 @@ $result_menus{'image_inline_or_not'} = {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   },
-  'menu_child' => {
-    'cmdname' => 'node',
-    'extra' => {
-      'normalized' => 'node_005fimage',
-      'spaces_before_argument' => ' '
-    },
-    'menu_next' => {
+  'structure' => {
+    'menu_child' => {
+      'cmdname' => 'node',
       'extra' => {
-        'manual_content' => [
-          {
-            'text' => 'somewhere'
+        'normalized' => 'node_005fimage',
+        'spaces_before_argument' => ' '
+      },
+      'structure' => {
+        'menu_next' => {
+          'extra' => {
+            'manual_content' => [
+              {
+                'text' => 'somewhere'
+              }
+            ],
+            'normalized' => 'extnode'
           }
-        ],
-        'normalized' => 'extnode'
+        },
+        'menu_up' => {},
+        'menu_up_hash' => {
+          'Top' => 1
+        }
       }
-    },
-    'menu_up' => {},
-    'menu_up_hash' => {
-      'Top' => 1
     }
   }
 };
-$result_menus{'image_inline_or_not'}{'menu_child'}{'menu_up'} = $result_menus{'image_inline_or_not'};
+$result_menus{'image_inline_or_not'}{'structure'}{'menu_child'}{'structure'}{'menu_up'} = $result_menus{'image_inline_or_not'};
 
 $result_errors{'image_inline_or_not'} = [];
 

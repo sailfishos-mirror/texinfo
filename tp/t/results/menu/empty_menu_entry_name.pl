@@ -260,7 +260,8 @@ $result_trees{'empty_menu_entry_name'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -301,7 +302,8 @@ $result_trees{'empty_menu_entry_name'} = {
         'line_nr' => 8,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     }
   ],
   'type' => 'document_root'
@@ -378,15 +380,6 @@ $result_nodes{'empty_menu_entry_name'} = {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   },
-  'menu_child' => {
-    'extra' => {
-      'manual_content' => [
-        {
-          'text' => 'vvv'
-        }
-      ]
-    }
-  },
   'menus' => [
     {
       'cmdname' => 'menu',
@@ -402,9 +395,20 @@ $result_nodes{'empty_menu_entry_name'} = {
       }
     }
   ],
-  'node_next' => {}
+  'structure' => {
+    'menu_child' => {
+      'extra' => {
+        'manual_content' => [
+          {
+            'text' => 'vvv'
+          }
+        ]
+      }
+    },
+    'node_next' => {}
+  }
 };
-$result_nodes{'empty_menu_entry_name'}{'node_next'} = $result_nodes{'empty_menu_entry_name'}{'menu_child'};
+$result_nodes{'empty_menu_entry_name'}{'structure'}{'node_next'} = $result_nodes{'empty_menu_entry_name'}{'structure'}{'menu_child'};
 
 $result_menus{'empty_menu_entry_name'} = {
   'cmdname' => 'node',
@@ -412,13 +416,15 @@ $result_menus{'empty_menu_entry_name'} = {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   },
-  'menu_child' => {
-    'extra' => {
-      'manual_content' => [
-        {
-          'text' => 'vvv'
-        }
-      ]
+  'structure' => {
+    'menu_child' => {
+      'extra' => {
+        'manual_content' => [
+          {
+            'text' => 'vvv'
+          }
+        ]
+      }
     }
   }
 };

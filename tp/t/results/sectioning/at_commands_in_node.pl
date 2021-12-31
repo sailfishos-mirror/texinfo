@@ -295,7 +295,8 @@ $result_trees{'at_commands_in_node'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     }
   ],
   'type' => 'document_root'
@@ -374,7 +375,8 @@ $result_nodes{'at_commands_in_node'} = {
   'extra' => {
     'normalized' => 'A-SC-node-_00ef-_00ef-_1e14-_0142-_1e08-_00a1',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'at_commands_in_node'} = {
@@ -382,7 +384,8 @@ $result_menus{'at_commands_in_node'} = {
   'extra' => {
     'normalized' => 'A-SC-node-_00ef-_00ef-_1e14-_0142-_1e08-_00a1',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'at_commands_in_node'} = [];

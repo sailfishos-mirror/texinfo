@@ -200,7 +200,8 @@ $result_trees{'node_on_index_entry_line'} = {
         'line_nr' => 2,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     }
   ],
   'type' => 'document_root'
@@ -258,34 +259,36 @@ $result_nodes{'node_on_index_entry_line'} = {
     'normalized' => 'a',
     'spaces_before_argument' => ' '
   },
-  'node_next' => {
-    'extra' => {
-      'manual_content' => [
-        {
-          'text' => 'm'
-        }
-      ],
-      'normalized' => 'b'
-    }
-  },
-  'node_prev' => {
-    'extra' => {
-      'manual_content' => [
-        {
-          'text' => 'm'
-        }
-      ],
-      'normalized' => 'c'
-    }
-  },
-  'node_up' => {
-    'extra' => {
-      'manual_content' => [
-        {
-          'text' => 'h'
-        }
-      ],
-      'normalized' => 'd'
+  'structure' => {
+    'node_next' => {
+      'extra' => {
+        'manual_content' => [
+          {
+            'text' => 'm'
+          }
+        ],
+        'normalized' => 'b'
+      }
+    },
+    'node_prev' => {
+      'extra' => {
+        'manual_content' => [
+          {
+            'text' => 'm'
+          }
+        ],
+        'normalized' => 'c'
+      }
+    },
+    'node_up' => {
+      'extra' => {
+        'manual_content' => [
+          {
+            'text' => 'h'
+          }
+        ],
+        'normalized' => 'd'
+      }
     }
   }
 };
@@ -295,7 +298,8 @@ $result_menus{'node_on_index_entry_line'} = {
   'extra' => {
     'normalized' => 'a',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'node_on_index_entry_line'} = [

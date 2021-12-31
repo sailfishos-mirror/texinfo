@@ -693,7 +693,8 @@ $result_trees{'cpp_lines'} = {
         'line_nr' => 70,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -915,7 +916,8 @@ $result_nodes{'cpp_lines'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'cpp_lines'} = {
@@ -923,7 +925,8 @@ $result_menus{'cpp_lines'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'cpp_lines'} = [];

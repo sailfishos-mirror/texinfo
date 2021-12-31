@@ -174,7 +174,8 @@ $result_trees{'menu_node_unterminated'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     }
   ],
   'type' => 'document_root'
@@ -239,7 +240,8 @@ $result_nodes{'menu_node_unterminated'} = {
         }
       }
     }
-  ]
+  ],
+  'structure' => {}
 };
 
 $result_menus{'menu_node_unterminated'} = {
@@ -247,7 +249,8 @@ $result_menus{'menu_node_unterminated'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'menu_node_unterminated'} = [

@@ -715,7 +715,8 @@ $result_trees{'nested_multitable_anchor_index'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     }
   ],
   'type' => 'document_root'
@@ -854,7 +855,8 @@ $result_nodes{'nested_multitable_anchor_index'} = {
     'isindex' => 1,
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'nested_multitable_anchor_index'} = {
@@ -863,7 +865,8 @@ $result_menus{'nested_multitable_anchor_index'} = {
     'isindex' => 1,
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'nested_multitable_anchor_index'} = [];

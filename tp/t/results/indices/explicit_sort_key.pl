@@ -52,7 +52,8 @@ $result_trees{'explicit_sort_key'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -814,7 +815,8 @@ $result_sectioning{'explicit_sort_key'} = {
               'isindex' => 1,
               'normalized' => 'Top',
               'spaces_before_argument' => ' '
-            }
+            },
+            'structure' => {}
           }
         },
         'structure' => {
@@ -840,7 +842,8 @@ $result_nodes{'explicit_sort_key'} = {
     'isindex' => 1,
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'explicit_sort_key'} = {
@@ -849,7 +852,8 @@ $result_menus{'explicit_sort_key'} = {
     'isindex' => 1,
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'explicit_sort_key'} = [

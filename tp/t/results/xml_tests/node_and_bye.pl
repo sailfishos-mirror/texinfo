@@ -59,7 +59,8 @@ $result_trees{'node_and_bye'} = [
           'line_nr' => 1,
           'macro' => ''
         },
-        'parent' => {}
+        'parent' => {},
+        'structure' => {}
       },
       {
         'args' => [
@@ -103,7 +104,8 @@ $result_nodes{'node_and_bye'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'node_and_bye'} = {
@@ -111,7 +113,8 @@ $result_menus{'node_and_bye'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'node_and_bye'} = [];

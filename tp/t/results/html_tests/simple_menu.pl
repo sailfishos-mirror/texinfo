@@ -58,7 +58,8 @@ $result_trees{'simple_menu'} = {
         'line_nr' => 2,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -2097,7 +2098,8 @@ $result_sectioning{'simple_menu'} = {
             'extra' => {
               'normalized' => 'Top',
               'spaces_before_argument' => ' '
-            }
+            },
+            'structure' => {}
           }
         },
         'structure' => {
@@ -2123,15 +2125,6 @@ $result_nodes{'simple_menu'} = {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   },
-  'menu_child' => {
-    'extra' => {
-      'manual_content' => [
-        {
-          'text' => 'ggg'
-        }
-      ]
-    }
-  },
   'menus' => [
     {
       'cmdname' => 'menu',
@@ -2147,9 +2140,20 @@ $result_nodes{'simple_menu'} = {
       }
     }
   ],
-  'node_next' => {}
+  'structure' => {
+    'menu_child' => {
+      'extra' => {
+        'manual_content' => [
+          {
+            'text' => 'ggg'
+          }
+        ]
+      }
+    },
+    'node_next' => {}
+  }
 };
-$result_nodes{'simple_menu'}{'node_next'} = $result_nodes{'simple_menu'}{'menu_child'};
+$result_nodes{'simple_menu'}{'structure'}{'node_next'} = $result_nodes{'simple_menu'}{'structure'}{'menu_child'};
 
 $result_menus{'simple_menu'} = {
   'cmdname' => 'node',
@@ -2157,13 +2161,15 @@ $result_menus{'simple_menu'} = {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   },
-  'menu_child' => {
-    'extra' => {
-      'manual_content' => [
-        {
-          'text' => 'ggg'
-        }
-      ]
+  'structure' => {
+    'menu_child' => {
+      'extra' => {
+        'manual_content' => [
+          {
+            'text' => 'ggg'
+          }
+        ]
+      }
     }
   }
 };

@@ -198,7 +198,8 @@ $result_trees{'html_in_copying'} = {
         'line_nr' => 10,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -308,7 +309,8 @@ $result_sectioning{'html_in_copying'} = {
             'extra' => {
               'normalized' => 'Top',
               'spaces_before_argument' => ' '
-            }
+            },
+            'structure' => {}
           },
           'spaces_before_argument' => ' '
         },
@@ -336,7 +338,8 @@ $result_nodes{'html_in_copying'} = {
     },
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'html_in_copying'} = {
@@ -344,7 +347,8 @@ $result_menus{'html_in_copying'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'html_in_copying'} = [];

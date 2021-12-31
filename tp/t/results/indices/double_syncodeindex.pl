@@ -280,7 +280,8 @@ $result_trees{'double_syncodeindex'} = {
         'line_nr' => 4,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     }
   ],
   'type' => 'document_root'
@@ -345,7 +346,8 @@ $result_nodes{'double_syncodeindex'} = {
     'isindex' => 1,
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'double_syncodeindex'} = {
@@ -354,7 +356,8 @@ $result_menus{'double_syncodeindex'} = {
     'isindex' => 1,
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'double_syncodeindex'} = [

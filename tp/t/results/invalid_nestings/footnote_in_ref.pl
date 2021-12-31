@@ -148,7 +148,8 @@ $result_trees{'footnote_in_ref'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     }
   ],
   'type' => 'document_root'
@@ -190,7 +191,8 @@ $result_nodes{'footnote_in_ref'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'footnote_in_ref'} = {
@@ -198,7 +200,8 @@ $result_menus{'footnote_in_ref'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'footnote_in_ref'} = [

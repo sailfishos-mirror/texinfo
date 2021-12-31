@@ -346,7 +346,8 @@ $result_trees{'xref_test'} = {
         'line_nr' => 2,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     }
   ],
   'type' => 'document_root'
@@ -433,7 +434,8 @@ $result_nodes{'xref_test'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'xref_test'} = {
@@ -441,7 +443,8 @@ $result_menus{'xref_test'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'xref_test'} = [];

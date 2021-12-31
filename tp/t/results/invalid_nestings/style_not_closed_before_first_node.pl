@@ -99,7 +99,8 @@ $result_trees{'style_not_closed_before_first_node'} = {
         'line_nr' => 3,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     }
   ],
   'type' => 'document_root'
@@ -135,7 +136,8 @@ $result_nodes{'style_not_closed_before_first_node'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_menus{'style_not_closed_before_first_node'} = {
@@ -143,7 +145,8 @@ $result_menus{'style_not_closed_before_first_node'} = {
   'extra' => {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
-  }
+  },
+  'structure' => {}
 };
 
 $result_errors{'style_not_closed_before_first_node'} = [

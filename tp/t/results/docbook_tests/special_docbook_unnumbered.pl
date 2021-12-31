@@ -51,7 +51,8 @@ $result_trees{'special_docbook_unnumbered'} = {
         'line_nr' => 1,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -435,7 +436,8 @@ $result_trees{'special_docbook_unnumbered'} = {
         'line_nr' => 13,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -532,7 +534,8 @@ $result_trees{'special_docbook_unnumbered'} = {
         'line_nr' => 18,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -629,7 +632,8 @@ $result_trees{'special_docbook_unnumbered'} = {
         'line_nr' => 23,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -726,7 +730,8 @@ $result_trees{'special_docbook_unnumbered'} = {
         'line_nr' => 28,
         'macro' => ''
       },
-      'parent' => {}
+      'parent' => {},
+      'structure' => {}
     },
     {
       'args' => [
@@ -968,7 +973,8 @@ $result_sectioning{'special_docbook_unnumbered'} = {
             'extra' => {
               'normalized' => 'Top',
               'spaces_before_argument' => ' '
-            }
+            },
+            'structure' => {}
           },
           'spaces_before_argument' => ' '
         },
@@ -983,7 +989,8 @@ $result_sectioning{'special_docbook_unnumbered'} = {
                   'extra' => {
                     'normalized' => 'Dedication',
                     'spaces_before_argument' => ' '
-                  }
+                  },
+                  'structure' => {}
                 },
                 'spaces_before_argument' => ' '
               },
@@ -1002,7 +1009,8 @@ $result_sectioning{'special_docbook_unnumbered'} = {
                   'extra' => {
                     'normalized' => 'preface',
                     'spaces_before_argument' => ' '
-                  }
+                  },
+                  'structure' => {}
                 },
                 'spaces_before_argument' => ' '
               },
@@ -1022,7 +1030,8 @@ $result_sectioning{'special_docbook_unnumbered'} = {
                   'extra' => {
                     'normalized' => 'colophon',
                     'spaces_before_argument' => ' '
-                  }
+                  },
+                  'structure' => {}
                 },
                 'spaces_before_argument' => ' '
               },
@@ -1042,7 +1051,8 @@ $result_sectioning{'special_docbook_unnumbered'} = {
                   'extra' => {
                     'normalized' => 'acknowledgements',
                     'spaces_before_argument' => ' '
-                  }
+                  },
+                  'structure' => {}
                 },
                 'spaces_before_argument' => ' '
               },
@@ -1094,79 +1104,6 @@ $result_nodes{'special_docbook_unnumbered'} = {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   },
-  'menu_child' => {
-    'cmdname' => 'node',
-    'extra' => {
-      'associated_section' => {
-        'cmdname' => 'unnumbered',
-        'extra' => {
-          'spaces_before_argument' => ' '
-        },
-        'structure' => {
-          'level' => 1
-        }
-      },
-      'normalized' => 'Dedication',
-      'spaces_before_argument' => ' '
-    },
-    'node_next' => {
-      'cmdname' => 'node',
-      'extra' => {
-        'associated_section' => {
-          'cmdname' => 'unnumbered',
-          'extra' => {
-            'spaces_before_argument' => ' '
-          },
-          'structure' => {
-            'level' => 1
-          }
-        },
-        'normalized' => 'preface',
-        'spaces_before_argument' => ' '
-      },
-      'node_next' => {
-        'cmdname' => 'node',
-        'extra' => {
-          'associated_section' => {
-            'cmdname' => 'unnumbered',
-            'extra' => {
-              'spaces_before_argument' => ' '
-            },
-            'structure' => {
-              'level' => 1
-            }
-          },
-          'normalized' => 'colophon',
-          'spaces_before_argument' => ' '
-        },
-        'node_next' => {
-          'cmdname' => 'node',
-          'extra' => {
-            'associated_section' => {
-              'cmdname' => 'chapter',
-              'extra' => {
-                'spaces_before_argument' => ' '
-              },
-              'structure' => {
-                'level' => 1,
-                'number' => 1
-              }
-            },
-            'normalized' => 'acknowledgements',
-            'spaces_before_argument' => ' '
-          },
-          'node_prev' => {},
-          'node_up' => {}
-        },
-        'node_prev' => {},
-        'node_up' => {}
-      },
-      'node_prev' => {},
-      'node_up' => {}
-    },
-    'node_prev' => {},
-    'node_up' => {}
-  },
   'menus' => [
     {
       'cmdname' => 'menu',
@@ -1182,17 +1119,100 @@ $result_nodes{'special_docbook_unnumbered'} = {
       }
     }
   ],
-  'node_next' => {}
+  'structure' => {
+    'menu_child' => {
+      'cmdname' => 'node',
+      'extra' => {
+        'associated_section' => {
+          'cmdname' => 'unnumbered',
+          'extra' => {
+            'spaces_before_argument' => ' '
+          },
+          'structure' => {
+            'level' => 1
+          }
+        },
+        'normalized' => 'Dedication',
+        'spaces_before_argument' => ' '
+      },
+      'structure' => {
+        'node_next' => {
+          'cmdname' => 'node',
+          'extra' => {
+            'associated_section' => {
+              'cmdname' => 'unnumbered',
+              'extra' => {
+                'spaces_before_argument' => ' '
+              },
+              'structure' => {
+                'level' => 1
+              }
+            },
+            'normalized' => 'preface',
+            'spaces_before_argument' => ' '
+          },
+          'structure' => {
+            'node_next' => {
+              'cmdname' => 'node',
+              'extra' => {
+                'associated_section' => {
+                  'cmdname' => 'unnumbered',
+                  'extra' => {
+                    'spaces_before_argument' => ' '
+                  },
+                  'structure' => {
+                    'level' => 1
+                  }
+                },
+                'normalized' => 'colophon',
+                'spaces_before_argument' => ' '
+              },
+              'structure' => {
+                'node_next' => {
+                  'cmdname' => 'node',
+                  'extra' => {
+                    'associated_section' => {
+                      'cmdname' => 'chapter',
+                      'extra' => {
+                        'spaces_before_argument' => ' '
+                      },
+                      'structure' => {
+                        'level' => 1,
+                        'number' => 1
+                      }
+                    },
+                    'normalized' => 'acknowledgements',
+                    'spaces_before_argument' => ' '
+                  },
+                  'structure' => {
+                    'node_prev' => {},
+                    'node_up' => {}
+                  }
+                },
+                'node_prev' => {},
+                'node_up' => {}
+              }
+            },
+            'node_prev' => {},
+            'node_up' => {}
+          }
+        },
+        'node_prev' => {},
+        'node_up' => {}
+      }
+    },
+    'node_next' => {}
+  }
 };
-$result_nodes{'special_docbook_unnumbered'}{'menu_child'}{'node_next'}{'node_next'}{'node_next'}{'node_prev'} = $result_nodes{'special_docbook_unnumbered'}{'menu_child'}{'node_next'}{'node_next'};
-$result_nodes{'special_docbook_unnumbered'}{'menu_child'}{'node_next'}{'node_next'}{'node_next'}{'node_up'} = $result_nodes{'special_docbook_unnumbered'};
-$result_nodes{'special_docbook_unnumbered'}{'menu_child'}{'node_next'}{'node_next'}{'node_prev'} = $result_nodes{'special_docbook_unnumbered'}{'menu_child'}{'node_next'};
-$result_nodes{'special_docbook_unnumbered'}{'menu_child'}{'node_next'}{'node_next'}{'node_up'} = $result_nodes{'special_docbook_unnumbered'};
-$result_nodes{'special_docbook_unnumbered'}{'menu_child'}{'node_next'}{'node_prev'} = $result_nodes{'special_docbook_unnumbered'}{'menu_child'};
-$result_nodes{'special_docbook_unnumbered'}{'menu_child'}{'node_next'}{'node_up'} = $result_nodes{'special_docbook_unnumbered'};
-$result_nodes{'special_docbook_unnumbered'}{'menu_child'}{'node_prev'} = $result_nodes{'special_docbook_unnumbered'};
-$result_nodes{'special_docbook_unnumbered'}{'menu_child'}{'node_up'} = $result_nodes{'special_docbook_unnumbered'};
-$result_nodes{'special_docbook_unnumbered'}{'node_next'} = $result_nodes{'special_docbook_unnumbered'}{'menu_child'};
+$result_nodes{'special_docbook_unnumbered'}{'structure'}{'menu_child'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'special_docbook_unnumbered'}{'structure'}{'menu_child'}{'structure'}{'node_next'}{'structure'}{'node_next'};
+$result_nodes{'special_docbook_unnumbered'}{'structure'}{'menu_child'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_up'} = $result_nodes{'special_docbook_unnumbered'};
+$result_nodes{'special_docbook_unnumbered'}{'structure'}{'menu_child'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'special_docbook_unnumbered'}{'structure'}{'menu_child'}{'structure'}{'node_next'};
+$result_nodes{'special_docbook_unnumbered'}{'structure'}{'menu_child'}{'structure'}{'node_next'}{'structure'}{'node_next'}{'structure'}{'node_up'} = $result_nodes{'special_docbook_unnumbered'};
+$result_nodes{'special_docbook_unnumbered'}{'structure'}{'menu_child'}{'structure'}{'node_next'}{'structure'}{'node_prev'} = $result_nodes{'special_docbook_unnumbered'}{'structure'}{'menu_child'};
+$result_nodes{'special_docbook_unnumbered'}{'structure'}{'menu_child'}{'structure'}{'node_next'}{'structure'}{'node_up'} = $result_nodes{'special_docbook_unnumbered'};
+$result_nodes{'special_docbook_unnumbered'}{'structure'}{'menu_child'}{'structure'}{'node_prev'} = $result_nodes{'special_docbook_unnumbered'};
+$result_nodes{'special_docbook_unnumbered'}{'structure'}{'menu_child'}{'structure'}{'node_up'} = $result_nodes{'special_docbook_unnumbered'};
+$result_nodes{'special_docbook_unnumbered'}{'structure'}{'node_next'} = $result_nodes{'special_docbook_unnumbered'}{'structure'}{'menu_child'};
 
 $result_menus{'special_docbook_unnumbered'} = {
   'cmdname' => 'node',
@@ -1200,61 +1220,71 @@ $result_menus{'special_docbook_unnumbered'} = {
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   },
-  'menu_child' => {
-    'cmdname' => 'node',
-    'extra' => {
-      'normalized' => 'Dedication',
-      'spaces_before_argument' => ' '
-    },
-    'menu_next' => {
+  'structure' => {
+    'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'preface',
+        'normalized' => 'Dedication',
         'spaces_before_argument' => ' '
       },
-      'menu_next' => {
-        'cmdname' => 'node',
-        'extra' => {
-          'normalized' => 'colophon',
-          'spaces_before_argument' => ' '
-        },
+      'structure' => {
         'menu_next' => {
           'cmdname' => 'node',
           'extra' => {
-            'normalized' => 'acknowledgements',
+            'normalized' => 'preface',
             'spaces_before_argument' => ' '
           },
-          'menu_prev' => {},
-          'menu_up' => {},
-          'menu_up_hash' => {
-            'Top' => 1
+          'structure' => {
+            'menu_next' => {
+              'cmdname' => 'node',
+              'extra' => {
+                'normalized' => 'colophon',
+                'spaces_before_argument' => ' '
+              },
+              'structure' => {
+                'menu_next' => {
+                  'cmdname' => 'node',
+                  'extra' => {
+                    'normalized' => 'acknowledgements',
+                    'spaces_before_argument' => ' '
+                  },
+                  'structure' => {
+                    'menu_prev' => {},
+                    'menu_up' => {},
+                    'menu_up_hash' => {
+                      'Top' => 1
+                    }
+                  }
+                },
+                'menu_prev' => {},
+                'menu_up' => {},
+                'menu_up_hash' => {
+                  'Top' => 1
+                }
+              }
+            },
+            'menu_prev' => {},
+            'menu_up' => {},
+            'menu_up_hash' => {
+              'Top' => 1
+            }
           }
         },
-        'menu_prev' => {},
         'menu_up' => {},
         'menu_up_hash' => {
           'Top' => 1
         }
-      },
-      'menu_prev' => {},
-      'menu_up' => {},
-      'menu_up_hash' => {
-        'Top' => 1
       }
-    },
-    'menu_up' => {},
-    'menu_up_hash' => {
-      'Top' => 1
     }
   }
 };
-$result_menus{'special_docbook_unnumbered'}{'menu_child'}{'menu_next'}{'menu_next'}{'menu_next'}{'menu_prev'} = $result_menus{'special_docbook_unnumbered'}{'menu_child'}{'menu_next'}{'menu_next'};
-$result_menus{'special_docbook_unnumbered'}{'menu_child'}{'menu_next'}{'menu_next'}{'menu_next'}{'menu_up'} = $result_menus{'special_docbook_unnumbered'};
-$result_menus{'special_docbook_unnumbered'}{'menu_child'}{'menu_next'}{'menu_next'}{'menu_prev'} = $result_menus{'special_docbook_unnumbered'}{'menu_child'}{'menu_next'};
-$result_menus{'special_docbook_unnumbered'}{'menu_child'}{'menu_next'}{'menu_next'}{'menu_up'} = $result_menus{'special_docbook_unnumbered'};
-$result_menus{'special_docbook_unnumbered'}{'menu_child'}{'menu_next'}{'menu_prev'} = $result_menus{'special_docbook_unnumbered'}{'menu_child'};
-$result_menus{'special_docbook_unnumbered'}{'menu_child'}{'menu_next'}{'menu_up'} = $result_menus{'special_docbook_unnumbered'};
-$result_menus{'special_docbook_unnumbered'}{'menu_child'}{'menu_up'} = $result_menus{'special_docbook_unnumbered'};
+$result_menus{'special_docbook_unnumbered'}{'structure'}{'menu_child'}{'structure'}{'menu_next'}{'structure'}{'menu_next'}{'structure'}{'menu_next'}{'structure'}{'menu_prev'} = $result_menus{'special_docbook_unnumbered'}{'structure'}{'menu_child'}{'structure'}{'menu_next'}{'structure'}{'menu_next'};
+$result_menus{'special_docbook_unnumbered'}{'structure'}{'menu_child'}{'structure'}{'menu_next'}{'structure'}{'menu_next'}{'structure'}{'menu_next'}{'structure'}{'menu_up'} = $result_menus{'special_docbook_unnumbered'};
+$result_menus{'special_docbook_unnumbered'}{'structure'}{'menu_child'}{'structure'}{'menu_next'}{'structure'}{'menu_next'}{'structure'}{'menu_prev'} = $result_menus{'special_docbook_unnumbered'}{'structure'}{'menu_child'}{'structure'}{'menu_next'};
+$result_menus{'special_docbook_unnumbered'}{'structure'}{'menu_child'}{'structure'}{'menu_next'}{'structure'}{'menu_next'}{'structure'}{'menu_up'} = $result_menus{'special_docbook_unnumbered'};
+$result_menus{'special_docbook_unnumbered'}{'structure'}{'menu_child'}{'structure'}{'menu_next'}{'structure'}{'menu_prev'} = $result_menus{'special_docbook_unnumbered'}{'structure'}{'menu_child'};
+$result_menus{'special_docbook_unnumbered'}{'structure'}{'menu_child'}{'structure'}{'menu_next'}{'structure'}{'menu_up'} = $result_menus{'special_docbook_unnumbered'};
+$result_menus{'special_docbook_unnumbered'}{'structure'}{'menu_child'}{'structure'}{'menu_up'} = $result_menus{'special_docbook_unnumbered'};
 
 $result_errors{'special_docbook_unnumbered'} = [];
 
