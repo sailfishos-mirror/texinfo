@@ -73,13 +73,10 @@ sub _correct_level($$;$)
 sub fill_gaps_in_sectioning($)
 {
   my $root = shift;
-  if (Texinfo::Structuring::no_root_command_tree($root)) {
-    return undef;
-  }
   my @sections_list;
   foreach my $content (@{$root->{'contents'}}) {
     if ($content->{'cmdname'} and $content->{'cmdname'} ne 'node'
-        and $content->{'cmdname'} ne 'bye') {
+        and $Texinfo::Common::root_commands{$content->{'cmdname'}}) {
       push @sections_list, $content;
     }
   }
@@ -324,16 +321,13 @@ sub insert_nodes_for_sectioning_commands($$$$)
   my $targets_list = shift;
   my $labels = shift;
 
-  if (Texinfo::Structuring::no_root_command_tree($root)) {
-    return (undef, undef);
-  }
   my @added_nodes;
   my @contents;
   my $previous_node;
   foreach my $content (@{$root->{'contents'}}) {
     if ($content->{'cmdname'} and $content->{'cmdname'} ne 'node'
-        and $content->{'cmdname'} ne 'bye'
         and $content->{'cmdname'} ne 'part'
+        and $Texinfo::Common::root_commands{$content->{'cmdname'}}
         and not ($content->{'extra'} 
                  and $content->{'extra'}->{'associated_node'})) {
       my $new_node_tree;
@@ -457,9 +451,6 @@ sub _get_non_automatic_nodes_with_sections($)
 {
   my $root = shift;
 
-  if (Texinfo::Structuring::no_root_command_tree($root)) {
-    return undef;
-  }
   my @non_automatic_nodes;
   foreach my $content (@{$root->{'contents'}}) {
     if ($content->{'cmdname'} and $content->{'cmdname'} eq 'node'
@@ -479,9 +470,6 @@ sub complete_tree_nodes_menus($;$)
   my $use_sections = shift;
 
   my $non_automatic_nodes = _get_non_automatic_nodes_with_sections($root);
-  if (not defined($non_automatic_nodes)) {
-    return undef;
-  }
   foreach my $node (@{$non_automatic_nodes}) {
     complete_node_menu($node, $use_sections);
   }
@@ -494,9 +482,6 @@ sub complete_tree_nodes_missing_menu($;$)
   my $use_sections = shift;
 
   my $non_automatic_nodes = _get_non_automatic_nodes_with_sections($root);
-  if (not defined($non_automatic_nodes)) {
-    return undef;
-  }
   foreach my $node (@{$non_automatic_nodes}) {
     if (not $node->{'menus'} or not scalar(@{$node->{'menus'}})) {
       my $section = $node->{'extra'}->{'associated_section'};

@@ -114,23 +114,6 @@ sub section_level($)
 }
 
 
-sub no_root_command_tree($)
-{
-  my $root = shift;
-  if (!$root->{'type'} or $root->{'type'} ne 'document_root'
-      or !$root->{'contents'}
-      or scalar(@{$root->{'contents'}}) == 0
-      or ($root->{'contents'}->[0]->{'type'}
-          and $root->{'contents'}->[0]->{'type'} eq 'text_root'
-          and (scalar(@{$root->{'contents'}}) == 1
-              or (scalar(@{$root->{'contents'}}) == 2
-                  and $root->{'contents'}->[1]->{'cmdname'}
-                  and $root->{'contents'}->[1]->{'cmdname'} eq 'bye')))) {
-    return 1;
-  }
-  return 0;
-}
-
 # Go through the sectioning commands (e.g. @chapter, not @node), and
 # set:
 # 'number'
@@ -920,8 +903,7 @@ sub split_by_section($)
         push @$tree_units, $current;
       }
     } elsif ($content->{'cmdname'} and $content->{'cmdname'} ne 'node'
-                                   and $content->{'cmdname'} ne 'bye') {
-      # FIXME check that it is a sectioning command?
+             and $Texinfo::Common::root_commands{$content->{'cmdname'}}) {
       if (not defined($current->{'extra'})
                or not defined($current->{'extra'}->{'section'})) {
         $current->{'extra'}->{'section'} = $content;

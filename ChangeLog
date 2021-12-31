@@ -1,5 +1,17 @@
 2021-12-30  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Structuring.pm (no_root_command_tree),
+	tp/Texinfo/Transformations.pm (fill_gaps_in_sectioning)
+	(insert_nodes_for_sectioning_commands)
+	(_get_non_automatic_nodes_with_sections): do not use
+	no_root_command_tree, instead inspect the contents directly.
+	Remove no_root_command_tree().
+
+	* tp/Texinfo/Structuring.pm (split_by_section): explicitly select
+	root commands for sections (which are not nodes).
+
+2021-12-30  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_convert_tree_unit_type, convert)
 	(output): only output a rule if there is something after.
 
