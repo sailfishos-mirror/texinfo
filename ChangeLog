@@ -1,4 +1,11 @@
-2021-12-30  Patrice Dumas  <pertusus@free.fr>
+2021-12-31  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/TexinfoXML.pm (_convert): use unit_command
+	extra key unit type to determine if assocaited with a node
+	or a section instead of not having either node or section defined,
+	should be more robust.
+
+2021-12-31  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Common.pm (%default_parser_specific_customization),
 	tp/Texinfo/ParserNonXS.pm (parse_texi_file),
@@ -7,7 +14,7 @@
 	doc/texinfo.texi (Other Customization Variables):
 	remove IGNORE_BEFORE_SETFILENAME (always set).
 
-2021-12-30  Patrice Dumas  <pertusus@free.fr>
+2021-12-31  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/ParserNonXS.pm (%parser_state_configuration)
 	(_set_global_informations, parse_texi_file, _register_global_command),
@@ -17,19 +24,19 @@
 	commands informations.
 	Synchronize code used to set preamble_before_setfilename.
 
-2021-12-30  Patrice Dumas  <pertusus@free.fr>
+2021-12-31  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/ParserNonXS.pm (_expand_macro_body): ignore arg value
 	if there are less arguments given to the macro than the argument
 	found.
 
-2021-12-30  Patrice Dumas  <pertusus@free.fr>
+2021-12-31  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/ParserNonXS.pm (_parse_texi): check if top_context_command
 	is not undef too, which would correspond to the root context, for
 	heading specification context command check.
 
-2021-12-30  Patrice Dumas  <pertusus@free.fr>
+2021-12-31  Patrice Dumas  <pertusus@free.fr>
 
 	* INSTALL: describe TEXINFO_XS_PARSER use.
 
@@ -41,7 +48,7 @@
 	* tp/Texinfo/XS/misc.c (xs_merge_text): no more warning when creating
 	a new content.
 
-2021-12-30  Patrice Dumas  <pertusus@free.fr>
+2021-12-31  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/ParserNonXS.pm (parse_texi_text, parse_texi_file)
 	(_close_commands, _setup_document_root_and_before_node_section),
@@ -57,14 +64,14 @@
 	tp/Texinfo/Convert/Plaintext.pm (_convert):
 	rename text_root type as before_node_section.
 
-2021-12-30  Patrice Dumas  <pertusus@free.fr>
+2021-12-31  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/IXIN.pm (output_ixin),
 	tp/Texinfo/Convert/TexinfoXML.pm (_set_ignored_type):
 	do not ignore before first node.  Remove now unused
 	_set_ignored_type().
 
-2021-12-30  Patrice Dumas  <pertusus@free.fr>
+2021-12-31  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Structuring.pm (no_root_command_tree),
 	tp/Texinfo/Transformations.pm (fill_gaps_in_sectioning)
@@ -76,7 +83,7 @@
 	* tp/Texinfo/Structuring.pm (split_by_section): explicitly select
 	root commands for sections (which are not nodes).
 
-2021-12-30  Patrice Dumas  <pertusus@free.fr>
+2021-12-31  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/HTML.pm (_convert_tree_unit_type, convert)
 	(output): only output a rule if there is something after.
@@ -88,7 +95,7 @@
 	If there is no node, instead of setting extra no_node
 	key, simply do not set extra node key.
 
-2021-12-30  Patrice Dumas  <pertusus@free.fr>
+2021-12-31  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/HTML.pm (%default_types_conversion),
 	(_convert_tree_unit_type, convert, output): do not use the

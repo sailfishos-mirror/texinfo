@@ -1007,8 +1007,7 @@ sub _convert($$;$)
         if ($cmdname eq 'bye' and $element->{'parent'}
             and $element->{'parent'}->{'type'}
             and $element->{'parent'}->{'type'} eq 'unit'
-            and !(not defined $element->{'parent'}->{'extra'}->{'section'}
-                  or not defined $element->{'parent'}->{'extra'}->{'node'})) {
+            and defined($element->{'parent'}->{'extra'}->{'unit_command'})) {
           $self->{'pending_bye'} = $self->open_element($cmdname)
                     .$self->close_element($cmdname)."\n";
           return '';
