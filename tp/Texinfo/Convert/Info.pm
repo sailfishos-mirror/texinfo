@@ -100,7 +100,7 @@ sub output($)
   my $out_file_nr = 0;
   my @indirect_files;
   if (!defined($tree_units) or not defined($tree_units->[0]->{'extra'})
-      or not defined($tree_units->[0]->{'extra'}->{'node'})) {
+      or not defined($tree_units->[0]->{'extra'}->{'unit_command'})) {
     $self->file_line_warn(__("document without nodes"), 
                           $self->{'parser_info'}->{'input_file_name'});
     my $output = $header.$self->convert_tree($root);

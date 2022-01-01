@@ -863,11 +863,11 @@ sub from_element_direction($$$$;$)
         return $self->command_text($external_node, $type);
       }
     } elsif ($type eq 'node') {
-      $command = $element_target->{'extra'}->{'node'};
+      $command = $element_target->{'extra'}->{'unit_node'};
       $target = $self->{'targets'}->{$command} if ($command);
       $type = 'text';
     } elsif ($type eq 'section') {
-      $command = $element_target->{'extra'}->{'section'};
+      $command = $element_target->{'extra'}->{'unit_section'};
       $target = $self->{'targets'}->{$command} if ($command);
       $type = 'text_nonumber';
     } else {
@@ -919,8 +919,8 @@ sub element_is_tree_unit_top($$)
   return ($self->{'global_target_elements'}->{'Top'}
     and $self->{'global_target_elements'}->{'Top'} eq $element
     and $element->{'extra'}
-    and (($element->{'extra'}->{'section'}
-         and $element->{'extra'}->{'section'}->{'cmdname'} eq 'top')
+    and (($element->{'extra'}->{'unit_section'}
+         and $element->{'extra'}->{'unit_section'}->{'cmdname'} eq 'top')
          or ($element->{'extra'}->{'unit_command'}
              and $element->{'extra'}->{'unit_command'}->{'cmdname'} eq 'node')));
 }
@@ -2899,9 +2899,9 @@ sub _convert_heading_command($$$$$)
   my $cmdname_for_heading = $cmdname;
   # node is used as heading if there is nothing else.
   if ($cmdname eq 'node') {
-    if (!$tree_unit or (!$tree_unit->{'extra'}->{'section'}
-                        and $tree_unit->{'extra'}->{'node'}
-                        and $tree_unit->{'extra'}->{'node'} eq $element
+    if (!$tree_unit or (!$tree_unit->{'extra'}->{'unit_section'}
+                        and $tree_unit->{'extra'}->{'unit_node'}
+                        and $tree_unit->{'extra'}->{'unit_node'} eq $element
                         # bogus node may not have been normalized
                         and defined($element->{'extra'}->{'normalized'}))) {
       if ($element->{'extra'}->{'normalized'} eq 'Top') {
@@ -6648,8 +6648,8 @@ sub _prepare_tree_units_global_targets($$)
      = $self->_html_get_tree_root_element($self->{'global_commands'}->{'printindex'}->[0]);
     if (defined($root_element)) {
       if ($root_command and $root_command->{'cmdname'} eq 'node' 
-          and $root_element->{'extra'}->{'section'}) {
-        $root_command = $root_element->{'extra'}->{'section'};
+          and $root_element->{'extra'}->{'unit_section'}) {
+        $root_command = $root_element->{'extra'}->{'unit_section'};
       }
       # find the first level 1 sectioning element to associate the printindex with
       if ($root_command and $root_command->{'cmdname'} ne 'node') {

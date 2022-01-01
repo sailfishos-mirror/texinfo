@@ -1,5 +1,20 @@
 2022-01-01  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (command_text, element_is_tree_unit_top)
+	(_convert_heading_command, _prepare_tree_units_global_targets),
+	tp/Texinfo/Structuring.pm (split_by_node, split_by_section)
+	(split_pages, elements_directions), tp/init/book.pm
+	(book_format_navigation_header, book_convert_heading_command)
+	(book_element_file_name): use unit_section instead of section and
+	unit_node instead of node for extra tree unit keys.
+
+	* tp/Texinfo/Convert/Converter.pm (sort_element_counts),
+	tp/Texinfo/Convert/IXIN.pm (output_ixin), tp/Texinfo/Convert/Info.pm
+	(output), tp/Texinfo/Convert/Plaintext.pm (process_footnotes):
+	: use tree unit 'unit_command'.
+
+2022-01-01  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_parse_texi),
 	tp/Texinfo/XS/parsetexi/Parsetexi.pm (_find_menus_of_node),
 	tp/Texinfo/Structuring.pm (set_menus_node_directions)

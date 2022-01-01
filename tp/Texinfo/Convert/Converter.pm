@@ -1318,8 +1318,7 @@ sub sort_element_counts($$;$$)
   if (!$elements) {
     @$elements = ($tree);
   } elsif (scalar(@$elements) >= 1
-           and (!$elements->[0]->{'extra'}->{'node'}
-                and !$elements->[0]->{'extra'}->{'section'})) {
+           and not $elements->[0]->{'extra'}->{'unit_command'}) {
     shift @$elements;
   }
 
@@ -1329,8 +1328,7 @@ sub sort_element_counts($$;$$)
   require Texinfo::Convert::Texinfo;
   foreach my $element (@$elements) {
     my $name = 'UNNAMED tree element';
-    if ($element->{'extra'}
-        and ($element->{'extra'}->{'node'} or $element->{'extra'}->{'section'})) {
+    if ($element->{'extra'} and $element->{'extra'}->{'unit_command'}) {
       my $command = $element->{'extra'}->{'unit_command'};
       if ($command->{'cmdname'} eq 'node') {
         $name = Texinfo::Convert::Texinfo::convert_to_texinfo({'contents' 

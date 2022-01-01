@@ -834,7 +834,7 @@ sub process_footnotes($;$)
   my ($self, $element) = @_;
 
   $element = undef if ($element and (not defined ($element->{'extra'})
-                          or not defined $element->{'extra'}->{'node'}));
+                          or not defined $element->{'extra'}->{'unit_command'}));
 
   my $result = '';
   if (scalar(@{$self->{'pending_footnotes'}})) {
@@ -847,11 +847,11 @@ sub process_footnotes($;$)
       $self->{'empty_lines_count'} = 1;
     } else {
 
-      my $node_contents = [@{$element->{'extra'}->{'node'}->{'extra'}->{'node_content'}},
+      my $node_contents = [@{$element->{'extra'}->{'unit_command'}->{'extra'}->{'node_content'}},
                                      {'text' => '-Footnotes'}];
       my $footnotes_node = {
         'cmdname' => 'node',
-        'structure' => {'node_up' => $element->{'extra'}->{'node'}},
+        'structure' => {'node_up' => $element->{'extra'}->{'unit_command'}},
         'extra' => {'node_content' => $node_contents }
       };
       $result .= $self->format_node($footnotes_node);
@@ -866,7 +866,7 @@ sub process_footnotes($;$)
       # footnote node taken into account.  Not really problematic as
       # nested footnotes are not right.
       if ($element) {
-        my $node_contents = [@{$element->{'extra'}->{'node'}->{'extra'}->{'node_content'}},
+        my $node_contents = [@{$element->{'extra'}->{'unit_command'}->{'extra'}->{'node_content'}},
                     {'text' => "-Footnote-$footnote->{'number'}"}];
         $self->add_location({'cmdname' => 'anchor',
                         'extra' => {'node_content' => $node_contents }
