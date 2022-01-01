@@ -66,12 +66,11 @@ sub converter_initialize($)
 {
   my $self = shift;
   
-  %{$self->{'formatting_misc_commands'}}
-    = %Texinfo::Convert::Text::formatting_misc_commands;
-      #%Texinfo::Common::formatted_misc_commands;
+  %{$self->{'formatted_misc_commands'}}
+    = %Texinfo::Common::formatted_misc_commands;
   if ($self->get_conf('TEXTCONTENT_COMMENT')) {
-    $self->{'formatting_misc_commands'}->{'c'} = 1;
-    $self->{'formatting_misc_commands'}->{'comment'} = 1;
+    $self->{'formatted_misc_commands'}->{'c'} = 1;
+    $self->{'formatted_misc_commands'}->{'comment'} = 1;
   }
 }
 
@@ -114,7 +113,7 @@ sub _convert($$)
                      and $element->{'args'}->[0]->{'type'}
                      and ($element->{'args'}->[0]->{'type'} eq 'line_arg'
                          or $element->{'args'}->[0]->{'type'} eq 'misc_arg')
-                     and !$self->{'formatting_misc_commands'}->{$element->{'cmdname'}})))));
+                     and !$self->{'formatted_misc_commands'}->{$element->{'cmdname'}})))));
   if (defined($element->{'text'})) {
     return $element->{'text'};
   }

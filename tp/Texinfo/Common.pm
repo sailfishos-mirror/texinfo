@@ -556,15 +556,14 @@ our %line_commands = (
   'oddheadingmarks'   => 1,
   'evenfootingmarks'  => 1,
   'oddfootingmarks'   => 1,
+  'shorttitlepage'    => 'line',
+  'settitle'          => 'line',
 
   # formatting
   'center'            => 'line',
   'printindex'        => 1,
   'listoffloats'      => 'line',
   # especially in titlepage
-#  'shorttitle'        => 'line',
-  'shorttitlepage'    => 'line',
-  'settitle'          => 'line',
   'author'            => 'line',
   'subtitle'          => 'line',
   'title'             => 'line',
@@ -1074,16 +1073,24 @@ foreach my $sectioning_command (keys (%command_structuring_level)) {
 }
 
 
-# misc commands that may be formatted as text.
+# misc commands which arguments may be formatted as text.
 # index commands may be too, but index command may be added with
 # @def*index so they are not added here.
-my %formatted_misc_commands;
-foreach my $formatted_misc_command ('insertcopying', 'contents',
-   'shortcontents', 'summarycontents', 'center', 'printindex',
-   'listoffloats', 'shorttitlepage', 'settitle',
-   'author', 'subtitle', 'title', 'sp', 'exdent', 'headitem', 'item',
+our %formatted_misc_commands;
+foreach my $formatted_misc_command ('center',
+   'page',
+   'author', 'subtitle', 'title', 'exdent', 'headitem', 'item',
    'itemx', 'tab', 'node', keys(%sectioning_commands)) {
   $formatted_misc_commands{$formatted_misc_command} = 1;
+}
+
+# misc commands which may be formatted as text, but that
+# require constructing some replacement text
+our %formattable_misc_commands;
+foreach my $formattable_misc_command ('insertcopying', 'contents',
+   'shortcontents', 'summarycontents', 'printindex',
+  'listoffloats', 'need', 'sp', 'verbatiminclude') {
+  $formattable_misc_commands{$formattable_misc_command} = 1;
 }
 
 
@@ -1251,6 +1258,8 @@ sub rearrange_tree_beginning($$)
     unshift (@{$before_node_section->{'contents'}}, $before_setfilename)
       if (@{$before_setfilename->{'contents'}});
   }
+  # document_settable_at_commands
+  # 'paragraph', 'preformatted'
 }
 
 sub warn_unknown_language($) {
@@ -1577,8 +1586,8 @@ sub is_content_empty($;$)
         }
       }
       if (exists($misc_commands{$content->{'cmdname'}})) {
-        my @truc = keys(%formatted_misc_commands);
-        if ($formatted_misc_commands{$content->{'cmdname'}}) {
+        if ($formatted_misc_commands{$content->{'cmdname'}}
+            or $formattable_misc_commands{$content->{'cmdname'}}) {
           return 0;
         } else {
           next;

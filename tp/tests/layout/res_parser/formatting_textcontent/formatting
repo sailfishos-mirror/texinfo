@@ -211,9 +211,10 @@ a@sup{h}@sub{l} ahl
 
 @sp 2
 
-2
 @page
 
+
+author
 
 need 1002
 
@@ -294,7 +295,8 @@ Empty
 
 
 
-aaa quotation
+aaa quotation author
+quotation
 
 indent in quotation
 
@@ -624,7 +626,6 @@ ce--ntered line
 r--raggedright
 more text
 
-simplest.texi
 
 in verbatim ''
 
@@ -691,7 +692,6 @@ Invalid use of @':
 @image{,,,3--xt} 3--xt
 
 
-
 e--mph item
 
 e--mph item
@@ -755,6 +755,11 @@ truc after a deff item
 
 
 
+title --a
+formatting subtitle --a
+subtitle 2 --a
+author1 --a with accents in name Te'c,a
+author2 --a
 In titlepage
 
 <
@@ -961,9 +966,10 @@ a@sup{h}@sub{l} ahl
 
 @sp 2
 
-2
 @page
 
+
+author
 
 need 1002
 
@@ -1044,7 +1050,8 @@ Empty
 
 
 
-aaa quotation
+aaa quotation author
+quotation
 
 indent in quotation
 
@@ -1374,7 +1381,6 @@ ce--ntered line
 r--raggedright
 more text
 
-simplest.texi
 
 in verbatim ''
 
@@ -1439,7 +1445,6 @@ Invalid use of @':
 @image{,1--xt} 1--xt
 @image{,,2--xt} 2--xt
 @image{,,,3--xt} 3--xt
-
 
 
 e--mph item
@@ -1737,9 +1742,10 @@ a@sup{h}@sub{l} ahl
 
 @sp 2
 
-2
 @page
 
+
+author
 
 need 1002
 
@@ -1820,7 +1826,8 @@ Empty
 
 
 
-aaa quotation
+aaa quotation author
+quotation
 
 indent in quotation
 
@@ -2150,7 +2157,6 @@ ce--ntered line
 r--raggedright
 more text
 
-simplest.texi
 
 in verbatim ''
 
@@ -2215,7 +2221,6 @@ Invalid use of @':
 @image{,1--xt} 1--xt
 @image{,,2--xt} 2--xt
 @image{,,,3--xt} 3--xt
-
 
 
 e--mph item
@@ -2487,9 +2492,10 @@ a@sup{h}@sub{l} ahl
 
 @sp 2
 
-2
 @page
 
+
+author
 
 need 1002
 
@@ -2570,7 +2576,8 @@ Empty
 
 
 
-aaa quotation
+aaa quotation author
+quotation
 
 indent in quotation
 
@@ -2900,7 +2907,6 @@ ce--ntered line
 r--raggedright
 more text
 
-simplest.texi
 
 in verbatim ''
 
@@ -2965,7 +2971,6 @@ Invalid use of @':
 @image{,1--xt} 1--xt
 @image{,,2--xt} 2--xt
 @image{,,,3--xt} 3--xt
-
 
 
 e--mph item

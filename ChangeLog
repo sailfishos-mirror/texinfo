@@ -1,3 +1,16 @@
+2022-01-01  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Common.pm (%formattable_misc_commands),
+	(%formatted_misc_commands, is_content_empty): split
+	formattable commands which require having some replacement
+	text formatted and formatted_misc_commands whch can be
+	formatted and may have text argument.
+
+	* tp/Texinfo/Convert/TextContent.pm (converter_initialize):
+	use Texinfo::Common::formatted_misc_commands for a better
+	selection of @-commands which should be replaced by their
+	content.
+
 2022-01-01  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	Make LaTeX output processable
