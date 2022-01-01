@@ -855,7 +855,7 @@ sub process_footnotes($;$)
         'extra' => {'node_content' => $node_contents }
       };
       $result .= $self->format_node($footnotes_node);
-      $self->{'node'} = $footnotes_node;
+      $self->{'current_node'} = $footnotes_node;
     }
     while (@{$self->{'pending_footnotes'}}) {
       my $footnote = shift (@{$self->{'pending_footnotes'}});
@@ -1139,8 +1139,8 @@ sub _menu($$)
     my $result = "* Menu:\n\n";
     add_text_count($self, $result);
     _add_lines_count($self, 2);
-    if ($self->{'node'}) {
-      $self->{'seenmenus'}->{$self->{'node'}} = 1;
+    if ($self->{'current_node'}) {
+      $self->{'seenmenus'}->{$self->{'current_node'}} = 1;
     }
     return $result;
   } else {
@@ -1629,8 +1629,8 @@ sub _convert($$)
     # in @insertcopying.
     # This also covers the case of an index entry in a node added by a 
     # @footnote with footnotestyle separate.
-    if ($self->{'node'}) {
-      $location->{'node'} = $self->{'node'};
+    if ($self->{'current_node'}) {
+      $location->{'node'} = $self->{'current_node'};
     }
     $self->{'index_entries_line_location'}->{$element} = $location;
   }
@@ -1945,14 +1945,14 @@ sub _convert($$)
       $result .= _count_added($self, $formatter->{'container'},
            add_next($formatter->{'container'},
                     "($formatted_footnote_number)", 1));
-      if ($self->get_conf('footnotestyle') eq 'separate' and $self->{'node'}) {
+      if ($self->get_conf('footnotestyle') eq 'separate' and $self->{'current_node'}) {
         $result .= _convert($self, {'contents' => 
          [{'text' => ' ('},
           {'cmdname' => 'pxref',
            'args' => [
              {'type' => 'brace_command_arg',
               'contents' => [
-                 @{$self->{'node'}->{'extra'}->{'node_content'}},
+                 @{$self->{'current_node'}->{'extra'}->{'node_content'}},
                  {'text' => "-Footnote-$self->{'footnote_index'}"}
               ]
              }
@@ -2424,7 +2424,7 @@ sub _convert($$)
         }
       }
     } elsif ($command eq 'node') {
-      $self->{'node'} = $element;
+      $self->{'current_node'} = $element;
       $result .= $self->format_node($element);
       $self->{'format_context'}->[-1]->{'paragraph_count'} = 0;
     } elsif ($sectioning_commands{$command}) {
@@ -3240,7 +3240,7 @@ sub _convert($$)
         and $sectioning_commands{$command}
         and $command ne 'part') {
       # add menu if missing
-      my $node = $self->{'node'};
+      my $node = $self->{'current_node'};
       my $automatic_directions;
       if ($node and defined($node->{'extra'}->{'nodes_manuals'})) {
         $automatic_directions =

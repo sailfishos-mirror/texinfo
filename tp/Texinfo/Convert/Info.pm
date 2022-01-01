@@ -399,7 +399,7 @@ sub format_error_outside_of_any_node($$)
 {
   my $self = shift;
   my $element = shift;
-  if (!$self->{'node'}) {
+  if (!$self->{'current_node'}) {
     $self->line_warn($self,
          sprintf(__("\@%s outside of any node"),
                      $element->{'cmdname'}), $element->{'line_nr'});
