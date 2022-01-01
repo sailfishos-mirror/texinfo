@@ -239,6 +239,7 @@ A quot---ation
 
 
 $result_texts{'quotation_author_in_example'} = '
+Some One
 A quot---ation
 ';
 

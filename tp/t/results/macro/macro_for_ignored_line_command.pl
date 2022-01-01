@@ -92,6 +92,7 @@ $result_texis{'macro_for_ignored_line_command'} = '@macro pagemacro
 
 
 $result_texts{'macro_for_ignored_line_command'} = '
+
 ';
 
 $result_errors{'macro_for_ignored_line_command'} = [];

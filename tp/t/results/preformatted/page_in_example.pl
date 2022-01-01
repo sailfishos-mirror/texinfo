@@ -112,7 +112,8 @@ text
 ';
 
 
-$result_texts{'page_in_example'} = 'text
+$result_texts{'page_in_example'} = '
+text
 ';
 
 $result_errors{'page_in_example'} = [];

@@ -475,13 +475,16 @@ A Note
 $result_texts{'quotation_and_author'} = '
 Text before quotation
 
+Some One
 A quot--ation
 
 Text between quotation and smallquotation
 
+An Author Name
 in small--quotation.
 
 Note
+Some Notifier
 A Note
 ';
 

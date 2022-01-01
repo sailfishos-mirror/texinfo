@@ -53,7 +53,8 @@ $result_texis{'author_outside_titlepage_quotation'} = '@author Some One
 ';
 
 
-$result_texts{'author_outside_titlepage_quotation'} = '';
+$result_texts{'author_outside_titlepage_quotation'} = 'Some One
+';
 
 $result_errors{'author_outside_titlepage_quotation'} = [
   {

@@ -277,7 +277,9 @@ $result_texts{'settitle_and_headings'} = '
 ******
 
 
+
 More text
+
 
 
 Another page

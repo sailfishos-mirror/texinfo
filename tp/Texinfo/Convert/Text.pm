@@ -145,12 +145,12 @@ foreach my $accent_letter ('o','O','l','L') {
 
 my %accent_commands = %Texinfo::Common::accent_commands;
 my %no_brace_commands = %Texinfo::Common::no_brace_commands;
+my %formatted_misc_commands = %Texinfo::Common::formatted_misc_commands;
+# 'page' is a formatted_misc_commands and therefore is replaced by an empty line.
 
-our %formatting_misc_commands;
-foreach my $command ('verbatiminclude', 'sp', 'center', 'exdent', 
-                     'item', 'itemx', 'tab', 'headitem',
-    'node', keys(%Texinfo::Common::sectioning_commands)) {
-  $formatting_misc_commands{$command} = 1;
+my %formattable_misc_commands;
+foreach my $command ('verbatiminclude', 'sp') {
+  $formattable_misc_commands{$command} = 1;
 }
  
 my %ignored_types;
@@ -389,7 +389,8 @@ sub _convert($;$)
                      and $element->{'args'}->[0]->{'type'}
                      and ($element->{'args'}->[0]->{'type'} eq 'line_arg'
                          or $element->{'args'}->[0]->{'type'} eq 'misc_arg')
-                     and !$formatting_misc_commands{$element->{'cmdname'}})))));
+                     and !$formatted_misc_commands{$element->{'cmdname'}}
+                     and !$formattable_misc_commands{$element->{'cmdname'}})))));
   my $result = '';
   if (defined($element->{'text'})) {
     if ($element->{'type'} and $element->{'type'} eq 'untranslated'
@@ -525,7 +526,23 @@ sub _convert($;$)
       }
     } elsif ($options->{'expanded_formats_hash'}->{$element->{'cmdname'}}) {
       $options->{'raw'} = 1;
-    } elsif ($formatting_misc_commands{$element->{'cmdname'}} and $element->{'args'}) {
+    } elsif ($formatted_misc_commands{$element->{'cmdname'}} and $element->{'args'}) {
+      if ($element->{'cmdname'} ne 'node') {
+        if ($element->{'cmdname'} eq 'page') {
+          $result = '';
+        } else {
+          $result = _convert($element->{'args'}->[0], $options);
+        }
+        if ($Texinfo::Common::sectioning_commands{$element->{'cmdname'}}) {
+          $result = heading($element, $result, $options->{'converter'},
+                            $options->{'NUMBER_SECTIONS'});
+        } else {
+        # we always want an end of line even if is was eaten by a command
+          chomp($result);
+          $result .= "\n";
+        }
+      }
+    } elsif ($formattable_misc_commands{$element->{'cmdname'}} and $element->{'args'}) {
       if ($element->{'cmdname'} eq 'sp') {
         if ($element->{'extra'} and $element->{'extra'}->{'misc_args'}
             and $element->{'extra'}->{'misc_args'}->[0]) {
@@ -539,16 +556,6 @@ sub _convert($;$)
                                $options->{'converter'}, $options, $element);
         if (defined($verbatim_include_verbatim)) {
           $result .= _convert($verbatim_include_verbatim, $options);
-        }
-      } elsif ($element->{'cmdname'} ne 'node') {
-        $result = _convert($element->{'args'}->[0], $options);
-        if ($Texinfo::Common::sectioning_commands{$element->{'cmdname'}}) {
-          $result = heading($element, $result, $options->{'converter'},
-                            $options->{'NUMBER_SECTIONS'});
-        } else {
-        # we always want an end of line even if is was eaten by a command
-          chomp($result);
-          $result .= "\n";
         }
       }
     } elsif ($element->{'cmdname'} eq 'item'

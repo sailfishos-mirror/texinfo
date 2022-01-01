@@ -4241,14 +4241,18 @@ example
 
 
 
-@page @noindent @refill  something
+@page 
+@noindent @refill  something
 
 noindent at beginning of line
 noindent on the preceding line
   noindent after space at beginning of line
+
+
 After page on its own line.
 
-@page two spaces   @noindent @refill 
+@page 
+two spaces   @noindent @refill 
 
 
 

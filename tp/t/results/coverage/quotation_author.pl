@@ -225,7 +225,9 @@ quotation continues.
 
 
 $result_texts{'quotation_author'} = '
+First Author
 quotation
+Se~cond author
 quotation continues.
 
 ';

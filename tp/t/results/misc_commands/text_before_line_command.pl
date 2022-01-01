@@ -346,12 +346,14 @@ quotation
 ';
 
 
-$result_texts{'text_before_line_command'} = 'before title 
+$result_texts{'text_before_line_command'} = 'before title the title
+
 i-- 1 LD Version Scripts
 ********************
 
 ddd 
-aaa quotation
+aaa quotation author
+quotation
 ';
 
 $result_sectioning{'text_before_line_command'} = {

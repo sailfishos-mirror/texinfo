@@ -58,7 +58,9 @@ $VERSION = '6.8dev';
 
 
 # misc commands that are of use for formatting.
-my %formatting_misc_commands = %Texinfo::Convert::Text::formatting_misc_commands;
+my %formatted_misc_commands = %Texinfo::Common::formatted_misc_commands;
+my %formattable_misc_commands = %Texinfo::Common::formattable_misc_commands;
+
 
 my $NO_NUMBER_FOOTNOTE_SYMBOL = '*';
 
@@ -106,15 +108,21 @@ my %preformatted_code_commands = %Texinfo::Common::preformatted_code_commands;
 my %default_index_commands = %Texinfo::Common::default_index_commands;
 my %letter_no_arg_commands = %Texinfo::Common::letter_no_arg_commands;
 
-foreach my $kept_command(keys (%informative_commands),
-  keys (%default_index_commands),
-  'verbatiminclude', 'insertcopying', 'contents', 'shortcontents',
-  'summarycontents', 'listoffloats', 'printindex', ) {
-  $formatting_misc_commands{$kept_command} = 1;
+my @contents_commands = ('contents', 'shortcontents', 'summarycontents');
+
+foreach my $kept_command (keys (%informative_commands), @contents_commands,
+  keys (%default_index_commands), keys(%formattable_misc_commands)) {
+  $formatted_misc_commands{$kept_command} = 1;
+}
+
+# formatted/formattable @-commands not formatted in Plaintext/Info
+foreach my $non_formatted_misc_command ('page', 'need',
+   'author', 'subtitle', 'title') {
+  delete $formatted_misc_commands{$non_formatted_misc_command};
 }
 
 foreach my $def_command (keys(%def_commands)) {
-  $formatting_misc_commands{$def_command} = 1 if ($misc_commands{$def_command});
+  $formatted_misc_commands{$def_command} = 1 if ($misc_commands{$def_command});
 }
 
 # There are 6 stacks that define the context.
@@ -169,7 +177,7 @@ foreach my $block_math_command (keys(%math_commands)) {
 my %ignored_misc_commands;
 foreach my $misc_command (keys(%misc_commands)) {
   $ignored_misc_commands{$misc_command} = 1 
-    unless ($formatting_misc_commands{$misc_command});
+    unless ($formatted_misc_commands{$misc_command});
 }
 
 my %ignored_commands = %ignored_misc_commands;

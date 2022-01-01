@@ -558,6 +558,8 @@ T
 
 
 $result_texts{'line_breaks'} = '
+AWK As A Major Systems Programming 
+ Language--Revisited
 
 in center 
  line break

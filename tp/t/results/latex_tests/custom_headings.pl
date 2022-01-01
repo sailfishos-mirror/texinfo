@@ -910,7 +910,9 @@ top sectionning
 *******
 
 
+
 after ch-ap first page
+
 
 
 after ch-ap second page
@@ -923,13 +925,16 @@ after ch-ap second page
 
 
 
+
 after everyheading before chap 3 first page
+
 
 
 after everyheading before chap 3 second page
 
 3 chap 3
 ********
+
 
 
 

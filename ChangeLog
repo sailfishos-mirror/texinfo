@@ -11,6 +11,28 @@
 
 2022-01-01  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (%document_settable_multiple_at_commands)
+	(%formattable_misc_commands): put contents and summarycontents in
+	%document_settable_multiple_at_commands and remove from
+	%formattable_misc_commands.
+
+	* tp/Texinfo/Convert/HTML.pm (_convert_contents_command)
+	(@contents_commands): do a separate formatting functions for
+	contents commands.
+
+	* tp/Texinfo/Convert/HTML.pm, tp/Texinfo/Convert/Plaintext.pm,
+	tp/Texinfo/Convert/Text.pm:
+	use %Texinfo::Common::formatted_misc_commands and, if relevant,
+	%Texinfo::Common::formattable_misc_commands instead of
+	%Texinfo::Convert::Text::formatting_misc_commands, and remove
+	%Texinfo::Convert::Text::formatting_misc_commands.
+
+	* tp/Texinfo/Convert/Text.pm (_convert): separate formatted
+	and formattable misc commands formatting.  Format page
+	specifically.
+
+2022-01-01  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (%formattable_misc_commands),
 	(%formatted_misc_commands, is_content_empty): split
 	formattable commands which require having some replacement

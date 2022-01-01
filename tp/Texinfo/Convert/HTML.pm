@@ -81,7 +81,8 @@ $VERSION = '6.8dev';
 
 
 # misc commands that are of use for formatting.
-my %formatting_misc_commands = %Texinfo::Convert::Text::formatting_misc_commands;
+my %formatted_misc_commands = %Texinfo::Common::formatted_misc_commands;
+my %formattable_misc_commands = %Texinfo::Common::formattable_misc_commands;
 my %no_brace_commands = %Texinfo::Common::no_brace_commands;
 my %accent_commands = %Texinfo::Common::accent_commands;
 my %misc_commands = %Texinfo::Common::misc_commands;
@@ -117,7 +118,7 @@ for my $cmd ('example', 'display', 'format', 'lisp', 'quotation',
 };
 
 foreach my $def_command (keys(%def_commands)) {
-  $formatting_misc_commands{$def_command} = 1 if ($misc_commands{$def_command});
+  $formatted_misc_commands{$def_command} = 1 if ($misc_commands{$def_command});
 }
 
 # FIXME remove raw commands?
@@ -1612,15 +1613,15 @@ sub _noticed_line_warn($$$)
 
 my %kept_misc_commands;
 
-my @informative_global_commands = ('contents', 'shortcontents',
-  'summarycontents', 'documentlanguage', 'footnotestyle',
+my @informative_global_commands = ('documentlanguage', 'footnotestyle',
   'xrefautomaticsectiontitle', 'deftypefnnewline');
 
-foreach my $misc_command(@informative_global_commands,
-        'verbatiminclude', 'insertcopying', 'printindex', 'listoffloats',
-        'author', 'subtitle',
-        'title', keys(%default_index_commands), 
-        keys(%formatting_misc_commands)) {
+my @contents_commands = ('contents', 'shortcontents', 'summarycontents');
+
+foreach my $misc_command (@informative_global_commands,
+        @contents_commands, keys(%formattable_misc_commands),
+        keys(%formatted_misc_commands),
+        keys(%default_index_commands)) {
   $kept_misc_commands{$misc_command} = 1;
 }
 
@@ -1628,6 +1629,11 @@ foreach my $misc_command (keys(%misc_commands)) {
   $default_commands_conversion{$misc_command} = undef
     unless ($kept_misc_commands{$misc_command});
 }
+
+# formatted/formattable @-commands that are not of converted in
+# HTML in the default case.
+$default_commands_conversion{'page'} = undef;
+$default_commands_conversion{'need'} = undef;
 
 foreach my $ignored_brace_commands ('caption', 'shortcaption', 
   'hyphenation', 'sortas') {
@@ -3227,7 +3233,6 @@ $default_commands_conversion{'flushleft'} = \&_convert_command_noop;
 $default_commands_conversion{'flushright'} = \&_convert_command_noop;
 $default_commands_conversion{'group'} = \&_convert_command_noop;
 
-
 sub _convert_sp_command($$$$)
 {
   my $self = shift;
@@ -4274,16 +4279,9 @@ sub _convert_informative_command($$$$)
   my $command = shift;
 
   return '' if ($self->in_string());
-  $cmdname = 'shortcontents' if ($cmdname eq 'summarycontents');
 
   $self->set_informative_command_value($command);
-  if ($self->get_conf('CONTENTS_OUTPUT_LOCATION') eq 'inline'
-      and ($cmdname eq 'contents' or $cmdname eq 'shortcontents')
-      and $self->get_conf($cmdname)
-      and $self->{'structuring'} and $self->{'structuring'}->{'sectioning_root'}
-      and scalar(@{$self->{'structuring'}->{'sections_list'}}) > 1) {
-    return $self->_contents_inline_element($cmdname, $command);
-  }
+
   if ($cmdname eq 'documentlanguage') {
     $self->_translate_names();
   }
@@ -4291,8 +4289,33 @@ sub _convert_informative_command($$$$)
 }
 
 foreach my $informative_command (@informative_global_commands) {
-  $default_commands_conversion{$informative_command} 
+  $default_commands_conversion{$informative_command}
     = \&_convert_informative_command;
+}
+
+sub _convert_contents_command
+{
+  my $self = shift;
+  my $cmdname = shift;
+  my $command = shift;
+
+  return '' if ($self->in_string());
+  $cmdname = 'shortcontents' if ($cmdname eq 'summarycontents');
+
+  $self->set_informative_command_value($command);
+
+  if ($self->get_conf('CONTENTS_OUTPUT_LOCATION') eq 'inline'
+      and ($cmdname eq 'contents' or $cmdname eq 'shortcontents')
+      and $self->get_conf($cmdname)
+      and $self->{'structuring'} and $self->{'structuring'}->{'sectioning_root'}
+      and scalar(@{$self->{'structuring'}->{'sections_list'}}) > 1) {
+    return $self->_contents_inline_element($cmdname, $command);
+  }
+  return '';
+}
+
+foreach my $contents_comand (@contents_commands) {
+  $default_commands_conversion{$contents_comand} = \&_convert_contents_command;
 }
 
 # associate same formatting function for @small* command

@@ -242,6 +242,8 @@ a@sup{h}@sub{l} ahl
 @page
 
 
+author
+
 need 1002
 
 @clicksequence{click @click{} A} click -> A
@@ -331,7 +333,8 @@ Empty
 
 
 
-aaa quotation
+aaa quotation author
+quotation
 
 indent in quotation
 
@@ -1017,6 +1020,8 @@ a@sup{h}@sub{l} ahl
 @page
 
 
+author
+
 need 1002
 
 @clicksequence{click @click{} A} click -> A
@@ -1106,7 +1111,8 @@ Empty
 
 
 
-aaa quotation
+aaa quotation author
+quotation
 
 indent in quotation
 

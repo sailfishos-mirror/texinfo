@@ -142,6 +142,8 @@ our %document_settable_multiple_at_commands = (
   'kbdinputstyle' => 'distinct',
   'paragraphindent' => 3,
   'shortcontents' => 0,
+  'summarycontents' => 0,
+  'contents' => undef,
   'urefbreakstyle' => 'after',
   'xrefautomaticsectiontitle' => 'off',
   'everyheading'      => undef,
@@ -1077,8 +1079,7 @@ foreach my $sectioning_command (keys (%command_structuring_level)) {
 # index commands may be too, but index command may be added with
 # @def*index so they are not added here.
 our %formatted_misc_commands;
-foreach my $formatted_misc_command ('center',
-   'page',
+foreach my $formatted_misc_command ('center', 'page',
    'author', 'subtitle', 'title', 'exdent', 'headitem', 'item',
    'itemx', 'tab', 'node', keys(%sectioning_commands)) {
   $formatted_misc_commands{$formatted_misc_command} = 1;
@@ -1086,10 +1087,13 @@ foreach my $formatted_misc_command ('center',
 
 # misc commands which may be formatted as text, but that
 # require constructing some replacement text
+# depending on the case, @contents, @shortcontents and
+# @summarycontents may be formattable_misc_commands too.
+# Since they already are global commands they are not in the
+# default formattable_misc_commands.
 our %formattable_misc_commands;
-foreach my $formattable_misc_command ('insertcopying', 'contents',
-   'shortcontents', 'summarycontents', 'printindex',
-  'listoffloats', 'need', 'sp', 'verbatiminclude') {
+foreach my $formattable_misc_command ('insertcopying',
+  'printindex', 'listoffloats', 'need', 'sp', 'verbatiminclude') {
   $formattable_misc_commands{$formattable_misc_command} = 1;
 }
 

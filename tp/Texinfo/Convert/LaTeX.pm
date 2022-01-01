@@ -189,7 +189,8 @@ $VERSION = '6.8dev';
 
 
 # misc commands that are of use for formatting.
-my %formatting_misc_commands = %Texinfo::Convert::Text::formatting_misc_commands;
+my %formatted_misc_commands = %Texinfo::Common::formatted_misc_commands;
+my %formattable_misc_commands = %Texinfo::Common::formattable_misc_commands;
 
 my %paper_geometry_commands = (
   'afourpaper' => 'papername=a4paper',
@@ -253,14 +254,13 @@ foreach my $preamble_command ('hyphenation', 'anchor', 'errormsg',
 foreach my $kept_command (@informative_global_commands,
   keys(%default_index_commands),
   keys(%headings_specification_commands), keys(%in_heading_commands),
-  'verbatiminclude', 'insertcopying',
-  'listoffloats', 'printindex', 'indent', 'noindent', 'need', 'page',
-  'shorttitlepage', 'title', 'subtitle', 'author', 'vskip') {
-  $formatting_misc_commands{$kept_command} = 1;
+  keys(%formattable_misc_commands),
+  'indent', 'noindent', 'shorttitlepage', 'vskip') {
+  $formatted_misc_commands{$kept_command} = 1;
 }
 
 foreach my $def_command (keys(%def_commands)) {
-  $formatting_misc_commands{$def_command} = 1 if ($misc_commands{$def_command});
+  $formatted_misc_commands{$def_command} = 1 if ($misc_commands{$def_command});
 }
 
 # There are stacks that define the context.
@@ -286,7 +286,7 @@ foreach my $block_math_command (keys(%math_commands)) {
 my %ignored_misc_commands;
 foreach my $misc_command (keys(%misc_commands)) {
   $ignored_misc_commands{$misc_command} = 1 
-    unless ($formatting_misc_commands{$misc_command});
+    unless ($formatted_misc_commands{$misc_command});
 }
 
 # from \def\Gin@extensions in graphics-def/pdftex.def
