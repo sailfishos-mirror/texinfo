@@ -171,7 +171,12 @@ our %document_settable_unique_at_commands = (
   'pagesizes' => undef,
   'setchapternewpage' => 'on',
   'setfilename' => undef,
-  # FIXME add afourpaper and similar?
+  'afourpaper' => undef,
+  'afourlatex' => undef,
+  'afourwide' => undef,
+  'afivepaper' => undef,
+  'bsixpaper' => undef,
+  'smallbook' => undef,
 );
 
 # a value corresponds to defaults that are the same for every output format

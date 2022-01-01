@@ -557,6 +557,11 @@ $result_trees{'macro_in_misc_commands'} = {
             }
           ],
           'cmdname' => 'afourpaper',
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 38,
+            'macro' => 'afourpapermacro'
+          },
           'parent' => {}
         },
         {

@@ -281,6 +281,11 @@ $result_trees{'value_in_misc_commands'} = {
             }
           ],
           'cmdname' => 'afourpaper',
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 16,
+            'macro' => ''
+          },
           'parent' => {}
         },
         {

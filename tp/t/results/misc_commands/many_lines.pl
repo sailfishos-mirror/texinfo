@@ -65,6 +65,11 @@ $result_trees{'many_lines'} = {
                 }
               ],
               'cmdname' => 'afourpaper',
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 2,
+                'macro' => ''
+              },
               'parent' => {}
             },
             {
@@ -81,6 +86,11 @@ $result_trees{'many_lines'} = {
                 }
               ],
               'cmdname' => 'smallbook',
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 3,
+                'macro' => ''
+              },
               'parent' => {}
             },
             {
@@ -484,6 +494,11 @@ $result_trees{'many_lines'} = {
                 }
               ],
               'cmdname' => 'afourpaper',
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 17,
+                'macro' => ''
+              },
               'parent' => {}
             },
             {
@@ -500,6 +515,11 @@ $result_trees{'many_lines'} = {
                 }
               ],
               'cmdname' => 'afourlatex',
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 18,
+                'macro' => ''
+              },
               'parent' => {}
             },
             {
@@ -516,6 +536,11 @@ $result_trees{'many_lines'} = {
                 }
               ],
               'cmdname' => 'afourwide',
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 19,
+                'macro' => ''
+              },
               'parent' => {}
             },
             {
@@ -1598,6 +1623,15 @@ $result_errors{'many_lines'} = [
     'line_nr' => 17,
     'macro' => '',
     'text' => '@afourpaper should only appear at the beginning of a line',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => ':17: warning: multiple @afourpaper
+',
+    'file_name' => '',
+    'line_nr' => 17,
+    'macro' => '',
+    'text' => 'multiple @afourpaper',
     'type' => 'warning'
   },
   {

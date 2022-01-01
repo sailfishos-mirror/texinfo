@@ -63,6 +63,12 @@ typedef struct GLOBAL_INFO {
     ELEMENT *oddfootingmarks;
     ELEMENT *shorttitlepage;
     ELEMENT *novalidate;
+    ELEMENT *afourpaper;
+    ELEMENT *afourlatex;
+    ELEMENT *afourwide;
+    ELEMENT *afivepaper;
+    ELEMENT *bsixpaper;
+    ELEMENT *smallbook;
 
     /* Arrays of elements */
     ELEMENT footnotes;

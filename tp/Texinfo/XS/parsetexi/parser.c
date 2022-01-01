@@ -260,6 +260,12 @@ register_global_command (ELEMENT *current)
         GLOBAL_UNIQUE_CASE(shorttitlepage);
         GLOBAL_UNIQUE_CASE(title);
         GLOBAL_UNIQUE_CASE(novalidate);
+        GLOBAL_UNIQUE_CASE(afourpaper);
+        GLOBAL_UNIQUE_CASE(afourlatex);
+        GLOBAL_UNIQUE_CASE(afourwide);
+        GLOBAL_UNIQUE_CASE(afivepaper);
+        GLOBAL_UNIQUE_CASE(bsixpaper);
+        GLOBAL_UNIQUE_CASE(smallbook);
 #undef GLOBAL_UNIQUE_CASE
         /* NOTE: Same list in api.c:build_global_info2 and wipe_global_info. */
         default:

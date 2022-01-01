@@ -200,11 +200,8 @@ my @informative_global_commands = ('paragraphindent', 'firstparagraphindent',
 'frenchspacing', 'documentencoding', 'footnotestyle', 'documentlanguage',
 'contents', 'shortcontents', 'summarycontents', 'deftypefnnewline',
 'allowcodebreaks', 'kbdinputstyle', 'setchapternewpage', 'headings',
-'xrefautomaticsectiontitle', 'fonttextsize', 'pagesizes',
+'xrefautomaticsectiontitle', 'fonttextsize', 'pagesizes', sort(keys(%paper_geometry_commands))
 );
-# FIXME paper geometry commands are not in Texinfo::Common::document_settable_unique_at_commands
-# thus not in valid_options.
-#sort(keys(%paper_geometry_commands)));
 
 my %informative_commands;
 foreach my $informative_command (@informative_global_commands) {
@@ -244,14 +241,13 @@ my %in_heading_commands = %Texinfo::Common::in_heading_commands;
 # commands that can appear in preamble, before \begin{document}
 my %preamble_commands;
 foreach my $preamble_command ('hyphenation', 'anchor', 'errormsg',
-       'inlineraw', '*',
-       keys(%paper_geometry_commands), @informative_global_commands,
+       'inlineraw', '*', @informative_global_commands,
        keys(%format_raw_commands), keys(%inline_commands)) {
   $preamble_commands{$preamble_command} = 1;
 }
 
-foreach my $kept_command (keys(%informative_commands),
-  keys(%default_index_commands), keys(%paper_geometry_commands),
+foreach my $kept_command (@informative_global_commands,
+  keys(%default_index_commands),
   keys(%headings_specification_commands), keys(%in_heading_commands),
   'verbatiminclude', 'insertcopying',
   'listoffloats', 'printindex', 'indent', 'noindent', 'need', 'page',
@@ -2924,10 +2920,6 @@ sub _convert($$)
         $result .= '';
       }
       return $result;
-    # FIXME right now not informative commands
-    } elsif ($paper_geometry_commands{$cmdname}) {
-      $result .= "\\geometry{$paper_geometry_commands{$cmdname}}%\n";
-      return $result;
     } elsif ($headings_specification_commands{$cmdname}) {
       if ($element->{'args'} and $element->{'args'}->[0]
           and $element->{'args'}->[0]->{'contents'}) {
@@ -2998,6 +2990,8 @@ sub _convert($$)
         my $fontsize = $element->{'extra'}->{'misc_args'}->[0];
         # default dimension for changefontsize is pt
         $result .= "\\changefontsize{$fontsize}\n";
+      } elsif ($paper_geometry_commands{$cmdname}) {
+        $result .= "\\geometry{$paper_geometry_commands{$cmdname}}%\n";
       }
       return $result;
     } else {

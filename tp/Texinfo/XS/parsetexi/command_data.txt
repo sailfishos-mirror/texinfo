@@ -96,11 +96,11 @@ allowcodebreaks         line,global                     1
 exampleindent           line,global                     1
 footnotestyle           line,global_unique              1
 urefbreakstyle          line,global                     1
-afourpaper              line                            LINE_skipline
-afivepaper              line                            LINE_skipline
-afourlatex              line                            LINE_skipline
-afourwide               line                            LINE_skipline
-bsixpaper               line                            LINE_skipline
+afourpaper              line,global_unique              LINE_skipline
+afivepaper              line,global_unique              LINE_skipline
+afourlatex              line,global_unique              LINE_skipline
+afourwide               line,global_unique              LINE_skipline
+bsixpaper               line,global_unique              LINE_skipline
 headings                line,global                     1
 setchapternewpage       line,global_unique              1
 
@@ -111,7 +111,7 @@ evenfooting             line,global                     LINE_heading_spec
 oddheading              line,global                     LINE_heading_spec
 oddfooting              line,global                     LINE_heading_spec
 
-smallbook               line                            LINE_skipline
+smallbook               line,global_unique              LINE_skipline
 syncodeindex            line                            2
 synindex                line                            2
 defindex                line                            1

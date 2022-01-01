@@ -54,6 +54,11 @@ $result_trees{'pagetype'} = {
             }
           ],
           'cmdname' => 'afourpaper',
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 3,
+            'macro' => ''
+          },
           'parent' => {}
         },
         {
@@ -72,6 +77,11 @@ $result_trees{'pagetype'} = {
             }
           ],
           'cmdname' => 'afourwide',
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 5,
+            'macro' => ''
+          },
           'parent' => {}
         },
         {
@@ -237,6 +247,11 @@ $result_trees{'pagetype'} = {
             }
           ],
           'cmdname' => 'smallbook',
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 13,
+            'macro' => ''
+          },
           'parent' => {}
         },
         {
@@ -279,6 +294,11 @@ $result_trees{'pagetype'} = {
                 }
               ],
               'cmdname' => 'afourpaper',
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 18,
+                'macro' => ''
+              },
               'parent' => {}
             }
           ],
@@ -586,6 +606,15 @@ $result_errors{'pagetype'} = [
     'macro' => '',
     'text' => 'unknown command `Chapter\'',
     'type' => 'error'
+  },
+  {
+    'error_line' => ':18: warning: multiple @afourpaper
+',
+    'file_name' => '',
+    'line_nr' => 18,
+    'macro' => '',
+    'text' => 'multiple @afourpaper',
+    'type' => 'warning'
   }
 ];
 
