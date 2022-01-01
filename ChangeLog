@@ -1,5 +1,10 @@
 2022-01-01  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (element_is_tree_unit_top): simplify
+	condition and use only 'unit_command'.
+
+2022-01-01  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (command_text, element_is_tree_unit_top)
 	(_convert_heading_command, _prepare_tree_units_global_targets),
 	tp/Texinfo/Structuring.pm (split_by_node, split_by_section)
@@ -11,7 +16,7 @@
 	* tp/Texinfo/Convert/Converter.pm (sort_element_counts),
 	tp/Texinfo/Convert/IXIN.pm (output_ixin), tp/Texinfo/Convert/Info.pm
 	(output), tp/Texinfo/Convert/Plaintext.pm (process_footnotes):
-	: use tree unit 'unit_command'.
+	use tree unit 'unit_command'.
 
 2022-01-01  Patrice Dumas  <pertusus@free.fr>
 

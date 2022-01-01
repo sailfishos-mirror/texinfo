@@ -919,10 +919,9 @@ sub element_is_tree_unit_top($$)
   return ($self->{'global_target_elements'}->{'Top'}
     and $self->{'global_target_elements'}->{'Top'} eq $element
     and $element->{'extra'}
-    and (($element->{'extra'}->{'unit_section'}
-         and $element->{'extra'}->{'unit_section'}->{'cmdname'} eq 'top')
-         or ($element->{'extra'}->{'unit_command'}
-             and $element->{'extra'}->{'unit_command'}->{'cmdname'} eq 'node')));
+    and $element->{'extra'}->{'unit_command'}
+    and ($element->{'extra'}->{'unit_command'}->{'cmdname'} eq 'node'
+         or $element->{'extra'}->{'unit_command'}->{'cmdname'} eq 'top'));
 }
 
 sub default_formatting_function($$)
