@@ -329,11 +329,9 @@ $result_sectioning{'documentlanguage_set_option_info'} = {
           'associated_node' => {
             'cmdname' => 'node',
             'extra' => {
-              'normalized' => 'Top',
-              'spaces_before_argument' => ' '
+              'normalized' => 'Top'
             }
-          },
-          'spaces_before_argument' => ' '
+          }
         },
         'structure' => {
           'level' => 0,
@@ -350,23 +348,19 @@ $result_nodes{'documentlanguage_set_option_info'} = {
   'extra' => {
     'associated_section' => {
       'cmdname' => 'top',
-      'extra' => {
-        'spaces_before_argument' => ' '
-      },
+      'extra' => {},
       'structure' => {
         'level' => 0
       }
     },
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   }
 };
 
 $result_menus{'documentlanguage_set_option_info'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   }
 };
 

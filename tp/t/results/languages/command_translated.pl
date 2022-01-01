@@ -220,11 +220,9 @@ $result_sectioning{'command_translated'} = {
           'associated_node' => {
             'cmdname' => 'node',
             'extra' => {
-              'normalized' => 'Top',
-              'spaces_before_argument' => ' '
+              'normalized' => 'Top'
             }
-          },
-          'spaces_before_argument' => ' '
+          }
         },
         'structure' => {
           'level' => 0,
@@ -241,23 +239,19 @@ $result_nodes{'command_translated'} = {
   'extra' => {
     'associated_section' => {
       'cmdname' => 'top',
-      'extra' => {
-        'spaces_before_argument' => ' '
-      },
+      'extra' => {},
       'structure' => {
         'level' => 0
       }
     },
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   }
 };
 
 $result_menus{'command_translated'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   }
 };
 

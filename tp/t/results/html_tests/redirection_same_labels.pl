@@ -1366,8 +1366,7 @@ $result_sectioning{'redirection_same_labels'} = {
           'associated_node' => {
             'cmdname' => 'node',
             'extra' => {
-              'normalized' => 'Top',
-              'spaces_before_argument' => ' '
+              'normalized' => 'Top'
             },
             'structure' => {
               'associated_unit' => {
@@ -1383,8 +1382,7 @@ $result_sectioning{'redirection_same_labels'} = {
                         'node' => {
                           'cmdname' => 'node',
                           'extra' => {
-                            'normalized' => 'umlaut',
-                            'spaces_before_argument' => ' '
+                            'normalized' => 'umlaut'
                           },
                           'structure' => {
                             'associated_unit' => {}
@@ -1393,8 +1391,7 @@ $result_sectioning{'redirection_same_labels'} = {
                         'section' => {
                           'cmdname' => 'chapter',
                           'extra' => {
-                            'associated_node' => {},
-                            'spaces_before_argument' => ' '
+                            'associated_node' => {}
                           },
                           'structure' => {
                             'associated_unit' => {},
@@ -1416,8 +1413,7 @@ $result_sectioning{'redirection_same_labels'} = {
                               'node' => {
                                 'cmdname' => 'node',
                                 'extra' => {
-                                  'normalized' => 'circumflex',
-                                  'spaces_before_argument' => ' '
+                                  'normalized' => 'circumflex'
                                 },
                                 'structure' => {
                                   'associated_unit' => {}
@@ -1426,8 +1422,7 @@ $result_sectioning{'redirection_same_labels'} = {
                               'section' => {
                                 'cmdname' => 'chapter',
                                 'extra' => {
-                                  'associated_node' => {},
-                                  'spaces_before_argument' => ' '
+                                  'associated_node' => {}
                                 },
                                 'structure' => {
                                   'associated_unit' => {},
@@ -1482,8 +1477,7 @@ $result_sectioning{'redirection_same_labels'} = {
                 'type' => 'unit'
               }
             }
-          },
-          'spaces_before_argument' => ' '
+          }
         },
         'structure' => {
           'associated_unit' => {},
@@ -1554,9 +1548,7 @@ $result_nodes{'redirection_same_labels'} = {
   'extra' => {
     'associated_section' => {
       'cmdname' => 'top',
-      'extra' => {
-        'spaces_before_argument' => ' '
-      },
+      'extra' => {},
       'structure' => {
         'associated_unit' => {
           'extra' => {
@@ -1573,9 +1565,7 @@ $result_nodes{'redirection_same_labels'} = {
                     'extra' => {
                       'associated_section' => {
                         'cmdname' => 'chapter',
-                        'extra' => {
-                          'spaces_before_argument' => ' '
-                        },
+                        'extra' => {},
                         'structure' => {
                           'associated_unit' => {},
                           'level' => 1,
@@ -1585,36 +1575,24 @@ $result_nodes{'redirection_same_labels'} = {
                       'menus' => [
                         {
                           'cmdname' => 'menu',
-                          'extra' => {
-                            'end_command' => {
-                              'cmdname' => 'end',
-                              'extra' => {
-                                'command_argument' => 'menu',
-                                'spaces_before_argument' => ' ',
-                                'text_arg' => 'menu'
-                              }
-                            }
-                          }
+                          'extra' => {}
                         }
                       ],
-                      'normalized' => 'umlaut',
-                      'spaces_before_argument' => ' '
+                      'normalized' => 'umlaut'
                     },
                     'structure' => {
                       'associated_unit' => {},
                       'menu_child' => {
                         'cmdname' => 'node',
                         'extra' => {
-                          'normalized' => '_00ef',
-                          'spaces_before_argument' => ' '
+                          'normalized' => '_00ef'
                         },
                         'structure' => {
                           'associated_unit' => {},
                           'node_next' => {
                             'cmdname' => 'node',
                             'extra' => {
-                              'normalized' => '_0129',
-                              'spaces_before_argument' => ' '
+                              'normalized' => '_0129'
                             },
                             'structure' => {
                               'associated_unit' => {},
@@ -1630,9 +1608,7 @@ $result_nodes{'redirection_same_labels'} = {
                         'extra' => {
                           'associated_section' => {
                             'cmdname' => 'chapter',
-                            'extra' => {
-                              'spaces_before_argument' => ' '
-                            },
+                            'extra' => {},
                             'structure' => {
                               'associated_unit' => {
                                 'extra' => {
@@ -1663,28 +1639,17 @@ $result_nodes{'redirection_same_labels'} = {
                           'menus' => [
                             {
                               'cmdname' => 'menu',
-                              'extra' => {
-                                'end_command' => {
-                                  'cmdname' => 'end',
-                                  'extra' => {
-                                    'command_argument' => 'menu',
-                                    'spaces_before_argument' => ' ',
-                                    'text_arg' => 'menu'
-                                  }
-                                }
-                              }
+                              'extra' => {}
                             }
                           ],
-                          'normalized' => 'circumflex',
-                          'spaces_before_argument' => ' '
+                          'normalized' => 'circumflex'
                         },
                         'structure' => {
                           'associated_unit' => {},
                           'menu_child' => {
                             'cmdname' => 'node',
                             'extra' => {
-                              'normalized' => '_00ee',
-                              'spaces_before_argument' => ' '
+                              'normalized' => '_00ee'
                             },
                             'structure' => {
                               'associated_unit' => {},
@@ -1737,20 +1702,10 @@ $result_nodes{'redirection_same_labels'} = {
     'menus' => [
       {
         'cmdname' => 'menu',
-        'extra' => {
-          'end_command' => {
-            'cmdname' => 'end',
-            'extra' => {
-              'command_argument' => 'menu',
-              'spaces_before_argument' => ' ',
-              'text_arg' => 'menu'
-            }
-          }
-        }
+        'extra' => {}
       }
     ],
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'associated_unit' => {},
@@ -1816,8 +1771,7 @@ $result_nodes{'redirection_same_labels'}{'structure'}{'node_next'} = $result_nod
 $result_menus{'redirection_same_labels'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'associated_unit' => {
@@ -1825,9 +1779,7 @@ $result_menus{'redirection_same_labels'} = {
         'node' => {},
         'section' => {
           'cmdname' => 'top',
-          'extra' => {
-            'spaces_before_argument' => ' '
-          },
+          'extra' => {},
           'structure' => {
             'associated_unit' => {},
             'level' => 0
@@ -1842,24 +1794,21 @@ $result_menus{'redirection_same_labels'} = {
               'node' => {
                 'cmdname' => 'node',
                 'extra' => {
-                  'normalized' => 'umlaut',
-                  'spaces_before_argument' => ' '
+                  'normalized' => 'umlaut'
                 },
                 'structure' => {
                   'associated_unit' => {},
                   'menu_child' => {
                     'cmdname' => 'node',
                     'extra' => {
-                      'normalized' => '_00ef',
-                      'spaces_before_argument' => ' '
+                      'normalized' => '_00ef'
                     },
                     'structure' => {
                       'associated_unit' => {},
                       'menu_next' => {
                         'cmdname' => 'node',
                         'extra' => {
-                          'normalized' => '_0129',
-                          'spaces_before_argument' => ' '
+                          'normalized' => '_0129'
                         },
                         'structure' => {
                           'associated_unit' => {},
@@ -1879,8 +1828,7 @@ $result_menus{'redirection_same_labels'} = {
                   'menu_next' => {
                     'cmdname' => 'node',
                     'extra' => {
-                      'normalized' => 'circumflex',
-                      'spaces_before_argument' => ' '
+                      'normalized' => 'circumflex'
                     },
                     'structure' => {
                       'associated_unit' => {
@@ -1888,9 +1836,7 @@ $result_menus{'redirection_same_labels'} = {
                           'node' => {},
                           'section' => {
                             'cmdname' => 'chapter',
-                            'extra' => {
-                              'spaces_before_argument' => ' '
-                            },
+                            'extra' => {},
                             'structure' => {
                               'associated_unit' => {},
                               'level' => 1,
@@ -1918,8 +1864,7 @@ $result_menus{'redirection_same_labels'} = {
                       'menu_child' => {
                         'cmdname' => 'node',
                         'extra' => {
-                          'normalized' => '_00ee',
-                          'spaces_before_argument' => ' '
+                          'normalized' => '_00ee'
                         },
                         'structure' => {
                           'associated_unit' => {},
@@ -1944,9 +1889,7 @@ $result_menus{'redirection_same_labels'} = {
               },
               'section' => {
                 'cmdname' => 'chapter',
-                'extra' => {
-                  'spaces_before_argument' => ' '
-                },
+                'extra' => {},
                 'structure' => {
                   'associated_unit' => {},
                   'level' => 1,
@@ -2049,16 +1992,14 @@ $result_elements{'redirection_same_labels'} = [
       'node' => {
         'cmdname' => 'node',
         'extra' => {
-          'normalized' => 'Top',
-          'spaces_before_argument' => ' '
+          'normalized' => 'Top'
         },
         'structure' => {
           'associated_unit' => {},
           'menu_child' => {
             'cmdname' => 'node',
             'extra' => {
-              'normalized' => 'umlaut',
-              'spaces_before_argument' => ' '
+              'normalized' => 'umlaut'
             },
             'structure' => {
               'associated_unit' => {
@@ -2066,9 +2007,7 @@ $result_elements{'redirection_same_labels'} = [
                   'node' => {},
                   'section' => {
                     'cmdname' => 'chapter',
-                    'extra' => {
-                      'spaces_before_argument' => ' '
-                    },
+                    'extra' => {},
                     'structure' => {
                       'associated_unit' => {},
                       'level' => 1,
@@ -2086,16 +2025,14 @@ $result_elements{'redirection_same_labels'} = [
                         'node' => {
                           'cmdname' => 'node',
                           'extra' => {
-                            'normalized' => 'circumflex',
-                            'spaces_before_argument' => ' '
+                            'normalized' => 'circumflex'
                           },
                           'structure' => {
                             'associated_unit' => {},
                             'menu_child' => {
                               'cmdname' => 'node',
                               'extra' => {
-                                'normalized' => '_00ee',
-                                'spaces_before_argument' => ' '
+                                'normalized' => '_00ee'
                               },
                               'structure' => {
                                 'associated_unit' => {},
@@ -2114,9 +2051,7 @@ $result_elements{'redirection_same_labels'} = [
                         },
                         'section' => {
                           'cmdname' => 'chapter',
-                          'extra' => {
-                            'spaces_before_argument' => ' '
-                          },
+                          'extra' => {},
                           'structure' => {
                             'associated_unit' => {},
                             'level' => 1,
@@ -2156,16 +2091,14 @@ $result_elements{'redirection_same_labels'} = [
               'menu_child' => {
                 'cmdname' => 'node',
                 'extra' => {
-                  'normalized' => '_00ef',
-                  'spaces_before_argument' => ' '
+                  'normalized' => '_00ef'
                 },
                 'structure' => {
                   'associated_unit' => {},
                   'menu_next' => {
                     'cmdname' => 'node',
                     'extra' => {
-                      'normalized' => '_0129',
-                      'spaces_before_argument' => ' '
+                      'normalized' => '_0129'
                     },
                     'structure' => {
                       'associated_unit' => {},
@@ -2193,9 +2126,7 @@ $result_elements{'redirection_same_labels'} = [
       },
       'section' => {
         'cmdname' => 'top',
-        'extra' => {
-          'spaces_before_argument' => ' '
-        },
+        'extra' => {},
         'structure' => {
           'associated_unit' => {},
           'level' => 0

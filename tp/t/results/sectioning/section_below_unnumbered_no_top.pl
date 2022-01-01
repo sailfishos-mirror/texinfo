@@ -98,17 +98,13 @@ $result_sectioning{'section_below_unnumbered_no_top'} = {
     'section_childs' => [
       {
         'cmdname' => 'unnumbered',
-        'extra' => {
-          'spaces_before_argument' => ' '
-        },
+        'extra' => {},
         'structure' => {
           'level' => 1,
           'section_childs' => [
             {
               'cmdname' => 'section',
-              'extra' => {
-                'spaces_before_argument' => ' '
-              },
+              'extra' => {},
               'structure' => {
                 'level' => 2,
                 'section_up' => {}

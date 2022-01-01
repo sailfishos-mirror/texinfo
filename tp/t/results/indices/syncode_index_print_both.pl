@@ -557,12 +557,10 @@ $result_sectioning{'syncode_index_print_both'} = {
           'associated_node' => {
             'cmdname' => 'node',
             'extra' => {
-              'normalized' => 'Top',
-              'spaces_before_argument' => ' '
+              'normalized' => 'Top'
             },
             'structure' => {}
-          },
-          'spaces_before_argument' => ' '
+          }
         },
         'structure' => {
           'level' => 0,
@@ -574,12 +572,10 @@ $result_sectioning{'syncode_index_print_both'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'isindex' => 1,
-                    'normalized' => 'chapter-index',
-                    'spaces_before_argument' => ' '
+                    'normalized' => 'chapter-index'
                   },
                   'structure' => {}
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'level' => 1,
@@ -606,15 +602,12 @@ $result_nodes{'syncode_index_print_both'} = {
   'extra' => {
     'associated_section' => {
       'cmdname' => 'top',
-      'extra' => {
-        'spaces_before_argument' => ' '
-      },
+      'extra' => {},
       'structure' => {
         'level' => 0
       }
     },
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'node_next' => {
@@ -622,17 +615,14 @@ $result_nodes{'syncode_index_print_both'} = {
       'extra' => {
         'associated_section' => {
           'cmdname' => 'chapter',
-          'extra' => {
-            'spaces_before_argument' => ' '
-          },
+          'extra' => {},
           'structure' => {
             'level' => 1,
             'number' => 1
           }
         },
         'isindex' => 1,
-        'normalized' => 'chapter-index',
-        'spaces_before_argument' => ' '
+        'normalized' => 'chapter-index'
       },
       'structure' => {
         'node_prev' => {},
@@ -647,8 +637,7 @@ $result_nodes{'syncode_index_print_both'}{'structure'}{'node_next'}{'structure'}
 $result_menus{'syncode_index_print_both'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {}
 };

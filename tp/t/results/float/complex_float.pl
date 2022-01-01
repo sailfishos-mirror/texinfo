@@ -4567,12 +4567,10 @@ $result_sectioning{'complex_float'} = {
           'associated_node' => {
             'cmdname' => 'node',
             'extra' => {
-              'normalized' => 'Top',
-              'spaces_before_argument' => ' '
+              'normalized' => 'Top'
             },
             'structure' => {}
-          },
-          'spaces_before_argument' => ' '
+          }
         },
         'structure' => {
           'level' => 0,
@@ -4583,12 +4581,10 @@ $result_sectioning{'complex_float'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => 'chapter',
-                    'spaces_before_argument' => ' '
+                    'normalized' => 'chapter'
                   },
                   'structure' => {}
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'level' => 1,
@@ -4615,9 +4611,7 @@ $result_nodes{'complex_float'} = {
   'extra' => {
     'associated_section' => {
       'cmdname' => 'top',
-      'extra' => {
-        'spaces_before_argument' => ' '
-      },
+      'extra' => {},
       'structure' => {
         'level' => 0
       }
@@ -4625,20 +4619,10 @@ $result_nodes{'complex_float'} = {
     'menus' => [
       {
         'cmdname' => 'menu',
-        'extra' => {
-          'end_command' => {
-            'cmdname' => 'end',
-            'extra' => {
-              'command_argument' => 'menu',
-              'spaces_before_argument' => ' ',
-              'text_arg' => 'menu'
-            }
-          }
-        }
+        'extra' => {}
       }
     ],
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'menu_child' => {
@@ -4646,16 +4630,13 @@ $result_nodes{'complex_float'} = {
       'extra' => {
         'associated_section' => {
           'cmdname' => 'chapter',
-          'extra' => {
-            'spaces_before_argument' => ' '
-          },
+          'extra' => {},
           'structure' => {
             'level' => 1,
             'number' => 1
           }
         },
-        'normalized' => 'chapter',
-        'spaces_before_argument' => ' '
+        'normalized' => 'chapter'
       },
       'structure' => {
         'node_prev' => {},
@@ -4672,15 +4653,13 @@ $result_nodes{'complex_float'}{'structure'}{'node_next'} = $result_nodes{'comple
 $result_menus{'complex_float'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'chapter',
-        'spaces_before_argument' => ' '
+        'normalized' => 'chapter'
       },
       'structure' => {
         'menu_up' => {},
@@ -4704,23 +4683,12 @@ $result_floats{'complex_float'} = {
         'caption' => {
           'cmdname' => 'caption',
           'extra' => {
-            'float' => {},
-            'spaces_before_argument' => ' '
-          }
-        },
-        'end_command' => {
-          'cmdname' => 'end',
-          'extra' => {
-            'command_argument' => 'float',
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'float'
+            'float' => {}
           }
         },
         'float_section' => {
           'cmdname' => 'top',
-          'extra' => {
-            'spaces_before_argument' => ' '
-          },
+          'extra' => {},
           'structure' => {
             'level' => 0
           }
@@ -4732,7 +4700,6 @@ $result_floats{'complex_float'} = {
             'float' => {}
           }
         },
-        'spaces_before_argument' => ' ',
         'type' => {
           'content' => [
             {
@@ -4752,30 +4719,18 @@ $result_floats{'complex_float'} = {
         'caption' => {
           'cmdname' => 'caption',
           'extra' => {
-            'float' => {},
-            'spaces_before_argument' => ' '
-          }
-        },
-        'end_command' => {
-          'cmdname' => 'end',
-          'extra' => {
-            'command_argument' => 'float',
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'float'
+            'float' => {}
           }
         },
         'float_section' => {
           'cmdname' => 'chapter',
-          'extra' => {
-            'spaces_before_argument' => ' '
-          },
+          'extra' => {},
           'structure' => {
             'level' => 1,
             'number' => 1
           }
         },
         'normalized' => 'float-with-a-lot-of-features-and-no-shortcaption',
-        'spaces_before_argument' => ' ',
         'type' => {
           'content' => [
             {

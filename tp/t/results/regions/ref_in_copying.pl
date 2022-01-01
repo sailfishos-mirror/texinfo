@@ -507,12 +507,10 @@ $result_sectioning{'ref_in_copying'} = {
           'associated_node' => {
             'cmdname' => 'node',
             'extra' => {
-              'normalized' => 'Top',
-              'spaces_before_argument' => ' '
+              'normalized' => 'Top'
             },
             'structure' => {}
-          },
-          'spaces_before_argument' => ' '
+          }
         },
         'structure' => {
           'level' => 0,
@@ -523,12 +521,10 @@ $result_sectioning{'ref_in_copying'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => 'GFDL',
-                    'spaces_before_argument' => ' '
+                    'normalized' => 'GFDL'
                   },
                   'structure' => {}
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'level' => 1,
@@ -555,9 +551,7 @@ $result_nodes{'ref_in_copying'} = {
   'extra' => {
     'associated_section' => {
       'cmdname' => 'top',
-      'extra' => {
-        'spaces_before_argument' => ' '
-      },
+      'extra' => {},
       'structure' => {
         'level' => 0
       }
@@ -565,20 +559,10 @@ $result_nodes{'ref_in_copying'} = {
     'menus' => [
       {
         'cmdname' => 'menu',
-        'extra' => {
-          'end_command' => {
-            'cmdname' => 'end',
-            'extra' => {
-              'command_argument' => 'menu',
-              'spaces_before_argument' => ' ',
-              'text_arg' => 'menu'
-            }
-          }
-        }
+        'extra' => {}
       }
     ],
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'menu_child' => {
@@ -586,16 +570,13 @@ $result_nodes{'ref_in_copying'} = {
       'extra' => {
         'associated_section' => {
           'cmdname' => 'chapter',
-          'extra' => {
-            'spaces_before_argument' => ' '
-          },
+          'extra' => {},
           'structure' => {
             'level' => 1,
             'number' => 1
           }
         },
-        'normalized' => 'GFDL',
-        'spaces_before_argument' => ' '
+        'normalized' => 'GFDL'
       },
       'structure' => {
         'node_prev' => {},
@@ -612,15 +593,13 @@ $result_nodes{'ref_in_copying'}{'structure'}{'node_next'} = $result_nodes{'ref_i
 $result_menus{'ref_in_copying'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'GFDL',
-        'spaces_before_argument' => ' '
+        'normalized' => 'GFDL'
       },
       'structure' => {
         'menu_up' => {},

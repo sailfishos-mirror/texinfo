@@ -109,8 +109,7 @@ $result_texts{'node_and_bye'} = '
 $result_nodes{'node_and_bye'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'associated_unit' => {
@@ -129,8 +128,7 @@ $result_nodes{'node_and_bye'}{'structure'}{'associated_unit'}{'structure'}{'dire
 $result_menus{'node_and_bye'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'associated_unit' => {

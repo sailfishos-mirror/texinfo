@@ -138,9 +138,7 @@ $result_sectioning{'section_before_part'} = {
     'section_childs' => [
       {
         'cmdname' => 'section',
-        'extra' => {
-          'spaces_before_argument' => ' '
-        },
+        'extra' => {},
         'structure' => {
           'level' => 2,
           'number' => 1,
@@ -149,9 +147,7 @@ $result_sectioning{'section_before_part'} = {
       },
       {
         'cmdname' => 'part',
-        'extra' => {
-          'spaces_before_argument' => ' '
-        },
+        'extra' => {},
         'structure' => {
           'level' => 0,
           'section_up' => {}

@@ -386,27 +386,16 @@ $result_nodes{'top_node_no_menu_direction'} = {
     'menus' => [
       {
         'cmdname' => 'menu',
-        'extra' => {
-          'end_command' => {
-            'cmdname' => 'end',
-            'extra' => {
-              'command_argument' => 'menu',
-              'spaces_before_argument' => ' ',
-              'text_arg' => 'menu'
-            }
-          }
-        }
+        'extra' => {}
       }
     ],
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'second-node',
-        'spaces_before_argument' => ' '
+        'normalized' => 'second-node'
       },
       'structure' => {
         'node_prev' => {},
@@ -423,15 +412,13 @@ $result_nodes{'top_node_no_menu_direction'}{'structure'}{'node_next'} = $result_
 $result_menus{'top_node_no_menu_direction'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'second-node',
-        'spaces_before_argument' => ' '
+        'normalized' => 'second-node'
       },
       'structure' => {
         'menu_next' => {},

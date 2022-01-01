@@ -414,26 +414,20 @@ $result_sectioning{'no_empty_line_after_section'} = {
     'section_childs' => [
       {
         'cmdname' => 'top',
-        'extra' => {
-          'spaces_before_argument' => ' '
-        },
+        'extra' => {},
         'structure' => {
           'level' => 0,
           'section_childs' => [
             {
               'cmdname' => 'chapter',
-              'extra' => {
-                'spaces_before_argument' => ' '
-              },
+              'extra' => {},
               'structure' => {
                 'level' => 1,
                 'number' => 1,
                 'section_childs' => [
                   {
                     'cmdname' => 'section',
-                    'extra' => {
-                      'spaces_before_argument' => ' '
-                    },
+                    'extra' => {},
                     'structure' => {
                       'level' => 2,
                       'number' => '1.1',
@@ -442,9 +436,7 @@ $result_sectioning{'no_empty_line_after_section'} = {
                   },
                   {
                     'cmdname' => 'section',
-                    'extra' => {
-                      'spaces_before_argument' => ' '
-                    },
+                    'extra' => {},
                     'structure' => {
                       'level' => 2,
                       'number' => '1.2',

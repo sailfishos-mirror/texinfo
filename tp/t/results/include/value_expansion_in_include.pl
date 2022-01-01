@@ -581,8 +581,7 @@ test_var verbatiminclude: ';
 $result_nodes{'value_expansion_in_include'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {}
 };
@@ -590,8 +589,7 @@ $result_nodes{'value_expansion_in_include'} = {
 $result_menus{'value_expansion_in_include'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {}
 };

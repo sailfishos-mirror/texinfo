@@ -2116,12 +2116,10 @@ $result_sectioning{'ref_in_sectioning'} = {
           'associated_node' => {
             'cmdname' => 'node',
             'extra' => {
-              'normalized' => 'Top',
-              'spaces_before_argument' => ' '
+              'normalized' => 'Top'
             },
             'structure' => {}
-          },
-          'spaces_before_argument' => ' '
+          }
         },
         'structure' => {
           'level' => 0,
@@ -2132,12 +2130,10 @@ $result_sectioning{'ref_in_sectioning'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => 'node',
-                    'spaces_before_argument' => ' '
+                    'normalized' => 'node'
                   },
                   'structure' => {}
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'level' => 1,
@@ -2153,12 +2149,10 @@ $result_sectioning{'ref_in_sectioning'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => 'chap',
-                    'spaces_before_argument' => ' '
+                    'normalized' => 'chap'
                   },
                   'structure' => {}
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'level' => 1,
@@ -2166,9 +2160,7 @@ $result_sectioning{'ref_in_sectioning'} = {
                 'section_childs' => [
                   {
                     'cmdname' => 'section',
-                    'extra' => {
-                      'spaces_before_argument' => ' '
-                    },
+                    'extra' => {},
                     'structure' => {
                       'level' => 2,
                       'number' => '2.1',
@@ -2177,9 +2169,7 @@ $result_sectioning{'ref_in_sectioning'} = {
                   },
                   {
                     'cmdname' => 'section',
-                    'extra' => {
-                      'spaces_before_argument' => ' '
-                    },
+                    'extra' => {},
                     'structure' => {
                       'level' => 2,
                       'number' => '2.2',
@@ -2189,9 +2179,7 @@ $result_sectioning{'ref_in_sectioning'} = {
                   },
                   {
                     'cmdname' => 'section',
-                    'extra' => {
-                      'spaces_before_argument' => ' '
-                    },
+                    'extra' => {},
                     'structure' => {
                       'level' => 2,
                       'number' => '2.3',
@@ -2201,9 +2189,7 @@ $result_sectioning{'ref_in_sectioning'} = {
                   },
                   {
                     'cmdname' => 'section',
-                    'extra' => {
-                      'spaces_before_argument' => ' '
-                    },
+                    'extra' => {},
                     'structure' => {
                       'level' => 2,
                       'number' => '2.4',
@@ -2213,9 +2199,7 @@ $result_sectioning{'ref_in_sectioning'} = {
                   },
                   {
                     'cmdname' => 'section',
-                    'extra' => {
-                      'spaces_before_argument' => ' '
-                    },
+                    'extra' => {},
                     'structure' => {
                       'level' => 2,
                       'number' => '2.5',
@@ -2225,9 +2209,7 @@ $result_sectioning{'ref_in_sectioning'} = {
                   },
                   {
                     'cmdname' => 'section',
-                    'extra' => {
-                      'spaces_before_argument' => ' '
-                    },
+                    'extra' => {},
                     'structure' => {
                       'level' => 2,
                       'number' => '2.6',
@@ -2237,9 +2219,7 @@ $result_sectioning{'ref_in_sectioning'} = {
                   },
                   {
                     'cmdname' => 'section',
-                    'extra' => {
-                      'spaces_before_argument' => ' '
-                    },
+                    'extra' => {},
                     'structure' => {
                       'level' => 2,
                       'number' => '2.7',
@@ -2249,9 +2229,7 @@ $result_sectioning{'ref_in_sectioning'} = {
                   },
                   {
                     'cmdname' => 'section',
-                    'extra' => {
-                      'spaces_before_argument' => ' '
-                    },
+                    'extra' => {},
                     'structure' => {
                       'level' => 2,
                       'number' => '2.8',
@@ -2261,9 +2239,7 @@ $result_sectioning{'ref_in_sectioning'} = {
                   },
                   {
                     'cmdname' => 'section',
-                    'extra' => {
-                      'spaces_before_argument' => ' '
-                    },
+                    'extra' => {},
                     'structure' => {
                       'level' => 2,
                       'number' => '2.9',
@@ -2273,9 +2249,7 @@ $result_sectioning{'ref_in_sectioning'} = {
                   },
                   {
                     'cmdname' => 'section',
-                    'extra' => {
-                      'spaces_before_argument' => ' '
-                    },
+                    'extra' => {},
                     'structure' => {
                       'level' => 2,
                       'number' => '2.10',
@@ -2285,9 +2259,7 @@ $result_sectioning{'ref_in_sectioning'} = {
                   },
                   {
                     'cmdname' => 'section',
-                    'extra' => {
-                      'spaces_before_argument' => ' '
-                    },
+                    'extra' => {},
                     'structure' => {
                       'level' => 2,
                       'number' => '2.11',
@@ -2297,9 +2269,7 @@ $result_sectioning{'ref_in_sectioning'} = {
                   },
                   {
                     'cmdname' => 'section',
-                    'extra' => {
-                      'spaces_before_argument' => ' '
-                    },
+                    'extra' => {},
                     'structure' => {
                       'level' => 2,
                       'number' => '2.12',
@@ -2358,9 +2328,7 @@ $result_nodes{'ref_in_sectioning'} = {
   'extra' => {
     'associated_section' => {
       'cmdname' => 'top',
-      'extra' => {
-        'spaces_before_argument' => ' '
-      },
+      'extra' => {},
       'structure' => {
         'level' => 0
       }
@@ -2368,20 +2336,10 @@ $result_nodes{'ref_in_sectioning'} = {
     'menus' => [
       {
         'cmdname' => 'menu',
-        'extra' => {
-          'end_command' => {
-            'cmdname' => 'end',
-            'extra' => {
-              'command_argument' => 'menu',
-              'spaces_before_argument' => ' ',
-              'text_arg' => 'menu'
-            }
-          }
-        }
+        'extra' => {}
       }
     ],
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'menu_child' => {
@@ -2389,16 +2347,13 @@ $result_nodes{'ref_in_sectioning'} = {
       'extra' => {
         'associated_section' => {
           'cmdname' => 'chapter',
-          'extra' => {
-            'spaces_before_argument' => ' '
-          },
+          'extra' => {},
           'structure' => {
             'level' => 1,
             'number' => 1
           }
         },
-        'normalized' => 'node',
-        'spaces_before_argument' => ' '
+        'normalized' => 'node'
       },
       'structure' => {
         'node_next' => {
@@ -2406,16 +2361,13 @@ $result_nodes{'ref_in_sectioning'} = {
           'extra' => {
             'associated_section' => {
               'cmdname' => 'chapter',
-              'extra' => {
-                'spaces_before_argument' => ' '
-              },
+              'extra' => {},
               'structure' => {
                 'level' => 1,
                 'number' => 2
               }
             },
-            'normalized' => 'chap',
-            'spaces_before_argument' => ' '
+            'normalized' => 'chap'
           },
           'structure' => {
             'node_prev' => {},
@@ -2438,22 +2390,19 @@ $result_nodes{'ref_in_sectioning'}{'structure'}{'node_next'} = $result_nodes{'re
 $result_menus{'ref_in_sectioning'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'node',
-        'spaces_before_argument' => ' '
+        'normalized' => 'node'
       },
       'structure' => {
         'menu_next' => {
           'cmdname' => 'node',
           'extra' => {
-            'normalized' => 'chap',
-            'spaces_before_argument' => ' '
+            'normalized' => 'chap'
           },
           'structure' => {
             'menu_prev' => {},

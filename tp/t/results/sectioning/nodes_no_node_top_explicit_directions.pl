@@ -418,20 +418,10 @@ $result_nodes{'nodes_no_node_top_explicit_directions'} = {
     'menus' => [
       {
         'cmdname' => 'menu',
-        'extra' => {
-          'end_command' => {
-            'cmdname' => 'end',
-            'extra' => {
-              'command_argument' => 'menu',
-              'spaces_before_argument' => ' ',
-              'text_arg' => 'menu'
-            }
-          }
-        }
+        'extra' => {}
       }
     ],
-    'normalized' => 'first',
-    'spaces_before_argument' => ' '
+    'normalized' => 'first'
   },
   'structure' => {
     'associated_unit' => {
@@ -446,8 +436,7 @@ $result_nodes{'nodes_no_node_top_explicit_directions'} = {
               'node' => {
                 'cmdname' => 'node',
                 'extra' => {
-                  'normalized' => 'second-node',
-                  'spaces_before_argument' => ' '
+                  'normalized' => 'second-node'
                 },
                 'structure' => {
                   'associated_unit' => {},
@@ -516,8 +505,7 @@ $result_nodes{'nodes_no_node_top_explicit_directions'}{'structure'}{'node_up'}{'
 $result_menus{'nodes_no_node_top_explicit_directions'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'first',
-    'spaces_before_argument' => ' '
+    'normalized' => 'first'
   },
   'structure' => {
     'associated_unit' => {
@@ -532,8 +520,7 @@ $result_menus{'nodes_no_node_top_explicit_directions'} = {
               'node' => {
                 'cmdname' => 'node',
                 'extra' => {
-                  'normalized' => 'second-node',
-                  'spaces_before_argument' => ' '
+                  'normalized' => 'second-node'
                 },
                 'structure' => {
                   'associated_unit' => {},
@@ -605,16 +592,14 @@ $result_elements{'nodes_no_node_top_explicit_directions'} = [
       'node' => {
         'cmdname' => 'node',
         'extra' => {
-          'normalized' => 'first',
-          'spaces_before_argument' => ' '
+          'normalized' => 'first'
         },
         'structure' => {
           'associated_unit' => {},
           'menu_child' => {
             'cmdname' => 'node',
             'extra' => {
-              'normalized' => 'second-node',
-              'spaces_before_argument' => ' '
+              'normalized' => 'second-node'
             },
             'structure' => {
               'associated_unit' => {

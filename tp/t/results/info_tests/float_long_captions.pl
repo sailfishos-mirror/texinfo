@@ -423,16 +423,14 @@ Text, text2
 $result_nodes{'float_long_captions'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   }
 };
 
 $result_menus{'float_long_captions'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   }
 };
 
@@ -450,16 +448,7 @@ $result_floats{'float_long_captions'} = {
             'float' => {}
           }
         },
-        'end_command' => {
-          'cmdname' => 'end',
-          'extra' => {
-            'command_argument' => 'float',
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'float'
-          }
-        },
         'normalized' => 'text1',
-        'spaces_before_argument' => ' ',
         'type' => {
           'content' => [
             {
@@ -482,16 +471,7 @@ $result_floats{'float_long_captions'} = {
             'float' => {}
           }
         },
-        'end_command' => {
-          'cmdname' => 'end',
-          'extra' => {
-            'command_argument' => 'float',
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'float'
-          }
-        },
         'normalized' => 'text2',
-        'spaces_before_argument' => ' ',
         'type' => {
           'content' => [
             {

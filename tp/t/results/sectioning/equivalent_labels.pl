@@ -501,20 +501,10 @@ $result_nodes{'equivalent_labels'} = {
     'menus' => [
       {
         'cmdname' => 'menu',
-        'extra' => {
-          'end_command' => {
-            'cmdname' => 'end',
-            'extra' => {
-              'command_argument' => 'menu',
-              'spaces_before_argument' => ' ',
-              'text_arg' => 'menu'
-            }
-          }
-        }
+        'extra' => {}
       }
     ],
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'menu_child' => {
@@ -535,8 +525,7 @@ $result_nodes{'equivalent_labels'}{'structure'}{'node_next'} = $result_nodes{'eq
 $result_menus{'equivalent_labels'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'menu_child' => {
@@ -548,16 +537,7 @@ $result_menus{'equivalent_labels'} = {
         'menu_next' => {
           'cmdname' => 'float',
           'extra' => {
-            'end_command' => {
-              'cmdname' => 'end',
-              'extra' => {
-                'command_argument' => 'float',
-                'spaces_before_argument' => ' ',
-                'text_arg' => 'float'
-              }
-            },
             'normalized' => 'floa',
-            'spaces_before_argument' => ' ',
             'type' => {
               'content' => [
                 {
@@ -615,16 +595,7 @@ $result_floats{'equivalent_labels'} = {
     {
       'cmdname' => 'float',
       'extra' => {
-        'end_command' => {
-          'cmdname' => 'end',
-          'extra' => {
-            'command_argument' => 'float',
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'float'
-          }
-        },
         'normalized' => 'floa',
-        'spaces_before_argument' => ' ',
         'type' => {
           'content' => [
             {

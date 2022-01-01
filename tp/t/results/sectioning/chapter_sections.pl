@@ -484,9 +484,7 @@ $result_sectioning{'chapter_sections'} = {
     'section_childs' => [
       {
         'cmdname' => 'unnumbered',
-        'extra' => {
-          'spaces_before_argument' => ' '
-        },
+        'extra' => {},
         'structure' => {
           'associated_unit' => {
             'extra' => {
@@ -499,9 +497,7 @@ $result_sectioning{'chapter_sections'} = {
                   'extra' => {
                     'section' => {
                       'cmdname' => 'chapter',
-                      'extra' => {
-                        'spaces_before_argument' => ' '
-                      },
+                      'extra' => {},
                       'structure' => {
                         'associated_unit' => {},
                         'level' => 1,
@@ -509,9 +505,7 @@ $result_sectioning{'chapter_sections'} = {
                         'section_childs' => [
                           {
                             'cmdname' => 'section',
-                            'extra' => {
-                              'spaces_before_argument' => ' '
-                            },
+                            'extra' => {},
                             'structure' => {
                               'associated_unit' => {
                                 'extra' => {
@@ -526,9 +520,7 @@ $result_sectioning{'chapter_sections'} = {
                                       'extra' => {
                                         'section' => {
                                           'cmdname' => 'chapter',
-                                          'extra' => {
-                                            'spaces_before_argument' => ' '
-                                          },
+                                          'extra' => {},
                                           'structure' => {
                                             'associated_unit' => {},
                                             'level' => 1,
@@ -536,9 +528,7 @@ $result_sectioning{'chapter_sections'} = {
                                             'section_childs' => [
                                               {
                                                 'cmdname' => 'section',
-                                                'extra' => {
-                                                  'spaces_before_argument' => ' '
-                                                },
+                                                'extra' => {},
                                                 'structure' => {
                                                   'associated_unit' => {
                                                     'extra' => {
@@ -553,9 +543,7 @@ $result_sectioning{'chapter_sections'} = {
                                                           'extra' => {
                                                             'section' => {
                                                               'cmdname' => 'chapter',
-                                                              'extra' => {
-                                                                'spaces_before_argument' => ' '
-                                                              },
+                                                              'extra' => {},
                                                               'structure' => {
                                                                 'associated_unit' => {},
                                                                 'level' => 1,
@@ -573,18 +561,14 @@ $result_sectioning{'chapter_sections'} = {
                                                                 'extra' => {
                                                                   'section' => {
                                                                     'cmdname' => 'subsection',
-                                                                    'extra' => {
-                                                                      'spaces_before_argument' => ' '
-                                                                    },
+                                                                    'extra' => {},
                                                                     'structure' => {
                                                                       'associated_unit' => {},
                                                                       'level' => 3,
                                                                       'number' => '2.1.2',
                                                                       'section_prev' => {
                                                                         'cmdname' => 'subsection',
-                                                                        'extra' => {
-                                                                          'spaces_before_argument' => ' '
-                                                                        },
+                                                                        'extra' => {},
                                                                         'structure' => {
                                                                           'associated_unit' => {
                                                                             'extra' => {
@@ -840,9 +824,7 @@ $result_elements{'chapter_sections'} = [
     'extra' => {
       'section' => {
         'cmdname' => 'unnumbered',
-        'extra' => {
-          'spaces_before_argument' => ' '
-        },
+        'extra' => {},
         'structure' => {
           'associated_unit' => {},
           'level' => 1
@@ -856,9 +838,7 @@ $result_elements{'chapter_sections'} = [
           'extra' => {
             'section' => {
               'cmdname' => 'chapter',
-              'extra' => {
-                'spaces_before_argument' => ' '
-              },
+              'extra' => {},
               'structure' => {
                 'associated_unit' => {},
                 'level' => 1,
@@ -875,9 +855,7 @@ $result_elements{'chapter_sections'} = [
                 'extra' => {
                   'section' => {
                     'cmdname' => 'chapter',
-                    'extra' => {
-                      'spaces_before_argument' => ' '
-                    },
+                    'extra' => {},
                     'structure' => {
                       'associated_unit' => {},
                       'level' => 1,
@@ -892,9 +870,7 @@ $result_elements{'chapter_sections'} = [
                       'extra' => {
                         'section' => {
                           'cmdname' => 'section',
-                          'extra' => {
-                            'spaces_before_argument' => ' '
-                          },
+                          'extra' => {},
                           'structure' => {
                             'associated_unit' => {},
                             'level' => 2,
@@ -920,9 +896,7 @@ $result_elements{'chapter_sections'} = [
                       'extra' => {
                         'section' => {
                           'cmdname' => 'chapter',
-                          'extra' => {
-                            'spaces_before_argument' => ' '
-                          },
+                          'extra' => {},
                           'structure' => {
                             'associated_unit' => {},
                             'level' => 1,
@@ -937,9 +911,7 @@ $result_elements{'chapter_sections'} = [
                             'extra' => {
                               'section' => {
                                 'cmdname' => 'subsection',
-                                'extra' => {
-                                  'spaces_before_argument' => ' '
-                                },
+                                'extra' => {},
                                 'structure' => {
                                   'associated_unit' => {},
                                   'level' => 3,
@@ -954,9 +926,7 @@ $result_elements{'chapter_sections'} = [
                                   'extra' => {
                                     'section' => {
                                       'cmdname' => 'subsection',
-                                      'extra' => {
-                                        'spaces_before_argument' => ' '
-                                      },
+                                      'extra' => {},
                                       'structure' => {
                                         'associated_unit' => {},
                                         'level' => 3,
@@ -971,9 +941,7 @@ $result_elements{'chapter_sections'} = [
                                         'extra' => {
                                           'section' => {
                                             'cmdname' => 'section',
-                                            'extra' => {
-                                              'spaces_before_argument' => ' '
-                                            },
+                                            'extra' => {},
                                             'structure' => {
                                               'associated_unit' => {},
                                               'level' => 2,

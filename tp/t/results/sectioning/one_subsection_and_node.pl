@@ -114,11 +114,9 @@ $result_sectioning{'one_subsection_and_node'} = {
           'associated_node' => {
             'cmdname' => 'node',
             'extra' => {
-              'normalized' => 'one-node',
-              'spaces_before_argument' => ' '
+              'normalized' => 'one-node'
             }
-          },
-          'spaces_before_argument' => ' '
+          }
         },
         'structure' => {
           'level' => 3,
@@ -136,24 +134,20 @@ $result_nodes{'one_subsection_and_node'} = {
   'extra' => {
     'associated_section' => {
       'cmdname' => 'subsection',
-      'extra' => {
-        'spaces_before_argument' => ' '
-      },
+      'extra' => {},
       'structure' => {
         'level' => 3,
         'number' => 1
       }
     },
-    'normalized' => 'one-node',
-    'spaces_before_argument' => ' '
+    'normalized' => 'one-node'
   }
 };
 
 $result_menus{'one_subsection_and_node'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'one-node',
-    'spaces_before_argument' => ' '
+    'normalized' => 'one-node'
   }
 };
 

@@ -157,9 +157,7 @@ $result_sectioning{'double_top_section'} = {
     'section_childs' => [
       {
         'cmdname' => 'top',
-        'extra' => {
-          'spaces_before_argument' => ' '
-        },
+        'extra' => {},
         'structure' => {
           'level' => 0,
           'section_up' => {}
@@ -167,9 +165,7 @@ $result_sectioning{'double_top_section'} = {
       },
       {
         'cmdname' => 'top',
-        'extra' => {
-          'spaces_before_argument' => ' '
-        },
+        'extra' => {},
         'structure' => {
           'level' => 0,
           'section_prev' => {},

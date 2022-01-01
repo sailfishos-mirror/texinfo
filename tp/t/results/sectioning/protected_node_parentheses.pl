@@ -541,12 +541,10 @@ $result_sectioning{'protected_node_parentheses'} = {
           'associated_node' => {
             'cmdname' => 'node',
             'extra' => {
-              'normalized' => 'Top',
-              'spaces_before_argument' => ' '
+              'normalized' => 'Top'
             },
             'structure' => {}
-          },
-          'spaces_before_argument' => ' '
+          }
         },
         'structure' => {
           'level' => 0,
@@ -563,9 +561,7 @@ $result_nodes{'protected_node_parentheses'} = {
   'extra' => {
     'associated_section' => {
       'cmdname' => 'top',
-      'extra' => {
-        'spaces_before_argument' => ' '
-      },
+      'extra' => {},
       'structure' => {
         'level' => 0
       }
@@ -573,27 +569,16 @@ $result_nodes{'protected_node_parentheses'} = {
     'menus' => [
       {
         'cmdname' => 'menu',
-        'extra' => {
-          'end_command' => {
-            'cmdname' => 'end',
-            'extra' => {
-              'command_argument' => 'menu',
-              'spaces_before_argument' => ' ',
-              'text_arg' => 'menu'
-            }
-          }
-        }
+        'extra' => {}
       }
     ],
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => '_0028manual_0029-name',
-        'spaces_before_argument' => ' '
+        'normalized' => '_0028manual_0029-name'
       },
       'structure' => {
         'node_prev' => {},
@@ -610,15 +595,13 @@ $result_nodes{'protected_node_parentheses'}{'structure'}{'node_next'} = $result_
 $result_menus{'protected_node_parentheses'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => '_0028manual_0029-name',
-        'spaces_before_argument' => ' '
+        'normalized' => '_0028manual_0029-name'
       },
       'structure' => {
         'menu_up' => {},

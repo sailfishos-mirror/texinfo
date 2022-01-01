@@ -879,12 +879,10 @@ $result_sectioning{'value_in_node'} = {
           'associated_node' => {
             'cmdname' => 'node',
             'extra' => {
-              'normalized' => 'Top',
-              'spaces_before_argument' => ' '
+              'normalized' => 'Top'
             },
             'structure' => {}
-          },
-          'spaces_before_argument' => ' '
+          }
         },
         'structure' => {
           'level' => 0,
@@ -895,12 +893,10 @@ $result_sectioning{'value_in_node'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => 'Node-1',
-                    'spaces_before_argument' => ' '
+                    'normalized' => 'Node-1'
                   },
                   'structure' => {}
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'level' => 1,
@@ -927,9 +923,7 @@ $result_nodes{'value_in_node'} = {
   'extra' => {
     'associated_section' => {
       'cmdname' => 'top',
-      'extra' => {
-        'spaces_before_argument' => ' '
-      },
+      'extra' => {},
       'structure' => {
         'level' => 0
       }
@@ -937,20 +931,10 @@ $result_nodes{'value_in_node'} = {
     'menus' => [
       {
         'cmdname' => 'menu',
-        'extra' => {
-          'end_command' => {
-            'cmdname' => 'end',
-            'extra' => {
-              'command_argument' => 'menu',
-              'spaces_before_argument' => ' ',
-              'text_arg' => 'menu'
-            }
-          }
-        }
+        'extra' => {}
       }
     ],
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'menu_child' => {
@@ -958,9 +942,7 @@ $result_nodes{'value_in_node'} = {
       'extra' => {
         'associated_section' => {
           'cmdname' => 'chapter',
-          'extra' => {
-            'spaces_before_argument' => ' '
-          },
+          'extra' => {},
           'structure' => {
             'level' => 1,
             'number' => 1
@@ -969,27 +951,16 @@ $result_nodes{'value_in_node'} = {
         'menus' => [
           {
             'cmdname' => 'menu',
-            'extra' => {
-              'end_command' => {
-                'cmdname' => 'end',
-                'extra' => {
-                  'command_argument' => 'menu',
-                  'spaces_before_argument' => ' ',
-                  'text_arg' => 'menu'
-                }
-              }
-            }
+            'extra' => {}
           }
         ],
-        'normalized' => 'Node-1',
-        'spaces_before_argument' => ' '
+        'normalized' => 'Node-1'
       },
       'structure' => {
         'menu_child' => {
           'cmdname' => 'node',
           'extra' => {
-            'normalized' => 'Section-1_002e1',
-            'spaces_before_argument' => ' '
+            'normalized' => 'Section-1_002e1'
           },
           'structure' => {
             'node_prev' => {},
@@ -1037,22 +1008,19 @@ $result_nodes{'value_in_node'}{'structure'}{'menu_child'}{'structure'}{'node_up'
 $result_menus{'value_in_node'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'Node-1',
-        'spaces_before_argument' => ' '
+        'normalized' => 'Node-1'
       },
       'structure' => {
         'menu_child' => {
           'cmdname' => 'node',
           'extra' => {
-            'normalized' => 'Section-1_002e1',
-            'spaces_before_argument' => ' '
+            'normalized' => 'Section-1_002e1'
           },
           'structure' => {
             'menu_up' => {},

@@ -183,9 +183,7 @@ $result_sectioning{'shortcontents_no_top'} = {
     'section_childs' => [
       {
         'cmdname' => 'chapter',
-        'extra' => {
-          'spaces_before_argument' => ' '
-        },
+        'extra' => {},
         'structure' => {
           'level' => 1,
           'number' => 1,
@@ -194,18 +192,14 @@ $result_sectioning{'shortcontents_no_top'} = {
       },
       {
         'cmdname' => 'chapter',
-        'extra' => {
-          'spaces_before_argument' => ' '
-        },
+        'extra' => {},
         'structure' => {
           'level' => 1,
           'number' => 2,
           'section_childs' => [
             {
               'cmdname' => 'section',
-              'extra' => {
-                'spaces_before_argument' => ' '
-              },
+              'extra' => {},
               'structure' => {
                 'level' => 2,
                 'number' => '2.1',

@@ -4323,12 +4323,10 @@ $result_sectioning{'test_index'} = {
           'associated_node' => {
             'cmdname' => 'node',
             'extra' => {
-              'normalized' => 'Top',
-              'spaces_before_argument' => ' '
+              'normalized' => 'Top'
             },
             'structure' => {}
-          },
-          'spaces_before_argument' => ' '
+          }
         },
         'structure' => {
           'level' => 0,
@@ -4339,12 +4337,10 @@ $result_sectioning{'test_index'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => 'name',
-                    'spaces_before_argument' => ' '
+                    'normalized' => 'name'
                   },
                   'structure' => {}
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'level' => 1,
@@ -4361,12 +4357,10 @@ $result_sectioning{'test_index'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'isindex' => 1,
-                    'normalized' => 'name1-looooooooooooooooooooooooooooooooooooooooooooooooooooooooong',
-                    'spaces_before_argument' => ' '
+                    'normalized' => 'name1-looooooooooooooooooooooooooooooooooooooooooooooooooooooooong'
                   },
                   'structure' => {}
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'level' => 1,
@@ -4374,27 +4368,21 @@ $result_sectioning{'test_index'} = {
                 'section_childs' => [
                   {
                     'cmdname' => 'appendixsec',
-                    'extra' => {
-                      'spaces_before_argument' => ' '
-                    },
+                    'extra' => {},
                     'structure' => {
                       'level' => 2,
                       'number' => 'A.1',
                       'section_childs' => [
                         {
                           'cmdname' => 'appendixsubsec',
-                          'extra' => {
-                            'spaces_before_argument' => ' '
-                          },
+                          'extra' => {},
                           'structure' => {
                             'level' => 3,
                             'number' => 'A.1.1',
                             'section_childs' => [
                               {
                                 'cmdname' => 'appendixsubsubsec',
-                                'extra' => {
-                                  'spaces_before_argument' => ' '
-                                },
+                                'extra' => {},
                                 'structure' => {
                                   'level' => 4,
                                   'number' => 'A.1.1.1',
@@ -4418,9 +4406,7 @@ $result_sectioning{'test_index'} = {
             },
             {
               'cmdname' => 'centerchap',
-              'extra' => {
-                'spaces_before_argument' => ' '
-              },
+              'extra' => {},
               'structure' => {
                 'level' => 1,
                 'section_prev' => {},
@@ -4431,9 +4417,7 @@ $result_sectioning{'test_index'} = {
             },
             {
               'cmdname' => 'chapter',
-              'extra' => {
-                'spaces_before_argument' => ' '
-              },
+              'extra' => {},
               'structure' => {
                 'level' => 1,
                 'number' => 'B',
@@ -4475,9 +4459,7 @@ $result_nodes{'test_index'} = {
   'extra' => {
     'associated_section' => {
       'cmdname' => 'top',
-      'extra' => {
-        'spaces_before_argument' => ' '
-      },
+      'extra' => {},
       'structure' => {
         'level' => 0
       }
@@ -4485,20 +4467,10 @@ $result_nodes{'test_index'} = {
     'menus' => [
       {
         'cmdname' => 'menu',
-        'extra' => {
-          'end_command' => {
-            'cmdname' => 'end',
-            'extra' => {
-              'command_argument' => 'menu',
-              'spaces_before_argument' => ' ',
-              'text_arg' => 'menu'
-            }
-          }
-        }
+        'extra' => {}
       }
     ],
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'menu_child' => {
@@ -4506,16 +4478,13 @@ $result_nodes{'test_index'} = {
       'extra' => {
         'associated_section' => {
           'cmdname' => 'chapter',
-          'extra' => {
-            'spaces_before_argument' => ' '
-          },
+          'extra' => {},
           'structure' => {
             'level' => 1,
             'number' => 1
           }
         },
-        'normalized' => 'name',
-        'spaces_before_argument' => ' '
+        'normalized' => 'name'
       },
       'structure' => {
         'node_next' => {
@@ -4523,17 +4492,14 @@ $result_nodes{'test_index'} = {
           'extra' => {
             'associated_section' => {
               'cmdname' => 'appendix',
-              'extra' => {
-                'spaces_before_argument' => ' '
-              },
+              'extra' => {},
               'structure' => {
                 'level' => 1,
                 'number' => 'A'
               }
             },
             'isindex' => 1,
-            'normalized' => 'name1-looooooooooooooooooooooooooooooooooooooooooooooooooooooooong',
-            'spaces_before_argument' => ' '
+            'normalized' => 'name1-looooooooooooooooooooooooooooooooooooooooooooooooooooooooong'
           },
           'structure' => {
             'node_prev' => {},
@@ -4556,23 +4522,20 @@ $result_nodes{'test_index'}{'structure'}{'node_next'} = $result_nodes{'test_inde
 $result_menus{'test_index'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'name',
-        'spaces_before_argument' => ' '
+        'normalized' => 'name'
       },
       'structure' => {
         'menu_next' => {
           'cmdname' => 'node',
           'extra' => {
             'isindex' => 1,
-            'normalized' => 'name1-looooooooooooooooooooooooooooooooooooooooooooooooooooooooong',
-            'spaces_before_argument' => ' '
+            'normalized' => 'name1-looooooooooooooooooooooooooooooooooooooooooooooooooooooooong'
           },
           'structure' => {
             'menu_prev' => {},

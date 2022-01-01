@@ -256,8 +256,7 @@ ref to ref ref.
 $result_nodes{'one_node_explicit_directions_anchor'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'one-node',
-    'spaces_before_argument' => ' '
+    'normalized' => 'one-node'
   },
   'structure' => {
     'node_up' => {
@@ -276,8 +275,7 @@ $result_nodes{'one_node_explicit_directions_anchor'} = {
 $result_menus{'one_node_explicit_directions_anchor'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'one-node',
-    'spaces_before_argument' => ' '
+    'normalized' => 'one-node'
   },
   'structure' => {}
 };

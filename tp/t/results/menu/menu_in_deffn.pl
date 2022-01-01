@@ -383,8 +383,7 @@ a: b c
 $result_nodes{'menu_in_deffn'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {}
 };
@@ -392,8 +391,7 @@ $result_nodes{'menu_in_deffn'} = {
 $result_menus{'menu_in_deffn'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {}
 };

@@ -2203,8 +2203,7 @@ T
 $result_nodes{'commands_and_spaces'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'a',
-    'spaces_before_argument' => ' '
+    'normalized' => 'a'
   },
   'structure' => {
     'node_next' => {
@@ -2240,8 +2239,7 @@ $result_nodes{'commands_and_spaces'} = {
 $result_menus{'commands_and_spaces'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'a',
-    'spaces_before_argument' => ' '
+    'normalized' => 'a'
   },
   'structure' => {}
 };
@@ -2267,16 +2265,7 @@ $result_floats{'commands_and_spaces'} = {
         'caption' => {
           'cmdname' => 'caption',
           'extra' => {
-            'float' => {},
-            'spaces_before_argument' => ' '
-          }
-        },
-        'end_command' => {
-          'cmdname' => 'end',
-          'extra' => {
-            'command_argument' => 'float',
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'float'
+            'float' => {}
           }
         },
         'normalized' => 'b',
@@ -2286,7 +2275,6 @@ $result_floats{'commands_and_spaces'} = {
             'float' => {}
           }
         },
-        'spaces_before_argument' => '  ',
         'type' => {
           'content' => [
             {

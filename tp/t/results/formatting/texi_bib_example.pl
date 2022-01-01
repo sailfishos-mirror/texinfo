@@ -5412,12 +5412,10 @@ $result_sectioning{'texi_bib_example'} = {
           'associated_node' => {
             'cmdname' => 'node',
             'extra' => {
-              'normalized' => 'Top',
-              'spaces_before_argument' => ' '
+              'normalized' => 'Top'
             },
             'structure' => {}
-          },
-          'spaces_before_argument' => ' '
+          }
         },
         'structure' => {
           'level' => 0,
@@ -5428,12 +5426,10 @@ $result_sectioning{'texi_bib_example'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => 'Introduction',
-                    'spaces_before_argument' => ' '
+                    'normalized' => 'Introduction'
                   },
                   'structure' => {}
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'level' => 1,
@@ -5449,12 +5445,10 @@ $result_sectioning{'texi_bib_example'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => 'References',
-                    'spaces_before_argument' => ' '
+                    'normalized' => 'References'
                   },
                   'structure' => {}
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'level' => 1,
@@ -5486,9 +5480,7 @@ $result_nodes{'texi_bib_example'} = {
   'extra' => {
     'associated_section' => {
       'cmdname' => 'top',
-      'extra' => {
-        'spaces_before_argument' => ' '
-      },
+      'extra' => {},
       'structure' => {
         'level' => 0
       }
@@ -5496,20 +5488,10 @@ $result_nodes{'texi_bib_example'} = {
     'menus' => [
       {
         'cmdname' => 'menu',
-        'extra' => {
-          'end_command' => {
-            'cmdname' => 'end',
-            'extra' => {
-              'command_argument' => 'menu',
-              'spaces_before_argument' => ' ',
-              'text_arg' => 'menu'
-            }
-          }
-        }
+        'extra' => {}
       }
     ],
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'menu_child' => {
@@ -5517,16 +5499,13 @@ $result_nodes{'texi_bib_example'} = {
       'extra' => {
         'associated_section' => {
           'cmdname' => 'chapter',
-          'extra' => {
-            'spaces_before_argument' => ' '
-          },
+          'extra' => {},
           'structure' => {
             'level' => 1,
             'number' => 1
           }
         },
-        'normalized' => 'Introduction',
-        'spaces_before_argument' => ' '
+        'normalized' => 'Introduction'
       },
       'structure' => {
         'node_next' => {
@@ -5534,16 +5513,13 @@ $result_nodes{'texi_bib_example'} = {
           'extra' => {
             'associated_section' => {
               'cmdname' => 'chapter',
-              'extra' => {
-                'spaces_before_argument' => ' '
-              },
+              'extra' => {},
               'structure' => {
                 'level' => 1,
                 'number' => 2
               }
             },
-            'normalized' => 'References',
-            'spaces_before_argument' => ' '
+            'normalized' => 'References'
           },
           'structure' => {
             'node_prev' => {},
@@ -5566,22 +5542,19 @@ $result_nodes{'texi_bib_example'}{'structure'}{'node_next'} = $result_nodes{'tex
 $result_menus{'texi_bib_example'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'Introduction',
-        'spaces_before_argument' => ' '
+        'normalized' => 'Introduction'
       },
       'structure' => {
         'menu_next' => {
           'cmdname' => 'node',
           'extra' => {
-            'normalized' => 'References',
-            'spaces_before_argument' => ' '
+            'normalized' => 'References'
           },
           'structure' => {
             'menu_prev' => {},

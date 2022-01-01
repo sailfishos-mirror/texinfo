@@ -1041,11 +1041,9 @@ $result_sectioning{'punctuation_in_line_commands'} = {
             'cmdname' => 'node',
             'extra' => {
               'isindex' => 1,
-              'normalized' => 'node_0021-After-punc',
-              'spaces_before_argument' => ' '
+              'normalized' => 'node_0021-After-punc'
             }
-          },
-          'spaces_before_argument' => ' '
+          }
         },
         'structure' => {
           'level' => 0,
@@ -1062,16 +1060,13 @@ $result_nodes{'punctuation_in_line_commands'} = {
   'extra' => {
     'associated_section' => {
       'cmdname' => 'top',
-      'extra' => {
-        'spaces_before_argument' => ' '
-      },
+      'extra' => {},
       'structure' => {
         'level' => 0
       }
     },
     'isindex' => 1,
-    'normalized' => 'node_0021-After-punc',
-    'spaces_before_argument' => ' '
+    'normalized' => 'node_0021-After-punc'
   }
 };
 
@@ -1079,8 +1074,7 @@ $result_menus{'punctuation_in_line_commands'} = {
   'cmdname' => 'node',
   'extra' => {
     'isindex' => 1,
-    'normalized' => 'node_0021-After-punc',
-    'spaces_before_argument' => ' '
+    'normalized' => 'node_0021-After-punc'
   }
 };
 
@@ -1092,19 +1086,9 @@ $result_floats{'punctuation_in_line_commands'} = {
     {
       'cmdname' => 'float',
       'extra' => {
-        'end_command' => {
-          'cmdname' => 'end',
-          'extra' => {
-            'command_argument' => 'float',
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'float'
-          }
-        },
         'float_section' => {
           'cmdname' => 'top',
-          'extra' => {
-            'spaces_before_argument' => ' '
-          },
+          'extra' => {},
           'structure' => {
             'level' => 0
           }
@@ -1116,7 +1100,6 @@ $result_floats{'punctuation_in_line_commands'} = {
             'float' => {}
           }
         },
-        'spaces_before_argument' => ' ',
         'type' => {
           'content' => [
             {
@@ -1139,17 +1122,8 @@ $result_floats{'punctuation_in_line_commands'} = {
             'float' => {}
           }
         },
-        'end_command' => {
-          'cmdname' => 'end',
-          'extra' => {
-            'command_argument' => 'float',
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'float'
-          }
-        },
         'float_section' => {},
         'normalized' => 'label-with-caption',
-        'spaces_before_argument' => ' ',
         'type' => {
           'content' => [
             {

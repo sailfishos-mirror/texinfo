@@ -451,8 +451,7 @@ Top
 $result_nodes{'empty_ref_arg'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {}
 };
@@ -460,8 +459,7 @@ $result_nodes{'empty_ref_arg'} = {
 $result_menus{'empty_ref_arg'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {}
 };

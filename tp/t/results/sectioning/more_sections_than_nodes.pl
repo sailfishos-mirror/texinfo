@@ -1369,21 +1369,17 @@ $result_sectioning{'more_sections_than_nodes'} = {
           'associated_node' => {
             'cmdname' => 'node',
             'extra' => {
-              'normalized' => 'Top',
-              'spaces_before_argument' => ' '
+              'normalized' => 'Top'
             },
             'structure' => {}
-          },
-          'spaces_before_argument' => ' '
+          }
         },
         'structure' => {
           'level' => 0,
           'section_childs' => [
             {
               'cmdname' => 'chapter',
-              'extra' => {
-                'spaces_before_argument' => ' '
-              },
+              'extra' => {},
               'structure' => {
                 'level' => 1,
                 'number' => 1,
@@ -1398,12 +1394,10 @@ $result_sectioning{'more_sections_than_nodes'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => 'n-c2',
-                    'spaces_before_argument' => ' '
+                    'normalized' => 'n-c2'
                   },
                   'structure' => {}
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'level' => 1,
@@ -1411,9 +1405,7 @@ $result_sectioning{'more_sections_than_nodes'} = {
                 'section_childs' => [
                   {
                     'cmdname' => 'section',
-                    'extra' => {
-                      'spaces_before_argument' => ' '
-                    },
+                    'extra' => {},
                     'structure' => {
                       'level' => 2,
                       'number' => '2.1',
@@ -1433,12 +1425,10 @@ $result_sectioning{'more_sections_than_nodes'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => 'n-c3',
-                    'spaces_before_argument' => ' '
+                    'normalized' => 'n-c3'
                   },
                   'structure' => {}
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'level' => 1,
@@ -1446,9 +1436,7 @@ $result_sectioning{'more_sections_than_nodes'} = {
                 'section_childs' => [
                   {
                     'cmdname' => 'section',
-                    'extra' => {
-                      'spaces_before_argument' => ' '
-                    },
+                    'extra' => {},
                     'structure' => {
                       'level' => 2,
                       'number' => '3.1',
@@ -1461,12 +1449,10 @@ $result_sectioning{'more_sections_than_nodes'} = {
                       'associated_node' => {
                         'cmdname' => 'node',
                         'extra' => {
-                          'normalized' => 'n-c3-s-2',
-                          'spaces_before_argument' => ' '
+                          'normalized' => 'n-c3-s-2'
                         },
                         'structure' => {}
-                      },
-                      'spaces_before_argument' => ' '
+                      }
                     },
                     'structure' => {
                       'level' => 2,
@@ -1477,9 +1463,7 @@ $result_sectioning{'more_sections_than_nodes'} = {
                   },
                   {
                     'cmdname' => 'section',
-                    'extra' => {
-                      'spaces_before_argument' => ' '
-                    },
+                    'extra' => {},
                     'structure' => {
                       'level' => 2,
                       'number' => '3.3',
@@ -1496,27 +1480,21 @@ $result_sectioning{'more_sections_than_nodes'} = {
             },
             {
               'cmdname' => 'chapter',
-              'extra' => {
-                'spaces_before_argument' => ' '
-              },
+              'extra' => {},
               'structure' => {
                 'level' => 1,
                 'number' => 4,
                 'section_childs' => [
                   {
                     'cmdname' => 'section',
-                    'extra' => {
-                      'spaces_before_argument' => ' '
-                    },
+                    'extra' => {},
                     'structure' => {
                       'level' => 2,
                       'number' => '4.1',
                       'section_childs' => [
                         {
                           'cmdname' => 'subsection',
-                          'extra' => {
-                            'spaces_before_argument' => ' '
-                          },
+                          'extra' => {},
                           'structure' => {
                             'level' => 3,
                             'number' => '4.1.1',
@@ -1529,12 +1507,10 @@ $result_sectioning{'more_sections_than_nodes'} = {
                             'associated_node' => {
                               'cmdname' => 'node',
                               'extra' => {
-                                'normalized' => 'n-c3-s1-s2',
-                                'spaces_before_argument' => ' '
+                                'normalized' => 'n-c3-s1-s2'
                               },
                               'structure' => {}
-                            },
-                            'spaces_before_argument' => ' '
+                            }
                           },
                           'structure' => {
                             'level' => 3,
@@ -1556,9 +1532,7 @@ $result_sectioning{'more_sections_than_nodes'} = {
             },
             {
               'cmdname' => 'appendix',
-              'extra' => {
-                'spaces_before_argument' => ' '
-              },
+              'extra' => {},
               'structure' => {
                 'level' => 1,
                 'number' => 'A',
@@ -1611,9 +1585,7 @@ $result_nodes{'more_sections_than_nodes'} = {
   'extra' => {
     'associated_section' => {
       'cmdname' => 'top',
-      'extra' => {
-        'spaces_before_argument' => ' '
-      },
+      'extra' => {},
       'structure' => {
         'level' => 0
       }
@@ -1621,20 +1593,10 @@ $result_nodes{'more_sections_than_nodes'} = {
     'menus' => [
       {
         'cmdname' => 'menu',
-        'extra' => {
-          'end_command' => {
-            'cmdname' => 'end',
-            'extra' => {
-              'command_argument' => 'menu',
-              'spaces_before_argument' => ' ',
-              'text_arg' => 'menu'
-            }
-          }
-        }
+        'extra' => {}
       }
     ],
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'menu_child' => {
@@ -1642,16 +1604,13 @@ $result_nodes{'more_sections_than_nodes'} = {
       'extra' => {
         'associated_section' => {
           'cmdname' => 'chapter',
-          'extra' => {
-            'spaces_before_argument' => ' '
-          },
+          'extra' => {},
           'structure' => {
             'level' => 1,
             'number' => 2
           }
         },
-        'normalized' => 'n-c2',
-        'spaces_before_argument' => ' '
+        'normalized' => 'n-c2'
       },
       'structure' => {
         'node_next' => {
@@ -1659,9 +1618,7 @@ $result_nodes{'more_sections_than_nodes'} = {
           'extra' => {
             'associated_section' => {
               'cmdname' => 'chapter',
-              'extra' => {
-                'spaces_before_argument' => ' '
-              },
+              'extra' => {},
               'structure' => {
                 'level' => 1,
                 'number' => 3
@@ -1670,20 +1627,10 @@ $result_nodes{'more_sections_than_nodes'} = {
             'menus' => [
               {
                 'cmdname' => 'menu',
-                'extra' => {
-                  'end_command' => {
-                    'cmdname' => 'end',
-                    'extra' => {
-                      'command_argument' => 'menu',
-                      'spaces_before_argument' => ' ',
-                      'text_arg' => 'menu'
-                    }
-                  }
-                }
+                'extra' => {}
               }
             ],
-            'normalized' => 'n-c3',
-            'spaces_before_argument' => ' '
+            'normalized' => 'n-c3'
           },
           'structure' => {
             'menu_child' => {
@@ -1691,16 +1638,13 @@ $result_nodes{'more_sections_than_nodes'} = {
               'extra' => {
                 'associated_section' => {
                   'cmdname' => 'section',
-                  'extra' => {
-                    'spaces_before_argument' => ' '
-                  },
+                  'extra' => {},
                   'structure' => {
                     'level' => 2,
                     'number' => '3.2'
                   }
                 },
-                'normalized' => 'n-c3-s-2',
-                'spaces_before_argument' => ' '
+                'normalized' => 'n-c3-s-2'
               },
               'structure' => {
                 'node_up' => {}
@@ -1711,16 +1655,13 @@ $result_nodes{'more_sections_than_nodes'} = {
               'extra' => {
                 'associated_section' => {
                   'cmdname' => 'subsection',
-                  'extra' => {
-                    'spaces_before_argument' => ' '
-                  },
+                  'extra' => {},
                   'structure' => {
                     'level' => 3,
                     'number' => '4.1.2'
                   }
                 },
-                'normalized' => 'n-c3-s1-s2',
-                'spaces_before_argument' => ' '
+                'normalized' => 'n-c3-s1-s2'
               },
               'structure' => {
                 'node_prev' => {},
@@ -1750,29 +1691,25 @@ $result_nodes{'more_sections_than_nodes'}{'structure'}{'node_next'} = $result_no
 $result_menus{'more_sections_than_nodes'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'n-c2',
-        'spaces_before_argument' => ' '
+        'normalized' => 'n-c2'
       },
       'structure' => {
         'menu_next' => {
           'cmdname' => 'node',
           'extra' => {
-            'normalized' => 'n-c3',
-            'spaces_before_argument' => ' '
+            'normalized' => 'n-c3'
           },
           'structure' => {
             'menu_child' => {
               'cmdname' => 'node',
               'extra' => {
-                'normalized' => 'n-c3-s-2',
-                'spaces_before_argument' => ' '
+                'normalized' => 'n-c3-s-2'
               },
               'structure' => {
                 'menu_up' => {},
@@ -1784,8 +1721,7 @@ $result_menus{'more_sections_than_nodes'} = {
             'menu_next' => {
               'cmdname' => 'node',
               'extra' => {
-                'normalized' => 'n-c3-s1-s2',
-                'spaces_before_argument' => ' '
+                'normalized' => 'n-c3-s1-s2'
               },
               'structure' => {
                 'menu_prev' => {},

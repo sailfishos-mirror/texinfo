@@ -324,9 +324,7 @@ $result_sectioning{'section_before_after_top_node_last_node'} = {
     'section_childs' => [
       {
         'cmdname' => 'unnumbered',
-        'extra' => {
-          'spaces_before_argument' => ' '
-        },
+        'extra' => {},
         'structure' => {
           'level' => 1,
           'section_up' => {}
@@ -338,12 +336,10 @@ $result_sectioning{'section_before_after_top_node_last_node'} = {
           'associated_node' => {
             'cmdname' => 'node',
             'extra' => {
-              'normalized' => 'Top',
-              'spaces_before_argument' => ' '
+              'normalized' => 'Top'
             },
             'structure' => {}
-          },
-          'spaces_before_argument' => ' '
+          }
         },
         'structure' => {
           'level' => 1,
@@ -354,9 +350,7 @@ $result_sectioning{'section_before_after_top_node_last_node'} = {
       },
       {
         'cmdname' => 'chapter',
-        'extra' => {
-          'spaces_before_argument' => ' '
-        },
+        'extra' => {},
         'structure' => {
           'level' => 1,
           'number' => 1,
@@ -383,22 +377,18 @@ $result_nodes{'section_before_after_top_node_last_node'} = {
   'extra' => {
     'associated_section' => {
       'cmdname' => 'top',
-      'extra' => {
-        'spaces_before_argument' => ' '
-      },
+      'extra' => {},
       'structure' => {
         'level' => 1
       }
     },
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'node-after',
-        'spaces_before_argument' => ' '
+        'normalized' => 'node-after'
       },
       'structure' => {
         'node_prev' => {}
@@ -411,8 +401,7 @@ $result_nodes{'section_before_after_top_node_last_node'}{'structure'}{'node_next
 $result_menus{'section_before_after_top_node_last_node'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {}
 };

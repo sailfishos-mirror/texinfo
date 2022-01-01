@@ -162,17 +162,13 @@ $result_sectioning{'no_argument_and_contents'} = {
     'section_childs' => [
       {
         'cmdname' => 'top',
-        'extra' => {
-          'spaces_before_argument' => ' '
-        },
+        'extra' => {},
         'structure' => {
           'level' => 0,
           'section_childs' => [
             {
               'cmdname' => 'chapter',
-              'extra' => {
-                'spaces_before_argument' => ' '
-              },
+              'extra' => {},
               'structure' => {
                 'level' => 1,
                 'number' => 1,

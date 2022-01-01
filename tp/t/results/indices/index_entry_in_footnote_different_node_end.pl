@@ -531,28 +531,17 @@ $result_nodes{'index_entry_in_footnote_different_node_end'} = {
     'menus' => [
       {
         'cmdname' => 'menu',
-        'extra' => {
-          'end_command' => {
-            'cmdname' => 'end',
-            'extra' => {
-              'command_argument' => 'menu',
-              'spaces_before_argument' => ' ',
-              'text_arg' => 'menu'
-            }
-          }
-        }
+        'extra' => {}
       }
     ],
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'isindex' => 1,
-        'normalized' => 'First',
-        'spaces_before_argument' => ' '
+        'normalized' => 'First'
       },
       'structure' => {
         'node_prev' => {},
@@ -569,16 +558,14 @@ $result_nodes{'index_entry_in_footnote_different_node_end'}{'structure'}{'node_n
 $result_menus{'index_entry_in_footnote_different_node_end'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'isindex' => 1,
-        'normalized' => 'First',
-        'spaces_before_argument' => ' '
+        'normalized' => 'First'
       },
       'structure' => {
         'menu_up' => {},

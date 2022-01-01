@@ -255,8 +255,7 @@ Content
 $result_nodes{'node_on_index_entry_line'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'a',
-    'spaces_before_argument' => ' '
+    'normalized' => 'a'
   },
   'structure' => {
     'node_next' => {
@@ -295,8 +294,7 @@ $result_nodes{'node_on_index_entry_line'} = {
 $result_menus{'node_on_index_entry_line'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'a',
-    'spaces_before_argument' => ' '
+    'normalized' => 'a'
   },
   'structure' => {}
 };

@@ -335,8 +335,7 @@ $result_texts{'on_node_line'} = '';
 $result_nodes{'on_node_line'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'a',
-    'spaces_before_argument' => ' '
+    'normalized' => 'a'
   },
   'structure' => {
     'node_next' => {
@@ -364,8 +363,7 @@ $result_nodes{'on_node_line'} = {
 $result_menus{'on_node_line'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'a',
-    'spaces_before_argument' => ' '
+    'normalized' => 'a'
   },
   'structure' => {}
 };

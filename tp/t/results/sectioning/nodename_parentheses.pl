@@ -981,12 +981,10 @@ $result_sectioning{'nodename_parentheses'} = {
           'associated_node' => {
             'cmdname' => 'node',
             'extra' => {
-              'normalized' => 'Top',
-              'spaces_before_argument' => ' '
+              'normalized' => 'Top'
             },
             'structure' => {}
-          },
-          'spaces_before_argument' => ' '
+          }
         },
         'structure' => {
           'level' => 0,
@@ -997,12 +995,10 @@ $result_sectioning{'nodename_parentheses'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => 'Node-_0028with-parentheses_0029',
-                    'spaces_before_argument' => ' '
+                    'normalized' => 'Node-_0028with-parentheses_0029'
                   },
                   'structure' => {}
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'level' => 1,
@@ -1018,12 +1014,10 @@ $result_sectioning{'nodename_parentheses'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => 'Other-node',
-                    'spaces_before_argument' => ' '
+                    'normalized' => 'Other-node'
                   },
                   'structure' => {}
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'level' => 1,
@@ -1040,12 +1034,10 @@ $result_sectioning{'nodename_parentheses'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => 'node',
-                    'spaces_before_argument' => ' '
+                    'normalized' => 'node'
                   },
                   'structure' => {}
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'level' => 1,
@@ -1081,9 +1073,7 @@ $result_nodes{'nodename_parentheses'} = {
   'extra' => {
     'associated_section' => {
       'cmdname' => 'top',
-      'extra' => {
-        'spaces_before_argument' => ' '
-      },
+      'extra' => {},
       'structure' => {
         'level' => 0
       }
@@ -1091,20 +1081,10 @@ $result_nodes{'nodename_parentheses'} = {
     'menus' => [
       {
         'cmdname' => 'menu',
-        'extra' => {
-          'end_command' => {
-            'cmdname' => 'end',
-            'extra' => {
-              'command_argument' => 'menu',
-              'spaces_before_argument' => ' ',
-              'text_arg' => 'menu'
-            }
-          }
-        }
+        'extra' => {}
       }
     ],
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'menu_child' => {
@@ -1112,16 +1092,13 @@ $result_nodes{'nodename_parentheses'} = {
       'extra' => {
         'associated_section' => {
           'cmdname' => 'chapter',
-          'extra' => {
-            'spaces_before_argument' => ' '
-          },
+          'extra' => {},
           'structure' => {
             'level' => 1,
             'number' => 1
           }
         },
-        'normalized' => 'Node-_0028with-parentheses_0029',
-        'spaces_before_argument' => ' '
+        'normalized' => 'Node-_0028with-parentheses_0029'
       },
       'structure' => {
         'node_next' => {
@@ -1129,16 +1106,13 @@ $result_nodes{'nodename_parentheses'} = {
           'extra' => {
             'associated_section' => {
               'cmdname' => 'chapter',
-              'extra' => {
-                'spaces_before_argument' => ' '
-              },
+              'extra' => {},
               'structure' => {
                 'level' => 1,
                 'number' => 2
               }
             },
-            'normalized' => 'Other-node',
-            'spaces_before_argument' => ' '
+            'normalized' => 'Other-node'
           },
           'structure' => {
             'node_next' => {
@@ -1146,16 +1120,13 @@ $result_nodes{'nodename_parentheses'} = {
               'extra' => {
                 'associated_section' => {
                   'cmdname' => 'chapter',
-                  'extra' => {
-                    'spaces_before_argument' => ' '
-                  },
+                  'extra' => {},
                   'structure' => {
                     'level' => 1,
                     'number' => 3
                   }
                 },
-                'normalized' => 'node',
-                'spaces_before_argument' => ' '
+                'normalized' => 'node'
               },
               'structure' => {
                 'node_prev' => {},
@@ -1184,22 +1155,19 @@ $result_nodes{'nodename_parentheses'}{'structure'}{'node_next'} = $result_nodes{
 $result_menus{'nodename_parentheses'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'Node-_0028with-parentheses_0029',
-        'spaces_before_argument' => ' '
+        'normalized' => 'Node-_0028with-parentheses_0029'
       },
       'structure' => {
         'menu_next' => {
           'cmdname' => 'node',
           'extra' => {
-            'normalized' => 'Other-node',
-            'spaces_before_argument' => ' '
+            'normalized' => 'Other-node'
           },
           'structure' => {
             'menu_next' => {

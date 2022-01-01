@@ -945,12 +945,10 @@ $result_sectioning{'custom_headings'} = {
           'associated_node' => {
             'cmdname' => 'node',
             'extra' => {
-              'normalized' => 'Top',
-              'spaces_before_argument' => ' '
+              'normalized' => 'Top'
             },
             'structure' => {}
-          },
-          'spaces_before_argument' => ' '
+          }
         },
         'structure' => {
           'level' => 0,
@@ -961,12 +959,10 @@ $result_sectioning{'custom_headings'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => 'chapter',
-                    'spaces_before_argument' => ' '
+                    'normalized' => 'chapter'
                   },
                   'structure' => {}
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'level' => 1,
@@ -974,9 +970,7 @@ $result_sectioning{'custom_headings'} = {
                 'section_childs' => [
                   {
                     'cmdname' => 'section',
-                    'extra' => {
-                      'spaces_before_argument' => ' '
-                    },
+                    'extra' => {},
                     'structure' => {
                       'level' => 2,
                       'number' => '1.1',
@@ -991,9 +985,7 @@ $result_sectioning{'custom_headings'} = {
             },
             {
               'cmdname' => 'chapter',
-              'extra' => {
-                'spaces_before_argument' => ' '
-              },
+              'extra' => {},
               'structure' => {
                 'level' => 1,
                 'number' => 2,
@@ -1005,9 +997,7 @@ $result_sectioning{'custom_headings'} = {
             },
             {
               'cmdname' => 'chapter',
-              'extra' => {
-                'spaces_before_argument' => ' '
-              },
+              'extra' => {},
               'structure' => {
                 'level' => 1,
                 'number' => 3,
@@ -1043,15 +1033,12 @@ $result_nodes{'custom_headings'} = {
   'extra' => {
     'associated_section' => {
       'cmdname' => 'top',
-      'extra' => {
-        'spaces_before_argument' => ' '
-      },
+      'extra' => {},
       'structure' => {
         'level' => 0
       }
     },
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'node_next' => {
@@ -1059,16 +1046,13 @@ $result_nodes{'custom_headings'} = {
       'extra' => {
         'associated_section' => {
           'cmdname' => 'chapter',
-          'extra' => {
-            'spaces_before_argument' => ' '
-          },
+          'extra' => {},
           'structure' => {
             'level' => 1,
             'number' => 1
           }
         },
-        'normalized' => 'chapter',
-        'spaces_before_argument' => ' '
+        'normalized' => 'chapter'
       },
       'structure' => {
         'node_prev' => {},
@@ -1083,8 +1067,7 @@ $result_nodes{'custom_headings'}{'structure'}{'node_next'}{'structure'}{'node_up
 $result_menus{'custom_headings'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {}
 };

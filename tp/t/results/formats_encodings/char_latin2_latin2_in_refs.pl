@@ -665,12 +665,10 @@ $result_sectioning{'char_latin2_latin2_in_refs'} = {
             'cmdname' => 'node',
             'extra' => {
               'isindex' => 1,
-              'normalized' => 'Top',
-              'spaces_before_argument' => ' '
+              'normalized' => 'Top'
             },
             'structure' => {}
-          },
-          'spaces_before_argument' => ' '
+          }
         },
         'structure' => {
           'level' => 0,
@@ -681,12 +679,10 @@ $result_sectioning{'char_latin2_latin2_in_refs'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => '_0104-_0105-_02db-_0118-_0119',
-                    'spaces_before_argument' => ' '
+                    'normalized' => '_0104-_0105-_02db-_0118-_0119'
                   },
                   'structure' => {}
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'level' => 1,
@@ -713,9 +709,7 @@ $result_nodes{'char_latin2_latin2_in_refs'} = {
   'extra' => {
     'associated_section' => {
       'cmdname' => 'top',
-      'extra' => {
-        'spaces_before_argument' => ' '
-      },
+      'extra' => {},
       'structure' => {
         'level' => 0
       }
@@ -724,20 +718,10 @@ $result_nodes{'char_latin2_latin2_in_refs'} = {
     'menus' => [
       {
         'cmdname' => 'menu',
-        'extra' => {
-          'end_command' => {
-            'cmdname' => 'end',
-            'extra' => {
-              'command_argument' => 'menu',
-              'spaces_before_argument' => ' ',
-              'text_arg' => 'menu'
-            }
-          }
-        }
+        'extra' => {}
       }
     ],
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'menu_child' => {
@@ -745,16 +729,13 @@ $result_nodes{'char_latin2_latin2_in_refs'} = {
       'extra' => {
         'associated_section' => {
           'cmdname' => 'chapter',
-          'extra' => {
-            'spaces_before_argument' => ' '
-          },
+          'extra' => {},
           'structure' => {
             'level' => 1,
             'number' => 1
           }
         },
-        'normalized' => '_0104-_0105-_02db-_0118-_0119',
-        'spaces_before_argument' => ' '
+        'normalized' => '_0104-_0105-_02db-_0118-_0119'
       },
       'structure' => {
         'node_prev' => {},
@@ -772,15 +753,13 @@ $result_menus{'char_latin2_latin2_in_refs'} = {
   'cmdname' => 'node',
   'extra' => {
     'isindex' => 1,
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => '_0104-_0105-_02db-_0118-_0119',
-        'spaces_before_argument' => ' '
+        'normalized' => '_0104-_0105-_02db-_0118-_0119'
       },
       'structure' => {
         'menu_up' => {},

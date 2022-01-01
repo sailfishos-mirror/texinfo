@@ -809,8 +809,7 @@ $result_sectioning{'explicit_sort_key'} = {
             'cmdname' => 'node',
             'extra' => {
               'isindex' => 1,
-              'normalized' => 'Top',
-              'spaces_before_argument' => ' '
+              'normalized' => 'Top'
             }
           }
         },
@@ -835,8 +834,7 @@ $result_nodes{'explicit_sort_key'} = {
       }
     },
     'isindex' => 1,
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   }
 };
 
@@ -844,8 +842,7 @@ $result_menus{'explicit_sort_key'} = {
   'cmdname' => 'node',
   'extra' => {
     'isindex' => 1,
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   }
 };
 

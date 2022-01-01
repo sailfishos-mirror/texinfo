@@ -409,27 +409,16 @@ $result_nodes{'ref_in_preformatted'} = {
     'menus' => [
       {
         'cmdname' => 'menu',
-        'extra' => {
-          'end_command' => {
-            'cmdname' => 'end',
-            'extra' => {
-              'command_argument' => 'menu',
-              'spaces_before_argument' => ' ',
-              'text_arg' => 'menu'
-            }
-          }
-        }
+        'extra' => {}
       }
     ],
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'nnn-the-node-name',
-        'spaces_before_argument' => ' '
+        'normalized' => 'nnn-the-node-name'
       },
       'structure' => {
         'node_prev' => {},
@@ -446,15 +435,13 @@ $result_nodes{'ref_in_preformatted'}{'structure'}{'node_next'} = $result_nodes{'
 $result_menus{'ref_in_preformatted'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'nnn-the-node-name',
-        'spaces_before_argument' => ' '
+        'normalized' => 'nnn-the-node-name'
       },
       'structure' => {
         'menu_up' => {},

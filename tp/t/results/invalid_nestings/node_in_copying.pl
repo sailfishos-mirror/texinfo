@@ -107,8 +107,7 @@ $result_texts{'node_in_copying'} = '
 $result_nodes{'node_in_copying'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'node',
-    'spaces_before_argument' => ' '
+    'normalized' => 'node'
   },
   'structure' => {}
 };
@@ -116,8 +115,7 @@ $result_nodes{'node_in_copying'} = {
 $result_menus{'node_in_copying'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'node',
-    'spaces_before_argument' => ' '
+    'normalized' => 'node'
   },
   'structure' => {}
 };

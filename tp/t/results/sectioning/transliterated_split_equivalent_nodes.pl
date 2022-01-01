@@ -658,20 +658,10 @@ $result_nodes{'transliterated_split_equivalent_nodes'} = {
     'menus' => [
       {
         'cmdname' => 'menu',
-        'extra' => {
-          'end_command' => {
-            'cmdname' => 'end',
-            'extra' => {
-              'command_argument' => 'menu',
-              'spaces_before_argument' => ' ',
-              'text_arg' => 'menu'
-            }
-          }
-        }
+        'extra' => {}
       }
     ],
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'associated_unit' => {
@@ -686,16 +676,14 @@ $result_nodes{'transliterated_split_equivalent_nodes'} = {
               'node' => {
                 'cmdname' => 'node',
                 'extra' => {
-                  'normalized' => '_00e3',
-                  'spaces_before_argument' => ' '
+                  'normalized' => '_00e3'
                 },
                 'structure' => {
                   'associated_unit' => {},
                   'node_next' => {
                     'cmdname' => 'node',
                     'extra' => {
-                      'normalized' => 'n',
-                      'spaces_before_argument' => ' '
+                      'normalized' => 'n'
                     },
                     'structure' => {
                       'associated_unit' => {
@@ -711,8 +699,7 @@ $result_nodes{'transliterated_split_equivalent_nodes'} = {
                                 'node' => {
                                   'cmdname' => 'node',
                                   'extra' => {
-                                    'normalized' => '_00e2',
-                                    'spaces_before_argument' => ' '
+                                    'normalized' => '_00e2'
                                   },
                                   'structure' => {
                                     'associated_unit' => {},
@@ -835,8 +822,7 @@ $result_nodes{'transliterated_split_equivalent_nodes'}{'structure'}{'node_next'}
 $result_menus{'transliterated_split_equivalent_nodes'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'associated_unit' => {
@@ -851,16 +837,14 @@ $result_menus{'transliterated_split_equivalent_nodes'} = {
               'node' => {
                 'cmdname' => 'node',
                 'extra' => {
-                  'normalized' => '_00e3',
-                  'spaces_before_argument' => ' '
+                  'normalized' => '_00e3'
                 },
                 'structure' => {
                   'associated_unit' => {},
                   'menu_next' => {
                     'cmdname' => 'node',
                     'extra' => {
-                      'normalized' => 'n',
-                      'spaces_before_argument' => ' '
+                      'normalized' => 'n'
                     },
                     'structure' => {
                       'associated_unit' => {
@@ -876,8 +860,7 @@ $result_menus{'transliterated_split_equivalent_nodes'} = {
                                 'node' => {
                                   'cmdname' => 'node',
                                   'extra' => {
-                                    'normalized' => '_00e2',
-                                    'spaces_before_argument' => ' '
+                                    'normalized' => '_00e2'
                                   },
                                   'structure' => {
                                     'associated_unit' => {},
@@ -1014,16 +997,14 @@ $result_elements{'transliterated_split_equivalent_nodes'} = [
       'node' => {
         'cmdname' => 'node',
         'extra' => {
-          'normalized' => 'Top',
-          'spaces_before_argument' => ' '
+          'normalized' => 'Top'
         },
         'structure' => {
           'associated_unit' => {},
           'menu_child' => {
             'cmdname' => 'node',
             'extra' => {
-              'normalized' => '_00e3',
-              'spaces_before_argument' => ' '
+              'normalized' => '_00e3'
             },
             'structure' => {
               'associated_unit' => {
@@ -1039,16 +1020,14 @@ $result_elements{'transliterated_split_equivalent_nodes'} = [
                         'node' => {
                           'cmdname' => 'node',
                           'extra' => {
-                            'normalized' => 'n',
-                            'spaces_before_argument' => ' '
+                            'normalized' => 'n'
                           },
                           'structure' => {
                             'associated_unit' => {},
                             'menu_next' => {
                               'cmdname' => 'node',
                               'extra' => {
-                                'normalized' => '_00e2',
-                                'spaces_before_argument' => ' '
+                                'normalized' => '_00e2'
                               },
                               'structure' => {
                                 'associated_unit' => {

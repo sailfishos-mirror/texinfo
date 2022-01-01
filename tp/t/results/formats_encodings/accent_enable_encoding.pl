@@ -3128,11 +3128,9 @@ $result_sectioning{'accent_enable_encoding'} = {
           'associated_node' => {
             'cmdname' => 'node',
             'extra' => {
-              'normalized' => 'Top-node',
-              'spaces_before_argument' => ' '
+              'normalized' => 'Top-node'
             }
-          },
-          'spaces_before_argument' => ' '
+          }
         },
         'structure' => {
           'level' => 0,
@@ -3149,23 +3147,19 @@ $result_nodes{'accent_enable_encoding'} = {
   'extra' => {
     'associated_section' => {
       'cmdname' => 'top',
-      'extra' => {
-        'spaces_before_argument' => ' '
-      },
+      'extra' => {},
       'structure' => {
         'level' => 0
       }
     },
-    'normalized' => 'Top-node',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top-node'
   }
 };
 
 $result_menus{'accent_enable_encoding'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top-node',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top-node'
   }
 };
 

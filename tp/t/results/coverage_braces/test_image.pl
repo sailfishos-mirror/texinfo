@@ -3622,16 +3622,14 @@ In text f@i--le..  a@<"%@  < & @ % " .
 $result_nodes{'test_image'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   }
 };
 
 $result_menus{'test_image'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   }
 };
 
@@ -3875,16 +3873,7 @@ $result_floats{'test_image'} = {
             'float' => {}
           }
         },
-        'end_command' => {
-          'cmdname' => 'end',
-          'extra' => {
-            'command_argument' => 'float',
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'float'
-          }
-        },
         'normalized' => 'Image-with-commands',
-        'spaces_before_argument' => ' ',
         'type' => {
           'content' => [
             {

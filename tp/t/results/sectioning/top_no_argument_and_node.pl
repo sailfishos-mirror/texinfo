@@ -104,8 +104,7 @@ $result_sectioning{'top_no_argument_and_node'} = {
           'associated_node' => {
             'cmdname' => 'node',
             'extra' => {
-              'normalized' => 'start',
-              'spaces_before_argument' => ' '
+              'normalized' => 'start'
             }
           }
         },
@@ -129,16 +128,14 @@ $result_nodes{'top_no_argument_and_node'} = {
         'level' => 0
       }
     },
-    'normalized' => 'start',
-    'spaces_before_argument' => ' '
+    'normalized' => 'start'
   }
 };
 
 $result_menus{'top_no_argument_and_node'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'start',
-    'spaces_before_argument' => ' '
+    'normalized' => 'start'
   }
 };
 

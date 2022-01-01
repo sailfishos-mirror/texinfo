@@ -401,8 +401,7 @@ $result_sectioning{'transparent_sort_chars'} = {
             'cmdname' => 'node',
             'extra' => {
               'isindex' => 1,
-              'normalized' => 'Top',
-              'spaces_before_argument' => ' '
+              'normalized' => 'Top'
             }
           }
         },
@@ -427,8 +426,7 @@ $result_nodes{'transparent_sort_chars'} = {
       }
     },
     'isindex' => 1,
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   }
 };
 
@@ -436,8 +434,7 @@ $result_menus{'transparent_sort_chars'} = {
   'cmdname' => 'node',
   'extra' => {
     'isindex' => 1,
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   }
 };
 

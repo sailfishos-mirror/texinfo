@@ -1690,12 +1690,10 @@ $result_sectioning{'def_syn_indices'} = {
           'associated_node' => {
             'cmdname' => 'node',
             'extra' => {
-              'normalized' => 'Top',
-              'spaces_before_argument' => ' '
+              'normalized' => 'Top'
             },
             'structure' => {}
-          },
-          'spaces_before_argument' => ' '
+          }
         },
         'structure' => {
           'level' => 0,
@@ -1707,12 +1705,10 @@ $result_sectioning{'def_syn_indices'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'isindex' => 1,
-                    'normalized' => 'Chapter-index',
-                    'spaces_before_argument' => ' '
+                    'normalized' => 'Chapter-index'
                   },
                   'structure' => {}
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'level' => 1,
@@ -1739,15 +1735,12 @@ $result_nodes{'def_syn_indices'} = {
   'extra' => {
     'associated_section' => {
       'cmdname' => 'top',
-      'extra' => {
-        'spaces_before_argument' => ' '
-      },
+      'extra' => {},
       'structure' => {
         'level' => 0
       }
     },
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'node_next' => {
@@ -1755,17 +1748,14 @@ $result_nodes{'def_syn_indices'} = {
       'extra' => {
         'associated_section' => {
           'cmdname' => 'chapter',
-          'extra' => {
-            'spaces_before_argument' => ' '
-          },
+          'extra' => {},
           'structure' => {
             'level' => 1,
             'number' => 1
           }
         },
         'isindex' => 1,
-        'normalized' => 'Chapter-index',
-        'spaces_before_argument' => ' '
+        'normalized' => 'Chapter-index'
       },
       'structure' => {
         'node_prev' => {},
@@ -1780,8 +1770,7 @@ $result_nodes{'def_syn_indices'}{'structure'}{'node_next'}{'structure'}{'node_up
 $result_menus{'def_syn_indices'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {}
 };

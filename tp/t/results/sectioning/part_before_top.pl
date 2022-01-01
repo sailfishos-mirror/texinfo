@@ -131,8 +131,7 @@ $result_sectioning{'part_before_top'} = {
           'part_associated_section' => {
             'cmdname' => 'top',
             'extra' => {
-              'associated_part' => {},
-              'spaces_before_argument' => ' '
+              'associated_part' => {}
             },
             'structure' => {
               'associated_unit' => {
@@ -151,8 +150,7 @@ $result_sectioning{'part_before_top'} = {
               'section_prev' => {},
               'section_up' => {}
             }
-          },
-          'spaces_before_argument' => ' '
+          }
         },
         'structure' => {
           'associated_unit' => {},
@@ -198,15 +196,12 @@ $result_elements{'part_before_top'} = [
         'extra' => {
           'associated_part' => {
             'cmdname' => 'part',
-            'extra' => {
-              'spaces_before_argument' => ' '
-            },
+            'extra' => {},
             'structure' => {
               'associated_unit' => {},
               'level' => 0
             }
-          },
-          'spaces_before_argument' => ' '
+          }
         },
         'structure' => {
           'associated_unit' => {},

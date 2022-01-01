@@ -77,8 +77,7 @@ $result_texts{'node_empty_direction'} = '';
 $result_nodes{'node_empty_direction'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'name',
-    'spaces_before_argument' => ' '
+    'normalized' => 'name'
   },
   'structure' => {}
 };
@@ -86,8 +85,7 @@ $result_nodes{'node_empty_direction'} = {
 $result_menus{'node_empty_direction'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'name',
-    'spaces_before_argument' => ' '
+    'normalized' => 'name'
   },
   'structure' => {}
 };

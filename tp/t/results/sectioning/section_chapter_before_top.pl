@@ -153,9 +153,7 @@ $result_sectioning{'section_chapter_before_top'} = {
     'section_childs' => [
       {
         'cmdname' => 'section',
-        'extra' => {
-          'spaces_before_argument' => ' '
-        },
+        'extra' => {},
         'structure' => {
           'level' => 2,
           'number' => 1,
@@ -164,9 +162,7 @@ $result_sectioning{'section_chapter_before_top'} = {
       },
       {
         'cmdname' => 'chapter',
-        'extra' => {
-          'spaces_before_argument' => ' '
-        },
+        'extra' => {},
         'structure' => {
           'level' => 2,
           'number' => 2,
@@ -177,9 +173,7 @@ $result_sectioning{'section_chapter_before_top'} = {
       },
       {
         'cmdname' => 'top',
-        'extra' => {
-          'spaces_before_argument' => ' '
-        },
+        'extra' => {},
         'structure' => {
           'level' => 2,
           'section_prev' => {},

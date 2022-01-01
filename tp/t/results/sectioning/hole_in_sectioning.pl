@@ -243,35 +243,27 @@ $result_sectioning{'hole_in_sectioning'} = {
     'section_childs' => [
       {
         'cmdname' => 'top',
-        'extra' => {
-          'spaces_before_argument' => ' '
-        },
+        'extra' => {},
         'structure' => {
           'level' => 0,
           'section_childs' => [
             {
               'cmdname' => 'chapter',
-              'extra' => {
-                'spaces_before_argument' => ' '
-              },
+              'extra' => {},
               'structure' => {
                 'level' => 1,
                 'number' => 1,
                 'section_childs' => [
                   {
                     'cmdname' => 'section',
-                    'extra' => {
-                      'spaces_before_argument' => ' '
-                    },
+                    'extra' => {},
                     'structure' => {
                       'level' => 2,
                       'number' => '1.1',
                       'section_childs' => [
                         {
                           'cmdname' => 'subsubsection',
-                          'extra' => {
-                            'spaces_before_argument' => ' '
-                          },
+                          'extra' => {},
                           'structure' => {
                             'level' => 3,
                             'number' => '1.1.1',
@@ -280,9 +272,7 @@ $result_sectioning{'hole_in_sectioning'} = {
                         },
                         {
                           'cmdname' => 'subsection',
-                          'extra' => {
-                            'spaces_before_argument' => ' '
-                          },
+                          'extra' => {},
                           'structure' => {
                             'level' => 3,
                             'number' => '1.1.2',

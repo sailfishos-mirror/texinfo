@@ -688,12 +688,10 @@ $result_sectioning{'nodes_after_top_before_section_use_nodes'} = {
           'associated_node' => {
             'cmdname' => 'node',
             'extra' => {
-              'normalized' => 'third-node',
-              'spaces_before_argument' => ' '
+              'normalized' => 'third-node'
             },
             'structure' => {}
-          },
-          'spaces_before_argument' => ' '
+          }
         },
         'structure' => {
           'level' => 3,
@@ -712,27 +710,16 @@ $result_nodes{'nodes_after_top_before_section_use_nodes'} = {
     'menus' => [
       {
         'cmdname' => 'menu',
-        'extra' => {
-          'end_command' => {
-            'cmdname' => 'end',
-            'extra' => {
-              'command_argument' => 'menu',
-              'spaces_before_argument' => ' ',
-              'text_arg' => 'menu'
-            }
-          }
-        }
+        'extra' => {}
       }
     ],
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'second-node',
-        'spaces_before_argument' => ' '
+        'normalized' => 'second-node'
       },
       'structure' => {
         'node_next' => {
@@ -740,16 +727,13 @@ $result_nodes{'nodes_after_top_before_section_use_nodes'} = {
           'extra' => {
             'associated_section' => {
               'cmdname' => 'subsection',
-              'extra' => {
-                'spaces_before_argument' => ' '
-              },
+              'extra' => {},
               'structure' => {
                 'level' => 3,
                 'number' => 1
               }
             },
-            'normalized' => 'third-node',
-            'spaces_before_argument' => ' '
+            'normalized' => 'third-node'
           },
           'structure' => {
             'node_prev' => {},
@@ -772,22 +756,19 @@ $result_nodes{'nodes_after_top_before_section_use_nodes'}{'structure'}{'node_nex
 $result_menus{'nodes_after_top_before_section_use_nodes'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'second-node',
-        'spaces_before_argument' => ' '
+        'normalized' => 'second-node'
       },
       'structure' => {
         'menu_next' => {
           'cmdname' => 'node',
           'extra' => {
-            'normalized' => 'third-node',
-            'spaces_before_argument' => ' '
+            'normalized' => 'third-node'
           },
           'structure' => {
             'menu_prev' => {},

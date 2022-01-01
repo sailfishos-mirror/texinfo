@@ -486,8 +486,7 @@ $result_sectioning{'non_automatic_top_node_up_url'} = {
           'associated_node' => {
             'cmdname' => 'node',
             'extra' => {
-              'normalized' => 'Top',
-              'spaces_before_argument' => ' '
+              'normalized' => 'Top'
             },
             'structure' => {
               'associated_unit' => {
@@ -503,8 +502,7 @@ $result_sectioning{'non_automatic_top_node_up_url'} = {
                         'node' => {
                           'cmdname' => 'node',
                           'extra' => {
-                            'normalized' => 'first',
-                            'spaces_before_argument' => ' '
+                            'normalized' => 'first'
                           },
                           'structure' => {
                             'associated_unit' => {}
@@ -519,13 +517,7 @@ $result_sectioning{'non_automatic_top_node_up_url'} = {
                           'NodeBack' => {},
                           'NodePrev' => {},
                           'NodeUp' => {
-                            'extra' => {
-                              'manual_content' => [
-                                {
-                                  'text' => 'dir'
-                                }
-                              ]
-                            },
+                            'extra' => {},
                             'type' => 'external_node'
                           },
                           'This' => {}
@@ -537,23 +529,11 @@ $result_sectioning{'non_automatic_top_node_up_url'} = {
                     'NodeForward' => {},
                     'NodeNext' => {},
                     'NodePrev' => {
-                      'extra' => {
-                        'manual_content' => [
-                          {
-                            'text' => 'dir'
-                          }
-                        ]
-                      },
+                      'extra' => {},
                       'type' => 'external_node'
                     },
                     'NodeUp' => {
-                      'extra' => {
-                        'manual_content' => [
-                          {
-                            'text' => 'dir'
-                          }
-                        ]
-                      },
+                      'extra' => {},
                       'type' => 'external_node'
                     },
                     'This' => {}
@@ -563,8 +543,7 @@ $result_sectioning{'non_automatic_top_node_up_url'} = {
                 'type' => 'unit'
               }
             }
-          },
-          'spaces_before_argument' => ' '
+          }
         },
         'structure' => {
           'associated_unit' => {},
@@ -598,9 +577,7 @@ $result_nodes{'non_automatic_top_node_up_url'} = {
   'extra' => {
     'associated_section' => {
       'cmdname' => 'top',
-      'extra' => {
-        'spaces_before_argument' => ' '
-      },
+      'extra' => {},
       'structure' => {
         'associated_unit' => {
           'extra' => {
@@ -615,8 +592,7 @@ $result_nodes{'non_automatic_top_node_up_url'} = {
                   'node' => {
                     'cmdname' => 'node',
                     'extra' => {
-                      'normalized' => 'first',
-                      'spaces_before_argument' => ' '
+                      'normalized' => 'first'
                     },
                     'structure' => {
                       'associated_unit' => {},
@@ -687,20 +663,10 @@ $result_nodes{'non_automatic_top_node_up_url'} = {
     'menus' => [
       {
         'cmdname' => 'menu',
-        'extra' => {
-          'end_command' => {
-            'cmdname' => 'end',
-            'extra' => {
-              'command_argument' => 'menu',
-              'spaces_before_argument' => ' ',
-              'text_arg' => 'menu'
-            }
-          }
-        }
+        'extra' => {}
       }
     ],
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'associated_unit' => {},
@@ -744,8 +710,7 @@ $result_nodes{'non_automatic_top_node_up_url'}{'structure'}{'node_up'}{'extra'}{
 $result_menus{'non_automatic_top_node_up_url'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'associated_unit' => {
@@ -753,9 +718,7 @@ $result_menus{'non_automatic_top_node_up_url'} = {
         'node' => {},
         'section' => {
           'cmdname' => 'top',
-          'extra' => {
-            'spaces_before_argument' => ' '
-          },
+          'extra' => {},
           'structure' => {
             'associated_unit' => {},
             'level' => 0
@@ -770,8 +733,7 @@ $result_menus{'non_automatic_top_node_up_url'} = {
               'node' => {
                 'cmdname' => 'node',
                 'extra' => {
-                  'normalized' => 'first',
-                  'spaces_before_argument' => ' '
+                  'normalized' => 'first'
                 },
                 'structure' => {
                   'associated_unit' => {},
@@ -866,16 +828,14 @@ $result_elements{'non_automatic_top_node_up_url'} = [
       'node' => {
         'cmdname' => 'node',
         'extra' => {
-          'normalized' => 'Top',
-          'spaces_before_argument' => ' '
+          'normalized' => 'Top'
         },
         'structure' => {
           'associated_unit' => {},
           'menu_child' => {
             'cmdname' => 'node',
             'extra' => {
-              'normalized' => 'first',
-              'spaces_before_argument' => ' '
+              'normalized' => 'first'
             },
             'structure' => {
               'associated_unit' => {
@@ -914,9 +874,7 @@ $result_elements{'non_automatic_top_node_up_url'} = [
       },
       'section' => {
         'cmdname' => 'top',
-        'extra' => {
-          'spaces_before_argument' => ' '
-        },
+        'extra' => {},
         'structure' => {
           'associated_unit' => {},
           'level' => 0

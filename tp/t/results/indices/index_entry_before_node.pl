@@ -616,35 +616,23 @@ $result_nodes{'index_entry_before_node'} = {
     'menus' => [
       {
         'cmdname' => 'menu',
-        'extra' => {
-          'end_command' => {
-            'cmdname' => 'end',
-            'extra' => {
-              'command_argument' => 'menu',
-              'spaces_before_argument' => ' ',
-              'text_arg' => 'menu'
-            }
-          }
-        }
+        'extra' => {}
       }
     ],
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'first',
-        'spaces_before_argument' => ' '
+        'normalized' => 'first'
       },
       'structure' => {
         'node_next' => {
           'cmdname' => 'node',
           'extra' => {
             'isindex' => 1,
-            'normalized' => 'second',
-            'spaces_before_argument' => ' '
+            'normalized' => 'second'
           },
           'structure' => {
             'node_prev' => {},
@@ -667,23 +655,20 @@ $result_nodes{'index_entry_before_node'}{'structure'}{'node_next'} = $result_nod
 $result_menus{'index_entry_before_node'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'first',
-        'spaces_before_argument' => ' '
+        'normalized' => 'first'
       },
       'structure' => {
         'menu_next' => {
           'cmdname' => 'node',
           'extra' => {
             'isindex' => 1,
-            'normalized' => 'second',
-            'spaces_before_argument' => ' '
+            'normalized' => 'second'
           },
           'structure' => {
             'menu_prev' => {},

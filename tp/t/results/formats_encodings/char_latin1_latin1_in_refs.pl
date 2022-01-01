@@ -1717,12 +1717,10 @@ $result_sectioning{'char_latin1_latin1_in_refs'} = {
             'cmdname' => 'node',
             'extra' => {
               'isindex' => 1,
-              'normalized' => 'Top',
-              'spaces_before_argument' => ' '
+              'normalized' => 'Top'
             },
             'structure' => {}
-          },
-          'spaces_before_argument' => ' '
+          }
         },
         'structure' => {
           'level' => 0,
@@ -1733,12 +1731,10 @@ $result_sectioning{'char_latin1_latin1_in_refs'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => '_00e4-_00eb-_00ef-_00f6-_00fc-_00ff-_00c4-_00cb-_00cf-_00d6-_00dc',
-                    'spaces_before_argument' => ' '
+                    'normalized' => '_00e4-_00eb-_00ef-_00f6-_00fc-_00ff-_00c4-_00cb-_00cf-_00d6-_00dc'
                   },
                   'structure' => {}
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'level' => 1,
@@ -1754,12 +1750,10 @@ $result_sectioning{'char_latin1_latin1_in_refs'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => '_00e9',
-                    'spaces_before_argument' => ' '
+                    'normalized' => '_00e9'
                   },
                   'structure' => {}
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'level' => 1,
@@ -1776,12 +1770,10 @@ $result_sectioning{'char_latin1_latin1_in_refs'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => '_00e0-_00e8-_00f9',
-                    'spaces_before_argument' => ' '
+                    'normalized' => '_00e0-_00e8-_00f9'
                   },
                   'structure' => {}
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'level' => 1,
@@ -1798,12 +1790,10 @@ $result_sectioning{'char_latin1_latin1_in_refs'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => '_00e2-_00ea-_00ee-_00f4-_00fb-_00c2-_00ca-_00ce-_00d4-_00db',
-                    'spaces_before_argument' => ' '
+                    'normalized' => '_00e2-_00ea-_00ee-_00f4-_00fb-_00c2-_00ca-_00ce-_00d4-_00db'
                   },
                   'structure' => {}
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'level' => 1,
@@ -1820,12 +1810,10 @@ $result_sectioning{'char_latin1_latin1_in_refs'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => '_00e7',
-                    'spaces_before_argument' => ' '
+                    'normalized' => '_00e7'
                   },
                   'structure' => {}
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'level' => 1,
@@ -1869,9 +1857,7 @@ $result_nodes{'char_latin1_latin1_in_refs'} = {
   'extra' => {
     'associated_section' => {
       'cmdname' => 'top',
-      'extra' => {
-        'spaces_before_argument' => ' '
-      },
+      'extra' => {},
       'structure' => {
         'level' => 0
       }
@@ -1880,20 +1866,10 @@ $result_nodes{'char_latin1_latin1_in_refs'} = {
     'menus' => [
       {
         'cmdname' => 'menu',
-        'extra' => {
-          'end_command' => {
-            'cmdname' => 'end',
-            'extra' => {
-              'command_argument' => 'menu',
-              'spaces_before_argument' => ' ',
-              'text_arg' => 'menu'
-            }
-          }
-        }
+        'extra' => {}
       }
     ],
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'menu_child' => {
@@ -1901,16 +1877,13 @@ $result_nodes{'char_latin1_latin1_in_refs'} = {
       'extra' => {
         'associated_section' => {
           'cmdname' => 'chapter',
-          'extra' => {
-            'spaces_before_argument' => ' '
-          },
+          'extra' => {},
           'structure' => {
             'level' => 1,
             'number' => 1
           }
         },
-        'normalized' => '_00e4-_00eb-_00ef-_00f6-_00fc-_00ff-_00c4-_00cb-_00cf-_00d6-_00dc',
-        'spaces_before_argument' => ' '
+        'normalized' => '_00e4-_00eb-_00ef-_00f6-_00fc-_00ff-_00c4-_00cb-_00cf-_00d6-_00dc'
       },
       'structure' => {
         'node_next' => {
@@ -1918,16 +1891,13 @@ $result_nodes{'char_latin1_latin1_in_refs'} = {
           'extra' => {
             'associated_section' => {
               'cmdname' => 'chapter',
-              'extra' => {
-                'spaces_before_argument' => ' '
-              },
+              'extra' => {},
               'structure' => {
                 'level' => 1,
                 'number' => 2
               }
             },
-            'normalized' => '_00e9',
-            'spaces_before_argument' => ' '
+            'normalized' => '_00e9'
           },
           'structure' => {
             'node_next' => {
@@ -1935,16 +1905,13 @@ $result_nodes{'char_latin1_latin1_in_refs'} = {
               'extra' => {
                 'associated_section' => {
                   'cmdname' => 'chapter',
-                  'extra' => {
-                    'spaces_before_argument' => ' '
-                  },
+                  'extra' => {},
                   'structure' => {
                     'level' => 1,
                     'number' => 3
                   }
                 },
-                'normalized' => '_00e0-_00e8-_00f9',
-                'spaces_before_argument' => ' '
+                'normalized' => '_00e0-_00e8-_00f9'
               },
               'structure' => {
                 'node_next' => {
@@ -1952,16 +1919,13 @@ $result_nodes{'char_latin1_latin1_in_refs'} = {
                   'extra' => {
                     'associated_section' => {
                       'cmdname' => 'chapter',
-                      'extra' => {
-                        'spaces_before_argument' => ' '
-                      },
+                      'extra' => {},
                       'structure' => {
                         'level' => 1,
                         'number' => 4
                       }
                     },
-                    'normalized' => '_00e2-_00ea-_00ee-_00f4-_00fb-_00c2-_00ca-_00ce-_00d4-_00db',
-                    'spaces_before_argument' => ' '
+                    'normalized' => '_00e2-_00ea-_00ee-_00f4-_00fb-_00c2-_00ca-_00ce-_00d4-_00db'
                   },
                   'structure' => {
                     'node_next' => {
@@ -1969,16 +1933,13 @@ $result_nodes{'char_latin1_latin1_in_refs'} = {
                       'extra' => {
                         'associated_section' => {
                           'cmdname' => 'chapter',
-                          'extra' => {
-                            'spaces_before_argument' => ' '
-                          },
+                          'extra' => {},
                           'structure' => {
                             'level' => 1,
                             'number' => 5
                           }
                         },
-                        'normalized' => '_00e7',
-                        'spaces_before_argument' => ' '
+                        'normalized' => '_00e7'
                       },
                       'structure' => {
                         'node_prev' => {},
@@ -2020,43 +1981,37 @@ $result_menus{'char_latin1_latin1_in_refs'} = {
   'cmdname' => 'node',
   'extra' => {
     'isindex' => 1,
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => '_00e4-_00eb-_00ef-_00f6-_00fc-_00ff-_00c4-_00cb-_00cf-_00d6-_00dc',
-        'spaces_before_argument' => ' '
+        'normalized' => '_00e4-_00eb-_00ef-_00f6-_00fc-_00ff-_00c4-_00cb-_00cf-_00d6-_00dc'
       },
       'structure' => {
         'menu_next' => {
           'cmdname' => 'node',
           'extra' => {
-            'normalized' => '_00e9',
-            'spaces_before_argument' => ' '
+            'normalized' => '_00e9'
           },
           'structure' => {
             'menu_next' => {
               'cmdname' => 'node',
               'extra' => {
-                'normalized' => '_00e0-_00e8-_00f9',
-                'spaces_before_argument' => ' '
+                'normalized' => '_00e0-_00e8-_00f9'
               },
               'structure' => {
                 'menu_next' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => '_00e2-_00ea-_00ee-_00f4-_00fb-_00c2-_00ca-_00ce-_00d4-_00db',
-                    'spaces_before_argument' => ' '
+                    'normalized' => '_00e2-_00ea-_00ee-_00f4-_00fb-_00c2-_00ca-_00ce-_00d4-_00db'
                   },
                   'structure' => {
                     'menu_next' => {
                       'cmdname' => 'node',
                       'extra' => {
-                        'normalized' => '_00e7',
-                        'spaces_before_argument' => ' '
+                        'normalized' => '_00e7'
                       },
                       'structure' => {
                         'menu_prev' => {},

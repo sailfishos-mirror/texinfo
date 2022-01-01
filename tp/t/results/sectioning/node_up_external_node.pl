@@ -392,20 +392,10 @@ $result_nodes{'node_up_external_node'} = {
     'menus' => [
       {
         'cmdname' => 'menu',
-        'extra' => {
-          'end_command' => {
-            'cmdname' => 'end',
-            'extra' => {
-              'command_argument' => 'menu',
-              'spaces_before_argument' => ' ',
-              'text_arg' => 'menu'
-            }
-          }
-        }
+        'extra' => {}
       }
     ],
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'associated_unit' => {
@@ -420,8 +410,7 @@ $result_nodes{'node_up_external_node'} = {
               'node' => {
                 'cmdname' => 'node',
                 'extra' => {
-                  'normalized' => 'first',
-                  'spaces_before_argument' => ' '
+                  'normalized' => 'first'
                 },
                 'structure' => {
                   'associated_unit' => {},
@@ -524,8 +513,7 @@ $result_nodes{'node_up_external_node'}{'structure'}{'node_next'} = $result_nodes
 $result_menus{'node_up_external_node'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'associated_unit' => {
@@ -540,8 +528,7 @@ $result_menus{'node_up_external_node'} = {
               'node' => {
                 'cmdname' => 'node',
                 'extra' => {
-                  'normalized' => 'first',
-                  'spaces_before_argument' => ' '
+                  'normalized' => 'first'
                 },
                 'structure' => {
                   'associated_unit' => {},
@@ -638,16 +625,14 @@ $result_elements{'node_up_external_node'} = [
       'node' => {
         'cmdname' => 'node',
         'extra' => {
-          'normalized' => 'Top',
-          'spaces_before_argument' => ' '
+          'normalized' => 'Top'
         },
         'structure' => {
           'associated_unit' => {},
           'menu_child' => {
             'cmdname' => 'node',
             'extra' => {
-              'normalized' => 'first',
-              'spaces_before_argument' => ' '
+              'normalized' => 'first'
             },
             'structure' => {
               'associated_unit' => {

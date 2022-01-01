@@ -393,8 +393,7 @@ $result_nodes{'cindex_in_caption'} = {
   'cmdname' => 'node',
   'extra' => {
     'isindex' => 1,
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   }
 };
 
@@ -402,8 +401,7 @@ $result_menus{'cindex_in_caption'} = {
   'cmdname' => 'node',
   'extra' => {
     'isindex' => 1,
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   }
 };
 
@@ -422,16 +420,7 @@ $result_floats{'cindex_in_caption'} = {
           },
           'structure' => {}
         },
-        'end_command' => {
-          'cmdname' => 'end',
-          'extra' => {
-            'command_argument' => 'float',
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'float'
-          }
-        },
         'normalized' => 'label',
-        'spaces_before_argument' => ' ',
         'type' => {
           'content' => [
             {

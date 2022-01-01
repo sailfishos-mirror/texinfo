@@ -551,8 +551,7 @@ $result_sectioning{'footnotestyle_separate_late'} = {
           'associated_node' => {
             'cmdname' => 'node',
             'extra' => {
-              'normalized' => 'Top',
-              'spaces_before_argument' => ' '
+              'normalized' => 'Top'
             },
             'structure' => {
               'associated_unit' => {
@@ -568,8 +567,7 @@ $result_sectioning{'footnotestyle_separate_late'} = {
                         'node' => {
                           'cmdname' => 'node',
                           'extra' => {
-                            'normalized' => 'chap-f',
-                            'spaces_before_argument' => ' '
+                            'normalized' => 'chap-f'
                           },
                           'structure' => {
                             'associated_unit' => {}
@@ -578,8 +576,7 @@ $result_sectioning{'footnotestyle_separate_late'} = {
                         'section' => {
                           'cmdname' => 'chapter',
                           'extra' => {
-                            'associated_node' => {},
-                            'spaces_before_argument' => ' '
+                            'associated_node' => {}
                           },
                           'structure' => {
                             'associated_unit' => {},
@@ -601,8 +598,7 @@ $result_sectioning{'footnotestyle_separate_late'} = {
                               'node' => {
                                 'cmdname' => 'node',
                                 'extra' => {
-                                  'normalized' => 'chap-s',
-                                  'spaces_before_argument' => ' '
+                                  'normalized' => 'chap-s'
                                 },
                                 'structure' => {
                                   'associated_unit' => {}
@@ -611,8 +607,7 @@ $result_sectioning{'footnotestyle_separate_late'} = {
                               'section' => {
                                 'cmdname' => 'chapter',
                                 'extra' => {
-                                  'associated_node' => {},
-                                  'spaces_before_argument' => ' '
+                                  'associated_node' => {}
                                 },
                                 'structure' => {
                                   'associated_unit' => {},
@@ -666,8 +661,7 @@ $result_sectioning{'footnotestyle_separate_late'} = {
                 'type' => 'unit'
               }
             }
-          },
-          'spaces_before_argument' => ' '
+          }
         },
         'structure' => {
           'associated_unit' => {},
@@ -737,9 +731,7 @@ $result_nodes{'footnotestyle_separate_late'} = {
   'extra' => {
     'associated_section' => {
       'cmdname' => 'top',
-      'extra' => {
-        'spaces_before_argument' => ' '
-      },
+      'extra' => {},
       'structure' => {
         'associated_unit' => {
           'extra' => {
@@ -756,17 +748,14 @@ $result_nodes{'footnotestyle_separate_late'} = {
                     'extra' => {
                       'associated_section' => {
                         'cmdname' => 'chapter',
-                        'extra' => {
-                          'spaces_before_argument' => ' '
-                        },
+                        'extra' => {},
                         'structure' => {
                           'associated_unit' => {},
                           'level' => 1,
                           'number' => 1
                         }
                       },
-                      'normalized' => 'chap-f',
-                      'spaces_before_argument' => ' '
+                      'normalized' => 'chap-f'
                     },
                     'structure' => {
                       'associated_unit' => {},
@@ -775,9 +764,7 @@ $result_nodes{'footnotestyle_separate_late'} = {
                         'extra' => {
                           'associated_section' => {
                             'cmdname' => 'chapter',
-                            'extra' => {
-                              'spaces_before_argument' => ' '
-                            },
+                            'extra' => {},
                             'structure' => {
                               'associated_unit' => {
                                 'extra' => {
@@ -804,8 +791,7 @@ $result_nodes{'footnotestyle_separate_late'} = {
                               'number' => 2
                             }
                           },
-                          'normalized' => 'chap-s',
-                          'spaces_before_argument' => ' '
+                          'normalized' => 'chap-s'
                         },
                         'structure' => {
                           'associated_unit' => {},
@@ -852,8 +838,7 @@ $result_nodes{'footnotestyle_separate_late'} = {
         'level' => 0
       }
     },
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'associated_unit' => {},
@@ -909,8 +894,7 @@ $result_nodes{'footnotestyle_separate_late'}{'structure'}{'node_next'} = $result
 $result_menus{'footnotestyle_separate_late'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'associated_unit' => {
@@ -918,9 +902,7 @@ $result_menus{'footnotestyle_separate_late'} = {
         'node' => {},
         'section' => {
           'cmdname' => 'top',
-          'extra' => {
-            'spaces_before_argument' => ' '
-          },
+          'extra' => {},
           'structure' => {
             'associated_unit' => {},
             'level' => 0
@@ -935,8 +917,7 @@ $result_menus{'footnotestyle_separate_late'} = {
               'node' => {
                 'cmdname' => 'node',
                 'extra' => {
-                  'normalized' => 'chap-f',
-                  'spaces_before_argument' => ' '
+                  'normalized' => 'chap-f'
                 },
                 'structure' => {
                   'associated_unit' => {}
@@ -944,9 +925,7 @@ $result_menus{'footnotestyle_separate_late'} = {
               },
               'section' => {
                 'cmdname' => 'chapter',
-                'extra' => {
-                  'spaces_before_argument' => ' '
-                },
+                'extra' => {},
                 'structure' => {
                   'associated_unit' => {},
                   'level' => 1,
@@ -964,8 +943,7 @@ $result_menus{'footnotestyle_separate_late'} = {
                     'node' => {
                       'cmdname' => 'node',
                       'extra' => {
-                        'normalized' => 'chap-s',
-                        'spaces_before_argument' => ' '
+                        'normalized' => 'chap-s'
                       },
                       'structure' => {
                         'associated_unit' => {}
@@ -973,9 +951,7 @@ $result_menus{'footnotestyle_separate_late'} = {
                     },
                     'section' => {
                       'cmdname' => 'chapter',
-                      'extra' => {
-                        'spaces_before_argument' => ' '
-                      },
+                      'extra' => {},
                       'structure' => {
                         'associated_unit' => {},
                         'level' => 1,
@@ -1074,8 +1050,7 @@ $result_elements{'footnotestyle_separate_late'} = [
       'node' => {
         'cmdname' => 'node',
         'extra' => {
-          'normalized' => 'Top',
-          'spaces_before_argument' => ' '
+          'normalized' => 'Top'
         },
         'structure' => {
           'associated_unit' => {}
@@ -1083,9 +1058,7 @@ $result_elements{'footnotestyle_separate_late'} = [
       },
       'section' => {
         'cmdname' => 'top',
-        'extra' => {
-          'spaces_before_argument' => ' '
-        },
+        'extra' => {},
         'structure' => {
           'associated_unit' => {},
           'level' => 0
@@ -1100,8 +1073,7 @@ $result_elements{'footnotestyle_separate_late'} = [
             'node' => {
               'cmdname' => 'node',
               'extra' => {
-                'normalized' => 'chap-f',
-                'spaces_before_argument' => ' '
+                'normalized' => 'chap-f'
               },
               'structure' => {
                 'associated_unit' => {}
@@ -1109,9 +1081,7 @@ $result_elements{'footnotestyle_separate_late'} = [
             },
             'section' => {
               'cmdname' => 'chapter',
-              'extra' => {
-                'spaces_before_argument' => ' '
-              },
+              'extra' => {},
               'structure' => {
                 'associated_unit' => {},
                 'level' => 1,
@@ -1129,8 +1099,7 @@ $result_elements{'footnotestyle_separate_late'} = [
                   'node' => {
                     'cmdname' => 'node',
                     'extra' => {
-                      'normalized' => 'chap-s',
-                      'spaces_before_argument' => ' '
+                      'normalized' => 'chap-s'
                     },
                     'structure' => {
                       'associated_unit' => {}
@@ -1138,9 +1107,7 @@ $result_elements{'footnotestyle_separate_late'} = [
                   },
                   'section' => {
                     'cmdname' => 'chapter',
-                    'extra' => {
-                      'spaces_before_argument' => ' '
-                    },
+                    'extra' => {},
                     'structure' => {
                       'associated_unit' => {},
                       'level' => 1,

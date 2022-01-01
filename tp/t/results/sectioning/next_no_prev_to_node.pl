@@ -481,34 +481,22 @@ $result_nodes{'next_no_prev_to_node'} = {
     'menus' => [
       {
         'cmdname' => 'menu',
-        'extra' => {
-          'end_command' => {
-            'cmdname' => 'end',
-            'extra' => {
-              'command_argument' => 'menu',
-              'spaces_before_argument' => ' ',
-              'text_arg' => 'menu'
-            }
-          }
-        }
+        'extra' => {}
       }
     ],
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'first-node',
-        'spaces_before_argument' => ' '
+        'normalized' => 'first-node'
       },
       'structure' => {
         'node_next' => {
           'cmdname' => 'node',
           'extra' => {
-            'normalized' => 'no-return',
-            'spaces_before_argument' => ' '
+            'normalized' => 'no-return'
           },
           'structure' => {
             'node_up' => {}
@@ -529,22 +517,19 @@ $result_nodes{'next_no_prev_to_node'}{'structure'}{'node_next'} = $result_nodes{
 $result_menus{'next_no_prev_to_node'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'first-node',
-        'spaces_before_argument' => ' '
+        'normalized' => 'first-node'
       },
       'structure' => {
         'menu_next' => {
           'cmdname' => 'node',
           'extra' => {
-            'normalized' => 'no-return',
-            'spaces_before_argument' => ' '
+            'normalized' => 'no-return'
           },
           'structure' => {
             'menu_prev' => {},

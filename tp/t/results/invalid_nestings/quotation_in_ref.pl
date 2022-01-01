@@ -217,8 +217,7 @@ Topquotation in ref
 $result_nodes{'quotation_in_ref'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {}
 };
@@ -226,8 +225,7 @@ $result_nodes{'quotation_in_ref'} = {
 $result_menus{'quotation_in_ref'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {}
 };

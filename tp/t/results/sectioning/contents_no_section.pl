@@ -199,8 +199,7 @@ $result_texts{'contents_no_section'} = '
 $result_nodes{'contents_no_section'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {}
 };
@@ -208,8 +207,7 @@ $result_nodes{'contents_no_section'} = {
 $result_menus{'contents_no_section'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {}
 };

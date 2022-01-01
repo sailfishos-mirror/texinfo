@@ -188,8 +188,7 @@ Top';
 $result_nodes{'footnote_in_ref'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {}
 };
@@ -197,8 +196,7 @@ $result_nodes{'footnote_in_ref'} = {
 $result_menus{'footnote_in_ref'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {}
 };

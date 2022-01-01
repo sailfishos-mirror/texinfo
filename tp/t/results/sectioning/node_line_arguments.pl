@@ -733,8 +733,7 @@ $result_texts{'node_line_arguments'} = '
 $result_nodes{'node_line_arguments'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'one-arg1',
-    'spaces_before_argument' => ' '
+    'normalized' => 'one-arg1'
   },
   'structure' => {}
 };
@@ -742,8 +741,7 @@ $result_nodes{'node_line_arguments'} = {
 $result_menus{'node_line_arguments'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'one-arg1',
-    'spaces_before_argument' => ' '
+    'normalized' => 'one-arg1'
   },
   'structure' => {}
 };

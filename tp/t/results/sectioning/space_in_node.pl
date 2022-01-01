@@ -562,41 +562,28 @@ $result_nodes{'space_in_node'} = {
     'menus' => [
       {
         'cmdname' => 'menu',
-        'extra' => {
-          'end_command' => {
-            'cmdname' => 'end',
-            'extra' => {
-              'command_argument' => 'menu',
-              'spaces_before_argument' => ' ',
-              'text_arg' => 'menu'
-            }
-          }
-        }
+        'extra' => {}
       }
     ],
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'Chap-first-here',
-        'spaces_before_argument' => '  '
+        'normalized' => 'Chap-first-here'
       },
       'structure' => {
         'node_next' => {
           'cmdname' => 'node',
           'extra' => {
-            'normalized' => 'Test-title',
-            'spaces_before_argument' => ' '
+            'normalized' => 'Test-title'
           },
           'structure' => {
             'node_next' => {
               'cmdname' => 'node',
               'extra' => {
-                'normalized' => 'Last-with-spaces',
-                'spaces_before_argument' => '   '
+                'normalized' => 'Last-with-spaces'
               },
               'structure' => {
                 'node_prev' => {},
@@ -625,29 +612,25 @@ $result_nodes{'space_in_node'}{'structure'}{'node_next'} = $result_nodes{'space_
 $result_menus{'space_in_node'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'Chap-first-here',
-        'spaces_before_argument' => '  '
+        'normalized' => 'Chap-first-here'
       },
       'structure' => {
         'menu_next' => {
           'cmdname' => 'node',
           'extra' => {
-            'normalized' => 'Test-title',
-            'spaces_before_argument' => ' '
+            'normalized' => 'Test-title'
           },
           'structure' => {
             'menu_next' => {
               'cmdname' => 'node',
               'extra' => {
-                'normalized' => 'Last-with-spaces',
-                'spaces_before_argument' => '   '
+                'normalized' => 'Last-with-spaces'
               },
               'structure' => {
                 'menu_prev' => {},

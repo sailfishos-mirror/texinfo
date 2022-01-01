@@ -558,16 +558,7 @@ $result_floats{'empty_listoffloats_with_floats'} = {
     {
       'cmdname' => 'float',
       'extra' => {
-        'end_command' => {
-          'cmdname' => 'end',
-          'extra' => {
-            'command_argument' => 'float',
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'float'
-          }
-        },
         'normalized' => 'label1',
-        'spaces_before_argument' => ' ',
         'type' => {
           'normalized' => ''
         }
@@ -585,16 +576,7 @@ $result_floats{'empty_listoffloats_with_floats'} = {
             'float' => {}
           }
         },
-        'end_command' => {
-          'cmdname' => 'end',
-          'extra' => {
-            'command_argument' => 'float',
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'float'
-          }
-        },
         'normalized' => 'label2',
-        'spaces_before_argument' => ' ',
         'type' => {
           'normalized' => ''
         }
@@ -606,14 +588,6 @@ $result_floats{'empty_listoffloats_with_floats'} = {
     {
       'cmdname' => 'float',
       'extra' => {
-        'end_command' => {
-          'cmdname' => 'end',
-          'extra' => {
-            'command_argument' => 'float',
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'float'
-          }
-        },
         'type' => {
           'normalized' => ''
         }
@@ -627,14 +601,6 @@ $result_floats{'empty_listoffloats_with_floats'} = {
           'cmdname' => 'caption',
           'extra' => {
             'float' => {}
-          }
-        },
-        'end_command' => {
-          'cmdname' => 'end',
-          'extra' => {
-            'command_argument' => 'float',
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'float'
           }
         },
         'type' => {

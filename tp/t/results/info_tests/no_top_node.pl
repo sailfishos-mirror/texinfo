@@ -72,16 +72,14 @@ $result_texts{'no_top_node'} = '';
 $result_nodes{'no_top_node'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'node-Top-not-Top-node',
-    'spaces_before_argument' => ' '
+    'normalized' => 'node-Top-not-Top-node'
   }
 };
 
 $result_menus{'no_top_node'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'node-Top-not-Top-node',
-    'spaces_before_argument' => ' '
+    'normalized' => 'node-Top-not-Top-node'
   }
 };
 

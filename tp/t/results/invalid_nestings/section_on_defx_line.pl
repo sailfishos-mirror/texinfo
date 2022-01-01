@@ -261,9 +261,7 @@ $result_sectioning{'section_on_defx_line'} = {
     'section_childs' => [
       {
         'cmdname' => 'section',
-        'extra' => {
-          'spaces_before_argument' => ' '
-        },
+        'extra' => {},
         'structure' => {
           'level' => 2,
           'number' => 1,

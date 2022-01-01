@@ -1033,27 +1033,16 @@ $result_nodes{'sc_in_menu'} = {
     'menus' => [
       {
         'cmdname' => 'menu',
-        'extra' => {
-          'end_command' => {
-            'cmdname' => 'end',
-            'extra' => {
-              'command_argument' => 'menu',
-              'spaces_before_argument' => ' ',
-              'text_arg' => 'menu'
-            }
-          }
-        }
+        'extra' => {}
       }
     ],
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'NODE',
-        'spaces_before_argument' => ' '
+        'normalized' => 'NODE'
       },
       'structure' => {
         'node_prev' => {},
@@ -1070,15 +1059,13 @@ $result_nodes{'sc_in_menu'}{'structure'}{'node_next'} = $result_nodes{'sc_in_men
 $result_menus{'sc_in_menu'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'NODE',
-        'spaces_before_argument' => ' '
+        'normalized' => 'NODE'
       },
       'structure' => {
         'menu_up' => {},

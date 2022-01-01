@@ -389,27 +389,16 @@ $result_nodes{'node_referenced_in_ref'} = {
     'menus' => [
       {
         'cmdname' => 'menu',
-        'extra' => {
-          'end_command' => {
-            'cmdname' => 'end',
-            'extra' => {
-              'command_argument' => 'menu',
-              'spaces_before_argument' => ' ',
-              'text_arg' => 'menu'
-            }
-          }
-        }
+        'extra' => {}
       }
     ],
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'first-level-node',
-        'spaces_before_argument' => ' '
+        'normalized' => 'first-level-node'
       },
       'structure' => {
         'node_prev' => {},
@@ -426,15 +415,13 @@ $result_nodes{'node_referenced_in_ref'}{'structure'}{'node_next'} = $result_node
 $result_menus{'node_referenced_in_ref'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'first-level-node',
-        'spaces_before_argument' => ' '
+        'normalized' => 'first-level-node'
       },
       'structure' => {
         'menu_up' => {},

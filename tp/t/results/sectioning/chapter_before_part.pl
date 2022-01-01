@@ -136,9 +136,7 @@ $result_sectioning{'chapter_before_part'} = {
     'section_childs' => [
       {
         'cmdname' => 'chapter',
-        'extra' => {
-          'spaces_before_argument' => ' '
-        },
+        'extra' => {},
         'structure' => {
           'associated_unit' => {
             'extra' => {
@@ -151,9 +149,7 @@ $result_sectioning{'chapter_before_part'} = {
                   'extra' => {
                     'section' => {
                       'cmdname' => 'part',
-                      'extra' => {
-                        'spaces_before_argument' => ' '
-                      },
+                      'extra' => {},
                       'structure' => {
                         'associated_unit' => {},
                         'level' => 0,
@@ -220,9 +216,7 @@ $result_elements{'chapter_before_part'} = [
     'extra' => {
       'section' => {
         'cmdname' => 'chapter',
-        'extra' => {
-          'spaces_before_argument' => ' '
-        },
+        'extra' => {},
         'structure' => {
           'associated_unit' => {},
           'level' => 1,
@@ -237,9 +231,7 @@ $result_elements{'chapter_before_part'} = [
           'extra' => {
             'section' => {
               'cmdname' => 'part',
-              'extra' => {
-                'spaces_before_argument' => ' '
-              },
+              'extra' => {},
               'structure' => {
                 'associated_unit' => {},
                 'level' => 0

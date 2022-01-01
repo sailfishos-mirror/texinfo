@@ -380,8 +380,7 @@ $result_sectioning{'no_menu'} = {
           'associated_node' => {
             'cmdname' => 'node',
             'extra' => {
-              'normalized' => 'Top',
-              'spaces_before_argument' => ' '
+              'normalized' => 'Top'
             },
             'structure' => {}
           }
@@ -395,12 +394,10 @@ $result_sectioning{'no_menu'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => 'c1',
-                    'spaces_before_argument' => ' '
+                    'normalized' => 'c1'
                   },
                   'structure' => {}
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'level' => 1,
@@ -416,12 +413,10 @@ $result_sectioning{'no_menu'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => 'c2',
-                    'spaces_before_argument' => ' '
+                    'normalized' => 'c2'
                   },
                   'structure' => {}
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'level' => 1,
@@ -438,12 +433,10 @@ $result_sectioning{'no_menu'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => 'c3',
-                    'spaces_before_argument' => ' '
+                    'normalized' => 'c3'
                   },
                   'structure' => {}
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'level' => 1,
@@ -484,8 +477,7 @@ $result_nodes{'no_menu'} = {
         'level' => 0
       }
     },
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'node_next' => {
@@ -493,16 +485,13 @@ $result_nodes{'no_menu'} = {
       'extra' => {
         'associated_section' => {
           'cmdname' => 'chapter',
-          'extra' => {
-            'spaces_before_argument' => ' '
-          },
+          'extra' => {},
           'structure' => {
             'level' => 1,
             'number' => 1
           }
         },
-        'normalized' => 'c1',
-        'spaces_before_argument' => ' '
+        'normalized' => 'c1'
       },
       'structure' => {
         'node_next' => {
@@ -510,16 +499,13 @@ $result_nodes{'no_menu'} = {
           'extra' => {
             'associated_section' => {
               'cmdname' => 'chapter',
-              'extra' => {
-                'spaces_before_argument' => ' '
-              },
+              'extra' => {},
               'structure' => {
                 'level' => 1,
                 'number' => 2
               }
             },
-            'normalized' => 'c2',
-            'spaces_before_argument' => ' '
+            'normalized' => 'c2'
           },
           'structure' => {
             'node_next' => {
@@ -527,16 +513,13 @@ $result_nodes{'no_menu'} = {
               'extra' => {
                 'associated_section' => {
                   'cmdname' => 'chapter',
-                  'extra' => {
-                    'spaces_before_argument' => ' '
-                  },
+                  'extra' => {},
                   'structure' => {
                     'level' => 1,
                     'number' => 3
                   }
                 },
-                'normalized' => 'c3',
-                'spaces_before_argument' => ' '
+                'normalized' => 'c3'
               },
               'structure' => {
                 'node_prev' => {},
@@ -563,8 +546,7 @@ $result_nodes{'no_menu'}{'structure'}{'node_next'}{'structure'}{'node_up'} = $re
 $result_menus{'no_menu'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {}
 };

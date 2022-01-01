@@ -108,9 +108,7 @@ $result_sectioning{'section_before_top_no_node'} = {
     'section_childs' => [
       {
         'cmdname' => 'section',
-        'extra' => {
-          'spaces_before_argument' => ' '
-        },
+        'extra' => {},
         'structure' => {
           'level' => 2,
           'number' => 1,
@@ -119,9 +117,7 @@ $result_sectioning{'section_before_top_no_node'} = {
       },
       {
         'cmdname' => 'top',
-        'extra' => {
-          'spaces_before_argument' => ' '
-        },
+        'extra' => {},
         'structure' => {
           'level' => 2,
           'section_prev' => {},

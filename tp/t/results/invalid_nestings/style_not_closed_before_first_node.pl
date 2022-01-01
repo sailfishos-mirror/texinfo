@@ -133,8 +133,7 @@ In node
 $result_nodes{'style_not_closed_before_first_node'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {}
 };
@@ -142,8 +141,7 @@ $result_nodes{'style_not_closed_before_first_node'} = {
 $result_menus{'style_not_closed_before_first_node'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {}
 };

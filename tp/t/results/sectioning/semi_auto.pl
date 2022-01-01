@@ -788,12 +788,10 @@ $result_sectioning{'semi_auto'} = {
           'associated_node' => {
             'cmdname' => 'node',
             'extra' => {
-              'normalized' => 'Top',
-              'spaces_before_argument' => ' '
+              'normalized' => 'Top'
             },
             'structure' => {}
-          },
-          'spaces_before_argument' => ' '
+          }
         },
         'structure' => {
           'level' => 0,
@@ -804,12 +802,10 @@ $result_sectioning{'semi_auto'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => 'Chap1',
-                    'spaces_before_argument' => ' '
+                    'normalized' => 'Chap1'
                   },
                   'structure' => {}
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'level' => 1,
@@ -821,12 +817,10 @@ $result_sectioning{'semi_auto'} = {
                       'associated_node' => {
                         'cmdname' => 'node',
                         'extra' => {
-                          'normalized' => 'Sec-in-chapter',
-                          'spaces_before_argument' => ' '
+                          'normalized' => 'Sec-in-chapter'
                         },
                         'structure' => {}
-                      },
-                      'spaces_before_argument' => ' '
+                      }
                     },
                     'structure' => {
                       'level' => 2,
@@ -840,12 +834,10 @@ $result_sectioning{'semi_auto'} = {
                       'associated_node' => {
                         'cmdname' => 'node',
                         'extra' => {
-                          'normalized' => 'Section-non-auto',
-                          'spaces_before_argument' => ' '
+                          'normalized' => 'Section-non-auto'
                         },
                         'structure' => {}
-                      },
-                      'spaces_before_argument' => ' '
+                      }
                     },
                     'structure' => {
                       'level' => 2,
@@ -880,9 +872,7 @@ $result_nodes{'semi_auto'} = {
   'extra' => {
     'associated_section' => {
       'cmdname' => 'top',
-      'extra' => {
-        'spaces_before_argument' => ' '
-      },
+      'extra' => {},
       'structure' => {
         'level' => 0
       }
@@ -890,20 +880,10 @@ $result_nodes{'semi_auto'} = {
     'menus' => [
       {
         'cmdname' => 'menu',
-        'extra' => {
-          'end_command' => {
-            'cmdname' => 'end',
-            'extra' => {
-              'command_argument' => 'menu',
-              'spaces_before_argument' => ' ',
-              'text_arg' => 'menu'
-            }
-          }
-        }
+        'extra' => {}
       }
     ],
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'menu_child' => {
@@ -911,9 +891,7 @@ $result_nodes{'semi_auto'} = {
       'extra' => {
         'associated_section' => {
           'cmdname' => 'chapter',
-          'extra' => {
-            'spaces_before_argument' => ' '
-          },
+          'extra' => {},
           'structure' => {
             'level' => 1,
             'number' => 1
@@ -922,20 +900,10 @@ $result_nodes{'semi_auto'} = {
         'menus' => [
           {
             'cmdname' => 'menu',
-            'extra' => {
-              'end_command' => {
-                'cmdname' => 'end',
-                'extra' => {
-                  'command_argument' => 'menu',
-                  'spaces_before_argument' => ' ',
-                  'text_arg' => 'menu'
-                }
-              }
-            }
+            'extra' => {}
           }
         ],
-        'normalized' => 'Chap1',
-        'spaces_before_argument' => ' '
+        'normalized' => 'Chap1'
       },
       'structure' => {
         'menu_child' => {
@@ -943,16 +911,13 @@ $result_nodes{'semi_auto'} = {
           'extra' => {
             'associated_section' => {
               'cmdname' => 'section',
-              'extra' => {
-                'spaces_before_argument' => ' '
-              },
+              'extra' => {},
               'structure' => {
                 'level' => 2,
                 'number' => '1.1'
               }
             },
-            'normalized' => 'Sec-in-chapter',
-            'spaces_before_argument' => ' '
+            'normalized' => 'Sec-in-chapter'
           },
           'structure' => {
             'node_next' => {
@@ -960,16 +925,13 @@ $result_nodes{'semi_auto'} = {
               'extra' => {
                 'associated_section' => {
                   'cmdname' => 'section',
-                  'extra' => {
-                    'spaces_before_argument' => ' '
-                  },
+                  'extra' => {},
                   'structure' => {
                     'level' => 2,
                     'number' => '1.2'
                   }
                 },
-                'normalized' => 'Section-non-auto',
-                'spaces_before_argument' => ' '
+                'normalized' => 'Section-non-auto'
               },
               'structure' => {
                 'node_prev' => {},
@@ -998,22 +960,19 @@ $result_nodes{'semi_auto'}{'structure'}{'node_next'} = $result_nodes{'semi_auto'
 $result_menus{'semi_auto'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'Chap1',
-        'spaces_before_argument' => ' '
+        'normalized' => 'Chap1'
       },
       'structure' => {
         'menu_child' => {
           'cmdname' => 'node',
           'extra' => {
-            'normalized' => 'Sec-in-chapter',
-            'spaces_before_argument' => ' '
+            'normalized' => 'Sec-in-chapter'
           },
           'structure' => {
             'menu_up' => {},
@@ -1025,8 +984,7 @@ $result_menus{'semi_auto'} = {
         'menu_next' => {
           'cmdname' => 'node',
           'extra' => {
-            'normalized' => 'Section-non-auto',
-            'spaces_before_argument' => ' '
+            'normalized' => 'Section-non-auto'
           },
           'structure' => {
             'menu_prev' => {},

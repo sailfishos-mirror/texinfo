@@ -215,9 +215,7 @@ $result_sectioning{'chapter_before_and_after_part'} = {
     'section_childs' => [
       {
         'cmdname' => 'chapter',
-        'extra' => {
-          'spaces_before_argument' => ' '
-        },
+        'extra' => {},
         'structure' => {
           'associated_unit' => {
             'extra' => {
@@ -234,8 +232,7 @@ $result_sectioning{'chapter_before_and_after_part'} = {
                         'associated_part' => {
                           'cmdname' => 'part',
                           'extra' => {
-                            'part_associated_section' => {},
-                            'spaces_before_argument' => ' '
+                            'part_associated_section' => {}
                           },
                           'structure' => {
                             'associated_unit' => {},
@@ -245,8 +242,7 @@ $result_sectioning{'chapter_before_and_after_part'} = {
                             ],
                             'section_up' => {}
                           }
-                        },
-                        'spaces_before_argument' => ' '
+                        }
                       },
                       'structure' => {
                         'associated_unit' => {},
@@ -315,9 +311,7 @@ $result_elements{'chapter_before_and_after_part'} = [
     'extra' => {
       'section' => {
         'cmdname' => 'chapter',
-        'extra' => {
-          'spaces_before_argument' => ' '
-        },
+        'extra' => {},
         'structure' => {
           'associated_unit' => {},
           'level' => 1,
@@ -335,15 +329,12 @@ $result_elements{'chapter_before_and_after_part'} = [
               'extra' => {
                 'associated_part' => {
                   'cmdname' => 'part',
-                  'extra' => {
-                    'spaces_before_argument' => ' '
-                  },
+                  'extra' => {},
                   'structure' => {
                     'associated_unit' => {},
                     'level' => 0
                   }
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'associated_unit' => {},

@@ -1430,9 +1430,7 @@ $result_sectioning{'index_no_node'} = {
     'section_childs' => [
       {
         'cmdname' => 'unnumbered',
-        'extra' => {
-          'spaces_before_argument' => ' '
-        },
+        'extra' => {},
         'structure' => {
           'level' => 1,
           'section_up' => {}
@@ -1440,17 +1438,13 @@ $result_sectioning{'index_no_node'} = {
       },
       {
         'cmdname' => 'top',
-        'extra' => {
-          'spaces_before_argument' => ' '
-        },
+        'extra' => {},
         'structure' => {
           'level' => 1,
           'section_childs' => [
             {
               'cmdname' => 'section',
-              'extra' => {
-                'spaces_before_argument' => ' '
-              },
+              'extra' => {},
               'structure' => {
                 'level' => 2,
                 'section_up' => {}
@@ -1464,9 +1458,7 @@ $result_sectioning{'index_no_node'} = {
       },
       {
         'cmdname' => 'chapter',
-        'extra' => {
-          'spaces_before_argument' => ' '
-        },
+        'extra' => {},
         'structure' => {
           'level' => 1,
           'number' => 1,
@@ -1478,9 +1470,7 @@ $result_sectioning{'index_no_node'} = {
       },
       {
         'cmdname' => 'chapter',
-        'extra' => {
-          'spaces_before_argument' => ' '
-        },
+        'extra' => {},
         'structure' => {
           'level' => 1,
           'number' => 2,

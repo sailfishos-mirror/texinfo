@@ -240,8 +240,7 @@ $result_texts{'double_top'} = '
 $result_nodes{'double_top'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'node_next' => {}
@@ -252,8 +251,7 @@ $result_nodes{'double_top'}{'structure'}{'node_next'} = $result_nodes{'double_to
 $result_menus{'double_top'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {}
 };

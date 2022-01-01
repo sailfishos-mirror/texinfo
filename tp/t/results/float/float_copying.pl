@@ -1228,12 +1228,10 @@ $result_sectioning{'float_copying'} = {
           'associated_node' => {
             'cmdname' => 'node',
             'extra' => {
-              'normalized' => 'Top',
-              'spaces_before_argument' => ' '
+              'normalized' => 'Top'
             },
             'structure' => {}
-          },
-          'spaces_before_argument' => ' '
+          }
         },
         'structure' => {
           'level' => 0,
@@ -1245,12 +1243,10 @@ $result_sectioning{'float_copying'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'isindex' => 1,
-                    'normalized' => 'Copying-and-floats',
-                    'spaces_before_argument' => ' '
+                    'normalized' => 'Copying-and-floats'
                   },
                   'structure' => {}
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'level' => 1,
@@ -1277,9 +1273,7 @@ $result_nodes{'float_copying'} = {
   'extra' => {
     'associated_section' => {
       'cmdname' => 'top',
-      'extra' => {
-        'spaces_before_argument' => ' '
-      },
+      'extra' => {},
       'structure' => {
         'level' => 0
       }
@@ -1287,20 +1281,10 @@ $result_nodes{'float_copying'} = {
     'menus' => [
       {
         'cmdname' => 'menu',
-        'extra' => {
-          'end_command' => {
-            'cmdname' => 'end',
-            'extra' => {
-              'command_argument' => 'menu',
-              'spaces_before_argument' => ' ',
-              'text_arg' => 'menu'
-            }
-          }
-        }
+        'extra' => {}
       }
     ],
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'menu_child' => {
@@ -1308,17 +1292,14 @@ $result_nodes{'float_copying'} = {
       'extra' => {
         'associated_section' => {
           'cmdname' => 'appendix',
-          'extra' => {
-            'spaces_before_argument' => ' '
-          },
+          'extra' => {},
           'structure' => {
             'level' => 1,
             'number' => 'A'
           }
         },
         'isindex' => 1,
-        'normalized' => 'Copying-and-floats',
-        'spaces_before_argument' => ' '
+        'normalized' => 'Copying-and-floats'
       },
       'structure' => {
         'node_prev' => {},
@@ -1335,16 +1316,14 @@ $result_nodes{'float_copying'}{'structure'}{'node_next'} = $result_nodes{'float_
 $result_menus{'float_copying'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
         'isindex' => 1,
-        'normalized' => 'Copying-and-floats',
-        'spaces_before_argument' => ' '
+        'normalized' => 'Copying-and-floats'
       },
       'structure' => {
         'menu_up' => {},
@@ -1372,16 +1351,7 @@ $result_floats{'float_copying'} = {
           },
           'structure' => {}
         },
-        'end_command' => {
-          'cmdname' => 'end',
-          'extra' => {
-            'command_argument' => 'float',
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'float'
-          }
-        },
         'normalized' => 'public-domain',
-        'spaces_before_argument' => ' ',
         'type' => {
           'content' => [
             {

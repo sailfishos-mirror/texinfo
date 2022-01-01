@@ -501,36 +501,31 @@ $result_texts{'character_and_spaces_in_node'} = '
 $result_nodes{'character_and_spaces_in_node'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'other-nodes',
-        'spaces_before_argument' => ' '
+        'normalized' => 'other-nodes'
       },
       'structure' => {
         'node_next' => {
           'cmdname' => 'node',
           'extra' => {
-            'normalized' => '_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e',
-            'spaces_before_argument' => ' '
+            'normalized' => '_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e'
           },
           'structure' => {
             'node_next' => {
               'cmdname' => 'node',
               'extra' => {
-                'normalized' => '_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e',
-                'spaces_before_argument' => ' '
+                'normalized' => '_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e'
               },
               'structure' => {
                 'node_next' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => 'local-node',
-                    'spaces_before_argument' => '  '
+                    'normalized' => 'local-node'
                   },
                   'structure' => {
                     'node_prev' => {},
@@ -563,8 +558,7 @@ $result_nodes{'character_and_spaces_in_node'}{'structure'}{'node_next'}{'structu
 $result_menus{'character_and_spaces_in_node'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {}
 };

@@ -1284,16 +1284,7 @@ $result_floats{'things_before_setfilename_no_element'} = {
     {
       'cmdname' => 'float',
       'extra' => {
-        'end_command' => {
-          'cmdname' => 'end',
-          'extra' => {
-            'command_argument' => 'float',
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'float'
-          }
-        },
         'normalized' => 'float-anchor',
-        'spaces_before_argument' => ' ',
         'type' => {
           'normalized' => ''
         }
@@ -1313,16 +1304,7 @@ $result_floats{'things_before_setfilename_no_element'} = {
             'float' => {}
           }
         },
-        'end_command' => {
-          'cmdname' => 'end',
-          'extra' => {
-            'command_argument' => 'float',
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'float'
-          }
-        },
         'normalized' => 'ta',
-        'spaces_before_argument' => ' ',
         'type' => {
           'content' => [
             {

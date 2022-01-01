@@ -21108,12 +21108,10 @@ $result_sectioning{'at_commands_in_refs_latin1'} = {
           'associated_node' => {
             'cmdname' => 'node',
             'extra' => {
-              'normalized' => 'Top',
-              'spaces_before_argument' => ' '
+              'normalized' => 'Top'
             },
             'structure' => {}
-          },
-          'spaces_before_argument' => ' '
+          }
         },
         'structure' => {
           'level' => 0,
@@ -21124,12 +21122,10 @@ $result_sectioning{'at_commands_in_refs_latin1'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => '-_007b-_007d',
-                    'spaces_before_argument' => ' '
+                    'normalized' => '-_007b-_007d'
                   },
                   'structure' => {}
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'level' => 1,
@@ -21145,12 +21141,10 @@ $result_sectioning{'at_commands_in_refs_latin1'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => '----_0021---_002e--_002e-_003f-_0040',
-                    'spaces_before_argument' => ' '
+                    'normalized' => '----_0021---_002e--_002e-_003f-_0040'
                   },
                   'structure' => {}
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'level' => 1,
@@ -21167,12 +21161,10 @@ $result_sectioning{'at_commands_in_refs_latin1'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => '_0040-_007b-_007d-_005c-_0023',
-                    'spaces_before_argument' => ' '
+                    'normalized' => '_0040-_007b-_007d-_005c-_0023'
                   },
                   'structure' => {}
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'level' => 1,
@@ -21189,12 +21181,10 @@ $result_sectioning{'at_commands_in_refs_latin1'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => 'LaTeX-TeX-_2022-_002c-_00a9-_2026-_002e_002e_002e',
-                    'spaces_before_argument' => ' '
+                    'normalized' => 'LaTeX-TeX-_2022-_002c-_00a9-_2026-_002e_002e_002e'
                   },
                   'structure' => {}
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'level' => 1,
@@ -21211,12 +21201,10 @@ $result_sectioning{'at_commands_in_refs_latin1'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => '_2261-error_002d_002d_003e-_20ac-_00a1-_21a6-_2212',
-                    'spaces_before_argument' => ' '
+                    'normalized' => '_2261-error_002d_002d_003e-_20ac-_00a1-_21a6-_2212'
                   },
                   'structure' => {}
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'level' => 1,
@@ -21233,12 +21221,10 @@ $result_sectioning{'at_commands_in_refs_latin1'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => '_2265-_2264-_2192',
-                    'spaces_before_argument' => ' '
+                    'normalized' => '_2265-_2264-_2192'
                   },
                   'structure' => {}
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'level' => 1,
@@ -21255,12 +21241,10 @@ $result_sectioning{'at_commands_in_refs_latin1'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => '_00aa-_00ba-_2605-_00a3-_22a3-_00bf-_00ae',
-                    'spaces_before_argument' => ' '
+                    'normalized' => '_00aa-_00ba-_2605-_00a3-_22a3-_00bf-_00ae'
                   },
                   'structure' => {}
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'level' => 1,
@@ -21277,12 +21261,10 @@ $result_sectioning{'at_commands_in_refs_latin1'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => '_21d2-_00b0-a-b--_00e5',
-                    'spaces_before_argument' => ' '
+                    'normalized' => '_21d2-_00b0-a-b--_00e5'
                   },
                   'structure' => {}
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'level' => 1,
@@ -21299,12 +21281,10 @@ $result_sectioning{'at_commands_in_refs_latin1'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => '_00c5-_00e6-_0153-_00c6-_0152-_00f8-_00d8-_00df-_0142-_0141-_00d0-_00f0-_00de-_00fe',
-                    'spaces_before_argument' => ' '
+                    'normalized' => '_00c5-_00e6-_0153-_00c6-_0152-_00f8-_00d8-_00df-_0142-_0141-_00d0-_00f0-_00de-_00fe'
                   },
                   'structure' => {}
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'level' => 1,
@@ -21321,12 +21301,10 @@ $result_sectioning{'at_commands_in_refs_latin1'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => '_00e4-_1ebd-_00ee-_00e2-_00e0-_00e9-_00e7-_0113-e_030a-e_030b-_0119',
-                    'spaces_before_argument' => ' '
+                    'normalized' => '_00e4-_1ebd-_00ee-_00e2-_00e0-_00e9-_00e7-_0113-e_030a-e_030b-_0119'
                   },
                   'structure' => {}
-                },
-                'spaces_before_argument' => '  '
+                }
               },
               'structure' => {
                 'level' => 1,
@@ -21343,12 +21321,10 @@ $result_sectioning{'at_commands_in_refs_latin1'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => '_0117-_0115-e_0332-_1eb9-_011b-j-e_0361e',
-                    'spaces_before_argument' => ' '
+                    'normalized' => '_0117-_0115-e_0332-_1eb9-_011b-j-e_0361e'
                   },
                   'structure' => {}
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'level' => 1,
@@ -21365,12 +21341,10 @@ $result_sectioning{'at_commands_in_refs_latin1'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => '_0131-_1e14-_1e08',
-                    'spaces_before_argument' => ' '
+                    'normalized' => '_0131-_1e14-_1e08'
                   },
                   'structure' => {}
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'level' => 1,
@@ -21387,12 +21361,10 @@ $result_sectioning{'at_commands_in_refs_latin1'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => '_201c-_201d-_2018-_2019-_201e-_201a',
-                    'spaces_before_argument' => ' '
+                    'normalized' => '_201c-_201d-_2018-_2019-_201e-_201a'
                   },
                   'structure' => {}
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'level' => 1,
@@ -21409,12 +21381,10 @@ $result_sectioning{'at_commands_in_refs_latin1'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => '_00ab-_00bb-_00ab-_00bb-_2039-_203a',
-                    'spaces_before_argument' => ' '
+                    'normalized' => '_00ab-_00bb-_00ab-_00bb-_2039-_203a'
                   },
                   'structure' => {}
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'level' => 1,
@@ -21431,12 +21401,10 @@ $result_sectioning{'at_commands_in_refs_latin1'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => '_0060_0060-_0027_0027-_002d_002d_002d-_002d_002d-_0060-_0027',
-                    'spaces_before_argument' => ' '
+                    'normalized' => '_0060_0060-_0027_0027-_002d_002d_002d-_002d_002d-_0060-_0027'
                   },
                   'structure' => {}
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'level' => 1,
@@ -21453,12 +21421,10 @@ $result_sectioning{'at_commands_in_refs_latin1'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => 'AAA-AAA-BBB',
-                    'spaces_before_argument' => ' '
+                    'normalized' => 'AAA-AAA-BBB'
                   },
                   'structure' => {}
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'level' => 1,
@@ -21475,12 +21441,10 @@ $result_sectioning{'at_commands_in_refs_latin1'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => 'CCC-CCC-DDD',
-                    'spaces_before_argument' => ' '
+                    'normalized' => 'CCC-CCC-DDD'
                   },
                   'structure' => {}
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'level' => 1,
@@ -21497,12 +21461,10 @@ $result_sectioning{'at_commands_in_refs_latin1'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => 'someone_0040somewher-no_005fexplain_0040there',
-                    'spaces_before_argument' => ' '
+                    'normalized' => 'someone_0040somewher-no_005fexplain_0040there'
                   },
                   'structure' => {}
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'level' => 1,
@@ -21519,12 +21481,10 @@ $result_sectioning{'at_commands_in_refs_latin1'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => 'f_002d_002dile1-f_002d_002dile',
-                    'spaces_before_argument' => ' '
+                    'normalized' => 'f_002d_002dile1-f_002d_002dile'
                   },
                   'structure' => {}
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'level' => 1,
@@ -21541,12 +21501,10 @@ $result_sectioning{'at_commands_in_refs_latin1'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => '-_0040-_007b_007d-_002e-',
-                    'spaces_before_argument' => ' '
+                    'normalized' => '-_0040-_007b_007d-_002e-'
                   },
                   'structure' => {}
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'level' => 1,
@@ -21563,12 +21521,10 @@ $result_sectioning{'at_commands_in_refs_latin1'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => 'cite-asis-in-_0040w-b-in-r-SC-str-t-var-dfn-i',
-                    'spaces_before_argument' => ' '
+                    'normalized' => 'cite-asis-in-_0040w-b-in-r-SC-str-t-var-dfn-i'
                   },
                   'structure' => {}
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'level' => 1,
@@ -21585,12 +21541,10 @@ $result_sectioning{'at_commands_in_refs_latin1'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => 'env-code-option-samp-command-file-C_002dx-ESC',
-                    'spaces_before_argument' => ' '
+                    'normalized' => 'env-code-option-samp-command-file-C_002dx-ESC'
                   },
                   'structure' => {}
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'level' => 1,
@@ -21607,12 +21561,10 @@ $result_sectioning{'at_commands_in_refs_latin1'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => '8_002e27in',
-                    'spaces_before_argument' => ' '
+                    'normalized' => '8_002e27in'
                   },
                   'structure' => {}
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'level' => 1,
@@ -21629,12 +21581,10 @@ $result_sectioning{'at_commands_in_refs_latin1'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => 'sansserif-slanted',
-                    'spaces_before_argument' => ' '
+                    'normalized' => 'sansserif-slanted'
                   },
                   'structure' => {}
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'level' => 1,
@@ -21651,12 +21601,10 @@ $result_sectioning{'at_commands_in_refs_latin1'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => 'indicateurl',
-                    'spaces_before_argument' => ' '
+                    'normalized' => 'indicateurl'
                   },
                   'structure' => {}
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'level' => 1,
@@ -21673,12 +21621,10 @@ $result_sectioning{'at_commands_in_refs_latin1'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => 'gH-3rd',
-                    'spaces_before_argument' => ' '
+                    'normalized' => 'gH-3rd'
                   },
                   'structure' => {}
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'level' => 1,
@@ -21695,12 +21641,10 @@ $result_sectioning{'at_commands_in_refs_latin1'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => 'http_003a_002f_002fsomewhere_005faaa-url-_002fman_002ecgi_002f1_002fls',
-                    'spaces_before_argument' => ' '
+                    'normalized' => 'http_003a_002f_002fsomewhere_005faaa-url-_002fman_002ecgi_002f1_002fls'
                   },
                   'structure' => {}
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'level' => 1,
@@ -21832,9 +21776,7 @@ $result_nodes{'at_commands_in_refs_latin1'} = {
   'extra' => {
     'associated_section' => {
       'cmdname' => 'top',
-      'extra' => {
-        'spaces_before_argument' => ' '
-      },
+      'extra' => {},
       'structure' => {
         'level' => 0
       }
@@ -21842,20 +21784,10 @@ $result_nodes{'at_commands_in_refs_latin1'} = {
     'menus' => [
       {
         'cmdname' => 'menu',
-        'extra' => {
-          'end_command' => {
-            'cmdname' => 'end',
-            'extra' => {
-              'command_argument' => 'menu',
-              'spaces_before_argument' => ' ',
-              'text_arg' => 'menu'
-            }
-          }
-        }
+        'extra' => {}
       }
     ],
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'menu_child' => {
@@ -21863,16 +21795,13 @@ $result_nodes{'at_commands_in_refs_latin1'} = {
       'extra' => {
         'associated_section' => {
           'cmdname' => 'chapter',
-          'extra' => {
-            'spaces_before_argument' => ' '
-          },
+          'extra' => {},
           'structure' => {
             'level' => 1,
             'number' => 1
           }
         },
-        'normalized' => '-_007b-_007d',
-        'spaces_before_argument' => ' '
+        'normalized' => '-_007b-_007d'
       },
       'structure' => {
         'node_next' => {
@@ -21880,16 +21809,13 @@ $result_nodes{'at_commands_in_refs_latin1'} = {
           'extra' => {
             'associated_section' => {
               'cmdname' => 'chapter',
-              'extra' => {
-                'spaces_before_argument' => ' '
-              },
+              'extra' => {},
               'structure' => {
                 'level' => 1,
                 'number' => 2
               }
             },
-            'normalized' => '----_0021---_002e--_002e-_003f-_0040',
-            'spaces_before_argument' => ' '
+            'normalized' => '----_0021---_002e--_002e-_003f-_0040'
           },
           'structure' => {
             'node_next' => {
@@ -21897,16 +21823,13 @@ $result_nodes{'at_commands_in_refs_latin1'} = {
               'extra' => {
                 'associated_section' => {
                   'cmdname' => 'chapter',
-                  'extra' => {
-                    'spaces_before_argument' => ' '
-                  },
+                  'extra' => {},
                   'structure' => {
                     'level' => 1,
                     'number' => 3
                   }
                 },
-                'normalized' => '_0040-_007b-_007d-_005c-_0023',
-                'spaces_before_argument' => ' '
+                'normalized' => '_0040-_007b-_007d-_005c-_0023'
               },
               'structure' => {
                 'node_next' => {
@@ -21914,16 +21837,13 @@ $result_nodes{'at_commands_in_refs_latin1'} = {
                   'extra' => {
                     'associated_section' => {
                       'cmdname' => 'chapter',
-                      'extra' => {
-                        'spaces_before_argument' => ' '
-                      },
+                      'extra' => {},
                       'structure' => {
                         'level' => 1,
                         'number' => 4
                       }
                     },
-                    'normalized' => 'LaTeX-TeX-_2022-_002c-_00a9-_2026-_002e_002e_002e',
-                    'spaces_before_argument' => ' '
+                    'normalized' => 'LaTeX-TeX-_2022-_002c-_00a9-_2026-_002e_002e_002e'
                   },
                   'structure' => {
                     'node_next' => {
@@ -21931,16 +21851,13 @@ $result_nodes{'at_commands_in_refs_latin1'} = {
                       'extra' => {
                         'associated_section' => {
                           'cmdname' => 'chapter',
-                          'extra' => {
-                            'spaces_before_argument' => ' '
-                          },
+                          'extra' => {},
                           'structure' => {
                             'level' => 1,
                             'number' => 5
                           }
                         },
-                        'normalized' => '_2261-error_002d_002d_003e-_20ac-_00a1-_21a6-_2212',
-                        'spaces_before_argument' => ' '
+                        'normalized' => '_2261-error_002d_002d_003e-_20ac-_00a1-_21a6-_2212'
                       },
                       'structure' => {
                         'node_next' => {
@@ -21948,16 +21865,13 @@ $result_nodes{'at_commands_in_refs_latin1'} = {
                           'extra' => {
                             'associated_section' => {
                               'cmdname' => 'chapter',
-                              'extra' => {
-                                'spaces_before_argument' => ' '
-                              },
+                              'extra' => {},
                               'structure' => {
                                 'level' => 1,
                                 'number' => 6
                               }
                             },
-                            'normalized' => '_2265-_2264-_2192',
-                            'spaces_before_argument' => ' '
+                            'normalized' => '_2265-_2264-_2192'
                           },
                           'structure' => {
                             'node_next' => {
@@ -21965,16 +21879,13 @@ $result_nodes{'at_commands_in_refs_latin1'} = {
                               'extra' => {
                                 'associated_section' => {
                                   'cmdname' => 'chapter',
-                                  'extra' => {
-                                    'spaces_before_argument' => ' '
-                                  },
+                                  'extra' => {},
                                   'structure' => {
                                     'level' => 1,
                                     'number' => 7
                                   }
                                 },
-                                'normalized' => '_00aa-_00ba-_2605-_00a3-_22a3-_00bf-_00ae',
-                                'spaces_before_argument' => ' '
+                                'normalized' => '_00aa-_00ba-_2605-_00a3-_22a3-_00bf-_00ae'
                               },
                               'structure' => {
                                 'node_next' => {
@@ -21982,16 +21893,13 @@ $result_nodes{'at_commands_in_refs_latin1'} = {
                                   'extra' => {
                                     'associated_section' => {
                                       'cmdname' => 'chapter',
-                                      'extra' => {
-                                        'spaces_before_argument' => ' '
-                                      },
+                                      'extra' => {},
                                       'structure' => {
                                         'level' => 1,
                                         'number' => 8
                                       }
                                     },
-                                    'normalized' => '_21d2-_00b0-a-b--_00e5',
-                                    'spaces_before_argument' => ' '
+                                    'normalized' => '_21d2-_00b0-a-b--_00e5'
                                   },
                                   'structure' => {
                                     'node_next' => {
@@ -21999,16 +21907,13 @@ $result_nodes{'at_commands_in_refs_latin1'} = {
                                       'extra' => {
                                         'associated_section' => {
                                           'cmdname' => 'chapter',
-                                          'extra' => {
-                                            'spaces_before_argument' => ' '
-                                          },
+                                          'extra' => {},
                                           'structure' => {
                                             'level' => 1,
                                             'number' => 9
                                           }
                                         },
-                                        'normalized' => '_00c5-_00e6-_0153-_00c6-_0152-_00f8-_00d8-_00df-_0142-_0141-_00d0-_00f0-_00de-_00fe',
-                                        'spaces_before_argument' => ' '
+                                        'normalized' => '_00c5-_00e6-_0153-_00c6-_0152-_00f8-_00d8-_00df-_0142-_0141-_00d0-_00f0-_00de-_00fe'
                                       },
                                       'structure' => {
                                         'node_next' => {
@@ -22016,16 +21921,13 @@ $result_nodes{'at_commands_in_refs_latin1'} = {
                                           'extra' => {
                                             'associated_section' => {
                                               'cmdname' => 'chapter',
-                                              'extra' => {
-                                                'spaces_before_argument' => '  '
-                                              },
+                                              'extra' => {},
                                               'structure' => {
                                                 'level' => 1,
                                                 'number' => 10
                                               }
                                             },
-                                            'normalized' => '_00e4-_1ebd-_00ee-_00e2-_00e0-_00e9-_00e7-_0113-e_030a-e_030b-_0119',
-                                            'spaces_before_argument' => ' '
+                                            'normalized' => '_00e4-_1ebd-_00ee-_00e2-_00e0-_00e9-_00e7-_0113-e_030a-e_030b-_0119'
                                           },
                                           'structure' => {
                                             'node_next' => {
@@ -22033,16 +21935,13 @@ $result_nodes{'at_commands_in_refs_latin1'} = {
                                               'extra' => {
                                                 'associated_section' => {
                                                   'cmdname' => 'chapter',
-                                                  'extra' => {
-                                                    'spaces_before_argument' => ' '
-                                                  },
+                                                  'extra' => {},
                                                   'structure' => {
                                                     'level' => 1,
                                                     'number' => 11
                                                   }
                                                 },
-                                                'normalized' => '_0117-_0115-e_0332-_1eb9-_011b-j-e_0361e',
-                                                'spaces_before_argument' => ' '
+                                                'normalized' => '_0117-_0115-e_0332-_1eb9-_011b-j-e_0361e'
                                               },
                                               'structure' => {
                                                 'node_next' => {
@@ -22050,16 +21949,13 @@ $result_nodes{'at_commands_in_refs_latin1'} = {
                                                   'extra' => {
                                                     'associated_section' => {
                                                       'cmdname' => 'chapter',
-                                                      'extra' => {
-                                                        'spaces_before_argument' => ' '
-                                                      },
+                                                      'extra' => {},
                                                       'structure' => {
                                                         'level' => 1,
                                                         'number' => 12
                                                       }
                                                     },
-                                                    'normalized' => '_0131-_1e14-_1e08',
-                                                    'spaces_before_argument' => ' '
+                                                    'normalized' => '_0131-_1e14-_1e08'
                                                   },
                                                   'structure' => {
                                                     'node_next' => {
@@ -22067,16 +21963,13 @@ $result_nodes{'at_commands_in_refs_latin1'} = {
                                                       'extra' => {
                                                         'associated_section' => {
                                                           'cmdname' => 'chapter',
-                                                          'extra' => {
-                                                            'spaces_before_argument' => ' '
-                                                          },
+                                                          'extra' => {},
                                                           'structure' => {
                                                             'level' => 1,
                                                             'number' => 13
                                                           }
                                                         },
-                                                        'normalized' => '_201c-_201d-_2018-_2019-_201e-_201a',
-                                                        'spaces_before_argument' => ' '
+                                                        'normalized' => '_201c-_201d-_2018-_2019-_201e-_201a'
                                                       },
                                                       'structure' => {
                                                         'node_next' => {
@@ -22084,16 +21977,13 @@ $result_nodes{'at_commands_in_refs_latin1'} = {
                                                           'extra' => {
                                                             'associated_section' => {
                                                               'cmdname' => 'chapter',
-                                                              'extra' => {
-                                                                'spaces_before_argument' => ' '
-                                                              },
+                                                              'extra' => {},
                                                               'structure' => {
                                                                 'level' => 1,
                                                                 'number' => 14
                                                               }
                                                             },
-                                                            'normalized' => '_00ab-_00bb-_00ab-_00bb-_2039-_203a',
-                                                            'spaces_before_argument' => ' '
+                                                            'normalized' => '_00ab-_00bb-_00ab-_00bb-_2039-_203a'
                                                           },
                                                           'structure' => {
                                                             'node_next' => {
@@ -22101,16 +21991,13 @@ $result_nodes{'at_commands_in_refs_latin1'} = {
                                                               'extra' => {
                                                                 'associated_section' => {
                                                                   'cmdname' => 'chapter',
-                                                                  'extra' => {
-                                                                    'spaces_before_argument' => ' '
-                                                                  },
+                                                                  'extra' => {},
                                                                   'structure' => {
                                                                     'level' => 1,
                                                                     'number' => 15
                                                                   }
                                                                 },
-                                                                'normalized' => '_0060_0060-_0027_0027-_002d_002d_002d-_002d_002d-_0060-_0027',
-                                                                'spaces_before_argument' => ' '
+                                                                'normalized' => '_0060_0060-_0027_0027-_002d_002d_002d-_002d_002d-_0060-_0027'
                                                               },
                                                               'structure' => {
                                                                 'node_next' => {
@@ -22118,16 +22005,13 @@ $result_nodes{'at_commands_in_refs_latin1'} = {
                                                                   'extra' => {
                                                                     'associated_section' => {
                                                                       'cmdname' => 'chapter',
-                                                                      'extra' => {
-                                                                        'spaces_before_argument' => ' '
-                                                                      },
+                                                                      'extra' => {},
                                                                       'structure' => {
                                                                         'level' => 1,
                                                                         'number' => 16
                                                                       }
                                                                     },
-                                                                    'normalized' => 'AAA-AAA-BBB',
-                                                                    'spaces_before_argument' => ' '
+                                                                    'normalized' => 'AAA-AAA-BBB'
                                                                   },
                                                                   'structure' => {
                                                                     'node_next' => {
@@ -22135,16 +22019,13 @@ $result_nodes{'at_commands_in_refs_latin1'} = {
                                                                       'extra' => {
                                                                         'associated_section' => {
                                                                           'cmdname' => 'chapter',
-                                                                          'extra' => {
-                                                                            'spaces_before_argument' => ' '
-                                                                          },
+                                                                          'extra' => {},
                                                                           'structure' => {
                                                                             'level' => 1,
                                                                             'number' => 17
                                                                           }
                                                                         },
-                                                                        'normalized' => 'CCC-CCC-DDD',
-                                                                        'spaces_before_argument' => ' '
+                                                                        'normalized' => 'CCC-CCC-DDD'
                                                                       },
                                                                       'structure' => {
                                                                         'node_next' => {
@@ -22152,16 +22033,13 @@ $result_nodes{'at_commands_in_refs_latin1'} = {
                                                                           'extra' => {
                                                                             'associated_section' => {
                                                                               'cmdname' => 'chapter',
-                                                                              'extra' => {
-                                                                                'spaces_before_argument' => ' '
-                                                                              },
+                                                                              'extra' => {},
                                                                               'structure' => {
                                                                                 'level' => 1,
                                                                                 'number' => 18
                                                                               }
                                                                             },
-                                                                            'normalized' => 'someone_0040somewher-no_005fexplain_0040there',
-                                                                            'spaces_before_argument' => ' '
+                                                                            'normalized' => 'someone_0040somewher-no_005fexplain_0040there'
                                                                           },
                                                                           'structure' => {
                                                                             'node_next' => {
@@ -22169,16 +22047,13 @@ $result_nodes{'at_commands_in_refs_latin1'} = {
                                                                               'extra' => {
                                                                                 'associated_section' => {
                                                                                   'cmdname' => 'chapter',
-                                                                                  'extra' => {
-                                                                                    'spaces_before_argument' => ' '
-                                                                                  },
+                                                                                  'extra' => {},
                                                                                   'structure' => {
                                                                                     'level' => 1,
                                                                                     'number' => 19
                                                                                   }
                                                                                 },
-                                                                                'normalized' => 'f_002d_002dile1-f_002d_002dile',
-                                                                                'spaces_before_argument' => ' '
+                                                                                'normalized' => 'f_002d_002dile1-f_002d_002dile'
                                                                               },
                                                                               'structure' => {
                                                                                 'node_next' => {
@@ -22186,16 +22061,13 @@ $result_nodes{'at_commands_in_refs_latin1'} = {
                                                                                   'extra' => {
                                                                                     'associated_section' => {
                                                                                       'cmdname' => 'chapter',
-                                                                                      'extra' => {
-                                                                                        'spaces_before_argument' => ' '
-                                                                                      },
+                                                                                      'extra' => {},
                                                                                       'structure' => {
                                                                                         'level' => 1,
                                                                                         'number' => 20
                                                                                       }
                                                                                     },
-                                                                                    'normalized' => '-_0040-_007b_007d-_002e-',
-                                                                                    'spaces_before_argument' => ' '
+                                                                                    'normalized' => '-_0040-_007b_007d-_002e-'
                                                                                   },
                                                                                   'structure' => {
                                                                                     'node_next' => {
@@ -22203,16 +22075,13 @@ $result_nodes{'at_commands_in_refs_latin1'} = {
                                                                                       'extra' => {
                                                                                         'associated_section' => {
                                                                                           'cmdname' => 'chapter',
-                                                                                          'extra' => {
-                                                                                            'spaces_before_argument' => ' '
-                                                                                          },
+                                                                                          'extra' => {},
                                                                                           'structure' => {
                                                                                             'level' => 1,
                                                                                             'number' => 21
                                                                                           }
                                                                                         },
-                                                                                        'normalized' => 'cite-asis-in-_0040w-b-in-r-SC-str-t-var-dfn-i',
-                                                                                        'spaces_before_argument' => ' '
+                                                                                        'normalized' => 'cite-asis-in-_0040w-b-in-r-SC-str-t-var-dfn-i'
                                                                                       },
                                                                                       'structure' => {
                                                                                         'node_next' => {
@@ -22220,16 +22089,13 @@ $result_nodes{'at_commands_in_refs_latin1'} = {
                                                                                           'extra' => {
                                                                                             'associated_section' => {
                                                                                               'cmdname' => 'chapter',
-                                                                                              'extra' => {
-                                                                                                'spaces_before_argument' => ' '
-                                                                                              },
+                                                                                              'extra' => {},
                                                                                               'structure' => {
                                                                                                 'level' => 1,
                                                                                                 'number' => 22
                                                                                               }
                                                                                             },
-                                                                                            'normalized' => 'env-code-option-samp-command-file-C_002dx-ESC',
-                                                                                            'spaces_before_argument' => ' '
+                                                                                            'normalized' => 'env-code-option-samp-command-file-C_002dx-ESC'
                                                                                           },
                                                                                           'structure' => {
                                                                                             'node_next' => {
@@ -22237,16 +22103,13 @@ $result_nodes{'at_commands_in_refs_latin1'} = {
                                                                                               'extra' => {
                                                                                                 'associated_section' => {
                                                                                                   'cmdname' => 'chapter',
-                                                                                                  'extra' => {
-                                                                                                    'spaces_before_argument' => ' '
-                                                                                                  },
+                                                                                                  'extra' => {},
                                                                                                   'structure' => {
                                                                                                     'level' => 1,
                                                                                                     'number' => 23
                                                                                                   }
                                                                                                 },
-                                                                                                'normalized' => '8_002e27in',
-                                                                                                'spaces_before_argument' => ' '
+                                                                                                'normalized' => '8_002e27in'
                                                                                               },
                                                                                               'structure' => {
                                                                                                 'node_next' => {
@@ -22254,16 +22117,13 @@ $result_nodes{'at_commands_in_refs_latin1'} = {
                                                                                                   'extra' => {
                                                                                                     'associated_section' => {
                                                                                                       'cmdname' => 'chapter',
-                                                                                                      'extra' => {
-                                                                                                        'spaces_before_argument' => ' '
-                                                                                                      },
+                                                                                                      'extra' => {},
                                                                                                       'structure' => {
                                                                                                         'level' => 1,
                                                                                                         'number' => 24
                                                                                                       }
                                                                                                     },
-                                                                                                    'normalized' => 'sansserif-slanted',
-                                                                                                    'spaces_before_argument' => ' '
+                                                                                                    'normalized' => 'sansserif-slanted'
                                                                                                   },
                                                                                                   'structure' => {
                                                                                                     'node_next' => {
@@ -22271,16 +22131,13 @@ $result_nodes{'at_commands_in_refs_latin1'} = {
                                                                                                       'extra' => {
                                                                                                         'associated_section' => {
                                                                                                           'cmdname' => 'chapter',
-                                                                                                          'extra' => {
-                                                                                                            'spaces_before_argument' => ' '
-                                                                                                          },
+                                                                                                          'extra' => {},
                                                                                                           'structure' => {
                                                                                                             'level' => 1,
                                                                                                             'number' => 25
                                                                                                           }
                                                                                                         },
-                                                                                                        'normalized' => 'indicateurl',
-                                                                                                        'spaces_before_argument' => ' '
+                                                                                                        'normalized' => 'indicateurl'
                                                                                                       },
                                                                                                       'structure' => {
                                                                                                         'node_next' => {
@@ -22288,16 +22145,13 @@ $result_nodes{'at_commands_in_refs_latin1'} = {
                                                                                                           'extra' => {
                                                                                                             'associated_section' => {
                                                                                                               'cmdname' => 'chapter',
-                                                                                                              'extra' => {
-                                                                                                                'spaces_before_argument' => ' '
-                                                                                                              },
+                                                                                                              'extra' => {},
                                                                                                               'structure' => {
                                                                                                                 'level' => 1,
                                                                                                                 'number' => 26
                                                                                                               }
                                                                                                             },
-                                                                                                            'normalized' => 'gH-3rd',
-                                                                                                            'spaces_before_argument' => ' '
+                                                                                                            'normalized' => 'gH-3rd'
                                                                                                           },
                                                                                                           'structure' => {
                                                                                                             'node_next' => {
@@ -22305,16 +22159,13 @@ $result_nodes{'at_commands_in_refs_latin1'} = {
                                                                                                               'extra' => {
                                                                                                                 'associated_section' => {
                                                                                                                   'cmdname' => 'chapter',
-                                                                                                                  'extra' => {
-                                                                                                                    'spaces_before_argument' => ' '
-                                                                                                                  },
+                                                                                                                  'extra' => {},
                                                                                                                   'structure' => {
                                                                                                                     'level' => 1,
                                                                                                                     'number' => 27
                                                                                                                   }
                                                                                                                 },
-                                                                                                                'normalized' => 'http_003a_002f_002fsomewhere_005faaa-url-_002fman_002ecgi_002f1_002fls',
-                                                                                                                'spaces_before_argument' => ' '
+                                                                                                                'normalized' => 'http_003a_002f_002fsomewhere_005faaa-url-_002fman_002ecgi_002f1_002fls'
                                                                                                               },
                                                                                                               'structure' => {
                                                                                                                 'node_prev' => {},
@@ -22487,197 +22338,169 @@ $result_nodes{'at_commands_in_refs_latin1'}{'structure'}{'node_next'} = $result_
 $result_menus{'at_commands_in_refs_latin1'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => '-_007b-_007d',
-        'spaces_before_argument' => ' '
+        'normalized' => '-_007b-_007d'
       },
       'structure' => {
         'menu_next' => {
           'cmdname' => 'node',
           'extra' => {
-            'normalized' => '----_0021---_002e--_002e-_003f-_0040',
-            'spaces_before_argument' => ' '
+            'normalized' => '----_0021---_002e--_002e-_003f-_0040'
           },
           'structure' => {
             'menu_next' => {
               'cmdname' => 'node',
               'extra' => {
-                'normalized' => '_0040-_007b-_007d-_005c-_0023',
-                'spaces_before_argument' => ' '
+                'normalized' => '_0040-_007b-_007d-_005c-_0023'
               },
               'structure' => {
                 'menu_next' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => 'LaTeX-TeX-_2022-_002c-_00a9-_2026-_002e_002e_002e',
-                    'spaces_before_argument' => ' '
+                    'normalized' => 'LaTeX-TeX-_2022-_002c-_00a9-_2026-_002e_002e_002e'
                   },
                   'structure' => {
                     'menu_next' => {
                       'cmdname' => 'node',
                       'extra' => {
-                        'normalized' => '_2261-error_002d_002d_003e-_20ac-_00a1-_21a6-_2212',
-                        'spaces_before_argument' => ' '
+                        'normalized' => '_2261-error_002d_002d_003e-_20ac-_00a1-_21a6-_2212'
                       },
                       'structure' => {
                         'menu_next' => {
                           'cmdname' => 'node',
                           'extra' => {
-                            'normalized' => '_2265-_2264-_2192',
-                            'spaces_before_argument' => ' '
+                            'normalized' => '_2265-_2264-_2192'
                           },
                           'structure' => {
                             'menu_next' => {
                               'cmdname' => 'node',
                               'extra' => {
-                                'normalized' => '_00aa-_00ba-_2605-_00a3-_22a3-_00bf-_00ae',
-                                'spaces_before_argument' => ' '
+                                'normalized' => '_00aa-_00ba-_2605-_00a3-_22a3-_00bf-_00ae'
                               },
                               'structure' => {
                                 'menu_next' => {
                                   'cmdname' => 'node',
                                   'extra' => {
-                                    'normalized' => '_21d2-_00b0-a-b--_00e5',
-                                    'spaces_before_argument' => ' '
+                                    'normalized' => '_21d2-_00b0-a-b--_00e5'
                                   },
                                   'structure' => {
                                     'menu_next' => {
                                       'cmdname' => 'node',
                                       'extra' => {
-                                        'normalized' => '_00c5-_00e6-_0153-_00c6-_0152-_00f8-_00d8-_00df-_0142-_0141-_00d0-_00f0-_00de-_00fe',
-                                        'spaces_before_argument' => ' '
+                                        'normalized' => '_00c5-_00e6-_0153-_00c6-_0152-_00f8-_00d8-_00df-_0142-_0141-_00d0-_00f0-_00de-_00fe'
                                       },
                                       'structure' => {
                                         'menu_next' => {
                                           'cmdname' => 'node',
                                           'extra' => {
-                                            'normalized' => '_00e4-_1ebd-_00ee-_00e2-_00e0-_00e9-_00e7-_0113-e_030a-e_030b-_0119',
-                                            'spaces_before_argument' => ' '
+                                            'normalized' => '_00e4-_1ebd-_00ee-_00e2-_00e0-_00e9-_00e7-_0113-e_030a-e_030b-_0119'
                                           },
                                           'structure' => {
                                             'menu_next' => {
                                               'cmdname' => 'node',
                                               'extra' => {
-                                                'normalized' => '_0117-_0115-e_0332-_1eb9-_011b-j-e_0361e',
-                                                'spaces_before_argument' => ' '
+                                                'normalized' => '_0117-_0115-e_0332-_1eb9-_011b-j-e_0361e'
                                               },
                                               'structure' => {
                                                 'menu_next' => {
                                                   'cmdname' => 'node',
                                                   'extra' => {
-                                                    'normalized' => '_0131-_1e14-_1e08',
-                                                    'spaces_before_argument' => ' '
+                                                    'normalized' => '_0131-_1e14-_1e08'
                                                   },
                                                   'structure' => {
                                                     'menu_next' => {
                                                       'cmdname' => 'node',
                                                       'extra' => {
-                                                        'normalized' => '_201c-_201d-_2018-_2019-_201e-_201a',
-                                                        'spaces_before_argument' => ' '
+                                                        'normalized' => '_201c-_201d-_2018-_2019-_201e-_201a'
                                                       },
                                                       'structure' => {
                                                         'menu_next' => {
                                                           'cmdname' => 'node',
                                                           'extra' => {
-                                                            'normalized' => '_00ab-_00bb-_00ab-_00bb-_2039-_203a',
-                                                            'spaces_before_argument' => ' '
+                                                            'normalized' => '_00ab-_00bb-_00ab-_00bb-_2039-_203a'
                                                           },
                                                           'structure' => {
                                                             'menu_next' => {
                                                               'cmdname' => 'node',
                                                               'extra' => {
-                                                                'normalized' => '_0060_0060-_0027_0027-_002d_002d_002d-_002d_002d-_0060-_0027',
-                                                                'spaces_before_argument' => ' '
+                                                                'normalized' => '_0060_0060-_0027_0027-_002d_002d_002d-_002d_002d-_0060-_0027'
                                                               },
                                                               'structure' => {
                                                                 'menu_next' => {
                                                                   'cmdname' => 'node',
                                                                   'extra' => {
-                                                                    'normalized' => 'AAA-AAA-BBB',
-                                                                    'spaces_before_argument' => ' '
+                                                                    'normalized' => 'AAA-AAA-BBB'
                                                                   },
                                                                   'structure' => {
                                                                     'menu_next' => {
                                                                       'cmdname' => 'node',
                                                                       'extra' => {
-                                                                        'normalized' => 'CCC-CCC-DDD',
-                                                                        'spaces_before_argument' => ' '
+                                                                        'normalized' => 'CCC-CCC-DDD'
                                                                       },
                                                                       'structure' => {
                                                                         'menu_next' => {
                                                                           'cmdname' => 'node',
                                                                           'extra' => {
-                                                                            'normalized' => 'someone_0040somewher-no_005fexplain_0040there',
-                                                                            'spaces_before_argument' => ' '
+                                                                            'normalized' => 'someone_0040somewher-no_005fexplain_0040there'
                                                                           },
                                                                           'structure' => {
                                                                             'menu_next' => {
                                                                               'cmdname' => 'node',
                                                                               'extra' => {
-                                                                                'normalized' => 'f_002d_002dile1-f_002d_002dile',
-                                                                                'spaces_before_argument' => ' '
+                                                                                'normalized' => 'f_002d_002dile1-f_002d_002dile'
                                                                               },
                                                                               'structure' => {
                                                                                 'menu_next' => {
                                                                                   'cmdname' => 'node',
                                                                                   'extra' => {
-                                                                                    'normalized' => '-_0040-_007b_007d-_002e-',
-                                                                                    'spaces_before_argument' => ' '
+                                                                                    'normalized' => '-_0040-_007b_007d-_002e-'
                                                                                   },
                                                                                   'structure' => {
                                                                                     'menu_next' => {
                                                                                       'cmdname' => 'node',
                                                                                       'extra' => {
-                                                                                        'normalized' => 'cite-asis-in-_0040w-b-in-r-SC-str-t-var-dfn-i',
-                                                                                        'spaces_before_argument' => ' '
+                                                                                        'normalized' => 'cite-asis-in-_0040w-b-in-r-SC-str-t-var-dfn-i'
                                                                                       },
                                                                                       'structure' => {
                                                                                         'menu_next' => {
                                                                                           'cmdname' => 'node',
                                                                                           'extra' => {
-                                                                                            'normalized' => 'env-code-option-samp-command-file-C_002dx-ESC',
-                                                                                            'spaces_before_argument' => ' '
+                                                                                            'normalized' => 'env-code-option-samp-command-file-C_002dx-ESC'
                                                                                           },
                                                                                           'structure' => {
                                                                                             'menu_next' => {
                                                                                               'cmdname' => 'node',
                                                                                               'extra' => {
-                                                                                                'normalized' => '8_002e27in',
-                                                                                                'spaces_before_argument' => ' '
+                                                                                                'normalized' => '8_002e27in'
                                                                                               },
                                                                                               'structure' => {
                                                                                                 'menu_next' => {
                                                                                                   'cmdname' => 'node',
                                                                                                   'extra' => {
-                                                                                                    'normalized' => 'sansserif-slanted',
-                                                                                                    'spaces_before_argument' => ' '
+                                                                                                    'normalized' => 'sansserif-slanted'
                                                                                                   },
                                                                                                   'structure' => {
                                                                                                     'menu_next' => {
                                                                                                       'cmdname' => 'node',
                                                                                                       'extra' => {
-                                                                                                        'normalized' => 'indicateurl',
-                                                                                                        'spaces_before_argument' => ' '
+                                                                                                        'normalized' => 'indicateurl'
                                                                                                       },
                                                                                                       'structure' => {
                                                                                                         'menu_next' => {
                                                                                                           'cmdname' => 'node',
                                                                                                           'extra' => {
-                                                                                                            'normalized' => 'gH-3rd',
-                                                                                                            'spaces_before_argument' => ' '
+                                                                                                            'normalized' => 'gH-3rd'
                                                                                                           },
                                                                                                           'structure' => {
                                                                                                             'menu_next' => {
                                                                                                               'cmdname' => 'node',
                                                                                                               'extra' => {
-                                                                                                                'normalized' => 'http_003a_002f_002fsomewhere_005faaa-url-_002fman_002ecgi_002f1_002fls',
-                                                                                                                'spaces_before_argument' => ' '
+                                                                                                                'normalized' => 'http_003a_002f_002fsomewhere_005faaa-url-_002fman_002ecgi_002f1_002fls'
                                                                                                               },
                                                                                                               'structure' => {
                                                                                                                 'menu_prev' => {},

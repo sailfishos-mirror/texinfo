@@ -379,12 +379,10 @@ $result_sectioning{'node_sectop_before_lone_node_Top'} = {
           'associated_node' => {
             'cmdname' => 'node',
             'extra' => {
-              'normalized' => 'node-before',
-              'spaces_before_argument' => ' '
+              'normalized' => 'node-before'
             },
             'structure' => {}
-          },
-          'spaces_before_argument' => ' '
+          }
         },
         'structure' => {
           'level' => 0,
@@ -395,12 +393,10 @@ $result_sectioning{'node_sectop_before_lone_node_Top'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => 'chap',
-                    'spaces_before_argument' => ' '
+                    'normalized' => 'chap'
                   },
                   'structure' => {}
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'level' => 1,
@@ -425,8 +421,7 @@ $result_sectioning{'node_sectop_before_lone_node_Top'}{'structure'}{'section_chi
 $result_nodes{'node_sectop_before_lone_node_Top'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'node_next' => {
@@ -434,15 +429,12 @@ $result_nodes{'node_sectop_before_lone_node_Top'} = {
       'extra' => {
         'associated_section' => {
           'cmdname' => 'top',
-          'extra' => {
-            'spaces_before_argument' => ' '
-          },
+          'extra' => {},
           'structure' => {
             'level' => 0
           }
         },
-        'normalized' => 'node-before',
-        'spaces_before_argument' => ' '
+        'normalized' => 'node-before'
       },
       'structure' => {
         'node_next' => {
@@ -450,16 +442,13 @@ $result_nodes{'node_sectop_before_lone_node_Top'} = {
           'extra' => {
             'associated_section' => {
               'cmdname' => 'chapter',
-              'extra' => {
-                'spaces_before_argument' => ' '
-              },
+              'extra' => {},
               'structure' => {
                 'level' => 1,
                 'number' => 1
               }
             },
-            'normalized' => 'chap',
-            'spaces_before_argument' => ' '
+            'normalized' => 'chap'
           },
           'structure' => {
             'node_up' => {}
@@ -476,8 +465,7 @@ $result_nodes{'node_sectop_before_lone_node_Top'}{'structure'}{'node_next'}{'str
 $result_menus{'node_sectop_before_lone_node_Top'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {}
 };

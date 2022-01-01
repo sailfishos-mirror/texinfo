@@ -1960,12 +1960,10 @@ $result_sectioning{'image_inline_or_not'} = {
           'associated_node' => {
             'cmdname' => 'node',
             'extra' => {
-              'normalized' => 'Top',
-              'spaces_before_argument' => ' '
+              'normalized' => 'Top'
             },
             'structure' => {}
-          },
-          'spaces_before_argument' => ' '
+          }
         },
         'structure' => {
           'level' => 0,
@@ -1976,12 +1974,10 @@ $result_sectioning{'image_inline_or_not'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => 'node_005fimage',
-                    'spaces_before_argument' => ' '
+                    'normalized' => 'node_005fimage'
                   },
                   'structure' => {}
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'level' => 1,
@@ -2008,9 +2004,7 @@ $result_nodes{'image_inline_or_not'} = {
   'extra' => {
     'associated_section' => {
       'cmdname' => 'top',
-      'extra' => {
-        'spaces_before_argument' => ' '
-      },
+      'extra' => {},
       'structure' => {
         'level' => 0
       }
@@ -2018,20 +2012,10 @@ $result_nodes{'image_inline_or_not'} = {
     'menus' => [
       {
         'cmdname' => 'menu',
-        'extra' => {
-          'end_command' => {
-            'cmdname' => 'end',
-            'extra' => {
-              'command_argument' => 'menu',
-              'spaces_before_argument' => ' ',
-              'text_arg' => 'menu'
-            }
-          }
-        }
+        'extra' => {}
       }
     ],
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'menu_child' => {
@@ -2039,16 +2023,13 @@ $result_nodes{'image_inline_or_not'} = {
       'extra' => {
         'associated_section' => {
           'cmdname' => 'chapter',
-          'extra' => {
-            'spaces_before_argument' => ' '
-          },
+          'extra' => {},
           'structure' => {
             'level' => 1,
             'number' => 1
           }
         },
-        'normalized' => 'node_005fimage',
-        'spaces_before_argument' => ' '
+        'normalized' => 'node_005fimage'
       },
       'structure' => {
         'node_prev' => {},
@@ -2065,15 +2046,13 @@ $result_nodes{'image_inline_or_not'}{'structure'}{'node_next'} = $result_nodes{'
 $result_menus{'image_inline_or_not'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'node_005fimage',
-        'spaces_before_argument' => ' '
+        'normalized' => 'node_005fimage'
       },
       'structure' => {
         'menu_next' => {
@@ -2110,26 +2089,15 @@ $result_floats{'image_inline_or_not'} = {
             'float' => {}
           }
         },
-        'end_command' => {
-          'cmdname' => 'end',
-          'extra' => {
-            'command_argument' => 'float',
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'float'
-          }
-        },
         'float_section' => {
           'cmdname' => 'chapter',
-          'extra' => {
-            'spaces_before_argument' => ' '
-          },
+          'extra' => {},
           'structure' => {
             'level' => 1,
             'number' => 1
           }
         },
         'normalized' => 'g',
-        'spaces_before_argument' => ' ',
         'type' => {
           'content' => [
             {

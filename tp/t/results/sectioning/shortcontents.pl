@@ -545,44 +545,34 @@ $result_sectioning{'shortcontents'} = {
     'section_childs' => [
       {
         'cmdname' => 'top',
-        'extra' => {
-          'spaces_before_argument' => ' '
-        },
+        'extra' => {},
         'structure' => {
           'level' => 0,
           'section_childs' => [
             {
               'cmdname' => 'chapter',
-              'extra' => {
-                'spaces_before_argument' => ' '
-              },
+              'extra' => {},
               'structure' => {
                 'level' => 1,
                 'number' => 1,
                 'section_childs' => [
                   {
                     'cmdname' => 'section',
-                    'extra' => {
-                      'spaces_before_argument' => ' '
-                    },
+                    'extra' => {},
                     'structure' => {
                       'level' => 2,
                       'number' => '1.1',
                       'section_childs' => [
                         {
                           'cmdname' => 'subsection',
-                          'extra' => {
-                            'spaces_before_argument' => ' '
-                          },
+                          'extra' => {},
                           'structure' => {
                             'level' => 3,
                             'number' => '1.1.1',
                             'section_childs' => [
                               {
                                 'cmdname' => 'subsubsection',
-                                'extra' => {
-                                  'spaces_before_argument' => ' '
-                                },
+                                'extra' => {},
                                 'structure' => {
                                   'level' => 4,
                                   'number' => '1.1.1.1',
@@ -613,8 +603,7 @@ $result_sectioning{'shortcontents'} = {
           'part_associated_section' => {
             'cmdname' => 'chapter',
             'extra' => {
-              'associated_part' => {},
-              'spaces_before_argument' => ' '
+              'associated_part' => {}
             },
             'structure' => {
               'level' => 1,
@@ -623,8 +612,7 @@ $result_sectioning{'shortcontents'} = {
               'toplevel_prev' => {},
               'toplevel_up' => {}
             }
-          },
-          'spaces_before_argument' => ' '
+          }
         },
         'structure' => {
           'level' => 0,
@@ -632,9 +620,7 @@ $result_sectioning{'shortcontents'} = {
             {},
             {
               'cmdname' => 'chapter',
-              'extra' => {
-                'spaces_before_argument' => ' '
-              },
+              'extra' => {},
               'structure' => {
                 'level' => 1,
                 'number' => 3,
@@ -646,9 +632,7 @@ $result_sectioning{'shortcontents'} = {
             },
             {
               'cmdname' => 'unnumbered',
-              'extra' => {
-                'spaces_before_argument' => ' '
-              },
+              'extra' => {},
               'structure' => {
                 'level' => 1,
                 'section_prev' => {},
@@ -664,18 +648,14 @@ $result_sectioning{'shortcontents'} = {
       },
       {
         'cmdname' => 'appendix',
-        'extra' => {
-          'spaces_before_argument' => ' '
-        },
+        'extra' => {},
         'structure' => {
           'level' => 1,
           'number' => 'A',
           'section_childs' => [
             {
               'cmdname' => 'appendixsec',
-              'extra' => {
-                'spaces_before_argument' => ' '
-              },
+              'extra' => {},
               'structure' => {
                 'level' => 2,
                 'number' => 'A.1',

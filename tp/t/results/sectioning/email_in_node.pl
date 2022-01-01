@@ -202,8 +202,7 @@ $result_texts{'email_in_node'} = '';
 $result_nodes{'email_in_node'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'a-c-',
-    'spaces_before_argument' => ' '
+    'normalized' => 'a-c-'
   },
   'structure' => {}
 };
@@ -211,8 +210,7 @@ $result_nodes{'email_in_node'} = {
 $result_menus{'email_in_node'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'a-c-',
-    'spaces_before_argument' => ' '
+    'normalized' => 'a-c-'
   },
   'structure' => {}
 };

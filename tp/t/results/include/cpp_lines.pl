@@ -913,8 +913,7 @@ after verb
 $result_nodes{'cpp_lines'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {}
 };
@@ -922,8 +921,7 @@ $result_nodes{'cpp_lines'} = {
 $result_menus{'cpp_lines'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {}
 };

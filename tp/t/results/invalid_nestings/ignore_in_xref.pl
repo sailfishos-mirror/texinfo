@@ -191,8 +191,7 @@ Top.
 $result_nodes{'ignore_in_xref'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {}
 };
@@ -200,8 +199,7 @@ $result_nodes{'ignore_in_xref'} = {
 $result_menus{'ignore_in_xref'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {}
 };

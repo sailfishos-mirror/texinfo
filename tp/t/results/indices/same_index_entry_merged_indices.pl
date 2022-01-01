@@ -601,8 +601,7 @@ $result_sectioning{'same_index_entry_merged_indices'} = {
             'cmdname' => 'node',
             'extra' => {
               'isindex' => 1,
-              'normalized' => 'Top',
-              'spaces_before_argument' => ' '
+              'normalized' => 'Top'
             }
           }
         },
@@ -627,8 +626,7 @@ $result_nodes{'same_index_entry_merged_indices'} = {
       }
     },
     'isindex' => 1,
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   }
 };
 
@@ -636,8 +634,7 @@ $result_menus{'same_index_entry_merged_indices'} = {
   'cmdname' => 'node',
   'extra' => {
     'isindex' => 1,
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   }
 };
 

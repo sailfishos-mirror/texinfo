@@ -595,12 +595,10 @@ $result_sectioning{'external_node_in_menu'} = {
           'associated_node' => {
             'cmdname' => 'node',
             'extra' => {
-              'normalized' => 'Top',
-              'spaces_before_argument' => ' '
+              'normalized' => 'Top'
             },
             'structure' => {}
-          },
-          'spaces_before_argument' => ' '
+          }
         },
         'structure' => {
           'level' => 0,
@@ -611,12 +609,10 @@ $result_sectioning{'external_node_in_menu'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => 'nchapter1',
-                    'spaces_before_argument' => ' '
+                    'normalized' => 'nchapter1'
                   },
                   'structure' => {}
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'level' => 1,
@@ -632,12 +628,10 @@ $result_sectioning{'external_node_in_menu'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => 'nchapter2',
-                    'spaces_before_argument' => ' '
+                    'normalized' => 'nchapter2'
                   },
                   'structure' => {}
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'level' => 1,
@@ -669,9 +663,7 @@ $result_nodes{'external_node_in_menu'} = {
   'extra' => {
     'associated_section' => {
       'cmdname' => 'top',
-      'extra' => {
-        'spaces_before_argument' => ' '
-      },
+      'extra' => {},
       'structure' => {
         'level' => 0
       }
@@ -679,20 +671,10 @@ $result_nodes{'external_node_in_menu'} = {
     'menus' => [
       {
         'cmdname' => 'menu',
-        'extra' => {
-          'end_command' => {
-            'cmdname' => 'end',
-            'extra' => {
-              'command_argument' => 'menu',
-              'spaces_before_argument' => ' ',
-              'text_arg' => 'menu'
-            }
-          }
-        }
+        'extra' => {}
       }
     ],
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'menu_child' => {
@@ -700,16 +682,13 @@ $result_nodes{'external_node_in_menu'} = {
       'extra' => {
         'associated_section' => {
           'cmdname' => 'chapter',
-          'extra' => {
-            'spaces_before_argument' => ' '
-          },
+          'extra' => {},
           'structure' => {
             'level' => 1,
             'number' => 1
           }
         },
-        'normalized' => 'nchapter1',
-        'spaces_before_argument' => ' '
+        'normalized' => 'nchapter1'
       },
       'structure' => {
         'node_next' => {
@@ -717,16 +696,13 @@ $result_nodes{'external_node_in_menu'} = {
           'extra' => {
             'associated_section' => {
               'cmdname' => 'chapter',
-              'extra' => {
-                'spaces_before_argument' => ' '
-              },
+              'extra' => {},
               'structure' => {
                 'level' => 1,
                 'number' => 2
               }
             },
-            'normalized' => 'nchapter2',
-            'spaces_before_argument' => ' '
+            'normalized' => 'nchapter2'
           },
           'structure' => {
             'node_prev' => {},
@@ -749,15 +725,13 @@ $result_nodes{'external_node_in_menu'}{'structure'}{'node_next'} = $result_nodes
 $result_menus{'external_node_in_menu'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'nchapter1',
-        'spaces_before_argument' => ' '
+        'normalized' => 'nchapter1'
       },
       'structure' => {
         'menu_next' => {

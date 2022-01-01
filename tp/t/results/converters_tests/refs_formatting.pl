@@ -4337,11 +4337,9 @@ $result_sectioning{'refs_formatting'} = {
           'associated_node' => {
             'cmdname' => 'node',
             'extra' => {
-              'normalized' => 'chapter',
-              'spaces_before_argument' => ' '
+              'normalized' => 'chapter'
             }
-          },
-          'spaces_before_argument' => ' '
+          }
         },
         'structure' => {
           'level' => 1,
@@ -4359,24 +4357,20 @@ $result_nodes{'refs_formatting'} = {
   'extra' => {
     'associated_section' => {
       'cmdname' => 'chapter',
-      'extra' => {
-        'spaces_before_argument' => ' '
-      },
+      'extra' => {},
       'structure' => {
         'level' => 1,
         'number' => 1
       }
     },
-    'normalized' => 'chapter',
-    'spaces_before_argument' => ' '
+    'normalized' => 'chapter'
   }
 };
 
 $result_menus{'refs_formatting'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'chapter',
-    'spaces_before_argument' => ' '
+    'normalized' => 'chapter'
   }
 };
 

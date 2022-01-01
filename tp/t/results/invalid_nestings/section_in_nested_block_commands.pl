@@ -242,9 +242,7 @@ $result_sectioning{'section_in_nested_block_commands'} = {
     'section_childs' => [
       {
         'cmdname' => 'section',
-        'extra' => {
-          'spaces_before_argument' => ' '
-        },
+        'extra' => {},
         'structure' => {
           'level' => 2,
           'number' => 1,

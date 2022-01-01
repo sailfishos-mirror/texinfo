@@ -1303,12 +1303,10 @@ $result_sectioning{'menutextorder'} = {
           'associated_node' => {
             'cmdname' => 'node',
             'extra' => {
-              'normalized' => 'bar',
-              'spaces_before_argument' => ' '
+              'normalized' => 'bar'
             },
             'structure' => {}
-          },
-          'spaces_before_argument' => ' '
+          }
         },
         'structure' => {
           'level' => 1,
@@ -1320,12 +1318,10 @@ $result_sectioning{'menutextorder'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => 'onesub1',
-                    'spaces_before_argument' => ' '
+                    'normalized' => 'onesub1'
                   },
                   'structure' => {}
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'level' => 2,
@@ -1339,12 +1335,10 @@ $result_sectioning{'menutextorder'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => 'onesub2',
-                    'spaces_before_argument' => ' '
+                    'normalized' => 'onesub2'
                   },
                   'structure' => {}
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'level' => 2,
@@ -1363,12 +1357,10 @@ $result_sectioning{'menutextorder'} = {
           'associated_node' => {
             'cmdname' => 'node',
             'extra' => {
-              'normalized' => 'foo',
-              'spaces_before_argument' => ' '
+              'normalized' => 'foo'
             },
             'structure' => {}
-          },
-          'spaces_before_argument' => ' '
+          }
         },
         'structure' => {
           'level' => 1,
@@ -1380,12 +1372,10 @@ $result_sectioning{'menutextorder'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => 'sub1',
-                    'spaces_before_argument' => ' '
+                    'normalized' => 'sub1'
                   },
                   'structure' => {}
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'level' => 2,
@@ -1399,12 +1389,10 @@ $result_sectioning{'menutextorder'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => 'sub2',
-                    'spaces_before_argument' => ' '
+                    'normalized' => 'sub2'
                   },
                   'structure' => {}
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'level' => 2,
@@ -1419,12 +1407,10 @@ $result_sectioning{'menutextorder'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => 'sub3',
-                    'spaces_before_argument' => ' '
+                    'normalized' => 'sub3'
                   },
                   'structure' => {}
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'level' => 2,
@@ -1460,9 +1446,7 @@ $result_nodes{'menutextorder'} = {
   'extra' => {
     'associated_section' => {
       'cmdname' => 'chapter',
-      'extra' => {
-        'spaces_before_argument' => ' '
-      },
+      'extra' => {},
       'structure' => {
         'level' => 1,
         'number' => 1
@@ -1471,20 +1455,10 @@ $result_nodes{'menutextorder'} = {
     'menus' => [
       {
         'cmdname' => 'menu',
-        'extra' => {
-          'end_command' => {
-            'cmdname' => 'end',
-            'extra' => {
-              'command_argument' => 'menu',
-              'spaces_before_argument' => ' ',
-              'text_arg' => 'menu'
-            }
-          }
-        }
+        'extra' => {}
       }
     ],
-    'normalized' => 'bar',
-    'spaces_before_argument' => ' '
+    'normalized' => 'bar'
   },
   'structure' => {
     'menu_child' => {
@@ -1492,16 +1466,13 @@ $result_nodes{'menutextorder'} = {
       'extra' => {
         'associated_section' => {
           'cmdname' => 'section',
-          'extra' => {
-            'spaces_before_argument' => ' '
-          },
+          'extra' => {},
           'structure' => {
             'level' => 2,
             'number' => '1.2'
           }
         },
-        'normalized' => 'onesub2',
-        'spaces_before_argument' => ' '
+        'normalized' => 'onesub2'
       },
       'structure' => {
         'node_prev' => {
@@ -1509,16 +1480,13 @@ $result_nodes{'menutextorder'} = {
           'extra' => {
             'associated_section' => {
               'cmdname' => 'section',
-              'extra' => {
-                'spaces_before_argument' => ' '
-              },
+              'extra' => {},
               'structure' => {
                 'level' => 2,
                 'number' => '1.1'
               }
             },
-            'normalized' => 'onesub1',
-            'spaces_before_argument' => ' '
+            'normalized' => 'onesub1'
           },
           'structure' => {
             'node_next' => {},
@@ -1533,9 +1501,7 @@ $result_nodes{'menutextorder'} = {
       'extra' => {
         'associated_section' => {
           'cmdname' => 'chapter',
-          'extra' => {
-            'spaces_before_argument' => ' '
-          },
+          'extra' => {},
           'structure' => {
             'level' => 1,
             'number' => 2
@@ -1544,20 +1510,10 @@ $result_nodes{'menutextorder'} = {
         'menus' => [
           {
             'cmdname' => 'menu',
-            'extra' => {
-              'end_command' => {
-                'cmdname' => 'end',
-                'extra' => {
-                  'command_argument' => 'menu',
-                  'spaces_before_argument' => ' ',
-                  'text_arg' => 'menu'
-                }
-              }
-            }
+            'extra' => {}
           }
         ],
-        'normalized' => 'foo',
-        'spaces_before_argument' => ' '
+        'normalized' => 'foo'
       },
       'structure' => {
         'menu_child' => {
@@ -1565,16 +1521,13 @@ $result_nodes{'menutextorder'} = {
           'extra' => {
             'associated_section' => {
               'cmdname' => 'section',
-              'extra' => {
-                'spaces_before_argument' => ' '
-              },
+              'extra' => {},
               'structure' => {
                 'level' => 2,
                 'number' => '2.1'
               }
             },
-            'normalized' => 'sub1',
-            'spaces_before_argument' => ' '
+            'normalized' => 'sub1'
           },
           'structure' => {
             'node_next' => {
@@ -1582,16 +1535,13 @@ $result_nodes{'menutextorder'} = {
               'extra' => {
                 'associated_section' => {
                   'cmdname' => 'section',
-                  'extra' => {
-                    'spaces_before_argument' => ' '
-                  },
+                  'extra' => {},
                   'structure' => {
                     'level' => 2,
                     'number' => '2.2'
                   }
                 },
-                'normalized' => 'sub2',
-                'spaces_before_argument' => ' '
+                'normalized' => 'sub2'
               },
               'structure' => {
                 'node_next' => {
@@ -1599,16 +1549,13 @@ $result_nodes{'menutextorder'} = {
                   'extra' => {
                     'associated_section' => {
                       'cmdname' => 'section',
-                      'extra' => {
-                        'spaces_before_argument' => ' '
-                      },
+                      'extra' => {},
                       'structure' => {
                         'level' => 2,
                         'number' => '2.3'
                       }
                     },
-                    'normalized' => 'sub3',
-                    'spaces_before_argument' => ' '
+                    'normalized' => 'sub3'
                   },
                   'structure' => {
                     'node_next' => {},
@@ -1642,15 +1589,13 @@ $result_nodes{'menutextorder'}{'structure'}{'node_next'}{'structure'}{'node_prev
 $result_menus{'menutextorder'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'bar',
-    'spaces_before_argument' => ' '
+    'normalized' => 'bar'
   },
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'onesub2',
-        'spaces_before_argument' => ' '
+        'normalized' => 'onesub2'
       },
       'structure' => {
         'menu_up' => {},

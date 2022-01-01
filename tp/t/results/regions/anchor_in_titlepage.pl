@@ -295,9 +295,7 @@ $result_sectioning{'anchor_in_titlepage'} = {
     'section_childs' => [
       {
         'cmdname' => 'top',
-        'extra' => {
-          'spaces_before_argument' => ' '
-        },
+        'extra' => {},
         'structure' => {
           'level' => 0,
           'section_up' => {}
@@ -311,16 +309,14 @@ $result_sectioning{'anchor_in_titlepage'}{'structure'}{'section_childs'}[0]{'str
 $result_nodes{'anchor_in_titlepage'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   }
 };
 
 $result_menus{'anchor_in_titlepage'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   }
 };
 

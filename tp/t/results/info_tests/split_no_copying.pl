@@ -477,12 +477,10 @@ $result_sectioning{'split_no_copying'} = {
           'associated_node' => {
             'cmdname' => 'node',
             'extra' => {
-              'normalized' => 'Top',
-              'spaces_before_argument' => ' '
+              'normalized' => 'Top'
             },
             'structure' => {}
-          },
-          'spaces_before_argument' => ' '
+          }
         },
         'structure' => {
           'level' => 0,
@@ -493,12 +491,10 @@ $result_sectioning{'split_no_copying'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => 'Ch1',
-                    'spaces_before_argument' => ' '
+                    'normalized' => 'Ch1'
                   },
                   'structure' => {}
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'level' => 1,
@@ -525,9 +521,7 @@ $result_nodes{'split_no_copying'} = {
   'extra' => {
     'associated_section' => {
       'cmdname' => 'top',
-      'extra' => {
-        'spaces_before_argument' => ' '
-      },
+      'extra' => {},
       'structure' => {
         'level' => 0
       }
@@ -535,20 +529,10 @@ $result_nodes{'split_no_copying'} = {
     'menus' => [
       {
         'cmdname' => 'menu',
-        'extra' => {
-          'end_command' => {
-            'cmdname' => 'end',
-            'extra' => {
-              'command_argument' => 'menu',
-              'spaces_before_argument' => ' ',
-              'text_arg' => 'menu'
-            }
-          }
-        }
+        'extra' => {}
       }
     ],
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'menu_child' => {
@@ -556,16 +540,13 @@ $result_nodes{'split_no_copying'} = {
       'extra' => {
         'associated_section' => {
           'cmdname' => 'chapter',
-          'extra' => {
-            'spaces_before_argument' => ' '
-          },
+          'extra' => {},
           'structure' => {
             'level' => 1,
             'number' => 1
           }
         },
-        'normalized' => 'Ch1',
-        'spaces_before_argument' => ' '
+        'normalized' => 'Ch1'
       },
       'structure' => {
         'node_prev' => {},
@@ -582,15 +563,13 @@ $result_nodes{'split_no_copying'}{'structure'}{'node_next'} = $result_nodes{'spl
 $result_menus{'split_no_copying'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'Ch1',
-        'spaces_before_argument' => ' '
+        'normalized' => 'Ch1'
       },
       'structure' => {
         'menu_up' => {},

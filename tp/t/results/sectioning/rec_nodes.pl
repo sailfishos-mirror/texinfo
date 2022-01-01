@@ -1331,20 +1331,10 @@ $result_nodes{'rec_nodes'} = {
     'menus' => [
       {
         'cmdname' => 'menu',
-        'extra' => {
-          'end_command' => {
-            'cmdname' => 'end',
-            'extra' => {
-              'command_argument' => 'menu',
-              'spaces_before_argument' => ' ',
-              'text_arg' => 'menu'
-            }
-          }
-        }
+        'extra' => {}
       }
     ],
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'menu_child' => {
@@ -1353,20 +1343,10 @@ $result_nodes{'rec_nodes'} = {
         'menus' => [
           {
             'cmdname' => 'menu',
-            'extra' => {
-              'end_command' => {
-                'cmdname' => 'end',
-                'extra' => {
-                  'command_argument' => 'menu',
-                  'spaces_before_argument' => ' ',
-                  'text_arg' => 'menu'
-                }
-              }
-            }
+            'extra' => {}
           }
         ],
-        'normalized' => 'second-node',
-        'spaces_before_argument' => ' '
+        'normalized' => 'second-node'
       },
       'structure' => {
         'menu_child' => {
@@ -1375,20 +1355,10 @@ $result_nodes{'rec_nodes'} = {
             'menus' => [
               {
                 'cmdname' => 'menu',
-                'extra' => {
-                  'end_command' => {
-                    'cmdname' => 'end',
-                    'extra' => {
-                      'command_argument' => 'menu',
-                      'spaces_before_argument' => ' ',
-                      'text_arg' => 'menu'
-                    }
-                  }
-                }
+                'extra' => {}
               }
             ],
-            'normalized' => 'other-node',
-            'spaces_before_argument' => ' '
+            'normalized' => 'other-node'
           },
           'structure' => {
             'menu_child' => {},
@@ -1411,22 +1381,19 @@ $result_nodes{'rec_nodes'}{'structure'}{'node_next'} = $result_nodes{'rec_nodes'
 $result_menus{'rec_nodes'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'second-node',
-        'spaces_before_argument' => ' '
+        'normalized' => 'second-node'
       },
       'structure' => {
         'menu_child' => {
           'cmdname' => 'node',
           'extra' => {
-            'normalized' => 'other-node',
-            'spaces_before_argument' => ' '
+            'normalized' => 'other-node'
           },
           'structure' => {
             'menu_child' => {},
@@ -1441,15 +1408,13 @@ $result_menus{'rec_nodes'} = {
         'menu_next' => {
           'cmdname' => 'node',
           'extra' => {
-            'normalized' => 'node-following-second',
-            'spaces_before_argument' => ' '
+            'normalized' => 'node-following-second'
           },
           'structure' => {
             'menu_child' => {
               'cmdname' => 'node',
               'extra' => {
-                'normalized' => 'node-up-node-following-second',
-                'spaces_before_argument' => ' '
+                'normalized' => 'node-up-node-following-second'
               },
               'structure' => {
                 'menu_child' => {},

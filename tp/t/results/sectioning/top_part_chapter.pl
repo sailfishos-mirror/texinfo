@@ -185,9 +185,7 @@ $result_sectioning{'top_part_chapter'} = {
     'section_childs' => [
       {
         'cmdname' => 'top',
-        'extra' => {
-          'spaces_before_argument' => ' '
-        },
+        'extra' => {},
         'structure' => {
           'associated_unit' => {
             'extra' => {
@@ -204,8 +202,7 @@ $result_sectioning{'top_part_chapter'} = {
                         'associated_part' => {
                           'cmdname' => 'part',
                           'extra' => {
-                            'part_associated_section' => {},
-                            'spaces_before_argument' => ' '
+                            'part_associated_section' => {}
                           },
                           'structure' => {
                             'associated_unit' => {},
@@ -216,8 +213,7 @@ $result_sectioning{'top_part_chapter'} = {
                             'section_prev' => {},
                             'section_up' => {}
                           }
-                        },
-                        'spaces_before_argument' => ' '
+                        }
                       },
                       'structure' => {
                         'associated_unit' => {},
@@ -290,9 +286,7 @@ $result_elements{'top_part_chapter'} = [
     'extra' => {
       'section' => {
         'cmdname' => 'top',
-        'extra' => {
-          'spaces_before_argument' => ' '
-        },
+        'extra' => {},
         'structure' => {
           'associated_unit' => {},
           'level' => 0
@@ -309,15 +303,12 @@ $result_elements{'top_part_chapter'} = [
               'extra' => {
                 'associated_part' => {
                   'cmdname' => 'part',
-                  'extra' => {
-                    'spaces_before_argument' => ' '
-                  },
+                  'extra' => {},
                   'structure' => {
                     'associated_unit' => {},
                     'level' => 0
                   }
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'associated_unit' => {},

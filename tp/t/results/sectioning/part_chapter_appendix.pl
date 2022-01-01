@@ -169,16 +169,14 @@ $result_sectioning{'part_chapter_appendix'} = {
           'part_associated_section' => {
             'cmdname' => 'chapter',
             'extra' => {
-              'associated_part' => {},
-              'spaces_before_argument' => ' '
+              'associated_part' => {}
             },
             'structure' => {
               'level' => 1,
               'number' => 1,
               'section_up' => {}
             }
-          },
-          'spaces_before_argument' => ' '
+          }
         },
         'structure' => {
           'level' => 0,
@@ -190,9 +188,7 @@ $result_sectioning{'part_chapter_appendix'} = {
       },
       {
         'cmdname' => 'appendix',
-        'extra' => {
-          'spaces_before_argument' => ' '
-        },
+        'extra' => {},
         'structure' => {
           'level' => 1,
           'number' => 'A',

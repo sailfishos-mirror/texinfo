@@ -257,16 +257,7 @@ $result_floats{'float_in_style_command'} = {
             'float' => {}
           }
         },
-        'end_command' => {
-          'cmdname' => 'end',
-          'extra' => {
-            'command_argument' => 'float',
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'float'
-          }
-        },
         'normalized' => 'B',
-        'spaces_before_argument' => ' ',
         'type' => {
           'content' => [
             {

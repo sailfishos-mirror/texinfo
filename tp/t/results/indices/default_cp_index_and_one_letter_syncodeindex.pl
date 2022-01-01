@@ -271,8 +271,7 @@ $result_nodes{'default_cp_index_and_one_letter_syncodeindex'} = {
   'cmdname' => 'node',
   'extra' => {
     'isindex' => 1,
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   }
 };
 
@@ -280,8 +279,7 @@ $result_menus{'default_cp_index_and_one_letter_syncodeindex'} = {
   'cmdname' => 'node',
   'extra' => {
     'isindex' => 1,
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   }
 };
 

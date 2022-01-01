@@ -132,8 +132,7 @@ $result_sectioning{'loweredheading'} = {
       {
         'cmdname' => 'section',
         'extra' => {
-          'sections_level' => -1,
-          'spaces_before_argument' => ' '
+          'sections_level' => -1
         },
         'structure' => {
           'level' => 3,

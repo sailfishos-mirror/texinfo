@@ -160,16 +160,14 @@ chapter
 $result_nodes{'inforef_too_much_args'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'chapter',
-    'spaces_before_argument' => ' '
+    'normalized' => 'chapter'
   }
 };
 
 $result_menus{'inforef_too_much_args'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'chapter',
-    'spaces_before_argument' => ' '
+    'normalized' => 'chapter'
   }
 };
 

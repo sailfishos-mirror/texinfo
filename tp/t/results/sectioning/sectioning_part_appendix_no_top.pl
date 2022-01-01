@@ -591,9 +591,7 @@ $result_sectioning{'sectioning_part_appendix_no_top'} = {
     'section_childs' => [
       {
         'cmdname' => 'chapter',
-        'extra' => {
-          'spaces_before_argument' => ' '
-        },
+        'extra' => {},
         'structure' => {
           'associated_unit' => {
             'extra' => {
@@ -610,8 +608,7 @@ $result_sectioning{'sectioning_part_appendix_no_top'} = {
                         'associated_part' => {
                           'cmdname' => 'part',
                           'extra' => {
-                            'part_associated_section' => {},
-                            'spaces_before_argument' => ' '
+                            'part_associated_section' => {}
                           },
                           'structure' => {
                             'associated_unit' => {},
@@ -620,9 +617,7 @@ $result_sectioning{'sectioning_part_appendix_no_top'} = {
                               {},
                               {
                                 'cmdname' => 'chapter',
-                                'extra' => {
-                                  'spaces_before_argument' => ' '
-                                },
+                                'extra' => {},
                                 'structure' => {
                                   'associated_unit' => {
                                     'extra' => {
@@ -637,9 +632,7 @@ $result_sectioning{'sectioning_part_appendix_no_top'} = {
                                           'extra' => {
                                             'section' => {
                                               'cmdname' => 'unnumbered',
-                                              'extra' => {
-                                                'spaces_before_argument' => ' '
-                                              },
+                                              'extra' => {},
                                               'structure' => {
                                                 'associated_unit' => {},
                                                 'level' => 1,
@@ -658,9 +651,7 @@ $result_sectioning{'sectioning_part_appendix_no_top'} = {
                                                 'extra' => {
                                                   'section' => {
                                                     'cmdname' => 'appendix',
-                                                    'extra' => {
-                                                      'spaces_before_argument' => ' '
-                                                    },
+                                                    'extra' => {},
                                                     'structure' => {
                                                       'associated_unit' => {},
                                                       'level' => 1,
@@ -668,9 +659,7 @@ $result_sectioning{'sectioning_part_appendix_no_top'} = {
                                                       'section_childs' => [
                                                         {
                                                           'cmdname' => 'appendixsec',
-                                                          'extra' => {
-                                                            'spaces_before_argument' => ' '
-                                                          },
+                                                          'extra' => {},
                                                           'structure' => {
                                                             'associated_unit' => {
                                                               'extra' => {
@@ -746,8 +735,7 @@ $result_sectioning{'sectioning_part_appendix_no_top'} = {
                             ],
                             'section_up' => {}
                           }
-                        },
-                        'spaces_before_argument' => ' '
+                        }
                       },
                       'structure' => {
                         'associated_unit' => {},
@@ -765,18 +753,14 @@ $result_sectioning{'sectioning_part_appendix_no_top'} = {
                         'extra' => {
                           'section' => {
                             'cmdname' => 'subsubsection',
-                            'extra' => {
-                              'spaces_before_argument' => ' '
-                            },
+                            'extra' => {},
                             'structure' => {
                               'associated_unit' => {},
                               'level' => 4,
                               'number' => '1.1.1.1',
                               'section_up' => {
                                 'cmdname' => 'subsection',
-                                'extra' => {
-                                  'spaces_before_argument' => ' '
-                                },
+                                'extra' => {},
                                 'structure' => {
                                   'associated_unit' => {
                                     'extra' => {
@@ -789,9 +773,7 @@ $result_sectioning{'sectioning_part_appendix_no_top'} = {
                                           'extra' => {
                                             'section' => {
                                               'cmdname' => 'section',
-                                              'extra' => {
-                                                'spaces_before_argument' => ' '
-                                              },
+                                              'extra' => {},
                                               'structure' => {
                                                 'associated_unit' => {},
                                                 'level' => 2,
@@ -1003,9 +985,7 @@ $result_elements{'sectioning_part_appendix_no_top'} = [
     'extra' => {
       'section' => {
         'cmdname' => 'chapter',
-        'extra' => {
-          'spaces_before_argument' => ' '
-        },
+        'extra' => {},
         'structure' => {
           'associated_unit' => {},
           'level' => 1,
@@ -1023,15 +1003,12 @@ $result_elements{'sectioning_part_appendix_no_top'} = [
               'extra' => {
                 'associated_part' => {
                   'cmdname' => 'part',
-                  'extra' => {
-                    'spaces_before_argument' => ' '
-                  },
+                  'extra' => {},
                   'structure' => {
                     'associated_unit' => {},
                     'level' => 0
                   }
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'associated_unit' => {},
@@ -1047,9 +1024,7 @@ $result_elements{'sectioning_part_appendix_no_top'} = [
                 'extra' => {
                   'section' => {
                     'cmdname' => 'subsubsection',
-                    'extra' => {
-                      'spaces_before_argument' => ' '
-                    },
+                    'extra' => {},
                     'structure' => {
                       'associated_unit' => {},
                       'level' => 4,
@@ -1064,9 +1039,7 @@ $result_elements{'sectioning_part_appendix_no_top'} = [
                       'extra' => {
                         'section' => {
                           'cmdname' => 'subsection',
-                          'extra' => {
-                            'spaces_before_argument' => ' '
-                          },
+                          'extra' => {},
                           'structure' => {
                             'associated_unit' => {},
                             'level' => 3,
@@ -1081,9 +1054,7 @@ $result_elements{'sectioning_part_appendix_no_top'} = [
                             'extra' => {
                               'section' => {
                                 'cmdname' => 'section',
-                                'extra' => {
-                                  'spaces_before_argument' => ' '
-                                },
+                                'extra' => {},
                                 'structure' => {
                                   'associated_unit' => {},
                                   'level' => 2,
@@ -1127,9 +1098,7 @@ $result_elements{'sectioning_part_appendix_no_top'} = [
                 'extra' => {
                   'section' => {
                     'cmdname' => 'chapter',
-                    'extra' => {
-                      'spaces_before_argument' => ' '
-                    },
+                    'extra' => {},
                     'structure' => {
                       'associated_unit' => {},
                       'level' => 1,
@@ -1146,9 +1115,7 @@ $result_elements{'sectioning_part_appendix_no_top'} = [
                       'extra' => {
                         'section' => {
                           'cmdname' => 'unnumbered',
-                          'extra' => {
-                            'spaces_before_argument' => ' '
-                          },
+                          'extra' => {},
                           'structure' => {
                             'associated_unit' => {},
                             'level' => 1
@@ -1164,9 +1131,7 @@ $result_elements{'sectioning_part_appendix_no_top'} = [
                             'extra' => {
                               'section' => {
                                 'cmdname' => 'appendix',
-                                'extra' => {
-                                  'spaces_before_argument' => ' '
-                                },
+                                'extra' => {},
                                 'structure' => {
                                   'associated_unit' => {},
                                   'level' => 1,
@@ -1183,9 +1148,7 @@ $result_elements{'sectioning_part_appendix_no_top'} = [
                                   'extra' => {
                                     'section' => {
                                       'cmdname' => 'appendixsec',
-                                      'extra' => {
-                                        'spaces_before_argument' => ' '
-                                      },
+                                      'extra' => {},
                                       'structure' => {
                                         'associated_unit' => {},
                                         'level' => 2,

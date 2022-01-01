@@ -525,16 +525,7 @@ $result_floats{'float_with_at_commands'} = {
             'float' => {}
           }
         },
-        'end_command' => {
-          'cmdname' => 'end',
-          'extra' => {
-            'command_argument' => 'float',
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'float'
-          }
-        },
         'normalized' => 'premi_00e8re-entr_00e9e',
-        'spaces_before_argument' => ' ',
         'type' => {
           'content' => [
             {

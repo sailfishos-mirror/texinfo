@@ -331,12 +331,10 @@ $result_sectioning{'comment_on_menu_line'} = {
           'associated_node' => {
             'cmdname' => 'node',
             'extra' => {
-              'normalized' => 'Top',
-              'spaces_before_argument' => ' '
+              'normalized' => 'Top'
             },
             'structure' => {}
-          },
-          'spaces_before_argument' => ' '
+          }
         },
         'structure' => {
           'level' => 1,
@@ -354,9 +352,7 @@ $result_nodes{'comment_on_menu_line'} = {
   'extra' => {
     'associated_section' => {
       'cmdname' => 'chapter',
-      'extra' => {
-        'spaces_before_argument' => ' '
-      },
+      'extra' => {},
       'structure' => {
         'level' => 1,
         'number' => 1
@@ -365,28 +361,16 @@ $result_nodes{'comment_on_menu_line'} = {
     'menus' => [
       {
         'cmdname' => 'menu',
-        'extra' => {
-          'end_command' => {
-            'cmdname' => 'end',
-            'extra' => {
-              'command_argument' => 'menu',
-              'spaces_before_argument' => ' ',
-              'text_arg' => 'menu'
-            }
-          },
-          'spaces_before_argument' => '  '
-        }
+        'extra' => {}
       }
     ],
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'first',
-        'spaces_before_argument' => ' '
+        'normalized' => 'first'
       },
       'structure' => {
         'node_prev' => {},
@@ -403,15 +387,13 @@ $result_nodes{'comment_on_menu_line'}{'structure'}{'node_next'} = $result_nodes{
 $result_menus{'comment_on_menu_line'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'first',
-        'spaces_before_argument' => ' '
+        'normalized' => 'first'
       },
       'structure' => {
         'menu_up' => {},

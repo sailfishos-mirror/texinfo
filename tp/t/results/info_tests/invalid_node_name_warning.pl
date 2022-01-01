@@ -994,41 +994,28 @@ $result_nodes{'invalid_node_name_warning'} = {
     'menus' => [
       {
         'cmdname' => 'menu',
-        'extra' => {
-          'end_command' => {
-            'cmdname' => 'end',
-            'extra' => {
-              'command_argument' => 'menu',
-              'spaces_before_argument' => ' ',
-              'text_arg' => 'menu'
-            }
-          }
-        }
+        'extra' => {}
       }
     ],
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'nodename_002e-a',
-        'spaces_before_argument' => ' '
+        'normalized' => 'nodename_002e-a'
       },
       'structure' => {
         'node_next' => {
           'cmdname' => 'node',
           'extra' => {
-            'normalized' => 'node_002ccomma',
-            'spaces_before_argument' => ' '
+            'normalized' => 'node_002ccomma'
           },
           'structure' => {
             'node_next' => {
               'cmdname' => 'node',
               'extra' => {
-                'normalized' => 'bidule_003a',
-                'spaces_before_argument' => ' '
+                'normalized' => 'bidule_003a'
               },
               'structure' => {
                 'node_prev' => {},
@@ -1057,29 +1044,25 @@ $result_nodes{'invalid_node_name_warning'}{'structure'}{'node_next'} = $result_n
 $result_menus{'invalid_node_name_warning'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'nodename_002e-a',
-        'spaces_before_argument' => ' '
+        'normalized' => 'nodename_002e-a'
       },
       'structure' => {
         'menu_next' => {
           'cmdname' => 'node',
           'extra' => {
-            'normalized' => 'node_002ccomma',
-            'spaces_before_argument' => ' '
+            'normalized' => 'node_002ccomma'
           },
           'structure' => {
             'menu_next' => {
               'cmdname' => 'node',
               'extra' => {
-                'normalized' => 'bidule_003a',
-                'spaces_before_argument' => ' '
+                'normalized' => 'bidule_003a'
               },
               'structure' => {
                 'menu_prev' => {},

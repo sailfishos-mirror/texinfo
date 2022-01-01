@@ -909,41 +909,28 @@ $result_nodes{'spaces_in_node_names'} = {
     'menus' => [
       {
         'cmdname' => 'menu',
-        'extra' => {
-          'end_command' => {
-            'cmdname' => 'end',
-            'extra' => {
-              'command_argument' => 'menu',
-              'spaces_before_argument' => ' ',
-              'text_arg' => 'menu'
-            }
-          }
-        }
+        'extra' => {}
       }
     ],
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'a--',
-        'spaces_before_argument' => ' '
+        'normalized' => 'a--'
       },
       'structure' => {
         'node_next' => {
           'cmdname' => 'node',
           'extra' => {
-            'normalized' => 'b-',
-            'spaces_before_argument' => ' '
+            'normalized' => 'b-'
           },
           'structure' => {
             'node_next' => {
               'cmdname' => 'node',
               'extra' => {
-                'normalized' => 'c-',
-                'spaces_before_argument' => ' '
+                'normalized' => 'c-'
               },
               'structure' => {
                 'node_prev' => {},
@@ -972,29 +959,25 @@ $result_nodes{'spaces_in_node_names'}{'structure'}{'node_next'} = $result_nodes{
 $result_menus{'spaces_in_node_names'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'a--',
-        'spaces_before_argument' => ' '
+        'normalized' => 'a--'
       },
       'structure' => {
         'menu_next' => {
           'cmdname' => 'node',
           'extra' => {
-            'normalized' => 'b-',
-            'spaces_before_argument' => ' '
+            'normalized' => 'b-'
           },
           'structure' => {
             'menu_next' => {
               'cmdname' => 'node',
               'extra' => {
-                'normalized' => 'c-',
-                'spaces_before_argument' => ' '
+                'normalized' => 'c-'
               },
               'structure' => {
                 'menu_prev' => {},

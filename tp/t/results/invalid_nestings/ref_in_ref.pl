@@ -147,8 +147,7 @@ $result_texts{'ref_in_ref'} = 'Top';
 $result_nodes{'ref_in_ref'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {}
 };
@@ -156,8 +155,7 @@ $result_nodes{'ref_in_ref'} = {
 $result_menus{'ref_in_ref'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {}
 };

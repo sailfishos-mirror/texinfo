@@ -290,15 +290,6 @@ $result_floats{'caption_in_example'} = {
             'float' => {}
           }
         },
-        'end_command' => {
-          'cmdname' => 'end',
-          'extra' => {
-            'command_argument' => 'float',
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'float'
-          }
-        },
-        'spaces_before_argument' => ' ',
         'type' => {
           'content' => [
             {

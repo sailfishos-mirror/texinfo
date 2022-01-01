@@ -124,8 +124,7 @@ $result_texts{'node_up_direction_for_top_with_manual'} = '';
 $result_nodes{'node_up_direction_for_top_with_manual'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'node_up' => {
@@ -145,8 +144,7 @@ $result_nodes{'node_up_direction_for_top_with_manual'} = {
 $result_menus{'node_up_direction_for_top_with_manual'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {}
 };

@@ -63,9 +63,7 @@ $result_sectioning{'one_subsection'} = {
     'section_childs' => [
       {
         'cmdname' => 'subsection',
-        'extra' => {
-          'spaces_before_argument' => ' '
-        },
+        'extra' => {},
         'structure' => {
           'level' => 3,
           'number' => 1,

@@ -3118,8 +3118,7 @@ $result_sectioning{'sectioning_frames'} = {
           'associated_node' => {
             'cmdname' => 'node',
             'extra' => {
-              'normalized' => 'Top',
-              'spaces_before_argument' => ' '
+              'normalized' => 'Top'
             },
             'structure' => {}
           }
@@ -3133,12 +3132,10 @@ $result_sectioning{'sectioning_frames'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => 'First-node',
-                    'spaces_before_argument' => ' '
+                    'normalized' => 'First-node'
                   },
                   'structure' => {}
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'level' => 1,
@@ -3150,12 +3147,10 @@ $result_sectioning{'sectioning_frames'} = {
                       'associated_node' => {
                         'cmdname' => 'node',
                         'extra' => {
-                          'normalized' => 'unnumbered',
-                          'spaces_before_argument' => ' '
+                          'normalized' => 'unnumbered'
                         },
                         'structure' => {}
-                      },
-                      'spaces_before_argument' => ' '
+                      }
                     },
                     'structure' => {
                       'level' => 2,
@@ -3166,12 +3161,10 @@ $result_sectioning{'sectioning_frames'} = {
                             'associated_node' => {
                               'cmdname' => 'node',
                               'extra' => {
-                                'normalized' => 'unnumbered-sub',
-                                'spaces_before_argument' => ' '
+                                'normalized' => 'unnumbered-sub'
                               },
                               'structure' => {}
-                            },
-                            'spaces_before_argument' => ' '
+                            }
                           },
                           'structure' => {
                             'level' => 3,
@@ -3184,12 +3177,10 @@ $result_sectioning{'sectioning_frames'} = {
                             'associated_node' => {
                               'cmdname' => 'node',
                               'extra' => {
-                                'normalized' => 'numbered-sub',
-                                'spaces_before_argument' => ' '
+                                'normalized' => 'numbered-sub'
                               },
                               'structure' => {}
-                            },
-                            'spaces_before_argument' => ' '
+                            }
                           },
                           'structure' => {
                             'level' => 3,
@@ -3203,12 +3194,10 @@ $result_sectioning{'sectioning_frames'} = {
                             'associated_node' => {
                               'cmdname' => 'node',
                               'extra' => {
-                                'normalized' => 'unnumbered-sub2',
-                                'spaces_before_argument' => ' '
+                                'normalized' => 'unnumbered-sub2'
                               },
                               'structure' => {}
-                            },
-                            'spaces_before_argument' => ' '
+                            }
                           },
                           'structure' => {
                             'level' => 3,
@@ -3222,12 +3211,10 @@ $result_sectioning{'sectioning_frames'} = {
                             'associated_node' => {
                               'cmdname' => 'node',
                               'extra' => {
-                                'normalized' => 'numbered-sub2',
-                                'spaces_before_argument' => ' '
+                                'normalized' => 'numbered-sub2'
                               },
                               'structure' => {}
-                            },
-                            'spaces_before_argument' => ' '
+                            }
                           },
                           'structure' => {
                             'level' => 3,
@@ -3245,12 +3232,10 @@ $result_sectioning{'sectioning_frames'} = {
                       'associated_node' => {
                         'cmdname' => 'node',
                         'extra' => {
-                          'normalized' => 'unnumbered2',
-                          'spaces_before_argument' => ' '
+                          'normalized' => 'unnumbered2'
                         },
                         'structure' => {}
-                      },
-                      'spaces_before_argument' => ' '
+                      }
                     },
                     'structure' => {
                       'level' => 2,
@@ -3261,12 +3246,10 @@ $result_sectioning{'sectioning_frames'} = {
                             'associated_node' => {
                               'cmdname' => 'node',
                               'extra' => {
-                                'normalized' => 'numbered-sub3',
-                                'spaces_before_argument' => ' '
+                                'normalized' => 'numbered-sub3'
                               },
                               'structure' => {}
-                            },
-                            'spaces_before_argument' => ' '
+                            }
                           },
                           'structure' => {
                             'level' => 3,
@@ -3284,12 +3267,10 @@ $result_sectioning{'sectioning_frames'} = {
                       'associated_node' => {
                         'cmdname' => 'node',
                         'extra' => {
-                          'normalized' => 'numbered',
-                          'spaces_before_argument' => ' '
+                          'normalized' => 'numbered'
                         },
                         'structure' => {}
-                      },
-                      'spaces_before_argument' => '  '
+                      }
                     },
                     'structure' => {
                       'level' => 2,
@@ -3310,12 +3291,10 @@ $result_sectioning{'sectioning_frames'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => 'Second-node',
-                    'spaces_before_argument' => ' '
+                    'normalized' => 'Second-node'
                   },
                   'structure' => {}
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'level' => 1,
@@ -3332,12 +3311,10 @@ $result_sectioning{'sectioning_frames'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => 'Third-node-unnumbered',
-                    'spaces_before_argument' => ' '
+                    'normalized' => 'Third-node-unnumbered'
                   },
                   'structure' => {}
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'level' => 1,
@@ -3393,20 +3370,10 @@ $result_nodes{'sectioning_frames'} = {
     'menus' => [
       {
         'cmdname' => 'menu',
-        'extra' => {
-          'end_command' => {
-            'cmdname' => 'end',
-            'extra' => {
-              'command_argument' => 'menu',
-              'spaces_before_argument' => ' ',
-              'text_arg' => 'menu'
-            }
-          }
-        }
+        'extra' => {}
       }
     ],
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'menu_child' => {
@@ -3414,9 +3381,7 @@ $result_nodes{'sectioning_frames'} = {
       'extra' => {
         'associated_section' => {
           'cmdname' => 'chapter',
-          'extra' => {
-            'spaces_before_argument' => ' '
-          },
+          'extra' => {},
           'structure' => {
             'level' => 1,
             'number' => 1
@@ -3425,20 +3390,10 @@ $result_nodes{'sectioning_frames'} = {
         'menus' => [
           {
             'cmdname' => 'menu',
-            'extra' => {
-              'end_command' => {
-                'cmdname' => 'end',
-                'extra' => {
-                  'command_argument' => 'menu',
-                  'spaces_before_argument' => ' ',
-                  'text_arg' => 'menu'
-                }
-              }
-            }
+            'extra' => {}
           }
         ],
-        'normalized' => 'First-node',
-        'spaces_before_argument' => ' '
+        'normalized' => 'First-node'
       },
       'structure' => {
         'menu_child' => {
@@ -3446,9 +3401,7 @@ $result_nodes{'sectioning_frames'} = {
           'extra' => {
             'associated_section' => {
               'cmdname' => 'unnumberedsec',
-              'extra' => {
-                'spaces_before_argument' => ' '
-              },
+              'extra' => {},
               'structure' => {
                 'level' => 2
               }
@@ -3456,20 +3409,10 @@ $result_nodes{'sectioning_frames'} = {
             'menus' => [
               {
                 'cmdname' => 'menu',
-                'extra' => {
-                  'end_command' => {
-                    'cmdname' => 'end',
-                    'extra' => {
-                      'command_argument' => 'menu',
-                      'spaces_before_argument' => ' ',
-                      'text_arg' => 'menu'
-                    }
-                  }
-                }
+                'extra' => {}
               }
             ],
-            'normalized' => 'unnumbered',
-            'spaces_before_argument' => ' '
+            'normalized' => 'unnumbered'
           },
           'structure' => {
             'menu_child' => {
@@ -3477,15 +3420,12 @@ $result_nodes{'sectioning_frames'} = {
               'extra' => {
                 'associated_section' => {
                   'cmdname' => 'unnumberedsubsec',
-                  'extra' => {
-                    'spaces_before_argument' => ' '
-                  },
+                  'extra' => {},
                   'structure' => {
                     'level' => 3
                   }
                 },
-                'normalized' => 'unnumbered-sub',
-                'spaces_before_argument' => ' '
+                'normalized' => 'unnumbered-sub'
               },
               'structure' => {
                 'node_next' => {
@@ -3493,15 +3433,12 @@ $result_nodes{'sectioning_frames'} = {
                   'extra' => {
                     'associated_section' => {
                       'cmdname' => 'subsection',
-                      'extra' => {
-                        'spaces_before_argument' => ' '
-                      },
+                      'extra' => {},
                       'structure' => {
                         'level' => 3
                       }
                     },
-                    'normalized' => 'numbered-sub',
-                    'spaces_before_argument' => ' '
+                    'normalized' => 'numbered-sub'
                   },
                   'structure' => {
                     'node_next' => {
@@ -3509,15 +3446,12 @@ $result_nodes{'sectioning_frames'} = {
                       'extra' => {
                         'associated_section' => {
                           'cmdname' => 'unnumberedsubsec',
-                          'extra' => {
-                            'spaces_before_argument' => ' '
-                          },
+                          'extra' => {},
                           'structure' => {
                             'level' => 3
                           }
                         },
-                        'normalized' => 'unnumbered-sub2',
-                        'spaces_before_argument' => ' '
+                        'normalized' => 'unnumbered-sub2'
                       },
                       'structure' => {
                         'node_next' => {
@@ -3525,15 +3459,12 @@ $result_nodes{'sectioning_frames'} = {
                           'extra' => {
                             'associated_section' => {
                               'cmdname' => 'subsection',
-                              'extra' => {
-                                'spaces_before_argument' => ' '
-                              },
+                              'extra' => {},
                               'structure' => {
                                 'level' => 3
                               }
                             },
-                            'normalized' => 'numbered-sub2',
-                            'spaces_before_argument' => ' '
+                            'normalized' => 'numbered-sub2'
                           },
                           'structure' => {
                             'node_prev' => {},
@@ -3556,9 +3487,7 @@ $result_nodes{'sectioning_frames'} = {
               'extra' => {
                 'associated_section' => {
                   'cmdname' => 'unnumberedsec',
-                  'extra' => {
-                    'spaces_before_argument' => ' '
-                  },
+                  'extra' => {},
                   'structure' => {
                     'level' => 2
                   }
@@ -3566,20 +3495,10 @@ $result_nodes{'sectioning_frames'} = {
                 'menus' => [
                   {
                     'cmdname' => 'menu',
-                    'extra' => {
-                      'end_command' => {
-                        'cmdname' => 'end',
-                        'extra' => {
-                          'command_argument' => 'menu',
-                          'spaces_before_argument' => ' ',
-                          'text_arg' => 'menu'
-                        }
-                      }
-                    }
+                    'extra' => {}
                   }
                 ],
-                'normalized' => 'unnumbered2',
-                'spaces_before_argument' => ' '
+                'normalized' => 'unnumbered2'
               },
               'structure' => {
                 'menu_child' => {
@@ -3587,15 +3506,12 @@ $result_nodes{'sectioning_frames'} = {
                   'extra' => {
                     'associated_section' => {
                       'cmdname' => 'subsection',
-                      'extra' => {
-                        'spaces_before_argument' => ' '
-                      },
+                      'extra' => {},
                       'structure' => {
                         'level' => 3
                       }
                     },
-                    'normalized' => 'numbered-sub3',
-                    'spaces_before_argument' => ' '
+                    'normalized' => 'numbered-sub3'
                   },
                   'structure' => {
                     'node_up' => {}
@@ -3606,16 +3522,13 @@ $result_nodes{'sectioning_frames'} = {
                   'extra' => {
                     'associated_section' => {
                       'cmdname' => 'section',
-                      'extra' => {
-                        'spaces_before_argument' => '  '
-                      },
+                      'extra' => {},
                       'structure' => {
                         'level' => 2,
                         'number' => '1.1'
                       }
                     },
-                    'normalized' => 'numbered',
-                    'spaces_before_argument' => ' '
+                    'normalized' => 'numbered'
                   },
                   'structure' => {
                     'node_prev' => {},
@@ -3665,50 +3578,43 @@ $result_nodes{'sectioning_frames'}{'structure'}{'node_next'} = $result_nodes{'se
 $result_menus{'sectioning_frames'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'First-node',
-        'spaces_before_argument' => ' '
+        'normalized' => 'First-node'
       },
       'structure' => {
         'menu_child' => {
           'cmdname' => 'node',
           'extra' => {
-            'normalized' => 'unnumbered',
-            'spaces_before_argument' => ' '
+            'normalized' => 'unnumbered'
           },
           'structure' => {
             'menu_child' => {
               'cmdname' => 'node',
               'extra' => {
-                'normalized' => 'unnumbered-sub',
-                'spaces_before_argument' => ' '
+                'normalized' => 'unnumbered-sub'
               },
               'structure' => {
                 'menu_next' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => 'numbered-sub',
-                    'spaces_before_argument' => ' '
+                    'normalized' => 'numbered-sub'
                   },
                   'structure' => {
                     'menu_next' => {
                       'cmdname' => 'node',
                       'extra' => {
-                        'normalized' => 'unnumbered-sub2',
-                        'spaces_before_argument' => ' '
+                        'normalized' => 'unnumbered-sub2'
                       },
                       'structure' => {
                         'menu_next' => {
                           'cmdname' => 'node',
                           'extra' => {
-                            'normalized' => 'numbered-sub2',
-                            'spaces_before_argument' => ' '
+                            'normalized' => 'numbered-sub2'
                           },
                           'structure' => {
                             'menu_prev' => {},
@@ -3741,15 +3647,13 @@ $result_menus{'sectioning_frames'} = {
             'menu_next' => {
               'cmdname' => 'node',
               'extra' => {
-                'normalized' => 'unnumbered2',
-                'spaces_before_argument' => ' '
+                'normalized' => 'unnumbered2'
               },
               'structure' => {
                 'menu_child' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => 'numbered-sub3',
-                    'spaces_before_argument' => ' '
+                    'normalized' => 'numbered-sub3'
                   },
                   'structure' => {
                     'menu_up' => {},
@@ -3761,8 +3665,7 @@ $result_menus{'sectioning_frames'} = {
                 'menu_next' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => 'numbered',
-                    'spaces_before_argument' => ' '
+                    'normalized' => 'numbered'
                   },
                   'structure' => {
                     'menu_prev' => {},
@@ -3788,29 +3691,25 @@ $result_menus{'sectioning_frames'} = {
         'menu_next' => {
           'cmdname' => 'node',
           'extra' => {
-            'normalized' => 'between-node',
-            'spaces_before_argument' => ' '
+            'normalized' => 'between-node'
           },
           'structure' => {
             'menu_next' => {
               'cmdname' => 'node',
               'extra' => {
-                'normalized' => 'Second-node',
-                'spaces_before_argument' => ' '
+                'normalized' => 'Second-node'
               },
               'structure' => {
                 'menu_next' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => 'Third-node-unnumbered',
-                    'spaces_before_argument' => ' '
+                    'normalized' => 'Third-node-unnumbered'
                   },
                   'structure' => {
                     'menu_next' => {
                       'cmdname' => 'node',
                       'extra' => {
-                        'normalized' => 'Last-node-no-description',
-                        'spaces_before_argument' => ' '
+                        'normalized' => 'Last-node-no-description'
                       },
                       'structure' => {
                         'menu_prev' => {},

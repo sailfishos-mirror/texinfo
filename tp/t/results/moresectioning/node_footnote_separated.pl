@@ -1439,12 +1439,10 @@ $result_sectioning{'node_footnote_separated'} = {
           'associated_node' => {
             'cmdname' => 'node',
             'extra' => {
-              'normalized' => 'chapter',
-              'spaces_before_argument' => ' '
+              'normalized' => 'chapter'
             },
             'structure' => {}
-          },
-          'spaces_before_argument' => ' '
+          }
         },
         'structure' => {
           'level' => 1,
@@ -1463,34 +1461,22 @@ $result_nodes{'node_footnote_separated'} = {
     'menus' => [
       {
         'cmdname' => 'menu',
-        'extra' => {
-          'end_command' => {
-            'cmdname' => 'end',
-            'extra' => {
-              'command_argument' => 'menu',
-              'spaces_before_argument' => ' ',
-              'text_arg' => 'menu'
-            }
-          }
-        }
+        'extra' => {}
       }
     ],
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => '_00e1',
-        'spaces_before_argument' => ' '
+        'normalized' => '_00e1'
       },
       'structure' => {
         'node_next' => {
           'cmdname' => 'node',
           'extra' => {
-            'normalized' => '_00e2',
-            'spaces_before_argument' => ' '
+            'normalized' => '_00e2'
           },
           'structure' => {
             'node_next' => {
@@ -1498,9 +1484,7 @@ $result_nodes{'node_footnote_separated'} = {
               'extra' => {
                 'associated_section' => {
                   'cmdname' => 'chapter',
-                  'extra' => {
-                    'spaces_before_argument' => ' '
-                  },
+                  'extra' => {},
                   'structure' => {
                     'level' => 1,
                     'number' => 1
@@ -1509,27 +1493,16 @@ $result_nodes{'node_footnote_separated'} = {
                 'menus' => [
                   {
                     'cmdname' => 'menu',
-                    'extra' => {
-                      'end_command' => {
-                        'cmdname' => 'end',
-                        'extra' => {
-                          'command_argument' => 'menu',
-                          'spaces_before_argument' => ' ',
-                          'text_arg' => 'menu'
-                        }
-                      }
-                    }
+                    'extra' => {}
                   }
                 ],
-                'normalized' => 'chapter',
-                'spaces_before_argument' => ' '
+                'normalized' => 'chapter'
               },
               'structure' => {
                 'menu_child' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => '_00e0',
-                    'spaces_before_argument' => ' '
+                    'normalized' => '_00e0'
                   },
                   'structure' => {
                     'node_prev' => {},
@@ -1566,36 +1539,31 @@ $result_nodes{'node_footnote_separated'}{'structure'}{'node_next'} = $result_nod
 $result_menus{'node_footnote_separated'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => '_00e1',
-        'spaces_before_argument' => ' '
+        'normalized' => '_00e1'
       },
       'structure' => {
         'menu_next' => {
           'cmdname' => 'node',
           'extra' => {
-            'normalized' => '_00e2',
-            'spaces_before_argument' => ' '
+            'normalized' => '_00e2'
           },
           'structure' => {
             'menu_next' => {
               'cmdname' => 'node',
               'extra' => {
-                'normalized' => 'chapter',
-                'spaces_before_argument' => ' '
+                'normalized' => 'chapter'
               },
               'structure' => {
                 'menu_child' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => '_00e0',
-                    'spaces_before_argument' => ' '
+                    'normalized' => '_00e0'
                   },
                   'structure' => {
                     'menu_prev' => {},

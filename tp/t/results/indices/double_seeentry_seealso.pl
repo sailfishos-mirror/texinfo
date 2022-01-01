@@ -778,12 +778,10 @@ $result_sectioning{'double_seeentry_seealso'} = {
           'associated_node' => {
             'cmdname' => 'node',
             'extra' => {
-              'normalized' => 'Top',
-              'spaces_before_argument' => ' '
+              'normalized' => 'Top'
             },
             'structure' => {}
-          },
-          'spaces_before_argument' => ' '
+          }
         },
         'structure' => {
           'level' => 0,
@@ -795,12 +793,10 @@ $result_sectioning{'double_seeentry_seealso'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'isindex' => 1,
-                    'normalized' => 'node-index',
-                    'spaces_before_argument' => ' '
+                    'normalized' => 'node-index'
                   },
                   'structure' => {}
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'level' => 1,
@@ -827,15 +823,12 @@ $result_nodes{'double_seeentry_seealso'} = {
   'extra' => {
     'associated_section' => {
       'cmdname' => 'top',
-      'extra' => {
-        'spaces_before_argument' => ' '
-      },
+      'extra' => {},
       'structure' => {
         'level' => 0
       }
     },
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'node_next' => {
@@ -843,17 +836,14 @@ $result_nodes{'double_seeentry_seealso'} = {
       'extra' => {
         'associated_section' => {
           'cmdname' => 'chapter',
-          'extra' => {
-            'spaces_before_argument' => ' '
-          },
+          'extra' => {},
           'structure' => {
             'level' => 1,
             'number' => 1
           }
         },
         'isindex' => 1,
-        'normalized' => 'node-index',
-        'spaces_before_argument' => ' '
+        'normalized' => 'node-index'
       },
       'structure' => {
         'node_prev' => {},
@@ -868,8 +858,7 @@ $result_nodes{'double_seeentry_seealso'}{'structure'}{'node_next'}{'structure'}{
 $result_menus{'double_seeentry_seealso'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {}
 };

@@ -931,9 +931,7 @@ $result_sectioning{'placed_things_before_element'} = {
     'section_childs' => [
       {
         'cmdname' => 'section',
-        'extra' => {
-          'spaces_before_argument' => ' '
-        },
+        'extra' => {},
         'structure' => {
           'level' => 2,
           'number' => 1,
@@ -963,16 +961,7 @@ $result_floats{'placed_things_before_element'} = {
     {
       'cmdname' => 'float',
       'extra' => {
-        'end_command' => {
-          'cmdname' => 'end',
-          'extra' => {
-            'command_argument' => 'float',
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'float'
-          }
-        },
         'normalized' => 'float-anchor',
-        'spaces_before_argument' => ' ',
         'type' => {
           'normalized' => ''
         }

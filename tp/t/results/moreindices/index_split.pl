@@ -3786,12 +3786,10 @@ $result_sectioning{'index_split'} = {
             'cmdname' => 'node',
             'extra' => {
               'isindex' => 1,
-              'normalized' => 'Top',
-              'spaces_before_argument' => ' '
+              'normalized' => 'Top'
             },
             'structure' => {}
-          },
-          'spaces_before_argument' => ' '
+          }
         },
         'structure' => {
           'level' => 0,
@@ -3803,12 +3801,10 @@ $result_sectioning{'index_split'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'isindex' => 1,
-                    'normalized' => 'first',
-                    'spaces_before_argument' => ' '
+                    'normalized' => 'first'
                   },
                   'structure' => {}
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'level' => 1,
@@ -3821,12 +3817,10 @@ $result_sectioning{'index_split'} = {
                         'cmdname' => 'node',
                         'extra' => {
                           'isindex' => 1,
-                          'normalized' => 'section-1',
-                          'spaces_before_argument' => ' '
+                          'normalized' => 'section-1'
                         },
                         'structure' => {}
-                      },
-                      'spaces_before_argument' => ' '
+                      }
                     },
                     'structure' => {
                       'level' => 2,
@@ -3838,12 +3832,10 @@ $result_sectioning{'index_split'} = {
                             'associated_node' => {
                               'cmdname' => 'node',
                               'extra' => {
-                                'normalized' => 'subsection-1',
-                                'spaces_before_argument' => ' '
+                                'normalized' => 'subsection-1'
                               },
                               'structure' => {}
-                            },
-                            'spaces_before_argument' => ' '
+                            }
                           },
                           'structure' => {
                             'level' => 3,
@@ -3858,12 +3850,10 @@ $result_sectioning{'index_split'} = {
                               'cmdname' => 'node',
                               'extra' => {
                                 'isindex' => 1,
-                                'normalized' => 'subsection-2',
-                                'spaces_before_argument' => ' '
+                                'normalized' => 'subsection-2'
                               },
                               'structure' => {}
-                            },
-                            'spaces_before_argument' => ' '
+                            }
                           },
                           'structure' => {
                             'level' => 3,
@@ -3882,12 +3872,10 @@ $result_sectioning{'index_split'} = {
                       'associated_node' => {
                         'cmdname' => 'node',
                         'extra' => {
-                          'normalized' => 'section-2',
-                          'spaces_before_argument' => ' '
+                          'normalized' => 'section-2'
                         },
                         'structure' => {}
-                      },
-                      'spaces_before_argument' => ' '
+                      }
                     },
                     'structure' => {
                       'level' => 2,
@@ -3903,12 +3891,10 @@ $result_sectioning{'index_split'} = {
                         'cmdname' => 'node',
                         'extra' => {
                           'isindex' => 1,
-                          'normalized' => 'section-3',
-                          'spaces_before_argument' => ' '
+                          'normalized' => 'section-3'
                         },
                         'structure' => {}
-                      },
-                      'spaces_before_argument' => ' '
+                      }
                     },
                     'structure' => {
                       'level' => 2,
@@ -3929,12 +3915,10 @@ $result_sectioning{'index_split'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => 'second-chapter',
-                    'spaces_before_argument' => ' '
+                    'normalized' => 'second-chapter'
                   },
                   'structure' => {}
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'level' => 1,
@@ -3974,9 +3958,7 @@ $result_nodes{'index_split'} = {
   'extra' => {
     'associated_section' => {
       'cmdname' => 'top',
-      'extra' => {
-        'spaces_before_argument' => ' '
-      },
+      'extra' => {},
       'structure' => {
         'level' => 0
       }
@@ -3985,20 +3967,10 @@ $result_nodes{'index_split'} = {
     'menus' => [
       {
         'cmdname' => 'menu',
-        'extra' => {
-          'end_command' => {
-            'cmdname' => 'end',
-            'extra' => {
-              'command_argument' => 'menu',
-              'spaces_before_argument' => ' ',
-              'text_arg' => 'menu'
-            }
-          }
-        }
+        'extra' => {}
       }
     ],
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'menu_child' => {},
@@ -4007,9 +3979,7 @@ $result_nodes{'index_split'} = {
       'extra' => {
         'associated_section' => {
           'cmdname' => 'chapter',
-          'extra' => {
-            'spaces_before_argument' => ' '
-          },
+          'extra' => {},
           'structure' => {
             'level' => 1,
             'number' => 1
@@ -4019,20 +3989,10 @@ $result_nodes{'index_split'} = {
         'menus' => [
           {
             'cmdname' => 'menu',
-            'extra' => {
-              'end_command' => {
-                'cmdname' => 'end',
-                'extra' => {
-                  'command_argument' => 'menu',
-                  'spaces_before_argument' => ' ',
-                  'text_arg' => 'menu'
-                }
-              }
-            }
+            'extra' => {}
           }
         ],
-        'normalized' => 'first',
-        'spaces_before_argument' => ' '
+        'normalized' => 'first'
       },
       'structure' => {
         'menu_child' => {
@@ -4040,9 +4000,7 @@ $result_nodes{'index_split'} = {
           'extra' => {
             'associated_section' => {
               'cmdname' => 'section',
-              'extra' => {
-                'spaces_before_argument' => ' '
-              },
+              'extra' => {},
               'structure' => {
                 'level' => 2,
                 'number' => '1.1'
@@ -4052,20 +4010,10 @@ $result_nodes{'index_split'} = {
             'menus' => [
               {
                 'cmdname' => 'menu',
-                'extra' => {
-                  'end_command' => {
-                    'cmdname' => 'end',
-                    'extra' => {
-                      'command_argument' => 'menu',
-                      'spaces_before_argument' => ' ',
-                      'text_arg' => 'menu'
-                    }
-                  }
-                }
+                'extra' => {}
               }
             ],
-            'normalized' => 'section-1',
-            'spaces_before_argument' => ' '
+            'normalized' => 'section-1'
           },
           'structure' => {
             'menu_child' => {
@@ -4073,16 +4021,13 @@ $result_nodes{'index_split'} = {
               'extra' => {
                 'associated_section' => {
                   'cmdname' => 'subsection',
-                  'extra' => {
-                    'spaces_before_argument' => ' '
-                  },
+                  'extra' => {},
                   'structure' => {
                     'level' => 3,
                     'number' => '1.1.1'
                   }
                 },
-                'normalized' => 'subsection-1',
-                'spaces_before_argument' => ' '
+                'normalized' => 'subsection-1'
               },
               'structure' => {
                 'node_next' => {
@@ -4090,17 +4035,14 @@ $result_nodes{'index_split'} = {
                   'extra' => {
                     'associated_section' => {
                       'cmdname' => 'subsection',
-                      'extra' => {
-                        'spaces_before_argument' => ' '
-                      },
+                      'extra' => {},
                       'structure' => {
                         'level' => 3,
                         'number' => '1.1.2'
                       }
                     },
                     'isindex' => 1,
-                    'normalized' => 'subsection-2',
-                    'spaces_before_argument' => ' '
+                    'normalized' => 'subsection-2'
                   },
                   'structure' => {
                     'node_prev' => {},
@@ -4115,16 +4057,13 @@ $result_nodes{'index_split'} = {
               'extra' => {
                 'associated_section' => {
                   'cmdname' => 'section',
-                  'extra' => {
-                    'spaces_before_argument' => ' '
-                  },
+                  'extra' => {},
                   'structure' => {
                     'level' => 2,
                     'number' => '1.2'
                   }
                 },
-                'normalized' => 'section-2',
-                'spaces_before_argument' => ' '
+                'normalized' => 'section-2'
               },
               'structure' => {
                 'node_next' => {
@@ -4132,24 +4071,20 @@ $result_nodes{'index_split'} = {
                   'extra' => {
                     'associated_section' => {
                       'cmdname' => 'section',
-                      'extra' => {
-                        'spaces_before_argument' => ' '
-                      },
+                      'extra' => {},
                       'structure' => {
                         'level' => 2,
                         'number' => '1.3'
                       }
                     },
                     'isindex' => 1,
-                    'normalized' => 'section-3',
-                    'spaces_before_argument' => ' '
+                    'normalized' => 'section-3'
                   },
                   'structure' => {
                     'node_next' => {
                       'cmdname' => 'node',
                       'extra' => {
-                        'normalized' => 'node-in-section-3',
-                        'spaces_before_argument' => ' '
+                        'normalized' => 'node-in-section-3'
                       },
                       'structure' => {
                         'node_prev' => {},
@@ -4172,16 +4107,13 @@ $result_nodes{'index_split'} = {
           'extra' => {
             'associated_section' => {
               'cmdname' => 'chapter',
-              'extra' => {
-                'spaces_before_argument' => ' '
-              },
+              'extra' => {},
               'structure' => {
                 'level' => 1,
                 'number' => 2
               }
             },
-            'normalized' => 'second-chapter',
-            'spaces_before_argument' => ' '
+            'normalized' => 'second-chapter'
           },
           'structure' => {
             'node_prev' => {},
@@ -4214,8 +4146,7 @@ $result_menus{'index_split'} = {
   'cmdname' => 'node',
   'extra' => {
     'isindex' => 1,
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'menu_child' => {},
@@ -4223,31 +4154,27 @@ $result_menus{'index_split'} = {
       'cmdname' => 'node',
       'extra' => {
         'isindex' => 1,
-        'normalized' => 'first',
-        'spaces_before_argument' => ' '
+        'normalized' => 'first'
       },
       'structure' => {
         'menu_child' => {
           'cmdname' => 'node',
           'extra' => {
             'isindex' => 1,
-            'normalized' => 'section-1',
-            'spaces_before_argument' => ' '
+            'normalized' => 'section-1'
           },
           'structure' => {
             'menu_child' => {
               'cmdname' => 'node',
               'extra' => {
-                'normalized' => 'subsection-1',
-                'spaces_before_argument' => ' '
+                'normalized' => 'subsection-1'
               },
               'structure' => {
                 'menu_next' => {
                   'cmdname' => 'node',
                   'extra' => {
                     'isindex' => 1,
-                    'normalized' => 'subsection-2',
-                    'spaces_before_argument' => ' '
+                    'normalized' => 'subsection-2'
                   },
                   'structure' => {
                     'menu_prev' => {},
@@ -4266,38 +4193,33 @@ $result_menus{'index_split'} = {
             'menu_next' => {
               'cmdname' => 'node',
               'extra' => {
-                'normalized' => 'section-2',
-                'spaces_before_argument' => ' '
+                'normalized' => 'section-2'
               },
               'structure' => {
                 'menu_next' => {
                   'cmdname' => 'node',
                   'extra' => {
                     'isindex' => 1,
-                    'normalized' => 'section-3',
-                    'spaces_before_argument' => ' '
+                    'normalized' => 'section-3'
                   },
                   'structure' => {
                     'menu_next' => {
                       'cmdname' => 'node',
                       'extra' => {
-                        'normalized' => 'node-in-section-3',
-                        'spaces_before_argument' => ' '
+                        'normalized' => 'node-in-section-3'
                       },
                       'structure' => {
                         'menu_next' => {
                           'cmdname' => 'node',
                           'extra' => {
                             'isindex' => 1,
-                            'normalized' => 'node-2-in-section-3',
-                            'spaces_before_argument' => ' '
+                            'normalized' => 'node-2-in-section-3'
                           },
                           'structure' => {
                             'menu_next' => {
                               'cmdname' => 'node',
                               'extra' => {
-                                'normalized' => 'node-3-in-section-3',
-                                'spaces_before_argument' => ' '
+                                'normalized' => 'node-3-in-section-3'
                               },
                               'structure' => {
                                 'menu_prev' => {},
@@ -4344,8 +4266,7 @@ $result_menus{'index_split'} = {
         'menu_next' => {
           'cmdname' => 'node',
           'extra' => {
-            'normalized' => 'second-chapter',
-            'spaces_before_argument' => ' '
+            'normalized' => 'second-chapter'
           },
           'structure' => {
             'menu_prev' => {},

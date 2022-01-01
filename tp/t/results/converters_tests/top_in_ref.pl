@@ -4352,15 +4352,13 @@ $result_texts{'top_in_ref'} = '
 $result_nodes{'top_in_ref'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'node_next' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'refs-node',
-        'spaces_before_argument' => ' '
+        'normalized' => 'refs-node'
       },
       'structure' => {
         'node_prev' => {}
@@ -4373,8 +4371,7 @@ $result_nodes{'top_in_ref'}{'structure'}{'node_next'}{'structure'}{'node_prev'} 
 $result_menus{'top_in_ref'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {}
 };

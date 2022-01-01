@@ -286,9 +286,7 @@ $result_sectioning{'index_below'} = {
     'section_childs' => [
       {
         'cmdname' => 'top',
-        'extra' => {
-          'spaces_before_argument' => ' '
-        },
+        'extra' => {},
         'structure' => {
           'associated_unit' => {
             'extra' => {
@@ -301,9 +299,7 @@ $result_sectioning{'index_below'} = {
                   'extra' => {
                     'section' => {
                       'cmdname' => 'chapter',
-                      'extra' => {
-                        'spaces_before_argument' => ' '
-                      },
+                      'extra' => {},
                       'structure' => {
                         'associated_unit' => {},
                         'level' => 1,
@@ -311,9 +307,7 @@ $result_sectioning{'index_below'} = {
                         'section_childs' => [
                           {
                             'cmdname' => 'section',
-                            'extra' => {
-                              'spaces_before_argument' => ' '
-                            },
+                            'extra' => {},
                             'structure' => {
                               'associated_unit' => {
                                 'extra' => {
@@ -420,9 +414,7 @@ $result_elements{'index_below'} = [
     'extra' => {
       'section' => {
         'cmdname' => 'top',
-        'extra' => {
-          'spaces_before_argument' => ' '
-        },
+        'extra' => {},
         'structure' => {
           'associated_unit' => {},
           'level' => 0
@@ -436,9 +428,7 @@ $result_elements{'index_below'} = [
           'extra' => {
             'section' => {
               'cmdname' => 'chapter',
-              'extra' => {
-                'spaces_before_argument' => ' '
-              },
+              'extra' => {},
               'structure' => {
                 'associated_unit' => {},
                 'level' => 1,
@@ -455,9 +445,7 @@ $result_elements{'index_below'} = [
                 'extra' => {
                   'section' => {
                     'cmdname' => 'section',
-                    'extra' => {
-                      'spaces_before_argument' => ' '
-                    },
+                    'extra' => {},
                     'structure' => {
                       'associated_unit' => {},
                       'level' => 2,

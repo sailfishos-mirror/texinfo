@@ -567,12 +567,10 @@ $result_sectioning{'value_node_directions'} = {
           'associated_node' => {
             'cmdname' => 'node',
             'extra' => {
-              'normalized' => 'Top',
-              'spaces_before_argument' => ' '
+              'normalized' => 'Top'
             },
             'structure' => {}
-          },
-          'spaces_before_argument' => ' '
+          }
         },
         'structure' => {
           'level' => 0,
@@ -583,12 +581,10 @@ $result_sectioning{'value_node_directions'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => 'bar',
-                    'spaces_before_argument' => ' '
+                    'normalized' => 'bar'
                   },
                   'structure' => {}
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'level' => 1,
@@ -604,12 +600,10 @@ $result_sectioning{'value_node_directions'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => 'BarFoo',
-                    'spaces_before_argument' => ' '
+                    'normalized' => 'BarFoo'
                   },
                   'structure' => {}
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'level' => 1,
@@ -641,15 +635,12 @@ $result_nodes{'value_node_directions'} = {
   'extra' => {
     'associated_section' => {
       'cmdname' => 'top',
-      'extra' => {
-        'spaces_before_argument' => ' '
-      },
+      'extra' => {},
       'structure' => {
         'level' => 0
       }
     },
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'node_next' => {
@@ -657,16 +648,13 @@ $result_nodes{'value_node_directions'} = {
       'extra' => {
         'associated_section' => {
           'cmdname' => 'chapter',
-          'extra' => {
-            'spaces_before_argument' => ' '
-          },
+          'extra' => {},
           'structure' => {
             'level' => 1,
             'number' => 1
           }
         },
-        'normalized' => 'bar',
-        'spaces_before_argument' => ' '
+        'normalized' => 'bar'
       },
       'structure' => {
         'node_next' => {
@@ -674,16 +662,13 @@ $result_nodes{'value_node_directions'} = {
           'extra' => {
             'associated_section' => {
               'cmdname' => 'chapter',
-              'extra' => {
-                'spaces_before_argument' => ' '
-              },
+              'extra' => {},
               'structure' => {
                 'level' => 1,
                 'number' => 2
               }
             },
-            'normalized' => 'BarFoo',
-            'spaces_before_argument' => ' '
+            'normalized' => 'BarFoo'
           },
           'structure' => {
             'node_prev' => {},
@@ -736,8 +721,7 @@ $result_nodes{'value_node_directions'}{'structure'}{'node_next'}{'structure'}{'n
 $result_menus{'value_node_directions'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {}
 };

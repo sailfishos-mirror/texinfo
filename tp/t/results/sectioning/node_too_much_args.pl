@@ -118,8 +118,7 @@ $result_texts{'node_too_much_args'} = '';
 $result_nodes{'node_too_much_args'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'node_up' => {
@@ -137,8 +136,7 @@ $result_nodes{'node_too_much_args'} = {
 $result_menus{'node_too_much_args'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {}
 };

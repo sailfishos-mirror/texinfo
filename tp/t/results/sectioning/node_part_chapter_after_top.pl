@@ -431,8 +431,7 @@ $result_sectioning{'node_part_chapter_after_top'} = {
           'associated_node' => {
             'cmdname' => 'node',
             'extra' => {
-              'normalized' => 'Top',
-              'spaces_before_argument' => ' '
+              'normalized' => 'Top'
             },
             'structure' => {
               'associated_unit' => {
@@ -448,8 +447,7 @@ $result_sectioning{'node_part_chapter_after_top'} = {
                         'node' => {
                           'cmdname' => 'node',
                           'extra' => {
-                            'normalized' => 'chapter-node',
-                            'spaces_before_argument' => ' '
+                            'normalized' => 'chapter-node'
                           },
                           'structure' => {
                             'associated_unit' => {}
@@ -462,8 +460,7 @@ $result_sectioning{'node_part_chapter_after_top'} = {
                             'associated_part' => {
                               'cmdname' => 'part',
                               'extra' => {
-                                'part_associated_section' => {},
-                                'spaces_before_argument' => ' '
+                                'part_associated_section' => {}
                               },
                               'structure' => {
                                 'associated_unit' => {},
@@ -474,8 +471,7 @@ $result_sectioning{'node_part_chapter_after_top'} = {
                                 'section_prev' => {},
                                 'section_up' => {}
                               }
-                            },
-                            'spaces_before_argument' => ' '
+                            }
                           },
                           'structure' => {
                             'associated_unit' => {},
@@ -512,8 +508,7 @@ $result_sectioning{'node_part_chapter_after_top'} = {
                 'type' => 'unit'
               }
             }
-          },
-          'spaces_before_argument' => ' '
+          }
         },
         'structure' => {
           'associated_unit' => {},
@@ -562,9 +557,7 @@ $result_nodes{'node_part_chapter_after_top'} = {
   'extra' => {
     'associated_section' => {
       'cmdname' => 'top',
-      'extra' => {
-        'spaces_before_argument' => ' '
-      },
+      'extra' => {},
       'structure' => {
         'associated_unit' => {
           'extra' => {
@@ -584,15 +577,12 @@ $result_nodes{'node_part_chapter_after_top'} = {
                         'extra' => {
                           'associated_part' => {
                             'cmdname' => 'part',
-                            'extra' => {
-                              'spaces_before_argument' => ' '
-                            },
+                            'extra' => {},
                             'structure' => {
                               'associated_unit' => {},
                               'level' => 0
                             }
-                          },
-                          'spaces_before_argument' => ' '
+                          }
                         },
                         'structure' => {
                           'associated_unit' => {},
@@ -600,8 +590,7 @@ $result_nodes{'node_part_chapter_after_top'} = {
                           'number' => 1
                         }
                       },
-                      'normalized' => 'chapter-node',
-                      'spaces_before_argument' => ' '
+                      'normalized' => 'chapter-node'
                     },
                     'structure' => {
                       'associated_unit' => {},
@@ -641,20 +630,10 @@ $result_nodes{'node_part_chapter_after_top'} = {
     'menus' => [
       {
         'cmdname' => 'menu',
-        'extra' => {
-          'end_command' => {
-            'cmdname' => 'end',
-            'extra' => {
-              'command_argument' => 'menu',
-              'spaces_before_argument' => ' ',
-              'text_arg' => 'menu'
-            }
-          }
-        }
+        'extra' => {}
       }
     ],
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'associated_unit' => {},
@@ -692,8 +671,7 @@ $result_nodes{'node_part_chapter_after_top'}{'structure'}{'node_next'} = $result
 $result_menus{'node_part_chapter_after_top'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'associated_unit' => {
@@ -701,9 +679,7 @@ $result_menus{'node_part_chapter_after_top'} = {
         'node' => {},
         'section' => {
           'cmdname' => 'top',
-          'extra' => {
-            'spaces_before_argument' => ' '
-          },
+          'extra' => {},
           'structure' => {
             'associated_unit' => {},
             'level' => 0
@@ -718,8 +694,7 @@ $result_menus{'node_part_chapter_after_top'} = {
               'node' => {
                 'cmdname' => 'node',
                 'extra' => {
-                  'normalized' => 'chapter-node',
-                  'spaces_before_argument' => ' '
+                  'normalized' => 'chapter-node'
                 },
                 'structure' => {
                   'associated_unit' => {},
@@ -734,15 +709,12 @@ $result_menus{'node_part_chapter_after_top'} = {
                 'extra' => {
                   'associated_part' => {
                     'cmdname' => 'part',
-                    'extra' => {
-                      'spaces_before_argument' => ' '
-                    },
+                    'extra' => {},
                     'structure' => {
                       'associated_unit' => {},
                       'level' => 0
                     }
-                  },
-                  'spaces_before_argument' => ' '
+                  }
                 },
                 'structure' => {
                   'associated_unit' => {},
@@ -823,16 +795,14 @@ $result_elements{'node_part_chapter_after_top'} = [
       'node' => {
         'cmdname' => 'node',
         'extra' => {
-          'normalized' => 'Top',
-          'spaces_before_argument' => ' '
+          'normalized' => 'Top'
         },
         'structure' => {
           'associated_unit' => {},
           'menu_child' => {
             'cmdname' => 'node',
             'extra' => {
-              'normalized' => 'chapter-node',
-              'spaces_before_argument' => ' '
+              'normalized' => 'chapter-node'
             },
             'structure' => {
               'associated_unit' => {
@@ -843,15 +813,12 @@ $result_elements{'node_part_chapter_after_top'} = [
                     'extra' => {
                       'associated_part' => {
                         'cmdname' => 'part',
-                        'extra' => {
-                          'spaces_before_argument' => ' '
-                        },
+                        'extra' => {},
                         'structure' => {
                           'associated_unit' => {},
                           'level' => 0
                         }
-                      },
-                      'spaces_before_argument' => ' '
+                      }
                     },
                     'structure' => {
                       'associated_unit' => {},
@@ -883,9 +850,7 @@ $result_elements{'node_part_chapter_after_top'} = [
       },
       'section' => {
         'cmdname' => 'top',
-        'extra' => {
-          'spaces_before_argument' => ' '
-        },
+        'extra' => {},
         'structure' => {
           'associated_unit' => {},
           'level' => 0

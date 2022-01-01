@@ -364,12 +364,10 @@ $result_sectioning{'text_before_line_command'} = {
           'associated_node' => {
             'cmdname' => 'node',
             'extra' => {
-              'normalized' => 'LD-Version-Scripts',
-              'spaces_before_argument' => ' '
+              'normalized' => 'LD-Version-Scripts'
             },
             'structure' => {}
-          },
-          'spaces_before_argument' => ' '
+          }
         },
         'structure' => {
           'level' => 1,
@@ -387,16 +385,13 @@ $result_nodes{'text_before_line_command'} = {
   'extra' => {
     'associated_section' => {
       'cmdname' => 'chapter',
-      'extra' => {
-        'spaces_before_argument' => ' '
-      },
+      'extra' => {},
       'structure' => {
         'level' => 1,
         'number' => 1
       }
     },
-    'normalized' => 'LD-Version-Scripts',
-    'spaces_before_argument' => ' '
+    'normalized' => 'LD-Version-Scripts'
   },
   'structure' => {}
 };
@@ -404,8 +399,7 @@ $result_nodes{'text_before_line_command'} = {
 $result_menus{'text_before_line_command'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'LD-Version-Scripts',
-    'spaces_before_argument' => ' '
+    'normalized' => 'LD-Version-Scripts'
   },
   'structure' => {}
 };

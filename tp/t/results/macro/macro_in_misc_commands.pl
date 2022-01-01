@@ -4274,12 +4274,10 @@ $result_sectioning{'macro_in_misc_commands'} = {
           'associated_node' => {
             'cmdname' => 'node',
             'extra' => {
-              'normalized' => 'Top',
-              'spaces_before_argument' => ' '
+              'normalized' => 'Top'
             },
             'structure' => {}
-          },
-          'spaces_before_argument' => ' '
+          }
         },
         'structure' => {
           'level' => 0,
@@ -4290,12 +4288,10 @@ $result_sectioning{'macro_in_misc_commands'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => 'node-atext',
-                    'spaces_before_argument' => ' '
+                    'normalized' => 'node-atext'
                   },
                   'structure' => {}
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'level' => 1,
@@ -4322,9 +4318,7 @@ $result_nodes{'macro_in_misc_commands'} = {
   'extra' => {
     'associated_section' => {
       'cmdname' => 'top',
-      'extra' => {
-        'spaces_before_argument' => ' '
-      },
+      'extra' => {},
       'structure' => {
         'level' => 0
       }
@@ -4332,20 +4326,10 @@ $result_nodes{'macro_in_misc_commands'} = {
     'menus' => [
       {
         'cmdname' => 'menu',
-        'extra' => {
-          'end_command' => {
-            'cmdname' => 'end',
-            'extra' => {
-              'command_argument' => 'menu',
-              'spaces_before_argument' => ' ',
-              'text_arg' => 'menu'
-            }
-          }
-        }
+        'extra' => {}
       }
     ],
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'menu_child' => {
@@ -4353,16 +4337,13 @@ $result_nodes{'macro_in_misc_commands'} = {
       'extra' => {
         'associated_section' => {
           'cmdname' => 'chapter',
-          'extra' => {
-            'spaces_before_argument' => ' '
-          },
+          'extra' => {},
           'structure' => {
             'level' => 1,
             'number' => 1
           }
         },
-        'normalized' => 'node-atext',
-        'spaces_before_argument' => ' '
+        'normalized' => 'node-atext'
       },
       'structure' => {
         'node_prev' => {},
@@ -4379,15 +4360,13 @@ $result_nodes{'macro_in_misc_commands'}{'structure'}{'node_next'} = $result_node
 $result_menus{'macro_in_misc_commands'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'node-atext',
-        'spaces_before_argument' => ' '
+        'normalized' => 'node-atext'
       },
       'structure' => {
         'menu_up' => {},

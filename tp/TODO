@@ -16,6 +16,8 @@ Before next release
 HTML.pm l 8024 check if setting MATHJAX_SCRIPT and MATHJAX_SOURCE is not
 set and HTML_MATH is mathjax shouldn't be done before.
 
+sections and nodes in split_by_section/node
+
 Bugs
 ====
 

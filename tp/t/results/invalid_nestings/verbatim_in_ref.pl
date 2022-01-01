@@ -186,8 +186,7 @@ Topverbat text
 $result_nodes{'verbatim_in_ref'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {}
 };
@@ -195,8 +194,7 @@ $result_nodes{'verbatim_in_ref'} = {
 $result_menus{'verbatim_in_ref'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {}
 };

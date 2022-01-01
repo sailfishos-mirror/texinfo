@@ -662,8 +662,7 @@ $result_sectioning{'seeentry'} = {
           'associated_node' => {
             'cmdname' => 'node',
             'extra' => {
-              'normalized' => 'Top',
-              'spaces_before_argument' => ' '
+              'normalized' => 'Top'
             },
             'structure' => {}
           }
@@ -678,12 +677,10 @@ $result_sectioning{'seeentry'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'isindex' => 1,
-                    'normalized' => 'chapter-index',
-                    'spaces_before_argument' => ' '
+                    'normalized' => 'chapter-index'
                   },
                   'structure' => {}
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'level' => 1,
@@ -715,8 +712,7 @@ $result_nodes{'seeentry'} = {
         'level' => 0
       }
     },
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'node_next' => {
@@ -724,17 +720,14 @@ $result_nodes{'seeentry'} = {
       'extra' => {
         'associated_section' => {
           'cmdname' => 'chapter',
-          'extra' => {
-            'spaces_before_argument' => ' '
-          },
+          'extra' => {},
           'structure' => {
             'level' => 1,
             'number' => 1
           }
         },
         'isindex' => 1,
-        'normalized' => 'chapter-index',
-        'spaces_before_argument' => ' '
+        'normalized' => 'chapter-index'
       },
       'structure' => {
         'node_prev' => {},
@@ -749,8 +742,7 @@ $result_nodes{'seeentry'}{'structure'}{'node_next'}{'structure'}{'node_up'} = $r
 $result_menus{'seeentry'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {}
 };

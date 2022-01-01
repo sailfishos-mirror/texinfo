@@ -333,20 +333,10 @@ $result_nodes{'novalidate'} = {
     'menus' => [
       {
         'cmdname' => 'menu',
-        'extra' => {
-          'end_command' => {
-            'cmdname' => 'end',
-            'extra' => {
-              'command_argument' => 'menu',
-              'spaces_before_argument' => ' ',
-              'text_arg' => 'menu'
-            }
-          }
-        }
+        'extra' => {}
       }
     ],
-    'normalized' => 'first',
-    'spaces_before_argument' => ' '
+    'normalized' => 'first'
   },
   'structure' => {
     'node_next' => {
@@ -360,8 +350,7 @@ $result_nodes{'novalidate'} = {
 $result_menus{'novalidate'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'first',
-    'spaces_before_argument' => ' '
+    'normalized' => 'first'
   },
   'structure' => {}
 };

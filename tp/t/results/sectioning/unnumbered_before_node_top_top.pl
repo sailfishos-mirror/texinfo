@@ -227,9 +227,7 @@ $result_sectioning{'unnumbered_before_node_top_top'} = {
     'section_childs' => [
       {
         'cmdname' => 'unnumbered',
-        'extra' => {
-          'spaces_before_argument' => ' '
-        },
+        'extra' => {},
         'structure' => {
           'associated_unit' => {
             'extra' => {
@@ -243,8 +241,7 @@ $result_sectioning{'unnumbered_before_node_top_top'} = {
                     'node' => {
                       'cmdname' => 'node',
                       'extra' => {
-                        'normalized' => 'Top',
-                        'spaces_before_argument' => ' '
+                        'normalized' => 'Top'
                       },
                       'structure' => {
                         'associated_unit' => {}
@@ -253,8 +250,7 @@ $result_sectioning{'unnumbered_before_node_top_top'} = {
                     'section' => {
                       'cmdname' => 'top',
                       'extra' => {
-                        'associated_node' => {},
-                        'spaces_before_argument' => ' '
+                        'associated_node' => {}
                       },
                       'structure' => {
                         'associated_unit' => {},
@@ -319,9 +315,7 @@ $result_nodes{'unnumbered_before_node_top_top'} = {
   'extra' => {
     'associated_section' => {
       'cmdname' => 'top',
-      'extra' => {
-        'spaces_before_argument' => ' '
-      },
+      'extra' => {},
       'structure' => {
         'associated_unit' => {
           'extra' => {
@@ -335,9 +329,7 @@ $result_nodes{'unnumbered_before_node_top_top'} = {
                 'extra' => {
                   'section' => {
                     'cmdname' => 'unnumbered',
-                    'extra' => {
-                      'spaces_before_argument' => ' '
-                    },
+                    'extra' => {},
                     'structure' => {
                       'associated_unit' => {},
                       'level' => 1
@@ -367,8 +359,7 @@ $result_nodes{'unnumbered_before_node_top_top'} = {
         'level' => 1
       }
     },
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'associated_unit' => {}
@@ -393,8 +384,7 @@ $result_nodes{'unnumbered_before_node_top_top'}{'structure'}{'associated_unit'} 
 $result_menus{'unnumbered_before_node_top_top'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'associated_unit' => {
@@ -402,9 +392,7 @@ $result_menus{'unnumbered_before_node_top_top'} = {
         'node' => {},
         'section' => {
           'cmdname' => 'top',
-          'extra' => {
-            'spaces_before_argument' => ' '
-          },
+          'extra' => {},
           'structure' => {
             'associated_unit' => {},
             'level' => 1
@@ -418,9 +406,7 @@ $result_menus{'unnumbered_before_node_top_top'} = {
             'extra' => {
               'section' => {
                 'cmdname' => 'unnumbered',
-                'extra' => {
-                  'spaces_before_argument' => ' '
-                },
+                'extra' => {},
                 'structure' => {
                   'associated_unit' => {},
                   'level' => 1
@@ -485,9 +471,7 @@ $result_elements{'unnumbered_before_node_top_top'} = [
     'extra' => {
       'section' => {
         'cmdname' => 'unnumbered',
-        'extra' => {
-          'spaces_before_argument' => ' '
-        },
+        'extra' => {},
         'structure' => {
           'associated_unit' => {},
           'level' => 1
@@ -502,8 +486,7 @@ $result_elements{'unnumbered_before_node_top_top'} = [
             'node' => {
               'cmdname' => 'node',
               'extra' => {
-                'normalized' => 'Top',
-                'spaces_before_argument' => ' '
+                'normalized' => 'Top'
               },
               'structure' => {
                 'associated_unit' => {}
@@ -511,9 +494,7 @@ $result_elements{'unnumbered_before_node_top_top'} = [
             },
             'section' => {
               'cmdname' => 'top',
-              'extra' => {
-                'spaces_before_argument' => ' '
-              },
+              'extra' => {},
               'structure' => {
                 'associated_unit' => {},
                 'level' => 1

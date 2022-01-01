@@ -108,9 +108,7 @@ $result_sectioning{'unnumbered_before_top'} = {
     'section_childs' => [
       {
         'cmdname' => 'unnumbered',
-        'extra' => {
-          'spaces_before_argument' => ' '
-        },
+        'extra' => {},
         'structure' => {
           'level' => 1,
           'section_up' => {}
@@ -118,9 +116,7 @@ $result_sectioning{'unnumbered_before_top'} = {
       },
       {
         'cmdname' => 'top',
-        'extra' => {
-          'spaces_before_argument' => ' '
-        },
+        'extra' => {},
         'structure' => {
           'level' => 1,
           'section_prev' => {},

@@ -139,8 +139,7 @@ A comma in text, end.
 $result_nodes{'a_comma_after_node'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Commands',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Commands'
   },
   'structure' => {}
 };
@@ -148,8 +147,7 @@ $result_nodes{'a_comma_after_node'} = {
 $result_menus{'a_comma_after_node'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Commands',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Commands'
   },
   'structure' => {}
 };

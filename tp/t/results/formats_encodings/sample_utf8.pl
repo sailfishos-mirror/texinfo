@@ -1731,12 +1731,10 @@ $result_sectioning{'sample_utf8'} = {
           'associated_node' => {
             'cmdname' => 'node',
             'extra' => {
-              'normalized' => 'Top',
-              'spaces_before_argument' => ' '
+              'normalized' => 'Top'
             },
             'structure' => {}
-          },
-          'spaces_before_argument' => ' '
+          }
         },
         'structure' => {
           'level' => 0,
@@ -1747,12 +1745,10 @@ $result_sectioning{'sample_utf8'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => '_7b2c_4e00_7ae0_ff08First-Chapter_ff09',
-                    'spaces_before_argument' => ' '
+                    'normalized' => '_7b2c_4e00_7ae0_ff08First-Chapter_ff09'
                   },
                   'structure' => {}
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'level' => 1,
@@ -1768,12 +1764,10 @@ $result_sectioning{'sample_utf8'} = {
                 'associated_node' => {
                   'cmdname' => 'node',
                   'extra' => {
-                    'normalized' => 'Second-Chapter-AE-_0104_0118-ae-_0105_0119',
-                    'spaces_before_argument' => ' '
+                    'normalized' => 'Second-Chapter-AE-_0104_0118-ae-_0105_0119'
                   },
                   'structure' => {}
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'level' => 1,
@@ -1791,12 +1785,10 @@ $result_sectioning{'sample_utf8'} = {
                   'cmdname' => 'node',
                   'extra' => {
                     'isindex' => 1,
-                    'normalized' => 'Index-node',
-                    'spaces_before_argument' => ' '
+                    'normalized' => 'Index-node'
                   },
                   'structure' => {}
-                },
-                'spaces_before_argument' => ' '
+                }
               },
               'structure' => {
                 'level' => 1,
@@ -1831,9 +1823,7 @@ $result_nodes{'sample_utf8'} = {
   'extra' => {
     'associated_section' => {
       'cmdname' => 'top',
-      'extra' => {
-        'spaces_before_argument' => ' '
-      },
+      'extra' => {},
       'structure' => {
         'level' => 0
       }
@@ -1841,20 +1831,10 @@ $result_nodes{'sample_utf8'} = {
     'menus' => [
       {
         'cmdname' => 'menu',
-        'extra' => {
-          'end_command' => {
-            'cmdname' => 'end',
-            'extra' => {
-              'command_argument' => 'menu',
-              'spaces_before_argument' => ' ',
-              'text_arg' => 'menu'
-            }
-          }
-        }
+        'extra' => {}
       }
     ],
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'menu_child' => {
@@ -1862,16 +1842,13 @@ $result_nodes{'sample_utf8'} = {
       'extra' => {
         'associated_section' => {
           'cmdname' => 'chapter',
-          'extra' => {
-            'spaces_before_argument' => ' '
-          },
+          'extra' => {},
           'structure' => {
             'level' => 1,
             'number' => 1
           }
         },
-        'normalized' => '_7b2c_4e00_7ae0_ff08First-Chapter_ff09',
-        'spaces_before_argument' => ' '
+        'normalized' => '_7b2c_4e00_7ae0_ff08First-Chapter_ff09'
       },
       'structure' => {
         'node_next' => {
@@ -1879,16 +1856,13 @@ $result_nodes{'sample_utf8'} = {
           'extra' => {
             'associated_section' => {
               'cmdname' => 'chapter',
-              'extra' => {
-                'spaces_before_argument' => ' '
-              },
+              'extra' => {},
               'structure' => {
                 'level' => 1,
                 'number' => 2
               }
             },
-            'normalized' => 'Second-Chapter-AE-_0104_0118-ae-_0105_0119',
-            'spaces_before_argument' => ' '
+            'normalized' => 'Second-Chapter-AE-_0104_0118-ae-_0105_0119'
           },
           'structure' => {
             'node_next' => {
@@ -1896,16 +1870,13 @@ $result_nodes{'sample_utf8'} = {
               'extra' => {
                 'associated_section' => {
                   'cmdname' => 'unnumbered',
-                  'extra' => {
-                    'spaces_before_argument' => ' '
-                  },
+                  'extra' => {},
                   'structure' => {
                     'level' => 1
                   }
                 },
                 'isindex' => 1,
-                'normalized' => 'Index-node',
-                'spaces_before_argument' => ' '
+                'normalized' => 'Index-node'
               },
               'structure' => {
                 'node_prev' => {},
@@ -1934,30 +1905,26 @@ $result_nodes{'sample_utf8'}{'structure'}{'node_next'} = $result_nodes{'sample_u
 $result_menus{'sample_utf8'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top'
   },
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => '_7b2c_4e00_7ae0_ff08First-Chapter_ff09',
-        'spaces_before_argument' => ' '
+        'normalized' => '_7b2c_4e00_7ae0_ff08First-Chapter_ff09'
       },
       'structure' => {
         'menu_next' => {
           'cmdname' => 'node',
           'extra' => {
-            'normalized' => 'Second-Chapter-AE-_0104_0118-ae-_0105_0119',
-            'spaces_before_argument' => ' '
+            'normalized' => 'Second-Chapter-AE-_0104_0118-ae-_0105_0119'
           },
           'structure' => {
             'menu_next' => {
               'cmdname' => 'node',
               'extra' => {
                 'isindex' => 1,
-                'normalized' => 'Index-node',
-                'spaces_before_argument' => ' '
+                'normalized' => 'Index-node'
               },
               'structure' => {
                 'menu_prev' => {},

@@ -470,10 +470,11 @@ sub new_test($;$$$)
 }
 
 my @contents_keys = ('contents', 'args', 'parent',
-  'line_nr', 'node_content', 
-  'nodes_manuals', 'misc_content', 'invalid_nesting', 
-  'block_command_line_contents', 'spaces_after_command');
+  'line_nr', 'node_content',  'nodes_manuals', 'misc_content', 'invalid_nesting', 
+  'block_command_line_contents', 'spaces_after_command', 'spaces_before_argument',
+  'end_command', 'text_arg', 'command_argument');
 my @menus_keys = ('menu_next', 'menu_up', 'menu_prev', 'menu_up_hash');
+# 'level' 'number'
 my @sections_keys = ('section_next', 'section_prev', 'section_up', 
   'section_childs', 'associated_node', 'part_associated_section', 
   'toplevel_prev', 'toplevel_next', 'toplevel_up');
@@ -491,7 +492,7 @@ sub filter_tree_keys { [grep {!$avoided_keys_tree{$_}} ( sort keys %{$_[0]} )] }
 
 my %avoided_keys_sectioning;
 my @avoided_keys_sectioning = ('section_next', @contents_keys, @menus_keys, 
-  @node_keys, 'menu_child', 'toplevel_next');
+  @node_keys, 'menu_child', 'manual_content', 'toplevel_next');
 foreach my $avoided_key(@avoided_keys_sectioning) {
   $avoided_keys_sectioning{$avoided_key} = 1;
 }

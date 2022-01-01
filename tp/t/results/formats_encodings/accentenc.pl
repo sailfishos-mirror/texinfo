@@ -3173,11 +3173,9 @@ $result_sectioning{'accentenc'} = {
           'associated_node' => {
             'cmdname' => 'node',
             'extra' => {
-              'normalized' => 'Top-node',
-              'spaces_before_argument' => ' '
+              'normalized' => 'Top-node'
             }
-          },
-          'spaces_before_argument' => ' '
+          }
         },
         'structure' => {
           'level' => 0,
@@ -3194,23 +3192,19 @@ $result_nodes{'accentenc'} = {
   'extra' => {
     'associated_section' => {
       'cmdname' => 'top',
-      'extra' => {
-        'spaces_before_argument' => ' '
-      },
+      'extra' => {},
       'structure' => {
         'level' => 0
       }
     },
-    'normalized' => 'Top-node',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top-node'
   }
 };
 
 $result_menus{'accentenc'} = {
   'cmdname' => 'node',
   'extra' => {
-    'normalized' => 'Top-node',
-    'spaces_before_argument' => ' '
+    'normalized' => 'Top-node'
   }
 };
 
