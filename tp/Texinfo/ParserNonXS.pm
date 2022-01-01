@@ -849,7 +849,6 @@ sub _complete_line_nr($$;$$$)
 
 # entry point for text fragments.
 # Used in tests.
-# It has no specific root type, the default set in _parse_texi is used
 sub parse_texi_text($$;$$$$)
 {
   my ($self, $text, $lines_nr, $file, $macro, $fixed_line_number) = @_;
@@ -979,24 +978,7 @@ sub parse_texi_file($$)
   
   my $tree = $self->_parse_texi($document_root, $before_node_section);
 
-  # Put everything before @setfilename in a special type.  This allows to
-  # ignore everything before @setfilename.
-  if ($self->global_commands_information()->{'setfilename'}
-      and $self->global_commands_information()->{'setfilename'}->{'parent'}
-                                                 eq $before_node_section) {
-    my $before_setfilename = {'type' => 'preamble_before_setfilename',
-                              'parent' => $before_node_section,
-                              'contents' => []};
-    while (@{$before_node_section->{'contents'}}
-        and (!$before_node_section->{'contents'}->[0]->{'cmdname'}
-          or $before_node_section->{'contents'}->[0]->{'cmdname'} ne 'setfilename')) {
-      my $content = shift @{$before_node_section->{'contents'}};
-      $content->{'parent'} = $before_setfilename;
-      push @{$before_setfilename->{'contents'}}, $content;
-    }
-    unshift (@{$before_node_section->{'contents'}}, $before_setfilename)
-      if (@{$before_setfilename->{'contents'}});
-  }
+  Texinfo::Common::rearrange_tree_beginning($self, $before_node_section);
 
   $self->_set_global_informations();
 

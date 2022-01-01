@@ -1,5 +1,16 @@
 2022-01-01  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (rearrange_tree_beginning),
+	tp/Texinfo/ParserNonXS.pm (parse_texi_file),
+	tp/Texinfo/XS/parsetexi/Parsetexi.pm
+	(_maybe_ignore_before_setfilename, parse_texi_file):
+	move code from _maybe_ignore_before_setfilename to
+	Texinfo::Common renamed as rearrange_tree_beginning
+	and remove similar code from ParserNonXS.pm and call
+	that function there too.
+
+2022-01-01  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (%document_settable_unique_at_commands),
 	tp/Texinfo/Convert/LaTeX.pm (@informative_global_commands)
 	(_convert), tp/Texinfo/XS/parsetexi/command_data.txt,

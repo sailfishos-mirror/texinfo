@@ -207,29 +207,6 @@ sub get_parser_info {
 
 use File::Basename; # for fileparse
 
-# Put everything before @setfilename in a special type.  This allows
-# ignoring everything before @setfilename.
-sub _maybe_ignore_before_setfilename {
-  my ($self, $before_node_section) = @_;
-
-  if ($self->global_commands_information()->{'setfilename'}
-      and $self->global_commands_information()->{'setfilename'}->{'parent'}
-                                                 eq $before_node_section) {
-    my $before_setfilename = {'type' => 'preamble_before_setfilename',
-                              'parent' => $before_node_section,
-                              'contents' => []};
-    while (@{$before_node_section->{'contents'}}
-        and (!$before_node_section->{'contents'}->[0]->{'cmdname'}
-          or $before_node_section->{'contents'}->[0]->{'cmdname'} ne 'setfilename')) {
-      my $content = shift @{$before_node_section->{'contents'}};
-      $content->{'parent'} = $before_setfilename;
-      push @{$before_setfilename->{'contents'}}, $content;
-    }
-    unshift (@{$before_node_section->{'contents'}}, $before_setfilename)
-      if (@{$before_setfilename->{'contents'}});
-  }
-}
-
 # Replacement for Texinfo::Parser::parse_texi_file
 sub parse_texi_file ($$)
 {
@@ -252,7 +229,7 @@ sub parse_texi_file ($$)
 
   my $before_node_section = $TREE->{'contents'}->[0];
 
-  _maybe_ignore_before_setfilename($self, $before_node_section);
+  Texinfo::Common::rearrange_tree_beginning($self, $before_node_section);
 
   ############################################################
 

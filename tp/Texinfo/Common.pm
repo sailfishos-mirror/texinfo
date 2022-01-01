@@ -1227,6 +1227,32 @@ sub output_files_unclosed_files($)
 # functions used in main program, parser and structuring.
 # Not supposed to be called in user-defined code.
 
+# Called both in NonXS and XS parsers
+sub rearrange_tree_beginning($$)
+{
+  my $self = shift;
+  my $before_node_section = shift;
+
+  # Put everything before @setfilename in a special type.  This allows to
+  # ignore everything before @setfilename.
+  if ($self->global_commands_information()->{'setfilename'}
+      and $self->global_commands_information()->{'setfilename'}->{'parent'}
+                                                 eq $before_node_section) {
+    my $before_setfilename = {'type' => 'preamble_before_setfilename',
+                              'parent' => $before_node_section,
+                              'contents' => []};
+    while (@{$before_node_section->{'contents'}}
+        and (!$before_node_section->{'contents'}->[0]->{'cmdname'}
+          or $before_node_section->{'contents'}->[0]->{'cmdname'} ne 'setfilename')) {
+      my $content = shift @{$before_node_section->{'contents'}};
+      $content->{'parent'} = $before_setfilename;
+      push @{$before_setfilename->{'contents'}}, $content;
+    }
+    unshift (@{$before_node_section->{'contents'}}, $before_setfilename)
+      if (@{$before_setfilename->{'contents'}});
+  }
+}
+
 sub warn_unknown_language($) {
   my $lang = shift;
 
