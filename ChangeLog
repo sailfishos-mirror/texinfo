@@ -1,3 +1,14 @@
+2022-01-01  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	Document of LaTeX back-end
+
+	* NEWS: Announce
+	* doc/texinfo.texi (Output Formats, Generic Translator texi2any):
+	Add LaTeX.
+	(Invoking texi2any): Document --latex.
+	(@documentencoding): Edit to reflect fact that a LaTeX back-end
+	now exists.
+
 2022-01-01  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Common.pm (%formattable_misc_commands),
