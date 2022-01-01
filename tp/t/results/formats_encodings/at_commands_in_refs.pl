@@ -22907,6 +22907,7 @@ h3.center-align {text-align:center}
 h3.right-align {text-align:right}
 h4.center-align {text-align:center}
 kbd {font-style: oblique}
+kbd.key {font-style: normal}
 p.center-align {text-align:center}
 p.left-align {text-align:left}
 p.right-align {text-align:right}
@@ -22956,7 +22957,7 @@ Next: <a href="#-_007b-_007d" accesskey="n" rel="next"> { }</a> &nbsp; </p>
 <li><a href="#f_002d_002dile1-f_002d_002dile"><img src="f--ile1.jpg" alt="f--ile1">  <img src="f--ile.png" alt="alt"></a></li>
 <li><a href="#-_0040-_007b_007d-_002e-"><tt> @ {} . </tt></a></li>
 <li><a href="#cite-asis-in-_0040w-b-in-r-SC-str-t-var-dfn-i"><cite>cite asis</cite> in&nbsp;@w&nbsp;<b>b</b><!-- /@w --> <span class="roman">in r</span> <small>SC</small> <strong>str</strong> <code>t</code> <var>var</var> <em>dfn</em> <i>i</i></a></li>
-<li><a href="#env-code-option-samp-command-file-C_002dx-ESC"><code>env</code> <code>code</code> <samp>option</samp> &lsquo;<samp>samp</samp>&rsquo; <code>command</code> <samp>file</samp> <kbd>C-x <span class="key">ESC</span></kbd></a></li>
+<li><a href="#env-code-option-samp-command-file-C_002dx-ESC"><code>env</code> <code>code</code> <samp>option</samp> &lsquo;<samp>samp</samp>&rsquo; <code>command</code> <samp>file</samp> <kbd>C-x <kbd class="key">ESC</kbd></kbd></a></li>
 <li><a href="#g_t8_002e27in">8.27in</a></li>
 <li><a href="#sansserif-slanted"><span class="sansserif">sansserif</span> <i>slanted</i></a></li>
 <li><a href="#indicateurl">&lsquo;<code>indicateurl</code>&rsquo;</a></li>
@@ -23147,7 +23148,7 @@ Next: <a href="#cite-asis-in-_0040w-b-in-r-SC-str-t-var-dfn-i" accesskey="n" rel
 <div class="chapter" id="cite-asis-in-_0040w-b-in-r-SC-str-t-var-dfn-i">
 <div class="header">
 <p>
-Next: <a href="#env-code-option-samp-command-file-C_002dx-ESC" accesskey="n" rel="next"><code>env</code> <code>code</code> <samp>option</samp> &lsquo;<samp>samp</samp>&rsquo; <code>command</code> <samp>file</samp> <kbd>C-x <span class="key">ESC</span></kbd></a>, Previous: <a href="#-_0040-_007b_007d-_002e-" accesskey="p" rel="prev"><tt> @ {} . </tt></a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
+Next: <a href="#env-code-option-samp-command-file-C_002dx-ESC" accesskey="n" rel="next"><code>env</code> <code>code</code> <samp>option</samp> &lsquo;<samp>samp</samp>&rsquo; <code>command</code> <samp>file</samp> <kbd>C-x <kbd class="key">ESC</kbd></kbd></a>, Previous: <a href="#-_0040-_007b_007d-_002e-" accesskey="p" rel="prev"><tt> @ {} . </tt></a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
 <h2 class="chapter" id="cite-asis-in-_0040w-b-in-r-SC-str-t-var-dfn-i-1">21 <cite>cite asis</cite> in&nbsp;@w&nbsp;<b>b</b><!-- /@w --> <span class="roman">in r</span> <small>SC</small> <strong>str</strong> <code>t</code> <var>var</var> <em>dfn</em> <i>i</i></h2>
 
@@ -23158,14 +23159,14 @@ Next: <a href="#env-code-option-samp-command-file-C_002dx-ESC" accesskey="n" rel
 <p>
 Next: <a href="#g_t8_002e27in" accesskey="n" rel="next">8.27in</a>, Previous: <a href="#cite-asis-in-_0040w-b-in-r-SC-str-t-var-dfn-i" accesskey="p" rel="prev"><cite>cite asis</cite> in&nbsp;@w&nbsp;<b>b</b><!-- /@w --> <span class="roman">in r</span> <small>SC</small> <strong>str</strong> <code>t</code> <var>var</var> <em>dfn</em> <i>i</i></a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
-<h2 class="chapter" id="env-code-option-samp-command-file-C_002dx-ESC-1">22 <code>env</code> <code>code</code> <samp>option</samp> &lsquo;<samp>samp</samp>&rsquo; <code>command</code> <samp>file</samp> <kbd>C-x <span class="key">ESC</span></kbd></h2>
+<h2 class="chapter" id="env-code-option-samp-command-file-C_002dx-ESC-1">22 <code>env</code> <code>code</code> <samp>option</samp> &lsquo;<samp>samp</samp>&rsquo; <code>command</code> <samp>file</samp> <kbd>C-x <kbd class="key">ESC</kbd></kbd></h2>
 
 <hr>
 </div>
 <div class="chapter" id="g_t8_002e27in">
 <div class="header">
 <p>
-Next: <a href="#sansserif-slanted" accesskey="n" rel="next"><span class="sansserif">sansserif</span> <i>slanted</i></a>, Previous: <a href="#env-code-option-samp-command-file-C_002dx-ESC" accesskey="p" rel="prev"><code>env</code> <code>code</code> <samp>option</samp> &lsquo;<samp>samp</samp>&rsquo; <code>command</code> <samp>file</samp> <kbd>C-x <span class="key">ESC</span></kbd></a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
+Next: <a href="#sansserif-slanted" accesskey="n" rel="next"><span class="sansserif">sansserif</span> <i>slanted</i></a>, Previous: <a href="#env-code-option-samp-command-file-C_002dx-ESC" accesskey="p" rel="prev"><code>env</code> <code>code</code> <samp>option</samp> &lsquo;<samp>samp</samp>&rsquo; <code>command</code> <samp>file</samp> <kbd>C-x <kbd class="key">ESC</kbd></kbd></a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
 <h2 class="chapter" id="g_t8_002e27in-1">23 8.27in</h2>
 
@@ -23247,7 +23248,7 @@ Previous: <a href="#gH-3rd" accesskey="p" rel="prev"><sub>g</sub>H 3<sup>rd</sup
 </p>
 <p><a href="#cite-asis-in-_0040w-b-in-r-SC-str-t-var-dfn-i"><cite>cite asis</cite> in&nbsp;@w&nbsp;<b>b</b><!-- /@w --> <span class="roman">in r</span> <small>SC</small> <strong>str</strong> <code>t</code> <var>var</var> <em>dfn</em> <i>i</i></a>
 </p>
-<p><a href="#env-code-option-samp-command-file-C_002dx-ESC"><code>env</code> <code>code</code> <samp>option</samp> &lsquo;<samp>samp</samp>&rsquo; <code>command</code> <samp>file</samp> <kbd>C-x <span class="key">ESC</span></kbd></a>
+<p><a href="#env-code-option-samp-command-file-C_002dx-ESC"><code>env</code> <code>code</code> <samp>option</samp> &lsquo;<samp>samp</samp>&rsquo; <code>command</code> <samp>file</samp> <kbd>C-x <kbd class="key">ESC</kbd></kbd></a>
 </p>
 <p><a href="#g_t8_002e27in">8.27in</a>
 </p>

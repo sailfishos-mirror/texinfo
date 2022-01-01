@@ -1382,7 +1382,7 @@ Move the cursor to the start of the next nearest menu item or note
 reference in this node.  You can then use @key{RET}
 (@code{select-reference-this-line}) to select the menu or note reference.
 
-@item @kbd{M-TAB} (@code{move-to-prev-xref})
+@item @kbd{M-@key{TAB}} (@code{move-to-prev-xref})
 @itemx @kbd{BackTab}
 @itemx @kbd{Shift-@key{TAB}} (on DOS/Windows only)
 @kindex M-TAB, in Info windows
@@ -1511,7 +1511,7 @@ some of them.
 @findex keep-one-window
 Delete all of the windows excepting the current one.
 
-@item @kbd{ESC @kbd{C-v}} (@code{scroll-other-window})
+@item @kbd{@key{ESC} @kbd{C-v}} (@code{scroll-other-window})
 @kindex ESC C-v, in Info windows
 @findex scroll-other-window
 Scroll the other window, in the same fashion that @samp{C-v} might
@@ -1624,12 +1624,12 @@ Accept (or forces completion of) the current input line.
 Insert the next character verbatim.  This is how you can insert control
 characters into a search string.
 
-@item @kbd{M-TAB} (@code{echo-area-tab-insert})
+@item @kbd{M-@key{TAB}} (@code{echo-area-tab-insert})
 @itemx @kbd{Shift-@key{TAB}} (on DOS/Windows only)
 @kindex M-TAB, in the echo area
 @kindex Shift-TAB, in the echo area
 @findex echo-area-tab-insert
-Insert a TAB character.
+Insert a @key{TAB} character.
 
 @kindex Shift-TAB, in the echo area
 @kindex BackTab, in the echo area
@@ -1743,7 +1743,7 @@ Now, typing @samp{l} followed by @samp{TAB} results in @samp{foliate}
 appearing in the echo area, since that is the only choice which begins
 with @samp{fol}.
 
-@item @key{ESC C-v} (@code{echo-area-scroll-completions-window})
+@item @kbd{@key{ESC} C-v} (@code{echo-area-scroll-completions-window})
 @kindex ESC C-v, in the echo area
 @findex echo-area-scroll-completions-window
 Scroll the completions window, if that is visible, or the ``other''
@@ -1942,7 +1942,7 @@ Finally, Info provides a convenient way to display footnotes which might
 be associated with the current node that you are viewing:
 
 @table @asis
-@item @kbd{ESC C-f} (@code{show-footnotes})
+@item @kbd{@key{ESC} C-f} (@code{show-footnotes})
 @kindex ESC C-f
 @findex show-footnotes
 @cindex footnotes, displaying

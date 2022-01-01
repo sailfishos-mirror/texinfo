@@ -101,7 +101,7 @@ $result_converted{'plaintext'}->{'nested'} = 'type the characters ‘l o g o u t
 ';
 
 
-$result_converted{'html_text'}->{'nested'} = '<p>type the characters <kbd>l o g o u t <span class="key">RET</span></kbd>.</p>';
+$result_converted{'html_text'}->{'nested'} = '<p>type the characters <kbd>l o g o u t <kbd class="key">RET</kbd></kbd>.</p>';
 
 
 $result_converted{'latex'}->{'nested'} = 'type the characters {\\ttfamily\\textsl{l o g o u t \\texttt{RET}}}.';

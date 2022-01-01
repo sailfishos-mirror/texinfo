@@ -196,6 +196,7 @@ h3.center-align {text-align:center}
 h3.right-align {text-align:right}
 h4.center-align {text-align:center}
 kbd {font-style: oblique}
+kbd.key {font-style: normal}
 p.center-align {text-align:center}
 p.left-align {text-align:left}
 p.right-align {text-align:right}

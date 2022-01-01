@@ -1,5 +1,22 @@
 2022-01-01  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	No slant for @key.
+
+	* tp/Texinfo/Convert/HTML.pm
+	(_convert_key_command): Always output @key command with
+	<kbd class="key"> element.  (Previously it was either done
+	with <tt class="key"> or <span class="key">.)
+	(%css_map): Output 'font-style: normal'
+	for kbd.key to cancel effect of oblique font style for 'kbd'.
+
+	This means that a key name will be consistently un-slanted,
+	so that there is no inconsistency e.g. between
+	@key{RIGHT} and @kbd{C-@key{RIGHT}}.
+
+	* doc/info-stnd.texi: Revise use of @key and @kbd.
+
+2022-01-01  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* doc/texinfo.tex (\smallerbook): Remove experimental page
 	size setting, never documented or implemented in makeinfo.
 	(Originally added 2005-04-18.)

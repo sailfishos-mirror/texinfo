@@ -1515,6 +1515,7 @@ my %css_map = (
      'span.roman'         => 'font-family: initial; font-weight: normal',
      'span.nolinebreak'   => 'white-space: nowrap',
      'kbd'                => 'font-style: oblique',
+     'kbd.key'            => 'font-style: normal',
      'p.center-align'     => 'text-align:center',
      'p.left-align'       => 'text-align:left',
      'p.right-align'      => 'text-align:right',
@@ -2231,15 +2232,12 @@ sub _convert_key_command($$$$)
   }
   #return $self->protect_text('<') .$text .$self->protect_text('>');
   my $class = $cmdname;
-  if (!$self->in_code()) {
-    return $self->html_attribute_class('tt', $class).'>'.$text .'</tt>';;
+
+  my $open = $self->html_attribute_class('kbd', $class);
+  if ($open ne '') {
+    return $open.'>'.$text.'</kbd>';
   } else {
-    my $open = $self->html_attribute_class('span', $class);
-    if ($open ne '') {
-      return $open.'>'.$text.'</span>';
-    } else {
-      return $text;
-    }
+    return $text;
   }
 }
 
