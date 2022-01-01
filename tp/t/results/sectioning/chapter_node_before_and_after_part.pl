@@ -503,24 +503,24 @@ $result_nodes{'chapter_node_before_and_after_part'} = {
         'number' => 1
       }
     },
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
-  },
-  'menus' => [
-    {
-      'cmdname' => 'menu',
-      'extra' => {
-        'end_command' => {
-          'cmdname' => 'end',
-          'extra' => {
-            'command_argument' => 'menu',
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'menu'
+    'menus' => [
+      {
+        'cmdname' => 'menu',
+        'extra' => {
+          'end_command' => {
+            'cmdname' => 'end',
+            'extra' => {
+              'command_argument' => 'menu',
+              'spaces_before_argument' => ' ',
+              'text_arg' => 'menu'
+            }
           }
         }
       }
-    }
-  ],
+    ],
+    'normalized' => 'Top',
+    'spaces_before_argument' => ' '
+  },
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',

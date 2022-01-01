@@ -721,24 +721,24 @@ $result_nodes{'char_latin2_latin2_in_refs'} = {
       }
     },
     'isindex' => 1,
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
-  },
-  'menus' => [
-    {
-      'cmdname' => 'menu',
-      'extra' => {
-        'end_command' => {
-          'cmdname' => 'end',
-          'extra' => {
-            'command_argument' => 'menu',
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'menu'
+    'menus' => [
+      {
+        'cmdname' => 'menu',
+        'extra' => {
+          'end_command' => {
+            'cmdname' => 'end',
+            'extra' => {
+              'command_argument' => 'menu',
+              'spaces_before_argument' => ' ',
+              'text_arg' => 'menu'
+            }
           }
         }
       }
-    }
-  ],
+    ],
+    'normalized' => 'Top',
+    'spaces_before_argument' => ' '
+  },
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',

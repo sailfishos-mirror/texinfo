@@ -843,68 +843,68 @@ $result_nodes{'loop_nodes'} = {
         'level' => 0
       }
     },
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
-  },
-  'menus' => [
-    {
-      'cmdname' => 'menu',
-      'extra' => {
-        'end_command' => {
-          'cmdname' => 'end',
-          'extra' => {
-            'command_argument' => 'menu',
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'menu'
+    'menus' => [
+      {
+        'cmdname' => 'menu',
+        'extra' => {
+          'end_command' => {
+            'cmdname' => 'end',
+            'extra' => {
+              'command_argument' => 'menu',
+              'spaces_before_argument' => ' ',
+              'text_arg' => 'menu'
+            }
           }
         }
       }
-    }
-  ],
+    ],
+    'normalized' => 'Top',
+    'spaces_before_argument' => ' '
+  },
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
       'extra' => {
-        'normalized' => 'node-up',
-        'spaces_before_argument' => ' '
-      },
-      'menus' => [
-        {
-          'cmdname' => 'menu',
-          'extra' => {
-            'end_command' => {
-              'cmdname' => 'end',
-              'extra' => {
-                'command_argument' => 'menu',
-                'spaces_before_argument' => ' ',
-                'text_arg' => 'menu'
+        'menus' => [
+          {
+            'cmdname' => 'menu',
+            'extra' => {
+              'end_command' => {
+                'cmdname' => 'end',
+                'extra' => {
+                  'command_argument' => 'menu',
+                  'spaces_before_argument' => ' ',
+                  'text_arg' => 'menu'
+                }
               }
             }
           }
-        }
-      ],
+        ],
+        'normalized' => 'node-up',
+        'spaces_before_argument' => ' '
+      },
       'structure' => {
         'menu_child' => {
           'cmdname' => 'node',
           'extra' => {
-            'normalized' => 'node-middle',
-            'spaces_before_argument' => ' '
-          },
-          'menus' => [
-            {
-              'cmdname' => 'menu',
-              'extra' => {
-                'end_command' => {
-                  'cmdname' => 'end',
-                  'extra' => {
-                    'command_argument' => 'menu',
-                    'spaces_before_argument' => ' ',
-                    'text_arg' => 'menu'
+            'menus' => [
+              {
+                'cmdname' => 'menu',
+                'extra' => {
+                  'end_command' => {
+                    'cmdname' => 'end',
+                    'extra' => {
+                      'command_argument' => 'menu',
+                      'spaces_before_argument' => ' ',
+                      'text_arg' => 'menu'
+                    }
                   }
                 }
               }
-            }
-          ],
+            ],
+            'normalized' => 'node-middle',
+            'spaces_before_argument' => ' '
+          },
           'structure' => {
             'menu_child' => {
               'cmdname' => 'node',

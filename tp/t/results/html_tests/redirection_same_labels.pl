@@ -1582,24 +1582,24 @@ $result_nodes{'redirection_same_labels'} = {
                           'number' => 1
                         }
                       },
-                      'normalized' => 'umlaut',
-                      'spaces_before_argument' => ' '
-                    },
-                    'menus' => [
-                      {
-                        'cmdname' => 'menu',
-                        'extra' => {
-                          'end_command' => {
-                            'cmdname' => 'end',
-                            'extra' => {
-                              'command_argument' => 'menu',
-                              'spaces_before_argument' => ' ',
-                              'text_arg' => 'menu'
+                      'menus' => [
+                        {
+                          'cmdname' => 'menu',
+                          'extra' => {
+                            'end_command' => {
+                              'cmdname' => 'end',
+                              'extra' => {
+                                'command_argument' => 'menu',
+                                'spaces_before_argument' => ' ',
+                                'text_arg' => 'menu'
+                              }
                             }
                           }
                         }
-                      }
-                    ],
+                      ],
+                      'normalized' => 'umlaut',
+                      'spaces_before_argument' => ' '
+                    },
                     'structure' => {
                       'associated_unit' => {},
                       'menu_child' => {
@@ -1660,24 +1660,24 @@ $result_nodes{'redirection_same_labels'} = {
                               'number' => 2
                             }
                           },
-                          'normalized' => 'circumflex',
-                          'spaces_before_argument' => ' '
-                        },
-                        'menus' => [
-                          {
-                            'cmdname' => 'menu',
-                            'extra' => {
-                              'end_command' => {
-                                'cmdname' => 'end',
-                                'extra' => {
-                                  'command_argument' => 'menu',
-                                  'spaces_before_argument' => ' ',
-                                  'text_arg' => 'menu'
+                          'menus' => [
+                            {
+                              'cmdname' => 'menu',
+                              'extra' => {
+                                'end_command' => {
+                                  'cmdname' => 'end',
+                                  'extra' => {
+                                    'command_argument' => 'menu',
+                                    'spaces_before_argument' => ' ',
+                                    'text_arg' => 'menu'
+                                  }
                                 }
                               }
                             }
-                          }
-                        ],
+                          ],
+                          'normalized' => 'circumflex',
+                          'spaces_before_argument' => ' '
+                        },
                         'structure' => {
                           'associated_unit' => {},
                           'menu_child' => {
@@ -1734,24 +1734,24 @@ $result_nodes{'redirection_same_labels'} = {
         'level' => 0
       }
     },
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
-  },
-  'menus' => [
-    {
-      'cmdname' => 'menu',
-      'extra' => {
-        'end_command' => {
-          'cmdname' => 'end',
-          'extra' => {
-            'command_argument' => 'menu',
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'menu'
+    'menus' => [
+      {
+        'cmdname' => 'menu',
+        'extra' => {
+          'end_command' => {
+            'cmdname' => 'end',
+            'extra' => {
+              'command_argument' => 'menu',
+              'spaces_before_argument' => ' ',
+              'text_arg' => 'menu'
+            }
           }
         }
       }
-    }
-  ],
+    ],
+    'normalized' => 'Top',
+    'spaces_before_argument' => ' '
+  },
   'structure' => {
     'associated_unit' => {},
     'menu_child' => {},

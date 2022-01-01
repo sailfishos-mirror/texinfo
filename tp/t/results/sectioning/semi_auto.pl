@@ -887,24 +887,24 @@ $result_nodes{'semi_auto'} = {
         'level' => 0
       }
     },
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
-  },
-  'menus' => [
-    {
-      'cmdname' => 'menu',
-      'extra' => {
-        'end_command' => {
-          'cmdname' => 'end',
-          'extra' => {
-            'command_argument' => 'menu',
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'menu'
+    'menus' => [
+      {
+        'cmdname' => 'menu',
+        'extra' => {
+          'end_command' => {
+            'cmdname' => 'end',
+            'extra' => {
+              'command_argument' => 'menu',
+              'spaces_before_argument' => ' ',
+              'text_arg' => 'menu'
+            }
           }
         }
       }
-    }
-  ],
+    ],
+    'normalized' => 'Top',
+    'spaces_before_argument' => ' '
+  },
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -919,24 +919,24 @@ $result_nodes{'semi_auto'} = {
             'number' => 1
           }
         },
-        'normalized' => 'Chap1',
-        'spaces_before_argument' => ' '
-      },
-      'menus' => [
-        {
-          'cmdname' => 'menu',
-          'extra' => {
-            'end_command' => {
-              'cmdname' => 'end',
-              'extra' => {
-                'command_argument' => 'menu',
-                'spaces_before_argument' => ' ',
-                'text_arg' => 'menu'
+        'menus' => [
+          {
+            'cmdname' => 'menu',
+            'extra' => {
+              'end_command' => {
+                'cmdname' => 'end',
+                'extra' => {
+                  'command_argument' => 'menu',
+                  'spaces_before_argument' => ' ',
+                  'text_arg' => 'menu'
+                }
               }
             }
           }
-        }
-      ],
+        ],
+        'normalized' => 'Chap1',
+        'spaces_before_argument' => ' '
+      },
       'structure' => {
         'menu_child' => {
           'cmdname' => 'node',
@@ -1057,15 +1057,6 @@ $result_errors{'semi_auto'} = [
     'line_nr' => 9,
     'macro' => '',
     'text' => 'node `Section non auto\' is next for `Chap1\' in menu but not in sectioning',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => ':16: warning: node next for `Sec in chapter\' is `Section non auto\' in sectioning but not in menu
-',
-    'file_name' => '',
-    'line_nr' => 16,
-    'macro' => '',
-    'text' => 'node next for `Sec in chapter\' is `Section non auto\' in sectioning but not in menu',
     'type' => 'warning'
   }
 ];

@@ -4285,24 +4285,24 @@ $result_nodes{'complex_split_at_node'} = {
                           'number' => 1
                         }
                       },
-                      'normalized' => 'First-node',
-                      'spaces_before_argument' => ' '
-                    },
-                    'menus' => [
-                      {
-                        'cmdname' => 'menu',
-                        'extra' => {
-                          'end_command' => {
-                            'cmdname' => 'end',
-                            'extra' => {
-                              'command_argument' => 'menu',
-                              'spaces_before_argument' => ' ',
-                              'text_arg' => 'menu'
+                      'menus' => [
+                        {
+                          'cmdname' => 'menu',
+                          'extra' => {
+                            'end_command' => {
+                              'cmdname' => 'end',
+                              'extra' => {
+                                'command_argument' => 'menu',
+                                'spaces_before_argument' => ' ',
+                                'text_arg' => 'menu'
+                              }
                             }
                           }
                         }
-                      }
-                    ],
+                      ],
+                      'normalized' => 'First-node',
+                      'spaces_before_argument' => ' '
+                    },
                     'structure' => {
                       'associated_unit' => {},
                       'menu_child' => {
@@ -4780,24 +4780,24 @@ $result_nodes{'complex_split_at_node'} = {
                                                                 'level' => 2
                                                               }
                                                             },
-                                                            'normalized' => 'unnumbered2',
-                                                            'spaces_before_argument' => ' '
-                                                          },
-                                                          'menus' => [
-                                                            {
-                                                              'cmdname' => 'menu',
-                                                              'extra' => {
-                                                                'end_command' => {
-                                                                  'cmdname' => 'end',
-                                                                  'extra' => {
-                                                                    'command_argument' => 'menu',
-                                                                    'spaces_before_argument' => ' ',
-                                                                    'text_arg' => 'menu'
+                                                            'menus' => [
+                                                              {
+                                                                'cmdname' => 'menu',
+                                                                'extra' => {
+                                                                  'end_command' => {
+                                                                    'cmdname' => 'end',
+                                                                    'extra' => {
+                                                                      'command_argument' => 'menu',
+                                                                      'spaces_before_argument' => ' ',
+                                                                      'text_arg' => 'menu'
+                                                                    }
                                                                   }
                                                                 }
                                                               }
-                                                            }
-                                                          ],
+                                                            ],
+                                                            'normalized' => 'unnumbered2',
+                                                            'spaces_before_argument' => ' '
+                                                          },
                                                           'structure' => {
                                                             'associated_unit' => {},
                                                             'menu_child' => {},
@@ -4873,24 +4873,24 @@ $result_nodes{'complex_split_at_node'} = {
                               'level' => 2
                             }
                           },
-                          'normalized' => 'unnumbered',
-                          'spaces_before_argument' => ' '
-                        },
-                        'menus' => [
-                          {
-                            'cmdname' => 'menu',
-                            'extra' => {
-                              'end_command' => {
-                                'cmdname' => 'end',
-                                'extra' => {
-                                  'command_argument' => 'menu',
-                                  'spaces_before_argument' => ' ',
-                                  'text_arg' => 'menu'
+                          'menus' => [
+                            {
+                              'cmdname' => 'menu',
+                              'extra' => {
+                                'end_command' => {
+                                  'cmdname' => 'end',
+                                  'extra' => {
+                                    'command_argument' => 'menu',
+                                    'spaces_before_argument' => ' ',
+                                    'text_arg' => 'menu'
+                                  }
                                 }
                               }
                             }
-                          }
-                        ],
+                          ],
+                          'normalized' => 'unnumbered',
+                          'spaces_before_argument' => ' '
+                        },
                         'structure' => {
                           'associated_unit' => {},
                           'menu_child' => {},
@@ -4946,24 +4946,24 @@ $result_nodes{'complex_split_at_node'} = {
         'level' => 0
       }
     },
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
-  },
-  'menus' => [
-    {
-      'cmdname' => 'menu',
-      'extra' => {
-        'end_command' => {
-          'cmdname' => 'end',
-          'extra' => {
-            'command_argument' => 'menu',
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'menu'
+    'menus' => [
+      {
+        'cmdname' => 'menu',
+        'extra' => {
+          'end_command' => {
+            'cmdname' => 'end',
+            'extra' => {
+              'command_argument' => 'menu',
+              'spaces_before_argument' => ' ',
+              'text_arg' => 'menu'
+            }
           }
         }
       }
-    }
-  ],
+    ],
+    'normalized' => 'Top',
+    'spaces_before_argument' => ' '
+  },
   'structure' => {
     'associated_unit' => {},
     'menu_child' => {},

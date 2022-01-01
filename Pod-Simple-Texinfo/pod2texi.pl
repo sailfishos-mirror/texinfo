@@ -312,7 +312,7 @@ sub _do_top_node_menu($)
   my $manual_texi = shift;
   my ($parser, $tree) = _fix_texinfo_tree(undef, $manual_texi, 1, 0, 1); 
   my ($labels, $targets_list, $nodes_list) = $parser->labels_information();
-  my $top_node_menu = $labels->{'Top'}->{'menus'}->[0];
+  my $top_node_menu = $labels->{'Top'}->{'extra'}->{'menus'}->[0];
   if ($top_node_menu) {
     return Texinfo::Convert::Texinfo::convert_to_texinfo($top_node_menu);
   } else {

@@ -1621,24 +1621,24 @@ $result_nodes{'raiselowersections'} = {
         'level' => 0
       }
     },
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
-  },
-  'menus' => [
-    {
-      'cmdname' => 'menu',
-      'extra' => {
-        'end_command' => {
-          'cmdname' => 'end',
-          'extra' => {
-            'command_argument' => 'menu',
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'menu'
+    'menus' => [
+      {
+        'cmdname' => 'menu',
+        'extra' => {
+          'end_command' => {
+            'cmdname' => 'end',
+            'extra' => {
+              'command_argument' => 'menu',
+              'spaces_before_argument' => ' ',
+              'text_arg' => 'menu'
+            }
           }
         }
       }
-    }
-  ],
+    ],
+    'normalized' => 'Top',
+    'spaces_before_argument' => ' '
+  },
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -1653,24 +1653,24 @@ $result_nodes{'raiselowersections'} = {
             'number' => 1
           }
         },
-        'normalized' => 'Chapter',
-        'spaces_before_argument' => ' '
-      },
-      'menus' => [
-        {
-          'cmdname' => 'menu',
-          'extra' => {
-            'end_command' => {
-              'cmdname' => 'end',
-              'extra' => {
-                'command_argument' => 'menu',
-                'spaces_before_argument' => ' ',
-                'text_arg' => 'menu'
+        'menus' => [
+          {
+            'cmdname' => 'menu',
+            'extra' => {
+              'end_command' => {
+                'cmdname' => 'end',
+                'extra' => {
+                  'command_argument' => 'menu',
+                  'spaces_before_argument' => ' ',
+                  'text_arg' => 'menu'
+                }
               }
             }
           }
-        }
-      ],
+        ],
+        'normalized' => 'Chapter',
+        'spaces_before_argument' => ' '
+      },
       'structure' => {
         'menu_child' => {
           'cmdname' => 'node',
@@ -1686,24 +1686,24 @@ $result_nodes{'raiselowersections'} = {
                 'number' => '1.1'
               }
             },
-            'normalized' => 'Chapter-in-included-file',
-            'spaces_before_argument' => ' '
-          },
-          'menus' => [
-            {
-              'cmdname' => 'menu',
-              'extra' => {
-                'end_command' => {
-                  'cmdname' => 'end',
-                  'extra' => {
-                    'command_argument' => 'menu',
-                    'spaces_before_argument' => ' ',
-                    'text_arg' => 'menu'
+            'menus' => [
+              {
+                'cmdname' => 'menu',
+                'extra' => {
+                  'end_command' => {
+                    'cmdname' => 'end',
+                    'extra' => {
+                      'command_argument' => 'menu',
+                      'spaces_before_argument' => ' ',
+                      'text_arg' => 'menu'
+                    }
                   }
                 }
               }
-            }
-          ],
+            ],
+            'normalized' => 'Chapter-in-included-file',
+            'spaces_before_argument' => ' '
+          },
           'structure' => {
             'menu_child' => {
               'cmdname' => 'node',
@@ -1719,24 +1719,24 @@ $result_nodes{'raiselowersections'} = {
                     'number' => '1.1.1'
                   }
                 },
-                'normalized' => 'Section',
-                'spaces_before_argument' => ' '
-              },
-              'menus' => [
-                {
-                  'cmdname' => 'menu',
-                  'extra' => {
-                    'end_command' => {
-                      'cmdname' => 'end',
-                      'extra' => {
-                        'command_argument' => 'menu',
-                        'spaces_before_argument' => ' ',
-                        'text_arg' => 'menu'
+                'menus' => [
+                  {
+                    'cmdname' => 'menu',
+                    'extra' => {
+                      'end_command' => {
+                        'cmdname' => 'end',
+                        'extra' => {
+                          'command_argument' => 'menu',
+                          'spaces_before_argument' => ' ',
+                          'text_arg' => 'menu'
+                        }
                       }
                     }
                   }
-                }
-              ],
+                ],
+                'normalized' => 'Section',
+                'spaces_before_argument' => ' '
+              },
               'structure' => {
                 'menu_child' => {
                   'cmdname' => 'node',

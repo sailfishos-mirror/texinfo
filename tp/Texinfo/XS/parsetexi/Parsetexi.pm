@@ -122,7 +122,7 @@ sub parser (;$$)
   return $parser;
 }
 
-# Record any @menu elements under $root in the 'menus' array of $node.
+# Record any @menu elements under $root in the extra 'menus' array of $node.
 sub _find_menus_of_node {
   my $node = shift;
   my $root = shift;
@@ -131,7 +131,7 @@ sub _find_menus_of_node {
     my $contents = $root->{'contents'};
     foreach my $child (@{$contents}) {
       if ($child->{'cmdname'} and $child->{'cmdname'} eq 'menu') {
-        push @{$node->{'menus'}}, $child;
+        push @{$node->{'extra'}->{'menus'}}, $child;
       }
     }
   }

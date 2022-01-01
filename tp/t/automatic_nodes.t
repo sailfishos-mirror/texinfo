@@ -192,10 +192,10 @@ Texinfo::Structuring::associate_internal_references($registrar, $parser,
                                         $nodes_list, $targets_list, $labels);
 $tree->{'contents'} = $new_content;
 my ($index_names, $merged_indices) = $parser->indices_information();
-ok (($labels->{'chap'}->{'menus'} and @{$labels->{'chap'}->{'menus'}}
-     and scalar(@{$labels->{'chap'}->{'menus'}}) == 1
-     and !exists($labels->{'Top'}->{'menus'})), 'new node has a menu');
-is (Texinfo::Convert::Texinfo::convert_to_texinfo($labels->{'chap'}->{'menus'}->[0]),
+ok (($labels->{'chap'}->{'extra'}->{'menus'} and @{$labels->{'chap'}->{'extra'}->{'menus'}}
+     and scalar(@{$labels->{'chap'}->{'extra'}->{'menus'}}) == 1
+     and !exists($labels->{'Top'}->{'extra'}->{'menus'})), 'new node has a menu');
+is (Texinfo::Convert::Texinfo::convert_to_texinfo($labels->{'chap'}->{'extra'}->{'menus'}->[0]),
 '@menu
 * (some_manual)::
 @end menu

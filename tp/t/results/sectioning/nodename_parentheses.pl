@@ -1088,24 +1088,24 @@ $result_nodes{'nodename_parentheses'} = {
         'level' => 0
       }
     },
-    'normalized' => 'Top',
-    'spaces_before_argument' => ' '
-  },
-  'menus' => [
-    {
-      'cmdname' => 'menu',
-      'extra' => {
-        'end_command' => {
-          'cmdname' => 'end',
-          'extra' => {
-            'command_argument' => 'menu',
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'menu'
+    'menus' => [
+      {
+        'cmdname' => 'menu',
+        'extra' => {
+          'end_command' => {
+            'cmdname' => 'end',
+            'extra' => {
+              'command_argument' => 'menu',
+              'spaces_before_argument' => ' ',
+              'text_arg' => 'menu'
+            }
           }
         }
       }
-    }
-  ],
+    ],
+    'normalized' => 'Top',
+    'spaces_before_argument' => ' '
+  },
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',
@@ -1249,24 +1249,6 @@ $result_errors{'nodename_parentheses'} = [
     'macro' => '',
     'text' => 'syntax for an external node used for `(manual)anchor\'',
     'type' => 'error'
-  },
-  {
-    'error_line' => ':22: warning: node prev for `node\' is `Other node\' in sectioning but not in menu
-',
-    'file_name' => '',
-    'line_nr' => 22,
-    'macro' => '',
-    'text' => 'node prev for `node\' is `Other node\' in sectioning but not in menu',
-    'type' => 'warning'
-  },
-  {
-    'error_line' => ':22: warning: node up for `node\' is `Top\' in sectioning but not in menu
-',
-    'file_name' => '',
-    'line_nr' => 22,
-    'macro' => '',
-    'text' => 'node up for `node\' is `Top\' in sectioning but not in menu',
-    'type' => 'warning'
   },
   {
     'error_line' => ':1: warning: node `Top\' lacks menu item for `node\' despite being its Up target

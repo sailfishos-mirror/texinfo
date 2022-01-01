@@ -1,5 +1,17 @@
 2022-01-01  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_parse_texi),
+	tp/Texinfo/XS/parsetexi/Parsetexi.pm (_find_menus_of_node),
+	tp/Texinfo/Structuring.pm (set_menus_node_directions)
+	(complete_node_tree_with_menus), Transformations
+	(_reassociate_to_node, complete_node_menu)
+	(complete_tree_nodes_missing_menu, _print_down_menus)
+	(regenerate_master_menu, set_menus_to_simple_menu),
+	Pod-Simple-Texinfo/pod2texi.pl (_do_top_node_menu):
+	put menus in extra.
+
+2022-01-01  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Structuring.pm (split_by_node, split_by_section)
 	(_label_target_element, elements_directions),
 	tp/Texinfo/Convert/DocBook.pm (_convert), tp/Texinfo/Convert/HTML.pm

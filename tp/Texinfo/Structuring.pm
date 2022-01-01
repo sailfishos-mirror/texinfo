@@ -477,15 +477,15 @@ sub set_menus_node_directions($$$$$$)
   # differently; at least, there are no error messages for them.
   #
   foreach my $node (@{$nodes_list}) {
-    if ($node->{'menus'}) {
-      if (@{$node->{'menus'}} > 1) {
-        foreach my $menu (@{$node->{'menus'}}[1 .. $#{$node->{'menus'}}]) {
+    if ($node->{'extra'}->{'menus'}) {
+      if (@{$node->{'extra'}->{'menus'}} > 1) {
+        foreach my $menu (@{$node->{'extra'}->{'menus'}}[1 .. $#{$node->{'extra'}->{'menus'}}]) {
           $registrar->line_warn($configuration_informations,
                  sprintf(__("multiple \@%s"),
                         $menu->{'cmdname'}), $menu->{'line_nr'});
         }
       }
-      foreach my $menu (@{$node->{'menus'}}) {
+      foreach my $menu (@{$node->{'extra'}->{'menus'}}) {
         my $previous_node;
         foreach my $menu_content (@{$menu->{'contents'}}) {
           if ($menu_content->{'extra'}
@@ -694,7 +694,8 @@ sub complete_node_tree_with_menus($$$$)
         and (!$node->{'structure'}->{'menu_up_hash'}
           or !$node->{'structure'}->{'menu_up_hash'}->{$node->{'structure'}->{'node_up'}->{'extra'}->{'normalized'}})) {
       # check if up node has a menu
-      if ($node->{'structure'}->{'node_up'}->{'menus'} and @{$node->{'structure'}->{'node_up'}->{'menus'}}) {
+      if ($node->{'structure'}->{'node_up'}->{'extra'}->{'menus'}
+          and @{$node->{'structure'}->{'node_up'}->{'extra'}->{'menus'}}) {
         $registrar->line_warn($configuration_informations,
          sprintf(
            __("node `%s' lacks menu item for `%s' despite being its Up target"), 

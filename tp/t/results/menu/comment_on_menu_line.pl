@@ -362,25 +362,25 @@ $result_nodes{'comment_on_menu_line'} = {
         'number' => 1
       }
     },
+    'menus' => [
+      {
+        'cmdname' => 'menu',
+        'extra' => {
+          'end_command' => {
+            'cmdname' => 'end',
+            'extra' => {
+              'command_argument' => 'menu',
+              'spaces_before_argument' => ' ',
+              'text_arg' => 'menu'
+            }
+          },
+          'spaces_before_argument' => '  '
+        }
+      }
+    ],
     'normalized' => 'Top',
     'spaces_before_argument' => ' '
   },
-  'menus' => [
-    {
-      'cmdname' => 'menu',
-      'extra' => {
-        'end_command' => {
-          'cmdname' => 'end',
-          'extra' => {
-            'command_argument' => 'menu',
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'menu'
-          }
-        },
-        'spaces_before_argument' => '  '
-      }
-    }
-  ],
   'structure' => {
     'menu_child' => {
       'cmdname' => 'node',

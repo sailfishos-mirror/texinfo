@@ -281,15 +281,16 @@ sub _reassociate_to_node($$$$)
 
   if ($current->{'cmdname'} and $current->{'cmdname'} eq 'menu') {
     if ($previous_node) {
-      if (!$previous_node->{'menus'} or !@{$previous_node->{'menus'}}
-           or !grep {$current eq $_} @{$previous_node->{'menus'}}) {
+      if (!$previous_node->{'extra'}->{'menus'} or !@{$previous_node->{'extra'}->{'menus'}}
+           or !grep {$current eq $_} @{$previous_node->{'extra'}->{'menus'}}) {
         print STDERR "Bug: menu $current not in previous node $previous_node\n";
       } else {
-        @{$previous_node->{'menus'}} = grep {$_ ne $current} @{$previous_node->{'menus'}};
-        delete $previous_node->{'menus'} if !(@{$previous_node->{'menus'}});
+        @{$previous_node->{'extra'}->{'menus'}}
+          = grep {$_ ne $current} @{$previous_node->{'extra'}->{'menus'}};
+        delete $previous_node->{'extra'}->{'menus'} if !(@{$previous_node->{'extra'}->{'menus'}});
       }
     }
-    push @{$new_node->{'menus'}}, $current;
+    push @{$new_node->{'extra'}->{'menus'}}, $current;
   } elsif ($current->{'extra'} and $current->{'extra'}->{'index_entry'}) {
     if ($previous_node 
         and (!$current->{'extra'}->{'index_entry'}->{'node'}
@@ -373,7 +374,7 @@ sub _prepend_new_menu_in_node_section($$$)
   push @{$section->{'contents'}}, {'type' => 'empty_line',
                                    'text' => "\n",
                                    'parent' => $section};
-  push @{$node->{'menus'}}, $current_menu;
+  push @{$node->{'extra'}->{'menus'}}, $current_menu;
 }
 
 sub complete_node_menu($;$)
@@ -385,8 +386,8 @@ sub complete_node_menu($;$)
 
   if (scalar(@node_childs)) {
     my %existing_entries;
-    if ($node->{'menus'} and @{$node->{'menus'}}) {
-      foreach my $menu (@{$node->{'menus'}}) {
+    if ($node->{'extra'}->{'menus'} and @{$node->{'extra'}->{'menus'}}) {
+      foreach my $menu (@{$node->{'extra'}->{'menus'}}) {
         foreach my $entry (@{$menu->{'contents'}}) {
           if ($entry->{'type'} and $entry->{'type'} eq 'menu_entry') {
             my $entry_node = $entry->{'extra'}->{'menu_entry_node'};
@@ -483,7 +484,7 @@ sub complete_tree_nodes_missing_menu($;$)
 
   my $non_automatic_nodes = _get_non_automatic_nodes_with_sections($root);
   foreach my $node (@{$non_automatic_nodes}) {
-    if (not $node->{'menus'} or not scalar(@{$node->{'menus'}})) {
+    if (not $node->{'extra'}->{'menus'} or not scalar(@{$node->{'extra'}->{'menus'}})) {
       my $section = $node->{'extra'}->{'associated_section'};
       my $current_menu = Texinfo::Structuring::new_complete_node_menu($node, $use_sections);
       if (defined($current_menu)) {
@@ -501,9 +502,9 @@ sub _print_down_menus($$)
 
   my @master_menu_contents;
 
-  if ($node->{'menus'} and scalar(@{$node->{'menus'}})) {
+  if ($node->{'extra'}->{'menus'} and scalar(@{$node->{'extra'}->{'menus'}})) {
     my @node_children;
-    foreach my $menu (@{$node->{'menus'}}) {
+    foreach my $menu (@{$node->{'extra'}->{'menus'}}) {
       foreach my $entry (@{$menu->{'contents'}}) {
         if ($entry->{'type'} and $entry->{'type'} eq 'menu_entry') {
           push @master_menu_contents, Texinfo::Common::copy_tree($entry);
@@ -562,8 +563,8 @@ sub new_master_menu($$)
   return undef if (!defined($node));
 
   my @master_menu_contents;
-  if ($node->{'menus'} and scalar(@{$node->{'menus'}})) {
-    foreach my $menu (@{$node->{'menus'}}) {
+  if ($node->{'extra'}->{'menus'} and scalar(@{$node->{'extra'}->{'menus'}})) {
+    foreach my $menu (@{$node->{'extra'}->{'menus'}}) {
       foreach my $entry (@{$menu->{'contents'}}) {
         if ($entry->{'type'} and $entry->{'type'} eq 'menu_entry') {
           my $entry_node = $entry->{'extra'}->{'menu_entry_node'};
@@ -603,10 +604,10 @@ sub regenerate_master_menu($$)
   return undef if (!defined($top_node));
 
   my $new_master_menu = new_master_menu($self, $labels);
-  return undef if (!defined($new_master_menu) or !$top_node->{'menus'}
-                   or !scalar(@{$top_node->{'menus'}}));
+  return undef if (!defined($new_master_menu) or !$top_node->{'extra'}->{'menus'}
+                   or !scalar(@{$top_node->{'extra'}->{'menus'}}));
 
-  foreach my $menu (@{$top_node->{'menus'}}) {
+  foreach my $menu (@{$top_node->{'extra'}->{'menus'}}) {
     my $detailmenu_index = 0;
     foreach my $entry (@{$menu->{'contents'}}) {
       if ($entry->{'cmdname'} and $entry->{'cmdname'} eq 'detailmenu') {
@@ -620,13 +621,14 @@ sub regenerate_master_menu($$)
     }
   }
 
-  my $last_menu = $top_node->{'menus'}->[-1];
+  my $last_menu = $top_node->{'extra'}->{'menus'}->[-1];
   my $index = scalar(@{$last_menu->{'contents'}});
   if ($index
       and $last_menu->{'contents'}->[$index-1]->{'cmdname'}
       and $last_menu->{'contents'}->[$index-1]->{'cmdname'} eq 'end') {
     $index --;
   }
+
   $new_master_menu->{'parent'} = $last_menu;
   if ($index
       and $last_menu->{'contents'}->[$index-1]->{'type'}
@@ -723,8 +725,8 @@ sub set_menus_to_simple_menu($)
 
   if ($nodes_list) {
     foreach my $node (@{$nodes_list}) {
-      if ($node->{'menus'}) {
-        foreach my $menu (@{$node->{'menus'}}) {
+      if ($node->{'extra'}->{'menus'}) {
+        foreach my $menu (@{$node->{'extra'}->{'menus'}}) {
           menu_to_simple_menu($menu);
         }
       }
