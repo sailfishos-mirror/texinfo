@@ -34,7 +34,7 @@ texinfo_set_from_init_file('LINKS_BUTTONS',
 
 texinfo_set_from_init_file('WORDS_IN_PAGE', undef);
 texinfo_set_from_init_file('FORMAT_MENU', 'nomenu');
-texinfo_set_from_init_file('USE_NODES', undef);
+texinfo_set_from_init_file('USE_NODES', 0);
 
 texinfo_set_from_init_file('BIG_RULE', '<hr>');
 
@@ -100,15 +100,16 @@ sub book_format_navigation_header($$$$)
   my $cmdname = shift;
   my $element = shift;
 
-  my $tree_unit = $element->{'parent'};
-  if ($tree_unit and $tree_unit->{'extra'}->{'unit_section'}
+  my $tree_unit = $element->{'structure'}->{'associated_unit'};
+  if ($tree_unit and $tree_unit->{'extra'}->{'unit_command'}
+      and not $tree_unit->{'extra'}->{'unit_command'}->{'cmdname'} eq 'node'
       and ($tree_unit->{'contents'}->[0] eq $element
           or (!$tree_unit->{'contents'}->[0]->{'cmdname'}
               and $tree_unit->{'contents'}->[1] eq $element))
       and defined($tree_unit->{'filename'})
       and $self->{'counter_in_file'}->{$tree_unit->{'filename'}} == 1) {
     
-    return book_print_up_toc($self, $tree_unit->{'extra'}->{'unit_section'}) .
+    return book_print_up_toc($self, $tree_unit->{'extra'}->{'unit_command'}) .
        &{$self->default_formatting_function('format_navigation_header')}($self,
                                  $buttons, $cmdname, $element);
 
@@ -220,11 +221,15 @@ sub book_convert_heading_command($$$$$)
   my $cmdname_for_heading = $cmdname;
   # node is used as heading if there is nothing else.
   if ($cmdname eq 'node') {
-    if (!$tree_unit or (!$tree_unit->{'extra'}->{'unit_section'}
-                        and $tree_unit->{'extra'}->{'unit_node'}
-                        and $tree_unit->{'extra'}->{'unit_node'} eq $element
-                        # bogus node may not have been normalized
-                        and defined($element->{'extra'}->{'normalized'}))) {
+    # FIXME what to do if the $tree_unit extra does not contain any
+    # unit_command, but tree_unit is defined (it can contain only 'first_in_page')
+    if ((!$tree_unit # or !$tree_unit->{'extra'}
+         # or !$tree_unit->{'extra'}->{'unit_command'}
+         or ($tree_unit->{'extra'}->{'unit_command'}
+             and $tree_unit->{'extra'}->{'unit_command'} eq $element
+             and $tree_unit->{'extra'}->{'unit_command'}->{'cmdname'} eq 'node'
+             and not $tree_unit->{'extra'}->{'unit_command'}->{'extra'}->{'associated_section'}))
+        and defined($element->{'extra'}->{'normalized'})) {
       if ($element->{'extra'}->{'normalized'} eq 'Top') {
         $heading_level = 0;
       } else {
@@ -307,7 +312,14 @@ sub book_element_file_name($$$)
 
   my $prefix = $converter->{'document_name'};
   my $new_file_name;
-  my $command = $element->{'extra'}->{'unit_section'};
+  my $command;
+  if ($element->{'extra'}->{'unit_command'}) {
+    if ($element->{'extra'}->{'unit_command'}->{'cmdname'} ne 'node') {
+      $command = $element->{'extra'}->{'unit_command'};
+    } elsif ($element->{'extra'}->{'unit_command'}->{'extra'}->{'associated_section'}) {
+      $command = $element->{'extra'}->{'unit_command'}->{'extra'}->{'associated_section'};
+    }
+  }
   return undef unless ($command);
   if ($converter->element_is_tree_unit_top($element)) {
     $new_file_name = "${prefix}_top.html";

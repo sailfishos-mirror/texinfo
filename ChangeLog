@@ -1,5 +1,14 @@
 2022-01-01  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (from_element_direction),
+	(_convert_heading_command, _prepare_tree_units_global_targets),
+	tp/init/book.pm (book_format_navigation_header)
+	(book_convert_heading_command, book_element_file_name):
+	do not use unit_section or unit_node, use unit_command and
+	associated_*.
+
+2022-01-01  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Info.pm (format_error_outside_of_any_node),
 	tp/Texinfo/Convert/Plaintext.pm (process_footnotes, _menu, _convert):
 	rename $self->{'node'} as $self->{'current_node'}.

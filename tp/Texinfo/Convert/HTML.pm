@@ -863,11 +863,23 @@ sub from_element_direction($$$$;$)
         return $self->command_text($external_node, $type);
       }
     } elsif ($type eq 'node') {
-      $command = $element_target->{'extra'}->{'unit_node'};
+      if ($element_target->{'extra'}->{'unit_command'}) {
+        if ($element_target->{'extra'}->{'unit_command'}->{'cmdname'} eq 'node') {
+          $command = $element_target->{'extra'}->{'unit_command'};
+        } elsif ($element_target->{'extra'}->{'unit_command'}->{'extra'}->{'associated_node'}) {
+          $command = $element_target->{'extra'}->{'unit_command'}->{'extra'}->{'associated_node'};
+        }
+      }
       $target = $self->{'targets'}->{$command} if ($command);
       $type = 'text';
     } elsif ($type eq 'section') {
-      $command = $element_target->{'extra'}->{'unit_section'};
+      if ($element_target->{'extra'}->{'unit_command'}) {
+        if ($element_target->{'extra'}->{'unit_command'}->{'cmdname'} ne 'node') {
+          $command = $element_target->{'extra'}->{'unit_command'};
+        } elsif ($element_target->{'extra'}->{'unit_command'}->{'extra'}->{'associated_section'}) {
+          $command = $element_target->{'extra'}->{'unit_command'}->{'extra'}->{'associated_section'};
+        }
+      }
       $target = $self->{'targets'}->{$command} if ($command);
       $type = 'text_nonumber';
     } else {
@@ -2898,11 +2910,15 @@ sub _convert_heading_command($$$$$)
   my $cmdname_for_heading = $cmdname;
   # node is used as heading if there is nothing else.
   if ($cmdname eq 'node') {
-    if (!$tree_unit or (!$tree_unit->{'extra'}->{'unit_section'}
-                        and $tree_unit->{'extra'}->{'unit_node'}
-                        and $tree_unit->{'extra'}->{'unit_node'} eq $element
-                        # bogus node may not have been normalized
-                        and defined($element->{'extra'}->{'normalized'}))) {
+    # FIXME what to do if the $tree_unit extra does not contain any
+    # unit_command, but tree_unit is defined (it can contain only 'first_in_page')
+    if ((!$tree_unit # or !$tree_unit->{'extra'}
+         # or !$tree_unit->{'extra'}->{'unit_command'}
+         or ($tree_unit->{'extra'}->{'unit_command'}
+             and $tree_unit->{'extra'}->{'unit_command'} eq $element
+             and $tree_unit->{'extra'}->{'unit_command'}->{'cmdname'} eq 'node'
+             and not $tree_unit->{'extra'}->{'unit_command'}->{'extra'}->{'associated_section'}))
+        and defined($element->{'extra'}->{'normalized'})) {
       if ($element->{'extra'}->{'normalized'} eq 'Top') {
         $heading_level = 0;
       } else {
@@ -6647,8 +6663,8 @@ sub _prepare_tree_units_global_targets($$)
      = $self->_html_get_tree_root_element($self->{'global_commands'}->{'printindex'}->[0]);
     if (defined($root_element)) {
       if ($root_command and $root_command->{'cmdname'} eq 'node' 
-          and $root_element->{'extra'}->{'unit_section'}) {
-        $root_command = $root_element->{'extra'}->{'unit_section'};
+          and $root_command->{'extra'}->{'associated_section'}) {
+        $root_command = $root_command->{'extra'}->{'associated_section'};
       }
       # find the first level 1 sectioning element to associate the printindex with
       if ($root_command and $root_command->{'cmdname'} ne 'node') {
