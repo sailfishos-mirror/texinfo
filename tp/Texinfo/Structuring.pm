@@ -959,11 +959,9 @@ sub split_pages ($$)
   my $current_first_in_page;
   foreach my $tree_unit (@$tree_units) {
     my $level;
-    if ($tree_unit->{'extra'}->{'unit_section'}) {
-      $level = $tree_unit->{'extra'}->{'unit_section'}->{'structure'}->{'level'};
-    } elsif ($tree_unit->{'extra'}->{'unit_node'}
-             and $tree_unit->{'extra'}->{'unit_node'}->{'associated_section'}) {
-      $level = $tree_unit->{'extra'}->{'unit_node'}->{'associated_section'}->{'structure'}->{'level'};
+    my $section = _tree_unit_section($tree_unit);
+    if (defined($section)) {
+      $level = $section->{'structure'}->{'level'};
     }
     #print STDERR "level($split_level) $level ".root_or_external_element_cmd_texi($tree_unit)."\n";
     if (!defined($split_level) or (defined($level) and $split_level >= $level)
@@ -1002,6 +1000,42 @@ sub _label_target_element($)
   }
 }
 
+sub _tree_unit_section($)
+{
+  my $tree_unit = shift;
+  if (not defined($tree_unit->{'extra'})
+      or not defined($tree_unit->{'extra'}->{'unit_command'})) {
+    return undef;
+  }
+  if ($tree_unit->{'extra'}->{'unit_command'}->{'cmdname'} eq 'node') {
+    if ($tree_unit->{'extra'}->{'unit_command'}->{'extra'}->{'associated_section'}) {
+      return $tree_unit->{'extra'}->{'unit_command'}->{'extra'}->{'associated_section'};
+    } else {
+      return undef;
+    }
+  } else {
+    return $tree_unit->{'extra'}->{'unit_command'};
+  }
+}
+
+sub _tree_unit_node($)
+{
+  my $tree_unit = shift;
+  if (not defined($tree_unit->{'extra'})
+      or not defined($tree_unit->{'extra'}->{'unit_command'})) {
+    return undef;
+  }
+  if ($tree_unit->{'extra'}->{'unit_command'}->{'cmdname'} eq 'node') {
+    return $tree_unit->{'extra'}->{'unit_command'};
+  } else {
+    if ($tree_unit->{'extra'}->{'unit_command'}->{'extra'}->{'associated_node'}) {
+      return $tree_unit->{'extra'}->{'unit_command'}->{'extra'}->{'associated_node'}
+    } else {
+      return undef;
+    }
+  }
+}
+
 # Do element directions (like in texi2html) and store them
 # in 'structure->'directions'.
 # The directions are only created if pointing to other 'unit' elements.
@@ -1026,8 +1060,8 @@ sub elements_directions($$$)
       if ($tree_unit->{'structure'}->{'unit_prev'}
           and defined($tree_unit->{'structure'}->{'unit_prev'}->{'type'})
           and $tree_unit->{'structure'}->{'unit_prev'}->{'type'} eq 'unit');
-    if ($tree_unit->{'extra'}->{'unit_node'}) {
-      my $node = $tree_unit->{'extra'}->{'unit_node'};
+    my $node = _tree_unit_node($tree_unit);
+    if (defined($node)) {
       foreach my $direction(['NodeUp', 'node_up'], ['NodeNext', 'node_next'],
                             ['NodePrev', 'node_prev']) {
         $directions->{$direction->[0]}
@@ -1068,8 +1102,8 @@ sub elements_directions($$$)
             and $directions->{'NodeForward'}->{'type'} eq 'unit'
             and !$directions->{'NodeForward'}->{'structure'}->{'directions'}->{'NodeBack'});
     }
-
-    if (!$tree_unit->{'extra'}->{'unit_section'}) {
+    my $section = _tree_unit_section($tree_unit);
+    if (not defined($section)) {
       # If there is no associated section, find the previous element section.
       # Use the FastForward of this element.
       # Use it as FastBack if the section is top level, or use the FastBack.
@@ -1077,7 +1111,8 @@ sub elements_directions($$$)
       my $current = $tree_unit;
       while ($current->{'structure'}->{'unit_prev'}) {
         $current = $current->{'structure'}->{'unit_prev'};
-        if ($current->{'extra'}->{'unit_section'}) {
+        $section = _tree_unit_section($current);
+        if (defined($section)) {
           $section_element = $current;
           last;
         }
@@ -1087,7 +1122,7 @@ sub elements_directions($$$)
           $directions->{'FastForward'}
             = $section_element->{'structure'}->{'directions'}->{'FastForward'};
         }
-        if ($section_element->{'extra'}->{'unit_section'}->{'structure'}->{'level'} <= 1) {
+        if ($section->{'structure'}->{'level'} <= 1) {
           $directions->{'FastBack'} = $section_element;
         } elsif ($section_element->{'structure'}->{'directions'}->{'Fastback'}) {
           $directions->{'FastBack'}
@@ -1095,7 +1130,6 @@ sub elements_directions($$$)
         }
       }
     } else {
-      my $section = $tree_unit->{'extra'}->{'unit_section'};
       foreach my $direction(['Up', 'section_up'], ['Next', 'section_next'],
                             ['Prev', 'section_prev']) {
         # in most cases $section->{$direction->[1]}->{'structure'}->{'associated_unit'} is defined
@@ -1142,12 +1176,12 @@ sub elements_directions($$$)
     # Use node up for Up if there is no section up.
     # Not done in the default case.
     if ($configuration_informations->get_conf('USE_UP_NODE_FOR_ELEMENT_UP')
-        and !$directions->{'Up'} and $tree_unit->{'extra'}->{'unit_node'}
-        and $tree_unit->{'extra'}->{'unit_node'}->{'structure'}->{'node_up'}
-        and (!$node_top or ($tree_unit->{'extra'}->{'unit_node'} ne $node_top))) {
+        and !$directions->{'Up'} and defined($node)
+        and $node->{'structure'}->{'node_up'}
+        and (!$node_top or ($node ne $node_top))) {
       #print STDERR "Node for up: ".root_or_external_element_cmd_texi($tree_unit)."\n";
       my $up_node_element
-        = _label_target_element($tree_unit->{'extra'}->{'unit_node'}->{'structure'}->{'node_up'});
+        = _label_target_element($node->{'structure'}->{'node_up'});
       $directions->{'Up'} = $up_node_element if ($up_node_element);
     }
     if ($tree_unit->{'structure'}->{'directions'}) {
