@@ -534,6 +534,7 @@ our %line_commands = (
   'exampleindent'     => 1, # asis or a number
   'footnotestyle'     => 1, # end and separate, nothing else on the line
   'urefbreakstyle'    => 1, # after|before|none
+  'smallbook'         => 'skipline', # no arg
   'afourpaper'        => 'skipline', # no arg
   'afivepaper'        => 'skipline', # no arg
   'afourlatex'        => 'skipline', # no arg
@@ -543,7 +544,6 @@ our %line_commands = (
                             # interacts with setchapternewpage
   'setchapternewpage' => 1, # off on odd
 
-  'smallbook'         => 'skipline', # no arg
   'syncodeindex'      => 2,   # args are index identifiers
   'synindex'          => 2,
   'defindex'          => 1, # one identifier arg

@@ -96,6 +96,7 @@ allowcodebreaks         line,global                     1
 exampleindent           line,global                     1
 footnotestyle           line,global_unique              1
 urefbreakstyle          line,global                     1
+smallbook               line,global_unique              LINE_skipline
 afourpaper              line,global_unique              LINE_skipline
 afivepaper              line,global_unique              LINE_skipline
 afourlatex              line,global_unique              LINE_skipline
@@ -111,7 +112,6 @@ evenfooting             line,global                     LINE_heading_spec
 oddheading              line,global                     LINE_heading_spec
 oddfooting              line,global                     LINE_heading_spec
 
-smallbook               line,global_unique              LINE_skipline
 syncodeindex            line                            2
 synindex                line                            2
 defindex                line                            1

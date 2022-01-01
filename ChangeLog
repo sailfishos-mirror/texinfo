@@ -1,3 +1,9 @@
+2022-01-01  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* tp/Texinfo/Common.pm (%line_commands),
+	* tp/Texinfo/XS/parsetexi/command_data.txt:
+	Put page size commands together.
+
 2022-01-01  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Common.pm (rearrange_tree_beginning),
