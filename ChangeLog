@@ -1,5 +1,10 @@
 2022-01-01  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Structuring.pm (split_by_node, split_by_section):
+	do not generate unit_node nor unit_section.
+
+2022-01-01  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Structuring.pm (split_pages, _tree_unit_section)
 	(_tree_unit_node, elements_directions): do not use unit_node
 	or unit_section, instead use unit_command and associated_*

@@ -847,18 +847,13 @@ sub split_by_node($)
       next;
     }
     if ($content->{'cmdname'} and $content->{'cmdname'} eq 'node') {
-      if (not $current->{'extra'} or not $current->{'extra'}->{'unit_node'}) {
-        $current->{'extra'}->{'unit_node'} = $content;
+      if (not $current->{'extra'} or not $current->{'extra'}->{'unit_command'}) {
+        $current->{'extra'}->{'unit_command'} = $content;
       } else {
-        $current = { 'type' => 'unit', 'extra' => {'unit_node' => $content}};
+        $current = { 'type' => 'unit', 'extra' => {'unit_command' => $content}};
         $current->{'structure'}->{'unit_prev'} = $tree_units->[-1];
         $tree_units->[-1]->{'structure'}->{'unit_next'} = $current;
         push @$tree_units, $current;
-      }
-      $tree_units->[-1]->{'extra'}->{'unit_command'} = $content;
-      if ($content->{'extra'}->{'associated_section'}) {
-        $tree_units->[-1]->{'extra'}->{'unit_section'}
-          = $content->{'extra'}->{'associated_section'};
       }
     }
     if (@pending_parts) {
@@ -896,14 +891,12 @@ sub split_by_section($)
         $new_section = $content->{'extra'}->{'part_associated_section'};
       }
       if (not defined($current->{'extra'})
-               or not defined($current->{'extra'}->{'unit_section'})) {
-        $current->{'extra'}->{'unit_section'} = $new_section;
+               or not defined($current->{'extra'}->{'unit_command'})) {
         $current->{'extra'}->{'unit_command'} = $new_section;
-      } elsif (!$current->{'extra'}->{'unit_section'}
-        or $new_section ne $current->{'extra'}->{'unit_section'}) {
+      } elsif (!$current->{'extra'}->{'unit_command'}
+              or $new_section ne $current->{'extra'}->{'unit_command'}) {
         $current = { 'type' => 'unit',
-                     'extra' => {'unit_section' => $new_section,
-                                 'unit_command' => $new_section}};
+                     'extra' => {'unit_command' => $new_section}};
         $current->{'structure'}->{'unit_prev'} = $tree_units->[-1];
         $tree_units->[-1]->{'structure'}->{'unit_next'} = $current;
         push @$tree_units, $current;
@@ -911,20 +904,14 @@ sub split_by_section($)
     } elsif ($content->{'cmdname'} and $content->{'cmdname'} ne 'node'
              and $Texinfo::Common::root_commands{$content->{'cmdname'}}) {
       if (not defined($current->{'extra'})
-               or not defined($current->{'extra'}->{'unit_section'})) {
-        $current->{'extra'}->{'unit_section'} = $content;
+               or not defined($current->{'extra'}->{'unit_command'})) {
         $current->{'extra'}->{'unit_command'} = $content;
-      } elsif ($current->{'extra'}->{'unit_section'} ne $content) {
-        $current = { 'type' => 'unit', 'extra' => {'unit_section' => $content,
-                                              'unit_command' => $content}};
+      } elsif ($current->{'extra'}->{'unit_command'} ne $content) {
+        $current = { 'type' => 'unit', 'extra' => {'unit_command' => $content}};
         $current->{'structure'}->{'unit_prev'} = $tree_units->[-1];
         $tree_units->[-1]->{'structure'}->{'unit_next'} = $current;
         push @$tree_units, $current;
       }
-    }
-    if ($content->{'cmdname'} and $content->{'cmdname'} eq 'node'
-        and $content->{'extra'}->{'associated_section'}) {
-      $current->{'extra'}->{'unit_node'} = $content;
     }
     push @{$current->{'contents'}}, $content;
     $content->{'structure'}->{'associated_unit'} = $current;
