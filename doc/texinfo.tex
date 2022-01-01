@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2021-11-01.16}
+\def\texinfoversion{2022-01-01.17}
 %
 % Copyright 1985, 1986, 1988, 1990-2021 Free Software Foundation, Inc.
 %
@@ -11246,23 +11246,6 @@ directory should work if nowhere else does.}
   \tolerance = 700
   \contentsrightmargin = 0pt
   \defbodyindent = .5cm
-}}
-
-% Use @smallerbook to reset parameters for 6x9 trim size.
-% (Just testing, parameters still in flux.)
-\def\smallerbook{{\globaldefs = 1
-  \parskip = 1.5pt plus 1pt
-  \textleading = 12pt
-  %
-  \internalpagesizes{7.4in}{4.8in}%
-                    {-.2in}{-.4in}%
-                    {0pt}{14pt}%
-                    {9in}{6in}%
-  %
-  \lispnarrowing = 0.25in
-  \tolerance = 700
-  \contentsrightmargin = 0pt
-  \defbodyindent = .4cm
 }}
 
 % Use @afourpaper to print on European A4 paper.

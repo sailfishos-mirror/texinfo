@@ -1,5 +1,11 @@
 2022-01-01  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* doc/texinfo.tex (\smallerbook): Remove experimental page
+	size setting, never documented or implemented in makeinfo.
+	(Originally added 2005-04-18.)
+
+2022-01-01  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* tp/Texinfo/Common.pm (%line_commands),
 	* tp/Texinfo/XS/parsetexi/command_data.txt:
 	Put page size commands together.
