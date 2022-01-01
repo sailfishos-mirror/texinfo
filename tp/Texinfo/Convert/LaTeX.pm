@@ -127,7 +127,11 @@
 #
 # @fonttextsize with \changefontsize does not seems to change fonts much.  It
 # seems to change in the text, but only 10pt, and does not seems to change
-# sections font sizes.
+# sections font sizes.  fontsize package may not be installed anyway.
+#
+# use of babel package commented out because it gave an error:
+#   ! Package babel Error: You haven't specified a language option.
+# it may depend on the LaTeX installation
 #
 # The @afourpaper, @afourlatex and @afourwide commands all map to
 # papername=a4paper.  It is most likely ok for @afourlatex, but the other two
@@ -1153,12 +1157,12 @@ sub _latex_header {
 \usepackage{needspace}
 \usepackage{etoolbox}
 \usepackage{mdframed}
-\usepackage{fontsize}
+%\usepackage{fontsize}
 \usepackage{enumitem}
 \usepackage{geometry}
 \usepackage{titleps}
 \usepackage{float}
-\usepackage{babel}
+%\usepackage{babel}
 % use hidelinks to remove boxes around links to be similar with Texinfo TeX
 \usepackage[hidelinks]{hyperref}
 ';
@@ -1225,10 +1229,10 @@ sub _latex_header {
   $header .= '
 % this allows to select languages based on bcp47 codes.  bcp47 is a superset
 % of the LL_CC ISO 639-2 LL ISO 3166 CC information of @documentlanguage
-\babeladjust{
-  autoload.bcp47 = on,
-  autoload.bcp47.options = import
-}
+% \babeladjust{
+%   autoload.bcp47 = on,
+%   autoload.bcp47.options = import
+% }
 
 % set defaults for lists that match Texinfo TeX formatting
 \setlist[description]{style=nextline, font=\normalfont}
@@ -2987,9 +2991,9 @@ sub _convert($$)
         $result .= _set_headings($self, $headings_spec);
       } elsif ($cmdname eq 'fonttextsize'
                and $element->{'extra'}->{'misc_args'}->[0]) {
-        my $fontsize = $element->{'extra'}->{'misc_args'}->[0];
+        # my $fontsize = $element->{'extra'}->{'misc_args'}->[0];
         # default dimension for changefontsize is pt
-        $result .= "\\changefontsize{$fontsize}\n";
+        # $result .= "\\changefontsize{$fontsize}\n";
       } elsif ($paper_geometry_commands{$cmdname}) {
         $result .= "\\geometry{$paper_geometry_commands{$cmdname}}%\n";
       }

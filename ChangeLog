@@ -1,5 +1,13 @@
 2022-01-01  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	Make LaTeX output processable
+
+	* tp/Texinfo/Convert/LaTeX.pm (_latex_header):
+	Comment out use of 'fontsize' and 'babel' packages.
+	(_convert): Comment out code outputing fontsize directive.
+
+2022-01-01  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	No slant for @key.
 
 	* tp/Texinfo/Convert/HTML.pm

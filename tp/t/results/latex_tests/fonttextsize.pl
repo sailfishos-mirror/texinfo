@@ -904,7 +904,6 @@ $result_floats{'fonttextsize'} = {};
 
 
 $result_converted{'latex'}->{'fonttextsize'} = '
-\\changefontsize{10}
 
 \\chapter{Chapter}
 \\label{anchor:chapter}%
@@ -914,7 +913,6 @@ $result_converted{'latex'}->{'fonttextsize'} = '
 \\subsection{Subsection 10pts}
 In 10pts
 
-\\changefontsize{11}
 \\subsection{Subsection 11pts}
 
 In 11pts
