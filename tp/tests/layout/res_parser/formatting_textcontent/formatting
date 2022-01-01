@@ -211,7 +211,8 @@ a@sup{h}@sub{l} ahl
 
 @sp 2
 
-2@page
+2
+@page
 
 
 need 1002
@@ -619,10 +620,12 @@ f--lushright
 more text
 
 ce--ntered line
+
 r--raggedright
 more text
 
 simplest.texi
+
 in verbatim ''
 
 
@@ -631,10 +634,15 @@ in verbatim ''
 
 
 majorheading
+
 chapheading
+
 heading
+
 subheading
+
 subsubheading
+
 
 @acronym{--a,an accronym @comma{} @enddots{}} --aan accronym , ...
 @abbr{@'E--. @comma{}A., @'Etude--@comma{} @b{Autonome} } E'--. ,A.E'tude--, Autonome
@@ -681,6 +689,7 @@ Invalid use of @':
 @image{,1--xt} 1--xt
 @image{,,2--xt} 2--xt
 @image{,,,3--xt} 3--xt
+
 
 
 e--mph item
@@ -952,7 +961,8 @@ a@sup{h}@sub{l} ahl
 
 @sp 2
 
-2@page
+2
+@page
 
 
 need 1002
@@ -1360,10 +1370,12 @@ f--lushright
 more text
 
 ce--ntered line
+
 r--raggedright
 more text
 
 simplest.texi
+
 in verbatim ''
 
 
@@ -1372,10 +1384,15 @@ in verbatim ''
 
 
 majorheading
+
 chapheading
+
 heading
+
 subheading
+
 subsubheading
+
 
 @acronym{--a,an accronym @comma{} @enddots{}} --aan accronym , ...
 @abbr{@'E--. @comma{}A., @'Etude--@comma{} @b{Autonome} } E'--. ,A.E'tude--, Autonome
@@ -1422,6 +1439,7 @@ Invalid use of @':
 @image{,1--xt} 1--xt
 @image{,,2--xt} 2--xt
 @image{,,,3--xt} 3--xt
+
 
 
 e--mph item
@@ -1489,7 +1507,9 @@ truc after a deff item
 
 Insercopying in titlepage
 
-TopTop section
+Top
+Top section
+
 * chapter::               chapter
 
 Menu comment
@@ -1497,7 +1517,9 @@ Menu comment
 * description:chapter2.   Chapter 2
 
 
-chapterchapter
+chapter
+chapter
+
 First para
 
 qsddsqkdsqkkmljsqjsqodmmdsqdsmqj dqs sdq sqd sdq dsq sdq sqd sqd sdq sdq 
@@ -1715,7 +1737,8 @@ a@sup{h}@sub{l} ahl
 
 @sp 2
 
-2@page
+2
+@page
 
 
 need 1002
@@ -2123,10 +2146,12 @@ f--lushright
 more text
 
 ce--ntered line
+
 r--raggedright
 more text
 
 simplest.texi
+
 in verbatim ''
 
 
@@ -2135,10 +2160,15 @@ in verbatim ''
 
 
 majorheading
+
 chapheading
+
 heading
+
 subheading
+
 subsubheading
+
 
 @acronym{--a,an accronym @comma{} @enddots{}} --aan accronym , ...
 @abbr{@'E--. @comma{}A., @'Etude--@comma{} @b{Autonome} } E'--. ,A.E'tude--, Autonome
@@ -2185,6 +2215,7 @@ Invalid use of @':
 @image{,1--xt} 1--xt
 @image{,,2--xt} 2--xt
 @image{,,,3--xt} 3--xt
+
 
 
 e--mph item
@@ -2456,7 +2487,8 @@ a@sup{h}@sub{l} ahl
 
 @sp 2
 
-2@page
+2
+@page
 
 
 need 1002
@@ -2864,10 +2896,12 @@ f--lushright
 more text
 
 ce--ntered line
+
 r--raggedright
 more text
 
 simplest.texi
+
 in verbatim ''
 
 
@@ -2876,10 +2910,15 @@ in verbatim ''
 
 
 majorheading
+
 chapheading
+
 heading
+
 subheading
+
 subsubheading
+
 
 @acronym{--a,an accronym @comma{} @enddots{}} --aan accronym , ...
 @abbr{@'E--. @comma{}A., @'Etude--@comma{} @b{Autonome} } E'--. ,A.E'tude--, Autonome
@@ -2926,6 +2965,7 @@ Invalid use of @':
 @image{,1--xt} 1--xt
 @image{,,2--xt} 2--xt
 @image{,,,3--xt} 3--xt
+
 
 
 e--mph item
@@ -3039,7 +3079,9 @@ Menu comment
 
 
 
-s--ect,ionA section
+s--ect,ion
+A section
+
 * subsection:: 
 
 In detailmenu
@@ -3047,12 +3089,20 @@ In detailmenu
 * subsubsection ``simple-double--::
 * subsubsection three---four----''::
 
-subsectionsubsection
+subsection
+subsection
+
 * subsubsection ``simple-double--::
 * subsubsection three---four----''::
 
 anchor
-subsubsection ``simple-double--subsubsection ``simple-double--
-subsubsection three---four----''three---four----''
-chapter2chapter 2
+subsubsection ``simple-double--
+subsubsection ``simple-double--
+
+subsubsection three---four----''
+three---four----''
+
+chapter2
+chapter 2
+
 

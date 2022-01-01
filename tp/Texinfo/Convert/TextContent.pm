@@ -68,7 +68,7 @@ sub converter_initialize($)
   
   %{$self->{'formatting_misc_commands'}}
     = %Texinfo::Convert::Text::formatting_misc_commands;
-
+      #%Texinfo::Common::formatted_misc_commands;
   if ($self->get_conf('TEXTCONTENT_COMMENT')) {
     $self->{'formatting_misc_commands'}->{'c'} = 1;
     $self->{'formatting_misc_commands'}->{'comment'} = 1;
@@ -144,7 +144,7 @@ sub _convert($$)
            or !$Texinfo::Common::block_item_commands{$element->{'cmdname'}})) {
     my $args;
     if ($element->{'cmdname'}
-      and $Texinfo::Common::inline_format_commands{$element->{'cmdname'}}) {
+        and $Texinfo::Common::inline_format_commands{$element->{'cmdname'}}) {
       my @args = @{$element->{'args'}};
       shift @args;
       $args = \@args;
@@ -153,10 +153,6 @@ sub _convert($$)
     }
     foreach my $arg (@{$args}) {
       $result .= _convert($self, $arg);
-    }
-    if ($element->{'parent'}->{'type'}
-        and $element->{'parent'}->{'type'} eq 'table_term') {
-      $result .= "\n";
     }
   }
   if ($element->{'contents'}) {
@@ -169,6 +165,13 @@ sub _convert($$)
          and (!$element->{'parent'}->{'type'} or
               ($element->{'parent'}->{'type'} ne 'block_line_arg'
                and $element->{'parent'}->{'type'} ne 'line_arg')));
+
+  if ($element->{'type'} and $element->{'type'} eq 'line_arg'
+      # in that case there is already a 'spaces_at_end'
+      and not ($element->{'parent'}->{'type'}
+               and $element->{'parent'}->{'type'} eq 'def_line')) {
+    $result .= "\n";
+  }
 
   return $result;
 }
