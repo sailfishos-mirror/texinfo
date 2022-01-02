@@ -1,3 +1,7 @@
+2022-01-02  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* doc/info-stnd.texi: Revise use of @key and @kbd.
+
 2022-01-02  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/LaTeX.pm (output, convert, convert_tree): always
