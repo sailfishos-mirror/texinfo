@@ -240,7 +240,7 @@ my %preamble_commands = %Texinfo::Common::preamble_commands;
 
 foreach my $kept_command (keys(%informative_commands),
   keys(%default_index_commands),
-  keys(%headings_specification_commands), keys(%in_heading_commands),
+  keys(%in_heading_commands),
   keys(%formattable_misc_commands),
   'indent', 'noindent') {
   $formatted_misc_commands{$kept_command} = 1;
@@ -924,7 +924,7 @@ sub output($$)
 
   # Ignore everything between Top node and the next node.
   # TODO find a way to process informative commands as TeX does
-  my $modified_root = {'contents' => []};
+  my $modified_root = {'contents' => [], 'type' => $root->{'type'}};
 
   my $in_top_node = 0;
   foreach my $element_content (@{$root->{'contents'}}) {
@@ -1328,6 +1328,16 @@ sub _begin_document($)
     $result .= "\\GNUTexinfomainmatter\n";
     $self->{'titlepage_done'} = 1;
   }
+
+  if (exists($self->{'global_commands'}->{'contents'})
+      and $self->{'structuring'}
+      and $self->{'structuring'}->{'sectioning_root'}
+      and not (defined($self->get_conf('CONTENTS_OUTPUT_LOCATION'))
+               and $self->get_conf('CONTENTS_OUTPUT_LOCATION') eq 'inline')) {
+    $result .= "\\tableofcontents\\newpage\n";
+  }
+
+
   return $result;
 }
 
@@ -2927,8 +2937,10 @@ sub _convert($$)
       }
       return $result;
     } elsif ($cmdname eq 'contents') {
-      if ($self->{'structuring'}
-            and $self->{'structuring'}->{'sectioning_root'}) {
+      if (defined($self->get_conf('CONTENTS_OUTPUT_LOCATION'))
+          and $self->get_conf('CONTENTS_OUTPUT_LOCATION') eq 'inline'
+          and $self->{'structuring'}
+          and $self->{'structuring'}->{'sectioning_root'}) {
         $result .= "\\tableofcontents\\newpage\n";
       }
       return $result;
@@ -2955,7 +2967,9 @@ sub _convert($$)
     # in a way that can be reverted as with @firstparagraphindent.
     # use of \usepackage{indentfirst} cannot be reverted.
     } elsif ($informative_commands{$cmdname}) {
+
       $self->set_informative_command_value($element);
+
       if ($cmdname eq 'documentlanguage') {
         my $language = $self->get_conf('documentlanguage');
         $language =~ s/_/-/;
