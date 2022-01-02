@@ -993,6 +993,7 @@ sub output($$)
   $result .= $self->write_or_return($self->_latex_header(), $fh);
   _push_new_context($self, 'main');
   $result .= $self->write_or_return($self->convert_tree($modified_root), $fh);
+  _pop_context($self);
   $result .= $self->write_or_return($self->_latex_footer(), $fh);
 
   #print $result;
@@ -1017,12 +1018,19 @@ sub convert($$)
 
   $self->_prepare_conversion($root);
 
+  my $new_context;
   if (not exists($self->{'formatting_context'})
       or scalar(@{$self->{'formatting_context'}}) == 0) {
     _push_new_context($self, 'document');
+    $new_context = 1;
   }
-  
-  return $self->_convert($root);
+
+  my $result = $self->_convert($root);
+
+  if ($new_context) {
+    _pop_context($self);
+  }
+  return $result;
 }
 
 # a context should have been set by the caller
@@ -1031,12 +1039,19 @@ sub convert_tree($$)
   my $self = shift;
   my $root = shift;
 
+  my $new_context;
   if (not exists($self->{'formatting_context'})
       or scalar(@{$self->{'formatting_context'}}) == 0) {
     _push_new_context($self, 'tree');
+    $new_context = 1;
   }
 
-  return $self->_convert($root);
+  my $result = $self->_convert($root);
+
+  if ($new_context) {
+    _pop_context($self);
+  }
+  return $result;
 }
 
 # ellipsis leaves less spacing after \dots in case it is followed
@@ -1192,7 +1207,7 @@ sub _latex_header {
           my $float = $self->{'floats'}->{$normalized_float_type}->[0];
           my $float_type_contents = $float->{'extra'}->{'type'}->{'content'};
           my $float_type = _convert($self, {'contents' => $float_type_contents});
-          $self->_pop_context();
+          _pop_context($self);
         }
         my $floats_extension = $self->{'floats_extension'};
         $header .= "% new float for type `$normalized_float_type'\n";
@@ -2212,7 +2227,7 @@ sub _convert($$)
       $result .= '\footnote{';
       $result .= $self->_convert($element->{'args'}->[0]);
       $result .= '}';
-      $self->_pop_context();
+      _pop_context($self);
       return $result;
     } elsif ($cmdname eq 'anchor') {
       my $anchor_label = _tree_anchor_label($element->{'extra'}->{'node_content'});
@@ -2534,7 +2549,7 @@ sub _convert($$)
       _push_new_context($self, 'latex_caption');
       my $caption_text = _convert($self,
          {'contents' => $element->{'args'}->[0]->{'contents'}});
-      $self->_pop_context();
+      _pop_context($self);
       
       $result .= '\caption';
 
@@ -2542,7 +2557,7 @@ sub _convert($$)
         _push_new_context($self, 'latex_shortcaption');
         my $shortcaption_text = _convert($self, 
                        {'contents' => $shortcaption->{'args'}->[0]->{'contents'}});
-        $self->_pop_context();
+        _pop_context($self);
         $result .= '['.$shortcaption_text.']';
       }
       $result .= "{$caption_text}\n";
@@ -3296,7 +3311,7 @@ sub _convert($$)
       }
       my $latex_float_name = $self->{'normalized_float_latex'}->{$normalized_float_type};
       $result .= "\\end{$latex_float_name}\n";
-      $self->_pop_context();
+      _pop_context($self);
     } elsif ($cmdname eq 'quotation'
                or $cmdname eq 'smallquotation') {
       if ($element->{'extra'} and $element->{'extra'}->{'authors'}) {
