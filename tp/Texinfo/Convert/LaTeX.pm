@@ -201,15 +201,8 @@ my %paper_geometry_commands = (
   'smallbook' => 'paperheight=9.25in,paperwidth=7in',
 );
 
-my @informative_global_commands = ('paragraphindent', 'firstparagraphindent',
-'frenchspacing', 'documentencoding', 'footnotestyle', 'documentlanguage',
-'contents', 'shortcontents', 'summarycontents', 'deftypefnnewline',
-'allowcodebreaks', 'kbdinputstyle', 'setchapternewpage', 'headings',
-'xrefautomaticsectiontitle', 'fonttextsize', 'pagesizes', sort(keys(%paper_geometry_commands))
-);
-
 my %informative_commands;
-foreach my $informative_command (@informative_global_commands) {
+foreach my $informative_command (keys (%Texinfo::Common::document_settable_at_commands)) {
   $informative_commands{$informative_command} = 1;
 }
 
@@ -248,7 +241,7 @@ my %preamble_commands = %Texinfo::Common::preamble_commands;
 delete $preamble_commands{'titlepage'};
 delete $preamble_commands{'shorttitlepage'};
 
-foreach my $kept_command (@informative_global_commands,
+foreach my $kept_command (keys(%informative_commands),
   keys(%default_index_commands),
   keys(%headings_specification_commands), keys(%in_heading_commands),
   keys(%formattable_misc_commands),
@@ -974,8 +967,7 @@ sub output($$)
     while (scalar(@first_element_contents)) {
       my $content = $first_element_contents[0];
       if (($content->{'cmdname'}
-           and not $preamble_commands{$content->{'cmdname'}}
-           and not $self->{'ignored_commands'}->{$content->{'cmdname'}})
+           and not $preamble_commands{$content->{'cmdname'}})
           or ($content->{'type'} and $content->{'type'} eq 'paragraph')) {
         last;
       }
