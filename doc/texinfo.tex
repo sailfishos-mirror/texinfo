@@ -3,7 +3,7 @@
 % Load plain if necessary, i.e., if running under initex.
 \expandafter\ifx\csname fmtname\endcsname\relax\input plain\fi
 %
-\def\texinfoversion{2022-01-02.12}
+\def\texinfoversion{2022-01-02.13}
 %
 % Copyright 1985, 1986, 1988, 1990-2021 Free Software Foundation, Inc.
 %
@@ -3171,16 +3171,8 @@ end
 % Default is `distinct'.
 \kbdinputstyle distinct
 
-% @kbd is like @code, except that if the argument is just one @key command,
-% then @kbd has no effect.
-\def\kbd#1{{\def\look{#1}\expandafter\kbdsub\look??\par}}
-
-\def\xkey{\key}
-\def\kbdsub#1#2#3\par{%
-  \def\one{#1}\def\three{#3}\def\threex{??}%
-  \ifx\one\xkey\ifx\threex\three \key{#2}%
-  \else{\tclose{\kbdfont\setcodequotes\look}}\fi
-  \else{\tclose{\kbdfont\setcodequotes\look}}\fi
+\def\kbd#1{%
+  \tclose{\kbdfont\setcodequotes#1}%
 }
 
 % definition of @key that produces a lozenge.  Doesn't adjust to text size.
