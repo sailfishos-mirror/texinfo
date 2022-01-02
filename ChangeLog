@@ -1,3 +1,9 @@
+2022-01-02  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/LaTeX.pm (output): add a preamble element
+	only if there was not already one in the tree.  With parse_texi_text()
+	there is no preamble element.
+
 2022-01-02  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.tex (\kbd): Simplify definition so as not to

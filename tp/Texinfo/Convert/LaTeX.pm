@@ -895,10 +895,9 @@ sub associate_other_nodes_to_sections($$)
     = $additional_node_section_associations;
 }
 
-# added in the tree where the \begin{document} should be,
+# mark in the tree where the \begin{document} should be,
 # after the @-commands in preamble
-my $latex_document_type = '_latex_document';
-#my $latex_document_type = 'preamble_before_content';
+my $latex_document_type = 'preamble_before_content';
 
 sub output($$)
 {
@@ -946,35 +945,39 @@ sub output($$)
     }
   }
 
-  # split the first element of the tree in a content before
-  # document start and a new type where the document start.
-  # The document start at the first @-command that is some
-  # document text and not an informative @-command, or
-  # at the first paragraph.
-  my $begin_document_type = {'type' => $latex_document_type};
-  # already a top node sectioning or node command
-  if (defined($modified_root->{'contents'}->[0]->{'cmdname'})) {
-    unshift @{$modified_root->{'contents'}}, $begin_document_type;
-  } else {
-    my $first_element = shift @{$modified_root->{'contents'}};
-    my @first_element_contents = @{$first_element->{'contents'}};
-    my $new_first_element = {'contents' => []};
-    if ($first_element->{'type'}) {
-      $new_first_element->{'type'} = $first_element->{'type'};
-    }
-    while (scalar(@first_element_contents)) {
-      my $content = $first_element_contents[0];
-      if (($content->{'cmdname'}
-           and not $preamble_commands{$content->{'cmdname'}})
-          or ($content->{'type'} and $content->{'type'} eq 'paragraph')) {
+  # FIXME is it a good thing to redo what could have been done after the
+  # parsing?  Should the preamble be setup after parse_texi_text() too?
+  #
+  # check if preamble is already present and determine at which index it should
+  # be inserted.  Preamble is not set if parser was called with parse_texi_text().
+  # We do not use Texinfo::Common::add_preamble_before_content as we already
+  # have the location as a side effect of checking if the preamble is there, and we do
+  # not seet a container for the preamble but simply add a marker, with less
+  # changes to the tree.
+  my $inserted_preamble_idx = -1;
+  foreach my $content (@{$modified_root->{'contents'}->[0]->{'contents'}}) {
+    $inserted_preamble_idx++;
+    if ($content->{'type'}) {
+      if ($content->{'type'} eq $latex_document_type) {
+        $inserted_preamble_idx = undef;
+        last;
+      } elsif ($content->{'type'} eq 'paragraph') {
+        $inserted_preamble_idx--;
         last;
       }
-      push @{$new_first_element->{'contents'}},
-             shift @first_element_contents;
     }
-    $begin_document_type->{'contents'} = \@first_element_contents;
-    unshift @{$modified_root->{'contents'}},
-      ($new_first_element, $begin_document_type);
+    if ($content->{'cmdname'} and not $preamble_commands{$content->{'cmdname'}}) {
+      $inserted_preamble_idx--;
+      last;
+    }
+  }
+  if (defined($inserted_preamble_idx)) {
+    my $new_before_node_section = {'type' => $modified_root->{'contents'}->[0]->{'type'},
+                                   'parent' => $modified_root,
+            'contents' => [ @{$modified_root->{'contents'}->[0]->{'contents'}} ]};
+    splice @{$new_before_node_section->{'contents'}}, $inserted_preamble_idx +1, 0, 
+        {'type' => $latex_document_type, 'parent' => $new_before_node_section};
+    $modified_root->{'contents'}->[0] = $new_before_node_section;
   }
 
   # nothing after Top node the end, mark that Top node is ignored.
@@ -3216,9 +3219,6 @@ sub _convert($$)
       $self->{'formatting_context'}->[-1]->{'dot_not_end_sentence'} += 1;
     } elsif ($element->{'type'} eq 'bracketed') {
       $result .= _protect_text($self, '{');
-    } elsif ($element->{'type'} eq $latex_document_type) {
-      # special type inserted where the document begins
-      $result .= _begin_document($self);
     }
   }
 
@@ -3268,9 +3268,9 @@ sub _convert($$)
       }
     } elsif ($type eq 'row') {
       # ...
-    #} elsif ($type eq $latex_document_type) {
-    #  # special type inserted where the document begins
-    #  $result .= _begin_document($self);
+    } elsif ($type eq $latex_document_type) {
+      # type marking the beginning of content
+      $result .= _begin_document($self);
     }
   }
 
