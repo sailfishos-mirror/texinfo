@@ -1,5 +1,10 @@
 2022-01-02  Patrice Dumas  <pertusus@free.fr>
 
+	* NEWS: add USE_XML_SYNTAX, HTML_ROOT_ELEMENT_ATTRIBUTES
+	and NO_CUSTOM_HTML_ATTRIBUTE.
+
+2022-01-02  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (output): set MATHJAX_SCRIPT and
 	MATHJAX_SOURCE dynamic defaults earlier such that they can be known
 	and modified in init files.
