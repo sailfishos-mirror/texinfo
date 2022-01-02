@@ -1,5 +1,10 @@
 2022-01-02  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (_substitute_references): handle
+	index_ignore_chars.
+
+2022-01-02  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm: rename name extra key of special
 	elements to special_element_type.
 

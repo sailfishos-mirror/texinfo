@@ -2014,7 +2014,7 @@ sub _copy_tree($$$)
           push @{$new->{'extra'}->{$key}},
                   _copy_tree($child, $new, $reference_associations);
         }
-      } elsif (!ref($current->{'extra'}->{$key})) {
+      } elsif (ref($current->{'extra'}->{$key}) eq '') {
         $new->{'extra'}->{$key} = $current->{'extra'}->{$key};
       }
     }
@@ -2109,7 +2109,7 @@ sub _substitute_references($$$)
                      and $current->{'type'} eq 'menu_entry'
                      and $key eq 'menu_entry_node')) {
               foreach my $type_key (keys(%{$current->{'extra'}->{$key}})) {
-                if (!ref($current->{'extra'}->{$key}->{$type_key})) {
+                if (ref($current->{'extra'}->{$key}->{$type_key}) eq '') {
                   $new->{'extra'}->{$key}->{$type_key}
                     = $current->{'extra'}->{$key}->{$type_key};
                 } elsif ($reference_associations->{$current->{'extra'}->{$key}->{$type_key}}) {
@@ -2121,6 +2121,8 @@ sub _substitute_references($$$)
                       $current->{'extra'}->{$key}->{$type_key},
                       $reference_associations,
                       "[$command_or_type]{$key}{$type_key}");
+                } elsif ($key eq 'index_entry' and $type_key eq 'index_ignore_chars') {
+                  $new->{'extra'}->{$key}->{$type_key} = { %{$current->{'extra'}->{$key}->{$type_key}} };
                 } else {
                   print STDERR "Not substituting [$command_or_type]{$key}: $type_key\n";
                 }

@@ -63,6 +63,9 @@ Something
 
 @cindex cindex
 
+@set txiindexlessthanignore
+@vindex v<index
+
 @printindex cp
 
 @quotation trc
