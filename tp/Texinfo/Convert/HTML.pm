@@ -677,7 +677,7 @@ sub command_text($$;$)
     if (!$target->{'tree'}) {
       if (defined($command->{'type'})
           and $command->{'type'} eq 'special_element') {
-        my $special_element_name = $command->{'extra'}->{'name'};
+        my $special_element_name = $command->{'extra'}->{'special_element_type'};
         $tree = $self->get_conf('SPECIAL_ELEMENTS_HEADING')->{$special_element_name};
         $explanation = "command_text $special_element_name";
       } elsif ($command->{'cmdname'} and ($command->{'cmdname'} eq 'node' 
@@ -5220,7 +5220,7 @@ sub _convert_special_element_type($$$$)
 
   my $result = '';
 
-  my $special_element_name = $element->{'extra'}->{'name'};
+  my $special_element_name = $element->{'extra'}->{'special_element_type'};
   $result .= join('', $self->close_registered_sections_level(0));
   my $id = $self->command_id($element);
   $result .= $self->html_attribute_class('div', "${special_element_name}_element");
@@ -6528,7 +6528,7 @@ sub _prepare_special_elements($$$$)
     next unless ($do_special{$type});
 
     my $element = {'type' => 'special_element',
-                   'extra' => {'name' => $type,
+                   'extra' => {'special_element_type' => $type,
                                }};
     $element->{'structure'}->{'directions'}->{'This'} = $element;
     $self->{'special_elements_types'}->{$type} = $element;
@@ -6580,7 +6580,7 @@ sub _prepare_special_elements($$$$)
       $default_filename .= '.'.$extension if (defined($extension));
 
       my $element = {'type' => 'special_element',
-                   'extra' => {'name' => $type,
+                   'extra' => {'special_element_type' => $type,
                                }};
 
       # only the filename is used
@@ -6640,7 +6640,7 @@ sub _prepare_contents_elements($)
         }
 
         my $contents_element = {'type' => 'special_element',
-                                'extra' => {'name' => $type}};
+                                'extra' => {'special_element_type' => $type}};
         $self->{'special_elements_types'}->{$type} = $contents_element;
         my $target = $self->{'misc_elements_targets'}->{$type};
         my $filename;
@@ -7756,6 +7756,14 @@ sub convert($$)
     $result = $self->_convert($root, 'convert no unit');
     $result .= &{$self->{'format_footnotes_text'}}($self);
   } else {
+    # special elements are ignored, so for instance separate
+    # footnotes will not show up
+    #if ($special_elements and @$special_elements) {
+    #  print STDERR "C IGNORED SPE @$special_elements\n";
+    #  foreach my $special_element (@$special_elements) {
+    #    print STDERR " C SE-III ".Texinfo::Common::debug_print_element_short($special_element)."\n";
+    #  }
+    #}
     my $unit_nr = 0;
     foreach my $tree_unit (@$tree_units) {
       print STDERR "\nC UNIT $unit_nr\n" if ($self->get_conf('DEBUG'));
@@ -8145,6 +8153,14 @@ sub output($$)
     }
     my $body = '';
     if ($tree_units and @$tree_units) {
+      # special elements are ignored, so for instance separate
+      # footnotes will not show up
+      #if ($special_elements and @$special_elements) {
+      #  print STDERR "IGNORED SPE @$special_elements\n";
+      #  foreach my $special_element (@$special_elements) {
+      #    print STDERR " SE-III ".Texinfo::Common::debug_print_element_short($special_element)."\n";
+      #  }
+      #}
       my $unit_nr = 0;
       foreach my $tree_unit (@$tree_units) {
         print STDERR "\nUNIT NO-PAGE $unit_nr\n" if ($self->get_conf('DEBUG'));

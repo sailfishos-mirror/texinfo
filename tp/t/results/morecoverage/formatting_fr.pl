@@ -5326,4 +5326,389 @@ Menu comment
 </html>
 ';
 
+
+$result_converted{'html_text'}->{'formatting_fr'} = '<h1>title &ndash;a</h1>
+<h3 class="right-align">formatting subtitle &ndash;a</h3>
+<h3 class="right-align">subtitle 2 &ndash;a</h3>
+<strong>author1 &ndash;a with accents in name T&eacute;&ccedil;a</strong><br>
+<strong>author2 &ndash;a</strong><br>
+<p>In titlepage
+
+</p>
+<p>Insercopying in titlepage
+</p><p>In copying
+
+</p><hr>
+
+<div class="top" id="Top">
+<table class="header" cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[ &lt; ]</td>
+<td valign="middle" align="left">[ &gt; ]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table des mati&egrave;res">Table des mati&egrave;res</a>]</td>
+<td valign="middle" align="left">[<a href="#Top" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="A propos (page d&rsquo;aide)"> ? </a>]</td>
+</tr></table>
+<h1 class="top" id="Top-section">Top section</h1>
+
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top"><a href="#chapter">1 chapter</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top"></td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+Menu comment
+
+</pre></th></tr><tr><td align="left" valign="top"><a href="#chapter2" rel="index">chapter 2</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Chapter 2
+</td></tr>
+</table>
+
+
+
+
+<p>Insertcopying in normal text
+</p><p>In copying
+
+</p>
+<p>Normal text
+
+</p>
+<p>In example.
+</p><div class="example">
+<pre class="example">
+
+</pre></div>
+
+<a class="index-entry-anchor" id="index-t_002d_002druc"></a>
+<a class="index-entry-anchor" id="index-T_002d_002druc"></a>
+<a class="index-entry-anchor" id="index-_002e"></a>
+<a class="index-entry-anchor" id="index-_003f"></a>
+<a class="index-entry-anchor" id="index-a"></a>
+<a class="index-entry-anchor" id="index-t_002d_002druc-1"></a>
+<a class="index-entry-anchor" id="index-T_002d_002druc-1"></a>
+<a class="index-entry-anchor" id="index-_002e-1"></a>
+<a class="index-entry-anchor" id="index-_003f-1"></a>
+<a class="index-entry-anchor" id="index-a-1"></a>
+
+
+<p>cp
+</p><table><tr><th valign="top">Aller &agrave;: &nbsp; </th><td><a class="summary-letter" href="#t_h_cp_symbol-1"><b>.</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#t_h_cp_symbol-2"><b>?</b></a>
+ &nbsp; 
+<br>
+<a class="summary-letter" href="#t_h_cp_letter-A"><b>A</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#t_h_cp_letter-T"><b>T</b></a>
+ &nbsp; 
+</td></tr></table>
+<table class="index-cp" border="0">
+<tr><td></td><th align="left">Entr&eacute;e d&rsquo;index</th><td>&nbsp;</td><th align="left"> Section</th></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="t_h_cp_symbol-1">.</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-_002e">.</a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="t_h_cp_symbol-2">?</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-_003f">?</a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="t_h_cp_letter-A">A</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-a">a</a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="t_h_cp_letter-T">T</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-t_002d_002druc">t&ndash;ruc</a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-T_002d_002druc">T&ndash;ruc</a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+</table>
+<table><tr><th valign="top">Aller &agrave;: &nbsp; </th><td><a class="summary-letter" href="#t_h_cp_symbol-1"><b>.</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#t_h_cp_symbol-2"><b>?</b></a>
+ &nbsp; 
+<br>
+<a class="summary-letter" href="#t_h_cp_letter-A"><b>A</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#t_h_cp_letter-T"><b>T</b></a>
+ &nbsp; 
+</td></tr></table>
+
+<p>fn
+</p><table><tr><th valign="top">Aller &agrave;: &nbsp; </th><td><a class="summary-letter" href="#t_h_fn_symbol-1"><b>.</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#t_h_fn_symbol-2"><b>?</b></a>
+ &nbsp; 
+<br>
+<a class="summary-letter" href="#t_h_fn_letter-A"><b>A</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#t_h_fn_letter-T"><b>T</b></a>
+ &nbsp; 
+</td></tr></table>
+<table class="index-fn" border="0">
+<tr><td></td><th align="left">Entr&eacute;e d&rsquo;index</th><td>&nbsp;</td><th align="left"> Section</th></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="t_h_fn_symbol-1">.</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-_002e-1"><code>.</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="t_h_fn_symbol-2">?</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-_003f-1"><code>?</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="t_h_fn_letter-A">A</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-a-1"><code>a</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="t_h_fn_letter-T">T</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-t_002d_002druc-1"><code>t--ruc</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-T_002d_002druc-1"><code>T--ruc</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+</table>
+<table><tr><th valign="top">Aller &agrave;: &nbsp; </th><td><a class="summary-letter" href="#t_h_fn_symbol-1"><b>.</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#t_h_fn_symbol-2"><b>?</b></a>
+ &nbsp; 
+<br>
+<a class="summary-letter" href="#t_h_fn_letter-A"><b>A</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#t_h_fn_letter-T"><b>T</b></a>
+ &nbsp; 
+</td></tr></table>
+
+<p>vr
+</p>
+<p>ky
+</p>
+<p>pg
+</p>
+<p>tp
+</p>
+
+
+<hr style="height: 6px;">
+<div class="chapter" id="chapter">
+<table class="header" cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[ &lt;&lt; ]</td>
+<td valign="middle" align="left">[ &lt; ]</td>
+<td valign="middle" align="left">[Plus haut]</td>
+<td valign="middle" align="left">[ &gt; ]</td>
+<td valign="middle" align="left">[ &gt;&gt; ]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#Top" title="Couverture (top) du document">Racine</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table des mati&egrave;res">Table des mati&egrave;res</a>]</td>
+<td valign="middle" align="left">[<a href="#Top" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="A propos (page d&rsquo;aide)"> ? </a>]</td>
+</tr></table>
+<h1 class="chapter" id="chapter-1">1 chapter</h1>
+
+<p><a id="DOCF1" href="#FOOT1"><sup>1</sup></a>
+</p>
+<div class="format">
+<table class="menu" border="0" cellspacing="0"><tr><td>
+<pre class="menu-preformatted">&bull; <a href="#s_002d_002dect_002cion">s--ect,ion</a>:: s&ndash;ect,ion
+</pre><pre class="menu-comment">
+
+Menu comment
+&ldquo;simple-double&ndash;three&mdash;four&mdash;-&rdquo;
+
+
+</pre></td></tr></table>
+</div>
+
+<hr>
+<div class="section" id="s_002d_002dect_002cion">
+<table class="header" cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[ &lt;&lt; ]</td>
+<td valign="middle" align="left">[ &lt; ]</td>
+<td valign="middle" align="left">[Plus haut]</td>
+<td valign="middle" align="left">[ &gt; ]</td>
+<td valign="middle" align="left">[ &gt;&gt; ]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#Top" title="Couverture (top) du document">Racine</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table des mati&egrave;res">Table des mati&egrave;res</a>]</td>
+<td valign="middle" align="left">[<a href="#Top" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="A propos (page d&rsquo;aide)"> ? </a>]</td>
+</tr></table>
+<h2 class="section" id="A-section">1.1 A section</h2>
+
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top"><a href="#subsection">1.1.1 subsection</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+</pre></th></tr><tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">In detailmenu
+
+</pre></th></tr><tr><td align="left" valign="top"><a href="#subsubsection-_0060_0060simple_002ddouble_002d_002d">1.1.1.1 subsubsection &ldquo;simple-double&ndash;</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#subsubsection-three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027">1.1.1.2 three&mdash;four&mdash;-&rdquo;</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
+<hr>
+<div class="subsection" id="subsection">
+<table class="header" cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[ &lt;&lt; ]</td>
+<td valign="middle" align="left">[ &lt; ]</td>
+<td valign="middle" align="left">[Plus haut]</td>
+<td valign="middle" align="left">[ &gt; ]</td>
+<td valign="middle" align="left">[ &gt;&gt; ]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#Top" title="Couverture (top) du document">Racine</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table des mati&egrave;res">Table des mati&egrave;res</a>]</td>
+<td valign="middle" align="left">[<a href="#Top" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="A propos (page d&rsquo;aide)"> ? </a>]</td>
+</tr></table>
+<h3 class="subsection" id="subsection-1">1.1.1 subsection</h3>
+
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top"><a href="#subsubsection-_0060_0060simple_002ddouble_002d_002d">1.1.1.1 subsubsection &ldquo;simple-double&ndash;</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#subsubsection-three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027">1.1.1.2 three&mdash;four&mdash;-&rdquo;</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
+<a class="anchor" id="anchor"></a>
+<hr>
+<div class="subsubsection" id="subsubsection-_0060_0060simple_002ddouble_002d_002d">
+<table class="header" cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[ &lt;&lt; ]</td>
+<td valign="middle" align="left">[ &lt; ]</td>
+<td valign="middle" align="left">[Plus haut]</td>
+<td valign="middle" align="left">[ &gt; ]</td>
+<td valign="middle" align="left">[ &gt;&gt; ]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#Top" title="Couverture (top) du document">Racine</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table des mati&egrave;res">Table des mati&egrave;res</a>]</td>
+<td valign="middle" align="left">[<a href="#Top" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="A propos (page d&rsquo;aide)"> ? </a>]</td>
+</tr></table>
+<h4 class="subsubsection" id="subsubsection-_0060_0060simple_002ddouble_002d_002d-1">1.1.1.1 subsubsection &ldquo;simple-double&ndash;</h4>
+
+<hr>
+</div>
+<div class="subsubsection" id="subsubsection-three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027">
+<table class="header" cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[ &lt;&lt; ]</td>
+<td valign="middle" align="left">[ &lt; ]</td>
+<td valign="middle" align="left">[Plus haut]</td>
+<td valign="middle" align="left">[ &gt; ]</td>
+<td valign="middle" align="left">[ &gt;&gt; ]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#Top" title="Couverture (top) du document">Racine</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table des mati&egrave;res">Table des mati&egrave;res</a>]</td>
+<td valign="middle" align="left">[<a href="#Top" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="A propos (page d&rsquo;aide)"> ? </a>]</td>
+</tr></table>
+<h4 class="subsubsection" id="three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027">1.1.1.2 three&mdash;four&mdash;-&rdquo;</h4>
+
+<hr>
+</div>
+</div>
+</div>
+</div>
+<div class="centerchap" id="chapter2">
+<table class="header" cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[ &lt;&lt; ]</td>
+<td valign="middle" align="left">[ &lt; ]</td>
+<td valign="middle" align="left">[Plus haut]</td>
+<td valign="middle" align="left">[ &gt; ]</td>
+<td valign="middle" align="left">[ &gt;&gt; ]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#Top" title="Couverture (top) du document">Racine</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table des mati&egrave;res">Table des mati&egrave;res</a>]</td>
+<td valign="middle" align="left">[<a href="#Top" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="A propos (page d&rsquo;aide)"> ? </a>]</td>
+</tr></table>
+<h1 class="centerchap center-align" id="chapter-2">chapter 2</h1>
+
+<table><tr><th valign="top">Aller &agrave;: &nbsp; </th><td><a class="summary-letter" href="#t_h_cp_symbol-1"><b>.</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#t_h_cp_symbol-2"><b>?</b></a>
+ &nbsp; 
+<br>
+<a class="summary-letter" href="#t_h_cp_letter-A"><b>A</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#t_h_cp_letter-T"><b>T</b></a>
+ &nbsp; 
+</td></tr></table>
+<table class="index-cp" border="0">
+<tr><td></td><th align="left">Entr&eacute;e d&rsquo;index</th><td>&nbsp;</td><th align="left"> Section</th></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="t_h_cp_symbol-1">.</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-_002e">.</a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="t_h_cp_symbol-2">?</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-_003f">?</a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="t_h_cp_letter-A">A</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-a">a</a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="t_h_cp_letter-T">T</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-t_002d_002druc">t&ndash;ruc</a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-T_002d_002druc">T&ndash;ruc</a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+</table>
+<table><tr><th valign="top">Aller &agrave;: &nbsp; </th><td><a class="summary-letter" href="#t_h_cp_symbol-1"><b>.</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#t_h_cp_symbol-2"><b>?</b></a>
+ &nbsp; 
+<br>
+<a class="summary-letter" href="#t_h_cp_letter-A"><b>A</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#t_h_cp_letter-T"><b>T</b></a>
+ &nbsp; 
+</td></tr></table>
+<table><tr><th valign="top">Aller &agrave;: &nbsp; </th><td><a class="summary-letter" href="#t_h_fn_symbol-1"><b>.</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#t_h_fn_symbol-2"><b>?</b></a>
+ &nbsp; 
+<br>
+<a class="summary-letter" href="#t_h_fn_letter-A"><b>A</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#t_h_fn_letter-T"><b>T</b></a>
+ &nbsp; 
+</td></tr></table>
+<table class="index-fn" border="0">
+<tr><td></td><th align="left">Entr&eacute;e d&rsquo;index</th><td>&nbsp;</td><th align="left"> Section</th></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="t_h_fn_symbol-1">.</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-_002e-1"><code>.</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="t_h_fn_symbol-2">?</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-_003f-1"><code>?</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="t_h_fn_letter-A">A</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-a-1"><code>a</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th id="t_h_fn_letter-T">T</th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-t_002d_002druc-1"><code>t--ruc</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-T_002d_002druc-1"><code>T--ruc</code></a></td><td>&nbsp;</td><td valign="top"><a href="#Top">Top section</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+</table>
+<table><tr><th valign="top">Aller &agrave;: &nbsp; </th><td><a class="summary-letter" href="#t_h_fn_symbol-1"><b>.</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#t_h_fn_symbol-2"><b>?</b></a>
+ &nbsp; 
+<br>
+<a class="summary-letter" href="#t_h_fn_letter-A"><b>A</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#t_h_fn_letter-T"><b>T</b></a>
+ &nbsp; 
+</td></tr></table>
+
+</div>
+</div>
+<hr>
+';
+
 1;

@@ -13,6 +13,10 @@ xmllint --nonet --noout --valid commands.xml
 Before next release
 ===================
 
+Special elements are ignored in different contexts, see IGNORED SPE.
+in HTML.pm. There are tests already showing that.
+
+
 Bugs
 ====
 
@@ -66,9 +70,8 @@ my $collator = Unicode::Collate::Locale->new('locale' => $locale_name, 'normaliz
 @sorted = $collator->sort(@not_sorted);
 
 
-Some dubious nesting could be warned against.  In the Perl Parser
-there is a 'context_command_stack' that could be used for that.  Wait
-for this stack to be in the XS Parser before doing it.
+Some dubious nesting could be warned against.  The parsers context
+command stacks could be used for that.
 
 Some erroneous constructs not already warned against:
 
@@ -94,7 +97,7 @@ could be done the same way.
 
 There is no warning with a block command between @def* and @def*x,
 only for paragraph.  Not sure that this can be detected with
-'context_command_stack'.
+the context command stack.
 
  @defun a b c d e f
 
@@ -145,11 +148,6 @@ however, as http://savannah.gnu.org/bugs/?38380 shows.  This may be linked
 to a possible test of CASE_INSENSITIVE_FILENAMES.
 
 Unit test of end_line_count for Texinfo/Convert/Paragraph.pm .... containers.
-
-In html test empty @top for title, with different cases for anchors.
-
-in html test footnotestyle separate.  There are such tests in tp/tests,
-maybe they are sufficient, but they are only done for long checks.
 
 anchor in flushright, on an empty line, with a current byte offset.
 

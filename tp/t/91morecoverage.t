@@ -23,7 +23,7 @@ my @test_cases = (
 );
 
 foreach my $test (@test_cases) {
-  push @{$test->[2]->{'test_formats'}}, 'info', 'html';
+  push @{$test->[2]->{'test_formats'}}, ('info', 'html', 'html_text');
 }
 
 our ($arg_test_case, $arg_generate, $arg_debug);

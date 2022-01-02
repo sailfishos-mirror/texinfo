@@ -2501,6 +2501,10 @@ sub debug_print_element_short($)
   my $parent_string = '';
   my $text = '';
   $type = "($current->{'type'})" if (defined($current->{'type'}));
+  # specific of HTML
+  $type .= '{'.$current->{'extra'}->{'special_element_type'}.'}'
+    if (defined($current->{'extra'})
+      and defined($current->{'extra'}->{'special_element_type'}));
   $cmd = "\@$current->{'cmdname'}" if (defined($current->{'cmdname'}));
   $text = "[T]" if (defined($current->{'text'}));
   my $args = '';
@@ -2523,6 +2527,10 @@ sub debug_print_element($)
   my $parent_string = '';
   my $text = '';
   $type = "($current->{'type'})" if (defined($current->{'type'}));
+  # specific of HTML
+  $type .= '{'.$current->{'extra'}->{'special_element_type'}.'}'
+    if (defined($current->{'extra'})
+      and defined($current->{'extra'}->{'special_element_type'}));
   $cmd = "\@$current->{'cmdname'}" if (defined($current->{'cmdname'}));
   $cmd .= "($current->{'structure'}->{'level'})"
         if (defined($current->{'structure'}->{'level'}));

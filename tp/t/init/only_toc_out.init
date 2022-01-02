@@ -12,7 +12,7 @@ sub toc_out_element_file_name($$$$$)
     my $filename = shift;
 
     my $prefix = $converter->{'document_name'};
-    my $type = $element->{'extra'}->{'name'};
+    my $type = $element->{'extra'}->{'special_element_type'};
     if ($type and $type ne 'Contents')
     {
         $filename = "$prefix.".$converter->get_conf('EXTENSION');
