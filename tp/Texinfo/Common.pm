@@ -1117,7 +1117,7 @@ foreach my $command (
   $all_commands{$command} = 1;
 }
 
-my %preamble_commands;
+our %preamble_commands;
 foreach my $preamble_command ('direnty', 'hyphenation', 'errormsg',
        'inlineraw', '*', keys(%document_settable_at_commands),
        keys(%format_raw_commands), keys(%inline_commands),
@@ -1280,6 +1280,14 @@ sub rearrange_tree_beginning($$)
       if (@{$before_setfilename->{'contents'}});
   }
   
+  add_preamble_before_beginning($before_node_section);
+}
+
+# TODO document
+sub add_preamble_before_beginning($)
+{
+  my $before_node_section = shift;
+  
   # add a preamble for informational commands
   my $informational_preamble = {'type' => 'preamble_before_content',
                                 'parent' => $before_node_section,
@@ -1301,9 +1309,7 @@ sub rearrange_tree_beginning($$)
       push @{$informational_preamble->{'contents'}}, $content;
     }
   }
-  if (scalar(@{$informational_preamble->{'contents'}}) > 0) {
-    push @first_types, $informational_preamble;
-  }
+  push @first_types, $informational_preamble;
   unshift (@{$before_node_section->{'contents'}}, @first_types);
 }
 

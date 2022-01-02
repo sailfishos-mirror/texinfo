@@ -20,6 +20,11 @@ $result_trees{'double_index_entry'} = {
           ],
           'parent' => {},
           'type' => 'preamble_before_beginning'
+        },
+        {
+          'contents' => [],
+          'parent' => {},
+          'type' => 'preamble_before_content'
         }
       ],
       'parent' => {},
@@ -466,6 +471,7 @@ $result_trees{'double_index_entry'} = {
 };
 $result_trees{'double_index_entry'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'double_index_entry'}{'contents'}[0]{'contents'}[0];
 $result_trees{'double_index_entry'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'double_index_entry'}{'contents'}[0];
+$result_trees{'double_index_entry'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'double_index_entry'}{'contents'}[0];
 $result_trees{'double_index_entry'}{'contents'}[0]{'parent'} = $result_trees{'double_index_entry'};
 $result_trees{'double_index_entry'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'double_index_entry'}{'contents'}[1]{'args'}[0];
 $result_trees{'double_index_entry'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'double_index_entry'}{'contents'}[1];

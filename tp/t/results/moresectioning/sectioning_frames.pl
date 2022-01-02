@@ -26,6 +26,11 @@ $result_trees{'sectioning_frames'} = {
           ],
           'parent' => {},
           'type' => 'preamble_before_beginning'
+        },
+        {
+          'contents' => [],
+          'parent' => {},
+          'type' => 'preamble_before_content'
         }
       ],
       'parent' => {},
@@ -2551,6 +2556,7 @@ $result_trees{'sectioning_frames'} = {
 $result_trees{'sectioning_frames'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'sectioning_frames'}{'contents'}[0]{'contents'}[0];
 $result_trees{'sectioning_frames'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'sectioning_frames'}{'contents'}[0]{'contents'}[0];
 $result_trees{'sectioning_frames'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'sectioning_frames'}{'contents'}[0];
+$result_trees{'sectioning_frames'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'sectioning_frames'}{'contents'}[0];
 $result_trees{'sectioning_frames'}{'contents'}[0]{'parent'} = $result_trees{'sectioning_frames'};
 $result_trees{'sectioning_frames'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'sectioning_frames'}{'contents'}[1]{'args'}[0];
 $result_trees{'sectioning_frames'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'sectioning_frames'}{'contents'}[1];

@@ -1,5 +1,12 @@
 2022-01-02  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (add_preamble_before_content): put code that
+	setup the preamble before content in a function
+	add_preamble_before_content().
+	Add the preamble even if empty.
+
+2022-01-02  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (%preamble_commands, rearrange_tree_beginning):
 	add a preamble_before_content type before the first content, which
 	corresponds to non informative commands content.  Use %preamble_commands

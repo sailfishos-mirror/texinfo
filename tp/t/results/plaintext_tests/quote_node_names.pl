@@ -8,7 +8,13 @@ use utf8;
 $result_trees{'quote_node_names'} = {
   'contents' => [
     {
-      'contents' => [],
+      'contents' => [
+        {
+          'contents' => [],
+          'parent' => {},
+          'type' => 'preamble_before_content'
+        }
+      ],
       'parent' => {},
       'type' => 'before_node_section'
     },
@@ -1438,6 +1444,7 @@ $result_trees{'quote_node_names'} = {
   ],
   'type' => 'document_root'
 };
+$result_trees{'quote_node_names'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[0];
 $result_trees{'quote_node_names'}{'contents'}[0]{'parent'} = $result_trees{'quote_node_names'};
 $result_trees{'quote_node_names'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[1]{'args'}[0];
 $result_trees{'quote_node_names'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'quote_node_names'}{'contents'}[1];

@@ -8,13 +8,20 @@ use utf8;
 $result_trees{'empty'} = {
   'contents' => [
     {
-      'contents' => [],
+      'contents' => [
+        {
+          'contents' => [],
+          'parent' => {},
+          'type' => 'preamble_before_content'
+        }
+      ],
       'parent' => {},
       'type' => 'before_node_section'
     }
   ],
   'type' => 'document_root'
 };
+$result_trees{'empty'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty'}{'contents'}[0];
 $result_trees{'empty'}{'contents'}[0]{'parent'} = $result_trees{'empty'};
 
 $result_texis{'empty'} = '';
