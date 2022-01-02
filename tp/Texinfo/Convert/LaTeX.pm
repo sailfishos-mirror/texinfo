@@ -17,9 +17,6 @@
 #
 # TODO
 #
-# find a way to process informative commands in ignored Top node
-# as TeX does
-#
 # Use texinfo.cnf?  Here?  in texi2any.pl?
 #
 # @multitable not implemented
@@ -922,29 +919,6 @@ sub output($$)
     }
   }
 
-  # Ignore everything between Top node and the next node.
-  # TODO find a way to process informative commands as TeX does
-  my $modified_root = {'contents' => [], 'type' => $root->{'type'}};
-
-  my $in_top_node = 0;
-  foreach my $element_content (@{$root->{'contents'}}) {
-    if ($element_content->{'cmdname'}
-        and $element_content->{'cmdname'} eq 'node') {
-      if ($element_content->{'extra'}->{'normalized'} eq 'Top') {
-        $in_top_node = 1;
-      } else {
-        if ($in_top_node) {
-          $in_top_node = 0;
-        }
-        push @{$modified_root->{'contents'}},
-          $element_content;
-      }
-    } elsif (not $in_top_node) {
-      push @{$modified_root->{'contents'}},
-        $element_content;
-    }
-  }
-
   # FIXME is it a good thing to redo what could have been done after the
   # parsing?  Should the preamble be setup after parse_texi_text() too?
   #
@@ -955,7 +929,7 @@ sub output($$)
   # not seet a container for the preamble but simply add a marker, with less
   # changes to the tree.
   my $inserted_preamble_idx = -1;
-  foreach my $content (@{$modified_root->{'contents'}->[0]->{'contents'}}) {
+  foreach my $content (@{$root->{'contents'}->[0]->{'contents'}}) {
     $inserted_preamble_idx++;
     if ($content->{'type'}) {
       if ($content->{'type'} eq $latex_document_type) {
@@ -971,7 +945,11 @@ sub output($$)
       last;
     }
   }
+
+  my $modified_root;
+
   if (defined($inserted_preamble_idx)) {
+    $modified_root = {'contents' => [ @{$root->{'contents'}} ], 'type' => $root->{'type'}};
     my $new_before_node_section = {'type' => $modified_root->{'contents'}->[0]->{'type'},
                                    'parent' => $modified_root,
             'contents' => [ @{$modified_root->{'contents'}->[0]->{'contents'}} ]};
@@ -980,11 +958,35 @@ sub output($$)
     $modified_root->{'contents'}->[0] = $new_before_node_section;
   }
 
-  # nothing after Top node the end, mark that Top node is ignored.
+  # determine if there is a Top node at the end of the document
+  my $in_top_node = undef;
+  foreach my $element_content (@{$root->{'contents'}}) {
+    if ($element_content->{'cmdname'}
+        and $element_content->{'cmdname'} eq 'node') {
+      if ($element_content->{'extra'}->{'normalized'} eq 'Top') {
+        $in_top_node = 1;
+      } else {
+        if ($in_top_node) {
+          $in_top_node = 0;
+          last;
+        }
+      }
+    }
+  }
+  # nothing after Top node the end, mark that Top node is ignored
+  # in a container that can be used to mark that content should not
+  # be ignored anymore.
   if ($in_top_node) {
+    $modified_root = {'contents' => [ @{$root->{'contents'}} ], 'type' => $root->{'type'}}
+      if (not defined($modified_root));
     push @{$modified_root->{'contents'}},
-        {'type' => 'paragraph', 'contents' => [
-        {'text' => "\n(`Top' node ignored)\n", 'type' => 'ignored_top_node'}]};
+        {'type' => 'ignored_top_node_paragraph', 'contents' => [
+         {'type' => 'paragraph', 'contents' => [
+          {'text' => "\n(`Top' node ignored)\n", 'type' => 'ignored_top_node'}]}]};
+  }
+
+  if (not defined($modified_root)) {
+    $modified_root = $root;
   }
 
   my $result = '';
@@ -1364,6 +1366,31 @@ sub _push_new_context($$)
        'nr_table_items_context' => [],
        'table_command_format' => [],
      };
+}
+
+# for debug
+sub _show_top_context_stack($)
+{
+  my $self = shift;
+
+  my $top_context = $self->{'formatting_context'}->[-1];
+  my @all_keys;
+  foreach my $key (sort (keys (%$top_context))) {
+    my $key_str = $key;
+    # keep only the first letters to have something not too long
+    $key_str =~ s/(.{4}).*/$1/s;
+    my $context_item = $top_context->{$key};
+    my $context_item_value;
+    if (not defined($context_item)) {
+      $context_item_value = 'UNDEF';
+    } elsif (ref ($context_item) eq 'ARRAY') {
+      $context_item_value = join('|', @$context_item);
+    } else {
+      $context_item_value = $context_item;
+    }
+    push @all_keys, "$key_str:$context_item_value";
+  }
+  return scalar(@{$self->{'formatting_context'}})." ".join('; ', @all_keys);
 }
 
 sub _pop_context($)
@@ -1891,6 +1918,9 @@ sub _convert($$)
 
   if ($self->{'debug'}) {
     print STDERR "CONVLTX ".Texinfo::Common::debug_print_element_short($element)."\n";
+    if ($self->{'debug'} > 4) {
+      print STDERR "    CTX "._show_top_context_stack($self)."\n";
+    }
   }
 
   my $type = $element->{'type'};
@@ -1910,6 +1940,16 @@ sub _convert($$)
   }
   my $result = '';
 
+  if ($self->{'formatting_context'}->[-1]->{'in_skipped_node_top'}) {
+    if ((defined($cmdname) and $cmdname eq 'node')
+         or (defined($type) and $type eq 'ignored_top_node_paragraph')) {
+      delete $self->{'formatting_context'}->[-1]->{'in_skipped_node_top'};
+    }
+    elsif (! defined($cmdname) or (not ($informative_commands{$cmdname}
+                                        or $sectioning_commands{$cmdname}))) {
+      return '';
+    }
+  }
 
   # in ignorable spaces, keep only form feeds.
   if ($type and $self->{'ignorable_space_types'}->{$type}
@@ -2697,56 +2737,43 @@ sub _convert($$)
         $result .= "\\begin{$latex_float_name}\n";
       }
     } elsif ($cmdname eq 'node') {
-      # add the label only if not associated with a section
-      if (not $element->{'extra'}->{'associated_section'}) {
-        my $node_label
-          = _tree_anchor_label($element->{'extra'}->{'node_content'});
-        $result .= "\\label{$node_label}%\n";
-      }
-      # ignore Top node like Texinfo TeX.  When called through
-      # output(), the tree elements are already removed
       if ($element->{'extra'}->{'normalized'} eq 'Top') {
-        return $result;
-      }
-    } elsif ($sectioning_commands{$cmdname}) {
-      my $heading = '';
-      if ($element->{'args'}->[0]->{'contents'}) {
-        $heading = $self->_convert({'contents' => $element->{'args'}->[0]->{'contents'}});
-      }
-
-      my $section_cmd = $section_map{$cmdname};
-      if (not defined($section_map{$cmdname})) {
-        die "BUG: no section_map for $cmdname";
-      }
-      
-      my $associated_node;
-      if ($element->{'extra'}->{'associated_node'}) {
-        $associated_node = $element->{'extra'}->{'associated_node'};
-        # ignore Top node like Texinfo TeX.  When called through
-        # output(), the tree elements are already removed.
-        # If the sections are not already removed and are removed here,
-        # and in contrast with Texinfo TeX and sections removed in
-        # output(), the sections not associated with
-        # any node and after Top node and the following node are not
-        # removed.
-        if ($associated_node->{'extra'}->{'normalized'} eq 'Top') {
-          return $result;
+        $self->{'formatting_context'}->[-1]->{'in_skipped_node_top'} = 1;
+      } else {
+        # add the label only if not associated with a section
+        if (not $element->{'extra'}->{'associated_section'}) {
+          my $node_label
+            = _tree_anchor_label($element->{'extra'}->{'node_content'});
+          $result .= "\\label{$node_label}%\n";
         }
       }
-
+    } elsif ($sectioning_commands{$cmdname}) {
       if ($cmdname eq 'appendix' and not $self->{'appendix_done'}) {
         $result .= "\\appendix\n";
         $self->{'appendix_done'} = 1;
       }
-      if ($cmdname ne 'centerchap') {
-        $result .= "\\".$section_cmd."{$heading}\n";
-      } else {
-        $result .= "\\".$section_cmd."{\\centering $heading}\n";
-      }
-      if ($associated_node) {
-        my $node_label
-          = _tree_anchor_label($associated_node->{'extra'}->{'node_content'});
-        $result .= "\\label{$node_label}%\n";
+      if (not $self->{'formatting_context'}->[-1]->{'in_skipped_node_top'}) {
+        my $heading = '';
+        if ($element->{'args'}->[0]->{'contents'}) {
+          $heading = $self->_convert({'contents' => $element->{'args'}->[0]->{'contents'}});
+        }
+
+        my $section_cmd = $section_map{$cmdname};
+        if (not defined($section_map{$cmdname})) {
+          die "BUG: no section_map for $cmdname";
+        }
+      
+        if ($cmdname ne 'centerchap') {
+          $result .= "\\".$section_cmd."{$heading}\n";
+        } else {
+          $result .= "\\".$section_cmd."{\\centering $heading}\n";
+        }
+        if ($element->{'extra'}->{'associated_node'}) {
+          my $associated_node = $element->{'extra'}->{'associated_node'};
+          my $node_label
+            = _tree_anchor_label($associated_node->{'extra'}->{'node_content'});
+          $result .= "\\label{$node_label}%\n";
+        }
       }
     } elsif (($cmdname eq 'item' or $cmdname eq 'itemx')
             and $element->{'args'} and $element->{'args'}->[0]
@@ -2940,7 +2967,8 @@ sub _convert($$)
       if (defined($self->get_conf('CONTENTS_OUTPUT_LOCATION'))
           and $self->get_conf('CONTENTS_OUTPUT_LOCATION') eq 'inline'
           and $self->{'structuring'}
-          and $self->{'structuring'}->{'sectioning_root'}) {
+          and $self->{'structuring'}->{'sectioning_root'}
+          and not $self->{'formatting_context'}->[-1]->{'in_skipped_node_top'}) {
         $result .= "\\tableofcontents\\newpage\n";
       }
       return $result;
@@ -3244,11 +3272,13 @@ sub _convert($$)
       my $content = shift @contents;
       my $text = _convert($self, $content);
       $result .= $text;
-      #my @str_contents = ();
-      #foreach my $item_content (@contents) {
-      #  push @str_contents, Texinfo::Common::debug_print_element_short($item_content);
-      #}
-      #print STDERR "contents ".Texinfo::Common::debug_print_element_short($element).": ".join("|", @str_contents)."\n";
+      if ($self->{'debug'} and $self->{'debug'} > 2) {
+        my @str_contents = ();
+        foreach my $item_content (@contents) {
+          push @str_contents, Texinfo::Common::debug_print_element_short($item_content);
+        }
+        print STDERR "C ".Texinfo::Common::debug_print_element_short($element).": ".join("|", @str_contents)."\n";
+      }
     }
     pop @{$self->{'current_contents'}};
   }

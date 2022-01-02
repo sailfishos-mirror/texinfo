@@ -1,5 +1,14 @@
 2022-01-02  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/LaTeX.pm (output, _convert): do not remove the
+	Top node from the tree.  Instead, put 'in_skipped_node_top' in context
+	if in Top node and ignore everything except informative commands and
+	top level sectioning commands.  Arguments of informative commands
+	should all be formatted out of the main conversion or in a new context
+	stack.
+
+2022-01-02  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/LaTeX.pm (_begin_document, _convert): output
 	contents after the beginning of document unless if CONTENTS_OUTPUT_LOCATION
 	is set to inline in which case it is output where contents is (could

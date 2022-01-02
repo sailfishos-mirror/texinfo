@@ -184,6 +184,22 @@ In top
 
 in chap
 '],
+['informative_commands_in_top_node',
+'@setfilename informative_commands_in_top_node.info
+
+@node Top
+@top top sectionning
+
+@paragraphindent 5
+
+@evenfooting @thischapter @thistitle @| @thisfile @| @code{@thischaptername}
+@paragraphindent 2
+
+@node next node
+@chapter chap
+
+In chapter
+'],
 ['shorttitlepage',
 '@setfilename shorttitlepage.info
 

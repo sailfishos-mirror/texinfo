@@ -586,7 +586,6 @@ $result_converted{'latex'}->{'node_sectop_before_lone_node_Top'} = '
 
 in node before
 
-\\label{anchor:Top}%
 \\chapter{chap}
 \\label{anchor:chap}%
 

@@ -455,9 +455,6 @@ ul.no-bullet {list-style: none}
 $result_converted{'latex'}->{'section_before_after_top_node'} = '
 \\chapter*{before}
 
-\\chapter{Chapter}
-
-in chapter
 ';
 
 1;

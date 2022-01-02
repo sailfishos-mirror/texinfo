@@ -857,10 +857,6 @@ $result_converted{'xml'}->{'chapter_between_nodes'} = '<setfilename file="chapte
 
 
 $result_converted{'latex'}->{'chapter_between_nodes'} = '
-\\chapter{Chapter}
-
-In chapter
-
 \\section{section}
 \\label{anchor:section-node}%
 

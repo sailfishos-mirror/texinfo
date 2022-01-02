@@ -541,10 +541,6 @@ Previous: <a href="#Top" accesskey="p" rel="prev">top section</a> &nbsp; </p>
 $result_converted{'latex'}->{'section_before_after_top_node_last_node'} = '
 \\chapter*{before}
 
-\\chapter{Chapter}
-
-in chapter
-
 \\label{anchor:node-after}%
 ';
 

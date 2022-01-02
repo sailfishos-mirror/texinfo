@@ -337,7 +337,6 @@ ul.no-bullet {list-style: none}
 
 
 $result_converted{'latex'}->{'node_sectop_before_chapter_no_node'} = '
-\\chapter{chap}
 ';
 
 1;
