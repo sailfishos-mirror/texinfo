@@ -1634,6 +1634,7 @@ foreach my $misc_command (keys(%misc_commands)) {
 # HTML in the default case.
 $default_commands_conversion{'page'} = undef;
 $default_commands_conversion{'need'} = undef;
+$default_commands_conversion{'vskip'} = undef;
 
 foreach my $ignored_brace_commands ('caption', 'shortcaption', 
   'hyphenation', 'sortas') {

@@ -1093,7 +1093,8 @@ foreach my $formatted_misc_command ('center', 'page',
 # default formattable_misc_commands.
 our %formattable_misc_commands;
 foreach my $formattable_misc_command ('insertcopying',
-  'printindex', 'listoffloats', 'need', 'sp', 'verbatiminclude') {
+  'printindex', 'listoffloats', 'need', 'sp', 'verbatiminclude',
+  'vskip') {
   $formattable_misc_commands{$formattable_misc_command} = 1;
 }
 
@@ -1114,6 +1115,22 @@ foreach my $command (
   qw(value),
  ) {
   $all_commands{$command} = 1;
+}
+
+my %preamble_commands;
+foreach my $preamble_command ('direnty', 'hyphenation', 'errormsg',
+       'inlineraw', '*', keys(%document_settable_at_commands),
+       keys(%format_raw_commands), keys(%inline_commands),
+       keys(%unformatted_block_commands), keys(%misc_commands),
+       keys(%region_commands)) {
+  $preamble_commands{$preamble_command} = 1;
+}
+
+foreach my $formattable_or_formatted_misc_command (
+   keys(%formattable_misc_commands), keys(%formatted_misc_commands),
+        keys(%default_index_commands), keys(%in_heading_commands),
+        keys(%def_commands)) {
+  delete $preamble_commands{$formattable_or_formatted_misc_command};
 }
 
 
@@ -1262,8 +1279,32 @@ sub rearrange_tree_beginning($$)
     unshift (@{$before_node_section->{'contents'}}, $before_setfilename)
       if (@{$before_setfilename->{'contents'}});
   }
-  # document_settable_at_commands
-  # 'paragraph', 'preformatted'
+  
+  # add a preamble for informational commands
+  my $informational_preamble = {'type' => 'preamble_before_content',
+                                'parent' => $before_node_section,
+                                'contents' => []};
+  my @first_types;
+  while (@{$before_node_section->{'contents'}}) {
+    my $next_content = $before_node_section->{'contents'}->[0];
+    if ($next_content->{'type'}
+        and ($next_content->{'type'} eq 'preamble_before_beginning'
+             or $next_content->{'type'} eq 'preamble_before_setfilename')) {
+      push @first_types, shift @{$before_node_section->{'contents'}};
+    } elsif (($next_content->{'type'} and $next_content->{'type'} eq 'paragraph')
+             or ($next_content->{'cmdname'} and
+                 not $preamble_commands{$next_content->{'cmdname'}})) {
+      last;
+    } else {
+      my $content = shift @{$before_node_section->{'contents'}};
+      $content->{'parent'} = $informational_preamble;
+      push @{$informational_preamble->{'contents'}}, $content;
+    }
+  }
+  if (scalar(@{$informational_preamble->{'contents'}}) > 0) {
+    push @first_types, $informational_preamble;
+  }
+  unshift (@{$before_node_section->{'contents'}}, @first_types);
 }
 
 sub warn_unknown_language($) {

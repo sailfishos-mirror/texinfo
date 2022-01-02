@@ -10,41 +10,47 @@ $result_trees{'east_asian_in_w'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'contents' => [
             {
-              'contents' => [
+              'args' => [
                 {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'utf-8'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'parent' => {},
-                  'text' => 'utf-8'
+                  'type' => 'line_arg'
                 }
               ],
+              'cmdname' => 'documentencoding',
               'extra' => {
-                'spaces_after_argument' => '
-'
+                'input_encoding_name' => 'utf-8',
+                'input_perl_encoding' => 'utf-8-strict',
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'utf-8'
               },
+              'line_nr' => {
+                'file_name' => 'east_asian_in_w.texi',
+                'line_nr' => 1,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
               'parent' => {},
-              'type' => 'line_arg'
+              'text' => '
+',
+              'type' => 'empty_line'
             }
           ],
-          'cmdname' => 'documentencoding',
-          'extra' => {
-            'input_encoding_name' => 'utf-8',
-            'input_perl_encoding' => 'utf-8-strict',
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'utf-8'
-          },
-          'line_nr' => {
-            'file_name' => 'east_asian_in_w.texi',
-            'line_nr' => 1,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
           'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
+          'type' => 'preamble_before_content'
         },
         {
           'contents' => [
@@ -144,25 +150,26 @@ $result_trees{'east_asian_in_w'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[0];
+$result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[0];
+$result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[0];
 $result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'east_asian_in_w'}{'contents'}[0];
+$result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[1];
+$result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[1];
+$result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'args'}[0];
+$result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[1]{'contents'}[2];
+$result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[1];
+$result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[1];
 $result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'east_asian_in_w'}{'contents'}[0];
-$result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[2];
-$result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[2];
-$result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'args'}[0];
-$result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[2]{'contents'}[2];
-$result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[2];
-$result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'parent'} = $result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[2];
 $result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'east_asian_in_w'}{'contents'}[0];
 $result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'east_asian_in_w'}{'contents'}[0];
+$result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[4]{'extra'}{'command'} = $result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[3];
 $result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'east_asian_in_w'}{'contents'}[0];
-$result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[5]{'extra'}{'command'} = $result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[4];
+$result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[5]{'contents'}[0]{'parent'} = $result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[5];
+$result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'parent'} = $result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[5];
 $result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'east_asian_in_w'}{'contents'}[0];
-$result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'parent'} = $result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[6];
-$result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'parent'} = $result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[6];
 $result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[6]{'parent'} = $result_trees{'east_asian_in_w'}{'contents'}[0];
-$result_trees{'east_asian_in_w'}{'contents'}[0]{'contents'}[7]{'parent'} = $result_trees{'east_asian_in_w'}{'contents'}[0];
 $result_trees{'east_asian_in_w'}{'contents'}[0]{'parent'} = $result_trees{'east_asian_in_w'};
 
 $result_texis{'east_asian_in_w'} = '@documentencoding utf-8

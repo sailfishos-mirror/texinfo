@@ -346,3399 +346,3405 @@ $result_trees{'texi_bib_example'} = {
           'type' => 'preamble_before_setfilename'
         },
         {
-          'args' => [
+          'contents' => [
             {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'my-file-with-bib.info'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
+                  'parent' => {},
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'setfilename',
+              'extra' => {
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'my-file-with-bib.info'
+              },
+              'line_nr' => {
+                'file_name' => 'bib-example.texi',
+                'line_nr' => 23,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'Texinfo with a Bibliography and References'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
+                  'parent' => {},
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'settitle',
+              'extra' => {
+                'spaces_before_argument' => ' '
+              },
+              'line_nr' => {
+                'file_name' => 'bib-example.texi',
+                'line_nr' => 24,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line'
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' \\input texinfo   @c -*-texinfo-*-
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' \\input texinfo   @c -*-texinfo-*-
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %% my-bib-macros.texi --- Texinfo macros providing a crude
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %% my-bib-macros.texi --- Texinfo macros providing a crude
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %% bibliography and citation capability.
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %% bibliography and citation capability.
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line'
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' % Copyright (C) 2004  Aaron S. Hawley
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' % Copyright (C) 2004  Aaron S. Hawley
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line'
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' % Author: Aaron S. Hawley <ashawley@gnu.uvm.edu>
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' % Author: Aaron S. Hawley <ashawley@gnu.uvm.edu>
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' % Keywords: docs, texinfo, extensions, bib
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' % Keywords: docs, texinfo, extensions, bib
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line'
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' % This file is free software; you can redistribute it and/or modify
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' % This file is free software; you can redistribute it and/or modify
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' % it under the terms of the GNU General Public License as published by
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' % it under the terms of the GNU General Public License as published by
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' % the Free Software Foundation; either version 2, or (at your option)
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' % the Free Software Foundation; either version 2, or (at your option)
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' % any later version.
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' % any later version.
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line'
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' % This file is distributed in the hope that it will be useful,
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' % This file is distributed in the hope that it will be useful,
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' % but WITHOUT ANY WARRANTY; without even the implied warranty of
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' % but WITHOUT ANY WARRANTY; without even the implied warranty of
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' % MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' % MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' % GNU General Public License for more details.
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' % GNU General Public License for more details.
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line'
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' % You should have received a copy of the GNU General Public License
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' % You should have received a copy of the GNU General Public License
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' % along with texi2html; see the file COPYING.  If not, write to
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' % along with texi2html; see the file COPYING.  If not, write to
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' % the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' % the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' % Boston, MA 02111-1307, USA.
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' % Boston, MA 02111-1307, USA.
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line'
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %% Commentary:
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %% Commentary:
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line'
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %%% Introduction
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %%% Introduction
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line'
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %% Creates references to a ``Bibliography\'\' or ``References\'\'
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %% Creates references to a ``Bibliography\'\' or ``References\'\'
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %% section of a Texinfo document, using Texinfo\'s
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %% section of a Texinfo document, using Texinfo\'s
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %% macro system.  Although not as terse a way to cite systems as is
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %% macro system.  Although not as terse a way to cite systems as is
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %% found in document systems like TeX, the format is simpler and
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %% found in document systems like TeX, the format is simpler and
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %% the rendering  is easier for non-academic readers.
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %% the rendering  is easier for non-academic readers.
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line'
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line'
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %%% Usage
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %%% Usage
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line'
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %% References to cited works can be put in any section of a document.
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %% References to cited works can be put in any section of a document.
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %% The cited works must be put in either a Texinfo table (for
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %% The cited works must be put in either a Texinfo table (for
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %% instance with ``@table @asis ... @end table\'\') or within a
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %% instance with ``@table @asis ... @end table\'\') or within a
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %% Texinfo list (something like ``@enumerate ... @end enumerate\'\'
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %% Texinfo list (something like ``@enumerate ... @end enumerate\'\'
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %% or ``@itemize @bullet ... @end itemize\'\').  They are created
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %% or ``@itemize @bullet ... @end itemize\'\').  They are created
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %% with the command ``@mybibitem{REF-NAME}\'\'.  To cite a reference
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %% with the command ``@mybibitem{REF-NAME}\'\'.  To cite a reference
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %% with a @mybibitem use ``@mybibcite{REF-NAME}\'\'.
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %% with a @mybibitem use ``@mybibcite{REF-NAME}\'\'.
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line'
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %% The beginning of a document must include (using the @include
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %% The beginning of a document must include (using the @include
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %% command) the file my-bib-macros.texi, which should be made
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %% command) the file my-bib-macros.texi, which should be made
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %% available in the current directory of the parent file.  A single
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %% available in the current directory of the parent file.  A single
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %% call should be made to choose to use a list or a table.  The
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %% call should be made to choose to use a list or a table.  The
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %% command to chose is called @mybibuselist{NODE}, where NODE is
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %% command to chose is called @mybibuselist{NODE}, where NODE is
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %% the node containing the location where the references are listed.
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %% the node containing the location where the references are listed.
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line'
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line'
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %%% Example
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %%% Example
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line'
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %% \\input texinfo   @c -*-texinfo-*-
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %% \\input texinfo   @c -*-texinfo-*-
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %% @comment %**start of header
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %% @comment %**start of header
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %% @setfilename my-file-with-bib.info
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %% @setfilename my-file-with-bib.info
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %% @settitle Texinfo with a Bibliography and References
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %% @settitle Texinfo with a Bibliography and References
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %%
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %%
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %% @include my-bib-macros.texi
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %% @include my-bib-macros.texi
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %% @mybibuselist{References}
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %% @mybibuselist{References}
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %%
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %%
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %% @comment %**end of header
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %% @comment %**end of header
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %%
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %%
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %% @node Top
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %% @node Top
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %% @top Top
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %% @top Top
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %%
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %%
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %% @menu
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %% @menu
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %% * Introduction::
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %% * Introduction::
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %% * @mybibnode{}::
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %% * @mybibnode{}::
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %%
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %%
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %% @end menu
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %% @end menu
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %%
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %%
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %% @node Introduction
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %% @node Introduction
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %% @chapter Introduction
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %% @chapter Introduction
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %%
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %%
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %% The ability of a documentation format to make cross references to a
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %% The ability of a documentation format to make cross references to a
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %% bibliography, a feature of LaTeX @mybibcite{LaTeX2e}, isn\'t
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %% bibliography, a feature of LaTeX @mybibcite{LaTeX2e}, isn\'t
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %% currently supported in Texinfo.
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %% currently supported in Texinfo.
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %%
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %%
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %% @node @mybibnode{}
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %% @node @mybibnode{}
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %% @chapter References
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %% @chapter References
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %%
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %%
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %% @itemize @asis
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %% @itemize @asis
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %%
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %%
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %% @mybibitem{LaTeX2e} Leslie Lamport, LaTeX User\'s Guide and
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %% @mybibitem{LaTeX2e} Leslie Lamport, LaTeX User\'s Guide and
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %% Reference Manual, 2nd edition, Addison-Wesley, Reading,
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %% Reference Manual, 2nd edition, Addison-Wesley, Reading,
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %% Massachusetts, 1994.
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %% Massachusetts, 1994.
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %%
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %%
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %% @end itemize
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %% @end itemize
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %%
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %%
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %% @bye
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %% @bye
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line'
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %%
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %%
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line'
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %% This example produces (in Info):
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %% This example produces (in Info):
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line'
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %%       1 Introduction
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %%       1 Introduction
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %%       **************
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %%       **************
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %%
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %%
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %%       The ability of a documentation format to make cross
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %%       The ability of a documentation format to make cross
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %%       references to a bibliography, a feature of LaTeX (See item
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %%       references to a bibliography, a feature of LaTeX (See item
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %%       [LaTeX2e] in *Note LaTeX2e: References.), is not currently
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %%       [LaTeX2e] in *Note LaTeX2e: References.), is not currently
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %%       supported in Texinfo.
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %%       supported in Texinfo.
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %%
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %%
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %%
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %%
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %%       2 References
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %%       2 References
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %%       ************
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %%       ************
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %%
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %%
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %%       [LaTeX2e] Leslie Lamport, LaTeX User\'s Guide and Reference
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %%       [LaTeX2e] Leslie Lamport, LaTeX User\'s Guide and Reference
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %%       Manual, 2nd edition, Addison-Wesley, Reading,
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %%       Manual, 2nd edition, Addison-Wesley, Reading,
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %%       Massachusetts, 1994.
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %%       Massachusetts, 1994.
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line'
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %% and (in printed output):
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %% and (in printed output):
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line'
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %%       1 Introduction
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %%       1 Introduction
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %%       **************
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %%       **************
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %%
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %%
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %%       The ability of a documentation format to make cross
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %%       The ability of a documentation format to make cross
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %%       references to a bibliography, a feature of LaTeX (See item
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %%       references to a bibliography, a feature of LaTeX (See item
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %%       [LaTeX2e] in Chapter 2 [References], page 3.), is not
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %%       [LaTeX2e] in Chapter 2 [References], page 3.), is not
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %%       currently supported in Texinfo.
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %%       currently supported in Texinfo.
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %%
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %%
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %%
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %%
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %%       2 References
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %%       2 References
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %%       ************
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %%       ************
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %%
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %%
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %%       [LaTeX2e] Leslie Lamport, LaTeX User\'s Guide and Reference
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %%       [LaTeX2e] Leslie Lamport, LaTeX User\'s Guide and Reference
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %%       Manual, 2nd edition, Addison-Wesley, Reading,
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %%       Manual, 2nd edition, Addison-Wesley, Reading,
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %%       Massachusetts, 1994.
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %%       Massachusetts, 1994.
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line'
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line'
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %%% Notes
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %%% Notes
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line'
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %% The pointers to references will be functional in hypertext
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %% The pointers to references will be functional in hypertext
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %% documentation (info, HTML, XML and others) and properly rendered
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %% documentation (info, HTML, XML and others) and properly rendered
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %% in print documents, because they are implemented with Texinfo\'s
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %% in print documents, because they are implemented with Texinfo\'s
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %% cross referencing capabilities (using @anchor and @ref).  Failures
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %% cross referencing capabilities (using @anchor and @ref).  Failures
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %% by an author to make proper references with ``my-bib-macros\'\' in
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %% by an author to make proper references with ``my-bib-macros\'\' in
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %% their document will give cross referencing errors by Texinfo
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %% their document will give cross referencing errors by Texinfo
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %% conversion tools.
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %% conversion tools.
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line'
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %% Only one ``Reference\'\' section is allowed per document.
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %% Only one ``Reference\'\' section is allowed per document.
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line'
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %% An improvement of this system would create cross references
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %% An improvement of this system would create cross references
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %% (with @xref) at each cited work to all the originating cross
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %% (with @xref) at each cited work to all the originating cross
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %% refererences.
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %% refererences.
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line'
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line'
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %% Code:
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %% Code:
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line'
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' % Configuration Options
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' % Configuration Options
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line'
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %% @mybibsetrefnode : Defines the name of the node to contain
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %% @mybibsetrefnode : Defines the name of the node to contain
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %% references.
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %% references.
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line'
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => 'mybibsetrefnode',
+                  'type' => 'macro_name'
+                },
+                {
+                  'parent' => {},
+                  'text' => 'node',
+                  'type' => 'macro_arg'
+                }
+              ],
+              'cmdname' => 'macro',
               'contents' => [
                 {
                   'parent' => {},
-                  'text' => 'my-file-with-bib.info'
+                  'text' => '@set mybibrefnode \\node\\',
+                  'type' => 'raw'
+                },
+                {
+                  'parent' => {},
+                  'text' => '
+',
+                  'type' => 'last_raw_newline'
                 }
               ],
               'extra' => {
-                'spaces_after_argument' => '
+                'arg_line' => ' mybibsetrefnode{node}
 '
               },
-              'parent' => {},
-              'type' => 'line_arg'
-            }
-          ],
-          'cmdname' => 'setfilename',
-          'extra' => {
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'my-file-with-bib.info'
-          },
-          'line_nr' => {
-            'file_name' => 'bib-example.texi',
-            'line_nr' => 23,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
+              'line_nr' => {
+                'file_name' => 'my-bib-macros.texi',
+                'line_nr' => 162,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
             {
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line_after_command'
+            },
+            {
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line'
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %% @mybibnode{} : Macro to be placed at node containing references
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %% @mybibnode{} : Macro to be placed at node containing references
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %% and calls to @mybibcite{}
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %% and calls to @mybibcite{}
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line'
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => 'mybibnode',
+                  'type' => 'macro_name'
+                }
+              ],
+              'cmdname' => 'macro',
               'contents' => [
                 {
                   'parent' => {},
-                  'text' => 'Texinfo with a Bibliography and References'
+                  'text' => '@value{mybibrefnode}',
+                  'type' => 'raw'
+                },
+                {
+                  'parent' => {},
+                  'text' => '
+',
+                  'type' => 'last_raw_newline'
                 }
               ],
               'extra' => {
-                'spaces_after_argument' => '
+                'arg_line' => ' mybibnode{}
 '
               },
-              'parent' => {},
-              'type' => 'line_arg'
-            }
-          ],
-          'cmdname' => 'settitle',
-          'extra' => {
-            'spaces_before_argument' => ' '
-          },
-          'line_nr' => {
-            'file_name' => 'bib-example.texi',
-            'line_nr' => 24,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' \\input texinfo   @c -*-texinfo-*-
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' \\input texinfo   @c -*-texinfo-*-
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %% my-bib-macros.texi --- Texinfo macros providing a crude
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %% my-bib-macros.texi --- Texinfo macros providing a crude
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %% bibliography and citation capability.
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %% bibliography and citation capability.
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' % Copyright (C) 2004  Aaron S. Hawley
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' % Copyright (C) 2004  Aaron S. Hawley
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' % Author: Aaron S. Hawley <ashawley@gnu.uvm.edu>
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' % Author: Aaron S. Hawley <ashawley@gnu.uvm.edu>
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' % Keywords: docs, texinfo, extensions, bib
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' % Keywords: docs, texinfo, extensions, bib
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' % This file is free software; you can redistribute it and/or modify
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' % This file is free software; you can redistribute it and/or modify
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' % it under the terms of the GNU General Public License as published by
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' % it under the terms of the GNU General Public License as published by
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' % the Free Software Foundation; either version 2, or (at your option)
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' % the Free Software Foundation; either version 2, or (at your option)
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' % any later version.
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' % any later version.
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' % This file is distributed in the hope that it will be useful,
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' % This file is distributed in the hope that it will be useful,
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' % but WITHOUT ANY WARRANTY; without even the implied warranty of
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' % but WITHOUT ANY WARRANTY; without even the implied warranty of
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' % MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' % MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' % GNU General Public License for more details.
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' % GNU General Public License for more details.
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' % You should have received a copy of the GNU General Public License
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' % You should have received a copy of the GNU General Public License
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' % along with texi2html; see the file COPYING.  If not, write to
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' % along with texi2html; see the file COPYING.  If not, write to
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' % the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' % the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' % Boston, MA 02111-1307, USA.
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' % Boston, MA 02111-1307, USA.
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %% Commentary:
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %% Commentary:
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %%% Introduction
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %%% Introduction
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %% Creates references to a ``Bibliography\'\' or ``References\'\'
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %% Creates references to a ``Bibliography\'\' or ``References\'\'
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %% section of a Texinfo document, using Texinfo\'s
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %% section of a Texinfo document, using Texinfo\'s
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %% macro system.  Although not as terse a way to cite systems as is
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %% macro system.  Although not as terse a way to cite systems as is
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %% found in document systems like TeX, the format is simpler and
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %% found in document systems like TeX, the format is simpler and
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %% the rendering  is easier for non-academic readers.
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %% the rendering  is easier for non-academic readers.
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %%% Usage
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %%% Usage
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %% References to cited works can be put in any section of a document.
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %% References to cited works can be put in any section of a document.
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %% The cited works must be put in either a Texinfo table (for
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %% The cited works must be put in either a Texinfo table (for
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %% instance with ``@table @asis ... @end table\'\') or within a
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %% instance with ``@table @asis ... @end table\'\') or within a
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %% Texinfo list (something like ``@enumerate ... @end enumerate\'\'
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %% Texinfo list (something like ``@enumerate ... @end enumerate\'\'
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %% or ``@itemize @bullet ... @end itemize\'\').  They are created
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %% or ``@itemize @bullet ... @end itemize\'\').  They are created
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %% with the command ``@mybibitem{REF-NAME}\'\'.  To cite a reference
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %% with the command ``@mybibitem{REF-NAME}\'\'.  To cite a reference
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %% with a @mybibitem use ``@mybibcite{REF-NAME}\'\'.
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %% with a @mybibitem use ``@mybibcite{REF-NAME}\'\'.
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %% The beginning of a document must include (using the @include
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %% The beginning of a document must include (using the @include
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %% command) the file my-bib-macros.texi, which should be made
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %% command) the file my-bib-macros.texi, which should be made
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %% available in the current directory of the parent file.  A single
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %% available in the current directory of the parent file.  A single
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %% call should be made to choose to use a list or a table.  The
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %% call should be made to choose to use a list or a table.  The
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %% command to chose is called @mybibuselist{NODE}, where NODE is
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %% command to chose is called @mybibuselist{NODE}, where NODE is
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %% the node containing the location where the references are listed.
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %% the node containing the location where the references are listed.
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %%% Example
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %%% Example
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %% \\input texinfo   @c -*-texinfo-*-
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %% \\input texinfo   @c -*-texinfo-*-
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %% @comment %**start of header
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %% @comment %**start of header
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %% @setfilename my-file-with-bib.info
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %% @setfilename my-file-with-bib.info
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %% @settitle Texinfo with a Bibliography and References
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %% @settitle Texinfo with a Bibliography and References
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %%
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %%
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %% @include my-bib-macros.texi
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %% @include my-bib-macros.texi
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %% @mybibuselist{References}
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %% @mybibuselist{References}
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %%
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %%
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %% @comment %**end of header
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %% @comment %**end of header
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %%
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %%
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %% @node Top
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %% @node Top
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %% @top Top
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %% @top Top
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %%
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %%
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %% @menu
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %% @menu
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %% * Introduction::
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %% * Introduction::
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %% * @mybibnode{}::
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %% * @mybibnode{}::
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %%
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %%
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %% @end menu
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %% @end menu
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %%
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %%
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %% @node Introduction
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %% @node Introduction
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %% @chapter Introduction
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %% @chapter Introduction
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %%
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %%
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %% The ability of a documentation format to make cross references to a
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %% The ability of a documentation format to make cross references to a
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %% bibliography, a feature of LaTeX @mybibcite{LaTeX2e}, isn\'t
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %% bibliography, a feature of LaTeX @mybibcite{LaTeX2e}, isn\'t
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %% currently supported in Texinfo.
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %% currently supported in Texinfo.
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %%
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %%
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %% @node @mybibnode{}
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %% @node @mybibnode{}
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %% @chapter References
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %% @chapter References
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %%
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %%
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %% @itemize @asis
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %% @itemize @asis
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %%
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %%
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %% @mybibitem{LaTeX2e} Leslie Lamport, LaTeX User\'s Guide and
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %% @mybibitem{LaTeX2e} Leslie Lamport, LaTeX User\'s Guide and
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %% Reference Manual, 2nd edition, Addison-Wesley, Reading,
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %% Reference Manual, 2nd edition, Addison-Wesley, Reading,
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %% Massachusetts, 1994.
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %% Massachusetts, 1994.
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %%
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %%
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %% @end itemize
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %% @end itemize
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %%
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %%
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %% @bye
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %% @bye
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %%
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %%
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %% This example produces (in Info):
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %% This example produces (in Info):
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %%       1 Introduction
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %%       1 Introduction
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %%       **************
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %%       **************
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %%
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %%
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %%       The ability of a documentation format to make cross
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %%       The ability of a documentation format to make cross
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %%       references to a bibliography, a feature of LaTeX (See item
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %%       references to a bibliography, a feature of LaTeX (See item
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %%       [LaTeX2e] in *Note LaTeX2e: References.), is not currently
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %%       [LaTeX2e] in *Note LaTeX2e: References.), is not currently
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %%       supported in Texinfo.
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %%       supported in Texinfo.
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %%
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %%
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %%
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %%
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %%       2 References
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %%       2 References
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %%       ************
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %%       ************
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %%
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %%
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %%       [LaTeX2e] Leslie Lamport, LaTeX User\'s Guide and Reference
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %%       [LaTeX2e] Leslie Lamport, LaTeX User\'s Guide and Reference
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %%       Manual, 2nd edition, Addison-Wesley, Reading,
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %%       Manual, 2nd edition, Addison-Wesley, Reading,
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %%       Massachusetts, 1994.
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %%       Massachusetts, 1994.
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %% and (in printed output):
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %% and (in printed output):
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %%       1 Introduction
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %%       1 Introduction
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %%       **************
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %%       **************
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %%
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %%
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %%       The ability of a documentation format to make cross
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %%       The ability of a documentation format to make cross
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %%       references to a bibliography, a feature of LaTeX (See item
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %%       references to a bibliography, a feature of LaTeX (See item
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %%       [LaTeX2e] in Chapter 2 [References], page 3.), is not
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %%       [LaTeX2e] in Chapter 2 [References], page 3.), is not
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %%       currently supported in Texinfo.
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %%       currently supported in Texinfo.
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %%
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %%
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %%
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %%
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %%       2 References
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %%       2 References
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %%       ************
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %%       ************
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %%
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %%
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %%       [LaTeX2e] Leslie Lamport, LaTeX User\'s Guide and Reference
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %%       [LaTeX2e] Leslie Lamport, LaTeX User\'s Guide and Reference
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %%       Manual, 2nd edition, Addison-Wesley, Reading,
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %%       Manual, 2nd edition, Addison-Wesley, Reading,
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %%       Massachusetts, 1994.
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %%       Massachusetts, 1994.
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %%% Notes
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %%% Notes
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %% The pointers to references will be functional in hypertext
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %% The pointers to references will be functional in hypertext
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %% documentation (info, HTML, XML and others) and properly rendered
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %% documentation (info, HTML, XML and others) and properly rendered
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %% in print documents, because they are implemented with Texinfo\'s
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %% in print documents, because they are implemented with Texinfo\'s
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %% cross referencing capabilities (using @anchor and @ref).  Failures
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %% cross referencing capabilities (using @anchor and @ref).  Failures
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %% by an author to make proper references with ``my-bib-macros\'\' in
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %% by an author to make proper references with ``my-bib-macros\'\' in
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %% their document will give cross referencing errors by Texinfo
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %% their document will give cross referencing errors by Texinfo
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %% conversion tools.
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %% conversion tools.
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %% Only one ``Reference\'\' section is allowed per document.
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %% Only one ``Reference\'\' section is allowed per document.
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %% An improvement of this system would create cross references
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %% An improvement of this system would create cross references
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %% (with @xref) at each cited work to all the originating cross
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %% (with @xref) at each cited work to all the originating cross
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %% refererences.
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %% refererences.
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %% Code:
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %% Code:
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' % Configuration Options
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' % Configuration Options
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %% @mybibsetrefnode : Defines the name of the node to contain
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %% @mybibsetrefnode : Defines the name of the node to contain
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %% references.
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %% references.
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => 'mybibsetrefnode',
-              'type' => 'macro_name'
-            },
-            {
-              'parent' => {},
-              'text' => 'node',
-              'type' => 'macro_arg'
-            }
-          ],
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'parent' => {},
-              'text' => '@set mybibrefnode \\node\\',
-              'type' => 'raw'
+              'line_nr' => {
+                'file_name' => 'my-bib-macros.texi',
+                'line_nr' => 169,
+                'macro' => ''
+              },
+              'parent' => {}
             },
             {
               'parent' => {},
               'text' => '
 ',
-              'type' => 'last_raw_newline'
-            }
-          ],
-          'extra' => {
-            'arg_line' => ' mybibsetrefnode{node}
-'
-          },
-          'line_nr' => {
-            'file_name' => 'my-bib-macros.texi',
-            'line_nr' => 162,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line_after_command'
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %% @mybibnode{} : Macro to be placed at node containing references
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %% @mybibnode{} : Macro to be placed at node containing references
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %% and calls to @mybibcite{}
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %% and calls to @mybibcite{}
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => 'mybibnode',
-              'type' => 'macro_name'
-            }
-          ],
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'parent' => {},
-              'text' => '@value{mybibrefnode}',
-              'type' => 'raw'
+              'type' => 'empty_line_after_command'
             },
             {
               'parent' => {},
               'text' => '
 ',
-              'type' => 'last_raw_newline'
-            }
-          ],
-          'extra' => {
-            'arg_line' => ' mybibnode{}
+              'type' => 'empty_line'
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %% @mybibusetable : Whether each @mybibitem will be put in a
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %% @mybibusetable : Whether each @mybibitem will be put in a
 '
-          },
-          'line_nr' => {
-            'file_name' => 'my-bib-macros.texi',
-            'line_nr' => 169,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line_after_command'
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'args' => [
+                ]
+              },
+              'parent' => {}
+            },
             {
-              'parent' => {},
-              'text' => ' %% @mybibusetable : Whether each @mybibitem will be put in a
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %% table.
 ',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %% @mybibusetable : Whether each @mybibitem will be put in a
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %% table.
 '
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %% table.
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %% table.
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => 'mybibusetable',
-              'type' => 'macro_name'
-            },
-            {
-              'parent' => {},
-              'text' => 'node',
-              'type' => 'macro_arg'
-            }
-          ],
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'parent' => {},
-              'text' => '@set mybibtable true
-',
-              'type' => 'raw'
-            },
-            {
-              'parent' => {},
-              'text' => '@ifset mybiblist
-',
-              'type' => 'raw'
-            },
-            {
-              'parent' => {},
-              'text' => '@clear mybiblist
-',
-              'type' => 'raw'
-            },
-            {
-              'parent' => {},
-              'text' => '@end ifset
-',
-              'type' => 'raw'
-            },
-            {
-              'parent' => {},
-              'text' => '@mybibsetrefnode{\\node\\}',
-              'type' => 'raw'
+                ]
+              },
+              'parent' => {}
             },
             {
               'parent' => {},
               'text' => '
 ',
-              'type' => 'last_raw_newline'
-            }
-          ],
-          'extra' => {
-            'arg_line' => ' mybibusetable{node}
+              'type' => 'empty_line'
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => 'mybibusetable',
+                  'type' => 'macro_name'
+                },
+                {
+                  'parent' => {},
+                  'text' => 'node',
+                  'type' => 'macro_arg'
+                }
+              ],
+              'cmdname' => 'macro',
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => '@set mybibtable true
+',
+                  'type' => 'raw'
+                },
+                {
+                  'parent' => {},
+                  'text' => '@ifset mybiblist
+',
+                  'type' => 'raw'
+                },
+                {
+                  'parent' => {},
+                  'text' => '@clear mybiblist
+',
+                  'type' => 'raw'
+                },
+                {
+                  'parent' => {},
+                  'text' => '@end ifset
+',
+                  'type' => 'raw'
+                },
+                {
+                  'parent' => {},
+                  'text' => '@mybibsetrefnode{\\node\\}',
+                  'type' => 'raw'
+                },
+                {
+                  'parent' => {},
+                  'text' => '
+',
+                  'type' => 'last_raw_newline'
+                }
+              ],
+              'extra' => {
+                'arg_line' => ' mybibusetable{node}
 '
-          },
-          'line_nr' => {
-            'file_name' => 'my-bib-macros.texi',
-            'line_nr' => 176,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line_after_command'
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %% @mybibuselist : Whether each @mybibitem will be put in a
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %% @mybibuselist : Whether each @mybibitem will be put in a
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %% list.
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %% list.
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => 'mybibuselist',
-              'type' => 'macro_name'
-            },
-            {
-              'parent' => {},
-              'text' => 'node',
-              'type' => 'macro_arg'
-            }
-          ],
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'parent' => {},
-              'text' => '@set mybiblist true
-',
-              'type' => 'raw'
-            },
-            {
-              'parent' => {},
-              'text' => '@ifset mybibtable
-',
-              'type' => 'raw'
-            },
-            {
-              'parent' => {},
-              'text' => '@clear mybibtable
-',
-              'type' => 'raw'
-            },
-            {
-              'parent' => {},
-              'text' => '@end ifset
-',
-              'type' => 'raw'
-            },
-            {
-              'parent' => {},
-              'text' => '@mybibsetrefnode{\\node\\}',
-              'type' => 'raw'
+              },
+              'line_nr' => {
+                'file_name' => 'my-bib-macros.texi',
+                'line_nr' => 176,
+                'macro' => ''
+              },
+              'parent' => {}
             },
             {
               'parent' => {},
               'text' => '
 ',
-              'type' => 'last_raw_newline'
-            }
-          ],
-          'extra' => {
-            'arg_line' => ' mybibuselist{node}
-'
-          },
-          'line_nr' => {
-            'file_name' => 'my-bib-macros.texi',
-            'line_nr' => 187,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line_after_command'
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %% @mybibcite{REF} : Cites the cross reference REF.
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %% @mybibcite{REF} : Cites the cross reference REF.
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => 'mybibcite',
-              'type' => 'macro_name'
-            },
-            {
-              'parent' => {},
-              'text' => 'ref',
-              'type' => 'macro_arg'
-            }
-          ],
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'parent' => {},
-              'text' => '@ifclear mybibrefnode
-',
-              'type' => 'raw'
-            },
-            {
-              'parent' => {},
-              'text' => '@mybibmakeref{mybibsetrefnode was not used, \\ref\\}
-',
-              'type' => 'raw'
-            },
-            {
-              'parent' => {},
-              'text' => '@end ifclear
-',
-              'type' => 'raw'
-            },
-            {
-              'parent' => {},
-              'text' => '@c %**else if
-',
-              'type' => 'raw'
-            },
-            {
-              'parent' => {},
-              'text' => '@ifset mybibrefnode
-',
-              'type' => 'raw'
-            },
-            {
-              'parent' => {},
-              'text' => '@mybibmakeref{@mybibnode{}, \\ref\\}
-',
-              'type' => 'raw'
-            },
-            {
-              'parent' => {},
-              'text' => '@end ifset
-',
-              'type' => 'raw'
-            },
-            {
-              'parent' => {},
-              'text' => '',
-              'type' => 'raw'
+              'type' => 'empty_line_after_command'
             },
             {
               'parent' => {},
               'text' => '
 ',
-              'type' => 'last_raw_newline'
-            }
-          ],
-          'extra' => {
-            'arg_line' => ' mybibcite{ref}
+              'type' => 'empty_line'
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %% @mybibuselist : Whether each @mybibitem will be put in a
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %% @mybibuselist : Whether each @mybibitem will be put in a
 '
-          },
-          'line_nr' => {
-            'file_name' => 'my-bib-macros.texi',
-            'line_nr' => 198,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line_after_command'
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => 'mybibmakeref',
-              'type' => 'macro_name'
+                ]
+              },
+              'parent' => {}
             },
             {
-              'parent' => {},
-              'text' => 'node',
-              'type' => 'macro_arg'
-            },
-            {
-              'parent' => {},
-              'text' => 'ref',
-              'type' => 'macro_arg'
-            }
-          ],
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'parent' => {},
-              'text' => '(See item [\\ref\\] in @ref{\\node\\, \\ref\\}.)',
-              'type' => 'raw'
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %% list.
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %% list.
+'
+                ]
+              },
+              'parent' => {}
             },
             {
               'parent' => {},
               'text' => '
 ',
-              'type' => 'last_raw_newline'
-            }
-          ],
-          'extra' => {
-            'arg_line' => ' mybibmakeref{node, ref}
+              'type' => 'empty_line'
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => 'mybibuselist',
+                  'type' => 'macro_name'
+                },
+                {
+                  'parent' => {},
+                  'text' => 'node',
+                  'type' => 'macro_arg'
+                }
+              ],
+              'cmdname' => 'macro',
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => '@set mybiblist true
+',
+                  'type' => 'raw'
+                },
+                {
+                  'parent' => {},
+                  'text' => '@ifset mybibtable
+',
+                  'type' => 'raw'
+                },
+                {
+                  'parent' => {},
+                  'text' => '@clear mybibtable
+',
+                  'type' => 'raw'
+                },
+                {
+                  'parent' => {},
+                  'text' => '@end ifset
+',
+                  'type' => 'raw'
+                },
+                {
+                  'parent' => {},
+                  'text' => '@mybibsetrefnode{\\node\\}',
+                  'type' => 'raw'
+                },
+                {
+                  'parent' => {},
+                  'text' => '
+',
+                  'type' => 'last_raw_newline'
+                }
+              ],
+              'extra' => {
+                'arg_line' => ' mybibuselist{node}
 '
-          },
-          'line_nr' => {
-            'file_name' => 'my-bib-macros.texi',
-            'line_nr' => 209,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line_after_command'
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %% @mybibcite{REF} : Creates a cross referenced citation REF.
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %% @mybibcite{REF} : Creates a cross referenced citation REF.
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => 'mybibitem',
-              'type' => 'macro_name'
-            },
-            {
-              'parent' => {},
-              'text' => 'ref',
-              'type' => 'macro_arg'
-            }
-          ],
-          'cmdname' => 'macro',
-          'contents' => [
-            {
-              'parent' => {},
-              'text' => '@ifclear mybiblist
-',
-              'type' => 'raw'
-            },
-            {
-              'parent' => {},
-              'text' => '@ifclear mybibtable
-',
-              'type' => 'raw'
-            },
-            {
-              'parent' => {},
-              'text' => '@set mybiblist true
-',
-              'type' => 'raw'
-            },
-            {
-              'parent' => {},
-              'text' => '@end ifclear
-',
-              'type' => 'raw'
-            },
-            {
-              'parent' => {},
-              'text' => '@end ifclear
-',
-              'type' => 'raw'
-            },
-            {
-              'parent' => {},
-              'text' => '@ifset mybiblist
-',
-              'type' => 'raw'
-            },
-            {
-              'parent' => {},
-              'text' => '@item
-',
-              'type' => 'raw'
-            },
-            {
-              'parent' => {},
-              'text' => '@anchor{\\ref\\}[\\ref\\]
-',
-              'type' => 'raw'
-            },
-            {
-              'parent' => {},
-              'text' => '@end ifset
-',
-              'type' => 'raw'
-            },
-            {
-              'parent' => {},
-              'text' => '@c %**else if
-',
-              'type' => 'raw'
-            },
-            {
-              'parent' => {},
-              'text' => '@ifset mybibtable
-',
-              'type' => 'raw'
-            },
-            {
-              'parent' => {},
-              'text' => '@item @anchor{\\ref\\}[\\ref\\]
-',
-              'type' => 'raw'
-            },
-            {
-              'parent' => {},
-              'text' => '@end ifset
-',
-              'type' => 'raw'
-            },
-            {
-              'parent' => {},
-              'text' => '',
-              'type' => 'raw'
+              },
+              'line_nr' => {
+                'file_name' => 'my-bib-macros.texi',
+                'line_nr' => 187,
+                'macro' => ''
+              },
+              'parent' => {}
             },
             {
               'parent' => {},
               'text' => '
 ',
-              'type' => 'last_raw_newline'
-            }
-          ],
-          'extra' => {
-            'arg_line' => ' mybibitem{ref}
-'
-          },
-          'line_nr' => {
-            'file_name' => 'my-bib-macros.texi',
-            'line_nr' => 215,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line_after_command'
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %% my-bib-macros.texi ends here
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %% my-bib-macros.texi ends here
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => 'mybiblist',
-              'type' => 'misc_arg'
+              'type' => 'empty_line_after_command'
             },
             {
               'parent' => {},
-              'text' => 'true',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'set',
-          'extra' => {
-            'arg_line' => ' mybiblist true
+              'text' => '
 ',
-            'misc_args' => [
-              'mybiblist',
-              'true'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => 'mybibrefnode',
-              'type' => 'misc_arg'
+              'type' => 'empty_line'
             },
             {
               'parent' => {},
-              'text' => 'References',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'set',
-          'extra' => {
-            'arg_line' => ' mybibrefnode References
+              'text' => '
 ',
-            'misc_args' => [
-              'mybibrefnode',
-              'References'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '
+              'type' => 'empty_line'
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %% @mybibcite{REF} : Cites the cross reference REF.
 ',
-          'type' => 'empty_line'
-        },
-        {
-          'args' => [
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %% @mybibcite{REF} : Cites the cross reference REF.
+'
+                ]
+              },
+              'parent' => {}
+            },
             {
               'parent' => {},
-              'text' => ' %**end of header
+              'text' => '
 ',
-              'type' => 'misc_arg'
+              'type' => 'empty_line'
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => 'mybibcite',
+                  'type' => 'macro_name'
+                },
+                {
+                  'parent' => {},
+                  'text' => 'ref',
+                  'type' => 'macro_arg'
+                }
+              ],
+              'cmdname' => 'macro',
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => '@ifclear mybibrefnode
+',
+                  'type' => 'raw'
+                },
+                {
+                  'parent' => {},
+                  'text' => '@mybibmakeref{mybibsetrefnode was not used, \\ref\\}
+',
+                  'type' => 'raw'
+                },
+                {
+                  'parent' => {},
+                  'text' => '@end ifclear
+',
+                  'type' => 'raw'
+                },
+                {
+                  'parent' => {},
+                  'text' => '@c %**else if
+',
+                  'type' => 'raw'
+                },
+                {
+                  'parent' => {},
+                  'text' => '@ifset mybibrefnode
+',
+                  'type' => 'raw'
+                },
+                {
+                  'parent' => {},
+                  'text' => '@mybibmakeref{@mybibnode{}, \\ref\\}
+',
+                  'type' => 'raw'
+                },
+                {
+                  'parent' => {},
+                  'text' => '@end ifset
+',
+                  'type' => 'raw'
+                },
+                {
+                  'parent' => {},
+                  'text' => '',
+                  'type' => 'raw'
+                },
+                {
+                  'parent' => {},
+                  'text' => '
+',
+                  'type' => 'last_raw_newline'
+                }
+              ],
+              'extra' => {
+                'arg_line' => ' mybibcite{ref}
+'
+              },
+              'line_nr' => {
+                'file_name' => 'my-bib-macros.texi',
+                'line_nr' => 198,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line_after_command'
+            },
+            {
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line'
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => 'mybibmakeref',
+                  'type' => 'macro_name'
+                },
+                {
+                  'parent' => {},
+                  'text' => 'node',
+                  'type' => 'macro_arg'
+                },
+                {
+                  'parent' => {},
+                  'text' => 'ref',
+                  'type' => 'macro_arg'
+                }
+              ],
+              'cmdname' => 'macro',
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => '(See item [\\ref\\] in @ref{\\node\\, \\ref\\}.)',
+                  'type' => 'raw'
+                },
+                {
+                  'parent' => {},
+                  'text' => '
+',
+                  'type' => 'last_raw_newline'
+                }
+              ],
+              'extra' => {
+                'arg_line' => ' mybibmakeref{node, ref}
+'
+              },
+              'line_nr' => {
+                'file_name' => 'my-bib-macros.texi',
+                'line_nr' => 209,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line_after_command'
+            },
+            {
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line'
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %% @mybibcite{REF} : Creates a cross referenced citation REF.
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %% @mybibcite{REF} : Creates a cross referenced citation REF.
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line'
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => 'mybibitem',
+                  'type' => 'macro_name'
+                },
+                {
+                  'parent' => {},
+                  'text' => 'ref',
+                  'type' => 'macro_arg'
+                }
+              ],
+              'cmdname' => 'macro',
+              'contents' => [
+                {
+                  'parent' => {},
+                  'text' => '@ifclear mybiblist
+',
+                  'type' => 'raw'
+                },
+                {
+                  'parent' => {},
+                  'text' => '@ifclear mybibtable
+',
+                  'type' => 'raw'
+                },
+                {
+                  'parent' => {},
+                  'text' => '@set mybiblist true
+',
+                  'type' => 'raw'
+                },
+                {
+                  'parent' => {},
+                  'text' => '@end ifclear
+',
+                  'type' => 'raw'
+                },
+                {
+                  'parent' => {},
+                  'text' => '@end ifclear
+',
+                  'type' => 'raw'
+                },
+                {
+                  'parent' => {},
+                  'text' => '@ifset mybiblist
+',
+                  'type' => 'raw'
+                },
+                {
+                  'parent' => {},
+                  'text' => '@item
+',
+                  'type' => 'raw'
+                },
+                {
+                  'parent' => {},
+                  'text' => '@anchor{\\ref\\}[\\ref\\]
+',
+                  'type' => 'raw'
+                },
+                {
+                  'parent' => {},
+                  'text' => '@end ifset
+',
+                  'type' => 'raw'
+                },
+                {
+                  'parent' => {},
+                  'text' => '@c %**else if
+',
+                  'type' => 'raw'
+                },
+                {
+                  'parent' => {},
+                  'text' => '@ifset mybibtable
+',
+                  'type' => 'raw'
+                },
+                {
+                  'parent' => {},
+                  'text' => '@item @anchor{\\ref\\}[\\ref\\]
+',
+                  'type' => 'raw'
+                },
+                {
+                  'parent' => {},
+                  'text' => '@end ifset
+',
+                  'type' => 'raw'
+                },
+                {
+                  'parent' => {},
+                  'text' => '',
+                  'type' => 'raw'
+                },
+                {
+                  'parent' => {},
+                  'text' => '
+',
+                  'type' => 'last_raw_newline'
+                }
+              ],
+              'extra' => {
+                'arg_line' => ' mybibitem{ref}
+'
+              },
+              'line_nr' => {
+                'file_name' => 'my-bib-macros.texi',
+                'line_nr' => 215,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line_after_command'
+            },
+            {
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line'
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %% my-bib-macros.texi ends here
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %% my-bib-macros.texi ends here
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => 'mybiblist',
+                  'type' => 'misc_arg'
+                },
+                {
+                  'parent' => {},
+                  'text' => 'true',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'set',
+              'extra' => {
+                'arg_line' => ' mybiblist true
+',
+                'misc_args' => [
+                  'mybiblist',
+                  'true'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => 'mybibrefnode',
+                  'type' => 'misc_arg'
+                },
+                {
+                  'parent' => {},
+                  'text' => 'References',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'set',
+              'extra' => {
+                'arg_line' => ' mybibrefnode References
+',
+                'misc_args' => [
+                  'mybibrefnode',
+                  'References'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line'
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %**end of header
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'comment',
+              'extra' => {
+                'misc_args' => [
+                  ' %**end of header
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line'
             }
           ],
-          'cmdname' => 'comment',
-          'extra' => {
-            'misc_args' => [
-              ' %**end of header
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
           'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
+          'type' => 'preamble_before_content'
         }
       ],
       'parent' => {},
@@ -4511,416 +4517,417 @@ $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[0]{'contents'}[20]{
 $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[0]{'contents'}[21]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[0]{'contents'}[21];
 $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[0]{'contents'}[21]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[0];
 $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[3];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[4];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[4]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[5]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[5];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[5]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[7]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[7];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[7]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[8]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[9]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[9];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[9]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[10]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[10];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[10]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[11]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[12]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[12];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[12]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[13]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[13];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[13]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[14]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[14];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[14]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[15]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[15];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[15]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[16]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[17]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[17];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[17]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[18]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[18];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[18]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[19]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[19];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[19]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[20]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[20];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[20]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[21]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[22]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[22];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[22]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[23]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[23];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[23]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[24]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[24];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[24]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[25]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[25];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[25]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[26]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[27]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[27];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[27]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[28]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[29]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[29];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[29]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[30]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[31]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[31];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[31]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[32]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[32];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[32]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[33]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[33];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[33]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[34]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[34];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[34]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[35]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[35];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[35]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[36]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[37]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[37];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[37]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[38]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[39]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[39];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[39]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[40]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[41]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[41];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[41]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[42]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[42];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[42]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[43]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[43];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[43]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[44]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[44];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[44]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[45]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[45];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[45]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[46]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[46];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[46]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[47]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[47];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[47]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[48]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[49]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[49];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[49]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[50]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[50];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[50]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[51]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[51];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[51]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[52]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[52];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[52]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[53]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[53];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[53]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[54]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[54];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[54]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[55]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[56]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[56];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[56]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[57]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[58]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[58];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[58]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[59]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[60]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[60];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[60]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[61]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[61];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[61]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[62]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[62];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[62]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[63]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[63];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[63]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[64]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[64];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[64]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[65]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[65];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[65]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[66]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[66];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[66]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[67]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[67];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[67]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[68]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[68];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[68]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[69]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[69];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[69]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[70]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[70];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[70]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[71]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[71];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[71]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[72]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[72];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[72]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[73]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[73];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[73]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[74]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[74];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[74]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[75]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[75];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[75]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[76]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[76];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[76]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[77]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[77];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[77]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[78]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[78];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[78]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[79]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[79];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[79]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[80]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[80];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[80]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[81]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[81];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[81]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[82]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[82];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[82]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[83]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[83];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[83]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[84]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[84];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[84]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[85]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[85];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[85]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[86]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[86];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[86]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[87]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[87];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[87]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[88]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[88];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[88]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[89]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[89];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[89]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[90]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[90];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[90]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[91]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[91];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[91]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[92]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[92];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[92]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[93]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[93];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[93]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[94]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[94];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[94]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[95]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[95];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[95]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[96]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[96];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[96]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[97]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[97];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[97]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[98]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[99]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[99];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[99]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[100]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[101]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[101];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[101]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[102]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[103]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[103];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[103]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[104]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[104];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[104]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[105]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[105];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[105]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[106]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[106];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[106]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[107]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[107];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[107]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[108]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[108];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[108]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[109]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[109];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[109]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[110]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[110];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[110]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[111]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[111];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[111]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[112]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[112];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[112]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[113]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[113];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[113]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[114]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[114];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[114]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[115]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[115];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[115]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[116]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[116];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[116]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[117]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[117];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[117]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[118]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[119]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[119];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[119]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[120]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[121]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[121];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[121]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[122]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[122];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[122]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[123]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[123];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[123]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[124]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[124];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[124]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[125]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[125];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[125]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[126]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[126];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[126]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[127]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[127];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[127]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[128]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[128];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[128]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[129]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[129];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[129]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[130]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[130];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[130]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[131]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[131];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[131]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[132]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[132];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[132]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[133]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[133];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[133]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[134]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[134];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[134]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[135]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[135];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[135]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[136]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[137]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[137];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[137]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[138]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[139]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[139];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[139]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[140]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[141]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[141];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[141]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[142]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[142];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[142]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[143]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[143];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[143]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[144]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[144];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[144]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[145]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[145];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[145]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[146]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[146];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[146]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[147]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[147];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[147]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[148]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[149]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[149];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[149]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[150]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[151]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[151];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[151]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[152]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[152];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[152]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[153]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[153];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[153]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[154]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[155]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[155];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[155]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[156]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[157]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[157];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[157]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[158]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[159]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[159];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[159]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[160]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[161]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[161];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[161]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[162]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[162];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[162]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[163]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[164]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[164];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[164]{'args'}[1]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[164];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[164]{'contents'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[164];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[164]{'contents'}[1]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[164];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[164]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[165]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[166]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[167]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[167];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[167]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[168]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[168];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[168]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[169]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[170]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[170];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[170]{'contents'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[170];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[170]{'contents'}[1]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[170];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[170]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[171]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[172]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[173]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[173];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[173]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[174]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[174];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[174]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[175]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[176]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[176];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[176]{'args'}[1]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[176];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[176]{'contents'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[176];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[176]{'contents'}[1]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[176];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[176]{'contents'}[2]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[176];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[176]{'contents'}[3]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[176];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[176]{'contents'}[4]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[176];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[176]{'contents'}[5]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[176];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[176]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[177]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[178]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[179]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[179];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[179]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[180]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[180];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[180]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[181]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[182]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[182];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[182]{'args'}[1]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[182];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[182]{'contents'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[182];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[182]{'contents'}[1]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[182];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[182]{'contents'}[2]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[182];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[182]{'contents'}[3]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[182];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[182]{'contents'}[4]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[182];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[182]{'contents'}[5]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[182];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[182]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[183]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[184]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[185]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[186]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[186];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[186]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[187]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[188]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[188];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[188]{'args'}[1]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[188];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[188]{'contents'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[188];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[188]{'contents'}[1]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[188];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[188]{'contents'}[2]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[188];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[188]{'contents'}[3]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[188];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[188]{'contents'}[4]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[188];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[188]{'contents'}[5]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[188];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[188]{'contents'}[6]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[188];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[188]{'contents'}[7]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[188];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[188]{'contents'}[8]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[188];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[188]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[189]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[190]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[191]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[191];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[191]{'args'}[1]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[191];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[191]{'args'}[2]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[191];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[191]{'contents'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[191];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[191]{'contents'}[1]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[191];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[191]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[192]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[193]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[194]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[194];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[194]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[195]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[196]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[196];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[196]{'args'}[1]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[196];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[196]{'contents'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[196];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[196]{'contents'}[1]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[196];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[196]{'contents'}[2]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[196];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[196]{'contents'}[3]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[196];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[196]{'contents'}[4]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[196];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[196]{'contents'}[5]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[196];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[196]{'contents'}[6]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[196];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[196]{'contents'}[7]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[196];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[196]{'contents'}[8]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[196];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[196]{'contents'}[9]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[196];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[196]{'contents'}[10]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[196];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[196]{'contents'}[11]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[196];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[196]{'contents'}[12]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[196];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[196]{'contents'}[13]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[196];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[196]{'contents'}[14]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[196];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[196]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[197]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[198]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[199]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[199];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[199]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[200]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[200];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[200]{'args'}[1]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[200];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[200]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[201]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[201];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[201]{'args'}[1]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[201];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[201]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[202]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[203]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[203];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[203]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
+$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'contents'}[204]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1];
 $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[2]{'args'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[2];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[4];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[5]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[5];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[6];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[6]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[7]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[8]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[8];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[8]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[9]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[10]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[10];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[10]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[11]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[11];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[11]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[12]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[13]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[13];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[13]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[14]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[14];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[14]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[15]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[15];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[15]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[16]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[16];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[16]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[17]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[18]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[18];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[18]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[19]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[19];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[19]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[20]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[20];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[20]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[21]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[21];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[21]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[22]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[23]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[23];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[23]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[24]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[24];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[24]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[25]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[25];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[25]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[26]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[26];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[26]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[27]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[28]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[28];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[28]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[29]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[30]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[30];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[30]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[31]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[32]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[32];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[32]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[33]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[33];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[33]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[34]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[34];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[34]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[35]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[35];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[35]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[36]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[36];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[36]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[37]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[38]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[38];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[38]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[39]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[40]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[40];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[40]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[41]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[42]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[42];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[42]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[43]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[43];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[43]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[44]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[44];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[44]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[45]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[45];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[45]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[46]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[46];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[46]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[47]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[47];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[47]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[48]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[48];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[48]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[49]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[50]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[50];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[50]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[51]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[51];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[51]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[52]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[52];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[52]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[53]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[53];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[53]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[54]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[54];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[54]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[55]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[55];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[55]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[56]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[57]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[57];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[57]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[58]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[59]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[59];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[59]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[60]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[61]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[61];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[61]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[62]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[62];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[62]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[63]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[63];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[63]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[64]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[64];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[64]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[65]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[65];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[65]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[66]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[66];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[66]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[67]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[67];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[67]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[68]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[68];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[68]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[69]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[69];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[69]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[70]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[70];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[70]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[71]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[71];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[71]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[72]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[72];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[72]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[73]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[73];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[73]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[74]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[74];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[74]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[75]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[75];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[75]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[76]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[76];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[76]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[77]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[77];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[77]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[78]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[78];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[78]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[79]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[79];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[79]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[80]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[80];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[80]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[81]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[81];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[81]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[82]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[82];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[82]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[83]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[83];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[83]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[84]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[84];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[84]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[85]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[85];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[85]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[86]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[86];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[86]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[87]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[87];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[87]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[88]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[88];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[88]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[89]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[89];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[89]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[90]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[90];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[90]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[91]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[91];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[91]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[92]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[92];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[92]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[93]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[93];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[93]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[94]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[94];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[94]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[95]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[95];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[95]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[96]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[96];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[96]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[97]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[97];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[97]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[98]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[98];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[98]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[99]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[100]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[100];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[100]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[101]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[102]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[102];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[102]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[103]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[104]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[104];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[104]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[105]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[105];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[105]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[106]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[106];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[106]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[107]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[107];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[107]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[108]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[108];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[108]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[109]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[109];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[109]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[110]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[110];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[110]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[111]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[111];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[111]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[112]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[112];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[112]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[113]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[113];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[113]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[114]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[114];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[114]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[115]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[115];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[115]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[116]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[116];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[116]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[117]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[117];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[117]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[118]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[118];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[118]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[119]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[120]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[120];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[120]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[121]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[122]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[122];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[122]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[123]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[123];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[123]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[124]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[124];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[124]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[125]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[125];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[125]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[126]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[126];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[126]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[127]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[127];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[127]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[128]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[128];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[128]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[129]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[129];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[129]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[130]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[130];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[130]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[131]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[131];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[131]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[132]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[132];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[132]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[133]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[133];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[133]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[134]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[134];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[134]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[135]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[135];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[135]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[136]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[136];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[136]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[137]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[138]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[138];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[138]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[139]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[140]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[140];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[140]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[141]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[142]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[142];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[142]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[143]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[143];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[143]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[144]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[144];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[144]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[145]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[145];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[145]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[146]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[146];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[146]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[147]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[147];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[147]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[148]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[148];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[148]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[149]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[150]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[150];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[150]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[151]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[152]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[152];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[152]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[153]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[153];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[153]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[154]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[154];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[154]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[155]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[156]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[156];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[156]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[157]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[158]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[158];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[158]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[159]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[160]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[160];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[160]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[161]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[162]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[162];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[162]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[163]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[163];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[163]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[164]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[165]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[165];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[165]{'args'}[1]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[165];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[165]{'contents'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[165];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[165]{'contents'}[1]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[165];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[165]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[166]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[167]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[168]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[168];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[168]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[169]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[169];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[169]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[170]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[171]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[171];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[171]{'contents'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[171];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[171]{'contents'}[1]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[171];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[171]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[172]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[173]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[174]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[174];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[174]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[175]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[175];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[175]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[176]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[177]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[177];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[177]{'args'}[1]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[177];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[177]{'contents'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[177];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[177]{'contents'}[1]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[177];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[177]{'contents'}[2]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[177];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[177]{'contents'}[3]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[177];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[177]{'contents'}[4]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[177];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[177]{'contents'}[5]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[177];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[177]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[178]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[179]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[180]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[180];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[180]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[181]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[181];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[181]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[182]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[183]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[183];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[183]{'args'}[1]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[183];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[183]{'contents'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[183];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[183]{'contents'}[1]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[183];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[183]{'contents'}[2]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[183];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[183]{'contents'}[3]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[183];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[183]{'contents'}[4]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[183];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[183]{'contents'}[5]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[183];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[183]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[184]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[185]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[186]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[187]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[187];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[187]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[188]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[189]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[189];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[189]{'args'}[1]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[189];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[189]{'contents'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[189];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[189]{'contents'}[1]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[189];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[189]{'contents'}[2]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[189];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[189]{'contents'}[3]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[189];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[189]{'contents'}[4]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[189];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[189]{'contents'}[5]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[189];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[189]{'contents'}[6]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[189];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[189]{'contents'}[7]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[189];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[189]{'contents'}[8]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[189];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[189]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[190]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[191]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[192]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[192];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[192]{'args'}[1]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[192];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[192]{'args'}[2]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[192];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[192]{'contents'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[192];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[192]{'contents'}[1]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[192];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[192]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[193]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[194]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[195]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[195];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[195]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[196]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[197]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[197];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[197]{'args'}[1]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[197];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[197]{'contents'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[197];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[197]{'contents'}[1]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[197];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[197]{'contents'}[2]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[197];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[197]{'contents'}[3]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[197];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[197]{'contents'}[4]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[197];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[197]{'contents'}[5]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[197];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[197]{'contents'}[6]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[197];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[197]{'contents'}[7]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[197];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[197]{'contents'}[8]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[197];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[197]{'contents'}[9]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[197];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[197]{'contents'}[10]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[197];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[197]{'contents'}[11]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[197];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[197]{'contents'}[12]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[197];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[197]{'contents'}[13]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[197];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[197]{'contents'}[14]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[197];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[197]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[198]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[199]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[200]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[200];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[200]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[201]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[201];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[201]{'args'}[1]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[201];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[201]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[202]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[202];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[202]{'args'}[1]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[202];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[202]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[203]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[204]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[204];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[204]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
-$result_trees{'texi_bib_example'}{'contents'}[0]{'contents'}[205]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[0];
 $result_trees{'texi_bib_example'}{'contents'}[0]{'parent'} = $result_trees{'texi_bib_example'};
 $result_trees{'texi_bib_example'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[1]{'args'}[0];
 $result_trees{'texi_bib_example'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'texi_bib_example'}{'contents'}[1];

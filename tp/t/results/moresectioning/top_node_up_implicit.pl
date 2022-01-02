@@ -28,63 +28,69 @@ $result_trees{'top_node_up_implicit'} = {
           'type' => 'preamble_before_setfilename'
         },
         {
-          'args' => [
+          'contents' => [
             {
-              'contents' => [
+              'args' => [
                 {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'top_node_up_implicit'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'parent' => {},
-                  'text' => 'top_node_up_implicit'
+                  'type' => 'line_arg'
                 }
               ],
+              'cmdname' => 'setfilename',
               'extra' => {
-                'spaces_after_argument' => '
-'
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'top_node_up_implicit'
               },
-              'parent' => {},
-              'type' => 'line_arg'
-            }
-          ],
-          'cmdname' => 'setfilename',
-          'extra' => {
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'top_node_up_implicit'
-          },
-          'line_nr' => {
-            'file_name' => 'top_node_up_implicit.texi',
-            'line_nr' => 2,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'args' => [
+              'line_nr' => {
+                'file_name' => 'top_node_up_implicit.texi',
+                'line_nr' => 2,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
             {
               'parent' => {},
-              'text' => ' should replace implicit Up.
+              'text' => '
 ',
-              'type' => 'misc_arg'
+              'type' => 'empty_line'
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' should replace implicit Up.
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' should replace implicit Up.
+'
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line'
             }
           ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' should replace implicit Up.
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
           'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
+          'type' => 'preamble_before_content'
         }
       ],
       'parent' => {},
@@ -412,13 +418,14 @@ $result_trees{'top_node_up_implicit'} = {
 $result_trees{'top_node_up_implicit'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'top_node_up_implicit'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'top_node_up_implicit'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'top_node_up_implicit'}{'contents'}[0]{'contents'}[0];
 $result_trees{'top_node_up_implicit'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'top_node_up_implicit'}{'contents'}[0];
-$result_trees{'top_node_up_implicit'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'top_node_up_implicit'}{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'top_node_up_implicit'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'top_node_up_implicit'}{'contents'}[0]{'contents'}[1];
+$result_trees{'top_node_up_implicit'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'top_node_up_implicit'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0];
+$result_trees{'top_node_up_implicit'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'top_node_up_implicit'}{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'top_node_up_implicit'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'top_node_up_implicit'}{'contents'}[0]{'contents'}[1];
+$result_trees{'top_node_up_implicit'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'top_node_up_implicit'}{'contents'}[0]{'contents'}[1];
+$result_trees{'top_node_up_implicit'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'top_node_up_implicit'}{'contents'}[0]{'contents'}[1]{'contents'}[2];
+$result_trees{'top_node_up_implicit'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'top_node_up_implicit'}{'contents'}[0]{'contents'}[1];
+$result_trees{'top_node_up_implicit'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'top_node_up_implicit'}{'contents'}[0]{'contents'}[1];
 $result_trees{'top_node_up_implicit'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'top_node_up_implicit'}{'contents'}[0];
-$result_trees{'top_node_up_implicit'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'top_node_up_implicit'}{'contents'}[0];
-$result_trees{'top_node_up_implicit'}{'contents'}[0]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'top_node_up_implicit'}{'contents'}[0]{'contents'}[3];
-$result_trees{'top_node_up_implicit'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'top_node_up_implicit'}{'contents'}[0];
-$result_trees{'top_node_up_implicit'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'top_node_up_implicit'}{'contents'}[0];
 $result_trees{'top_node_up_implicit'}{'contents'}[0]{'parent'} = $result_trees{'top_node_up_implicit'};
 $result_trees{'top_node_up_implicit'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'top_node_up_implicit'}{'contents'}[1]{'args'}[0];
 $result_trees{'top_node_up_implicit'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'top_node_up_implicit'}{'contents'}[1];

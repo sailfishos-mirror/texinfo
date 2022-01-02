@@ -10,41 +10,47 @@ $result_trees{'non_break_spaces'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'contents' => [
             {
-              'contents' => [
+              'args' => [
                 {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'utf-8'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'parent' => {},
-                  'text' => 'utf-8'
+                  'type' => 'line_arg'
                 }
               ],
+              'cmdname' => 'documentencoding',
               'extra' => {
-                'spaces_after_argument' => '
-'
+                'input_encoding_name' => 'utf-8',
+                'input_perl_encoding' => 'utf-8-strict',
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'utf-8'
               },
+              'line_nr' => {
+                'file_name' => 'non_break_spaces.texi',
+                'line_nr' => 1,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
               'parent' => {},
-              'type' => 'line_arg'
+              'text' => '
+',
+              'type' => 'empty_line'
             }
           ],
-          'cmdname' => 'documentencoding',
-          'extra' => {
-            'input_encoding_name' => 'utf-8',
-            'input_perl_encoding' => 'utf-8-strict',
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'utf-8'
-          },
-          'line_nr' => {
-            'file_name' => 'non_break_spaces.texi',
-            'line_nr' => 1,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
           'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
+          'type' => 'preamble_before_content'
         }
       ],
       'parent' => {},
@@ -117,10 +123,11 @@ $result_trees{'non_break_spaces'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'non_break_spaces'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'non_break_spaces'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'non_break_spaces'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'non_break_spaces'}{'contents'}[0]{'contents'}[0];
+$result_trees{'non_break_spaces'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'non_break_spaces'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'non_break_spaces'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'non_break_spaces'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'non_break_spaces'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'non_break_spaces'}{'contents'}[0]{'contents'}[0];
+$result_trees{'non_break_spaces'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'non_break_spaces'}{'contents'}[0]{'contents'}[0];
 $result_trees{'non_break_spaces'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'non_break_spaces'}{'contents'}[0];
-$result_trees{'non_break_spaces'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'non_break_spaces'}{'contents'}[0];
 $result_trees{'non_break_spaces'}{'contents'}[0]{'parent'} = $result_trees{'non_break_spaces'};
 $result_trees{'non_break_spaces'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'non_break_spaces'}{'contents'}[1]{'args'}[0];
 $result_trees{'non_break_spaces'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'non_break_spaces'}{'contents'}[1];

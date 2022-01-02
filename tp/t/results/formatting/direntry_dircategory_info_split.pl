@@ -34,93 +34,99 @@ $result_trees{'direntry_dircategory_info_split'} = {
           'type' => 'preamble_before_setfilename'
         },
         {
-          'args' => [
+          'contents' => [
             {
-              'contents' => [
+              'args' => [
                 {
-                  'parent' => {},
-                  'text' => 'direntry_dircategory.info'
-                }
-              ],
-              'extra' => {
-                'spaces_after_argument' => '
-'
-              },
-              'parent' => {},
-              'type' => 'line_arg'
-            }
-          ],
-          'cmdname' => 'setfilename',
-          'extra' => {
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'direntry_dircategory.info'
-          },
-          'line_nr' => {
-            'file_name' => 'direntry_dircategory.texi',
-            'line_nr' => 3,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'args' => [
-            {
-              'contents' => [
-                {
-                  'parent' => {},
-                  'text' => '``category---'
-                },
-                {
-                  'args' => [
+                  'contents' => [
                     {
-                      'contents' => [
-                        {
-                          'parent' => {},
-                          'text' => 'th  ere'
-                        }
-                      ],
                       'parent' => {},
-                      'type' => 'brace_command_arg'
+                      'text' => 'direntry_dircategory.info'
                     }
                   ],
-                  'cmdname' => 'var',
-                  'contents' => [],
-                  'line_nr' => {
-                    'file_name' => 'direntry_dircategory.texi',
-                    'line_nr' => 5,
-                    'macro' => ''
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
                   },
-                  'parent' => {}
-                },
-                {
                   'parent' => {},
-                  'text' => '?\'\''
+                  'type' => 'line_arg'
                 }
               ],
+              'cmdname' => 'setfilename',
               'extra' => {
-                'spaces_after_argument' => '
-'
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'direntry_dircategory.info'
               },
+              'line_nr' => {
+                'file_name' => 'direntry_dircategory.texi',
+                'line_nr' => 3,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
               'parent' => {},
-              'type' => 'line_arg'
+              'text' => '
+',
+              'type' => 'empty_line'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => '``category---'
+                    },
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'parent' => {},
+                              'text' => 'th  ere'
+                            }
+                          ],
+                          'parent' => {},
+                          'type' => 'brace_command_arg'
+                        }
+                      ],
+                      'cmdname' => 'var',
+                      'contents' => [],
+                      'line_nr' => {
+                        'file_name' => 'direntry_dircategory.texi',
+                        'line_nr' => 5,
+                        'macro' => ''
+                      },
+                      'parent' => {}
+                    },
+                    {
+                      'parent' => {},
+                      'text' => '?\'\''
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
+                  'parent' => {},
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'dircategory',
+              'extra' => {
+                'spaces_before_argument' => ' '
+              },
+              'line_nr' => {
+                'file_name' => 'direntry_dircategory.texi',
+                'line_nr' => 5,
+                'macro' => ''
+              },
+              'parent' => {}
             }
           ],
-          'cmdname' => 'dircategory',
-          'extra' => {
-            'spaces_before_argument' => ' '
-          },
-          'line_nr' => {
-            'file_name' => 'direntry_dircategory.texi',
-            'line_nr' => 5,
-            'macro' => ''
-          },
-          'parent' => {}
+          'parent' => {},
+          'type' => 'preamble_before_content'
         },
         {
           'cmdname' => 'direntry',
@@ -959,74 +965,75 @@ $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[0]{'
 $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[0];
 $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0];
-$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[1];
+$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0];
+$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[1];
+$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[1];
+$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'args'}[0];
+$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[1]{'args'}[0];
+$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[1];
+$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'args'}[0];
+$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'args'}[0];
+$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[1]{'contents'}[2];
+$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[1];
 $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0];
+$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'extra'}{'command'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[2];
+$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[2];
+$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[2]{'contents'}[1];
+$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[1];
+$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[1]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[2]{'contents'}[1];
+$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[2]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[2]{'contents'}[1];
+$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[3]{'contents'}[0]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[3];
+$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[3]{'contents'}[1]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[3];
+$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[3]{'contents'}[2]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[3];
+$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[3]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[2]{'contents'}[1];
+$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[4]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[2]{'contents'}[1];
+$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[5]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[5]{'contents'}[0];
+$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[5]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[5]{'contents'}[0]{'contents'}[1]{'args'}[0];
+$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[5]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[5]{'contents'}[0]{'contents'}[1];
+$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[5]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[5]{'contents'}[0];
+$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[5]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[5]{'contents'}[0];
+$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[5]{'contents'}[0]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[5];
+$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[5]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[2]{'contents'}[1];
+$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'extra'}{'menu_entry_description'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[5];
+$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'extra'}{'menu_entry_name'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[1];
+$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'extra'}{'menu_entry_node'}{'manual_content'}[0] = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[3]{'contents'}[1];
+$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[2];
+$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'args'}[0];
+$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[2]{'contents'}[2];
+$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[2];
+$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[2]{'extra'}{'end_command'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[2]{'contents'}[2];
 $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0];
-$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[3]{'args'}[0];
-$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[3]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[3]{'args'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[3]{'args'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[3]{'args'}[0]{'contents'}[1];
-$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[3]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[3]{'args'}[0];
-$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[3]{'args'}[0]{'contents'}[2]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[3]{'args'}[0];
-$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[3];
 $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0];
-$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'extra'}{'command'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[4];
-$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[4];
-$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[4]{'contents'}[1];
-$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[1];
-$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[1]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[4]{'contents'}[1];
-$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[2]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[4]{'contents'}[1];
-$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[3]{'contents'}[0]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[3];
-$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[3]{'contents'}[1]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[3];
-$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[3]{'contents'}[2]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[3];
-$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[3]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[4]{'contents'}[1];
-$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[4]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[4]{'contents'}[1];
-$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[5]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[5]{'contents'}[0];
-$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[5]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[5]{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[5]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[5]{'contents'}[0]{'contents'}[1];
-$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[5]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[5]{'contents'}[0];
-$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[5]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[5]{'contents'}[0];
-$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[5]{'contents'}[0]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[5];
-$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[5]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[4]{'contents'}[1];
-$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'extra'}{'menu_entry_description'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[5];
-$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'extra'}{'menu_entry_name'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[1];
-$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'extra'}{'menu_entry_node'}{'manual_content'}[0] = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[3]{'contents'}[1];
-$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[4];
-$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[4]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[4]{'contents'}[2]{'args'}[0];
-$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[4]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[4]{'contents'}[2];
-$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[4]{'contents'}[2]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[4];
-$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[4]{'extra'}{'end_command'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[4]{'contents'}[2];
+$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[4]{'args'}[0];
+$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[4];
 $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0];
+$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[5]{'contents'}[0]{'extra'}{'command'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[5];
+$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[5]{'contents'}[0]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[5];
+$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[5]{'contents'}[1];
+$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'args'}[1];
+$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'args'}[1]{'contents'}[1]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'args'}[1];
+$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'args'}[1]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[5]{'contents'}[1];
+$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'args'}[2]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[5]{'contents'}[1];
+$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'args'}[3]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'args'}[3]{'contents'}[0];
+$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'args'}[3]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'args'}[3]{'contents'}[0];
+$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'args'}[3]{'contents'}[0]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'args'}[3];
+$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'args'}[3]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[5]{'contents'}[1];
+$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'extra'}{'menu_entry_description'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'args'}[3];
+$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'extra'}{'menu_entry_node'}{'node_content'}[0] = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'args'}[1]{'contents'}[0];
+$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'extra'}{'menu_entry_node'}{'node_content'}[1] = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'args'}[1]{'contents'}[1];
+$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[5];
+$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[5]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[5]{'contents'}[2]{'contents'}[0];
+$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[5]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[5]{'contents'}[2]{'contents'}[0];
+$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[5]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[5]{'contents'}[2];
+$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[5]{'contents'}[2]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[5];
+$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[5]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[5]{'contents'}[3]{'args'}[0];
+$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[5]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[5]{'contents'}[3];
+$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[5]{'contents'}[3]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[5];
+$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[5]{'extra'}{'end_command'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[5]{'contents'}[3];
 $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0];
-$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[6]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[6]{'args'}[0];
-$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[6]{'args'}[0]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[6];
 $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[6]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0];
-$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[7]{'contents'}[0]{'extra'}{'command'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[7];
-$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[7]{'contents'}[0]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[7];
-$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[7]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[7]{'contents'}[1];
-$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[7]{'contents'}[1]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[7]{'contents'}[1]{'args'}[1];
-$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[7]{'contents'}[1]{'args'}[1]{'contents'}[1]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[7]{'contents'}[1]{'args'}[1];
-$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[7]{'contents'}[1]{'args'}[1]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[7]{'contents'}[1];
-$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[7]{'contents'}[1]{'args'}[2]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[7]{'contents'}[1];
-$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[7]{'contents'}[1]{'args'}[3]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[7]{'contents'}[1]{'args'}[3]{'contents'}[0];
-$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[7]{'contents'}[1]{'args'}[3]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[7]{'contents'}[1]{'args'}[3]{'contents'}[0];
-$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[7]{'contents'}[1]{'args'}[3]{'contents'}[0]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[7]{'contents'}[1]{'args'}[3];
-$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[7]{'contents'}[1]{'args'}[3]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[7]{'contents'}[1];
-$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[7]{'contents'}[1]{'extra'}{'menu_entry_description'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[7]{'contents'}[1]{'args'}[3];
-$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[7]{'contents'}[1]{'extra'}{'menu_entry_node'}{'node_content'}[0] = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[7]{'contents'}[1]{'args'}[1]{'contents'}[0];
-$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[7]{'contents'}[1]{'extra'}{'menu_entry_node'}{'node_content'}[1] = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[7]{'contents'}[1]{'args'}[1]{'contents'}[1];
-$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[7]{'contents'}[1]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[7];
-$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[7]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[7]{'contents'}[2]{'contents'}[0];
-$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[7]{'contents'}[2]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[7]{'contents'}[2]{'contents'}[0];
-$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[7]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[7]{'contents'}[2];
-$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[7]{'contents'}[2]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[7];
-$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[7]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[7]{'contents'}[3]{'args'}[0];
-$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[7]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[7]{'contents'}[3];
-$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[7]{'contents'}[3]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[7];
-$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[7]{'extra'}{'end_command'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[7]{'contents'}[3];
 $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[7]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0];
-$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[8]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0];
-$result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'contents'}[9]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[0];
 $result_trees{'direntry_dircategory_info_split'}{'contents'}[0]{'parent'} = $result_trees{'direntry_dircategory_info_split'};
 $result_trees{'direntry_dircategory_info_split'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[1]{'args'}[0];
 $result_trees{'direntry_dircategory_info_split'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'direntry_dircategory_info_split'}{'contents'}[1];

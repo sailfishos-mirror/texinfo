@@ -867,39 +867,45 @@ $result_trees{'things_before_setfilename'} = {
           'type' => 'preamble_before_setfilename'
         },
         {
-          'args' => [
+          'contents' => [
             {
-              'contents' => [
+              'args' => [
                 {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'things_before_setfilename.info'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => ' 
+'
+                  },
                   'parent' => {},
-                  'text' => 'things_before_setfilename.info'
+                  'type' => 'line_arg'
                 }
               ],
+              'cmdname' => 'setfilename',
               'extra' => {
-                'spaces_after_argument' => ' 
-'
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'things_before_setfilename.info'
               },
+              'line_nr' => {
+                'file_name' => 'things_before_setfilename.texi',
+                'line_nr' => 44,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
               'parent' => {},
-              'type' => 'line_arg'
+              'text' => '
+',
+              'type' => 'empty_line'
             }
           ],
-          'cmdname' => 'setfilename',
-          'extra' => {
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'things_before_setfilename.info'
-          },
-          'line_nr' => {
-            'file_name' => 'things_before_setfilename.texi',
-            'line_nr' => 44,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
           'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
+          'type' => 'preamble_before_content'
         }
       ],
       'parent' => {},
@@ -1221,10 +1227,11 @@ $result_trees{'things_before_setfilename'}{'contents'}[0]{'contents'}[0]{'conten
 $result_trees{'things_before_setfilename'}{'contents'}[0]{'contents'}[0]{'contents'}[24]{'parent'} = $result_trees{'things_before_setfilename'}{'contents'}[0]{'contents'}[0];
 $result_trees{'things_before_setfilename'}{'contents'}[0]{'contents'}[0]{'contents'}[25]{'parent'} = $result_trees{'things_before_setfilename'}{'contents'}[0]{'contents'}[0];
 $result_trees{'things_before_setfilename'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'things_before_setfilename'}{'contents'}[0];
-$result_trees{'things_before_setfilename'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'things_before_setfilename'}{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'things_before_setfilename'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'things_before_setfilename'}{'contents'}[0]{'contents'}[1];
+$result_trees{'things_before_setfilename'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'things_before_setfilename'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0];
+$result_trees{'things_before_setfilename'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'things_before_setfilename'}{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'things_before_setfilename'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'things_before_setfilename'}{'contents'}[0]{'contents'}[1];
+$result_trees{'things_before_setfilename'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'things_before_setfilename'}{'contents'}[0]{'contents'}[1];
 $result_trees{'things_before_setfilename'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'things_before_setfilename'}{'contents'}[0];
-$result_trees{'things_before_setfilename'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'things_before_setfilename'}{'contents'}[0];
 $result_trees{'things_before_setfilename'}{'contents'}[0]{'parent'} = $result_trees{'things_before_setfilename'};
 $result_trees{'things_before_setfilename'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'things_before_setfilename'}{'contents'}[1]{'args'}[0];
 $result_trees{'things_before_setfilename'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'things_before_setfilename'}{'contents'}[1];

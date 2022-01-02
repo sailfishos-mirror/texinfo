@@ -28,39 +28,45 @@ $result_trees{'split_nocopying_split'} = {
           'type' => 'preamble_before_setfilename'
         },
         {
-          'args' => [
+          'contents' => [
             {
-              'contents' => [
+              'args' => [
                 {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'split-nocopying.info'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'parent' => {},
-                  'text' => 'split-nocopying.info'
+                  'type' => 'line_arg'
                 }
               ],
+              'cmdname' => 'setfilename',
               'extra' => {
-                'spaces_after_argument' => '
-'
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'split-nocopying.info'
               },
+              'line_nr' => {
+                'file_name' => 'split_nocopying.texi',
+                'line_nr' => 2,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
               'parent' => {},
-              'type' => 'line_arg'
+              'text' => '
+',
+              'type' => 'empty_line'
             }
           ],
-          'cmdname' => 'setfilename',
-          'extra' => {
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'split-nocopying.info'
-          },
-          'line_nr' => {
-            'file_name' => 'split_nocopying.texi',
-            'line_nr' => 2,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
           'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
+          'type' => 'preamble_before_content'
         }
       ],
       'parent' => {},
@@ -388,10 +394,11 @@ $result_trees{'split_nocopying_split'} = {
 $result_trees{'split_nocopying_split'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'split_nocopying_split'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'split_nocopying_split'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'split_nocopying_split'}{'contents'}[0]{'contents'}[0];
 $result_trees{'split_nocopying_split'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'split_nocopying_split'}{'contents'}[0];
-$result_trees{'split_nocopying_split'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'split_nocopying_split'}{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'split_nocopying_split'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'split_nocopying_split'}{'contents'}[0]{'contents'}[1];
+$result_trees{'split_nocopying_split'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'split_nocopying_split'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0];
+$result_trees{'split_nocopying_split'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'split_nocopying_split'}{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'split_nocopying_split'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'split_nocopying_split'}{'contents'}[0]{'contents'}[1];
+$result_trees{'split_nocopying_split'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'split_nocopying_split'}{'contents'}[0]{'contents'}[1];
 $result_trees{'split_nocopying_split'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'split_nocopying_split'}{'contents'}[0];
-$result_trees{'split_nocopying_split'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'split_nocopying_split'}{'contents'}[0];
 $result_trees{'split_nocopying_split'}{'contents'}[0]{'parent'} = $result_trees{'split_nocopying_split'};
 $result_trees{'split_nocopying_split'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'split_nocopying_split'}{'contents'}[1]{'args'}[0];
 $result_trees{'split_nocopying_split'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'split_nocopying_split'}{'contents'}[1];

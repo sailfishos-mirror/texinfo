@@ -34,76 +34,82 @@ $result_trees{'char_latin1_latin1_in_refs'} = {
           'type' => 'preamble_before_setfilename'
         },
         {
-          'args' => [
+          'contents' => [
             {
-              'contents' => [
+              'args' => [
                 {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'char_latin1_latin1_in_refs.info'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'parent' => {},
-                  'text' => 'char_latin1_latin1_in_refs.info'
+                  'type' => 'line_arg'
                 }
               ],
+              'cmdname' => 'setfilename',
               'extra' => {
-                'spaces_after_argument' => '
-'
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'char_latin1_latin1_in_refs.info'
               },
-              'parent' => {},
-              'type' => 'line_arg'
-            }
-          ],
-          'cmdname' => 'setfilename',
-          'extra' => {
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'char_latin1_latin1_in_refs.info'
-          },
-          'line_nr' => {
-            'file_name' => 'char_latin1_latin1_in_refs.texi',
-            'line_nr' => 3,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'args' => [
+              'line_nr' => {
+                'file_name' => 'char_latin1_latin1_in_refs.texi',
+                'line_nr' => 3,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
             {
-              'contents' => [
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line'
+            },
+            {
+              'args' => [
                 {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'iso-8859-1'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'parent' => {},
-                  'text' => 'iso-8859-1'
+                  'type' => 'line_arg'
                 }
               ],
+              'cmdname' => 'documentencoding',
               'extra' => {
-                'spaces_after_argument' => '
-'
+                'input_encoding_name' => 'iso-8859-1',
+                'input_perl_encoding' => 'iso-8859-1',
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'iso-8859-1'
               },
+              'line_nr' => {
+                'file_name' => 'char_latin1_latin1_in_refs.texi',
+                'line_nr' => 5,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
               'parent' => {},
-              'type' => 'line_arg'
+              'text' => '
+',
+              'type' => 'empty_line'
             }
           ],
-          'cmdname' => 'documentencoding',
-          'extra' => {
-            'input_encoding_name' => 'iso-8859-1',
-            'input_perl_encoding' => 'iso-8859-1',
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'iso-8859-1'
-          },
-          'line_nr' => {
-            'file_name' => 'char_latin1_latin1_in_refs.texi',
-            'line_nr' => 5,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
           'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
+          'type' => 'preamble_before_content'
         }
       ],
       'parent' => {},
@@ -1416,14 +1422,15 @@ $result_trees{'char_latin1_latin1_in_refs'}{'contents'}[0]{'contents'}[0]{'conte
 $result_trees{'char_latin1_latin1_in_refs'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'char_latin1_latin1_in_refs'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'char_latin1_latin1_in_refs'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'char_latin1_latin1_in_refs'}{'contents'}[0]{'contents'}[0];
 $result_trees{'char_latin1_latin1_in_refs'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'char_latin1_latin1_in_refs'}{'contents'}[0];
-$result_trees{'char_latin1_latin1_in_refs'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'char_latin1_latin1_in_refs'}{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'char_latin1_latin1_in_refs'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'char_latin1_latin1_in_refs'}{'contents'}[0]{'contents'}[1];
+$result_trees{'char_latin1_latin1_in_refs'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'char_latin1_latin1_in_refs'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0];
+$result_trees{'char_latin1_latin1_in_refs'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'char_latin1_latin1_in_refs'}{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'char_latin1_latin1_in_refs'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'char_latin1_latin1_in_refs'}{'contents'}[0]{'contents'}[1];
+$result_trees{'char_latin1_latin1_in_refs'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'char_latin1_latin1_in_refs'}{'contents'}[0]{'contents'}[1];
+$result_trees{'char_latin1_latin1_in_refs'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'char_latin1_latin1_in_refs'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'args'}[0];
+$result_trees{'char_latin1_latin1_in_refs'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'char_latin1_latin1_in_refs'}{'contents'}[0]{'contents'}[1]{'contents'}[2];
+$result_trees{'char_latin1_latin1_in_refs'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'char_latin1_latin1_in_refs'}{'contents'}[0]{'contents'}[1];
+$result_trees{'char_latin1_latin1_in_refs'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'char_latin1_latin1_in_refs'}{'contents'}[0]{'contents'}[1];
 $result_trees{'char_latin1_latin1_in_refs'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'char_latin1_latin1_in_refs'}{'contents'}[0];
-$result_trees{'char_latin1_latin1_in_refs'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'char_latin1_latin1_in_refs'}{'contents'}[0];
-$result_trees{'char_latin1_latin1_in_refs'}{'contents'}[0]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'char_latin1_latin1_in_refs'}{'contents'}[0]{'contents'}[3]{'args'}[0];
-$result_trees{'char_latin1_latin1_in_refs'}{'contents'}[0]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'char_latin1_latin1_in_refs'}{'contents'}[0]{'contents'}[3];
-$result_trees{'char_latin1_latin1_in_refs'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'char_latin1_latin1_in_refs'}{'contents'}[0];
-$result_trees{'char_latin1_latin1_in_refs'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'char_latin1_latin1_in_refs'}{'contents'}[0];
 $result_trees{'char_latin1_latin1_in_refs'}{'contents'}[0]{'parent'} = $result_trees{'char_latin1_latin1_in_refs'};
 $result_trees{'char_latin1_latin1_in_refs'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'char_latin1_latin1_in_refs'}{'contents'}[1]{'args'}[0];
 $result_trees{'char_latin1_latin1_in_refs'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'char_latin1_latin1_in_refs'}{'contents'}[1];

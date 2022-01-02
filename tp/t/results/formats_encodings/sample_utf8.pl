@@ -46,139 +46,112 @@ $result_trees{'sample_utf8'} = {
           'type' => 'preamble_before_setfilename'
         },
         {
-          'args' => [
-            {
-              'contents' => [
-                {
-                  'parent' => {},
-                  'text' => 'sample_utf8.info'
-                }
-              ],
-              'extra' => {
-                'spaces_after_argument' => '
-'
-              },
-              'parent' => {},
-              'type' => 'line_arg'
-            }
-          ],
-          'cmdname' => 'setfilename',
-          'extra' => {
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'sample_utf8.info'
-          },
-          'line_nr' => {
-            'file_name' => 'sample_utf8.texi',
-            'line_nr' => 3,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'contents' => [
-                {
-                  'parent' => {},
-                  'text' => 'Sample'
-                }
-              ],
-              'extra' => {
-                'spaces_after_argument' => '
-'
-              },
-              'parent' => {},
-              'type' => 'line_arg'
-            }
-          ],
-          'cmdname' => 'settitle',
-          'extra' => {
-            'spaces_before_argument' => ' '
-          },
-          'line_nr' => {
-            'file_name' => 'sample_utf8.texi',
-            'line_nr' => 4,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'contents' => [
-                {
-                  'parent' => {},
-                  'text' => 'UTF-8'
-                }
-              ],
-              'extra' => {
-                'spaces_after_argument' => '
-'
-              },
-              'parent' => {},
-              'type' => 'line_arg'
-            }
-          ],
-          'cmdname' => 'documentencoding',
-          'extra' => {
-            'input_encoding_name' => 'utf-8',
-            'input_perl_encoding' => 'utf-8-strict',
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'UTF-8'
-          },
-          'line_nr' => {
-            'file_name' => 'sample_utf8.texi',
-            'line_nr' => 5,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' %**end of header
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' %**end of header
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'copying',
           'contents' => [
             {
-              'extra' => {
-                'command' => {}
-              },
-              'parent' => {},
-              'text' => '
-',
-              'type' => 'empty_line_after_command'
-            },
-            {
-              'contents' => [
+              'args' => [
                 {
-                  'parent' => {},
-                  'text' => 'This is a short example of a complete Texinfo file.
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'sample_utf8.info'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => '
 '
+                  },
+                  'parent' => {},
+                  'type' => 'line_arg'
                 }
               ],
-              'parent' => {},
-              'type' => 'paragraph'
+              'cmdname' => 'setfilename',
+              'extra' => {
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'sample_utf8.info'
+              },
+              'line_nr' => {
+                'file_name' => 'sample_utf8.texi',
+                'line_nr' => 3,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'Sample'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
+                  'parent' => {},
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'settitle',
+              'extra' => {
+                'spaces_before_argument' => ' '
+              },
+              'line_nr' => {
+                'file_name' => 'sample_utf8.texi',
+                'line_nr' => 4,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'UTF-8'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
+                  'parent' => {},
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'documentencoding',
+              'extra' => {
+                'input_encoding_name' => 'utf-8',
+                'input_perl_encoding' => 'utf-8-strict',
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'UTF-8'
+              },
+              'line_nr' => {
+                'file_name' => 'sample_utf8.texi',
+                'line_nr' => 5,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' %**end of header
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' %**end of header
+'
+                ]
+              },
+              'parent' => {}
             },
             {
               'parent' => {},
@@ -187,148 +160,259 @@ $result_trees{'sample_utf8'} = {
               'type' => 'empty_line'
             },
             {
+              'cmdname' => 'copying',
               'contents' => [
                 {
+                  'extra' => {
+                    'command' => {}
+                  },
                   'parent' => {},
-                  'text' => 'Copyright (C) 2005 Someone.
-'
+                  'text' => '
+',
+                  'type' => 'empty_line_after_command'
                 },
                 {
-                  'parent' => {},
-                  'text' => "Texinfo\x{4e2d}\x{6587}\x{793a}\x{4f8b}
-"
-                }
-              ],
-              'parent' => {},
-              'type' => 'paragraph'
-            },
-            {
-              'args' => [
-                {
                   'contents' => [
                     {
                       'parent' => {},
-                      'text' => 'copying'
+                      'text' => 'This is a short example of a complete Texinfo file.
+'
                     }
                   ],
-                  'extra' => {
-                    'spaces_after_argument' => '
-'
-                  },
                   'parent' => {},
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'end',
-              'extra' => {
-                'command_argument' => 'copying',
-                'spaces_before_argument' => ' ',
-                'text_arg' => 'copying'
-              },
-              'line_nr' => {
-                'file_name' => 'sample_utf8.texi',
-                'line_nr' => 13,
-                'macro' => ''
-              },
-              'parent' => {}
-            }
-          ],
-          'extra' => {
-            'end_command' => {}
-          },
-          'line_nr' => {
-            'file_name' => 'sample_utf8.texi',
-            'line_nr' => 8,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'titlepage',
-          'contents' => [
-            {
-              'extra' => {
-                'command' => {}
-              },
-              'parent' => {},
-              'text' => '
-',
-              'type' => 'empty_line_after_command'
-            },
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'parent' => {},
-                      'text' => "\x{6807}\x{9898}\x{793a}\x{4f8b} \x{104}\x{118} ae \x{105}\x{119} \x{c2} \x{f9}"
-                    }
-                  ],
-                  'extra' => {
-                    'spaces_after_argument' => '
-'
-                  },
-                  'parent' => {},
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'title',
-              'extra' => {
-                'spaces_before_argument' => ' '
-              },
-              'line_nr' => {
-                'file_name' => 'sample_utf8.texi',
-                'line_nr' => 16,
-                'macro' => ''
-              },
-              'parent' => {}
-            },
-            {
-              'args' => [
+                  'type' => 'paragraph'
+                },
                 {
                   'parent' => {},
                   'text' => '
 ',
-                  'type' => 'misc_arg'
+                  'type' => 'empty_line'
+                },
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'Copyright (C) 2005 Someone.
+'
+                    },
+                    {
+                      'parent' => {},
+                      'text' => "Texinfo\x{4e2d}\x{6587}\x{793a}\x{4f8b}
+"
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'paragraph'
+                },
+                {
+                  'args' => [
+                    {
+                      'contents' => [
+                        {
+                          'parent' => {},
+                          'text' => 'copying'
+                        }
+                      ],
+                      'extra' => {
+                        'spaces_after_argument' => '
+'
+                      },
+                      'parent' => {},
+                      'type' => 'line_arg'
+                    }
+                  ],
+                  'cmdname' => 'end',
+                  'extra' => {
+                    'command_argument' => 'copying',
+                    'spaces_before_argument' => ' ',
+                    'text_arg' => 'copying'
+                  },
+                  'line_nr' => {
+                    'file_name' => 'sample_utf8.texi',
+                    'line_nr' => 13,
+                    'macro' => ''
+                  },
+                  'parent' => {}
                 }
               ],
-              'cmdname' => 'page',
+              'extra' => {
+                'end_command' => {}
+              },
+              'line_nr' => {
+                'file_name' => 'sample_utf8.texi',
+                'line_nr' => 8,
+                'macro' => ''
+              },
               'parent' => {}
             },
             {
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line'
+            },
+            {
+              'cmdname' => 'titlepage',
               'contents' => [
                 {
+                  'extra' => {
+                    'command' => {}
+                  },
                   'parent' => {},
-                  'text' => "Texinfo\x{4e2d}\x{6587}\x{793a}\x{4f8b}
-"
+                  'text' => '
+',
+                  'type' => 'empty_line_after_command'
+                },
+                {
+                  'args' => [
+                    {
+                      'contents' => [
+                        {
+                          'parent' => {},
+                          'text' => "\x{6807}\x{9898}\x{793a}\x{4f8b} \x{104}\x{118} ae \x{105}\x{119} \x{c2} \x{f9}"
+                        }
+                      ],
+                      'extra' => {
+                        'spaces_after_argument' => '
+'
+                      },
+                      'parent' => {},
+                      'type' => 'line_arg'
+                    }
+                  ],
+                  'cmdname' => 'title',
+                  'extra' => {
+                    'spaces_before_argument' => ' '
+                  },
+                  'line_nr' => {
+                    'file_name' => 'sample_utf8.texi',
+                    'line_nr' => 16,
+                    'macro' => ''
+                  },
+                  'parent' => {}
                 },
                 {
                   'args' => [
                     {
                       'parent' => {},
-                      'text' => ' 0pt plus 1filll
+                      'text' => '
 ',
                       'type' => 'misc_arg'
                     }
                   ],
-                  'cmdname' => 'vskip',
-                  'extra' => {
-                    'misc_args' => [
-                      ' 0pt plus 1filll
+                  'cmdname' => 'page',
+                  'parent' => {}
+                },
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => "Texinfo\x{4e2d}\x{6587}\x{793a}\x{4f8b}
+"
+                    },
+                    {
+                      'args' => [
+                        {
+                          'parent' => {},
+                          'text' => ' 0pt plus 1filll
+',
+                          'type' => 'misc_arg'
+                        }
+                      ],
+                      'cmdname' => 'vskip',
+                      'extra' => {
+                        'misc_args' => [
+                          ' 0pt plus 1filll
 '
-                    ]
+                        ]
+                      },
+                      'parent' => {}
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'paragraph'
+                },
+                {
+                  'args' => [
+                    {
+                      'parent' => {},
+                      'text' => '
+',
+                      'type' => 'misc_arg'
+                    }
+                  ],
+                  'cmdname' => 'insertcopying',
+                  'line_nr' => {
+                    'file_name' => 'sample_utf8.texi',
+                    'line_nr' => 20,
+                    'macro' => ''
+                  },
+                  'parent' => {}
+                },
+                {
+                  'args' => [
+                    {
+                      'contents' => [
+                        {
+                          'parent' => {},
+                          'text' => 'titlepage'
+                        }
+                      ],
+                      'extra' => {
+                        'spaces_after_argument' => '
+'
+                      },
+                      'parent' => {},
+                      'type' => 'line_arg'
+                    }
+                  ],
+                  'cmdname' => 'end',
+                  'extra' => {
+                    'command_argument' => 'titlepage',
+                    'spaces_before_argument' => ' ',
+                    'text_arg' => 'titlepage'
+                  },
+                  'line_nr' => {
+                    'file_name' => 'sample_utf8.texi',
+                    'line_nr' => 21,
+                    'macro' => ''
                   },
                   'parent' => {}
                 }
               ],
+              'extra' => {
+                'end_command' => {}
+              },
+              'line_nr' => {
+                'file_name' => 'sample_utf8.texi',
+                'line_nr' => 15,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
               'parent' => {},
-              'type' => 'paragraph'
+              'text' => '
+',
+              'type' => 'empty_line'
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' Output the table of the contents at the beginning.
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' Output the table of the contents at the beginning.
+'
+                ]
+              },
+              'parent' => {}
             },
             {
               'args' => [
@@ -339,101 +423,23 @@ $result_trees{'sample_utf8'} = {
                   'type' => 'misc_arg'
                 }
               ],
-              'cmdname' => 'insertcopying',
+              'cmdname' => 'contents',
               'line_nr' => {
                 'file_name' => 'sample_utf8.texi',
-                'line_nr' => 20,
+                'line_nr' => 24,
                 'macro' => ''
               },
               'parent' => {}
             },
             {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'parent' => {},
-                      'text' => 'titlepage'
-                    }
-                  ],
-                  'extra' => {
-                    'spaces_after_argument' => '
-'
-                  },
-                  'parent' => {},
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'end',
-              'extra' => {
-                'command_argument' => 'titlepage',
-                'spaces_before_argument' => ' ',
-                'text_arg' => 'titlepage'
-              },
-              'line_nr' => {
-                'file_name' => 'sample_utf8.texi',
-                'line_nr' => 21,
-                'macro' => ''
-              },
-              'parent' => {}
-            }
-          ],
-          'extra' => {
-            'end_command' => {}
-          },
-          'line_nr' => {
-            'file_name' => 'sample_utf8.texi',
-            'line_nr' => 15,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => ' Output the table of the contents at the beginning.
-',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' Output the table of the contents at the beginning.
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
               'parent' => {},
               'text' => '
 ',
-              'type' => 'misc_arg'
+              'type' => 'empty_line'
             }
           ],
-          'cmdname' => 'contents',
-          'line_nr' => {
-            'file_name' => 'sample_utf8.texi',
-            'line_nr' => 24,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
           'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
+          'type' => 'preamble_before_content'
         }
       ],
       'parent' => {},
@@ -1418,56 +1424,57 @@ $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'paren
 $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
 $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[0];
 $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0];
-$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1];
+$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0];
+$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1];
+$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0];
+$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[1];
+$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1];
+$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'args'}[0];
+$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[2];
+$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1];
+$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[3];
+$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1];
+$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[4]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1];
+$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[5]{'contents'}[0]{'extra'}{'command'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[5];
+$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[5]{'contents'}[0]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[5];
+$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[5]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[5]{'contents'}[1];
+$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[5]{'contents'}[1]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[5];
+$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[5]{'contents'}[2]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[5];
+$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[5]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[5]{'contents'}[3];
+$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[5]{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[5]{'contents'}[3];
+$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[5]{'contents'}[3]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[5];
+$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[5]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[5]{'contents'}[4]{'args'}[0];
+$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[5]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[5]{'contents'}[4];
+$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[5]{'contents'}[4]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[5];
+$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[5]{'extra'}{'end_command'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[5]{'contents'}[4];
+$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[5]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1];
+$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[6]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1];
+$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[7]{'contents'}[0]{'extra'}{'command'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[7];
+$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[7]{'contents'}[0]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[7];
+$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[7]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[7]{'contents'}[1]{'args'}[0];
+$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[7]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[7]{'contents'}[1];
+$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[7]{'contents'}[1]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[7];
+$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[7]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[7]{'contents'}[2];
+$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[7]{'contents'}[2]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[7];
+$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[7]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[7]{'contents'}[3];
+$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[7]{'contents'}[3]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[7]{'contents'}[3]{'contents'}[1];
+$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[7]{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[7]{'contents'}[3];
+$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[7]{'contents'}[3]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[7];
+$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[7]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[7]{'contents'}[4];
+$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[7]{'contents'}[4]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[7];
+$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[7]{'contents'}[5]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[7]{'contents'}[5]{'args'}[0];
+$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[7]{'contents'}[5]{'args'}[0]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[7]{'contents'}[5];
+$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[7]{'contents'}[5]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[7];
+$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[7]{'extra'}{'end_command'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[7]{'contents'}[5];
+$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[7]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1];
+$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[8]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1];
+$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[9]{'args'}[0]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[9];
+$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[9]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1];
+$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[10]{'args'}[0]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[10];
+$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[10]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1];
+$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[11]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1];
 $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0];
-$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[2]{'args'}[0];
-$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[2];
-$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0];
-$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[3]{'args'}[0];
-$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[3];
-$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0];
-$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[4];
-$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0];
-$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0];
-$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'extra'}{'command'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[6];
-$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[6];
-$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[6]{'contents'}[1];
-$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[6];
-$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[6]{'contents'}[2]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[6];
-$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[6]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[6]{'contents'}[3];
-$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[6]{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[6]{'contents'}[3];
-$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[6]{'contents'}[3]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[6];
-$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[6]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[6]{'contents'}[4]{'args'}[0];
-$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[6]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[6]{'contents'}[4];
-$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[6]{'contents'}[4]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[6];
-$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[6]{'extra'}{'end_command'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[6]{'contents'}[4];
-$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[6]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0];
-$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[7]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0];
-$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'extra'}{'command'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[8];
-$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[8];
-$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[8]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[8]{'contents'}[1]{'args'}[0];
-$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[8]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[8]{'contents'}[1];
-$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[8]{'contents'}[1]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[8];
-$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[8]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[8]{'contents'}[2];
-$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[8]{'contents'}[2]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[8];
-$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[8]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[8]{'contents'}[3];
-$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[8]{'contents'}[3]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[8]{'contents'}[3]{'contents'}[1];
-$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[8]{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[8]{'contents'}[3];
-$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[8]{'contents'}[3]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[8];
-$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[8]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[8]{'contents'}[4];
-$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[8]{'contents'}[4]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[8];
-$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[8]{'contents'}[5]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[8]{'contents'}[5]{'args'}[0];
-$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[8]{'contents'}[5]{'args'}[0]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[8]{'contents'}[5];
-$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[8]{'contents'}[5]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[8];
-$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[8]{'extra'}{'end_command'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[8]{'contents'}[5];
-$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[8]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0];
-$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[9]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0];
-$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[10]{'args'}[0]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[10];
-$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[10]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0];
-$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[11]{'args'}[0]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[11];
-$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[11]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0];
-$result_trees{'sample_utf8'}{'contents'}[0]{'contents'}[12]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[0];
 $result_trees{'sample_utf8'}{'contents'}[0]{'parent'} = $result_trees{'sample_utf8'};
 $result_trees{'sample_utf8'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[1]{'args'}[0];
 $result_trees{'sample_utf8'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'sample_utf8'}{'contents'}[1];

@@ -28,81 +28,87 @@ $result_trees{'top_node_up_explicit'} = {
           'type' => 'preamble_before_setfilename'
         },
         {
-          'args' => [
+          'contents' => [
             {
-              'contents' => [
+              'args' => [
                 {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'top_node_up_explicit'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'parent' => {},
-                  'text' => 'top_node_up_explicit'
+                  'type' => 'line_arg'
                 }
               ],
+              'cmdname' => 'setfilename',
               'extra' => {
-                'spaces_after_argument' => '
-'
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'top_node_up_explicit'
               },
-              'parent' => {},
-              'type' => 'line_arg'
-            }
-          ],
-          'cmdname' => 'setfilename',
-          'extra' => {
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'top_node_up_explicit'
-          },
-          'line_nr' => {
-            'file_name' => 'top_node_up_explicit.texi',
-            'line_nr' => 2,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'args' => [
+              'line_nr' => {
+                'file_name' => 'top_node_up_explicit.texi',
+                'line_nr' => 2,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
             {
               'parent' => {},
-              'text' => ' should replace all explicit (dir) pointers, but not
+              'text' => '
 ',
-              'type' => 'misc_arg'
-            }
-          ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' should replace all explicit (dir) pointers, but not
+              'type' => 'empty_line'
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' should replace all explicit (dir) pointers, but not
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' should replace all explicit (dir) pointers, but not
 '
-            ]
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => ' pointers to other files.
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'c',
+              'extra' => {
+                'misc_args' => [
+                  ' pointers to other files.
+'
+                ]
+              },
+              'parent' => {}
+            },
             {
               'parent' => {},
-              'text' => ' pointers to other files.
+              'text' => '
 ',
-              'type' => 'misc_arg'
+              'type' => 'empty_line'
             }
           ],
-          'cmdname' => 'c',
-          'extra' => {
-            'misc_args' => [
-              ' pointers to other files.
-'
-            ]
-          },
-          'parent' => {}
-        },
-        {
           'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
+          'type' => 'preamble_before_content'
         }
       ],
       'parent' => {},
@@ -506,15 +512,16 @@ $result_trees{'top_node_up_explicit'} = {
 $result_trees{'top_node_up_explicit'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'top_node_up_explicit'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'top_node_up_explicit'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'top_node_up_explicit'}{'contents'}[0]{'contents'}[0];
 $result_trees{'top_node_up_explicit'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'top_node_up_explicit'}{'contents'}[0];
-$result_trees{'top_node_up_explicit'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'top_node_up_explicit'}{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'top_node_up_explicit'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'top_node_up_explicit'}{'contents'}[0]{'contents'}[1];
+$result_trees{'top_node_up_explicit'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'top_node_up_explicit'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0];
+$result_trees{'top_node_up_explicit'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'top_node_up_explicit'}{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'top_node_up_explicit'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'top_node_up_explicit'}{'contents'}[0]{'contents'}[1];
+$result_trees{'top_node_up_explicit'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'top_node_up_explicit'}{'contents'}[0]{'contents'}[1];
+$result_trees{'top_node_up_explicit'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'top_node_up_explicit'}{'contents'}[0]{'contents'}[1]{'contents'}[2];
+$result_trees{'top_node_up_explicit'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'top_node_up_explicit'}{'contents'}[0]{'contents'}[1];
+$result_trees{'top_node_up_explicit'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'top_node_up_explicit'}{'contents'}[0]{'contents'}[1]{'contents'}[3];
+$result_trees{'top_node_up_explicit'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'top_node_up_explicit'}{'contents'}[0]{'contents'}[1];
+$result_trees{'top_node_up_explicit'}{'contents'}[0]{'contents'}[1]{'contents'}[4]{'parent'} = $result_trees{'top_node_up_explicit'}{'contents'}[0]{'contents'}[1];
 $result_trees{'top_node_up_explicit'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'top_node_up_explicit'}{'contents'}[0];
-$result_trees{'top_node_up_explicit'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'top_node_up_explicit'}{'contents'}[0];
-$result_trees{'top_node_up_explicit'}{'contents'}[0]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'top_node_up_explicit'}{'contents'}[0]{'contents'}[3];
-$result_trees{'top_node_up_explicit'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'top_node_up_explicit'}{'contents'}[0];
-$result_trees{'top_node_up_explicit'}{'contents'}[0]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'top_node_up_explicit'}{'contents'}[0]{'contents'}[4];
-$result_trees{'top_node_up_explicit'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'top_node_up_explicit'}{'contents'}[0];
-$result_trees{'top_node_up_explicit'}{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'top_node_up_explicit'}{'contents'}[0];
 $result_trees{'top_node_up_explicit'}{'contents'}[0]{'parent'} = $result_trees{'top_node_up_explicit'};
 $result_trees{'top_node_up_explicit'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'top_node_up_explicit'}{'contents'}[1]{'args'}[0];
 $result_trees{'top_node_up_explicit'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'top_node_up_explicit'}{'contents'}[1];

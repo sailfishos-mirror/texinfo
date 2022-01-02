@@ -255,7 +255,7 @@ foreach my $kept_command (@informative_global_commands,
   keys(%default_index_commands),
   keys(%headings_specification_commands), keys(%in_heading_commands),
   keys(%formattable_misc_commands),
-  'indent', 'noindent', 'shorttitlepage', 'vskip') {
+  'indent', 'noindent', 'shorttitlepage') {
   $formatted_misc_commands{$kept_command} = 1;
 }
 

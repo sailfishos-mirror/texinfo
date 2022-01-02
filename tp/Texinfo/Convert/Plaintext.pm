@@ -116,7 +116,7 @@ foreach my $kept_command (keys (%informative_commands), @contents_commands,
 }
 
 # formatted/formattable @-commands not formatted in Plaintext/Info
-foreach my $non_formatted_misc_command ('page', 'need',
+foreach my $non_formatted_misc_command ('page', 'need', 'vskip',
    'author', 'subtitle', 'title') {
   delete $formatted_misc_commands{$non_formatted_misc_command};
 }

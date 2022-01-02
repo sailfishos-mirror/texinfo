@@ -34,62 +34,68 @@ $result_trees{'contents_at_document_begin'} = {
           'type' => 'preamble_before_setfilename'
         },
         {
-          'args' => [
+          'contents' => [
             {
-              'contents' => [
+              'args' => [
                 {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'contents_at_document_begin.info'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'parent' => {},
-                  'text' => 'contents_at_document_begin.info'
+                  'type' => 'line_arg'
                 }
               ],
+              'cmdname' => 'setfilename',
               'extra' => {
-                'spaces_after_argument' => '
-'
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'contents_at_document_begin.info'
               },
-              'parent' => {},
-              'type' => 'line_arg'
-            }
-          ],
-          'cmdname' => 'setfilename',
-          'extra' => {
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'contents_at_document_begin.info'
-          },
-          'line_nr' => {
-            'file_name' => 'contents_at_document_begin.texi',
-            'line_nr' => 3,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'args' => [
+              'line_nr' => {
+                'file_name' => 'contents_at_document_begin.texi',
+                'line_nr' => 3,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
             {
               'parent' => {},
               'text' => '
 ',
-              'type' => 'misc_arg'
+              'type' => 'empty_line'
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => '
+',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'contents',
+              'line_nr' => {
+                'file_name' => 'contents_at_document_begin.texi',
+                'line_nr' => 5,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line'
             }
           ],
-          'cmdname' => 'contents',
-          'line_nr' => {
-            'file_name' => 'contents_at_document_begin.texi',
-            'line_nr' => 5,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
           'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
+          'type' => 'preamble_before_content'
         }
       ],
       'parent' => {},
@@ -227,13 +233,14 @@ $result_trees{'contents_at_document_begin'}{'contents'}[0]{'contents'}[0]{'conte
 $result_trees{'contents_at_document_begin'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'contents_at_document_begin'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'contents_at_document_begin'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'contents_at_document_begin'}{'contents'}[0]{'contents'}[0];
 $result_trees{'contents_at_document_begin'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'contents_at_document_begin'}{'contents'}[0];
-$result_trees{'contents_at_document_begin'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'contents_at_document_begin'}{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'contents_at_document_begin'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'contents_at_document_begin'}{'contents'}[0]{'contents'}[1];
+$result_trees{'contents_at_document_begin'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'contents_at_document_begin'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0];
+$result_trees{'contents_at_document_begin'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'contents_at_document_begin'}{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'contents_at_document_begin'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'contents_at_document_begin'}{'contents'}[0]{'contents'}[1];
+$result_trees{'contents_at_document_begin'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'contents_at_document_begin'}{'contents'}[0]{'contents'}[1];
+$result_trees{'contents_at_document_begin'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'contents_at_document_begin'}{'contents'}[0]{'contents'}[1]{'contents'}[2];
+$result_trees{'contents_at_document_begin'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'contents_at_document_begin'}{'contents'}[0]{'contents'}[1];
+$result_trees{'contents_at_document_begin'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'contents_at_document_begin'}{'contents'}[0]{'contents'}[1];
 $result_trees{'contents_at_document_begin'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'contents_at_document_begin'}{'contents'}[0];
-$result_trees{'contents_at_document_begin'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'contents_at_document_begin'}{'contents'}[0];
-$result_trees{'contents_at_document_begin'}{'contents'}[0]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'contents_at_document_begin'}{'contents'}[0]{'contents'}[3];
-$result_trees{'contents_at_document_begin'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'contents_at_document_begin'}{'contents'}[0];
-$result_trees{'contents_at_document_begin'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'contents_at_document_begin'}{'contents'}[0];
 $result_trees{'contents_at_document_begin'}{'contents'}[0]{'parent'} = $result_trees{'contents_at_document_begin'};
 $result_trees{'contents_at_document_begin'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'contents_at_document_begin'}{'contents'}[1]{'args'}[0];
 $result_trees{'contents_at_document_begin'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'contents_at_document_begin'}{'contents'}[1];

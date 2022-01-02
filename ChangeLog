@@ -1,3 +1,16 @@
+2022-01-02  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Common.pm (%preamble_commands, rearrange_tree_beginning):
+	add a preamble_before_content type before the first content, which
+	corresponds to non informative commands content.  Use %preamble_commands
+	for that, that holds all the @-command that can appear in that
+	preamble.
+
+	* tp/Texinfo/Common.pm (%formattable_misc_command),
+	tp/Texinfo/Convert/HTML.pm, tp/Texinfo/Convert/LaTeX.pm,
+	tp/Texinfo/Convert/Plaintext.pm: add @vskip to
+	%formattable_misc_command.
+
 2022-01-01  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	Document of LaTeX back-end

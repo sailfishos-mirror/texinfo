@@ -34,39 +34,45 @@ $result_trees{'no_monolithic'} = {
           'type' => 'preamble_before_setfilename'
         },
         {
-          'args' => [
+          'contents' => [
             {
-              'contents' => [
+              'args' => [
                 {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'no_monolithic.info'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'parent' => {},
-                  'text' => 'no_monolithic.info'
+                  'type' => 'line_arg'
                 }
               ],
+              'cmdname' => 'setfilename',
               'extra' => {
-                'spaces_after_argument' => '
-'
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'no_monolithic.info'
               },
+              'line_nr' => {
+                'file_name' => 'no_monolithic.texi',
+                'line_nr' => 3,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
               'parent' => {},
-              'type' => 'line_arg'
+              'text' => '
+',
+              'type' => 'empty_line'
             }
           ],
-          'cmdname' => 'setfilename',
-          'extra' => {
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'no_monolithic.info'
-          },
-          'line_nr' => {
-            'file_name' => 'no_monolithic.texi',
-            'line_nr' => 3,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
           'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
+          'type' => 'preamble_before_content'
         }
       ],
       'parent' => {},
@@ -546,10 +552,11 @@ $result_trees{'no_monolithic'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'con
 $result_trees{'no_monolithic'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'no_monolithic'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
 $result_trees{'no_monolithic'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'no_monolithic'}{'contents'}[0]{'contents'}[0];
 $result_trees{'no_monolithic'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'no_monolithic'}{'contents'}[0];
-$result_trees{'no_monolithic'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'no_monolithic'}{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'no_monolithic'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'no_monolithic'}{'contents'}[0]{'contents'}[1];
+$result_trees{'no_monolithic'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'no_monolithic'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0];
+$result_trees{'no_monolithic'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'no_monolithic'}{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'no_monolithic'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'no_monolithic'}{'contents'}[0]{'contents'}[1];
+$result_trees{'no_monolithic'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'no_monolithic'}{'contents'}[0]{'contents'}[1];
 $result_trees{'no_monolithic'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'no_monolithic'}{'contents'}[0];
-$result_trees{'no_monolithic'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'no_monolithic'}{'contents'}[0];
 $result_trees{'no_monolithic'}{'contents'}[0]{'parent'} = $result_trees{'no_monolithic'};
 $result_trees{'no_monolithic'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'no_monolithic'}{'contents'}[1]{'args'}[0];
 $result_trees{'no_monolithic'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'no_monolithic'}{'contents'}[1];

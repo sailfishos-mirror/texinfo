@@ -59,102 +59,108 @@ $result_trees{'japanese_utf8'} = {
           'type' => 'preamble_before_setfilename'
         },
         {
-          'args' => [
+          'contents' => [
             {
-              'contents' => [
+              'args' => [
                 {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'japanese_utf8.info'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'parent' => {},
-                  'text' => 'japanese_utf8.info'
+                  'type' => 'line_arg'
                 }
               ],
+              'cmdname' => 'setfilename',
               'extra' => {
-                'spaces_after_argument' => '
-'
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'japanese_utf8.info'
               },
-              'parent' => {},
-              'type' => 'line_arg'
-            }
-          ],
-          'cmdname' => 'setfilename',
-          'extra' => {
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'japanese_utf8.info'
-          },
-          'line_nr' => {
-            'file_name' => 'japanese_utf8.texi',
-            'line_nr' => 3,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
+              'line_nr' => {
+                'file_name' => 'japanese_utf8.texi',
+                'line_nr' => 3,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
             {
-              'contents' => [
+              'args' => [
                 {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'GNU LilyPond -- Manuel d\'initiation japanese'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'parent' => {},
-                  'text' => 'GNU LilyPond -- Manuel d\'initiation japanese'
+                  'type' => 'line_arg'
                 }
               ],
+              'cmdname' => 'settitle',
               'extra' => {
-                'spaces_after_argument' => '
-'
+                'spaces_before_argument' => ' '
               },
+              'line_nr' => {
+                'file_name' => 'japanese_utf8.texi',
+                'line_nr' => 4,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
               'parent' => {},
-              'type' => 'line_arg'
-            }
-          ],
-          'cmdname' => 'settitle',
-          'extra' => {
-            'spaces_before_argument' => ' '
-          },
-          'line_nr' => {
-            'file_name' => 'japanese_utf8.texi',
-            'line_nr' => 4,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '
+              'text' => '
 ',
-          'type' => 'empty_line'
-        },
-        {
-          'args' => [
+              'type' => 'empty_line'
+            },
             {
-              'contents' => [
+              'args' => [
                 {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'ja'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'parent' => {},
-                  'text' => 'ja'
+                  'type' => 'line_arg'
                 }
               ],
+              'cmdname' => 'documentlanguage',
               'extra' => {
-                'spaces_after_argument' => '
-'
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'ja'
               },
+              'line_nr' => {
+                'file_name' => 'japanese_utf8.texi',
+                'line_nr' => 6,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
               'parent' => {},
-              'type' => 'line_arg'
+              'text' => '
+',
+              'type' => 'empty_line'
             }
           ],
-          'cmdname' => 'documentlanguage',
-          'extra' => {
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'ja'
-          },
-          'line_nr' => {
-            'file_name' => 'japanese_utf8.texi',
-            'line_nr' => 6,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
           'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
+          'type' => 'preamble_before_content'
         }
       ],
       'parent' => {},
@@ -832,17 +838,18 @@ $result_trees{'japanese_utf8'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'arg
 $result_trees{'japanese_utf8'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'japanese_utf8'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
 $result_trees{'japanese_utf8'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'japanese_utf8'}{'contents'}[0]{'contents'}[0];
 $result_trees{'japanese_utf8'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'japanese_utf8'}{'contents'}[0];
-$result_trees{'japanese_utf8'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'japanese_utf8'}{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'japanese_utf8'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'japanese_utf8'}{'contents'}[0]{'contents'}[1];
+$result_trees{'japanese_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'japanese_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0];
+$result_trees{'japanese_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'japanese_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'japanese_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'japanese_utf8'}{'contents'}[0]{'contents'}[1];
+$result_trees{'japanese_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'japanese_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0];
+$result_trees{'japanese_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'japanese_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[1];
+$result_trees{'japanese_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'japanese_utf8'}{'contents'}[0]{'contents'}[1];
+$result_trees{'japanese_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'japanese_utf8'}{'contents'}[0]{'contents'}[1];
+$result_trees{'japanese_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'japanese_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'args'}[0];
+$result_trees{'japanese_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'japanese_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[3];
+$result_trees{'japanese_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'japanese_utf8'}{'contents'}[0]{'contents'}[1];
+$result_trees{'japanese_utf8'}{'contents'}[0]{'contents'}[1]{'contents'}[4]{'parent'} = $result_trees{'japanese_utf8'}{'contents'}[0]{'contents'}[1];
 $result_trees{'japanese_utf8'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'japanese_utf8'}{'contents'}[0];
-$result_trees{'japanese_utf8'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'japanese_utf8'}{'contents'}[0]{'contents'}[2]{'args'}[0];
-$result_trees{'japanese_utf8'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'japanese_utf8'}{'contents'}[0]{'contents'}[2];
-$result_trees{'japanese_utf8'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'japanese_utf8'}{'contents'}[0];
-$result_trees{'japanese_utf8'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'japanese_utf8'}{'contents'}[0];
-$result_trees{'japanese_utf8'}{'contents'}[0]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'japanese_utf8'}{'contents'}[0]{'contents'}[4]{'args'}[0];
-$result_trees{'japanese_utf8'}{'contents'}[0]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'japanese_utf8'}{'contents'}[0]{'contents'}[4];
-$result_trees{'japanese_utf8'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'japanese_utf8'}{'contents'}[0];
-$result_trees{'japanese_utf8'}{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'japanese_utf8'}{'contents'}[0];
 $result_trees{'japanese_utf8'}{'contents'}[0]{'parent'} = $result_trees{'japanese_utf8'};
 $result_trees{'japanese_utf8'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'japanese_utf8'}{'contents'}[1]{'args'}[0];
 $result_trees{'japanese_utf8'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'japanese_utf8'}{'contents'}[1];
