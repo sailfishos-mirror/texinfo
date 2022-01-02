@@ -7880,6 +7880,27 @@ sub output($$)
   }
   $self->set_conf('EXTERNAL_CROSSREF_SPLIT', $self->get_conf('SPLIT'));
 
+  if ($self->get_conf('HTML_MATH')
+        and $self->get_conf('HTML_MATH') eq 'mathjax') {
+    # See https://www.gnu.org/licenses/javascript-labels.html
+    #
+    # The link to the source for mathjax does not strictly follow the advice
+    # there: instead we link to instructions for obtaining the full source in
+    # its preferred form of modification.
+ 
+    my $mathjax_script = $self->get_conf('MATHJAX_SCRIPT');
+    if (! defined($mathjax_script)) {
+      $mathjax_script = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js';
+      $self->set_conf('MATHJAX_SCRIPT', $mathjax_script);
+    }
+
+    my $mathjax_source = $self->get_conf('MATHJAX_SOURCE');
+    if (! defined($mathjax_source)) {
+      $mathjax_source = 'http://docs.mathjax.org/en/latest/web/hosting.html#getting-mathjax-via-git';
+      $self->set_conf('MATHJAX_SOURCE', $mathjax_source);
+    }
+  }
+
   # the configuration has potentially been modified for
   # this output file especially.  Set a corresponding initial
   # configuration.
@@ -8058,24 +8079,9 @@ sub output($$)
   if ($self->get_conf('HTML_MATH')
         and $self->get_conf('HTML_MATH') eq 'mathjax') {
     # See https://www.gnu.org/licenses/javascript-labels.html
-    #
-    # The link to the source for mathjax does not strictly follow the advice
-    # there: instead we link to instructions for obtaining the full source in
-    # its preferred form of modification.
 
-    my ($mathjax_script, $mathjax_source);
-
-    $mathjax_script = $self->get_conf('MATHJAX_SCRIPT');
-    if (!$mathjax_script) {
-      $mathjax_script = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js';
-      $self->set_conf('MATHJAX_SCRIPT', $mathjax_script);
-    }
-
-    $mathjax_source = $self->get_conf('MATHJAX_SOURCE');
-    if (!$mathjax_source) {
-      $mathjax_source = 'http://docs.mathjax.org/en/latest/web/hosting.html#getting-mathjax-via-git';
-      $self->set_conf('MATHJAX_SOURCE', $mathjax_source);
-    }
+    my $mathjax_script = $self->get_conf('MATHJAX_SCRIPT');
+    my $mathjax_source = $self->get_conf('MATHJAX_SOURCE');
 
     $self->{'jslicenses_math'}->{$mathjax_script} =
         [ 'Apache License, Version 2.0.',
