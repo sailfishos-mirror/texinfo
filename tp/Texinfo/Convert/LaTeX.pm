@@ -243,13 +243,10 @@ my %item_line_commands = %Texinfo::Common::item_line_commands;
 my %headings_specification_commands = %Texinfo::Common::headings_specification_commands;
 my %in_heading_commands = %Texinfo::Common::in_heading_commands;
 
-# commands that can appear in preamble, before \begin{document}
-my %preamble_commands;
-foreach my $preamble_command ('hyphenation', 'anchor', 'errormsg',
-       'inlineraw', '*', @informative_global_commands,
-       keys(%format_raw_commands), keys(%inline_commands)) {
-  $preamble_commands{$preamble_command} = 1;
-}
+my %preamble_commands = %Texinfo::Common::preamble_commands;
+
+delete $preamble_commands{'titlepage'};
+delete $preamble_commands{'shorttitlepage'};
 
 foreach my $kept_command (@informative_global_commands,
   keys(%default_index_commands),
@@ -910,6 +907,7 @@ sub associate_other_nodes_to_sections($$)
 # added in the tree where the \begin{document} should be,
 # after the @-commands in preamble
 my $latex_document_type = '_latex_document';
+#my $latex_document_type = 'preamble_before_content';
 
 sub output($$)
 {
@@ -1713,17 +1711,22 @@ sub _kbd_code_style($)
                    and $preformatted_code_commands{$self->{'formatting_context'}->[-1]->{'preformatted_context'}->[-1]}))));
 }
 
-sub _end_title_page($)
+sub _finish_front_cover_page($)
 {
   my $self = shift;
-  # add a rule if there was a @title (same as in Texinfo TeX)
-  if ($self->{'titlepage_formatting'}->{'title'}) {
-    delete $self->{'titlepage_formatting'}->{'title'};
-    return '\vskip4pt \hrule height 2pt width \hsize
+  my $result = '';
+  if ($self->{'titlepage_formatting'}->{'in_front_cover'}) {
+    # add a rule if there was a @title (same as in Texinfo TeX)
+    if ($self->{'titlepage_formatting'}->{'title'}) {
+      delete $self->{'titlepage_formatting'}->{'title'};
+      $result .= '\vskip4pt \hrule height 2pt width \hsize
   \vskip\titlepagebottomglue
 ';
+    }
+    $result .= "\\endgroup\n";
+    $self->{'titlepage_formatting'}->{'in_front_cover'} = 0;
   }
-  return '';
+  return $result;
 }
 
 sub _tree_anchor_label {
@@ -1840,10 +1843,14 @@ sub _index_entry($$)
 
 sub _convert($$);
 
-# Convert the Texinfo tree under $ROOT
+# Convert the Texinfo tree under $ELEMENT
 sub _convert($$)
 {
   my ($self, $element) = @_;
+
+  if ($self->{'debug'}) {
+    print STDERR "CONVLTX ".Texinfo::Common::debug_print_element_short($element)."\n";
+  }
 
   my $type = $element->{'type'};
   my $cmdname = $element->{'cmdname'};
@@ -2570,7 +2577,7 @@ sub _convert($$)
         if ($self->{'to_utf8'}) {
           my $possible_conversion
             = Texinfo::Convert::Unicode::check_unicode_point_conversion($arg,
-                                                             $self->{'DEBUG'});
+                                                             $self->{'debug'});
           if ($possible_conversion) {
             $res = chr(hex($arg)); # ok to call chr
           } else {
@@ -2613,8 +2620,8 @@ sub _convert($$)
         push @{$self->{'formatting_context'}->[-1]->{'table_command_format'}},
                 $description_command_format;
       } elsif ($cmdname eq 'titlepage') {
-        # start a group such that the changes are forgotten when closed
-        # define glues dimensions that are used in titlepage formatting.
+        # start a group such that the changes are forgotten when front cover is done
+        # define glues dimensions that are used in front cover formatting.
         # Taken from Texinfo TeX.
         # FIXME replace \\newskip by \\newlen?
         $result .= "\\begingroup
@@ -2623,7 +2630,7 @@ sub _convert($$)
 \\setlength{\\parindent}{0pt}\n";
         $result .= "% Leave some space at the very top of the page.
     \\vglue\\titlepagetopglue\n";
-        $self->{'titlepage_formatting'} = {'in_titlepage' => 1};
+        $self->{'titlepage_formatting'} = {'in_front_cover' => 1};
       }
 
       if ($cmdname eq 'quotation' or $cmdname eq 'smallquotation') {
@@ -2825,7 +2832,7 @@ sub _convert($$)
       }
       return $result;
     } elsif ($cmdname eq 'page') {
-      $result .= _end_title_page($self);
+      $result .= _finish_front_cover_page($self);
       # the phantom is added such that successive new pages create blank pages
       $result .= "\\newpage{}%\n\\phantom{blabla}%\n";
       return $result;
@@ -2872,9 +2879,6 @@ sub _convert($$)
       return $result;
     } elsif ($cmdname eq 'title') {
       my $title_text = _title_font($self, $element);
-      #$result .= "\\begin{flushleft}\n";
-      #$result .= $title_text."\n";
-      #$result .= "\\end{flushleft}\n";
       # FIXME In Texinfo TeX the interline space seems more even
       $result .= "{\\raggedright $title_text}\n";
       # same formatting for the rule as in Texinfo TeX
@@ -2889,7 +2893,7 @@ sub _convert($$)
       #$result .= "\\end{flushright}\n";
       $result .= "\\rightline{$subtitle_text}\n";
     } elsif ($cmdname eq 'author') {
-      if ($self->{'titlepage_formatting'}->{'in_titlepage'}
+      if ($self->{'titlepage_formatting'}->{'in_front_cover'}
           and not $self->{'formatting_context'}->[-1]->{'in_quotation'}) {
         if (not $self->{'titlepage_formatting'}->{'author'}) {
           # first author, add space before
@@ -3256,15 +3260,16 @@ sub _convert($$)
       }
     } elsif ($type eq 'row') {
       # ...
+    #} elsif ($type eq $latex_document_type) {
+    #  # special type inserted where the document begins
+    #  $result .= _begin_document($self);
     }
   }
 
   # close commands
   if ($cmdname) {
     if ($cmdname eq 'titlepage') {
-      $result .= _end_title_page($self);
-      $result .= "\\endgroup\n";
-      $self->{'titlepage_formatting'}->{'in_titlepage'} = 0;
+      $result .= _finish_front_cover_page($self);
     } elsif ($item_line_commands{$cmdname}) {
       pop @{$self->{'formatting_context'}->[-1]->{'table_command_format'}};
     }

@@ -812,13 +812,13 @@ $result_converted{'latex'}->{'titlepage_classical'} = '
 
 \\vskip4pt \\hrule height 2pt width \\hsize
   \\vskip\\titlepagebottomglue
+\\endgroup
 \\newpage{}%
 \\phantom{blabla}%
 \\newpage{}%
 \\phantom{blabla}%
 \\vskip 0pt plus 1filll
 in Copying
-\\endgroup
 \\end{titlepage}
 \\GNUTexinfosetsingleheader{}%
 \\GNUTexinfomainmatter

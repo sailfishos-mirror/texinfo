@@ -7,6 +7,15 @@
 
 2022-01-02  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/LaTeX.pm (%preamble_commands): use Texinfo::Common
+	preamble commands, except for titlepage and shorttitlepage which
+	need to be in the document content.
+
+	* tp/Texinfo/Convert/LaTeX.pm (_finish_front_cover_page, _convert):
+	distinguish cover page formatting from titlepage formatting.
+
+2022-01-02  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (add_preamble_before_content): put code that
 	setup the preamble before content in a function
 	add_preamble_before_content().
