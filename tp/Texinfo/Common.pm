@@ -1280,11 +1280,11 @@ sub rearrange_tree_beginning($$)
       if (@{$before_setfilename->{'contents'}});
   }
   
-  add_preamble_before_beginning($before_node_section);
+  add_preamble_before_content($before_node_section);
 }
 
 # TODO document
-sub add_preamble_before_beginning($)
+sub add_preamble_before_content($)
 {
   my $before_node_section = shift;
   
