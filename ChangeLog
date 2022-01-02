@@ -1,3 +1,8 @@
+2022-01-02  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/LaTeX.pm (_convert): simpler formatting of
+	author outside of front cover.
+
 2022-01-02  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	No slant for @key

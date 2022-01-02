@@ -2893,19 +2893,23 @@ sub _convert($$)
       #$result .= "\\end{flushright}\n";
       $result .= "\\rightline{$subtitle_text}\n";
     } elsif ($cmdname eq 'author') {
-      if ($self->{'titlepage_formatting'}->{'in_front_cover'}
-          and not $self->{'formatting_context'}->[-1]->{'in_quotation'}) {
-        if (not $self->{'titlepage_formatting'}->{'author'}) {
-          # first author, add space before
-          $self->{'titlepage_formatting'}->{'author'} = 1;
-          $result .= "\\vskip 0pt plus 1filll\n";
-        }
+      if (not $self->{'formatting_context'}->[-1]->{'in_quotation'}) {
         my $author_name = _convert($self,
                        {'contents' => $element->{'args'}->[0]->{'contents'}});
-        # use \leftline as in Texinfo TeX
-        # FIXME In Texinfo TeX the interline space between @author lines
-        # seems better
-        $result .= "\\leftline{\\Large \\bfseries $author_name}%\n";
+        if ($self->{'titlepage_formatting'}->{'in_front_cover'}) {
+          if (not $self->{'titlepage_formatting'}->{'author'}) {
+            # first author, add space before
+            $self->{'titlepage_formatting'}->{'author'} = 1;
+            $result .= "\\vskip 0pt plus 1filll\n";
+          }
+          # use \leftline as in Texinfo TeX
+          # FIXME In Texinfo TeX the interline space between @author lines
+          # seems better
+          $result .= "\\leftline{\\Large \\bfseries $author_name}%\n";
+        } else {
+          # author in regular text.  Should not happen
+          $result .= "{\\bfseries $author_name}%\n";
+        }
         return $result;
       }
     } elsif ($cmdname eq 'vskip') {
