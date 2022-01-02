@@ -476,23 +476,7 @@ $result_floats{'titlepage_long_title'} = {};
 
 
 
-$result_converted{'latex'}->{'titlepage_long_title'} = '\\begin{titlepage}
-\\begingroup
-\\newskip\\titlepagetopglue \\titlepagetopglue = 1.5in
-\\newskip\\titlepagebottomglue \\titlepagebottomglue = 2pc
-\\setlength{\\parindent}{0pt}
-% Leave some space at the very top of the page.
-    \\vglue\\titlepagetopglue
-{\\raggedright {\\huge \\bfseries a title than is long, very long, veeeeeeeeeeeeeeeeery long, it seems to never stop and it is not so interesting only very long oh an end of line \\leavevmode{}\\\\ and the title continue and keep on being unfinished until it is the end}}
-\\vskip 4pt \\hrule height 4pt width \\hsize \\vskip 4pt
-
-\\vskip4pt \\hrule height 2pt width \\hsize
-  \\vskip\\titlepagebottomglue
-\\endgroup
-\\end{titlepage}
-\\GNUTexinfosetsingleheader{}%
-\\GNUTexinfomainmatter
-
+$result_converted{'latex'}->{'titlepage_long_title'} = '
 \\chapter{Chapter}
 \\label{anchor:chapter}%
 

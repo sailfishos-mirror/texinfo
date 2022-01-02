@@ -795,33 +795,6 @@ $result_floats{'titlepage_classical'} = {};
 
 $result_converted{'latex'}->{'titlepage_classical'} = '
 
-\\begin{titlepage}
-\\begingroup
-\\newskip\\titlepagetopglue \\titlepagetopglue = 1.5in
-\\newskip\\titlepagebottomglue \\titlepagebottomglue = 2pc
-\\setlength{\\parindent}{0pt}
-% Leave some space at the very top of the page.
-    \\vglue\\titlepagetopglue
-{\\raggedright {\\huge \\bfseries Some manual tested}}
-\\vskip 4pt \\hrule height 4pt width \\hsize \\vskip 4pt
-\\rightline{Subtitle manual tested}
-\\rightline{Subtitle 2 manual tested}
-\\vskip 0pt plus 1filll
-\\leftline{\\Large \\bfseries First author}%
-\\leftline{\\Large \\bfseries Second author}%
-
-\\vskip4pt \\hrule height 2pt width \\hsize
-  \\vskip\\titlepagebottomglue
-\\endgroup
-\\newpage{}%
-\\phantom{blabla}%
-\\newpage{}%
-\\phantom{blabla}%
-\\vskip 0pt plus 1filll
-in Copying
-\\end{titlepage}
-\\GNUTexinfosetsingleheader{}%
-\\GNUTexinfomainmatter
 
 \\chapter{Chapter}
 \\label{anchor:chapter}%

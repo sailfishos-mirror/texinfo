@@ -1018,39 +1018,6 @@ $result_floats{'titlepage_with_commands_classical'} = {};
 
 $result_converted{'latex'}->{'titlepage_with_commands_classical'} = '
 
-\\begin{titlepage}
-\\begingroup
-\\newskip\\titlepagetopglue \\titlepagetopglue = 1.5in
-\\newskip\\titlepagebottomglue \\titlepagebottomglue = 2pc
-\\setlength{\\parindent}{0pt}
-% Leave some space at the very top of the page.
-    \\vglue\\titlepagetopglue
-{\\raggedright {\\huge \\bfseries Some manual \\leavevmode{}\\\\ tested}}
-\\vskip 4pt \\hrule height 4pt width \\hsize \\vskip 4pt
-\\rightline{Subtitle manual \\leavevmode{}\\\\ tested}
-\\rightline{Subtitle 2 manual \\leavevmode{}\\\\ tested}
-\\vskip 0pt plus 1filll
-\\leftline{\\Large \\bfseries First \\leavevmode{}\\\\ author}%
-\\leftline{\\Large \\bfseries Second \\leavevmode{}\\\\ author\\footnote{Something
-about the address of author.
-
-Something about the life. 
-$$
-\\frac{a}{b}
-$$
-}}%
-\\vskip4pt \\hrule height 2pt width \\hsize
-  \\vskip\\titlepagebottomglue
-\\endgroup
-\\newpage{}%
-\\phantom{blabla}%
-\\newpage{}%
-\\phantom{blabla}%
-\\vskip 0pt plus 1filll
-in Copying
-\\end{titlepage}
-\\GNUTexinfosetsingleheader{}%
-\\GNUTexinfomainmatter
 
 \\chapter{Chapter}
 \\label{anchor:chapter}%

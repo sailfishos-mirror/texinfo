@@ -245,18 +245,6 @@ $result_converted{'latex'}->{'setchapternewpage_on_odd_titlepage'} = '\\makeatle
 \\patchcmd{\\chapter}{\\GNUTexinfoplaceholder{setchapternewpage placeholder}\\clearpage}{\\if@openright\\cleardoublepage\\else\\clearpage\\fi}{}{}
 \\makeatother
 
-\\begin{titlepage}
-\\begingroup
-\\newskip\\titlepagetopglue \\titlepagetopglue = 1.5in
-\\newskip\\titlepagebottomglue \\titlepagebottomglue = 2pc
-\\setlength{\\parindent}{0pt}
-% Leave some space at the very top of the page.
-    \\vglue\\titlepagetopglue
-in titlepage
-\\endgroup
-\\end{titlepage}
-\\GNUTexinfosetdoubleheader{}%
-\\GNUTexinfomainmatter
 ';
 
 1;

@@ -116,6 +116,21 @@ roundcorner=10pt}
 \begin{document}
 
 \GNUTexinfofrontmatter
+\begin{titlepage}
+\begingroup
+\newskip\titlepagetopglue \titlepagetopglue = 1.5in
+\newskip\titlepagebottomglue \titlepagebottomglue = 2pc
+\setlength{\parindent}{0pt}
+% Leave some space at the very top of the page.
+    \vglue\titlepagetopglue
+{\raggedright {\huge \bfseries the TTitle}}
+\vskip 4pt \hrule height 4pt width \hsize \vskip 4pt
+\vskip4pt \hrule height 2pt width \hsize
+  \vskip\titlepagebottomglue
+\endgroup
+\end{titlepage}
+\GNUTexinfosetsingleheader{}%
+\GNUTexinfomainmatter
 \chapter{chap}
 \label{anchor:chap}%
 

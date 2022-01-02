@@ -238,14 +238,11 @@ my %in_heading_commands = %Texinfo::Common::in_heading_commands;
 
 my %preamble_commands = %Texinfo::Common::preamble_commands;
 
-delete $preamble_commands{'titlepage'};
-delete $preamble_commands{'shorttitlepage'};
-
 foreach my $kept_command (keys(%informative_commands),
   keys(%default_index_commands),
   keys(%headings_specification_commands), keys(%in_heading_commands),
   keys(%formattable_misc_commands),
-  'indent', 'noindent', 'shorttitlepage') {
+  'indent', 'noindent') {
   $formatted_misc_commands{$kept_command} = 1;
 }
 
@@ -495,8 +492,9 @@ foreach my $non_indented('format', 'smallformat') {
   delete $indented_commands{$non_indented};
 }
 
+# titlepage content is directly formatted at document begin
 foreach my $ignored_block_commands ('ignore', 'macro', 'rmacro', 'copying',
-  'documentdescription') {
+  'documentdescription', 'titlepage') {
   $ignored_commands{$ignored_block_commands} = 1;
 }
 
@@ -1293,6 +1291,39 @@ sub _begin_document($)
   if (exists($self->{'global_commands'}->{'titlepage'})
       or exists($self->{'global_commands'}->{'shorttitlepage'})) {
     $result .= "\n\\GNUTexinfofrontmatter\n";
+
+    if (exists($self->{'global_commands'}->{'titlepage'})) {
+      my $element = $self->{'global_commands'}->{'titlepage'};
+      # start a group such that the changes are forgotten when front cover is done
+      # define glues dimensions that are used in front cover formatting.
+      # Taken from Texinfo TeX.
+      # FIXME replace \\newskip by \\newlen?
+      $result .= "\\begin{titlepage}\n";
+      $result .= "\\begingroup
+\\newskip\\titlepagetopglue \\titlepagetopglue = 1.5in
+\\newskip\\titlepagebottomglue \\titlepagebottomglue = 2pc
+\\setlength{\\parindent}{0pt}\n";
+      $result .= "% Leave some space at the very top of the page.
+    \\vglue\\titlepagetopglue\n";
+      $self->{'titlepage_formatting'} = {'in_front_cover' => 1};
+      _push_new_context($self, 'titlepage');
+      $result .= $self->_convert({'contents' => $element->{'contents'}});
+      _pop_context($self);
+      $result .= _finish_front_cover_page($self);
+      $result .= "\\end{titlepage}\n";
+    } else {
+      my $element = $self->{'global_commands'}->{'shorttitlepage'};
+      my $title_text = _title_font($self, $element);
+      $result .= "\\begin{titlepage}\n";
+      $result .= "{\\raggedright $title_text}\n";
+      # first newpage ends the title page, phantom and second newpage
+      # adds a blank page
+      $result .= "\\newpage{}\n\\phantom{blabla}\\newpage{}\n";
+      $result .= "\\end{titlepage}\n";
+    }
+    $result .= _set_headings($self, 'on');
+    $result .= "\\GNUTexinfomainmatter\n";
+    $self->{'titlepage_done'} = 1;
   }
   return $result;
 }
@@ -1380,16 +1411,6 @@ sub _protect_text($$)
     }
   }
   return $text;
-}
-
-sub _start_mainmatter_after_titlepage($)
-{
-  my $self = shift;
-
-  my $result = _set_headings($self, 'on');
-  $result .= "\\GNUTexinfomainmatter\n";
-  $self->{'titlepage_done'} = 1;
-  return $result;
 }
 
 sub _set_headings($$)
@@ -2626,20 +2647,7 @@ sub _convert($$)
           = _xtable_description_command_format($self, $element);
         push @{$self->{'formatting_context'}->[-1]->{'table_command_format'}},
                 $description_command_format;
-      } elsif ($cmdname eq 'titlepage') {
-        # start a group such that the changes are forgotten when front cover is done
-        # define glues dimensions that are used in front cover formatting.
-        # Taken from Texinfo TeX.
-        # FIXME replace \\newskip by \\newlen?
-        $result .= "\\begingroup
-\\newskip\\titlepagetopglue \\titlepagetopglue = 1.5in
-\\newskip\\titlepagebottomglue \\titlepagebottomglue = 2pc
-\\setlength{\\parindent}{0pt}\n";
-        $result .= "% Leave some space at the very top of the page.
-    \\vglue\\titlepagetopglue\n";
-        $self->{'titlepage_formatting'} = {'in_front_cover' => 1};
       }
-
       if ($cmdname eq 'quotation' or $cmdname eq 'smallquotation') {
         # this is only used to avoid @author converted as
         # a @titlepage author, for a @quotation in @titlepage @author
@@ -2870,19 +2878,8 @@ sub _convert($$)
         $result .= "\\needspace{${need_value}pt}%\n";
       }
       return $result;
-    } elsif ($in_heading_commands{$cmdname}){
+    } elsif ($in_heading_commands{$cmdname}) {
       $result .= $LaTeX_in_heading_commands{$cmdname};
-      return $result;
-    } elsif ($cmdname eq 'shorttitlepage') {
-      # FIXME ignore if there is alreadu a @titlepage?
-      my $title_text = _title_font($self, $element);
-      $result .= "\\begin{titlepage}\n";
-      $result .= "{\\raggedright $title_text}\n";
-      # first newpage ends the title page, phantom and second newpage
-      # adds a blank page
-      $result .= "\\newpage{}\n\\phantom{blabla}\\newpage{}\n";
-      $result .= "\\end{titlepage}\n";
-      $result .= _start_mainmatter_after_titlepage($self);
       return $result;
     } elsif ($cmdname eq 'title') {
       my $title_text = _title_font($self, $element);
@@ -3279,9 +3276,7 @@ sub _convert($$)
 
   # close commands
   if ($cmdname) {
-    if ($cmdname eq 'titlepage') {
-      $result .= _finish_front_cover_page($self);
-    } elsif ($item_line_commands{$cmdname}) {
+    if ($item_line_commands{$cmdname}) {
       pop @{$self->{'formatting_context'}->[-1]->{'table_command_format'}};
     }
     if ($LaTeX_environment_commands{$cmdname}) {
@@ -3324,9 +3319,6 @@ sub _convert($$)
         }
       }
       $self->{'formatting_context'}->[-1]->{'in_quotation'} -= 1;
-    } elsif ($cmdname eq 'titlepage') {
-    # as explained in the Texinfo manual start headers after titlepage
-      $result .= _start_mainmatter_after_titlepage($self);
     }
  
     # close the contexts and register the cells

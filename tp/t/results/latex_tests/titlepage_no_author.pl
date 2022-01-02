@@ -458,22 +458,7 @@ $result_floats{'titlepage_no_author'} = {};
 
 
 
-$result_converted{'latex'}->{'titlepage_no_author'} = '\\begin{titlepage}
-\\begingroup
-\\newskip\\titlepagetopglue \\titlepagetopglue = 1.5in
-\\newskip\\titlepagebottomglue \\titlepagebottomglue = 2pc
-\\setlength{\\parindent}{0pt}
-% Leave some space at the very top of the page.
-    \\vglue\\titlepagetopglue
-{\\raggedright {\\huge \\bfseries Some manual tested}}
-\\vskip 4pt \\hrule height 4pt width \\hsize \\vskip 4pt
-\\vskip4pt \\hrule height 2pt width \\hsize
-  \\vskip\\titlepagebottomglue
-\\endgroup
-\\end{titlepage}
-\\GNUTexinfosetsingleheader{}%
-\\GNUTexinfomainmatter
-
+$result_converted{'latex'}->{'titlepage_no_author'} = '
 \\chapter{Chapter}
 \\label{anchor:chapter}%
 
