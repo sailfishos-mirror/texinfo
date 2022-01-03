@@ -1,5 +1,9 @@
 2022-01-03  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	* TODO: Remove already implemented functionality.
+
+2022-01-03  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	get-or-remove-footnotes
 
 	* info/footnotes.c (info_show_footnotes): Unconditionally

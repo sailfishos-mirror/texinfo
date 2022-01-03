@@ -61,8 +61,6 @@ If you are interested in working on any of these, email bug-texinfo@gnu.org.
   - Documentation of the HTML customization is missing.
 
 * Info:
-  - For 'u' command, position cursor on the menu entry for the node
-    we just came from
   - If K is describe-key, K M-left changes the node as M-left is
     analysed as multiple keys
   - unnecessary screen redrawing when scroll-last-node=Stop and you
