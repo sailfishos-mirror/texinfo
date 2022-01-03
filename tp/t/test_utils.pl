@@ -877,21 +877,31 @@ sub test($$)
   # take the initial values to record only if there is something new
   # do a copy to compare the values and not the references
   my $initial_index_names = dclone(\%Texinfo::Common::index_names);
-  print STDERR "  TEST $test_name\n" if ($self->{'DEBUG'});
   my $result;
   if (!$test_file) {
+    print STDERR "  TEST $test_name\n" if ($self->{'DEBUG'});
     $result = $parser->parse_texi_text($test_text, 1);
     if (defined($test_input_file_name)) {
       $parser->{'info'}->{'input_file_name'} = $test_input_file_name;
     }
   } else {
+    print STDERR "  TEST $test_name ($test_file)\n" if ($self->{'DEBUG'});
     $result = $parser->parse_texi_file($test_file);
   }
+  my $registrar = $parser->registered_errors();
+
+  if (not defined($result)) {
+    print STDERR "ERROR: parsing result undef\n";
+    my ($parser_errors, $parser_error_count) = $registrar->errors();
+    foreach my $error_message (@$parser_errors) {
+      warn $error_message->{'error_line'} if ($error_message->{'type'} eq 'error');
+    }
+  }
+
   my $parser_informations = $parser->global_informations();
 
   Texinfo::Common::set_output_encodings($main_configuration, $parser_informations);
 
-  my $registrar = $parser->registered_errors();
   my ($labels, $targets_list, $nodes_list) = $parser->labels_information();
   my $refs = $parser->internal_references_information();
   Texinfo::Structuring::associate_internal_references($registrar,

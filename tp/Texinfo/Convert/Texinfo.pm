@@ -23,6 +23,8 @@ package Texinfo::Convert::Texinfo;
 use 5.00405;
 use strict;
 
+use Carp qw(cluck confess);
+
 # commands definitions
 use Texinfo::Common;
 
@@ -102,8 +104,8 @@ sub convert_to_texinfo($;$)
   my $element = shift;
   my $expand_replaced = shift;
 
-  die "convert_to_texinfo: element undef\n" if (!defined($element));
-  die "convert_to_texinfo: bad element type (".ref($element).") $element\n"
+  confess "convert_to_texinfo: element undef" if (!defined($element));
+  confess "convert_to_texinfo: bad element type (".ref($element).") $element"
      if (ref($element) ne 'HASH');
   my $result = '';
 
@@ -225,7 +227,6 @@ sub _expand_cmd_args_to_texi($;$) {
     if ($cmdname eq 'verb') {
       $result .= $cmd->{'extra'}->{'delimiter'};
     }
-    #die "Shouldn't have args: $cmdname\n";
     $result .= '}' if ($braces);
   } else {
     $result .= $cmd->{'extra'}->{'spaces_before_argument'}

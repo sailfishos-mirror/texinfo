@@ -1,5 +1,12 @@
 2022-01-03  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Texinfo.pm (convert_to_texinfo): use confess
+	instead of die.
+
+	* tp/Makefile.am (test_files, dist_init_DATA): add distributed files.
+
+2022-01-03  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (convert): output special elements
 	in every cases where there are multiple units.
 

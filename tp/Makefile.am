@@ -115,6 +115,7 @@ initdir = $(datadir)/texinfo/init
 dist_init_DATA = \
  init/book.pm \
  init/chm.pm \
+ init/epub3.pm \
  init/html32.pm \
  init/tex4ht.pm \
  init/latex2html.pm \
@@ -220,6 +221,7 @@ test_files = \
  t/input_files/simplest.texi \
  t/input_files/split_chapter_index.texi \
  t/input_files/split_nocopying.texi \
+ t/input_files/simplest_no_node_section.texi \
  t/input_files/test_refs.texi \
  t/input_files/test_two_include.texi \
  t/input_files/top_node_up_explicit.texi \
