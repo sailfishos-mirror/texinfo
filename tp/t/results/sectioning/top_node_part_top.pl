@@ -180,7 +180,6 @@ top
 
 $result_sectioning{'top_node_part_top'} = {
   'structure' => {
-    'level' => -1,
     'section_childs' => [
       {
         'cmdname' => 'part',
@@ -211,7 +210,7 @@ $result_sectioning{'top_node_part_top'} = {
             },
             'structure' => {
               'associated_unit' => {},
-              'level' => 0,
+              'section_level' => 0,
               'section_prev' => {},
               'section_up' => {}
             }
@@ -219,12 +218,13 @@ $result_sectioning{'top_node_part_top'} = {
         },
         'structure' => {
           'associated_unit' => {},
-          'level' => 0,
+          'section_level' => 0,
           'section_up' => {}
         }
       },
       {}
-    ]
+    ],
+    'section_level' => -1
   }
 };
 $result_sectioning{'top_node_part_top'}{'structure'}{'section_childs'}[0]{'extra'}{'part_associated_section'}{'extra'}{'associated_node'}{'structure'}{'associated_unit'}{'extra'}{'unit_command'} = $result_sectioning{'top_node_part_top'}{'structure'}{'section_childs'}[0]{'extra'}{'part_associated_section'};
@@ -258,13 +258,13 @@ $result_nodes{'top_node_part_top'} = {
               },
               'type' => 'unit'
             },
-            'level' => 0
+            'section_level' => 0
           }
         }
       },
       'structure' => {
         'associated_unit' => {},
-        'level' => 0
+        'section_level' => 0
       }
     },
     'normalized' => 'Top'
@@ -294,13 +294,13 @@ $result_menus{'top_node_part_top'} = {
               'extra' => {},
               'structure' => {
                 'associated_unit' => {},
-                'level' => 0
+                'section_level' => 0
               }
             }
           },
           'structure' => {
             'associated_unit' => {},
-            'level' => 0
+            'section_level' => 0
           }
         }
       },
@@ -353,13 +353,13 @@ $result_elements{'top_node_part_top'} = [
             'extra' => {},
             'structure' => {
               'associated_unit' => {},
-              'level' => 0
+              'section_level' => 0
             }
           }
         },
         'structure' => {
           'associated_unit' => {},
-          'level' => 0
+          'section_level' => 0
         }
       }
     },

@@ -626,7 +626,6 @@ texi_commands.info
 
 $result_sectioning{'macro_in_early_commands'} = {
   'structure' => {
-    'level' => -1,
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -640,11 +639,12 @@ $result_sectioning{'macro_in_early_commands'} = {
           }
         },
         'structure' => {
-          'level' => 0,
+          'section_level' => 0,
           'section_up' => {}
         }
       }
-    ]
+    ],
+    'section_level' => -1
   }
 };
 $result_sectioning{'macro_in_early_commands'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'macro_in_early_commands'};
@@ -656,7 +656,7 @@ $result_nodes{'macro_in_early_commands'} = {
       'cmdname' => 'top',
       'extra' => {},
       'structure' => {
-        'level' => 0
+        'section_level' => 0
       }
     },
     'normalized' => 'Top'

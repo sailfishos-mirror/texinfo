@@ -729,7 +729,6 @@ float
 
 $result_sectioning{'comment_space_command_on_line'} = {
   'structure' => {
-    'level' => -1,
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -743,11 +742,12 @@ $result_sectioning{'comment_space_command_on_line'} = {
           }
         },
         'structure' => {
-          'level' => 0,
+          'section_level' => 0,
           'section_up' => {}
         }
       }
-    ]
+    ],
+    'section_level' => -1
   }
 };
 $result_sectioning{'comment_space_command_on_line'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'comment_space_command_on_line'};
@@ -759,7 +759,7 @@ $result_nodes{'comment_space_command_on_line'} = {
       'cmdname' => 'top',
       'extra' => {},
       'structure' => {
-        'level' => 0
+        'section_level' => 0
       }
     },
     'isindex' => 1,
@@ -787,7 +787,7 @@ $result_floats{'comment_space_command_on_line'} = {
           'cmdname' => 'top',
           'extra' => {},
           'structure' => {
-            'level' => 0
+            'section_level' => 0
           }
         },
         'normalized' => 'label',

@@ -657,7 +657,6 @@ $result_texts{'non_automatic_top_node_up_and_url'} = 'internal top node up
 
 $result_sectioning{'non_automatic_top_node_up_and_url'} = {
   'structure' => {
-    'level' => -1,
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -711,11 +710,12 @@ $result_sectioning{'non_automatic_top_node_up_and_url'} = {
         },
         'structure' => {
           'associated_unit' => {},
-          'level' => 0,
+          'section_level' => 0,
           'section_up' => {}
         }
       }
-    ]
+    ],
+    'section_level' => -1
   }
 };
 $result_sectioning{'non_automatic_top_node_up_and_url'}{'structure'}{'section_childs'}[0]{'extra'}{'associated_node'}{'structure'}{'associated_unit'}{'extra'}{'unit_command'} = $result_sectioning{'non_automatic_top_node_up_and_url'}{'structure'}{'section_childs'}[0]{'extra'}{'associated_node'};
@@ -779,7 +779,7 @@ $result_nodes{'non_automatic_top_node_up_and_url'} = {
           },
           'type' => 'unit'
         },
-        'level' => 0
+        'section_level' => 0
       }
     },
     'menus' => [

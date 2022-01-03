@@ -303,7 +303,6 @@ $result_texts{'empty_top_node_up'} = 'empty top node up
 
 $result_sectioning{'empty_top_node_up'} = {
   'structure' => {
-    'level' => -1,
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -317,11 +316,12 @@ $result_sectioning{'empty_top_node_up'} = {
           }
         },
         'structure' => {
-          'level' => 0,
+          'section_level' => 0,
           'section_up' => {}
         }
       }
-    ]
+    ],
+    'section_level' => -1
   }
 };
 $result_sectioning{'empty_top_node_up'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'empty_top_node_up'};
@@ -333,7 +333,7 @@ $result_nodes{'empty_top_node_up'} = {
       'cmdname' => 'top',
       'extra' => {},
       'structure' => {
-        'level' => 0
+        'section_level' => 0
       }
     },
     'menus' => [

@@ -104,13 +104,12 @@ top
 
 $result_sectioning{'unnumbered_before_top'} = {
   'structure' => {
-    'level' => 0,
     'section_childs' => [
       {
         'cmdname' => 'unnumbered',
         'extra' => {},
         'structure' => {
-          'level' => 1,
+          'section_level' => 1,
           'section_up' => {}
         }
       },
@@ -118,13 +117,14 @@ $result_sectioning{'unnumbered_before_top'} = {
         'cmdname' => 'top',
         'extra' => {},
         'structure' => {
-          'level' => 1,
+          'section_level' => 1,
           'section_prev' => {},
           'section_up' => {},
           'toplevel_prev' => {}
         }
       }
-    ]
+    ],
+    'section_level' => 0
   }
 };
 $result_sectioning{'unnumbered_before_top'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'unnumbered_before_top'};

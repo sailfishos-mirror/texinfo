@@ -2084,7 +2084,6 @@ in detaildescription
 
 $result_sectioning{'simple_menu'} = {
   'structure' => {
-    'level' => -1,
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -2098,11 +2097,12 @@ $result_sectioning{'simple_menu'} = {
           }
         },
         'structure' => {
-          'level' => 0,
+          'section_level' => 0,
           'section_up' => {}
         }
       }
-    ]
+    ],
+    'section_level' => -1
   }
 };
 $result_sectioning{'simple_menu'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'simple_menu'};
@@ -2114,7 +2114,7 @@ $result_nodes{'simple_menu'} = {
       'cmdname' => 'top',
       'extra' => {},
       'structure' => {
-        'level' => 0
+        'section_level' => 0
       }
     },
     'menus' => [

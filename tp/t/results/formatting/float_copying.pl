@@ -1799,7 +1799,6 @@ printindex
 
 $result_sectioning{'float_copying'} = {
   'structure' => {
-    'level' => -1,
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -1813,7 +1812,6 @@ $result_sectioning{'float_copying'} = {
           }
         },
         'structure' => {
-          'level' => 0,
           'section_childs' => [
             {
               'cmdname' => 'appendix',
@@ -1828,18 +1826,20 @@ $result_sectioning{'float_copying'} = {
                 }
               },
               'structure' => {
-                'level' => 1,
-                'number' => 'A',
+                'section_level' => 1,
+                'section_number' => 'A',
                 'section_up' => {},
                 'toplevel_prev' => {},
                 'toplevel_up' => {}
               }
             }
           ],
+          'section_level' => 0,
           'section_up' => {}
         }
       }
-    ]
+    ],
+    'section_level' => -1
   }
 };
 $result_sectioning{'float_copying'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'float_copying'}{'structure'}{'section_childs'}[0];
@@ -1854,7 +1854,7 @@ $result_nodes{'float_copying'} = {
       'cmdname' => 'top',
       'extra' => {},
       'structure' => {
-        'level' => 0
+        'section_level' => 0
       }
     },
     'menus' => [
@@ -1873,8 +1873,8 @@ $result_nodes{'float_copying'} = {
           'cmdname' => 'appendix',
           'extra' => {},
           'structure' => {
-            'level' => 1,
-            'number' => 'A'
+            'section_level' => 1,
+            'section_number' => 'A'
           }
         },
         'isindex' => 1,

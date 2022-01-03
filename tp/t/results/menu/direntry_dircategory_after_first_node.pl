@@ -308,7 +308,6 @@ $result_texts{'direntry_dircategory_after_first_node'} = 'direntry direcategory 
 
 $result_sectioning{'direntry_dircategory_after_first_node'} = {
   'structure' => {
-    'level' => -1,
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -322,11 +321,12 @@ $result_sectioning{'direntry_dircategory_after_first_node'} = {
           }
         },
         'structure' => {
-          'level' => 0,
+          'section_level' => 0,
           'section_up' => {}
         }
       }
-    ]
+    ],
+    'section_level' => -1
   }
 };
 $result_sectioning{'direntry_dircategory_after_first_node'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'direntry_dircategory_after_first_node'};
@@ -338,7 +338,7 @@ $result_nodes{'direntry_dircategory_after_first_node'} = {
       'cmdname' => 'top',
       'extra' => {},
       'structure' => {
-        'level' => 0
+        'section_level' => 0
       }
     },
     'normalized' => 'Top'

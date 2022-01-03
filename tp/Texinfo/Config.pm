@@ -64,7 +64,7 @@ sub GNUT_initialize_config($$$) {
   # consider options passed from main program for initialization
   # as list options
   foreach my $cmdline_option (keys(%$cmdline_options)) {
-    if (not ref($cmdline_options->{$cmdline_option})
+    if (ref($cmdline_options->{$cmdline_option}) eq ''
         or ref($cmdline_options->{$cmdline_option}) ne 'ARRAY') {
       warn "BUG: $cmdline_option not an ARRAY $cmdline_options->{$cmdline_option}\n";
     }

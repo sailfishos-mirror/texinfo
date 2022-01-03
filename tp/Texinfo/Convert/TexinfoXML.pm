@@ -475,7 +475,7 @@ sub _format_command($$)
   my $self = shift;
   my $command = shift;
 
-  if (! ref($no_arg_commands_formatting{$command})) {
+  if (ref($no_arg_commands_formatting{$command}) eq '') {
     return $self->format_atom($command);
   } else {
     my @spec = @{$no_arg_commands_formatting{$command}};

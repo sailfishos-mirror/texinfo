@@ -328,7 +328,6 @@ Text.
 
 $result_sectioning{'documentlanguage_set_unknown'} = {
   'structure' => {
-    'level' => -1,
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -341,11 +340,12 @@ $result_sectioning{'documentlanguage_set_unknown'} = {
           }
         },
         'structure' => {
-          'level' => 0,
+          'section_level' => 0,
           'section_up' => {}
         }
       }
-    ]
+    ],
+    'section_level' => -1
   }
 };
 $result_sectioning{'documentlanguage_set_unknown'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'documentlanguage_set_unknown'};
@@ -357,7 +357,7 @@ $result_nodes{'documentlanguage_set_unknown'} = {
       'cmdname' => 'top',
       'extra' => {},
       'structure' => {
-        'level' => 0
+        'section_level' => 0
       }
     },
     'normalized' => 'Top'

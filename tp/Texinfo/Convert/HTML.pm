@@ -697,21 +697,21 @@ sub command_text($$;$)
           cluck "No misc_content: "
             .Texinfo::Common::debug_print_element($command);
         }
-        if (defined($command->{'structure'}->{'number'})
+        if (defined($command->{'structure'}->{'section_number'})
             and ($self->get_conf('NUMBER_SECTIONS')
                  or !defined($self->get_conf('NUMBER_SECTIONS')))) {
           if ($command->{'cmdname'} eq 'appendix'
-              and $command->{'structure'}->{'level'} == 1) {
+              and $command->{'structure'}->{'section_level'} == 1) {
             $tree = $self->gdt('Appendix {number} {section_title}',
                              {'number'
-                                => {'text' => $command->{'structure'}->{'number'}},
+                                => {'text' => $command->{'structure'}->{'section_number'}},
                               'section_title'
                                 => {'contents' 
                                     => $command->{'args'}->[0]->{'contents'}}});
           } else {
             $tree = $self->gdt('{number} {section_title}',
                              {'number'
-                                => {'text' => $command->{'structure'}->{'number'}},
+                                => {'text' => $command->{'structure'}->{'section_number'}},
                               'section_title'
                                 => {'contents' 
                                     => $command->{'args'}->[0]->{'contents'}}});
@@ -2531,7 +2531,7 @@ sub _default_format_button($$)
     my $text = $button->[1];
     my $button_href = $button->[0];
     # $button_href is simple text and $text is a reference
-    if (defined($button_href) and !ref($button_href)
+    if (defined($button_href) and ref($button_href) eq ''
         and defined($text) and (ref($text) eq 'SCALAR') and defined($$text)) {
       # use given text
       my $href = $self->from_element_direction(
@@ -2544,12 +2544,12 @@ sub _default_format_button($$)
       }
       $need_delimiter = 1;
     # $button_href is simple text and $text is a reference on code
-    } elsif (defined($button_href) and !ref($button_href)
+    } elsif (defined($button_href) and ref($button_href) eq ''
              and defined($text) and (ref($text) eq 'CODE')) {
       ($active, $need_delimiter) = &$text($self, $button_href);
     # $button_href is simple text and $text is also a simple text
-    } elsif (defined($button_href) and !ref($button_href)
-             and defined($text) and !ref($text)) {
+    } elsif (defined($button_href) and ref($button_href) eq ''
+             and defined($text) and ref($text) eq '') {
       if ($text =~ s/^->\s*//) {
         $active = $self->from_element_direction(
                     $self->{'current_root_element'}, $button_href, $text);
@@ -2690,9 +2690,9 @@ sub _default_format_navigation_header_panel($$$$;$)
     }
     my $direction;
     if (ref($button) eq 'ARRAY'
-        and defined($button->[0]) and !ref($button->[0])) {
+        and defined($button->[0]) and ref($button->[0]) eq '') {
       $direction = $button->[0];
-    } elsif (defined($button) and !ref($button)) {
+    } elsif (defined($button) and ref($button) eq '') {
       $direction = $button;
     }
 
@@ -2889,7 +2889,7 @@ sub _convert_heading_command($$$$$)
   # if set, the id is associated to the heading text
   my $heading_id;
   if ($section) {
-    my $level = $section->{'structure'}->{'level'};
+    my $level = $section->{'structure'}->{'section_level'};
     $result .= join('', $self->close_registered_sections_level($level));
     $self->register_opened_section_level($level, "</div>\n");
 
@@ -2930,8 +2930,8 @@ sub _convert_heading_command($$$$$)
         $heading_level = 3;
       }
     }
-  } elsif (defined $element->{'structure'}->{'level'}) {
-    $heading_level = $element->{'structure'}->{'level'};
+  } elsif (defined $element->{'structure'}->{'section_level'}) {
+    $heading_level = $element->{'structure'}->{'section_level'};
     # if the level was changed, set the command name right
     $cmdname_for_heading
       = Texinfo::Structuring::section_level_adjusted_command_name($element);
@@ -6690,9 +6690,10 @@ sub _prepare_tree_units_global_targets($$)
       }
       # find the first level 1 sectioning element to associate the printindex with
       if ($root_command and $root_command->{'cmdname'} ne 'node') {
-        while ($root_command->{'structure'}->{'level'} > 1
+        while ($root_command->{'structure'}->{'section_level'} > 1
                and $root_command->{'structure'}->{'section_up'}
-               and $root_command->{'structure'}->{'section_up'}->{'structure'}->{'associated_unit'}) {
+               and $root_command->{'structure'}->{'section_up'}
+                                        ->{'structure'}->{'associated_unit'}) {
           $root_command = $root_command->{'structure'}->{'section_up'};
           $root_element = $root_command->{'structure'}->{'associated_unit'};
         }
@@ -6983,13 +6984,15 @@ sub _default_format_contents($$;$$)
   my $contents;
   $contents = 1 if ($cmdname eq 'contents');
 
-  my $min_root_level = $section_root->{'structure'}->{'section_childs'}->[0]->{'structure'}->{'level'};
-  my $max_root_level = $section_root->{'structure'}->{'section_childs'}->[0]->{'structure'}->{'level'};
+  my $min_root_level = $section_root->{'structure'}->{'section_childs'}->[0]
+                                             ->{'structure'}->{'section_level'};
+  my $max_root_level = $section_root->{'structure'}->{'section_childs'}->[0]
+                                              ->{'structure'}->{'section_level'};
   foreach my $top_section (@{$section_root->{'structure'}->{'section_childs'}}) {
-    $min_root_level = $top_section->{'structure'}->{'level'}
-      if ($top_section->{'structure'}->{'level'} < $min_root_level);
-    $max_root_level = $top_section->{'structure'}->{'level'}
-      if ($top_section->{'structure'}->{'level'} > $max_root_level);
+    $min_root_level = $top_section->{'structure'}->{'section_level'}
+      if ($top_section->{'structure'}->{'section_level'} < $min_root_level);
+    $max_root_level = $top_section->{'structure'}->{'section_level'}
+      if ($top_section->{'structure'}->{'section_level'} > $max_root_level);
   }
   # chapter level elements are considered top-level here.
   $max_root_level = 1 if ($max_root_level < 1);
@@ -7027,7 +7030,7 @@ sub _default_format_contents($$;$$)
         my $toc_id = $self->command_contents_target($section, $cmdname);
         if ($text ne '') {
           # no indenting for shortcontents
-          $result .= (' ' x (2*($section->{'structure'}->{'level'} - $min_root_level)))
+          $result .= (' ' x (2*($section->{'structure'}->{'section_level'} - $min_root_level)))
             if ($contents);
           if ($toc_id ne '' or $href ne '') {
             my $toc_name_attribute = '';
@@ -7056,9 +7059,9 @@ sub _default_format_contents($$;$$)
       }
       # for shortcontents don't do child if child is not toplevel
       if ($section->{'structure'}->{'section_childs'}
-          and ($contents or $section->{'structure'}->{'level'} < $max_root_level)) {
+          and ($contents or $section->{'structure'}->{'section_level'} < $max_root_level)) {
         # no indenting for shortcontents
-        $result .= "\n". ' ' x (2*($section->{'structure'}->{'level'} - $min_root_level))
+        $result .= "\n". ' ' x (2*($section->{'structure'}->{'section_level'} - $min_root_level))
           if ($contents);
         $result .= $self->html_attribute_class('ul', $ul_class) .">\n";
         $section = $section->{'structure'}->{'section_childs'}->[0];
@@ -7075,7 +7078,7 @@ sub _default_format_contents($$;$$)
         }
         while ($section->{'structure'}->{'section_up'}) {
           $section = $section->{'structure'}->{'section_up'};
-          $result .= "</li>\n". ' ' x (2*($section->{'structure'}->{'level'} - $min_root_level))
+          $result .= "</li>\n". ' ' x (2*($section->{'structure'}->{'section_level'} - $min_root_level))
             . "</ul>";
           if ($section eq $top_section) {
             $result .= "</li>\n" if ($toplevel_contents);

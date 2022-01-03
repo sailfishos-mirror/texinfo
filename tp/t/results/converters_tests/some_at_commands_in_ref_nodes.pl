@@ -1691,7 +1691,6 @@ see a strong ref with SC, a i trema i", a dotless i trema i" E=` and exclamdown 
 
 $result_sectioning{'some_at_commands_in_ref_nodes'} = {
   'structure' => {
-    'level' => -1,
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -1705,7 +1704,6 @@ $result_sectioning{'some_at_commands_in_ref_nodes'} = {
           }
         },
         'structure' => {
-          'level' => 0,
           'section_childs' => [
             {
               'cmdname' => 'chapter',
@@ -1719,18 +1717,20 @@ $result_sectioning{'some_at_commands_in_ref_nodes'} = {
                 }
               },
               'structure' => {
-                'level' => 1,
-                'number' => 1,
+                'section_level' => 1,
+                'section_number' => 1,
                 'section_up' => {},
                 'toplevel_prev' => {},
                 'toplevel_up' => {}
               }
             }
           ],
+          'section_level' => 0,
           'section_up' => {}
         }
       }
-    ]
+    ],
+    'section_level' => -1
   }
 };
 $result_sectioning{'some_at_commands_in_ref_nodes'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'some_at_commands_in_ref_nodes'}{'structure'}{'section_childs'}[0];
@@ -1745,7 +1745,7 @@ $result_nodes{'some_at_commands_in_ref_nodes'} = {
       'cmdname' => 'top',
       'extra' => {},
       'structure' => {
-        'level' => 0
+        'section_level' => 0
       }
     },
     'menus' => [
@@ -1764,8 +1764,8 @@ $result_nodes{'some_at_commands_in_ref_nodes'} = {
           'cmdname' => 'chapter',
           'extra' => {},
           'structure' => {
-            'level' => 1,
-            'number' => 1
+            'section_level' => 1,
+            'section_number' => 1
           }
         },
         'normalized' => 'A-SC-_00d1-_00c5-TeX-node-_00ef-_00ef-_1e14-_0142-_1e08-_00a1'

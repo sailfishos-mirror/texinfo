@@ -205,18 +205,18 @@ $result_texts{'on_section_line'} = '1 Text in titlefont  exdent
 
 $result_sectioning{'on_section_line'} = {
   'structure' => {
-    'level' => 1,
     'section_childs' => [
       {
         'cmdname' => 'section',
         'extra' => {},
         'structure' => {
-          'level' => 2,
-          'number' => 1,
+          'section_level' => 2,
+          'section_number' => 1,
           'section_up' => {}
         }
       }
-    ]
+    ],
+    'section_level' => 1
   }
 };
 $result_sectioning{'on_section_line'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'on_section_line'};

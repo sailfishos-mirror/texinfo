@@ -100,16 +100,16 @@ $result_texts{'settitle_and_empty_top'} = '
 
 $result_sectioning{'settitle_and_empty_top'} = {
   'structure' => {
-    'level' => -1,
     'section_childs' => [
       {
         'cmdname' => 'top',
         'structure' => {
-          'level' => 0,
+          'section_level' => 0,
           'section_up' => {}
         }
       }
-    ]
+    ],
+    'section_level' => -1
   }
 };
 $result_sectioning{'settitle_and_empty_top'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'settitle_and_empty_top'};

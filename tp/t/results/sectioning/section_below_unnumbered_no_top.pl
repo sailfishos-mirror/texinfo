@@ -94,27 +94,27 @@ S
 
 $result_sectioning{'section_below_unnumbered_no_top'} = {
   'structure' => {
-    'level' => 0,
     'section_childs' => [
       {
         'cmdname' => 'unnumbered',
         'extra' => {},
         'structure' => {
-          'level' => 1,
           'section_childs' => [
             {
               'cmdname' => 'section',
               'extra' => {},
               'structure' => {
-                'level' => 2,
+                'section_level' => 2,
                 'section_up' => {}
               }
             }
           ],
+          'section_level' => 1,
           'section_up' => {}
         }
       }
-    ]
+    ],
+    'section_level' => 0
   }
 };
 $result_sectioning{'section_below_unnumbered_no_top'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'section_below_unnumbered_no_top'}{'structure'}{'section_childs'}[0];

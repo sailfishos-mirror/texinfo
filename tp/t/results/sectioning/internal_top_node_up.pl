@@ -329,7 +329,6 @@ $result_texts{'internal_top_node_up'} = 'internal top node up
 
 $result_sectioning{'internal_top_node_up'} = {
   'structure' => {
-    'level' => -1,
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -384,11 +383,12 @@ $result_sectioning{'internal_top_node_up'} = {
         },
         'structure' => {
           'associated_unit' => {},
-          'level' => 0,
+          'section_level' => 0,
           'section_up' => {}
         }
       }
-    ]
+    ],
+    'section_level' => -1
   }
 };
 $result_sectioning{'internal_top_node_up'}{'structure'}{'section_childs'}[0]{'extra'}{'associated_node'}{'structure'}{'associated_unit'}{'extra'}{'unit_command'} = $result_sectioning{'internal_top_node_up'}{'structure'}{'section_childs'}[0]{'extra'}{'associated_node'};
@@ -455,7 +455,7 @@ $result_nodes{'internal_top_node_up'} = {
           },
           'type' => 'unit'
         },
-        'level' => 0
+        'section_level' => 0
       }
     },
     'menus' => [

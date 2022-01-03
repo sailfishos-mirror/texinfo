@@ -871,7 +871,6 @@ $result_texts{'next_in_menu_is_below'} = 'top
 
 $result_sectioning{'next_in_menu_is_below'} = {
   'structure' => {
-    'level' => -1,
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -885,7 +884,6 @@ $result_sectioning{'next_in_menu_is_below'} = {
           }
         },
         'structure' => {
-          'level' => 0,
           'section_childs' => [
             {
               'cmdname' => 'chapter',
@@ -899,8 +897,6 @@ $result_sectioning{'next_in_menu_is_below'} = {
                 }
               },
               'structure' => {
-                'level' => 1,
-                'number' => 1,
                 'section_childs' => [
                   {
                     'cmdname' => 'section',
@@ -914,8 +910,6 @@ $result_sectioning{'next_in_menu_is_below'} = {
                       }
                     },
                     'structure' => {
-                      'level' => 2,
-                      'number' => '1.1',
                       'section_childs' => [
                         {
                           'cmdname' => 'subsection',
@@ -929,26 +923,32 @@ $result_sectioning{'next_in_menu_is_below'} = {
                             }
                           },
                           'structure' => {
-                            'level' => 3,
-                            'number' => '1.1.1',
+                            'section_level' => 3,
+                            'section_number' => '1.1.1',
                             'section_up' => {}
                           }
                         }
                       ],
+                      'section_level' => 2,
+                      'section_number' => '1.1',
                       'section_up' => {}
                     }
                   }
                 ],
+                'section_level' => 1,
+                'section_number' => 1,
                 'section_up' => {},
                 'toplevel_prev' => {},
                 'toplevel_up' => {}
               }
             }
           ],
+          'section_level' => 0,
           'section_up' => {}
         }
       }
-    ]
+    ],
+    'section_level' => -1
   }
 };
 $result_sectioning{'next_in_menu_is_below'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'next_in_menu_is_below'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0];
@@ -965,7 +965,7 @@ $result_nodes{'next_in_menu_is_below'} = {
       'cmdname' => 'top',
       'extra' => {},
       'structure' => {
-        'level' => 0
+        'section_level' => 0
       }
     },
     'menus' => [
@@ -984,8 +984,8 @@ $result_nodes{'next_in_menu_is_below'} = {
           'cmdname' => 'chapter',
           'extra' => {},
           'structure' => {
-            'level' => 1,
-            'number' => 1
+            'section_level' => 1,
+            'section_number' => 1
           }
         },
         'menus' => [
@@ -1004,8 +1004,8 @@ $result_nodes{'next_in_menu_is_below'} = {
               'cmdname' => 'section',
               'extra' => {},
               'structure' => {
-                'level' => 2,
-                'number' => '1.1'
+                'section_level' => 2,
+                'section_number' => '1.1'
               }
             },
             'menus' => [
@@ -1024,8 +1024,8 @@ $result_nodes{'next_in_menu_is_below'} = {
                   'cmdname' => 'subsection',
                   'extra' => {},
                   'structure' => {
-                    'level' => 3,
-                    'number' => '1.1.1'
+                    'section_level' => 3,
+                    'section_number' => '1.1.1'
                   }
                 },
                 'normalized' => 'subsection'

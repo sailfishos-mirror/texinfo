@@ -217,7 +217,6 @@ Top node
 
 $result_sectioning{'unnumbered_before_node_top_top'} = {
   'structure' => {
-    'level' => 0,
     'section_childs' => [
       {
         'cmdname' => 'unnumbered',
@@ -246,7 +245,7 @@ $result_sectioning{'unnumbered_before_node_top_top'} = {
                       },
                       'structure' => {
                         'associated_unit' => {},
-                        'level' => 1,
+                        'section_level' => 1,
                         'section_prev' => {},
                         'section_up' => {},
                         'toplevel_prev' => {}
@@ -272,12 +271,13 @@ $result_sectioning{'unnumbered_before_node_top_top'} = {
             },
             'type' => 'unit'
           },
-          'level' => 1,
+          'section_level' => 1,
           'section_up' => {}
         }
       },
       {}
-    ]
+    ],
+    'section_level' => 0
   }
 };
 $result_sectioning{'unnumbered_before_node_top_top'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'extra'}{'unit_command'} = $result_sectioning{'unnumbered_before_node_top_top'}{'structure'}{'section_childs'}[0];
@@ -318,7 +318,7 @@ $result_nodes{'unnumbered_before_node_top_top'} = {
                     'extra' => {},
                     'structure' => {
                       'associated_unit' => {},
-                      'level' => 1
+                      'section_level' => 1
                     }
                   }
                 },
@@ -341,7 +341,7 @@ $result_nodes{'unnumbered_before_node_top_top'} = {
           },
           'type' => 'unit'
         },
-        'level' => 1
+        'section_level' => 1
       }
     },
     'normalized' => 'Top'
@@ -376,7 +376,7 @@ $result_menus{'unnumbered_before_node_top_top'} = {
           'extra' => {},
           'structure' => {
             'associated_unit' => {},
-            'level' => 1
+            'section_level' => 1
           }
         }
       },
@@ -389,7 +389,7 @@ $result_menus{'unnumbered_before_node_top_top'} = {
                 'extra' => {},
                 'structure' => {
                   'associated_unit' => {},
-                  'level' => 1
+                  'section_level' => 1
                 }
               }
             },
@@ -450,7 +450,7 @@ $result_elements{'unnumbered_before_node_top_top'} = [
         'extra' => {},
         'structure' => {
           'associated_unit' => {},
-          'level' => 1
+          'section_level' => 1
         }
       }
     },
@@ -463,7 +463,7 @@ $result_elements{'unnumbered_before_node_top_top'} = [
               'extra' => {},
               'structure' => {
                 'associated_unit' => {},
-                'level' => 1
+                'section_level' => 1
               }
             }
           },

@@ -232,14 +232,13 @@ More in math
 
 $result_sectioning{'section_in_math'} = {
   'structure' => {
-    'level' => 1,
     'section_childs' => [
       {
         'cmdname' => 'section',
         'extra' => {},
         'structure' => {
-          'level' => 2,
-          'number' => 1,
+          'section_level' => 2,
+          'section_number' => 1,
           'section_up' => {}
         }
       },
@@ -247,14 +246,15 @@ $result_sectioning{'section_in_math'} = {
         'cmdname' => 'section',
         'extra' => {},
         'structure' => {
-          'level' => 2,
-          'number' => 2,
+          'section_level' => 2,
+          'section_number' => 2,
           'section_prev' => {},
           'section_up' => {},
           'toplevel_prev' => {}
         }
       }
-    ]
+    ],
+    'section_level' => 1
   }
 };
 $result_sectioning{'section_in_math'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'section_in_math'};

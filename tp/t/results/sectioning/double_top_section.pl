@@ -153,13 +153,12 @@ Second top.
 
 $result_sectioning{'double_top_section'} = {
   'structure' => {
-    'level' => -1,
     'section_childs' => [
       {
         'cmdname' => 'top',
         'extra' => {},
         'structure' => {
-          'level' => 0,
+          'section_level' => 0,
           'section_up' => {}
         }
       },
@@ -167,14 +166,15 @@ $result_sectioning{'double_top_section'} = {
         'cmdname' => 'top',
         'extra' => {},
         'structure' => {
-          'level' => 0,
+          'section_level' => 0,
           'section_prev' => {},
           'section_up' => {},
           'toplevel_prev' => {},
           'toplevel_up' => {}
         }
       }
-    ]
+    ],
+    'section_level' => -1
   }
 };
 $result_sectioning{'double_top_section'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'double_top_section'};

@@ -621,7 +621,6 @@ Text
 
 $result_sectioning{'direntry_dircategory_and_commands'} = {
   'structure' => {
-    'level' => -1,
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -634,11 +633,12 @@ $result_sectioning{'direntry_dircategory_and_commands'} = {
           }
         },
         'structure' => {
-          'level' => 0,
+          'section_level' => 0,
           'section_up' => {}
         }
       }
-    ]
+    ],
+    'section_level' => -1
   }
 };
 $result_sectioning{'direntry_dircategory_and_commands'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'direntry_dircategory_and_commands'};
@@ -650,7 +650,7 @@ $result_nodes{'direntry_dircategory_and_commands'} = {
       'cmdname' => 'top',
       'extra' => {},
       'structure' => {
-        'level' => 0
+        'section_level' => 0
       }
     },
     'normalized' => 'Top'

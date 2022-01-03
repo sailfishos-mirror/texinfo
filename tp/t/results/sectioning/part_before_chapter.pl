@@ -121,7 +121,6 @@ $result_texts{'part_before_chapter'} = 'part
 
 $result_sectioning{'part_before_chapter'} = {
   'structure' => {
-    'level' => -1,
     'section_childs' => [
       {
         'cmdname' => 'part',
@@ -143,22 +142,23 @@ $result_sectioning{'part_before_chapter'} = {
                 },
                 'type' => 'unit'
               },
-              'level' => 1,
-              'number' => 1,
+              'section_level' => 1,
+              'section_number' => 1,
               'section_up' => {}
             }
           }
         },
         'structure' => {
           'associated_unit' => {},
-          'level' => 0,
           'section_childs' => [
             {}
           ],
+          'section_level' => 0,
           'section_up' => {}
         }
       }
-    ]
+    ],
+    'section_level' => -1
   }
 };
 $result_sectioning{'part_before_chapter'}{'structure'}{'section_childs'}[0]{'extra'}{'part_associated_section'}{'extra'}{'associated_part'} = $result_sectioning{'part_before_chapter'}{'structure'}{'section_childs'}[0];
@@ -186,14 +186,14 @@ $result_elements{'part_before_chapter'} = [
             'extra' => {},
             'structure' => {
               'associated_unit' => {},
-              'level' => 0
+              'section_level' => 0
             }
           }
         },
         'structure' => {
           'associated_unit' => {},
-          'level' => 1,
-          'number' => 1
+          'section_level' => 1,
+          'section_number' => 1
         }
       }
     },

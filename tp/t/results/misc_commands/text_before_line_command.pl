@@ -358,7 +358,6 @@ quotation
 
 $result_sectioning{'text_before_line_command'} = {
   'structure' => {
-    'level' => 0,
     'section_childs' => [
       {
         'cmdname' => 'chapter',
@@ -372,12 +371,13 @@ $result_sectioning{'text_before_line_command'} = {
           }
         },
         'structure' => {
-          'level' => 1,
-          'number' => 1,
+          'section_level' => 1,
+          'section_number' => 1,
           'section_up' => {}
         }
       }
-    ]
+    ],
+    'section_level' => 0
   }
 };
 $result_sectioning{'text_before_line_command'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'text_before_line_command'};
@@ -389,8 +389,8 @@ $result_nodes{'text_before_line_command'} = {
       'cmdname' => 'chapter',
       'extra' => {},
       'structure' => {
-        'level' => 1,
-        'number' => 1
+        'section_level' => 1,
+        'section_number' => 1
       }
     },
     'normalized' => 'LD-Version-Scripts'

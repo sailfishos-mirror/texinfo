@@ -623,7 +623,6 @@ top
 
 $result_sectioning{'section_chapter_before_top_nodes'} = {
   'structure' => {
-    'level' => 1,
     'section_childs' => [
       {
         'cmdname' => 'section',
@@ -637,8 +636,8 @@ $result_sectioning{'section_chapter_before_top_nodes'} = {
           }
         },
         'structure' => {
-          'level' => 2,
-          'number' => 1,
+          'section_level' => 2,
+          'section_number' => 1,
           'section_up' => {}
         }
       },
@@ -654,8 +653,8 @@ $result_sectioning{'section_chapter_before_top_nodes'} = {
           }
         },
         'structure' => {
-          'level' => 2,
-          'number' => 2,
+          'section_level' => 2,
+          'section_number' => 2,
           'section_prev' => {},
           'section_up' => {},
           'toplevel_prev' => {}
@@ -673,13 +672,14 @@ $result_sectioning{'section_chapter_before_top_nodes'} = {
           }
         },
         'structure' => {
-          'level' => 2,
+          'section_level' => 2,
           'section_prev' => {},
           'section_up' => {},
           'toplevel_prev' => {}
         }
       }
-    ]
+    ],
+    'section_level' => 1
   }
 };
 $result_sectioning{'section_chapter_before_top_nodes'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'section_chapter_before_top_nodes'};
@@ -697,7 +697,7 @@ $result_nodes{'section_chapter_before_top_nodes'} = {
       'cmdname' => 'top',
       'extra' => {},
       'structure' => {
-        'level' => 2
+        'section_level' => 2
       }
     },
     'menus' => [
@@ -716,8 +716,8 @@ $result_nodes{'section_chapter_before_top_nodes'} = {
           'cmdname' => 'chapter',
           'extra' => {},
           'structure' => {
-            'level' => 2,
-            'number' => 2
+            'section_level' => 2,
+            'section_number' => 2
           }
         },
         'menus' => [
@@ -736,8 +736,8 @@ $result_nodes{'section_chapter_before_top_nodes'} = {
               'cmdname' => 'section',
               'extra' => {},
               'structure' => {
-                'level' => 2,
-                'number' => 1
+                'section_level' => 2,
+                'section_number' => 1
               }
             },
             'normalized' => 'section-node'

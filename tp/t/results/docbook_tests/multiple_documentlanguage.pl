@@ -626,7 +626,6 @@ top
 
 $result_sectioning{'multiple_documentlanguage'} = {
   'structure' => {
-    'level' => -1,
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -640,7 +639,6 @@ $result_sectioning{'multiple_documentlanguage'} = {
           }
         },
         'structure' => {
-          'level' => 0,
           'section_childs' => [
             {
               'cmdname' => 'chapter',
@@ -654,8 +652,8 @@ $result_sectioning{'multiple_documentlanguage'} = {
                 }
               },
               'structure' => {
-                'level' => 1,
-                'number' => 1,
+                'section_level' => 1,
+                'section_number' => 1,
                 'section_up' => {},
                 'toplevel_prev' => {},
                 'toplevel_up' => {}
@@ -673,8 +671,6 @@ $result_sectioning{'multiple_documentlanguage'} = {
                 }
               },
               'structure' => {
-                'level' => 1,
-                'number' => 2,
                 'section_childs' => [
                   {
                     'cmdname' => 'section',
@@ -688,8 +684,8 @@ $result_sectioning{'multiple_documentlanguage'} = {
                       }
                     },
                     'structure' => {
-                      'level' => 2,
-                      'number' => '2.1',
+                      'section_level' => 2,
+                      'section_number' => '2.1',
                       'section_up' => {}
                     }
                   },
@@ -705,13 +701,15 @@ $result_sectioning{'multiple_documentlanguage'} = {
                       }
                     },
                     'structure' => {
-                      'level' => 2,
-                      'number' => '2.2',
+                      'section_level' => 2,
+                      'section_number' => '2.2',
                       'section_prev' => {},
                       'section_up' => {}
                     }
                   }
                 ],
+                'section_level' => 1,
+                'section_number' => 2,
                 'section_prev' => {},
                 'section_up' => {},
                 'toplevel_prev' => {},
@@ -719,10 +717,12 @@ $result_sectioning{'multiple_documentlanguage'} = {
               }
             }
           ],
+          'section_level' => 0,
           'section_up' => {}
         }
       }
-    ]
+    ],
+    'section_level' => -1
   }
 };
 $result_sectioning{'multiple_documentlanguage'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'multiple_documentlanguage'}{'structure'}{'section_childs'}[0];
@@ -744,7 +744,7 @@ $result_nodes{'multiple_documentlanguage'} = {
       'cmdname' => 'top',
       'extra' => {},
       'structure' => {
-        'level' => 0
+        'section_level' => 0
       }
     },
     'normalized' => 'Top'
@@ -757,8 +757,8 @@ $result_nodes{'multiple_documentlanguage'} = {
           'cmdname' => 'chapter',
           'extra' => {},
           'structure' => {
-            'level' => 1,
-            'number' => 1
+            'section_level' => 1,
+            'section_number' => 1
           }
         },
         'normalized' => 'chap'
@@ -771,8 +771,8 @@ $result_nodes{'multiple_documentlanguage'} = {
               'cmdname' => 'chapter',
               'extra' => {},
               'structure' => {
-                'level' => 1,
-                'number' => 2
+                'section_level' => 1,
+                'section_number' => 2
               }
             },
             'normalized' => 'chapter-fr'

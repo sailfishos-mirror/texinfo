@@ -739,7 +739,6 @@ after.
 
 $result_sectioning{'nodes_before_after_top_xref'} = {
   'structure' => {
-    'level' => -1,
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -753,7 +752,6 @@ $result_sectioning{'nodes_before_after_top_xref'} = {
           }
         },
         'structure' => {
-          'level' => 0,
           'section_childs' => [
             {
               'cmdname' => 'chapter',
@@ -767,18 +765,20 @@ $result_sectioning{'nodes_before_after_top_xref'} = {
                 }
               },
               'structure' => {
-                'level' => 1,
-                'number' => 1,
+                'section_level' => 1,
+                'section_number' => 1,
                 'section_up' => {},
                 'toplevel_prev' => {},
                 'toplevel_up' => {}
               }
             }
           ],
+          'section_level' => 0,
           'section_up' => {}
         }
       }
-    ]
+    ],
+    'section_level' => -1
   }
 };
 $result_sectioning{'nodes_before_after_top_xref'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'nodes_before_after_top_xref'}{'structure'}{'section_childs'}[0];
@@ -793,7 +793,7 @@ $result_nodes{'nodes_before_after_top_xref'} = {
       'cmdname' => 'top',
       'extra' => {},
       'structure' => {
-        'level' => 0
+        'section_level' => 0
       }
     },
     'normalized' => 'Top'
@@ -806,8 +806,8 @@ $result_nodes{'nodes_before_after_top_xref'} = {
           'cmdname' => 'chapter',
           'extra' => {},
           'structure' => {
-            'level' => 1,
-            'number' => 1
+            'section_level' => 1,
+            'section_number' => 1
           }
         },
         'normalized' => 'chap'

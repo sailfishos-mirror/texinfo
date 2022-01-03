@@ -250,7 +250,6 @@ Text of chapter
 
 $result_sectioning{'top_without_node_nodes'} = {
   'structure' => {
-    'level' => -1,
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -279,7 +278,6 @@ $result_sectioning{'top_without_node_nodes'} = {
             },
             'type' => 'unit'
           },
-          'level' => 0,
           'section_childs' => [
             {
               'cmdname' => 'chapter',
@@ -288,18 +286,20 @@ $result_sectioning{'top_without_node_nodes'} = {
               },
               'structure' => {
                 'associated_unit' => {},
-                'level' => 1,
-                'number' => 1,
+                'section_level' => 1,
+                'section_number' => 1,
                 'section_up' => {},
                 'toplevel_prev' => {},
                 'toplevel_up' => {}
               }
             }
           ],
+          'section_level' => 0,
           'section_up' => {}
         }
       }
-    ]
+    ],
+    'section_level' => -1
   }
 };
 $result_sectioning{'top_without_node_nodes'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'extra'}{'unit_command'}{'structure'}{'associated_unit'} = $result_sectioning{'top_without_node_nodes'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'};
@@ -339,8 +339,8 @@ $result_nodes{'top_without_node_nodes'} = {
           },
           'type' => 'unit'
         },
-        'level' => 1,
-        'number' => 1
+        'section_level' => 1,
+        'section_number' => 1
       }
     },
     'normalized' => 'second'

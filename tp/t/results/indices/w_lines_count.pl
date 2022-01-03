@@ -347,7 +347,6 @@ Compilation mode also defines the keys SPC and DEL to
 
 $result_sectioning{'w_lines_count'} = {
   'structure' => {
-    'level' => -1,
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -361,11 +360,12 @@ $result_sectioning{'w_lines_count'} = {
           }
         },
         'structure' => {
-          'level' => 0,
+          'section_level' => 0,
           'section_up' => {}
         }
       }
-    ]
+    ],
+    'section_level' => -1
   }
 };
 $result_sectioning{'w_lines_count'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'w_lines_count'};
@@ -377,7 +377,7 @@ $result_nodes{'w_lines_count'} = {
       'cmdname' => 'top',
       'extra' => {},
       'structure' => {
-        'level' => 0
+        'section_level' => 0
       }
     },
     'isindex' => 1,

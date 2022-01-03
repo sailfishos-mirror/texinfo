@@ -1356,7 +1356,6 @@ Title
 
 $result_sectioning{'inter_item_commands_in_enumerate'} = {
   'structure' => {
-    'level' => -1,
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -1370,7 +1369,6 @@ $result_sectioning{'inter_item_commands_in_enumerate'} = {
           }
         },
         'structure' => {
-          'level' => 0,
           'section_childs' => [
             {
               'cmdname' => 'chapter',
@@ -1384,18 +1382,20 @@ $result_sectioning{'inter_item_commands_in_enumerate'} = {
                 }
               },
               'structure' => {
-                'level' => 1,
-                'number' => 1,
+                'section_level' => 1,
+                'section_number' => 1,
                 'section_up' => {},
                 'toplevel_prev' => {},
                 'toplevel_up' => {}
               }
             }
           ],
+          'section_level' => 0,
           'section_up' => {}
         }
       }
-    ]
+    ],
+    'section_level' => -1
   }
 };
 $result_sectioning{'inter_item_commands_in_enumerate'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'inter_item_commands_in_enumerate'}{'structure'}{'section_childs'}[0];
@@ -1410,7 +1410,7 @@ $result_nodes{'inter_item_commands_in_enumerate'} = {
       'cmdname' => 'top',
       'extra' => {},
       'structure' => {
-        'level' => 0
+        'section_level' => 0
       }
     },
     'normalized' => 'Top'
@@ -1423,8 +1423,8 @@ $result_nodes{'inter_item_commands_in_enumerate'} = {
           'cmdname' => 'chapter',
           'extra' => {},
           'structure' => {
-            'level' => 1,
-            'number' => 1
+            'section_level' => 1,
+            'section_number' => 1
           }
         },
         'normalized' => 'chapter'

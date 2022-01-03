@@ -78,7 +78,7 @@ sub parser (;$$)
         }
       } elsif ($key eq 'values') {
         for my $v (keys %{$conf->{'values'}}) {
-          if (!ref($conf->{'values'}->{$v})) {
+          if (ref($conf->{'values'}->{$v}) eq '') {
             store_value ($v, $conf->{'values'}->{$v});
           } else {
             warn "bug: non-scalar \@value\n";

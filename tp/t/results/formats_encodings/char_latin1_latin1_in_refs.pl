@@ -1715,7 +1715,6 @@ top
 
 $result_sectioning{'char_latin1_latin1_in_refs'} = {
   'structure' => {
-    'level' => -1,
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -1730,7 +1729,6 @@ $result_sectioning{'char_latin1_latin1_in_refs'} = {
           }
         },
         'structure' => {
-          'level' => 0,
           'section_childs' => [
             {
               'cmdname' => 'chapter',
@@ -1744,8 +1742,8 @@ $result_sectioning{'char_latin1_latin1_in_refs'} = {
                 }
               },
               'structure' => {
-                'level' => 1,
-                'number' => 1,
+                'section_level' => 1,
+                'section_number' => 1,
                 'section_up' => {},
                 'toplevel_prev' => {},
                 'toplevel_up' => {}
@@ -1763,8 +1761,8 @@ $result_sectioning{'char_latin1_latin1_in_refs'} = {
                 }
               },
               'structure' => {
-                'level' => 1,
-                'number' => 2,
+                'section_level' => 1,
+                'section_number' => 2,
                 'section_prev' => {},
                 'section_up' => {},
                 'toplevel_prev' => {},
@@ -1783,8 +1781,8 @@ $result_sectioning{'char_latin1_latin1_in_refs'} = {
                 }
               },
               'structure' => {
-                'level' => 1,
-                'number' => 3,
+                'section_level' => 1,
+                'section_number' => 3,
                 'section_prev' => {},
                 'section_up' => {},
                 'toplevel_prev' => {},
@@ -1803,8 +1801,8 @@ $result_sectioning{'char_latin1_latin1_in_refs'} = {
                 }
               },
               'structure' => {
-                'level' => 1,
-                'number' => 4,
+                'section_level' => 1,
+                'section_number' => 4,
                 'section_prev' => {},
                 'section_up' => {},
                 'toplevel_prev' => {},
@@ -1823,8 +1821,8 @@ $result_sectioning{'char_latin1_latin1_in_refs'} = {
                 }
               },
               'structure' => {
-                'level' => 1,
-                'number' => 5,
+                'section_level' => 1,
+                'section_number' => 5,
                 'section_prev' => {},
                 'section_up' => {},
                 'toplevel_prev' => {},
@@ -1832,10 +1830,12 @@ $result_sectioning{'char_latin1_latin1_in_refs'} = {
               }
             }
           ],
+          'section_level' => 0,
           'section_up' => {}
         }
       }
-    ]
+    ],
+    'section_level' => -1
   }
 };
 $result_sectioning{'char_latin1_latin1_in_refs'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'char_latin1_latin1_in_refs'}{'structure'}{'section_childs'}[0];
@@ -1866,7 +1866,7 @@ $result_nodes{'char_latin1_latin1_in_refs'} = {
       'cmdname' => 'top',
       'extra' => {},
       'structure' => {
-        'level' => 0
+        'section_level' => 0
       }
     },
     'isindex' => 1,
@@ -1886,8 +1886,8 @@ $result_nodes{'char_latin1_latin1_in_refs'} = {
           'cmdname' => 'chapter',
           'extra' => {},
           'structure' => {
-            'level' => 1,
-            'number' => 1
+            'section_level' => 1,
+            'section_number' => 1
           }
         },
         'normalized' => '_00e4-_00eb-_00ef-_00f6-_00fc-_00ff-_00c4-_00cb-_00cf-_00d6-_00dc'
@@ -1900,8 +1900,8 @@ $result_nodes{'char_latin1_latin1_in_refs'} = {
               'cmdname' => 'chapter',
               'extra' => {},
               'structure' => {
-                'level' => 1,
-                'number' => 2
+                'section_level' => 1,
+                'section_number' => 2
               }
             },
             'normalized' => '_00e9'
@@ -1914,8 +1914,8 @@ $result_nodes{'char_latin1_latin1_in_refs'} = {
                   'cmdname' => 'chapter',
                   'extra' => {},
                   'structure' => {
-                    'level' => 1,
-                    'number' => 3
+                    'section_level' => 1,
+                    'section_number' => 3
                   }
                 },
                 'normalized' => '_00e0-_00e8-_00f9'
@@ -1928,8 +1928,8 @@ $result_nodes{'char_latin1_latin1_in_refs'} = {
                       'cmdname' => 'chapter',
                       'extra' => {},
                       'structure' => {
-                        'level' => 1,
-                        'number' => 4
+                        'section_level' => 1,
+                        'section_number' => 4
                       }
                     },
                     'normalized' => '_00e2-_00ea-_00ee-_00f4-_00fb-_00c2-_00ca-_00ce-_00d4-_00db'
@@ -1942,8 +1942,8 @@ $result_nodes{'char_latin1_latin1_in_refs'} = {
                           'cmdname' => 'chapter',
                           'extra' => {},
                           'structure' => {
-                            'level' => 1,
-                            'number' => 5
+                            'section_level' => 1,
+                            'section_number' => 5
                           }
                         },
                         'normalized' => '_00e7'

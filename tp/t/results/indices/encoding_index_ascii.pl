@@ -3536,7 +3536,6 @@ top
 
 $result_sectioning{'encoding_index_ascii'} = {
   'structure' => {
-    'level' => -1,
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -3550,11 +3549,12 @@ $result_sectioning{'encoding_index_ascii'} = {
           }
         },
         'structure' => {
-          'level' => 0,
+          'section_level' => 0,
           'section_up' => {}
         }
       }
-    ]
+    ],
+    'section_level' => -1
   }
 };
 $result_sectioning{'encoding_index_ascii'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'encoding_index_ascii'};
@@ -3566,7 +3566,7 @@ $result_nodes{'encoding_index_ascii'} = {
       'cmdname' => 'top',
       'extra' => {},
       'structure' => {
-        'level' => 0
+        'section_level' => 0
       }
     },
     'isindex' => 1,

@@ -474,7 +474,7 @@ my @contents_keys = ('contents', 'args', 'parent',
   'block_command_line_contents', 'spaces_after_command', 'spaces_before_argument',
   'end_command', 'text_arg', 'command_argument');
 my @menus_keys = ('menu_next', 'menu_up', 'menu_prev', 'menu_up_hash');
-# 'level' 'number'
+# 'section_level' 'section_number'
 my @sections_keys = ('section_next', 'section_prev', 'section_up', 
   'section_childs', 'associated_node', 'part_associated_section', 
   'toplevel_prev', 'toplevel_next', 'toplevel_up');

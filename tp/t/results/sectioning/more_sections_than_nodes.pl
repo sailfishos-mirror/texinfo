@@ -1361,7 +1361,6 @@ Appendix A appendix
 
 $result_sectioning{'more_sections_than_nodes'} = {
   'structure' => {
-    'level' => -1,
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -1375,14 +1374,13 @@ $result_sectioning{'more_sections_than_nodes'} = {
           }
         },
         'structure' => {
-          'level' => 0,
           'section_childs' => [
             {
               'cmdname' => 'chapter',
               'extra' => {},
               'structure' => {
-                'level' => 1,
-                'number' => 1,
+                'section_level' => 1,
+                'section_number' => 1,
                 'section_up' => {},
                 'toplevel_prev' => {},
                 'toplevel_up' => {}
@@ -1400,19 +1398,19 @@ $result_sectioning{'more_sections_than_nodes'} = {
                 }
               },
               'structure' => {
-                'level' => 1,
-                'number' => 2,
                 'section_childs' => [
                   {
                     'cmdname' => 'section',
                     'extra' => {},
                     'structure' => {
-                      'level' => 2,
-                      'number' => '2.1',
+                      'section_level' => 2,
+                      'section_number' => '2.1',
                       'section_up' => {}
                     }
                   }
                 ],
+                'section_level' => 1,
+                'section_number' => 2,
                 'section_prev' => {},
                 'section_up' => {},
                 'toplevel_prev' => {},
@@ -1431,15 +1429,13 @@ $result_sectioning{'more_sections_than_nodes'} = {
                 }
               },
               'structure' => {
-                'level' => 1,
-                'number' => 3,
                 'section_childs' => [
                   {
                     'cmdname' => 'section',
                     'extra' => {},
                     'structure' => {
-                      'level' => 2,
-                      'number' => '3.1',
+                      'section_level' => 2,
+                      'section_number' => '3.1',
                       'section_up' => {}
                     }
                   },
@@ -1455,8 +1451,8 @@ $result_sectioning{'more_sections_than_nodes'} = {
                       }
                     },
                     'structure' => {
-                      'level' => 2,
-                      'number' => '3.2',
+                      'section_level' => 2,
+                      'section_number' => '3.2',
                       'section_prev' => {},
                       'section_up' => {}
                     }
@@ -1465,13 +1461,15 @@ $result_sectioning{'more_sections_than_nodes'} = {
                     'cmdname' => 'section',
                     'extra' => {},
                     'structure' => {
-                      'level' => 2,
-                      'number' => '3.3',
+                      'section_level' => 2,
+                      'section_number' => '3.3',
                       'section_prev' => {},
                       'section_up' => {}
                     }
                   }
                 ],
+                'section_level' => 1,
+                'section_number' => 3,
                 'section_prev' => {},
                 'section_up' => {},
                 'toplevel_prev' => {},
@@ -1482,22 +1480,18 @@ $result_sectioning{'more_sections_than_nodes'} = {
               'cmdname' => 'chapter',
               'extra' => {},
               'structure' => {
-                'level' => 1,
-                'number' => 4,
                 'section_childs' => [
                   {
                     'cmdname' => 'section',
                     'extra' => {},
                     'structure' => {
-                      'level' => 2,
-                      'number' => '4.1',
                       'section_childs' => [
                         {
                           'cmdname' => 'subsection',
                           'extra' => {},
                           'structure' => {
-                            'level' => 3,
-                            'number' => '4.1.1',
+                            'section_level' => 3,
+                            'section_number' => '4.1.1',
                             'section_up' => {}
                           }
                         },
@@ -1513,17 +1507,21 @@ $result_sectioning{'more_sections_than_nodes'} = {
                             }
                           },
                           'structure' => {
-                            'level' => 3,
-                            'number' => '4.1.2',
+                            'section_level' => 3,
+                            'section_number' => '4.1.2',
                             'section_prev' => {},
                             'section_up' => {}
                           }
                         }
                       ],
+                      'section_level' => 2,
+                      'section_number' => '4.1',
                       'section_up' => {}
                     }
                   }
                 ],
+                'section_level' => 1,
+                'section_number' => 4,
                 'section_prev' => {},
                 'section_up' => {},
                 'toplevel_prev' => {},
@@ -1534,8 +1532,8 @@ $result_sectioning{'more_sections_than_nodes'} = {
               'cmdname' => 'appendix',
               'extra' => {},
               'structure' => {
-                'level' => 1,
-                'number' => 'A',
+                'section_level' => 1,
+                'section_number' => 'A',
                 'section_prev' => {},
                 'section_up' => {},
                 'toplevel_prev' => {},
@@ -1543,10 +1541,12 @@ $result_sectioning{'more_sections_than_nodes'} = {
               }
             }
           ],
+          'section_level' => 0,
           'section_up' => {}
         }
       }
-    ]
+    ],
+    'section_level' => -1
   }
 };
 $result_sectioning{'more_sections_than_nodes'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'more_sections_than_nodes'}{'structure'}{'section_childs'}[0];
@@ -1587,7 +1587,7 @@ $result_nodes{'more_sections_than_nodes'} = {
       'cmdname' => 'top',
       'extra' => {},
       'structure' => {
-        'level' => 0
+        'section_level' => 0
       }
     },
     'menus' => [
@@ -1606,8 +1606,8 @@ $result_nodes{'more_sections_than_nodes'} = {
           'cmdname' => 'chapter',
           'extra' => {},
           'structure' => {
-            'level' => 1,
-            'number' => 2
+            'section_level' => 1,
+            'section_number' => 2
           }
         },
         'normalized' => 'n-c2'
@@ -1620,8 +1620,8 @@ $result_nodes{'more_sections_than_nodes'} = {
               'cmdname' => 'chapter',
               'extra' => {},
               'structure' => {
-                'level' => 1,
-                'number' => 3
+                'section_level' => 1,
+                'section_number' => 3
               }
             },
             'menus' => [
@@ -1640,8 +1640,8 @@ $result_nodes{'more_sections_than_nodes'} = {
                   'cmdname' => 'section',
                   'extra' => {},
                   'structure' => {
-                    'level' => 2,
-                    'number' => '3.2'
+                    'section_level' => 2,
+                    'section_number' => '3.2'
                   }
                 },
                 'normalized' => 'n-c3-s-2'
@@ -1657,8 +1657,8 @@ $result_nodes{'more_sections_than_nodes'} = {
                   'cmdname' => 'subsection',
                   'extra' => {},
                   'structure' => {
-                    'level' => 3,
-                    'number' => '4.1.2'
+                    'section_level' => 3,
+                    'section_number' => '4.1.2'
                   }
                 },
                 'normalized' => 'n-c3-s1-s2'

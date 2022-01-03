@@ -51,7 +51,6 @@ $result_texts{'unnumbered_no_argument'} = '';
 
 $result_sectioning{'unnumbered_no_argument'} = {
   'structure' => {
-    'level' => 0,
     'section_childs' => [
       {
         'cmdname' => 'unnumbered',
@@ -59,11 +58,12 @@ $result_sectioning{'unnumbered_no_argument'} = {
           'missing_argument' => 1
         },
         'structure' => {
-          'level' => 1,
+          'section_level' => 1,
           'section_up' => {}
         }
       }
-    ]
+    ],
+    'section_level' => 0
   }
 };
 $result_sectioning{'unnumbered_no_argument'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'unnumbered_no_argument'};

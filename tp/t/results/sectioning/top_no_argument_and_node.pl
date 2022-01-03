@@ -96,7 +96,6 @@ $result_texts{'top_no_argument_and_node'} = '';
 
 $result_sectioning{'top_no_argument_and_node'} = {
   'structure' => {
-    'level' => -1,
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -109,11 +108,12 @@ $result_sectioning{'top_no_argument_and_node'} = {
           }
         },
         'structure' => {
-          'level' => 0,
+          'section_level' => 0,
           'section_up' => {}
         }
       }
-    ]
+    ],
+    'section_level' => -1
   }
 };
 $result_sectioning{'top_no_argument_and_node'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'top_no_argument_and_node'};
@@ -125,7 +125,7 @@ $result_nodes{'top_no_argument_and_node'} = {
       'cmdname' => 'top',
       'extra' => {},
       'structure' => {
-        'level' => 0
+        'section_level' => 0
       }
     },
     'normalized' => 'start'

@@ -195,7 +195,7 @@ sub book_convert_heading_command($$$$$)
   # if set, the id is associated to the heading text
   my $heading_id;
   if ($section) {
-    my $level = $section->{'structure'}->{'level'};
+    my $level = $section->{'structure'}->{'section_level'};
     $result .= join('', $self->close_registered_sections_level($level));
     $self->register_opened_section_level($level, "</div>\n");
 
@@ -236,8 +236,8 @@ sub book_convert_heading_command($$$$$)
         $heading_level = 3;
       }
     }
-  } elsif (defined $element->{'structure'}->{'level'}) {
-    $heading_level = $element->{'structure'}->{'level'};
+  } elsif (defined $element->{'structure'}->{'section_level'}) {
+    $heading_level = $element->{'structure'}->{'section_level'};
     # if the level was changed, set the command name right
     $cmdname_for_heading
       = Texinfo::Structuring::section_level_adjusted_command_name($element);
@@ -323,9 +323,9 @@ sub book_element_file_name($$$)
   return undef unless ($command);
   if ($converter->element_is_tree_unit_top($element)) {
     $new_file_name = "${prefix}_top.html";
-  } elsif (defined($command->{'structure'}->{'number'})
-           and ($command->{'structure'}->{'number'} ne '')) {
-    my $number = $command->{'structure'}->{'number'};
+  } elsif (defined($command->{'structure'}->{'section_number'})
+           and ($command->{'structure'}->{'section_number'} ne '')) {
+    my $number = $command->{'structure'}->{'section_number'};
     $number .= '.' unless ($number =~ /\.$/);
     $new_file_name = "${prefix}_$number" . 'html';
   } else {

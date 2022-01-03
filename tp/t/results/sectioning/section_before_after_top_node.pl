@@ -264,13 +264,12 @@ in chapter
 
 $result_sectioning{'section_before_after_top_node'} = {
   'structure' => {
-    'level' => 0,
     'section_childs' => [
       {
         'cmdname' => 'unnumbered',
         'extra' => {},
         'structure' => {
-          'level' => 1,
+          'section_level' => 1,
           'section_up' => {}
         }
       },
@@ -285,7 +284,7 @@ $result_sectioning{'section_before_after_top_node'} = {
           }
         },
         'structure' => {
-          'level' => 1,
+          'section_level' => 1,
           'section_prev' => {},
           'section_up' => {},
           'toplevel_prev' => {}
@@ -295,15 +294,16 @@ $result_sectioning{'section_before_after_top_node'} = {
         'cmdname' => 'chapter',
         'extra' => {},
         'structure' => {
-          'level' => 1,
-          'number' => 1,
+          'section_level' => 1,
+          'section_number' => 1,
           'section_prev' => {},
           'section_up' => {},
           'toplevel_prev' => {},
           'toplevel_up' => {}
         }
       }
-    ]
+    ],
+    'section_level' => 0
   }
 };
 $result_sectioning{'section_before_after_top_node'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'section_before_after_top_node'};
@@ -322,7 +322,7 @@ $result_nodes{'section_before_after_top_node'} = {
       'cmdname' => 'top',
       'extra' => {},
       'structure' => {
-        'level' => 1
+        'section_level' => 1
       }
     },
     'normalized' => 'Top'

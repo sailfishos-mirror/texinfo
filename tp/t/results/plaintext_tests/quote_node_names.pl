@@ -1752,7 +1752,6 @@ stuff here.
 
 $result_sectioning{'quote_node_names'} = {
   'structure' => {
-    'level' => -1,
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -1766,7 +1765,6 @@ $result_sectioning{'quote_node_names'} = {
           }
         },
         'structure' => {
-          'level' => 0,
           'section_childs' => [
             {
               'cmdname' => 'chapter',
@@ -1780,8 +1778,8 @@ $result_sectioning{'quote_node_names'} = {
                 }
               },
               'structure' => {
-                'level' => 1,
-                'number' => 1,
+                'section_level' => 1,
+                'section_number' => 1,
                 'section_up' => {},
                 'toplevel_prev' => {},
                 'toplevel_up' => {}
@@ -1799,8 +1797,8 @@ $result_sectioning{'quote_node_names'} = {
                 }
               },
               'structure' => {
-                'level' => 1,
-                'number' => 2,
+                'section_level' => 1,
+                'section_number' => 2,
                 'section_prev' => {},
                 'section_up' => {},
                 'toplevel_prev' => {},
@@ -1819,8 +1817,8 @@ $result_sectioning{'quote_node_names'} = {
                 }
               },
               'structure' => {
-                'level' => 1,
-                'number' => 3,
+                'section_level' => 1,
+                'section_number' => 3,
                 'section_prev' => {},
                 'section_up' => {},
                 'toplevel_prev' => {},
@@ -1839,8 +1837,8 @@ $result_sectioning{'quote_node_names'} = {
                 }
               },
               'structure' => {
-                'level' => 1,
-                'number' => 4,
+                'section_level' => 1,
+                'section_number' => 4,
                 'section_prev' => {},
                 'section_up' => {},
                 'toplevel_prev' => {},
@@ -1848,10 +1846,12 @@ $result_sectioning{'quote_node_names'} = {
               }
             }
           ],
+          'section_level' => 0,
           'section_up' => {}
         }
       }
-    ]
+    ],
+    'section_level' => -1
   }
 };
 $result_sectioning{'quote_node_names'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'quote_node_names'}{'structure'}{'section_childs'}[0];
@@ -1878,7 +1878,7 @@ $result_nodes{'quote_node_names'} = {
       'cmdname' => 'top',
       'extra' => {},
       'structure' => {
-        'level' => 0
+        'section_level' => 0
       }
     },
     'menus' => [
@@ -1897,8 +1897,8 @@ $result_nodes{'quote_node_names'} = {
           'cmdname' => 'chapter',
           'extra' => {},
           'structure' => {
-            'level' => 1,
-            'number' => 1
+            'section_level' => 1,
+            'section_number' => 1
           }
         },
         'normalized' => 'blah_003ablah'
@@ -1911,8 +1911,8 @@ $result_nodes{'quote_node_names'} = {
               'cmdname' => 'chapter',
               'extra' => {},
               'structure' => {
-                'level' => 1,
-                'number' => 2
+                'section_level' => 1,
+                'section_number' => 2
               }
             },
             'normalized' => 'blumpty_002efump'
@@ -1925,8 +1925,8 @@ $result_nodes{'quote_node_names'} = {
                   'cmdname' => 'chapter',
                   'extra' => {},
                   'structure' => {
-                    'level' => 1,
-                    'number' => 3
+                    'section_level' => 1,
+                    'section_number' => 3
                   }
                 },
                 'normalized' => 'normal-node'
@@ -1939,8 +1939,8 @@ $result_nodes{'quote_node_names'} = {
                       'cmdname' => 'chapter',
                       'extra' => {},
                       'structure' => {
-                        'level' => 1,
-                        'number' => 4
+                        'section_level' => 1,
+                        'section_number' => 4
                       }
                     },
                     'normalized' => 'secret_002cnode'

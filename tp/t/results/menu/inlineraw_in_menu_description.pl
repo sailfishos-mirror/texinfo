@@ -346,7 +346,6 @@ $result_texts{'inlineraw_in_menu_description'} = 'top
 
 $result_sectioning{'inlineraw_in_menu_description'} = {
   'structure' => {
-    'level' => -1,
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -360,11 +359,12 @@ $result_sectioning{'inlineraw_in_menu_description'} = {
           }
         },
         'structure' => {
-          'level' => 0,
+          'section_level' => 0,
           'section_up' => {}
         }
       }
-    ]
+    ],
+    'section_level' => -1
   }
 };
 $result_sectioning{'inlineraw_in_menu_description'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'inlineraw_in_menu_description'};
@@ -376,7 +376,7 @@ $result_nodes{'inlineraw_in_menu_description'} = {
       'cmdname' => 'top',
       'extra' => {},
       'structure' => {
-        'level' => 0
+        'section_level' => 0
       }
     },
     'menus' => [

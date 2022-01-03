@@ -701,7 +701,6 @@ do something with input
 
 $result_sectioning{'deftypefnnewline_for_copying_after'} = {
   'structure' => {
-    'level' => -1,
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -714,11 +713,12 @@ $result_sectioning{'deftypefnnewline_for_copying_after'} = {
           }
         },
         'structure' => {
-          'level' => 0,
+          'section_level' => 0,
           'section_up' => {}
         }
       }
-    ]
+    ],
+    'section_level' => -1
   }
 };
 $result_sectioning{'deftypefnnewline_for_copying_after'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'deftypefnnewline_for_copying_after'};
@@ -730,7 +730,7 @@ $result_nodes{'deftypefnnewline_for_copying_after'} = {
       'cmdname' => 'top',
       'extra' => {},
       'structure' => {
-        'level' => 0
+        'section_level' => 0
       }
     },
     'normalized' => 'Top'

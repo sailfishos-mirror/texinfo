@@ -127,7 +127,6 @@ Bar
 
 $result_sectioning{'loweredheading'} = {
   'structure' => {
-    'level' => 2,
     'section_childs' => [
       {
         'cmdname' => 'section',
@@ -135,12 +134,13 @@ $result_sectioning{'loweredheading'} = {
           'sections_level' => -1
         },
         'structure' => {
-          'level' => 3,
-          'number' => 1,
+          'section_level' => 3,
+          'section_number' => 1,
           'section_up' => {}
         }
       }
-    ]
+    ],
+    'section_level' => 2
   }
 };
 $result_sectioning{'loweredheading'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'loweredheading'};

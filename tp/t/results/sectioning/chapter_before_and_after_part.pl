@@ -207,7 +207,6 @@ part
 
 $result_sectioning{'chapter_before_and_after_part'} = {
   'structure' => {
-    'level' => -1,
     'section_childs' => [
       {
         'cmdname' => 'chapter',
@@ -231,18 +230,18 @@ $result_sectioning{'chapter_before_and_after_part'} = {
                           },
                           'structure' => {
                             'associated_unit' => {},
-                            'level' => 0,
                             'section_childs' => [
                               {}
                             ],
+                            'section_level' => 0,
                             'section_up' => {}
                           }
                         }
                       },
                       'structure' => {
                         'associated_unit' => {},
-                        'level' => 1,
-                        'number' => 2,
+                        'section_level' => 1,
+                        'section_number' => 2,
                         'section_up' => {},
                         'toplevel_prev' => {}
                       }
@@ -265,13 +264,14 @@ $result_sectioning{'chapter_before_and_after_part'} = {
             },
             'type' => 'unit'
           },
-          'level' => 1,
-          'number' => 1,
+          'section_level' => 1,
+          'section_number' => 1,
           'section_up' => {}
         }
       },
       {}
-    ]
+    ],
+    'section_level' => -1
   }
 };
 $result_sectioning{'chapter_before_and_after_part'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'extra'}{'unit_command'} = $result_sectioning{'chapter_before_and_after_part'}{'structure'}{'section_childs'}[0];
@@ -306,8 +306,8 @@ $result_elements{'chapter_before_and_after_part'} = [
         'extra' => {},
         'structure' => {
           'associated_unit' => {},
-          'level' => 1,
-          'number' => 1
+          'section_level' => 1,
+          'section_number' => 1
         }
       }
     },
@@ -323,14 +323,14 @@ $result_elements{'chapter_before_and_after_part'} = [
                   'extra' => {},
                   'structure' => {
                     'associated_unit' => {},
-                    'level' => 0
+                    'section_level' => 0
                   }
                 }
               },
               'structure' => {
                 'associated_unit' => {},
-                'level' => 1,
-                'number' => 2
+                'section_level' => 1,
+                'section_number' => 2
               }
             }
           },

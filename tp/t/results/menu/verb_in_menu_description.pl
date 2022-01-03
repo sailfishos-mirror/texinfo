@@ -328,7 +328,6 @@ $result_texts{'verb_in_menu_description'} = 'top
 
 $result_sectioning{'verb_in_menu_description'} = {
   'structure' => {
-    'level' => -1,
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -342,11 +341,12 @@ $result_sectioning{'verb_in_menu_description'} = {
           }
         },
         'structure' => {
-          'level' => 0,
+          'section_level' => 0,
           'section_up' => {}
         }
       }
-    ]
+    ],
+    'section_level' => -1
   }
 };
 $result_sectioning{'verb_in_menu_description'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'verb_in_menu_description'};
@@ -358,7 +358,7 @@ $result_nodes{'verb_in_menu_description'} = {
       'cmdname' => 'top',
       'extra' => {},
       'structure' => {
-        'level' => 0
+        'section_level' => 0
       }
     },
     'menus' => [

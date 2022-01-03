@@ -248,16 +248,16 @@ sub numbered_heading($$$;$)
   my $numbered = shift;
 
   my $number;
-  if (defined($current->{'structure'}->{'number'})
+  if (defined($current->{'structure'}->{'section_number'})
       and ($numbered or !defined($numbered))) {
-    $number = $current->{'structure'}->{'number'};
+    $number = $current->{'structure'}->{'section_number'};
   }
 
   my $result;
   if ($self) {
     if (defined($number)) {
       if ($current->{'cmdname'} eq 'appendix'
-          and $current->{'structure'}->{'level'} == 1) {
+          and $current->{'structure'}->{'section_level'} == 1) {
         $result = $self->gdt('Appendix {number} {section_title}',
                    {'number' => $number, 'section_title' => $text},
                    'translated_text');
@@ -273,7 +273,7 @@ sub numbered_heading($$$;$)
     $result = $text;
     $result = $number.' '.$result if (defined($number));
     if ($current->{'cmdname'} eq 'appendix'
-        and $current->{'structure'}->{'level'} == 1) {
+        and $current->{'structure'}->{'section_level'} == 1) {
       $result = 'Appendix '.$result;
     }
   }

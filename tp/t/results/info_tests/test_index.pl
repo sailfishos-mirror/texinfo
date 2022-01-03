@@ -4315,7 +4315,6 @@ B chapter end
 
 $result_sectioning{'test_index'} = {
   'structure' => {
-    'level' => -1,
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -4329,7 +4328,6 @@ $result_sectioning{'test_index'} = {
           }
         },
         'structure' => {
-          'level' => 0,
           'section_childs' => [
             {
               'cmdname' => 'chapter',
@@ -4343,8 +4341,8 @@ $result_sectioning{'test_index'} = {
                 }
               },
               'structure' => {
-                'level' => 1,
-                'number' => 1,
+                'section_level' => 1,
+                'section_number' => 1,
                 'section_up' => {},
                 'toplevel_prev' => {},
                 'toplevel_up' => {}
@@ -4363,41 +4361,41 @@ $result_sectioning{'test_index'} = {
                 }
               },
               'structure' => {
-                'level' => 1,
-                'number' => 'A',
                 'section_childs' => [
                   {
                     'cmdname' => 'appendixsec',
                     'extra' => {},
                     'structure' => {
-                      'level' => 2,
-                      'number' => 'A.1',
                       'section_childs' => [
                         {
                           'cmdname' => 'appendixsubsec',
                           'extra' => {},
                           'structure' => {
-                            'level' => 3,
-                            'number' => 'A.1.1',
                             'section_childs' => [
                               {
                                 'cmdname' => 'appendixsubsubsec',
                                 'extra' => {},
                                 'structure' => {
-                                  'level' => 4,
-                                  'number' => 'A.1.1.1',
+                                  'section_level' => 4,
+                                  'section_number' => 'A.1.1.1',
                                   'section_up' => {}
                                 }
                               }
                             ],
+                            'section_level' => 3,
+                            'section_number' => 'A.1.1',
                             'section_up' => {}
                           }
                         }
                       ],
+                      'section_level' => 2,
+                      'section_number' => 'A.1',
                       'section_up' => {}
                     }
                   }
                 ],
+                'section_level' => 1,
+                'section_number' => 'A',
                 'section_prev' => {},
                 'section_up' => {},
                 'toplevel_prev' => {},
@@ -4408,7 +4406,7 @@ $result_sectioning{'test_index'} = {
               'cmdname' => 'centerchap',
               'extra' => {},
               'structure' => {
-                'level' => 1,
+                'section_level' => 1,
                 'section_prev' => {},
                 'section_up' => {},
                 'toplevel_prev' => {},
@@ -4419,8 +4417,8 @@ $result_sectioning{'test_index'} = {
               'cmdname' => 'chapter',
               'extra' => {},
               'structure' => {
-                'level' => 1,
-                'number' => 'B',
+                'section_level' => 1,
+                'section_number' => 'B',
                 'section_prev' => {},
                 'section_up' => {},
                 'toplevel_prev' => {},
@@ -4428,10 +4426,12 @@ $result_sectioning{'test_index'} = {
               }
             }
           ],
+          'section_level' => 0,
           'section_up' => {}
         }
       }
-    ]
+    ],
+    'section_level' => -1
   }
 };
 $result_sectioning{'test_index'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'test_index'}{'structure'}{'section_childs'}[0];
@@ -4461,7 +4461,7 @@ $result_nodes{'test_index'} = {
       'cmdname' => 'top',
       'extra' => {},
       'structure' => {
-        'level' => 0
+        'section_level' => 0
       }
     },
     'menus' => [
@@ -4480,8 +4480,8 @@ $result_nodes{'test_index'} = {
           'cmdname' => 'chapter',
           'extra' => {},
           'structure' => {
-            'level' => 1,
-            'number' => 1
+            'section_level' => 1,
+            'section_number' => 1
           }
         },
         'normalized' => 'name'
@@ -4494,8 +4494,8 @@ $result_nodes{'test_index'} = {
               'cmdname' => 'appendix',
               'extra' => {},
               'structure' => {
-                'level' => 1,
-                'number' => 'A'
+                'section_level' => 1,
+                'section_number' => 'A'
               }
             },
             'isindex' => 1,

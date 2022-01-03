@@ -592,7 +592,6 @@ This variable represents MMM Mode.
 
 $result_sectioning{'same_index_entry_merged_indices'} = {
   'structure' => {
-    'level' => -1,
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -606,11 +605,12 @@ $result_sectioning{'same_index_entry_merged_indices'} = {
           }
         },
         'structure' => {
-          'level' => 0,
+          'section_level' => 0,
           'section_up' => {}
         }
       }
-    ]
+    ],
+    'section_level' => -1
   }
 };
 $result_sectioning{'same_index_entry_merged_indices'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'same_index_entry_merged_indices'};
@@ -622,7 +622,7 @@ $result_nodes{'same_index_entry_merged_indices'} = {
       'cmdname' => 'top',
       'extra' => {},
       'structure' => {
-        'level' => 0
+        'section_level' => 0
       }
     },
     'isindex' => 1,

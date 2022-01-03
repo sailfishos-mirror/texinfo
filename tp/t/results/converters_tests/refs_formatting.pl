@@ -4329,7 +4329,6 @@ $result_texts{'refs_formatting'} = '1 chapter
 
 $result_sectioning{'refs_formatting'} = {
   'structure' => {
-    'level' => 0,
     'section_childs' => [
       {
         'cmdname' => 'chapter',
@@ -4342,12 +4341,13 @@ $result_sectioning{'refs_formatting'} = {
           }
         },
         'structure' => {
-          'level' => 1,
-          'number' => 1,
+          'section_level' => 1,
+          'section_number' => 1,
           'section_up' => {}
         }
       }
-    ]
+    ],
+    'section_level' => 0
   }
 };
 $result_sectioning{'refs_formatting'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'refs_formatting'};
@@ -4359,8 +4359,8 @@ $result_nodes{'refs_formatting'} = {
       'cmdname' => 'chapter',
       'extra' => {},
       'structure' => {
-        'level' => 1,
-        'number' => 1
+        'section_level' => 1,
+        'section_number' => 1
       }
     },
     'normalized' => 'chapter'

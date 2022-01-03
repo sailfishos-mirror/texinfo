@@ -179,14 +179,13 @@ $result_texts{'shortcontents_no_top'} = '1 chap
 
 $result_sectioning{'shortcontents_no_top'} = {
   'structure' => {
-    'level' => 0,
     'section_childs' => [
       {
         'cmdname' => 'chapter',
         'extra' => {},
         'structure' => {
-          'level' => 1,
-          'number' => 1,
+          'section_level' => 1,
+          'section_number' => 1,
           'section_up' => {}
         }
       },
@@ -194,25 +193,26 @@ $result_sectioning{'shortcontents_no_top'} = {
         'cmdname' => 'chapter',
         'extra' => {},
         'structure' => {
-          'level' => 1,
-          'number' => 2,
           'section_childs' => [
             {
               'cmdname' => 'section',
               'extra' => {},
               'structure' => {
-                'level' => 2,
-                'number' => '2.1',
+                'section_level' => 2,
+                'section_number' => '2.1',
                 'section_up' => {}
               }
             }
           ],
+          'section_level' => 1,
+          'section_number' => 2,
           'section_prev' => {},
           'section_up' => {},
           'toplevel_prev' => {}
         }
       }
-    ]
+    ],
+    'section_level' => 0
   }
 };
 $result_sectioning{'shortcontents_no_top'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'shortcontents_no_top'};

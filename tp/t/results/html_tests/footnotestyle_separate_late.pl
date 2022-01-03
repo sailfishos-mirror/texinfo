@@ -531,7 +531,6 @@ top
 
 $result_sectioning{'footnotestyle_separate_late'} = {
   'structure' => {
-    'level' => -1,
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -620,7 +619,6 @@ $result_sectioning{'footnotestyle_separate_late'} = {
         },
         'structure' => {
           'associated_unit' => {},
-          'level' => 0,
           'section_childs' => [
             {
               'cmdname' => 'chapter',
@@ -629,8 +627,8 @@ $result_sectioning{'footnotestyle_separate_late'} = {
               },
               'structure' => {
                 'associated_unit' => {},
-                'level' => 1,
-                'number' => 1,
+                'section_level' => 1,
+                'section_number' => 1,
                 'section_up' => {},
                 'toplevel_prev' => {},
                 'toplevel_up' => {}
@@ -643,8 +641,8 @@ $result_sectioning{'footnotestyle_separate_late'} = {
               },
               'structure' => {
                 'associated_unit' => {},
-                'level' => 1,
-                'number' => 2,
+                'section_level' => 1,
+                'section_number' => 2,
                 'section_prev' => {},
                 'section_up' => {},
                 'toplevel_prev' => {},
@@ -652,10 +650,12 @@ $result_sectioning{'footnotestyle_separate_late'} = {
               }
             }
           ],
+          'section_level' => 0,
           'section_up' => {}
         }
       }
-    ]
+    ],
+    'section_level' => -1
   }
 };
 $result_sectioning{'footnotestyle_separate_late'}{'structure'}{'section_childs'}[0]{'extra'}{'associated_node'}{'structure'}{'associated_unit'}{'extra'}{'unit_command'} = $result_sectioning{'footnotestyle_separate_late'}{'structure'}{'section_childs'}[0]{'extra'}{'associated_node'};
@@ -725,8 +725,8 @@ $result_nodes{'footnotestyle_separate_late'} = {
                         'extra' => {},
                         'structure' => {
                           'associated_unit' => {},
-                          'level' => 1,
-                          'number' => 1
+                          'section_level' => 1,
+                          'section_number' => 1
                         }
                       },
                       'normalized' => 'chap-f'
@@ -759,8 +759,8 @@ $result_nodes{'footnotestyle_separate_late'} = {
                                 },
                                 'type' => 'unit'
                               },
-                              'level' => 1,
-                              'number' => 2
+                              'section_level' => 1,
+                              'section_number' => 2
                             }
                           },
                           'normalized' => 'chap-s'
@@ -805,7 +805,7 @@ $result_nodes{'footnotestyle_separate_late'} = {
           },
           'type' => 'unit'
         },
-        'level' => 0
+        'section_level' => 0
       }
     },
     'normalized' => 'Top'

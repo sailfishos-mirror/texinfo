@@ -161,7 +161,6 @@ Appendix A Appendix
 
 $result_sectioning{'part_chapter_appendix'} = {
   'structure' => {
-    'level' => -1,
     'section_childs' => [
       {
         'cmdname' => 'part',
@@ -172,17 +171,17 @@ $result_sectioning{'part_chapter_appendix'} = {
               'associated_part' => {}
             },
             'structure' => {
-              'level' => 1,
-              'number' => 1,
+              'section_level' => 1,
+              'section_number' => 1,
               'section_up' => {}
             }
           }
         },
         'structure' => {
-          'level' => 0,
           'section_childs' => [
             {}
           ],
+          'section_level' => 0,
           'section_up' => {}
         }
       },
@@ -190,14 +189,15 @@ $result_sectioning{'part_chapter_appendix'} = {
         'cmdname' => 'appendix',
         'extra' => {},
         'structure' => {
-          'level' => 1,
-          'number' => 'A',
+          'section_level' => 1,
+          'section_number' => 'A',
           'section_prev' => {},
           'section_up' => {},
           'toplevel_prev' => {}
         }
       }
-    ]
+    ],
+    'section_level' => -1
   }
 };
 $result_sectioning{'part_chapter_appendix'}{'structure'}{'section_childs'}[0]{'extra'}{'part_associated_section'}{'extra'}{'associated_part'} = $result_sectioning{'part_chapter_appendix'}{'structure'}{'section_childs'}[0];

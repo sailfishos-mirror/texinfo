@@ -1072,10 +1072,11 @@ sub format_contents($$$)
   # no sections
   return ('', 0) if (!$section_root
                      or !$section_root->{'structure'}->{'section_childs'});
-  my $root_level = $section_root->{'structure'}->{'section_childs'}->[0]->{'structure'}->{'level'};
+  my $root_level = $section_root->{'structure'}->{'section_childs'}->[0]
+                                                     ->{'structure'}->{'section_level'};
   foreach my $top_section (@{$section_root->{'structure'}->{'section_childs'}}) {
-    $root_level = $top_section->{'structure'}->{'level'}
-      if ($top_section->{'structure'}->{'level'} < $root_level);
+    $root_level = $top_section->{'structure'}->{'section_level'}
+      if ($top_section->{'structure'}->{'section_level'} < $root_level);
   }
 
   my $result = '';
@@ -1088,18 +1089,18 @@ sub format_contents($$$)
     while ($section) {
       push @{$self->{'count_context'}}, {'lines' => 0, 'bytes' => 0};
       my $section_title_tree;
-      if (defined($section->{'structure'}->{'number'})
+      if (defined($section->{'structure'}->{'section_number'})
           and ($self->get_conf('NUMBER_SECTIONS')
                or !defined($self->get_conf('NUMBER_SECTIONS')))) {
         if ($section->{'cmdname'} eq 'appendix'
-            and $section->{'structure'}->{'level'} == 1) {
+            and $section->{'structure'}->{'section_level'} == 1) {
           $section_title_tree = $self->gdt('Appendix {number} {section_title}',
-                           {'number' => {'text' => $section->{'structure'}->{'number'}},
+                           {'number' => {'text' => $section->{'structure'}->{'section_number'}},
                             'section_title'
                               => {'contents' => $section->{'args'}->[0]->{'contents'}}});
         } else {
           $section_title_tree = $self->gdt('{number} {section_title}',
-                           {'number' => {'text' => $section->{'structure'}->{'number'}},
+                           {'number' => {'text' => $section->{'structure'}->{'section_number'}},
                             'section_title'
                               => {'contents' => $section->{'args'}->[0]->{'contents'}}});
         }
@@ -1113,12 +1114,12 @@ sub format_contents($$$)
       my $text = $section_title;
       chomp ($text);
       $text .= "\n";
-      my $repeat_count = 2 * ($section->{'structure'}->{'level'} - ($root_level+1));
+      my $repeat_count = 2 * ($section->{'structure'}->{'section_level'} - ($root_level+1));
       ($result .= (' ' x $repeat_count)) if $repeat_count > 0;
       $result .= $text;
       $lines_count++;
       if ($section->{'structure'}->{'section_childs'}
-          and ($contents or $section->{'structure'}->{'level'} < $root_level+1)) {
+          and ($contents or $section->{'structure'}->{'section_level'} < $root_level+1)) {
         $section = $section->{'structure'}->{'section_childs'}->[0];
       } elsif ($section->{'structure'}->{'section_next'}) {
         last if ($section eq $top_section);
@@ -2273,7 +2274,7 @@ sub _convert($$)
       $result = $self->convert_line ({'type' => 'frenchspacing',
                'contents' => [$element->{'args'}->[0]]});
       pop @{$self->{'count_context'}};
-      $result = Texinfo::Convert::Text::heading({'structure' => {'level' => 0},
+      $result = Texinfo::Convert::Text::heading({'structure' => {'section_level' => 0},
         'cmdname' => 'titlefont'}, $result, $self, 
         $self->get_conf('NUMBER_SECTIONS'),
         ($self->{'format_context'}->[-1]->{'indent_level'}) * $indent_length);

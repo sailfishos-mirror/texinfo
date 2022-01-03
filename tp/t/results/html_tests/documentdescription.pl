@@ -386,17 +386,17 @@ top
 
 $result_sectioning{'documentdescription'} = {
   'structure' => {
-    'level' => -1,
     'section_childs' => [
       {
         'cmdname' => 'top',
         'extra' => {},
         'structure' => {
-          'level' => 0,
+          'section_level' => 0,
           'section_up' => {}
         }
       }
-    ]
+    ],
+    'section_level' => -1
   }
 };
 $result_sectioning{'documentdescription'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'documentdescription'};

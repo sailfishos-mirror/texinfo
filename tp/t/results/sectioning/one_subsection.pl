@@ -59,18 +59,18 @@ $result_texts{'one_subsection'} = '1 The subsection
 
 $result_sectioning{'one_subsection'} = {
   'structure' => {
-    'level' => 2,
     'section_childs' => [
       {
         'cmdname' => 'subsection',
         'extra' => {},
         'structure' => {
-          'level' => 3,
-          'number' => 1,
+          'section_level' => 3,
+          'section_number' => 1,
           'section_up' => {}
         }
       }
-    ]
+    ],
+    'section_level' => 2
   }
 };
 $result_sectioning{'one_subsection'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'one_subsection'};

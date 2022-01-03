@@ -1438,7 +1438,6 @@ Footnote 3.
 
 $result_sectioning{'node_footnote_end'} = {
   'structure' => {
-    'level' => 0,
     'section_childs' => [
       {
         'cmdname' => 'chapter',
@@ -1452,12 +1451,13 @@ $result_sectioning{'node_footnote_end'} = {
           }
         },
         'structure' => {
-          'level' => 1,
-          'number' => 1,
+          'section_level' => 1,
+          'section_number' => 1,
           'section_up' => {}
         }
       }
-    ]
+    ],
+    'section_level' => 0
   }
 };
 $result_sectioning{'node_footnote_end'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'node_footnote_end'};
@@ -1493,8 +1493,8 @@ $result_nodes{'node_footnote_end'} = {
                   'cmdname' => 'chapter',
                   'extra' => {},
                   'structure' => {
-                    'level' => 1,
-                    'number' => 1
+                    'section_level' => 1,
+                    'section_number' => 1
                   }
                 },
                 'menus' => [

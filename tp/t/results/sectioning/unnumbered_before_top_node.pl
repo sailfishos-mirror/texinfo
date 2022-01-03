@@ -189,7 +189,6 @@ Title titlefont
 
 $result_sectioning{'unnumbered_before_top_node'} = {
   'structure' => {
-    'level' => 0,
     'section_childs' => [
       {
         'cmdname' => 'unnumbered',
@@ -206,11 +205,12 @@ $result_sectioning{'unnumbered_before_top_node'} = {
             },
             'type' => 'unit'
           },
-          'level' => 1,
+          'section_level' => 1,
           'section_up' => {}
         }
       }
-    ]
+    ],
+    'section_level' => 0
   }
 };
 $result_sectioning{'unnumbered_before_top_node'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'extra'}{'unit_command'} = $result_sectioning{'unnumbered_before_top_node'}{'structure'}{'section_childs'}[0];
@@ -230,7 +230,7 @@ $result_nodes{'unnumbered_before_top_node'} = {
           'extra' => {},
           'structure' => {
             'associated_unit' => {},
-            'level' => 1
+            'section_level' => 1
           }
         }
       },
@@ -259,7 +259,7 @@ $result_menus{'unnumbered_before_top_node'} = {
           'extra' => {},
           'structure' => {
             'associated_unit' => {},
-            'level' => 1
+            'section_level' => 1
           }
         }
       },
@@ -289,7 +289,7 @@ $result_elements{'unnumbered_before_top_node'} = [
         'extra' => {},
         'structure' => {
           'associated_unit' => {},
-          'level' => 1
+          'section_level' => 1
         }
       }
     },

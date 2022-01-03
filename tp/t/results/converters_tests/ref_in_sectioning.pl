@@ -2108,7 +2108,6 @@ for example node (node) (Top)
 
 $result_sectioning{'ref_in_sectioning'} = {
   'structure' => {
-    'level' => -1,
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -2122,7 +2121,6 @@ $result_sectioning{'ref_in_sectioning'} = {
           }
         },
         'structure' => {
-          'level' => 0,
           'section_childs' => [
             {
               'cmdname' => 'chapter',
@@ -2136,8 +2134,8 @@ $result_sectioning{'ref_in_sectioning'} = {
                 }
               },
               'structure' => {
-                'level' => 1,
-                'number' => 1,
+                'section_level' => 1,
+                'section_number' => 1,
                 'section_up' => {},
                 'toplevel_prev' => {},
                 'toplevel_up' => {}
@@ -2155,15 +2153,13 @@ $result_sectioning{'ref_in_sectioning'} = {
                 }
               },
               'structure' => {
-                'level' => 1,
-                'number' => 2,
                 'section_childs' => [
                   {
                     'cmdname' => 'section',
                     'extra' => {},
                     'structure' => {
-                      'level' => 2,
-                      'number' => '2.1',
+                      'section_level' => 2,
+                      'section_number' => '2.1',
                       'section_up' => {}
                     }
                   },
@@ -2171,8 +2167,8 @@ $result_sectioning{'ref_in_sectioning'} = {
                     'cmdname' => 'section',
                     'extra' => {},
                     'structure' => {
-                      'level' => 2,
-                      'number' => '2.2',
+                      'section_level' => 2,
+                      'section_number' => '2.2',
                       'section_prev' => {},
                       'section_up' => {}
                     }
@@ -2181,8 +2177,8 @@ $result_sectioning{'ref_in_sectioning'} = {
                     'cmdname' => 'section',
                     'extra' => {},
                     'structure' => {
-                      'level' => 2,
-                      'number' => '2.3',
+                      'section_level' => 2,
+                      'section_number' => '2.3',
                       'section_prev' => {},
                       'section_up' => {}
                     }
@@ -2191,8 +2187,8 @@ $result_sectioning{'ref_in_sectioning'} = {
                     'cmdname' => 'section',
                     'extra' => {},
                     'structure' => {
-                      'level' => 2,
-                      'number' => '2.4',
+                      'section_level' => 2,
+                      'section_number' => '2.4',
                       'section_prev' => {},
                       'section_up' => {}
                     }
@@ -2201,8 +2197,8 @@ $result_sectioning{'ref_in_sectioning'} = {
                     'cmdname' => 'section',
                     'extra' => {},
                     'structure' => {
-                      'level' => 2,
-                      'number' => '2.5',
+                      'section_level' => 2,
+                      'section_number' => '2.5',
                       'section_prev' => {},
                       'section_up' => {}
                     }
@@ -2211,8 +2207,8 @@ $result_sectioning{'ref_in_sectioning'} = {
                     'cmdname' => 'section',
                     'extra' => {},
                     'structure' => {
-                      'level' => 2,
-                      'number' => '2.6',
+                      'section_level' => 2,
+                      'section_number' => '2.6',
                       'section_prev' => {},
                       'section_up' => {}
                     }
@@ -2221,8 +2217,8 @@ $result_sectioning{'ref_in_sectioning'} = {
                     'cmdname' => 'section',
                     'extra' => {},
                     'structure' => {
-                      'level' => 2,
-                      'number' => '2.7',
+                      'section_level' => 2,
+                      'section_number' => '2.7',
                       'section_prev' => {},
                       'section_up' => {}
                     }
@@ -2231,8 +2227,8 @@ $result_sectioning{'ref_in_sectioning'} = {
                     'cmdname' => 'section',
                     'extra' => {},
                     'structure' => {
-                      'level' => 2,
-                      'number' => '2.8',
+                      'section_level' => 2,
+                      'section_number' => '2.8',
                       'section_prev' => {},
                       'section_up' => {}
                     }
@@ -2241,8 +2237,8 @@ $result_sectioning{'ref_in_sectioning'} = {
                     'cmdname' => 'section',
                     'extra' => {},
                     'structure' => {
-                      'level' => 2,
-                      'number' => '2.9',
+                      'section_level' => 2,
+                      'section_number' => '2.9',
                       'section_prev' => {},
                       'section_up' => {}
                     }
@@ -2251,8 +2247,8 @@ $result_sectioning{'ref_in_sectioning'} = {
                     'cmdname' => 'section',
                     'extra' => {},
                     'structure' => {
-                      'level' => 2,
-                      'number' => '2.10',
+                      'section_level' => 2,
+                      'section_number' => '2.10',
                       'section_prev' => {},
                       'section_up' => {}
                     }
@@ -2261,8 +2257,8 @@ $result_sectioning{'ref_in_sectioning'} = {
                     'cmdname' => 'section',
                     'extra' => {},
                     'structure' => {
-                      'level' => 2,
-                      'number' => '2.11',
+                      'section_level' => 2,
+                      'section_number' => '2.11',
                       'section_prev' => {},
                       'section_up' => {}
                     }
@@ -2271,13 +2267,15 @@ $result_sectioning{'ref_in_sectioning'} = {
                     'cmdname' => 'section',
                     'extra' => {},
                     'structure' => {
-                      'level' => 2,
-                      'number' => '2.12',
+                      'section_level' => 2,
+                      'section_number' => '2.12',
                       'section_prev' => {},
                       'section_up' => {}
                     }
                   }
                 ],
+                'section_level' => 1,
+                'section_number' => 2,
                 'section_prev' => {},
                 'section_up' => {},
                 'toplevel_prev' => {},
@@ -2285,10 +2283,12 @@ $result_sectioning{'ref_in_sectioning'} = {
               }
             }
           ],
+          'section_level' => 0,
           'section_up' => {}
         }
       }
-    ]
+    ],
+    'section_level' => -1
   }
 };
 $result_sectioning{'ref_in_sectioning'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'ref_in_sectioning'}{'structure'}{'section_childs'}[0];
@@ -2330,7 +2330,7 @@ $result_nodes{'ref_in_sectioning'} = {
       'cmdname' => 'top',
       'extra' => {},
       'structure' => {
-        'level' => 0
+        'section_level' => 0
       }
     },
     'menus' => [
@@ -2349,8 +2349,8 @@ $result_nodes{'ref_in_sectioning'} = {
           'cmdname' => 'chapter',
           'extra' => {},
           'structure' => {
-            'level' => 1,
-            'number' => 1
+            'section_level' => 1,
+            'section_number' => 1
           }
         },
         'normalized' => 'node'
@@ -2363,8 +2363,8 @@ $result_nodes{'ref_in_sectioning'} = {
               'cmdname' => 'chapter',
               'extra' => {},
               'structure' => {
-                'level' => 1,
-                'number' => 2
+                'section_level' => 1,
+                'section_number' => 2
               }
             },
             'normalized' => 'chap'

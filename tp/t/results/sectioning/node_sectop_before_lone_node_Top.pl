@@ -371,7 +371,6 @@ in chap
 
 $result_sectioning{'node_sectop_before_lone_node_Top'} = {
   'structure' => {
-    'level' => -1,
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -385,7 +384,6 @@ $result_sectioning{'node_sectop_before_lone_node_Top'} = {
           }
         },
         'structure' => {
-          'level' => 0,
           'section_childs' => [
             {
               'cmdname' => 'chapter',
@@ -399,18 +397,20 @@ $result_sectioning{'node_sectop_before_lone_node_Top'} = {
                 }
               },
               'structure' => {
-                'level' => 1,
-                'number' => 1,
+                'section_level' => 1,
+                'section_number' => 1,
                 'section_up' => {},
                 'toplevel_prev' => {},
                 'toplevel_up' => {}
               }
             }
           ],
+          'section_level' => 0,
           'section_up' => {}
         }
       }
-    ]
+    ],
+    'section_level' => -1
   }
 };
 $result_sectioning{'node_sectop_before_lone_node_Top'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'node_sectop_before_lone_node_Top'}{'structure'}{'section_childs'}[0];
@@ -431,7 +431,7 @@ $result_nodes{'node_sectop_before_lone_node_Top'} = {
           'cmdname' => 'top',
           'extra' => {},
           'structure' => {
-            'level' => 0
+            'section_level' => 0
           }
         },
         'normalized' => 'node-before'
@@ -444,8 +444,8 @@ $result_nodes{'node_sectop_before_lone_node_Top'} = {
               'cmdname' => 'chapter',
               'extra' => {},
               'structure' => {
-                'level' => 1,
-                'number' => 1
+                'section_level' => 1,
+                'section_number' => 1
               }
             },
             'normalized' => 'chap'

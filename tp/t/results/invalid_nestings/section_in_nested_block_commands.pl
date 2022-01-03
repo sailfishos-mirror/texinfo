@@ -238,18 +238,18 @@ in quotation
 
 $result_sectioning{'section_in_nested_block_commands'} = {
   'structure' => {
-    'level' => 1,
     'section_childs' => [
       {
         'cmdname' => 'section',
         'extra' => {},
         'structure' => {
-          'level' => 2,
-          'number' => 1,
+          'section_level' => 2,
+          'section_number' => 1,
           'section_up' => {}
         }
       }
-    ]
+    ],
+    'section_level' => 1
   }
 };
 $result_sectioning{'section_in_nested_block_commands'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'section_in_nested_block_commands'};

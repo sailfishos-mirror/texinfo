@@ -313,10 +313,10 @@ sub heading($$$;$$)
     $indent_length = 0;
   }
   my $section_level;
-  if (!defined($current->{'structure'}->{'level'})) {
+  if (!defined($current->{'structure'}->{'section_level'})) {
     $section_level = Texinfo::Structuring::section_level($current);
   } else {
-    $section_level = $current->{'structure'}->{'level'};
+    $section_level = $current->{'structure'}->{'section_level'};
   }
   $result .= ($underline_symbol{$section_level}
      x (Texinfo::Convert::Unicode::string_width($text) - $indent_length))."\n";

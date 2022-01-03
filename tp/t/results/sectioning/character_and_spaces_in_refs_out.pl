@@ -1743,7 +1743,6 @@ local   node
 
 $result_sectioning{'character_and_spaces_in_refs_out'} = {
   'structure' => {
-    'level' => -1,
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -1885,7 +1884,6 @@ $result_sectioning{'character_and_spaces_in_refs_out'} = {
         },
         'structure' => {
           'associated_unit' => {},
-          'level' => 0,
           'section_childs' => [
             {
               'cmdname' => 'chapter',
@@ -1894,18 +1892,20 @@ $result_sectioning{'character_and_spaces_in_refs_out'} = {
               },
               'structure' => {
                 'associated_unit' => {},
-                'level' => 1,
-                'number' => 1,
+                'section_level' => 1,
+                'section_number' => 1,
                 'section_up' => {},
                 'toplevel_prev' => {},
                 'toplevel_up' => {}
               }
             }
           ],
+          'section_level' => 0,
           'section_up' => {}
         }
       }
-    ]
+    ],
+    'section_level' => -1
   }
 };
 $result_sectioning{'character_and_spaces_in_refs_out'}{'structure'}{'section_childs'}[0]{'extra'}{'associated_node'}{'structure'}{'associated_unit'}{'extra'}{'unit_command'} = $result_sectioning{'character_and_spaces_in_refs_out'}{'structure'}{'section_childs'}[0]{'extra'}{'associated_node'};
@@ -1988,8 +1988,8 @@ $result_nodes{'character_and_spaces_in_refs_out'} = {
                         'extra' => {},
                         'structure' => {
                           'associated_unit' => {},
-                          'level' => 1,
-                          'number' => 1
+                          'section_level' => 1,
+                          'section_number' => 1
                         }
                       },
                       'menus' => [
@@ -2125,7 +2125,7 @@ $result_nodes{'character_and_spaces_in_refs_out'} = {
           },
           'type' => 'unit'
         },
-        'level' => 0
+        'section_level' => 0
       }
     },
     'menus' => [

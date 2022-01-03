@@ -570,59 +570,58 @@ A.1 appendixsec
 
 $result_sectioning{'contents_and_shortcontents'} = {
   'structure' => {
-    'level' => -1,
     'section_childs' => [
       {
         'cmdname' => 'top',
         'extra' => {},
         'structure' => {
-          'level' => 0,
           'section_childs' => [
             {
               'cmdname' => 'chapter',
               'extra' => {},
               'structure' => {
-                'level' => 1,
-                'number' => 1,
                 'section_childs' => [
                   {
                     'cmdname' => 'section',
                     'extra' => {},
                     'structure' => {
-                      'level' => 2,
-                      'number' => '1.1',
                       'section_childs' => [
                         {
                           'cmdname' => 'subsection',
                           'extra' => {},
                           'structure' => {
-                            'level' => 3,
-                            'number' => '1.1.1',
                             'section_childs' => [
                               {
                                 'cmdname' => 'subsubsection',
                                 'extra' => {},
                                 'structure' => {
-                                  'level' => 4,
-                                  'number' => '1.1.1.1',
+                                  'section_level' => 4,
+                                  'section_number' => '1.1.1.1',
                                   'section_up' => {}
                                 }
                               }
                             ],
+                            'section_level' => 3,
+                            'section_number' => '1.1.1',
                             'section_up' => {}
                           }
                         }
                       ],
+                      'section_level' => 2,
+                      'section_number' => '1.1',
                       'section_up' => {}
                     }
                   }
                 ],
+                'section_level' => 1,
+                'section_number' => 1,
                 'section_up' => {},
                 'toplevel_prev' => {},
                 'toplevel_up' => {}
               }
             }
           ],
+          'section_level' => 0,
           'section_up' => {}
         }
       },
@@ -635,8 +634,8 @@ $result_sectioning{'contents_and_shortcontents'} = {
               'associated_part' => {}
             },
             'structure' => {
-              'level' => 1,
-              'number' => 2,
+              'section_level' => 1,
+              'section_number' => 2,
               'section_up' => {},
               'toplevel_prev' => {},
               'toplevel_up' => {}
@@ -644,15 +643,14 @@ $result_sectioning{'contents_and_shortcontents'} = {
           }
         },
         'structure' => {
-          'level' => 0,
           'section_childs' => [
             {},
             {
               'cmdname' => 'chapter',
               'extra' => {},
               'structure' => {
-                'level' => 1,
-                'number' => 3,
+                'section_level' => 1,
+                'section_number' => 3,
                 'section_prev' => {},
                 'section_up' => {},
                 'toplevel_prev' => {},
@@ -663,7 +661,7 @@ $result_sectioning{'contents_and_shortcontents'} = {
               'cmdname' => 'unnumbered',
               'extra' => {},
               'structure' => {
-                'level' => 1,
+                'section_level' => 1,
                 'section_prev' => {},
                 'section_up' => {},
                 'toplevel_prev' => {},
@@ -671,6 +669,7 @@ $result_sectioning{'contents_and_shortcontents'} = {
               }
             }
           ],
+          'section_level' => 0,
           'section_prev' => {},
           'section_up' => {}
         }
@@ -679,26 +678,27 @@ $result_sectioning{'contents_and_shortcontents'} = {
         'cmdname' => 'appendix',
         'extra' => {},
         'structure' => {
-          'level' => 1,
-          'number' => 'A',
           'section_childs' => [
             {
               'cmdname' => 'appendixsec',
               'extra' => {},
               'structure' => {
-                'level' => 2,
-                'number' => 'A.1',
+                'section_level' => 2,
+                'section_number' => 'A.1',
                 'section_up' => {}
               }
             }
           ],
+          'section_level' => 1,
+          'section_number' => 'A',
           'section_prev' => {},
           'section_up' => {},
           'toplevel_prev' => {},
           'toplevel_up' => {}
         }
       }
-    ]
+    ],
+    'section_level' => -1
   }
 };
 $result_sectioning{'contents_and_shortcontents'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'contents_and_shortcontents'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0];

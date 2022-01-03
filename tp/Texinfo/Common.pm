@@ -2032,7 +2032,7 @@ sub _substitute_references_in_array($$$)
   my $result = [];
   my $index = 0;
   foreach my $item (@{$array}) {
-    if (!ref($item)) {
+    if (ref($item) eq '') {
       push @{$result}, $item;
     } elsif ($reference_associations->{$item}) {
       push @{$result}, $reference_associations->{$item};
@@ -2534,8 +2534,8 @@ sub debug_print_element($)
     if (defined($current->{'extra'})
       and defined($current->{'extra'}->{'special_element_type'}));
   $cmd = "\@$current->{'cmdname'}" if (defined($current->{'cmdname'}));
-  $cmd .= "($current->{'structure'}->{'level'})"
-        if (defined($current->{'structure'}->{'level'}));
+  $cmd .= "($current->{'structure'}->{'section_level'})"
+        if (defined($current->{'structure'}->{'section_level'}));
   if (defined($current->{'text'})) {
     my $text_str = $current->{'text'};
     $text_str =~ s/\n/\\n/g;

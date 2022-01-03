@@ -464,7 +464,6 @@ $result_texts{'chapter_sections'} = 'unnumbered
 
 $result_sectioning{'chapter_sections'} = {
   'structure' => {
-    'level' => 0,
     'section_childs' => [
       {
         'cmdname' => 'unnumbered',
@@ -483,8 +482,6 @@ $result_sectioning{'chapter_sections'} = {
                       'extra' => {},
                       'structure' => {
                         'associated_unit' => {},
-                        'level' => 1,
-                        'number' => 1,
                         'section_childs' => [
                           {
                             'cmdname' => 'section',
@@ -505,8 +502,6 @@ $result_sectioning{'chapter_sections'} = {
                                           'extra' => {},
                                           'structure' => {
                                             'associated_unit' => {},
-                                            'level' => 1,
-                                            'number' => 2,
                                             'section_childs' => [
                                               {
                                                 'cmdname' => 'section',
@@ -527,8 +522,8 @@ $result_sectioning{'chapter_sections'} = {
                                                               'extra' => {},
                                                               'structure' => {
                                                                 'associated_unit' => {},
-                                                                'level' => 1,
-                                                                'number' => 3,
+                                                                'section_level' => 1,
+                                                                'section_number' => 3,
                                                                 'section_prev' => {},
                                                                 'section_up' => {},
                                                                 'toplevel_prev' => {}
@@ -544,8 +539,8 @@ $result_sectioning{'chapter_sections'} = {
                                                                     'extra' => {},
                                                                     'structure' => {
                                                                       'associated_unit' => {},
-                                                                      'level' => 3,
-                                                                      'number' => '2.1.2',
+                                                                      'section_level' => 3,
+                                                                      'section_number' => '2.1.2',
                                                                       'section_prev' => {
                                                                         'cmdname' => 'subsection',
                                                                         'extra' => {},
@@ -569,8 +564,8 @@ $result_sectioning{'chapter_sections'} = {
                                                                             },
                                                                             'type' => 'unit'
                                                                           },
-                                                                          'level' => 3,
-                                                                          'number' => '2.1.1',
+                                                                          'section_level' => 3,
+                                                                          'section_number' => '2.1.1',
                                                                           'section_up' => {}
                                                                         }
                                                                       },
@@ -610,16 +605,18 @@ $result_sectioning{'chapter_sections'} = {
                                                     },
                                                     'type' => 'unit'
                                                   },
-                                                  'level' => 2,
-                                                  'number' => '2.1',
                                                   'section_childs' => [
                                                     {},
                                                     {}
                                                   ],
+                                                  'section_level' => 2,
+                                                  'section_number' => '2.1',
                                                   'section_up' => {}
                                                 }
                                               }
                                             ],
+                                            'section_level' => 1,
+                                            'section_number' => 2,
                                             'section_prev' => {},
                                             'section_up' => {},
                                             'toplevel_prev' => {}
@@ -650,12 +647,14 @@ $result_sectioning{'chapter_sections'} = {
                                 },
                                 'type' => 'unit'
                               },
-                              'level' => 2,
-                              'number' => '1.1',
+                              'section_level' => 2,
+                              'section_number' => '1.1',
                               'section_up' => {}
                             }
                           }
                         ],
+                        'section_level' => 1,
+                        'section_number' => 1,
                         'section_prev' => {},
                         'section_up' => {},
                         'toplevel_prev' => {}
@@ -685,14 +684,15 @@ $result_sectioning{'chapter_sections'} = {
             },
             'type' => 'unit'
           },
-          'level' => 1,
+          'section_level' => 1,
           'section_up' => {}
         }
       },
       {},
       {},
       {}
-    ]
+    ],
+    'section_level' => 0
   }
 };
 $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'extra'}{'unit_command'} = $result_sectioning{'chapter_sections'}{'structure'}{'section_childs'}[0];
@@ -795,7 +795,7 @@ $result_elements{'chapter_sections'} = [
         'extra' => {},
         'structure' => {
           'associated_unit' => {},
-          'level' => 1
+          'section_level' => 1
         }
       }
     },
@@ -808,8 +808,8 @@ $result_elements{'chapter_sections'} = [
               'extra' => {},
               'structure' => {
                 'associated_unit' => {},
-                'level' => 1,
-                'number' => 1
+                'section_level' => 1,
+                'section_number' => 1
               }
             }
           },
@@ -824,8 +824,8 @@ $result_elements{'chapter_sections'} = [
                     'extra' => {},
                     'structure' => {
                       'associated_unit' => {},
-                      'level' => 1,
-                      'number' => 2
+                      'section_level' => 1,
+                      'section_number' => 2
                     }
                   }
                 },
@@ -838,8 +838,8 @@ $result_elements{'chapter_sections'} = [
                           'extra' => {},
                           'structure' => {
                             'associated_unit' => {},
-                            'level' => 2,
-                            'number' => '1.1'
+                            'section_level' => 2,
+                            'section_number' => '1.1'
                           }
                         }
                       },
@@ -863,8 +863,8 @@ $result_elements{'chapter_sections'} = [
                           'extra' => {},
                           'structure' => {
                             'associated_unit' => {},
-                            'level' => 1,
-                            'number' => 3
+                            'section_level' => 1,
+                            'section_number' => 3
                           }
                         }
                       },
@@ -877,8 +877,8 @@ $result_elements{'chapter_sections'} = [
                                 'extra' => {},
                                 'structure' => {
                                   'associated_unit' => {},
-                                  'level' => 3,
-                                  'number' => '2.1.2'
+                                  'section_level' => 3,
+                                  'section_number' => '2.1.2'
                                 }
                               }
                             },
@@ -891,8 +891,8 @@ $result_elements{'chapter_sections'} = [
                                       'extra' => {},
                                       'structure' => {
                                         'associated_unit' => {},
-                                        'level' => 3,
-                                        'number' => '2.1.1'
+                                        'section_level' => 3,
+                                        'section_number' => '2.1.1'
                                       }
                                     }
                                   },
@@ -905,8 +905,8 @@ $result_elements{'chapter_sections'} = [
                                             'extra' => {},
                                             'structure' => {
                                               'associated_unit' => {},
-                                              'level' => 2,
-                                              'number' => '2.1'
+                                              'section_level' => 2,
+                                              'section_number' => '2.1'
                                             }
                                           }
                                         },

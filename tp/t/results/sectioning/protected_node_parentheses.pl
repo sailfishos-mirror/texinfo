@@ -533,7 +533,6 @@ top
 
 $result_sectioning{'protected_node_parentheses'} = {
   'structure' => {
-    'level' => -1,
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -547,11 +546,12 @@ $result_sectioning{'protected_node_parentheses'} = {
           }
         },
         'structure' => {
-          'level' => 0,
+          'section_level' => 0,
           'section_up' => {}
         }
       }
-    ]
+    ],
+    'section_level' => -1
   }
 };
 $result_sectioning{'protected_node_parentheses'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'protected_node_parentheses'};
@@ -563,7 +563,7 @@ $result_nodes{'protected_node_parentheses'} = {
       'cmdname' => 'top',
       'extra' => {},
       'structure' => {
-        'level' => 0
+        'section_level' => 0
       }
     },
     'menus' => [

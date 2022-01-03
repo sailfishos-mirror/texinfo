@@ -425,7 +425,6 @@ part
 
 $result_sectioning{'chapter_node_before_and_after_part'} = {
   'structure' => {
-    'level' => -1,
     'section_childs' => [
       {
         'cmdname' => 'chapter',
@@ -439,8 +438,8 @@ $result_sectioning{'chapter_node_before_and_after_part'} = {
           }
         },
         'structure' => {
-          'level' => 1,
-          'number' => 1,
+          'section_level' => 1,
+          'section_number' => 1,
           'section_up' => {}
         }
       },
@@ -460,22 +459,23 @@ $result_sectioning{'chapter_node_before_and_after_part'} = {
               'associated_part' => {}
             },
             'structure' => {
-              'level' => 1,
-              'number' => 2,
+              'section_level' => 1,
+              'section_number' => 2,
               'section_up' => {},
               'toplevel_prev' => {}
             }
           }
         },
         'structure' => {
-          'level' => 0,
           'section_childs' => [
             {}
           ],
+          'section_level' => 0,
           'section_up' => {}
         }
       }
-    ]
+    ],
+    'section_level' => -1
   }
 };
 $result_sectioning{'chapter_node_before_and_after_part'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'chapter_node_before_and_after_part'};
@@ -492,8 +492,8 @@ $result_nodes{'chapter_node_before_and_after_part'} = {
       'cmdname' => 'chapter',
       'extra' => {},
       'structure' => {
-        'level' => 1,
-        'number' => 1
+        'section_level' => 1,
+        'section_number' => 1
       }
     },
     'menus' => [
@@ -515,13 +515,13 @@ $result_nodes{'chapter_node_before_and_after_part'} = {
               'cmdname' => 'part',
               'extra' => {},
               'structure' => {
-                'level' => 0
+                'section_level' => 0
               }
             }
           },
           'structure' => {
-            'level' => 1,
-            'number' => 2
+            'section_level' => 1,
+            'section_number' => 2
           }
         },
         'normalized' => 'after'

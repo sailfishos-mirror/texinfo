@@ -307,24 +307,25 @@ sub chm_init($)
 
   if ($self->{'structuring'} and $self->{'structuring'}->{'sectioning_root'}) {
     my $section_root = $self->{'structuring'}->{'sectioning_root'};
-    my $upper_level = $section_root->{'structure'}->{'section_childs'}->[0]->{'structure'}->{'level'};
+    my $upper_level = $section_root->{'structure'}->{'section_childs'}->[0]
+                                                   ->{'structure'}->{'section_level'};
     foreach my $top_section (@{$section_root->{'structure'}->{'section_childs'}}) {
-      $upper_level = $top_section->{'structure'}->{'level'}
-      if ($top_section->{'structure'}->{'level'} < $upper_level);
+      $upper_level = $top_section->{'structure'}->{'section_level'}
+      if ($top_section->{'structure'}->{'section_level'} < $upper_level);
     }
     $upper_level = 1 if ($upper_level <= 0);
     my $root_level = $upper_level - 1;
     my $level = $root_level;
     foreach my $section (@{$self->{'structuring'}->{'sections_list'}}) {
       next if ($section->{'cmdname'} eq 'part');
-      my $section_level = $section->{'structure'}->{'level'};
+      my $section_level = $section->{'structure'}->{'section_level'};
       $section_level = 1 if ($section_level == 0);
       if ($level < $section_level) {
         while ($level < $section_level) {
           print $hhc_fh "<UL>\n";
           $level++;
         }
-      } elsif ($level > $section->{'structure'}->{'level'}) {
+      } elsif ($level > $section->{'structure'}->{'section_level'}) {
         while ($level > $section_level) {
           print $hhc_fh "</UL>\n";
           $level--;

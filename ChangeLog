@@ -1,3 +1,23 @@
+2022-01-03  Patrice Dumas  <pertusus@free.fr>
+
+	* p/Texinfo/Common.pm, tp/Texinfo/Config.pm,
+	tp/Texinfo/Convert/HTML.pm, tp/Texinfo/Convert/TexinfoXML.pm,
+	tp/Texinfo/ParserNonXS.pm, tp/Texinfo/XS/parsetexi/Parsetexi.pm:
+	use cleaner ref($var) eq '' instead of ! ref($var).
+
+	* tp/Texinfo/Structuring.pm (sectioning_structure)
+	(section_level_adjusted_command_name, split_pages)
+	(elements_directions),
+	tp/Texinfo/Convert/DocBook.pm (_docbook_section_element, _convert),
+	tp/Texinfo/Convert/HTML.pm (command_text, _convert_heading_command)
+	(_prepare_tree_units_global_targets, _default_format_contents),
+	tp/Texinfo/Convert/LaTeX.pm (_convert),
+	tp/Texinfo/Convert/Plaintext.pm (format_contents, _convert),
+	tp/Texinfo/Convert/Text.pm (heading), tp/Texinfo/Convert/Utils.pm
+	(numbered_heading), tp/init/book.pm, tp/init/chm.pm, tp/init/epub3.pm: 
+	replace section element level by section_level and number by
+	section_number in structure.
+
 2022-01-02  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Common.pm (_substitute_references): handle

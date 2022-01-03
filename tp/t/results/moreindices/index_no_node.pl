@@ -1433,13 +1433,12 @@ In chapter 2
 
 $result_sectioning{'index_no_node'} = {
   'structure' => {
-    'level' => 0,
     'section_childs' => [
       {
         'cmdname' => 'unnumbered',
         'extra' => {},
         'structure' => {
-          'level' => 1,
+          'section_level' => 1,
           'section_up' => {}
         }
       },
@@ -1447,17 +1446,17 @@ $result_sectioning{'index_no_node'} = {
         'cmdname' => 'top',
         'extra' => {},
         'structure' => {
-          'level' => 1,
           'section_childs' => [
             {
               'cmdname' => 'section',
               'extra' => {},
               'structure' => {
-                'level' => 2,
+                'section_level' => 2,
                 'section_up' => {}
               }
             }
           ],
+          'section_level' => 1,
           'section_prev' => {},
           'section_up' => {},
           'toplevel_prev' => {}
@@ -1467,8 +1466,8 @@ $result_sectioning{'index_no_node'} = {
         'cmdname' => 'chapter',
         'extra' => {},
         'structure' => {
-          'level' => 1,
-          'number' => 1,
+          'section_level' => 1,
+          'section_number' => 1,
           'section_prev' => {},
           'section_up' => {},
           'toplevel_prev' => {},
@@ -1479,15 +1478,16 @@ $result_sectioning{'index_no_node'} = {
         'cmdname' => 'chapter',
         'extra' => {},
         'structure' => {
-          'level' => 1,
-          'number' => 2,
+          'section_level' => 1,
+          'section_number' => 2,
           'section_prev' => {},
           'section_up' => {},
           'toplevel_prev' => {},
           'toplevel_up' => {}
         }
       }
-    ]
+    ],
+    'section_level' => 0
   }
 };
 $result_sectioning{'index_no_node'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'index_no_node'};

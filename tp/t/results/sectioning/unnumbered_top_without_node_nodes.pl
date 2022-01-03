@@ -421,7 +421,6 @@ Text of chapter
 
 $result_sectioning{'unnumbered_top_without_node_nodes'} = {
   'structure' => {
-    'level' => 0,
     'section_childs' => [
       {
         'cmdname' => 'unnumbered',
@@ -481,7 +480,7 @@ $result_sectioning{'unnumbered_top_without_node_nodes'} = {
         },
         'structure' => {
           'associated_unit' => {},
-          'level' => 1,
+          'section_level' => 1,
           'section_up' => {}
         }
       },
@@ -490,7 +489,7 @@ $result_sectioning{'unnumbered_top_without_node_nodes'} = {
         'extra' => {},
         'structure' => {
           'associated_unit' => {},
-          'level' => 1,
+          'section_level' => 1,
           'section_prev' => {},
           'section_up' => {},
           'toplevel_prev' => {}
@@ -503,15 +502,16 @@ $result_sectioning{'unnumbered_top_without_node_nodes'} = {
         },
         'structure' => {
           'associated_unit' => {},
-          'level' => 1,
-          'number' => 1,
+          'section_level' => 1,
+          'section_number' => 1,
           'section_prev' => {},
           'section_up' => {},
           'toplevel_prev' => {},
           'toplevel_up' => {}
         }
       }
-    ]
+    ],
+    'section_level' => 0
   }
 };
 $result_sectioning{'unnumbered_top_without_node_nodes'}{'structure'}{'section_childs'}[0]{'extra'}{'associated_node'}{'structure'}{'associated_unit'}{'extra'}{'unit_command'} = $result_sectioning{'unnumbered_top_without_node_nodes'}{'structure'}{'section_childs'}[0]{'extra'}{'associated_node'};
@@ -562,8 +562,8 @@ $result_nodes{'unnumbered_top_without_node_nodes'} = {
                         'extra' => {},
                         'structure' => {
                           'associated_unit' => {},
-                          'level' => 1,
-                          'number' => 1
+                          'section_level' => 1,
+                          'section_number' => 1
                         }
                       },
                       'normalized' => 'second'
@@ -615,7 +615,7 @@ $result_nodes{'unnumbered_top_without_node_nodes'} = {
           },
           'type' => 'unit'
         },
-        'level' => 1
+        'section_level' => 1
       }
     },
     'normalized' => 'a-node'

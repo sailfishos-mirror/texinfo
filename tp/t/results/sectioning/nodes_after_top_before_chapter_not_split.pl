@@ -564,7 +564,6 @@ second node
 
 $result_sectioning{'nodes_after_top_before_chapter_not_split'} = {
   'structure' => {
-    'level' => 0,
     'section_childs' => [
       {
         'cmdname' => 'chapter',
@@ -578,12 +577,13 @@ $result_sectioning{'nodes_after_top_before_chapter_not_split'} = {
           }
         },
         'structure' => {
-          'level' => 1,
-          'number' => 1,
+          'section_level' => 1,
+          'section_number' => 1,
           'section_up' => {}
         }
       }
-    ]
+    ],
+    'section_level' => 0
   }
 };
 $result_sectioning{'nodes_after_top_before_chapter_not_split'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'nodes_after_top_before_chapter_not_split'};
@@ -613,8 +613,8 @@ $result_nodes{'nodes_after_top_before_chapter_not_split'} = {
               'cmdname' => 'chapter',
               'extra' => {},
               'structure' => {
-                'level' => 1,
-                'number' => 1
+                'section_level' => 1,
+                'section_number' => 1
               }
             },
             'normalized' => 'third-node'

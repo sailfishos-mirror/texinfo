@@ -224,7 +224,6 @@ Appendix A dernier
 
 $result_sectioning{'appendix_translated'} = {
   'structure' => {
-    'level' => -1,
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -237,24 +236,25 @@ $result_sectioning{'appendix_translated'} = {
           }
         },
         'structure' => {
-          'level' => 0,
           'section_childs' => [
             {
               'cmdname' => 'appendix',
               'extra' => {},
               'structure' => {
-                'level' => 1,
-                'number' => 'A',
+                'section_level' => 1,
+                'section_number' => 'A',
                 'section_up' => {},
                 'toplevel_prev' => {},
                 'toplevel_up' => {}
               }
             }
           ],
+          'section_level' => 0,
           'section_up' => {}
         }
       }
-    ]
+    ],
+    'section_level' => -1
   }
 };
 $result_sectioning{'appendix_translated'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'appendix_translated'}{'structure'}{'section_childs'}[0];
@@ -269,7 +269,7 @@ $result_nodes{'appendix_translated'} = {
       'cmdname' => 'top',
       'extra' => {},
       'structure' => {
-        'level' => 0
+        'section_level' => 0
       }
     },
     'normalized' => 'Top'

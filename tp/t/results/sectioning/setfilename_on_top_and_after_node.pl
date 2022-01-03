@@ -177,7 +177,6 @@ $result_texts{'setfilename_on_top_and_after_node'} = 'In top
 
 $result_sectioning{'setfilename_on_top_and_after_node'} = {
   'structure' => {
-    'level' => -1,
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -190,11 +189,12 @@ $result_sectioning{'setfilename_on_top_and_after_node'} = {
           }
         },
         'structure' => {
-          'level' => 0,
+          'section_level' => 0,
           'section_up' => {}
         }
       }
-    ]
+    ],
+    'section_level' => -1
   }
 };
 $result_sectioning{'setfilename_on_top_and_after_node'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'setfilename_on_top_and_after_node'};
@@ -206,7 +206,7 @@ $result_nodes{'setfilename_on_top_and_after_node'} = {
       'cmdname' => 'top',
       'extra' => {},
       'structure' => {
-        'level' => 0
+        'section_level' => 0
       }
     },
     'normalized' => 'Top'

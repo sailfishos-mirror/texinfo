@@ -200,7 +200,6 @@ top
 
 $result_sectioning{'empty_lines_at_beginning_no_setfilename'} = {
   'structure' => {
-    'level' => -1,
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -213,11 +212,12 @@ $result_sectioning{'empty_lines_at_beginning_no_setfilename'} = {
           }
         },
         'structure' => {
-          'level' => 0,
+          'section_level' => 0,
           'section_up' => {}
         }
       }
-    ]
+    ],
+    'section_level' => -1
   }
 };
 $result_sectioning{'empty_lines_at_beginning_no_setfilename'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'empty_lines_at_beginning_no_setfilename'};
@@ -229,7 +229,7 @@ $result_nodes{'empty_lines_at_beginning_no_setfilename'} = {
       'cmdname' => 'top',
       'extra' => {},
       'structure' => {
-        'level' => 0
+        'section_level' => 0
       }
     },
     'normalized' => 'Top'

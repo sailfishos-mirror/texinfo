@@ -856,11 +856,11 @@ sub parse_texi_text($$;$$$$)
   return undef if (!defined($text));
 
   my $lines_array = [];
-  if (!ref($text)) {
+  if (ref($text) eq '') {
     $text = _text_to_lines($text);
   }
   $lines_nr = [] if (!defined($lines_nr));
-  if (!ref($lines_nr)) {
+  if (ref($lines_nr) eq '') {
     # $lines_nr is the first line number
     $lines_array = _complete_line_nr($text, $lines_nr, $file, 
                                      $macro, $fixed_line_number);
@@ -991,7 +991,7 @@ sub parse_texi_line($$;$$$$)
 
   return undef if (!defined($text));
 
-  if (!ref($text)) {
+  if (ref($text) eq '') {
     $text = _text_to_lines($text);
   }
   if (not defined($lines_nr)) {

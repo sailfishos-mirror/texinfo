@@ -942,7 +942,6 @@ Ack!
 
 $result_sectioning{'special_docbook_unnumbered'} = {
   'structure' => {
-    'level' => -1,
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -956,7 +955,6 @@ $result_sectioning{'special_docbook_unnumbered'} = {
           }
         },
         'structure' => {
-          'level' => 0,
           'section_childs' => [
             {
               'cmdname' => 'unnumbered',
@@ -970,7 +968,7 @@ $result_sectioning{'special_docbook_unnumbered'} = {
                 }
               },
               'structure' => {
-                'level' => 1,
+                'section_level' => 1,
                 'section_up' => {},
                 'toplevel_prev' => {},
                 'toplevel_up' => {}
@@ -988,7 +986,7 @@ $result_sectioning{'special_docbook_unnumbered'} = {
                 }
               },
               'structure' => {
-                'level' => 1,
+                'section_level' => 1,
                 'section_prev' => {},
                 'section_up' => {},
                 'toplevel_prev' => {},
@@ -1007,7 +1005,7 @@ $result_sectioning{'special_docbook_unnumbered'} = {
                 }
               },
               'structure' => {
-                'level' => 1,
+                'section_level' => 1,
                 'section_prev' => {},
                 'section_up' => {},
                 'toplevel_prev' => {},
@@ -1026,8 +1024,8 @@ $result_sectioning{'special_docbook_unnumbered'} = {
                 }
               },
               'structure' => {
-                'level' => 1,
-                'number' => 1,
+                'section_level' => 1,
+                'section_number' => 1,
                 'section_prev' => {},
                 'section_up' => {},
                 'toplevel_prev' => {},
@@ -1035,10 +1033,12 @@ $result_sectioning{'special_docbook_unnumbered'} = {
               }
             }
           ],
+          'section_level' => 0,
           'section_up' => {}
         }
       }
-    ]
+    ],
+    'section_level' => -1
   }
 };
 $result_sectioning{'special_docbook_unnumbered'}{'structure'}{'section_childs'}[0]{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'special_docbook_unnumbered'}{'structure'}{'section_childs'}[0];
@@ -1065,7 +1065,7 @@ $result_nodes{'special_docbook_unnumbered'} = {
       'cmdname' => 'top',
       'extra' => {},
       'structure' => {
-        'level' => 0
+        'section_level' => 0
       }
     },
     'menus' => [
@@ -1084,7 +1084,7 @@ $result_nodes{'special_docbook_unnumbered'} = {
           'cmdname' => 'unnumbered',
           'extra' => {},
           'structure' => {
-            'level' => 1
+            'section_level' => 1
           }
         },
         'normalized' => 'Dedication'
@@ -1097,7 +1097,7 @@ $result_nodes{'special_docbook_unnumbered'} = {
               'cmdname' => 'unnumbered',
               'extra' => {},
               'structure' => {
-                'level' => 1
+                'section_level' => 1
               }
             },
             'normalized' => 'preface'
@@ -1110,7 +1110,7 @@ $result_nodes{'special_docbook_unnumbered'} = {
                   'cmdname' => 'unnumbered',
                   'extra' => {},
                   'structure' => {
-                    'level' => 1
+                    'section_level' => 1
                   }
                 },
                 'normalized' => 'colophon'
@@ -1123,8 +1123,8 @@ $result_nodes{'special_docbook_unnumbered'} = {
                       'cmdname' => 'chapter',
                       'extra' => {},
                       'structure' => {
-                        'level' => 1,
-                        'number' => 1
+                        'section_level' => 1,
+                        'section_number' => 1
                       }
                     },
                     'normalized' => 'acknowledgements'

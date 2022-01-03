@@ -323,7 +323,6 @@ $result_texts{'comment_on_menu_line'} = '
 
 $result_sectioning{'comment_on_menu_line'} = {
   'structure' => {
-    'level' => 0,
     'section_childs' => [
       {
         'cmdname' => 'chapter',
@@ -337,12 +336,13 @@ $result_sectioning{'comment_on_menu_line'} = {
           }
         },
         'structure' => {
-          'level' => 1,
-          'number' => 1,
+          'section_level' => 1,
+          'section_number' => 1,
           'section_up' => {}
         }
       }
-    ]
+    ],
+    'section_level' => 0
   }
 };
 $result_sectioning{'comment_on_menu_line'}{'structure'}{'section_childs'}[0]{'structure'}{'section_up'} = $result_sectioning{'comment_on_menu_line'};
@@ -354,8 +354,8 @@ $result_nodes{'comment_on_menu_line'} = {
       'cmdname' => 'chapter',
       'extra' => {},
       'structure' => {
-        'level' => 1,
-        'number' => 1
+        'section_level' => 1,
+        'section_number' => 1
       }
     },
     'menus' => [

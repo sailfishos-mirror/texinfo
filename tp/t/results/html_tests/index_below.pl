@@ -276,7 +276,6 @@ $result_texts{'index_below'} = 'top
 
 $result_sectioning{'index_below'} = {
   'structure' => {
-    'level' => -1,
     'section_childs' => [
       {
         'cmdname' => 'top',
@@ -295,8 +294,6 @@ $result_sectioning{'index_below'} = {
                       'extra' => {},
                       'structure' => {
                         'associated_unit' => {},
-                        'level' => 1,
-                        'number' => 1,
                         'section_childs' => [
                           {
                             'cmdname' => 'section',
@@ -317,12 +314,14 @@ $result_sectioning{'index_below'} = {
                                 },
                                 'type' => 'unit'
                               },
-                              'level' => 2,
-                              'number' => '1.1',
+                              'section_level' => 2,
+                              'section_number' => '1.1',
                               'section_up' => {}
                             }
                           }
                         ],
+                        'section_level' => 1,
+                        'section_number' => 1,
                         'section_up' => {},
                         'toplevel_prev' => {},
                         'toplevel_up' => {}
@@ -349,14 +348,15 @@ $result_sectioning{'index_below'} = {
             },
             'type' => 'unit'
           },
-          'level' => 0,
           'section_childs' => [
             {}
           ],
+          'section_level' => 0,
           'section_up' => {}
         }
       }
-    ]
+    ],
+    'section_level' => -1
   }
 };
 $result_sectioning{'index_below'}{'structure'}{'section_childs'}[0]{'structure'}{'associated_unit'}{'extra'}{'unit_command'} = $result_sectioning{'index_below'}{'structure'}{'section_childs'}[0];
@@ -405,7 +405,7 @@ $result_elements{'index_below'} = [
         'extra' => {},
         'structure' => {
           'associated_unit' => {},
-          'level' => 0
+          'section_level' => 0
         }
       }
     },
@@ -418,8 +418,8 @@ $result_elements{'index_below'} = [
               'extra' => {},
               'structure' => {
                 'associated_unit' => {},
-                'level' => 1,
-                'number' => 1
+                'section_level' => 1,
+                'section_number' => 1
               }
             }
           },
@@ -434,8 +434,8 @@ $result_elements{'index_below'} = [
                     'extra' => {},
                     'structure' => {
                       'associated_unit' => {},
-                      'level' => 2,
-                      'number' => '1.1'
+                      'section_level' => 2,
+                      'section_number' => '1.1'
                     }
                   }
                 },
