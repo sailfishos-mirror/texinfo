@@ -1,3 +1,7 @@
+2022-01-03  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* TODO, NEWS: Change a couple of items.
+
 2022-01-03  Patrice Dumas  <pertusus@free.fr>
 
 	* Pod-Simple-Texinfo/lib/Pod/Simple/Texinfo.pm
@@ -21,7 +25,7 @@
 
 2022-01-03  Patrice Dumas  <pertusus@free.fr>
 
-	* p/Texinfo/Common.pm, tp/Texinfo/Config.pm,
+	* tp/Texinfo/Common.pm, tp/Texinfo/Config.pm,
 	tp/Texinfo/Convert/HTML.pm, tp/Texinfo/Convert/TexinfoXML.pm,
 	tp/Texinfo/ParserNonXS.pm, tp/Texinfo/XS/parsetexi/Parsetexi.pm:
 	use cleaner ref($var) eq '' instead of ! ref($var).

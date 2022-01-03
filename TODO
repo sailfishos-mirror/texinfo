@@ -23,6 +23,9 @@ If you are interested in working on any of these, email bug-texinfo@gnu.org.
   - Glossary/general definition support (dumas msg 28 Nov 2003 17:09:57 +0100).
 
 * texi2any:
+  - Support the epub output format, http://en.wikipedia.org/wiki/OEBPS.
+    Suggested by Sean Young, 30 Nov 2008 20:13:11 (Savannah bug tracker)
+      (IN PROGRESS - documentation required)
   - give a warning for "makeinfo FOO.info" when "makeinfo FOO.texi" was meant
   - Improve the HTML customization API.
   - HTML: support thumbnails.
@@ -30,11 +33,8 @@ If you are interested in working on any of these, email bug-texinfo@gnu.org.
     http://mail.gnu.org/archive/html/bug-texinfo/2004-01/msg00025.html
   - Support output formats retaining the tree structure of Texinfo documents
     as parsed by the Parser.  A lisp-like format for GUILE? Maybe JSON?
-  - Support LaTeX as a backend.
   - Support other graphical documentation browsers like GNOME DevHelp
     (https://lists.gnu.org/archive/html/bug-texinfo/2015-03/msg00041.html)
-  - Support the epub output format, http://en.wikipedia.org/wiki/OEBPS.
-    Suggested by Sean Young, 30 Nov 2008 20:13:11 (Savannah bug tracker)
   - Support the MediaWiki output format.
 
 * TeX:
