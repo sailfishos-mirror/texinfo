@@ -1,5 +1,14 @@
 2022-01-03  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	get-or-remove-footnotes
+
+	* info/footnotes.c (info_show_footnotes): Unconditionally
+	toggle a footnote window.  Previously it required a negative
+	argument to close the footnote window (e.g with 'C-u - M-C-f')
+	which was laborious.
+
+2022-01-03  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	* TODO, NEWS: Change a couple of items.
 
 2022-01-03  Patrice Dumas  <pertusus@free.fr>
