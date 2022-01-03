@@ -33,7 +33,7 @@ use Encode;
 use Texinfo::Documentlanguages;
 
 # debugging
-use Carp qw(cluck);
+use Carp qw(cluck confess);
 
 require Exporter;
 use vars qw($VERSION @ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
@@ -2226,7 +2226,7 @@ sub _protect_text($$)
   my $current = shift;
   my $to_protect = shift;
 
-  #print STDERR "$to_protect: $current ".debug_print_element($current)."\n";
+  #print STDERR "_protect_text: $to_protect: $current ".debug_print_element($current)."\n";
   if (defined($current->{'text'}) and $current->{'text'} =~ /$to_protect/
       and !(defined($current->{'type'}) and $current->{'type'} eq 'raw')) {
     my @result = ();
@@ -2254,10 +2254,10 @@ sub _protect_text($$)
         last;
       }
     }
-    #print STDERR "Result: @result\n";
+    #print STDERR "_protect_text: Result: @result\n";
     return @result;
   } else {
-    #print STDERR "No change: $current\n";
+    #print STDERR "_protect_text: No change\n";
     return ($current);
   }
 }
@@ -2267,7 +2267,7 @@ sub _protect_colon($$)
   my $type = shift;
   my $current = shift;
 
-  return _protect_text ($current, quotemeta(':'));
+  return _protect_text($current, quotemeta(':'));
 }
 
 sub protect_colon_in_tree($)
@@ -2281,7 +2281,7 @@ sub _protect_node_after_label($$)
   my $type = shift;
   my $current = shift;
 
-  return _protect_text ($current, '['. quotemeta(".\t,") .']');
+  return _protect_text($current, '['. quotemeta(".\t,") .']');
 }
 
 sub protect_node_after_label_in_tree($)
@@ -2293,7 +2293,9 @@ sub protect_node_after_label_in_tree($)
 sub protect_first_parenthesis($)
 {
   my $contents = shift;
-  return undef if (!defined ($contents));
+  confess("BUG: protect_first_parenthesis contents undef")
+    if (!defined($contents));
+  #print STDERR "protect_first_parenthesis: $contents\n";
   my @contents = @$contents;
   my $brace;
   if ($contents[0] and $contents->[0]{'text'} and $contents[0]->{'text'} =~ /^\(/) {
@@ -2920,10 +2922,11 @@ in C<@asis{}>.
 
 Protect comma characters, replacing C<,> with @comma{} in tree.
 
-=item $contents_result = protect_first_parenthesis ($contents)
+=item $contents_result = protect_first_parenthesis($contents)
 
 Return a contents array reference with first parenthesis in the
-contents array reference protected.
+contents array reference protected.  If I<$contents> is undef
+a fatal error with a backtrace will be emitted.
 
 =item protect_hashchar_at_line_beginning($registrar, $configuration_informations, $tree)
 

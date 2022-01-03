@@ -1,5 +1,14 @@
 2022-01-03  Patrice Dumas  <pertusus@free.fr>
 
+	* Pod-Simple-Texinfo/lib/Pod/Simple/Texinfo.pm
+	(_normalize_texinfo_name): adapt to tree structure change.
+	Better error reporting in case of parser errors.
+
+	* tp/Texinfo/Common.pm (protect_first_parenthesis): fail with
+	backtrace if argument is undef.
+
+2022-01-03  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Texinfo.pm (convert_to_texinfo): use confess
 	instead of die.
 

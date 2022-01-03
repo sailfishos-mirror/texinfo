@@ -327,11 +327,29 @@ sub _normalize_texinfo_name($$)
     }
     $texinfo_text = "\@$command $name\n";
   }
-  my $tree = parse_texi_text(undef, $texinfo_text);
+  my $parser = Texinfo::Parser::parser();
+  my $tree = $parser->parse_texi_text($texinfo_text);
+  if (!defined($tree)) {
+    my $texinfo_text_str = $texinfo_text;
+    chomp($texinfo_text_str);
+    warn "ERROR: Texinfo parsing failed for: $texinfo_text_str\n";
+    my $registrar = $parser->registered_errors();
+    my ($parser_errors, $parser_error_count) = $registrar->errors();
+    foreach my $error_message (@$parser_errors) {
+      if ($error_message->{'type'} eq 'error') {
+        warn "ERROR: $error_message->{'error_line'}";
+      } else {
+        warn "WARNING: $error_message->{'error_line'}";
+      }
+    }
+    # FIXME Or undef, and callers check the return to be defined?
+    return '';
+  }
+  # TODO this is dependent on the tree structure, this is not robust.
   if ($command eq 'anchor') {
-    #print STDERR "GGG $tree->{'contents'}->[0]->{'cmdname'}\n";
-    $tree->{'contents'}->[0]->{'args'}->[-0]->{'contents'}
-      = protect_first_parenthesis($tree->{'contents'}->[0]->{'args'}->[-0]->{'contents'});
+    #print STDERR "GGG $tree->{'contents'}->[0]->{'contents'}->[0]->{'cmdname'}\n";
+    $tree->{'contents'}->[0]->{'contents'}->[0]->{'args'}->[-0]->{'contents'}
+      = protect_first_parenthesis($tree->{'contents'}->[0]->{'contents'}->[0]->{'args'}->[-0]->{'contents'});
   }
   my $fixed_text = Texinfo::Convert::Texinfo::convert_to_texinfo($tree, 1);
   my $result = $fixed_text;
