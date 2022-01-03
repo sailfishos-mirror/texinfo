@@ -280,8 +280,7 @@ $result_elements{'top_part_chapter'} = [
         'cmdname' => 'top',
         'extra' => {},
         'structure' => {
-          'associated_unit' => {},
-          'section_level' => 0
+          'associated_unit' => {}
         }
       }
     },
@@ -296,14 +295,12 @@ $result_elements{'top_part_chapter'} = [
                   'cmdname' => 'part',
                   'extra' => {},
                   'structure' => {
-                    'associated_unit' => {},
-                    'section_level' => 0
+                    'associated_unit' => {}
                   }
                 }
               },
               'structure' => {
                 'associated_unit' => {},
-                'section_level' => 1,
                 'section_number' => 1
               }
             }

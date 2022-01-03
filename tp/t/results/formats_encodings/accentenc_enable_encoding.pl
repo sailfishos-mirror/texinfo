@@ -3193,9 +3193,7 @@ $result_nodes{'accentenc_enable_encoding'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'structure' => {
-        'section_level' => 0
-      }
+      'structure' => {}
     },
     'normalized' => 'Top-node'
   }

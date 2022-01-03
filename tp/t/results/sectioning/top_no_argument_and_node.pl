@@ -124,9 +124,7 @@ $result_nodes{'top_no_argument_and_node'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'structure' => {
-        'section_level' => 0
-      }
+      'structure' => {}
     },
     'normalized' => 'start'
   }

@@ -603,9 +603,7 @@ $result_nodes{'syncode_index_print_both'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'structure' => {
-        'section_level' => 0
-      }
+      'structure' => {}
     },
     'normalized' => 'Top'
   },
@@ -617,7 +615,6 @@ $result_nodes{'syncode_index_print_both'} = {
           'cmdname' => 'chapter',
           'extra' => {},
           'structure' => {
-            'section_level' => 1,
             'section_number' => 1
           }
         },

@@ -317,8 +317,7 @@ $result_nodes{'unnumbered_before_node_top_top'} = {
                     'cmdname' => 'unnumbered',
                     'extra' => {},
                     'structure' => {
-                      'associated_unit' => {},
-                      'section_level' => 1
+                      'associated_unit' => {}
                     }
                   }
                 },
@@ -340,8 +339,7 @@ $result_nodes{'unnumbered_before_node_top_top'} = {
             'unit_prev' => {}
           },
           'type' => 'unit'
-        },
-        'section_level' => 1
+        }
       }
     },
     'normalized' => 'Top'
@@ -375,8 +373,7 @@ $result_menus{'unnumbered_before_node_top_top'} = {
           'cmdname' => 'top',
           'extra' => {},
           'structure' => {
-            'associated_unit' => {},
-            'section_level' => 1
+            'associated_unit' => {}
           }
         }
       },
@@ -388,8 +385,7 @@ $result_menus{'unnumbered_before_node_top_top'} = {
                 'cmdname' => 'unnumbered',
                 'extra' => {},
                 'structure' => {
-                  'associated_unit' => {},
-                  'section_level' => 1
+                  'associated_unit' => {}
                 }
               }
             },
@@ -449,8 +445,7 @@ $result_elements{'unnumbered_before_node_top_top'} = [
         'cmdname' => 'unnumbered',
         'extra' => {},
         'structure' => {
-          'associated_unit' => {},
-          'section_level' => 1
+          'associated_unit' => {}
         }
       }
     },
@@ -462,8 +457,7 @@ $result_elements{'unnumbered_before_node_top_top'} = [
               'cmdname' => 'top',
               'extra' => {},
               'structure' => {
-                'associated_unit' => {},
-                'section_level' => 1
+                'associated_unit' => {}
               }
             }
           },

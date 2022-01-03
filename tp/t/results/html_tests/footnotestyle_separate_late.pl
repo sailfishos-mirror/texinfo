@@ -725,7 +725,6 @@ $result_nodes{'footnotestyle_separate_late'} = {
                         'extra' => {},
                         'structure' => {
                           'associated_unit' => {},
-                          'section_level' => 1,
                           'section_number' => 1
                         }
                       },
@@ -759,7 +758,6 @@ $result_nodes{'footnotestyle_separate_late'} = {
                                 },
                                 'type' => 'unit'
                               },
-                              'section_level' => 1,
                               'section_number' => 2
                             }
                           },
@@ -804,8 +802,7 @@ $result_nodes{'footnotestyle_separate_late'} = {
             'unit_next' => {}
           },
           'type' => 'unit'
-        },
-        'section_level' => 0
+        }
       }
     },
     'normalized' => 'Top'

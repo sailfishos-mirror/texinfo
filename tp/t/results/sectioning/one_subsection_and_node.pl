@@ -136,7 +136,6 @@ $result_nodes{'one_subsection_and_node'} = {
       'cmdname' => 'subsection',
       'extra' => {},
       'structure' => {
-        'section_level' => 3,
         'section_number' => 1
       }
     },

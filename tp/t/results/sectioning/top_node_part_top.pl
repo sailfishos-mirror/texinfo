@@ -257,14 +257,12 @@ $result_nodes{'top_node_part_top'} = {
                 }
               },
               'type' => 'unit'
-            },
-            'section_level' => 0
+            }
           }
         }
       },
       'structure' => {
-        'associated_unit' => {},
-        'section_level' => 0
+        'associated_unit' => {}
       }
     },
     'normalized' => 'Top'
@@ -293,14 +291,12 @@ $result_menus{'top_node_part_top'} = {
               'cmdname' => 'part',
               'extra' => {},
               'structure' => {
-                'associated_unit' => {},
-                'section_level' => 0
+                'associated_unit' => {}
               }
             }
           },
           'structure' => {
-            'associated_unit' => {},
-            'section_level' => 0
+            'associated_unit' => {}
           }
         }
       },
@@ -352,14 +348,12 @@ $result_elements{'top_node_part_top'} = [
             'cmdname' => 'part',
             'extra' => {},
             'structure' => {
-              'associated_unit' => {},
-              'section_level' => 0
+              'associated_unit' => {}
             }
           }
         },
         'structure' => {
-          'associated_unit' => {},
-          'section_level' => 0
+          'associated_unit' => {}
         }
       }
     },

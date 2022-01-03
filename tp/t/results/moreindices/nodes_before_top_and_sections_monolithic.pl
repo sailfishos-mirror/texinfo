@@ -3328,9 +3328,7 @@ $result_nodes{'nodes_before_top_and_sections_monolithic'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'structure' => {
-        'section_level' => 0
-      }
+      'structure' => {}
     },
     'isindex' => 1,
     'menus' => [

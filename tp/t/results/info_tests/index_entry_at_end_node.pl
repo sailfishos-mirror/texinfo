@@ -708,9 +708,7 @@ $result_nodes{'index_entry_at_end_node'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'structure' => {
-        'section_level' => 0
-      }
+      'structure' => {}
     },
     'menus' => [
       {
@@ -728,7 +726,6 @@ $result_nodes{'index_entry_at_end_node'} = {
           'cmdname' => 'chapter',
           'extra' => {},
           'structure' => {
-            'section_level' => 1,
             'section_number' => 1
           }
         },
@@ -742,7 +739,6 @@ $result_nodes{'index_entry_at_end_node'} = {
               'cmdname' => 'appendix',
               'extra' => {},
               'structure' => {
-                'section_level' => 1,
                 'section_number' => 'A'
               }
             },

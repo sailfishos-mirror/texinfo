@@ -205,9 +205,7 @@ $result_nodes{'ref_to_top'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'structure' => {
-        'section_level' => 0
-      }
+      'structure' => {}
     },
     'normalized' => 'Top'
   }

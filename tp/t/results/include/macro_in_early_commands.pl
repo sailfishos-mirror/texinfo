@@ -655,9 +655,7 @@ $result_nodes{'macro_in_early_commands'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'structure' => {
-        'section_level' => 0
-      }
+      'structure' => {}
     },
     'normalized' => 'Top'
   },

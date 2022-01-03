@@ -4132,7 +4132,6 @@ $result_nodes{'complex_split_at_node'} = {
                         'extra' => {},
                         'structure' => {
                           'associated_unit' => {},
-                          'section_level' => 1,
                           'section_number' => 1
                         }
                       },
@@ -4171,7 +4170,6 @@ $result_nodes{'complex_split_at_node'} = {
                                               'extra' => {},
                                               'structure' => {
                                                 'associated_unit' => {},
-                                                'section_level' => 1,
                                                 'section_number' => 2
                                               }
                                             },
@@ -4203,8 +4201,7 @@ $result_nodes{'complex_split_at_node'} = {
                                                                     'cmdname' => 'unnumbered',
                                                                     'extra' => {},
                                                                     'structure' => {
-                                                                      'associated_unit' => {},
-                                                                      'section_level' => 1
+                                                                      'associated_unit' => {}
                                                                     }
                                                                   },
                                                                   'normalized' => 'continuity'
@@ -4276,8 +4273,7 @@ $result_nodes{'complex_split_at_node'} = {
                                                         'unit_prev' => {}
                                                       },
                                                       'type' => 'unit'
-                                                    },
-                                                    'section_level' => 1
+                                                    }
                                                   }
                                                 },
                                                 'normalized' => 'Third-node-unnumbered'
@@ -4320,7 +4316,6 @@ $result_nodes{'complex_split_at_node'} = {
                                                           'extra' => {},
                                                           'structure' => {
                                                             'associated_unit' => {},
-                                                            'section_level' => 2,
                                                             'section_number' => '1.1'
                                                           }
                                                         },
@@ -4350,8 +4345,7 @@ $result_nodes{'complex_split_at_node'} = {
                                                                                 'cmdname' => 'subsection',
                                                                                 'extra' => {},
                                                                                 'structure' => {
-                                                                                  'associated_unit' => {},
-                                                                                  'section_level' => 3
+                                                                                  'associated_unit' => {}
                                                                                 }
                                                                               },
                                                                               'normalized' => 'numbered-sub2'
@@ -4380,8 +4374,7 @@ $result_nodes{'complex_split_at_node'} = {
                                                                                                       'cmdname' => 'subsection',
                                                                                                       'extra' => {},
                                                                                                       'structure' => {
-                                                                                                        'associated_unit' => {},
-                                                                                                        'section_level' => 3
+                                                                                                        'associated_unit' => {}
                                                                                                       }
                                                                                                     },
                                                                                                     'normalized' => 'numbered-sub'
@@ -4418,8 +4411,7 @@ $result_nodes{'complex_split_at_node'} = {
                                                                                                                 'unit_prev' => {}
                                                                                                               },
                                                                                                               'type' => 'unit'
-                                                                                                            },
-                                                                                                            'section_level' => 3
+                                                                                                            }
                                                                                                           }
                                                                                                         },
                                                                                                         'normalized' => 'unnumbered-sub'
@@ -4472,8 +4464,7 @@ $result_nodes{'complex_split_at_node'} = {
                                                                                           'unit_prev' => {}
                                                                                         },
                                                                                         'type' => 'unit'
-                                                                                      },
-                                                                                      'section_level' => 3
+                                                                                      }
                                                                                     }
                                                                                   },
                                                                                   'normalized' => 'unnumbered-sub2'
@@ -4519,8 +4510,7 @@ $result_nodes{'complex_split_at_node'} = {
                                                                                 'cmdname' => 'subsection',
                                                                                 'extra' => {},
                                                                                 'structure' => {
-                                                                                  'associated_unit' => {},
-                                                                                  'section_level' => 3
+                                                                                  'associated_unit' => {}
                                                                                 }
                                                                               },
                                                                               'normalized' => 'numbered-sub3'
@@ -4562,8 +4552,7 @@ $result_nodes{'complex_split_at_node'} = {
                                                                     'unit_prev' => {}
                                                                   },
                                                                   'type' => 'unit'
-                                                                },
-                                                                'section_level' => 2
+                                                                }
                                                               }
                                                             },
                                                             'menus' => [
@@ -4643,8 +4632,7 @@ $result_nodes{'complex_split_at_node'} = {
                                   'unit_prev' => {}
                                 },
                                 'type' => 'unit'
-                              },
-                              'section_level' => 2
+                              }
                             }
                           },
                           'menus' => [
@@ -4704,8 +4692,7 @@ $result_nodes{'complex_split_at_node'} = {
             'unit_next' => {}
           },
           'type' => 'unit'
-        },
-        'section_level' => 0
+        }
       }
     },
     'menus' => [

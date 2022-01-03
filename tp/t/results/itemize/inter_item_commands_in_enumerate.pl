@@ -1409,9 +1409,7 @@ $result_nodes{'inter_item_commands_in_enumerate'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'structure' => {
-        'section_level' => 0
-      }
+      'structure' => {}
     },
     'normalized' => 'Top'
   },
@@ -1423,7 +1421,6 @@ $result_nodes{'inter_item_commands_in_enumerate'} = {
           'cmdname' => 'chapter',
           'extra' => {},
           'structure' => {
-            'section_level' => 1,
             'section_number' => 1
           }
         },

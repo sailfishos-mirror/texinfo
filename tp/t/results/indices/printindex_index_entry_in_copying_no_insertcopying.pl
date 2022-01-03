@@ -1157,9 +1157,7 @@ $result_nodes{'printindex_index_entry_in_copying_no_insertcopying'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'structure' => {
-        'section_level' => 0
-      }
+      'structure' => {}
     },
     'menus' => [
       {
@@ -1177,7 +1175,6 @@ $result_nodes{'printindex_index_entry_in_copying_no_insertcopying'} = {
           'cmdname' => 'chapter',
           'extra' => {},
           'structure' => {
-            'section_level' => 1,
             'section_number' => 1
           }
         },

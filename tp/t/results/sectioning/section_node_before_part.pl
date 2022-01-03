@@ -200,7 +200,6 @@ $result_nodes{'section_node_before_part'} = {
       'cmdname' => 'section',
       'extra' => {},
       'structure' => {
-        'section_level' => 2,
         'section_number' => 1
       }
     },

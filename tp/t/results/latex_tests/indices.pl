@@ -1275,9 +1275,7 @@ $result_nodes{'indices'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'structure' => {
-        'section_level' => 0
-      }
+      'structure' => {}
     },
     'normalized' => 'Top'
   },
@@ -1289,7 +1287,6 @@ $result_nodes{'indices'} = {
           'cmdname' => 'chapter',
           'extra' => {},
           'structure' => {
-            'section_level' => 1,
             'section_number' => 1
           }
         },

@@ -649,9 +649,7 @@ $result_nodes{'direntry_dircategory_and_commands'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'structure' => {
-        'section_level' => 0
-      }
+      'structure' => {}
     },
     'normalized' => 'Top'
   }

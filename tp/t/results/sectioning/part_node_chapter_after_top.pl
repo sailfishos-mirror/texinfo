@@ -816,14 +816,12 @@ $result_nodes{'part_node_chapter_after_top'} = {
                         'cmdname' => 'part',
                         'extra' => {},
                         'structure' => {
-                          'associated_unit' => {},
-                          'section_level' => 0
+                          'associated_unit' => {}
                         }
                       }
                     },
                     'structure' => {
                       'associated_unit' => {},
-                      'section_level' => 1,
                       'section_number' => 1
                     }
                   }
@@ -851,8 +849,7 @@ $result_nodes{'part_node_chapter_after_top'} = {
             'unit_next' => {}
           },
           'type' => 'unit'
-        },
-        'section_level' => 0
+        }
       }
     },
     'menus' => [
@@ -930,8 +927,7 @@ $result_menus{'part_node_chapter_after_top'} = {
           'cmdname' => 'top',
           'extra' => {},
           'structure' => {
-            'associated_unit' => {},
-            'section_level' => 0
+            'associated_unit' => {}
           }
         }
       },
@@ -946,14 +942,12 @@ $result_menus{'part_node_chapter_after_top'} = {
                     'cmdname' => 'part',
                     'extra' => {},
                     'structure' => {
-                      'associated_unit' => {},
-                      'section_level' => 0
+                      'associated_unit' => {}
                     }
                   }
                 },
                 'structure' => {
                   'associated_unit' => {},
-                  'section_level' => 1,
                   'section_number' => 1
                 }
               }
@@ -1047,8 +1041,7 @@ $result_elements{'part_node_chapter_after_top'} = [
         'cmdname' => 'top',
         'extra' => {},
         'structure' => {
-          'associated_unit' => {},
-          'section_level' => 0
+          'associated_unit' => {}
         }
       }
     },
@@ -1063,14 +1056,12 @@ $result_elements{'part_node_chapter_after_top'} = [
                   'cmdname' => 'part',
                   'extra' => {},
                   'structure' => {
-                    'associated_unit' => {},
-                    'section_level' => 0
+                    'associated_unit' => {}
                   }
                 }
               },
               'structure' => {
                 'associated_unit' => {},
-                'section_level' => 1,
                 'section_number' => 1
               }
             }

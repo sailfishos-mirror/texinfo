@@ -505,9 +505,7 @@ $result_nodes{'nodes_before_after_top'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'structure' => {
-        'section_level' => 0
-      }
+      'structure' => {}
     },
     'normalized' => 'Top'
   },
@@ -519,7 +517,6 @@ $result_nodes{'nodes_before_after_top'} = {
           'cmdname' => 'chapter',
           'extra' => {},
           'structure' => {
-            'section_level' => 1,
             'section_number' => 1
           }
         },

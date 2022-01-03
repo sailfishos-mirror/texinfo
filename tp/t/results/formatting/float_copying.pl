@@ -1853,9 +1853,7 @@ $result_nodes{'float_copying'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'structure' => {
-        'section_level' => 0
-      }
+      'structure' => {}
     },
     'menus' => [
       {
@@ -1873,7 +1871,6 @@ $result_nodes{'float_copying'} = {
           'cmdname' => 'appendix',
           'extra' => {},
           'structure' => {
-            'section_level' => 1,
             'section_number' => 'A'
           }
         },

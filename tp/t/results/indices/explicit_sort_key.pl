@@ -829,9 +829,7 @@ $result_nodes{'explicit_sort_key'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'structure' => {
-        'section_level' => 0
-      }
+      'structure' => {}
     },
     'isindex' => 1,
     'normalized' => 'Top'

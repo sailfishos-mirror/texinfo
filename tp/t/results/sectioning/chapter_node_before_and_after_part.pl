@@ -492,7 +492,6 @@ $result_nodes{'chapter_node_before_and_after_part'} = {
       'cmdname' => 'chapter',
       'extra' => {},
       'structure' => {
-        'section_level' => 1,
         'section_number' => 1
       }
     },
@@ -514,13 +513,10 @@ $result_nodes{'chapter_node_before_and_after_part'} = {
             'associated_part' => {
               'cmdname' => 'part',
               'extra' => {},
-              'structure' => {
-                'section_level' => 0
-              }
+              'structure' => {}
             }
           },
           'structure' => {
-            'section_level' => 1,
             'section_number' => 2
           }
         },

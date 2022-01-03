@@ -375,9 +375,7 @@ $result_nodes{'inlineraw_in_menu_description'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'structure' => {
-        'section_level' => 0
-      }
+      'structure' => {}
     },
     'menus' => [
       {

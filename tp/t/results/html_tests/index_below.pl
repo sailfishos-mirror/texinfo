@@ -404,8 +404,7 @@ $result_elements{'index_below'} = [
         'cmdname' => 'top',
         'extra' => {},
         'structure' => {
-          'associated_unit' => {},
-          'section_level' => 0
+          'associated_unit' => {}
         }
       }
     },
@@ -418,7 +417,6 @@ $result_elements{'index_below'} = [
               'extra' => {},
               'structure' => {
                 'associated_unit' => {},
-                'section_level' => 1,
                 'section_number' => 1
               }
             }
@@ -434,7 +432,6 @@ $result_elements{'index_below'} = [
                     'extra' => {},
                     'structure' => {
                       'associated_unit' => {},
-                      'section_level' => 2,
                       'section_number' => '1.1'
                     }
                   }

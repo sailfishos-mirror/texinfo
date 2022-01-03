@@ -306,7 +306,6 @@ $result_elements{'chapter_before_and_after_part'} = [
         'extra' => {},
         'structure' => {
           'associated_unit' => {},
-          'section_level' => 1,
           'section_number' => 1
         }
       }
@@ -322,14 +321,12 @@ $result_elements{'chapter_before_and_after_part'} = [
                   'cmdname' => 'part',
                   'extra' => {},
                   'structure' => {
-                    'associated_unit' => {},
-                    'section_level' => 0
+                    'associated_unit' => {}
                   }
                 }
               },
               'structure' => {
                 'associated_unit' => {},
-                'section_level' => 1,
                 'section_number' => 2
               }
             }

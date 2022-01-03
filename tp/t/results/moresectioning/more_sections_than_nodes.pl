@@ -1691,9 +1691,7 @@ $result_nodes{'more_sections_than_nodes'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'structure' => {
-        'section_level' => 0
-      }
+      'structure' => {}
     },
     'menus' => [
       {
@@ -1711,7 +1709,6 @@ $result_nodes{'more_sections_than_nodes'} = {
           'cmdname' => 'chapter',
           'extra' => {},
           'structure' => {
-            'section_level' => 1,
             'section_number' => 2
           }
         },
@@ -1725,7 +1722,6 @@ $result_nodes{'more_sections_than_nodes'} = {
               'cmdname' => 'chapter',
               'extra' => {},
               'structure' => {
-                'section_level' => 1,
                 'section_number' => 3
               }
             },
@@ -1745,7 +1741,6 @@ $result_nodes{'more_sections_than_nodes'} = {
                   'cmdname' => 'section',
                   'extra' => {},
                   'structure' => {
-                    'section_level' => 2,
                     'section_number' => '3.2'
                   }
                 },
@@ -1762,7 +1757,6 @@ $result_nodes{'more_sections_than_nodes'} = {
                   'cmdname' => 'subsection',
                   'extra' => {},
                   'structure' => {
-                    'section_level' => 3,
                     'section_number' => '4.1.2'
                   }
                 },

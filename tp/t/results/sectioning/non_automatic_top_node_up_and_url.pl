@@ -778,8 +778,7 @@ $result_nodes{'non_automatic_top_node_up_and_url'} = {
             'unit_next' => {}
           },
           'type' => 'unit'
-        },
-        'section_level' => 0
+        }
       }
     },
     'menus' => [

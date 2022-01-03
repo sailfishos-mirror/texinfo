@@ -337,9 +337,7 @@ $result_nodes{'direntry_dircategory_after_first_node'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'structure' => {
-        'section_level' => 0
-      }
+      'structure' => {}
     },
     'normalized' => 'Top'
   },

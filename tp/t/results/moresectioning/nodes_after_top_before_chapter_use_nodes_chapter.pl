@@ -736,7 +736,6 @@ $result_nodes{'nodes_after_top_before_chapter_use_nodes_chapter'} = {
               'cmdname' => 'chapter',
               'extra' => {},
               'structure' => {
-                'section_level' => 1,
                 'section_number' => 1
               }
             },

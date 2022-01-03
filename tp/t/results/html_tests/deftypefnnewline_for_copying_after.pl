@@ -729,9 +729,7 @@ $result_nodes{'deftypefnnewline_for_copying_after'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'structure' => {
-        'section_level' => 0
-      }
+      'structure' => {}
     },
     'normalized' => 'Top'
   }

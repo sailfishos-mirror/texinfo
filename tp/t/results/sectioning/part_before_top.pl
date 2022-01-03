@@ -194,14 +194,12 @@ $result_elements{'part_before_top'} = [
             'cmdname' => 'part',
             'extra' => {},
             'structure' => {
-              'associated_unit' => {},
-              'section_level' => 0
+              'associated_unit' => {}
             }
           }
         },
         'structure' => {
-          'associated_unit' => {},
-          'section_level' => 0
+          'associated_unit' => {}
         }
       }
     },

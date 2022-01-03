@@ -873,9 +873,7 @@ $result_nodes{'semi_auto'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'structure' => {
-        'section_level' => 0
-      }
+      'structure' => {}
     },
     'menus' => [
       {
@@ -893,7 +891,6 @@ $result_nodes{'semi_auto'} = {
           'cmdname' => 'chapter',
           'extra' => {},
           'structure' => {
-            'section_level' => 1,
             'section_number' => 1
           }
         },
@@ -913,7 +910,6 @@ $result_nodes{'semi_auto'} = {
               'cmdname' => 'section',
               'extra' => {},
               'structure' => {
-                'section_level' => 2,
                 'section_number' => '1.1'
               }
             },
@@ -927,7 +923,6 @@ $result_nodes{'semi_auto'} = {
                   'cmdname' => 'section',
                   'extra' => {},
                   'structure' => {
-                    'section_level' => 2,
                     'section_number' => '1.2'
                   }
                 },

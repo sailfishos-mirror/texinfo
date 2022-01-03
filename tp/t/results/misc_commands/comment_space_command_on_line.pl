@@ -758,9 +758,7 @@ $result_nodes{'comment_space_command_on_line'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'structure' => {
-        'section_level' => 0
-      }
+      'structure' => {}
     },
     'isindex' => 1,
     'normalized' => 'Top'
@@ -786,9 +784,7 @@ $result_floats{'comment_space_command_on_line'} = {
         'float_section' => {
           'cmdname' => 'top',
           'extra' => {},
-          'structure' => {
-            'section_level' => 0
-          }
+          'structure' => {}
         },
         'normalized' => 'label',
         'type' => {

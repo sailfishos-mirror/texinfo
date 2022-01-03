@@ -211,7 +211,6 @@ $result_elements{'chapter_before_part'} = [
         'extra' => {},
         'structure' => {
           'associated_unit' => {},
-          'section_level' => 1,
           'section_number' => 1
         }
       }
@@ -224,8 +223,7 @@ $result_elements{'chapter_before_part'} = [
               'cmdname' => 'part',
               'extra' => {},
               'structure' => {
-                'associated_unit' => {},
-                'section_level' => 0
+                'associated_unit' => {}
               }
             }
           },

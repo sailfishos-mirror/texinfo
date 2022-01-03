@@ -292,9 +292,7 @@ $result_nodes{'text_before_top_and_contents_after_title'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'structure' => {
-        'section_level' => 0
-      }
+      'structure' => {}
     },
     'normalized' => 'Top'
   }

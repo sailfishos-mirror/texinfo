@@ -952,7 +952,6 @@ $result_elements{'sectioning_part_appendix_no_top'} = [
         'extra' => {},
         'structure' => {
           'associated_unit' => {},
-          'section_level' => 1,
           'section_number' => 1
         }
       }
@@ -968,14 +967,12 @@ $result_elements{'sectioning_part_appendix_no_top'} = [
                   'cmdname' => 'part',
                   'extra' => {},
                   'structure' => {
-                    'associated_unit' => {},
-                    'section_level' => 0
+                    'associated_unit' => {}
                   }
                 }
               },
               'structure' => {
                 'associated_unit' => {},
-                'section_level' => 1,
                 'section_number' => 2
               }
             }
@@ -989,7 +986,6 @@ $result_elements{'sectioning_part_appendix_no_top'} = [
                     'extra' => {},
                     'structure' => {
                       'associated_unit' => {},
-                      'section_level' => 4,
                       'section_number' => '1.1.1.1'
                     }
                   }
@@ -1003,7 +999,6 @@ $result_elements{'sectioning_part_appendix_no_top'} = [
                           'extra' => {},
                           'structure' => {
                             'associated_unit' => {},
-                            'section_level' => 3,
                             'section_number' => '1.1.1'
                           }
                         }
@@ -1017,7 +1012,6 @@ $result_elements{'sectioning_part_appendix_no_top'} = [
                                 'extra' => {},
                                 'structure' => {
                                   'associated_unit' => {},
-                                  'section_level' => 2,
                                   'section_number' => '1.1'
                                 }
                               }
@@ -1060,7 +1054,6 @@ $result_elements{'sectioning_part_appendix_no_top'} = [
                     'extra' => {},
                     'structure' => {
                       'associated_unit' => {},
-                      'section_level' => 1,
                       'section_number' => 3
                     }
                   }
@@ -1075,8 +1068,7 @@ $result_elements{'sectioning_part_appendix_no_top'} = [
                           'cmdname' => 'unnumbered',
                           'extra' => {},
                           'structure' => {
-                            'associated_unit' => {},
-                            'section_level' => 1
+                            'associated_unit' => {}
                           }
                         }
                       },
@@ -1091,7 +1083,6 @@ $result_elements{'sectioning_part_appendix_no_top'} = [
                                 'extra' => {},
                                 'structure' => {
                                   'associated_unit' => {},
-                                  'section_level' => 1,
                                   'section_number' => 'A'
                                 }
                               }
@@ -1107,7 +1098,6 @@ $result_elements{'sectioning_part_appendix_no_top'} = [
                                       'extra' => {},
                                       'structure' => {
                                         'associated_unit' => {},
-                                        'section_level' => 2,
                                         'section_number' => 'A.1'
                                       }
                                     }

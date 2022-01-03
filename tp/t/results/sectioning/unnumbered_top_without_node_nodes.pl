@@ -562,7 +562,6 @@ $result_nodes{'unnumbered_top_without_node_nodes'} = {
                         'extra' => {},
                         'structure' => {
                           'associated_unit' => {},
-                          'section_level' => 1,
                           'section_number' => 1
                         }
                       },
@@ -614,8 +613,7 @@ $result_nodes{'unnumbered_top_without_node_nodes'} = {
             'unit_next' => {}
           },
           'type' => 'unit'
-        },
-        'section_level' => 1
+        }
       }
     },
     'normalized' => 'a-node'

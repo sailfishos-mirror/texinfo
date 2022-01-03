@@ -185,14 +185,12 @@ $result_elements{'part_before_chapter'} = [
             'cmdname' => 'part',
             'extra' => {},
             'structure' => {
-              'associated_unit' => {},
-              'section_level' => 0
+              'associated_unit' => {}
             }
           }
         },
         'structure' => {
           'associated_unit' => {},
-          'section_level' => 1,
           'section_number' => 1
         }
       }

@@ -1061,9 +1061,7 @@ $result_nodes{'punctuation_in_line_commands'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'structure' => {
-        'section_level' => 0
-      }
+      'structure' => {}
     },
     'isindex' => 1,
     'normalized' => 'node_0021-After-punc'
@@ -1089,9 +1087,7 @@ $result_floats{'punctuation_in_line_commands'} = {
         'float_section' => {
           'cmdname' => 'top',
           'extra' => {},
-          'structure' => {
-            'section_level' => 0
-          }
+          'structure' => {}
         },
         'normalized' => 'float-label_0021-After-punc',
         'shortcaption' => {

@@ -426,7 +426,6 @@ $result_nodes{'lone_Top_node'} = {
           'extra' => {},
           'structure' => {
             'associated_unit' => {},
-            'section_level' => 1,
             'section_number' => 1
           }
         }
@@ -478,7 +477,6 @@ $result_menus{'lone_Top_node'} = {
           'extra' => {},
           'structure' => {
             'associated_unit' => {},
-            'section_level' => 1,
             'section_number' => 1
           }
         }
@@ -538,7 +536,6 @@ $result_elements{'lone_Top_node'} = [
         'extra' => {},
         'structure' => {
           'associated_unit' => {},
-          'section_level' => 1,
           'section_number' => 1
         }
       }

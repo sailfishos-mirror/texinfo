@@ -1493,7 +1493,6 @@ $result_nodes{'node_footnote_separated'} = {
                   'cmdname' => 'chapter',
                   'extra' => {},
                   'structure' => {
-                    'section_level' => 1,
                     'section_number' => 1
                   }
                 },

@@ -706,14 +706,12 @@ $result_nodes{'double_part'} = {
                         'cmdname' => 'part',
                         'extra' => {},
                         'structure' => {
-                          'associated_unit' => {},
-                          'section_level' => 0
+                          'associated_unit' => {}
                         }
                       }
                     },
                     'structure' => {
                       'associated_unit' => {},
-                      'section_level' => 1,
                       'section_number' => 1
                     }
                   }
@@ -727,8 +725,7 @@ $result_nodes{'double_part'} = {
                           'cmdname' => 'part',
                           'extra' => {},
                           'structure' => {
-                            'associated_unit' => {},
-                            'section_level' => 0
+                            'associated_unit' => {}
                           }
                         }
                       },
@@ -765,8 +762,7 @@ $result_nodes{'double_part'} = {
             'unit_next' => {}
           },
           'type' => 'unit'
-        },
-        'section_level' => 0
+        }
       }
     },
     'menus' => [
@@ -841,8 +837,7 @@ $result_menus{'double_part'} = {
           'cmdname' => 'top',
           'extra' => {},
           'structure' => {
-            'associated_unit' => {},
-            'section_level' => 0
+            'associated_unit' => {}
           }
         }
       },
@@ -858,14 +853,12 @@ $result_menus{'double_part'} = {
                     'cmdname' => 'part',
                     'extra' => {},
                     'structure' => {
-                      'associated_unit' => {},
-                      'section_level' => 0
+                      'associated_unit' => {}
                     }
                   }
                 },
                 'structure' => {
                   'associated_unit' => {},
-                  'section_level' => 1,
                   'section_number' => 1
                 }
               }
@@ -879,8 +872,7 @@ $result_menus{'double_part'} = {
                       'cmdname' => 'part',
                       'extra' => {},
                       'structure' => {
-                        'associated_unit' => {},
-                        'section_level' => 0
+                        'associated_unit' => {}
                       }
                     }
                   },
@@ -1005,8 +997,7 @@ $result_elements{'double_part'} = [
         'cmdname' => 'top',
         'extra' => {},
         'structure' => {
-          'associated_unit' => {},
-          'section_level' => 0
+          'associated_unit' => {}
         }
       }
     },
@@ -1022,14 +1013,12 @@ $result_elements{'double_part'} = [
                   'cmdname' => 'part',
                   'extra' => {},
                   'structure' => {
-                    'associated_unit' => {},
-                    'section_level' => 0
+                    'associated_unit' => {}
                   }
                 }
               },
               'structure' => {
                 'associated_unit' => {},
-                'section_level' => 1,
                 'section_number' => 1
               }
             }
@@ -1043,8 +1032,7 @@ $result_elements{'double_part'} = [
                     'cmdname' => 'part',
                     'extra' => {},
                     'structure' => {
-                      'associated_unit' => {},
-                      'section_level' => 0
+                      'associated_unit' => {}
                     }
                   }
                 },

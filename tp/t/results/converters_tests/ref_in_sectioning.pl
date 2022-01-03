@@ -2329,9 +2329,7 @@ $result_nodes{'ref_in_sectioning'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'structure' => {
-        'section_level' => 0
-      }
+      'structure' => {}
     },
     'menus' => [
       {
@@ -2349,7 +2347,6 @@ $result_nodes{'ref_in_sectioning'} = {
           'cmdname' => 'chapter',
           'extra' => {},
           'structure' => {
-            'section_level' => 1,
             'section_number' => 1
           }
         },
@@ -2363,7 +2360,6 @@ $result_nodes{'ref_in_sectioning'} = {
               'cmdname' => 'chapter',
               'extra' => {},
               'structure' => {
-                'section_level' => 1,
                 'section_number' => 2
               }
             },

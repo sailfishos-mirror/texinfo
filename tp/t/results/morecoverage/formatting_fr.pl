@@ -4446,9 +4446,7 @@ $result_nodes{'formatting_fr'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'structure' => {
-        'section_level' => 0
-      }
+      'structure' => {}
     },
     'isindex' => 1,
     'menus' => [
@@ -4467,7 +4465,6 @@ $result_nodes{'formatting_fr'} = {
           'cmdname' => 'chapter',
           'extra' => {},
           'structure' => {
-            'section_level' => 1,
             'section_number' => 1
           }
         },
@@ -4480,9 +4477,7 @@ $result_nodes{'formatting_fr'} = {
             'associated_section' => {
               'cmdname' => 'centerchap',
               'extra' => {},
-              'structure' => {
-                'section_level' => 1
-              }
+              'structure' => {}
             },
             'isindex' => 1,
             'normalized' => 'chapter2'

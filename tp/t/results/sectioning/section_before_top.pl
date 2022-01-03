@@ -423,9 +423,7 @@ $result_nodes{'section_before_top'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'structure' => {
-        'section_level' => 2
-      }
+      'structure' => {}
     },
     'menus' => [
       {
@@ -443,7 +441,6 @@ $result_nodes{'section_before_top'} = {
           'cmdname' => 'section',
           'extra' => {},
           'structure' => {
-            'section_level' => 2,
             'section_number' => 1
           }
         },

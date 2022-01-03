@@ -21777,9 +21777,7 @@ $result_nodes{'at_commands_in_refs_utf8'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'structure' => {
-        'section_level' => 0
-      }
+      'structure' => {}
     },
     'menus' => [
       {
@@ -21797,7 +21795,6 @@ $result_nodes{'at_commands_in_refs_utf8'} = {
           'cmdname' => 'chapter',
           'extra' => {},
           'structure' => {
-            'section_level' => 1,
             'section_number' => 1
           }
         },
@@ -21811,7 +21808,6 @@ $result_nodes{'at_commands_in_refs_utf8'} = {
               'cmdname' => 'chapter',
               'extra' => {},
               'structure' => {
-                'section_level' => 1,
                 'section_number' => 2
               }
             },
@@ -21825,7 +21821,6 @@ $result_nodes{'at_commands_in_refs_utf8'} = {
                   'cmdname' => 'chapter',
                   'extra' => {},
                   'structure' => {
-                    'section_level' => 1,
                     'section_number' => 3
                   }
                 },
@@ -21839,7 +21834,6 @@ $result_nodes{'at_commands_in_refs_utf8'} = {
                       'cmdname' => 'chapter',
                       'extra' => {},
                       'structure' => {
-                        'section_level' => 1,
                         'section_number' => 4
                       }
                     },
@@ -21853,7 +21847,6 @@ $result_nodes{'at_commands_in_refs_utf8'} = {
                           'cmdname' => 'chapter',
                           'extra' => {},
                           'structure' => {
-                            'section_level' => 1,
                             'section_number' => 5
                           }
                         },
@@ -21867,7 +21860,6 @@ $result_nodes{'at_commands_in_refs_utf8'} = {
                               'cmdname' => 'chapter',
                               'extra' => {},
                               'structure' => {
-                                'section_level' => 1,
                                 'section_number' => 6
                               }
                             },
@@ -21881,7 +21873,6 @@ $result_nodes{'at_commands_in_refs_utf8'} = {
                                   'cmdname' => 'chapter',
                                   'extra' => {},
                                   'structure' => {
-                                    'section_level' => 1,
                                     'section_number' => 7
                                   }
                                 },
@@ -21895,7 +21886,6 @@ $result_nodes{'at_commands_in_refs_utf8'} = {
                                       'cmdname' => 'chapter',
                                       'extra' => {},
                                       'structure' => {
-                                        'section_level' => 1,
                                         'section_number' => 8
                                       }
                                     },
@@ -21909,7 +21899,6 @@ $result_nodes{'at_commands_in_refs_utf8'} = {
                                           'cmdname' => 'chapter',
                                           'extra' => {},
                                           'structure' => {
-                                            'section_level' => 1,
                                             'section_number' => 9
                                           }
                                         },
@@ -21923,7 +21912,6 @@ $result_nodes{'at_commands_in_refs_utf8'} = {
                                               'cmdname' => 'chapter',
                                               'extra' => {},
                                               'structure' => {
-                                                'section_level' => 1,
                                                 'section_number' => 10
                                               }
                                             },
@@ -21937,7 +21925,6 @@ $result_nodes{'at_commands_in_refs_utf8'} = {
                                                   'cmdname' => 'chapter',
                                                   'extra' => {},
                                                   'structure' => {
-                                                    'section_level' => 1,
                                                     'section_number' => 11
                                                   }
                                                 },
@@ -21951,7 +21938,6 @@ $result_nodes{'at_commands_in_refs_utf8'} = {
                                                       'cmdname' => 'chapter',
                                                       'extra' => {},
                                                       'structure' => {
-                                                        'section_level' => 1,
                                                         'section_number' => 12
                                                       }
                                                     },
@@ -21965,7 +21951,6 @@ $result_nodes{'at_commands_in_refs_utf8'} = {
                                                           'cmdname' => 'chapter',
                                                           'extra' => {},
                                                           'structure' => {
-                                                            'section_level' => 1,
                                                             'section_number' => 13
                                                           }
                                                         },
@@ -21979,7 +21964,6 @@ $result_nodes{'at_commands_in_refs_utf8'} = {
                                                               'cmdname' => 'chapter',
                                                               'extra' => {},
                                                               'structure' => {
-                                                                'section_level' => 1,
                                                                 'section_number' => 14
                                                               }
                                                             },
@@ -21993,7 +21977,6 @@ $result_nodes{'at_commands_in_refs_utf8'} = {
                                                                   'cmdname' => 'chapter',
                                                                   'extra' => {},
                                                                   'structure' => {
-                                                                    'section_level' => 1,
                                                                     'section_number' => 15
                                                                   }
                                                                 },
@@ -22007,7 +21990,6 @@ $result_nodes{'at_commands_in_refs_utf8'} = {
                                                                       'cmdname' => 'chapter',
                                                                       'extra' => {},
                                                                       'structure' => {
-                                                                        'section_level' => 1,
                                                                         'section_number' => 16
                                                                       }
                                                                     },
@@ -22021,7 +22003,6 @@ $result_nodes{'at_commands_in_refs_utf8'} = {
                                                                           'cmdname' => 'chapter',
                                                                           'extra' => {},
                                                                           'structure' => {
-                                                                            'section_level' => 1,
                                                                             'section_number' => 17
                                                                           }
                                                                         },
@@ -22035,7 +22016,6 @@ $result_nodes{'at_commands_in_refs_utf8'} = {
                                                                               'cmdname' => 'chapter',
                                                                               'extra' => {},
                                                                               'structure' => {
-                                                                                'section_level' => 1,
                                                                                 'section_number' => 18
                                                                               }
                                                                             },
@@ -22049,7 +22029,6 @@ $result_nodes{'at_commands_in_refs_utf8'} = {
                                                                                   'cmdname' => 'chapter',
                                                                                   'extra' => {},
                                                                                   'structure' => {
-                                                                                    'section_level' => 1,
                                                                                     'section_number' => 19
                                                                                   }
                                                                                 },
@@ -22063,7 +22042,6 @@ $result_nodes{'at_commands_in_refs_utf8'} = {
                                                                                       'cmdname' => 'chapter',
                                                                                       'extra' => {},
                                                                                       'structure' => {
-                                                                                        'section_level' => 1,
                                                                                         'section_number' => 20
                                                                                       }
                                                                                     },
@@ -22077,7 +22055,6 @@ $result_nodes{'at_commands_in_refs_utf8'} = {
                                                                                           'cmdname' => 'chapter',
                                                                                           'extra' => {},
                                                                                           'structure' => {
-                                                                                            'section_level' => 1,
                                                                                             'section_number' => 21
                                                                                           }
                                                                                         },
@@ -22091,7 +22068,6 @@ $result_nodes{'at_commands_in_refs_utf8'} = {
                                                                                               'cmdname' => 'chapter',
                                                                                               'extra' => {},
                                                                                               'structure' => {
-                                                                                                'section_level' => 1,
                                                                                                 'section_number' => 22
                                                                                               }
                                                                                             },
@@ -22105,7 +22081,6 @@ $result_nodes{'at_commands_in_refs_utf8'} = {
                                                                                                   'cmdname' => 'chapter',
                                                                                                   'extra' => {},
                                                                                                   'structure' => {
-                                                                                                    'section_level' => 1,
                                                                                                     'section_number' => 23
                                                                                                   }
                                                                                                 },
@@ -22119,7 +22094,6 @@ $result_nodes{'at_commands_in_refs_utf8'} = {
                                                                                                       'cmdname' => 'chapter',
                                                                                                       'extra' => {},
                                                                                                       'structure' => {
-                                                                                                        'section_level' => 1,
                                                                                                         'section_number' => 24
                                                                                                       }
                                                                                                     },
@@ -22133,7 +22107,6 @@ $result_nodes{'at_commands_in_refs_utf8'} = {
                                                                                                           'cmdname' => 'chapter',
                                                                                                           'extra' => {},
                                                                                                           'structure' => {
-                                                                                                            'section_level' => 1,
                                                                                                             'section_number' => 25
                                                                                                           }
                                                                                                         },
@@ -22147,7 +22120,6 @@ $result_nodes{'at_commands_in_refs_utf8'} = {
                                                                                                               'cmdname' => 'chapter',
                                                                                                               'extra' => {},
                                                                                                               'structure' => {
-                                                                                                                'section_level' => 1,
                                                                                                                 'section_number' => 26
                                                                                                               }
                                                                                                             },
@@ -22161,7 +22133,6 @@ $result_nodes{'at_commands_in_refs_utf8'} = {
                                                                                                                   'cmdname' => 'chapter',
                                                                                                                   'extra' => {},
                                                                                                                   'structure' => {
-                                                                                                                    'section_level' => 1,
                                                                                                                     'section_number' => 27
                                                                                                                   }
                                                                                                                 },

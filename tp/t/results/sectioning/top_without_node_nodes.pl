@@ -339,7 +339,6 @@ $result_nodes{'top_without_node_nodes'} = {
           },
           'type' => 'unit'
         },
-        'section_level' => 1,
         'section_number' => 1
       }
     },

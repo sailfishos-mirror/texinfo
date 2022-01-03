@@ -1988,7 +1988,6 @@ $result_nodes{'character_and_spaces_in_refs_out'} = {
                         'extra' => {},
                         'structure' => {
                           'associated_unit' => {},
-                          'section_level' => 1,
                           'section_number' => 1
                         }
                       },
@@ -2124,8 +2123,7 @@ $result_nodes{'character_and_spaces_in_refs_out'} = {
             'unit_next' => {}
           },
           'type' => 'unit'
-        },
-        'section_level' => 0
+        }
       }
     },
     'menus' => [

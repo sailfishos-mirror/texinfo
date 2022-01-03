@@ -617,9 +617,7 @@ $result_nodes{'chapter_between_nodes'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'structure' => {
-        'section_level' => 0
-      }
+      'structure' => {}
     },
     'menus' => [
       {
@@ -637,7 +635,6 @@ $result_nodes{'chapter_between_nodes'} = {
           'cmdname' => 'section',
           'extra' => {},
           'structure' => {
-            'section_level' => 2,
             'section_number' => '1.1'
           }
         },

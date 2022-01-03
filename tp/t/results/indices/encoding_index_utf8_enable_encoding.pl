@@ -3550,9 +3550,7 @@ $result_nodes{'encoding_index_utf8_enable_encoding'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'structure' => {
-        'section_level' => 0
-      }
+      'structure' => {}
     },
     'isindex' => 1,
     'normalized' => 'Top'

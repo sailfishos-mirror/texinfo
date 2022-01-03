@@ -4612,9 +4612,7 @@ $result_nodes{'complex_float'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'structure' => {
-        'section_level' => 0
-      }
+      'structure' => {}
     },
     'menus' => [
       {
@@ -4632,7 +4630,6 @@ $result_nodes{'complex_float'} = {
           'cmdname' => 'chapter',
           'extra' => {},
           'structure' => {
-            'section_level' => 1,
             'section_number' => 1
           }
         },
@@ -4689,9 +4686,7 @@ $result_floats{'complex_float'} = {
         'float_section' => {
           'cmdname' => 'top',
           'extra' => {},
-          'structure' => {
-            'section_level' => 0
-          }
+          'structure' => {}
         },
         'normalized' => 'text-with-a-lot-of-features',
         'shortcaption' => {
@@ -4726,7 +4721,6 @@ $result_floats{'complex_float'} = {
           'cmdname' => 'chapter',
           'extra' => {},
           'structure' => {
-            'section_level' => 1,
             'section_number' => 1
           }
         },

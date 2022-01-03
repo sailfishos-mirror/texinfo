@@ -389,7 +389,6 @@ $result_nodes{'text_before_line_command'} = {
       'cmdname' => 'chapter',
       'extra' => {},
       'structure' => {
-        'section_level' => 1,
         'section_number' => 1
       }
     },

@@ -613,7 +613,6 @@ $result_nodes{'nodes_after_top_before_chapter_not_split_no_use_node_directions'}
               'cmdname' => 'chapter',
               'extra' => {},
               'structure' => {
-                'section_level' => 1,
                 'section_number' => 1
               }
             },

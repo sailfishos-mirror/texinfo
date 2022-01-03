@@ -767,7 +767,6 @@ $result_nodes{'nodes_after_top_before_section_nodes'} = {
                             },
                             'type' => 'unit'
                           },
-                          'section_level' => 3,
                           'section_number' => 1
                         }
                       },

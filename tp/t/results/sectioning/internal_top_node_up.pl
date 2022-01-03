@@ -454,8 +454,7 @@ $result_nodes{'internal_top_node_up'} = {
             'unit_next' => {}
           },
           'type' => 'unit'
-        },
-        'section_level' => 0
+        }
       }
     },
     'menus' => [

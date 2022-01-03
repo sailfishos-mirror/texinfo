@@ -4047,7 +4047,6 @@ $result_nodes{'complex'} = {
                     'extra' => {},
                     'structure' => {
                       'associated_unit' => {},
-                      'section_level' => 1,
                       'section_number' => 1
                     }
                   }
@@ -4063,7 +4062,6 @@ $result_nodes{'complex'} = {
                           'extra' => {},
                           'structure' => {
                             'associated_unit' => {},
-                            'section_level' => 1,
                             'section_number' => 2
                           }
                         }
@@ -4077,7 +4075,6 @@ $result_nodes{'complex'} = {
                                 'extra' => {},
                                 'structure' => {
                                   'associated_unit' => {},
-                                  'section_level' => 2,
                                   'section_number' => '1.1'
                                 }
                               }
@@ -4090,8 +4087,7 @@ $result_nodes{'complex'} = {
                                       'cmdname' => 'subsection',
                                       'extra' => {},
                                       'structure' => {
-                                        'associated_unit' => {},
-                                        'section_level' => 3
+                                        'associated_unit' => {}
                                       }
                                     }
                                   },
@@ -4103,8 +4099,7 @@ $result_nodes{'complex'} = {
                                             'cmdname' => 'unnumberedsec',
                                             'extra' => {},
                                             'structure' => {
-                                              'associated_unit' => {},
-                                              'section_level' => 2
+                                              'associated_unit' => {}
                                             }
                                           }
                                         },
@@ -4116,8 +4111,7 @@ $result_nodes{'complex'} = {
                                                   'cmdname' => 'subsection',
                                                   'extra' => {},
                                                   'structure' => {
-                                                    'associated_unit' => {},
-                                                    'section_level' => 3
+                                                    'associated_unit' => {}
                                                   }
                                                 }
                                               },
@@ -4129,8 +4123,7 @@ $result_nodes{'complex'} = {
                                                         'cmdname' => 'unnumberedsubsec',
                                                         'extra' => {},
                                                         'structure' => {
-                                                          'associated_unit' => {},
-                                                          'section_level' => 3
+                                                          'associated_unit' => {}
                                                         }
                                                       }
                                                     },
@@ -4142,8 +4135,7 @@ $result_nodes{'complex'} = {
                                                               'cmdname' => 'subsection',
                                                               'extra' => {},
                                                               'structure' => {
-                                                                'associated_unit' => {},
-                                                                'section_level' => 3
+                                                                'associated_unit' => {}
                                                               }
                                                             }
                                                           },
@@ -4155,8 +4147,7 @@ $result_nodes{'complex'} = {
                                                                     'cmdname' => 'unnumberedsubsec',
                                                                     'extra' => {},
                                                                     'structure' => {
-                                                                      'associated_unit' => {},
-                                                                      'section_level' => 3
+                                                                      'associated_unit' => {}
                                                                     }
                                                                   }
                                                                 },
@@ -4168,8 +4159,7 @@ $result_nodes{'complex'} = {
                                                                           'cmdname' => 'unnumberedsec',
                                                                           'extra' => {},
                                                                           'structure' => {
-                                                                            'associated_unit' => {},
-                                                                            'section_level' => 2
+                                                                            'associated_unit' => {}
                                                                           }
                                                                         }
                                                                       },
@@ -4314,8 +4304,7 @@ $result_nodes{'complex'} = {
                                 'cmdname' => 'unnumbered',
                                 'extra' => {},
                                 'structure' => {
-                                  'associated_unit' => {},
-                                  'section_level' => 1
+                                  'associated_unit' => {}
                                 }
                               }
                             },
@@ -4329,8 +4318,7 @@ $result_nodes{'complex'} = {
                                       'cmdname' => 'unnumbered',
                                       'extra' => {},
                                       'structure' => {
-                                        'associated_unit' => {},
-                                        'section_level' => 1
+                                        'associated_unit' => {}
                                       }
                                     }
                                   },
@@ -4413,8 +4401,7 @@ $result_nodes{'complex'} = {
             'unit_next' => {}
           },
           'type' => 'unit'
-        },
-        'section_level' => 0
+        }
       }
     },
     'menus' => [
@@ -4773,8 +4760,7 @@ $result_menus{'complex'} = {
           'cmdname' => 'top',
           'extra' => {},
           'structure' => {
-            'associated_unit' => {},
-            'section_level' => 0
+            'associated_unit' => {}
           }
         }
       },
@@ -4787,7 +4773,6 @@ $result_menus{'complex'} = {
                 'extra' => {},
                 'structure' => {
                   'associated_unit' => {},
-                  'section_level' => 1,
                   'section_number' => 1
                 }
               }
@@ -4803,7 +4788,6 @@ $result_menus{'complex'} = {
                       'extra' => {},
                       'structure' => {
                         'associated_unit' => {},
-                        'section_level' => 1,
                         'section_number' => 2
                       }
                     }
@@ -4817,7 +4801,6 @@ $result_menus{'complex'} = {
                             'extra' => {},
                             'structure' => {
                               'associated_unit' => {},
-                              'section_level' => 2,
                               'section_number' => '1.1'
                             }
                           }
@@ -4830,8 +4813,7 @@ $result_menus{'complex'} = {
                                   'cmdname' => 'subsection',
                                   'extra' => {},
                                   'structure' => {
-                                    'associated_unit' => {},
-                                    'section_level' => 3
+                                    'associated_unit' => {}
                                   }
                                 }
                               },
@@ -4843,8 +4825,7 @@ $result_menus{'complex'} = {
                                         'cmdname' => 'unnumberedsec',
                                         'extra' => {},
                                         'structure' => {
-                                          'associated_unit' => {},
-                                          'section_level' => 2
+                                          'associated_unit' => {}
                                         }
                                       }
                                     },
@@ -4856,8 +4837,7 @@ $result_menus{'complex'} = {
                                               'cmdname' => 'subsection',
                                               'extra' => {},
                                               'structure' => {
-                                                'associated_unit' => {},
-                                                'section_level' => 3
+                                                'associated_unit' => {}
                                               }
                                             }
                                           },
@@ -4869,8 +4849,7 @@ $result_menus{'complex'} = {
                                                     'cmdname' => 'unnumberedsubsec',
                                                     'extra' => {},
                                                     'structure' => {
-                                                      'associated_unit' => {},
-                                                      'section_level' => 3
+                                                      'associated_unit' => {}
                                                     }
                                                   }
                                                 },
@@ -4882,8 +4861,7 @@ $result_menus{'complex'} = {
                                                           'cmdname' => 'subsection',
                                                           'extra' => {},
                                                           'structure' => {
-                                                            'associated_unit' => {},
-                                                            'section_level' => 3
+                                                            'associated_unit' => {}
                                                           }
                                                         }
                                                       },
@@ -4895,8 +4873,7 @@ $result_menus{'complex'} = {
                                                                 'cmdname' => 'unnumberedsubsec',
                                                                 'extra' => {},
                                                                 'structure' => {
-                                                                  'associated_unit' => {},
-                                                                  'section_level' => 3
+                                                                  'associated_unit' => {}
                                                                 }
                                                               }
                                                             },
@@ -4908,8 +4885,7 @@ $result_menus{'complex'} = {
                                                                       'cmdname' => 'unnumberedsec',
                                                                       'extra' => {},
                                                                       'structure' => {
-                                                                        'associated_unit' => {},
-                                                                        'section_level' => 2
+                                                                        'associated_unit' => {}
                                                                       }
                                                                     }
                                                                   },
@@ -5054,8 +5030,7 @@ $result_menus{'complex'} = {
                             'cmdname' => 'unnumbered',
                             'extra' => {},
                             'structure' => {
-                              'associated_unit' => {},
-                              'section_level' => 1
+                              'associated_unit' => {}
                             }
                           }
                         },
@@ -5069,8 +5044,7 @@ $result_menus{'complex'} = {
                                   'cmdname' => 'unnumbered',
                                   'extra' => {},
                                   'structure' => {
-                                    'associated_unit' => {},
-                                    'section_level' => 1
+                                    'associated_unit' => {}
                                   }
                                 }
                               },
@@ -5566,8 +5540,7 @@ $result_elements{'complex'} = [
         'cmdname' => 'top',
         'extra' => {},
         'structure' => {
-          'associated_unit' => {},
-          'section_level' => 0
+          'associated_unit' => {}
         }
       }
     },
@@ -5580,7 +5553,6 @@ $result_elements{'complex'} = [
               'extra' => {},
               'structure' => {
                 'associated_unit' => {},
-                'section_level' => 1,
                 'section_number' => 1
               }
             }
@@ -5596,7 +5568,6 @@ $result_elements{'complex'} = [
                     'extra' => {},
                     'structure' => {
                       'associated_unit' => {},
-                      'section_level' => 1,
                       'section_number' => 2
                     }
                   }
@@ -5610,7 +5581,6 @@ $result_elements{'complex'} = [
                           'extra' => {},
                           'structure' => {
                             'associated_unit' => {},
-                            'section_level' => 2,
                             'section_number' => '1.1'
                           }
                         }
@@ -5623,8 +5593,7 @@ $result_elements{'complex'} = [
                                 'cmdname' => 'subsection',
                                 'extra' => {},
                                 'structure' => {
-                                  'associated_unit' => {},
-                                  'section_level' => 3
+                                  'associated_unit' => {}
                                 }
                               }
                             },
@@ -5636,8 +5605,7 @@ $result_elements{'complex'} = [
                                       'cmdname' => 'unnumberedsec',
                                       'extra' => {},
                                       'structure' => {
-                                        'associated_unit' => {},
-                                        'section_level' => 2
+                                        'associated_unit' => {}
                                       }
                                     }
                                   },
@@ -5649,8 +5617,7 @@ $result_elements{'complex'} = [
                                             'cmdname' => 'subsection',
                                             'extra' => {},
                                             'structure' => {
-                                              'associated_unit' => {},
-                                              'section_level' => 3
+                                              'associated_unit' => {}
                                             }
                                           }
                                         },
@@ -5662,8 +5629,7 @@ $result_elements{'complex'} = [
                                                   'cmdname' => 'unnumberedsubsec',
                                                   'extra' => {},
                                                   'structure' => {
-                                                    'associated_unit' => {},
-                                                    'section_level' => 3
+                                                    'associated_unit' => {}
                                                   }
                                                 }
                                               },
@@ -5675,8 +5641,7 @@ $result_elements{'complex'} = [
                                                         'cmdname' => 'subsection',
                                                         'extra' => {},
                                                         'structure' => {
-                                                          'associated_unit' => {},
-                                                          'section_level' => 3
+                                                          'associated_unit' => {}
                                                         }
                                                       }
                                                     },
@@ -5688,8 +5653,7 @@ $result_elements{'complex'} = [
                                                               'cmdname' => 'unnumberedsubsec',
                                                               'extra' => {},
                                                               'structure' => {
-                                                                'associated_unit' => {},
-                                                                'section_level' => 3
+                                                                'associated_unit' => {}
                                                               }
                                                             }
                                                           },
@@ -5701,8 +5665,7 @@ $result_elements{'complex'} = [
                                                                     'cmdname' => 'unnumberedsec',
                                                                     'extra' => {},
                                                                     'structure' => {
-                                                                      'associated_unit' => {},
-                                                                      'section_level' => 2
+                                                                      'associated_unit' => {}
                                                                     }
                                                                   }
                                                                 },
@@ -5831,8 +5794,7 @@ $result_elements{'complex'} = [
                           'cmdname' => 'unnumbered',
                           'extra' => {},
                           'structure' => {
-                            'associated_unit' => {},
-                            'section_level' => 1
+                            'associated_unit' => {}
                           }
                         }
                       },
@@ -5846,8 +5808,7 @@ $result_elements{'complex'} = [
                                 'cmdname' => 'unnumbered',
                                 'extra' => {},
                                 'structure' => {
-                                  'associated_unit' => {},
-                                  'section_level' => 1
+                                  'associated_unit' => {}
                                 }
                               }
                             },

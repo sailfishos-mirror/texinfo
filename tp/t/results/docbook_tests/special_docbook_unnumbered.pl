@@ -1064,9 +1064,7 @@ $result_nodes{'special_docbook_unnumbered'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'structure' => {
-        'section_level' => 0
-      }
+      'structure' => {}
     },
     'menus' => [
       {
@@ -1083,9 +1081,7 @@ $result_nodes{'special_docbook_unnumbered'} = {
         'associated_section' => {
           'cmdname' => 'unnumbered',
           'extra' => {},
-          'structure' => {
-            'section_level' => 1
-          }
+          'structure' => {}
         },
         'normalized' => 'Dedication'
       },
@@ -1096,9 +1092,7 @@ $result_nodes{'special_docbook_unnumbered'} = {
             'associated_section' => {
               'cmdname' => 'unnumbered',
               'extra' => {},
-              'structure' => {
-                'section_level' => 1
-              }
+              'structure' => {}
             },
             'normalized' => 'preface'
           },
@@ -1109,9 +1103,7 @@ $result_nodes{'special_docbook_unnumbered'} = {
                 'associated_section' => {
                   'cmdname' => 'unnumbered',
                   'extra' => {},
-                  'structure' => {
-                    'section_level' => 1
-                  }
+                  'structure' => {}
                 },
                 'normalized' => 'colophon'
               },
@@ -1123,7 +1115,6 @@ $result_nodes{'special_docbook_unnumbered'} = {
                       'cmdname' => 'chapter',
                       'extra' => {},
                       'structure' => {
-                        'section_level' => 1,
                         'section_number' => 1
                       }
                     },

@@ -474,10 +474,11 @@ my @contents_keys = ('contents', 'args', 'parent',
   'block_command_line_contents', 'spaces_after_command', 'spaces_before_argument',
   'end_command', 'text_arg', 'command_argument');
 my @menus_keys = ('menu_next', 'menu_up', 'menu_prev', 'menu_up_hash');
-# 'section_level' 'section_number'
+# 'section_number' is kept in other results as it may be the only clue
+# to know which section element it is.
 my @sections_keys = ('section_next', 'section_prev', 'section_up', 
   'section_childs', 'associated_node', 'part_associated_section', 
-  'toplevel_prev', 'toplevel_next', 'toplevel_up');
+  'toplevel_prev', 'toplevel_next', 'toplevel_up', 'section_level');
 my @node_keys = ('node_next', 'node_prev', 'node_up', 'menus', 
   'associated_section');
 my %avoided_keys_tree;

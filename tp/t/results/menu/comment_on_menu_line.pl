@@ -354,7 +354,6 @@ $result_nodes{'comment_on_menu_line'} = {
       'cmdname' => 'chapter',
       'extra' => {},
       'structure' => {
-        'section_level' => 1,
         'section_number' => 1
       }
     },

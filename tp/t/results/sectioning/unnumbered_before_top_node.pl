@@ -229,8 +229,7 @@ $result_nodes{'unnumbered_before_top_node'} = {
           'cmdname' => 'unnumbered',
           'extra' => {},
           'structure' => {
-            'associated_unit' => {},
-            'section_level' => 1
+            'associated_unit' => {}
           }
         }
       },
@@ -258,8 +257,7 @@ $result_menus{'unnumbered_before_top_node'} = {
           'cmdname' => 'unnumbered',
           'extra' => {},
           'structure' => {
-            'associated_unit' => {},
-            'section_level' => 1
+            'associated_unit' => {}
           }
         }
       },
@@ -288,8 +286,7 @@ $result_elements{'unnumbered_before_top_node'} = [
         'cmdname' => 'unnumbered',
         'extra' => {},
         'structure' => {
-          'associated_unit' => {},
-          'section_level' => 1
+          'associated_unit' => {}
         }
       }
     },

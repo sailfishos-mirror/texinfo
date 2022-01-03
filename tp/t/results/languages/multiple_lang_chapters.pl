@@ -2215,9 +2215,7 @@ $result_nodes{'multiple_lang_chapters'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'structure' => {
-        'section_level' => 0
-      }
+      'structure' => {}
     },
     'menus' => [
       {
@@ -2235,7 +2233,6 @@ $result_nodes{'multiple_lang_chapters'} = {
           'cmdname' => 'chapter',
           'extra' => {},
           'structure' => {
-            'section_level' => 1,
             'section_number' => 1
           }
         },
@@ -2249,7 +2246,6 @@ $result_nodes{'multiple_lang_chapters'} = {
               'cmdname' => 'chapter',
               'extra' => {},
               'structure' => {
-                'section_level' => 1,
                 'section_number' => 2
               }
             },
@@ -2263,7 +2259,6 @@ $result_nodes{'multiple_lang_chapters'} = {
                   'cmdname' => 'chapter',
                   'extra' => {},
                   'structure' => {
-                    'section_level' => 1,
                     'section_number' => 3
                   }
                 },
@@ -2277,7 +2272,6 @@ $result_nodes{'multiple_lang_chapters'} = {
                       'cmdname' => 'chapter',
                       'extra' => {},
                       'structure' => {
-                        'section_level' => 1,
                         'section_number' => 4
                       }
                     },
@@ -2291,7 +2285,6 @@ $result_nodes{'multiple_lang_chapters'} = {
                           'cmdname' => 'chapter',
                           'extra' => {},
                           'structure' => {
-                            'section_level' => 1,
                             'section_number' => 5
                           }
                         },

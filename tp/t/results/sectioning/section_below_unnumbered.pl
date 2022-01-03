@@ -762,9 +762,7 @@ $result_nodes{'section_below_unnumbered'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'structure' => {
-        'section_level' => 0
-      }
+      'structure' => {}
     },
     'menus' => [
       {
@@ -781,9 +779,7 @@ $result_nodes{'section_below_unnumbered'} = {
         'associated_section' => {
           'cmdname' => 'unnumbered',
           'extra' => {},
-          'structure' => {
-            'section_level' => 1
-          }
+          'structure' => {}
         },
         'menus' => [
           {
@@ -800,9 +796,7 @@ $result_nodes{'section_below_unnumbered'} = {
             'associated_section' => {
               'cmdname' => 'section',
               'extra' => {},
-              'structure' => {
-                'section_level' => 2
-              }
+              'structure' => {}
             },
             'normalized' => 'Sec'
           },

@@ -696,9 +696,7 @@ $result_nodes{'section_chapter_before_top_nodes'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'structure' => {
-        'section_level' => 2
-      }
+      'structure' => {}
     },
     'menus' => [
       {
@@ -716,7 +714,6 @@ $result_nodes{'section_chapter_before_top_nodes'} = {
           'cmdname' => 'chapter',
           'extra' => {},
           'structure' => {
-            'section_level' => 2,
             'section_number' => 2
           }
         },
@@ -736,7 +733,6 @@ $result_nodes{'section_chapter_before_top_nodes'} = {
               'cmdname' => 'section',
               'extra' => {},
               'structure' => {
-                'section_level' => 2,
                 'section_number' => 1
               }
             },

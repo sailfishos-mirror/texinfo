@@ -430,9 +430,7 @@ $result_nodes{'node_sectop_before_lone_node_Top'} = {
         'associated_section' => {
           'cmdname' => 'top',
           'extra' => {},
-          'structure' => {
-            'section_level' => 0
-          }
+          'structure' => {}
         },
         'normalized' => 'node-before'
       },
@@ -444,7 +442,6 @@ $result_nodes{'node_sectop_before_lone_node_Top'} = {
               'cmdname' => 'chapter',
               'extra' => {},
               'structure' => {
-                'section_level' => 1,
                 'section_number' => 1
               }
             },

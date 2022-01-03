@@ -5488,9 +5488,7 @@ $result_nodes{'texi_bib_example'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'structure' => {
-        'section_level' => 0
-      }
+      'structure' => {}
     },
     'menus' => [
       {
@@ -5508,7 +5506,6 @@ $result_nodes{'texi_bib_example'} = {
           'cmdname' => 'chapter',
           'extra' => {},
           'structure' => {
-            'section_level' => 1,
             'section_number' => 1
           }
         },
@@ -5522,7 +5519,6 @@ $result_nodes{'texi_bib_example'} = {
               'cmdname' => 'chapter',
               'extra' => {},
               'structure' => {
-                'section_level' => 1,
                 'section_number' => 2
               }
             },

@@ -4359,7 +4359,6 @@ $result_nodes{'refs_formatting'} = {
       'cmdname' => 'chapter',
       'extra' => {},
       'structure' => {
-        'section_level' => 1,
         'section_number' => 1
       }
     },

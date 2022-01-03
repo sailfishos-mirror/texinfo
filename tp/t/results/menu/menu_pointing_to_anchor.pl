@@ -349,9 +349,7 @@ $result_nodes{'menu_pointing_to_anchor'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'structure' => {
-        'section_level' => 0
-      }
+      'structure' => {}
     },
     'menus' => [
       {

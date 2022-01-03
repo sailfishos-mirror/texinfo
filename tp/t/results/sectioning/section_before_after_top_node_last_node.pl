@@ -378,9 +378,7 @@ $result_nodes{'section_before_after_top_node_last_node'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'structure' => {
-        'section_level' => 1
-      }
+      'structure' => {}
     },
     'normalized' => 'Top'
   },

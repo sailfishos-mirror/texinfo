@@ -646,7 +646,6 @@ $result_nodes{'nodes_after_top_before_chapter_sections'} = {
           'extra' => {},
           'structure' => {
             'associated_unit' => {},
-            'section_level' => 1,
             'section_number' => 1
           }
         }
@@ -712,7 +711,6 @@ $result_menus{'nodes_after_top_before_chapter_sections'} = {
           'extra' => {},
           'structure' => {
             'associated_unit' => {},
-            'section_level' => 1,
             'section_number' => 1
           }
         }
@@ -779,7 +777,6 @@ $result_elements{'nodes_after_top_before_chapter_sections'} = [
         'extra' => {},
         'structure' => {
           'associated_unit' => {},
-          'section_level' => 1,
           'section_number' => 1
         }
       }

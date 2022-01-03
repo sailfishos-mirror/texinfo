@@ -5139,9 +5139,7 @@ $result_nodes{'codequoteundirected_codequotebacktick'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'structure' => {
-        'section_level' => 0
-      }
+      'structure' => {}
     },
     'normalized' => 'Top'
   }

@@ -1831,9 +1831,7 @@ $result_nodes{'sample_utf8'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'structure' => {
-        'section_level' => 0
-      }
+      'structure' => {}
     },
     'menus' => [
       {
@@ -1851,7 +1849,6 @@ $result_nodes{'sample_utf8'} = {
           'cmdname' => 'chapter',
           'extra' => {},
           'structure' => {
-            'section_level' => 1,
             'section_number' => 1
           }
         },
@@ -1865,7 +1862,6 @@ $result_nodes{'sample_utf8'} = {
               'cmdname' => 'chapter',
               'extra' => {},
               'structure' => {
-                'section_level' => 1,
                 'section_number' => 2
               }
             },
@@ -1878,9 +1874,7 @@ $result_nodes{'sample_utf8'} = {
                 'associated_section' => {
                   'cmdname' => 'unnumbered',
                   'extra' => {},
-                  'structure' => {
-                    'section_level' => 1
-                  }
+                  'structure' => {}
                 },
                 'isindex' => 1,
                 'normalized' => 'Index-node'

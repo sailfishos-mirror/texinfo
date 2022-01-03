@@ -621,9 +621,7 @@ $result_nodes{'same_index_entry_merged_indices'} = {
     'associated_section' => {
       'cmdname' => 'top',
       'extra' => {},
-      'structure' => {
-        'section_level' => 0
-      }
+      'structure' => {}
     },
     'isindex' => 1,
     'normalized' => 'Top'

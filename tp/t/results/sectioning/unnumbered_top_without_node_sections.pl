@@ -594,8 +594,7 @@ $result_nodes{'unnumbered_top_without_node_sections'} = {
                     'cmdname' => 'top',
                     'extra' => {},
                     'structure' => {
-                      'associated_unit' => {},
-                      'section_level' => 1
+                      'associated_unit' => {}
                     }
                   }
                 },
@@ -610,7 +609,6 @@ $result_nodes{'unnumbered_top_without_node_sections'} = {
                           'extra' => {},
                           'structure' => {
                             'associated_unit' => {},
-                            'section_level' => 1,
                             'section_number' => 1
                           }
                         }
@@ -663,8 +661,7 @@ $result_nodes{'unnumbered_top_without_node_sections'} = {
             'unit_next' => {}
           },
           'type' => 'unit'
-        },
-        'section_level' => 1
+        }
       }
     },
     'normalized' => 'a-node'
@@ -714,8 +711,7 @@ $result_menus{'unnumbered_top_without_node_sections'} = {
           'cmdname' => 'unnumbered',
           'extra' => {},
           'structure' => {
-            'associated_unit' => {},
-            'section_level' => 1
+            'associated_unit' => {}
           }
         }
       },
@@ -727,8 +723,7 @@ $result_menus{'unnumbered_top_without_node_sections'} = {
                 'cmdname' => 'top',
                 'extra' => {},
                 'structure' => {
-                  'associated_unit' => {},
-                  'section_level' => 1
+                  'associated_unit' => {}
                 }
               }
             },
@@ -743,7 +738,6 @@ $result_menus{'unnumbered_top_without_node_sections'} = {
                       'extra' => {},
                       'structure' => {
                         'associated_unit' => {},
-                        'section_level' => 1,
                         'section_number' => 1
                       }
                     }
@@ -852,8 +846,7 @@ $result_elements{'unnumbered_top_without_node_sections'} = [
         'cmdname' => 'unnumbered',
         'extra' => {},
         'structure' => {
-          'associated_unit' => {},
-          'section_level' => 1
+          'associated_unit' => {}
         }
       }
     },
@@ -865,8 +858,7 @@ $result_elements{'unnumbered_top_without_node_sections'} = [
               'cmdname' => 'top',
               'extra' => {},
               'structure' => {
-                'associated_unit' => {},
-                'section_level' => 1
+                'associated_unit' => {}
               }
             }
           },
@@ -881,7 +873,6 @@ $result_elements{'unnumbered_top_without_node_sections'} = [
                     'extra' => {},
                     'structure' => {
                       'associated_unit' => {},
-                      'section_level' => 1,
                       'section_number' => 1
                     }
                   }

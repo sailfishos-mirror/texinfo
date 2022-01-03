@@ -861,14 +861,12 @@ $result_nodes{'part_node_part_node_appendix'} = {
                         'cmdname' => 'part',
                         'extra' => {},
                         'structure' => {
-                          'associated_unit' => {},
-                          'section_level' => 0
+                          'associated_unit' => {}
                         }
                       }
                     },
                     'structure' => {
                       'associated_unit' => {},
-                      'section_level' => 1,
                       'section_number' => 1
                     }
                   }
@@ -886,14 +884,12 @@ $result_nodes{'part_node_part_node_appendix'} = {
                               'cmdname' => 'part',
                               'extra' => {},
                               'structure' => {
-                                'associated_unit' => {},
-                                'section_level' => 0
+                                'associated_unit' => {}
                               }
                             }
                           },
                           'structure' => {
                             'associated_unit' => {},
-                            'section_level' => 1,
                             'section_number' => 'A'
                           }
                         }
@@ -933,8 +929,7 @@ $result_nodes{'part_node_part_node_appendix'} = {
             'unit_next' => {}
           },
           'type' => 'unit'
-        },
-        'section_level' => 0
+        }
       }
     },
     'menus' => [
@@ -1026,8 +1021,7 @@ $result_menus{'part_node_part_node_appendix'} = {
           'cmdname' => 'top',
           'extra' => {},
           'structure' => {
-            'associated_unit' => {},
-            'section_level' => 0
+            'associated_unit' => {}
           }
         }
       },
@@ -1042,14 +1036,12 @@ $result_menus{'part_node_part_node_appendix'} = {
                     'cmdname' => 'part',
                     'extra' => {},
                     'structure' => {
-                      'associated_unit' => {},
-                      'section_level' => 0
+                      'associated_unit' => {}
                     }
                   }
                 },
                 'structure' => {
                   'associated_unit' => {},
-                  'section_level' => 1,
                   'section_number' => 1
                 }
               }
@@ -1067,14 +1059,12 @@ $result_menus{'part_node_part_node_appendix'} = {
                           'cmdname' => 'part',
                           'extra' => {},
                           'structure' => {
-                            'associated_unit' => {},
-                            'section_level' => 0
+                            'associated_unit' => {}
                           }
                         }
                       },
                       'structure' => {
                         'associated_unit' => {},
-                        'section_level' => 1,
                         'section_number' => 'A'
                       }
                     }
@@ -1192,8 +1182,7 @@ $result_elements{'part_node_part_node_appendix'} = [
         'cmdname' => 'top',
         'extra' => {},
         'structure' => {
-          'associated_unit' => {},
-          'section_level' => 0
+          'associated_unit' => {}
         }
       }
     },
@@ -1208,14 +1197,12 @@ $result_elements{'part_node_part_node_appendix'} = [
                   'cmdname' => 'part',
                   'extra' => {},
                   'structure' => {
-                    'associated_unit' => {},
-                    'section_level' => 0
+                    'associated_unit' => {}
                   }
                 }
               },
               'structure' => {
                 'associated_unit' => {},
-                'section_level' => 1,
                 'section_number' => 1
               }
             }
@@ -1233,14 +1220,12 @@ $result_elements{'part_node_part_node_appendix'} = [
                         'cmdname' => 'part',
                         'extra' => {},
                         'structure' => {
-                          'associated_unit' => {},
-                          'section_level' => 0
+                          'associated_unit' => {}
                         }
                       }
                     },
                     'structure' => {
                       'associated_unit' => {},
-                      'section_level' => 1,
                       'section_number' => 'A'
                     }
                   }

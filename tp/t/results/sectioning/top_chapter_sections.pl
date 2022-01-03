@@ -904,8 +904,7 @@ $result_elements{'top_chapter_sections'} = [
         'cmdname' => 'top',
         'extra' => {},
         'structure' => {
-          'associated_unit' => {},
-          'section_level' => 0
+          'associated_unit' => {}
         }
       }
     },
@@ -917,8 +916,7 @@ $result_elements{'top_chapter_sections'} = [
               'cmdname' => 'unnumbered',
               'extra' => {},
               'structure' => {
-                'associated_unit' => {},
-                'section_level' => 1
+                'associated_unit' => {}
               }
             }
           },
@@ -933,7 +931,6 @@ $result_elements{'top_chapter_sections'} = [
                     'extra' => {},
                     'structure' => {
                       'associated_unit' => {},
-                      'section_level' => 1,
                       'section_number' => 1
                     }
                   }
@@ -949,7 +946,6 @@ $result_elements{'top_chapter_sections'} = [
                           'extra' => {},
                           'structure' => {
                             'associated_unit' => {},
-                            'section_level' => 1,
                             'section_number' => 2
                           }
                         }
@@ -963,7 +959,6 @@ $result_elements{'top_chapter_sections'} = [
                                 'extra' => {},
                                 'structure' => {
                                   'associated_unit' => {},
-                                  'section_level' => 2,
                                   'section_number' => '1.1'
                                 }
                               }
@@ -988,7 +983,6 @@ $result_elements{'top_chapter_sections'} = [
                                 'extra' => {},
                                 'structure' => {
                                   'associated_unit' => {},
-                                  'section_level' => 1,
                                   'section_number' => 3
                                 }
                               }
@@ -1002,7 +996,6 @@ $result_elements{'top_chapter_sections'} = [
                                       'extra' => {},
                                       'structure' => {
                                         'associated_unit' => {},
-                                        'section_level' => 3,
                                         'section_number' => '2.1.2'
                                       }
                                     }
@@ -1016,7 +1009,6 @@ $result_elements{'top_chapter_sections'} = [
                                             'extra' => {},
                                             'structure' => {
                                               'associated_unit' => {},
-                                              'section_level' => 3,
                                               'section_number' => '2.1.1'
                                             }
                                           }
@@ -1030,7 +1022,6 @@ $result_elements{'top_chapter_sections'} = [
                                                   'extra' => {},
                                                   'structure' => {
                                                     'associated_unit' => {},
-                                                    'section_level' => 2,
                                                     'section_number' => '2.1'
                                                   }
                                                 }

@@ -454,8 +454,7 @@ $result_nodes{'top_node_up_url'} = {
             'unit_next' => {}
           },
           'type' => 'unit'
-        },
-        'section_level' => 0
+        }
       }
     },
     'menus' => [
