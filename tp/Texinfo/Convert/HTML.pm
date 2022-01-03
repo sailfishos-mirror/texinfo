@@ -7759,16 +7759,11 @@ sub convert($$)
     $result = $self->_convert($root, 'convert no unit');
     $result .= &{$self->{'format_footnotes_text'}}($self);
   } else {
-    # special elements are ignored, so for instance separate
-    # footnotes will not show up
-    #if ($special_elements and @$special_elements) {
-    #  print STDERR "C IGNORED SPE @$special_elements\n";
-    #  foreach my $special_element (@$special_elements) {
-    #    print STDERR " C SE-III ".Texinfo::Common::debug_print_element_short($special_element)."\n";
-    #  }
-    #}
     my $unit_nr = 0;
-    foreach my $tree_unit (@$tree_units) {
+    # TODO there is no rule before the footnotes special element in
+    # case of separate footnotes in the default formatting style.
+    # Not sure if it is an issue.
+    foreach my $tree_unit (@$tree_units, @$special_elements) {
       print STDERR "\nC UNIT $unit_nr\n" if ($self->get_conf('DEBUG'));
       my $tree_unit_text = $self->_convert($tree_unit, "convert unit $unit_nr");
       $result .= $tree_unit_text;
@@ -8156,16 +8151,11 @@ sub output($$)
     }
     my $body = '';
     if ($tree_units and @$tree_units) {
-      # special elements are ignored, so for instance separate
-      # footnotes will not show up
-      #if ($special_elements and @$special_elements) {
-      #  print STDERR "IGNORED SPE @$special_elements\n";
-      #  foreach my $special_element (@$special_elements) {
-      #    print STDERR " SE-III ".Texinfo::Common::debug_print_element_short($special_element)."\n";
-      #  }
-      #}
       my $unit_nr = 0;
-      foreach my $tree_unit (@$tree_units) {
+      # TODO there is no rule before the footnotes special element in
+      # case of separate footnotes in the default formatting style.
+      # Not sure if it is an issue.
+      foreach my $tree_unit (@$tree_units, @$special_elements) {
         print STDERR "\nUNIT NO-PAGE $unit_nr\n" if ($self->get_conf('DEBUG'));
         my $tree_unit_text = $self->_convert($tree_unit, "no-page output unit $unit_nr");
         $body .= $tree_unit_text;

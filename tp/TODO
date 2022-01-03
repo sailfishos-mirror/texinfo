@@ -13,10 +13,6 @@ xmllint --nonet --noout --valid commands.xml
 Before next release
 ===================
 
-Special elements are ignored in different contexts, see IGNORED SPE
-in HTML.pm. There are tests already showing that.
-
-
 Bugs
 ====
 

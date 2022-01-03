@@ -173,11 +173,11 @@ now, arg3
 }.'],
 ['implicit_quoting_one_arg',
 '
-@macro FIXME{a}
-@strong{FIXME: \a\}
+@macro FIXAME{a}
+@strong{FIXAME: \a\}
 @end macro
 
-@FIXME{Many arguments, separated by commas, are processed here}
+@FIXAME{Many arguments, separated by commas, are processed here}
 '],
 ['implicit_quoting_recursion',
 '@rmacro cat{a,b}

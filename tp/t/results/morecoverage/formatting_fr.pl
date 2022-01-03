@@ -5312,6 +5312,171 @@ Menu comment
 </div>
 </div>
 <hr>
+<div class="Footnotes_element" id="SEC_Foot">
+<table class="header" cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Top" title="Couverture (top) du document">Racine</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table des mati&egrave;res">Table des mati&egrave;res</a>]</td>
+<td valign="middle" align="left">[<a href="#Top" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="A propos (page d&rsquo;aide)"> ? </a>]</td>
+</tr></table>
+<h1 class="footnotes-heading">Notes de bas de page</h1>
+
+<h5><a id="FOOT1" href="#DOCF1">(1)</a></h5>
+<p>in footnote</p>
+</div><hr>
+<div class="Contents_element" id="SEC_Contents">
+<table class="header" cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Top" title="Couverture (top) du document">Racine</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table des mati&egrave;res">Table des mati&egrave;res</a>]</td>
+<td valign="middle" align="left">[<a href="#Top" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="A propos (page d&rsquo;aide)"> ? </a>]</td>
+</tr></table>
+<h1 class="contents-heading">Table des mati&egrave;res</h1>
+
+<div class="contents">
+
+<ul class="no-bullet">
+  <li><a id="toc-chapter-1" href="#chapter">1 chapter</a>
+  <ul class="no-bullet">
+    <li><a id="toc-A-section" href="#s_002d_002dect_002cion">1.1 A section</a>
+    <ul class="no-bullet">
+      <li><a id="toc-subsection-1" href="#subsection">1.1.1 subsection</a>
+      <ul class="no-bullet">
+        <li><a id="toc-subsubsection-_0060_0060simple_002ddouble_002d_002d-1" href="#subsubsection-_0060_0060simple_002ddouble_002d_002d">1.1.1.1 subsubsection &ldquo;simple-double&ndash;</a></li>
+        <li><a id="toc-three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027" href="#subsubsection-three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027">1.1.1.2 three&mdash;four&mdash;-&rdquo;</a></li>
+      </ul></li>
+    </ul></li>
+  </ul></li>
+  <li><a id="toc-chapter-2" href="#chapter2" rel="index">chapter 2</a></li>
+</ul>
+</div>
+</div><hr>
+<div class="Overview_element" id="SEC_Overview">
+<table class="header" cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Top" title="Couverture (top) du document">Racine</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table des mati&egrave;res">Table des mati&egrave;res</a>]</td>
+<td valign="middle" align="left">[<a href="#Top" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="A propos (page d&rsquo;aide)"> ? </a>]</td>
+</tr></table>
+<h1 class="shortcontents-heading">R&eacute;sum&eacute; du contenu</h1>
+
+<div class="shortcontents">
+<ul class="no-bullet">
+<li><a id="stoc-chapter-1" href="#chapter">1 chapter</a></li>
+<li><a id="stoc-chapter-2" href="#chapter2" rel="index">chapter 2</a></li>
+</ul>
+</div>
+</div><hr>
+<div class="About_element" id="SEC_About">
+<table class="header" cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Top" title="Couverture (top) du document">Racine</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table des mati&egrave;res">Table des mati&egrave;res</a>]</td>
+<td valign="middle" align="left">[<a href="#Top" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="A propos (page d&rsquo;aide)"> ? </a>]</td>
+</tr></table>
+<h1 class="about-heading">A propos de ce document</h1>
+
+<p>
+  Ce document a &eacute;t&eacute; g&eacute;n&eacute;r&eacute; le <em>a sunny day</em>.
+</p>
+<p>
+  Les boutons du panneau de navigation ont la signification suivante&nbsp;:
+</p>
+<table border="1">
+  <tr>
+    <th> Bouton </th>
+    <th> Nom </th>
+    <th> Aller &agrave; </th>
+    <th> Depuis 1.2.3 aller &agrave;</th>
+  </tr>
+  <tr>
+    <td align="center"> [ &lt;&lt; ] </td>
+    <td align="center">RetourRapide</td>
+    <td>D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <td align="center"> [ &lt; ] </td>
+    <td align="center">Arri&egrave;re</td>
+    <td>Section pr&eacute;c&eacute;dente dans l&rsquo;ordre de lecture</td>
+    <td>1.2.2</td>
+  </tr>
+  <tr>
+    <td align="center"> [Plus haut] </td>
+    <td align="center">Monter</td>
+    <td>Section sup&eacute;rieure</td>
+    <td>1.2</td>
+  </tr>
+  <tr>
+    <td align="center"> [ &gt; ] </td>
+    <td align="center">Avant</td>
+    <td>Section suivante dans l&rsquo;ordre de lecture</td>
+    <td>1.2.4</td>
+  </tr>
+  <tr>
+    <td align="center"> [ &gt;&gt; ] </td>
+    <td align="center">AvanceRapide</td>
+    <td>Chapitre suivant</td>
+    <td>2</td>
+  </tr>
+  <tr>
+    <td align="center"> [Racine] </td>
+    <td align="center">Racine</td>
+    <td>Couverture (top) du document</td>
+    <td> &nbsp; </td>
+  </tr>
+  <tr>
+    <td align="center"> [Table des mati&egrave;res] </td>
+    <td align="center">Table des mati&egrave;res</td>
+    <td>Table des mati&egrave;res</td>
+    <td> &nbsp; </td>
+  </tr>
+  <tr>
+    <td align="center"> [Index] </td>
+    <td align="center">Index</td>
+    <td>Index</td>
+    <td> &nbsp; </td>
+  </tr>
+  <tr>
+    <td align="center"> [ ? ] </td>
+    <td align="center">A propos</td>
+    <td>A propos (page d&rsquo;aide)</td>
+    <td> &nbsp; </td>
+  </tr>
+</table>
+
+<p>
+  Dans cet exemple on est &agrave; <strong> Sous-sous-section un-deux-trois </strong> dans un document dont la structure est&nbsp;:
+</p>
+
+<ul>
+  <li> 1. Section un
+    <ul>
+      <li>1.1 Sous-section un-un
+        <ul>
+          <li>...</li>
+        </ul>
+      </li>
+      <li>1.2 Sous-section un-deux
+        <ul>
+          <li>1.2.1 Sous-sous-section un-deux-un</li>
+          <li>1.2.2 Sous-sous-section un-deux-deux</li>
+          <li>1.2.3 Sous-sous-section un-deux-trois &nbsp; &nbsp;
+            <strong>&lt;== Position actuelle </strong></li>
+          <li>1.2.4 Sous-sous-section un-deux-quatre</li>
+        </ul>
+      </li>
+      <li>1.3 Sous-section un-trois
+        <ul>
+          <li>...</li>
+        </ul>
+      </li>
+      <li>1.4 Sous-section un-quatre</li>
+    </ul>
+  </li>
+</ul>
+
+</div><hr>
 <p>
   <span class="smaller">Ce document a &eacute;t&eacute; g&eacute;n&eacute;r&eacute; le <em>a sunny day</em>.</span>
 </p>
@@ -5704,6 +5869,171 @@ Menu comment
 </div>
 </div>
 <hr>
+<div class="Footnotes_element" id="SEC_Foot">
+<table class="header" cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Top" title="Couverture (top) du document">Racine</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table des mati&egrave;res">Table des mati&egrave;res</a>]</td>
+<td valign="middle" align="left">[<a href="#Top" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="A propos (page d&rsquo;aide)"> ? </a>]</td>
+</tr></table>
+<h1 class="footnotes-heading">Notes de bas de page</h1>
+
+<h5><a id="FOOT1" href="#DOCF1">(1)</a></h5>
+<p>in footnote</p>
+</div><hr>
+<div class="Contents_element" id="SEC_Contents">
+<table class="header" cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Top" title="Couverture (top) du document">Racine</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table des mati&egrave;res">Table des mati&egrave;res</a>]</td>
+<td valign="middle" align="left">[<a href="#Top" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="A propos (page d&rsquo;aide)"> ? </a>]</td>
+</tr></table>
+<h1 class="contents-heading">Table des mati&egrave;res</h1>
+
+<div class="contents">
+
+<ul class="no-bullet">
+  <li><a id="toc-chapter-1" href="#chapter">1 chapter</a>
+  <ul class="no-bullet">
+    <li><a id="toc-A-section" href="#s_002d_002dect_002cion">1.1 A section</a>
+    <ul class="no-bullet">
+      <li><a id="toc-subsection-1" href="#subsection">1.1.1 subsection</a>
+      <ul class="no-bullet">
+        <li><a id="toc-subsubsection-_0060_0060simple_002ddouble_002d_002d-1" href="#subsubsection-_0060_0060simple_002ddouble_002d_002d">1.1.1.1 subsubsection &ldquo;simple-double&ndash;</a></li>
+        <li><a id="toc-three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027" href="#subsubsection-three_002d_002d_002dfour_002d_002d_002d_002d_0027_0027">1.1.1.2 three&mdash;four&mdash;-&rdquo;</a></li>
+      </ul></li>
+    </ul></li>
+  </ul></li>
+  <li><a id="toc-chapter-2" href="#chapter2" rel="index">chapter 2</a></li>
+</ul>
+</div>
+</div><hr>
+<div class="Overview_element" id="SEC_Overview">
+<table class="header" cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Top" title="Couverture (top) du document">Racine</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table des mati&egrave;res">Table des mati&egrave;res</a>]</td>
+<td valign="middle" align="left">[<a href="#Top" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="A propos (page d&rsquo;aide)"> ? </a>]</td>
+</tr></table>
+<h1 class="shortcontents-heading">R&eacute;sum&eacute; du contenu</h1>
+
+<div class="shortcontents">
+<ul class="no-bullet">
+<li><a id="stoc-chapter-1" href="#chapter">1 chapter</a></li>
+<li><a id="stoc-chapter-2" href="#chapter2" rel="index">chapter 2</a></li>
+</ul>
+</div>
+</div><hr>
+<div class="About_element" id="SEC_About">
+<table class="header" cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#Top" title="Couverture (top) du document">Racine</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table des mati&egrave;res">Table des mati&egrave;res</a>]</td>
+<td valign="middle" align="left">[<a href="#Top" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="A propos (page d&rsquo;aide)"> ? </a>]</td>
+</tr></table>
+<h1 class="about-heading">A propos de ce document</h1>
+
+<p>
+  Ce document a &eacute;t&eacute; g&eacute;n&eacute;r&eacute; le <em>a sunny day</em>.
+</p>
+<p>
+  Les boutons du panneau de navigation ont la signification suivante&nbsp;:
+</p>
+<table border="1">
+  <tr>
+    <th> Bouton </th>
+    <th> Nom </th>
+    <th> Aller &agrave; </th>
+    <th> Depuis 1.2.3 aller &agrave;</th>
+  </tr>
+  <tr>
+    <td align="center"> [ &lt;&lt; ] </td>
+    <td align="center">RetourRapide</td>
+    <td>D&eacute;but de ce chapitre ou chapitre pr&eacute;c&eacute;dent</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <td align="center"> [ &lt; ] </td>
+    <td align="center">Arri&egrave;re</td>
+    <td>Section pr&eacute;c&eacute;dente dans l&rsquo;ordre de lecture</td>
+    <td>1.2.2</td>
+  </tr>
+  <tr>
+    <td align="center"> [Plus haut] </td>
+    <td align="center">Monter</td>
+    <td>Section sup&eacute;rieure</td>
+    <td>1.2</td>
+  </tr>
+  <tr>
+    <td align="center"> [ &gt; ] </td>
+    <td align="center">Avant</td>
+    <td>Section suivante dans l&rsquo;ordre de lecture</td>
+    <td>1.2.4</td>
+  </tr>
+  <tr>
+    <td align="center"> [ &gt;&gt; ] </td>
+    <td align="center">AvanceRapide</td>
+    <td>Chapitre suivant</td>
+    <td>2</td>
+  </tr>
+  <tr>
+    <td align="center"> [Racine] </td>
+    <td align="center">Racine</td>
+    <td>Couverture (top) du document</td>
+    <td> &nbsp; </td>
+  </tr>
+  <tr>
+    <td align="center"> [Table des mati&egrave;res] </td>
+    <td align="center">Table des mati&egrave;res</td>
+    <td>Table des mati&egrave;res</td>
+    <td> &nbsp; </td>
+  </tr>
+  <tr>
+    <td align="center"> [Index] </td>
+    <td align="center">Index</td>
+    <td>Index</td>
+    <td> &nbsp; </td>
+  </tr>
+  <tr>
+    <td align="center"> [ ? ] </td>
+    <td align="center">A propos</td>
+    <td>A propos (page d&rsquo;aide)</td>
+    <td> &nbsp; </td>
+  </tr>
+</table>
+
+<p>
+  Dans cet exemple on est &agrave; <strong> Sous-sous-section un-deux-trois </strong> dans un document dont la structure est&nbsp;:
+</p>
+
+<ul>
+  <li> 1. Section un
+    <ul>
+      <li>1.1 Sous-section un-un
+        <ul>
+          <li>...</li>
+        </ul>
+      </li>
+      <li>1.2 Sous-section un-deux
+        <ul>
+          <li>1.2.1 Sous-sous-section un-deux-un</li>
+          <li>1.2.2 Sous-sous-section un-deux-deux</li>
+          <li>1.2.3 Sous-sous-section un-deux-trois &nbsp; &nbsp;
+            <strong>&lt;== Position actuelle </strong></li>
+          <li>1.2.4 Sous-sous-section un-deux-quatre</li>
+        </ul>
+      </li>
+      <li>1.3 Sous-section un-trois
+        <ul>
+          <li>...</li>
+        </ul>
+      </li>
+      <li>1.4 Sous-section un-quatre</li>
+    </ul>
+  </li>
+</ul>
+
+</div><hr>
 ';
 
 1;

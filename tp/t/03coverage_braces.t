@@ -233,7 +233,6 @@ in format
 ['two_footnotes_in_nodes',
 $two_footnotes_in_nodes_text,
 , {'test_formats' => ['html', 'info']} ],
-# FIXME no footnotes text in HTML...
 ['two_footnotes_in_nodes_separate',
 '@footnotestyle separate
 '.$two_footnotes_in_nodes_text,

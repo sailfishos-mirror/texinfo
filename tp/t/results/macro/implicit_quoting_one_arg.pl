@@ -19,7 +19,7 @@ $result_trees{'implicit_quoting_one_arg'} = {
           'args' => [
             {
               'parent' => {},
-              'text' => 'FIXME',
+              'text' => 'FIXAME',
               'type' => 'macro_name'
             },
             {
@@ -32,7 +32,7 @@ $result_trees{'implicit_quoting_one_arg'} = {
           'contents' => [
             {
               'parent' => {},
-              'text' => '@strong{FIXME: \\a\\}',
+              'text' => '@strong{FIXAME: \\a\\}',
               'type' => 'raw'
             },
             {
@@ -43,7 +43,7 @@ $result_trees{'implicit_quoting_one_arg'} = {
             }
           ],
           'extra' => {
-            'arg_line' => ' FIXME{a}
+            'arg_line' => ' FIXAME{a}
 '
           },
           'line_nr' => {
@@ -73,7 +73,7 @@ $result_trees{'implicit_quoting_one_arg'} = {
                   'contents' => [
                     {
                       'parent' => {},
-                      'text' => 'FIXME: Many arguments, separated by commas, are processed here'
+                      'text' => 'FIXAME: Many arguments, separated by commas, are processed here'
                     }
                   ],
                   'parent' => {},
@@ -85,7 +85,7 @@ $result_trees{'implicit_quoting_one_arg'} = {
               'line_nr' => {
                 'file_name' => '',
                 'line_nr' => 6,
-                'macro' => 'FIXME'
+                'macro' => 'FIXAME'
               },
               'parent' => {}
             },
@@ -121,17 +121,17 @@ $result_trees{'implicit_quoting_one_arg'}{'contents'}[0]{'contents'}[4]{'parent'
 $result_trees{'implicit_quoting_one_arg'}{'contents'}[0]{'parent'} = $result_trees{'implicit_quoting_one_arg'};
 
 $result_texis{'implicit_quoting_one_arg'} = '
-@macro FIXME{a}
-@strong{FIXME: \\a\\}
+@macro FIXAME{a}
+@strong{FIXAME: \\a\\}
 @end macro
 
-@strong{FIXME: Many arguments, separated by commas, are processed here}
+@strong{FIXAME: Many arguments, separated by commas, are processed here}
 ';
 
 
 $result_texts{'implicit_quoting_one_arg'} = '
 
-FIXME: Many arguments, separated by commas, are processed here
+FIXAME: Many arguments, separated by commas, are processed here
 ';
 
 $result_errors{'implicit_quoting_one_arg'} = [];

@@ -910,7 +910,30 @@ Previous: <a href="#Top" accesskey="p" rel="prev">2 footnotes in 2 nodes</a>, Up
 </p>
 </div>
 </div>
+<div class="Footnotes_element" id="SEC_Foot">
+<div class="header">
+<p>
+ &nbsp; </p>
+</div>
+<h4 class="footnotes-heading">Footnotes</h4>
 
+<h5><a id="FOOT1" href="#DOCF1">(1)</a></h5>
+<p>Footnote Top/1
+</p>
+<p>para2</p>
+<h5><a id="FOOT2" href="#DOCF2">(2)</a></h5>
+<p>Footnote Top/2
+</p>
+<p>para2</p>
+<h5><a id="FOOT3" href="#DOCF3">(3)</a></h5>
+<p>Footnote chapter/1
+</p>
+<p>para2</p>
+<h5><a id="FOOT4" href="#DOCF4">(4)</a></h5>
+<p>Footnote chapter/2
+</p>
+<p>para2</p>
+</div>
 
 
 </body>
@@ -1049,6 +1072,29 @@ $result_converted{'html_text'}->{'two_footnotes_in_nodes_separate'} = '<div clas
 </p>
 </div>
 </div>
-';
+<div class="Footnotes_element" id="SEC_Foot">
+<div class="header">
+<p>
+ &nbsp; </p>
+</div>
+<h4 class="footnotes-heading">Footnotes</h4>
+
+<h5><a id="FOOT1" href="#DOCF1">(1)</a></h5>
+<p>Footnote Top/1
+</p>
+<p>para2</p>
+<h5><a id="FOOT2" href="#DOCF2">(2)</a></h5>
+<p>Footnote Top/2
+</p>
+<p>para2</p>
+<h5><a id="FOOT3" href="#DOCF3">(3)</a></h5>
+<p>Footnote chapter/1
+</p>
+<p>para2</p>
+<h5><a id="FOOT4" href="#DOCF4">(4)</a></h5>
+<p>Footnote chapter/2
+</p>
+<p>para2</p>
+</div>';
 
 1;
