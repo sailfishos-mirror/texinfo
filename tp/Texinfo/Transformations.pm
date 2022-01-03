@@ -26,6 +26,8 @@ use strict;
 
 use Carp qw(cluck);
 
+use List::Util qw(any);
+
 use Texinfo::Common;
 use Texinfo::Structuring;
 
@@ -281,8 +283,9 @@ sub _reassociate_to_node($$$$)
 
   if ($current->{'cmdname'} and $current->{'cmdname'} eq 'menu') {
     if ($previous_node) {
-      if (!$previous_node->{'extra'}->{'menus'} or !@{$previous_node->{'extra'}->{'menus'}}
-           or !grep {$current eq $_} @{$previous_node->{'extra'}->{'menus'}}) {
+      if (not defined($previous_node->{'extra'}->{'menus'})
+          or not scalar(@{$previous_node->{'extra'}->{'menus'}})
+          or not (any {$current eq $_} @{$previous_node->{'extra'}->{'menus'}})) {
         print STDERR "Bug: menu $current not in previous node $previous_node\n";
       } else {
         @{$previous_node->{'extra'}->{'menus'}}

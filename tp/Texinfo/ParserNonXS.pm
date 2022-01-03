@@ -36,8 +36,6 @@ use Carp qw(cluck);
 
 use Data::Dumper;
 
-use List::Util;
-
 # to detect if an encoding may be used to open the files
 use Encode;
 
@@ -550,7 +548,7 @@ sub _pop_context($;$$$$)
   my $error = 0;
   my $popped_context = pop @{$self->{'context_stack'}};
   if (defined($expected_contexts) and (
-       not List::Util::any {$_ eq $popped_context} @$expected_contexts)) {
+       not grep {$_ eq $popped_context} @$expected_contexts)) {
     my $error_message = "context $popped_context instead of "
          .join(" or ".@$expected_contexts);
     $error_message .= $message if (defined($message));
@@ -5636,7 +5634,7 @@ sub _parse_line_command_args($$$)
   }
   return undef if (!defined($arg->{'contents'}->[0]->{'text'}));
   
-  my $line = $arg->{'contents'}->[0]->{'text'};  
+  my $line = $arg->{'contents'}->[0]->{'text'};
 
   if ($command eq 'alias') {
     # REMACRO
@@ -5647,7 +5645,7 @@ sub _parse_line_command_args($$$)
       $self->{'aliases'}->{$new_command} = $existing_command;
       if (exists($block_commands{$existing_command})) {
         $self->_line_warn(sprintf(
-                             __("environment command %s as argument to \@%s"), 
+                             __("environment command %s as argument to \@%s"),
                              $existing_command, $command), $line_nr);
       }
     } else {
@@ -5664,7 +5662,7 @@ sub _parse_line_command_args($$$)
 
       $brace_commands{$1} = 'style';
 
-      # Warning: there is a risk of mixing of data between a built-in 
+      # Warning: there is a risk of mixing of data between a built-in
       # command and a user command defined with @definfoenclose.
       # %keep_line_nr_brace_commands is one example of this.
     } else {
@@ -5732,11 +5730,11 @@ sub _parse_line_command_args($$$)
       $self->_line_error(sprintf(__("unknown destination index in \@%s: %s"),
                                  $command, $index_to), $line_nr)
         unless $self->{'index_names'}->{$index_to};
-      if ($self->{'index_names'}->{$index_from} 
+      if ($self->{'index_names'}->{$index_from}
            and $self->{'index_names'}->{$index_to}) {
         my $current_to = $index_to;
         # find the merged indices recursively avoiding loops
-        while ($current_to ne $index_from 
+        while ($current_to ne $index_from
                and $self->{'merged_indices'}->{$current_to}) {
           $current_to = $self->{'merged_indices'}->{$current_to};
         }
@@ -5759,7 +5757,7 @@ sub _parse_line_command_args($$$)
           $args = [$index_from, $index_to];
         } else {
           $self->_line_warn(sprintf(__(
-                         "\@%s leads to a merging of %s in itself, ignoring"), 
+                         "\@%s leads to a merging of %s in itself, ignoring"),
                              $command, $index_from), $line_nr);
         }
       }
@@ -5778,15 +5776,15 @@ sub _parse_line_command_args($$$)
       } else {
         if ($self->{'merged_indices'}->{$name}) {
           $self->_line_warn(sprintf(__(
-                       "printing an index `%s' merged in another one, `%s'"), 
+                       "printing an index `%s' merged in another one, `%s'"),
                                    $name, $self->{'merged_indices'}->{$name}),
-                           $line_nr); 
+                           $line_nr);
         }
-        if (!defined($self->{'current_node'}) 
+        if (!defined($self->{'current_node'})
             and !defined($self->{'current_section'})
             and !scalar(@{$self->{'regions_stack'}})) {
           $self->_line_warn(sprintf(__(
-                     "printindex before document beginning: \@printindex %s"), 
+                     "printindex before document beginning: \@printindex %s"),
                                     $name), $line_nr);
         }
         $args = [$name];
@@ -5794,16 +5792,6 @@ sub _parse_line_command_args($$$)
     } else {
       $self->_line_error(sprintf(
                    __("bad argument to \@%s: %s"), $command, $line), $line_nr);
-    }
-  } elsif (grep {$_ eq $command} ('everyheadingmarks', 'everyfootingmarks',
-                                  'evenheadingmarks', 'oddheadingmarks',
-                                  'evenfootingmarks', 'oddfootingmarks')) {
-    if ($line eq 'top' or $line eq 'bottom') {
-      $args = [$line];
-    } else {
-      $self->_line_error(sprintf(__(
-                      "\@%s arg must be `top' or `bottom', not `%s'"), 
-                                $command, $line), $line_nr);
     }
   } elsif ($command eq 'fonttextsize') {
     if ($line eq '10' or $line eq '11') {
@@ -5818,7 +5806,7 @@ sub _parse_line_command_args($$$)
       $args = [$line];
     } else {
       $self->_line_error(sprintf(__(
-                            "\@%s arg must be `separate' or `end', not `%s'"), 
+                            "\@%s arg must be `separate' or `end', not `%s'"),
                                 $command, $line), $line_nr);
     }
   } elsif ($command eq 'setchapternewpage') {
@@ -5826,7 +5814,7 @@ sub _parse_line_command_args($$$)
       $args = [$line];
     } else {
       $self->_line_error(sprintf(__(
-                           "\@%s arg must be `on', `off' or `odd', not `%s'"), 
+                           "\@%s arg must be `on', `off' or `odd', not `%s'"),
                                  $command, $line), $line_nr);
     }
   } elsif ($command eq 'need') { # only a warning
@@ -5844,12 +5832,12 @@ sub _parse_line_command_args($$$)
         $args = [$1];
       } else {
         $self->_line_error(sprintf(__(
-           "\@paragraphindent arg must be numeric/`none'/`asis', not `%s'"), 
+           "\@paragraphindent arg must be numeric/`none'/`asis', not `%s'"),
                                              $value), $line_nr);
-      } 
+      }
     } else {
       $self->_line_error(sprintf(__(
-             "\@paragraphindent arg must be numeric/`none'/`asis', not `%s'"), 
+             "\@paragraphindent arg must be numeric/`none'/`asis', not `%s'"),
                                            $line), $line_nr);
     }
   } elsif ($command eq 'firstparagraphindent') {
@@ -5857,7 +5845,7 @@ sub _parse_line_command_args($$$)
       $args = [$line];
     } else {
       $self->_line_error(sprintf(__(
-         "\@firstparagraphindent arg must be `none' or `insert', not `%s'"), 
+         "\@firstparagraphindent arg must be `none' or `insert', not `%s'"),
                                            $line), $line_nr);
     }
   } elsif ($command eq 'exampleindent') {
@@ -5867,10 +5855,10 @@ sub _parse_line_command_args($$$)
       $args = [$1];
     } else {
       $self->_line_error(sprintf(__(
-           "\@exampleindent arg must be numeric/`asis', not `%s'"), 
+           "\@exampleindent arg must be numeric/`asis', not `%s'"),
                                            $line), $line_nr);
     }
-  } elsif ($command eq 'frenchspacing' 
+  } elsif ($command eq 'frenchspacing'
            or $command eq 'xrefautomaticsectiontitle'
            or $command eq 'codequoteundirected'
            or $command eq 'codequotebacktick'
@@ -5887,7 +5875,7 @@ sub _parse_line_command_args($$$)
       $args = [$line];
     } else {
       $self->_line_error(sprintf(__(
-      "\@kbdinputstyle arg must be `code'/`example'/`distinct', not `%s'"), 
+      "\@kbdinputstyle arg must be `code'/`example'/`distinct', not `%s'"),
                                            $line), $line_nr);
     }
   } elsif ($command eq 'allowcodebreaks') {
@@ -5895,7 +5883,7 @@ sub _parse_line_command_args($$$)
       $args = [$line];
     } else {
       $self->_line_error(sprintf(__(
-               "\@allowcodebreaks arg must be `true' or `false', not `%s'"), 
+               "\@allowcodebreaks arg must be `true' or `false', not `%s'"),
                                            $line), $line_nr);
     }
   } elsif ($command eq 'urefbreakstyle') {
@@ -5903,16 +5891,26 @@ sub _parse_line_command_args($$$)
       $args = [$line];
     } else {
       $self->_line_error(sprintf(__(
-         "\@urefbreakstyle arg must be `after'/`before'/`none', not `%s'"), 
+         "\@urefbreakstyle arg must be `after'/`before'/`none', not `%s'"),
                                            $line), $line_nr);
     }
   } elsif ($command eq 'headings') {
-    if ($line eq 'off' or $line eq 'on' or $line eq 'single' 
+    if ($line eq 'off' or $line eq 'on' or $line eq 'single'
        or $line eq 'double' or  $line eq 'singleafter' or $line eq 'doubleafter') {
       $args = [$line];
     } else {
       $self->_line_error(sprintf(__("bad argument to \@%s: %s"),
                                  $command, $line), $line_nr);
+    }
+  } elsif (grep {$_ eq $command} ('everyheadingmarks', 'everyfootingmarks',
+                                  'evenheadingmarks', 'oddheadingmarks',
+                                  'evenfootingmarks', 'oddfootingmarks')) {
+    if ($line eq 'top' or $line eq 'bottom') {
+      $args = [$line];
+    } else {
+      $self->_line_error(sprintf(__(
+                      "\@%s arg must be `top' or `bottom', not `%s'"),
+                                $command, $line), $line_nr);
     }
   }
   return $args;

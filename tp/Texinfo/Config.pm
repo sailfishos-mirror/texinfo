@@ -28,11 +28,11 @@ package Texinfo::Config;
 
 use strict;
 
-# for __( and p__(
-use Texinfo::Common;
-
 # for carp
 use Carp;
+
+# for __( and p__(
+use Texinfo::Common;
 
 # for error messages, passed from main program through initialization
 # function.
