@@ -949,6 +949,8 @@ sub output($$)
   my $modified_root;
 
   if (defined($inserted_preamble_idx)) {
+    print STDERR "INSERT $latex_document_type: $inserted_preamble_idx\n"
+      if ($self->get_conf('DEBUG'));
     $modified_root = {'contents' => [ @{$root->{'contents'}} ], 'type' => $root->{'type'}};
     my $new_before_node_section = {'type' => $modified_root->{'contents'}->[0]->{'type'},
                                    'parent' => $modified_root,
@@ -999,7 +1001,7 @@ sub output($$)
   _pop_context($self);
   $result .= $self->write_or_return($self->_latex_footer(), $fh);
 
-  #print $result;
+  #print STDERR "OUTPUT fh:$fh|F:$output_file|$result";
   if ($fh and $output_file ne '-') {
     Texinfo::Common::output_files_register_closed(
                   $self->output_files_information(), $output_file);
@@ -1734,11 +1736,16 @@ sub _set_environment_options($$$)
       }
     }
   } elsif ($command eq 'itemize') {
-    if ($element->{'args'} and $element->{'args'}->[0]->{'contents'}) {
+    my $environment = $LaTeX_environment_commands{$command}[0];
+    if ($element->{'extra'} and $element->{'extra'}->{'command_as_argument'}
+        and $element->{'extra'}->{'command_as_argument'}->{'cmdname'} eq 'w') {
+      # the result with \hbox{} would probably have been the same,
+      # but using an empty label is more consistent with the Texinfo manual
+      return {$environment => 'label={}'};
+    } elsif ($element->{'args'} and $element->{'args'}->[0]->{'contents'}) {
       # FIXME start a new top context?
       my $itemize_label = _convert($self, $element->{'args'}->[0]);
       if ($itemize_label ne '') {
-        my $environment = $LaTeX_environment_commands{$command}[0];
         return {$environment => 'label='.$itemize_label};
       }
     }

@@ -240,4 +240,11 @@ $result_converted{'html_text'}->{'w_argument'} = '<ul class="no-bullet">
 </li></ul>
 ';
 
+
+$result_converted{'latex'}->{'w_argument'} = '\\begin{itemize}[label={}]
+\\item \\texttt{{-}{-}build=} platform on which the program is compiled,
+\\item \\texttt{{-}{-}target=} target platform on which the program is processed.
+\\end{itemize}
+';
+
 1;

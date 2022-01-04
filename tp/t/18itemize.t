@@ -600,11 +600,15 @@ my @test_invalid = (
 my @file_latex_tests_cases_tests = ('inter_item_commands_in_itemize',
   'inter_item_commands_in_enumerate');
 
+my @latex_tests_cases_tests = ('w_argument');
+
 foreach my $test (@test_cases) {
   push @{$test->[2]->{'test_formats'}}, 'plaintext';
   push @{$test->[2]->{'test_formats'}}, 'html_text';
   push @{$test->[2]->{'test_formats'}}, 'file_latex'
     if (grep {$_ eq $test->[0]} @file_latex_tests_cases_tests);
+  push @{$test->[2]->{'test_formats'}}, 'latex'
+    if (grep {$_ eq $test->[0]} @latex_tests_cases_tests);
 }
 
 our ($arg_test_case, $arg_generate, $arg_debug);
