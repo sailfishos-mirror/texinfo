@@ -332,6 +332,15 @@ error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
 <para>&#8226; a&#8211;n itemize line i&#8211;tem 1
 </para></listitem><listitem><para>&#8226; a&#8211;n itemize line i&#8211;tem 2
 </para></listitem></itemizedlist>
+<itemizedlist><listitem><para><!-- /@w --> without brace w a&#8211;b
+</para></listitem><listitem><para><!-- /@w --> without brace w c&#8211;d
+</para></listitem></itemizedlist>
+<itemizedlist><listitem><para><!-- /@w --> with w a&#8211;b
+</para></listitem><listitem><para><!-- /@w --> with w c&#8211;d
+</para></listitem></itemizedlist>
+<itemizedlist><listitem><para><!-- /@w --> on a line line w a&#8211;b
+</para></listitem><listitem><para><!-- /@w --> on a line line with w c&#8211;d
+</para></listitem></itemizedlist>
 <orderedlist numeration="arabic"><listitem><para>e&#8211;numerate
 </para></listitem></orderedlist>
 <orderedlist numeration="arabic"><listitem><para>first third
@@ -1133,6 +1142,15 @@ error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
 <itemizedlist><listitem><indexterm role="cp"><primary>index entry within itemize</primary></indexterm>
 <para>&#8226; a&#8211;n itemize line i&#8211;tem 1
 </para></listitem><listitem><para>&#8226; a&#8211;n itemize line i&#8211;tem 2
+</para></listitem></itemizedlist>
+<itemizedlist><listitem><para><!-- /@w --> without brace w a&#8211;b
+</para></listitem><listitem><para><!-- /@w --> without brace w c&#8211;d
+</para></listitem></itemizedlist>
+<itemizedlist><listitem><para><!-- /@w --> with w a&#8211;b
+</para></listitem><listitem><para><!-- /@w --> with w c&#8211;d
+</para></listitem></itemizedlist>
+<itemizedlist><listitem><para><!-- /@w --> on a line line w a&#8211;b
+</para></listitem><listitem><para><!-- /@w --> on a line line with w c&#8211;d
 </para></listitem></itemizedlist>
 <orderedlist numeration="arabic"><listitem><para>e&#8211;numerate
 </para></listitem></orderedlist>
@@ -1936,6 +1954,15 @@ error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
 <itemizedlist><listitem><indexterm role="cp"><primary>index entry within itemize</primary></indexterm>
 <para>&#8226; a&#8211;n itemize line i&#8211;tem 1
 </para></listitem><listitem><para>&#8226; a&#8211;n itemize line i&#8211;tem 2
+</para></listitem></itemizedlist>
+<itemizedlist><listitem><para><!-- /@w --> without brace w a&#8211;b
+</para></listitem><listitem><para><!-- /@w --> without brace w c&#8211;d
+</para></listitem></itemizedlist>
+<itemizedlist><listitem><para><!-- /@w --> with w a&#8211;b
+</para></listitem><listitem><para><!-- /@w --> with w c&#8211;d
+</para></listitem></itemizedlist>
+<itemizedlist><listitem><para><!-- /@w --> on a line line w a&#8211;b
+</para></listitem><listitem><para><!-- /@w --> on a line line with w c&#8211;d
 </para></listitem></itemizedlist>
 <orderedlist numeration="arabic"><listitem><para>e&#8211;numerate
 </para></listitem></orderedlist>
@@ -2758,6 +2785,15 @@ error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
 <para>&#8226; a&#8211;n itemize line i&#8211;tem 1
 </para></listitem><listitem><para>&#8226; a&#8211;n itemize line i&#8211;tem 2
 </para></listitem></itemizedlist>
+<itemizedlist><listitem><para><!-- /@w --> without brace w a&#8211;b
+</para></listitem><listitem><para><!-- /@w --> without brace w c&#8211;d
+</para></listitem></itemizedlist>
+<itemizedlist><listitem><para><!-- /@w --> with w a&#8211;b
+</para></listitem><listitem><para><!-- /@w --> with w c&#8211;d
+</para></listitem></itemizedlist>
+<itemizedlist><listitem><para><!-- /@w --> on a line line w a&#8211;b
+</para></listitem><listitem><para><!-- /@w --> on a line line with w c&#8211;d
+</para></listitem></itemizedlist>
 <orderedlist numeration="arabic"><listitem><para>e&#8211;numerate
 </para></listitem></orderedlist>
 <orderedlist numeration="arabic"><listitem><para>first third
@@ -3560,6 +3596,15 @@ error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
 <para>&#8226; a&#8211;n itemize line i&#8211;tem 1
 </para></listitem><listitem><para>&#8226; a&#8211;n itemize line i&#8211;tem 2
 </para></listitem></itemizedlist>
+<itemizedlist><listitem><para><!-- /@w --> without brace w a&#8211;b
+</para></listitem><listitem><para><!-- /@w --> without brace w c&#8211;d
+</para></listitem></itemizedlist>
+<itemizedlist><listitem><para><!-- /@w --> with w a&#8211;b
+</para></listitem><listitem><para><!-- /@w --> with w c&#8211;d
+</para></listitem></itemizedlist>
+<itemizedlist><listitem><para><!-- /@w --> on a line line w a&#8211;b
+</para></listitem><listitem><para><!-- /@w --> on a line line with w c&#8211;d
+</para></listitem></itemizedlist>
 <orderedlist numeration="arabic"><listitem><para>e&#8211;numerate
 </para></listitem></orderedlist>
 <orderedlist numeration="arabic"><listitem><para>first third
@@ -4356,6 +4401,15 @@ error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
 </screen></listitem></itemizedlist><screen>
 </screen><itemizedlist><screen></screen><listitem><screen>&#8226; a--n itemize line <indexterm role="cp"><primary>index entry within itemize</primary></indexterm>i--tem 1
 </screen></listitem><listitem><screen>&#8226; a--n itemize line i--tem 2
+</screen></listitem></itemizedlist><screen>
+</screen><itemizedlist><listitem><screen><!-- /@w --> without brace w a--b
+</screen></listitem><listitem><screen><!-- /@w --> without brace w c--d
+</screen></listitem></itemizedlist><screen>
+</screen><itemizedlist><listitem><screen><!-- /@w --> with w a--b
+</screen></listitem><listitem><screen><!-- /@w --> with w c--d
+</screen></listitem></itemizedlist><screen>
+</screen><itemizedlist><listitem><screen><!-- /@w --> on a line line w a--b
+</screen></listitem><listitem><screen><!-- /@w --> on a line line with w c--d
 </screen></listitem></itemizedlist><screen>
 </screen><orderedlist numeration="arabic"><listitem><screen>e--numerate
 </screen></listitem></orderedlist><screen>

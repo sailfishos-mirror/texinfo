@@ -402,6 +402,21 @@ something, other thing
 @item i--tem 2
 @end itemize
 
+@itemize @w
+@item without brace w a--b
+@item without brace w c--d
+@end itemize
+
+@itemize @w{}
+@item with w a--b
+@item with w c--d
+@end itemize
+
+@itemize @w{} on a line
+@item line w a--b
+@item line with w c--d
+@end itemize
+
 @enumerate
 @item e--numerate
 @end enumerate

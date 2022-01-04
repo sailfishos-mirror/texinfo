@@ -418,6 +418,21 @@ something, other thing
 @item i--tem 2
 @end itemize
 
+@itemize @w
+@item without brace w a--b
+@item without brace w c--d
+@end itemize
+
+@itemize @w{}
+@item with w a--b
+@item with w c--d
+@end itemize
+
+@itemize @w{} on a line
+@item line w a--b
+@item line with w c--d
+@end itemize
+
 @enumerate
 @item e--numerate
 @end enumerate
@@ -1442,6 +1457,21 @@ quotation
 </para></listitem><listitem spaces=" "><prepend>&bullet; a&textndash;n itemize line</prepend><para>i&textndash;tem 2
 </para></listitem></itemize>
 
+<itemize commandarg="w" spaces=" " endspaces=" ">
+<listitem spaces=" "><prepend></prepend><para>without brace w a&textndash;b
+</para></listitem><listitem spaces=" "><prepend></prepend><para>without brace w c&textndash;d
+</para></listitem></itemize>
+
+<itemize commandarg="w" spaces=" " endspaces=" "><itemprepend><w></w></itemprepend>
+<listitem spaces=" "><prepend><w></w></prepend><para>with w a&textndash;b
+</para></listitem><listitem spaces=" "><prepend><w></w></prepend><para>with w c&textndash;d
+</para></listitem></itemize>
+
+<itemize spaces=" " endspaces=" "><itemprepend><w></w> on a line</itemprepend>
+<listitem spaces=" "><prepend><w></w> on a line</prepend><para>line w a&textndash;b
+</para></listitem><listitem spaces=" "><prepend><w></w> on a line</prepend><para>line with w c&textndash;d
+</para></listitem></itemize>
+
 <enumerate first="1" endspaces=" ">
 <listitem spaces=" "><para>e&textndash;numerate
 </para></listitem></enumerate>
@@ -2452,6 +2482,21 @@ quotation
 <beforefirstitem><cindex index="cp" spaces=" "><indexterm index="cp" number="10">index entry within itemize</indexterm></cindex>
 </beforefirstitem><listitem spaces=" "><prepend>&bullet; a&textndash;n itemize line</prepend><para>i&textndash;tem 1
 </para></listitem><listitem spaces=" "><prepend>&bullet; a&textndash;n itemize line</prepend><para>i&textndash;tem 2
+</para></listitem></itemize>
+
+<itemize commandarg="w" spaces=" " endspaces=" ">
+<listitem spaces=" "><prepend></prepend><para>without brace w a&textndash;b
+</para></listitem><listitem spaces=" "><prepend></prepend><para>without brace w c&textndash;d
+</para></listitem></itemize>
+
+<itemize commandarg="w" spaces=" " endspaces=" "><itemprepend><w></w></itemprepend>
+<listitem spaces=" "><prepend><w></w></prepend><para>with w a&textndash;b
+</para></listitem><listitem spaces=" "><prepend><w></w></prepend><para>with w c&textndash;d
+</para></listitem></itemize>
+
+<itemize spaces=" " endspaces=" "><itemprepend><w></w> on a line</itemprepend>
+<listitem spaces=" "><prepend><w></w> on a line</prepend><para>line w a&textndash;b
+</para></listitem><listitem spaces=" "><prepend><w></w> on a line</prepend><para>line with w c&textndash;d
 </para></listitem></itemize>
 
 <enumerate first="1" endspaces=" ">
@@ -3493,6 +3538,21 @@ quotation
 </para></listitem><listitem spaces=" "><prepend>&bullet; a&textndash;n itemize line</prepend><para>i&textndash;tem 2
 </para></listitem></itemize>
 
+<itemize commandarg="w" spaces=" " endspaces=" ">
+<listitem spaces=" "><prepend></prepend><para>without brace w a&textndash;b
+</para></listitem><listitem spaces=" "><prepend></prepend><para>without brace w c&textndash;d
+</para></listitem></itemize>
+
+<itemize commandarg="w" spaces=" " endspaces=" "><itemprepend><w></w></itemprepend>
+<listitem spaces=" "><prepend><w></w></prepend><para>with w a&textndash;b
+</para></listitem><listitem spaces=" "><prepend><w></w></prepend><para>with w c&textndash;d
+</para></listitem></itemize>
+
+<itemize spaces=" " endspaces=" "><itemprepend><w></w> on a line</itemprepend>
+<listitem spaces=" "><prepend><w></w> on a line</prepend><para>line w a&textndash;b
+</para></listitem><listitem spaces=" "><prepend><w></w> on a line</prepend><para>line with w c&textndash;d
+</para></listitem></itemize>
+
 <enumerate first="1" endspaces=" ">
 <listitem spaces=" "><para>e&textndash;numerate
 </para></listitem></enumerate>
@@ -4497,6 +4557,21 @@ indent in quotation
 <beforefirstitem><pre xml:space="preserve"><cindex index="cp" spaces=" "><indexterm index="cp" number="24">index entry within itemize</indexterm></cindex>
 </pre></beforefirstitem><listitem spaces=" "><prepend>&bullet; a--n itemize line</prepend><pre xml:space="preserve">i--tem 1
 </pre></listitem><listitem spaces=" "><prepend>&bullet; a--n itemize line</prepend><pre xml:space="preserve">i--tem 2
+</pre></listitem></itemize>
+<pre xml:space="preserve">
+</pre><itemize commandarg="w" spaces=" " endspaces=" ">
+<listitem spaces=" "><prepend></prepend><pre xml:space="preserve">without brace w a--b
+</pre></listitem><listitem spaces=" "><prepend></prepend><pre xml:space="preserve">without brace w c--d
+</pre></listitem></itemize>
+<pre xml:space="preserve">
+</pre><itemize commandarg="w" spaces=" " endspaces=" "><itemprepend><w></w></itemprepend>
+<listitem spaces=" "><prepend><w></w></prepend><pre xml:space="preserve">with w a--b
+</pre></listitem><listitem spaces=" "><prepend><w></w></prepend><pre xml:space="preserve">with w c--d
+</pre></listitem></itemize>
+<pre xml:space="preserve">
+</pre><itemize spaces=" " endspaces=" "><itemprepend><w></w> on a line</itemprepend>
+<listitem spaces=" "><prepend><w></w> on a line</prepend><pre xml:space="preserve">line w a--b
+</pre></listitem><listitem spaces=" "><prepend><w></w> on a line</prepend><pre xml:space="preserve">line with w c--d
 </pre></listitem></itemize>
 <pre xml:space="preserve">
 </pre><enumerate first="1" endspaces=" ">

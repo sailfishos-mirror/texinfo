@@ -13,6 +13,7 @@ xmllint --nonet --noout --valid commands.xml
 Before next release
 ===================
 
+
 Bugs
 ====
 
@@ -241,6 +242,10 @@ DocBook
   than book. Maybe the best way to do that would be passing the
   information that there is only one section to the functions formatting
   the page header and page footer.
+
+  there is a mark= attribute for itemizedlist element for the initial mark
+  of each item but the standard "does not specify a set of appropriate keywords"
+  so it cannot be used.
 
 
 Interrogations and remarks
