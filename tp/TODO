@@ -39,6 +39,9 @@ replaced, elided, elided_block types.
 extra->'comment_at_end' and extra->'spaces_after_argument' 
 likely in many line commands
 
+'extra'->'menu_entry'->'index_ignore_chars'
+
+'extra'->'isindex' for nodes.
 
 For converter writers,
 'output_init_conf' and 'converter_init_conf'.

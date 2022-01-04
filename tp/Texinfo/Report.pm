@@ -79,7 +79,8 @@ sub line_warn($$$$)
   # otherwise out of source build fail since the file names are different
   my ($directories, $suffix);
   ($file, $directories, $suffix) = fileparse($file)
-    if ($configuration_informations->get_conf('TEST'));
+    if (defined($configuration_informations)
+        and $configuration_informations->get_conf('TEST'));
   my $warn_line;
   if ($line_number->{'macro'} ne '') {
     $warn_line = sprintf(__p("Texinfo source file warning",
@@ -90,7 +91,8 @@ sub line_warn($$$$)
                                     "%s:%d: warning: %s\n"),
                          $file, $line_number->{'line_nr'}, $text);
   }
-  warn $warn_line if ($configuration_informations->get_conf('DEBUG'));
+  warn $warn_line if (defined($configuration_informations)
+                      and $configuration_informations->get_conf('DEBUG'));
   push @{$self->{'errors_warnings'}},
        { 'type' => 'warning', 'text' => $text, 'error_line' => $warn_line,
          %{$line_number} };
@@ -108,12 +110,14 @@ sub line_error($$$$)
     my $file = $line_number->{'file_name'};
     my ($directories, $suffix);
     ($file, $directories, $suffix) = fileparse($file)
-       if ($configuration_informations->get_conf('TEST'));
+       if (defined($configuration_informations)
+           and $configuration_informations->get_conf('TEST'));
     my $macro_text = '';
     $macro_text = " (possibly involving \@$line_number->{'macro'})"
        if ($line_number->{'macro'} ne '');
     my $error_text = "$file:$line_number->{'line_nr'}: $text$macro_text\n";
-    warn "$error_text" if ($configuration_informations->get_conf('DEBUG'));
+    warn $error_text if (defined($configuration_informations)
+                         and $configuration_informations->get_conf('DEBUG'));
     push @{$self->{'errors_warnings'}},
          { 'type' => 'error', 'text' => $text, 'error_line' => $error_text,
            %{$line_number} };
@@ -129,7 +133,8 @@ sub document_warn($$$)
   chomp($text);
 
   my $warn_line;
-  if (defined($configuration_informations->get_conf('PROGRAM'))
+  if (defined($configuration_informations)
+      and defined($configuration_informations->get_conf('PROGRAM'))
       and $configuration_informations->get_conf('PROGRAM') ne '') {
     $warn_line = sprintf(__p("whole document warning", "%s: warning: %s\n"), 
                   $configuration_informations->get_conf('PROGRAM'), $text);
@@ -148,7 +153,8 @@ sub document_error($$$)
   my $text = shift;
   chomp($text);
   my $error_line;
-  if (defined($configuration_informations->get_conf('PROGRAM'))
+  if (defined($configuration_informations)
+      and defined($configuration_informations->get_conf('PROGRAM'))
       and $configuration_informations->get_conf('PROGRAM') ne '') {
     $error_line = sprintf("%s: %s\n",
           $configuration_informations->get_conf('PROGRAM'), $text);

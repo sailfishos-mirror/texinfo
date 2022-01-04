@@ -17,6 +17,30 @@
 
 2022-01-03  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (%parser_state_initialization)
+	(%parser_state_configuration, %parser_settable_configuration)
+	(_setup_conf): split %parser_state_configuration in two, with
+	%parser_state_initialization being not configurable anymore
+	to match with the XS parser in which those configuration keys
+	are not implemented.
+	Two configuration keys, clickstyle and kbdinputstyle are
+	duplicated in Texinfo::Translations::gdt(), so are put in
+	%parser_state_configuration although they are not implemented
+	in the XS parser.
+
+	* tp/Texinfo/ParserNonXS.pm (parse_texi_text): set first line to 1.
+
+	* tp/Texinfo/ParserNonXS.pm (_setup_conf),
+	tp/Texinfo/XS/parsetexi/Parsetexi.pm (parser):
+	pass registrar object as is instead of copying.
+
+	* tp/Texinfo/Report.pm (line_warn, line_error, document_warn)
+	(document_error): accept an undef $configuration_informations
+	to be able to use a Texinfo::Report standalone without configuration
+	information.
+
+2022-01-03  Patrice Dumas  <pertusus@free.fr>
+
 	* Pod-Simple-Texinfo/lib/Pod/Simple/Texinfo.pm
 	(_normalize_texinfo_name): adapt to tree structure change.
 	Better error reporting in case of parser errors.
