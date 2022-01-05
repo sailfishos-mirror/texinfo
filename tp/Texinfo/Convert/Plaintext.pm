@@ -411,6 +411,10 @@ sub converter_initialize($)
 
   if ($self->get_conf('ASCII_PUNCTUATION')) {
     $self->{'convert_text_options'}->{'ascii_punctuation'} = 1;
+    # cache to avoid calling get_conf
+    $self->{'ascii_punctualtion'} = 1;
+  } else {
+    $self->{'ascii_punctualtion'} = 0;
   }
 
   if ($self->get_conf('ENABLE_ENCODING')
@@ -585,7 +589,7 @@ sub _process_text($$$)
   }
 
   if ($self->{'to_utf8'}
-      and !$self->get_conf('ASCII_PUNCTUATION')) {
+      and !$self->{'ascii_punctuation'}) {
     return Texinfo::Convert::Unicode::unicode_text($text, 
             $context->{'font_type_stack'}->[-1]->{'monospace'});
   } elsif (!$context->{'font_type_stack'}->[-1]->{'monospace'}) {
