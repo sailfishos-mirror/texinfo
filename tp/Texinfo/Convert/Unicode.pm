@@ -1231,33 +1231,28 @@ sub unicode_accent($$)
                          or !$command->{'parent'}->{'parent'}
                          or !$command->{'parent'}->{'parent'}->{'cmdname'}
                          or !$unicode_accented_letters{$command->{'parent'}->{'parent'}->{'cmdname'}})) {
-      $result = "\x{0131}";
+      return "\x{0131}";
     } else {
-      $result = $text;
+      return $text;
     }
-    return $result;
   }
 
   if (defined($unicode_diacritics{$accent})) {
+    my $diacritic = chr(hex($unicode_diacritics{$accent}));
     if ($accent ne 'tieaccent') {
-      $result = Unicode::Normalize::NFC($text
-           . chr(hex($unicode_diacritics{$accent})));
+      return Unicode::Normalize::NFC($text . $diacritic);
     } else {
       # tieaccent diacritic is naturally and correctly composed
       # between two characters
       my $remaining_text = $text;
       if ($remaining_text =~ s/^([\p{L}\d])([\p{L}\d])(.*)$/$3/) {
-        $result = Unicode::Normalize::NFC($1
-           . chr(hex($unicode_diacritics{$accent})).$2.$remaining_text);
+        return Unicode::Normalize::NFC($1.$diacritic.$2 . $remaining_text);
       } else {
-        $result = Unicode::Normalize::NFC($text
-           . chr(hex($unicode_diacritics{$accent})));
+        return Unicode::Normalize::NFC($text . $diacritic);
       }
     }
-    return $result;
-  } else {
-    return undef;
   }
+  return undef;
 }
 
 sub unicode_text {

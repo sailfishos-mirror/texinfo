@@ -476,6 +476,7 @@ span.nolinebreak {white-space: nowrap}
 span.roman {font-family: initial; font-weight: normal}
 span.sansserif {font-family: sans-serif; font-weight: normal}
 span:hover a.copiable-anchor {visibility: visible}
+ul.mark-bullet {list-style-type: disc}
 ul.no-bullet {list-style: none}
 -->
 </style>

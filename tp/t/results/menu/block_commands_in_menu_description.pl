@@ -859,6 +859,7 @@ span.nolinebreak {white-space: nowrap}
 span.roman {font-family: initial; font-weight: normal}
 span.sansserif {font-family: sans-serif; font-weight: normal}
 span:hover a.copiable-anchor {visibility: visible}
+ul.mark-bullet {list-style-type: disc}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -872,10 +873,10 @@ ul.no-bullet {list-style: none}
 
 <table class="menu" border="0" cellspacing="0">
 <tr><td align="left" valign="top">&bull; <a href="manual.html#Top" accesskey="1">(manual)</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-<ul>
+<ul class="mark-bullet">
 <li><pre class="menu-preformatted">
 
-</pre></li><li> <pre class="menu-preformatted">in item
+</pre></li><li><pre class="menu-preformatted">in item
 
 </pre></li></ul>
 <dl>

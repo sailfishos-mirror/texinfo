@@ -230,7 +230,23 @@ sub html32_convert_multitable_body_type($$$$) {
 }
 texinfo_register_type_formatting('multitable_body', \&html32_convert_multitable_body_type);
 
-sub html32_convert_tab_command ($$$$)
+sub html32_convert_itemize_command($$$$)
+{
+  my $self = shift;
+  my $cmdname = shift;
+  my $command = shift;
+  my $content = shift;
+
+  if ($self->in_string()) {
+    return $content;
+  }
+
+  return "<ul>\n" . $content. "</ul>\n";
+}
+
+texinfo_register_command_formatting('itemize', \&html32_convert_itemize_command);
+
+sub html32_convert_tab_command($$$$)
 {
   my $self = shift;
   my $cmdname = shift;
@@ -265,9 +281,29 @@ sub html32_convert_item_command($$$$)
 
   if ($self->in_string()) {
     return $content;
-  } elsif ($command->{'parent'}->{'type'}
-           and $command->{'parent'}->{'type'} eq 'row') {
+  }
+  if ($command->{'parent'}->{'type'}
+      and $command->{'parent'}->{'type'} eq 'row') {
     return html32_convert_tab_command($self, $cmdname, $command, $content);
+  } elsif $command->{'parent'}->{'cmdname'}
+      and $command->{'parent'}->{'cmdname'} eq 'itemize') {
+    my $prepend ;
+    my $itemize = $command->{'parent'};
+    if ($itemize->{'extra'}->{'command_as_argument'}
+       and $itemize->{'extra'}->{'command_as_argument'}->{'cmdname'} eq 'bullet') {
+      $prepend = '';
+    } else {
+      # Setting multiple expansion should not be needed, except in
+      # case of invalid constructs
+      $prepend = $self->convert_tree_new_formatting_context(
+        $itemize->{'args'}->[0],
+        $command->{'cmdname'}, 'item_prepended');
+    }
+    if ($content =~ /\S/) {
+      return '<li>' . $prepend .' '. $content . '</li>';
+    } else {
+      return '';
+    }
   } else {
     return &{$self->default_commands_conversion($cmdname)}($self, $cmdname, $command, $content);
   }

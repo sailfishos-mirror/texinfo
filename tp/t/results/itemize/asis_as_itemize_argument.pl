@@ -144,8 +144,8 @@ $result_converted{'plaintext'}->{'asis_as_itemize_argument'} = '     as is
 ';
 
 
-$result_converted{'html_text'}->{'asis_as_itemize_argument'} = '<ul class="no-bullet">
-<li> as is
+$result_converted{'html_text'}->{'asis_as_itemize_argument'} = '<ul>
+<li>as is
 </li></ul>
 ';
 

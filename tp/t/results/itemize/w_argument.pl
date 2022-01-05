@@ -234,9 +234,9 @@ $result_converted{'plaintext'}->{'w_argument'} = '     ‘--build=’ platform o
 ';
 
 
-$result_converted{'html_text'}->{'w_argument'} = '<ul class="no-bullet">
-<li><!-- /@w --> <samp>--build=</samp> platform on which the program is compiled,
-</li><li><!-- /@w --> <samp>--target=</samp> target platform on which the program is processed.
+$result_converted{'html_text'}->{'w_argument'} = '<ul class="mark-w">
+<li><samp>--build=</samp> platform on which the program is compiled,
+</li><li><samp>--target=</samp> target platform on which the program is processed.
 </li></ul>
 ';
 

@@ -3040,28 +3040,38 @@ sub _end_line($$$)
       if ($current->{'extra'}
           and $current->{'extra'}->{'command_as_argument'}
           and $accent_commands{$current->{'extra'}->{'command_as_argument'}->{'cmdname'}}
-          and ($current->{'cmdname'} eq 'itemize' 
+          and ($current->{'cmdname'} eq 'itemize'
                or $item_line_commands{$current->{'cmdname'}})) {
-        $self->_command_warn($current, $line_nr, 
+        $self->_command_warn($current, $line_nr,
               __("accent command `\@%s' not allowed as \@%s argument"),
-              $current->{'extra'}->{'command_as_argument'}->{'cmdname'}, 
+              $current->{'extra'}->{'command_as_argument'}->{'cmdname'},
               $current->{'cmdname'});
         delete $current->{'extra'}->{'command_as_argument'};
       }
-      if ($current->{'cmdname'} eq 'itemize'
-          and (!$current->{'args'}
+      if ($current->{'cmdname'} eq 'itemize') {
+        if ((!$current->{'args'}
             or !$current->{'args'}->[0]
             or !$current->{'args'}->[0]->{'contents'}
             or !@{$current->{'args'}->[0]->{'contents'}})) {
-        my $inserted =  { 'cmdname' => 'bullet', 
-                          'contents' => [],
-                          'type' => 'command_as_argument_inserted',
-                          'parent' => $current };
-        unshift @{$current->{'args'}}, $inserted;
-        $current->{'extra'}->{'command_as_argument'} = $inserted;
+          my $inserted =  { 'cmdname' => 'bullet',
+                            'contents' => [],
+                            'type' => 'command_as_argument_inserted',
+                            'parent' => $current };
+          unshift @{$current->{'args'}}, $inserted;
+          $current->{'extra'}->{'command_as_argument'} = $inserted;
+        } else {
+          if ($current->{'extra'} and $current->{'extra'}->{'command_as_argument'}) {
+            my $command_as_argument
+               = $current->{'extra'}->{'command_as_argument'}->{'cmdname'};
+            if (not defined($self->{'info'}->{'itemize_commands_arg'}->{$command_as_argument})) {
+              $self->{'info'}->{'itemize_commands_arg'}->{$command_as_argument} = [];
+            }
+            push @{$self->{'info'}->{'itemize_commands_arg'}->{$command_as_argument}}, $current;
+          }
+        }
       } elsif ($item_line_commands{$current->{'cmdname'}} and
               !$current->{'extra'}->{'command_as_argument'}) {
-        my $inserted =  { 'cmdname' => 'asis', 
+        my $inserted =  { 'cmdname' => 'asis',
                           'contents' => [],
                           'type' => 'command_as_argument_inserted',
                           'parent' => $current };
@@ -3910,7 +3920,7 @@ sub _parse_texi($$$)
         ($line, $line_nr) = _next_text($self, $line_nr);
         if (!defined($line)) {
           # end of the file or of a text fragment.
-          $current = _end_line ($self, $current, $line_nr);
+          $current = _end_line($self, $current, $line_nr);
           # It may happen that there is an @include file on the line, it 
           # will be picked up at NEXT_LINE, beginning a new line
           next NEXT_LINE;

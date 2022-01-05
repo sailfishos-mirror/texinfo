@@ -5637,6 +5637,7 @@ span.roman {font-family: initial; font-weight: normal}
 span.sansserif {font-family: sans-serif; font-weight: normal}
 span.smaller {font-size: smaller}
 span:hover a.copiable-anchor {visibility: visible}
+ul.mark-bullet {list-style-type: disc}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -5757,8 +5758,8 @@ currently supported in Texinfo.
 </tr></table>
 <h1 class="chapter" id="References-1">2 References</h1>
 
-<ul class="no-bullet">
-<li> <a class="anchor" id="LaTeX2e"></a>[LaTeX2e]
+<ul>
+<li><a class="anchor" id="LaTeX2e"></a>[LaTeX2e]
  Leslie Lamport, LaTeX User&rsquo;s Guide and
 Reference Manual, 2nd edition, Addison-Wesley, Reading,
 Massachusetts, 1994.

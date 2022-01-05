@@ -298,12 +298,12 @@ $result_converted{'plaintext'}->{'accent_argument'} = '   ̃  item
 ';
 
 
-$result_converted{'html_text'}->{'accent_argument'} = '<ul class="no-bullet">
-<li>&#771; item
+$result_converted{'html_text'}->{'accent_argument'} = '<ul style="list-style-type: \'\\0303 \'">
+<li>item
 </li></ul>
 
-<ul class="no-bullet">
-<li>&#771; item
+<ul style="list-style-type: \'\\0303 \'">
+<li>item
 </li></ul>
 ';
 

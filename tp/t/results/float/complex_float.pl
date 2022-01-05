@@ -4887,6 +4887,8 @@ span.nolinebreak {white-space: nowrap}
 span.roman {font-family: initial; font-weight: normal}
 span.sansserif {font-family: sans-serif; font-weight: normal}
 span:hover a.copiable-anchor {visibility: visible}
+ul.mark-bullet {list-style-type: disc}
+ul.mark-minus {list-style-type: "\\2212"}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -4927,8 +4929,8 @@ An example 2.
 <p>An index entry 2
 </p>
 <p>An itemize 2.
-</p><ul class="no-bullet">
-<li>- truc 2
+</p><ul class="mark-minus">
+<li>truc 2
 line
 </li></ul>
 
@@ -4959,8 +4961,8 @@ A footnote 2.
 </dl>
 
 <p>An itemize.
-</p><ul class="no-bullet">
-<li>- truc 
+</p><ul class="mark-minus">
+<li>truc 
 line
 </li></ul>
 
@@ -4999,8 +5001,8 @@ An example.
 <a class="index-entry-anchor" id="index-float-example-in-caption"></a>
 </p>
 <p>An itemize.
-</p><ul class="no-bullet">
-<li>- truc 
+</p><ul class="mark-minus">
+<li>truc 
 line
 </li></ul>
 
@@ -5051,8 +5053,8 @@ An example 2.
 <a class="index-entry-anchor" id="index-float-example-in-caption-2"></a>
 </p>
 <p>An itemize 2.
-</p><ul class="no-bullet">
-<li>- truc 2
+</p><ul class="mark-minus">
+<li>truc 2
 line
 </li></ul>
 

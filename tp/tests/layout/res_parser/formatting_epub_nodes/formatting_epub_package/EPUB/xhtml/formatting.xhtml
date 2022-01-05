@@ -827,6 +827,9 @@ span.roman {font-family: initial; font-weight: normal}
 span.sansserif {font-family: sans-serif; font-weight: normal}
 span.smaller {font-size: smaller}
 span:hover a.copiable-anchor {visibility: visible}
+ul.mark-bullet {list-style-type: disc}
+ul.mark-minus {list-style-type: "\2212"}
+ul.mark-w {list-style-type: none}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -1201,45 +1204,45 @@ error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
 <p><b>something, other thing:</b> something, other thing
 </p></blockquote>
 
-<ul>
-<li> i&#8211;temize
+<ul class="mark-bullet">
+<li>i&#8211;temize
 </li></ul>
 
-<ul class="no-bullet">
-<li>+ i&#8211;tem +
+<ul style="list-style-type: '+'">
+<li>i&#8211;tem +
 </li></ul>
 
-<ul>
-<li> b&#8211;ullet
+<ul class="mark-bullet">
+<li>b&#8211;ullet
 </li></ul>
 
-<ul class="no-bullet">
-<li>&#8722; minu&#8211;s
+<ul class="mark-minus">
+<li>minu&#8211;s
 </li></ul>
 
-<ul class="no-bullet">
-<li><em>after emph</em> e&#8211;mph item
+<ul style="list-style-type: 'after emph'">
+<li>e&#8211;mph item
 </li></ul>
 
-<ul class="no-bullet">
-<li>&#8226; a&#8211;n itemize line <a class="index-entry-anchor" id="index-titlepage-index-entry-within-itemize"></a>
+<ul style="list-style-type: '\2022  a\2013 n itemize line'">
+<li><a class="index-entry-anchor" id="index-titlepage-index-entry-within-itemize"></a>
 i&#8211;tem 1
-</li><li>&#8226; a&#8211;n itemize line i&#8211;tem 2
+</li><li>i&#8211;tem 2
 </li></ul>
 
-<ul class="no-bullet">
-<li><!-- /@w --> without brace w a&#8211;b
-</li><li><!-- /@w --> without brace w c&#8211;d
+<ul class="mark-w">
+<li>without brace w a&#8211;b
+</li><li>without brace w c&#8211;d
 </li></ul>
 
-<ul class="no-bullet">
-<li><!-- /@w --> with w a&#8211;b
-</li><li><!-- /@w --> with w c&#8211;d
+<ul class="mark-w">
+<li>with w a&#8211;b
+</li><li>with w c&#8211;d
 </li></ul>
 
-<ul class="no-bullet">
-<li><!-- /@w --> on a line line w a&#8211;b
-</li><li><!-- /@w --> on a line line with w c&#8211;d
+<ul style="list-style-type: ' on a line'">
+<li>line w a&#8211;b
+</li><li>line with w c&#8211;d
 </li></ul>
 
 <ol>
@@ -1773,17 +1776,17 @@ html ''
 <code>@image{,,,3--xt}</code> 
 </p>
 
-<ul class="no-bullet">
-<li> e&#8211;mph item
+<ul>
+<li>e&#8211;mph item
 </li></ul>
 
-<ul class="no-bullet">
-<li> after emph e&#8211;mph item
+<ul style="list-style-type: ' after emph'">
+<li>e&#8211;mph item
 </li></ul>
 
-<ul class="no-bullet">
-<li>&#8226; a&#8211;n itemize line i&#8211;tem 1
-</li><li>&#8226; a&#8211;n itemize line i&#8211;tem 2
+<ul style="list-style-type: '\2022  a\2013 n itemize line'">
+<li>i&#8211;tem 1
+</li><li>i&#8211;tem 2
 </li></ul>
 
 <dl>
@@ -2216,45 +2219,45 @@ error&#8594; &#8614; &#8722; &#9733; &#8867; &#8658;
 <p><b>something, other thing:</b> something, other thing
 </p></blockquote>
 
-<ul>
-<li> i&#8211;temize
+<ul class="mark-bullet">
+<li>i&#8211;temize
 </li></ul>
 
-<ul class="no-bullet">
-<li>+ i&#8211;tem +
+<ul style="list-style-type: '+'">
+<li>i&#8211;tem +
 </li></ul>
 
-<ul>
-<li> b&#8211;ullet
+<ul class="mark-bullet">
+<li>b&#8211;ullet
 </li></ul>
 
-<ul class="no-bullet">
-<li>&#8722; minu&#8211;s
+<ul class="mark-minus">
+<li>minu&#8211;s
 </li></ul>
 
-<ul class="no-bullet">
-<li><em>after emph</em> e&#8211;mph item
+<ul style="list-style-type: 'after emph'">
+<li>e&#8211;mph item
 </li></ul>
 
-<ul class="no-bullet">
-<li>&#8226; a&#8211;n itemize line <a class="index-entry-anchor" id="index-copying-index-entry-within-itemize"></a>
+<ul style="list-style-type: '\2022  a\2013 n itemize line'">
+<li><a class="index-entry-anchor" id="index-copying-index-entry-within-itemize"></a>
 i&#8211;tem 1
-</li><li>&#8226; a&#8211;n itemize line i&#8211;tem 2
+</li><li>i&#8211;tem 2
 </li></ul>
 
-<ul class="no-bullet">
-<li><!-- /@w --> without brace w a&#8211;b
-</li><li><!-- /@w --> without brace w c&#8211;d
+<ul class="mark-w">
+<li>without brace w a&#8211;b
+</li><li>without brace w c&#8211;d
 </li></ul>
 
-<ul class="no-bullet">
-<li><!-- /@w --> with w a&#8211;b
-</li><li><!-- /@w --> with w c&#8211;d
+<ul class="mark-w">
+<li>with w a&#8211;b
+</li><li>with w c&#8211;d
 </li></ul>
 
-<ul class="no-bullet">
-<li><!-- /@w --> on a line line w a&#8211;b
-</li><li><!-- /@w --> on a line line with w c&#8211;d
+<ul style="list-style-type: ' on a line'">
+<li>line w a&#8211;b
+</li><li>line with w c&#8211;d
 </li></ul>
 
 <ol>
@@ -2788,17 +2791,17 @@ html ''
 <code>@image{,,,3--xt}</code> 
 </p>
 
-<ul class="no-bullet">
-<li> e&#8211;mph item
+<ul>
+<li>e&#8211;mph item
 </li></ul>
 
-<ul class="no-bullet">
-<li> after emph e&#8211;mph item
+<ul style="list-style-type: ' after emph'">
+<li>e&#8211;mph item
 </li></ul>
 
-<ul class="no-bullet">
-<li>&#8226; a&#8211;n itemize line i&#8211;tem 1
-</li><li>&#8226; a&#8211;n itemize line i&#8211;tem 2
+<ul style="list-style-type: '\2022  a\2013 n itemize line'">
+<li>i&#8211;tem 1
+</li><li>i&#8211;tem 2
 </li></ul>
 
 <dl>

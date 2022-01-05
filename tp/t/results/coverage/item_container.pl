@@ -398,16 +398,16 @@ $result_converted{'plaintext'}->{'item_container'} = '   + i–tem +
 
 
 $result_converted{'html_text'}->{'item_container'} = '
-<ul class="no-bullet">
-<li>+ i&ndash;tem +
+<ul style="list-style-type: \'+\'">
+<li>i&ndash;tem +
 </li></ul>
 
-<ul>
-<li> b&ndash;ullet
+<ul class="mark-bullet">
+<li>b&ndash;ullet
 </li></ul>
 
-<ul>
-<li> no itemize argument
+<ul class="mark-bullet">
+<li>no itemize argument
 </li></ul>
 ';
 

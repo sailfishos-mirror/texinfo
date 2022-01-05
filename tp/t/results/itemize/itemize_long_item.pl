@@ -659,24 +659,24 @@ $result_converted{'plaintext'}->{'itemize_long_item'} = '   youhou itemize very 
 ';
 
 
-$result_converted{'html_text'}->{'itemize_long_item'} = '<ul class="no-bullet">
-<li>youhou itemize very long item aaaaaaaaaaaaaaaa bbbbbbbbbbbbbbbbbbbbbbbbbb cccccccccccc first item
-</li><li>youhou itemize very long item aaaaaaaaaaaaaaaa bbbbbbbbbbbbbbbbbbbbbbbbbb cccccccccccc <div class="example">
+$result_converted{'html_text'}->{'itemize_long_item'} = '<ul style="list-style-type: \'youhou itemize very long item aaaaaaaaaaaaaaaa bbbbbbbbbbbbbbbbbbbbbbbbbb cccccccccccc\'">
+<li>first item
+</li><li><div class="example">
 <pre class="example">In example
 
 end example.
 </pre></div>
-</li><li>youhou itemize very long item aaaaaaaaaaaaaaaa bbbbbbbbbbbbbbbbbbbbbbbbbb cccccccccccc 
+</li><li>
 empty line.
-</li><li>youhou itemize very long item aaaaaaaaaaaaaaaa bbbbbbbbbbbbbbbbbbbbbbbbbb cccccccccccc 
+</li><li>
 <div class="example">
 <pre class="example">In second example
 </pre></div>
-</li><li>youhou itemize very long item aaaaaaaaaaaaaaaa bbbbbbbbbbbbbbbbbbbbbbbbbb cccccccccccc <blockquote>
+</li><li><blockquote>
 <p>Quotation
 </p></blockquote>
 
-</li><li>youhou itemize very long item aaaaaaaaaaaaaaaa bbbbbbbbbbbbbbbbbbbbbbbbbb cccccccccccc 
+</li><li>
 <blockquote>
 <p>quotation after a blank line
 </p></blockquote>

@@ -271,6 +271,49 @@ sub html_image_file_location_name($$$$)
   return ($image_file, $image_basefile, $image_extension, $image_path);
 }
 
+my %default_css_string_commands_conversion;
+my %default_css_string_types_conversion;
+my %default_css_line_formatting_references;
+
+sub html_convert_css_string($$;$)
+{
+  my $self = shift;
+  my $element = shift;
+  my $explanation = shift;
+
+  my $saved_commands = {};
+  my $saved_types = {};
+  my $saved_formatting_references = {};
+  foreach my $cmdname (keys(%default_css_string_commands_conversion)) {
+    $saved_commands->{$cmdname} = $self->{'commands_conversion'}->{$cmdname};
+    $self->{'commands_conversion'}->{$cmdname} = $default_css_string_commands_conversion{$cmdname};
+  }
+  foreach my $type (keys(%default_css_string_types_conversion)) {
+    $saved_types->{$type} = $self->{'types_conversion'}->{$type};
+    $self->{'types_conversion'}->{$type} = $default_css_string_types_conversion{$type};
+  }
+  foreach my $formatting_reference (keys(%default_css_line_formatting_references)) {
+    $saved_formatting_references->{$formatting_reference} = $self->{$formatting_reference};
+    $self->{$formatting_reference}
+      = $default_css_line_formatting_references{$formatting_reference};
+  }
+
+  my $result = $self->convert_tree_new_formatting_context({'type' => '_string',
+                                                           'contents' => [$element]},
+                                                          'css_string', $explanation);
+  foreach my $cmdname (keys (%default_css_string_commands_conversion)) {
+    $self->{'commands_conversion'}->{$cmdname} = $saved_commands->{$cmdname};
+  }
+  foreach my $type (keys(%default_css_string_types_conversion)) {
+    $self->{'types_conversion'}->{$type} = $saved_types->{$type};
+  }
+  foreach my $formatting_reference (keys(%default_css_line_formatting_references)) {
+    $self->{$formatting_reference}
+     = $saved_formatting_references->{$formatting_reference};
+  }
+  return $result;
+}
+
 # API to access converter state for customization code
 
 sub in_math($)
@@ -1508,6 +1551,7 @@ my $MENU_PRE_STYLE = 'font-family: serif';
 
 my %css_map = (
      "ul.$NO_BULLET_LIST_CLASS" => "$NO_BULLET_LIST_STYLE",
+     'ul.mark-bullet'       => 'list-style-type: disc',
      'pre.menu-comment'       => "$MENU_PRE_STYLE",
      'pre.menu-preformatted'  => "$MENU_PRE_STYLE",
      'a.summary-letter'       => 'text-decoration: none',
@@ -1674,8 +1718,9 @@ $default_no_arg_commands_formatting{'normal'}->{"\t"} = '&nbsp;';
 $default_no_arg_commands_formatting{'normal'}->{"\n"} = '&nbsp;';
 
 my %default_commands_translation;
-# possible example of use, right now not used, as 'translated_commands'
-# in the generic Converter customization is directly used.
+# possible example of use, right now not used, as
+# the generic Converter customization is directly used through
+# the call to Texinfo::Convert::Utils::translated_command_tree().
 #$default_commands_translation{'normal'}->{'error'} = 'error--&gt;';
 ## This is used to have gettext pick up the chain to be translated
 #if (0) {
@@ -1691,6 +1736,34 @@ $default_no_arg_commands_formatting{'normal'}->{'*'} = '<br>';
 # in that context, '<br>' could be better.
 $default_no_arg_commands_formatting{'preformatted'}->{'*'} = "\n";
 
+# escaped code points in CSS
+# https://www.w3.org/TR/css-syntax/#consume-escaped-code-point
+# Consume as many hex digits as possible, but no more than 5. Note that this means 1-6 hex digits have been consumed in total. If the next input code point is whitespace, consume it as well. Interpret the hex digits as a hexadecimal number.
+
+foreach my $no_brace_command (keys(%Texinfo::Common::no_brace_commands)) {
+  $default_no_arg_commands_formatting{'css_string'}->{$no_brace_command}
+   = $Texinfo::Common::no_brace_commands{$no_brace_command};
+}
+
+foreach my $command (keys(%{$default_no_arg_commands_formatting{'normal'}})) {
+  if (defined($Texinfo::Convert::Unicode::unicode_map{$command})
+      and $Texinfo::Convert::Unicode::unicode_map{$command} ne '') {
+    my $char_nr = hex($Texinfo::Convert::Unicode::unicode_map{$command});
+    my $css_string;
+    if ($char_nr < 128) { # 7bit ascii
+      $css_string = chr($char_nr);
+    } else {
+      $css_string = "\\$Texinfo::Convert::Unicode::unicode_map{$command} ";
+    }
+    $default_no_arg_commands_formatting{'css_string'}->{$command} = $css_string;
+  }
+}
+$default_no_arg_commands_formatting{'css_string'}->{'*'} = '\A ';
+
+$default_no_arg_commands_formatting{'css_string'}->{' '} = ' ';
+$default_no_arg_commands_formatting{'css_string'}->{"\t"} = ' ';
+$default_no_arg_commands_formatting{'css_string'}->{"\n"} = ' ';
+$default_no_arg_commands_formatting{'css_string'}->{'tie'} = ' ';
 
 sub _convert_no_arg_command($$$)
 {
@@ -1733,6 +1806,38 @@ sub _convert_no_arg_command($$$)
 
 foreach my $command(keys(%{$default_no_arg_commands_formatting{'normal'}})) {
   $default_commands_conversion{$command} = \&_convert_no_arg_command;
+}
+
+sub _css_string_convert_no_arg_command($$$)
+{
+  my $self = shift;
+  my $cmdname = shift;
+  my $command = shift;
+
+  if ($cmdname eq 'click' and $command->{'extra'}
+      and exists($command->{'extra'}->{'clickstyle'})) {
+    my $click_cmdname = $command->{'extra'}->{'clickstyle'};
+    if ($self->{'no_arg_commands_formatting'}->{'css_string'}->{$click_cmdname}) {
+      $cmdname = $click_cmdname;
+    }
+  }
+  if ($self->in_upper_case() and $letter_no_arg_commands{$cmdname}
+      and $self->{'no_arg_commands_formatting'}->{'css_string'}->{uc($cmdname)}) {
+    $cmdname = uc($cmdname);
+  }
+
+  my $result;
+
+  my $translated_tree = Texinfo::Convert::Utils::translated_command_tree($self,
+                                                                       $cmdname);
+  if ($translated_tree) {
+    return $self->convert_tree($translated_tree, "convert no arg $cmdname translated");
+  }
+  $result = $self->{'no_arg_commands_formatting'}->{'css_string'}->{$cmdname};
+}
+
+foreach my $command(keys(%{$default_no_arg_commands_formatting{'normal'}})) {
+  $default_css_string_commands_conversion{$command} = \&_css_string_convert_no_arg_command;
 }
 
 sub _convert_today_command($$$)
@@ -1885,7 +1990,7 @@ sub _convert_w_command($$$$)
   if (!defined($text)) {
     $text = '';
   }
-  if ($self->in_string) {
+  if ($self->in_string()) {
     return $text;
   } else {
     return $text . '<!-- /@w -->';
@@ -2221,6 +2326,59 @@ foreach my $command (keys(%accent_commands)) {
   $default_commands_conversion{$command} = \&_convert_accent_command;
 }
 
+sub _css_string_accent($$$;$)
+{
+  my $self = shift;
+  my $text = shift;
+  my $command = shift;
+  my $in_upper_case = shift;
+
+  my $accent = $command->{'cmdname'};
+
+  if ($in_upper_case and $text =~ /^\w$/) {
+    $text = uc ($text);
+  }
+  if (exists($Texinfo::Convert::Unicode::unicode_accented_letters{$accent})
+      and exists($Texinfo::Convert::Unicode::unicode_accented_letters{$accent}->{$text})) {
+    return '\\' .
+      $Texinfo::Convert::Unicode::unicode_accented_letters{$accent}->{$text}. ' ';
+  }
+  if (exists($Texinfo::Convert::Unicode::unicode_diacritics{$accent})) {
+    my $diacritic = '\\'
+       .$Texinfo::Convert::Unicode::unicode_diacritics{$accent}. ' ';
+    if ($accent ne 'tieaccent') {
+      return $text . $diacritic;
+    } else {
+      # tieaccent diacritic is naturally and correctly composed
+      # between two characters
+      my $remaining_text = $text;
+      # we consider that letters are either characters or escaped characters
+      if ($remaining_text =~ s/^([\p{L}\d]|\\[a-zA-Z0-9]+ )([\p{L}\d]|\\[a-zA-Z0-9]+ )(.*)$/$3/) {
+        return $1.$diacritic.$2 . $remaining_text;
+      } else {
+        return $text . $diacritic;
+      }
+    }
+  }
+  # should never happen, there are diacritics for every accent command
+  return Texinfo::Convert::Text::ascii_accent($text, $command);
+}
+
+sub _css_string_convert_accent_command($$$$)
+{
+  my $self = shift;
+  my $cmdname = shift;
+  my $command = shift;
+  my $args = shift;
+
+  my $format_accents = \&_css_string_accent;
+  return $self->convert_accents($command, $format_accents, $self->in_upper_case());
+}
+
+foreach my $command (keys(%accent_commands)) {
+  $default_css_string_commands_conversion{$command} = \&_css_string_convert_accent_command;
+}
+
 # key is formatted as code since it is in code_style_commands
 sub _convert_key_command($$$$)
 {
@@ -2328,6 +2486,14 @@ sub _default_format_protect_text($$) {
   my $result = $self->xml_protect_text($text);
   $result =~ s/\f/&#12;/g;
   return $result;
+}
+
+sub _default_css_line_format_protect_text($$) {
+  my $self = shift;
+  my $text = shift;
+  $text =~ s/\\/\\\\/g;
+  $text =~ s/\"/\\"/g;
+  return $text;
 }
 
 # can be called on root commands, tree units, special elements
@@ -3590,12 +3756,27 @@ sub _convert_itemize_command($$$$)
   if ($self->in_string()) {
     return $content;
   }
-  if ($command->{'extra'}->{'command_as_argument'} 
-     and $command->{'extra'}->{'command_as_argument'}->{'cmdname'} eq 'bullet') {
+  my $command_as_argument;
+  if (defined($command->{'extra'})
+      and defined($command->{'extra'}->{'command_as_argument'})) {
+    $command_as_argument = $command->{'extra'}->{'command_as_argument'}->{'cmdname'};
+  }
+  # FIXME API?
+  if (defined($command_as_argument)
+      and defined($self->{'css_map'}->{'ul.mark-'.$command_as_argument})) {
+    return $self->html_attribute_class('ul', 'mark-'.$command_as_argument).">\n"
+       . $content. "</ul>\n";
+  } elsif ($self->get_conf('NO_CSS')) {
     return "<ul>\n" . $content. "</ul>\n";
   } else {
-    return $self->html_attribute_class('ul',$NO_BULLET_LIST_CLASS).">\n"
-            . $content . "</ul>\n";
+    my $css_string = $self->html_convert_css_string($command->{'args'}->[0],
+                                                    'itemize arg');
+    if ($css_string ne '') {
+      return "<ul style=\"list-style-type: '".$self->protect_text($css_string)."'\">\n"
+        . $content. "</ul>\n";
+    } else {
+      return "<ul>\n" . $content. "</ul>\n";
+    }
   }
 }
 
@@ -3688,20 +3869,8 @@ sub _convert_item_command($$$$)
   }
   if ($command->{'parent'}->{'cmdname'} 
       and $command->{'parent'}->{'cmdname'} eq 'itemize') {
-    my $prepend ;
-    my $itemize = $command->{'parent'};
-    if ($itemize->{'extra'}->{'command_as_argument'} 
-       and $itemize->{'extra'}->{'command_as_argument'}->{'cmdname'} eq 'bullet') {
-      $prepend = '';
-    } else {
-      # Setting multiple expansion should not be needed, except in 
-      # case of invalid constructs
-      $prepend = $self->convert_tree_new_formatting_context(
-        $itemize->{'args'}->[0],
-        $command->{'cmdname'}, 'item_prepended');
-    }
     if ($content =~ /\S/) {
-      return '<li>' . $prepend .' '. $content . '</li>';
+      return '<li>' . $content . '</li>';
     } else {
       return '';
     }
@@ -4561,6 +4730,29 @@ sub _convert_text($$$)
 }
 
 $default_types_conversion{'text'} = \&_convert_text;
+
+sub _css_string_convert_text($$$)
+{
+  my $self = shift;
+  my $type = shift;
+  my $command = shift;
+  my $text = shift;
+
+  $text = uc($text) if ($self->in_upper_case());
+
+  $text = $self->protect_text($text);
+
+  if (!$self->in_code() and !$self->in_math()) {
+    $text =~ s/---/\\2014 /g;
+    $text =~ s/--/\\2013 /g;
+    $text =~ s/``/\\201C /g;
+    $text =~ s/''/\\201D /g;
+    $text =~ s/'/\\2019 /g;
+    $text =~ s/`/\\2018 /g;
+  }
+  return $text;
+}
+$default_css_string_types_conversion{'text'} = \&_css_string_convert_text;
 
 sub _simplify_text_for_comparison($)
 {
@@ -5444,6 +5636,10 @@ our %default_formatting_references = (
      'format_frame_files' => \&_default_format_frame_files,
 );
 
+%default_css_line_formatting_references = (
+  'format_protect_text' => \&_default_css_line_format_protect_text,
+);
+
 sub _complete_no_arg_commands_formatting($$)
 {
   my $self = shift;
@@ -5456,8 +5652,12 @@ sub _complete_no_arg_commands_formatting($$)
       $self->{'no_arg_commands_formatting'}->{'normal'}->{$command};
   }
   if (!defined ($self->{'no_arg_commands_formatting'}->{'string'}->{$command})) {
-   $self->{'no_arg_commands_formatting'}->{'string'}->{$command} =
+    $self->{'no_arg_commands_formatting'}->{'string'}->{$command} =
       $self->{'no_arg_commands_formatting'}->{'preformatted'}->{$command};
+  }
+  if (!defined ($self->{'no_arg_commands_formatting'}->{'css_string'}->{$command})) {
+    $self->{'no_arg_commands_formatting'}->{'css_string'}->{$command} =
+      $self->{'no_arg_commands_formatting'}->{'string'}->{$command};
   }
 }
 
@@ -5564,10 +5764,12 @@ sub _load_htmlxref_files {
     # directories if TEST is set.
     @htmlxref_dirs = File::Spec->catdir($curdir, '.texinfo');
 
-    my $input_directory = $self->{'parser_info'}->{'input_directory'};
-    if (defined($input_directory)
-        and $input_directory ne '.' and $input_directory ne '') {
-      unshift @htmlxref_dirs, $input_directory;
+    if (defined($self->{'parser_info'})
+        and defined($self->{'parser_info'}->{'input_directory'})) {
+      my $input_directory = $self->{'parser_info'}->{'input_directory'};
+      if ($input_directory ne '.' and $input_directory ne '') {
+        unshift @htmlxref_dirs, $input_directory;
+      }
     }
   } elsif ($self->{'language_config_dirs'}
             and @{$self->{'language_config_dirs'}}) {
@@ -5613,6 +5815,7 @@ sub converter_initialize($)
   if ($self->get_conf('PROGRAM_NAME_IN_FOOTER')) {
     $self->{'css_map'}->{'span.smaller'} = 'font-size: smaller';
   }
+
   _load_htmlxref_files($self);
 
   # duplicate such as not to modify the defaults
@@ -5731,7 +5934,7 @@ sub converter_initialize($)
     }
   }
 
-  foreach my $context ('normal', 'preformatted', 'string') {
+  foreach my $context ('normal', 'preformatted', 'string', 'css_string') {
     foreach my $command (keys(%{$default_no_arg_commands_formatting{'normal'}})) {
       my $no_arg_command_customized_formatting
         = Texinfo::Config::GNUT_get_no_arg_command_formatting($command, $context);
@@ -5762,6 +5965,7 @@ sub converter_initialize($)
         $self->{'commands_translation'}->{$context}->{$command} 
            = $Texinfo::Config::commands_translation{$context}->{$command};
         delete $self->{'translated_commands'}->{$command};
+        # note that %default_commands_translation is empty for now
       } elsif (defined($default_commands_translation{$context}->{$command})) {
         $self->{'commands_translation'}->{$context}->{$command}
           = $default_commands_translation{$context}->{$command};
@@ -5777,6 +5981,27 @@ sub converter_initialize($)
         and $self->{'commands_conversion'}->{$command} 
             eq $default_commands_conversion{$command}) {
       $self->_complete_no_arg_commands_formatting($command);
+    }
+  }
+
+  # setup css for itemize command arguments
+  if (defined($self->{'parser_info'})
+      and (defined($self->{'parser_info'}->{'itemize_commands_arg'}))) {
+    foreach my $command (sort(keys(%{$self->{'parser_info'}->{'itemize_commands_arg'}}))) {
+      my $css_string;
+      if ($command eq 'bullet') {
+        # nothing to do, unconditionnally in the css_map
+      } elsif ($command eq 'w') {
+        # special case, no marker
+        $css_string = 'none';
+      } elsif ($self->{'no_arg_commands_formatting'}->{'css_string'}->{$command}) {
+        $css_string = $self->{'no_arg_commands_formatting'}->{'css_string'}->{$command};
+        $css_string =~ s/^(\\[A-Z0-9]+) $/$1/;
+        $css_string = '"'.$css_string.'"';
+      }
+      if (defined($css_string)) {
+        $self->{'css_map'}->{"ul.mark-$command"} = "list-style-type: $css_string";
+      }
     }
   }
 

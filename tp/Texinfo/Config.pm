@@ -36,7 +36,7 @@ use Texinfo::Common;
 
 # for error messages, passed from main program through initialization
 # function.
-my $real_command_name;
+my $real_command_name = '';
 
 # customization API, used from main program and from init files
 my $cmdline_options;
@@ -360,7 +360,7 @@ sub GNUT_get_types_conversion()
 my $default_formatting_context = 'normal';
 my %possible_formatting_contexts;
 foreach my $possible_formatting_context (($default_formatting_context,
-                       'preformatted', 'string')) {
+                       'preformatted', 'string', 'css_string')) {
   $possible_formatting_contexts{$possible_formatting_context} = 1;
 }
 
