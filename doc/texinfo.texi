@@ -16169,15 +16169,15 @@ beginning of each HTML file; default unset.
 For HTML, when an About-element is output.  If set, the corresponding
 text will appear at the end of the About element; default unset.
 
-@item AFTER_OVERVIEW
+@item AFTER_SHORT_TOC_LINES
 @itemx AFTER_TOC_LINES
 If set, the corresponding text is output after the short
-table of contents for @code{AFTER_OVERVIEW} and after the table of
+table of contents for @code{AFTER_SHORT_TOC_LINES} and after the table of
 contents for @code{AFTER_TOC_LINES}; otherwise, a default string is
 used.  At the time of writing, a @code{</div>} element is closed.
 
-In general, you should set @code{BEFORE_OVERVIEW} if
-@code{AFTER_OVERVIEW} is set, and you should set
+In general, you should set @code{BEFORE_SHORT_TOC_LINES} if
+@code{AFTER_SHORT_TOC_LINES} is set, and you should set
 @code{BEFORE_TOC_LINES} if @code{AFTER_TOC_LINES} is set.
 
 @item BASEFILENAME_LENGTH
@@ -16185,15 +16185,15 @@ The maximum length of a base file name; default 245.
 Changing this would make cross-manual references to such long node
 names invalid (@pxref{HTML Xref Link Basics}).
 
-@item BEFORE_OVERVIEW
+@item BEFORE_SHORT_TOC_LINES
 @itemx BEFORE_TOC_LINES
 If set, the corresponding text is output before the short
-table of contents for @code{BEFORE_OVERVIEW} and before the table of
+table of contents for @code{BEFORE_SHORT_TOC_LINES} and before the table of
 contents for @code{BEFORE_TOC_LINES}, otherwise a default string is
 used.  At the time of writing, a @code{<div ...>} element is opened.
 
-In general you should set @code{AFTER_OVERVIEW} if
-@code{BEFORE_OVERVIEW} is set, and you should set
+In general you should set @code{AFTER_SHORT_TOC_LINES} if
+@code{BEFORE_SHORT_TOC_LINES} is set, and you should set
 @code{AFTER_TOC_LINES} if @code{BEFORE_TOC_LINES} is set.
 
 
@@ -16709,10 +16709,6 @@ encoding name may be set by the output format.  In particular, the
 XML-based formats use @code{utf-8} for @code{OUTPUT_ENCODING_NAME} if 
 the encoding is not otherwise specified.  @xref{@code{@@documentencoding}}.
 
-@item OVERVIEW_LINK_TO_TOC
-If set, the cross-references in the Overview link to the corresponding
-Table of Contents entries; default true.
-
 @item PACKAGE
 @itemx PACKAGE_VERSION
 @itemx PACKAGE_AND_VERSION
@@ -16733,6 +16729,11 @@ as whether the output is split.  The default is unset.
 @item PROGRAM
 Name of the program used.  By default, it is set to the name of the
 program launched, with a trailing @samp{.pl} removed.
+
+@item SHORT_TOC_LINK_TO_TOC
+If set, the cross-references in the Short table of contents links to the
+corresponding Table of Contents entries, if a Table of Contents is output;
+default true.
 
 @item SORT_ELEMENT_COUNT
 @pindex texi-elements-by-size

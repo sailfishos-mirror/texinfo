@@ -47,8 +47,8 @@ texinfo_set_from_init_file('FRAMESET_DOCTYPE', texinfo_get_conf('DOCTYPE'));
 
 texinfo_set_from_init_file('BODYTEXT', 'bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000"');
 
-texinfo_set_from_init_file('BEFORE_OVERVIEW', '');
-texinfo_set_from_init_file('AFTER_OVERVIEW', '');
+texinfo_set_from_init_file('BEFORE_SHORT_TOC_LINES', '');
+texinfo_set_from_init_file('AFTER_SHORT_TOC_LINES', '');
 texinfo_set_from_init_file('BEFORE_TOC_LINES', '');
 texinfo_set_from_init_file('AFTER_TOC_LINES', '');
 

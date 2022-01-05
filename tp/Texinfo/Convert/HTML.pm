@@ -1309,7 +1309,7 @@ my %defaults = (
   'NODE_NAME_IN_INDEX'   => 1,
   'XREF_USE_NODE_NAME_ARG' => undef,
   'XREF_USE_FLOAT_LABEL'   => 0,
-  'OVERVIEW_LINK_TO_TOC' => 1,
+  'SHORT_TOC_LINK_TO_TOC' => 1,
   'NO_CUSTOM_HTML_ATTRIBUTE' => 0,
   'COMPLEX_FORMAT_IN_TABLE' => 0,
   'WORDS_IN_PAGE'        => 300,
@@ -7291,12 +7291,12 @@ sub _default_format_contents($$;$$)
 
   my $result = '';
   if ($contents and !defined($self->get_conf('BEFORE_TOC_LINES'))
-      or (!$contents and !defined($self->get_conf('BEFORE_OVERVIEW')))) {
+      or (!$contents and !defined($self->get_conf('BEFORE_SHORT_TOC_LINES')))) {
     $result .= $self->html_attribute_class('div', $cmdname).">\n";
   } elsif($contents) {
     $result .= $self->get_conf('BEFORE_TOC_LINES');
   } else {
-    $result .= $self->get_conf('BEFORE_OVERVIEW');
+    $result .= $self->get_conf('BEFORE_SHORT_TOC_LINES');
   }
 
   my $toplevel_contents;
@@ -7304,6 +7304,11 @@ sub _default_format_contents($$;$$)
     $result .= $self->html_attribute_class('ul', $ul_class) .">\n";
     $toplevel_contents = 1;
   }
+
+  my $link_to_toc = (!$contents and $self->get_conf('SHORT_TOC_LINK_TO_TOC')
+                     and ($self->get_conf('contents'))
+                     and ($self->get_conf('CONTENTS_OUTPUT_LOCATION') ne 'inline'
+                          or $self->_has_contents_or_shortcontents()));
   foreach my $top_section (@{$section_root->{'structure'}->{'section_childs'}}) {
     my $section = $top_section;
  SECTION:
@@ -7311,7 +7316,7 @@ sub _default_format_contents($$;$$)
       if ($section->{'cmdname'} ne 'top') {
         my $text = $self->command_text($section);
         my $href;
-        if (!$contents and $self->get_conf('OVERVIEW_LINK_TO_TOC')) {
+        if ($link_to_toc) {
           $href = $self->command_contents_href($section, 'contents', $filename);
         } else {
           $href = $self->command_href($section, $filename);
@@ -7386,12 +7391,12 @@ sub _default_format_contents($$;$$)
     $result .= "\n</ul>";
   }
   if ($contents and !defined($self->get_conf('AFTER_TOC_LINES'))
-      or (!$contents and !defined($self->get_conf('AFTER_OVERVIEW')))) {
+      or (!$contents and !defined($self->get_conf('AFTER_SHORT_TOC_LINES')))) {
     $result .= "\n</div>\n";
   } elsif($contents) {
     $result .= $self->get_conf('AFTER_TOC_LINES');
   } else {
-    $result .= $self->get_conf('AFTER_OVERVIEW');
+    $result .= $self->get_conf('AFTER_SHORT_TOC_LINES');
   }
   return $result;
 }
@@ -9072,7 +9077,7 @@ sub _set_variables_texi2html()
   ['AVOID_MENU_REDUNDANCY', 1],
   ['USE_ACCESSKEY', 0],
   ['NODE_NAME_IN_MENU', 0],
-  ['OVERVIEW_LINK_TO_TOC', 0],
+  ['SHORT_TOC_LINK_TO_TOC', 0],
   ['USE_UP_NODE_FOR_ELEMENT_UP', 1],
   ['USE_REL_REV', 0],
   ['USE_LINKS', 0],

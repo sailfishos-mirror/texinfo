@@ -294,8 +294,8 @@ ul.no-bullet {list-style: none}
 
 <div class="shortcontents">
 <ul class="no-bullet">
-<li><a id="stoc-chap" href="#toc-chap">1 chap</a></li>
-<li><a id="stoc-chap2" href="#toc-chap2">2 chap2</a></li>
+<li><a id="stoc-chap" href="#chap">1 chap</a></li>
+<li><a id="stoc-chap2" href="#chap2">2 chap2</a></li>
 
 </ul>
 </div>
