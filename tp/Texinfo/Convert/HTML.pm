@@ -314,6 +314,39 @@ sub html_convert_css_string($$;$)
   return $result;
 }
 
+my %special_list_bullet_css_string_no_arg_command = (
+# tried to use HYPHEN BULLET \2043 for use as in a bullet list, but, at least
+# with my test of firefox the result is very different from a bullet.
+# hyphen minus or hyphen \2010 are even smaller than hyphen bullet.
+# Use the Unicode codepoint used normally is for a mathematical minus \2212
+# even though it is too large, but the others are too short...
+# (which is actually the default, but this could change).
+  #'minus' => '-',
+  #'minus' => '\2010 ',
+  'minus' => '\2212 ',
+);
+
+sub html_convert_css_string_for_list_bullet($$;$)
+{
+  my $self = shift;
+  my $element = shift;
+  my $explanation = shift;
+
+  my $saved_css_string_no_arg_command = {};
+  foreach my $command (keys(%special_list_bullet_css_string_no_arg_command)) {
+    $saved_css_string_no_arg_command->{$command}
+      = $self->{'no_arg_commands_formatting'}->{'css_string'}->{$command};
+    $self->{'no_arg_commands_formatting'}->{'css_string'}->{$command}
+      = $special_list_bullet_css_string_no_arg_command{$command};
+  }
+  my $result = $self->html_convert_css_string($element, $explanation);
+  foreach my $command (keys(%special_list_bullet_css_string_no_arg_command)) {
+    $self->{'no_arg_commands_formatting'}->{'css_string'}->{$command}
+      = $saved_css_string_no_arg_command->{$command};
+  }
+  return $result;
+}
+
 # API to access converter state for customization code
 
 sub in_math($)
@@ -3780,8 +3813,9 @@ sub _convert_itemize_command($$$$)
   } elsif ($self->get_conf('NO_CSS')) {
     return "<ul>\n" . $content. "</ul>\n";
   } else {
-    my $css_string = $self->html_convert_css_string($command->{'args'}->[0],
-                                                    'itemize arg');
+    my $css_string
+      = $self->html_convert_css_string_for_list_bullet($command->{'args'}->[0],
+                                                      'itemize arg');
     if ($css_string ne '') {
       return "<ul style=\"list-style-type: '".$self->protect_text($css_string)."'\">\n"
         . $content. "</ul>\n";
@@ -6020,7 +6054,11 @@ sub converter_initialize($)
           # special case, no marker
           $css_string = 'none';
         } elsif ($self->{'no_arg_commands_formatting'}->{'css_string'}->{$command}) {
-          $css_string = $self->{'no_arg_commands_formatting'}->{'css_string'}->{$command};
+          if ($special_list_bullet_css_string_no_arg_command{$command}) {
+            $css_string = $special_list_bullet_css_string_no_arg_command{$command};
+          } else {
+            $css_string = $self->{'no_arg_commands_formatting'}->{'css_string'}->{$command};
+          }
           $css_string =~ s/^(\\[A-Z0-9]+) $/$1/;
           $css_string = '"'.$css_string.'"';
         }
