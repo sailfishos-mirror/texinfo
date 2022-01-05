@@ -2518,7 +2518,7 @@ $result_converted{'html_text'}->{'ref_in_sectioning'} = '
 <h1 class="top" id="for-example-node-_0028node_0029-_0028Top_0029">for example <a href="#node">See <a data-manual="file name" href="file name.html#node">title</a> in <cite>Manual</cite>.</a> (see <a href="#node">See <a data-manual="file name" href="file name.html#node">title</a> in <cite>Manual</cite>.</a>) (see <cite><a data-manual="file" href="file.html#Top">Manual</a></cite>)</h1>
 
 
-<div class="contents_element">
+<div class="contents-element">
 <h2 class="contents-heading">Table of Contents</h2>
 
 <div class="contents">

@@ -289,7 +289,7 @@ ul.no-bullet {list-style: none}
 <div class="section" id="sec">
 <h3 class="section">2.1 sec</h3>
 
-<div class="shortcontents_element" id="SEC_Overview">
+<div class="shortcontents-element" id="SEC_Shortcontents">
 <h2 class="shortcontents-heading">Short Table of Contents</h2>
 
 <div class="shortcontents">

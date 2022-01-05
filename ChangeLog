@@ -1,3 +1,12 @@
+2022-01-06  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/HTML.pm (%defaults): more consistent
+	'misc_elements_targets'.
+
+	* tp/Texinfo/Convert/HTML.pm (_contents_inline_element)
+	(_convert_special_element_type): more consistent class names, always
+	use SPECIAL_ELEMENTS_CLASS for class names.
+
 2022-01-05  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/HTML.pm (special_element, global_element)

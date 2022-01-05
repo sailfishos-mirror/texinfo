@@ -1332,9 +1332,9 @@ my %defaults = (
                              [ 'Up', \&_default_panel_button_dynamic_direction_node_footer ],
                              ' ', 'Contents', 'Index'],
   'misc_elements_targets'   => {
-                             'shortcontents' => 'SEC_Overview',
+                             'shortcontents' => 'SEC_Shortcontents',
                              'contents' => 'SEC_Contents',
-                             'footnotes' => 'SEC_Foot',
+                             'footnotes' => 'SEC_Footnotes',
                              'about' => 'SEC_About',
                              'Top' => 'SEC_Top',
                             },
@@ -3399,7 +3399,7 @@ sub _convert_displaymath_command($$$$)
   }
 
   my $result = '';
-  $result .= $self->html_attribute_class('div', 'displaymath').'>';
+  $result .= $self->html_attribute_class('div', $cmdname).'>';
   if ($self->get_conf('HTML_MATH')
         and $self->get_conf('HTML_MATH') eq 'mathjax') {
     $self->{'element_math'} = 1;
@@ -4474,8 +4474,10 @@ sub _contents_inline_element($$$)
       = $self->get_conf('SPECIAL_ELEMENTS_DIRECTIONS')->{$special_element_type};
     my $special_element
       = $self->special_element($special_element_direction);
+    my $class = $self->get_conf('SPECIAL_ELEMENTS_CLASS')->{$special_element_type};
+    # FIXME is -element the best suffix?
+    my $result = $self->html_attribute_class('div', "${class}-element");
     my $heading;
-    my $result = $self->html_attribute_class('div', "${special_element_type}_element");
     if ($special_element) {
       my $id = $self->command_id($special_element);
       if ($id ne '') {
@@ -4490,7 +4492,6 @@ sub _contents_inline_element($$$)
                               "convert $cmdname special heading");
     }
     $result .= ">\n";
-    my $class = $self->get_conf('SPECIAL_ELEMENTS_CLASS')->{$special_element_type};
     $result .= &{$self->{'format_heading_text'}}($self, $class.'-heading',
                        $heading, $self->get_conf('CHAPTER_HEADER_LEVEL'))."\n";
     $result .= $content . "</div>\n";
@@ -5475,7 +5476,8 @@ sub _convert_special_element_type($$$$)
   my $special_element_type = $element->{'extra'}->{'special_element_type'};
   $result .= join('', $self->close_registered_sections_level(0));
   my $id = $self->command_id($element);
-  $result .= $self->html_attribute_class('div', "${special_element_type}_element");
+  my $class = $self->get_conf('SPECIAL_ELEMENTS_CLASS')->{$special_element_type};
+  $result .= $self->html_attribute_class('div', "${class}-element");
   if ($id ne '') {
     $result .= " id=\"$id\"";
   }
@@ -5487,7 +5489,6 @@ sub _convert_special_element_type($$$$)
                $self->get_conf('MISC_BUTTONS'), undef, $element);
   }
   my $heading = $self->command_text($element);
-  my $class = $self->get_conf('SPECIAL_ELEMENTS_CLASS')->{$special_element_type};
   my $level = $self->get_conf('CHAPTER_HEADER_LEVEL');
   if ($special_element_type eq 'footnotes') {
     $level = $self->get_conf('FOOTNOTE_SEPARATE_HEADER_LEVEL');

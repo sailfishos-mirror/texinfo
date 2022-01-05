@@ -693,7 +693,7 @@ Previous: <a href="#Top" accesskey="p" rel="prev">chapter</a>, Up: <a href="#Top
 <div class="chapter" id="after">
 <h2 class="chapter" id="chapter-2">2 chapter 2</h2>
 
-<div class="contents_element" id="SEC_Contents">
+<div class="contents-element" id="SEC_Contents">
 <h2 class="contents-heading">Table of Contents</h2>
 
 <div class="contents">

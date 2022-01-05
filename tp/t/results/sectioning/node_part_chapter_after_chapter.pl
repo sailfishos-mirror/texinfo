@@ -1403,7 +1403,7 @@ Next: <a href="#chapter-node" accesskey="n" rel="next">chapter node</a> &nbsp; [
 <h1 class="top" id="top">top</h1>
 
 
-<div class="contents_element" id="SEC_Contents">
+<div class="contents-element" id="SEC_Contents">
 <h2 class="contents-heading">Table of Contents</h2>
 
 <div class="contents">

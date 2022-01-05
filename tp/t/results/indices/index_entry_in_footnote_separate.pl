@@ -727,7 +727,7 @@ $result_converted{'html_text'}->{'index_entry_in_footnote_separate'} = '<a class
 <a class="summary-letter" href="#t_h_cp_letter-I"><b>I</b></a>
  &nbsp; 
 </td></tr></table>
-<div class="footnotes_element" id="SEC_Foot">
+<div class="footnotes-element" id="SEC_Footnotes">
 <div class="header">
 <p>
  &nbsp; [<a href="#First" title="Index" rel="index">Index</a>]</p>

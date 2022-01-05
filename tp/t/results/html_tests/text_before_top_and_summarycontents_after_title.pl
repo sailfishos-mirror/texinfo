@@ -361,7 +361,7 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<div class="shortcontents_element" id="SEC_Overview">
+<div class="shortcontents-element" id="SEC_Shortcontents">
 <h2 class="shortcontents-heading">Short Table of Contents</h2>
 
 <div class="shortcontents">

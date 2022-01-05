@@ -911,7 +911,7 @@ Previous: <a href="#Top" accesskey="p" rel="prev">2 footnotes in 2 nodes</a>, Up
 </p>
 </div>
 </div>
-<div class="footnotes_element" id="SEC_Foot">
+<div class="footnotes-element" id="SEC_Footnotes">
 <div class="header">
 <p>
  &nbsp; </p>
@@ -1073,7 +1073,7 @@ $result_converted{'html_text'}->{'two_footnotes_in_nodes_separate'} = '<div clas
 </p>
 </div>
 </div>
-<div class="footnotes_element" id="SEC_Foot">
+<div class="footnotes-element" id="SEC_Footnotes">
 <div class="header">
 <p>
  &nbsp; </p>
