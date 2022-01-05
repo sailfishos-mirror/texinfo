@@ -1,5 +1,14 @@
 2022-01-05  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (special_element, global_element)
+	[from_element_direction, element_is_tree_unit_top, _translate_names)
+	(_html_get_tree_root_element, _prepare_special_elements)
+	(_prepare_contents_elements, _prepare_tree_units_global_targets):
+	rename internal hash keys, use global_element() and special_element()
+	functions more.
+
+2022-01-05  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (@variable_other_settables),
 	tp/Texinfo/Convert/HTML.pm (%contents_command_element_type)
 	(command_contents_href, command_text, %defaults, _translate_names)

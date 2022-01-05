@@ -841,15 +841,15 @@ sub label_command($$)
 sub special_element($$)
 {
   my $self = shift;
-  my $type = shift;
-  return $self->{'special_elements_types'}->{$type};
+  my $direction = shift;
+  return $self->{'special_elements_directions'}->{$direction};
 }
 
 sub global_element($$)
 {
   my $self = shift;
   my $type = shift;
-  return $self->{'global_target_elements'}->{$type};
+  return $self->{'global_target_elements_directions'}->{$type};
 }
 
 my %valid_direction_return_type = (
@@ -898,8 +898,8 @@ sub from_element_direction($$$$;$)
     print STDERR "Incorrect type $type in from_element_direction call\n";
     return undef;
   }
-  if ($self->{'global_target_elements'}->{$direction}) {
-    $element_target = $self->{'global_target_elements'}->{$direction};
+  if ($self->global_element($direction)) {
+    $element_target = $self->global_element($direction);
   } elsif ($element and $element->{'extra'}
       and $element->{'structure'}->{'directions'}
       and $element->{'structure'}->{'directions'}->{$direction}) {
@@ -1007,12 +1007,12 @@ sub element_is_tree_unit_top($$)
 {
   my $self = shift;
   my $element = shift;
-  return ($self->{'global_target_elements'}->{'Top'}
-    and $self->{'global_target_elements'}->{'Top'} eq $element
-    and $element->{'extra'}
-    and $element->{'extra'}->{'unit_command'}
-    and ($element->{'extra'}->{'unit_command'}->{'cmdname'} eq 'node'
-         or $element->{'extra'}->{'unit_command'}->{'cmdname'} eq 'top'));
+  my $top_element = $self->global_element('Top');
+  return (defined($top_element) and $top_element eq $element
+          and $element->{'extra'}
+          and $element->{'extra'}->{'unit_command'}
+          and ($element->{'extra'}->{'unit_command'}->{'cmdname'} eq 'node'
+               or $element->{'extra'}->{'unit_command'}->{'cmdname'} eq 'top'));
 }
 
 sub default_formatting_function($$)
@@ -1536,10 +1536,10 @@ sub _translate_names($)
   foreach my $special_element_type (keys (%SPECIAL_ELEMENTS_HEADING)) {
     my $special_element_direction
        = $self->get_conf('SPECIAL_ELEMENTS_DIRECTIONS')->{$special_element_type};
-    if ($self->{'special_elements_types'}->{$special_element_direction} and
-        $self->{'targets'}->{$self->{'special_elements_types'}->{$special_element_direction}}) {
+    if ($self->special_element($special_element_direction) and
+        $self->{'targets'}->{$self->special_element($special_element_direction)}) {
       my $target
-        = $self->{'targets'}->{$self->{'special_elements_types'}->{$special_element_direction}};
+        = $self->{'targets'}->{$self->special_element($special_element_direction)};
       foreach my $key ('text', 'string', 'tree') {
         delete $target->{$key};
       }
@@ -6564,11 +6564,11 @@ sub _html_get_tree_root_element($$;$)
                                                   or defined($root_command));
         return (undef, undef);
       } elsif ($current->{'cmdname'} eq 'footnote' 
-           and $self->{'special_elements_types'}->{'Footnotes'}
+           and $self->special_element('Footnotes')
            and $find_container) {
            # in that case there is no root_command
           #print STDERR "SPECIAL footnote\n" if ($debug);
-          $root_element = $self->{'special_elements_types'}->{'Footnotes'};
+          $root_element = $self->special_element('Footnotes');
           return ($root_element);
       }
     }
@@ -6834,7 +6834,8 @@ sub _prepare_special_elements($$$$)
     $element->{'structure'}->{'directions'}->{'This'} = $element;
     my $special_element_direction
        = $self->get_conf('SPECIAL_ELEMENTS_DIRECTIONS')->{$element_type};
-    $self->{'special_elements_types'}->{$special_element_direction} = $element;
+    $self->{'special_elements_directions'}->{$special_element_direction}
+       = $element;
     push @$special_elements, $element;
 
     my $target = $self->{'misc_elements_targets'}->{$element_type};
@@ -6946,7 +6947,8 @@ sub _prepare_contents_elements($)
                         'extra' => {'special_element_type' => $element_type}};
         my $special_element_direction
          = $self->get_conf('SPECIAL_ELEMENTS_DIRECTIONS')->{$element_type};
-        $self->{'special_elements_types'}->{$special_element_direction} = $contents_element;
+        $self->{'special_elements_directions'}->{$special_element_direction}
+           = $contents_element;
         my $target = $self->{'misc_elements_targets'}->{$element_type};
         my $filename;
         if (defined($Texinfo::Config::special_element_target_file_name)) {
@@ -6979,8 +6981,8 @@ sub _prepare_tree_units_global_targets($$)
   my $self = shift;
   my $tree_units = shift;
 
-  $self->{'global_target_elements'}->{'First'} = $tree_units->[0];
-  $self->{'global_target_elements'}->{'Last'} = $tree_units->[-1];
+  $self->{'global_target_elements_directions'}->{'First'} = $tree_units->[0];
+  $self->{'global_target_elements_directions'}->{'Last'} = $tree_units->[-1];
   # It is always the first printindex, even if it is not output (for example
   # it is in @copying and @titlepage, which are certainly wrong constructs).
   if ($self->{'global_commands'} and $self->{'global_commands'}->{'printindex'}) {
@@ -7003,7 +7005,7 @@ sub _prepare_tree_units_global_targets($$)
           $root_element = $root_command->{'structure'}->{'associated_unit'};
         }
       }
-      $self->{'global_target_elements'}->{'Index'} = $root_element;
+      $self->{'global_target_elements_directions'}->{'Index'} = $root_element;
     }
   }
 
@@ -7012,24 +7014,24 @@ sub _prepare_tree_units_global_targets($$)
   my $section_top;
   $section_top = $self->{'global_commands'}->{'top'} if ($self->{'global_commands'});
   if ($section_top) {
-    $self->{'global_target_elements'}->{'Top'} = $section_top->{'structure'}->{'associated_unit'};
+    $self->{'global_target_elements_directions'}->{'Top'} = $section_top->{'structure'}->{'associated_unit'};
   } elsif ($node_top) {
     my $tree_unit_top = $node_top->{'structure'}->{'associated_unit'};
     if (!$tree_unit_top) {
       die "No parent for node_top: ".Texinfo::Common::debug_print_element($node_top);
     }
-    $self->{'global_target_elements'}->{'Top'} = $tree_unit_top;
+    $self->{'global_target_elements_directions'}->{'Top'} = $tree_unit_top;
   } else {
-    $self->{'global_target_elements'}->{'Top'} = $tree_units->[0];
+    $self->{'global_target_elements_directions'}->{'Top'} = $tree_units->[0];
   }
   
   if ($self->get_conf('DEBUG')) {
     print STDERR "GLOBAL DIRECTIONS:\n";
     foreach my $global_direction (@global_directions) {
-      if (defined($self->{'global_target_elements'}->{$global_direction})) {
-        print STDERR "$global_direction($self->{'global_target_elements'}->{$global_direction}): ".
-          Texinfo::Structuring::root_or_external_element_cmd_texi(
-             $self->{'global_target_elements'}->{$global_direction})."\n";
+      if (defined($self->global_element($global_direction))) {
+        my $global_element = $self->global_element($global_direction);
+        print STDERR "$global_direction($global_element): ".
+          Texinfo::Structuring::root_or_external_element_cmd_texi($global_element)."\n";
       }
     }
   }
