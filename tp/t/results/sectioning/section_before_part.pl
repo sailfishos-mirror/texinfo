@@ -250,7 +250,7 @@ ul.no-bullet {list-style: none}
 <h1 class="part">part</h1>
 <hr>
 
-<div class="Contents_element" id="SEC_Contents">
+<div class="contents_element" id="SEC_Contents">
 <h2 class="contents-heading">Table of Contents</h2>
 
 <div class="contents">

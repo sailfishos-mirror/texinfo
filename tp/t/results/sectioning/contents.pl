@@ -803,7 +803,7 @@ ul.no-bullet {list-style: none}
 <div class="top" id="top">
 <h1 class="top">top</h1>
 
-<div class="Contents_element" id="SEC_Contents">
+<div class="contents_element" id="SEC_Contents">
 <h2 class="contents-heading">Table of Contents</h2>
 
 <div class="contents">

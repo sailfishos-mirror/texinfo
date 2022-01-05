@@ -1,5 +1,16 @@
 2022-01-05  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Common.pm (@variable_other_settables),
+	tp/Texinfo/Convert/HTML.pm (%contents_command_element_type)
+	(command_contents_href, command_text, %defaults, _translate_names)
+	(_contents_inline_element, _convert_special_element_type)
+	(_html_set_pages_files, _prepare_special_elements, _prepare_contents_elements)
+	(_default_format_footnotes_text)
+	(_default_format_special_element_body): distinguish special element
+	types and special elements directions.
+
+2022-01-05  Patrice Dumas  <pertusus@free.fr>
+
 	* NEWS, doc/texinfo.texi (HTML Customization Variables),
 	(Other Customization Variables), tp/Texinfo/Common.pm
 	(@variable_string_settables), tp/Texinfo/Convert/HTML.pm (%defaults)

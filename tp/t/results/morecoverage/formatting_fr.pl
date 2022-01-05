@@ -5313,7 +5313,7 @@ Menu comment
 </div>
 </div>
 <hr>
-<div class="Footnotes_element" id="SEC_Foot">
+<div class="footnotes_element" id="SEC_Foot">
 <table class="header" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#Top" title="Couverture (top) du document">Racine</a>]</td>
 <td valign="middle" align="left">[<a href="#SEC_Contents" title="Table des mati&egrave;res">Table des mati&egrave;res</a>]</td>
@@ -5325,7 +5325,7 @@ Menu comment
 <h5><a id="FOOT1" href="#DOCF1">(1)</a></h5>
 <p>in footnote</p>
 </div><hr>
-<div class="Contents_element" id="SEC_Contents">
+<div class="contents_element" id="SEC_Contents">
 <table class="header" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#Top" title="Couverture (top) du document">Racine</a>]</td>
 <td valign="middle" align="left">[<a href="#SEC_Contents" title="Table des mati&egrave;res">Table des mati&egrave;res</a>]</td>
@@ -5352,7 +5352,7 @@ Menu comment
 </ul>
 </div>
 </div><hr>
-<div class="Overview_element" id="SEC_Overview">
+<div class="shortcontents_element" id="SEC_Overview">
 <table class="header" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#Top" title="Couverture (top) du document">Racine</a>]</td>
 <td valign="middle" align="left">[<a href="#SEC_Contents" title="Table des mati&egrave;res">Table des mati&egrave;res</a>]</td>
@@ -5368,7 +5368,7 @@ Menu comment
 </ul>
 </div>
 </div><hr>
-<div class="About_element" id="SEC_About">
+<div class="about_element" id="SEC_About">
 <table class="header" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#Top" title="Couverture (top) du document">Racine</a>]</td>
 <td valign="middle" align="left">[<a href="#SEC_Contents" title="Table des mati&egrave;res">Table des mati&egrave;res</a>]</td>
@@ -5870,7 +5870,7 @@ Menu comment
 </div>
 </div>
 <hr>
-<div class="Footnotes_element" id="SEC_Foot">
+<div class="footnotes_element" id="SEC_Foot">
 <table class="header" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#Top" title="Couverture (top) du document">Racine</a>]</td>
 <td valign="middle" align="left">[<a href="#SEC_Contents" title="Table des mati&egrave;res">Table des mati&egrave;res</a>]</td>
@@ -5882,7 +5882,7 @@ Menu comment
 <h5><a id="FOOT1" href="#DOCF1">(1)</a></h5>
 <p>in footnote</p>
 </div><hr>
-<div class="Contents_element" id="SEC_Contents">
+<div class="contents_element" id="SEC_Contents">
 <table class="header" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#Top" title="Couverture (top) du document">Racine</a>]</td>
 <td valign="middle" align="left">[<a href="#SEC_Contents" title="Table des mati&egrave;res">Table des mati&egrave;res</a>]</td>
@@ -5909,7 +5909,7 @@ Menu comment
 </ul>
 </div>
 </div><hr>
-<div class="Overview_element" id="SEC_Overview">
+<div class="shortcontents_element" id="SEC_Overview">
 <table class="header" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#Top" title="Couverture (top) du document">Racine</a>]</td>
 <td valign="middle" align="left">[<a href="#SEC_Contents" title="Table des mati&egrave;res">Table des mati&egrave;res</a>]</td>
@@ -5925,7 +5925,7 @@ Menu comment
 </ul>
 </div>
 </div><hr>
-<div class="About_element" id="SEC_About">
+<div class="about_element" id="SEC_About">
 <table class="header" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#Top" title="Couverture (top) du document">Racine</a>]</td>
 <td valign="middle" align="left">[<a href="#SEC_Contents" title="Table des mati&egrave;res">Table des mati&egrave;res</a>]</td>

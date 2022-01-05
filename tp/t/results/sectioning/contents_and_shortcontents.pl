@@ -839,7 +839,7 @@ ul.no-bullet {list-style: none}
 <div class="top" id="top">
 <h1 class="top">top</h1>
 
-<div class="Contents_element" id="SEC_Contents">
+<div class="contents_element" id="SEC_Contents">
 <h2 class="contents-heading">Table of Contents</h2>
 
 <div class="contents">
@@ -871,7 +871,7 @@ ul.no-bullet {list-style: none}
 </ul>
 </div>
 </div>
-<div class="Overview_element" id="SEC_Overview">
+<div class="shortcontents_element" id="SEC_Overview">
 <h2 class="shortcontents-heading">Short Table of Contents</h2>
 
 <div class="shortcontents">

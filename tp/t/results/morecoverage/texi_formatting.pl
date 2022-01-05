@@ -5058,7 +5058,7 @@ Next: <a href="#chapter" accesskey="n" rel="next">chapter</a> &nbsp; [<a href="#
 </p>
 
 
-<div class="Contents_element" id="SEC_Contents">
+<div class="contents_element" id="SEC_Contents">
 <h2 class="contents-heading">Table of Contents</h2>
 
 <div class="contents">
@@ -5079,7 +5079,7 @@ Next: <a href="#chapter" accesskey="n" rel="next">chapter</a> &nbsp; [<a href="#
 </ul>
 </div>
 </div>
-<div class="Overview_element" id="SEC_Overview">
+<div class="shortcontents_element" id="SEC_Overview">
 <h2 class="shortcontents-heading">Short Table of Contents</h2>
 
 <div class="shortcontents">
@@ -5375,7 +5375,7 @@ $result_converted{'html_text'}->{'texi_formatting'} = '
 </p>
 
 
-<div class="Contents_element">
+<div class="contents_element">
 <h2 class="contents-heading">Table of Contents</h2>
 
 <div class="contents">
@@ -5396,7 +5396,7 @@ $result_converted{'html_text'}->{'texi_formatting'} = '
 </ul>
 </div>
 </div>
-<div class="Overview_element">
+<div class="shortcontents_element">
 <h2 class="shortcontents-heading">Short Table of Contents</h2>
 
 <div class="shortcontents">

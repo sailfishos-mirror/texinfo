@@ -376,6 +376,7 @@ my @variable_other_settables = (
   'NODE_FOOTER_BUTTONS',
   'MISC_BUTTONS', 'CHAPTER_BUTTONS', 'BUTTONS_NAME',
   'BUTTONS_EXAMPLE', 'SPECIAL_ELEMENTS_HEADING', 'SPECIAL_ELEMENTS_CLASS',
+  'SPECIAL_ELEMENTS_DIRECTIONS',
   'ACTIVE_ICONS', 'PASSIVE_ICONS',
   # set from command line
   'CSS_FILES',            # --css-include

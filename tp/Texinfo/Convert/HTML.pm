@@ -660,10 +660,10 @@ sub command_href($$;$$)
   return $href;
 }
 
-my %contents_command_element_name = (
-  'contents' => 'Contents',
-  'shortcontents' => 'Overview',
-  'summarycontents' => 'Overview',
+my %contents_command_element_type = (
+  'contents' => 'contents',
+  'shortcontents' => 'shortcontents',
+  'summarycontents' => 'shortcontents',
 );
 
 # Return string for linking to $CONTENTS_OR_SHORTCONTENTS associated
@@ -676,11 +676,13 @@ sub command_contents_href($$$$)
   my $filename = shift;
 
   my $href;
-  my $name = $contents_command_element_name{$contents_or_shortcontents};
-  
+  my $special_element_type
+    = $contents_command_element_type{$contents_or_shortcontents};
+  my $special_element_direction
+       = $self->get_conf('SPECIAL_ELEMENTS_DIRECTIONS')->{$special_element_type};
   my $target = $self->command_contents_target($command, $contents_or_shortcontents);
 
-  my $target_element = $self->special_element($name);
+  my $target_element = $self->special_element($special_element_direction);
   my $target_filename;
   # !defined happens when called as convert() and not output()
   if (defined($target_element)) {
@@ -753,9 +755,9 @@ sub command_text($$;$)
     if (!$target->{'tree'}) {
       if (defined($command->{'type'})
           and $command->{'type'} eq 'special_element') {
-        my $special_element_name = $command->{'extra'}->{'special_element_type'};
-        $tree = $self->get_conf('SPECIAL_ELEMENTS_HEADING')->{$special_element_name};
-        $explanation = "command_text $special_element_name";
+        my $special_element_type = $command->{'extra'}->{'special_element_type'};
+        $tree = $self->get_conf('SPECIAL_ELEMENTS_HEADING')->{$special_element_type};
+        $explanation = "command_text $special_element_type";
       } elsif ($command->{'cmdname'} and ($command->{'cmdname'} eq 'node' 
                                           or $command->{'cmdname'} eq 'anchor')) {
         $tree = {'type' => '_code',
@@ -1330,23 +1332,23 @@ my %defaults = (
                              [ 'Up', \&_default_panel_button_dynamic_direction_node_footer ],
                              ' ', 'Contents', 'Index'],
   'misc_elements_targets'   => {
-                             'Overview' => 'SEC_Overview',
-                             'Contents' => 'SEC_Contents',
-                             'Footnotes' => 'SEC_Foot',
-                             'About' => 'SEC_About',
+                             'shortcontents' => 'SEC_Overview',
+                             'contents' => 'SEC_Contents',
+                             'footnotes' => 'SEC_Foot',
+                             'about' => 'SEC_About',
                              'Top' => 'SEC_Top',
                             },
   'misc_pages_file_string' => {
-                              'Contents' => '_toc',
-                              'Overview' => '_ovr',
-                              'Footnotes' => '_fot',
-                              'About' => '_abt',
+                              'contents' => '_toc',
+                              'shortcontents' => '_ovr',
+                              'footnotes' => '_fot',
+                              'about' => '_abt',
                             },
   'frame_pages_file_string' => {
                               'Frame' => '_frame',
                               'Toc_Frame' => '_toc_frame',
                               },
-  'misc_elements_order'  => ['Footnotes', 'Contents', 'Overview', 'About'],
+  'misc_elements_order'  => ['footnotes', 'contents', 'shortcontents', 'about'],
   'DOCTYPE'              => '<!DOCTYPE html>',
   'FRAMESET_DOCTYPE'     => '<!DOCTYPE html>',
   'DEFAULT_RULE'         => '<hr>',
@@ -1376,10 +1378,16 @@ my %defaults = (
   'PASSIVE_ICONS'        => \%PASSIVE_ICONS,
   'SPECIAL_ELEMENTS_HEADING' => \%SPECIAL_ELEMENTS_HEADING,
   'SPECIAL_ELEMENTS_CLASS' => {
-    'About'       => 'about',
-    'Contents'    => 'contents',
-    'Overview'    => 'shortcontents',
-    'Footnotes'   => 'footnotes',
+    'about'       => 'about',
+    'contents'    => 'contents',
+    'shortcontents'    => 'shortcontents',
+    'footnotes'   => 'footnotes',
+  },
+  'SPECIAL_ELEMENTS_DIRECTIONS' => {
+     'about'       => 'About',
+     'contents'    => 'Contents',
+     'shortcontents'    => 'Overview',
+     'footnotes'   => 'Footnotes',
   },
   'jslicenses' => {},         # for outputting licences file
   'jslicenses_element' => {}, # scripts used in current output file
@@ -1405,8 +1413,8 @@ my %global_and_special_directions;
 foreach my $global_direction (@global_directions) {
   $global_and_special_directions{$global_direction} = 1;
 }
-foreach my $special_element (keys %{$defaults{'SPECIAL_ELEMENTS_CLASS'}}) {
-  $global_and_special_directions{$special_element} = 1;
+foreach my $special_element_type (keys %{$defaults{'SPECIAL_ELEMENTS_DIRECTIONS'}}) {
+  $global_and_special_directions{$defaults{'SPECIAL_ELEMENTS_DIRECTIONS'}->{$special_element_type}} = 1;
 }
 
 foreach my $hash (\%BUTTONS_REL, \%BUTTONS_ACCESSKEY,
@@ -1517,19 +1525,21 @@ sub _translate_names($)
   }
 
   %SPECIAL_ELEMENTS_HEADING = (
-    'About'       => $self->gdt('About This Document'),
-    'Contents'    => $self->gdt('Table of Contents'),
-    'Overview'    => $self->gdt('Short Table of Contents'),
-    'Footnotes'   => $self->gdt('Footnotes'),
+    'about'       => $self->gdt('About This Document'),
+    'contents'    => $self->gdt('Table of Contents'),
+    'shortcontents'    => $self->gdt('Short Table of Contents'),
+    'footnotes'   => $self->gdt('Footnotes'),
   );
 
   # delete the tree and formatted results for special elements
   # such that they are redone with the new tree when needed.
-  foreach my $special_element (keys (%SPECIAL_ELEMENTS_HEADING)) {
-    if ($self->{'special_elements_types'}->{$special_element} and
-        $self->{'targets'}->{$self->{'special_elements_types'}->{$special_element}}) {
+  foreach my $special_element_type (keys (%SPECIAL_ELEMENTS_HEADING)) {
+    my $special_element_direction
+       = $self->get_conf('SPECIAL_ELEMENTS_DIRECTIONS')->{$special_element_type};
+    if ($self->{'special_elements_types'}->{$special_element_direction} and
+        $self->{'targets'}->{$self->{'special_elements_types'}->{$special_element_direction}}) {
       my $target
-        = $self->{'targets'}->{$self->{'special_elements_types'}->{$special_element}};
+        = $self->{'targets'}->{$self->{'special_elements_types'}->{$special_element_direction}};
       foreach my $key ('text', 'string', 'tree') {
         delete $target->{$key};
       }
@@ -4459,11 +4469,13 @@ sub _contents_inline_element($$$)
   print STDERR "CONTENTS_INLINE $cmdname\n" if ($self->get_conf('DEBUG'));
   my $content = &{$self->{'format_contents'}}($self, $cmdname, $command);
   if ($content) {
-    my $special_element_name = $contents_command_element_name{$cmdname};
+    my $special_element_type = $contents_command_element_type{$cmdname};
+    my $special_element_direction
+      = $self->get_conf('SPECIAL_ELEMENTS_DIRECTIONS')->{$special_element_type};
     my $special_element
-      = $self->special_element($special_element_name);
+      = $self->special_element($special_element_direction);
     my $heading;
-    my $result = $self->html_attribute_class('div', "${special_element_name}_element");
+    my $result = $self->html_attribute_class('div', "${special_element_type}_element");
     if ($special_element) {
       my $id = $self->command_id($special_element);
       if ($id ne '') {
@@ -4474,11 +4486,11 @@ sub _contents_inline_element($$$)
       # happens when called as convert() and not output()
       #cluck "$cmdname special element not defined";
       $heading 
-        = $self->convert_tree($self->get_conf('SPECIAL_ELEMENTS_HEADING')->{$special_element_name},
+        = $self->convert_tree($self->get_conf('SPECIAL_ELEMENTS_HEADING')->{$special_element_type},
                               "convert $cmdname special heading");
     }
     $result .= ">\n";
-    my $class = $self->get_conf('SPECIAL_ELEMENTS_CLASS')->{$special_element_name};
+    my $class = $self->get_conf('SPECIAL_ELEMENTS_CLASS')->{$special_element_type};
     $result .= &{$self->{'format_heading_text'}}($self, $class.'-heading',
                        $heading, $self->get_conf('CHAPTER_HEADER_LEVEL'))."\n";
     $result .= $content . "</div>\n";
@@ -5460,10 +5472,10 @@ sub _convert_special_element_type($$$$)
 
   my $result = '';
 
-  my $special_element_name = $element->{'extra'}->{'special_element_type'};
+  my $special_element_type = $element->{'extra'}->{'special_element_type'};
   $result .= join('', $self->close_registered_sections_level(0));
   my $id = $self->command_id($element);
-  $result .= $self->html_attribute_class('div', "${special_element_name}_element");
+  $result .= $self->html_attribute_class('div', "${special_element_type}_element");
   if ($id ne '') {
     $result .= " id=\"$id\"";
   }
@@ -5475,16 +5487,16 @@ sub _convert_special_element_type($$$$)
                $self->get_conf('MISC_BUTTONS'), undef, $element);
   }
   my $heading = $self->command_text($element);
-  my $class = $self->get_conf('SPECIAL_ELEMENTS_CLASS')->{$special_element_name};
+  my $class = $self->get_conf('SPECIAL_ELEMENTS_CLASS')->{$special_element_type};
   my $level = $self->get_conf('CHAPTER_HEADER_LEVEL');
-  if ($special_element_name eq 'Footnotes') {
+  if ($special_element_type eq 'footnotes') {
     $level = $self->get_conf('FOOTNOTE_SEPARATE_HEADER_LEVEL');
   }
   $result .= &{$self->{'format_heading_text'}}($self, $class.'-heading',
                      $heading, $level)."\n";
 
   my $special_element_body .= &{$self->{'format_special_element_body'}}
-                                  ($self, $special_element_name, $element);
+                                  ($self, $special_element_type, $element);
 
   # This may happen with footnotes in regions that are not expanded,
   # like @copying or @titlepage
@@ -6716,7 +6728,7 @@ sub _html_set_pages_files($$$$$$$$)
 }
 
 my @contents_elements_options = grep {Texinfo::Common::valid_option($_)}
-                                         keys(%contents_command_element_name);
+                                         keys(%contents_command_element_type);
 
 # $ROOT is a parsed Texinfo tree.  Return a list of the "elements" we need to
 # output in the HTML file(s).  Each "element" is what can go in one HTML file,
@@ -6786,11 +6798,11 @@ sub _prepare_special_elements($$$$)
   if ($self->{'structuring'} and $self->{'structuring'}->{'sectioning_root'}
       and scalar(@{$self->{'structuring'}->{'sections_list'}}) > 1) {
     foreach my $cmdname ('contents', 'shortcontents') {
-      my $type = $contents_command_element_name{$cmdname};
+      my $element_type = $contents_command_element_type{$cmdname};
       if ($self->get_conf($cmdname)) {
         if ($self->get_conf('CONTENTS_OUTPUT_LOCATION')
             eq 'separate_element') {
-          $do_special{$type} = 1;
+          $do_special{$element_type} = 1;
         }
       }
     }
@@ -6798,14 +6810,14 @@ sub _prepare_special_elements($$$$)
   if ($self->{'global_commands'}->{'footnote'}
       and $self->get_conf('footnotestyle') eq 'separate'
       and $tree_units and scalar(@$tree_units) > 1) {
-    $do_special{'Footnotes'} = 1;
+    $do_special{'footnotes'} = 1;
   }
 
   if ((!defined($self->get_conf('DO_ABOUT')) 
        and $tree_units and scalar(@$tree_units) > 1
            and ($self->get_conf('SPLIT') or $self->get_conf('HEADERS')))
        or ($self->get_conf('DO_ABOUT'))) {
-    $do_special{'About'} = 1;
+    $do_special{'about'} = 1;
   }
 
   my $extension = '';
@@ -6813,21 +6825,23 @@ sub _prepare_special_elements($$$$)
     if (defined($self->get_conf('EXTENSION')));
 
   my $special_elements = [];
-  foreach my $type (@{$self->{'misc_elements_order'}}) {
-    next unless ($do_special{$type});
+  foreach my $element_type (@{$self->{'misc_elements_order'}}) {
+    next unless ($do_special{$element_type});
 
     my $element = {'type' => 'special_element',
-                   'extra' => {'special_element_type' => $type,
+                   'extra' => {'special_element_type' => $element_type,
                                }};
     $element->{'structure'}->{'directions'}->{'This'} = $element;
-    $self->{'special_elements_types'}->{$type} = $element;
+    my $special_element_direction
+       = $self->get_conf('SPECIAL_ELEMENTS_DIRECTIONS')->{$element_type};
+    $self->{'special_elements_types'}->{$special_element_direction} = $element;
     push @$special_elements, $element;
 
-    my $target = $self->{'misc_elements_targets'}->{$type};
+    my $target = $self->{'misc_elements_targets'}->{$element_type};
     my $default_filename;
     if ($self->get_conf('SPLIT') or !$self->get_conf('MONOLITHIC')) {
       $default_filename = $document_name.
-        $self->{'misc_pages_file_string'}->{$type};
+        $self->{'misc_pages_file_string'}->{$element_type};
       $default_filename .= '.'.$extension if (defined($extension));
     } else {
       $default_filename = undef;
@@ -6847,14 +6861,14 @@ sub _prepare_special_elements($$$$)
     if ($self->get_conf('DEBUG')) {
       my $fileout = $filename;
       $fileout = 'UNDEF' if (!defined($fileout));
-      print STDERR "Add special $element $type: target $target,\n".
+      print STDERR "Add special $element $element_type: target $target,\n".
         "    filename $fileout\n" 
     }
     if ($self->get_conf('SPLIT') or !$self->get_conf('MONOLITHIC')
         or (defined($filename) ne defined($default_filename))
         or (defined($filename) and $filename ne $default_filename)) {
       $self->set_tree_unit_file($element, $filename, $destination_directory);
-      print STDERR "NEW page for $type ($filename)\n" if ($self->get_conf('DEBUG'));
+      print STDERR "NEW page for $element_type ($filename)\n" if ($self->get_conf('DEBUG'));
     }
     $self->{'targets'}->{$element} = {'target' => $target,
                                       'misc_filename' => $filename,
@@ -6862,14 +6876,14 @@ sub _prepare_special_elements($$$$)
     $self->{'seen_ids'}->{$target} = 1;
   }
   if ($self->get_conf('FRAMES')) {
-    foreach my $type (keys(%{$self->{'frame_pages_file_string'}})) {
+    foreach my $element_type (keys(%{$self->{'frame_pages_file_string'}})) {
       my $default_filename;
       $default_filename = $document_name.
-        $self->{'frame_pages_file_string'}->{$type};
+        $self->{'frame_pages_file_string'}->{$element_type};
       $default_filename .= '.'.$extension if (defined($extension));
 
       my $element = {'type' => 'special_element',
-                   'extra' => {'special_element_type' => $type,
+                   'extra' => {'special_element_type' => $element_type,
                                }};
 
       # only the filename is used
@@ -6883,7 +6897,7 @@ sub _prepare_special_elements($$$$)
                                                             $default_filename);
       }
       $filename = $default_filename if (!defined($filename));
-      $self->{'frame_pages_filenames'}->{$type} = $filename;
+      $self->{'frame_pages_filenames'}->{$element_type} = $filename;
     }
   }
   return $special_elements;
@@ -6896,7 +6910,7 @@ sub _prepare_contents_elements($)
   if ($self->{'structuring'} and $self->{'structuring'}->{'sectioning_root'}
       and scalar(@{$self->{'structuring'}->{'sections_list'}}) > 1) {
     foreach my $cmdname ('contents', 'shortcontents') {
-      my $type = $contents_command_element_name{$cmdname};
+      my $element_type = $contents_command_element_type{$cmdname};
       if ($self->get_conf($cmdname)) {
         my $default_filename;
         if ($self->get_conf('CONTENTS_OUTPUT_LOCATION') eq 'after_title') {
@@ -6929,9 +6943,11 @@ sub _prepare_contents_elements($)
         }
 
         my $contents_element = {'type' => 'special_element',
-                                'extra' => {'special_element_type' => $type}};
-        $self->{'special_elements_types'}->{$type} = $contents_element;
-        my $target = $self->{'misc_elements_targets'}->{$type};
+                        'extra' => {'special_element_type' => $element_type}};
+        my $special_element_direction
+         = $self->get_conf('SPECIAL_ELEMENTS_DIRECTIONS')->{$element_type};
+        $self->{'special_elements_types'}->{$special_element_direction} = $contents_element;
+        my $target = $self->{'misc_elements_targets'}->{$element_type};
         my $filename;
         if (defined($Texinfo::Config::special_element_target_file_name)) {
           ($target, $filename)
@@ -6945,7 +6961,7 @@ sub _prepare_contents_elements($)
         if ($self->get_conf('DEBUG')) {
           my $str_filename = $filename;
           $str_filename = 'UNDEF' if (not defined($str_filename));
-          print STDERR "Add content $contents_element $type: target $target,\n".
+          print STDERR "Add content $contents_element $element_type: target $target,\n".
              "    filename $str_filename\n";
         }
         $self->{'targets'}->{$contents_element} = {'target' => $target,
@@ -7739,13 +7755,13 @@ sub _default_format_footnotes_text($)
      if (defined($self->get_conf('DEFAULT_RULE')) 
          and $self->get_conf('DEFAULT_RULE') ne '');
   my $footnote_heading 
-    = $self->convert_tree($self->get_conf('SPECIAL_ELEMENTS_HEADING')->{'Footnotes'},
+    = $self->convert_tree($self->get_conf('SPECIAL_ELEMENTS_HEADING')->{'footnotes'},
                           'convert footnotes special heading');
-  my $class = $self->get_conf('SPECIAL_ELEMENTS_CLASS')->{'Footnotes'};
+  my $class = $self->get_conf('SPECIAL_ELEMENTS_CLASS')->{'footnotes'};
   my $level = $self->get_conf('FOOTNOTE_END_HEADER_LEVEL');
   $result .= &{$self->{'format_heading_text'}}($self, $class.'-heading',
                                         $footnote_heading, $level)."\n";
-  $result .= &{$self->{'format_special_element_body'}}($self, 'Footnotes',
+  $result .= &{$self->{'format_special_element_body'}}($self, 'footnotes',
                                               $self->{'current_root_element'});
   $result .= "</div>\n";
   return $result;
@@ -7757,7 +7773,7 @@ sub _default_format_special_element_body($$$)
   my $special_type = shift;
   my $element = shift;
 
-  if ($special_type eq 'About') {
+  if ($special_type eq 'about') {
     my $about = "<p>\n";
     my $PRE_ABOUT = $self->get_conf('PRE_ABOUT');
     if (defined($PRE_ABOUT)) {
@@ -7860,11 +7876,11 @@ EOT
 $AFTER_ABOUT
 EOT
     return $about;
-  } elsif ($special_type eq 'Contents') {
+  } elsif ($special_type eq 'contents') {
     return &{$self->{'format_contents'}}($self, 'contents', undef);
-  } elsif ($special_type eq 'Overview') {
+  } elsif ($special_type eq 'shortcontents') {
     return &{$self->{'format_contents'}}($self, 'shortcontents', undef);
-  } elsif ($special_type eq 'Footnotes') {
+  } elsif ($special_type eq 'footnotes') {
     my $result = $foot_lines;
     $foot_lines = '';
     return $result;

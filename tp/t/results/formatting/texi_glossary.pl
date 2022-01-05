@@ -1670,7 +1670,7 @@ ul.no-bullet {list-style: none}
 </div>
 </div>
 <hr>
-<div class="About_element" id="SEC_About">
+<div class="about_element" id="SEC_About">
 <table class="header" cellpadding="1" cellspacing="1" border="0">
 <tr><td valign="middle" align="left">[<a href="#Top" title="Cover (top) of document">Top</a>]</td>
 <td valign="middle" align="left">[Contents]</td>

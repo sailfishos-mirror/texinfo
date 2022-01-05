@@ -446,7 +446,7 @@ ul.no-bullet {list-style: none}
 <div class="chapter" id="chapter-2">
 <h2 class="chapter">2 chapter 2</h2>
 
-<div class="Contents_element" id="SEC_Contents">
+<div class="contents_element" id="SEC_Contents">
 <h2 class="contents-heading">Table of Contents</h2>
 
 <div class="contents">
