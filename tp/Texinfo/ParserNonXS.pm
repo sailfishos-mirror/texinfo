@@ -3042,6 +3042,8 @@ sub _end_line($$$)
           and $accent_commands{$current->{'extra'}->{'command_as_argument'}->{'cmdname'}}
           and ($current->{'cmdname'} eq 'itemize'
                or $item_line_commands{$current->{'cmdname'}})) {
+        # this can only happen to an accent command with brace, if without
+        # brace it is not set as command_as_argument to begin with.
         $self->_command_warn($current, $line_nr,
               __("accent command `\@%s' not allowed as \@%s argument"),
               $current->{'extra'}->{'command_as_argument'}->{'cmdname'},
@@ -4032,19 +4034,16 @@ sub _parse_texi($$$)
       } elsif ($current->{'cmdname'}
             and defined($brace_commands{$current->{'cmdname'}})
             and !$open_brace) {
-        # special case for @-command as argument of @itemize or @*table.
-        if (_command_with_command_as_argument($current->{'parent'})) {
-          print STDERR "FOR PARENT \@$current->{'parent'}->{'parent'}->{'cmdname'} command_as_argument $current->{'cmdname'}\n" if ($self->{'DEBUG'});
-          $current->{'type'} = 'command_as_argument' if (!$current->{'type'});
-          $current->{'parent'}->{'parent'}->{'extra'}->{'command_as_argument'} 
-            = $current;
-          if ($current->{'cmdname'} eq 'kbd'
-              and _kbd_formatted_as_code($self, $current->{'parent'}->{'parent'})) {
-            $current->{'parent'}->{'parent'}->{'extra'}->{'command_as_argument_kbd_code'} = 1;
-          }
-          $current = $current->{'parent'};
         # now accent commands
-        } elsif ($accent_commands{$current->{'cmdname'}}) {
+        if ($accent_commands{$current->{'cmdname'}}) {
+          # we should only warn for empty accent command.  However, it is
+          # already incorrect and warned just below, depending on the case
+          #if (_command_with_command_as_argument($current->{'parent'})) {
+          #  $self->_command_warn($current, $line_nr,
+          #    __("accent command `\@%s' not allowed as \@%s argument"),
+          #    $current->{'cmdname'},
+          #    $current->{'parent'}->{'parent'}->{'cmdname'});
+          #}
           if ($line =~ /^[^\S\r\n]/) {
             if ($current->{'cmdname'} =~ /^[a-zA-Z]/) {
               $line =~ s/^([^\S\r\n]+)//;
@@ -4062,7 +4061,7 @@ sub _parse_texi($$$)
               __("use braces to give a command as an argument to \@%s"),
                 $current->{'cmdname'}), $line_nr);
             $current = $current->{'parent'};
-          } elsif ($line =~ s/^(.)//o) {
+          } elsif ($line =~ s/^(.)//) {
             print STDERR "ACCENT \@$current->{'cmdname'}\n" 
               if ($self->{'DEBUG'});
             my $following_arg = {'type' => 'following_arg',
@@ -4088,6 +4087,17 @@ sub _parse_texi($$$)
             $current = $current->{'parent'};
           }
           next;
+        # special case for @-command as argument of @itemize or @*table.
+        } elsif (_command_with_command_as_argument($current->{'parent'})) {
+          print STDERR "FOR PARENT \@$current->{'parent'}->{'parent'}->{'cmdname'} command_as_argument $current->{'cmdname'}\n" if ($self->{'DEBUG'});
+          $current->{'type'} = 'command_as_argument' if (!$current->{'type'});
+          $current->{'parent'}->{'parent'}->{'extra'}->{'command_as_argument'} 
+            = $current;
+          if ($current->{'cmdname'} eq 'kbd'
+              and _kbd_formatted_as_code($self, $current->{'parent'}->{'parent'})) {
+            $current->{'parent'}->{'parent'}->{'extra'}->{'command_as_argument_kbd_code'} = 1;
+          }
+          $current = $current->{'parent'};
         } else {
           # ignore space after a braced @-command like TeX does
           if ($self->{'IGNORE_SPACE_AFTER_BRACED_COMMAND_NAME'}

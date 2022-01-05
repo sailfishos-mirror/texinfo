@@ -1450,23 +1450,7 @@ superfluous_arg:
      command container. */
   else if (command_flags(current) & CF_brace && *line != '{')
     {
-      if (command_with_command_as_argument (current->parent))
-        {
-          debug ("FOR PARENT @%s command_as_argument @%s",
-                 command_name(current->parent->parent->cmd),
-                 command_name(current->cmd));
-          if (!current->type)
-            current->type = ET_command_as_argument;
-          add_extra_element (current->parent->parent, 
-                                 "command_as_argument", current);
-          if (current->cmd == CM_kbd
-              && kbd_formatted_as_code(current->parent->parent)) {
-            add_extra_integer (current->parent->parent,
-                               "command_as_argument_kbd_code", 1);
-          }
-          current = current->parent;
-        }
-      else if (command_flags(current) & CF_accent)
+      if (command_flags(current) & CF_accent)
         {
           if (strchr (whitespace_chars_except_newline, *line))
             {
@@ -1536,6 +1520,22 @@ superfluous_arg:
               current = current->parent;
             }
           goto funexit;
+        }
+      else if (command_with_command_as_argument (current->parent))
+        {
+          debug ("FOR PARENT @%s command_as_argument @%s",
+                 command_name(current->parent->parent->cmd),
+                 command_name(current->cmd));
+          if (!current->type)
+            current->type = ET_command_as_argument;
+          add_extra_element (current->parent->parent, 
+                                 "command_as_argument", current);
+          if (current->cmd == CM_kbd
+              && kbd_formatted_as_code(current->parent->parent)) {
+            add_extra_integer (current->parent->parent,
+                               "command_as_argument_kbd_code", 1);
+          }
+          current = current->parent;
         }
       else
         {

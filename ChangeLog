@@ -1,5 +1,11 @@
 2022-01-05  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_end_line),
+	tp/Texinfo/XS/parsetexi/parser.c (process_remaining_on_line): do not
+	register accent comment without brace as a command_as_argument at all.
+
+2022-01-05  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_default_css_string_format_protect_text)
 	(_css_string_convert_text): fix text protection.
 

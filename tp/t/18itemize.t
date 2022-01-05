@@ -12,7 +12,6 @@ my @test_cases = (
 @item @option{--target=} target platform on which the program is processed.
 @end itemize
 '],
-# unclear that these are valid constructs...
 ['empty_accent_argument',
 '@itemize @~@comment
 @item item
@@ -21,9 +20,17 @@ my @test_cases = (
 @itemize @~
 @item item
 @end itemize
+
+@itemize @~{}
+@item item
+@end itemize
 '],
 ['accent_argument',
 '@itemize @~e
+@item item
+@end itemize
+
+@itemize @~{e}
 @item item
 @end itemize
 '],

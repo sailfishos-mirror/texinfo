@@ -27,8 +27,7 @@ $result_trees{'accent_on_table_line'} = {
                     'line_nr' => 1,
                     'macro' => ''
                   },
-                  'parent' => {},
-                  'type' => 'command_as_argument'
+                  'parent' => {}
                 }
               ],
               'extra' => {
@@ -185,6 +184,196 @@ $result_trees{'accent_on_table_line'} = {
             'macro' => ''
           },
           'parent' => {}
+        },
+        {
+          'parent' => {},
+          'text' => '
+',
+          'type' => 'empty_line'
+        },
+        {
+          'args' => [
+            {
+              'cmdname' => 'asis',
+              'contents' => [],
+              'parent' => {},
+              'type' => 'command_as_argument_inserted'
+            },
+            {
+              'contents' => [
+                {
+                  'args' => [
+                    {
+                      'contents' => [],
+                      'parent' => {},
+                      'type' => 'brace_command_arg'
+                    }
+                  ],
+                  'cmdname' => '~',
+                  'contents' => [],
+                  'line_nr' => {
+                    'file_name' => '',
+                    'line_nr' => 6,
+                    'macro' => ''
+                  },
+                  'parent' => {},
+                  'type' => 'command_as_argument'
+                }
+              ],
+              'extra' => {
+                'spaces_after_argument' => '
+'
+              },
+              'parent' => {},
+              'type' => 'block_line_arg'
+            }
+          ],
+          'cmdname' => 'table',
+          'contents' => [
+            {
+              'contents' => [
+                {
+                  'contents' => [
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'parent' => {},
+                              'text' => 'acc brace first item'
+                            }
+                          ],
+                          'extra' => {
+                            'spaces_after_argument' => '
+'
+                          },
+                          'parent' => {},
+                          'type' => 'line_arg'
+                        }
+                      ],
+                      'cmdname' => 'item',
+                      'extra' => {
+                        'spaces_before_argument' => ' '
+                      },
+                      'line_nr' => {
+                        'file_name' => '',
+                        'line_nr' => 7,
+                        'macro' => ''
+                      },
+                      'parent' => {}
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'table_term'
+                }
+              ],
+              'parent' => {},
+              'type' => 'table_entry'
+            },
+            {
+              'contents' => [
+                {
+                  'contents' => [
+                    {
+                      'args' => [
+                        {
+                          'contents' => [
+                            {
+                              'parent' => {},
+                              'text' => 'no at-command '
+                            },
+                            {
+                              'args' => [
+                                {
+                                  'contents' => [
+                                    {
+                                      'parent' => {},
+                                      'text' => 'code acc brace'
+                                    }
+                                  ],
+                                  'parent' => {},
+                                  'type' => 'brace_command_arg'
+                                }
+                              ],
+                              'cmdname' => 'code',
+                              'contents' => [],
+                              'line_nr' => {
+                                'file_name' => '',
+                                'line_nr' => 8,
+                                'macro' => ''
+                              },
+                              'parent' => {}
+                            }
+                          ],
+                          'extra' => {
+                            'spaces_after_argument' => '
+'
+                          },
+                          'parent' => {},
+                          'type' => 'line_arg'
+                        }
+                      ],
+                      'cmdname' => 'item',
+                      'extra' => {
+                        'spaces_before_argument' => ' '
+                      },
+                      'line_nr' => {
+                        'file_name' => '',
+                        'line_nr' => 8,
+                        'macro' => ''
+                      },
+                      'parent' => {}
+                    }
+                  ],
+                  'parent' => {},
+                  'type' => 'table_term'
+                }
+              ],
+              'parent' => {},
+              'type' => 'table_entry'
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'table'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
+                  'parent' => {},
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'end',
+              'extra' => {
+                'command_argument' => 'table',
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'table'
+              },
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 9,
+                'macro' => ''
+              },
+              'parent' => {}
+            }
+          ],
+          'extra' => {
+            'command_as_argument' => {},
+            'end_command' => {},
+            'spaces_before_argument' => ' '
+          },
+          'line_nr' => {
+            'file_name' => '',
+            'line_nr' => 6,
+            'macro' => ''
+          },
+          'parent' => {}
         }
       ],
       'parent' => {},
@@ -215,25 +404,75 @@ $result_trees{'accent_on_table_line'}{'contents'}[0]{'contents'}[0]{'contents'}[
 $result_trees{'accent_on_table_line'}{'contents'}[0]{'contents'}[0]{'extra'}{'command_as_argument'} = $result_trees{'accent_on_table_line'}{'contents'}[0]{'contents'}[0]{'args'}[0];
 $result_trees{'accent_on_table_line'}{'contents'}[0]{'contents'}[0]{'extra'}{'end_command'} = $result_trees{'accent_on_table_line'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
 $result_trees{'accent_on_table_line'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'accent_on_table_line'}{'contents'}[0];
+$result_trees{'accent_on_table_line'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'accent_on_table_line'}{'contents'}[0];
+$result_trees{'accent_on_table_line'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'accent_on_table_line'}{'contents'}[0]{'contents'}[2];
+$result_trees{'accent_on_table_line'}{'contents'}[0]{'contents'}[2]{'args'}[1]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'accent_on_table_line'}{'contents'}[0]{'contents'}[2]{'args'}[1]{'contents'}[0];
+$result_trees{'accent_on_table_line'}{'contents'}[0]{'contents'}[2]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'accent_on_table_line'}{'contents'}[0]{'contents'}[2]{'args'}[1];
+$result_trees{'accent_on_table_line'}{'contents'}[0]{'contents'}[2]{'args'}[1]{'parent'} = $result_trees{'accent_on_table_line'}{'contents'}[0]{'contents'}[2];
+$result_trees{'accent_on_table_line'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'accent_on_table_line'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'accent_on_table_line'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'accent_on_table_line'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'accent_on_table_line'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'accent_on_table_line'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[0];
+$result_trees{'accent_on_table_line'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'accent_on_table_line'}{'contents'}[0]{'contents'}[2]{'contents'}[0];
+$result_trees{'accent_on_table_line'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'accent_on_table_line'}{'contents'}[0]{'contents'}[2];
+$result_trees{'accent_on_table_line'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'accent_on_table_line'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'accent_on_table_line'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'accent_on_table_line'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1]{'args'}[0];
+$result_trees{'accent_on_table_line'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'accent_on_table_line'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1];
+$result_trees{'accent_on_table_line'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[1]{'parent'} = $result_trees{'accent_on_table_line'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'accent_on_table_line'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'accent_on_table_line'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[0];
+$result_trees{'accent_on_table_line'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'accent_on_table_line'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[0];
+$result_trees{'accent_on_table_line'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'accent_on_table_line'}{'contents'}[0]{'contents'}[2]{'contents'}[1];
+$result_trees{'accent_on_table_line'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'accent_on_table_line'}{'contents'}[0]{'contents'}[2];
+$result_trees{'accent_on_table_line'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'accent_on_table_line'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'args'}[0];
+$result_trees{'accent_on_table_line'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'accent_on_table_line'}{'contents'}[0]{'contents'}[2]{'contents'}[2];
+$result_trees{'accent_on_table_line'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'accent_on_table_line'}{'contents'}[0]{'contents'}[2];
+$result_trees{'accent_on_table_line'}{'contents'}[0]{'contents'}[2]{'extra'}{'command_as_argument'} = $result_trees{'accent_on_table_line'}{'contents'}[0]{'contents'}[2]{'args'}[0];
+$result_trees{'accent_on_table_line'}{'contents'}[0]{'contents'}[2]{'extra'}{'end_command'} = $result_trees{'accent_on_table_line'}{'contents'}[0]{'contents'}[2]{'contents'}[2];
+$result_trees{'accent_on_table_line'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'accent_on_table_line'}{'contents'}[0];
 $result_trees{'accent_on_table_line'}{'contents'}[0]{'parent'} = $result_trees{'accent_on_table_line'};
 
 $result_texis{'accent_on_table_line'} = '@table @~
 @item first item
 @item no at-command @code{code}
 @end table
+
+@table @~{}
+@item acc brace first item
+@item no at-command @code{code acc brace}
+@end table
 ';
 
 
 $result_texts{'accent_on_table_line'} = 'first item
 no at-command code
+
+acc brace first item
+no at-command code acc brace
 ';
 
 $result_errors{'accent_on_table_line'} = [
   {
-    'error_line' => ':1: warning: accent command `@~\' not allowed as @table argument
+    'error_line' => ':1: warning: accent command `@~\' must not be followed by new line
 ',
     'file_name' => '',
     'line_nr' => 1,
+    'macro' => '',
+    'text' => 'accent command `@~\' must not be followed by new line',
+    'type' => 'warning'
+  },
+  {
+    'error_line' => ':1: table requires an argument: the formatter for @item
+',
+    'file_name' => '',
+    'line_nr' => 1,
+    'macro' => '',
+    'text' => 'table requires an argument: the formatter for @item',
+    'type' => 'error'
+  },
+  {
+    'error_line' => ':6: warning: accent command `@~\' not allowed as @table argument
+',
+    'file_name' => '',
+    'line_nr' => 6,
     'macro' => '',
     'text' => 'accent command `@~\' not allowed as @table argument',
     'type' => 'warning'
@@ -247,6 +486,9 @@ $result_floats{'accent_on_table_line'} = {};
 
 $result_converted{'plaintext'}->{'accent_on_table_line'} = 'first item
 no at-command ‘code’
+
+acc brace first item
+no at-command ‘code acc brace’
 ';
 
 
@@ -254,12 +496,22 @@ $result_converted{'html_text'}->{'accent_on_table_line'} = '<dl>
 <dt>first item</dt>
 <dt>no at-command <code>code</code></dt>
 </dl>
+
+<dl>
+<dt>acc brace first item</dt>
+<dt>no at-command <code>code acc brace</code></dt>
+</dl>
 ';
 
 
 $result_converted{'xml'}->{'accent_on_table_line'} = '<table commandarg="asis" spaces=" " endspaces=" ">
 <tableentry><tableterm><item spaces=" "><itemformat command="asis">first item</itemformat></item>
 </tableterm></tableentry><tableentry><tableterm><item spaces=" "><itemformat command="asis">no at-command <code>code</code></itemformat></item>
+</tableterm></tableentry></table>
+
+<table commandarg="asis" spaces=" " endspaces=" ">
+<tableentry><tableterm><item spaces=" "><itemformat command="asis">acc brace first item</itemformat></item>
+</tableterm></tableentry><tableentry><tableterm><item spaces=" "><itemformat command="asis">no at-command <code>code acc brace</code></itemformat></item>
 </tableterm></tableentry></table>
 ';
 
