@@ -13,12 +13,17 @@ my @test_cases = (
 @end itemize
 '],
 # unclear that these are valid constructs...
-['accent_argument',
+['empty_accent_argument',
 '@itemize @~@comment
 @item item
 @end itemize
 
 @itemize @~
+@item item
+@end itemize
+'],
+['accent_argument',
+'@itemize @~e
 @item item
 @end itemize
 '],

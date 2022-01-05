@@ -5,6 +5,120 @@ use Texinfo::ModulePath (undef, undef, 'updirs' => 2);
 
 require 't/test_utils.pl';
 
+my $itemize_arguments_text = '
+@itemize ---
+@item item ---
+@end itemize
+
+@itemize a\'\'b\'c
+@item item a\'\'b\'c
+@end itemize
+
+@itemize @code{a\'\'b\'c}
+@item item code @code{a\'\'b\'c}
+@end itemize
+
+@itemize a``b`c
+@item item a``b`c
+@end itemize
+
+@itemize @today
+@item item today @today{}
+@end itemize
+
+@itemize @aa{} @sc{@aa{}}
+@item item aa @aa{} @sc{@aa{}}
+@end itemize
+
+@itemize @tie{}
+@item item tie @tie{}
+@end itemize
+
+@itemize @tie{} a
+@item item tie @tie{} a
+@end itemize
+
+@itemize @atchar
+@item item atchar
+@end itemize
+
+@itemize @atchar{} a
+@item item atchar @atchar{} a
+@end itemize
+
+@itemize @registeredsymbol{}
+@item item registeredsymbol @registeredsymbol{}
+@end itemize
+
+@itemize @registeredsymbol{} a
+@item item registeredsymbol @registeredsymbol{} a
+@end itemize
+
+@itemize @enddots{}
+@item item dots @enddots{}
+@end itemize
+
+@itemize @enddots{} a
+@item item dots @enddots{} a
+@end itemize
+
+@itemize @^e @sc{@^e}
+@item item e @^e @sc{@^e}
+@end itemize
+
+@itemize @^E @sc{@^E}
+@item item E @^E @sc{@^E}
+@end itemize
+
+@itemize @~{@dotless{i}} @dotless{i} @sc{@~{@dotless{i}} @dotless{i}}
+@item item dotless @~{@dotless{i}} @dotless{i} @sc{@~{@dotless{i}} @dotless{i}}
+@end itemize
+
+@itemize @udotaccent{r} @v{@\'{r}} @sc{@udotaccent{r} @v{@\'{r}}}
+@item item complex a @udotaccent{r} @v{@\'{r}} @sc{@udotaccent{r} @v{@\'{r}}}
+@end itemize
+
+@itemize @={@,{@~{n}}} @sc{ @={@,{@~{n}}}}
+@item item complex n @={@,{@~{n}}} @sc{ @={@,{@~{n}}}}
+@end itemize
+
+@itemize @click{}
+@item item click @click{}
+@end itemize
+
+@itemize @click{} a
+@item item click @click{} a
+@end itemize
+
+@clickstyle @result
+
+@itemize @click{}
+@item item result click @click{}
+@end itemize
+
+@itemize @click{} a
+@item item result click @click{}
+@end itemize
+
+@itemize @error{}
+@item item error @error{}
+@end itemize
+
+@itemize @error{} a
+@item item error @error{} a
+@end itemize
+
+@documentlanguage fr
+@itemize @error{}
+@item item fr error @error{}
+@end itemize
+
+@itemize @error{} a
+@item item fr error @error{} a
+@end itemize
+
+';
+
 my @test_cases = (
 ['verbatim_in_multitable_in_example',
 '@example
@@ -380,6 +494,7 @@ example with empty and non empty args mix
 example with @@-commands and other special characters
 @end example
 '],
+
 );
 
 my $test_accents_sc_no_brace_commands_quotes = '@u{--a}
@@ -526,6 +641,15 @@ my @file_tests = (
 
 @footnotestyle separate
 ', {'test_split' => 'node'}, {'SPLIT' => 'node'}],
+['itemize_arguments',
+'@setfilename itemize_arguments.info
+'.$itemize_arguments_text
+],
+['itemize_arguments_enable_encoding',
+'@setfilename itemize_arguments_enable_encoding.info
+'.$itemize_arguments_text
+, {'ENABLE_ENCODING' => 1}
+],
 );
 
 

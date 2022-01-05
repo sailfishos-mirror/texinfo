@@ -1,5 +1,21 @@
 2022-01-05  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_default_css_string_format_protect_text)
+	(_css_string_convert_text): fix text protection.
+
+	* tp/Texinfo/Convert/HTML.pm (_convert_itemize_command)
+	(converter_initialize): handle @click as @itemize argument.
+
+	* tp/Texinfo/Convert/HTML.pm (%default_no_arg_commands_formatting):
+	force @error to be translated and not be in predefined CSS.
+
+	* tp/Texinfo/Convert/HTML.pm
+	(%default_css_string_formatting_references)
+	(_default_css_string_format_protect_text): rename to
+	use _css_string everywhere and not _css_line.
+
+2022-01-05  Patrice Dumas  <pertusus@free.fr>
+
 	in HTML @itemize item mark based on CSS
 
 	* tp/Texinfo/Convert/HTML.pm (html_convert_css_string, %css_map)

@@ -273,7 +273,7 @@ sub html_image_file_location_name($$$$)
 
 my %default_css_string_commands_conversion;
 my %default_css_string_types_conversion;
-my %default_css_line_formatting_references;
+my %default_css_string_formatting_references;
 
 sub html_convert_css_string($$;$)
 {
@@ -292,10 +292,10 @@ sub html_convert_css_string($$;$)
     $saved_types->{$type} = $self->{'types_conversion'}->{$type};
     $self->{'types_conversion'}->{$type} = $default_css_string_types_conversion{$type};
   }
-  foreach my $formatting_reference (keys(%default_css_line_formatting_references)) {
+  foreach my $formatting_reference (keys(%default_css_string_formatting_references)) {
     $saved_formatting_references->{$formatting_reference} = $self->{$formatting_reference};
     $self->{$formatting_reference}
-      = $default_css_line_formatting_references{$formatting_reference};
+      = $default_css_string_formatting_references{$formatting_reference};
   }
 
   my $result = $self->convert_tree_new_formatting_context({'type' => '_string',
@@ -307,7 +307,7 @@ sub html_convert_css_string($$;$)
   foreach my $type (keys(%default_css_string_types_conversion)) {
     $self->{'types_conversion'}->{$type} = $saved_types->{$type};
   }
-  foreach my $formatting_reference (keys(%default_css_line_formatting_references)) {
+  foreach my $formatting_reference (keys(%default_css_string_formatting_references)) {
     $self->{$formatting_reference}
      = $saved_formatting_references->{$formatting_reference};
   }
@@ -1524,7 +1524,7 @@ sub _translate_names($)
         }
       }
     }
-    foreach my $command(keys(%translated_commands)) {
+    foreach my $command (keys(%translated_commands)) {
       $self->_complete_no_arg_commands_formatting($command);
     }
   }
@@ -1758,6 +1758,11 @@ foreach my $command (keys(%{$default_no_arg_commands_formatting{'normal'}})) {
     $default_no_arg_commands_formatting{'css_string'}->{$command} = $css_string;
   }
 }
+
+# replace the default to force using only translation and also
+# prevent using a fixed CSS.
+$default_no_arg_commands_formatting{'css_string'}->{'error'} = '';
+
 $default_no_arg_commands_formatting{'css_string'}->{'*'} = '\A ';
 
 $default_no_arg_commands_formatting{'css_string'}->{' '} = ' ';
@@ -2488,11 +2493,11 @@ sub _default_format_protect_text($$) {
   return $result;
 }
 
-sub _default_css_line_format_protect_text($$) {
+sub _default_css_string_format_protect_text($$) {
   my $self = shift;
   my $text = shift;
   $text =~ s/\\/\\\\/g;
-  $text =~ s/\"/\\"/g;
+  $text =~ s/\'/\\'/g;
   return $text;
 }
 
@@ -3756,15 +3761,21 @@ sub _convert_itemize_command($$$$)
   if ($self->in_string()) {
     return $content;
   }
-  my $command_as_argument;
+  my $command_as_argument_name;
   if (defined($command->{'extra'})
       and defined($command->{'extra'}->{'command_as_argument'})) {
-    $command_as_argument = $command->{'extra'}->{'command_as_argument'}->{'cmdname'};
+    my $command_as_argument = $command->{'extra'}->{'command_as_argument'};
+    if ($command_as_argument->{'cmdname'} eq 'click'
+        and $command_as_argument->{'extra'}->{'clickstyle'}) {
+      $command_as_argument_name = $command_as_argument->{'extra'}->{'clickstyle'};
+    } else {
+      $command_as_argument_name = $command_as_argument->{'cmdname'};
+    }
   }
   # FIXME API?
-  if (defined($command_as_argument)
-      and defined($self->{'css_map'}->{'ul.mark-'.$command_as_argument})) {
-    return $self->html_attribute_class('ul', 'mark-'.$command_as_argument).">\n"
+  if (defined($command_as_argument_name)
+      and defined($self->{'css_map'}->{'ul.mark-'.$command_as_argument_name})) {
+    return $self->html_attribute_class('ul', 'mark-'.$command_as_argument_name).">\n"
        . $content. "</ul>\n";
   } elsif ($self->get_conf('NO_CSS')) {
     return "<ul>\n" . $content. "</ul>\n";
@@ -4740,16 +4751,19 @@ sub _css_string_convert_text($$$)
 
   $text = uc($text) if ($self->in_upper_case());
 
-  $text = $self->protect_text($text);
-
+  # need to hide \ otherwise it is protected in protect_text
   if (!$self->in_code() and !$self->in_math()) {
-    $text =~ s/---/\\2014 /g;
-    $text =~ s/--/\\2013 /g;
-    $text =~ s/``/\\201C /g;
-    $text =~ s/''/\\201D /g;
-    $text =~ s/'/\\2019 /g;
-    $text =~ s/`/\\2018 /g;
+    $text =~ s/---/\x{1F}2014 /g;
+    $text =~ s/--/\x{1F}2013 /g;
+    $text =~ s/``/\x{1F}201C /g;
+    $text =~ s/''/\x{1F}201D /g;
+    $text =~ s/'/\x{1F}2019 /g;
+    $text =~ s/`/\x{1F}2018 /g;
   }
+
+  $text = $self->protect_text($text);
+  $text =~ s/\x{1F}/\\/g;
+
   return $text;
 }
 $default_css_string_types_conversion{'text'} = \&_css_string_convert_text;
@@ -5636,8 +5650,8 @@ our %default_formatting_references = (
      'format_frame_files' => \&_default_format_frame_files,
 );
 
-%default_css_line_formatting_references = (
-  'format_protect_text' => \&_default_css_line_format_protect_text,
+%default_css_string_formatting_references = (
+  'format_protect_text' => \&_default_css_string_format_protect_text,
 );
 
 sub _complete_no_arg_commands_formatting($$)
@@ -5987,20 +6001,32 @@ sub converter_initialize($)
   # setup css for itemize command arguments
   if (defined($self->{'parser_info'})
       and (defined($self->{'parser_info'}->{'itemize_commands_arg'}))) {
-    foreach my $command (sort(keys(%{$self->{'parser_info'}->{'itemize_commands_arg'}}))) {
+    foreach my $command_name (sort(keys(%{$self->{'parser_info'}->{'itemize_commands_arg'}}))) {
       my $css_string;
-      if ($command eq 'bullet') {
-        # nothing to do, unconditionnally in the css_map
-      } elsif ($command eq 'w') {
-        # special case, no marker
-        $css_string = 'none';
-      } elsif ($self->{'no_arg_commands_formatting'}->{'css_string'}->{$command}) {
-        $css_string = $self->{'no_arg_commands_formatting'}->{'css_string'}->{$command};
-        $css_string =~ s/^(\\[A-Z0-9]+) $/$1/;
-        $css_string = '"'.$css_string.'"';
+      my @commands = ($command_name);
+      if ($command_name eq 'click') {
+        foreach my $itemize (@{$self->{'parser_info'}->{'itemize_commands_arg'}->{$command_name}}) {
+          my $command_as_argument = $itemize->{'extra'}->{'command_as_argument'};
+          if (exists($command_as_argument->{'extra'}->{'clickstyle'})) {
+            my $click_cmdname = $command_as_argument->{'extra'}->{'clickstyle'};
+            push @commands, $command_name;
+          }
+        }
       }
-      if (defined($css_string)) {
-        $self->{'css_map'}->{"ul.mark-$command"} = "list-style-type: $css_string";
+      foreach my $command (@commands) {
+        if ($command eq 'bullet') {
+          # nothing to do, unconditionnally in the css_map
+        } elsif ($command eq 'w') {
+          # special case, no marker
+          $css_string = 'none';
+        } elsif ($self->{'no_arg_commands_formatting'}->{'css_string'}->{$command}) {
+          $css_string = $self->{'no_arg_commands_formatting'}->{'css_string'}->{$command};
+          $css_string =~ s/^(\\[A-Z0-9]+) $/$1/;
+          $css_string = '"'.$css_string.'"';
+        }
+        if (defined($css_string)) {
+          $self->{'css_map'}->{"ul.mark-$command"} = "list-style-type: $css_string";
+        }
       }
     }
   }
