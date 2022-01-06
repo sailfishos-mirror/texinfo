@@ -26,6 +26,7 @@ See the manual for detailed information.
  . Rename OVERVIEW_LINK_TO_TOC as SHORT_TOC_LINK_TO_TOC, rename
    BEFORE_OVERVIEW as BEFORE_SHORT_TOC_LINES and AFTER_OVERVIEW as
    AFTER_SHORT_TOC_LINES.
+ . remove CSS_LINES customization variable.
  . HTML output:
      . use <code> tag for the output of @t instead of <tt>
 

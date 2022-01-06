@@ -6,6 +6,47 @@
 
 2022-01-06  Patrice Dumas  <pertusus@free.fr>
 
+	Dynamically generated CSS lines in HTML
+
+	* NEWS, doc/texinfo.texi (HTML Customization Variables)
+	(_default_format_css_lines, _file_header_informations): remove
+	CSS_LINES customization variable which does not make much sense
+	with dynamically generated CSS lines.
+
+	* tp/Texinfo/Convert/HTML.pm (convert_tree_new_formatting_context)
+	(command_text, _new_document_context, _pop_document_context)
+	(_translate_names): add an argument to mark expansions that are
+	reused in the document without being expanded again.  Mainly
+	for expansions in command_text() and buttons names.
+
+	* tp/Texinfo/Convert/HTML.pm (_collect_css_element_class)
+	(html_attribute_class, %css_rules_not_collected)
+	(html_get_css_elements_classes, %css_map, _default_format_css_lines)
+	(_default_format_begin_file, _default_format_frame_files, output):
+	collect CSS rules used in the document while outputting and use only
+	collected CSS rules in generated CSS rules.  Both CSS rules associated
+	to the file being output and associated to the global context in its
+	current state are output.
+
+	* tp/Texinfo/Convert/HTML.pm (output): do headers after the body from
+	all the elements to collect CSS rules.  Do end of files before doing
+	header in case there are CSS rules there.
+
+	* tp/Texinfo/Convert/HTML.pm (output, %defaults)
+	(_file_header_informations, _default_format_end_file): do not setup
+	jslicenses_element at the beginning of a file, but at the end, when
+	the information is needed.
+
+	* tp/Texinfo/Convert/HTML.pm (_default_format_end_file, output)
+	(_convert, _default_format_frame_files),: define $self->{'current_filename'}
+	and delete outside of conversion to be sure that it is defined for CSS rules
+	collection including in end of files formatting.
+
+	* tp/Texinfo/Convert/HTML.pm (_get_copiable_anchor): use
+	html_attribute_class().
+
+2022-01-06  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_convert_itemize_command)
 	(converter_initialize): use mark-none for the class name corresponding
 	to @itemize @w{} that does not produce any mark at all.

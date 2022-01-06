@@ -16242,9 +16242,6 @@ Tables}) where an index entry is defined.  An anchor appears as a `@U{00B6}'
 @c pilcrow sign
 sign that appears when you hover the mouse pointer over the heading text.
 
-@item CSS_LINES
-CSS output, automatically determined by default (@pxref{HTML CSS}).
-
 @item DATE_IN_HEADER
 Put the document generation date in the header; off by default.
 

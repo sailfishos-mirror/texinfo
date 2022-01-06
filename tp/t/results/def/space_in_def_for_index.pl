@@ -544,30 +544,8 @@ $result_converted{'html'}->{'space_in_def_for_index'} = '<!DOCTYPE html>
 <!--
 a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
 a.summary-letter {text-decoration: none}
-blockquote.indentedblock {margin-right: 0em}
-div.center-align {text-align:center}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-h1.center-align {text-align:center}
-h2.center-align {text-align:center}
-h3.center-align {text-align:center}
-h3.right-align {text-align:right}
-h4.center-align {text-align:center}
 kbd {font-style: oblique}
-kbd.key {font-style: normal}
-p.center-align {text-align:center}
-p.left-align {text-align:left}
-p.right-align {text-align:right}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-span.nolinebreak {white-space: nowrap}
-span.roman {font-family: initial; font-weight: normal}
-span.sansserif {font-family: sans-serif; font-weight: normal}
 span:hover a.copiable-anchor {visibility: visible}
-ul.mark-bullet {list-style-type: disc}
-ul.no-bullet {list-style: none}
 -->
 </style>
 
@@ -578,8 +556,8 @@ ul.no-bullet {list-style: none}
 <h1 class="node-heading" id="Top">Top</h1>
 
 <dl class="def">
-<dt id="index-name"><span class="category">Category: </span><span><strong>name</strong> <em>argument argument2...</em><a href=\'#index-name\' class=\'copiable-anchor\'> &para;</a></span></dt>
-<dt id="index-AAA2"><span class="category">AAA1: </span><span><strong>AAA2</strong> <em>arg3</em><a href=\'#index-AAA2\' class=\'copiable-anchor\'> &para;</a></span></dt>
+<dt id="index-name"><span class="category">Category: </span><span><strong>name</strong> <em>argument argument2...</em><a class="copiable-anchor" href=\'#index-name\'> &para;</a></span></dt>
+<dt id="index-AAA2"><span class="category">AAA1: </span><span><strong>AAA2</strong> <em>arg3</em><a class="copiable-anchor" href=\'#index-AAA2\'> &para;</a></span></dt>
 </dl>
 
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Top_fn_letter-A"><b>A</b></a>

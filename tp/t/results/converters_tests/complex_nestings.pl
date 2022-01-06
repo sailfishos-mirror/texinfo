@@ -1452,15 +1452,15 @@ $result_converted{'html_text'}->{'complex_nestings'} = '<h1 class="node-heading"
 <div class="example">
 <pre class="example">deffs
 </pre><dl class="def">
-<dt id="index-my-def"><span class="category">Function: </span><span><strong>my def</strong> <em>args <var>arg</var> &hellip;</em><a href=\'#index-my-def\' class=\'copiable-anchor\'> &para;</a></span></dt>
-<dt id="index-other-def"><span class="category">Function: </span><span><strong>other def</strong> <em>no args</em><a href=\'#index-other-def\' class=\'copiable-anchor\'> &para;</a></span></dt>
+<dt id="index-my-def"><span class="category">Function: </span><span><strong>my def</strong> <em>args <var>arg</var> &hellip;</em><a class="copiable-anchor" href=\'#index-my-def\'> &para;</a></span></dt>
+<dt id="index-other-def"><span class="category">Function: </span><span><strong>other def</strong> <em>no args</em><a class="copiable-anchor" href=\'#index-other-def\'> &para;</a></span></dt>
 <dd><dl class="def">
-<dt id="index-name"><span class="category">type: </span><span><strong>name</strong> <em>and now the args</em><a href=\'#index-name\' class=\'copiable-anchor\'> &para;</a></span></dt>
+<dt id="index-name"><span class="category">type: </span><span><strong>name</strong> <em>and now the args</em><a class="copiable-anchor" href=\'#index-name\'> &para;</a></span></dt>
 <dd><dl class="def">
-<dt id="index-variables"><span class="category">Variable: </span><span><strong>variables</strong> <em>variable-name</em><a href=\'#index-variables\' class=\'copiable-anchor\'> &para;</a></span></dt>
+<dt id="index-variables"><span class="category">Variable: </span><span><strong>variables</strong> <em>variable-name</em><a class="copiable-anchor" href=\'#index-variables\'> &para;</a></span></dt>
 <dd><pre class="example">
 
-</pre></dd><dt id="index-variables-too"><span class="category">Variable: </span><span><strong>variables too</strong> <em>other-variable</em><a href=\'#index-variables-too\' class=\'copiable-anchor\'> &para;</a></span></dt>
+</pre></dd><dt id="index-variables-too"><span class="category">Variable: </span><span><strong>variables too</strong> <em>other-variable</em><a class="copiable-anchor" href=\'#index-variables-too\'> &para;</a></span></dt>
 <dd><pre class="example">THis is the defvar
 
 A table within the def

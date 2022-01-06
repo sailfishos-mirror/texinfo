@@ -1768,17 +1768,17 @@ end example.
 </dl>
 
 <dl>
-<dt id=\'index-item-before-ignored-lines\'><span><strong>item before ignored lines</strong><a href=\'#index-item-before-ignored-lines\' class=\'copiable-anchor\'> &para;</a></span></dt>
+<dt id=\'index-item-before-ignored-lines\'><span><strong>item before ignored lines</strong><a class="copiable-anchor" href=\'#index-item-before-ignored-lines\'> &para;</a></span></dt>
 <dd><a class="index-entry-anchor" id="index-vindex"></a>
 </dd>
-<dt id=\'index-itemx-now\'><span><strong>itemx now</strong><a href=\'#index-itemx-now\' class=\'copiable-anchor\'> &para;</a></span></dt>
+<dt id=\'index-itemx-now\'><span><strong>itemx now</strong><a class="copiable-anchor" href=\'#index-itemx-now\'> &para;</a></span></dt>
 <dd>
 <p>Description
 </p></dd>
 </dl>
 <dl>
-<dt id=\'index-item\'><span><span class="roman">item</span><a href=\'#index-item\' class=\'copiable-anchor\'> &para;</a></span></dt>
-<dt id=\'index-itemx-after-an-empty-line\'><span><span class="roman">itemx after an empty line</span><a href=\'#index-itemx-after-an-empty-line\' class=\'copiable-anchor\'> &para;</a></span></dt>
+<dt id=\'index-item\'><span><span class="roman">item</span><a class="copiable-anchor" href=\'#index-item\'> &para;</a></span></dt>
+<dt id=\'index-itemx-after-an-empty-line\'><span><span class="roman">itemx after an empty line</span><a class="copiable-anchor" href=\'#index-itemx-after-an-empty-line\'> &para;</a></span></dt>
 <dd>
 <p>Description.
 </p>

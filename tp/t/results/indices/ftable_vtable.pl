@@ -937,19 +937,19 @@ $result_converted{'html_text'}->{'ftable_vtable'} = '
 <h1 class="node-heading" id="Top">Top</h1>
 
 <dl>
-<dt id=\'index-function1\'><span><em>function1</em><a href=\'#index-function1\' class=\'copiable-anchor\'> &para;</a></span></dt>
-<dt id=\'index-function2x\'><span><em>function2x</em><a href=\'#index-function2x\' class=\'copiable-anchor\'> &para;</a></span></dt>
+<dt id=\'index-function1\'><span><em>function1</em><a class="copiable-anchor" href=\'#index-function1\'> &para;</a></span></dt>
+<dt id=\'index-function2x\'><span><em>function2x</em><a class="copiable-anchor" href=\'#index-function2x\'> &para;</a></span></dt>
 <dd><p>Text
 </p></dd>
-<dt id=\'index-fun3\'><span><em>fun3</em><a href=\'#index-fun3\' class=\'copiable-anchor\'> &para;</a></span></dt>
+<dt id=\'index-fun3\'><span><em>fun3</em><a class="copiable-anchor" href=\'#index-fun3\'> &para;</a></span></dt>
 </dl>
 
 <dl>
-<dt id=\'index-var1-error_002d_002d_003e\'><span><em>var1 error&rarr;</em><a href=\'#index-var1-error_002d_002d_003e\' class=\'copiable-anchor\'> &para;</a></span></dt>
-<dt id=\'index-varx2\'><span><em>varx2</em><a href=\'#index-varx2\' class=\'copiable-anchor\'> &para;</a></span></dt>
+<dt id=\'index-var1-error_002d_002d_003e\'><span><em>var1 error&rarr;</em><a class="copiable-anchor" href=\'#index-var1-error_002d_002d_003e\'> &para;</a></span></dt>
+<dt id=\'index-varx2\'><span><em>varx2</em><a class="copiable-anchor" href=\'#index-varx2\'> &para;</a></span></dt>
 <dd><p>Text
 </p></dd>
-<dt id=\'index-var3\'><span><em>var3</em><a href=\'#index-var3\' class=\'copiable-anchor\'> &para;</a></span></dt>
+<dt id=\'index-var3\'><span><em>var3</em><a class="copiable-anchor" href=\'#index-var3\'> &para;</a></span></dt>
 </dl>
 
 <a class="index-entry-anchor" id="index-function1-1"></a>

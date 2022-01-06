@@ -3211,27 +3211,27 @@ $result_converted{'html_text'}->{'inter_item_commands_in_table'} = '
 <h2 class="chapter" id="chap">1 chap</h2>
 
 <dl>
-<dt id=\'index-acode_002d_002db\'><span><code>acode--b</code><a href=\'#index-acode_002d_002db\' class=\'copiable-anchor\'> &para;</a></span></dt>
+<dt id=\'index-acode_002d_002db\'><span><code>acode--b</code><a class="copiable-anchor" href=\'#index-acode_002d_002db\'> &para;</a></span></dt>
 <dd><p>l&ndash;ine
 </p></dd>
 </dl>
 
 <dl>
-<dt id=\'index-aasis_002d_002db\'><span>aasis&ndash;b<a href=\'#index-aasis_002d_002db\' class=\'copiable-anchor\'> &para;</a></span></dt>
-<dt id=\'index-b-1\'><span>b<a href=\'#index-b-1\' class=\'copiable-anchor\'> &para;</a></span></dt>
+<dt id=\'index-aasis_002d_002db\'><span>aasis&ndash;b<a class="copiable-anchor" href=\'#index-aasis_002d_002db\'> &para;</a></span></dt>
+<dt id=\'index-b-1\'><span>b<a class="copiable-anchor" href=\'#index-b-1\'> &para;</a></span></dt>
 <dd><p>l&ndash;ine
 </p></dd>
 </dl>
 
 <dl>
-<dt id=\'index-avar_002d_002db\'><span><var>avar&ndash;b</var><a href=\'#index-avar_002d_002db\' class=\'copiable-anchor\'> &para;</a></span></dt>
+<dt id=\'index-avar_002d_002db\'><span><var>avar&ndash;b</var><a class="copiable-anchor" href=\'#index-avar_002d_002db\'> &para;</a></span></dt>
 <dd><a class="index-entry-anchor" id="index-index-entry-between-item-and-itemx"></a>
 </dd>
-<dt id=\'index-b\'><span><var>b</var><a href=\'#index-b\' class=\'copiable-anchor\'> &para;</a></span></dt>
+<dt id=\'index-b\'><span><var>b</var><a class="copiable-anchor" href=\'#index-b\'> &para;</a></span></dt>
 <dd><p>l&ndash;ine
 </p></dd>
-<dt id=\'index-c\'><span><var>c</var><a href=\'#index-c\' class=\'copiable-anchor\'> &para;</a></span></dt>
-<dt id=\'index-d\'><span><var>d</var><a href=\'#index-d\' class=\'copiable-anchor\'> &para;</a></span></dt>
+<dt id=\'index-c\'><span><var>c</var><a class="copiable-anchor" href=\'#index-c\'> &para;</a></span></dt>
+<dt id=\'index-d\'><span><var>d</var><a class="copiable-anchor" href=\'#index-d\'> &para;</a></span></dt>
 </dl>
 
 <dl>

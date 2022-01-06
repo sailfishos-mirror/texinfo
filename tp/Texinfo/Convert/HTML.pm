@@ -139,6 +139,23 @@ my %upper_case_commands = ( 'sc' => 1 );
 
 # API for html formatting
 
+sub _collect_css_element_class($$)
+{
+  my $self = shift;
+  my $element_class = shift;
+  
+  #if (not defined($self->{'current_filename'})) {
+  #  cluck "CFND";
+  #}
+  if (defined($self->{'css_map'}->{$element_class})) {
+    if ($self->{'document_global_context'}) {
+      $self->{'document_global_context_css'}->{$element_class} = 1;
+    } elsif (defined($self->{'current_filename'})) {
+      $self->{'file_css'}->{$self->{'current_filename'}}->{$element_class} = 1;
+    }
+  }
+}
+
 # $extra_classes should be an array reference or undef
 sub html_attribute_class($$$;$)
 {
@@ -157,11 +174,11 @@ sub html_attribute_class($$$;$)
 
   my $style = '';
 
+  my @all_classes = ($class);
+  if (defined($extra_classes)) {
+    push @all_classes, @$extra_classes;
+  }
   if ($self->get_conf('INLINE_CSS_STYLE')) {
-    my @all_classes = ($class);
-    if (defined($extra_classes)) {
-      @all_classes = (@all_classes, @$extra_classes);
-    }
     my @styles = ();
     foreach my $style_class (@all_classes) {
       if (defined($self->{'css_map'}->{"$element.$style_class"})) {
@@ -170,6 +187,10 @@ sub html_attribute_class($$$;$)
     }
     if (scalar(@styles) >  0) {
       $style = ' style="'.join(';',@styles).'"';
+    }
+  } else {
+    foreach my $style_class (@all_classes) {
+      $self->_collect_css_element_class("$element.$style_class");
     }
   }
   my $extra_class_str = '';
@@ -180,6 +201,35 @@ sub html_attribute_class($$$;$)
     }
   }
   return "<$element class=\"$class$extra_class_str\"$style";
+}
+
+# those rules cannot be collected during document output since they
+# are not associated with a class attribute element setting
+my %css_rules_not_collected = (
+     'kbd'                => 'font-style: oblique',
+);
+
+sub html_get_css_elements_classes($;$)
+{
+  my $self = shift;
+  my $filename = shift;
+
+  my %css_elements_classes = %css_rules_not_collected;
+  if ($self->{'document_global_context_css'}) {
+    %css_elements_classes = ( %css_elements_classes,
+                              %{$self->{'document_global_context_css'}} );
+  }
+
+  if (defined($filename) and $self->{'file_css'}->{$filename}) {
+    %css_elements_classes = ( %css_elements_classes,
+                              %{$self->{'file_css'}->{$filename}} );
+  }
+
+  if ($css_elements_classes{'a.copiable-anchor'}) {
+    $css_elements_classes{'span:hover a.copiable-anchor'} = 1;
+  }
+
+  return sort(keys(%css_elements_classes));
 }
 
 sub close_html_lone_element($$) {
@@ -738,7 +788,8 @@ sub command_text($$;$)
                  'contents' => [$tree]};
       }
       my $result = $self->convert_tree_new_formatting_context(
-            $tree, $command->{'cmdname'});
+        # FIXME check if $document_global_context argument is really needed
+            $tree, $command->{'cmdname'}, 'command_text manual_content');
       return $result;
     }
   }
@@ -809,7 +860,7 @@ sub command_text($$;$)
                                           and $target->{'tree_nonumber'});
     return $tree if ($type eq 'tree' or $type eq 'tree_nonumber');
     
-    $self->_new_document_context($command->{'cmdname'});
+    $self->_new_document_context($command->{'cmdname'}, $explanation);
 
     if ($type eq 'string') {
       $tree = {'type' => '_string',
@@ -824,7 +875,7 @@ sub command_text($$;$)
     $target->{$type} = $self->_convert($tree, $explanation);
     $self->{'ignore_notice'}--;
 
-    pop @{$self->{'document_context'}};
+    $self->_pop_document_context();
     return $target->{$type};
   }
   return undef;
@@ -1117,10 +1168,11 @@ sub convert_tree_new_formatting_context($$;$$)
   my $tree = shift;
   my $context_string = shift;
   my $multiple_pass = shift;
+  my $document_global_context = shift;
 
   my $context_string_str = '';
   if (defined($context_string)) {
-    $self->_new_document_context($context_string);
+    $self->_new_document_context($context_string, $document_global_context);
     $context_string_str = "C($context_string)";
   }
   my $multiple_pass_str = '';
@@ -1133,7 +1185,7 @@ sub convert_tree_new_formatting_context($$;$$)
         if ($self->get_conf('DEBUG'));
   my $result = $self->convert_tree($tree, "new_fmt_ctx ${context_string_str}");
   if (defined($context_string)) {
-    pop @{$self->{'document_context'}};
+    $self->_pop_document_context();
   }
   if ($multiple_pass) {
     $self->{'ignore_notice'}--;
@@ -1390,7 +1442,6 @@ my %defaults = (
      'footnotes'   => 'Footnotes',
   },
   'jslicenses' => {},         # for outputting licences file
-  'jslicenses_element' => {}, # scripts used in current output file
   'jslicenses_math' => {},    # MathJax scripts
   'jslicenses_infojs' => {},  # info.js scripts
   'element_math' => 0,        # whether math has been seen in current file
@@ -1550,7 +1601,7 @@ sub _translate_names($)
     foreach my $button (keys (%$hash)) {
       if (ref($hash->{$button})) {
         $hash->{$button} = $self->convert_tree_new_formatting_context(
-                                       $hash->{$button}, "button $button");
+                   $hash->{$button}, "button $button", undef, "button $button");
       }
     }
   }
@@ -1593,6 +1644,8 @@ my $NO_BULLET_LIST_ATTRIBUTE = ' class="'.$NO_BULLET_LIST_CLASS.'"';
 my $MENU_PRE_STYLE = 'font-family: serif';
 
 my %css_map = (
+     %css_rules_not_collected,
+
      "ul.$NO_BULLET_LIST_CLASS" => "$NO_BULLET_LIST_STYLE",
      'ul.mark-bullet'       => 'list-style-type: disc',
      'pre.menu-comment'       => "$MENU_PRE_STYLE",
@@ -1602,7 +1655,6 @@ my %css_map = (
      'span.sansserif'     => 'font-family: sans-serif; font-weight: normal',
      'span.roman'         => 'font-family: initial; font-weight: normal',
      'span.nolinebreak'   => 'white-space: nowrap',
-     'kbd'                => 'font-style: oblique',
      'kbd.key'            => 'font-style: normal',
      'p.center-align'     => 'text-align:center',
      'p.left-align'       => 'text-align:left',
@@ -4462,7 +4514,7 @@ sub _convert_printindex_command($$$$)
   }
   $result .= "</table>\n";
   
-  pop @{$self->{'document_context'}};
+  $self->_pop_document_context();
   
   return $result .$summary;
 }
@@ -5339,7 +5391,8 @@ sub _get_copiable_anchor {
   my $result = '';
   if ($id and $self->get_conf('COPIABLE_ANCHORS')) {
     my $paragraph_symbol = $self->{'paragraph_symbol'};
-    $result = "<a href='#$id' class='copiable-anchor'> $paragraph_symbol</a>";
+    $result = $self->html_attribute_class('a', 'copiable-anchor')
+        ." href='#$id'> $paragraph_symbol</a>";
   }
   return $result;
 }
@@ -5666,10 +5719,15 @@ sub _default_format_element_footer($$$$)
   return $result;
 }
 
-sub _new_document_context($$)
+# if $document_global_context is set, it means that the formatting
+# is not done within the document formatting flow, but the formatted
+# output may still end up in the document.  In particular for
+# command_text() which caches its computations.
+sub _new_document_context($$;$)
 {
   my $self = shift;
   my $cmdname = shift;
+  my $document_global_context = shift;
 
   push @{$self->{'document_context'}},
           {'cmdname' => $cmdname,
@@ -5677,7 +5735,21 @@ sub _new_document_context($$)
            'composition_context' => ['raggedright'],
            'formats' => [],
            'monospace' => [0],
+           'document_global_context' => $document_global_context,
           };
+  if (defined($document_global_context)) {
+    $self->{'document_global_context'}++;
+  }
+}
+
+sub _pop_document_context($)
+{
+  my $self = shift;
+
+  my $context = pop @{$self->{'document_context'}};
+  if (defined($context->{'document_global_context'})) {
+    $self->{'document_global_context'}--;
+  }
 }
 
 # Functions accessed with e.g. 'format_heading_text'.
@@ -6174,21 +6246,25 @@ sub _normalized_to_id($)
   return $id;
 }
 
-sub _default_format_css_lines($)
+sub _default_format_css_lines($;$)
 {
   my $self = shift;
+  my $filename = shift;
 
-  return if ($self->get_conf('NO_CSS'));
+  return '' if ($self->get_conf('NO_CSS'));
 
   my $css_refs = $self->get_conf('CSS_REFS');
 
-  return if (!@{$self->{'css_import_lines'}} and !@{$self->{'css_rule_lines'}}
+  my @css_rules = $self->html_get_css_elements_classes($filename);
+
+  return '' if (!@{$self->{'css_import_lines'}} and !@{$self->{'css_rule_lines'}}
              and !keys(%{$self->{'css_map'}}) and !@$css_refs);
 
   my $css_text = "<style type=\"text/css\">\n<!--\n";
   $css_text .= join('',@{$self->{'css_import_lines'}}) . "\n" 
     if (@{$self->{'css_import_lines'}});
-  foreach my $css_rule (sort(keys(%{$self->{'css_map'}}))) {
+  #foreach my $css_rule (sort(keys(%{$self->{'css_map'}}))) {
+  foreach my $css_rule (@css_rules) {
     next unless ($self->{'css_map'}->{$css_rule});
     $css_text .= "$css_rule {$self->{'css_map'}->{$css_rule}}\n";
   }
@@ -6199,7 +6275,7 @@ sub _default_format_css_lines($)
     $css_text .= $self->close_html_lone_element(
          "<link rel=\"stylesheet\" type=\"text/css\" href=\"$ref\"")."\n";
   }
-  $self->set_conf('CSS_LINES', $css_text);
+  return $css_text;
 }
 
 sub _process_css_file($$$)
@@ -7462,11 +7538,23 @@ sub _default_format_end_file($)
   my $pre_body_close = $self->get_conf('PRE_BODY_CLOSE');
   $pre_body_close = '' if (!defined($pre_body_close));
 
+  # jlicenses for the current element.  Note that 'jslicenses_infojs'
+  # and 'jslicenses_math' will only be set with some customization variables
+  my %jslicenses_element;
+  for my $key (keys %{$self->{'jslicenses_infojs'}}) {
+    $jslicenses_element{$key} = $self->{'jslicenses_infojs'}->{$key};
+  }
+ 
+  if ($self->{'element_math'} or !$self->get_conf('SPLIT')) {
+    for my $key (keys %{$self->{'jslicenses_math'}}) {
+      $jslicenses_element{$key} = $self->{'jslicenses_math'}->{$key};
+    }
+  }
   my $js_setting = $self->get_conf('JS_WEBLABELS');
   my $js_path = $self->get_conf('JS_WEBLABELS_FILE');
   if (defined($js_setting) and defined($js_path)
         and ($js_setting eq 'generate' or $js_setting eq 'reference')
-             and %{$self->{'jslicenses_element'}}) {
+             and %jslicenses_element) {
     $pre_body_close .=
       "<a href='$js_path' rel='jslicense'><small>"
       .$self->convert_tree($self->gdt('JavaScript license information'))
@@ -7494,10 +7582,11 @@ sub _root_html_element_attributes_string($)
 # This is used for normal output files and other files, like
 # redirection file headers.  $COMMAND is the tree element for
 # a @node that is being output in the file.
-sub _file_header_informations($$)
+sub _file_header_informations($$;$)
 {
   my $self = shift;
   my $command = shift;
+  my $filename = shift;
   
   my $title;
   if ($command) {
@@ -7551,12 +7640,8 @@ sub _file_header_informations($$)
         "<meta name=\"date\" content=\"$today\"")."\n";
   }
 
-  my $css_lines;
-  if (defined($self->get_conf('CSS_LINES'))) {
-    $css_lines = $self->get_conf('CSS_LINES');
-  } else {
-    $css_lines = '';
-  }
+  my $css_lines = &{$self->{'format_css_lines'}}($self, $filename);
+
   my $doctype = $self->get_conf('DOCTYPE');
   my $root_html_element_attributes = $self->_root_html_element_attributes_string();
   my $bodytext = $self->get_conf('BODYTEXT');
@@ -7602,9 +7687,6 @@ sub _file_header_informations($$)
 '<script src="'.$jsdir.'modernizr.js" type="text/javascript"></script>
 <script src="'.$jsdir.'info.js" type="text/javascript"></script>';
     }
-    for my $key (keys %{$self->{'jslicenses_infojs'}}) {
-      $self->{'jslicenses_element'}->{$key} = $self->{'jslicenses_infojs'}->{$key};
-    }
   }
   if (($self->{'element_math'} or !$self->get_conf('SPLIT'))
         and defined($self->get_conf('HTML_MATH'))
@@ -7625,9 +7707,6 @@ MathJax = {
   src="'.$mathjax_script.'">
 </script>';
 
-    for my $key (keys %{$self->{'jslicenses_math'}}) {
-      $self->{'jslicenses_element'}->{$key} = $self->{'jslicenses_math'}->{$key};
-    }
   }
 
   return ($title, $description, $encoding, $date, $css_lines, 
@@ -7679,7 +7758,7 @@ sub _default_format_begin_file($$$)
   my ($title, $description, $encoding, $date, $css_lines, 
           $doctype, $root_html_element_attributes, $bodytext, $copying_comment,
           $after_body_open, $extra_head, $program_and_version, $program_homepage,
-          $program, $generator) = $self->_file_header_informations($command);
+          $program, $generator) = $self->_file_header_informations($command, $filename);
 
   my $links = $self->_get_links ($filename, $element);
 
@@ -7956,6 +8035,10 @@ __("cannot use absolute path or URL `%s' for JS_WEBLABELS_FILE when generating w
   }
 }
 
+# FIXME the file opening should be done in main program, only
+# the formatting should be done in customization function.  Frames
+# are deprecated in HTML and therefore there is no point in investing
+# time in producing them.
 sub _default_format_frame_files($$)
 {
   my $self = shift;
@@ -8020,14 +8103,18 @@ EOT
                       $self->output_files_information(), $self, $toc_frame_outfile);
   if (defined($toc_frame_fh)) {
 
-    my $header = &{$self->{'format_begin_file'}}($self, $toc_frame_file, undef);
-    print $toc_frame_fh $header;
-    print $toc_frame_fh '<h2>Content</h2>'."\n";
+    # this is needed to collect CSS rules.
+    $self->{'current_filename'} = $toc_frame_file;
     my $shortcontents = 
       &{$self->{'format_contents'}}($self, 'shortcontents', undef);
     $shortcontents =~ s/\bhref=/target="main" href=/g;
+    my $header = &{$self->{'format_begin_file'}}($self, $toc_frame_file, undef);
+    print $toc_frame_fh $header;
+    print $toc_frame_fh '<h2>Content</h2>'."\n";
     print $toc_frame_fh $shortcontents;
     print $toc_frame_fh "</body></html>\n";
+
+    $self->{'current_filename'} = undef;
 
     Texinfo::Common::output_files_register_closed(
                   $self->output_files_information(), $toc_frame_outfile);
@@ -8302,8 +8389,6 @@ sub output($$)
   my $structure_status = $self->run_stage_handlers($root, 'structure');
   return undef unless($structure_status);
 
-  &{$self->{'format_css_lines'}}($self);
-
   # FIXME there is no good choice here.  The language may be
   # set later on, it is wrong to use it from the beginning.
   # Best that can be done for now.  Wait for Gavin answer on
@@ -8490,10 +8575,12 @@ sub output($$)
       $body .= &{$self->{'format_footnotes_text'}}($self);
     }
 
+    # do end file first, in case it needs some CSS
+    my $footer = &{$self->{'format_end_file'}}($self);
     my $header = &{$self->{'format_begin_file'}}($self, $output_filename, undef);
     $output .= $self->write_or_return($header, $fh);
     $output .= $self->write_or_return($body, $fh);
-    $output .= $self->write_or_return(&{$self->{'format_end_file'}}($self), $fh);
+    $output .= $self->write_or_return($footer, $fh);
 
     # NOTE do not close STDOUT now to avoid a perl warning.
     if ($fh and $no_page_out_filepath ne '-') {
@@ -8505,22 +8592,21 @@ sub output($$)
                                       $no_page_out_filepath, $!));
       }
     }
+    $self->{'current_filename'} = undef;
     return $output if ($output_file eq '');
   } else {
     # output with pages
     print STDERR "DO Elements with filenames\n"
       if ($self->get_conf('DEBUG'));
     my %files;
-    
+
     my $unit_nr = -1;
     # Now do the output, converting each tree units and special elements in turn
     $special_elements = [] if (!defined($special_elements));
     foreach my $element (@$tree_units, @$special_elements) {
-      my $file_fh;
       $self->{'current_filename'} = $element->{'filename'};
       $self->{'counter_in_file'}->{$element->{'filename'}}++;
       if ($self->{'counter_in_file'}->{$element->{'filename'}} == 1) {
-        $self->{'jslicenses_element'} = {};
         $self->{'element_math'} = 0;
       }
 
@@ -8547,41 +8633,48 @@ sub output($$)
         $body = $self->_convert($element, "output unit $unit_nr");
       }
 
-      if (!$files{$element->{'filename'}}->{'fh'}) {
-        $file_fh = Texinfo::Common::output_files_open_out(
+      # register the element but do not print anything. Printing
+      # only when file_counters reach 0, to be sure that all the
+      # elements have been converted.
+      if (!$files{$element->{'filename'}}->{'first_element'}) {
+        $files{$element->{'filename'}}->{'first_element'} = $element;
+        $files{$element->{'filename'}}->{'body'} = '';
+      }
+      $files{$element->{'filename'}}->{'body'} .= $body;
+      $self->{'file_counters'}->{$element->{'filename'}}--;
+      if ($self->{'file_counters'}->{$element->{'filename'}} == 0) {
+        my $file_element = $files{$element->{'filename'}}->{'first_element'};
+        my $file_fh = Texinfo::Common::output_files_open_out(
                          $self->output_files_information(), $self,
-                         $element->{'out_filepath'});
+                         $file_element->{'out_filepath'});
         if (!$file_fh) {
           $self->document_error($self,
                sprintf(__("could not open %s for writing: %s"),
-                                    $element->{'out_filepath'}, $!));
+                                    $file_element->{'out_filepath'}, $!));
           return undef;
         }
-        print $file_fh "".&{$self->{'format_begin_file'}}($self, 
-                              $element->{'filename'}, $element);
-        $files{$element->{'filename'}}->{'fh'} = $file_fh;
-      } else {
-        $file_fh = $files{$element->{'filename'}}->{'fh'};
-      }
-      print $file_fh $body;
-      $self->{'file_counters'}->{$element->{'filename'}}--;
-      if ($self->{'file_counters'}->{$element->{'filename'}} == 0) {
+        # do end file first in case it requires some CSS
+        my $end_file = &{$self->{'format_end_file'}}($self);
+        print $file_fh "".&{$self->{'format_begin_file'}}($self,
+                         $file_element->{'filename'}, $file_element);
+        print $file_fh "".$files{$element->{'filename'}}->{'body'};
         # end file
-        print $file_fh "". &{$self->{'format_end_file'}}($self);
+        print $file_fh "". $end_file;
 
         # NOTE do not close STDOUT here to avoid a perl warning
-        if ($element->{'out_filepath'} ne '-') {
+        if ($file_element->{'out_filepath'} ne '-') {
           Texinfo::Common::output_files_register_closed(
-             $self->output_files_information(), $element->{'out_filepath'});
+             $self->output_files_information(), $file_element->{'out_filepath'});
           if (!close($file_fh)) {
             $self->document_error($self,
                        sprintf(__("error on closing %s: %s"),
-                                  $element->{'out_filepath'}, $!));
+                                  $file_element->{'out_filepath'}, $!));
             return undef;
           }
         }
       }
     }
+    delete $self->{'current_filename'};
     if ($self->get_conf('INFO_JS_DIR')) {
       my $jsdir = File::Spec->catdir($created_directory,
                                      $self->get_conf('INFO_JS_DIR'));
@@ -8918,13 +9011,13 @@ sub _convert($$;$)
                 $self->_new_document_context($command_type);
                 $self->{'document_context'}->[-1]->{'string'}++;
                 $arg_formatted->{$arg_type} = $self->_convert($arg, $explanation);
-                pop @{$self->{'document_context'}};
+                $self->_pop_document_context();
               } elsif ($arg_type eq 'monospacestring') {
                 $self->_new_document_context($command_type);
                 $self->{'document_context'}->[-1]->{'monospace'}->[-1] = 1;
                 $self->{'document_context'}->[-1]->{'string'}++;
                 $arg_formatted->{$arg_type} = $self->_convert($arg, $explanation);
-                pop @{$self->{'document_context'}};
+                $self->_pop_document_context();
               } elsif ($arg_type eq 'monospacetext') {
                 $arg_formatted->{$arg_type} 
                   = Texinfo::Convert::Text::convert_to_text($arg, {'code' => 1,
@@ -8972,7 +9065,7 @@ sub _convert($$;$)
       }
       pop @{$self->{'document_context'}->[-1]->{'commands'}};
       if (exists($context_brace_commands{$command_name})) {
-        pop @{$self->{'document_context'}};
+        $self->_pop_document_context();
       }
 
       if ($element->{'cmdname'} eq 'node') {
@@ -9015,7 +9108,6 @@ sub _convert($$;$)
     } elsif ($element->{'type'} eq 'unit'
              or $element->{'type'} eq 'special_element') {
       $self->{'current_root_element'} = $element;
-      $self->{'current_filename'} = $element->{'filename'};
     } elsif ($pre_class_types{$element->{'type'}}) {
       push @{$self->{'document_context'}->[-1]->{'preformatted_classes'}},
         $pre_class_types{$element->{'type'}};
@@ -9057,7 +9149,6 @@ sub _convert($$;$)
     }
     if ($element->{'type'} eq 'unit' or $element->{'type'} eq 'special_element') {
       delete $self->{'current_root_element'};
-      delete $self->{'current_filename'};
     } elsif ($pre_class_types{$element->{'type'}}) {
       pop @{$self->{'document_context'}->[-1]->{'preformatted_classes'}};
       pop @{$self->{'document_context'}->[-1]->{'composition_context'}};

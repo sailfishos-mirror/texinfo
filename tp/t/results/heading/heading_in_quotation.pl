@@ -200,32 +200,7 @@ $result_converted{'html'}->{'heading_in_quotation'} = '<!DOCTYPE html>
 
 <style type="text/css">
 <!--
-a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-a.summary-letter {text-decoration: none}
-blockquote.indentedblock {margin-right: 0em}
-div.center-align {text-align:center}
-div.display {margin-left: 3.2em}
-div.example {margin-left: 3.2em}
-h1.center-align {text-align:center}
-h2.center-align {text-align:center}
-h3.center-align {text-align:center}
-h3.right-align {text-align:right}
-h4.center-align {text-align:center}
 kbd {font-style: oblique}
-kbd.key {font-style: normal}
-p.center-align {text-align:center}
-p.left-align {text-align:left}
-p.right-align {text-align:right}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-span.nolinebreak {white-space: nowrap}
-span.roman {font-family: initial; font-weight: normal}
-span.sansserif {font-family: sans-serif; font-weight: normal}
-span:hover a.copiable-anchor {visibility: visible}
-ul.mark-bullet {list-style-type: disc}
-ul.no-bullet {list-style: none}
 -->
 </style>
 

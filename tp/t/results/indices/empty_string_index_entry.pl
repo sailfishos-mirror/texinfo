@@ -921,12 +921,12 @@ $result_converted{'html_text'}->{'empty_string_index_entry'} = '<h1 class="node-
 <a class="index-entry-anchor" id="index-"></a>
 
 <dl>
-<dt id=\'index--1\'><span><code><!-- /@w --></code><a href=\'#index--1\' class=\'copiable-anchor\'> &para;</a></span></dt>
+<dt id=\'index--1\'><span><code><!-- /@w --></code><a class="copiable-anchor" href=\'#index--1\'> &para;</a></span></dt>
 </dl>
 
 <dl class="def">
-<dt id="index--2"><span class="category">Function: </span><span><strong><!-- /@w --></strong> <em> </em><a href=\'#index--2\' class=\'copiable-anchor\'> &para;</a></span></dt>
-<dt id="index--3"><span class="category">Function: </span><span><strong><!-- /@w --></strong> <em> </em><a href=\'#index--3\' class=\'copiable-anchor\'> &para;</a></span></dt>
+<dt id="index--2"><span class="category">Function: </span><span><strong><!-- /@w --></strong> <em> </em><a class="copiable-anchor" href=\'#index--2\'> &para;</a></span></dt>
+<dt id="index--3"><span class="category">Function: </span><span><strong><!-- /@w --></strong> <em> </em><a class="copiable-anchor" href=\'#index--3\'> &para;</a></span></dt>
 </dl>
 
 ';

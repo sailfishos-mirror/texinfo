@@ -411,7 +411,7 @@ $result_converted{'html_text'}->{'preformatted'} = '
 
 <div class="format">
 <dl>
-<dt id=\'index-item-in-table-in-format\'><span><code>item in table in format</code><a href=\'#index-item-in-table-in-format\' class=\'copiable-anchor\'> &para;</a></span></dt>
+<dt id=\'index-item-in-table-in-format\'><span><code>item in table in format</code><a class="copiable-anchor" href=\'#index-item-in-table-in-format\'> &para;</a></span></dt>
 <dd><pre class="format">
 
 in table in format
