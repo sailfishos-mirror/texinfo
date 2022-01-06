@@ -17063,14 +17063,12 @@ corresponding @command{texi2any} customization variables.
 @c (@pxref{texi2any Output Customization,, @command{texi2any} Output
 @c Customization}).
 
-@multitable {@option{--ignore-preamble-text}} {@code{IGNORE_PREAMBLE_TEXT}}
+@multitable {@option{--frameset-doctype}} {@code{HTML_MATH} set to @samp{l2h}}
+
 @item @option{--toc-links}            @tab @code{TOC_LINKS}
 @item @option{--short-ext}            @tab @code{SHORTEXTN}
 @item @option{--prefix}               @tab @code{PREFIX}
-@item @option{--short-ref}            @tab @code{SHORT_REF}
-@item @option{--idx-sum}              @tab @code{IDX_SUMMARY}
 @item @option{--def-table}            @tab @code{DEF_TABLE}
-@item @option{--ignore-preamble-text} @tab @code{IGNORE_PREAMBLE_TEXT}
 @item @option{--html-xref-prefix}     @tab @code{EXTERNAL_DIR}
 @item @option{--l2h}                  @tab @code{HTML_MATH} set to @samp{l2h}
 @item @option{--l2h-l2h}              @tab @code{L2H_L2H}
