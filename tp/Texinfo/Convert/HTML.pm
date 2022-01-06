@@ -3805,6 +3805,7 @@ sub _convert_itemize_command($$$$)
     return $content;
   }
   my $command_as_argument_name;
+  my $mark_class_name;
   if (defined($command->{'extra'})
       and defined($command->{'extra'}->{'command_as_argument'})) {
     my $command_as_argument = $command->{'extra'}->{'command_as_argument'};
@@ -3814,11 +3815,18 @@ sub _convert_itemize_command($$$$)
     } else {
       $command_as_argument_name = $command_as_argument->{'cmdname'};
     }
+
+    if ($command_as_argument_name eq 'w') {
+      $mark_class_name = 'none';
+    } else {
+      $mark_class_name = $command_as_argument_name;
+    }
   }
+
   # FIXME API?
-  if (defined($command_as_argument_name)
-      and defined($self->{'css_map'}->{'ul.mark-'.$command_as_argument_name})) {
-    return $self->html_attribute_class('ul', 'mark-'.$command_as_argument_name).">\n"
+  if (defined($mark_class_name)
+      and defined($self->{'css_map'}->{'ul.mark-'.$mark_class_name})) {
+    return $self->html_attribute_class('ul', 'mark-'.$mark_class_name).">\n"
        . $content. "</ul>\n";
   } elsif ($self->get_conf('NO_CSS')) {
     return "<ul>\n" . $content. "</ul>\n";
@@ -6050,33 +6058,34 @@ sub converter_initialize($)
       and (defined($self->{'parser_info'}->{'itemize_commands_arg'}))) {
     foreach my $command_name (sort(keys(%{$self->{'parser_info'}->{'itemize_commands_arg'}}))) {
       my $css_string;
-      my @commands = ($command_name);
+      my @mark_commands = ($command_name);
       if ($command_name eq 'click') {
         foreach my $itemize (@{$self->{'parser_info'}->{'itemize_commands_arg'}->{$command_name}}) {
           my $command_as_argument = $itemize->{'extra'}->{'command_as_argument'};
           if (exists($command_as_argument->{'extra'}->{'clickstyle'})) {
             my $click_cmdname = $command_as_argument->{'extra'}->{'clickstyle'};
-            push @commands, $command_name;
+            push @mark_commands, $command_name;
           }
         }
       }
-      foreach my $command (@commands) {
-        if ($command eq 'bullet') {
+      foreach my $mark_command (@mark_commands) {
+        if ($mark_command eq 'bullet') {
           # nothing to do, unconditionnally in the css_map
-        } elsif ($command eq 'w') {
-          # special case, no marker
+        } elsif ($mark_command eq 'w') {
+          # special case, no marker, none used instead of the command name
           $css_string = 'none';
-        } elsif ($self->{'no_arg_commands_formatting'}->{'css_string'}->{$command}) {
-          if ($special_list_bullet_css_string_no_arg_command{$command}) {
-            $css_string = $special_list_bullet_css_string_no_arg_command{$command};
+          $mark_command = 'none';
+        } elsif ($self->{'no_arg_commands_formatting'}->{'css_string'}->{$mark_command}) {
+          if ($special_list_bullet_css_string_no_arg_command{$mark_command}) {
+            $css_string = $special_list_bullet_css_string_no_arg_command{$mark_command};
           } else {
-            $css_string = $self->{'no_arg_commands_formatting'}->{'css_string'}->{$command};
+            $css_string = $self->{'no_arg_commands_formatting'}->{'css_string'}->{$mark_command};
           }
           $css_string =~ s/^(\\[A-Z0-9]+) $/$1/;
           $css_string = '"'.$css_string.'"';
         }
         if (defined($css_string)) {
-          $self->{'css_map'}->{"ul.mark-$command"} = "list-style-type: $css_string";
+          $self->{'css_map'}->{"ul.mark-$mark_command"} = "list-style-type: $css_string";
         }
       }
     }

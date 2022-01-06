@@ -1,5 +1,11 @@
 2022-01-06  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_convert_itemize_command)
+	(converter_initialize): use mark-none for the class name corresponding
+	to @itemize @w{} that does not produce any mark at all.
+
+2022-01-06  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (%defaults): more consistent
 	'misc_elements_targets'.
 
