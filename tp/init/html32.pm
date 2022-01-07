@@ -285,7 +285,7 @@ sub html32_convert_item_command($$$$)
   if ($command->{'parent'}->{'type'}
       and $command->{'parent'}->{'type'} eq 'row') {
     return html32_convert_tab_command($self, $cmdname, $command, $content);
-  } elsif $command->{'parent'}->{'cmdname'}
+  } elsif ($command->{'parent'}->{'cmdname'}
       and $command->{'parent'}->{'cmdname'} eq 'itemize') {
     my $prepend ;
     my $itemize = $command->{'parent'};
