@@ -84,8 +84,8 @@ texinfo_register_no_arg_command_formatting('oe', '&#156;');
 texinfo_register_no_arg_command_formatting('OE', '&#140;');
 
 foreach my $dots ('dots', 'enddots') {
-  texinfo_register_no_arg_command_formatting($dots, '<small>...</small>');
-  texinfo_register_no_arg_command_formatting($dots, '...', 'preformatted');
+  texinfo_register_no_arg_command_formatting($dots, '...', 'small');
+  texinfo_register_no_arg_command_formatting($dots, '...', undef, 'preformatted');
 }
 
 foreach my $context ('preformatted', 'normal') {

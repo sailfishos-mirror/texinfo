@@ -364,10 +364,11 @@ foreach my $possible_formatting_context (($default_formatting_context,
   $possible_formatting_contexts{$possible_formatting_context} = 1;
 }
 
-sub texinfo_register_no_arg_command_formatting($$;$)
+sub texinfo_register_no_arg_command_formatting($$;$$)
 {
   my $command = shift;
-  my $value = shift;
+  my $text = shift;
+  my $element = shift;
   my $context = shift;
 
   if (!defined($context)) {
@@ -377,7 +378,14 @@ sub texinfo_register_no_arg_command_formatting($$;$)
                   'texinfo_register_no_arg_command_formatting', $context));
     return 0;
   }
-  $GNUT_no_arg_commands_formatting_strings->{$context}->{$command} = $value;
+  my $specification = {};
+  if (defined($text)) {
+    $specification->{'text'} = $text;
+  }
+  if (defined($element)) {
+    $specification->{'element'} = $element;
+  }
+  $GNUT_no_arg_commands_formatting_strings->{$context}->{$command} = $specification;
   return 1;
 }
 

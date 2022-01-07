@@ -1,5 +1,15 @@
 2022-01-06  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Config.pm (texinfo_register_no_arg_command_formatting),
+	tp/Texinfo/Convert/HTML.pm (_translate_names)
+	(%default_no_arg_commands_formatting, _text_element_conversion)
+	(_convert_no_arg_command, _css_string_convert_no_arg_command)
+	(converter_initialize): specify no args commands with a separate
+	'element' and 'text' information in an hash reference instead of just
+	having a text.
+
+2022-01-06  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Converter.pm
 	(%xml_text_entity_no_arg_commands_formatting),
 	tp/Texinfo/Convert/DocBook.pm, tp/Texinfo/Convert/HTML.pm,

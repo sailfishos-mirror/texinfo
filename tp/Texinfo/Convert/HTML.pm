@@ -58,6 +58,12 @@ use if $] >= 5.012, feature => 'unicode_strings';
 
 use strict;
 
+use Carp qw(cluck confess);
+
+use File::Copy qw(copy);
+
+use Storable;
+
 use Texinfo::Common;
 use Texinfo::Structuring;
 use Texinfo::Convert::Unicode;
@@ -68,10 +74,6 @@ use Texinfo::Convert::Converter;
 use Texinfo::Convert::NodeNameNormalization;
 
 use Texinfo::Config;
-
-use Carp qw(cluck confess);
-
-use File::Copy qw(copy);
 
 require Exporter;
 use vars qw($VERSION @ISA);
@@ -1610,9 +1612,9 @@ sub _translate_names($)
     foreach my $context ('normal', 'preformatted', 'string') {
       foreach my $command (keys(%{$self->{'commands_translation'}->{$context}})) {
         $translated_commands{$command} = 1;
-        delete $self->{'no_arg_commands_formatting'}->{$context}->{$command};
+        delete $self->{'no_arg_commands_formatting'}->{$context}->{$command}->{'text'};
         if (defined($self->{'commands_translation'}->{$context}->{$command})) {
-          $self->{'no_arg_commands_formatting'}->{$context}->{$command}
+          $self->{'no_arg_commands_formatting'}->{$context}->{$command}->{'text'}
            = $self->gdt($self->{'commands_translation'}->{$context}->{$command},
                         undef, 'translated_text');
         }
@@ -1803,19 +1805,19 @@ foreach my $ignored_block_commands ('ignore', 'macro', 'rmacro', 'copying',
 my %default_no_arg_commands_formatting;
 
 foreach my $command (keys(%Texinfo::Convert::Converter::xml_text_entity_no_arg_commands_formatting)) {
-  $default_no_arg_commands_formatting{'normal'}->{$command} =
+  $default_no_arg_commands_formatting{'normal'}->{$command}->{'text'} =
     $Texinfo::Convert::Converter::xml_text_entity_no_arg_commands_formatting{$command};
 }
 
-$default_no_arg_commands_formatting{'normal'}->{' '} = '&nbsp;';
-$default_no_arg_commands_formatting{'normal'}->{"\t"} = '&nbsp;';
-$default_no_arg_commands_formatting{'normal'}->{"\n"} = '&nbsp;';
+$default_no_arg_commands_formatting{'normal'}->{' '}->{'text'} = '&nbsp;';
+$default_no_arg_commands_formatting{'normal'}->{"\t"}->{'text'} = '&nbsp;';
+$default_no_arg_commands_formatting{'normal'}->{"\n"}->{'text'} = '&nbsp;';
 
 my %default_commands_translation;
 # possible example of use, right now not used, as
 # the generic Converter customization is directly used through
 # the call to Texinfo::Convert::Utils::translated_command_tree().
-#$default_commands_translation{'normal'}->{'error'} = 'error--&gt;';
+#$default_commands_translation{'normal'}->{'error'}->{'text'} = 'error--&gt;';
 ## This is used to have gettext pick up the chain to be translated
 #if (0) {
 #  my $not_existing;
@@ -1823,19 +1825,19 @@ my %default_commands_translation;
 #}
 
 $default_no_arg_commands_formatting{'normal'}->{'enddots'}
-    = '<small class="enddots">...</small>';
-$default_no_arg_commands_formatting{'preformatted'}->{'enddots'} = '...';
-$default_no_arg_commands_formatting{'normal'}->{'*'} = '<br>';
+    = {'element' => 'small', 'text' => '...'};
+$default_no_arg_commands_formatting{'preformatted'}->{'enddots'}->{'text'} = '...';
+$default_no_arg_commands_formatting{'normal'}->{'*'}->{'text'} = '<br>';
 # this is used in math too, not sure that it is the best
 # in that context, '<br>' could be better.
-$default_no_arg_commands_formatting{'preformatted'}->{'*'} = "\n";
+$default_no_arg_commands_formatting{'preformatted'}->{'*'}->{'text'} = "\n";
 
 # escaped code points in CSS
 # https://www.w3.org/TR/css-syntax/#consume-escaped-code-point
 # Consume as many hex digits as possible, but no more than 5. Note that this means 1-6 hex digits have been consumed in total. If the next input code point is whitespace, consume it as well. Interpret the hex digits as a hexadecimal number.
 
 foreach my $no_brace_command (keys(%no_brace_commands)) {
-  $default_no_arg_commands_formatting{'css_string'}->{$no_brace_command}
+  $default_no_arg_commands_formatting{'css_string'}->{$no_brace_command}->{'text'}
    = $no_brace_commands{$no_brace_command};
 }
 
@@ -1849,17 +1851,17 @@ foreach my $command (keys(%{$default_no_arg_commands_formatting{'normal'}})) {
     } else {
       $css_string = "\\$Texinfo::Convert::Unicode::unicode_map{$command} ";
     }
-    $default_no_arg_commands_formatting{'css_string'}->{$command} = $css_string;
+    $default_no_arg_commands_formatting{'css_string'}->{$command}->{'text'} = $css_string;
   } elsif ($default_no_arg_commands_formatting{'preformatted'}->{$command}) {
-    $default_no_arg_commands_formatting{'css_string'}->{$command} =
-      $default_no_arg_commands_formatting{'preformatted'}->{$command};
-  } elsif ($default_no_arg_commands_formatting{'normal'}->{$command}) {
-    $default_no_arg_commands_formatting{'css_string'}->{$command} =
-      $default_no_arg_commands_formatting{'normal'}->{$command};
+    $default_no_arg_commands_formatting{'css_string'}->{$command}->{'text'} =
+      $default_no_arg_commands_formatting{'preformatted'}->{$command}->{'text'};
+  } elsif ($default_no_arg_commands_formatting{'normal'}->{$command}->{'text'}) {
+    $default_no_arg_commands_formatting{'css_string'}->{$command}->{'text'} =
+      $default_no_arg_commands_formatting{'normal'}->{$command}->{'text'};
   } elsif (exists($no_brace_commands{$command})
            and $no_brace_commands{$command} eq '') {
     # @- @/ @/ @|
-    $default_no_arg_commands_formatting{'css_string'}->{$command} = '';
+    $default_no_arg_commands_formatting{'css_string'}->{$command}->{'text'} = '';
   } else {
     warn "BUG: $command: no css_string\n";
   }
@@ -1867,14 +1869,14 @@ foreach my $command (keys(%{$default_no_arg_commands_formatting{'normal'}})) {
 
 # replace the default to force using only translation and also
 # prevent using a fixed CSS.
-$default_no_arg_commands_formatting{'css_string'}->{'error'} = '';
+$default_no_arg_commands_formatting{'css_string'}->{'error'} = {};
 
-$default_no_arg_commands_formatting{'css_string'}->{'*'} = '\A ';
+$default_no_arg_commands_formatting{'css_string'}->{'*'}->{'text'} = '\A ';
 
-$default_no_arg_commands_formatting{'css_string'}->{' '} = ' ';
-$default_no_arg_commands_formatting{'css_string'}->{"\t"} = ' ';
-$default_no_arg_commands_formatting{'css_string'}->{"\n"} = ' ';
-$default_no_arg_commands_formatting{'css_string'}->{'tie'} = ' ';
+$default_no_arg_commands_formatting{'css_string'}->{' '}->{'text'} = ' ';
+$default_no_arg_commands_formatting{'css_string'}->{"\t"}->{'text'} = ' ';
+$default_no_arg_commands_formatting{'css_string'}->{"\n"}->{'text'} = ' ';
+$default_no_arg_commands_formatting{'css_string'}->{'tie'}->{'text'} = ' ';
 
 # w not in css_string, set the corresponding css_map especially,
 # which also has none and not w in the class
@@ -1886,11 +1888,12 @@ foreach my $mark_command (keys(%{$default_no_arg_commands_formatting{'css_string
     my $css_string;
     if ($mark_command eq 'bullet') {
       $css_string = 'disc';
-    } elsif ($default_no_arg_commands_formatting{'css_string'}->{$mark_command}) {
+    } elsif ($default_no_arg_commands_formatting{'css_string'}->{$mark_command}
+             and $default_no_arg_commands_formatting{'css_string'}->{$mark_command}->{'text'}) {
       if ($special_list_bullet_css_string_no_arg_command{$mark_command}) {
         $css_string = $special_list_bullet_css_string_no_arg_command{$mark_command};
       } else {
-        $css_string = $default_no_arg_commands_formatting{'css_string'}->{$mark_command};
+        $css_string = $default_no_arg_commands_formatting{'css_string'}->{$mark_command}->{'text'};
       }
       $css_string =~ s/^(\\[A-Z0-9]+) $/$1/;
       $css_string = '"'.$css_string.'"';
@@ -1913,6 +1916,25 @@ sub builtin_default_css_text()
   return $css_text;
 }
 
+sub _text_element_conversion($$$)
+{
+  my $self = shift;
+  my $specification = shift;
+  my $command = shift;
+
+  my $text = '';
+  # note that there could be elements in text
+  if (exists($specification->{'text'})) {
+    $text = $specification->{'text'};
+  }
+
+  if (exists($specification->{'element'})) {
+    return $self->html_attribute_class($specification->{'element'}, $command)
+               .'>'. $text . '</'.$specification->{'element'}.'>';
+  } else {
+    return $text;
+  }
+}
 
 sub _convert_no_arg_command($$$)
 {
@@ -1944,11 +1966,14 @@ sub _convert_no_arg_command($$$)
     return $self->convert_tree($translated_tree, "convert no arg $cmdname translated");
   }
   if ($self->in_preformatted() or $self->in_math()) {
-    $result = $self->{'no_arg_commands_formatting'}->{'preformatted'}->{$cmdname};
+    $result = $self->_text_element_conversion(
+      $self->{'no_arg_commands_formatting'}->{'preformatted'}->{$cmdname}, $cmdname);
   } elsif ($self->in_string()) {
-    $result = $self->{'no_arg_commands_formatting'}->{'string'}->{$cmdname};
+    $result = $self->_text_element_conversion(
+      $result = $self->{'no_arg_commands_formatting'}->{'string'}->{$cmdname}, $cmdname);
   } else {
-    $result = $self->{'no_arg_commands_formatting'}->{'normal'}->{$cmdname};
+    $result = $self->_text_element_conversion(
+      $result = $self->{'no_arg_commands_formatting'}->{'normal'}->{$cmdname}, $cmdname);
   }
 
   return $result;
@@ -1983,7 +2008,7 @@ sub _css_string_convert_no_arg_command($$$)
   if ($translated_tree) {
     return $self->convert_tree($translated_tree, "convert no arg $cmdname translated");
   }
-  $result = $self->{'no_arg_commands_formatting'}->{'css_string'}->{$cmdname};
+  $result = $self->{'no_arg_commands_formatting'}->{'css_string'}->{$cmdname}->{'text'};
 }
 
 foreach my $command(keys(%{$default_no_arg_commands_formatting{'normal'}})) {
@@ -6011,22 +6036,22 @@ sub converter_initialize($)
 
   # duplicate such as not to modify the defaults
   my $conf_default_no_arg_commands_formatting_normal
-    = { %{$default_no_arg_commands_formatting{'normal'}} };
+    = Storable::dclone($default_no_arg_commands_formatting{'normal'});
 
   if ($self->get_conf('USE_NUMERIC_ENTITY')) {
     $self->_set_non_breaking_space($xml_numeric_entity_nbsp);
     $self->{'paragraph_symbol'} = '&#'.hex('00B6').';';
     foreach my $command (keys(%Texinfo::Convert::Unicode::unicode_entities)) {
-      $conf_default_no_arg_commands_formatting_normal->{$command}
+      $conf_default_no_arg_commands_formatting_normal->{$command}->{'text'}
        = $Texinfo::Convert::Unicode::unicode_entities{$command};
     }
     foreach my $space_command (' ', "\t", "\n") {
-      $conf_default_no_arg_commands_formatting_normal->{$space_command}
+      $conf_default_no_arg_commands_formatting_normal->{$space_command}->{'text'}
         = $self->html_non_breaking_space();
     }
-    $conf_default_no_arg_commands_formatting_normal->{'tie'}
+    $conf_default_no_arg_commands_formatting_normal->{'tie'}->{'text'}
       = $self->substitute_html_non_breaking_space(
-           $default_no_arg_commands_formatting{'normal'}->{'tie'});
+           $default_no_arg_commands_formatting{'normal'}->{'tie'}->{'text'});
     if (not defined($self->get_conf('OPEN_QUOTE_SYMBOL'))) {
       $self->set_conf('OPEN_QUOTE_SYMBOL', '&#'.hex('2018').';');
     }
@@ -6064,7 +6089,8 @@ sub converter_initialize($)
   } else {
     $self->{'line_break_element'} = '<br>';
   }
-  $conf_default_no_arg_commands_formatting_normal->{'*'} = $self->html_line_break_element();
+  $conf_default_no_arg_commands_formatting_normal->{'*'}->{'text'}
+    = $self->html_line_break_element();
 
   my $customized_types_conversion = Texinfo::Config::GNUT_get_types_conversion();
   foreach my $type (keys(%default_types_conversion)) {
@@ -6144,15 +6170,15 @@ sub converter_initialize($)
               and Texinfo::Convert::Unicode::brace_no_arg_command(
                              $command, $self->get_conf('OUTPUT_ENCODING_NAME'))) {
             $self->{'no_arg_commands_formatting'}->{$context}->{$command}
-              = Texinfo::Convert::Unicode::brace_no_arg_command(
-                           $command, $self->get_conf('OUTPUT_ENCODING_NAME'));
+              = { 'text' => Texinfo::Convert::Unicode::brace_no_arg_command(
+                           $command, $self->get_conf('OUTPUT_ENCODING_NAME'))};
             # reset CSS for itemize command arguments
             if ($context eq 'css_string'
                 and exists($brace_commands{$command})
                 and $command ne 'bullet' and $command ne 'w'
                 and not $special_list_bullet_css_string_no_arg_command{$command}) {
-              my $css_string = $self->{'no_arg_commands_formatting'}->{$context}->{$command};
-              #$css_string =~ s/^(\\[A-Z0-9]+) $/$1/;
+              my $css_string
+                = $self->{'no_arg_commands_formatting'}->{$context}->{$command}->{'text'};
               $css_string = '"'.$css_string.'"';
               $self->{'css_map'}->{"ul.mark-$command"} = "list-style-type: $css_string";
             }
