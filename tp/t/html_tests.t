@@ -46,6 +46,14 @@ my $itemize_arguments_text = '
 @item item atchar @atchar{} a
 @end itemize
 
+@itemize @*
+@item item * @*
+@end itemize
+
+@itemize @{
+@item item @{
+@end itemize
+
 @itemize @registeredsymbol{}
 @item item registeredsymbol @registeredsymbol{}
 @end itemize
