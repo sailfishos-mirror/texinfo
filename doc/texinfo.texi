@@ -16402,6 +16402,9 @@ If set,  when output is split, use the argument of the chapter
 structuring command (e.g., @code{@@chapter} or @code{@@section})
 in the @code{<title>} instead of the argument to @code{@@node}.
 
+@item SHOW_BUILTIN_CSS_RULES
+Output the built-in default CSS rules on the standard output and exit.
+
 @item SHOW_TITLE
 If set, output the title at the beginning of the document;
 default true.

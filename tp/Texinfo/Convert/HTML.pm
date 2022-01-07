@@ -1901,6 +1901,19 @@ foreach my $mark_command (keys(%{$default_no_arg_commands_formatting{'css_string
   }
 }
 
+# used to show the built-in CSS rules
+sub builtin_default_css_text()
+{
+  my $css_text = '';
+  foreach my $css_rule (sort(keys(%css_map))) {
+    if ($css_map{$css_rule} ne '') {
+      $css_text .= "$css_rule {$css_map{$css_rule}}\n";
+    }
+  }
+  return $css_text;
+}
+
+
 sub _convert_no_arg_command($$$)
 {
   my $self = shift;

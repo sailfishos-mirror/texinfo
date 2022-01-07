@@ -1110,6 +1110,13 @@ foreach my $parser_settable_option (@parser_settable_options) {
   }
 }
 
+# special case, show all the built in HTML CSS rules and exit
+if (get_conf('SHOW_BUILTIN_CSS_RULES')) {
+  require Texinfo::Convert::HTML;
+  print STDOUT Texinfo::Convert::HTML::builtin_default_css_text();
+  exit(0);
+}
+
 # Main processing, process all the files given on the command line
 
 my @input_files = @ARGV;

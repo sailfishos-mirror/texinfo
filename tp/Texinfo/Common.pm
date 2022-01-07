@@ -227,16 +227,17 @@ my %default_main_program_command_line_options = (
 
 # used in main program, defaults documented in manual
 my %default_main_program_customization = (
-  'SORT_ELEMENT_COUNT_WORDS'    => undef,
-  'SORT_ELEMENT_COUNT'          => undef,
-  'TEXI2DVI'                    => 'texi2dvi',
-  'TREE_TRANSFORMATIONS'        => undef,
-  'DUMP_TREE'                   => undef,
-  'DUMP_TEXI'                   => undef,
   'CHECK_NORMAL_MENU_STRUCTURE' => 0, # output warnings when node with
             # automatic direction does directions in menu are not consistent
             # with sectionning, and when node directions are not consistent
             # with menu directions.
+  'DUMP_TREE'                   => undef,
+  'DUMP_TEXI'                   => undef,
+  'SHOW_BUILTIN_CSS_RULES'      => 0,
+  'SORT_ELEMENT_COUNT'          => undef,
+  'SORT_ELEMENT_COUNT_WORDS'    => undef,
+  'TEXI2DVI'                    => 'texi2dvi',
+  'TREE_TRANSFORMATIONS'        => undef,
 );
 
 # defaults for the main program.  In general transmitted to converters as defaults
