@@ -1,5 +1,17 @@
 2022-01-06  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Converter.pm
+	(%xml_text_entity_no_arg_commands_formatting),
+	tp/Texinfo/Convert/DocBook.pm, tp/Texinfo/Convert/HTML.pm,
+	tp/Texinfo/Convert/TexinfoXML.pm:
+	replace %default_xml_no_arg_commands_formatting{'normal'}
+	by %xml_text_entity_no_arg_commands_formatting.
+
+	* tp/Texinfo/Convert/HTML.pm (%style_commands_element):
+	rename %style_attribute_commands as %style_commands_element.
+
+2022-01-06  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Common.pm (%default_main_program_customization),
 	tp/Texinfo/Convert/HTML.pm (builtin_default_css_text),
 	tp/texi2any.pl, doc/texinfo.texi (HTML Customization Variables),

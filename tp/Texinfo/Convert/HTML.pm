@@ -1802,9 +1802,9 @@ foreach my $ignored_block_commands ('ignore', 'macro', 'rmacro', 'copying',
 # be used.
 my %default_no_arg_commands_formatting;
 
-foreach my $command (keys(%{$Texinfo::Convert::Converter::default_xml_no_arg_commands_formatting{'normal'}})) {
+foreach my $command (keys(%Texinfo::Convert::Converter::xml_text_entity_no_arg_commands_formatting)) {
   $default_no_arg_commands_formatting{'normal'}->{$command} =
-    $Texinfo::Convert::Converter::default_xml_no_arg_commands_formatting{'normal'}->{$command};
+    $Texinfo::Convert::Converter::xml_text_entity_no_arg_commands_formatting{$command};
 }
 
 $default_no_arg_commands_formatting{'normal'}->{' '} = '&nbsp;';
@@ -1950,6 +1950,7 @@ sub _convert_no_arg_command($$$)
   } else {
     $result = $self->{'no_arg_commands_formatting'}->{'normal'}->{$cmdname};
   }
+
   return $result;
 }
 
@@ -2008,8 +2009,8 @@ foreach my $quoted_command ('samp') {
   $quoted_style_commands{$quoted_command} = 1;
 }
 
-my %style_attribute_commands;
-$style_attribute_commands{'normal'} = {
+my %style_commands_element;
+$style_commands_element{'normal'} = {
       'b'           => 'b',
       'cite'        => 'cite',
       'code'        => 'code',
@@ -2042,20 +2043,20 @@ my %style_commands_formatting;
 # it is required since math is not in the %style_commands as it is 
 # in context command.
 my @all_style_commands = keys %{{ map { $_ => 1 } 
-    (keys(%style_commands), keys(%{$style_attribute_commands{'normal'}}),
+    (keys(%style_commands), keys(%{$style_commands_element{'normal'}}),
      'dmn') }};
 
 foreach my $command(@all_style_commands) {
   # default is no attribute.
-  if ($style_attribute_commands{'normal'}->{$command}) {
+  if ($style_commands_element{'normal'}->{$command}) {
     $style_commands_formatting{'normal'}->{$command}->{'attribute'}
-     = $style_attribute_commands{'normal'}->{$command};
+     = $style_commands_element{'normal'}->{$command};
     $style_commands_formatting{'preformatted'}->{$command}->{'attribute'}
-     = $style_attribute_commands{'normal'}->{$command};
+     = $style_commands_element{'normal'}->{$command};
   }
-  if ($style_attribute_commands{'preformatted'}->{$command}) {
+  if ($style_commands_element{'preformatted'}->{$command}) {
     $style_commands_formatting{'preformatted'}->{$command}->{'attribute'} =
-      $style_attribute_commands{'preformatted'}->{$command}; 
+      $style_commands_element{'preformatted'}->{$command}; 
   }
   if ($quoted_style_commands{$command}) {
     foreach my $context ('normal', 'string', 'preformatted') {

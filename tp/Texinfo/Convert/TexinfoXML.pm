@@ -108,7 +108,7 @@ our %no_arg_commands_formatting = (
 # use default XML formatting to complete the hash, removing XML
 # specific formatting.  This avoids some code duplication.
 my %default_xml_no_arg_commands_formatting =
-    %{$Texinfo::Convert::Converter::default_xml_no_arg_commands_formatting{'normal'}};
+    %Texinfo::Convert::Converter::xml_text_entity_no_arg_commands_formatting;
 
 foreach my $command (keys(%default_xml_no_arg_commands_formatting)) {
   if (!exists($no_arg_commands_formatting{$command})) {

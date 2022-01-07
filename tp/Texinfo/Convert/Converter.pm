@@ -1406,8 +1406,7 @@ sub xml_protect_text($$)
 }
 
 # 'today' is not set here.
-our %default_xml_no_arg_commands_formatting;
-$default_xml_no_arg_commands_formatting{'normal'} = {
+our %xml_text_entity_no_arg_commands_formatting = (
                'TeX'          => 'TeX',
                'LaTeX'          => 'LaTeX',
                'bullet'       => '&bull;',
@@ -1470,14 +1469,14 @@ $default_xml_no_arg_commands_formatting{'normal'} = {
                'guillemotright'          => '&raquo;',
                'guilsinglleft'          => '&lsaquo;',
                'guilsinglright'          => '&rsaquo;',
-};
+);
 
 foreach my $no_brace_command (keys(%Texinfo::Common::no_brace_commands)) {
-  $default_xml_no_arg_commands_formatting{'normal'}->{$no_brace_command}
+  $xml_text_entity_no_arg_commands_formatting{$no_brace_command}
     = $Texinfo::Common::no_brace_commands{$no_brace_command};
 }
 
-$default_xml_no_arg_commands_formatting{'normal'}->{'&'} = '&amp;';
+$xml_text_entity_no_arg_commands_formatting{'&'} = '&amp;';
 
 sub xml_comment($$)
 {

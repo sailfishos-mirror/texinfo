@@ -80,7 +80,7 @@ my %docbook_specific_formatting = (
   'tie' => $nbsp,
 );
 my %docbook_no_arg_commands_formatting
-  = %{$Texinfo::Convert::Converter::default_xml_no_arg_commands_formatting{'normal'}};
+  = %Texinfo::Convert::Converter::xml_text_entity_no_arg_commands_formatting;
 
 foreach my $command (keys(%Texinfo::Convert::Unicode::unicode_entities)) {
   $docbook_no_arg_commands_formatting{$command}
