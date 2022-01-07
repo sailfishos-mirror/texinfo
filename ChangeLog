@@ -1,5 +1,14 @@
 2022-01-06  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (_end_line),
+	tp/Texinfo/XS/parsetexi/Parsetexi.pm (_set_itemize_commands_arg)
+	(_set_errors_node_lists_labels_indices, get_parser_info):
+	remove @itemize command argument detected as command_as_argument
+	in itemize_commands_arg in global information as it is not needed
+	anymore.
+
+2022-01-06  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (%css_map, converter_initialize):
 	setup css_string for more @-commands in the first initialization.
 	Preset %css_map for all the possible @itemize marks.

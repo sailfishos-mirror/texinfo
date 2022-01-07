@@ -3061,15 +3061,6 @@ sub _end_line($$$)
                             'parent' => $current };
           unshift @{$current->{'args'}}, $inserted;
           $current->{'extra'}->{'command_as_argument'} = $inserted;
-        } else {
-          if ($current->{'extra'} and $current->{'extra'}->{'command_as_argument'}) {
-            my $command_as_argument
-               = $current->{'extra'}->{'command_as_argument'}->{'cmdname'};
-            if (not defined($self->{'info'}->{'itemize_commands_arg'}->{$command_as_argument})) {
-              $self->{'info'}->{'itemize_commands_arg'}->{$command_as_argument} = [];
-            }
-            push @{$self->{'info'}->{'itemize_commands_arg'}->{$command_as_argument}}, $current;
-          }
         }
       } elsif ($item_line_commands{$current->{'cmdname'}} and
               !$current->{'extra'}->{'command_as_argument'}) {

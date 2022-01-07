@@ -162,26 +162,6 @@ sub _associate_node_menus {
   }
 }
 
-# TODO do it in the parser
-sub _set_itemize_commands_arg {
-  my $root = shift;
-
-  my $collected_commands = Texinfo::Common::collect_commands_list_in_tree(
-                                                         $root, ['itemize']);
-  my $itemize_commands_arg;
-  foreach my $current (@$collected_commands) {
-    if ($current->{'extra'} and $current->{'extra'}->{'command_as_argument'}) {
-      my $command_as_argument
-         = $current->{'extra'}->{'command_as_argument'}->{'cmdname'};
-      if (not defined($itemize_commands_arg->{$command_as_argument})) {
-        $itemize_commands_arg->{$command_as_argument} = [];
-      }
-      push @{$itemize_commands_arg->{$command_as_argument}}, $current;
-    }
-  }
-  return $itemize_commands_arg;
-}
-
 sub _get_error_registrar($)
 {
   my $self = shift;
@@ -214,7 +194,6 @@ sub _set_errors_node_lists_labels_indices($)
 
 sub get_parser_info {
   my $self = shift;
-  my $root = shift;
 
   my ($INTL_XREFS, $FLOATS, $ERRORS, $GLOBAL_INFO, $GLOBAL_INFO2);
 
@@ -231,11 +210,6 @@ sub get_parser_info {
   if ($self->get_conf('novalidate')
       or $self->global_commands_information()->{'novalidate'}) {
     $self->{'info'}->{'novalidate'} = 1;
-  }
-
-  my $itemize_commands_arg = _set_itemize_commands_arg ($root);
-  if (defined($itemize_commands_arg)) {
-    $self->{'info'}->{'itemize_commands_arg'} = $itemize_commands_arg;
   }
 
   _set_errors_node_lists_labels_indices($self);
@@ -259,7 +233,7 @@ sub parse_texi_file ($$)
   }
 
   my $TREE = build_texinfo_tree ();
-  get_parser_info ($self, $TREE);
+  get_parser_info ($self);
 
   _associate_node_menus ($self, $TREE);
 
@@ -322,7 +296,7 @@ sub parse_texi_text($$;$$$$)
     parse_text($text);
     my $tree = build_texinfo_tree ();
 
-    get_parser_info($self, $tree);
+    get_parser_info($self);
     _associate_node_menus ($self, $tree);
 
     return $tree;
