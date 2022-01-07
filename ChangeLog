@@ -1,3 +1,10 @@
+2022-01-06  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/HTML.pm (%css_map, converter_initialize):
+	setup css_string for more @-commands in the first initialization.
+	Preset %css_map for all the possible @itemize marks.
+	No use for parser_info itemize_commands_arg anymore.
+
 2022-01-06  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	* doc/texinfo.texi (texi2html): Remove references to the following

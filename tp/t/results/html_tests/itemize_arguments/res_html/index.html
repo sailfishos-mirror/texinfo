@@ -14,9 +14,11 @@
 <style type="text/css">
 <!--
 kbd {font-style: oblique}
+ul.mark-arrow {list-style-type: "\2192"}
 ul.mark-atchar {list-style-type: "@"}
 ul.mark-enddots {list-style-type: "..."}
 ul.mark-registeredsymbol {list-style-type: "\00AE"}
+ul.mark-result {list-style-type: "\21D2"}
 ul.mark-tie {list-style-type: " "}
 -->
 </style>
@@ -110,7 +112,11 @@ ul.mark-tie {list-style-type: " "}
 <li>item complex n &ntilde;&#807;&#772; <small> &Ntilde;&#807;&#772;</small>
 </li></ul>
 
-<ul style="list-style-type: '\2192 '">
+<ul>
+<li>item asis 
+</li></ul>
+
+<ul class="mark-arrow">
 <li>item click &rarr;
 </li></ul>
 
@@ -119,7 +125,7 @@ ul.mark-tie {list-style-type: " "}
 </li></ul>
 
 
-<ul style="list-style-type: '\21D2 '">
+<ul class="mark-result">
 <li>item result click &rArr;
 </li></ul>
 

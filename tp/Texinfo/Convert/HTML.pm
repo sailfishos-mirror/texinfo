@@ -1647,7 +1647,6 @@ my %css_map = (
      %css_rules_not_collected,
 
      "ul.$NO_BULLET_LIST_CLASS" => "$NO_BULLET_LIST_STYLE",
-     'ul.mark-bullet'       => 'list-style-type: disc',
      'pre.menu-comment'       => "$MENU_PRE_STYLE",
      'pre.menu-preformatted'  => "$MENU_PRE_STYLE",
      'a.summary-letter'       => 'text-decoration: none',
@@ -1835,9 +1834,9 @@ $default_no_arg_commands_formatting{'preformatted'}->{'*'} = "\n";
 # https://www.w3.org/TR/css-syntax/#consume-escaped-code-point
 # Consume as many hex digits as possible, but no more than 5. Note that this means 1-6 hex digits have been consumed in total. If the next input code point is whitespace, consume it as well. Interpret the hex digits as a hexadecimal number.
 
-foreach my $no_brace_command (keys(%Texinfo::Common::no_brace_commands)) {
+foreach my $no_brace_command (keys(%no_brace_commands)) {
   $default_no_arg_commands_formatting{'css_string'}->{$no_brace_command}
-   = $Texinfo::Common::no_brace_commands{$no_brace_command};
+   = $no_brace_commands{$no_brace_command};
 }
 
 foreach my $command (keys(%{$default_no_arg_commands_formatting{'normal'}})) {
@@ -1851,6 +1850,18 @@ foreach my $command (keys(%{$default_no_arg_commands_formatting{'normal'}})) {
       $css_string = "\\$Texinfo::Convert::Unicode::unicode_map{$command} ";
     }
     $default_no_arg_commands_formatting{'css_string'}->{$command} = $css_string;
+  } elsif ($default_no_arg_commands_formatting{'preformatted'}->{$command}) {
+    $default_no_arg_commands_formatting{'css_string'}->{$command} =
+      $default_no_arg_commands_formatting{'preformatted'}->{$command};
+  } elsif ($default_no_arg_commands_formatting{'normal'}->{$command}) {
+    $default_no_arg_commands_formatting{'css_string'}->{$command} =
+      $default_no_arg_commands_formatting{'normal'}->{$command};
+  } elsif (exists($no_brace_commands{$command})
+           and $no_brace_commands{$command} eq '') {
+    # @- @/ @/ @|
+    $default_no_arg_commands_formatting{'css_string'}->{$command} = '';
+  } else {
+    warn "BUG: $command: no css_string\n";
   }
 }
 
@@ -1864,6 +1875,31 @@ $default_no_arg_commands_formatting{'css_string'}->{' '} = ' ';
 $default_no_arg_commands_formatting{'css_string'}->{"\t"} = ' ';
 $default_no_arg_commands_formatting{'css_string'}->{"\n"} = ' ';
 $default_no_arg_commands_formatting{'css_string'}->{'tie'} = ' ';
+
+# w not in css_string, set the corresponding css_map especially,
+# which also has none and not w in the class
+$css_map{'ul.mark-none'} = 'list-style-type: none';
+
+# setup css_map for mark commands based on css strings
+foreach my $mark_command (keys(%{$default_no_arg_commands_formatting{'css_string'}})) {
+  if (defined($brace_commands{$mark_command})) {
+    my $css_string;
+    if ($mark_command eq 'bullet') {
+      $css_string = 'disc';
+    } elsif ($default_no_arg_commands_formatting{'css_string'}->{$mark_command}) {
+      if ($special_list_bullet_css_string_no_arg_command{$mark_command}) {
+        $css_string = $special_list_bullet_css_string_no_arg_command{$mark_command};
+      } else {
+        $css_string = $default_no_arg_commands_formatting{'css_string'}->{$mark_command};
+      }
+      $css_string =~ s/^(\\[A-Z0-9]+) $/$1/;
+      $css_string = '"'.$css_string.'"';
+    }
+    if (defined($css_string)) {
+      $css_map{"ul.mark-$mark_command"} = "list-style-type: $css_string";
+    }
+  }
+}
 
 sub _convert_no_arg_command($$$)
 {
@@ -6096,6 +6132,16 @@ sub converter_initialize($)
             $self->{'no_arg_commands_formatting'}->{$context}->{$command}
               = Texinfo::Convert::Unicode::brace_no_arg_command(
                            $command, $self->get_conf('OUTPUT_ENCODING_NAME'));
+            # reset CSS for itemize command arguments
+            if ($context eq 'css_string'
+                and exists($brace_commands{$command})
+                and $command ne 'bullet' and $command ne 'w'
+                and not $special_list_bullet_css_string_no_arg_command{$command}) {
+              my $css_string = $self->{'no_arg_commands_formatting'}->{$context}->{$command};
+              #$css_string =~ s/^(\\[A-Z0-9]+) $/$1/;
+              $css_string = '"'.$css_string.'"';
+              $self->{'css_map'}->{"ul.mark-$command"} = "list-style-type: $css_string";
+            }
           } else {
             $self->{'no_arg_commands_formatting'}->{$context}->{$command}
               = $context_default_default_no_arg_commands_formatting->{$command};
@@ -6122,44 +6168,6 @@ sub converter_initialize($)
         and $self->{'commands_conversion'}->{$command} 
             eq $default_commands_conversion{$command}) {
       $self->_complete_no_arg_commands_formatting($command);
-    }
-  }
-
-  # setup css for itemize command arguments
-  if (defined($self->{'parser_info'})
-      and (defined($self->{'parser_info'}->{'itemize_commands_arg'}))) {
-    foreach my $command_name (sort(keys(%{$self->{'parser_info'}->{'itemize_commands_arg'}}))) {
-      my $css_string;
-      my @mark_commands = ($command_name);
-      if ($command_name eq 'click') {
-        foreach my $itemize (@{$self->{'parser_info'}->{'itemize_commands_arg'}->{$command_name}}) {
-          my $command_as_argument = $itemize->{'extra'}->{'command_as_argument'};
-          if (exists($command_as_argument->{'extra'}->{'clickstyle'})) {
-            my $click_cmdname = $command_as_argument->{'extra'}->{'clickstyle'};
-            push @mark_commands, $command_name;
-          }
-        }
-      }
-      foreach my $mark_command (@mark_commands) {
-        if ($mark_command eq 'bullet') {
-          # nothing to do, unconditionnally in the css_map
-        } elsif ($mark_command eq 'w') {
-          # special case, no marker, none used instead of the command name
-          $css_string = 'none';
-          $mark_command = 'none';
-        } elsif ($self->{'no_arg_commands_formatting'}->{'css_string'}->{$mark_command}) {
-          if ($special_list_bullet_css_string_no_arg_command{$mark_command}) {
-            $css_string = $special_list_bullet_css_string_no_arg_command{$mark_command};
-          } else {
-            $css_string = $self->{'no_arg_commands_formatting'}->{'css_string'}->{$mark_command};
-          }
-          $css_string =~ s/^(\\[A-Z0-9]+) $/$1/;
-          $css_string = '"'.$css_string.'"';
-        }
-        if (defined($css_string)) {
-          $self->{'css_map'}->{"ul.mark-$mark_command"} = "list-style-type: $css_string";
-        }
-      }
     }
   }
 

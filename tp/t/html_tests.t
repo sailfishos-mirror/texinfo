@@ -90,6 +90,10 @@ my $itemize_arguments_text = '
 @item item complex n @={@,{@~{n}}} @sc{ @={@,{@~{n}}}}
 @end itemize
 
+@itemize @asis
+@item item asis @asis{}
+@end itemize
+
 @itemize @click{}
 @item item click @click{}
 @end itemize
