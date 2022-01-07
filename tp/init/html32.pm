@@ -83,7 +83,7 @@ foreach my $command ('euro', 'geq', 'leq',
 texinfo_register_no_arg_command_formatting('oe', '&#156;');
 texinfo_register_no_arg_command_formatting('OE', '&#140;');
 
-foreach my $dots ('dots', 'enddots') {
+foreach my $dots ('dots') {
   texinfo_register_no_arg_command_formatting($dots, '...', 'small');
   texinfo_register_no_arg_command_formatting($dots, '...', undef, 'preformatted');
 }
