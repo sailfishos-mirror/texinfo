@@ -526,6 +526,14 @@ my %LaTeX_environment_packages = (
   'cartouche' => ['mdframed'],
 );
 
+my %LaTeX_list_environments = (
+  'itemize' => 'itemize',
+  'enumerate' => 'enumerate',
+);
+foreach my $command (keys(%item_line_commands)) {
+  $LaTeX_list_environments{$command} = 'description';
+}
+
 foreach my $environment_command (@LaTeX_same_block_commands) {
   $LaTeX_environment_commands{$environment_command} = [$environment_command];
 }
@@ -720,6 +728,7 @@ sub converter_defaults($$)
 # other keys:
 #  description_format_commands
 #  packages
+#  list_environments
 #  normalized_float_latex
 
 sub converter_initialize($)
@@ -1211,12 +1220,20 @@ sub _latex_header() {
 }
 ';
   }
-  $header_code .= '% set defaults for lists that match Texinfo TeX formatting
-\setlist[description]{style=nextline, font=\normalfont}
-\setlist[itemize]{label=\textbullet}
-\setlist[enumerate]{label=\arabic*.}
-
-% command that does nothing used to help with substitutions in commands
+  if ($self->{'list_environments'}) {
+    $header_code .= "% set defaults for lists that match Texinfo TeX formatting\n";
+    if ($self->{'list_environments'}->{'description'}) {
+      $header_code .= "\\setlist[description]{style=nextline, font=\\normalfont}\n";
+    }
+    if  ($self->{'list_environments'}->{'itemize'}) {
+      $header_code .= "\\setlist[itemize]{label=\\textbullet}\n";
+    }
+    if  ($self->{'list_environments'}->{'enumerate'}) {
+      $header_code .= "\\setlist[enumerate]{label=\\arabic*.}\n";
+    }
+    $header_code .= "\n";
+  }
+  $header_code .= '% command that does nothing used to help with substitutions in commands
 \newcommand{\GNUTexinfoplaceholder}[1]{}
 
 '.$titleps_preamble.'
@@ -1281,9 +1298,13 @@ roundcorner=10pt}
   if ($self->{'packages'}->{'fontsize'}) {
     $header .= "\\usepackage{fontsize}\n";
   }
-  $header .= '\usepackage{enumitem}
-\usepackage{geometry}
-\usepackage{titleps}
+  if ($self->{'list_environments'}) {
+    $header .= "\\usepackage{enumitem}\n";
+  }
+  if ($self->{'packages'}->{'geometry'}) {
+    $header .= "\\usepackage{geometry}\n";
+  }
+  $header .= '\usepackage{titleps}
 ';
   if ($self->{'floats'}) {
     $header .= "\\usepackage{float}\n";
@@ -2749,6 +2770,9 @@ sub _convert($$)
             $self->{'packages'}->{$package} = 1;
           }
         }
+        if ($LaTeX_list_environments{$cmdname}) {
+          $self->{'list_environments'}->{$LaTeX_list_environments{$cmdname}} = 1;
+        }
       }
       if ($preformatted_commands{$cmdname}) {
         $result .= _open_preformatted($self, $cmdname);
@@ -3079,6 +3103,7 @@ sub _convert($$)
         }
         if (scalar(@geometry)) {
           $result .= "\\newgeometry{".join(',', @geometry)."}\n";
+          $self->{'packages'}->{'geometry'} = 1;
         }
       } elsif ($cmdname eq 'paragraphindent'
           and $element->{'extra'}->{'misc_args'}->[0]) {
@@ -3117,6 +3142,7 @@ sub _convert($$)
         $self->{'packages'}->{'fontsize'} = 1;
       } elsif ($paper_geometry_commands{$cmdname}) {
         $result .= "\\geometry{$paper_geometry_commands{$cmdname}}%\n";
+        $self->{'packages'}->{'geometry'} = 1;
       }
       return $result;
     } else {

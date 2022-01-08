@@ -1,5 +1,12 @@
 2022-01-08  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/LaTeX.pm (%LaTeX_list_environments)
+	(_latex_header, _convert): only import packages and output
+	LaTeX code related to list environments if needed for the
+	document formatting.
+
+2022-01-08  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/LaTeX.pm (%LaTeX_environment_packages)
 	(_latex_header, _convert): only import packages and
 	output LaTeX code if needed for the document formatting.
