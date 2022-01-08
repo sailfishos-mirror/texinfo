@@ -1,5 +1,11 @@
 2022-01-08  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (%css_map, converter_initialize):
+	unconditionally put 'span.smaller' (for PROGRAM_NAME_IN_FOOTER)
+	in %css_map.
+
+2022-01-08  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Converter.pm (set_tree_unit_file)
 	(_set_tree_units_files, output), tp/Texinfo/Convert/HTML.pm
 	(_html_set_pages_files, output): set 'out_filepaths'

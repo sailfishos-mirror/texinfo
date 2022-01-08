@@ -1681,7 +1681,6 @@ sub converter_defaults($$)
 
 my $NO_BULLET_LIST_STYLE = 'list-style: none';
 my $NO_BULLET_LIST_CLASS = 'no-bullet';
-my $NO_BULLET_LIST_ATTRIBUTE = ' class="'.$NO_BULLET_LIST_CLASS.'"';
 
 my $MENU_PRE_STYLE = 'font-family: serif';
 
@@ -1693,6 +1692,7 @@ my %css_map = (
      'pre.menu-preformatted'  => "$MENU_PRE_STYLE",
      'a.summary-letter'       => 'text-decoration: none',
      'pre.display'            => 'font-family: inherit',
+     'span.smaller'           => 'font-size: smaller', # used with PROGRAM_NAME_IN_FOOTER
      'span.sansserif'     => 'font-family: sans-serif; font-weight: normal',
      'span.roman'         => 'font-family: initial; font-weight: normal',
      'span.nolinebreak'   => 'white-space: nowrap',
@@ -6084,10 +6084,6 @@ sub converter_initialize($)
   %footnote_id_numbers = ();
 
   %{$self->{'css_map'}} = %css_map;
-
-  if ($self->get_conf('PROGRAM_NAME_IN_FOOTER')) {
-    $self->{'css_map'}->{'span.smaller'} = 'font-size: smaller';
-  }
 
   _load_htmlxref_files($self);
 
