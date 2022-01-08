@@ -3,7 +3,7 @@
 	* tp/Texinfo/Convert/Converter.pm (set_tree_unit_file)
 	(_set_tree_units_files, output), tp/Texinfo/Convert/HTML.pm
 	(_html_set_pages_files, output): set 'out_filepaths'
-	in the parser to associate file names without output file
+	in the converter to associate file names without output file
 	paths and not 'out_filepath' in the elements.
 
 2022-01-08  Patrice Dumas  <pertusus@free.fr>
