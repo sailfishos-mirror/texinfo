@@ -464,28 +464,6 @@ foreach my $ignored_brace_commands (
   $ignored_commands{$ignored_brace_commands} = 1;
 }
 
-my %item_indent_format_length = ('enumerate' => 2,
-    'itemize' => 3,
-    'table' => 0,
-    'vtable' => 0,
-    'ftable' => 0,
- );
-
-my $indent_length = 5;
-
-my %indented_commands;
-foreach my $indented_command (keys(%item_indent_format_length), 
-           keys(%preformatted_commands),
-           'indentedblock', 'smallindentedblock',
-           keys(%def_commands)) {
-  $indented_commands{$indented_command} = 1 
-    if exists($block_commands{$indented_command});
-}
-
-foreach my $non_indented('format', 'smallformat') {
-  delete $indented_commands{$non_indented};
-}
-
 # titlepage content is directly formatted at document begin
 foreach my $ignored_block_commands ('ignore', 'macro', 'rmacro', 'copying',
   'documentdescription', 'titlepage') {
@@ -2801,8 +2779,7 @@ sub _convert($$)
         if ($element->{'extra'}->{'columnfractions'}) {
         } elsif ($element->{'extra'}->{'prototypes'}) {
           foreach my $prototype (@{$element->{'extra'}->{'prototypes'}}) {
-            my ($formatted_prototype) = $self->_convert($prototype,
-                                                       {'indent_length' => 0});
+            my ($formatted_prototype) = $self->_convert($prototype);
             push @$columnsize, 
                  2+Texinfo::Convert::Unicode::string_width($formatted_prototype);
           }
