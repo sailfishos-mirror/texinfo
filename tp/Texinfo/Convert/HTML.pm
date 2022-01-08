@@ -623,14 +623,16 @@ sub command_filename($$)
     if (defined($target->{'filename'})) {
       return $target->{'filename'};
     }
-    my ($root_element, $root_command) = $self->_html_get_tree_root_element($command, 1);
+    my ($root_element, $root_command)
+           = $self->_html_get_tree_root_element($command, 1);
 
     if (defined($root_command)) {
       $target->{'root_command'} = $root_command;
     }
     if (defined($root_element)) {
-      $target->{'filename'} = $root_element->{'unit_filename'};
-      return $root_element->{'unit_filename'};
+      $target->{'filename'}
+        = $root_element->{'structure'}->{'unit_filename'};
+      return $root_element->{'structure'}->{'unit_filename'};
     }
   }
   return undef;
@@ -709,9 +711,9 @@ sub command_href($$;$$)
     # as in the test cases.  Also for things in @titlepage when
     # titlepage is not output.
     if ($self->{'tree_units'} and $self->{'tree_units'}->[0]
-       and defined($self->{'tree_units'}->[0]->{'unit_filename'})) {
+       and defined($self->{'tree_units'}->[0]->{'structure'}->{'unit_filename'})) {
       # In that case use the first page.
-      $target_filename = $self->{'tree_units'}->[0]->{'unit_filename'};
+      $target_filename = $self->{'tree_units'}->[0]->{'structure'}->{'unit_filename'};
     }
   }
   if (defined($target_filename)) { 
@@ -3154,8 +3156,8 @@ sub _default_format_element_header($$$$)
       # and there is more than one element
       and ($tree_unit->{'structure'}->{'unit_next'} or $tree_unit->{'structure'}->{'unit_prev'})) {
     my $is_top = $self->element_is_tree_unit_top($tree_unit);
-    my $first_in_page = (defined($tree_unit->{'unit_filename'})
-           and $self->{'counter_in_file'}->{$tree_unit->{'unit_filename'}} == 1);
+    my $first_in_page = (defined($tree_unit->{'structure'}->{'unit_filename'})
+           and $self->{'counter_in_file'}->{$tree_unit->{'structure'}->{'unit_filename'}} == 1);
     my $previous_is_top = ($tree_unit->{'structure'}->{'unit_prev'}
                    and $self->element_is_tree_unit_top($tree_unit->{'structure'}->{'unit_prev'}));
 
@@ -5660,7 +5662,7 @@ sub _convert_special_element_type($$$$)
   $result .= ">\n";
   if ($self->get_conf('HEADERS')
       # first in page
-      or $self->{'counter_in_file'}->{$element->{'unit_filename'}} == 1) {
+      or $self->{'counter_in_file'}->{$element->{'structure'}->{'unit_filename'}} == 1) {
     $result .= &{$self->{'format_navigation_header'}}($self,
                $self->get_conf('MISC_BUTTONS'), undef, $element);
   }
@@ -5751,9 +5753,10 @@ sub _default_format_element_footer($$$$)
                    and $element->{'structure'}->{'unit_next'}->{'type'} eq 'special_element');
 
   my $end_page = (!$element->{'structure'}->{'unit_next'}
-       or (defined($element->{'unit_filename'})
-           and $element->{'unit_filename'} ne $element->{'structure'}->{'unit_next'}->{'unit_filename'}
-           and $self->{'file_counters'}->{$element->{'unit_filename'}} == 1));
+       or (defined($element->{'structure'}->{'unit_filename'})
+           and $element->{'structure'}->{'unit_filename'}
+               ne $element->{'structure'}->{'unit_next'}->{'structure'}->{'unit_filename'}
+           and $self->{'file_counters'}->{$element->{'structure'}->{'unit_filename'}} == 1));
 
   my $is_special = (defined($element->{'type'})
                     and $element->{'type'} eq 'special_element');
@@ -5805,9 +5808,9 @@ sub _default_format_element_footer($$$$)
   # condition appearing in end_page except that the file counter
   # needs not to be 1
   if ((!$element->{'structure'}->{'unit_next'}
-       or (defined($element->{'unit_filename'})
-           and $element->{'unit_filename'}
-                  ne $element->{'structure'}->{'unit_next'}->{'unit_filename'}))
+       or (defined($element->{'structure'}->{'unit_filename'})
+           and $element->{'structure'}->{'unit_filename'}
+               ne $element->{'structure'}->{'unit_next'}->{'structure'}->{'unit_filename'}))
       and $self->get_conf('footnotestyle') eq 'end') {
     $result .= &{$self->{'format_footnotes_text'}}($self);
   }
@@ -6787,8 +6790,8 @@ sub _html_set_pages_files($$$$$$$$)
 
   if (!$self->get_conf('SPLIT')) {
     foreach my $tree_unit (@$tree_units) {
-      if (!defined($tree_unit->{'unit_filename'})) {
-        $tree_unit->{'unit_filename'} = $output_filename;
+      if (!defined($tree_unit->{'structure'}->{'unit_filename'})) {
+        $tree_unit->{'structure'}->{'unit_filename'} = $output_filename;
         $tree_unit->{'out_filepath'} = $output_file;
       }
     }
@@ -6808,11 +6811,11 @@ sub _html_set_pages_files($$$$$$$$)
     my $previous_page;
     foreach my $tree_unit (@$tree_units) {
       # For Top node.
-      next if (defined($tree_unit->{'unit_filename'}));
+      next if (defined($tree_unit->{'structure'}->{'unit_filename'}));
       if (!$tree_unit->{'extra'}->{'first_in_page'}) {
         cluck ("No first_in_page for $tree_unit\n");
       }
-      if (!defined($tree_unit->{'extra'}->{'first_in_page'}->{'unit_filename'})) {
+      if (!defined($tree_unit->{'extra'}->{'first_in_page'}->{'structure'}->{'unit_filename'})) {
         my $file_tree_unit = $tree_unit->{'extra'}->{'first_in_page'};
         foreach my $root_command (@{$file_tree_unit->{'contents'}}) {
           if ($root_command->{'cmdname'} 
@@ -6840,7 +6843,7 @@ sub _html_set_pages_files($$$$$$$$)
             last;
           }
         }
-        if (!defined($file_tree_unit->{'unit_filename'})) {
+        if (!defined($file_tree_unit->{'structure'}->{'unit_filename'})) {
           # use section to do the file name if there is no node
           my $command = $self->element_command($file_tree_unit);
           if ($command) {
@@ -6869,8 +6872,8 @@ sub _html_set_pages_files($$$$$$$$)
           }
         }
       }
-      $tree_unit->{'unit_filename'}
-         = $tree_unit->{'extra'}->{'first_in_page'}->{'unit_filename'};
+      $tree_unit->{'structure'}->{'unit_filename'}
+         = $tree_unit->{'extra'}->{'first_in_page'}->{'structure'}->{'unit_filename'};
       $tree_unit->{'out_filepath'}
          = $tree_unit->{'extra'}->{'first_in_page'}->{'out_filepath'};
     }
@@ -6881,14 +6884,14 @@ sub _html_set_pages_files($$$$$$$$)
       # NOTE the information that it is associated with @top or @node Top
       # may be determined with $self->element_is_tree_unit_top($tree_unit);
       my $filename = &$Texinfo::Config::element_file_name($self, $tree_unit,
-                                                          $tree_unit->{'unit_filename'});
+                                       $tree_unit->{'structure'}->{'unit_filename'});
       $self->set_tree_unit_file($tree_unit, $filename, $destination_directory)
          if (defined($filename));
     }
-    $self->{'file_counters'}->{$tree_unit->{'unit_filename'}}++;
+    $self->{'file_counters'}->{$tree_unit->{'structure'}->{'unit_filename'}}++;
     print STDERR "Page $tree_unit "
       .Texinfo::Structuring::root_or_external_element_cmd_texi($tree_unit)
-      .": $tree_unit->{'unit_filename'}($self->{'file_counters'}->{$tree_unit->{'unit_filename'}})\n"
+      .": $tree_unit->{'structure'}->{'unit_filename'}($self->{'file_counters'}->{$tree_unit->{'structure'}->{'unit_filename'}})\n"
       if ($self->get_conf('DEBUG'));
   }
   if ($special_elements) {
@@ -6898,8 +6901,8 @@ sub _html_set_pages_files($$$$$$$$)
        = $self->{'targets'}->{$special_element}->{'misc_filename'};
       if (defined($filename)) {
         $self->set_tree_unit_file($special_element, $filename, $destination_directory);
-        $self->{'file_counters'}->{$special_element->{'unit_filename'}}++;
-        print STDERR "Special page $special_element: $special_element->{'unit_filename'}($self->{'file_counters'}->{$special_element->{'unit_filename'}})\n"
+        $self->{'file_counters'}->{$special_element->{'structure'}->{'unit_filename'}}++;
+        print STDERR "Special page $special_element: $special_element->{'structure'}->{'unit_filename'}($self->{'file_counters'}->{$special_element->{'structure'}->{'unit_filename'}})\n"
           if ($self->get_conf('DEBUG'));
       }
       $special_element->{'structure'}->{'unit_prev'} = $previous_tree_unit;
@@ -7097,7 +7100,8 @@ sub _prepare_contents_elements($)
         my $default_filename;
         if ($self->get_conf('CONTENTS_OUTPUT_LOCATION') eq 'after_title') {
           if ($self->{'tree_units'}) {
-            $default_filename = $self->{'tree_units'}->[0]->{'unit_filename'};
+            $default_filename
+              = $self->{'tree_units'}->[0]->{'structure'}->{'unit_filename'};
           }
         } elsif ($self->get_conf('CONTENTS_OUTPUT_LOCATION') eq 'after_top') {
           my $section_top = undef;
@@ -7112,7 +7116,8 @@ sub _prepare_contents_elements($)
               my ($root_element, $root_command)
                 = $self->_html_get_tree_root_element($command);
               if (defined($root_element)) {
-                $default_filename = $root_element->{'unit_filename'};
+                $default_filename
+                   = $root_element->{'structure'}->{'unit_filename'};
                 last;
               }
             }
@@ -8165,7 +8170,7 @@ sub _default_format_frame_files($$)
     my $top_file = '';
     if ($self->global_element('Top')) {
       my $top_element = $self->global_element('Top');
-      $top_file = $top_element->{'unit_filename'};
+      $top_file = $top_element->{'structure'}->{'unit_filename'};
     }
     my $title = $self->{'title_string'};
     print $frame_fh <<EOT;
@@ -8462,12 +8467,13 @@ sub output($$)
   # This may only happen if not split.
   if ($special_elements
       and $tree_units and $tree_units->[0]
-      and defined($tree_units->[0]->{'unit_filename'})) {
+      and defined($tree_units->[0]->{'structure'}->{'unit_filename'})) {
     foreach my $special_element (@$special_elements) {
-      if (!defined($special_element->{'unit_filename'})) {
-        $special_element->{'unit_filename'} = $tree_units->[0]->{'unit_filename'};
+      if (!defined($special_element->{'structure'}->{'unit_filename'})) {
+        $special_element->{'structure'}->{'unit_filename'}
+           = $tree_units->[0]->{'structure'}->{'unit_filename'};
         $special_element->{'out_filepath'} = $tree_units->[0]->{'out_filepath'};
-        $self->{'file_counters'}->{$special_element->{'unit_filename'}}++;
+        $self->{'file_counters'}->{$special_element->{'structure'}->{'unit_filename'}}++;
       }
     }
   }
@@ -8617,7 +8623,8 @@ sub output($$)
   my $fh;
   my $output = '';
 
-  if (!$tree_units or !defined($tree_units->[0]->{'unit_filename'})) {
+  if (!$tree_units
+      or !defined($tree_units->[0]->{'structure'}->{'unit_filename'})) {
     # no page
     my $no_page_out_filepath;
     if ($output_file ne '') {
@@ -8644,7 +8651,7 @@ sub output($$)
       }
       # this can be used in init file when there are no tree units.
       # FIXME use an API?  Set in $self->{'no_page'}?
-      $self->{'unit_filename'} = $no_page_output_filename;
+      $self->{'structure'}->{'unit_filename'} = $no_page_output_filename;
       $self->{'out_filepath'} = $no_page_out_filepath;
 
       $self->{'current_filename'} = $no_page_output_filename;
@@ -8699,9 +8706,10 @@ sub output($$)
     # Now do the output, converting each tree units and special elements in turn
     $special_elements = [] if (!defined($special_elements));
     foreach my $element (@$tree_units, @$special_elements) {
-      $self->{'current_filename'} = $element->{'unit_filename'};
-      $self->{'counter_in_file'}->{$element->{'unit_filename'}}++;
-      if ($self->{'counter_in_file'}->{$element->{'unit_filename'}} == 1) {
+      my $element_filename = $element->{'structure'}->{'unit_filename'};
+      $self->{'current_filename'} = $element_filename;
+      $self->{'counter_in_file'}->{$element_filename}++;
+      if ($self->{'counter_in_file'}->{$element_filename} == 1) {
         $self->{'element_math'} = 0;
       }
 
@@ -8714,7 +8722,7 @@ sub output($$)
         print STDERR "\nUNIT SPECIAL\n" if ($self->get_conf('DEBUG'));
         $special_element_content .= $self->_convert($element, "output s-unit $unit_nr");
         if ($special_element_content eq '') {
-          $self->{'file_counters'}->{$element->{'unit_filename'}}--;
+          $self->{'file_counters'}->{$element_filename}--;
           next ;
         }
       }
@@ -8731,14 +8739,14 @@ sub output($$)
       # register the element but do not print anything. Printing
       # only when file_counters reach 0, to be sure that all the
       # elements have been converted.
-      if (!$files{$element->{'unit_filename'}}->{'first_element'}) {
-        $files{$element->{'unit_filename'}}->{'first_element'} = $element;
-        $files{$element->{'unit_filename'}}->{'body'} = '';
+      if (!$files{$element_filename}->{'first_element'}) {
+        $files{$element_filename}->{'first_element'} = $element;
+        $files{$element_filename}->{'body'} = '';
       }
-      $files{$element->{'unit_filename'}}->{'body'} .= $body;
-      $self->{'file_counters'}->{$element->{'unit_filename'}}--;
-      if ($self->{'file_counters'}->{$element->{'unit_filename'}} == 0) {
-        my $file_element = $files{$element->{'unit_filename'}}->{'first_element'};
+      $files{$element_filename}->{'body'} .= $body;
+      $self->{'file_counters'}->{$element_filename}--;
+      if ($self->{'file_counters'}->{$element_filename} == 0) {
+        my $file_element = $files{$element_filename}->{'first_element'};
         my $file_fh = Texinfo::Common::output_files_open_out(
                          $self->output_files_information(), $self,
                          $file_element->{'out_filepath'});
@@ -8751,8 +8759,8 @@ sub output($$)
         # do end file first in case it requires some CSS
         my $end_file = &{$self->{'format_end_file'}}($self);
         print $file_fh "".&{$self->{'format_begin_file'}}($self,
-                         $file_element->{'unit_filename'}, $file_element);
-        print $file_fh "".$files{$element->{'unit_filename'}}->{'body'};
+                         $file_element->{'structure'}->{'unit_filename'}, $file_element);
+        print $file_fh "".$files{$element_filename}->{'body'};
         # end file
         print $file_fh "". $end_file;
 

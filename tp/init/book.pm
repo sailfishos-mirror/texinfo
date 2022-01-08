@@ -107,8 +107,8 @@ sub book_format_navigation_header($$$$)
           or (!$tree_unit->{'contents'}->[0]->{'cmdname'}
               and $tree_unit->{'contents'}->[1] eq $element))
       # FIXME API
-      and defined($tree_unit->{'unit_filename'})
-      and $self->{'counter_in_file'}->{$tree_unit->{'unit_filename'}} == 1) {
+      and defined($tree_unit->{'structure'}->{'unit_filename'})
+      and $self->{'counter_in_file'}->{$tree_unit->{'structure'}->{'unit_filename'}} == 1) {
     
     return book_print_up_toc($self, $tree_unit->{'extra'}->{'unit_command'}) .
        &{$self->default_formatting_function('format_navigation_header')}($self,

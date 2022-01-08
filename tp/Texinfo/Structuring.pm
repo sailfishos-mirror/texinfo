@@ -1205,8 +1205,8 @@ sub elements_file_directions($)
   foreach my $tree_unit (@$tree_units) {
     my $directions;
     my $filename;
-    if (defined($tree_unit->{'unit_filename'})) {
-      $filename = $tree_unit->{'unit_filename'};
+    if (defined($tree_unit->{'structure'}->{'unit_filename'})) {
+      $filename = $tree_unit->{'structure'}->{'unit_filename'};
       my $current_tree_unit = $tree_unit;
       if (not defined($current_filename)
           or $filename ne $current_filename) {
@@ -1216,8 +1216,8 @@ sub elements_file_directions($)
       }
       while ($current_tree_unit->{'structure'}->{'unit_prev'}) {
         $current_tree_unit = $current_tree_unit->{'structure'}->{'unit_prev'};
-        if (defined($current_tree_unit->{'unit_filename'})) {
-          if ($current_tree_unit->{'unit_filename'} ne $filename) {
+        if (defined($current_tree_unit->{'structure'}->{'unit_filename'})) {
+          if ($current_tree_unit->{'structure'}->{'unit_filename'} ne $filename) {
             $tree_unit->{'structure'}->{'directions'}->{'PrevFile'}
                  = $current_tree_unit;
             last;
@@ -1229,8 +1229,8 @@ sub elements_file_directions($)
       $current_tree_unit = $tree_unit;
       while ($current_tree_unit->{'structure'}->{'unit_next'}) {
         $current_tree_unit = $current_tree_unit->{'structure'}->{'unit_next'};
-        if (defined($current_tree_unit->{'unit_filename'})) {
-          if ($current_tree_unit->{'unit_filename'} ne $filename) {
+        if (defined($current_tree_unit->{'structure'}->{'unit_filename'})) {
+          if ($current_tree_unit->{'structure'}->{'unit_filename'} ne $filename) {
             $tree_unit->{'structure'}->{'directions'}->{'NextFile'}
                = $current_tree_unit;
             last;

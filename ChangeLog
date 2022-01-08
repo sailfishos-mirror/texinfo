@@ -3,7 +3,21 @@
 	* tp/Texinfo/Convert/Converter.pm (set_tree_unit_file)
 	(_set_tree_units_files, output), tp/Texinfo/Convert/HTML.pm
 	(command_filename, command_href, _default_format_element_header)
-	(_default_format_element_footer, _html_set_pages_files, output),
+	(_convert_special_element_type, _default_format_element_footer)
+	(_html_set_pages_files, output),
+	tp/Texinfo/Structuring.pm (elements_file_directions),
+	tp/init/book.pm, tp/init/chm.pm, tp/init/epub3.pm,
+	tp/t/init/t2h_singular.init: put 'unit_filename' in 'structure'
+	hash reference.
+
+
+2022-01-08  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/Converter.pm (set_tree_unit_file)
+	(_set_tree_units_files, output), tp/Texinfo/Convert/HTML.pm
+	(command_filename, command_href, _default_format_element_header)
+	(_convert_special_element_type, _default_format_element_footer)
+	(_html_set_pages_files, output),
 	tp/Texinfo/Structuring.pm (elements_file_directions),
 	tp/init/book.pm, tp/init/chm.pm, tp/init/epub3.pm,
 	tp/t/init/t2h_singular.init: rename tree unit 'filename' key as

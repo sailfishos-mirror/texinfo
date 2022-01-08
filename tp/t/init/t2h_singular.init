@@ -60,9 +60,10 @@ sub singular_format_footer($$$$)
 
   my $end_page = (!$element->{'structure'}->{'unit_next'}
    # FIXME API
-   or (defined($element->{'unit_filename'})
-       and $element->{'unit_filename'} ne $element->{'structure'}->{'unit_next'}->{'unit_filename'}
-       and $self->{'file_counters'}->{$element->{'unit_filename'}} == 1));
+   or (defined($element->{'structure'}->{'unit_filename'})
+       and $element->{'structure'}->{'unit_filename'}
+           ne $element->{'structure'}->{'unit_next'}->{'structure'}->{'unit_filename'}
+       and $self->{'file_counters'}->{$element->{'structure'}->{'unit_filename'}} == 1));
 
   if ($self->element_is_tree_unit_top($element)) {
     my $buttons = $self->get_conf('TOP_BUTTONS');

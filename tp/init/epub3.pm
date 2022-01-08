@@ -192,7 +192,7 @@ sub epub_convert_tree_unit_type($$$$)
   my $element = shift;
   my $content = shift;
 
-  push @epub_output_filenames, $element->{'unit_filename'};
+  push @epub_output_filenames, $element->{'structure'}->{'unit_filename'};
   return &{$self->default_types_conversion($type)}($self,
                                       $type, $element, $content);
 }
