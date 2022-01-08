@@ -258,11 +258,28 @@ sub _command_init($$)
   }
 }
 
-# $COMMANDS_LOCATION is 0, 1 or -1.
-# 0 means setting to the values before the document commands
+sub _in_preamble($)
+{
+  my $element = shift;
+  my $current_element = $element;
+  while ($current_element->{'parent'}) {
+    if (defined($current_element->{'parent'}->{'type'})
+        and $current_element->{'parent'}->{'type'} eq 'preamble_before_content') {
+      return 1;
+    }
+    $current_element = $current_element->{'parent'};
+  }
+  return 0;
+}
+
+# $COMMANDS_LOCATION is 'before', 'last', 'preamble' or 'preamble_or_first'
+# 'before' means setting to the values before the document commands
 # (default and command-line).
-# 1 means setting to the first value for the command in the document
-# -1 means setting to the last value for the command in the document.
+# 'preamble' means setting sequentially to the values in the preamble.
+# 'first_or_preamble'  means setting to the first value for the command
+# in the document if the first command is not in the preamble, else set
+# sequentially to the values in the preamble.
+# 'last' means setting to the last value for the command in the document.
 #
 # For unique command, the last may be considered to be the same as the first.
 #
@@ -289,34 +306,52 @@ sub set_global_document_commands($$;$)
   if (not defined($selected_commands)) {
     $selected_commands = [keys(%Texinfo::Common::document_settable_at_commands)];
   }
-  if ($commands_location == 0) {
+  if ($commands_location eq 'before') {
     foreach my $global_command (@{$selected_commands}) {
       # for commands not appearing in the document, this should set the
       # same value, the converter initialization value
       $self->set_conf($global_command, _command_init($global_command, $init_conf));
     }
   } else {
+    if ($commands_location ne 'last' and $commands_location ne 'preamble_or_first'
+        and $commands_location ne 'preamble') {
+      warn "BUG: set_global_document_commands: unknown commands_location: $commands_location";
+    }
     foreach my $global_command (@{$selected_commands}) {
       my $element;
-      if (defined($self->{'global_commands'}->{$global_command})
-          and ref($self->{'global_commands'}->{$global_command}) eq 'ARRAY') {
-        # used when $commands_location == 1
-        my $index_in_global_commands = 0;
-        if ($commands_location < 0) {
-          $index_in_global_commands = -1;
-        }
-        $element =
-          $self->{'global_commands'}->{$global_command}->[$index_in_global_commands];
-      } elsif (defined($self->{'global_commands'}->{$global_command})) {
-        # unique command, first and last are the same
-        $element = $self->{'global_commands'}->{$global_command};
-      }
       if ($self->get_conf('DEBUG')) {
         print STDERR "SET_global_multiple_commands($commands_location) $global_command\n";
       }
-      if (defined($element)) {
+      if (defined($self->{'global_commands'}->{$global_command})
+          and ref($self->{'global_commands'}->{$global_command}) eq 'ARRAY') {
+        if ($commands_location eq 'last')
+        {
+          $element =
+            $self->{'global_commands'}->{$global_command}->[-1];
+          $self->set_informative_command_value($element);
+        } else {
+          if ($commands_location eq 'preamble_or_first'
+              and not _in_preamble($self->{'global_commands'}->{$global_command}->[0])) {
+            $element =
+              $self->{'global_commands'}->{$global_command}->[0];
+            $self->set_informative_command_value($element);
+          } else {
+            foreach my $command_element (@{$self->{'global_commands'}->{$global_command}}) {
+              if (_in_preamble($command_element)) {
+                $element = $command_element;
+                $self->set_informative_command_value($element);
+              } else {
+                last;
+              }
+            }
+          }
+        }
+      } elsif (defined($self->{'global_commands'}->{$global_command})) {
+        # unique command, first, preamble and last are the same
+        $element = $self->{'global_commands'}->{$global_command};
         $self->set_informative_command_value($element);
-      } else {
+      }
+      if (not defined($element)) {
         # commands not appearing in the document, this should set the
         # same value, the converter initialization value
         $self->set_conf($global_command, _command_init($global_command, $init_conf));

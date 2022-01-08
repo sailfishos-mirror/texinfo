@@ -6966,19 +6966,19 @@ sub _prepare_conversion_tree_units($$$$)
   # places, set it once for all here
   my @contents_elements_options = grep {Texinfo::Common::valid_option($_)}
                                          keys(%contents_command_element_type);
-  $self->set_global_document_commands(-1, \@contents_elements_options);
+  $self->set_global_document_commands('last', \@contents_elements_options);
 
   # configuration used to determine if a special element is to be done
   # (in addition to contents)
   my @conf_for_special_elements = ('footnotestyle');
-  $self->set_global_document_commands(-1, \@conf_for_special_elements);
+  $self->set_global_document_commands('last', \@conf_for_special_elements);
   # Do that before the other elements, to be sure that special page ids
   # are registered before elements id are.
   my $special_elements
     = $self->_prepare_special_elements($tree_units, $destination_directory,
                                        $document_name);
   # reset to the default
-  $self->set_global_document_commands(0, \@conf_for_special_elements);
+  $self->set_global_document_commands('before', \@conf_for_special_elements);
 
   #if ($tree_units) {
   #  foreach my $element(@{$tree_units}) {
@@ -8517,17 +8517,13 @@ sub output($$)
   my $structure_status = $self->run_stage_handlers($root, 'structure');
   return undef unless($structure_status);
 
-  # FIXME there is no good choice here.  The language may be
-  # set later on, it is wrong to use it from the beginning.
-  # Best that can be done for now.  Wait for Gavin answer on
-  # a more explicit header for Texinfo files that would be
-  # taken into account for that kind of global documents variables
-  # setting
-  $self->set_global_document_commands(1, ['documentlanguage']);
+  $self->set_global_document_commands('preamble_or_first', ['documentlanguage']);
 
   $self->set_conf('BODYTEXT',
                   'lang="' . $self->get_conf('documentlanguage') . '"');
 
+  # FIXME here reset to preamble only, but need to change tests
+  #$self->set_global_document_commands('preamble', ['documentlanguage']);
   # prepare title.  fulltitle uses more possibility than simpletitle for
   # title, including @-commands found in @titlepage only.  Therefore
   # simpletitle is more in line with what makeinfo in C does.
@@ -8593,7 +8589,7 @@ sub output($$)
         = &{$self->{'format_comment'}}($self, $copying_comment);
     }
   }
-  $self->set_global_document_commands(0, ['documentlanguage']);
+  $self->set_global_document_commands('before', ['documentlanguage']);
 
   # documentdescription
   if (defined($self->get_conf('documentdescription'))) {

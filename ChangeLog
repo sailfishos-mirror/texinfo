@@ -1,5 +1,15 @@
 2022-01-08  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/Converter.pm (_in_preamble)
+	(set_global_document_commands)
+	tp/Texinfo/Convert/HTML.pm (_prepare_conversion_tree_units, output),
+	tp/Texinfo/Convert/Info.pm (_info_header): modify
+	set_global_document_commands() to take for commands location
+	argument 'before', 'last', 'preamble' or 'preamble_or_first'
+	taking into account the preamble appropriately.
+
+2022-01-08  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (register_file_information)
 	(get_file_information): add an API to be able to set informations
 	during conversion and get it back when doint the footers and headers.

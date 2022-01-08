@@ -338,12 +338,10 @@ sub _info_header($$$)
   $result .= "\n";
   $self->{'empty_lines_count'} = 1;
 
-  # format @copying using the first value set for global
-  # commands in the document.  It may not correspond to the
-  # intent of the author if the global commands appears late
-  # in the document.  However this is the best guess we can do.
+  # format @copying using the last value of the preamble.
   my @informative_global_commands = $self->get_informative_global_commands();
-  $self->set_global_document_commands(1, \@informative_global_commands);
+  # FIXME use 'preamble' instead, but need to fix tests
+  $self->set_global_document_commands('preamble_or_first', \@informative_global_commands);
   if ($self->{'global_commands'} and $self->{'global_commands'}->{'copying'}) {
     print STDERR "COPYING HEADER\n" if ($self->get_conf('DEBUG'));
     $self->{'in_copying_header'} = 1;
@@ -353,7 +351,7 @@ sub _info_header($$$)
     $result .= $self->process_footnotes();
     delete $self->{'in_copying_header'};
   }
-  $self->set_global_document_commands(0, \@informative_global_commands);
+  $self->set_global_document_commands('before', \@informative_global_commands);
 
   if ($self->{'parser_info'}->{'dircategory_direntry'}) {
     $self->{'ignored_commands'}->{'direntry'} = 0;
