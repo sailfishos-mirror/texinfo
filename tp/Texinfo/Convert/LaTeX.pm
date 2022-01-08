@@ -124,11 +124,7 @@
 #
 # @fonttextsize with \changefontsize does not seems to change fonts much.  It
 # seems to change in the text, but only 10pt, and does not seems to change
-# sections font sizes.  fontsize package may not be installed anyway.
-#
-# use of babel package commented out because it gave an error:
-#   ! Package babel Error: You haven't specified a language option.
-# it may depend on the LaTeX installation
+# sections font sizes.
 #
 # The @afourpaper, @afourlatex and @afourwide commands all map to
 # papername=a4paper.  It is most likely ok for @afourlatex, but the other two
@@ -232,6 +228,7 @@ my %letter_no_arg_commands = %Texinfo::Common::letter_no_arg_commands;
 my %item_line_commands = %Texinfo::Common::item_line_commands;
 my %headings_specification_commands = %Texinfo::Common::headings_specification_commands;
 my %in_heading_commands = %Texinfo::Common::in_heading_commands;
+my %unformatted_brace_command = %Texinfo::Common::unformatted_brace_command;
 
 my %preamble_commands = %Texinfo::Common::preamble_commands;
 
@@ -525,6 +522,10 @@ my %LaTeX_environment_options = (
   'cartouche' => {'mdframed' => 'style=GNUTexinfocartouche'},
 );
 
+my %LaTeX_environment_packages = (
+  'cartouche' => ['mdframed'],
+);
+
 foreach my $environment_command (@LaTeX_same_block_commands) {
   $LaTeX_environment_commands{$environment_command} = [$environment_command];
 }
@@ -641,6 +642,8 @@ my $description_command_new_commands_prefix = 'GNUTexinfotablestyle';
 my %description_command_new_commands = ();
 
 foreach my $command (keys(%{$LaTeX_style_brace_commands{'text'}}), 'kbd') {
+  # avoids hyphenation @-command
+  next if ($unformatted_brace_command{$command});
   my $description_format = $LaTeX_style_brace_commands{'text'}->{$command};
   if ($command eq 'kbd' or
       ($description_format ne '' and $description_format !~ /\\text[a-z]{2}$/)) {
@@ -713,6 +716,11 @@ sub converter_defaults($$)
 {
   return %defaults;
 }
+
+# other keys:
+#  description_format_commands
+#  packages
+#  normalized_float_latex
 
 sub converter_initialize($)
 {
@@ -822,7 +830,7 @@ sub _prepare_indices($)
     foreach my $index_name (keys(%{$merged_index_entries})) {
       # print STDERR "PI $index_name\n";
       # print STDERR "".$merged_index_entries->{$index_name}."\n";
-      #print STDERR "".join("|", @{$merged_index_entries->{$index_name}})."\n";
+      #print STDERR " -> ".join("|", @{$merged_index_entries->{$index_name}})."\n";
       if (scalar(@{$merged_index_entries->{$index_name}})) {
         $self->{'index_entries'}->{$index_name} = $merged_index_entries->{$index_name};
       }
@@ -991,15 +999,17 @@ sub output($$)
     $modified_root = $root;
   }
 
-  my $result = '';
 
   $self->_prepare_conversion($modified_root);
 
-  $result .= $self->write_or_return($self->_latex_header(), $fh);
-  _push_new_context($self, 'main');
-  $result .= $self->write_or_return($self->convert_tree($modified_root), $fh);
-  _pop_context($self);
-  $result .= $self->write_or_return($self->_latex_footer(), $fh);
+  my $result = '';
+  $result .= $self->_latex_begin_output();
+  $result .= $self->convert_tree($modified_root);
+  $result .= $self->_latex_footer();
+
+  my $output = '';
+  $output .= $self->write_or_return($self->_latex_header(), $fh);
+  $output .= $self->write_or_return($result, $fh);
 
   #print STDERR "OUTPUT fh:$fh|F:$output_file|$result";
   if ($fh and $output_file ne '-') {
@@ -1011,7 +1021,7 @@ sub output($$)
                                     $output_file, $!));
     }
   }
-  return $result;
+  return $output;
 }
 
 # we allow the converter to already be in a context, but if
@@ -1138,8 +1148,101 @@ my $titleps_preamble = '% plain page style, for part and chapter, which call \th
 # TODO translation
 my $default_title = 'No Title';
 
-sub _latex_header {
+sub _latex_header() {
   my $self = shift;
+  # LaTeX code appearing after packages.  Do it first to be able to
+  # select packages based on the code output here.
+  my $header_code = '';
+  my $settitle;
+  if ($self->{'settitle_tree'}) {
+    $settitle = $self->convert_tree($self->{'settitle_tree'});
+  } else {
+    $settitle = $default_title;
+  }
+
+  # for @thistitle and headers
+  $header_code .= "\\newcommand{\\GNUTexinfosettitle}{$settitle}%\n";
+  $header_code .= "\n";
+
+  if ($self->{'floats'}) {
+    foreach my $normalized_float_type (sort(keys(%{$self->{'normalized_float_latex'}}))) {
+      my $latex_float_name
+        = $self->{'normalized_float_latex'}->{$normalized_float_type};
+      if (not exists($LaTeX_floats{$latex_float_name})) {
+        my $float_type = '';
+        if ($normalized_float_type ne '') {
+          _push_new_context($self, 'float_type '.$normalized_float_type);
+          my $float = $self->{'floats'}->{$normalized_float_type}->[0];
+          my $float_type_contents = $float->{'extra'}->{'type'}->{'content'};
+          my $float_type = _convert($self, {'contents' => $float_type_contents});
+          _pop_context($self);
+        }
+        my $floats_extension = $self->{'floats_extension'};
+        $header_code .= "% new float for type `$normalized_float_type'\n";
+        $header_code .= "\\newfloat{$latex_float_name}{htb}{$floats_extension}[chapter]
+\\floatname{$latex_float_name}{$float_type}
+";
+      }
+    }
+  }
+  if ($self->{'index_entries'}) {
+    foreach my $index_name (sort(keys(%{$self->{'index_entries'}}))) {
+      $header_code .= "\\makeindex[name=$index_name]%\n";
+    }
+    $header_code .= "\n";
+  }
+  # define additional commands used in @*table description format
+  foreach my $command (sort(keys(%description_command_new_commands))) {
+    if ($self->{'description_format_commands'}->{$command}) {
+      $header_code .= '% command used in \description format for '.$command."\n";
+      $header_code .= "\\newcommand".$description_command_new_commands{$command}."%\n";
+      $header_code .= "\n";
+    }
+  }
+
+  $header_code .= $front_main_matter_definitions{$documentclass};
+  if ($self->{'packages'}->{'babel'}) {
+    $header_code .= '
+% this allows to select languages based on bcp47 codes.  bcp47 is a superset
+% of the LL_CC ISO 639-2 LL ISO 3166 CC information of @documentlanguage
+\babeladjust{
+  autoload.bcp47 = on,
+  autoload.bcp47.options = import
+}
+';
+  }
+  $header_code .= '% set defaults for lists that match Texinfo TeX formatting
+\setlist[description]{style=nextline, font=\normalfont}
+\setlist[itemize]{label=\textbullet}
+\setlist[enumerate]{label=\arabic*.}
+
+% command that does nothing used to help with substitutions in commands
+\newcommand{\GNUTexinfoplaceholder}[1]{}
+
+'.$titleps_preamble.'
+
+% avoid pagebreak and headings setting for a sectionning command
+\newcommand{\GNUTexinfonopagebreakheading}[2]{\let\clearpage\relax \let\cleardoublepage\relax \let\thispagestyle\GNUTexinfoplaceholder #1{#2}}
+
+';
+  if ($self->{'packages'}->{'mdframed'}) {
+   $header_code .= '% the mdframed style for @cartouche
+\mdfdefinestyle{GNUTexinfocartouche}{
+innertopmargin=10pt, innerbottommargin=10pt,%
+roundcorner=10pt}
+
+';
+  }
+  # this is in order to be able to run pdflatex even
+  # if files do not exist, or filenames cannot be
+  # processed by LaTeX
+  if ($self->get_conf('TEST')) {
+    $header_code .=
+'\renewcommand{\includegraphics}[1]{\fbox{FIG #1}}
+
+';
+  }
+
   # amsfonts for \circledR
   # amsmath for \text in math
   # T1 fontenc for \DH, \guillemotleft, ...
@@ -1156,24 +1259,39 @@ sub _latex_header {
   # \usepackage[linkbordercolor={0 0 0}]{hyperref}
   # titleps is used and not fancyhdr as with fancyhdr it is hard to get
   # the section or chapter title
-  my $header = "\\documentclass{$documentclass}\n"
-.'\usepackage{imakeidx}
-\usepackage{amsfonts}
+  my $header = "\\documentclass{$documentclass}\n";
+  if ($self->{'index_entries'}) {
+    $header .= "\\usepackage{imakeidx}\n";
+  }
+  $header .= '\usepackage{amsfonts}
 \usepackage{amsmath}
 \usepackage[gen]{eurosym}
 \usepackage[T1]{fontenc}
 \usepackage{textcomp}
 \usepackage{graphicx}
-\usepackage{needspace}
-\usepackage{etoolbox}
-\usepackage{mdframed}
-%\usepackage{fontsize}
-\usepackage{enumitem}
+';
+  if ($self->{'packages'}->{'needspace'}) {
+    $header .= "\\usepackage{needspace}\n";
+  }
+  $header .= '\usepackage{etoolbox}
+';
+  if ($self->{'packages'}->{'mdframed'}) {
+    $header .= "\\usepackage{mdframed}\n";
+  }
+  if ($self->{'packages'}->{'fontsize'}) {
+    $header .= "\\usepackage{fontsize}\n";
+  }
+  $header .= '\usepackage{enumitem}
 \usepackage{geometry}
 \usepackage{titleps}
-\usepackage{float}
-%\usepackage{babel}
-% use hidelinks to remove boxes around links to be similar with Texinfo TeX
+';
+  if ($self->{'floats'}) {
+    $header .= "\\usepackage{float}\n";
+  }
+  if ($self->{'packages'}->{'babel'}) {
+    $header .= "\\usepackage{babel}\n";
+  }
+  $header .= '% use hidelinks to remove boxes around links to be similar with Texinfo TeX
 \usepackage[hidelinks]{hyperref}
 ';
   if ($self->{'output_encoding_name'}) {
@@ -1185,93 +1303,19 @@ sub _latex_header {
     #}
     $header .= "\\usepackage[$encoding]{inputenc}\n";
   }
-  $header .= "\n";
   #if ($self->{'global_commands'}->{'shortcontents'}) {
   #  # in texlive-latex-extra in debian
   #  $header .= "\\usepackage{shorttoc}\n";
   #}
-  my $settitle;
-  if ($self->{'settitle_tree'}) {
-    $settitle = $self->convert_tree($self->{'settitle_tree'});
-  } else {
-    $settitle = $default_title;
-  }
-
-  # for @thistitle and headers
-  $header .= "\\newcommand{\\GNUTexinfosettitle}{$settitle}%\n";
   $header .= "\n";
 
-  if ($self->{'floats'}) {
-    foreach my $normalized_float_type (sort(keys(%{$self->{'normalized_float_latex'}}))) {
-      my $latex_float_name
-        = $self->{'normalized_float_latex'}->{$normalized_float_type};
-      if (not exists($LaTeX_floats{$latex_float_name})) {
-        my $float_type = '';
-        if ($normalized_float_type ne '') {
-          _push_new_context($self, 'float_type '.$normalized_float_type);
-          my $float = $self->{'floats'}->{$normalized_float_type}->[0];
-          my $float_type_contents = $float->{'extra'}->{'type'}->{'content'};
-          my $float_type = _convert($self, {'contents' => $float_type_contents});
-          _pop_context($self);
-        }
-        my $floats_extension = $self->{'floats_extension'};
-        $header .= "% new float for type `$normalized_float_type'\n";
-        $header .= "\\newfloat{$latex_float_name}{htb}{$floats_extension}[chapter]
-\\floatname{$latex_float_name}{$float_type}
-";
-      }
-    }
-  }
-  if ($self->{'index_entries'}) {
-    foreach my $index_name (sort(keys(%{$self->{'index_entries'}}))) {
-      $header .= "\\makeindex[name=$index_name]%\n";
-    }
-    $header .= "\n";
-  }
-  # define additional commands used in @*table description format
-  foreach my $command (sort(keys(%description_command_new_commands))) {
-    $header .= '% command used in \description format for '.$command."\n";
-    $header .= "\\newcommand".$description_command_new_commands{$command}."%\n";
-    $header .= "\n";
-  }
+  return $header . $header_code;
+}
 
-  $header .= $front_main_matter_definitions{$documentclass};
-  $header .= '
-% this allows to select languages based on bcp47 codes.  bcp47 is a superset
-% of the LL_CC ISO 639-2 LL ISO 3166 CC information of @documentlanguage
-% \babeladjust{
-%   autoload.bcp47 = on,
-%   autoload.bcp47.options = import
-% }
-
-% set defaults for lists that match Texinfo TeX formatting
-\setlist[description]{style=nextline, font=\normalfont}
-\setlist[itemize]{label=\textbullet}
-\setlist[enumerate]{label=\arabic*.}
-
-% command that does nothing used to help with substitutions in commands
-\newcommand{\GNUTexinfoplaceholder}[1]{}
-
-'.$titleps_preamble.'
-
-% avoid pagebreak and headings setting for a sectionning command
-\newcommand{\GNUTexinfonopagebreakheading}[2]{\let\clearpage\relax \let\cleardoublepage\relax \let\thispagestyle\GNUTexinfoplaceholder #1{#2}}
-
-% the mdframed style for @cartouche
-\mdfdefinestyle{GNUTexinfocartouche}{
-innertopmargin=10pt, innerbottommargin=10pt,%
-roundcorner=10pt}
-
-';
-  # this is in order to be able to run pdflatex even
-  # if files do not exist, or filenames cannot be
-  # processed by LaTeX
-  if ($self->get_conf('TEST')) {
-    $header .=
-'\renewcommand{\includegraphics}[1]{\fbox{FIG #1}}
-
-';
-  }
+sub _latex_begin_output($)
+{
+  my $self = shift;
+  my $header = '';
   # setup defaults
   $header .= "% set default for \@setchapternewpage\n";
   $header .= _set_chapter_new_page($self, 'on');
@@ -1769,6 +1813,10 @@ sub _xtable_description_command_format($$)
     }
     if (exists($description_command_format{$command_as_argument})
         and $description_command_format{$command_as_argument} ne '') {
+      # only gather if associated to a new command
+      if (exists($description_command_new_commands{$command_as_argument})) {
+        $self->{'description_format_commands'}->{$command_as_argument} = 1;
+      }
       return $description_command_format{$command_as_argument}
     }
   }
@@ -2696,6 +2744,11 @@ sub _convert($$)
           }
           $result .= "\n";
         }
+        if ($LaTeX_environment_packages{$cmdname}) {
+          foreach my $package (@{$LaTeX_environment_packages{$cmdname}}) {
+            $self->{'packages'}->{$package} = 1;
+          }
+        }
       }
       if ($preformatted_commands{$cmdname}) {
         $result .= _open_preformatted($self, $cmdname);
@@ -2863,7 +2916,8 @@ sub _convert($$)
       if ($element->{'extra'} and $element->{'extra'}->{'misc_args'}
           and defined($element->{'extra'}->{'misc_args'}->[0])) {
         $index_name = $element->{'extra'}->{'misc_args'}->[0];
-        if (exists($self->{'index_entries'}->{$index_name})) {
+        if (exists($self->{'index_entries'})
+            and exists($self->{'index_entries'}->{$index_name})) {
           $result .= "\\printindex[$index_name]\n";
         }
       }
@@ -2920,6 +2974,7 @@ sub _convert($$)
       $result .= "\\vskip $sp_nr\\baselineskip %\n";
       return $result;
     } elsif ($cmdname eq 'need') {
+      $self->{'packages'}->{'needspace'} = 1;
       if ($element->{'extra'}->{'misc_args'}->[0]) {
         my $need_value = 0.001 * $element->{'extra'}->{'misc_args'}->[0];
         $result .= "\\needspace{${need_value}pt}%\n";
@@ -3009,6 +3064,7 @@ sub _convert($$)
         my $language = $self->get_conf('documentlanguage');
         $language =~ s/_/-/;
         $result .= "\\selectlanguage{$language}%\n";
+        $self->{'packages'}->{'babel'} = 1;
       } elsif ($cmdname eq 'pagesizes') {
         my $pagesize_spec = _convert($self, $element->{'args'}->[0]);
         my @pagesize_args = split(/\s*,\s*/, $pagesize_spec);
@@ -3055,9 +3111,10 @@ sub _convert($$)
         $result .= _set_headings($self, $headings_spec);
       } elsif ($cmdname eq 'fonttextsize'
                and $element->{'extra'}->{'misc_args'}->[0]) {
-        # my $fontsize = $element->{'extra'}->{'misc_args'}->[0];
+        my $fontsize = $element->{'extra'}->{'misc_args'}->[0];
         # default dimension for changefontsize is pt
-        # $result .= "\\changefontsize{$fontsize}\n";
+        $result .= "\\changefontsize{$fontsize}\n";
+        $self->{'packages'}->{'fontsize'} = 1;
       } elsif ($paper_geometry_commands{$cmdname}) {
         $result .= "\\geometry{$paper_geometry_commands{$cmdname}}%\n";
       }

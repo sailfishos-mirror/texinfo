@@ -6,15 +6,11 @@
 \usepackage[T1]{fontenc}
 \usepackage{textcomp}
 \usepackage{graphicx}
-\usepackage{needspace}
 \usepackage{etoolbox}
-\usepackage{mdframed}
-%\usepackage{fontsize}
 \usepackage{enumitem}
 \usepackage{geometry}
 \usepackage{titleps}
 \usepackage{float}
-%\usepackage{babel}
 % use hidelinks to remove boxes around links to be similar with Texinfo TeX
 \usepackage[hidelinks]{hyperref}
 \usepackage[latin1]{inputenc}
@@ -22,36 +18,6 @@
 \newcommand{\GNUTexinfosettitle}{No Title}%
 
 \makeindex[name=cp]%
-
-% command used in \description format for dfn
-\newcommand\GNUTexinfotablestyledfn[1]{{\normalfont\emph{#1}}}%
-
-% command used in \description format for emph
-\newcommand\GNUTexinfotablestyleemph[1]{{\normalfont\emph{#1}}}%
-
-% command used in \description format for hyphenation
-\newcommand\GNUTexinfotablestylehyphenation[1]{{\normalfont\hyphenation{#1}}}%
-
-% command used in \description format for indicateurl
-\newcommand\GNUTexinfotablestyleindicateurl[1]{\ifstrempty{#1}{}{{`\texttt{#1}'}}}%
-
-% command used in \description format for kbd
-\newcommand\GNUTexinfotablestylekbd[1]{{\ttfamily\textsl{#1}}}%
-
-% command used in \description format for samp
-\newcommand\GNUTexinfotablestylesamp[1]{\ifstrempty{#1}{}{{`\texttt{#1}'}}}%
-
-% command used in \description format for sub
-\newcommand\GNUTexinfotablestylesub[1]{{\normalfont\textsubscript{#1}}}%
-
-% command used in \description format for sup
-\newcommand\GNUTexinfotablestylesup[1]{{\normalfont\textsuperscript{#1}}}%
-
-% command used in \description format for var
-\newcommand\GNUTexinfotablestylevar[1]{{\normalfont\emph{#1}}}%
-
-% command used in \description format for w
-\newcommand\GNUTexinfotablestylew[1]{{\normalfont\hbox{#1}}}%
 
 % redefine the \mainmatter command such that it does not clear page
 % as if in double page
@@ -61,14 +27,6 @@
 % add command aliases to use the same command in book and report
 \newcommand\GNUTexinfomainmatter{\mainmatter}
 \newcommand\GNUTexinfofrontmatter{\frontmatter}
-
-% this allows to select languages based on bcp47 codes.  bcp47 is a superset
-% of the LL_CC ISO 639-2 LL ISO 3166 CC information of @documentlanguage
-% \babeladjust{
-%   autoload.bcp47 = on,
-%   autoload.bcp47.options = import
-% }
-
 % set defaults for lists that match Texinfo TeX formatting
 \setlist[description]{style=nextline, font=\normalfont}
 \setlist[itemize]{label=\textbullet}
@@ -98,11 +56,6 @@
 
 % avoid pagebreak and headings setting for a sectionning command
 \newcommand{\GNUTexinfonopagebreakheading}[2]{\let\clearpage\relax \let\cleardoublepage\relax \let\thispagestyle\GNUTexinfoplaceholder #1{#2}}
-
-% the mdframed style for @cartouche
-\mdfdefinestyle{GNUTexinfocartouche}{
-innertopmargin=10pt, innerbottommargin=10pt,%
-roundcorner=10pt}
 
 \renewcommand{\includegraphics}[1]{\fbox{FIG #1}}
 
