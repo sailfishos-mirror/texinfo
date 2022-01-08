@@ -568,7 +568,7 @@ sub set_tree_unit_file($$$$)
       $self->{'filenames'}->{lc($filename)} = $filename;
     }
   }
-  $tree_unit->{'filename'} = $filename;
+  $tree_unit->{'unit_filename'} = $filename;
   if (defined($destination_directory) and $destination_directory ne '') {
     $tree_unit->{'out_filepath'} =
       File::Spec->catfile($destination_directory, $filename);
@@ -641,8 +641,8 @@ sub _set_tree_units_files($$$$$$)
 
   if (!$self->get_conf('SPLIT')) {
     foreach my $tree_unit (@$tree_units) {
-      if (!defined($tree_unit->{'filename'})) {
-        $tree_unit->{'filename'} = $output_filename;
+      if (!defined($tree_unit->{'unit_filename'})) {
+        $tree_unit->{'unit_filename'} = $output_filename;
         $tree_unit->{'out_filepath'} = $output_file;
       }
     }
@@ -662,11 +662,11 @@ sub _set_tree_units_files($$$$$$)
     my $previous_page;
     foreach my $tree_unit (@$tree_units) {
       # For Top node.
-      next if (defined($tree_unit->{'filename'}));
+      next if (defined($tree_unit->{'unit_filename'}));
       if (!$tree_unit->{'extra'}->{'first_in_page'}) {
         cluck ("No first_in_page for $tree_unit\n");
       }
-      if (!defined($tree_unit->{'extra'}->{'first_in_page'}->{'filename'})) {
+      if (!defined($tree_unit->{'extra'}->{'first_in_page'}->{'unit_filename'})) {
         my $file_tree_unit = $tree_unit->{'extra'}->{'first_in_page'};
         foreach my $root_command (@{$file_tree_unit->{'contents'}}) {
           if ($root_command->{'cmdname'} 
@@ -686,7 +686,7 @@ sub _set_tree_units_files($$$$$$)
             last;
           }
         }
-        if (!defined($file_tree_unit->{'filename'})) {
+        if (!defined($file_tree_unit->{'unit_filename'})) {
           # use section to do the file name if there is no node
           my $command = $file_tree_unit->{'extra'}->{'unit_command'};
           if ($command) {
@@ -716,18 +716,18 @@ sub _set_tree_units_files($$$$$$)
           }
         }
       }
-      $tree_unit->{'filename'}
-         = $tree_unit->{'extra'}->{'first_in_page'}->{'filename'};
+      $tree_unit->{'unit_filename'}
+         = $tree_unit->{'extra'}->{'first_in_page'}->{'unit_filename'};
       $tree_unit->{'out_filepath'}
          = $tree_unit->{'extra'}->{'first_in_page'}->{'out_filepath'};
     }
   }
 
   foreach my $tree_unit (@$tree_units) {
-    $self->{'file_counters'}->{$tree_unit->{'filename'}}++;
+    $self->{'file_counters'}->{$tree_unit->{'unit_filename'}}++;
     print STDERR "Page $tree_unit "
      .Texinfo::Structuring::root_or_external_element_cmd_texi($tree_unit)
-     .": $tree_unit->{'filename'}($self->{'file_counters'}->{$tree_unit->{'filename'}})\n"
+     .": $tree_unit->{'unit_filename'}($self->{'file_counters'}->{$tree_unit->{'unit_filename'}})\n"
       if ($self->get_conf('DEBUG'));
   }
 }
@@ -777,12 +777,12 @@ sub output($$)
                                  $output_filename, $document_name);
   }
 
-  #print STDERR "$tree_units $tree_units->[0]->{'filename'}\n";
+  #print STDERR "$tree_units $tree_units->[0]->{'unit_filename'}\n";
 
   # Now do the output
   my $fh;
   my $output = '';
-  if (!$tree_units or !defined($tree_units->[0]->{'filename'})) {
+  if (!$tree_units or !defined($tree_units->[0]->{'unit_filename'})) {
     # no page
     my $outfile;
     if ($output_file ne '') {
@@ -837,7 +837,7 @@ sub output($$)
     foreach my $tree_unit (@$tree_units) {
       my $file_fh;
       # open the file and output the elements
-      if (!$files{$tree_unit->{'filename'}}->{'fh'}) {
+      if (!$files{$tree_unit->{'unit_filename'}}->{'fh'}) {
         $file_fh = Texinfo::Common::output_files_open_out(
                              $self->output_files_information(), $self,
                              $tree_unit->{'out_filepath'});
@@ -847,14 +847,14 @@ sub output($$)
                                     $tree_unit->{'out_filepath'}, $!));
           return undef;
         }
-        $files{$tree_unit->{'filename'}}->{'fh'} = $file_fh;
+        $files{$tree_unit->{'unit_filename'}}->{'fh'} = $file_fh;
       } else {
-        $file_fh = $files{$tree_unit->{'filename'}}->{'fh'};
+        $file_fh = $files{$tree_unit->{'unit_filename'}}->{'fh'};
       }
       my $tree_unit_text = $self->convert_tree($tree_unit);
       print $file_fh $tree_unit_text;
-      $self->{'file_counters'}->{$tree_unit->{'filename'}}--;
-      if ($self->{'file_counters'}->{$tree_unit->{'filename'}} == 0) {
+      $self->{'file_counters'}->{$tree_unit->{'unit_filename'}}--;
+      if ($self->{'file_counters'}->{$tree_unit->{'unit_filename'}} == 0) {
         # NOTE do not close STDOUT here to avoid a perl warning
         if ($tree_unit->{'out_filepath'} ne '-') {
           Texinfo::Common::output_files_register_closed(

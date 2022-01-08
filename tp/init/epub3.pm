@@ -192,7 +192,7 @@ sub epub_convert_tree_unit_type($$$$)
   my $element = shift;
   my $content = shift;
 
-  push @epub_output_filenames, $element->{'filename'};
+  push @epub_output_filenames, $element->{'unit_filename'};
   return &{$self->default_types_conversion($type)}($self,
                                       $type, $element, $content);
 }
@@ -327,8 +327,8 @@ sub epub_finish($$)
   my $document_root = shift;
 
   if (scalar(@epub_output_filenames) == 0) {
-    if (defined($self->{'filename'})) {
-      push @epub_output_filenames, $self->{'filename'};
+    if (defined($self->{'current_filename'})) {
+      push @epub_output_filenames, $self->{'current_filename'};
     } else {
       $self->document_warn($self,
         __("epub: no filename output"));

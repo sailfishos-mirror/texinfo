@@ -252,9 +252,9 @@ sub chm_init($)
         # happens for things in @titlepage when it is not output
         if (!defined($file)) {
           if ($self->{'tree_units'} and $self->{'tree_units'}->[0]
-             and defined($self->{'tree_units'}->[0]->{'filename'})) {
+             and defined($self->{'tree_units'}->[0]->{'unit_filename'})) {
             # In that case use the first page.
-            $file = $self->{'tree_units'}->[0]->{'filename'};
+            $file = $self->{'tree_units'}->[0]->{'unit_filename'};
           } else {
             $file = '';
           }
@@ -403,9 +403,9 @@ EOT
   my %chm_files;
   if ($self->{'tree_units'}) {
     foreach my $element (@{$self->{'tree_units'}}) {
-      if (!$chm_files{$element->{'filename'}}) {
-        print $hhp_fh "$element->{'filename'}\n";
-        $chm_files{$element->{'filename'}} = 1;
+      if (!$chm_files{$element->{'unit_filename'}}) {
+        print $hhp_fh "$element->{'unit_filename'}\n";
+        $chm_files{$element->{'unit_filename'}} = 1;
       }
     }
   }
