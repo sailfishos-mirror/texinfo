@@ -1,5 +1,24 @@
 2022-01-08  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (register_file_information)
+	(get_file_information): add an API to be able to set informations
+	during conversion and get it back when doint the footers and headers.
+	(_default_format_end_file): get the file name in argument.
+
+	* tp/Texinfo/Convert/HTML.pm (_convert_math_command)
+	(_convert_displaymath_command, _default_format_end_file)
+	(_file_header_informations): use register_file_information() and
+	get_file_information() to determine if some math was seen for
+	mathjax.
+
+	* tp/Texinfo/Convert/HTML.pm (_prepare_conversion_tree_units): rename
+	_prepare_tree_root_elements() as _prepare_conversion_tree_units().
+
+	* tp/Texinfo/Convert/HTML.pm: change some names, remove useless code,
+	move code around.
+
+2022-01-08  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Converter.pm (set_global_document_commands)
 	(_command_init): determine the initial values only when needed.
 

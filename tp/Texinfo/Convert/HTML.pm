@@ -527,7 +527,7 @@ sub in_align($)
 #                      of the element in the short table of contents
 #   'node_filename': the file name deriving from the element node name
 #   'section_filename': the file name deriving from the element section name
-#   'misc_filename': the file name of special elements (separate contents, about...)
+#   'special_element_filename': the file name of special elements (separate contents, about...)
 #   'filename': the file name the element content is output to
 #   'text', 'text_nonumber': a textual representation of the element where there is
 #                   no restriction on the text formatting (ie HTML elements can be used).
@@ -1202,6 +1202,33 @@ sub get_pending_formatted_inline_content($) {
   }
 }
 
+# API to register an information to a file and get it.  To be able to
+# set an information during conversion and get it back during headers
+# and footers conversion
+sub register_file_information($$;$)
+{
+  my $self = shift;
+  my $key = shift;
+  my $value = shift;
+
+  $self->{'file_informations'}->{$self->{'current_filename'}}->{$key} = $value;
+}
+
+sub get_file_information($$;$)
+{
+  my $self = shift;
+  my $key = shift;
+  my $filename = shift;
+
+  if (not defined($filename)) {
+    $filename = $self->{'current_filename'};
+  }
+  if (not exists($self->{'file_informations'}->{$self->{'current_filename'}}->{$key})) {
+    return (0, undef);
+  }
+  return (1, $self->{'file_informations'}->{$self->{'current_filename'}}->{$key})
+}
+
 # This function should be used in formatting functions when some
 # Texinfo tree need to be converted.
 sub convert_tree_new_formatting_context($$;$$)
@@ -1425,14 +1452,14 @@ my %defaults = (
                              [ 'Prev', \&_default_panel_button_dynamic_direction_node_footer ],
                              [ 'Up', \&_default_panel_button_dynamic_direction_node_footer ],
                              ' ', 'Contents', 'Index'],
-  'misc_elements_targets'   => {
+  'special_elements_targets'   => {
                              'shortcontents' => 'SEC_Shortcontents',
                              'contents' => 'SEC_Contents',
                              'footnotes' => 'SEC_Footnotes',
                              'about' => 'SEC_About',
                              'Top' => 'SEC_Top',
                             },
-  'misc_pages_file_string' => {
+  'special_elements_file_string' => {
                               'contents' => '_toc',
                               'shortcontents' => '_ovr',
                               'footnotes' => '_fot',
@@ -1442,7 +1469,7 @@ my %defaults = (
                               'Frame' => '_frame',
                               'Toc_Frame' => '_toc_frame',
                               },
-  'misc_elements_order'  => ['footnotes', 'contents', 'shortcontents', 'about'],
+  'special_elements_order'  => ['footnotes', 'contents', 'shortcontents', 'about'],
   'DOCTYPE'              => '<!DOCTYPE html>',
   'FRAMESET_DOCTYPE'     => '<!DOCTYPE html>',
   'DEFAULT_RULE'         => '<hr>',
@@ -1486,7 +1513,6 @@ my %defaults = (
   'jslicenses' => {},         # for outputting licences file
   'jslicenses_math' => {},    # MathJax scripts
   'jslicenses_infojs' => {},  # info.js scripts
-  'element_math' => 0,        # whether math has been seen in current file
   'COPIABLE_ANCHORS' => 1,
  
   'output_format'        => 'html',
@@ -1706,6 +1732,7 @@ my %css_map = (
      'h3.right-align'     => 'text-align:right',
      'h4.center-align'    => 'text-align:center',
      'div.center-align'   => 'text-align:center',
+     'blockquote.indentedblock' => 'margin-right: 0em',
 
      # The anchor element is wrapped in a <span> rather than a block level
      # element to avoid it appearing unless the mouse pointer is directly
@@ -1742,8 +1769,6 @@ foreach my $indented_format ('example', 'display', 'lisp') {
   $css_map{"div.$indented_format"} = 'margin-left: 3.2em';
 }
 delete $css_map{"div.lisp"}; # output as div.example instead
-
-$css_map{"blockquote.indentedblock"} = 'margin-right: 0em';
 
 # types that are in code style in the default case.  '_code' is not
 # a type that can appear in the tree built from Texinfo code, it is used
@@ -2518,7 +2543,7 @@ sub _convert_math_command($$$$)
     # TODO: instead convert inside $command to LaTeX, when such a conversion
     # becomes possible
     if ($arg !~ /</) {
-      $self->{'element_math'} = 1;
+      $self->register_file_information('mathjax', 1);
       return $self->html_attribute_class('em', 'tex2jax_process').">\\($arg\\)</em>";
     }
   }
@@ -3571,7 +3596,7 @@ sub _convert_displaymath_command($$$$)
   $result .= $self->html_attribute_class('div', $cmdname).'>';
   if ($self->get_conf('HTML_MATH')
         and $self->get_conf('HTML_MATH') eq 'mathjax') {
-    $self->{'element_math'} = 1;
+    $self->register_file_information('mathjax', 1);
     $result .= $self->html_attribute_class('em', 'tex2jax_process').'>'
           ."\\[$content\\]".'</em>';
   } else {
@@ -5693,7 +5718,7 @@ $default_types_conversion{'special_element'} = \&_convert_special_element_type;
 # Function for converting the top-level elements in the conversion corresponding to
 # a section or a node.  The node and associated section appear together in
 # the tree unit top-level element.  $ELEMENT was created in this module (in
-# _prepare_tree_root_elements), with type 'unit' (it's not a tree element created
+# _prepare_conversion_tree_units), with type 'unit' (it's not a tree element created
 # by the parser).  $CONTENT is the contents of the node/section, already converted.
 sub _convert_tree_unit_type($$$$)
 {
@@ -6568,8 +6593,8 @@ sub _new_sectioning_command_target($$)
 
   my $target_base = _normalized_to_id($normalized_name);
   if ($target_base !~ /\S/ and $command->{'cmdname'} eq 'top' 
-      and defined($self->{'misc_elements_targets'}->{'Top'})) {
-    $target_base = $self->{'misc_elements_targets'}->{'Top'};
+      and defined($self->{'special_elements_targets'}->{'Top'})) {
+    $target_base = $self->{'special_elements_targets'}->{'Top'};
   }
   my $nr=1;
   my $target = $target_base;
@@ -6898,7 +6923,7 @@ sub _html_set_pages_files($$$$$$$$)
     my $previous_tree_unit = $tree_units->[-1];
     foreach my $special_element (@$special_elements) {
       my $filename 
-       = $self->{'targets'}->{$special_element}->{'misc_filename'};
+       = $self->{'targets'}->{$special_element}->{'special_element_filename'};
       if (defined($filename)) {
         $self->set_tree_unit_file($special_element, $filename, $destination_directory);
         $self->{'file_counters'}->{$special_element->{'structure'}->{'unit_filename'}}++;
@@ -6912,13 +6937,11 @@ sub _html_set_pages_files($$$$$$$$)
   }
 }
 
-my @contents_elements_options = grep {Texinfo::Common::valid_option($_)}
-                                         keys(%contents_command_element_type);
-
 # $ROOT is a parsed Texinfo tree.  Return a list of the "elements" we need to
 # output in the HTML file(s).  Each "element" is what can go in one HTML file,
 # such as the content between @node lines in the Texinfo source.
-sub _prepare_tree_root_elements($$$$)
+# Also do some conversion setup that is to be done in both convert() and output().
+sub _prepare_conversion_tree_units($$$$)
 {
   my $self = shift;
   my $root = shift;
@@ -6941,6 +6964,8 @@ sub _prepare_tree_root_elements($$$$)
 
   # the presence of contents elements in the document is used in diverse
   # places, set it once for all here
+  my @contents_elements_options = grep {Texinfo::Common::valid_option($_)}
+                                         keys(%contents_command_element_type);
   $self->set_global_document_commands(-1, \@contents_elements_options);
 
   # configuration used to determine if a special element is to be done
@@ -6952,10 +6977,8 @@ sub _prepare_tree_root_elements($$$$)
   my $special_elements
     = $self->_prepare_special_elements($tree_units, $destination_directory,
                                        $document_name);
+  # reset to the default
   $self->set_global_document_commands(0, \@conf_for_special_elements);
-
-  $self->{'special_elements'} = $special_elements
-    if (defined($special_elements));
 
   #if ($tree_units) {
   #  foreach my $element(@{$tree_units}) {
@@ -7009,7 +7032,7 @@ sub _prepare_special_elements($$$$)
     if (defined($self->get_conf('EXTENSION')));
 
   my $special_elements = [];
-  foreach my $element_type (@{$self->{'misc_elements_order'}}) {
+  foreach my $element_type (@{$self->{'special_elements_order'}}) {
     next unless ($do_special{$element_type});
 
     my $element = {'type' => 'special_element',
@@ -7022,11 +7045,11 @@ sub _prepare_special_elements($$$$)
        = $element;
     push @$special_elements, $element;
 
-    my $target = $self->{'misc_elements_targets'}->{$element_type};
+    my $target = $self->{'special_elements_targets'}->{$element_type};
     my $default_filename;
     if ($self->get_conf('SPLIT') or !$self->get_conf('MONOLITHIC')) {
       $default_filename = $document_name.
-        $self->{'misc_pages_file_string'}->{$element_type};
+        $self->{'special_elements_file_string'}->{$element_type};
       $default_filename .= '.'.$extension if (defined($extension));
     } else {
       $default_filename = undef;
@@ -7056,7 +7079,7 @@ sub _prepare_special_elements($$$$)
       print STDERR "NEW page for $element_type ($filename)\n" if ($self->get_conf('DEBUG'));
     }
     $self->{'targets'}->{$element} = {'target' => $target,
-                                      'misc_filename' => $filename,
+                                      'special_element_filename' => $filename,
                                      };
     $self->{'seen_ids'}->{$target} = 1;
   }
@@ -7135,7 +7158,7 @@ sub _prepare_contents_elements($)
          = $self->get_conf('SPECIAL_ELEMENTS_DIRECTIONS')->{$element_type};
         $self->{'special_elements_directions'}->{$special_element_direction}
            = $contents_element;
-        my $target = $self->{'misc_elements_targets'}->{$element_type};
+        my $target = $self->{'special_elements_targets'}->{$element_type};
         my $filename;
         if (defined($Texinfo::Config::special_element_target_file_name)) {
           ($target, $filename)
@@ -7153,7 +7176,7 @@ sub _prepare_contents_elements($)
              "    filename $str_filename\n";
         }
         $self->{'targets'}->{$contents_element} = {'target' => $target,
-                                                   'misc_filename' => $filename,
+                                                   'special_element_filename' => $filename,
                                                    'filename' => $filename,
                                                   };
       }
@@ -7621,9 +7644,11 @@ sub _default_format_program_string($)
   }
 }
 
-sub _default_format_end_file($)
+sub _default_format_end_file($$)
 {
   my $self = shift;
+  my $filename = shift;
+
   my $program_text = '';
   if ($self->get_conf('PROGRAM_NAME_IN_FOOTER')) {
     my $program_string = &{$self->{'format_program_string'}}($self);
@@ -7645,7 +7670,9 @@ sub _default_format_end_file($)
     $jslicenses_element{$key} = $self->{'jslicenses_infojs'}->{$key};
   }
  
-  if ($self->{'element_math'} or !$self->get_conf('SPLIT')) {
+  if ($self->get_file_information('mathjax', $filename)
+      # FIXME do we really want the script element if no math was seen?
+      or !$self->get_conf('SPLIT')) {
     for my $key (keys %{$self->{'jslicenses_math'}}) {
       $jslicenses_element{$key} = $self->{'jslicenses_math'}->{$key};
     }
@@ -7745,10 +7772,9 @@ sub _file_header_informations($$;$)
   my $doctype = $self->get_conf('DOCTYPE');
   my $root_html_element_attributes = $self->_root_html_element_attributes_string();
   my $bodytext = $self->get_conf('BODYTEXT');
-  if ($self->{'element_math'} and $self->get_conf('HTML_MATH')) {
-    if ($self->get_conf('HTML_MATH') eq 'mathjax') {
-      $bodytext .= ' class="tex2jax_ignore"';
-    }
+  if ($self->get_conf('HTML_MATH') and $self->get_conf('HTML_MATH') eq 'mathjax'
+      and $self->get_file_information('mathjax', $filename)) {
+    $bodytext .= ' class="tex2jax_ignore"';
   }
   my $copying_comment = '';
   $copying_comment = $self->{'copying_comment'} 
@@ -7788,9 +7814,11 @@ sub _file_header_informations($$;$)
 <script src="'.$jsdir.'info.js" type="text/javascript"></script>';
     }
   }
-  if (($self->{'element_math'} or !$self->get_conf('SPLIT'))
-        and defined($self->get_conf('HTML_MATH'))
-        and $self->get_conf('HTML_MATH') eq 'mathjax') {
+  if ((defined($self->get_conf('HTML_MATH'))
+       and $self->get_conf('HTML_MATH') eq 'mathjax')
+      and ($self->get_file_information('mathjax', $filename)
+            # FIXME do we really want the script element if no math was seen?
+            or !$self->get_conf('SPLIT'))) {
     my $mathjax_script = $self->get_conf('MATHJAX_SCRIPT');
 
     $extra_head .=
@@ -8258,7 +8286,7 @@ sub convert($$)
   # here something like $self->{'document_name'}
   # but it is unclear if it is correct or not.
   my ($tree_units, $special_elements)
-    = $self->_prepare_tree_root_elements($root, undef, undef);
+    = $self->_prepare_conversion_tree_units($root, undef, undef);
 
   $self->_prepare_index_entries();
   $self->_prepare_footnotes();
@@ -8442,7 +8470,7 @@ sub output($$)
   # Get the list of "elements" to be processed, i.e. nodes or sections.
   # This should return undef if called on a tree without node or sections.
   my ($tree_units, $special_elements)
-    = $self->_prepare_tree_root_elements($root, $destination_directory, $document_name);
+    = $self->_prepare_conversion_tree_units($root, $destination_directory, $document_name);
 
   Texinfo::Structuring::split_pages($tree_units, $self->get_conf('SPLIT'));
 
@@ -8677,7 +8705,7 @@ sub output($$)
     }
 
     # do end file first, in case it needs some CSS
-    my $footer = &{$self->{'format_end_file'}}($self);
+    my $footer = &{$self->{'format_end_file'}}($self, $output_filename);
     my $header = &{$self->{'format_begin_file'}}($self, $output_filename, undef);
     $output .= $self->write_or_return($header, $fh);
     $output .= $self->write_or_return($body, $fh);
@@ -8709,9 +8737,6 @@ sub output($$)
       my $out_filepath = $self->{'out_filepaths'}->{$element_filename};
       $self->{'current_filename'} = $element_filename;
       $self->{'counter_in_file'}->{$element_filename}++;
-      if ($self->{'counter_in_file'}->{$element_filename} == 1) {
-        $self->{'element_math'} = 0;
-      }
 
       $unit_nr++;
       # First do the special pages, to avoid outputting these if they are
@@ -8757,9 +8782,9 @@ sub output($$)
           return undef;
         }
         # do end file first in case it requires some CSS
-        my $end_file = &{$self->{'format_end_file'}}($self);
+        my $end_file = &{$self->{'format_end_file'}}($self, $element_filename);
         print $file_fh "".&{$self->{'format_begin_file'}}($self,
-                         $file_element->{'structure'}->{'unit_filename'}, $file_element);
+                                    $element_filename, $file_element);
         print $file_fh "".$files{$element_filename}->{'body'};
         # end file
         print $file_fh "". $end_file;
