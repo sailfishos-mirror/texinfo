@@ -243,6 +243,21 @@ sub output_files_information($)
   return $self->{'output_files'};
 }
 
+# determine the default, with $INIT_CONF if set, or the default common
+# to all the converters
+sub _command_init($$)
+{
+  my $global_command = shift;
+  my $init_conf = shift;
+  if (exists($Texinfo::Common::document_settable_at_commands{$global_command})) {
+    if (defined($init_conf->{$global_command})) {
+      return $init_conf->{$global_command};
+    } elsif (defined($Texinfo::Common::document_settable_at_commands{$global_command})) {
+      return $Texinfo::Common::document_settable_at_commands{$global_command};
+    }
+  }
+}
+
 # $COMMANDS_LOCATION is 0, 1 or -1.
 # 0 means setting to the values before the document commands
 # (default and command-line).
@@ -271,25 +286,14 @@ sub set_global_document_commands($$;$)
     $init_conf = $self->{'converter_init_conf'};
   }
 
-  # gather the defaults
-  my $commands_init = {};
-  foreach my $global_command (keys(%Texinfo::Common::document_settable_at_commands)) {
-    if (defined($init_conf->{$global_command})) {
-      $commands_init->{$global_command} = $init_conf->{$global_command};
-    } elsif (defined($Texinfo::Common::document_settable_at_commands{$global_command})) {
-      $commands_init->{$global_command} =
-            $Texinfo::Common::document_settable_at_commands{$global_command};
-    }
-  }
-
   if (not defined($selected_commands)) {
-    $selected_commands = [keys(%{$commands_init})];
+    $selected_commands = [keys(%Texinfo::Common::document_settable_at_commands)];
   }
   if ($commands_location == 0) {
     foreach my $global_command (@{$selected_commands}) {
       # for commands not appearing in the document, this should set the
       # same value, the converter initialization value
-      $self->set_conf($global_command, $commands_init->{$global_command});
+      $self->set_conf($global_command, _command_init($global_command, $init_conf));
     }
   } else {
     foreach my $global_command (@{$selected_commands}) {
@@ -315,7 +319,7 @@ sub set_global_document_commands($$;$)
       } else {
         # commands not appearing in the document, this should set the
         # same value, the converter initialization value
-        $self->set_conf($global_command, $commands_init->{$global_command});
+        $self->set_conf($global_command, _command_init($global_command, $init_conf));
       }
     }
   }
