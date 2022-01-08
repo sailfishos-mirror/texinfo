@@ -547,6 +547,7 @@ sub node_information_filename($$)
   return $filename;
 }
 
+# sets out_filepaths converter state
 sub set_tree_unit_file($$$$)
 {
   my $self = shift;
@@ -570,10 +571,10 @@ sub set_tree_unit_file($$$$)
   }
   $tree_unit->{'structure'}->{'unit_filename'} = $filename;
   if (defined($destination_directory) and $destination_directory ne '') {
-    $tree_unit->{'out_filepath'} =
+    $self->{'out_filepaths'}->{$filename} =
       File::Spec->catfile($destination_directory, $filename);
   } else {
-    $tree_unit->{'out_filepath'} = $filename;
+    $self->{'out_filepaths'}->{$filename} = $filename;
   }
 }
 
@@ -622,6 +623,8 @@ sub _get_root_element($$)
   }
 }
 
+# set file_counters converter state
+# sets out_filepaths converter state
 sub _set_tree_units_files($$$$$$)
 {
   my $self = shift;
@@ -643,7 +646,7 @@ sub _set_tree_units_files($$$$$$)
     foreach my $tree_unit (@$tree_units) {
       if (!defined($tree_unit->{'structure'}->{'unit_filename'})) {
         $tree_unit->{'structure'}->{'unit_filename'} = $output_filename;
-        $tree_unit->{'out_filepath'} = $output_file;
+        $self->{'out_filepaths'}->{$output_filename} = $output_file;
       }
     }
   } else {
@@ -718,8 +721,6 @@ sub _set_tree_units_files($$$$$$)
       }
       $tree_unit->{'structure'}->{'unit_filename'}
          = $tree_unit->{'extra'}->{'first_in_page'}->{'structure'}->{'unit_filename'};
-      $tree_unit->{'out_filepath'}
-         = $tree_unit->{'extra'}->{'first_in_page'}->{'out_filepath'};
     }
   }
 
@@ -735,6 +736,7 @@ sub _set_tree_units_files($$$$$$)
 # In general, converters override this method, but simple
 # converters can use it.  It is used for the plaintext
 # output format.
+# use file_counters and out_filepaths converter states.
 sub output($$)
 {
   my $self = shift;
@@ -836,16 +838,17 @@ sub output($$)
     
     foreach my $tree_unit (@$tree_units) {
       my $tree_unit_filename = $tree_unit->{'structure'}->{'unit_filename'};
+      my $out_filepath = $self->{'out_filepaths'}->{$tree_unit_filename};
       my $file_fh;
       # open the file and output the elements
       if (!$files{$tree_unit_filename}->{'fh'}) {
         $file_fh = Texinfo::Common::output_files_open_out(
                              $self->output_files_information(), $self,
-                             $tree_unit->{'out_filepath'});
+                             $out_filepath);
         if (!$file_fh) {
           $self->document_error($self,
                 sprintf(__("could not open %s for writing: %s"),
-                                    $tree_unit->{'out_filepath'}, $!));
+                       $out_filepath, $!));
           return undef;
         }
         $files{$tree_unit_filename}->{'fh'} = $file_fh;
@@ -857,13 +860,13 @@ sub output($$)
       $self->{'file_counters'}->{$tree_unit_filename}--;
       if ($self->{'file_counters'}->{$tree_unit_filename} == 0) {
         # NOTE do not close STDOUT here to avoid a perl warning
-        if ($tree_unit->{'out_filepath'} ne '-') {
+        if ($out_filepath ne '-') {
           Texinfo::Common::output_files_register_closed(
-            $self->output_files_information(), $tree_unit->{'out_filepath'});
+            $self->output_files_information(), $out_filepath);
           if (!close($file_fh)) {
             $self->document_error($self,
                      sprintf(__("error on closing %s: %s"),
-                                  $tree_unit->{'out_filepath'}, $!));
+                                  $out_filepath, $!));
             return undef;
           }
         }

@@ -6067,6 +6067,12 @@ sub _load_htmlxref_files {
 #                  target information hash references described above before
 #                  the API functions used to access those informations.
 #  htmlxref
+#  out_filepaths
+#  file_counters
+#  paragraph_symbol
+#  line_break_element
+#  
+#  commands_conversion
 
 sub converter_initialize($)
 {
@@ -6792,7 +6798,7 @@ sub _html_set_pages_files($$$$$$$$)
     foreach my $tree_unit (@$tree_units) {
       if (!defined($tree_unit->{'structure'}->{'unit_filename'})) {
         $tree_unit->{'structure'}->{'unit_filename'} = $output_filename;
-        $tree_unit->{'out_filepath'} = $output_file;
+        $self->{'out_filepaths'}->{$output_filename} = $output_file;
       }
     }
   } else {
@@ -6874,8 +6880,6 @@ sub _html_set_pages_files($$$$$$$$)
       }
       $tree_unit->{'structure'}->{'unit_filename'}
          = $tree_unit->{'extra'}->{'first_in_page'}->{'structure'}->{'unit_filename'};
-      $tree_unit->{'out_filepath'}
-         = $tree_unit->{'extra'}->{'first_in_page'}->{'out_filepath'};
     }
   }
 
@@ -8472,7 +8476,6 @@ sub output($$)
       if (!defined($special_element->{'structure'}->{'unit_filename'})) {
         $special_element->{'structure'}->{'unit_filename'}
            = $tree_units->[0]->{'structure'}->{'unit_filename'};
-        $special_element->{'out_filepath'} = $tree_units->[0]->{'out_filepath'};
         $self->{'file_counters'}->{$special_element->{'structure'}->{'unit_filename'}}++;
       }
     }
@@ -8652,7 +8655,7 @@ sub output($$)
       # this can be used in init file when there are no tree units.
       # FIXME use an API?  Set in $self->{'no_page'}?
       $self->{'structure'}->{'unit_filename'} = $no_page_output_filename;
-      $self->{'out_filepath'} = $no_page_out_filepath;
+      $self->{'out_filepaths'}->{$no_page_output_filename} = $no_page_out_filepath;
 
       $self->{'current_filename'} = $no_page_output_filename;
     } else {
@@ -8707,6 +8710,7 @@ sub output($$)
     $special_elements = [] if (!defined($special_elements));
     foreach my $element (@$tree_units, @$special_elements) {
       my $element_filename = $element->{'structure'}->{'unit_filename'};
+      my $out_filepath = $self->{'out_filepaths'}->{$element_filename};
       $self->{'current_filename'} = $element_filename;
       $self->{'counter_in_file'}->{$element_filename}++;
       if ($self->{'counter_in_file'}->{$element_filename} == 1) {
@@ -8749,11 +8753,11 @@ sub output($$)
         my $file_element = $files{$element_filename}->{'first_element'};
         my $file_fh = Texinfo::Common::output_files_open_out(
                          $self->output_files_information(), $self,
-                         $file_element->{'out_filepath'});
+                         $out_filepath);
         if (!$file_fh) {
           $self->document_error($self,
                sprintf(__("could not open %s for writing: %s"),
-                                    $file_element->{'out_filepath'}, $!));
+                                    $out_filepath, $!));
           return undef;
         }
         # do end file first in case it requires some CSS
@@ -8765,13 +8769,13 @@ sub output($$)
         print $file_fh "". $end_file;
 
         # NOTE do not close STDOUT here to avoid a perl warning
-        if ($file_element->{'out_filepath'} ne '-') {
+        if ($out_filepath ne '-') {
           Texinfo::Common::output_files_register_closed(
-             $self->output_files_information(), $file_element->{'out_filepath'});
+             $self->output_files_information(), $out_filepath);
           if (!close($file_fh)) {
             $self->document_error($self,
                        sprintf(__("error on closing %s: %s"),
-                                  $file_element->{'out_filepath'}, $!));
+                                  $out_filepath, $!));
             return undef;
           }
         }
