@@ -1,4 +1,4 @@
-/* Copyright 2010-2021 Free Software Foundation, Inc.
+/* Copyright 2010-2022 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -294,7 +294,8 @@ element_to_perl_hash (ELEMENT *e)
       sv = newSVpv (command_name(e->cmd), 0);
       hv_store (e->hv, "cmdname", strlen ("cmdname"), sv, 0);
 
-      /* TODO: Same optimizations as for 'type'. */
+      /* Note we could optimize the call to newSVpv here and
+         elsewhere by passing an appropriate second argument. */
     }
 
   /* A lot of special cases for when an empty contents array should be

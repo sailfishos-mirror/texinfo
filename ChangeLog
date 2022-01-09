@@ -1,3 +1,16 @@
+2022-01-09  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	Remove old TODO
+
+	* tp/Texinfo/XS/parsetexi/input.c,
+	* tp/Texinfo/XS/parsetexi/macro.c: Do not define _GNU_SOURCE as
+	gnulib should deal with this.
+	* tp/Texinfo/XS/parsetexi/api.c (element_to_perl_hash): Add a
+	comment regarding use of newSVpv.
+
+	* tp/Texinfo/XS/parsetexi/TODO: Remove obsolete file.  Report from 
+	Patrice.
+
 2022-01-09  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/ParserNonXS.pm (parse_texi_line),
