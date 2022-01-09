@@ -1,3 +1,12 @@
+2022-01-09  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/ParserNonXS.pm (_parse_texi),
+	tp/Texinfo/XS/parsetexi/handle_commands.c (handle_line_command):
+	check if the element type is root_line when closing a root command,
+	and die if there is no parent only if not in root_line.  A root
+	command in parse_texi_line could be considered incorrect, in that
+	case an error message should be output.
+
 2022-01-08  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/Converter.pm (_in_preamble)

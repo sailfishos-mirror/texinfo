@@ -4474,8 +4474,19 @@ sub _parse_texi($$$)
           if ($root_commands{$command} or $command eq 'bye') {
             $current = _close_commands($self, $current, $line_nr, undef, 
                                        $command);
-            die if (!defined($current->{'parent'}));
-            $current = $current->{'parent'};
+            if (!defined($current->{'parent'})) {
+              # if parse_texi_line is called on a line with a node/section then
+              # it will directly be in the root_line, otherwise it is not directly
+              # in the root, but in another container
+              #
+              # FIXME warn/error with a root command in parse_texi_line?
+              if ($current->{'type'} ne 'root_line') {
+                $self->_bug_message("no parent element", $line_nr, $current);
+                die;
+              }
+            } else {
+              $current = $current->{'parent'};
+            }
           }
 
           # skipline text line lineraw /^\d$/
