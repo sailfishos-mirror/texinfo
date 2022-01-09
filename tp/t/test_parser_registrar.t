@@ -24,7 +24,6 @@ my $parser = Texinfo::Parser::parser({'registrar' => $registrar});
 
 # this also tests errors with line_errors not defined
 my $tree = $parser->parse_texi_text("\@end format\n");
-use Data::Dumper;
 
 my $parser_registrar = $parser->registered_errors();
 ok ($parser_registrar eq $registrar, 'reused registrar');
