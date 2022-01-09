@@ -258,10 +258,10 @@ $result_converted{'html'}->{'modified_translation'} = '<!DOCTYPE html>
 <!-- Created by texinfo, http://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Document sans titre</title>
+<title>Untitled Document</title>
 
-<meta name="description" content="Document sans titre">
-<meta name="keywords" content="Document sans titre">
+<meta name="description" content="Untitled Document">
+<meta name="keywords" content="Untitled Document">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="viewport" content="width=device-width,initial-scale=1">

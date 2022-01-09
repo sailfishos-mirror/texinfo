@@ -8522,8 +8522,7 @@ sub output($$)
   $self->set_conf('BODYTEXT',
                   'lang="' . $self->get_conf('documentlanguage') . '"');
 
-  # FIXME here reset to preamble only, but need to change tests
-  #$self->set_global_document_commands('preamble', ['documentlanguage']);
+  $self->set_global_document_commands('preamble', ['documentlanguage']);
   # prepare title.  fulltitle uses more possibility than simpletitle for
   # title, including @-commands found in @titlepage only.  Therefore
   # simpletitle is more in line with what makeinfo in C does.

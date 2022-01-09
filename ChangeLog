@@ -1,5 +1,11 @@
 2022-01-09  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (output): use the last value in
+	preamble for documentlanguage to format the title and the
+	copying block in comments.
+
+2022-01-09  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/Info.pm (_info_header): use the last value in
 	preamble of informative commands to format the @copying block for
 	the copying header.
