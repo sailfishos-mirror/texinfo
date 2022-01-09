@@ -328,7 +328,7 @@ sub _normalize_texinfo_name($$)
     $texinfo_text = "\@$command $name\n";
   }
   my $parser = Texinfo::Parser::parser();
-  my $tree = $parser->parse_texi_text($texinfo_text);
+  my $tree = $parser->parse_texi_piece($texinfo_text);
   if (!defined($tree)) {
     my $texinfo_text_str = $texinfo_text;
     chomp($texinfo_text_str);
@@ -345,11 +345,22 @@ sub _normalize_texinfo_name($$)
     # FIXME Or undef, and callers check the return to be defined?
     return '';
   }
-  # TODO this is dependent on the tree structure, this is not robust.
   if ($command eq 'anchor') {
-    #print STDERR "GGG $tree->{'contents'}->[0]->{'contents'}->[0]->{'cmdname'}\n";
-    $tree->{'contents'}->[0]->{'contents'}->[0]->{'args'}->[-0]->{'contents'}
-      = protect_first_parenthesis($tree->{'contents'}->[0]->{'contents'}->[0]->{'args'}->[-0]->{'contents'});
+    # FIXME this works to find the anchor command only if
+    # the tree structure always leads to the interesting
+    # elements being first in the contents.
+    my $current = $tree;
+    while ((not exists($current->{'cmdname'})
+            or $current->{'cmdname'} ne 'anchor')
+           and $current->{'contents'}
+           and scalar(@{$current->{'contents'}})) {
+      $current = $current->{'contents'}->[0];
+    }
+    if (not exists($current->{'cmdname'}) or $current->{'cmdname'} ne 'anchor') {
+      cluck "BUG: could not find anchor: $texinfo_text";
+    } else {
+      protect_first_parenthesis($current->{'args'}->[-0]->{'contents'});
+    }
   }
   my $fixed_text = Texinfo::Convert::Texinfo::convert_to_texinfo($tree, 1);
   my $result = $fixed_text;
