@@ -5,7 +5,7 @@ use Texinfo::ModulePath (undef, undef, 'updirs' => 2);
 
 use Test::More;
 
-BEGIN { plan tests => 7; }
+BEGIN { plan tests => 30; }
 
 use Texinfo::Convert::Texinfo;
 use Texinfo::Parser;
@@ -51,9 +51,53 @@ my @tests = (
   [':1: warning: @exdent should only appear at the beginning of a line']],
 ["aa \@exdent in exdent\n", 'exdent error with end line',
   [':1: warning: @exdent should only appear at the beginning of a line']],
+['@node node
+a node
+
+@setfilename long.info
+
+@copying
+In copying
+@end copying
+
+@float type, a
+@verbatim
+in verbatim
+@end verbatim
+@caption{in caption}
+@end float
+
+@cindex in index
+
+@node node 2
+@chapter chap
+
+in chapter
+
+@columnfractions a b
+
+@printindex cp
+@listoffloats type
+
+@bye
+', 'long example', [':4: warning: @setfilename after the first element',
+                    ':24: column fraction not a number: a',
+                    ':24: column fraction not a number: b',
+                    ':20: @columnfractions only meaningful on a @multitable line',
+]]
 );
 
 foreach my $test_string_explanation (@tests) {
   my ($texi_string, $explanation, $error_messages) = @$test_string_explanation;
   test_line(undef, $texi_string, $explanation, $error_messages);
+}
+
+# test with the same aprser reused
+my $parser = Texinfo::Parser::parser();
+
+my @concatenated_error_messages = ();
+foreach my $test_string_explanation (@tests) {
+  my ($texi_string, $explanation, $error_messages) = @$test_string_explanation;
+  push @concatenated_error_messages, @$error_messages if (defined($error_messages));
+  test_line($parser, $texi_string, $explanation, \@concatenated_error_messages);
 }
