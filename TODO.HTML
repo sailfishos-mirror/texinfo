@@ -65,6 +65,45 @@ https://git.savannah.gnu.org/cgit/texinfo.git/log/?h=webkitgtk-info
 Video demo https://www.gnu.org/software/texinfo/video/demo.webm
 (from November 2019)
 
+From a private email (October 2020):
+> The main problem with the two embedded HTML renderers we used (we also
+> developed a program with QtWebEngine in this branch:
+> https://git.savannah.gnu.org/cgit/texinfo.git/log/?h=qt-info) is their
+> segmented architecture, and the difficulty of getting information in and
+> out of them.  As web browsers and websites are so complicated and
+> unreliable, they make the code which processes and renders the HTML pages
+> run in a separate process, so if the renderer crashes or freezes, some
+> recovery action can be taken.
+> 
+> Most of the complexity and code in both programs was to work around
+> this, creating and using communications channels between the two halves
+> of the program.  If the process displaying the UI wants access to data
+> from within the HTML page that the rendering process has displayed,
+> for example, HTML elements for index entries in a page, so that
+> index entries can be listed in some widget, then it can't simply
+> access those data structures in the address space of the process:
+> it has to create, send and receive messages over some channel.
+> 
+> WebKitGTK had an API to access DOM elements in the renderer thread,
+> but this API was deprecated in favour of injected JavaScript (I never
+> worked out how to use this so am not sure if it is possible to achieve
+> the same results).  Hence a two-part architecture would have to be
+> replaced with a three-part architecture: instead of
+> 
+> UI process<--->Browser process
+> 
+> there would be
+> 
+> UI process<--->Browser process (native code)<-->Browser process (Javascript)
+> 
+> (The QtWebEngine program had a similar architecture except it was
+> even worse, with a message-passing system between JavaScript code
+> running in different contexts.)
+
+(Since that email was written some use has been made of injected
+JavaScript.)
+
+
 * Location of locally installed HTML files
 
 (This was discussed on a GNU project internal mailing list in October 2020.)
@@ -148,8 +187,10 @@ to install documentation in a place that no program would use it.
 
 Changes would be needed in other projects
 
+* Distributions (Guix, Debian...) - Install HTML documentation
 * Automake - rules for generating and installing HTML documentation
 * Emacs - Info mode
-* GNOME/other desktop environments - integrate Texinfo browsing into
-help system
+* GNOME/other desktop environments - see if work on webkitgtk-info
+or other could be integrated into other help systems like yelp
+or DevHelp.
 

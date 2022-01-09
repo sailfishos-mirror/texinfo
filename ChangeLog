@@ -1,3 +1,8 @@
+2022-01-09  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	* TODO.HTML: Add some remarks from an old email.  More on
+	other projects.
+
 2022-01-09  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/ParserNonXS.pm (_prepare_input_from_text)
