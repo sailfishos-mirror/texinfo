@@ -37,6 +37,102 @@ In copying.
 Copying second para.
 @end copying
 
+@paragraphindent 1
+
+After paragraphindent.
+
+@node Top
+@top test @@paragraphindent in preamble effect in preamble
+
+First para.
+
+Second para.
+
+@bye
+
+', {'full_document' => 1}],
+['two_paragraphindent_in_preamble',
+'@copying
+In copying.
+
+Copying second para.
+@end copying
+
+@paragraphindent 1
+
+@paragraphindent 6
+
+After two paragraphindent.
+
+@node Top
+@top test @@paragraphindent in preamble effect in preamble
+
+First para.
+
+Second para.
+
+@bye
+
+', {'full_document' => 1}],
+['paragraphindent_in_preamble_and_in_document',
+'@copying
+In copying.
+
+Copying second para.
+@end copying
+
+@paragraphindent 1
+
+After paragraphindent.
+
+@node Top
+@top test @@paragraphindent in preamble effect in preamble
+
+First para.
+
+Second para.
+
+@paragraphindent 3
+
+Third para after second paragraphindent.
+
+@bye
+
+', {'full_document' => 1}],
+['two_paragraphindent_in_preamble_and_in_document',
+'@copying
+In copying.
+
+Copying second para.
+@end copying
+
+@paragraphindent 1
+
+@paragraphindent 6
+
+After two paragraphindent.
+
+@node Top
+@top test @@paragraphindent in preamble effect in preamble
+
+First para.
+
+Second para.
+
+@paragraphindent 3
+
+Third para after third paragraphindent.
+
+@bye
+
+', {'full_document' => 1}],
+['paragraphindent_not_in_preamble',
+'@copying
+In copying.
+
+Copying second para.
+@end copying
+
 @node Top
 @top test @@paragraphindent effect in preamble
 
@@ -50,7 +146,7 @@ After paragraphindent.
 
 @bye
 
-'],
+', {'full_document' => 1}],
 ['paragraphindent_asis_first',
 '
      bbb

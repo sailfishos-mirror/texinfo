@@ -340,8 +340,7 @@ sub _info_header($$$)
 
   # format @copying using the last value of the preamble.
   my @informative_global_commands = $self->get_informative_global_commands();
-  # FIXME use 'preamble' instead, but need to fix tests
-  $self->set_global_document_commands('preamble_or_first', \@informative_global_commands);
+  $self->set_global_document_commands('preamble', \@informative_global_commands);
   if ($self->{'global_commands'} and $self->{'global_commands'}->{'copying'}) {
     print STDERR "COPYING HEADER\n" if ($self->get_conf('DEBUG'));
     $self->{'in_copying_header'} = 1;
