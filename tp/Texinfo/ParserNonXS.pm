@@ -877,23 +877,15 @@ sub parse_texi_text($$;$$$$)
 
   return undef if (!defined($text));
 
-  my $lines_array = [];
   if (ref($text) eq '') {
     $text = _text_to_lines($text);
   }
-  $lines_nr = 1 if (!defined($lines_nr));
-  if (ref($lines_nr) eq '') {
-    # $lines_nr is the first line number
-    $lines_array = _complete_line_nr($text, $lines_nr, $file,
-                                     $macro, $fixed_line_number);
-  } else {
-    # $lines_nr is an array of line numbers
-    while (@$text) {
-      my $line_nr = shift @$lines_nr;
-      my $line = shift @$text;
-      push @$lines_array, [$line, $line_nr];
-    }
+  if (not defined($lines_nr)) {
+    $lines_nr = 1;
   }
+
+  my $lines_array = _complete_line_nr($text, $lines_nr, $file,
+                                     $macro, $fixed_line_number);
 
   $self = parser() if (!defined($self));
   $self->{'input'} = [{'pending' => $lines_array}];
@@ -965,6 +957,13 @@ sub parse_texi_file($$)
        'line_nr' => 0,
        'fh' => $filehandle
         }];
+
+  return $self->_parse_texi_document();
+}
+
+sub _parse_texi_document($)
+{
+  my $self = shift;
 
   my ($document_root, $before_node_section)
      = _setup_document_root_and_before_node_section();
@@ -6159,25 +6158,12 @@ the line number of the first text line, if undef, it will be set to 1.
 I<$text> may be either an array reference of lines, or a text.
 
 The other arguments are optional and allow specifying the position
-information of the Texinfo code.  There are two distinct cases for
-I<$line_numbers_specification>.
-
-=over
-
-=item 1.
-
-If it is an array reference, it is considered to hold objects describing
-the position information of each text line.
-
-=item 2.
-
-If I<$line_numbers_specification> is a scalar, it is the line number of
-the first text line.  In that case I<$file_name> is the name of the file the
-text comes from.  and I<$macro> is for the user-defined macro name the text is
-expanded from.  If I<$fixed_line_number> is set, the line number is not
-increased for the different lines, as if the text was the expansion of a macro.
-
-=back
+information of the Texinfo code.  I<$first_line_number> is the line number
+of the first text line.  I<$file_name> is the name of the file the
+text comes from.  I<$macro> is for the user-defined macro name the text
+is expanded from.  If I<$fixed_line_number> is set, the line number is
+not increased for the different lines, as if the text was the expansion
+of a macro.
 
 =end comment
 

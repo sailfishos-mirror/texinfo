@@ -353,38 +353,12 @@ setup_document_root_and_before_node_section ()
 
 
 ELEMENT *
-parse_texi_file (char *filename)
+parse_texi_document (void)
 {
-  char *p, *q;
   char *linep, *line = 0;
   ELEMENT *before_node_section = setup_document_root_and_before_node_section ();
   ELEMENT *preamble_before_beginning = 0;
   ELEMENT *document_root = before_node_section->parent;
-  char c;
-
-  int status;
-  
-  status = input_push_file (filename);
-  if (status)
-    return 0;
-
-  /* Strip off a leading directory path, by looking for the last
-     '/' in filename. */
-  p = 0;
-  q = strchr (filename, '/');
-  while (q)
-    {
-      p = q;
-      q = strchr (q + 1, '/');
-    }
-
-  if (p)
-    {
-      c = *p;
-      *p = '\0';
-      add_include_directory (filename);
-      *p = c;
-    }
 
   /* Put all the empty lines up to a line starting "\input" inside a
      "preamble_before_beginning" element. */

@@ -156,14 +156,43 @@ reset_parser (void)
   global_accept_internalvalue = 0;
 }
 
-/* Set ROOT to root of tree obtained by parsing FILENAME. */
+/* Determine directory path based on file name.
+   Set ROOT to root of tree obtained by parsing FILENAME.
+   Used for parse_texi_file. */
 int
 parse_file (char *filename)
 {
   /*
   debug_output = 0;
   */
-  Root = parse_texi_file (filename);
+  char *p, *q;
+  char c;
+
+  int status;
+  
+  status = input_push_file (filename);
+  if (status)
+    return 0;
+
+  /* Strip off a leading directory path, by looking for the last
+     '/' in filename. */
+  p = 0;
+  q = strchr (filename, '/');
+  while (q)
+    {
+      p = q;
+      q = strchr (q + 1, '/');
+    }
+
+  if (p)
+    {
+      c = *p;
+      *p = '\0';
+      add_include_directory (filename);
+      *p = c;
+    }
+
+  Root = parse_texi_document ();
   if (Root)
     return 0;
   return 1;
