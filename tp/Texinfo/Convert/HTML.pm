@@ -8517,12 +8517,11 @@ sub output($$)
   my $structure_status = $self->run_stage_handlers($root, 'structure');
   return undef unless($structure_status);
 
-  $self->set_global_document_commands('preamble_or_first', ['documentlanguage']);
+  $self->set_global_document_commands('preamble', ['documentlanguage']);
 
   $self->set_conf('BODYTEXT',
                   'lang="' . $self->get_conf('documentlanguage') . '"');
 
-  $self->set_global_document_commands('preamble', ['documentlanguage']);
   # prepare title.  fulltitle uses more possibility than simpletitle for
   # title, including @-commands found in @titlepage only.  Therefore
   # simpletitle is more in line with what makeinfo in C does.

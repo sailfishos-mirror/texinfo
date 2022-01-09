@@ -1,6 +1,12 @@
 2022-01-09  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/HTML.pm (output): use the last value in
+	preamble for documentlanguage to set the body element lang
+	attribute.
+
+2022-01-09  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/HTML.pm (output): use the last value in
 	preamble for documentlanguage to format the title and the
 	copying block in comments.
 

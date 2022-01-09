@@ -275,7 +275,7 @@ kbd {font-style: oblique}
 
 </head>
 
-<body lang="fr">
+<body lang="en">
 <p>Special Form.
 </p>
 
