@@ -75,7 +75,7 @@ test_new_node ('@asis{}', '-1', '@node @asis{} 1
 ', 'empty node');
 
 my $parser = Texinfo::Parser::parser();
-my $tree = $parser->parse_texi_text('@node a node
+my $tree = $parser->parse_texi_piece('@node a node
 ');
 my $line_tree = Texinfo::Parser::parse_texi_line (undef, 'a node');
 my $registrar = $parser->registered_errors();
@@ -154,7 +154,7 @@ Text.
 @bye';
 
   $parser = Texinfo::Parser::parser();
-  $tree = $parser->parse_texi_text ($sections_text);
+  $tree = $parser->parse_texi_text($sections_text);
   $registrar = $parser->registered_errors();
   ($labels, $targets_list, $nodes_list) = $parser->labels_information();
   $parser_informations = $parser->global_informations();
@@ -170,7 +170,7 @@ Text.
   #print STDERR "$result";
 
 $parser = Texinfo::Parser::parser();
-$tree = $parser->parse_texi_text ('@node Top
+$tree = $parser->parse_texi_text('@node Top
 @top top
 
 @chapter chap
@@ -217,7 +217,7 @@ is ($labels->{'chap'}, $index_names->{'cp'}->{'index_entries'}->[0]->{'node'},
 # 
 # @cindex entry
 # ';
-# $tree = $parser->parse_texi_text ($text_duplicate_nodes);
+# $tree = $parser->parse_texi_piece($text_duplicate_nodes);
 # # In fact, here we also check that there is no debugging message...
 # ($labels, $targets_list, $nodes_list) = $parser->labels_information();
 # ($new_content, $added_nodes)

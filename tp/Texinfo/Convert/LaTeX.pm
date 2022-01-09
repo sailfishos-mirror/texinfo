@@ -915,10 +915,10 @@ sub output($$)
   }
 
   # FIXME is it a good thing to redo what could have been done after the
-  # parsing?  Should the preamble be setup after parse_texi_text() too?
+  # parsing?  Should the preamble be setup after parse_texi_piece() too?
   #
   # check if preamble is already present and determine at which index it should
-  # be inserted.  Preamble is not set if parser was called with parse_texi_text().
+  # be inserted.  Preamble is not set if parser was called with parse_texi_piece().
   # We do not use Texinfo::Common::add_preamble_before_content as we already
   # have the location as a side effect of checking if the preamble is there, and we do
   # not seet a container for the preamble but simply add a marker, with less

@@ -7,7 +7,7 @@ use Test::More;
 
 BEGIN { plan tests => 23; }
 
-use Texinfo::Parser qw(parse_texi_text parse_texi_line);
+use Texinfo::Parser qw(parse_texi_piece parse_texi_line);
 #use Texinfo::Convert::Texinfo;
 use Texinfo::Common;
 use Data::Dumper;
@@ -20,7 +20,7 @@ sub test_is_empty($$$;$)
   my $is_empty = shift;
   my $in = shift;
   my $do_not_ignore_index_entries = shift;
-  my $tree_as_text = parse_texi_text(undef, $in);
+  my $tree_as_text = parse_texi_piece(undef, $in);
   my $tree_as_line = parse_texi_line(undef, $in);
   my $result_as_text = Texinfo::Common::is_content_empty($tree_as_text,
                                                $do_not_ignore_index_entries);

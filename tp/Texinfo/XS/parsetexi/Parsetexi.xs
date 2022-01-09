@@ -37,6 +37,11 @@ parse_file(filename)
         char * filename
 
 void
+parse_piece(string, line_nr)
+        char * string
+        int line_nr
+
+void
 parse_string(string, line_nr)
         char * string
         int line_nr

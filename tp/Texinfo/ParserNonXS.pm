@@ -82,10 +82,12 @@ sub import {
 }
 
 %EXPORT_TAGS = ( 'all' => [ qw(
-  parser
-  parse_texi_text
-  parse_texi_line
-  parse_texi_file
+    parser
+    parse_texi_file
+    parse_texi_line
+    parse_texi_piece
+    parse_texi_text
+
 ) ] );
 
 @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
@@ -227,10 +229,10 @@ my %parser_default_configuration = (
 
 # The input structure is an array, the first is the most recently included
 # file.  The last element may be a file if the parsing is done on a file,
-# with parse_texi_file, or simply pending text, if called as parse_texi_text.
+# with parse_texi_file, or simply pending text, if called on text.
 # each element of the array is a hash reference.  The key are:
 # pending    an array reference containing pending text fragments, either the
-#            text given as parse_texi_text or macro expansion text.
+#            text given in input or macro expansion text.
 # name       file name
 # line_nr    current line number in the file
 # fh         filehandle for the file
@@ -869,13 +871,11 @@ sub _complete_line_nr($$;$$$)
   return $new_lines;
 }
 
-# entry point for text fragments.
-# Used in tests.
-sub parse_texi_text($$;$$$$)
+sub _prepare_input_from_text($$;$$$$)
 {
   my ($self, $text, $lines_nr, $file, $macro, $fixed_line_number) = @_;
 
-  return undef if (!defined($text));
+  return 0 if (!defined($text));
 
   if (ref($text) eq '') {
     $text = _text_to_lines($text);
@@ -887,17 +887,56 @@ sub parse_texi_text($$;$$$$)
   my $lines_array = _complete_line_nr($text, $lines_nr, $file,
                                      $macro, $fixed_line_number);
 
-  $self = parser() if (!defined($self));
   $self->{'input'} = [{'pending' => $lines_array}];
+  return 1;
+}
+
+# entry point for text fragments.
+# Used in some tests.
+sub parse_texi_piece($$;$$$$)
+{
+  my ($self, $text, $lines_nr, $file, $macro, $fixed_line_number) = @_;
+
+  $self = parser() if (!defined($self));
+
+  return undef unless (_prepare_input_from_text($self, $text, $lines_nr, $file,
+                                                $macro, $fixed_line_number));
 
   my ($document_root, $before_node_section)
      = _setup_document_root_and_before_node_section();
 
   my $tree = $self->_parse_texi($document_root, $before_node_section);
 
+  # TODO remove
   $self->_set_global_informations();
 
   return $tree;
+}
+
+sub parse_texi_line($$;$$$$)
+{
+  my ($self, $text, $lines_nr, $file, $macro, $fixed_line_number) = @_;
+
+  $self = parser() if (!defined($self));
+
+  return undef unless (_prepare_input_from_text($self, $text, $lines_nr, $file,
+                                                $macro, $fixed_line_number));
+
+  my $root = {'contents' => [], 'type' => 'root_line'};
+  my $tree = $self->_parse_texi($root, $root);
+  return $tree;
+}
+
+sub parse_texi_text($$;$$$$)
+{
+  my ($self, $text, $lines_nr, $file, $macro, $fixed_line_number) = @_;
+
+  $self = parser() if (!defined($self));
+
+  return undef unless (_prepare_input_from_text($self, $text, $lines_nr, $file,
+                                                $macro, $fixed_line_number));
+
+  return $self->_parse_texi_document();
 }
 
 sub _open_in {
@@ -1002,29 +1041,6 @@ sub _parse_texi_document($)
 
   $self->_set_global_informations();
 
-  return $tree;
-}
-
-sub parse_texi_line($$;$$$$)
-{
-  my ($self, $text, $lines_nr, $file, $macro, $fixed_line_number) = @_;
-
-  return undef if (!defined($text));
-
-  if (ref($text) eq '') {
-    $text = _text_to_lines($text);
-  }
-  if (not defined($lines_nr)) {
-    $lines_nr = 1;
-  }
-
-  my $lines_array = _complete_line_nr($text, $lines_nr, $file, 
-                                     $macro, $fixed_line_number);
-
-  $self = parser() if (!defined($self));
-  $self->{'input'} = [{'pending' => $lines_array}];
-  my $root = {'contents' => [], 'type' => 'root_line'};
-  my $tree = $self->_parse_texi($root, $root);
   return $tree;
 }
 
@@ -6092,7 +6108,8 @@ Same as values set by C<@set>.
 =head2 Parsing Texinfo text
 
 There are three methods that may be called to parse some Texinfo code:
-C<parse_texi_line> for a line, C<parse_texi_text> for a text fragment,
+C<parse_texi_line> for a line, C<parse_texi_piece> for a fragment of
+Texinfo, C<parse_texi_text> for a string corresponding to a full document
 and C<parse_texi_file> for a file.
 
 For all those functions, if the I<$parser> argument is undef, a new
@@ -6142,13 +6159,38 @@ The XS parser implements only part of the arguments and allows only a
 restricted set of arguments types compared to the perl parser.  We want users
 to use only what is in common, so document only what is in common.
 
+=item $tree = parse_texi_piece ($parser, $text, $line_numbers_specification, $file_name, $macro_name, $fixed_line_number)
+
+=end comment
+
+=item $tree = parse_texi_piece ($parser, $text, $first_line_number)
+
+This function is used to parse some Texinfo fragments.
+
+I<$text> is the string containing the texinfo text.  I<$first_line_number> is
+the line number of the first text line, if undef, it will be set to 1.
+
+=begin comment
+
+I<$text> may be either an array reference of lines, or a text.
+
+The other arguments are optional and allow specifying the position
+information of the Texinfo code.  I<$first_line_number> is the line number
+of the first text line.  I<$file_name> is the name of the file the
+text comes from.  I<$macro> is for the user-defined macro name the text
+is expanded from.  If I<$fixed_line_number> is set, the line number is
+not increased for the different lines, as if the text was the expansion
+of a macro.
+
+=end comment
+
 =item $tree = parse_texi_text ($parser, $text, $line_numbers_specification, $file_name, $macro_name, $fixed_line_number)
 
 =end comment
 
 =item $tree = parse_texi_text ($parser, $text, $first_line_number)
 
-This function is used to parse some Texinfo text.
+This function is used to parse a text as a whole document.
 
 I<$text> is the string containing the texinfo text.  I<$first_line_number> is
 the line number of the first text line, if undef, it will be set to 1.

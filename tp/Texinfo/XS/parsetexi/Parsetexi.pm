@@ -40,9 +40,10 @@ use Texinfo::Translations;
 our @ISA = qw(Exporter Texinfo::Translations);
 our %EXPORT_TAGS = ( 'all' => [ qw(
     parser
-    parse_texi_text
-    parse_texi_line
     parse_texi_file
+    parse_texi_line
+    parse_texi_piece
+    parse_texi_text
 ) ] );
 
 our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
@@ -207,11 +208,6 @@ sub get_parser_info {
   $self->{'info'} = $GLOBAL_INFO;
   $self->{'commands_info'} = $GLOBAL_INFO2;
 
-  if ($self->get_conf('novalidate')
-      or $self->global_commands_information()->{'novalidate'}) {
-    $self->{'info'}->{'novalidate'} = 1;
-  }
-
   _set_errors_node_lists_labels_indices($self);
 }
 
@@ -234,6 +230,11 @@ sub parse_texi_file ($$)
 
   my $TREE = build_texinfo_tree ();
   get_parser_info ($self);
+
+  if ($self->get_conf('novalidate')
+      or $self->global_commands_information()->{'novalidate'}) {
+    $self->{'info'}->{'novalidate'} = 1;
+  }
 
   _associate_node_menus ($self, $TREE);
 
@@ -273,35 +274,81 @@ sub _get_errors($)
 }
 
 
+# Replacement for Texinfo::Parser::parse_texi_piece
+#
+# Used in tests under tp/t.
+sub parse_texi_piece($$;$$$$)
+{
+  my $self = shift;
+  my $text = shift;
+  my $lines_nr = shift;
+  my $file = shift;
+  my $macro = shift;
+  my $fixed_line_number = shift;
+
+  return undef if (!defined($text));
+
+  $lines_nr = 1 if (not defined($lines_nr));
+
+  $self = parser() if (!defined($self));
+
+  # make sure that internal byte buffer is in UTF-8 before we pass
+  # it in to the XS code.
+  utf8::upgrade($text);
+
+  parse_piece($text, $lines_nr);
+  my $tree = build_texinfo_tree ();
+
+  get_parser_info($self);
+  _associate_node_menus ($self, $tree);
+
+  # TODO remove
+  if ($self->get_conf('novalidate')
+      or $self->global_commands_information()->{'novalidate'}) {
+    $self->{'info'}->{'novalidate'} = 1;
+  }
+
+  return $tree;
+}
+
 # Replacement for Texinfo::Parser::parse_texi_text
 #
 # Used in tests under tp/t.
 sub parse_texi_text($$;$$$$)
 {
-    my $self = shift;
-    my $text = shift;
-    my $lines_nr = shift;
-    my $file = shift;
-    my $macro = shift;
-    my $fixed_line_number = shift;
+  my $self = shift;
+  my $text = shift;
+  my $lines_nr = shift;
+  my $file = shift;
+  my $macro = shift;
+  my $fixed_line_number = shift;
 
-    return undef if (!defined($text));
+  return undef if (!defined($text));
 
-    $lines_nr = 1 if (not defined($lines_nr));
+  $lines_nr = 1 if (not defined($lines_nr));
 
-    $self = parser() if (!defined($self));
+  $self = parser() if (!defined($self));
 
-    # make sure that internal byte buffer is in UTF-8 before we pass
-    # it in to the XS code.
-    utf8::upgrade($text);
+  # make sure that internal byte buffer is in UTF-8 before we pass
+  # it in to the XS code.
+  utf8::upgrade($text);
 
-    parse_text($text, $lines_nr);
-    my $tree = build_texinfo_tree ();
+  parse_text($text, $lines_nr);
+  my $tree = build_texinfo_tree ();
 
-    get_parser_info($self);
-    _associate_node_menus ($self, $tree);
+  get_parser_info($self);
 
-    return $tree;
+  if ($self->get_conf('novalidate')
+      or $self->global_commands_information()->{'novalidate'}) {
+    $self->{'info'}->{'novalidate'} = 1;
+  }
+
+  _associate_node_menus ($self, $tree);
+
+  my $before_node_section = $tree->{'contents'}->[0];
+
+  Texinfo::Common::rearrange_tree_beginning($self, $before_node_section);
+  return $tree;
 }
 
 # Replacement for Texinfo::Parser::parse_texi_line

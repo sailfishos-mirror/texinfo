@@ -7,7 +7,7 @@ use Test::More;
 
 BEGIN { plan tests => 7; }
 
-use Texinfo::Parser qw(parse_texi_line parse_texi_text);
+use Texinfo::Parser qw(parse_texi_line parse_texi_piece);
 use Texinfo::Common qw(protect_comma_in_tree protect_colon_in_tree
       protect_node_after_label_in_tree);
 use Texinfo::Convert::Texinfo;
@@ -27,7 +27,7 @@ sub run_test($$$$)
     $reference_as_line = $reference_as_text if not defined($reference_as_line);
   }
 
-  my $tree_as_text = parse_texi_text(undef, $in);
+  my $tree_as_text = parse_texi_piece(undef, $in);
   my $tree_as_line = parse_texi_line(undef, $in);
 
   foreach my $tree ($tree_as_text, $tree_as_line) {

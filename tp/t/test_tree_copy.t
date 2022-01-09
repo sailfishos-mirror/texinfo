@@ -76,7 +76,7 @@ T
 
 ';
 
-my $tree = Texinfo::Parser::parse_texi_text(undef, $text);
+my $tree = Texinfo::Parser::parse_texi_piece(undef, $text);
 my $reference_associations = {};
 my $copy = Texinfo::Common::copy_tree($tree, undef);
 
