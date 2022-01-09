@@ -857,7 +857,7 @@ sub _complete_line_nr($$;$$$)
     my $line_index = $first_line;
     foreach my $index(0..scalar(@$lines)-1) {
       $line_index = $index+$first_line if (!$fixed_line_number);
-      $new_lines->[$index] = [ $lines->[$index],  
+      $new_lines->[$index] = [ $lines->[$index],
                              { 'line_nr' => $line_index,
                                'file_name' => $file, 'macro' => $macro } ];
     }
@@ -943,61 +943,60 @@ sub _set_global_informations($)
 # parse a texi file
 sub parse_texi_file($$)
 {
-  my ($self, $file_name) = @_;
+  my ($self, $input_file_path) = @_;
 
   my $filehandle = do { local *FH };
-  if (!_open_in($self, $filehandle, $file_name)) {
+  if (!_open_in($self, $filehandle, $input_file_path)) {
     $self->{'registrar'}->document_error($self,
                  sprintf(__("could not open %s: %s"),
-                                  $file_name, $!));
+                                  $input_file_path, $!));
     return undef;
   }
-  my $line_nr = 0;
-  my $line;
-  my @first_lines;
 
-  my $pending_first_texi_line;
-  # gather the empty lines and the \input line in a container
-  while ($line = <$filehandle>) {
-    $line_nr++;
-    if ($line =~ /^ *\\input/ or $line =~ /^\s*$/) {
-      # DEL as comment character
-      $line =~ s/\x{7F}.*\s*//;
-      push @first_lines, $line;
-    } else {
-      # the first line not empty and not with \input is kept in
-      # $pending_first_texi_line and put in the pending lines just below
-      $pending_first_texi_line = $line;
-      last;
-    }
-  }
-  my ($document_root, $before_node_section)
-     = _setup_document_root_and_before_node_section();
-  if (@first_lines) {
-    push @{$before_node_section->{'contents'}},
-                              {'type' => 'preamble_before_beginning',
-                               'contents' => [], 'parent' => $before_node_section };
-    foreach my $line (@first_lines) {
-      push @{$before_node_section->{'contents'}->[-1]->{'contents'}},
-                          { 'text' => $line,
-                            'type' => 'text_before_beginning',
-                            'parent' => $before_node_section->{'contents'}->[-1]
-                          };
-    }
-  }
-  my ($directories, $suffix);
-  ($file_name, $directories, $suffix) = fileparse($file_name);
+  my ($file_name, $directories, $suffix) = fileparse($input_file_path);
   $self = parser() if (!defined($self));
-  $self->{'input'} = [{
-       'pending' => [[$pending_first_texi_line, {'line_nr' => $line_nr,
-                                'macro' => '', 'file_name' => $file_name}]],
-       'name' => $file_name,
-       'line_nr' => $line_nr,
-       'fh' => $filehandle
-        }];
+
   $self->{'info'}->{'input_file_name'} = $file_name;
   $self->{'info'}->{'input_directory'} = $directories;
   
+  $self->{'input'} = [{
+       'pending' => [],
+       'name' => $file_name,
+       'line_nr' => 0,
+       'fh' => $filehandle
+        }];
+
+  my ($document_root, $before_node_section)
+     = _setup_document_root_and_before_node_section();
+
+  # it should be set by the first _next_text() call, so no need
+  # to preset it to a more precise line_nr structure.
+  my $line_nr = undef;
+
+  # put the empty lines and the \input line in a container at the beginning
+  my $preamble_before_beginning;
+  while (1) {
+    my $line;
+    ($line, $line_nr) = _next_text($self, $line_nr);
+    last if (!defined($line));
+    if ($line =~ /^ *\\input/ or $line =~ /^\s*$/) {
+      if (not defined($preamble_before_beginning)) {
+        $preamble_before_beginning = {'type' => 'preamble_before_beginning',
+                        'contents' => [], 'parent' => $before_node_section };
+        push @{$before_node_section->{'contents'}}, $preamble_before_beginning;
+      }
+      push @{$preamble_before_beginning->{'contents'}},
+                               { 'text' => $line,
+                                 'type' => 'text_before_beginning',
+                                 'parent' => $preamble_before_beginning };
+    } else {
+      # This line is not part of the preamble_before_beginning.
+      # Shove back into input stream.
+      unshift @{$self->{'input'}->[0]->{'pending'}}, [$line, $line_nr];
+      last;
+    }
+  }
+
   my $tree = $self->_parse_texi($document_root, $before_node_section);
 
   Texinfo::Common::rearrange_tree_beginning($self, $before_node_section);
