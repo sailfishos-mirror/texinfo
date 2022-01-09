@@ -880,7 +880,7 @@ sub test($$)
   my $result;
   if (!$test_file) {
     print STDERR "  TEST $test_name\n" if ($self->{'DEBUG'});
-    $result = $parser->parse_texi_text($test_text, 1);
+    $result = $parser->parse_texi_text($test_text);
     if (defined($test_input_file_name)) {
       $parser->{'info'}->{'input_file_name'} = $test_input_file_name;
     }

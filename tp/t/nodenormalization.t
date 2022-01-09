@@ -5,7 +5,7 @@ use Texinfo::ModulePath (undef, undef, 'updirs' => 2);
 
 use Test::More;
 
-BEGIN { plan tests => 8; }
+BEGIN { plan tests => 10; }
 
 use Data::Dumper;
 use Locale::Messages;
@@ -13,9 +13,6 @@ use Locale::Messages;
 use Texinfo::Convert::Texinfo;
 use Texinfo::Convert::NodeNameNormalization qw(normalize_node transliterate_texinfo);
 use Texinfo::Parser;
-
-# Currently, tests check that NodeNameNormalization do not break with complete 
-# Texinfo trees, not that the output is correct.
 
 my $srcdir = $ENV{'srcdir'};
 if (defined($srcdir)) {
@@ -32,9 +29,12 @@ my $parser = Texinfo::Parser::parser({'INCLUDE_DIRECTORIES' => [
                                           $srcdir.'t/include/'],
                                       'EXPANDED_FORMATS' => ['html', 'tex']});
 
+# Check that NodeNameNormalization do not break with complete
+# Texinfo trees.  Not much check of the output for these tests.
+
 my $invalid_line = '@noindent Text @titlefont{in titlefont} @anchor{in anchor}@footnote{footnote} @exdent exdent';
 
-my $tree = $parser->parse_texi_text($invalid_line);
+my $tree = $parser->parse_texi_line($invalid_line);
 #print STDERR Data::Dumper->Dump([$tree]);
 my $normalized_invalid = normalize_node($tree);
 #print STDERR "Invalid: $normalized_invalid\n";
@@ -137,12 +137,12 @@ in float
 @bye
 ';
 
-my $manual_tree = $parser->parse_texi_text($texinfo_manual);
-my $check_texinfo = Texinfo::Convert::Texinfo::convert_to_texinfo($manual_tree);
-is ($texinfo_manual, $check_texinfo, 'check manual parsing');
+my $texinfo_manual_tree = $parser->parse_texi_text($texinfo_manual);
+my $check_texinfo = Texinfo::Convert::Texinfo::convert_to_texinfo($texinfo_manual_tree);
+is ($texinfo_manual, $check_texinfo, 'check parsing of a manual');
 
-#print STDERR Data::Dumper->Dump([$manual_tree]);
-my $normalized_manual = normalize_node($manual_tree);
+#print STDERR Data::Dumper->Dump([$texinfo_manual_tree]);
+my $normalized_manual = normalize_node($texinfo_manual_tree);
 #print STDERR "Manual: $normalized_manual\n";
 
 ok($normalized_manual =~ /^[\w\-]+$/, 'normalized tree is a valid id');
@@ -151,13 +151,13 @@ ok($normalized_manual =~ /^[\w\-]+$/, 'normalized tree is a valid id');
 
 my $texi_line = 'A @sc{sc} accents @"i @"{@dotless{i}} @`{@=E} @l{} @,{@\'C} @={@,{@~{n}}} @v{@\'{r}} @={@~{@dotless{i}}} @"y @dotless{i} @dotless{j} @,{C} @ogonek{E} @udotaccent{a} @tieaccent{a} @dotaccent{a} characters @l{} @exclamdown{} @aa{} @oe{} @comma{} @error{} @today{} @dots{} @enddots{} no brace commands @@ @: @. @	 @* @} signs  -- --- `` \'\' !_"#$%&\'()*+-. /;<=>?[\\]^_`|~';
 
-my $line_tree = $parser->parse_texi_text($texi_line);
+my $line_tree = $parser->parse_texi_line($texi_line);
 my $normalized_line = normalize_node($line_tree);
-is ($normalized_line, 
+is ($normalized_line,
 'A-SC-accents-_00ef-_00ef-_1e14-_0142-_1e08-_0146_0303_0304-_0155_030c-_0129_0304-_00ff-_0131-j-_00c7-_0118-_1ea1-a_0361-_0227-characters-_0142-_00a1-_00e5-_0153-_002c-error_002d_002d_003e--_2026-_002e_002e_002e-no-brace-commands-_0040--_002e-----_007d-signs-_002d_002d-_002d_002d_002d-_0060_0060-_0027_0027-_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e-_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e',
   'normalized complex line');
 my $transliterated_line = transliterate_texinfo($line_tree);
-is ($transliterated_line, 
+is ($transliterated_line,
 'A-SC-accents-i-i-E-l-C-n-r-i-y-i-j-C-E-a-a-a-characters-l-_00a1-aa-oe-_002c-error_002d_002d_003e--_2026-_002e_002e_002e-no-brace-commands-_0040--_002e-----_007d-signs-_002d_002d-_002d_002d_002d-_0060_0060-_0027_0027-_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e-_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e',
  'transliterated complex line');
 my $transliterated_line_no_unidecode = transliterate_texinfo($line_tree, 1);
@@ -165,12 +165,33 @@ is ($transliterated_line_no_unidecode,
 'A-SC-accents-i-i-_1e14-l-_1e08-n-r-i-y-_0131-j-C-E-a-a-a-characters-l-_00a1-aa-oe-_002c-error_002d_002d_003e--_2026-_002e_002e_002e-no-brace-commands-_0040--_002e-----_007d-signs-_002d_002d-_002d_002d_002d-_0060_0060-_0027_0027-_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e-_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e',
   'transliterated complex line no unidecode');
 
-my $top_text = ' tOp';
-my $top_tree = $parser->parse_texi_text($top_text);
+my $top_no_space = 'tOp';
+my $top_tree = $parser->parse_texi_line($top_no_space);
 my $top_normalized = normalize_node($top_tree);
 is ($top_normalized, 'Top', 'normalize Top node');
 
+my $top_and_space_before = ' tOp';
+# when parsed with parse_texi_text, the text is put in a paragraph
+# and spaces before the text is put in a speicial content for
+# spaces before paragraphs, that are ignored afterwards
+my $top_and_space_before_tree_text = $parser->parse_texi_text($top_and_space_before);
+my $top_and_space_before_text_normalized
+   = normalize_node($top_and_space_before_tree_text);
+is ($top_and_space_before_text_normalized, 'Top',
+    'normalize Top node preceded by space as text');
+#print STDERR Data::Dumper->Dump([$top_and_space_before_tree_text]);
+
+# when parsed with parse_texi_line, the text is not put in a
+# paragraph and the first space is retained, such that there
+# is no normalization
+my $top_and_space_before_tree_line = $parser->parse_texi_line($top_and_space_before);
+my $top_and_space_before_line_normalized
+   = normalize_node($top_and_space_before_tree_line);
+is ($top_and_space_before_line_normalized, '-tOp',
+    'normalize Top node preceded by space as line');
+#print STDERR Data::Dumper->Dump([$top_and_space_before_tree_line]);
+
 my $top_and_spaces_text = 'TOP ';
-my $top_and_spaces_tree = $parser->parse_texi_text($top_and_spaces_text);
+my $top_and_spaces_tree = $parser->parse_texi_line($top_and_spaces_text);
 my $top_and_spaces_normalized = normalize_node($top_and_spaces_tree);
 is ($top_and_spaces_normalized, 'TOP-', 'normalize Top node followed by spaces');

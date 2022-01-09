@@ -22,7 +22,9 @@ sub _find_accent($)
 {
   my $root = shift;
   my $current = $root;
-  while ($current->{'type'} and ($current->{'type'} eq 'before_node_section'
+  while ($current->{'type'} and ($current->{'type'} eq 'root_line'
+                           # following could be useful if parse_texi_text is used
+                                 or $current->{'type'} eq 'before_node_section'
                                  or $current->{'type'} eq 'document_root'
                                  or $current->{'type'} eq 'paragraph')) {
     $current = $current->{'contents'}->[0];
@@ -37,7 +39,7 @@ sub test_accent_stack ($)
   my $name = $test->[1];
   my $reference = $test->[2];
   my $parser = Texinfo::Parser::parser();
-  my $root = $parser->parse_texi_text($texi);
+  my $root = $parser->parse_texi_line($texi);
   my $accent_tree = _find_accent($root);
   my ($contents, $commands_stack) = 
     Texinfo::Convert::Utils::find_innermost_accent_contents($accent_tree);
@@ -86,7 +88,7 @@ sub test_enable_encoding ($)
   my $reference_xml_numeric_entity = $test->[4];
   my $reference_unicode = $test->[5];
   my $parser = Texinfo::Parser::parser();
-  my $root = $parser->parse_texi_text($texi);
+  my $root = $parser->parse_texi_line($texi);
   my $accent_tree = _find_accent($root);
 
   my ($contents, $commands_stack) = 
