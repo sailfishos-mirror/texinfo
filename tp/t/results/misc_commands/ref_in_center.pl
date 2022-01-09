@@ -8,7 +8,13 @@ use utf8;
 $result_trees{'ref_in_center'} = {
   'contents' => [
     {
-      'contents' => [],
+      'contents' => [
+        {
+          'contents' => [],
+          'parent' => {},
+          'type' => 'preamble_before_content'
+        }
+      ],
       'parent' => {},
       'type' => 'before_node_section'
     },
@@ -197,6 +203,7 @@ $result_trees{'ref_in_center'} = {
   ],
   'type' => 'document_root'
 };
+$result_trees{'ref_in_center'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'ref_in_center'}{'contents'}[0];
 $result_trees{'ref_in_center'}{'contents'}[0]{'parent'} = $result_trees{'ref_in_center'};
 $result_trees{'ref_in_center'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'ref_in_center'}{'contents'}[1]{'args'}[0];
 $result_trees{'ref_in_center'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'ref_in_center'}{'contents'}[1];

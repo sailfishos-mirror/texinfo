@@ -10,76 +10,94 @@ $result_trees{'encoding_index_ascii'} = {
     {
       'contents' => [
         {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'args' => [
+          'contents' => [
             {
               'contents' => [
                 {
                   'parent' => {},
-                  'text' => 'encoding_index_ascii.info'
-                }
-              ],
-              'extra' => {
-                'spaces_after_argument' => '
-'
-              },
-              'parent' => {},
-              'type' => 'line_arg'
-            }
-          ],
-          'cmdname' => 'setfilename',
-          'extra' => {
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'encoding_index_ascii.info'
-          },
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 2,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
-            {
-              'contents' => [
-                {
-                  'parent' => {},
-                  'text' => 'us-ascii'
-                }
-              ],
-              'extra' => {
-                'spaces_after_argument' => '
-'
-              },
-              'parent' => {},
-              'type' => 'line_arg'
-            }
-          ],
-          'cmdname' => 'documentencoding',
-          'extra' => {
-            'input_encoding_name' => 'us-ascii',
-            'input_perl_encoding' => 'ascii',
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'us-ascii'
-          },
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 3,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '
+                  'text' => '
 ',
-          'type' => 'empty_line'
+                  'type' => 'text_before_beginning'
+                }
+              ],
+              'parent' => {},
+              'type' => 'preamble_before_beginning'
+            }
+          ],
+          'parent' => {},
+          'type' => 'preamble_before_setfilename'
+        },
+        {
+          'contents' => [
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'encoding_index_ascii.info'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
+                  'parent' => {},
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'setfilename',
+              'extra' => {
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'encoding_index_ascii.info'
+              },
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 2,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
+              'args' => [
+                {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'us-ascii'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
+                  'parent' => {},
+                  'type' => 'line_arg'
+                }
+              ],
+              'cmdname' => 'documentencoding',
+              'extra' => {
+                'input_encoding_name' => 'us-ascii',
+                'input_perl_encoding' => 'ascii',
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'us-ascii'
+              },
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 3,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line'
+            }
+          ],
+          'parent' => {},
+          'type' => 'preamble_before_content'
         }
       ],
       'parent' => {},
@@ -2988,14 +3006,17 @@ $result_trees{'encoding_index_ascii'} = {
   ],
   'type' => 'document_root'
 };
+$result_trees{'encoding_index_ascii'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_ascii'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'encoding_index_ascii'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_ascii'}{'contents'}[0]{'contents'}[0];
 $result_trees{'encoding_index_ascii'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_ascii'}{'contents'}[0];
-$result_trees{'encoding_index_ascii'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_ascii'}{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'encoding_index_ascii'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'encoding_index_ascii'}{'contents'}[0]{'contents'}[1];
+$result_trees{'encoding_index_ascii'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_ascii'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0];
+$result_trees{'encoding_index_ascii'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'encoding_index_ascii'}{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'encoding_index_ascii'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_ascii'}{'contents'}[0]{'contents'}[1];
+$result_trees{'encoding_index_ascii'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_ascii'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0];
+$result_trees{'encoding_index_ascii'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'encoding_index_ascii'}{'contents'}[0]{'contents'}[1]{'contents'}[1];
+$result_trees{'encoding_index_ascii'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'encoding_index_ascii'}{'contents'}[0]{'contents'}[1];
+$result_trees{'encoding_index_ascii'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'encoding_index_ascii'}{'contents'}[0]{'contents'}[1];
 $result_trees{'encoding_index_ascii'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'encoding_index_ascii'}{'contents'}[0];
-$result_trees{'encoding_index_ascii'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_ascii'}{'contents'}[0]{'contents'}[2]{'args'}[0];
-$result_trees{'encoding_index_ascii'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'encoding_index_ascii'}{'contents'}[0]{'contents'}[2];
-$result_trees{'encoding_index_ascii'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'encoding_index_ascii'}{'contents'}[0];
-$result_trees{'encoding_index_ascii'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'encoding_index_ascii'}{'contents'}[0];
 $result_trees{'encoding_index_ascii'}{'contents'}[0]{'parent'} = $result_trees{'encoding_index_ascii'};
 $result_trees{'encoding_index_ascii'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'encoding_index_ascii'}{'contents'}[1]{'args'}[0];
 $result_trees{'encoding_index_ascii'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'encoding_index_ascii'}{'contents'}[1];
@@ -3527,7 +3548,6 @@ $result_texis{'encoding_index_ascii'} = '
 
 
 $result_texts{'encoding_index_ascii'} = '
-
 top
 ***
 

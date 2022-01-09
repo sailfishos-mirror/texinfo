@@ -10,41 +10,47 @@ $result_trees{'weird_accents_disable_encoding'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'contents' => [
             {
-              'contents' => [
+              'args' => [
                 {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'ISO-8859-1'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'parent' => {},
-                  'text' => 'ISO-8859-1'
+                  'type' => 'line_arg'
                 }
               ],
+              'cmdname' => 'documentencoding',
               'extra' => {
-                'spaces_after_argument' => '
-'
+                'input_encoding_name' => 'iso-8859-1',
+                'input_perl_encoding' => 'iso-8859-1',
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'ISO-8859-1'
               },
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 1,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
               'parent' => {},
-              'type' => 'line_arg'
+              'text' => '
+',
+              'type' => 'empty_line'
             }
           ],
-          'cmdname' => 'documentencoding',
-          'extra' => {
-            'input_encoding_name' => 'iso-8859-1',
-            'input_perl_encoding' => 'iso-8859-1',
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'ISO-8859-1'
-          },
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
           'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
+          'type' => 'preamble_before_content'
         }
       ],
       'parent' => {},
@@ -481,10 +487,11 @@ $result_trees{'weird_accents_disable_encoding'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'weird_accents_disable_encoding'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'weird_accents_disable_encoding'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'weird_accents_disable_encoding'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'weird_accents_disable_encoding'}{'contents'}[0]{'contents'}[0];
+$result_trees{'weird_accents_disable_encoding'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'weird_accents_disable_encoding'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'weird_accents_disable_encoding'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'weird_accents_disable_encoding'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'weird_accents_disable_encoding'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'weird_accents_disable_encoding'}{'contents'}[0]{'contents'}[0];
+$result_trees{'weird_accents_disable_encoding'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'weird_accents_disable_encoding'}{'contents'}[0]{'contents'}[0];
 $result_trees{'weird_accents_disable_encoding'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'weird_accents_disable_encoding'}{'contents'}[0];
-$result_trees{'weird_accents_disable_encoding'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'weird_accents_disable_encoding'}{'contents'}[0];
 $result_trees{'weird_accents_disable_encoding'}{'contents'}[0]{'parent'} = $result_trees{'weird_accents_disable_encoding'};
 $result_trees{'weird_accents_disable_encoding'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'weird_accents_disable_encoding'}{'contents'}[1]{'args'}[0];
 $result_trees{'weird_accents_disable_encoding'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'weird_accents_disable_encoding'}{'contents'}[1];

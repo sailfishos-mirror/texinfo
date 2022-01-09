@@ -206,7 +206,7 @@ my @converted_test_cases = (
 @setfilename file_space_comment @c comment
 @setfilename @ @verb{: name :}@ 
 
-'],
+', {'full_document' => 1}],
 ['definfoenclose',
 '
 definfoenclose phoo,//,\\  @definfoenclose phoo,//,\\
@@ -302,7 +302,7 @@ aaa
 
 @center @ref{Top, ,title
 very long}
-'],
+', {'full_document' => 1}],
 ['footnote_in_center',
 '@center Centered text with a footnote@footnote{This footnote
 shows an important feature of the centered text.
@@ -355,7 +355,7 @@ In w:
 After true
 @testallowcodebreakspara{2}
 @testallowcodebreaksexample{}
-'],
+', {'full_document' => 1}],
 ['incorrect_allowcodebreaks_argument',
 '@allowcodebreaks _arg
 @code{b a}
@@ -408,7 +408,7 @@ Titlepage
 @allquotes{}
 @end example
 
-'],
+', {'full_document' => 1}],
 ['comment_space_command_on_line',
 '@settitle Settitle @ @c settittle
 

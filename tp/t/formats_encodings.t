@@ -288,6 +288,26 @@ my $at_commands_in_refs_text = '@node Top
 ';
 
 my @test_cases = (
+['documentencoding_utf8_and_insertions',
+'@documentencoding utf-8
+
+-- --- \'\' `` ` \' @code{in code}. @~e.
+
+@example
+-- --- \'\' `` ` \' @code{in code}. @~e.
+@end example
+'],
+['no_documentencoding_and_insertions',
+'
+-- --- \'\' `` ` \' @code{in code}. @~e.
+
+@example
+-- --- \'\' `` ` \' @code{in code}. @~e.
+@end example
+'],
+);
+
+my @test_full_doc = (
 ['accentenc',
 $latin1_accents_text
 ],
@@ -307,23 +327,6 @@ $accents_text, {'ENABLE_ENCODING' => 1}
 $at_commands_in_refs_text, 
  {},
  {'TEST' => 1}], # TEST => 1 triggers @today constant expansion for diffs
-['documentencoding_utf8_and_insertions',
-'@documentencoding utf-8
-
--- --- \'\' `` ` \' @code{in code}. @~e.
-
-@example
--- --- \'\' `` ` \' @code{in code}. @~e.
-@end example
-'],
-['no_documentencoding_and_insertions',
-'
--- --- \'\' `` ` \' @code{in code}. @~e.
-
-@example
--- --- \'\' `` ` \' @code{in code}. @~e.
-@end example
-'],
 );
 
 my @html_text_cases = (
@@ -354,7 +357,7 @@ undef, {'test_file' => 'sample_utf8.texi'}
 
 '.
 $at_commands_in_refs_text, 
-  {},
+  {'full_document' => 1},
   {'TEST' => 1}], # TEST => 1 triggers @today constant expansion for diffs
 ['at_commands_in_refs_latin1',
 '@setfilename at_commands_in_refs_latin1.info
@@ -362,7 +365,7 @@ $at_commands_in_refs_text,
 
 '.
 $at_commands_in_refs_text, 
-{}, {'TEST' => 1}], # TEST => 1 triggers @today constant expansion for diffs
+{'full_document' => 1}, {'TEST' => 1}], # TEST => 1 triggers @today constant expansion for diffs
 );
 
 my %info_tests = (
@@ -377,7 +380,7 @@ my %xml_file_tests = (
  'char_latin1_latin1_in_refs' => 1,
 );
 
-# this is temporary, all the files in @test_cases should go
+# this is temporary, all the files in @test_full_doc should go
 # through the LaTeX converter
 my %latex_tests = (
   'accentenc' => 1,
@@ -398,6 +401,23 @@ foreach my $test (@test_cases) {
     if ($info_tests{$test->[0]});
 }
 
+foreach my $test (@test_full_doc) {
+  push @{$test->[2]->{'test_formats'}}, 'plaintext';
+  if ($html_tests{$test->[0]}) {
+    push @{$test->[2]->{'test_formats'}}, 'html';
+  } else {
+    push @{$test->[2]->{'test_formats'}}, 'html_text';
+  }
+  push @{$test->[2]->{'test_formats'}}, 'xml';
+  push @{$test->[2]->{'test_formats'}}, 'docbook';
+  push @{$test->[2]->{'test_formats'}}, 'latex'
+    if ($latex_tests{$test->[0]});
+  push @{$test->[2]->{'test_formats'}}, 'info'
+    if ($info_tests{$test->[0]});
+
+  $test->[2]->{'full_document'} = 1 unless (exists($test->[2]->{'full_document'}));
+}
+
 foreach my $test (@html_text_cases) {
   push @{$test->[2]->{'test_formats'}}, 'html_text';
 } 
@@ -411,7 +431,7 @@ foreach my $test (@file_tests) {
 }
 
 our ($arg_test_case, $arg_generate, $arg_debug);
-run_all ('formats_encodings', [@test_cases, @file_tests, @html_text_cases],
+run_all ('formats_encodings', [@test_cases, @test_full_doc, @file_tests, @html_text_cases],
    $arg_test_case, $arg_generate, $arg_debug);
 
 1;

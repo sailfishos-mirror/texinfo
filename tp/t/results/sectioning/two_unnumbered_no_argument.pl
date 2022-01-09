@@ -8,7 +8,13 @@ use utf8;
 $result_trees{'two_unnumbered_no_argument'} = {
   'contents' => [
     {
-      'contents' => [],
+      'contents' => [
+        {
+          'contents' => [],
+          'parent' => {},
+          'type' => 'preamble_before_content'
+        }
+      ],
       'parent' => {},
       'type' => 'before_node_section'
     },
@@ -63,6 +69,7 @@ $result_trees{'two_unnumbered_no_argument'} = {
   ],
   'type' => 'document_root'
 };
+$result_trees{'two_unnumbered_no_argument'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'two_unnumbered_no_argument'}{'contents'}[0];
 $result_trees{'two_unnumbered_no_argument'}{'contents'}[0]{'parent'} = $result_trees{'two_unnumbered_no_argument'};
 $result_trees{'two_unnumbered_no_argument'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'two_unnumbered_no_argument'}{'contents'}[1];
 $result_trees{'two_unnumbered_no_argument'}{'contents'}[1]{'parent'} = $result_trees{'two_unnumbered_no_argument'};

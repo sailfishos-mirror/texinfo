@@ -10,34 +10,40 @@ $result_trees{'transparent_sort_chars'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'contents' => [
             {
-              'parent' => {},
-              'text' => 'txiindexhyphenignore',
-              'type' => 'misc_arg'
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => 'txiindexhyphenignore',
+                  'type' => 'misc_arg'
+                },
+                {
+                  'parent' => {},
+                  'text' => '',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'set',
+              'extra' => {
+                'arg_line' => ' txiindexhyphenignore
+',
+                'misc_args' => [
+                  'txiindexhyphenignore',
+                  ''
+                ]
+              },
+              'parent' => {}
             },
             {
               'parent' => {},
-              'text' => '',
-              'type' => 'misc_arg'
+              'text' => '
+',
+              'type' => 'empty_line'
             }
           ],
-          'cmdname' => 'set',
-          'extra' => {
-            'arg_line' => ' txiindexhyphenignore
-',
-            'misc_args' => [
-              'txiindexhyphenignore',
-              ''
-            ]
-          },
-          'parent' => {}
-        },
-        {
           'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
+          'type' => 'preamble_before_content'
         }
       ],
       'parent' => {},
@@ -327,10 +333,11 @@ $result_trees{'transparent_sort_chars'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'transparent_sort_chars'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'transparent_sort_chars'}{'contents'}[0]{'contents'}[0];
-$result_trees{'transparent_sort_chars'}{'contents'}[0]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'transparent_sort_chars'}{'contents'}[0]{'contents'}[0];
+$result_trees{'transparent_sort_chars'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'transparent_sort_chars'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'transparent_sort_chars'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[1]{'parent'} = $result_trees{'transparent_sort_chars'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'transparent_sort_chars'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'transparent_sort_chars'}{'contents'}[0]{'contents'}[0];
+$result_trees{'transparent_sort_chars'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'transparent_sort_chars'}{'contents'}[0]{'contents'}[0];
 $result_trees{'transparent_sort_chars'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'transparent_sort_chars'}{'contents'}[0];
-$result_trees{'transparent_sort_chars'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'transparent_sort_chars'}{'contents'}[0];
 $result_trees{'transparent_sort_chars'}{'contents'}[0]{'parent'} = $result_trees{'transparent_sort_chars'};
 $result_trees{'transparent_sort_chars'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'transparent_sort_chars'}{'contents'}[1]{'args'}[0];
 $result_trees{'transparent_sort_chars'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'transparent_sort_chars'}{'contents'}[1];

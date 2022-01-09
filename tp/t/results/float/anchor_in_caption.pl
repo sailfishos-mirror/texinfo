@@ -8,7 +8,13 @@ use utf8;
 $result_trees{'anchor_in_caption'} = {
   'contents' => [
     {
-      'contents' => [],
+      'contents' => [
+        {
+          'contents' => [],
+          'parent' => {},
+          'type' => 'preamble_before_content'
+        }
+      ],
       'parent' => {},
       'type' => 'before_node_section'
     },
@@ -261,6 +267,7 @@ $result_trees{'anchor_in_caption'} = {
   ],
   'type' => 'document_root'
 };
+$result_trees{'anchor_in_caption'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'anchor_in_caption'}{'contents'}[0];
 $result_trees{'anchor_in_caption'}{'contents'}[0]{'parent'} = $result_trees{'anchor_in_caption'};
 $result_trees{'anchor_in_caption'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'anchor_in_caption'}{'contents'}[1]{'args'}[0];
 $result_trees{'anchor_in_caption'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'anchor_in_caption'}{'contents'}[1];

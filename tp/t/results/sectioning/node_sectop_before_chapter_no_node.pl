@@ -10,39 +10,45 @@ $result_trees{'node_sectop_before_chapter_no_node'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'contents' => [
             {
-              'contents' => [
+              'args' => [
                 {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'node_sectop_before_chapter_no_node.info'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'parent' => {},
-                  'text' => 'node_sectop_before_chapter_no_node.info'
+                  'type' => 'line_arg'
                 }
               ],
+              'cmdname' => 'setfilename',
               'extra' => {
-                'spaces_after_argument' => '
-'
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'node_sectop_before_chapter_no_node.info'
               },
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 1,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
               'parent' => {},
-              'type' => 'line_arg'
+              'text' => '
+',
+              'type' => 'empty_line'
             }
           ],
-          'cmdname' => 'setfilename',
-          'extra' => {
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'node_sectop_before_chapter_no_node.info'
-          },
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
           'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
+          'type' => 'preamble_before_content'
         }
       ],
       'parent' => {},
@@ -157,10 +163,11 @@ $result_trees{'node_sectop_before_chapter_no_node'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'node_sectop_before_chapter_no_node'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'node_sectop_before_chapter_no_node'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'node_sectop_before_chapter_no_node'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'node_sectop_before_chapter_no_node'}{'contents'}[0]{'contents'}[0];
+$result_trees{'node_sectop_before_chapter_no_node'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'node_sectop_before_chapter_no_node'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'node_sectop_before_chapter_no_node'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'node_sectop_before_chapter_no_node'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'node_sectop_before_chapter_no_node'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'node_sectop_before_chapter_no_node'}{'contents'}[0]{'contents'}[0];
+$result_trees{'node_sectop_before_chapter_no_node'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'node_sectop_before_chapter_no_node'}{'contents'}[0]{'contents'}[0];
 $result_trees{'node_sectop_before_chapter_no_node'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'node_sectop_before_chapter_no_node'}{'contents'}[0];
-$result_trees{'node_sectop_before_chapter_no_node'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'node_sectop_before_chapter_no_node'}{'contents'}[0];
 $result_trees{'node_sectop_before_chapter_no_node'}{'contents'}[0]{'parent'} = $result_trees{'node_sectop_before_chapter_no_node'};
 $result_trees{'node_sectop_before_chapter_no_node'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'node_sectop_before_chapter_no_node'}{'contents'}[1]{'args'}[0];
 $result_trees{'node_sectop_before_chapter_no_node'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'node_sectop_before_chapter_no_node'}{'contents'}[1];
@@ -311,6 +318,7 @@ kbd {font-style: oblique}
 
 
 $result_converted{'latex'}->{'node_sectop_before_chapter_no_node'} = '
+\\begin{document}
 ';
 
 1;

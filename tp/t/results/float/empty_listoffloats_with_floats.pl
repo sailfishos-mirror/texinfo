@@ -10,10 +10,21 @@ $result_trees{'empty_listoffloats_with_floats'} = {
     {
       'contents' => [
         {
-          'parent' => {},
-          'text' => '
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => '
 ',
-          'type' => 'empty_line'
+              'type' => 'text_before_beginning'
+            }
+          ],
+          'parent' => {},
+          'type' => 'preamble_before_beginning'
+        },
+        {
+          'contents' => [],
+          'parent' => {},
+          'type' => 'preamble_before_content'
         },
         {
           'args' => [
@@ -449,67 +460,69 @@ $result_trees{'empty_listoffloats_with_floats'} = {
   ],
   'type' => 'document_root'
 };
+$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[0];
 $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0];
-$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[1];
-$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[1]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[1]{'args'}[1];
-$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[1]{'args'}[1]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[1];
-$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[1]{'contents'}[0];
-$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[1];
-$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0];
-$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[1]{'contents'}[1];
-$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[1];
-$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[1]{'extra'}{'end_command'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[1]{'contents'}[1];
-$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[1]{'extra'}{'node_content'}[0] = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[1]{'args'}[1]{'contents'}[0];
 $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0];
+$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[2];
+$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[2]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[2]{'args'}[1];
+$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[2]{'args'}[1]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[2];
+$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[2]{'contents'}[0];
+$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[2];
+$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0];
+$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[2]{'contents'}[1];
+$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[2];
+$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[2]{'extra'}{'end_command'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[2]{'contents'}[1];
+$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[2]{'extra'}{'node_content'}[0] = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[2]{'args'}[1]{'contents'}[0];
 $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0];
-$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[3];
-$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[3]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[3]{'args'}[1];
-$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[3]{'args'}[1]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[3];
-$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[3]{'contents'}[0];
-$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[3];
-$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0];
-$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0];
-$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[3]{'contents'}[1];
-$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'extra'}{'float'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[3];
-$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[3];
-$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[3]{'contents'}[2]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[3];
-$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[3]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[3]{'contents'}[3]{'args'}[0];
-$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[3]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[3]{'contents'}[3];
-$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[3]{'contents'}[3]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[3];
-$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[3]{'extra'}{'caption'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[3]{'contents'}[1];
-$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[3]{'extra'}{'end_command'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[3]{'contents'}[3];
-$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[3]{'extra'}{'node_content'}[0] = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[3]{'args'}[1]{'contents'}[0];
 $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0];
+$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[4];
+$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[4]{'args'}[1]{'contents'}[0]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[4]{'args'}[1];
+$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[4]{'args'}[1]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[4];
+$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[4]{'contents'}[0];
+$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[4];
+$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[0];
+$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0];
+$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[4]{'contents'}[1];
+$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'extra'}{'float'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[4];
+$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[4];
+$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[4]{'contents'}[2]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[4];
+$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[4]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[4]{'contents'}[3]{'args'}[0];
+$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[4]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[4]{'contents'}[3];
+$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[4]{'contents'}[3]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[4];
+$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[4]{'extra'}{'caption'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[4]{'contents'}[1];
+$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[4]{'extra'}{'end_command'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[4]{'contents'}[3];
+$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[4]{'extra'}{'node_content'}[0] = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[4]{'args'}[1]{'contents'}[0];
 $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0];
-$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[5]{'contents'}[0]{'extra'}{'command'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[5];
-$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[5]{'contents'}[0]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[5];
-$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[5]{'contents'}[1];
-$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[5]{'contents'}[1]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[5];
-$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[5]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[5]{'contents'}[2]{'args'}[0];
-$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[5]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[5]{'contents'}[2];
-$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[5]{'contents'}[2]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[5];
-$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[5]{'extra'}{'end_command'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[5]{'contents'}[2];
 $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0];
+$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'extra'}{'command'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[6];
+$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[6]{'contents'}[0]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[6];
+$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[6]{'contents'}[1];
+$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[6]{'contents'}[1]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[6];
+$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[6]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[6]{'contents'}[2]{'args'}[0];
+$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[6]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[6]{'contents'}[2];
+$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[6]{'contents'}[2]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[6];
+$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[6]{'extra'}{'end_command'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[6]{'contents'}[2];
 $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[6]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0];
-$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[7]{'contents'}[0]{'extra'}{'command'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[7];
-$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[7]{'contents'}[0]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[7];
-$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[7]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[7]{'contents'}[1];
-$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[7]{'contents'}[1]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[7];
-$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[7]{'contents'}[2]{'args'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[7]{'contents'}[2]{'args'}[0]{'contents'}[0];
-$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[7]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[7]{'contents'}[2]{'args'}[0];
-$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[7]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[7]{'contents'}[2];
-$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[7]{'contents'}[2]{'extra'}{'float'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[7];
-$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[7]{'contents'}[2]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[7];
-$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[7]{'contents'}[3]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[7];
-$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[7]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[7]{'contents'}[4]{'args'}[0];
-$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[7]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[7]{'contents'}[4];
-$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[7]{'contents'}[4]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[7];
-$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[7]{'extra'}{'caption'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[7]{'contents'}[2];
-$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[7]{'extra'}{'end_command'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[7]{'contents'}[4];
 $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[7]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0];
+$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'extra'}{'command'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[8];
+$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[8]{'contents'}[0]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[8];
+$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[8]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[8]{'contents'}[1];
+$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[8]{'contents'}[1]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[8];
+$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[8]{'contents'}[2]{'args'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[8]{'contents'}[2]{'args'}[0]{'contents'}[0];
+$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[8]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[8]{'contents'}[2]{'args'}[0];
+$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[8]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[8]{'contents'}[2];
+$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[8]{'contents'}[2]{'extra'}{'float'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[8];
+$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[8]{'contents'}[2]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[8];
+$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[8]{'contents'}[3]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[8];
+$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[8]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[8]{'contents'}[4]{'args'}[0];
+$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[8]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[8]{'contents'}[4];
+$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[8]{'contents'}[4]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[8];
+$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[8]{'extra'}{'caption'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[8]{'contents'}[2];
+$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[8]{'extra'}{'end_command'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[8]{'contents'}[4];
 $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[8]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0];
-$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[9]{'args'}[0]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[9];
 $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[9]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0];
+$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[10]{'args'}[0]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[10];
+$result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'contents'}[10]{'parent'} = $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0];
 $result_trees{'empty_listoffloats_with_floats'}{'contents'}[0]{'parent'} = $result_trees{'empty_listoffloats_with_floats'};
 
 $result_texis{'empty_listoffloats_with_floats'} = '
@@ -535,8 +548,7 @@ no label caption
 ';
 
 
-$result_texts{'empty_listoffloats_with_floats'} = '
-label1
+$result_texts{'empty_listoffloats_with_floats'} = 'label1
 Label no caption.
 
 label2
@@ -663,7 +675,6 @@ kbd {font-style: oblique}
 </head>
 
 <body lang="en">
-
 <div class="float" id="label1">
 <p>Label no caption.
 </p><div class="float-caption"><p><strong>1

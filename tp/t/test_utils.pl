@@ -794,6 +794,11 @@ sub test($$)
     $test_file = $input_files_dir . $parser_options->{'test_file'};
     delete $parser_options->{'test_file'};
   }
+  my $full_document;
+  if ($parser_options->{'full_document'}) {
+    $full_document = $parser_options->{'full_document'};
+    delete $parser_options->{'full_document'};
+  }
   my $test_input_file_name;
   if ($parser_options->{'test_input_file_name'}) {
     $test_input_file_name = $parser_options->{'test_input_file_name'};
@@ -879,8 +884,13 @@ sub test($$)
   my $initial_index_names = dclone(\%Texinfo::Common::index_names);
   my $result;
   if (!$test_file) {
-    print STDERR "  TEST $test_name\n" if ($self->{'DEBUG'});
-    $result = $parser->parse_texi_piece($test_text);
+    if ($full_document) {
+      print STDERR "  TEST FULL $test_name\n" if ($self->{'DEBUG'});
+      $result = $parser->parse_texi_text($test_text);
+    } else {
+      print STDERR "  TEST $test_name\n" if ($self->{'DEBUG'});
+      $result = $parser->parse_texi_piece($test_text);
+    }
     if (defined($test_input_file_name)) {
       $parser->{'info'}->{'input_file_name'} = $test_input_file_name;
     }

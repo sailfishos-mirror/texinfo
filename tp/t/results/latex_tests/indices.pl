@@ -10,69 +10,75 @@ $result_trees{'indices'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'contents' => [
             {
-              'contents' => [
+              'args' => [
                 {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'indices.info'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'parent' => {},
-                  'text' => 'indices.info'
+                  'type' => 'line_arg'
                 }
               ],
+              'cmdname' => 'setfilename',
               'extra' => {
-                'spaces_after_argument' => '
-'
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'indices.info'
               },
-              'parent' => {},
-              'type' => 'line_arg'
-            }
-          ],
-          'cmdname' => 'setfilename',
-          'extra' => {
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'indices.info'
-          },
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'args' => [
-            {
-              'parent' => {},
-              'text' => 'txiindexbackslashignore',
-              'type' => 'misc_arg'
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 1,
+                'macro' => ''
+              },
+              'parent' => {}
             },
             {
               'parent' => {},
-              'text' => '',
-              'type' => 'misc_arg'
+              'text' => '
+',
+              'type' => 'empty_line'
+            },
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => 'txiindexbackslashignore',
+                  'type' => 'misc_arg'
+                },
+                {
+                  'parent' => {},
+                  'text' => '',
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'set',
+              'extra' => {
+                'arg_line' => ' txiindexbackslashignore
+',
+                'misc_args' => [
+                  'txiindexbackslashignore',
+                  ''
+                ]
+              },
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line'
             }
           ],
-          'cmdname' => 'set',
-          'extra' => {
-            'arg_line' => ' txiindexbackslashignore
-',
-            'misc_args' => [
-              'txiindexbackslashignore',
-              ''
-            ]
-          },
-          'parent' => {}
-        },
-        {
           'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
+          'type' => 'preamble_before_content'
         }
       ],
       'parent' => {},
@@ -1028,14 +1034,15 @@ $result_trees{'indices'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'indices'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'indices'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'indices'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'indices'}{'contents'}[0]{'contents'}[0];
+$result_trees{'indices'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'indices'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'indices'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'indices'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'indices'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'indices'}{'contents'}[0]{'contents'}[0];
+$result_trees{'indices'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'indices'}{'contents'}[0]{'contents'}[0];
+$result_trees{'indices'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'indices'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
+$result_trees{'indices'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[1]{'parent'} = $result_trees{'indices'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
+$result_trees{'indices'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'indices'}{'contents'}[0]{'contents'}[0];
+$result_trees{'indices'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'indices'}{'contents'}[0]{'contents'}[0];
 $result_trees{'indices'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'indices'}{'contents'}[0];
-$result_trees{'indices'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'indices'}{'contents'}[0];
-$result_trees{'indices'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'indices'}{'contents'}[0]{'contents'}[2];
-$result_trees{'indices'}{'contents'}[0]{'contents'}[2]{'args'}[1]{'parent'} = $result_trees{'indices'}{'contents'}[0]{'contents'}[2];
-$result_trees{'indices'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'indices'}{'contents'}[0];
-$result_trees{'indices'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'indices'}{'contents'}[0];
 $result_trees{'indices'}{'contents'}[0]{'parent'} = $result_trees{'indices'};
 $result_trees{'indices'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'indices'}{'contents'}[1]{'args'}[0];
 $result_trees{'indices'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'indices'}{'contents'}[1];
@@ -1352,6 +1359,7 @@ $result_indices_sort_strings{'indices'} = {
 
 $result_converted{'latex'}->{'indices'} = '
 
+\\begin{document}
 \\chapter{Index}
 \\label{anchor:chapter}%
 

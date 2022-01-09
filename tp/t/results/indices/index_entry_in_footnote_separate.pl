@@ -10,35 +10,41 @@ $result_trees{'index_entry_in_footnote_separate'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'contents' => [
             {
-              'contents' => [
+              'args' => [
                 {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'separate'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'parent' => {},
-                  'text' => 'separate'
+                  'type' => 'line_arg'
                 }
               ],
+              'cmdname' => 'footnotestyle',
               'extra' => {
-                'spaces_after_argument' => '
-'
+                'misc_args' => [
+                  'separate'
+                ],
+                'spaces_before_argument' => ' '
               },
-              'parent' => {},
-              'type' => 'line_arg'
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 1,
+                'macro' => ''
+              },
+              'parent' => {}
             }
           ],
-          'cmdname' => 'footnotestyle',
-          'extra' => {
-            'misc_args' => [
-              'separate'
-            ],
-            'spaces_before_argument' => ' '
-          },
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
-          },
-          'parent' => {}
+          'parent' => {},
+          'type' => 'preamble_before_content'
         }
       ],
       'parent' => {},
@@ -463,8 +469,9 @@ $result_trees{'index_entry_in_footnote_separate'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'index_entry_in_footnote_separate'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'index_entry_in_footnote_separate'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'index_entry_in_footnote_separate'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'index_entry_in_footnote_separate'}{'contents'}[0]{'contents'}[0];
+$result_trees{'index_entry_in_footnote_separate'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'index_entry_in_footnote_separate'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'index_entry_in_footnote_separate'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'index_entry_in_footnote_separate'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'index_entry_in_footnote_separate'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'index_entry_in_footnote_separate'}{'contents'}[0]{'contents'}[0];
 $result_trees{'index_entry_in_footnote_separate'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'index_entry_in_footnote_separate'}{'contents'}[0];
 $result_trees{'index_entry_in_footnote_separate'}{'contents'}[0]{'parent'} = $result_trees{'index_entry_in_footnote_separate'};
 $result_trees{'index_entry_in_footnote_separate'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'index_entry_in_footnote_separate'}{'contents'}[1]{'args'}[0];

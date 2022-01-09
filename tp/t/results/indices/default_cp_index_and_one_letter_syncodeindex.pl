@@ -8,7 +8,13 @@ use utf8;
 $result_trees{'default_cp_index_and_one_letter_syncodeindex'} = {
   'contents' => [
     {
-      'contents' => [],
+      'contents' => [
+        {
+          'contents' => [],
+          'parent' => {},
+          'type' => 'preamble_before_content'
+        }
+      ],
       'parent' => {},
       'type' => 'before_node_section'
     },
@@ -221,6 +227,7 @@ $result_trees{'default_cp_index_and_one_letter_syncodeindex'} = {
   ],
   'type' => 'document_root'
 };
+$result_trees{'default_cp_index_and_one_letter_syncodeindex'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'default_cp_index_and_one_letter_syncodeindex'}{'contents'}[0];
 $result_trees{'default_cp_index_and_one_letter_syncodeindex'}{'contents'}[0]{'parent'} = $result_trees{'default_cp_index_and_one_letter_syncodeindex'};
 $result_trees{'default_cp_index_and_one_letter_syncodeindex'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'default_cp_index_and_one_letter_syncodeindex'}{'contents'}[1]{'args'}[0];
 $result_trees{'default_cp_index_and_one_letter_syncodeindex'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'default_cp_index_and_one_letter_syncodeindex'}{'contents'}[1];

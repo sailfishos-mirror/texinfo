@@ -10,10 +10,21 @@ $result_trees{'contents_with_only_top_node'} = {
     {
       'contents' => [
         {
-          'parent' => {},
-          'text' => '
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => '
 ',
-          'type' => 'empty_line'
+              'type' => 'text_before_beginning'
+            }
+          ],
+          'parent' => {},
+          'type' => 'preamble_before_beginning'
+        },
+        {
+          'contents' => [],
+          'parent' => {},
+          'type' => 'preamble_before_content'
         }
       ],
       'parent' => {},
@@ -87,7 +98,9 @@ $result_trees{'contents_with_only_top_node'} = {
   ],
   'type' => 'document_root'
 };
+$result_trees{'contents_with_only_top_node'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'contents_with_only_top_node'}{'contents'}[0]{'contents'}[0];
 $result_trees{'contents_with_only_top_node'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'contents_with_only_top_node'}{'contents'}[0];
+$result_trees{'contents_with_only_top_node'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'contents_with_only_top_node'}{'contents'}[0];
 $result_trees{'contents_with_only_top_node'}{'contents'}[0]{'parent'} = $result_trees{'contents_with_only_top_node'};
 $result_trees{'contents_with_only_top_node'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'contents_with_only_top_node'}{'contents'}[1]{'args'}[0];
 $result_trees{'contents_with_only_top_node'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'contents_with_only_top_node'}{'contents'}[1];
@@ -106,7 +119,6 @@ $result_texis{'contents_with_only_top_node'} = '
 
 
 $result_texts{'contents_with_only_top_node'} = '
-
 ';
 
 $result_nodes{'contents_with_only_top_node'} = {
@@ -157,7 +169,6 @@ kbd {font-style: oblique}
 </head>
 
 <body lang="en">
-
 <h1 class="node-heading" id="Top">Top</h1>
 
 

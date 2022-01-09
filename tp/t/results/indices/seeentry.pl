@@ -10,39 +10,45 @@ $result_trees{'seeentry'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'contents' => [
             {
-              'contents' => [
+              'args' => [
                 {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'seeentry.info'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'parent' => {},
-                  'text' => 'seeentry.info'
+                  'type' => 'line_arg'
                 }
               ],
+              'cmdname' => 'setfilename',
               'extra' => {
-                'spaces_after_argument' => '
-'
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'seeentry.info'
               },
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 1,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
               'parent' => {},
-              'type' => 'line_arg'
+              'text' => '
+',
+              'type' => 'empty_line'
             }
           ],
-          'cmdname' => 'setfilename',
-          'extra' => {
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'seeentry.info'
-          },
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
           'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
+          'type' => 'preamble_before_content'
         }
       ],
       'parent' => {},
@@ -545,10 +551,11 @@ $result_trees{'seeentry'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'seeentry'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'seeentry'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'seeentry'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'seeentry'}{'contents'}[0]{'contents'}[0];
+$result_trees{'seeentry'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'seeentry'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'seeentry'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'seeentry'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'seeentry'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'seeentry'}{'contents'}[0]{'contents'}[0];
+$result_trees{'seeentry'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'seeentry'}{'contents'}[0]{'contents'}[0];
 $result_trees{'seeentry'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'seeentry'}{'contents'}[0];
-$result_trees{'seeentry'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'seeentry'}{'contents'}[0];
 $result_trees{'seeentry'}{'contents'}[0]{'parent'} = $result_trees{'seeentry'};
 $result_trees{'seeentry'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'seeentry'}{'contents'}[1]{'args'}[0];
 $result_trees{'seeentry'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'seeentry'}{'contents'}[1];

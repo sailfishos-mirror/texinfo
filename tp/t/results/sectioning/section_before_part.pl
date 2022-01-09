@@ -8,7 +8,13 @@ use utf8;
 $result_trees{'section_before_part'} = {
   'contents' => [
     {
-      'contents' => [],
+      'contents' => [
+        {
+          'contents' => [],
+          'parent' => {},
+          'type' => 'preamble_before_content'
+        }
+      ],
       'parent' => {},
       'type' => 'before_node_section'
     },
@@ -104,6 +110,7 @@ $result_trees{'section_before_part'} = {
   ],
   'type' => 'document_root'
 };
+$result_trees{'section_before_part'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'section_before_part'}{'contents'}[0];
 $result_trees{'section_before_part'}{'contents'}[0]{'parent'} = $result_trees{'section_before_part'};
 $result_trees{'section_before_part'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'section_before_part'}{'contents'}[1]{'args'}[0];
 $result_trees{'section_before_part'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'section_before_part'}{'contents'}[1];

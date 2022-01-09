@@ -10,33 +10,39 @@ $result_trees{'nested_itemize'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'contents' => [
             {
-              'contents' => [
+              'args' => [
                 {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'nested_itemize.info'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'parent' => {},
-                  'text' => 'nested_itemize.info'
+                  'type' => 'line_arg'
                 }
               ],
+              'cmdname' => 'setfilename',
               'extra' => {
-                'spaces_after_argument' => '
-'
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'nested_itemize.info'
               },
-              'parent' => {},
-              'type' => 'line_arg'
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 1,
+                'macro' => ''
+              },
+              'parent' => {}
             }
           ],
-          'cmdname' => 'setfilename',
-          'extra' => {
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'nested_itemize.info'
-          },
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
-          },
-          'parent' => {}
+          'parent' => {},
+          'type' => 'preamble_before_content'
         },
         {
           'args' => [
@@ -567,8 +573,9 @@ $result_trees{'nested_itemize'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[0];
+$result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[0];
 $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'nested_itemize'}{'contents'}[0];
 $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1];
 $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'extra'}{'command'} = $result_trees{'nested_itemize'}{'contents'}[0]{'contents'}[1];
@@ -684,7 +691,8 @@ $result_floats{'nested_itemize'} = {};
 
 
 
-$result_converted{'latex'}->{'nested_itemize'} = '\\begin{itemize}
+$result_converted{'latex'}->{'nested_itemize'} = '\\begin{document}
+\\begin{itemize}
 \\item First level item
    \\item First level item
 \\begin{itemize}

@@ -9,7 +9,13 @@ $result_trees{'unnumbered_top_without_node_sections'} = [
   {
     'contents' => [
       {
-        'contents' => [],
+        'contents' => [
+          {
+            'contents' => [],
+            'parent' => {},
+            'type' => 'preamble_before_content'
+          }
+        ],
         'parent' => {
           'contents' => [
             {},
@@ -345,6 +351,7 @@ $result_trees{'unnumbered_top_without_node_sections'} = [
     'type' => 'unit'
   }
 ];
+$result_trees{'unnumbered_top_without_node_sections'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'unnumbered_top_without_node_sections'}[0]{'contents'}[0];
 $result_trees{'unnumbered_top_without_node_sections'}[0]{'contents'}[0]{'parent'}{'contents'}[0] = $result_trees{'unnumbered_top_without_node_sections'}[0]{'contents'}[0];
 $result_trees{'unnumbered_top_without_node_sections'}[0]{'contents'}[0]{'parent'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'unnumbered_top_without_node_sections'}[0]{'contents'}[0]{'parent'}{'contents'}[1]{'args'}[0];
 $result_trees{'unnumbered_top_without_node_sections'}[0]{'contents'}[0]{'parent'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'unnumbered_top_without_node_sections'}[0]{'contents'}[0]{'parent'}{'contents'}[1];
@@ -1073,7 +1080,8 @@ Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a> &nbsp; </p>
 ';
 
 
-$result_converted{'latex'}->{'unnumbered_top_without_node_sections'} = '\\chapter*{unnumbered}
+$result_converted{'latex'}->{'unnumbered_top_without_node_sections'} = '\\begin{document}
+\\chapter*{unnumbered}
 \\label{anchor:a-node}%
 
 in unnumbered

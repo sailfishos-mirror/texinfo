@@ -10,70 +10,14 @@ $result_trees{'titlepage_classical'} = {
     {
       'contents' => [
         {
-          'args' => [
-            {
-              'contents' => [
-                {
-                  'parent' => {},
-                  'text' => 'titlepage_classical.info'
-                }
-              ],
-              'extra' => {
-                'spaces_after_argument' => '
-'
-              },
-              'parent' => {},
-              'type' => 'line_arg'
-            }
-          ],
-          'cmdname' => 'setfilename',
-          'extra' => {
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'titlepage_classical.info'
-          },
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'copying',
           'contents' => [
             {
-              'extra' => {
-                'command' => {}
-              },
-              'parent' => {},
-              'text' => '
-',
-              'type' => 'empty_line_after_command'
-            },
-            {
-              'contents' => [
-                {
-                  'parent' => {},
-                  'text' => 'in Copying
-'
-                }
-              ],
-              'parent' => {},
-              'type' => 'paragraph'
-            },
-            {
               'args' => [
                 {
                   'contents' => [
                     {
                       'parent' => {},
-                      'text' => 'copying'
+                      'text' => 'titlepage_classical.info'
                     }
                   ],
                   'extra' => {
@@ -84,186 +28,14 @@ $result_trees{'titlepage_classical'} = {
                   'type' => 'line_arg'
                 }
               ],
-              'cmdname' => 'end',
-              'extra' => {
-                'command_argument' => 'copying',
-                'spaces_before_argument' => ' ',
-                'text_arg' => 'copying'
-              },
-              'line_nr' => {
-                'file_name' => '',
-                'line_nr' => 5,
-                'macro' => ''
-              },
-              'parent' => {}
-            }
-          ],
-          'extra' => {
-            'end_command' => {}
-          },
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 3,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'cmdname' => 'titlepage',
-          'contents' => [
-            {
-              'extra' => {
-                'command' => {}
-              },
-              'parent' => {},
-              'text' => '
-',
-              'type' => 'empty_line_after_command'
-            },
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'parent' => {},
-                      'text' => 'Some manual tested'
-                    }
-                  ],
-                  'extra' => {
-                    'spaces_after_argument' => '
-'
-                  },
-                  'parent' => {},
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'title',
-              'extra' => {
-                'spaces_before_argument' => ' '
-              },
-              'line_nr' => {
-                'file_name' => '',
-                'line_nr' => 8,
-                'macro' => ''
-              },
-              'parent' => {}
-            },
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'parent' => {},
-                      'text' => 'Subtitle manual tested'
-                    }
-                  ],
-                  'extra' => {
-                    'spaces_after_argument' => '
-'
-                  },
-                  'parent' => {},
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'subtitle',
-              'extra' => {
-                'spaces_before_argument' => ' '
-              },
-              'line_nr' => {
-                'file_name' => '',
-                'line_nr' => 9,
-                'macro' => ''
-              },
-              'parent' => {}
-            },
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'parent' => {},
-                      'text' => 'Subtitle 2 manual tested'
-                    }
-                  ],
-                  'extra' => {
-                    'spaces_after_argument' => '
-'
-                  },
-                  'parent' => {},
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'subtitle',
-              'extra' => {
-                'spaces_before_argument' => ' '
-              },
-              'line_nr' => {
-                'file_name' => '',
-                'line_nr' => 10,
-                'macro' => ''
-              },
-              'parent' => {}
-            },
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'parent' => {},
-                      'text' => 'First author'
-                    }
-                  ],
-                  'extra' => {
-                    'spaces_after_argument' => '
-'
-                  },
-                  'parent' => {},
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'author',
+              'cmdname' => 'setfilename',
               'extra' => {
                 'spaces_before_argument' => ' ',
-                'titlepage' => {}
+                'text_arg' => 'titlepage_classical.info'
               },
               'line_nr' => {
                 'file_name' => '',
-                'line_nr' => 11,
-                'macro' => ''
-              },
-              'parent' => {}
-            },
-            {
-              'args' => [
-                {
-                  'contents' => [
-                    {
-                      'parent' => {},
-                      'text' => 'Second author'
-                    }
-                  ],
-                  'extra' => {
-                    'spaces_after_argument' => '
-'
-                  },
-                  'parent' => {},
-                  'type' => 'line_arg'
-                }
-              ],
-              'cmdname' => 'author',
-              'extra' => {
-                'spaces_before_argument' => ' ',
-                'titlepage' => {}
-              },
-              'line_nr' => {
-                'file_name' => '',
-                'line_nr' => 12,
+                'line_nr' => 1,
                 'macro' => ''
               },
               'parent' => {}
@@ -275,128 +47,362 @@ $result_trees{'titlepage_classical'} = {
               'type' => 'empty_line'
             },
             {
-              'args' => [
+              'cmdname' => 'copying',
+              'contents' => [
                 {
+                  'extra' => {
+                    'command' => {}
+                  },
                   'parent' => {},
                   'text' => '
 ',
-                  'type' => 'misc_arg'
-                }
-              ],
-              'cmdname' => 'page',
-              'parent' => {}
-            },
-            {
-              'args' => [
-                {
-                  'parent' => {},
-                  'text' => ' The following two commands start the copyright page.
-',
-                  'type' => 'misc_arg'
-                }
-              ],
-              'cmdname' => 'c',
-              'extra' => {
-                'misc_args' => [
-                  ' The following two commands start the copyright page.
-'
-                ]
-              },
-              'parent' => {}
-            },
-            {
-              'args' => [
-                {
-                  'parent' => {},
-                  'text' => '
-',
-                  'type' => 'misc_arg'
-                }
-              ],
-              'cmdname' => 'page',
-              'parent' => {}
-            },
-            {
-              'args' => [
-                {
-                  'parent' => {},
-                  'text' => ' 0pt plus 1filll
-',
-                  'type' => 'misc_arg'
-                }
-              ],
-              'cmdname' => 'vskip',
-              'extra' => {
-                'misc_args' => [
-                  ' 0pt plus 1filll
-'
-                ]
-              },
-              'parent' => {}
-            },
-            {
-              'args' => [
-                {
-                  'parent' => {},
-                  'text' => '
-',
-                  'type' => 'misc_arg'
-                }
-              ],
-              'cmdname' => 'insertcopying',
-              'line_nr' => {
-                'file_name' => '',
-                'line_nr' => 18,
-                'macro' => ''
-              },
-              'parent' => {}
-            },
-            {
-              'args' => [
+                  'type' => 'empty_line_after_command'
+                },
                 {
                   'contents' => [
                     {
                       'parent' => {},
-                      'text' => 'titlepage'
+                      'text' => 'in Copying
+'
                     }
                   ],
-                  'extra' => {
-                    'spaces_after_argument' => '
-'
-                  },
                   'parent' => {},
-                  'type' => 'line_arg'
+                  'type' => 'paragraph'
+                },
+                {
+                  'args' => [
+                    {
+                      'contents' => [
+                        {
+                          'parent' => {},
+                          'text' => 'copying'
+                        }
+                      ],
+                      'extra' => {
+                        'spaces_after_argument' => '
+'
+                      },
+                      'parent' => {},
+                      'type' => 'line_arg'
+                    }
+                  ],
+                  'cmdname' => 'end',
+                  'extra' => {
+                    'command_argument' => 'copying',
+                    'spaces_before_argument' => ' ',
+                    'text_arg' => 'copying'
+                  },
+                  'line_nr' => {
+                    'file_name' => '',
+                    'line_nr' => 5,
+                    'macro' => ''
+                  },
+                  'parent' => {}
                 }
               ],
-              'cmdname' => 'end',
               'extra' => {
-                'command_argument' => 'titlepage',
-                'spaces_before_argument' => ' ',
-                'text_arg' => 'titlepage'
+                'end_command' => {}
               },
               'line_nr' => {
                 'file_name' => '',
-                'line_nr' => 19,
+                'line_nr' => 3,
                 'macro' => ''
               },
               'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line'
+            },
+            {
+              'cmdname' => 'titlepage',
+              'contents' => [
+                {
+                  'extra' => {
+                    'command' => {}
+                  },
+                  'parent' => {},
+                  'text' => '
+',
+                  'type' => 'empty_line_after_command'
+                },
+                {
+                  'args' => [
+                    {
+                      'contents' => [
+                        {
+                          'parent' => {},
+                          'text' => 'Some manual tested'
+                        }
+                      ],
+                      'extra' => {
+                        'spaces_after_argument' => '
+'
+                      },
+                      'parent' => {},
+                      'type' => 'line_arg'
+                    }
+                  ],
+                  'cmdname' => 'title',
+                  'extra' => {
+                    'spaces_before_argument' => ' '
+                  },
+                  'line_nr' => {
+                    'file_name' => '',
+                    'line_nr' => 8,
+                    'macro' => ''
+                  },
+                  'parent' => {}
+                },
+                {
+                  'args' => [
+                    {
+                      'contents' => [
+                        {
+                          'parent' => {},
+                          'text' => 'Subtitle manual tested'
+                        }
+                      ],
+                      'extra' => {
+                        'spaces_after_argument' => '
+'
+                      },
+                      'parent' => {},
+                      'type' => 'line_arg'
+                    }
+                  ],
+                  'cmdname' => 'subtitle',
+                  'extra' => {
+                    'spaces_before_argument' => ' '
+                  },
+                  'line_nr' => {
+                    'file_name' => '',
+                    'line_nr' => 9,
+                    'macro' => ''
+                  },
+                  'parent' => {}
+                },
+                {
+                  'args' => [
+                    {
+                      'contents' => [
+                        {
+                          'parent' => {},
+                          'text' => 'Subtitle 2 manual tested'
+                        }
+                      ],
+                      'extra' => {
+                        'spaces_after_argument' => '
+'
+                      },
+                      'parent' => {},
+                      'type' => 'line_arg'
+                    }
+                  ],
+                  'cmdname' => 'subtitle',
+                  'extra' => {
+                    'spaces_before_argument' => ' '
+                  },
+                  'line_nr' => {
+                    'file_name' => '',
+                    'line_nr' => 10,
+                    'macro' => ''
+                  },
+                  'parent' => {}
+                },
+                {
+                  'args' => [
+                    {
+                      'contents' => [
+                        {
+                          'parent' => {},
+                          'text' => 'First author'
+                        }
+                      ],
+                      'extra' => {
+                        'spaces_after_argument' => '
+'
+                      },
+                      'parent' => {},
+                      'type' => 'line_arg'
+                    }
+                  ],
+                  'cmdname' => 'author',
+                  'extra' => {
+                    'spaces_before_argument' => ' ',
+                    'titlepage' => {}
+                  },
+                  'line_nr' => {
+                    'file_name' => '',
+                    'line_nr' => 11,
+                    'macro' => ''
+                  },
+                  'parent' => {}
+                },
+                {
+                  'args' => [
+                    {
+                      'contents' => [
+                        {
+                          'parent' => {},
+                          'text' => 'Second author'
+                        }
+                      ],
+                      'extra' => {
+                        'spaces_after_argument' => '
+'
+                      },
+                      'parent' => {},
+                      'type' => 'line_arg'
+                    }
+                  ],
+                  'cmdname' => 'author',
+                  'extra' => {
+                    'spaces_before_argument' => ' ',
+                    'titlepage' => {}
+                  },
+                  'line_nr' => {
+                    'file_name' => '',
+                    'line_nr' => 12,
+                    'macro' => ''
+                  },
+                  'parent' => {}
+                },
+                {
+                  'parent' => {},
+                  'text' => '
+',
+                  'type' => 'empty_line'
+                },
+                {
+                  'args' => [
+                    {
+                      'parent' => {},
+                      'text' => '
+',
+                      'type' => 'misc_arg'
+                    }
+                  ],
+                  'cmdname' => 'page',
+                  'parent' => {}
+                },
+                {
+                  'args' => [
+                    {
+                      'parent' => {},
+                      'text' => ' The following two commands start the copyright page.
+',
+                      'type' => 'misc_arg'
+                    }
+                  ],
+                  'cmdname' => 'c',
+                  'extra' => {
+                    'misc_args' => [
+                      ' The following two commands start the copyright page.
+'
+                    ]
+                  },
+                  'parent' => {}
+                },
+                {
+                  'args' => [
+                    {
+                      'parent' => {},
+                      'text' => '
+',
+                      'type' => 'misc_arg'
+                    }
+                  ],
+                  'cmdname' => 'page',
+                  'parent' => {}
+                },
+                {
+                  'args' => [
+                    {
+                      'parent' => {},
+                      'text' => ' 0pt plus 1filll
+',
+                      'type' => 'misc_arg'
+                    }
+                  ],
+                  'cmdname' => 'vskip',
+                  'extra' => {
+                    'misc_args' => [
+                      ' 0pt plus 1filll
+'
+                    ]
+                  },
+                  'parent' => {}
+                },
+                {
+                  'args' => [
+                    {
+                      'parent' => {},
+                      'text' => '
+',
+                      'type' => 'misc_arg'
+                    }
+                  ],
+                  'cmdname' => 'insertcopying',
+                  'line_nr' => {
+                    'file_name' => '',
+                    'line_nr' => 18,
+                    'macro' => ''
+                  },
+                  'parent' => {}
+                },
+                {
+                  'args' => [
+                    {
+                      'contents' => [
+                        {
+                          'parent' => {},
+                          'text' => 'titlepage'
+                        }
+                      ],
+                      'extra' => {
+                        'spaces_after_argument' => '
+'
+                      },
+                      'parent' => {},
+                      'type' => 'line_arg'
+                    }
+                  ],
+                  'cmdname' => 'end',
+                  'extra' => {
+                    'command_argument' => 'titlepage',
+                    'spaces_before_argument' => ' ',
+                    'text_arg' => 'titlepage'
+                  },
+                  'line_nr' => {
+                    'file_name' => '',
+                    'line_nr' => 19,
+                    'macro' => ''
+                  },
+                  'parent' => {}
+                }
+              ],
+              'extra' => {
+                'end_command' => {}
+              },
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 7,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line'
             }
           ],
-          'extra' => {
-            'end_command' => {}
-          },
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 7,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
           'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
+          'type' => 'preamble_before_content'
         }
       ],
       'parent' => {},
@@ -576,56 +582,57 @@ $result_trees{'titlepage_classical'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0];
+$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0];
+$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0];
+$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[0]{'extra'}{'command'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
+$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
+$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[1];
+$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
+$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[2]{'args'}[0];
+$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[2];
+$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
+$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'extra'}{'end_command'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'contents'}[2];
+$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0];
+$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0];
+$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[0]{'extra'}{'command'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[4];
+$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[4];
+$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0];
+$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[1];
+$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[1]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[4];
+$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[2]{'args'}[0];
+$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[2];
+$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[2]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[4];
+$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[3]{'args'}[0];
+$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[3];
+$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[3]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[4];
+$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[4]{'args'}[0];
+$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[4];
+$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[4]{'extra'}{'titlepage'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[4];
+$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[4]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[4];
+$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[5]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[5]{'args'}[0];
+$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[5]{'args'}[0]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[5];
+$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[5]{'extra'}{'titlepage'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[4];
+$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[5]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[4];
+$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[6]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[4];
+$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[7]{'args'}[0]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[7];
+$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[7]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[4];
+$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[8]{'args'}[0]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[8];
+$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[8]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[4];
+$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[9]{'args'}[0]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[9];
+$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[9]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[4];
+$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[10]{'args'}[0]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[10];
+$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[10]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[4];
+$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[11]{'args'}[0]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[11];
+$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[11]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[4];
+$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[12]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[12]{'args'}[0];
+$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[12]{'args'}[0]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[12];
+$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[12]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[4];
+$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'extra'}{'end_command'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'contents'}[12];
+$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0];
+$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0];
 $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0];
-$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0];
-$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'extra'}{'command'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[2];
-$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[2];
-$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[2]{'contents'}[1];
-$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[2];
-$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'args'}[0];
-$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[2]{'contents'}[2];
-$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[2];
-$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[2]{'extra'}{'end_command'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[2]{'contents'}[2];
-$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0];
-$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0];
-$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'extra'}{'command'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[4];
-$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[4];
-$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0];
-$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[4]{'contents'}[1];
-$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[4];
-$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[4]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[4]{'contents'}[2]{'args'}[0];
-$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[4]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[4]{'contents'}[2];
-$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[4]{'contents'}[2]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[4];
-$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[4]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[4]{'contents'}[3]{'args'}[0];
-$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[4]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[4]{'contents'}[3];
-$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[4]{'contents'}[3]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[4];
-$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[4]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[4]{'contents'}[4]{'args'}[0];
-$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[4]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[4]{'contents'}[4];
-$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[4]{'contents'}[4]{'extra'}{'titlepage'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[4];
-$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[4]{'contents'}[4]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[4];
-$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[4]{'contents'}[5]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[4]{'contents'}[5]{'args'}[0];
-$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[4]{'contents'}[5]{'args'}[0]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[4]{'contents'}[5];
-$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[4]{'contents'}[5]{'extra'}{'titlepage'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[4];
-$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[4]{'contents'}[5]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[4];
-$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[4]{'contents'}[6]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[4];
-$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[4]{'contents'}[7]{'args'}[0]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[4]{'contents'}[7];
-$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[4]{'contents'}[7]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[4];
-$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[4]{'contents'}[8]{'args'}[0]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[4]{'contents'}[8];
-$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[4]{'contents'}[8]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[4];
-$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[4]{'contents'}[9]{'args'}[0]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[4]{'contents'}[9];
-$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[4]{'contents'}[9]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[4];
-$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[4]{'contents'}[10]{'args'}[0]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[4]{'contents'}[10];
-$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[4]{'contents'}[10]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[4];
-$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[4]{'contents'}[11]{'args'}[0]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[4]{'contents'}[11];
-$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[4]{'contents'}[11]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[4];
-$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[4]{'contents'}[12]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[4]{'contents'}[12]{'args'}[0];
-$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[4]{'contents'}[12]{'args'}[0]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[4]{'contents'}[12];
-$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[4]{'contents'}[12]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[4];
-$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[4]{'extra'}{'end_command'} = $result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[4]{'contents'}[12];
-$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0];
-$result_trees{'titlepage_classical'}{'contents'}[0]{'contents'}[5]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[0];
 $result_trees{'titlepage_classical'}{'contents'}[0]{'parent'} = $result_trees{'titlepage_classical'};
 $result_trees{'titlepage_classical'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[1]{'args'}[0];
 $result_trees{'titlepage_classical'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'titlepage_classical'}{'contents'}[1];
@@ -793,6 +800,36 @@ $result_floats{'titlepage_classical'} = {};
 $result_converted{'latex'}->{'titlepage_classical'} = '
 
 
+\\begin{document}
+
+\\GNUTexinfofrontmatter
+\\begin{titlepage}
+\\begingroup
+\\newskip\\titlepagetopglue \\titlepagetopglue = 1.5in
+\\newskip\\titlepagebottomglue \\titlepagebottomglue = 2pc
+\\setlength{\\parindent}{0pt}
+% Leave some space at the very top of the page.
+    \\vglue\\titlepagetopglue
+{\\raggedright {\\huge \\bfseries Some manual tested}}
+\\vskip 4pt \\hrule height 4pt width \\hsize \\vskip 4pt
+\\rightline{Subtitle manual tested}
+\\rightline{Subtitle 2 manual tested}
+\\vskip 0pt plus 1filll
+\\leftline{\\Large \\bfseries First author}%
+\\leftline{\\Large \\bfseries Second author}%
+
+\\vskip4pt \\hrule height 2pt width \\hsize
+  \\vskip\\titlepagebottomglue
+\\endgroup
+\\newpage{}%
+\\phantom{blabla}%
+\\newpage{}%
+\\phantom{blabla}%
+\\vskip 0pt plus 1filll
+in Copying
+\\end{titlepage}
+\\GNUTexinfosetsingleheader{}%
+\\GNUTexinfomainmatter
 \\chapter{Chapter}
 \\label{anchor:chapter}%
 

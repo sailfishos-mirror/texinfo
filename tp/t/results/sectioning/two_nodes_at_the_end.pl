@@ -9,7 +9,13 @@ $result_trees{'two_nodes_at_the_end'} = [
   {
     'contents' => [
       {
-        'contents' => [],
+        'contents' => [
+          {
+            'contents' => [],
+            'parent' => {},
+            'type' => 'preamble_before_content'
+          }
+        ],
         'parent' => {
           'contents' => [
             {},
@@ -584,6 +590,7 @@ $result_trees{'two_nodes_at_the_end'} = [
     'type' => 'unit'
   }
 ];
+$result_trees{'two_nodes_at_the_end'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'two_nodes_at_the_end'}[0]{'contents'}[0];
 $result_trees{'two_nodes_at_the_end'}[0]{'contents'}[0]{'parent'}{'contents'}[0] = $result_trees{'two_nodes_at_the_end'}[0]{'contents'}[0];
 $result_trees{'two_nodes_at_the_end'}[0]{'contents'}[0]{'parent'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'two_nodes_at_the_end'}[0]{'contents'}[0]{'parent'}{'contents'}[1]{'args'}[0];
 $result_trees{'two_nodes_at_the_end'}[0]{'contents'}[0]{'parent'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'two_nodes_at_the_end'}[0]{'contents'}[0]{'parent'}{'contents'}[1];
@@ -1240,7 +1247,8 @@ Previous: <a href="#node-after-chapter-1" accesskey="p" rel="prev">node after ch
 ';
 
 
-$result_converted{'latex'}->{'two_nodes_at_the_end'} = '\\chapter{chapter c1}
+$result_converted{'latex'}->{'two_nodes_at_the_end'} = '\\begin{document}
+\\chapter{chapter c1}
 \\label{anchor:chapter-1}%
 
 \\label{anchor:node-after-chapter-1}%

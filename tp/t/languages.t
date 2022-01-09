@@ -184,15 +184,21 @@ foreach my $test (@test_cases) {
   if ($xml_tests{$test->[0]}) {
     push @{$test->[2]->{'test_formats'}}, 'xml';
   }
+
+  $test->[2]->{'full_document'} = 1 unless (exists($test->[2]->{'full_document'}));
 }
 
 foreach my $test (@file_tests) {
   push @{$test->[2]->{'test_formats'}}, 'file_html';
   push @{$test->[2]->{'test_formats'}}, 'file_info';
+
+  $test->[2]->{'full_document'} = 1 unless (exists($test->[2]->{'full_document'}));
 }
 
 foreach my $test (@latex_file_tests) {
   push @{$test->[2]->{'test_formats'}}, 'file_latex';
+
+  $test->[2]->{'full_document'} = 1 unless (exists($test->[2]->{'full_document'}));
 }
 
 our ($arg_test_case, $arg_generate, $arg_debug);

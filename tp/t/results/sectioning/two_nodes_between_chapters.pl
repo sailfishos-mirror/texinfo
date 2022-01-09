@@ -9,7 +9,13 @@ $result_trees{'two_nodes_between_chapters'} = [
   {
     'contents' => [
       {
-        'contents' => [],
+        'contents' => [
+          {
+            'contents' => [],
+            'parent' => {},
+            'type' => 'preamble_before_content'
+          }
+        ],
         'parent' => {
           'contents' => [
             {},
@@ -605,6 +611,7 @@ $result_trees{'two_nodes_between_chapters'} = [
     'type' => 'unit'
   }
 ];
+$result_trees{'two_nodes_between_chapters'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'two_nodes_between_chapters'}[0]{'contents'}[0];
 $result_trees{'two_nodes_between_chapters'}[0]{'contents'}[0]{'parent'}{'contents'}[0] = $result_trees{'two_nodes_between_chapters'}[0]{'contents'}[0];
 $result_trees{'two_nodes_between_chapters'}[0]{'contents'}[0]{'parent'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'two_nodes_between_chapters'}[0]{'contents'}[0]{'parent'}{'contents'}[1]{'args'}[0];
 $result_trees{'two_nodes_between_chapters'}[0]{'contents'}[0]{'parent'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'two_nodes_between_chapters'}[0]{'contents'}[0]{'parent'}{'contents'}[1];

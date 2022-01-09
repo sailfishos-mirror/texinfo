@@ -10,70 +10,76 @@ $result_trees{'at_commands_in_refs_utf8'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'contents' => [
             {
-              'contents' => [
+              'args' => [
                 {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'at_commands_in_refs_utf8.info'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'parent' => {},
-                  'text' => 'at_commands_in_refs_utf8.info'
+                  'type' => 'line_arg'
                 }
               ],
+              'cmdname' => 'setfilename',
               'extra' => {
-                'spaces_after_argument' => '
-'
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'at_commands_in_refs_utf8.info'
               },
-              'parent' => {},
-              'type' => 'line_arg'
-            }
-          ],
-          'cmdname' => 'setfilename',
-          'extra' => {
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'at_commands_in_refs_utf8.info'
-          },
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 1,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
             {
-              'contents' => [
+              'args' => [
                 {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'utf-8'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'parent' => {},
-                  'text' => 'utf-8'
+                  'type' => 'line_arg'
                 }
               ],
+              'cmdname' => 'documentencoding',
               'extra' => {
-                'spaces_after_argument' => '
-'
+                'input_encoding_name' => 'utf-8',
+                'input_perl_encoding' => 'utf-8-strict',
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'utf-8'
               },
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 2,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
               'parent' => {},
-              'type' => 'line_arg'
-            }
-          ],
-          'cmdname' => 'documentencoding',
-          'extra' => {
-            'input_encoding_name' => 'utf-8',
-            'input_perl_encoding' => 'utf-8-strict',
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'utf-8'
-          },
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 2,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '
+              'text' => '
 ',
-          'type' => 'empty_line'
+              'type' => 'empty_line'
+            }
+          ],
+          'parent' => {},
+          'type' => 'preamble_before_content'
         }
       ],
       'parent' => {},
@@ -17496,13 +17502,14 @@ $result_trees{'at_commands_in_refs_utf8'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'at_commands_in_refs_utf8'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'at_commands_in_refs_utf8'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'at_commands_in_refs_utf8'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'at_commands_in_refs_utf8'}{'contents'}[0]{'contents'}[0];
+$result_trees{'at_commands_in_refs_utf8'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'at_commands_in_refs_utf8'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'at_commands_in_refs_utf8'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'at_commands_in_refs_utf8'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'at_commands_in_refs_utf8'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'at_commands_in_refs_utf8'}{'contents'}[0]{'contents'}[0];
+$result_trees{'at_commands_in_refs_utf8'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'at_commands_in_refs_utf8'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
+$result_trees{'at_commands_in_refs_utf8'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'at_commands_in_refs_utf8'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
+$result_trees{'at_commands_in_refs_utf8'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'at_commands_in_refs_utf8'}{'contents'}[0]{'contents'}[0];
+$result_trees{'at_commands_in_refs_utf8'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'at_commands_in_refs_utf8'}{'contents'}[0]{'contents'}[0];
 $result_trees{'at_commands_in_refs_utf8'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'at_commands_in_refs_utf8'}{'contents'}[0];
-$result_trees{'at_commands_in_refs_utf8'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'at_commands_in_refs_utf8'}{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'at_commands_in_refs_utf8'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'at_commands_in_refs_utf8'}{'contents'}[0]{'contents'}[1];
-$result_trees{'at_commands_in_refs_utf8'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'at_commands_in_refs_utf8'}{'contents'}[0];
-$result_trees{'at_commands_in_refs_utf8'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'at_commands_in_refs_utf8'}{'contents'}[0];
 $result_trees{'at_commands_in_refs_utf8'}{'contents'}[0]{'parent'} = $result_trees{'at_commands_in_refs_utf8'};
 $result_trees{'at_commands_in_refs_utf8'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'at_commands_in_refs_utf8'}{'contents'}[1]{'args'}[0];
 $result_trees{'at_commands_in_refs_utf8'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'at_commands_in_refs_utf8'}{'contents'}[1];

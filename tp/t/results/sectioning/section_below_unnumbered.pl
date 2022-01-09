@@ -10,33 +10,45 @@ $result_trees{'section_below_unnumbered'} = {
     {
       'contents' => [
         {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'args' => [
+          'contents' => [
             {
               'parent' => {},
               'text' => '
 ',
-              'type' => 'misc_arg'
+              'type' => 'text_before_beginning'
             }
           ],
-          'cmdname' => 'contents',
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 2,
-            'macro' => ''
-          },
-          'parent' => {}
+          'parent' => {},
+          'type' => 'preamble_before_beginning'
         },
         {
-          'parent' => {},
-          'text' => '
+          'contents' => [
+            {
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => '
 ',
-          'type' => 'empty_line'
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'contents',
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 2,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line'
+            }
+          ],
+          'parent' => {},
+          'type' => 'preamble_before_content'
         }
       ],
       'parent' => {},
@@ -560,10 +572,12 @@ $result_trees{'section_below_unnumbered'} = {
   ],
   'type' => 'document_root'
 };
+$result_trees{'section_below_unnumbered'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'section_below_unnumbered'}{'contents'}[0]{'contents'}[0];
 $result_trees{'section_below_unnumbered'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'section_below_unnumbered'}{'contents'}[0];
-$result_trees{'section_below_unnumbered'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'section_below_unnumbered'}{'contents'}[0]{'contents'}[1];
+$result_trees{'section_below_unnumbered'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'section_below_unnumbered'}{'contents'}[0]{'contents'}[1]{'contents'}[0];
+$result_trees{'section_below_unnumbered'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'section_below_unnumbered'}{'contents'}[0]{'contents'}[1];
+$result_trees{'section_below_unnumbered'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'section_below_unnumbered'}{'contents'}[0]{'contents'}[1];
 $result_trees{'section_below_unnumbered'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'section_below_unnumbered'}{'contents'}[0];
-$result_trees{'section_below_unnumbered'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'section_below_unnumbered'}{'contents'}[0];
 $result_trees{'section_below_unnumbered'}{'contents'}[0]{'parent'} = $result_trees{'section_below_unnumbered'};
 $result_trees{'section_below_unnumbered'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'section_below_unnumbered'}{'contents'}[1]{'args'}[0];
 $result_trees{'section_below_unnumbered'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'section_below_unnumbered'}{'contents'}[1];
@@ -668,7 +682,6 @@ Should be unnumbered.
 
 
 $result_texts{'section_below_unnumbered'} = '
-
 Top
 ***
 
@@ -903,7 +916,6 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-
 
 <div class="top" id="Top">
 <div class="header">

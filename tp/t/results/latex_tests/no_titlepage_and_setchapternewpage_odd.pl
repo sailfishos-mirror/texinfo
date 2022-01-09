@@ -10,64 +10,70 @@ $result_trees{'no_titlepage_and_setchapternewpage_odd'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'contents' => [
             {
-              'contents' => [
+              'args' => [
                 {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'no_titlepage_and_setchapternewpage_odd.info'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'parent' => {},
-                  'text' => 'no_titlepage_and_setchapternewpage_odd.info'
+                  'type' => 'line_arg'
                 }
               ],
+              'cmdname' => 'setfilename',
               'extra' => {
-                'spaces_after_argument' => '
-'
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'no_titlepage_and_setchapternewpage_odd.info'
               },
-              'parent' => {},
-              'type' => 'line_arg'
-            }
-          ],
-          'cmdname' => 'setfilename',
-          'extra' => {
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'no_titlepage_and_setchapternewpage_odd.info'
-          },
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 1,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
             {
-              'contents' => [
+              'args' => [
                 {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'odd'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'parent' => {},
-                  'text' => 'odd'
+                  'type' => 'line_arg'
                 }
               ],
+              'cmdname' => 'setchapternewpage',
               'extra' => {
-                'spaces_after_argument' => '
-'
+                'misc_args' => [
+                  'odd'
+                ],
+                'spaces_before_argument' => ' '
               },
-              'parent' => {},
-              'type' => 'line_arg'
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 2,
+                'macro' => ''
+              },
+              'parent' => {}
             }
           ],
-          'cmdname' => 'setchapternewpage',
-          'extra' => {
-            'misc_args' => [
-              'odd'
-            ],
-            'spaces_before_argument' => ' '
-          },
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 2,
-            'macro' => ''
-          },
-          'parent' => {}
+          'parent' => {},
+          'type' => 'preamble_before_content'
         }
       ],
       'parent' => {},
@@ -76,12 +82,13 @@ $result_trees{'no_titlepage_and_setchapternewpage_odd'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'no_titlepage_and_setchapternewpage_odd'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'no_titlepage_and_setchapternewpage_odd'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'no_titlepage_and_setchapternewpage_odd'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'no_titlepage_and_setchapternewpage_odd'}{'contents'}[0]{'contents'}[0];
+$result_trees{'no_titlepage_and_setchapternewpage_odd'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'no_titlepage_and_setchapternewpage_odd'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'no_titlepage_and_setchapternewpage_odd'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'no_titlepage_and_setchapternewpage_odd'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'no_titlepage_and_setchapternewpage_odd'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'no_titlepage_and_setchapternewpage_odd'}{'contents'}[0]{'contents'}[0];
+$result_trees{'no_titlepage_and_setchapternewpage_odd'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'no_titlepage_and_setchapternewpage_odd'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
+$result_trees{'no_titlepage_and_setchapternewpage_odd'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'no_titlepage_and_setchapternewpage_odd'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
+$result_trees{'no_titlepage_and_setchapternewpage_odd'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'no_titlepage_and_setchapternewpage_odd'}{'contents'}[0]{'contents'}[0];
 $result_trees{'no_titlepage_and_setchapternewpage_odd'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'no_titlepage_and_setchapternewpage_odd'}{'contents'}[0];
-$result_trees{'no_titlepage_and_setchapternewpage_odd'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'no_titlepage_and_setchapternewpage_odd'}{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'no_titlepage_and_setchapternewpage_odd'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'no_titlepage_and_setchapternewpage_odd'}{'contents'}[0]{'contents'}[1];
-$result_trees{'no_titlepage_and_setchapternewpage_odd'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'no_titlepage_and_setchapternewpage_odd'}{'contents'}[0];
 $result_trees{'no_titlepage_and_setchapternewpage_odd'}{'contents'}[0]{'parent'} = $result_trees{'no_titlepage_and_setchapternewpage_odd'};
 
 $result_texis{'no_titlepage_and_setchapternewpage_odd'} = '@setfilename no_titlepage_and_setchapternewpage_odd.info
@@ -99,6 +106,7 @@ $result_floats{'no_titlepage_and_setchapternewpage_odd'} = {};
 
 
 $result_converted{'latex'}->{'no_titlepage_and_setchapternewpage_odd'} = '\\GNUTexinfosetdoubleheader{}%
+\\begin{document}
 ';
 
 1;

@@ -9,7 +9,13 @@ $result_trees{'part_before_top'} = [
   {
     'contents' => [
       {
-        'contents' => [],
+        'contents' => [
+          {
+            'contents' => [],
+            'parent' => {},
+            'type' => 'preamble_before_content'
+          }
+        ],
         'parent' => {
           'contents' => [
             {},
@@ -93,6 +99,7 @@ $result_trees{'part_before_top'} = [
     'type' => 'unit'
   }
 ];
+$result_trees{'part_before_top'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'part_before_top'}[0]{'contents'}[0];
 $result_trees{'part_before_top'}[0]{'contents'}[0]{'parent'}{'contents'}[0] = $result_trees{'part_before_top'}[0]{'contents'}[0];
 $result_trees{'part_before_top'}[0]{'contents'}[0]{'parent'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'part_before_top'}[0]{'contents'}[0]{'parent'}{'contents'}[1]{'args'}[0];
 $result_trees{'part_before_top'}[0]{'contents'}[0]{'parent'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'part_before_top'}[0]{'contents'}[0]{'parent'}{'contents'}[1];

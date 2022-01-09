@@ -521,6 +521,7 @@ foreach my $test (@test_cases) {
     push @{$test->[2]->{'test_formats'}}, 'info';
   }
   push @{$test->[2]->{'test_formats'}}, 'html';
+  $test->[2]->{'full_document'} = 1 unless (exists($test->[2]->{'full_document'}));
 }
 
 our ($arg_test_case, $arg_generate, $arg_debug);

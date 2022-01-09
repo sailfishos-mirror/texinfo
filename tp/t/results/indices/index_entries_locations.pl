@@ -10,10 +10,21 @@ $result_trees{'index_entries_locations'} = {
     {
       'contents' => [
         {
-          'parent' => {},
-          'text' => '
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => '
 ',
-          'type' => 'empty_line'
+              'type' => 'text_before_beginning'
+            }
+          ],
+          'parent' => {},
+          'type' => 'preamble_before_beginning'
+        },
+        {
+          'contents' => [],
+          'parent' => {},
+          'type' => 'preamble_before_content'
         }
       ],
       'parent' => {},
@@ -362,7 +373,9 @@ $result_trees{'index_entries_locations'} = {
   ],
   'type' => 'document_root'
 };
+$result_trees{'index_entries_locations'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'index_entries_locations'}{'contents'}[0]{'contents'}[0];
 $result_trees{'index_entries_locations'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'index_entries_locations'}{'contents'}[0];
+$result_trees{'index_entries_locations'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'index_entries_locations'}{'contents'}[0];
 $result_trees{'index_entries_locations'}{'contents'}[0]{'parent'} = $result_trees{'index_entries_locations'};
 $result_trees{'index_entries_locations'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'index_entries_locations'}{'contents'}[1]{'args'}[0];
 $result_trees{'index_entries_locations'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'index_entries_locations'}{'contents'}[1];
@@ -443,7 +456,6 @@ Last paragraph.
 
 
 $result_texts{'index_entries_locations'} = '
-
 Initial paragraph.
 
 Paragraph
@@ -548,8 +560,7 @@ $result_converted{'plaintext'}->{'index_entries_locations'} = 'Initial paragraph
 ';
 
 
-$result_converted{'html_text'}->{'index_entries_locations'} = '
-<h1 class="node-heading" id="Top">Top</h1>
+$result_converted{'html_text'}->{'index_entries_locations'} = '<h1 class="node-heading" id="Top">Top</h1>
 
 <p>Initial paragraph.
 </p>

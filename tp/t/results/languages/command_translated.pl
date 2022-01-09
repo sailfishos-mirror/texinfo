@@ -10,39 +10,45 @@ $result_trees{'command_translated'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'contents' => [
             {
-              'contents' => [
+              'args' => [
                 {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'fr'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'parent' => {},
-                  'text' => 'fr'
+                  'type' => 'line_arg'
                 }
               ],
+              'cmdname' => 'documentlanguage',
               'extra' => {
-                'spaces_after_argument' => '
-'
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'fr'
               },
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 1,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
               'parent' => {},
-              'type' => 'line_arg'
+              'text' => '
+',
+              'type' => 'empty_line'
             }
           ],
-          'cmdname' => 'documentlanguage',
-          'extra' => {
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'fr'
-          },
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
           'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
+          'type' => 'preamble_before_content'
         }
       ],
       'parent' => {},
@@ -173,10 +179,11 @@ $result_trees{'command_translated'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'command_translated'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'command_translated'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'command_translated'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'command_translated'}{'contents'}[0]{'contents'}[0];
+$result_trees{'command_translated'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'command_translated'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'command_translated'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'command_translated'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'command_translated'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'command_translated'}{'contents'}[0]{'contents'}[0];
+$result_trees{'command_translated'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'command_translated'}{'contents'}[0]{'contents'}[0];
 $result_trees{'command_translated'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'command_translated'}{'contents'}[0];
-$result_trees{'command_translated'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'command_translated'}{'contents'}[0];
 $result_trees{'command_translated'}{'contents'}[0]{'parent'} = $result_trees{'command_translated'};
 $result_trees{'command_translated'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'command_translated'}{'contents'}[1]{'args'}[0];
 $result_trees{'command_translated'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'command_translated'}{'contents'}[1];

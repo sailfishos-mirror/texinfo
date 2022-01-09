@@ -9,7 +9,13 @@ $result_trees{'node_up_external_node'} = [
   {
     'contents' => [
       {
-        'contents' => [],
+        'contents' => [
+          {
+            'contents' => [],
+            'parent' => {},
+            'type' => 'preamble_before_content'
+          }
+        ],
         'parent' => {
           'contents' => [
             {},
@@ -317,6 +323,7 @@ $result_trees{'node_up_external_node'} = [
     'type' => 'unit'
   }
 ];
+$result_trees{'node_up_external_node'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'node_up_external_node'}[0]{'contents'}[0];
 $result_trees{'node_up_external_node'}[0]{'contents'}[0]{'parent'}{'contents'}[0] = $result_trees{'node_up_external_node'}[0]{'contents'}[0];
 $result_trees{'node_up_external_node'}[0]{'contents'}[0]{'parent'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'node_up_external_node'}[0]{'contents'}[0]{'parent'}{'contents'}[1]{'args'}[0];
 $result_trees{'node_up_external_node'}[0]{'contents'}[0]{'parent'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'node_up_external_node'}[0]{'contents'}[0]{'parent'}{'contents'}[1];

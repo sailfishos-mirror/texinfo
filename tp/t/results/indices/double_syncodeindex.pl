@@ -10,74 +10,80 @@ $result_trees{'double_syncodeindex'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'contents' => [
             {
-              'contents' => [
+              'args' => [
                 {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'cp fn'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'parent' => {},
-                  'text' => 'cp fn'
+                  'type' => 'line_arg'
                 }
               ],
+              'cmdname' => 'syncodeindex',
               'extra' => {
-                'spaces_after_argument' => '
-'
+                'misc_args' => [
+                  'cp',
+                  'fn'
+                ],
+                'spaces_before_argument' => ' '
               },
-              'parent' => {},
-              'type' => 'line_arg'
-            }
-          ],
-          'cmdname' => 'syncodeindex',
-          'extra' => {
-            'misc_args' => [
-              'cp',
-              'fn'
-            ],
-            'spaces_before_argument' => ' '
-          },
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
-          'args' => [
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 1,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
             {
-              'contents' => [
+              'args' => [
                 {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'cp fn'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'parent' => {},
-                  'text' => 'cp fn'
+                  'type' => 'line_arg'
                 }
               ],
+              'cmdname' => 'syncodeindex',
               'extra' => {
-                'spaces_after_argument' => '
-'
+                'misc_args' => [
+                  'cp',
+                  'fn'
+                ],
+                'spaces_before_argument' => ' '
               },
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 2,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
               'parent' => {},
-              'type' => 'line_arg'
-            }
-          ],
-          'cmdname' => 'syncodeindex',
-          'extra' => {
-            'misc_args' => [
-              'cp',
-              'fn'
-            ],
-            'spaces_before_argument' => ' '
-          },
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 2,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '
+              'text' => '
 ',
-          'type' => 'empty_line'
+              'type' => 'empty_line'
+            }
+          ],
+          'parent' => {},
+          'type' => 'preamble_before_content'
         }
       ],
       'parent' => {},
@@ -285,13 +291,14 @@ $result_trees{'double_syncodeindex'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'double_syncodeindex'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'double_syncodeindex'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'double_syncodeindex'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'double_syncodeindex'}{'contents'}[0]{'contents'}[0];
+$result_trees{'double_syncodeindex'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'double_syncodeindex'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'double_syncodeindex'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'double_syncodeindex'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'double_syncodeindex'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'double_syncodeindex'}{'contents'}[0]{'contents'}[0];
+$result_trees{'double_syncodeindex'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'double_syncodeindex'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0];
+$result_trees{'double_syncodeindex'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'double_syncodeindex'}{'contents'}[0]{'contents'}[0]{'contents'}[1];
+$result_trees{'double_syncodeindex'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'double_syncodeindex'}{'contents'}[0]{'contents'}[0];
+$result_trees{'double_syncodeindex'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'double_syncodeindex'}{'contents'}[0]{'contents'}[0];
 $result_trees{'double_syncodeindex'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'double_syncodeindex'}{'contents'}[0];
-$result_trees{'double_syncodeindex'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'double_syncodeindex'}{'contents'}[0]{'contents'}[1]{'args'}[0];
-$result_trees{'double_syncodeindex'}{'contents'}[0]{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'double_syncodeindex'}{'contents'}[0]{'contents'}[1];
-$result_trees{'double_syncodeindex'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'double_syncodeindex'}{'contents'}[0];
-$result_trees{'double_syncodeindex'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'double_syncodeindex'}{'contents'}[0];
 $result_trees{'double_syncodeindex'}{'contents'}[0]{'parent'} = $result_trees{'double_syncodeindex'};
 $result_trees{'double_syncodeindex'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'double_syncodeindex'}{'contents'}[1]{'args'}[0];
 $result_trees{'double_syncodeindex'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'double_syncodeindex'}{'contents'}[1];

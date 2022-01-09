@@ -10,39 +10,45 @@ $result_trees{'example_in_cartouche'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'contents' => [
             {
-              'contents' => [
+              'args' => [
                 {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'example_in_cartouche.info'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'parent' => {},
-                  'text' => 'example_in_cartouche.info'
+                  'type' => 'line_arg'
                 }
               ],
+              'cmdname' => 'setfilename',
               'extra' => {
-                'spaces_after_argument' => '
-'
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'example_in_cartouche.info'
               },
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 1,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
               'parent' => {},
-              'type' => 'line_arg'
+              'text' => '
+',
+              'type' => 'empty_line'
             }
           ],
-          'cmdname' => 'setfilename',
-          'extra' => {
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'example_in_cartouche.info'
-          },
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
           'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
+          'type' => 'preamble_before_content'
         },
         {
           'cmdname' => 'cartouche',
@@ -260,40 +266,41 @@ $result_trees{'example_in_cartouche'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[0];
+$result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[0];
+$result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[0];
 $result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'example_in_cartouche'}{'contents'}[0];
+$result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'extra'}{'command'} = $result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[1];
+$result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[1];
+$result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[1]{'contents'}[1];
+$result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[1];
+$result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[1];
+$result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[1]{'contents'}[3];
+$result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[1];
+$result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[1]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[1]{'contents'}[4]{'args'}[0];
+$result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[1]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[1]{'contents'}[4];
+$result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[1]{'contents'}[4]{'parent'} = $result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[1];
+$result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[1]{'extra'}{'end_command'} = $result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[1]{'contents'}[4];
 $result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'example_in_cartouche'}{'contents'}[0];
-$result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'extra'}{'command'} = $result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[2];
-$result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[2];
-$result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[2]{'contents'}[1];
-$result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[2];
-$result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[2];
-$result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[2]{'contents'}[3];
-$result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'parent'} = $result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[2];
-$result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[2]{'contents'}[4]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[2]{'contents'}[4]{'args'}[0];
-$result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[2]{'contents'}[4]{'args'}[0]{'parent'} = $result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[2]{'contents'}[4];
-$result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[2]{'contents'}[4]{'parent'} = $result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[2];
-$result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[2]{'extra'}{'end_command'} = $result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[2]{'contents'}[4];
 $result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'example_in_cartouche'}{'contents'}[0];
+$result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'extra'}{'command'} = $result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[3];
+$result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[3]{'contents'}[0]{'parent'} = $result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[3];
+$result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'contents'}[0]{'extra'}{'command'} = $result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[3]{'contents'}[1];
+$result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[3]{'contents'}[1];
+$result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'contents'}[1];
+$result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'contents'}[1];
+$result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[3]{'contents'}[1];
+$result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'contents'}[2]{'args'}[0];
+$result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'contents'}[2];
+$result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[3]{'contents'}[1];
+$result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'extra'}{'end_command'} = $result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'contents'}[2];
+$result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[3]{'contents'}[1]{'parent'} = $result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[3];
+$result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[3]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[3]{'contents'}[2]{'args'}[0];
+$result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[3]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[3]{'contents'}[2];
+$result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[3]{'contents'}[2]{'parent'} = $result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[3];
+$result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[3]{'extra'}{'end_command'} = $result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[3]{'contents'}[2];
 $result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'example_in_cartouche'}{'contents'}[0];
-$result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'extra'}{'command'} = $result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[4];
-$result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[4]{'contents'}[0]{'parent'} = $result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[4];
-$result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'contents'}[0]{'extra'}{'command'} = $result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[4]{'contents'}[1];
-$result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[4]{'contents'}[1];
-$result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'contents'}[1];
-$result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'contents'}[1];
-$result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[4]{'contents'}[1];
-$result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'contents'}[2]{'args'}[0];
-$result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'contents'}[2];
-$result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[4]{'contents'}[1];
-$result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'extra'}{'end_command'} = $result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'contents'}[2];
-$result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[4]{'contents'}[1]{'parent'} = $result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[4];
-$result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[4]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[4]{'contents'}[2]{'args'}[0];
-$result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[4]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[4]{'contents'}[2];
-$result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[4]{'contents'}[2]{'parent'} = $result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[4];
-$result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[4]{'extra'}{'end_command'} = $result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[4]{'contents'}[2];
-$result_trees{'example_in_cartouche'}{'contents'}[0]{'contents'}[4]{'parent'} = $result_trees{'example_in_cartouche'}{'contents'}[0];
 $result_trees{'example_in_cartouche'}{'contents'}[0]{'parent'} = $result_trees{'example_in_cartouche'};
 
 $result_texis{'example_in_cartouche'} = '@setfilename example_in_cartouche.info
@@ -330,6 +337,7 @@ $result_floats{'example_in_cartouche'} = {};
 
 
 $result_converted{'latex'}->{'example_in_cartouche'} = '
+\\begin{document}
 \\begin{mdframed}[style=GNUTexinfocartouche]
 Normal cartouche
 

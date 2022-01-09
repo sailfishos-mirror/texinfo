@@ -10,10 +10,21 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
     {
       'contents' => [
         {
-          'parent' => {},
-          'text' => '
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => '
 ',
-          'type' => 'empty_line'
+              'type' => 'text_before_beginning'
+            }
+          ],
+          'parent' => {},
+          'type' => 'preamble_before_beginning'
+        },
+        {
+          'contents' => [],
+          'parent' => {},
+          'type' => 'preamble_before_content'
         }
       ],
       'parent' => {},
@@ -5059,7 +5070,9 @@ $result_trees{'section_in_unnumbered_plaintext'} = {
   ],
   'type' => 'document_root'
 };
+$result_trees{'section_in_unnumbered_plaintext'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'section_in_unnumbered_plaintext'}{'contents'}[0]{'contents'}[0];
 $result_trees{'section_in_unnumbered_plaintext'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'section_in_unnumbered_plaintext'}{'contents'}[0];
+$result_trees{'section_in_unnumbered_plaintext'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'section_in_unnumbered_plaintext'}{'contents'}[0];
 $result_trees{'section_in_unnumbered_plaintext'}{'contents'}[0]{'parent'} = $result_trees{'section_in_unnumbered_plaintext'};
 $result_trees{'section_in_unnumbered_plaintext'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'section_in_unnumbered_plaintext'}{'contents'}[1]{'args'}[0];
 $result_trees{'section_in_unnumbered_plaintext'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'section_in_unnumbered_plaintext'}{'contents'}[1];
@@ -5944,8 +5957,7 @@ Menu:
 ';
 
 
-$result_texts{'section_in_unnumbered_plaintext'} = '
-Test section in unnumbered
+$result_texts{'section_in_unnumbered_plaintext'} = 'Test section in unnumbered
 **************************
 
 
@@ -7956,7 +7968,6 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-
 <div class="top" id="Top">
 <div class="header">
 <p>
@@ -8382,8 +8393,8 @@ Previous: <a href="#unnumbered-sub2-4" accesskey="p" rel="prev">unnumbered subse
 ';
 
 
-$result_converted{'xml'}->{'section_in_unnumbered_plaintext'} = '
-<node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chapter</nodenext></node>
+$result_converted{'xml'}->{'section_in_unnumbered_plaintext'} = '<preamblebeforebeginning>
+</preamblebeforebeginning><node name="Top" spaces=" "><nodename>Top</nodename><nodenext automatic="on">chapter</nodenext></node>
 <top spaces=" "><sectiontitle>Test section in unnumbered</sectiontitle>
 
 <contents></contents>

@@ -232,11 +232,11 @@ in format
 '],
 ['two_footnotes_in_nodes',
 $two_footnotes_in_nodes_text,
-, {'test_formats' => ['html', 'info']} ],
+, {'test_formats' => ['html', 'info'], 'full_document' => 1} ],
 ['two_footnotes_in_nodes_separate',
 '@footnotestyle separate
 '.$two_footnotes_in_nodes_text,
-, {'test_formats' => ['html', 'info']} ],
+, {'test_formats' => ['html', 'info'], 'full_document' => 1} ],
 ['form_feed_in_brace_commands',
 '@option{ aa} @anchor{aa}something @email{aaa,  fff}@footnote{ 
  f1 } @footnote{  ggjj}.

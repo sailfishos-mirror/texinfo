@@ -10,76 +10,82 @@ $result_trees{'fonttextsize'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'contents' => [
             {
-              'contents' => [
+              'args' => [
                 {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'fonttextsize.info'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'parent' => {},
-                  'text' => 'fonttextsize.info'
+                  'type' => 'line_arg'
                 }
               ],
+              'cmdname' => 'setfilename',
               'extra' => {
-                'spaces_after_argument' => '
-'
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'fonttextsize.info'
               },
-              'parent' => {},
-              'type' => 'line_arg'
-            }
-          ],
-          'cmdname' => 'setfilename',
-          'extra' => {
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'fonttextsize.info'
-          },
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
-          'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
-        },
-        {
-          'args' => [
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 1,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
             {
-              'contents' => [
+              'parent' => {},
+              'text' => '
+',
+              'type' => 'empty_line'
+            },
+            {
+              'args' => [
                 {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => '10'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'parent' => {},
-                  'text' => '10'
+                  'type' => 'line_arg'
                 }
               ],
+              'cmdname' => 'fonttextsize',
               'extra' => {
-                'spaces_after_argument' => '
-'
+                'misc_args' => [
+                  '10'
+                ],
+                'spaces_before_argument' => ' '
               },
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 3,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
               'parent' => {},
-              'type' => 'line_arg'
+              'text' => '
+',
+              'type' => 'empty_line'
             }
           ],
-          'cmdname' => 'fonttextsize',
-          'extra' => {
-            'misc_args' => [
-              '10'
-            ],
-            'spaces_before_argument' => ' '
-          },
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 3,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
           'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
+          'type' => 'preamble_before_content'
         }
       ],
       'parent' => {},
@@ -567,14 +573,15 @@ $result_trees{'fonttextsize'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'fonttextsize'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'fonttextsize'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'fonttextsize'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'fonttextsize'}{'contents'}[0]{'contents'}[0];
+$result_trees{'fonttextsize'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'fonttextsize'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'fonttextsize'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'fonttextsize'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'fonttextsize'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'fonttextsize'}{'contents'}[0]{'contents'}[0];
+$result_trees{'fonttextsize'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'fonttextsize'}{'contents'}[0]{'contents'}[0];
+$result_trees{'fonttextsize'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'fonttextsize'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0];
+$result_trees{'fonttextsize'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'fonttextsize'}{'contents'}[0]{'contents'}[0]{'contents'}[2];
+$result_trees{'fonttextsize'}{'contents'}[0]{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'fonttextsize'}{'contents'}[0]{'contents'}[0];
+$result_trees{'fonttextsize'}{'contents'}[0]{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'fonttextsize'}{'contents'}[0]{'contents'}[0];
 $result_trees{'fonttextsize'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'fonttextsize'}{'contents'}[0];
-$result_trees{'fonttextsize'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'fonttextsize'}{'contents'}[0];
-$result_trees{'fonttextsize'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'fonttextsize'}{'contents'}[0]{'contents'}[2]{'args'}[0];
-$result_trees{'fonttextsize'}{'contents'}[0]{'contents'}[2]{'args'}[0]{'parent'} = $result_trees{'fonttextsize'}{'contents'}[0]{'contents'}[2];
-$result_trees{'fonttextsize'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'fonttextsize'}{'contents'}[0];
-$result_trees{'fonttextsize'}{'contents'}[0]{'contents'}[3]{'parent'} = $result_trees{'fonttextsize'}{'contents'}[0];
 $result_trees{'fonttextsize'}{'contents'}[0]{'parent'} = $result_trees{'fonttextsize'};
 $result_trees{'fonttextsize'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'fonttextsize'}{'contents'}[1]{'args'}[0];
 $result_trees{'fonttextsize'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'fonttextsize'}{'contents'}[1];
@@ -903,6 +910,7 @@ $result_floats{'fonttextsize'} = {};
 $result_converted{'latex'}->{'fonttextsize'} = '
 \\changefontsize{10}
 
+\\begin{document}
 \\chapter{Chapter}
 \\label{anchor:chapter}%
 

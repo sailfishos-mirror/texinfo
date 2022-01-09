@@ -10,39 +10,45 @@ $result_trees{'section_before_after_top_node_last_node'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'contents' => [
             {
-              'contents' => [
+              'args' => [
                 {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'section_before_after_top_node_last_node.info'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'parent' => {},
-                  'text' => 'section_before_after_top_node_last_node.info'
+                  'type' => 'line_arg'
                 }
               ],
+              'cmdname' => 'setfilename',
               'extra' => {
-                'spaces_after_argument' => '
-'
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'section_before_after_top_node_last_node.info'
               },
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 1,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
               'parent' => {},
-              'type' => 'line_arg'
+              'text' => '
+',
+              'type' => 'empty_line'
             }
           ],
-          'cmdname' => 'setfilename',
-          'extra' => {
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'section_before_after_top_node_last_node.info'
-          },
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
           'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
+          'type' => 'preamble_before_content'
         }
       ],
       'parent' => {},
@@ -258,10 +264,11 @@ $result_trees{'section_before_after_top_node_last_node'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'section_before_after_top_node_last_node'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'section_before_after_top_node_last_node'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'section_before_after_top_node_last_node'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'section_before_after_top_node_last_node'}{'contents'}[0]{'contents'}[0];
+$result_trees{'section_before_after_top_node_last_node'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'section_before_after_top_node_last_node'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'section_before_after_top_node_last_node'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'section_before_after_top_node_last_node'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'section_before_after_top_node_last_node'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'section_before_after_top_node_last_node'}{'contents'}[0]{'contents'}[0];
+$result_trees{'section_before_after_top_node_last_node'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'section_before_after_top_node_last_node'}{'contents'}[0]{'contents'}[0];
 $result_trees{'section_before_after_top_node_last_node'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'section_before_after_top_node_last_node'}{'contents'}[0];
-$result_trees{'section_before_after_top_node_last_node'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'section_before_after_top_node_last_node'}{'contents'}[0];
 $result_trees{'section_before_after_top_node_last_node'}{'contents'}[0]{'parent'} = $result_trees{'section_before_after_top_node_last_node'};
 $result_trees{'section_before_after_top_node_last_node'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'section_before_after_top_node_last_node'}{'contents'}[1]{'args'}[0];
 $result_trees{'section_before_after_top_node_last_node'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'section_before_after_top_node_last_node'}{'contents'}[1];
@@ -513,6 +520,7 @@ Previous: <a href="#Top" accesskey="p" rel="prev">top section</a> &nbsp; </p>
 
 
 $result_converted{'latex'}->{'section_before_after_top_node_last_node'} = '
+\\begin{document}
 \\chapter*{before}
 
 \\label{anchor:node-after}%

@@ -480,7 +480,7 @@ fn
 '],
 ['def_existing_index',
 '@defcodeindex cp
-'],
+', {'full_document' => 0}],
 ['default_cp_index_and_one_letter_syncodeindex',
 '@node Top
 
@@ -705,7 +705,7 @@ my @file_tests = (
 @setfilename encoding_index_ascii.info
 @documentencoding us-ascii
 '.$encoding_index_text,
-{'ENABLE_ENCODING' => 0}
+{'ENABLE_ENCODING' => 0, 'full_document' => 1}
 ],
 ['encoding_index_latin1',
 undef,
@@ -720,7 +720,7 @@ undef,
 @setfilename encoding_index_ascii_enable_encoding.info
 @documentencoding us-ascii
 '.$encoding_index_text,
-{'ENABLE_ENCODING' => 1},
+{'ENABLE_ENCODING' => 1, 'full_document' => 1},
 ],
 ['encoding_index_latin1_enable_encoding',
 undef,
@@ -744,6 +744,7 @@ foreach my $test (@test_formatted) {
   push @{$test->[2]->{'test_formats'}}, 'html_text';
   push @{$test->[2]->{'test_formats'}}, 'file_latex'
     if (grep {$_ eq $test->[0]} @file_latex_tests_cases_tests);
+  $test->[2]->{'full_document'} = 1 unless (exists($test->[2]->{'full_document'}));
 }
 
 foreach my $test (@file_tests) {

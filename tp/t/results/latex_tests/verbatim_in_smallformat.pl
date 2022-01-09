@@ -10,39 +10,45 @@ $result_trees{'verbatim_in_smallformat'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'contents' => [
             {
-              'contents' => [
+              'args' => [
                 {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'verbatim_in_smallformat.info'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'parent' => {},
-                  'text' => 'verbatim_in_smallformat.info'
+                  'type' => 'line_arg'
                 }
               ],
+              'cmdname' => 'setfilename',
               'extra' => {
-                'spaces_after_argument' => '
-'
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'verbatim_in_smallformat.info'
               },
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 1,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
               'parent' => {},
-              'type' => 'line_arg'
+              'text' => '
+',
+              'type' => 'empty_line'
             }
           ],
-          'cmdname' => 'setfilename',
-          'extra' => {
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'verbatim_in_smallformat.info'
-          },
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
           'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
+          'type' => 'preamble_before_content'
         },
         {
           'cmdname' => 'smallformat',
@@ -136,22 +142,23 @@ $result_trees{'verbatim_in_smallformat'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[0];
+$result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[0];
+$result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[0];
 $result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'verbatim_in_smallformat'}{'contents'}[0];
+$result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'extra'}{'command'} = $result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[1];
+$result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[1];
+$result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'extra'}{'command'} = $result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[1]{'contents'}[1];
+$result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[1]{'contents'}[1];
+$result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[1]{'contents'}[1];
+$result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[1];
+$result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[1]{'contents'}[2]{'parent'} = $result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[1];
+$result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'args'}[0];
+$result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[1]{'contents'}[3];
+$result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[1]{'contents'}[3]{'parent'} = $result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[1];
+$result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[1]{'extra'}{'end_command'} = $result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[1]{'contents'}[3];
 $result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'verbatim_in_smallformat'}{'contents'}[0];
-$result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'extra'}{'command'} = $result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[2];
-$result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[2]{'contents'}[0]{'parent'} = $result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[2];
-$result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'extra'}{'command'} = $result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[2]{'contents'}[1];
-$result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[0]{'parent'} = $result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[2]{'contents'}[1];
-$result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'contents'}[1]{'parent'} = $result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[2]{'contents'}[1];
-$result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[2]{'contents'}[1]{'parent'} = $result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[2];
-$result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[2]{'contents'}[2]{'parent'} = $result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[2];
-$result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'args'}[0];
-$result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'args'}[0]{'parent'} = $result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[2]{'contents'}[3];
-$result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[2]{'contents'}[3]{'parent'} = $result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[2];
-$result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[2]{'extra'}{'end_command'} = $result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[2]{'contents'}[3];
-$result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'contents'}[2]{'parent'} = $result_trees{'verbatim_in_smallformat'}{'contents'}[0];
 $result_trees{'verbatim_in_smallformat'}{'contents'}[0]{'parent'} = $result_trees{'verbatim_in_smallformat'};
 
 $result_texis{'verbatim_in_smallformat'} = '@setfilename verbatim_in_smallformat.info
@@ -176,6 +183,7 @@ $result_floats{'verbatim_in_smallformat'} = {};
 
 
 $result_converted{'latex'}->{'verbatim_in_smallformat'} = '
+\\begin{document}
 \\par\\begingroup\\obeylines\\obeyspaces\\frenchspacing\\leftskip=2em\\relax\\parskip=0pt\\relax\\footnotesize{}%
 \\begin{verbatim}
 ... still verbatim, but in a smaller font ...

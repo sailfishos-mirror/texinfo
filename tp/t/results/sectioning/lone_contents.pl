@@ -10,21 +10,27 @@ $result_trees{'lone_contents'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'contents' => [
             {
-              'parent' => {},
-              'text' => '
+              'args' => [
+                {
+                  'parent' => {},
+                  'text' => '
 ',
-              'type' => 'misc_arg'
+                  'type' => 'misc_arg'
+                }
+              ],
+              'cmdname' => 'contents',
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 1,
+                'macro' => ''
+              },
+              'parent' => {}
             }
           ],
-          'cmdname' => 'contents',
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
-          },
-          'parent' => {}
+          'parent' => {},
+          'type' => 'preamble_before_content'
         }
       ],
       'parent' => {},
@@ -33,7 +39,8 @@ $result_trees{'lone_contents'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'lone_contents'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'lone_contents'}{'contents'}[0]{'contents'}[0];
+$result_trees{'lone_contents'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'lone_contents'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'lone_contents'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'lone_contents'}{'contents'}[0]{'contents'}[0];
 $result_trees{'lone_contents'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'lone_contents'}{'contents'}[0];
 $result_trees{'lone_contents'}{'contents'}[0]{'parent'} = $result_trees{'lone_contents'};
 

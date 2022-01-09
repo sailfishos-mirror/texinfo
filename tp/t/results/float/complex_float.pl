@@ -8,7 +8,13 @@ use utf8;
 $result_trees{'complex_float'} = {
   'contents' => [
     {
-      'contents' => [],
+      'contents' => [
+        {
+          'contents' => [],
+          'parent' => {},
+          'type' => 'preamble_before_content'
+        }
+      ],
       'parent' => {},
       'type' => 'before_node_section'
     },
@@ -3825,6 +3831,7 @@ $result_trees{'complex_float'} = {
   ],
   'type' => 'document_root'
 };
+$result_trees{'complex_float'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'complex_float'}{'contents'}[0];
 $result_trees{'complex_float'}{'contents'}[0]{'parent'} = $result_trees{'complex_float'};
 $result_trees{'complex_float'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'complex_float'}{'contents'}[1]{'args'}[0];
 $result_trees{'complex_float'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'complex_float'}{'contents'}[1];

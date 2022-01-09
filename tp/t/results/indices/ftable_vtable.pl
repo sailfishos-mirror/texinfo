@@ -10,10 +10,21 @@ $result_trees{'ftable_vtable'} = {
     {
       'contents' => [
         {
-          'parent' => {},
-          'text' => '
+          'contents' => [
+            {
+              'parent' => {},
+              'text' => '
 ',
-          'type' => 'empty_line'
+              'type' => 'text_before_beginning'
+            }
+          ],
+          'parent' => {},
+          'type' => 'preamble_before_beginning'
+        },
+        {
+          'contents' => [],
+          'parent' => {},
+          'type' => 'preamble_before_content'
         }
       ],
       'parent' => {},
@@ -681,7 +692,9 @@ $result_trees{'ftable_vtable'} = {
   ],
   'type' => 'document_root'
 };
+$result_trees{'ftable_vtable'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'ftable_vtable'}{'contents'}[0]{'contents'}[0];
 $result_trees{'ftable_vtable'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'ftable_vtable'}{'contents'}[0];
+$result_trees{'ftable_vtable'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'ftable_vtable'}{'contents'}[0];
 $result_trees{'ftable_vtable'}{'contents'}[0]{'parent'} = $result_trees{'ftable_vtable'};
 $result_trees{'ftable_vtable'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'ftable_vtable'}{'contents'}[1]{'args'}[0];
 $result_trees{'ftable_vtable'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'ftable_vtable'}{'contents'}[1];
@@ -809,7 +822,6 @@ Text
 
 
 $result_texts{'ftable_vtable'} = '
-
 function1
 function2x
 Text
@@ -933,8 +945,7 @@ _var3_
 ';
 
 
-$result_converted{'html_text'}->{'ftable_vtable'} = '
-<h1 class="node-heading" id="Top">Top</h1>
+$result_converted{'html_text'}->{'ftable_vtable'} = '<h1 class="node-heading" id="Top">Top</h1>
 
 <dl>
 <dt id=\'index-function1\'><span><em>function1</em><a class="copiable-anchor" href=\'#index-function1\'> &para;</a></span></dt>

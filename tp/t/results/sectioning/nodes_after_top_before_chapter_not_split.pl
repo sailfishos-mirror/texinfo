@@ -8,7 +8,13 @@ use utf8;
 $result_trees{'nodes_after_top_before_chapter_not_split'} = {
   'contents' => [
     {
-      'contents' => [],
+      'contents' => [
+        {
+          'contents' => [],
+          'parent' => {},
+          'type' => 'preamble_before_content'
+        }
+      ],
       'parent' => {},
       'type' => 'before_node_section'
     },
@@ -465,6 +471,7 @@ $result_trees{'nodes_after_top_before_chapter_not_split'} = {
   ],
   'type' => 'document_root'
 };
+$result_trees{'nodes_after_top_before_chapter_not_split'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'nodes_after_top_before_chapter_not_split'}{'contents'}[0];
 $result_trees{'nodes_after_top_before_chapter_not_split'}{'contents'}[0]{'parent'} = $result_trees{'nodes_after_top_before_chapter_not_split'};
 $result_trees{'nodes_after_top_before_chapter_not_split'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'nodes_after_top_before_chapter_not_split'}{'contents'}[1]{'args'}[0];
 $result_trees{'nodes_after_top_before_chapter_not_split'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'nodes_after_top_before_chapter_not_split'}{'contents'}[1];

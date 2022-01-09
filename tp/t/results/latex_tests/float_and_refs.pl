@@ -10,39 +10,45 @@ $result_trees{'float_and_refs'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'contents' => [
             {
-              'contents' => [
+              'args' => [
                 {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'float_and_refs.info'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'parent' => {},
-                  'text' => 'float_and_refs.info'
+                  'type' => 'line_arg'
                 }
               ],
+              'cmdname' => 'setfilename',
               'extra' => {
-                'spaces_after_argument' => '
-'
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'float_and_refs.info'
               },
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 1,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
               'parent' => {},
-              'type' => 'line_arg'
+              'text' => '
+',
+              'type' => 'empty_line'
             }
           ],
-          'cmdname' => 'setfilename',
-          'extra' => {
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'float_and_refs.info'
-          },
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
           'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
+          'type' => 'preamble_before_content'
         }
       ],
       'parent' => {},
@@ -1844,10 +1850,11 @@ $result_trees{'float_and_refs'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'float_and_refs'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'float_and_refs'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'float_and_refs'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'float_and_refs'}{'contents'}[0]{'contents'}[0];
+$result_trees{'float_and_refs'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'float_and_refs'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'float_and_refs'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'float_and_refs'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'float_and_refs'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'float_and_refs'}{'contents'}[0]{'contents'}[0];
+$result_trees{'float_and_refs'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'float_and_refs'}{'contents'}[0]{'contents'}[0];
 $result_trees{'float_and_refs'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'float_and_refs'}{'contents'}[0];
-$result_trees{'float_and_refs'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'float_and_refs'}{'contents'}[0];
 $result_trees{'float_and_refs'}{'contents'}[0]{'parent'} = $result_trees{'float_and_refs'};
 $result_trees{'float_and_refs'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'float_and_refs'}{'contents'}[1]{'args'}[0];
 $result_trees{'float_and_refs'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'float_and_refs'}{'contents'}[1];
@@ -2462,6 +2469,7 @@ $result_floats{'float_and_refs'}{'Thing'}[0]{'extra'}{'shortcaption'}{'extra'}{'
 
 
 $result_converted{'latex'}->{'float_and_refs'} = '
+\\begin{document}
 \\chapter{chapter}
 \\label{anchor:chapter}%
 

@@ -8,7 +8,13 @@ use utf8;
 $result_trees{'sections_test_no_use_nodes'} = {
   'contents' => [
     {
-      'contents' => [],
+      'contents' => [
+        {
+          'contents' => [],
+          'parent' => {},
+          'type' => 'preamble_before_content'
+        }
+      ],
       'parent' => {},
       'type' => 'before_node_section'
     },
@@ -405,6 +411,7 @@ $result_trees{'sections_test_no_use_nodes'} = {
   ],
   'type' => 'document_root'
 };
+$result_trees{'sections_test_no_use_nodes'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'sections_test_no_use_nodes'}{'contents'}[0];
 $result_trees{'sections_test_no_use_nodes'}{'contents'}[0]{'parent'} = $result_trees{'sections_test_no_use_nodes'};
 $result_trees{'sections_test_no_use_nodes'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'sections_test_no_use_nodes'}{'contents'}[1]{'args'}[0];
 $result_trees{'sections_test_no_use_nodes'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'sections_test_no_use_nodes'}{'contents'}[1];

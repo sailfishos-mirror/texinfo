@@ -8,7 +8,13 @@ use utf8;
 $result_trees{'image_text_lines_count'} = {
   'contents' => [
     {
-      'contents' => [],
+      'contents' => [
+        {
+          'contents' => [],
+          'parent' => {},
+          'type' => 'preamble_before_content'
+        }
+      ],
       'parent' => {},
       'type' => 'before_node_section'
     },
@@ -178,6 +184,7 @@ $result_trees{'image_text_lines_count'} = {
   ],
   'type' => 'document_root'
 };
+$result_trees{'image_text_lines_count'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'image_text_lines_count'}{'contents'}[0];
 $result_trees{'image_text_lines_count'}{'contents'}[0]{'parent'} = $result_trees{'image_text_lines_count'};
 $result_trees{'image_text_lines_count'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'image_text_lines_count'}{'contents'}[1]{'args'}[0];
 $result_trees{'image_text_lines_count'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'image_text_lines_count'}{'contents'}[1];
