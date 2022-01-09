@@ -287,13 +287,15 @@ sub parse_texi_text($$;$$$$)
 
     return undef if (!defined($text));
 
+    $lines_nr = 1 if (not defined($lines_nr));
+
     $self = parser() if (!defined($self));
 
     # make sure that internal byte buffer is in UTF-8 before we pass
     # it in to the XS code.
     utf8::upgrade($text);
 
-    parse_text($text);
+    parse_text($text, $lines_nr);
     my $tree = build_texinfo_tree ();
 
     get_parser_info($self);
@@ -314,9 +316,11 @@ sub parse_texi_line($$;$$$$)
 
     return undef if (!defined($text));
 
+    $lines_nr = 1 if (not defined($lines_nr));
+
     $self = parser() if (!defined($self));
     utf8::upgrade($text);
-    parse_string($text);
+    parse_string($text, $lines_nr);
     my $tree = build_texinfo_tree ();
 
     _set_errors_node_lists_labels_indices($self);

@@ -5,8 +5,8 @@ extern ELEMENT *Root;
 
 int init (int texinfo_uninstalled, char *srcdir_in);
 
-void parse_text (char *);
-void parse_string(char *);
+void parse_text (char *, int line_nr);
+void parse_string(char *, int line_nr);
 int parse_file (char *filename);
 void reset_parser (void);
 void reset_parser_except_conf (void);

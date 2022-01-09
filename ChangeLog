@@ -1,5 +1,18 @@
 2022-01-09  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/ParserNonXS.pm (parse_texi_line),
+	tp/Texinfo/XS/parsetexi/Parsetexi.pm (parse_texi_text)
+	(parse_texi_line), tp/Texinfo/XS/parsetexi/Parsetexi.xs
+	(parse_string, parse_text), tp/Texinfo/XS/parsetexi/api.c
+	(parse_string, parse_text): add a line number argument to the XS
+	parser parse_string() and parse_text() functions and update
+	accordingly the callers.  Set line number to 1 in the default case
+	for parse_texi_line().
+
+	* tp/Texinfo/ParserNonXS.pm: update API documentation.
+
+2022-01-09  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/ParserNonXS.pm (_parse_texi),
 	tp/Texinfo/XS/parsetexi/handle_commands.c (handle_line_command):
 	check if the element type is root_line when closing a root command,

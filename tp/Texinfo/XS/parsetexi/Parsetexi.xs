@@ -37,12 +37,14 @@ parse_file(filename)
         char * filename
 
 void
-parse_string(string)
+parse_string(string, line_nr)
         char * string
+        int line_nr
 
 void
-parse_text(string)
+parse_text(string, line_nr)
         char * string
+        int line_nr
 
 void
 store_value (name, value)

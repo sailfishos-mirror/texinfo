@@ -172,24 +172,24 @@ parse_file (char *filename)
 /* Set ROOT to root of tree obtained by parsing the Texinfo code in STRING.
    STRING should be a UTF-8 buffer.  Used for parse_texi_line. */
 void
-parse_string (char *string)
+parse_string (char *string, int line_nr)
 {
   ELEMENT *root_elt = new_element (ET_root_line);
 
   reset_parser_except_conf ();
-  input_push_text (strdup (string), 0);
+  input_push_text_with_line_nos (strdup (string), line_nr);
   Root = parse_texi (root_elt, root_elt);
 }
 
 /* Used for parse_texi_text.  STRING should be a UTF-8 buffer. */
 void
-parse_text (char *string)
+parse_text (char *string, int line_nr)
 {
   ELEMENT *before_node_section = setup_document_root_and_before_node_section ();
   ELEMENT *document_root = before_node_section->parent;
 
   reset_parser_except_conf ();
-  input_push_text_with_line_nos (strdup (string), 1);
+  input_push_text_with_line_nos (strdup (string), line_nr);
   Root = parse_texi (document_root, before_node_section);
 }
 

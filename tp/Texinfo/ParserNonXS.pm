@@ -1017,7 +1017,7 @@ sub parse_texi_line($$;$$$$)
     $text = _text_to_lines($text);
   }
   if (not defined($lines_nr)) {
-    $lines_nr = 0;
+    $lines_nr = 1;
   }
 
   my $lines_array = _complete_line_nr($text, $lines_nr, $file, 
@@ -2601,6 +2601,9 @@ sub _enter_index_entry($$$$$$$)
   my $number = (defined($index->{'index_entries'})
                 ? (scalar(@{$index->{'index_entries'}}) + 1)
                   : 1);
+  # FIXME index_type_command does not seems to be used anywhere.
+  # It appears in test results tree, so maybe it is worth keeping
+  # it to be able to understand changes.
   my $index_entry = { 'index_name'           => $index_name,
                       'index_at_command'     => $command,
                       'index_type_command'   => $command_container,
@@ -6032,6 +6035,11 @@ Handle cpp like synchronization lines if set. Set in the default case.
 An array reference of the output formats for which C<@ifI<FORMAT>>
 conditional blocks should be expanded.  Default is empty.
 
+=item FORMAT_MENU
+
+Possible values are 'nomenu', 'menu' and 'sectiontoc'.  Only report
+menu-related errors for 'menu'.
+
 =item INCLUDE_DIRECTORIES
 
 An array reference of directories in which C<@include> files should be
@@ -6045,15 +6053,6 @@ Default on.
 =item MAX_MACRO_CALL_NESTING
 
 Maximal number of nested user-defined macro calls.  Default is 100000.
-
-=item FORMAT_MENU
-
-Possible values are 'nomenu', 'menu' and 'sectiontoc'.  Only report
-menu-related errors for 'menu'.
-
-=item registrar
-
-Texinfo::Report object reused by the parser to register errors.
 
 =begin comment
 
@@ -6079,6 +6078,10 @@ It overrides the document C<@documentlanguage> informations, if present.
 
 As if C<@novalidate> appeared at the beginning of the document.
 
+=item registrar
+
+Texinfo::Report object reused by the parser to register errors.
+
 =item values
 
 A hash reference.  Keys are names, values are the corresponding values.
@@ -6102,11 +6105,26 @@ When C<parse_texi_line> is used, the resulting tree is rooted at
 a C<root_line> type container.  Otherwise, the resulting tree should be
 rooted at a C<document_root> type container.
 
-=over
+=begin comment
+
+The XS parser implements only part of the arguments and allows only a
+restricted set of arguments types compared to the perl parser.  We want users
+to use only what is in common, so document only what is in common.
 
 =item $tree = parse_texi_line($parser, $text, $first_line_number, $file_name, $macro_name, $fixed_line_number)
 
+=end comment
+
+=over
+
+=item $tree = parse_texi_line($parser, $text, $first_line_number)
+
 This function is used to parse a short fragment of Texinfo code.
+
+I<$text> is the string containing the texinfo line.  I<$first_line_number> is
+the line number of the line, if undef, it will be set to 1.
+
+=begin comment
 
 I<$text> may be either an array reference of lines, or a text.
 
@@ -6118,9 +6136,26 @@ is expanded from.  If I<$fixed_line_number> is set, the line number is
 not increased for the different lines, as if the text was the expansion
 of a macro.
 
+=end comment
+
+=begin comment
+
+The XS parser implements only part of the arguments and allows only a
+restricted set of arguments types compared to the perl parser.  We want users
+to use only what is in common, so document only what is in common.
+
 =item $tree = parse_texi_text ($parser, $text, $line_numbers_specification, $file_name, $macro_name, $fixed_line_number)
 
+=end comment
+
+=item $tree = parse_texi_text ($parser, $text, $first_line_number)
+
 This function is used to parse some Texinfo text.
+
+I<$text> is the string containing the texinfo text.  I<$first_line_number> is
+the line number of the first text line, if undef, it will be set to 1.
+
+=begin comment
 
 I<$text> may be either an array reference of lines, or a text.
 
@@ -6138,14 +6173,14 @@ the position information of each text line.
 =item 2.
 
 If I<$line_numbers_specification> is a scalar, it is the line number of
-the first text line.  In that case (like for C<parse_texi_text>),
-I<$file_name> is the name of the file the text comes from.
-and I<$macro> is for the user-defined macro name the text
-is expanded from.  If I<$fixed_line_number> is set, the line number is
-not increased for the different lines, as if the text was the expansion
-of a macro.
+the first text line.  In that case I<$file_name> is the name of the file the
+text comes from.  and I<$macro> is for the user-defined macro name the text is
+expanded from.  If I<$fixed_line_number> is set, the line number is not
+increased for the different lines, as if the text was the expansion of a macro.
 
 =back
+
+=end comment
 
 =item $tree = parse_texi_file($parser, $file_name)
 
@@ -6188,9 +6223,10 @@ The I<$info> returned is a hash reference.  The possible keys are
 
 =over
 
-=item input_file_name
+=item dircategory_direntry
 
-The name of the main Texinfo input file.
+An array of successive C<@dircategory> and C<@direntry> as they appear
+in the document.
 
 =item input_encoding_name
 
@@ -6200,10 +6236,9 @@ C<input_encoding_name> string is the encoding name used for the
 Texinfo code.
 C<input_perl_encoding> string is a corresponding perl encoding name.
 
-=item dircategory_direntry
+=item input_file_name
 
-An array of successive C<@dircategory> and C<@direntry> as they appear
-in the document.
+The name of the main Texinfo input file.
 
 =item novalidate
 
@@ -6329,10 +6364,23 @@ The index name.
 
 The name of the @-command associated with the index entry.
 
+=item index_ignore_chars
+
+A hash reference with characters as keys and 1 as value.  Corresponds to
+the characters flaggued as ignored in key sorting in the document by
+setting flags such as I<txiindexbackslashignore>.
+
+=begin comment
+
+This is not used anywhere, do not document to be able to remove it
+anytime.
+
 =item index_type_command
 
-The @-command associated with the index entry allowing to
-find the index type.
+The name of the @-command associated with the index entry.  This
+should allow to find the index associated to the index entry.
+
+=end comment
 
 =item content
 
@@ -6506,7 +6554,7 @@ contents, I<line_arg> and I<block_line_arg> contain the arguments
 appearing on the line of @-commands.  Text fragments may have a type to
 give an information of the kind of text fragment, for example
 I<empty_spaces_before_argument> is associated to spaces after a brace
-opening and before the argument.  Many @-commands elements don't have
+opening and before the argument.  Many @-commands elements do not have
 a type associated.
 
 =item args
@@ -6640,11 +6688,12 @@ at all):
 
 =over
 
-=item untranslated
+=item after_description_line
 
-English text added by the parser that may need to be translated
-during conversion.  Happens for @def* @-commands aliases that
-leads to prepending text such as 'Function'.
+=item space_at_end_menu_node
+
+Space after a node in the menu entry, when there is no description,
+and space appearing after the description line.
 
 =item empty_line
 
@@ -6659,10 +6708,35 @@ or spaces followed by a newline for
 I<empty_line_after_command>, appearing after an @-command that
 takes an argument on the line or a block @-command.
 
+=item empty_spaces_after_close_brace
+
+Spaces appearing after a closing brace, for some rare commands for which
+this space should be ignorable (like C<@caption>).
+
 =item empty_spaces_before_argument
 
 The text is spaces appearing after an opening brace or after a
 comma separating a command's arguments.
+
+=item empty_spaces_before_paragraph
+
+Space appearing before a paragraph beginning.
+
+=item last_raw_newline
+
+The last end of line in a raw block (except for C<@verbatim>).
+
+=item misc_arg
+
+Used for the arguments to some special line commands whose arguments
+aren't subject to the usual macro expansion.  For example C<@set>,
+C<@clickstyle>, C<@unmacro>, C<@comment>.  The argument is associated to
+the I<text> key.
+
+=item raw
+
+Text in an environment where it should be kept as is (in C<@verbatim>,
+C<@verb>, C<@html>, C<@macro> body).
 
 =item spaces_at_end
 
@@ -6670,34 +6744,15 @@ Space at the end of an argument to a line command, at the end of an
 comma-separated argument for some brace commands, or at the end of
 bracketed content on a C<@multitable> line or definition line.
 
-=item empty_spaces_after_close_brace
-
-Spaces appearing after a closing brace, for some rare commands for which
-this space should be ignorable (like C<@caption>).
-
-=item empty_spaces_before_paragraph
-
-Space appearing before a paragraph beginning.
-
-=item raw
-
-Text in an environment where it should be kept as is (in C<@verbatim>,
-C<@verb>, C<@html>, C<@macro> body).
-
-=item last_raw_newline
-
-The last end of line in a raw block (except for C<@verbatim>).
-
 =item text_before_beginning
 
 Text appearing before real content, including the C<\input texinfo.tex>.
 
-=item space_at_end_menu_node
+=item untranslated
 
-=item after_description_line
-
-Space after a node in the menu entry, when there is no description,
-and space appearing after the description line.
+English text added by the parser that may need to be translated
+during conversion.  Happens for @def* @-commands aliases that
+leads to prepending text such as 'Function'.
 
 =back
 
@@ -6774,13 +6829,6 @@ leads to
  {'cmdname' => 'code',
   'args' => [{'type' => 'brace_command_arg',
               'contents' => [{'text' => 'in code'}]}]}
-
-=item misc_arg
-
-Used for the arguments to some special line commands whose arguments
-aren't subject to the usual macro expansion.  For example C<@set>,
-C<@clickstyle>, C<@unmacro>, C<@comment>.  The argument is associated to
-the I<text> key.
 
 =item menu_entry
 

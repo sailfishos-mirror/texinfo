@@ -48,9 +48,9 @@ sub test_line($$$$)
 my @tests = (
 ["\@node a node\n", 'node line'],
 ["aa \@exdent in exdent", 'exdent error no end line',
-  [':0: warning: @exdent should only appear at the beginning of a line']],
+  [':1: warning: @exdent should only appear at the beginning of a line']],
 ["aa \@exdent in exdent\n", 'exdent error with end line',
-  [':0: warning: @exdent should only appear at the beginning of a line']],
+  [':1: warning: @exdent should only appear at the beginning of a line']],
 );
 
 foreach my $test_string_explanation (@tests) {
