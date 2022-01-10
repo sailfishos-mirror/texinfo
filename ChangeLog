@@ -1,5 +1,13 @@
 2022-01-10  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	@group should be inside @example not vice versa
+
+	* doc/texinfo.texi (Texinfo Preamble): Fix nesting of
+	@group and @example.
+	* tp/TODO: Add this as something to warn about.
+
+2022-01-10  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	Documentation of @dircategory
 
 	* doc/texinfo.texi (Directory Category): New node, to document

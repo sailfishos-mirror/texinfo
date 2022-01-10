@@ -93,6 +93,8 @@ Some erroneous constructs not already warned against:
  @end example
  Example in heading/heading_in_example.
 
+ @group outside of @example
+
 maybe checking for incorrectly nested @titlepage, @copying and
 @documentdescription (which is already done in the "regions stack")
 could be done the same way.

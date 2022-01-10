@@ -1848,8 +1848,8 @@ For example, for the following document, the HTML and Info copying comment is fo
 with @code{@@documentlanguage} set to @samp{pt}, as it is the last @code{@@documentlanguage}
 before the end of the preamble.
 
-@group
 @example
+@group
 \input texinfo
 @@documentlanguage fr
 
@@ -1865,8 +1865,8 @@ Text ending the preamble
 
 @@node Top
 
-@end example
 @end group
+@end example
 
 
 @node Directory Category
