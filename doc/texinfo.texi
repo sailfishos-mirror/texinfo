@@ -158,6 +158,7 @@ Writing a Texinfo File
 * Minimum::                     What a Texinfo file must have.
 * Short Sample Texinfo File::   A short sample Texinfo file.
 * Texinfo File Header::         The first lines.
+* Directory Category::          A category for a manual.
 * Document Permissions::        Ensuring your manual is free.
 * Titlepage & Copyright Page::  Creating the title and copyright pages.
 * Contents::                    How to create a table of contents.
@@ -1282,6 +1283,7 @@ file, and gives a short sample file.
 * Minimum::                     What a Texinfo file must have.
 * Short Sample Texinfo File::   A short sample Texinfo file.
 * Texinfo File Header::         The first lines.
+* Directory Category::          A category for a manual.
 * Document Permissions::        Ensuring your manual is free.
 * Titlepage & Copyright Page::  Creating the title and copyright pages.
 * Contents::                    How to create a table of contents.
@@ -1865,6 +1867,53 @@ Text ending the preamble
 
 @end example
 @end group
+
+
+@node Directory Category
+@section Directory Category
+
+@findex dircategory
+@cindex Free Software Directory
+@cindex Dir categories, choosing
+@cindex Categories, choosing
+Use the @code{@@dircategory} command to specify a category
+for the manual.  When choosing the name of the category, we
+recommend consulting the @uref{http://www.gnu.org/directory,
+Free Software Directory}.  If your program is not listed there,
+or listed incorrectly or incompletely, please report the situation to
+the directory maintainers (@url{http://directory.fsf.org}) so that the
+category names can be kept in sync.
+
+Here are a few examples of category names:
+@c from util/dir-example
+
+@display
+Basics
+Text creation and manipulation
+Archiving
+Compression
+Database
+Editors
+Emacs
+Email
+Graphics
+Localization
+Network applications
+Printing
+Science
+Software development
+Software libraries
+Version control
+@end display
+
+@code{@@dircategory} commands are usually followed by a
+@code{@@direntry} blocks, which are used by @command{install-info}.
+@xref{Installing Dir Entries}, for details.
+
+The first @code{@@dircategory} command in a manual is the category for
+the entire manual.  Subsequent uses of @code{@@dircategory} set the category
+for following @code{@@direntry} blocks only.
+
 
 @node Document Permissions
 @anchor{Software Copying Permissions}@c old node name
@@ -17554,6 +17603,10 @@ In this case, the @file{dir} file name is written in uppercase
 letters---it can be written in either upper- or lowercase.  This is not
 true in general, it is a special case for @file{dir}.
 
+See the @file{util/dir-example} file in the Texinfo distribution for
+a large sample @code{dir} file.
+
+
 
 @node New Info File
 @subsection Listing a New Info File
@@ -17686,15 +17739,16 @@ When you install an Info file onto your system, you can use the program
 Normally the makefile for the package runs @code{install-info}, just
 after copying the Info file into its proper installed location.
 
-@findex dircategory
+
 @findex direntry
 In order for the Info file to work with @code{install-info}, you include
 the commands @code{@@dircategory} and
 @code{@@direntry}@dots{}@code{@@end direntry} in the Texinfo source
 file.  Use @code{@@direntry} to specify the menu entries to add to the
 Info directory file, and use @code{@@dircategory} to specify which part
-of the Info directory to put it in.  Here is how these commands are used
-in this manual:
+of the Info directory to put it in.  @xref{Directory Category}.
+
+Here is how these commands are used in this manual:
 
 @example
 @@dircategory Texinfo documentation system
@@ -17738,28 +17792,6 @@ the @samp{--calign}, @samp{--align}, and @samp{--max-width} options in
 If you use @code{@@dircategory} more than once in the Texinfo source,
 each usage specifies the `current' category; any subsequent
 @code{@@direntry} commands will add to that category.
-
-@cindex Free Software Directory
-@cindex Dir categories, choosing
-@cindex Categories, choosing
-When choosing a category name for the @code{@@dircategory} command, we
-recommend consulting the @uref{http://www.gnu.org/directory,
-Free Software Directory}.  If your program is not listed there,
-or listed incorrectly or incompletely, please report the situation to
-the directory maintainers (@url{http://directory.fsf.org}) so that the
-category names can be kept in sync.
-
-Here are a few examples (see the @file{util/dir-example} file in the
-Texinfo distribution for large sample @code{dir} file):
-
-@display
-Emacs
-Localization
-Printing
-Software development
-Software libraries
-Text creation and manipulation
-@end display
 
 @cindex Invoking nodes, including in dir file
 Each `Invoking' node for every program installed should have a

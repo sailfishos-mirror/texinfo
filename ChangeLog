@@ -1,5 +1,15 @@
 2022-01-10  Gavin Smith  <gavinsmith0123@gmail.com>
 
+	Documentation of @dircategory
+
+	* doc/texinfo.texi (Directory Category): New node, to document
+	@dircategory independently of install-info and dir files.  Expand
+	list of categories based on what is in util/dir-example.
+	(Installing Dir Entries):  Move much material to new node.
+	(Directory File): Move reference to util/dir-example file here.
+
+2022-01-10  Gavin Smith  <gavinsmith0123@gmail.com>
+
 	*  util/htmlxref.cnf:
 	Add auth, calc, dbus, ede, edt, emacs-gnutls, emacs-mime,
 	ert, eudc, forms, htmlfontify, ido, newsticker, octave-mode, pgg,
