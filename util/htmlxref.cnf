@@ -1,8 +1,8 @@
 # htmlxref.cnf - reference file for free Texinfo manuals on the web.
 
-htmlxrefversion=2020-10-20.13; # UTC
+htmlxrefversion=2022-01-10.18; # UTC
 
-# Copyright 2010-2020 Free Software Foundation, Inc.
+# Copyright 2010-2022 Free Software Foundation, Inc.
 # 
 # Copying and distribution of this file, with or without modification,
 # are permitted in any medium without royalty provided the copyright
@@ -137,8 +137,14 @@ EMACS = ${GS}/emacs/manual
 emacs		mono	${EMACS}/html_mono/emacs.html
 emacs		node	${EMACS}/html_node/emacs/
  #
+ auth		mono	${EMACS}/html_mono/auth.html
+ auth		node	${EMACS}/html_node/auth/
+ #
  autotype	mono	${EMACS}/html_mono/autotype.html
  autotype	node	${EMACS}/html_node/autotype/
+ #
+ calc		mono	${EMACS}/html_mono/calc.html
+ calc		node	${EMACS}/html_node/calc/
  #
  ccmode		mono	${EMACS}/html_mono/ccmode.html
  ccmode		node	${EMACS}/html_node/ccmode/
@@ -146,8 +152,17 @@ emacs		node	${EMACS}/html_node/emacs/
  cl		mono	${EMACS}/html_mono/cl.html
  cl		node	${EMACS}/html_node/cl/
  #
+ dbus		mono	${EMACS}/html_mono/dbus.html
+ dbus		node	${EMACS}/html_node/dbus/
+ #
  ebrowse	mono	${EMACS}/html_mono/ebrowse.html
  ebrowse	node	${EMACS}/html_node/ebrowse/
+ #
+ ede		mono	${EMACS}/html_mono/ede.html
+ ede		node	${EMACS}/html_node/ede/
+ #
+ edt		mono	${EMACS}/html_mono/edt.html
+ edt		node	${EMACS}/html_node/edt/
  #
  ediff		mono	${EMACS}/html_mono/ediff.html
  ediff		node	${EMACS}/html_node/ediff/
@@ -158,6 +173,12 @@ emacs		node	${EMACS}/html_node/emacs/
  elisp		mono	${EMACS}/html_mono/elisp.html
  elisp		node	${EMACS}/html_node/elisp/
  #
+ emacs-gnutls	mono	${EMACS}/html_mono/emacs-gnutls.html
+ emacs-gnutls	node	${EMACS}/html_node/emacs-gnutls/
+ #
+ emacs-mime	mono	${EMACS}/html_mono/emacs-mime.html
+ emacs-mime	node	${EMACS}/html_node/emacs-mime/
+ #
  epa		mono	${EMACS}/html_mono/epa.html
  epa		node	${EMACS}/html_node/epa/
  #
@@ -167,11 +188,20 @@ emacs		node	${EMACS}/html_node/emacs/
  dired-x	mono	${EMACS}/html_mono/dired-x.html
  dired-x	node	${EMACS}/html_node/dired-x/
  #
+ ert		mono	${EMACS}/html_mono/ert.html
+ ert		node	${EMACS}/html_node/ert/
+ #
  eshell		mono	${EMACS}/html_mono/eshell.html
  eshell		node	${EMACS}/html_node/eshell/
  #
+ eudc		mono	${EMACS}/html_mono/eudc.html
+ eudc		node	${EMACS}/html_node/eudc/
+ #
  eww		mono	${EMACS}/html_mono/eww.html
  eww		node	${EMACS}/html_node/eww/
+ #
+ forms		mono	${EMACS}/html_mono/forms.html
+ forms		node	${EMACS}/html_node/forms/
  #
  flymake	mono	${EMACS}/html_mono/flymake.html
  flymake	node	${EMACS}/html_node/flymake/
@@ -179,11 +209,20 @@ emacs		node	${EMACS}/html_node/emacs/
  gnus		mono	${EMACS}/html_mono/gnus.html
  gnus		node	${EMACS}/html_node/gnus/
  #
+ htmlfontify	mono	${EMACS}/html_mono/htmlfontify.html
+ htmlfontify	node	${EMACS}/html_node/htmlfontify/
+ #
  idlwave	mono	${EMACS}/html_mono/idlwave.html
  idlwave	node	${EMACS}/html_node/idlwave/
  #
+ ido		mono	${EMACS}/html_mono/ido.html
+ ido		node	${EMACS}/html_node/ido/
+ #
  info   	mono	${EMACS}/html_mono/info.html
  info   	node	${EMACS}/html_node/info/
+ #
+ mairix		mono	${EMACS}/html_mono/mairix.html
+ mairix		node	${EMACS}/html_node/mairix-el/
  #
  message	mono	${EMACS}/html_mono/message.html
  message	node	${EMACS}/html_node/message/
@@ -191,8 +230,14 @@ emacs		node	${EMACS}/html_node/emacs/
  mh-e		mono	${EMACS}/html_mono/mh-e.html
  mh-e		node	${EMACS}/html_node/mh-e/
  #
+ newsticker	mono	${EMACS}/html_mono/newsticker.html
+ newsticker	node	${EMACS}/html_node/newsticker/
+ #
  nxml-mode	mono	${EMACS}/html_mono/nxml-mode.html
  nxml-mode	node	${EMACS}/html_node/nxml-mode/
+ #
+ octave-mode	mono	${EMACS}/html_mono/octave-mode.html
+ octave-mode	node	${EMACS}/html_node/octave-mode/
  #
  org		mono	${EMACS}/html_mono/org.html
  org		node	${EMACS}/html_node/org/
@@ -200,11 +245,35 @@ emacs		node	${EMACS}/html_node/emacs/
  pcl-cvs	mono	${EMACS}/html_mono/pcl-cvs.html
  pcl-cvs	node	${EMACS}/html_node/pcl-cvs/
  #
+ pgg		mono	${EMACS}/html_mono/pgg.html
+ pgg		node	${EMACS}/html_node/pgg/
+ #
  rcirc		mono	${EMACS}/html_mono/rcirc.html
  rcirc		node	${EMACS}/html_node/rcirc/
  #
+ reftex		mono	${EMACS}/html_mono/reftex.html
+ reftex		node	${EMACS}/html_node/reftex/
+ #
+ remember	mono	${EMACS}/html_mono/remember.html
+ remember	node	${EMACS}/html_node/remember/
+ #
+ sasl		mono	${EMACS}/html_mono/sasl.html
+ sasl		node	${EMACS}/html_node/sasl/
+ #
  semantic	mono	${EMACS}/html_mono/semantic.html
  semantic	node	${EMACS}/html_node/semantic/
+ #
+ bovine		mono	${EMACS}/html_mono/bovine.html
+ bovine		node	${EMACS}/html_node/bovine/
+ #
+ srecode	mono	${EMACS}/html_mono/srecode.html
+ srecode	node	${EMACS}/html_node/srecode/
+ #
+ ses		mono	${EMACS}/html_mono/ses.html
+ ses		node	${EMACS}/html_node/ses/
+ #
+ sieve		mono	${EMACS}/html_mono/sieve.html
+ sieve		node	${EMACS}/html_node/sieve/
  #
  smtp		mono	${EMACS}/html_mono/smtpmail.html
  smtp		node	${EMACS}/html_node/smtpmail/
@@ -212,14 +281,32 @@ emacs		node	${EMACS}/html_node/emacs/
  speedbar	mono	${EMACS}/html_mono/speedbar.html
  speedbar	node	${EMACS}/html_node/speedbar/
  #
+ sc		mono	${EMACS}/html_mono/sc.html
+ sc		node	${EMACS}/html_node/sc/
+ #
+ todo-mode	mono	${EMACS}/html_mono/todo-mode.html
+ todo-mode	node	${EMACS}/html_node/todo-mode/
+ #
  tramp		mono	${EMACS}/html_mono/tramp.html
  tramp		node	${EMACS}/html_node/tramp/
+ #
+ url		mono	${EMACS}/html_mono/url.html
+ url		node	${EMACS}/html_node/url/
+ #
+ vhdl-mode	mono	${EMACS}/html_mono/vhdl-mode.html
+ vhdl-mode	node	${EMACS}/html_node/vhdl-mode/
  #
  vip		mono	${EMACS}/html_mono/vip.html
  vip		node	${EMACS}/html_node/vip/
  #
  viper		mono	${EMACS}/html_mono/viper.html
  viper		node	${EMACS}/html_node/viper/
+ #
+ widget		mono	${EMACS}/html_mono/widget.html
+ widget		node	${EMACS}/html_node/widget/
+ #
+ wisent		mono	${EMACS}/html_mono/wisent.html
+ wisent		node	${EMACS}/html_node/wisent/
  #
  woman		mono	${EMACS}/html_mono/woman.html
  woman		node	${EMACS}/html_node/woman/
@@ -233,7 +320,7 @@ emacs-muse	node	${GS}/emacs-muse/manual/html_node/
 
 emms		node	${GS}/emms/manual/
 
-ada-mode	mono	https://www.nongnu.org/ada-mode/ada-mode.html
+ada-mode	mono	https://elpa.gnu.org/packages/ada-mode.html
 
 findutils	mono	${GS}/findutils/manual/html_mono/find.html
 findutils	node	${GS}/findutils/manual/html_node/find_html

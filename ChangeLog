@@ -1,3 +1,13 @@
+2022-01-10  Gavin Smith  <gavinsmith0123@gmail.com>
+
+	*  util/htmlxref.cnf:
+	Add auth, calc, dbus, ede, edt, emacs-gnutls, emacs-mime,
+	ert, eudc, forms, htmlfontify, ido, newsticker, octave-mode, pgg,
+	reftex, remember, bovine, srecode, ses, sieve, sc, todo-mode, url,
+	vhdl-mode, widget, wisent.  Update for ada-mode.
+	
+	From Thérèse Godefroy <godef.th@free.fr>.
+
 2022-01-10  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/HTML.pm (%css_rules_not_collected, %css_map)
