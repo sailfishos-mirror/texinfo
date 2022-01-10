@@ -1607,6 +1607,15 @@ It makes sense to include any command that affects document formatting
 as a whole in the header.  @code{@@synindex} (@pxref{@code{@@synindex}}),
 for instance, is another command often included in the header.
 
+The start of the Texinfo file up to the first content that is output
+as part of the main body of the document is the @dfn{Texinfo preamble}.
+It includes the header, @ref{Document Permissions} and @ref{Titlepage & Copyright Page}
+specification.  It is important for the @LaTeX{} output format as the
+end of preamble is where the @code{\begin@{document@}} line is output.  In
+other output formats it may be used to determine how some special output is
+formatted, for example @ref{@code{@@copying}} output as a comment
+at the beginning of output files, or the language used in file headers.
+
 
 @menu
 * First Line::                  The first line of a Texinfo file.
@@ -1614,6 +1623,7 @@ for instance, is another command often included in the header.
 * @code{@@setfilename}::                Tell Info the name of the Info file.
 * @code{@@settitle}::                   Create a title for the printed work.
 * End of Header::               Formatting a region requires this.
+* Texinfo Preamble::            Start of the Texinfo file up to first content.
 @end menu
 
 
@@ -1793,6 +1803,68 @@ Texinfo comment that looks like this:
 
 @xref{Start of Header}.
 
+@node Texinfo Preamble
+@subsection Texinfo Preamble
+@cindex Preamble
+@cindex Texinfo Preamble
+
+The @dfn{Texinfo preamble} corresponds to the beginning of the Texinfo file
+up to the first content directly output.  It typically includes the
+file header (@pxref{Texinfo File Header}), the @code{@@copying} block
+specifying the document permissions (@xref{@code{@@copying}}) and the
+@code{@@titlepage} (@pxref{Titlepage & Copyright Page}) specification.
+
+Commands that affects document formatting as a whole but do not produce
+any output such as @code{@@settitle} (@pxref{@code{@@settitle}}),
+@code{@@documentlanguage}, (@pxref{@code{@@documentlanguage}}), commands
+setting the headings, informations on indentation, on hyphenation or
+on table of contents (@pxref{Contents}) do not stop the the preamble.
+The preamble can also contain raw formatter commands (@pxref{Raw Formatter
+Commands}), but it is not checked that the content of these commands is
+actually preamble material and not regular output.  
+
+Any text that starts a paragraph, @@-commands that are formatted
+as quotations, tables, lists and so on, @code{@@node} (@pxref{Nodes})
+and chapter structuring commands (@pxref{Chapter Structuring}) end the
+preamble.
+
+How the preamble affects the formatting depends on the output format.  In
+plaintext, it has no effect, it is simply output at the beginning of the
+document, for example a @code{@@contents} in the preamble is substituted by
+the table of contents (@pxref{Contents}).  For @LaTeX{} output, the preamble
+is important as the @code{\begin@{document@}} line is output at the end
+of the preamble.
+
+In HTML and Info the preamble
+information is only used to get informations for the header formatting.  Some
+commands that affect formatting can have an effect on the header formatting,
+for example command specifying the indentation or the language
+(@pxref{@code{@@documentlanguage}}), the information current at the very end
+of the preamble is used for that formatting.
+
+For example, for the following document, the HTML and Info copying comment is formatted
+with @code{@@documentlanguage} set to @samp{pt}, as it is the last @code{@@documentlanguage}
+before the end of the preamble.
+
+@group
+@example
+\input texinfo
+@@documentlanguage fr
+
+@@copying
+The copying information @@error@{@} some text
+@@end copying
+
+@@documentlanguage pt
+
+Text ending the preamble
+
+@@documentlanguage de
+
+@@node Top
+
+@end example
+@end group
 
 @node Document Permissions
 @anchor{Software Copying Permissions}@c old node name
