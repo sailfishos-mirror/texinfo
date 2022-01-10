@@ -3670,16 +3670,21 @@ sub _convert_exdent_command($$$$)
   my $command = shift;
   my $args = shift;
 
-  # FIXME do something better with css and span?
+
+  my $arg = $self->get_pending_formatted_inline_content().$args->[0]->{'normal'};
+
+  if ($self->in_string()) {
+    return $arg ."\n";
+  }
+
+  # FIXME do something with CSS?  Currently nothing is defined for exdent
+
   my $preformatted = $self->in_preformatted();
   
-  if ($self->in_preformatted() or $self->in_string()) {
-    return $self->_convert_preformatted_type($cmdname, $command, 
-                                             $args->[0]->{'normal'} ."\n");
+  if ($self->in_preformatted()) {
+    return $self->html_attribute_class('pre', $cmdname).'>'.$arg ."\n</pre>";
   } else {
-    # ignore alignment information
-    return $self->html_attribute_class('p', $cmdname).'>'
-                            .$args->[0]->{'normal'} ."\n</p>";
+    return $self->html_attribute_class('p', $cmdname).'>'.$arg ."\n</p>";
   }
 }
 
@@ -3693,8 +3698,7 @@ sub _convert_center_command($$$$)
   my $args = shift;
 
   if ($self->in_string()) {
-    return $self->_convert_preformatted_type($cmdname, $command, 
-                                             $args->[0]->{'normal'}."\n");
+    return $args->[0]->{'normal'}."\n";
   } else {
     return $self->html_attribute_class('div', $cmdname).">"
                                  .$args->[0]->{'normal'}."\n</div>";
@@ -4891,7 +4895,6 @@ sub _convert_preformatted_type($$$$)
   $content = $self->get_pending_formatted_inline_content().$content;
 
   return '' if ($content eq '');
-  return $content if ($type eq 'rawpreformatted');
 
   my $pre_class = $self->_preformatted_class();
 
@@ -4929,7 +4932,6 @@ sub _convert_preformatted_type($$$$)
 }
 
 $default_types_conversion{'preformatted'} = \&_convert_preformatted_type;
-$default_types_conversion{'rawpreformatted'} = \&_convert_preformatted_type;
 
 sub _convert_bracketed_type($$$$) {
   my $self = shift;

@@ -457,9 +457,9 @@ $result_converted{'html_text'}->{'exdent_and_commands'} = '<blockquote>
 
 <div class="example">
 <pre class="example">example
-</pre><pre class="example">in exdented protected eol &nbsp;
+</pre><pre class="exdent">in exdented protected eol &nbsp;
 </pre><pre class="example">following
-</pre><pre class="example">in exdented a @* 
+</pre><pre class="exdent">in exdented a @* 
  and following
 </pre><pre class="example">after exdented
 </pre></div>

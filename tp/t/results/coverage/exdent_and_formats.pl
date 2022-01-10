@@ -1906,15 +1906,15 @@ $result_converted{'html_text'}->{'exdent_and_formats'} = '<div class="example">
 <pre class="example"> Example   Hoho. TeX . 
  @.
 
-</pre><pre class="example">Other line
+</pre><pre class="exdent">Other line
 </pre><pre class="example">not exdented
 </pre></div>
 
 
 <div class="example">
-<pre class="example">exdented  and dash --- in example
+<pre class="exdent">exdented  and dash --- in example
 </pre><pre class="example">Not exdented
-</pre><pre class="example">exdented
+</pre><pre class="exdent">exdented
 </pre><pre class="example">Not exdented
 </pre></div>
 
@@ -1946,7 +1946,7 @@ quotation2
 <pre class="example">Example   Hoho.
 </pre><div class="example">
 <pre class="example">Nested Other line
-</pre><pre class="example">exdented nested other line
+</pre><pre class="exdent">exdented nested other line
 </pre></div>
 </div>
 
