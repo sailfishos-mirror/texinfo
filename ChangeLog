@@ -1,5 +1,11 @@
 2022-01-10  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_convert_float_command): convert
+	prepended float number type information in the same way with
+	a caption or without.
+
+2022-01-10  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_convert_float_command): use
 	register_pending_formatted_inline_content() to have the float
 	number and type prepended to the caption instead of modifying the

@@ -676,7 +676,7 @@ $result_converted{'html'}->{'empty_listoffloats_with_floats'} = '<!DOCTYPE html>
 <body lang="en">
 <div class="float" id="label1">
 <p>Label no caption.
-</p><div class="float-caption"><p><strong>1
+</p><div class="float-caption"><p><strong class="strong">1
 </strong></p></div></div>
 <div class="float" id="label2">
 <p>Label and caption.

@@ -412,7 +412,7 @@ $result_converted{'html'}->{'comment_space_comand_in_float'} = '<!DOCTYPE html>
 
 <div class="float" id="label--">
 <p>Float
-</p><div class="float-caption"><p><strong>Text &nbsp; 1
+</p><div class="float-caption"><p><strong class="strong">Text &nbsp; 1
 </strong></p></div></div>
 <dl class="listoffloats">
 <dt><a href="#label--">Text &nbsp; 1</a></dt><dd></dd>

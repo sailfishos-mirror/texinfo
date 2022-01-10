@@ -87,6 +87,23 @@ In float.
 @printindex cp
 
 '],
+['empty_caption',
+'@float a, b
+In float A, B
+@caption{}
+@end float
+
+@float , c
+In float , C
+@shortcaption{}
+@end float
+
+@float
+In float
+@shortcaption{}
+@caption{}
+@end float
+'],
 ['complex_float',
 '@node Top
 @top Test floats

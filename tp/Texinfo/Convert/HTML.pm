@@ -3914,34 +3914,30 @@ sub _convert_float_command($$$$$)
   my $prepended_text;
   my $caption_text = '';
   if ($prepended) {
+    $prepended_text = $self->convert_tree_new_formatting_context(
+                               {'cmdname' => 'strong',
+                                'args' => [{'type' => 'brace_command_arg',
+                                            'contents' => [$prepended]}]},
+                               'float number type');
     if ($caption) {
-      # format and register the prepended tree to be prepended to
+      # register the converted prepended tree to be prepended to
       # the first paragraph in caption formatting
       $self->register_pending_formatted_inline_content($caption_command_name,
-           $self->convert_tree({'cmdname' => 'strong',
-                                'args' => [{'type' => 'brace_command_arg',
-                                            'contents' => [$prepended]}]}),
-           'float number type');
+                                                       $prepended_text);
       $caption_text = $self->convert_tree_new_formatting_context(
                $caption->{'args'}->[0], 'float caption');
-      $prepended_text = '';
-      $self->cancel_pending_formatted_inline_content($caption_command_name);
+      my $cancelled_prepended
+        = $self->cancel_pending_formatted_inline_content($caption_command_name);
+      $prepended_text = '' if (not defined($cancelled_prepended));
     }
-    if ($caption_text eq '') {
-      $prepended_text = $self->convert_tree_new_formatting_context(
-        $prepended, 'float prepended');
-      if ($prepended_text ne '') {
-        $prepended_text = '<p><strong>'.$prepended_text.'</strong></p>';
-      }
+    if ($prepended_text ne '') {
+      $prepended_text = '<p>'.$prepended_text.'</p>';
     }
   } else {
-    $prepended_text = '';
-  }
-  
-  if ($caption and $caption_text eq '') {
     $caption_text = $self->convert_tree_new_formatting_context(
       $caption->{'args'}->[0], 'float caption');
   }
+  
   if ($prepended_text.$caption_text ne '') {
     $prepended_text = $self->html_attribute_class('div','float-caption'). '>'
         . $prepended_text;
