@@ -91,6 +91,11 @@ In quotation
 In quotation
 @end quotation
 '],
+['footnote_in_quotation_with_arg',
+'@quotation lean
+A@footnote{My feet} b.
+@end quotation
+'],
 ['quotation_beginning_and_end_on_line',
 '@quotation in quotation @end quotation
 '],

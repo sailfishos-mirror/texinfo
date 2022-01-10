@@ -298,6 +298,7 @@ my $GNUT_formatting_references = {};
 my $GNUT_commands_conversion = {};
 my $GNUT_commands_open = {};
 my $GNUT_types_conversion = {};
+my $GNUT_types_open = {};
 my $GNUT_no_arg_commands_formatting_strings = {};
 my $GNUT_style_commands_formatting_info = {};
 
@@ -355,6 +356,20 @@ sub texinfo_register_type_formatting($$)
 sub GNUT_get_types_conversion()
 {
   return $GNUT_types_conversion;
+}
+
+# called from init files
+sub texinfo_register_type_opening($$)
+{
+  my $type = shift;
+  my $reference = shift;
+  $GNUT_types_open->{$type} = $reference;
+}
+
+# called from the Converter
+sub GNUT_get_types_open()
+{
+  return $GNUT_types_open;
 }
 
 my $default_formatting_context = 'normal';

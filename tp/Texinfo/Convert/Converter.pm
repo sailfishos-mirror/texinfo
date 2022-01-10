@@ -1814,7 +1814,7 @@ with the file name portion only (without directory).
 =item ($caption, $prepended) = $converter->float_name_caption ($float)
 
 I<$float> is a texinfo tree C<@float> element.  This function
-returns the caption that should be used for the float formatting
+returns the caption element that should be used for the float formatting
 and the I<$prepended> texinfo tree combining the type and label
 of the float.
 

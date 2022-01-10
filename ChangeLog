@@ -28,6 +28,23 @@
 
 2022-01-10  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (%default_types_open, default_types_open)
+	(_convert, associate_pending_formatted_inline_content)
+	(get_associated_formatted_inline_content),
+	tp/Texinfo/Config.pm (texinfo_register_type_opening, GNUT_get_types_open):
+	API to associate pending inline formatted text to an element, allowing
+	to associate the pending content to the first opening inline element.
+
+	* tp/Texinfo/Convert/HTML.pm (_convert_paragraph_type)
+	(_open_inline_container_type, _convert_preformatted_type),
+	tp/init/html32.pm (html32_convert_paragraph_type): use
+	associate_pending_formatted_inline_content() and
+	get_associated_formatted_inline_content() to get the inline formatted
+	pending content.
+
+
+2022-01-10  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (%css_rules_not_collected, %css_map)
 	(%style_commands_element): format key like other style commands.
 	Use kbd.kbd for the CSS selector for @kbd.

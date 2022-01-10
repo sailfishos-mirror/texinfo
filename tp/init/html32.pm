@@ -344,10 +344,10 @@ sub html32_convert_paragraph_type($$$$)
 {
   my $self = shift;
   my $type = shift;
-  my $command = shift;
+  my $element = shift;
   my $content = shift;
 
-  $content = $self->get_pending_formatted_inline_content().$content;
+  $content = $self->get_associated_formatted_inline_content($element).$content;
 
   if ($self->paragraph_number() == 1) {
     my $in_format = $self->top_format();

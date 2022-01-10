@@ -24,6 +24,8 @@
 #    %default_commands_open
 #  * type tree element (element without @-command) formatting
 #    functions, defaults in %default_types_conversion
+#  * type tree element opening functions defaults in
+#    %default_types_open
 #  * other formatting functions, defaults in
 #    %default_formatting_references
 #
@@ -1199,6 +1201,32 @@ sub get_pending_formatted_inline_content($) {
     $self->{'pending_inline_content'} = undef;
     return $result;
   }
+}
+
+# API to associate inline content to an element, typically
+# paragraph or preformatted.  Allows to associate the pending
+# content to the first inline element.
+sub associate_pending_formatted_inline_content($$$) {
+  my $self = shift;
+  my $element = shift;
+  my $inline_content = shift;
+
+  if (not $self->{'associated_inline_content'}->{$element}) {
+    $self->{'associated_inline_content'}->{$element} = '';
+  }
+  $self->{'associated_inline_content'}->{$element} .= $inline_content;
+}
+
+sub get_associated_formatted_inline_content($$) {
+  my $self = shift;
+  my $element = shift;
+
+  if ($self->{'associated_inline_content'}->{$element}) {
+    my $result = $self->{'associated_inline_content'}->{$element};
+    delete $self->{'associated_inline_content'}->{$element};
+    return $result;
+  }
+  return '';
 }
 
 # API to register an information to a file and get it.  To be able to
@@ -3856,6 +3884,10 @@ sub _convert_float_command($$$$$)
 
   my ($caption, $prepended)
      = Texinfo::Convert::Converter::float_name_caption($self, $command);
+  my $caption_command_name;
+  if (defined($caption)) {
+    $caption_command_name = $caption->{'cmdname'};
+  }
   my $caption_text = '';
   my $prepended_text;
   if ($self->in_string()) {
@@ -3900,11 +3932,17 @@ sub _convert_float_command($$$$$)
         }
       }
       push @caption_contents, @caption_original_contents;
+      #$self->register_pending_formatted_inline_content($caption_command_name, 
+      #         $self->convert_tree({'cmdname' => 'strong',
+      #         'args' => [{'type' => 'brace_command_arg',
+      #                    'contents' => [$prepended]}]}), 'float number type');
       if ($new_paragraph) {
         $caption_text = $self->convert_tree_new_formatting_context(
+         #$caption->{'args'}->[0], 'float caption');
          {'contents' => \@caption_contents}, 'float caption');
         $prepended_text = '';
       }
+      #$self->cancel_pending_formatted_inline_content($caption_command_name);
     }
     if ($caption_text eq '') {
       $prepended_text = $self->convert_tree_new_formatting_context(
@@ -4787,6 +4825,16 @@ sub default_types_conversion($$)
   return $default_types_conversion{$type};
 }
 
+my %default_types_open;
+
+sub default_types_open($$)
+{
+  my $self = shift;
+  my $type = shift;
+  return $default_types_open{$type};
+}
+
+
 # Ignored commands
 foreach my $type ('empty_line_after_command', 'preamble_before_beginning',
             'preamble_before_setfilename',
@@ -4806,10 +4854,10 @@ sub _convert_paragraph_type($$$$)
 {
   my $self = shift;
   my $type = shift;
-  my $command = shift;
+  my $element = shift;
   my $content = shift;
 
-  $content = $self->get_pending_formatted_inline_content().$content;
+  $content = $self->get_associated_formatted_inline_content($element).$content;
 
   if ($self->paragraph_number() == 1) {
     my $in_format = $self->top_format();
@@ -4839,6 +4887,25 @@ sub _convert_paragraph_type($$$$)
 
 $default_types_conversion{'paragraph'} = \&_convert_paragraph_type;
 
+
+sub _open_inline_container_type($$$)
+{
+  my $self = shift;
+  my $type = shift;
+  my $element = shift;
+
+  my $pending_formatted = $self->get_pending_formatted_inline_content();
+
+  if (defined($pending_formatted)) {
+    $self->associate_pending_formatted_inline_content($element, $pending_formatted);
+  }
+  return '';
+}
+
+$default_types_open{'paragraph'} = \&_open_inline_container_type;
+$default_types_open{'preformatted'} = \&_open_inline_container_type;
+
+
 sub _preformatted_class()
 {
   my $self = shift;
@@ -4859,17 +4926,15 @@ sub _convert_preformatted_type($$$$)
 {
   my $self = shift;
   my $type = shift;
-  my $command = shift;
+  my $element = shift;
   my $content = shift;
 
   if (!defined($content)) {
     cluck "content undef in _convert_preformatted_type " 
-       .Texinfo::Common::debug_print_element($command);
+       .Texinfo::Common::debug_print_element($element);
   }
 
-  my $current = $command;
-
-  $content = $self->get_pending_formatted_inline_content().$content;
+  $content = $self->get_associated_formatted_inline_content($element).$content;
 
   return '' if ($content eq '');
 
@@ -4880,15 +4945,15 @@ sub _convert_preformatted_type($$$$)
     $content =~ s/\s*$//;
   }
 
-  # menu_entry_description is always in a preformatted container 
+  # menu_entry_description is always in a preformatted container
   # in the tree, as the whole menu is meant to be an
   # environment where spaces and newlines are preserved.
   #
-  # However, if not in preformatted block command (nor in SIMPLE_MENU), 
-  # we don't preserve spaces and newlines in menu_entry_description, 
+  # However, if not in preformatted block command (nor in SIMPLE_MENU),
+  # we don't preserve spaces and newlines in menu_entry_description,
   # instead the whole menu_entry is in a table, so here, not <pre>
-  if ($command->{'parent'}->{'type'} 
-      and $command->{'parent'}->{'type'} eq 'menu_entry_description'
+  if ($element->{'parent'}->{'type'}
+      and $element->{'parent'}->{'type'} eq 'menu_entry_description'
       and !$self->_in_preformatted_in_menu()) {
     return $content;
   }
@@ -4899,10 +4964,10 @@ sub _convert_preformatted_type($$$$)
   $content =~ s/^\n/\n\n/; # a newline immediately after a <pre> is ignored.
   my $result = $self->html_attribute_class('pre', $pre_class).">".$content."</pre>";
 
-  # this may happen with lines without textual content 
+  # this may happen with lines without textual content
   # between a def* and def*x.
-  if ($command->{'parent'}->{'cmdname'} 
-      and $command->{'parent'}->{'cmdname'} =~ /^def/) {
+  if ($element->{'parent'}->{'cmdname'}
+      and $element->{'parent'}->{'cmdname'} =~ /^def/) {
     $result = '<dd>'.$result.'</dd>';
   }
   return $result;
@@ -6166,6 +6231,19 @@ sub converter_initialize($)
           = $default_types_conversion{$type};
     }
   }
+
+  my $customized_types_open
+     = Texinfo::Config::GNUT_get_types_open();
+  foreach my $type (keys(%default_types_conversion)) {
+    if (exists($customized_types_open->{$type})) {
+      $self->{'types_open'}->{$type}
+          = $customized_types_open->{$type};
+    } elsif (exists($default_types_open{$type})) {
+      $self->{'types_open'}->{$type}
+           = $default_types_open{$type};
+    }
+  }
+
   # FIXME API with a function call?  Used in cvs.init.
   foreach my $type (keys(%default_code_types)) {
     $self->{'code_types'}->{$type} = $default_code_types{$type};
@@ -9219,30 +9297,36 @@ sub _convert($$;$)
       $element->{'cmdname'}
         if ($element->{'cmdname'});
 
-    if ($element->{'type'} eq 'paragraph') {
+    my $result = '';
+    my $type_name = $element->{'type'};
+    if (defined($self->{'types_open'}->{$type_name})) {
+      $result .= &{$self->{'types_open'}->{$type_name}}($self,
+                                               $type_name, $element);
+    }
+    if ($type_name eq 'paragraph') {
       $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]->{'paragraph_number'}++;
-    } elsif ($element->{'type'} eq 'preformatted'
-             or $element->{'type'} eq 'rawpreformatted') {
+    } elsif ($type_name eq 'preformatted'
+             or $type_name eq 'rawpreformatted') {
       $self->{'document_context'}->[-1]->{'formatting_context'}->[-1]->{'preformatted_number'}++;
-    } elsif ($element->{'type'} eq 'unit'
-             or $element->{'type'} eq 'special_element') {
+    } elsif ($type_name eq 'unit'
+             or $type_name eq 'special_element') {
       $self->{'current_root_element'} = $element;
-    } elsif ($pre_class_types{$element->{'type'}}) {
+    } elsif ($pre_class_types{$type_name}) {
       push @{$self->{'document_context'}->[-1]->{'preformatted_classes'}},
-        $pre_class_types{$element->{'type'}};
+        $pre_class_types{$type_name};
       push @{$self->{'document_context'}->[-1]->{'composition_context'}},
-        $element->{'type'};
+        $type_name;
     }
 
-    if ($self->{'code_types'}->{$element->{'type'}}) {
+    if ($self->{'code_types'}->{$type_name}) {
       push @{$self->{'document_context'}->[-1]->{'monospace'}}, 1;
     }
-    if ($element->{'type'} eq '_string') {
+    if ($type_name eq '_string') {
       $self->{'document_context'}->[-1]->{'string'}++;
     }
 
     my $content_formatted;
-    if ($element->{'type'} eq 'definfoenclose_command') {
+    if ($type_name eq 'definfoenclose_command') {
       if ($element->{'args'}) {
         $content_formatted = $self->_convert($element->{'args'}->[0]);
       }
@@ -9250,29 +9334,28 @@ sub _convert($$;$)
       $content_formatted = $self->_convert_contents($element, $command_type);
     }
 
-    my $result = '';
-    if (exists($self->{'types_conversion'}->{$element->{'type'}})) {
-      $result = &{$self->{'types_conversion'}->{$element->{'type'}}} ($self,
-                                                 $element->{'type'},
+    if (exists($self->{'types_conversion'}->{$type_name})) {
+      $result = &{$self->{'types_conversion'}->{$type_name}} ($self,
+                                                 $type_name,
                                                  $element,
                                                  $content_formatted);
-      #print STDERR "Converting type $element->{'type'} -> $result\n";
+      #print STDERR "Converting type $type_name -> $result\n";
     } elsif (defined($content_formatted)) {
       $result = $content_formatted;
     }
-    if ($self->{'code_types'}->{$element->{'type'}}) {
+    if ($self->{'code_types'}->{$type_name}) {
       pop @{$self->{'document_context'}->[-1]->{'monospace'}};
     } 
-    if ($element->{'type'} eq '_string') {
+    if ($type_name eq '_string') {
       $self->{'document_context'}->[-1]->{'string'}--;
     }
-    if ($element->{'type'} eq 'unit' or $element->{'type'} eq 'special_element') {
+    if ($type_name eq 'unit' or $type_name eq 'special_element') {
       delete $self->{'current_root_element'};
-    } elsif ($pre_class_types{$element->{'type'}}) {
+    } elsif ($pre_class_types{$type_name}) {
       pop @{$self->{'document_context'}->[-1]->{'preformatted_classes'}};
       pop @{$self->{'document_context'}->[-1]->{'composition_context'}};
     }
-    print STDERR "DO type ($element->{'type'}) => `$result'\n"
+    print STDERR "DO type ($type_name) => `$result'\n"
       if ($self->get_conf('DEBUG'));
     pop @{$self->{'document_context'}->[-1]->{'commands'}} 
         if ($element->{'cmdname'});
