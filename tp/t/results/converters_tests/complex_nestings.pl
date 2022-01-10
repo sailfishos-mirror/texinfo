@@ -1464,7 +1464,7 @@ $result_converted{'html_text'}->{'complex_nestings'} = '<h1 class="node-heading"
 <dd><pre class="example">THis is the defvar
 
 A table within the def
-</pre><dl>
+</pre><dl class="table">
 <dt><tt>item</tt></dt>
 <dd><pre class="example">text
 

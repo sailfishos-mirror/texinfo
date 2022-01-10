@@ -629,14 +629,14 @@ h1.settitle {text-align:center}
 
 <div class="center">in center <br> line break
 </div>
-<dl>
+<dl class="table">
 <dt><strong class="strong">with break <br> after</strong></dt>
 <dt><strong class="strong">withx breakx <br> afterx</strong></dt>
 <dd><p>Text
 </p></dd>
 </dl>
 
-<blockquote>
+<blockquote class="quotation">
 <p><b class="b">Q<br> uotation:</b> T
 </p></blockquote>
 

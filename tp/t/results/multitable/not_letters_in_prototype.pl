@@ -205,7 +205,7 @@ $result_converted{'plaintext'}->{'not_letters_in_prototype'} = '1.3   5-6
 ';
 
 
-$result_converted{'html_text'}->{'not_letters_in_prototype'} = '<table>
+$result_converted{'html_text'}->{'not_letters_in_prototype'} = '<table class="multitable">
 <tbody><tr><td>1.3</td><td>5-6</td></tr>
 </tbody>
 </table>

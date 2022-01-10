@@ -5734,7 +5734,7 @@ currently supported in Texinfo.
 </tr></table>
 <h1 class="chapter" id="References-1">2 References</h1>
 
-<ul>
+<ul class="itemize">
 <li><a class="anchor" id="LaTeX2e"></a>[LaTeX2e]
  Leslie Lamport, LaTeX User&rsquo;s Guide and
 Reference Manual, 2nd edition, Addison-Wesley, Reading,

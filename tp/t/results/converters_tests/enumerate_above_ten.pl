@@ -136,7 +136,7 @@ $result_converted{'plaintext'}->{'enumerate_above_ten'} = '  14. a
 ';
 
 
-$result_converted{'html_text'}->{'enumerate_above_ten'} = '<ol start="14">
+$result_converted{'html_text'}->{'enumerate_above_ten'} = '<ol class="enumerate" start="14">
 <li> a
 </li></ol>
 ';

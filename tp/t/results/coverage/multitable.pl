@@ -702,7 +702,7 @@ truc   bidule
 
 
 $result_converted{'html_text'}->{'multitable'} = '
-<table>
+<table class="multitable">
 <thead><tr><th width="60%">mu&ndash;ltitable headitem</th><th width="40%">another tab</th></tr></thead>
 <tbody><tr><td width="60%">mu&ndash;ltitable item</td><td width="40%">multitable tab</td></tr>
 <tr><td width="60%">mu&ndash;ltitable item 2</td><td width="40%">multitable tab 2
@@ -711,7 +711,7 @@ $result_converted{'html_text'}->{'multitable'} = '
 </tbody>
 </table>
 
-<table>
+<table class="multitable">
 <tbody><tr><td>truc</td><td>bidule</td></tr>
 </tbody>
 </table>

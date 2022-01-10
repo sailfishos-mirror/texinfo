@@ -2356,20 +2356,20 @@ $result_converted{'html_text'}->{'kbdinputstyle_in_table'} = '
 <p>@kbdinputstyle code
 </p>
 
-<dl>
+<dl class="table">
 <dt><code class="code as-code-kbd ">i--tem out of example</code></dt>
 </dl>
 
-<dl>
+<dl class="table">
 <dt><code class="code as-code-kbd ">braced i--tem out of example</code></dt>
 </dl>
 
 <p>in example
 </p><div class="example">
-<dl>
+<dl class="table">
 <dt><tt><code class="code as-code-kbd ">i--tem in example</code></tt></dt>
 </dl>
-<dl>
+<dl class="table">
 <dt><tt><code class="code as-code-kbd ">braced i--tem in example</code></tt></dt>
 </dl>
 </div>
@@ -2377,20 +2377,20 @@ $result_converted{'html_text'}->{'kbdinputstyle_in_table'} = '
 <p>@kbdinputstyle example
 </p>
 
-<dl>
+<dl class="table">
 <dt><kbd class="kbd">i--tem out of example</kbd></dt>
 </dl>
 
-<dl>
+<dl class="table">
 <dt><kbd class="kbd">braced i--tem out of example</kbd></dt>
 </dl>
 
 <p>in example
 </p><div class="example">
-<dl>
+<dl class="table">
 <dt><tt><code class="code as-code-kbd ">i--tem in example</code></tt></dt>
 </dl>
-<dl>
+<dl class="table">
 <dt><tt><code class="code as-code-kbd ">braced i--tem in example</code></tt></dt>
 </dl>
 </div>
@@ -2398,20 +2398,20 @@ $result_converted{'html_text'}->{'kbdinputstyle_in_table'} = '
 <p>@kbdinputstyle distinct
 </p>
 
-<dl>
+<dl class="table">
 <dt><kbd class="kbd">i--tem out of example</kbd></dt>
 </dl>
 
-<dl>
+<dl class="table">
 <dt><kbd class="kbd">braced i--tem out of example</kbd></dt>
 </dl>
 
 <p>in example
 </p><div class="example">
-<dl>
+<dl class="table">
 <dt><tt><kbd class="kbd">i--tem in example</kbd></tt></dt>
 </dl>
-<dl>
+<dl class="table">
 <dt><tt><kbd class="kbd">braced i--tem in example</kbd></tt></dt>
 </dl>
 </div>

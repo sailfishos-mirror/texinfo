@@ -131,7 +131,7 @@ $result_converted{'plaintext'}->{'only_comment_on_quotation_line'} = '     In qu
 ';
 
 
-$result_converted{'html_text'}->{'only_comment_on_quotation_line'} = '<blockquote>
+$result_converted{'html_text'}->{'only_comment_on_quotation_line'} = '<blockquote class="quotation">
 <p>In quotation
 </p></blockquote>
 ';

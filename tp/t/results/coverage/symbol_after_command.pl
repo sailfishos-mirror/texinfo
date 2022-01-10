@@ -558,7 +558,7 @@ $result_converted{'plaintext'}->{'symbol_after_command'} = '. dot
 ';
 
 
-$result_converted{'html_text'}->{'symbol_after_command'} = '<dl>
+$result_converted{'html_text'}->{'symbol_after_command'} = '<dl class="table">
 <dt>. dot</dt>
 <dt>, comma</dt>
 <dt>@ @</dt>

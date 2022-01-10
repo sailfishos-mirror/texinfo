@@ -2081,68 +2081,68 @@ $result_converted{'plaintext'}->{'nested_block_commands'} = 'In group
 
 
 $result_converted{'html_text'}->{'nested_block_commands'} = '<div class="group"><p>In group
-</p><blockquote>
+</p><blockquote class="quotation">
 <p>in quotation
 </p></blockquote>
 </div>
-<div class="group"><blockquote>
+<div class="group"><blockquote class="quotation">
 <p>in quotation
 </p></blockquote>
 </div>
 <div class="group"><p>In group
-</p><blockquote>
+</p><blockquote class="quotation">
 <p>in quotation
 </p></blockquote>
 <p>after quotation
 </p></div>
 <div class="group">
 <p>In group sp b
-</p><blockquote>
+</p><blockquote class="quotation">
 <p>in quotation
 </p></blockquote>
 </div>
 <div class="group">
 <p>In group sp b a
 </p>
-<blockquote>
+<blockquote class="quotation">
 <p>in quotation
 </p></blockquote>
 </div>
 <div class="group"><p>In group sp a
 </p>
-<blockquote>
+<blockquote class="quotation">
 <p>in quotation
 </p></blockquote>
 </div>
-<div class="group"><blockquote>
+<div class="group"><blockquote class="quotation">
 
 <p>in quotation sp b
 </p></blockquote>
 </div>
-<div class="group"><blockquote>
+<div class="group"><blockquote class="quotation">
 
 <p>in quotation sp b a
 </p>
 </blockquote>
 </div>
-<div class="group"><blockquote>
+<div class="group"><blockquote class="quotation">
 <p>in quotation sp a
 </p>
 </blockquote>
 </div>
-<div class="group"><blockquote>
+<div class="group"><blockquote class="quotation">
 <p>in quotation
 </p></blockquote>
 
 <p>After quotation sp b
 </p></div>
-<div class="group"><blockquote>
+<div class="group"><blockquote class="quotation">
 <p>in quotation
 </p></blockquote>
 <p>After quotation sp a
 </p>
 </div>
-<div class="group"><blockquote>
+<div class="group"><blockquote class="quotation">
 <p>in quotation
 </p></blockquote>
 

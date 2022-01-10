@@ -605,27 +605,27 @@ $result_converted{'plaintext'}->{'standard_quotations'} = '     Note: A Note
 ';
 
 
-$result_converted{'html_text'}->{'standard_quotations'} = '<blockquote>
+$result_converted{'html_text'}->{'standard_quotations'} = '<blockquote class="quotation">
 <p><b class="b">Note:</b> A Note
 </p></blockquote>
 
-<blockquote>
+<blockquote class="quotation">
 <p><b class="b">note:</b> A note
 </p></blockquote>
 
-<blockquote>
+<blockquote class="quotation">
 <p><b class="b">Caution:</b> Caution
 </p></blockquote>
 
-<blockquote>
+<blockquote class="quotation">
 <p><b class="b">Important:</b> Important
 </p></blockquote>
 
-<blockquote>
+<blockquote class="quotation">
 <p><b class="b">Tip:</b> a Tip
 </p></blockquote>
 
-<blockquote>
+<blockquote class="quotation">
 <p><b class="b">Warning:</b> a Warning.
 </p></blockquote>
 ';

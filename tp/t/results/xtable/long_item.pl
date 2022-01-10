@@ -227,7 +227,7 @@ _second itemx bbbbbbbbbbbbbbbbbbbbbbbbbbbbb b b b b b b b b b b b b b_
 ';
 
 
-$result_converted{'html_text'}->{'long_item'} = '<dl>
+$result_converted{'html_text'}->{'long_item'} = '<dl class="table">
 <dt><em class="emph">first item      aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa</em></dt>
 <dt><em class="emph">second itemx bbbbbbbbbbbbbbbbbbbbbbbbbbbbb b b b b b b b b b b b b b</em></dt>
 <dd>

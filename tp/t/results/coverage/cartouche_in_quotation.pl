@@ -205,7 +205,7 @@ $result_converted{'plaintext'}->{'cartouche_in_quotation'} = '     In quotation
 ';
 
 
-$result_converted{'html_text'}->{'cartouche_in_quotation'} = '<blockquote>
+$result_converted{'html_text'}->{'cartouche_in_quotation'} = '<blockquote class="quotation">
 <p>In quotation
 </p><table class="cartouche" border="1"><tr><td>
 <p>In cartouche in quotation

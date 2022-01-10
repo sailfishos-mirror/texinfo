@@ -1552,17 +1552,17 @@ in flushleft
 $result_converted{'html_text'}->{'commands_in_flushright'} = '<div class="flushright">
 <div class="group"><p class="flushright-paragraph">in group
 </p></div>
-<blockquote>
+<blockquote class="quotation">
 <p class="flushright-paragraph"><b class="b">type:</b> in quotation
 </p></blockquote>
 
-<ol>
+<ol class="enumerate">
 <li> item
 
 </li><li> other item
 </li></ol>
 
-<dl>
+<dl class="table">
 <dt><em class="emph">table item</em></dt>
 <dt><em class="emph">table itemx</em></dt>
 <dd><p class="flushright-paragraph">Table text
@@ -1571,7 +1571,7 @@ $result_converted{'html_text'}->{'commands_in_flushright'} = '<div class="flushr
 </p></dd>
 </dl>
 
-<table>
+<table class="multitable">
 <tbody><tr><td width="50%">col1</td><td width="50%">col2</td></tr>
 <tr><td width="50%">text
 

@@ -256,7 +256,7 @@ $result_converted{'html_text'}->{'insertcopying'} = '
 </p>
 <p>License.
 </p>
-<blockquote>
+<blockquote class="quotation">
 <p>You are not allowed.
 </p></blockquote>
 ';

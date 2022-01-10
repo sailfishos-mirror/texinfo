@@ -348,7 +348,7 @@ $result_converted{'html_text'}->{'heading_command_in_commands'} = '
 </code>
 </p>
 
-<blockquote>
+<blockquote class="quotation">
 </blockquote>
 ';
 

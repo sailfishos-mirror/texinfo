@@ -3965,6 +3965,8 @@ sub _convert_quotation_command($$$$$)
 
   my $attribution = '';
   if ($command->{'extra'} and $command->{'extra'}->{'authors'}) {
+    # FIXME there is no easy way to mark with a class the @author
+    # @-command.  Add a span?
     foreach my $author (@{$command->{'extra'}->{'authors'}}) {
       my $centered_author = $self->gdt("\@center --- \@emph{{author}}\n",
          {'author' => $author->{'args'}->[0]->{'contents'}});
@@ -3974,7 +3976,8 @@ sub _convert_quotation_command($$$$$)
   }
 
   if (!$self->in_string()) {
-    return "<blockquote>\n" . $content . "</blockquote>\n" . $attribution;
+    return $self->html_attribute_class('blockquote', $cmdname)
+                          .">\n" . $content . "</blockquote>\n" . $attribution;
   } else {
     return $content.$attribution;
   }
@@ -4029,19 +4032,21 @@ sub _convert_itemize_command($$$$)
   # FIXME API?
   if (defined($mark_class_name)
       and defined($self->{'css_map'}->{'ul.mark-'.$mark_class_name})) {
-    return $self->html_attribute_class('ul', 'mark-'.$mark_class_name).">\n"
-       . $content. "</ul>\n";
+    return $self->html_attribute_class('ul', $cmdname, ['mark-'.$mark_class_name])
+        .">\n" . $content. "</ul>\n";
   } elsif ($self->get_conf('NO_CSS')) {
-    return "<ul>\n" . $content. "</ul>\n";
+    return $self->html_attribute_class('ul', $cmdname).">\n" . $content. "</ul>\n";
   } else {
     my $css_string
       = $self->html_convert_css_string_for_list_bullet($command->{'args'}->[0],
                                                       'itemize arg');
     if ($css_string ne '') {
-      return "<ul style=\"list-style-type: '".$self->protect_text($css_string)."'\">\n"
+      return $self->html_attribute_class('ul', $cmdname)
+        ." style=\"list-style-type: '".$self->protect_text($css_string)."'\">\n"
         . $content. "</ul>\n";
     } else {
-      return "<ul>\n" . $content. "</ul>\n";
+      return $self->html_attribute_class('ul', $cmdname)
+        .">\n" . $content. "</ul>\n";
     }
   }
 }
@@ -4061,6 +4066,8 @@ sub _convert_enumerate_command($$$$)
   if ($content eq '') {
     return '';
   }
+  my $type_attribute = '';
+  my $start_attribute = '';
   my $specification = $command->{'extra'}->{'enumerate_specification'};
   if (defined $specification) {
     my ($start, $type);
@@ -4073,13 +4080,11 @@ sub _convert_enumerate_command($$$$)
       $start = 1 + ord($specification) - ord('a');
       $type = 'a';
     }
-    if (defined $type and defined $start) {
-      return "<ol type=\"$type\" start=\"$start\">\n" . $content . "</ol>\n";
-    } elsif (defined $start) {
-      return "<ol start=\"$start\">\n" . $content . "</ol>\n";
-    }
+    $type_attribute = " type=\"$type\"" if (defined($type));
+    $start_attribute = " start=\"$start\"" if (defined($start));
   }
-  return "<ol>\n" . $content . "</ol>\n";
+  return $self->html_attribute_class('ol', $cmdname).$type_attribute
+       .$start_attribute.">\n" . $content . "</ol>\n";
 }
 
 $default_commands_conversion{'enumerate'} = \&_convert_enumerate_command;
@@ -4095,7 +4100,8 @@ sub _convert_multitable_command($$$$)
     return $content;
   }
   if ($content =~ /\S/) {
-    return "<table>\n" . $content . "</table>\n";
+    return $self->html_attribute_class('table', $cmdname).">\n"
+                                     . $content . "</table>\n";
   } else {
     return '';
   }
@@ -4114,7 +4120,8 @@ sub _convert_xtable_command($$$$)
     return $content;
   }
   if ($content ne '') {
-    return "<dl>\n" . $content . "</dl>\n";
+    return $self->html_attribute_class('dl', $cmdname).">\n"
+      . $content . "</dl>\n";
   } else {
     return '';
   }

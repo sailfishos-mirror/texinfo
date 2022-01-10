@@ -363,7 +363,7 @@ item. tab.
 ';
 
 
-$result_converted{'html_text'}->{'paragraph_in_cells'} = '<table>
+$result_converted{'html_text'}->{'paragraph_in_cells'} = '<table class="multitable">
 <tbody><tr><td>truc</td><td>bidule</td></tr>
 <tr><td>begin item
 

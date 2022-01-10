@@ -447,7 +447,7 @@ in exdented a @*
 ';
 
 
-$result_converted{'html_text'}->{'exdent_and_commands'} = '<blockquote>
+$result_converted{'html_text'}->{'exdent_and_commands'} = '<blockquote class="quotation">
 <p>quotation1
 </p><p class="exdent">in exdented protected eol &nbsp;
 </p><p>following

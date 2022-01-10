@@ -432,15 +432,15 @@ $result_converted{'plaintext'}->{'empty_accent_argument'} = '   ̃  item
 ';
 
 
-$result_converted{'html_text'}->{'empty_accent_argument'} = '<ul style="list-style-type: \'\\0303 \'">
+$result_converted{'html_text'}->{'empty_accent_argument'} = '<ul class="itemize" style="list-style-type: \'\\0303 \'">
 <li>item
 </li></ul>
 
-<ul style="list-style-type: \'\\0303 \'">
+<ul class="itemize" style="list-style-type: \'\\0303 \'">
 <li>item
 </li></ul>
 
-<ul style="list-style-type: \'\\0303 \'">
+<ul class="itemize" style="list-style-type: \'\\0303 \'">
 <li>item
 </li></ul>
 ';

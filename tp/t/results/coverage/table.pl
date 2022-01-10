@@ -700,7 +700,7 @@ table itemx
 
 
 $result_converted{'html_text'}->{'table'} = '
-<dl>
+<dl class="table">
 <dt>table item</dt>
 <dt>table itemx</dt>
 <dd>
@@ -708,7 +708,7 @@ $result_converted{'html_text'}->{'table'} = '
 </p></dd>
 </dl>
 
-<dl>
+<dl class="vtable">
 <dd><a class="index-entry-anchor" id="index-index-entry"></a>
 
 </dd>

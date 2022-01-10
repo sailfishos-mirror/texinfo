@@ -476,19 +476,19 @@ $result_converted{'plaintext'}->{'quotation_and_author'} = 'Text before quotatio
 
 $result_converted{'html_text'}->{'quotation_and_author'} = '<p>Text before quotation
 </p>
-<blockquote>
+<blockquote class="quotation">
 <p>A quot&mdash;ation
 </p></blockquote>
 <div class="center">&mdash; <em class="emph">Some One</em>
 </div>
 <p>Text between quotation and smallquotation
 </p>
-<blockquote>
+<blockquote class="smallquotation">
 <p>in small&mdash;quotation.
 </p></blockquote>
 <div class="center">&mdash; <em class="emph">An Author Name</em>
 </div>
-<blockquote>
+<blockquote class="quotation">
 <p><b class="b">Note:</b> A Note
 </p></blockquote>
 <div class="center">&mdash; <em class="emph">Some Notifier</em>

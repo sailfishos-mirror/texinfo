@@ -148,7 +148,7 @@ $result_converted{'plaintext'}->{'comment_first_on_enumerate_line'} = '  1. firs
 ';
 
 
-$result_converted{'html_text'}->{'comment_first_on_enumerate_line'} = '<ol>
+$result_converted{'html_text'}->{'comment_first_on_enumerate_line'} = '<ol class="enumerate">
 <li> first
 </li></ol>
 ';

@@ -314,7 +314,7 @@ $result_converted{'plaintext'}->{'multitable_with_empty_item_tab'} = '1-1       
 ';
 
 
-$result_converted{'html_text'}->{'multitable_with_empty_item_tab'} = '<table>
+$result_converted{'html_text'}->{'multitable_with_empty_item_tab'} = '<table class="multitable">
 <tbody><tr><td width="30%">1-1</td><td width="70%">1-2</td></tr>
 <tr><td width="30%"></td><td width="70%"></td></tr>
 <tr><td width="30%">3-1</td><td width="70%">3-2</td></tr>

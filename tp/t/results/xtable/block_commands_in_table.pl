@@ -1735,7 +1735,7 @@ _second item_
 $result_converted{'html_text'}->{'block_commands_in_table'} = '<div class="top" id="Top">
 <h1 class="top" id="Element">Element</h1>
 
-<dl>
+<dl class="table">
 <dt><em class="emph">first item</em></dt>
 <dt><em class="emph">second itemx</em></dt>
 <dd>
@@ -1754,20 +1754,20 @@ end example.
 <p>empty line.
 </p></dd>
 <dt><em class="emph">quotation</em></dt>
-<dd><blockquote>
+<dd><blockquote class="quotation">
 <p>Quotation
 </p></blockquote>
 
 </dd>
 <dt><em class="emph">quotation after a blank line</em></dt>
 <dd>
-<blockquote>
+<blockquote class="quotation">
 <p>quotation after a blank line
 </p></blockquote>
 </dd>
 </dl>
 
-<dl>
+<dl class="vtable">
 <dt id=\'index-item-before-ignored-lines\'><span><strong class="strong">item before ignored lines</strong><a class="copiable-anchor" href=\'#index-item-before-ignored-lines\'> &para;</a></span></dt>
 <dd><a class="index-entry-anchor" id="index-vindex"></a>
 </dd>
@@ -1776,7 +1776,7 @@ end example.
 <p>Description
 </p></dd>
 </dl>
-<dl>
+<dl class="vtable">
 <dt id=\'index-item\'><span><span class="r">item</span><a class="copiable-anchor" href=\'#index-item\'> &para;</a></span></dt>
 <dt id=\'index-itemx-after-an-empty-line\'><span><span class="r">itemx after an empty line</span><a class="copiable-anchor" href=\'#index-itemx-after-an-empty-line\'> &para;</a></span></dt>
 <dd>
@@ -1786,7 +1786,7 @@ end example.
 </dl>
 
 <p>Something.
-</p><dl>
+</p><dl class="table">
 <dt><em class="emph">in item</em></dt>
 <dd><p>Text without blank line
 </p></dd>

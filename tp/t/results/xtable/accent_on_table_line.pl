@@ -492,12 +492,12 @@ no at-command ‘code acc brace’
 ';
 
 
-$result_converted{'html_text'}->{'accent_on_table_line'} = '<dl>
+$result_converted{'html_text'}->{'accent_on_table_line'} = '<dl class="table">
 <dt>first item</dt>
 <dt>no at-command <code class="code">code</code></dt>
 </dl>
 
-<dl>
+<dl class="table">
 <dt>acc brace first item</dt>
 <dt>no at-command <code class="code">code acc brace</code></dt>
 </dl>

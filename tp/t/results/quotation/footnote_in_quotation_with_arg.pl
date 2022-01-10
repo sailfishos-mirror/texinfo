@@ -162,7 +162,7 @@ $result_converted{'plaintext'}->{'footnote_in_quotation_with_arg'} = '     lean:
 ';
 
 
-$result_converted{'html_text'}->{'footnote_in_quotation_with_arg'} = '<blockquote>
+$result_converted{'html_text'}->{'footnote_in_quotation_with_arg'} = '<blockquote class="quotation">
 <p><b class="b">lean:</b> A<a class="footnote" id="DOCF1" href="#FOOT1"><sup>1</sup></a> b.
 </p></blockquote>
 <div class="footnote">

@@ -410,7 +410,7 @@ $result_converted{'html_text'}->{'preformatted'} = '
 </pre></div>
 
 <div class="format">
-<dl>
+<dl class="vtable">
 <dt id=\'index-item-in-table-in-format\'><span><code class="code">item in table in format</code><a class="copiable-anchor" href=\'#index-item-in-table-in-format\'> &para;</a></span></dt>
 <dd><pre class="format">
 

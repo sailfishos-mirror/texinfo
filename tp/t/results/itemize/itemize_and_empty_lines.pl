@@ -1920,7 +1920,7 @@ $result_converted{'plaintext'}->{'itemize_and_empty_lines'} = '   youhou first i
 ';
 
 
-$result_converted{'html_text'}->{'itemize_and_empty_lines'} = '<ul style="list-style-type: \'youhou\'">
+$result_converted{'html_text'}->{'itemize_and_empty_lines'} = '<ul class="itemize" style="list-style-type: \'youhou\'">
 <li>first item
 </li><li><div class="example">
 <pre class="example">In example
@@ -1933,17 +1933,17 @@ empty line.
 <div class="example">
 <pre class="example">In second example
 </pre></div>
-<blockquote>
+<blockquote class="quotation">
 <p>Quotation
 </p></blockquote>
 
 </li><li>
-<blockquote>
+<blockquote class="quotation">
 <p>quotation after a blank line
 </p></blockquote>
 </li></ul>
 
-<ul class="mark-bullet">
+<ul class="itemize mark-bullet">
 <li>first item
 </li><li><div class="example">
 <pre class="example">In example
@@ -1956,18 +1956,18 @@ empty line.
 <div class="example">
 <pre class="example">In second example
 </pre></div>
-</li><li><blockquote>
+</li><li><blockquote class="quotation">
 <p>Quotation
 </p></blockquote>
 
 </li><li>
-<blockquote>
+<blockquote class="quotation">
 <p>quotation after a blank line
 </p></blockquote>
 </li></ul>
 
 <p>An itemize
-</p><ul class="mark-minus">
+</p><ul class="itemize mark-minus">
 <li>truc 
 line
 </li></ul>
@@ -1975,17 +1975,17 @@ line
 </p>
 
 <p>A nested itemize
-</p><ul class="mark-minus">
+</p><ul class="itemize mark-minus">
 <li>truc 
 line
-<ul class="mark-bullet">
+<ul class="itemize mark-bullet">
 <li>in nested itemize
 </li></ul>
 <p>After inside nested itemize.
 </p></li></ul>
 <p>After nested itemize
 </p>
-<ul class="mark-bullet">
+<ul class="itemize mark-bullet">
 <li>the version number of Texinfo and the program(s) or manual(s) involved.
 </li><li>hardware and operating system names and versions.
 </li><li>something aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaa

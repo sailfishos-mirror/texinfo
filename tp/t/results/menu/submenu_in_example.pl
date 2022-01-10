@@ -916,7 +916,7 @@ in example
 <pre class="menu-comment">
 
 </pre><table class="menu" border="0" cellspacing="0"><tr><td>
-<blockquote>
+<blockquote class="quotation">
 <pre class="menu-comment">A quot---ation in submenu
 </pre></blockquote>
 </td></tr></table>
@@ -925,7 +925,7 @@ in example
 </pre><strong id="subheading-in-menu">subheading in menu</strong>
 <pre class="menu-comment">
 
-</pre><ol>
+</pre><ol class="enumerate">
 <li> <pre class="menu-comment">e--numerate
 </pre></li></ol>
 <pre class="menu-comment">

@@ -290,11 +290,11 @@ $result_converted{'plaintext'}->{'space_at_commands_end_quotation_line'} = '    
 ';
 
 
-$result_converted{'html_text'}->{'space_at_commands_end_quotation_line'} = '<blockquote>
+$result_converted{'html_text'}->{'space_at_commands_end_quotation_line'} = '<blockquote class="quotation">
 <p><b class="b">@ at the end of line &nbsp;:</b> A @ at the end of the @quotation line.
 </p></blockquote>
 
-<blockquote>
+<blockquote class="quotation">
 <p><b class="b">@&nbsp; at the end of line &nbsp;:</b> A @&nbsp; at the end of the @quotation line.
 </p></blockquote>
 ';

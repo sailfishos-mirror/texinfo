@@ -136,7 +136,7 @@ $result_converted{'plaintext'}->{'indent_in_quotation'} = '     indent in quotat
 ';
 
 
-$result_converted{'html_text'}->{'indent_in_quotation'} = '<blockquote>
+$result_converted{'html_text'}->{'indent_in_quotation'} = '<blockquote class="quotation">
 <p>indent in quotation
 </p></blockquote>
 ';

@@ -1920,7 +1920,7 @@ $result_converted{'html_text'}->{'exdent_and_formats'} = '<div class="example">
 
 <p>Para1.
 </p>
-<blockquote>
+<blockquote class="quotation">
 <p>qsddsqkdsqkkmljsqjsqodmmdsqdsmqj dqs sdq sqd sdq dsq sdq sqd sqd sdq sdq 
 qsd dsq sdq dsq dssdq sdq sdq sdq dsq sdq dsq dsq sdq dsq sdqsd q
 </p></blockquote>
@@ -1931,12 +1931,12 @@ qsd dsq sdq dsq dssdq sdq sdq sdq dsq sdq dsq dsq sdq dsq sdqsd q
 </p>
 <p>Last para.
 </p>
-<blockquote>
+<blockquote class="quotation">
 <p>quotation1
 quotation2
 </p></blockquote>
 
-<blockquote>
+<blockquote class="quotation">
 <p>quotation para 1
 </p>
 <p>quotation para 2
@@ -1950,36 +1950,36 @@ quotation2
 </pre></div>
 </div>
 
-<blockquote>
+<blockquote class="quotation">
 <p class="exdent">exdented quotation line   and dash &mdash; in quotation
 </p></blockquote>
 
-<blockquote>
+<blockquote class="quotation">
 <p>Not exdented followed by exdented
 </p><p class="exdent">exdented quotation line
 </p></blockquote>
 
-<blockquote>
+<blockquote class="quotation">
 <p class="exdent">exdented quotation line
 </p><p>Followed by not exdented 
 </p></blockquote>
 
-<blockquote>
+<blockquote class="quotation">
 <p class="exdent">exdented quotation line oidfjslsd aez a aze azaz aeae za eaz az
 </p><p class="exdent">azeaz az az az az
 </p></blockquote>
 
-<blockquote>
+<blockquote class="quotation">
 <p class="exdent">exdented quotation line oidfjslsd aez a aze azaz aeae za eaz az azeaz end line
 </p><p class="exdent">az az az az
 </p></blockquote>
 
-<blockquote>
+<blockquote class="quotation">
 <p>quotation line oidfjslsd aez a aze azaz aeae za eaz az zelef  aaa
 </p><p class="exdent">ezkfjklezf
 </p></blockquote>
 
-<blockquote>
+<blockquote class="quotation">
 <p class="exdent">very loooooooooooooooooooooooooooooooooong exdented quotation line oidfjslsd aez a aze azaz aeae za eaz az azeaz end line
 </p><p class="exdent">az az az az
 </p></blockquote>

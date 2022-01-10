@@ -207,7 +207,7 @@ $result_converted{'html'}->{'heading_in_quotation'} = '<!DOCTYPE html>
 </head>
 
 <body lang="en">
-<blockquote>
+<blockquote class="quotation">
 
 <h3 class="heading" id="in-quotation-_0040-heading">in quotation @ <em class="emph">heading</em></h3>
 

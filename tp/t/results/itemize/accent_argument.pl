@@ -287,11 +287,11 @@ $result_converted{'plaintext'}->{'accent_argument'} = '   ẽ item
 ';
 
 
-$result_converted{'html_text'}->{'accent_argument'} = '<ul style="list-style-type: \'\\1EBD \'">
+$result_converted{'html_text'}->{'accent_argument'} = '<ul class="itemize" style="list-style-type: \'\\1EBD \'">
 <li>item
 </li></ul>
 
-<ul style="list-style-type: \'\\1EBD \'">
+<ul class="itemize" style="list-style-type: \'\\1EBD \'">
 <li>item
 </li></ul>
 ';

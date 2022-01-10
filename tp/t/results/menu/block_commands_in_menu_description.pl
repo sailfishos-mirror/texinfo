@@ -849,13 +849,13 @@ ul.mark-bullet {list-style-type: disc}
 
 <table class="menu" border="0" cellspacing="0">
 <tr><td align="left" valign="top">&bull; <a href="manual.html#Top" accesskey="1">(manual)</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-<ul class="mark-bullet">
+<ul class="itemize mark-bullet">
 <li><pre class="menu-preformatted">
 
 </pre></li><li><pre class="menu-preformatted">in item
 
 </pre></li></ul>
-<dl>
+<dl class="table">
 <dd><pre class="menu-preformatted">
 
 </pre></dd>

@@ -156,7 +156,7 @@ $result_converted{'plaintext'}->{'comment_first_on_itemize_line'} = '   • firs
 ';
 
 
-$result_converted{'html_text'}->{'comment_first_on_itemize_line'} = '<ul class="mark-bullet">
+$result_converted{'html_text'}->{'comment_first_on_itemize_line'} = '<ul class="itemize mark-bullet">
 <li>first
 </li></ul>
 ';

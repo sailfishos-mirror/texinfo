@@ -1193,11 +1193,11 @@ $result_converted{'html_text'}->{'punctuation_in_line_commands'} = '
 <div class="top" id="node_0021-After-punc">
 <h1 class="top" id="top_0021-After-punc">top! After punc</h1>
 
-<dl>
+<dl class="table">
 <dt>item! After punc</dt>
 </dl>
 
-<blockquote>
+<blockquote class="quotation">
 <p><b class="b">quotation arg! After punc:</b> In quotation
 </p><p class="exdent">exdent quotation! After punc
 </p></blockquote>

@@ -495,17 +495,17 @@ $result_converted{'plaintext'}->{'enumerate_argument_item'} = '  1. numeric firs
 ';
 
 
-$result_converted{'html_text'}->{'enumerate_argument_item'} = '<ol>
+$result_converted{'html_text'}->{'enumerate_argument_item'} = '<ol class="enumerate">
 <li> numeric first
 </li><li> numeric second
 </li></ol>
 
-<ol type="A" start="1">
+<ol class="enumerate" type="A" start="1">
 <li> upper case first
 </li><li> upper case second
 </li></ol>
 
-<ol type="a" start="26">
+<ol class="enumerate" type="a" start="26">
 <li> lower case first
 </li><li> lower case second
 </li></ol>

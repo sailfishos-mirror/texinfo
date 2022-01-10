@@ -4896,14 +4896,14 @@ An example 2.
 </pre></div>
 
 <p>A table 2.
-</p><dl>
+</p><dl class="table">
 <dt><em class="emph">truc 2</em></dt>
 <dd><p>line 2
 </p></dd>
 </dl>
 
 <p>A multitable 2.
-</p><table>
+</p><table class="multitable">
 <tbody><tr><td>truc 2</td><td>bidule</td></tr>
 <tr><td>truc 2</td><td>bidule</td></tr>
 </tbody>
@@ -4911,7 +4911,7 @@ An example 2.
 <p>An index entry 2
 </p>
 <p>An itemize 2.
-</p><ul class="mark-minus">
+</p><ul class="itemize mark-minus">
 <li>truc 2
 line
 </li></ul>
@@ -4936,14 +4936,14 @@ A footnote 2.
 <a class="index-entry-anchor" id="index-float-example"></a>
 </p>
 <p>A table.
-</p><dl>
+</p><dl class="table">
 <dt><em class="emph">truc</em></dt>
 <dd><p>line
 </p></dd>
 </dl>
 
 <p>An itemize.
-</p><ul class="mark-minus">
+</p><ul class="itemize mark-minus">
 <li>truc 
 line
 </li></ul>
@@ -4967,14 +4967,14 @@ An example.
 
 <a class="anchor" id="Anchor-in-caption"></a>
 <p>A table.
-</p><dl>
+</p><dl class="table">
 <dt><em class="emph">truc</em></dt>
 <dd><p>line
 </p></dd>
 </dl>
 
 <p>A multitable.
-</p><table>
+</p><table class="multitable">
 <tbody><tr><td>truc</td><td>bidule</td></tr>
 <tr><td>truc</td><td>bidule</td></tr>
 </tbody>
@@ -4983,7 +4983,7 @@ An example.
 <a class="index-entry-anchor" id="index-float-example-in-caption"></a>
 </p>
 <p>An itemize.
-</p><ul class="mark-minus">
+</p><ul class="itemize mark-minus">
 <li>truc 
 line
 </li></ul>
@@ -5019,14 +5019,14 @@ An example 2.
 </pre></div>
 
 <p>A table 2.
-</p><dl>
+</p><dl class="table">
 <dt><em class="emph">truc 2</em></dt>
 <dd><p>line 2
 </p></dd>
 </dl>
 
 <p>A multitable 2.
-</p><table>
+</p><table class="multitable">
 <tbody><tr><td>truc 2</td><td>bidule</td></tr>
 <tr><td>truc 2</td><td>bidule</td></tr>
 </tbody>
@@ -5035,7 +5035,7 @@ An example 2.
 <a class="index-entry-anchor" id="index-float-example-in-caption-2"></a>
 </p>
 <p>An itemize 2.
-</p><ul class="mark-minus">
+</p><ul class="itemize mark-minus">
 <li>truc 2
 line
 </li></ul>

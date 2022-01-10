@@ -927,7 +927,7 @@ $result_converted{'html_text'}->{'empty_string_index_entry'} = '<h1 class="node-
 
 <a class="index-entry-anchor" id="index-"></a>
 
-<dl>
+<dl class="ftable">
 <dt id=\'index--1\'><span><code class="code"><!-- /@w --></code><a class="copiable-anchor" href=\'#index--1\'> &para;</a></span></dt>
 </dl>
 

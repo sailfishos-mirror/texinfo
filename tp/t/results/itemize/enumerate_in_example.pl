@@ -252,7 +252,7 @@ $result_converted{'plaintext'}->{'enumerate_in_example'} = '       1. first item
 
 $result_converted{'html_text'}->{'enumerate_in_example'} = '
 <div class="example">
-<ol>
+<ol class="enumerate">
 <li> <pre class="example">first item
 </pre></li><li> <pre class="example">second  item
 

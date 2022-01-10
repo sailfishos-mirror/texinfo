@@ -246,7 +246,7 @@ $result_converted{'plaintext'}->{'quotation_author'} = '     quotation quotation
 ';
 
 
-$result_converted{'html_text'}->{'quotation_author'} = '<blockquote>
+$result_converted{'html_text'}->{'quotation_author'} = '<blockquote class="quotation">
 
 <p>quotation
 quotation continues.

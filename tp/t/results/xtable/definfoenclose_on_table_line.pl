@@ -292,7 +292,7 @@ $result_converted{'plaintext'}->{'definfoenclose_on_table_line'} = ':item:
 
 
 $result_converted{'html_text'}->{'definfoenclose_on_table_line'} = '
-<dl>
+<dl class="table">
 <dt>:item:</dt>
 <dt>:item x:</dt>
 <dd>

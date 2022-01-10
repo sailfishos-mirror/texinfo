@@ -215,7 +215,7 @@ $result_converted{'html_text'}->{'paragraph_indent_asis'} = '
 <p>para
   fff
 </p>
-<blockquote>
+<blockquote class="quotation">
 <p>in quotation
 </p></blockquote>
 

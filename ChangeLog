@@ -1,5 +1,12 @@
 2022-01-10  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_convert_quotation_command)
+	(_convert_itemize_command, _convert_enumerate_command)
+	(_convert_multitable_command, _convert_xtable_command): add
+	command name as class for block @-commands.
+
+2022-01-10  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_convert_float_command): use
 	@caption or @shortcaption as caption class for the div element
 	if there is a non empty caption/shortcaption, otherwise use the

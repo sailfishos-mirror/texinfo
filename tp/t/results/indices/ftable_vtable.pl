@@ -947,7 +947,7 @@ _var3_
 
 $result_converted{'html_text'}->{'ftable_vtable'} = '<h1 class="node-heading" id="Top">Top</h1>
 
-<dl>
+<dl class="ftable">
 <dt id=\'index-function1\'><span><em class="emph">function1</em><a class="copiable-anchor" href=\'#index-function1\'> &para;</a></span></dt>
 <dt id=\'index-function2x\'><span><em class="emph">function2x</em><a class="copiable-anchor" href=\'#index-function2x\'> &para;</a></span></dt>
 <dd><p>Text
@@ -955,7 +955,7 @@ $result_converted{'html_text'}->{'ftable_vtable'} = '<h1 class="node-heading" id
 <dt id=\'index-fun3\'><span><em class="emph">fun3</em><a class="copiable-anchor" href=\'#index-fun3\'> &para;</a></span></dt>
 </dl>
 
-<dl>
+<dl class="vtable">
 <dt id=\'index-var1-error_002d_002d_003e\'><span><em class="emph">var1 error&rarr;</em><a class="copiable-anchor" href=\'#index-var1-error_002d_002d_003e\'> &para;</a></span></dt>
 <dt id=\'index-varx2\'><span><em class="emph">varx2</em><a class="copiable-anchor" href=\'#index-varx2\'> &para;</a></span></dt>
 <dd><p>Text

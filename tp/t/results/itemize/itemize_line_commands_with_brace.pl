@@ -281,11 +281,11 @@ $result_converted{'plaintext'}->{'itemize_line_commands_with_brace'} = '   • b
 ';
 
 
-$result_converted{'html_text'}->{'itemize_line_commands_with_brace'} = '<ul class="mark-bullet">
+$result_converted{'html_text'}->{'itemize_line_commands_with_brace'} = '<ul class="itemize mark-bullet">
 <li>bullet
 </li></ul>
 
-<ul class="mark-minus">
+<ul class="itemize mark-minus">
 <li>minus
 </li></ul>
 ';

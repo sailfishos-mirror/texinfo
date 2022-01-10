@@ -891,7 +891,7 @@ not empty                            tab not empty
 ';
 
 
-$result_converted{'html_text'}->{'empty_item_tab'} = '<table>
+$result_converted{'html_text'}->{'empty_item_tab'} = '<table class="multitable">
 <tbody><tr><td width="100%"></td></tr>
 <tr><td width="100%"></td></tr>
 <tr><td width="100%">text</td></tr>
@@ -899,7 +899,7 @@ $result_converted{'html_text'}->{'empty_item_tab'} = '<table>
 </tbody>
 </table>
 
-<table>
+<table class="multitable">
 <tbody><tr><td width="50%"></td></tr>
 <tr><td width="50%"></td></tr>
 <tr><td width="50%">only item</td></tr>

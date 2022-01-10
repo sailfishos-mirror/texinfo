@@ -471,9 +471,9 @@ $result_converted{'plaintext'}->{'table_in_itemize'} = '   • item one
 ';
 
 
-$result_converted{'html_text'}->{'table_in_itemize'} = '<ul class="mark-bullet">
+$result_converted{'html_text'}->{'table_in_itemize'} = '<ul class="itemize mark-bullet">
 <li>item one
-</li><li><dl>
+</li><li><dl class="table">
 <dt>table one</dt>
 <dd><p>aaaaa
 </p>

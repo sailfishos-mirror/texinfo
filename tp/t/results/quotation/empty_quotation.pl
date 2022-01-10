@@ -356,16 +356,16 @@ $result_converted{'plaintext'}->{'empty_quotation'} = '     Empty:
      : ';
 
 
-$result_converted{'html_text'}->{'empty_quotation'} = '<blockquote>
+$result_converted{'html_text'}->{'empty_quotation'} = '<blockquote class="quotation">
 </blockquote>
 
-<blockquote>
+<blockquote class="quotation">
 </blockquote>
 
-<blockquote>
+<blockquote class="quotation">
 </blockquote>
 
-<blockquote>
+<blockquote class="quotation">
 </blockquote>
 ';
 

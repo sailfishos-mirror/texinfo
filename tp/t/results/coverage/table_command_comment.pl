@@ -173,7 +173,7 @@ $result_converted{'plaintext'}->{'table_command_comment'} = '‘item’
 ';
 
 
-$result_converted{'html_text'}->{'table_command_comment'} = '<dl>
+$result_converted{'html_text'}->{'table_command_comment'} = '<dl class="table">
 <dt><code class="code">item</code></dt>
 </dl>
 ';
