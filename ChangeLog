@@ -1,3 +1,10 @@
+2022-01-10  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/HTML.pm (_convert_float_command): use
+	register_pending_formatted_inline_content() to have the float
+	number and type prepended to the caption instead of modifying the
+	tree.
+
 2022-01-10  Gavin Smith  <gavinsmith0123@gmail.com>
 
 	TODO update

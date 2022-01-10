@@ -3888,15 +3888,15 @@ sub _convert_float_command($$$$$)
   if (defined($caption)) {
     $caption_command_name = $caption->{'cmdname'};
   }
-  my $caption_text = '';
-  my $prepended_text;
   if ($self->in_string()) {
+    my $prepended_text;
     if ($prepended) {
       $prepended_text = $self->convert_tree_new_formatting_context(
         $prepended, 'float prepended');
     } else {
       $prepended_text = '';
     }
+    my $caption_text = '';
     if ($caption) {
       $caption_text = $self->convert_tree_new_formatting_context(
         {'contents' => $caption->{'args'}->[0]->{'contents'}}, 
@@ -3911,38 +3911,21 @@ sub _convert_float_command($$$$$)
     $id_str = " id=\"$id\"";
   }
 
+  my $prepended_text;
+  my $caption_text = '';
   if ($prepended) {
     if ($caption) {
-      # prepend the prepended tree to the first paragraph
-      my @caption_original_contents = @{$caption->{'args'}->[0]->{'contents'}};
-      my @caption_contents;
-      my $new_paragraph;
-      while (@caption_original_contents) {
-        my $content = shift @caption_original_contents;
-        if ($content->{'type'} and $content->{'type'} eq 'paragraph') {
-          %{$new_paragraph} = %{$content};
-          $new_paragraph->{'contents'} = [@{$content->{'contents'}}];
-          unshift (@{$new_paragraph->{'contents'}}, {'cmdname' => 'strong',
-               'args' => [{'type' => 'brace_command_arg',
-                          'contents' => [$prepended]}]});
-          push @caption_contents, $new_paragraph;
-          last;
-        } else {
-          push @caption_contents, $content;
-        }
-      }
-      push @caption_contents, @caption_original_contents;
-      #$self->register_pending_formatted_inline_content($caption_command_name, 
-      #         $self->convert_tree({'cmdname' => 'strong',
-      #         'args' => [{'type' => 'brace_command_arg',
-      #                    'contents' => [$prepended]}]}), 'float number type');
-      if ($new_paragraph) {
-        $caption_text = $self->convert_tree_new_formatting_context(
-         #$caption->{'args'}->[0], 'float caption');
-         {'contents' => \@caption_contents}, 'float caption');
-        $prepended_text = '';
-      }
-      #$self->cancel_pending_formatted_inline_content($caption_command_name);
+      # format and register the prepended tree to be prepended to
+      # the first paragraph in caption formatting
+      $self->register_pending_formatted_inline_content($caption_command_name,
+           $self->convert_tree({'cmdname' => 'strong',
+                                'args' => [{'type' => 'brace_command_arg',
+                                            'contents' => [$prepended]}]}),
+           'float number type');
+      $caption_text = $self->convert_tree_new_formatting_context(
+               $caption->{'args'}->[0], 'float caption');
+      $prepended_text = '';
+      $self->cancel_pending_formatted_inline_content($caption_command_name);
     }
     if ($caption_text eq '') {
       $prepended_text = $self->convert_tree_new_formatting_context(
