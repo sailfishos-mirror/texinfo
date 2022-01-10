@@ -584,10 +584,10 @@ $result_converted{'html'}->{'empty_caption'} = '<!DOCTYPE html>
 <body lang="en">
 <div class="float" id="b">
 <p>In float A, B
-</p><div class="float-caption"><p><strong class="strong">a 1: </strong></p></div></div>
+</p><div class="type-number-float"><p><strong class="strong">a 1: </strong></p></div></div>
 <div class="float" id="c">
 <p>In float , C
-</p><div class="float-caption"><p><strong class="strong">1: </strong></p></div></div>
+</p><div class="type-number-float"><p><strong class="strong">1: </strong></p></div></div>
 <div class="float">
 <p>In float
 </p></div>

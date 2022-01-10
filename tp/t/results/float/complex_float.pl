@@ -4959,7 +4959,7 @@ A footnote.
 
 
 
-<div class="float-caption"><p><strong class="strong">Text 1: </strong>An example of float caption<small class="enddots">...</small>
+<div class="caption"><p><strong class="strong">Text 1: </strong>An example of float caption<small class="enddots">...</small>
 An example.
 </p><div class="example">
 <pre class="example">example
@@ -5012,7 +5012,7 @@ Previous: <a href="#Top" accesskey="p" rel="prev">Test floats</a>, Up: <a href="
 </p>
 
 
-<div class="float-caption"><p><strong class="strong">Text 1.1: </strong>An example of float caption<small class="enddots">...</small> 2
+<div class="caption"><p><strong class="strong">Text 1.1: </strong>An example of float caption<small class="enddots">...</small> 2
 An example 2.
 </p><div class="example">
 <pre class="example">example 2

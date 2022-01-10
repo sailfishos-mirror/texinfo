@@ -469,7 +469,7 @@ $result_converted{'html_text'}->{'block_commands'} = '
 </p>
 
 
-<div class="float-caption"><p><strong class="strong">a float 1: </strong>in caption
+<div class="caption"><p><strong class="strong">a float 1: </strong>in caption
 </p>
 <p>in caption</p></div></div>';
 

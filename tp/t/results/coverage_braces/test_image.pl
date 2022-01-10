@@ -3951,7 +3951,7 @@ In text <img class="image" src="f@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot;
 &lt;&quot;%@  &lt; &amp; @ % &quot; ">.
 </p>
 
-<div class="float-caption"><img class="image" src="f@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; .ext@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; " alt="f@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; ">
+<div class="caption"><img class="image" src="f@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; .ext@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; " alt="f@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; ">
 
 <p><strong class="strong">Image 1: </strong>In text <img class="image" src="f@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; .ext@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; " alt="alt &icirc;&ndash;le..  a
 &lt;&quot;%@  &lt; &amp; @ % &quot; ">.</p></div></div>
@@ -4192,7 +4192,7 @@ In text <img class="image" src="f@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot;
 &lt;&quot;%@  &lt; &amp; @ % &quot; ">.
 </p>
 
-<div class="float-caption"><img class="image" src="f@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; .ext@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; " alt="f@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; ">
+<div class="caption"><img class="image" src="f@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; .ext@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; " alt="f@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; ">
 
 <p><strong class="strong">Image 1: </strong>In text <img class="image" src="f@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; .ext@i--le..  a@&lt;&quot;%@  &lt; &amp; @ % &quot; " alt="alt &icirc;&ndash;le..  a
 &lt;&quot;%@  &lt; &amp; @ % &quot; ">.</p></div></div>

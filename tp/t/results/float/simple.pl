@@ -257,7 +257,7 @@ $result_converted{'html'}->{'simple'} = '<!DOCTYPE html>
 
 <p>In float.
 </p>
-<div class="float-caption"><p><strong class="strong">Type 1: </strong>Caption.</p></div></div>
+<div class="caption"><p><strong class="strong">Type 1: </strong>Caption.</p></div></div>
 
 
 </body>

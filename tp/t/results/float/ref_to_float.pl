@@ -449,11 +449,11 @@ $result_converted{'html'}->{'ref_to_float'} = '<!DOCTYPE html>
 <body lang="en">
 <div class="float" id="Label1">
 <p>Float
-</p><div class="float-caption"><p><strong class="strong">Text 1
+</p><div class="type-number-float"><p><strong class="strong">Text 1
 </strong></p></div></div>
 <div class="float" id="Label2">
 <p>In foat 2.
-</p><div class="float-caption"><p><strong class="strong">1
+</p><div class="type-number-float"><p><strong class="strong">1
 </strong></p></div></div>
 <p><a class="ref" href="#Label1">Text 1</a>
 </p>

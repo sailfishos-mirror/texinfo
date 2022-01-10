@@ -881,13 +881,13 @@ $result_converted{'html'}->{'double_node_anchor_float'} = '<!DOCTYPE html>
 </div>
 
 <div class="float">
-<div class="float-caption"><p><strong class="strong">Text
+<div class="type-number-float"><p><strong class="strong">Text
 </strong></p></div></div>
 <div class="float">
-<div class="float-caption"><p><strong class="strong">Text
+<div class="type-number-float"><p><strong class="strong">Text
 </strong></p></div></div>
 <div class="float" id="float1">
-<div class="float-caption"><p><strong class="strong">Text 1
+<div class="type-number-float"><p><strong class="strong">Text 1
 </strong></p></div></div>
 <hr>
 <div class="header">

@@ -596,7 +596,7 @@ $result_converted{'html'}->{'float_with_at_commands'} = '<!DOCTYPE html>
 <p>Ceci est notre premi&egrave;re entr&eacute;e.
 </p>
 
-<div class="float-caption"><p><strong class="strong">entr&eacute;e 1: </strong>La premi&egrave;re entr&eacute;e est importante</p></div></div>
+<div class="caption"><p><strong class="strong">entr&eacute;e 1: </strong>La premi&egrave;re entr&eacute;e est importante</p></div></div>
 
 <dl class="listoffloats">
 <dt><a href="#premi_00e8re-entr_00e9e">entr&eacute;e 1</a></dt><dd><p>La premi&egrave;re entr&eacute;e est importante</p></dd>

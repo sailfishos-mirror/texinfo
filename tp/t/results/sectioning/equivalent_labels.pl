@@ -674,7 +674,7 @@ $result_converted{'html'}->{'equivalent_labels'} = '<!DOCTYPE html>
 </p>
 <div class="float" id="floa">
 <p>In float
-</p><div class="float-caption"><p><strong class="strong">truc 1
+</p><div class="type-number-float"><p><strong class="strong">truc 1
 </strong></p></div></div>
 
 

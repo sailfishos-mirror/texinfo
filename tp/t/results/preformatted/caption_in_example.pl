@@ -327,7 +327,7 @@ $result_converted{'html_text'}->{'caption_in_example'} = '<div class="float">
 
 After caption
 </pre></div>
-<div class="float-caption"><p><strong class="strong">float: </strong>caption</p></div></div>';
+<div class="caption"><p><strong class="strong">float: </strong>caption</p></div></div>';
 
 
 $result_converted{'docbook'}->{'caption_in_example'} = '

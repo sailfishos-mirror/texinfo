@@ -3938,13 +3938,18 @@ sub _convert_float_command($$$$$)
       $caption->{'args'}->[0], 'float caption');
   }
   
-  if ($prepended_text.$caption_text ne '') {
-    $prepended_text = $self->html_attribute_class('div','float-caption'). '>'
-        . $prepended_text;
-    $caption_text .= '</div>';
+  my $float_type_number_caption = '';
+  if ($caption_text ne '') {
+    $float_type_number_caption
+      = $self->html_attribute_class('div',$caption_command_name). '>'
+                       .$caption_text.'</div>';
+  } elsif ($prepended_text ne '') {
+    $float_type_number_caption
+      = $self->html_attribute_class('div','type-number-float'). '>'
+                       . $prepended_text .'</div>';
   }
   return $self->html_attribute_class('div',$cmdname). "${id_str}>\n".$content.
-     $prepended_text.$caption_text . '</div>';
+     $float_type_number_caption . '</div>';
 }
 $default_commands_conversion{'float'} = \&_convert_float_command;
 

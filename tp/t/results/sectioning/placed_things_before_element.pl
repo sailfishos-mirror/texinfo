@@ -1108,7 +1108,7 @@ $result_converted{'html'}->{'placed_things_before_element'} = '<!DOCTYPE html>
 </p>
 <div class="float" id="float-anchor">
 <p>In float
-</p><div class="float-caption"><p><strong class="strong">1
+</p><div class="type-number-float"><p><strong class="strong">1
 </strong></p></div></div>
 <p>Ref to float
 <a class="ref" href="#float-anchor">1</a>.

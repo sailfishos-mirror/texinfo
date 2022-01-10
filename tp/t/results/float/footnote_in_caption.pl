@@ -453,7 +453,7 @@ $result_converted{'html'}->{'footnote_in_caption'} = '<!DOCTYPE html>
 <div class="float" id="label">
 <p>In float.
 </p>
-<div class="float-caption"><p><strong class="strong">fl 1: </strong>in caption<a class="footnote" id="DOCF1" href="#FOOT1"><sup>2</sup></a></p></div></div><div class="footnote">
+<div class="caption"><p><strong class="strong">fl 1: </strong>in caption<a class="footnote" id="DOCF1" href="#FOOT1"><sup>2</sup></a></p></div></div><div class="footnote">
 <hr>
 <h4 class="footnotes-heading">Footnotes</h4>
 

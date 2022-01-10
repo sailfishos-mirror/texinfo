@@ -1641,7 +1641,7 @@ Next: <a href="#Copying-and-floats" accesskey="n" rel="next">Copying and floats<
 <p>Public domain is not really a licence, as it means than
 the author abandon his copyright.
 </p>
-<div class="float-caption"><p><strong class="strong">Copyright notice 1: </strong>The Public Domain notice<a class="footnote" id="DOCF1" href="#FOOT1"><sup>1</sup></a>
+<div class="caption"><p><strong class="strong">Copyright notice 1: </strong>The Public Domain notice<a class="footnote" id="DOCF1" href="#FOOT1"><sup>1</sup></a>
 </p>
 <a class="anchor" id="public-domain-anchor"></a><a class="index-entry-anchor" id="index-copying-indexed-caption"></a>
 <a class="index-entry-anchor" id="index-copying-indexed-caption-function"></a>
@@ -1664,7 +1664,7 @@ Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" ac
 <p>Public domain is not really a licence, as it means than
 the author abandon his copyright.
 </p>
-<div class="float-caption"><p><strong class="strong">Copyright notice 1: </strong>The Public Domain notice<a class="footnote" id="DOCF1_2" href="#FOOT1_2"><sup>2</sup></a>
+<div class="caption"><p><strong class="strong">Copyright notice 1: </strong>The Public Domain notice<a class="footnote" id="DOCF1_2" href="#FOOT1_2"><sup>2</sup></a>
 </p>
 <a class="anchor" id="public-domain-anchor"></a><a class="index-entry-anchor" id="index-copying-indexed-caption"></a>
 <a class="index-entry-anchor" id="index-copying-indexed-caption-function"></a>
@@ -1674,7 +1674,7 @@ the author abandon his copyright.
 <p>Public domain is not really a licence, as it means than
 the author abandon his copyright.
 </p>
-<div class="float-caption"><p><strong class="strong">Copyright notice 1: </strong>The Public Domain notice<a class="footnote" id="DOCF1_3" href="#FOOT1_3"><sup>3</sup></a>
+<div class="caption"><p><strong class="strong">Copyright notice 1: </strong>The Public Domain notice<a class="footnote" id="DOCF1_3" href="#FOOT1_3"><sup>3</sup></a>
 </p>
 <a class="anchor" id="public-domain-anchor"></a><a class="index-entry-anchor" id="index-copying-indexed-caption"></a>
 <a class="index-entry-anchor" id="index-copying-indexed-caption-function"></a>

@@ -1,5 +1,12 @@
 2022-01-10  Patrice Dumas  <pertusus@free.fr>
 
+	* tp/Texinfo/Convert/HTML.pm (_convert_float_command): use
+	@caption or @shortcaption as caption class for the div element
+	if there is a non empty caption/shortcaption, otherwise use the
+	type-number-float class.
+
+2022-01-10  Patrice Dumas  <pertusus@free.fr>
+
 	* tp/Texinfo/Convert/HTML.pm (_convert_float_command): convert
 	prepended float number type information in the same way with
 	a caption or without.

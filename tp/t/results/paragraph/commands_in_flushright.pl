@@ -1585,7 +1585,7 @@ $result_converted{'html_text'}->{'commands_in_flushright'} = '<div class="flushr
 <p>in float
 </p>
 
-<div class="float-caption"><p><strong class="strong">label 1: </strong>in caption</p></div></div>
+<div class="caption"><p><strong class="strong">label 1: </strong>in caption</p></div></div>
 <p class="flushright-paragraph">Sp:
 </p><br>
 <br>
