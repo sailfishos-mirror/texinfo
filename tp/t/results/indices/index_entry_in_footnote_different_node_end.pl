@@ -669,7 +669,7 @@ $result_converted{'html_text'}->{'index_entry_in_footnote_different_node_end'} =
 <h1 class="node-heading">Top</h1>
 
 
-<p>Top node<a id="DOCF1" href="#FOOT1"><sup>1</sup></a>
+<p>Top node<a class="footnote" id="DOCF1" href="#FOOT1"><sup>1</sup></a>
 </p>
 <hr>
 <a class="node-anchor" id="First"></a><div class="header">

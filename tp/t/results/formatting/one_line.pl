@@ -79,7 +79,7 @@ span.smaller {font-size: smaller}
 <p>AB
 </p><hr>
 <p>
-  <span class="smaller">This document was generated on <em class="emph">a sunny day</em> using <a href="http://www.gnu.org/software/texinfo/"><em class="emph">texi2any</em></a>.</span>
+  <span class="smaller">This document was generated on <em class="emph">a sunny day</em> using <a class="uref" href="http://www.gnu.org/software/texinfo/"><em class="emph">texi2any</em></a>.</span>
 </p>
 
 

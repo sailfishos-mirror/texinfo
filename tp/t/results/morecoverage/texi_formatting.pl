@@ -5076,7 +5076,7 @@ Next: <a href="#chapter2" accesskey="n" rel="next">chapter 2</a>, Previous: <a h
 </div>
 <h2 class="chapter" id="chapter-1">1 chapter</h2>
 
-<p><a id="DOCF1" href="#FOOT1"><sup>1</sup></a>
+<p><a class="footnote" id="DOCF1" href="#FOOT1"><sup>1</sup></a>
 </p>
 
 <ul class="section-toc">
@@ -5393,7 +5393,7 @@ $result_converted{'html_text'}->{'texi_formatting'} = '
 </div>
 <h2 class="chapter" id="chapter-1">1 chapter</h2>
 
-<p><a id="DOCF1" href="#FOOT1"><sup>1</sup></a>
+<p><a class="footnote" id="DOCF1" href="#FOOT1"><sup>1</sup></a>
 </p>
 
 <ul class="section-toc">

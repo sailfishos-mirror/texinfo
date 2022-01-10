@@ -285,10 +285,10 @@ kbd {font-style: oblique}
 </head>
 
 <body lang="en">
-<p><abbr title="abbr &ndash; b">A</abbr> (<b class="b">abbr</b> &ndash; b).
+<p><abbr class="abbr" title="abbr &ndash; b">A</abbr> (<b class="b">abbr</b> &ndash; b).
 </p>
 <div class="example">
-<pre class="example"><abbr title="abbr &ndash; b">A</abbr> (<b class="b">abbr</b> -- b).
+<pre class="example"><abbr class="abbr" title="abbr &ndash; b">A</abbr> (<b class="b">abbr</b> -- b).
 </pre></div>
 
 

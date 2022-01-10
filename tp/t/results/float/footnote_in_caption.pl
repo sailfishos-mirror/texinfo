@@ -448,13 +448,13 @@ kbd {font-style: oblique}
 <h1 class="node-heading" id="Top">Top</h1>
 
 <dl class="listoffloats">
-<dt><a href="#label">fl 1</a></dt><dd><p>in caption<a id="t_hlistoffloats_DOCF1_1" href="#t_hlistoffloats_FOOT1_1"><sup>1</sup></a></p></dd>
+<dt><a href="#label">fl 1</a></dt><dd><p>in caption<a class="footnote" id="t_hlistoffloats_DOCF1_1" href="#t_hlistoffloats_FOOT1_1"><sup>1</sup></a></p></dd>
 </dl>
 
 <div class="float" id="label">
 <p>In float.
 </p>
-<div class="float-caption"><p><strong class="strong">fl 1: </strong>in caption<a id="DOCF1" href="#FOOT1"><sup>2</sup></a></p></div></div><div class="footnote">
+<div class="float-caption"><p><strong class="strong">fl 1: </strong>in caption<a class="footnote" id="DOCF1" href="#FOOT1"><sup>2</sup></a></p></div></div><div class="footnote">
 <hr>
 <h4 class="footnotes-heading">Footnotes</h4>
 

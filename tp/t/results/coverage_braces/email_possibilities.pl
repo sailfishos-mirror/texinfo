@@ -158,9 +158,9 @@ $result_converted{'plaintext'}->{'email_possibilities'} = '–b <--a> –b <--a>
 ';
 
 
-$result_converted{'html_text'}->{'email_possibilities'} = '<p><a href="mailto:--a">&ndash;b</a>
+$result_converted{'html_text'}->{'email_possibilities'} = '<p><a class="email" href="mailto:--a">&ndash;b</a>
 &ndash;b
-<a href="mailto:--a">--a</a>
+<a class="email" href="mailto:--a">--a</a>
 </p>';
 
 1;

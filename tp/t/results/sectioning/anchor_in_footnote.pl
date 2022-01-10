@@ -691,7 +691,7 @@ Next: <a href="#chapter" accesskey="n" rel="next">Chap</a> &nbsp; </p>
 </div>
 <h1 class="top" id="Top-1">Top</h1>
 
-<p>In top node<a id="DOCF1" href="#FOOT1"><sup>1</sup></a>
+<p>In top node<a class="footnote" id="DOCF1" href="#FOOT1"><sup>1</sup></a>
 </p>
 
 <ul class="section-toc">
@@ -705,7 +705,7 @@ Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" ac
 </div>
 <h2 class="chapter" id="Chap">1 Chap</h2>
 
-<p><a href="#Anchor-in-footnote">Anchor in footnote</a>.
+<p><a class="ref" href="#Anchor-in-footnote">Anchor in footnote</a>.
 </p></div>
 </div>
 <div class="footnote">

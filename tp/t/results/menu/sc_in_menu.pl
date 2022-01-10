@@ -1153,12 +1153,12 @@ Next: <a href="#NODE" accesskey="n" rel="next"><small class="sc">NODE</small></a
 </td></tr>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
 
-MENU COMMENT
+<span class="sc">MENU COMMENT</span>
 
 </pre><div class="example">
-<pre class="example">* MENU-EXAMPLE VALUE:(dir)MENU-EXAMPLE NODE.   MENU-EXAMPLE DESCRIP TION
+<pre class="example">* <span class="sc">MENU-EXAMPLE VALUE</span>:(dir)<span class="sc">MENU-EXAMPLE NODE</span>.   <span class="sc">MENU-EXAMPLE DESCRIP TION</span>
 
-MENU-EXAMPLE COMMENT
+<span class="sc">MENU-EXAMPLE COMMENT</span>
 </pre></div>
 </th></tr></table>
 
@@ -1171,10 +1171,10 @@ Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" ac
 
 <div class="example">
 <table class="menu" border="0" cellspacing="0"><tr><td>
-<pre class="menu-preformatted">&bull; EXAMPLE VALUE:<a href="dir.html#EXAMPLE-NODE" accesskey="1">(dir)EXAMPLE NODE</a>.   EXAMPLE DESCRIP TION
+<pre class="menu-preformatted">&bull; <span class="sc">EXAMPLE VALUE</span>:<a href="dir.html#EXAMPLE-NODE" accesskey="1">(dir)<span class="sc">EXAMPLE NODE</span></a>.   <span class="sc">EXAMPLE DESCRIP TION</span>
 </pre><pre class="menu-comment">
 
-EXAMPLE COMMENT
+<span class="sc">EXAMPLE COMMENT</span>
 </pre></td></tr></table>
 </div>
 

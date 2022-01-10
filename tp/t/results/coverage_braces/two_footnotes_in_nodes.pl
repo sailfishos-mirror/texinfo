@@ -835,9 +835,9 @@ Next: <a href="#chapter" accesskey="n" rel="next">chapter</a> &nbsp; </p>
 </div>
 <h1 class="top" id="g_t2-footnotes-in-2-nodes">2 footnotes in 2 nodes</h1>
 
-<p>A<a id="DOCF1" href="#FOOT1"><sup>1</sup></a>
+<p>A<a class="footnote" id="DOCF1" href="#FOOT1"><sup>1</sup></a>
 </p>
-<p>B<a id="DOCF2" href="#FOOT2"><sup>2</sup></a>
+<p>B<a class="footnote" id="DOCF2" href="#FOOT2"><sup>2</sup></a>
 </p>
 
 <ul class="section-toc">
@@ -851,9 +851,9 @@ Previous: <a href="#Top" accesskey="p" rel="prev">2 footnotes in 2 nodes</a>, Up
 </div>
 <h2 class="chapter" id="chapter-1">1 chapter</h2>
 
-<p>C<a id="DOCF3" href="#FOOT3"><sup>3</sup></a>
+<p>C<a class="footnote" id="DOCF3" href="#FOOT3"><sup>3</sup></a>
 </p>
-<p>D<a id="DOCF4" href="#FOOT4"><sup>4</sup></a>
+<p>D<a class="footnote" id="DOCF4" href="#FOOT4"><sup>4</sup></a>
 </p>
 </div>
 </div>
@@ -995,9 +995,9 @@ $result_converted{'html_text'}->{'two_footnotes_in_nodes'} = '<div class="top" i
 </div>
 <h1 class="top" id="g_t2-footnotes-in-2-nodes">2 footnotes in 2 nodes</h1>
 
-<p>A<a id="DOCF1" href="#FOOT1"><sup>1</sup></a>
+<p>A<a class="footnote" id="DOCF1" href="#FOOT1"><sup>1</sup></a>
 </p>
-<p>B<a id="DOCF2" href="#FOOT2"><sup>2</sup></a>
+<p>B<a class="footnote" id="DOCF2" href="#FOOT2"><sup>2</sup></a>
 </p>
 
 <ul class="section-toc">
@@ -1011,9 +1011,9 @@ $result_converted{'html_text'}->{'two_footnotes_in_nodes'} = '<div class="top" i
 </div>
 <h2 class="chapter" id="chapter-1">1 chapter</h2>
 
-<p>C<a id="DOCF3" href="#FOOT3"><sup>3</sup></a>
+<p>C<a class="footnote" id="DOCF3" href="#FOOT3"><sup>3</sup></a>
 </p>
-<p>D<a id="DOCF4" href="#FOOT4"><sup>4</sup></a>
+<p>D<a class="footnote" id="DOCF4" href="#FOOT4"><sup>4</sup></a>
 </p>
 </div>
 </div>

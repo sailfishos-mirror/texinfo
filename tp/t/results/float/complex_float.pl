@@ -4889,7 +4889,7 @@ Next: <a href="#chapter" accesskey="n" rel="next">A chapter</a> &nbsp; </p>
 
 <p>A list of floats at the beginning.
 </p><dl class="listoffloats">
-<dt><a href="#text-with-a-lot-of-features">Text 1</a></dt><dd><p>TeX and <em class="emph"><b class="b">t&eacute;&icirc;</b><a href="an_url">an_url</a></em> <small class="sc">AND</small> <tt class="verb">it is @verb</tt> &nbsp;a word !@ &AElig;.</p></dd>
+<dt><a href="#text-with-a-lot-of-features">Text 1</a></dt><dd><p>TeX and <em class="emph"><b class="b">t&eacute;&icirc;</b><a class="url" href="an_url">an_url</a></em> <small class="sc">AND</small> <tt class="verb">it is @verb</tt> &nbsp;a word !@ &AElig;.</p></dd>
 <dt><a href="#float-with-a-lot-of-features-and-no-shortcaption">Text 1.1</a></dt><dd><p>An example of float caption<small class="enddots">...</small> 2
 An example 2.
 </p><div class="example">
@@ -4919,11 +4919,11 @@ line
 
 
 <p>A ref 2.
-See <a href="#Top">xref Text with features caption</a>.
+See <a class="xref" href="#Top">xref Text with features caption</a>.
 A footnote 2.
-<a id="t_hlistoffloats_DOCF3_1" href="#t_hlistoffloats_FOOT3_1"><sup>1</sup></a>.
+<a class="footnote" id="t_hlistoffloats_DOCF3_1" href="#t_hlistoffloats_FOOT3_1"><sup>1</sup></a>.
 </p>
-<p>TeX and <em class="emph"><b class="b">t&eacute;&icirc;</b><a href="an_url">an_url</a></em> <small class="sc">AND</small> <tt class="verb">it is @verb</tt> &nbsp;a word !@ &AElig;.
+<p>TeX and <em class="emph"><b class="b">t&eacute;&icirc;</b><a class="url" href="an_url">an_url</a></em> <small class="sc">AND</small> <tt class="verb">it is @verb</tt> &nbsp;a word !@ &AElig;.
 </p></dd>
 </dl>
 
@@ -4950,11 +4950,11 @@ line
 </li></ul>
 
 <p>A ref.
-See <a href="#Top">xref Text with features</a>.
+See <a class="xref" href="#Top">xref Text with features</a>.
 A footnote.
-<a id="DOCF1" href="#FOOT1"><sup>2</sup></a>.
+<a class="footnote" id="DOCF1" href="#FOOT1"><sup>2</sup></a>.
 </p>
-<p>TeX and <em class="emph"><b class="b">t&eacute;&icirc;</b><a href="an_url">an_url</a></em> <small class="sc">AND</small> <tt class="verb">it is @verb</tt> &nbsp;a word !@ &AElig;.
+<p>TeX and <em class="emph"><b class="b">t&eacute;&icirc;</b><a class="url" href="an_url">an_url</a></em> <small class="sc">AND</small> <tt class="verb">it is @verb</tt> &nbsp;a word !@ &AElig;.
 </p>
 
 
@@ -4990,11 +4990,11 @@ line
 </li></ul>
 
 <p>A ref.
-See <a href="#Top">xref Text with features caption</a>.
+See <a class="xref" href="#Top">xref Text with features caption</a>.
 A footnote.
-<a id="DOCF2" href="#FOOT2"><sup>3</sup></a>.
+<a class="footnote" id="DOCF2" href="#FOOT2"><sup>3</sup></a>.
 </p>
-<p>TeX and <em class="emph"><b class="b">t&eacute;&icirc;</b><a href="an_url">an_url</a></em> <small class="sc">AND</small> <tt class="verb">it is @verb</tt> &nbsp;a word !@ &AElig;.
+<p>TeX and <em class="emph"><b class="b">t&eacute;&icirc;</b><a class="url" href="an_url">an_url</a></em> <small class="sc">AND</small> <tt class="verb">it is @verb</tt> &nbsp;a word !@ &AElig;.
 </p></div></div>
 <ul class="section-toc">
 <li><a href="#chapter" accesskey="1">A chapter</a></li>
@@ -5043,13 +5043,13 @@ line
 
 <a class="anchor" id="Anchor-in-caption-2"></a>
 <p>A ref 2.
-See <a href="#Top">xref Text with features caption</a>.
+See <a class="xref" href="#Top">xref Text with features caption</a>.
 A footnote 2.
-<a id="DOCF3" href="#FOOT3"><sup>4</sup></a>.
+<a class="footnote" id="DOCF3" href="#FOOT3"><sup>4</sup></a>.
 </p>
-<p>TeX and <em class="emph"><b class="b">t&eacute;&icirc;</b><a href="an_url">an_url</a></em> <small class="sc">AND</small> <tt class="verb">it is @verb</tt> &nbsp;a word !@ &AElig;.
+<p>TeX and <em class="emph"><b class="b">t&eacute;&icirc;</b><a class="url" href="an_url">an_url</a></em> <small class="sc">AND</small> <tt class="verb">it is @verb</tt> &nbsp;a word !@ &AElig;.
 </p></div></div>
-<p>See <a href="#text-with-a-lot-of-features">Text 1</a>.
+<p>See <a class="xref" href="#text-with-a-lot-of-features">Text 1</a>.
 </p>
 </div>
 </div>

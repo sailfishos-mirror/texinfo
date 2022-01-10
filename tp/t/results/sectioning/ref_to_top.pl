@@ -286,7 +286,7 @@ kbd {font-style: oblique}
 <div class="top" id="Top">
 <h1 class="top" id="top">top</h1>
 
-<p>See <a href="#Top">top</a>.
+<p>See <a class="xref" href="#Top">top</a>.
 </p></div>
 
 

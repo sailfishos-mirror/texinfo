@@ -456,9 +456,9 @@ kbd {font-style: oblique}
 <p>In foat 2.
 </p><div class="float-caption"><p><strong>1
 </strong></p></div></div>
-<p><a href="#Label1">Text 1</a>
+<p><a class="ref" href="#Label1">Text 1</a>
 </p>
-<p><a href="#Label2">1</a>
+<p><a class="ref" href="#Label2">1</a>
 </p>
 
 

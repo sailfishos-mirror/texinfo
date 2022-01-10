@@ -719,10 +719,10 @@ Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" ac
 </div>
 <h2 class="chapter" id="chapter">1 chapter</h2>
 
-<p>See <a href="#chap">chap</a>.
+<p>See <a class="xref" href="#chap">chap</a>.
 </p>
 
-<p>See <a href="#chap">chapter</a>.
+<p>See <a class="xref" href="#chap">chapter</a>.
 </p></div>
 </div>
 

@@ -441,11 +441,11 @@ $result_converted{'html_text'}->{'paragraph_command'} = '<p>@
 </p>
 <p>&#x0075; also U+0075.
 </p>
-<p><a href="mailto:m1">m1</a> email.
+<p><a class="email" href="mailto:m1">m1</a> email.
 </p>
 <p>\\@definfoenclose// should work at the beginning of a new paragraph.
 </p>
-<p><a id="DOCF1" href="#FOOT1"><sup>1</sup></a>.
+<p><a class="footnote" id="DOCF1" href="#FOOT1"><sup>1</sup></a>.
 </p>
 <div class="footnote">
 <hr>

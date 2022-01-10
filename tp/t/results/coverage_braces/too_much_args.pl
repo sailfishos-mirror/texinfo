@@ -81,6 +81,6 @@ $result_converted{'plaintext'}->{'too_much_args'} = 'AZE (A truc Z b, E eep)
 ';
 
 
-$result_converted{'html_text'}->{'too_much_args'} = '<p><abbr title="A truc Z b, E eep">AZE</abbr> (A truc Z b, E eep)</p>';
+$result_converted{'html_text'}->{'too_much_args'} = '<p><abbr class="abbr" title="A truc Z b, E eep">AZE</abbr> (A truc Z b, E eep)</p>';
 
 1;

@@ -4433,11 +4433,11 @@ $result_converted{'html_text'}->{'top_in_ref_keep_top'} = '<a class="node-anchor
 </div>
 <h4 class="node-heading">refs node</h4>
 
-<p><code class="code">@ref{Top,cross ref name}</code> <a href="#Top">cross ref name</a>
-<code class="code">@ref{Top,,title}</code> <a href="#Top">title</a>
+<p><code class="code">@ref{Top,cross ref name}</code> <a class="ref" href="#Top">cross ref name</a>
+<code class="code">@ref{Top,,title}</code> <a class="ref" href="#Top">title</a>
 <code class="code">@ref{Top,,,file name}</code> <a data-manual="file name" href="file name.html#Top">(file name)Top</a>
 <code class="code">@ref{Top,,,,manual}</code> &lsquo;Top&rsquo; in <cite class="cite">manual</cite>
-<code class="code">@ref{Top,cross ref name,title,}</code> <a href="#Top">title</a>
+<code class="code">@ref{Top,cross ref name,title,}</code> <a class="ref" href="#Top">title</a>
 <code class="code">@ref{Top,cross ref name,,file name}</code> <a data-manual="file name" href="file name.html#Top">(file name)cross ref name</a>
 <code class="code">@ref{Top,cross ref name,,,manual}</code> &lsquo;cross ref name&rsquo; in <cite class="cite">manual</cite>
 <code class="code">@ref{Top,cross ref name,title,file name}</code> <a data-manual="file name" href="file name.html#Top">(file name)title</a>

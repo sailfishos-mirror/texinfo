@@ -88,6 +88,6 @@ $result_converted{'plaintext'}->{'empty_second_email_argument'} = '<a@b.c>
 ';
 
 
-$result_converted{'html_text'}->{'empty_second_email_argument'} = '<p><a href="mailto:a@b.c">a@b.c</a></p>';
+$result_converted{'html_text'}->{'empty_second_email_argument'} = '<p><a class="email" href="mailto:a@b.c">a@b.c</a></p>';
 
 1;

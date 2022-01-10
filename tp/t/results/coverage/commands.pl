@@ -576,7 +576,7 @@ majorheading in b
 
 $result_converted{'html_text'}->{'commands'} = '<p>@ TeX &nbsp;&euml; &icirc; &atilde; &aring;
 File &rarr; Open.
-<a href="mailto:a">b</a> <code class="code">code --- -- \'\' ``</code>
+<a class="email" href="mailto:a">b</a> <code class="code">code --- -- \'\' ``</code>
 &mdash; &ndash; &rdquo; &ldquo;. <small class="sc">SMALL CAPS</small>.
 </p>
 <a class="index-entry-anchor" id="index-index-entry-_0060_0060in-text_0027_0027-LaTeX"></a>

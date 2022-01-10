@@ -172,7 +172,7 @@ $result_converted{'plaintext'}->{'space_in_image'} = 'An image text before parag
 ';
 
 
-$result_converted{'html_text'}->{'space_in_image'} = '<img src="a.e" alt="dd"><p>. <img src="f.jpg" alt="f">.</p>';
+$result_converted{'html_text'}->{'space_in_image'} = '<img class="image" src="a.e" alt="dd"><p>. <img class="image" src="f.jpg" alt="f">.</p>';
 
 $result_converted_errors{'html_text'}->{'space_in_image'} = [
   {

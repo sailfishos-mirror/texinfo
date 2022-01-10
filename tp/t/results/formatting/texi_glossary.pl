@@ -1617,7 +1617,7 @@ span.smaller {font-size: smaller}
 
 <p>The &lsquo;name1&rsquo;
  is used in many cases while
-<a href="#id2">name2</a>
+<a class="ref" href="#id2">name2</a>
  is quite specific
 </p>
 <hr style="height: 6px;">
@@ -1655,7 +1655,7 @@ span.smaller {font-size: smaller}
 <h1 class="about-heading">About This Document</h1>
 
 <p>
-  This document was generated on <em class="emph">a sunny day</em> using <a href="http://www.gnu.org/software/texinfo/"><em class="emph">texi2any</em></a>.
+  This document was generated on <em class="emph">a sunny day</em> using <a class="uref" href="http://www.gnu.org/software/texinfo/"><em class="emph">texi2any</em></a>.
 </p>
 <p>
   The buttons in the navigation panels have the following meaning:
@@ -1756,7 +1756,7 @@ span.smaller {font-size: smaller}
 
 </div><hr>
 <p>
-  <span class="smaller">This document was generated on <em class="emph">a sunny day</em> using <a href="http://www.gnu.org/software/texinfo/"><em class="emph">texi2any</em></a>.</span>
+  <span class="smaller">This document was generated on <em class="emph">a sunny day</em> using <a class="uref" href="http://www.gnu.org/software/texinfo/"><em class="emph">texi2any</em></a>.</span>
 </p>
 
 

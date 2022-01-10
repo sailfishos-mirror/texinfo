@@ -1370,10 +1370,10 @@ kbd {font-style: oblique}
 <body lang="en">
 
 <p>Ref to anchor
-<a href="#An-anchor">An anchor</a>
+<a class="ref" href="#An-anchor">An anchor</a>
 </p>
 <p>Ref to footnote anchor
-<a href="#Anchor-in-footnote">Anchor in footnote</a>
+<a class="ref" href="#Anchor-in-footnote">Anchor in footnote</a>
 </p>
 
 

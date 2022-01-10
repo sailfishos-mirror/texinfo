@@ -492,14 +492,14 @@ kbd {font-style: oblique}
 <h1 class="node-heading" id="Top">Top</h1>
 
 
-<p>Copying<a id="DOCF1" href="#FOOT1"><sup>1</sup></a>.
+<p>Copying<a class="footnote" id="DOCF1" href="#FOOT1"><sup>1</sup></a>.
 </p>
 
 
-<p>Copying<a id="DOCF1_2" href="#FOOT1_2"><sup>2</sup></a>.
+<p>Copying<a class="footnote" id="DOCF1_2" href="#FOOT1_2"><sup>2</sup></a>.
 </p>
 
-<p>See <a href="#Copying-footnote">Copying footnote</a>.
+<p>See <a class="xref" href="#Copying-footnote">Copying footnote</a>.
 </p>
 <div class="footnote">
 <hr>

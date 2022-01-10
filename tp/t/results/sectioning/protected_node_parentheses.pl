@@ -692,7 +692,7 @@ Previous: <a href="#Top" accesskey="p" rel="prev">top</a>, Up: <a href="#Top" ac
 <h4 class="node-heading">(manual) name</h4>
 
 <a class="anchor" id="g_t_0028manual2_0029-name2"></a>
-<p><a href="#g_t_0028manual2_0029-name2">(manual2) name2</a>.
+<p><a class="ref" href="#g_t_0028manual2_0029-name2">(manual2) name2</a>.
 </p></div>
 
 

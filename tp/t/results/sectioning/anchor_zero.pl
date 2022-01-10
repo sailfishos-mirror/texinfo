@@ -258,7 +258,7 @@ kbd {font-style: oblique}
 
 <a class="anchor" id="g_t0"></a><p>.
 </p>
-<p>See <a href="#g_t0">0</a>.
+<p>See <a class="xref" href="#g_t0">0</a>.
 </p>
 
 

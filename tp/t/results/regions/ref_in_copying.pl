@@ -686,7 +686,7 @@ Next: <a href="#GFDL" accesskey="n" rel="next">GFDL</a> &nbsp; </p>
 </div>
 <h1 class="top" id="top">top</h1>
 
-<p><a href="#GFDL">GFDL</a>
+<p><a class="ref" href="#GFDL">GFDL</a>
 </p>
 
 <ul class="section-toc">

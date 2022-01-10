@@ -1513,10 +1513,10 @@ kbd {font-style: oblique}
 <h1 class="top" id="top-section">top section</h1>
 
 <p>Ref to anchor
-<a href="#An-anchor">An anchor</a>
+<a class="ref" href="#An-anchor">An anchor</a>
 </p>
 <p>Ref to footnote anchor
-<a href="#Anchor-in-footnote">Anchor in footnote</a>
+<a class="ref" href="#Anchor-in-footnote">Anchor in footnote</a>
 </p>
 </div>
 

@@ -113,7 +113,7 @@ $result_converted_errors{'plaintext'}->{'image_extension'} = [
 
 
 
-$result_converted{'html_text'}->{'image_extension'} = '<img src="f---ile.gr--a" alt="f---ile">
+$result_converted{'html_text'}->{'image_extension'} = '<img class="image" src="f---ile.gr--a" alt="f---ile">
 ';
 
 $result_converted_errors{'html_text'}->{'image_extension'} = [

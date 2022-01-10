@@ -8263,12 +8263,12 @@ Previous: <a href="#Appendix-for-float" accesskey="p" rel="prev">Appendix for fl
 </div>
 <h2 class="unnumbered" id="list-of-floats-1">list of floats</h2>
 
-<p>See <a href="#text-in-section">Text 1.3</a>.
-And (see <a href="#text-in-chapter">Text 1.1</a>).
-See <a href="#text-with-a-lot-of-features">Text 1</a>.
+<p>See <a class="ref" href="#text-in-section">Text 1.3</a>.
+And (see <a class="pxref" href="#text-in-chapter">Text 1.1</a>).
+See <a class="xref" href="#text-with-a-lot-of-features">Text 1</a>.
 </p>
 <p>And now a ref (without manual or printed manual)
-<a href="#text-with-a-lot-of-features">title</a>.
+<a class="ref" href="#text-with-a-lot-of-features">title</a>.
 </p>
 <p>And now a ref (with manual without printed manual)
 <a data-manual="manual" href="manual.html#text-with-a-lot-of-features">(manual)title</a>.
@@ -8276,7 +8276,7 @@ See <a href="#text-with-a-lot-of-features">Text 1</a>.
 <p>And now a ref (without manual with a printed manual)
 &lsquo;title&rsquo; in <cite class="cite">printed manual title</cite>.
 </p>
-<p>A ref to float without type <a href="#label-but-no-type">1</a>.
+<p>A ref to float without type <a class="ref" href="#label-but-no-type">1</a>.
 </p>
 <dl class="listoffloats">
 <dt><a href="#text-with-a-lot-of-features">Text 1</a></dt><dd><p>TeX and someething</p></dd>

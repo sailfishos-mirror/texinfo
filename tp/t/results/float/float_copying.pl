@@ -1642,7 +1642,7 @@ Next: <a href="#Copying-and-floats" accesskey="n" rel="next">Copying and floats<
 <p>Public domain is not really a licence, as it means than
 the author abandon his copyright.
 </p>
-<div class="float-caption"><p><strong class="strong">Copyright notice 1: </strong>The Public Domain notice<a id="DOCF1" href="#FOOT1"><sup>1</sup></a>
+<div class="float-caption"><p><strong class="strong">Copyright notice 1: </strong>The Public Domain notice<a class="footnote" id="DOCF1" href="#FOOT1"><sup>1</sup></a>
 </p>
 <a class="anchor" id="public-domain-anchor"></a><a class="index-entry-anchor" id="index-copying-indexed-caption"></a>
 <a class="index-entry-anchor" id="index-copying-indexed-caption-function"></a>
@@ -1665,7 +1665,7 @@ Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" ac
 <p>Public domain is not really a licence, as it means than
 the author abandon his copyright.
 </p>
-<div class="float-caption"><p><strong class="strong">Copyright notice 1: </strong>The Public Domain notice<a id="DOCF1_2" href="#FOOT1_2"><sup>2</sup></a>
+<div class="float-caption"><p><strong class="strong">Copyright notice 1: </strong>The Public Domain notice<a class="footnote" id="DOCF1_2" href="#FOOT1_2"><sup>2</sup></a>
 </p>
 <a class="anchor" id="public-domain-anchor"></a><a class="index-entry-anchor" id="index-copying-indexed-caption"></a>
 <a class="index-entry-anchor" id="index-copying-indexed-caption-function"></a>
@@ -1675,13 +1675,13 @@ the author abandon his copyright.
 <p>Public domain is not really a licence, as it means than
 the author abandon his copyright.
 </p>
-<div class="float-caption"><p><strong class="strong">Copyright notice 1: </strong>The Public Domain notice<a id="DOCF1_3" href="#FOOT1_3"><sup>3</sup></a>
+<div class="float-caption"><p><strong class="strong">Copyright notice 1: </strong>The Public Domain notice<a class="footnote" id="DOCF1_3" href="#FOOT1_3"><sup>3</sup></a>
 </p>
 <a class="anchor" id="public-domain-anchor"></a><a class="index-entry-anchor" id="index-copying-indexed-caption"></a>
 <a class="index-entry-anchor" id="index-copying-indexed-caption-function"></a>
 </div></div>
 <dl class="listoffloats">
-<dt><a href="#public-domain">Copyright notice 1</a></dt><dd><p>The Public Domain notice<a id="t_hlistoffloats_DOCF1_4" href="#t_hlistoffloats_FOOT1_4"><sup>4</sup></a>
+<dt><a href="#public-domain">Copyright notice 1</a></dt><dd><p>The Public Domain notice<a class="footnote" id="t_hlistoffloats_DOCF1_4" href="#t_hlistoffloats_FOOT1_4"><sup>4</sup></a>
 </p>
 </dd>
 </dl>
@@ -1732,7 +1732,7 @@ the author abandon his copyright.
 <a class="index-entry-anchor" id="index-copying-indexed-caption-copying-footnote"></a>
 <a class="index-entry-anchor" id="index-copying-public-domain-function"></a>
 
-<p>see <a href="#Copying-and-floats">Copying and floats</a>.
+<p>see <a class="ref" href="#Copying-and-floats">Copying and floats</a>.
 </p>
 <h5><a id="FOOT1_2" href="#DOCF1_2">(2)</a></h5>
 <p>The caption copying footnote
@@ -1740,7 +1740,7 @@ the author abandon his copyright.
 <a class="index-entry-anchor" id="index-copying-indexed-caption-copying-footnote"></a>
 <a class="index-entry-anchor" id="index-copying-public-domain-function"></a>
 
-<p>see <a href="#Copying-and-floats">Copying and floats</a>.
+<p>see <a class="ref" href="#Copying-and-floats">Copying and floats</a>.
 </p>
 <h5><a id="FOOT1_3" href="#DOCF1_3">(3)</a></h5>
 <p>The caption copying footnote
@@ -1748,13 +1748,13 @@ the author abandon his copyright.
 <a class="index-entry-anchor" id="index-copying-indexed-caption-copying-footnote"></a>
 <a class="index-entry-anchor" id="index-copying-public-domain-function"></a>
 
-<p>see <a href="#Copying-and-floats">Copying and floats</a>.
+<p>see <a class="ref" href="#Copying-and-floats">Copying and floats</a>.
 </p>
 <h5><a id="t_hlistoffloats_FOOT1_4" href="#t_hlistoffloats_DOCF1_4">(4)</a></h5>
 <p>The caption copying footnote
 </p>
 
-<p>see <a href="#Copying-and-floats">Copying and floats</a>.
+<p>see <a class="ref" href="#Copying-and-floats">Copying and floats</a>.
 </p>
 </div>
 

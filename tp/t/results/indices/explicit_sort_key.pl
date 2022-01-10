@@ -1025,7 +1025,7 @@ $result_converted{'html_text'}->{'explicit_sort_key'} = '<div class="top" id="To
 <p>in a reuglar para. <code class="code">inside another</code>.
 </p>
 <p>.
-<a href="and cmd">and cmd</a>.
+<a class="url" href="and cmd">and cmd</a>.
 </p>
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#t_h_SK_symbol-1"><b>0</b></a>
  &nbsp; 

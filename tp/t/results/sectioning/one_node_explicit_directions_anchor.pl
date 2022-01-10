@@ -351,7 +351,7 @@ kbd {font-style: oblique}
 </p>
 <p>anchor ref <a class="anchor" id="ref"></a>.
 </p>
-<p>ref to ref <a href="#ref">ref</a>.
+<p>ref to ref <a class="ref" href="#ref">ref</a>.
 </p>
 
 

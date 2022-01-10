@@ -1163,19 +1163,19 @@ kbd {font-style: oblique}
 <body lang="en">
 <a class="anchor" id="An-anchor"></a>
 <p>Ref to the anchor:
-<a href="#An-anchor">An anchor</a>
+<a class="ref" href="#An-anchor">An anchor</a>
 </p>
 <p>Ref to the anchor in footnote:
-<a href="#Anchor-in-footnote">Anchor in footnote</a>.
+<a class="ref" href="#Anchor-in-footnote">Anchor in footnote</a>.
 </p>
-<p><a id="DOCF1" href="#FOOT1"><sup>1</sup></a>
+<p><a class="footnote" id="DOCF1" href="#FOOT1"><sup>1</sup></a>
 </p>
 <div class="float" id="float-anchor">
 <p>In float
 </p><div class="float-caption"><p><strong>1
 </strong></p></div></div>
 <p>Ref to float
-<a href="#float-anchor">1</a>.
+<a class="ref" href="#float-anchor">1</a>.
 </p>
 
 <a class="index-entry-anchor" id="index-index-entry"></a>
@@ -1184,10 +1184,10 @@ kbd {font-style: oblique}
 <h1 class="top" id="top-section">top section</h1>
 
 <p>Ref to anchor
-<a href="#An-anchor">An anchor</a>
+<a class="ref" href="#An-anchor">An anchor</a>
 </p>
 <p>Ref to footnote anchor
-<a href="#Anchor-in-footnote">Anchor in footnote</a>
+<a class="ref" href="#Anchor-in-footnote">Anchor in footnote</a>
 </p><div class="footnote">
 <hr>
 <h4 class="footnotes-heading">Footnotes</h4>
@@ -1197,7 +1197,7 @@ kbd {font-style: oblique}
 </p>
 <a class="anchor" id="Anchor-in-footnote"></a>
 <p>Ref to main text anchor
-<a href="#An-anchor">An anchor</a>
+<a class="ref" href="#An-anchor">An anchor</a>
 </p>
 </div>
 </div>

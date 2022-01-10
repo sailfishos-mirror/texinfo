@@ -1208,8 +1208,8 @@ $result_converted{'plaintext'}->{'at_commands_in_raw'} = '<b>in b(1).</b>
 $result_converted{'html_text'}->{'at_commands_in_raw'} = '<h1 class="node-heading" id="Top">Top</h1>
 
 
-<b>in b<a id="DOCF1" href="#FOOT1"><sup>1</sup></a>.</b>
-<a class="anchor" id="anchor-in-html"></a><p><kbd class="kbd">in kbd before tex</kbd><a id="DOCF2" href="#FOOT2"><sup>2</sup></a>.
+<b>in b<a class="footnote" id="DOCF1" href="#FOOT1"><sup>1</sup></a>.</b>
+<a class="anchor" id="anchor-in-html"></a><p><kbd class="kbd">in kbd before tex</kbd><a class="footnote" id="DOCF2" href="#FOOT2"><sup>2</sup></a>.
 </p>
 
 
@@ -1218,7 +1218,7 @@ $result_converted{'html_text'}->{'at_commands_in_raw'} = '<h1 class="node-headin
 </p>
 <p><kbd class="kbd">in kbd after tex</kbd>.
 </p>
-<p>See <a href="#anchor-in-html">anchor in html</a>.
+<p>See <a class="xref" href="#anchor-in-html">anchor in html</a>.
 </p>
 <p>&lsquo;anchor in tex&rsquo;.
 <a class="index-entry-anchor" id="index-fentry2"></a>
@@ -1240,7 +1240,7 @@ $result_converted{'html_text'}->{'at_commands_in_raw'} = '<h1 class="node-headin
 </td></tr></table>
 
 
-<p><acronym>FF</acronym>.
+<p><acronym class="acronym">FF</acronym>.
 </p>
 <p>tt.
 </p>

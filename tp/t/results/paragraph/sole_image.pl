@@ -96,7 +96,7 @@ next para
 ';
 
 
-$result_converted{'html_text'}->{'sole_image'} = '<img src="aa.jpg" alt="aa">
+$result_converted{'html_text'}->{'sole_image'} = '<img class="image" src="aa.jpg" alt="aa">
 
 <p>next para
 </p>';

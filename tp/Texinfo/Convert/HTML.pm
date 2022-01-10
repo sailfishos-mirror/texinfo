@@ -1729,7 +1729,7 @@ my %css_map = (
      'h1.center-align'    => 'text-align:center',
      'h2.center-align'    => 'text-align:center',
      'h3.center-align'    => 'text-align:center',
-     'h3.right-align'     => 'text-align:right',
+     'h3.subtitle'        => 'text-align:right',
      'h4.center-align'    => 'text-align:center',
      'div.center-align'   => 'text-align:center',
      'blockquote.indentedblock' => 'margin-right: 0em',
@@ -2106,6 +2106,7 @@ $style_commands_element{'normal'} = {
       'code'        => 'code',
       'command'     => 'code',
       'dfn'         => 'em',
+      'dmn'         => 'span',
       'emph'        => 'em',
       'env'         => 'code',
       'file'        => 'samp',
@@ -2133,8 +2134,7 @@ my %style_commands_formatting;
 # it is required since math is not in the %style_commands as it is 
 # in context command.
 my @all_style_commands = keys %{{ map { $_ => 1 } 
-    (keys(%style_commands), keys(%{$style_commands_element{'normal'}}),
-     'dmn') }};
+    (keys(%style_commands), keys(%{$style_commands_element{'normal'}})) }};
 
 foreach my $command(@all_style_commands) {
   # default is no attribute.
@@ -2156,8 +2156,7 @@ foreach my $command(@all_style_commands) {
   $default_commands_conversion{$command} = \&_convert_style_command;
 }
 
-delete $style_commands_formatting{'preformatted'}->{'sc'}->{'attribute'};
-delete $style_commands_formatting{'preformatted'}->{'sc'};
+$style_commands_formatting{'preformatted'}->{'sc'}->{'attribute'} = 'span';
 
 sub _parse_attribute($)
 {
@@ -2282,7 +2281,8 @@ sub _convert_email_command($$$$)
   if ($self->in_string()) {
     return "$mail_string ($text)";
   } else {
-    return "<a href=\"mailto:$mail_string\">$text</a>";
+    return $self->html_attribute_class('a', $cmdname)
+                        ." href=\"mailto:$mail_string\">$text</a>";
   }
 }
 
@@ -2341,12 +2341,12 @@ sub _convert_explained_command($$$$)
   }
   my $result = $args->[0]->{'normal'};
   if (!$self->in_string()) {
-    if (defined($explanation_string)) {
-      $result = "<$cmdname title=\"$explanation_string\">".$result; 
-    } else {
-      $result = "<$cmdname>".$result;
-    }
-    $result .= "</$cmdname>";
+    my $explanation = '';
+    $explanation = " title=\"$explanation_string\""
+      if (defined($explanation_string));
+    my $html_element = $cmdname;
+    $result = $self->html_attribute_class($html_element, $cmdname)
+         ."${explanation}>".$result."</$html_element>";
   }
   if ($with_explanation) {
     $result = $self->convert_tree($self->gdt('{explained_string} ({explanation})',
@@ -2469,7 +2469,8 @@ sub _convert_footnote_command($$$$)
   } else {
     $footnote_number_text = "<sup>$number_in_doc</sup>";
   }
-  return "<a id=\"$docid\" href=\"$footnote_filename#$footid\">$footnote_number_text</a>";
+  return $self->html_attribute_class('a', $cmdname)
+    ." id=\"$docid\" href=\"$footnote_filename#$footid\">$footnote_number_text</a>";
 }
 $default_commands_conversion{'footnote'} = \&_convert_footnote_command;
 
@@ -2494,7 +2495,7 @@ sub _convert_uref_command($$$$)
   $text = $url if (!defined($text) or $text eq '');
   return $text if (!defined($url) or $url eq '');
   return "$text ($url)" if ($self->in_string());
-  return "<a href=\"$url\">$text</a>";
+  return $self->html_attribute_class('a', $cmdname)." href=\"$url\">$text</a>";
 }
 
 $default_commands_conversion{'uref'} = \&_convert_uref_command;
@@ -2528,7 +2529,8 @@ sub _convert_image_command($$$$)
       $alt_string = $self->protect_text($basefile);
     }
     return $self->close_html_lone_element(
-      "<img src=\"".$self->protect_text($image_file)."\" alt=\"$alt_string\"");
+      $self->html_attribute_class('img', $cmdname).
+         " src=\"".$self->protect_text($image_file)."\" alt=\"$alt_string\"");
   }
   return '';
 }
@@ -2551,10 +2553,11 @@ sub _convert_math_command($$$$)
     # becomes possible
     if ($arg !~ /</) {
       $self->register_file_information('mathjax', 1);
-      return $self->html_attribute_class('em', 'tex2jax_process').">\\($arg\\)</em>";
+      return $self->html_attribute_class('em', $cmdname, ['tex2jax_process'])
+                                           .">\\($arg\\)</em>";
     }
   }
-  return $self->html_attribute_class('em', 'math').">$arg</em>";
+  return $self->html_attribute_class('em', $cmdname).">$arg</em>";
 }
 
 $default_commands_conversion{'math'} = \&_convert_math_command;
@@ -2642,15 +2645,9 @@ sub _convert_key_command($$$$)
   if ($self->in_string()) {
     return $text;
   }
-  #return $self->protect_text('<') .$text .$self->protect_text('>');
   my $class = $cmdname;
 
-  my $open = $self->html_attribute_class('kbd', $class);
-  if ($open ne '') {
-    return $open.'>'.$text.'</kbd>';
-  } else {
-    return $text;
-  }
+  return $self->html_attribute_class('kbd', $cmdname).'>'.$text.'</kbd>';
 }
 
 $default_commands_conversion{'key'} = \&_convert_key_command;
@@ -2669,7 +2666,8 @@ sub _convert_indicateurl_command($$$$)
     return '';
   }
   if (!$self->in_string()) {
-    return $self->get_conf('OPEN_QUOTE_SYMBOL').'<code>' .$text 
+    return $self->get_conf('OPEN_QUOTE_SYMBOL').
+        $self->html_attribute_class('code', $cmdname).'>'.$text
                 .'</code>'.$self->get_conf('CLOSE_QUOTE_SYMBOL');
   } else {
     return $self->get_conf('OPEN_QUOTE_SYMBOL').$text.
@@ -3716,10 +3714,12 @@ sub _convert_author_command($$$$)
 
   return '' if (!$args->[0] or !$command->{'extra'}->{'titlepage'});
   if (!$self->in_string()) {
-    return "<strong>$args->[0]->{'normal'}</strong>"
+    return $self->html_attribute_class('strong', $cmdname)
+                .">$args->[0]->{'normal'}</strong>"
                 .$self->html_line_break_element()."\n";
   } else {
-    return $args->[0]->{'normal'}."\n";
+    return $self->html_attribute_class('span', $cmdname).'>'
+             .$args->[0]->{'normal'}."</span>\n";
   }
 }
 
@@ -3733,7 +3733,8 @@ sub _convert_title_command($$$$)
   my $args = shift;
   return '' if (!$args->[0]);
   if (!$self->in_string()) {
-    return "<h1>$args->[0]->{'normal'}</h1>\n";
+    return $self->html_attribute_class('h1', $cmdname)
+                            .">$args->[0]->{'normal'}</h1>\n";
   } else {
     return $args->[0]->{'normal'};
   }
@@ -3748,7 +3749,7 @@ sub _convert_subtitle_command($$$$)
   my $args = shift;
   return '' if (!$args->[0]);
   if (!$self->in_string()) {
-    return $self->html_attribute_class('h3', 'right-align')
+    return $self->html_attribute_class('h3', $cmdname)
                             .">$args->[0]->{'normal'}</h3>\n";
   } else {
     return $args->[0]->{'normal'};
@@ -3786,7 +3787,7 @@ sub _convert_listoffloats_command($$$$)
       and $self->{'floats'}->{$command->{'extra'}->{'type'}->{'normalized'}}
       and @{$self->{'floats'}->{$command->{'extra'}->{'type'}->{'normalized'}}}) { 
     my $listoffloats_name = $command->{'extra'}->{'type'}->{'normalized'};
-    my $result = $self->html_attribute_class('dl', 'listoffloats').">\n" ;
+    my $result = $self->html_attribute_class('dl', $cmdname).">\n" ;
     foreach my $float (@{$self->{'floats'}->{$listoffloats_name}}) {
       my $float_href = $self->command_href($float);
       next if (!$float_href);
@@ -3859,7 +3860,7 @@ sub _convert_menu_command($$$$)
     $begin_row = '<tr><td>';
     $end_row = '</td></tr>';
   }
-  return $self->html_attribute_class('table', 'menu')
+  return $self->html_attribute_class('table', $cmdname)
     ." border=\"0\" cellspacing=\"0\">${begin_row}\n"
       . $content . "${end_row}</table>\n";
 }
@@ -3946,7 +3947,7 @@ sub _convert_float_command($$$$$)
         . $prepended_text;
     $caption_text .= '</div>';
   }
-  return $self->html_attribute_class('div','float'). "${id_str}>\n".$content.
+  return $self->html_attribute_class('div',$cmdname). "${id_str}>\n".$content.
      $prepended_text.$caption_text . '</div>';
 }
 $default_commands_conversion{'float'} = \&_convert_float_command;
@@ -3987,7 +3988,7 @@ sub _convert_cartouche_command($$$$)
   my $content = shift;
 
   if ($content =~ /\S/ and !$self->in_string()) {
-    return $self->html_attribute_class('table', 'cartouche')
+    return $self->html_attribute_class('table', $cmdname)
        ." border=\"1\"><tr><td>\n". $content ."</td></tr></table>\n";
   }
   return $content;
@@ -4301,8 +4302,9 @@ sub _convert_xref_commands($$$$)
       }
     }
     my $reference = $name;
-    $reference = "<a href=\"$href\">$name</a>" if ($href ne '' 
-                                                   and !$self->in_string());
+    $reference = $self->html_attribute_class('a', $cmdname)
+                      ." href=\"$href\">$name</a>" if ($href ne ''
+                                                       and !$self->in_string());
 
     # maybe use {'extra'}->{'node_argument'}?
     my $is_section = ($command->{'cmdname'} ne 'node' 
@@ -4371,16 +4373,16 @@ sub _convert_xref_commands($$$$)
     if (!$self->in_string() and $href ne '') {
       # attribute to distiguish links to Texinfo manuals from other links
       # and to provide manual name of target
-      my $attribute = '';
+      my $manual_name_attribute = '';
       if ($file) {
         if (not $self->get_conf('NO_CUSTOM_HTML_ATTRIBUTE')) {
-          $attribute = "data-manual=\"".$self->protect_text($file)."\" ";
+          $manual_name_attribute = "data-manual=\"".$self->protect_text($file)."\" ";
         }
       }
       if ($name ne '') {
-        $reference = "<a ${attribute}href=\"$href\">$name</a>";
+        $reference = "<a ${manual_name_attribute}href=\"$href\">$name</a>";
       } elsif ($book ne '') {
-        $book_reference = "<a ${attribute}href=\"$href\">$book</a>";
+        $book_reference = "<a ${manual_name_attribute}href=\"$href\">$book</a>";
       }
     }
     if ($cmdname eq 'pxref') {

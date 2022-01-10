@@ -1,6 +1,17 @@
 2022-01-10  Patrice Dumas  <pertusus@free.fr>
 
 	* tp/Texinfo/Convert/HTML.pm (%css_map, %style_commands_element)
+	(_convert_email_command, _convert_explained_command)
+	(_convert_footnote_command, _convert_uref_command)
+	(_convert_image_command, _convert_math_command)
+	(_convert_indicateurl_command, _convert_author_command)
+	(_convert_title_command, _convert_subtitle_command)
+	(_convert_xref_commands): add the @-command name as class for
+	brace commands.  Use span for @dmn and for @sc in preformatted.
+
+2022-01-10  Patrice Dumas  <pertusus@free.fr>
+
+	* tp/Texinfo/Convert/HTML.pm (%css_map, %style_commands_element)
 	(_convert_style_command): always use the style command name as
 	class.
 

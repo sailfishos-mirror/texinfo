@@ -2515,7 +2515,7 @@ $result_converted{'html_text'}->{'ref_in_sectioning'} = '
 <p>
  &nbsp; </p>
 </div>
-<h1 class="top" id="for-example-node-_0028node_0029-_0028Top_0029">for example <a href="#node">See <a data-manual="file name" href="file name.html#node">title</a> in <cite class="cite">Manual</cite>.</a> (see <a href="#node">See <a data-manual="file name" href="file name.html#node">title</a> in <cite class="cite">Manual</cite>.</a>) (see <cite class="cite"><a data-manual="file" href="file.html#Top">Manual</a></cite>)</h1>
+<h1 class="top" id="for-example-node-_0028node_0029-_0028Top_0029">for example <a class="ref" href="#node">See <a data-manual="file name" href="file name.html#node">title</a> in <cite class="cite">Manual</cite>.</a> (see <a class="pxref" href="#node">See <a data-manual="file name" href="file name.html#node">title</a> in <cite class="cite">Manual</cite>.</a>) (see <cite class="cite"><a data-manual="file" href="file.html#Top">Manual</a></cite>)</h1>
 
 
 <div class="contents-element">
@@ -2525,10 +2525,10 @@ $result_converted{'html_text'}->{'ref_in_sectioning'} = '
 
 <ul class="no-bullet">
   <li><a id="toc-node_002e" href="#node">1 See <a data-manual="file name" href="file name.html#node">title</a> in <cite class="cite">Manual</cite>.</a></li>
-  <li><a id="toc-node-just-node" href="#chap">2 <a href="#node">See <a data-manual="file name" href="file name.html#node">title</a> in <cite class="cite">Manual</cite>.</a> just node</a>
+  <li><a id="toc-node-just-node" href="#chap">2 <a class="ref" href="#node">See <a data-manual="file name" href="file name.html#node">title</a> in <cite class="cite">Manual</cite>.</a> just node</a>
   <ul class="no-bullet">
-    <li><a id="toc-node-node_002c-crossref-arg2" href="#node-node_002c-crossref-arg2">2.1 <a href="#node">cross ref name</a>  node, crossref arg2</a></li>
-    <li><a id="toc-node-code-node_002c-samptitle-arg3" href="#node-code-node_002c-samptitle-arg3">2.2 <a href="#node">&lsquo;<samp class="samp">title</samp>&rsquo;</a>  code node, samptitle arg3</a></li>
+    <li><a id="toc-node-node_002c-crossref-arg2" href="#node-node_002c-crossref-arg2">2.1 <a class="ref" href="#node">cross ref name</a>  node, crossref arg2</a></li>
+    <li><a id="toc-node-code-node_002c-samptitle-arg3" href="#node-code-node_002c-samptitle-arg3">2.2 <a class="ref" href="#node">&lsquo;<samp class="samp">title</samp>&rsquo;</a>  code node, samptitle arg3</a></li>
     <li><a id="toc-node-code-node_002c-file-name" href="#node-code-node_002c-file-name">2.3 <a data-manual="file name" href="file name.html#node">(file name)<code class="code">node</code></a> code node, file name</a></li>
     <li><a id="toc-node-node-and-manual" href="#node-node-and-manual">2.4 &lsquo;node&rsquo; in <cite class="cite">Manual</cite> node and manual</a></li>
     <li><a id="toc-Top-Top-and-manual" href="#Top-Top-and-manual">2.5 <cite class="cite">Manual</cite> Top and manual</a></li>
@@ -2558,11 +2558,11 @@ $result_converted{'html_text'}->{'ref_in_sectioning'} = '
 <p>
  &nbsp; </p>
 </div>
-<h2 class="chapter" id="node-just-node">2 <a href="#node">See <a data-manual="file name" href="file name.html#node">title</a> in <cite class="cite">Manual</cite>.</a> just node</h2>
+<h2 class="chapter" id="node-just-node">2 <a class="ref" href="#node">See <a data-manual="file name" href="file name.html#node">title</a> in <cite class="cite">Manual</cite>.</a> just node</h2>
 
 <ul class="section-toc">
-<li><a href="#node-node_002c-crossref-arg2" accesskey="1"><a href="#node">cross ref name</a>  node, crossref arg2</a></li>
-<li><a href="#node-code-node_002c-samptitle-arg3" accesskey="2"><a href="#node">&lsquo;<samp class="samp">title</samp>&rsquo;</a>  code node, samptitle arg3</a></li>
+<li><a href="#node-node_002c-crossref-arg2" accesskey="1"><a class="ref" href="#node">cross ref name</a>  node, crossref arg2</a></li>
+<li><a href="#node-code-node_002c-samptitle-arg3" accesskey="2"><a class="ref" href="#node">&lsquo;<samp class="samp">title</samp>&rsquo;</a>  code node, samptitle arg3</a></li>
 <li><a href="#node-code-node_002c-file-name" accesskey="3"><a data-manual="file name" href="file name.html#node">(file name)<code class="code">node</code></a> code node, file name</a></li>
 <li><a href="#node-node-and-manual" accesskey="4">&lsquo;node&rsquo; in <cite class="cite">Manual</cite> node and manual</a></li>
 <li><a href="#Top-Top-and-manual" accesskey="5"><cite class="cite">Manual</cite> Top and manual</a></li>
@@ -2575,11 +2575,11 @@ $result_converted{'html_text'}->{'ref_in_sectioning'} = '
 <li><a href="#filename_002e-xref-filename-only_002c-no-spaces">See <a data-manual="filename" href="filename.html#Top">(filename)</a>. xref filename only, no spaces</a></li>
 </ul>
 <div class="section" id="node-node_002c-crossref-arg2">
-<h3 class="section">2.1 <a href="#node">cross ref name</a>  node, crossref arg2</h3>
+<h3 class="section">2.1 <a class="ref" href="#node">cross ref name</a>  node, crossref arg2</h3>
 
 </div>
 <div class="section" id="node-code-node_002c-samptitle-arg3">
-<h3 class="section">2.2 <a href="#node">&lsquo;<samp class="samp">title</samp>&rsquo;</a>  code node, samptitle arg3</h3>
+<h3 class="section">2.2 <a class="ref" href="#node">&lsquo;<samp class="samp">title</samp>&rsquo;</a>  code node, samptitle arg3</h3>
 
 </div>
 <div class="section" id="node-code-node_002c-file-name">

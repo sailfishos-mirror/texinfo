@@ -5711,7 +5711,7 @@ span.smaller {font-size: smaller}
 <h1 class="chapter" id="Introduction-1">1 Introduction</h1>
 
 <p>The ability of a documentation format to make cross references to a
-bibliography, a feature of LaTeX (See item [LaTeX2e] in <a href="#References">LaTeX2e</a>.)
+bibliography, a feature of LaTeX (See item [LaTeX2e] in <a class="ref" href="#References">LaTeX2e</a>.)
 , isn&rsquo;t
 currently supported in Texinfo.
 </p>
@@ -5756,7 +5756,7 @@ Massachusetts, 1994.
 <h1 class="about-heading">About This Document</h1>
 
 <p>
-  This document was generated on <em class="emph">a sunny day</em> using <a href="http://www.gnu.org/software/texinfo/"><em class="emph">texi2any</em></a>.
+  This document was generated on <em class="emph">a sunny day</em> using <a class="uref" href="http://www.gnu.org/software/texinfo/"><em class="emph">texi2any</em></a>.
 </p>
 <p>
   The buttons in the navigation panels have the following meaning:
@@ -5857,7 +5857,7 @@ Massachusetts, 1994.
 
 </div><hr>
 <p>
-  <span class="smaller">This document was generated on <em class="emph">a sunny day</em> using <a href="http://www.gnu.org/software/texinfo/"><em class="emph">texi2any</em></a>.</span>
+  <span class="smaller">This document was generated on <em class="emph">a sunny day</em> using <a class="uref" href="http://www.gnu.org/software/texinfo/"><em class="emph">texi2any</em></a>.</span>
 </p>
 
 

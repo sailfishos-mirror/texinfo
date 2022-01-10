@@ -81,7 +81,7 @@ kbd {font-style: oblique}
 </head>
 
 <body lang="en">
-<img src="../imgimage.jpg" alt="image">
+<img class="image" src="../imgimage.jpg" alt="image">
 
 
 </body>

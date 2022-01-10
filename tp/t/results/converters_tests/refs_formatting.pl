@@ -4464,11 +4464,11 @@ title: (file name)(pman)anode. ‘@ref{(pman)anode,,,file name,manual}’
 $result_converted{'html_text'}->{'refs_formatting'} = '<div class="chapter" id="chapter">
 <h2 class="chapter" id="chapter-1">1 chapter</h2>
 
-<p><code class="code">@ref{chapter,cross ref name}</code> <a href="#chapter">cross ref name</a>
-<code class="code">@ref{chapter,,title}</code> <a href="#chapter">title</a>
+<p><code class="code">@ref{chapter,cross ref name}</code> <a class="ref" href="#chapter">cross ref name</a>
+<code class="code">@ref{chapter,,title}</code> <a class="ref" href="#chapter">title</a>
 <code class="code">@ref{chapter,,,file name}</code> <a data-manual="file name" href="file name.html#chapter">(file name)chapter</a>
 <code class="code">@ref{chapter,,,,manual}</code> &lsquo;chapter&rsquo; in <cite class="cite">manual</cite>
-<code class="code">@ref{chapter,cross ref name,title,}</code> <a href="#chapter">title</a>
+<code class="code">@ref{chapter,cross ref name,title,}</code> <a class="ref" href="#chapter">title</a>
 <code class="code">@ref{chapter,cross ref name,,file name}</code> <a data-manual="file name" href="file name.html#chapter">(file name)cross ref name</a>
 <code class="code">@ref{chapter,cross ref name,,,manual}</code> &lsquo;cross ref name&rsquo; in <cite class="cite">manual</cite>
 <code class="code">@ref{chapter,cross ref name,title,file name}</code> <a data-manual="file name" href="file name.html#chapter">(file name)title</a>

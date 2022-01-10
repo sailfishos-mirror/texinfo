@@ -111,6 +111,6 @@ $result_floats{'commands_in_email'} = {};
 
 
 
-$result_converted{'html_text'}->{'commands_in_email'} = '<p><a href="mailto:endots ... in code">endots <small class="enddots">...</small> <code class="code">in code</code></a></p>';
+$result_converted{'html_text'}->{'commands_in_email'} = '<p><a class="email" href="mailto:endots ... in code">endots <small class="enddots">...</small> <code class="code">in code</code></a></p>';
 
 1;

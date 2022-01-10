@@ -805,7 +805,7 @@ a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
 div.center-align {text-align:center}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-h3.right-align {text-align:right}
+h3.subtitle {text-align:right}
 kbd {font-style: oblique}
 kbd.key {font-style: normal}
 p.left-align {text-align:left}
@@ -826,11 +826,11 @@ ul.mark-none {list-style-type: none}
 </head>
 
 <body lang="en">
-<h1>title &ndash;a</h1>
-<h3 class="right-align">formatting subtitle &ndash;a</h3>
-<h3 class="right-align">subtitle 2 &ndash;a</h3>
-<strong>author1 &ndash;a with accents in name T&eacute;&ccedil;a</strong><br>
-<strong>author2 &ndash;a</strong><br>
+<h1 class="title">title &ndash;a</h1>
+<h3 class="subtitle">formatting subtitle &ndash;a</h3>
+<h3 class="subtitle">subtitle 2 &ndash;a</h3>
+<strong class="author">author1 &ndash;a with accents in name T&eacute;&ccedil;a</strong><br>
+<strong class="author">author2 &ndash;a</strong><br>
 <p>In titlepage
 </p>
 <p>&lt;
@@ -953,20 +953,20 @@ but , ,
 @geq &ge;
 @tie a&nbsp;b
 </p>
-<p><code class="code">@acronym{--a,an accronym}</code> <acronym title="an accronym">&ndash;a</acronym> (an accronym)
-<code class="code">@acronym{--a}</code> <acronym title="an accronym">&ndash;a</acronym>
-<code class="code">@abbr{@'E--. @comma{}A., @'Etude Autonome }</code> <abbr title="&Eacute;tude Autonome">&Eacute;&ndash;. ,A.</abbr> (&Eacute;tude Autonome)
-<code class="code">@abbr{@'E--. @comma{}A.}</code> <abbr title="&Eacute;tude Autonome">&Eacute;&ndash;. ,A.</abbr>
+<p><code class="code">@acronym{--a,an accronym}</code> <acronym class="acronym" title="an accronym">&ndash;a</acronym> (an accronym)
+<code class="code">@acronym{--a}</code> <acronym class="acronym" title="an accronym">&ndash;a</acronym>
+<code class="code">@abbr{@'E--. @comma{}A., @'Etude Autonome }</code> <abbr class="abbr" title="&Eacute;tude Autonome">&Eacute;&ndash;. ,A.</abbr> (&Eacute;tude Autonome)
+<code class="code">@abbr{@'E--. @comma{}A.}</code> <abbr class="abbr" title="&Eacute;tude Autonome">&Eacute;&ndash;. ,A.</abbr>
 <code class="code">@asis{--a}</code> &ndash;a
 <code class="code">@b{--a}</code> <b class="b">&ndash;a</b>
 <code class="code">@cite{--a}</code> <cite class="cite">&ndash;a</cite>
 <code class="code">@code{--a}</code> <code class="code">--a</code>
 <code class="code">@command{--a}</code> <code class="command">--a</code>
 <code class="code">@dfn{--a}</code> <em class="dfn">&ndash;a</em>
-<code class="code">@dmn{--a}</code> &ndash;a
-<code class="code">@email{--a,--b}</code> <a href="mailto:--a">&ndash;b</a>
+<code class="code">@dmn{--a}</code> <span class="dmn">&ndash;a</span>
+<code class="code">@email{--a,--b}</code> <a class="email" href="mailto:--a">&ndash;b</a>
 <code class="code">@email{,--b}</code> &ndash;b
-<code class="code">@email{--a}</code> <a href="mailto:--a">--a</a>
+<code class="code">@email{--a}</code> <a class="email" href="mailto:--a">--a</a>
 <code class="code">@emph{--a}</code> <em class="emph">&ndash;a</em>
 <code class="code">@env{--a}</code> <code class="env">--a</code>
 <code class="code">@file{--a}</code> <samp class="file">--a</samp>
@@ -983,16 +983,16 @@ but , ,
 <code class="code">@sansserif{--a}</code> <span class="sansserif">&ndash;a</span>
 <code class="code">@slanted{--a}</code> <i class="slanted">&ndash;a</i>
 <code class="code">@titlefont{--a}</code> </p><h1 class="titlefont">&ndash;a</h1>
-<p><code class="code">@indicateurl{--a}</code> &lsquo;<code>--a</code>&rsquo;
-<code class="code">@uref{--a,--b}</code> <a href="--a">&ndash;b</a>
-<code class="code">@uref{--a}</code> <a href="--a">--a</a>
+<p><code class="code">@indicateurl{--a}</code> &lsquo;<code class="indicateurl">--a</code>&rsquo;
+<code class="code">@uref{--a,--b}</code> <a class="uref" href="--a">&ndash;b</a>
+<code class="code">@uref{--a}</code> <a class="uref" href="--a">--a</a>
 <code class="code">@uref{,--b}</code> &ndash;b
-<code class="code">@uref{--a,--b,--c}</code> <a href="--a">&ndash;c</a>
+<code class="code">@uref{--a,--b,--c}</code> <a class="uref" href="--a">&ndash;c</a>
 <code class="code">@uref{,--b,--c}</code> &ndash;c
-<code class="code">@uref{--a,,--c}</code> <a href="--a">&ndash;c</a>
+<code class="code">@uref{--a,,--c}</code> <a class="uref" href="--a">&ndash;c</a>
 <code class="code">@uref{,,--c}</code> &ndash;c
-<code class="code">@url{--a,--b}</code> <a href="--a">&ndash;b</a>
-<code class="code">@url{--a,}</code> <a href="--a">--a</a>
+<code class="code">@url{--a,--b}</code> <a class="url" href="--a">&ndash;b</a>
+<code class="code">@url{--a,}</code> <a class="url" href="--a">--a</a>
 <code class="code">@url{,--b}</code> &ndash;b
 <code class="code">@var{--a}</code> <var class="var">&ndash;a</var>
 <code class="code">@verb{:--a:}</code> <tt class="verb">--a</tt>
@@ -1019,23 +1019,23 @@ but , ,
 <code class="code">@ogonek{a}</code> &#261;
 <code class="code">@ogonek{--a}</code> &ndash;a&#808;
 <code class="code">a@sup{h}@sub{l}</code> a<sup class="sup">h</sup><sub class="sub">l</sub>
-<code class="code">@footnote{in footnote}</code> <a id="DOCF3" href="#FOOT3"><sup>1</sup></a>
-<code class="code">@footnote{in footnote2}</code> <a id="DOCF4" href="#FOOT4"><sup>2</sup></a>
+<code class="code">@footnote{in footnote}</code> <a class="footnote" id="DOCF3" href="#FOOT3"><sup>1</sup></a>
+<code class="code">@footnote{in footnote2}</code> <a class="footnote" id="DOCF4" href="#FOOT4"><sup>2</sup></a>
 </p>
-<p><code class="code">@image{f--ile}</code> <img src="f--ile.png" alt="f--ile">
-<code class="code">@image{f--ile,l--i}</code> <img src="f--ile.png" alt="f--ile">
-<code class="code">@image{f--ile,,l--e}</code> <img src="f--ile.png" alt="f--ile">
-<code class="code">@image{f--ile,,,alt}</code> <img src="f--ile.png" alt="alt">
-<code class="code">@image{f--ile,,,,.e-d-xt}</code> <img src="f--ile.e--xt" alt="f--ile">
-<code class="code">@image{f--ile,aze,az,alt,.e--xt}</code> <img src="f--ile.e--xt" alt="alt">
-<code class="code">@image{f-ile,aze,,a--lt}</code> <img src="f-ile.jpg" alt="a&ndash;lt">
-<code class="code">@image{@file{f--ile}@@@.,aze,az,alt,@file{.file ext} e--xt@}</code> <img src="f--ile@..file ext e--xt}" alt="alt">
+<p><code class="code">@image{f--ile}</code> <img class="image" src="f--ile.png" alt="f--ile">
+<code class="code">@image{f--ile,l--i}</code> <img class="image" src="f--ile.png" alt="f--ile">
+<code class="code">@image{f--ile,,l--e}</code> <img class="image" src="f--ile.png" alt="f--ile">
+<code class="code">@image{f--ile,,,alt}</code> <img class="image" src="f--ile.png" alt="alt">
+<code class="code">@image{f--ile,,,,.e-d-xt}</code> <img class="image" src="f--ile.e--xt" alt="f--ile">
+<code class="code">@image{f--ile,aze,az,alt,.e--xt}</code> <img class="image" src="f--ile.e--xt" alt="alt">
+<code class="code">@image{f-ile,aze,,a--lt}</code> <img class="image" src="f-ile.jpg" alt="a&ndash;lt">
+<code class="code">@image{@file{f--ile}@@@.,aze,az,alt,@file{.file ext} e--xt@}</code> <img class="image" src="f--ile@..file ext e--xt}" alt="alt">
 </p>
 <p><code class="code">@sp 2</code><br>
 </p><br>
 <br>
 <p><code class="code">@page</code><br>
-</p><strong>author</strong><br>
+</p><strong class="author">author</strong><br>
 
 <p><code class="code">need 1002</code>
 </p>
@@ -1571,20 +1571,20 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup class="sup">-{1 \over 2}\left({x-\mu \o
 <code class="code">@pxref{chapter, cross ref name, title, file name, manual}</code> see <a data-manual="file name" href="../file name/chapter.html#chapter">title</a> in <cite class="cite">manual</cite>
 <code class="code">@inforef{chapter, cross ref name, file name}</code> See <a data-manual="file name" href="../file name/chapter.html#chapter">(file name)cross ref name</a>
 </p>
-<p><code class="code">@ref{chapter}</code> <a href="chapter.html">chapter</a>
-<code class="code">@xref{chapter}</code> See <a href="chapter.html">chapter</a>.
-<code class="code">@pxref{chapter}</code> see <a href="chapter.html">chapter</a>
-<code class="code">@ref{s--ect@comma{}ion}</code> <a href="s_002d_002dect_002cion.html">A section</a>
+<p><code class="code">@ref{chapter}</code> <a class="ref" href="chapter.html">chapter</a>
+<code class="code">@xref{chapter}</code> See <a class="xref" href="chapter.html">chapter</a>.
+<code class="code">@pxref{chapter}</code> see <a class="pxref" href="chapter.html">chapter</a>
+<code class="code">@ref{s--ect@comma{}ion}</code> <a class="ref" href="s_002d_002dect_002cion.html">A section</a>
 </p>
 <p><code class="code">@ref{s--ect@comma{}ion, a @comma{} in cross
 ref, a comma@comma{} in title, a comma@comma{} in file, a @comma{} in manual name }</code>
 <a data-manual="a comma, in file" href="../a comma, in file/s_002d_002dect_002cion.html#s_002d_002dect_002cion">a comma, in title</a> in <cite class="cite">a , in manual name</cite>
 </p>
-<p><code class="code">@ref{chapter,cross ref name}</code> <a href="chapter.html">cross ref name</a>
-<code class="code">@ref{chapter,,title}</code> <a href="chapter.html">title</a>
+<p><code class="code">@ref{chapter,cross ref name}</code> <a class="ref" href="chapter.html">cross ref name</a>
+<code class="code">@ref{chapter,,title}</code> <a class="ref" href="chapter.html">title</a>
 <code class="code">@ref{chapter,,,file name}</code> <a data-manual="file name" href="../file name/chapter.html#chapter">(file name)chapter</a>
 <code class="code">@ref{chapter,,,,manual}</code> &lsquo;chapter&rsquo; in <cite class="cite">manual</cite>
-<code class="code">@ref{chapter,cross ref name,title,}</code> <a href="chapter.html">title</a>
+<code class="code">@ref{chapter,cross ref name,title,}</code> <a class="ref" href="chapter.html">title</a>
 <code class="code">@ref{chapter,cross ref name,,file name}</code> <a data-manual="file name" href="../file name/chapter.html#chapter">(file name)cross ref name</a>
 <code class="code">@ref{chapter,cross ref name,,,manual}</code> &lsquo;cross ref name&rsquo; in <cite class="cite">manual</cite>
 <code class="code">@ref{chapter,cross ref name,title,file name}</code> <a data-manual="file name" href="../file name/chapter.html#chapter">(file name)title</a>
@@ -1627,10 +1627,10 @@ ref, a comma@comma{} in file}</code>
 See <a data-manual="a comma, in file" href="../a comma, in file/s_002d_002dect_002cion.html#s_002d_002dect_002cion">(a comma, in file)a , in cross
 ref</a>
 </p>
-<p>&lsquo;<samp class="samp"><a href="chapter.html">chapter</a></samp>&rsquo;.
+<p>&lsquo;<samp class="samp"><a class="ref" href="chapter.html">chapter</a></samp>&rsquo;.
 </p>
-<p><a data-manual="info file with uref3 href://http/myhost.com/index3.html (uref3)" href="../index3.html (uref3)/ext.html#ext">title with uref2 <a href="href://http/myhost.com/index2.html">uref2</a></a> in <cite class="cite">printed manual with uref4 <a href="href://http/myhost.com/index4.html">uref4</a></cite>
-<a href="chapter.html">title with uref2 <a href="href://http/myhost.com/index2.html">uref2</a></a>
+<p><a data-manual="info file with uref3 href://http/myhost.com/index3.html (uref3)" href="../index3.html (uref3)/ext.html#ext">title with uref2 <a class="uref" href="href://http/myhost.com/index2.html">uref2</a></a> in <cite class="cite">printed manual with uref4 <a class="uref" href="href://http/myhost.com/index4.html">uref4</a></cite>
+<a class="ref" href="chapter.html">title with uref2 <a class="uref" href="href://http/myhost.com/index2.html">uref2</a></a>
 </p>
 <dl>
 <dt><strong class="strong">a&ndash;strong</strong></dt>
@@ -1719,15 +1719,15 @@ html ''
 <h4 class="subsubheading" id="subsubheading">subsubheading</h4>
 
 
-<p><code class="code">@acronym{--a,an accronym @comma{} @enddots{}}</code> <acronym title="an accronym , ...">&ndash;a</acronym> (an accronym , <small class="enddots">...</small>)
-<code class="code">@abbr{@'E--. @comma{}A., @'Etude--@comma{} @b{Autonome} }</code> <abbr title="&Eacute;tude&ndash;, Autonome">&Eacute;&ndash;. ,A.</abbr> (&Eacute;tude&ndash;, <b class="b">Autonome</b>)
-<code class="code">@abbr{@'E--. @comma{}A.}</code> <abbr title="&Eacute;tude&ndash;, Autonome">&Eacute;&ndash;. ,A.</abbr>
+<p><code class="code">@acronym{--a,an accronym @comma{} @enddots{}}</code> <acronym class="acronym" title="an accronym , ...">&ndash;a</acronym> (an accronym , <small class="enddots">...</small>)
+<code class="code">@abbr{@'E--. @comma{}A., @'Etude--@comma{} @b{Autonome} }</code> <abbr class="abbr" title="&Eacute;tude&ndash;, Autonome">&Eacute;&ndash;. ,A.</abbr> (&Eacute;tude&ndash;, <b class="b">Autonome</b>)
+<code class="code">@abbr{@'E--. @comma{}A.}</code> <abbr class="abbr" title="&Eacute;tude&ndash;, Autonome">&Eacute;&ndash;. ,A.</abbr>
 </p>
 <p><code class="code">@math{--a@minus{} {\frac{1}{2}}}</code> <em class="math">--a- {\frac{1}{2}}</em>
 </p>
-<p><code class="code">@image{f-ile,,,alt@verb{:jk _&quot; %}}</code> <img src="f-ile.jpg" alt="altjk _&quot; %@">
-<code class="code">@image{f--ile,aze,az,@verb{:jk _&quot; %@:} @b{in b &quot;},e--xt}</code> <img src="f--ile.e--xt" alt="jk _&quot; %@ in b &quot;">
-<code class="code">@image{file@verb{:jk _&quot; %@:},,,alt@verb{:jk _&quot; %@:}}</code> <img src="filejk _&quot; %@.jpg" alt="altjk _&quot; %@">
+<p><code class="code">@image{f-ile,,,alt@verb{:jk _&quot; %}}</code> <img class="image" src="f-ile.jpg" alt="altjk _&quot; %@">
+<code class="code">@image{f--ile,aze,az,@verb{:jk _&quot; %@:} @b{in b &quot;},e--xt}</code> <img class="image" src="f--ile.e--xt" alt="jk _&quot; %@ in b &quot;">
+<code class="code">@image{file@verb{:jk _&quot; %@:},,,alt@verb{:jk _&quot; %@:}}</code> <img class="image" src="filejk _&quot; %@.jpg" alt="altjk _&quot; %@">
 </p>
 
 
@@ -1969,20 +1969,20 @@ but , ,
 @geq &ge;
 @tie a&nbsp;b
 </p>
-<p><code class="code">@acronym{--a,an accronym}</code> <acronym title="an accronym">&ndash;a</acronym> (an accronym)
-<code class="code">@acronym{--a}</code> <acronym title="an accronym">&ndash;a</acronym>
-<code class="code">@abbr{@'E--. @comma{}A., @'Etude Autonome }</code> <abbr title="&Eacute;tude Autonome">&Eacute;&ndash;. ,A.</abbr> (&Eacute;tude Autonome)
-<code class="code">@abbr{@'E--. @comma{}A.}</code> <abbr title="&Eacute;tude Autonome">&Eacute;&ndash;. ,A.</abbr>
+<p><code class="code">@acronym{--a,an accronym}</code> <acronym class="acronym" title="an accronym">&ndash;a</acronym> (an accronym)
+<code class="code">@acronym{--a}</code> <acronym class="acronym" title="an accronym">&ndash;a</acronym>
+<code class="code">@abbr{@'E--. @comma{}A., @'Etude Autonome }</code> <abbr class="abbr" title="&Eacute;tude Autonome">&Eacute;&ndash;. ,A.</abbr> (&Eacute;tude Autonome)
+<code class="code">@abbr{@'E--. @comma{}A.}</code> <abbr class="abbr" title="&Eacute;tude Autonome">&Eacute;&ndash;. ,A.</abbr>
 <code class="code">@asis{--a}</code> &ndash;a
 <code class="code">@b{--a}</code> <b class="b">&ndash;a</b>
 <code class="code">@cite{--a}</code> <cite class="cite">&ndash;a</cite>
 <code class="code">@code{--a}</code> <code class="code">--a</code>
 <code class="code">@command{--a}</code> <code class="command">--a</code>
 <code class="code">@dfn{--a}</code> <em class="dfn">&ndash;a</em>
-<code class="code">@dmn{--a}</code> &ndash;a
-<code class="code">@email{--a,--b}</code> <a href="mailto:--a">&ndash;b</a>
+<code class="code">@dmn{--a}</code> <span class="dmn">&ndash;a</span>
+<code class="code">@email{--a,--b}</code> <a class="email" href="mailto:--a">&ndash;b</a>
 <code class="code">@email{,--b}</code> &ndash;b
-<code class="code">@email{--a}</code> <a href="mailto:--a">--a</a>
+<code class="code">@email{--a}</code> <a class="email" href="mailto:--a">--a</a>
 <code class="code">@emph{--a}</code> <em class="emph">&ndash;a</em>
 <code class="code">@env{--a}</code> <code class="env">--a</code>
 <code class="code">@file{--a}</code> <samp class="file">--a</samp>
@@ -1999,16 +1999,16 @@ but , ,
 <code class="code">@sansserif{--a}</code> <span class="sansserif">&ndash;a</span>
 <code class="code">@slanted{--a}</code> <i class="slanted">&ndash;a</i>
 <code class="code">@titlefont{--a}</code> </p><h1 class="titlefont">&ndash;a</h1>
-<p><code class="code">@indicateurl{--a}</code> &lsquo;<code>--a</code>&rsquo;
-<code class="code">@uref{--a,--b}</code> <a href="--a">&ndash;b</a>
-<code class="code">@uref{--a}</code> <a href="--a">--a</a>
+<p><code class="code">@indicateurl{--a}</code> &lsquo;<code class="indicateurl">--a</code>&rsquo;
+<code class="code">@uref{--a,--b}</code> <a class="uref" href="--a">&ndash;b</a>
+<code class="code">@uref{--a}</code> <a class="uref" href="--a">--a</a>
 <code class="code">@uref{,--b}</code> &ndash;b
-<code class="code">@uref{--a,--b,--c}</code> <a href="--a">&ndash;c</a>
+<code class="code">@uref{--a,--b,--c}</code> <a class="uref" href="--a">&ndash;c</a>
 <code class="code">@uref{,--b,--c}</code> &ndash;c
-<code class="code">@uref{--a,,--c}</code> <a href="--a">&ndash;c</a>
+<code class="code">@uref{--a,,--c}</code> <a class="uref" href="--a">&ndash;c</a>
 <code class="code">@uref{,,--c}</code> &ndash;c
-<code class="code">@url{--a,--b}</code> <a href="--a">&ndash;b</a>
-<code class="code">@url{--a,}</code> <a href="--a">--a</a>
+<code class="code">@url{--a,--b}</code> <a class="url" href="--a">&ndash;b</a>
+<code class="code">@url{--a,}</code> <a class="url" href="--a">--a</a>
 <code class="code">@url{,--b}</code> &ndash;b
 <code class="code">@var{--a}</code> <var class="var">&ndash;a</var>
 <code class="code">@verb{:--a:}</code> <tt class="verb">--a</tt>
@@ -2035,17 +2035,17 @@ but , ,
 <code class="code">@ogonek{a}</code> &#261;
 <code class="code">@ogonek{--a}</code> &ndash;a&#808;
 <code class="code">a@sup{h}@sub{l}</code> a<sup class="sup">h</sup><sub class="sub">l</sub>
-<code class="code">@footnote{in footnote}</code> <a id="DOCF1" href="#FOOT1"><sup>3</sup></a>
-<code class="code">@footnote{in footnote2}</code> <a id="DOCF2" href="#FOOT2"><sup>4</sup></a>
+<code class="code">@footnote{in footnote}</code> <a class="footnote" id="DOCF1" href="#FOOT1"><sup>3</sup></a>
+<code class="code">@footnote{in footnote2}</code> <a class="footnote" id="DOCF2" href="#FOOT2"><sup>4</sup></a>
 </p>
-<p><code class="code">@image{f--ile}</code> <img src="f--ile.png" alt="f--ile">
-<code class="code">@image{f--ile,l--i}</code> <img src="f--ile.png" alt="f--ile">
-<code class="code">@image{f--ile,,l--e}</code> <img src="f--ile.png" alt="f--ile">
-<code class="code">@image{f--ile,,,alt}</code> <img src="f--ile.png" alt="alt">
-<code class="code">@image{f--ile,,,,.e-d-xt}</code> <img src="f--ile.e--xt" alt="f--ile">
-<code class="code">@image{f--ile,aze,az,alt,.e--xt}</code> <img src="f--ile.e--xt" alt="alt">
-<code class="code">@image{f-ile,aze,,a--lt}</code> <img src="f-ile.jpg" alt="a&ndash;lt">
-<code class="code">@image{@file{f--ile}@@@.,aze,az,alt,@file{.file ext} e--xt@}</code> <img src="f--ile@..file ext e--xt}" alt="alt">
+<p><code class="code">@image{f--ile}</code> <img class="image" src="f--ile.png" alt="f--ile">
+<code class="code">@image{f--ile,l--i}</code> <img class="image" src="f--ile.png" alt="f--ile">
+<code class="code">@image{f--ile,,l--e}</code> <img class="image" src="f--ile.png" alt="f--ile">
+<code class="code">@image{f--ile,,,alt}</code> <img class="image" src="f--ile.png" alt="alt">
+<code class="code">@image{f--ile,,,,.e-d-xt}</code> <img class="image" src="f--ile.e--xt" alt="f--ile">
+<code class="code">@image{f--ile,aze,az,alt,.e--xt}</code> <img class="image" src="f--ile.e--xt" alt="alt">
+<code class="code">@image{f-ile,aze,,a--lt}</code> <img class="image" src="f-ile.jpg" alt="a&ndash;lt">
+<code class="code">@image{@file{f--ile}@@@.,aze,az,alt,@file{.file ext} e--xt@}</code> <img class="image" src="f--ile@..file ext e--xt}" alt="alt">
 </p>
 <p><code class="code">@sp 2</code><br>
 </p><br>
@@ -2586,20 +2586,20 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup class="sup">-{1 \over 2}\left({x-\mu \o
 <code class="code">@pxref{chapter, cross ref name, title, file name, manual}</code> see <a data-manual="file name" href="../file name/chapter.html#chapter">title</a> in <cite class="cite">manual</cite>
 <code class="code">@inforef{chapter, cross ref name, file name}</code> See <a data-manual="file name" href="../file name/chapter.html#chapter">(file name)cross ref name</a>
 </p>
-<p><code class="code">@ref{chapter}</code> <a href="chapter.html">chapter</a>
-<code class="code">@xref{chapter}</code> See <a href="chapter.html">chapter</a>.
-<code class="code">@pxref{chapter}</code> see <a href="chapter.html">chapter</a>
-<code class="code">@ref{s--ect@comma{}ion}</code> <a href="s_002d_002dect_002cion.html">A section</a>
+<p><code class="code">@ref{chapter}</code> <a class="ref" href="chapter.html">chapter</a>
+<code class="code">@xref{chapter}</code> See <a class="xref" href="chapter.html">chapter</a>.
+<code class="code">@pxref{chapter}</code> see <a class="pxref" href="chapter.html">chapter</a>
+<code class="code">@ref{s--ect@comma{}ion}</code> <a class="ref" href="s_002d_002dect_002cion.html">A section</a>
 </p>
 <p><code class="code">@ref{s--ect@comma{}ion, a @comma{} in cross
 ref, a comma@comma{} in title, a comma@comma{} in file, a @comma{} in manual name }</code>
 <a data-manual="a comma, in file" href="../a comma, in file/s_002d_002dect_002cion.html#s_002d_002dect_002cion">a comma, in title</a> in <cite class="cite">a , in manual name</cite>
 </p>
-<p><code class="code">@ref{chapter,cross ref name}</code> <a href="chapter.html">cross ref name</a>
-<code class="code">@ref{chapter,,title}</code> <a href="chapter.html">title</a>
+<p><code class="code">@ref{chapter,cross ref name}</code> <a class="ref" href="chapter.html">cross ref name</a>
+<code class="code">@ref{chapter,,title}</code> <a class="ref" href="chapter.html">title</a>
 <code class="code">@ref{chapter,,,file name}</code> <a data-manual="file name" href="../file name/chapter.html#chapter">(file name)chapter</a>
 <code class="code">@ref{chapter,,,,manual}</code> &lsquo;chapter&rsquo; in <cite class="cite">manual</cite>
-<code class="code">@ref{chapter,cross ref name,title,}</code> <a href="chapter.html">title</a>
+<code class="code">@ref{chapter,cross ref name,title,}</code> <a class="ref" href="chapter.html">title</a>
 <code class="code">@ref{chapter,cross ref name,,file name}</code> <a data-manual="file name" href="../file name/chapter.html#chapter">(file name)cross ref name</a>
 <code class="code">@ref{chapter,cross ref name,,,manual}</code> &lsquo;cross ref name&rsquo; in <cite class="cite">manual</cite>
 <code class="code">@ref{chapter,cross ref name,title,file name}</code> <a data-manual="file name" href="../file name/chapter.html#chapter">(file name)title</a>
@@ -2642,10 +2642,10 @@ ref, a comma@comma{} in file}</code>
 See <a data-manual="a comma, in file" href="../a comma, in file/s_002d_002dect_002cion.html#s_002d_002dect_002cion">(a comma, in file)a , in cross
 ref</a>
 </p>
-<p>&lsquo;<samp class="samp"><a href="chapter.html">chapter</a></samp>&rsquo;.
+<p>&lsquo;<samp class="samp"><a class="ref" href="chapter.html">chapter</a></samp>&rsquo;.
 </p>
-<p><a data-manual="info file with uref3 href://http/myhost.com/index3.html (uref3)" href="../index3.html (uref3)/ext.html#ext">title with uref2 <a href="href://http/myhost.com/index2.html">uref2</a></a> in <cite class="cite">printed manual with uref4 <a href="href://http/myhost.com/index4.html">uref4</a></cite>
-<a href="chapter.html">title with uref2 <a href="href://http/myhost.com/index2.html">uref2</a></a>
+<p><a data-manual="info file with uref3 href://http/myhost.com/index3.html (uref3)" href="../index3.html (uref3)/ext.html#ext">title with uref2 <a class="uref" href="href://http/myhost.com/index2.html">uref2</a></a> in <cite class="cite">printed manual with uref4 <a class="uref" href="href://http/myhost.com/index4.html">uref4</a></cite>
+<a class="ref" href="chapter.html">title with uref2 <a class="uref" href="href://http/myhost.com/index2.html">uref2</a></a>
 </p>
 <dl>
 <dt><strong class="strong">a&ndash;strong</strong></dt>
@@ -2734,15 +2734,15 @@ html ''
 <h4 class="subsubheading" id="subsubheading-1">subsubheading</h4>
 
 
-<p><code class="code">@acronym{--a,an accronym @comma{} @enddots{}}</code> <acronym title="an accronym , ...">&ndash;a</acronym> (an accronym , <small class="enddots">...</small>)
-<code class="code">@abbr{@'E--. @comma{}A., @'Etude--@comma{} @b{Autonome} }</code> <abbr title="&Eacute;tude&ndash;, Autonome">&Eacute;&ndash;. ,A.</abbr> (&Eacute;tude&ndash;, <b class="b">Autonome</b>)
-<code class="code">@abbr{@'E--. @comma{}A.}</code> <abbr title="&Eacute;tude&ndash;, Autonome">&Eacute;&ndash;. ,A.</abbr>
+<p><code class="code">@acronym{--a,an accronym @comma{} @enddots{}}</code> <acronym class="acronym" title="an accronym , ...">&ndash;a</acronym> (an accronym , <small class="enddots">...</small>)
+<code class="code">@abbr{@'E--. @comma{}A., @'Etude--@comma{} @b{Autonome} }</code> <abbr class="abbr" title="&Eacute;tude&ndash;, Autonome">&Eacute;&ndash;. ,A.</abbr> (&Eacute;tude&ndash;, <b class="b">Autonome</b>)
+<code class="code">@abbr{@'E--. @comma{}A.}</code> <abbr class="abbr" title="&Eacute;tude&ndash;, Autonome">&Eacute;&ndash;. ,A.</abbr>
 </p>
 <p><code class="code">@math{--a@minus{} {\frac{1}{2}}}</code> <em class="math">--a- {\frac{1}{2}}</em>
 </p>
-<p><code class="code">@image{f-ile,,,alt@verb{:jk _&quot; %}}</code> <img src="f-ile.jpg" alt="altjk _&quot; %@">
-<code class="code">@image{f--ile,aze,az,@verb{:jk _&quot; %@:} @b{in b &quot;},e--xt}</code> <img src="f--ile.e--xt" alt="jk _&quot; %@ in b &quot;">
-<code class="code">@image{file@verb{:jk _&quot; %@:},,,alt@verb{:jk _&quot; %@:}}</code> <img src="filejk _&quot; %@.jpg" alt="altjk _&quot; %@">
+<p><code class="code">@image{f-ile,,,alt@verb{:jk _&quot; %}}</code> <img class="image" src="f-ile.jpg" alt="altjk _&quot; %@">
+<code class="code">@image{f--ile,aze,az,@verb{:jk _&quot; %@:} @b{in b &quot;},e--xt}</code> <img class="image" src="f--ile.e--xt" alt="jk _&quot; %@ in b &quot;">
+<code class="code">@image{file@verb{:jk _&quot; %@:},,,alt@verb{:jk _&quot; %@:}}</code> <img class="image" src="filejk _&quot; %@.jpg" alt="altjk _&quot; %@">
 </p>
 
 

@@ -467,10 +467,10 @@ kbd {font-style: oblique}
 <div class="top" id="Top">
 <h1 class="top" id="unknkown-language">unknkown language</h1>
 
-<p>Unknown language. See <a href="#Top">unknkown language</a>.
+<p>Unknown language. See <a class="xref" href="#Top">unknkown language</a>.
 </p>
 
-<p>Another unknown language. See <a href="#Top">unknkown language</a>.
+<p>Another unknown language. See <a class="xref" href="#Top">unknkown language</a>.
 </p></div>
 
 

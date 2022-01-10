@@ -194,7 +194,7 @@ $result_converted{'plaintext'}->{'email_table_command_as_argument'} = '<www-disc
 
 
 $result_converted{'html_text'}->{'email_table_command_as_argument'} = '<dl>
-<dt><a href="mailto:www-discuss@gnu.org">www-discuss@gnu.org</a></dt>
+<dt><a class="email" href="mailto:www-discuss@gnu.org">www-discuss@gnu.org</a></dt>
 <dd><p>discussion
 </p></dd>
 </dl>

@@ -171,7 +171,7 @@ Text for image out of paragraph.
 
 $result_converted{'html_text'}->{'no_paragraph_commands'} = '<br>
 <h1 class="titlefont">title font</h1>
-<img src="aa.ee" alt="dd">
+<img class="image" src="aa.ee" alt="dd">
 ';
 
 $result_converted_errors{'html_text'}->{'no_paragraph_commands'} = [

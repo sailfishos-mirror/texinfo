@@ -4900,7 +4900,7 @@ $result_converted{'html'}->{'formatting_fr'} = '<!DOCTYPE html>
 a.summary-letter {text-decoration: none}
 div.example {margin-left: 3.2em}
 h1.center-align {text-align:center}
-h3.right-align {text-align:right}
+h3.subtitle {text-align:right}
 kbd {font-style: oblique}
 pre.menu-comment {font-family: serif}
 pre.menu-preformatted {font-family: serif}
@@ -4913,11 +4913,11 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="fr">
-<h1>title &ndash;a</h1>
-<h3 class="right-align">formatting subtitle &ndash;a</h3>
-<h3 class="right-align">subtitle 2 &ndash;a</h3>
-<strong>author1 &ndash;a with accents in name T&eacute;&ccedil;a</strong><br>
-<strong>author2 &ndash;a</strong><br>
+<h1 class="title">title &ndash;a</h1>
+<h3 class="subtitle">formatting subtitle &ndash;a</h3>
+<h3 class="subtitle">subtitle 2 &ndash;a</h3>
+<strong class="author">author1 &ndash;a with accents in name T&eacute;&ccedil;a</strong><br>
+<strong class="author">author2 &ndash;a</strong><br>
 <p>In titlepage
 
 </p>
@@ -5082,7 +5082,7 @@ Menu comment
 </tr></table>
 <h1 class="chapter" id="chapter-1">1 chapter</h1>
 
-<p><a id="DOCF1" href="#FOOT1"><sup>1</sup></a>
+<p><a class="footnote" id="DOCF1" href="#FOOT1"><sup>1</sup></a>
 </p>
 <div class="format">
 <table class="menu" border="0" cellspacing="0"><tr><td>
@@ -5470,11 +5470,11 @@ Menu comment
 ';
 
 
-$result_converted{'html_text'}->{'formatting_fr'} = '<h1>title &ndash;a</h1>
-<h3 class="right-align">formatting subtitle &ndash;a</h3>
-<h3 class="right-align">subtitle 2 &ndash;a</h3>
-<strong>author1 &ndash;a with accents in name T&eacute;&ccedil;a</strong><br>
-<strong>author2 &ndash;a</strong><br>
+$result_converted{'html_text'}->{'formatting_fr'} = '<h1 class="title">title &ndash;a</h1>
+<h3 class="subtitle">formatting subtitle &ndash;a</h3>
+<h3 class="subtitle">subtitle 2 &ndash;a</h3>
+<strong class="author">author1 &ndash;a with accents in name T&eacute;&ccedil;a</strong><br>
+<strong class="author">author2 &ndash;a</strong><br>
 <p>In titlepage
 
 </p>
@@ -5639,7 +5639,7 @@ Menu comment
 </tr></table>
 <h1 class="chapter" id="chapter-1">1 chapter</h1>
 
-<p><a id="DOCF1" href="#FOOT1"><sup>1</sup></a>
+<p><a class="footnote" id="DOCF1" href="#FOOT1"><sup>1</sup></a>
 </p>
 <div class="format">
 <table class="menu" border="0" cellspacing="0"><tr><td>

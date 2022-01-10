@@ -453,7 +453,7 @@ kbd {font-style: oblique}
 <p>Copying.
 <a class="anchor" id="Copying-information"></a></p>
 
-<p>See <a href="#Copying-information">Copying information</a>.
+<p>See <a class="xref" href="#Copying-information">Copying information</a>.
 </p>
 
 

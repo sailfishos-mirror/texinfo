@@ -379,7 +379,7 @@ kbd {font-style: oblique}
 <h1 class="top">top</h1>
 <h1 class="node-heading" id="Top">Top</h1>
 
-<p>See <a href="#in-titlepage">in titlepage</a>.
+<p>See <a class="xref" href="#in-titlepage">in titlepage</a>.
 </p></div>
 
 

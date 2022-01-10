@@ -626,7 +626,7 @@ kbd {font-style: oblique}
 <body lang="en">
 <h1 class="settitle center-align">the manual <br> new version</h1>
 
-<h1>AWK As A Major Systems Programming <br> Language&mdash;Revisited</h1>
+<h1 class="title">AWK As A Major Systems Programming <br> Language&mdash;Revisited</h1>
 
 <div class="center-align">in center <br> line break
 </div>

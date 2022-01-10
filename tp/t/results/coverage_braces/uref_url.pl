@@ -464,15 +464,15 @@ $result_converted{'plaintext'}->{'uref_url'} = '–b (--a) <--c> –d –g –i 
 ';
 
 
-$result_converted{'html_text'}->{'uref_url'} = '<p><a href="--a">&ndash;b</a>
-<a href="--c">--c</a>
+$result_converted{'html_text'}->{'uref_url'} = '<p><a class="uref" href="--a">&ndash;b</a>
+<a class="uref" href="--c">--c</a>
 &ndash;d
-<a href="--e">&ndash;g</a>
+<a class="uref" href="--e">&ndash;g</a>
 &ndash;i
-<a href="--j">&ndash;k</a>
+<a class="uref" href="--j">&ndash;k</a>
 &ndash;l
-<a href="--m">&ndash;n</a>
-<a href="--o">&ndash;q</a>
+<a class="url" href="--m">&ndash;n</a>
+<a class="url" href="--o">&ndash;q</a>
 </p>';
 
 

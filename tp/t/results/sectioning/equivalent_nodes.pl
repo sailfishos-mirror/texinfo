@@ -557,7 +557,7 @@ Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
 <h4 class="node-heading">&lsquo;<samp class="samp">node</samp>&rsquo;</h4>
 
-<p>See <a href="#node">&lsquo;<samp class="samp">node</samp>&rsquo;</a>.
+<p>See <a class="xref" href="#node">&lsquo;<samp class="samp">node</samp>&rsquo;</a>.
 </p>
 
 
