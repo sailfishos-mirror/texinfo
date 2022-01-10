@@ -10,39 +10,45 @@ $result_trees{'nodes_before_top'} = {
     {
       'contents' => [
         {
-          'args' => [
+          'contents' => [
             {
-              'contents' => [
+              'args' => [
                 {
+                  'contents' => [
+                    {
+                      'parent' => {},
+                      'text' => 'nodes_before_top.info'
+                    }
+                  ],
+                  'extra' => {
+                    'spaces_after_argument' => '
+'
+                  },
                   'parent' => {},
-                  'text' => 'nodes_before_top.info'
+                  'type' => 'line_arg'
                 }
               ],
+              'cmdname' => 'setfilename',
               'extra' => {
-                'spaces_after_argument' => '
-'
+                'spaces_before_argument' => ' ',
+                'text_arg' => 'nodes_before_top.info'
               },
+              'line_nr' => {
+                'file_name' => '',
+                'line_nr' => 1,
+                'macro' => ''
+              },
+              'parent' => {}
+            },
+            {
               'parent' => {},
-              'type' => 'line_arg'
+              'text' => '
+',
+              'type' => 'empty_line'
             }
           ],
-          'cmdname' => 'setfilename',
-          'extra' => {
-            'spaces_before_argument' => ' ',
-            'text_arg' => 'nodes_before_top.info'
-          },
-          'line_nr' => {
-            'file_name' => '',
-            'line_nr' => 1,
-            'macro' => ''
-          },
-          'parent' => {}
-        },
-        {
           'parent' => {},
-          'text' => '
-',
-          'type' => 'empty_line'
+          'type' => 'preamble_before_content'
         }
       ],
       'parent' => {},
@@ -627,10 +633,11 @@ $result_trees{'nodes_before_top'} = {
   ],
   'type' => 'document_root'
 };
-$result_trees{'nodes_before_top'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'nodes_before_top'}{'contents'}[0]{'contents'}[0]{'args'}[0];
-$result_trees{'nodes_before_top'}{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'nodes_before_top'}{'contents'}[0]{'contents'}[0];
+$result_trees{'nodes_before_top'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'nodes_before_top'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0];
+$result_trees{'nodes_before_top'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'args'}[0]{'parent'} = $result_trees{'nodes_before_top'}{'contents'}[0]{'contents'}[0]{'contents'}[0];
+$result_trees{'nodes_before_top'}{'contents'}[0]{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'nodes_before_top'}{'contents'}[0]{'contents'}[0];
+$result_trees{'nodes_before_top'}{'contents'}[0]{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'nodes_before_top'}{'contents'}[0]{'contents'}[0];
 $result_trees{'nodes_before_top'}{'contents'}[0]{'contents'}[0]{'parent'} = $result_trees{'nodes_before_top'}{'contents'}[0];
-$result_trees{'nodes_before_top'}{'contents'}[0]{'contents'}[1]{'parent'} = $result_trees{'nodes_before_top'}{'contents'}[0];
 $result_trees{'nodes_before_top'}{'contents'}[0]{'parent'} = $result_trees{'nodes_before_top'};
 $result_trees{'nodes_before_top'}{'contents'}[1]{'args'}[0]{'contents'}[0]{'parent'} = $result_trees{'nodes_before_top'}{'contents'}[1]{'args'}[0];
 $result_trees{'nodes_before_top'}{'contents'}[1]{'args'}[0]{'parent'} = $result_trees{'nodes_before_top'}{'contents'}[1];
@@ -903,6 +910,7 @@ $result_floats{'nodes_before_top'} = {};
 
 
 $result_converted{'latex'}->{'nodes_before_top'} = '
+\\begin{document}
 \\label{anchor:first}%
 
 

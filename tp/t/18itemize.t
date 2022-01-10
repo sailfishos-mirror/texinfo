@@ -470,6 +470,25 @@ more.
 @end itemize
 @end example
 '],
+['table_in_itemize',
+'@itemize @bullet
+@item item one
+@item
+@table @asis
+@item table one
+aaaaa
+
+New para.
+@item table two
+Five
+
+New para.
+@end table
+@item item three
+@end itemize'],
+);
+
+my @test_full_doc = (
 ['inter_item_commands_in_itemize',
 '@setfilename inter_item_commands_in_itemize.info
 
@@ -548,22 +567,6 @@ Title
 @end enumerate
 
 '],
-['table_in_itemize',
-'@itemize @bullet
-@item item one
-@item
-@table @asis
-@item table one
-aaaaa
-
-New para.
-@item table two
-Five
-
-New para.
-@end table
-@item item three
-@end itemize']
 );
 
 my @test_invalid = (
@@ -617,14 +620,21 @@ my @latex_tests_cases_tests = ('w_argument');
 foreach my $test (@test_cases) {
   push @{$test->[2]->{'test_formats'}}, 'plaintext';
   push @{$test->[2]->{'test_formats'}}, 'html_text';
-  push @{$test->[2]->{'test_formats'}}, 'file_latex'
-    if (grep {$_ eq $test->[0]} @file_latex_tests_cases_tests);
   push @{$test->[2]->{'test_formats'}}, 'latex'
     if (grep {$_ eq $test->[0]} @latex_tests_cases_tests);
 }
 
+foreach my $test (@test_full_doc) {
+  push @{$test->[2]->{'test_formats'}}, 'plaintext';
+  push @{$test->[2]->{'test_formats'}}, 'html_text';
+  push @{$test->[2]->{'test_formats'}}, 'file_latex'
+    if (grep {$_ eq $test->[0]} @file_latex_tests_cases_tests);
+
+  $test->[2]->{'full_document'} = 1 unless (exists($test->[2]->{'full_document'}));
+}
+
 our ($arg_test_case, $arg_generate, $arg_debug);
 
-run_all ('itemize', [@test_cases, @test_invalid], $arg_test_case,
+run_all ('itemize', [@test_cases, @test_full_doc, @test_invalid], $arg_test_case,
    $arg_generate, $arg_debug);
 

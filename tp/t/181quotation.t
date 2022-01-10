@@ -7,9 +7,7 @@ require 't/test_utils.pl';
 
 my @test_cases = (
 ['quotation_and_author',
-'@setfilename quotation_and_author.info
-
-Text before quotation
+'Text before quotation
 
 @quotation 
 @author Some One
@@ -29,9 +27,7 @@ A Note
 @end quotation
 '],
 ['quotation_author_in_example',
-'@setfilename quotation_author_in_example.info
-
-@example
+'@example
 @quotation 
 @author Some One
 A quot---ation
@@ -39,9 +35,7 @@ A quot---ation
 @end example
 '],
 ['space_at_commands_end_quotation_line',
-'@setfilename space_at_commands_end_quotation_line.info
-
-@quotation @@ at the end of line @
+'@quotation @@ at the end of line @
 A @@ at the end of the @@quotation line.
 @end quotation
 
@@ -50,9 +44,7 @@ A @@@  at the end of the @@quotation line.
 @end quotation
 '],
 ['empty_quotation',
-'@setfilename empty_quotation.info
-
-@quotation
+'@quotation
 @end quotation
 
 @quotation Empty
@@ -113,8 +105,12 @@ foreach my $test (@test_cases) {
   push @{$test->[2]->{'test_formats'}}, 'html_text';
   push @{$test->[2]->{'test_formats'}}, 'xml';
   push @{$test->[2]->{'test_formats'}}, 'docbook';
-  push @{$test->[2]->{'test_formats'}}, 'file_latex'
-    if (grep {$_ eq $test->[0]} @file_latex_tests_cases_tests);
+
+  if (grep {$_ eq $test->[0]} @file_latex_tests_cases_tests) {
+    push @{$test->[2]->{'test_formats'}}, 'file_latex';
+    $test->[2]->{'test_input_file_name'} = $test->[0] . '.texi';
+    $test->[2]->{'full_document'} = 1 unless (exists($test->[2]->{'full_document'}));
+  }
 }
 
 our ($arg_test_case, $arg_generate, $arg_debug);
