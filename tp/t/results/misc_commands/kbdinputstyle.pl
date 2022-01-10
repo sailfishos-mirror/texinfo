@@ -1661,43 +1661,43 @@ $result_converted{'html_text'}->{'kbdinputstyle'} = '
 <p>@kbdinputstyle code
 </p>
 
-<p><code>in code out of example <code>in nested code</code></code>.
-<code>kbd out of example</code>.
-<code>kbd <code>in code</code></code>.
+<p><code class="code">in code out of example <code class="code">in nested code</code></code>.
+<code class="code as-code-kbd ">kbd out of example</code>.
+<code class="code">kbd <code class="code as-code-kbd ">in code</code></code>.
 </p>
 <p>in example
 </p><div class="example">
-<pre class="example"><code>in code in example <code>in nested code</code></code>.
-<code>kbd in example</code>.
-<code>kbd <code>in code</code> in example</code>.
+<pre class="example"><code class="code">in code in example <code class="code">in nested code</code></code>.
+<code class="code as-code-kbd ">kbd in example</code>.
+<code class="code">kbd <code class="code as-code-kbd ">in code</code> in example</code>.
 </pre></div>
 
 <p>@kbdinputstyle example
 </p>
 
-<p><code>in code out of example <code>in nested code</code></code>.
-<kbd>kbd out of example</kbd>.
-<code>kbd <code>in code</code></code>.
+<p><code class="code">in code out of example <code class="code">in nested code</code></code>.
+<kbd class="kbd">kbd out of example</kbd>.
+<code class="code">kbd <code class="code as-code-kbd ">in code</code></code>.
 </p>
 <p>in example
 </p><div class="example">
-<pre class="example"><code>in code in example <code>in nested code</code></code>.
-<code>kbd in example</code>.
-<code>kbd <code>in code</code> in example</code>.
+<pre class="example"><code class="code">in code in example <code class="code">in nested code</code></code>.
+<code class="code as-code-kbd ">kbd in example</code>.
+<code class="code">kbd <code class="code as-code-kbd ">in code</code> in example</code>.
 </pre></div>
 
 <p>@kbdinputstyle distinct
 </p>
 
-<p><code>in code out of example <code>in nested code</code></code>.
-<kbd>kbd out of example</kbd>.
-<code>kbd <kbd>in code</kbd></code>.
+<p><code class="code">in code out of example <code class="code">in nested code</code></code>.
+<kbd class="kbd">kbd out of example</kbd>.
+<code class="code">kbd <kbd class="kbd">in code</kbd></code>.
 </p>
 <p>in example
 </p><div class="example">
-<pre class="example"><code>in code in example <code>in nested code</code></code>.
-<kbd>kbd in example</kbd>.
-<code>kbd <kbd>in code</kbd> in example</code>.
+<pre class="example"><code class="code">in code in example <code class="code">in nested code</code></code>.
+<kbd class="kbd">kbd in example</kbd>.
+<code class="code">kbd <kbd class="kbd">in code</kbd> in example</code>.
 </pre></div>
 ';
 

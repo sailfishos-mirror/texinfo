@@ -302,10 +302,10 @@ $result_converted{'plaintext'}->{'documentencoding_utf8_and_insertions'} = '– 
 
 
 $result_converted{'html_text'}->{'documentencoding_utf8_and_insertions'} = '
-<p>&ndash; &mdash; &rdquo; &ldquo; &lsquo; &rsquo; <code>in code</code>. &#7869;.
+<p>&ndash; &mdash; &rdquo; &ldquo; &lsquo; &rsquo; <code class="code">in code</code>. &#7869;.
 </p>
 <div class="example">
-<pre class="example">-- --- \'\' `` ` \' <code>in code</code>. &#7869;.
+<pre class="example">-- --- \'\' `` ` \' <code class="code">in code</code>. &#7869;.
 </pre></div>
 ';
 

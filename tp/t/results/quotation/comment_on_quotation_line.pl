@@ -144,7 +144,7 @@ $result_converted{'plaintext'}->{'comment_on_quotation_line'} = '     truc : In 
 
 
 $result_converted{'html_text'}->{'comment_on_quotation_line'} = '<blockquote>
-<p><b>truc&nbsp;:</b> In quotation
+<p><b class="b">truc&nbsp;:</b> In quotation
 </p></blockquote>
 ';
 

@@ -514,7 +514,7 @@ $result_converted{'html_text'}->{'transparent_sort_chars'} = '
 <tr><td></td><td valign="top"><a href="#index-Source-file-format">Source file format</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="t_h_cp_letter-V">V</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-_002d_002dversion_002c-for-install_002dinfo"><code>--version</code>, for <code>install-info</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-_002d_002dversion_002c-for-install_002dinfo"><code class="code">--version</code>, for <code class="command">install-info</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#t_h_cp_letter-S"><b>S</b></a>

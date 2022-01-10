@@ -473,7 +473,7 @@ $result_converted{'plaintext'}->{'abbr_acronym'} = '–a (an accronym) –a –a
 $result_converted{'html_text'}->{'abbr_acronym'} = '<p><acronym title="an accronym">&ndash;a</acronym> (an accronym)
 <acronym title="an accronym">&ndash;a</acronym>
 <acronym title="an accronym , ...">&ndash;a</acronym> (an accronym , <small class="enddots">...</small>)
-<abbr title="&Eacute;tude&ndash;, Autonome">&Eacute;&ndash;a. ,A.</abbr> (&Eacute;tude&ndash;, <b>Autonome</b>)
+<abbr title="&Eacute;tude&ndash;, Autonome">&Eacute;&ndash;a. ,A.</abbr> (&Eacute;tude&ndash;, <b class="b">Autonome</b>)
 <abbr title="&Eacute;tude&ndash;, Autonome">&Eacute;&ndash;a. ,A.</abbr>
 </p>';
 

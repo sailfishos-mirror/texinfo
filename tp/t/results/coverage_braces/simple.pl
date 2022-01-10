@@ -71,6 +71,6 @@ $result_converted{'plaintext'}->{'simple'} = 'in b.
 ';
 
 
-$result_converted{'html_text'}->{'simple'} = '<p><b>in  b</b>.</p>';
+$result_converted{'html_text'}->{'simple'} = '<p><b class="b">in  b</b>.</p>';
 
 1;

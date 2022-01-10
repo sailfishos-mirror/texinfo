@@ -192,7 +192,7 @@ kbd {font-style: oblique}
 <body lang="en">
 <pre class="verbatim">&lt;a&gt;
 </pre>
-<p><tt> &lt;i&gt; </tt>.
+<p><tt class="verb"> &lt;i&gt; </tt>.
 </p>
 <pre class="verbatim">&lt;bidule truc=&quot;ff &amp;amp;&quot;&gt; &amp; &lt;/bidule&gt;
 </pre>

@@ -441,10 +441,10 @@ kbd {font-style: oblique}
 <h1 class="node-heading" id="Top">Top</h1>
 
 
-<h3 class="heading" id="in-copying-_0040-heading">in copying @ <em>heading</em></h3>
+<h3 class="heading" id="in-copying-_0040-heading">in copying @ <em class="emph">heading</em></h3>
 <a class="index-entry-anchor" id="index-copying-cindex-copying"></a>
 
-<h4 class="subheading" id="second-in-copying-_0040-subheading">second in copying @ <em>subheading</em></h4>
+<h4 class="subheading" id="second-in-copying-_0040-subheading">second in copying @ <em class="emph">subheading</em></h4>
 
 
 

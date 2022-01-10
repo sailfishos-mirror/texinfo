@@ -631,14 +631,14 @@ kbd {font-style: oblique}
 <div class="center-align">in center <br> line break
 </div>
 <dl>
-<dt><strong>with break <br> after</strong></dt>
-<dt><strong>withx breakx <br> afterx</strong></dt>
+<dt><strong class="strong">with break <br> after</strong></dt>
+<dt><strong class="strong">withx breakx <br> afterx</strong></dt>
 <dd><p>Text
 </p></dd>
 </dl>
 
 <blockquote>
-<p><b>Q<br> uotation:</b> T
+<p><b class="b">Q<br> uotation:</b> T
 </p></blockquote>
 
 

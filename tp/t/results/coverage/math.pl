@@ -606,15 +606,15 @@ $result_converted{'html_text'}->{'math'} = '<p>Simple math
 <em class="math">--{x^i}\\over{\\tan y}</em>
 </p>
 <p>Math with @-command
-<em class="math"><code>math code</code> a &lt; b \\sum<sub>i</sub> q<sup>2</sup></em>
+<em class="math"><code class="code">math code</code> a &lt; b \\sum<sub class="sub">i</sub> q<sup class="sup">2</sup></em>
 </p>
 <p>Complex
-<em class="math">\\underline{<code>math \\hbox{ code }</code>} \\i \\sum_{i}{\\underline{f}}</em>
+<em class="math">\\underline{<code class="code">math \\hbox{ code }</code>} \\i \\sum_{i}{\\underline{f}}</em>
 </p>
 <p>@\\ outside of math
 \\
 </p>
-<p>The 3<sup>rd</sup>is the I<sub>r</sub>.
+<p>The 3<sup class="sup">rd</sup>is the I<sub class="sub">r</sub>.
 </p>
 ';
 

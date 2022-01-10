@@ -428,10 +428,10 @@ kbd {font-style: oblique}
 </head>
 
 <body lang="en">
-<h1 class="settitle center-align">@title <small>HTML</small> <code>test</code></h1>
+<h1 class="settitle center-align">@title <small class="sc">HTML</small> <code class="code">test</code></h1>
 
 <div class="top" id="Top">
-<h1 class="top" id="Top-of-_0040title-HTML-test">Top of @title <small>HTML</small> <code>test</code></h1>
+<h1 class="top" id="Top-of-_0040title-HTML-test">Top of @title <small class="sc">HTML</small> <code class="code">test</code></h1>
 
 <p>Top.
 </p>

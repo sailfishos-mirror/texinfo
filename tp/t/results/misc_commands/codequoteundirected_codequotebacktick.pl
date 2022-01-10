@@ -5303,46 +5303,46 @@ $result_converted{'html_text'}->{'codequoteundirected_codequotebacktick'} = '
 <h1 class="top" id="test-quotes">test quotes</h1>
 
 <p>&ldquo;simple-double&ndash;three&mdash;four&mdash;-&rdquo; &lsquo;simple&rsquo; quotedblleft: &ldquo; <br>
-code: <code>``simple-double--three---four----\'\' `simple\' quotedblleft: &ldquo;</code> <br>
+code: <code class="code">``simple-double--three---four----\'\' `simple\' quotedblleft: &ldquo;</code> <br>
 asis: &ldquo;simple-double&ndash;three&mdash;four&mdash;-&rdquo; &lsquo;simple&rsquo; quotedblleft: &ldquo; <br>
-strong: <strong>&ldquo;simple-double&ndash;three&mdash;four&mdash;-&rdquo; &lsquo;simple&rsquo; quotedblleft: &ldquo;</strong> <br>
-kbd: <kbd>``simple-double--three---four----\'\' `simple\' quotedblleft: &ldquo;</kbd> <br>
-samp: &lsquo;<samp>``simple-double--three---four----\'\' `simple\' quotedblleft: &ldquo;</samp>&rsquo; <br>
+strong: <strong class="strong">&ldquo;simple-double&ndash;three&mdash;four&mdash;-&rdquo; &lsquo;simple&rsquo; quotedblleft: &ldquo;</strong> <br>
+kbd: <kbd class="kbd">``simple-double--three---four----\'\' `simple\' quotedblleft: &ldquo;</kbd> <br>
+samp: &lsquo;<samp class="samp">``simple-double--three---four----\'\' `simple\' quotedblleft: &ldquo;</samp>&rsquo; <br>
 </p>
 <div class="example">
 <pre class="example">@codequoteundirected on
 @codequotebacktick on
 </pre></div>
 <p>&ldquo;simple-double&ndash;three&mdash;four&mdash;-&rdquo; &lsquo;simple&rsquo; quotedblleft: &ldquo; <br>
-code: <code>``simple-double--three---four----\'\' `simple\' quotedblleft: &ldquo;</code> <br>
+code: <code class="code">``simple-double--three---four----\'\' `simple\' quotedblleft: &ldquo;</code> <br>
 asis: &ldquo;simple-double&ndash;three&mdash;four&mdash;-&rdquo; &lsquo;simple&rsquo; quotedblleft: &ldquo; <br>
-strong: <strong>&ldquo;simple-double&ndash;three&mdash;four&mdash;-&rdquo; &lsquo;simple&rsquo; quotedblleft: &ldquo;</strong> <br>
-kbd: <kbd>``simple-double--three---four----\'\' `simple\' quotedblleft: &ldquo;</kbd> <br>
-samp: &lsquo;<samp>``simple-double--three---four----\'\' `simple\' quotedblleft: &ldquo;</samp>&rsquo; <br>
+strong: <strong class="strong">&ldquo;simple-double&ndash;three&mdash;four&mdash;-&rdquo; &lsquo;simple&rsquo; quotedblleft: &ldquo;</strong> <br>
+kbd: <kbd class="kbd">``simple-double--three---four----\'\' `simple\' quotedblleft: &ldquo;</kbd> <br>
+samp: &lsquo;<samp class="samp">``simple-double--three---four----\'\' `simple\' quotedblleft: &ldquo;</samp>&rsquo; <br>
 </p>
 <div class="example">
 <pre class="example">@codequoteundirected off
 @codequotebacktick off
 </pre></div>
 <p>&ldquo;simple-double&ndash;three&mdash;four&mdash;-&rdquo; &lsquo;simple&rsquo; quotedblleft: &ldquo; <br>
-code: <code>``simple-double--three---four----\'\' `simple\' quotedblleft: &ldquo;</code> <br>
+code: <code class="code">``simple-double--three---four----\'\' `simple\' quotedblleft: &ldquo;</code> <br>
 asis: &ldquo;simple-double&ndash;three&mdash;four&mdash;-&rdquo; &lsquo;simple&rsquo; quotedblleft: &ldquo; <br>
-strong: <strong>&ldquo;simple-double&ndash;three&mdash;four&mdash;-&rdquo; &lsquo;simple&rsquo; quotedblleft: &ldquo;</strong> <br>
-kbd: <kbd>``simple-double--three---four----\'\' `simple\' quotedblleft: &ldquo;</kbd> <br>
-samp: &lsquo;<samp>``simple-double--three---four----\'\' `simple\' quotedblleft: &ldquo;</samp>&rsquo; <br>
+strong: <strong class="strong">&ldquo;simple-double&ndash;three&mdash;four&mdash;-&rdquo; &lsquo;simple&rsquo; quotedblleft: &ldquo;</strong> <br>
+kbd: <kbd class="kbd">``simple-double--three---four----\'\' `simple\' quotedblleft: &ldquo;</kbd> <br>
+samp: &lsquo;<samp class="samp">``simple-double--three---four----\'\' `simple\' quotedblleft: &ldquo;</samp>&rsquo; <br>
 </p>
 <div class="example">
 <pre class="example">``simple-double--three---four----\'\' `simple\' quotedblleft: &ldquo; 
 
-code: <code>``simple-double--three---four----\'\' `simple\' quotedblleft: &ldquo;</code> 
+code: <code class="code">``simple-double--three---four----\'\' `simple\' quotedblleft: &ldquo;</code> 
 
 asis: ``simple-double--three---four----\'\' `simple\' quotedblleft: &ldquo; 
 
-strong: <strong>``simple-double--three---four----\'\' `simple\' quotedblleft: &ldquo;</strong> 
+strong: <strong class="strong">``simple-double--three---four----\'\' `simple\' quotedblleft: &ldquo;</strong> 
 
-kbd: <kbd>``simple-double--three---four----\'\' `simple\' quotedblleft: &ldquo;</kbd> 
+kbd: <kbd class="kbd">``simple-double--three---four----\'\' `simple\' quotedblleft: &ldquo;</kbd> 
 
-samp: &lsquo;<samp>``simple-double--three---four----\'\' `simple\' quotedblleft: &ldquo;</samp>&rsquo; 
+samp: &lsquo;<samp class="samp">``simple-double--three---four----\'\' `simple\' quotedblleft: &ldquo;</samp>&rsquo; 
 
 
 </pre><div class="example">
@@ -5351,15 +5351,15 @@ samp: &lsquo;<samp>``simple-double--three---four----\'\' `simple\' quotedblleft:
 </pre></div>
 <pre class="example">``simple-double--three---four----\'\' `simple\' quotedblleft: &ldquo; 
 
-code: <code>``simple-double--three---four----\'\' `simple\' quotedblleft: &ldquo;</code> 
+code: <code class="code">``simple-double--three---four----\'\' `simple\' quotedblleft: &ldquo;</code> 
 
 asis: ``simple-double--three---four----\'\' `simple\' quotedblleft: &ldquo; 
 
-strong: <strong>``simple-double--three---four----\'\' `simple\' quotedblleft: &ldquo;</strong> 
+strong: <strong class="strong">``simple-double--three---four----\'\' `simple\' quotedblleft: &ldquo;</strong> 
 
-kbd: <kbd>``simple-double--three---four----\'\' `simple\' quotedblleft: &ldquo;</kbd> 
+kbd: <kbd class="kbd">``simple-double--three---four----\'\' `simple\' quotedblleft: &ldquo;</kbd> 
 
-samp: &lsquo;<samp>``simple-double--three---four----\'\' `simple\' quotedblleft: &ldquo;</samp>&rsquo; 
+samp: &lsquo;<samp class="samp">``simple-double--three---four----\'\' `simple\' quotedblleft: &ldquo;</samp>&rsquo; 
 
 
 </pre><div class="example">
@@ -5368,15 +5368,15 @@ samp: &lsquo;<samp>``simple-double--three---four----\'\' `simple\' quotedblleft:
 </pre></div>
 <pre class="example">``simple-double--three---four----\'\' `simple\' quotedblleft: &ldquo; 
 
-code: <code>``simple-double--three---four----\'\' `simple\' quotedblleft: &ldquo;</code> 
+code: <code class="code">``simple-double--three---four----\'\' `simple\' quotedblleft: &ldquo;</code> 
 
 asis: ``simple-double--three---four----\'\' `simple\' quotedblleft: &ldquo; 
 
-strong: <strong>``simple-double--three---four----\'\' `simple\' quotedblleft: &ldquo;</strong> 
+strong: <strong class="strong">``simple-double--three---four----\'\' `simple\' quotedblleft: &ldquo;</strong> 
 
-kbd: <kbd>``simple-double--three---four----\'\' `simple\' quotedblleft: &ldquo;</kbd> 
+kbd: <kbd class="kbd">``simple-double--three---four----\'\' `simple\' quotedblleft: &ldquo;</kbd> 
 
-samp: &lsquo;<samp>``simple-double--three---four----\'\' `simple\' quotedblleft: &ldquo;</samp>&rsquo; 
+samp: &lsquo;<samp class="samp">``simple-double--three---four----\'\' `simple\' quotedblleft: &ldquo;</samp>&rsquo; 
 
 </pre></div>
 

@@ -304,8 +304,8 @@ pre.menu-comment {font-family: serif}
 <table class="menu" border="0" cellspacing="0">
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">* a1:
 * a2:  
-* a1c:* a2c:  * a4<b>a</b>: 
-* a5<b>b</b>: </pre></th></tr></table>
+* a1c:* a2c:  * a4<b class="b">a</b>: 
+* a5<b class="b">b</b>: </pre></th></tr></table>
 
 
 

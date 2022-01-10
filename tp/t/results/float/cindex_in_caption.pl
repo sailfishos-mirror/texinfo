@@ -540,7 +540,7 @@ kbd {font-style: oblique}
 <div class="float" id="label">
 <p>In float.
 </p>
-<div class="float-caption"><p><strong>fl 1: </strong>in caption
+<div class="float-caption"><p><strong class="strong">fl 1: </strong>in caption
 <a class="index-entry-anchor" id="index-index-entry"></a>
 </p></div></div>
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Top_cp_letter-I"><b>I</b></a>

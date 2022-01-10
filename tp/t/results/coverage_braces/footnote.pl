@@ -144,7 +144,7 @@ $result_converted{'html_text'}->{'footnote'} = '<p>text<a id="DOCF1" href="#FOOT
 <h5><a id="FOOT1" href="#DOCF1">(1)</a></h5>
 <p>in footnote.
 </p>
-<p><span class="roman">in footnote r</span>. </p>
+<p><span class="r">in footnote r</span>. </p>
 </div>
 ';
 

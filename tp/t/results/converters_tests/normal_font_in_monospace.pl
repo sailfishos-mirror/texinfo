@@ -268,10 +268,10 @@ $result_converted{'plaintext'}->{'normal_font_in_monospace'} = '     in example 
 
 
 $result_converted{'html_text'}->{'normal_font_in_monospace'} = '<div class="example">
-<pre class="example">in example <span class="roman">in r&mdash;now <code>in co---de</code></span>
+<pre class="example">in example <span class="r">in r&mdash;now <code class="code">in co---de</code></span>
 </pre></div>
 
-<p><code>in command---c <span class="roman">in r&mdash;r <samp>in file---</samp></span></code>.
+<p><code class="command">in command---c <span class="r">in r&mdash;r <samp class="file">in file---</samp></span></code>.
 </p>';
 
 

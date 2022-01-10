@@ -1070,7 +1070,7 @@ $result_converted{'html_text'}->{'spaces_in_node_names'} = '<a class="node-ancho
 <p>
  &nbsp; </p>
 </div>
-<h4 class="node-heading">b<tt>  </tt></h4>
+<h4 class="node-heading">b<tt class="verb">  </tt></h4>
 
 <hr>
 <a class="node-anchor" id="c-"></a><div class="header">
@@ -1081,7 +1081,7 @@ $result_converted{'html_text'}->{'spaces_in_node_names'} = '<a class="node-ancho
 
 <p><a href="#a--">a&nbsp;&nbsp;</a>
 </p>
-<p><a href="#b-">b<tt>  </tt></a>
+<p><a href="#b-">b<tt class="verb">  </tt></a>
 </p>
 <p><a href="#c-">c&nbsp;&nbsp;<!-- /@w --></a>
 </p>';

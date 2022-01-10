@@ -2357,20 +2357,20 @@ $result_converted{'html_text'}->{'kbdinputstyle_in_table'} = '
 </p>
 
 <dl>
-<dt><code>i--tem out of example</code></dt>
+<dt><code class="code as-code-kbd ">i--tem out of example</code></dt>
 </dl>
 
 <dl>
-<dt><code>braced i--tem out of example</code></dt>
+<dt><code class="code as-code-kbd ">braced i--tem out of example</code></dt>
 </dl>
 
 <p>in example
 </p><div class="example">
 <dl>
-<dt><tt><code>i--tem in example</code></tt></dt>
+<dt><tt><code class="code as-code-kbd ">i--tem in example</code></tt></dt>
 </dl>
 <dl>
-<dt><tt><code>braced i--tem in example</code></tt></dt>
+<dt><tt><code class="code as-code-kbd ">braced i--tem in example</code></tt></dt>
 </dl>
 </div>
 
@@ -2378,20 +2378,20 @@ $result_converted{'html_text'}->{'kbdinputstyle_in_table'} = '
 </p>
 
 <dl>
-<dt><kbd>i--tem out of example</kbd></dt>
+<dt><kbd class="kbd">i--tem out of example</kbd></dt>
 </dl>
 
 <dl>
-<dt><kbd>braced i--tem out of example</kbd></dt>
+<dt><kbd class="kbd">braced i--tem out of example</kbd></dt>
 </dl>
 
 <p>in example
 </p><div class="example">
 <dl>
-<dt><tt><code>i--tem in example</code></tt></dt>
+<dt><tt><code class="code as-code-kbd ">i--tem in example</code></tt></dt>
 </dl>
 <dl>
-<dt><tt><code>braced i--tem in example</code></tt></dt>
+<dt><tt><code class="code as-code-kbd ">braced i--tem in example</code></tt></dt>
 </dl>
 </div>
 
@@ -2399,20 +2399,20 @@ $result_converted{'html_text'}->{'kbdinputstyle_in_table'} = '
 </p>
 
 <dl>
-<dt><kbd>i--tem out of example</kbd></dt>
+<dt><kbd class="kbd">i--tem out of example</kbd></dt>
 </dl>
 
 <dl>
-<dt><kbd>braced i--tem out of example</kbd></dt>
+<dt><kbd class="kbd">braced i--tem out of example</kbd></dt>
 </dl>
 
 <p>in example
 </p><div class="example">
 <dl>
-<dt><tt><kbd>i--tem in example</kbd></tt></dt>
+<dt><tt><kbd class="kbd">i--tem in example</kbd></tt></dt>
 </dl>
 <dl>
-<dt><tt><kbd>braced i--tem in example</kbd></tt></dt>
+<dt><tt><kbd class="kbd">braced i--tem in example</kbd></tt></dt>
 </dl>
 </div>
 ';

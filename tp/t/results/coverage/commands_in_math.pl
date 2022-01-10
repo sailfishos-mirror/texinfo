@@ -2834,13 +2834,13 @@ error→ ↦ − ★ ⊣ ⇒
 
 
 $result_converted{'html_text'}->{'commands_in_math'} = '
-<div class="displaymath"><em><strong>``simple-double--three---four----\'\'</strong> aa<!-- /@w -->
+<div class="displaymath"><em><strong class="strong">``simple-double--three---four----\'\'</strong> aa<!-- /@w -->
 `<!-- /@w -->`simple-double-<!-- /@w -->-three---four----\'<!-- /@w -->\'
 
 </em></div>
 <div class="displaymath"><em>&uuml; &Uuml; &ntilde; &acirc; &eacute; &#333; &igrave; &eacute; i j &#274;&#768;
 &#322; &#262;&#807; &#262;&#807; &ccedil; a&#779; &#551; &aring; a&#865;
-&#259; a&#818; &#7841; &#462; &#261; a<sup>h</sup><sub>l</sub>
+&#259; a&#818; &#7841; &#462; &#261; a<sup class="sup">h</sup><sub class="sub">l</sub>
 
  &nbsp;&nbsp; &nbsp;   ! ? . @ } { 
 a sunny day

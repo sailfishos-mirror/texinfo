@@ -2573,25 +2573,25 @@ Image description""\\.
 
 $result_converted{'html_text'}->{'image_formatting'} = '<h1 class="node-heading" id="Top">Top</h1>
 
-<p><code>@image{f--ile}</code> <img src="f--ile.png" alt="f--ile">
-<code>@image{f--ile,l--i}</code> <img src="f--ile.png" alt="f--ile">
-<code>@image{f--ile,,l--e}</code> <img src="f--ile.png" alt="f--ile">
-<code>@image{f--ile,,,alt}</code> <img src="f--ile.png" alt="alt">
-<code>@image{f--ile,,,,e-d-xt}</code> <img src="f--ile.png" alt="f--ile">
-<code>@image{f--ile,aze,az,alt,e--xt}</code> <img src="f--ile.png" alt="alt">
-<code>@image{f-ile,aze,,a--lt}</code> <img src="f-ile.jpg" alt="a&ndash;lt">
-<code>@image{@file{f--ile}@@@.,aze,az,alt,@file{file ext} e--xt@}</code> <img src="f--ile@.file ext e--xt}" alt="alt">
+<p><code class="code">@image{f--ile}</code> <img src="f--ile.png" alt="f--ile">
+<code class="code">@image{f--ile,l--i}</code> <img src="f--ile.png" alt="f--ile">
+<code class="code">@image{f--ile,,l--e}</code> <img src="f--ile.png" alt="f--ile">
+<code class="code">@image{f--ile,,,alt}</code> <img src="f--ile.png" alt="alt">
+<code class="code">@image{f--ile,,,,e-d-xt}</code> <img src="f--ile.png" alt="f--ile">
+<code class="code">@image{f--ile,aze,az,alt,e--xt}</code> <img src="f--ile.png" alt="alt">
+<code class="code">@image{f-ile,aze,,a--lt}</code> <img src="f-ile.jpg" alt="a&ndash;lt">
+<code class="code">@image{@file{f--ile}@@@.,aze,az,alt,@file{file ext} e--xt@}</code> <img src="f--ile@.file ext e--xt}" alt="alt">
 <img src="image.jpg" alt="image"> <img src="image.jpg" alt="image">
 </p>
 <div class="example">
-<pre class="example"><code>@image{f--ile}</code> <img src="f--ile.png" alt="f--ile">
-<code>@image{f--ile,l--i}</code> <img src="f--ile.png" alt="f--ile">
-<code>@image{f--ile,,l--e}</code> <img src="f--ile.png" alt="f--ile">
-<code>@image{f--ile,,,alt}</code> <img src="f--ile.png" alt="alt">
-<code>@image{f--ile,,,,e-d-xt}</code> <img src="f--ile.png" alt="f--ile">
-<code>@image{f--ile,aze,az,alt,e--xt}</code> <img src="f--ile.png" alt="alt">
-<code>@image{f-ile,aze,,a--lt}</code> <img src="f-ile.jpg" alt="a&ndash;lt">
-<code>@image{@file{f--ile}@@@.,aze,az,alt,@file{file ext} e--xt@}</code> <img src="f--ile@.file ext e--xt}" alt="alt">
+<pre class="example"><code class="code">@image{f--ile}</code> <img src="f--ile.png" alt="f--ile">
+<code class="code">@image{f--ile,l--i}</code> <img src="f--ile.png" alt="f--ile">
+<code class="code">@image{f--ile,,l--e}</code> <img src="f--ile.png" alt="f--ile">
+<code class="code">@image{f--ile,,,alt}</code> <img src="f--ile.png" alt="alt">
+<code class="code">@image{f--ile,,,,e-d-xt}</code> <img src="f--ile.png" alt="f--ile">
+<code class="code">@image{f--ile,aze,az,alt,e--xt}</code> <img src="f--ile.png" alt="alt">
+<code class="code">@image{f-ile,aze,,a--lt}</code> <img src="f-ile.jpg" alt="a&ndash;lt">
+<code class="code">@image{@file{f--ile}@@@.,aze,az,alt,@file{file ext} e--xt@}</code> <img src="f--ile@.file ext e--xt}" alt="alt">
 <img src="image.jpg" alt="image"> <img src="image.jpg" alt="image">
 </pre></div>
 

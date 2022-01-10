@@ -469,8 +469,8 @@ $result_converted{'html_text'}->{'seealso_duplicate'} = '<h1 class="node-heading
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="t_h_cp_letter-A">A</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-awk"><code>awk</code>, POSIX and</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-awk-1"><code>awk</code>, POSIX and</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-awk"><code class="command">awk</code>, POSIX and</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-awk-1"><code class="command">awk</code>, POSIX and</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#t_h_cp_letter-A"><b>A</b></a>

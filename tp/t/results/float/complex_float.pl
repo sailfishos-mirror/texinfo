@@ -4889,7 +4889,7 @@ Next: <a href="#chapter" accesskey="n" rel="next">A chapter</a> &nbsp; </p>
 
 <p>A list of floats at the beginning.
 </p><dl class="listoffloats">
-<dt><a href="#text-with-a-lot-of-features">Text 1</a></dt><dd><p>TeX and <em><b>t&eacute;&icirc;</b><a href="an_url">an_url</a></em> <small>AND</small> <tt>it is @verb</tt> &nbsp;a word !@ &AElig;.</p></dd>
+<dt><a href="#text-with-a-lot-of-features">Text 1</a></dt><dd><p>TeX and <em class="emph"><b class="b">t&eacute;&icirc;</b><a href="an_url">an_url</a></em> <small class="sc">AND</small> <tt class="verb">it is @verb</tt> &nbsp;a word !@ &AElig;.</p></dd>
 <dt><a href="#float-with-a-lot-of-features-and-no-shortcaption">Text 1.1</a></dt><dd><p>An example of float caption<small class="enddots">...</small> 2
 An example 2.
 </p><div class="example">
@@ -4898,7 +4898,7 @@ An example 2.
 
 <p>A table 2.
 </p><dl>
-<dt><em>truc 2</em></dt>
+<dt><em class="emph">truc 2</em></dt>
 <dd><p>line 2
 </p></dd>
 </dl>
@@ -4923,7 +4923,7 @@ See <a href="#Top">xref Text with features caption</a>.
 A footnote 2.
 <a id="t_hlistoffloats_DOCF3_1" href="#t_hlistoffloats_FOOT3_1"><sup>1</sup></a>.
 </p>
-<p>TeX and <em><b>t&eacute;&icirc;</b><a href="an_url">an_url</a></em> <small>AND</small> <tt>it is @verb</tt> &nbsp;a word !@ &AElig;.
+<p>TeX and <em class="emph"><b class="b">t&eacute;&icirc;</b><a href="an_url">an_url</a></em> <small class="sc">AND</small> <tt class="verb">it is @verb</tt> &nbsp;a word !@ &AElig;.
 </p></dd>
 </dl>
 
@@ -4938,7 +4938,7 @@ A footnote 2.
 </p>
 <p>A table.
 </p><dl>
-<dt><em>truc</em></dt>
+<dt><em class="emph">truc</em></dt>
 <dd><p>line
 </p></dd>
 </dl>
@@ -4954,13 +4954,13 @@ See <a href="#Top">xref Text with features</a>.
 A footnote.
 <a id="DOCF1" href="#FOOT1"><sup>2</sup></a>.
 </p>
-<p>TeX and <em><b>t&eacute;&icirc;</b><a href="an_url">an_url</a></em> <small>AND</small> <tt>it is @verb</tt> &nbsp;a word !@ &AElig;.
+<p>TeX and <em class="emph"><b class="b">t&eacute;&icirc;</b><a href="an_url">an_url</a></em> <small class="sc">AND</small> <tt class="verb">it is @verb</tt> &nbsp;a word !@ &AElig;.
 </p>
 
 
 
 
-<div class="float-caption"><p><strong>Text 1: </strong>An example of float caption<small class="enddots">...</small>
+<div class="float-caption"><p><strong class="strong">Text 1: </strong>An example of float caption<small class="enddots">...</small>
 An example.
 </p><div class="example">
 <pre class="example">example
@@ -4969,7 +4969,7 @@ An example.
 <a class="anchor" id="Anchor-in-caption"></a>
 <p>A table.
 </p><dl>
-<dt><em>truc</em></dt>
+<dt><em class="emph">truc</em></dt>
 <dd><p>line
 </p></dd>
 </dl>
@@ -4994,7 +4994,7 @@ See <a href="#Top">xref Text with features caption</a>.
 A footnote.
 <a id="DOCF2" href="#FOOT2"><sup>3</sup></a>.
 </p>
-<p>TeX and <em><b>t&eacute;&icirc;</b><a href="an_url">an_url</a></em> <small>AND</small> <tt>it is @verb</tt> &nbsp;a word !@ &AElig;.
+<p>TeX and <em class="emph"><b class="b">t&eacute;&icirc;</b><a href="an_url">an_url</a></em> <small class="sc">AND</small> <tt class="verb">it is @verb</tt> &nbsp;a word !@ &AElig;.
 </p></div></div>
 <ul class="section-toc">
 <li><a href="#chapter" accesskey="1">A chapter</a></li>
@@ -5013,7 +5013,7 @@ Previous: <a href="#Top" accesskey="p" rel="prev">Test floats</a>, Up: <a href="
 </p>
 
 
-<div class="float-caption"><p><strong>Text 1.1: </strong>An example of float caption<small class="enddots">...</small> 2
+<div class="float-caption"><p><strong class="strong">Text 1.1: </strong>An example of float caption<small class="enddots">...</small> 2
 An example 2.
 </p><div class="example">
 <pre class="example">example 2
@@ -5021,7 +5021,7 @@ An example 2.
 
 <p>A table 2.
 </p><dl>
-<dt><em>truc 2</em></dt>
+<dt><em class="emph">truc 2</em></dt>
 <dd><p>line 2
 </p></dd>
 </dl>
@@ -5047,7 +5047,7 @@ See <a href="#Top">xref Text with features caption</a>.
 A footnote 2.
 <a id="DOCF3" href="#FOOT3"><sup>4</sup></a>.
 </p>
-<p>TeX and <em><b>t&eacute;&icirc;</b><a href="an_url">an_url</a></em> <small>AND</small> <tt>it is @verb</tt> &nbsp;a word !@ &AElig;.
+<p>TeX and <em class="emph"><b class="b">t&eacute;&icirc;</b><a href="an_url">an_url</a></em> <small class="sc">AND</small> <tt class="verb">it is @verb</tt> &nbsp;a word !@ &AElig;.
 </p></div></div>
 <p>See <a href="#text-with-a-lot-of-features">Text 1</a>.
 </p>

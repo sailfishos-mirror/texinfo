@@ -1167,7 +1167,7 @@ $result_converted{'html_text'}->{'test_accents_sc_enable_encoding'} = '
 –â
 å Å ê Ê ĩ ı ṛ ŕ̌ ņ̃̄.
 ≡
-<small>Å Å Ê Ê Ĩ I Ṛ Ŕ̌ Ņ̃̄</small>.
+<small class="sc">Å Å Ê Ê Ĩ I Ṛ Ŕ̌ Ņ̃̄</small>.
 </p>
 <p>— – ’‘ ” “
 </p>

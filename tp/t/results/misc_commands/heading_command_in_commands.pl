@@ -344,7 +344,7 @@ $result_converted{'plaintext'}->{'heading_command_in_commands'} = '‘ ’
 
 
 $result_converted{'html_text'}->{'heading_command_in_commands'} = '
-<p><code>
+<p><code class="code">
 </code>
 </p>
 

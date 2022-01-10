@@ -4433,40 +4433,40 @@ $result_converted{'html_text'}->{'top_in_ref_keep_top'} = '<a class="node-anchor
 </div>
 <h4 class="node-heading">refs node</h4>
 
-<p><code>@ref{Top,cross ref name}</code> <a href="#Top">cross ref name</a>
-<code>@ref{Top,,title}</code> <a href="#Top">title</a>
-<code>@ref{Top,,,file name}</code> <a data-manual="file name" href="file name.html#Top">(file name)Top</a>
-<code>@ref{Top,,,,manual}</code> &lsquo;Top&rsquo; in <cite>manual</cite>
-<code>@ref{Top,cross ref name,title,}</code> <a href="#Top">title</a>
-<code>@ref{Top,cross ref name,,file name}</code> <a data-manual="file name" href="file name.html#Top">(file name)cross ref name</a>
-<code>@ref{Top,cross ref name,,,manual}</code> &lsquo;cross ref name&rsquo; in <cite>manual</cite>
-<code>@ref{Top,cross ref name,title,file name}</code> <a data-manual="file name" href="file name.html#Top">(file name)title</a>
-<code>@ref{Top,cross ref name,title,,manual}</code> &lsquo;title&rsquo; in <cite>manual</cite>
-<code>@ref{Top,cross ref name,title, file name, manual}</code> <a data-manual="file name" href="file name.html#Top">title</a> in <cite>manual</cite>
-<code>@ref{Top,,title,file name}</code> <a data-manual="file name" href="file name.html#Top">(file name)title</a>
-<code>@ref{Top,,title,,manual}</code> &lsquo;title&rsquo; in <cite>manual</cite>
-<code>@ref{Top,,title, file name, manual}</code> <a data-manual="file name" href="file name.html#Top">title</a> in <cite>manual</cite>
-<code>@ref{Top,,,file name,manual}</code> <a data-manual="file name" href="file name.html#Top">Top</a> in <cite>manual</cite>
+<p><code class="code">@ref{Top,cross ref name}</code> <a href="#Top">cross ref name</a>
+<code class="code">@ref{Top,,title}</code> <a href="#Top">title</a>
+<code class="code">@ref{Top,,,file name}</code> <a data-manual="file name" href="file name.html#Top">(file name)Top</a>
+<code class="code">@ref{Top,,,,manual}</code> &lsquo;Top&rsquo; in <cite class="cite">manual</cite>
+<code class="code">@ref{Top,cross ref name,title,}</code> <a href="#Top">title</a>
+<code class="code">@ref{Top,cross ref name,,file name}</code> <a data-manual="file name" href="file name.html#Top">(file name)cross ref name</a>
+<code class="code">@ref{Top,cross ref name,,,manual}</code> &lsquo;cross ref name&rsquo; in <cite class="cite">manual</cite>
+<code class="code">@ref{Top,cross ref name,title,file name}</code> <a data-manual="file name" href="file name.html#Top">(file name)title</a>
+<code class="code">@ref{Top,cross ref name,title,,manual}</code> &lsquo;title&rsquo; in <cite class="cite">manual</cite>
+<code class="code">@ref{Top,cross ref name,title, file name, manual}</code> <a data-manual="file name" href="file name.html#Top">title</a> in <cite class="cite">manual</cite>
+<code class="code">@ref{Top,,title,file name}</code> <a data-manual="file name" href="file name.html#Top">(file name)title</a>
+<code class="code">@ref{Top,,title,,manual}</code> &lsquo;title&rsquo; in <cite class="cite">manual</cite>
+<code class="code">@ref{Top,,title, file name, manual}</code> <a data-manual="file name" href="file name.html#Top">title</a> in <cite class="cite">manual</cite>
+<code class="code">@ref{Top,,,file name,manual}</code> <a data-manual="file name" href="file name.html#Top">Top</a> in <cite class="cite">manual</cite>
 </p>
-<p><code>@ref{(pman)Top,cross ref name}</code> <a data-manual="pman" href="pman.html#Top">(pman)cross ref name</a>
-<code>@ref{(pman)Top,,title}</code> <a data-manual="pman" href="pman.html#Top">(pman)title</a>
-<code>@ref{(pman)Top,,,file name}</code> <a data-manual="file name" href="file name.html#Top">(file name)Top</a>
-<code>@ref{(pman)Top,,,,manual}</code> <a data-manual="pman" href="pman.html#Top">Top</a> in <cite>manual</cite>
-<code>@ref{(pman)Top,cross ref name,title,}</code> <a data-manual="pman" href="pman.html#Top">(pman)title</a>
-<code>@ref{(pman)Top,cross ref name,,file name}</code> <a data-manual="file name" href="file name.html#Top">(file name)cross ref name</a>
-<code>@ref{(pman)Top,cross ref name,,,manual}</code> <a data-manual="pman" href="pman.html#Top">cross ref name</a> in <cite>manual</cite>
-<code>@ref{(pman)Top,cross ref name,title,file name}</code> <a data-manual="file name" href="file name.html#Top">(file name)title</a>
-<code>@ref{(pman)Top,cross ref name,title,,manual}</code> <a data-manual="pman" href="pman.html#Top">title</a> in <cite>manual</cite>
-<code>@ref{(pman)Top,cross ref name,title, file name, manual}</code> <a data-manual="file name" href="file name.html#Top">title</a> in <cite>manual</cite>
-<code>@ref{(pman)Top,,title,file name}</code> <a data-manual="file name" href="file name.html#Top">(file name)title</a>
-<code>@ref{(pman)Top,,title,,manual}</code> <a data-manual="pman" href="pman.html#Top">title</a> in <cite>manual</cite>
-<code>@ref{(pman)Top,,title, file name, manual}</code> <a data-manual="file name" href="file name.html#Top">title</a> in <cite>manual</cite>
-<code>@ref{(pman)Top,,,file name,manual}</code> <a data-manual="file name" href="file name.html#Top">Top</a> in <cite>manual</cite>
+<p><code class="code">@ref{(pman)Top,cross ref name}</code> <a data-manual="pman" href="pman.html#Top">(pman)cross ref name</a>
+<code class="code">@ref{(pman)Top,,title}</code> <a data-manual="pman" href="pman.html#Top">(pman)title</a>
+<code class="code">@ref{(pman)Top,,,file name}</code> <a data-manual="file name" href="file name.html#Top">(file name)Top</a>
+<code class="code">@ref{(pman)Top,,,,manual}</code> <a data-manual="pman" href="pman.html#Top">Top</a> in <cite class="cite">manual</cite>
+<code class="code">@ref{(pman)Top,cross ref name,title,}</code> <a data-manual="pman" href="pman.html#Top">(pman)title</a>
+<code class="code">@ref{(pman)Top,cross ref name,,file name}</code> <a data-manual="file name" href="file name.html#Top">(file name)cross ref name</a>
+<code class="code">@ref{(pman)Top,cross ref name,,,manual}</code> <a data-manual="pman" href="pman.html#Top">cross ref name</a> in <cite class="cite">manual</cite>
+<code class="code">@ref{(pman)Top,cross ref name,title,file name}</code> <a data-manual="file name" href="file name.html#Top">(file name)title</a>
+<code class="code">@ref{(pman)Top,cross ref name,title,,manual}</code> <a data-manual="pman" href="pman.html#Top">title</a> in <cite class="cite">manual</cite>
+<code class="code">@ref{(pman)Top,cross ref name,title, file name, manual}</code> <a data-manual="file name" href="file name.html#Top">title</a> in <cite class="cite">manual</cite>
+<code class="code">@ref{(pman)Top,,title,file name}</code> <a data-manual="file name" href="file name.html#Top">(file name)title</a>
+<code class="code">@ref{(pman)Top,,title,,manual}</code> <a data-manual="pman" href="pman.html#Top">title</a> in <cite class="cite">manual</cite>
+<code class="code">@ref{(pman)Top,,title, file name, manual}</code> <a data-manual="file name" href="file name.html#Top">title</a> in <cite class="cite">manual</cite>
+<code class="code">@ref{(pman)Top,,,file name,manual}</code> <a data-manual="file name" href="file name.html#Top">Top</a> in <cite class="cite">manual</cite>
 </p>
-<p><code>@inforef{Top, cross ref name, file name}</code> See <a data-manual="file name" href="file name.html#Top">(file name)cross ref name</a>
-<code>@inforef{Top}</code> See &lsquo;Top&rsquo;
-<code>@inforef{Top, cross ref name}</code> See &lsquo;cross ref name&rsquo;
-<code>@inforef{Top,,file name}</code> See <a data-manual="file name" href="file name.html#Top">(file name)Top</a>
+<p><code class="code">@inforef{Top, cross ref name, file name}</code> See <a data-manual="file name" href="file name.html#Top">(file name)cross ref name</a>
+<code class="code">@inforef{Top}</code> See &lsquo;Top&rsquo;
+<code class="code">@inforef{Top, cross ref name}</code> See &lsquo;cross ref name&rsquo;
+<code class="code">@inforef{Top,,file name}</code> See <a data-manual="file name" href="file name.html#Top">(file name)Top</a>
 </p>';
 
 1;

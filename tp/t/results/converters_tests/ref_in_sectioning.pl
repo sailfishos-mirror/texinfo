@@ -2515,7 +2515,7 @@ $result_converted{'html_text'}->{'ref_in_sectioning'} = '
 <p>
  &nbsp; </p>
 </div>
-<h1 class="top" id="for-example-node-_0028node_0029-_0028Top_0029">for example <a href="#node">See <a data-manual="file name" href="file name.html#node">title</a> in <cite>Manual</cite>.</a> (see <a href="#node">See <a data-manual="file name" href="file name.html#node">title</a> in <cite>Manual</cite>.</a>) (see <cite><a data-manual="file" href="file.html#Top">Manual</a></cite>)</h1>
+<h1 class="top" id="for-example-node-_0028node_0029-_0028Top_0029">for example <a href="#node">See <a data-manual="file name" href="file name.html#node">title</a> in <cite class="cite">Manual</cite>.</a> (see <a href="#node">See <a data-manual="file name" href="file name.html#node">title</a> in <cite class="cite">Manual</cite>.</a>) (see <cite class="cite"><a data-manual="file" href="file.html#Top">Manual</a></cite>)</h1>
 
 
 <div class="contents-element">
@@ -2524,15 +2524,15 @@ $result_converted{'html_text'}->{'ref_in_sectioning'} = '
 <div class="contents">
 
 <ul class="no-bullet">
-  <li><a id="toc-node_002e" href="#node">1 See <a data-manual="file name" href="file name.html#node">title</a> in <cite>Manual</cite>.</a></li>
-  <li><a id="toc-node-just-node" href="#chap">2 <a href="#node">See <a data-manual="file name" href="file name.html#node">title</a> in <cite>Manual</cite>.</a> just node</a>
+  <li><a id="toc-node_002e" href="#node">1 See <a data-manual="file name" href="file name.html#node">title</a> in <cite class="cite">Manual</cite>.</a></li>
+  <li><a id="toc-node-just-node" href="#chap">2 <a href="#node">See <a data-manual="file name" href="file name.html#node">title</a> in <cite class="cite">Manual</cite>.</a> just node</a>
   <ul class="no-bullet">
     <li><a id="toc-node-node_002c-crossref-arg2" href="#node-node_002c-crossref-arg2">2.1 <a href="#node">cross ref name</a>  node, crossref arg2</a></li>
-    <li><a id="toc-node-code-node_002c-samptitle-arg3" href="#node-code-node_002c-samptitle-arg3">2.2 <a href="#node">&lsquo;<samp>title</samp>&rsquo;</a>  code node, samptitle arg3</a></li>
-    <li><a id="toc-node-code-node_002c-file-name" href="#node-code-node_002c-file-name">2.3 <a data-manual="file name" href="file name.html#node">(file name)<code>node</code></a> code node, file name</a></li>
-    <li><a id="toc-node-node-and-manual" href="#node-node-and-manual">2.4 &lsquo;node&rsquo; in <cite>Manual</cite> node and manual</a></li>
-    <li><a id="toc-Top-Top-and-manual" href="#Top-Top-and-manual">2.5 <cite>Manual</cite> Top and manual</a></li>
-    <li><a id="toc-Manual-no-node-just-manual" href="#Manual-no-node-just-manual">2.6 <cite>Manual</cite> no node just manual</a></li>
+    <li><a id="toc-node-code-node_002c-samptitle-arg3" href="#node-code-node_002c-samptitle-arg3">2.2 <a href="#node">&lsquo;<samp class="samp">title</samp>&rsquo;</a>  code node, samptitle arg3</a></li>
+    <li><a id="toc-node-code-node_002c-file-name" href="#node-code-node_002c-file-name">2.3 <a data-manual="file name" href="file name.html#node">(file name)<code class="code">node</code></a> code node, file name</a></li>
+    <li><a id="toc-node-node-and-manual" href="#node-node-and-manual">2.4 &lsquo;node&rsquo; in <cite class="cite">Manual</cite> node and manual</a></li>
+    <li><a id="toc-Top-Top-and-manual" href="#Top-Top-and-manual">2.5 <cite class="cite">Manual</cite> Top and manual</a></li>
+    <li><a id="toc-Manual-no-node-just-manual" href="#Manual-no-node-just-manual">2.6 <cite class="cite">Manual</cite> no node just manual</a></li>
     <li><a id="toc-file-name-no-node-just-file-name" href="#file-name-no-node-just-file-name">2.7 <a data-manual="file name" href="file name.html#Top">(file name)</a> no node just file name</a></li>
     <li><a id="toc-a-inforef-a-b-c" href="#a-inforef-a-b-c">2.8 See <a data-manual="c" href="c.html#a">(c)b</a> inforef a b c</a></li>
     <li><a id="toc-_0028Top_0029-pxref-Top-file-name_002c-spaces" href="#g_t_0028Top_0029-pxref-Top-file-name_002c-spaces">2.9 (see <a data-manual="file name" href="file name.html#Top">(file name)Top</a>) pxref Top file name, spaces</a></li>
@@ -2549,7 +2549,7 @@ $result_converted{'html_text'}->{'ref_in_sectioning'} = '
 <p>
  &nbsp; </p>
 </div>
-<h2 class="chapter" id="node_002e">1 See <a data-manual="file name" href="file name.html#node">title</a> in <cite>Manual</cite>.</h2>
+<h2 class="chapter" id="node_002e">1 See <a data-manual="file name" href="file name.html#node">title</a> in <cite class="cite">Manual</cite>.</h2>
 
 <hr>
 </div>
@@ -2558,15 +2558,15 @@ $result_converted{'html_text'}->{'ref_in_sectioning'} = '
 <p>
  &nbsp; </p>
 </div>
-<h2 class="chapter" id="node-just-node">2 <a href="#node">See <a data-manual="file name" href="file name.html#node">title</a> in <cite>Manual</cite>.</a> just node</h2>
+<h2 class="chapter" id="node-just-node">2 <a href="#node">See <a data-manual="file name" href="file name.html#node">title</a> in <cite class="cite">Manual</cite>.</a> just node</h2>
 
 <ul class="section-toc">
 <li><a href="#node-node_002c-crossref-arg2" accesskey="1"><a href="#node">cross ref name</a>  node, crossref arg2</a></li>
-<li><a href="#node-code-node_002c-samptitle-arg3" accesskey="2"><a href="#node">&lsquo;<samp>title</samp>&rsquo;</a>  code node, samptitle arg3</a></li>
-<li><a href="#node-code-node_002c-file-name" accesskey="3"><a data-manual="file name" href="file name.html#node">(file name)<code>node</code></a> code node, file name</a></li>
-<li><a href="#node-node-and-manual" accesskey="4">&lsquo;node&rsquo; in <cite>Manual</cite> node and manual</a></li>
-<li><a href="#Top-Top-and-manual" accesskey="5"><cite>Manual</cite> Top and manual</a></li>
-<li><a href="#Manual-no-node-just-manual" accesskey="6"><cite>Manual</cite> no node just manual</a></li>
+<li><a href="#node-code-node_002c-samptitle-arg3" accesskey="2"><a href="#node">&lsquo;<samp class="samp">title</samp>&rsquo;</a>  code node, samptitle arg3</a></li>
+<li><a href="#node-code-node_002c-file-name" accesskey="3"><a data-manual="file name" href="file name.html#node">(file name)<code class="code">node</code></a> code node, file name</a></li>
+<li><a href="#node-node-and-manual" accesskey="4">&lsquo;node&rsquo; in <cite class="cite">Manual</cite> node and manual</a></li>
+<li><a href="#Top-Top-and-manual" accesskey="5"><cite class="cite">Manual</cite> Top and manual</a></li>
+<li><a href="#Manual-no-node-just-manual" accesskey="6"><cite class="cite">Manual</cite> no node just manual</a></li>
 <li><a href="#file-name-no-node-just-file-name" accesskey="7"><a data-manual="file name" href="file name.html#Top">(file name)</a> no node just file name</a></li>
 <li><a href="#a-inforef-a-b-c" accesskey="8">See <a data-manual="c" href="c.html#a">(c)b</a> inforef a b c</a></li>
 <li><a href="#g_t_0028Top_0029-pxref-Top-file-name_002c-spaces" accesskey="9">(see <a data-manual="file name" href="file name.html#Top">(file name)Top</a>) pxref Top file name, spaces</a></li>
@@ -2579,23 +2579,23 @@ $result_converted{'html_text'}->{'ref_in_sectioning'} = '
 
 </div>
 <div class="section" id="node-code-node_002c-samptitle-arg3">
-<h3 class="section">2.2 <a href="#node">&lsquo;<samp>title</samp>&rsquo;</a>  code node, samptitle arg3</h3>
+<h3 class="section">2.2 <a href="#node">&lsquo;<samp class="samp">title</samp>&rsquo;</a>  code node, samptitle arg3</h3>
 
 </div>
 <div class="section" id="node-code-node_002c-file-name">
-<h3 class="section">2.3 <a data-manual="file name" href="file name.html#node">(file name)<code>node</code></a> code node, file name</h3>
+<h3 class="section">2.3 <a data-manual="file name" href="file name.html#node">(file name)<code class="code">node</code></a> code node, file name</h3>
 
 </div>
 <div class="section" id="node-node-and-manual">
-<h3 class="section">2.4 &lsquo;node&rsquo; in <cite>Manual</cite> node and manual</h3>
+<h3 class="section">2.4 &lsquo;node&rsquo; in <cite class="cite">Manual</cite> node and manual</h3>
 
 </div>
 <div class="section" id="Top-Top-and-manual">
-<h3 class="section">2.5 <cite>Manual</cite> Top and manual</h3>
+<h3 class="section">2.5 <cite class="cite">Manual</cite> Top and manual</h3>
 
 </div>
 <div class="section" id="Manual-no-node-just-manual">
-<h3 class="section">2.6 <cite>Manual</cite> no node just manual</h3>
+<h3 class="section">2.6 <cite class="cite">Manual</cite> no node just manual</h3>
 
 </div>
 <div class="section" id="file-name-no-node-just-file-name">

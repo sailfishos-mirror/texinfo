@@ -192,7 +192,7 @@ kbd {font-style: oblique}
 
 <body lang="en">
 <div class="example">
-<strong id="in-example-_0040-heading">in example @ <em>heading</em></strong>
+<strong id="in-example-_0040-heading">in example @ <em class="emph">heading</em></strong>
 </div>
 
 

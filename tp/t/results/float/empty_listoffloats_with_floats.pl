@@ -682,7 +682,7 @@ kbd {font-style: oblique}
 <div class="float" id="label2">
 <p>Label and caption.
 </p>
-<div class="float-caption"><p><strong>2: </strong>caption with label</p></div></div>
+<div class="float-caption"><p><strong class="strong">2: </strong>caption with label</p></div></div>
 <div class="float">
 <p>no label no caption
 </p></div>

@@ -1430,8 +1430,8 @@ $result_converted{'html_text'}->{'printindex_index_entry_in_copying'} = '
 <a class="index-entry-anchor" id="index-copying-Copying-this-document"></a>
 
 <dl class="def">
-<dt id="index-copying-fun"><span class="category">Function: </span><span><strong>fun</strong> <em>arg</em><a class="copiable-anchor" href=\'#index-copying-fun\'> &para;</a></span></dt>
-<dt id="index-copying-xf"><span class="category">Function: </span><span><strong>xf</strong> <em>arg</em><a class="copiable-anchor" href=\'#index-copying-xf\'> &para;</a></span></dt>
+<dt id="index-copying-fun"><span class="category">Function: </span><span><strong class="strong">fun</strong> <em class="emph">arg</em><a class="copiable-anchor" href=\'#index-copying-fun\'> &para;</a></span></dt>
+<dt id="index-copying-xf"><span class="category">Function: </span><span><strong class="strong">xf</strong> <em class="emph">arg</em><a class="copiable-anchor" href=\'#index-copying-xf\'> &para;</a></span></dt>
 <dd><p>Defun
 </p></dd></dl>
 
@@ -1487,8 +1487,8 @@ $result_converted{'html_text'}->{'printindex_index_entry_in_copying'} = '
 <a class="index-entry-anchor" id="index-copying-Copying-this-document"></a>
 
 <dl class="def">
-<dt id="index-copying-fun"><span class="category">Function: </span><span><strong>fun</strong> <em>arg</em><a class="copiable-anchor" href=\'#index-copying-fun\'> &para;</a></span></dt>
-<dt id="index-copying-xf"><span class="category">Function: </span><span><strong>xf</strong> <em>arg</em><a class="copiable-anchor" href=\'#index-copying-xf\'> &para;</a></span></dt>
+<dt id="index-copying-fun"><span class="category">Function: </span><span><strong class="strong">fun</strong> <em class="emph">arg</em><a class="copiable-anchor" href=\'#index-copying-fun\'> &para;</a></span></dt>
+<dt id="index-copying-xf"><span class="category">Function: </span><span><strong class="strong">xf</strong> <em class="emph">arg</em><a class="copiable-anchor" href=\'#index-copying-xf\'> &para;</a></span></dt>
 <dd><p>Defun
 </p></dd></dl>
 

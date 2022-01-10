@@ -455,7 +455,7 @@ $result_converted{'html_text'}->{'definfoenclose'} = '
 <p>definfoenclose phi,:,:  </p>
 <p>:bar:
 </p>
-<p><strong>very strong</strong>
+<p><strong class="strong">very strong</strong>
 </p>
 
 <p>(strong: is it really strong? :)

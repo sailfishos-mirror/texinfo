@@ -1003,7 +1003,7 @@ $result_converted{'html_text'}->{'test_w'} = '<p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 </p>
 <p>aaf &nbsp;<!-- /@w --> bbb.
 </p>
-<p>begin and end quotations: <code>`<!-- /@w -->`&hellip;\'<!-- /@w -->\'</code><!-- /@w -->.  This
+<p>begin and end quotations: <code class="t">`<!-- /@w -->`&hellip;\'<!-- /@w -->\'</code><!-- /@w -->.  This
 convention should be followed in Texinfo files.  TeX converts
 two single quotes to left- and right-hand doubled.
 </p>';

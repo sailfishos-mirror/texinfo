@@ -545,7 +545,7 @@ kbd {font-style: oblique}
 <body lang="en">
 <a class="node-anchor" id="Top"></a><div class="header">
 <p>
-Next: <a href="#node" accesskey="n" rel="next">&lsquo;<samp>node</samp>&rsquo;</a> &nbsp; </p>
+Next: <a href="#node" accesskey="n" rel="next">&lsquo;<samp class="samp">node</samp>&rsquo;</a> &nbsp; </p>
 </div>
 <h1 class="node-heading">Top</h1>
 
@@ -555,9 +555,9 @@ Next: <a href="#node" accesskey="n" rel="next">&lsquo;<samp>node</samp>&rsquo;</
 <p>
 Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
-<h4 class="node-heading">&lsquo;<samp>node</samp>&rsquo;</h4>
+<h4 class="node-heading">&lsquo;<samp class="samp">node</samp>&rsquo;</h4>
 
-<p>See <a href="#node">&lsquo;<samp>node</samp>&rsquo;</a>.
+<p>See <a href="#node">&lsquo;<samp class="samp">node</samp>&rsquo;</a>.
 </p>
 
 

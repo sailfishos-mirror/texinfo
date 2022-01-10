@@ -813,7 +813,7 @@ p.right-align {text-align:right}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 span.nolinebreak {white-space: nowrap}
-span.roman {font-family: initial; font-weight: normal}
+span.r {font-family: initial; font-weight: normal}
 span.sansserif {font-family: sans-serif; font-weight: normal}
 span.smaller {font-size: smaller}
 span:hover a.copiable-anchor {visibility: visible}
@@ -866,10 +866,10 @@ qsd dsq sdq dsq dssdq sdq sdq sdq dsq sdq dsq dsq sdq dsq sdqsd q
 &lsquo;
 </p>
 <p>&ldquo;simple-double&ndash;three&mdash;four&mdash;-&rdquo;<br>
-code: <code>``simple-double--three---four----''</code> <br>
+code: <code class="code">``simple-double--three---four----''</code> <br>
 asis: &ldquo;simple-double&ndash;three&mdash;four&mdash;-&rdquo; <br>
-strong: <strong>&ldquo;simple-double&ndash;three&mdash;four&mdash;-&rdquo;</strong> <br>
-kbd: <kbd>``simple-double--three---four----''</kbd> <br>
+strong: <strong class="strong">&ldquo;simple-double&ndash;three&mdash;four&mdash;-&rdquo;</strong> <br>
+kbd: <kbd class="kbd">``simple-double--three---four----''</kbd> <br>
 </p>
 <p>&lsquo;<!-- /@w -->&lsquo;simple-double-<!-- /@w -->-three&mdash;four&mdash;-&rsquo;<!-- /@w -->&rsquo;<br>
 </p>
@@ -903,16 +903,16 @@ kbd: <kbd>``simple-double--three---four----''</kbd> <br>
 @ followed by a tab
 &nbsp;
 @ followed by a new line
-&nbsp;<code>@-</code> 
-<code>@|</code> 
-<code>@:</code> 
-<code>@!</code> !
-<code>@?</code> ?
-<code>@.</code> .
-<code>@@</code> @
-<code>@}</code> }
-<code>@{</code> {
-<code>@/</code> 
+&nbsp;<code class="code">@-</code> 
+<code class="code">@|</code> 
+<code class="code">@:</code> 
+<code class="code">@!</code> !
+<code class="code">@?</code> ?
+<code class="code">@.</code> .
+<code class="code">@@</code> @
+<code class="code">@}</code> }
+<code class="code">@{</code> {
+<code class="code">@/</code> 
 </p>
 <p>foo vs. bar. 
 colon :And something else.
@@ -978,102 +978,102 @@ but , ,
 @geq &ge;
 @tie a&nbsp;b
 </p>
-<p><code>@acronym{--a,an accronym}</code> <acronym title="an accronym">&ndash;a</acronym> (an accronym)
-<code>@acronym{--a}</code> <acronym title="an accronym">&ndash;a</acronym>
-<code>@abbr{@'E--. @comma{}A., @'Etude Autonome }</code> <abbr title="&Eacute;tude Autonome">&Eacute;&ndash;. ,A.</abbr> (&Eacute;tude Autonome)
-<code>@abbr{@'E--. @comma{}A.}</code> <abbr title="&Eacute;tude Autonome">&Eacute;&ndash;. ,A.</abbr>
-<code>@asis{--a}</code> &ndash;a
-<code>@b{--a}</code> <b>&ndash;a</b>
-<code>@cite{--a}</code> <cite>&ndash;a</cite>
-<code>@code{--a}</code> <code>--a</code>
-<code>@command{--a}</code> <code>--a</code>
-<code>@dfn{--a}</code> <em>&ndash;a</em>
-<code>@dmn{--a}</code> &ndash;a
-<code>@email{--a,--b}</code> <a href="mailto:--a">&ndash;b</a>
-<code>@email{,--b}</code> &ndash;b
-<code>@email{--a}</code> <a href="mailto:--a">--a</a>
-<code>@emph{--a}</code> <em>&ndash;a</em>
-<code>@env{--a}</code> <code>--a</code>
-<code>@file{--a}</code> <samp>--a</samp>
-<code>@i{--a}</code> <i>&ndash;a</i>
-<code>@kbd{--a}</code> <kbd>--a</kbd>
-<code>@key{--a}</code> <kbd class="key">--a</kbd>
-<code>@math{--a {\frac{1}{2}} @minus{}}</code> <em class="math">--a {\frac{1}{2}} -</em>
-<code>@option{--a}</code> <samp>--a</samp>
-<code>@r{--a}</code> <span class="roman">&ndash;a</span>
-<code>@samp{--a}</code> &lsquo;<samp>--a</samp>&rsquo;
-<code>@sc{--a}</code> <small>&ndash;A</small>
-<code>@strong{--a}</code> <strong>&ndash;a</strong>
-<code>@t{--a}</code> <code>--a</code>
-<code>@sansserif{--a}</code> <span class="sansserif">&ndash;a</span>
-<code>@slanted{--a}</code> <i>&ndash;a</i>
-<code>@titlefont{--a}</code> </p><h1 class="titlefont">&ndash;a</h1>
-<p><code>@indicateurl{--a}</code> &lsquo;<code>--a</code>&rsquo;
-<code>@uref{--a,--b}</code> <a href="--a">&ndash;b</a>
-<code>@uref{--a}</code> <a href="--a">--a</a>
-<code>@uref{,--b}</code> &ndash;b
-<code>@uref{--a,--b,--c}</code> <a href="--a">&ndash;c</a>
-<code>@uref{,--b,--c}</code> &ndash;c
-<code>@uref{--a,,--c}</code> <a href="--a">&ndash;c</a>
-<code>@uref{,,--c}</code> &ndash;c
-<code>@url{--a,--b}</code> <a href="--a">&ndash;b</a>
-<code>@url{--a,}</code> <a href="--a">--a</a>
-<code>@url{,--b}</code> &ndash;b
-<code>@var{--a}</code> <var>&ndash;a</var>
-<code>@verb{:--a:}</code> <tt>--a</tt>
-<code>@verb{:a  &lt; &amp; @ % &quot; --    b:}</code> <tt>a  &lt; &amp; @ % &quot; --    b</tt>
-<code>@w{a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a}</code> a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a<!-- /@w -->
-<code>@H{a}</code> a&#779;
-<code>@H{--a}</code> &ndash;a&#779;
-<code>@dotaccent{a}</code> &#551;
-<code>@dotaccent{--a}</code> &ndash;a&#775;
-<code>@ringaccent{a}</code> &aring;
-<code>@ringaccent{--a}</code> &ndash;a&#778;
-<code>@tieaccent{a}</code> a&#865;
-<code>@tieaccent{--a}</code> &ndash;&#865;a
-<code>@u{a}</code> &#259;
-<code>@u{--a}</code> &ndash;a&#774;
-<code>@ubaraccent{a}</code> a&#818;
-<code>@ubaraccent{--a}</code> &ndash;a&#818;
-<code>@udotaccent{a}</code> &#7841;
-<code>@udotaccent{--a}</code> &ndash;a&#803;
-<code>@v{a}</code> &#462;
-<code>@v{--a}</code> &ndash;a&#780;
-<code>@,{c}</code> &ccedil;
-<code>@,{--c}</code> &ndash;c&#807;
-<code>@ogonek{a}</code> &#261;
-<code>@ogonek{--a}</code> &ndash;a&#808;
-<code>a@sup{h}@sub{l}</code> a<sup>h</sup><sub>l</sub>
-<code>@footnote{in footnote}</code> <a id="DOCF1" href="#FOOT1"><sup>1</sup></a>
-<code>@footnote{in footnote2}</code> <a id="DOCF2" href="#FOOT2"><sup>2</sup></a>
+<p><code class="code">@acronym{--a,an accronym}</code> <acronym title="an accronym">&ndash;a</acronym> (an accronym)
+<code class="code">@acronym{--a}</code> <acronym title="an accronym">&ndash;a</acronym>
+<code class="code">@abbr{@'E--. @comma{}A., @'Etude Autonome }</code> <abbr title="&Eacute;tude Autonome">&Eacute;&ndash;. ,A.</abbr> (&Eacute;tude Autonome)
+<code class="code">@abbr{@'E--. @comma{}A.}</code> <abbr title="&Eacute;tude Autonome">&Eacute;&ndash;. ,A.</abbr>
+<code class="code">@asis{--a}</code> &ndash;a
+<code class="code">@b{--a}</code> <b class="b">&ndash;a</b>
+<code class="code">@cite{--a}</code> <cite class="cite">&ndash;a</cite>
+<code class="code">@code{--a}</code> <code class="code">--a</code>
+<code class="code">@command{--a}</code> <code class="command">--a</code>
+<code class="code">@dfn{--a}</code> <em class="dfn">&ndash;a</em>
+<code class="code">@dmn{--a}</code> &ndash;a
+<code class="code">@email{--a,--b}</code> <a href="mailto:--a">&ndash;b</a>
+<code class="code">@email{,--b}</code> &ndash;b
+<code class="code">@email{--a}</code> <a href="mailto:--a">--a</a>
+<code class="code">@emph{--a}</code> <em class="emph">&ndash;a</em>
+<code class="code">@env{--a}</code> <code class="env">--a</code>
+<code class="code">@file{--a}</code> <samp class="file">--a</samp>
+<code class="code">@i{--a}</code> <i class="i">&ndash;a</i>
+<code class="code">@kbd{--a}</code> <kbd class="kbd">--a</kbd>
+<code class="code">@key{--a}</code> <kbd class="key">--a</kbd>
+<code class="code">@math{--a {\frac{1}{2}} @minus{}}</code> <em class="math">--a {\frac{1}{2}} -</em>
+<code class="code">@option{--a}</code> <samp class="option">--a</samp>
+<code class="code">@r{--a}</code> <span class="r">&ndash;a</span>
+<code class="code">@samp{--a}</code> &lsquo;<samp class="samp">--a</samp>&rsquo;
+<code class="code">@sc{--a}</code> <small class="sc">&ndash;A</small>
+<code class="code">@strong{--a}</code> <strong class="strong">&ndash;a</strong>
+<code class="code">@t{--a}</code> <code class="t">--a</code>
+<code class="code">@sansserif{--a}</code> <span class="sansserif">&ndash;a</span>
+<code class="code">@slanted{--a}</code> <i class="slanted">&ndash;a</i>
+<code class="code">@titlefont{--a}</code> </p><h1 class="titlefont">&ndash;a</h1>
+<p><code class="code">@indicateurl{--a}</code> &lsquo;<code>--a</code>&rsquo;
+<code class="code">@uref{--a,--b}</code> <a href="--a">&ndash;b</a>
+<code class="code">@uref{--a}</code> <a href="--a">--a</a>
+<code class="code">@uref{,--b}</code> &ndash;b
+<code class="code">@uref{--a,--b,--c}</code> <a href="--a">&ndash;c</a>
+<code class="code">@uref{,--b,--c}</code> &ndash;c
+<code class="code">@uref{--a,,--c}</code> <a href="--a">&ndash;c</a>
+<code class="code">@uref{,,--c}</code> &ndash;c
+<code class="code">@url{--a,--b}</code> <a href="--a">&ndash;b</a>
+<code class="code">@url{--a,}</code> <a href="--a">--a</a>
+<code class="code">@url{,--b}</code> &ndash;b
+<code class="code">@var{--a}</code> <var class="var">&ndash;a</var>
+<code class="code">@verb{:--a:}</code> <tt class="verb">--a</tt>
+<code class="code">@verb{:a  &lt; &amp; @ % &quot; --    b:}</code> <tt class="verb">a  &lt; &amp; @ % &quot; --    b</tt>
+<code class="code">@w{a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a}</code> a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a<!-- /@w -->
+<code class="code">@H{a}</code> a&#779;
+<code class="code">@H{--a}</code> &ndash;a&#779;
+<code class="code">@dotaccent{a}</code> &#551;
+<code class="code">@dotaccent{--a}</code> &ndash;a&#775;
+<code class="code">@ringaccent{a}</code> &aring;
+<code class="code">@ringaccent{--a}</code> &ndash;a&#778;
+<code class="code">@tieaccent{a}</code> a&#865;
+<code class="code">@tieaccent{--a}</code> &ndash;&#865;a
+<code class="code">@u{a}</code> &#259;
+<code class="code">@u{--a}</code> &ndash;a&#774;
+<code class="code">@ubaraccent{a}</code> a&#818;
+<code class="code">@ubaraccent{--a}</code> &ndash;a&#818;
+<code class="code">@udotaccent{a}</code> &#7841;
+<code class="code">@udotaccent{--a}</code> &ndash;a&#803;
+<code class="code">@v{a}</code> &#462;
+<code class="code">@v{--a}</code> &ndash;a&#780;
+<code class="code">@,{c}</code> &ccedil;
+<code class="code">@,{--c}</code> &ndash;c&#807;
+<code class="code">@ogonek{a}</code> &#261;
+<code class="code">@ogonek{--a}</code> &ndash;a&#808;
+<code class="code">a@sup{h}@sub{l}</code> a<sup class="sup">h</sup><sub class="sub">l</sub>
+<code class="code">@footnote{in footnote}</code> <a id="DOCF1" href="#FOOT1"><sup>1</sup></a>
+<code class="code">@footnote{in footnote2}</code> <a id="DOCF2" href="#FOOT2"><sup>2</sup></a>
 </p>
-<p><code>@image{f--ile}</code> <img src="f--ile.png" alt="f--ile">
-<code>@image{f--ile,l--i}</code> <img src="f--ile.png" alt="f--ile">
-<code>@image{f--ile,,l--e}</code> <img src="f--ile.png" alt="f--ile">
-<code>@image{f--ile,,,alt}</code> <img src="f--ile.png" alt="alt">
-<code>@image{f--ile,,,,.e-d-xt}</code> <img src="f--ile.e--xt" alt="f--ile">
-<code>@image{f--ile,aze,az,alt,.e--xt}</code> <img src="f--ile.e--xt" alt="alt">
-<code>@image{f-ile,aze,,a--lt}</code> <img src="f-ile.jpg" alt="a&ndash;lt">
-<code>@image{@file{f--ile}@@@.,aze,az,alt,@file{.file ext} e--xt@}</code> <img src="f--ile@..file ext e--xt}" alt="alt">
+<p><code class="code">@image{f--ile}</code> <img src="f--ile.png" alt="f--ile">
+<code class="code">@image{f--ile,l--i}</code> <img src="f--ile.png" alt="f--ile">
+<code class="code">@image{f--ile,,l--e}</code> <img src="f--ile.png" alt="f--ile">
+<code class="code">@image{f--ile,,,alt}</code> <img src="f--ile.png" alt="alt">
+<code class="code">@image{f--ile,,,,.e-d-xt}</code> <img src="f--ile.e--xt" alt="f--ile">
+<code class="code">@image{f--ile,aze,az,alt,.e--xt}</code> <img src="f--ile.e--xt" alt="alt">
+<code class="code">@image{f-ile,aze,,a--lt}</code> <img src="f-ile.jpg" alt="a&ndash;lt">
+<code class="code">@image{@file{f--ile}@@@.,aze,az,alt,@file{.file ext} e--xt@}</code> <img src="f--ile@..file ext e--xt}" alt="alt">
 </p>
-<p><code>@sp 2</code><br>
+<p><code class="code">@sp 2</code><br>
 </p><br>
 <br>
-<p><code>@page</code><br>
+<p><code class="code">@page</code><br>
 </p>
-<p><code>need 1002</code>
+<p><code class="code">need 1002</code>
 </p>
-<p><code>@clicksequence{click @click{} A}</code> click &rarr; A
+<p><code class="code">@clicksequence{click @click{} A}</code> click &rarr; A
 After clickstyle &rArr;
-<code>@clicksequence{click @click{} A}</code> click &rArr; A
+<code class="code">@clicksequence{click @click{} A}</code> click &rArr; A
 </p>
-<div class="displaymath"><em><strong>``simple-double--three---four----''</strong> aa<!-- /@w -->
+<div class="displaymath"><em><strong class="strong">``simple-double--three---four----''</strong> aa<!-- /@w -->
 `<!-- /@w -->`simple-double-<!-- /@w -->-three---four----'<!-- /@w -->'
 
 </em></div>
 <div class="displaymath"><em>&uuml; &Uuml; &ntilde; &acirc; &eacute; &#333; &igrave; &eacute; i j &#274;&#768;
 &#322; &#262;&#807; &#262;&#807; &ccedil; a&#779; &#551; &aring; a&#865;
-&#259; a&#818; &#7841; &#462; &#261; a<sup>h</sup><sub>l</sub>
+&#259; a&#818; &#7841; &#462; &#261; a<sup class="sup">h</sup><sub class="sub">l</sub>
 
  &nbsp;&nbsp; &nbsp;   ! ? . @ } { 
 a sunny day
@@ -1091,49 +1091,49 @@ error&rarr; &rarr; - &lowast; -| &rArr;
 &raquo; &laquo; &raquo; &lsaquo;
 &rsaquo; &deg; &euro; &rarr; &le; &ge;
 </em></div>
-<div class="displaymath"><em><b>b</b> <i>i</i> <span class="roman">r</span> <small>SC</small> <code>t</code> <span class="sansserif">sansserif</span> <i>slanted</i>
+<div class="displaymath"><em><b class="b">b</b> <i class="i">i</i> <span class="r">r</span> <small class="sc">SC</small> <code class="t">t</code> <span class="sansserif">sansserif</span> <i class="slanted">slanted</i>
 </em></div>
-<p><kbd>default kbdinputstyle</kbd>
+<p><kbd class="kbd">default kbdinputstyle</kbd>
 </p><dl>
-<dt id='index-copying-vtable-i_002d_002dtem-default-kbdinputstyle'><span><kbd>vtable i--tem default kbdinputstyle</kbd><a class="copiable-anchor" href='#index-copying-vtable-i_002d_002dtem-default-kbdinputstyle'> &para;</a></span></dt>
+<dt id='index-copying-vtable-i_002d_002dtem-default-kbdinputstyle'><span><kbd class="kbd">vtable i--tem default kbdinputstyle</kbd><a class="copiable-anchor" href='#index-copying-vtable-i_002d_002dtem-default-kbdinputstyle'> &para;</a></span></dt>
 </dl>
 <div class="example">
-<pre class="example"><kbd>in example default kbdinputstyle</kbd>
+<pre class="example"><kbd class="kbd">in example default kbdinputstyle</kbd>
 </pre><dl>
-<dt id='index-copying-vtable-i_002d_002dtem-in-example-default-kbdinputstyle'><span><tt><kbd>vtable i--tem in example default kbdinputstyle</kbd></tt><a class="copiable-anchor" href='#index-copying-vtable-i_002d_002dtem-in-example-default-kbdinputstyle'> &para;</a></span></dt>
+<dt id='index-copying-vtable-i_002d_002dtem-in-example-default-kbdinputstyle'><span><tt><kbd class="kbd">vtable i--tem in example default kbdinputstyle</kbd></tt><a class="copiable-anchor" href='#index-copying-vtable-i_002d_002dtem-in-example-default-kbdinputstyle'> &para;</a></span></dt>
 </dl>
 </div>
 
-<p><code>code kbdinputstyle</code>
+<p><code class="code as-code-kbd ">code kbdinputstyle</code>
 </p><dl>
-<dt id='index-copying-vtable-i_002d_002dtem-code-kbdinputstyle'><span><code>vtable i--tem code kbdinputstyle</code><a class="copiable-anchor" href='#index-copying-vtable-i_002d_002dtem-code-kbdinputstyle'> &para;</a></span></dt>
+<dt id='index-copying-vtable-i_002d_002dtem-code-kbdinputstyle'><span><code class="code as-code-kbd ">vtable i--tem code kbdinputstyle</code><a class="copiable-anchor" href='#index-copying-vtable-i_002d_002dtem-code-kbdinputstyle'> &para;</a></span></dt>
 </dl>
 <div class="example">
-<pre class="example"><code>in example code kbdinputstyle</code>
+<pre class="example"><code class="code as-code-kbd ">in example code kbdinputstyle</code>
 </pre><dl>
-<dt id='index-copying-vtable-i_002d_002dtem-in-example-code-kbdinputstyle'><span><tt><code>vtable i--tem in example code kbdinputstyle</code></tt><a class="copiable-anchor" href='#index-copying-vtable-i_002d_002dtem-in-example-code-kbdinputstyle'> &para;</a></span></dt>
+<dt id='index-copying-vtable-i_002d_002dtem-in-example-code-kbdinputstyle'><span><tt><code class="code as-code-kbd ">vtable i--tem in example code kbdinputstyle</code></tt><a class="copiable-anchor" href='#index-copying-vtable-i_002d_002dtem-in-example-code-kbdinputstyle'> &para;</a></span></dt>
 </dl>
 </div>
 
-<p><kbd>example kbdinputstyle</kbd>
+<p><kbd class="kbd">example kbdinputstyle</kbd>
 </p><dl>
-<dt id='index-copying-vtable-i_002d_002dtem-example-kbdinputstyle'><span><kbd>vtable i--tem example kbdinputstyle</kbd><a class="copiable-anchor" href='#index-copying-vtable-i_002d_002dtem-example-kbdinputstyle'> &para;</a></span></dt>
+<dt id='index-copying-vtable-i_002d_002dtem-example-kbdinputstyle'><span><kbd class="kbd">vtable i--tem example kbdinputstyle</kbd><a class="copiable-anchor" href='#index-copying-vtable-i_002d_002dtem-example-kbdinputstyle'> &para;</a></span></dt>
 </dl>
 <div class="example">
-<pre class="example"><code>in example example kbdinputstyle</code>
+<pre class="example"><code class="code as-code-kbd ">in example example kbdinputstyle</code>
 </pre><dl>
-<dt id='index-copying-vtable-i_002d_002dtem-in-example-example-kbdinputstyle'><span><tt><code>vtable i--tem in example example kbdinputstyle</code></tt><a class="copiable-anchor" href='#index-copying-vtable-i_002d_002dtem-in-example-example-kbdinputstyle'> &para;</a></span></dt>
+<dt id='index-copying-vtable-i_002d_002dtem-in-example-example-kbdinputstyle'><span><tt><code class="code as-code-kbd ">vtable i--tem in example example kbdinputstyle</code></tt><a class="copiable-anchor" href='#index-copying-vtable-i_002d_002dtem-in-example-example-kbdinputstyle'> &para;</a></span></dt>
 </dl>
 </div>
 
-<p><kbd>distinct kbdinputstyle</kbd>
+<p><kbd class="kbd">distinct kbdinputstyle</kbd>
 </p><dl>
-<dt id='index-copying-vtable-i_002d_002dtem-distinct-kbdinputstyle'><span><kbd>vtable i--tem distinct kbdinputstyle</kbd><a class="copiable-anchor" href='#index-copying-vtable-i_002d_002dtem-distinct-kbdinputstyle'> &para;</a></span></dt>
+<dt id='index-copying-vtable-i_002d_002dtem-distinct-kbdinputstyle'><span><kbd class="kbd">vtable i--tem distinct kbdinputstyle</kbd><a class="copiable-anchor" href='#index-copying-vtable-i_002d_002dtem-distinct-kbdinputstyle'> &para;</a></span></dt>
 </dl>
 <div class="example">
-<pre class="example"><kbd>in example distinct kbdinputstyle</kbd>
+<pre class="example"><kbd class="kbd">in example distinct kbdinputstyle</kbd>
 </pre><dl>
-<dt id='index-copying-vtable-i_002d_002dtem-in-example-distinct-kbdinputstyle'><span><tt><kbd>vtable i--tem in example distinct kbdinputstyle</kbd></tt><a class="copiable-anchor" href='#index-copying-vtable-i_002d_002dtem-in-example-distinct-kbdinputstyle'> &para;</a></span></dt>
+<dt id='index-copying-vtable-i_002d_002dtem-in-example-distinct-kbdinputstyle'><span><tt><kbd class="kbd">vtable i--tem in example distinct kbdinputstyle</kbd></tt><a class="copiable-anchor" href='#index-copying-vtable-i_002d_002dtem-in-example-distinct-kbdinputstyle'> &para;</a></span></dt>
 </dl>
 </div>
 
@@ -1142,43 +1142,43 @@ error&rarr; &rarr; - &lowast; -| &rArr;
 </p></blockquote>
 
 <blockquote>
-<p><b>Note:</b> A Note
+<p><b class="b">Note:</b> A Note
 </p></blockquote>
 
 <blockquote>
-<p><b>note:</b> A note
+<p><b class="b">note:</b> A note
 </p></blockquote>
 
 <blockquote>
-<p><b>Caution:</b> Caution
+<p><b class="b">Caution:</b> Caution
 </p></blockquote>
 
 <blockquote>
-<p><b>Important:</b> Important
+<p><b class="b">Important:</b> Important
 </p></blockquote>
 
 <blockquote>
-<p><b>Tip:</b> a Tip
+<p><b class="b">Tip:</b> a Tip
 </p></blockquote>
 
 <blockquote>
-<p><b>Warning:</b> a Warning.
+<p><b class="b">Warning:</b> a Warning.
 </p></blockquote>
 
 <blockquote>
-<p><b>something &eacute; TeX:</b> The something &eacute; TeX is here.
+<p><b class="b">something &eacute; TeX:</b> The something &eacute; TeX is here.
 </p></blockquote>
 
 <blockquote>
-<p><b>@ at the end of line &nbsp;:</b> A @ at the end of the @quotation line.
+<p><b class="b">@ at the end of line &nbsp;:</b> A @ at the end of the @quotation line.
 </p></blockquote>
 
 <blockquote>
-<p><b>something, other thing:</b> something, other thing
+<p><b class="b">something, other thing:</b> something, other thing
 </p></blockquote>
 
 <blockquote>
-<p><b>Note, the note:</b> Note, the note
+<p><b class="b">Note, the note:</b> Note, the note
 </p></blockquote>
 
 <blockquote>
@@ -1196,7 +1196,7 @@ error&rarr; &rarr; - &lowast; -| &rArr;
 <blockquote>
 <p>aaa quotation
 </p></blockquote>
-<div class="center-align">&mdash; <em>quotation author</em>
+<div class="center-align">&mdash; <em class="emph">quotation author</em>
 </div>
 <blockquote>
 <p>indent in quotation
@@ -1207,11 +1207,11 @@ error&rarr; &rarr; - &lowast; -| &rArr;
 </p></blockquote>
 
 <blockquote>
-<p><b>Note:</b> A small Note
+<p><b class="b">Note:</b> A small Note
 </p></blockquote>
 
 <blockquote>
-<p><b>something, other thing:</b> something, other thing
+<p><b class="b">something, other thing:</b> something, other thing
 </p></blockquote>
 
 <ul class="mark-bullet">
@@ -1332,7 +1332,7 @@ i&ndash;tem 1
 <pre class="example">s--mallexample
 </pre></div>
 
-<p><code>@noindent</code> after smallexample.
+<p><code class="code">@noindent</code> after smallexample.
 </p><div class="example">
 <pre class="example">$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.guess?rev=HEAD&amp;content-type=text/plain'
 $ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEAD&amp;content-type=text/plain'
@@ -1364,7 +1364,7 @@ $ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEA
 </pre></div>
 
 <div class="displaymath"><em>disp--laymath
-f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\right)^2</sup>
+f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup class="sup">-{1 \over 2}\left({x-\mu \over \sigma}\right)^2</sup>
 </em></div>
 <table width="100%">
 <tr id="index-copying-d_002d_002deffn_005fname"><td align="left"> <strong>d--effn_name</strong><em> a--rguments...</em></td><td align="right">c--ategory</td></tr>
@@ -1377,15 +1377,15 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 </p></td></tr></table>
  
 <table width="100%">
-<tr id="index-copying-i"><td align="left"> <strong><var>i</var></strong><em> a g</em></td><td align="right">fset</td></tr>
+<tr id="index-copying-i"><td align="left"> <strong><var class="var">i</var></strong><em> a g</em></td><td align="right">fset</td></tr>
 <tr><td colspan="2"><a class="index-entry-anchor" id="index-copying-index-entry-within-deffn"></a>
 </td></tr><tr id="index-copying-truc"><td align="left"> <strong>truc</strong></td><td align="right">cmde</td></tr>
 <tr id="index-copying-log-trap"><td align="left"> <strong>log trap</strong></td><td align="right">Command</td></tr>
 <tr id="index-copying-log-trap1"><td align="left"> <strong>log trap1</strong></td><td align="right">Command</td></tr>
 <tr id="index-copying-log-trap2"><td align="left"> <strong>log trap2</strong></td><td align="right">Command</td></tr>
-<tr id="index-copying-id-ule"><td align="left"> <strong><b>id ule</b></strong><em> truc</em></td><td align="right">cmde</td></tr>
-<tr id="index-copying-id-i-ule"><td align="left"> <strong><b>id &lsquo;<samp>i</samp>&rsquo; ule</b></strong><em> truc</em></td><td align="right">cmde2</td></tr>
-<tr><td align="left"></td><td align="right"><b>id &lsquo;<samp>i</samp>&rsquo; ule</b></td></tr>
+<tr id="index-copying-id-ule"><td align="left"> <strong><b class="b">id ule</b></strong><em> truc</em></td><td align="right">cmde</td></tr>
+<tr id="index-copying-id-i-ule"><td align="left"> <strong><b class="b">id &lsquo;<samp class="samp">i</samp>&rsquo; ule</b></strong><em> truc</em></td><td align="right">cmde2</td></tr>
+<tr><td align="left"></td><td align="right"><b class="b">id &lsquo;<samp class="samp">i</samp>&rsquo; ule</b></td></tr>
 <tr><td align="left"></td><td align="right"></td></tr>
 <tr><td align="left"></td><td align="right">aaa</td></tr>
 <tr><td align="left"></td><td align="right"></td></tr>
@@ -1397,7 +1397,7 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 <tr id="index-copying-followed"><td align="left"> <strong>followed</strong><em> by a comment</em></td><td align="right">truc</td></tr>
 <tr><td align="left"></td><td align="right">truc</td></tr>
 <tr><td align="left"></td><td align="right"></td></tr>
-<tr id="index-copying-a"><td align="left"> <strong>a</strong><em> b c d e <b>f g</b> h i</em></td><td align="right">truc</td></tr>
+<tr id="index-copying-a"><td align="left"> <strong>a</strong><em> b c d e <b class="b">f g</b> h i</em></td><td align="right">truc</td></tr>
 <tr id="index-copying-deffnx"><td align="left"> <strong>deffnx</strong><em> before end deffn</em></td><td align="right">truc</td></tr>
 </table>
 
@@ -1412,7 +1412,7 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 </table>
 
 <table width="100%">
-<tr id="index-copying-i-1"><td align="left"> <strong><var>i</var></strong><em> a g</em></td><td align="right">fset</td></tr>
+<tr id="index-copying-i-1"><td align="left"> <strong><var class="var">i</var></strong><em> a g</em></td><td align="right">fset</td></tr>
 <tr id="index-copying-truc-1"><td align="left"> <strong>truc</strong></td><td align="right">cmde</td></tr>
 <tr><td colspan="2"><p>text in def item for second def item
 </p></td></tr></table>
@@ -1590,74 +1590,74 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 </p></td></tr></table>
 
 
-<p><code>@xref{c---hapter@@, cross r---ef name@@, t---itle@@, file n---ame@@, ma---nual@@}</code> See <a data-manual="file n---ame@" href="../file n---ame@/c_002d_002d_002dhapter_0040.html#c_002d_002d_002dhapter_0040">t&mdash;itle@</a> in <cite>ma&mdash;nual@</cite>.
-<code>@ref{chapter, cross ref name, title, file name, manual}</code> <a data-manual="file name" href="../file name/chapter.html#chapter">title</a> in <cite>manual</cite>
-<code>@pxref{chapter, cross ref name, title, file name, manual}</code> see <a data-manual="file name" href="../file name/chapter.html#chapter">title</a> in <cite>manual</cite>
-<code>@inforef{chapter, cross ref name, file name}</code> See <a data-manual="file name" href="../file name/chapter.html#chapter">(file name)cross ref name</a>
+<p><code class="code">@xref{c---hapter@@, cross r---ef name@@, t---itle@@, file n---ame@@, ma---nual@@}</code> See <a data-manual="file n---ame@" href="../file n---ame@/c_002d_002d_002dhapter_0040.html#c_002d_002d_002dhapter_0040">t&mdash;itle@</a> in <cite class="cite">ma&mdash;nual@</cite>.
+<code class="code">@ref{chapter, cross ref name, title, file name, manual}</code> <a data-manual="file name" href="../file name/chapter.html#chapter">title</a> in <cite class="cite">manual</cite>
+<code class="code">@pxref{chapter, cross ref name, title, file name, manual}</code> see <a data-manual="file name" href="../file name/chapter.html#chapter">title</a> in <cite class="cite">manual</cite>
+<code class="code">@inforef{chapter, cross ref name, file name}</code> See <a data-manual="file name" href="../file name/chapter.html#chapter">(file name)cross ref name</a>
 </p>
-<p><code>@ref{chapter}</code> <a href="#chapter">chapter</a>
-<code>@xref{chapter}</code> See <a href="#chapter">chapter</a>.
-<code>@pxref{chapter}</code> see <a href="#chapter">chapter</a>
-<code>@ref{s--ect@comma{}ion}</code> <a href="s_002d_002dect_002cion.html#s_002d_002dect_002cion">A section</a>
+<p><code class="code">@ref{chapter}</code> <a href="#chapter">chapter</a>
+<code class="code">@xref{chapter}</code> See <a href="#chapter">chapter</a>.
+<code class="code">@pxref{chapter}</code> see <a href="#chapter">chapter</a>
+<code class="code">@ref{s--ect@comma{}ion}</code> <a href="s_002d_002dect_002cion.html#s_002d_002dect_002cion">A section</a>
 </p>
-<p><code>@ref{s--ect@comma{}ion, a @comma{} in cross
+<p><code class="code">@ref{s--ect@comma{}ion, a @comma{} in cross
 ref, a comma@comma{} in title, a comma@comma{} in file, a @comma{} in manual name }</code>
-<a data-manual="a comma, in file" href="../a comma, in file/s_002d_002dect_002cion.html#s_002d_002dect_002cion">a comma, in title</a> in <cite>a , in manual name</cite>
+<a data-manual="a comma, in file" href="../a comma, in file/s_002d_002dect_002cion.html#s_002d_002dect_002cion">a comma, in title</a> in <cite class="cite">a , in manual name</cite>
 </p>
-<p><code>@ref{chapter,cross ref name}</code> <a href="#chapter">cross ref name</a>
-<code>@ref{chapter,,title}</code> <a href="#chapter">title</a>
-<code>@ref{chapter,,,file name}</code> <a data-manual="file name" href="../file name/chapter.html#chapter">(file name)chapter</a>
-<code>@ref{chapter,,,,manual}</code> &lsquo;chapter&rsquo; in <cite>manual</cite>
-<code>@ref{chapter,cross ref name,title,}</code> <a href="#chapter">title</a>
-<code>@ref{chapter,cross ref name,,file name}</code> <a data-manual="file name" href="../file name/chapter.html#chapter">(file name)cross ref name</a>
-<code>@ref{chapter,cross ref name,,,manual}</code> &lsquo;cross ref name&rsquo; in <cite>manual</cite>
-<code>@ref{chapter,cross ref name,title,file name}</code> <a data-manual="file name" href="../file name/chapter.html#chapter">(file name)title</a>
-<code>@ref{chapter,cross ref name,title,,manual}</code> &lsquo;title&rsquo; in <cite>manual</cite>
-<code>@ref{chapter,cross ref name,title, file name, manual}</code> <a data-manual="file name" href="../file name/chapter.html#chapter">title</a> in <cite>manual</cite>
-<code>@ref{chapter,,title,file name}</code> <a data-manual="file name" href="../file name/chapter.html#chapter">(file name)title</a>
-<code>@ref{chapter,,title,,manual}</code> &lsquo;title&rsquo; in <cite>manual</cite>
-<code>@ref{chapter,,title, file name, manual}</code> <a data-manual="file name" href="../file name/chapter.html#chapter">title</a> in <cite>manual</cite>
-<code>@ref{chapter,,,file name,manual}</code> <a data-manual="file name" href="../file name/chapter.html#chapter">chapter</a> in <cite>manual</cite>
-</p>
-
-<p><code>@ref{(pman)anode,cross ref name}</code> <a data-manual="pman" href="../pman/anode.html#anode">(pman)cross ref name</a>
-<code>@ref{(pman)anode,,title}</code> <a data-manual="pman" href="../pman/anode.html#anode">(pman)title</a>
-<code>@ref{(pman)anode,,,file name}</code> <a data-manual="file name" href="../file name/anode.html#anode">(file name)anode</a>
-<code>@ref{(pman)anode,,,,manual}</code> <a data-manual="pman" href="../pman/anode.html#anode">anode</a> in <cite>manual</cite>
-<code>@ref{(pman)anode,cross ref name,title,}</code> <a data-manual="pman" href="../pman/anode.html#anode">(pman)title</a>
-<code>@ref{(pman)anode,cross ref name,,file name}</code> <a data-manual="file name" href="../file name/anode.html#anode">(file name)cross ref name</a>
-<code>@ref{(pman)anode,cross ref name,,,manual}</code> <a data-manual="pman" href="../pman/anode.html#anode">cross ref name</a> in <cite>manual</cite>
-<code>@ref{(pman)anode,cross ref name,title,file name}</code> <a data-manual="file name" href="../file name/anode.html#anode">(file name)title</a>
-<code>@ref{(pman)anode,cross ref name,title,,manual}</code> <a data-manual="pman" href="../pman/anode.html#anode">title</a> in <cite>manual</cite>
-<code>@ref{(pman)anode,cross ref name,title, file name, manual}</code> <a data-manual="file name" href="../file name/anode.html#anode">title</a> in <cite>manual</cite>
-<code>@ref{(pman)anode,,title,file name}</code> <a data-manual="file name" href="../file name/anode.html#anode">(file name)title</a>
-<code>@ref{(pman)anode,,title,,manual}</code> <a data-manual="pman" href="../pman/anode.html#anode">title</a> in <cite>manual</cite>
-<code>@ref{(pman)anode,,title, file name, manual}</code> <a data-manual="file name" href="../file name/anode.html#anode">title</a> in <cite>manual</cite>
-<code>@ref{(pman)anode,,,file name,manual}</code> <a data-manual="file name" href="../file name/anode.html#anode">anode</a> in <cite>manual</cite>
+<p><code class="code">@ref{chapter,cross ref name}</code> <a href="#chapter">cross ref name</a>
+<code class="code">@ref{chapter,,title}</code> <a href="#chapter">title</a>
+<code class="code">@ref{chapter,,,file name}</code> <a data-manual="file name" href="../file name/chapter.html#chapter">(file name)chapter</a>
+<code class="code">@ref{chapter,,,,manual}</code> &lsquo;chapter&rsquo; in <cite class="cite">manual</cite>
+<code class="code">@ref{chapter,cross ref name,title,}</code> <a href="#chapter">title</a>
+<code class="code">@ref{chapter,cross ref name,,file name}</code> <a data-manual="file name" href="../file name/chapter.html#chapter">(file name)cross ref name</a>
+<code class="code">@ref{chapter,cross ref name,,,manual}</code> &lsquo;cross ref name&rsquo; in <cite class="cite">manual</cite>
+<code class="code">@ref{chapter,cross ref name,title,file name}</code> <a data-manual="file name" href="../file name/chapter.html#chapter">(file name)title</a>
+<code class="code">@ref{chapter,cross ref name,title,,manual}</code> &lsquo;title&rsquo; in <cite class="cite">manual</cite>
+<code class="code">@ref{chapter,cross ref name,title, file name, manual}</code> <a data-manual="file name" href="../file name/chapter.html#chapter">title</a> in <cite class="cite">manual</cite>
+<code class="code">@ref{chapter,,title,file name}</code> <a data-manual="file name" href="../file name/chapter.html#chapter">(file name)title</a>
+<code class="code">@ref{chapter,,title,,manual}</code> &lsquo;title&rsquo; in <cite class="cite">manual</cite>
+<code class="code">@ref{chapter,,title, file name, manual}</code> <a data-manual="file name" href="../file name/chapter.html#chapter">title</a> in <cite class="cite">manual</cite>
+<code class="code">@ref{chapter,,,file name,manual}</code> <a data-manual="file name" href="../file name/chapter.html#chapter">chapter</a> in <cite class="cite">manual</cite>
 </p>
 
-<p><code>@inforef{chapter, cross ref name, file name}</code> See <a data-manual="file name" href="../file name/chapter.html#chapter">(file name)cross ref name</a>
-<code>@inforef{chapter}</code> See &lsquo;chapter&rsquo;
-<code>@inforef{chapter, cross ref name}</code> See &lsquo;cross ref name&rsquo;
-<code>@inforef{chapter,,file name}</code> See <a data-manual="file name" href="../file name/chapter.html#chapter">(file name)chapter</a>
-<code>@inforef{node, cross ref name, file name}</code> See <a data-manual="file name" href="../file name/node.html#node">(file name)cross ref name</a>
-<code>@inforef{node}</code> See &lsquo;node&rsquo;
-<code>@inforef{node, cross ref name}</code> See &lsquo;cross ref name&rsquo;
-<code>@inforef{node,,file name}</code> See <a data-manual="file name" href="../file name/node.html#node">(file name)node</a>
-<code>@inforef{chapter, cross ref name, file name, spurious arg}</code> See <a data-manual="file name, spurious arg" href="../file name, spurious arg/chapter.html#chapter">(file name, spurious arg)cross ref name</a>
+<p><code class="code">@ref{(pman)anode,cross ref name}</code> <a data-manual="pman" href="../pman/anode.html#anode">(pman)cross ref name</a>
+<code class="code">@ref{(pman)anode,,title}</code> <a data-manual="pman" href="../pman/anode.html#anode">(pman)title</a>
+<code class="code">@ref{(pman)anode,,,file name}</code> <a data-manual="file name" href="../file name/anode.html#anode">(file name)anode</a>
+<code class="code">@ref{(pman)anode,,,,manual}</code> <a data-manual="pman" href="../pman/anode.html#anode">anode</a> in <cite class="cite">manual</cite>
+<code class="code">@ref{(pman)anode,cross ref name,title,}</code> <a data-manual="pman" href="../pman/anode.html#anode">(pman)title</a>
+<code class="code">@ref{(pman)anode,cross ref name,,file name}</code> <a data-manual="file name" href="../file name/anode.html#anode">(file name)cross ref name</a>
+<code class="code">@ref{(pman)anode,cross ref name,,,manual}</code> <a data-manual="pman" href="../pman/anode.html#anode">cross ref name</a> in <cite class="cite">manual</cite>
+<code class="code">@ref{(pman)anode,cross ref name,title,file name}</code> <a data-manual="file name" href="../file name/anode.html#anode">(file name)title</a>
+<code class="code">@ref{(pman)anode,cross ref name,title,,manual}</code> <a data-manual="pman" href="../pman/anode.html#anode">title</a> in <cite class="cite">manual</cite>
+<code class="code">@ref{(pman)anode,cross ref name,title, file name, manual}</code> <a data-manual="file name" href="../file name/anode.html#anode">title</a> in <cite class="cite">manual</cite>
+<code class="code">@ref{(pman)anode,,title,file name}</code> <a data-manual="file name" href="../file name/anode.html#anode">(file name)title</a>
+<code class="code">@ref{(pman)anode,,title,,manual}</code> <a data-manual="pman" href="../pman/anode.html#anode">title</a> in <cite class="cite">manual</cite>
+<code class="code">@ref{(pman)anode,,title, file name, manual}</code> <a data-manual="file name" href="../file name/anode.html#anode">title</a> in <cite class="cite">manual</cite>
+<code class="code">@ref{(pman)anode,,,file name,manual}</code> <a data-manual="file name" href="../file name/anode.html#anode">anode</a> in <cite class="cite">manual</cite>
 </p>
-<p><code>@inforef{s--ect@comma{}ion, a @comma{} in cross
+
+<p><code class="code">@inforef{chapter, cross ref name, file name}</code> See <a data-manual="file name" href="../file name/chapter.html#chapter">(file name)cross ref name</a>
+<code class="code">@inforef{chapter}</code> See &lsquo;chapter&rsquo;
+<code class="code">@inforef{chapter, cross ref name}</code> See &lsquo;cross ref name&rsquo;
+<code class="code">@inforef{chapter,,file name}</code> See <a data-manual="file name" href="../file name/chapter.html#chapter">(file name)chapter</a>
+<code class="code">@inforef{node, cross ref name, file name}</code> See <a data-manual="file name" href="../file name/node.html#node">(file name)cross ref name</a>
+<code class="code">@inforef{node}</code> See &lsquo;node&rsquo;
+<code class="code">@inforef{node, cross ref name}</code> See &lsquo;cross ref name&rsquo;
+<code class="code">@inforef{node,,file name}</code> See <a data-manual="file name" href="../file name/node.html#node">(file name)node</a>
+<code class="code">@inforef{chapter, cross ref name, file name, spurious arg}</code> See <a data-manual="file name, spurious arg" href="../file name, spurious arg/chapter.html#chapter">(file name, spurious arg)cross ref name</a>
+</p>
+<p><code class="code">@inforef{s--ect@comma{}ion, a @comma{} in cross
 ref, a comma@comma{} in file}</code>
 See <a data-manual="a comma, in file" href="../a comma, in file/s_002d_002dect_002cion.html#s_002d_002dect_002cion">(a comma, in file)a , in cross
 ref</a>
 </p>
-<p>&lsquo;<samp><a href="#chapter">chapter</a></samp>&rsquo;.
+<p>&lsquo;<samp class="samp"><a href="#chapter">chapter</a></samp>&rsquo;.
 </p>
-<p><a data-manual="info file with uref3 href://http/myhost.com/index3.html (uref3)" href="../index3.html (uref3)/ext.html#ext">title with uref2 <a href="href://http/myhost.com/index2.html">uref2</a></a> in <cite>printed manual with uref4 <a href="href://http/myhost.com/index4.html">uref4</a></cite>
+<p><a data-manual="info file with uref3 href://http/myhost.com/index3.html (uref3)" href="../index3.html (uref3)/ext.html#ext">title with uref2 <a href="href://http/myhost.com/index2.html">uref2</a></a> in <cite class="cite">printed manual with uref4 <a href="href://http/myhost.com/index4.html">uref4</a></cite>
 <a href="#chapter">title with uref2 <a href="href://http/myhost.com/index2.html">uref2</a></a>
 </p>
 <dl>
-<dt><strong>a&ndash;strong</strong></dt>
+<dt><strong class="strong">a&ndash;strong</strong></dt>
 <dd><p>l&ndash;ine
 </p></dd>
 </dl>
@@ -1670,10 +1670,10 @@ ref</a>
 </dl>
 
 <dl>
-<dt id='index-copying-a-1'><span><em>a</em><a class="copiable-anchor" href='#index-copying-a-1'> &para;</a></span></dt>
+<dt id='index-copying-a-1'><span><em class="emph">a</em><a class="copiable-anchor" href='#index-copying-a-1'> &para;</a></span></dt>
 <dd><a class="index-entry-anchor" id="index-copying-index-entry-between-item-and-itemx"></a>
 </dd>
-<dt id='index-copying-b'><span><em>b</em><a class="copiable-anchor" href='#index-copying-b'> &para;</a></span></dt>
+<dt id='index-copying-b'><span><em class="emph">b</em><a class="copiable-anchor" href='#index-copying-b'> &para;</a></span></dt>
 <dd><p>l&ndash;ine
 </p></dd>
 </dl>
@@ -1681,7 +1681,7 @@ ref</a>
 <dl>
 <dd><p>Title
 </p></dd>
-<dt><code>a--code</code></dt>
+<dt><code class="code">a--code</code></dt>
 <dd><p>Value&ndash;table code
 </p></dd>
 </dl>
@@ -1689,8 +1689,8 @@ ref</a>
 <dl>
 <dd><p>Title
 </p></dd>
-<dt>&lsquo;<samp>a--samp</samp>&rsquo;</dt>
-<dt>&lsquo;<samp>a2--samp</samp>&rsquo;</dt>
+<dt>&lsquo;<samp class="samp">a--samp</samp>&rsquo;</dt>
+<dt>&lsquo;<samp class="samp">a2--samp</samp>&rsquo;</dt>
 <dd><p>Value&ndash;table samp
 </p></dd>
 </dl>
@@ -1743,15 +1743,15 @@ html ''
 <h4 class="subsubheading" id="subsubheading">subsubheading</h4>
 
 
-<p><code>@acronym{--a,an accronym @comma{} @enddots{}}</code> <acronym title="an accronym , ...">&ndash;a</acronym> (an accronym , <small class="enddots">...</small>)
-<code>@abbr{@'E--. @comma{}A., @'Etude--@comma{} @b{Autonome} }</code> <abbr title="&Eacute;tude&ndash;, Autonome">&Eacute;&ndash;. ,A.</abbr> (&Eacute;tude&ndash;, <b>Autonome</b>)
-<code>@abbr{@'E--. @comma{}A.}</code> <abbr title="&Eacute;tude&ndash;, Autonome">&Eacute;&ndash;. ,A.</abbr>
+<p><code class="code">@acronym{--a,an accronym @comma{} @enddots{}}</code> <acronym title="an accronym , ...">&ndash;a</acronym> (an accronym , <small class="enddots">...</small>)
+<code class="code">@abbr{@'E--. @comma{}A., @'Etude--@comma{} @b{Autonome} }</code> <abbr title="&Eacute;tude&ndash;, Autonome">&Eacute;&ndash;. ,A.</abbr> (&Eacute;tude&ndash;, <b class="b">Autonome</b>)
+<code class="code">@abbr{@'E--. @comma{}A.}</code> <abbr title="&Eacute;tude&ndash;, Autonome">&Eacute;&ndash;. ,A.</abbr>
 </p>
-<p><code>@math{--a@minus{} {\frac{1}{2}}}</code> <em class="math">--a- {\frac{1}{2}}</em>
+<p><code class="code">@math{--a@minus{} {\frac{1}{2}}}</code> <em class="math">--a- {\frac{1}{2}}</em>
 </p>
-<p><code>@image{f-ile,,,alt@verb{:jk _&quot; %}}</code> <img src="f-ile.jpg" alt="altjk _&quot; %@">
-<code>@image{f--ile,aze,az,@verb{:jk _&quot; %@:} @b{in b &quot;},e--xt}</code> <img src="f--ile.e--xt" alt="jk _&quot; %@ in b &quot;">
-<code>@image{file@verb{:jk _&quot; %@:},,,alt@verb{:jk _&quot; %@:}}</code> <img src="filejk _&quot; %@.jpg" alt="altjk _&quot; %@">
+<p><code class="code">@image{f-ile,,,alt@verb{:jk _&quot; %}}</code> <img src="f-ile.jpg" alt="altjk _&quot; %@">
+<code class="code">@image{f--ile,aze,az,@verb{:jk _&quot; %@:} @b{in b &quot;},e--xt}</code> <img src="f--ile.e--xt" alt="jk _&quot; %@ in b &quot;">
+<code class="code">@image{file@verb{:jk _&quot; %@:},,,alt@verb{:jk _&quot; %@:}}</code> <img src="filejk _&quot; %@.jpg" alt="altjk _&quot; %@">
 </p>
 
 
@@ -1768,8 +1768,8 @@ html ''
 </p>
 <p>@dotless{truc} truc
 @dotless{ij} ij
-<code>@dotless{--a}</code> &ndash;a
-<code>@dotless{a}</code> a
+<code class="code">@dotless{--a}</code> &ndash;a
+<code class="code">@dotless{a}</code> a
 </p>
 <p>@U, without braces @U{}, with empty arg 
 @U{z}, with non-hex arg &#xz;
@@ -1777,13 +1777,13 @@ html ''
 @U{FFFFFFFFFFFFFF}, value much too large &#xFFFFFFFFFFFFFF;
 @U{110000}, value just beyond Unicode &#x110000;
 </p>
-<p>@TeX, but without brace TeX<code>@#</code> #
+<p>@TeX, but without brace TeX<code class="code">@#</code> #
 </p>
-<p><code>@w{--a}</code> &ndash;a<!-- /@w -->
+<p><code class="code">@w{--a}</code> &ndash;a<!-- /@w -->
 </p>
-<p><code>@image{,1--xt}</code> 
-<code>@image{,,2--xt}</code> 
-<code>@image{,,,3--xt}</code> 
+<p><code class="code">@image{,1--xt}</code> 
+<code class="code">@image{,,2--xt}</code> 
+<code class="code">@image{,,,3--xt}</code> 
 </p>
 
 <ul>
@@ -1831,42 +1831,42 @@ html ''
 </p></td></tr><tr id="index-copying-after"><td align="left"> <strong>after</strong><em> a deff item</em></td><td align="right">truc</td></tr>
 </table>
 
-<p><code>@ref{node}</code> &lsquo;node&rsquo;
+<p><code class="code">@ref{node}</code> &lsquo;node&rsquo;
 </p>
-<p><code>@ref{,cross ref name}</code> &lsquo;cross ref name&rsquo;
-<code>@ref{,,title}</code> &lsquo;title&rsquo;
-<code>@ref{,,,file name}</code> <a data-manual="file name" href="../file name/index.html">(file name)</a>
-<code>@ref{,,,,manual}</code> <cite>manual</cite>
-<code>@ref{node,cross ref name}</code> &lsquo;cross ref name&rsquo;
-<code>@ref{node,,title}</code> &lsquo;title&rsquo;
-<code>@ref{node,,,file name}</code> <a data-manual="file name" href="../file name/node.html#node">(file name)node</a>
-<code>@ref{node,,,,manual}</code> &lsquo;node&rsquo; in <cite>manual</cite>
-<code>@ref{node,cross ref name,title,}</code> &lsquo;title&rsquo;
-<code>@ref{node,cross ref name,,file name}</code> <a data-manual="file name" href="../file name/node.html#node">(file name)cross ref name</a>
-<code>@ref{node,cross ref name,,,manual}</code> &lsquo;cross ref name&rsquo; in <cite>manual</cite>
-<code>@ref{node,cross ref name,title,file name}</code> <a data-manual="file name" href="../file name/node.html#node">(file name)title</a>
-<code>@ref{node,cross ref name,title,,manual}</code> &lsquo;title&rsquo; in <cite>manual</cite>
-<code>@ref{node,cross ref name,title, file name, manual}</code> <a data-manual="file name" href="../file name/node.html#node">title</a> in <cite>manual</cite>
-<code>@ref{node,,title,file name}</code> <a data-manual="file name" href="../file name/node.html#node">(file name)title</a>
-<code>@ref{node,,title,,manual}</code> &lsquo;title&rsquo; in <cite>manual</cite>
-<code>@ref{chapter,,title, file name, manual}</code> <a data-manual="file name" href="../file name/chapter.html#chapter">title</a> in <cite>manual</cite>
-<code>@ref{node,,title, file name, manual}</code> <a data-manual="file name" href="../file name/node.html#node">title</a> in <cite>manual</cite>
-<code>@ref{node,,,file name,manual}</code> <a data-manual="file name" href="../file name/node.html#node">node</a> in <cite>manual</cite>
-<code>@ref{,cross ref name,title,}</code> &lsquo;title&rsquo;
-<code>@ref{,cross ref name,,file name}</code> <a data-manual="file name" href="../file name/index.html">(file name)cross ref name</a>
-<code>@ref{,cross ref name,,,manual}</code> &lsquo;cross ref name&rsquo; in <cite>manual</cite>
-<code>@ref{,cross ref name,title,file name}</code> <a data-manual="file name" href="../file name/index.html">(file name)title</a>
-<code>@ref{,cross ref name,title,,manual}</code> &lsquo;title&rsquo; in <cite>manual</cite>
-<code>@ref{,cross ref name,title, file name, manual}</code> <a data-manual="file name" href="../file name/index.html">title</a> in <cite>manual</cite>
-<code>@ref{,,title,file name}</code> <a data-manual="file name" href="../file name/index.html">(file name)title</a>
-<code>@ref{,,title,,manual}</code> &lsquo;title&rsquo; in <cite>manual</cite>
-<code>@ref{,,title, file name, manual}</code> <a data-manual="file name" href="../file name/index.html">title</a> in <cite>manual</cite>
-<code>@ref{,,,file name,manual}</code> <cite><a data-manual="file name" href="../file name/index.html">manual</a></cite>
+<p><code class="code">@ref{,cross ref name}</code> &lsquo;cross ref name&rsquo;
+<code class="code">@ref{,,title}</code> &lsquo;title&rsquo;
+<code class="code">@ref{,,,file name}</code> <a data-manual="file name" href="../file name/index.html">(file name)</a>
+<code class="code">@ref{,,,,manual}</code> <cite class="cite">manual</cite>
+<code class="code">@ref{node,cross ref name}</code> &lsquo;cross ref name&rsquo;
+<code class="code">@ref{node,,title}</code> &lsquo;title&rsquo;
+<code class="code">@ref{node,,,file name}</code> <a data-manual="file name" href="../file name/node.html#node">(file name)node</a>
+<code class="code">@ref{node,,,,manual}</code> &lsquo;node&rsquo; in <cite class="cite">manual</cite>
+<code class="code">@ref{node,cross ref name,title,}</code> &lsquo;title&rsquo;
+<code class="code">@ref{node,cross ref name,,file name}</code> <a data-manual="file name" href="../file name/node.html#node">(file name)cross ref name</a>
+<code class="code">@ref{node,cross ref name,,,manual}</code> &lsquo;cross ref name&rsquo; in <cite class="cite">manual</cite>
+<code class="code">@ref{node,cross ref name,title,file name}</code> <a data-manual="file name" href="../file name/node.html#node">(file name)title</a>
+<code class="code">@ref{node,cross ref name,title,,manual}</code> &lsquo;title&rsquo; in <cite class="cite">manual</cite>
+<code class="code">@ref{node,cross ref name,title, file name, manual}</code> <a data-manual="file name" href="../file name/node.html#node">title</a> in <cite class="cite">manual</cite>
+<code class="code">@ref{node,,title,file name}</code> <a data-manual="file name" href="../file name/node.html#node">(file name)title</a>
+<code class="code">@ref{node,,title,,manual}</code> &lsquo;title&rsquo; in <cite class="cite">manual</cite>
+<code class="code">@ref{chapter,,title, file name, manual}</code> <a data-manual="file name" href="../file name/chapter.html#chapter">title</a> in <cite class="cite">manual</cite>
+<code class="code">@ref{node,,title, file name, manual}</code> <a data-manual="file name" href="../file name/node.html#node">title</a> in <cite class="cite">manual</cite>
+<code class="code">@ref{node,,,file name,manual}</code> <a data-manual="file name" href="../file name/node.html#node">node</a> in <cite class="cite">manual</cite>
+<code class="code">@ref{,cross ref name,title,}</code> &lsquo;title&rsquo;
+<code class="code">@ref{,cross ref name,,file name}</code> <a data-manual="file name" href="../file name/index.html">(file name)cross ref name</a>
+<code class="code">@ref{,cross ref name,,,manual}</code> &lsquo;cross ref name&rsquo; in <cite class="cite">manual</cite>
+<code class="code">@ref{,cross ref name,title,file name}</code> <a data-manual="file name" href="../file name/index.html">(file name)title</a>
+<code class="code">@ref{,cross ref name,title,,manual}</code> &lsquo;title&rsquo; in <cite class="cite">manual</cite>
+<code class="code">@ref{,cross ref name,title, file name, manual}</code> <a data-manual="file name" href="../file name/index.html">title</a> in <cite class="cite">manual</cite>
+<code class="code">@ref{,,title,file name}</code> <a data-manual="file name" href="../file name/index.html">(file name)title</a>
+<code class="code">@ref{,,title,,manual}</code> &lsquo;title&rsquo; in <cite class="cite">manual</cite>
+<code class="code">@ref{,,title, file name, manual}</code> <a data-manual="file name" href="../file name/index.html">title</a> in <cite class="cite">manual</cite>
+<code class="code">@ref{,,,file name,manual}</code> <cite class="cite"><a data-manual="file name" href="../file name/index.html">manual</a></cite>
 </p>
-<p><code>@inforef{,cross ref name }</code> See &lsquo;cross ref name&rsquo;
-<code>@inforef{,,file name}</code> See <a data-manual="file name" href="../file name/index.html">(file name)</a>
-<code>@inforef{,cross ref name, file name}</code> See <a data-manual="file name" href="../file name/index.html">(file name)cross ref name</a>
-<code>@inforef{}</code> 
+<p><code class="code">@inforef{,cross ref name }</code> See &lsquo;cross ref name&rsquo;
+<code class="code">@inforef{,,file name}</code> See <a data-manual="file name" href="../file name/index.html">(file name)</a>
+<code class="code">@inforef{,cross ref name, file name}</code> See <a data-manual="file name" href="../file name/index.html">(file name)cross ref name</a>
+<code class="code">@inforef{}</code> 
 </p>
 
 
@@ -1880,10 +1880,10 @@ html ''
 &lsquo;
 </p>
 <p>&ldquo;simple-double&ndash;three&mdash;four&mdash;-&rdquo;<br>
-code: <code>``simple-double--three---four----''</code> <br>
+code: <code class="code">``simple-double--three---four----''</code> <br>
 asis: &ldquo;simple-double&ndash;three&mdash;four&mdash;-&rdquo; <br>
-strong: <strong>&ldquo;simple-double&ndash;three&mdash;four&mdash;-&rdquo;</strong> <br>
-kbd: <kbd>``simple-double--three---four----''</kbd> <br>
+strong: <strong class="strong">&ldquo;simple-double&ndash;three&mdash;four&mdash;-&rdquo;</strong> <br>
+kbd: <kbd class="kbd">``simple-double--three---four----''</kbd> <br>
 </p>
 <p>&lsquo;<!-- /@w -->&lsquo;simple-double-<!-- /@w -->-three&mdash;four&mdash;-&rsquo;<!-- /@w -->&rsquo;<br>
 </p>
@@ -1917,16 +1917,16 @@ kbd: <kbd>``simple-double--three---four----''</kbd> <br>
 @ followed by a tab
 &nbsp;
 @ followed by a new line
-&nbsp;<code>@-</code> 
-<code>@|</code> 
-<code>@:</code> 
-<code>@!</code> !
-<code>@?</code> ?
-<code>@.</code> .
-<code>@@</code> @
-<code>@}</code> }
-<code>@{</code> {
-<code>@/</code> 
+&nbsp;<code class="code">@-</code> 
+<code class="code">@|</code> 
+<code class="code">@:</code> 
+<code class="code">@!</code> !
+<code class="code">@?</code> ?
+<code class="code">@.</code> .
+<code class="code">@@</code> @
+<code class="code">@}</code> }
+<code class="code">@{</code> {
+<code class="code">@/</code> 
 </p>
 <p>foo vs. bar. 
 colon :And something else.
@@ -1992,102 +1992,102 @@ but , ,
 @geq &ge;
 @tie a&nbsp;b
 </p>
-<p><code>@acronym{--a,an accronym}</code> <acronym title="an accronym">&ndash;a</acronym> (an accronym)
-<code>@acronym{--a}</code> <acronym title="an accronym">&ndash;a</acronym>
-<code>@abbr{@'E--. @comma{}A., @'Etude Autonome }</code> <abbr title="&Eacute;tude Autonome">&Eacute;&ndash;. ,A.</abbr> (&Eacute;tude Autonome)
-<code>@abbr{@'E--. @comma{}A.}</code> <abbr title="&Eacute;tude Autonome">&Eacute;&ndash;. ,A.</abbr>
-<code>@asis{--a}</code> &ndash;a
-<code>@b{--a}</code> <b>&ndash;a</b>
-<code>@cite{--a}</code> <cite>&ndash;a</cite>
-<code>@code{--a}</code> <code>--a</code>
-<code>@command{--a}</code> <code>--a</code>
-<code>@dfn{--a}</code> <em>&ndash;a</em>
-<code>@dmn{--a}</code> &ndash;a
-<code>@email{--a,--b}</code> <a href="mailto:--a">&ndash;b</a>
-<code>@email{,--b}</code> &ndash;b
-<code>@email{--a}</code> <a href="mailto:--a">--a</a>
-<code>@emph{--a}</code> <em>&ndash;a</em>
-<code>@env{--a}</code> <code>--a</code>
-<code>@file{--a}</code> <samp>--a</samp>
-<code>@i{--a}</code> <i>&ndash;a</i>
-<code>@kbd{--a}</code> <kbd>--a</kbd>
-<code>@key{--a}</code> <kbd class="key">--a</kbd>
-<code>@math{--a {\frac{1}{2}} @minus{}}</code> <em class="math">--a {\frac{1}{2}} -</em>
-<code>@option{--a}</code> <samp>--a</samp>
-<code>@r{--a}</code> <span class="roman">&ndash;a</span>
-<code>@samp{--a}</code> &lsquo;<samp>--a</samp>&rsquo;
-<code>@sc{--a}</code> <small>&ndash;A</small>
-<code>@strong{--a}</code> <strong>&ndash;a</strong>
-<code>@t{--a}</code> <code>--a</code>
-<code>@sansserif{--a}</code> <span class="sansserif">&ndash;a</span>
-<code>@slanted{--a}</code> <i>&ndash;a</i>
-<code>@titlefont{--a}</code> </p><h1 class="titlefont">&ndash;a</h1>
-<p><code>@indicateurl{--a}</code> &lsquo;<code>--a</code>&rsquo;
-<code>@uref{--a,--b}</code> <a href="--a">&ndash;b</a>
-<code>@uref{--a}</code> <a href="--a">--a</a>
-<code>@uref{,--b}</code> &ndash;b
-<code>@uref{--a,--b,--c}</code> <a href="--a">&ndash;c</a>
-<code>@uref{,--b,--c}</code> &ndash;c
-<code>@uref{--a,,--c}</code> <a href="--a">&ndash;c</a>
-<code>@uref{,,--c}</code> &ndash;c
-<code>@url{--a,--b}</code> <a href="--a">&ndash;b</a>
-<code>@url{--a,}</code> <a href="--a">--a</a>
-<code>@url{,--b}</code> &ndash;b
-<code>@var{--a}</code> <var>&ndash;a</var>
-<code>@verb{:--a:}</code> <tt>--a</tt>
-<code>@verb{:a  &lt; &amp; @ % &quot; --    b:}</code> <tt>a  &lt; &amp; @ % &quot; --    b</tt>
-<code>@w{a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a}</code> a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a<!-- /@w -->
-<code>@H{a}</code> a&#779;
-<code>@H{--a}</code> &ndash;a&#779;
-<code>@dotaccent{a}</code> &#551;
-<code>@dotaccent{--a}</code> &ndash;a&#775;
-<code>@ringaccent{a}</code> &aring;
-<code>@ringaccent{--a}</code> &ndash;a&#778;
-<code>@tieaccent{a}</code> a&#865;
-<code>@tieaccent{--a}</code> &ndash;&#865;a
-<code>@u{a}</code> &#259;
-<code>@u{--a}</code> &ndash;a&#774;
-<code>@ubaraccent{a}</code> a&#818;
-<code>@ubaraccent{--a}</code> &ndash;a&#818;
-<code>@udotaccent{a}</code> &#7841;
-<code>@udotaccent{--a}</code> &ndash;a&#803;
-<code>@v{a}</code> &#462;
-<code>@v{--a}</code> &ndash;a&#780;
-<code>@,{c}</code> &ccedil;
-<code>@,{--c}</code> &ndash;c&#807;
-<code>@ogonek{a}</code> &#261;
-<code>@ogonek{--a}</code> &ndash;a&#808;
-<code>a@sup{h}@sub{l}</code> a<sup>h</sup><sub>l</sub>
-<code>@footnote{in footnote}</code> <a id="DOCF5" href="#FOOT5"><sup>3</sup></a>
-<code>@footnote{in footnote2}</code> <a id="DOCF6" href="#FOOT6"><sup>4</sup></a>
+<p><code class="code">@acronym{--a,an accronym}</code> <acronym title="an accronym">&ndash;a</acronym> (an accronym)
+<code class="code">@acronym{--a}</code> <acronym title="an accronym">&ndash;a</acronym>
+<code class="code">@abbr{@'E--. @comma{}A., @'Etude Autonome }</code> <abbr title="&Eacute;tude Autonome">&Eacute;&ndash;. ,A.</abbr> (&Eacute;tude Autonome)
+<code class="code">@abbr{@'E--. @comma{}A.}</code> <abbr title="&Eacute;tude Autonome">&Eacute;&ndash;. ,A.</abbr>
+<code class="code">@asis{--a}</code> &ndash;a
+<code class="code">@b{--a}</code> <b class="b">&ndash;a</b>
+<code class="code">@cite{--a}</code> <cite class="cite">&ndash;a</cite>
+<code class="code">@code{--a}</code> <code class="code">--a</code>
+<code class="code">@command{--a}</code> <code class="command">--a</code>
+<code class="code">@dfn{--a}</code> <em class="dfn">&ndash;a</em>
+<code class="code">@dmn{--a}</code> &ndash;a
+<code class="code">@email{--a,--b}</code> <a href="mailto:--a">&ndash;b</a>
+<code class="code">@email{,--b}</code> &ndash;b
+<code class="code">@email{--a}</code> <a href="mailto:--a">--a</a>
+<code class="code">@emph{--a}</code> <em class="emph">&ndash;a</em>
+<code class="code">@env{--a}</code> <code class="env">--a</code>
+<code class="code">@file{--a}</code> <samp class="file">--a</samp>
+<code class="code">@i{--a}</code> <i class="i">&ndash;a</i>
+<code class="code">@kbd{--a}</code> <kbd class="kbd">--a</kbd>
+<code class="code">@key{--a}</code> <kbd class="key">--a</kbd>
+<code class="code">@math{--a {\frac{1}{2}} @minus{}}</code> <em class="math">--a {\frac{1}{2}} -</em>
+<code class="code">@option{--a}</code> <samp class="option">--a</samp>
+<code class="code">@r{--a}</code> <span class="r">&ndash;a</span>
+<code class="code">@samp{--a}</code> &lsquo;<samp class="samp">--a</samp>&rsquo;
+<code class="code">@sc{--a}</code> <small class="sc">&ndash;A</small>
+<code class="code">@strong{--a}</code> <strong class="strong">&ndash;a</strong>
+<code class="code">@t{--a}</code> <code class="t">--a</code>
+<code class="code">@sansserif{--a}</code> <span class="sansserif">&ndash;a</span>
+<code class="code">@slanted{--a}</code> <i class="slanted">&ndash;a</i>
+<code class="code">@titlefont{--a}</code> </p><h1 class="titlefont">&ndash;a</h1>
+<p><code class="code">@indicateurl{--a}</code> &lsquo;<code>--a</code>&rsquo;
+<code class="code">@uref{--a,--b}</code> <a href="--a">&ndash;b</a>
+<code class="code">@uref{--a}</code> <a href="--a">--a</a>
+<code class="code">@uref{,--b}</code> &ndash;b
+<code class="code">@uref{--a,--b,--c}</code> <a href="--a">&ndash;c</a>
+<code class="code">@uref{,--b,--c}</code> &ndash;c
+<code class="code">@uref{--a,,--c}</code> <a href="--a">&ndash;c</a>
+<code class="code">@uref{,,--c}</code> &ndash;c
+<code class="code">@url{--a,--b}</code> <a href="--a">&ndash;b</a>
+<code class="code">@url{--a,}</code> <a href="--a">--a</a>
+<code class="code">@url{,--b}</code> &ndash;b
+<code class="code">@var{--a}</code> <var class="var">&ndash;a</var>
+<code class="code">@verb{:--a:}</code> <tt class="verb">--a</tt>
+<code class="code">@verb{:a  &lt; &amp; @ % &quot; --    b:}</code> <tt class="verb">a  &lt; &amp; @ % &quot; --    b</tt>
+<code class="code">@w{a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a}</code> a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a&nbsp;a<!-- /@w -->
+<code class="code">@H{a}</code> a&#779;
+<code class="code">@H{--a}</code> &ndash;a&#779;
+<code class="code">@dotaccent{a}</code> &#551;
+<code class="code">@dotaccent{--a}</code> &ndash;a&#775;
+<code class="code">@ringaccent{a}</code> &aring;
+<code class="code">@ringaccent{--a}</code> &ndash;a&#778;
+<code class="code">@tieaccent{a}</code> a&#865;
+<code class="code">@tieaccent{--a}</code> &ndash;&#865;a
+<code class="code">@u{a}</code> &#259;
+<code class="code">@u{--a}</code> &ndash;a&#774;
+<code class="code">@ubaraccent{a}</code> a&#818;
+<code class="code">@ubaraccent{--a}</code> &ndash;a&#818;
+<code class="code">@udotaccent{a}</code> &#7841;
+<code class="code">@udotaccent{--a}</code> &ndash;a&#803;
+<code class="code">@v{a}</code> &#462;
+<code class="code">@v{--a}</code> &ndash;a&#780;
+<code class="code">@,{c}</code> &ccedil;
+<code class="code">@,{--c}</code> &ndash;c&#807;
+<code class="code">@ogonek{a}</code> &#261;
+<code class="code">@ogonek{--a}</code> &ndash;a&#808;
+<code class="code">a@sup{h}@sub{l}</code> a<sup class="sup">h</sup><sub class="sub">l</sub>
+<code class="code">@footnote{in footnote}</code> <a id="DOCF5" href="#FOOT5"><sup>3</sup></a>
+<code class="code">@footnote{in footnote2}</code> <a id="DOCF6" href="#FOOT6"><sup>4</sup></a>
 </p>
-<p><code>@image{f--ile}</code> <img src="f--ile.png" alt="f--ile">
-<code>@image{f--ile,l--i}</code> <img src="f--ile.png" alt="f--ile">
-<code>@image{f--ile,,l--e}</code> <img src="f--ile.png" alt="f--ile">
-<code>@image{f--ile,,,alt}</code> <img src="f--ile.png" alt="alt">
-<code>@image{f--ile,,,,.e-d-xt}</code> <img src="f--ile.e--xt" alt="f--ile">
-<code>@image{f--ile,aze,az,alt,.e--xt}</code> <img src="f--ile.e--xt" alt="alt">
-<code>@image{f-ile,aze,,a--lt}</code> <img src="f-ile.jpg" alt="a&ndash;lt">
-<code>@image{@file{f--ile}@@@.,aze,az,alt,@file{.file ext} e--xt@}</code> <img src="f--ile@..file ext e--xt}" alt="alt">
+<p><code class="code">@image{f--ile}</code> <img src="f--ile.png" alt="f--ile">
+<code class="code">@image{f--ile,l--i}</code> <img src="f--ile.png" alt="f--ile">
+<code class="code">@image{f--ile,,l--e}</code> <img src="f--ile.png" alt="f--ile">
+<code class="code">@image{f--ile,,,alt}</code> <img src="f--ile.png" alt="alt">
+<code class="code">@image{f--ile,,,,.e-d-xt}</code> <img src="f--ile.e--xt" alt="f--ile">
+<code class="code">@image{f--ile,aze,az,alt,.e--xt}</code> <img src="f--ile.e--xt" alt="alt">
+<code class="code">@image{f-ile,aze,,a--lt}</code> <img src="f-ile.jpg" alt="a&ndash;lt">
+<code class="code">@image{@file{f--ile}@@@.,aze,az,alt,@file{.file ext} e--xt@}</code> <img src="f--ile@..file ext e--xt}" alt="alt">
 </p>
-<p><code>@sp 2</code><br>
+<p><code class="code">@sp 2</code><br>
 </p><br>
 <br>
-<p><code>@page</code><br>
+<p><code class="code">@page</code><br>
 </p>
-<p><code>need 1002</code>
+<p><code class="code">need 1002</code>
 </p>
-<p><code>@clicksequence{click @click{} A}</code> click &rarr; A
+<p><code class="code">@clicksequence{click @click{} A}</code> click &rarr; A
 After clickstyle &rArr;
-<code>@clicksequence{click @click{} A}</code> click &rArr; A
+<code class="code">@clicksequence{click @click{} A}</code> click &rArr; A
 </p>
-<div class="displaymath"><em><strong>``simple-double--three---four----''</strong> aa<!-- /@w -->
+<div class="displaymath"><em><strong class="strong">``simple-double--three---four----''</strong> aa<!-- /@w -->
 `<!-- /@w -->`simple-double-<!-- /@w -->-three---four----'<!-- /@w -->'
 
 </em></div>
 <div class="displaymath"><em>&uuml; &Uuml; &ntilde; &acirc; &eacute; &#333; &igrave; &eacute; i j &#274;&#768;
 &#322; &#262;&#807; &#262;&#807; &ccedil; a&#779; &#551; &aring; a&#865;
-&#259; a&#818; &#7841; &#462; &#261; a<sup>h</sup><sub>l</sub>
+&#259; a&#818; &#7841; &#462; &#261; a<sup class="sup">h</sup><sub class="sub">l</sub>
 
  &nbsp;&nbsp; &nbsp;   ! ? . @ } { 
 a sunny day
@@ -2105,49 +2105,49 @@ error&rarr; &rarr; - &lowast; -| &rArr;
 &raquo; &laquo; &raquo; &lsaquo;
 &rsaquo; &deg; &euro; &rarr; &le; &ge;
 </em></div>
-<div class="displaymath"><em><b>b</b> <i>i</i> <span class="roman">r</span> <small>SC</small> <code>t</code> <span class="sansserif">sansserif</span> <i>slanted</i>
+<div class="displaymath"><em><b class="b">b</b> <i class="i">i</i> <span class="r">r</span> <small class="sc">SC</small> <code class="t">t</code> <span class="sansserif">sansserif</span> <i class="slanted">slanted</i>
 </em></div>
-<p><kbd>default kbdinputstyle</kbd>
+<p><kbd class="kbd">default kbdinputstyle</kbd>
 </p><dl>
-<dt id='index-vtable-i_002d_002dtem-default-kbdinputstyle'><span><kbd>vtable i--tem default kbdinputstyle</kbd><a class="copiable-anchor" href='#index-vtable-i_002d_002dtem-default-kbdinputstyle'> &para;</a></span></dt>
+<dt id='index-vtable-i_002d_002dtem-default-kbdinputstyle'><span><kbd class="kbd">vtable i--tem default kbdinputstyle</kbd><a class="copiable-anchor" href='#index-vtable-i_002d_002dtem-default-kbdinputstyle'> &para;</a></span></dt>
 </dl>
 <div class="example">
-<pre class="example"><kbd>in example default kbdinputstyle</kbd>
+<pre class="example"><kbd class="kbd">in example default kbdinputstyle</kbd>
 </pre><dl>
-<dt id='index-vtable-i_002d_002dtem-in-example-default-kbdinputstyle'><span><tt><kbd>vtable i--tem in example default kbdinputstyle</kbd></tt><a class="copiable-anchor" href='#index-vtable-i_002d_002dtem-in-example-default-kbdinputstyle'> &para;</a></span></dt>
+<dt id='index-vtable-i_002d_002dtem-in-example-default-kbdinputstyle'><span><tt><kbd class="kbd">vtable i--tem in example default kbdinputstyle</kbd></tt><a class="copiable-anchor" href='#index-vtable-i_002d_002dtem-in-example-default-kbdinputstyle'> &para;</a></span></dt>
 </dl>
 </div>
 
-<p><code>code kbdinputstyle</code>
+<p><code class="code as-code-kbd ">code kbdinputstyle</code>
 </p><dl>
-<dt id='index-vtable-i_002d_002dtem-code-kbdinputstyle'><span><code>vtable i--tem code kbdinputstyle</code><a class="copiable-anchor" href='#index-vtable-i_002d_002dtem-code-kbdinputstyle'> &para;</a></span></dt>
+<dt id='index-vtable-i_002d_002dtem-code-kbdinputstyle'><span><code class="code as-code-kbd ">vtable i--tem code kbdinputstyle</code><a class="copiable-anchor" href='#index-vtable-i_002d_002dtem-code-kbdinputstyle'> &para;</a></span></dt>
 </dl>
 <div class="example">
-<pre class="example"><code>in example code kbdinputstyle</code>
+<pre class="example"><code class="code as-code-kbd ">in example code kbdinputstyle</code>
 </pre><dl>
-<dt id='index-vtable-i_002d_002dtem-in-example-code-kbdinputstyle'><span><tt><code>vtable i--tem in example code kbdinputstyle</code></tt><a class="copiable-anchor" href='#index-vtable-i_002d_002dtem-in-example-code-kbdinputstyle'> &para;</a></span></dt>
+<dt id='index-vtable-i_002d_002dtem-in-example-code-kbdinputstyle'><span><tt><code class="code as-code-kbd ">vtable i--tem in example code kbdinputstyle</code></tt><a class="copiable-anchor" href='#index-vtable-i_002d_002dtem-in-example-code-kbdinputstyle'> &para;</a></span></dt>
 </dl>
 </div>
 
-<p><kbd>example kbdinputstyle</kbd>
+<p><kbd class="kbd">example kbdinputstyle</kbd>
 </p><dl>
-<dt id='index-vtable-i_002d_002dtem-example-kbdinputstyle'><span><kbd>vtable i--tem example kbdinputstyle</kbd><a class="copiable-anchor" href='#index-vtable-i_002d_002dtem-example-kbdinputstyle'> &para;</a></span></dt>
+<dt id='index-vtable-i_002d_002dtem-example-kbdinputstyle'><span><kbd class="kbd">vtable i--tem example kbdinputstyle</kbd><a class="copiable-anchor" href='#index-vtable-i_002d_002dtem-example-kbdinputstyle'> &para;</a></span></dt>
 </dl>
 <div class="example">
-<pre class="example"><code>in example example kbdinputstyle</code>
+<pre class="example"><code class="code as-code-kbd ">in example example kbdinputstyle</code>
 </pre><dl>
-<dt id='index-vtable-i_002d_002dtem-in-example-example-kbdinputstyle'><span><tt><code>vtable i--tem in example example kbdinputstyle</code></tt><a class="copiable-anchor" href='#index-vtable-i_002d_002dtem-in-example-example-kbdinputstyle'> &para;</a></span></dt>
+<dt id='index-vtable-i_002d_002dtem-in-example-example-kbdinputstyle'><span><tt><code class="code as-code-kbd ">vtable i--tem in example example kbdinputstyle</code></tt><a class="copiable-anchor" href='#index-vtable-i_002d_002dtem-in-example-example-kbdinputstyle'> &para;</a></span></dt>
 </dl>
 </div>
 
-<p><kbd>distinct kbdinputstyle</kbd>
+<p><kbd class="kbd">distinct kbdinputstyle</kbd>
 </p><dl>
-<dt id='index-vtable-i_002d_002dtem-distinct-kbdinputstyle'><span><kbd>vtable i--tem distinct kbdinputstyle</kbd><a class="copiable-anchor" href='#index-vtable-i_002d_002dtem-distinct-kbdinputstyle'> &para;</a></span></dt>
+<dt id='index-vtable-i_002d_002dtem-distinct-kbdinputstyle'><span><kbd class="kbd">vtable i--tem distinct kbdinputstyle</kbd><a class="copiable-anchor" href='#index-vtable-i_002d_002dtem-distinct-kbdinputstyle'> &para;</a></span></dt>
 </dl>
 <div class="example">
-<pre class="example"><kbd>in example distinct kbdinputstyle</kbd>
+<pre class="example"><kbd class="kbd">in example distinct kbdinputstyle</kbd>
 </pre><dl>
-<dt id='index-vtable-i_002d_002dtem-in-example-distinct-kbdinputstyle'><span><tt><kbd>vtable i--tem in example distinct kbdinputstyle</kbd></tt><a class="copiable-anchor" href='#index-vtable-i_002d_002dtem-in-example-distinct-kbdinputstyle'> &para;</a></span></dt>
+<dt id='index-vtable-i_002d_002dtem-in-example-distinct-kbdinputstyle'><span><tt><kbd class="kbd">vtable i--tem in example distinct kbdinputstyle</kbd></tt><a class="copiable-anchor" href='#index-vtable-i_002d_002dtem-in-example-distinct-kbdinputstyle'> &para;</a></span></dt>
 </dl>
 </div>
 
@@ -2156,43 +2156,43 @@ error&rarr; &rarr; - &lowast; -| &rArr;
 </p></blockquote>
 
 <blockquote>
-<p><b>Note:</b> A Note
+<p><b class="b">Note:</b> A Note
 </p></blockquote>
 
 <blockquote>
-<p><b>note:</b> A note
+<p><b class="b">note:</b> A note
 </p></blockquote>
 
 <blockquote>
-<p><b>Caution:</b> Caution
+<p><b class="b">Caution:</b> Caution
 </p></blockquote>
 
 <blockquote>
-<p><b>Important:</b> Important
+<p><b class="b">Important:</b> Important
 </p></blockquote>
 
 <blockquote>
-<p><b>Tip:</b> a Tip
+<p><b class="b">Tip:</b> a Tip
 </p></blockquote>
 
 <blockquote>
-<p><b>Warning:</b> a Warning.
+<p><b class="b">Warning:</b> a Warning.
 </p></blockquote>
 
 <blockquote>
-<p><b>something &eacute; TeX:</b> The something &eacute; TeX is here.
+<p><b class="b">something &eacute; TeX:</b> The something &eacute; TeX is here.
 </p></blockquote>
 
 <blockquote>
-<p><b>@ at the end of line &nbsp;:</b> A @ at the end of the @quotation line.
+<p><b class="b">@ at the end of line &nbsp;:</b> A @ at the end of the @quotation line.
 </p></blockquote>
 
 <blockquote>
-<p><b>something, other thing:</b> something, other thing
+<p><b class="b">something, other thing:</b> something, other thing
 </p></blockquote>
 
 <blockquote>
-<p><b>Note, the note:</b> Note, the note
+<p><b class="b">Note, the note:</b> Note, the note
 </p></blockquote>
 
 <blockquote>
@@ -2210,7 +2210,7 @@ error&rarr; &rarr; - &lowast; -| &rArr;
 <blockquote>
 <p>aaa quotation
 </p></blockquote>
-<div class="center-align">&mdash; <em>quotation author</em>
+<div class="center-align">&mdash; <em class="emph">quotation author</em>
 </div>
 <blockquote>
 <p>indent in quotation
@@ -2221,11 +2221,11 @@ error&rarr; &rarr; - &lowast; -| &rArr;
 </p></blockquote>
 
 <blockquote>
-<p><b>Note:</b> A small Note
+<p><b class="b">Note:</b> A small Note
 </p></blockquote>
 
 <blockquote>
-<p><b>something, other thing:</b> something, other thing
+<p><b class="b">something, other thing:</b> something, other thing
 </p></blockquote>
 
 <ul class="mark-bullet">
@@ -2346,7 +2346,7 @@ i&ndash;tem 1
 <pre class="example">s--mallexample
 </pre></div>
 
-<p><code>@noindent</code> after smallexample.
+<p><code class="code">@noindent</code> after smallexample.
 </p><div class="example">
 <pre class="example">$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.guess?rev=HEAD&amp;content-type=text/plain'
 $ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEAD&amp;content-type=text/plain'
@@ -2378,7 +2378,7 @@ $ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEA
 </pre></div>
 
 <div class="displaymath"><em>disp--laymath
-f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\right)^2</sup>
+f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup class="sup">-{1 \over 2}\left({x-\mu \over \sigma}\right)^2</sup>
 </em></div>
 <table width="100%">
 <tr id="index-d_002d_002deffn_005fname"><td align="left"> <strong>d--effn_name</strong><em> a--rguments...</em></td><td align="right">c--ategory</td></tr>
@@ -2391,15 +2391,15 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 </p></td></tr></table>
  
 <table width="100%">
-<tr id="index-i"><td align="left"> <strong><var>i</var></strong><em> a g</em></td><td align="right">fset</td></tr>
+<tr id="index-i"><td align="left"> <strong><var class="var">i</var></strong><em> a g</em></td><td align="right">fset</td></tr>
 <tr><td colspan="2"><a class="index-entry-anchor" id="index-index-entry-within-deffn"></a>
 </td></tr><tr id="index-truc"><td align="left"> <strong>truc</strong></td><td align="right">cmde</td></tr>
 <tr id="index-log-trap"><td align="left"> <strong>log trap</strong></td><td align="right">Command</td></tr>
 <tr id="index-log-trap1"><td align="left"> <strong>log trap1</strong></td><td align="right">Command</td></tr>
 <tr id="index-log-trap2"><td align="left"> <strong>log trap2</strong></td><td align="right">Command</td></tr>
-<tr id="index-id-ule"><td align="left"> <strong><b>id ule</b></strong><em> truc</em></td><td align="right">cmde</td></tr>
-<tr id="index-id-i-ule"><td align="left"> <strong><b>id &lsquo;<samp>i</samp>&rsquo; ule</b></strong><em> truc</em></td><td align="right">cmde2</td></tr>
-<tr><td align="left"></td><td align="right"><b>id &lsquo;<samp>i</samp>&rsquo; ule</b></td></tr>
+<tr id="index-id-ule"><td align="left"> <strong><b class="b">id ule</b></strong><em> truc</em></td><td align="right">cmde</td></tr>
+<tr id="index-id-i-ule"><td align="left"> <strong><b class="b">id &lsquo;<samp class="samp">i</samp>&rsquo; ule</b></strong><em> truc</em></td><td align="right">cmde2</td></tr>
+<tr><td align="left"></td><td align="right"><b class="b">id &lsquo;<samp class="samp">i</samp>&rsquo; ule</b></td></tr>
 <tr><td align="left"></td><td align="right"></td></tr>
 <tr><td align="left"></td><td align="right">aaa</td></tr>
 <tr><td align="left"></td><td align="right"></td></tr>
@@ -2411,7 +2411,7 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 <tr id="index-followed"><td align="left"> <strong>followed</strong><em> by a comment</em></td><td align="right">truc</td></tr>
 <tr><td align="left"></td><td align="right">truc</td></tr>
 <tr><td align="left"></td><td align="right"></td></tr>
-<tr id="index-a-1"><td align="left"> <strong>a</strong><em> b c d e <b>f g</b> h i</em></td><td align="right">truc</td></tr>
+<tr id="index-a-1"><td align="left"> <strong>a</strong><em> b c d e <b class="b">f g</b> h i</em></td><td align="right">truc</td></tr>
 <tr id="index-deffnx"><td align="left"> <strong>deffnx</strong><em> before end deffn</em></td><td align="right">truc</td></tr>
 </table>
 
@@ -2426,7 +2426,7 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 </table>
 
 <table width="100%">
-<tr id="index-i-1"><td align="left"> <strong><var>i</var></strong><em> a g</em></td><td align="right">fset</td></tr>
+<tr id="index-i-1"><td align="left"> <strong><var class="var">i</var></strong><em> a g</em></td><td align="right">fset</td></tr>
 <tr id="index-truc-1"><td align="left"> <strong>truc</strong></td><td align="right">cmde</td></tr>
 <tr><td colspan="2"><p>text in def item for second def item
 </p></td></tr></table>
@@ -2604,74 +2604,74 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 </p></td></tr></table>
 
 
-<p><code>@xref{c---hapter@@, cross r---ef name@@, t---itle@@, file n---ame@@, ma---nual@@}</code> See <a data-manual="file n---ame@" href="../file n---ame@/c_002d_002d_002dhapter_0040.html#c_002d_002d_002dhapter_0040">t&mdash;itle@</a> in <cite>ma&mdash;nual@</cite>.
-<code>@ref{chapter, cross ref name, title, file name, manual}</code> <a data-manual="file name" href="../file name/chapter.html#chapter">title</a> in <cite>manual</cite>
-<code>@pxref{chapter, cross ref name, title, file name, manual}</code> see <a data-manual="file name" href="../file name/chapter.html#chapter">title</a> in <cite>manual</cite>
-<code>@inforef{chapter, cross ref name, file name}</code> See <a data-manual="file name" href="../file name/chapter.html#chapter">(file name)cross ref name</a>
+<p><code class="code">@xref{c---hapter@@, cross r---ef name@@, t---itle@@, file n---ame@@, ma---nual@@}</code> See <a data-manual="file n---ame@" href="../file n---ame@/c_002d_002d_002dhapter_0040.html#c_002d_002d_002dhapter_0040">t&mdash;itle@</a> in <cite class="cite">ma&mdash;nual@</cite>.
+<code class="code">@ref{chapter, cross ref name, title, file name, manual}</code> <a data-manual="file name" href="../file name/chapter.html#chapter">title</a> in <cite class="cite">manual</cite>
+<code class="code">@pxref{chapter, cross ref name, title, file name, manual}</code> see <a data-manual="file name" href="../file name/chapter.html#chapter">title</a> in <cite class="cite">manual</cite>
+<code class="code">@inforef{chapter, cross ref name, file name}</code> See <a data-manual="file name" href="../file name/chapter.html#chapter">(file name)cross ref name</a>
 </p>
-<p><code>@ref{chapter}</code> <a href="#chapter">chapter</a>
-<code>@xref{chapter}</code> See <a href="#chapter">chapter</a>.
-<code>@pxref{chapter}</code> see <a href="#chapter">chapter</a>
-<code>@ref{s--ect@comma{}ion}</code> <a href="s_002d_002dect_002cion.html#s_002d_002dect_002cion">A section</a>
+<p><code class="code">@ref{chapter}</code> <a href="#chapter">chapter</a>
+<code class="code">@xref{chapter}</code> See <a href="#chapter">chapter</a>.
+<code class="code">@pxref{chapter}</code> see <a href="#chapter">chapter</a>
+<code class="code">@ref{s--ect@comma{}ion}</code> <a href="s_002d_002dect_002cion.html#s_002d_002dect_002cion">A section</a>
 </p>
-<p><code>@ref{s--ect@comma{}ion, a @comma{} in cross
+<p><code class="code">@ref{s--ect@comma{}ion, a @comma{} in cross
 ref, a comma@comma{} in title, a comma@comma{} in file, a @comma{} in manual name }</code>
-<a data-manual="a comma, in file" href="../a comma, in file/s_002d_002dect_002cion.html#s_002d_002dect_002cion">a comma, in title</a> in <cite>a , in manual name</cite>
+<a data-manual="a comma, in file" href="../a comma, in file/s_002d_002dect_002cion.html#s_002d_002dect_002cion">a comma, in title</a> in <cite class="cite">a , in manual name</cite>
 </p>
-<p><code>@ref{chapter,cross ref name}</code> <a href="#chapter">cross ref name</a>
-<code>@ref{chapter,,title}</code> <a href="#chapter">title</a>
-<code>@ref{chapter,,,file name}</code> <a data-manual="file name" href="../file name/chapter.html#chapter">(file name)chapter</a>
-<code>@ref{chapter,,,,manual}</code> &lsquo;chapter&rsquo; in <cite>manual</cite>
-<code>@ref{chapter,cross ref name,title,}</code> <a href="#chapter">title</a>
-<code>@ref{chapter,cross ref name,,file name}</code> <a data-manual="file name" href="../file name/chapter.html#chapter">(file name)cross ref name</a>
-<code>@ref{chapter,cross ref name,,,manual}</code> &lsquo;cross ref name&rsquo; in <cite>manual</cite>
-<code>@ref{chapter,cross ref name,title,file name}</code> <a data-manual="file name" href="../file name/chapter.html#chapter">(file name)title</a>
-<code>@ref{chapter,cross ref name,title,,manual}</code> &lsquo;title&rsquo; in <cite>manual</cite>
-<code>@ref{chapter,cross ref name,title, file name, manual}</code> <a data-manual="file name" href="../file name/chapter.html#chapter">title</a> in <cite>manual</cite>
-<code>@ref{chapter,,title,file name}</code> <a data-manual="file name" href="../file name/chapter.html#chapter">(file name)title</a>
-<code>@ref{chapter,,title,,manual}</code> &lsquo;title&rsquo; in <cite>manual</cite>
-<code>@ref{chapter,,title, file name, manual}</code> <a data-manual="file name" href="../file name/chapter.html#chapter">title</a> in <cite>manual</cite>
-<code>@ref{chapter,,,file name,manual}</code> <a data-manual="file name" href="../file name/chapter.html#chapter">chapter</a> in <cite>manual</cite>
-</p>
-
-<p><code>@ref{(pman)anode,cross ref name}</code> <a data-manual="pman" href="../pman/anode.html#anode">(pman)cross ref name</a>
-<code>@ref{(pman)anode,,title}</code> <a data-manual="pman" href="../pman/anode.html#anode">(pman)title</a>
-<code>@ref{(pman)anode,,,file name}</code> <a data-manual="file name" href="../file name/anode.html#anode">(file name)anode</a>
-<code>@ref{(pman)anode,,,,manual}</code> <a data-manual="pman" href="../pman/anode.html#anode">anode</a> in <cite>manual</cite>
-<code>@ref{(pman)anode,cross ref name,title,}</code> <a data-manual="pman" href="../pman/anode.html#anode">(pman)title</a>
-<code>@ref{(pman)anode,cross ref name,,file name}</code> <a data-manual="file name" href="../file name/anode.html#anode">(file name)cross ref name</a>
-<code>@ref{(pman)anode,cross ref name,,,manual}</code> <a data-manual="pman" href="../pman/anode.html#anode">cross ref name</a> in <cite>manual</cite>
-<code>@ref{(pman)anode,cross ref name,title,file name}</code> <a data-manual="file name" href="../file name/anode.html#anode">(file name)title</a>
-<code>@ref{(pman)anode,cross ref name,title,,manual}</code> <a data-manual="pman" href="../pman/anode.html#anode">title</a> in <cite>manual</cite>
-<code>@ref{(pman)anode,cross ref name,title, file name, manual}</code> <a data-manual="file name" href="../file name/anode.html#anode">title</a> in <cite>manual</cite>
-<code>@ref{(pman)anode,,title,file name}</code> <a data-manual="file name" href="../file name/anode.html#anode">(file name)title</a>
-<code>@ref{(pman)anode,,title,,manual}</code> <a data-manual="pman" href="../pman/anode.html#anode">title</a> in <cite>manual</cite>
-<code>@ref{(pman)anode,,title, file name, manual}</code> <a data-manual="file name" href="../file name/anode.html#anode">title</a> in <cite>manual</cite>
-<code>@ref{(pman)anode,,,file name,manual}</code> <a data-manual="file name" href="../file name/anode.html#anode">anode</a> in <cite>manual</cite>
+<p><code class="code">@ref{chapter,cross ref name}</code> <a href="#chapter">cross ref name</a>
+<code class="code">@ref{chapter,,title}</code> <a href="#chapter">title</a>
+<code class="code">@ref{chapter,,,file name}</code> <a data-manual="file name" href="../file name/chapter.html#chapter">(file name)chapter</a>
+<code class="code">@ref{chapter,,,,manual}</code> &lsquo;chapter&rsquo; in <cite class="cite">manual</cite>
+<code class="code">@ref{chapter,cross ref name,title,}</code> <a href="#chapter">title</a>
+<code class="code">@ref{chapter,cross ref name,,file name}</code> <a data-manual="file name" href="../file name/chapter.html#chapter">(file name)cross ref name</a>
+<code class="code">@ref{chapter,cross ref name,,,manual}</code> &lsquo;cross ref name&rsquo; in <cite class="cite">manual</cite>
+<code class="code">@ref{chapter,cross ref name,title,file name}</code> <a data-manual="file name" href="../file name/chapter.html#chapter">(file name)title</a>
+<code class="code">@ref{chapter,cross ref name,title,,manual}</code> &lsquo;title&rsquo; in <cite class="cite">manual</cite>
+<code class="code">@ref{chapter,cross ref name,title, file name, manual}</code> <a data-manual="file name" href="../file name/chapter.html#chapter">title</a> in <cite class="cite">manual</cite>
+<code class="code">@ref{chapter,,title,file name}</code> <a data-manual="file name" href="../file name/chapter.html#chapter">(file name)title</a>
+<code class="code">@ref{chapter,,title,,manual}</code> &lsquo;title&rsquo; in <cite class="cite">manual</cite>
+<code class="code">@ref{chapter,,title, file name, manual}</code> <a data-manual="file name" href="../file name/chapter.html#chapter">title</a> in <cite class="cite">manual</cite>
+<code class="code">@ref{chapter,,,file name,manual}</code> <a data-manual="file name" href="../file name/chapter.html#chapter">chapter</a> in <cite class="cite">manual</cite>
 </p>
 
-<p><code>@inforef{chapter, cross ref name, file name}</code> See <a data-manual="file name" href="../file name/chapter.html#chapter">(file name)cross ref name</a>
-<code>@inforef{chapter}</code> See &lsquo;chapter&rsquo;
-<code>@inforef{chapter, cross ref name}</code> See &lsquo;cross ref name&rsquo;
-<code>@inforef{chapter,,file name}</code> See <a data-manual="file name" href="../file name/chapter.html#chapter">(file name)chapter</a>
-<code>@inforef{node, cross ref name, file name}</code> See <a data-manual="file name" href="../file name/node.html#node">(file name)cross ref name</a>
-<code>@inforef{node}</code> See &lsquo;node&rsquo;
-<code>@inforef{node, cross ref name}</code> See &lsquo;cross ref name&rsquo;
-<code>@inforef{node,,file name}</code> See <a data-manual="file name" href="../file name/node.html#node">(file name)node</a>
-<code>@inforef{chapter, cross ref name, file name, spurious arg}</code> See <a data-manual="file name, spurious arg" href="../file name, spurious arg/chapter.html#chapter">(file name, spurious arg)cross ref name</a>
+<p><code class="code">@ref{(pman)anode,cross ref name}</code> <a data-manual="pman" href="../pman/anode.html#anode">(pman)cross ref name</a>
+<code class="code">@ref{(pman)anode,,title}</code> <a data-manual="pman" href="../pman/anode.html#anode">(pman)title</a>
+<code class="code">@ref{(pman)anode,,,file name}</code> <a data-manual="file name" href="../file name/anode.html#anode">(file name)anode</a>
+<code class="code">@ref{(pman)anode,,,,manual}</code> <a data-manual="pman" href="../pman/anode.html#anode">anode</a> in <cite class="cite">manual</cite>
+<code class="code">@ref{(pman)anode,cross ref name,title,}</code> <a data-manual="pman" href="../pman/anode.html#anode">(pman)title</a>
+<code class="code">@ref{(pman)anode,cross ref name,,file name}</code> <a data-manual="file name" href="../file name/anode.html#anode">(file name)cross ref name</a>
+<code class="code">@ref{(pman)anode,cross ref name,,,manual}</code> <a data-manual="pman" href="../pman/anode.html#anode">cross ref name</a> in <cite class="cite">manual</cite>
+<code class="code">@ref{(pman)anode,cross ref name,title,file name}</code> <a data-manual="file name" href="../file name/anode.html#anode">(file name)title</a>
+<code class="code">@ref{(pman)anode,cross ref name,title,,manual}</code> <a data-manual="pman" href="../pman/anode.html#anode">title</a> in <cite class="cite">manual</cite>
+<code class="code">@ref{(pman)anode,cross ref name,title, file name, manual}</code> <a data-manual="file name" href="../file name/anode.html#anode">title</a> in <cite class="cite">manual</cite>
+<code class="code">@ref{(pman)anode,,title,file name}</code> <a data-manual="file name" href="../file name/anode.html#anode">(file name)title</a>
+<code class="code">@ref{(pman)anode,,title,,manual}</code> <a data-manual="pman" href="../pman/anode.html#anode">title</a> in <cite class="cite">manual</cite>
+<code class="code">@ref{(pman)anode,,title, file name, manual}</code> <a data-manual="file name" href="../file name/anode.html#anode">title</a> in <cite class="cite">manual</cite>
+<code class="code">@ref{(pman)anode,,,file name,manual}</code> <a data-manual="file name" href="../file name/anode.html#anode">anode</a> in <cite class="cite">manual</cite>
 </p>
-<p><code>@inforef{s--ect@comma{}ion, a @comma{} in cross
+
+<p><code class="code">@inforef{chapter, cross ref name, file name}</code> See <a data-manual="file name" href="../file name/chapter.html#chapter">(file name)cross ref name</a>
+<code class="code">@inforef{chapter}</code> See &lsquo;chapter&rsquo;
+<code class="code">@inforef{chapter, cross ref name}</code> See &lsquo;cross ref name&rsquo;
+<code class="code">@inforef{chapter,,file name}</code> See <a data-manual="file name" href="../file name/chapter.html#chapter">(file name)chapter</a>
+<code class="code">@inforef{node, cross ref name, file name}</code> See <a data-manual="file name" href="../file name/node.html#node">(file name)cross ref name</a>
+<code class="code">@inforef{node}</code> See &lsquo;node&rsquo;
+<code class="code">@inforef{node, cross ref name}</code> See &lsquo;cross ref name&rsquo;
+<code class="code">@inforef{node,,file name}</code> See <a data-manual="file name" href="../file name/node.html#node">(file name)node</a>
+<code class="code">@inforef{chapter, cross ref name, file name, spurious arg}</code> See <a data-manual="file name, spurious arg" href="../file name, spurious arg/chapter.html#chapter">(file name, spurious arg)cross ref name</a>
+</p>
+<p><code class="code">@inforef{s--ect@comma{}ion, a @comma{} in cross
 ref, a comma@comma{} in file}</code>
 See <a data-manual="a comma, in file" href="../a comma, in file/s_002d_002dect_002cion.html#s_002d_002dect_002cion">(a comma, in file)a , in cross
 ref</a>
 </p>
-<p>&lsquo;<samp><a href="#chapter">chapter</a></samp>&rsquo;.
+<p>&lsquo;<samp class="samp"><a href="#chapter">chapter</a></samp>&rsquo;.
 </p>
-<p><a data-manual="info file with uref3 href://http/myhost.com/index3.html (uref3)" href="../index3.html (uref3)/ext.html#ext">title with uref2 <a href="href://http/myhost.com/index2.html">uref2</a></a> in <cite>printed manual with uref4 <a href="href://http/myhost.com/index4.html">uref4</a></cite>
+<p><a data-manual="info file with uref3 href://http/myhost.com/index3.html (uref3)" href="../index3.html (uref3)/ext.html#ext">title with uref2 <a href="href://http/myhost.com/index2.html">uref2</a></a> in <cite class="cite">printed manual with uref4 <a href="href://http/myhost.com/index4.html">uref4</a></cite>
 <a href="#chapter">title with uref2 <a href="href://http/myhost.com/index2.html">uref2</a></a>
 </p>
 <dl>
-<dt><strong>a&ndash;strong</strong></dt>
+<dt><strong class="strong">a&ndash;strong</strong></dt>
 <dd><p>l&ndash;ine
 </p></dd>
 </dl>
@@ -2684,10 +2684,10 @@ ref</a>
 </dl>
 
 <dl>
-<dt id='index-a-2'><span><em>a</em><a class="copiable-anchor" href='#index-a-2'> &para;</a></span></dt>
+<dt id='index-a-2'><span><em class="emph">a</em><a class="copiable-anchor" href='#index-a-2'> &para;</a></span></dt>
 <dd><a class="index-entry-anchor" id="index-index-entry-between-item-and-itemx"></a>
 </dd>
-<dt id='index-b'><span><em>b</em><a class="copiable-anchor" href='#index-b'> &para;</a></span></dt>
+<dt id='index-b'><span><em class="emph">b</em><a class="copiable-anchor" href='#index-b'> &para;</a></span></dt>
 <dd><p>l&ndash;ine
 </p></dd>
 </dl>
@@ -2695,7 +2695,7 @@ ref</a>
 <dl>
 <dd><p>Title
 </p></dd>
-<dt><code>a--code</code></dt>
+<dt><code class="code">a--code</code></dt>
 <dd><p>Value&ndash;table code
 </p></dd>
 </dl>
@@ -2703,8 +2703,8 @@ ref</a>
 <dl>
 <dd><p>Title
 </p></dd>
-<dt>&lsquo;<samp>a--samp</samp>&rsquo;</dt>
-<dt>&lsquo;<samp>a2--samp</samp>&rsquo;</dt>
+<dt>&lsquo;<samp class="samp">a--samp</samp>&rsquo;</dt>
+<dt>&lsquo;<samp class="samp">a2--samp</samp>&rsquo;</dt>
 <dd><p>Value&ndash;table samp
 </p></dd>
 </dl>
@@ -2757,15 +2757,15 @@ html ''
 <h4 class="subsubheading" id="subsubheading-1">subsubheading</h4>
 
 
-<p><code>@acronym{--a,an accronym @comma{} @enddots{}}</code> <acronym title="an accronym , ...">&ndash;a</acronym> (an accronym , <small class="enddots">...</small>)
-<code>@abbr{@'E--. @comma{}A., @'Etude--@comma{} @b{Autonome} }</code> <abbr title="&Eacute;tude&ndash;, Autonome">&Eacute;&ndash;. ,A.</abbr> (&Eacute;tude&ndash;, <b>Autonome</b>)
-<code>@abbr{@'E--. @comma{}A.}</code> <abbr title="&Eacute;tude&ndash;, Autonome">&Eacute;&ndash;. ,A.</abbr>
+<p><code class="code">@acronym{--a,an accronym @comma{} @enddots{}}</code> <acronym title="an accronym , ...">&ndash;a</acronym> (an accronym , <small class="enddots">...</small>)
+<code class="code">@abbr{@'E--. @comma{}A., @'Etude--@comma{} @b{Autonome} }</code> <abbr title="&Eacute;tude&ndash;, Autonome">&Eacute;&ndash;. ,A.</abbr> (&Eacute;tude&ndash;, <b class="b">Autonome</b>)
+<code class="code">@abbr{@'E--. @comma{}A.}</code> <abbr title="&Eacute;tude&ndash;, Autonome">&Eacute;&ndash;. ,A.</abbr>
 </p>
-<p><code>@math{--a@minus{} {\frac{1}{2}}}</code> <em class="math">--a- {\frac{1}{2}}</em>
+<p><code class="code">@math{--a@minus{} {\frac{1}{2}}}</code> <em class="math">--a- {\frac{1}{2}}</em>
 </p>
-<p><code>@image{f-ile,,,alt@verb{:jk _&quot; %}}</code> <img src="f-ile.jpg" alt="altjk _&quot; %@">
-<code>@image{f--ile,aze,az,@verb{:jk _&quot; %@:} @b{in b &quot;},e--xt}</code> <img src="f--ile.e--xt" alt="jk _&quot; %@ in b &quot;">
-<code>@image{file@verb{:jk _&quot; %@:},,,alt@verb{:jk _&quot; %@:}}</code> <img src="filejk _&quot; %@.jpg" alt="altjk _&quot; %@">
+<p><code class="code">@image{f-ile,,,alt@verb{:jk _&quot; %}}</code> <img src="f-ile.jpg" alt="altjk _&quot; %@">
+<code class="code">@image{f--ile,aze,az,@verb{:jk _&quot; %@:} @b{in b &quot;},e--xt}</code> <img src="f--ile.e--xt" alt="jk _&quot; %@ in b &quot;">
+<code class="code">@image{file@verb{:jk _&quot; %@:},,,alt@verb{:jk _&quot; %@:}}</code> <img src="filejk _&quot; %@.jpg" alt="altjk _&quot; %@">
 </p>
 
 
@@ -2782,8 +2782,8 @@ html ''
 </p>
 <p>@dotless{truc} truc
 @dotless{ij} ij
-<code>@dotless{--a}</code> &ndash;a
-<code>@dotless{a}</code> a
+<code class="code">@dotless{--a}</code> &ndash;a
+<code class="code">@dotless{a}</code> a
 </p>
 <p>@U, without braces @U{}, with empty arg 
 @U{z}, with non-hex arg &#xz;
@@ -2791,13 +2791,13 @@ html ''
 @U{FFFFFFFFFFFFFF}, value much too large &#xFFFFFFFFFFFFFF;
 @U{110000}, value just beyond Unicode &#x110000;
 </p>
-<p>@TeX, but without brace TeX<code>@#</code> #
+<p>@TeX, but without brace TeX<code class="code">@#</code> #
 </p>
-<p><code>@w{--a}</code> &ndash;a<!-- /@w -->
+<p><code class="code">@w{--a}</code> &ndash;a<!-- /@w -->
 </p>
-<p><code>@image{,1--xt}</code> 
-<code>@image{,,2--xt}</code> 
-<code>@image{,,,3--xt}</code> 
+<p><code class="code">@image{,1--xt}</code> 
+<code class="code">@image{,,2--xt}</code> 
+<code class="code">@image{,,,3--xt}</code> 
 </p>
 
 <ul>
@@ -2845,42 +2845,42 @@ html ''
 </p></td></tr><tr id="index-after"><td align="left"> <strong>after</strong><em> a deff item</em></td><td align="right">truc</td></tr>
 </table>
 
-<p><code>@ref{node}</code> &lsquo;node&rsquo;
+<p><code class="code">@ref{node}</code> &lsquo;node&rsquo;
 </p>
-<p><code>@ref{,cross ref name}</code> &lsquo;cross ref name&rsquo;
-<code>@ref{,,title}</code> &lsquo;title&rsquo;
-<code>@ref{,,,file name}</code> <a data-manual="file name" href="../file name/index.html">(file name)</a>
-<code>@ref{,,,,manual}</code> <cite>manual</cite>
-<code>@ref{node,cross ref name}</code> &lsquo;cross ref name&rsquo;
-<code>@ref{node,,title}</code> &lsquo;title&rsquo;
-<code>@ref{node,,,file name}</code> <a data-manual="file name" href="../file name/node.html#node">(file name)node</a>
-<code>@ref{node,,,,manual}</code> &lsquo;node&rsquo; in <cite>manual</cite>
-<code>@ref{node,cross ref name,title,}</code> &lsquo;title&rsquo;
-<code>@ref{node,cross ref name,,file name}</code> <a data-manual="file name" href="../file name/node.html#node">(file name)cross ref name</a>
-<code>@ref{node,cross ref name,,,manual}</code> &lsquo;cross ref name&rsquo; in <cite>manual</cite>
-<code>@ref{node,cross ref name,title,file name}</code> <a data-manual="file name" href="../file name/node.html#node">(file name)title</a>
-<code>@ref{node,cross ref name,title,,manual}</code> &lsquo;title&rsquo; in <cite>manual</cite>
-<code>@ref{node,cross ref name,title, file name, manual}</code> <a data-manual="file name" href="../file name/node.html#node">title</a> in <cite>manual</cite>
-<code>@ref{node,,title,file name}</code> <a data-manual="file name" href="../file name/node.html#node">(file name)title</a>
-<code>@ref{node,,title,,manual}</code> &lsquo;title&rsquo; in <cite>manual</cite>
-<code>@ref{chapter,,title, file name, manual}</code> <a data-manual="file name" href="../file name/chapter.html#chapter">title</a> in <cite>manual</cite>
-<code>@ref{node,,title, file name, manual}</code> <a data-manual="file name" href="../file name/node.html#node">title</a> in <cite>manual</cite>
-<code>@ref{node,,,file name,manual}</code> <a data-manual="file name" href="../file name/node.html#node">node</a> in <cite>manual</cite>
-<code>@ref{,cross ref name,title,}</code> &lsquo;title&rsquo;
-<code>@ref{,cross ref name,,file name}</code> <a data-manual="file name" href="../file name/index.html">(file name)cross ref name</a>
-<code>@ref{,cross ref name,,,manual}</code> &lsquo;cross ref name&rsquo; in <cite>manual</cite>
-<code>@ref{,cross ref name,title,file name}</code> <a data-manual="file name" href="../file name/index.html">(file name)title</a>
-<code>@ref{,cross ref name,title,,manual}</code> &lsquo;title&rsquo; in <cite>manual</cite>
-<code>@ref{,cross ref name,title, file name, manual}</code> <a data-manual="file name" href="../file name/index.html">title</a> in <cite>manual</cite>
-<code>@ref{,,title,file name}</code> <a data-manual="file name" href="../file name/index.html">(file name)title</a>
-<code>@ref{,,title,,manual}</code> &lsquo;title&rsquo; in <cite>manual</cite>
-<code>@ref{,,title, file name, manual}</code> <a data-manual="file name" href="../file name/index.html">title</a> in <cite>manual</cite>
-<code>@ref{,,,file name,manual}</code> <cite><a data-manual="file name" href="../file name/index.html">manual</a></cite>
+<p><code class="code">@ref{,cross ref name}</code> &lsquo;cross ref name&rsquo;
+<code class="code">@ref{,,title}</code> &lsquo;title&rsquo;
+<code class="code">@ref{,,,file name}</code> <a data-manual="file name" href="../file name/index.html">(file name)</a>
+<code class="code">@ref{,,,,manual}</code> <cite class="cite">manual</cite>
+<code class="code">@ref{node,cross ref name}</code> &lsquo;cross ref name&rsquo;
+<code class="code">@ref{node,,title}</code> &lsquo;title&rsquo;
+<code class="code">@ref{node,,,file name}</code> <a data-manual="file name" href="../file name/node.html#node">(file name)node</a>
+<code class="code">@ref{node,,,,manual}</code> &lsquo;node&rsquo; in <cite class="cite">manual</cite>
+<code class="code">@ref{node,cross ref name,title,}</code> &lsquo;title&rsquo;
+<code class="code">@ref{node,cross ref name,,file name}</code> <a data-manual="file name" href="../file name/node.html#node">(file name)cross ref name</a>
+<code class="code">@ref{node,cross ref name,,,manual}</code> &lsquo;cross ref name&rsquo; in <cite class="cite">manual</cite>
+<code class="code">@ref{node,cross ref name,title,file name}</code> <a data-manual="file name" href="../file name/node.html#node">(file name)title</a>
+<code class="code">@ref{node,cross ref name,title,,manual}</code> &lsquo;title&rsquo; in <cite class="cite">manual</cite>
+<code class="code">@ref{node,cross ref name,title, file name, manual}</code> <a data-manual="file name" href="../file name/node.html#node">title</a> in <cite class="cite">manual</cite>
+<code class="code">@ref{node,,title,file name}</code> <a data-manual="file name" href="../file name/node.html#node">(file name)title</a>
+<code class="code">@ref{node,,title,,manual}</code> &lsquo;title&rsquo; in <cite class="cite">manual</cite>
+<code class="code">@ref{chapter,,title, file name, manual}</code> <a data-manual="file name" href="../file name/chapter.html#chapter">title</a> in <cite class="cite">manual</cite>
+<code class="code">@ref{node,,title, file name, manual}</code> <a data-manual="file name" href="../file name/node.html#node">title</a> in <cite class="cite">manual</cite>
+<code class="code">@ref{node,,,file name,manual}</code> <a data-manual="file name" href="../file name/node.html#node">node</a> in <cite class="cite">manual</cite>
+<code class="code">@ref{,cross ref name,title,}</code> &lsquo;title&rsquo;
+<code class="code">@ref{,cross ref name,,file name}</code> <a data-manual="file name" href="../file name/index.html">(file name)cross ref name</a>
+<code class="code">@ref{,cross ref name,,,manual}</code> &lsquo;cross ref name&rsquo; in <cite class="cite">manual</cite>
+<code class="code">@ref{,cross ref name,title,file name}</code> <a data-manual="file name" href="../file name/index.html">(file name)title</a>
+<code class="code">@ref{,cross ref name,title,,manual}</code> &lsquo;title&rsquo; in <cite class="cite">manual</cite>
+<code class="code">@ref{,cross ref name,title, file name, manual}</code> <a data-manual="file name" href="../file name/index.html">title</a> in <cite class="cite">manual</cite>
+<code class="code">@ref{,,title,file name}</code> <a data-manual="file name" href="../file name/index.html">(file name)title</a>
+<code class="code">@ref{,,title,,manual}</code> &lsquo;title&rsquo; in <cite class="cite">manual</cite>
+<code class="code">@ref{,,title, file name, manual}</code> <a data-manual="file name" href="../file name/index.html">title</a> in <cite class="cite">manual</cite>
+<code class="code">@ref{,,,file name,manual}</code> <cite class="cite"><a data-manual="file name" href="../file name/index.html">manual</a></cite>
 </p>
-<p><code>@inforef{,cross ref name }</code> See &lsquo;cross ref name&rsquo;
-<code>@inforef{,,file name}</code> See <a data-manual="file name" href="../file name/index.html">(file name)</a>
-<code>@inforef{,cross ref name, file name}</code> See <a data-manual="file name" href="../file name/index.html">(file name)cross ref name</a>
-<code>@inforef{}</code> 
+<p><code class="code">@inforef{,cross ref name }</code> See &lsquo;cross ref name&rsquo;
+<code class="code">@inforef{,,file name}</code> See <a data-manual="file name" href="../file name/index.html">(file name)</a>
+<code class="code">@inforef{,cross ref name, file name}</code> See <a data-manual="file name" href="../file name/index.html">(file name)cross ref name</a>
+<code class="code">@inforef{}</code> 
 </p>
 
 
@@ -2897,13 +2897,13 @@ html ''
 
 ``simple-double--three---four----''
 
-code: <code>``simple-double--three---four----''</code> 
+code: <code class="code">``simple-double--three---four----''</code> 
 
 asis: ``simple-double--three---four----'' 
 
-strong: <strong>``simple-double--three---four----''</strong> 
+strong: <strong class="strong">``simple-double--three---four----''</strong> 
 
-kbd: <kbd>``simple-double--three---four----''</kbd> 
+kbd: <kbd class="kbd">``simple-double--three---four----''</kbd> 
 
 
 `<!-- /@w -->`simple-double-<!-- /@w -->-three---four----'<!-- /@w -->'
@@ -2937,16 +2937,16 @@ kbd: <kbd>``simple-double--three---four----''</kbd>
 @ followed by a tab
 &nbsp;
 @ followed by a new line
-&nbsp;<code>@-</code> 
-<code>@|</code> 
-<code>@:</code> 
-<code>@!</code> !
-<code>@?</code> ?
-<code>@.</code> .
-<code>@@</code> @
-<code>@}</code> }
-<code>@{</code> {
-<code>@/</code> 
+&nbsp;<code class="code">@-</code> 
+<code class="code">@|</code> 
+<code class="code">@:</code> 
+<code class="code">@!</code> !
+<code class="code">@?</code> ?
+<code class="code">@.</code> .
+<code class="code">@@</code> @
+<code class="code">@}</code> }
+<code class="code">@{</code> {
+<code class="code">@/</code> 
 
 foo vs. bar. 
 colon :And something else.
@@ -3012,107 +3012,107 @@ but , ,
 @geq &ge;
 @tie a&nbsp;b
 
-<code>@acronym{--a,an accronym}</code> <acronym title="an accronym">--a</acronym> (an accronym)
-<code>@acronym{--a}</code> <acronym title="an accronym">--a</acronym>
-<code>@abbr{@'E--. @comma{}A., @'Etude Autonome }</code> <abbr title="&Eacute;tude Autonome">&Eacute;--. ,A.</abbr> (&Eacute;tude Autonome)
-<code>@abbr{@'E--. @comma{}A.}</code> <abbr title="&Eacute;tude Autonome">&Eacute;--. ,A.</abbr>
-<code>@asis{--a}</code> --a
-<code>@b{--a}</code> <b>&ndash;a</b>
-<code>@cite{--a}</code> <cite>--a</cite>
-<code>@code{--a}</code> <code>--a</code>
-<code>@command{--a}</code> <code>--a</code>
-<code>@dfn{--a}</code> <em>--a</em>
-<code>@dmn{--a}</code> --a
-<code>@email{--a,--b}</code> <a href="mailto:--a">--b</a>
-<code>@email{,--b}</code> --b
-<code>@email{--a}</code> <a href="mailto:--a">--a</a>
-<code>@emph{--a}</code> <em>--a</em>
-<code>@env{--a}</code> <code>--a</code>
-<code>@file{--a}</code> <samp>--a</samp>
-<code>@i{--a}</code> <i>&ndash;a</i>
-<code>@kbd{--a}</code> <kbd>--a</kbd>
-<code>@key{--a}</code> <kbd class="key">--a</kbd>
-<code>@math{--a {\frac{1}{2}} @minus{}}</code> <em class="math">--a {\frac{1}{2}} -</em>
-<code>@option{--a}</code> <samp>--a</samp>
-<code>@r{--a}</code> <span class="roman">&ndash;a</span>
-<code>@samp{--a}</code> &lsquo;<samp>--a</samp>&rsquo;
-<code>@sc{--a}</code> --A
-<code>@strong{--a}</code> <strong>--a</strong>
-<code>@t{--a}</code> <code>--a</code>
-<code>@sansserif{--a}</code> <span class="sansserif">&ndash;a</span>
-<code>@slanted{--a}</code> <i>&ndash;a</i>
-<code>@titlefont{--a}</code> </pre><h1 class="titlefont">--a</h1><pre class="example">
+<code class="code">@acronym{--a,an accronym}</code> <acronym title="an accronym">--a</acronym> (an accronym)
+<code class="code">@acronym{--a}</code> <acronym title="an accronym">--a</acronym>
+<code class="code">@abbr{@'E--. @comma{}A., @'Etude Autonome }</code> <abbr title="&Eacute;tude Autonome">&Eacute;--. ,A.</abbr> (&Eacute;tude Autonome)
+<code class="code">@abbr{@'E--. @comma{}A.}</code> <abbr title="&Eacute;tude Autonome">&Eacute;--. ,A.</abbr>
+<code class="code">@asis{--a}</code> --a
+<code class="code">@b{--a}</code> <b class="b">&ndash;a</b>
+<code class="code">@cite{--a}</code> <cite class="cite">--a</cite>
+<code class="code">@code{--a}</code> <code class="code">--a</code>
+<code class="code">@command{--a}</code> <code class="command">--a</code>
+<code class="code">@dfn{--a}</code> <em class="dfn">--a</em>
+<code class="code">@dmn{--a}</code> --a
+<code class="code">@email{--a,--b}</code> <a href="mailto:--a">--b</a>
+<code class="code">@email{,--b}</code> --b
+<code class="code">@email{--a}</code> <a href="mailto:--a">--a</a>
+<code class="code">@emph{--a}</code> <em class="emph">--a</em>
+<code class="code">@env{--a}</code> <code class="env">--a</code>
+<code class="code">@file{--a}</code> <samp class="file">--a</samp>
+<code class="code">@i{--a}</code> <i class="i">&ndash;a</i>
+<code class="code">@kbd{--a}</code> <kbd class="kbd">--a</kbd>
+<code class="code">@key{--a}</code> <kbd class="key">--a</kbd>
+<code class="code">@math{--a {\frac{1}{2}} @minus{}}</code> <em class="math">--a {\frac{1}{2}} -</em>
+<code class="code">@option{--a}</code> <samp class="option">--a</samp>
+<code class="code">@r{--a}</code> <span class="r">&ndash;a</span>
+<code class="code">@samp{--a}</code> &lsquo;<samp class="samp">--a</samp>&rsquo;
+<code class="code">@sc{--a}</code> --A
+<code class="code">@strong{--a}</code> <strong class="strong">--a</strong>
+<code class="code">@t{--a}</code> <code class="t">--a</code>
+<code class="code">@sansserif{--a}</code> <span class="sansserif">&ndash;a</span>
+<code class="code">@slanted{--a}</code> <i class="slanted">&ndash;a</i>
+<code class="code">@titlefont{--a}</code> </pre><h1 class="titlefont">--a</h1><pre class="example">
 
-<code>@indicateurl{--a}</code> &lsquo;<code>--a</code>&rsquo;
-<code>@uref{--a,--b}</code> <a href="--a">--b</a>
-<code>@uref{--a}</code> <a href="--a">--a</a>
-<code>@uref{,--b}</code> --b
-<code>@uref{--a,--b,--c}</code> <a href="--a">--c</a>
-<code>@uref{,--b,--c}</code> --c
-<code>@uref{--a,,--c}</code> <a href="--a">--c</a>
-<code>@uref{,,--c}</code> --c
-<code>@url{--a,--b}</code> <a href="--a">--b</a>
-<code>@url{--a,}</code> <a href="--a">--a</a>
-<code>@url{,--b}</code> --b
-<code>@var{--a}</code> <var>--a</var>
-<code>@verb{:--a:}</code> <tt>--a</tt>
-<code>@verb{:a  &lt; &amp; @ % &quot; --    b:}</code> <tt>a  &lt; &amp; @ % &quot; --    b</tt>
-<code>@w{a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a}</code> a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a<!-- /@w -->
-<code>@H{a}</code> a&#779;
-<code>@H{--a}</code> --a&#779;
-<code>@dotaccent{a}</code> &#551;
-<code>@dotaccent{--a}</code> --a&#775;
-<code>@ringaccent{a}</code> &aring;
-<code>@ringaccent{--a}</code> --a&#778;
-<code>@tieaccent{a}</code> a&#865;
-<code>@tieaccent{--a}</code> --a&#865;
-<code>@u{a}</code> &#259;
-<code>@u{--a}</code> --a&#774;
-<code>@ubaraccent{a}</code> a&#818;
-<code>@ubaraccent{--a}</code> --a&#818;
-<code>@udotaccent{a}</code> &#7841;
-<code>@udotaccent{--a}</code> --a&#803;
-<code>@v{a}</code> &#462;
-<code>@v{--a}</code> --a&#780;
-<code>@,{c}</code> &ccedil;
-<code>@,{--c}</code> --c&#807;
-<code>@ogonek{a}</code> &#261;
-<code>@ogonek{--a}</code> --a&#808;
-<code>a@sup{h}@sub{l}</code> a<sup>h</sup><sub>l</sub>
-<code>@footnote{in footnote}</code> <a id="DOCF7" href="#FOOT7">(5)</a>
-<code>@footnote{in footnote2}</code> <a id="DOCF8" href="#FOOT8">(6)</a>
+<code class="code">@indicateurl{--a}</code> &lsquo;<code>--a</code>&rsquo;
+<code class="code">@uref{--a,--b}</code> <a href="--a">--b</a>
+<code class="code">@uref{--a}</code> <a href="--a">--a</a>
+<code class="code">@uref{,--b}</code> --b
+<code class="code">@uref{--a,--b,--c}</code> <a href="--a">--c</a>
+<code class="code">@uref{,--b,--c}</code> --c
+<code class="code">@uref{--a,,--c}</code> <a href="--a">--c</a>
+<code class="code">@uref{,,--c}</code> --c
+<code class="code">@url{--a,--b}</code> <a href="--a">--b</a>
+<code class="code">@url{--a,}</code> <a href="--a">--a</a>
+<code class="code">@url{,--b}</code> --b
+<code class="code">@var{--a}</code> <var class="var">--a</var>
+<code class="code">@verb{:--a:}</code> <tt class="verb">--a</tt>
+<code class="code">@verb{:a  &lt; &amp; @ % &quot; --    b:}</code> <tt class="verb">a  &lt; &amp; @ % &quot; --    b</tt>
+<code class="code">@w{a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a}</code> a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a<!-- /@w -->
+<code class="code">@H{a}</code> a&#779;
+<code class="code">@H{--a}</code> --a&#779;
+<code class="code">@dotaccent{a}</code> &#551;
+<code class="code">@dotaccent{--a}</code> --a&#775;
+<code class="code">@ringaccent{a}</code> &aring;
+<code class="code">@ringaccent{--a}</code> --a&#778;
+<code class="code">@tieaccent{a}</code> a&#865;
+<code class="code">@tieaccent{--a}</code> --a&#865;
+<code class="code">@u{a}</code> &#259;
+<code class="code">@u{--a}</code> --a&#774;
+<code class="code">@ubaraccent{a}</code> a&#818;
+<code class="code">@ubaraccent{--a}</code> --a&#818;
+<code class="code">@udotaccent{a}</code> &#7841;
+<code class="code">@udotaccent{--a}</code> --a&#803;
+<code class="code">@v{a}</code> &#462;
+<code class="code">@v{--a}</code> --a&#780;
+<code class="code">@,{c}</code> &ccedil;
+<code class="code">@,{--c}</code> --c&#807;
+<code class="code">@ogonek{a}</code> &#261;
+<code class="code">@ogonek{--a}</code> --a&#808;
+<code class="code">a@sup{h}@sub{l}</code> a<sup class="sup">h</sup><sub class="sub">l</sub>
+<code class="code">@footnote{in footnote}</code> <a id="DOCF7" href="#FOOT7">(5)</a>
+<code class="code">@footnote{in footnote2}</code> <a id="DOCF8" href="#FOOT8">(6)</a>
 
-<code>@image{f--ile}</code> <img src="f--ile.png" alt="f--ile">
-<code>@image{f--ile,l--i}</code> <img src="f--ile.png" alt="f--ile">
-<code>@image{f--ile,,l--e}</code> <img src="f--ile.png" alt="f--ile">
-<code>@image{f--ile,,,alt}</code> <img src="f--ile.png" alt="alt">
-<code>@image{f--ile,,,,.e-d-xt}</code> <img src="f--ile.e--xt" alt="f--ile">
-<code>@image{f--ile,aze,az,alt,.e--xt}</code> <img src="f--ile.e--xt" alt="alt">
-<code>@image{f-ile,aze,,a--lt}</code> <img src="f-ile.jpg" alt="a&ndash;lt">
-<code>@image{@file{f--ile}@@@.,aze,az,alt,@file{.file ext} e--xt@}</code> <img src="f--ile@..file ext e--xt}" alt="alt">
+<code class="code">@image{f--ile}</code> <img src="f--ile.png" alt="f--ile">
+<code class="code">@image{f--ile,l--i}</code> <img src="f--ile.png" alt="f--ile">
+<code class="code">@image{f--ile,,l--e}</code> <img src="f--ile.png" alt="f--ile">
+<code class="code">@image{f--ile,,,alt}</code> <img src="f--ile.png" alt="alt">
+<code class="code">@image{f--ile,,,,.e-d-xt}</code> <img src="f--ile.e--xt" alt="f--ile">
+<code class="code">@image{f--ile,aze,az,alt,.e--xt}</code> <img src="f--ile.e--xt" alt="alt">
+<code class="code">@image{f-ile,aze,,a--lt}</code> <img src="f-ile.jpg" alt="a&ndash;lt">
+<code class="code">@image{@file{f--ile}@@@.,aze,az,alt,@file{.file ext} e--xt@}</code> <img src="f--ile@..file ext e--xt}" alt="alt">
 
-<code>@sp 2</code>
+<code class="code">@sp 2</code>
 
 
 
-<code>@page</code>
+<code class="code">@page</code>
 
 </pre><pre class="example">
 
-<code>need 1002</code>
+<code class="code">need 1002</code>
 
-<code>@clicksequence{click @click{} A}</code> click &rarr; A
+<code class="code">@clicksequence{click @click{} A}</code> click &rarr; A
 After clickstyle &rArr;
-<code>@clicksequence{click @click{} A}</code> click &rArr; A
+<code class="code">@clicksequence{click @click{} A}</code> click &rArr; A
 
-</pre><div class="displaymath"><em><strong>``simple-double--three---four----''</strong> aa<!-- /@w -->
+</pre><div class="displaymath"><em><strong class="strong">``simple-double--three---four----''</strong> aa<!-- /@w -->
 `<!-- /@w -->`simple-double-<!-- /@w -->-three---four----'<!-- /@w -->'
 
 </em></div><pre class="example">
 
 </pre><div class="displaymath"><em>&uuml; &Uuml; &ntilde; &acirc; &eacute; &#333; &igrave; &eacute; i j &#274;&#768;
 &#322; &#262;&#807; &#262;&#807; &ccedil; a&#779; &#551; &aring; a&#865;
-&#259; a&#818; &#7841; &#462; &#261; a<sup>h</sup><sub>l</sub>
+&#259; a&#818; &#7841; &#462; &#261; a<sup class="sup">h</sup><sub class="sub">l</sub>
 
  &nbsp;&nbsp; &nbsp;   ! ? . @ } { 
 a sunny day
@@ -3133,53 +3133,53 @@ error&rarr; &rarr; - &lowast; -| &rArr;
 &rsaquo; &deg; &euro; &rarr; &le; &ge;
 </em></div><pre class="example">
 
-</pre><div class="displaymath"><em><b>b</b> <i>i</i> <span class="roman">r</span> SC <code>t</code> <span class="sansserif">sansserif</span> <i>slanted</i>
+</pre><div class="displaymath"><em><b class="b">b</b> <i class="i">i</i> <span class="r">r</span> SC <code class="t">t</code> <span class="sansserif">sansserif</span> <i class="slanted">slanted</i>
 </em></div><pre class="example">
 
-<kbd>default kbdinputstyle</kbd>
+<kbd class="kbd">default kbdinputstyle</kbd>
 </pre><dl>
-<dt id='index-vtable-i_002d_002dtem-default-kbdinputstyle-1'><span><tt><kbd>vtable i--tem default kbdinputstyle</kbd></tt><a class="copiable-anchor" href='#index-vtable-i_002d_002dtem-default-kbdinputstyle-1'> &para;</a></span></dt>
+<dt id='index-vtable-i_002d_002dtem-default-kbdinputstyle-1'><span><tt><kbd class="kbd">vtable i--tem default kbdinputstyle</kbd></tt><a class="copiable-anchor" href='#index-vtable-i_002d_002dtem-default-kbdinputstyle-1'> &para;</a></span></dt>
 </dl>
 <div class="example">
-<pre class="example"><kbd>in example default kbdinputstyle</kbd>
+<pre class="example"><kbd class="kbd">in example default kbdinputstyle</kbd>
 </pre><dl>
-<dt id='index-vtable-i_002d_002dtem-in-example-default-kbdinputstyle-1'><span><tt><kbd>vtable i--tem in example default kbdinputstyle</kbd></tt><a class="copiable-anchor" href='#index-vtable-i_002d_002dtem-in-example-default-kbdinputstyle-1'> &para;</a></span></dt>
+<dt id='index-vtable-i_002d_002dtem-in-example-default-kbdinputstyle-1'><span><tt><kbd class="kbd">vtable i--tem in example default kbdinputstyle</kbd></tt><a class="copiable-anchor" href='#index-vtable-i_002d_002dtem-in-example-default-kbdinputstyle-1'> &para;</a></span></dt>
 </dl>
 </div>
 <pre class="example">
 
-<code>code kbdinputstyle</code>
+<code class="code as-code-kbd ">code kbdinputstyle</code>
 </pre><dl>
-<dt id='index-vtable-i_002d_002dtem-code-kbdinputstyle-1'><span><tt><code>vtable i--tem code kbdinputstyle</code></tt><a class="copiable-anchor" href='#index-vtable-i_002d_002dtem-code-kbdinputstyle-1'> &para;</a></span></dt>
+<dt id='index-vtable-i_002d_002dtem-code-kbdinputstyle-1'><span><tt><code class="code as-code-kbd ">vtable i--tem code kbdinputstyle</code></tt><a class="copiable-anchor" href='#index-vtable-i_002d_002dtem-code-kbdinputstyle-1'> &para;</a></span></dt>
 </dl>
 <div class="example">
-<pre class="example"><code>in example code kbdinputstyle</code>
+<pre class="example"><code class="code as-code-kbd ">in example code kbdinputstyle</code>
 </pre><dl>
-<dt id='index-vtable-i_002d_002dtem-in-example-code-kbdinputstyle-1'><span><tt><code>vtable i--tem in example code kbdinputstyle</code></tt><a class="copiable-anchor" href='#index-vtable-i_002d_002dtem-in-example-code-kbdinputstyle-1'> &para;</a></span></dt>
+<dt id='index-vtable-i_002d_002dtem-in-example-code-kbdinputstyle-1'><span><tt><code class="code as-code-kbd ">vtable i--tem in example code kbdinputstyle</code></tt><a class="copiable-anchor" href='#index-vtable-i_002d_002dtem-in-example-code-kbdinputstyle-1'> &para;</a></span></dt>
 </dl>
 </div>
 <pre class="example">
 
-<code>example kbdinputstyle</code>
+<code class="code as-code-kbd ">example kbdinputstyle</code>
 </pre><dl>
-<dt id='index-vtable-i_002d_002dtem-example-kbdinputstyle-1'><span><tt><code>vtable i--tem example kbdinputstyle</code></tt><a class="copiable-anchor" href='#index-vtable-i_002d_002dtem-example-kbdinputstyle-1'> &para;</a></span></dt>
+<dt id='index-vtable-i_002d_002dtem-example-kbdinputstyle-1'><span><tt><code class="code as-code-kbd ">vtable i--tem example kbdinputstyle</code></tt><a class="copiable-anchor" href='#index-vtable-i_002d_002dtem-example-kbdinputstyle-1'> &para;</a></span></dt>
 </dl>
 <div class="example">
-<pre class="example"><code>in example example kbdinputstyle</code>
+<pre class="example"><code class="code as-code-kbd ">in example example kbdinputstyle</code>
 </pre><dl>
-<dt id='index-vtable-i_002d_002dtem-in-example-example-kbdinputstyle-1'><span><tt><code>vtable i--tem in example example kbdinputstyle</code></tt><a class="copiable-anchor" href='#index-vtable-i_002d_002dtem-in-example-example-kbdinputstyle-1'> &para;</a></span></dt>
+<dt id='index-vtable-i_002d_002dtem-in-example-example-kbdinputstyle-1'><span><tt><code class="code as-code-kbd ">vtable i--tem in example example kbdinputstyle</code></tt><a class="copiable-anchor" href='#index-vtable-i_002d_002dtem-in-example-example-kbdinputstyle-1'> &para;</a></span></dt>
 </dl>
 </div>
 <pre class="example">
 
-<kbd>distinct kbdinputstyle</kbd>
+<kbd class="kbd">distinct kbdinputstyle</kbd>
 </pre><dl>
-<dt id='index-vtable-i_002d_002dtem-distinct-kbdinputstyle-1'><span><tt><kbd>vtable i--tem distinct kbdinputstyle</kbd></tt><a class="copiable-anchor" href='#index-vtable-i_002d_002dtem-distinct-kbdinputstyle-1'> &para;</a></span></dt>
+<dt id='index-vtable-i_002d_002dtem-distinct-kbdinputstyle-1'><span><tt><kbd class="kbd">vtable i--tem distinct kbdinputstyle</kbd></tt><a class="copiable-anchor" href='#index-vtable-i_002d_002dtem-distinct-kbdinputstyle-1'> &para;</a></span></dt>
 </dl>
 <div class="example">
-<pre class="example"><kbd>in example distinct kbdinputstyle</kbd>
+<pre class="example"><kbd class="kbd">in example distinct kbdinputstyle</kbd>
 </pre><dl>
-<dt id='index-vtable-i_002d_002dtem-in-example-distinct-kbdinputstyle-1'><span><tt><kbd>vtable i--tem in example distinct kbdinputstyle</kbd></tt><a class="copiable-anchor" href='#index-vtable-i_002d_002dtem-in-example-distinct-kbdinputstyle-1'> &para;</a></span></dt>
+<dt id='index-vtable-i_002d_002dtem-in-example-distinct-kbdinputstyle-1'><span><tt><kbd class="kbd">vtable i--tem in example distinct kbdinputstyle</kbd></tt><a class="copiable-anchor" href='#index-vtable-i_002d_002dtem-in-example-distinct-kbdinputstyle-1'> &para;</a></span></dt>
 </dl>
 </div>
 <pre class="example">
@@ -3190,52 +3190,52 @@ error&rarr; &rarr; - &lowast; -| &rArr;
 <pre class="example">
 
 </pre><blockquote>
-<pre class="example"><b>Note:</b> A Note
+<pre class="example"><b class="b">Note:</b> A Note
 </pre></blockquote>
 <pre class="example">
 
 </pre><blockquote>
-<pre class="example"><b>note:</b> A note
+<pre class="example"><b class="b">note:</b> A note
 </pre></blockquote>
 <pre class="example">
 
 </pre><blockquote>
-<pre class="example"><b>Caution:</b> Caution
+<pre class="example"><b class="b">Caution:</b> Caution
 </pre></blockquote>
 <pre class="example">
 
 </pre><blockquote>
-<pre class="example"><b>Important:</b> Important
+<pre class="example"><b class="b">Important:</b> Important
 </pre></blockquote>
 <pre class="example">
 
 </pre><blockquote>
-<pre class="example"><b>Tip:</b> a Tip
+<pre class="example"><b class="b">Tip:</b> a Tip
 </pre></blockquote>
 <pre class="example">
 
 </pre><blockquote>
-<pre class="example"><b>Warning:</b> a Warning.
+<pre class="example"><b class="b">Warning:</b> a Warning.
 </pre></blockquote>
 <pre class="example">
 
 </pre><blockquote>
-<pre class="example"><b>something &eacute; TeX:</b> The something &eacute; TeX is here.
+<pre class="example"><b class="b">something &eacute; TeX:</b> The something &eacute; TeX is here.
 </pre></blockquote>
 <pre class="example">
 
 </pre><blockquote>
-<pre class="example"><b>@ at the end of line &nbsp;:</b> A @ at the end of the @quotation line.
+<pre class="example"><b class="b">@ at the end of line &nbsp;:</b> A @ at the end of the @quotation line.
 </pre></blockquote>
 <pre class="example">
 
 </pre><blockquote>
-<pre class="example"><b>something, other thing:</b> something, other thing
+<pre class="example"><b class="b">something, other thing:</b> something, other thing
 </pre></blockquote>
 <pre class="example">
 
 </pre><blockquote>
-<pre class="example"><b>Note, the note:</b> Note, the note
+<pre class="example"><b class="b">Note, the note:</b> Note, the note
 </pre></blockquote>
 <pre class="example">
 
@@ -3258,7 +3258,7 @@ error&rarr; &rarr; - &lowast; -| &rArr;
 </pre><blockquote>
 <pre class="example">aaa quotation
 </pre></blockquote>
-<div class="center-align">--- <em>quotation author</em>
+<div class="center-align">--- <em class="emph">quotation author</em>
 </div><pre class="example">
 
 </pre><blockquote>
@@ -3272,12 +3272,12 @@ error&rarr; &rarr; - &lowast; -| &rArr;
 <pre class="example">
 
 </pre><blockquote>
-<pre class="example"><b>Note:</b> A small Note
+<pre class="example"><b class="b">Note:</b> A small Note
 </pre></blockquote>
 <pre class="example">
 
 </pre><blockquote>
-<pre class="example"><b>something, other thing:</b> something, other thing
+<pre class="example"><b class="b">something, other thing:</b> something, other thing
 </pre></blockquote>
 <pre class="example">
 
@@ -3424,7 +3424,7 @@ error&rarr; &rarr; - &lowast; -| &rArr;
 </pre></div>
 <pre class="example">
 
-<code>@noindent</code> after smallexample.
+<code class="code">@noindent</code> after smallexample.
 </pre><div class="example">
 <pre class="example">$ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.guess?rev=HEAD&amp;content-type=text/plain'
 $ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEAD&amp;content-type=text/plain'
@@ -3462,7 +3462,7 @@ $ wget 'http://savannah.gnu.org/cgi-bin/viewcvs/config/config/config.sub?rev=HEA
 <pre class="example">
 
 </pre><div class="displaymath"><em>disp--laymath
-f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\right)^2</sup>
+f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup class="sup">-{1 \over 2}\left({x-\mu \over \sigma}\right)^2</sup>
 </em></div><pre class="example">
 
 </pre><table width="100%">
@@ -3478,14 +3478,14 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 </pre></td></tr></table>
 <pre class="example"> 
 </pre><table width="100%">
-<tr id="index-i-2"><td align="left"> <strong><var>i</var></strong><em> a g</em></td><td align="right">fset</td></tr>
+<tr id="index-i-2"><td align="left"> <strong><var class="var">i</var></strong><em> a g</em></td><td align="right">fset</td></tr>
 <tr><td colspan="2"><pre class="example"><a class="index-entry-anchor" id="index-index-entry-within-deffn-1"></a></pre></td></tr><tr id="index-truc-2"><td align="left"> <strong>truc</strong></td><td align="right">cmde</td></tr>
 <tr id="index-log-trap-1"><td align="left"> <strong>log trap</strong></td><td align="right">Command</td></tr>
 <tr id="index-log-trap1-1"><td align="left"> <strong>log trap1</strong></td><td align="right">Command</td></tr>
 <tr id="index-log-trap2-1"><td align="left"> <strong>log trap2</strong></td><td align="right">Command</td></tr>
-<tr id="index-id-ule-1"><td align="left"> <strong><b>id ule</b></strong><em> truc</em></td><td align="right">cmde</td></tr>
-<tr id="index-id-i-ule-1"><td align="left"> <strong><b>id &lsquo;<samp>i</samp>&rsquo; ule</b></strong><em> truc</em></td><td align="right">cmde2</td></tr>
-<tr><td align="left"></td><td align="right"><b>id &lsquo;<samp>i</samp>&rsquo; ule</b></td></tr>
+<tr id="index-id-ule-1"><td align="left"> <strong><b class="b">id ule</b></strong><em> truc</em></td><td align="right">cmde</td></tr>
+<tr id="index-id-i-ule-1"><td align="left"> <strong><b class="b">id &lsquo;<samp class="samp">i</samp>&rsquo; ule</b></strong><em> truc</em></td><td align="right">cmde2</td></tr>
+<tr><td align="left"></td><td align="right"><b class="b">id &lsquo;<samp class="samp">i</samp>&rsquo; ule</b></td></tr>
 <tr><td align="left"></td><td align="right"></td></tr>
 <tr><td align="left"></td><td align="right">aaa</td></tr>
 <tr><td align="left"></td><td align="right"></td></tr>
@@ -3497,7 +3497,7 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 <tr id="index-followed-2"><td align="left"> <strong>followed</strong><em> by a comment</em></td><td align="right">truc</td></tr>
 <tr><td align="left"></td><td align="right">truc</td></tr>
 <tr><td align="left"></td><td align="right"></td></tr>
-<tr id="index-a-4"><td align="left"> <strong>a</strong><em> b c d e <b>f g</b> h i</em></td><td align="right">truc</td></tr>
+<tr id="index-a-4"><td align="left"> <strong>a</strong><em> b c d e <b class="b">f g</b> h i</em></td><td align="right">truc</td></tr>
 <tr id="index-deffnx-2"><td align="left"> <strong>deffnx</strong><em> before end deffn</em></td><td align="right">truc</td></tr>
 </table>
 <pre class="example">
@@ -3515,7 +3515,7 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 <pre class="example">
 
 </pre><table width="100%">
-<tr id="index-i-3"><td align="left"> <strong><var>i</var></strong><em> a g</em></td><td align="right">fset</td></tr>
+<tr id="index-i-3"><td align="left"> <strong><var class="var">i</var></strong><em> a g</em></td><td align="right">fset</td></tr>
 <tr id="index-truc-3"><td align="left"> <strong>truc</strong></td><td align="right">cmde</td></tr>
 <tr><td colspan="2"><pre class="example">text in def item for second def item
 </pre></td></tr></table>
@@ -3728,74 +3728,74 @@ f(x) = {1 \over \sigma \sqrt{2\pi}}e<sup>-{1 \over 2}\left({x-\mu \over \sigma}\
 <pre class="example">
 
 
-<code>@xref{c---hapter@@, cross r---ef name@@, t---itle@@, file n---ame@@, ma---nual@@}</code> See <a data-manual="file n---ame@" href="../file n---ame@/c_002d_002d_002dhapter_0040.html#c_002d_002d_002dhapter_0040">t---itle@</a> in <cite>ma---nual@</cite>.
-<code>@ref{chapter, cross ref name, title, file name, manual}</code> <a data-manual="file name" href="../file name/chapter.html#chapter">title</a> in <cite>manual</cite>
-<code>@pxref{chapter, cross ref name, title, file name, manual}</code> see <a data-manual="file name" href="../file name/chapter.html#chapter">title</a> in <cite>manual</cite>
-<code>@inforef{chapter, cross ref name, file name}</code> See <a data-manual="file name" href="../file name/chapter.html#chapter">(file name)cross ref name</a>
+<code class="code">@xref{c---hapter@@, cross r---ef name@@, t---itle@@, file n---ame@@, ma---nual@@}</code> See <a data-manual="file n---ame@" href="../file n---ame@/c_002d_002d_002dhapter_0040.html#c_002d_002d_002dhapter_0040">t---itle@</a> in <cite class="cite">ma---nual@</cite>.
+<code class="code">@ref{chapter, cross ref name, title, file name, manual}</code> <a data-manual="file name" href="../file name/chapter.html#chapter">title</a> in <cite class="cite">manual</cite>
+<code class="code">@pxref{chapter, cross ref name, title, file name, manual}</code> see <a data-manual="file name" href="../file name/chapter.html#chapter">title</a> in <cite class="cite">manual</cite>
+<code class="code">@inforef{chapter, cross ref name, file name}</code> See <a data-manual="file name" href="../file name/chapter.html#chapter">(file name)cross ref name</a>
 
-<code>@ref{chapter}</code> <a href="#chapter">chapter</a>
-<code>@xref{chapter}</code> See <a href="#chapter">chapter</a>.
-<code>@pxref{chapter}</code> see <a href="#chapter">chapter</a>
-<code>@ref{s--ect@comma{}ion}</code> <a href="s_002d_002dect_002cion.html#s_002d_002dect_002cion">A section</a>
+<code class="code">@ref{chapter}</code> <a href="#chapter">chapter</a>
+<code class="code">@xref{chapter}</code> See <a href="#chapter">chapter</a>.
+<code class="code">@pxref{chapter}</code> see <a href="#chapter">chapter</a>
+<code class="code">@ref{s--ect@comma{}ion}</code> <a href="s_002d_002dect_002cion.html#s_002d_002dect_002cion">A section</a>
 
-<code>@ref{s--ect@comma{}ion, a @comma{} in cross
+<code class="code">@ref{s--ect@comma{}ion, a @comma{} in cross
 ref, a comma@comma{} in title, a comma@comma{} in file, a @comma{} in manual name }</code>
-<a data-manual="a comma, in file" href="../a comma, in file/s_002d_002dect_002cion.html#s_002d_002dect_002cion">a comma, in title</a> in <cite>a , in manual name</cite>
+<a data-manual="a comma, in file" href="../a comma, in file/s_002d_002dect_002cion.html#s_002d_002dect_002cion">a comma, in title</a> in <cite class="cite">a , in manual name</cite>
 
-<code>@ref{chapter,cross ref name}</code> <a href="#chapter">cross ref name</a>
-<code>@ref{chapter,,title}</code> <a href="#chapter">title</a>
-<code>@ref{chapter,,,file name}</code> <a data-manual="file name" href="../file name/chapter.html#chapter">(file name)chapter</a>
-<code>@ref{chapter,,,,manual}</code> `chapter' in <cite>manual</cite>
-<code>@ref{chapter,cross ref name,title,}</code> <a href="#chapter">title</a>
-<code>@ref{chapter,cross ref name,,file name}</code> <a data-manual="file name" href="../file name/chapter.html#chapter">(file name)cross ref name</a>
-<code>@ref{chapter,cross ref name,,,manual}</code> `cross ref name' in <cite>manual</cite>
-<code>@ref{chapter,cross ref name,title,file name}</code> <a data-manual="file name" href="../file name/chapter.html#chapter">(file name)title</a>
-<code>@ref{chapter,cross ref name,title,,manual}</code> `title' in <cite>manual</cite>
-<code>@ref{chapter,cross ref name,title, file name, manual}</code> <a data-manual="file name" href="../file name/chapter.html#chapter">title</a> in <cite>manual</cite>
-<code>@ref{chapter,,title,file name}</code> <a data-manual="file name" href="../file name/chapter.html#chapter">(file name)title</a>
-<code>@ref{chapter,,title,,manual}</code> `title' in <cite>manual</cite>
-<code>@ref{chapter,,title, file name, manual}</code> <a data-manual="file name" href="../file name/chapter.html#chapter">title</a> in <cite>manual</cite>
-<code>@ref{chapter,,,file name,manual}</code> <a data-manual="file name" href="../file name/chapter.html#chapter">chapter</a> in <cite>manual</cite>
-
-
-<code>@ref{(pman)anode,cross ref name}</code> <a data-manual="pman" href="../pman/anode.html#anode">(pman)cross ref name</a>
-<code>@ref{(pman)anode,,title}</code> <a data-manual="pman" href="../pman/anode.html#anode">(pman)title</a>
-<code>@ref{(pman)anode,,,file name}</code> <a data-manual="file name" href="../file name/anode.html#anode">(file name)anode</a>
-<code>@ref{(pman)anode,,,,manual}</code> <a data-manual="pman" href="../pman/anode.html#anode">anode</a> in <cite>manual</cite>
-<code>@ref{(pman)anode,cross ref name,title,}</code> <a data-manual="pman" href="../pman/anode.html#anode">(pman)title</a>
-<code>@ref{(pman)anode,cross ref name,,file name}</code> <a data-manual="file name" href="../file name/anode.html#anode">(file name)cross ref name</a>
-<code>@ref{(pman)anode,cross ref name,,,manual}</code> <a data-manual="pman" href="../pman/anode.html#anode">cross ref name</a> in <cite>manual</cite>
-<code>@ref{(pman)anode,cross ref name,title,file name}</code> <a data-manual="file name" href="../file name/anode.html#anode">(file name)title</a>
-<code>@ref{(pman)anode,cross ref name,title,,manual}</code> <a data-manual="pman" href="../pman/anode.html#anode">title</a> in <cite>manual</cite>
-<code>@ref{(pman)anode,cross ref name,title, file name, manual}</code> <a data-manual="file name" href="../file name/anode.html#anode">title</a> in <cite>manual</cite>
-<code>@ref{(pman)anode,,title,file name}</code> <a data-manual="file name" href="../file name/anode.html#anode">(file name)title</a>
-<code>@ref{(pman)anode,,title,,manual}</code> <a data-manual="pman" href="../pman/anode.html#anode">title</a> in <cite>manual</cite>
-<code>@ref{(pman)anode,,title, file name, manual}</code> <a data-manual="file name" href="../file name/anode.html#anode">title</a> in <cite>manual</cite>
-<code>@ref{(pman)anode,,,file name,manual}</code> <a data-manual="file name" href="../file name/anode.html#anode">anode</a> in <cite>manual</cite>
+<code class="code">@ref{chapter,cross ref name}</code> <a href="#chapter">cross ref name</a>
+<code class="code">@ref{chapter,,title}</code> <a href="#chapter">title</a>
+<code class="code">@ref{chapter,,,file name}</code> <a data-manual="file name" href="../file name/chapter.html#chapter">(file name)chapter</a>
+<code class="code">@ref{chapter,,,,manual}</code> `chapter' in <cite class="cite">manual</cite>
+<code class="code">@ref{chapter,cross ref name,title,}</code> <a href="#chapter">title</a>
+<code class="code">@ref{chapter,cross ref name,,file name}</code> <a data-manual="file name" href="../file name/chapter.html#chapter">(file name)cross ref name</a>
+<code class="code">@ref{chapter,cross ref name,,,manual}</code> `cross ref name' in <cite class="cite">manual</cite>
+<code class="code">@ref{chapter,cross ref name,title,file name}</code> <a data-manual="file name" href="../file name/chapter.html#chapter">(file name)title</a>
+<code class="code">@ref{chapter,cross ref name,title,,manual}</code> `title' in <cite class="cite">manual</cite>
+<code class="code">@ref{chapter,cross ref name,title, file name, manual}</code> <a data-manual="file name" href="../file name/chapter.html#chapter">title</a> in <cite class="cite">manual</cite>
+<code class="code">@ref{chapter,,title,file name}</code> <a data-manual="file name" href="../file name/chapter.html#chapter">(file name)title</a>
+<code class="code">@ref{chapter,,title,,manual}</code> `title' in <cite class="cite">manual</cite>
+<code class="code">@ref{chapter,,title, file name, manual}</code> <a data-manual="file name" href="../file name/chapter.html#chapter">title</a> in <cite class="cite">manual</cite>
+<code class="code">@ref{chapter,,,file name,manual}</code> <a data-manual="file name" href="../file name/chapter.html#chapter">chapter</a> in <cite class="cite">manual</cite>
 
 
-<code>@inforef{chapter, cross ref name, file name}</code> See <a data-manual="file name" href="../file name/chapter.html#chapter">(file name)cross ref name</a>
-<code>@inforef{chapter}</code> See `chapter'
-<code>@inforef{chapter, cross ref name}</code> See `cross ref name'
-<code>@inforef{chapter,,file name}</code> See <a data-manual="file name" href="../file name/chapter.html#chapter">(file name)chapter</a>
-<code>@inforef{node, cross ref name, file name}</code> See <a data-manual="file name" href="../file name/node.html#node">(file name)cross ref name</a>
-<code>@inforef{node}</code> See `node'
-<code>@inforef{node, cross ref name}</code> See `cross ref name'
-<code>@inforef{node,,file name}</code> See <a data-manual="file name" href="../file name/node.html#node">(file name)node</a>
-<code>@inforef{chapter, cross ref name, file name, spurious arg}</code> See <a data-manual="file name, spurious arg" href="../file name, spurious arg/chapter.html#chapter">(file name, spurious arg)cross ref name</a>
+<code class="code">@ref{(pman)anode,cross ref name}</code> <a data-manual="pman" href="../pman/anode.html#anode">(pman)cross ref name</a>
+<code class="code">@ref{(pman)anode,,title}</code> <a data-manual="pman" href="../pman/anode.html#anode">(pman)title</a>
+<code class="code">@ref{(pman)anode,,,file name}</code> <a data-manual="file name" href="../file name/anode.html#anode">(file name)anode</a>
+<code class="code">@ref{(pman)anode,,,,manual}</code> <a data-manual="pman" href="../pman/anode.html#anode">anode</a> in <cite class="cite">manual</cite>
+<code class="code">@ref{(pman)anode,cross ref name,title,}</code> <a data-manual="pman" href="../pman/anode.html#anode">(pman)title</a>
+<code class="code">@ref{(pman)anode,cross ref name,,file name}</code> <a data-manual="file name" href="../file name/anode.html#anode">(file name)cross ref name</a>
+<code class="code">@ref{(pman)anode,cross ref name,,,manual}</code> <a data-manual="pman" href="../pman/anode.html#anode">cross ref name</a> in <cite class="cite">manual</cite>
+<code class="code">@ref{(pman)anode,cross ref name,title,file name}</code> <a data-manual="file name" href="../file name/anode.html#anode">(file name)title</a>
+<code class="code">@ref{(pman)anode,cross ref name,title,,manual}</code> <a data-manual="pman" href="../pman/anode.html#anode">title</a> in <cite class="cite">manual</cite>
+<code class="code">@ref{(pman)anode,cross ref name,title, file name, manual}</code> <a data-manual="file name" href="../file name/anode.html#anode">title</a> in <cite class="cite">manual</cite>
+<code class="code">@ref{(pman)anode,,title,file name}</code> <a data-manual="file name" href="../file name/anode.html#anode">(file name)title</a>
+<code class="code">@ref{(pman)anode,,title,,manual}</code> <a data-manual="pman" href="../pman/anode.html#anode">title</a> in <cite class="cite">manual</cite>
+<code class="code">@ref{(pman)anode,,title, file name, manual}</code> <a data-manual="file name" href="../file name/anode.html#anode">title</a> in <cite class="cite">manual</cite>
+<code class="code">@ref{(pman)anode,,,file name,manual}</code> <a data-manual="file name" href="../file name/anode.html#anode">anode</a> in <cite class="cite">manual</cite>
 
-<code>@inforef{s--ect@comma{}ion, a @comma{} in cross
+
+<code class="code">@inforef{chapter, cross ref name, file name}</code> See <a data-manual="file name" href="../file name/chapter.html#chapter">(file name)cross ref name</a>
+<code class="code">@inforef{chapter}</code> See `chapter'
+<code class="code">@inforef{chapter, cross ref name}</code> See `cross ref name'
+<code class="code">@inforef{chapter,,file name}</code> See <a data-manual="file name" href="../file name/chapter.html#chapter">(file name)chapter</a>
+<code class="code">@inforef{node, cross ref name, file name}</code> See <a data-manual="file name" href="../file name/node.html#node">(file name)cross ref name</a>
+<code class="code">@inforef{node}</code> See `node'
+<code class="code">@inforef{node, cross ref name}</code> See `cross ref name'
+<code class="code">@inforef{node,,file name}</code> See <a data-manual="file name" href="../file name/node.html#node">(file name)node</a>
+<code class="code">@inforef{chapter, cross ref name, file name, spurious arg}</code> See <a data-manual="file name, spurious arg" href="../file name, spurious arg/chapter.html#chapter">(file name, spurious arg)cross ref name</a>
+
+<code class="code">@inforef{s--ect@comma{}ion, a @comma{} in cross
 ref, a comma@comma{} in file}</code>
 See <a data-manual="a comma, in file" href="../a comma, in file/s_002d_002dect_002cion.html#s_002d_002dect_002cion">(a comma, in file)a , in cross
 ref</a>
 
-&lsquo;<samp><a href="#chapter">chapter</a></samp>&rsquo;.
+&lsquo;<samp class="samp"><a href="#chapter">chapter</a></samp>&rsquo;.
 
-<a data-manual="info file with uref3 href://http/myhost.com/index3.html (uref3)" href="../index3.html (uref3)/ext.html#ext">title with uref2 <a href="href://http/myhost.com/index2.html">uref2</a></a> in <cite>printed manual with uref4 <a href="href://http/myhost.com/index4.html">uref4</a></cite>
+<a data-manual="info file with uref3 href://http/myhost.com/index3.html (uref3)" href="../index3.html (uref3)/ext.html#ext">title with uref2 <a href="href://http/myhost.com/index2.html">uref2</a></a> in <cite class="cite">printed manual with uref4 <a href="href://http/myhost.com/index4.html">uref4</a></cite>
 <a href="#chapter">title with uref2 <a href="href://http/myhost.com/index2.html">uref2</a></a>
 
 </pre><dl>
-<dt><tt><strong>a--strong</strong></tt></dt>
+<dt><tt><strong class="strong">a--strong</strong></tt></dt>
 <dd><pre class="example">l--ine
 </pre></dd>
 </dl>
@@ -3810,9 +3810,9 @@ ref</a>
 <pre class="example">
 
 </pre><dl>
-<dt id='index-a-5'><span><tt><em>a</em></tt><a class="copiable-anchor" href='#index-a-5'> &para;</a></span></dt>
+<dt id='index-a-5'><span><tt><em class="emph">a</em></tt><a class="copiable-anchor" href='#index-a-5'> &para;</a></span></dt>
 <dd><pre class="example"><a class="index-entry-anchor" id="index-index-entry-between-item-and-itemx-2"></a></pre></dd>
-<dt id='index-b-2'><span><tt><em>b</em></tt><a class="copiable-anchor" href='#index-b-2'> &para;</a></span></dt>
+<dt id='index-b-2'><span><tt><em class="emph">b</em></tt><a class="copiable-anchor" href='#index-b-2'> &para;</a></span></dt>
 <dd><pre class="example">l--ine
 </pre></dd>
 </dl>
@@ -3821,7 +3821,7 @@ ref</a>
 </pre><dl>
 <dd><pre class="example">Title
 </pre></dd>
-<dt><tt><code>a--code</code></tt></dt>
+<dt><tt><code class="code">a--code</code></tt></dt>
 <dd><pre class="example">Value--table code
 </pre></dd>
 </dl>
@@ -3830,8 +3830,8 @@ ref</a>
 </pre><dl>
 <dd><pre class="example">Title
 </pre></dd>
-<dt><tt>&lsquo;<samp>a--samp</samp>&rsquo;</tt></dt>
-<dt><tt>&lsquo;<samp>a2--samp</samp>&rsquo;</tt></dt>
+<dt><tt>&lsquo;<samp class="samp">a--samp</samp>&rsquo;</tt></dt>
+<dt><tt>&lsquo;<samp class="samp">a2--samp</samp>&rsquo;</tt></dt>
 <dd><pre class="example">Value--table samp
 </pre></dd>
 </dl>
@@ -3898,15 +3898,15 @@ html ''
 <pre class="example">
 
 
-<code>@acronym{--a,an accronym @comma{} @enddots{}}</code> <acronym title="an accronym , ...">--a</acronym> (an accronym , ...)
-<code>@abbr{@'E--. @comma{}A., @'Etude--@comma{} @b{Autonome} }</code> <abbr title="&Eacute;tude&ndash;, Autonome">&Eacute;--. ,A.</abbr> (&Eacute;tude--, <b>Autonome</b>)
-<code>@abbr{@'E--. @comma{}A.}</code> <abbr title="&Eacute;tude&ndash;, Autonome">&Eacute;--. ,A.</abbr>
+<code class="code">@acronym{--a,an accronym @comma{} @enddots{}}</code> <acronym title="an accronym , ...">--a</acronym> (an accronym , ...)
+<code class="code">@abbr{@'E--. @comma{}A., @'Etude--@comma{} @b{Autonome} }</code> <abbr title="&Eacute;tude&ndash;, Autonome">&Eacute;--. ,A.</abbr> (&Eacute;tude--, <b class="b">Autonome</b>)
+<code class="code">@abbr{@'E--. @comma{}A.}</code> <abbr title="&Eacute;tude&ndash;, Autonome">&Eacute;--. ,A.</abbr>
 
-<code>@math{--a@minus{} {\frac{1}{2}}}</code> <em class="math">--a- {\frac{1}{2}}</em>
+<code class="code">@math{--a@minus{} {\frac{1}{2}}}</code> <em class="math">--a- {\frac{1}{2}}</em>
 
-<code>@image{f-ile,,,alt@verb{:jk _&quot; %}}</code> <img src="f-ile.jpg" alt="altjk _&quot; %@">
-<code>@image{f--ile,aze,az,@verb{:jk _&quot; %@:} @b{in b &quot;},e--xt}</code> <img src="f--ile.e--xt" alt="jk _&quot; %@ in b &quot;">
-<code>@image{file@verb{:jk _&quot; %@:},,,alt@verb{:jk _&quot; %@:}}</code> <img src="filejk _&quot; %@.jpg" alt="altjk _&quot; %@">
+<code class="code">@image{f-ile,,,alt@verb{:jk _&quot; %}}</code> <img src="f-ile.jpg" alt="altjk _&quot; %@">
+<code class="code">@image{f--ile,aze,az,@verb{:jk _&quot; %@:} @b{in b &quot;},e--xt}</code> <img src="f--ile.e--xt" alt="jk _&quot; %@ in b &quot;">
+<code class="code">@image{file@verb{:jk _&quot; %@:},,,alt@verb{:jk _&quot; %@:}}</code> <img src="filejk _&quot; %@.jpg" alt="altjk _&quot; %@">
 
 
 
@@ -3927,8 +3927,8 @@ Invalid use of @':
 
 @dotless{truc} truc
 @dotless{ij} ij
-<code>@dotless{--a}</code> --a
-<code>@dotless{a}</code> a
+<code class="code">@dotless{--a}</code> --a
+<code class="code">@dotless{a}</code> a
 
 @U, without braces @U{}, with empty arg 
 @U{z}, with non-hex arg &#xz;
@@ -3936,13 +3936,13 @@ Invalid use of @':
 @U{FFFFFFFFFFFFFF}, value much too large &#xFFFFFFFFFFFFFF;
 @U{110000}, value just beyond Unicode &#x110000;
 
-@TeX, but without brace TeX<code>@#</code> #
+@TeX, but without brace TeX<code class="code">@#</code> #
 
-<code>@w{--a}</code> --a<!-- /@w -->
+<code class="code">@w{--a}</code> --a<!-- /@w -->
 
-<code>@image{,1--xt}</code> 
-<code>@image{,,2--xt}</code> 
-<code>@image{,,,3--xt}</code> 
+<code class="code">@image{,1--xt}</code> 
+<code class="code">@image{,,2--xt}</code> 
+<code class="code">@image{,,,3--xt}</code> 
 
 
 </pre><ul>
@@ -3996,42 +3996,42 @@ Invalid use of @':
 </table>
 <pre class="example">
 
-<code>@ref{node}</code> `node'
+<code class="code">@ref{node}</code> `node'
 
-<code>@ref{,cross ref name}</code> `cross ref name'
-<code>@ref{,,title}</code> `title'
-<code>@ref{,,,file name}</code> <a data-manual="file name" href="../file name/index.html">(file name)</a>
-<code>@ref{,,,,manual}</code> <cite>manual</cite>
-<code>@ref{node,cross ref name}</code> `cross ref name'
-<code>@ref{node,,title}</code> `title'
-<code>@ref{node,,,file name}</code> <a data-manual="file name" href="../file name/node.html#node">(file name)node</a>
-<code>@ref{node,,,,manual}</code> `node' in <cite>manual</cite>
-<code>@ref{node,cross ref name,title,}</code> `title'
-<code>@ref{node,cross ref name,,file name}</code> <a data-manual="file name" href="../file name/node.html#node">(file name)cross ref name</a>
-<code>@ref{node,cross ref name,,,manual}</code> `cross ref name' in <cite>manual</cite>
-<code>@ref{node,cross ref name,title,file name}</code> <a data-manual="file name" href="../file name/node.html#node">(file name)title</a>
-<code>@ref{node,cross ref name,title,,manual}</code> `title' in <cite>manual</cite>
-<code>@ref{node,cross ref name,title, file name, manual}</code> <a data-manual="file name" href="../file name/node.html#node">title</a> in <cite>manual</cite>
-<code>@ref{node,,title,file name}</code> <a data-manual="file name" href="../file name/node.html#node">(file name)title</a>
-<code>@ref{node,,title,,manual}</code> `title' in <cite>manual</cite>
-<code>@ref{chapter,,title, file name, manual}</code> <a data-manual="file name" href="../file name/chapter.html#chapter">title</a> in <cite>manual</cite>
-<code>@ref{node,,title, file name, manual}</code> <a data-manual="file name" href="../file name/node.html#node">title</a> in <cite>manual</cite>
-<code>@ref{node,,,file name,manual}</code> <a data-manual="file name" href="../file name/node.html#node">node</a> in <cite>manual</cite>
-<code>@ref{,cross ref name,title,}</code> `title'
-<code>@ref{,cross ref name,,file name}</code> <a data-manual="file name" href="../file name/index.html">(file name)cross ref name</a>
-<code>@ref{,cross ref name,,,manual}</code> `cross ref name' in <cite>manual</cite>
-<code>@ref{,cross ref name,title,file name}</code> <a data-manual="file name" href="../file name/index.html">(file name)title</a>
-<code>@ref{,cross ref name,title,,manual}</code> `title' in <cite>manual</cite>
-<code>@ref{,cross ref name,title, file name, manual}</code> <a data-manual="file name" href="../file name/index.html">title</a> in <cite>manual</cite>
-<code>@ref{,,title,file name}</code> <a data-manual="file name" href="../file name/index.html">(file name)title</a>
-<code>@ref{,,title,,manual}</code> `title' in <cite>manual</cite>
-<code>@ref{,,title, file name, manual}</code> <a data-manual="file name" href="../file name/index.html">title</a> in <cite>manual</cite>
-<code>@ref{,,,file name,manual}</code> <cite><a data-manual="file name" href="../file name/index.html">manual</a></cite>
+<code class="code">@ref{,cross ref name}</code> `cross ref name'
+<code class="code">@ref{,,title}</code> `title'
+<code class="code">@ref{,,,file name}</code> <a data-manual="file name" href="../file name/index.html">(file name)</a>
+<code class="code">@ref{,,,,manual}</code> <cite class="cite">manual</cite>
+<code class="code">@ref{node,cross ref name}</code> `cross ref name'
+<code class="code">@ref{node,,title}</code> `title'
+<code class="code">@ref{node,,,file name}</code> <a data-manual="file name" href="../file name/node.html#node">(file name)node</a>
+<code class="code">@ref{node,,,,manual}</code> `node' in <cite class="cite">manual</cite>
+<code class="code">@ref{node,cross ref name,title,}</code> `title'
+<code class="code">@ref{node,cross ref name,,file name}</code> <a data-manual="file name" href="../file name/node.html#node">(file name)cross ref name</a>
+<code class="code">@ref{node,cross ref name,,,manual}</code> `cross ref name' in <cite class="cite">manual</cite>
+<code class="code">@ref{node,cross ref name,title,file name}</code> <a data-manual="file name" href="../file name/node.html#node">(file name)title</a>
+<code class="code">@ref{node,cross ref name,title,,manual}</code> `title' in <cite class="cite">manual</cite>
+<code class="code">@ref{node,cross ref name,title, file name, manual}</code> <a data-manual="file name" href="../file name/node.html#node">title</a> in <cite class="cite">manual</cite>
+<code class="code">@ref{node,,title,file name}</code> <a data-manual="file name" href="../file name/node.html#node">(file name)title</a>
+<code class="code">@ref{node,,title,,manual}</code> `title' in <cite class="cite">manual</cite>
+<code class="code">@ref{chapter,,title, file name, manual}</code> <a data-manual="file name" href="../file name/chapter.html#chapter">title</a> in <cite class="cite">manual</cite>
+<code class="code">@ref{node,,title, file name, manual}</code> <a data-manual="file name" href="../file name/node.html#node">title</a> in <cite class="cite">manual</cite>
+<code class="code">@ref{node,,,file name,manual}</code> <a data-manual="file name" href="../file name/node.html#node">node</a> in <cite class="cite">manual</cite>
+<code class="code">@ref{,cross ref name,title,}</code> `title'
+<code class="code">@ref{,cross ref name,,file name}</code> <a data-manual="file name" href="../file name/index.html">(file name)cross ref name</a>
+<code class="code">@ref{,cross ref name,,,manual}</code> `cross ref name' in <cite class="cite">manual</cite>
+<code class="code">@ref{,cross ref name,title,file name}</code> <a data-manual="file name" href="../file name/index.html">(file name)title</a>
+<code class="code">@ref{,cross ref name,title,,manual}</code> `title' in <cite class="cite">manual</cite>
+<code class="code">@ref{,cross ref name,title, file name, manual}</code> <a data-manual="file name" href="../file name/index.html">title</a> in <cite class="cite">manual</cite>
+<code class="code">@ref{,,title,file name}</code> <a data-manual="file name" href="../file name/index.html">(file name)title</a>
+<code class="code">@ref{,,title,,manual}</code> `title' in <cite class="cite">manual</cite>
+<code class="code">@ref{,,title, file name, manual}</code> <a data-manual="file name" href="../file name/index.html">title</a> in <cite class="cite">manual</cite>
+<code class="code">@ref{,,,file name,manual}</code> <cite class="cite"><a data-manual="file name" href="../file name/index.html">manual</a></cite>
 
-<code>@inforef{,cross ref name }</code> See `cross ref name'
-<code>@inforef{,,file name}</code> See <a data-manual="file name" href="../file name/index.html">(file name)</a>
-<code>@inforef{,cross ref name, file name}</code> See <a data-manual="file name" href="../file name/index.html">(file name)cross ref name</a>
-<code>@inforef{}</code> 
+<code class="code">@inforef{,cross ref name }</code> See `cross ref name'
+<code class="code">@inforef{,,file name}</code> See <a data-manual="file name" href="../file name/index.html">(file name)</a>
+<code class="code">@inforef{,cross ref name, file name}</code> See <a data-manual="file name" href="../file name/index.html">(file name)cross ref name</a>
+<code class="code">@inforef{}</code> 
 
 
 </pre></div>
@@ -4097,7 +4097,7 @@ Invalid use of @':
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="chapter-1_codeidx_letter-A">A</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-a-index_002d_002d_002dentry-te-_002d_002d_002d-i"><code>a <var>index---entry</var> t&#7869; --- &icirc;</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-a-index_002d_002d_002dentry-te-_002d_002d_002d-i"><code>a <var class="var">index---entry</var> t&#7869; --- &icirc;</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">chapter</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#chapter-1_codeidx_letter-A"><b>A</b></a>
@@ -4512,22 +4512,22 @@ Invalid use of @':
 <tr><td></td><td valign="top"><a href="#index-followed-3"><code>followed</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">chapter</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="chapter-1_fn_letter-I">I</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-copying-i"><code><var>i</var></code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">chapter</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-copying-i-1"><code><var>i</var></code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">chapter</a></td></tr>
-<tr><td></td><td valign="top"><a href="index.html#index-titlepage-i"><code><var>i</var></code></a></td><td>&nbsp;</td><td valign="top"><a href="index.html">Top section</a></td></tr>
-<tr><td></td><td valign="top"><a href="index.html#index-titlepage-i-1"><code><var>i</var></code></a></td><td>&nbsp;</td><td valign="top"><a href="index.html">Top section</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-i"><code><var>i</var></code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">chapter</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-i-1"><code><var>i</var></code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">chapter</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-i-2"><code><var>i</var></code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">chapter</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-i-3"><code><var>i</var></code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">chapter</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-copying-id-i-ule"><code><b>id &lsquo;<samp>i</samp>&rsquo; ule</b></code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">chapter</a></td></tr>
-<tr><td></td><td valign="top"><a href="index.html#index-titlepage-id-i-ule"><code><b>id &lsquo;<samp>i</samp>&rsquo; ule</b></code></a></td><td>&nbsp;</td><td valign="top"><a href="index.html">Top section</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-id-i-ule"><code><b>id &lsquo;<samp>i</samp>&rsquo; ule</b></code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">chapter</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-id-i-ule-1"><code><b>id &lsquo;<samp>i</samp>&rsquo; ule</b></code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">chapter</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-copying-id-ule"><code><b>id ule</b></code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">chapter</a></td></tr>
-<tr><td></td><td valign="top"><a href="index.html#index-titlepage-id-ule"><code><b>id ule</b></code></a></td><td>&nbsp;</td><td valign="top"><a href="index.html">Top section</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-id-ule"><code><b>id ule</b></code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">chapter</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-id-ule-1"><code><b>id ule</b></code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-copying-i"><code><var class="var">i</var></code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-copying-i-1"><code><var class="var">i</var></code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="index.html#index-titlepage-i"><code><var class="var">i</var></code></a></td><td>&nbsp;</td><td valign="top"><a href="index.html">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="index.html#index-titlepage-i-1"><code><var class="var">i</var></code></a></td><td>&nbsp;</td><td valign="top"><a href="index.html">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-i"><code><var class="var">i</var></code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-i-1"><code><var class="var">i</var></code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-i-2"><code><var class="var">i</var></code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-i-3"><code><var class="var">i</var></code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-copying-id-i-ule"><code><b class="b">id &lsquo;<samp class="samp">i</samp>&rsquo; ule</b></code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="index.html#index-titlepage-id-i-ule"><code><b class="b">id &lsquo;<samp class="samp">i</samp>&rsquo; ule</b></code></a></td><td>&nbsp;</td><td valign="top"><a href="index.html">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-id-i-ule"><code><b class="b">id &lsquo;<samp class="samp">i</samp>&rsquo; ule</b></code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-id-i-ule-1"><code><b class="b">id &lsquo;<samp class="samp">i</samp>&rsquo; ule</b></code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-copying-id-ule"><code><b class="b">id ule</b></code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="index.html#index-titlepage-id-ule"><code><b class="b">id ule</b></code></a></td><td>&nbsp;</td><td valign="top"><a href="index.html">Top section</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-id-ule"><code><b class="b">id ule</b></code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">chapter</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-id-ule-1"><code><b class="b">id ule</b></code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">chapter</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="chapter-1_fn_letter-L">L</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-copying-log-trap"><code>log trap</code></a></td><td>&nbsp;</td><td valign="top"><a href="#chapter">chapter</a></td></tr>
@@ -4697,7 +4697,7 @@ Invalid use of @':
 <td valign="middle" align="left">[<a href="chapter2.html" title="Next chapter"> &gt;&gt; </a>]</td>
 </tr></table>
 <p>
-  <span class="smaller">This document was generated on <em>a sunny day</em> using <a href="http://www.gnu.org/software/texinfo/"><em>texi2any</em></a>.</span>
+  <span class="smaller">This document was generated on <em class="emph">a sunny day</em> using <a href="http://www.gnu.org/software/texinfo/"><em class="emph">texi2any</em></a>.</span>
 </p>
 
 

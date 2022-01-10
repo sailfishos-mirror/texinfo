@@ -435,7 +435,7 @@ $result_converted{'plaintext'}->{'paragraph_command'} = '@
 
 $result_converted{'html_text'}->{'paragraph_command'} = '<p>@
 </p>
-<p><b>aaa</b>.
+<p><b class="b">aaa</b>.
 </p>
 <p>i also dotless i.
 </p>

@@ -441,7 +441,7 @@ kbd {font-style: oblique}
 <div class="float" id="label">
 <p>In float.
 </p>
-<div class="float-caption"><p><strong>fl 1: </strong>in caption<a id="DOCF1" href="#FOOT1"><sup>2</sup></a></p></div></div><div class="footnote">
+<div class="float-caption"><p><strong class="strong">fl 1: </strong>in caption<a id="DOCF1" href="#FOOT1"><sup>2</sup></a></p></div></div><div class="footnote">
 <hr>
 <h4 class="footnotes-heading">Footnotes</h4>
 

@@ -1198,18 +1198,18 @@ $result_converted{'html_text'}->{'punctuation_in_line_commands'} = '
 </dl>
 
 <blockquote>
-<p><b>quotation arg! After punc:</b> In quotation
+<p><b class="b">quotation arg! After punc:</b> In quotation
 </p><p>exdent quotation! After punc
 </p></blockquote>
 
 <div class="float" id="float-label_0021-After-punc">
 <p>In float
 </p>
-<div class="float-caption"><p><strong>float type! After punc 1: </strong>shortcaption! After punc</p></div></div>
+<div class="float-caption"><p><strong class="strong">float type! After punc 1: </strong>shortcaption! After punc</p></div></div>
 <div class="float" id="label-with-caption">
 <p>In float with caption.
 </p>
-<div class="float-caption"><p><strong>float type! After punc 2: </strong>caption! After punc</p></div></div>
+<div class="float-caption"><p><strong class="strong">float type! After punc 2: </strong>caption! After punc</p></div></div>
 <dl class="listoffloats">
 <dt><a href="#float-label_0021-After-punc">float type! After punc 1</a></dt><dd><p>shortcaption! After punc</p></dd>
 <dt><a href="#label-with-caption">float type! After punc 2</a></dt><dd><p>caption! After punc</p></dd>

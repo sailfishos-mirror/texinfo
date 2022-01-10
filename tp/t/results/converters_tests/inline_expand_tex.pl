@@ -732,7 +732,7 @@ $result_converted{'html_text'}->{'inline_expand_tex'} = '
 , 
 ,
 , 
-$\\underlinea &lt; b <code>tex \\hbox code </code>$ &ldquo;
+$\\underlinea &lt; b <code class="code">tex \\hbox code </code>$ &ldquo;
 
 </p>
 
@@ -740,7 +740,7 @@ $\\underlinea &lt; b <code>tex \\hbox code </code>$ &ldquo;
 , 
 ,
 , 
-raw $\\underline{a < b <code>tex \\hbox{ code }</code>}$ ``
+raw $\\underline{a < b <code class="code">tex \\hbox{ code }</code>}$ ``
 
 </p>';
 

@@ -147,7 +147,7 @@ in html
 ';
 
 
-$result_converted{'html_text'}->{'raw_expanded_in_style'} = '<p><code>
+$result_converted{'html_text'}->{'raw_expanded_in_style'} = '<p><code class="code">
 in html
 </code></p>';
 

@@ -5360,7 +5360,7 @@ Menu comment
 <h1 class="about-heading">A propos de ce document</h1>
 
 <p>
-  Ce document a &eacute;t&eacute; g&eacute;n&eacute;r&eacute; le <em>a sunny day</em>.
+  Ce document a &eacute;t&eacute; g&eacute;n&eacute;r&eacute; le <em class="emph">a sunny day</em>.
 </p>
 <p>
   Les boutons du panneau de navigation ont la signification suivante&nbsp;:
@@ -5429,7 +5429,7 @@ Menu comment
 </table>
 
 <p>
-  Dans cet exemple on est &agrave; <strong> Sous-sous-section un-deux-trois </strong> dans un document dont la structure est&nbsp;:
+  Dans cet exemple on est &agrave; <strong class="strong"> Sous-sous-section un-deux-trois </strong> dans un document dont la structure est&nbsp;:
 </p>
 
 <ul>
@@ -5461,7 +5461,7 @@ Menu comment
 
 </div><hr>
 <p>
-  <span class="smaller">Ce document a &eacute;t&eacute; g&eacute;n&eacute;r&eacute; le <em>a sunny day</em>.</span>
+  <span class="smaller">Ce document a &eacute;t&eacute; g&eacute;n&eacute;r&eacute; le <em class="emph">a sunny day</em>.</span>
 </p>
 
 
@@ -5917,7 +5917,7 @@ Menu comment
 <h1 class="about-heading">A propos de ce document</h1>
 
 <p>
-  Ce document a &eacute;t&eacute; g&eacute;n&eacute;r&eacute; le <em>a sunny day</em>.
+  Ce document a &eacute;t&eacute; g&eacute;n&eacute;r&eacute; le <em class="emph">a sunny day</em>.
 </p>
 <p>
   Les boutons du panneau de navigation ont la signification suivante&nbsp;:
@@ -5986,7 +5986,7 @@ Menu comment
 </table>
 
 <p>
-  Dans cet exemple on est &agrave; <strong> Sous-sous-section un-deux-trois </strong> dans un document dont la structure est&nbsp;:
+  Dans cet exemple on est &agrave; <strong class="strong"> Sous-sous-section un-deux-trois </strong> dans un document dont la structure est&nbsp;:
 </p>
 
 <ul>

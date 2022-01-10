@@ -556,8 +556,8 @@ span:hover a.copiable-anchor {visibility: visible}
 <h1 class="node-heading" id="Top">Top</h1>
 
 <dl class="def">
-<dt id="index-name"><span class="category">Category: </span><span><strong>name</strong> <em>argument argument2...</em><a class="copiable-anchor" href=\'#index-name\'> &para;</a></span></dt>
-<dt id="index-AAA2"><span class="category">AAA1: </span><span><strong>AAA2</strong> <em>arg3</em><a class="copiable-anchor" href=\'#index-AAA2\'> &para;</a></span></dt>
+<dt id="index-name"><span class="category">Category: </span><span><strong class="strong">name</strong> <em class="emph">argument argument2...</em><a class="copiable-anchor" href=\'#index-name\'> &para;</a></span></dt>
+<dt id="index-AAA2"><span class="category">AAA1: </span><span><strong class="strong">AAA2</strong> <em class="emph">arg3</em><a class="copiable-anchor" href=\'#index-AAA2\'> &para;</a></span></dt>
 </dl>
 
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Top_fn_letter-A"><b>A</b></a>

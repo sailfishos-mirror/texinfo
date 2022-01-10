@@ -1553,7 +1553,7 @@ $result_converted{'html_text'}->{'commands_in_flushright'} = '
 <p class="right-align">in group
 </p>
 <blockquote>
-<p class="right-align"><b>type:</b> in quotation
+<p class="right-align"><b class="b">type:</b> in quotation
 </p></blockquote>
 
 <ol>
@@ -1563,8 +1563,8 @@ $result_converted{'html_text'}->{'commands_in_flushright'} = '
 </li></ol>
 
 <dl>
-<dt><em>table item</em></dt>
-<dt><em>table itemx</em></dt>
+<dt><em class="emph">table item</em></dt>
+<dt><em class="emph">table itemx</em></dt>
 <dd><p class="right-align">Table text
 </p>
 <p class="right-align">Text.
@@ -1585,7 +1585,7 @@ $result_converted{'html_text'}->{'commands_in_flushright'} = '
 <p>in float
 </p>
 
-<div class="float-caption"><p><strong>label 1: </strong>in caption</p></div></div>
+<div class="float-caption"><p><strong class="strong">label 1: </strong>in caption</p></div></div>
 <p class="right-align">Sp:
 </p><br>
 <br>

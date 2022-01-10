@@ -267,10 +267,10 @@ $result_converted{'plaintext'}->{'no_documentencoding_and_insertions'} = 'â€“ â€
 
 
 $result_converted{'html_text'}->{'no_documentencoding_and_insertions'} = '
-<p>&ndash; &mdash; &rdquo; &ldquo; &lsquo; &rsquo; <code>in code</code>. &#7869;.
+<p>&ndash; &mdash; &rdquo; &ldquo; &lsquo; &rsquo; <code class="code">in code</code>. &#7869;.
 </p>
 <div class="example">
-<pre class="example">-- --- \'\' `` ` \' <code>in code</code>. &#7869;.
+<pre class="example">-- --- \'\' `` ` \' <code class="code">in code</code>. &#7869;.
 </pre></div>
 ';
 

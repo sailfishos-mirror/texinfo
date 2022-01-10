@@ -787,13 +787,13 @@ span:hover a.copiable-anchor {visibility: visible}
 <body lang="en">
 
 <dl class="def">
-<dt id="index-copying-NAME"><span class="category">Function: </span><span><em>TYPE</em> <strong>NAME</strong> <em>ARGUMENTS...</em><a class="copiable-anchor" href=\'#index-copying-NAME\'> &para;</a></span></dt>
+<dt id="index-copying-NAME"><span class="category">Function: </span><span><em class="emph">TYPE</em> <strong class="strong">NAME</strong> <em class="emph">ARGUMENTS...</em><a class="copiable-anchor" href=\'#index-copying-NAME\'> &para;</a></span></dt>
 <dd><p>BODY-OF-DESCRIPTION
 </p></dd></dl>
 
 
 <dl class="def">
-<dt id="index-copying-NAME"><span class="category">Function:<br> </span><span><em>TYPE</em><br> <strong>NAME</strong> <em>ARGUMENTS...</em><a class="copiable-anchor" href=\'#index-copying-NAME\'> &para;</a></span></dt>
+<dt id="index-copying-NAME"><span class="category">Function:<br> </span><span><em class="emph">TYPE</em><br> <strong class="strong">NAME</strong> <em class="emph">ARGUMENTS...</em><a class="copiable-anchor" href=\'#index-copying-NAME\'> &para;</a></span></dt>
 <dd><p>BODY-OF-DESCRIPTION
 </p></dd></dl>
 
@@ -801,7 +801,7 @@ span:hover a.copiable-anchor {visibility: visible}
 <h1 class="top" id="top">top</h1>
 
 <dl class="def">
-<dt id="index-something"><span class="category">Function:<br> </span><span><em>void</em><br> <strong>something</strong> <em>input</em><a class="copiable-anchor" href=\'#index-something\'> &para;</a></span></dt>
+<dt id="index-something"><span class="category">Function:<br> </span><span><em class="emph">void</em><br> <strong class="strong">something</strong> <em class="emph">input</em><a class="copiable-anchor" href=\'#index-something\'> &para;</a></span></dt>
 <dd><p>do something with input
 </p></dd></dl>
 

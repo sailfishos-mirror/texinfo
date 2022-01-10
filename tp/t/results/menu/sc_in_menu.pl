@@ -1144,12 +1144,12 @@ pre.menu-preformatted {font-family: serif}
 
 <a class="node-anchor" id="Top"></a><div class="header">
 <p>
-Next: <a href="#NODE" accesskey="n" rel="next"><small>NODE</small></a> &nbsp; </p>
+Next: <a href="#NODE" accesskey="n" rel="next"><small class="sc">NODE</small></a> &nbsp; </p>
 </div>
 <h1 class="node-heading">Top</h1>
 
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#NODE" accesskey="1"><small>VALUE</small></a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top"><small>DESCRIP TION</small>
+<tr><td align="left" valign="top">&bull; <a href="#NODE" accesskey="1"><small class="sc">VALUE</small></a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top"><small class="sc">DESCRIP TION</small>
 </td></tr>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
 
@@ -1167,7 +1167,7 @@ MENU-EXAMPLE COMMENT
 <p>
 Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; </p>
 </div>
-<h4 class="node-heading"><small>NODE</small></h4>
+<h4 class="node-heading"><small class="sc">NODE</small></h4>
 
 <div class="example">
 <table class="menu" border="0" cellspacing="0"><tr><td>

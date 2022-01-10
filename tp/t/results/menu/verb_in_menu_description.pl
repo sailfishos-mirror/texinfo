@@ -450,7 +450,7 @@ pre.menu-comment {font-family: serif}
 
 <table class="menu" border="0" cellspacing="0">
 <tr><td align="left" valign="top">&bull; <a href="manual.html#Top" accesskey="1">(manual)</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-<tt> in verb
+<tt class="verb"> in verb
 
 </tt>
 </td></tr>

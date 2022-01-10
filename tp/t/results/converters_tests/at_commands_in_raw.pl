@@ -1209,14 +1209,14 @@ $result_converted{'html_text'}->{'at_commands_in_raw'} = '<h1 class="node-headin
 
 
 <b>in b<a id="DOCF1" href="#FOOT1"><sup>1</sup></a>.</b>
-<a class="anchor" id="anchor-in-html"></a><p><kbd>in kbd before tex</kbd><a id="DOCF2" href="#FOOT2"><sup>2</sup></a>.
+<a class="anchor" id="anchor-in-html"></a><p><kbd class="kbd">in kbd before tex</kbd><a id="DOCF2" href="#FOOT2"><sup>2</sup></a>.
 </p>
 
 
 
 {No value for &lsquo;flag&rsquo;}<p>.
 </p>
-<p><kbd>in kbd after tex</kbd>.
+<p><kbd class="kbd">in kbd after tex</kbd>.
 </p>
 <p>See <a href="#anchor-in-html">anchor in html</a>.
 </p>

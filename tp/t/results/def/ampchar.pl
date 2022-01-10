@@ -389,7 +389,7 @@ span:hover a.copiable-anchor {visibility: visible}
 
 <body lang="en">
 <dl class="def">
-<dt id="index-b-on-a"><span>Constructor on a: <strong>b</strong> <em>(<code>const std::vector&lt;int&gt;&amp;</code>)</em><a class="copiable-anchor" href=\'#index-b-on-a\'> &para;</a></span></dt>
+<dt id="index-b-on-a"><span>Constructor on a: <strong class="strong">b</strong> <em class="emph">(<code class="code">const std::vector&lt;int&gt;&amp;</code>)</em><a class="copiable-anchor" href=\'#index-b-on-a\'> &para;</a></span></dt>
 </dl>
 <p>&amp; &amp; &amp; { } @
 </p>

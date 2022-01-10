@@ -576,12 +576,12 @@ majorheading in b
 
 $result_converted{'html_text'}->{'commands'} = '<p>@ TeX &nbsp;&euml; &icirc; &atilde; &aring;
 File &rarr; Open.
-<a href="mailto:a">b</a> <code>code --- -- \'\' ``</code>
-&mdash; &ndash; &rdquo; &ldquo;. <small>SMALL CAPS</small>.
+<a href="mailto:a">b</a> <code class="code">code --- -- \'\' ``</code>
+&mdash; &ndash; &rdquo; &ldquo;. <small class="sc">SMALL CAPS</small>.
 </p>
 <a class="index-entry-anchor" id="index-index-entry-_0060_0060in-text_0027_0027-LaTeX"></a>
 
-<h2 class="majorheading" id="majorheading-in-b">majorheading <b>in b</b></h2>
+<h2 class="majorheading" id="majorheading-in-b">majorheading <b class="b">in b</b></h2>
 ';
 
 

@@ -1022,7 +1022,7 @@ $result_converted{'html_text'}->{'explicit_sort_key'} = '<div class="top" id="To
 <a class="index-entry-anchor" id="index-zero-sort-key"></a>
 <a class="index-entry-anchor" id="index-aaa"></a>
 
-<p>in a reuglar para. <code>inside another</code>.
+<p>in a reuglar para. <code class="code">inside another</code>.
 </p>
 <p>.
 <a href="and cmd">and cmd</a>.
@@ -1043,7 +1043,7 @@ $result_converted{'html_text'}->{'explicit_sort_key'} = '<div class="top" id="To
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="t_h_SK_letter-A">A</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-bbbbbbb-_0028first_0029">bbbbbbb (first)</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-aaa"><b>aaa</b></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-aaa"><b class="b">aaa</b></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="t_h_SK_letter-B">B</th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-aaaaaaa-_0028second_0029">aaaaaaa (second)</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Top">Top</a></td></tr>

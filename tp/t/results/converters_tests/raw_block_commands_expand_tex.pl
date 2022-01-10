@@ -598,7 +598,7 @@ $result_converted{'html_text'}->{'raw_block_commands_expand_tex'} = '
 
 
 
-$\\underline{a &lt; b &lt;code&gt;tex \\hbox{ code }&lt;/code&gt;}$ ``}
+$\\underline{a &lt; b &lt;code class=&quot;code&quot;&gt;tex \\hbox{ code }&lt;/code&gt;}$ ``}
 
 ';
 

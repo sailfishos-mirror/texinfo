@@ -557,24 +557,24 @@ in format
 ';
 
 
-$result_converted{'html_text'}->{'kbd'} = '<p>kbd: <code>in kbd</code>.
+$result_converted{'html_text'}->{'kbd'} = '<p>kbd: <code class="code">in kbd</code>.
 </p>
-<p>kbd in code: <code>in first <kbd>in nested kbd</kbd></code>.
+<p>kbd in code: <code class="code">in first <kbd class="kbd">in nested kbd</kbd></code>.
 </p>
-<p>kbd in kbd: <kbd>in top kbd <kbd>in nested kbd</kbd></kbd>.
+<p>kbd in kbd: <kbd class="kbd">in top kbd <kbd class="kbd">in nested kbd</kbd></kbd>.
 </p>
 <p>kbd in @example:
 </p>
 <div class="example">
 <pre class="example">in example
-<code>in example in kbd</code>.
+<code class="code">in example in kbd</code>.
 </pre></div>
 
 <p>kbd in @format:
 </p>
 <div class="format">
 <pre class="format">in format
-<code>in format in kbd</code>.
+<code class="code">in format in kbd</code>.
 </pre></div>
 ';
 

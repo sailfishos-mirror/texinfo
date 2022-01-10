@@ -1736,30 +1736,30 @@ $result_converted{'html_text'}->{'block_commands_in_table'} = '<div class="top" 
 <h1 class="top" id="Element">Element</h1>
 
 <dl>
-<dt><em>first item</em></dt>
-<dt><em>second itemx</em></dt>
+<dt><em class="emph">first item</em></dt>
+<dt><em class="emph">second itemx</em></dt>
 <dd>
 <p>Text.
 </p>
 </dd>
-<dt><em>example</em></dt>
+<dt><em class="emph">example</em></dt>
 <dd><div class="example">
 <pre class="example">In example
 
 end example.
 </pre></div>
 </dd>
-<dt><em>empty line</em></dt>
+<dt><em class="emph">empty line</em></dt>
 <dd>
 <p>empty line.
 </p></dd>
-<dt><em>quotation</em></dt>
+<dt><em class="emph">quotation</em></dt>
 <dd><blockquote>
 <p>Quotation
 </p></blockquote>
 
 </dd>
-<dt><em>quotation after a blank line</em></dt>
+<dt><em class="emph">quotation after a blank line</em></dt>
 <dd>
 <blockquote>
 <p>quotation after a blank line
@@ -1768,17 +1768,17 @@ end example.
 </dl>
 
 <dl>
-<dt id=\'index-item-before-ignored-lines\'><span><strong>item before ignored lines</strong><a class="copiable-anchor" href=\'#index-item-before-ignored-lines\'> &para;</a></span></dt>
+<dt id=\'index-item-before-ignored-lines\'><span><strong class="strong">item before ignored lines</strong><a class="copiable-anchor" href=\'#index-item-before-ignored-lines\'> &para;</a></span></dt>
 <dd><a class="index-entry-anchor" id="index-vindex"></a>
 </dd>
-<dt id=\'index-itemx-now\'><span><strong>itemx now</strong><a class="copiable-anchor" href=\'#index-itemx-now\'> &para;</a></span></dt>
+<dt id=\'index-itemx-now\'><span><strong class="strong">itemx now</strong><a class="copiable-anchor" href=\'#index-itemx-now\'> &para;</a></span></dt>
 <dd>
 <p>Description
 </p></dd>
 </dl>
 <dl>
-<dt id=\'index-item\'><span><span class="roman">item</span><a class="copiable-anchor" href=\'#index-item\'> &para;</a></span></dt>
-<dt id=\'index-itemx-after-an-empty-line\'><span><span class="roman">itemx after an empty line</span><a class="copiable-anchor" href=\'#index-itemx-after-an-empty-line\'> &para;</a></span></dt>
+<dt id=\'index-item\'><span><span class="r">item</span><a class="copiable-anchor" href=\'#index-item\'> &para;</a></span></dt>
+<dt id=\'index-itemx-after-an-empty-line\'><span><span class="r">itemx after an empty line</span><a class="copiable-anchor" href=\'#index-itemx-after-an-empty-line\'> &para;</a></span></dt>
 <dd>
 <p>Description.
 </p>
@@ -1787,10 +1787,10 @@ end example.
 
 <p>Something.
 </p><dl>
-<dt><em>in item</em></dt>
+<dt><em class="emph">in item</em></dt>
 <dd><p>Text without blank line
 </p></dd>
-<dt><em>second item</em></dt>
+<dt><em class="emph">second item</em></dt>
 <dd><p>Text without blank line 2
 </p></dd>
 </dl>

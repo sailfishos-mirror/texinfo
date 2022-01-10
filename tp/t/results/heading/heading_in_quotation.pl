@@ -210,7 +210,7 @@ kbd {font-style: oblique}
 <body lang="en">
 <blockquote>
 
-<h3 class="heading" id="in-quotation-_0040-heading">in quotation @ <em>heading</em></h3>
+<h3 class="heading" id="in-quotation-_0040-heading">in quotation @ <em class="emph">heading</em></h3>
 
 </blockquote>
 

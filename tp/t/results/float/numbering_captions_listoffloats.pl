@@ -8063,19 +8063,19 @@ Next: <a href="#chapter" accesskey="n" rel="next">A chapter</a> &nbsp; </p>
 
 
 
-<div class="float-caption"><p><strong>Text 1: </strong>An example of float caption<small class="enddots">...</small></p></div></div>
+<div class="float-caption"><p><strong class="strong">Text 1: </strong>An example of float caption<small class="enddots">...</small></p></div></div>
 <div class="float">
 <p>No label but caption and shortcaption.
 </p>
 
 
-<div class="float-caption"><p><strong>Text: </strong>C No label</p></div></div>
+<div class="float-caption"><p><strong class="strong">Text: </strong>C No label</p></div></div>
 <div class="float" id="label-but-no-type">
 <p>No type but caption and shortcaption.
 </p>
 
 
-<div class="float-caption"><p><strong>1: </strong>C No type</p></div></div>
+<div class="float-caption"><p><strong class="strong">1: </strong>C No type</p></div></div>
 
 <div class="float" id="label-but-no-type-and-no-caption">
 <p>No type but label and no caption nor shortcaption.
@@ -8097,13 +8097,13 @@ Next: <a href="#chapter" accesskey="n" rel="next">A chapter</a> &nbsp; </p>
 </p>
 
 
-<div class="float-caption"><p><strong>3: </strong>C No type 2</p></div></div>
+<div class="float-caption"><p><strong class="strong">3: </strong>C No type 2</p></div></div>
 <div class="float" id="warning-in-top">
 <p>A warning
 </p>
 
 
-<div class="float-caption"><p><strong>Warning 1: </strong>C A warning</p></div></div>
+<div class="float-caption"><p><strong class="strong">Warning 1: </strong>C A warning</p></div></div>
 
 <ul class="section-toc">
 <li><a href="#chapter" accesskey="1">A chapter</a></li>
@@ -8124,27 +8124,27 @@ Next: <a href="#Unnumbered" accesskey="n" rel="next">Unnumbered</a>, Previous: <
 <p>Text in chapter
 </p>
 
-<div class="float-caption"><p><strong>Text 1.1: </strong>C Text in chapter</p></div></div>
+<div class="float-caption"><p><strong class="strong">Text 1.1: </strong>C Text in chapter</p></div></div>
 <div class="float" id="float-with-a-lot-of-features-and-no-shortcaption">
 
-<div class="float-caption"><p><strong>Text 1.2: </strong>An example of float caption, no shortcaption<small class="enddots">...</small></p></div></div>
+<div class="float-caption"><p><strong class="strong">Text 1.2: </strong>An example of float caption, no shortcaption<small class="enddots">...</small></p></div></div>
 <div class="float" id="theoreme">
 <p>A th&eacute;or&egrave;me
 </p>
 
-<div class="float-caption"><p><strong>th&eacute;or&egrave;me 1.1: </strong>C A th&eacute;or&egrave;me</p></div></div>
+<div class="float-caption"><p><strong class="strong">th&eacute;or&egrave;me 1.1: </strong>C A th&eacute;or&egrave;me</p></div></div>
 <div class="float" id="label-but-no-type-in-chapter">
 <p>float with no type.
 </p>
 
 
-<div class="float-caption"><p><strong>1.1: </strong>C No type in chapter</p></div></div>
+<div class="float-caption"><p><strong class="strong">1.1: </strong>C No type in chapter</p></div></div>
 <div class="float" id="warning-in-chapter">
 <p>A warning
 </p>
 
 
-<div class="float-caption"><p><strong>Warning 1.1: </strong>C A warning in chapter</p></div></div>
+<div class="float-caption"><p><strong class="strong">Warning 1.1: </strong>C A warning in chapter</p></div></div>
 
 <ul class="section-toc">
 <li><a href="#section" accesskey="1">A section</a></li>
@@ -8177,12 +8177,12 @@ Next: <a href="#Chapter-with-unnumbsubsec" accesskey="n" rel="next">Chapter with
 <p>unnum
 </p>
 
-<div class="float-caption"><p><strong>Text 5: </strong>C unnumbered float</p></div></div><div class="float" id="label-but-no-type-in-unnumbered">
+<div class="float-caption"><p><strong class="strong">Text 5: </strong>C unnumbered float</p></div></div><div class="float" id="label-but-no-type-in-unnumbered">
 <p>float with no type.
 </p>
 
 
-<div class="float-caption"><p><strong>5: </strong>C No type in unnumbered</p></div></div>
+<div class="float-caption"><p><strong class="strong">5: </strong>C No type in unnumbered</p></div></div>
 
 <ul class="section-toc">
 <li><a href="#Section-within-unnumbered" accesskey="1">Section within unnumbered</a></li>
@@ -8200,7 +8200,7 @@ Up: <a href="#Unnumbered" accesskey="u" rel="up">Unnumbered</a> &nbsp; </p>
 <p>Section within unnumbered
 </p>
 
-<div class="float-caption"><p><strong>Text 6: </strong>C Section within unnumbered</p></div></div>
+<div class="float-caption"><p><strong class="strong">Text 6: </strong>C Section within unnumbered</p></div></div>
 <hr>
 </div>
 </div>
@@ -8215,7 +8215,7 @@ Next: <a href="#Appendix-for-float" accesskey="n" rel="next">Appendix for float<
 <p>Chap
 </p>
 
-<div class="float-caption"><p><strong>Text 2.1: </strong>C Chapter with subsec</p></div></div>
+<div class="float-caption"><p><strong class="strong">Text 2.1: </strong>C Chapter with subsec</p></div></div>
 <ul class="section-toc">
 <li><a href="#unnumbered-sec" accesskey="1">unnumbered sec</a></li>
 </ul>
@@ -8231,13 +8231,13 @@ Up: <a href="#Chapter-with-unnumbsubsec" accesskey="u" rel="up">Chapter with unn
 <p>Chap
 </p>
 
-<div class="float-caption"><p><strong>Text 2.2: </strong>C unnumbered sec float</p></div></div>
+<div class="float-caption"><p><strong class="strong">Text 2.2: </strong>C unnumbered sec float</p></div></div>
 <div class="float" id="label-but-no-type-in-unnumbered-subsec-in-chapter">
 <p>float with no type.
 </p>
 
 
-<div class="float-caption"><p><strong>2.1: </strong>C No type in unnumbered subsec in chapter</p></div></div>
+<div class="float-caption"><p><strong class="strong">2.1: </strong>C No type in unnumbered subsec in chapter</p></div></div>
 <hr>
 </div>
 </div>
@@ -8253,7 +8253,7 @@ Next: <a href="#list-of-floats" accesskey="n" rel="next">list of floats</a>, Pre
 <p>Appendix
 </p>
 
-<div class="float-caption"><p><strong>Text A.1: </strong>C appendix sec float</p></div></div>
+<div class="float-caption"><p><strong class="strong">Text A.1: </strong>C appendix sec float</p></div></div>
 <hr>
 </div>
 <div class="unnumbered" id="list-of-floats">
@@ -8274,7 +8274,7 @@ See <a href="#text-with-a-lot-of-features">Text 1</a>.
 <a data-manual="manual" href="manual.html#text-with-a-lot-of-features">(manual)title</a>.
 </p>
 <p>And now a ref (without manual with a printed manual)
-&lsquo;title&rsquo; in <cite>printed manual title</cite>.
+&lsquo;title&rsquo; in <cite class="cite">printed manual title</cite>.
 </p>
 <p>A ref to float without type <a href="#label-but-no-type">1</a>.
 </p>

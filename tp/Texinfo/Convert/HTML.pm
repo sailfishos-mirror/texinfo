@@ -1720,7 +1720,7 @@ my %css_map = (
      'pre.display'            => 'font-family: inherit',
      'span.smaller'           => 'font-size: smaller', # used with PROGRAM_NAME_IN_FOOTER
      'span.sansserif'     => 'font-family: sans-serif; font-weight: normal',
-     'span.roman'         => 'font-family: initial; font-weight: normal',
+     'span.r'             => 'font-family: initial; font-weight: normal',
      'span.nolinebreak'   => 'white-space: nowrap',
      'kbd.key'            => 'font-style: normal',
      'p.center-align'     => 'text-align:center',
@@ -2113,10 +2113,10 @@ $style_commands_element{'normal'} = {
                              # in <th> rather than <td>
       'i'           => 'i',
       'slanted'     => 'i',
-      'sansserif'   => 'span class="sansserif"',
+      'sansserif'   => 'span',
       'kbd'         => 'kbd',
       'option'      => 'samp',
-      'r'           => 'span class="roman"',
+      'r'           => 'span',
       'samp'        => 'samp',
       'sc'          => 'small',
       'strong'      => 'strong',
@@ -2188,10 +2188,12 @@ sub _convert_style_command($$$$)
     #cluck "text not defined in _convert_style_command";
     return '';
   }
+  my @additional_classes = ();
   # handle the effect of kbdinputstyle
   if ($cmdname eq 'kbd' and $command->{'extra'} 
       and $command->{'extra'}->{'code'}) {
     $cmdname = 'code';
+    push @additional_classes, 'as-code-kbd';
   }
 
   my $attribute_hash = {};
@@ -2201,13 +2203,18 @@ sub _convert_style_command($$$$)
     $attribute_hash = $self->{'style_commands_formatting'}->{'normal'};
   }
   if (defined($attribute_hash->{$cmdname})) {
+    my $attribute_text = '';
+    my $style;
     if (defined($attribute_hash->{$cmdname}->{'attribute'})) {
-      my ($style, $class, $attribute_text)
+      my $class;
+      ($style, $class, $attribute_text)
         = _parse_attribute ($attribute_hash->{$cmdname}->{'attribute'});
-      my $open = $self->html_attribute_class($style, $class);
+      if (defined($class)) {
+        push @additional_classes, $class;
+      }
+      my $open = $self->html_attribute_class($style, $cmdname, \@additional_classes);
       if ($open ne '') {
-        $text = $open . "$attribute_text>" 
-              . $text . "</$style>";
+        $text = $open . "$attribute_text>" . $text . "</$style>";
       } elsif ($attribute_text ne '') {
         $text = "<$style $attribute_text>". $text . "</$style>";
       }

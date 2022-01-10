@@ -444,7 +444,7 @@ kbd {font-style: oblique}
 <div class="float" id="label">
 <p>In float.
 </p>
-<div class="float-caption"><p><strong>fl 1: </strong>in caption<a class="anchor" id="in-anchor"></a></p></div></div>
+<div class="float-caption"><p><strong class="strong">fl 1: </strong>in caption<a class="anchor" id="in-anchor"></a></p></div></div>
 
 
 </body>

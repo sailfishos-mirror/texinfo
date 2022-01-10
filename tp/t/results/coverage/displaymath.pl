@@ -700,10 +700,10 @@ $result_converted{'html_text'}->{'displaymath'} = '<p>Simple
 </p><div class="displaymath"><em>--{x^i}\\over{\\tan y}
 </em></div>
 <p>Math with @-command
-</p><div class="displaymath"><em><code>math code</code> a &lt; b \\sum<sub>i</sub> q<sup>2</sup>
+</p><div class="displaymath"><em><code class="code">math code</code> a &lt; b \\sum<sub class="sub">i</sub> q<sup class="sup">2</sup>
 </em></div>
 <p>Complex
-</p><div class="displaymath"><em> \\underline{<code>math \\hbox{ code }</code>} \\i \\sum_{i}{\\underline{f}}
+</p><div class="displaymath"><em> \\underline{<code class="code">math \\hbox{ code }</code>} \\i \\sum_{i}{\\underline{f}}
 </em></div>
 <p>With a comment
 </p><div class="displaymath"><em>a/2

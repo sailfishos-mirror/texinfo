@@ -258,7 +258,7 @@ kbd {font-style: oblique}
 
 <p>In float.
 </p>
-<div class="float-caption"><p><strong>Type 1: </strong>Caption.</p></div></div>
+<div class="float-caption"><p><strong class="strong">Type 1: </strong>Caption.</p></div></div>
 
 
 </body>

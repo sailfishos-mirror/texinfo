@@ -116,7 +116,7 @@ $result_converted{'plaintext'}->{'incorrect_allowcodebreaks_argument'} = '‘b a
 ';
 
 
-$result_converted{'html_text'}->{'incorrect_allowcodebreaks_argument'} = '<p><code>b a</code>
+$result_converted{'html_text'}->{'incorrect_allowcodebreaks_argument'} = '<p><code class="code">b a</code>
 </p>';
 
 1;

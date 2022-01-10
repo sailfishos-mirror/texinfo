@@ -1167,7 +1167,7 @@ $result_converted{'html_text'}->{'test_accents_sc_default_latin1'} = '
 &ndash;a&#770;
 &aring; &Aring; &ecirc; &Ecirc; &#297; i &#7771; &#341;&#780; &ntilde;&#807;&#772;.
 &equiv;
-<small>&Aring; &Aring; &Ecirc; &Ecirc; &#296; I &#7770; &#340;&#780; &Ntilde;&#807;&#772;</small>.
+<small class="sc">&Aring; &Aring; &Ecirc; &Ecirc; &#296; I &#7770; &#340;&#780; &Ntilde;&#807;&#772;</small>.
 </p>
 <p>&mdash; &ndash; &rsquo;&lsquo; &rdquo; &ldquo;
 </p>

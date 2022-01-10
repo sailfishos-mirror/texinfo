@@ -42,25 +42,25 @@ span.smaller {font-size: smaller}
 
 <h3 class="subheading" id="Testing-distant-nodes">Testing distant nodes</h3>
 
-<p><tt> a  node </tt> <a data-manual="manual" href="mono-manual.html#a-node">(manual)a  node</a><br>
+<p><tt class="verb"> a  node </tt> <a data-manual="manual" href="mono-manual.html#a-node">(manual)a  node</a><br>
 </p><div class="example">
 <pre class="example">mono : manual.html#a-node
 split: ../manual/a-node.html#a-node
 </pre></div>
 
-<p><tt>:</tt> <a data-manual="manual" href="mono-manual.html#g_t_003a">(manual):</a>
+<p><tt class="verb">:</tt> <a data-manual="manual" href="mono-manual.html#g_t_003a">(manual):</a>
 </p><div class="example">
 <pre class="example">mono : manual.html#_003a
 split: ../manual/_003a.html#_003a
 </pre></div>
 
-<p><tt>Top</tt> <a data-manual="manual" href="mono-manual.html#Top">(manual)top</a><br> 
+<p><tt class="verb">Top</tt> <a data-manual="manual" href="mono-manual.html#Top">(manual)top</a><br> 
 </p><div class="example">
 <pre class="example">mono : manual.html#Top
 split: ../manual/index.html#Top
 </pre></div>
 
-<p><tt>(mtexinfo)Cross References</tt> <a data-manual="mtexinfo" href="mtexinfo.html#Cross-References">(mtexinfo)Cross References</a>
+<p><tt class="verb">(mtexinfo)Cross References</tt> <a data-manual="mtexinfo" href="mtexinfo.html#Cross-References">(mtexinfo)Cross References</a>
 </p><div class="example">
 <pre class="example">mono: mtexinfo.html#Cross-References
 split: ../mtexinfo/Cross-References.html#Cross-References
@@ -68,7 +68,7 @@ split: ../mtexinfo/Cross-References.html#Cross-References
 
 <h3 class="subheading" id="Testing-manual-name">Testing manual name</h3>
 
-<p><tt>../manual/doc.texi</tt> <a data-manual="../manual/doc" href="doc.html#node">(../manual/doc)node</a><br>
+<p><tt class="verb">../manual/doc.texi</tt> <a data-manual="../manual/doc" href="doc.html#node">(../manual/doc)node</a><br>
 </p><div class="example">
 <pre class="example">mono : doc.html#node
 split: ../doc/node.html#node
@@ -76,22 +76,22 @@ split: ../doc/node.html#node
 
 <h3 class="subheading" id="Testing-local-nodes">Testing local nodes</h3>
 
-<p><tt>!_&quot;#$%&amp;'()*+-.</tt> <a href="#g_t_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e">!_&quot;#$%&amp;'()*+-.</a>
+<p><tt class="verb">!_&quot;#$%&amp;'()*+-.</tt> <a href="#g_t_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e">!_&quot;#$%&amp;'()*+-.</a>
 </p><div class="example">
 <pre class="example">target: #_0021_005f_0022_0023_0024_0025_0026_0027_0028_0029_002a_002b_002d_002e
 </pre></div>
 
-<p><tt>/;&lt;=&gt;?[\]^_`|~</tt> <a href="#g_t_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e">/;&lt;=&gt;?[\]^_`|~</a><br>
+<p><tt class="verb">/;&lt;=&gt;?[\]^_`|~</tt> <a href="#g_t_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e">/;&lt;=&gt;?[\]^_`|~</a><br>
 </p><div class="example">
 <pre class="example">target: #_002f_003b_003c_003d_003e_003f_005b_005c_005d_005e_005f_0060_007c_007e
 </pre></div>
 
-<p><tt>Top</tt> <a href="#Top">Test refs</a>
+<p><tt class="verb">Top</tt> <a href="#Top">Test refs</a>
 </p><div class="example">
 <pre class="example">target: #Top
 </pre></div>
 
-<p><tt> local   node</tt> <a href="#local-node">local   node</a>
+<p><tt class="verb"> local   node</tt> <a href="#local-node">local   node</a>
 </p><div class="example">
 <pre class="example">target: #local-node
 </pre></div>
@@ -119,7 +119,7 @@ split: ../doc/node.html#node
 <pre class="example">id: other-nodes
 </pre></div>
 
-<p><tt>Top</tt> <a href="#Top">Test refs</a>
+<p><tt class="verb">Top</tt> <a href="#Top">Test refs</a>
 </p><div class="example">
 <pre class="example">target: #Top
 </pre></div>
@@ -158,7 +158,7 @@ split: ../doc/node.html#node
 <h1 class="about-heading">About This Document</h1>
 
 <p>
-  This document was generated on <em>a sunny day</em> using <a href="http://www.gnu.org/software/texinfo/"><em>texi2any</em></a>.
+  This document was generated on <em class="emph">a sunny day</em> using <a href="http://www.gnu.org/software/texinfo/"><em class="emph">texi2any</em></a>.
 </p>
 <p>
   The buttons in the navigation panels have the following meaning:
@@ -227,7 +227,7 @@ split: ../doc/node.html#node
 </table>
 
 <p>
-  where the <strong> Example </strong> assumes that the current position is at <strong> Subsubsection One-Two-Three </strong> of a document of the following structure:
+  where the <strong class="strong"> Example </strong> assumes that the current position is at <strong class="strong"> Subsubsection One-Two-Three </strong> of a document of the following structure:
 </p>
 
 <ul>
@@ -259,7 +259,7 @@ split: ../doc/node.html#node
 
 </div><hr>
 <p>
-  <span class="smaller">This document was generated on <em>a sunny day</em> using <a href="http://www.gnu.org/software/texinfo/"><em>texi2any</em></a>.</span>
+  <span class="smaller">This document was generated on <em class="emph">a sunny day</em> using <a href="http://www.gnu.org/software/texinfo/"><em class="emph">texi2any</em></a>.</span>
 </p>
 
 

@@ -340,8 +340,8 @@ $result_converted{'plaintext'}->{'nested_in_sc'} = 'AAA Ñ Å TeX Å̃ (1), ABR 
 ';
 
 
-$result_converted{'html_text'}->{'nested_in_sc'} = '<p><small><small>AAA &Ntilde; &Aring; TeX &Aring;&#771; <a id="DOCF1" href="#FOOT1"><sup>1</sup></a>, <abbr title="expl">ABR</abbr> (EXPL), 
-<tt>in verb</tt></small></small>
+$result_converted{'html_text'}->{'nested_in_sc'} = '<p><small class="sc"><small class="sc">AAA &Ntilde; &Aring; TeX &Aring;&#771; <a id="DOCF1" href="#FOOT1"><sup>1</sup></a>, <abbr title="expl">ABR</abbr> (EXPL), 
+<tt class="verb">in verb</tt></small></small>
 </p><div class="footnote">
 <hr>
 <h4 class="footnotes-heading">Footnotes</h4>
